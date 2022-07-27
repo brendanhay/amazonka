@@ -8,7 +8,7 @@
         "vector"
     ],
     "typeModules": [
-        "Amazonka.DynamoDB.Internal"
+        "Amazonka.DynamoDB.Types.AttributeValue"
     ],
     "typeOverrides": {
         "AttributeValue": {

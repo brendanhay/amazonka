@@ -94,6 +94,7 @@ haskell_library(
         "@stackage//:http-types",
         "@stackage//:lens",
         "@stackage//:memory",
+        "@stackage//:mtl",
         "@stackage//:regex-posix",
         "@stackage//:resourcet",
         "@stackage//:scientific",

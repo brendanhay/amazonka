@@ -20,9 +20,10 @@
 module Amazonka.DynamoDB.Types.TableAutoScalingDescription where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription
 import Amazonka.DynamoDB.Types.TableStatus
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 

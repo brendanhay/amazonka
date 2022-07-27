@@ -20,9 +20,10 @@
 module Amazonka.DynamoDB.Types.SSEDescription where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.SSEStatus
 import Amazonka.DynamoDB.Types.SSEType
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 

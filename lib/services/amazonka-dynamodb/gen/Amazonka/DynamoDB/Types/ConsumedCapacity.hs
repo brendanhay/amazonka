@@ -20,8 +20,9 @@
 module Amazonka.DynamoDB.Types.ConsumedCapacity where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.Capacity
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 

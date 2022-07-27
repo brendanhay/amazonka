@@ -71,7 +71,6 @@ library
     Amazonka.DynamoDB.ExecuteTransaction
     Amazonka.DynamoDB.ExportTableToPointInTime
     Amazonka.DynamoDB.GetItem
-    Amazonka.DynamoDB.Internal
     Amazonka.DynamoDB.Lens
     Amazonka.DynamoDB.ListBackups
     Amazonka.DynamoDB.ListContributorInsights
@@ -91,6 +90,7 @@ library
     Amazonka.DynamoDB.Types.ArchivalSummary
     Amazonka.DynamoDB.Types.AttributeAction
     Amazonka.DynamoDB.Types.AttributeDefinition
+    Amazonka.DynamoDB.Types.AttributeValue
     Amazonka.DynamoDB.Types.AttributeValueUpdate
     Amazonka.DynamoDB.Types.AutoScalingPolicyDescription
     Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate
@@ -128,7 +128,6 @@ library
     Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
     Amazonka.DynamoDB.Types.DeleteReplicaAction
     Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction
-    Amazonka.DynamoDB.Types.DeleteRequest
     Amazonka.DynamoDB.Types.DestinationStatus
     Amazonka.DynamoDB.Types.Endpoint
     Amazonka.DynamoDB.Types.ExpectedAttributeValue
@@ -169,7 +168,6 @@ library
     Amazonka.DynamoDB.Types.ProvisionedThroughputDescription
     Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
     Amazonka.DynamoDB.Types.Put
-    Amazonka.DynamoDB.Types.PutRequest
     Amazonka.DynamoDB.Types.Replica
     Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription
     Amazonka.DynamoDB.Types.ReplicaAutoScalingUpdate

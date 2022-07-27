@@ -27,7 +27,8 @@ module Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
 where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 
 newtype ReturnValuesOnConditionCheckFailure = ReturnValuesOnConditionCheckFailure'

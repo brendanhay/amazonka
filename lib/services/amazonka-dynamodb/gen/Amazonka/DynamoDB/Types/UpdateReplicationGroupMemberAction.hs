@@ -20,9 +20,10 @@
 module Amazonka.DynamoDB.Types.UpdateReplicationGroupMemberAction where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndex
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 

@@ -20,12 +20,13 @@
 module Amazonka.DynamoDB.Types.SourceTableFeatureDetails where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.GlobalSecondaryIndexInfo
 import Amazonka.DynamoDB.Types.LocalSecondaryIndexInfo
 import Amazonka.DynamoDB.Types.SSEDescription
 import Amazonka.DynamoDB.Types.StreamSpecification
 import Amazonka.DynamoDB.Types.TimeToLiveDescription
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 

@@ -27,7 +27,8 @@ module Amazonka.DynamoDB.Types.ExportFormat
 where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 
 newtype ExportFormat = ExportFormat'

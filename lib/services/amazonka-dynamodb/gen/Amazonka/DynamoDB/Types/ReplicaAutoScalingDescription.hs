@@ -20,10 +20,11 @@
 module Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AutoScalingSettingsDescription
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription
 import Amazonka.DynamoDB.Types.ReplicaStatus
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 

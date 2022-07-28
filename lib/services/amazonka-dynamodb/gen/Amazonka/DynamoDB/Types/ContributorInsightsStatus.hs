@@ -30,7 +30,8 @@ module Amazonka.DynamoDB.Types.ContributorInsightsStatus
 where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
+import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 
 newtype ContributorInsightsStatus = ContributorInsightsStatus'

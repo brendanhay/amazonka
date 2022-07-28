@@ -610,9 +610,6 @@ module Amazonka.DynamoDB.Lens
     -- ** DeleteReplicationGroupMemberAction
     deleteReplicationGroupMemberAction_regionName,
 
-    -- ** DeleteRequest
-    deleteRequest_key,
-
     -- ** Endpoint
     endpoint_address,
     endpoint_cachePeriodInMinutes,
@@ -793,9 +790,6 @@ module Amazonka.DynamoDB.Lens
     put_conditionExpression,
     put_item,
     put_tableName,
-
-    -- ** PutRequest
-    putRequest_item,
 
     -- ** Replica
     replica_regionName,
@@ -984,10 +978,6 @@ module Amazonka.DynamoDB.Lens
     updateReplicationGroupMemberAction_provisionedThroughputOverride,
     updateReplicationGroupMemberAction_globalSecondaryIndexes,
     updateReplicationGroupMemberAction_regionName,
-
-    -- ** WriteRequest
-    writeRequest_deleteRequest,
-    writeRequest_putRequest,
   )
 where
 
@@ -1061,7 +1051,6 @@ import Amazonka.DynamoDB.Types.Delete
 import Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.DeleteReplicaAction
 import Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction
-import Amazonka.DynamoDB.Types.DeleteRequest
 import Amazonka.DynamoDB.Types.Endpoint
 import Amazonka.DynamoDB.Types.ExpectedAttributeValue
 import Amazonka.DynamoDB.Types.ExportDescription
@@ -1094,7 +1083,6 @@ import Amazonka.DynamoDB.Types.ProvisionedThroughput
 import Amazonka.DynamoDB.Types.ProvisionedThroughputDescription
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.Put
-import Amazonka.DynamoDB.Types.PutRequest
 import Amazonka.DynamoDB.Types.Replica
 import Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription
 import Amazonka.DynamoDB.Types.ReplicaAutoScalingUpdate
@@ -1125,7 +1113,6 @@ import Amazonka.DynamoDB.Types.TransactWriteItem
 import Amazonka.DynamoDB.Types.Update
 import Amazonka.DynamoDB.Types.UpdateGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.UpdateReplicationGroupMemberAction
-import Amazonka.DynamoDB.Types.WriteRequest
 import Amazonka.DynamoDB.UntagResource
 import Amazonka.DynamoDB.UpdateContinuousBackups
 import Amazonka.DynamoDB.UpdateContributorInsights

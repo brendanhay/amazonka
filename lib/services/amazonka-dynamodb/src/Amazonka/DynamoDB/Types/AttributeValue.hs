@@ -8,13 +8,13 @@
 {-# OPTIONS_GHC -Wall -Werror #-}
 
 -- |
--- Module      : Amazonka.DynamoDB.Internal
+-- Module      : Amazonka.DynamoDB.AttributeValue
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-module Amazonka.DynamoDB.Internal where
+module Amazonka.DynamoDB.Types.AttributeValue where
 
 import Amazonka.Core
 import Amazonka.Prelude

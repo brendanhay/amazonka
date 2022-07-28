@@ -20,9 +20,9 @@
 module Amazonka.DynamoDB.Types.TableDescription where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ArchivalSummary
 import Amazonka.DynamoDB.Types.AttributeDefinition
+import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.BillingModeSummary
 import Amazonka.DynamoDB.Types.GlobalSecondaryIndexDescription
 import Amazonka.DynamoDB.Types.KeySchemaElement
@@ -33,6 +33,7 @@ import Amazonka.DynamoDB.Types.RestoreSummary
 import Amazonka.DynamoDB.Types.SSEDescription
 import Amazonka.DynamoDB.Types.StreamSpecification
 import Amazonka.DynamoDB.Types.TableStatus
+import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 

@@ -441,7 +441,8 @@ module Amazonka.DynamoDB
     -- * Types
 
     -- ** Common
-    module Amazonka.DynamoDB.Internal,
+    module Amazonka.DynamoDB.Types.AttributeValue,
+    module Amazonka.DynamoDB.Types.WriteRequest,
 
     -- ** AttributeAction
     AttributeAction (..),
@@ -655,10 +656,6 @@ module Amazonka.DynamoDB
     DeleteReplicationGroupMemberAction (DeleteReplicationGroupMemberAction'),
     newDeleteReplicationGroupMemberAction,
 
-    -- ** DeleteRequest
-    DeleteRequest (DeleteRequest'),
-    newDeleteRequest,
-
     -- ** Endpoint
     Endpoint (Endpoint'),
     newEndpoint,
@@ -787,10 +784,6 @@ module Amazonka.DynamoDB
     Put (Put'),
     newPut,
 
-    -- ** PutRequest
-    PutRequest (PutRequest'),
-    newPutRequest,
-
     -- ** Replica
     Replica (Replica'),
     newReplica,
@@ -910,10 +903,6 @@ module Amazonka.DynamoDB
     -- ** UpdateReplicationGroupMemberAction
     UpdateReplicationGroupMemberAction (UpdateReplicationGroupMemberAction'),
     newUpdateReplicationGroupMemberAction,
-
-    -- ** WriteRequest
-    WriteRequest (WriteRequest'),
-    newWriteRequest,
   )
 where
 
@@ -944,7 +933,6 @@ import Amazonka.DynamoDB.ExecuteStatement
 import Amazonka.DynamoDB.ExecuteTransaction
 import Amazonka.DynamoDB.ExportTableToPointInTime
 import Amazonka.DynamoDB.GetItem
-import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Lens
 import Amazonka.DynamoDB.ListBackups
 import Amazonka.DynamoDB.ListContributorInsights
@@ -961,6 +949,8 @@ import Amazonka.DynamoDB.TagResource
 import Amazonka.DynamoDB.TransactGetItems
 import Amazonka.DynamoDB.TransactWriteItems
 import Amazonka.DynamoDB.Types
+import Amazonka.DynamoDB.Types.AttributeValue
+import Amazonka.DynamoDB.Types.WriteRequest
 import Amazonka.DynamoDB.UntagResource
 import Amazonka.DynamoDB.UpdateContinuousBackups
 import Amazonka.DynamoDB.UpdateContributorInsights

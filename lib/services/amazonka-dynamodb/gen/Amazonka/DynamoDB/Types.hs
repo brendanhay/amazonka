@@ -48,7 +48,8 @@ module Amazonka.DynamoDB.Types
     _ExportConflictException,
 
     -- * Re-exported Types
-    module Amazonka.DynamoDB.Internal,
+    module Amazonka.DynamoDB.Types.AttributeValue,
+    module Amazonka.DynamoDB.Types.WriteRequest,
 
     -- * AttributeAction
     AttributeAction (..),
@@ -362,11 +363,6 @@ module Amazonka.DynamoDB.Types
     newDeleteReplicationGroupMemberAction,
     deleteReplicationGroupMemberAction_regionName,
 
-    -- * DeleteRequest
-    DeleteRequest (..),
-    newDeleteRequest,
-    deleteRequest_key,
-
     -- * Endpoint
     Endpoint (..),
     newEndpoint,
@@ -611,11 +607,6 @@ module Amazonka.DynamoDB.Types
     put_conditionExpression,
     put_item,
     put_tableName,
-
-    -- * PutRequest
-    PutRequest (..),
-    newPutRequest,
-    putRequest_item,
 
     -- * Replica
     Replica (..),
@@ -864,20 +855,14 @@ module Amazonka.DynamoDB.Types
     updateReplicationGroupMemberAction_provisionedThroughputOverride,
     updateReplicationGroupMemberAction_globalSecondaryIndexes,
     updateReplicationGroupMemberAction_regionName,
-
-    -- * WriteRequest
-    WriteRequest (..),
-    newWriteRequest,
-    writeRequest_deleteRequest,
-    writeRequest_putRequest,
   )
 where
 
 import qualified Amazonka.Core as Core
-import Amazonka.DynamoDB.Internal
 import Amazonka.DynamoDB.Types.ArchivalSummary
 import Amazonka.DynamoDB.Types.AttributeAction
 import Amazonka.DynamoDB.Types.AttributeDefinition
+import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.AttributeValueUpdate
 import Amazonka.DynamoDB.Types.AutoScalingPolicyDescription
 import Amazonka.DynamoDB.Types.AutoScalingPolicyUpdate
@@ -915,7 +900,6 @@ import Amazonka.DynamoDB.Types.Delete
 import Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.DeleteReplicaAction
 import Amazonka.DynamoDB.Types.DeleteReplicationGroupMemberAction
-import Amazonka.DynamoDB.Types.DeleteRequest
 import Amazonka.DynamoDB.Types.DestinationStatus
 import Amazonka.DynamoDB.Types.Endpoint
 import Amazonka.DynamoDB.Types.ExpectedAttributeValue
@@ -956,7 +940,6 @@ import Amazonka.DynamoDB.Types.ProvisionedThroughput
 import Amazonka.DynamoDB.Types.ProvisionedThroughputDescription
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.Put
-import Amazonka.DynamoDB.Types.PutRequest
 import Amazonka.DynamoDB.Types.Replica
 import Amazonka.DynamoDB.Types.ReplicaAutoScalingDescription
 import Amazonka.DynamoDB.Types.ReplicaAutoScalingUpdate

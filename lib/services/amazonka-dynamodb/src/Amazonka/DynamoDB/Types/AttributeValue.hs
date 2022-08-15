@@ -41,7 +41,7 @@ import qualified  Data.HashMap.Strict as KeyMap
 data AttributeValue
   = -- | An attribute of type List. For example:
     --
-    -- @\"L\": [ {\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]@
+    -- @\"L\": [{\"S\": \"Cookies\"} , {\"S\": \"Coffee\"}, {\"N\", \"3.14159\"}]@
     L (Vector AttributeValue)
   | -- | An attribute of type Number Set. For example:
     --

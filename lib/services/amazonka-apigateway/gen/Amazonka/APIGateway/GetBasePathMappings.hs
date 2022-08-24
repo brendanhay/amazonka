@@ -61,7 +61,7 @@ data GetBasePathMappings = GetBasePathMappings'
     limit :: Prelude.Maybe Prelude.Int,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The domain name of a BasePathMapping resource.
+    -- | The domain name of a BasePathMapping resource.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +79,7 @@ data GetBasePathMappings = GetBasePathMappings'
 --
 -- 'position', 'getBasePathMappings_position' - The current pagination position in the paged result set.
 --
--- 'domainName', 'getBasePathMappings_domainName' - [Required] The domain name of a BasePathMapping resource.
+-- 'domainName', 'getBasePathMappings_domainName' - The domain name of a BasePathMapping resource.
 newGetBasePathMappings ::
   -- | 'domainName'
   Prelude.Text ->
@@ -100,7 +100,7 @@ getBasePathMappings_limit = Lens.lens (\GetBasePathMappings' {limit} -> limit) (
 getBasePathMappings_position :: Lens.Lens' GetBasePathMappings (Prelude.Maybe Prelude.Text)
 getBasePathMappings_position = Lens.lens (\GetBasePathMappings' {position} -> position) (\s@GetBasePathMappings' {} a -> s {position = a} :: GetBasePathMappings)
 
--- | [Required] The domain name of a BasePathMapping resource.
+-- | The domain name of a BasePathMapping resource.
 getBasePathMappings_domainName :: Lens.Lens' GetBasePathMappings Prelude.Text
 getBasePathMappings_domainName = Lens.lens (\GetBasePathMappings' {domainName} -> domainName) (\s@GetBasePathMappings' {} a -> s {domainName = a} :: GetBasePathMappings)
 
@@ -175,8 +175,6 @@ instance Core.ToQuery GetBasePathMappings where
       ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | Represents a collection of BasePathMapping resources.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Custom Domain Names>
 --
 -- /See:/ 'newGetBasePathMappingsResponse' smart constructor.
 data GetBasePathMappingsResponse = GetBasePathMappingsResponse'

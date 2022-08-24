@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates a documentation part.
 module Amazonka.APIGateway.CreateDocumentationPart
   ( -- * Creating a Request
     CreateDocumentationPart (..),
@@ -53,14 +53,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateDocumentationPart' smart constructor.
 data CreateDocumentationPart = CreateDocumentationPart'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The location of the targeted API entity of the to-be-created
+    -- | The location of the targeted API entity of the to-be-created
     -- documentation part.
     location :: DocumentationPartLocation,
-    -- | [Required] The new documentation content map of the targeted API entity.
-    -- Enclosed key-value pairs are API-specific, but only OpenAPI-compliant
-    -- key-value pairs can be exported and, hence, published.
+    -- | The new documentation content map of the targeted API entity. Enclosed
+    -- key-value pairs are API-specific, but only OpenAPI-compliant key-value
+    -- pairs can be exported and, hence, published.
     properties :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,14 +73,14 @@ data CreateDocumentationPart = CreateDocumentationPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'createDocumentationPart_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'createDocumentationPart_restApiId' - The string identifier of the associated RestApi.
 --
--- 'location', 'createDocumentationPart_location' - [Required] The location of the targeted API entity of the to-be-created
+-- 'location', 'createDocumentationPart_location' - The location of the targeted API entity of the to-be-created
 -- documentation part.
 --
--- 'properties', 'createDocumentationPart_properties' - [Required] The new documentation content map of the targeted API entity.
--- Enclosed key-value pairs are API-specific, but only OpenAPI-compliant
--- key-value pairs can be exported and, hence, published.
+-- 'properties', 'createDocumentationPart_properties' - The new documentation content map of the targeted API entity. Enclosed
+-- key-value pairs are API-specific, but only OpenAPI-compliant key-value
+-- pairs can be exported and, hence, published.
 newCreateDocumentationPart ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -99,18 +99,18 @@ newCreateDocumentationPart
         properties = pProperties_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 createDocumentationPart_restApiId :: Lens.Lens' CreateDocumentationPart Prelude.Text
 createDocumentationPart_restApiId = Lens.lens (\CreateDocumentationPart' {restApiId} -> restApiId) (\s@CreateDocumentationPart' {} a -> s {restApiId = a} :: CreateDocumentationPart)
 
--- | [Required] The location of the targeted API entity of the to-be-created
+-- | The location of the targeted API entity of the to-be-created
 -- documentation part.
 createDocumentationPart_location :: Lens.Lens' CreateDocumentationPart DocumentationPartLocation
 createDocumentationPart_location = Lens.lens (\CreateDocumentationPart' {location} -> location) (\s@CreateDocumentationPart' {} a -> s {location = a} :: CreateDocumentationPart)
 
--- | [Required] The new documentation content map of the targeted API entity.
--- Enclosed key-value pairs are API-specific, but only OpenAPI-compliant
--- key-value pairs can be exported and, hence, published.
+-- | The new documentation content map of the targeted API entity. Enclosed
+-- key-value pairs are API-specific, but only OpenAPI-compliant key-value
+-- pairs can be exported and, hence, published.
 createDocumentationPart_properties :: Lens.Lens' CreateDocumentationPart Prelude.Text
 createDocumentationPart_properties = Lens.lens (\CreateDocumentationPart' {properties} -> properties) (\s@CreateDocumentationPart' {} a -> s {properties = a} :: CreateDocumentationPart)
 

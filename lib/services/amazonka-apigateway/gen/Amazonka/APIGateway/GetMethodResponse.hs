@@ -54,13 +54,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetMethodResponse' smart constructor.
 data GetMethodResponse = GetMethodResponse'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The Resource identifier for the MethodResponse resource.
+    -- | The Resource identifier for the MethodResponse resource.
     resourceId :: Prelude.Text,
-    -- | [Required] The HTTP verb of the Method resource.
+    -- | The HTTP verb of the Method resource.
     httpMethod :: Prelude.Text,
-    -- | [Required] The status code for the MethodResponse resource.
+    -- | The status code for the MethodResponse resource.
     statusCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,13 +73,13 @@ data GetMethodResponse = GetMethodResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getMethodResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getMethodResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'getMethodResponse_resourceId' - [Required] The Resource identifier for the MethodResponse resource.
+-- 'resourceId', 'getMethodResponse_resourceId' - The Resource identifier for the MethodResponse resource.
 --
--- 'httpMethod', 'getMethodResponse_httpMethod' - [Required] The HTTP verb of the Method resource.
+-- 'httpMethod', 'getMethodResponse_httpMethod' - The HTTP verb of the Method resource.
 --
--- 'statusCode', 'getMethodResponse_statusCode' - [Required] The status code for the MethodResponse resource.
+-- 'statusCode', 'getMethodResponse_statusCode' - The status code for the MethodResponse resource.
 newGetMethodResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -102,19 +102,19 @@ newGetMethodResponse
         statusCode = pStatusCode_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getMethodResponse_restApiId :: Lens.Lens' GetMethodResponse Prelude.Text
 getMethodResponse_restApiId = Lens.lens (\GetMethodResponse' {restApiId} -> restApiId) (\s@GetMethodResponse' {} a -> s {restApiId = a} :: GetMethodResponse)
 
--- | [Required] The Resource identifier for the MethodResponse resource.
+-- | The Resource identifier for the MethodResponse resource.
 getMethodResponse_resourceId :: Lens.Lens' GetMethodResponse Prelude.Text
 getMethodResponse_resourceId = Lens.lens (\GetMethodResponse' {resourceId} -> resourceId) (\s@GetMethodResponse' {} a -> s {resourceId = a} :: GetMethodResponse)
 
--- | [Required] The HTTP verb of the Method resource.
+-- | The HTTP verb of the Method resource.
 getMethodResponse_httpMethod :: Lens.Lens' GetMethodResponse Prelude.Text
 getMethodResponse_httpMethod = Lens.lens (\GetMethodResponse' {httpMethod} -> httpMethod) (\s@GetMethodResponse' {} a -> s {httpMethod = a} :: GetMethodResponse)
 
--- | [Required] The status code for the MethodResponse resource.
+-- | The status code for the MethodResponse resource.
 getMethodResponse_statusCode :: Lens.Lens' GetMethodResponse Prelude.Text
 getMethodResponse_statusCode = Lens.lens (\GetMethodResponse' {statusCode} -> statusCode) (\s@GetMethodResponse' {} a -> s {statusCode = a} :: GetMethodResponse)
 

@@ -66,7 +66,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetDomainName' smart constructor.
 data GetDomainName = GetDomainName'
-  { -- | [Required] The name of the DomainName resource.
+  { -- | The name of the DomainName resource.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +79,7 @@ data GetDomainName = GetDomainName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'getDomainName_domainName' - [Required] The name of the DomainName resource.
+-- 'domainName', 'getDomainName_domainName' - The name of the DomainName resource.
 newGetDomainName ::
   -- | 'domainName'
   Prelude.Text ->
@@ -87,7 +87,7 @@ newGetDomainName ::
 newGetDomainName pDomainName_ =
   GetDomainName' {domainName = pDomainName_}
 
--- | [Required] The name of the DomainName resource.
+-- | The name of the DomainName resource.
 getDomainName_domainName :: Lens.Lens' GetDomainName Prelude.Text
 getDomainName_domainName = Lens.lens (\GetDomainName' {domainName} -> domainName) (\s@GetDomainName' {} a -> s {domainName = a} :: GetDomainName)
 

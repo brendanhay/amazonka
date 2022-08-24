@@ -49,11 +49,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteUsagePlanKey' smart constructor.
 data DeleteUsagePlanKey = DeleteUsagePlanKey'
-  { -- | [Required] The Id of the UsagePlan resource representing the usage plan
-    -- containing the to-be-deleted UsagePlanKey resource representing a plan
-    -- customer.
+  { -- | The Id of the UsagePlan resource representing the usage plan containing
+    -- the to-be-deleted UsagePlanKey resource representing a plan customer.
     usagePlanId :: Prelude.Text,
-    -- | [Required] The Id of the UsagePlanKey resource to be deleted.
+    -- | The Id of the UsagePlanKey resource to be deleted.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,11 +65,10 @@ data DeleteUsagePlanKey = DeleteUsagePlanKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usagePlanId', 'deleteUsagePlanKey_usagePlanId' - [Required] The Id of the UsagePlan resource representing the usage plan
--- containing the to-be-deleted UsagePlanKey resource representing a plan
--- customer.
+-- 'usagePlanId', 'deleteUsagePlanKey_usagePlanId' - The Id of the UsagePlan resource representing the usage plan containing
+-- the to-be-deleted UsagePlanKey resource representing a plan customer.
 --
--- 'keyId', 'deleteUsagePlanKey_keyId' - [Required] The Id of the UsagePlanKey resource to be deleted.
+-- 'keyId', 'deleteUsagePlanKey_keyId' - The Id of the UsagePlanKey resource to be deleted.
 newDeleteUsagePlanKey ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -83,13 +81,12 @@ newDeleteUsagePlanKey pUsagePlanId_ pKeyId_ =
       keyId = pKeyId_
     }
 
--- | [Required] The Id of the UsagePlan resource representing the usage plan
--- containing the to-be-deleted UsagePlanKey resource representing a plan
--- customer.
+-- | The Id of the UsagePlan resource representing the usage plan containing
+-- the to-be-deleted UsagePlanKey resource representing a plan customer.
 deleteUsagePlanKey_usagePlanId :: Lens.Lens' DeleteUsagePlanKey Prelude.Text
 deleteUsagePlanKey_usagePlanId = Lens.lens (\DeleteUsagePlanKey' {usagePlanId} -> usagePlanId) (\s@DeleteUsagePlanKey' {} a -> s {usagePlanId = a} :: DeleteUsagePlanKey)
 
--- | [Required] The Id of the UsagePlanKey resource to be deleted.
+-- | The Id of the UsagePlanKey resource to be deleted.
 deleteUsagePlanKey_keyId :: Lens.Lens' DeleteUsagePlanKey Prelude.Text
 deleteUsagePlanKey_keyId = Lens.lens (\DeleteUsagePlanKey' {keyId} -> keyId) (\s@DeleteUsagePlanKey' {} a -> s {keyId = a} :: DeleteUsagePlanKey)
 

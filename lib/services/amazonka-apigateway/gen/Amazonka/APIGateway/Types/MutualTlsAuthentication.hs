@@ -23,9 +23,10 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | If specified, API Gateway performs two-way authentication between the
+-- | The mutual TLS authentication configuration for a custom domain name. If
+-- specified, API Gateway performs two-way authentication between the
 -- client and the server. Clients must present a trusted certificate to
--- access your custom domain name.
+-- access your API.
 --
 -- /See:/ 'newMutualTlsAuthentication' smart constructor.
 data MutualTlsAuthentication = MutualTlsAuthentication'

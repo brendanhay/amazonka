@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 data GetStages = GetStages'
   { -- | The stages\' deployment identifiers.
     deploymentId :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +69,7 @@ data GetStages = GetStages'
 --
 -- 'deploymentId', 'getStages_deploymentId' - The stages\' deployment identifiers.
 --
--- 'restApiId', 'getStages_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getStages_restApiId' - The string identifier of the associated RestApi.
 newGetStages ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -84,7 +84,7 @@ newGetStages pRestApiId_ =
 getStages_deploymentId :: Lens.Lens' GetStages (Prelude.Maybe Prelude.Text)
 getStages_deploymentId = Lens.lens (\GetStages' {deploymentId} -> deploymentId) (\s@GetStages' {} a -> s {deploymentId = a} :: GetStages)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getStages_restApiId :: Lens.Lens' GetStages Prelude.Text
 getStages_restApiId = Lens.lens (\GetStages' {restApiId} -> restApiId) (\s@GetStages' {} a -> s {restApiId = a} :: GetStages)
 
@@ -129,8 +129,6 @@ instance Core.ToQuery GetStages where
       ["deploymentId" Core.=: deploymentId]
 
 -- | A list of Stage resources that are associated with the ApiKey resource.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/stages.html Deploying API in Stages>
 --
 -- /See:/ 'newGetStagesResponse' smart constructor.
 data GetStagesResponse = GetStagesResponse'

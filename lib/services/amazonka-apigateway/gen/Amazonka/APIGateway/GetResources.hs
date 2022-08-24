@@ -69,7 +69,7 @@ data GetResources = GetResources'
     -- @\"methods\"@ string. For example,
     -- @GET \/restapis\/{restapi_id}\/resources?embed=methods@.
     embed :: Prelude.Maybe [Prelude.Text],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,7 +95,7 @@ data GetResources = GetResources'
 -- @\"methods\"@ string. For example,
 -- @GET \/restapis\/{restapi_id}\/resources?embed=methods@.
 --
--- 'restApiId', 'getResources_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getResources_restApiId' - The string identifier of the associated RestApi.
 newGetResources ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -127,7 +127,7 @@ getResources_position = Lens.lens (\GetResources' {position} -> position) (\s@Ge
 getResources_embed :: Lens.Lens' GetResources (Prelude.Maybe [Prelude.Text])
 getResources_embed = Lens.lens (\GetResources' {embed} -> embed) (\s@GetResources' {} a -> s {embed = a} :: GetResources) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getResources_restApiId :: Lens.Lens' GetResources Prelude.Text
 getResources_restApiId = Lens.lens (\GetResources' {restApiId} -> restApiId) (\s@GetResources' {} a -> s {restApiId = a} :: GetResources)
 
@@ -201,8 +201,6 @@ instance Core.ToQuery GetResources where
       ]
 
 -- | Represents a collection of Resource resources.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
 --
 -- /See:/ 'newGetResourcesResponse' smart constructor.
 data GetResourcesResponse = GetResourcesResponse'

@@ -83,7 +83,7 @@ data CreateDeployment = CreateDeployment'
     -- | The description of the Stage resource for the Deployment resource to
     -- create.
     stageDescription :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -118,7 +118,7 @@ data CreateDeployment = CreateDeployment'
 -- 'stageDescription', 'createDeployment_stageDescription' - The description of the Stage resource for the Deployment resource to
 -- create.
 --
--- 'restApiId', 'createDeployment_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'createDeployment_restApiId' - The string identifier of the associated RestApi.
 newCreateDeployment ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -174,7 +174,7 @@ createDeployment_variables = Lens.lens (\CreateDeployment' {variables} -> variab
 createDeployment_stageDescription :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_stageDescription = Lens.lens (\CreateDeployment' {stageDescription} -> stageDescription) (\s@CreateDeployment' {} a -> s {stageDescription = a} :: CreateDeployment)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 createDeployment_restApiId :: Lens.Lens' CreateDeployment Prelude.Text
 createDeployment_restApiId = Lens.lens (\CreateDeployment' {restApiId} -> restApiId) (\s@CreateDeployment' {} a -> s {restApiId = a} :: CreateDeployment)
 

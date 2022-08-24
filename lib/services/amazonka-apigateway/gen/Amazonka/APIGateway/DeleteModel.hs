@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteModel' smart constructor.
 data DeleteModel = DeleteModel'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The name of the model to delete.
+    -- | The name of the model to delete.
     modelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data DeleteModel = DeleteModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteModel_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteModel_restApiId' - The string identifier of the associated RestApi.
 --
--- 'modelName', 'deleteModel_modelName' - [Required] The name of the model to delete.
+-- 'modelName', 'deleteModel_modelName' - The name of the model to delete.
 newDeleteModel ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -77,11 +77,11 @@ newDeleteModel pRestApiId_ pModelName_ =
       modelName = pModelName_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteModel_restApiId :: Lens.Lens' DeleteModel Prelude.Text
 deleteModel_restApiId = Lens.lens (\DeleteModel' {restApiId} -> restApiId) (\s@DeleteModel' {} a -> s {restApiId = a} :: DeleteModel)
 
--- | [Required] The name of the model to delete.
+-- | The name of the model to delete.
 deleteModel_modelName :: Lens.Lens' DeleteModel Prelude.Text
 deleteModel_modelName = Lens.lens (\DeleteModel' {modelName} -> modelName) (\s@DeleteModel' {} a -> s {modelName = a} :: DeleteModel)
 

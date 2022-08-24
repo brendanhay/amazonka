@@ -55,8 +55,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetClientCertificate' smart constructor.
 data GetClientCertificate = GetClientCertificate'
-  { -- | [Required] The identifier of the ClientCertificate resource to be
-    -- described.
+  { -- | The identifier of the ClientCertificate resource to be described.
     clientCertificateId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +68,7 @@ data GetClientCertificate = GetClientCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientCertificateId', 'getClientCertificate_clientCertificateId' - [Required] The identifier of the ClientCertificate resource to be
--- described.
+-- 'clientCertificateId', 'getClientCertificate_clientCertificateId' - The identifier of the ClientCertificate resource to be described.
 newGetClientCertificate ::
   -- | 'clientCertificateId'
   Prelude.Text ->
@@ -81,8 +79,7 @@ newGetClientCertificate pClientCertificateId_ =
         pClientCertificateId_
     }
 
--- | [Required] The identifier of the ClientCertificate resource to be
--- described.
+-- | The identifier of the ClientCertificate resource to be described.
 getClientCertificate_clientCertificateId :: Lens.Lens' GetClientCertificate Prelude.Text
 getClientCertificate_clientCertificateId = Lens.lens (\GetClientCertificate' {clientCertificateId} -> clientCertificateId) (\s@GetClientCertificate' {} a -> s {clientCertificateId = a} :: GetClientCertificate)
 

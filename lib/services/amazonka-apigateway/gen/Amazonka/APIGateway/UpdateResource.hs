@@ -55,12 +55,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the Resource resource.
+    -- | The identifier of the Resource resource.
     resourceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,12 +73,12 @@ data UpdateResource = UpdateResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateResource_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateResource_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'restApiId', 'updateResource_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'updateResource_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'updateResource_resourceId' - [Required] The identifier of the Resource resource.
+-- 'resourceId', 'updateResource_resourceId' - The identifier of the Resource resource.
 newUpdateResource ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -92,16 +92,16 @@ newUpdateResource pRestApiId_ pResourceId_ =
       resourceId = pResourceId_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateResource_patchOperations :: Lens.Lens' UpdateResource (Prelude.Maybe [PatchOperation])
 updateResource_patchOperations = Lens.lens (\UpdateResource' {patchOperations} -> patchOperations) (\s@UpdateResource' {} a -> s {patchOperations = a} :: UpdateResource) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 updateResource_restApiId :: Lens.Lens' UpdateResource Prelude.Text
 updateResource_restApiId = Lens.lens (\UpdateResource' {restApiId} -> restApiId) (\s@UpdateResource' {} a -> s {restApiId = a} :: UpdateResource)
 
--- | [Required] The identifier of the Resource resource.
+-- | The identifier of the Resource resource.
 updateResource_resourceId :: Lens.Lens' UpdateResource Prelude.Text
 updateResource_resourceId = Lens.lens (\UpdateResource' {resourceId} -> resourceId) (\s@UpdateResource' {} a -> s {resourceId = a} :: UpdateResource)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Creates a documentation version
 module Amazonka.APIGateway.CreateDocumentationVersion
   ( -- * Creating a Request
     CreateDocumentationVersion (..),
@@ -58,9 +58,9 @@ data CreateDocumentationVersion = CreateDocumentationVersion'
     stageName :: Prelude.Maybe Prelude.Text,
     -- | A description about the new documentation snapshot.
     description :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The version identifier of the new snapshot.
+    -- | The version identifier of the new snapshot.
     documentationVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,9 +77,9 @@ data CreateDocumentationVersion = CreateDocumentationVersion'
 --
 -- 'description', 'createDocumentationVersion_description' - A description about the new documentation snapshot.
 --
--- 'restApiId', 'createDocumentationVersion_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'createDocumentationVersion_restApiId' - The string identifier of the associated RestApi.
 --
--- 'documentationVersion', 'createDocumentationVersion_documentationVersion' - [Required] The version identifier of the new snapshot.
+-- 'documentationVersion', 'createDocumentationVersion_documentationVersion' - The version identifier of the new snapshot.
 newCreateDocumentationVersion ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -105,11 +105,11 @@ createDocumentationVersion_stageName = Lens.lens (\CreateDocumentationVersion' {
 createDocumentationVersion_description :: Lens.Lens' CreateDocumentationVersion (Prelude.Maybe Prelude.Text)
 createDocumentationVersion_description = Lens.lens (\CreateDocumentationVersion' {description} -> description) (\s@CreateDocumentationVersion' {} a -> s {description = a} :: CreateDocumentationVersion)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 createDocumentationVersion_restApiId :: Lens.Lens' CreateDocumentationVersion Prelude.Text
 createDocumentationVersion_restApiId = Lens.lens (\CreateDocumentationVersion' {restApiId} -> restApiId) (\s@CreateDocumentationVersion' {} a -> s {restApiId = a} :: CreateDocumentationVersion)
 
--- | [Required] The version identifier of the new snapshot.
+-- | The version identifier of the new snapshot.
 createDocumentationVersion_documentationVersion :: Lens.Lens' CreateDocumentationVersion Prelude.Text
 createDocumentationVersion_documentationVersion = Lens.lens (\CreateDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@CreateDocumentationVersion' {} a -> s {documentationVersion = a} :: CreateDocumentationVersion)
 

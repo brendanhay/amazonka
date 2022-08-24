@@ -32,7 +32,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Returns the status of the __CacheCluster__.
+-- | Returns the status of the CacheCluster.
 newtype CacheClusterStatus = CacheClusterStatus'
   { fromCacheClusterStatus ::
       Core.Text

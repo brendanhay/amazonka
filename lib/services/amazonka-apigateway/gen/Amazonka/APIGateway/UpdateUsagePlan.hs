@@ -57,10 +57,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateUsagePlan' smart constructor.
 data UpdateUsagePlan = UpdateUsagePlan'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The Id of the to-be-updated usage plan.
+    -- | The Id of the to-be-updated usage plan.
     usagePlanId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,10 +73,10 @@ data UpdateUsagePlan = UpdateUsagePlan'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateUsagePlan_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateUsagePlan_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'usagePlanId', 'updateUsagePlan_usagePlanId' - [Required] The Id of the to-be-updated usage plan.
+-- 'usagePlanId', 'updateUsagePlan_usagePlanId' - The Id of the to-be-updated usage plan.
 newUpdateUsagePlan ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -87,12 +87,12 @@ newUpdateUsagePlan pUsagePlanId_ =
       usagePlanId = pUsagePlanId_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateUsagePlan_patchOperations :: Lens.Lens' UpdateUsagePlan (Prelude.Maybe [PatchOperation])
 updateUsagePlan_patchOperations = Lens.lens (\UpdateUsagePlan' {patchOperations} -> patchOperations) (\s@UpdateUsagePlan' {} a -> s {patchOperations = a} :: UpdateUsagePlan) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The Id of the to-be-updated usage plan.
+-- | The Id of the to-be-updated usage plan.
 updateUsagePlan_usagePlanId :: Lens.Lens' UpdateUsagePlan Prelude.Text
 updateUsagePlan_usagePlanId = Lens.lens (\UpdateUsagePlan' {usagePlanId} -> usagePlanId) (\s@UpdateUsagePlan' {} a -> s {usagePlanId = a} :: UpdateUsagePlan)
 

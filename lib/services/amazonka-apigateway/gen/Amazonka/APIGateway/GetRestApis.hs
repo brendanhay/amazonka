@@ -153,8 +153,6 @@ instance Core.ToQuery GetRestApis where
 -- interact with your collection. A collection offers a paginated view of
 -- your APIs.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
---
 -- /See:/ 'newGetRestApisResponse' smart constructor.
 data GetRestApisResponse = GetRestApisResponse'
   { -- | The current page of elements from this collection.

@@ -25,14 +25,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A set of validation rules for incoming Method requests.
 --
--- In OpenAPI, a RequestValidator of an API is defined by the
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validators.requestValidator.html x-amazon-apigateway-request-validators.requestValidator>
--- object. It the referenced using the
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html#api-gateway-swagger-extensions-request-validator x-amazon-apigateway-request-validator>
--- property.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html Enable Basic Request Validation in API Gateway>
---
 -- /See:/ 'newRequestValidator' smart constructor.
 data RequestValidator = RequestValidator'
   { -- | A Boolean flag to indicate whether to validate a request body according

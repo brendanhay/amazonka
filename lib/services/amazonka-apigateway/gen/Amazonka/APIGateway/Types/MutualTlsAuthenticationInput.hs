@@ -23,17 +23,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | If specified, API Gateway performs two-way authentication between the
+-- | The mutual TLS authentication configuration for a custom domain name. If
+-- specified, API Gateway performs two-way authentication between the
 -- client and the server. Clients must present a trusted certificate to
--- access your custom domain name.
+-- access your API.
 --
 -- /See:/ 'newMutualTlsAuthenticationInput' smart constructor.
 data MutualTlsAuthenticationInput = MutualTlsAuthenticationInput'
   { -- | The version of the S3 object that contains your truststore. To specify a
-    -- version, you must have versioning enabled for the S3 bucket.
+    -- version, you must have versioning enabled for the S3 bucket
     truststoreVersion :: Prelude.Maybe Prelude.Text,
-    -- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS
-    -- authentication, for example, @s3:\/\/bucket-name\/key-name@. The
+    -- | An Amazon S3 URL that specifies the truststore for mutual TLS
+    -- authentication, for example @s3:\/\/bucket-name\/key-name@. The
     -- truststore can contain certificates from public or private certificate
     -- authorities. To update the truststore, upload a new version to S3, and
     -- then update your custom domain name to use the new version. To update
@@ -51,10 +52,10 @@ data MutualTlsAuthenticationInput = MutualTlsAuthenticationInput'
 -- for backwards compatibility:
 --
 -- 'truststoreVersion', 'mutualTlsAuthenticationInput_truststoreVersion' - The version of the S3 object that contains your truststore. To specify a
--- version, you must have versioning enabled for the S3 bucket.
+-- version, you must have versioning enabled for the S3 bucket
 --
--- 'truststoreUri', 'mutualTlsAuthenticationInput_truststoreUri' - An Amazon S3 resource ARN that specifies the truststore for mutual TLS
--- authentication, for example, @s3:\/\/bucket-name\/key-name@. The
+-- 'truststoreUri', 'mutualTlsAuthenticationInput_truststoreUri' - An Amazon S3 URL that specifies the truststore for mutual TLS
+-- authentication, for example @s3:\/\/bucket-name\/key-name@. The
 -- truststore can contain certificates from public or private certificate
 -- authorities. To update the truststore, upload a new version to S3, and
 -- then update your custom domain name to use the new version. To update
@@ -69,12 +70,12 @@ newMutualTlsAuthenticationInput =
     }
 
 -- | The version of the S3 object that contains your truststore. To specify a
--- version, you must have versioning enabled for the S3 bucket.
+-- version, you must have versioning enabled for the S3 bucket
 mutualTlsAuthenticationInput_truststoreVersion :: Lens.Lens' MutualTlsAuthenticationInput (Prelude.Maybe Prelude.Text)
 mutualTlsAuthenticationInput_truststoreVersion = Lens.lens (\MutualTlsAuthenticationInput' {truststoreVersion} -> truststoreVersion) (\s@MutualTlsAuthenticationInput' {} a -> s {truststoreVersion = a} :: MutualTlsAuthenticationInput)
 
--- | An Amazon S3 resource ARN that specifies the truststore for mutual TLS
--- authentication, for example, @s3:\/\/bucket-name\/key-name@. The
+-- | An Amazon S3 URL that specifies the truststore for mutual TLS
+-- authentication, for example @s3:\/\/bucket-name\/key-name@. The
 -- truststore can contain certificates from public or private certificate
 -- authorities. To update the truststore, upload a new version to S3, and
 -- then update your custom domain name to use the new version. To update

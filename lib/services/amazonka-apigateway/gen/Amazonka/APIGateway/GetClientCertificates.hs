@@ -157,8 +157,6 @@ instance Core.ToQuery GetClientCertificates where
 
 -- | Represents a collection of ClientCertificate resources.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
---
 -- /See:/ 'newGetClientCertificatesResponse' smart constructor.
 data GetClientCertificatesResponse = GetClientCertificatesResponse'
   { -- | The current page of elements from this collection.

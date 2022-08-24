@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteRequestValidator' smart constructor.
 data DeleteRequestValidator = DeleteRequestValidator'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the RequestValidator to be deleted.
+    -- | The identifier of the RequestValidator to be deleted.
     requestValidatorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data DeleteRequestValidator = DeleteRequestValidator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteRequestValidator_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteRequestValidator_restApiId' - The string identifier of the associated RestApi.
 --
--- 'requestValidatorId', 'deleteRequestValidator_requestValidatorId' - [Required] The identifier of the RequestValidator to be deleted.
+-- 'requestValidatorId', 'deleteRequestValidator_requestValidatorId' - The identifier of the RequestValidator to be deleted.
 newDeleteRequestValidator ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -79,11 +79,11 @@ newDeleteRequestValidator
         requestValidatorId = pRequestValidatorId_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteRequestValidator_restApiId :: Lens.Lens' DeleteRequestValidator Prelude.Text
 deleteRequestValidator_restApiId = Lens.lens (\DeleteRequestValidator' {restApiId} -> restApiId) (\s@DeleteRequestValidator' {} a -> s {restApiId = a} :: DeleteRequestValidator)
 
--- | [Required] The identifier of the RequestValidator to be deleted.
+-- | The identifier of the RequestValidator to be deleted.
 deleteRequestValidator_requestValidatorId :: Lens.Lens' DeleteRequestValidator Prelude.Text
 deleteRequestValidator_requestValidatorId = Lens.lens (\DeleteRequestValidator' {requestValidatorId} -> requestValidatorId) (\s@DeleteRequestValidator' {} a -> s {requestValidatorId = a} :: DeleteRequestValidator)
 

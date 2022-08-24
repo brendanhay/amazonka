@@ -62,7 +62,7 @@ data GetApiKey = GetApiKey'
   { -- | A boolean flag to specify whether (@true@) or not (@false@) the result
     -- contains the key value.
     includeValue :: Prelude.Maybe Prelude.Bool,
-    -- | [Required] The identifier of the ApiKey resource.
+    -- | The identifier of the ApiKey resource.
     apiKey :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data GetApiKey = GetApiKey'
 -- 'includeValue', 'getApiKey_includeValue' - A boolean flag to specify whether (@true@) or not (@false@) the result
 -- contains the key value.
 --
--- 'apiKey', 'getApiKey_apiKey' - [Required] The identifier of the ApiKey resource.
+-- 'apiKey', 'getApiKey_apiKey' - The identifier of the ApiKey resource.
 newGetApiKey ::
   -- | 'apiKey'
   Prelude.Text ->
@@ -94,7 +94,7 @@ newGetApiKey pApiKey_ =
 getApiKey_includeValue :: Lens.Lens' GetApiKey (Prelude.Maybe Prelude.Bool)
 getApiKey_includeValue = Lens.lens (\GetApiKey' {includeValue} -> includeValue) (\s@GetApiKey' {} a -> s {includeValue = a} :: GetApiKey)
 
--- | [Required] The identifier of the ApiKey resource.
+-- | The identifier of the ApiKey resource.
 getApiKey_apiKey :: Lens.Lens' GetApiKey Prelude.Text
 getApiKey_apiKey = Lens.lens (\GetApiKey' {apiKey} -> apiKey) (\s@GetApiKey' {} a -> s {apiKey = a} :: GetApiKey)
 

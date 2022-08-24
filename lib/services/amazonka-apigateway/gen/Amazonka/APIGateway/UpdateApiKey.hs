@@ -59,10 +59,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateApiKey' smart constructor.
 data UpdateApiKey = UpdateApiKey'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The identifier of the ApiKey resource to be updated.
+    -- | The identifier of the ApiKey resource to be updated.
     apiKey :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,10 +75,10 @@ data UpdateApiKey = UpdateApiKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateApiKey_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateApiKey_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'apiKey', 'updateApiKey_apiKey' - [Required] The identifier of the ApiKey resource to be updated.
+-- 'apiKey', 'updateApiKey_apiKey' - The identifier of the ApiKey resource to be updated.
 newUpdateApiKey ::
   -- | 'apiKey'
   Prelude.Text ->
@@ -89,12 +89,12 @@ newUpdateApiKey pApiKey_ =
       apiKey = pApiKey_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateApiKey_patchOperations :: Lens.Lens' UpdateApiKey (Prelude.Maybe [PatchOperation])
 updateApiKey_patchOperations = Lens.lens (\UpdateApiKey' {patchOperations} -> patchOperations) (\s@UpdateApiKey' {} a -> s {patchOperations = a} :: UpdateApiKey) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The identifier of the ApiKey resource to be updated.
+-- | The identifier of the ApiKey resource to be updated.
 updateApiKey_apiKey :: Lens.Lens' UpdateApiKey Prelude.Text
 updateApiKey_apiKey = Lens.lens (\UpdateApiKey' {apiKey} -> apiKey) (\s@UpdateApiKey' {} a -> s {apiKey = a} :: UpdateApiKey)
 

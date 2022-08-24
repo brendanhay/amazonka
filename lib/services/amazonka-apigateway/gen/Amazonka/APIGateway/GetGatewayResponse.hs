@@ -56,11 +56,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetGatewayResponse' smart constructor.
 data GetGatewayResponse = GetGatewayResponse'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required]
-    --
-    -- The response type of the associated GatewayResponse.
+    -- | The response type of the associated GatewayResponse.
     responseType :: GatewayResponseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,11 +71,9 @@ data GetGatewayResponse = GetGatewayResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getGatewayResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getGatewayResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'responseType', 'getGatewayResponse_responseType' - [Required]
---
--- The response type of the associated GatewayResponse.
+-- 'responseType', 'getGatewayResponse_responseType' - The response type of the associated GatewayResponse.
 newGetGatewayResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -90,13 +86,11 @@ newGetGatewayResponse pRestApiId_ pResponseType_ =
       responseType = pResponseType_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getGatewayResponse_restApiId :: Lens.Lens' GetGatewayResponse Prelude.Text
 getGatewayResponse_restApiId = Lens.lens (\GetGatewayResponse' {restApiId} -> restApiId) (\s@GetGatewayResponse' {} a -> s {restApiId = a} :: GetGatewayResponse)
 
--- | [Required]
---
--- The response type of the associated GatewayResponse.
+-- | The response type of the associated GatewayResponse.
 getGatewayResponse_responseType :: Lens.Lens' GetGatewayResponse GatewayResponseType
 getGatewayResponse_responseType = Lens.lens (\GetGatewayResponse' {responseType} -> responseType) (\s@GetGatewayResponse' {} a -> s {responseType = a} :: GetGatewayResponse)
 

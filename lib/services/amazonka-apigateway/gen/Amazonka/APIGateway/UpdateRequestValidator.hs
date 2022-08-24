@@ -54,12 +54,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateRequestValidator' smart constructor.
 data UpdateRequestValidator = UpdateRequestValidator'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of RequestValidator to be updated.
+    -- | The identifier of RequestValidator to be updated.
     requestValidatorId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,12 +72,12 @@ data UpdateRequestValidator = UpdateRequestValidator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateRequestValidator_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateRequestValidator_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'restApiId', 'updateRequestValidator_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'updateRequestValidator_restApiId' - The string identifier of the associated RestApi.
 --
--- 'requestValidatorId', 'updateRequestValidator_requestValidatorId' - [Required] The identifier of RequestValidator to be updated.
+-- 'requestValidatorId', 'updateRequestValidator_requestValidatorId' - The identifier of RequestValidator to be updated.
 newUpdateRequestValidator ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -94,16 +94,16 @@ newUpdateRequestValidator
         requestValidatorId = pRequestValidatorId_
       }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateRequestValidator_patchOperations :: Lens.Lens' UpdateRequestValidator (Prelude.Maybe [PatchOperation])
 updateRequestValidator_patchOperations = Lens.lens (\UpdateRequestValidator' {patchOperations} -> patchOperations) (\s@UpdateRequestValidator' {} a -> s {patchOperations = a} :: UpdateRequestValidator) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 updateRequestValidator_restApiId :: Lens.Lens' UpdateRequestValidator Prelude.Text
 updateRequestValidator_restApiId = Lens.lens (\UpdateRequestValidator' {restApiId} -> restApiId) (\s@UpdateRequestValidator' {} a -> s {restApiId = a} :: UpdateRequestValidator)
 
--- | [Required] The identifier of RequestValidator to be updated.
+-- | The identifier of RequestValidator to be updated.
 updateRequestValidator_requestValidatorId :: Lens.Lens' UpdateRequestValidator Prelude.Text
 updateRequestValidator_requestValidatorId = Lens.lens (\UpdateRequestValidator' {requestValidatorId} -> requestValidatorId) (\s@UpdateRequestValidator' {} a -> s {requestValidatorId = a} :: UpdateRequestValidator)
 

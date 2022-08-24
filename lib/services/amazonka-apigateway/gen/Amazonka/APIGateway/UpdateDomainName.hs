@@ -66,10 +66,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateDomainName' smart constructor.
 data UpdateDomainName = UpdateDomainName'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The name of the DomainName resource to be changed.
+    -- | The name of the DomainName resource to be changed.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,10 +82,10 @@ data UpdateDomainName = UpdateDomainName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateDomainName_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateDomainName_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'domainName', 'updateDomainName_domainName' - [Required] The name of the DomainName resource to be changed.
+-- 'domainName', 'updateDomainName_domainName' - The name of the DomainName resource to be changed.
 newUpdateDomainName ::
   -- | 'domainName'
   Prelude.Text ->
@@ -97,12 +97,12 @@ newUpdateDomainName pDomainName_ =
       domainName = pDomainName_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateDomainName_patchOperations :: Lens.Lens' UpdateDomainName (Prelude.Maybe [PatchOperation])
 updateDomainName_patchOperations = Lens.lens (\UpdateDomainName' {patchOperations} -> patchOperations) (\s@UpdateDomainName' {} a -> s {patchOperations = a} :: UpdateDomainName) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The name of the DomainName resource to be changed.
+-- | The name of the DomainName resource to be changed.
 updateDomainName_domainName :: Lens.Lens' UpdateDomainName Prelude.Text
 updateDomainName_domainName = Lens.lens (\UpdateDomainName' {domainName} -> domainName) (\s@UpdateDomainName' {} a -> s {domainName = a} :: UpdateDomainName)
 

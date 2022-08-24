@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | [Required] The ARN of a resource that can be tagged.
+  { -- | The ARN of a resource that can be tagged.
     resourceArn :: Prelude.Text,
-    -- | [Required] The key-value map of strings. The valid character set is
+    -- | The key-value map of strings. The valid character set is
     -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
     -- start with @aws:@. The tag value can be up to 256 characters.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
@@ -64,9 +64,9 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - [Required] The ARN of a resource that can be tagged.
+-- 'resourceArn', 'tagResource_resourceArn' - The ARN of a resource that can be tagged.
 --
--- 'tags', 'tagResource_tags' - [Required] The key-value map of strings. The valid character set is
+-- 'tags', 'tagResource_tags' - The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
 newTagResource ::
@@ -79,11 +79,11 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | [Required] The ARN of a resource that can be tagged.
+-- | The ARN of a resource that can be tagged.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | [Required] The key-value map of strings. The valid character set is
+-- | The key-value map of strings. The valid character set is
 -- [a-zA-Z+-=._:\/]. The tag key can be up to 128 characters and must not
 -- start with @aws:@. The tag value can be up to 256 characters.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)

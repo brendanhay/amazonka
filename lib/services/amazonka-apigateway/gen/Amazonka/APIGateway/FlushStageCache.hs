@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newFlushStageCache' smart constructor.
 data FlushStageCache = FlushStageCache'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The name of the stage to flush its cache.
+    -- | The name of the stage to flush its cache.
     stageName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data FlushStageCache = FlushStageCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'flushStageCache_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'flushStageCache_restApiId' - The string identifier of the associated RestApi.
 --
--- 'stageName', 'flushStageCache_stageName' - [Required] The name of the stage to flush its cache.
+-- 'stageName', 'flushStageCache_stageName' - The name of the stage to flush its cache.
 newFlushStageCache ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -77,11 +77,11 @@ newFlushStageCache pRestApiId_ pStageName_ =
       stageName = pStageName_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 flushStageCache_restApiId :: Lens.Lens' FlushStageCache Prelude.Text
 flushStageCache_restApiId = Lens.lens (\FlushStageCache' {restApiId} -> restApiId) (\s@FlushStageCache' {} a -> s {restApiId = a} :: FlushStageCache)
 
--- | [Required] The name of the stage to flush its cache.
+-- | The name of the stage to flush its cache.
 flushStageCache_stageName :: Lens.Lens' FlushStageCache Prelude.Text
 flushStageCache_stageName = Lens.lens (\FlushStageCache' {stageName} -> stageName) (\s@FlushStageCache' {} a -> s {stageName = a} :: FlushStageCache)
 

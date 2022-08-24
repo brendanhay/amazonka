@@ -87,20 +87,17 @@ data CreateRestApi = CreateRestApi'
     binaryMediaTypes :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether clients can invoke your API by using the default
     -- @execute-api@ endpoint. By default, clients can invoke your API with the
-    -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
-    -- To require that clients use a custom domain name to invoke your API,
-    -- disable the default endpoint.
+    -- default @https:\/\/{api_id}.execute-api.{region}.amazonaws.com@
+    -- endpoint. To require that clients use a custom domain name to invoke
+    -- your API, disable the default endpoint
     disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
     -- | The endpoint configuration of this RestApi showing the endpoint types of
     -- the API.
     endpointConfiguration :: Prelude.Maybe EndpointConfiguration,
     -- | The source of the API key for metering requests according to a usage
-    -- plan. Valid values are:
-    --
-    -- -   @HEADER@ to read the API key from the @X-API-Key@ header of a
-    --     request.
-    -- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from
-    --     a custom authorizer.
+    -- plan. Valid values are: >@HEADER@ to read the API key from the
+    -- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+    -- the @UsageIdentifierKey@ from a custom authorizer.
     apiKeySource :: Prelude.Maybe ApiKeySourceType,
     -- | A nullable integer that is used to enable compression (with non-negative
     -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
@@ -111,7 +108,7 @@ data CreateRestApi = CreateRestApi'
     minimumCompressionSize :: Prelude.Maybe Prelude.Int,
     -- | A version identifier for the API.
     version :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The name of the RestApi.
+    -- | The name of the RestApi.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -140,20 +137,17 @@ data CreateRestApi = CreateRestApi'
 --
 -- 'disableExecuteApiEndpoint', 'createRestApi_disableExecuteApiEndpoint' - Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
--- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
--- To require that clients use a custom domain name to invoke your API,
--- disable the default endpoint.
+-- default @https:\/\/{api_id}.execute-api.{region}.amazonaws.com@
+-- endpoint. To require that clients use a custom domain name to invoke
+-- your API, disable the default endpoint
 --
 -- 'endpointConfiguration', 'createRestApi_endpointConfiguration' - The endpoint configuration of this RestApi showing the endpoint types of
 -- the API.
 --
 -- 'apiKeySource', 'createRestApi_apiKeySource' - The source of the API key for metering requests according to a usage
--- plan. Valid values are:
---
--- -   @HEADER@ to read the API key from the @X-API-Key@ header of a
---     request.
--- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from
---     a custom authorizer.
+-- plan. Valid values are: >@HEADER@ to read the API key from the
+-- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+-- the @UsageIdentifierKey@ from a custom authorizer.
 --
 -- 'minimumCompressionSize', 'createRestApi_minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative
 -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
@@ -164,7 +158,7 @@ data CreateRestApi = CreateRestApi'
 --
 -- 'version', 'createRestApi_version' - A version identifier for the API.
 --
--- 'name', 'createRestApi_name' - [Required] The name of the RestApi.
+-- 'name', 'createRestApi_name' - The name of the RestApi.
 newCreateRestApi ::
   -- | 'name'
   Prelude.Text ->
@@ -210,9 +204,9 @@ createRestApi_binaryMediaTypes = Lens.lens (\CreateRestApi' {binaryMediaTypes} -
 
 -- | Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
--- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
--- To require that clients use a custom domain name to invoke your API,
--- disable the default endpoint.
+-- default @https:\/\/{api_id}.execute-api.{region}.amazonaws.com@
+-- endpoint. To require that clients use a custom domain name to invoke
+-- your API, disable the default endpoint
 createRestApi_disableExecuteApiEndpoint :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Bool)
 createRestApi_disableExecuteApiEndpoint = Lens.lens (\CreateRestApi' {disableExecuteApiEndpoint} -> disableExecuteApiEndpoint) (\s@CreateRestApi' {} a -> s {disableExecuteApiEndpoint = a} :: CreateRestApi)
 
@@ -222,12 +216,9 @@ createRestApi_endpointConfiguration :: Lens.Lens' CreateRestApi (Prelude.Maybe E
 createRestApi_endpointConfiguration = Lens.lens (\CreateRestApi' {endpointConfiguration} -> endpointConfiguration) (\s@CreateRestApi' {} a -> s {endpointConfiguration = a} :: CreateRestApi)
 
 -- | The source of the API key for metering requests according to a usage
--- plan. Valid values are:
---
--- -   @HEADER@ to read the API key from the @X-API-Key@ header of a
---     request.
--- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from
---     a custom authorizer.
+-- plan. Valid values are: >@HEADER@ to read the API key from the
+-- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+-- the @UsageIdentifierKey@ from a custom authorizer.
 createRestApi_apiKeySource :: Lens.Lens' CreateRestApi (Prelude.Maybe ApiKeySourceType)
 createRestApi_apiKeySource = Lens.lens (\CreateRestApi' {apiKeySource} -> apiKeySource) (\s@CreateRestApi' {} a -> s {apiKeySource = a} :: CreateRestApi)
 
@@ -244,7 +235,7 @@ createRestApi_minimumCompressionSize = Lens.lens (\CreateRestApi' {minimumCompre
 createRestApi_version :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
 createRestApi_version = Lens.lens (\CreateRestApi' {version} -> version) (\s@CreateRestApi' {} a -> s {version = a} :: CreateRestApi)
 
--- | [Required] The name of the RestApi.
+-- | The name of the RestApi.
 createRestApi_name :: Lens.Lens' CreateRestApi Prelude.Text
 createRestApi_name = Lens.lens (\CreateRestApi' {name} -> name) (\s@CreateRestApi' {} a -> s {name = a} :: CreateRestApi)
 

@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateDeployment' smart constructor.
 data UpdateDeployment = UpdateDeployment'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | The replacement identifier for the Deployment resource to change
     -- information about.
@@ -73,10 +73,10 @@ data UpdateDeployment = UpdateDeployment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateDeployment_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateDeployment_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'restApiId', 'updateDeployment_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'updateDeployment_restApiId' - The string identifier of the associated RestApi.
 --
 -- 'deploymentId', 'updateDeployment_deploymentId' - The replacement identifier for the Deployment resource to change
 -- information about.
@@ -94,12 +94,12 @@ newUpdateDeployment pRestApiId_ pDeploymentId_ =
       deploymentId = pDeploymentId_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateDeployment_patchOperations :: Lens.Lens' UpdateDeployment (Prelude.Maybe [PatchOperation])
 updateDeployment_patchOperations = Lens.lens (\UpdateDeployment' {patchOperations} -> patchOperations) (\s@UpdateDeployment' {} a -> s {patchOperations = a} :: UpdateDeployment) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 updateDeployment_restApiId :: Lens.Lens' UpdateDeployment Prelude.Text
 updateDeployment_restApiId = Lens.lens (\UpdateDeployment' {restApiId} -> restApiId) (\s@UpdateDeployment' {} a -> s {restApiId = a} :: UpdateDeployment)
 

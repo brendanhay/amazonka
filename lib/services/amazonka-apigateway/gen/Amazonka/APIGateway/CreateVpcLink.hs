@@ -70,11 +70,11 @@ data CreateVpcLink = CreateVpcLink'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the VPC link.
     description :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The name used to label and identify the VPC link.
+    -- | The name used to label and identify the VPC link.
     name :: Prelude.Text,
-    -- | [Required] The ARN of the network load balancer of the VPC targeted by
-    -- the VPC link. The network load balancer must be owned by the same AWS
-    -- account of the API owner.
+    -- | The ARN of the network load balancer of the VPC targeted by the VPC
+    -- link. The network load balancer must be owned by the same AWS account of
+    -- the API owner.
     targetArns :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,11 +93,11 @@ data CreateVpcLink = CreateVpcLink'
 --
 -- 'description', 'createVpcLink_description' - The description of the VPC link.
 --
--- 'name', 'createVpcLink_name' - [Required] The name used to label and identify the VPC link.
+-- 'name', 'createVpcLink_name' - The name used to label and identify the VPC link.
 --
--- 'targetArns', 'createVpcLink_targetArns' - [Required] The ARN of the network load balancer of the VPC targeted by
--- the VPC link. The network load balancer must be owned by the same AWS
--- account of the API owner.
+-- 'targetArns', 'createVpcLink_targetArns' - The ARN of the network load balancer of the VPC targeted by the VPC
+-- link. The network load balancer must be owned by the same AWS account of
+-- the API owner.
 newCreateVpcLink ::
   -- | 'name'
   Prelude.Text ->
@@ -120,13 +120,13 @@ createVpcLink_tags = Lens.lens (\CreateVpcLink' {tags} -> tags) (\s@CreateVpcLin
 createVpcLink_description :: Lens.Lens' CreateVpcLink (Prelude.Maybe Prelude.Text)
 createVpcLink_description = Lens.lens (\CreateVpcLink' {description} -> description) (\s@CreateVpcLink' {} a -> s {description = a} :: CreateVpcLink)
 
--- | [Required] The name used to label and identify the VPC link.
+-- | The name used to label and identify the VPC link.
 createVpcLink_name :: Lens.Lens' CreateVpcLink Prelude.Text
 createVpcLink_name = Lens.lens (\CreateVpcLink' {name} -> name) (\s@CreateVpcLink' {} a -> s {name = a} :: CreateVpcLink)
 
--- | [Required] The ARN of the network load balancer of the VPC targeted by
--- the VPC link. The network load balancer must be owned by the same AWS
--- account of the API owner.
+-- | The ARN of the network load balancer of the VPC targeted by the VPC
+-- link. The network load balancer must be owned by the same AWS account of
+-- the API owner.
 createVpcLink_targetArns :: Lens.Lens' CreateVpcLink [Prelude.Text]
 createVpcLink_targetArns = Lens.lens (\CreateVpcLink' {targetArns} -> targetArns) (\s@CreateVpcLink' {} a -> s {targetArns = a} :: CreateVpcLink) Prelude.. Lens.coerced
 

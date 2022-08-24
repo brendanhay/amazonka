@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteBasePathMapping' smart constructor.
 data DeleteBasePathMapping = DeleteBasePathMapping'
-  { -- | [Required] The domain name of the BasePathMapping resource to delete.
+  { -- | The domain name of the BasePathMapping resource to delete.
     domainName :: Prelude.Text,
-    -- | [Required] The base path name of the BasePathMapping resource to delete.
+    -- | The base path name of the BasePathMapping resource to delete.
     --
     -- To specify an empty base path, set this parameter to @\'(none)\'@.
     basePath :: Prelude.Text
@@ -64,9 +64,9 @@ data DeleteBasePathMapping = DeleteBasePathMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'deleteBasePathMapping_domainName' - [Required] The domain name of the BasePathMapping resource to delete.
+-- 'domainName', 'deleteBasePathMapping_domainName' - The domain name of the BasePathMapping resource to delete.
 --
--- 'basePath', 'deleteBasePathMapping_basePath' - [Required] The base path name of the BasePathMapping resource to delete.
+-- 'basePath', 'deleteBasePathMapping_basePath' - The base path name of the BasePathMapping resource to delete.
 --
 -- To specify an empty base path, set this parameter to @\'(none)\'@.
 newDeleteBasePathMapping ::
@@ -81,11 +81,11 @@ newDeleteBasePathMapping pDomainName_ pBasePath_ =
       basePath = pBasePath_
     }
 
--- | [Required] The domain name of the BasePathMapping resource to delete.
+-- | The domain name of the BasePathMapping resource to delete.
 deleteBasePathMapping_domainName :: Lens.Lens' DeleteBasePathMapping Prelude.Text
 deleteBasePathMapping_domainName = Lens.lens (\DeleteBasePathMapping' {domainName} -> domainName) (\s@DeleteBasePathMapping' {} a -> s {domainName = a} :: DeleteBasePathMapping)
 
--- | [Required] The base path name of the BasePathMapping resource to delete.
+-- | The base path name of the BasePathMapping resource to delete.
 --
 -- To specify an empty base path, set this parameter to @\'(none)\'@.
 deleteBasePathMapping_basePath :: Lens.Lens' DeleteBasePathMapping Prelude.Text

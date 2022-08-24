@@ -46,7 +46,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteDomainName' smart constructor.
 data DeleteDomainName = DeleteDomainName'
-  { -- | [Required] The name of the DomainName resource to be deleted.
+  { -- | The name of the DomainName resource to be deleted.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +59,7 @@ data DeleteDomainName = DeleteDomainName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'deleteDomainName_domainName' - [Required] The name of the DomainName resource to be deleted.
+-- 'domainName', 'deleteDomainName_domainName' - The name of the DomainName resource to be deleted.
 newDeleteDomainName ::
   -- | 'domainName'
   Prelude.Text ->
@@ -67,7 +67,7 @@ newDeleteDomainName ::
 newDeleteDomainName pDomainName_ =
   DeleteDomainName' {domainName = pDomainName_}
 
--- | [Required] The name of the DomainName resource to be deleted.
+-- | The name of the DomainName resource to be deleted.
 deleteDomainName_domainName :: Lens.Lens' DeleteDomainName Prelude.Text
 deleteDomainName_domainName = Lens.lens (\DeleteDomainName' {domainName} -> domainName) (\s@DeleteDomainName' {} a -> s {domainName = a} :: DeleteDomainName)
 

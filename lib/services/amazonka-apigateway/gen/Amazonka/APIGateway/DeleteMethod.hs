@@ -48,11 +48,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteMethod' smart constructor.
 data DeleteMethod = DeleteMethod'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The Resource identifier for the Method resource.
+    -- | The Resource identifier for the Method resource.
     resourceId :: Prelude.Text,
-    -- | [Required] The HTTP verb of the Method resource.
+    -- | The HTTP verb of the Method resource.
     httpMethod :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,11 +65,11 @@ data DeleteMethod = DeleteMethod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteMethod_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteMethod_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'deleteMethod_resourceId' - [Required] The Resource identifier for the Method resource.
+-- 'resourceId', 'deleteMethod_resourceId' - The Resource identifier for the Method resource.
 --
--- 'httpMethod', 'deleteMethod_httpMethod' - [Required] The HTTP verb of the Method resource.
+-- 'httpMethod', 'deleteMethod_httpMethod' - The HTTP verb of the Method resource.
 newDeleteMethod ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -85,15 +85,15 @@ newDeleteMethod pRestApiId_ pResourceId_ pHttpMethod_ =
       httpMethod = pHttpMethod_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteMethod_restApiId :: Lens.Lens' DeleteMethod Prelude.Text
 deleteMethod_restApiId = Lens.lens (\DeleteMethod' {restApiId} -> restApiId) (\s@DeleteMethod' {} a -> s {restApiId = a} :: DeleteMethod)
 
--- | [Required] The Resource identifier for the Method resource.
+-- | The Resource identifier for the Method resource.
 deleteMethod_resourceId :: Lens.Lens' DeleteMethod Prelude.Text
 deleteMethod_resourceId = Lens.lens (\DeleteMethod' {resourceId} -> resourceId) (\s@DeleteMethod' {} a -> s {resourceId = a} :: DeleteMethod)
 
--- | [Required] The HTTP verb of the Method resource.
+-- | The HTTP verb of the Method resource.
 deleteMethod_httpMethod :: Lens.Lens' DeleteMethod Prelude.Text
 deleteMethod_httpMethod = Lens.lens (\DeleteMethod' {httpMethod} -> httpMethod) (\s@DeleteMethod' {} a -> s {httpMethod = a} :: DeleteMethod)
 

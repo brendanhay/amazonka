@@ -49,11 +49,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required]
-    --
-    -- The response type of the associated GatewayResponse.
+    -- | The response type of the associated GatewayResponse.
     responseType :: GatewayResponseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,11 +64,9 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteGatewayResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteGatewayResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'responseType', 'deleteGatewayResponse_responseType' - [Required]
---
--- The response type of the associated GatewayResponse.
+-- 'responseType', 'deleteGatewayResponse_responseType' - The response type of the associated GatewayResponse.
 newDeleteGatewayResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -83,13 +79,11 @@ newDeleteGatewayResponse pRestApiId_ pResponseType_ =
       responseType = pResponseType_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteGatewayResponse_restApiId :: Lens.Lens' DeleteGatewayResponse Prelude.Text
 deleteGatewayResponse_restApiId = Lens.lens (\DeleteGatewayResponse' {restApiId} -> restApiId) (\s@DeleteGatewayResponse' {} a -> s {restApiId = a} :: DeleteGatewayResponse)
 
--- | [Required]
---
--- The response type of the associated GatewayResponse.
+-- | The response type of the associated GatewayResponse.
 deleteGatewayResponse_responseType :: Lens.Lens' DeleteGatewayResponse GatewayResponseType
 deleteGatewayResponse_responseType = Lens.lens (\DeleteGatewayResponse' {responseType} -> responseType) (\s@DeleteGatewayResponse' {} a -> s {responseType = a} :: DeleteGatewayResponse)
 

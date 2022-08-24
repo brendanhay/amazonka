@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Gets documentation versions.
 --
 -- This operation returns paginated results.
 module Amazonka.APIGateway.GetDocumentationVersions
@@ -60,7 +60,7 @@ data GetDocumentationVersions = GetDocumentationVersions'
     limit :: Prelude.Maybe Prelude.Int,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data GetDocumentationVersions = GetDocumentationVersions'
 --
 -- 'position', 'getDocumentationVersions_position' - The current pagination position in the paged result set.
 --
--- 'restApiId', 'getDocumentationVersions_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getDocumentationVersions_restApiId' - The string identifier of the associated RestApi.
 newGetDocumentationVersions ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -99,7 +99,7 @@ getDocumentationVersions_limit = Lens.lens (\GetDocumentationVersions' {limit} -
 getDocumentationVersions_position :: Lens.Lens' GetDocumentationVersions (Prelude.Maybe Prelude.Text)
 getDocumentationVersions_position = Lens.lens (\GetDocumentationVersions' {position} -> position) (\s@GetDocumentationVersions' {} a -> s {position = a} :: GetDocumentationVersions)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getDocumentationVersions_restApiId :: Lens.Lens' GetDocumentationVersions Prelude.Text
 getDocumentationVersions_restApiId = Lens.lens (\GetDocumentationVersions' {restApiId} -> restApiId) (\s@GetDocumentationVersions' {} a -> s {restApiId = a} :: GetDocumentationVersions)
 
@@ -174,12 +174,6 @@ instance Core.ToQuery GetDocumentationVersions where
       ["limit" Core.=: limit, "position" Core.=: position]
 
 -- | The collection of documentation snapshots of an API.
---
--- Use the DocumentationVersions to manage documentation snapshots
--- associated with various API stages.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API>,
--- DocumentationPart, DocumentationVersion
 --
 -- /See:/ 'newGetDocumentationVersionsResponse' smart constructor.
 data GetDocumentationVersionsResponse = GetDocumentationVersionsResponse'

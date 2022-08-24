@@ -22,9 +22,6 @@
 --
 -- Simulate the execution of an Authorizer in your RestApi with headers,
 -- parameters, and an incoming request body.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html Use Lambda Function as Authorizer>
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html Use Cognito User Pool as Authorizer>
 module Amazonka.APIGateway.TestInvokeAuthorizer
   ( -- * Creating a Request
     TestInvokeAuthorizer (..),
@@ -63,32 +60,32 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Make a request to simulate the execution of an Authorizer.
+-- | Make a request to simulate the invocation of an Authorizer.
 --
 -- /See:/ 'newTestInvokeAuthorizer' smart constructor.
 data TestInvokeAuthorizer = TestInvokeAuthorizer'
-  { -- | [Optional] The headers as a map from string to list of values to
-    -- simulate an incoming invocation request. This is where the incoming
-    -- authorization token, or identity source, may be specified.
+  { -- | The headers as a map from string to list of values to simulate an
+    -- incoming invocation request. This is where the incoming authorization
+    -- token, or identity source, may be specified.
     multiValueHeaders :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | [Required] A key-value map of headers to simulate an incoming invocation
-    -- request. This is where the incoming authorization token, or identity
-    -- source, should be specified.
+    -- | A key-value map of headers to simulate an incoming invocation request.
+    -- This is where the incoming authorization token, or identity source,
+    -- should be specified.
     headers :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | [Optional] The simulated request body of an incoming invocation request.
+    -- | The simulated request body of an incoming invocation request.
     body :: Prelude.Maybe Prelude.Text,
-    -- | [Optional] The URI path, including query string, of the simulated
-    -- invocation request. Use this to specify path parameters and query string
+    -- | The URI path, including query string, of the simulated invocation
+    -- request. Use this to specify path parameters and query string
     -- parameters.
     pathWithQueryString :: Prelude.Maybe Prelude.Text,
-    -- | [Optional] A key-value map of additional context variables.
+    -- | A key-value map of additional context variables.
     additionalContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A key-value map of stage variables to simulate an invocation on a
     -- deployed Stage.
     stageVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Specifies a test invoke authorizer request\'s Authorizer ID.
+    -- | Specifies a test invoke authorizer request\'s Authorizer ID.
     authorizerId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,28 +98,28 @@ data TestInvokeAuthorizer = TestInvokeAuthorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'multiValueHeaders', 'testInvokeAuthorizer_multiValueHeaders' - [Optional] The headers as a map from string to list of values to
--- simulate an incoming invocation request. This is where the incoming
--- authorization token, or identity source, may be specified.
+-- 'multiValueHeaders', 'testInvokeAuthorizer_multiValueHeaders' - The headers as a map from string to list of values to simulate an
+-- incoming invocation request. This is where the incoming authorization
+-- token, or identity source, may be specified.
 --
--- 'headers', 'testInvokeAuthorizer_headers' - [Required] A key-value map of headers to simulate an incoming invocation
--- request. This is where the incoming authorization token, or identity
--- source, should be specified.
+-- 'headers', 'testInvokeAuthorizer_headers' - A key-value map of headers to simulate an incoming invocation request.
+-- This is where the incoming authorization token, or identity source,
+-- should be specified.
 --
--- 'body', 'testInvokeAuthorizer_body' - [Optional] The simulated request body of an incoming invocation request.
+-- 'body', 'testInvokeAuthorizer_body' - The simulated request body of an incoming invocation request.
 --
--- 'pathWithQueryString', 'testInvokeAuthorizer_pathWithQueryString' - [Optional] The URI path, including query string, of the simulated
--- invocation request. Use this to specify path parameters and query string
+-- 'pathWithQueryString', 'testInvokeAuthorizer_pathWithQueryString' - The URI path, including query string, of the simulated invocation
+-- request. Use this to specify path parameters and query string
 -- parameters.
 --
--- 'additionalContext', 'testInvokeAuthorizer_additionalContext' - [Optional] A key-value map of additional context variables.
+-- 'additionalContext', 'testInvokeAuthorizer_additionalContext' - A key-value map of additional context variables.
 --
 -- 'stageVariables', 'testInvokeAuthorizer_stageVariables' - A key-value map of stage variables to simulate an invocation on a
 -- deployed Stage.
 --
--- 'restApiId', 'testInvokeAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'testInvokeAuthorizer_restApiId' - The string identifier of the associated RestApi.
 --
--- 'authorizerId', 'testInvokeAuthorizer_authorizerId' - [Required] Specifies a test invoke authorizer request\'s Authorizer ID.
+-- 'authorizerId', 'testInvokeAuthorizer_authorizerId' - Specifies a test invoke authorizer request\'s Authorizer ID.
 newTestInvokeAuthorizer ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -142,29 +139,29 @@ newTestInvokeAuthorizer pRestApiId_ pAuthorizerId_ =
       authorizerId = pAuthorizerId_
     }
 
--- | [Optional] The headers as a map from string to list of values to
--- simulate an incoming invocation request. This is where the incoming
--- authorization token, or identity source, may be specified.
+-- | The headers as a map from string to list of values to simulate an
+-- incoming invocation request. This is where the incoming authorization
+-- token, or identity source, may be specified.
 testInvokeAuthorizer_multiValueHeaders :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 testInvokeAuthorizer_multiValueHeaders = Lens.lens (\TestInvokeAuthorizer' {multiValueHeaders} -> multiValueHeaders) (\s@TestInvokeAuthorizer' {} a -> s {multiValueHeaders = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] A key-value map of headers to simulate an incoming invocation
--- request. This is where the incoming authorization token, or identity
--- source, should be specified.
+-- | A key-value map of headers to simulate an incoming invocation request.
+-- This is where the incoming authorization token, or identity source,
+-- should be specified.
 testInvokeAuthorizer_headers :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 testInvokeAuthorizer_headers = Lens.lens (\TestInvokeAuthorizer' {headers} -> headers) (\s@TestInvokeAuthorizer' {} a -> s {headers = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
--- | [Optional] The simulated request body of an incoming invocation request.
+-- | The simulated request body of an incoming invocation request.
 testInvokeAuthorizer_body :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe Prelude.Text)
 testInvokeAuthorizer_body = Lens.lens (\TestInvokeAuthorizer' {body} -> body) (\s@TestInvokeAuthorizer' {} a -> s {body = a} :: TestInvokeAuthorizer)
 
--- | [Optional] The URI path, including query string, of the simulated
--- invocation request. Use this to specify path parameters and query string
+-- | The URI path, including query string, of the simulated invocation
+-- request. Use this to specify path parameters and query string
 -- parameters.
 testInvokeAuthorizer_pathWithQueryString :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe Prelude.Text)
 testInvokeAuthorizer_pathWithQueryString = Lens.lens (\TestInvokeAuthorizer' {pathWithQueryString} -> pathWithQueryString) (\s@TestInvokeAuthorizer' {} a -> s {pathWithQueryString = a} :: TestInvokeAuthorizer)
 
--- | [Optional] A key-value map of additional context variables.
+-- | A key-value map of additional context variables.
 testInvokeAuthorizer_additionalContext :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 testInvokeAuthorizer_additionalContext = Lens.lens (\TestInvokeAuthorizer' {additionalContext} -> additionalContext) (\s@TestInvokeAuthorizer' {} a -> s {additionalContext = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
@@ -173,11 +170,11 @@ testInvokeAuthorizer_additionalContext = Lens.lens (\TestInvokeAuthorizer' {addi
 testInvokeAuthorizer_stageVariables :: Lens.Lens' TestInvokeAuthorizer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 testInvokeAuthorizer_stageVariables = Lens.lens (\TestInvokeAuthorizer' {stageVariables} -> stageVariables) (\s@TestInvokeAuthorizer' {} a -> s {stageVariables = a} :: TestInvokeAuthorizer) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 testInvokeAuthorizer_restApiId :: Lens.Lens' TestInvokeAuthorizer Prelude.Text
 testInvokeAuthorizer_restApiId = Lens.lens (\TestInvokeAuthorizer' {restApiId} -> restApiId) (\s@TestInvokeAuthorizer' {} a -> s {restApiId = a} :: TestInvokeAuthorizer)
 
--- | [Required] Specifies a test invoke authorizer request\'s Authorizer ID.
+-- | Specifies a test invoke authorizer request\'s Authorizer ID.
 testInvokeAuthorizer_authorizerId :: Lens.Lens' TestInvokeAuthorizer Prelude.Text
 testInvokeAuthorizer_authorizerId = Lens.lens (\TestInvokeAuthorizer' {authorizerId} -> authorizerId) (\s@TestInvokeAuthorizer' {} a -> s {authorizerId = a} :: TestInvokeAuthorizer)
 
@@ -274,11 +271,10 @@ data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
     -- | The HTTP status code that the client would have received. Value is 0 if
     -- the authorizer succeeded.
     clientStatus :: Prelude.Maybe Prelude.Int,
-    -- | The
-    -- <https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims>,
-    -- with any supported custom attributes, returned from the Cognito Your
-    -- User Pool configured for the API.
+    -- | The open identity claims, with any supported custom attributes, returned
+    -- from the Cognito Your User Pool configured for the API.
     claims :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The authorization response.
     authorization :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The API Gateway execution log for the test authorizer request.
     log :: Prelude.Maybe Prelude.Text,
@@ -304,12 +300,10 @@ data TestInvokeAuthorizerResponse = TestInvokeAuthorizerResponse'
 -- 'clientStatus', 'testInvokeAuthorizerResponse_clientStatus' - The HTTP status code that the client would have received. Value is 0 if
 -- the authorizer succeeded.
 --
--- 'claims', 'testInvokeAuthorizerResponse_claims' - The
--- <https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims>,
--- with any supported custom attributes, returned from the Cognito Your
--- User Pool configured for the API.
+-- 'claims', 'testInvokeAuthorizerResponse_claims' - The open identity claims, with any supported custom attributes, returned
+-- from the Cognito Your User Pool configured for the API.
 --
--- 'authorization', 'testInvokeAuthorizerResponse_authorization' - Undocumented member.
+-- 'authorization', 'testInvokeAuthorizerResponse_authorization' - The authorization response.
 --
 -- 'log', 'testInvokeAuthorizerResponse_log' - The API Gateway execution log for the test authorizer request.
 --
@@ -348,14 +342,12 @@ testInvokeAuthorizerResponse_latency = Lens.lens (\TestInvokeAuthorizerResponse'
 testInvokeAuthorizerResponse_clientStatus :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe Prelude.Int)
 testInvokeAuthorizerResponse_clientStatus = Lens.lens (\TestInvokeAuthorizerResponse' {clientStatus} -> clientStatus) (\s@TestInvokeAuthorizerResponse' {} a -> s {clientStatus = a} :: TestInvokeAuthorizerResponse)
 
--- | The
--- <https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims open identity claims>,
--- with any supported custom attributes, returned from the Cognito Your
--- User Pool configured for the API.
+-- | The open identity claims, with any supported custom attributes, returned
+-- from the Cognito Your User Pool configured for the API.
 testInvokeAuthorizerResponse_claims :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 testInvokeAuthorizerResponse_claims = Lens.lens (\TestInvokeAuthorizerResponse' {claims} -> claims) (\s@TestInvokeAuthorizerResponse' {} a -> s {claims = a} :: TestInvokeAuthorizerResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | The authorization response.
 testInvokeAuthorizerResponse_authorization :: Lens.Lens' TestInvokeAuthorizerResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 testInvokeAuthorizerResponse_authorization = Lens.lens (\TestInvokeAuthorizerResponse' {authorization} -> authorization) (\s@TestInvokeAuthorizerResponse' {} a -> s {authorization = a} :: TestInvokeAuthorizerResponse) Prelude.. Lens.mapping Lens.coerced
 

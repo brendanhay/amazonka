@@ -62,14 +62,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateMethod' smart constructor.
 data UpdateMethod = UpdateMethod'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The Resource identifier for the Method resource.
+    -- | The Resource identifier for the Method resource.
     resourceId :: Prelude.Text,
-    -- | [Required] The HTTP verb of the Method resource.
+    -- | The HTTP verb of the Method resource.
     httpMethod :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,14 +82,14 @@ data UpdateMethod = UpdateMethod'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateMethod_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateMethod_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'restApiId', 'updateMethod_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'updateMethod_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'updateMethod_resourceId' - [Required] The Resource identifier for the Method resource.
+-- 'resourceId', 'updateMethod_resourceId' - The Resource identifier for the Method resource.
 --
--- 'httpMethod', 'updateMethod_httpMethod' - [Required] The HTTP verb of the Method resource.
+-- 'httpMethod', 'updateMethod_httpMethod' - The HTTP verb of the Method resource.
 newUpdateMethod ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -106,20 +106,20 @@ newUpdateMethod pRestApiId_ pResourceId_ pHttpMethod_ =
       httpMethod = pHttpMethod_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateMethod_patchOperations :: Lens.Lens' UpdateMethod (Prelude.Maybe [PatchOperation])
 updateMethod_patchOperations = Lens.lens (\UpdateMethod' {patchOperations} -> patchOperations) (\s@UpdateMethod' {} a -> s {patchOperations = a} :: UpdateMethod) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 updateMethod_restApiId :: Lens.Lens' UpdateMethod Prelude.Text
 updateMethod_restApiId = Lens.lens (\UpdateMethod' {restApiId} -> restApiId) (\s@UpdateMethod' {} a -> s {restApiId = a} :: UpdateMethod)
 
--- | [Required] The Resource identifier for the Method resource.
+-- | The Resource identifier for the Method resource.
 updateMethod_resourceId :: Lens.Lens' UpdateMethod Prelude.Text
 updateMethod_resourceId = Lens.lens (\UpdateMethod' {resourceId} -> resourceId) (\s@UpdateMethod' {} a -> s {resourceId = a} :: UpdateMethod)
 
--- | [Required] The HTTP verb of the Method resource.
+-- | The HTTP verb of the Method resource.
 updateMethod_httpMethod :: Lens.Lens' UpdateMethod Prelude.Text
 updateMethod_httpMethod = Lens.lens (\UpdateMethod' {httpMethod} -> httpMethod) (\s@UpdateMethod' {} a -> s {httpMethod = a} :: UpdateMethod)
 

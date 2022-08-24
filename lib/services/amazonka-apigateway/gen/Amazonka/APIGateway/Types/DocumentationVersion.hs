@@ -25,13 +25,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A snapshot of the documentation of an API.
 --
--- Publishing API documentation involves creating a documentation version
--- associated with an API stage and exporting the versioned documentation
--- to an external (e.g., OpenAPI) file.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API>,
--- DocumentationPart, DocumentationVersions
---
 -- /See:/ 'newDocumentationVersion' smart constructor.
 data DocumentationVersion = DocumentationVersion'
   { -- | The description of the API documentation snapshot.

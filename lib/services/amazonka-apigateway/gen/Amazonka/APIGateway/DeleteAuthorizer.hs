@@ -21,8 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing Authorizer resource.
---
--- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html AWS CLI>
 module Amazonka.APIGateway.DeleteAuthorizer
   ( -- * Creating a Request
     DeleteAuthorizer (..),
@@ -49,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteAuthorizer' smart constructor.
 data DeleteAuthorizer = DeleteAuthorizer'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the Authorizer resource.
+    -- | The identifier of the Authorizer resource.
     authorizerId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +62,9 @@ data DeleteAuthorizer = DeleteAuthorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteAuthorizer_restApiId' - The string identifier of the associated RestApi.
 --
--- 'authorizerId', 'deleteAuthorizer_authorizerId' - [Required] The identifier of the Authorizer resource.
+-- 'authorizerId', 'deleteAuthorizer_authorizerId' - The identifier of the Authorizer resource.
 newDeleteAuthorizer ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -79,11 +77,11 @@ newDeleteAuthorizer pRestApiId_ pAuthorizerId_ =
       authorizerId = pAuthorizerId_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteAuthorizer_restApiId :: Lens.Lens' DeleteAuthorizer Prelude.Text
 deleteAuthorizer_restApiId = Lens.lens (\DeleteAuthorizer' {restApiId} -> restApiId) (\s@DeleteAuthorizer' {} a -> s {restApiId = a} :: DeleteAuthorizer)
 
--- | [Required] The identifier of the Authorizer resource.
+-- | The identifier of the Authorizer resource.
 deleteAuthorizer_authorizerId :: Lens.Lens' DeleteAuthorizer Prelude.Text
 deleteAuthorizer_authorizerId = Lens.lens (\DeleteAuthorizer' {authorizerId} -> authorizerId) (\s@DeleteAuthorizer' {} a -> s {authorizerId = a} :: DeleteAuthorizer)
 

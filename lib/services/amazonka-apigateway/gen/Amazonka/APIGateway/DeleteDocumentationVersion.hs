@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes a documentation version.
 module Amazonka.APIGateway.DeleteDocumentationVersion
   ( -- * Creating a Request
     DeleteDocumentationVersion (..),
@@ -47,10 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteDocumentationVersion' smart constructor.
 data DeleteDocumentationVersion = DeleteDocumentationVersion'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The version identifier of a to-be-deleted documentation
-    -- snapshot.
+    -- | The version identifier of a to-be-deleted documentation snapshot.
     documentationVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,10 +62,9 @@ data DeleteDocumentationVersion = DeleteDocumentationVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteDocumentationVersion_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteDocumentationVersion_restApiId' - The string identifier of the associated RestApi.
 --
--- 'documentationVersion', 'deleteDocumentationVersion_documentationVersion' - [Required] The version identifier of a to-be-deleted documentation
--- snapshot.
+-- 'documentationVersion', 'deleteDocumentationVersion_documentationVersion' - The version identifier of a to-be-deleted documentation snapshot.
 newDeleteDocumentationVersion ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -82,12 +80,11 @@ newDeleteDocumentationVersion
         documentationVersion = pDocumentationVersion_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteDocumentationVersion_restApiId :: Lens.Lens' DeleteDocumentationVersion Prelude.Text
 deleteDocumentationVersion_restApiId = Lens.lens (\DeleteDocumentationVersion' {restApiId} -> restApiId) (\s@DeleteDocumentationVersion' {} a -> s {restApiId = a} :: DeleteDocumentationVersion)
 
--- | [Required] The version identifier of a to-be-deleted documentation
--- snapshot.
+-- | The version identifier of a to-be-deleted documentation snapshot.
 deleteDocumentationVersion_documentationVersion :: Lens.Lens' DeleteDocumentationVersion Prelude.Text
 deleteDocumentationVersion_documentationVersion = Lens.lens (\DeleteDocumentationVersion' {documentationVersion} -> documentationVersion) (\s@DeleteDocumentationVersion' {} a -> s {documentationVersion = a} :: DeleteDocumentationVersion)
 

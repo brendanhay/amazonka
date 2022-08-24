@@ -29,9 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newAccessLogSettings' smart constructor.
 data AccessLogSettings = AccessLogSettings'
   { -- | A single line format of the access logs of data, as specified by
-    -- selected
-    -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference $context variables>.
-    -- The format must include at least @$context.requestId@.
+    -- selected $context variables. The format must include at least
+    -- @$context.requestId@.
     format :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
     -- Kinesis Data Firehose delivery stream to receive access logs. If you
@@ -50,9 +49,8 @@ data AccessLogSettings = AccessLogSettings'
 -- for backwards compatibility:
 --
 -- 'format', 'accessLogSettings_format' - A single line format of the access logs of data, as specified by
--- selected
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference $context variables>.
--- The format must include at least @$context.requestId@.
+-- selected $context variables. The format must include at least
+-- @$context.requestId@.
 --
 -- 'destinationArn', 'accessLogSettings_destinationArn' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or
 -- Kinesis Data Firehose delivery stream to receive access logs. If you
@@ -67,9 +65,8 @@ newAccessLogSettings =
     }
 
 -- | A single line format of the access logs of data, as specified by
--- selected
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference $context variables>.
--- The format must include at least @$context.requestId@.
+-- selected $context variables. The format must include at least
+-- @$context.requestId@.
 accessLogSettings_format :: Lens.Lens' AccessLogSettings (Prelude.Maybe Prelude.Text)
 accessLogSettings_format = Lens.lens (\AccessLogSettings' {format} -> format) (\s@AccessLogSettings' {} a -> s {format = a} :: AccessLogSettings)
 

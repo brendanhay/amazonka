@@ -66,9 +66,8 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
     nameQuery :: Prelude.Maybe Prelude.Text,
     -- | The current pagination position in the paged result set.
     position :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The Id of the UsagePlan resource representing the usage plan
-    -- containing the to-be-retrieved UsagePlanKey resource representing a plan
-    -- customer.
+    -- | The Id of the UsagePlan resource representing the usage plan containing
+    -- the to-be-retrieved UsagePlanKey resource representing a plan customer.
     usagePlanId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,9 +88,8 @@ data GetUsagePlanKeys = GetUsagePlanKeys'
 --
 -- 'position', 'getUsagePlanKeys_position' - The current pagination position in the paged result set.
 --
--- 'usagePlanId', 'getUsagePlanKeys_usagePlanId' - [Required] The Id of the UsagePlan resource representing the usage plan
--- containing the to-be-retrieved UsagePlanKey resource representing a plan
--- customer.
+-- 'usagePlanId', 'getUsagePlanKeys_usagePlanId' - The Id of the UsagePlan resource representing the usage plan containing
+-- the to-be-retrieved UsagePlanKey resource representing a plan customer.
 newGetUsagePlanKeys ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -118,9 +116,8 @@ getUsagePlanKeys_nameQuery = Lens.lens (\GetUsagePlanKeys' {nameQuery} -> nameQu
 getUsagePlanKeys_position :: Lens.Lens' GetUsagePlanKeys (Prelude.Maybe Prelude.Text)
 getUsagePlanKeys_position = Lens.lens (\GetUsagePlanKeys' {position} -> position) (\s@GetUsagePlanKeys' {} a -> s {position = a} :: GetUsagePlanKeys)
 
--- | [Required] The Id of the UsagePlan resource representing the usage plan
--- containing the to-be-retrieved UsagePlanKey resource representing a plan
--- customer.
+-- | The Id of the UsagePlan resource representing the usage plan containing
+-- the to-be-retrieved UsagePlanKey resource representing a plan customer.
 getUsagePlanKeys_usagePlanId :: Lens.Lens' GetUsagePlanKeys Prelude.Text
 getUsagePlanKeys_usagePlanId = Lens.lens (\GetUsagePlanKeys' {usagePlanId} -> usagePlanId) (\s@GetUsagePlanKeys' {} a -> s {usagePlanId = a} :: GetUsagePlanKeys)
 
@@ -197,8 +194,6 @@ instance Core.ToQuery GetUsagePlanKeys where
 
 -- | Represents the collection of usage plan keys added to usage plans for
 -- the associated API keys and, possibly, other types of keys.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html Create and Use Usage Plans>
 --
 -- /See:/ 'newGetUsagePlanKeysResponse' smart constructor.
 data GetUsagePlanKeysResponse = GetUsagePlanKeysResponse'

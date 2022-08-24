@@ -57,19 +57,16 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateIntegrationResponse' smart constructor.
 data UpdateIntegrationResponse = UpdateIntegrationResponse'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Specifies an update integration response request\'s resource
-    -- identifier.
+    -- | Specifies an update integration response request\'s resource identifier.
     resourceId :: Prelude.Text,
-    -- | [Required] Specifies an update integration response request\'s HTTP
-    -- method.
+    -- | Specifies an update integration response request\'s HTTP method.
     httpMethod :: Prelude.Text,
-    -- | [Required] Specifies an update integration response request\'s status
-    -- code.
+    -- | Specifies an update integration response request\'s status code.
     statusCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,19 +79,16 @@ data UpdateIntegrationResponse = UpdateIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateIntegrationResponse_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateIntegrationResponse_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'restApiId', 'updateIntegrationResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'updateIntegrationResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'updateIntegrationResponse_resourceId' - [Required] Specifies an update integration response request\'s resource
--- identifier.
+-- 'resourceId', 'updateIntegrationResponse_resourceId' - Specifies an update integration response request\'s resource identifier.
 --
--- 'httpMethod', 'updateIntegrationResponse_httpMethod' - [Required] Specifies an update integration response request\'s HTTP
--- method.
+-- 'httpMethod', 'updateIntegrationResponse_httpMethod' - Specifies an update integration response request\'s HTTP method.
 --
--- 'statusCode', 'updateIntegrationResponse_statusCode' - [Required] Specifies an update integration response request\'s status
--- code.
+-- 'statusCode', 'updateIntegrationResponse_statusCode' - Specifies an update integration response request\'s status code.
 newUpdateIntegrationResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -119,27 +113,24 @@ newUpdateIntegrationResponse
         statusCode = pStatusCode_
       }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateIntegrationResponse_patchOperations :: Lens.Lens' UpdateIntegrationResponse (Prelude.Maybe [PatchOperation])
 updateIntegrationResponse_patchOperations = Lens.lens (\UpdateIntegrationResponse' {patchOperations} -> patchOperations) (\s@UpdateIntegrationResponse' {} a -> s {patchOperations = a} :: UpdateIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 updateIntegrationResponse_restApiId :: Lens.Lens' UpdateIntegrationResponse Prelude.Text
 updateIntegrationResponse_restApiId = Lens.lens (\UpdateIntegrationResponse' {restApiId} -> restApiId) (\s@UpdateIntegrationResponse' {} a -> s {restApiId = a} :: UpdateIntegrationResponse)
 
--- | [Required] Specifies an update integration response request\'s resource
--- identifier.
+-- | Specifies an update integration response request\'s resource identifier.
 updateIntegrationResponse_resourceId :: Lens.Lens' UpdateIntegrationResponse Prelude.Text
 updateIntegrationResponse_resourceId = Lens.lens (\UpdateIntegrationResponse' {resourceId} -> resourceId) (\s@UpdateIntegrationResponse' {} a -> s {resourceId = a} :: UpdateIntegrationResponse)
 
--- | [Required] Specifies an update integration response request\'s HTTP
--- method.
+-- | Specifies an update integration response request\'s HTTP method.
 updateIntegrationResponse_httpMethod :: Lens.Lens' UpdateIntegrationResponse Prelude.Text
 updateIntegrationResponse_httpMethod = Lens.lens (\UpdateIntegrationResponse' {httpMethod} -> httpMethod) (\s@UpdateIntegrationResponse' {} a -> s {httpMethod = a} :: UpdateIntegrationResponse)
 
--- | [Required] Specifies an update integration response request\'s status
--- code.
+-- | Specifies an update integration response request\'s status code.
 updateIntegrationResponse_statusCode :: Lens.Lens' UpdateIntegrationResponse Prelude.Text
 updateIntegrationResponse_statusCode = Lens.lens (\UpdateIntegrationResponse' {statusCode} -> statusCode) (\s@UpdateIntegrationResponse' {} a -> s {statusCode = a} :: UpdateIntegrationResponse)
 

@@ -70,12 +70,12 @@ data GetExport = GetExport'
     -- x-amazon-apigateway-authorizer extensions. @postman@ will export the API
     -- with Postman extensions, allowing for import to the Postman tool
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The name of the Stage that will be exported.
+    -- | The name of the Stage that will be exported.
     stageName :: Prelude.Text,
-    -- | [Required] The type of export. Acceptable values are \'oas30\' for
-    -- OpenAPI 3.0.x and \'swagger\' for Swagger\/OpenAPI 2.0.
+    -- | The type of export. Acceptable values are \'oas30\' for OpenAPI 3.0.x
+    -- and \'swagger\' for Swagger\/OpenAPI 2.0.
     exportType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,12 +102,12 @@ data GetExport = GetExport'
 -- x-amazon-apigateway-authorizer extensions. @postman@ will export the API
 -- with Postman extensions, allowing for import to the Postman tool
 --
--- 'restApiId', 'getExport_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getExport_restApiId' - The string identifier of the associated RestApi.
 --
--- 'stageName', 'getExport_stageName' - [Required] The name of the Stage that will be exported.
+-- 'stageName', 'getExport_stageName' - The name of the Stage that will be exported.
 --
--- 'exportType', 'getExport_exportType' - [Required] The type of export. Acceptable values are \'oas30\' for
--- OpenAPI 3.0.x and \'swagger\' for Swagger\/OpenAPI 2.0.
+-- 'exportType', 'getExport_exportType' - The type of export. Acceptable values are \'oas30\' for OpenAPI 3.0.x
+-- and \'swagger\' for Swagger\/OpenAPI 2.0.
 newGetExport ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -143,16 +143,16 @@ getExport_accepts = Lens.lens (\GetExport' {accepts} -> accepts) (\s@GetExport' 
 getExport_parameters :: Lens.Lens' GetExport (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getExport_parameters = Lens.lens (\GetExport' {parameters} -> parameters) (\s@GetExport' {} a -> s {parameters = a} :: GetExport) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getExport_restApiId :: Lens.Lens' GetExport Prelude.Text
 getExport_restApiId = Lens.lens (\GetExport' {restApiId} -> restApiId) (\s@GetExport' {} a -> s {restApiId = a} :: GetExport)
 
--- | [Required] The name of the Stage that will be exported.
+-- | The name of the Stage that will be exported.
 getExport_stageName :: Lens.Lens' GetExport Prelude.Text
 getExport_stageName = Lens.lens (\GetExport' {stageName} -> stageName) (\s@GetExport' {} a -> s {stageName = a} :: GetExport)
 
--- | [Required] The type of export. Acceptable values are \'oas30\' for
--- OpenAPI 3.0.x and \'swagger\' for Swagger\/OpenAPI 2.0.
+-- | The type of export. Acceptable values are \'oas30\' for OpenAPI 3.0.x
+-- and \'swagger\' for Swagger\/OpenAPI 2.0.
 getExport_exportType :: Lens.Lens' GetExport Prelude.Text
 getExport_exportType = Lens.lens (\GetExport' {exportType} -> exportType) (\s@GetExport' {} a -> s {exportType = a} :: GetExport)
 

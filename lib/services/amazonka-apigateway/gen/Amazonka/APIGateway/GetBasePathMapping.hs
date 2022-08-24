@@ -52,13 +52,12 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetBasePathMapping' smart constructor.
 data GetBasePathMapping = GetBasePathMapping'
-  { -- | [Required] The domain name of the BasePathMapping resource to be
-    -- described.
+  { -- | The domain name of the BasePathMapping resource to be described.
     domainName :: Prelude.Text,
-    -- | [Required] The base path name that callers of the API must provide as
-    -- part of the URL after the domain name. This value must be unique for all
-    -- of the mappings across a single API. Specify \'(none)\' if you do not
-    -- want callers to specify any base path name after the domain name.
+    -- | The base path name that callers of the API must provide as part of the
+    -- URL after the domain name. This value must be unique for all of the
+    -- mappings across a single API. Specify \'(none)\' if you do not want
+    -- callers to specify any base path name after the domain name.
     basePath :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,13 +70,12 @@ data GetBasePathMapping = GetBasePathMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'getBasePathMapping_domainName' - [Required] The domain name of the BasePathMapping resource to be
--- described.
+-- 'domainName', 'getBasePathMapping_domainName' - The domain name of the BasePathMapping resource to be described.
 --
--- 'basePath', 'getBasePathMapping_basePath' - [Required] The base path name that callers of the API must provide as
--- part of the URL after the domain name. This value must be unique for all
--- of the mappings across a single API. Specify \'(none)\' if you do not
--- want callers to specify any base path name after the domain name.
+-- 'basePath', 'getBasePathMapping_basePath' - The base path name that callers of the API must provide as part of the
+-- URL after the domain name. This value must be unique for all of the
+-- mappings across a single API. Specify \'(none)\' if you do not want
+-- callers to specify any base path name after the domain name.
 newGetBasePathMapping ::
   -- | 'domainName'
   Prelude.Text ->
@@ -90,15 +88,14 @@ newGetBasePathMapping pDomainName_ pBasePath_ =
       basePath = pBasePath_
     }
 
--- | [Required] The domain name of the BasePathMapping resource to be
--- described.
+-- | The domain name of the BasePathMapping resource to be described.
 getBasePathMapping_domainName :: Lens.Lens' GetBasePathMapping Prelude.Text
 getBasePathMapping_domainName = Lens.lens (\GetBasePathMapping' {domainName} -> domainName) (\s@GetBasePathMapping' {} a -> s {domainName = a} :: GetBasePathMapping)
 
--- | [Required] The base path name that callers of the API must provide as
--- part of the URL after the domain name. This value must be unique for all
--- of the mappings across a single API. Specify \'(none)\' if you do not
--- want callers to specify any base path name after the domain name.
+-- | The base path name that callers of the API must provide as part of the
+-- URL after the domain name. This value must be unique for all of the
+-- mappings across a single API. Specify \'(none)\' if you do not want
+-- callers to specify any base path name after the domain name.
 getBasePathMapping_basePath :: Lens.Lens' GetBasePathMapping Prelude.Text
 getBasePathMapping_basePath = Lens.lens (\GetBasePathMapping' {basePath} -> basePath) (\s@GetBasePathMapping' {} a -> s {basePath = a} :: GetBasePathMapping)
 

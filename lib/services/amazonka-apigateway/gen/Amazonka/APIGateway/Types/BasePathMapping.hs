@@ -26,11 +26,6 @@ import qualified Amazonka.Prelude as Prelude
 -- | Represents the base path that callers of the API must provide as part of
 -- the URL after the domain name.
 --
--- A custom domain name plus a @BasePathMapping@ specification identifies a
--- deployed RestApi in a given stage of the owner Account.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html Use Custom Domain Names>
---
 -- /See:/ 'newBasePathMapping' smart constructor.
 data BasePathMapping = BasePathMapping'
   { -- | The string identifier of the associated RestApi.

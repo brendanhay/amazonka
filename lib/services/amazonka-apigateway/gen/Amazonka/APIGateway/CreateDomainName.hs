@@ -122,7 +122,7 @@ data CreateDomainName = CreateDomainName'
     -- | The Transport Layer Security (TLS) version + cipher suite for this
     -- DomainName. The valid values are @TLS_1_0@ and @TLS_1_2@.
     securityPolicy :: Prelude.Maybe SecurityPolicy,
-    -- | [Required] The name of the DomainName resource.
+    -- | The name of the DomainName resource.
     domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -181,7 +181,7 @@ data CreateDomainName = CreateDomainName'
 -- 'securityPolicy', 'createDomainName_securityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this
 -- DomainName. The valid values are @TLS_1_0@ and @TLS_1_2@.
 --
--- 'domainName', 'createDomainName_domainName' - [Required] The name of the DomainName resource.
+-- 'domainName', 'createDomainName_domainName' - The name of the DomainName resource.
 newCreateDomainName ::
   -- | 'domainName'
   Prelude.Text ->
@@ -274,7 +274,7 @@ createDomainName_endpointConfiguration = Lens.lens (\CreateDomainName' {endpoint
 createDomainName_securityPolicy :: Lens.Lens' CreateDomainName (Prelude.Maybe SecurityPolicy)
 createDomainName_securityPolicy = Lens.lens (\CreateDomainName' {securityPolicy} -> securityPolicy) (\s@CreateDomainName' {} a -> s {securityPolicy = a} :: CreateDomainName)
 
--- | [Required] The name of the DomainName resource.
+-- | The name of the DomainName resource.
 createDomainName_domainName :: Lens.Lens' CreateDomainName Prelude.Text
 createDomainName_domainName = Lens.lens (\CreateDomainName' {domainName} -> domainName) (\s@CreateDomainName' {} a -> s {domainName = a} :: CreateDomainName)
 

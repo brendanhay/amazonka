@@ -56,14 +56,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetIntegrationResponse' smart constructor.
 data GetIntegrationResponse = GetIntegrationResponse'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Specifies a get integration response request\'s resource
-    -- identifier.
+    -- | Specifies a get integration response request\'s resource identifier.
     resourceId :: Prelude.Text,
-    -- | [Required] Specifies a get integration response request\'s HTTP method.
+    -- | Specifies a get integration response request\'s HTTP method.
     httpMethod :: Prelude.Text,
-    -- | [Required] Specifies a get integration response request\'s status code.
+    -- | Specifies a get integration response request\'s status code.
     statusCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,14 +75,13 @@ data GetIntegrationResponse = GetIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getIntegrationResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getIntegrationResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'getIntegrationResponse_resourceId' - [Required] Specifies a get integration response request\'s resource
--- identifier.
+-- 'resourceId', 'getIntegrationResponse_resourceId' - Specifies a get integration response request\'s resource identifier.
 --
--- 'httpMethod', 'getIntegrationResponse_httpMethod' - [Required] Specifies a get integration response request\'s HTTP method.
+-- 'httpMethod', 'getIntegrationResponse_httpMethod' - Specifies a get integration response request\'s HTTP method.
 --
--- 'statusCode', 'getIntegrationResponse_statusCode' - [Required] Specifies a get integration response request\'s status code.
+-- 'statusCode', 'getIntegrationResponse_statusCode' - Specifies a get integration response request\'s status code.
 newGetIntegrationResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -106,20 +104,19 @@ newGetIntegrationResponse
         statusCode = pStatusCode_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getIntegrationResponse_restApiId :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_restApiId = Lens.lens (\GetIntegrationResponse' {restApiId} -> restApiId) (\s@GetIntegrationResponse' {} a -> s {restApiId = a} :: GetIntegrationResponse)
 
--- | [Required] Specifies a get integration response request\'s resource
--- identifier.
+-- | Specifies a get integration response request\'s resource identifier.
 getIntegrationResponse_resourceId :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_resourceId = Lens.lens (\GetIntegrationResponse' {resourceId} -> resourceId) (\s@GetIntegrationResponse' {} a -> s {resourceId = a} :: GetIntegrationResponse)
 
--- | [Required] Specifies a get integration response request\'s HTTP method.
+-- | Specifies a get integration response request\'s HTTP method.
 getIntegrationResponse_httpMethod :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_httpMethod = Lens.lens (\GetIntegrationResponse' {httpMethod} -> httpMethod) (\s@GetIntegrationResponse' {} a -> s {httpMethod = a} :: GetIntegrationResponse)
 
--- | [Required] Specifies a get integration response request\'s status code.
+-- | Specifies a get integration response request\'s status code.
 getIntegrationResponse_statusCode :: Lens.Lens' GetIntegrationResponse Prelude.Text
 getIntegrationResponse_statusCode = Lens.lens (\GetIntegrationResponse' {statusCode} -> statusCode) (\s@GetIntegrationResponse' {} a -> s {statusCode = a} :: GetIntegrationResponse)
 

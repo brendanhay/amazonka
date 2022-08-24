@@ -65,11 +65,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetIntegration' smart constructor.
 data GetIntegration = GetIntegration'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Specifies a get integration request\'s resource identifier
+    -- | Specifies a get integration request\'s resource identifier
     resourceId :: Prelude.Text,
-    -- | [Required] Specifies a get integration request\'s HTTP method.
+    -- | Specifies a get integration request\'s HTTP method.
     httpMethod :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,11 +82,11 @@ data GetIntegration = GetIntegration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getIntegration_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getIntegration_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'getIntegration_resourceId' - [Required] Specifies a get integration request\'s resource identifier
+-- 'resourceId', 'getIntegration_resourceId' - Specifies a get integration request\'s resource identifier
 --
--- 'httpMethod', 'getIntegration_httpMethod' - [Required] Specifies a get integration request\'s HTTP method.
+-- 'httpMethod', 'getIntegration_httpMethod' - Specifies a get integration request\'s HTTP method.
 newGetIntegration ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -105,15 +105,15 @@ newGetIntegration
         httpMethod = pHttpMethod_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getIntegration_restApiId :: Lens.Lens' GetIntegration Prelude.Text
 getIntegration_restApiId = Lens.lens (\GetIntegration' {restApiId} -> restApiId) (\s@GetIntegration' {} a -> s {restApiId = a} :: GetIntegration)
 
--- | [Required] Specifies a get integration request\'s resource identifier
+-- | Specifies a get integration request\'s resource identifier
 getIntegration_resourceId :: Lens.Lens' GetIntegration Prelude.Text
 getIntegration_resourceId = Lens.lens (\GetIntegration' {resourceId} -> resourceId) (\s@GetIntegration' {} a -> s {resourceId = a} :: GetIntegration)
 
--- | [Required] Specifies a get integration request\'s HTTP method.
+-- | Specifies a get integration request\'s HTTP method.
 getIntegration_httpMethod :: Lens.Lens' GetIntegration Prelude.Text
 getIntegration_httpMethod = Lens.lens (\GetIntegration' {httpMethod} -> httpMethod) (\s@GetIntegration' {} a -> s {httpMethod = a} :: GetIntegration)
 

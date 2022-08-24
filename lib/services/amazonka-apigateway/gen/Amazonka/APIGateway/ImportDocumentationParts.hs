@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Imports documentation parts
 module Amazonka.APIGateway.ImportDocumentationParts
   ( -- * Creating a Request
     ImportDocumentationParts (..),
@@ -63,10 +63,10 @@ data ImportDocumentationParts = ImportDocumentationParts'
     -- existing DocumentationParts definition or to merge (@MERGE@) the new
     -- definition into the existing one. The default value is @MERGE@.
     mode :: Prelude.Maybe PutMode,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Raw byte array representing the to-be-imported documentation
-    -- parts. To import from an OpenAPI file, this is a JSON object.
+    -- | Raw byte array representing the to-be-imported documentation parts. To
+    -- import from an OpenAPI file, this is a JSON object.
     body :: Prelude.ByteString
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -87,10 +87,10 @@ data ImportDocumentationParts = ImportDocumentationParts'
 -- existing DocumentationParts definition or to merge (@MERGE@) the new
 -- definition into the existing one. The default value is @MERGE@.
 --
--- 'restApiId', 'importDocumentationParts_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'importDocumentationParts_restApiId' - The string identifier of the associated RestApi.
 --
--- 'body', 'importDocumentationParts_body' - [Required] Raw byte array representing the to-be-imported documentation
--- parts. To import from an OpenAPI file, this is a JSON object.
+-- 'body', 'importDocumentationParts_body' - Raw byte array representing the to-be-imported documentation parts. To
+-- import from an OpenAPI file, this is a JSON object.
 newImportDocumentationParts ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -118,12 +118,12 @@ importDocumentationParts_failOnWarnings = Lens.lens (\ImportDocumentationParts' 
 importDocumentationParts_mode :: Lens.Lens' ImportDocumentationParts (Prelude.Maybe PutMode)
 importDocumentationParts_mode = Lens.lens (\ImportDocumentationParts' {mode} -> mode) (\s@ImportDocumentationParts' {} a -> s {mode = a} :: ImportDocumentationParts)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 importDocumentationParts_restApiId :: Lens.Lens' ImportDocumentationParts Prelude.Text
 importDocumentationParts_restApiId = Lens.lens (\ImportDocumentationParts' {restApiId} -> restApiId) (\s@ImportDocumentationParts' {} a -> s {restApiId = a} :: ImportDocumentationParts)
 
--- | [Required] Raw byte array representing the to-be-imported documentation
--- parts. To import from an OpenAPI file, this is a JSON object.
+-- | Raw byte array representing the to-be-imported documentation parts. To
+-- import from an OpenAPI file, this is a JSON object.
 importDocumentationParts_body :: Lens.Lens' ImportDocumentationParts Prelude.ByteString
 importDocumentationParts_body = Lens.lens (\ImportDocumentationParts' {body} -> body) (\s@ImportDocumentationParts' {} a -> s {body = a} :: ImportDocumentationParts)
 
@@ -184,13 +184,6 @@ instance Core.ToQuery ImportDocumentationParts where
       ]
 
 -- | A collection of the imported DocumentationPart identifiers.
---
--- This is used to return the result when documentation parts in an
--- external (e.g., OpenAPI) file are imported into API Gateway
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api.html Documenting an API>,
--- <https://docs.aws.amazon.com/apigateway/api-reference/link-relation/documentationpart-import/ documentationpart:import>,
--- DocumentationPart
 --
 -- /See:/ 'newImportDocumentationPartsResponse' smart constructor.
 data ImportDocumentationPartsResponse = ImportDocumentationPartsResponse'

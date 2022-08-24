@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Gets an SDK type.
 module Amazonka.APIGateway.GetSdkType
   ( -- * Creating a Request
     GetSdkType (..),
@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetSdkType' smart constructor.
 data GetSdkType = GetSdkType'
-  { -- | [Required] The identifier of the queried SdkType instance.
+  { -- | The identifier of the queried SdkType instance.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,14 +65,14 @@ data GetSdkType = GetSdkType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'getSdkType_id' - [Required] The identifier of the queried SdkType instance.
+-- 'id', 'getSdkType_id' - The identifier of the queried SdkType instance.
 newGetSdkType ::
   -- | 'id'
   Prelude.Text ->
   GetSdkType
 newGetSdkType pId_ = GetSdkType' {id = pId_}
 
--- | [Required] The identifier of the queried SdkType instance.
+-- | The identifier of the queried SdkType instance.
 getSdkType_id :: Lens.Lens' GetSdkType Prelude.Text
 getSdkType_id = Lens.lens (\GetSdkType' {id} -> id) (\s@GetSdkType' {} a -> s {id = a} :: GetSdkType)
 

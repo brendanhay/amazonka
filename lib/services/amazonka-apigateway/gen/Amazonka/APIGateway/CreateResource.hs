@@ -55,9 +55,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateResource' smart constructor.
 data CreateResource = CreateResource'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The parent resource\'s identifier.
+    -- | The parent resource\'s identifier.
     parentId :: Prelude.Text,
     -- | The last path segment for this resource.
     pathPart :: Prelude.Text
@@ -72,9 +72,9 @@ data CreateResource = CreateResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'createResource_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'createResource_restApiId' - The string identifier of the associated RestApi.
 --
--- 'parentId', 'createResource_parentId' - [Required] The parent resource\'s identifier.
+-- 'parentId', 'createResource_parentId' - The parent resource\'s identifier.
 --
 -- 'pathPart', 'createResource_pathPart' - The last path segment for this resource.
 newCreateResource ::
@@ -92,11 +92,11 @@ newCreateResource pRestApiId_ pParentId_ pPathPart_ =
       pathPart = pPathPart_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 createResource_restApiId :: Lens.Lens' CreateResource Prelude.Text
 createResource_restApiId = Lens.lens (\CreateResource' {restApiId} -> restApiId) (\s@CreateResource' {} a -> s {restApiId = a} :: CreateResource)
 
--- | [Required] The parent resource\'s identifier.
+-- | The parent resource\'s identifier.
 createResource_parentId :: Lens.Lens' CreateResource Prelude.Text
 createResource_parentId = Lens.lens (\CreateResource' {parentId} -> parentId) (\s@CreateResource' {} a -> s {parentId = a} :: CreateResource)
 

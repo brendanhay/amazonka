@@ -201,8 +201,6 @@ instance Core.ToQuery GetApiKeys where
 -- | Represents a collection of API keys as represented by an ApiKeys
 -- resource.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-api-keys.html Use API Keys>
---
 -- /See:/ 'newGetApiKeysResponse' smart constructor.
 data GetApiKeysResponse = GetApiKeysResponse'
   { -- | The current page of elements from this collection.

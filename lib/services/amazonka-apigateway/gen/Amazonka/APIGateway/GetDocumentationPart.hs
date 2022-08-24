@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Gets a documentation part.
 module Amazonka.APIGateway.GetDocumentationPart
   ( -- * Creating a Request
     GetDocumentationPart (..),
@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetDocumentationPart' smart constructor.
 data GetDocumentationPart = GetDocumentationPart'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     documentationPartId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +67,9 @@ data GetDocumentationPart = GetDocumentationPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getDocumentationPart_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getDocumentationPart_restApiId' - The string identifier of the associated RestApi.
 --
--- 'documentationPartId', 'getDocumentationPart_documentationPartId' - [Required] The string identifier of the associated RestApi.
+-- 'documentationPartId', 'getDocumentationPart_documentationPartId' - The string identifier of the associated RestApi.
 newGetDocumentationPart ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -84,11 +84,11 @@ newGetDocumentationPart
         documentationPartId = pDocumentationPartId_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getDocumentationPart_restApiId :: Lens.Lens' GetDocumentationPart Prelude.Text
 getDocumentationPart_restApiId = Lens.lens (\GetDocumentationPart' {restApiId} -> restApiId) (\s@GetDocumentationPart' {} a -> s {restApiId = a} :: GetDocumentationPart)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getDocumentationPart_documentationPartId :: Lens.Lens' GetDocumentationPart Prelude.Text
 getDocumentationPart_documentationPartId = Lens.lens (\GetDocumentationPart' {documentationPartId} -> documentationPartId) (\s@GetDocumentationPart' {} a -> s {documentationPartId = a} :: GetDocumentationPart)
 

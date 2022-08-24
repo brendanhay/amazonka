@@ -26,12 +26,6 @@ import qualified Amazonka.Prelude as Prelude
 -- | Represents a client certificate used to configure client-side SSL
 -- authentication while sending requests to the integration endpoint.
 --
--- Client certificates are used to authenticate an API by the backend
--- server. To authenticate an API client (or user), use IAM roles and
--- policies, a custom Authorizer or an Amazon Cognito user pool.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-client-side-ssl-authentication.html Use Client-Side Certificate>
---
 -- /See:/ 'newClientCertificate' smart constructor.
 data ClientCertificate = ClientCertificate'
   { -- | The collection of tags. Each tag element is associated with a given

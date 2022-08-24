@@ -53,8 +53,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateAccount' smart constructor.
 data UpdateAccount = UpdateAccount'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,15 +67,15 @@ data UpdateAccount = UpdateAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateAccount_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateAccount_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 newUpdateAccount ::
   UpdateAccount
 newUpdateAccount =
   UpdateAccount' {patchOperations = Prelude.Nothing}
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateAccount_patchOperations :: Lens.Lens' UpdateAccount (Prelude.Maybe [PatchOperation])
 updateAccount_patchOperations = Lens.lens (\UpdateAccount' {patchOperations} -> patchOperations) (\s@UpdateAccount' {} a -> s {patchOperations = a} :: UpdateAccount) Prelude.. Lens.mapping Lens.coerced
 

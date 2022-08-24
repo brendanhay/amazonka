@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | [Required] The ARN of a resource that can be tagged.
+  { -- | The ARN of a resource that can be tagged.
     resourceArn :: Prelude.Text,
-    -- | [Required] The Tag keys to delete.
+    -- | The Tag keys to delete.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - [Required] The ARN of a resource that can be tagged.
+-- 'resourceArn', 'untagResource_resourceArn' - The ARN of a resource that can be tagged.
 --
--- 'tagKeys', 'untagResource_tagKeys' - [Required] The Tag keys to delete.
+-- 'tagKeys', 'untagResource_tagKeys' - The Tag keys to delete.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -75,11 +75,11 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | [Required] The ARN of a resource that can be tagged.
+-- | The ARN of a resource that can be tagged.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | [Required] The Tag keys to delete.
+-- | The Tag keys to delete.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 

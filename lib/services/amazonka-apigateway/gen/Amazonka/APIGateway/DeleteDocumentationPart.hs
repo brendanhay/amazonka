@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- -- | Undocumented operation.
+-- Deletes a documentation part
 module Amazonka.APIGateway.DeleteDocumentationPart
   ( -- * Creating a Request
     DeleteDocumentationPart (..),
@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteDocumentationPart' smart constructor.
 data DeleteDocumentationPart = DeleteDocumentationPart'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the to-be-deleted documentation part.
+    -- | The identifier of the to-be-deleted documentation part.
     documentationPartId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data DeleteDocumentationPart = DeleteDocumentationPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteDocumentationPart_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteDocumentationPart_restApiId' - The string identifier of the associated RestApi.
 --
--- 'documentationPartId', 'deleteDocumentationPart_documentationPartId' - [Required] The identifier of the to-be-deleted documentation part.
+-- 'documentationPartId', 'deleteDocumentationPart_documentationPartId' - The identifier of the to-be-deleted documentation part.
 newDeleteDocumentationPart ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -79,11 +79,11 @@ newDeleteDocumentationPart
         documentationPartId = pDocumentationPartId_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteDocumentationPart_restApiId :: Lens.Lens' DeleteDocumentationPart Prelude.Text
 deleteDocumentationPart_restApiId = Lens.lens (\DeleteDocumentationPart' {restApiId} -> restApiId) (\s@DeleteDocumentationPart' {} a -> s {restApiId = a} :: DeleteDocumentationPart)
 
--- | [Required] The identifier of the to-be-deleted documentation part.
+-- | The identifier of the to-be-deleted documentation part.
 deleteDocumentationPart_documentationPartId :: Lens.Lens' DeleteDocumentationPart Prelude.Text
 deleteDocumentationPart_documentationPartId = Lens.lens (\DeleteDocumentationPart' {documentationPartId} -> documentationPartId) (\s@DeleteDocumentationPart' {} a -> s {documentationPartId = a} :: DeleteDocumentationPart)
 

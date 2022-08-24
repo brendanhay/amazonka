@@ -27,14 +27,6 @@ import qualified Amazonka.Prelude as Prelude
 -- | An API Gateway VPC link for a RestApi to access resources in an Amazon
 -- Virtual Private Cloud (VPC).
 --
--- To enable access to a resource in an Amazon Virtual Private Cloud
--- through Amazon API Gateway, you, as an API developer, create a VpcLink
--- resource targeted for one or more network load balancers of the VPC and
--- then integrate an API method with a private integration that uses the
--- VpcLink. The private integration has an integration type of @HTTP@ or
--- @HTTP_PROXY@ and has a connection type of @VPC_LINK@. The integration
--- uses the @connectionId@ property to identify the VpcLink used.
---
 -- /See:/ 'newVpcLink' smart constructor.
 data VpcLink = VpcLink'
   { -- | The collection of tags. Each tag element is associated with a given

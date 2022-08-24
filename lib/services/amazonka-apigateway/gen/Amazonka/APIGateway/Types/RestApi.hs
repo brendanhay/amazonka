@@ -27,8 +27,6 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a REST API.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Create an API>
---
 -- /See:/ 'newRestApi' smart constructor.
 data RestApi = RestApi'
   { -- | The collection of tags. Each tag element is associated with a given
@@ -52,9 +50,9 @@ data RestApi = RestApi'
     warnings :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether clients can invoke your API by using the default
     -- @execute-api@ endpoint. By default, clients can invoke your API with the
-    -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
-    -- To require that clients use a custom domain name to invoke your API,
-    -- disable the default endpoint.
+    -- default @https:\/\/{api_id}.execute-api.{region}.amazonaws.com@
+    -- endpoint. To require that clients use a custom domain name to invoke
+    -- your API, disable the default endpoint.
     disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
     -- | The endpoint configuration of this RestApi showing the endpoint types of
     -- the API.
@@ -62,12 +60,9 @@ data RestApi = RestApi'
     -- | The timestamp when the API was created.
     createdDate :: Prelude.Maybe Core.POSIX,
     -- | The source of the API key for metering requests according to a usage
-    -- plan. Valid values are:
-    --
-    -- -   @HEADER@ to read the API key from the @X-API-Key@ header of a
-    --     request.
-    -- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from
-    --     a custom authorizer.
+    -- plan. Valid values are: >@HEADER@ to read the API key from the
+    -- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+    -- the @UsageIdentifierKey@ from a custom authorizer.
     apiKeySource :: Prelude.Maybe ApiKeySourceType,
     -- | A nullable integer that is used to enable compression (with non-negative
     -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
@@ -110,9 +105,9 @@ data RestApi = RestApi'
 --
 -- 'disableExecuteApiEndpoint', 'restApi_disableExecuteApiEndpoint' - Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
--- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
--- To require that clients use a custom domain name to invoke your API,
--- disable the default endpoint.
+-- default @https:\/\/{api_id}.execute-api.{region}.amazonaws.com@
+-- endpoint. To require that clients use a custom domain name to invoke
+-- your API, disable the default endpoint.
 --
 -- 'endpointConfiguration', 'restApi_endpointConfiguration' - The endpoint configuration of this RestApi showing the endpoint types of
 -- the API.
@@ -120,12 +115,9 @@ data RestApi = RestApi'
 -- 'createdDate', 'restApi_createdDate' - The timestamp when the API was created.
 --
 -- 'apiKeySource', 'restApi_apiKeySource' - The source of the API key for metering requests according to a usage
--- plan. Valid values are:
---
--- -   @HEADER@ to read the API key from the @X-API-Key@ header of a
---     request.
--- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from
---     a custom authorizer.
+-- plan. Valid values are: >@HEADER@ to read the API key from the
+-- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+-- the @UsageIdentifierKey@ from a custom authorizer.
 --
 -- 'minimumCompressionSize', 'restApi_minimumCompressionSize' - A nullable integer that is used to enable compression (with non-negative
 -- between 0 and 10485760 (10M) bytes, inclusive) or disable compression
@@ -189,9 +181,9 @@ restApi_warnings = Lens.lens (\RestApi' {warnings} -> warnings) (\s@RestApi' {} 
 
 -- | Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
--- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
--- To require that clients use a custom domain name to invoke your API,
--- disable the default endpoint.
+-- default @https:\/\/{api_id}.execute-api.{region}.amazonaws.com@
+-- endpoint. To require that clients use a custom domain name to invoke
+-- your API, disable the default endpoint.
 restApi_disableExecuteApiEndpoint :: Lens.Lens' RestApi (Prelude.Maybe Prelude.Bool)
 restApi_disableExecuteApiEndpoint = Lens.lens (\RestApi' {disableExecuteApiEndpoint} -> disableExecuteApiEndpoint) (\s@RestApi' {} a -> s {disableExecuteApiEndpoint = a} :: RestApi)
 
@@ -205,12 +197,9 @@ restApi_createdDate :: Lens.Lens' RestApi (Prelude.Maybe Prelude.UTCTime)
 restApi_createdDate = Lens.lens (\RestApi' {createdDate} -> createdDate) (\s@RestApi' {} a -> s {createdDate = a} :: RestApi) Prelude.. Lens.mapping Core._Time
 
 -- | The source of the API key for metering requests according to a usage
--- plan. Valid values are:
---
--- -   @HEADER@ to read the API key from the @X-API-Key@ header of a
---     request.
--- -   @AUTHORIZER@ to read the API key from the @UsageIdentifierKey@ from
---     a custom authorizer.
+-- plan. Valid values are: >@HEADER@ to read the API key from the
+-- @X-API-Key@ header of a request. @AUTHORIZER@ to read the API key from
+-- the @UsageIdentifierKey@ from a custom authorizer.
 restApi_apiKeySource :: Lens.Lens' RestApi (Prelude.Maybe ApiKeySourceType)
 restApi_apiKeySource = Lens.lens (\RestApi' {apiKeySource} -> apiKeySource) (\s@RestApi' {} a -> s {apiKeySource = a} :: RestApi)
 

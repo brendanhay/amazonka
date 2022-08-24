@@ -56,11 +56,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newUpdateVpcLink' smart constructor.
 data UpdateVpcLink = UpdateVpcLink'
-  { -- | A list of update operations to be applied to the specified resource and
-    -- in the order specified in this list.
+  { -- | For more information about supported patch operations, see
+    -- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
     patchOperations :: Prelude.Maybe [PatchOperation],
-    -- | [Required] The identifier of the VpcLink. It is used in an Integration
-    -- to reference this VpcLink.
+    -- | The identifier of the VpcLink. It is used in an Integration to reference
+    -- this VpcLink.
     vpcLinkId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,11 +73,11 @@ data UpdateVpcLink = UpdateVpcLink'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'patchOperations', 'updateVpcLink_patchOperations' - A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- 'patchOperations', 'updateVpcLink_patchOperations' - For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 --
--- 'vpcLinkId', 'updateVpcLink_vpcLinkId' - [Required] The identifier of the VpcLink. It is used in an Integration
--- to reference this VpcLink.
+-- 'vpcLinkId', 'updateVpcLink_vpcLinkId' - The identifier of the VpcLink. It is used in an Integration to reference
+-- this VpcLink.
 newUpdateVpcLink ::
   -- | 'vpcLinkId'
   Prelude.Text ->
@@ -88,13 +88,13 @@ newUpdateVpcLink pVpcLinkId_ =
       vpcLinkId = pVpcLinkId_
     }
 
--- | A list of update operations to be applied to the specified resource and
--- in the order specified in this list.
+-- | For more information about supported patch operations, see
+-- <https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html Patch Operations>.
 updateVpcLink_patchOperations :: Lens.Lens' UpdateVpcLink (Prelude.Maybe [PatchOperation])
 updateVpcLink_patchOperations = Lens.lens (\UpdateVpcLink' {patchOperations} -> patchOperations) (\s@UpdateVpcLink' {} a -> s {patchOperations = a} :: UpdateVpcLink) Prelude.. Lens.mapping Lens.coerced
 
--- | [Required] The identifier of the VpcLink. It is used in an Integration
--- to reference this VpcLink.
+-- | The identifier of the VpcLink. It is used in an Integration to reference
+-- this VpcLink.
 updateVpcLink_vpcLinkId :: Lens.Lens' UpdateVpcLink Prelude.Text
 updateVpcLink_vpcLinkId = Lens.lens (\UpdateVpcLink' {vpcLinkId} -> vpcLinkId) (\s@UpdateVpcLink' {} a -> s {vpcLinkId = a} :: UpdateVpcLink)
 

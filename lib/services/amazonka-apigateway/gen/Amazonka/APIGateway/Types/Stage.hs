@@ -31,8 +31,6 @@ import qualified Amazonka.Prelude as Prelude
 -- | Represents a unique identifier for a version of a deployed RestApi that
 -- is callable by users.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html Deploy an API>
---
 -- /See:/ 'newStage' smart constructor.
 data Stage = Stage'
   { -- | The collection of tags. Each tag element is associated with a given

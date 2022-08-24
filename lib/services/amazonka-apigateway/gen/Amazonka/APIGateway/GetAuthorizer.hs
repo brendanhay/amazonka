@@ -21,8 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describe an existing Authorizer resource.
---
--- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizer.html AWS CLI>
 module Amazonka.APIGateway.GetAuthorizer
   ( -- * Creating a Request
     GetAuthorizer (..),
@@ -61,9 +59,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetAuthorizer' smart constructor.
 data GetAuthorizer = GetAuthorizer'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The identifier of the Authorizer resource.
+    -- | The identifier of the Authorizer resource.
     authorizerId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,9 +74,9 @@ data GetAuthorizer = GetAuthorizer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getAuthorizer_restApiId' - The string identifier of the associated RestApi.
 --
--- 'authorizerId', 'getAuthorizer_authorizerId' - [Required] The identifier of the Authorizer resource.
+-- 'authorizerId', 'getAuthorizer_authorizerId' - The identifier of the Authorizer resource.
 newGetAuthorizer ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -91,11 +89,11 @@ newGetAuthorizer pRestApiId_ pAuthorizerId_ =
       authorizerId = pAuthorizerId_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getAuthorizer_restApiId :: Lens.Lens' GetAuthorizer Prelude.Text
 getAuthorizer_restApiId = Lens.lens (\GetAuthorizer' {restApiId} -> restApiId) (\s@GetAuthorizer' {} a -> s {restApiId = a} :: GetAuthorizer)
 
--- | [Required] The identifier of the Authorizer resource.
+-- | The identifier of the Authorizer resource.
 getAuthorizer_authorizerId :: Lens.Lens' GetAuthorizer Prelude.Text
 getAuthorizer_authorizerId = Lens.lens (\GetAuthorizer' {authorizerId} -> authorizerId) (\s@GetAuthorizer' {} a -> s {authorizerId = a} :: GetAuthorizer)
 

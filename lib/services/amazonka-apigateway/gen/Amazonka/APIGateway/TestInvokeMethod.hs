@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Simulate the execution of a Method in your RestApi with headers,
+-- Simulate the invocation of a Method in your RestApi with headers,
 -- parameters, and an incoming request body.
 module Amazonka.APIGateway.TestInvokeMethod
   ( -- * Creating a Request
@@ -60,7 +60,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Make a request to simulate the execution of a Method.
+-- | Make a request to simulate the invocation of a Method.
 --
 -- /See:/ 'newTestInvokeMethod' smart constructor.
 data TestInvokeMethod = TestInvokeMethod'
@@ -82,11 +82,11 @@ data TestInvokeMethod = TestInvokeMethod'
     -- Gateway will use the certificate when making the HTTPS request to the
     -- defined back-end endpoint.
     clientCertificateId :: Prelude.Maybe Prelude.Text,
-    -- | [Required] The string identifier of the associated RestApi.
+    -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Specifies a test invoke method request\'s resource ID.
+    -- | Specifies a test invoke method request\'s resource ID.
     resourceId :: Prelude.Text,
-    -- | [Required] Specifies a test invoke method request\'s HTTP method.
+    -- | Specifies a test invoke method request\'s HTTP method.
     httpMethod :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -117,11 +117,11 @@ data TestInvokeMethod = TestInvokeMethod'
 -- Gateway will use the certificate when making the HTTPS request to the
 -- defined back-end endpoint.
 --
--- 'restApiId', 'testInvokeMethod_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'testInvokeMethod_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'testInvokeMethod_resourceId' - [Required] Specifies a test invoke method request\'s resource ID.
+-- 'resourceId', 'testInvokeMethod_resourceId' - Specifies a test invoke method request\'s resource ID.
 --
--- 'httpMethod', 'testInvokeMethod_httpMethod' - [Required] Specifies a test invoke method request\'s HTTP method.
+-- 'httpMethod', 'testInvokeMethod_httpMethod' - Specifies a test invoke method request\'s HTTP method.
 newTestInvokeMethod ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -177,15 +177,15 @@ testInvokeMethod_stageVariables = Lens.lens (\TestInvokeMethod' {stageVariables}
 testInvokeMethod_clientCertificateId :: Lens.Lens' TestInvokeMethod (Prelude.Maybe Prelude.Text)
 testInvokeMethod_clientCertificateId = Lens.lens (\TestInvokeMethod' {clientCertificateId} -> clientCertificateId) (\s@TestInvokeMethod' {} a -> s {clientCertificateId = a} :: TestInvokeMethod)
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 testInvokeMethod_restApiId :: Lens.Lens' TestInvokeMethod Prelude.Text
 testInvokeMethod_restApiId = Lens.lens (\TestInvokeMethod' {restApiId} -> restApiId) (\s@TestInvokeMethod' {} a -> s {restApiId = a} :: TestInvokeMethod)
 
--- | [Required] Specifies a test invoke method request\'s resource ID.
+-- | Specifies a test invoke method request\'s resource ID.
 testInvokeMethod_resourceId :: Lens.Lens' TestInvokeMethod Prelude.Text
 testInvokeMethod_resourceId = Lens.lens (\TestInvokeMethod' {resourceId} -> resourceId) (\s@TestInvokeMethod' {} a -> s {resourceId = a} :: TestInvokeMethod)
 
--- | [Required] Specifies a test invoke method request\'s HTTP method.
+-- | Specifies a test invoke method request\'s HTTP method.
 testInvokeMethod_httpMethod :: Lens.Lens' TestInvokeMethod Prelude.Text
 testInvokeMethod_httpMethod = Lens.lens (\TestInvokeMethod' {httpMethod} -> httpMethod) (\s@TestInvokeMethod' {} a -> s {httpMethod = a} :: TestInvokeMethod)
 
@@ -274,8 +274,6 @@ instance Core.ToQuery TestInvokeMethod where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response of the test invoke request in the HTTP method.
---
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-test-method.html#how-to-test-method-console Test API using the API Gateway console>
 --
 -- /See:/ 'newTestInvokeMethodResponse' smart constructor.
 data TestInvokeMethodResponse = TestInvokeMethodResponse'

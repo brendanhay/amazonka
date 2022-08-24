@@ -28,8 +28,6 @@ import qualified Amazonka.Prelude as Prelude
 -- existing MethodResponse, and parameters and templates can be used to
 -- transform the back-end response.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API>
---
 -- /See:/ 'newIntegrationResponse' smart constructor.
 data IntegrationResponse = IntegrationResponse'
   { -- | A key-value map specifying response parameters that are passed to the
@@ -60,12 +58,6 @@ data IntegrationResponse = IntegrationResponse'
     -- | Specifies how to handle response payload content type conversions.
     -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
     -- following behaviors:
-    --
-    -- -   @CONVERT_TO_BINARY@: Converts a response payload from a
-    --     Base64-encoded string to the corresponding binary blob.
-    --
-    -- -   @CONVERT_TO_TEXT@: Converts a response payload from a binary blob to
-    --     a Base64-encoded string.
     --
     -- If this property is not defined, the response payload will be passed
     -- through from the integration response to the method response without
@@ -113,12 +105,6 @@ data IntegrationResponse = IntegrationResponse'
 -- 'contentHandling', 'integrationResponse_contentHandling' - Specifies how to handle response payload content type conversions.
 -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
 -- following behaviors:
---
--- -   @CONVERT_TO_BINARY@: Converts a response payload from a
---     Base64-encoded string to the corresponding binary blob.
---
--- -   @CONVERT_TO_TEXT@: Converts a response payload from a binary blob to
---     a Base64-encoded string.
 --
 -- If this property is not defined, the response payload will be passed
 -- through from the integration response to the method response without
@@ -172,12 +158,6 @@ integrationResponse_selectionPattern = Lens.lens (\IntegrationResponse' {selecti
 -- | Specifies how to handle response payload content type conversions.
 -- Supported values are @CONVERT_TO_BINARY@ and @CONVERT_TO_TEXT@, with the
 -- following behaviors:
---
--- -   @CONVERT_TO_BINARY@: Converts a response payload from a
---     Base64-encoded string to the corresponding binary blob.
---
--- -   @CONVERT_TO_TEXT@: Converts a response payload from a binary blob to
---     a Base64-encoded string.
 --
 -- If this property is not defined, the response payload will be passed
 -- through from the integration response to the method response without

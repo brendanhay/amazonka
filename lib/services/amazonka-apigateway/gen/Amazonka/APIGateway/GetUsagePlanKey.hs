@@ -53,12 +53,11 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetUsagePlanKey' smart constructor.
 data GetUsagePlanKey = GetUsagePlanKey'
-  { -- | [Required] The Id of the UsagePlan resource representing the usage plan
-    -- containing the to-be-retrieved UsagePlanKey resource representing a plan
-    -- customer.
+  { -- | The Id of the UsagePlan resource representing the usage plan containing
+    -- the to-be-retrieved UsagePlanKey resource representing a plan customer.
     usagePlanId :: Prelude.Text,
-    -- | [Required] The key Id of the to-be-retrieved UsagePlanKey resource
-    -- representing a plan customer.
+    -- | The key Id of the to-be-retrieved UsagePlanKey resource representing a
+    -- plan customer.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,12 +70,11 @@ data GetUsagePlanKey = GetUsagePlanKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usagePlanId', 'getUsagePlanKey_usagePlanId' - [Required] The Id of the UsagePlan resource representing the usage plan
--- containing the to-be-retrieved UsagePlanKey resource representing a plan
--- customer.
+-- 'usagePlanId', 'getUsagePlanKey_usagePlanId' - The Id of the UsagePlan resource representing the usage plan containing
+-- the to-be-retrieved UsagePlanKey resource representing a plan customer.
 --
--- 'keyId', 'getUsagePlanKey_keyId' - [Required] The key Id of the to-be-retrieved UsagePlanKey resource
--- representing a plan customer.
+-- 'keyId', 'getUsagePlanKey_keyId' - The key Id of the to-be-retrieved UsagePlanKey resource representing a
+-- plan customer.
 newGetUsagePlanKey ::
   -- | 'usagePlanId'
   Prelude.Text ->
@@ -89,14 +87,13 @@ newGetUsagePlanKey pUsagePlanId_ pKeyId_ =
       keyId = pKeyId_
     }
 
--- | [Required] The Id of the UsagePlan resource representing the usage plan
--- containing the to-be-retrieved UsagePlanKey resource representing a plan
--- customer.
+-- | The Id of the UsagePlan resource representing the usage plan containing
+-- the to-be-retrieved UsagePlanKey resource representing a plan customer.
 getUsagePlanKey_usagePlanId :: Lens.Lens' GetUsagePlanKey Prelude.Text
 getUsagePlanKey_usagePlanId = Lens.lens (\GetUsagePlanKey' {usagePlanId} -> usagePlanId) (\s@GetUsagePlanKey' {} a -> s {usagePlanId = a} :: GetUsagePlanKey)
 
--- | [Required] The key Id of the to-be-retrieved UsagePlanKey resource
--- representing a plan customer.
+-- | The key Id of the to-be-retrieved UsagePlanKey resource representing a
+-- plan customer.
 getUsagePlanKey_keyId :: Lens.Lens' GetUsagePlanKey Prelude.Text
 getUsagePlanKey_keyId = Lens.lens (\GetUsagePlanKey' {keyId} -> keyId) (\s@GetUsagePlanKey' {} a -> s {keyId = a} :: GetUsagePlanKey)
 

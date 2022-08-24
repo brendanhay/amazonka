@@ -49,16 +49,13 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteIntegrationResponse' smart constructor.
 data DeleteIntegrationResponse = DeleteIntegrationResponse'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] Specifies a delete integration response request\'s resource
-    -- identifier.
+    -- | Specifies a delete integration response request\'s resource identifier.
     resourceId :: Prelude.Text,
-    -- | [Required] Specifies a delete integration response request\'s HTTP
-    -- method.
+    -- | Specifies a delete integration response request\'s HTTP method.
     httpMethod :: Prelude.Text,
-    -- | [Required] Specifies a delete integration response request\'s status
-    -- code.
+    -- | Specifies a delete integration response request\'s status code.
     statusCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,16 +68,13 @@ data DeleteIntegrationResponse = DeleteIntegrationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'deleteIntegrationResponse_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'deleteIntegrationResponse_restApiId' - The string identifier of the associated RestApi.
 --
--- 'resourceId', 'deleteIntegrationResponse_resourceId' - [Required] Specifies a delete integration response request\'s resource
--- identifier.
+-- 'resourceId', 'deleteIntegrationResponse_resourceId' - Specifies a delete integration response request\'s resource identifier.
 --
--- 'httpMethod', 'deleteIntegrationResponse_httpMethod' - [Required] Specifies a delete integration response request\'s HTTP
--- method.
+-- 'httpMethod', 'deleteIntegrationResponse_httpMethod' - Specifies a delete integration response request\'s HTTP method.
 --
--- 'statusCode', 'deleteIntegrationResponse_statusCode' - [Required] Specifies a delete integration response request\'s status
--- code.
+-- 'statusCode', 'deleteIntegrationResponse_statusCode' - Specifies a delete integration response request\'s status code.
 newDeleteIntegrationResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -103,22 +97,19 @@ newDeleteIntegrationResponse
         statusCode = pStatusCode_
       }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 deleteIntegrationResponse_restApiId :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
 deleteIntegrationResponse_restApiId = Lens.lens (\DeleteIntegrationResponse' {restApiId} -> restApiId) (\s@DeleteIntegrationResponse' {} a -> s {restApiId = a} :: DeleteIntegrationResponse)
 
--- | [Required] Specifies a delete integration response request\'s resource
--- identifier.
+-- | Specifies a delete integration response request\'s resource identifier.
 deleteIntegrationResponse_resourceId :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
 deleteIntegrationResponse_resourceId = Lens.lens (\DeleteIntegrationResponse' {resourceId} -> resourceId) (\s@DeleteIntegrationResponse' {} a -> s {resourceId = a} :: DeleteIntegrationResponse)
 
--- | [Required] Specifies a delete integration response request\'s HTTP
--- method.
+-- | Specifies a delete integration response request\'s HTTP method.
 deleteIntegrationResponse_httpMethod :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
 deleteIntegrationResponse_httpMethod = Lens.lens (\DeleteIntegrationResponse' {httpMethod} -> httpMethod) (\s@DeleteIntegrationResponse' {} a -> s {httpMethod = a} :: DeleteIntegrationResponse)
 
--- | [Required] Specifies a delete integration response request\'s status
--- code.
+-- | Specifies a delete integration response request\'s status code.
 deleteIntegrationResponse_statusCode :: Lens.Lens' DeleteIntegrationResponse Prelude.Text
 deleteIntegrationResponse_statusCode = Lens.lens (\DeleteIntegrationResponse' {statusCode} -> statusCode) (\s@DeleteIntegrationResponse' {} a -> s {statusCode = a} :: DeleteIntegrationResponse)
 

@@ -60,9 +60,9 @@ data GetModel = GetModel'
     -- model references and returns a flattened model schema or not (@false@)
     -- The default is @false@.
     flatten :: Prelude.Maybe Prelude.Bool,
-    -- | [Required] The RestApi identifier under which the Model exists.
+    -- | The RestApi identifier under which the Model exists.
     restApiId :: Prelude.Text,
-    -- | [Required] The name of the model as an identifier.
+    -- | The name of the model as an identifier.
     modelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,9 +79,9 @@ data GetModel = GetModel'
 -- model references and returns a flattened model schema or not (@false@)
 -- The default is @false@.
 --
--- 'restApiId', 'getModel_restApiId' - [Required] The RestApi identifier under which the Model exists.
+-- 'restApiId', 'getModel_restApiId' - The RestApi identifier under which the Model exists.
 --
--- 'modelName', 'getModel_modelName' - [Required] The name of the model as an identifier.
+-- 'modelName', 'getModel_modelName' - The name of the model as an identifier.
 newGetModel ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -101,11 +101,11 @@ newGetModel pRestApiId_ pModelName_ =
 getModel_flatten :: Lens.Lens' GetModel (Prelude.Maybe Prelude.Bool)
 getModel_flatten = Lens.lens (\GetModel' {flatten} -> flatten) (\s@GetModel' {} a -> s {flatten = a} :: GetModel)
 
--- | [Required] The RestApi identifier under which the Model exists.
+-- | The RestApi identifier under which the Model exists.
 getModel_restApiId :: Lens.Lens' GetModel Prelude.Text
 getModel_restApiId = Lens.lens (\GetModel' {restApiId} -> restApiId) (\s@GetModel' {} a -> s {restApiId = a} :: GetModel)
 
--- | [Required] The name of the model as an identifier.
+-- | The name of the model as an identifier.
 getModel_modelName :: Lens.Lens' GetModel Prelude.Text
 getModel_modelName = Lens.lens (\GetModel' {modelName} -> modelName) (\s@GetModel' {} a -> s {modelName = a} :: GetModel)
 

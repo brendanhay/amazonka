@@ -53,9 +53,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetModelTemplate' smart constructor.
 data GetModelTemplate = GetModelTemplate'
-  { -- | [Required] The string identifier of the associated RestApi.
+  { -- | The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
-    -- | [Required] The name of the model for which to generate a template.
+    -- | The name of the model for which to generate a template.
     modelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,9 +68,9 @@ data GetModelTemplate = GetModelTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'restApiId', 'getModelTemplate_restApiId' - [Required] The string identifier of the associated RestApi.
+-- 'restApiId', 'getModelTemplate_restApiId' - The string identifier of the associated RestApi.
 --
--- 'modelName', 'getModelTemplate_modelName' - [Required] The name of the model for which to generate a template.
+-- 'modelName', 'getModelTemplate_modelName' - The name of the model for which to generate a template.
 newGetModelTemplate ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -83,11 +83,11 @@ newGetModelTemplate pRestApiId_ pModelName_ =
       modelName = pModelName_
     }
 
--- | [Required] The string identifier of the associated RestApi.
+-- | The string identifier of the associated RestApi.
 getModelTemplate_restApiId :: Lens.Lens' GetModelTemplate Prelude.Text
 getModelTemplate_restApiId = Lens.lens (\GetModelTemplate' {restApiId} -> restApiId) (\s@GetModelTemplate' {} a -> s {restApiId = a} :: GetModelTemplate)
 
--- | [Required] The name of the model for which to generate a template.
+-- | The name of the model for which to generate a template.
 getModelTemplate_modelName :: Lens.Lens' GetModelTemplate Prelude.Text
 getModelTemplate_modelName = Lens.lens (\GetModelTemplate' {modelName} -> modelName) (\s@GetModelTemplate' {} a -> s {modelName = a} :: GetModelTemplate)
 
@@ -138,13 +138,10 @@ instance Core.ToQuery GetModelTemplate where
 
 -- | Represents a mapping template used to transform a payload.
 --
--- <https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-mappings Mapping Templates>
---
 -- /See:/ 'newGetModelTemplateResponse' smart constructor.
 data GetModelTemplateResponse = GetModelTemplateResponse'
-  { -- | The Apache
-    -- <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)>
-    -- template content used for the template resource.
+  { -- | The Apache Velocity Template Language (VTL) template content used for
+    -- the template resource.
     value :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -159,9 +156,8 @@ data GetModelTemplateResponse = GetModelTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'value', 'getModelTemplateResponse_value' - The Apache
--- <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)>
--- template content used for the template resource.
+-- 'value', 'getModelTemplateResponse_value' - The Apache Velocity Template Language (VTL) template content used for
+-- the template resource.
 --
 -- 'httpStatus', 'getModelTemplateResponse_httpStatus' - The response's http status code.
 newGetModelTemplateResponse ::
@@ -174,9 +170,8 @@ newGetModelTemplateResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Apache
--- <https://velocity.apache.org/engine/devel/vtl-reference.html Velocity Template Language (VTL)>
--- template content used for the template resource.
+-- | The Apache Velocity Template Language (VTL) template content used for
+-- the template resource.
 getModelTemplateResponse_value :: Lens.Lens' GetModelTemplateResponse (Prelude.Maybe Prelude.Text)
 getModelTemplateResponse_value = Lens.lens (\GetModelTemplateResponse' {value} -> value) (\s@GetModelTemplateResponse' {} a -> s {value = a} :: GetModelTemplateResponse)
 

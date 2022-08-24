@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new ledger in your account in the current Region.
+-- Creates a new ledger in your Amazon Web Services account in the current
+-- Region.
 module Amazonka.QLDB.CreateLedger
   ( -- * Creating a Request
     CreateLedger (..),
@@ -84,8 +85,8 @@ data CreateLedger = CreateLedger'
     --
     -- To specify a customer managed KMS key, you can use its key ID, Amazon
     -- Resource Name (ARN), alias name, or alias ARN. When using an alias name,
-    -- prefix it with @\"alias\/\"@. To specify a key in a different account,
-    -- you must use the key ARN or alias ARN.
+    -- prefix it with @\"alias\/\"@. To specify a key in a different Amazon Web
+    -- Services account, you must use the key ARN or alias ARN.
     --
     -- For example:
     --
@@ -111,7 +112,8 @@ data CreateLedger = CreateLedger'
     -- operation to set the flag to @false@.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
     -- | The name of the ledger that you want to create. The name must be unique
-    -- among all of the ledgers in your account in the current Region.
+    -- among all of the ledgers in your Amazon Web Services account in the
+    -- current Region.
     --
     -- Naming constraints for ledger names are defined in
     -- <https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming Quotas in Amazon QLDB>
@@ -181,8 +183,8 @@ data CreateLedger = CreateLedger'
 --
 -- To specify a customer managed KMS key, you can use its key ID, Amazon
 -- Resource Name (ARN), alias name, or alias ARN. When using an alias name,
--- prefix it with @\"alias\/\"@. To specify a key in a different account,
--- you must use the key ARN or alias ARN.
+-- prefix it with @\"alias\/\"@. To specify a key in a different Amazon Web
+-- Services account, you must use the key ARN or alias ARN.
 --
 -- For example:
 --
@@ -208,7 +210,8 @@ data CreateLedger = CreateLedger'
 -- operation to set the flag to @false@.
 --
 -- 'name', 'createLedger_name' - The name of the ledger that you want to create. The name must be unique
--- among all of the ledgers in your account in the current Region.
+-- among all of the ledgers in your Amazon Web Services account in the
+-- current Region.
 --
 -- Naming constraints for ledger names are defined in
 -- <https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming Quotas in Amazon QLDB>
@@ -283,8 +286,8 @@ createLedger_tags = Lens.lens (\CreateLedger' {tags} -> tags) (\s@CreateLedger' 
 --
 -- To specify a customer managed KMS key, you can use its key ID, Amazon
 -- Resource Name (ARN), alias name, or alias ARN. When using an alias name,
--- prefix it with @\"alias\/\"@. To specify a key in a different account,
--- you must use the key ARN or alias ARN.
+-- prefix it with @\"alias\/\"@. To specify a key in a different Amazon Web
+-- Services account, you must use the key ARN or alias ARN.
 --
 -- For example:
 --
@@ -314,7 +317,8 @@ createLedger_deletionProtection :: Lens.Lens' CreateLedger (Prelude.Maybe Prelud
 createLedger_deletionProtection = Lens.lens (\CreateLedger' {deletionProtection} -> deletionProtection) (\s@CreateLedger' {} a -> s {deletionProtection = a} :: CreateLedger)
 
 -- | The name of the ledger that you want to create. The name must be unique
--- among all of the ledgers in your account in the current Region.
+-- among all of the ledgers in your Amazon Web Services account in the
+-- current Region.
 --
 -- Naming constraints for ledger names are defined in
 -- <https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming Quotas in Amazon QLDB>

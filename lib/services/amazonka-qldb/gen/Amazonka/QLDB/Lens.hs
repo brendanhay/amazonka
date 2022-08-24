@@ -62,6 +62,7 @@ module Amazonka.QLDB.Lens
     describeLedgerResponse_httpStatus,
 
     -- ** ExportJournalToS3
+    exportJournalToS3_outputFormat,
     exportJournalToS3_name,
     exportJournalToS3_inclusiveStartTime,
     exportJournalToS3_exclusiveEndTime,
@@ -185,6 +186,7 @@ module Amazonka.QLDB.Lens
     journalKinesisStreamDescription_streamName,
 
     -- ** JournalS3ExportDescription
+    journalS3ExportDescription_outputFormat,
     journalS3ExportDescription_ledgerName,
     journalS3ExportDescription_exportId,
     journalS3ExportDescription_exportCreationTime,

@@ -72,6 +72,7 @@ library
     Amazonka.QLDB.Types.LedgerEncryptionDescription
     Amazonka.QLDB.Types.LedgerState
     Amazonka.QLDB.Types.LedgerSummary
+    Amazonka.QLDB.Types.OutputFormat
     Amazonka.QLDB.Types.PermissionsMode
     Amazonka.QLDB.Types.S3EncryptionConfiguration
     Amazonka.QLDB.Types.S3ExportConfiguration

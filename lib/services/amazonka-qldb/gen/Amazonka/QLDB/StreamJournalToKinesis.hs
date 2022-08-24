@@ -73,6 +73,10 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
     -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
     -- permissions for a journal stream to write data records to a Kinesis Data
     -- Streams resource.
+    --
+    -- To pass a role to QLDB when requesting a journal stream, you must have
+    -- permissions to perform the @iam:PassRole@ action on the IAM role
+    -- resource. This is required for all journal stream requests.
     roleArn :: Prelude.Text,
     -- | The inclusive start date and time from which to start streaming journal
     -- data. This parameter must be in @ISO 8601@ date and time format and in
@@ -125,6 +129,10 @@ data StreamJournalToKinesis = StreamJournalToKinesis'
 -- 'roleArn', 'streamJournalToKinesis_roleArn' - The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 -- permissions for a journal stream to write data records to a Kinesis Data
 -- Streams resource.
+--
+-- To pass a role to QLDB when requesting a journal stream, you must have
+-- permissions to perform the @iam:PassRole@ action on the IAM role
+-- resource. This is required for all journal stream requests.
 --
 -- 'inclusiveStartTime', 'streamJournalToKinesis_inclusiveStartTime' - The inclusive start date and time from which to start streaming journal
 -- data. This parameter must be in @ISO 8601@ date and time format and in
@@ -200,6 +208,10 @@ streamJournalToKinesis_ledgerName = Lens.lens (\StreamJournalToKinesis' {ledgerN
 -- | The Amazon Resource Name (ARN) of the IAM role that grants QLDB
 -- permissions for a journal stream to write data records to a Kinesis Data
 -- Streams resource.
+--
+-- To pass a role to QLDB when requesting a journal stream, you must have
+-- permissions to perform the @iam:PassRole@ action on the IAM role
+-- resource. This is required for all journal stream requests.
 streamJournalToKinesis_roleArn :: Lens.Lens' StreamJournalToKinesis Prelude.Text
 streamJournalToKinesis_roleArn = Lens.lens (\StreamJournalToKinesis' {roleArn} -> roleArn) (\s@StreamJournalToKinesis' {} a -> s {roleArn = a} :: StreamJournalToKinesis)
 

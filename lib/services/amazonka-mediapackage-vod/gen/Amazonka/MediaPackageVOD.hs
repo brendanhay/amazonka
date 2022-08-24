@@ -162,6 +162,9 @@ module Amazonka.MediaPackageVOD
     -- ** Profile
     Profile (..),
 
+    -- ** ScteMarkersSource
+    ScteMarkersSource (..),
+
     -- ** SegmentTemplateFormat
     SegmentTemplateFormat (..),
 

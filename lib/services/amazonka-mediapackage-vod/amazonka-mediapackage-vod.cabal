@@ -83,6 +83,7 @@ library
     Amazonka.MediaPackageVOD.Types.PackagingGroup
     Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
     Amazonka.MediaPackageVOD.Types.Profile
+    Amazonka.MediaPackageVOD.Types.ScteMarkersSource
     Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat
     Amazonka.MediaPackageVOD.Types.SpekeKeyProvider
     Amazonka.MediaPackageVOD.Types.StreamOrder

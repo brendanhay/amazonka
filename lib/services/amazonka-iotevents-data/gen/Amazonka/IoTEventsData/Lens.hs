@@ -19,6 +19,11 @@ module Amazonka.IoTEventsData.Lens
     batchAcknowledgeAlarmResponse_errorEntries,
     batchAcknowledgeAlarmResponse_httpStatus,
 
+    -- ** BatchDeleteDetector
+    batchDeleteDetector_detectors,
+    batchDeleteDetectorResponse_batchDeleteDetectorErrorEntries,
+    batchDeleteDetectorResponse_httpStatus,
+
     -- ** BatchDisableAlarm
     batchDisableAlarm_disableActionRequests,
     batchDisableAlarmResponse_errorEntries,
@@ -117,6 +122,11 @@ module Amazonka.IoTEventsData.Lens
     batchAlarmActionErrorEntry_requestId,
     batchAlarmActionErrorEntry_errorCode,
 
+    -- ** BatchDeleteDetectorErrorEntry
+    batchDeleteDetectorErrorEntry_errorMessage,
+    batchDeleteDetectorErrorEntry_messageId,
+    batchDeleteDetectorErrorEntry_errorCode,
+
     -- ** BatchPutMessageErrorEntry
     batchPutMessageErrorEntry_errorMessage,
     batchPutMessageErrorEntry_messageId,
@@ -134,6 +144,11 @@ module Amazonka.IoTEventsData.Lens
     customerAction_disableActionConfiguration,
     customerAction_snoozeActionConfiguration,
     customerAction_acknowledgeActionConfiguration,
+
+    -- ** DeleteDetectorRequest
+    deleteDetectorRequest_keyValue,
+    deleteDetectorRequest_messageId,
+    deleteDetectorRequest_detectorModelName,
 
     -- ** Detector
     detector_state,
@@ -251,6 +266,7 @@ module Amazonka.IoTEventsData.Lens
 where
 
 import Amazonka.IoTEventsData.BatchAcknowledgeAlarm
+import Amazonka.IoTEventsData.BatchDeleteDetector
 import Amazonka.IoTEventsData.BatchDisableAlarm
 import Amazonka.IoTEventsData.BatchEnableAlarm
 import Amazonka.IoTEventsData.BatchPutMessage
@@ -267,9 +283,11 @@ import Amazonka.IoTEventsData.Types.Alarm
 import Amazonka.IoTEventsData.Types.AlarmState
 import Amazonka.IoTEventsData.Types.AlarmSummary
 import Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry
+import Amazonka.IoTEventsData.Types.BatchDeleteDetectorErrorEntry
 import Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry
 import Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
 import Amazonka.IoTEventsData.Types.CustomerAction
+import Amazonka.IoTEventsData.Types.DeleteDetectorRequest
 import Amazonka.IoTEventsData.Types.Detector
 import Amazonka.IoTEventsData.Types.DetectorState
 import Amazonka.IoTEventsData.Types.DetectorStateDefinition

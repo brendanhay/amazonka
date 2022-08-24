@@ -45,6 +45,7 @@ library
   exposed-modules:
     Amazonka.IoTEventsData
     Amazonka.IoTEventsData.BatchAcknowledgeAlarm
+    Amazonka.IoTEventsData.BatchDeleteDetector
     Amazonka.IoTEventsData.BatchDisableAlarm
     Amazonka.IoTEventsData.BatchEnableAlarm
     Amazonka.IoTEventsData.BatchPutMessage
@@ -64,11 +65,13 @@ library
     Amazonka.IoTEventsData.Types.AlarmStateName
     Amazonka.IoTEventsData.Types.AlarmSummary
     Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry
+    Amazonka.IoTEventsData.Types.BatchDeleteDetectorErrorEntry
     Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry
     Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
     Amazonka.IoTEventsData.Types.ComparisonOperator
     Amazonka.IoTEventsData.Types.CustomerAction
     Amazonka.IoTEventsData.Types.CustomerActionName
+    Amazonka.IoTEventsData.Types.DeleteDetectorRequest
     Amazonka.IoTEventsData.Types.Detector
     Amazonka.IoTEventsData.Types.DetectorState
     Amazonka.IoTEventsData.Types.DetectorStateDefinition

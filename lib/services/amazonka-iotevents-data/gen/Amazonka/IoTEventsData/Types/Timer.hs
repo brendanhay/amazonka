@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data Timer = Timer'
   { -- | The name of the timer.
     name :: Prelude.Text,
-    -- | The number of seconds which have elapsed on the timer.
+    -- | The expiration time for the timer.
     timestamp :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data Timer = Timer'
 --
 -- 'name', 'timer_name' - The name of the timer.
 --
--- 'timestamp', 'timer_timestamp' - The number of seconds which have elapsed on the timer.
+-- 'timestamp', 'timer_timestamp' - The expiration time for the timer.
 newTimer ::
   -- | 'name'
   Prelude.Text ->
@@ -61,7 +61,7 @@ newTimer pName_ pTimestamp_ =
 timer_name :: Lens.Lens' Timer Prelude.Text
 timer_name = Lens.lens (\Timer' {name} -> name) (\s@Timer' {} a -> s {name = a} :: Timer)
 
--- | The number of seconds which have elapsed on the timer.
+-- | The expiration time for the timer.
 timer_timestamp :: Lens.Lens' Timer Prelude.UTCTime
 timer_timestamp = Lens.lens (\Timer' {timestamp} -> timestamp) (\s@Timer' {} a -> s {timestamp = a} :: Timer) Prelude.. Core._Time
 

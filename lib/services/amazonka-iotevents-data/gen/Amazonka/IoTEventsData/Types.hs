@@ -90,6 +90,13 @@ module Amazonka.IoTEventsData.Types
     batchAlarmActionErrorEntry_requestId,
     batchAlarmActionErrorEntry_errorCode,
 
+    -- * BatchDeleteDetectorErrorEntry
+    BatchDeleteDetectorErrorEntry (..),
+    newBatchDeleteDetectorErrorEntry,
+    batchDeleteDetectorErrorEntry_errorMessage,
+    batchDeleteDetectorErrorEntry_messageId,
+    batchDeleteDetectorErrorEntry_errorCode,
+
     -- * BatchPutMessageErrorEntry
     BatchPutMessageErrorEntry (..),
     newBatchPutMessageErrorEntry,
@@ -113,6 +120,13 @@ module Amazonka.IoTEventsData.Types
     customerAction_disableActionConfiguration,
     customerAction_snoozeActionConfiguration,
     customerAction_acknowledgeActionConfiguration,
+
+    -- * DeleteDetectorRequest
+    DeleteDetectorRequest (..),
+    newDeleteDetectorRequest,
+    deleteDetectorRequest_keyValue,
+    deleteDetectorRequest_messageId,
+    deleteDetectorRequest_detectorModelName,
 
     -- * Detector
     Detector (..),
@@ -285,11 +299,13 @@ import Amazonka.IoTEventsData.Types.AlarmState
 import Amazonka.IoTEventsData.Types.AlarmStateName
 import Amazonka.IoTEventsData.Types.AlarmSummary
 import Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry
+import Amazonka.IoTEventsData.Types.BatchDeleteDetectorErrorEntry
 import Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry
 import Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry
 import Amazonka.IoTEventsData.Types.ComparisonOperator
 import Amazonka.IoTEventsData.Types.CustomerAction
 import Amazonka.IoTEventsData.Types.CustomerActionName
+import Amazonka.IoTEventsData.Types.DeleteDetectorRequest
 import Amazonka.IoTEventsData.Types.Detector
 import Amazonka.IoTEventsData.Types.DetectorState
 import Amazonka.IoTEventsData.Types.DetectorStateDefinition

@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestBatchAcknowledgeAlarm $
 --             newBatchAcknowledgeAlarm
 --
+--         , requestBatchDeleteDetector $
+--             newBatchDeleteDetector
+--
 --         , requestBatchDisableAlarm $
 --             newBatchDisableAlarm
 --
@@ -65,6 +68,9 @@ import Test.Tasty
 --     , testGroup "response"
 --         [ responseBatchAcknowledgeAlarm $
 --             newBatchAcknowledgeAlarmResponse
+--
+--         , responseBatchDeleteDetector $
+--             newBatchDeleteDetectorResponse
 --
 --         , responseBatchDisableAlarm $
 --             newBatchDisableAlarmResponse
@@ -106,6 +112,12 @@ requestBatchAcknowledgeAlarm =
   req
     "BatchAcknowledgeAlarm"
     "fixture/BatchAcknowledgeAlarm.yaml"
+
+requestBatchDeleteDetector :: BatchDeleteDetector -> TestTree
+requestBatchDeleteDetector =
+  req
+    "BatchDeleteDetector"
+    "fixture/BatchDeleteDetector.yaml"
 
 requestBatchDisableAlarm :: BatchDisableAlarm -> TestTree
 requestBatchDisableAlarm =
@@ -176,6 +188,14 @@ responseBatchAcknowledgeAlarm =
     "fixture/BatchAcknowledgeAlarmResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchAcknowledgeAlarm)
+
+responseBatchDeleteDetector :: BatchDeleteDetectorResponse -> TestTree
+responseBatchDeleteDetector =
+  res
+    "BatchDeleteDetectorResponse"
+    "fixture/BatchDeleteDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchDeleteDetector)
 
 responseBatchDisableAlarm :: BatchDisableAlarmResponse -> TestTree
 responseBatchDisableAlarm =

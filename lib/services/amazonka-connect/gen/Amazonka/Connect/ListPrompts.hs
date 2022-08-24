@@ -58,7 +58,8 @@ data ListPrompts = ListPrompts'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
+    -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance.
     instanceId :: Prelude.Text
@@ -77,7 +78,8 @@ data ListPrompts = ListPrompts'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listPrompts_maxResults' - The maximum number of results to return per page.
+-- 'maxResults', 'listPrompts_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 --
 -- 'instanceId', 'listPrompts_instanceId' - The identifier of the Amazon Connect instance.
 newListPrompts ::
@@ -97,7 +99,8 @@ newListPrompts pInstanceId_ =
 listPrompts_nextToken :: Lens.Lens' ListPrompts (Prelude.Maybe Prelude.Text)
 listPrompts_nextToken = Lens.lens (\ListPrompts' {nextToken} -> nextToken) (\s@ListPrompts' {} a -> s {nextToken = a} :: ListPrompts)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 listPrompts_maxResults :: Lens.Lens' ListPrompts (Prelude.Maybe Prelude.Natural)
 listPrompts_maxResults = Lens.lens (\ListPrompts' {maxResults} -> maxResults) (\s@ListPrompts' {} a -> s {maxResults = a} :: ListPrompts)
 

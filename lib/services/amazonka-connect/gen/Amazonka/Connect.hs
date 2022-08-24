@@ -25,11 +25,11 @@
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html Amazon Connect Service Quotas>
 -- in the /Amazon Connect Administrator Guide/.
 --
--- You can connect programmatically to an AWS service by using an endpoint.
--- For a list of Amazon Connect endpoints, see
+-- You can connect programmatically to an Amazon Web Services service by
+-- using an endpoint. For a list of Amazon Connect endpoints, see
 -- <https://docs.aws.amazon.com/general/latest/gr/connect_region.html Amazon Connect Endpoints>.
 --
--- Working with contact flows? Check out the
+-- Working with flows? Check out the
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language>.
 module Amazonka.Connect
   ( -- * Service Configuration
@@ -41,11 +41,17 @@ module Amazonka.Connect
     -- ** InvalidContactFlowException
     _InvalidContactFlowException,
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
     -- ** DuplicateResourceException
     _DuplicateResourceException,
 
     -- ** UserNotFoundException
     _UserNotFoundException,
+
+    -- ** IdempotencyException
+    _IdempotencyException,
 
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
@@ -73,6 +79,12 @@ module Amazonka.Connect
 
     -- ** InternalServiceException
     _InternalServiceException,
+
+    -- ** InvalidContactFlowModuleException
+    _InvalidContactFlowModuleException,
+
+    -- ** PropertyValidationException
+    _PropertyValidationException,
 
     -- ** InvalidRequestException
     _InvalidRequestException,
@@ -104,6 +116,12 @@ module Amazonka.Connect
     AssociateBotResponse (AssociateBotResponse'),
     newAssociateBotResponse,
 
+    -- ** AssociateDefaultVocabulary
+    AssociateDefaultVocabulary (AssociateDefaultVocabulary'),
+    newAssociateDefaultVocabulary,
+    AssociateDefaultVocabularyResponse (AssociateDefaultVocabularyResponse'),
+    newAssociateDefaultVocabularyResponse,
+
     -- ** AssociateInstanceStorageConfig
     AssociateInstanceStorageConfig (AssociateInstanceStorageConfig'),
     newAssociateInstanceStorageConfig,
@@ -121,6 +139,12 @@ module Amazonka.Connect
     newAssociateLexBot,
     AssociateLexBotResponse (AssociateLexBotResponse'),
     newAssociateLexBotResponse,
+
+    -- ** AssociatePhoneNumberContactFlow
+    AssociatePhoneNumberContactFlow (AssociatePhoneNumberContactFlow'),
+    newAssociatePhoneNumberContactFlow,
+    AssociatePhoneNumberContactFlowResponse (AssociatePhoneNumberContactFlowResponse'),
+    newAssociatePhoneNumberContactFlowResponse,
 
     -- ** AssociateQueueQuickConnects
     AssociateQueueQuickConnects (AssociateQueueQuickConnects'),
@@ -140,6 +164,12 @@ module Amazonka.Connect
     AssociateSecurityKeyResponse (AssociateSecurityKeyResponse'),
     newAssociateSecurityKeyResponse,
 
+    -- ** ClaimPhoneNumber
+    ClaimPhoneNumber (ClaimPhoneNumber'),
+    newClaimPhoneNumber,
+    ClaimPhoneNumberResponse (ClaimPhoneNumberResponse'),
+    newClaimPhoneNumberResponse,
+
     -- ** CreateAgentStatus
     CreateAgentStatus (CreateAgentStatus'),
     newCreateAgentStatus,
@@ -151,6 +181,12 @@ module Amazonka.Connect
     newCreateContactFlow,
     CreateContactFlowResponse (CreateContactFlowResponse'),
     newCreateContactFlowResponse,
+
+    -- ** CreateContactFlowModule
+    CreateContactFlowModule (CreateContactFlowModule'),
+    newCreateContactFlowModule,
+    CreateContactFlowModuleResponse (CreateContactFlowModuleResponse'),
+    newCreateContactFlowModuleResponse,
 
     -- ** CreateHoursOfOperation
     CreateHoursOfOperation (CreateHoursOfOperation'),
@@ -188,6 +224,18 @@ module Amazonka.Connect
     CreateRoutingProfileResponse (CreateRoutingProfileResponse'),
     newCreateRoutingProfileResponse,
 
+    -- ** CreateSecurityProfile
+    CreateSecurityProfile (CreateSecurityProfile'),
+    newCreateSecurityProfile,
+    CreateSecurityProfileResponse (CreateSecurityProfileResponse'),
+    newCreateSecurityProfileResponse,
+
+    -- ** CreateTaskTemplate
+    CreateTaskTemplate (CreateTaskTemplate'),
+    newCreateTaskTemplate,
+    CreateTaskTemplateResponse (CreateTaskTemplateResponse'),
+    newCreateTaskTemplateResponse,
+
     -- ** CreateUseCase
     CreateUseCase (CreateUseCase'),
     newCreateUseCase,
@@ -205,6 +253,24 @@ module Amazonka.Connect
     newCreateUserHierarchyGroup,
     CreateUserHierarchyGroupResponse (CreateUserHierarchyGroupResponse'),
     newCreateUserHierarchyGroupResponse,
+
+    -- ** CreateVocabulary
+    CreateVocabulary (CreateVocabulary'),
+    newCreateVocabulary,
+    CreateVocabularyResponse (CreateVocabularyResponse'),
+    newCreateVocabularyResponse,
+
+    -- ** DeleteContactFlow
+    DeleteContactFlow (DeleteContactFlow'),
+    newDeleteContactFlow,
+    DeleteContactFlowResponse (DeleteContactFlowResponse'),
+    newDeleteContactFlowResponse,
+
+    -- ** DeleteContactFlowModule
+    DeleteContactFlowModule (DeleteContactFlowModule'),
+    newDeleteContactFlowModule,
+    DeleteContactFlowModuleResponse (DeleteContactFlowModuleResponse'),
+    newDeleteContactFlowModuleResponse,
 
     -- ** DeleteHoursOfOperation
     DeleteHoursOfOperation (DeleteHoursOfOperation'),
@@ -230,6 +296,18 @@ module Amazonka.Connect
     DeleteQuickConnectResponse (DeleteQuickConnectResponse'),
     newDeleteQuickConnectResponse,
 
+    -- ** DeleteSecurityProfile
+    DeleteSecurityProfile (DeleteSecurityProfile'),
+    newDeleteSecurityProfile,
+    DeleteSecurityProfileResponse (DeleteSecurityProfileResponse'),
+    newDeleteSecurityProfileResponse,
+
+    -- ** DeleteTaskTemplate
+    DeleteTaskTemplate (DeleteTaskTemplate'),
+    newDeleteTaskTemplate,
+    DeleteTaskTemplateResponse (DeleteTaskTemplateResponse'),
+    newDeleteTaskTemplateResponse,
+
     -- ** DeleteUseCase
     DeleteUseCase (DeleteUseCase'),
     newDeleteUseCase,
@@ -248,17 +326,35 @@ module Amazonka.Connect
     DeleteUserHierarchyGroupResponse (DeleteUserHierarchyGroupResponse'),
     newDeleteUserHierarchyGroupResponse,
 
+    -- ** DeleteVocabulary
+    DeleteVocabulary (DeleteVocabulary'),
+    newDeleteVocabulary,
+    DeleteVocabularyResponse (DeleteVocabularyResponse'),
+    newDeleteVocabularyResponse,
+
     -- ** DescribeAgentStatus
     DescribeAgentStatus (DescribeAgentStatus'),
     newDescribeAgentStatus,
     DescribeAgentStatusResponse (DescribeAgentStatusResponse'),
     newDescribeAgentStatusResponse,
 
+    -- ** DescribeContact
+    DescribeContact (DescribeContact'),
+    newDescribeContact,
+    DescribeContactResponse (DescribeContactResponse'),
+    newDescribeContactResponse,
+
     -- ** DescribeContactFlow
     DescribeContactFlow (DescribeContactFlow'),
     newDescribeContactFlow,
     DescribeContactFlowResponse (DescribeContactFlowResponse'),
     newDescribeContactFlowResponse,
+
+    -- ** DescribeContactFlowModule
+    DescribeContactFlowModule (DescribeContactFlowModule'),
+    newDescribeContactFlowModule,
+    DescribeContactFlowModuleResponse (DescribeContactFlowModuleResponse'),
+    newDescribeContactFlowModuleResponse,
 
     -- ** DescribeHoursOfOperation
     DescribeHoursOfOperation (DescribeHoursOfOperation'),
@@ -284,6 +380,12 @@ module Amazonka.Connect
     DescribeInstanceStorageConfigResponse (DescribeInstanceStorageConfigResponse'),
     newDescribeInstanceStorageConfigResponse,
 
+    -- ** DescribePhoneNumber
+    DescribePhoneNumber (DescribePhoneNumber'),
+    newDescribePhoneNumber,
+    DescribePhoneNumberResponse (DescribePhoneNumberResponse'),
+    newDescribePhoneNumberResponse,
+
     -- ** DescribeQueue
     DescribeQueue (DescribeQueue'),
     newDescribeQueue,
@@ -302,6 +404,12 @@ module Amazonka.Connect
     DescribeRoutingProfileResponse (DescribeRoutingProfileResponse'),
     newDescribeRoutingProfileResponse,
 
+    -- ** DescribeSecurityProfile
+    DescribeSecurityProfile (DescribeSecurityProfile'),
+    newDescribeSecurityProfile,
+    DescribeSecurityProfileResponse (DescribeSecurityProfileResponse'),
+    newDescribeSecurityProfileResponse,
+
     -- ** DescribeUser
     DescribeUser (DescribeUser'),
     newDescribeUser,
@@ -319,6 +427,12 @@ module Amazonka.Connect
     newDescribeUserHierarchyStructure,
     DescribeUserHierarchyStructureResponse (DescribeUserHierarchyStructureResponse'),
     newDescribeUserHierarchyStructureResponse,
+
+    -- ** DescribeVocabulary
+    DescribeVocabulary (DescribeVocabulary'),
+    newDescribeVocabulary,
+    DescribeVocabularyResponse (DescribeVocabularyResponse'),
+    newDescribeVocabularyResponse,
 
     -- ** DisassociateApprovedOrigin
     DisassociateApprovedOrigin (DisassociateApprovedOrigin'),
@@ -350,6 +464,12 @@ module Amazonka.Connect
     DisassociateLexBotResponse (DisassociateLexBotResponse'),
     newDisassociateLexBotResponse,
 
+    -- ** DisassociatePhoneNumberContactFlow
+    DisassociatePhoneNumberContactFlow (DisassociatePhoneNumberContactFlow'),
+    newDisassociatePhoneNumberContactFlow,
+    DisassociatePhoneNumberContactFlowResponse (DisassociatePhoneNumberContactFlowResponse'),
+    newDisassociatePhoneNumberContactFlowResponse,
+
     -- ** DisassociateQueueQuickConnects
     DisassociateQueueQuickConnects (DisassociateQueueQuickConnects'),
     newDisassociateQueueQuickConnects,
@@ -380,6 +500,12 @@ module Amazonka.Connect
     GetCurrentMetricDataResponse (GetCurrentMetricDataResponse'),
     newGetCurrentMetricDataResponse,
 
+    -- ** GetCurrentUserData
+    GetCurrentUserData (GetCurrentUserData'),
+    newGetCurrentUserData,
+    GetCurrentUserDataResponse (GetCurrentUserDataResponse'),
+    newGetCurrentUserDataResponse,
+
     -- ** GetFederationToken
     GetFederationToken (GetFederationToken'),
     newGetFederationToken,
@@ -391,6 +517,12 @@ module Amazonka.Connect
     newGetMetricData,
     GetMetricDataResponse (GetMetricDataResponse'),
     newGetMetricDataResponse,
+
+    -- ** GetTaskTemplate
+    GetTaskTemplate (GetTaskTemplate'),
+    newGetTaskTemplate,
+    GetTaskTemplateResponse (GetTaskTemplateResponse'),
+    newGetTaskTemplateResponse,
 
     -- ** ListAgentStatuses (Paginated)
     ListAgentStatuses (ListAgentStatuses'),
@@ -410,11 +542,29 @@ module Amazonka.Connect
     ListBotsResponse (ListBotsResponse'),
     newListBotsResponse,
 
+    -- ** ListContactFlowModules (Paginated)
+    ListContactFlowModules (ListContactFlowModules'),
+    newListContactFlowModules,
+    ListContactFlowModulesResponse (ListContactFlowModulesResponse'),
+    newListContactFlowModulesResponse,
+
     -- ** ListContactFlows (Paginated)
     ListContactFlows (ListContactFlows'),
     newListContactFlows,
     ListContactFlowsResponse (ListContactFlowsResponse'),
     newListContactFlowsResponse,
+
+    -- ** ListContactReferences (Paginated)
+    ListContactReferences (ListContactReferences'),
+    newListContactReferences,
+    ListContactReferencesResponse (ListContactReferencesResponse'),
+    newListContactReferencesResponse,
+
+    -- ** ListDefaultVocabularies (Paginated)
+    ListDefaultVocabularies (ListDefaultVocabularies'),
+    newListDefaultVocabularies,
+    ListDefaultVocabulariesResponse (ListDefaultVocabulariesResponse'),
+    newListDefaultVocabulariesResponse,
 
     -- ** ListHoursOfOperations (Paginated)
     ListHoursOfOperations (ListHoursOfOperations'),
@@ -464,6 +614,12 @@ module Amazonka.Connect
     ListPhoneNumbersResponse (ListPhoneNumbersResponse'),
     newListPhoneNumbersResponse,
 
+    -- ** ListPhoneNumbersV2 (Paginated)
+    ListPhoneNumbersV2 (ListPhoneNumbersV2'),
+    newListPhoneNumbersV2,
+    ListPhoneNumbersV2Response (ListPhoneNumbersV2Response'),
+    newListPhoneNumbersV2Response,
+
     -- ** ListPrompts (Paginated)
     ListPrompts (ListPrompts'),
     newListPrompts,
@@ -506,6 +662,12 @@ module Amazonka.Connect
     ListSecurityKeysResponse (ListSecurityKeysResponse'),
     newListSecurityKeysResponse,
 
+    -- ** ListSecurityProfilePermissions (Paginated)
+    ListSecurityProfilePermissions (ListSecurityProfilePermissions'),
+    newListSecurityProfilePermissions,
+    ListSecurityProfilePermissionsResponse (ListSecurityProfilePermissionsResponse'),
+    newListSecurityProfilePermissionsResponse,
+
     -- ** ListSecurityProfiles (Paginated)
     ListSecurityProfiles (ListSecurityProfiles'),
     newListSecurityProfiles,
@@ -517,6 +679,12 @@ module Amazonka.Connect
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ListTaskTemplates (Paginated)
+    ListTaskTemplates (ListTaskTemplates'),
+    newListTaskTemplates,
+    ListTaskTemplatesResponse (ListTaskTemplatesResponse'),
+    newListTaskTemplatesResponse,
 
     -- ** ListUseCases (Paginated)
     ListUseCases (ListUseCases'),
@@ -536,11 +704,47 @@ module Amazonka.Connect
     ListUsersResponse (ListUsersResponse'),
     newListUsersResponse,
 
+    -- ** PutUserStatus
+    PutUserStatus (PutUserStatus'),
+    newPutUserStatus,
+    PutUserStatusResponse (PutUserStatusResponse'),
+    newPutUserStatusResponse,
+
+    -- ** ReleasePhoneNumber
+    ReleasePhoneNumber (ReleasePhoneNumber'),
+    newReleasePhoneNumber,
+    ReleasePhoneNumberResponse (ReleasePhoneNumberResponse'),
+    newReleasePhoneNumberResponse,
+
     -- ** ResumeContactRecording
     ResumeContactRecording (ResumeContactRecording'),
     newResumeContactRecording,
     ResumeContactRecordingResponse (ResumeContactRecordingResponse'),
     newResumeContactRecordingResponse,
+
+    -- ** SearchAvailablePhoneNumbers (Paginated)
+    SearchAvailablePhoneNumbers (SearchAvailablePhoneNumbers'),
+    newSearchAvailablePhoneNumbers,
+    SearchAvailablePhoneNumbersResponse (SearchAvailablePhoneNumbersResponse'),
+    newSearchAvailablePhoneNumbersResponse,
+
+    -- ** SearchSecurityProfiles (Paginated)
+    SearchSecurityProfiles (SearchSecurityProfiles'),
+    newSearchSecurityProfiles,
+    SearchSecurityProfilesResponse (SearchSecurityProfilesResponse'),
+    newSearchSecurityProfilesResponse,
+
+    -- ** SearchUsers (Paginated)
+    SearchUsers (SearchUsers'),
+    newSearchUsers,
+    SearchUsersResponse (SearchUsersResponse'),
+    newSearchUsersResponse,
+
+    -- ** SearchVocabularies (Paginated)
+    SearchVocabularies (SearchVocabularies'),
+    newSearchVocabularies,
+    SearchVocabulariesResponse (SearchVocabulariesResponse'),
+    newSearchVocabulariesResponse,
 
     -- ** StartChatContact
     StartChatContact (StartChatContact'),
@@ -553,6 +757,12 @@ module Amazonka.Connect
     newStartContactRecording,
     StartContactRecordingResponse (StartContactRecordingResponse'),
     newStartContactRecordingResponse,
+
+    -- ** StartContactStreaming
+    StartContactStreaming (StartContactStreaming'),
+    newStartContactStreaming,
+    StartContactStreamingResponse (StartContactStreamingResponse'),
+    newStartContactStreamingResponse,
 
     -- ** StartOutboundVoiceContact
     StartOutboundVoiceContact (StartOutboundVoiceContact'),
@@ -578,6 +788,12 @@ module Amazonka.Connect
     StopContactRecordingResponse (StopContactRecordingResponse'),
     newStopContactRecordingResponse,
 
+    -- ** StopContactStreaming
+    StopContactStreaming (StopContactStreaming'),
+    newStopContactStreaming,
+    StopContactStreamingResponse (StopContactStreamingResponse'),
+    newStopContactStreamingResponse,
+
     -- ** SuspendContactRecording
     SuspendContactRecording (SuspendContactRecording'),
     newSuspendContactRecording,
@@ -589,6 +805,12 @@ module Amazonka.Connect
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** TransferContact
+    TransferContact (TransferContact'),
+    newTransferContact,
+    TransferContactResponse (TransferContactResponse'),
+    newTransferContactResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -602,6 +824,12 @@ module Amazonka.Connect
     UpdateAgentStatusResponse (UpdateAgentStatusResponse'),
     newUpdateAgentStatusResponse,
 
+    -- ** UpdateContact
+    UpdateContact (UpdateContact'),
+    newUpdateContact,
+    UpdateContactResponse (UpdateContactResponse'),
+    newUpdateContactResponse,
+
     -- ** UpdateContactAttributes
     UpdateContactAttributes (UpdateContactAttributes'),
     newUpdateContactAttributes,
@@ -614,11 +842,35 @@ module Amazonka.Connect
     UpdateContactFlowContentResponse (UpdateContactFlowContentResponse'),
     newUpdateContactFlowContentResponse,
 
+    -- ** UpdateContactFlowMetadata
+    UpdateContactFlowMetadata (UpdateContactFlowMetadata'),
+    newUpdateContactFlowMetadata,
+    UpdateContactFlowMetadataResponse (UpdateContactFlowMetadataResponse'),
+    newUpdateContactFlowMetadataResponse,
+
+    -- ** UpdateContactFlowModuleContent
+    UpdateContactFlowModuleContent (UpdateContactFlowModuleContent'),
+    newUpdateContactFlowModuleContent,
+    UpdateContactFlowModuleContentResponse (UpdateContactFlowModuleContentResponse'),
+    newUpdateContactFlowModuleContentResponse,
+
+    -- ** UpdateContactFlowModuleMetadata
+    UpdateContactFlowModuleMetadata (UpdateContactFlowModuleMetadata'),
+    newUpdateContactFlowModuleMetadata,
+    UpdateContactFlowModuleMetadataResponse (UpdateContactFlowModuleMetadataResponse'),
+    newUpdateContactFlowModuleMetadataResponse,
+
     -- ** UpdateContactFlowName
     UpdateContactFlowName (UpdateContactFlowName'),
     newUpdateContactFlowName,
     UpdateContactFlowNameResponse (UpdateContactFlowNameResponse'),
     newUpdateContactFlowNameResponse,
+
+    -- ** UpdateContactSchedule
+    UpdateContactSchedule (UpdateContactSchedule'),
+    newUpdateContactSchedule,
+    UpdateContactScheduleResponse (UpdateContactScheduleResponse'),
+    newUpdateContactScheduleResponse,
 
     -- ** UpdateHoursOfOperation
     UpdateHoursOfOperation (UpdateHoursOfOperation'),
@@ -637,6 +889,12 @@ module Amazonka.Connect
     newUpdateInstanceStorageConfig,
     UpdateInstanceStorageConfigResponse (UpdateInstanceStorageConfigResponse'),
     newUpdateInstanceStorageConfigResponse,
+
+    -- ** UpdatePhoneNumber
+    UpdatePhoneNumber (UpdatePhoneNumber'),
+    newUpdatePhoneNumber,
+    UpdatePhoneNumberResponse (UpdatePhoneNumberResponse'),
+    newUpdatePhoneNumberResponse,
 
     -- ** UpdateQueueHoursOfOperation
     UpdateQueueHoursOfOperation (UpdateQueueHoursOfOperation'),
@@ -704,6 +962,18 @@ module Amazonka.Connect
     UpdateRoutingProfileQueuesResponse (UpdateRoutingProfileQueuesResponse'),
     newUpdateRoutingProfileQueuesResponse,
 
+    -- ** UpdateSecurityProfile
+    UpdateSecurityProfile (UpdateSecurityProfile'),
+    newUpdateSecurityProfile,
+    UpdateSecurityProfileResponse (UpdateSecurityProfileResponse'),
+    newUpdateSecurityProfileResponse,
+
+    -- ** UpdateTaskTemplate
+    UpdateTaskTemplate (UpdateTaskTemplate'),
+    newUpdateTaskTemplate,
+    UpdateTaskTemplateResponse (UpdateTaskTemplateResponse'),
+    newUpdateTaskTemplateResponse,
+
     -- ** UpdateUserHierarchy
     UpdateUserHierarchy (UpdateUserHierarchy'),
     newUpdateUserHierarchy,
@@ -760,8 +1030,23 @@ module Amazonka.Connect
     -- ** Comparison
     Comparison (..),
 
+    -- ** ContactFlowModuleState
+    ContactFlowModuleState (..),
+
+    -- ** ContactFlowModuleStatus
+    ContactFlowModuleStatus (..),
+
+    -- ** ContactFlowState
+    ContactFlowState (..),
+
     -- ** ContactFlowType
     ContactFlowType (..),
+
+    -- ** ContactInitiationMethod
+    ContactInitiationMethod (..),
+
+    -- ** ContactState
+    ContactState (..),
 
     -- ** CurrentMetricName
     CurrentMetricName (..),
@@ -774,6 +1059,9 @@ module Amazonka.Connect
 
     -- ** Grouping
     Grouping (..),
+
+    -- ** HierarchyGroupMatchType
+    HierarchyGroupMatchType (..),
 
     -- ** HistoricalMetricName
     HistoricalMetricName (..),
@@ -802,6 +1090,9 @@ module Amazonka.Connect
     -- ** PhoneNumberType
     PhoneNumberType (..),
 
+    -- ** PhoneNumberWorkflowStatus
+    PhoneNumberWorkflowStatus (..),
+
     -- ** PhoneType
     PhoneType (..),
 
@@ -813,6 +1104,9 @@ module Amazonka.Connect
 
     -- ** QuickConnectType
     QuickConnectType (..),
+
+    -- ** ReferenceStatus
+    ReferenceStatus (..),
 
     -- ** ReferenceType
     ReferenceType (..),
@@ -826,6 +1120,15 @@ module Amazonka.Connect
     -- ** StorageType
     StorageType (..),
 
+    -- ** StringComparisonType
+    StringComparisonType (..),
+
+    -- ** TaskTemplateFieldType
+    TaskTemplateFieldType (..),
+
+    -- ** TaskTemplateStatus
+    TaskTemplateStatus (..),
+
     -- ** TrafficType
     TrafficType (..),
 
@@ -835,12 +1138,30 @@ module Amazonka.Connect
     -- ** UseCaseType
     UseCaseType (..),
 
+    -- ** VocabularyLanguageCode
+    VocabularyLanguageCode (..),
+
+    -- ** VocabularyState
+    VocabularyState (..),
+
     -- ** VoiceRecordingTrack
     VoiceRecordingTrack (..),
+
+    -- ** AgentContactReference
+    AgentContactReference (AgentContactReference'),
+    newAgentContactReference,
+
+    -- ** AgentInfo
+    AgentInfo (AgentInfo'),
+    newAgentInfo,
 
     -- ** AgentStatus
     AgentStatus (AgentStatus'),
     newAgentStatus,
+
+    -- ** AgentStatusReference
+    AgentStatusReference (AgentStatusReference'),
+    newAgentStatusReference,
 
     -- ** AgentStatusSummary
     AgentStatusSummary (AgentStatusSummary'),
@@ -850,21 +1171,57 @@ module Amazonka.Connect
     AnswerMachineDetectionConfig (AnswerMachineDetectionConfig'),
     newAnswerMachineDetectionConfig,
 
+    -- ** AttachmentReference
+    AttachmentReference (AttachmentReference'),
+    newAttachmentReference,
+
     -- ** Attribute
     Attribute (Attribute'),
     newAttribute,
+
+    -- ** AvailableNumberSummary
+    AvailableNumberSummary (AvailableNumberSummary'),
+    newAvailableNumberSummary,
 
     -- ** ChatMessage
     ChatMessage (ChatMessage'),
     newChatMessage,
 
+    -- ** ChatStreamingConfiguration
+    ChatStreamingConfiguration (ChatStreamingConfiguration'),
+    newChatStreamingConfiguration,
+
+    -- ** ClaimedPhoneNumberSummary
+    ClaimedPhoneNumberSummary (ClaimedPhoneNumberSummary'),
+    newClaimedPhoneNumberSummary,
+
+    -- ** Contact
+    Contact (Contact'),
+    newContact,
+
+    -- ** ContactFilter
+    ContactFilter (ContactFilter'),
+    newContactFilter,
+
     -- ** ContactFlow
     ContactFlow (ContactFlow'),
     newContactFlow,
 
+    -- ** ContactFlowModule
+    ContactFlowModule (ContactFlowModule'),
+    newContactFlowModule,
+
+    -- ** ContactFlowModuleSummary
+    ContactFlowModuleSummary (ContactFlowModuleSummary'),
+    newContactFlowModuleSummary,
+
     -- ** ContactFlowSummary
     ContactFlowSummary (ContactFlowSummary'),
     newContactFlowSummary,
+
+    -- ** ControlPlaneTagFilter
+    ControlPlaneTagFilter (ControlPlaneTagFilter'),
+    newControlPlaneTagFilter,
 
     -- ** Credentials
     Credentials (Credentials'),
@@ -882,9 +1239,21 @@ module Amazonka.Connect
     CurrentMetricResult (CurrentMetricResult'),
     newCurrentMetricResult,
 
+    -- ** DateReference
+    DateReference (DateReference'),
+    newDateReference,
+
+    -- ** DefaultVocabulary
+    DefaultVocabulary (DefaultVocabulary'),
+    newDefaultVocabulary,
+
     -- ** Dimensions
     Dimensions (Dimensions'),
     newDimensions,
+
+    -- ** EmailReference
+    EmailReference (EmailReference'),
+    newEmailReference,
 
     -- ** EncryptionConfig
     EncryptionConfig (EncryptionConfig'),
@@ -898,9 +1267,17 @@ module Amazonka.Connect
     HierarchyGroup (HierarchyGroup'),
     newHierarchyGroup,
 
+    -- ** HierarchyGroupCondition
+    HierarchyGroupCondition (HierarchyGroupCondition'),
+    newHierarchyGroupCondition,
+
     -- ** HierarchyGroupSummary
     HierarchyGroupSummary (HierarchyGroupSummary'),
     newHierarchyGroupSummary,
+
+    -- ** HierarchyGroupSummaryReference
+    HierarchyGroupSummaryReference (HierarchyGroupSummaryReference'),
+    newHierarchyGroupSummaryReference,
 
     -- ** HierarchyLevel
     HierarchyLevel (HierarchyLevel'),
@@ -913,6 +1290,10 @@ module Amazonka.Connect
     -- ** HierarchyPath
     HierarchyPath (HierarchyPath'),
     newHierarchyPath,
+
+    -- ** HierarchyPathReference
+    HierarchyPathReference (HierarchyPathReference'),
+    newHierarchyPathReference,
 
     -- ** HierarchyStructure
     HierarchyStructure (HierarchyStructure'),
@@ -970,6 +1351,10 @@ module Amazonka.Connect
     IntegrationAssociationSummary (IntegrationAssociationSummary'),
     newIntegrationAssociationSummary,
 
+    -- ** InvisibleFieldInfo
+    InvisibleFieldInfo (InvisibleFieldInfo'),
+    newInvisibleFieldInfo,
+
     -- ** KinesisFirehoseConfig
     KinesisFirehoseConfig (KinesisFirehoseConfig'),
     newKinesisFirehoseConfig,
@@ -994,9 +1379,17 @@ module Amazonka.Connect
     LexV2Bot (LexV2Bot'),
     newLexV2Bot,
 
+    -- ** ListPhoneNumbersSummary
+    ListPhoneNumbersSummary (ListPhoneNumbersSummary'),
+    newListPhoneNumbersSummary,
+
     -- ** MediaConcurrency
     MediaConcurrency (MediaConcurrency'),
     newMediaConcurrency,
+
+    -- ** NumberReference
+    NumberReference (NumberReference'),
+    newNumberReference,
 
     -- ** OutboundCallerConfig
     OutboundCallerConfig (OutboundCallerConfig'),
@@ -1010,6 +1403,10 @@ module Amazonka.Connect
     PhoneNumberQuickConnectConfig (PhoneNumberQuickConnectConfig'),
     newPhoneNumberQuickConnectConfig,
 
+    -- ** PhoneNumberStatus
+    PhoneNumberStatus (PhoneNumberStatus'),
+    newPhoneNumberStatus,
+
     -- ** PhoneNumberSummary
     PhoneNumberSummary (PhoneNumberSummary'),
     newPhoneNumberSummary,
@@ -1021,6 +1418,10 @@ module Amazonka.Connect
     -- ** Queue
     Queue (Queue'),
     newQueue,
+
+    -- ** QueueInfo
+    QueueInfo (QueueInfo'),
+    newQueueInfo,
 
     -- ** QueueQuickConnectConfig
     QueueQuickConnectConfig (QueueQuickConnectConfig'),
@@ -1046,9 +1447,21 @@ module Amazonka.Connect
     QuickConnectSummary (QuickConnectSummary'),
     newQuickConnectSummary,
 
+    -- ** ReadOnlyFieldInfo
+    ReadOnlyFieldInfo (ReadOnlyFieldInfo'),
+    newReadOnlyFieldInfo,
+
     -- ** Reference
     Reference (Reference'),
     newReference,
+
+    -- ** ReferenceSummary
+    ReferenceSummary (ReferenceSummary'),
+    newReferenceSummary,
+
+    -- ** RequiredFieldInfo
+    RequiredFieldInfo (RequiredFieldInfo'),
+    newRequiredFieldInfo,
 
     -- ** RoutingProfile
     RoutingProfile (RoutingProfile'),
@@ -1066,6 +1479,10 @@ module Amazonka.Connect
     RoutingProfileQueueReference (RoutingProfileQueueReference'),
     newRoutingProfileQueueReference,
 
+    -- ** RoutingProfileReference
+    RoutingProfileReference (RoutingProfileReference'),
+    newRoutingProfileReference,
+
     -- ** RoutingProfileSummary
     RoutingProfileSummary (RoutingProfileSummary'),
     newRoutingProfileSummary,
@@ -1078,13 +1495,69 @@ module Amazonka.Connect
     SecurityKey (SecurityKey'),
     newSecurityKey,
 
+    -- ** SecurityProfile
+    SecurityProfile (SecurityProfile'),
+    newSecurityProfile,
+
+    -- ** SecurityProfileSearchCriteria
+    SecurityProfileSearchCriteria (SecurityProfileSearchCriteria'),
+    newSecurityProfileSearchCriteria,
+
+    -- ** SecurityProfileSearchSummary
+    SecurityProfileSearchSummary (SecurityProfileSearchSummary'),
+    newSecurityProfileSearchSummary,
+
     -- ** SecurityProfileSummary
     SecurityProfileSummary (SecurityProfileSummary'),
     newSecurityProfileSummary,
 
+    -- ** SecurityProfilesSearchFilter
+    SecurityProfilesSearchFilter (SecurityProfilesSearchFilter'),
+    newSecurityProfilesSearchFilter,
+
+    -- ** StringCondition
+    StringCondition (StringCondition'),
+    newStringCondition,
+
+    -- ** StringReference
+    StringReference (StringReference'),
+    newStringReference,
+
+    -- ** TagCondition
+    TagCondition (TagCondition'),
+    newTagCondition,
+
+    -- ** TaskTemplateConstraints
+    TaskTemplateConstraints (TaskTemplateConstraints'),
+    newTaskTemplateConstraints,
+
+    -- ** TaskTemplateDefaultFieldValue
+    TaskTemplateDefaultFieldValue (TaskTemplateDefaultFieldValue'),
+    newTaskTemplateDefaultFieldValue,
+
+    -- ** TaskTemplateDefaults
+    TaskTemplateDefaults (TaskTemplateDefaults'),
+    newTaskTemplateDefaults,
+
+    -- ** TaskTemplateField
+    TaskTemplateField (TaskTemplateField'),
+    newTaskTemplateField,
+
+    -- ** TaskTemplateFieldIdentifier
+    TaskTemplateFieldIdentifier (TaskTemplateFieldIdentifier'),
+    newTaskTemplateFieldIdentifier,
+
+    -- ** TaskTemplateMetadata
+    TaskTemplateMetadata (TaskTemplateMetadata'),
+    newTaskTemplateMetadata,
+
     -- ** Threshold
     Threshold (Threshold'),
     newThreshold,
+
+    -- ** UrlReference
+    UrlReference (UrlReference'),
+    newUrlReference,
 
     -- ** UseCase
     UseCase (UseCase'),
@@ -1094,9 +1567,21 @@ module Amazonka.Connect
     User (User'),
     newUser,
 
+    -- ** UserData
+    UserData (UserData'),
+    newUserData,
+
+    -- ** UserDataFilters
+    UserDataFilters (UserDataFilters'),
+    newUserDataFilters,
+
     -- ** UserIdentityInfo
     UserIdentityInfo (UserIdentityInfo'),
     newUserIdentityInfo,
+
+    -- ** UserIdentityInfoLite
+    UserIdentityInfoLite (UserIdentityInfoLite'),
+    newUserIdentityInfoLite,
 
     -- ** UserPhoneConfig
     UserPhoneConfig (UserPhoneConfig'),
@@ -1106,9 +1591,33 @@ module Amazonka.Connect
     UserQuickConnectConfig (UserQuickConnectConfig'),
     newUserQuickConnectConfig,
 
+    -- ** UserReference
+    UserReference (UserReference'),
+    newUserReference,
+
+    -- ** UserSearchCriteria
+    UserSearchCriteria (UserSearchCriteria'),
+    newUserSearchCriteria,
+
+    -- ** UserSearchFilter
+    UserSearchFilter (UserSearchFilter'),
+    newUserSearchFilter,
+
+    -- ** UserSearchSummary
+    UserSearchSummary (UserSearchSummary'),
+    newUserSearchSummary,
+
     -- ** UserSummary
     UserSummary (UserSummary'),
     newUserSummary,
+
+    -- ** Vocabulary
+    Vocabulary (Vocabulary'),
+    newVocabulary,
+
+    -- ** VocabularySummary
+    VocabularySummary (VocabularySummary'),
+    newVocabularySummary,
 
     -- ** VoiceRecordingConfiguration
     VoiceRecordingConfiguration (VoiceRecordingConfiguration'),
@@ -1118,59 +1627,82 @@ where
 
 import Amazonka.Connect.AssociateApprovedOrigin
 import Amazonka.Connect.AssociateBot
+import Amazonka.Connect.AssociateDefaultVocabulary
 import Amazonka.Connect.AssociateInstanceStorageConfig
 import Amazonka.Connect.AssociateLambdaFunction
 import Amazonka.Connect.AssociateLexBot
+import Amazonka.Connect.AssociatePhoneNumberContactFlow
 import Amazonka.Connect.AssociateQueueQuickConnects
 import Amazonka.Connect.AssociateRoutingProfileQueues
 import Amazonka.Connect.AssociateSecurityKey
+import Amazonka.Connect.ClaimPhoneNumber
 import Amazonka.Connect.CreateAgentStatus
 import Amazonka.Connect.CreateContactFlow
+import Amazonka.Connect.CreateContactFlowModule
 import Amazonka.Connect.CreateHoursOfOperation
 import Amazonka.Connect.CreateInstance
 import Amazonka.Connect.CreateIntegrationAssociation
 import Amazonka.Connect.CreateQueue
 import Amazonka.Connect.CreateQuickConnect
 import Amazonka.Connect.CreateRoutingProfile
+import Amazonka.Connect.CreateSecurityProfile
+import Amazonka.Connect.CreateTaskTemplate
 import Amazonka.Connect.CreateUseCase
 import Amazonka.Connect.CreateUser
 import Amazonka.Connect.CreateUserHierarchyGroup
+import Amazonka.Connect.CreateVocabulary
+import Amazonka.Connect.DeleteContactFlow
+import Amazonka.Connect.DeleteContactFlowModule
 import Amazonka.Connect.DeleteHoursOfOperation
 import Amazonka.Connect.DeleteInstance
 import Amazonka.Connect.DeleteIntegrationAssociation
 import Amazonka.Connect.DeleteQuickConnect
+import Amazonka.Connect.DeleteSecurityProfile
+import Amazonka.Connect.DeleteTaskTemplate
 import Amazonka.Connect.DeleteUseCase
 import Amazonka.Connect.DeleteUser
 import Amazonka.Connect.DeleteUserHierarchyGroup
+import Amazonka.Connect.DeleteVocabulary
 import Amazonka.Connect.DescribeAgentStatus
+import Amazonka.Connect.DescribeContact
 import Amazonka.Connect.DescribeContactFlow
+import Amazonka.Connect.DescribeContactFlowModule
 import Amazonka.Connect.DescribeHoursOfOperation
 import Amazonka.Connect.DescribeInstance
 import Amazonka.Connect.DescribeInstanceAttribute
 import Amazonka.Connect.DescribeInstanceStorageConfig
+import Amazonka.Connect.DescribePhoneNumber
 import Amazonka.Connect.DescribeQueue
 import Amazonka.Connect.DescribeQuickConnect
 import Amazonka.Connect.DescribeRoutingProfile
+import Amazonka.Connect.DescribeSecurityProfile
 import Amazonka.Connect.DescribeUser
 import Amazonka.Connect.DescribeUserHierarchyGroup
 import Amazonka.Connect.DescribeUserHierarchyStructure
+import Amazonka.Connect.DescribeVocabulary
 import Amazonka.Connect.DisassociateApprovedOrigin
 import Amazonka.Connect.DisassociateBot
 import Amazonka.Connect.DisassociateInstanceStorageConfig
 import Amazonka.Connect.DisassociateLambdaFunction
 import Amazonka.Connect.DisassociateLexBot
+import Amazonka.Connect.DisassociatePhoneNumberContactFlow
 import Amazonka.Connect.DisassociateQueueQuickConnects
 import Amazonka.Connect.DisassociateRoutingProfileQueues
 import Amazonka.Connect.DisassociateSecurityKey
 import Amazonka.Connect.GetContactAttributes
 import Amazonka.Connect.GetCurrentMetricData
+import Amazonka.Connect.GetCurrentUserData
 import Amazonka.Connect.GetFederationToken
 import Amazonka.Connect.GetMetricData
+import Amazonka.Connect.GetTaskTemplate
 import Amazonka.Connect.Lens
 import Amazonka.Connect.ListAgentStatuses
 import Amazonka.Connect.ListApprovedOrigins
 import Amazonka.Connect.ListBots
+import Amazonka.Connect.ListContactFlowModules
 import Amazonka.Connect.ListContactFlows
+import Amazonka.Connect.ListContactReferences
+import Amazonka.Connect.ListDefaultVocabularies
 import Amazonka.Connect.ListHoursOfOperations
 import Amazonka.Connect.ListInstanceAttributes
 import Amazonka.Connect.ListInstanceStorageConfigs
@@ -1179,6 +1711,7 @@ import Amazonka.Connect.ListIntegrationAssociations
 import Amazonka.Connect.ListLambdaFunctions
 import Amazonka.Connect.ListLexBots
 import Amazonka.Connect.ListPhoneNumbers
+import Amazonka.Connect.ListPhoneNumbersV2
 import Amazonka.Connect.ListPrompts
 import Amazonka.Connect.ListQueueQuickConnects
 import Amazonka.Connect.ListQueues
@@ -1186,29 +1719,46 @@ import Amazonka.Connect.ListQuickConnects
 import Amazonka.Connect.ListRoutingProfileQueues
 import Amazonka.Connect.ListRoutingProfiles
 import Amazonka.Connect.ListSecurityKeys
+import Amazonka.Connect.ListSecurityProfilePermissions
 import Amazonka.Connect.ListSecurityProfiles
 import Amazonka.Connect.ListTagsForResource
+import Amazonka.Connect.ListTaskTemplates
 import Amazonka.Connect.ListUseCases
 import Amazonka.Connect.ListUserHierarchyGroups
 import Amazonka.Connect.ListUsers
+import Amazonka.Connect.PutUserStatus
+import Amazonka.Connect.ReleasePhoneNumber
 import Amazonka.Connect.ResumeContactRecording
+import Amazonka.Connect.SearchAvailablePhoneNumbers
+import Amazonka.Connect.SearchSecurityProfiles
+import Amazonka.Connect.SearchUsers
+import Amazonka.Connect.SearchVocabularies
 import Amazonka.Connect.StartChatContact
 import Amazonka.Connect.StartContactRecording
+import Amazonka.Connect.StartContactStreaming
 import Amazonka.Connect.StartOutboundVoiceContact
 import Amazonka.Connect.StartTaskContact
 import Amazonka.Connect.StopContact
 import Amazonka.Connect.StopContactRecording
+import Amazonka.Connect.StopContactStreaming
 import Amazonka.Connect.SuspendContactRecording
 import Amazonka.Connect.TagResource
+import Amazonka.Connect.TransferContact
 import Amazonka.Connect.Types
 import Amazonka.Connect.UntagResource
 import Amazonka.Connect.UpdateAgentStatus
+import Amazonka.Connect.UpdateContact
 import Amazonka.Connect.UpdateContactAttributes
 import Amazonka.Connect.UpdateContactFlowContent
+import Amazonka.Connect.UpdateContactFlowMetadata
+import Amazonka.Connect.UpdateContactFlowModuleContent
+import Amazonka.Connect.UpdateContactFlowModuleMetadata
 import Amazonka.Connect.UpdateContactFlowName
+import Amazonka.Connect.UpdateContactSchedule
 import Amazonka.Connect.UpdateHoursOfOperation
 import Amazonka.Connect.UpdateInstanceAttribute
 import Amazonka.Connect.UpdateInstanceStorageConfig
+import Amazonka.Connect.UpdatePhoneNumber
 import Amazonka.Connect.UpdateQueueHoursOfOperation
 import Amazonka.Connect.UpdateQueueMaxContacts
 import Amazonka.Connect.UpdateQueueName
@@ -1220,6 +1770,8 @@ import Amazonka.Connect.UpdateRoutingProfileConcurrency
 import Amazonka.Connect.UpdateRoutingProfileDefaultOutboundQueue
 import Amazonka.Connect.UpdateRoutingProfileName
 import Amazonka.Connect.UpdateRoutingProfileQueues
+import Amazonka.Connect.UpdateSecurityProfile
+import Amazonka.Connect.UpdateTaskTemplate
 import Amazonka.Connect.UpdateUserHierarchy
 import Amazonka.Connect.UpdateUserHierarchyGroupName
 import Amazonka.Connect.UpdateUserHierarchyStructure

@@ -25,6 +25,7 @@ module Amazonka.Connect.Types.InstanceStorageResourceType
         InstanceStorageResourceType_CHAT_TRANSCRIPTS,
         InstanceStorageResourceType_CONTACT_TRACE_RECORDS,
         InstanceStorageResourceType_MEDIA_STREAMS,
+        InstanceStorageResourceType_REAL_TIME_CONTACT_ANALYSIS_SEGMENTS,
         InstanceStorageResourceType_SCHEDULED_REPORTS
       ),
   )
@@ -76,6 +77,9 @@ pattern InstanceStorageResourceType_CONTACT_TRACE_RECORDS = InstanceStorageResou
 pattern InstanceStorageResourceType_MEDIA_STREAMS :: InstanceStorageResourceType
 pattern InstanceStorageResourceType_MEDIA_STREAMS = InstanceStorageResourceType' "MEDIA_STREAMS"
 
+pattern InstanceStorageResourceType_REAL_TIME_CONTACT_ANALYSIS_SEGMENTS :: InstanceStorageResourceType
+pattern InstanceStorageResourceType_REAL_TIME_CONTACT_ANALYSIS_SEGMENTS = InstanceStorageResourceType' "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS"
+
 pattern InstanceStorageResourceType_SCHEDULED_REPORTS :: InstanceStorageResourceType
 pattern InstanceStorageResourceType_SCHEDULED_REPORTS = InstanceStorageResourceType' "SCHEDULED_REPORTS"
 
@@ -85,6 +89,7 @@ pattern InstanceStorageResourceType_SCHEDULED_REPORTS = InstanceStorageResourceT
   InstanceStorageResourceType_CHAT_TRANSCRIPTS,
   InstanceStorageResourceType_CONTACT_TRACE_RECORDS,
   InstanceStorageResourceType_MEDIA_STREAMS,
+  InstanceStorageResourceType_REAL_TIME_CONTACT_ANALYSIS_SEGMENTS,
   InstanceStorageResourceType_SCHEDULED_REPORTS,
   InstanceStorageResourceType'
   #-}

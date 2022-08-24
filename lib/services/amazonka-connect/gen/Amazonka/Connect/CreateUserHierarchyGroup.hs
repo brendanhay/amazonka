@@ -27,6 +27,7 @@ module Amazonka.Connect.CreateUserHierarchyGroup
     newCreateUserHierarchyGroup,
 
     -- * Request Lenses
+    createUserHierarchyGroup_tags,
     createUserHierarchyGroup_parentGroupId,
     createUserHierarchyGroup_name,
     createUserHierarchyGroup_instanceId,
@@ -51,7 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateUserHierarchyGroup' smart constructor.
 data CreateUserHierarchyGroup = CreateUserHierarchyGroup'
-  { -- | The identifier for the parent hierarchy group. The user hierarchy is
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The identifier for the parent hierarchy group. The user hierarchy is
     -- created at level one if the parent group ID is null.
     parentGroupId :: Prelude.Maybe Prelude.Text,
     -- | The name of the user hierarchy group. Must not be more than 100
@@ -71,6 +75,9 @@ data CreateUserHierarchyGroup = CreateUserHierarchyGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createUserHierarchyGroup_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+--
 -- 'parentGroupId', 'createUserHierarchyGroup_parentGroupId' - The identifier for the parent hierarchy group. The user hierarchy is
 -- created at level one if the parent group ID is null.
 --
@@ -87,11 +94,16 @@ newCreateUserHierarchyGroup ::
   CreateUserHierarchyGroup
 newCreateUserHierarchyGroup pName_ pInstanceId_ =
   CreateUserHierarchyGroup'
-    { parentGroupId =
-        Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      parentGroupId = Prelude.Nothing,
       name = pName_,
       instanceId = pInstanceId_
     }
+
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
+createUserHierarchyGroup_tags :: Lens.Lens' CreateUserHierarchyGroup (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createUserHierarchyGroup_tags = Lens.lens (\CreateUserHierarchyGroup' {tags} -> tags) (\s@CreateUserHierarchyGroup' {} a -> s {tags = a} :: CreateUserHierarchyGroup) Prelude.. Lens.mapping Lens.coerced
 
 -- | The identifier for the parent hierarchy group. The user hierarchy is
 -- created at level one if the parent group ID is null.
@@ -124,13 +136,15 @@ instance Core.AWSRequest CreateUserHierarchyGroup where
 
 instance Prelude.Hashable CreateUserHierarchyGroup where
   hashWithSalt _salt CreateUserHierarchyGroup' {..} =
-    _salt `Prelude.hashWithSalt` parentGroupId
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` parentGroupId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceId
 
 instance Prelude.NFData CreateUserHierarchyGroup where
   rnf CreateUserHierarchyGroup' {..} =
-    Prelude.rnf parentGroupId
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf parentGroupId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -149,7 +163,8 @@ instance Core.ToJSON CreateUserHierarchyGroup where
   toJSON CreateUserHierarchyGroup' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParentGroupId" Core..=) Prelude.<$> parentGroupId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ParentGroupId" Core..=) Prelude.<$> parentGroupId,
             Prelude.Just ("Name" Core..= name)
           ]
       )

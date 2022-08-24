@@ -23,6 +23,12 @@ module Amazonka.Connect.Lens
     associateBot_lexBot,
     associateBot_instanceId,
 
+    -- ** AssociateDefaultVocabulary
+    associateDefaultVocabulary_vocabularyId,
+    associateDefaultVocabulary_instanceId,
+    associateDefaultVocabulary_languageCode,
+    associateDefaultVocabularyResponse_httpStatus,
+
     -- ** AssociateInstanceStorageConfig
     associateInstanceStorageConfig_instanceId,
     associateInstanceStorageConfig_resourceType,
@@ -37,6 +43,11 @@ module Amazonka.Connect.Lens
     -- ** AssociateLexBot
     associateLexBot_instanceId,
     associateLexBot_lexBot,
+
+    -- ** AssociatePhoneNumberContactFlow
+    associatePhoneNumberContactFlow_phoneNumberId,
+    associatePhoneNumberContactFlow_instanceId,
+    associatePhoneNumberContactFlow_contactFlowId,
 
     -- ** AssociateQueueQuickConnects
     associateQueueQuickConnects_instanceId,
@@ -53,6 +64,16 @@ module Amazonka.Connect.Lens
     associateSecurityKey_key,
     associateSecurityKeyResponse_associationId,
     associateSecurityKeyResponse_httpStatus,
+
+    -- ** ClaimPhoneNumber
+    claimPhoneNumber_tags,
+    claimPhoneNumber_clientToken,
+    claimPhoneNumber_phoneNumberDescription,
+    claimPhoneNumber_targetArn,
+    claimPhoneNumber_phoneNumber,
+    claimPhoneNumberResponse_phoneNumberArn,
+    claimPhoneNumberResponse_phoneNumberId,
+    claimPhoneNumberResponse_httpStatus,
 
     -- ** CreateAgentStatus
     createAgentStatus_tags,
@@ -75,6 +96,17 @@ module Amazonka.Connect.Lens
     createContactFlowResponse_contactFlowArn,
     createContactFlowResponse_contactFlowId,
     createContactFlowResponse_httpStatus,
+
+    -- ** CreateContactFlowModule
+    createContactFlowModule_tags,
+    createContactFlowModule_clientToken,
+    createContactFlowModule_description,
+    createContactFlowModule_instanceId,
+    createContactFlowModule_name,
+    createContactFlowModule_content,
+    createContactFlowModuleResponse_arn,
+    createContactFlowModuleResponse_id,
+    createContactFlowModuleResponse_httpStatus,
 
     -- ** CreateHoursOfOperation
     createHoursOfOperation_tags,
@@ -145,6 +177,30 @@ module Amazonka.Connect.Lens
     createRoutingProfileResponse_routingProfileId,
     createRoutingProfileResponse_httpStatus,
 
+    -- ** CreateSecurityProfile
+    createSecurityProfile_tags,
+    createSecurityProfile_permissions,
+    createSecurityProfile_description,
+    createSecurityProfile_securityProfileName,
+    createSecurityProfile_instanceId,
+    createSecurityProfileResponse_securityProfileId,
+    createSecurityProfileResponse_securityProfileArn,
+    createSecurityProfileResponse_httpStatus,
+
+    -- ** CreateTaskTemplate
+    createTaskTemplate_clientToken,
+    createTaskTemplate_constraints,
+    createTaskTemplate_status,
+    createTaskTemplate_description,
+    createTaskTemplate_defaults,
+    createTaskTemplate_contactFlowId,
+    createTaskTemplate_instanceId,
+    createTaskTemplate_name,
+    createTaskTemplate_fields,
+    createTaskTemplateResponse_httpStatus,
+    createTaskTemplateResponse_id,
+    createTaskTemplateResponse_arn,
+
     -- ** CreateUseCase
     createUseCase_tags,
     createUseCase_instanceId,
@@ -170,12 +226,34 @@ module Amazonka.Connect.Lens
     createUserResponse_httpStatus,
 
     -- ** CreateUserHierarchyGroup
+    createUserHierarchyGroup_tags,
     createUserHierarchyGroup_parentGroupId,
     createUserHierarchyGroup_name,
     createUserHierarchyGroup_instanceId,
     createUserHierarchyGroupResponse_hierarchyGroupId,
     createUserHierarchyGroupResponse_hierarchyGroupArn,
     createUserHierarchyGroupResponse_httpStatus,
+
+    -- ** CreateVocabulary
+    createVocabulary_tags,
+    createVocabulary_clientToken,
+    createVocabulary_instanceId,
+    createVocabulary_vocabularyName,
+    createVocabulary_languageCode,
+    createVocabulary_content,
+    createVocabularyResponse_httpStatus,
+    createVocabularyResponse_vocabularyArn,
+    createVocabularyResponse_vocabularyId,
+    createVocabularyResponse_state,
+
+    -- ** DeleteContactFlow
+    deleteContactFlow_instanceId,
+    deleteContactFlow_contactFlowId,
+
+    -- ** DeleteContactFlowModule
+    deleteContactFlowModule_instanceId,
+    deleteContactFlowModule_contactFlowModuleId,
+    deleteContactFlowModuleResponse_httpStatus,
 
     -- ** DeleteHoursOfOperation
     deleteHoursOfOperation_instanceId,
@@ -192,6 +270,15 @@ module Amazonka.Connect.Lens
     deleteQuickConnect_instanceId,
     deleteQuickConnect_quickConnectId,
 
+    -- ** DeleteSecurityProfile
+    deleteSecurityProfile_instanceId,
+    deleteSecurityProfile_securityProfileId,
+
+    -- ** DeleteTaskTemplate
+    deleteTaskTemplate_instanceId,
+    deleteTaskTemplate_taskTemplateId,
+    deleteTaskTemplateResponse_httpStatus,
+
     -- ** DeleteUseCase
     deleteUseCase_instanceId,
     deleteUseCase_integrationAssociationId,
@@ -205,17 +292,37 @@ module Amazonka.Connect.Lens
     deleteUserHierarchyGroup_hierarchyGroupId,
     deleteUserHierarchyGroup_instanceId,
 
+    -- ** DeleteVocabulary
+    deleteVocabulary_instanceId,
+    deleteVocabulary_vocabularyId,
+    deleteVocabularyResponse_httpStatus,
+    deleteVocabularyResponse_vocabularyArn,
+    deleteVocabularyResponse_vocabularyId,
+    deleteVocabularyResponse_state,
+
     -- ** DescribeAgentStatus
     describeAgentStatus_instanceId,
     describeAgentStatus_agentStatusId,
     describeAgentStatusResponse_agentStatus,
     describeAgentStatusResponse_httpStatus,
 
+    -- ** DescribeContact
+    describeContact_instanceId,
+    describeContact_contactId,
+    describeContactResponse_contact,
+    describeContactResponse_httpStatus,
+
     -- ** DescribeContactFlow
     describeContactFlow_instanceId,
     describeContactFlow_contactFlowId,
     describeContactFlowResponse_contactFlow,
     describeContactFlowResponse_httpStatus,
+
+    -- ** DescribeContactFlowModule
+    describeContactFlowModule_instanceId,
+    describeContactFlowModule_contactFlowModuleId,
+    describeContactFlowModuleResponse_contactFlowModule,
+    describeContactFlowModuleResponse_httpStatus,
 
     -- ** DescribeHoursOfOperation
     describeHoursOfOperation_instanceId,
@@ -241,6 +348,11 @@ module Amazonka.Connect.Lens
     describeInstanceStorageConfigResponse_storageConfig,
     describeInstanceStorageConfigResponse_httpStatus,
 
+    -- ** DescribePhoneNumber
+    describePhoneNumber_phoneNumberId,
+    describePhoneNumberResponse_claimedPhoneNumberSummary,
+    describePhoneNumberResponse_httpStatus,
+
     -- ** DescribeQueue
     describeQueue_instanceId,
     describeQueue_queueId,
@@ -259,6 +371,12 @@ module Amazonka.Connect.Lens
     describeRoutingProfileResponse_routingProfile,
     describeRoutingProfileResponse_httpStatus,
 
+    -- ** DescribeSecurityProfile
+    describeSecurityProfile_securityProfileId,
+    describeSecurityProfile_instanceId,
+    describeSecurityProfileResponse_securityProfile,
+    describeSecurityProfileResponse_httpStatus,
+
     -- ** DescribeUser
     describeUser_userId,
     describeUser_instanceId,
@@ -275,6 +393,12 @@ module Amazonka.Connect.Lens
     describeUserHierarchyStructure_instanceId,
     describeUserHierarchyStructureResponse_hierarchyStructure,
     describeUserHierarchyStructureResponse_httpStatus,
+
+    -- ** DescribeVocabulary
+    describeVocabulary_instanceId,
+    describeVocabulary_vocabularyId,
+    describeVocabularyResponse_httpStatus,
+    describeVocabularyResponse_vocabulary,
 
     -- ** DisassociateApprovedOrigin
     disassociateApprovedOrigin_instanceId,
@@ -298,6 +422,10 @@ module Amazonka.Connect.Lens
     disassociateLexBot_instanceId,
     disassociateLexBot_botName,
     disassociateLexBot_lexRegion,
+
+    -- ** DisassociatePhoneNumberContactFlow
+    disassociatePhoneNumberContactFlow_phoneNumberId,
+    disassociatePhoneNumberContactFlow_instanceId,
 
     -- ** DisassociateQueueQuickConnects
     disassociateQueueQuickConnects_instanceId,
@@ -331,6 +459,15 @@ module Amazonka.Connect.Lens
     getCurrentMetricDataResponse_metricResults,
     getCurrentMetricDataResponse_httpStatus,
 
+    -- ** GetCurrentUserData
+    getCurrentUserData_nextToken,
+    getCurrentUserData_maxResults,
+    getCurrentUserData_instanceId,
+    getCurrentUserData_filters,
+    getCurrentUserDataResponse_nextToken,
+    getCurrentUserDataResponse_userDataList,
+    getCurrentUserDataResponse_httpStatus,
+
     -- ** GetFederationToken
     getFederationToken_instanceId,
     getFederationTokenResponse_credentials,
@@ -348,6 +485,25 @@ module Amazonka.Connect.Lens
     getMetricDataResponse_nextToken,
     getMetricDataResponse_metricResults,
     getMetricDataResponse_httpStatus,
+
+    -- ** GetTaskTemplate
+    getTaskTemplate_snapshotVersion,
+    getTaskTemplate_instanceId,
+    getTaskTemplate_taskTemplateId,
+    getTaskTemplateResponse_tags,
+    getTaskTemplateResponse_createdTime,
+    getTaskTemplateResponse_constraints,
+    getTaskTemplateResponse_status,
+    getTaskTemplateResponse_fields,
+    getTaskTemplateResponse_description,
+    getTaskTemplateResponse_lastModifiedTime,
+    getTaskTemplateResponse_instanceId,
+    getTaskTemplateResponse_defaults,
+    getTaskTemplateResponse_contactFlowId,
+    getTaskTemplateResponse_httpStatus,
+    getTaskTemplateResponse_id,
+    getTaskTemplateResponse_arn,
+    getTaskTemplateResponse_name,
 
     -- ** ListAgentStatuses
     listAgentStatuses_nextToken,
@@ -375,6 +531,15 @@ module Amazonka.Connect.Lens
     listBotsResponse_nextToken,
     listBotsResponse_httpStatus,
 
+    -- ** ListContactFlowModules
+    listContactFlowModules_nextToken,
+    listContactFlowModules_contactFlowModuleState,
+    listContactFlowModules_maxResults,
+    listContactFlowModules_instanceId,
+    listContactFlowModulesResponse_nextToken,
+    listContactFlowModulesResponse_contactFlowModulesSummaryList,
+    listContactFlowModulesResponse_httpStatus,
+
     -- ** ListContactFlows
     listContactFlows_nextToken,
     listContactFlows_maxResults,
@@ -383,6 +548,24 @@ module Amazonka.Connect.Lens
     listContactFlowsResponse_nextToken,
     listContactFlowsResponse_contactFlowSummaryList,
     listContactFlowsResponse_httpStatus,
+
+    -- ** ListContactReferences
+    listContactReferences_nextToken,
+    listContactReferences_instanceId,
+    listContactReferences_contactId,
+    listContactReferences_referenceTypes,
+    listContactReferencesResponse_nextToken,
+    listContactReferencesResponse_referenceSummaryList,
+    listContactReferencesResponse_httpStatus,
+
+    -- ** ListDefaultVocabularies
+    listDefaultVocabularies_nextToken,
+    listDefaultVocabularies_languageCode,
+    listDefaultVocabularies_maxResults,
+    listDefaultVocabularies_instanceId,
+    listDefaultVocabulariesResponse_nextToken,
+    listDefaultVocabulariesResponse_httpStatus,
+    listDefaultVocabulariesResponse_defaultVocabularyList,
 
     -- ** ListHoursOfOperations
     listHoursOfOperations_nextToken,
@@ -451,6 +634,17 @@ module Amazonka.Connect.Lens
     listPhoneNumbersResponse_phoneNumberSummaryList,
     listPhoneNumbersResponse_httpStatus,
 
+    -- ** ListPhoneNumbersV2
+    listPhoneNumbersV2_nextToken,
+    listPhoneNumbersV2_targetArn,
+    listPhoneNumbersV2_phoneNumberPrefix,
+    listPhoneNumbersV2_maxResults,
+    listPhoneNumbersV2_phoneNumberTypes,
+    listPhoneNumbersV2_phoneNumberCountryCodes,
+    listPhoneNumbersV2Response_nextToken,
+    listPhoneNumbersV2Response_listPhoneNumbersSummaryList,
+    listPhoneNumbersV2Response_httpStatus,
+
     -- ** ListPrompts
     listPrompts_nextToken,
     listPrompts_maxResults,
@@ -511,6 +705,15 @@ module Amazonka.Connect.Lens
     listSecurityKeysResponse_securityKeys,
     listSecurityKeysResponse_httpStatus,
 
+    -- ** ListSecurityProfilePermissions
+    listSecurityProfilePermissions_nextToken,
+    listSecurityProfilePermissions_maxResults,
+    listSecurityProfilePermissions_securityProfileId,
+    listSecurityProfilePermissions_instanceId,
+    listSecurityProfilePermissionsResponse_nextToken,
+    listSecurityProfilePermissionsResponse_permissions,
+    listSecurityProfilePermissionsResponse_httpStatus,
+
     -- ** ListSecurityProfiles
     listSecurityProfiles_nextToken,
     listSecurityProfiles_maxResults,
@@ -523,6 +726,16 @@ module Amazonka.Connect.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** ListTaskTemplates
+    listTaskTemplates_name,
+    listTaskTemplates_nextToken,
+    listTaskTemplates_status,
+    listTaskTemplates_maxResults,
+    listTaskTemplates_instanceId,
+    listTaskTemplatesResponse_nextToken,
+    listTaskTemplatesResponse_taskTemplates,
+    listTaskTemplatesResponse_httpStatus,
 
     -- ** ListUseCases
     listUseCases_nextToken,
@@ -549,16 +762,72 @@ module Amazonka.Connect.Lens
     listUsersResponse_userSummaryList,
     listUsersResponse_httpStatus,
 
+    -- ** PutUserStatus
+    putUserStatus_userId,
+    putUserStatus_instanceId,
+    putUserStatus_agentStatusId,
+    putUserStatusResponse_httpStatus,
+
+    -- ** ReleasePhoneNumber
+    releasePhoneNumber_clientToken,
+    releasePhoneNumber_phoneNumberId,
+
     -- ** ResumeContactRecording
     resumeContactRecording_instanceId,
     resumeContactRecording_contactId,
     resumeContactRecording_initialContactId,
     resumeContactRecordingResponse_httpStatus,
 
+    -- ** SearchAvailablePhoneNumbers
+    searchAvailablePhoneNumbers_nextToken,
+    searchAvailablePhoneNumbers_phoneNumberPrefix,
+    searchAvailablePhoneNumbers_maxResults,
+    searchAvailablePhoneNumbers_targetArn,
+    searchAvailablePhoneNumbers_phoneNumberCountryCode,
+    searchAvailablePhoneNumbers_phoneNumberType,
+    searchAvailablePhoneNumbersResponse_nextToken,
+    searchAvailablePhoneNumbersResponse_availableNumbersList,
+    searchAvailablePhoneNumbersResponse_httpStatus,
+
+    -- ** SearchSecurityProfiles
+    searchSecurityProfiles_nextToken,
+    searchSecurityProfiles_searchCriteria,
+    searchSecurityProfiles_searchFilter,
+    searchSecurityProfiles_maxResults,
+    searchSecurityProfiles_instanceId,
+    searchSecurityProfilesResponse_nextToken,
+    searchSecurityProfilesResponse_approximateTotalCount,
+    searchSecurityProfilesResponse_securityProfiles,
+    searchSecurityProfilesResponse_httpStatus,
+
+    -- ** SearchUsers
+    searchUsers_nextToken,
+    searchUsers_searchCriteria,
+    searchUsers_searchFilter,
+    searchUsers_instanceId,
+    searchUsers_maxResults,
+    searchUsersResponse_nextToken,
+    searchUsersResponse_users,
+    searchUsersResponse_approximateTotalCount,
+    searchUsersResponse_httpStatus,
+
+    -- ** SearchVocabularies
+    searchVocabularies_nextToken,
+    searchVocabularies_nameStartsWith,
+    searchVocabularies_state,
+    searchVocabularies_languageCode,
+    searchVocabularies_maxResults,
+    searchVocabularies_instanceId,
+    searchVocabulariesResponse_nextToken,
+    searchVocabulariesResponse_vocabularySummaryList,
+    searchVocabulariesResponse_httpStatus,
+
     -- ** StartChatContact
     startChatContact_clientToken,
+    startChatContact_supportedMessagingContentTypes,
     startChatContact_initialMessage,
     startChatContact_attributes,
+    startChatContact_chatDurationInMinutes,
     startChatContact_instanceId,
     startChatContact_contactFlowId,
     startChatContact_participantDetails,
@@ -573,6 +842,14 @@ module Amazonka.Connect.Lens
     startContactRecording_initialContactId,
     startContactRecording_voiceRecordingConfiguration,
     startContactRecordingResponse_httpStatus,
+
+    -- ** StartContactStreaming
+    startContactStreaming_instanceId,
+    startContactStreaming_contactId,
+    startContactStreaming_chatStreamingConfiguration,
+    startContactStreaming_clientToken,
+    startContactStreamingResponse_httpStatus,
+    startContactStreamingResponse_streamingId,
 
     -- ** StartOutboundVoiceContact
     startOutboundVoiceContact_clientToken,
@@ -590,12 +867,15 @@ module Amazonka.Connect.Lens
 
     -- ** StartTaskContact
     startTaskContact_clientToken,
+    startTaskContact_taskTemplateId,
     startTaskContact_description,
     startTaskContact_references,
+    startTaskContact_quickConnectId,
     startTaskContact_attributes,
     startTaskContact_previousContactId,
-    startTaskContact_instanceId,
     startTaskContact_contactFlowId,
+    startTaskContact_scheduledTime,
+    startTaskContact_instanceId,
     startTaskContact_name,
     startTaskContactResponse_contactId,
     startTaskContactResponse_httpStatus,
@@ -611,6 +891,12 @@ module Amazonka.Connect.Lens
     stopContactRecording_initialContactId,
     stopContactRecordingResponse_httpStatus,
 
+    -- ** StopContactStreaming
+    stopContactStreaming_instanceId,
+    stopContactStreaming_contactId,
+    stopContactStreaming_streamingId,
+    stopContactStreamingResponse_httpStatus,
+
     -- ** SuspendContactRecording
     suspendContactRecording_instanceId,
     suspendContactRecording_contactId,
@@ -620,6 +906,17 @@ module Amazonka.Connect.Lens
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
+
+    -- ** TransferContact
+    transferContact_clientToken,
+    transferContact_queueId,
+    transferContact_userId,
+    transferContact_instanceId,
+    transferContact_contactId,
+    transferContact_contactFlowId,
+    transferContactResponse_contactId,
+    transferContactResponse_contactArn,
+    transferContactResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
@@ -634,6 +931,14 @@ module Amazonka.Connect.Lens
     updateAgentStatus_instanceId,
     updateAgentStatus_agentStatusId,
 
+    -- ** UpdateContact
+    updateContact_name,
+    updateContact_description,
+    updateContact_references,
+    updateContact_instanceId,
+    updateContact_contactId,
+    updateContactResponse_httpStatus,
+
     -- ** UpdateContactAttributes
     updateContactAttributes_initialContactId,
     updateContactAttributes_instanceId,
@@ -645,11 +950,38 @@ module Amazonka.Connect.Lens
     updateContactFlowContent_contactFlowId,
     updateContactFlowContent_content,
 
+    -- ** UpdateContactFlowMetadata
+    updateContactFlowMetadata_name,
+    updateContactFlowMetadata_contactFlowState,
+    updateContactFlowMetadata_description,
+    updateContactFlowMetadata_instanceId,
+    updateContactFlowMetadata_contactFlowId,
+
+    -- ** UpdateContactFlowModuleContent
+    updateContactFlowModuleContent_instanceId,
+    updateContactFlowModuleContent_contactFlowModuleId,
+    updateContactFlowModuleContent_content,
+    updateContactFlowModuleContentResponse_httpStatus,
+
+    -- ** UpdateContactFlowModuleMetadata
+    updateContactFlowModuleMetadata_name,
+    updateContactFlowModuleMetadata_state,
+    updateContactFlowModuleMetadata_description,
+    updateContactFlowModuleMetadata_instanceId,
+    updateContactFlowModuleMetadata_contactFlowModuleId,
+    updateContactFlowModuleMetadataResponse_httpStatus,
+
     -- ** UpdateContactFlowName
     updateContactFlowName_name,
     updateContactFlowName_description,
     updateContactFlowName_instanceId,
     updateContactFlowName_contactFlowId,
+
+    -- ** UpdateContactSchedule
+    updateContactSchedule_instanceId,
+    updateContactSchedule_contactId,
+    updateContactSchedule_scheduledTime,
+    updateContactScheduleResponse_httpStatus,
 
     -- ** UpdateHoursOfOperation
     updateHoursOfOperation_name,
@@ -669,6 +1001,14 @@ module Amazonka.Connect.Lens
     updateInstanceStorageConfig_associationId,
     updateInstanceStorageConfig_resourceType,
     updateInstanceStorageConfig_storageConfig,
+
+    -- ** UpdatePhoneNumber
+    updatePhoneNumber_clientToken,
+    updatePhoneNumber_phoneNumberId,
+    updatePhoneNumber_targetArn,
+    updatePhoneNumberResponse_phoneNumberArn,
+    updatePhoneNumberResponse_phoneNumberId,
+    updatePhoneNumberResponse_httpStatus,
 
     -- ** UpdateQueueHoursOfOperation
     updateQueueHoursOfOperation_instanceId,
@@ -728,6 +1068,36 @@ module Amazonka.Connect.Lens
     updateRoutingProfileQueues_routingProfileId,
     updateRoutingProfileQueues_queueConfigs,
 
+    -- ** UpdateSecurityProfile
+    updateSecurityProfile_permissions,
+    updateSecurityProfile_description,
+    updateSecurityProfile_securityProfileId,
+    updateSecurityProfile_instanceId,
+
+    -- ** UpdateTaskTemplate
+    updateTaskTemplate_name,
+    updateTaskTemplate_constraints,
+    updateTaskTemplate_status,
+    updateTaskTemplate_fields,
+    updateTaskTemplate_description,
+    updateTaskTemplate_defaults,
+    updateTaskTemplate_contactFlowId,
+    updateTaskTemplate_taskTemplateId,
+    updateTaskTemplate_instanceId,
+    updateTaskTemplateResponse_name,
+    updateTaskTemplateResponse_createdTime,
+    updateTaskTemplateResponse_constraints,
+    updateTaskTemplateResponse_arn,
+    updateTaskTemplateResponse_status,
+    updateTaskTemplateResponse_fields,
+    updateTaskTemplateResponse_id,
+    updateTaskTemplateResponse_description,
+    updateTaskTemplateResponse_lastModifiedTime,
+    updateTaskTemplateResponse_instanceId,
+    updateTaskTemplateResponse_defaults,
+    updateTaskTemplateResponse_contactFlowId,
+    updateTaskTemplateResponse_httpStatus,
+
     -- ** UpdateUserHierarchy
     updateUserHierarchy_hierarchyGroupId,
     updateUserHierarchy_userId,
@@ -764,6 +1134,19 @@ module Amazonka.Connect.Lens
 
     -- * Types
 
+    -- ** AgentContactReference
+    agentContactReference_agentContactState,
+    agentContactReference_contactId,
+    agentContactReference_channel,
+    agentContactReference_connectedToAgentTimestamp,
+    agentContactReference_initiationMethod,
+    agentContactReference_queue,
+    agentContactReference_stateStartTimestamp,
+
+    -- ** AgentInfo
+    agentInfo_id,
+    agentInfo_connectedToAgentTimestamp,
+
     -- ** AgentStatus
     agentStatus_tags,
     agentStatus_name,
@@ -773,6 +1156,10 @@ module Amazonka.Connect.Lens
     agentStatus_state,
     agentStatus_description,
     agentStatus_agentStatusARN,
+
+    -- ** AgentStatusReference
+    agentStatusReference_statusArn,
+    agentStatusReference_statusStartTimestamp,
 
     -- ** AgentStatusSummary
     agentStatusSummary_name,
@@ -784,28 +1171,94 @@ module Amazonka.Connect.Lens
     answerMachineDetectionConfig_awaitAnswerMachinePrompt,
     answerMachineDetectionConfig_enableAnswerMachineDetection,
 
+    -- ** AttachmentReference
+    attachmentReference_name,
+    attachmentReference_status,
+    attachmentReference_value,
+
     -- ** Attribute
     attribute_attributeType,
     attribute_value,
 
+    -- ** AvailableNumberSummary
+    availableNumberSummary_phoneNumberCountryCode,
+    availableNumberSummary_phoneNumberType,
+    availableNumberSummary_phoneNumber,
+
     -- ** ChatMessage
     chatMessage_contentType,
     chatMessage_content,
+
+    -- ** ChatStreamingConfiguration
+    chatStreamingConfiguration_streamingEndpointArn,
+
+    -- ** ClaimedPhoneNumberSummary
+    claimedPhoneNumberSummary_tags,
+    claimedPhoneNumberSummary_phoneNumberCountryCode,
+    claimedPhoneNumberSummary_phoneNumberArn,
+    claimedPhoneNumberSummary_phoneNumberType,
+    claimedPhoneNumberSummary_phoneNumberDescription,
+    claimedPhoneNumberSummary_targetArn,
+    claimedPhoneNumberSummary_phoneNumberStatus,
+    claimedPhoneNumberSummary_phoneNumberId,
+    claimedPhoneNumberSummary_phoneNumber,
+
+    -- ** Contact
+    contact_name,
+    contact_lastUpdateTimestamp,
+    contact_channel,
+    contact_arn,
+    contact_id,
+    contact_description,
+    contact_queueInfo,
+    contact_scheduledTimestamp,
+    contact_initialContactId,
+    contact_initiationTimestamp,
+    contact_previousContactId,
+    contact_initiationMethod,
+    contact_disconnectTimestamp,
+    contact_agentInfo,
+
+    -- ** ContactFilter
+    contactFilter_contactStates,
 
     -- ** ContactFlow
     contactFlow_tags,
     contactFlow_name,
     contactFlow_type,
     contactFlow_arn,
+    contactFlow_state,
     contactFlow_id,
     contactFlow_description,
     contactFlow_content,
 
+    -- ** ContactFlowModule
+    contactFlowModule_tags,
+    contactFlowModule_name,
+    contactFlowModule_arn,
+    contactFlowModule_state,
+    contactFlowModule_status,
+    contactFlowModule_id,
+    contactFlowModule_description,
+    contactFlowModule_content,
+
+    -- ** ContactFlowModuleSummary
+    contactFlowModuleSummary_name,
+    contactFlowModuleSummary_arn,
+    contactFlowModuleSummary_state,
+    contactFlowModuleSummary_id,
+
     -- ** ContactFlowSummary
     contactFlowSummary_name,
+    contactFlowSummary_contactFlowState,
     contactFlowSummary_arn,
     contactFlowSummary_id,
     contactFlowSummary_contactFlowType,
+
+    -- ** ControlPlaneTagFilter
+    controlPlaneTagFilter_orConditions,
+    controlPlaneTagFilter_tagCondition,
+    controlPlaneTagFilter_andConditions,
 
     -- ** Credentials
     credentials_accessToken,
@@ -825,9 +1278,23 @@ module Amazonka.Connect.Lens
     currentMetricResult_collections,
     currentMetricResult_dimensions,
 
+    -- ** DateReference
+    dateReference_name,
+    dateReference_value,
+
+    -- ** DefaultVocabulary
+    defaultVocabulary_instanceId,
+    defaultVocabulary_languageCode,
+    defaultVocabulary_vocabularyId,
+    defaultVocabulary_vocabularyName,
+
     -- ** Dimensions
     dimensions_channel,
     dimensions_queue,
+
+    -- ** EmailReference
+    emailReference_name,
+    emailReference_value,
 
     -- ** EncryptionConfig
     encryptionConfig_encryptionType,
@@ -838,16 +1305,25 @@ module Amazonka.Connect.Lens
     filters_queues,
 
     -- ** HierarchyGroup
+    hierarchyGroup_tags,
     hierarchyGroup_name,
     hierarchyGroup_arn,
     hierarchyGroup_hierarchyPath,
     hierarchyGroup_id,
     hierarchyGroup_levelId,
 
+    -- ** HierarchyGroupCondition
+    hierarchyGroupCondition_hierarchyGroupMatchType,
+    hierarchyGroupCondition_value,
+
     -- ** HierarchyGroupSummary
     hierarchyGroupSummary_name,
     hierarchyGroupSummary_arn,
     hierarchyGroupSummary_id,
+
+    -- ** HierarchyGroupSummaryReference
+    hierarchyGroupSummaryReference_arn,
+    hierarchyGroupSummaryReference_id,
 
     -- ** HierarchyLevel
     hierarchyLevel_name,
@@ -863,6 +1339,13 @@ module Amazonka.Connect.Lens
     hierarchyPath_levelOne,
     hierarchyPath_levelFive,
     hierarchyPath_levelTwo,
+
+    -- ** HierarchyPathReference
+    hierarchyPathReference_levelThree,
+    hierarchyPathReference_levelFour,
+    hierarchyPathReference_levelOne,
+    hierarchyPathReference_levelFive,
+    hierarchyPathReference_levelTwo,
 
     -- ** HierarchyStructure
     hierarchyStructure_levelThree,
@@ -959,6 +1442,9 @@ module Amazonka.Connect.Lens
     integrationAssociationSummary_sourceApplicationUrl,
     integrationAssociationSummary_integrationAssociationId,
 
+    -- ** InvisibleFieldInfo
+    invisibleFieldInfo_id,
+
     -- ** KinesisFirehoseConfig
     kinesisFirehoseConfig_firehoseArn,
 
@@ -981,9 +1467,21 @@ module Amazonka.Connect.Lens
     -- ** LexV2Bot
     lexV2Bot_aliasArn,
 
+    -- ** ListPhoneNumbersSummary
+    listPhoneNumbersSummary_phoneNumberCountryCode,
+    listPhoneNumbersSummary_phoneNumberArn,
+    listPhoneNumbersSummary_phoneNumberType,
+    listPhoneNumbersSummary_targetArn,
+    listPhoneNumbersSummary_phoneNumberId,
+    listPhoneNumbersSummary_phoneNumber,
+
     -- ** MediaConcurrency
     mediaConcurrency_channel,
     mediaConcurrency_concurrency,
+
+    -- ** NumberReference
+    numberReference_name,
+    numberReference_value,
 
     -- ** OutboundCallerConfig
     outboundCallerConfig_outboundFlowId,
@@ -995,6 +1493,10 @@ module Amazonka.Connect.Lens
 
     -- ** PhoneNumberQuickConnectConfig
     phoneNumberQuickConnectConfig_phoneNumber,
+
+    -- ** PhoneNumberStatus
+    phoneNumberStatus_message,
+    phoneNumberStatus_status,
 
     -- ** PhoneNumberSummary
     phoneNumberSummary_phoneNumberCountryCode,
@@ -1018,6 +1520,10 @@ module Amazonka.Connect.Lens
     queue_hoursOfOperationId,
     queue_maxContacts,
     queue_outboundCallerConfig,
+
+    -- ** QueueInfo
+    queueInfo_id,
+    queueInfo_enqueueTimestamp,
 
     -- ** QueueQuickConnectConfig
     queueQuickConnectConfig_queueId,
@@ -1053,9 +1559,23 @@ module Amazonka.Connect.Lens
     quickConnectSummary_arn,
     quickConnectSummary_id,
 
+    -- ** ReadOnlyFieldInfo
+    readOnlyFieldInfo_id,
+
     -- ** Reference
     reference_value,
     reference_type,
+
+    -- ** ReferenceSummary
+    referenceSummary_number,
+    referenceSummary_attachment,
+    referenceSummary_email,
+    referenceSummary_date,
+    referenceSummary_string,
+    referenceSummary_url,
+
+    -- ** RequiredFieldInfo
+    requiredFieldInfo_id,
 
     -- ** RoutingProfile
     routingProfile_tags,
@@ -1084,6 +1604,10 @@ module Amazonka.Connect.Lens
     routingProfileQueueReference_queueId,
     routingProfileQueueReference_channel,
 
+    -- ** RoutingProfileReference
+    routingProfileReference_arn,
+    routingProfileReference_id,
+
     -- ** RoutingProfileSummary
     routingProfileSummary_name,
     routingProfileSummary_arn,
@@ -1099,14 +1623,85 @@ module Amazonka.Connect.Lens
     securityKey_creationTime,
     securityKey_associationId,
 
+    -- ** SecurityProfile
+    securityProfile_tags,
+    securityProfile_arn,
+    securityProfile_id,
+    securityProfile_description,
+    securityProfile_securityProfileName,
+    securityProfile_organizationResourceId,
+
+    -- ** SecurityProfileSearchCriteria
+    securityProfileSearchCriteria_stringCondition,
+    securityProfileSearchCriteria_orConditions,
+    securityProfileSearchCriteria_andConditions,
+
+    -- ** SecurityProfileSearchSummary
+    securityProfileSearchSummary_tags,
+    securityProfileSearchSummary_arn,
+    securityProfileSearchSummary_id,
+    securityProfileSearchSummary_description,
+    securityProfileSearchSummary_securityProfileName,
+    securityProfileSearchSummary_organizationResourceId,
+
     -- ** SecurityProfileSummary
     securityProfileSummary_name,
     securityProfileSummary_arn,
     securityProfileSummary_id,
 
+    -- ** SecurityProfilesSearchFilter
+    securityProfilesSearchFilter_tagFilter,
+
+    -- ** StringCondition
+    stringCondition_fieldName,
+    stringCondition_comparisonType,
+    stringCondition_value,
+
+    -- ** StringReference
+    stringReference_name,
+    stringReference_value,
+
+    -- ** TagCondition
+    tagCondition_tagValue,
+    tagCondition_tagKey,
+
+    -- ** TaskTemplateConstraints
+    taskTemplateConstraints_invisibleFields,
+    taskTemplateConstraints_readOnlyFields,
+    taskTemplateConstraints_requiredFields,
+
+    -- ** TaskTemplateDefaultFieldValue
+    taskTemplateDefaultFieldValue_defaultValue,
+    taskTemplateDefaultFieldValue_id,
+
+    -- ** TaskTemplateDefaults
+    taskTemplateDefaults_defaultFieldValues,
+
+    -- ** TaskTemplateField
+    taskTemplateField_singleSelectOptions,
+    taskTemplateField_type,
+    taskTemplateField_description,
+    taskTemplateField_id,
+
+    -- ** TaskTemplateFieldIdentifier
+    taskTemplateFieldIdentifier_name,
+
+    -- ** TaskTemplateMetadata
+    taskTemplateMetadata_name,
+    taskTemplateMetadata_createdTime,
+    taskTemplateMetadata_arn,
+    taskTemplateMetadata_status,
+    taskTemplateMetadata_id,
+    taskTemplateMetadata_description,
+    taskTemplateMetadata_lastModifiedTime,
+
     -- ** Threshold
     threshold_thresholdValue,
     threshold_comparison,
+
+    -- ** UrlReference
+    urlReference_name,
+    urlReference_value,
 
     -- ** UseCase
     useCase_useCaseType,
@@ -1125,10 +1720,28 @@ module Amazonka.Connect.Lens
     user_directoryUserId,
     user_routingProfileId,
 
+    -- ** UserData
+    userData_availableSlotsByChannel,
+    userData_user,
+    userData_hierarchyPath,
+    userData_routingProfile,
+    userData_status,
+    userData_activeSlotsByChannel,
+    userData_maxSlotsByChannel,
+    userData_contacts,
+
+    -- ** UserDataFilters
+    userDataFilters_contactFilter,
+    userDataFilters_queues,
+
     -- ** UserIdentityInfo
     userIdentityInfo_firstName,
     userIdentityInfo_email,
     userIdentityInfo_lastName,
+
+    -- ** UserIdentityInfoLite
+    userIdentityInfoLite_firstName,
+    userIdentityInfoLite_lastName,
 
     -- ** UserPhoneConfig
     userPhoneConfig_autoAccept,
@@ -1140,10 +1753,55 @@ module Amazonka.Connect.Lens
     userQuickConnectConfig_userId,
     userQuickConnectConfig_contactFlowId,
 
+    -- ** UserReference
+    userReference_arn,
+    userReference_id,
+
+    -- ** UserSearchCriteria
+    userSearchCriteria_hierarchyGroupCondition,
+    userSearchCriteria_stringCondition,
+    userSearchCriteria_orConditions,
+    userSearchCriteria_andConditions,
+
+    -- ** UserSearchFilter
+    userSearchFilter_tagFilter,
+
+    -- ** UserSearchSummary
+    userSearchSummary_tags,
+    userSearchSummary_hierarchyGroupId,
+    userSearchSummary_identityInfo,
+    userSearchSummary_username,
+    userSearchSummary_arn,
+    userSearchSummary_securityProfileIds,
+    userSearchSummary_phoneConfig,
+    userSearchSummary_id,
+    userSearchSummary_directoryUserId,
+    userSearchSummary_routingProfileId,
+
     -- ** UserSummary
     userSummary_username,
     userSummary_arn,
     userSummary_id,
+
+    -- ** Vocabulary
+    vocabulary_tags,
+    vocabulary_content,
+    vocabulary_failureReason,
+    vocabulary_name,
+    vocabulary_id,
+    vocabulary_arn,
+    vocabulary_languageCode,
+    vocabulary_state,
+    vocabulary_lastModifiedTime,
+
+    -- ** VocabularySummary
+    vocabularySummary_failureReason,
+    vocabularySummary_name,
+    vocabularySummary_id,
+    vocabularySummary_arn,
+    vocabularySummary_languageCode,
+    vocabularySummary_state,
+    vocabularySummary_lastModifiedTime,
 
     -- ** VoiceRecordingConfiguration
     voiceRecordingConfiguration_voiceRecordingTrack,
@@ -1152,58 +1810,81 @@ where
 
 import Amazonka.Connect.AssociateApprovedOrigin
 import Amazonka.Connect.AssociateBot
+import Amazonka.Connect.AssociateDefaultVocabulary
 import Amazonka.Connect.AssociateInstanceStorageConfig
 import Amazonka.Connect.AssociateLambdaFunction
 import Amazonka.Connect.AssociateLexBot
+import Amazonka.Connect.AssociatePhoneNumberContactFlow
 import Amazonka.Connect.AssociateQueueQuickConnects
 import Amazonka.Connect.AssociateRoutingProfileQueues
 import Amazonka.Connect.AssociateSecurityKey
+import Amazonka.Connect.ClaimPhoneNumber
 import Amazonka.Connect.CreateAgentStatus
 import Amazonka.Connect.CreateContactFlow
+import Amazonka.Connect.CreateContactFlowModule
 import Amazonka.Connect.CreateHoursOfOperation
 import Amazonka.Connect.CreateInstance
 import Amazonka.Connect.CreateIntegrationAssociation
 import Amazonka.Connect.CreateQueue
 import Amazonka.Connect.CreateQuickConnect
 import Amazonka.Connect.CreateRoutingProfile
+import Amazonka.Connect.CreateSecurityProfile
+import Amazonka.Connect.CreateTaskTemplate
 import Amazonka.Connect.CreateUseCase
 import Amazonka.Connect.CreateUser
 import Amazonka.Connect.CreateUserHierarchyGroup
+import Amazonka.Connect.CreateVocabulary
+import Amazonka.Connect.DeleteContactFlow
+import Amazonka.Connect.DeleteContactFlowModule
 import Amazonka.Connect.DeleteHoursOfOperation
 import Amazonka.Connect.DeleteInstance
 import Amazonka.Connect.DeleteIntegrationAssociation
 import Amazonka.Connect.DeleteQuickConnect
+import Amazonka.Connect.DeleteSecurityProfile
+import Amazonka.Connect.DeleteTaskTemplate
 import Amazonka.Connect.DeleteUseCase
 import Amazonka.Connect.DeleteUser
 import Amazonka.Connect.DeleteUserHierarchyGroup
+import Amazonka.Connect.DeleteVocabulary
 import Amazonka.Connect.DescribeAgentStatus
+import Amazonka.Connect.DescribeContact
 import Amazonka.Connect.DescribeContactFlow
+import Amazonka.Connect.DescribeContactFlowModule
 import Amazonka.Connect.DescribeHoursOfOperation
 import Amazonka.Connect.DescribeInstance
 import Amazonka.Connect.DescribeInstanceAttribute
 import Amazonka.Connect.DescribeInstanceStorageConfig
+import Amazonka.Connect.DescribePhoneNumber
 import Amazonka.Connect.DescribeQueue
 import Amazonka.Connect.DescribeQuickConnect
 import Amazonka.Connect.DescribeRoutingProfile
+import Amazonka.Connect.DescribeSecurityProfile
 import Amazonka.Connect.DescribeUser
 import Amazonka.Connect.DescribeUserHierarchyGroup
 import Amazonka.Connect.DescribeUserHierarchyStructure
+import Amazonka.Connect.DescribeVocabulary
 import Amazonka.Connect.DisassociateApprovedOrigin
 import Amazonka.Connect.DisassociateBot
 import Amazonka.Connect.DisassociateInstanceStorageConfig
 import Amazonka.Connect.DisassociateLambdaFunction
 import Amazonka.Connect.DisassociateLexBot
+import Amazonka.Connect.DisassociatePhoneNumberContactFlow
 import Amazonka.Connect.DisassociateQueueQuickConnects
 import Amazonka.Connect.DisassociateRoutingProfileQueues
 import Amazonka.Connect.DisassociateSecurityKey
 import Amazonka.Connect.GetContactAttributes
 import Amazonka.Connect.GetCurrentMetricData
+import Amazonka.Connect.GetCurrentUserData
 import Amazonka.Connect.GetFederationToken
 import Amazonka.Connect.GetMetricData
+import Amazonka.Connect.GetTaskTemplate
 import Amazonka.Connect.ListAgentStatuses
 import Amazonka.Connect.ListApprovedOrigins
 import Amazonka.Connect.ListBots
+import Amazonka.Connect.ListContactFlowModules
 import Amazonka.Connect.ListContactFlows
+import Amazonka.Connect.ListContactReferences
+import Amazonka.Connect.ListDefaultVocabularies
 import Amazonka.Connect.ListHoursOfOperations
 import Amazonka.Connect.ListInstanceAttributes
 import Amazonka.Connect.ListInstanceStorageConfigs
@@ -1212,6 +1893,7 @@ import Amazonka.Connect.ListIntegrationAssociations
 import Amazonka.Connect.ListLambdaFunctions
 import Amazonka.Connect.ListLexBots
 import Amazonka.Connect.ListPhoneNumbers
+import Amazonka.Connect.ListPhoneNumbersV2
 import Amazonka.Connect.ListPrompts
 import Amazonka.Connect.ListQueueQuickConnects
 import Amazonka.Connect.ListQueues
@@ -1219,39 +1901,68 @@ import Amazonka.Connect.ListQuickConnects
 import Amazonka.Connect.ListRoutingProfileQueues
 import Amazonka.Connect.ListRoutingProfiles
 import Amazonka.Connect.ListSecurityKeys
+import Amazonka.Connect.ListSecurityProfilePermissions
 import Amazonka.Connect.ListSecurityProfiles
 import Amazonka.Connect.ListTagsForResource
+import Amazonka.Connect.ListTaskTemplates
 import Amazonka.Connect.ListUseCases
 import Amazonka.Connect.ListUserHierarchyGroups
 import Amazonka.Connect.ListUsers
+import Amazonka.Connect.PutUserStatus
+import Amazonka.Connect.ReleasePhoneNumber
 import Amazonka.Connect.ResumeContactRecording
+import Amazonka.Connect.SearchAvailablePhoneNumbers
+import Amazonka.Connect.SearchSecurityProfiles
+import Amazonka.Connect.SearchUsers
+import Amazonka.Connect.SearchVocabularies
 import Amazonka.Connect.StartChatContact
 import Amazonka.Connect.StartContactRecording
+import Amazonka.Connect.StartContactStreaming
 import Amazonka.Connect.StartOutboundVoiceContact
 import Amazonka.Connect.StartTaskContact
 import Amazonka.Connect.StopContact
 import Amazonka.Connect.StopContactRecording
+import Amazonka.Connect.StopContactStreaming
 import Amazonka.Connect.SuspendContactRecording
 import Amazonka.Connect.TagResource
+import Amazonka.Connect.TransferContact
+import Amazonka.Connect.Types.AgentContactReference
+import Amazonka.Connect.Types.AgentInfo
 import Amazonka.Connect.Types.AgentStatus
+import Amazonka.Connect.Types.AgentStatusReference
 import Amazonka.Connect.Types.AgentStatusSummary
 import Amazonka.Connect.Types.AnswerMachineDetectionConfig
+import Amazonka.Connect.Types.AttachmentReference
 import Amazonka.Connect.Types.Attribute
+import Amazonka.Connect.Types.AvailableNumberSummary
 import Amazonka.Connect.Types.ChatMessage
+import Amazonka.Connect.Types.ChatStreamingConfiguration
+import Amazonka.Connect.Types.ClaimedPhoneNumberSummary
+import Amazonka.Connect.Types.Contact
+import Amazonka.Connect.Types.ContactFilter
 import Amazonka.Connect.Types.ContactFlow
+import Amazonka.Connect.Types.ContactFlowModule
+import Amazonka.Connect.Types.ContactFlowModuleSummary
 import Amazonka.Connect.Types.ContactFlowSummary
+import Amazonka.Connect.Types.ControlPlaneTagFilter
 import Amazonka.Connect.Types.Credentials
 import Amazonka.Connect.Types.CurrentMetric
 import Amazonka.Connect.Types.CurrentMetricData
 import Amazonka.Connect.Types.CurrentMetricResult
+import Amazonka.Connect.Types.DateReference
+import Amazonka.Connect.Types.DefaultVocabulary
 import Amazonka.Connect.Types.Dimensions
+import Amazonka.Connect.Types.EmailReference
 import Amazonka.Connect.Types.EncryptionConfig
 import Amazonka.Connect.Types.Filters
 import Amazonka.Connect.Types.HierarchyGroup
+import Amazonka.Connect.Types.HierarchyGroupCondition
 import Amazonka.Connect.Types.HierarchyGroupSummary
+import Amazonka.Connect.Types.HierarchyGroupSummaryReference
 import Amazonka.Connect.Types.HierarchyLevel
 import Amazonka.Connect.Types.HierarchyLevelUpdate
 import Amazonka.Connect.Types.HierarchyPath
+import Amazonka.Connect.Types.HierarchyPathReference
 import Amazonka.Connect.Types.HierarchyStructure
 import Amazonka.Connect.Types.HierarchyStructureUpdate
 import Amazonka.Connect.Types.HistoricalMetric
@@ -1266,50 +1977,88 @@ import Amazonka.Connect.Types.InstanceStatusReason
 import Amazonka.Connect.Types.InstanceStorageConfig
 import Amazonka.Connect.Types.InstanceSummary
 import Amazonka.Connect.Types.IntegrationAssociationSummary
+import Amazonka.Connect.Types.InvisibleFieldInfo
 import Amazonka.Connect.Types.KinesisFirehoseConfig
 import Amazonka.Connect.Types.KinesisStreamConfig
 import Amazonka.Connect.Types.KinesisVideoStreamConfig
 import Amazonka.Connect.Types.LexBot
 import Amazonka.Connect.Types.LexBotConfig
 import Amazonka.Connect.Types.LexV2Bot
+import Amazonka.Connect.Types.ListPhoneNumbersSummary
 import Amazonka.Connect.Types.MediaConcurrency
+import Amazonka.Connect.Types.NumberReference
 import Amazonka.Connect.Types.OutboundCallerConfig
 import Amazonka.Connect.Types.ParticipantDetails
 import Amazonka.Connect.Types.PhoneNumberQuickConnectConfig
+import Amazonka.Connect.Types.PhoneNumberStatus
 import Amazonka.Connect.Types.PhoneNumberSummary
 import Amazonka.Connect.Types.PromptSummary
 import Amazonka.Connect.Types.Queue
+import Amazonka.Connect.Types.QueueInfo
 import Amazonka.Connect.Types.QueueQuickConnectConfig
 import Amazonka.Connect.Types.QueueReference
 import Amazonka.Connect.Types.QueueSummary
 import Amazonka.Connect.Types.QuickConnect
 import Amazonka.Connect.Types.QuickConnectConfig
 import Amazonka.Connect.Types.QuickConnectSummary
+import Amazonka.Connect.Types.ReadOnlyFieldInfo
 import Amazonka.Connect.Types.Reference
+import Amazonka.Connect.Types.ReferenceSummary
+import Amazonka.Connect.Types.RequiredFieldInfo
 import Amazonka.Connect.Types.RoutingProfile
 import Amazonka.Connect.Types.RoutingProfileQueueConfig
 import Amazonka.Connect.Types.RoutingProfileQueueConfigSummary
 import Amazonka.Connect.Types.RoutingProfileQueueReference
+import Amazonka.Connect.Types.RoutingProfileReference
 import Amazonka.Connect.Types.RoutingProfileSummary
 import Amazonka.Connect.Types.S3Config
 import Amazonka.Connect.Types.SecurityKey
+import Amazonka.Connect.Types.SecurityProfile
+import Amazonka.Connect.Types.SecurityProfileSearchCriteria
+import Amazonka.Connect.Types.SecurityProfileSearchSummary
 import Amazonka.Connect.Types.SecurityProfileSummary
+import Amazonka.Connect.Types.SecurityProfilesSearchFilter
+import Amazonka.Connect.Types.StringCondition
+import Amazonka.Connect.Types.StringReference
+import Amazonka.Connect.Types.TagCondition
+import Amazonka.Connect.Types.TaskTemplateConstraints
+import Amazonka.Connect.Types.TaskTemplateDefaultFieldValue
+import Amazonka.Connect.Types.TaskTemplateDefaults
+import Amazonka.Connect.Types.TaskTemplateField
+import Amazonka.Connect.Types.TaskTemplateFieldIdentifier
+import Amazonka.Connect.Types.TaskTemplateMetadata
 import Amazonka.Connect.Types.Threshold
+import Amazonka.Connect.Types.UrlReference
 import Amazonka.Connect.Types.UseCase
 import Amazonka.Connect.Types.User
+import Amazonka.Connect.Types.UserData
+import Amazonka.Connect.Types.UserDataFilters
 import Amazonka.Connect.Types.UserIdentityInfo
+import Amazonka.Connect.Types.UserIdentityInfoLite
 import Amazonka.Connect.Types.UserPhoneConfig
 import Amazonka.Connect.Types.UserQuickConnectConfig
+import Amazonka.Connect.Types.UserReference
+import Amazonka.Connect.Types.UserSearchCriteria
+import Amazonka.Connect.Types.UserSearchFilter
+import Amazonka.Connect.Types.UserSearchSummary
 import Amazonka.Connect.Types.UserSummary
+import Amazonka.Connect.Types.Vocabulary
+import Amazonka.Connect.Types.VocabularySummary
 import Amazonka.Connect.Types.VoiceRecordingConfiguration
 import Amazonka.Connect.UntagResource
 import Amazonka.Connect.UpdateAgentStatus
+import Amazonka.Connect.UpdateContact
 import Amazonka.Connect.UpdateContactAttributes
 import Amazonka.Connect.UpdateContactFlowContent
+import Amazonka.Connect.UpdateContactFlowMetadata
+import Amazonka.Connect.UpdateContactFlowModuleContent
+import Amazonka.Connect.UpdateContactFlowModuleMetadata
 import Amazonka.Connect.UpdateContactFlowName
+import Amazonka.Connect.UpdateContactSchedule
 import Amazonka.Connect.UpdateHoursOfOperation
 import Amazonka.Connect.UpdateInstanceAttribute
 import Amazonka.Connect.UpdateInstanceStorageConfig
+import Amazonka.Connect.UpdatePhoneNumber
 import Amazonka.Connect.UpdateQueueHoursOfOperation
 import Amazonka.Connect.UpdateQueueMaxContacts
 import Amazonka.Connect.UpdateQueueName
@@ -1321,6 +2070,8 @@ import Amazonka.Connect.UpdateRoutingProfileConcurrency
 import Amazonka.Connect.UpdateRoutingProfileDefaultOutboundQueue
 import Amazonka.Connect.UpdateRoutingProfileName
 import Amazonka.Connect.UpdateRoutingProfileQueues
+import Amazonka.Connect.UpdateSecurityProfile
+import Amazonka.Connect.UpdateTaskTemplate
 import Amazonka.Connect.UpdateUserHierarchy
 import Amazonka.Connect.UpdateUserHierarchyGroupName
 import Amazonka.Connect.UpdateUserHierarchyStructure

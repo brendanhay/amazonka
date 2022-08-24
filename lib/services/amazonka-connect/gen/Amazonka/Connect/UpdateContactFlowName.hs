@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The name of the contact flow.
+-- The name of the flow.
 --
--- You can also create and update contact flows using the
+-- You can also create and update flows using the
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language>.
 module Amazonka.Connect.UpdateContactFlowName
   ( -- * Creating a Request
@@ -50,13 +50,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateContactFlowName' smart constructor.
 data UpdateContactFlowName = UpdateContactFlowName'
-  { -- | The name of the contact flow.
+  { -- | The name of the flow.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the contact flow.
+    -- | The description of the flow.
     description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
     instanceId :: Prelude.Text,
-    -- | The identifier of the contact flow.
+    -- | The identifier of the flow.
     contactFlowId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,13 +69,13 @@ data UpdateContactFlowName = UpdateContactFlowName'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateContactFlowName_name' - The name of the contact flow.
+-- 'name', 'updateContactFlowName_name' - The name of the flow.
 --
--- 'description', 'updateContactFlowName_description' - The description of the contact flow.
+-- 'description', 'updateContactFlowName_description' - The description of the flow.
 --
 -- 'instanceId', 'updateContactFlowName_instanceId' - The identifier of the Amazon Connect instance.
 --
--- 'contactFlowId', 'updateContactFlowName_contactFlowId' - The identifier of the contact flow.
+-- 'contactFlowId', 'updateContactFlowName_contactFlowId' - The identifier of the flow.
 newUpdateContactFlowName ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -90,11 +90,11 @@ newUpdateContactFlowName pInstanceId_ pContactFlowId_ =
       contactFlowId = pContactFlowId_
     }
 
--- | The name of the contact flow.
+-- | The name of the flow.
 updateContactFlowName_name :: Lens.Lens' UpdateContactFlowName (Prelude.Maybe Prelude.Text)
 updateContactFlowName_name = Lens.lens (\UpdateContactFlowName' {name} -> name) (\s@UpdateContactFlowName' {} a -> s {name = a} :: UpdateContactFlowName)
 
--- | The description of the contact flow.
+-- | The description of the flow.
 updateContactFlowName_description :: Lens.Lens' UpdateContactFlowName (Prelude.Maybe Prelude.Text)
 updateContactFlowName_description = Lens.lens (\UpdateContactFlowName' {description} -> description) (\s@UpdateContactFlowName' {} a -> s {description = a} :: UpdateContactFlowName)
 
@@ -102,7 +102,7 @@ updateContactFlowName_description = Lens.lens (\UpdateContactFlowName' {descript
 updateContactFlowName_instanceId :: Lens.Lens' UpdateContactFlowName Prelude.Text
 updateContactFlowName_instanceId = Lens.lens (\UpdateContactFlowName' {instanceId} -> instanceId) (\s@UpdateContactFlowName' {} a -> s {instanceId = a} :: UpdateContactFlowName)
 
--- | The identifier of the contact flow.
+-- | The identifier of the flow.
 updateContactFlowName_contactFlowId :: Lens.Lens' UpdateContactFlowName Prelude.Text
 updateContactFlowName_contactFlowId = Lens.lens (\UpdateContactFlowName' {contactFlowId} -> contactFlowId) (\s@UpdateContactFlowName' {} a -> s {contactFlowId = a} :: UpdateContactFlowName)
 

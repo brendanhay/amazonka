@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a contact flow for the specified Amazon Connect instance.
+-- Creates a flow for the specified Amazon Connect instance.
 --
--- You can also create and update contact flows using the
+-- You can also create and update flows using the
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html Amazon Connect Flow language>.
 module Amazonka.Connect.CreateContactFlow
   ( -- * Creating a Request
@@ -57,20 +57,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateContactFlow' smart constructor.
 data CreateContactFlow = CreateContactFlow'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The description of the contact flow.
+    -- | The description of the flow.
     description :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the Amazon Connect instance.
     instanceId :: Prelude.Text,
-    -- | The name of the contact flow.
+    -- | The name of the flow.
     name :: Prelude.Text,
-    -- | The type of the contact flow. For descriptions of the available types,
-    -- see
-    -- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type>
+    -- | The type of the flow. For descriptions of the available types, see
+    -- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a flow type>
     -- in the /Amazon Connect Administrator Guide/.
     type' :: ContactFlowType,
-    -- | The content of the contact flow.
+    -- | The content of the flow.
     content :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,20 +83,20 @@ data CreateContactFlow = CreateContactFlow'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createContactFlow_tags' - One or more tags.
+-- 'tags', 'createContactFlow_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
--- 'description', 'createContactFlow_description' - The description of the contact flow.
+-- 'description', 'createContactFlow_description' - The description of the flow.
 --
 -- 'instanceId', 'createContactFlow_instanceId' - The identifier of the Amazon Connect instance.
 --
--- 'name', 'createContactFlow_name' - The name of the contact flow.
+-- 'name', 'createContactFlow_name' - The name of the flow.
 --
--- 'type'', 'createContactFlow_type' - The type of the contact flow. For descriptions of the available types,
--- see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type>
+-- 'type'', 'createContactFlow_type' - The type of the flow. For descriptions of the available types, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a flow type>
 -- in the /Amazon Connect Administrator Guide/.
 --
--- 'content', 'createContactFlow_content' - The content of the contact flow.
+-- 'content', 'createContactFlow_content' - The content of the flow.
 newCreateContactFlow ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -121,11 +121,12 @@ newCreateContactFlow
         content = pContent_
       }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createContactFlow_tags :: Lens.Lens' CreateContactFlow (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createContactFlow_tags = Lens.lens (\CreateContactFlow' {tags} -> tags) (\s@CreateContactFlow' {} a -> s {tags = a} :: CreateContactFlow) Prelude.. Lens.mapping Lens.coerced
 
--- | The description of the contact flow.
+-- | The description of the flow.
 createContactFlow_description :: Lens.Lens' CreateContactFlow (Prelude.Maybe Prelude.Text)
 createContactFlow_description = Lens.lens (\CreateContactFlow' {description} -> description) (\s@CreateContactFlow' {} a -> s {description = a} :: CreateContactFlow)
 
@@ -133,18 +134,17 @@ createContactFlow_description = Lens.lens (\CreateContactFlow' {description} -> 
 createContactFlow_instanceId :: Lens.Lens' CreateContactFlow Prelude.Text
 createContactFlow_instanceId = Lens.lens (\CreateContactFlow' {instanceId} -> instanceId) (\s@CreateContactFlow' {} a -> s {instanceId = a} :: CreateContactFlow)
 
--- | The name of the contact flow.
+-- | The name of the flow.
 createContactFlow_name :: Lens.Lens' CreateContactFlow Prelude.Text
 createContactFlow_name = Lens.lens (\CreateContactFlow' {name} -> name) (\s@CreateContactFlow' {} a -> s {name = a} :: CreateContactFlow)
 
--- | The type of the contact flow. For descriptions of the available types,
--- see
--- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type>
+-- | The type of the flow. For descriptions of the available types, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a flow type>
 -- in the /Amazon Connect Administrator Guide/.
 createContactFlow_type :: Lens.Lens' CreateContactFlow ContactFlowType
 createContactFlow_type = Lens.lens (\CreateContactFlow' {type'} -> type') (\s@CreateContactFlow' {} a -> s {type' = a} :: CreateContactFlow)
 
--- | The content of the contact flow.
+-- | The content of the flow.
 createContactFlow_content :: Lens.Lens' CreateContactFlow Prelude.Text
 createContactFlow_content = Lens.lens (\CreateContactFlow' {content} -> content) (\s@CreateContactFlow' {} a -> s {content = a} :: CreateContactFlow)
 
@@ -213,9 +213,9 @@ instance Core.ToQuery CreateContactFlow where
 
 -- | /See:/ 'newCreateContactFlowResponse' smart constructor.
 data CreateContactFlowResponse = CreateContactFlowResponse'
-  { -- | The Amazon Resource Name (ARN) of the contact flow.
+  { -- | The Amazon Resource Name (ARN) of the flow.
     contactFlowArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the contact flow.
+    -- | The identifier of the flow.
     contactFlowId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -230,9 +230,9 @@ data CreateContactFlowResponse = CreateContactFlowResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contactFlowArn', 'createContactFlowResponse_contactFlowArn' - The Amazon Resource Name (ARN) of the contact flow.
+-- 'contactFlowArn', 'createContactFlowResponse_contactFlowArn' - The Amazon Resource Name (ARN) of the flow.
 --
--- 'contactFlowId', 'createContactFlowResponse_contactFlowId' - The identifier of the contact flow.
+-- 'contactFlowId', 'createContactFlowResponse_contactFlowId' - The identifier of the flow.
 --
 -- 'httpStatus', 'createContactFlowResponse_httpStatus' - The response's http status code.
 newCreateContactFlowResponse ::
@@ -247,11 +247,11 @@ newCreateContactFlowResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Name (ARN) of the contact flow.
+-- | The Amazon Resource Name (ARN) of the flow.
 createContactFlowResponse_contactFlowArn :: Lens.Lens' CreateContactFlowResponse (Prelude.Maybe Prelude.Text)
 createContactFlowResponse_contactFlowArn = Lens.lens (\CreateContactFlowResponse' {contactFlowArn} -> contactFlowArn) (\s@CreateContactFlowResponse' {} a -> s {contactFlowArn = a} :: CreateContactFlowResponse)
 
--- | The identifier of the contact flow.
+-- | The identifier of the flow.
 createContactFlowResponse_contactFlowId :: Lens.Lens' CreateContactFlowResponse (Prelude.Maybe Prelude.Text)
 createContactFlowResponse_contactFlowId = Lens.lens (\CreateContactFlowResponse' {contactFlowId} -> contactFlowId) (\s@CreateContactFlowResponse' {} a -> s {contactFlowId = a} :: CreateContactFlowResponse)
 

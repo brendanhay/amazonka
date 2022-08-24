@@ -61,7 +61,8 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
+    -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
@@ -83,7 +84,8 @@ data ListQueueQuickConnects = ListQueueQuickConnects'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listQueueQuickConnects_maxResults' - The maximum number of results to return per page.
+-- 'maxResults', 'listQueueQuickConnects_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 --
 -- 'instanceId', 'listQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -110,7 +112,8 @@ newListQueueQuickConnects pInstanceId_ pQueueId_ =
 listQueueQuickConnects_nextToken :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Text)
 listQueueQuickConnects_nextToken = Lens.lens (\ListQueueQuickConnects' {nextToken} -> nextToken) (\s@ListQueueQuickConnects' {} a -> s {nextToken = a} :: ListQueueQuickConnects)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 listQueueQuickConnects_maxResults :: Lens.Lens' ListQueueQuickConnects (Prelude.Maybe Prelude.Natural)
 listQueueQuickConnects_maxResults = Lens.lens (\ListQueueQuickConnects' {maxResults} -> maxResults) (\s@ListQueueQuickConnects' {} a -> s {maxResults = a} :: ListQueueQuickConnects)
 

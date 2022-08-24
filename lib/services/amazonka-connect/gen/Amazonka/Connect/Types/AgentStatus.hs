@@ -29,7 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAgentStatus' smart constructor.
 data AgentStatus = AgentStatus'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the agent status.
     name :: Prelude.Maybe Prelude.Text,
@@ -56,7 +57,8 @@ data AgentStatus = AgentStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'agentStatus_tags' - One or more tags.
+-- 'tags', 'agentStatus_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'name', 'agentStatus_name' - The name of the agent status.
 --
@@ -85,7 +87,8 @@ newAgentStatus =
       agentStatusARN = Prelude.Nothing
     }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 agentStatus_tags :: Lens.Lens' AgentStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 agentStatus_tags = Lens.lens (\AgentStatus' {tags} -> tags) (\s@AgentStatus' {} a -> s {tags = a} :: AgentStatus) Prelude.. Lens.mapping Lens.coerced
 

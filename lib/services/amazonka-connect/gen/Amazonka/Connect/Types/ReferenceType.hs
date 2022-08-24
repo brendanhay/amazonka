@@ -20,6 +20,11 @@
 module Amazonka.Connect.Types.ReferenceType
   ( ReferenceType
       ( ..,
+        ReferenceType_ATTACHMENT,
+        ReferenceType_DATE,
+        ReferenceType_EMAIL,
+        ReferenceType_NUMBER,
+        ReferenceType_STRING,
         ReferenceType_URL
       ),
   )
@@ -56,10 +61,30 @@ newtype ReferenceType = ReferenceType'
       Core.ToXML
     )
 
+pattern ReferenceType_ATTACHMENT :: ReferenceType
+pattern ReferenceType_ATTACHMENT = ReferenceType' "ATTACHMENT"
+
+pattern ReferenceType_DATE :: ReferenceType
+pattern ReferenceType_DATE = ReferenceType' "DATE"
+
+pattern ReferenceType_EMAIL :: ReferenceType
+pattern ReferenceType_EMAIL = ReferenceType' "EMAIL"
+
+pattern ReferenceType_NUMBER :: ReferenceType
+pattern ReferenceType_NUMBER = ReferenceType' "NUMBER"
+
+pattern ReferenceType_STRING :: ReferenceType
+pattern ReferenceType_STRING = ReferenceType' "STRING"
+
 pattern ReferenceType_URL :: ReferenceType
 pattern ReferenceType_URL = ReferenceType' "URL"
 
 {-# COMPLETE
+  ReferenceType_ATTACHMENT,
+  ReferenceType_DATE,
+  ReferenceType_EMAIL,
+  ReferenceType_NUMBER,
+  ReferenceType_STRING,
   ReferenceType_URL,
   ReferenceType'
   #-}

@@ -28,7 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newHoursOfOperation' smart constructor.
 data HoursOfOperation = HoursOfOperation'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name for the hours of operation.
     name :: Prelude.Maybe Prelude.Text,
@@ -53,7 +54,8 @@ data HoursOfOperation = HoursOfOperation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'hoursOfOperation_tags' - One or more tags.
+-- 'tags', 'hoursOfOperation_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'name', 'hoursOfOperation_name' - The name for the hours of operation.
 --
@@ -79,7 +81,8 @@ newHoursOfOperation =
       config = Prelude.Nothing
     }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 hoursOfOperation_tags :: Lens.Lens' HoursOfOperation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 hoursOfOperation_tags = Lens.lens (\HoursOfOperation' {tags} -> tags) (\s@HoursOfOperation' {} a -> s {tags = a} :: HoursOfOperation) Prelude.. Lens.mapping Lens.coerced
 

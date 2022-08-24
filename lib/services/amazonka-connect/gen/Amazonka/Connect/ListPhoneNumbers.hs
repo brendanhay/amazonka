@@ -64,7 +64,8 @@ data ListPhoneNumbers = ListPhoneNumbers'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
+    -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of phone number.
     phoneNumberTypes :: Prelude.Maybe [PhoneNumberType],
@@ -88,7 +89,8 @@ data ListPhoneNumbers = ListPhoneNumbers'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listPhoneNumbers_maxResults' - The maximum number of results to return per page.
+-- 'maxResults', 'listPhoneNumbers_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 --
 -- 'phoneNumberTypes', 'listPhoneNumbers_phoneNumberTypes' - The type of phone number.
 --
@@ -115,7 +117,8 @@ newListPhoneNumbers pInstanceId_ =
 listPhoneNumbers_nextToken :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Text)
 listPhoneNumbers_nextToken = Lens.lens (\ListPhoneNumbers' {nextToken} -> nextToken) (\s@ListPhoneNumbers' {} a -> s {nextToken = a} :: ListPhoneNumbers)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 listPhoneNumbers_maxResults :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe Prelude.Natural)
 listPhoneNumbers_maxResults = Lens.lens (\ListPhoneNumbers' {maxResults} -> maxResults) (\s@ListPhoneNumbers' {} a -> s {maxResults = a} :: ListPhoneNumbers)
 

@@ -20,7 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Ends the specified contact.
+-- Ends the specified contact. This call does not work for the following
+-- initiation methods:
+--
+-- -   DISCONNECT
+--
+-- -   TRANSFER
+--
+-- -   QUEUE_TRANSFER
 module Amazonka.Connect.StopContact
   ( -- * Creating a Request
     StopContact (..),

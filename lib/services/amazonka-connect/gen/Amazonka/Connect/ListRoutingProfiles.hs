@@ -64,7 +64,8 @@ data ListRoutingProfiles = ListRoutingProfiles'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return per page.
+    -- | The maximum number of results to return per page. The default MaxResult
+    -- size is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
@@ -84,7 +85,8 @@ data ListRoutingProfiles = ListRoutingProfiles'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'maxResults', 'listRoutingProfiles_maxResults' - The maximum number of results to return per page.
+-- 'maxResults', 'listRoutingProfiles_maxResults' - The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 --
 -- 'instanceId', 'listRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
@@ -105,7 +107,8 @@ newListRoutingProfiles pInstanceId_ =
 listRoutingProfiles_nextToken :: Lens.Lens' ListRoutingProfiles (Prelude.Maybe Prelude.Text)
 listRoutingProfiles_nextToken = Lens.lens (\ListRoutingProfiles' {nextToken} -> nextToken) (\s@ListRoutingProfiles' {} a -> s {nextToken = a} :: ListRoutingProfiles)
 
--- | The maximum number of results to return per page.
+-- | The maximum number of results to return per page. The default MaxResult
+-- size is 100.
 listRoutingProfiles_maxResults :: Lens.Lens' ListRoutingProfiles (Prelude.Maybe Prelude.Natural)
 listRoutingProfiles_maxResults = Lens.lens (\ListRoutingProfiles' {maxResults} -> maxResults) (\s@ListRoutingProfiles' {} a -> s {maxResults = a} :: ListRoutingProfiles)
 

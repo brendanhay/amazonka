@@ -22,8 +22,11 @@
 --
 -- Adds the specified tags to the specified resource.
 --
--- The supported resource types are users, routing profiles, queues, quick
--- connects, contact flows, agent status, and hours of operation.
+-- Some of the supported resource types are agents, routing profiles,
+-- queues, quick connects, contact flows, agent statuses, hours of
+-- operation, phone numbers, security profiles, and task templates. For a
+-- complete list, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html Tagging resources in Amazon Connect>.
 --
 -- For sample policies that use tags, see
 -- <https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html Amazon Connect Identity-Based Policy Examples>
@@ -54,8 +57,8 @@ import qualified Amazonka.Response as Response
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Text,
-    -- | One or more tags. For example, { \"tags\": {\"key1\":\"value1\",
-    -- \"key2\":\"value2\"} }.
+    -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,8 +73,8 @@ data TagResource = TagResource'
 --
 -- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
--- 'tags', 'tagResource_tags' - One or more tags. For example, { \"tags\": {\"key1\":\"value1\",
--- \"key2\":\"value2\"} }.
+-- 'tags', 'tagResource_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -86,8 +89,8 @@ newTagResource pResourceArn_ =
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | One or more tags. For example, { \"tags\": {\"key1\":\"value1\",
--- \"key2\":\"value2\"} }.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

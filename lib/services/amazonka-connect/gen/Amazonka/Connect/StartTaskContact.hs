@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Initiates a contact flow to start a new task.
+-- Initiates a flow to start a new task.
 module Amazonka.Connect.StartTaskContact
   ( -- * Creating a Request
     StartTaskContact (..),
@@ -28,12 +28,15 @@ module Amazonka.Connect.StartTaskContact
 
     -- * Request Lenses
     startTaskContact_clientToken,
+    startTaskContact_taskTemplateId,
     startTaskContact_description,
     startTaskContact_references,
+    startTaskContact_quickConnectId,
     startTaskContact_attributes,
     startTaskContact_previousContactId,
-    startTaskContact_instanceId,
     startTaskContact_contactFlowId,
+    startTaskContact_scheduledTime,
+    startTaskContact_instanceId,
     startTaskContact_name,
 
     -- * Destructuring the Response
@@ -58,15 +61,19 @@ data StartTaskContact = StartTaskContact'
   { -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the task template.
+    taskTemplateId :: Prelude.Maybe Prelude.Text,
     -- | A description of the task that is shown to an agent in the Contact
     -- Control Panel (CCP).
     description :: Prelude.Maybe Prelude.Text,
     -- | A formatted URL that is shown to an agent in the Contact Control Panel
     -- (CCP).
     references :: Prelude.Maybe (Prelude.HashMap Prelude.Text Reference),
+    -- | The identifier for the quick connect.
+    quickConnectId :: Prelude.Maybe Prelude.Text,
     -- | A custom key-value pair using an attribute map. The attributes are
-    -- standard Amazon Connect attributes, and can be accessed in contact flows
-    -- just like any other contact attributes.
+    -- standard Amazon Connect attributes, and can be accessed in flows just
+    -- like any other contact attributes.
     --
     -- There can be up to 32,768 UTF-8 bytes across all key-value pairs per
     -- contact. Attribute keys can include only alphanumeric, dash, and
@@ -74,18 +81,22 @@ data StartTaskContact = StartTaskContact'
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The identifier of the previous chat, voice, or task contact.
     previousContactId :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the flow for initiating the tasks. To see the
+    -- ContactFlowId in the Amazon Connect console user interface, on the
+    -- navigation menu go to __Routing__, __Contact Flows__. Choose the flow.
+    -- On the flow page, under the name of the flow, choose __Show additional
+    -- flow information__. The ContactFlowId is the last part of the ARN, shown
+    -- here in bold:
+    --
+    -- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance\/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\/contact-flow\/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
+    contactFlowId :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp, in Unix Epoch seconds format, at which to start running
+    -- the inbound flow. The scheduled time cannot be in the past. It must be
+    -- within up to 6 days in future.
+    scheduledTime :: Prelude.Maybe Core.POSIX,
     -- | The identifier of the Amazon Connect instance. You can find the
     -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
-    -- | The identifier of the contact flow for initiating the tasks. To see the
-    -- ContactFlowId in the Amazon Connect console user interface, on the
-    -- navigation menu go to __Routing__, __Contact Flows__. Choose the contact
-    -- flow. On the contact flow page, under the name of the contact flow,
-    -- choose __Show additional flow information__. The ContactFlowId is the
-    -- last part of the ARN, shown here in bold:
-    --
-    -- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance\/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\/contact-flow\/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
-    contactFlowId :: Prelude.Text,
     -- | The name of a task that is shown to an agent in the Contact Control
     -- Panel (CCP).
     name :: Prelude.Text
@@ -103,15 +114,19 @@ data StartTaskContact = StartTaskContact'
 -- 'clientToken', 'startTaskContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
+-- 'taskTemplateId', 'startTaskContact_taskTemplateId' - A unique identifier for the task template.
+--
 -- 'description', 'startTaskContact_description' - A description of the task that is shown to an agent in the Contact
 -- Control Panel (CCP).
 --
 -- 'references', 'startTaskContact_references' - A formatted URL that is shown to an agent in the Contact Control Panel
 -- (CCP).
 --
+-- 'quickConnectId', 'startTaskContact_quickConnectId' - The identifier for the quick connect.
+--
 -- 'attributes', 'startTaskContact_attributes' - A custom key-value pair using an attribute map. The attributes are
--- standard Amazon Connect attributes, and can be accessed in contact flows
--- just like any other contact attributes.
+-- standard Amazon Connect attributes, and can be accessed in flows just
+-- like any other contact attributes.
 --
 -- There can be up to 32,768 UTF-8 bytes across all key-value pairs per
 -- contact. Attribute keys can include only alphanumeric, dash, and
@@ -119,47 +134,53 @@ data StartTaskContact = StartTaskContact'
 --
 -- 'previousContactId', 'startTaskContact_previousContactId' - The identifier of the previous chat, voice, or task contact.
 --
--- 'instanceId', 'startTaskContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
--- instanceId in the ARN of the instance.
---
--- 'contactFlowId', 'startTaskContact_contactFlowId' - The identifier of the contact flow for initiating the tasks. To see the
+-- 'contactFlowId', 'startTaskContact_contactFlowId' - The identifier of the flow for initiating the tasks. To see the
 -- ContactFlowId in the Amazon Connect console user interface, on the
--- navigation menu go to __Routing__, __Contact Flows__. Choose the contact
--- flow. On the contact flow page, under the name of the contact flow,
--- choose __Show additional flow information__. The ContactFlowId is the
--- last part of the ARN, shown here in bold:
+-- navigation menu go to __Routing__, __Contact Flows__. Choose the flow.
+-- On the flow page, under the name of the flow, choose __Show additional
+-- flow information__. The ContactFlowId is the last part of the ARN, shown
+-- here in bold:
 --
 -- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance\/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\/contact-flow\/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
+--
+-- 'scheduledTime', 'startTaskContact_scheduledTime' - The timestamp, in Unix Epoch seconds format, at which to start running
+-- the inbound flow. The scheduled time cannot be in the past. It must be
+-- within up to 6 days in future.
+--
+-- 'instanceId', 'startTaskContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'name', 'startTaskContact_name' - The name of a task that is shown to an agent in the Contact Control
 -- Panel (CCP).
 newStartTaskContact ::
   -- | 'instanceId'
   Prelude.Text ->
-  -- | 'contactFlowId'
-  Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
   StartTaskContact
-newStartTaskContact
-  pInstanceId_
-  pContactFlowId_
-  pName_ =
-    StartTaskContact'
-      { clientToken = Prelude.Nothing,
-        description = Prelude.Nothing,
-        references = Prelude.Nothing,
-        attributes = Prelude.Nothing,
-        previousContactId = Prelude.Nothing,
-        instanceId = pInstanceId_,
-        contactFlowId = pContactFlowId_,
-        name = pName_
-      }
+newStartTaskContact pInstanceId_ pName_ =
+  StartTaskContact'
+    { clientToken = Prelude.Nothing,
+      taskTemplateId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      references = Prelude.Nothing,
+      quickConnectId = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      previousContactId = Prelude.Nothing,
+      contactFlowId = Prelude.Nothing,
+      scheduledTime = Prelude.Nothing,
+      instanceId = pInstanceId_,
+      name = pName_
+    }
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 startTaskContact_clientToken :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
 startTaskContact_clientToken = Lens.lens (\StartTaskContact' {clientToken} -> clientToken) (\s@StartTaskContact' {} a -> s {clientToken = a} :: StartTaskContact)
+
+-- | A unique identifier for the task template.
+startTaskContact_taskTemplateId :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
+startTaskContact_taskTemplateId = Lens.lens (\StartTaskContact' {taskTemplateId} -> taskTemplateId) (\s@StartTaskContact' {} a -> s {taskTemplateId = a} :: StartTaskContact)
 
 -- | A description of the task that is shown to an agent in the Contact
 -- Control Panel (CCP).
@@ -171,9 +192,13 @@ startTaskContact_description = Lens.lens (\StartTaskContact' {description} -> de
 startTaskContact_references :: Lens.Lens' StartTaskContact (Prelude.Maybe (Prelude.HashMap Prelude.Text Reference))
 startTaskContact_references = Lens.lens (\StartTaskContact' {references} -> references) (\s@StartTaskContact' {} a -> s {references = a} :: StartTaskContact) Prelude.. Lens.mapping Lens.coerced
 
+-- | The identifier for the quick connect.
+startTaskContact_quickConnectId :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
+startTaskContact_quickConnectId = Lens.lens (\StartTaskContact' {quickConnectId} -> quickConnectId) (\s@StartTaskContact' {} a -> s {quickConnectId = a} :: StartTaskContact)
+
 -- | A custom key-value pair using an attribute map. The attributes are
--- standard Amazon Connect attributes, and can be accessed in contact flows
--- just like any other contact attributes.
+-- standard Amazon Connect attributes, and can be accessed in flows just
+-- like any other contact attributes.
 --
 -- There can be up to 32,768 UTF-8 bytes across all key-value pairs per
 -- contact. Attribute keys can include only alphanumeric, dash, and
@@ -185,21 +210,27 @@ startTaskContact_attributes = Lens.lens (\StartTaskContact' {attributes} -> attr
 startTaskContact_previousContactId :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
 startTaskContact_previousContactId = Lens.lens (\StartTaskContact' {previousContactId} -> previousContactId) (\s@StartTaskContact' {} a -> s {previousContactId = a} :: StartTaskContact)
 
+-- | The identifier of the flow for initiating the tasks. To see the
+-- ContactFlowId in the Amazon Connect console user interface, on the
+-- navigation menu go to __Routing__, __Contact Flows__. Choose the flow.
+-- On the flow page, under the name of the flow, choose __Show additional
+-- flow information__. The ContactFlowId is the last part of the ARN, shown
+-- here in bold:
+--
+-- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance\/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\/contact-flow\/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
+startTaskContact_contactFlowId :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
+startTaskContact_contactFlowId = Lens.lens (\StartTaskContact' {contactFlowId} -> contactFlowId) (\s@StartTaskContact' {} a -> s {contactFlowId = a} :: StartTaskContact)
+
+-- | The timestamp, in Unix Epoch seconds format, at which to start running
+-- the inbound flow. The scheduled time cannot be in the past. It must be
+-- within up to 6 days in future.
+startTaskContact_scheduledTime :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.UTCTime)
+startTaskContact_scheduledTime = Lens.lens (\StartTaskContact' {scheduledTime} -> scheduledTime) (\s@StartTaskContact' {} a -> s {scheduledTime = a} :: StartTaskContact) Prelude.. Lens.mapping Core._Time
+
 -- | The identifier of the Amazon Connect instance. You can find the
 -- instanceId in the ARN of the instance.
 startTaskContact_instanceId :: Lens.Lens' StartTaskContact Prelude.Text
 startTaskContact_instanceId = Lens.lens (\StartTaskContact' {instanceId} -> instanceId) (\s@StartTaskContact' {} a -> s {instanceId = a} :: StartTaskContact)
-
--- | The identifier of the contact flow for initiating the tasks. To see the
--- ContactFlowId in the Amazon Connect console user interface, on the
--- navigation menu go to __Routing__, __Contact Flows__. Choose the contact
--- flow. On the contact flow page, under the name of the contact flow,
--- choose __Show additional flow information__. The ContactFlowId is the
--- last part of the ARN, shown here in bold:
---
--- arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance\/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\/contact-flow\/__846ec553-a005-41c0-8341-xxxxxxxxxxxx__
-startTaskContact_contactFlowId :: Lens.Lens' StartTaskContact Prelude.Text
-startTaskContact_contactFlowId = Lens.lens (\StartTaskContact' {contactFlowId} -> contactFlowId) (\s@StartTaskContact' {} a -> s {contactFlowId = a} :: StartTaskContact)
 
 -- | The name of a task that is shown to an agent in the Contact Control
 -- Panel (CCP).
@@ -222,23 +253,29 @@ instance Core.AWSRequest StartTaskContact where
 instance Prelude.Hashable StartTaskContact where
   hashWithSalt _salt StartTaskContact' {..} =
     _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` taskTemplateId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` references
+      `Prelude.hashWithSalt` quickConnectId
       `Prelude.hashWithSalt` attributes
       `Prelude.hashWithSalt` previousContactId
-      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` contactFlowId
+      `Prelude.hashWithSalt` scheduledTime
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData StartTaskContact where
   rnf StartTaskContact' {..} =
     Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf taskTemplateId
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf references
+      `Prelude.seq` Prelude.rnf quickConnectId
       `Prelude.seq` Prelude.rnf attributes
       `Prelude.seq` Prelude.rnf previousContactId
-      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf contactFlowId
+      `Prelude.seq` Prelude.rnf scheduledTime
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders StartTaskContact where
@@ -257,13 +294,18 @@ instance Core.ToJSON StartTaskContact where
     Core.object
       ( Prelude.catMaybes
           [ ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("TaskTemplateId" Core..=)
+              Prelude.<$> taskTemplateId,
             ("Description" Core..=) Prelude.<$> description,
             ("References" Core..=) Prelude.<$> references,
+            ("QuickConnectId" Core..=)
+              Prelude.<$> quickConnectId,
             ("Attributes" Core..=) Prelude.<$> attributes,
             ("PreviousContactId" Core..=)
               Prelude.<$> previousContactId,
+            ("ContactFlowId" Core..=) Prelude.<$> contactFlowId,
+            ("ScheduledTime" Core..=) Prelude.<$> scheduledTime,
             Prelude.Just ("InstanceId" Core..= instanceId),
-            Prelude.Just ("ContactFlowId" Core..= contactFlowId),
             Prelude.Just ("Name" Core..= name)
           ]
       )

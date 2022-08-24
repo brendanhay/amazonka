@@ -28,7 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRoutingProfile' smart constructor.
 data RoutingProfile = RoutingProfile'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the routing profile.
     name :: Prelude.Maybe Prelude.Text,
@@ -57,7 +58,8 @@ data RoutingProfile = RoutingProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'routingProfile_tags' - One or more tags.
+-- 'tags', 'routingProfile_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'name', 'routingProfile_name' - The name of the routing profile.
 --
@@ -88,7 +90,8 @@ newRoutingProfile =
       routingProfileId = Prelude.Nothing
     }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 routingProfile_tags :: Lens.Lens' RoutingProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 routingProfile_tags = Lens.lens (\RoutingProfile' {tags} -> tags) (\s@RoutingProfile' {} a -> s {tags = a} :: RoutingProfile) Prelude.. Lens.mapping Lens.coerced
 

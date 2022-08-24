@@ -29,7 +29,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newQueue' smart constructor.
 data Queue = Queue'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the queue.
     name :: Prelude.Maybe Prelude.Text,
@@ -59,7 +60,8 @@ data Queue = Queue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'queue_tags' - One or more tags.
+-- 'tags', 'queue_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'name', 'queue_name' - The name of the queue.
 --
@@ -92,7 +94,8 @@ newQueue =
       outboundCallerConfig = Prelude.Nothing
     }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 queue_tags :: Lens.Lens' Queue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 queue_tags = Lens.lens (\Queue' {tags} -> tags) (\s@Queue' {} a -> s {tags = a} :: Queue) Prelude.. Lens.mapping Lens.coerced
 

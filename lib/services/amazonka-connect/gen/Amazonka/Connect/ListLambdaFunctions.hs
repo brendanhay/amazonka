@@ -24,7 +24,7 @@
 -- change.
 --
 -- Returns a paginated list of all Lambda functions that display in the
--- dropdown options in the relevant contact flow blocks.
+-- dropdown options in the relevant flow blocks.
 --
 -- This operation returns paginated results.
 module Amazonka.Connect.ListLambdaFunctions

@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data UserQuickConnectConfig = UserQuickConnectConfig'
   { -- | The identifier of the user.
     userId :: Prelude.Text,
-    -- | The identifier of the contact flow.
+    -- | The identifier of the flow.
     contactFlowId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data UserQuickConnectConfig = UserQuickConnectConfig'
 --
 -- 'userId', 'userQuickConnectConfig_userId' - The identifier of the user.
 --
--- 'contactFlowId', 'userQuickConnectConfig_contactFlowId' - The identifier of the contact flow.
+-- 'contactFlowId', 'userQuickConnectConfig_contactFlowId' - The identifier of the flow.
 newUserQuickConnectConfig ::
   -- | 'userId'
   Prelude.Text ->
@@ -62,7 +62,7 @@ newUserQuickConnectConfig pUserId_ pContactFlowId_ =
 userQuickConnectConfig_userId :: Lens.Lens' UserQuickConnectConfig Prelude.Text
 userQuickConnectConfig_userId = Lens.lens (\UserQuickConnectConfig' {userId} -> userId) (\s@UserQuickConnectConfig' {} a -> s {userId = a} :: UserQuickConnectConfig)
 
--- | The identifier of the contact flow.
+-- | The identifier of the flow.
 userQuickConnectConfig_contactFlowId :: Lens.Lens' UserQuickConnectConfig Prelude.Text
 userQuickConnectConfig_contactFlowId = Lens.lens (\UserQuickConnectConfig' {contactFlowId} -> contactFlowId) (\s@UserQuickConnectConfig' {} a -> s {contactFlowId = a} :: UserQuickConnectConfig)
 

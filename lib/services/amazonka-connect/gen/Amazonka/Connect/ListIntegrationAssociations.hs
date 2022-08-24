@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides summary information about the AWS resource associations for the
--- specified Amazon Connect instance.
+-- Provides summary information about the Amazon Web Services resource
+-- associations for the specified Amazon Connect instance.
 --
 -- This operation returns paginated results.
 module Amazonka.Connect.ListIntegrationAssociations
@@ -59,6 +59,7 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The integration type.
     integrationType :: Prelude.Maybe IntegrationType,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -80,7 +81,7 @@ data ListIntegrationAssociations = ListIntegrationAssociations'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'integrationType', 'listIntegrationAssociations_integrationType' -
+-- 'integrationType', 'listIntegrationAssociations_integrationType' - The integration type.
 --
 -- 'maxResults', 'listIntegrationAssociations_maxResults' - The maximum number of results to return per page.
 --
@@ -105,7 +106,7 @@ newListIntegrationAssociations pInstanceId_ =
 listIntegrationAssociations_nextToken :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe Prelude.Text)
 listIntegrationAssociations_nextToken = Lens.lens (\ListIntegrationAssociations' {nextToken} -> nextToken) (\s@ListIntegrationAssociations' {} a -> s {nextToken = a} :: ListIntegrationAssociations)
 
--- |
+-- | The integration type.
 listIntegrationAssociations_integrationType :: Lens.Lens' ListIntegrationAssociations (Prelude.Maybe IntegrationType)
 listIntegrationAssociations_integrationType = Lens.lens (\ListIntegrationAssociations' {integrationType} -> integrationType) (\s@ListIntegrationAssociations' {} a -> s {integrationType = a} :: ListIntegrationAssociations)
 

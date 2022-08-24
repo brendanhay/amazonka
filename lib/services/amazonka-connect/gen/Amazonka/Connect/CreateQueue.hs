@@ -59,7 +59,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateQueue' smart constructor.
 data CreateQueue = CreateQueue'
-  { -- | One or more tags.
+  { -- | The tags used to organize, track, or control access for this resource.
+    -- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the queue.
     description :: Prelude.Maybe Prelude.Text,
@@ -88,7 +89,8 @@ data CreateQueue = CreateQueue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createQueue_tags' - One or more tags.
+-- 'tags', 'createQueue_tags' - The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 --
 -- 'description', 'createQueue_description' - The description of the queue.
 --
@@ -128,7 +130,8 @@ newCreateQueue
         hoursOfOperationId = pHoursOfOperationId_
       }
 
--- | One or more tags.
+-- | The tags used to organize, track, or control access for this resource.
+-- For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.
 createQueue_tags :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createQueue_tags = Lens.lens (\CreateQueue' {tags} -> tags) (\s@CreateQueue' {} a -> s {tags = a} :: CreateQueue) Prelude.. Lens.mapping Lens.coerced
 

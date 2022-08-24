@@ -41,7 +41,7 @@
 -- For more information about the properties of a specific resource, refer
 -- to the related topic for the resource in the
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Resource and property types reference>
--- in the /Amazon Web Services CloudFormation Users Guide/.
+-- in the /CloudFormation Users Guide/.
 module Amazonka.CloudControl.UpdateResource
   ( -- * Creating a Request
     UpdateResource (..),
@@ -91,7 +91,7 @@ data UpdateResource = UpdateResource'
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) for Cloud Control API to use when performing this resource
+    -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
     -- defined in the @ handlers @ section of the
@@ -160,7 +160,7 @@ data UpdateResource = UpdateResource'
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
 -- 'roleArn', 'updateResource_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the
@@ -241,7 +241,7 @@ updateResource_clientToken :: Lens.Lens' UpdateResource (Prelude.Maybe Prelude.T
 updateResource_clientToken = Lens.lens (\UpdateResource' {clientToken} -> clientToken) (\s@UpdateResource' {} a -> s {clientToken = a} :: UpdateResource)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the

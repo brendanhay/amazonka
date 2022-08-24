@@ -77,7 +77,7 @@ data CreateResource = CreateResource'
     -- in the /Amazon Web Services Cloud Control API User Guide/.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Identity and Access Management
-    -- (IAM) for Cloud Control API to use when performing this resource
+    -- (IAM) role for Cloud Control API to use when performing this resource
     -- operation. The role specified must have the permissions required for
     -- this operation. The necessary permissions for each event handler are
     -- defined in the @ handlers @ section of the
@@ -101,20 +101,7 @@ data CreateResource = CreateResource'
     --
     -- Cloud Control API currently supports JSON as a structured data format.
     --
-    -- Specify the desired state as one of the following:
-    --
-    -- -   A JSON blob
-    --
-    -- -   A local path containing the desired state in JSON data format
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate Composing the desired state of the resource>
-    -- in the /Amazon Web Services Cloud Control API User Guide/.
-    --
-    -- For more information about the properties of a specific resource, refer
-    -- to the related topic for the resource in the
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Resource and property types reference>
-    -- in the /Amazon Web Services CloudFormation Users Guide/.
+    -- >  <p>Specify the desired state as one of the following:</p> <ul> <li> <p>A JSON blob</p> </li> <li> <p>A local path containing the desired state in JSON data format</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p> <p>For more information about the properties of a specific resource, refer to the related topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
     desiredState :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -144,7 +131,7 @@ data CreateResource = CreateResource'
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
 -- 'roleArn', 'createResource_roleArn' - The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the
@@ -168,20 +155,7 @@ data CreateResource = CreateResource'
 --
 -- Cloud Control API currently supports JSON as a structured data format.
 --
--- Specify the desired state as one of the following:
---
--- -   A JSON blob
---
--- -   A local path containing the desired state in JSON data format
---
--- For more information, see
--- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate Composing the desired state of the resource>
--- in the /Amazon Web Services Cloud Control API User Guide/.
---
--- For more information about the properties of a specific resource, refer
--- to the related topic for the resource in the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Resource and property types reference>
--- in the /Amazon Web Services CloudFormation Users Guide/.
+-- >  <p>Specify the desired state as one of the following:</p> <ul> <li> <p>A JSON blob</p> </li> <li> <p>A local path containing the desired state in JSON data format</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p> <p>For more information about the properties of a specific resource, refer to the related topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
 newCreateResource ::
   -- | 'typeName'
   Prelude.Text ->
@@ -216,7 +190,7 @@ createResource_clientToken :: Lens.Lens' CreateResource (Prelude.Maybe Prelude.T
 createResource_clientToken = Lens.lens (\CreateResource' {clientToken} -> clientToken) (\s@CreateResource' {} a -> s {clientToken = a} :: CreateResource)
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) for Cloud Control API to use when performing this resource
+-- (IAM) role for Cloud Control API to use when performing this resource
 -- operation. The role specified must have the permissions required for
 -- this operation. The necessary permissions for each event handler are
 -- defined in the @ handlers @ section of the
@@ -246,20 +220,7 @@ createResource_typeName = Lens.lens (\CreateResource' {typeName} -> typeName) (\
 --
 -- Cloud Control API currently supports JSON as a structured data format.
 --
--- Specify the desired state as one of the following:
---
--- -   A JSON blob
---
--- -   A local path containing the desired state in JSON data format
---
--- For more information, see
--- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate Composing the desired state of the resource>
--- in the /Amazon Web Services Cloud Control API User Guide/.
---
--- For more information about the properties of a specific resource, refer
--- to the related topic for the resource in the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Resource and property types reference>
--- in the /Amazon Web Services CloudFormation Users Guide/.
+-- >  <p>Specify the desired state as one of the following:</p> <ul> <li> <p>A JSON blob</p> </li> <li> <p>A local path containing the desired state in JSON data format</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-create.html#resource-operations-create-desiredstate">Composing the desired state of the resource</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p> <p>For more information about the properties of a specific resource, refer to the related topic for the resource in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Resource and property types reference</a> in the <i>CloudFormation Users Guide</i>.</p>
 createResource_desiredState :: Lens.Lens' CreateResource Prelude.Text
 createResource_desiredState = Lens.lens (\CreateResource' {desiredState} -> desiredState) (\s@CreateResource' {} a -> s {desiredState = a} :: CreateResource) Prelude.. Core._Sensitive
 

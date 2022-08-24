@@ -25,7 +25,9 @@
 -- <https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html#resource-operations-manage-requests-list Listing active resource operation requests>
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
--- Resource operation requests expire after seven days.
+-- Resource operation requests expire after 7 days.
+--
+-- This operation returns paginated results.
 module Amazonka.CloudControl.ListResourceRequests
   ( -- * Creating a Request
     ListResourceRequests (..),
@@ -128,6 +130,28 @@ listResourceRequests_maxResults = Lens.lens (\ListResourceRequests' {maxResults}
 -- | The filter criteria to apply to the requests returned.
 listResourceRequests_resourceRequestStatusFilter :: Lens.Lens' ListResourceRequests (Prelude.Maybe ResourceRequestStatusFilter)
 listResourceRequests_resourceRequestStatusFilter = Lens.lens (\ListResourceRequests' {resourceRequestStatusFilter} -> resourceRequestStatusFilter) (\s@ListResourceRequests' {} a -> s {resourceRequestStatusFilter = a} :: ListResourceRequests)
+
+instance Core.AWSPager ListResourceRequests where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listResourceRequestsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listResourceRequestsResponse_resourceRequestStatusSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listResourceRequests_nextToken
+          Lens..~ rs
+          Lens.^? listResourceRequestsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListResourceRequests where
   type

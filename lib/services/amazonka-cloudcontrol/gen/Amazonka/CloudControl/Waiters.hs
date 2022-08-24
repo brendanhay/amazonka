@@ -22,13 +22,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.CloudControl.GetResourceRequestStatus' every 5 seconds until a successful state is reached. An error is returned after 720 failed checks.
+-- | Polls 'Amazonka.CloudControl.GetResourceRequestStatus' every 5 seconds until a successful state is reached. An error is returned after 24 failed checks.
 newResourceRequestSuccess :: Core.Wait GetResourceRequestStatus
 newResourceRequestSuccess =
   Core.Wait
     { Core._waitName =
         "ResourceRequestSuccess",
-      Core._waitAttempts = 720,
+      Core._waitAttempts = 24,
       Core._waitDelay = 5,
       Core._waitAcceptors =
         [ Core.matchAll

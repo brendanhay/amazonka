@@ -40,7 +40,7 @@ data ProgressEvent = ProgressEvent'
     resourceModel :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The current status of the resource operation request.
     --
-    -- -   @PENDING@: The resource operation has not yet started.
+    -- -   @PENDING@: The resource operation hasn\'t yet started.
     --
     -- -   @IN_PROGRESS@: The resource operation is currently in progress.
     --
@@ -98,7 +98,7 @@ data ProgressEvent = ProgressEvent'
 --
 -- 'operationStatus', 'progressEvent_operationStatus' - The current status of the resource operation request.
 --
--- -   @PENDING@: The resource operation has not yet started.
+-- -   @PENDING@: The resource operation hasn\'t yet started.
 --
 -- -   @IN_PROGRESS@: The resource operation is currently in progress.
 --
@@ -164,7 +164,7 @@ progressEvent_resourceModel = Lens.lens (\ProgressEvent' {resourceModel} -> reso
 
 -- | The current status of the resource operation request.
 --
--- -   @PENDING@: The resource operation has not yet started.
+-- -   @PENDING@: The resource operation hasn\'t yet started.
 --
 -- -   @IN_PROGRESS@: The resource operation is currently in progress.
 --

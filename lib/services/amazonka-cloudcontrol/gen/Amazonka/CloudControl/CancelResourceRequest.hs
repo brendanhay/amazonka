@@ -26,7 +26,7 @@
 -- in the /Amazon Web Services Cloud Control API User Guide/.
 --
 -- Only resource operations requests with a status of @PENDING@ or
--- @IN_PROGRESS@ can be cancelled.
+-- @IN_PROGRESS@ can be canceled.
 module Amazonka.CloudControl.CancelResourceRequest
   ( -- * Creating a Request
     CancelResourceRequest (..),

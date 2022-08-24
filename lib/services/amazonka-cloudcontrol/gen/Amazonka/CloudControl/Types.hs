@@ -173,14 +173,14 @@ _NotStabilizedException =
     defaultService
     "NotStabilizedException"
 
--- | The specified resource does not support this resource operation.
+-- | The specified resource doesn\'t support this resource operation.
 _UnsupportedActionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedActionException =
   Core._MatchServiceError
     defaultService
     "UnsupportedActionException"
 
--- | Cloud Control API has not received a valid response from the resource
+-- | Cloud Control API hasn\'t received a valid response from the resource
 -- handler, due to a configuration error. This includes issues such as the
 -- resource handler returning an invalid response, or timing out.
 _PrivateTypeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -189,7 +189,7 @@ _PrivateTypeException =
     defaultService
     "PrivateTypeException"
 
--- | The resource handler has returned that the request could not be
+-- | The resource handler has returned that the request couldn\'t be
 -- completed due to networking issues, such as a failure to receive a
 -- response from the server.
 _NetworkFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -198,7 +198,7 @@ _NetworkFailureException =
     defaultService
     "NetworkFailureException"
 
--- | A resource with the specified identifier cannot be found.
+-- | A resource with the specified identifier can\'t be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -206,7 +206,7 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
 
 -- | The resource handler has returned that the downstream service generated
--- an error that does not map to any other handler error code.
+-- an error that doesn\'t map to any other handler error code.
 _GeneralServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _GeneralServiceException =
   Core._MatchServiceError
@@ -214,7 +214,7 @@ _GeneralServiceException =
     "GeneralServiceException"
 
 -- | One or more properties included in this resource operation are defined
--- as create-only, and therefore cannot be updated.
+-- as create-only, and therefore can\'t be updated.
 _NotUpdatableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotUpdatableException =
   Core._MatchServiceError
@@ -252,7 +252,7 @@ _ThrottlingException =
     "ThrottlingException"
 
 -- | The resource is temporarily unavailable to be acted upon. For example,
--- if the resource is currently undergoing an operation and cannot be acted
+-- if the resource is currently undergoing an operation and can\'t be acted
 -- upon until that operation is finished.
 _ResourceConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceConflictException =
@@ -260,7 +260,7 @@ _ResourceConflictException =
     defaultService
     "ResourceConflictException"
 
--- | The specified extension does not exist in the CloudFormation registry.
+-- | The specified extension doesn\'t exist in the CloudFormation registry.
 _TypeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TypeNotFoundException =
   Core._MatchServiceError
@@ -283,7 +283,7 @@ _ConcurrentOperationException =
     defaultService
     "ConcurrentOperationException"
 
--- | A resource operation with the specified request token cannot be found.
+-- | A resource operation with the specified request token can\'t be found.
 _RequestTokenNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RequestTokenNotFoundException =
   Core._MatchServiceError
@@ -317,7 +317,7 @@ _InvalidCredentialsException =
 -- | The specified client token has already been used in another resource
 -- request.
 --
--- It is best practice for client tokens to be unique for each resource
+-- It\'s best practice for client tokens to be unique for each resource
 -- operation request. However, client token expire after 36 hours.
 _ClientTokenConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClientTokenConflictException =

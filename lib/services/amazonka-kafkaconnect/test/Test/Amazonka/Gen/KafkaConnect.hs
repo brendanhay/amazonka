@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestDeleteConnector $
 --             newDeleteConnector
 --
+--         , requestDeleteCustomPlugin $
+--             newDeleteCustomPlugin
+--
 --         , requestDescribeConnector $
 --             newDescribeConnector
 --
@@ -74,6 +77,9 @@ import Test.Tasty
 --
 --         , responseDeleteConnector $
 --             newDeleteConnectorResponse
+--
+--         , responseDeleteCustomPlugin $
+--             newDeleteCustomPluginResponse
 --
 --         , responseDescribeConnector $
 --             newDescribeConnectorResponse
@@ -124,6 +130,12 @@ requestDeleteConnector =
   req
     "DeleteConnector"
     "fixture/DeleteConnector.yaml"
+
+requestDeleteCustomPlugin :: DeleteCustomPlugin -> TestTree
+requestDeleteCustomPlugin =
+  req
+    "DeleteCustomPlugin"
+    "fixture/DeleteCustomPlugin.yaml"
 
 requestDescribeConnector :: DescribeConnector -> TestTree
 requestDescribeConnector =
@@ -200,6 +212,14 @@ responseDeleteConnector =
     "fixture/DeleteConnectorResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteConnector)
+
+responseDeleteCustomPlugin :: DeleteCustomPluginResponse -> TestTree
+responseDeleteCustomPlugin =
+  res
+    "DeleteCustomPluginResponse"
+    "fixture/DeleteCustomPluginResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomPlugin)
 
 responseDescribeConnector :: DescribeConnectorResponse -> TestTree
 responseDescribeConnector =

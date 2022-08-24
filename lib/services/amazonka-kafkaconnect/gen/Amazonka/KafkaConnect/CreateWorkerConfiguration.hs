@@ -58,9 +58,9 @@ data CreateWorkerConfiguration = CreateWorkerConfiguration'
     -- | The name of the worker configuration.
     name :: Prelude.Text,
     -- | Base64 encoded contents of connect-distributed.properties file.
-    propertiesFileContent :: Prelude.Text
+    propertiesFileContent :: Core.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateWorkerConfiguration' with all optional fields omitted.
@@ -88,7 +88,8 @@ newCreateWorkerConfiguration
       { description =
           Prelude.Nothing,
         name = pName_,
-        propertiesFileContent = pPropertiesFileContent_
+        propertiesFileContent =
+          Core._Sensitive Lens.# pPropertiesFileContent_
       }
 
 -- | A summary description of the worker configuration.
@@ -101,7 +102,7 @@ createWorkerConfiguration_name = Lens.lens (\CreateWorkerConfiguration' {name} -
 
 -- | Base64 encoded contents of connect-distributed.properties file.
 createWorkerConfiguration_propertiesFileContent :: Lens.Lens' CreateWorkerConfiguration Prelude.Text
-createWorkerConfiguration_propertiesFileContent = Lens.lens (\CreateWorkerConfiguration' {propertiesFileContent} -> propertiesFileContent) (\s@CreateWorkerConfiguration' {} a -> s {propertiesFileContent = a} :: CreateWorkerConfiguration)
+createWorkerConfiguration_propertiesFileContent = Lens.lens (\CreateWorkerConfiguration' {propertiesFileContent} -> propertiesFileContent) (\s@CreateWorkerConfiguration' {} a -> s {propertiesFileContent = a} :: CreateWorkerConfiguration) Prelude.. Core._Sensitive
 
 instance Core.AWSRequest CreateWorkerConfiguration where
   type

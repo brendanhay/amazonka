@@ -71,6 +71,12 @@ module Amazonka.KafkaConnect
     DeleteConnectorResponse (DeleteConnectorResponse'),
     newDeleteConnectorResponse,
 
+    -- ** DeleteCustomPlugin
+    DeleteCustomPlugin (DeleteCustomPlugin'),
+    newDeleteCustomPlugin,
+    DeleteCustomPluginResponse (DeleteCustomPluginResponse'),
+    newDeleteCustomPluginResponse,
+
     -- ** DescribeConnector
     DescribeConnector (DescribeConnector'),
     newDescribeConnector,
@@ -302,6 +308,10 @@ module Amazonka.KafkaConnect
     ScaleOutPolicyUpdate (ScaleOutPolicyUpdate'),
     newScaleOutPolicyUpdate,
 
+    -- ** StateDescription
+    StateDescription (StateDescription'),
+    newStateDescription,
+
     -- ** Vpc
     Vpc (Vpc'),
     newVpc,
@@ -344,6 +354,7 @@ import Amazonka.KafkaConnect.CreateConnector
 import Amazonka.KafkaConnect.CreateCustomPlugin
 import Amazonka.KafkaConnect.CreateWorkerConfiguration
 import Amazonka.KafkaConnect.DeleteConnector
+import Amazonka.KafkaConnect.DeleteCustomPlugin
 import Amazonka.KafkaConnect.DescribeConnector
 import Amazonka.KafkaConnect.DescribeCustomPlugin
 import Amazonka.KafkaConnect.DescribeWorkerConfiguration

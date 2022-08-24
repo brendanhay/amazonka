@@ -34,6 +34,7 @@ module Amazonka.KafkaConnect.DescribeConnector
     newDescribeConnectorResponse,
 
     -- * Response Lenses
+    describeConnectorResponse_stateDescription,
     describeConnectorResponse_connectorDescription,
     describeConnectorResponse_kafkaClusterEncryptionInTransit,
     describeConnectorResponse_kafkaConnectVersion,
@@ -100,7 +101,8 @@ instance Core.AWSRequest DescribeConnector where
     Response.receiveJSON
       ( \s h x ->
           DescribeConnectorResponse'
-            Prelude.<$> (x Core..?> "connectorDescription")
+            Prelude.<$> (x Core..?> "stateDescription")
+            Prelude.<*> (x Core..?> "connectorDescription")
             Prelude.<*> (x Core..?> "kafkaClusterEncryptionInTransit")
             Prelude.<*> (x Core..?> "kafkaConnectVersion")
             Prelude.<*> (x Core..?> "serviceExecutionRoleArn")
@@ -149,7 +151,9 @@ instance Core.ToQuery DescribeConnector where
 
 -- | /See:/ 'newDescribeConnectorResponse' smart constructor.
 data DescribeConnectorResponse = DescribeConnectorResponse'
-  { -- | A summary description of the connector.
+  { -- | Details about the state of a connector.
+    stateDescription :: Prelude.Maybe StateDescription,
+    -- | A summary description of the connector.
     connectorDescription :: Prelude.Maybe Prelude.Text,
     -- | Details of encryption in transit to the Apache Kafka cluster.
     kafkaClusterEncryptionInTransit :: Prelude.Maybe KafkaClusterEncryptionInTransitDescription,
@@ -178,7 +182,7 @@ data DescribeConnectorResponse = DescribeConnectorResponse'
     kafkaCluster :: Prelude.Maybe KafkaClusterDescription,
     -- | A map of keys to values that represent the configuration for the
     -- connector.
-    connectorConfiguration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    connectorConfiguration :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | Information about the capacity of the connector, whether it is auto
     -- scaled or provisioned.
     capacity :: Prelude.Maybe CapacityDescription,
@@ -189,7 +193,7 @@ data DescribeConnectorResponse = DescribeConnectorResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeConnectorResponse' with all optional fields omitted.
@@ -198,6 +202,8 @@ data DescribeConnectorResponse = DescribeConnectorResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'stateDescription', 'describeConnectorResponse_stateDescription' - Details about the state of a connector.
 --
 -- 'connectorDescription', 'describeConnectorResponse_connectorDescription' - A summary description of the connector.
 --
@@ -243,8 +249,9 @@ newDescribeConnectorResponse ::
   DescribeConnectorResponse
 newDescribeConnectorResponse pHttpStatus_ =
   DescribeConnectorResponse'
-    { connectorDescription =
+    { stateDescription =
         Prelude.Nothing,
+      connectorDescription = Prelude.Nothing,
       kafkaClusterEncryptionInTransit =
         Prelude.Nothing,
       kafkaConnectVersion = Prelude.Nothing,
@@ -264,6 +271,10 @@ newDescribeConnectorResponse pHttpStatus_ =
       workerConfiguration = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Details about the state of a connector.
+describeConnectorResponse_stateDescription :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe StateDescription)
+describeConnectorResponse_stateDescription = Lens.lens (\DescribeConnectorResponse' {stateDescription} -> stateDescription) (\s@DescribeConnectorResponse' {} a -> s {stateDescription = a} :: DescribeConnectorResponse)
 
 -- | A summary description of the connector.
 describeConnectorResponse_connectorDescription :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe Prelude.Text)
@@ -319,7 +330,7 @@ describeConnectorResponse_kafkaCluster = Lens.lens (\DescribeConnectorResponse' 
 -- | A map of keys to values that represent the configuration for the
 -- connector.
 describeConnectorResponse_connectorConfiguration :: Lens.Lens' DescribeConnectorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-describeConnectorResponse_connectorConfiguration = Lens.lens (\DescribeConnectorResponse' {connectorConfiguration} -> connectorConfiguration) (\s@DescribeConnectorResponse' {} a -> s {connectorConfiguration = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping Lens.coerced
+describeConnectorResponse_connectorConfiguration = Lens.lens (\DescribeConnectorResponse' {connectorConfiguration} -> connectorConfiguration) (\s@DescribeConnectorResponse' {} a -> s {connectorConfiguration = a} :: DescribeConnectorResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | Information about the capacity of the connector, whether it is auto
 -- scaled or provisioned.
@@ -340,7 +351,8 @@ describeConnectorResponse_httpStatus = Lens.lens (\DescribeConnectorResponse' {h
 
 instance Prelude.NFData DescribeConnectorResponse where
   rnf DescribeConnectorResponse' {..} =
-    Prelude.rnf connectorDescription
+    Prelude.rnf stateDescription
+      `Prelude.seq` Prelude.rnf connectorDescription
       `Prelude.seq` Prelude.rnf kafkaClusterEncryptionInTransit
       `Prelude.seq` Prelude.rnf kafkaConnectVersion
       `Prelude.seq` Prelude.rnf serviceExecutionRoleArn

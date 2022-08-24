@@ -34,9 +34,9 @@ data WorkerConfigurationRevisionDescription = WorkerConfigurationRevisionDescrip
     -- | The time that the worker configuration was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | Base64 encoded contents of the connect-distributed.properties file.
-    propertiesFileContent :: Prelude.Maybe Prelude.Text
+    propertiesFileContent :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'WorkerConfigurationRevisionDescription' with all optional fields omitted.
@@ -79,7 +79,7 @@ workerConfigurationRevisionDescription_creationTime = Lens.lens (\WorkerConfigur
 
 -- | Base64 encoded contents of the connect-distributed.properties file.
 workerConfigurationRevisionDescription_propertiesFileContent :: Lens.Lens' WorkerConfigurationRevisionDescription (Prelude.Maybe Prelude.Text)
-workerConfigurationRevisionDescription_propertiesFileContent = Lens.lens (\WorkerConfigurationRevisionDescription' {propertiesFileContent} -> propertiesFileContent) (\s@WorkerConfigurationRevisionDescription' {} a -> s {propertiesFileContent = a} :: WorkerConfigurationRevisionDescription)
+workerConfigurationRevisionDescription_propertiesFileContent = Lens.lens (\WorkerConfigurationRevisionDescription' {propertiesFileContent} -> propertiesFileContent) (\s@WorkerConfigurationRevisionDescription' {} a -> s {propertiesFileContent = a} :: WorkerConfigurationRevisionDescription) Prelude.. Lens.mapping Core._Sensitive
 
 instance
   Core.FromJSON

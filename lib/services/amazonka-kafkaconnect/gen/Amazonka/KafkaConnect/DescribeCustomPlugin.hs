@@ -36,6 +36,7 @@ module Amazonka.KafkaConnect.DescribeCustomPlugin
     -- * Response Lenses
     describeCustomPluginResponse_latestRevision,
     describeCustomPluginResponse_name,
+    describeCustomPluginResponse_stateDescription,
     describeCustomPluginResponse_customPluginState,
     describeCustomPluginResponse_description,
     describeCustomPluginResponse_creationTime,
@@ -92,6 +93,7 @@ instance Core.AWSRequest DescribeCustomPlugin where
           DescribeCustomPluginResponse'
             Prelude.<$> (x Core..?> "latestRevision")
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "stateDescription")
             Prelude.<*> (x Core..?> "customPluginState")
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "creationTime")
@@ -133,6 +135,8 @@ data DescribeCustomPluginResponse = DescribeCustomPluginResponse'
     latestRevision :: Prelude.Maybe CustomPluginRevisionSummary,
     -- | The name of the custom plugin.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Details about the state of a custom plugin.
+    stateDescription :: Prelude.Maybe StateDescription,
     -- | The state of the custom plugin.
     customPluginState :: Prelude.Maybe CustomPluginState,
     -- | The description of the custom plugin.
@@ -159,6 +163,8 @@ data DescribeCustomPluginResponse = DescribeCustomPluginResponse'
 --
 -- 'name', 'describeCustomPluginResponse_name' - The name of the custom plugin.
 --
+-- 'stateDescription', 'describeCustomPluginResponse_stateDescription' - Details about the state of a custom plugin.
+--
 -- 'customPluginState', 'describeCustomPluginResponse_customPluginState' - The state of the custom plugin.
 --
 -- 'description', 'describeCustomPluginResponse_description' - The description of the custom plugin.
@@ -177,6 +183,7 @@ newDescribeCustomPluginResponse pHttpStatus_ =
     { latestRevision =
         Prelude.Nothing,
       name = Prelude.Nothing,
+      stateDescription = Prelude.Nothing,
       customPluginState = Prelude.Nothing,
       description = Prelude.Nothing,
       creationTime = Prelude.Nothing,
@@ -192,6 +199,10 @@ describeCustomPluginResponse_latestRevision = Lens.lens (\DescribeCustomPluginRe
 -- | The name of the custom plugin.
 describeCustomPluginResponse_name :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe Prelude.Text)
 describeCustomPluginResponse_name = Lens.lens (\DescribeCustomPluginResponse' {name} -> name) (\s@DescribeCustomPluginResponse' {} a -> s {name = a} :: DescribeCustomPluginResponse)
+
+-- | Details about the state of a custom plugin.
+describeCustomPluginResponse_stateDescription :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe StateDescription)
+describeCustomPluginResponse_stateDescription = Lens.lens (\DescribeCustomPluginResponse' {stateDescription} -> stateDescription) (\s@DescribeCustomPluginResponse' {} a -> s {stateDescription = a} :: DescribeCustomPluginResponse)
 
 -- | The state of the custom plugin.
 describeCustomPluginResponse_customPluginState :: Lens.Lens' DescribeCustomPluginResponse (Prelude.Maybe CustomPluginState)
@@ -217,6 +228,7 @@ instance Prelude.NFData DescribeCustomPluginResponse where
   rnf DescribeCustomPluginResponse' {..} =
     Prelude.rnf latestRevision
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf stateDescription
       `Prelude.seq` Prelude.rnf customPluginState
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf creationTime

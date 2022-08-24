@@ -16,6 +16,7 @@ module Amazonka.Pi.Lens
 
     -- ** DescribeDimensionKeys
     describeDimensionKeys_nextToken,
+    describeDimensionKeys_additionalMetrics,
     describeDimensionKeys_filter,
     describeDimensionKeys_maxResults,
     describeDimensionKeys_periodInSeconds,
@@ -42,6 +43,13 @@ module Amazonka.Pi.Lens
     getDimensionKeyDetailsResponse_dimensions,
     getDimensionKeyDetailsResponse_httpStatus,
 
+    -- ** GetResourceMetadata
+    getResourceMetadata_serviceType,
+    getResourceMetadata_identifier,
+    getResourceMetadataResponse_features,
+    getResourceMetadataResponse_identifier,
+    getResourceMetadataResponse_httpStatus,
+
     -- ** GetResourceMetrics
     getResourceMetrics_nextToken,
     getResourceMetrics_maxResults,
@@ -58,19 +66,47 @@ module Amazonka.Pi.Lens
     getResourceMetricsResponse_alignedStartTime,
     getResourceMetricsResponse_httpStatus,
 
+    -- ** ListAvailableResourceDimensions
+    listAvailableResourceDimensions_nextToken,
+    listAvailableResourceDimensions_maxResults,
+    listAvailableResourceDimensions_serviceType,
+    listAvailableResourceDimensions_identifier,
+    listAvailableResourceDimensions_metrics,
+    listAvailableResourceDimensionsResponse_nextToken,
+    listAvailableResourceDimensionsResponse_metricDimensions,
+    listAvailableResourceDimensionsResponse_httpStatus,
+
+    -- ** ListAvailableResourceMetrics
+    listAvailableResourceMetrics_nextToken,
+    listAvailableResourceMetrics_maxResults,
+    listAvailableResourceMetrics_serviceType,
+    listAvailableResourceMetrics_identifier,
+    listAvailableResourceMetrics_metricTypes,
+    listAvailableResourceMetricsResponse_nextToken,
+    listAvailableResourceMetricsResponse_metrics,
+    listAvailableResourceMetricsResponse_httpStatus,
+
     -- * Types
 
     -- ** DataPoint
     dataPoint_timestamp,
     dataPoint_value,
 
+    -- ** DimensionDetail
+    dimensionDetail_identifier,
+
     -- ** DimensionGroup
     dimensionGroup_dimensions,
     dimensionGroup_limit,
     dimensionGroup_group,
 
+    -- ** DimensionGroupDetail
+    dimensionGroupDetail_dimensions,
+    dimensionGroupDetail_group,
+
     -- ** DimensionKeyDescription
     dimensionKeyDescription_total,
+    dimensionKeyDescription_additionalMetrics,
     dimensionKeyDescription_dimensions,
     dimensionKeyDescription_partitions,
 
@@ -78,6 +114,13 @@ module Amazonka.Pi.Lens
     dimensionKeyDetail_status,
     dimensionKeyDetail_dimension,
     dimensionKeyDetail_value,
+
+    -- ** FeatureMetadata
+    featureMetadata_status,
+
+    -- ** MetricDimensionGroups
+    metricDimensionGroups_metric,
+    metricDimensionGroups_groups,
 
     -- ** MetricKeyDataPoints
     metricKeyDataPoints_dataPoints,
@@ -91,6 +134,11 @@ module Amazonka.Pi.Lens
     -- ** ResponsePartitionKey
     responsePartitionKey_dimensions,
 
+    -- ** ResponseResourceMetric
+    responseResourceMetric_description,
+    responseResourceMetric_metric,
+    responseResourceMetric_unit,
+
     -- ** ResponseResourceMetricKey
     responseResourceMetricKey_dimensions,
     responseResourceMetricKey_metric,
@@ -99,12 +147,20 @@ where
 
 import Amazonka.Pi.DescribeDimensionKeys
 import Amazonka.Pi.GetDimensionKeyDetails
+import Amazonka.Pi.GetResourceMetadata
 import Amazonka.Pi.GetResourceMetrics
+import Amazonka.Pi.ListAvailableResourceDimensions
+import Amazonka.Pi.ListAvailableResourceMetrics
 import Amazonka.Pi.Types.DataPoint
+import Amazonka.Pi.Types.DimensionDetail
 import Amazonka.Pi.Types.DimensionGroup
+import Amazonka.Pi.Types.DimensionGroupDetail
 import Amazonka.Pi.Types.DimensionKeyDescription
 import Amazonka.Pi.Types.DimensionKeyDetail
+import Amazonka.Pi.Types.FeatureMetadata
+import Amazonka.Pi.Types.MetricDimensionGroups
 import Amazonka.Pi.Types.MetricKeyDataPoints
 import Amazonka.Pi.Types.MetricQuery
 import Amazonka.Pi.Types.ResponsePartitionKey
+import Amazonka.Pi.Types.ResponseResourceMetric
 import Amazonka.Pi.Types.ResponseResourceMetricKey

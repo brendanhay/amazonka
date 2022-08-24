@@ -35,18 +35,26 @@ data DimensionKeyDetail = DimensionKeyDetail'
     --
     -- -   @PROCESSING@ - The dimension detail data isn\'t ready to be
     --     retrieved because more processing time is required. If the requested
-    --     detail data for @db.sql.statement@ has the status @PROCESSING@,
-    --     Performance Insights returns the truncated query.
+    --     detail data has the status @PROCESSING@, Performance Insights
+    --     returns the truncated query.
     --
     -- -   @UNAVAILABLE@ - The dimension detail data could not be collected
     --     successfully.
     status :: Prelude.Maybe DetailStatus,
     -- | The full name of the dimension. The full name includes the group name
-    -- and key name. The only valid value is @db.sql.statement@.
+    -- and key name. The following values are valid:
+    --
+    -- -   @db.query.statement@ (Amazon DocumentDB)
+    --
+    -- -   @db.sql.statement@ (Amazon RDS and Aurora)
     dimension :: Prelude.Maybe Prelude.Text,
-    -- | The value of the dimension detail data. For the @db.sql.statement@
-    -- dimension, this value is either the full or truncated SQL query,
-    -- depending on the return status.
+    -- | The value of the dimension detail data. Depending on the return status,
+    -- this value is either the full or truncated SQL query for the following
+    -- dimensions:
+    --
+    -- -   @db.query.statement@ (Amazon DocumentDB)
+    --
+    -- -   @db.sql.statement@ (Amazon RDS and Aurora)
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,18 +74,26 @@ data DimensionKeyDetail = DimensionKeyDetail'
 --
 -- -   @PROCESSING@ - The dimension detail data isn\'t ready to be
 --     retrieved because more processing time is required. If the requested
---     detail data for @db.sql.statement@ has the status @PROCESSING@,
---     Performance Insights returns the truncated query.
+--     detail data has the status @PROCESSING@, Performance Insights
+--     returns the truncated query.
 --
 -- -   @UNAVAILABLE@ - The dimension detail data could not be collected
 --     successfully.
 --
 -- 'dimension', 'dimensionKeyDetail_dimension' - The full name of the dimension. The full name includes the group name
--- and key name. The only valid value is @db.sql.statement@.
+-- and key name. The following values are valid:
 --
--- 'value', 'dimensionKeyDetail_value' - The value of the dimension detail data. For the @db.sql.statement@
--- dimension, this value is either the full or truncated SQL query,
--- depending on the return status.
+-- -   @db.query.statement@ (Amazon DocumentDB)
+--
+-- -   @db.sql.statement@ (Amazon RDS and Aurora)
+--
+-- 'value', 'dimensionKeyDetail_value' - The value of the dimension detail data. Depending on the return status,
+-- this value is either the full or truncated SQL query for the following
+-- dimensions:
+--
+-- -   @db.query.statement@ (Amazon DocumentDB)
+--
+-- -   @db.sql.statement@ (Amazon RDS and Aurora)
 newDimensionKeyDetail ::
   DimensionKeyDetail
 newDimensionKeyDetail =
@@ -94,8 +110,8 @@ newDimensionKeyDetail =
 --
 -- -   @PROCESSING@ - The dimension detail data isn\'t ready to be
 --     retrieved because more processing time is required. If the requested
---     detail data for @db.sql.statement@ has the status @PROCESSING@,
---     Performance Insights returns the truncated query.
+--     detail data has the status @PROCESSING@, Performance Insights
+--     returns the truncated query.
 --
 -- -   @UNAVAILABLE@ - The dimension detail data could not be collected
 --     successfully.
@@ -103,13 +119,21 @@ dimensionKeyDetail_status :: Lens.Lens' DimensionKeyDetail (Prelude.Maybe Detail
 dimensionKeyDetail_status = Lens.lens (\DimensionKeyDetail' {status} -> status) (\s@DimensionKeyDetail' {} a -> s {status = a} :: DimensionKeyDetail)
 
 -- | The full name of the dimension. The full name includes the group name
--- and key name. The only valid value is @db.sql.statement@.
+-- and key name. The following values are valid:
+--
+-- -   @db.query.statement@ (Amazon DocumentDB)
+--
+-- -   @db.sql.statement@ (Amazon RDS and Aurora)
 dimensionKeyDetail_dimension :: Lens.Lens' DimensionKeyDetail (Prelude.Maybe Prelude.Text)
 dimensionKeyDetail_dimension = Lens.lens (\DimensionKeyDetail' {dimension} -> dimension) (\s@DimensionKeyDetail' {} a -> s {dimension = a} :: DimensionKeyDetail)
 
--- | The value of the dimension detail data. For the @db.sql.statement@
--- dimension, this value is either the full or truncated SQL query,
--- depending on the return status.
+-- | The value of the dimension detail data. Depending on the return status,
+-- this value is either the full or truncated SQL query for the following
+-- dimensions:
+--
+-- -   @db.query.statement@ (Amazon DocumentDB)
+--
+-- -   @db.sql.statement@ (Amazon RDS and Aurora)
 dimensionKeyDetail_value :: Lens.Lens' DimensionKeyDetail (Prelude.Maybe Prelude.Text)
 dimensionKeyDetail_value = Lens.lens (\DimensionKeyDetail' {value} -> value) (\s@DimensionKeyDetail' {} a -> s {value = a} :: DimensionKeyDetail)
 

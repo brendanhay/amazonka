@@ -24,6 +24,9 @@ module Amazonka.Pi.Types
     -- * DetailStatus
     DetailStatus (..),
 
+    -- * FeatureStatus
+    FeatureStatus (..),
+
     -- * ServiceType
     ServiceType (..),
 
@@ -33,6 +36,11 @@ module Amazonka.Pi.Types
     dataPoint_timestamp,
     dataPoint_value,
 
+    -- * DimensionDetail
+    DimensionDetail (..),
+    newDimensionDetail,
+    dimensionDetail_identifier,
+
     -- * DimensionGroup
     DimensionGroup (..),
     newDimensionGroup,
@@ -40,10 +48,17 @@ module Amazonka.Pi.Types
     dimensionGroup_limit,
     dimensionGroup_group,
 
+    -- * DimensionGroupDetail
+    DimensionGroupDetail (..),
+    newDimensionGroupDetail,
+    dimensionGroupDetail_dimensions,
+    dimensionGroupDetail_group,
+
     -- * DimensionKeyDescription
     DimensionKeyDescription (..),
     newDimensionKeyDescription,
     dimensionKeyDescription_total,
+    dimensionKeyDescription_additionalMetrics,
     dimensionKeyDescription_dimensions,
     dimensionKeyDescription_partitions,
 
@@ -53,6 +68,17 @@ module Amazonka.Pi.Types
     dimensionKeyDetail_status,
     dimensionKeyDetail_dimension,
     dimensionKeyDetail_value,
+
+    -- * FeatureMetadata
+    FeatureMetadata (..),
+    newFeatureMetadata,
+    featureMetadata_status,
+
+    -- * MetricDimensionGroups
+    MetricDimensionGroups (..),
+    newMetricDimensionGroups,
+    metricDimensionGroups_metric,
+    metricDimensionGroups_groups,
 
     -- * MetricKeyDataPoints
     MetricKeyDataPoints (..),
@@ -72,6 +98,13 @@ module Amazonka.Pi.Types
     newResponsePartitionKey,
     responsePartitionKey_dimensions,
 
+    -- * ResponseResourceMetric
+    ResponseResourceMetric (..),
+    newResponseResourceMetric,
+    responseResourceMetric_description,
+    responseResourceMetric_metric,
+    responseResourceMetric_unit,
+
     -- * ResponseResourceMetricKey
     ResponseResourceMetricKey (..),
     newResponseResourceMetricKey,
@@ -84,12 +117,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.Pi.Types.DataPoint
 import Amazonka.Pi.Types.DetailStatus
+import Amazonka.Pi.Types.DimensionDetail
 import Amazonka.Pi.Types.DimensionGroup
+import Amazonka.Pi.Types.DimensionGroupDetail
 import Amazonka.Pi.Types.DimensionKeyDescription
 import Amazonka.Pi.Types.DimensionKeyDetail
+import Amazonka.Pi.Types.FeatureMetadata
+import Amazonka.Pi.Types.FeatureStatus
+import Amazonka.Pi.Types.MetricDimensionGroups
 import Amazonka.Pi.Types.MetricKeyDataPoints
 import Amazonka.Pi.Types.MetricQuery
 import Amazonka.Pi.Types.ResponsePartitionKey
+import Amazonka.Pi.Types.ResponseResourceMetric
 import Amazonka.Pi.Types.ResponseResourceMetricKey
 import Amazonka.Pi.Types.ServiceType
 import qualified Amazonka.Prelude as Prelude

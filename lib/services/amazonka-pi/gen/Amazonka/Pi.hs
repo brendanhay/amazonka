@@ -20,11 +20,11 @@
 --
 -- When Performance Insights is enabled, the Amazon RDS Performance
 -- Insights API provides visibility into the performance of your DB
--- instance. Amazon CloudWatch provides the authoritative source for AWS
--- service-vended monitoring metrics. Performance Insights offers a
--- domain-specific view of DB load.
+-- instance. Amazon CloudWatch provides the authoritative source for Amazon
+-- Web Services service-vended monitoring metrics. Performance Insights
+-- offers a domain-specific view of DB load.
 --
--- DB load is measured as Average Active Sessions. Performance Insights
+-- DB load is measured as average active sessions. Performance Insights
 -- provides the data to API consumers as a two-dimensional time-series
 -- dataset. The time dimension provides DB load data for each time point in
 -- the queried time range. Each time point decomposes overall load in
@@ -33,11 +33,18 @@
 --
 -- -   To learn more about Performance Insights and Amazon Aurora DB
 --     instances, go to the
---     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html Amazon Aurora User Guide>.
+--     /<https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights.html Amazon Aurora User Guide>/
+--     .
 --
 -- -   To learn more about Performance Insights and Amazon RDS DB
 --     instances, go to the
---     <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Amazon RDS User Guide>.
+--     /<https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Amazon RDS User Guide>/
+--     .
+--
+-- -   To learn more about Performance Insights and Amazon DocumentDB
+--     clusters, go to the
+--     /<https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html Amazon DocumentDB Developer Guide>/
+--     .
 module Amazonka.Pi
   ( -- * Service Configuration
     defaultService,
@@ -72,16 +79,37 @@ module Amazonka.Pi
     GetDimensionKeyDetailsResponse (GetDimensionKeyDetailsResponse'),
     newGetDimensionKeyDetailsResponse,
 
+    -- ** GetResourceMetadata
+    GetResourceMetadata (GetResourceMetadata'),
+    newGetResourceMetadata,
+    GetResourceMetadataResponse (GetResourceMetadataResponse'),
+    newGetResourceMetadataResponse,
+
     -- ** GetResourceMetrics
     GetResourceMetrics (GetResourceMetrics'),
     newGetResourceMetrics,
     GetResourceMetricsResponse (GetResourceMetricsResponse'),
     newGetResourceMetricsResponse,
 
+    -- ** ListAvailableResourceDimensions
+    ListAvailableResourceDimensions (ListAvailableResourceDimensions'),
+    newListAvailableResourceDimensions,
+    ListAvailableResourceDimensionsResponse (ListAvailableResourceDimensionsResponse'),
+    newListAvailableResourceDimensionsResponse,
+
+    -- ** ListAvailableResourceMetrics
+    ListAvailableResourceMetrics (ListAvailableResourceMetrics'),
+    newListAvailableResourceMetrics,
+    ListAvailableResourceMetricsResponse (ListAvailableResourceMetricsResponse'),
+    newListAvailableResourceMetricsResponse,
+
     -- * Types
 
     -- ** DetailStatus
     DetailStatus (..),
+
+    -- ** FeatureStatus
+    FeatureStatus (..),
 
     -- ** ServiceType
     ServiceType (..),
@@ -90,9 +118,17 @@ module Amazonka.Pi
     DataPoint (DataPoint'),
     newDataPoint,
 
+    -- ** DimensionDetail
+    DimensionDetail (DimensionDetail'),
+    newDimensionDetail,
+
     -- ** DimensionGroup
     DimensionGroup (DimensionGroup'),
     newDimensionGroup,
+
+    -- ** DimensionGroupDetail
+    DimensionGroupDetail (DimensionGroupDetail'),
+    newDimensionGroupDetail,
 
     -- ** DimensionKeyDescription
     DimensionKeyDescription (DimensionKeyDescription'),
@@ -101,6 +137,14 @@ module Amazonka.Pi
     -- ** DimensionKeyDetail
     DimensionKeyDetail (DimensionKeyDetail'),
     newDimensionKeyDetail,
+
+    -- ** FeatureMetadata
+    FeatureMetadata (FeatureMetadata'),
+    newFeatureMetadata,
+
+    -- ** MetricDimensionGroups
+    MetricDimensionGroups (MetricDimensionGroups'),
+    newMetricDimensionGroups,
 
     -- ** MetricKeyDataPoints
     MetricKeyDataPoints (MetricKeyDataPoints'),
@@ -114,6 +158,10 @@ module Amazonka.Pi
     ResponsePartitionKey (ResponsePartitionKey'),
     newResponsePartitionKey,
 
+    -- ** ResponseResourceMetric
+    ResponseResourceMetric (ResponseResourceMetric'),
+    newResponseResourceMetric,
+
     -- ** ResponseResourceMetricKey
     ResponseResourceMetricKey (ResponseResourceMetricKey'),
     newResponseResourceMetricKey,
@@ -122,8 +170,11 @@ where
 
 import Amazonka.Pi.DescribeDimensionKeys
 import Amazonka.Pi.GetDimensionKeyDetails
+import Amazonka.Pi.GetResourceMetadata
 import Amazonka.Pi.GetResourceMetrics
 import Amazonka.Pi.Lens
+import Amazonka.Pi.ListAvailableResourceDimensions
+import Amazonka.Pi.ListAvailableResourceMetrics
 import Amazonka.Pi.Types
 import Amazonka.Pi.Waiters
 

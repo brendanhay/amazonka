@@ -25,9 +25,9 @@ import Amazonka.Pi.Types.DimensionGroup
 import qualified Amazonka.Prelude as Prelude
 
 -- | A single query to be processed. You must provide the metric to query. If
--- no other parameters are specified, Performance Insights returns all of
--- the data points for that metric. You can optionally request that the
--- data points be aggregated by dimension group ( @GroupBy@), and return
+-- no other parameters are specified, Performance Insights returns all data
+-- points for the specified metric. Optionally, you can request that the
+-- data points be aggregated by dimension group (@GroupBy@), and return
 -- only those data points that match your criteria (@Filter@).
 --
 -- /See:/ 'newMetricQuery' smart constructor.
@@ -50,11 +50,15 @@ data MetricQuery = MetricQuery'
     --
     -- Valid values for @Metric@ are:
     --
-    -- -   @db.load.avg@ - a scaled representation of the number of active
+    -- -   @db.load.avg@ - A scaled representation of the number of active
     --     sessions for the database engine.
     --
-    -- -   @db.sampledload.avg@ - the raw number of active sessions for the
+    -- -   @db.sampledload.avg@ - The raw number of active sessions for the
     --     database engine.
+    --
+    -- -   The counter metrics listed in
+    --     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS Performance Insights operating system counters>
+    --     in the /Amazon Aurora User Guide/.
     --
     -- If the number of active sessions is less than an internal Performance
     -- Insights threshold, @db.load.avg@ and @db.sampledload.avg@ are the same
@@ -93,11 +97,15 @@ data MetricQuery = MetricQuery'
 --
 -- Valid values for @Metric@ are:
 --
--- -   @db.load.avg@ - a scaled representation of the number of active
+-- -   @db.load.avg@ - A scaled representation of the number of active
 --     sessions for the database engine.
 --
--- -   @db.sampledload.avg@ - the raw number of active sessions for the
+-- -   @db.sampledload.avg@ - The raw number of active sessions for the
 --     database engine.
+--
+-- -   The counter metrics listed in
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS Performance Insights operating system counters>
+--     in the /Amazon Aurora User Guide/.
 --
 -- If the number of active sessions is less than an internal Performance
 -- Insights threshold, @db.load.avg@ and @db.sampledload.avg@ are the same
@@ -139,11 +147,15 @@ metricQuery_filter = Lens.lens (\MetricQuery' {filter'} -> filter') (\s@MetricQu
 --
 -- Valid values for @Metric@ are:
 --
--- -   @db.load.avg@ - a scaled representation of the number of active
+-- -   @db.load.avg@ - A scaled representation of the number of active
 --     sessions for the database engine.
 --
--- -   @db.sampledload.avg@ - the raw number of active sessions for the
+-- -   @db.sampledload.avg@ - The raw number of active sessions for the
 --     database engine.
+--
+-- -   The counter metrics listed in
+--     <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_PerfInsights_Counters.html#USER_PerfInsights_Counters.OS Performance Insights operating system counters>
+--     in the /Amazon Aurora User Guide/.
 --
 -- If the number of active sessions is less than an internal Performance
 -- Insights threshold, @db.load.avg@ and @db.sampledload.avg@ are the same

@@ -33,7 +33,7 @@ data MetricKeyDataPoints = MetricKeyDataPoints'
   { -- | An array of timestamp-value pairs, representing measurements over a
     -- period of time.
     dataPoints :: Prelude.Maybe [DataPoint],
-    -- | The dimension(s) to which the data points apply.
+    -- | The dimensions to which the data points apply.
     key :: Prelude.Maybe ResponseResourceMetricKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,7 +49,7 @@ data MetricKeyDataPoints = MetricKeyDataPoints'
 -- 'dataPoints', 'metricKeyDataPoints_dataPoints' - An array of timestamp-value pairs, representing measurements over a
 -- period of time.
 --
--- 'key', 'metricKeyDataPoints_key' - The dimension(s) to which the data points apply.
+-- 'key', 'metricKeyDataPoints_key' - The dimensions to which the data points apply.
 newMetricKeyDataPoints ::
   MetricKeyDataPoints
 newMetricKeyDataPoints =
@@ -63,7 +63,7 @@ newMetricKeyDataPoints =
 metricKeyDataPoints_dataPoints :: Lens.Lens' MetricKeyDataPoints (Prelude.Maybe [DataPoint])
 metricKeyDataPoints_dataPoints = Lens.lens (\MetricKeyDataPoints' {dataPoints} -> dataPoints) (\s@MetricKeyDataPoints' {} a -> s {dataPoints = a} :: MetricKeyDataPoints) Prelude.. Lens.mapping Lens.coerced
 
--- | The dimension(s) to which the data points apply.
+-- | The dimensions to which the data points apply.
 metricKeyDataPoints_key :: Lens.Lens' MetricKeyDataPoints (Prelude.Maybe ResponseResourceMetricKey)
 metricKeyDataPoints_key = Lens.lens (\MetricKeyDataPoints' {key} -> key) (\s@MetricKeyDataPoints' {} a -> s {key = a} :: MetricKeyDataPoints)
 

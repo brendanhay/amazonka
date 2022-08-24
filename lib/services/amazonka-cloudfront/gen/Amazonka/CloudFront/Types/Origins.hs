@@ -33,7 +33,7 @@ data Origins = Origins'
     -- | A list of origins.
     items :: Prelude.NonEmpty Origin
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Origins' with all optional fields omitted.

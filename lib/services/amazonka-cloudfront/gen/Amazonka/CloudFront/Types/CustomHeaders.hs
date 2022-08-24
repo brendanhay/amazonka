@@ -35,7 +35,7 @@ data CustomHeaders = CustomHeaders'
     -- | The number of custom headers, if any, for this distribution.
     quantity :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CustomHeaders' with all optional fields omitted.

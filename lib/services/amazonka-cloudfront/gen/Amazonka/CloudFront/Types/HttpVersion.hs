@@ -21,7 +21,9 @@ module Amazonka.CloudFront.Types.HttpVersion
   ( HttpVersion
       ( ..,
         HttpVersion_Http1_1,
-        HttpVersion_Http2
+        HttpVersion_Http2,
+        HttpVersion_Http2and3,
+        HttpVersion_Http3
       ),
   )
 where
@@ -63,8 +65,16 @@ pattern HttpVersion_Http1_1 = HttpVersion' "http1.1"
 pattern HttpVersion_Http2 :: HttpVersion
 pattern HttpVersion_Http2 = HttpVersion' "http2"
 
+pattern HttpVersion_Http2and3 :: HttpVersion
+pattern HttpVersion_Http2and3 = HttpVersion' "http2and3"
+
+pattern HttpVersion_Http3 :: HttpVersion
+pattern HttpVersion_Http3 = HttpVersion' "http3"
+
 {-# COMPLETE
   HttpVersion_Http1_1,
   HttpVersion_Http2,
+  HttpVersion_Http2and3,
+  HttpVersion_Http3,
   HttpVersion'
   #-}

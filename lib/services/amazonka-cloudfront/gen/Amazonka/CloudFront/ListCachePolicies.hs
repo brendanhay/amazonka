@@ -24,7 +24,7 @@
 --
 -- You can optionally apply a filter to return only the managed policies
 -- created by Amazon Web Services, or only the custom policies created in
--- your account.
+-- your Amazon Web Services account.
 --
 -- You can optionally specify the maximum number of items to receive in the
 -- response. If the total number of items in the list exceeds the maximum
@@ -67,7 +67,8 @@ data ListCachePolicies = ListCachePolicies'
     -- -   @managed@ – Returns only the managed policies created by Amazon Web
     --     Services.
     --
-    -- -   @custom@ – Returns only the custom policies created in your account.
+    -- -   @custom@ – Returns only the custom policies created in your Amazon
+    --     Web Services account.
     type' :: Prelude.Maybe CachePolicyType,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of cache policies. The response includes cache policies in the
@@ -94,7 +95,8 @@ data ListCachePolicies = ListCachePolicies'
 -- -   @managed@ – Returns only the managed policies created by Amazon Web
 --     Services.
 --
--- -   @custom@ – Returns only the custom policies created in your account.
+-- -   @custom@ – Returns only the custom policies created in your Amazon
+--     Web Services account.
 --
 -- 'marker', 'listCachePolicies_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of cache policies. The response includes cache policies in the
@@ -118,7 +120,8 @@ newListCachePolicies =
 -- -   @managed@ – Returns only the managed policies created by Amazon Web
 --     Services.
 --
--- -   @custom@ – Returns only the custom policies created in your account.
+-- -   @custom@ – Returns only the custom policies created in your Amazon
+--     Web Services account.
 listCachePolicies_type :: Lens.Lens' ListCachePolicies (Prelude.Maybe CachePolicyType)
 listCachePolicies_type = Lens.lens (\ListCachePolicies' {type'} -> type') (\s@ListCachePolicies' {} a -> s {type' = a} :: ListCachePolicies)
 

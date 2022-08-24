@@ -55,7 +55,7 @@ data DistributionConfig = DistributionConfig'
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html Creating a Signed URL Using a Custom Policy>
     -- in the /Amazon CloudFront Developer Guide/.
     --
-    -- If you\'re using an Route 53 Amazon Web Services Integration alias
+    -- If you\'re using an Route 53 Amazon Web Services Integration alias
     -- resource record set to route traffic to your CloudFront distribution,
     -- you need to create a second alias resource record set when both of the
     -- following are true:
@@ -66,25 +66,28 @@ data DistributionConfig = DistributionConfig'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name>
-    -- in the /Route 53 Amazon Web Services Integration Developer Guide/.
+    -- in the /Route 53 Amazon Web Services Integration Developer Guide/.
     --
-    -- If you created a CNAME resource record set, either with Route 53 Amazon
+    -- If you created a CNAME resource record set, either with Route 53 Amazon
     -- Web Services Integration or with another DNS service, you don\'t need to
     -- make any changes. A CNAME record will route traffic to your distribution
     -- regardless of the IP address format of the viewer request.
     isIPV6Enabled :: Prelude.Maybe Prelude.Bool,
-    -- | (Optional) Specify the maximum HTTP version that you want viewers to use
-    -- to communicate with CloudFront. The default value for new web
-    -- distributions is http2. Viewers that don\'t support HTTP\/2
+    -- | (Optional) Specify the maximum HTTP version(s) that you want viewers to
+    -- use to communicate with CloudFront. The default value for new web
+    -- distributions is @http2@. Viewers that don\'t support HTTP\/2
     -- automatically use an earlier HTTP version.
     --
-    -- For viewers and CloudFront to use HTTP\/2, viewers must support TLS 1.2
-    -- or later, and must support Server Name Identification (SNI).
+    -- For viewers and CloudFront to use HTTP\/2, viewers must support TLSv1.2
+    -- or later, and must support Server Name Indication (SNI).
     --
-    -- In general, configuring CloudFront to communicate with viewers using
-    -- HTTP\/2 reduces latency. You can improve performance by optimizing for
-    -- HTTP\/2. For more information, do an Internet search for \"http\/2
-    -- optimization.\"
+    -- For viewers and CloudFront to use HTTP\/3, viewers must support TLSv1.3
+    -- and Server Name Indication (SNI). CloudFront supports HTTP\/3 connection
+    -- migration to allow the viewer to switch networks without losing
+    -- connection. For more information about connection migration, see
+    -- <https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration Connection Migration>
+    -- at RFC 9000. For more information about supported TLSv1.3 ciphers, see
+    -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html Supported protocols and ciphers between viewers and CloudFront>.
     httpVersion :: Prelude.Maybe HttpVersion,
     -- | A complex type that controls the following:
     --
@@ -230,7 +233,7 @@ data DistributionConfig = DistributionConfig'
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html Creating a Signed URL Using a Custom Policy>
 -- in the /Amazon CloudFront Developer Guide/.
 --
--- If you\'re using an Route 53 Amazon Web Services Integration alias
+-- If you\'re using an Route 53 Amazon Web Services Integration alias
 -- resource record set to route traffic to your CloudFront distribution,
 -- you need to create a second alias resource record set when both of the
 -- following are true:
@@ -241,25 +244,28 @@ data DistributionConfig = DistributionConfig'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name>
--- in the /Route 53 Amazon Web Services Integration Developer Guide/.
+-- in the /Route 53 Amazon Web Services Integration Developer Guide/.
 --
--- If you created a CNAME resource record set, either with Route 53 Amazon
+-- If you created a CNAME resource record set, either with Route 53 Amazon
 -- Web Services Integration or with another DNS service, you don\'t need to
 -- make any changes. A CNAME record will route traffic to your distribution
 -- regardless of the IP address format of the viewer request.
 --
--- 'httpVersion', 'distributionConfig_httpVersion' - (Optional) Specify the maximum HTTP version that you want viewers to use
--- to communicate with CloudFront. The default value for new web
--- distributions is http2. Viewers that don\'t support HTTP\/2
+-- 'httpVersion', 'distributionConfig_httpVersion' - (Optional) Specify the maximum HTTP version(s) that you want viewers to
+-- use to communicate with CloudFront. The default value for new web
+-- distributions is @http2@. Viewers that don\'t support HTTP\/2
 -- automatically use an earlier HTTP version.
 --
--- For viewers and CloudFront to use HTTP\/2, viewers must support TLS 1.2
--- or later, and must support Server Name Identification (SNI).
+-- For viewers and CloudFront to use HTTP\/2, viewers must support TLSv1.2
+-- or later, and must support Server Name Indication (SNI).
 --
--- In general, configuring CloudFront to communicate with viewers using
--- HTTP\/2 reduces latency. You can improve performance by optimizing for
--- HTTP\/2. For more information, do an Internet search for \"http\/2
--- optimization.\"
+-- For viewers and CloudFront to use HTTP\/3, viewers must support TLSv1.3
+-- and Server Name Indication (SNI). CloudFront supports HTTP\/3 connection
+-- migration to allow the viewer to switch networks without losing
+-- connection. For more information about connection migration, see
+-- <https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration Connection Migration>
+-- at RFC 9000. For more information about supported TLSv1.3 ciphers, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html Supported protocols and ciphers between viewers and CloudFront>.
 --
 -- 'customErrorResponses', 'distributionConfig_customErrorResponses' - A complex type that controls the following:
 --
@@ -432,7 +438,7 @@ newDistributionConfig
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html Creating a Signed URL Using a Custom Policy>
 -- in the /Amazon CloudFront Developer Guide/.
 --
--- If you\'re using an Route 53 Amazon Web Services Integration alias
+-- If you\'re using an Route 53 Amazon Web Services Integration alias
 -- resource record set to route traffic to your CloudFront distribution,
 -- you need to create a second alias resource record set when both of the
 -- following are true:
@@ -443,27 +449,30 @@ newDistributionConfig
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html Routing Traffic to an Amazon CloudFront Web Distribution by Using Your Domain Name>
--- in the /Route 53 Amazon Web Services Integration Developer Guide/.
+-- in the /Route 53 Amazon Web Services Integration Developer Guide/.
 --
--- If you created a CNAME resource record set, either with Route 53 Amazon
+-- If you created a CNAME resource record set, either with Route 53 Amazon
 -- Web Services Integration or with another DNS service, you don\'t need to
 -- make any changes. A CNAME record will route traffic to your distribution
 -- regardless of the IP address format of the viewer request.
 distributionConfig_isIPV6Enabled :: Lens.Lens' DistributionConfig (Prelude.Maybe Prelude.Bool)
 distributionConfig_isIPV6Enabled = Lens.lens (\DistributionConfig' {isIPV6Enabled} -> isIPV6Enabled) (\s@DistributionConfig' {} a -> s {isIPV6Enabled = a} :: DistributionConfig)
 
--- | (Optional) Specify the maximum HTTP version that you want viewers to use
--- to communicate with CloudFront. The default value for new web
--- distributions is http2. Viewers that don\'t support HTTP\/2
+-- | (Optional) Specify the maximum HTTP version(s) that you want viewers to
+-- use to communicate with CloudFront. The default value for new web
+-- distributions is @http2@. Viewers that don\'t support HTTP\/2
 -- automatically use an earlier HTTP version.
 --
--- For viewers and CloudFront to use HTTP\/2, viewers must support TLS 1.2
--- or later, and must support Server Name Identification (SNI).
+-- For viewers and CloudFront to use HTTP\/2, viewers must support TLSv1.2
+-- or later, and must support Server Name Indication (SNI).
 --
--- In general, configuring CloudFront to communicate with viewers using
--- HTTP\/2 reduces latency. You can improve performance by optimizing for
--- HTTP\/2. For more information, do an Internet search for \"http\/2
--- optimization.\"
+-- For viewers and CloudFront to use HTTP\/3, viewers must support TLSv1.3
+-- and Server Name Indication (SNI). CloudFront supports HTTP\/3 connection
+-- migration to allow the viewer to switch networks without losing
+-- connection. For more information about connection migration, see
+-- <https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration Connection Migration>
+-- at RFC 9000. For more information about supported TLSv1.3 ciphers, see
+-- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html Supported protocols and ciphers between viewers and CloudFront>.
 distributionConfig_httpVersion :: Lens.Lens' DistributionConfig (Prelude.Maybe HttpVersion)
 distributionConfig_httpVersion = Lens.lens (\DistributionConfig' {httpVersion} -> httpVersion) (\s@DistributionConfig' {} a -> s {httpVersion = a} :: DistributionConfig)
 

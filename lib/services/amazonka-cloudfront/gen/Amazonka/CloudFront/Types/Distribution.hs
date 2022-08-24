@@ -52,15 +52,16 @@ data Distribution = Distribution'
     --
     -- CloudFront automatically adds this field to the response if you’ve
     -- configured a cache behavior in this distribution to serve private
-    -- content using trusted signers. This field contains a list of account IDs
-    -- and the active CloudFront key pairs in each account that CloudFront can
-    -- use to verify the signatures of signed URLs or signed cookies.
+    -- content using trusted signers. This field contains a list of Amazon Web
+    -- Services account IDs and the active CloudFront key pairs in each account
+    -- that CloudFront can use to verify the signatures of signed URLs or
+    -- signed cookies.
     activeTrustedSigners :: Prelude.Maybe ActiveTrustedSigners,
     -- | The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
     id :: Prelude.Text,
     -- | The ARN (Amazon Resource Name) for the distribution. For example:
     -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
-    -- @123456789012@ is your account ID.
+    -- @123456789012@ is your Amazon Web Services account ID.
     arn :: Prelude.Text,
     -- | This response element indicates the current status of the distribution.
     -- When the status is @Deployed@, the distribution\'s information is fully
@@ -108,15 +109,16 @@ data Distribution = Distribution'
 --
 -- CloudFront automatically adds this field to the response if you’ve
 -- configured a cache behavior in this distribution to serve private
--- content using trusted signers. This field contains a list of account IDs
--- and the active CloudFront key pairs in each account that CloudFront can
--- use to verify the signatures of signed URLs or signed cookies.
+-- content using trusted signers. This field contains a list of Amazon Web
+-- Services account IDs and the active CloudFront key pairs in each account
+-- that CloudFront can use to verify the signatures of signed URLs or
+-- signed cookies.
 --
 -- 'id', 'distribution_id' - The identifier for the distribution. For example: @EDFDVBD632BHDS5@.
 --
 -- 'arn', 'distribution_arn' - The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your account ID.
+-- @123456789012@ is your Amazon Web Services account ID.
 --
 -- 'status', 'distribution_status' - This response element indicates the current status of the distribution.
 -- When the status is @Deployed@, the distribution\'s information is fully
@@ -195,9 +197,10 @@ distribution_activeTrustedKeyGroups = Lens.lens (\Distribution' {activeTrustedKe
 --
 -- CloudFront automatically adds this field to the response if you’ve
 -- configured a cache behavior in this distribution to serve private
--- content using trusted signers. This field contains a list of account IDs
--- and the active CloudFront key pairs in each account that CloudFront can
--- use to verify the signatures of signed URLs or signed cookies.
+-- content using trusted signers. This field contains a list of Amazon Web
+-- Services account IDs and the active CloudFront key pairs in each account
+-- that CloudFront can use to verify the signatures of signed URLs or
+-- signed cookies.
 distribution_activeTrustedSigners :: Lens.Lens' Distribution (Prelude.Maybe ActiveTrustedSigners)
 distribution_activeTrustedSigners = Lens.lens (\Distribution' {activeTrustedSigners} -> activeTrustedSigners) (\s@Distribution' {} a -> s {activeTrustedSigners = a} :: Distribution)
 
@@ -207,7 +210,7 @@ distribution_id = Lens.lens (\Distribution' {id} -> id) (\s@Distribution' {} a -
 
 -- | The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your account ID.
+-- @123456789012@ is your Amazon Web Services account ID.
 distribution_arn :: Lens.Lens' Distribution Prelude.Text
 distribution_arn = Lens.lens (\Distribution' {arn} -> arn) (\s@Distribution' {} a -> s {arn = a} :: Distribution)
 

@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newInvalidationList' smart constructor.
 data InvalidationList = InvalidationList'
   { -- | A complex type that contains one @InvalidationSummary@ element for each
-    -- invalidation batch created by the current account.
+    -- invalidation batch created by the current Amazon Web Services account.
     items :: Prelude.Maybe [InvalidationSummary],
     -- | If @IsTruncated@ is @true@, this element is present and contains the
     -- value that you can use for the @Marker@ request parameter to continue
@@ -48,7 +48,7 @@ data InvalidationList = InvalidationList'
     -- invalidation batches in the list.
     isTruncated :: Prelude.Bool,
     -- | The number of invalidation batches that were created by the current
-    -- account.
+    -- Amazon Web Services account.
     quantity :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data InvalidationList = InvalidationList'
 -- for backwards compatibility:
 --
 -- 'items', 'invalidationList_items' - A complex type that contains one @InvalidationSummary@ element for each
--- invalidation batch created by the current account.
+-- invalidation batch created by the current Amazon Web Services account.
 --
 -- 'nextMarker', 'invalidationList_nextMarker' - If @IsTruncated@ is @true@, this element is present and contains the
 -- value that you can use for the @Marker@ request parameter to continue
@@ -78,7 +78,7 @@ data InvalidationList = InvalidationList'
 -- invalidation batches in the list.
 --
 -- 'quantity', 'invalidationList_quantity' - The number of invalidation batches that were created by the current
--- account.
+-- Amazon Web Services account.
 newInvalidationList ::
   -- | 'marker'
   Prelude.Text ->
@@ -104,7 +104,7 @@ newInvalidationList
       }
 
 -- | A complex type that contains one @InvalidationSummary@ element for each
--- invalidation batch created by the current account.
+-- invalidation batch created by the current Amazon Web Services account.
 invalidationList_items :: Lens.Lens' InvalidationList (Prelude.Maybe [InvalidationSummary])
 invalidationList_items = Lens.lens (\InvalidationList' {items} -> items) (\s@InvalidationList' {} a -> s {items = a} :: InvalidationList) Prelude.. Lens.mapping Lens.coerced
 
@@ -130,7 +130,7 @@ invalidationList_isTruncated :: Lens.Lens' InvalidationList Prelude.Bool
 invalidationList_isTruncated = Lens.lens (\InvalidationList' {isTruncated} -> isTruncated) (\s@InvalidationList' {} a -> s {isTruncated = a} :: InvalidationList)
 
 -- | The number of invalidation batches that were created by the current
--- account.
+-- Amazon Web Services account.
 invalidationList_quantity :: Lens.Lens' InvalidationList Prelude.Int
 invalidationList_quantity = Lens.lens (\InvalidationList' {quantity} -> quantity) (\s@InvalidationList' {} a -> s {quantity = a} :: InvalidationList)
 

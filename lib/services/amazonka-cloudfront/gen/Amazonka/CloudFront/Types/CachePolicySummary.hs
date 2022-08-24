@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCachePolicySummary' smart constructor.
 data CachePolicySummary = CachePolicySummary'
   { -- | The type of cache policy, either @managed@ (created by Amazon Web
-    -- Services) or @custom@ (created in this account).
+    -- Services) or @custom@ (created in this Amazon Web Services account).
     type' :: CachePolicyType,
     -- | The cache policy.
     cachePolicy :: CachePolicy
@@ -46,7 +46,7 @@ data CachePolicySummary = CachePolicySummary'
 -- for backwards compatibility:
 --
 -- 'type'', 'cachePolicySummary_type' - The type of cache policy, either @managed@ (created by Amazon Web
--- Services) or @custom@ (created in this account).
+-- Services) or @custom@ (created in this Amazon Web Services account).
 --
 -- 'cachePolicy', 'cachePolicySummary_cachePolicy' - The cache policy.
 newCachePolicySummary ::
@@ -62,7 +62,7 @@ newCachePolicySummary pType_ pCachePolicy_ =
     }
 
 -- | The type of cache policy, either @managed@ (created by Amazon Web
--- Services) or @custom@ (created in this account).
+-- Services) or @custom@ (created in this Amazon Web Services account).
 cachePolicySummary_type :: Lens.Lens' CachePolicySummary CachePolicyType
 cachePolicySummary_type = Lens.lens (\CachePolicySummary' {type'} -> type') (\s@CachePolicySummary' {} a -> s {type' = a} :: CachePolicySummary)
 

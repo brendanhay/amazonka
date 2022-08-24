@@ -24,7 +24,7 @@
 --
 -- You can optionally apply a filter to return only the managed policies
 -- created by Amazon Web Services, or only the custom policies created in
--- your account.
+-- your Amazon Web Services account.
 --
 -- You can optionally specify the maximum number of items to receive in the
 -- response. If the total number of items in the list exceeds the maximum
@@ -67,7 +67,8 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
     -- -   @managed@ – Returns only the managed policies created by Amazon Web
     --     Services.
     --
-    -- -   @custom@ – Returns only the custom policies created in your account.
+    -- -   @custom@ – Returns only the custom policies created in your Amazon
+    --     Web Services account.
     type' :: Prelude.Maybe OriginRequestPolicyType,
     -- | Use this field when paginating results to indicate where to begin in
     -- your list of origin request policies. The response includes origin
@@ -95,7 +96,8 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
 -- -   @managed@ – Returns only the managed policies created by Amazon Web
 --     Services.
 --
--- -   @custom@ – Returns only the custom policies created in your account.
+-- -   @custom@ – Returns only the custom policies created in your Amazon
+--     Web Services account.
 --
 -- 'marker', 'listOriginRequestPolicies_marker' - Use this field when paginating results to indicate where to begin in
 -- your list of origin request policies. The response includes origin
@@ -120,7 +122,8 @@ newListOriginRequestPolicies =
 -- -   @managed@ – Returns only the managed policies created by Amazon Web
 --     Services.
 --
--- -   @custom@ – Returns only the custom policies created in your account.
+-- -   @custom@ – Returns only the custom policies created in your Amazon
+--     Web Services account.
 listOriginRequestPolicies_type :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe OriginRequestPolicyType)
 listOriginRequestPolicies_type = Lens.lens (\ListOriginRequestPolicies' {type'} -> type') (\s@ListOriginRequestPolicies' {} a -> s {type' = a} :: ListOriginRequestPolicies)
 

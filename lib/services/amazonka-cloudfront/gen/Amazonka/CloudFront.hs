@@ -231,6 +231,9 @@ module Amazonka.CloudFront
     -- ** RealtimeLogConfigInUse
     _RealtimeLogConfigInUse,
 
+    -- ** ResponseHeadersPolicyAlreadyExists
+    _ResponseHeadersPolicyAlreadyExists,
+
     -- ** QueryArgProfileEmpty
     _QueryArgProfileEmpty,
 
@@ -239,6 +242,9 @@ module Amazonka.CloudFront
 
     -- ** TooManyPublicKeysInKeyGroup
     _TooManyPublicKeysInKeyGroup,
+
+    -- ** ResponseHeadersPolicyInUse
+    _ResponseHeadersPolicyInUse,
 
     -- ** InvalidRelativePath
     _InvalidRelativePath,
@@ -251,6 +257,9 @@ module Amazonka.CloudFront
 
     -- ** TooManyHeadersInCachePolicy
     _TooManyHeadersInCachePolicy,
+
+    -- ** TooLongCSPInResponseHeadersPolicy
+    _TooLongCSPInResponseHeadersPolicy,
 
     -- ** TooManyDistributionsAssociatedToOriginRequestPolicy
     _TooManyDistributionsAssociatedToOriginRequestPolicy,
@@ -281,6 +290,9 @@ module Amazonka.CloudFront
 
     -- ** TooManyQueryStringsInCachePolicy
     _TooManyQueryStringsInCachePolicy,
+
+    -- ** TooManyResponseHeadersPolicies
+    _TooManyResponseHeadersPolicies,
 
     -- ** TooManyOriginGroupsPerDistribution
     _TooManyOriginGroupsPerDistribution,
@@ -354,14 +366,23 @@ module Amazonka.CloudFront
     -- ** InconsistentQuantities
     _InconsistentQuantities,
 
+    -- ** TooManyDistributionsAssociatedToResponseHeadersPolicy
+    _TooManyDistributionsAssociatedToResponseHeadersPolicy,
+
     -- ** CloudFrontOriginAccessIdentityAlreadyExists
     _CloudFrontOriginAccessIdentityAlreadyExists,
+
+    -- ** TooManyCustomHeadersInResponseHeadersPolicy
+    _TooManyCustomHeadersInResponseHeadersPolicy,
 
     -- ** OriginRequestPolicyInUse
     _OriginRequestPolicyInUse,
 
     -- ** CachePolicyAlreadyExists
     _CachePolicyAlreadyExists,
+
+    -- ** NoSuchResponseHeadersPolicy
+    _NoSuchResponseHeadersPolicy,
 
     -- ** InvalidProtocolSettings
     _InvalidProtocolSettings,
@@ -486,6 +507,12 @@ module Amazonka.CloudFront
     CreateRealtimeLogConfigResponse (CreateRealtimeLogConfigResponse'),
     newCreateRealtimeLogConfigResponse,
 
+    -- ** CreateResponseHeadersPolicy
+    CreateResponseHeadersPolicy (CreateResponseHeadersPolicy'),
+    newCreateResponseHeadersPolicy,
+    CreateResponseHeadersPolicyResponse (CreateResponseHeadersPolicyResponse'),
+    newCreateResponseHeadersPolicyResponse,
+
     -- ** CreateStreamingDistribution
     CreateStreamingDistribution (CreateStreamingDistribution'),
     newCreateStreamingDistribution,
@@ -563,6 +590,12 @@ module Amazonka.CloudFront
     newDeleteRealtimeLogConfig,
     DeleteRealtimeLogConfigResponse (DeleteRealtimeLogConfigResponse'),
     newDeleteRealtimeLogConfigResponse,
+
+    -- ** DeleteResponseHeadersPolicy
+    DeleteResponseHeadersPolicy (DeleteResponseHeadersPolicy'),
+    newDeleteResponseHeadersPolicy,
+    DeleteResponseHeadersPolicyResponse (DeleteResponseHeadersPolicyResponse'),
+    newDeleteResponseHeadersPolicyResponse,
 
     -- ** DeleteStreamingDistribution
     DeleteStreamingDistribution (DeleteStreamingDistribution'),
@@ -696,6 +729,18 @@ module Amazonka.CloudFront
     GetRealtimeLogConfigResponse (GetRealtimeLogConfigResponse'),
     newGetRealtimeLogConfigResponse,
 
+    -- ** GetResponseHeadersPolicy
+    GetResponseHeadersPolicy (GetResponseHeadersPolicy'),
+    newGetResponseHeadersPolicy,
+    GetResponseHeadersPolicyResponse (GetResponseHeadersPolicyResponse'),
+    newGetResponseHeadersPolicyResponse,
+
+    -- ** GetResponseHeadersPolicyConfig
+    GetResponseHeadersPolicyConfig (GetResponseHeadersPolicyConfig'),
+    newGetResponseHeadersPolicyConfig,
+    GetResponseHeadersPolicyConfigResponse (GetResponseHeadersPolicyConfigResponse'),
+    newGetResponseHeadersPolicyConfigResponse,
+
     -- ** GetStreamingDistribution
     GetStreamingDistribution (GetStreamingDistribution'),
     newGetStreamingDistribution,
@@ -756,6 +801,12 @@ module Amazonka.CloudFront
     ListDistributionsByRealtimeLogConfigResponse (ListDistributionsByRealtimeLogConfigResponse'),
     newListDistributionsByRealtimeLogConfigResponse,
 
+    -- ** ListDistributionsByResponseHeadersPolicyId
+    ListDistributionsByResponseHeadersPolicyId (ListDistributionsByResponseHeadersPolicyId'),
+    newListDistributionsByResponseHeadersPolicyId,
+    ListDistributionsByResponseHeadersPolicyIdResponse (ListDistributionsByResponseHeadersPolicyIdResponse'),
+    newListDistributionsByResponseHeadersPolicyIdResponse,
+
     -- ** ListDistributionsByWebACLId
     ListDistributionsByWebACLId (ListDistributionsByWebACLId'),
     newListDistributionsByWebACLId,
@@ -809,6 +860,12 @@ module Amazonka.CloudFront
     newListRealtimeLogConfigs,
     ListRealtimeLogConfigsResponse (ListRealtimeLogConfigsResponse'),
     newListRealtimeLogConfigsResponse,
+
+    -- ** ListResponseHeadersPolicies
+    ListResponseHeadersPolicies (ListResponseHeadersPolicies'),
+    newListResponseHeadersPolicies,
+    ListResponseHeadersPoliciesResponse (ListResponseHeadersPoliciesResponse'),
+    newListResponseHeadersPoliciesResponse,
 
     -- ** ListStreamingDistributions (Paginated)
     ListStreamingDistributions (ListStreamingDistributions'),
@@ -906,6 +963,12 @@ module Amazonka.CloudFront
     UpdateRealtimeLogConfigResponse (UpdateRealtimeLogConfigResponse'),
     newUpdateRealtimeLogConfigResponse,
 
+    -- ** UpdateResponseHeadersPolicy
+    UpdateResponseHeadersPolicy (UpdateResponseHeadersPolicy'),
+    newUpdateResponseHeadersPolicy,
+    UpdateResponseHeadersPolicyResponse (UpdateResponseHeadersPolicyResponse'),
+    newUpdateResponseHeadersPolicyResponse,
+
     -- ** UpdateStreamingDistribution
     UpdateStreamingDistribution (UpdateStreamingDistribution'),
     newUpdateStreamingDistribution,
@@ -934,6 +997,9 @@ module Amazonka.CloudFront
 
     -- ** Format
     Format (..),
+
+    -- ** FrameOptionsList
+    FrameOptionsList (..),
 
     -- ** FunctionRuntime
     FunctionRuntime (..),
@@ -979,6 +1045,15 @@ module Amazonka.CloudFront
 
     -- ** RealtimeMetricsSubscriptionStatus
     RealtimeMetricsSubscriptionStatus (..),
+
+    -- ** ReferrerPolicyList
+    ReferrerPolicyList (..),
+
+    -- ** ResponseHeadersPolicyAccessControlAllowMethodsValues
+    ResponseHeadersPolicyAccessControlAllowMethodsValues (..),
+
+    -- ** ResponseHeadersPolicyType
+    ResponseHeadersPolicyType (..),
 
     -- ** SSLSupportMethod
     SSLSupportMethod (..),
@@ -1405,6 +1480,82 @@ module Amazonka.CloudFront
     RealtimeMetricsSubscriptionConfig (RealtimeMetricsSubscriptionConfig'),
     newRealtimeMetricsSubscriptionConfig,
 
+    -- ** ResponseHeadersPolicy
+    ResponseHeadersPolicy (ResponseHeadersPolicy'),
+    newResponseHeadersPolicy,
+
+    -- ** ResponseHeadersPolicyAccessControlAllowHeaders
+    ResponseHeadersPolicyAccessControlAllowHeaders (ResponseHeadersPolicyAccessControlAllowHeaders'),
+    newResponseHeadersPolicyAccessControlAllowHeaders,
+
+    -- ** ResponseHeadersPolicyAccessControlAllowMethods
+    ResponseHeadersPolicyAccessControlAllowMethods (ResponseHeadersPolicyAccessControlAllowMethods'),
+    newResponseHeadersPolicyAccessControlAllowMethods,
+
+    -- ** ResponseHeadersPolicyAccessControlAllowOrigins
+    ResponseHeadersPolicyAccessControlAllowOrigins (ResponseHeadersPolicyAccessControlAllowOrigins'),
+    newResponseHeadersPolicyAccessControlAllowOrigins,
+
+    -- ** ResponseHeadersPolicyAccessControlExposeHeaders
+    ResponseHeadersPolicyAccessControlExposeHeaders (ResponseHeadersPolicyAccessControlExposeHeaders'),
+    newResponseHeadersPolicyAccessControlExposeHeaders,
+
+    -- ** ResponseHeadersPolicyConfig
+    ResponseHeadersPolicyConfig (ResponseHeadersPolicyConfig'),
+    newResponseHeadersPolicyConfig,
+
+    -- ** ResponseHeadersPolicyContentSecurityPolicy
+    ResponseHeadersPolicyContentSecurityPolicy (ResponseHeadersPolicyContentSecurityPolicy'),
+    newResponseHeadersPolicyContentSecurityPolicy,
+
+    -- ** ResponseHeadersPolicyContentTypeOptions
+    ResponseHeadersPolicyContentTypeOptions (ResponseHeadersPolicyContentTypeOptions'),
+    newResponseHeadersPolicyContentTypeOptions,
+
+    -- ** ResponseHeadersPolicyCorsConfig
+    ResponseHeadersPolicyCorsConfig (ResponseHeadersPolicyCorsConfig'),
+    newResponseHeadersPolicyCorsConfig,
+
+    -- ** ResponseHeadersPolicyCustomHeader
+    ResponseHeadersPolicyCustomHeader (ResponseHeadersPolicyCustomHeader'),
+    newResponseHeadersPolicyCustomHeader,
+
+    -- ** ResponseHeadersPolicyCustomHeadersConfig
+    ResponseHeadersPolicyCustomHeadersConfig (ResponseHeadersPolicyCustomHeadersConfig'),
+    newResponseHeadersPolicyCustomHeadersConfig,
+
+    -- ** ResponseHeadersPolicyFrameOptions
+    ResponseHeadersPolicyFrameOptions (ResponseHeadersPolicyFrameOptions'),
+    newResponseHeadersPolicyFrameOptions,
+
+    -- ** ResponseHeadersPolicyList
+    ResponseHeadersPolicyList (ResponseHeadersPolicyList'),
+    newResponseHeadersPolicyList,
+
+    -- ** ResponseHeadersPolicyReferrerPolicy
+    ResponseHeadersPolicyReferrerPolicy (ResponseHeadersPolicyReferrerPolicy'),
+    newResponseHeadersPolicyReferrerPolicy,
+
+    -- ** ResponseHeadersPolicySecurityHeadersConfig
+    ResponseHeadersPolicySecurityHeadersConfig (ResponseHeadersPolicySecurityHeadersConfig'),
+    newResponseHeadersPolicySecurityHeadersConfig,
+
+    -- ** ResponseHeadersPolicyServerTimingHeadersConfig
+    ResponseHeadersPolicyServerTimingHeadersConfig (ResponseHeadersPolicyServerTimingHeadersConfig'),
+    newResponseHeadersPolicyServerTimingHeadersConfig,
+
+    -- ** ResponseHeadersPolicyStrictTransportSecurity
+    ResponseHeadersPolicyStrictTransportSecurity (ResponseHeadersPolicyStrictTransportSecurity'),
+    newResponseHeadersPolicyStrictTransportSecurity,
+
+    -- ** ResponseHeadersPolicySummary
+    ResponseHeadersPolicySummary (ResponseHeadersPolicySummary'),
+    newResponseHeadersPolicySummary,
+
+    -- ** ResponseHeadersPolicyXSSProtection
+    ResponseHeadersPolicyXSSProtection (ResponseHeadersPolicyXSSProtection'),
+    newResponseHeadersPolicyXSSProtection,
+
     -- ** Restrictions
     Restrictions (Restrictions'),
     newRestrictions,
@@ -1493,6 +1644,7 @@ import Amazonka.CloudFront.CreateMonitoringSubscription
 import Amazonka.CloudFront.CreateOriginRequestPolicy
 import Amazonka.CloudFront.CreatePublicKey
 import Amazonka.CloudFront.CreateRealtimeLogConfig
+import Amazonka.CloudFront.CreateResponseHeadersPolicy
 import Amazonka.CloudFront.CreateStreamingDistribution
 import Amazonka.CloudFront.CreateStreamingDistributionWithTags
 import Amazonka.CloudFront.DeleteCachePolicy
@@ -1506,6 +1658,7 @@ import Amazonka.CloudFront.DeleteMonitoringSubscription
 import Amazonka.CloudFront.DeleteOriginRequestPolicy
 import Amazonka.CloudFront.DeletePublicKey
 import Amazonka.CloudFront.DeleteRealtimeLogConfig
+import Amazonka.CloudFront.DeleteResponseHeadersPolicy
 import Amazonka.CloudFront.DeleteStreamingDistribution
 import Amazonka.CloudFront.DescribeFunction
 import Amazonka.CloudFront.GetCachePolicy
@@ -1528,6 +1681,8 @@ import Amazonka.CloudFront.GetOriginRequestPolicyConfig
 import Amazonka.CloudFront.GetPublicKey
 import Amazonka.CloudFront.GetPublicKeyConfig
 import Amazonka.CloudFront.GetRealtimeLogConfig
+import Amazonka.CloudFront.GetResponseHeadersPolicy
+import Amazonka.CloudFront.GetResponseHeadersPolicyConfig
 import Amazonka.CloudFront.GetStreamingDistribution
 import Amazonka.CloudFront.GetStreamingDistributionConfig
 import Amazonka.CloudFront.Lens
@@ -1539,6 +1694,7 @@ import Amazonka.CloudFront.ListDistributionsByCachePolicyId
 import Amazonka.CloudFront.ListDistributionsByKeyGroup
 import Amazonka.CloudFront.ListDistributionsByOriginRequestPolicyId
 import Amazonka.CloudFront.ListDistributionsByRealtimeLogConfig
+import Amazonka.CloudFront.ListDistributionsByResponseHeadersPolicyId
 import Amazonka.CloudFront.ListDistributionsByWebACLId
 import Amazonka.CloudFront.ListFieldLevelEncryptionConfigs
 import Amazonka.CloudFront.ListFieldLevelEncryptionProfiles
@@ -1548,6 +1704,7 @@ import Amazonka.CloudFront.ListKeyGroups
 import Amazonka.CloudFront.ListOriginRequestPolicies
 import Amazonka.CloudFront.ListPublicKeys
 import Amazonka.CloudFront.ListRealtimeLogConfigs
+import Amazonka.CloudFront.ListResponseHeadersPolicies
 import Amazonka.CloudFront.ListStreamingDistributions
 import Amazonka.CloudFront.ListTagsForResource
 import Amazonka.CloudFront.PublishFunction
@@ -1565,6 +1722,7 @@ import Amazonka.CloudFront.UpdateKeyGroup
 import Amazonka.CloudFront.UpdateOriginRequestPolicy
 import Amazonka.CloudFront.UpdatePublicKey
 import Amazonka.CloudFront.UpdateRealtimeLogConfig
+import Amazonka.CloudFront.UpdateResponseHeadersPolicy
 import Amazonka.CloudFront.UpdateStreamingDistribution
 import Amazonka.CloudFront.Waiters
 

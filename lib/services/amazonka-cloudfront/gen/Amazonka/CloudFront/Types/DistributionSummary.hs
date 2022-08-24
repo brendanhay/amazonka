@@ -55,7 +55,7 @@ data DistributionSummary = DistributionSummary'
     id :: Prelude.Text,
     -- | The ARN (Amazon Resource Name) for the distribution. For example:
     -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
-    -- @123456789012@ is your account ID.
+    -- @123456789012@ is your Amazon Web Services account ID.
     arn :: Prelude.Text,
     -- | The current status of the distribution. When the status is @Deployed@,
     -- the distribution\'s information is propagated to all CloudFront edge
@@ -106,7 +106,7 @@ data DistributionSummary = DistributionSummary'
     -- for your distribution.
     isIPV6Enabled :: Prelude.Bool
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DistributionSummary' with all optional fields omitted.
@@ -133,7 +133,7 @@ data DistributionSummary = DistributionSummary'
 --
 -- 'arn', 'distributionSummary_arn' - The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your account ID.
+-- @123456789012@ is your Amazon Web Services account ID.
 --
 -- 'status', 'distributionSummary_status' - The current status of the distribution. When the status is @Deployed@,
 -- the distribution\'s information is propagated to all CloudFront edge
@@ -287,7 +287,7 @@ distributionSummary_id = Lens.lens (\DistributionSummary' {id} -> id) (\s@Distri
 
 -- | The ARN (Amazon Resource Name) for the distribution. For example:
 -- @arn:aws:cloudfront::123456789012:distribution\/EDFDVBD632BHDS5@, where
--- @123456789012@ is your account ID.
+-- @123456789012@ is your Amazon Web Services account ID.
 distributionSummary_arn :: Lens.Lens' DistributionSummary Prelude.Text
 distributionSummary_arn = Lens.lens (\DistributionSummary' {arn} -> arn) (\s@DistributionSummary' {} a -> s {arn = a} :: DistributionSummary)
 

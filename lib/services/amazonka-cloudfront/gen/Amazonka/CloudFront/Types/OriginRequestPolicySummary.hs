@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOriginRequestPolicySummary' smart constructor.
 data OriginRequestPolicySummary = OriginRequestPolicySummary'
   { -- | The type of origin request policy, either @managed@ (created by Amazon
-    -- Web Services) or @custom@ (created in this account).
+    -- Web Services) or @custom@ (created in this Amazon Web Services account).
     type' :: OriginRequestPolicyType,
     -- | The origin request policy.
     originRequestPolicy :: OriginRequestPolicy
@@ -46,7 +46,7 @@ data OriginRequestPolicySummary = OriginRequestPolicySummary'
 -- for backwards compatibility:
 --
 -- 'type'', 'originRequestPolicySummary_type' - The type of origin request policy, either @managed@ (created by Amazon
--- Web Services) or @custom@ (created in this account).
+-- Web Services) or @custom@ (created in this Amazon Web Services account).
 --
 -- 'originRequestPolicy', 'originRequestPolicySummary_originRequestPolicy' - The origin request policy.
 newOriginRequestPolicySummary ::
@@ -64,7 +64,7 @@ newOriginRequestPolicySummary
       }
 
 -- | The type of origin request policy, either @managed@ (created by Amazon
--- Web Services) or @custom@ (created in this account).
+-- Web Services) or @custom@ (created in this Amazon Web Services account).
 originRequestPolicySummary_type :: Lens.Lens' OriginRequestPolicySummary OriginRequestPolicyType
 originRequestPolicySummary_type = Lens.lens (\OriginRequestPolicySummary' {type'} -> type') (\s@OriginRequestPolicySummary' {} a -> s {type' = a} :: OriginRequestPolicySummary)
 

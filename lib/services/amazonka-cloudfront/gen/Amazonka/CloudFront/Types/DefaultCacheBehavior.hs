@@ -119,6 +119,8 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     -- A complex type that specifies how CloudFront handles query strings,
     -- cookies, and HTTP headers.
     forwardedValues :: Prelude.Maybe ForwardedValues,
+    -- | The identifier for a response headers policy.
+    responseHeadersPolicyId :: Prelude.Maybe Prelude.Text,
     -- | This field is deprecated. We recommend that you use the @MinTTL@ field
     -- in a cache policy instead of this field. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
@@ -172,15 +174,15 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     smoothStreaming :: Prelude.Maybe Prelude.Bool,
     -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
     --
-    -- A list of account IDs whose public keys CloudFront can use to validate
-    -- signed URLs or signed cookies.
+    -- A list of Amazon Web Services account IDs whose public keys CloudFront
+    -- can use to validate signed URLs or signed cookies.
     --
     -- When a cache behavior contains trusted signers, CloudFront requires
     -- signed URLs or signed cookies for all requests that match the cache
     -- behavior. The URLs or cookies must be signed with the private key of a
-    -- CloudFront key pair in a trusted signer’s account. The signed URL or
-    -- cookie contains information about which public key CloudFront should use
-    -- to verify the signature. For more information, see
+    -- CloudFront key pair in a trusted signer’s Amazon Web Services account.
+    -- The signed URL or cookie contains information about which public key
+    -- CloudFront should use to verify the signature. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
     -- in the /Amazon CloudFront Developer Guide/.
     trustedSigners :: Prelude.Maybe TrustedSigners,
@@ -309,6 +311,8 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
 -- A complex type that specifies how CloudFront handles query strings,
 -- cookies, and HTTP headers.
 --
+-- 'responseHeadersPolicyId', 'defaultCacheBehavior_responseHeadersPolicyId' - The identifier for a response headers policy.
+--
 -- 'minTTL', 'defaultCacheBehavior_minTTL' - This field is deprecated. We recommend that you use the @MinTTL@ field
 -- in a cache policy instead of this field. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
@@ -362,15 +366,15 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
 --
 -- 'trustedSigners', 'defaultCacheBehavior_trustedSigners' - We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
 --
--- A list of account IDs whose public keys CloudFront can use to validate
--- signed URLs or signed cookies.
+-- A list of Amazon Web Services account IDs whose public keys CloudFront
+-- can use to validate signed URLs or signed cookies.
 --
 -- When a cache behavior contains trusted signers, CloudFront requires
 -- signed URLs or signed cookies for all requests that match the cache
 -- behavior. The URLs or cookies must be signed with the private key of a
--- CloudFront key pair in a trusted signer’s account. The signed URL or
--- cookie contains information about which public key CloudFront should use
--- to verify the signature. For more information, see
+-- CloudFront key pair in a trusted signer’s Amazon Web Services account.
+-- The signed URL or cookie contains information about which public key
+-- CloudFront should use to verify the signature. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
 -- in the /Amazon CloudFront Developer Guide/.
 --
@@ -424,6 +428,7 @@ newDefaultCacheBehavior
         originRequestPolicyId = Prelude.Nothing,
         functionAssociations = Prelude.Nothing,
         forwardedValues = Prelude.Nothing,
+        responseHeadersPolicyId = Prelude.Nothing,
         minTTL = Prelude.Nothing,
         realtimeLogConfigArn = Prelude.Nothing,
         compress = Prelude.Nothing,
@@ -535,6 +540,10 @@ defaultCacheBehavior_functionAssociations = Lens.lens (\DefaultCacheBehavior' {f
 defaultCacheBehavior_forwardedValues :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe ForwardedValues)
 defaultCacheBehavior_forwardedValues = Lens.lens (\DefaultCacheBehavior' {forwardedValues} -> forwardedValues) (\s@DefaultCacheBehavior' {} a -> s {forwardedValues = a} :: DefaultCacheBehavior)
 
+-- | The identifier for a response headers policy.
+defaultCacheBehavior_responseHeadersPolicyId :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe Prelude.Text)
+defaultCacheBehavior_responseHeadersPolicyId = Lens.lens (\DefaultCacheBehavior' {responseHeadersPolicyId} -> responseHeadersPolicyId) (\s@DefaultCacheBehavior' {} a -> s {responseHeadersPolicyId = a} :: DefaultCacheBehavior)
+
 -- | This field is deprecated. We recommend that you use the @MinTTL@ field
 -- in a cache policy instead of this field. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy Creating cache policies>
@@ -598,15 +607,15 @@ defaultCacheBehavior_smoothStreaming = Lens.lens (\DefaultCacheBehavior' {smooth
 
 -- | We recommend using @TrustedKeyGroups@ instead of @TrustedSigners@.
 --
--- A list of account IDs whose public keys CloudFront can use to validate
--- signed URLs or signed cookies.
+-- A list of Amazon Web Services account IDs whose public keys CloudFront
+-- can use to validate signed URLs or signed cookies.
 --
 -- When a cache behavior contains trusted signers, CloudFront requires
 -- signed URLs or signed cookies for all requests that match the cache
 -- behavior. The URLs or cookies must be signed with the private key of a
--- CloudFront key pair in a trusted signer’s account. The signed URL or
--- cookie contains information about which public key CloudFront should use
--- to verify the signature. For more information, see
+-- CloudFront key pair in a trusted signer’s Amazon Web Services account.
+-- The signed URL or cookie contains information about which public key
+-- CloudFront should use to verify the signature. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content>
 -- in the /Amazon CloudFront Developer Guide/.
 defaultCacheBehavior_trustedSigners :: Lens.Lens' DefaultCacheBehavior (Prelude.Maybe TrustedSigners)
@@ -659,6 +668,7 @@ instance Core.FromXML DefaultCacheBehavior where
       Prelude.<*> (x Core..@? "OriginRequestPolicyId")
       Prelude.<*> (x Core..@? "FunctionAssociations")
       Prelude.<*> (x Core..@? "ForwardedValues")
+      Prelude.<*> (x Core..@? "ResponseHeadersPolicyId")
       Prelude.<*> (x Core..@? "MinTTL")
       Prelude.<*> (x Core..@? "RealtimeLogConfigArn")
       Prelude.<*> (x Core..@? "Compress")
@@ -679,6 +689,7 @@ instance Prelude.Hashable DefaultCacheBehavior where
       `Prelude.hashWithSalt` originRequestPolicyId
       `Prelude.hashWithSalt` functionAssociations
       `Prelude.hashWithSalt` forwardedValues
+      `Prelude.hashWithSalt` responseHeadersPolicyId
       `Prelude.hashWithSalt` minTTL
       `Prelude.hashWithSalt` realtimeLogConfigArn
       `Prelude.hashWithSalt` compress
@@ -699,6 +710,7 @@ instance Prelude.NFData DefaultCacheBehavior where
       `Prelude.seq` Prelude.rnf originRequestPolicyId
       `Prelude.seq` Prelude.rnf functionAssociations
       `Prelude.seq` Prelude.rnf forwardedValues
+      `Prelude.seq` Prelude.rnf responseHeadersPolicyId
       `Prelude.seq` Prelude.rnf minTTL
       `Prelude.seq` Prelude.rnf realtimeLogConfigArn
       `Prelude.seq` Prelude.rnf compress
@@ -723,6 +735,8 @@ instance Core.ToXML DefaultCacheBehavior where
           Core.@= originRequestPolicyId,
         "FunctionAssociations" Core.@= functionAssociations,
         "ForwardedValues" Core.@= forwardedValues,
+        "ResponseHeadersPolicyId"
+          Core.@= responseHeadersPolicyId,
         "MinTTL" Core.@= minTTL,
         "RealtimeLogConfigArn" Core.@= realtimeLogConfigArn,
         "Compress" Core.@= compress,

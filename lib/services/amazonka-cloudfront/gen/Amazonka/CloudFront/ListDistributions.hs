@@ -168,7 +168,7 @@ data ListDistributionsResponse = ListDistributionsResponse'
     -- | The @DistributionList@ type.
     distributionList :: DistributionList
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListDistributionsResponse' with all optional fields omitted.

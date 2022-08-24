@@ -34,9 +34,9 @@ data OriginCustomHeader = OriginCustomHeader'
     -- in the /Amazon CloudFront Developer Guide/.
     headerName :: Prelude.Text,
     -- | The value for the header that you specified in the @HeaderName@ field.
-    headerValue :: Prelude.Text
+    headerValue :: Core.Sensitive Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'OriginCustomHeader' with all optional fields omitted.
@@ -61,7 +61,7 @@ newOriginCustomHeader ::
 newOriginCustomHeader pHeaderName_ pHeaderValue_ =
   OriginCustomHeader'
     { headerName = pHeaderName_,
-      headerValue = pHeaderValue_
+      headerValue = Core._Sensitive Lens.# pHeaderValue_
     }
 
 -- | The name of a header that you want CloudFront to send to your origin.
@@ -73,7 +73,7 @@ originCustomHeader_headerName = Lens.lens (\OriginCustomHeader' {headerName} -> 
 
 -- | The value for the header that you specified in the @HeaderName@ field.
 originCustomHeader_headerValue :: Lens.Lens' OriginCustomHeader Prelude.Text
-originCustomHeader_headerValue = Lens.lens (\OriginCustomHeader' {headerValue} -> headerValue) (\s@OriginCustomHeader' {} a -> s {headerValue = a} :: OriginCustomHeader)
+originCustomHeader_headerValue = Lens.lens (\OriginCustomHeader' {headerValue} -> headerValue) (\s@OriginCustomHeader' {} a -> s {headerValue = a} :: OriginCustomHeader) Prelude.. Core._Sensitive
 
 instance Core.FromXML OriginCustomHeader where
   parseXML x =

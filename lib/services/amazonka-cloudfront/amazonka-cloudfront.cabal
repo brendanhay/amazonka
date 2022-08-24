@@ -58,6 +58,7 @@ library
     Amazonka.CloudFront.CreateOriginRequestPolicy
     Amazonka.CloudFront.CreatePublicKey
     Amazonka.CloudFront.CreateRealtimeLogConfig
+    Amazonka.CloudFront.CreateResponseHeadersPolicy
     Amazonka.CloudFront.CreateStreamingDistribution
     Amazonka.CloudFront.CreateStreamingDistributionWithTags
     Amazonka.CloudFront.DeleteCachePolicy
@@ -71,6 +72,7 @@ library
     Amazonka.CloudFront.DeleteOriginRequestPolicy
     Amazonka.CloudFront.DeletePublicKey
     Amazonka.CloudFront.DeleteRealtimeLogConfig
+    Amazonka.CloudFront.DeleteResponseHeadersPolicy
     Amazonka.CloudFront.DeleteStreamingDistribution
     Amazonka.CloudFront.DescribeFunction
     Amazonka.CloudFront.GetCachePolicy
@@ -93,6 +95,8 @@ library
     Amazonka.CloudFront.GetPublicKey
     Amazonka.CloudFront.GetPublicKeyConfig
     Amazonka.CloudFront.GetRealtimeLogConfig
+    Amazonka.CloudFront.GetResponseHeadersPolicy
+    Amazonka.CloudFront.GetResponseHeadersPolicyConfig
     Amazonka.CloudFront.GetStreamingDistribution
     Amazonka.CloudFront.GetStreamingDistributionConfig
     Amazonka.CloudFront.Lens
@@ -104,6 +108,7 @@ library
     Amazonka.CloudFront.ListDistributionsByKeyGroup
     Amazonka.CloudFront.ListDistributionsByOriginRequestPolicyId
     Amazonka.CloudFront.ListDistributionsByRealtimeLogConfig
+    Amazonka.CloudFront.ListDistributionsByResponseHeadersPolicyId
     Amazonka.CloudFront.ListDistributionsByWebACLId
     Amazonka.CloudFront.ListFieldLevelEncryptionConfigs
     Amazonka.CloudFront.ListFieldLevelEncryptionProfiles
@@ -113,6 +118,7 @@ library
     Amazonka.CloudFront.ListOriginRequestPolicies
     Amazonka.CloudFront.ListPublicKeys
     Amazonka.CloudFront.ListRealtimeLogConfigs
+    Amazonka.CloudFront.ListResponseHeadersPolicies
     Amazonka.CloudFront.ListStreamingDistributions
     Amazonka.CloudFront.ListTagsForResource
     Amazonka.CloudFront.PublishFunction
@@ -176,6 +182,7 @@ library
     Amazonka.CloudFront.Types.FieldPatterns
     Amazonka.CloudFront.Types.Format
     Amazonka.CloudFront.Types.ForwardedValues
+    Amazonka.CloudFront.Types.FrameOptionsList
     Amazonka.CloudFront.Types.FunctionAssociation
     Amazonka.CloudFront.Types.FunctionAssociations
     Amazonka.CloudFront.Types.FunctionConfig
@@ -245,6 +252,28 @@ library
     Amazonka.CloudFront.Types.RealtimeLogConfigs
     Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig
     Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionStatus
+    Amazonka.CloudFront.Types.ReferrerPolicyList
+    Amazonka.CloudFront.Types.ResponseHeadersPolicy
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowHeaders
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowMethods
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowMethodsValues
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlAllowOrigins
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyAccessControlExposeHeaders
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyConfig
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyContentSecurityPolicy
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyContentTypeOptions
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyCorsConfig
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeader
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyCustomHeadersConfig
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyFrameOptions
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyList
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyReferrerPolicy
+    Amazonka.CloudFront.Types.ResponseHeadersPolicySecurityHeadersConfig
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyServerTimingHeadersConfig
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyStrictTransportSecurity
+    Amazonka.CloudFront.Types.ResponseHeadersPolicySummary
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyType
+    Amazonka.CloudFront.Types.ResponseHeadersPolicyXSSProtection
     Amazonka.CloudFront.Types.Restrictions
     Amazonka.CloudFront.Types.S3Origin
     Amazonka.CloudFront.Types.S3OriginConfig
@@ -277,6 +306,7 @@ library
     Amazonka.CloudFront.UpdateOriginRequestPolicy
     Amazonka.CloudFront.UpdatePublicKey
     Amazonka.CloudFront.UpdateRealtimeLogConfig
+    Amazonka.CloudFront.UpdateResponseHeadersPolicy
     Amazonka.CloudFront.UpdateStreamingDistribution
     Amazonka.CloudFront.Waiters
 

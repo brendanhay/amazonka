@@ -50,8 +50,8 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateDeletionProtection' smart constructor.
 data UpdateDeletionProtection = UpdateDeletionProtection'
-  { -- | A token ensuring that the action is called only once with the specified
-    -- details.
+  { -- | A token ensuring that the operation is called only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication set you\'re updating.
     arn :: Prelude.Text,
@@ -68,8 +68,8 @@ data UpdateDeletionProtection = UpdateDeletionProtection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateDeletionProtection_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'updateDeletionProtection_clientToken' - A token ensuring that the operation is called only once with the
+-- specified details.
 --
 -- 'arn', 'updateDeletionProtection_arn' - The Amazon Resource Name (ARN) of the replication set you\'re updating.
 --
@@ -88,8 +88,8 @@ newUpdateDeletionProtection pArn_ pDeletionProtected_ =
       deletionProtected = pDeletionProtected_
     }
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token ensuring that the operation is called only once with the
+-- specified details.
 updateDeletionProtection_clientToken :: Lens.Lens' UpdateDeletionProtection (Prelude.Maybe Prelude.Text)
 updateDeletionProtection_clientToken = Lens.lens (\UpdateDeletionProtection' {clientToken} -> clientToken) (\s@UpdateDeletionProtection' {} a -> s {clientToken = a} :: UpdateDeletionProtection)
 

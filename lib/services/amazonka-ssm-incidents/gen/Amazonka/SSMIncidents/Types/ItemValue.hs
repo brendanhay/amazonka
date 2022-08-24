@@ -30,9 +30,10 @@ data ItemValue = ItemValue'
   { -- | The Amazon Resource Name (ARN) of the related item, if the related item
     -- is an Amazon resource.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The URL, if the related item is a non-AWS resource.
+    -- | The URL, if the related item is a non-Amazon Web Services resource.
     url :: Prelude.Maybe Prelude.Text,
-    -- | The metric definition, if the related item is a metric in CloudWatch.
+    -- | The metric definition, if the related item is a metric in Amazon
+    -- CloudWatch.
     metricDefinition :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,9 +49,10 @@ data ItemValue = ItemValue'
 -- 'arn', 'itemValue_arn' - The Amazon Resource Name (ARN) of the related item, if the related item
 -- is an Amazon resource.
 --
--- 'url', 'itemValue_url' - The URL, if the related item is a non-AWS resource.
+-- 'url', 'itemValue_url' - The URL, if the related item is a non-Amazon Web Services resource.
 --
--- 'metricDefinition', 'itemValue_metricDefinition' - The metric definition, if the related item is a metric in CloudWatch.
+-- 'metricDefinition', 'itemValue_metricDefinition' - The metric definition, if the related item is a metric in Amazon
+-- CloudWatch.
 newItemValue ::
   ItemValue
 newItemValue =
@@ -65,11 +67,12 @@ newItemValue =
 itemValue_arn :: Lens.Lens' ItemValue (Prelude.Maybe Prelude.Text)
 itemValue_arn = Lens.lens (\ItemValue' {arn} -> arn) (\s@ItemValue' {} a -> s {arn = a} :: ItemValue)
 
--- | The URL, if the related item is a non-AWS resource.
+-- | The URL, if the related item is a non-Amazon Web Services resource.
 itemValue_url :: Lens.Lens' ItemValue (Prelude.Maybe Prelude.Text)
 itemValue_url = Lens.lens (\ItemValue' {url} -> url) (\s@ItemValue' {} a -> s {url = a} :: ItemValue)
 
--- | The metric definition, if the related item is a metric in CloudWatch.
+-- | The metric definition, if the related item is a metric in Amazon
+-- CloudWatch.
 itemValue_metricDefinition :: Lens.Lens' ItemValue (Prelude.Maybe Prelude.Text)
 itemValue_metricDefinition = Lens.lens (\ItemValue' {metricDefinition} -> metricDefinition) (\s@ItemValue' {} a -> s {metricDefinition = a} :: ItemValue)
 

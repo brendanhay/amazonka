@@ -54,8 +54,8 @@ import Amazonka.SSMIncidents.Types
 data UpdateTimelineEvent = UpdateTimelineEvent'
   { -- | The type of the event. You can update events of type @Custom Event@.
     eventType :: Prelude.Maybe Prelude.Text,
-    -- | A token ensuring that the action is called only once with the specified
-    -- details.
+    -- | A token ensuring that the operation is called only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The time that the event occurred.
     eventTime :: Prelude.Maybe Core.POSIX,
@@ -64,8 +64,8 @@ data UpdateTimelineEvent = UpdateTimelineEvent'
     -- | The ID of the event you are updating. You can find this by using
     -- @ListTimelineEvents@.
     eventId :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the incident that the timeline event
-    -- is part of.
+    -- | The Amazon Resource Name (ARN) of the incident that includes the
+    -- timeline event.
     incidentRecordArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,8 +80,8 @@ data UpdateTimelineEvent = UpdateTimelineEvent'
 --
 -- 'eventType', 'updateTimelineEvent_eventType' - The type of the event. You can update events of type @Custom Event@.
 --
--- 'clientToken', 'updateTimelineEvent_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'updateTimelineEvent_clientToken' - A token ensuring that the operation is called only once with the
+-- specified details.
 --
 -- 'eventTime', 'updateTimelineEvent_eventTime' - The time that the event occurred.
 --
@@ -90,8 +90,8 @@ data UpdateTimelineEvent = UpdateTimelineEvent'
 -- 'eventId', 'updateTimelineEvent_eventId' - The ID of the event you are updating. You can find this by using
 -- @ListTimelineEvents@.
 --
--- 'incidentRecordArn', 'updateTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that the timeline event
--- is part of.
+-- 'incidentRecordArn', 'updateTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that includes the
+-- timeline event.
 newUpdateTimelineEvent ::
   -- | 'eventId'
   Prelude.Text ->
@@ -112,8 +112,8 @@ newUpdateTimelineEvent pEventId_ pIncidentRecordArn_ =
 updateTimelineEvent_eventType :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
 updateTimelineEvent_eventType = Lens.lens (\UpdateTimelineEvent' {eventType} -> eventType) (\s@UpdateTimelineEvent' {} a -> s {eventType = a} :: UpdateTimelineEvent)
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token ensuring that the operation is called only once with the
+-- specified details.
 updateTimelineEvent_clientToken :: Lens.Lens' UpdateTimelineEvent (Prelude.Maybe Prelude.Text)
 updateTimelineEvent_clientToken = Lens.lens (\UpdateTimelineEvent' {clientToken} -> clientToken) (\s@UpdateTimelineEvent' {} a -> s {clientToken = a} :: UpdateTimelineEvent)
 
@@ -130,8 +130,8 @@ updateTimelineEvent_eventData = Lens.lens (\UpdateTimelineEvent' {eventData} -> 
 updateTimelineEvent_eventId :: Lens.Lens' UpdateTimelineEvent Prelude.Text
 updateTimelineEvent_eventId = Lens.lens (\UpdateTimelineEvent' {eventId} -> eventId) (\s@UpdateTimelineEvent' {} a -> s {eventId = a} :: UpdateTimelineEvent)
 
--- | The Amazon Resource Name (ARN) of the incident that the timeline event
--- is part of.
+-- | The Amazon Resource Name (ARN) of the incident that includes the
+-- timeline event.
 updateTimelineEvent_incidentRecordArn :: Lens.Lens' UpdateTimelineEvent Prelude.Text
 updateTimelineEvent_incidentRecordArn = Lens.lens (\UpdateTimelineEvent' {incidentRecordArn} -> incidentRecordArn) (\s@UpdateTimelineEvent' {} a -> s {incidentRecordArn = a} :: UpdateTimelineEvent)
 

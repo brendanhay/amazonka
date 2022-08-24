@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the details of the specified incident record.
+-- Returns the details for the specified incident record.
 module Amazonka.SSMIncidents.GetIncidentRecord
   ( -- * Creating a Request
     GetIncidentRecord (..),
@@ -115,7 +115,7 @@ instance Core.ToQuery GetIncidentRecord where
 data GetIncidentRecordResponse = GetIncidentRecordResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Details structure of the incident record.
+    -- | Details the structure of the incident record.
     incidentRecord :: IncidentRecord
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -130,7 +130,7 @@ data GetIncidentRecordResponse = GetIncidentRecordResponse'
 --
 -- 'httpStatus', 'getIncidentRecordResponse_httpStatus' - The response's http status code.
 --
--- 'incidentRecord', 'getIncidentRecordResponse_incidentRecord' - Details structure of the incident record.
+-- 'incidentRecord', 'getIncidentRecordResponse_incidentRecord' - Details the structure of the incident record.
 newGetIncidentRecordResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -150,7 +150,7 @@ newGetIncidentRecordResponse
 getIncidentRecordResponse_httpStatus :: Lens.Lens' GetIncidentRecordResponse Prelude.Int
 getIncidentRecordResponse_httpStatus = Lens.lens (\GetIncidentRecordResponse' {httpStatus} -> httpStatus) (\s@GetIncidentRecordResponse' {} a -> s {httpStatus = a} :: GetIncidentRecordResponse)
 
--- | Details structure of the incident record.
+-- | Details the structure of the incident record.
 getIncidentRecordResponse_incidentRecord :: Lens.Lens' GetIncidentRecordResponse IncidentRecord
 getIncidentRecordResponse_incidentRecord = Lens.lens (\GetIncidentRecordResponse' {incidentRecord} -> incidentRecord) (\s@GetIncidentRecordResponse' {} a -> s {incidentRecord = a} :: GetIncidentRecordResponse)
 

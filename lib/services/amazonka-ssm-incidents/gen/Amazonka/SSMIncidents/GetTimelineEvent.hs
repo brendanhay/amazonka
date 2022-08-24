@@ -49,11 +49,11 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newGetTimelineEvent' smart constructor.
 data GetTimelineEvent = GetTimelineEvent'
-  { -- | The ID of the event. You can get an event\'s ID when you create it or by
-    -- using @ListTimelineEvents@.
+  { -- | The ID of the event. You can get an event\'s ID when you create it, or
+    -- by using @ListTimelineEvents@.
     eventId :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the incident that the timeline event
-    -- is part of.
+    -- | The Amazon Resource Name (ARN) of the incident that includes the
+    -- timeline event.
     incidentRecordArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,11 +66,11 @@ data GetTimelineEvent = GetTimelineEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventId', 'getTimelineEvent_eventId' - The ID of the event. You can get an event\'s ID when you create it or by
--- using @ListTimelineEvents@.
+-- 'eventId', 'getTimelineEvent_eventId' - The ID of the event. You can get an event\'s ID when you create it, or
+-- by using @ListTimelineEvents@.
 --
--- 'incidentRecordArn', 'getTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that the timeline event
--- is part of.
+-- 'incidentRecordArn', 'getTimelineEvent_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that includes the
+-- timeline event.
 newGetTimelineEvent ::
   -- | 'eventId'
   Prelude.Text ->
@@ -83,13 +83,13 @@ newGetTimelineEvent pEventId_ pIncidentRecordArn_ =
       incidentRecordArn = pIncidentRecordArn_
     }
 
--- | The ID of the event. You can get an event\'s ID when you create it or by
--- using @ListTimelineEvents@.
+-- | The ID of the event. You can get an event\'s ID when you create it, or
+-- by using @ListTimelineEvents@.
 getTimelineEvent_eventId :: Lens.Lens' GetTimelineEvent Prelude.Text
 getTimelineEvent_eventId = Lens.lens (\GetTimelineEvent' {eventId} -> eventId) (\s@GetTimelineEvent' {} a -> s {eventId = a} :: GetTimelineEvent)
 
--- | The Amazon Resource Name (ARN) of the incident that the timeline event
--- is part of.
+-- | The Amazon Resource Name (ARN) of the incident that includes the
+-- timeline event.
 getTimelineEvent_incidentRecordArn :: Lens.Lens' GetTimelineEvent Prelude.Text
 getTimelineEvent_incidentRecordArn = Lens.lens (\GetTimelineEvent' {incidentRecordArn} -> incidentRecordArn) (\s@GetTimelineEvent' {} a -> s {incidentRecordArn = a} :: GetTimelineEvent)
 

@@ -49,8 +49,8 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newUpdateReplicationSet' smart constructor.
 data UpdateReplicationSet = UpdateReplicationSet'
-  { -- | A token ensuring that the action is called only once with the specified
-    -- details.
+  { -- | A token ensuring that the operation is called only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | An action to add or delete a Region.
     actions :: Prelude.NonEmpty UpdateReplicationSetAction,
@@ -67,8 +67,8 @@ data UpdateReplicationSet = UpdateReplicationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateReplicationSet_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'updateReplicationSet_clientToken' - A token ensuring that the operation is called only once with the
+-- specified details.
 --
 -- 'actions', 'updateReplicationSet_actions' - An action to add or delete a Region.
 --
@@ -87,8 +87,8 @@ newUpdateReplicationSet pActions_ pArn_ =
       arn = pArn_
     }
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token ensuring that the operation is called only once with the
+-- specified details.
 updateReplicationSet_clientToken :: Lens.Lens' UpdateReplicationSet (Prelude.Maybe Prelude.Text)
 updateReplicationSet_clientToken = Lens.lens (\UpdateReplicationSet' {clientToken} -> clientToken) (\s@UpdateReplicationSet' {} a -> s {clientToken = a} :: UpdateReplicationSet)
 

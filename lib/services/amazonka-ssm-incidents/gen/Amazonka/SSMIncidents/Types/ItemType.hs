@@ -22,7 +22,9 @@ module Amazonka.SSMIncidents.Types.ItemType
       ( ..,
         ItemType_ANALYSIS,
         ItemType_ATTACHMENT,
+        ItemType_AUTOMATION,
         ItemType_INCIDENT,
+        ItemType_INVOLVED_RESOURCE,
         ItemType_METRIC,
         ItemType_OTHER,
         ItemType_PARENT
@@ -67,8 +69,14 @@ pattern ItemType_ANALYSIS = ItemType' "ANALYSIS"
 pattern ItemType_ATTACHMENT :: ItemType
 pattern ItemType_ATTACHMENT = ItemType' "ATTACHMENT"
 
+pattern ItemType_AUTOMATION :: ItemType
+pattern ItemType_AUTOMATION = ItemType' "AUTOMATION"
+
 pattern ItemType_INCIDENT :: ItemType
 pattern ItemType_INCIDENT = ItemType' "INCIDENT"
+
+pattern ItemType_INVOLVED_RESOURCE :: ItemType
+pattern ItemType_INVOLVED_RESOURCE = ItemType' "INVOLVED_RESOURCE"
 
 pattern ItemType_METRIC :: ItemType
 pattern ItemType_METRIC = ItemType' "METRIC"
@@ -82,7 +90,9 @@ pattern ItemType_PARENT = ItemType' "PARENT"
 {-# COMPLETE
   ItemType_ANALYSIS,
   ItemType_ATTACHMENT,
+  ItemType_AUTOMATION,
   ItemType_INCIDENT,
+  ItemType_INVOLVED_RESOURCE,
   ItemType_METRIC,
   ItemType_OTHER,
   ItemType_PARENT,

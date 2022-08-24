@@ -32,7 +32,8 @@ data ResourcePolicy = ResourcePolicy'
     policyDocument :: Prelude.Text,
     -- | The ID of the resource policy.
     policyId :: Prelude.Text,
-    -- | The Region that policy allows resources to be used in.
+    -- | The Amazon Web Services Region that policy allows resources to be used
+    -- in.
     ramResourceShareRegion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,7 +50,8 @@ data ResourcePolicy = ResourcePolicy'
 --
 -- 'policyId', 'resourcePolicy_policyId' - The ID of the resource policy.
 --
--- 'ramResourceShareRegion', 'resourcePolicy_ramResourceShareRegion' - The Region that policy allows resources to be used in.
+-- 'ramResourceShareRegion', 'resourcePolicy_ramResourceShareRegion' - The Amazon Web Services Region that policy allows resources to be used
+-- in.
 newResourcePolicy ::
   -- | 'policyDocument'
   Prelude.Text ->
@@ -76,7 +78,8 @@ resourcePolicy_policyDocument = Lens.lens (\ResourcePolicy' {policyDocument} -> 
 resourcePolicy_policyId :: Lens.Lens' ResourcePolicy Prelude.Text
 resourcePolicy_policyId = Lens.lens (\ResourcePolicy' {policyId} -> policyId) (\s@ResourcePolicy' {} a -> s {policyId = a} :: ResourcePolicy)
 
--- | The Region that policy allows resources to be used in.
+-- | The Amazon Web Services Region that policy allows resources to be used
+-- in.
 resourcePolicy_ramResourceShareRegion :: Lens.Lens' ResourcePolicy Prelude.Text
 resourcePolicy_ramResourceShareRegion = Lens.lens (\ResourcePolicy' {ramResourceShareRegion} -> ramResourceShareRegion) (\s@ResourcePolicy' {} a -> s {ramResourceShareRegion = a} :: ResourcePolicy)
 

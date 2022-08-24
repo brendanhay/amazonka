@@ -50,8 +50,8 @@ import Amazonka.SSMIncidents.Types
 
 -- | /See:/ 'newCreateReplicationSet' smart constructor.
 data CreateReplicationSet = CreateReplicationSet'
-  { -- | A token ensuring that the action is called only once with the specified
-    -- details.
+  { -- | A token ensuring that the operation is called only once with the
+    -- specified details.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The Regions that Incident Manager replicates your data to. You can have
     -- up to three Regions in your replication set.
@@ -67,8 +67,8 @@ data CreateReplicationSet = CreateReplicationSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'createReplicationSet_clientToken' - A token ensuring that the action is called only once with the specified
--- details.
+-- 'clientToken', 'createReplicationSet_clientToken' - A token ensuring that the operation is called only once with the
+-- specified details.
 --
 -- 'regions', 'createReplicationSet_regions' - The Regions that Incident Manager replicates your data to. You can have
 -- up to three Regions in your replication set.
@@ -81,8 +81,8 @@ newCreateReplicationSet =
       regions = Prelude.mempty
     }
 
--- | A token ensuring that the action is called only once with the specified
--- details.
+-- | A token ensuring that the operation is called only once with the
+-- specified details.
 createReplicationSet_clientToken :: Lens.Lens' CreateReplicationSet (Prelude.Maybe Prelude.Text)
 createReplicationSet_clientToken = Lens.lens (\CreateReplicationSet' {clientToken} -> clientToken) (\s@CreateReplicationSet' {} a -> s {clientToken = a} :: CreateReplicationSet)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists timeline events of the specified incident record.
+-- Lists timeline events for the specified incident record.
 --
 -- This operation returns paginated results.
 module Amazonka.SSMIncidents.ListTimelineEvents
@@ -67,13 +67,24 @@ data ListTimelineEvents = ListTimelineEvents'
     -- -   @eventTime@
     --
     -- -   @eventType@
+    --
+    -- Note the following when deciding how to use Filters:
+    --
+    -- -   If you don\'t specify a Filter, the response includes all timeline
+    --     events.
+    --
+    -- -   If you specify more than one filter in a single request, the
+    --     response returns timeline events that match all filters.
+    --
+    -- -   If you specify a filter with more than one value, the response
+    --     returns timeline events that match any of the values provided.
     filters :: Prelude.Maybe [Filter],
     -- | Sort by the specified key value pair.
     sortBy :: Prelude.Maybe TimelineEventSort,
     -- | The maximum number of results per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the incident that the event is part
-    -- of.
+    -- | The Amazon Resource Name (ARN) of the incident that includes the
+    -- timeline event.
     incidentRecordArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,12 +109,23 @@ data ListTimelineEvents = ListTimelineEvents'
 --
 -- -   @eventType@
 --
+-- Note the following when deciding how to use Filters:
+--
+-- -   If you don\'t specify a Filter, the response includes all timeline
+--     events.
+--
+-- -   If you specify more than one filter in a single request, the
+--     response returns timeline events that match all filters.
+--
+-- -   If you specify a filter with more than one value, the response
+--     returns timeline events that match any of the values provided.
+--
 -- 'sortBy', 'listTimelineEvents_sortBy' - Sort by the specified key value pair.
 --
 -- 'maxResults', 'listTimelineEvents_maxResults' - The maximum number of results per page.
 --
--- 'incidentRecordArn', 'listTimelineEvents_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that the event is part
--- of.
+-- 'incidentRecordArn', 'listTimelineEvents_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident that includes the
+-- timeline event.
 newListTimelineEvents ::
   -- | 'incidentRecordArn'
   Prelude.Text ->
@@ -133,6 +155,17 @@ listTimelineEvents_nextToken = Lens.lens (\ListTimelineEvents' {nextToken} -> ne
 -- -   @eventTime@
 --
 -- -   @eventType@
+--
+-- Note the following when deciding how to use Filters:
+--
+-- -   If you don\'t specify a Filter, the response includes all timeline
+--     events.
+--
+-- -   If you specify more than one filter in a single request, the
+--     response returns timeline events that match all filters.
+--
+-- -   If you specify a filter with more than one value, the response
+--     returns timeline events that match any of the values provided.
 listTimelineEvents_filters :: Lens.Lens' ListTimelineEvents (Prelude.Maybe [Filter])
 listTimelineEvents_filters = Lens.lens (\ListTimelineEvents' {filters} -> filters) (\s@ListTimelineEvents' {} a -> s {filters = a} :: ListTimelineEvents) Prelude.. Lens.mapping Lens.coerced
 
@@ -144,8 +177,8 @@ listTimelineEvents_sortBy = Lens.lens (\ListTimelineEvents' {sortBy} -> sortBy) 
 listTimelineEvents_maxResults :: Lens.Lens' ListTimelineEvents (Prelude.Maybe Prelude.Natural)
 listTimelineEvents_maxResults = Lens.lens (\ListTimelineEvents' {maxResults} -> maxResults) (\s@ListTimelineEvents' {} a -> s {maxResults = a} :: ListTimelineEvents)
 
--- | The Amazon Resource Name (ARN) of the incident that the event is part
--- of.
+-- | The Amazon Resource Name (ARN) of the incident that includes the
+-- timeline event.
 listTimelineEvents_incidentRecordArn :: Lens.Lens' ListTimelineEvents Prelude.Text
 listTimelineEvents_incidentRecordArn = Lens.lens (\ListTimelineEvents' {incidentRecordArn} -> incidentRecordArn) (\s@ListTimelineEvents' {} a -> s {incidentRecordArn = a} :: ListTimelineEvents)
 

@@ -29,9 +29,11 @@ import Amazonka.SSMIncidents.Types.DeleteRegionAction
 --
 -- /See:/ 'newUpdateReplicationSetAction' smart constructor.
 data UpdateReplicationSetAction = UpdateReplicationSetAction'
-  { -- | Details about the Region that you\'re deleting to the replication set.
+  { -- | Details about the Amazon Web Services Region that you\'re deleting to
+    -- the replication set.
     deleteRegionAction :: Prelude.Maybe DeleteRegionAction,
-    -- | Details about the Region that you\'re adding to the replication set.
+    -- | Details about the Amazon Web Services Region that you\'re adding to the
+    -- replication set.
     addRegionAction :: Prelude.Maybe AddRegionAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +46,11 @@ data UpdateReplicationSetAction = UpdateReplicationSetAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deleteRegionAction', 'updateReplicationSetAction_deleteRegionAction' - Details about the Region that you\'re deleting to the replication set.
+-- 'deleteRegionAction', 'updateReplicationSetAction_deleteRegionAction' - Details about the Amazon Web Services Region that you\'re deleting to
+-- the replication set.
 --
--- 'addRegionAction', 'updateReplicationSetAction_addRegionAction' - Details about the Region that you\'re adding to the replication set.
+-- 'addRegionAction', 'updateReplicationSetAction_addRegionAction' - Details about the Amazon Web Services Region that you\'re adding to the
+-- replication set.
 newUpdateReplicationSetAction ::
   UpdateReplicationSetAction
 newUpdateReplicationSetAction =
@@ -56,11 +60,13 @@ newUpdateReplicationSetAction =
       addRegionAction = Prelude.Nothing
     }
 
--- | Details about the Region that you\'re deleting to the replication set.
+-- | Details about the Amazon Web Services Region that you\'re deleting to
+-- the replication set.
 updateReplicationSetAction_deleteRegionAction :: Lens.Lens' UpdateReplicationSetAction (Prelude.Maybe DeleteRegionAction)
 updateReplicationSetAction_deleteRegionAction = Lens.lens (\UpdateReplicationSetAction' {deleteRegionAction} -> deleteRegionAction) (\s@UpdateReplicationSetAction' {} a -> s {deleteRegionAction = a} :: UpdateReplicationSetAction)
 
--- | Details about the Region that you\'re adding to the replication set.
+-- | Details about the Amazon Web Services Region that you\'re adding to the
+-- replication set.
 updateReplicationSetAction_addRegionAction :: Lens.Lens' UpdateReplicationSetAction (Prelude.Maybe AddRegionAction)
 updateReplicationSetAction_addRegionAction = Lens.lens (\UpdateReplicationSetAction' {addRegionAction} -> addRegionAction) (\s@UpdateReplicationSetAction' {} a -> s {addRegionAction = a} :: UpdateReplicationSetAction)
 

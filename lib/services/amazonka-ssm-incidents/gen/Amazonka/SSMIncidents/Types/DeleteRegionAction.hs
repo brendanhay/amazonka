@@ -23,12 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines the information about the Region you\'re deleting from your
--- replication set.
+-- | Defines the information about the Amazon Web Services Region you\'re
+-- deleting from your replication set.
 --
 -- /See:/ 'newDeleteRegionAction' smart constructor.
 data DeleteRegionAction = DeleteRegionAction'
-  { -- | The name of the Region you\'re deleting from the replication set.
+  { -- | The name of the Amazon Web Services Region you\'re deleting from the
+    -- replication set.
     regionName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +42,8 @@ data DeleteRegionAction = DeleteRegionAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'regionName', 'deleteRegionAction_regionName' - The name of the Region you\'re deleting from the replication set.
+-- 'regionName', 'deleteRegionAction_regionName' - The name of the Amazon Web Services Region you\'re deleting from the
+-- replication set.
 newDeleteRegionAction ::
   -- | 'regionName'
   Prelude.Text ->
@@ -49,7 +51,8 @@ newDeleteRegionAction ::
 newDeleteRegionAction pRegionName_ =
   DeleteRegionAction' {regionName = pRegionName_}
 
--- | The name of the Region you\'re deleting from the replication set.
+-- | The name of the Amazon Web Services Region you\'re deleting from the
+-- replication set.
 deleteRegionAction_regionName :: Lens.Lens' DeleteRegionAction Prelude.Text
 deleteRegionAction_regionName = Lens.lens (\DeleteRegionAction' {regionName} -> regionName) (\s@DeleteRegionAction' {} a -> s {regionName = a} :: DeleteRegionAction)
 

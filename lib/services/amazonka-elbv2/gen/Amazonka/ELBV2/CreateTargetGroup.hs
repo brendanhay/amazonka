@@ -119,11 +119,11 @@ data CreateTargetGroup = CreateTargetGroup'
     -- enabled and cannot be disabled.
     healthCheckEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The approximate amount of time, in seconds, between health checks of an
-    -- individual target. If the target group protocol is TCP, TLS, UDP, or
-    -- TCP_UDP, the supported values are 10 and 30 seconds. If the target group
-    -- protocol is HTTP or HTTPS, the default is 30 seconds. If the target
-    -- group protocol is GENEVE, the default is 10 seconds. If the target type
-    -- is @lambda@, the default is 35 seconds.
+    -- individual target. If the target group protocol is HTTP or HTTPS, the
+    -- default is 30 seconds. If the target group protocol is TCP, TLS, UDP, or
+    -- TCP_UDP, the supported values are 10 and 30 seconds and the default is
+    -- 30 seconds. If the target group protocol is GENEVE, the default is 10
+    -- seconds. If the target type is @lambda@, the default is 35 seconds.
     healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The number of consecutive health checks successes required before
     -- considering an unhealthy target healthy. For target groups with a
@@ -237,11 +237,11 @@ data CreateTargetGroup = CreateTargetGroup'
 -- enabled and cannot be disabled.
 --
 -- 'healthCheckIntervalSeconds', 'createTargetGroup_healthCheckIntervalSeconds' - The approximate amount of time, in seconds, between health checks of an
--- individual target. If the target group protocol is TCP, TLS, UDP, or
--- TCP_UDP, the supported values are 10 and 30 seconds. If the target group
--- protocol is HTTP or HTTPS, the default is 30 seconds. If the target
--- group protocol is GENEVE, the default is 10 seconds. If the target type
--- is @lambda@, the default is 35 seconds.
+-- individual target. If the target group protocol is HTTP or HTTPS, the
+-- default is 30 seconds. If the target group protocol is TCP, TLS, UDP, or
+-- TCP_UDP, the supported values are 10 and 30 seconds and the default is
+-- 30 seconds. If the target group protocol is GENEVE, the default is 10
+-- seconds. If the target type is @lambda@, the default is 35 seconds.
 --
 -- 'healthyThresholdCount', 'createTargetGroup_healthyThresholdCount' - The number of consecutive health checks successes required before
 -- considering an unhealthy target healthy. For target groups with a
@@ -383,11 +383,11 @@ createTargetGroup_healthCheckEnabled :: Lens.Lens' CreateTargetGroup (Prelude.Ma
 createTargetGroup_healthCheckEnabled = Lens.lens (\CreateTargetGroup' {healthCheckEnabled} -> healthCheckEnabled) (\s@CreateTargetGroup' {} a -> s {healthCheckEnabled = a} :: CreateTargetGroup)
 
 -- | The approximate amount of time, in seconds, between health checks of an
--- individual target. If the target group protocol is TCP, TLS, UDP, or
--- TCP_UDP, the supported values are 10 and 30 seconds. If the target group
--- protocol is HTTP or HTTPS, the default is 30 seconds. If the target
--- group protocol is GENEVE, the default is 10 seconds. If the target type
--- is @lambda@, the default is 35 seconds.
+-- individual target. If the target group protocol is HTTP or HTTPS, the
+-- default is 30 seconds. If the target group protocol is TCP, TLS, UDP, or
+-- TCP_UDP, the supported values are 10 and 30 seconds and the default is
+-- 30 seconds. If the target group protocol is GENEVE, the default is 10
+-- seconds. If the target type is @lambda@, the default is 35 seconds.
 createTargetGroup_healthCheckIntervalSeconds :: Lens.Lens' CreateTargetGroup (Prelude.Maybe Prelude.Natural)
 createTargetGroup_healthCheckIntervalSeconds = Lens.lens (\CreateTargetGroup' {healthCheckIntervalSeconds} -> healthCheckIntervalSeconds) (\s@CreateTargetGroup' {} a -> s {healthCheckIntervalSeconds = a} :: CreateTargetGroup)
 

@@ -97,7 +97,7 @@ data SetSubnets = SetSubnets'
     -- for your load balancer. The possible values are @ipv4@ (for IPv4
     -- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
     -- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
-    -- Internal load balancers must use @ipv4@.
+    -- .
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The Amazon Resource Name (ARN) of the load balancer.
     loadBalancerArn :: Prelude.Text
@@ -151,7 +151,7 @@ data SetSubnets = SetSubnets'
 -- for your load balancer. The possible values are @ipv4@ (for IPv4
 -- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
 -- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
--- Internal load balancers must use @ipv4@.
+-- .
 --
 -- 'loadBalancerArn', 'setSubnets_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
 newSetSubnets ::
@@ -209,7 +209,7 @@ setSubnets_subnetMappings = Lens.lens (\SetSubnets' {subnetMappings} -> subnetMa
 -- for your load balancer. The possible values are @ipv4@ (for IPv4
 -- addresses) and @dualstack@ (for IPv4 and IPv6 addresses). You can’t
 -- specify @dualstack@ for a load balancer with a UDP or TCP_UDP listener.
--- Internal load balancers must use @ipv4@.
+-- .
 setSubnets_ipAddressType :: Lens.Lens' SetSubnets (Prelude.Maybe IpAddressType)
 setSubnets_ipAddressType = Lens.lens (\SetSubnets' {ipAddressType} -> ipAddressType) (\s@SetSubnets' {} a -> s {ipAddressType = a} :: SetSubnets)
 

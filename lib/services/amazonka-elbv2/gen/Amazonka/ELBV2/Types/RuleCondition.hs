@@ -34,7 +34,8 @@ import qualified Amazonka.Prelude as Prelude
 -- Each rule can optionally include up to one of each of the following
 -- conditions: @http-request-method@, @host-header@, @path-pattern@, and
 -- @source-ip@. Each rule can also optionally include one or more of each
--- of the following conditions: @http-header@ and @query-string@.
+-- of the following conditions: @http-header@ and @query-string@. Note that
+-- the value for a condition cannot be empty.
 --
 -- /See:/ 'newRuleCondition' smart constructor.
 data RuleCondition = RuleCondition'

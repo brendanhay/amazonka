@@ -39,6 +39,9 @@ import Test.Tasty
 --         , requestCreateAlias $
 --             newCreateAlias
 --
+--         , requestCreateAvailabilityConfiguration $
+--             newCreateAvailabilityConfiguration
+--
 --         , requestCreateGroup $
 --             newCreateGroup
 --
@@ -59,6 +62,12 @@ import Test.Tasty
 --
 --         , requestDeleteAlias $
 --             newDeleteAlias
+--
+--         , requestDeleteAvailabilityConfiguration $
+--             newDeleteAvailabilityConfiguration
+--
+--         , requestDeleteEmailMonitoringConfiguration $
+--             newDeleteEmailMonitoringConfiguration
 --
 --         , requestDeleteGroup $
 --             newDeleteGroup
@@ -89,6 +98,9 @@ import Test.Tasty
 --
 --         , requestDeregisterMailDomain $
 --             newDeregisterMailDomain
+--
+--         , requestDescribeEmailMonitoringConfiguration $
+--             newDescribeEmailMonitoringConfiguration
 --
 --         , requestDescribeGroup $
 --             newDescribeGroup
@@ -138,6 +150,9 @@ import Test.Tasty
 --         , requestListAliases $
 --             newListAliases
 --
+--         , requestListAvailabilityConfigurations $
+--             newListAvailabilityConfigurations
+--
 --         , requestListGroupMembers $
 --             newListGroupMembers
 --
@@ -177,6 +192,9 @@ import Test.Tasty
 --         , requestPutAccessControlRule $
 --             newPutAccessControlRule
 --
+--         , requestPutEmailMonitoringConfiguration $
+--             newPutEmailMonitoringConfiguration
+--
 --         , requestPutInboundDmarcSettings $
 --             newPutInboundDmarcSettings
 --
@@ -204,8 +222,14 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
+--         , requestTestAvailabilityConfiguration $
+--             newTestAvailabilityConfiguration
+--
 --         , requestUntagResource $
 --             newUntagResource
+--
+--         , requestUpdateAvailabilityConfiguration $
+--             newUpdateAvailabilityConfiguration
 --
 --         , requestUpdateDefaultMailDomain $
 --             newUpdateDefaultMailDomain
@@ -237,6 +261,9 @@ import Test.Tasty
 --         , responseCreateAlias $
 --             newCreateAliasResponse
 --
+--         , responseCreateAvailabilityConfiguration $
+--             newCreateAvailabilityConfigurationResponse
+--
 --         , responseCreateGroup $
 --             newCreateGroupResponse
 --
@@ -257,6 +284,12 @@ import Test.Tasty
 --
 --         , responseDeleteAlias $
 --             newDeleteAliasResponse
+--
+--         , responseDeleteAvailabilityConfiguration $
+--             newDeleteAvailabilityConfigurationResponse
+--
+--         , responseDeleteEmailMonitoringConfiguration $
+--             newDeleteEmailMonitoringConfigurationResponse
 --
 --         , responseDeleteGroup $
 --             newDeleteGroupResponse
@@ -287,6 +320,9 @@ import Test.Tasty
 --
 --         , responseDeregisterMailDomain $
 --             newDeregisterMailDomainResponse
+--
+--         , responseDescribeEmailMonitoringConfiguration $
+--             newDescribeEmailMonitoringConfigurationResponse
 --
 --         , responseDescribeGroup $
 --             newDescribeGroupResponse
@@ -336,6 +372,9 @@ import Test.Tasty
 --         , responseListAliases $
 --             newListAliasesResponse
 --
+--         , responseListAvailabilityConfigurations $
+--             newListAvailabilityConfigurationsResponse
+--
 --         , responseListGroupMembers $
 --             newListGroupMembersResponse
 --
@@ -375,6 +414,9 @@ import Test.Tasty
 --         , responsePutAccessControlRule $
 --             newPutAccessControlRuleResponse
 --
+--         , responsePutEmailMonitoringConfiguration $
+--             newPutEmailMonitoringConfigurationResponse
+--
 --         , responsePutInboundDmarcSettings $
 --             newPutInboundDmarcSettingsResponse
 --
@@ -402,8 +444,14 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
+--         , responseTestAvailabilityConfiguration $
+--             newTestAvailabilityConfigurationResponse
+--
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseUpdateAvailabilityConfiguration $
+--             newUpdateAvailabilityConfigurationResponse
 --
 --         , responseUpdateDefaultMailDomain $
 --             newUpdateDefaultMailDomainResponse
@@ -449,6 +497,12 @@ requestCreateAlias =
     "CreateAlias"
     "fixture/CreateAlias.yaml"
 
+requestCreateAvailabilityConfiguration :: CreateAvailabilityConfiguration -> TestTree
+requestCreateAvailabilityConfiguration =
+  req
+    "CreateAvailabilityConfiguration"
+    "fixture/CreateAvailabilityConfiguration.yaml"
+
 requestCreateGroup :: CreateGroup -> TestTree
 requestCreateGroup =
   req
@@ -490,6 +544,18 @@ requestDeleteAlias =
   req
     "DeleteAlias"
     "fixture/DeleteAlias.yaml"
+
+requestDeleteAvailabilityConfiguration :: DeleteAvailabilityConfiguration -> TestTree
+requestDeleteAvailabilityConfiguration =
+  req
+    "DeleteAvailabilityConfiguration"
+    "fixture/DeleteAvailabilityConfiguration.yaml"
+
+requestDeleteEmailMonitoringConfiguration :: DeleteEmailMonitoringConfiguration -> TestTree
+requestDeleteEmailMonitoringConfiguration =
+  req
+    "DeleteEmailMonitoringConfiguration"
+    "fixture/DeleteEmailMonitoringConfiguration.yaml"
 
 requestDeleteGroup :: DeleteGroup -> TestTree
 requestDeleteGroup =
@@ -550,6 +616,12 @@ requestDeregisterMailDomain =
   req
     "DeregisterMailDomain"
     "fixture/DeregisterMailDomain.yaml"
+
+requestDescribeEmailMonitoringConfiguration :: DescribeEmailMonitoringConfiguration -> TestTree
+requestDescribeEmailMonitoringConfiguration =
+  req
+    "DescribeEmailMonitoringConfiguration"
+    "fixture/DescribeEmailMonitoringConfiguration.yaml"
 
 requestDescribeGroup :: DescribeGroup -> TestTree
 requestDescribeGroup =
@@ -647,6 +719,12 @@ requestListAliases =
     "ListAliases"
     "fixture/ListAliases.yaml"
 
+requestListAvailabilityConfigurations :: ListAvailabilityConfigurations -> TestTree
+requestListAvailabilityConfigurations =
+  req
+    "ListAvailabilityConfigurations"
+    "fixture/ListAvailabilityConfigurations.yaml"
+
 requestListGroupMembers :: ListGroupMembers -> TestTree
 requestListGroupMembers =
   req
@@ -725,6 +803,12 @@ requestPutAccessControlRule =
     "PutAccessControlRule"
     "fixture/PutAccessControlRule.yaml"
 
+requestPutEmailMonitoringConfiguration :: PutEmailMonitoringConfiguration -> TestTree
+requestPutEmailMonitoringConfiguration =
+  req
+    "PutEmailMonitoringConfiguration"
+    "fixture/PutEmailMonitoringConfiguration.yaml"
+
 requestPutInboundDmarcSettings :: PutInboundDmarcSettings -> TestTree
 requestPutInboundDmarcSettings =
   req
@@ -779,11 +863,23 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
+requestTestAvailabilityConfiguration :: TestAvailabilityConfiguration -> TestTree
+requestTestAvailabilityConfiguration =
+  req
+    "TestAvailabilityConfiguration"
+    "fixture/TestAvailabilityConfiguration.yaml"
+
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestUpdateAvailabilityConfiguration :: UpdateAvailabilityConfiguration -> TestTree
+requestUpdateAvailabilityConfiguration =
+  req
+    "UpdateAvailabilityConfiguration"
+    "fixture/UpdateAvailabilityConfiguration.yaml"
 
 requestUpdateDefaultMailDomain :: UpdateDefaultMailDomain -> TestTree
 requestUpdateDefaultMailDomain =
@@ -849,6 +945,14 @@ responseCreateAlias =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAlias)
 
+responseCreateAvailabilityConfiguration :: CreateAvailabilityConfigurationResponse -> TestTree
+responseCreateAvailabilityConfiguration =
+  res
+    "CreateAvailabilityConfigurationResponse"
+    "fixture/CreateAvailabilityConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAvailabilityConfiguration)
+
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
   res
@@ -904,6 +1008,22 @@ responseDeleteAlias =
     "fixture/DeleteAliasResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAlias)
+
+responseDeleteAvailabilityConfiguration :: DeleteAvailabilityConfigurationResponse -> TestTree
+responseDeleteAvailabilityConfiguration =
+  res
+    "DeleteAvailabilityConfigurationResponse"
+    "fixture/DeleteAvailabilityConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAvailabilityConfiguration)
+
+responseDeleteEmailMonitoringConfiguration :: DeleteEmailMonitoringConfigurationResponse -> TestTree
+responseDeleteEmailMonitoringConfiguration =
+  res
+    "DeleteEmailMonitoringConfigurationResponse"
+    "fixture/DeleteEmailMonitoringConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEmailMonitoringConfiguration)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -984,6 +1104,14 @@ responseDeregisterMailDomain =
     "fixture/DeregisterMailDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeregisterMailDomain)
+
+responseDescribeEmailMonitoringConfiguration :: DescribeEmailMonitoringConfigurationResponse -> TestTree
+responseDescribeEmailMonitoringConfiguration =
+  res
+    "DescribeEmailMonitoringConfigurationResponse"
+    "fixture/DescribeEmailMonitoringConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEmailMonitoringConfiguration)
 
 responseDescribeGroup :: DescribeGroupResponse -> TestTree
 responseDescribeGroup =
@@ -1113,6 +1241,14 @@ responseListAliases =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAliases)
 
+responseListAvailabilityConfigurations :: ListAvailabilityConfigurationsResponse -> TestTree
+responseListAvailabilityConfigurations =
+  res
+    "ListAvailabilityConfigurationsResponse"
+    "fixture/ListAvailabilityConfigurationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAvailabilityConfigurations)
+
 responseListGroupMembers :: ListGroupMembersResponse -> TestTree
 responseListGroupMembers =
   res
@@ -1217,6 +1353,14 @@ responsePutAccessControlRule =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutAccessControlRule)
 
+responsePutEmailMonitoringConfiguration :: PutEmailMonitoringConfigurationResponse -> TestTree
+responsePutEmailMonitoringConfiguration =
+  res
+    "PutEmailMonitoringConfigurationResponse"
+    "fixture/PutEmailMonitoringConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutEmailMonitoringConfiguration)
+
 responsePutInboundDmarcSettings :: PutInboundDmarcSettingsResponse -> TestTree
 responsePutInboundDmarcSettings =
   res
@@ -1289,6 +1433,14 @@ responseTagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TagResource)
 
+responseTestAvailabilityConfiguration :: TestAvailabilityConfigurationResponse -> TestTree
+responseTestAvailabilityConfiguration =
+  res
+    "TestAvailabilityConfigurationResponse"
+    "fixture/TestAvailabilityConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TestAvailabilityConfiguration)
+
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -1296,6 +1448,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAvailabilityConfiguration :: UpdateAvailabilityConfigurationResponse -> TestTree
+responseUpdateAvailabilityConfiguration =
+  res
+    "UpdateAvailabilityConfigurationResponse"
+    "fixture/UpdateAvailabilityConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAvailabilityConfiguration)
 
 responseUpdateDefaultMailDomain :: UpdateDefaultMailDomainResponse -> TestTree
 responseUpdateDefaultMailDomain =

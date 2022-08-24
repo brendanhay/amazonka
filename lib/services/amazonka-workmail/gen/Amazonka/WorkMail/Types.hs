@@ -43,6 +43,9 @@ module Amazonka.WorkMail.Types
     -- * AccessControlRuleEffect
     AccessControlRuleEffect (..),
 
+    -- * AvailabilityProviderType
+    AvailabilityProviderType (..),
+
     -- * DnsRecordVerificationStatus
     DnsRecordVerificationStatus (..),
 
@@ -88,6 +91,16 @@ module Amazonka.WorkMail.Types
     accessControlRule_notUserIds,
     accessControlRule_actions,
 
+    -- * AvailabilityConfiguration
+    AvailabilityConfiguration (..),
+    newAvailabilityConfiguration,
+    availabilityConfiguration_ewsProvider,
+    availabilityConfiguration_domainName,
+    availabilityConfiguration_providerType,
+    availabilityConfiguration_lambdaProvider,
+    availabilityConfiguration_dateCreated,
+    availabilityConfiguration_dateModified,
+
     -- * BookingOptions
     BookingOptions (..),
     newBookingOptions,
@@ -114,6 +127,13 @@ module Amazonka.WorkMail.Types
     domain_hostedZoneId,
     domain_domainName,
 
+    -- * EwsAvailabilityProvider
+    EwsAvailabilityProvider (..),
+    newEwsAvailabilityProvider,
+    ewsAvailabilityProvider_ewsEndpoint,
+    ewsAvailabilityProvider_ewsUsername,
+    ewsAvailabilityProvider_ewsPassword,
+
     -- * FolderConfiguration
     FolderConfiguration (..),
     newFolderConfiguration,
@@ -130,6 +150,11 @@ module Amazonka.WorkMail.Types
     group_id,
     group_enabledDate,
     group_disabledDate,
+
+    -- * LambdaAvailabilityProvider
+    LambdaAvailabilityProvider (..),
+    newLambdaAvailabilityProvider,
+    lambdaAvailabilityProvider_lambdaArn,
 
     -- * MailDomainSummary
     MailDomainSummary (..),
@@ -210,6 +235,12 @@ module Amazonka.WorkMail.Types
     permission_granteeType,
     permission_permissionValues,
 
+    -- * RedactedEwsAvailabilityProvider
+    RedactedEwsAvailabilityProvider (..),
+    newRedactedEwsAvailabilityProvider,
+    redactedEwsAvailabilityProvider_ewsUsername,
+    redactedEwsAvailabilityProvider_ewsEndpoint,
+
     -- * Resource
     Resource (..),
     newResource,
@@ -247,15 +278,19 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 import Amazonka.WorkMail.Types.AccessControlRule
 import Amazonka.WorkMail.Types.AccessControlRuleEffect
+import Amazonka.WorkMail.Types.AvailabilityConfiguration
+import Amazonka.WorkMail.Types.AvailabilityProviderType
 import Amazonka.WorkMail.Types.BookingOptions
 import Amazonka.WorkMail.Types.Delegate
 import Amazonka.WorkMail.Types.DnsRecord
 import Amazonka.WorkMail.Types.DnsRecordVerificationStatus
 import Amazonka.WorkMail.Types.Domain
 import Amazonka.WorkMail.Types.EntityState
+import Amazonka.WorkMail.Types.EwsAvailabilityProvider
 import Amazonka.WorkMail.Types.FolderConfiguration
 import Amazonka.WorkMail.Types.FolderName
 import Amazonka.WorkMail.Types.Group
+import Amazonka.WorkMail.Types.LambdaAvailabilityProvider
 import Amazonka.WorkMail.Types.MailDomainSummary
 import Amazonka.WorkMail.Types.MailboxExportJob
 import Amazonka.WorkMail.Types.MailboxExportJobState
@@ -268,6 +303,7 @@ import Amazonka.WorkMail.Types.MobileDeviceAccessRuleEffect
 import Amazonka.WorkMail.Types.OrganizationSummary
 import Amazonka.WorkMail.Types.Permission
 import Amazonka.WorkMail.Types.PermissionType
+import Amazonka.WorkMail.Types.RedactedEwsAvailabilityProvider
 import Amazonka.WorkMail.Types.Resource
 import Amazonka.WorkMail.Types.ResourceType
 import Amazonka.WorkMail.Types.RetentionAction

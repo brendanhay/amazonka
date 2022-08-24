@@ -81,8 +81,7 @@ data UpdateContent = UpdateContent'
     -- | The identifier of the content. Can be either the ID or the ARN. URLs
     -- cannot contain the ARN.
     contentId :: Prelude.Text,
-    -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN
+    -- | The identifier of the knowledge base. Can be either the ID or the ARN
     knowledgeBaseId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -121,8 +120,7 @@ data UpdateContent = UpdateContent'
 -- 'contentId', 'updateContent_contentId' - The identifier of the content. Can be either the ID or the ARN. URLs
 -- cannot contain the ARN.
 --
--- 'knowledgeBaseId', 'updateContent_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN
+-- 'knowledgeBaseId', 'updateContent_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN
 newUpdateContent ::
   -- | 'contentId'
   Prelude.Text ->
@@ -181,8 +179,7 @@ updateContent_removeOverrideLinkOutUri = Lens.lens (\UpdateContent' {removeOverr
 updateContent_contentId :: Lens.Lens' UpdateContent Prelude.Text
 updateContent_contentId = Lens.lens (\UpdateContent' {contentId} -> contentId) (\s@UpdateContent' {} a -> s {contentId = a} :: UpdateContent)
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN
+-- | The identifier of the knowledge base. Can be either the ID or the ARN
 updateContent_knowledgeBaseId :: Lens.Lens' UpdateContent Prelude.Text
 updateContent_knowledgeBaseId = Lens.lens (\UpdateContent' {knowledgeBaseId} -> knowledgeBaseId) (\s@UpdateContent' {} a -> s {knowledgeBaseId = a} :: UpdateContent)
 

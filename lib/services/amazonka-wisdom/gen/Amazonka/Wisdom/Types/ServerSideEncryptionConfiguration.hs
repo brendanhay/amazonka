@@ -28,8 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newServerSideEncryptionConfiguration' smart constructor.
 data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
   { -- | The KMS key. For information about valid ID values, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id Key identifiers (KeyId)>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id Key identifiers (KeyId)>.
     kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +42,7 @@ data ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
 -- for backwards compatibility:
 --
 -- 'kmsKeyId', 'serverSideEncryptionConfiguration_kmsKeyId' - The KMS key. For information about valid ID values, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id Key identifiers (KeyId)>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id Key identifiers (KeyId)>.
 newServerSideEncryptionConfiguration ::
   ServerSideEncryptionConfiguration
 newServerSideEncryptionConfiguration =
@@ -54,8 +52,7 @@ newServerSideEncryptionConfiguration =
     }
 
 -- | The KMS key. For information about valid ID values, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id Key identifiers (KeyId)>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id Key identifiers (KeyId)>.
 serverSideEncryptionConfiguration_kmsKeyId :: Lens.Lens' ServerSideEncryptionConfiguration (Prelude.Maybe Prelude.Text)
 serverSideEncryptionConfiguration_kmsKeyId = Lens.lens (\ServerSideEncryptionConfiguration' {kmsKeyId} -> kmsKeyId) (\s@ServerSideEncryptionConfiguration' {} a -> s {kmsKeyId = a} :: ServerSideEncryptionConfiguration)
 

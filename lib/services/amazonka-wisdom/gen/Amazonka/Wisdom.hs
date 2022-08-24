@@ -11,10 +11,12 @@
 --
 -- Derived from API version @2020-10-19@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- All Amazon Connect Wisdom functionality is accessible using the API. For
--- example, you can create an assistant and a knowledge base.
---
--- >  <p>Some more advanced features are only accessible using the Wisdom API. For example, you can manually manage content by uploading custom files and control their lifecycle. </p>
+-- Amazon Connect Wisdom delivers agents the information they need to solve
+-- customer issues as they\'re actively speaking with customers. Agents can
+-- search across connected repositories from within their agent desktop to
+-- find answers quickly. Use the Amazon Connect Wisdom APIs to create an
+-- assistant and a knowledge base, for example, or manage content by
+-- uploading custom files.
 module Amazonka.Wisdom
   ( -- * Service Configuration
     defaultService,
@@ -181,6 +183,12 @@ module Amazonka.Wisdom
     NotifyRecommendationsReceivedResponse (NotifyRecommendationsReceivedResponse'),
     newNotifyRecommendationsReceivedResponse,
 
+    -- ** PutFeedback
+    PutFeedback (PutFeedback'),
+    newPutFeedback,
+    PutFeedbackResponse (PutFeedbackResponse'),
+    newPutFeedbackResponse,
+
     -- ** QueryAssistant (Paginated)
     QueryAssistant (QueryAssistant'),
     newQueryAssistant,
@@ -261,8 +269,23 @@ module Amazonka.Wisdom
     -- ** KnowledgeBaseType
     KnowledgeBaseType (..),
 
+    -- ** RecommendationSourceType
+    RecommendationSourceType (..),
+
+    -- ** RecommendationTriggerType
+    RecommendationTriggerType (..),
+
+    -- ** RecommendationType
+    RecommendationType (..),
+
+    -- ** Relevance
+    Relevance (..),
+
     -- ** RelevanceLevel
     RelevanceLevel (..),
+
+    -- ** TargetType
+    TargetType (..),
 
     -- ** AppIntegrationsConfiguration
     AppIntegrationsConfiguration (AppIntegrationsConfiguration'),
@@ -312,6 +335,10 @@ module Amazonka.Wisdom
     DocumentText (DocumentText'),
     newDocumentText,
 
+    -- ** FeedbackData
+    FeedbackData (FeedbackData'),
+    newFeedbackData,
+
     -- ** Filter
     Filter (Filter'),
     newFilter,
@@ -336,9 +363,21 @@ module Amazonka.Wisdom
     NotifyRecommendationsReceivedError (NotifyRecommendationsReceivedError'),
     newNotifyRecommendationsReceivedError,
 
+    -- ** QueryRecommendationTriggerData
+    QueryRecommendationTriggerData (QueryRecommendationTriggerData'),
+    newQueryRecommendationTriggerData,
+
     -- ** RecommendationData
     RecommendationData (RecommendationData'),
     newRecommendationData,
+
+    -- ** RecommendationTrigger
+    RecommendationTrigger (RecommendationTrigger'),
+    newRecommendationTrigger,
+
+    -- ** RecommendationTriggerData
+    RecommendationTriggerData (RecommendationTriggerData'),
+    newRecommendationTriggerData,
 
     -- ** RenderingConfiguration
     RenderingConfiguration (RenderingConfiguration'),
@@ -393,6 +432,7 @@ import Amazonka.Wisdom.ListContents
 import Amazonka.Wisdom.ListKnowledgeBases
 import Amazonka.Wisdom.ListTagsForResource
 import Amazonka.Wisdom.NotifyRecommendationsReceived
+import Amazonka.Wisdom.PutFeedback
 import Amazonka.Wisdom.QueryAssistant
 import Amazonka.Wisdom.RemoveKnowledgeBaseTemplateUri
 import Amazonka.Wisdom.SearchContent

@@ -49,8 +49,23 @@ module Amazonka.Wisdom.Types
     -- * KnowledgeBaseType
     KnowledgeBaseType (..),
 
+    -- * RecommendationSourceType
+    RecommendationSourceType (..),
+
+    -- * RecommendationTriggerType
+    RecommendationTriggerType (..),
+
+    -- * RecommendationType
+    RecommendationType (..),
+
+    -- * Relevance
+    Relevance (..),
+
     -- * RelevanceLevel
     RelevanceLevel (..),
+
+    -- * TargetType
+    TargetType (..),
 
     -- * AppIntegrationsConfiguration
     AppIntegrationsConfiguration (..),
@@ -168,6 +183,11 @@ module Amazonka.Wisdom.Types
     documentText_highlights,
     documentText_text,
 
+    -- * FeedbackData
+    FeedbackData (..),
+    newFeedbackData,
+    feedbackData_relevance,
+
     -- * Filter
     Filter (..),
     newFilter,
@@ -222,13 +242,33 @@ module Amazonka.Wisdom.Types
     notifyRecommendationsReceivedError_message,
     notifyRecommendationsReceivedError_recommendationId,
 
+    -- * QueryRecommendationTriggerData
+    QueryRecommendationTriggerData (..),
+    newQueryRecommendationTriggerData,
+    queryRecommendationTriggerData_text,
+
     -- * RecommendationData
     RecommendationData (..),
     newRecommendationData,
+    recommendationData_type,
     recommendationData_relevanceLevel,
     recommendationData_relevanceScore,
     recommendationData_document,
     recommendationData_recommendationId,
+
+    -- * RecommendationTrigger
+    RecommendationTrigger (..),
+    newRecommendationTrigger,
+    recommendationTrigger_data,
+    recommendationTrigger_id,
+    recommendationTrigger_recommendationIds,
+    recommendationTrigger_source,
+    recommendationTrigger_type,
+
+    -- * RecommendationTriggerData
+    RecommendationTriggerData (..),
+    newRecommendationTriggerData,
+    recommendationTriggerData_query,
 
     -- * RenderingConfiguration
     RenderingConfiguration (..),
@@ -296,6 +336,7 @@ import Amazonka.Wisdom.Types.ContentStatus
 import Amazonka.Wisdom.Types.ContentSummary
 import Amazonka.Wisdom.Types.Document
 import Amazonka.Wisdom.Types.DocumentText
+import Amazonka.Wisdom.Types.FeedbackData
 import Amazonka.Wisdom.Types.Filter
 import Amazonka.Wisdom.Types.FilterField
 import Amazonka.Wisdom.Types.FilterOperator
@@ -306,7 +347,14 @@ import Amazonka.Wisdom.Types.KnowledgeBaseStatus
 import Amazonka.Wisdom.Types.KnowledgeBaseSummary
 import Amazonka.Wisdom.Types.KnowledgeBaseType
 import Amazonka.Wisdom.Types.NotifyRecommendationsReceivedError
+import Amazonka.Wisdom.Types.QueryRecommendationTriggerData
 import Amazonka.Wisdom.Types.RecommendationData
+import Amazonka.Wisdom.Types.RecommendationSourceType
+import Amazonka.Wisdom.Types.RecommendationTrigger
+import Amazonka.Wisdom.Types.RecommendationTriggerData
+import Amazonka.Wisdom.Types.RecommendationTriggerType
+import Amazonka.Wisdom.Types.RecommendationType
+import Amazonka.Wisdom.Types.Relevance
 import Amazonka.Wisdom.Types.RelevanceLevel
 import Amazonka.Wisdom.Types.RenderingConfiguration
 import Amazonka.Wisdom.Types.ResultData
@@ -315,6 +363,7 @@ import Amazonka.Wisdom.Types.ServerSideEncryptionConfiguration
 import Amazonka.Wisdom.Types.SessionData
 import Amazonka.Wisdom.Types.SessionSummary
 import Amazonka.Wisdom.Types.SourceConfiguration
+import Amazonka.Wisdom.Types.TargetType
 
 -- | API version @2020-10-19@ of the Amazon Connect Wisdom Service SDK configuration.
 defaultService :: Core.Service
@@ -441,7 +490,7 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | The input fails to satisfy the constraints specified by an AWS service.
+-- | The input fails to satisfy the constraints specified by a service.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError

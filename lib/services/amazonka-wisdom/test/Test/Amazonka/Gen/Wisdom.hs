@@ -93,6 +93,9 @@ import Test.Tasty
 --         , requestNotifyRecommendationsReceived $
 --             newNotifyRecommendationsReceived
 --
+--         , requestPutFeedback $
+--             newPutFeedback
+--
 --         , requestQueryAssistant $
 --             newQueryAssistant
 --
@@ -188,6 +191,9 @@ import Test.Tasty
 --
 --         , responseNotifyRecommendationsReceived $
 --             newNotifyRecommendationsReceivedResponse
+--
+--         , responsePutFeedback $
+--             newPutFeedbackResponse
 --
 --         , responseQueryAssistant $
 --             newQueryAssistantResponse
@@ -352,6 +358,12 @@ requestNotifyRecommendationsReceived =
   req
     "NotifyRecommendationsReceived"
     "fixture/NotifyRecommendationsReceived.yaml"
+
+requestPutFeedback :: PutFeedback -> TestTree
+requestPutFeedback =
+  req
+    "PutFeedback"
+    "fixture/PutFeedback.yaml"
 
 requestQueryAssistant :: QueryAssistant -> TestTree
 requestQueryAssistant =
@@ -584,6 +596,14 @@ responseNotifyRecommendationsReceived =
     "fixture/NotifyRecommendationsReceivedResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy NotifyRecommendationsReceived)
+
+responsePutFeedback :: PutFeedbackResponse -> TestTree
+responsePutFeedback =
+  res
+    "PutFeedbackResponse"
+    "fixture/PutFeedbackResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutFeedback)
 
 responseQueryAssistant :: QueryAssistantResponse -> TestTree
 responseQueryAssistant =

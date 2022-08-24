@@ -61,8 +61,8 @@ data SearchContent = SearchContent'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+    -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text,
     -- | The search expression to filter results.
     searchExpression :: SearchExpression
@@ -83,8 +83,8 @@ data SearchContent = SearchContent'
 --
 -- 'maxResults', 'searchContent_maxResults' - The maximum number of results to return per page.
 --
--- 'knowledgeBaseId', 'searchContent_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'searchContent_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 --
 -- 'searchExpression', 'searchContent_searchExpression' - The search expression to filter results.
 newSearchContent ::
@@ -111,8 +111,8 @@ searchContent_nextToken = Lens.lens (\SearchContent' {nextToken} -> nextToken) (
 searchContent_maxResults :: Lens.Lens' SearchContent (Prelude.Maybe Prelude.Natural)
 searchContent_maxResults = Lens.lens (\SearchContent' {maxResults} -> maxResults) (\s@SearchContent' {} a -> s {maxResults = a} :: SearchContent)
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 searchContent_knowledgeBaseId :: Lens.Lens' SearchContent Prelude.Text
 searchContent_knowledgeBaseId = Lens.lens (\SearchContent' {knowledgeBaseId} -> knowledgeBaseId) (\s@SearchContent' {} a -> s {knowledgeBaseId = a} :: SearchContent)
 

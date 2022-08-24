@@ -44,6 +44,7 @@ module Amazonka.Wisdom.GetRecommendations
     newGetRecommendationsResponse,
 
     -- * Response Lenses
+    getRecommendationsResponse_triggers,
     getRecommendationsResponse_httpStatus,
     getRecommendationsResponse_recommendations,
   )
@@ -141,7 +142,8 @@ instance Core.AWSRequest GetRecommendations where
     Response.receiveJSON
       ( \s h x ->
           GetRecommendationsResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Core..?> "triggers" Core..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> ( x Core..?> "recommendations"
                             Core..!@ Prelude.mempty
                         )
@@ -191,7 +193,9 @@ instance Core.ToQuery GetRecommendations where
 
 -- | /See:/ 'newGetRecommendationsResponse' smart constructor.
 data GetRecommendationsResponse = GetRecommendationsResponse'
-  { -- | The response's http status code.
+  { -- | The triggers corresponding to recommendations.
+    triggers :: Prelude.Maybe [RecommendationTrigger],
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The recommendations.
     recommendations :: [RecommendationData]
@@ -206,6 +210,8 @@ data GetRecommendationsResponse = GetRecommendationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'triggers', 'getRecommendationsResponse_triggers' - The triggers corresponding to recommendations.
+--
 -- 'httpStatus', 'getRecommendationsResponse_httpStatus' - The response's http status code.
 --
 -- 'recommendations', 'getRecommendationsResponse_recommendations' - The recommendations.
@@ -215,10 +221,15 @@ newGetRecommendationsResponse ::
   GetRecommendationsResponse
 newGetRecommendationsResponse pHttpStatus_ =
   GetRecommendationsResponse'
-    { httpStatus =
-        pHttpStatus_,
+    { triggers =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_,
       recommendations = Prelude.mempty
     }
+
+-- | The triggers corresponding to recommendations.
+getRecommendationsResponse_triggers :: Lens.Lens' GetRecommendationsResponse (Prelude.Maybe [RecommendationTrigger])
+getRecommendationsResponse_triggers = Lens.lens (\GetRecommendationsResponse' {triggers} -> triggers) (\s@GetRecommendationsResponse' {} a -> s {triggers = a} :: GetRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
 getRecommendationsResponse_httpStatus :: Lens.Lens' GetRecommendationsResponse Prelude.Int
@@ -230,5 +241,6 @@ getRecommendationsResponse_recommendations = Lens.lens (\GetRecommendationsRespo
 
 instance Prelude.NFData GetRecommendationsResponse where
   rnf GetRecommendationsResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf triggers
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf recommendations

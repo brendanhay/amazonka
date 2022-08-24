@@ -51,8 +51,8 @@ data DeleteContent = DeleteContent'
   { -- | The identifier of the content. Can be either the ID or the ARN. URLs
     -- cannot contain the ARN.
     contentId :: Prelude.Text,
-    -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+    -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,8 +68,8 @@ data DeleteContent = DeleteContent'
 -- 'contentId', 'deleteContent_contentId' - The identifier of the content. Can be either the ID or the ARN. URLs
 -- cannot contain the ARN.
 --
--- 'knowledgeBaseId', 'deleteContent_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'deleteContent_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 newDeleteContent ::
   -- | 'contentId'
   Prelude.Text ->
@@ -87,8 +87,8 @@ newDeleteContent pContentId_ pKnowledgeBaseId_ =
 deleteContent_contentId :: Lens.Lens' DeleteContent Prelude.Text
 deleteContent_contentId = Lens.lens (\DeleteContent' {contentId} -> contentId) (\s@DeleteContent' {} a -> s {contentId = a} :: DeleteContent)
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 deleteContent_knowledgeBaseId :: Lens.Lens' DeleteContent Prelude.Text
 deleteContent_knowledgeBaseId = Lens.lens (\DeleteContent' {knowledgeBaseId} -> knowledgeBaseId) (\s@DeleteContent' {} a -> s {knowledgeBaseId = a} :: DeleteContent)
 

@@ -48,7 +48,7 @@ data KnowledgeBaseData = KnowledgeBaseData'
     renderingConfiguration :: Prelude.Maybe RenderingConfiguration,
     -- | The Amazon Resource Name (ARN) of the knowledge base.
     knowledgeBaseArn :: Prelude.Text,
-    -- | The the identifier of the knowledge base.
+    -- | The identifier of the knowledge base.
     knowledgeBaseId :: Prelude.Text,
     -- | The type of knowledge base.
     knowledgeBaseType :: KnowledgeBaseType,
@@ -83,7 +83,7 @@ data KnowledgeBaseData = KnowledgeBaseData'
 --
 -- 'knowledgeBaseArn', 'knowledgeBaseData_knowledgeBaseArn' - The Amazon Resource Name (ARN) of the knowledge base.
 --
--- 'knowledgeBaseId', 'knowledgeBaseData_knowledgeBaseId' - The the identifier of the knowledge base.
+-- 'knowledgeBaseId', 'knowledgeBaseData_knowledgeBaseId' - The identifier of the knowledge base.
 --
 -- 'knowledgeBaseType', 'knowledgeBaseData_knowledgeBaseType' - The type of knowledge base.
 --
@@ -152,7 +152,7 @@ knowledgeBaseData_renderingConfiguration = Lens.lens (\KnowledgeBaseData' {rende
 knowledgeBaseData_knowledgeBaseArn :: Lens.Lens' KnowledgeBaseData Prelude.Text
 knowledgeBaseData_knowledgeBaseArn = Lens.lens (\KnowledgeBaseData' {knowledgeBaseArn} -> knowledgeBaseArn) (\s@KnowledgeBaseData' {} a -> s {knowledgeBaseArn = a} :: KnowledgeBaseData)
 
--- | The the identifier of the knowledge base.
+-- | The identifier of the knowledge base.
 knowledgeBaseData_knowledgeBaseId :: Lens.Lens' KnowledgeBaseData Prelude.Text
 knowledgeBaseData_knowledgeBaseId = Lens.lens (\KnowledgeBaseData' {knowledgeBaseId} -> knowledgeBaseId) (\s@KnowledgeBaseData' {} a -> s {knowledgeBaseId = a} :: KnowledgeBaseData)
 

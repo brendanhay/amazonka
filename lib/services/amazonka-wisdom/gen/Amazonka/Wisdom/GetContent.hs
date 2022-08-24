@@ -52,8 +52,8 @@ data GetContent = GetContent'
   { -- | The identifier of the content. Can be either the ID or the ARN. URLs
     -- cannot contain the ARN.
     contentId :: Prelude.Text,
-    -- | The the identifier of the knowledge base. Can be either the ID or the
-    -- ARN. URLs cannot contain the ARN.
+    -- | The identifier of the knowledge base. Can be either the ID or the ARN.
+    -- URLs cannot contain the ARN.
     knowledgeBaseId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +69,8 @@ data GetContent = GetContent'
 -- 'contentId', 'getContent_contentId' - The identifier of the content. Can be either the ID or the ARN. URLs
 -- cannot contain the ARN.
 --
--- 'knowledgeBaseId', 'getContent_knowledgeBaseId' - The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- 'knowledgeBaseId', 'getContent_knowledgeBaseId' - The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 newGetContent ::
   -- | 'contentId'
   Prelude.Text ->
@@ -88,8 +88,8 @@ newGetContent pContentId_ pKnowledgeBaseId_ =
 getContent_contentId :: Lens.Lens' GetContent Prelude.Text
 getContent_contentId = Lens.lens (\GetContent' {contentId} -> contentId) (\s@GetContent' {} a -> s {contentId = a} :: GetContent)
 
--- | The the identifier of the knowledge base. Can be either the ID or the
--- ARN. URLs cannot contain the ARN.
+-- | The identifier of the knowledge base. Can be either the ID or the ARN.
+-- URLs cannot contain the ARN.
 getContent_knowledgeBaseId :: Lens.Lens' GetContent Prelude.Text
 getContent_knowledgeBaseId = Lens.lens (\GetContent' {knowledgeBaseId} -> knowledgeBaseId) (\s@GetContent' {} a -> s {knowledgeBaseId = a} :: GetContent)
 

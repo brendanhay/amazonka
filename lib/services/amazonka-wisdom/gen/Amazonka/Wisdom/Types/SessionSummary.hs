@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSessionSummary' smart constructor.
 data SessionSummary = SessionSummary'
-  { -- | The Amazon Resource Name (ARN) of the Wisdom assistant
+  { -- | The Amazon Resource Name (ARN) of the Wisdom assistant.
     assistantArn :: Prelude.Text,
     -- | The identifier of the Wisdom assistant.
     assistantId :: Prelude.Text,
@@ -46,7 +46,7 @@ data SessionSummary = SessionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assistantArn', 'sessionSummary_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant
+-- 'assistantArn', 'sessionSummary_assistantArn' - The Amazon Resource Name (ARN) of the Wisdom assistant.
 --
 -- 'assistantId', 'sessionSummary_assistantId' - The identifier of the Wisdom assistant.
 --
@@ -75,7 +75,7 @@ newSessionSummary
         sessionId = pSessionId_
       }
 
--- | The Amazon Resource Name (ARN) of the Wisdom assistant
+-- | The Amazon Resource Name (ARN) of the Wisdom assistant.
 sessionSummary_assistantArn :: Lens.Lens' SessionSummary Prelude.Text
 sessionSummary_assistantArn = Lens.lens (\SessionSummary' {assistantArn} -> assistantArn) (\s@SessionSummary' {} a -> s {assistantArn = a} :: SessionSummary)
 

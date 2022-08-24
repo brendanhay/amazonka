@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssistantAssociationInputData' smart constructor.
 data AssistantAssociationInputData = AssistantAssociationInputData'
-  { -- | The the identifier of the knowledge base.
+  { -- | The identifier of the knowledge base.
     knowledgeBaseId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data AssistantAssociationInputData = AssistantAssociationInputData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'knowledgeBaseId', 'assistantAssociationInputData_knowledgeBaseId' - The the identifier of the knowledge base.
+-- 'knowledgeBaseId', 'assistantAssociationInputData_knowledgeBaseId' - The identifier of the knowledge base.
 newAssistantAssociationInputData ::
   AssistantAssociationInputData
 newAssistantAssociationInputData =
@@ -50,7 +50,7 @@ newAssistantAssociationInputData =
         Prelude.Nothing
     }
 
--- | The the identifier of the knowledge base.
+-- | The identifier of the knowledge base.
 assistantAssociationInputData_knowledgeBaseId :: Lens.Lens' AssistantAssociationInputData (Prelude.Maybe Prelude.Text)
 assistantAssociationInputData_knowledgeBaseId = Lens.lens (\AssistantAssociationInputData' {knowledgeBaseId} -> knowledgeBaseId) (\s@AssistantAssociationInputData' {} a -> s {knowledgeBaseId = a} :: AssistantAssociationInputData)
 

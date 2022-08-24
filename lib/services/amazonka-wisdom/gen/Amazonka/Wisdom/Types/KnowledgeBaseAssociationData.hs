@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data KnowledgeBaseAssociationData = KnowledgeBaseAssociationData'
   { -- | The Amazon Resource Name (ARN) of the knowledge base.
     knowledgeBaseArn :: Prelude.Maybe Prelude.Text,
-    -- | The the identifier of the knowledge base.
+    -- | The identifier of the knowledge base.
     knowledgeBaseId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data KnowledgeBaseAssociationData = KnowledgeBaseAssociationData'
 --
 -- 'knowledgeBaseArn', 'knowledgeBaseAssociationData_knowledgeBaseArn' - The Amazon Resource Name (ARN) of the knowledge base.
 --
--- 'knowledgeBaseId', 'knowledgeBaseAssociationData_knowledgeBaseId' - The the identifier of the knowledge base.
+-- 'knowledgeBaseId', 'knowledgeBaseAssociationData_knowledgeBaseId' - The identifier of the knowledge base.
 newKnowledgeBaseAssociationData ::
   KnowledgeBaseAssociationData
 newKnowledgeBaseAssociationData =
@@ -58,7 +58,7 @@ newKnowledgeBaseAssociationData =
 knowledgeBaseAssociationData_knowledgeBaseArn :: Lens.Lens' KnowledgeBaseAssociationData (Prelude.Maybe Prelude.Text)
 knowledgeBaseAssociationData_knowledgeBaseArn = Lens.lens (\KnowledgeBaseAssociationData' {knowledgeBaseArn} -> knowledgeBaseArn) (\s@KnowledgeBaseAssociationData' {} a -> s {knowledgeBaseArn = a} :: KnowledgeBaseAssociationData)
 
--- | The the identifier of the knowledge base.
+-- | The identifier of the knowledge base.
 knowledgeBaseAssociationData_knowledgeBaseId :: Lens.Lens' KnowledgeBaseAssociationData (Prelude.Maybe Prelude.Text)
 knowledgeBaseAssociationData_knowledgeBaseId = Lens.lens (\KnowledgeBaseAssociationData' {knowledgeBaseId} -> knowledgeBaseId) (\s@KnowledgeBaseAssociationData' {} a -> s {knowledgeBaseId = a} :: KnowledgeBaseAssociationData)
 

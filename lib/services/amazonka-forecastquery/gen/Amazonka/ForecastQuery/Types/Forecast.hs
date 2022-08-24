@@ -38,6 +38,12 @@ data Forecast = Forecast'
     -- -   p50
     --
     -- -   p90
+    --
+    -- The default setting is @[\"0.1\", \"0.5\", \"0.9\"]@. Use the optional
+    -- @ForecastTypes@ parameter of the
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecast.html CreateForecast>
+    -- operation to change the values. The values will vary depending on how
+    -- this is set, with a minimum of @1@ and a maximum of @5.@
     predictions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [DataPoint])
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,6 +65,12 @@ data Forecast = Forecast'
 -- -   p50
 --
 -- -   p90
+--
+-- The default setting is @[\"0.1\", \"0.5\", \"0.9\"]@. Use the optional
+-- @ForecastTypes@ parameter of the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecast.html CreateForecast>
+-- operation to change the values. The values will vary depending on how
+-- this is set, with a minimum of @1@ and a maximum of @5.@
 newForecast ::
   Forecast
 newForecast =
@@ -73,6 +85,12 @@ newForecast =
 -- -   p50
 --
 -- -   p90
+--
+-- The default setting is @[\"0.1\", \"0.5\", \"0.9\"]@. Use the optional
+-- @ForecastTypes@ parameter of the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateForecast.html CreateForecast>
+-- operation to change the values. The values will vary depending on how
+-- this is set, with a minimum of @1@ and a maximum of @5.@
 forecast_predictions :: Lens.Lens' Forecast (Prelude.Maybe (Prelude.HashMap Prelude.Text [DataPoint]))
 forecast_predictions = Lens.lens (\Forecast' {predictions} -> predictions) (\s@Forecast' {} a -> s {predictions = a} :: Forecast) Prelude.. Lens.mapping Lens.coerced
 

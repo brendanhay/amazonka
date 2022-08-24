@@ -46,6 +46,12 @@ module Amazonka.ForecastQuery
     QueryForecastResponse (QueryForecastResponse'),
     newQueryForecastResponse,
 
+    -- ** QueryWhatIfForecast
+    QueryWhatIfForecast (QueryWhatIfForecast'),
+    newQueryWhatIfForecast,
+    QueryWhatIfForecastResponse (QueryWhatIfForecastResponse'),
+    newQueryWhatIfForecastResponse,
+
     -- * Types
 
     -- ** DataPoint
@@ -60,6 +66,7 @@ where
 
 import Amazonka.ForecastQuery.Lens
 import Amazonka.ForecastQuery.QueryForecast
+import Amazonka.ForecastQuery.QueryWhatIfForecast
 import Amazonka.ForecastQuery.Types
 import Amazonka.ForecastQuery.Waiters
 

@@ -56,8 +56,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newDeleteBucketTagging' smart constructor.
 data DeleteBucketTagging = DeleteBucketTagging'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket that has the tag set to be removed.
     bucket :: BucketName
@@ -73,8 +73,8 @@ data DeleteBucketTagging = DeleteBucketTagging'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'deleteBucketTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'deleteBucketTagging_bucket' - The bucket that has the tag set to be removed.
 newDeleteBucketTagging ::
@@ -89,8 +89,8 @@ newDeleteBucketTagging pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 deleteBucketTagging_expectedBucketOwner :: Lens.Lens' DeleteBucketTagging (Prelude.Maybe Prelude.Text)
 deleteBucketTagging_expectedBucketOwner = Lens.lens (\DeleteBucketTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketTagging' {} a -> s {expectedBucketOwner = a} :: DeleteBucketTagging)
 

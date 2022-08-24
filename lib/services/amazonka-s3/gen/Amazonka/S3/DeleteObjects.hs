@@ -70,6 +70,7 @@ module Amazonka.S3.DeleteObjects
     newDeleteObjects,
 
     -- * Request Lenses
+    deleteObjects_checksumAlgorithm,
     deleteObjects_expectedBucketOwner,
     deleteObjects_requestPayer,
     deleteObjects_bypassGovernanceRetention,
@@ -98,14 +99,29 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newDeleteObjects' smart constructor.
 data DeleteObjects = DeleteObjects'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    --
+    -- This checksum algorithm must be the same for all parts and it match the
+    -- checksum value supplied in the @CreateMultipartUpload@ request.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Specifies whether you want to delete this object even if it has a
     -- Governance-type Object Lock in place. To use this header, you must have
-    -- the @s3:PutBucketPublicAccessBlock@ permission.
+    -- the @s3:BypassGovernanceRetention@ permission.
     bypassGovernanceRetention :: Prelude.Maybe Prelude.Bool,
     -- | The concatenation of the authentication device\'s serial number, a
     -- space, and the value that is displayed on your authentication device.
@@ -126,11 +142,11 @@ data DeleteObjects = DeleteObjects'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Container for the request.
@@ -146,15 +162,30 @@ data DeleteObjects = DeleteObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'deleteObjects_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
+-- This checksum algorithm must be the same for all parts and it match the
+-- checksum value supplied in the @CreateMultipartUpload@ request.
+--
 -- 'expectedBucketOwner', 'deleteObjects_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'requestPayer', 'deleteObjects_requestPayer' - Undocumented member.
 --
 -- 'bypassGovernanceRetention', 'deleteObjects_bypassGovernanceRetention' - Specifies whether you want to delete this object even if it has a
 -- Governance-type Object Lock in place. To use this header, you must have
--- the @s3:PutBucketPublicAccessBlock@ permission.
+-- the @s3:BypassGovernanceRetention@ permission.
 --
 -- 'mfa', 'deleteObjects_mfa' - The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
@@ -175,11 +206,11 @@ data DeleteObjects = DeleteObjects'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'delete'', 'deleteObjects_delete' - Container for the request.
@@ -191,8 +222,8 @@ newDeleteObjects ::
   DeleteObjects
 newDeleteObjects pBucket_ pDelete_ =
   DeleteObjects'
-    { expectedBucketOwner =
-        Prelude.Nothing,
+    { checksumAlgorithm = Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
       bypassGovernanceRetention = Prelude.Nothing,
       mfa = Prelude.Nothing,
@@ -200,9 +231,26 @@ newDeleteObjects pBucket_ pDelete_ =
       delete' = pDelete_
     }
 
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
+-- This checksum algorithm must be the same for all parts and it match the
+-- checksum value supplied in the @CreateMultipartUpload@ request.
+deleteObjects_checksumAlgorithm :: Lens.Lens' DeleteObjects (Prelude.Maybe ChecksumAlgorithm)
+deleteObjects_checksumAlgorithm = Lens.lens (\DeleteObjects' {checksumAlgorithm} -> checksumAlgorithm) (\s@DeleteObjects' {} a -> s {checksumAlgorithm = a} :: DeleteObjects)
+
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 deleteObjects_expectedBucketOwner :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Text)
 deleteObjects_expectedBucketOwner = Lens.lens (\DeleteObjects' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteObjects' {} a -> s {expectedBucketOwner = a} :: DeleteObjects)
 
@@ -212,7 +260,7 @@ deleteObjects_requestPayer = Lens.lens (\DeleteObjects' {requestPayer} -> reques
 
 -- | Specifies whether you want to delete this object even if it has a
 -- Governance-type Object Lock in place. To use this header, you must have
--- the @s3:PutBucketPublicAccessBlock@ permission.
+-- the @s3:BypassGovernanceRetention@ permission.
 deleteObjects_bypassGovernanceRetention :: Lens.Lens' DeleteObjects (Prelude.Maybe Prelude.Bool)
 deleteObjects_bypassGovernanceRetention = Lens.lens (\DeleteObjects' {bypassGovernanceRetention} -> bypassGovernanceRetention) (\s@DeleteObjects' {} a -> s {bypassGovernanceRetention = a} :: DeleteObjects)
 
@@ -237,11 +285,11 @@ deleteObjects_mfa = Lens.lens (\DeleteObjects' {mfa} -> mfa) (\s@DeleteObjects' 
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 deleteObjects_bucket :: Lens.Lens' DeleteObjects BucketName
 deleteObjects_bucket = Lens.lens (\DeleteObjects' {bucket} -> bucket) (\s@DeleteObjects' {} a -> s {bucket = a} :: DeleteObjects)
@@ -270,7 +318,8 @@ instance Core.AWSRequest DeleteObjects where
 
 instance Prelude.Hashable DeleteObjects where
   hashWithSalt _salt DeleteObjects' {..} =
-    _salt `Prelude.hashWithSalt` expectedBucketOwner
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bypassGovernanceRetention
       `Prelude.hashWithSalt` mfa
@@ -279,7 +328,8 @@ instance Prelude.Hashable DeleteObjects where
 
 instance Prelude.NFData DeleteObjects where
   rnf DeleteObjects' {..} =
-    Prelude.rnf expectedBucketOwner
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf bypassGovernanceRetention
       `Prelude.seq` Prelude.rnf mfa
@@ -295,7 +345,9 @@ instance Core.ToElement DeleteObjects where
 instance Core.ToHeaders DeleteObjects where
   toHeaders DeleteObjects' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer,
         "x-amz-bypass-governance-retention"

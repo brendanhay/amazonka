@@ -95,9 +95,11 @@
 -- -   If you don’t have the @s3:ListBucket@ permission, Amazon S3 returns
 --     an HTTP status code 403 (\"access denied\") error.
 --
--- The following action is related to @HeadObject@:
+-- The following actions are related to @HeadObject@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html GetObjectAttributes>
 module Amazonka.S3.HeadObject
   ( -- * Creating a Request
     HeadObject (..),
@@ -110,6 +112,7 @@ module Amazonka.S3.HeadObject
     headObject_ifUnmodifiedSince,
     headObject_range,
     headObject_sSECustomerAlgorithm,
+    headObject_checksumMode,
     headObject_sSECustomerKeyMD5,
     headObject_ifMatch,
     headObject_ifModifiedSince,
@@ -126,19 +129,23 @@ module Amazonka.S3.HeadObject
     -- * Response Lenses
     headObjectResponse_serverSideEncryption,
     headObjectResponse_partsCount,
+    headObjectResponse_checksumCRC32C,
     headObjectResponse_objectLockMode,
     headObjectResponse_bucketKeyEnabled,
     headObjectResponse_websiteRedirectLocation,
     headObjectResponse_expiration,
     headObjectResponse_requestCharged,
     headObjectResponse_objectLockRetainUntilDate,
+    headObjectResponse_checksumSHA1,
     headObjectResponse_replicationStatus,
     headObjectResponse_metadata,
+    headObjectResponse_checksumCRC32,
     headObjectResponse_restore,
     headObjectResponse_contentLanguage,
     headObjectResponse_sSEKMSKeyId,
     headObjectResponse_contentDisposition,
     headObjectResponse_objectLockLegalHoldStatus,
+    headObjectResponse_checksumSHA256,
     headObjectResponse_acceptRanges,
     headObjectResponse_contentLength,
     headObjectResponse_sSECustomerAlgorithm,
@@ -168,8 +175,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newHeadObject' smart constructor.
 data HeadObject = HeadObject'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Part number of the object being read. This is a positive integer between
     -- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
@@ -178,30 +185,33 @@ data HeadObject = HeadObject'
     partNumber :: Prelude.Maybe Prelude.Int,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Return the object only if it has not been modified since the specified
-    -- time, otherwise return a 412 (precondition failed).
+    -- time; otherwise, return a 412 (precondition failed) error.
     ifUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
-    -- | Downloads the specified range bytes of an object. For more information
-    -- about the HTTP Range header, see
-    -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>.
-    --
-    -- Amazon S3 doesn\'t support retrieving multiple ranges of data per @GET@
-    -- request.
+    -- | Because @HeadObject@ returns only the metadata for an object, this
+    -- parameter has no effect.
     range :: Prelude.Maybe Prelude.Text,
     -- | Specifies the algorithm to use to when encrypting the object (for
     -- example, AES256).
     sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | To retrieve the checksum, this parameter must be enabled.
+    --
+    -- In addition, if you enable @ChecksumMode@ and the object is encrypted
+    -- with Amazon Web Services Key Management Service (Amazon Web Services
+    -- KMS), you must have permission to use the @kms:Decrypt@ action for the
+    -- request to succeed.
+    checksumMode :: Prelude.Maybe ChecksumMode,
     -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
     -- 1321. Amazon S3 uses this header for a message integrity check to ensure
     -- that the encryption key was transmitted without error.
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | Return the object only if its entity tag (ETag) is the same as the one
-    -- specified, otherwise return a 412 (precondition failed).
+    -- specified; otherwise, return a 412 (precondition failed) error.
     ifMatch :: Prelude.Maybe Prelude.Text,
-    -- | Return the object only if it has been modified since the specified time,
-    -- otherwise return a 304 (not modified).
+    -- | Return the object only if it has been modified since the specified time;
+    -- otherwise, return a 304 (not modified) error.
     ifModifiedSince :: Prelude.Maybe Core.ISO8601,
     -- | Return the object only if its entity tag (ETag) is different from the
-    -- one specified, otherwise return a 304 (not modified).
+    -- one specified; otherwise, return a 304 (not modified) error.
     ifNoneMatch :: Prelude.Maybe Prelude.Text,
     -- | VersionId used to reference a specific version of the object.
     versionId :: Prelude.Maybe ObjectVersionId,
@@ -225,11 +235,11 @@ data HeadObject = HeadObject'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | The object key.
@@ -246,8 +256,8 @@ data HeadObject = HeadObject'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'headObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'partNumber', 'headObject_partNumber' - Part number of the object being read. This is a positive integer between
 -- 1 and 10,000. Effectively performs a \'ranged\' HEAD request for the
@@ -257,30 +267,33 @@ data HeadObject = HeadObject'
 -- 'requestPayer', 'headObject_requestPayer' - Undocumented member.
 --
 -- 'ifUnmodifiedSince', 'headObject_ifUnmodifiedSince' - Return the object only if it has not been modified since the specified
--- time, otherwise return a 412 (precondition failed).
+-- time; otherwise, return a 412 (precondition failed) error.
 --
--- 'range', 'headObject_range' - Downloads the specified range bytes of an object. For more information
--- about the HTTP Range header, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>.
---
--- Amazon S3 doesn\'t support retrieving multiple ranges of data per @GET@
--- request.
+-- 'range', 'headObject_range' - Because @HeadObject@ returns only the metadata for an object, this
+-- parameter has no effect.
 --
 -- 'sSECustomerAlgorithm', 'headObject_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
 -- example, AES256).
+--
+-- 'checksumMode', 'headObject_checksumMode' - To retrieve the checksum, this parameter must be enabled.
+--
+-- In addition, if you enable @ChecksumMode@ and the object is encrypted
+-- with Amazon Web Services Key Management Service (Amazon Web Services
+-- KMS), you must have permission to use the @kms:Decrypt@ action for the
+-- request to succeed.
 --
 -- 'sSECustomerKeyMD5', 'headObject_sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- that the encryption key was transmitted without error.
 --
 -- 'ifMatch', 'headObject_ifMatch' - Return the object only if its entity tag (ETag) is the same as the one
--- specified, otherwise return a 412 (precondition failed).
+-- specified; otherwise, return a 412 (precondition failed) error.
 --
--- 'ifModifiedSince', 'headObject_ifModifiedSince' - Return the object only if it has been modified since the specified time,
--- otherwise return a 304 (not modified).
+-- 'ifModifiedSince', 'headObject_ifModifiedSince' - Return the object only if it has been modified since the specified time;
+-- otherwise, return a 304 (not modified) error.
 --
 -- 'ifNoneMatch', 'headObject_ifNoneMatch' - Return the object only if its entity tag (ETag) is different from the
--- one specified, otherwise return a 304 (not modified).
+-- one specified; otherwise, return a 304 (not modified) error.
 --
 -- 'versionId', 'headObject_versionId' - VersionId used to reference a specific version of the object.
 --
@@ -304,11 +317,11 @@ data HeadObject = HeadObject'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'headObject_key' - The object key.
@@ -326,6 +339,7 @@ newHeadObject pBucket_ pKey_ =
       ifUnmodifiedSince = Prelude.Nothing,
       range = Prelude.Nothing,
       sSECustomerAlgorithm = Prelude.Nothing,
+      checksumMode = Prelude.Nothing,
       sSECustomerKeyMD5 = Prelude.Nothing,
       ifMatch = Prelude.Nothing,
       ifModifiedSince = Prelude.Nothing,
@@ -337,8 +351,8 @@ newHeadObject pBucket_ pKey_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 headObject_expectedBucketOwner :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_expectedBucketOwner = Lens.lens (\HeadObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@HeadObject' {} a -> s {expectedBucketOwner = a} :: HeadObject)
 
@@ -354,16 +368,12 @@ headObject_requestPayer :: Lens.Lens' HeadObject (Prelude.Maybe RequestPayer)
 headObject_requestPayer = Lens.lens (\HeadObject' {requestPayer} -> requestPayer) (\s@HeadObject' {} a -> s {requestPayer = a} :: HeadObject)
 
 -- | Return the object only if it has not been modified since the specified
--- time, otherwise return a 412 (precondition failed).
+-- time; otherwise, return a 412 (precondition failed) error.
 headObject_ifUnmodifiedSince :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.UTCTime)
 headObject_ifUnmodifiedSince = Lens.lens (\HeadObject' {ifUnmodifiedSince} -> ifUnmodifiedSince) (\s@HeadObject' {} a -> s {ifUnmodifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Core._Time
 
--- | Downloads the specified range bytes of an object. For more information
--- about the HTTP Range header, see
--- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35>.
---
--- Amazon S3 doesn\'t support retrieving multiple ranges of data per @GET@
--- request.
+-- | Because @HeadObject@ returns only the metadata for an object, this
+-- parameter has no effect.
 headObject_range :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_range = Lens.lens (\HeadObject' {range} -> range) (\s@HeadObject' {} a -> s {range = a} :: HeadObject)
 
@@ -372,6 +382,15 @@ headObject_range = Lens.lens (\HeadObject' {range} -> range) (\s@HeadObject' {} 
 headObject_sSECustomerAlgorithm :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_sSECustomerAlgorithm = Lens.lens (\HeadObject' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@HeadObject' {} a -> s {sSECustomerAlgorithm = a} :: HeadObject)
 
+-- | To retrieve the checksum, this parameter must be enabled.
+--
+-- In addition, if you enable @ChecksumMode@ and the object is encrypted
+-- with Amazon Web Services Key Management Service (Amazon Web Services
+-- KMS), you must have permission to use the @kms:Decrypt@ action for the
+-- request to succeed.
+headObject_checksumMode :: Lens.Lens' HeadObject (Prelude.Maybe ChecksumMode)
+headObject_checksumMode = Lens.lens (\HeadObject' {checksumMode} -> checksumMode) (\s@HeadObject' {} a -> s {checksumMode = a} :: HeadObject)
+
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- that the encryption key was transmitted without error.
@@ -379,17 +398,17 @@ headObject_sSECustomerKeyMD5 :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Tex
 headObject_sSECustomerKeyMD5 = Lens.lens (\HeadObject' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@HeadObject' {} a -> s {sSECustomerKeyMD5 = a} :: HeadObject)
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
--- specified, otherwise return a 412 (precondition failed).
+-- specified; otherwise, return a 412 (precondition failed) error.
 headObject_ifMatch :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_ifMatch = Lens.lens (\HeadObject' {ifMatch} -> ifMatch) (\s@HeadObject' {} a -> s {ifMatch = a} :: HeadObject)
 
--- | Return the object only if it has been modified since the specified time,
--- otherwise return a 304 (not modified).
+-- | Return the object only if it has been modified since the specified time;
+-- otherwise, return a 304 (not modified) error.
 headObject_ifModifiedSince :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.UTCTime)
 headObject_ifModifiedSince = Lens.lens (\HeadObject' {ifModifiedSince} -> ifModifiedSince) (\s@HeadObject' {} a -> s {ifModifiedSince = a} :: HeadObject) Prelude.. Lens.mapping Core._Time
 
 -- | Return the object only if its entity tag (ETag) is different from the
--- one specified, otherwise return a 304 (not modified).
+-- one specified; otherwise, return a 304 (not modified) error.
 headObject_ifNoneMatch :: Lens.Lens' HeadObject (Prelude.Maybe Prelude.Text)
 headObject_ifNoneMatch = Lens.lens (\HeadObject' {ifNoneMatch} -> ifNoneMatch) (\s@HeadObject' {} a -> s {ifNoneMatch = a} :: HeadObject)
 
@@ -419,11 +438,11 @@ headObject_sSECustomerKey = Lens.lens (\HeadObject' {sSECustomerKey} -> sSECusto
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 headObject_bucket :: Lens.Lens' HeadObject BucketName
 headObject_bucket = Lens.lens (\HeadObject' {bucket} -> bucket) (\s@HeadObject' {} a -> s {bucket = a} :: HeadObject)
@@ -443,6 +462,7 @@ instance Core.AWSRequest HeadObject where
           HeadObjectResponse'
             Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
             Prelude.<*> (h Core..#? "x-amz-mp-parts-count")
+            Prelude.<*> (h Core..#? "x-amz-checksum-crc32c")
             Prelude.<*> (h Core..#? "x-amz-object-lock-mode")
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
@@ -451,8 +471,10 @@ instance Core.AWSRequest HeadObject where
             Prelude.<*> (h Core..#? "x-amz-expiration")
             Prelude.<*> (h Core..#? "x-amz-request-charged")
             Prelude.<*> (h Core..#? "x-amz-object-lock-retain-until-date")
+            Prelude.<*> (h Core..#? "x-amz-checksum-sha1")
             Prelude.<*> (h Core..#? "x-amz-replication-status")
             Prelude.<*> (Core.parseHeadersMap "x-amz-meta-" h)
+            Prelude.<*> (h Core..#? "x-amz-checksum-crc32")
             Prelude.<*> (h Core..#? "x-amz-restore")
             Prelude.<*> (h Core..#? "Content-Language")
             Prelude.<*> ( h
@@ -460,6 +482,7 @@ instance Core.AWSRequest HeadObject where
                         )
             Prelude.<*> (h Core..#? "Content-Disposition")
             Prelude.<*> (h Core..#? "x-amz-object-lock-legal-hold")
+            Prelude.<*> (h Core..#? "x-amz-checksum-sha256")
             Prelude.<*> (h Core..#? "accept-ranges")
             Prelude.<*> (h Core..#? "Content-Length")
             Prelude.<*> ( h
@@ -490,6 +513,7 @@ instance Prelude.Hashable HeadObject where
       `Prelude.hashWithSalt` ifUnmodifiedSince
       `Prelude.hashWithSalt` range
       `Prelude.hashWithSalt` sSECustomerAlgorithm
+      `Prelude.hashWithSalt` checksumMode
       `Prelude.hashWithSalt` sSECustomerKeyMD5
       `Prelude.hashWithSalt` ifMatch
       `Prelude.hashWithSalt` ifModifiedSince
@@ -507,6 +531,7 @@ instance Prelude.NFData HeadObject where
       `Prelude.seq` Prelude.rnf ifUnmodifiedSince
       `Prelude.seq` Prelude.rnf range
       `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf checksumMode
       `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
       `Prelude.seq` Prelude.rnf ifMatch
       `Prelude.seq` Prelude.rnf ifModifiedSince
@@ -526,6 +551,7 @@ instance Core.ToHeaders HeadObject where
         "Range" Core.=# range,
         "x-amz-server-side-encryption-customer-algorithm"
           Core.=# sSECustomerAlgorithm,
+        "x-amz-checksum-mode" Core.=# checksumMode,
         "x-amz-server-side-encryption-customer-key-MD5"
           Core.=# sSECustomerKeyMD5,
         "If-Match" Core.=# ifMatch,
@@ -555,8 +581,17 @@ data HeadObjectResponse = HeadObjectResponse'
     -- encryption algorithm used when storing this object in Amazon S3 (for
     -- example, AES256, aws:kms).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
-    -- | The count of parts this object has.
+    -- | The count of parts this object has. This value is only returned if you
+    -- specify @partNumber@ in your request and the object was uploaded as a
+    -- multipart upload.
     partsCount :: Prelude.Maybe Prelude.Int,
+    -- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32C :: Prelude.Maybe Prelude.Text,
     -- | The Object Lock mode, if any, that\'s in effect for this object. This
     -- header is only returned if the requester has the @s3:GetObjectRetention@
     -- permission. For more information about S3 Object Lock, see
@@ -570,15 +605,22 @@ data HeadObjectResponse = HeadObjectResponse'
     -- Amazon S3 stores the value of this header in the object metadata.
     websiteRedirectLocation :: Prelude.Maybe Prelude.Text,
     -- | If the object expiration is configured (see PUT Bucket lifecycle), the
-    -- response includes this header. It includes the expiry-date and rule-id
-    -- key-value pairs providing object expiration information. The value of
-    -- the rule-id is URL encoded.
+    -- response includes this header. It includes the @expiry-date@ and
+    -- @rule-id@ key-value pairs providing object expiration information. The
+    -- value of the @rule-id@ is URL-encoded.
     expiration :: Prelude.Maybe Prelude.Text,
     requestCharged :: Prelude.Maybe RequestCharged,
     -- | The date and time when the Object Lock retention period expires. This
     -- header is only returned if the requester has the @s3:GetObjectRetention@
     -- permission.
     objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    -- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumSHA1 :: Prelude.Maybe Prelude.Text,
     -- | Amazon S3 can return this header if your request involves a bucket that
     -- is either a source or a destination in a replication rule.
     --
@@ -588,7 +630,7 @@ data HeadObjectResponse = HeadObjectResponse'
     -- metadata (@HeadObject@) from these buckets, Amazon S3 will return the
     -- @x-amz-replication-status@ header in the response as follows:
     --
-    -- -   If requesting an object from the source bucket — Amazon S3 will
+    -- -   __If requesting an object from the source bucket__, Amazon S3 will
     --     return the @x-amz-replication-status@ header if the object in your
     --     request is eligible for replication.
     --
@@ -601,12 +643,12 @@ data HeadObjectResponse = HeadObjectResponse'
     --     value PENDING, COMPLETED or FAILED indicating object replication
     --     status.
     --
-    -- -   If requesting an object from a destination bucket — Amazon S3 will
-    --     return the @x-amz-replication-status@ header with value REPLICA if
-    --     the object in your request is a replica that Amazon S3 created and
-    --     there is no replica modification replication in progress.
+    -- -   __If requesting an object from a destination bucket__, Amazon S3
+    --     will return the @x-amz-replication-status@ header with value REPLICA
+    --     if the object in your request is a replica that Amazon S3 created
+    --     and there is no replica modification replication in progress.
     --
-    -- -   When replicating objects to multiple destination buckets the
+    -- -   __When replicating objects to multiple destination buckets__, the
     --     @x-amz-replication-status@ header acts differently. The header of
     --     the source object will only return a value of COMPLETED when
     --     replication is successful to all destinations. The header will
@@ -619,6 +661,13 @@ data HeadObjectResponse = HeadObjectResponse'
     replicationStatus :: Prelude.Maybe ReplicationStatus,
     -- | A map of metadata to store with the object in S3.
     metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
+    -- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32 :: Prelude.Maybe Prelude.Text,
     -- | If the object is an archived object (an object whose storage class is
     -- GLACIER), the response includes this header if either the archive
     -- restoration is in progress (see
@@ -651,6 +700,13 @@ data HeadObjectResponse = HeadObjectResponse'
     -- Object Lock, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
     objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
+    -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumSHA256 :: Prelude.Maybe Prelude.Text,
     -- | Indicates that a range of bytes was specified.
     acceptRanges :: Prelude.Maybe Prelude.Text,
     -- | Size of the body in bytes.
@@ -687,8 +743,8 @@ data HeadObjectResponse = HeadObjectResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
     storageClass :: Prelude.Maybe StorageClass,
-    -- | An ETag is an opaque identifier assigned by a web server to a specific
-    -- version of a resource found at a URL.
+    -- | An entity tag (ETag) is an opaque identifier assigned by a web server to
+    -- a specific version of a resource found at a URL.
     eTag :: Prelude.Maybe ETag,
     -- | Specifies whether the object retrieved was (true) or was not (false) a
     -- Delete Marker. If false, this response header does not appear in the
@@ -717,7 +773,16 @@ data HeadObjectResponse = HeadObjectResponse'
 -- encryption algorithm used when storing this object in Amazon S3 (for
 -- example, AES256, aws:kms).
 --
--- 'partsCount', 'headObjectResponse_partsCount' - The count of parts this object has.
+-- 'partsCount', 'headObjectResponse_partsCount' - The count of parts this object has. This value is only returned if you
+-- specify @partNumber@ in your request and the object was uploaded as a
+-- multipart upload.
+--
+-- 'checksumCRC32C', 'headObjectResponse_checksumCRC32C' - The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'objectLockMode', 'headObjectResponse_objectLockMode' - The Object Lock mode, if any, that\'s in effect for this object. This
 -- header is only returned if the requester has the @s3:GetObjectRetention@
@@ -732,15 +797,22 @@ data HeadObjectResponse = HeadObjectResponse'
 -- Amazon S3 stores the value of this header in the object metadata.
 --
 -- 'expiration', 'headObjectResponse_expiration' - If the object expiration is configured (see PUT Bucket lifecycle), the
--- response includes this header. It includes the expiry-date and rule-id
--- key-value pairs providing object expiration information. The value of
--- the rule-id is URL encoded.
+-- response includes this header. It includes the @expiry-date@ and
+-- @rule-id@ key-value pairs providing object expiration information. The
+-- value of the @rule-id@ is URL-encoded.
 --
 -- 'requestCharged', 'headObjectResponse_requestCharged' - Undocumented member.
 --
 -- 'objectLockRetainUntilDate', 'headObjectResponse_objectLockRetainUntilDate' - The date and time when the Object Lock retention period expires. This
 -- header is only returned if the requester has the @s3:GetObjectRetention@
 -- permission.
+--
+-- 'checksumSHA1', 'headObjectResponse_checksumSHA1' - The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'replicationStatus', 'headObjectResponse_replicationStatus' - Amazon S3 can return this header if your request involves a bucket that
 -- is either a source or a destination in a replication rule.
@@ -751,7 +823,7 @@ data HeadObjectResponse = HeadObjectResponse'
 -- metadata (@HeadObject@) from these buckets, Amazon S3 will return the
 -- @x-amz-replication-status@ header in the response as follows:
 --
--- -   If requesting an object from the source bucket — Amazon S3 will
+-- -   __If requesting an object from the source bucket__, Amazon S3 will
 --     return the @x-amz-replication-status@ header if the object in your
 --     request is eligible for replication.
 --
@@ -764,12 +836,12 @@ data HeadObjectResponse = HeadObjectResponse'
 --     value PENDING, COMPLETED or FAILED indicating object replication
 --     status.
 --
--- -   If requesting an object from a destination bucket — Amazon S3 will
---     return the @x-amz-replication-status@ header with value REPLICA if
---     the object in your request is a replica that Amazon S3 created and
---     there is no replica modification replication in progress.
+-- -   __If requesting an object from a destination bucket__, Amazon S3
+--     will return the @x-amz-replication-status@ header with value REPLICA
+--     if the object in your request is a replica that Amazon S3 created
+--     and there is no replica modification replication in progress.
 --
--- -   When replicating objects to multiple destination buckets the
+-- -   __When replicating objects to multiple destination buckets__, the
 --     @x-amz-replication-status@ header acts differently. The header of
 --     the source object will only return a value of COMPLETED when
 --     replication is successful to all destinations. The header will
@@ -781,6 +853,13 @@ data HeadObjectResponse = HeadObjectResponse'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Replication>.
 --
 -- 'metadata', 'headObjectResponse_metadata' - A map of metadata to store with the object in S3.
+--
+-- 'checksumCRC32', 'headObjectResponse_checksumCRC32' - The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'restore', 'headObjectResponse_restore' - If the object is an archived object (an object whose storage class is
 -- GLACIER), the response includes this header if either the archive
@@ -813,6 +892,13 @@ data HeadObjectResponse = HeadObjectResponse'
 -- object has never had a legal hold applied. For more information about S3
 -- Object Lock, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
+--
+-- 'checksumSHA256', 'headObjectResponse_checksumSHA256' - The base64-encoded, 256-bit SHA-256 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'acceptRanges', 'headObjectResponse_acceptRanges' - Indicates that a range of bytes was specified.
 --
@@ -850,8 +936,8 @@ data HeadObjectResponse = HeadObjectResponse'
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
 --
--- 'eTag', 'headObjectResponse_eTag' - An ETag is an opaque identifier assigned by a web server to a specific
--- version of a resource found at a URL.
+-- 'eTag', 'headObjectResponse_eTag' - An entity tag (ETag) is an opaque identifier assigned by a web server to
+-- a specific version of a resource found at a URL.
 --
 -- 'deleteMarker', 'headObjectResponse_deleteMarker' - Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the
@@ -871,19 +957,23 @@ newHeadObjectResponse pHttpStatus_ =
     { serverSideEncryption =
         Prelude.Nothing,
       partsCount = Prelude.Nothing,
+      checksumCRC32C = Prelude.Nothing,
       objectLockMode = Prelude.Nothing,
       bucketKeyEnabled = Prelude.Nothing,
       websiteRedirectLocation = Prelude.Nothing,
       expiration = Prelude.Nothing,
       requestCharged = Prelude.Nothing,
       objectLockRetainUntilDate = Prelude.Nothing,
+      checksumSHA1 = Prelude.Nothing,
       replicationStatus = Prelude.Nothing,
       metadata = Prelude.mempty,
+      checksumCRC32 = Prelude.Nothing,
       restore = Prelude.Nothing,
       contentLanguage = Prelude.Nothing,
       sSEKMSKeyId = Prelude.Nothing,
       contentDisposition = Prelude.Nothing,
       objectLockLegalHoldStatus = Prelude.Nothing,
+      checksumSHA256 = Prelude.Nothing,
       acceptRanges = Prelude.Nothing,
       contentLength = Prelude.Nothing,
       sSECustomerAlgorithm = Prelude.Nothing,
@@ -910,9 +1000,20 @@ newHeadObjectResponse pHttpStatus_ =
 headObjectResponse_serverSideEncryption :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ServerSideEncryption)
 headObjectResponse_serverSideEncryption = Lens.lens (\HeadObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@HeadObjectResponse' {} a -> s {serverSideEncryption = a} :: HeadObjectResponse)
 
--- | The count of parts this object has.
+-- | The count of parts this object has. This value is only returned if you
+-- specify @partNumber@ in your request and the object was uploaded as a
+-- multipart upload.
 headObjectResponse_partsCount :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Int)
 headObjectResponse_partsCount = Lens.lens (\HeadObjectResponse' {partsCount} -> partsCount) (\s@HeadObjectResponse' {} a -> s {partsCount = a} :: HeadObjectResponse)
+
+-- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+headObjectResponse_checksumCRC32C :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_checksumCRC32C = Lens.lens (\HeadObjectResponse' {checksumCRC32C} -> checksumCRC32C) (\s@HeadObjectResponse' {} a -> s {checksumCRC32C = a} :: HeadObjectResponse)
 
 -- | The Object Lock mode, if any, that\'s in effect for this object. This
 -- header is only returned if the requester has the @s3:GetObjectRetention@
@@ -933,9 +1034,9 @@ headObjectResponse_websiteRedirectLocation :: Lens.Lens' HeadObjectResponse (Pre
 headObjectResponse_websiteRedirectLocation = Lens.lens (\HeadObjectResponse' {websiteRedirectLocation} -> websiteRedirectLocation) (\s@HeadObjectResponse' {} a -> s {websiteRedirectLocation = a} :: HeadObjectResponse)
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
--- response includes this header. It includes the expiry-date and rule-id
--- key-value pairs providing object expiration information. The value of
--- the rule-id is URL encoded.
+-- response includes this header. It includes the @expiry-date@ and
+-- @rule-id@ key-value pairs providing object expiration information. The
+-- value of the @rule-id@ is URL-encoded.
 headObjectResponse_expiration :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
 headObjectResponse_expiration = Lens.lens (\HeadObjectResponse' {expiration} -> expiration) (\s@HeadObjectResponse' {} a -> s {expiration = a} :: HeadObjectResponse)
 
@@ -949,6 +1050,15 @@ headObjectResponse_requestCharged = Lens.lens (\HeadObjectResponse' {requestChar
 headObjectResponse_objectLockRetainUntilDate :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.UTCTime)
 headObjectResponse_objectLockRetainUntilDate = Lens.lens (\HeadObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@HeadObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: HeadObjectResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+headObjectResponse_checksumSHA1 :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_checksumSHA1 = Lens.lens (\HeadObjectResponse' {checksumSHA1} -> checksumSHA1) (\s@HeadObjectResponse' {} a -> s {checksumSHA1 = a} :: HeadObjectResponse)
+
 -- | Amazon S3 can return this header if your request involves a bucket that
 -- is either a source or a destination in a replication rule.
 --
@@ -958,7 +1068,7 @@ headObjectResponse_objectLockRetainUntilDate = Lens.lens (\HeadObjectResponse' {
 -- metadata (@HeadObject@) from these buckets, Amazon S3 will return the
 -- @x-amz-replication-status@ header in the response as follows:
 --
--- -   If requesting an object from the source bucket — Amazon S3 will
+-- -   __If requesting an object from the source bucket__, Amazon S3 will
 --     return the @x-amz-replication-status@ header if the object in your
 --     request is eligible for replication.
 --
@@ -971,12 +1081,12 @@ headObjectResponse_objectLockRetainUntilDate = Lens.lens (\HeadObjectResponse' {
 --     value PENDING, COMPLETED or FAILED indicating object replication
 --     status.
 --
--- -   If requesting an object from a destination bucket — Amazon S3 will
---     return the @x-amz-replication-status@ header with value REPLICA if
---     the object in your request is a replica that Amazon S3 created and
---     there is no replica modification replication in progress.
+-- -   __If requesting an object from a destination bucket__, Amazon S3
+--     will return the @x-amz-replication-status@ header with value REPLICA
+--     if the object in your request is a replica that Amazon S3 created
+--     and there is no replica modification replication in progress.
 --
--- -   When replicating objects to multiple destination buckets the
+-- -   __When replicating objects to multiple destination buckets__, the
 --     @x-amz-replication-status@ header acts differently. The header of
 --     the source object will only return a value of COMPLETED when
 --     replication is successful to all destinations. The header will
@@ -992,6 +1102,15 @@ headObjectResponse_replicationStatus = Lens.lens (\HeadObjectResponse' {replicat
 -- | A map of metadata to store with the object in S3.
 headObjectResponse_metadata :: Lens.Lens' HeadObjectResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 headObjectResponse_metadata = Lens.lens (\HeadObjectResponse' {metadata} -> metadata) (\s@HeadObjectResponse' {} a -> s {metadata = a} :: HeadObjectResponse) Prelude.. Lens.coerced
+
+-- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+headObjectResponse_checksumCRC32 :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_checksumCRC32 = Lens.lens (\HeadObjectResponse' {checksumCRC32} -> checksumCRC32) (\s@HeadObjectResponse' {} a -> s {checksumCRC32 = a} :: HeadObjectResponse)
 
 -- | If the object is an archived object (an object whose storage class is
 -- GLACIER), the response includes this header if either the archive
@@ -1034,6 +1153,15 @@ headObjectResponse_contentDisposition = Lens.lens (\HeadObjectResponse' {content
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
 headObjectResponse_objectLockLegalHoldStatus :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ObjectLockLegalHoldStatus)
 headObjectResponse_objectLockLegalHoldStatus = Lens.lens (\HeadObjectResponse' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@HeadObjectResponse' {} a -> s {objectLockLegalHoldStatus = a} :: HeadObjectResponse)
+
+-- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+headObjectResponse_checksumSHA256 :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
+headObjectResponse_checksumSHA256 = Lens.lens (\HeadObjectResponse' {checksumSHA256} -> checksumSHA256) (\s@HeadObjectResponse' {} a -> s {checksumSHA256 = a} :: HeadObjectResponse)
 
 -- | Indicates that a range of bytes was specified.
 headObjectResponse_acceptRanges :: Lens.Lens' HeadObjectResponse (Prelude.Maybe Prelude.Text)
@@ -1093,8 +1221,8 @@ headObjectResponse_expires = Lens.lens (\HeadObjectResponse' {expires} -> expire
 headObjectResponse_storageClass :: Lens.Lens' HeadObjectResponse (Prelude.Maybe StorageClass)
 headObjectResponse_storageClass = Lens.lens (\HeadObjectResponse' {storageClass} -> storageClass) (\s@HeadObjectResponse' {} a -> s {storageClass = a} :: HeadObjectResponse)
 
--- | An ETag is an opaque identifier assigned by a web server to a specific
--- version of a resource found at a URL.
+-- | An entity tag (ETag) is an opaque identifier assigned by a web server to
+-- a specific version of a resource found at a URL.
 headObjectResponse_eTag :: Lens.Lens' HeadObjectResponse (Prelude.Maybe ETag)
 headObjectResponse_eTag = Lens.lens (\HeadObjectResponse' {eTag} -> eTag) (\s@HeadObjectResponse' {} a -> s {eTag = a} :: HeadObjectResponse)
 
@@ -1120,34 +1248,45 @@ instance Prelude.NFData HeadObjectResponse where
   rnf HeadObjectResponse' {..} =
     Prelude.rnf serverSideEncryption
       `Prelude.seq` Prelude.rnf partsCount
+      `Prelude.seq` Prelude.rnf checksumCRC32C
       `Prelude.seq` Prelude.rnf objectLockMode
       `Prelude.seq` Prelude.rnf bucketKeyEnabled
       `Prelude.seq` Prelude.rnf websiteRedirectLocation
       `Prelude.seq` Prelude.rnf expiration
       `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf objectLockRetainUntilDate
+      `Prelude.seq` Prelude.rnf checksumSHA1
       `Prelude.seq` Prelude.rnf replicationStatus
       `Prelude.seq` Prelude.rnf metadata
+      `Prelude.seq` Prelude.rnf checksumCRC32
       `Prelude.seq` Prelude.rnf restore
       `Prelude.seq` Prelude.rnf contentLanguage
       `Prelude.seq` Prelude.rnf sSEKMSKeyId
       `Prelude.seq` Prelude.rnf contentDisposition
-      `Prelude.seq` Prelude.rnf objectLockLegalHoldStatus
+      `Prelude.seq` Prelude.rnf
+        objectLockLegalHoldStatus
+      `Prelude.seq` Prelude.rnf checksumSHA256
       `Prelude.seq` Prelude.rnf acceptRanges
       `Prelude.seq` Prelude.rnf contentLength
-      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
+      `Prelude.seq` Prelude.rnf
+        sSECustomerAlgorithm
       `Prelude.seq` Prelude.rnf lastModified
-      `Prelude.seq` Prelude.rnf cacheControl
-      `Prelude.seq` Prelude.rnf contentEncoding
-      `Prelude.seq` Prelude.rnf missingMeta
+      `Prelude.seq` Prelude.rnf
+        cacheControl
+      `Prelude.seq` Prelude.rnf
+        contentEncoding
+      `Prelude.seq` Prelude.rnf
+        missingMeta
       `Prelude.seq` Prelude.rnf
         sSECustomerKeyMD5
       `Prelude.seq` Prelude.rnf
         archiveStatus
-      `Prelude.seq` Prelude.rnf expires
+      `Prelude.seq` Prelude.rnf
+        expires
       `Prelude.seq` Prelude.rnf
         storageClass
-      `Prelude.seq` Prelude.rnf eTag
+      `Prelude.seq` Prelude.rnf
+        eTag
       `Prelude.seq` Prelude.rnf
         deleteMarker
       `Prelude.seq` Prelude.rnf

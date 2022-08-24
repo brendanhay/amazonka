@@ -20,6 +20,7 @@
 module Amazonka.S3.Types.ObjectOwnership
   ( ObjectOwnership
       ( ..,
+        ObjectOwnership_BucketOwnerEnforced,
         ObjectOwnership_BucketOwnerPreferred,
         ObjectOwnership_ObjectWriter
       ),
@@ -39,6 +40,13 @@ import Amazonka.S3.Internal
 --
 -- ObjectWriter - The uploading account will own the object if the object
 -- is uploaded with the @bucket-owner-full-control@ canned ACL.
+--
+-- BucketOwnerEnforced - Access control lists (ACLs) are disabled and no
+-- longer affect permissions. The bucket owner automatically owns and has
+-- full control over every object in the bucket. The bucket only accepts
+-- PUT requests that don\'t specify an ACL or bucket owner full control
+-- ACLs, such as the @bucket-owner-full-control@ canned ACL or an
+-- equivalent form of this ACL expressed in the XML format.
 newtype ObjectOwnership = ObjectOwnership'
   { fromObjectOwnership ::
       Core.Text
@@ -67,6 +75,9 @@ newtype ObjectOwnership = ObjectOwnership'
       Core.ToXML
     )
 
+pattern ObjectOwnership_BucketOwnerEnforced :: ObjectOwnership
+pattern ObjectOwnership_BucketOwnerEnforced = ObjectOwnership' "BucketOwnerEnforced"
+
 pattern ObjectOwnership_BucketOwnerPreferred :: ObjectOwnership
 pattern ObjectOwnership_BucketOwnerPreferred = ObjectOwnership' "BucketOwnerPreferred"
 
@@ -74,6 +85,7 @@ pattern ObjectOwnership_ObjectWriter :: ObjectOwnership
 pattern ObjectOwnership_ObjectWriter = ObjectOwnership' "ObjectWriter"
 
 {-# COMPLETE
+  ObjectOwnership_BucketOwnerEnforced,
   ObjectOwnership_BucketOwnerPreferred,
   ObjectOwnership_ObjectWriter,
   ObjectOwnership'

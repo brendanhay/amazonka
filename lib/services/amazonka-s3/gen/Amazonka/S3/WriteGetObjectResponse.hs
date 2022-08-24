@@ -78,19 +78,23 @@ module Amazonka.S3.WriteGetObjectResponse
     -- * Request Lenses
     writeGetObjectResponse_serverSideEncryption,
     writeGetObjectResponse_partsCount,
+    writeGetObjectResponse_checksumCRC32C,
     writeGetObjectResponse_objectLockMode,
     writeGetObjectResponse_bucketKeyEnabled,
     writeGetObjectResponse_expiration,
     writeGetObjectResponse_requestCharged,
     writeGetObjectResponse_objectLockRetainUntilDate,
+    writeGetObjectResponse_checksumSHA1,
     writeGetObjectResponse_replicationStatus,
     writeGetObjectResponse_errorMessage,
     writeGetObjectResponse_metadata,
+    writeGetObjectResponse_checksumCRC32,
     writeGetObjectResponse_restore,
     writeGetObjectResponse_contentLanguage,
     writeGetObjectResponse_sSEKMSKeyId,
     writeGetObjectResponse_contentDisposition,
     writeGetObjectResponse_objectLockLegalHoldStatus,
+    writeGetObjectResponse_checksumSHA256,
     writeGetObjectResponse_acceptRanges,
     writeGetObjectResponse_contentLength,
     writeGetObjectResponse_tagCount,
@@ -133,6 +137,19 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
     -- | The count of parts this object has.
     partsCount :: Prelude.Maybe Prelude.Int,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This specifies
+    -- the base64-encoded, 32-bit CRC32C checksum of the object returned by the
+    -- Object Lambda function. This may not match the checksum for the object
+    -- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+    -- values only when the original @GetObject@ request required checksum
+    -- validation. For more information about checksums, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- Only one checksum header can be specified at a time. If you supply
+    -- multiple checksum headers, this request will fail.
+    checksumCRC32C :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an object stored in Amazon S3 has Object Lock enabled.
     -- For more information about S3 Object Lock, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html Object Lock>.
@@ -140,13 +157,27 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- | Indicates whether the object stored in Amazon S3 uses an S3 bucket key
     -- for server-side encryption with Amazon Web Services KMS (SSE-KMS).
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | If object stored in Amazon S3 expiration is configured (see PUT Bucket
-    -- lifecycle) it includes expiry-date and rule-id key-value pairs providing
-    -- object expiration information. The value of the rule-id is URL encoded.
+    -- | If the object expiration is configured (see PUT Bucket lifecycle), the
+    -- response includes this header. It includes the @expiry-date@ and
+    -- @rule-id@ key-value pairs that provide the object expiration
+    -- information. The value of the @rule-id@ is URL-encoded.
     expiration :: Prelude.Maybe Prelude.Text,
     requestCharged :: Prelude.Maybe RequestCharged,
     -- | The date and time when Object Lock is configured to expire.
     objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This specifies
+    -- the base64-encoded, 160-bit SHA-1 digest of the object returned by the
+    -- Object Lambda function. This may not match the checksum for the object
+    -- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+    -- values only when the original @GetObject@ request required checksum
+    -- validation. For more information about checksums, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- Only one checksum header can be specified at a time. If you supply
+    -- multiple checksum headers, this request will fail.
+    checksumSHA1 :: Prelude.Maybe Prelude.Text,
     -- | Indicates if request involves bucket that is either a source or
     -- destination in a Replication rule. For more information about S3
     -- Replication, see
@@ -159,6 +190,19 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | A map of metadata to store with the object in S3.
     metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This specifies
+    -- the base64-encoded, 32-bit CRC32 checksum of the object returned by the
+    -- Object Lambda function. This may not match the checksum for the object
+    -- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+    -- values only when the original @GetObject@ request required checksum
+    -- validation. For more information about checksums, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- Only one checksum header can be specified at a time. If you supply
+    -- multiple checksum headers, this request will fail.
+    checksumCRC32 :: Prelude.Maybe Prelude.Text,
     -- | Provides information about object restoration operation and expiration
     -- time of the restored object copy.
     restore :: Prelude.Maybe Prelude.Text,
@@ -173,6 +217,19 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- | Indicates whether an object stored in Amazon S3 has an active legal
     -- hold.
     objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This specifies
+    -- the base64-encoded, 256-bit SHA-256 digest of the object returned by the
+    -- Object Lambda function. This may not match the checksum for the object
+    -- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+    -- values only when the original @GetObject@ request required checksum
+    -- validation. For more information about checksums, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- Only one checksum header can be specified at a time. If you supply
+    -- multiple checksum headers, this request will fail.
+    checksumSHA256 :: Prelude.Maybe Prelude.Text,
     -- | Indicates that a range of bytes was specified.
     acceptRanges :: Prelude.Maybe Prelude.Text,
     -- | The size of the content body in bytes.
@@ -187,7 +244,8 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     -- \<Code> tag of the error XML response for a corresponding @GetObject@
     -- call. Cannot be used with a successful @StatusCode@ header or when the
     -- transformed object is provided in the body. All error codes from S3 are
-    -- sentence-cased. Regex value is \"^[A-Z][a-zA-Z]+$\".
+    -- sentence-cased. The regular expression (regex) value is
+    -- @\"^[A-Z][a-zA-Z]+$\"@.
     errorCode :: Prelude.Maybe Prelude.Text,
     -- | The portion of the object returned in the response.
     contentRange :: Prelude.Maybe Prelude.Text,
@@ -211,40 +269,44 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
     sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | The date and time at which the object is no longer cacheable.
     expires :: Prelude.Maybe Core.ISO8601,
-    -- | The class of storage used to store object in Amazon S3.
+    -- | Provides storage class information of the object. Amazon S3 returns this
+    -- header for all objects except for S3 Standard storage class objects.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
     storageClass :: Prelude.Maybe StorageClass,
     -- | The integer status code for an HTTP response of a corresponding
     -- @GetObject@ request.
     --
     -- __Status Codes__
     --
-    -- -   /200 - OK/
+    -- -   @200 - OK@
     --
-    -- -   /206 - Partial Content/
+    -- -   @206 - Partial Content@
     --
-    -- -   /304 - Not Modified/
+    -- -   @304 - Not Modified@
     --
-    -- -   /400 - Bad Request/
+    -- -   @400 - Bad Request@
     --
-    -- -   /401 - Unauthorized/
+    -- -   @401 - Unauthorized@
     --
-    -- -   /403 - Forbidden/
+    -- -   @403 - Forbidden@
     --
-    -- -   /404 - Not Found/
+    -- -   @404 - Not Found@
     --
-    -- -   /405 - Method Not Allowed/
+    -- -   @405 - Method Not Allowed@
     --
-    -- -   /409 - Conflict/
+    -- -   @409 - Conflict@
     --
-    -- -   /411 - Length Required/
+    -- -   @411 - Length Required@
     --
-    -- -   /412 - Precondition Failed/
+    -- -   @412 - Precondition Failed@
     --
-    -- -   /416 - Range Not Satisfiable/
+    -- -   @416 - Range Not Satisfiable@
     --
-    -- -   /500 - Internal Server Error/
+    -- -   @500 - Internal Server Error@
     --
-    -- -   /503 - Service Unavailable/
+    -- -   @503 - Service Unavailable@
     statusCode :: Prelude.Maybe Prelude.Int,
     -- | An opaque identifier assigned by a web server to a specific version of a
     -- resource found at a URL.
@@ -279,6 +341,19 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
 --
 -- 'partsCount', 'writeGetObjectResponse_partsCount' - The count of parts this object has.
 --
+-- 'checksumCRC32C', 'writeGetObjectResponse_checksumCRC32C' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This specifies
+-- the base64-encoded, 32-bit CRC32C checksum of the object returned by the
+-- Object Lambda function. This may not match the checksum for the object
+-- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+-- values only when the original @GetObject@ request required checksum
+-- validation. For more information about checksums, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- Only one checksum header can be specified at a time. If you supply
+-- multiple checksum headers, this request will fail.
+--
 -- 'objectLockMode', 'writeGetObjectResponse_objectLockMode' - Indicates whether an object stored in Amazon S3 has Object Lock enabled.
 -- For more information about S3 Object Lock, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html Object Lock>.
@@ -286,13 +361,27 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
 -- 'bucketKeyEnabled', 'writeGetObjectResponse_bucketKeyEnabled' - Indicates whether the object stored in Amazon S3 uses an S3 bucket key
 -- for server-side encryption with Amazon Web Services KMS (SSE-KMS).
 --
--- 'expiration', 'writeGetObjectResponse_expiration' - If object stored in Amazon S3 expiration is configured (see PUT Bucket
--- lifecycle) it includes expiry-date and rule-id key-value pairs providing
--- object expiration information. The value of the rule-id is URL encoded.
+-- 'expiration', 'writeGetObjectResponse_expiration' - If the object expiration is configured (see PUT Bucket lifecycle), the
+-- response includes this header. It includes the @expiry-date@ and
+-- @rule-id@ key-value pairs that provide the object expiration
+-- information. The value of the @rule-id@ is URL-encoded.
 --
 -- 'requestCharged', 'writeGetObjectResponse_requestCharged' - Undocumented member.
 --
 -- 'objectLockRetainUntilDate', 'writeGetObjectResponse_objectLockRetainUntilDate' - The date and time when Object Lock is configured to expire.
+--
+-- 'checksumSHA1', 'writeGetObjectResponse_checksumSHA1' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This specifies
+-- the base64-encoded, 160-bit SHA-1 digest of the object returned by the
+-- Object Lambda function. This may not match the checksum for the object
+-- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+-- values only when the original @GetObject@ request required checksum
+-- validation. For more information about checksums, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- Only one checksum header can be specified at a time. If you supply
+-- multiple checksum headers, this request will fail.
 --
 -- 'replicationStatus', 'writeGetObjectResponse_replicationStatus' - Indicates if request involves bucket that is either a source or
 -- destination in a Replication rule. For more information about S3
@@ -305,6 +394,19 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
 -- transformed object is provided in body.
 --
 -- 'metadata', 'writeGetObjectResponse_metadata' - A map of metadata to store with the object in S3.
+--
+-- 'checksumCRC32', 'writeGetObjectResponse_checksumCRC32' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This specifies
+-- the base64-encoded, 32-bit CRC32 checksum of the object returned by the
+-- Object Lambda function. This may not match the checksum for the object
+-- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+-- values only when the original @GetObject@ request required checksum
+-- validation. For more information about checksums, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- Only one checksum header can be specified at a time. If you supply
+-- multiple checksum headers, this request will fail.
 --
 -- 'restore', 'writeGetObjectResponse_restore' - Provides information about object restoration operation and expiration
 -- time of the restored object copy.
@@ -320,6 +422,19 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
 -- 'objectLockLegalHoldStatus', 'writeGetObjectResponse_objectLockLegalHoldStatus' - Indicates whether an object stored in Amazon S3 has an active legal
 -- hold.
 --
+-- 'checksumSHA256', 'writeGetObjectResponse_checksumSHA256' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This specifies
+-- the base64-encoded, 256-bit SHA-256 digest of the object returned by the
+-- Object Lambda function. This may not match the checksum for the object
+-- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+-- values only when the original @GetObject@ request required checksum
+-- validation. For more information about checksums, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- Only one checksum header can be specified at a time. If you supply
+-- multiple checksum headers, this request will fail.
+--
 -- 'acceptRanges', 'writeGetObjectResponse_acceptRanges' - Indicates that a range of bytes was specified.
 --
 -- 'contentLength', 'writeGetObjectResponse_contentLength' - The size of the content body in bytes.
@@ -334,7 +449,8 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
 -- \<Code> tag of the error XML response for a corresponding @GetObject@
 -- call. Cannot be used with a successful @StatusCode@ header or when the
 -- transformed object is provided in the body. All error codes from S3 are
--- sentence-cased. Regex value is \"^[A-Z][a-zA-Z]+$\".
+-- sentence-cased. The regular expression (regex) value is
+-- @\"^[A-Z][a-zA-Z]+$\"@.
 --
 -- 'contentRange', 'writeGetObjectResponse_contentRange' - The portion of the object returned in the response.
 --
@@ -358,40 +474,44 @@ data WriteGetObjectResponse = WriteGetObjectResponse'
 --
 -- 'expires', 'writeGetObjectResponse_expires' - The date and time at which the object is no longer cacheable.
 --
--- 'storageClass', 'writeGetObjectResponse_storageClass' - The class of storage used to store object in Amazon S3.
+-- 'storageClass', 'writeGetObjectResponse_storageClass' - Provides storage class information of the object. Amazon S3 returns this
+-- header for all objects except for S3 Standard storage class objects.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
 --
 -- 'statusCode', 'writeGetObjectResponse_statusCode' - The integer status code for an HTTP response of a corresponding
 -- @GetObject@ request.
 --
 -- __Status Codes__
 --
--- -   /200 - OK/
+-- -   @200 - OK@
 --
--- -   /206 - Partial Content/
+-- -   @206 - Partial Content@
 --
--- -   /304 - Not Modified/
+-- -   @304 - Not Modified@
 --
--- -   /400 - Bad Request/
+-- -   @400 - Bad Request@
 --
--- -   /401 - Unauthorized/
+-- -   @401 - Unauthorized@
 --
--- -   /403 - Forbidden/
+-- -   @403 - Forbidden@
 --
--- -   /404 - Not Found/
+-- -   @404 - Not Found@
 --
--- -   /405 - Method Not Allowed/
+-- -   @405 - Method Not Allowed@
 --
--- -   /409 - Conflict/
+-- -   @409 - Conflict@
 --
--- -   /411 - Length Required/
+-- -   @411 - Length Required@
 --
--- -   /412 - Precondition Failed/
+-- -   @412 - Precondition Failed@
 --
--- -   /416 - Range Not Satisfiable/
+-- -   @416 - Range Not Satisfiable@
 --
--- -   /500 - Internal Server Error/
+-- -   @500 - Internal Server Error@
 --
--- -   /503 - Service Unavailable/
+-- -   @503 - Service Unavailable@
 --
 -- 'eTag', 'writeGetObjectResponse_eTag' - An opaque identifier assigned by a web server to a specific version of a
 -- resource found at a URL.
@@ -425,19 +545,23 @@ newWriteGetObjectResponse
       { serverSideEncryption =
           Prelude.Nothing,
         partsCount = Prelude.Nothing,
+        checksumCRC32C = Prelude.Nothing,
         objectLockMode = Prelude.Nothing,
         bucketKeyEnabled = Prelude.Nothing,
         expiration = Prelude.Nothing,
         requestCharged = Prelude.Nothing,
         objectLockRetainUntilDate = Prelude.Nothing,
+        checksumSHA1 = Prelude.Nothing,
         replicationStatus = Prelude.Nothing,
         errorMessage = Prelude.Nothing,
         metadata = Prelude.mempty,
+        checksumCRC32 = Prelude.Nothing,
         restore = Prelude.Nothing,
         contentLanguage = Prelude.Nothing,
         sSEKMSKeyId = Prelude.Nothing,
         contentDisposition = Prelude.Nothing,
         objectLockLegalHoldStatus = Prelude.Nothing,
+        checksumSHA256 = Prelude.Nothing,
         acceptRanges = Prelude.Nothing,
         contentLength = Prelude.Nothing,
         tagCount = Prelude.Nothing,
@@ -470,6 +594,21 @@ writeGetObjectResponse_serverSideEncryption = Lens.lens (\WriteGetObjectResponse
 writeGetObjectResponse_partsCount :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Int)
 writeGetObjectResponse_partsCount = Lens.lens (\WriteGetObjectResponse' {partsCount} -> partsCount) (\s@WriteGetObjectResponse' {} a -> s {partsCount = a} :: WriteGetObjectResponse)
 
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This specifies
+-- the base64-encoded, 32-bit CRC32C checksum of the object returned by the
+-- Object Lambda function. This may not match the checksum for the object
+-- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+-- values only when the original @GetObject@ request required checksum
+-- validation. For more information about checksums, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- Only one checksum header can be specified at a time. If you supply
+-- multiple checksum headers, this request will fail.
+writeGetObjectResponse_checksumCRC32C :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
+writeGetObjectResponse_checksumCRC32C = Lens.lens (\WriteGetObjectResponse' {checksumCRC32C} -> checksumCRC32C) (\s@WriteGetObjectResponse' {} a -> s {checksumCRC32C = a} :: WriteGetObjectResponse)
+
 -- | Indicates whether an object stored in Amazon S3 has Object Lock enabled.
 -- For more information about S3 Object Lock, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html Object Lock>.
@@ -481,9 +620,10 @@ writeGetObjectResponse_objectLockMode = Lens.lens (\WriteGetObjectResponse' {obj
 writeGetObjectResponse_bucketKeyEnabled :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Bool)
 writeGetObjectResponse_bucketKeyEnabled = Lens.lens (\WriteGetObjectResponse' {bucketKeyEnabled} -> bucketKeyEnabled) (\s@WriteGetObjectResponse' {} a -> s {bucketKeyEnabled = a} :: WriteGetObjectResponse)
 
--- | If object stored in Amazon S3 expiration is configured (see PUT Bucket
--- lifecycle) it includes expiry-date and rule-id key-value pairs providing
--- object expiration information. The value of the rule-id is URL encoded.
+-- | If the object expiration is configured (see PUT Bucket lifecycle), the
+-- response includes this header. It includes the @expiry-date@ and
+-- @rule-id@ key-value pairs that provide the object expiration
+-- information. The value of the @rule-id@ is URL-encoded.
 writeGetObjectResponse_expiration :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
 writeGetObjectResponse_expiration = Lens.lens (\WriteGetObjectResponse' {expiration} -> expiration) (\s@WriteGetObjectResponse' {} a -> s {expiration = a} :: WriteGetObjectResponse)
 
@@ -494,6 +634,21 @@ writeGetObjectResponse_requestCharged = Lens.lens (\WriteGetObjectResponse' {req
 -- | The date and time when Object Lock is configured to expire.
 writeGetObjectResponse_objectLockRetainUntilDate :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.UTCTime)
 writeGetObjectResponse_objectLockRetainUntilDate = Lens.lens (\WriteGetObjectResponse' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@WriteGetObjectResponse' {} a -> s {objectLockRetainUntilDate = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Core._Time
+
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This specifies
+-- the base64-encoded, 160-bit SHA-1 digest of the object returned by the
+-- Object Lambda function. This may not match the checksum for the object
+-- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+-- values only when the original @GetObject@ request required checksum
+-- validation. For more information about checksums, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- Only one checksum header can be specified at a time. If you supply
+-- multiple checksum headers, this request will fail.
+writeGetObjectResponse_checksumSHA1 :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
+writeGetObjectResponse_checksumSHA1 = Lens.lens (\WriteGetObjectResponse' {checksumSHA1} -> checksumSHA1) (\s@WriteGetObjectResponse' {} a -> s {checksumSHA1 = a} :: WriteGetObjectResponse)
 
 -- | Indicates if request involves bucket that is either a source or
 -- destination in a Replication rule. For more information about S3
@@ -512,6 +667,21 @@ writeGetObjectResponse_errorMessage = Lens.lens (\WriteGetObjectResponse' {error
 -- | A map of metadata to store with the object in S3.
 writeGetObjectResponse_metadata :: Lens.Lens' WriteGetObjectResponse (Prelude.HashMap Prelude.Text Prelude.Text)
 writeGetObjectResponse_metadata = Lens.lens (\WriteGetObjectResponse' {metadata} -> metadata) (\s@WriteGetObjectResponse' {} a -> s {metadata = a} :: WriteGetObjectResponse) Prelude.. Lens.coerced
+
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This specifies
+-- the base64-encoded, 32-bit CRC32 checksum of the object returned by the
+-- Object Lambda function. This may not match the checksum for the object
+-- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+-- values only when the original @GetObject@ request required checksum
+-- validation. For more information about checksums, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- Only one checksum header can be specified at a time. If you supply
+-- multiple checksum headers, this request will fail.
+writeGetObjectResponse_checksumCRC32 :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
+writeGetObjectResponse_checksumCRC32 = Lens.lens (\WriteGetObjectResponse' {checksumCRC32} -> checksumCRC32) (\s@WriteGetObjectResponse' {} a -> s {checksumCRC32 = a} :: WriteGetObjectResponse)
 
 -- | Provides information about object restoration operation and expiration
 -- time of the restored object copy.
@@ -537,6 +707,21 @@ writeGetObjectResponse_contentDisposition = Lens.lens (\WriteGetObjectResponse' 
 writeGetObjectResponse_objectLockLegalHoldStatus :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe ObjectLockLegalHoldStatus)
 writeGetObjectResponse_objectLockLegalHoldStatus = Lens.lens (\WriteGetObjectResponse' {objectLockLegalHoldStatus} -> objectLockLegalHoldStatus) (\s@WriteGetObjectResponse' {} a -> s {objectLockLegalHoldStatus = a} :: WriteGetObjectResponse)
 
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This specifies
+-- the base64-encoded, 256-bit SHA-256 digest of the object returned by the
+-- Object Lambda function. This may not match the checksum for the object
+-- stored in Amazon S3. Amazon S3 will perform validation of the checksum
+-- values only when the original @GetObject@ request required checksum
+-- validation. For more information about checksums, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- Only one checksum header can be specified at a time. If you supply
+-- multiple checksum headers, this request will fail.
+writeGetObjectResponse_checksumSHA256 :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
+writeGetObjectResponse_checksumSHA256 = Lens.lens (\WriteGetObjectResponse' {checksumSHA256} -> checksumSHA256) (\s@WriteGetObjectResponse' {} a -> s {checksumSHA256 = a} :: WriteGetObjectResponse)
+
 -- | Indicates that a range of bytes was specified.
 writeGetObjectResponse_acceptRanges :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
 writeGetObjectResponse_acceptRanges = Lens.lens (\WriteGetObjectResponse' {acceptRanges} -> acceptRanges) (\s@WriteGetObjectResponse' {} a -> s {acceptRanges = a} :: WriteGetObjectResponse)
@@ -559,7 +744,8 @@ writeGetObjectResponse_sSECustomerAlgorithm = Lens.lens (\WriteGetObjectResponse
 -- \<Code> tag of the error XML response for a corresponding @GetObject@
 -- call. Cannot be used with a successful @StatusCode@ header or when the
 -- transformed object is provided in the body. All error codes from S3 are
--- sentence-cased. Regex value is \"^[A-Z][a-zA-Z]+$\".
+-- sentence-cased. The regular expression (regex) value is
+-- @\"^[A-Z][a-zA-Z]+$\"@.
 writeGetObjectResponse_errorCode :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Text)
 writeGetObjectResponse_errorCode = Lens.lens (\WriteGetObjectResponse' {errorCode} -> errorCode) (\s@WriteGetObjectResponse' {} a -> s {errorCode = a} :: WriteGetObjectResponse)
 
@@ -599,7 +785,11 @@ writeGetObjectResponse_sSECustomerKeyMD5 = Lens.lens (\WriteGetObjectResponse' {
 writeGetObjectResponse_expires :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.UTCTime)
 writeGetObjectResponse_expires = Lens.lens (\WriteGetObjectResponse' {expires} -> expires) (\s@WriteGetObjectResponse' {} a -> s {expires = a} :: WriteGetObjectResponse) Prelude.. Lens.mapping Core._Time
 
--- | The class of storage used to store object in Amazon S3.
+-- | Provides storage class information of the object. Amazon S3 returns this
+-- header for all objects except for S3 Standard storage class objects.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html Storage Classes>.
 writeGetObjectResponse_storageClass :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe StorageClass)
 writeGetObjectResponse_storageClass = Lens.lens (\WriteGetObjectResponse' {storageClass} -> storageClass) (\s@WriteGetObjectResponse' {} a -> s {storageClass = a} :: WriteGetObjectResponse)
 
@@ -608,33 +798,33 @@ writeGetObjectResponse_storageClass = Lens.lens (\WriteGetObjectResponse' {stora
 --
 -- __Status Codes__
 --
--- -   /200 - OK/
+-- -   @200 - OK@
 --
--- -   /206 - Partial Content/
+-- -   @206 - Partial Content@
 --
--- -   /304 - Not Modified/
+-- -   @304 - Not Modified@
 --
--- -   /400 - Bad Request/
+-- -   @400 - Bad Request@
 --
--- -   /401 - Unauthorized/
+-- -   @401 - Unauthorized@
 --
--- -   /403 - Forbidden/
+-- -   @403 - Forbidden@
 --
--- -   /404 - Not Found/
+-- -   @404 - Not Found@
 --
--- -   /405 - Method Not Allowed/
+-- -   @405 - Method Not Allowed@
 --
--- -   /409 - Conflict/
+-- -   @409 - Conflict@
 --
--- -   /411 - Length Required/
+-- -   @411 - Length Required@
 --
--- -   /412 - Precondition Failed/
+-- -   @412 - Precondition Failed@
 --
--- -   /416 - Range Not Satisfiable/
+-- -   @416 - Range Not Satisfiable@
 --
--- -   /500 - Internal Server Error/
+-- -   @500 - Internal Server Error@
 --
--- -   /503 - Service Unavailable/
+-- -   @503 - Service Unavailable@
 writeGetObjectResponse_statusCode :: Lens.Lens' WriteGetObjectResponse (Prelude.Maybe Prelude.Int)
 writeGetObjectResponse_statusCode = Lens.lens (\WriteGetObjectResponse' {statusCode} -> statusCode) (\s@WriteGetObjectResponse' {} a -> s {statusCode = a} :: WriteGetObjectResponse)
 
@@ -690,6 +880,8 @@ instance Core.ToHeaders WriteGetObjectResponse where
           Core.=# serverSideEncryption,
         "x-amz-fwd-header-x-amz-mp-parts-count"
           Core.=# partsCount,
+        "x-amz-fwd-header-x-amz-checksum-crc32c"
+          Core.=# checksumCRC32C,
         "x-amz-fwd-header-x-amz-object-lock-mode"
           Core.=# objectLockMode,
         "x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled"
@@ -700,10 +892,14 @@ instance Core.ToHeaders WriteGetObjectResponse where
           Core.=# requestCharged,
         "x-amz-fwd-header-x-amz-object-lock-retain-until-date"
           Core.=# objectLockRetainUntilDate,
+        "x-amz-fwd-header-x-amz-checksum-sha1"
+          Core.=# checksumSHA1,
         "x-amz-fwd-header-x-amz-replication-status"
           Core.=# replicationStatus,
         "x-amz-fwd-error-message" Core.=# errorMessage,
         "x-amz-meta-" Core.=# metadata,
+        "x-amz-fwd-header-x-amz-checksum-crc32"
+          Core.=# checksumCRC32,
         "x-amz-fwd-header-x-amz-restore" Core.=# restore,
         "x-amz-fwd-header-Content-Language"
           Core.=# contentLanguage,
@@ -713,6 +909,8 @@ instance Core.ToHeaders WriteGetObjectResponse where
           Core.=# contentDisposition,
         "x-amz-fwd-header-x-amz-object-lock-legal-hold"
           Core.=# objectLockLegalHoldStatus,
+        "x-amz-fwd-header-x-amz-checksum-sha256"
+          Core.=# checksumSHA256,
         "x-amz-fwd-header-accept-ranges"
           Core.=# acceptRanges,
         "Content-Length" Core.=# contentLength,

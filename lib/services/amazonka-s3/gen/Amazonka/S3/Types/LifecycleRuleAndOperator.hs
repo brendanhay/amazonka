@@ -34,8 +34,12 @@ data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
   { -- | All of these tags must exist in the object\'s tag set in order for the
     -- rule to apply.
     tags :: Prelude.Maybe [Tag],
+    -- | Maximum object size to which the rule applies.
+    objectSizeLessThan :: Prelude.Maybe Prelude.Integer,
     -- | Prefix identifying one or more objects to which the rule applies.
-    prefix :: Prelude.Maybe Prelude.Text
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | Minimum object size to which the rule applies.
+    objectSizeGreaterThan :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,13 +54,19 @@ data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
 -- 'tags', 'lifecycleRuleAndOperator_tags' - All of these tags must exist in the object\'s tag set in order for the
 -- rule to apply.
 --
+-- 'objectSizeLessThan', 'lifecycleRuleAndOperator_objectSizeLessThan' - Maximum object size to which the rule applies.
+--
 -- 'prefix', 'lifecycleRuleAndOperator_prefix' - Prefix identifying one or more objects to which the rule applies.
+--
+-- 'objectSizeGreaterThan', 'lifecycleRuleAndOperator_objectSizeGreaterThan' - Minimum object size to which the rule applies.
 newLifecycleRuleAndOperator ::
   LifecycleRuleAndOperator
 newLifecycleRuleAndOperator =
   LifecycleRuleAndOperator'
     { tags = Prelude.Nothing,
-      prefix = Prelude.Nothing
+      objectSizeLessThan = Prelude.Nothing,
+      prefix = Prelude.Nothing,
+      objectSizeGreaterThan = Prelude.Nothing
     }
 
 -- | All of these tags must exist in the object\'s tag set in order for the
@@ -64,9 +74,17 @@ newLifecycleRuleAndOperator =
 lifecycleRuleAndOperator_tags :: Lens.Lens' LifecycleRuleAndOperator (Prelude.Maybe [Tag])
 lifecycleRuleAndOperator_tags = Lens.lens (\LifecycleRuleAndOperator' {tags} -> tags) (\s@LifecycleRuleAndOperator' {} a -> s {tags = a} :: LifecycleRuleAndOperator) Prelude.. Lens.mapping Lens.coerced
 
+-- | Maximum object size to which the rule applies.
+lifecycleRuleAndOperator_objectSizeLessThan :: Lens.Lens' LifecycleRuleAndOperator (Prelude.Maybe Prelude.Integer)
+lifecycleRuleAndOperator_objectSizeLessThan = Lens.lens (\LifecycleRuleAndOperator' {objectSizeLessThan} -> objectSizeLessThan) (\s@LifecycleRuleAndOperator' {} a -> s {objectSizeLessThan = a} :: LifecycleRuleAndOperator)
+
 -- | Prefix identifying one or more objects to which the rule applies.
 lifecycleRuleAndOperator_prefix :: Lens.Lens' LifecycleRuleAndOperator (Prelude.Maybe Prelude.Text)
 lifecycleRuleAndOperator_prefix = Lens.lens (\LifecycleRuleAndOperator' {prefix} -> prefix) (\s@LifecycleRuleAndOperator' {} a -> s {prefix = a} :: LifecycleRuleAndOperator)
+
+-- | Minimum object size to which the rule applies.
+lifecycleRuleAndOperator_objectSizeGreaterThan :: Lens.Lens' LifecycleRuleAndOperator (Prelude.Maybe Prelude.Integer)
+lifecycleRuleAndOperator_objectSizeGreaterThan = Lens.lens (\LifecycleRuleAndOperator' {objectSizeGreaterThan} -> objectSizeGreaterThan) (\s@LifecycleRuleAndOperator' {} a -> s {objectSizeGreaterThan = a} :: LifecycleRuleAndOperator)
 
 instance Core.FromXML LifecycleRuleAndOperator where
   parseXML x =
@@ -74,21 +92,31 @@ instance Core.FromXML LifecycleRuleAndOperator where
       Prelude.<$> ( x Core..@? "Tag" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "Tag")
                   )
+      Prelude.<*> (x Core..@? "ObjectSizeLessThan")
       Prelude.<*> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "ObjectSizeGreaterThan")
 
 instance Prelude.Hashable LifecycleRuleAndOperator where
   hashWithSalt _salt LifecycleRuleAndOperator' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` objectSizeLessThan
       `Prelude.hashWithSalt` prefix
+      `Prelude.hashWithSalt` objectSizeGreaterThan
 
 instance Prelude.NFData LifecycleRuleAndOperator where
   rnf LifecycleRuleAndOperator' {..} =
-    Prelude.rnf tags `Prelude.seq` Prelude.rnf prefix
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf objectSizeLessThan
+      `Prelude.seq` Prelude.rnf prefix
+      `Prelude.seq` Prelude.rnf objectSizeGreaterThan
 
 instance Core.ToXML LifecycleRuleAndOperator where
   toXML LifecycleRuleAndOperator' {..} =
     Prelude.mconcat
       [ "Tag"
           Core.@= Core.toXML (Core.toXMLList "Tag" Prelude.<$> tags),
-        "Prefix" Core.@= prefix
+        "ObjectSizeLessThan" Core.@= objectSizeLessThan,
+        "Prefix" Core.@= prefix,
+        "ObjectSizeGreaterThan"
+          Core.@= objectSizeGreaterThan
       ]

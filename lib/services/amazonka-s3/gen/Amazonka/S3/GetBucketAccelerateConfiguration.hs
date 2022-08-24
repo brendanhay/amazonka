@@ -80,8 +80,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketAccelerateConfiguration' smart constructor.
 data GetBucketAccelerateConfiguration = GetBucketAccelerateConfiguration'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which the accelerate configuration is
     -- retrieved.
@@ -98,8 +98,8 @@ data GetBucketAccelerateConfiguration = GetBucketAccelerateConfiguration'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketAccelerateConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketAccelerateConfiguration_bucket' - The name of the bucket for which the accelerate configuration is
 -- retrieved.
@@ -115,8 +115,8 @@ newGetBucketAccelerateConfiguration pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketAccelerateConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketAccelerateConfiguration (Prelude.Maybe Prelude.Text)
 getBucketAccelerateConfiguration_expectedBucketOwner = Lens.lens (\GetBucketAccelerateConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketAccelerateConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketAccelerateConfiguration)
 

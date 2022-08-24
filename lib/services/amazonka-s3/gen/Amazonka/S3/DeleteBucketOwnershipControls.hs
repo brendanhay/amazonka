@@ -58,8 +58,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newDeleteBucketOwnershipControls' smart constructor.
 data DeleteBucketOwnershipControls = DeleteBucketOwnershipControls'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket whose @OwnershipControls@ you want to delete.
     bucket :: BucketName
@@ -75,8 +75,8 @@ data DeleteBucketOwnershipControls = DeleteBucketOwnershipControls'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'deleteBucketOwnershipControls_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'deleteBucketOwnershipControls_bucket' - The Amazon S3 bucket whose @OwnershipControls@ you want to delete.
 newDeleteBucketOwnershipControls ::
@@ -91,8 +91,8 @@ newDeleteBucketOwnershipControls pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 deleteBucketOwnershipControls_expectedBucketOwner :: Lens.Lens' DeleteBucketOwnershipControls (Prelude.Maybe Prelude.Text)
 deleteBucketOwnershipControls_expectedBucketOwner = Lens.lens (\DeleteBucketOwnershipControls' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketOwnershipControls' {} a -> s {expectedBucketOwner = a} :: DeleteBucketOwnershipControls)
 

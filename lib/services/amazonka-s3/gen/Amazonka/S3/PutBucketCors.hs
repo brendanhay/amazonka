@@ -72,6 +72,7 @@ module Amazonka.S3.PutBucketCors
     newPutBucketCors,
 
     -- * Request Lenses
+    putBucketCors_checksumAlgorithm,
     putBucketCors_contentMD5,
     putBucketCors_expectedBucketOwner,
     putBucketCors_bucket,
@@ -92,7 +93,19 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutBucketCors' smart constructor.
 data PutBucketCors = PutBucketCors'
-  { -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
     -- used as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, go to
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
@@ -102,8 +115,8 @@ data PutBucketCors = PutBucketCors'
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the bucket impacted by the @cors@configuration.
     bucket :: BucketName,
@@ -123,6 +136,18 @@ data PutBucketCors = PutBucketCors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'putBucketCors_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
 -- 'contentMD5', 'putBucketCors_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. This header must be
 -- used as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, go to
@@ -133,8 +158,8 @@ data PutBucketCors = PutBucketCors'
 -- automatically.
 --
 -- 'expectedBucketOwner', 'putBucketCors_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'putBucketCors_bucket' - Specifies the bucket impacted by the @cors@configuration.
 --
@@ -150,11 +175,26 @@ newPutBucketCors ::
   PutBucketCors
 newPutBucketCors pBucket_ pCORSConfiguration_ =
   PutBucketCors'
-    { contentMD5 = Prelude.Nothing,
+    { checksumAlgorithm = Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       cORSConfiguration = pCORSConfiguration_
     }
+
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putBucketCors_checksumAlgorithm :: Lens.Lens' PutBucketCors (Prelude.Maybe ChecksumAlgorithm)
+putBucketCors_checksumAlgorithm = Lens.lens (\PutBucketCors' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutBucketCors' {} a -> s {checksumAlgorithm = a} :: PutBucketCors)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. This header must be
 -- used as a message integrity check to verify that the request body was
@@ -168,8 +208,8 @@ putBucketCors_contentMD5 :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text
 putBucketCors_contentMD5 = Lens.lens (\PutBucketCors' {contentMD5} -> contentMD5) (\s@PutBucketCors' {} a -> s {contentMD5 = a} :: PutBucketCors)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putBucketCors_expectedBucketOwner :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text)
 putBucketCors_expectedBucketOwner = Lens.lens (\PutBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketCors' {} a -> s {expectedBucketOwner = a} :: PutBucketCors)
 
@@ -197,14 +237,16 @@ instance Core.AWSRequest PutBucketCors where
 
 instance Prelude.Hashable PutBucketCors where
   hashWithSalt _salt PutBucketCors' {..} =
-    _salt `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` cORSConfiguration
 
 instance Prelude.NFData PutBucketCors where
   rnf PutBucketCors' {..} =
-    Prelude.rnf contentMD5
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf cORSConfiguration
@@ -218,7 +260,9 @@ instance Core.ToElement PutBucketCors where
 instance Core.ToHeaders PutBucketCors where
   toHeaders PutBucketCors' {..} =
     Prelude.mconcat
-      [ "Content-MD5" Core.=# contentMD5,
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]

@@ -74,8 +74,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetPublicAccessBlock' smart constructor.
 data GetPublicAccessBlock = GetPublicAccessBlock'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
     -- you want to retrieve.
@@ -92,8 +92,8 @@ data GetPublicAccessBlock = GetPublicAccessBlock'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getPublicAccessBlock_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getPublicAccessBlock_bucket' - The name of the Amazon S3 bucket whose @PublicAccessBlock@ configuration
 -- you want to retrieve.
@@ -109,8 +109,8 @@ newGetPublicAccessBlock pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getPublicAccessBlock_expectedBucketOwner :: Lens.Lens' GetPublicAccessBlock (Prelude.Maybe Prelude.Text)
 getPublicAccessBlock_expectedBucketOwner = Lens.lens (\GetPublicAccessBlock' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetPublicAccessBlock' {} a -> s {expectedBucketOwner = a} :: GetPublicAccessBlock)
 

@@ -47,6 +47,12 @@ module Amazonka.S3.Types
     -- * BucketVersioningStatus
     BucketVersioningStatus (..),
 
+    -- * ChecksumAlgorithm
+    ChecksumAlgorithm (..),
+
+    -- * ChecksumMode
+    ChecksumMode (..),
+
     -- * CompressionType
     CompressionType (..),
 
@@ -106,6 +112,9 @@ module Amazonka.S3.Types
 
     -- * MetricsStatus
     MetricsStatus (..),
+
+    -- * ObjectAttributes
+    ObjectAttributes (..),
 
     -- * ObjectCannedACL
     ObjectCannedACL (..),
@@ -296,6 +305,14 @@ module Amazonka.S3.Types
     cSVOutput_fieldDelimiter,
     cSVOutput_recordDelimiter,
 
+    -- * Checksum
+    Checksum (..),
+    newChecksum,
+    checksum_checksumCRC32C,
+    checksum_checksumSHA1,
+    checksum_checksumCRC32,
+    checksum_checksumSHA256,
+
     -- * CommonPrefix
     CommonPrefix (..),
     newCommonPrefix,
@@ -309,6 +326,10 @@ module Amazonka.S3.Types
     -- * CompletedPart
     CompletedPart (..),
     newCompletedPart,
+    completedPart_checksumCRC32C,
+    completedPart_checksumSHA1,
+    completedPart_checksumCRC32,
+    completedPart_checksumSHA256,
     completedPart_partNumber,
     completedPart_eTag,
 
@@ -325,12 +346,20 @@ module Amazonka.S3.Types
     -- * CopyObjectResult
     CopyObjectResult (..),
     newCopyObjectResult,
+    copyObjectResult_checksumCRC32C,
+    copyObjectResult_checksumSHA1,
+    copyObjectResult_checksumCRC32,
+    copyObjectResult_checksumSHA256,
     copyObjectResult_lastModified,
     copyObjectResult_eTag,
 
     -- * CopyPartResult
     CopyPartResult (..),
     newCopyPartResult,
+    copyPartResult_checksumCRC32C,
+    copyPartResult_checksumSHA1,
+    copyPartResult_checksumCRC32,
+    copyPartResult_checksumSHA256,
     copyPartResult_lastModified,
     copyPartResult_eTag,
 
@@ -406,6 +435,10 @@ module Amazonka.S3.Types
     newErrorDocument,
     errorDocument_key,
 
+    -- * EventBridgeConfiguration
+    EventBridgeConfiguration (..),
+    newEventBridgeConfiguration,
+
     -- * ExistingObjectReplication
     ExistingObjectReplication (..),
     newExistingObjectReplication,
@@ -416,6 +449,16 @@ module Amazonka.S3.Types
     newFilterRule,
     filterRule_name,
     filterRule_value,
+
+    -- * GetObjectAttributesParts
+    GetObjectAttributesParts (..),
+    newGetObjectAttributesParts,
+    getObjectAttributesParts_parts,
+    getObjectAttributesParts_nextPartNumberMarker,
+    getObjectAttributesParts_isTruncated,
+    getObjectAttributesParts_totalPartsCount,
+    getObjectAttributesParts_maxParts,
+    getObjectAttributesParts_partNumberMarker,
 
     -- * GlacierJobParameters
     GlacierJobParameters (..),
@@ -560,14 +603,18 @@ module Amazonka.S3.Types
     LifecycleRuleAndOperator (..),
     newLifecycleRuleAndOperator,
     lifecycleRuleAndOperator_tags,
+    lifecycleRuleAndOperator_objectSizeLessThan,
     lifecycleRuleAndOperator_prefix,
+    lifecycleRuleAndOperator_objectSizeGreaterThan,
 
     -- * LifecycleRuleFilter
     LifecycleRuleFilter (..),
     newLifecycleRuleFilter,
+    lifecycleRuleFilter_objectSizeLessThan,
     lifecycleRuleFilter_tag,
     lifecycleRuleFilter_prefix,
     lifecycleRuleFilter_and,
+    lifecycleRuleFilter_objectSizeGreaterThan,
 
     -- * LoggingEnabled
     LoggingEnabled (..),
@@ -612,6 +659,7 @@ module Amazonka.S3.Types
     -- * MultipartUpload
     MultipartUpload (..),
     newMultipartUpload,
+    multipartUpload_checksumAlgorithm,
     multipartUpload_uploadId,
     multipartUpload_key,
     multipartUpload_owner,
@@ -622,17 +670,20 @@ module Amazonka.S3.Types
     -- * NoncurrentVersionExpiration
     NoncurrentVersionExpiration (..),
     newNoncurrentVersionExpiration,
+    noncurrentVersionExpiration_newerNoncurrentVersions,
     noncurrentVersionExpiration_noncurrentDays,
 
     -- * NoncurrentVersionTransition
     NoncurrentVersionTransition (..),
     newNoncurrentVersionTransition,
+    noncurrentVersionTransition_newerNoncurrentVersions,
     noncurrentVersionTransition_noncurrentDays,
     noncurrentVersionTransition_storageClass,
 
     -- * NotificationConfiguration
     NotificationConfiguration (..),
     newNotificationConfiguration,
+    notificationConfiguration_eventBridgeConfiguration,
     notificationConfiguration_queueConfigurations,
     notificationConfiguration_topicConfigurations,
     notificationConfiguration_lambdaFunctionConfigurations,
@@ -645,6 +696,7 @@ module Amazonka.S3.Types
     -- * Object
     Object (..),
     newObject,
+    object_checksumAlgorithm,
     object_owner,
     object_eTag,
     object_size,
@@ -680,9 +732,20 @@ module Amazonka.S3.Types
     newObjectLockRule,
     objectLockRule_defaultRetention,
 
+    -- * ObjectPart
+    ObjectPart (..),
+    newObjectPart,
+    objectPart_checksumCRC32C,
+    objectPart_checksumSHA1,
+    objectPart_checksumCRC32,
+    objectPart_partNumber,
+    objectPart_size,
+    objectPart_checksumSHA256,
+
     -- * ObjectVersion
     ObjectVersion (..),
     newObjectVersion,
+    objectVersion_checksumAlgorithm,
     objectVersion_key,
     objectVersion_isLatest,
     objectVersion_size,
@@ -726,8 +789,12 @@ module Amazonka.S3.Types
     -- * Part
     Part (..),
     newPart,
+    part_checksumCRC32C,
+    part_checksumSHA1,
+    part_checksumCRC32,
     part_partNumber,
     part_size,
+    part_checksumSHA256,
     part_lastModified,
     part_eTag,
 
@@ -1047,6 +1114,9 @@ import Amazonka.S3.Types.CORSConfiguration
 import Amazonka.S3.Types.CORSRule
 import Amazonka.S3.Types.CSVInput
 import Amazonka.S3.Types.CSVOutput
+import Amazonka.S3.Types.Checksum
+import Amazonka.S3.Types.ChecksumAlgorithm
+import Amazonka.S3.Types.ChecksumMode
 import Amazonka.S3.Types.CommonPrefix
 import Amazonka.S3.Types.CompletedMultipartUpload
 import Amazonka.S3.Types.CompletedPart
@@ -1069,6 +1139,7 @@ import Amazonka.S3.Types.EncryptionConfiguration
 import Amazonka.S3.Types.EndEvent
 import Amazonka.S3.Types.ErrorDocument
 import Amazonka.S3.Types.Event
+import Amazonka.S3.Types.EventBridgeConfiguration
 import Amazonka.S3.Types.ExistingObjectReplication
 import Amazonka.S3.Types.ExistingObjectReplicationStatus
 import Amazonka.S3.Types.ExpirationStatus
@@ -1076,6 +1147,7 @@ import Amazonka.S3.Types.ExpressionType
 import Amazonka.S3.Types.FileHeaderInfo
 import Amazonka.S3.Types.FilterRule
 import Amazonka.S3.Types.FilterRuleName
+import Amazonka.S3.Types.GetObjectAttributesParts
 import Amazonka.S3.Types.GlacierJobParameters
 import Amazonka.S3.Types.Grant
 import Amazonka.S3.Types.Grantee
@@ -1121,6 +1193,7 @@ import Amazonka.S3.Types.NoncurrentVersionTransition
 import Amazonka.S3.Types.NotificationConfiguration
 import Amazonka.S3.Types.NotificationConfigurationFilter
 import Amazonka.S3.Types.Object
+import Amazonka.S3.Types.ObjectAttributes
 import Amazonka.S3.Types.ObjectCannedACL
 import Amazonka.S3.Types.ObjectIdentifier
 import Amazonka.S3.Types.ObjectLockConfiguration
@@ -1132,6 +1205,7 @@ import Amazonka.S3.Types.ObjectLockRetention
 import Amazonka.S3.Types.ObjectLockRetentionMode
 import Amazonka.S3.Types.ObjectLockRule
 import Amazonka.S3.Types.ObjectOwnership
+import Amazonka.S3.Types.ObjectPart
 import Amazonka.S3.Types.ObjectStorageClass
 import Amazonka.S3.Types.ObjectVersion
 import Amazonka.S3.Types.ObjectVersionStorageClass

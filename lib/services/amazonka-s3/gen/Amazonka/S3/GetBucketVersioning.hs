@@ -66,8 +66,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketVersioning' smart constructor.
 data GetBucketVersioning = GetBucketVersioning'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to get the versioning information.
     bucket :: BucketName
@@ -83,8 +83,8 @@ data GetBucketVersioning = GetBucketVersioning'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketVersioning_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketVersioning_bucket' - The name of the bucket for which to get the versioning information.
 newGetBucketVersioning ::
@@ -99,8 +99,8 @@ newGetBucketVersioning pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketVersioning_expectedBucketOwner :: Lens.Lens' GetBucketVersioning (Prelude.Maybe Prelude.Text)
 getBucketVersioning_expectedBucketOwner = Lens.lens (\GetBucketVersioning' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketVersioning' {} a -> s {expectedBucketOwner = a} :: GetBucketVersioning)
 

@@ -33,9 +33,9 @@ import Amazonka.S3.Internal
 -- /See:/ 'newScanRange' smart constructor.
 data ScanRange = ScanRange'
   { -- | Specifies the start of the byte range. This parameter is optional. Valid
-    -- values: non-negative integers. The default value is 0. If only start is
-    -- supplied, it means scan from that point to the end of the file.For
-    -- example; @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
+    -- values: non-negative integers. The default value is 0. If only @start@
+    -- is supplied, it means scan from that point to the end of the file. For
+    -- example, @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
     -- from byte 50 until the end of the file.
     start :: Prelude.Maybe Prelude.Integer,
     -- | Specifies the end of the byte range. This parameter is optional. Valid
@@ -57,9 +57,9 @@ data ScanRange = ScanRange'
 -- for backwards compatibility:
 --
 -- 'start', 'scanRange_start' - Specifies the start of the byte range. This parameter is optional. Valid
--- values: non-negative integers. The default value is 0. If only start is
--- supplied, it means scan from that point to the end of the file.For
--- example; @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
+-- values: non-negative integers. The default value is 0. If only @start@
+-- is supplied, it means scan from that point to the end of the file. For
+-- example, @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
 -- from byte 50 until the end of the file.
 --
 -- 'end', 'scanRange_end' - Specifies the end of the byte range. This parameter is optional. Valid
@@ -77,9 +77,9 @@ newScanRange =
     }
 
 -- | Specifies the start of the byte range. This parameter is optional. Valid
--- values: non-negative integers. The default value is 0. If only start is
--- supplied, it means scan from that point to the end of the file.For
--- example; @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
+-- values: non-negative integers. The default value is 0. If only @start@
+-- is supplied, it means scan from that point to the end of the file. For
+-- example, @\<scanrange>\<start>50\<\/start>\<\/scanrange>@ means scan
 -- from byte 50 until the end of the file.
 scanRange_start :: Lens.Lens' ScanRange (Prelude.Maybe Prelude.Integer)
 scanRange_start = Lens.lens (\ScanRange' {start} -> start) (\s@ScanRange' {} a -> s {start = a} :: ScanRange)

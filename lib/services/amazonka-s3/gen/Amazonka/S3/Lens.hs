@@ -24,19 +24,30 @@ module Amazonka.S3.Lens
     abortMultipartUploadResponse_httpStatus,
 
     -- ** CompleteMultipartUpload
+    completeMultipartUpload_checksumCRC32C,
+    completeMultipartUpload_checksumSHA1,
     completeMultipartUpload_expectedBucketOwner,
+    completeMultipartUpload_checksumCRC32,
     completeMultipartUpload_requestPayer,
+    completeMultipartUpload_checksumSHA256,
+    completeMultipartUpload_sSECustomerAlgorithm,
+    completeMultipartUpload_sSECustomerKeyMD5,
     completeMultipartUpload_multipartUpload,
+    completeMultipartUpload_sSECustomerKey,
     completeMultipartUpload_bucket,
     completeMultipartUpload_key,
     completeMultipartUpload_uploadId,
     completeMultipartUploadResponse_serverSideEncryption,
     completeMultipartUploadResponse_key,
+    completeMultipartUploadResponse_checksumCRC32C,
     completeMultipartUploadResponse_bucketKeyEnabled,
     completeMultipartUploadResponse_expiration,
     completeMultipartUploadResponse_requestCharged,
+    completeMultipartUploadResponse_checksumSHA1,
     completeMultipartUploadResponse_bucket,
+    completeMultipartUploadResponse_checksumCRC32,
     completeMultipartUploadResponse_sSEKMSKeyId,
+    completeMultipartUploadResponse_checksumSHA256,
     completeMultipartUploadResponse_location,
     completeMultipartUploadResponse_eTag,
     completeMultipartUploadResponse_versionId,
@@ -45,6 +56,7 @@ module Amazonka.S3.Lens
     -- ** CopyObject
     copyObject_copySourceIfNoneMatch,
     copyObject_serverSideEncryption,
+    copyObject_checksumAlgorithm,
     copyObject_copySourceSSECustomerKey,
     copyObject_copySourceSSECustomerKeyMD5,
     copyObject_objectLockMode,
@@ -103,6 +115,7 @@ module Amazonka.S3.Lens
     createBucket_objectLockEnabledForBucket,
     createBucket_createBucketConfiguration,
     createBucket_grantRead,
+    createBucket_objectOwnership,
     createBucket_grantWrite,
     createBucket_grantReadACP,
     createBucket_bucket,
@@ -111,6 +124,7 @@ module Amazonka.S3.Lens
 
     -- ** CreateMultipartUpload
     createMultipartUpload_serverSideEncryption,
+    createMultipartUpload_checksumAlgorithm,
     createMultipartUpload_objectLockMode,
     createMultipartUpload_bucketKeyEnabled,
     createMultipartUpload_websiteRedirectLocation,
@@ -140,6 +154,7 @@ module Amazonka.S3.Lens
     createMultipartUpload_bucket,
     createMultipartUpload_key,
     createMultipartUploadResponse_serverSideEncryption,
+    createMultipartUploadResponse_checksumAlgorithm,
     createMultipartUploadResponse_key,
     createMultipartUploadResponse_bucketKeyEnabled,
     createMultipartUploadResponse_requestCharged,
@@ -230,6 +245,7 @@ module Amazonka.S3.Lens
     deleteObjectTaggingResponse_httpStatus,
 
     -- ** DeleteObjects
+    deleteObjects_checksumAlgorithm,
     deleteObjects_expectedBucketOwner,
     deleteObjects_requestPayer,
     deleteObjects_bypassGovernanceRetention,
@@ -318,6 +334,7 @@ module Amazonka.S3.Lens
     -- ** GetBucketNotificationConfiguration
     getBucketNotificationConfiguration_expectedBucketOwner,
     getBucketNotificationConfiguration_bucket,
+    notificationConfiguration_eventBridgeConfiguration,
     notificationConfiguration_queueConfigurations,
     notificationConfiguration_topicConfigurations,
     notificationConfiguration_lambdaFunctionConfigurations,
@@ -383,6 +400,7 @@ module Amazonka.S3.Lens
     getObject_ifUnmodifiedSince,
     getObject_range,
     getObject_sSECustomerAlgorithm,
+    getObject_checksumMode,
     getObject_sSECustomerKeyMD5,
     getObject_responseContentLanguage,
     getObject_responseExpires,
@@ -397,19 +415,23 @@ module Amazonka.S3.Lens
     getObject_key,
     getObjectResponse_serverSideEncryption,
     getObjectResponse_partsCount,
+    getObjectResponse_checksumCRC32C,
     getObjectResponse_objectLockMode,
     getObjectResponse_bucketKeyEnabled,
     getObjectResponse_websiteRedirectLocation,
     getObjectResponse_expiration,
     getObjectResponse_requestCharged,
     getObjectResponse_objectLockRetainUntilDate,
+    getObjectResponse_checksumSHA1,
     getObjectResponse_replicationStatus,
     getObjectResponse_metadata,
+    getObjectResponse_checksumCRC32,
     getObjectResponse_restore,
     getObjectResponse_contentLanguage,
     getObjectResponse_sSEKMSKeyId,
     getObjectResponse_contentDisposition,
     getObjectResponse_objectLockLegalHoldStatus,
+    getObjectResponse_checksumSHA256,
     getObjectResponse_acceptRanges,
     getObjectResponse_contentLength,
     getObjectResponse_tagCount,
@@ -439,6 +461,29 @@ module Amazonka.S3.Lens
     getObjectAclResponse_grants,
     getObjectAclResponse_owner,
     getObjectAclResponse_httpStatus,
+
+    -- ** GetObjectAttributes
+    getObjectAttributes_expectedBucketOwner,
+    getObjectAttributes_requestPayer,
+    getObjectAttributes_sSECustomerAlgorithm,
+    getObjectAttributes_maxParts,
+    getObjectAttributes_sSECustomerKeyMD5,
+    getObjectAttributes_partNumberMarker,
+    getObjectAttributes_versionId,
+    getObjectAttributes_sSECustomerKey,
+    getObjectAttributes_bucket,
+    getObjectAttributes_key,
+    getObjectAttributes_objectAttributes,
+    getObjectAttributesResponse_requestCharged,
+    getObjectAttributesResponse_checksum,
+    getObjectAttributesResponse_lastModified,
+    getObjectAttributesResponse_objectParts,
+    getObjectAttributesResponse_storageClass,
+    getObjectAttributesResponse_eTag,
+    getObjectAttributesResponse_objectSize,
+    getObjectAttributesResponse_deleteMarker,
+    getObjectAttributesResponse_versionId,
+    getObjectAttributesResponse_httpStatus,
 
     -- ** GetObjectLegalHold
     getObjectLegalHold_expectedBucketOwner,
@@ -500,6 +545,7 @@ module Amazonka.S3.Lens
     headObject_ifUnmodifiedSince,
     headObject_range,
     headObject_sSECustomerAlgorithm,
+    headObject_checksumMode,
     headObject_sSECustomerKeyMD5,
     headObject_ifMatch,
     headObject_ifModifiedSince,
@@ -510,19 +556,23 @@ module Amazonka.S3.Lens
     headObject_key,
     headObjectResponse_serverSideEncryption,
     headObjectResponse_partsCount,
+    headObjectResponse_checksumCRC32C,
     headObjectResponse_objectLockMode,
     headObjectResponse_bucketKeyEnabled,
     headObjectResponse_websiteRedirectLocation,
     headObjectResponse_expiration,
     headObjectResponse_requestCharged,
     headObjectResponse_objectLockRetainUntilDate,
+    headObjectResponse_checksumSHA1,
     headObjectResponse_replicationStatus,
     headObjectResponse_metadata,
+    headObjectResponse_checksumCRC32,
     headObjectResponse_restore,
     headObjectResponse_contentLanguage,
     headObjectResponse_sSEKMSKeyId,
     headObjectResponse_contentDisposition,
     headObjectResponse_objectLockLegalHoldStatus,
+    headObjectResponse_checksumSHA256,
     headObjectResponse_acceptRanges,
     headObjectResponse_contentLength,
     headObjectResponse_sSECustomerAlgorithm,
@@ -680,11 +730,15 @@ module Amazonka.S3.Lens
     -- ** ListParts
     listParts_expectedBucketOwner,
     listParts_requestPayer,
+    listParts_sSECustomerAlgorithm,
     listParts_maxParts,
+    listParts_sSECustomerKeyMD5,
     listParts_partNumberMarker,
+    listParts_sSECustomerKey,
     listParts_bucket,
     listParts_key,
     listParts_uploadId,
+    listPartsResponse_checksumAlgorithm,
     listPartsResponse_uploadId,
     listPartsResponse_key,
     listPartsResponse_requestCharged,
@@ -702,11 +756,13 @@ module Amazonka.S3.Lens
     listPartsResponse_httpStatus,
 
     -- ** PutBucketAccelerateConfiguration
+    putBucketAccelerateConfiguration_checksumAlgorithm,
     putBucketAccelerateConfiguration_expectedBucketOwner,
     putBucketAccelerateConfiguration_bucket,
     putBucketAccelerateConfiguration_accelerateConfiguration,
 
     -- ** PutBucketAcl
+    putBucketAcl_checksumAlgorithm,
     putBucketAcl_grantWriteACP,
     putBucketAcl_grantFullControl,
     putBucketAcl_acl,
@@ -725,12 +781,14 @@ module Amazonka.S3.Lens
     putBucketAnalyticsConfiguration_analyticsConfiguration,
 
     -- ** PutBucketCors
+    putBucketCors_checksumAlgorithm,
     putBucketCors_contentMD5,
     putBucketCors_expectedBucketOwner,
     putBucketCors_bucket,
     putBucketCors_cORSConfiguration,
 
     -- ** PutBucketEncryption
+    putBucketEncryption_checksumAlgorithm,
     putBucketEncryption_contentMD5,
     putBucketEncryption_expectedBucketOwner,
     putBucketEncryption_bucket,
@@ -748,11 +806,13 @@ module Amazonka.S3.Lens
     putBucketInventoryConfiguration_inventoryConfiguration,
 
     -- ** PutBucketLifecycleConfiguration
+    putBucketLifecycleConfiguration_checksumAlgorithm,
     putBucketLifecycleConfiguration_expectedBucketOwner,
     putBucketLifecycleConfiguration_lifecycleConfiguration,
     putBucketLifecycleConfiguration_bucket,
 
     -- ** PutBucketLogging
+    putBucketLogging_checksumAlgorithm,
     putBucketLogging_contentMD5,
     putBucketLogging_expectedBucketOwner,
     putBucketLogging_bucket,
@@ -766,6 +826,7 @@ module Amazonka.S3.Lens
 
     -- ** PutBucketNotificationConfiguration
     putBucketNotificationConfiguration_expectedBucketOwner,
+    putBucketNotificationConfiguration_skipDestinationValidation,
     putBucketNotificationConfiguration_bucket,
     putBucketNotificationConfiguration_notificationConfiguration,
 
@@ -776,6 +837,7 @@ module Amazonka.S3.Lens
     putBucketOwnershipControls_ownershipControls,
 
     -- ** PutBucketPolicy
+    putBucketPolicy_checksumAlgorithm,
     putBucketPolicy_contentMD5,
     putBucketPolicy_expectedBucketOwner,
     putBucketPolicy_confirmRemoveSelfBucketAccess,
@@ -783,6 +845,7 @@ module Amazonka.S3.Lens
     putBucketPolicy_policy,
 
     -- ** PutBucketReplication
+    putBucketReplication_checksumAlgorithm,
     putBucketReplication_contentMD5,
     putBucketReplication_expectedBucketOwner,
     putBucketReplication_token,
@@ -790,18 +853,21 @@ module Amazonka.S3.Lens
     putBucketReplication_replicationConfiguration,
 
     -- ** PutBucketRequestPayment
+    putBucketRequestPayment_checksumAlgorithm,
     putBucketRequestPayment_contentMD5,
     putBucketRequestPayment_expectedBucketOwner,
     putBucketRequestPayment_bucket,
     putBucketRequestPayment_requestPaymentConfiguration,
 
     -- ** PutBucketTagging
+    putBucketTagging_checksumAlgorithm,
     putBucketTagging_contentMD5,
     putBucketTagging_expectedBucketOwner,
     putBucketTagging_bucket,
     putBucketTagging_tagging,
 
     -- ** PutBucketVersioning
+    putBucketVersioning_checksumAlgorithm,
     putBucketVersioning_contentMD5,
     putBucketVersioning_expectedBucketOwner,
     putBucketVersioning_mfa,
@@ -809,6 +875,7 @@ module Amazonka.S3.Lens
     putBucketVersioning_versioningConfiguration,
 
     -- ** PutBucketWebsite
+    putBucketWebsite_checksumAlgorithm,
     putBucketWebsite_contentMD5,
     putBucketWebsite_expectedBucketOwner,
     putBucketWebsite_bucket,
@@ -816,21 +883,26 @@ module Amazonka.S3.Lens
 
     -- ** PutObject
     putObject_serverSideEncryption,
+    putObject_checksumAlgorithm,
+    putObject_checksumCRC32C,
     putObject_objectLockMode,
     putObject_bucketKeyEnabled,
     putObject_websiteRedirectLocation,
     putObject_grantWriteACP,
     putObject_objectLockRetainUntilDate,
+    putObject_checksumSHA1,
     putObject_grantFullControl,
     putObject_acl,
     putObject_contentMD5,
     putObject_expectedBucketOwner,
     putObject_metadata,
+    putObject_checksumCRC32,
     putObject_contentLanguage,
     putObject_sSEKMSKeyId,
     putObject_contentDisposition,
     putObject_objectLockLegalHoldStatus,
     putObject_requestPayer,
+    putObject_checksumSHA256,
     putObject_sSEKMSEncryptionContext,
     putObject_contentLength,
     putObject_grantRead,
@@ -848,10 +920,14 @@ module Amazonka.S3.Lens
     putObject_key,
     putObject_body,
     putObjectResponse_serverSideEncryption,
+    putObjectResponse_checksumCRC32C,
     putObjectResponse_bucketKeyEnabled,
     putObjectResponse_expiration,
     putObjectResponse_requestCharged,
+    putObjectResponse_checksumSHA1,
+    putObjectResponse_checksumCRC32,
     putObjectResponse_sSEKMSKeyId,
+    putObjectResponse_checksumSHA256,
     putObjectResponse_sSEKMSEncryptionContext,
     putObjectResponse_sSECustomerAlgorithm,
     putObjectResponse_sSECustomerKeyMD5,
@@ -860,6 +936,7 @@ module Amazonka.S3.Lens
     putObjectResponse_httpStatus,
 
     -- ** PutObjectAcl
+    putObjectAcl_checksumAlgorithm,
     putObjectAcl_grantWriteACP,
     putObjectAcl_grantFullControl,
     putObjectAcl_acl,
@@ -877,6 +954,7 @@ module Amazonka.S3.Lens
     putObjectAclResponse_httpStatus,
 
     -- ** PutObjectLegalHold
+    putObjectLegalHold_checksumAlgorithm,
     putObjectLegalHold_contentMD5,
     putObjectLegalHold_expectedBucketOwner,
     putObjectLegalHold_requestPayer,
@@ -888,6 +966,7 @@ module Amazonka.S3.Lens
     putObjectLegalHoldResponse_httpStatus,
 
     -- ** PutObjectLockConfiguration
+    putObjectLockConfiguration_checksumAlgorithm,
     putObjectLockConfiguration_contentMD5,
     putObjectLockConfiguration_expectedBucketOwner,
     putObjectLockConfiguration_requestPayer,
@@ -898,6 +977,7 @@ module Amazonka.S3.Lens
     putObjectLockConfigurationResponse_httpStatus,
 
     -- ** PutObjectRetention
+    putObjectRetention_checksumAlgorithm,
     putObjectRetention_contentMD5,
     putObjectRetention_expectedBucketOwner,
     putObjectRetention_requestPayer,
@@ -910,6 +990,7 @@ module Amazonka.S3.Lens
     putObjectRetentionResponse_httpStatus,
 
     -- ** PutObjectTagging
+    putObjectTagging_checksumAlgorithm,
     putObjectTagging_contentMD5,
     putObjectTagging_expectedBucketOwner,
     putObjectTagging_requestPayer,
@@ -921,12 +1002,14 @@ module Amazonka.S3.Lens
     putObjectTaggingResponse_httpStatus,
 
     -- ** PutPublicAccessBlock
+    putPublicAccessBlock_checksumAlgorithm,
     putPublicAccessBlock_contentMD5,
     putPublicAccessBlock_expectedBucketOwner,
     putPublicAccessBlock_bucket,
     putPublicAccessBlock_publicAccessBlockConfiguration,
 
     -- ** RestoreObject
+    restoreObject_checksumAlgorithm,
     restoreObject_expectedBucketOwner,
     restoreObject_requestPayer,
     restoreObject_restoreRequest,
@@ -954,9 +1037,14 @@ module Amazonka.S3.Lens
     selectObjectContentResponse_httpStatus,
 
     -- ** UploadPart
+    uploadPart_checksumAlgorithm,
+    uploadPart_checksumCRC32C,
+    uploadPart_checksumSHA1,
     uploadPart_contentMD5,
     uploadPart_expectedBucketOwner,
+    uploadPart_checksumCRC32,
     uploadPart_requestPayer,
+    uploadPart_checksumSHA256,
     uploadPart_contentLength,
     uploadPart_sSECustomerAlgorithm,
     uploadPart_sSECustomerKeyMD5,
@@ -967,9 +1055,13 @@ module Amazonka.S3.Lens
     uploadPart_uploadId,
     uploadPart_body,
     uploadPartResponse_serverSideEncryption,
+    uploadPartResponse_checksumCRC32C,
     uploadPartResponse_bucketKeyEnabled,
     uploadPartResponse_requestCharged,
+    uploadPartResponse_checksumSHA1,
+    uploadPartResponse_checksumCRC32,
     uploadPartResponse_sSEKMSKeyId,
+    uploadPartResponse_checksumSHA256,
     uploadPartResponse_sSECustomerAlgorithm,
     uploadPartResponse_sSECustomerKeyMD5,
     uploadPartResponse_eTag,
@@ -1008,19 +1100,23 @@ module Amazonka.S3.Lens
     -- ** WriteGetObjectResponse
     writeGetObjectResponse_serverSideEncryption,
     writeGetObjectResponse_partsCount,
+    writeGetObjectResponse_checksumCRC32C,
     writeGetObjectResponse_objectLockMode,
     writeGetObjectResponse_bucketKeyEnabled,
     writeGetObjectResponse_expiration,
     writeGetObjectResponse_requestCharged,
     writeGetObjectResponse_objectLockRetainUntilDate,
+    writeGetObjectResponse_checksumSHA1,
     writeGetObjectResponse_replicationStatus,
     writeGetObjectResponse_errorMessage,
     writeGetObjectResponse_metadata,
+    writeGetObjectResponse_checksumCRC32,
     writeGetObjectResponse_restore,
     writeGetObjectResponse_contentLanguage,
     writeGetObjectResponse_sSEKMSKeyId,
     writeGetObjectResponse_contentDisposition,
     writeGetObjectResponse_objectLockLegalHoldStatus,
+    writeGetObjectResponse_checksumSHA256,
     writeGetObjectResponse_acceptRanges,
     writeGetObjectResponse_contentLength,
     writeGetObjectResponse_tagCount,
@@ -1118,6 +1214,12 @@ module Amazonka.S3.Lens
     cSVOutput_fieldDelimiter,
     cSVOutput_recordDelimiter,
 
+    -- ** Checksum
+    checksum_checksumCRC32C,
+    checksum_checksumSHA1,
+    checksum_checksumCRC32,
+    checksum_checksumSHA256,
+
     -- ** CommonPrefix
     commonPrefix_prefix,
 
@@ -1125,6 +1227,10 @@ module Amazonka.S3.Lens
     completedMultipartUpload_parts,
 
     -- ** CompletedPart
+    completedPart_checksumCRC32C,
+    completedPart_checksumSHA1,
+    completedPart_checksumCRC32,
+    completedPart_checksumSHA256,
     completedPart_partNumber,
     completedPart_eTag,
 
@@ -1135,10 +1241,18 @@ module Amazonka.S3.Lens
     -- ** ContinuationEvent
 
     -- ** CopyObjectResult
+    copyObjectResult_checksumCRC32C,
+    copyObjectResult_checksumSHA1,
+    copyObjectResult_checksumCRC32,
+    copyObjectResult_checksumSHA256,
     copyObjectResult_lastModified,
     copyObjectResult_eTag,
 
     -- ** CopyPartResult
+    copyPartResult_checksumCRC32C,
+    copyPartResult_checksumSHA1,
+    copyPartResult_checksumCRC32,
+    copyPartResult_checksumSHA256,
     copyPartResult_lastModified,
     copyPartResult_eTag,
 
@@ -1192,12 +1306,22 @@ module Amazonka.S3.Lens
     -- ** ErrorDocument
     errorDocument_key,
 
+    -- ** EventBridgeConfiguration
+
     -- ** ExistingObjectReplication
     existingObjectReplication_status,
 
     -- ** FilterRule
     filterRule_name,
     filterRule_value,
+
+    -- ** GetObjectAttributesParts
+    getObjectAttributesParts_parts,
+    getObjectAttributesParts_nextPartNumberMarker,
+    getObjectAttributesParts_isTruncated,
+    getObjectAttributesParts_totalPartsCount,
+    getObjectAttributesParts_maxParts,
+    getObjectAttributesParts_partNumberMarker,
 
     -- ** GlacierJobParameters
     glacierJobParameters_tier,
@@ -1300,12 +1424,16 @@ module Amazonka.S3.Lens
 
     -- ** LifecycleRuleAndOperator
     lifecycleRuleAndOperator_tags,
+    lifecycleRuleAndOperator_objectSizeLessThan,
     lifecycleRuleAndOperator_prefix,
+    lifecycleRuleAndOperator_objectSizeGreaterThan,
 
     -- ** LifecycleRuleFilter
+    lifecycleRuleFilter_objectSizeLessThan,
     lifecycleRuleFilter_tag,
     lifecycleRuleFilter_prefix,
     lifecycleRuleFilter_and,
+    lifecycleRuleFilter_objectSizeGreaterThan,
 
     -- ** LoggingEnabled
     loggingEnabled_targetGrants,
@@ -1336,6 +1464,7 @@ module Amazonka.S3.Lens
     metricsFilter_and,
 
     -- ** MultipartUpload
+    multipartUpload_checksumAlgorithm,
     multipartUpload_uploadId,
     multipartUpload_key,
     multipartUpload_owner,
@@ -1344,13 +1473,16 @@ module Amazonka.S3.Lens
     multipartUpload_initiated,
 
     -- ** NoncurrentVersionExpiration
+    noncurrentVersionExpiration_newerNoncurrentVersions,
     noncurrentVersionExpiration_noncurrentDays,
 
     -- ** NoncurrentVersionTransition
+    noncurrentVersionTransition_newerNoncurrentVersions,
     noncurrentVersionTransition_noncurrentDays,
     noncurrentVersionTransition_storageClass,
 
     -- ** NotificationConfiguration
+    notificationConfiguration_eventBridgeConfiguration,
     notificationConfiguration_queueConfigurations,
     notificationConfiguration_topicConfigurations,
     notificationConfiguration_lambdaFunctionConfigurations,
@@ -1359,6 +1491,7 @@ module Amazonka.S3.Lens
     notificationConfigurationFilter_key,
 
     -- ** Object
+    object_checksumAlgorithm,
     object_owner,
     object_eTag,
     object_size,
@@ -1384,7 +1517,16 @@ module Amazonka.S3.Lens
     -- ** ObjectLockRule
     objectLockRule_defaultRetention,
 
+    -- ** ObjectPart
+    objectPart_checksumCRC32C,
+    objectPart_checksumSHA1,
+    objectPart_checksumCRC32,
+    objectPart_partNumber,
+    objectPart_size,
+    objectPart_checksumSHA256,
+
     -- ** ObjectVersion
+    objectVersion_checksumAlgorithm,
     objectVersion_key,
     objectVersion_isLatest,
     objectVersion_size,
@@ -1414,8 +1556,12 @@ module Amazonka.S3.Lens
     -- ** ParquetInput
 
     -- ** Part
+    part_checksumCRC32C,
+    part_checksumSHA1,
+    part_checksumCRC32,
     part_partNumber,
     part_size,
+    part_checksumSHA256,
     part_lastModified,
     part_eTag,
 
@@ -1665,6 +1811,7 @@ import Amazonka.S3.GetBucketVersioning
 import Amazonka.S3.GetBucketWebsite
 import Amazonka.S3.GetObject
 import Amazonka.S3.GetObjectAcl
+import Amazonka.S3.GetObjectAttributes
 import Amazonka.S3.GetObjectLegalHold
 import Amazonka.S3.GetObjectLockConfiguration
 import Amazonka.S3.GetObjectRetention
@@ -1726,6 +1873,7 @@ import Amazonka.S3.Types.CORSConfiguration
 import Amazonka.S3.Types.CORSRule
 import Amazonka.S3.Types.CSVInput
 import Amazonka.S3.Types.CSVOutput
+import Amazonka.S3.Types.Checksum
 import Amazonka.S3.Types.CommonPrefix
 import Amazonka.S3.Types.CompletedMultipartUpload
 import Amazonka.S3.Types.CompletedPart
@@ -1744,8 +1892,10 @@ import Amazonka.S3.Types.Encryption
 import Amazonka.S3.Types.EncryptionConfiguration
 import Amazonka.S3.Types.EndEvent
 import Amazonka.S3.Types.ErrorDocument
+import Amazonka.S3.Types.EventBridgeConfiguration
 import Amazonka.S3.Types.ExistingObjectReplication
 import Amazonka.S3.Types.FilterRule
+import Amazonka.S3.Types.GetObjectAttributesParts
 import Amazonka.S3.Types.GlacierJobParameters
 import Amazonka.S3.Types.Grant
 import Amazonka.S3.Types.Grantee
@@ -1785,6 +1935,7 @@ import Amazonka.S3.Types.ObjectLockConfiguration
 import Amazonka.S3.Types.ObjectLockLegalHold
 import Amazonka.S3.Types.ObjectLockRetention
 import Amazonka.S3.Types.ObjectLockRule
+import Amazonka.S3.Types.ObjectPart
 import Amazonka.S3.Types.ObjectVersion
 import Amazonka.S3.Types.OutputLocation
 import Amazonka.S3.Types.OutputSerialization

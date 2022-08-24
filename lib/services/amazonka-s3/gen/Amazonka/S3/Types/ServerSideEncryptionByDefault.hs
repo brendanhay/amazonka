@@ -27,7 +27,11 @@ import Amazonka.S3.Types.ServerSideEncryption
 
 -- | Describes the default server-side encryption to apply to new objects in
 -- the bucket. If a PUT Object request doesn\'t specify any server-side
--- encryption, this default encryption will be applied. For more
+-- encryption, this default encryption will be applied. If you don\'t
+-- specify a customer managed key at configuration, Amazon S3 automatically
+-- creates an Amazon Web Services KMS key in your Amazon Web Services
+-- account the first time that you add an object encrypted with SSE-KMS to
+-- a bucket. By default, Amazon S3 uses this KMS key for SSE-KMS. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTencryption.html PUT Bucket encryption>
 -- in the /Amazon S3 API Reference/.
@@ -39,8 +43,9 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
     -- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
     --
     -- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
-    -- key. However, if you are using encryption with cross-account operations,
-    -- you must use a fully qualified KMS key ARN. For more information, see
+    -- key. However, if you are using encryption with cross-account or Amazon
+    -- Web Services service operations you must use a fully qualified KMS key
+    -- ARN. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
     --
     -- __For example:__
@@ -73,8 +78,9 @@ data ServerSideEncryptionByDefault = ServerSideEncryptionByDefault'
 -- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
 --
 -- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
--- key. However, if you are using encryption with cross-account operations,
--- you must use a fully qualified KMS key ARN. For more information, see
+-- key. However, if you are using encryption with cross-account or Amazon
+-- Web Services service operations you must use a fully qualified KMS key
+-- ARN. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
 --
 -- __For example:__
@@ -106,8 +112,9 @@ newServerSideEncryptionByDefault pSSEAlgorithm_ =
 -- allowed if and only if @SSEAlgorithm@ is set to @aws:kms@.
 --
 -- You can specify the key ID or the Amazon Resource Name (ARN) of the KMS
--- key. However, if you are using encryption with cross-account operations,
--- you must use a fully qualified KMS key ARN. For more information, see
+-- key. However, if you are using encryption with cross-account or Amazon
+-- Web Services service operations you must use a fully qualified KMS key
+-- ARN. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy Using encryption for cross-account operations>.
 --
 -- __For example:__

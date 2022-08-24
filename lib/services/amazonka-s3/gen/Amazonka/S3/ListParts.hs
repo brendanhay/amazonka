@@ -34,6 +34,9 @@
 -- value to the @NextPartNumberMarker@ field value from the previous
 -- response.
 --
+-- If the upload was created using a checksum algorithm, you will need to
+-- have permission to the @kms:Decrypt@ action for the request to succeed.
+--
 -- For more information on multipart uploads, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html Uploading Objects Using Multipart Upload>.
 --
@@ -51,6 +54,8 @@
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_AbortMultipartUpload.html AbortMultipartUpload>
 --
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html GetObjectAttributes>
+--
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html ListMultipartUploads>
 --
 -- This operation returns paginated results.
@@ -62,8 +67,11 @@ module Amazonka.S3.ListParts
     -- * Request Lenses
     listParts_expectedBucketOwner,
     listParts_requestPayer,
+    listParts_sSECustomerAlgorithm,
     listParts_maxParts,
+    listParts_sSECustomerKeyMD5,
     listParts_partNumberMarker,
+    listParts_sSECustomerKey,
     listParts_bucket,
     listParts_key,
     listParts_uploadId,
@@ -73,6 +81,7 @@ module Amazonka.S3.ListParts
     newListPartsResponse,
 
     -- * Response Lenses
+    listPartsResponse_checksumAlgorithm,
     listPartsResponse_uploadId,
     listPartsResponse_key,
     listPartsResponse_requestCharged,
@@ -101,15 +110,33 @@ import Amazonka.S3.Types
 -- | /See:/ 'newListParts' smart constructor.
 data ListParts = ListParts'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
+    -- | The server-side encryption (SSE) algorithm used to encrypt the object.
+    -- This parameter is needed only when the object was created using a
+    -- checksum algorithm. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+    -- in the /Amazon S3 User Guide/.
+    sSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | Sets the maximum number of parts to return.
     maxParts :: Prelude.Maybe Prelude.Int,
+    -- | The MD5 server-side encryption (SSE) customer managed key. This
+    -- parameter is needed only when the object was created using a checksum
+    -- algorithm. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+    -- in the /Amazon S3 User Guide/.
+    sSECustomerKeyMD5 :: Prelude.Maybe Prelude.Text,
     -- | Specifies the part after which listing should begin. Only parts with
     -- higher part numbers will be listed.
     partNumberMarker :: Prelude.Maybe Prelude.Int,
+    -- | The server-side encryption (SSE) customer managed key. This parameter is
+    -- needed only when the object was created using a checksum algorithm. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+    -- in the /Amazon S3 User Guide/.
+    sSECustomerKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the bucket to which the parts are being uploaded.
     --
     -- When using this action with an access point, you must direct requests to
@@ -124,11 +151,11 @@ data ListParts = ListParts'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Object key for which the multipart upload was initiated.
@@ -136,7 +163,7 @@ data ListParts = ListParts'
     -- | Upload ID identifying the multipart upload whose parts are being listed.
     uploadId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListParts' with all optional fields omitted.
@@ -147,15 +174,33 @@ data ListParts = ListParts'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'listParts_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'requestPayer', 'listParts_requestPayer' - Undocumented member.
 --
+-- 'sSECustomerAlgorithm', 'listParts_sSECustomerAlgorithm' - The server-side encryption (SSE) algorithm used to encrypt the object.
+-- This parameter is needed only when the object was created using a
+-- checksum algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+--
 -- 'maxParts', 'listParts_maxParts' - Sets the maximum number of parts to return.
+--
+-- 'sSECustomerKeyMD5', 'listParts_sSECustomerKeyMD5' - The MD5 server-side encryption (SSE) customer managed key. This
+-- parameter is needed only when the object was created using a checksum
+-- algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'partNumberMarker', 'listParts_partNumberMarker' - Specifies the part after which listing should begin. Only parts with
 -- higher part numbers will be listed.
+--
+-- 'sSECustomerKey', 'listParts_sSECustomerKey' - The server-side encryption (SSE) customer managed key. This parameter is
+-- needed only when the object was created using a checksum algorithm. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'bucket', 'listParts_bucket' - The name of the bucket to which the parts are being uploaded.
 --
@@ -171,11 +216,11 @@ data ListParts = ListParts'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'listParts_key' - Object key for which the multipart upload was initiated.
@@ -193,16 +238,19 @@ newListParts pBucket_ pKey_ pUploadId_ =
   ListParts'
     { expectedBucketOwner = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
+      sSECustomerAlgorithm = Prelude.Nothing,
       maxParts = Prelude.Nothing,
+      sSECustomerKeyMD5 = Prelude.Nothing,
       partNumberMarker = Prelude.Nothing,
+      sSECustomerKey = Prelude.Nothing,
       bucket = pBucket_,
       key = pKey_,
       uploadId = pUploadId_
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 listParts_expectedBucketOwner :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
 listParts_expectedBucketOwner = Lens.lens (\ListParts' {expectedBucketOwner} -> expectedBucketOwner) (\s@ListParts' {} a -> s {expectedBucketOwner = a} :: ListParts)
 
@@ -210,14 +258,38 @@ listParts_expectedBucketOwner = Lens.lens (\ListParts' {expectedBucketOwner} -> 
 listParts_requestPayer :: Lens.Lens' ListParts (Prelude.Maybe RequestPayer)
 listParts_requestPayer = Lens.lens (\ListParts' {requestPayer} -> requestPayer) (\s@ListParts' {} a -> s {requestPayer = a} :: ListParts)
 
+-- | The server-side encryption (SSE) algorithm used to encrypt the object.
+-- This parameter is needed only when the object was created using a
+-- checksum algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+listParts_sSECustomerAlgorithm :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
+listParts_sSECustomerAlgorithm = Lens.lens (\ListParts' {sSECustomerAlgorithm} -> sSECustomerAlgorithm) (\s@ListParts' {} a -> s {sSECustomerAlgorithm = a} :: ListParts)
+
 -- | Sets the maximum number of parts to return.
 listParts_maxParts :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Int)
 listParts_maxParts = Lens.lens (\ListParts' {maxParts} -> maxParts) (\s@ListParts' {} a -> s {maxParts = a} :: ListParts)
+
+-- | The MD5 server-side encryption (SSE) customer managed key. This
+-- parameter is needed only when the object was created using a checksum
+-- algorithm. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+listParts_sSECustomerKeyMD5 :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
+listParts_sSECustomerKeyMD5 = Lens.lens (\ListParts' {sSECustomerKeyMD5} -> sSECustomerKeyMD5) (\s@ListParts' {} a -> s {sSECustomerKeyMD5 = a} :: ListParts)
 
 -- | Specifies the part after which listing should begin. Only parts with
 -- higher part numbers will be listed.
 listParts_partNumberMarker :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Int)
 listParts_partNumberMarker = Lens.lens (\ListParts' {partNumberMarker} -> partNumberMarker) (\s@ListParts' {} a -> s {partNumberMarker = a} :: ListParts)
+
+-- | The server-side encryption (SSE) customer managed key. This parameter is
+-- needed only when the object was created using a checksum algorithm. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html Protecting data using SSE-C keys>
+-- in the /Amazon S3 User Guide/.
+listParts_sSECustomerKey :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
+listParts_sSECustomerKey = Lens.lens (\ListParts' {sSECustomerKey} -> sSECustomerKey) (\s@ListParts' {} a -> s {sSECustomerKey = a} :: ListParts) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the bucket to which the parts are being uploaded.
 --
@@ -233,11 +305,11 @@ listParts_partNumberMarker = Lens.lens (\ListParts' {partNumberMarker} -> partNu
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 listParts_bucket :: Lens.Lens' ListParts BucketName
 listParts_bucket = Lens.lens (\ListParts' {bucket} -> bucket) (\s@ListParts' {} a -> s {bucket = a} :: ListParts)
@@ -280,7 +352,8 @@ instance Core.AWSRequest ListParts where
     Response.receiveXML
       ( \s h x ->
           ListPartsResponse'
-            Prelude.<$> (x Core..@? "UploadId")
+            Prelude.<$> (x Core..@? "ChecksumAlgorithm")
+            Prelude.<*> (x Core..@? "UploadId")
             Prelude.<*> (x Core..@? "Key")
             Prelude.<*> (h Core..#? "x-amz-request-charged")
             Prelude.<*> (Core.may (Core.parseXMLList "Part") x)
@@ -301,8 +374,11 @@ instance Prelude.Hashable ListParts where
   hashWithSalt _salt ListParts' {..} =
     _salt `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
+      `Prelude.hashWithSalt` sSECustomerAlgorithm
       `Prelude.hashWithSalt` maxParts
+      `Prelude.hashWithSalt` sSECustomerKeyMD5
       `Prelude.hashWithSalt` partNumberMarker
+      `Prelude.hashWithSalt` sSECustomerKey
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` uploadId
@@ -311,8 +387,11 @@ instance Prelude.NFData ListParts where
   rnf ListParts' {..} =
     Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
+      `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
       `Prelude.seq` Prelude.rnf maxParts
+      `Prelude.seq` Prelude.rnf sSECustomerKeyMD5
       `Prelude.seq` Prelude.rnf partNumberMarker
+      `Prelude.seq` Prelude.rnf sSECustomerKey
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf uploadId
@@ -322,7 +401,13 @@ instance Core.ToHeaders ListParts where
     Prelude.mconcat
       [ "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
-        "x-amz-request-payer" Core.=# requestPayer
+        "x-amz-request-payer" Core.=# requestPayer,
+        "x-amz-server-side-encryption-customer-algorithm"
+          Core.=# sSECustomerAlgorithm,
+        "x-amz-server-side-encryption-customer-key-MD5"
+          Core.=# sSECustomerKeyMD5,
+        "x-amz-server-side-encryption-customer-key"
+          Core.=# sSECustomerKey
       ]
 
 instance Core.ToPath ListParts where
@@ -340,7 +425,9 @@ instance Core.ToQuery ListParts where
 
 -- | /See:/ 'newListPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-  { -- | Upload ID identifying the multipart upload whose parts are being listed.
+  { -- | The algorithm that was used to create a checksum of the object.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | Upload ID identifying the multipart upload whose parts are being listed.
     uploadId :: Prelude.Maybe Prelude.Text,
     -- | Object key for which the multipart upload was initiated.
     key :: Prelude.Maybe ObjectKey,
@@ -405,6 +492,8 @@ data ListPartsResponse = ListPartsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'listPartsResponse_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
+--
 -- 'uploadId', 'listPartsResponse_uploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 --
 -- 'key', 'listPartsResponse_key' - Object key for which the multipart upload was initiated.
@@ -465,7 +554,9 @@ newListPartsResponse ::
   ListPartsResponse
 newListPartsResponse pHttpStatus_ =
   ListPartsResponse'
-    { uploadId = Prelude.Nothing,
+    { checksumAlgorithm =
+        Prelude.Nothing,
+      uploadId = Prelude.Nothing,
       key = Prelude.Nothing,
       requestCharged = Prelude.Nothing,
       parts = Prelude.Nothing,
@@ -481,6 +572,10 @@ newListPartsResponse pHttpStatus_ =
       initiator = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | The algorithm that was used to create a checksum of the object.
+listPartsResponse_checksumAlgorithm :: Lens.Lens' ListPartsResponse (Prelude.Maybe ChecksumAlgorithm)
+listPartsResponse_checksumAlgorithm = Lens.lens (\ListPartsResponse' {checksumAlgorithm} -> checksumAlgorithm) (\s@ListPartsResponse' {} a -> s {checksumAlgorithm = a} :: ListPartsResponse)
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 listPartsResponse_uploadId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
@@ -569,7 +664,8 @@ listPartsResponse_httpStatus = Lens.lens (\ListPartsResponse' {httpStatus} -> ht
 
 instance Prelude.NFData ListPartsResponse where
   rnf ListPartsResponse' {..} =
-    Prelude.rnf uploadId
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf uploadId
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf requestCharged
       `Prelude.seq` Prelude.rnf parts

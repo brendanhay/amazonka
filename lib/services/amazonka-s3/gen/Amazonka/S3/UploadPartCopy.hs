@@ -25,9 +25,9 @@
 -- @x-amz-copy-source@ in your request and a byte range by adding the
 -- request header @x-amz-copy-source-range@ in your request.
 --
--- The minimum allowable part size for a multipart upload is 5 MB. For more
--- information about multipart upload limits, go to
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html Quick Facts>
+-- For information about maximum and minimum part sizes and other multipart
+-- upload specifications, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html Multipart upload limits>
 -- in the /Amazon S3 User Guide/.
 --
 -- Instead of using an existing object as part data, you might use the
@@ -52,13 +52,13 @@
 --     in the /Amazon S3 User Guide/.
 --
 -- -   For information about copying objects using a single atomic action
---     vs. the multipart upload, see
+--     vs. a multipart upload, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html Operations on Objects>
 --     in the /Amazon S3 User Guide/.
 --
 -- -   For information about using server-side encryption with
---     customer-provided encryption keys with the UploadPartCopy operation,
---     see
+--     customer-provided encryption keys with the @UploadPartCopy@
+--     operation, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html CopyObject>
 --     and
 --     <https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html UploadPart>.
@@ -206,8 +206,8 @@ data UploadPartCopy = UploadPartCopy'
     -- example, AES256).
     copySourceSSECustomerAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected destination bucket owner. If the
-    -- destination bucket is owned by a different account, the request will
-    -- fail with an HTTP @403 (Access Denied)@ error.
+    -- destination bucket is owned by a different account, the request fails
+    -- with the HTTP status code @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Copies the object if it has been modified since the specified time.
     copySourceIfModifiedSince :: Prelude.Maybe Core.ISO8601,
@@ -215,8 +215,8 @@ data UploadPartCopy = UploadPartCopy'
     -- | Copies the object if it hasn\'t been modified since the specified time.
     copySourceIfUnmodifiedSince :: Prelude.Maybe Core.ISO8601,
     -- | The account ID of the expected source bucket owner. If the source bucket
-    -- is owned by a different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- is owned by a different account, the request fails with the HTTP status
+    -- code @403 Forbidden@ (access denied).
     expectedSourceBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the algorithm to use to when encrypting the object (for
     -- example, AES256).
@@ -255,11 +255,11 @@ data UploadPartCopy = UploadPartCopy'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Specifies the source object for the copy operation. You specify the
@@ -271,8 +271,8 @@ data UploadPartCopy = UploadPartCopy'
     --     of the source bucket and key of the source object, separated by a
     --     slash (\/). For example, to copy the object @reports\/january.pdf@
     --     from the bucket @awsexamplebucket@, use
-    --     @awsexamplebucket\/reports\/january.pdf@. The value must be URL
-    --     encoded.
+    --     @awsexamplebucket\/reports\/january.pdf@. The value must be
+    --     URL-encoded.
     --
     -- -   For objects accessed through access points, specify the Amazon
     --     Resource Name (ARN) of the object as accessed through the access
@@ -295,7 +295,7 @@ data UploadPartCopy = UploadPartCopy'
     --     outpost @my-outpost@ owned by account @123456789012@ in Region
     --     @us-west-2@, use the URL encoding of
     --     @arn:aws:s3-outposts:us-west-2:123456789012:outpost\/my-outpost\/object\/reports\/january.pdf@.
-    --     The value must be URL encoded.
+    --     The value must be URL-encoded.
     --
     -- To copy a specific version of an object, append
     -- @?versionId=\<version-id>@ to the value (for example,
@@ -336,8 +336,8 @@ data UploadPartCopy = UploadPartCopy'
 -- example, AES256).
 --
 -- 'expectedBucketOwner', 'uploadPartCopy_expectedBucketOwner' - The account ID of the expected destination bucket owner. If the
--- destination bucket is owned by a different account, the request will
--- fail with an HTTP @403 (Access Denied)@ error.
+-- destination bucket is owned by a different account, the request fails
+-- with the HTTP status code @403 Forbidden@ (access denied).
 --
 -- 'copySourceIfModifiedSince', 'uploadPartCopy_copySourceIfModifiedSince' - Copies the object if it has been modified since the specified time.
 --
@@ -346,8 +346,8 @@ data UploadPartCopy = UploadPartCopy'
 -- 'copySourceIfUnmodifiedSince', 'uploadPartCopy_copySourceIfUnmodifiedSince' - Copies the object if it hasn\'t been modified since the specified time.
 --
 -- 'expectedSourceBucketOwner', 'uploadPartCopy_expectedSourceBucketOwner' - The account ID of the expected source bucket owner. If the source bucket
--- is owned by a different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- is owned by a different account, the request fails with the HTTP status
+-- code @403 Forbidden@ (access denied).
 --
 -- 'sSECustomerAlgorithm', 'uploadPartCopy_sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for
 -- example, AES256).
@@ -386,11 +386,11 @@ data UploadPartCopy = UploadPartCopy'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'copySource', 'uploadPartCopy_copySource' - Specifies the source object for the copy operation. You specify the
@@ -402,8 +402,8 @@ data UploadPartCopy = UploadPartCopy'
 --     of the source bucket and key of the source object, separated by a
 --     slash (\/). For example, to copy the object @reports\/january.pdf@
 --     from the bucket @awsexamplebucket@, use
---     @awsexamplebucket\/reports\/january.pdf@. The value must be URL
---     encoded.
+--     @awsexamplebucket\/reports\/january.pdf@. The value must be
+--     URL-encoded.
 --
 -- -   For objects accessed through access points, specify the Amazon
 --     Resource Name (ARN) of the object as accessed through the access
@@ -426,7 +426,7 @@ data UploadPartCopy = UploadPartCopy'
 --     outpost @my-outpost@ owned by account @123456789012@ in Region
 --     @us-west-2@, use the URL encoding of
 --     @arn:aws:s3-outposts:us-west-2:123456789012:outpost\/my-outpost\/object\/reports\/january.pdf@.
---     The value must be URL encoded.
+--     The value must be URL-encoded.
 --
 -- To copy a specific version of an object, append
 -- @?versionId=\<version-id>@ to the value (for example,
@@ -504,8 +504,8 @@ uploadPartCopy_copySourceSSECustomerAlgorithm :: Lens.Lens' UploadPartCopy (Prel
 uploadPartCopy_copySourceSSECustomerAlgorithm = Lens.lens (\UploadPartCopy' {copySourceSSECustomerAlgorithm} -> copySourceSSECustomerAlgorithm) (\s@UploadPartCopy' {} a -> s {copySourceSSECustomerAlgorithm = a} :: UploadPartCopy)
 
 -- | The account ID of the expected destination bucket owner. If the
--- destination bucket is owned by a different account, the request will
--- fail with an HTTP @403 (Access Denied)@ error.
+-- destination bucket is owned by a different account, the request fails
+-- with the HTTP status code @403 Forbidden@ (access denied).
 uploadPartCopy_expectedBucketOwner :: Lens.Lens' UploadPartCopy (Prelude.Maybe Prelude.Text)
 uploadPartCopy_expectedBucketOwner = Lens.lens (\UploadPartCopy' {expectedBucketOwner} -> expectedBucketOwner) (\s@UploadPartCopy' {} a -> s {expectedBucketOwner = a} :: UploadPartCopy)
 
@@ -522,8 +522,8 @@ uploadPartCopy_copySourceIfUnmodifiedSince :: Lens.Lens' UploadPartCopy (Prelude
 uploadPartCopy_copySourceIfUnmodifiedSince = Lens.lens (\UploadPartCopy' {copySourceIfUnmodifiedSince} -> copySourceIfUnmodifiedSince) (\s@UploadPartCopy' {} a -> s {copySourceIfUnmodifiedSince = a} :: UploadPartCopy) Prelude.. Lens.mapping Core._Time
 
 -- | The account ID of the expected source bucket owner. If the source bucket
--- is owned by a different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- is owned by a different account, the request fails with the HTTP status
+-- code @403 Forbidden@ (access denied).
 uploadPartCopy_expectedSourceBucketOwner :: Lens.Lens' UploadPartCopy (Prelude.Maybe Prelude.Text)
 uploadPartCopy_expectedSourceBucketOwner = Lens.lens (\UploadPartCopy' {expectedSourceBucketOwner} -> expectedSourceBucketOwner) (\s@UploadPartCopy' {} a -> s {expectedSourceBucketOwner = a} :: UploadPartCopy)
 
@@ -574,11 +574,11 @@ uploadPartCopy_sSECustomerKey = Lens.lens (\UploadPartCopy' {sSECustomerKey} -> 
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 uploadPartCopy_bucket :: Lens.Lens' UploadPartCopy BucketName
 uploadPartCopy_bucket = Lens.lens (\UploadPartCopy' {bucket} -> bucket) (\s@UploadPartCopy' {} a -> s {bucket = a} :: UploadPartCopy)
@@ -592,8 +592,8 @@ uploadPartCopy_bucket = Lens.lens (\UploadPartCopy' {bucket} -> bucket) (\s@Uplo
 --     of the source bucket and key of the source object, separated by a
 --     slash (\/). For example, to copy the object @reports\/january.pdf@
 --     from the bucket @awsexamplebucket@, use
---     @awsexamplebucket\/reports\/january.pdf@. The value must be URL
---     encoded.
+--     @awsexamplebucket\/reports\/january.pdf@. The value must be
+--     URL-encoded.
 --
 -- -   For objects accessed through access points, specify the Amazon
 --     Resource Name (ARN) of the object as accessed through the access
@@ -616,7 +616,7 @@ uploadPartCopy_bucket = Lens.lens (\UploadPartCopy' {bucket} -> bucket) (\s@Uplo
 --     outpost @my-outpost@ owned by account @123456789012@ in Region
 --     @us-west-2@, use the URL encoding of
 --     @arn:aws:s3-outposts:us-west-2:123456789012:outpost\/my-outpost\/object\/reports\/january.pdf@.
---     The value must be URL encoded.
+--     The value must be URL-encoded.
 --
 -- To copy a specific version of an object, append
 -- @?versionId=\<version-id>@ to the value (for example,

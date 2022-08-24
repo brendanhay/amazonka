@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
+import Amazonka.S3.Types.ChecksumAlgorithm
 import Amazonka.S3.Types.Initiator
 import Amazonka.S3.Types.Owner
 import Amazonka.S3.Types.StorageClass
@@ -31,7 +32,9 @@ import Amazonka.S3.Types.StorageClass
 --
 -- /See:/ 'newMultipartUpload' smart constructor.
 data MultipartUpload = MultipartUpload'
-  { -- | Upload ID that identifies the multipart upload.
+  { -- | The algorithm that was used to create a checksum of the object.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | Upload ID that identifies the multipart upload.
     uploadId :: Prelude.Maybe Prelude.Text,
     -- | Key of the object for which the multipart upload was initiated.
     key :: Prelude.Maybe ObjectKey,
@@ -54,6 +57,8 @@ data MultipartUpload = MultipartUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'multipartUpload_checksumAlgorithm' - The algorithm that was used to create a checksum of the object.
+--
 -- 'uploadId', 'multipartUpload_uploadId' - Upload ID that identifies the multipart upload.
 --
 -- 'key', 'multipartUpload_key' - Key of the object for which the multipart upload was initiated.
@@ -69,13 +74,19 @@ newMultipartUpload ::
   MultipartUpload
 newMultipartUpload =
   MultipartUpload'
-    { uploadId = Prelude.Nothing,
+    { checksumAlgorithm =
+        Prelude.Nothing,
+      uploadId = Prelude.Nothing,
       key = Prelude.Nothing,
       owner = Prelude.Nothing,
       storageClass = Prelude.Nothing,
       initiator = Prelude.Nothing,
       initiated = Prelude.Nothing
     }
+
+-- | The algorithm that was used to create a checksum of the object.
+multipartUpload_checksumAlgorithm :: Lens.Lens' MultipartUpload (Prelude.Maybe ChecksumAlgorithm)
+multipartUpload_checksumAlgorithm = Lens.lens (\MultipartUpload' {checksumAlgorithm} -> checksumAlgorithm) (\s@MultipartUpload' {} a -> s {checksumAlgorithm = a} :: MultipartUpload)
 
 -- | Upload ID that identifies the multipart upload.
 multipartUpload_uploadId :: Lens.Lens' MultipartUpload (Prelude.Maybe Prelude.Text)
@@ -104,7 +115,8 @@ multipartUpload_initiated = Lens.lens (\MultipartUpload' {initiated} -> initiate
 instance Core.FromXML MultipartUpload where
   parseXML x =
     MultipartUpload'
-      Prelude.<$> (x Core..@? "UploadId")
+      Prelude.<$> (x Core..@? "ChecksumAlgorithm")
+      Prelude.<*> (x Core..@? "UploadId")
       Prelude.<*> (x Core..@? "Key")
       Prelude.<*> (x Core..@? "Owner")
       Prelude.<*> (x Core..@? "StorageClass")
@@ -113,7 +125,8 @@ instance Core.FromXML MultipartUpload where
 
 instance Prelude.Hashable MultipartUpload where
   hashWithSalt _salt MultipartUpload' {..} =
-    _salt `Prelude.hashWithSalt` uploadId
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` uploadId
       `Prelude.hashWithSalt` key
       `Prelude.hashWithSalt` owner
       `Prelude.hashWithSalt` storageClass
@@ -122,7 +135,8 @@ instance Prelude.Hashable MultipartUpload where
 
 instance Prelude.NFData MultipartUpload where
   rnf MultipartUpload' {..} =
-    Prelude.rnf uploadId
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf uploadId
       `Prelude.seq` Prelude.rnf key
       `Prelude.seq` Prelude.rnf owner
       `Prelude.seq` Prelude.rnf storageClass

@@ -95,6 +95,7 @@ module Amazonka.S3.PutBucketWebsite
     newPutBucketWebsite,
 
     -- * Request Lenses
+    putBucketWebsite_checksumAlgorithm,
     putBucketWebsite_contentMD5,
     putBucketWebsite_expectedBucketOwner,
     putBucketWebsite_bucket,
@@ -115,7 +116,19 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutBucketWebsite' smart constructor.
 data PutBucketWebsite = PutBucketWebsite'
-  { -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
@@ -125,8 +138,8 @@ data PutBucketWebsite = PutBucketWebsite'
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
@@ -143,6 +156,18 @@ data PutBucketWebsite = PutBucketWebsite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'putBucketWebsite_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
 -- 'contentMD5', 'putBucketWebsite_contentMD5' - The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, see
@@ -153,8 +178,8 @@ data PutBucketWebsite = PutBucketWebsite'
 -- automatically.
 --
 -- 'expectedBucketOwner', 'putBucketWebsite_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'putBucketWebsite_bucket' - The bucket name.
 --
@@ -167,11 +192,27 @@ newPutBucketWebsite ::
   PutBucketWebsite
 newPutBucketWebsite pBucket_ pWebsiteConfiguration_ =
   PutBucketWebsite'
-    { contentMD5 = Prelude.Nothing,
+    { checksumAlgorithm =
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
       bucket = pBucket_,
       websiteConfiguration = pWebsiteConfiguration_
     }
+
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putBucketWebsite_checksumAlgorithm :: Lens.Lens' PutBucketWebsite (Prelude.Maybe ChecksumAlgorithm)
+putBucketWebsite_checksumAlgorithm = Lens.lens (\PutBucketWebsite' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutBucketWebsite' {} a -> s {checksumAlgorithm = a} :: PutBucketWebsite)
 
 -- | The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -185,8 +226,8 @@ putBucketWebsite_contentMD5 :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelud
 putBucketWebsite_contentMD5 = Lens.lens (\PutBucketWebsite' {contentMD5} -> contentMD5) (\s@PutBucketWebsite' {} a -> s {contentMD5 = a} :: PutBucketWebsite)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putBucketWebsite_expectedBucketOwner :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
 putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketWebsite' {} a -> s {expectedBucketOwner = a} :: PutBucketWebsite)
 
@@ -210,14 +251,16 @@ instance Core.AWSRequest PutBucketWebsite where
 
 instance Prelude.Hashable PutBucketWebsite where
   hashWithSalt _salt PutBucketWebsite' {..} =
-    _salt `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` bucket
       `Prelude.hashWithSalt` websiteConfiguration
 
 instance Prelude.NFData PutBucketWebsite where
   rnf PutBucketWebsite' {..} =
-    Prelude.rnf contentMD5
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf bucket
       `Prelude.seq` Prelude.rnf websiteConfiguration
@@ -231,7 +274,9 @@ instance Core.ToElement PutBucketWebsite where
 instance Core.ToHeaders PutBucketWebsite where
   toHeaders PutBucketWebsite' {..} =
     Prelude.mconcat
-      [ "Content-MD5" Core.=# contentMD5,
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]

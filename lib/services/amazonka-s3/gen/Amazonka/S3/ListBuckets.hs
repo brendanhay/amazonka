@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of all buckets owned by the authenticated sender of the
--- request.
+-- request. To use this operation, you must have the @s3:ListAllMyBuckets@
+-- permission.
 module Amazonka.S3.ListBuckets
   ( -- * Creating a Request
     ListBuckets (..),
@@ -95,7 +96,7 @@ instance Core.ToQuery ListBuckets where
 data ListBucketsResponse = ListBucketsResponse'
   { -- | The owner of the buckets listed.
     owner :: Prelude.Maybe Owner,
-    -- | The list of buckets owned by the requestor.
+    -- | The list of buckets owned by the requester.
     buckets :: Prelude.Maybe [Bucket],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -112,7 +113,7 @@ data ListBucketsResponse = ListBucketsResponse'
 --
 -- 'owner', 'listBucketsResponse_owner' - The owner of the buckets listed.
 --
--- 'buckets', 'listBucketsResponse_buckets' - The list of buckets owned by the requestor.
+-- 'buckets', 'listBucketsResponse_buckets' - The list of buckets owned by the requester.
 --
 -- 'httpStatus', 'listBucketsResponse_httpStatus' - The response's http status code.
 newListBucketsResponse ::
@@ -130,7 +131,7 @@ newListBucketsResponse pHttpStatus_ =
 listBucketsResponse_owner :: Lens.Lens' ListBucketsResponse (Prelude.Maybe Owner)
 listBucketsResponse_owner = Lens.lens (\ListBucketsResponse' {owner} -> owner) (\s@ListBucketsResponse' {} a -> s {owner = a} :: ListBucketsResponse)
 
--- | The list of buckets owned by the requestor.
+-- | The list of buckets owned by the requester.
 listBucketsResponse_buckets :: Lens.Lens' ListBucketsResponse (Prelude.Maybe [Bucket])
 listBucketsResponse_buckets = Lens.lens (\ListBucketsResponse' {buckets} -> buckets) (\s@ListBucketsResponse' {} a -> s {buckets = a} :: ListBucketsResponse) Prelude.. Lens.mapping Lens.coerced
 

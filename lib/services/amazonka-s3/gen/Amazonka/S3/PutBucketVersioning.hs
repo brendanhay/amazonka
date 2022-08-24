@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the versioning state of an existing bucket. To set the versioning
--- state, you must be the bucket owner.
+-- Sets the versioning state of an existing bucket.
 --
 -- You can set the versioning state with one of the following values:
 --
@@ -36,10 +35,11 @@
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html GetBucketVersioning>
 -- request does not return a versioning state value.
 --
--- If the bucket owner enables MFA Delete in the bucket versioning
--- configuration, the bucket owner must include the @x-amz-mfa request@
--- header and the @Status@ and the @MfaDelete@ request elements in a
--- request to set the versioning state of the bucket.
+-- In order to enable MFA Delete, you must be the bucket owner. If you are
+-- the bucket owner and want to enable MFA Delete in the bucket versioning
+-- configuration, you must include the @x-amz-mfa request@ header and the
+-- @Status@ and the @MfaDelete@ request elements in a request to set the
+-- versioning state of the bucket.
 --
 -- If you have an object expiration lifecycle policy in your non-versioned
 -- bucket and you want to maintain the same permanent delete behavior when
@@ -63,6 +63,7 @@ module Amazonka.S3.PutBucketVersioning
     newPutBucketVersioning,
 
     -- * Request Lenses
+    putBucketVersioning_checksumAlgorithm,
     putBucketVersioning_contentMD5,
     putBucketVersioning_expectedBucketOwner,
     putBucketVersioning_mfa,
@@ -84,7 +85,19 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutBucketVersioning' smart constructor.
 data PutBucketVersioning = PutBucketVersioning'
-  { -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
     -- header as a message integrity check to verify that the request body was
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
@@ -94,8 +107,8 @@ data PutBucketVersioning = PutBucketVersioning'
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The concatenation of the authentication device\'s serial number, a
     -- space, and the value that is displayed on your authentication device.
@@ -115,6 +128,18 @@ data PutBucketVersioning = PutBucketVersioning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'putBucketVersioning_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
 -- 'contentMD5', 'putBucketVersioning_contentMD5' - >The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
 -- not corrupted in transit. For more information, see
@@ -125,8 +150,8 @@ data PutBucketVersioning = PutBucketVersioning'
 -- automatically.
 --
 -- 'expectedBucketOwner', 'putBucketVersioning_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'mfa', 'putBucketVersioning_mfa' - The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
@@ -144,12 +169,28 @@ newPutBucketVersioning
   pBucket_
   pVersioningConfiguration_ =
     PutBucketVersioning'
-      { contentMD5 = Prelude.Nothing,
+      { checksumAlgorithm =
+          Prelude.Nothing,
+        contentMD5 = Prelude.Nothing,
         expectedBucketOwner = Prelude.Nothing,
         mfa = Prelude.Nothing,
         bucket = pBucket_,
         versioningConfiguration = pVersioningConfiguration_
       }
+
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putBucketVersioning_checksumAlgorithm :: Lens.Lens' PutBucketVersioning (Prelude.Maybe ChecksumAlgorithm)
+putBucketVersioning_checksumAlgorithm = Lens.lens (\PutBucketVersioning' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutBucketVersioning' {} a -> s {checksumAlgorithm = a} :: PutBucketVersioning)
 
 -- | >The base64-encoded 128-bit MD5 digest of the data. You must use this
 -- header as a message integrity check to verify that the request body was
@@ -163,8 +204,8 @@ putBucketVersioning_contentMD5 :: Lens.Lens' PutBucketVersioning (Prelude.Maybe 
 putBucketVersioning_contentMD5 = Lens.lens (\PutBucketVersioning' {contentMD5} -> contentMD5) (\s@PutBucketVersioning' {} a -> s {contentMD5 = a} :: PutBucketVersioning)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putBucketVersioning_expectedBucketOwner :: Lens.Lens' PutBucketVersioning (Prelude.Maybe Prelude.Text)
 putBucketVersioning_expectedBucketOwner = Lens.lens (\PutBucketVersioning' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketVersioning' {} a -> s {expectedBucketOwner = a} :: PutBucketVersioning)
 
@@ -193,7 +234,8 @@ instance Core.AWSRequest PutBucketVersioning where
 
 instance Prelude.Hashable PutBucketVersioning where
   hashWithSalt _salt PutBucketVersioning' {..} =
-    _salt `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` mfa
       `Prelude.hashWithSalt` bucket
@@ -201,7 +243,8 @@ instance Prelude.Hashable PutBucketVersioning where
 
 instance Prelude.NFData PutBucketVersioning where
   rnf PutBucketVersioning' {..} =
-    Prelude.rnf contentMD5
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf mfa
       `Prelude.seq` Prelude.rnf bucket
@@ -216,7 +259,9 @@ instance Core.ToElement PutBucketVersioning where
 instance Core.ToHeaders PutBucketVersioning where
   toHeaders PutBucketVersioning' {..} =
     Prelude.mconcat
-      [ "Content-MD5" Core.=# contentMD5,
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-mfa" Core.=# mfa

@@ -22,6 +22,7 @@ module Amazonka.S3.Types.TransitionStorageClass
       ( ..,
         TransitionStorageClass_DEEP_ARCHIVE,
         TransitionStorageClass_GLACIER,
+        TransitionStorageClass_GLACIER_IR,
         TransitionStorageClass_INTELLIGENT_TIERING,
         TransitionStorageClass_ONEZONE_IA,
         TransitionStorageClass_STANDARD_IA
@@ -67,6 +68,9 @@ pattern TransitionStorageClass_DEEP_ARCHIVE = TransitionStorageClass' "DEEP_ARCH
 pattern TransitionStorageClass_GLACIER :: TransitionStorageClass
 pattern TransitionStorageClass_GLACIER = TransitionStorageClass' "GLACIER"
 
+pattern TransitionStorageClass_GLACIER_IR :: TransitionStorageClass
+pattern TransitionStorageClass_GLACIER_IR = TransitionStorageClass' "GLACIER_IR"
+
 pattern TransitionStorageClass_INTELLIGENT_TIERING :: TransitionStorageClass
 pattern TransitionStorageClass_INTELLIGENT_TIERING = TransitionStorageClass' "INTELLIGENT_TIERING"
 
@@ -79,6 +83,7 @@ pattern TransitionStorageClass_STANDARD_IA = TransitionStorageClass' "STANDARD_I
 {-# COMPLETE
   TransitionStorageClass_DEEP_ARCHIVE,
   TransitionStorageClass_GLACIER,
+  TransitionStorageClass_GLACIER_IR,
   TransitionStorageClass_INTELLIGENT_TIERING,
   TransitionStorageClass_ONEZONE_IA,
   TransitionStorageClass_STANDARD_IA,

@@ -78,6 +78,24 @@
 -- and
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html Managing ACLs Using the REST API>.
 --
+-- If the bucket that you\'re uploading objects to uses the bucket owner
+-- enforced setting for S3 Object Ownership, ACLs are disabled and no
+-- longer affect permissions. Buckets that use this setting only accept PUT
+-- requests that don\'t specify an ACL or PUT requests that specify bucket
+-- owner full control ACLs, such as the @bucket-owner-full-control@ canned
+-- ACL or an equivalent form of this ACL expressed in the XML format. PUT
+-- requests that contain other ACLs (for example, custom grants to certain
+-- Amazon Web Services accounts) fail and return a @400@ error with the
+-- error code @AccessControlListNotSupported@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling ownership of objects and disabling ACLs>
+-- in the /Amazon S3 User Guide/.
+--
+-- If your bucket uses the bucket owner enforced setting for Object
+-- Ownership, all objects written to the bucket by any account will be
+-- owned by the bucket owner.
+--
 -- __Storage Class Options__
 --
 -- By default, Amazon S3 uses the STANDARD Storage Class to store newly
@@ -113,21 +131,26 @@ module Amazonka.S3.PutObject
 
     -- * Request Lenses
     putObject_serverSideEncryption,
+    putObject_checksumAlgorithm,
+    putObject_checksumCRC32C,
     putObject_objectLockMode,
     putObject_bucketKeyEnabled,
     putObject_websiteRedirectLocation,
     putObject_grantWriteACP,
     putObject_objectLockRetainUntilDate,
+    putObject_checksumSHA1,
     putObject_grantFullControl,
     putObject_acl,
     putObject_contentMD5,
     putObject_expectedBucketOwner,
     putObject_metadata,
+    putObject_checksumCRC32,
     putObject_contentLanguage,
     putObject_sSEKMSKeyId,
     putObject_contentDisposition,
     putObject_objectLockLegalHoldStatus,
     putObject_requestPayer,
+    putObject_checksumSHA256,
     putObject_sSEKMSEncryptionContext,
     putObject_contentLength,
     putObject_grantRead,
@@ -151,10 +174,14 @@ module Amazonka.S3.PutObject
 
     -- * Response Lenses
     putObjectResponse_serverSideEncryption,
+    putObjectResponse_checksumCRC32C,
     putObjectResponse_bucketKeyEnabled,
     putObjectResponse_expiration,
     putObjectResponse_requestCharged,
+    putObjectResponse_checksumSHA1,
+    putObjectResponse_checksumCRC32,
     putObjectResponse_sSEKMSKeyId,
+    putObjectResponse_checksumSHA256,
     putObjectResponse_sSEKMSEncryptionContext,
     putObjectResponse_sSECustomerAlgorithm,
     putObjectResponse_sSECustomerKeyMD5,
@@ -176,6 +203,25 @@ data PutObject = PutObject'
   { -- | The server-side encryption algorithm used when storing this object in
     -- Amazon S3 (for example, AES256, aws:kms).
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This header
+    -- specifies the base64-encoded, 32-bit CRC32C checksum of the object. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32C :: Prelude.Maybe Prelude.Text,
     -- | The Object Lock mode that you want to apply to this object.
     objectLockMode :: Prelude.Maybe ObjectLockMode,
     -- | Specifies whether Amazon S3 should use an S3 Bucket Key for object
@@ -214,6 +260,13 @@ data PutObject = PutObject'
     -- | The date and time when you want this object\'s Object Lock to expire.
     -- Must be formatted as a timestamp parameter.
     objectLockRetainUntilDate :: Prelude.Maybe Core.ISO8601,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This header
+    -- specifies the base64-encoded, 160-bit SHA-1 digest of the object. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumSHA1 :: Prelude.Maybe Prelude.Text,
     -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
     -- object.
     --
@@ -233,11 +286,18 @@ data PutObject = PutObject'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication>.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | A map of metadata to store with the object in S3.
     metadata :: Prelude.HashMap Prelude.Text Prelude.Text,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This header
+    -- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32 :: Prelude.Maybe Prelude.Text,
     -- | The language the content is in.
     contentLanguage :: Prelude.Maybe Prelude.Text,
     -- | If @x-amz-server-side-encryption@ is present and has the value of
@@ -259,6 +319,13 @@ data PutObject = PutObject'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
     objectLockLegalHoldStatus :: Prelude.Maybe ObjectLockLegalHoldStatus,
     requestPayer :: Prelude.Maybe RequestPayer,
+    -- | This header can be used as a data integrity check to verify that the
+    -- data received is the same data that was originally sent. This header
+    -- specifies the base64-encoded, 256-bit SHA-256 digest of the object. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumSHA256 :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Amazon Web Services KMS Encryption Context to use for
     -- object encryption. The value of this header is a base64-encoded UTF-8
     -- string holding JSON with the encryption context key-value pairs.
@@ -330,11 +397,11 @@ data PutObject = PutObject'
     -- When using this action with Amazon S3 on Outposts, you must direct
     -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
     -- takes the form
-    -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this action using S3 on Outposts through the Amazon Web
+    -- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+    -- When using this action with S3 on Outposts through the Amazon Web
     -- Services SDKs, you provide the Outposts bucket ARN in place of the
     -- bucket name. For more information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Object key for which the PUT action was initiated.
@@ -354,6 +421,25 @@ data PutObject = PutObject'
 --
 -- 'serverSideEncryption', 'putObject_serverSideEncryption' - The server-side encryption algorithm used when storing this object in
 -- Amazon S3 (for example, AES256, aws:kms).
+--
+-- 'checksumAlgorithm', 'putObject_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
+-- 'checksumCRC32C', 'putObject_checksumCRC32C' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 32-bit CRC32C checksum of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'objectLockMode', 'putObject_objectLockMode' - The Object Lock mode that you want to apply to this object.
 --
@@ -393,6 +479,13 @@ data PutObject = PutObject'
 -- 'objectLockRetainUntilDate', 'putObject_objectLockRetainUntilDate' - The date and time when you want this object\'s Object Lock to expire.
 -- Must be formatted as a timestamp parameter.
 --
+-- 'checksumSHA1', 'putObject_checksumSHA1' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 160-bit SHA-1 digest of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
 -- 'grantFullControl', 'putObject_grantFullControl' - Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
 --
@@ -412,10 +505,17 @@ data PutObject = PutObject'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication>.
 --
 -- 'expectedBucketOwner', 'putObject_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'metadata', 'putObject_metadata' - A map of metadata to store with the object in S3.
+--
+-- 'checksumCRC32', 'putObject_checksumCRC32' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'contentLanguage', 'putObject_contentLanguage' - The language the content is in.
 --
@@ -438,6 +538,13 @@ data PutObject = PutObject'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Object Lock>.
 --
 -- 'requestPayer', 'putObject_requestPayer' - Undocumented member.
+--
+-- 'checksumSHA256', 'putObject_checksumSHA256' - This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 256-bit SHA-256 digest of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'sSEKMSEncryptionContext', 'putObject_sSEKMSEncryptionContext' - Specifies the Amazon Web Services KMS Encryption Context to use for
 -- object encryption. The value of this header is a base64-encoded UTF-8
@@ -510,11 +617,11 @@ data PutObject = PutObject'
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'putObject_key' - Object key for which the PUT action was initiated.
@@ -531,21 +638,26 @@ newPutObject ::
 newPutObject pBucket_ pKey_ pBody_ =
   PutObject'
     { serverSideEncryption = Prelude.Nothing,
+      checksumAlgorithm = Prelude.Nothing,
+      checksumCRC32C = Prelude.Nothing,
       objectLockMode = Prelude.Nothing,
       bucketKeyEnabled = Prelude.Nothing,
       websiteRedirectLocation = Prelude.Nothing,
       grantWriteACP = Prelude.Nothing,
       objectLockRetainUntilDate = Prelude.Nothing,
+      checksumSHA1 = Prelude.Nothing,
       grantFullControl = Prelude.Nothing,
       acl = Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
       metadata = Prelude.mempty,
+      checksumCRC32 = Prelude.Nothing,
       contentLanguage = Prelude.Nothing,
       sSEKMSKeyId = Prelude.Nothing,
       contentDisposition = Prelude.Nothing,
       objectLockLegalHoldStatus = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
+      checksumSHA256 = Prelude.Nothing,
       sSEKMSEncryptionContext = Prelude.Nothing,
       contentLength = Prelude.Nothing,
       grantRead = Prelude.Nothing,
@@ -568,6 +680,29 @@ newPutObject pBucket_ pKey_ pBody_ =
 -- Amazon S3 (for example, AES256, aws:kms).
 putObject_serverSideEncryption :: Lens.Lens' PutObject (Prelude.Maybe ServerSideEncryption)
 putObject_serverSideEncryption = Lens.lens (\PutObject' {serverSideEncryption} -> serverSideEncryption) (\s@PutObject' {} a -> s {serverSideEncryption = a} :: PutObject)
+
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putObject_checksumAlgorithm :: Lens.Lens' PutObject (Prelude.Maybe ChecksumAlgorithm)
+putObject_checksumAlgorithm = Lens.lens (\PutObject' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutObject' {} a -> s {checksumAlgorithm = a} :: PutObject)
+
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 32-bit CRC32C checksum of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+putObject_checksumCRC32C :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_checksumCRC32C = Lens.lens (\PutObject' {checksumCRC32C} -> checksumCRC32C) (\s@PutObject' {} a -> s {checksumCRC32C = a} :: PutObject)
 
 -- | The Object Lock mode that you want to apply to this object.
 putObject_objectLockMode :: Lens.Lens' PutObject (Prelude.Maybe ObjectLockMode)
@@ -617,6 +752,15 @@ putObject_grantWriteACP = Lens.lens (\PutObject' {grantWriteACP} -> grantWriteAC
 putObject_objectLockRetainUntilDate :: Lens.Lens' PutObject (Prelude.Maybe Prelude.UTCTime)
 putObject_objectLockRetainUntilDate = Lens.lens (\PutObject' {objectLockRetainUntilDate} -> objectLockRetainUntilDate) (\s@PutObject' {} a -> s {objectLockRetainUntilDate = a} :: PutObject) Prelude.. Lens.mapping Core._Time
 
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 160-bit SHA-1 digest of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+putObject_checksumSHA1 :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_checksumSHA1 = Lens.lens (\PutObject' {checksumSHA1} -> checksumSHA1) (\s@PutObject' {} a -> s {checksumSHA1 = a} :: PutObject)
+
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
 --
@@ -642,14 +786,23 @@ putObject_contentMD5 :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
 putObject_contentMD5 = Lens.lens (\PutObject' {contentMD5} -> contentMD5) (\s@PutObject' {} a -> s {contentMD5 = a} :: PutObject)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putObject_expectedBucketOwner :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
 putObject_expectedBucketOwner = Lens.lens (\PutObject' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObject' {} a -> s {expectedBucketOwner = a} :: PutObject)
 
 -- | A map of metadata to store with the object in S3.
 putObject_metadata :: Lens.Lens' PutObject (Prelude.HashMap Prelude.Text Prelude.Text)
 putObject_metadata = Lens.lens (\PutObject' {metadata} -> metadata) (\s@PutObject' {} a -> s {metadata = a} :: PutObject) Prelude.. Lens.coerced
+
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 32-bit CRC32 checksum of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+putObject_checksumCRC32 :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_checksumCRC32 = Lens.lens (\PutObject' {checksumCRC32} -> checksumCRC32) (\s@PutObject' {} a -> s {checksumCRC32 = a} :: PutObject)
 
 -- | The language the content is in.
 putObject_contentLanguage :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
@@ -682,6 +835,15 @@ putObject_objectLockLegalHoldStatus = Lens.lens (\PutObject' {objectLockLegalHol
 -- | Undocumented member.
 putObject_requestPayer :: Lens.Lens' PutObject (Prelude.Maybe RequestPayer)
 putObject_requestPayer = Lens.lens (\PutObject' {requestPayer} -> requestPayer) (\s@PutObject' {} a -> s {requestPayer = a} :: PutObject)
+
+-- | This header can be used as a data integrity check to verify that the
+-- data received is the same data that was originally sent. This header
+-- specifies the base64-encoded, 256-bit SHA-256 digest of the object. For
+-- more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+putObject_checksumSHA256 :: Lens.Lens' PutObject (Prelude.Maybe Prelude.Text)
+putObject_checksumSHA256 = Lens.lens (\PutObject' {checksumSHA256} -> checksumSHA256) (\s@PutObject' {} a -> s {checksumSHA256 = a} :: PutObject)
 
 -- | Specifies the Amazon Web Services KMS Encryption Context to use for
 -- object encryption. The value of this header is a base64-encoded UTF-8
@@ -780,11 +942,11 @@ putObject_sSECustomerKey = Lens.lens (\PutObject' {sSECustomerKey} -> sSECustome
 -- When using this action with Amazon S3 on Outposts, you must direct
 -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
 -- takes the form
--- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this action using S3 on Outposts through the Amazon Web
+-- @ AccessPointName-AccountId.outpostID.s3-outposts.Region.amazonaws.com@.
+-- When using this action with S3 on Outposts through the Amazon Web
 -- Services SDKs, you provide the Outposts bucket ARN in place of the
 -- bucket name. For more information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using Amazon S3 on Outposts>
 -- in the /Amazon S3 User Guide/.
 putObject_bucket :: Lens.Lens' PutObject BucketName
 putObject_bucket = Lens.lens (\PutObject' {bucket} -> bucket) (\s@PutObject' {} a -> s {bucket = a} :: PutObject)
@@ -808,14 +970,18 @@ instance Core.AWSRequest PutObject where
       ( \s h x ->
           PutObjectResponse'
             Prelude.<$> (h Core..#? "x-amz-server-side-encryption")
+            Prelude.<*> (h Core..#? "x-amz-checksum-crc32c")
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-bucket-key-enabled"
                         )
             Prelude.<*> (h Core..#? "x-amz-expiration")
             Prelude.<*> (h Core..#? "x-amz-request-charged")
+            Prelude.<*> (h Core..#? "x-amz-checksum-sha1")
+            Prelude.<*> (h Core..#? "x-amz-checksum-crc32")
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-aws-kms-key-id"
                         )
+            Prelude.<*> (h Core..#? "x-amz-checksum-sha256")
             Prelude.<*> (h Core..#? "x-amz-server-side-encryption-context")
             Prelude.<*> ( h
                             Core..#? "x-amz-server-side-encryption-customer-algorithm"
@@ -836,6 +1002,9 @@ instance Core.ToHeaders PutObject where
     Prelude.mconcat
       [ "x-amz-server-side-encryption"
           Core.=# serverSideEncryption,
+        "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "x-amz-checksum-crc32c" Core.=# checksumCRC32C,
         "x-amz-object-lock-mode" Core.=# objectLockMode,
         "x-amz-server-side-encryption-bucket-key-enabled"
           Core.=# bucketKeyEnabled,
@@ -844,12 +1013,14 @@ instance Core.ToHeaders PutObject where
         "x-amz-grant-write-acp" Core.=# grantWriteACP,
         "x-amz-object-lock-retain-until-date"
           Core.=# objectLockRetainUntilDate,
+        "x-amz-checksum-sha1" Core.=# checksumSHA1,
         "x-amz-grant-full-control" Core.=# grantFullControl,
         "x-amz-acl" Core.=# acl,
         "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-meta-" Core.=# metadata,
+        "x-amz-checksum-crc32" Core.=# checksumCRC32,
         "Content-Language" Core.=# contentLanguage,
         "x-amz-server-side-encryption-aws-kms-key-id"
           Core.=# sSEKMSKeyId,
@@ -857,6 +1028,7 @@ instance Core.ToHeaders PutObject where
         "x-amz-object-lock-legal-hold"
           Core.=# objectLockLegalHoldStatus,
         "x-amz-request-payer" Core.=# requestPayer,
+        "x-amz-checksum-sha256" Core.=# checksumSHA256,
         "x-amz-server-side-encryption-context"
           Core.=# sSEKMSEncryptionContext,
         "Content-Length" Core.=# contentLength,
@@ -891,21 +1063,49 @@ data PutObjectResponse = PutObjectResponse'
     -- request, the response includes this header. It confirms the encryption
     -- algorithm that Amazon S3 used to encrypt the object.
     serverSideEncryption :: Prelude.Maybe ServerSideEncryption,
+    -- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32C :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the uploaded object uses an S3 Bucket Key for
     -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
     bucketKeyEnabled :: Prelude.Maybe Prelude.Bool,
     -- | If the expiration is configured for the object (see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration>),
-    -- the response includes this header. It includes the expiry-date and
-    -- rule-id key-value pairs that provide information about object
-    -- expiration. The value of the rule-id is URL encoded.
+    -- the response includes this header. It includes the @expiry-date@ and
+    -- @rule-id@ key-value pairs that provide information about object
+    -- expiration. The value of the @rule-id@ is URL-encoded.
     expiration :: Prelude.Maybe Prelude.Text,
     requestCharged :: Prelude.Maybe RequestCharged,
+    -- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumSHA1 :: Prelude.Maybe Prelude.Text,
+    -- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumCRC32 :: Prelude.Maybe Prelude.Text,
     -- | If @x-amz-server-side-encryption@ is present and has the value of
     -- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
     -- Management Service (Amazon Web Services KMS) symmetric customer managed
     -- key that was used for the object.
     sSEKMSKeyId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
+    -- be present if it was uploaded with the object. With multipart uploads,
+    -- this may not be a checksum value of the object. For more information
+    -- about how checksums are calculated with multipart uploads, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    checksumSHA256 :: Prelude.Maybe Prelude.Text,
     -- | If present, specifies the Amazon Web Services KMS Encryption Context to
     -- use for object encryption. The value of this header is a base64-encoded
     -- UTF-8 string holding JSON with the encryption context key-value pairs.
@@ -940,21 +1140,49 @@ data PutObjectResponse = PutObjectResponse'
 -- request, the response includes this header. It confirms the encryption
 -- algorithm that Amazon S3 used to encrypt the object.
 --
+-- 'checksumCRC32C', 'putObjectResponse_checksumCRC32C' - The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
 -- 'bucketKeyEnabled', 'putObjectResponse_bucketKeyEnabled' - Indicates whether the uploaded object uses an S3 Bucket Key for
 -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
 --
 -- 'expiration', 'putObjectResponse_expiration' - If the expiration is configured for the object (see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration>),
--- the response includes this header. It includes the expiry-date and
--- rule-id key-value pairs that provide information about object
--- expiration. The value of the rule-id is URL encoded.
+-- the response includes this header. It includes the @expiry-date@ and
+-- @rule-id@ key-value pairs that provide information about object
+-- expiration. The value of the @rule-id@ is URL-encoded.
 --
 -- 'requestCharged', 'putObjectResponse_requestCharged' - Undocumented member.
+--
+-- 'checksumSHA1', 'putObjectResponse_checksumSHA1' - The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- 'checksumCRC32', 'putObjectResponse_checksumCRC32' - The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'sSEKMSKeyId', 'putObjectResponse_sSEKMSKeyId' - If @x-amz-server-side-encryption@ is present and has the value of
 -- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
 -- Management Service (Amazon Web Services KMS) symmetric customer managed
 -- key that was used for the object.
+--
+-- 'checksumSHA256', 'putObjectResponse_checksumSHA256' - The base64-encoded, 256-bit SHA-256 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'sSEKMSEncryptionContext', 'putObjectResponse_sSEKMSEncryptionContext' - If present, specifies the Amazon Web Services KMS Encryption Context to
 -- use for object encryption. The value of this header is a base64-encoded
@@ -981,10 +1209,14 @@ newPutObjectResponse pHttpStatus_ =
   PutObjectResponse'
     { serverSideEncryption =
         Prelude.Nothing,
+      checksumCRC32C = Prelude.Nothing,
       bucketKeyEnabled = Prelude.Nothing,
       expiration = Prelude.Nothing,
       requestCharged = Prelude.Nothing,
+      checksumSHA1 = Prelude.Nothing,
+      checksumCRC32 = Prelude.Nothing,
       sSEKMSKeyId = Prelude.Nothing,
+      checksumSHA256 = Prelude.Nothing,
       sSEKMSEncryptionContext = Prelude.Nothing,
       sSECustomerAlgorithm = Prelude.Nothing,
       sSECustomerKeyMD5 = Prelude.Nothing,
@@ -1000,6 +1232,15 @@ newPutObjectResponse pHttpStatus_ =
 putObjectResponse_serverSideEncryption :: Lens.Lens' PutObjectResponse (Prelude.Maybe ServerSideEncryption)
 putObjectResponse_serverSideEncryption = Lens.lens (\PutObjectResponse' {serverSideEncryption} -> serverSideEncryption) (\s@PutObjectResponse' {} a -> s {serverSideEncryption = a} :: PutObjectResponse)
 
+-- | The base64-encoded, 32-bit CRC32C checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+putObjectResponse_checksumCRC32C :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
+putObjectResponse_checksumCRC32C = Lens.lens (\PutObjectResponse' {checksumCRC32C} -> checksumCRC32C) (\s@PutObjectResponse' {} a -> s {checksumCRC32C = a} :: PutObjectResponse)
+
 -- | Indicates whether the uploaded object uses an S3 Bucket Key for
 -- server-side encryption with Amazon Web Services KMS (SSE-KMS).
 putObjectResponse_bucketKeyEnabled :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Bool)
@@ -1007,9 +1248,9 @@ putObjectResponse_bucketKeyEnabled = Lens.lens (\PutObjectResponse' {bucketKeyEn
 
 -- | If the expiration is configured for the object (see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html PutBucketLifecycleConfiguration>),
--- the response includes this header. It includes the expiry-date and
--- rule-id key-value pairs that provide information about object
--- expiration. The value of the rule-id is URL encoded.
+-- the response includes this header. It includes the @expiry-date@ and
+-- @rule-id@ key-value pairs that provide information about object
+-- expiration. The value of the @rule-id@ is URL-encoded.
 putObjectResponse_expiration :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
 putObjectResponse_expiration = Lens.lens (\PutObjectResponse' {expiration} -> expiration) (\s@PutObjectResponse' {} a -> s {expiration = a} :: PutObjectResponse)
 
@@ -1017,12 +1258,39 @@ putObjectResponse_expiration = Lens.lens (\PutObjectResponse' {expiration} -> ex
 putObjectResponse_requestCharged :: Lens.Lens' PutObjectResponse (Prelude.Maybe RequestCharged)
 putObjectResponse_requestCharged = Lens.lens (\PutObjectResponse' {requestCharged} -> requestCharged) (\s@PutObjectResponse' {} a -> s {requestCharged = a} :: PutObjectResponse)
 
+-- | The base64-encoded, 160-bit SHA-1 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+putObjectResponse_checksumSHA1 :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
+putObjectResponse_checksumSHA1 = Lens.lens (\PutObjectResponse' {checksumSHA1} -> checksumSHA1) (\s@PutObjectResponse' {} a -> s {checksumSHA1 = a} :: PutObjectResponse)
+
+-- | The base64-encoded, 32-bit CRC32 checksum of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+putObjectResponse_checksumCRC32 :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
+putObjectResponse_checksumCRC32 = Lens.lens (\PutObjectResponse' {checksumCRC32} -> checksumCRC32) (\s@PutObjectResponse' {} a -> s {checksumCRC32 = a} :: PutObjectResponse)
+
 -- | If @x-amz-server-side-encryption@ is present and has the value of
 -- @aws:kms@, this header specifies the ID of the Amazon Web Services Key
 -- Management Service (Amazon Web Services KMS) symmetric customer managed
 -- key that was used for the object.
 putObjectResponse_sSEKMSKeyId :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
 putObjectResponse_sSEKMSKeyId = Lens.lens (\PutObjectResponse' {sSEKMSKeyId} -> sSEKMSKeyId) (\s@PutObjectResponse' {} a -> s {sSEKMSKeyId = a} :: PutObjectResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The base64-encoded, 256-bit SHA-256 digest of the object. This will only
+-- be present if it was uploaded with the object. With multipart uploads,
+-- this may not be a checksum value of the object. For more information
+-- about how checksums are calculated with multipart uploads, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+putObjectResponse_checksumSHA256 :: Lens.Lens' PutObjectResponse (Prelude.Maybe Prelude.Text)
+putObjectResponse_checksumSHA256 = Lens.lens (\PutObjectResponse' {checksumSHA256} -> checksumSHA256) (\s@PutObjectResponse' {} a -> s {checksumSHA256 = a} :: PutObjectResponse)
 
 -- | If present, specifies the Amazon Web Services KMS Encryption Context to
 -- use for object encryption. The value of this header is a base64-encoded
@@ -1057,10 +1325,14 @@ putObjectResponse_httpStatus = Lens.lens (\PutObjectResponse' {httpStatus} -> ht
 instance Prelude.NFData PutObjectResponse where
   rnf PutObjectResponse' {..} =
     Prelude.rnf serverSideEncryption
+      `Prelude.seq` Prelude.rnf checksumCRC32C
       `Prelude.seq` Prelude.rnf bucketKeyEnabled
       `Prelude.seq` Prelude.rnf expiration
       `Prelude.seq` Prelude.rnf requestCharged
+      `Prelude.seq` Prelude.rnf checksumSHA1
+      `Prelude.seq` Prelude.rnf checksumCRC32
       `Prelude.seq` Prelude.rnf sSEKMSKeyId
+      `Prelude.seq` Prelude.rnf checksumSHA256
       `Prelude.seq` Prelude.rnf sSEKMSEncryptionContext
       `Prelude.seq` Prelude.rnf sSECustomerAlgorithm
       `Prelude.seq` Prelude.rnf sSECustomerKeyMD5

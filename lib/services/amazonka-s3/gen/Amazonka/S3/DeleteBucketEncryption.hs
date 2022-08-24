@@ -65,8 +65,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newDeleteBucketEncryption' smart constructor.
 data DeleteBucketEncryption = DeleteBucketEncryption'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket containing the server-side encryption
     -- configuration to delete.
@@ -83,8 +83,8 @@ data DeleteBucketEncryption = DeleteBucketEncryption'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'deleteBucketEncryption_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'deleteBucketEncryption_bucket' - The name of the bucket containing the server-side encryption
 -- configuration to delete.
@@ -100,8 +100,8 @@ newDeleteBucketEncryption pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 deleteBucketEncryption_expectedBucketOwner :: Lens.Lens' DeleteBucketEncryption (Prelude.Maybe Prelude.Text)
 deleteBucketEncryption_expectedBucketOwner = Lens.lens (\DeleteBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketEncryption' {} a -> s {expectedBucketOwner = a} :: DeleteBucketEncryption)
 

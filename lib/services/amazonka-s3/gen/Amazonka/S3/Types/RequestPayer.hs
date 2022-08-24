@@ -31,9 +31,9 @@ import Amazonka.S3.Internal
 
 -- | Confirms that the requester knows that they will be charged for the
 -- request. Bucket owners need not specify this parameter in their
--- requests. For information about downloading objects from requester pays
+-- requests. For information about downloading objects from Requester Pays
 -- buckets, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html Downloading Objects in Requestor Pays Buckets>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html Downloading Objects in Requester Pays Buckets>
 -- in the /Amazon S3 User Guide/.
 newtype RequestPayer = RequestPayer'
   { fromRequestPayer ::

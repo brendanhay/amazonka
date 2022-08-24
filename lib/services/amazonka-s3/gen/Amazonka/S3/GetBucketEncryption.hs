@@ -70,8 +70,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketEncryption' smart constructor.
 data GetBucketEncryption = GetBucketEncryption'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket from which the server-side encryption
     -- configuration is retrieved.
@@ -88,8 +88,8 @@ data GetBucketEncryption = GetBucketEncryption'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketEncryption_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketEncryption_bucket' - The name of the bucket from which the server-side encryption
 -- configuration is retrieved.
@@ -105,8 +105,8 @@ newGetBucketEncryption pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketEncryption_expectedBucketOwner :: Lens.Lens' GetBucketEncryption (Prelude.Maybe Prelude.Text)
 getBucketEncryption_expectedBucketOwner = Lens.lens (\GetBucketEncryption' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketEncryption' {} a -> s {expectedBucketOwner = a} :: GetBucketEncryption)
 

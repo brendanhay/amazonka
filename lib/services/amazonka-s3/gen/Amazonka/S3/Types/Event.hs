@@ -20,6 +20,12 @@
 module Amazonka.S3.Types.Event
   ( Event
       ( ..,
+        Event_S3_IntelligentTiering,
+        Event_S3_LifecycleExpiration_Delete,
+        Event_S3_LifecycleExpiration_DeleteMarkerCreated,
+        Event_S3_LifecycleExpiration__,
+        Event_S3_LifecycleTransition,
+        Event_S3_ObjectAcl_Put,
         Event_S3_ObjectCreated_CompleteMultipartUpload,
         Event_S3_ObjectCreated_Copy,
         Event_S3_ObjectCreated_Post,
@@ -29,8 +35,12 @@ module Amazonka.S3.Types.Event
         Event_S3_ObjectRemoved_DeleteMarkerCreated,
         Event_S3_ObjectRemoved__,
         Event_S3_ObjectRestore_Completed,
+        Event_S3_ObjectRestore_Delete,
         Event_S3_ObjectRestore_Post,
         Event_S3_ObjectRestore__,
+        Event_S3_ObjectTagging_Delete,
+        Event_S3_ObjectTagging_Put,
+        Event_S3_ObjectTagging__,
         Event_S3_ReducedRedundancyLostObject,
         Event_S3_Replication_OperationFailedReplication,
         Event_S3_Replication_OperationMissedThreshold,
@@ -71,6 +81,24 @@ newtype Event = Event' {fromEvent :: Core.Text}
       Core.ToXML
     )
 
+pattern Event_S3_IntelligentTiering :: Event
+pattern Event_S3_IntelligentTiering = Event' "s3:IntelligentTiering"
+
+pattern Event_S3_LifecycleExpiration_Delete :: Event
+pattern Event_S3_LifecycleExpiration_Delete = Event' "s3:LifecycleExpiration:Delete"
+
+pattern Event_S3_LifecycleExpiration_DeleteMarkerCreated :: Event
+pattern Event_S3_LifecycleExpiration_DeleteMarkerCreated = Event' "s3:LifecycleExpiration:DeleteMarkerCreated"
+
+pattern Event_S3_LifecycleExpiration__ :: Event
+pattern Event_S3_LifecycleExpiration__ = Event' "s3:LifecycleExpiration:*"
+
+pattern Event_S3_LifecycleTransition :: Event
+pattern Event_S3_LifecycleTransition = Event' "s3:LifecycleTransition"
+
+pattern Event_S3_ObjectAcl_Put :: Event
+pattern Event_S3_ObjectAcl_Put = Event' "s3:ObjectAcl:Put"
+
 pattern Event_S3_ObjectCreated_CompleteMultipartUpload :: Event
 pattern Event_S3_ObjectCreated_CompleteMultipartUpload = Event' "s3:ObjectCreated:CompleteMultipartUpload"
 
@@ -98,11 +126,23 @@ pattern Event_S3_ObjectRemoved__ = Event' "s3:ObjectRemoved:*"
 pattern Event_S3_ObjectRestore_Completed :: Event
 pattern Event_S3_ObjectRestore_Completed = Event' "s3:ObjectRestore:Completed"
 
+pattern Event_S3_ObjectRestore_Delete :: Event
+pattern Event_S3_ObjectRestore_Delete = Event' "s3:ObjectRestore:Delete"
+
 pattern Event_S3_ObjectRestore_Post :: Event
 pattern Event_S3_ObjectRestore_Post = Event' "s3:ObjectRestore:Post"
 
 pattern Event_S3_ObjectRestore__ :: Event
 pattern Event_S3_ObjectRestore__ = Event' "s3:ObjectRestore:*"
+
+pattern Event_S3_ObjectTagging_Delete :: Event
+pattern Event_S3_ObjectTagging_Delete = Event' "s3:ObjectTagging:Delete"
+
+pattern Event_S3_ObjectTagging_Put :: Event
+pattern Event_S3_ObjectTagging_Put = Event' "s3:ObjectTagging:Put"
+
+pattern Event_S3_ObjectTagging__ :: Event
+pattern Event_S3_ObjectTagging__ = Event' "s3:ObjectTagging:*"
 
 pattern Event_S3_ReducedRedundancyLostObject :: Event
 pattern Event_S3_ReducedRedundancyLostObject = Event' "s3:ReducedRedundancyLostObject"
@@ -123,6 +163,12 @@ pattern Event_S3_Replication__ :: Event
 pattern Event_S3_Replication__ = Event' "s3:Replication:*"
 
 {-# COMPLETE
+  Event_S3_IntelligentTiering,
+  Event_S3_LifecycleExpiration_Delete,
+  Event_S3_LifecycleExpiration_DeleteMarkerCreated,
+  Event_S3_LifecycleExpiration__,
+  Event_S3_LifecycleTransition,
+  Event_S3_ObjectAcl_Put,
   Event_S3_ObjectCreated_CompleteMultipartUpload,
   Event_S3_ObjectCreated_Copy,
   Event_S3_ObjectCreated_Post,
@@ -132,8 +178,12 @@ pattern Event_S3_Replication__ = Event' "s3:Replication:*"
   Event_S3_ObjectRemoved_DeleteMarkerCreated,
   Event_S3_ObjectRemoved__,
   Event_S3_ObjectRestore_Completed,
+  Event_S3_ObjectRestore_Delete,
   Event_S3_ObjectRestore_Post,
   Event_S3_ObjectRestore__,
+  Event_S3_ObjectTagging_Delete,
+  Event_S3_ObjectTagging_Put,
+  Event_S3_ObjectTagging__,
   Event_S3_ReducedRedundancyLostObject,
   Event_S3_Replication_OperationFailedReplication,
   Event_S3_Replication_OperationMissedThreshold,

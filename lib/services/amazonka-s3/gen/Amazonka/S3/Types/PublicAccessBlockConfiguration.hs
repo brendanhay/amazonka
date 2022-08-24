@@ -61,7 +61,7 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
     -- (ACLs) for this bucket and objects in this bucket. Setting this element
     -- to @TRUE@ causes the following behavior:
     --
-    -- -   PUT Bucket acl and PUT Object acl calls fail if the specified ACL is
+    -- -   PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is
     --     public.
     --
     -- -   PUT Object calls fail if the request includes a public ACL.
@@ -109,7 +109,7 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
 -- (ACLs) for this bucket and objects in this bucket. Setting this element
 -- to @TRUE@ causes the following behavior:
 --
--- -   PUT Bucket acl and PUT Object acl calls fail if the specified ACL is
+-- -   PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is
 --     public.
 --
 -- -   PUT Object calls fail if the request includes a public ACL.
@@ -162,7 +162,7 @@ publicAccessBlockConfiguration_blockPublicPolicy = Lens.lens (\PublicAccessBlock
 -- (ACLs) for this bucket and objects in this bucket. Setting this element
 -- to @TRUE@ causes the following behavior:
 --
--- -   PUT Bucket acl and PUT Object acl calls fail if the specified ACL is
+-- -   PUT Bucket ACL and PUT Object ACL calls fail if the specified ACL is
 --     public.
 --
 -- -   PUT Object calls fail if the request includes a public ACL.

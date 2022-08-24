@@ -29,19 +29,13 @@
 -- @s3:BypassGovernanceRetention@ permission.
 --
 -- This action is not supported by Amazon S3 on Outposts.
---
--- __Permissions__
---
--- When the Object Lock retention mode is set to compliance, you need
--- @s3:PutObjectRetention@ and @s3:BypassGovernanceRetention@ permissions.
--- For other requests to @PutObjectRetention@, only @s3:PutObjectRetention@
--- permissions are required.
 module Amazonka.S3.PutObjectRetention
   ( -- * Creating a Request
     PutObjectRetention (..),
     newPutObjectRetention,
 
     -- * Request Lenses
+    putObjectRetention_checksumAlgorithm,
     putObjectRetention_contentMD5,
     putObjectRetention_expectedBucketOwner,
     putObjectRetention_requestPayer,
@@ -70,15 +64,27 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutObjectRetention' smart constructor.
 data PutObjectRetention = PutObjectRetention'
-  { -- | The MD5 hash for the request body.
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | The MD5 hash for the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | Indicates whether this action should bypass Governance-mode
@@ -115,6 +121,18 @@ data PutObjectRetention = PutObjectRetention'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'putObjectRetention_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
 -- 'contentMD5', 'putObjectRetention_contentMD5' - The MD5 hash for the request body.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
@@ -122,8 +140,8 @@ data PutObjectRetention = PutObjectRetention'
 -- automatically.
 --
 -- 'expectedBucketOwner', 'putObjectRetention_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'requestPayer', 'putObjectRetention_requestPayer' - Undocumented member.
 --
@@ -157,7 +175,9 @@ newPutObjectRetention ::
   PutObjectRetention
 newPutObjectRetention pBucket_ pKey_ =
   PutObjectRetention'
-    { contentMD5 = Prelude.Nothing,
+    { checksumAlgorithm =
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
       bypassGovernanceRetention = Prelude.Nothing,
@@ -166,6 +186,20 @@ newPutObjectRetention pBucket_ pKey_ =
       bucket = pBucket_,
       key = pKey_
     }
+
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putObjectRetention_checksumAlgorithm :: Lens.Lens' PutObjectRetention (Prelude.Maybe ChecksumAlgorithm)
+putObjectRetention_checksumAlgorithm = Lens.lens (\PutObjectRetention' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutObjectRetention' {} a -> s {checksumAlgorithm = a} :: PutObjectRetention)
 
 -- | The MD5 hash for the request body.
 --
@@ -176,8 +210,8 @@ putObjectRetention_contentMD5 :: Lens.Lens' PutObjectRetention (Prelude.Maybe Pr
 putObjectRetention_contentMD5 = Lens.lens (\PutObjectRetention' {contentMD5} -> contentMD5) (\s@PutObjectRetention' {} a -> s {contentMD5 = a} :: PutObjectRetention)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putObjectRetention_expectedBucketOwner :: Lens.Lens' PutObjectRetention (Prelude.Maybe Prelude.Text)
 putObjectRetention_expectedBucketOwner = Lens.lens (\PutObjectRetention' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectRetention' {} a -> s {expectedBucketOwner = a} :: PutObjectRetention)
 
@@ -235,7 +269,8 @@ instance Core.AWSRequest PutObjectRetention where
 
 instance Prelude.Hashable PutObjectRetention where
   hashWithSalt _salt PutObjectRetention' {..} =
-    _salt `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` bypassGovernanceRetention
@@ -246,7 +281,8 @@ instance Prelude.Hashable PutObjectRetention where
 
 instance Prelude.NFData PutObjectRetention where
   rnf PutObjectRetention' {..} =
-    Prelude.rnf contentMD5
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf bypassGovernanceRetention
@@ -264,7 +300,9 @@ instance Core.ToElement PutObjectRetention where
 instance Core.ToHeaders PutObjectRetention where
   toHeaders PutObjectRetention' {..} =
     Prelude.mconcat
-      [ "Content-MD5" Core.=# contentMD5,
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer,

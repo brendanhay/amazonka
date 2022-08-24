@@ -49,10 +49,22 @@
 -- to handle 307 redirect. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html Virtual hosting of buckets>.
 --
--- When creating a bucket using this operation, you can optionally specify
--- the accounts or groups that should be granted specific permissions on
--- the bucket. There are two ways to grant the appropriate permissions
--- using the request headers.
+-- __Access control lists (ACLs)__
+--
+-- When creating a bucket using this operation, you can optionally
+-- configure the bucket ACL to specify the accounts or groups that should
+-- be granted specific permissions on the bucket.
+--
+-- If your CreateBucket request sets bucket owner enforced for S3 Object
+-- Ownership and specifies a bucket ACL that provides access to an external
+-- Amazon Web Services account, your request fails with a @400@ error and
+-- returns the @InvalidBucketAclWithObjectOwnership@ error code. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html Controlling object ownership>
+-- in the /Amazon S3 User Guide/.
+--
+-- There are two ways to grant the appropriate permissions using the
+-- request headers.
 --
 -- -   Specify a canned ACL using the @x-amz-acl@ request header. Amazon S3
 --     supports a set of predefined ACLs, known as /canned ACLs/. Each
@@ -65,7 +77,7 @@
 --     @x-amz-grant-write-acp@, and @x-amz-grant-full-control@ headers.
 --     These headers map to the set of permissions Amazon S3 supports in an
 --     ACL. For more information, see
---     <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access control list (ACL) overview>.
+--     <https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html Access control list (ACL) overview>.
 --
 --     You specify each grantee as a type=value pair, where the type is one
 --     of the following:
@@ -113,16 +125,23 @@
 --
 -- __Permissions__
 --
--- If your @CreateBucket@ request specifies ACL permissions and the ACL is
--- public-read, public-read-write, authenticated-read, or if you specify
--- access permissions explicitly through any other ACL, both
--- @s3:CreateBucket@ and @s3:PutBucketAcl@ permissions are needed. If the
--- ACL the @CreateBucket@ request is private, only @s3:CreateBucket@
--- permission is needed.
+-- In addition to @s3:CreateBucket@, the following permissions are required
+-- when your CreateBucket includes specific headers:
 --
--- If @ObjectLockEnabledForBucket@ is set to true in your @CreateBucket@
--- request, @s3:PutBucketObjectLockConfiguration@ and
--- @s3:PutBucketVersioning@ permissions are required.
+-- -   __ACLs__ - If your @CreateBucket@ request specifies ACL permissions
+--     and the ACL is public-read, public-read-write, authenticated-read,
+--     or if you specify access permissions explicitly through any other
+--     ACL, both @s3:CreateBucket@ and @s3:PutBucketAcl@ permissions are
+--     needed. If the ACL the @CreateBucket@ request is private or doesn\'t
+--     specify any ACLs, only @s3:CreateBucket@ permission is needed.
+--
+-- -   __Object Lock__ - If @ObjectLockEnabledForBucket@ is set to true in
+--     your @CreateBucket@ request, @s3:PutBucketObjectLockConfiguration@
+--     and @s3:PutBucketVersioning@ permissions are required.
+--
+-- -   __S3 Object Ownership__ - If your CreateBucket request includes the
+--     the @x-amz-object-ownership@ header, @s3:PutBucketOwnershipControls@
+--     permission is required.
 --
 -- The following operations are related to @CreateBucket@:
 --
@@ -141,6 +160,7 @@ module Amazonka.S3.CreateBucket
     createBucket_objectLockEnabledForBucket,
     createBucket_createBucketConfiguration,
     createBucket_grantRead,
+    createBucket_objectOwnership,
     createBucket_grantWrite,
     createBucket_grantReadACP,
     createBucket_bucket,
@@ -178,6 +198,7 @@ data CreateBucket = CreateBucket'
     createBucketConfiguration :: Prelude.Maybe CreateBucketConfiguration,
     -- | Allows grantee to list the objects in the bucket.
     grantRead :: Prelude.Maybe Prelude.Text,
+    objectOwnership :: Prelude.Maybe ObjectOwnership,
     -- | Allows grantee to create new objects in the bucket.
     --
     -- For the bucket and object owners of existing objects, also allows
@@ -212,6 +233,8 @@ data CreateBucket = CreateBucket'
 --
 -- 'grantRead', 'createBucket_grantRead' - Allows grantee to list the objects in the bucket.
 --
+-- 'objectOwnership', 'createBucket_objectOwnership' - Undocumented member.
+--
 -- 'grantWrite', 'createBucket_grantWrite' - Allows grantee to create new objects in the bucket.
 --
 -- For the bucket and object owners of existing objects, also allows
@@ -232,6 +255,7 @@ newCreateBucket pBucket_ =
       objectLockEnabledForBucket = Prelude.Nothing,
       createBucketConfiguration = Prelude.Nothing,
       grantRead = Prelude.Nothing,
+      objectOwnership = Prelude.Nothing,
       grantWrite = Prelude.Nothing,
       grantReadACP = Prelude.Nothing,
       bucket = pBucket_
@@ -262,6 +286,10 @@ createBucket_createBucketConfiguration = Lens.lens (\CreateBucket' {createBucket
 -- | Allows grantee to list the objects in the bucket.
 createBucket_grantRead :: Lens.Lens' CreateBucket (Prelude.Maybe Prelude.Text)
 createBucket_grantRead = Lens.lens (\CreateBucket' {grantRead} -> grantRead) (\s@CreateBucket' {} a -> s {grantRead = a} :: CreateBucket)
+
+-- | Undocumented member.
+createBucket_objectOwnership :: Lens.Lens' CreateBucket (Prelude.Maybe ObjectOwnership)
+createBucket_objectOwnership = Lens.lens (\CreateBucket' {objectOwnership} -> objectOwnership) (\s@CreateBucket' {} a -> s {objectOwnership = a} :: CreateBucket)
 
 -- | Allows grantee to create new objects in the bucket.
 --
@@ -299,6 +327,7 @@ instance Prelude.Hashable CreateBucket where
       `Prelude.hashWithSalt` objectLockEnabledForBucket
       `Prelude.hashWithSalt` createBucketConfiguration
       `Prelude.hashWithSalt` grantRead
+      `Prelude.hashWithSalt` objectOwnership
       `Prelude.hashWithSalt` grantWrite
       `Prelude.hashWithSalt` grantReadACP
       `Prelude.hashWithSalt` bucket
@@ -311,6 +340,7 @@ instance Prelude.NFData CreateBucket where
       `Prelude.seq` Prelude.rnf objectLockEnabledForBucket
       `Prelude.seq` Prelude.rnf createBucketConfiguration
       `Prelude.seq` Prelude.rnf grantRead
+      `Prelude.seq` Prelude.rnf objectOwnership
       `Prelude.seq` Prelude.rnf grantWrite
       `Prelude.seq` Prelude.rnf grantReadACP
       `Prelude.seq` Prelude.rnf bucket
@@ -330,6 +360,7 @@ instance Core.ToHeaders CreateBucket where
         "x-amz-bucket-object-lock-enabled"
           Core.=# objectLockEnabledForBucket,
         "x-amz-grant-read" Core.=# grantRead,
+        "x-amz-object-ownership" Core.=# objectOwnership,
         "x-amz-grant-write" Core.=# grantWrite,
         "x-amz-grant-read-acp" Core.=# grantReadACP
       ]
@@ -343,9 +374,7 @@ instance Core.ToQuery CreateBucket where
 
 -- | /See:/ 'newCreateBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
-  { -- | Specifies the Region where the bucket will be created. If you are
-    -- creating a bucket on the US East (N. Virginia) Region (us-east-1), you
-    -- do not need to specify the location.
+  { -- | A forward slash followed by the name of the bucket.
     location :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -360,9 +389,7 @@ data CreateBucketResponse = CreateBucketResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'location', 'createBucketResponse_location' - Specifies the Region where the bucket will be created. If you are
--- creating a bucket on the US East (N. Virginia) Region (us-east-1), you
--- do not need to specify the location.
+-- 'location', 'createBucketResponse_location' - A forward slash followed by the name of the bucket.
 --
 -- 'httpStatus', 'createBucketResponse_httpStatus' - The response's http status code.
 newCreateBucketResponse ::
@@ -375,9 +402,7 @@ newCreateBucketResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Specifies the Region where the bucket will be created. If you are
--- creating a bucket on the US East (N. Virginia) Region (us-east-1), you
--- do not need to specify the location.
+-- | A forward slash followed by the name of the bucket.
 createBucketResponse_location :: Lens.Lens' CreateBucketResponse (Prelude.Maybe Prelude.Text)
 createBucketResponse_location = Lens.lens (\CreateBucketResponse' {location} -> location) (\s@CreateBucketResponse' {} a -> s {location = a} :: CreateBucketResponse)
 

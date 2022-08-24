@@ -28,7 +28,7 @@
 --
 -- @GetBucketTagging@ has the following special error:
 --
--- -   Error code: @NoSuchTagSetError@
+-- -   Error code: @NoSuchTagSet@
 --
 --     -   Description: There is no tag set associated with the bucket.
 --
@@ -66,8 +66,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketTagging' smart constructor.
 data GetBucketTagging = GetBucketTagging'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to get the tagging information.
     bucket :: BucketName
@@ -83,8 +83,8 @@ data GetBucketTagging = GetBucketTagging'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketTagging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketTagging_bucket' - The name of the bucket for which to get the tagging information.
 newGetBucketTagging ::
@@ -99,8 +99,8 @@ newGetBucketTagging pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketTagging_expectedBucketOwner :: Lens.Lens' GetBucketTagging (Prelude.Maybe Prelude.Text)
 getBucketTagging_expectedBucketOwner = Lens.lens (\GetBucketTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketTagging' {} a -> s {expectedBucketOwner = a} :: GetBucketTagging)
 

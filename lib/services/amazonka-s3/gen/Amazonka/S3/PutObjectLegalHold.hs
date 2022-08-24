@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Applies a Legal Hold configuration to the specified object. For more
+-- Applies a legal hold configuration to the specified object. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects>.
 --
@@ -31,6 +31,7 @@ module Amazonka.S3.PutObjectLegalHold
     newPutObjectLegalHold,
 
     -- * Request Lenses
+    putObjectLegalHold_checksumAlgorithm,
     putObjectLegalHold_contentMD5,
     putObjectLegalHold_expectedBucketOwner,
     putObjectLegalHold_requestPayer,
@@ -58,24 +59,36 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutObjectLegalHold' smart constructor.
 data PutObjectLegalHold = PutObjectLegalHold'
-  { -- | The MD5 hash for the request body.
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | The MD5 hash for the request body.
     --
     -- For requests made using the Amazon Web Services Command Line Interface
     -- (CLI) or Amazon Web Services SDKs, this field is calculated
     -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
-    -- | Container element for the Legal Hold configuration you want to apply to
+    -- | Container element for the legal hold configuration you want to apply to
     -- the specified object.
     legalHold :: Prelude.Maybe ObjectLockLegalHold,
-    -- | The version ID of the object that you want to place a Legal Hold on.
+    -- | The version ID of the object that you want to place a legal hold on.
     versionId :: Prelude.Maybe ObjectVersionId,
-    -- | The bucket name containing the object that you want to place a Legal
-    -- Hold on.
+    -- | The bucket name containing the object that you want to place a legal
+    -- hold on.
     --
     -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
@@ -86,7 +99,7 @@ data PutObjectLegalHold = PutObjectLegalHold'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
     -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
-    -- | The key name for the object that you want to place a Legal Hold on.
+    -- | The key name for the object that you want to place a legal hold on.
     key :: ObjectKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,6 +112,18 @@ data PutObjectLegalHold = PutObjectLegalHold'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'putObjectLegalHold_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
 -- 'contentMD5', 'putObjectLegalHold_contentMD5' - The MD5 hash for the request body.
 --
 -- For requests made using the Amazon Web Services Command Line Interface
@@ -106,18 +131,18 @@ data PutObjectLegalHold = PutObjectLegalHold'
 -- automatically.
 --
 -- 'expectedBucketOwner', 'putObjectLegalHold_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'requestPayer', 'putObjectLegalHold_requestPayer' - Undocumented member.
 --
--- 'legalHold', 'putObjectLegalHold_legalHold' - Container element for the Legal Hold configuration you want to apply to
+-- 'legalHold', 'putObjectLegalHold_legalHold' - Container element for the legal hold configuration you want to apply to
 -- the specified object.
 --
--- 'versionId', 'putObjectLegalHold_versionId' - The version ID of the object that you want to place a Legal Hold on.
+-- 'versionId', 'putObjectLegalHold_versionId' - The version ID of the object that you want to place a legal hold on.
 --
--- 'bucket', 'putObjectLegalHold_bucket' - The bucket name containing the object that you want to place a Legal
--- Hold on.
+-- 'bucket', 'putObjectLegalHold_bucket' - The bucket name containing the object that you want to place a legal
+-- hold on.
 --
 -- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
@@ -128,7 +153,7 @@ data PutObjectLegalHold = PutObjectLegalHold'
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
 -- in the /Amazon S3 User Guide/.
 --
--- 'key', 'putObjectLegalHold_key' - The key name for the object that you want to place a Legal Hold on.
+-- 'key', 'putObjectLegalHold_key' - The key name for the object that you want to place a legal hold on.
 newPutObjectLegalHold ::
   -- | 'bucket'
   BucketName ->
@@ -137,7 +162,9 @@ newPutObjectLegalHold ::
   PutObjectLegalHold
 newPutObjectLegalHold pBucket_ pKey_ =
   PutObjectLegalHold'
-    { contentMD5 = Prelude.Nothing,
+    { checksumAlgorithm =
+        Prelude.Nothing,
+      contentMD5 = Prelude.Nothing,
       expectedBucketOwner = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
       legalHold = Prelude.Nothing,
@@ -145,6 +172,20 @@ newPutObjectLegalHold pBucket_ pKey_ =
       bucket = pBucket_,
       key = pKey_
     }
+
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putObjectLegalHold_checksumAlgorithm :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ChecksumAlgorithm)
+putObjectLegalHold_checksumAlgorithm = Lens.lens (\PutObjectLegalHold' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutObjectLegalHold' {} a -> s {checksumAlgorithm = a} :: PutObjectLegalHold)
 
 -- | The MD5 hash for the request body.
 --
@@ -155,8 +196,8 @@ putObjectLegalHold_contentMD5 :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe Pr
 putObjectLegalHold_contentMD5 = Lens.lens (\PutObjectLegalHold' {contentMD5} -> contentMD5) (\s@PutObjectLegalHold' {} a -> s {contentMD5 = a} :: PutObjectLegalHold)
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putObjectLegalHold_expectedBucketOwner :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe Prelude.Text)
 putObjectLegalHold_expectedBucketOwner = Lens.lens (\PutObjectLegalHold' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutObjectLegalHold' {} a -> s {expectedBucketOwner = a} :: PutObjectLegalHold)
 
@@ -164,17 +205,17 @@ putObjectLegalHold_expectedBucketOwner = Lens.lens (\PutObjectLegalHold' {expect
 putObjectLegalHold_requestPayer :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe RequestPayer)
 putObjectLegalHold_requestPayer = Lens.lens (\PutObjectLegalHold' {requestPayer} -> requestPayer) (\s@PutObjectLegalHold' {} a -> s {requestPayer = a} :: PutObjectLegalHold)
 
--- | Container element for the Legal Hold configuration you want to apply to
+-- | Container element for the legal hold configuration you want to apply to
 -- the specified object.
 putObjectLegalHold_legalHold :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectLockLegalHold)
 putObjectLegalHold_legalHold = Lens.lens (\PutObjectLegalHold' {legalHold} -> legalHold) (\s@PutObjectLegalHold' {} a -> s {legalHold = a} :: PutObjectLegalHold)
 
--- | The version ID of the object that you want to place a Legal Hold on.
+-- | The version ID of the object that you want to place a legal hold on.
 putObjectLegalHold_versionId :: Lens.Lens' PutObjectLegalHold (Prelude.Maybe ObjectVersionId)
 putObjectLegalHold_versionId = Lens.lens (\PutObjectLegalHold' {versionId} -> versionId) (\s@PutObjectLegalHold' {} a -> s {versionId = a} :: PutObjectLegalHold)
 
--- | The bucket name containing the object that you want to place a Legal
--- Hold on.
+-- | The bucket name containing the object that you want to place a legal
+-- hold on.
 --
 -- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
@@ -187,7 +228,7 @@ putObjectLegalHold_versionId = Lens.lens (\PutObjectLegalHold' {versionId} -> ve
 putObjectLegalHold_bucket :: Lens.Lens' PutObjectLegalHold BucketName
 putObjectLegalHold_bucket = Lens.lens (\PutObjectLegalHold' {bucket} -> bucket) (\s@PutObjectLegalHold' {} a -> s {bucket = a} :: PutObjectLegalHold)
 
--- | The key name for the object that you want to place a Legal Hold on.
+-- | The key name for the object that you want to place a legal hold on.
 putObjectLegalHold_key :: Lens.Lens' PutObjectLegalHold ObjectKey
 putObjectLegalHold_key = Lens.lens (\PutObjectLegalHold' {key} -> key) (\s@PutObjectLegalHold' {} a -> s {key = a} :: PutObjectLegalHold)
 
@@ -208,7 +249,8 @@ instance Core.AWSRequest PutObjectLegalHold where
 
 instance Prelude.Hashable PutObjectLegalHold where
   hashWithSalt _salt PutObjectLegalHold' {..} =
-    _salt `Prelude.hashWithSalt` contentMD5
+    _salt `Prelude.hashWithSalt` checksumAlgorithm
+      `Prelude.hashWithSalt` contentMD5
       `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` requestPayer
       `Prelude.hashWithSalt` legalHold
@@ -218,7 +260,8 @@ instance Prelude.Hashable PutObjectLegalHold where
 
 instance Prelude.NFData PutObjectLegalHold where
   rnf PutObjectLegalHold' {..} =
-    Prelude.rnf contentMD5
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf contentMD5
       `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf requestPayer
       `Prelude.seq` Prelude.rnf legalHold
@@ -235,7 +278,9 @@ instance Core.ToElement PutObjectLegalHold where
 instance Core.ToHeaders PutObjectLegalHold where
   toHeaders PutObjectLegalHold' {..} =
     Prelude.mconcat
-      [ "Content-MD5" Core.=# contentMD5,
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "Content-MD5" Core.=# contentMD5,
         "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner,
         "x-amz-request-payer" Core.=# requestPayer

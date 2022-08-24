@@ -21,8 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new lifecycle configuration for the bucket or replaces an
--- existing lifecycle configuration. For information about lifecycle
--- configuration, see
+-- existing lifecycle configuration. Keep in mind that this will overwrite
+-- an existing lifecycle configuration, so if you want to retain any
+-- configuration details, they must be included in the new lifecycle
+-- configuration. For information about lifecycle configuration, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html Managing your storage lifecycle>.
 --
 -- Bucket lifecycle configuration now supports specifying a lifecycle rule
@@ -37,7 +39,8 @@
 --
 -- You specify the lifecycle configuration in your request body. The
 -- lifecycle configuration is specified as XML consisting of one or more
--- rules. Each rule consists of the following:
+-- rules. An Amazon S3 Lifecycle configuration can have up to 1,000 rules.
+-- This limit is not adjustable. Each rule consists of the following:
 --
 -- -   Filter identifying a subset of objects to which the rule applies.
 --     The filter can be based on a key name prefix, object tags, or a
@@ -66,18 +69,18 @@
 -- Web Services account that created it) can access the resource. The
 -- resource owner can optionally grant access permissions to others by
 -- writing an access policy. For this operation, a user must get the
--- s3:PutLifecycleConfiguration permission.
+-- @s3:PutLifecycleConfiguration@ permission.
 --
 -- You can also explicitly deny permissions. Explicit deny also supersedes
 -- any other permissions. If you want to block users or accounts from
 -- removing or deleting objects from your bucket, you must deny them
 -- permissions for the following actions:
 --
--- -   s3:DeleteObject
+-- -   @s3:DeleteObject@
 --
--- -   s3:DeleteObjectVersion
+-- -   @s3:DeleteObjectVersion@
 --
--- -   s3:PutLifecycleConfiguration
+-- -   @s3:PutLifecycleConfiguration@
 --
 -- For more information about permissions, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
@@ -95,6 +98,7 @@ module Amazonka.S3.PutBucketLifecycleConfiguration
     newPutBucketLifecycleConfiguration,
 
     -- * Request Lenses
+    putBucketLifecycleConfiguration_checksumAlgorithm,
     putBucketLifecycleConfiguration_expectedBucketOwner,
     putBucketLifecycleConfiguration_lifecycleConfiguration,
     putBucketLifecycleConfiguration_bucket,
@@ -114,9 +118,21 @@ import Amazonka.S3.Types
 
 -- | /See:/ 'newPutBucketLifecycleConfiguration' smart constructor.
 data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
-  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+  { -- | Indicates the algorithm used to create the checksum for the object when
+    -- using the SDK. This header will not provide any additional functionality
+    -- if not using the SDK. When sending this header, there must be a
+    -- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+    -- Otherwise, Amazon S3 fails the request with the HTTP status code
+    -- @400 Bad Request@. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+    -- in the /Amazon S3 User Guide/.
+    --
+    -- If you provide an individual checksum, Amazon S3 ignores any provided
+    -- @ChecksumAlgorithm@ parameter.
+    checksumAlgorithm :: Prelude.Maybe ChecksumAlgorithm,
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Container for lifecycle rules. You can add as many as 1,000 rules.
     lifecycleConfiguration :: Prelude.Maybe BucketLifecycleConfiguration,
@@ -133,9 +149,21 @@ data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'checksumAlgorithm', 'putBucketLifecycleConfiguration_checksumAlgorithm' - Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+--
 -- 'expectedBucketOwner', 'putBucketLifecycleConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'lifecycleConfiguration', 'putBucketLifecycleConfiguration_lifecycleConfiguration' - Container for lifecycle rules. You can add as many as 1,000 rules.
 --
@@ -146,15 +174,30 @@ newPutBucketLifecycleConfiguration ::
   PutBucketLifecycleConfiguration
 newPutBucketLifecycleConfiguration pBucket_ =
   PutBucketLifecycleConfiguration'
-    { expectedBucketOwner =
+    { checksumAlgorithm =
         Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       lifecycleConfiguration = Prelude.Nothing,
       bucket = pBucket_
     }
 
+-- | Indicates the algorithm used to create the checksum for the object when
+-- using the SDK. This header will not provide any additional functionality
+-- if not using the SDK. When sending this header, there must be a
+-- corresponding @x-amz-checksum@ or @x-amz-trailer@ header sent.
+-- Otherwise, Amazon S3 fails the request with the HTTP status code
+-- @400 Bad Request@. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html Checking object integrity>
+-- in the /Amazon S3 User Guide/.
+--
+-- If you provide an individual checksum, Amazon S3 ignores any provided
+-- @ChecksumAlgorithm@ parameter.
+putBucketLifecycleConfiguration_checksumAlgorithm :: Lens.Lens' PutBucketLifecycleConfiguration (Prelude.Maybe ChecksumAlgorithm)
+putBucketLifecycleConfiguration_checksumAlgorithm = Lens.lens (\PutBucketLifecycleConfiguration' {checksumAlgorithm} -> checksumAlgorithm) (\s@PutBucketLifecycleConfiguration' {} a -> s {checksumAlgorithm = a} :: PutBucketLifecycleConfiguration)
+
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 putBucketLifecycleConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketLifecycleConfiguration (Prelude.Maybe Prelude.Text)
 putBucketLifecycleConfiguration_expectedBucketOwner = Lens.lens (\PutBucketLifecycleConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@PutBucketLifecycleConfiguration' {} a -> s {expectedBucketOwner = a} :: PutBucketLifecycleConfiguration)
 
@@ -188,7 +231,8 @@ instance
   hashWithSalt
     _salt
     PutBucketLifecycleConfiguration' {..} =
-      _salt `Prelude.hashWithSalt` expectedBucketOwner
+      _salt `Prelude.hashWithSalt` checksumAlgorithm
+        `Prelude.hashWithSalt` expectedBucketOwner
         `Prelude.hashWithSalt` lifecycleConfiguration
         `Prelude.hashWithSalt` bucket
 
@@ -197,7 +241,8 @@ instance
     PutBucketLifecycleConfiguration
   where
   rnf PutBucketLifecycleConfiguration' {..} =
-    Prelude.rnf expectedBucketOwner
+    Prelude.rnf checksumAlgorithm
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf lifecycleConfiguration
       `Prelude.seq` Prelude.rnf bucket
 
@@ -216,7 +261,9 @@ instance
   where
   toHeaders PutBucketLifecycleConfiguration' {..} =
     Prelude.mconcat
-      [ "x-amz-expected-bucket-owner"
+      [ "x-amz-sdk-checksum-algorithm"
+          Core.=# checksumAlgorithm,
+        "x-amz-expected-bucket-owner"
           Core.=# expectedBucketOwner
       ]
 

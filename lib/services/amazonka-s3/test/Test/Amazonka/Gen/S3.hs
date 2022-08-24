@@ -159,6 +159,9 @@ import Test.Tasty
 --         , requestGetObjectAcl $
 --             newGetObjectAcl
 --
+--         , requestGetObjectAttributes $
+--             newGetObjectAttributes
+--
 --         , requestGetObjectLegalHold $
 --             newGetObjectLegalHold
 --
@@ -437,6 +440,9 @@ import Test.Tasty
 --
 --         , responseGetObjectAcl $
 --             newGetObjectAclResponse
+--
+--         , responseGetObjectAttributes $
+--             newGetObjectAttributesResponse
 --
 --         , responseGetObjectLegalHold $
 --             newGetObjectLegalHoldResponse
@@ -850,6 +856,12 @@ requestGetObjectAcl =
   req
     "GetObjectAcl"
     "fixture/GetObjectAcl.yaml"
+
+requestGetObjectAttributes :: GetObjectAttributes -> TestTree
+requestGetObjectAttributes =
+  req
+    "GetObjectAttributes"
+    "fixture/GetObjectAttributes.yaml"
 
 requestGetObjectLegalHold :: GetObjectLegalHold -> TestTree
 requestGetObjectLegalHold =
@@ -1466,6 +1478,14 @@ responseGetObjectAcl =
     "fixture/GetObjectAclResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetObjectAcl)
+
+responseGetObjectAttributes :: GetObjectAttributesResponse -> TestTree
+responseGetObjectAttributes =
+  res
+    "GetObjectAttributesResponse"
+    "fixture/GetObjectAttributesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetObjectAttributes)
 
 responseGetObjectLegalHold :: GetObjectLegalHoldResponse -> TestTree
 responseGetObjectLegalHold =

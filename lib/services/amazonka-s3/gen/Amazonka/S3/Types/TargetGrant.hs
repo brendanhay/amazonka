@@ -28,6 +28,11 @@ import Amazonka.S3.Types.Grantee
 
 -- | Container for granting information.
 --
+-- Buckets that use the bucket owner enforced setting for Object Ownership
+-- don\'t support target grants. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html#grant-log-delivery-permissions-general Permissions server access log delivery>
+-- in the /Amazon S3 User Guide/.
+--
 -- /See:/ 'newTargetGrant' smart constructor.
 data TargetGrant = TargetGrant'
   { -- | Logging permissions assigned to the grantee for the bucket.

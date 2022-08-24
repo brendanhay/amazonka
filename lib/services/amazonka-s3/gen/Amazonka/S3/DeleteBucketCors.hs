@@ -60,8 +60,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newDeleteBucketCors' smart constructor.
 data DeleteBucketCors = DeleteBucketCors'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the bucket whose @cors@ configuration is being deleted.
     bucket :: BucketName
@@ -77,8 +77,8 @@ data DeleteBucketCors = DeleteBucketCors'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'deleteBucketCors_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'deleteBucketCors_bucket' - Specifies the bucket whose @cors@ configuration is being deleted.
 newDeleteBucketCors ::
@@ -93,8 +93,8 @@ newDeleteBucketCors pBucket_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 deleteBucketCors_expectedBucketOwner :: Lens.Lens' DeleteBucketCors (Prelude.Maybe Prelude.Text)
 deleteBucketCors_expectedBucketOwner = Lens.lens (\DeleteBucketCors' {expectedBucketOwner} -> expectedBucketOwner) (\s@DeleteBucketCors' {} a -> s {expectedBucketOwner = a} :: DeleteBucketCors)
 

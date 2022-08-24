@@ -73,8 +73,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketAnalyticsConfiguration' smart constructor.
 data GetBucketAnalyticsConfiguration = GetBucketAnalyticsConfiguration'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket from which an analytics configuration is
     -- retrieved.
@@ -93,8 +93,8 @@ data GetBucketAnalyticsConfiguration = GetBucketAnalyticsConfiguration'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketAnalyticsConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketAnalyticsConfiguration_bucket' - The name of the bucket from which an analytics configuration is
 -- retrieved.
@@ -115,8 +115,8 @@ newGetBucketAnalyticsConfiguration pBucket_ pId_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketAnalyticsConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketAnalyticsConfiguration (Prelude.Maybe Prelude.Text)
 getBucketAnalyticsConfiguration_expectedBucketOwner = Lens.lens (\GetBucketAnalyticsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketAnalyticsConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketAnalyticsConfiguration)
 

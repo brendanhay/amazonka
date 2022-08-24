@@ -74,8 +74,8 @@ import Amazonka.S3.Types
 -- | /See:/ 'newGetBucketMetricsConfiguration' smart constructor.
 data GetBucketMetricsConfiguration = GetBucketMetricsConfiguration'
   { -- | The account ID of the expected bucket owner. If the bucket is owned by a
-    -- different account, the request will fail with an HTTP
-    -- @403 (Access Denied)@ error.
+    -- different account, the request fails with the HTTP status code
+    -- @403 Forbidden@ (access denied).
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket containing the metrics configuration to retrieve.
     bucket :: BucketName,
@@ -93,8 +93,8 @@ data GetBucketMetricsConfiguration = GetBucketMetricsConfiguration'
 -- for backwards compatibility:
 --
 -- 'expectedBucketOwner', 'getBucketMetricsConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 --
 -- 'bucket', 'getBucketMetricsConfiguration_bucket' - The name of the bucket containing the metrics configuration to retrieve.
 --
@@ -114,8 +114,8 @@ newGetBucketMetricsConfiguration pBucket_ pId_ =
     }
 
 -- | The account ID of the expected bucket owner. If the bucket is owned by a
--- different account, the request will fail with an HTTP
--- @403 (Access Denied)@ error.
+-- different account, the request fails with the HTTP status code
+-- @403 Forbidden@ (access denied).
 getBucketMetricsConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketMetricsConfiguration (Prelude.Maybe Prelude.Text)
 getBucketMetricsConfiguration_expectedBucketOwner = Lens.lens (\GetBucketMetricsConfiguration' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketMetricsConfiguration' {} a -> s {expectedBucketOwner = a} :: GetBucketMetricsConfiguration)
 

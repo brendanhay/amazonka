@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.S3.Internal
+import Amazonka.S3.Types.EventBridgeConfiguration
 import Amazonka.S3.Types.LambdaFunctionConfiguration
 import Amazonka.S3.Types.QueueConfiguration
 import Amazonka.S3.Types.TopicConfiguration
@@ -32,7 +33,9 @@ import Amazonka.S3.Types.TopicConfiguration
 --
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | The Amazon Simple Queue Service queues to publish messages to and the
+  { -- | Enables delivery of events to Amazon EventBridge.
+    eventBridgeConfiguration :: Prelude.Maybe EventBridgeConfiguration,
+    -- | The Amazon Simple Queue Service queues to publish messages to and the
     -- events for which to publish messages.
     queueConfigurations :: Prelude.Maybe [QueueConfiguration],
     -- | The topic to which notifications are sent and the events for which
@@ -52,6 +55,8 @@ data NotificationConfiguration = NotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'eventBridgeConfiguration', 'notificationConfiguration_eventBridgeConfiguration' - Enables delivery of events to Amazon EventBridge.
+--
 -- 'queueConfigurations', 'notificationConfiguration_queueConfigurations' - The Amazon Simple Queue Service queues to publish messages to and the
 -- events for which to publish messages.
 --
@@ -64,11 +69,16 @@ newNotificationConfiguration ::
   NotificationConfiguration
 newNotificationConfiguration =
   NotificationConfiguration'
-    { queueConfigurations =
+    { eventBridgeConfiguration =
         Prelude.Nothing,
+      queueConfigurations = Prelude.Nothing,
       topicConfigurations = Prelude.Nothing,
       lambdaFunctionConfigurations = Prelude.Nothing
     }
+
+-- | Enables delivery of events to Amazon EventBridge.
+notificationConfiguration_eventBridgeConfiguration :: Lens.Lens' NotificationConfiguration (Prelude.Maybe EventBridgeConfiguration)
+notificationConfiguration_eventBridgeConfiguration = Lens.lens (\NotificationConfiguration' {eventBridgeConfiguration} -> eventBridgeConfiguration) (\s@NotificationConfiguration' {} a -> s {eventBridgeConfiguration = a} :: NotificationConfiguration)
 
 -- | The Amazon Simple Queue Service queues to publish messages to and the
 -- events for which to publish messages.
@@ -88,7 +98,8 @@ notificationConfiguration_lambdaFunctionConfigurations = Lens.lens (\Notificatio
 instance Core.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Prelude.<$> (Core.may (Core.parseXMLList "QueueConfiguration") x)
+      Prelude.<$> (x Core..@? "EventBridgeConfiguration")
+      Prelude.<*> (Core.may (Core.parseXMLList "QueueConfiguration") x)
       Prelude.<*> (Core.may (Core.parseXMLList "TopicConfiguration") x)
       Prelude.<*> ( Core.may
                       (Core.parseXMLList "CloudFunctionConfiguration")
@@ -97,20 +108,25 @@ instance Core.FromXML NotificationConfiguration where
 
 instance Prelude.Hashable NotificationConfiguration where
   hashWithSalt _salt NotificationConfiguration' {..} =
-    _salt `Prelude.hashWithSalt` queueConfigurations
+    _salt
+      `Prelude.hashWithSalt` eventBridgeConfiguration
+      `Prelude.hashWithSalt` queueConfigurations
       `Prelude.hashWithSalt` topicConfigurations
       `Prelude.hashWithSalt` lambdaFunctionConfigurations
 
 instance Prelude.NFData NotificationConfiguration where
   rnf NotificationConfiguration' {..} =
-    Prelude.rnf queueConfigurations
+    Prelude.rnf eventBridgeConfiguration
+      `Prelude.seq` Prelude.rnf queueConfigurations
       `Prelude.seq` Prelude.rnf topicConfigurations
       `Prelude.seq` Prelude.rnf lambdaFunctionConfigurations
 
 instance Core.ToXML NotificationConfiguration where
   toXML NotificationConfiguration' {..} =
     Prelude.mconcat
-      [ Core.toXML
+      [ "EventBridgeConfiguration"
+          Core.@= eventBridgeConfiguration,
+        Core.toXML
           ( Core.toXMLList "QueueConfiguration"
               Prelude.<$> queueConfigurations
           ),

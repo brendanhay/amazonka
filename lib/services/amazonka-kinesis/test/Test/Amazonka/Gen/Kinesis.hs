@@ -111,6 +111,9 @@ import Test.Tasty
 --         , requestUpdateShardCount $
 --             newUpdateShardCount
 --
+--         , requestUpdateStreamMode $
+--             newUpdateStreamMode
+--
 --           ]
 
 --     , testGroup "response"
@@ -197,6 +200,9 @@ import Test.Tasty
 --
 --         , responseUpdateShardCount $
 --             newUpdateShardCountResponse
+--
+--         , responseUpdateStreamMode $
+--             newUpdateStreamModeResponse
 --
 --           ]
 --     ]
@@ -370,6 +376,12 @@ requestUpdateShardCount =
   req
     "UpdateShardCount"
     "fixture/UpdateShardCount.yaml"
+
+requestUpdateStreamMode :: UpdateStreamMode -> TestTree
+requestUpdateStreamMode =
+  req
+    "UpdateStreamMode"
+    "fixture/UpdateStreamMode.yaml"
 
 -- Responses
 
@@ -588,3 +600,11 @@ responseUpdateShardCount =
     "fixture/UpdateShardCountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateShardCount)
+
+responseUpdateStreamMode :: UpdateStreamModeResponse -> TestTree
+responseUpdateStreamMode =
+  res
+    "UpdateStreamModeResponse"
+    "fixture/UpdateStreamModeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStreamMode)

@@ -43,8 +43,8 @@
 -- stream does not exist, @MergeShards@ returns a
 -- @ResourceNotFoundException@.
 --
--- You can use DescribeStream to check the state of the stream, which is
--- returned in @StreamStatus@.
+-- You can use DescribeStreamSummary to check the state of the stream,
+-- which is returned in @StreamStatus@.
 --
 -- @MergeShards@ is an asynchronous operation. Upon receiving a
 -- @MergeShards@ request, Amazon Kinesis Data Streams immediately returns a
@@ -53,8 +53,8 @@
 -- Read and write operations continue to work while the stream is in the
 -- @UPDATING@ state.
 --
--- You use DescribeStream to determine the shard IDs that are specified in
--- the @MergeShards@ request.
+-- You use DescribeStreamSummary and the ListShards APIs to determine the
+-- shard IDs that are specified in the @MergeShards@ request.
 --
 -- If you try to operate on too many streams in parallel using
 -- CreateStream, DeleteStream, @MergeShards@, or SplitShard, you receive a

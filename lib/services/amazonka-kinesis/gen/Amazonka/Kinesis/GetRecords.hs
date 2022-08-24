@@ -53,9 +53,12 @@
 -- maximum number of records that can be returned per call is 10,000.
 --
 -- The size of the data returned by GetRecords varies depending on the
--- utilization of the shard. The maximum size of data that GetRecords can
--- return is 10 MiB. If a call returns this amount of data, subsequent
--- calls made within the next 5 seconds throw
+-- utilization of the shard. It is recommended that consumer applications
+-- retrieve records via the @GetRecords@ command using the 5 TPS limit to
+-- remain caught up. Retrieving records less frequently can lead to
+-- consumer applications falling behind. The maximum size of data that
+-- GetRecords can return is 10 MiB. If a call returns this amount of data,
+-- subsequent calls made within the next 5 seconds throw
 -- @ProvisionedThroughputExceededException@. If there is insufficient
 -- provisioned throughput on the stream, subsequent calls made within the
 -- next 1 second throw @ProvisionedThroughputExceededException@. GetRecords
@@ -231,6 +234,9 @@ data GetRecordsResponse = GetRecordsResponse'
     -- data records. If set to @null@, the shard has been closed and the
     -- requested iterator does not return any more data.
     nextShardIterator :: Prelude.Maybe Prelude.Text,
+    -- | The list of the current shard\'s child shards, returned in the
+    -- @GetRecords@ API\'s response only when the end of the current shard is
+    -- reached.
     childShards :: Prelude.Maybe [ChildShard],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -256,7 +262,9 @@ data GetRecordsResponse = GetRecordsResponse'
 -- data records. If set to @null@, the shard has been closed and the
 -- requested iterator does not return any more data.
 --
--- 'childShards', 'getRecordsResponse_childShards' - Undocumented member.
+-- 'childShards', 'getRecordsResponse_childShards' - The list of the current shard\'s child shards, returned in the
+-- @GetRecords@ API\'s response only when the end of the current shard is
+-- reached.
 --
 -- 'httpStatus', 'getRecordsResponse_httpStatus' - The response's http status code.
 --
@@ -288,7 +296,9 @@ getRecordsResponse_millisBehindLatest = Lens.lens (\GetRecordsResponse' {millisB
 getRecordsResponse_nextShardIterator :: Lens.Lens' GetRecordsResponse (Prelude.Maybe Prelude.Text)
 getRecordsResponse_nextShardIterator = Lens.lens (\GetRecordsResponse' {nextShardIterator} -> nextShardIterator) (\s@GetRecordsResponse' {} a -> s {nextShardIterator = a} :: GetRecordsResponse)
 
--- | Undocumented member.
+-- | The list of the current shard\'s child shards, returned in the
+-- @GetRecords@ API\'s response only when the end of the current shard is
+-- reached.
 getRecordsResponse_childShards :: Lens.Lens' GetRecordsResponse (Prelude.Maybe [ChildShard])
 getRecordsResponse_childShards = Lens.lens (\GetRecordsResponse' {childShards} -> childShards) (\s@GetRecordsResponse' {} a -> s {childShards = a} :: GetRecordsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -27,6 +27,7 @@ module Amazonka.Kinesis.Types
     _KMSDisabledException,
     _KMSInvalidStateException,
     _ExpiredIteratorException,
+    _ValidationException,
     _KMSNotFoundException,
     _KMSThrottlingException,
     _InternalFailureException,
@@ -49,6 +50,9 @@ module Amazonka.Kinesis.Types
 
     -- * ShardIteratorType
     ShardIteratorType (..),
+
+    -- * StreamMode
+    StreamMode (..),
 
     -- * StreamStatus
     StreamStatus (..),
@@ -152,6 +156,7 @@ module Amazonka.Kinesis.Types
     StreamDescription (..),
     newStreamDescription,
     streamDescription_encryptionType,
+    streamDescription_streamModeDetails,
     streamDescription_keyId,
     streamDescription_streamName,
     streamDescription_streamARN,
@@ -167,6 +172,7 @@ module Amazonka.Kinesis.Types
     newStreamDescriptionSummary,
     streamDescriptionSummary_consumerCount,
     streamDescriptionSummary_encryptionType,
+    streamDescriptionSummary_streamModeDetails,
     streamDescriptionSummary_keyId,
     streamDescriptionSummary_streamName,
     streamDescriptionSummary_streamARN,
@@ -175,6 +181,11 @@ module Amazonka.Kinesis.Types
     streamDescriptionSummary_streamCreationTimestamp,
     streamDescriptionSummary_enhancedMonitoring,
     streamDescriptionSummary_openShardCount,
+
+    -- * StreamModeDetails
+    StreamModeDetails (..),
+    newStreamModeDetails,
+    streamModeDetails_streamMode,
 
     -- * SubscribeToShardEvent
     SubscribeToShardEvent (..),
@@ -214,6 +225,8 @@ import Amazonka.Kinesis.Types.ShardIteratorType
 import Amazonka.Kinesis.Types.StartingPosition
 import Amazonka.Kinesis.Types.StreamDescription
 import Amazonka.Kinesis.Types.StreamDescriptionSummary
+import Amazonka.Kinesis.Types.StreamMode
+import Amazonka.Kinesis.Types.StreamModeDetails
 import Amazonka.Kinesis.Types.StreamStatus
 import Amazonka.Kinesis.Types.SubscribeToShardEvent
 import Amazonka.Kinesis.Types.Tag
@@ -317,8 +330,8 @@ _ExpiredNextTokenException =
 -- your requests. For more information, see
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Streams Limits>
 -- in the /Amazon Kinesis Data Streams Developer Guide/, and
--- <https://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in AWS>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/api-retries.html Error Retries and Exponential Backoff in Amazon Web Services>
+-- in the /Amazon Web Services General Reference/.
 _ProvisionedThroughputExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ProvisionedThroughputExceededException =
   Core._MatchServiceError
@@ -368,7 +381,7 @@ _KMSDisabledException =
 -- | The request was rejected because the state of the specified resource
 -- isn\'t valid for this request. For more information, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 _KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSInvalidStateException =
   Core._MatchServiceError
@@ -382,6 +395,13 @@ _ExpiredIteratorException =
     defaultService
     "ExpiredIteratorException"
 
+-- |
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
+  Core._MatchServiceError
+    defaultService
+    "ValidationException"
+
 -- | The request was rejected because the specified entity or resource can\'t
 -- be found.
 _KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -393,7 +413,7 @@ _KMSNotFoundException =
 -- | The request was denied due to request throttling. For more information
 -- about throttling, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 _KMSThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSThrottlingException =
   Core._MatchServiceError
@@ -408,7 +428,8 @@ _InternalFailureException =
     defaultService
     "InternalFailureException"
 
--- | The AWS access key ID needs a subscription for the service.
+-- | The Amazon Web Services access key ID needs a subscription for the
+-- service.
 _KMSOptInRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSOptInRequired =
   Core._MatchServiceError

@@ -44,8 +44,9 @@
 -- If you call @SubscribeToShard@ again with the same @ConsumerARN@ and
 -- @ShardId@ within 5 seconds of a successful call, you\'ll get a
 -- @ResourceInUseException@. If you call @SubscribeToShard@ 5 seconds or
--- more after a successful call, the first connection will expire and the
--- second call will take over the subscription.
+-- more after a successful call, the second call takes over the
+-- subscription and the previous connection expires or fails with a
+-- @ResourceInUseException@.
 --
 -- For an example of how to use this operations, see
 -- </streams/latest/dev/building-enhanced-consumers-api.html Enhanced Fan-Out Using the Kinesis Data Streams API>.
@@ -84,6 +85,7 @@ data SubscribeToShard = SubscribeToShard'
     -- | The ID of the shard you want to subscribe to. To see a list of all the
     -- shards for a given stream, use ListShards.
     shardId :: Prelude.Text,
+    -- | The starting position in the data stream from which to start streaming.
     startingPosition :: StartingPosition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,7 +104,7 @@ data SubscribeToShard = SubscribeToShard'
 -- 'shardId', 'subscribeToShard_shardId' - The ID of the shard you want to subscribe to. To see a list of all the
 -- shards for a given stream, use ListShards.
 --
--- 'startingPosition', 'subscribeToShard_startingPosition' -
+-- 'startingPosition', 'subscribeToShard_startingPosition' - The starting position in the data stream from which to start streaming.
 newSubscribeToShard ::
   -- | 'consumerARN'
   Prelude.Text ->
@@ -131,7 +133,7 @@ subscribeToShard_consumerARN = Lens.lens (\SubscribeToShard' {consumerARN} -> co
 subscribeToShard_shardId :: Lens.Lens' SubscribeToShard Prelude.Text
 subscribeToShard_shardId = Lens.lens (\SubscribeToShard' {shardId} -> shardId) (\s@SubscribeToShard' {} a -> s {shardId = a} :: SubscribeToShard)
 
--- |
+-- | The starting position in the data stream from which to start streaming.
 subscribeToShard_startingPosition :: Lens.Lens' SubscribeToShard StartingPosition
 subscribeToShard_startingPosition = Lens.lens (\SubscribeToShard' {startingPosition} -> startingPosition) (\s@SubscribeToShard' {} a -> s {startingPosition = a} :: SubscribeToShard)
 

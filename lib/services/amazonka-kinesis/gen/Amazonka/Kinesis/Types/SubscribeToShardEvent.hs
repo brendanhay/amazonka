@@ -30,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubscribeToShardEvent' smart constructor.
 data SubscribeToShardEvent = SubscribeToShardEvent'
-  { childShards :: Prelude.Maybe [ChildShard],
+  { -- | The list of the child shards of the current shard, returned only at the
+    -- end of the current shard.
+    childShards :: Prelude.Maybe [ChildShard],
     records :: [Record],
     -- | Use this as @SequenceNumber@ in the next call to SubscribeToShard, with
     -- @StartingPosition@ set to @AT_SEQUENCE_NUMBER@ or
@@ -54,7 +56,8 @@ data SubscribeToShardEvent = SubscribeToShardEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'childShards', 'subscribeToShardEvent_childShards' - Undocumented member.
+-- 'childShards', 'subscribeToShardEvent_childShards' - The list of the child shards of the current shard, returned only at the
+-- end of the current shard.
 --
 -- 'records', 'subscribeToShardEvent_records' -
 --
@@ -86,7 +89,8 @@ newSubscribeToShardEvent
         millisBehindLatest = pMillisBehindLatest_
       }
 
--- | Undocumented member.
+-- | The list of the child shards of the current shard, returned only at the
+-- end of the current shard.
 subscribeToShardEvent_childShards :: Lens.Lens' SubscribeToShardEvent (Prelude.Maybe [ChildShard])
 subscribeToShardEvent_childShards = Lens.lens (\SubscribeToShardEvent' {childShards} -> childShards) (\s@SubscribeToShardEvent' {} a -> s {childShards = a} :: SubscribeToShardEvent) Prelude.. Lens.mapping Lens.coerced
 

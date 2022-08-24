@@ -33,11 +33,11 @@
 -- of 1 MiB per second. If the amount of data input increases or decreases,
 -- you can add or remove shards.
 --
--- The stream name identifies the stream. The name is scoped to the AWS
--- account used by the application. It is also scoped by AWS Region. That
--- is, two streams in two different accounts can have the same name, and
--- two streams in the same account, but in two different Regions, can have
--- the same name.
+-- The stream name identifies the stream. The name is scoped to the Amazon
+-- Web Services account used by the application. It is also scoped by
+-- Amazon Web Services Region. That is, two streams in two different
+-- accounts can have the same name, and two streams in the same account,
+-- but in two different Regions, can have the same name.
 --
 -- @CreateStream@ is an asynchronous operation. Upon receiving a
 -- @CreateStream@ request, Kinesis Data Streams immediately returns and
@@ -53,13 +53,13 @@
 --
 -- -   Create more shards than are authorized for your account.
 --
--- For the default shard limit for an AWS account, see
+-- For the default shard limit for an Amazon Web Services account, see
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Amazon Kinesis Data Streams Limits>
 -- in the /Amazon Kinesis Data Streams Developer Guide/. To increase this
 -- limit,
--- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact Amazon Web Services Support>.
 --
--- You can use @DescribeStream@ to check the stream status, which is
+-- You can use DescribeStreamSummary to check the stream status, which is
 -- returned in @StreamStatus@.
 --
 -- CreateStream has a limit of five transactions per second per account.
@@ -69,8 +69,9 @@ module Amazonka.Kinesis.CreateStream
     newCreateStream,
 
     -- * Request Lenses
-    createStream_streamName,
     createStream_shardCount,
+    createStream_streamModeDetails,
+    createStream_streamName,
 
     -- * Destructuring the Response
     CreateStreamResponse (..),
@@ -89,16 +90,21 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateStream' smart constructor.
 data CreateStream = CreateStream'
-  { -- | A name to identify the stream. The stream name is scoped to the AWS
-    -- account used by the application that creates the stream. It is also
-    -- scoped by AWS Region. That is, two streams in two different AWS accounts
-    -- can have the same name. Two streams in the same AWS account but in two
-    -- different Regions can also have the same name.
-    streamName :: Prelude.Text,
-    -- | The number of shards that the stream will use. The throughput of the
+  { -- | The number of shards that the stream will use. The throughput of the
     -- stream is a function of the number of shards; more shards are required
     -- for greater provisioned throughput.
-    shardCount :: Prelude.Natural
+    shardCount :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates the capacity mode of the data stream. Currently, in Kinesis
+    -- Data Streams, you can choose between an __on-demand__ capacity mode and
+    -- a __provisioned__ capacity mode for your data streams.
+    streamModeDetails :: Prelude.Maybe StreamModeDetails,
+    -- | A name to identify the stream. The stream name is scoped to the Amazon
+    -- Web Services account used by the application that creates the stream. It
+    -- is also scoped by Amazon Web Services Region. That is, two streams in
+    -- two different Amazon Web Services accounts can have the same name. Two
+    -- streams in the same Amazon Web Services account but in two different
+    -- Regions can also have the same name.
+    streamName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -110,40 +116,51 @@ data CreateStream = CreateStream'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamName', 'createStream_streamName' - A name to identify the stream. The stream name is scoped to the AWS
--- account used by the application that creates the stream. It is also
--- scoped by AWS Region. That is, two streams in two different AWS accounts
--- can have the same name. Two streams in the same AWS account but in two
--- different Regions can also have the same name.
---
 -- 'shardCount', 'createStream_shardCount' - The number of shards that the stream will use. The throughput of the
 -- stream is a function of the number of shards; more shards are required
 -- for greater provisioned throughput.
+--
+-- 'streamModeDetails', 'createStream_streamModeDetails' - Indicates the capacity mode of the data stream. Currently, in Kinesis
+-- Data Streams, you can choose between an __on-demand__ capacity mode and
+-- a __provisioned__ capacity mode for your data streams.
+--
+-- 'streamName', 'createStream_streamName' - A name to identify the stream. The stream name is scoped to the Amazon
+-- Web Services account used by the application that creates the stream. It
+-- is also scoped by Amazon Web Services Region. That is, two streams in
+-- two different Amazon Web Services accounts can have the same name. Two
+-- streams in the same Amazon Web Services account but in two different
+-- Regions can also have the same name.
 newCreateStream ::
   -- | 'streamName'
   Prelude.Text ->
-  -- | 'shardCount'
-  Prelude.Natural ->
   CreateStream
-newCreateStream pStreamName_ pShardCount_ =
+newCreateStream pStreamName_ =
   CreateStream'
-    { streamName = pStreamName_,
-      shardCount = pShardCount_
+    { shardCount = Prelude.Nothing,
+      streamModeDetails = Prelude.Nothing,
+      streamName = pStreamName_
     }
-
--- | A name to identify the stream. The stream name is scoped to the AWS
--- account used by the application that creates the stream. It is also
--- scoped by AWS Region. That is, two streams in two different AWS accounts
--- can have the same name. Two streams in the same AWS account but in two
--- different Regions can also have the same name.
-createStream_streamName :: Lens.Lens' CreateStream Prelude.Text
-createStream_streamName = Lens.lens (\CreateStream' {streamName} -> streamName) (\s@CreateStream' {} a -> s {streamName = a} :: CreateStream)
 
 -- | The number of shards that the stream will use. The throughput of the
 -- stream is a function of the number of shards; more shards are required
 -- for greater provisioned throughput.
-createStream_shardCount :: Lens.Lens' CreateStream Prelude.Natural
+createStream_shardCount :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Natural)
 createStream_shardCount = Lens.lens (\CreateStream' {shardCount} -> shardCount) (\s@CreateStream' {} a -> s {shardCount = a} :: CreateStream)
+
+-- | Indicates the capacity mode of the data stream. Currently, in Kinesis
+-- Data Streams, you can choose between an __on-demand__ capacity mode and
+-- a __provisioned__ capacity mode for your data streams.
+createStream_streamModeDetails :: Lens.Lens' CreateStream (Prelude.Maybe StreamModeDetails)
+createStream_streamModeDetails = Lens.lens (\CreateStream' {streamModeDetails} -> streamModeDetails) (\s@CreateStream' {} a -> s {streamModeDetails = a} :: CreateStream)
+
+-- | A name to identify the stream. The stream name is scoped to the Amazon
+-- Web Services account used by the application that creates the stream. It
+-- is also scoped by Amazon Web Services Region. That is, two streams in
+-- two different Amazon Web Services accounts can have the same name. Two
+-- streams in the same Amazon Web Services account but in two different
+-- Regions can also have the same name.
+createStream_streamName :: Lens.Lens' CreateStream Prelude.Text
+createStream_streamName = Lens.lens (\CreateStream' {streamName} -> streamName) (\s@CreateStream' {} a -> s {streamName = a} :: CreateStream)
 
 instance Core.AWSRequest CreateStream where
   type AWSResponse CreateStream = CreateStreamResponse
@@ -152,13 +169,15 @@ instance Core.AWSRequest CreateStream where
 
 instance Prelude.Hashable CreateStream where
   hashWithSalt _salt CreateStream' {..} =
-    _salt `Prelude.hashWithSalt` streamName
-      `Prelude.hashWithSalt` shardCount
+    _salt `Prelude.hashWithSalt` shardCount
+      `Prelude.hashWithSalt` streamModeDetails
+      `Prelude.hashWithSalt` streamName
 
 instance Prelude.NFData CreateStream where
   rnf CreateStream' {..} =
-    Prelude.rnf streamName
-      `Prelude.seq` Prelude.rnf shardCount
+    Prelude.rnf shardCount
+      `Prelude.seq` Prelude.rnf streamModeDetails
+      `Prelude.seq` Prelude.rnf streamName
 
 instance Core.ToHeaders CreateStream where
   toHeaders =
@@ -179,8 +198,10 @@ instance Core.ToJSON CreateStream where
   toJSON CreateStream' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("StreamName" Core..= streamName),
-            Prelude.Just ("ShardCount" Core..= shardCount)
+          [ ("ShardCount" Core..=) Prelude.<$> shardCount,
+            ("StreamModeDetails" Core..=)
+              Prelude.<$> streamModeDetails,
+            Prelude.Just ("StreamName" Core..= streamName)
           ]
       )
 

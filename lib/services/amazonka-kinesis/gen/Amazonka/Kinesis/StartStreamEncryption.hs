@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables or updates server-side encryption using an AWS KMS key for a
--- specified stream.
+-- Enables or updates server-side encryption using an Amazon Web Services
+-- KMS key for a specified stream.
 --
 -- Starting encryption is an asynchronous operation. Upon receiving the
 -- request, Kinesis Data Streams returns immediately and sets the status of
@@ -32,8 +32,8 @@
 -- while its status is @UPDATING@. Once the status of the stream is
 -- @ACTIVE@, encryption begins for records written to the stream.
 --
--- API Limits: You can successfully apply a new AWS KMS key for server-side
--- encryption 25 times in a rolling 24-hour period.
+-- API Limits: You can successfully apply a new Amazon Web Services KMS key
+-- for server-side encryption 25 times in a rolling 24-hour period.
 --
 -- Note: It can take up to 5 seconds after the stream is in an @ACTIVE@
 -- status before all records written to the stream are encrypted. After you
@@ -68,11 +68,11 @@ data StartStreamEncryption = StartStreamEncryption'
     streamName :: Prelude.Text,
     -- | The encryption type to use. The only valid value is @KMS@.
     encryptionType :: EncryptionType,
-    -- | The GUID for the customer-managed AWS KMS key to use for encryption.
-    -- This value can be a globally unique identifier, a fully specified Amazon
-    -- Resource Name (ARN) to either an alias or a key, or an alias name
-    -- prefixed by \"alias\/\".You can also use a master key owned by Kinesis
-    -- Data Streams by specifying the alias @aws\/kinesis@.
+    -- | The GUID for the customer-managed Amazon Web Services KMS key to use for
+    -- encryption. This value can be a globally unique identifier, a fully
+    -- specified Amazon Resource Name (ARN) to either an alias or a key, or an
+    -- alias name prefixed by \"alias\/\".You can also use a master key owned
+    -- by Kinesis Data Streams by specifying the alias @aws\/kinesis@.
     --
     -- -   Key ARN example:
     --     @arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012@
@@ -102,11 +102,11 @@ data StartStreamEncryption = StartStreamEncryption'
 --
 -- 'encryptionType', 'startStreamEncryption_encryptionType' - The encryption type to use. The only valid value is @KMS@.
 --
--- 'keyId', 'startStreamEncryption_keyId' - The GUID for the customer-managed AWS KMS key to use for encryption.
--- This value can be a globally unique identifier, a fully specified Amazon
--- Resource Name (ARN) to either an alias or a key, or an alias name
--- prefixed by \"alias\/\".You can also use a master key owned by Kinesis
--- Data Streams by specifying the alias @aws\/kinesis@.
+-- 'keyId', 'startStreamEncryption_keyId' - The GUID for the customer-managed Amazon Web Services KMS key to use for
+-- encryption. This value can be a globally unique identifier, a fully
+-- specified Amazon Resource Name (ARN) to either an alias or a key, or an
+-- alias name prefixed by \"alias\/\".You can also use a master key owned
+-- by Kinesis Data Streams by specifying the alias @aws\/kinesis@.
 --
 -- -   Key ARN example:
 --     @arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012@
@@ -146,11 +146,11 @@ startStreamEncryption_streamName = Lens.lens (\StartStreamEncryption' {streamNam
 startStreamEncryption_encryptionType :: Lens.Lens' StartStreamEncryption EncryptionType
 startStreamEncryption_encryptionType = Lens.lens (\StartStreamEncryption' {encryptionType} -> encryptionType) (\s@StartStreamEncryption' {} a -> s {encryptionType = a} :: StartStreamEncryption)
 
--- | The GUID for the customer-managed AWS KMS key to use for encryption.
--- This value can be a globally unique identifier, a fully specified Amazon
--- Resource Name (ARN) to either an alias or a key, or an alias name
--- prefixed by \"alias\/\".You can also use a master key owned by Kinesis
--- Data Streams by specifying the alias @aws\/kinesis@.
+-- | The GUID for the customer-managed Amazon Web Services KMS key to use for
+-- encryption. This value can be a globally unique identifier, a fully
+-- specified Amazon Resource Name (ARN) to either an alias or a key, or an
+-- alias name prefixed by \"alias\/\".You can also use a master key owned
+-- by Kinesis Data Streams by specifying the alias @aws\/kinesis@.
 --
 -- -   Key ARN example:
 --     @arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012@

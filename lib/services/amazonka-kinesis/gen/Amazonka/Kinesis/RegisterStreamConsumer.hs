@@ -68,7 +68,7 @@ import qualified Amazonka.Response as Response
 data RegisterStreamConsumer = RegisterStreamConsumer'
   { -- | The ARN of the Kinesis data stream that you want to register the
     -- consumer with. For more info, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
     streamARN :: Prelude.Text,
     -- | For a given Kinesis data stream, each consumer must have a unique name.
     -- However, consumer names don\'t have to be unique across data streams.
@@ -86,7 +86,7 @@ data RegisterStreamConsumer = RegisterStreamConsumer'
 --
 -- 'streamARN', 'registerStreamConsumer_streamARN' - The ARN of the Kinesis data stream that you want to register the
 -- consumer with. For more info, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 --
 -- 'consumerName', 'registerStreamConsumer_consumerName' - For a given Kinesis data stream, each consumer must have a unique name.
 -- However, consumer names don\'t have to be unique across data streams.
@@ -104,7 +104,7 @@ newRegisterStreamConsumer pStreamARN_ pConsumerName_ =
 
 -- | The ARN of the Kinesis data stream that you want to register the
 -- consumer with. For more info, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>.
 registerStreamConsumer_streamARN :: Lens.Lens' RegisterStreamConsumer Prelude.Text
 registerStreamConsumer_streamARN = Lens.lens (\RegisterStreamConsumer' {streamARN} -> streamARN) (\s@RegisterStreamConsumer' {} a -> s {streamARN = a} :: RegisterStreamConsumer)
 

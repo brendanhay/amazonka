@@ -41,9 +41,10 @@
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-split.html Split a Shard>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 --
--- You can use DescribeStream to determine the shard ID and hash key values
--- for the @ShardToSplit@ and @NewStartingHashKey@ parameters that are
--- specified in the @SplitShard@ request.
+-- You can use DescribeStreamSummary and the ListShards APIs to determine
+-- the shard ID and hash key values for the @ShardToSplit@ and
+-- @NewStartingHashKey@ parameters that are specified in the @SplitShard@
+-- request.
 --
 -- @SplitShard@ is an asynchronous operation. Upon receiving a @SplitShard@
 -- request, Kinesis Data Streams immediately returns a response and sets
@@ -51,20 +52,19 @@
 -- Kinesis Data Streams sets the stream status to @ACTIVE@. Read and write
 -- operations continue to work while the stream is in the @UPDATING@ state.
 --
--- You can use @DescribeStream@ to check the status of the stream, which is
--- returned in @StreamStatus@. If the stream is in the @ACTIVE@ state, you
--- can call @SplitShard@. If a stream is in @CREATING@ or @UPDATING@ or
--- @DELETING@ states, @DescribeStream@ returns a @ResourceInUseException@.
+-- You can use DescribeStreamSummary to check the status of the stream,
+-- which is returned in @StreamStatus@. If the stream is in the @ACTIVE@
+-- state, you can call @SplitShard@.
 --
--- If the specified stream does not exist, @DescribeStream@ returns a
+-- If the specified stream does not exist, DescribeStreamSummary returns a
 -- @ResourceNotFoundException@. If you try to create more shards than are
 -- authorized for your account, you receive a @LimitExceededException@.
 --
--- For the default shard limit for an AWS account, see
+-- For the default shard limit for an Amazon Web Services account, see
 -- <https://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Kinesis Data Streams Limits>
 -- in the /Amazon Kinesis Data Streams Developer Guide/. To increase this
 -- limit,
--- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact Amazon Web Services Support>.
 --
 -- If you try to operate on too many streams simultaneously using
 -- CreateStream, DeleteStream, MergeShards, and\/or SplitShard, you receive

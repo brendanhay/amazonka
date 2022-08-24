@@ -30,7 +30,8 @@ import Amazonka.ResourceGroupsTagging.Types.Tag
 --
 -- /See:/ 'newResourceTagMapping' smart constructor.
 data ResourceTagMapping = ResourceTagMapping'
-  { -- | The tags that have been applied to one or more AWS resources.
+  { -- | The tags that have been applied to one or more Amazon Web Services
+    -- resources.
     tags :: Prelude.Maybe [Tag],
     -- | Information that shows whether a resource is compliant with the
     -- effective tag policy, including details on any noncompliant tag keys.
@@ -48,7 +49,8 @@ data ResourceTagMapping = ResourceTagMapping'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'resourceTagMapping_tags' - The tags that have been applied to one or more AWS resources.
+-- 'tags', 'resourceTagMapping_tags' - The tags that have been applied to one or more Amazon Web Services
+-- resources.
 --
 -- 'complianceDetails', 'resourceTagMapping_complianceDetails' - Information that shows whether a resource is compliant with the
 -- effective tag policy, including details on any noncompliant tag keys.
@@ -63,7 +65,8 @@ newResourceTagMapping =
       resourceARN = Prelude.Nothing
     }
 
--- | The tags that have been applied to one or more AWS resources.
+-- | The tags that have been applied to one or more Amazon Web Services
+-- resources.
 resourceTagMapping_tags :: Lens.Lens' ResourceTagMapping (Prelude.Maybe [Tag])
 resourceTagMapping_tags = Lens.lens (\ResourceTagMapping' {tags} -> tags) (\s@ResourceTagMapping' {} a -> s {tags = a} :: ResourceTagMapping) Prelude.. Lens.mapping Lens.coerced
 

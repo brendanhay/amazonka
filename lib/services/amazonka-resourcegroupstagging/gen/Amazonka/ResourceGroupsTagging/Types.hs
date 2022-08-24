@@ -203,13 +203,13 @@ _PaginationTokenExpiredException =
 --
 -- -   You must meet the prerequisites for using tag policies. For
 --     information, see
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html Prerequisites and Permissions for Using Tag Policies>
---     in the /AWS Organizations User Guide./
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html Prerequisites and Permissions for Using Tag Policies>
+--     in the /Organizations User Guide./
 --
 -- -   You must enable the tag policies service principal
---     (@tagpolicies.tag.amazonaws.com@) to integrate with AWS
---     Organizations For information, see
---     <http://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html EnableAWSServiceAccess>.
+--     (@tagpolicies.tag.amazonaws.com@) to integrate with Organizations
+--     For information, see
+--     <https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html EnableAWSServiceAccess>.
 --
 -- -   You must have a tag policy attached to the organization root, an OU,
 --     or an account.
@@ -231,8 +231,8 @@ _ConstraintViolationException =
 --
 -- -   You can\'t access the Amazon S3 bucket for report storage. For more
 --     information, see
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report Additional Requirements for Organization-wide Tag Compliance Reports>
---     in the /AWS Organizations User Guide./
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report Additional Requirements for Organization-wide Tag Compliance Reports>
+--     in the /Organizations User Guide./
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError

@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The metadata that you apply to AWS resources to help you categorize and
--- organize them. Each tag consists of a key and a value, both of which you
--- define. For more information, see
--- <http://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/.
+-- | The metadata that you apply to Amazon Web Services resources to help you
+-- categorize and organize them. Each tag consists of a key and a value,
+-- both of which you define. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'

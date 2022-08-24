@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all tag keys currently in use in the specified Region for the
--- calling AWS account.
+-- Returns all tag keys currently in use in the specified Amazon Web
+-- Services Region for the calling account.
 --
 -- This operation supports pagination, where the response can be sent in
 -- multiple pages. You should check the @PaginationToken@ response
@@ -161,7 +161,7 @@ instance Core.ToQuery GetTagKeys where
 
 -- | /See:/ 'newGetTagKeysResponse' smart constructor.
 data GetTagKeysResponse = GetTagKeysResponse'
-  { -- | A list of all tag keys in the AWS account.
+  { -- | A list of all tag keys in the Amazon Web Services account.
     tagKeys :: Prelude.Maybe [Prelude.Text],
     -- | A string that indicates that there is more data available than this
     -- response contains. To receive the next part of the response, specify
@@ -181,7 +181,7 @@ data GetTagKeysResponse = GetTagKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagKeys', 'getTagKeysResponse_tagKeys' - A list of all tag keys in the AWS account.
+-- 'tagKeys', 'getTagKeysResponse_tagKeys' - A list of all tag keys in the Amazon Web Services account.
 --
 -- 'paginationToken', 'getTagKeysResponse_paginationToken' - A string that indicates that there is more data available than this
 -- response contains. To receive the next part of the response, specify
@@ -200,7 +200,7 @@ newGetTagKeysResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A list of all tag keys in the AWS account.
+-- | A list of all tag keys in the Amazon Web Services account.
 getTagKeysResponse_tagKeys :: Lens.Lens' GetTagKeysResponse (Prelude.Maybe [Prelude.Text])
 getTagKeysResponse_tagKeys = Lens.lens (\GetTagKeysResponse' {tagKeys} -> tagKeys) (\s@GetTagKeysResponse' {} a -> s {tagKeys = a} :: GetTagKeysResponse) Prelude.. Lens.mapping Lens.coerced
 

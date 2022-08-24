@@ -76,6 +76,7 @@ module Amazonka.EMR.RunJobFlow
     runJobFlow_autoTerminationPolicy,
     runJobFlow_serviceRole,
     runJobFlow_configurations,
+    runJobFlow_oSReleaseLabel,
     runJobFlow_stepConcurrencyLevel,
     runJobFlow_newSupportedProducts,
     runJobFlow_logUri,
@@ -152,7 +153,7 @@ data RunJobFlow = RunJobFlow'
     -- applications for Amazon EMR to install and configure when launching the
     -- cluster. For a list of applications available for each Amazon EMR
     -- release version, see the
-    -- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide>.
+    -- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMRRelease Guide>.
     applications :: Prelude.Maybe [Application],
     -- | The Amazon EMR release label, which determines the version of
     -- open-source application packages installed on the cluster. Release
@@ -199,6 +200,10 @@ data RunJobFlow = RunJobFlow'
     -- | For Amazon EMR releases 4.0 and later. The list of configurations
     -- supplied for the EMR cluster you are creating.
     configurations :: Prelude.Maybe [Configuration],
+    -- | Specifies a particular Amazon Linux release for all nodes in a cluster
+    -- launch RunJobFlow request. If a release is not specified, Amazon EMR
+    -- uses the latest validated Amazon Linux release for cluster launch.
+    oSReleaseLabel :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of steps that can be executed concurrently. The
     -- default value is @1@. The maximum value is @256@.
     stepConcurrencyLevel :: Prelude.Maybe Prelude.Int,
@@ -236,7 +241,10 @@ data RunJobFlow = RunJobFlow'
     -- | The location in Amazon S3 to write the log files of the job flow. If a
     -- value is not provided, logs are not created.
     logUri :: Prelude.Maybe Prelude.Text,
-    -- | Set this value to @true@ so that IAM principals in the Amazon Web
+    -- | The VisibleToAllUsers parameter is no longer supported. By default, the
+    -- value is set to @true@. Setting it to @false@ now has no effect.
+    --
+    -- Set this value to @true@ so that IAM principals in the Amazon Web
     -- Services account associated with the cluster can perform EMR actions on
     -- the cluster that their IAM policies allow. This value defaults to @true@
     -- for clusters created using the EMR API or the CLI
@@ -332,7 +340,7 @@ data RunJobFlow = RunJobFlow'
 -- applications for Amazon EMR to install and configure when launching the
 -- cluster. For a list of applications available for each Amazon EMR
 -- release version, see the
--- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide>.
+-- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMRRelease Guide>.
 --
 -- 'releaseLabel', 'runJobFlow_releaseLabel' - The Amazon EMR release label, which determines the version of
 -- open-source application packages installed on the cluster. Release
@@ -380,6 +388,10 @@ data RunJobFlow = RunJobFlow'
 -- 'configurations', 'runJobFlow_configurations' - For Amazon EMR releases 4.0 and later. The list of configurations
 -- supplied for the EMR cluster you are creating.
 --
+-- 'oSReleaseLabel', 'runJobFlow_oSReleaseLabel' - Specifies a particular Amazon Linux release for all nodes in a cluster
+-- launch RunJobFlow request. If a release is not specified, Amazon EMR
+-- uses the latest validated Amazon Linux release for cluster launch.
+--
 -- 'stepConcurrencyLevel', 'runJobFlow_stepConcurrencyLevel' - Specifies the number of steps that can be executed concurrently. The
 -- default value is @1@. The maximum value is @256@.
 --
@@ -417,7 +429,10 @@ data RunJobFlow = RunJobFlow'
 -- 'logUri', 'runJobFlow_logUri' - The location in Amazon S3 to write the log files of the job flow. If a
 -- value is not provided, logs are not created.
 --
--- 'visibleToAllUsers', 'runJobFlow_visibleToAllUsers' - Set this value to @true@ so that IAM principals in the Amazon Web
+-- 'visibleToAllUsers', 'runJobFlow_visibleToAllUsers' - The VisibleToAllUsers parameter is no longer supported. By default, the
+-- value is set to @true@. Setting it to @false@ now has no effect.
+--
+-- Set this value to @true@ so that IAM principals in the Amazon Web
 -- Services account associated with the cluster can perform EMR actions on
 -- the cluster that their IAM policies allow. This value defaults to @true@
 -- for clusters created using the EMR API or the CLI
@@ -485,6 +500,7 @@ newRunJobFlow pName_ pInstances_ =
       autoTerminationPolicy = Prelude.Nothing,
       serviceRole = Prelude.Nothing,
       configurations = Prelude.Nothing,
+      oSReleaseLabel = Prelude.Nothing,
       stepConcurrencyLevel = Prelude.Nothing,
       newSupportedProducts' = Prelude.Nothing,
       logUri = Prelude.Nothing,
@@ -560,7 +576,7 @@ runJobFlow_ebsRootVolumeSize = Lens.lens (\RunJobFlow' {ebsRootVolumeSize} -> eb
 -- applications for Amazon EMR to install and configure when launching the
 -- cluster. For a list of applications available for each Amazon EMR
 -- release version, see the
--- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMR Release Guide>.
+-- <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/ Amazon EMRRelease Guide>.
 runJobFlow_applications :: Lens.Lens' RunJobFlow (Prelude.Maybe [Application])
 runJobFlow_applications = Lens.lens (\RunJobFlow' {applications} -> applications) (\s@RunJobFlow' {} a -> s {applications = a} :: RunJobFlow) Prelude.. Lens.mapping Lens.coerced
 
@@ -626,6 +642,12 @@ runJobFlow_serviceRole = Lens.lens (\RunJobFlow' {serviceRole} -> serviceRole) (
 runJobFlow_configurations :: Lens.Lens' RunJobFlow (Prelude.Maybe [Configuration])
 runJobFlow_configurations = Lens.lens (\RunJobFlow' {configurations} -> configurations) (\s@RunJobFlow' {} a -> s {configurations = a} :: RunJobFlow) Prelude.. Lens.mapping Lens.coerced
 
+-- | Specifies a particular Amazon Linux release for all nodes in a cluster
+-- launch RunJobFlow request. If a release is not specified, Amazon EMR
+-- uses the latest validated Amazon Linux release for cluster launch.
+runJobFlow_oSReleaseLabel :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
+runJobFlow_oSReleaseLabel = Lens.lens (\RunJobFlow' {oSReleaseLabel} -> oSReleaseLabel) (\s@RunJobFlow' {} a -> s {oSReleaseLabel = a} :: RunJobFlow)
+
 -- | Specifies the number of steps that can be executed concurrently. The
 -- default value is @1@. The maximum value is @256@.
 runJobFlow_stepConcurrencyLevel :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Int)
@@ -669,7 +691,10 @@ runJobFlow_newSupportedProducts = Lens.lens (\RunJobFlow' {newSupportedProducts'
 runJobFlow_logUri :: Lens.Lens' RunJobFlow (Prelude.Maybe Prelude.Text)
 runJobFlow_logUri = Lens.lens (\RunJobFlow' {logUri} -> logUri) (\s@RunJobFlow' {} a -> s {logUri = a} :: RunJobFlow)
 
--- | Set this value to @true@ so that IAM principals in the Amazon Web
+-- | The VisibleToAllUsers parameter is no longer supported. By default, the
+-- value is set to @true@. Setting it to @false@ now has no effect.
+--
+-- Set this value to @true@ so that IAM principals in the Amazon Web
 -- Services account associated with the cluster can perform EMR actions on
 -- the cluster that their IAM policies allow. This value defaults to @true@
 -- for clusters created using the EMR API or the CLI
@@ -755,6 +780,7 @@ instance Prelude.Hashable RunJobFlow where
       `Prelude.hashWithSalt` autoTerminationPolicy
       `Prelude.hashWithSalt` serviceRole
       `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` oSReleaseLabel
       `Prelude.hashWithSalt` stepConcurrencyLevel
       `Prelude.hashWithSalt` newSupportedProducts'
       `Prelude.hashWithSalt` logUri
@@ -786,6 +812,7 @@ instance Prelude.NFData RunJobFlow where
       `Prelude.seq` Prelude.rnf autoTerminationPolicy
       `Prelude.seq` Prelude.rnf serviceRole
       `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf oSReleaseLabel
       `Prelude.seq` Prelude.rnf
         stepConcurrencyLevel
       `Prelude.seq` Prelude.rnf
@@ -799,7 +826,8 @@ instance Prelude.NFData RunJobFlow where
         kerberosAttributes
       `Prelude.seq` Prelude.rnf
         bootstrapActions
-      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf
+        name
       `Prelude.seq` Prelude.rnf
         instances
 
@@ -853,6 +881,8 @@ instance Core.ToJSON RunJobFlow where
             ("ServiceRole" Core..=) Prelude.<$> serviceRole,
             ("Configurations" Core..=)
               Prelude.<$> configurations,
+            ("OSReleaseLabel" Core..=)
+              Prelude.<$> oSReleaseLabel,
             ("StepConcurrencyLevel" Core..=)
               Prelude.<$> stepConcurrencyLevel,
             ("NewSupportedProducts" Core..=)

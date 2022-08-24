@@ -42,6 +42,7 @@ module Amazonka.EMR.DescribeReleaseLabel
     describeReleaseLabelResponse_nextToken,
     describeReleaseLabelResponse_applications,
     describeReleaseLabelResponse_releaseLabel,
+    describeReleaseLabelResponse_availableOSReleases,
     describeReleaseLabelResponse_httpStatus,
   )
 where
@@ -110,6 +111,9 @@ instance Core.AWSRequest DescribeReleaseLabel where
             Prelude.<$> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Applications" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ReleaseLabel")
+            Prelude.<*> ( x Core..?> "AvailableOSReleases"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,6 +170,12 @@ data DescribeReleaseLabelResponse = DescribeReleaseLabelResponse'
     applications :: Prelude.Maybe [SimplifiedApplication],
     -- | The target release label described in the response.
     releaseLabel :: Prelude.Maybe Prelude.Text,
+    -- | The list of available Amazon Linux release versions for an Amazon EMR
+    -- release. Contains a Label field that is formatted as shown in
+    -- <https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html Amazon Linux 2 Release Notes>
+    -- . For example,
+    -- <https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html 2.0.20220218.1>.
+    availableOSReleases :: Prelude.Maybe [OSRelease],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,6 +197,12 @@ data DescribeReleaseLabelResponse = DescribeReleaseLabelResponse'
 --
 -- 'releaseLabel', 'describeReleaseLabelResponse_releaseLabel' - The target release label described in the response.
 --
+-- 'availableOSReleases', 'describeReleaseLabelResponse_availableOSReleases' - The list of available Amazon Linux release versions for an Amazon EMR
+-- release. Contains a Label field that is formatted as shown in
+-- <https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html Amazon Linux 2 Release Notes>
+-- . For example,
+-- <https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html 2.0.20220218.1>.
+--
 -- 'httpStatus', 'describeReleaseLabelResponse_httpStatus' - The response's http status code.
 newDescribeReleaseLabelResponse ::
   -- | 'httpStatus'
@@ -198,6 +214,7 @@ newDescribeReleaseLabelResponse pHttpStatus_ =
         Prelude.Nothing,
       applications = Prelude.Nothing,
       releaseLabel = Prelude.Nothing,
+      availableOSReleases = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -215,6 +232,14 @@ describeReleaseLabelResponse_applications = Lens.lens (\DescribeReleaseLabelResp
 describeReleaseLabelResponse_releaseLabel :: Lens.Lens' DescribeReleaseLabelResponse (Prelude.Maybe Prelude.Text)
 describeReleaseLabelResponse_releaseLabel = Lens.lens (\DescribeReleaseLabelResponse' {releaseLabel} -> releaseLabel) (\s@DescribeReleaseLabelResponse' {} a -> s {releaseLabel = a} :: DescribeReleaseLabelResponse)
 
+-- | The list of available Amazon Linux release versions for an Amazon EMR
+-- release. Contains a Label field that is formatted as shown in
+-- <https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html Amazon Linux 2 Release Notes>
+-- . For example,
+-- <https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-20220218.html 2.0.20220218.1>.
+describeReleaseLabelResponse_availableOSReleases :: Lens.Lens' DescribeReleaseLabelResponse (Prelude.Maybe [OSRelease])
+describeReleaseLabelResponse_availableOSReleases = Lens.lens (\DescribeReleaseLabelResponse' {availableOSReleases} -> availableOSReleases) (\s@DescribeReleaseLabelResponse' {} a -> s {availableOSReleases = a} :: DescribeReleaseLabelResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeReleaseLabelResponse_httpStatus :: Lens.Lens' DescribeReleaseLabelResponse Prelude.Int
 describeReleaseLabelResponse_httpStatus = Lens.lens (\DescribeReleaseLabelResponse' {httpStatus} -> httpStatus) (\s@DescribeReleaseLabelResponse' {} a -> s {httpStatus = a} :: DescribeReleaseLabelResponse)
@@ -224,4 +249,5 @@ instance Prelude.NFData DescribeReleaseLabelResponse where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf applications
       `Prelude.seq` Prelude.rnf releaseLabel
+      `Prelude.seq` Prelude.rnf availableOSReleases
       `Prelude.seq` Prelude.rnf httpStatus

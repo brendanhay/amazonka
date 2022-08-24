@@ -21,6 +21,7 @@ module Amazonka.EMR.Types.InstanceGroupModifyConfig where
 
 import qualified Amazonka.Core as Core
 import Amazonka.EMR.Types.Configuration
+import Amazonka.EMR.Types.ReconfigurationType
 import Amazonka.EMR.Types.ShrinkPolicy
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -36,6 +37,8 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
     shrinkPolicy :: Prelude.Maybe ShrinkPolicy,
     -- | A list of new or modified configurations to apply for an instance group.
     configurations :: Prelude.Maybe [Configuration],
+    -- | Type of reconfiguration requested. Valid values are MERGE and OVERWRITE.
+    reconfigurationType :: Prelude.Maybe ReconfigurationType,
     -- | Target size for the instance group.
     instanceCount :: Prelude.Maybe Prelude.Int,
     -- | Unique ID of the instance group to modify.
@@ -58,6 +61,8 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
 --
 -- 'configurations', 'instanceGroupModifyConfig_configurations' - A list of new or modified configurations to apply for an instance group.
 --
+-- 'reconfigurationType', 'instanceGroupModifyConfig_reconfigurationType' - Type of reconfiguration requested. Valid values are MERGE and OVERWRITE.
+--
 -- 'instanceCount', 'instanceGroupModifyConfig_instanceCount' - Target size for the instance group.
 --
 -- 'instanceGroupId', 'instanceGroupModifyConfig_instanceGroupId' - Unique ID of the instance group to modify.
@@ -71,6 +76,7 @@ newInstanceGroupModifyConfig pInstanceGroupId_ =
         Prelude.Nothing,
       shrinkPolicy = Prelude.Nothing,
       configurations = Prelude.Nothing,
+      reconfigurationType = Prelude.Nothing,
       instanceCount = Prelude.Nothing,
       instanceGroupId = pInstanceGroupId_
     }
@@ -88,6 +94,10 @@ instanceGroupModifyConfig_shrinkPolicy = Lens.lens (\InstanceGroupModifyConfig' 
 instanceGroupModifyConfig_configurations :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe [Configuration])
 instanceGroupModifyConfig_configurations = Lens.lens (\InstanceGroupModifyConfig' {configurations} -> configurations) (\s@InstanceGroupModifyConfig' {} a -> s {configurations = a} :: InstanceGroupModifyConfig) Prelude.. Lens.mapping Lens.coerced
 
+-- | Type of reconfiguration requested. Valid values are MERGE and OVERWRITE.
+instanceGroupModifyConfig_reconfigurationType :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe ReconfigurationType)
+instanceGroupModifyConfig_reconfigurationType = Lens.lens (\InstanceGroupModifyConfig' {reconfigurationType} -> reconfigurationType) (\s@InstanceGroupModifyConfig' {} a -> s {reconfigurationType = a} :: InstanceGroupModifyConfig)
+
 -- | Target size for the instance group.
 instanceGroupModifyConfig_instanceCount :: Lens.Lens' InstanceGroupModifyConfig (Prelude.Maybe Prelude.Int)
 instanceGroupModifyConfig_instanceCount = Lens.lens (\InstanceGroupModifyConfig' {instanceCount} -> instanceCount) (\s@InstanceGroupModifyConfig' {} a -> s {instanceCount = a} :: InstanceGroupModifyConfig)
@@ -102,6 +112,7 @@ instance Prelude.Hashable InstanceGroupModifyConfig where
       `Prelude.hashWithSalt` eC2InstanceIdsToTerminate
       `Prelude.hashWithSalt` shrinkPolicy
       `Prelude.hashWithSalt` configurations
+      `Prelude.hashWithSalt` reconfigurationType
       `Prelude.hashWithSalt` instanceCount
       `Prelude.hashWithSalt` instanceGroupId
 
@@ -110,6 +121,7 @@ instance Prelude.NFData InstanceGroupModifyConfig where
     Prelude.rnf eC2InstanceIdsToTerminate
       `Prelude.seq` Prelude.rnf shrinkPolicy
       `Prelude.seq` Prelude.rnf configurations
+      `Prelude.seq` Prelude.rnf reconfigurationType
       `Prelude.seq` Prelude.rnf instanceCount
       `Prelude.seq` Prelude.rnf instanceGroupId
 
@@ -122,6 +134,8 @@ instance Core.ToJSON InstanceGroupModifyConfig where
             ("ShrinkPolicy" Core..=) Prelude.<$> shrinkPolicy,
             ("Configurations" Core..=)
               Prelude.<$> configurations,
+            ("ReconfigurationType" Core..=)
+              Prelude.<$> reconfigurationType,
             ("InstanceCount" Core..=) Prelude.<$> instanceCount,
             Prelude.Just
               ("InstanceGroupId" Core..= instanceGroupId)

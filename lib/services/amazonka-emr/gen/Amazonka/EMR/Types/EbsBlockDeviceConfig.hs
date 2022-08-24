@@ -25,16 +25,16 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Configuration of requested EBS block device associated with the instance
--- group with count of volumes that will be associated to every instance.
+-- group with count of volumes that are associated to every instance.
 --
 -- /See:/ 'newEbsBlockDeviceConfig' smart constructor.
 data EbsBlockDeviceConfig = EbsBlockDeviceConfig'
-  { -- | Number of EBS volumes with a specific volume configuration that will be
+  { -- | Number of EBS volumes with a specific volume configuration that are
     -- associated with every instance in the instance group
     volumesPerInstance :: Prelude.Maybe Prelude.Int,
-    -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
-    -- will be requested for the EBS volume attached to an EC2 instance in the
-    -- cluster.
+    -- | EBS volume specifications such as volume type, IOPS, size (GiB) and
+    -- throughput (MiB\/s) that are requested for the EBS volume attached to an
+    -- EC2 instance in the cluster.
     volumeSpecification :: VolumeSpecification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,12 +47,12 @@ data EbsBlockDeviceConfig = EbsBlockDeviceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumesPerInstance', 'ebsBlockDeviceConfig_volumesPerInstance' - Number of EBS volumes with a specific volume configuration that will be
+-- 'volumesPerInstance', 'ebsBlockDeviceConfig_volumesPerInstance' - Number of EBS volumes with a specific volume configuration that are
 -- associated with every instance in the instance group
 --
--- 'volumeSpecification', 'ebsBlockDeviceConfig_volumeSpecification' - EBS volume specifications such as volume type, IOPS, and size (GiB) that
--- will be requested for the EBS volume attached to an EC2 instance in the
--- cluster.
+-- 'volumeSpecification', 'ebsBlockDeviceConfig_volumeSpecification' - EBS volume specifications such as volume type, IOPS, size (GiB) and
+-- throughput (MiB\/s) that are requested for the EBS volume attached to an
+-- EC2 instance in the cluster.
 newEbsBlockDeviceConfig ::
   -- | 'volumeSpecification'
   VolumeSpecification ->
@@ -64,14 +64,14 @@ newEbsBlockDeviceConfig pVolumeSpecification_ =
       volumeSpecification = pVolumeSpecification_
     }
 
--- | Number of EBS volumes with a specific volume configuration that will be
+-- | Number of EBS volumes with a specific volume configuration that are
 -- associated with every instance in the instance group
 ebsBlockDeviceConfig_volumesPerInstance :: Lens.Lens' EbsBlockDeviceConfig (Prelude.Maybe Prelude.Int)
 ebsBlockDeviceConfig_volumesPerInstance = Lens.lens (\EbsBlockDeviceConfig' {volumesPerInstance} -> volumesPerInstance) (\s@EbsBlockDeviceConfig' {} a -> s {volumesPerInstance = a} :: EbsBlockDeviceConfig)
 
--- | EBS volume specifications such as volume type, IOPS, and size (GiB) that
--- will be requested for the EBS volume attached to an EC2 instance in the
--- cluster.
+-- | EBS volume specifications such as volume type, IOPS, size (GiB) and
+-- throughput (MiB\/s) that are requested for the EBS volume attached to an
+-- EC2 instance in the cluster.
 ebsBlockDeviceConfig_volumeSpecification :: Lens.Lens' EbsBlockDeviceConfig VolumeSpecification
 ebsBlockDeviceConfig_volumeSpecification = Lens.lens (\EbsBlockDeviceConfig' {volumeSpecification} -> volumeSpecification) (\s@EbsBlockDeviceConfig' {} a -> s {volumeSpecification = a} :: EbsBlockDeviceConfig)
 

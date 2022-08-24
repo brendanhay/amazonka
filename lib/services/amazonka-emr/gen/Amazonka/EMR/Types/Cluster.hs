@@ -112,6 +112,10 @@ data Cluster = Cluster'
     -- | Specifies whether the cluster should terminate after completing all
     -- steps.
     autoTerminate :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Linux release specified in a cluster launch RunJobFlow
+    -- request. If no Amazon Linux release was specified, the default Amazon
+    -- Linux release is shown in the response.
+    oSReleaseLabel :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of steps that can be executed concurrently.
     stepConcurrencyLevel :: Prelude.Maybe Prelude.Int,
     -- | The path to the Amazon S3 location where logs for this cluster are
@@ -128,12 +132,7 @@ data Cluster = Cluster'
     -- The default value is @true@ if a value is not provided when creating a
     -- cluster using the EMR API RunJobFlow command, the CLI
     -- <https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html create-cluster>
-    -- command, or the Amazon Web Services Management Console. IAM principals
-    -- that are allowed to perform actions on the cluster can use the
-    -- SetVisibleToAllUsers action to change the value on a running cluster.
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users Understanding the EMR Cluster VisibleToAllUsers Setting>
-    -- in the /Amazon EMRManagement Guide/.
+    -- command, or the Amazon Web Services Management Console.
     visibleToAllUsers :: Prelude.Maybe Prelude.Bool,
     -- | The DNS name of the master node. If the cluster is on a private subnet,
     -- this is the private DNS name. On a public subnet, this is the public DNS
@@ -252,6 +251,10 @@ data Cluster = Cluster'
 -- 'autoTerminate', 'cluster_autoTerminate' - Specifies whether the cluster should terminate after completing all
 -- steps.
 --
+-- 'oSReleaseLabel', 'cluster_oSReleaseLabel' - The Amazon Linux release specified in a cluster launch RunJobFlow
+-- request. If no Amazon Linux release was specified, the default Amazon
+-- Linux release is shown in the response.
+--
 -- 'stepConcurrencyLevel', 'cluster_stepConcurrencyLevel' - Specifies the number of steps that can be executed concurrently.
 --
 -- 'logUri', 'cluster_logUri' - The path to the Amazon S3 location where logs for this cluster are
@@ -268,12 +271,7 @@ data Cluster = Cluster'
 -- The default value is @true@ if a value is not provided when creating a
 -- cluster using the EMR API RunJobFlow command, the CLI
 -- <https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html create-cluster>
--- command, or the Amazon Web Services Management Console. IAM principals
--- that are allowed to perform actions on the cluster can use the
--- SetVisibleToAllUsers action to change the value on a running cluster.
--- For more information, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users Understanding the EMR Cluster VisibleToAllUsers Setting>
--- in the /Amazon EMRManagement Guide/.
+-- command, or the Amazon Web Services Management Console.
 --
 -- 'masterPublicDnsName', 'cluster_masterPublicDnsName' - The DNS name of the master node. If the cluster is on a private subnet,
 -- this is the private DNS name. On a public subnet, this is the public DNS
@@ -333,6 +331,7 @@ newCluster pId_ pName_ pStatus_ =
       serviceRole = Prelude.Nothing,
       configurations = Prelude.Nothing,
       autoTerminate = Prelude.Nothing,
+      oSReleaseLabel = Prelude.Nothing,
       stepConcurrencyLevel = Prelude.Nothing,
       logUri = Prelude.Nothing,
       visibleToAllUsers = Prelude.Nothing,
@@ -458,6 +457,12 @@ cluster_configurations = Lens.lens (\Cluster' {configurations} -> configurations
 cluster_autoTerminate :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Bool)
 cluster_autoTerminate = Lens.lens (\Cluster' {autoTerminate} -> autoTerminate) (\s@Cluster' {} a -> s {autoTerminate = a} :: Cluster)
 
+-- | The Amazon Linux release specified in a cluster launch RunJobFlow
+-- request. If no Amazon Linux release was specified, the default Amazon
+-- Linux release is shown in the response.
+cluster_oSReleaseLabel :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_oSReleaseLabel = Lens.lens (\Cluster' {oSReleaseLabel} -> oSReleaseLabel) (\s@Cluster' {} a -> s {oSReleaseLabel = a} :: Cluster)
+
 -- | Specifies the number of steps that can be executed concurrently.
 cluster_stepConcurrencyLevel :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
 cluster_stepConcurrencyLevel = Lens.lens (\Cluster' {stepConcurrencyLevel} -> stepConcurrencyLevel) (\s@Cluster' {} a -> s {stepConcurrencyLevel = a} :: Cluster)
@@ -478,12 +483,7 @@ cluster_logUri = Lens.lens (\Cluster' {logUri} -> logUri) (\s@Cluster' {} a -> s
 -- The default value is @true@ if a value is not provided when creating a
 -- cluster using the EMR API RunJobFlow command, the CLI
 -- <https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html create-cluster>
--- command, or the Amazon Web Services Management Console. IAM principals
--- that are allowed to perform actions on the cluster can use the
--- SetVisibleToAllUsers action to change the value on a running cluster.
--- For more information, see
--- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/security_iam_emr-with-iam.html#security_set_visible_to_all_users Understanding the EMR Cluster VisibleToAllUsers Setting>
--- in the /Amazon EMRManagement Guide/.
+-- command, or the Amazon Web Services Management Console.
 cluster_visibleToAllUsers :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Bool)
 cluster_visibleToAllUsers = Lens.lens (\Cluster' {visibleToAllUsers} -> visibleToAllUsers) (\s@Cluster' {} a -> s {visibleToAllUsers = a} :: Cluster)
 
@@ -560,6 +560,7 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "ServiceRole")
             Prelude.<*> (x Core..:? "Configurations" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AutoTerminate")
+            Prelude.<*> (x Core..:? "OSReleaseLabel")
             Prelude.<*> (x Core..:? "StepConcurrencyLevel")
             Prelude.<*> (x Core..:? "LogUri")
             Prelude.<*> (x Core..:? "VisibleToAllUsers")
@@ -596,6 +597,7 @@ instance Prelude.Hashable Cluster where
       `Prelude.hashWithSalt` serviceRole
       `Prelude.hashWithSalt` configurations
       `Prelude.hashWithSalt` autoTerminate
+      `Prelude.hashWithSalt` oSReleaseLabel
       `Prelude.hashWithSalt` stepConcurrencyLevel
       `Prelude.hashWithSalt` logUri
       `Prelude.hashWithSalt` visibleToAllUsers
@@ -629,13 +631,16 @@ instance Prelude.NFData Cluster where
       `Prelude.seq` Prelude.rnf serviceRole
       `Prelude.seq` Prelude.rnf configurations
       `Prelude.seq` Prelude.rnf autoTerminate
-      `Prelude.seq` Prelude.rnf stepConcurrencyLevel
+      `Prelude.seq` Prelude.rnf oSReleaseLabel
+      `Prelude.seq` Prelude.rnf
+        stepConcurrencyLevel
       `Prelude.seq` Prelude.rnf logUri
       `Prelude.seq` Prelude.rnf
         visibleToAllUsers
       `Prelude.seq` Prelude.rnf
         masterPublicDnsName
-      `Prelude.seq` Prelude.rnf customAmiId
+      `Prelude.seq` Prelude.rnf
+        customAmiId
       `Prelude.seq` Prelude.rnf
         kerberosAttributes
       `Prelude.seq` Prelude.rnf
@@ -644,7 +649,8 @@ instance Prelude.NFData Cluster where
         ec2InstanceAttributes
       `Prelude.seq` Prelude.rnf
         placementGroups
-      `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf
+        id
       `Prelude.seq` Prelude.rnf
         name
       `Prelude.seq` Prelude.rnf

@@ -29,9 +29,11 @@ module Amazonka.IoTWireless.ListWirelessDevices
     -- * Request Lenses
     listWirelessDevices_nextToken,
     listWirelessDevices_wirelessDeviceType,
+    listWirelessDevices_fuotaTaskId,
     listWirelessDevices_destinationName,
     listWirelessDevices_deviceProfileId,
     listWirelessDevices_maxResults,
+    listWirelessDevices_multicastGroupId,
     listWirelessDevices_serviceProfileId,
 
     -- * Destructuring the Response
@@ -61,12 +63,14 @@ data ListWirelessDevices = ListWirelessDevices'
     -- | A filter to list only the wireless devices that use this wireless device
     -- type.
     wirelessDeviceType :: Prelude.Maybe WirelessDeviceType,
+    fuotaTaskId :: Prelude.Maybe Prelude.Text,
     -- | A filter to list only the wireless devices that use this destination.
     destinationName :: Prelude.Maybe Prelude.Text,
     -- | A filter to list only the wireless devices that use this device profile.
     deviceProfileId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in this operation.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    multicastGroupId :: Prelude.Maybe Prelude.Text,
     -- | A filter to list only the wireless devices that use this service
     -- profile.
     serviceProfileId :: Prelude.Maybe Prelude.Text
@@ -88,11 +92,15 @@ data ListWirelessDevices = ListWirelessDevices'
 -- 'wirelessDeviceType', 'listWirelessDevices_wirelessDeviceType' - A filter to list only the wireless devices that use this wireless device
 -- type.
 --
+-- 'fuotaTaskId', 'listWirelessDevices_fuotaTaskId' - Undocumented member.
+--
 -- 'destinationName', 'listWirelessDevices_destinationName' - A filter to list only the wireless devices that use this destination.
 --
 -- 'deviceProfileId', 'listWirelessDevices_deviceProfileId' - A filter to list only the wireless devices that use this device profile.
 --
 -- 'maxResults', 'listWirelessDevices_maxResults' - The maximum number of results to return in this operation.
+--
+-- 'multicastGroupId', 'listWirelessDevices_multicastGroupId' - Undocumented member.
 --
 -- 'serviceProfileId', 'listWirelessDevices_serviceProfileId' - A filter to list only the wireless devices that use this service
 -- profile.
@@ -102,9 +110,11 @@ newListWirelessDevices =
   ListWirelessDevices'
     { nextToken = Prelude.Nothing,
       wirelessDeviceType = Prelude.Nothing,
+      fuotaTaskId = Prelude.Nothing,
       destinationName = Prelude.Nothing,
       deviceProfileId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      multicastGroupId = Prelude.Nothing,
       serviceProfileId = Prelude.Nothing
     }
 
@@ -119,6 +129,10 @@ listWirelessDevices_nextToken = Lens.lens (\ListWirelessDevices' {nextToken} -> 
 listWirelessDevices_wirelessDeviceType :: Lens.Lens' ListWirelessDevices (Prelude.Maybe WirelessDeviceType)
 listWirelessDevices_wirelessDeviceType = Lens.lens (\ListWirelessDevices' {wirelessDeviceType} -> wirelessDeviceType) (\s@ListWirelessDevices' {} a -> s {wirelessDeviceType = a} :: ListWirelessDevices)
 
+-- | Undocumented member.
+listWirelessDevices_fuotaTaskId :: Lens.Lens' ListWirelessDevices (Prelude.Maybe Prelude.Text)
+listWirelessDevices_fuotaTaskId = Lens.lens (\ListWirelessDevices' {fuotaTaskId} -> fuotaTaskId) (\s@ListWirelessDevices' {} a -> s {fuotaTaskId = a} :: ListWirelessDevices)
+
 -- | A filter to list only the wireless devices that use this destination.
 listWirelessDevices_destinationName :: Lens.Lens' ListWirelessDevices (Prelude.Maybe Prelude.Text)
 listWirelessDevices_destinationName = Lens.lens (\ListWirelessDevices' {destinationName} -> destinationName) (\s@ListWirelessDevices' {} a -> s {destinationName = a} :: ListWirelessDevices)
@@ -130,6 +144,10 @@ listWirelessDevices_deviceProfileId = Lens.lens (\ListWirelessDevices' {devicePr
 -- | The maximum number of results to return in this operation.
 listWirelessDevices_maxResults :: Lens.Lens' ListWirelessDevices (Prelude.Maybe Prelude.Natural)
 listWirelessDevices_maxResults = Lens.lens (\ListWirelessDevices' {maxResults} -> maxResults) (\s@ListWirelessDevices' {} a -> s {maxResults = a} :: ListWirelessDevices)
+
+-- | Undocumented member.
+listWirelessDevices_multicastGroupId :: Lens.Lens' ListWirelessDevices (Prelude.Maybe Prelude.Text)
+listWirelessDevices_multicastGroupId = Lens.lens (\ListWirelessDevices' {multicastGroupId} -> multicastGroupId) (\s@ListWirelessDevices' {} a -> s {multicastGroupId = a} :: ListWirelessDevices)
 
 -- | A filter to list only the wireless devices that use this service
 -- profile.
@@ -156,18 +174,22 @@ instance Prelude.Hashable ListWirelessDevices where
   hashWithSalt _salt ListWirelessDevices' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` wirelessDeviceType
+      `Prelude.hashWithSalt` fuotaTaskId
       `Prelude.hashWithSalt` destinationName
       `Prelude.hashWithSalt` deviceProfileId
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` multicastGroupId
       `Prelude.hashWithSalt` serviceProfileId
 
 instance Prelude.NFData ListWirelessDevices where
   rnf ListWirelessDevices' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf wirelessDeviceType
+      `Prelude.seq` Prelude.rnf fuotaTaskId
       `Prelude.seq` Prelude.rnf destinationName
       `Prelude.seq` Prelude.rnf deviceProfileId
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf multicastGroupId
       `Prelude.seq` Prelude.rnf serviceProfileId
 
 instance Core.ToHeaders ListWirelessDevices where
@@ -181,9 +203,11 @@ instance Core.ToQuery ListWirelessDevices where
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
         "wirelessDeviceType" Core.=: wirelessDeviceType,
+        "fuotaTaskId" Core.=: fuotaTaskId,
         "destinationName" Core.=: destinationName,
         "deviceProfileId" Core.=: deviceProfileId,
         "maxResults" Core.=: maxResults,
+        "multicastGroupId" Core.=: multicastGroupId,
         "serviceProfileId" Core.=: serviceProfileId
       ]
 

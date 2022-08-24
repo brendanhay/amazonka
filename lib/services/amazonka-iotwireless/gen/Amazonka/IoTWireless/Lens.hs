@@ -22,6 +22,21 @@ module Amazonka.IoTWireless.Lens
     associateAwsAccountWithPartnerAccountResponse_sidewalk,
     associateAwsAccountWithPartnerAccountResponse_httpStatus,
 
+    -- ** AssociateMulticastGroupWithFuotaTask
+    associateMulticastGroupWithFuotaTask_id,
+    associateMulticastGroupWithFuotaTask_multicastGroupId,
+    associateMulticastGroupWithFuotaTaskResponse_httpStatus,
+
+    -- ** AssociateWirelessDeviceWithFuotaTask
+    associateWirelessDeviceWithFuotaTask_id,
+    associateWirelessDeviceWithFuotaTask_wirelessDeviceId,
+    associateWirelessDeviceWithFuotaTaskResponse_httpStatus,
+
+    -- ** AssociateWirelessDeviceWithMulticastGroup
+    associateWirelessDeviceWithMulticastGroup_id,
+    associateWirelessDeviceWithMulticastGroup_wirelessDeviceId,
+    associateWirelessDeviceWithMulticastGroupResponse_httpStatus,
+
     -- ** AssociateWirelessDeviceWithThing
     associateWirelessDeviceWithThing_id,
     associateWirelessDeviceWithThing_thingArn,
@@ -37,6 +52,10 @@ module Amazonka.IoTWireless.Lens
     associateWirelessGatewayWithThing_id,
     associateWirelessGatewayWithThing_thingArn,
     associateWirelessGatewayWithThingResponse_httpStatus,
+
+    -- ** CancelMulticastGroupSession
+    cancelMulticastGroupSession_id,
+    cancelMulticastGroupSessionResponse_httpStatus,
 
     -- ** CreateDestination
     createDestination_tags,
@@ -58,6 +77,40 @@ module Amazonka.IoTWireless.Lens
     createDeviceProfileResponse_arn,
     createDeviceProfileResponse_id,
     createDeviceProfileResponse_httpStatus,
+
+    -- ** CreateFuotaTask
+    createFuotaTask_tags,
+    createFuotaTask_name,
+    createFuotaTask_clientRequestToken,
+    createFuotaTask_loRaWAN,
+    createFuotaTask_description,
+    createFuotaTask_firmwareUpdateImage,
+    createFuotaTask_firmwareUpdateRole,
+    createFuotaTaskResponse_arn,
+    createFuotaTaskResponse_id,
+    createFuotaTaskResponse_httpStatus,
+
+    -- ** CreateMulticastGroup
+    createMulticastGroup_tags,
+    createMulticastGroup_name,
+    createMulticastGroup_clientRequestToken,
+    createMulticastGroup_description,
+    createMulticastGroup_loRaWAN,
+    createMulticastGroupResponse_arn,
+    createMulticastGroupResponse_id,
+    createMulticastGroupResponse_httpStatus,
+
+    -- ** CreateNetworkAnalyzerConfiguration
+    createNetworkAnalyzerConfiguration_tags,
+    createNetworkAnalyzerConfiguration_wirelessGateways,
+    createNetworkAnalyzerConfiguration_clientRequestToken,
+    createNetworkAnalyzerConfiguration_wirelessDevices,
+    createNetworkAnalyzerConfiguration_description,
+    createNetworkAnalyzerConfiguration_traceContent,
+    createNetworkAnalyzerConfiguration_name,
+    createNetworkAnalyzerConfigurationResponse_name,
+    createNetworkAnalyzerConfigurationResponse_arn,
+    createNetworkAnalyzerConfigurationResponse_httpStatus,
 
     -- ** CreateServiceProfile
     createServiceProfile_tags,
@@ -115,6 +168,24 @@ module Amazonka.IoTWireless.Lens
     deleteDeviceProfile_id,
     deleteDeviceProfileResponse_httpStatus,
 
+    -- ** DeleteFuotaTask
+    deleteFuotaTask_id,
+    deleteFuotaTaskResponse_httpStatus,
+
+    -- ** DeleteMulticastGroup
+    deleteMulticastGroup_id,
+    deleteMulticastGroupResponse_httpStatus,
+
+    -- ** DeleteNetworkAnalyzerConfiguration
+    deleteNetworkAnalyzerConfiguration_configurationName,
+    deleteNetworkAnalyzerConfigurationResponse_httpStatus,
+
+    -- ** DeleteQueuedMessages
+    deleteQueuedMessages_wirelessDeviceType,
+    deleteQueuedMessages_id,
+    deleteQueuedMessages_messageId,
+    deleteQueuedMessagesResponse_httpStatus,
+
     -- ** DeleteServiceProfile
     deleteServiceProfile_id,
     deleteServiceProfileResponse_httpStatus,
@@ -139,6 +210,21 @@ module Amazonka.IoTWireless.Lens
     disassociateAwsAccountFromPartnerAccount_partnerAccountId,
     disassociateAwsAccountFromPartnerAccount_partnerType,
     disassociateAwsAccountFromPartnerAccountResponse_httpStatus,
+
+    -- ** DisassociateMulticastGroupFromFuotaTask
+    disassociateMulticastGroupFromFuotaTask_id,
+    disassociateMulticastGroupFromFuotaTask_multicastGroupId,
+    disassociateMulticastGroupFromFuotaTaskResponse_httpStatus,
+
+    -- ** DisassociateWirelessDeviceFromFuotaTask
+    disassociateWirelessDeviceFromFuotaTask_id,
+    disassociateWirelessDeviceFromFuotaTask_wirelessDeviceId,
+    disassociateWirelessDeviceFromFuotaTaskResponse_httpStatus,
+
+    -- ** DisassociateWirelessDeviceFromMulticastGroup
+    disassociateWirelessDeviceFromMulticastGroup_id,
+    disassociateWirelessDeviceFromMulticastGroup_wirelessDeviceId,
+    disassociateWirelessDeviceFromMulticastGroupResponse_httpStatus,
 
     -- ** DisassociateWirelessDeviceFromThing
     disassociateWirelessDeviceFromThing_id,
@@ -170,11 +256,58 @@ module Amazonka.IoTWireless.Lens
     getDeviceProfileResponse_id,
     getDeviceProfileResponse_httpStatus,
 
+    -- ** GetEventConfigurationByResourceTypes
+    getEventConfigurationByResourceTypesResponse_deviceRegistrationState,
+    getEventConfigurationByResourceTypesResponse_connectionStatus,
+    getEventConfigurationByResourceTypesResponse_messageDeliveryStatus,
+    getEventConfigurationByResourceTypesResponse_join,
+    getEventConfigurationByResourceTypesResponse_proximity,
+    getEventConfigurationByResourceTypesResponse_httpStatus,
+
+    -- ** GetFuotaTask
+    getFuotaTask_id,
+    getFuotaTaskResponse_name,
+    getFuotaTaskResponse_loRaWAN,
+    getFuotaTaskResponse_arn,
+    getFuotaTaskResponse_status,
+    getFuotaTaskResponse_id,
+    getFuotaTaskResponse_description,
+    getFuotaTaskResponse_firmwareUpdateRole,
+    getFuotaTaskResponse_firmwareUpdateImage,
+    getFuotaTaskResponse_createdAt,
+    getFuotaTaskResponse_httpStatus,
+
     -- ** GetLogLevelsByResourceTypes
     getLogLevelsByResourceTypesResponse_wirelessGatewayLogOptions,
     getLogLevelsByResourceTypesResponse_wirelessDeviceLogOptions,
     getLogLevelsByResourceTypesResponse_defaultLogLevel,
     getLogLevelsByResourceTypesResponse_httpStatus,
+
+    -- ** GetMulticastGroup
+    getMulticastGroup_id,
+    getMulticastGroupResponse_name,
+    getMulticastGroupResponse_loRaWAN,
+    getMulticastGroupResponse_arn,
+    getMulticastGroupResponse_status,
+    getMulticastGroupResponse_id,
+    getMulticastGroupResponse_description,
+    getMulticastGroupResponse_createdAt,
+    getMulticastGroupResponse_httpStatus,
+
+    -- ** GetMulticastGroupSession
+    getMulticastGroupSession_id,
+    getMulticastGroupSessionResponse_loRaWAN,
+    getMulticastGroupSessionResponse_httpStatus,
+
+    -- ** GetNetworkAnalyzerConfiguration
+    getNetworkAnalyzerConfiguration_configurationName,
+    getNetworkAnalyzerConfigurationResponse_wirelessGateways,
+    getNetworkAnalyzerConfigurationResponse_name,
+    getNetworkAnalyzerConfigurationResponse_wirelessDevices,
+    getNetworkAnalyzerConfigurationResponse_arn,
+    getNetworkAnalyzerConfigurationResponse_description,
+    getNetworkAnalyzerConfigurationResponse_traceContent,
+    getNetworkAnalyzerConfigurationResponse_httpStatus,
 
     -- ** GetPartnerAccount
     getPartnerAccount_partnerAccountId,
@@ -182,6 +315,35 @@ module Amazonka.IoTWireless.Lens
     getPartnerAccountResponse_accountLinked,
     getPartnerAccountResponse_sidewalk,
     getPartnerAccountResponse_httpStatus,
+
+    -- ** GetPosition
+    getPosition_resourceIdentifier,
+    getPosition_resourceType,
+    getPositionResponse_solverVersion,
+    getPositionResponse_accuracy,
+    getPositionResponse_solverType,
+    getPositionResponse_timestamp,
+    getPositionResponse_solverProvider,
+    getPositionResponse_position,
+    getPositionResponse_httpStatus,
+
+    -- ** GetPositionConfiguration
+    getPositionConfiguration_resourceIdentifier,
+    getPositionConfiguration_resourceType,
+    getPositionConfigurationResponse_destination,
+    getPositionConfigurationResponse_solvers,
+    getPositionConfigurationResponse_httpStatus,
+
+    -- ** GetResourceEventConfiguration
+    getResourceEventConfiguration_partnerType,
+    getResourceEventConfiguration_identifier,
+    getResourceEventConfiguration_identifierType,
+    getResourceEventConfigurationResponse_deviceRegistrationState,
+    getResourceEventConfigurationResponse_connectionStatus,
+    getResourceEventConfigurationResponse_messageDeliveryStatus,
+    getResourceEventConfigurationResponse_join,
+    getResourceEventConfigurationResponse_proximity,
+    getResourceEventConfigurationResponse_httpStatus,
 
     -- ** GetResourceLogLevel
     getResourceLogLevel_resourceIdentifier,
@@ -288,12 +450,66 @@ module Amazonka.IoTWireless.Lens
     listDeviceProfilesResponse_deviceProfileList,
     listDeviceProfilesResponse_httpStatus,
 
+    -- ** ListEventConfigurations
+    listEventConfigurations_nextToken,
+    listEventConfigurations_maxResults,
+    listEventConfigurations_resourceType,
+    listEventConfigurationsResponse_nextToken,
+    listEventConfigurationsResponse_eventConfigurationsList,
+    listEventConfigurationsResponse_httpStatus,
+
+    -- ** ListFuotaTasks
+    listFuotaTasks_nextToken,
+    listFuotaTasks_maxResults,
+    listFuotaTasksResponse_nextToken,
+    listFuotaTasksResponse_fuotaTaskList,
+    listFuotaTasksResponse_httpStatus,
+
+    -- ** ListMulticastGroups
+    listMulticastGroups_nextToken,
+    listMulticastGroups_maxResults,
+    listMulticastGroupsResponse_multicastGroupList,
+    listMulticastGroupsResponse_nextToken,
+    listMulticastGroupsResponse_httpStatus,
+
+    -- ** ListMulticastGroupsByFuotaTask
+    listMulticastGroupsByFuotaTask_nextToken,
+    listMulticastGroupsByFuotaTask_maxResults,
+    listMulticastGroupsByFuotaTask_id,
+    listMulticastGroupsByFuotaTaskResponse_multicastGroupList,
+    listMulticastGroupsByFuotaTaskResponse_nextToken,
+    listMulticastGroupsByFuotaTaskResponse_httpStatus,
+
+    -- ** ListNetworkAnalyzerConfigurations
+    listNetworkAnalyzerConfigurations_nextToken,
+    listNetworkAnalyzerConfigurations_maxResults,
+    listNetworkAnalyzerConfigurationsResponse_nextToken,
+    listNetworkAnalyzerConfigurationsResponse_networkAnalyzerConfigurationList,
+    listNetworkAnalyzerConfigurationsResponse_httpStatus,
+
     -- ** ListPartnerAccounts
     listPartnerAccounts_nextToken,
     listPartnerAccounts_maxResults,
     listPartnerAccountsResponse_nextToken,
     listPartnerAccountsResponse_sidewalk,
     listPartnerAccountsResponse_httpStatus,
+
+    -- ** ListPositionConfigurations
+    listPositionConfigurations_resourceType,
+    listPositionConfigurations_nextToken,
+    listPositionConfigurations_maxResults,
+    listPositionConfigurationsResponse_nextToken,
+    listPositionConfigurationsResponse_positionConfigurationList,
+    listPositionConfigurationsResponse_httpStatus,
+
+    -- ** ListQueuedMessages
+    listQueuedMessages_nextToken,
+    listQueuedMessages_wirelessDeviceType,
+    listQueuedMessages_maxResults,
+    listQueuedMessages_id,
+    listQueuedMessagesResponse_nextToken,
+    listQueuedMessagesResponse_downlinkQueueMessagesList,
+    listQueuedMessagesResponse_httpStatus,
 
     -- ** ListServiceProfiles
     listServiceProfiles_nextToken,
@@ -310,9 +526,11 @@ module Amazonka.IoTWireless.Lens
     -- ** ListWirelessDevices
     listWirelessDevices_nextToken,
     listWirelessDevices_wirelessDeviceType,
+    listWirelessDevices_fuotaTaskId,
     listWirelessDevices_destinationName,
     listWirelessDevices_deviceProfileId,
     listWirelessDevices_maxResults,
+    listWirelessDevices_multicastGroupId,
     listWirelessDevices_serviceProfileId,
     listWirelessDevicesResponse_nextToken,
     listWirelessDevicesResponse_wirelessDeviceList,
@@ -333,6 +551,13 @@ module Amazonka.IoTWireless.Lens
     listWirelessGatewaysResponse_wirelessGatewayList,
     listWirelessGatewaysResponse_httpStatus,
 
+    -- ** PutPositionConfiguration
+    putPositionConfiguration_destination,
+    putPositionConfiguration_solvers,
+    putPositionConfiguration_resourceIdentifier,
+    putPositionConfiguration_resourceType,
+    putPositionConfigurationResponse_httpStatus,
+
     -- ** PutResourceLogLevel
     putResourceLogLevel_resourceIdentifier,
     putResourceLogLevel_resourceType,
@@ -347,6 +572,13 @@ module Amazonka.IoTWireless.Lens
     resetResourceLogLevel_resourceType,
     resetResourceLogLevelResponse_httpStatus,
 
+    -- ** SendDataToMulticastGroup
+    sendDataToMulticastGroup_id,
+    sendDataToMulticastGroup_payloadData,
+    sendDataToMulticastGroup_wirelessMetadata,
+    sendDataToMulticastGroupResponse_messageId,
+    sendDataToMulticastGroupResponse_httpStatus,
+
     -- ** SendDataToWirelessDevice
     sendDataToWirelessDevice_wirelessMetadata,
     sendDataToWirelessDevice_id,
@@ -354,6 +586,28 @@ module Amazonka.IoTWireless.Lens
     sendDataToWirelessDevice_payloadData,
     sendDataToWirelessDeviceResponse_messageId,
     sendDataToWirelessDeviceResponse_httpStatus,
+
+    -- ** StartBulkAssociateWirelessDeviceWithMulticastGroup
+    startBulkAssociateWirelessDeviceWithMulticastGroup_tags,
+    startBulkAssociateWirelessDeviceWithMulticastGroup_queryString,
+    startBulkAssociateWirelessDeviceWithMulticastGroup_id,
+    startBulkAssociateWirelessDeviceWithMulticastGroupResponse_httpStatus,
+
+    -- ** StartBulkDisassociateWirelessDeviceFromMulticastGroup
+    startBulkDisassociateWirelessDeviceFromMulticastGroup_tags,
+    startBulkDisassociateWirelessDeviceFromMulticastGroup_queryString,
+    startBulkDisassociateWirelessDeviceFromMulticastGroup_id,
+    startBulkDisassociateWirelessDeviceFromMulticastGroupResponse_httpStatus,
+
+    -- ** StartFuotaTask
+    startFuotaTask_loRaWAN,
+    startFuotaTask_id,
+    startFuotaTaskResponse_httpStatus,
+
+    -- ** StartMulticastGroupSession
+    startMulticastGroupSession_id,
+    startMulticastGroupSession_loRaWAN,
+    startMulticastGroupSessionResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -378,17 +632,68 @@ module Amazonka.IoTWireless.Lens
     updateDestination_name,
     updateDestinationResponse_httpStatus,
 
+    -- ** UpdateEventConfigurationByResourceTypes
+    updateEventConfigurationByResourceTypes_deviceRegistrationState,
+    updateEventConfigurationByResourceTypes_connectionStatus,
+    updateEventConfigurationByResourceTypes_messageDeliveryStatus,
+    updateEventConfigurationByResourceTypes_join,
+    updateEventConfigurationByResourceTypes_proximity,
+    updateEventConfigurationByResourceTypesResponse_httpStatus,
+
+    -- ** UpdateFuotaTask
+    updateFuotaTask_name,
+    updateFuotaTask_loRaWAN,
+    updateFuotaTask_description,
+    updateFuotaTask_firmwareUpdateRole,
+    updateFuotaTask_firmwareUpdateImage,
+    updateFuotaTask_id,
+    updateFuotaTaskResponse_httpStatus,
+
     -- ** UpdateLogLevelsByResourceTypes
     updateLogLevelsByResourceTypes_wirelessGatewayLogOptions,
     updateLogLevelsByResourceTypes_wirelessDeviceLogOptions,
     updateLogLevelsByResourceTypes_defaultLogLevel,
     updateLogLevelsByResourceTypesResponse_httpStatus,
 
+    -- ** UpdateMulticastGroup
+    updateMulticastGroup_name,
+    updateMulticastGroup_loRaWAN,
+    updateMulticastGroup_description,
+    updateMulticastGroup_id,
+    updateMulticastGroupResponse_httpStatus,
+
+    -- ** UpdateNetworkAnalyzerConfiguration
+    updateNetworkAnalyzerConfiguration_wirelessGatewaysToRemove,
+    updateNetworkAnalyzerConfiguration_wirelessGatewaysToAdd,
+    updateNetworkAnalyzerConfiguration_description,
+    updateNetworkAnalyzerConfiguration_wirelessDevicesToAdd,
+    updateNetworkAnalyzerConfiguration_traceContent,
+    updateNetworkAnalyzerConfiguration_wirelessDevicesToRemove,
+    updateNetworkAnalyzerConfiguration_configurationName,
+    updateNetworkAnalyzerConfigurationResponse_httpStatus,
+
     -- ** UpdatePartnerAccount
     updatePartnerAccount_sidewalk,
     updatePartnerAccount_partnerAccountId,
     updatePartnerAccount_partnerType,
     updatePartnerAccountResponse_httpStatus,
+
+    -- ** UpdatePosition
+    updatePosition_resourceIdentifier,
+    updatePosition_resourceType,
+    updatePosition_position,
+    updatePositionResponse_httpStatus,
+
+    -- ** UpdateResourceEventConfiguration
+    updateResourceEventConfiguration_deviceRegistrationState,
+    updateResourceEventConfiguration_connectionStatus,
+    updateResourceEventConfiguration_messageDeliveryStatus,
+    updateResourceEventConfiguration_join,
+    updateResourceEventConfiguration_proximity,
+    updateResourceEventConfiguration_partnerType,
+    updateResourceEventConfiguration_identifier,
+    updateResourceEventConfiguration_identifierType,
+    updateResourceEventConfigurationResponse_httpStatus,
 
     -- ** UpdateWirelessDevice
     updateWirelessDevice_name,
@@ -410,15 +715,28 @@ module Amazonka.IoTWireless.Lens
 
     -- ** AbpV1_0_x
     abpV1_0_x_sessionKeys,
+    abpV1_0_x_fCntStart,
     abpV1_0_x_devAddr,
 
     -- ** AbpV1_1
     abpV1_1_sessionKeys,
+    abpV1_1_fCntStart,
     abpV1_1_devAddr,
+
+    -- ** Accuracy
+    accuracy_verticalAccuracy,
+    accuracy_horizontalAccuracy,
 
     -- ** CertificateList
     certificateList_signingAlg,
     certificateList_value,
+
+    -- ** ConnectionStatusEventConfiguration
+    connectionStatusEventConfiguration_loRaWAN,
+    connectionStatusEventConfiguration_wirelessGatewayIdEventTopic,
+
+    -- ** ConnectionStatusResourceTypeEventConfiguration
+    connectionStatusResourceTypeEventConfiguration_loRaWAN,
 
     -- ** Destinations
     destinations_name,
@@ -433,11 +751,62 @@ module Amazonka.IoTWireless.Lens
     deviceProfile_arn,
     deviceProfile_id,
 
+    -- ** DeviceRegistrationStateEventConfiguration
+    deviceRegistrationStateEventConfiguration_wirelessDeviceIdEventTopic,
+    deviceRegistrationStateEventConfiguration_sidewalk,
+
+    -- ** DeviceRegistrationStateResourceTypeEventConfiguration
+    deviceRegistrationStateResourceTypeEventConfiguration_sidewalk,
+
+    -- ** DownlinkQueueMessage
+    downlinkQueueMessage_loRaWAN,
+    downlinkQueueMessage_messageId,
+    downlinkQueueMessage_receivedAt,
+    downlinkQueueMessage_transmitMode,
+
+    -- ** EventConfigurationItem
+    eventConfigurationItem_identifierType,
+    eventConfigurationItem_events,
+    eventConfigurationItem_identifier,
+    eventConfigurationItem_partnerType,
+
+    -- ** EventNotificationItemConfigurations
+    eventNotificationItemConfigurations_deviceRegistrationState,
+    eventNotificationItemConfigurations_connectionStatus,
+    eventNotificationItemConfigurations_messageDeliveryStatus,
+    eventNotificationItemConfigurations_join,
+    eventNotificationItemConfigurations_proximity,
+
+    -- ** FPorts
+    fPorts_clockSync,
+    fPorts_fuota,
+    fPorts_multicast,
+    fPorts_positioning,
+
+    -- ** FuotaTask
+    fuotaTask_name,
+    fuotaTask_arn,
+    fuotaTask_id,
+
+    -- ** JoinEventConfiguration
+    joinEventConfiguration_loRaWAN,
+    joinEventConfiguration_wirelessDeviceIdEventTopic,
+
+    -- ** JoinResourceTypeEventConfiguration
+    joinResourceTypeEventConfiguration_loRaWAN,
+
+    -- ** LoRaWANConnectionStatusEventNotificationConfigurations
+    loRaWANConnectionStatusEventNotificationConfigurations_gatewayEuiEventTopic,
+
+    -- ** LoRaWANConnectionStatusResourceTypeEventConfiguration
+    loRaWANConnectionStatusResourceTypeEventConfiguration_wirelessGatewayEventTopic,
+
     -- ** LoRaWANDevice
     loRaWANDevice_otaaV1_1,
     loRaWANDevice_otaaV1_0_x,
     loRaWANDevice_abpV1_0_x,
     loRaWANDevice_deviceProfileId,
+    loRaWANDevice_fPorts,
     loRaWANDevice_serviceProfileId,
     loRaWANDevice_abpV1_1,
     loRaWANDevice_devEui,
@@ -470,6 +839,13 @@ module Amazonka.IoTWireless.Lens
     loRaWANDeviceProfile_rxDrOffset1,
     loRaWANDeviceProfile_supports32BitFCnt,
     loRaWANDeviceProfile_macVersion,
+
+    -- ** LoRaWANFuotaTask
+    loRaWANFuotaTask_rfRegion,
+
+    -- ** LoRaWANFuotaTaskGetInfo
+    loRaWANFuotaTaskGetInfo_rfRegion,
+    loRaWANFuotaTaskGetInfo_startTime,
 
     -- ** LoRaWANGateway
     loRaWANGateway_rfRegion,
@@ -512,18 +888,51 @@ module Amazonka.IoTWireless.Lens
     loRaWANGetServiceProfileInfo_dlBucketSize,
     loRaWANGetServiceProfileInfo_drMin,
 
+    -- ** LoRaWANJoinEventNotificationConfigurations
+    loRaWANJoinEventNotificationConfigurations_devEuiEventTopic,
+
+    -- ** LoRaWANJoinResourceTypeEventConfiguration
+    loRaWANJoinResourceTypeEventConfiguration_wirelessDeviceEventTopic,
+
     -- ** LoRaWANListDevice
     loRaWANListDevice_devEui,
+
+    -- ** LoRaWANMulticast
+    loRaWANMulticast_rfRegion,
+    loRaWANMulticast_dlClass,
+
+    -- ** LoRaWANMulticastGet
+    loRaWANMulticastGet_rfRegion,
+    loRaWANMulticastGet_numberOfDevicesInGroup,
+    loRaWANMulticastGet_dlClass,
+    loRaWANMulticastGet_numberOfDevicesRequested,
+
+    -- ** LoRaWANMulticastMetadata
+    loRaWANMulticastMetadata_fPort,
+
+    -- ** LoRaWANMulticastSession
+    loRaWANMulticastSession_dlDr,
+    loRaWANMulticastSession_sessionTimeout,
+    loRaWANMulticastSession_sessionStartTime,
+    loRaWANMulticastSession_dlFreq,
 
     -- ** LoRaWANSendDataToDevice
     loRaWANSendDataToDevice_fPort,
 
     -- ** LoRaWANServiceProfile
     loRaWANServiceProfile_addGwMetadata,
+    loRaWANServiceProfile_drMax,
+    loRaWANServiceProfile_drMin,
+
+    -- ** LoRaWANStartFuotaTask
+    loRaWANStartFuotaTask_startTime,
 
     -- ** LoRaWANUpdateDevice
+    loRaWANUpdateDevice_abpV1_0_x,
     loRaWANUpdateDevice_deviceProfileId,
+    loRaWANUpdateDevice_fPorts,
     loRaWANUpdateDevice_serviceProfileId,
+    loRaWANUpdateDevice_abpV1_1,
 
     -- ** LoRaWANUpdateGatewayTaskCreate
     loRaWANUpdateGatewayTaskCreate_sigKeyCrc,
@@ -535,7 +944,30 @@ module Amazonka.IoTWireless.Lens
     loRaWANUpdateGatewayTaskEntry_currentVersion,
     loRaWANUpdateGatewayTaskEntry_updateVersion,
 
+    -- ** MessageDeliveryStatusEventConfiguration
+    messageDeliveryStatusEventConfiguration_wirelessDeviceIdEventTopic,
+    messageDeliveryStatusEventConfiguration_sidewalk,
+
+    -- ** MessageDeliveryStatusResourceTypeEventConfiguration
+    messageDeliveryStatusResourceTypeEventConfiguration_sidewalk,
+
+    -- ** MulticastGroup
+    multicastGroup_name,
+    multicastGroup_arn,
+    multicastGroup_id,
+
+    -- ** MulticastGroupByFuotaTask
+    multicastGroupByFuotaTask_id,
+
+    -- ** MulticastWirelessMetadata
+    multicastWirelessMetadata_loRaWAN,
+
+    -- ** NetworkAnalyzerConfigurations
+    networkAnalyzerConfigurations_name,
+    networkAnalyzerConfigurations_arn,
+
     -- ** OtaaV1_0_x
+    otaaV1_0_x_genAppKey,
     otaaV1_0_x_appKey,
     otaaV1_0_x_appEui,
 
@@ -543,6 +975,40 @@ module Amazonka.IoTWireless.Lens
     otaaV1_1_appKey,
     otaaV1_1_nwkKey,
     otaaV1_1_joinEui,
+
+    -- ** PositionConfigurationItem
+    positionConfigurationItem_destination,
+    positionConfigurationItem_resourceType,
+    positionConfigurationItem_resourceIdentifier,
+    positionConfigurationItem_solvers,
+
+    -- ** PositionSolverConfigurations
+    positionSolverConfigurations_semtechGnss,
+
+    -- ** PositionSolverDetails
+    positionSolverDetails_semtechGnss,
+
+    -- ** Positioning
+    positioning_clockSync,
+    positioning_gnss,
+    positioning_stream,
+
+    -- ** ProximityEventConfiguration
+    proximityEventConfiguration_wirelessDeviceIdEventTopic,
+    proximityEventConfiguration_sidewalk,
+
+    -- ** ProximityResourceTypeEventConfiguration
+    proximityResourceTypeEventConfiguration_sidewalk,
+
+    -- ** SemtechGnssConfiguration
+    semtechGnssConfiguration_status,
+    semtechGnssConfiguration_fec,
+
+    -- ** SemtechGnssDetail
+    semtechGnssDetail_type,
+    semtechGnssDetail_provider,
+    semtechGnssDetail_status,
+    semtechGnssDetail_fec,
 
     -- ** ServiceProfile
     serviceProfile_name,
@@ -580,15 +1046,22 @@ module Amazonka.IoTWireless.Lens
     sidewalkDeviceMetadata_event,
     sidewalkDeviceMetadata_rssi,
 
+    -- ** SidewalkEventNotificationConfigurations
+    sidewalkEventNotificationConfigurations_amazonIdEventTopic,
+
     -- ** SidewalkListDevice
     sidewalkListDevice_deviceCertificates,
     sidewalkListDevice_sidewalkId,
     sidewalkListDevice_amazonId,
     sidewalkListDevice_sidewalkManufacturingSn,
 
+    -- ** SidewalkResourceTypeEventConfiguration
+    sidewalkResourceTypeEventConfiguration_wirelessDeviceEventTopic,
+
     -- ** SidewalkSendDataToDevice
     sidewalkSendDataToDevice_seq,
     sidewalkSendDataToDevice_messageType,
+    sidewalkSendDataToDevice_ackModeRetryDurationSecs,
 
     -- ** SidewalkUpdateAccount
     sidewalkUpdateAccount_appServerPrivateKey,
@@ -596,6 +1069,19 @@ module Amazonka.IoTWireless.Lens
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** TraceContent
+    traceContent_logLevel,
+    traceContent_wirelessDeviceFrameInfo,
+
+    -- ** UpdateAbpV1_0_x
+    updateAbpV1_0_x_fCntStart,
+
+    -- ** UpdateAbpV1_1
+    updateAbpV1_1_fCntStart,
+
+    -- ** UpdateFPorts
+    updateFPorts_positioning,
 
     -- ** UpdateWirelessGatewayTaskCreate
     updateWirelessGatewayTaskCreate_updateDataRole,
@@ -624,6 +1110,9 @@ module Amazonka.IoTWireless.Lens
     wirelessDeviceStatistics_destinationName,
     wirelessDeviceStatistics_arn,
     wirelessDeviceStatistics_id,
+    wirelessDeviceStatistics_mcGroupId,
+    wirelessDeviceStatistics_multicastDeviceStatus,
+    wirelessDeviceStatistics_fuotaDeviceStatus,
     wirelessDeviceStatistics_sidewalk,
 
     -- ** WirelessGatewayEventLogOption
@@ -650,11 +1139,18 @@ module Amazonka.IoTWireless.Lens
 where
 
 import Amazonka.IoTWireless.AssociateAwsAccountWithPartnerAccount
+import Amazonka.IoTWireless.AssociateMulticastGroupWithFuotaTask
+import Amazonka.IoTWireless.AssociateWirelessDeviceWithFuotaTask
+import Amazonka.IoTWireless.AssociateWirelessDeviceWithMulticastGroup
 import Amazonka.IoTWireless.AssociateWirelessDeviceWithThing
 import Amazonka.IoTWireless.AssociateWirelessGatewayWithCertificate
 import Amazonka.IoTWireless.AssociateWirelessGatewayWithThing
+import Amazonka.IoTWireless.CancelMulticastGroupSession
 import Amazonka.IoTWireless.CreateDestination
 import Amazonka.IoTWireless.CreateDeviceProfile
+import Amazonka.IoTWireless.CreateFuotaTask
+import Amazonka.IoTWireless.CreateMulticastGroup
+import Amazonka.IoTWireless.CreateNetworkAnalyzerConfiguration
 import Amazonka.IoTWireless.CreateServiceProfile
 import Amazonka.IoTWireless.CreateWirelessDevice
 import Amazonka.IoTWireless.CreateWirelessGateway
@@ -662,19 +1158,34 @@ import Amazonka.IoTWireless.CreateWirelessGatewayTask
 import Amazonka.IoTWireless.CreateWirelessGatewayTaskDefinition
 import Amazonka.IoTWireless.DeleteDestination
 import Amazonka.IoTWireless.DeleteDeviceProfile
+import Amazonka.IoTWireless.DeleteFuotaTask
+import Amazonka.IoTWireless.DeleteMulticastGroup
+import Amazonka.IoTWireless.DeleteNetworkAnalyzerConfiguration
+import Amazonka.IoTWireless.DeleteQueuedMessages
 import Amazonka.IoTWireless.DeleteServiceProfile
 import Amazonka.IoTWireless.DeleteWirelessDevice
 import Amazonka.IoTWireless.DeleteWirelessGateway
 import Amazonka.IoTWireless.DeleteWirelessGatewayTask
 import Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition
 import Amazonka.IoTWireless.DisassociateAwsAccountFromPartnerAccount
+import Amazonka.IoTWireless.DisassociateMulticastGroupFromFuotaTask
+import Amazonka.IoTWireless.DisassociateWirelessDeviceFromFuotaTask
+import Amazonka.IoTWireless.DisassociateWirelessDeviceFromMulticastGroup
 import Amazonka.IoTWireless.DisassociateWirelessDeviceFromThing
 import Amazonka.IoTWireless.DisassociateWirelessGatewayFromCertificate
 import Amazonka.IoTWireless.DisassociateWirelessGatewayFromThing
 import Amazonka.IoTWireless.GetDestination
 import Amazonka.IoTWireless.GetDeviceProfile
+import Amazonka.IoTWireless.GetEventConfigurationByResourceTypes
+import Amazonka.IoTWireless.GetFuotaTask
 import Amazonka.IoTWireless.GetLogLevelsByResourceTypes
+import Amazonka.IoTWireless.GetMulticastGroup
+import Amazonka.IoTWireless.GetMulticastGroupSession
+import Amazonka.IoTWireless.GetNetworkAnalyzerConfiguration
 import Amazonka.IoTWireless.GetPartnerAccount
+import Amazonka.IoTWireless.GetPosition
+import Amazonka.IoTWireless.GetPositionConfiguration
+import Amazonka.IoTWireless.GetResourceEventConfiguration
 import Amazonka.IoTWireless.GetResourceLogLevel
 import Amazonka.IoTWireless.GetServiceEndpoint
 import Amazonka.IoTWireless.GetServiceProfile
@@ -688,39 +1199,89 @@ import Amazonka.IoTWireless.GetWirelessGatewayTask
 import Amazonka.IoTWireless.GetWirelessGatewayTaskDefinition
 import Amazonka.IoTWireless.ListDestinations
 import Amazonka.IoTWireless.ListDeviceProfiles
+import Amazonka.IoTWireless.ListEventConfigurations
+import Amazonka.IoTWireless.ListFuotaTasks
+import Amazonka.IoTWireless.ListMulticastGroups
+import Amazonka.IoTWireless.ListMulticastGroupsByFuotaTask
+import Amazonka.IoTWireless.ListNetworkAnalyzerConfigurations
 import Amazonka.IoTWireless.ListPartnerAccounts
+import Amazonka.IoTWireless.ListPositionConfigurations
+import Amazonka.IoTWireless.ListQueuedMessages
 import Amazonka.IoTWireless.ListServiceProfiles
 import Amazonka.IoTWireless.ListTagsForResource
 import Amazonka.IoTWireless.ListWirelessDevices
 import Amazonka.IoTWireless.ListWirelessGatewayTaskDefinitions
 import Amazonka.IoTWireless.ListWirelessGateways
+import Amazonka.IoTWireless.PutPositionConfiguration
 import Amazonka.IoTWireless.PutResourceLogLevel
 import Amazonka.IoTWireless.ResetAllResourceLogLevels
 import Amazonka.IoTWireless.ResetResourceLogLevel
+import Amazonka.IoTWireless.SendDataToMulticastGroup
 import Amazonka.IoTWireless.SendDataToWirelessDevice
+import Amazonka.IoTWireless.StartBulkAssociateWirelessDeviceWithMulticastGroup
+import Amazonka.IoTWireless.StartBulkDisassociateWirelessDeviceFromMulticastGroup
+import Amazonka.IoTWireless.StartFuotaTask
+import Amazonka.IoTWireless.StartMulticastGroupSession
 import Amazonka.IoTWireless.TagResource
 import Amazonka.IoTWireless.TestWirelessDevice
 import Amazonka.IoTWireless.Types.AbpV1_0_x
 import Amazonka.IoTWireless.Types.AbpV1_1
+import Amazonka.IoTWireless.Types.Accuracy
 import Amazonka.IoTWireless.Types.CertificateList
+import Amazonka.IoTWireless.Types.ConnectionStatusEventConfiguration
+import Amazonka.IoTWireless.Types.ConnectionStatusResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.Destinations
 import Amazonka.IoTWireless.Types.DeviceProfile
+import Amazonka.IoTWireless.Types.DeviceRegistrationStateEventConfiguration
+import Amazonka.IoTWireless.Types.DeviceRegistrationStateResourceTypeEventConfiguration
+import Amazonka.IoTWireless.Types.DownlinkQueueMessage
+import Amazonka.IoTWireless.Types.EventConfigurationItem
+import Amazonka.IoTWireless.Types.EventNotificationItemConfigurations
+import Amazonka.IoTWireless.Types.FPorts
+import Amazonka.IoTWireless.Types.FuotaTask
+import Amazonka.IoTWireless.Types.JoinEventConfiguration
+import Amazonka.IoTWireless.Types.JoinResourceTypeEventConfiguration
+import Amazonka.IoTWireless.Types.LoRaWANConnectionStatusEventNotificationConfigurations
+import Amazonka.IoTWireless.Types.LoRaWANConnectionStatusResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.LoRaWANDevice
 import Amazonka.IoTWireless.Types.LoRaWANDeviceMetadata
 import Amazonka.IoTWireless.Types.LoRaWANDeviceProfile
+import Amazonka.IoTWireless.Types.LoRaWANFuotaTask
+import Amazonka.IoTWireless.Types.LoRaWANFuotaTaskGetInfo
 import Amazonka.IoTWireless.Types.LoRaWANGateway
 import Amazonka.IoTWireless.Types.LoRaWANGatewayCurrentVersion
 import Amazonka.IoTWireless.Types.LoRaWANGatewayMetadata
 import Amazonka.IoTWireless.Types.LoRaWANGatewayVersion
 import Amazonka.IoTWireless.Types.LoRaWANGetServiceProfileInfo
+import Amazonka.IoTWireless.Types.LoRaWANJoinEventNotificationConfigurations
+import Amazonka.IoTWireless.Types.LoRaWANJoinResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.LoRaWANListDevice
+import Amazonka.IoTWireless.Types.LoRaWANMulticast
+import Amazonka.IoTWireless.Types.LoRaWANMulticastGet
+import Amazonka.IoTWireless.Types.LoRaWANMulticastMetadata
+import Amazonka.IoTWireless.Types.LoRaWANMulticastSession
 import Amazonka.IoTWireless.Types.LoRaWANSendDataToDevice
 import Amazonka.IoTWireless.Types.LoRaWANServiceProfile
+import Amazonka.IoTWireless.Types.LoRaWANStartFuotaTask
 import Amazonka.IoTWireless.Types.LoRaWANUpdateDevice
 import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskCreate
 import Amazonka.IoTWireless.Types.LoRaWANUpdateGatewayTaskEntry
+import Amazonka.IoTWireless.Types.MessageDeliveryStatusEventConfiguration
+import Amazonka.IoTWireless.Types.MessageDeliveryStatusResourceTypeEventConfiguration
+import Amazonka.IoTWireless.Types.MulticastGroup
+import Amazonka.IoTWireless.Types.MulticastGroupByFuotaTask
+import Amazonka.IoTWireless.Types.MulticastWirelessMetadata
+import Amazonka.IoTWireless.Types.NetworkAnalyzerConfigurations
 import Amazonka.IoTWireless.Types.OtaaV1_0_x
 import Amazonka.IoTWireless.Types.OtaaV1_1
+import Amazonka.IoTWireless.Types.PositionConfigurationItem
+import Amazonka.IoTWireless.Types.PositionSolverConfigurations
+import Amazonka.IoTWireless.Types.PositionSolverDetails
+import Amazonka.IoTWireless.Types.Positioning
+import Amazonka.IoTWireless.Types.ProximityEventConfiguration
+import Amazonka.IoTWireless.Types.ProximityResourceTypeEventConfiguration
+import Amazonka.IoTWireless.Types.SemtechGnssConfiguration
+import Amazonka.IoTWireless.Types.SemtechGnssDetail
 import Amazonka.IoTWireless.Types.ServiceProfile
 import Amazonka.IoTWireless.Types.SessionKeysAbpV1_0_x
 import Amazonka.IoTWireless.Types.SessionKeysAbpV1_1
@@ -728,10 +1289,16 @@ import Amazonka.IoTWireless.Types.SidewalkAccountInfo
 import Amazonka.IoTWireless.Types.SidewalkAccountInfoWithFingerprint
 import Amazonka.IoTWireless.Types.SidewalkDevice
 import Amazonka.IoTWireless.Types.SidewalkDeviceMetadata
+import Amazonka.IoTWireless.Types.SidewalkEventNotificationConfigurations
 import Amazonka.IoTWireless.Types.SidewalkListDevice
+import Amazonka.IoTWireless.Types.SidewalkResourceTypeEventConfiguration
 import Amazonka.IoTWireless.Types.SidewalkSendDataToDevice
 import Amazonka.IoTWireless.Types.SidewalkUpdateAccount
 import Amazonka.IoTWireless.Types.Tag
+import Amazonka.IoTWireless.Types.TraceContent
+import Amazonka.IoTWireless.Types.UpdateAbpV1_0_x
+import Amazonka.IoTWireless.Types.UpdateAbpV1_1
+import Amazonka.IoTWireless.Types.UpdateFPorts
 import Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskCreate
 import Amazonka.IoTWireless.Types.UpdateWirelessGatewayTaskEntry
 import Amazonka.IoTWireless.Types.WirelessDeviceEventLogOption
@@ -743,7 +1310,13 @@ import Amazonka.IoTWireless.Types.WirelessGatewayStatistics
 import Amazonka.IoTWireless.Types.WirelessMetadata
 import Amazonka.IoTWireless.UntagResource
 import Amazonka.IoTWireless.UpdateDestination
+import Amazonka.IoTWireless.UpdateEventConfigurationByResourceTypes
+import Amazonka.IoTWireless.UpdateFuotaTask
 import Amazonka.IoTWireless.UpdateLogLevelsByResourceTypes
+import Amazonka.IoTWireless.UpdateMulticastGroup
+import Amazonka.IoTWireless.UpdateNetworkAnalyzerConfiguration
 import Amazonka.IoTWireless.UpdatePartnerAccount
+import Amazonka.IoTWireless.UpdatePosition
+import Amazonka.IoTWireless.UpdateResourceEventConfiguration
 import Amazonka.IoTWireless.UpdateWirelessDevice
 import Amazonka.IoTWireless.UpdateWirelessGateway

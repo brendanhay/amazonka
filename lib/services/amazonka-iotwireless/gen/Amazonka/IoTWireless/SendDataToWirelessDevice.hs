@@ -58,7 +58,6 @@ data SendDataToWirelessDevice = SendDataToWirelessDevice'
     -- | The transmit mode to use to send data to the wireless device. Can be:
     -- @0@ for UM (unacknowledge mode) or @1@ for AM (acknowledge mode).
     transmitMode :: Prelude.Natural,
-    -- | The binary to be sent to the end device, encoded in base64.
     payloadData :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +77,7 @@ data SendDataToWirelessDevice = SendDataToWirelessDevice'
 -- 'transmitMode', 'sendDataToWirelessDevice_transmitMode' - The transmit mode to use to send data to the wireless device. Can be:
 -- @0@ for UM (unacknowledge mode) or @1@ for AM (acknowledge mode).
 --
--- 'payloadData', 'sendDataToWirelessDevice_payloadData' - The binary to be sent to the end device, encoded in base64.
+-- 'payloadData', 'sendDataToWirelessDevice_payloadData' - Undocumented member.
 newSendDataToWirelessDevice ::
   -- | 'id'
   Prelude.Text ->
@@ -112,7 +111,7 @@ sendDataToWirelessDevice_id = Lens.lens (\SendDataToWirelessDevice' {id} -> id) 
 sendDataToWirelessDevice_transmitMode :: Lens.Lens' SendDataToWirelessDevice Prelude.Natural
 sendDataToWirelessDevice_transmitMode = Lens.lens (\SendDataToWirelessDevice' {transmitMode} -> transmitMode) (\s@SendDataToWirelessDevice' {} a -> s {transmitMode = a} :: SendDataToWirelessDevice)
 
--- | The binary to be sent to the end device, encoded in base64.
+-- | Undocumented member.
 sendDataToWirelessDevice_payloadData :: Lens.Lens' SendDataToWirelessDevice Prelude.Text
 sendDataToWirelessDevice_payloadData = Lens.lens (\SendDataToWirelessDevice' {payloadData} -> payloadData) (\s@SendDataToWirelessDevice' {} a -> s {payloadData = a} :: SendDataToWirelessDevice)
 

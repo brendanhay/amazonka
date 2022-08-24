@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 data GetServiceEndpoint = GetServiceEndpoint'
   { -- | The service type for which to get endpoint information about. Can be
     -- @CUPS@ for the Configuration and Update Server endpoint, or @LNS@ for
-    -- the LoRaWAN Network Server endpoint.
+    -- the LoRaWAN Network Server endpoint or @CLAIM@ for the global endpoint.
     serviceType :: Prelude.Maybe WirelessGatewayServiceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +68,7 @@ data GetServiceEndpoint = GetServiceEndpoint'
 --
 -- 'serviceType', 'getServiceEndpoint_serviceType' - The service type for which to get endpoint information about. Can be
 -- @CUPS@ for the Configuration and Update Server endpoint, or @LNS@ for
--- the LoRaWAN Network Server endpoint.
+-- the LoRaWAN Network Server endpoint or @CLAIM@ for the global endpoint.
 newGetServiceEndpoint ::
   GetServiceEndpoint
 newGetServiceEndpoint =
@@ -76,7 +76,7 @@ newGetServiceEndpoint =
 
 -- | The service type for which to get endpoint information about. Can be
 -- @CUPS@ for the Configuration and Update Server endpoint, or @LNS@ for
--- the LoRaWAN Network Server endpoint.
+-- the LoRaWAN Network Server endpoint or @CLAIM@ for the global endpoint.
 getServiceEndpoint_serviceType :: Lens.Lens' GetServiceEndpoint (Prelude.Maybe WirelessGatewayServiceType)
 getServiceEndpoint_serviceType = Lens.lens (\GetServiceEndpoint' {serviceType} -> serviceType) (\s@GetServiceEndpoint' {} a -> s {serviceType = a} :: GetServiceEndpoint)
 

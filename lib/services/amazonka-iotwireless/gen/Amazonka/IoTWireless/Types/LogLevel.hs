@@ -30,7 +30,9 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The log level for a log message.
+-- | The log level for a log message. The log levels can be disabled, or set
+-- to @ERROR@ to display less verbose logs containing only error
+-- information, or to @INFO@ for more detailed logs.
 newtype LogLevel = LogLevel'
   { fromLogLevel ::
       Core.Text

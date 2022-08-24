@@ -22,6 +22,7 @@ module Amazonka.IoTWireless.Types.LoRaWANDevice where
 import qualified Amazonka.Core as Core
 import Amazonka.IoTWireless.Types.AbpV1_0_x
 import Amazonka.IoTWireless.Types.AbpV1_1
+import Amazonka.IoTWireless.Types.FPorts
 import Amazonka.IoTWireless.Types.OtaaV1_0_x
 import Amazonka.IoTWireless.Types.OtaaV1_1
 import qualified Amazonka.Lens as Lens
@@ -39,6 +40,7 @@ data LoRaWANDevice = LoRaWANDevice'
     abpV1_0_x :: Prelude.Maybe AbpV1_0_x,
     -- | The ID of the device profile for the new wireless device.
     deviceProfileId :: Prelude.Maybe Prelude.Text,
+    fPorts :: Prelude.Maybe FPorts,
     -- | The ID of the service profile.
     serviceProfileId :: Prelude.Maybe Prelude.Text,
     -- | ABP device object for create APIs for v1.1
@@ -64,6 +66,8 @@ data LoRaWANDevice = LoRaWANDevice'
 --
 -- 'deviceProfileId', 'loRaWANDevice_deviceProfileId' - The ID of the device profile for the new wireless device.
 --
+-- 'fPorts', 'loRaWANDevice_fPorts' - Undocumented member.
+--
 -- 'serviceProfileId', 'loRaWANDevice_serviceProfileId' - The ID of the service profile.
 --
 -- 'abpV1_1', 'loRaWANDevice_abpV1_1' - ABP device object for create APIs for v1.1
@@ -77,6 +81,7 @@ newLoRaWANDevice =
       otaaV1_0_x = Prelude.Nothing,
       abpV1_0_x = Prelude.Nothing,
       deviceProfileId = Prelude.Nothing,
+      fPorts = Prelude.Nothing,
       serviceProfileId = Prelude.Nothing,
       abpV1_1 = Prelude.Nothing,
       devEui = Prelude.Nothing
@@ -97,6 +102,10 @@ loRaWANDevice_abpV1_0_x = Lens.lens (\LoRaWANDevice' {abpV1_0_x} -> abpV1_0_x) (
 -- | The ID of the device profile for the new wireless device.
 loRaWANDevice_deviceProfileId :: Lens.Lens' LoRaWANDevice (Prelude.Maybe Prelude.Text)
 loRaWANDevice_deviceProfileId = Lens.lens (\LoRaWANDevice' {deviceProfileId} -> deviceProfileId) (\s@LoRaWANDevice' {} a -> s {deviceProfileId = a} :: LoRaWANDevice)
+
+-- | Undocumented member.
+loRaWANDevice_fPorts :: Lens.Lens' LoRaWANDevice (Prelude.Maybe FPorts)
+loRaWANDevice_fPorts = Lens.lens (\LoRaWANDevice' {fPorts} -> fPorts) (\s@LoRaWANDevice' {} a -> s {fPorts = a} :: LoRaWANDevice)
 
 -- | The ID of the service profile.
 loRaWANDevice_serviceProfileId :: Lens.Lens' LoRaWANDevice (Prelude.Maybe Prelude.Text)
@@ -120,6 +129,7 @@ instance Core.FromJSON LoRaWANDevice where
             Prelude.<*> (x Core..:? "OtaaV1_0_x")
             Prelude.<*> (x Core..:? "AbpV1_0_x")
             Prelude.<*> (x Core..:? "DeviceProfileId")
+            Prelude.<*> (x Core..:? "FPorts")
             Prelude.<*> (x Core..:? "ServiceProfileId")
             Prelude.<*> (x Core..:? "AbpV1_1")
             Prelude.<*> (x Core..:? "DevEui")
@@ -131,6 +141,7 @@ instance Prelude.Hashable LoRaWANDevice where
       `Prelude.hashWithSalt` otaaV1_0_x
       `Prelude.hashWithSalt` abpV1_0_x
       `Prelude.hashWithSalt` deviceProfileId
+      `Prelude.hashWithSalt` fPorts
       `Prelude.hashWithSalt` serviceProfileId
       `Prelude.hashWithSalt` abpV1_1
       `Prelude.hashWithSalt` devEui
@@ -141,6 +152,7 @@ instance Prelude.NFData LoRaWANDevice where
       `Prelude.seq` Prelude.rnf otaaV1_0_x
       `Prelude.seq` Prelude.rnf abpV1_0_x
       `Prelude.seq` Prelude.rnf deviceProfileId
+      `Prelude.seq` Prelude.rnf fPorts
       `Prelude.seq` Prelude.rnf serviceProfileId
       `Prelude.seq` Prelude.rnf abpV1_1
       `Prelude.seq` Prelude.rnf devEui
@@ -154,6 +166,7 @@ instance Core.ToJSON LoRaWANDevice where
             ("AbpV1_0_x" Core..=) Prelude.<$> abpV1_0_x,
             ("DeviceProfileId" Core..=)
               Prelude.<$> deviceProfileId,
+            ("FPorts" Core..=) Prelude.<$> fPorts,
             ("ServiceProfileId" Core..=)
               Prelude.<$> serviceProfileId,
             ("AbpV1_1" Core..=) Prelude.<$> abpV1_1,

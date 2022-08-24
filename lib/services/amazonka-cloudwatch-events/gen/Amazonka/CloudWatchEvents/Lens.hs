@@ -60,6 +60,22 @@ module Amazonka.CloudWatchEvents.Lens
     createConnectionResponse_creationTime,
     createConnectionResponse_httpStatus,
 
+    -- ** CreateEndpoint
+    createEndpoint_roleArn,
+    createEndpoint_replicationConfig,
+    createEndpoint_description,
+    createEndpoint_name,
+    createEndpoint_routingConfig,
+    createEndpoint_eventBuses,
+    createEndpointResponse_name,
+    createEndpointResponse_roleArn,
+    createEndpointResponse_routingConfig,
+    createEndpointResponse_arn,
+    createEndpointResponse_state,
+    createEndpointResponse_replicationConfig,
+    createEndpointResponse_eventBuses,
+    createEndpointResponse_httpStatus,
+
     -- ** CreateEventBus
     createEventBus_tags,
     createEventBus_eventSourceName,
@@ -101,6 +117,10 @@ module Amazonka.CloudWatchEvents.Lens
     deleteConnectionResponse_lastAuthorizedTime,
     deleteConnectionResponse_creationTime,
     deleteConnectionResponse_httpStatus,
+
+    -- ** DeleteEndpoint
+    deleteEndpoint_name,
+    deleteEndpointResponse_httpStatus,
 
     -- ** DeleteEventBus
     deleteEventBus_name,
@@ -157,6 +177,24 @@ module Amazonka.CloudWatchEvents.Lens
     describeConnectionResponse_authorizationType,
     describeConnectionResponse_stateReason,
     describeConnectionResponse_httpStatus,
+
+    -- ** DescribeEndpoint
+    describeEndpoint_homeRegion,
+    describeEndpoint_name,
+    describeEndpointResponse_name,
+    describeEndpointResponse_endpointId,
+    describeEndpointResponse_roleArn,
+    describeEndpointResponse_routingConfig,
+    describeEndpointResponse_arn,
+    describeEndpointResponse_state,
+    describeEndpointResponse_replicationConfig,
+    describeEndpointResponse_description,
+    describeEndpointResponse_lastModifiedTime,
+    describeEndpointResponse_endpointUrl,
+    describeEndpointResponse_creationTime,
+    describeEndpointResponse_eventBuses,
+    describeEndpointResponse_stateReason,
+    describeEndpointResponse_httpStatus,
 
     -- ** DescribeEventBus
     describeEventBus_name,
@@ -248,6 +286,15 @@ module Amazonka.CloudWatchEvents.Lens
     listConnectionsResponse_connections,
     listConnectionsResponse_httpStatus,
 
+    -- ** ListEndpoints
+    listEndpoints_nextToken,
+    listEndpoints_maxResults,
+    listEndpoints_namePrefix,
+    listEndpoints_homeRegion,
+    listEndpointsResponse_nextToken,
+    listEndpointsResponse_endpoints,
+    listEndpointsResponse_httpStatus,
+
     -- ** ListEventBuses
     listEventBuses_nextToken,
     listEventBuses_limit,
@@ -323,6 +370,7 @@ module Amazonka.CloudWatchEvents.Lens
     listTargetsByRuleResponse_httpStatus,
 
     -- ** PutEvents
+    putEvents_endpointId,
     putEvents_entries,
     putEventsResponse_entries,
     putEventsResponse_failedEntryCount,
@@ -440,6 +488,24 @@ module Amazonka.CloudWatchEvents.Lens
     updateConnectionResponse_lastAuthorizedTime,
     updateConnectionResponse_creationTime,
     updateConnectionResponse_httpStatus,
+
+    -- ** UpdateEndpoint
+    updateEndpoint_roleArn,
+    updateEndpoint_routingConfig,
+    updateEndpoint_replicationConfig,
+    updateEndpoint_description,
+    updateEndpoint_eventBuses,
+    updateEndpoint_name,
+    updateEndpointResponse_name,
+    updateEndpointResponse_endpointId,
+    updateEndpointResponse_roleArn,
+    updateEndpointResponse_routingConfig,
+    updateEndpointResponse_arn,
+    updateEndpointResponse_state,
+    updateEndpointResponse_replicationConfig,
+    updateEndpointResponse_endpointUrl,
+    updateEndpointResponse_eventBuses,
+    updateEndpointResponse_httpStatus,
 
     -- * Types
 
@@ -585,6 +651,24 @@ module Amazonka.CloudWatchEvents.Lens
     ecsParameters_taskCount,
     ecsParameters_taskDefinitionArn,
 
+    -- ** Endpoint
+    endpoint_name,
+    endpoint_endpointId,
+    endpoint_roleArn,
+    endpoint_routingConfig,
+    endpoint_arn,
+    endpoint_state,
+    endpoint_replicationConfig,
+    endpoint_description,
+    endpoint_lastModifiedTime,
+    endpoint_endpointUrl,
+    endpoint_creationTime,
+    endpoint_eventBuses,
+    endpoint_stateReason,
+
+    -- ** EndpointEventBus
+    endpointEventBus_eventBusArn,
+
     -- ** EventBus
     eventBus_policy,
     eventBus_name,
@@ -597,6 +681,10 @@ module Amazonka.CloudWatchEvents.Lens
     eventSource_state,
     eventSource_creationTime,
     eventSource_createdBy,
+
+    -- ** FailoverConfig
+    failoverConfig_primary,
+    failoverConfig_secondary,
 
     -- ** HttpParameters
     httpParameters_queryStringParameters,
@@ -630,6 +718,9 @@ module Amazonka.CloudWatchEvents.Lens
     -- ** PlacementStrategy
     placementStrategy_type,
     placementStrategy_field,
+
+    -- ** Primary
+    primary_healthCheck,
 
     -- ** PutEventsRequestEntry
     putEventsRequestEntry_detailType,
@@ -690,9 +781,15 @@ module Amazonka.CloudWatchEvents.Lens
     replayDestination_filterArns,
     replayDestination_arn,
 
+    -- ** ReplicationConfig
+    replicationConfig_state,
+
     -- ** RetryPolicy
     retryPolicy_maximumEventAgeInSeconds,
     retryPolicy_maximumRetryAttempts,
+
+    -- ** RoutingConfig
+    routingConfig_failoverConfig,
 
     -- ** Rule
     rule_name,
@@ -718,6 +815,9 @@ module Amazonka.CloudWatchEvents.Lens
 
     -- ** SageMakerPipelineParameters
     sageMakerPipelineParameters_pipelineParameterList,
+
+    -- ** Secondary
+    secondary_route,
 
     -- ** SqsParameters
     sqsParameters_messageGroupId,
@@ -775,6 +875,7 @@ import Amazonka.CloudWatchEvents.CancelReplay
 import Amazonka.CloudWatchEvents.CreateApiDestination
 import Amazonka.CloudWatchEvents.CreateArchive
 import Amazonka.CloudWatchEvents.CreateConnection
+import Amazonka.CloudWatchEvents.CreateEndpoint
 import Amazonka.CloudWatchEvents.CreateEventBus
 import Amazonka.CloudWatchEvents.CreatePartnerEventSource
 import Amazonka.CloudWatchEvents.DeactivateEventSource
@@ -782,12 +883,14 @@ import Amazonka.CloudWatchEvents.DeauthorizeConnection
 import Amazonka.CloudWatchEvents.DeleteApiDestination
 import Amazonka.CloudWatchEvents.DeleteArchive
 import Amazonka.CloudWatchEvents.DeleteConnection
+import Amazonka.CloudWatchEvents.DeleteEndpoint
 import Amazonka.CloudWatchEvents.DeleteEventBus
 import Amazonka.CloudWatchEvents.DeletePartnerEventSource
 import Amazonka.CloudWatchEvents.DeleteRule
 import Amazonka.CloudWatchEvents.DescribeApiDestination
 import Amazonka.CloudWatchEvents.DescribeArchive
 import Amazonka.CloudWatchEvents.DescribeConnection
+import Amazonka.CloudWatchEvents.DescribeEndpoint
 import Amazonka.CloudWatchEvents.DescribeEventBus
 import Amazonka.CloudWatchEvents.DescribeEventSource
 import Amazonka.CloudWatchEvents.DescribePartnerEventSource
@@ -798,6 +901,7 @@ import Amazonka.CloudWatchEvents.EnableRule
 import Amazonka.CloudWatchEvents.ListApiDestinations
 import Amazonka.CloudWatchEvents.ListArchives
 import Amazonka.CloudWatchEvents.ListConnections
+import Amazonka.CloudWatchEvents.ListEndpoints
 import Amazonka.CloudWatchEvents.ListEventBuses
 import Amazonka.CloudWatchEvents.ListEventSources
 import Amazonka.CloudWatchEvents.ListPartnerEventSourceAccounts
@@ -842,8 +946,11 @@ import Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthClientRequestParamet
 import Amazonka.CloudWatchEvents.Types.CreateConnectionOAuthRequestParameters
 import Amazonka.CloudWatchEvents.Types.DeadLetterConfig
 import Amazonka.CloudWatchEvents.Types.EcsParameters
+import Amazonka.CloudWatchEvents.Types.Endpoint
+import Amazonka.CloudWatchEvents.Types.EndpointEventBus
 import Amazonka.CloudWatchEvents.Types.EventBus
 import Amazonka.CloudWatchEvents.Types.EventSource
+import Amazonka.CloudWatchEvents.Types.FailoverConfig
 import Amazonka.CloudWatchEvents.Types.HttpParameters
 import Amazonka.CloudWatchEvents.Types.InputTransformer
 import Amazonka.CloudWatchEvents.Types.KinesisParameters
@@ -852,6 +959,7 @@ import Amazonka.CloudWatchEvents.Types.PartnerEventSource
 import Amazonka.CloudWatchEvents.Types.PartnerEventSourceAccount
 import Amazonka.CloudWatchEvents.Types.PlacementConstraint
 import Amazonka.CloudWatchEvents.Types.PlacementStrategy
+import Amazonka.CloudWatchEvents.Types.Primary
 import Amazonka.CloudWatchEvents.Types.PutEventsRequestEntry
 import Amazonka.CloudWatchEvents.Types.PutEventsResultEntry
 import Amazonka.CloudWatchEvents.Types.PutPartnerEventsRequestEntry
@@ -861,12 +969,15 @@ import Amazonka.CloudWatchEvents.Types.RedshiftDataParameters
 import Amazonka.CloudWatchEvents.Types.RemoveTargetsResultEntry
 import Amazonka.CloudWatchEvents.Types.Replay
 import Amazonka.CloudWatchEvents.Types.ReplayDestination
+import Amazonka.CloudWatchEvents.Types.ReplicationConfig
 import Amazonka.CloudWatchEvents.Types.RetryPolicy
+import Amazonka.CloudWatchEvents.Types.RoutingConfig
 import Amazonka.CloudWatchEvents.Types.Rule
 import Amazonka.CloudWatchEvents.Types.RunCommandParameters
 import Amazonka.CloudWatchEvents.Types.RunCommandTarget
 import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameter
 import Amazonka.CloudWatchEvents.Types.SageMakerPipelineParameters
+import Amazonka.CloudWatchEvents.Types.Secondary
 import Amazonka.CloudWatchEvents.Types.SqsParameters
 import Amazonka.CloudWatchEvents.Types.Tag
 import Amazonka.CloudWatchEvents.Types.Target
@@ -879,3 +990,4 @@ import Amazonka.CloudWatchEvents.UntagResource
 import Amazonka.CloudWatchEvents.UpdateApiDestination
 import Amazonka.CloudWatchEvents.UpdateArchive
 import Amazonka.CloudWatchEvents.UpdateConnection
+import Amazonka.CloudWatchEvents.UpdateEndpoint

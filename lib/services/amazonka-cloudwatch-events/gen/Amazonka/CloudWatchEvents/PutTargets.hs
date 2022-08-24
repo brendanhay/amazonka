@@ -25,59 +25,66 @@
 --
 -- Targets are the resources that are invoked when a rule is triggered.
 --
+-- Each rule can have up to five (5) targets associated with it at one
+-- time.
+--
 -- You can configure the following as targets for Events:
 --
 -- -   <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html API destination>
 --
--- -   Amazon API Gateway REST API endpoints
---
--- -   API Gateway
+-- -   <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html API Gateway>
 --
 -- -   Batch job queue
 --
--- -   CloudWatch Logs group
+-- -   CloudWatch group
 --
 -- -   CodeBuild project
 --
 -- -   CodePipeline
 --
--- -   Amazon EC2 @CreateSnapshot@ API call
+-- -   EC2 @CreateSnapshot@ API call
 --
--- -   Amazon EC2 @RebootInstances@ API call
+-- -   EC2 Image Builder
 --
--- -   Amazon EC2 @StopInstances@ API call
+-- -   EC2 @RebootInstances@ API call
 --
--- -   Amazon EC2 @TerminateInstances@ API call
+-- -   EC2 @StopInstances@ API call
 --
--- -   Amazon ECS tasks
+-- -   EC2 @TerminateInstances@ API call
 --
--- -   Event bus in a different Amazon Web Services account or Region.
+-- -   ECS task
 --
---     You can use an event bus in the US East (N. Virginia) us-east-1, US
---     West (Oregon) us-west-2, or Europe (Ireland) eu-west-1 Regions as a
---     target for a rule.
+-- -   <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html Event bus in a different account or Region>
 --
--- -   Firehose delivery stream (Kinesis Data Firehose)
+-- -   <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html Event bus in the same account and Region>
 --
--- -   Inspector assessment template (Amazon Inspector)
+-- -   Firehose delivery stream
 --
--- -   Kinesis stream (Kinesis Data Stream)
+-- -   Glue workflow
+--
+-- -   <https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge Incident Manager response plan>
+--
+-- -   Inspector assessment template
+--
+-- -   Kinesis stream
 --
 -- -   Lambda function
 --
--- -   Redshift clusters (Data API statement execution)
+-- -   Redshift cluster
 --
--- -   Amazon SNS topic
+-- -   SageMaker Pipeline
 --
--- -   Amazon SQS queues (includes FIFO queues
+-- -   SNS topic
 --
--- -   SSM Automation
+-- -   SQS queue
 --
--- -   SSM OpsItem
+-- -   Step Functions state machine
 --
--- -   SSM Run Command
+-- -   Systems Manager Automation
 --
--- -   Step Functions state machines
+-- -   Systems Manager OpsItem
+--
+-- -   Systems Manager Run Command
 --
 -- Creating rules with built-in targets is supported only in the Amazon Web
 -- Services Management Console. The built-in targets are

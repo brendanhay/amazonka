@@ -107,6 +107,12 @@ module Amazonka.CloudWatchEvents
     CreateConnectionResponse (CreateConnectionResponse'),
     newCreateConnectionResponse,
 
+    -- ** CreateEndpoint
+    CreateEndpoint (CreateEndpoint'),
+    newCreateEndpoint,
+    CreateEndpointResponse (CreateEndpointResponse'),
+    newCreateEndpointResponse,
+
     -- ** CreateEventBus
     CreateEventBus (CreateEventBus'),
     newCreateEventBus,
@@ -149,6 +155,12 @@ module Amazonka.CloudWatchEvents
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
 
+    -- ** DeleteEndpoint
+    DeleteEndpoint (DeleteEndpoint'),
+    newDeleteEndpoint,
+    DeleteEndpointResponse (DeleteEndpointResponse'),
+    newDeleteEndpointResponse,
+
     -- ** DeleteEventBus
     DeleteEventBus (DeleteEventBus'),
     newDeleteEventBus,
@@ -184,6 +196,12 @@ module Amazonka.CloudWatchEvents
     newDescribeConnection,
     DescribeConnectionResponse (DescribeConnectionResponse'),
     newDescribeConnectionResponse,
+
+    -- ** DescribeEndpoint
+    DescribeEndpoint (DescribeEndpoint'),
+    newDescribeEndpoint,
+    DescribeEndpointResponse (DescribeEndpointResponse'),
+    newDescribeEndpointResponse,
 
     -- ** DescribeEventBus
     DescribeEventBus (DescribeEventBus'),
@@ -244,6 +262,12 @@ module Amazonka.CloudWatchEvents
     newListConnections,
     ListConnectionsResponse (ListConnectionsResponse'),
     newListConnectionsResponse,
+
+    -- ** ListEndpoints
+    ListEndpoints (ListEndpoints'),
+    newListEndpoints,
+    ListEndpointsResponse (ListEndpointsResponse'),
+    newListEndpointsResponse,
 
     -- ** ListEventBuses
     ListEventBuses (ListEventBuses'),
@@ -383,6 +407,12 @@ module Amazonka.CloudWatchEvents
     UpdateConnectionResponse (UpdateConnectionResponse'),
     newUpdateConnectionResponse,
 
+    -- ** UpdateEndpoint
+    UpdateEndpoint (UpdateEndpoint'),
+    newUpdateEndpoint,
+    UpdateEndpointResponse (UpdateEndpointResponse'),
+    newUpdateEndpointResponse,
+
     -- * Types
 
     -- ** ApiDestinationHttpMethod
@@ -406,6 +436,9 @@ module Amazonka.CloudWatchEvents
     -- ** ConnectionState
     ConnectionState (..),
 
+    -- ** EndpointState
+    EndpointState (..),
+
     -- ** EventSourceState
     EventSourceState (..),
 
@@ -423,6 +456,9 @@ module Amazonka.CloudWatchEvents
 
     -- ** ReplayState
     ReplayState (..),
+
+    -- ** ReplicationState
+    ReplicationState (..),
 
     -- ** RuleState
     RuleState (..),
@@ -527,6 +563,14 @@ module Amazonka.CloudWatchEvents
     EcsParameters (EcsParameters'),
     newEcsParameters,
 
+    -- ** Endpoint
+    Endpoint (Endpoint'),
+    newEndpoint,
+
+    -- ** EndpointEventBus
+    EndpointEventBus (EndpointEventBus'),
+    newEndpointEventBus,
+
     -- ** EventBus
     EventBus (EventBus'),
     newEventBus,
@@ -534,6 +578,10 @@ module Amazonka.CloudWatchEvents
     -- ** EventSource
     EventSource (EventSource'),
     newEventSource,
+
+    -- ** FailoverConfig
+    FailoverConfig (FailoverConfig'),
+    newFailoverConfig,
 
     -- ** HttpParameters
     HttpParameters (HttpParameters'),
@@ -566,6 +614,10 @@ module Amazonka.CloudWatchEvents
     -- ** PlacementStrategy
     PlacementStrategy (PlacementStrategy'),
     newPlacementStrategy,
+
+    -- ** Primary
+    Primary (Primary'),
+    newPrimary,
 
     -- ** PutEventsRequestEntry
     PutEventsRequestEntry (PutEventsRequestEntry'),
@@ -603,9 +655,17 @@ module Amazonka.CloudWatchEvents
     ReplayDestination (ReplayDestination'),
     newReplayDestination,
 
+    -- ** ReplicationConfig
+    ReplicationConfig (ReplicationConfig'),
+    newReplicationConfig,
+
     -- ** RetryPolicy
     RetryPolicy (RetryPolicy'),
     newRetryPolicy,
+
+    -- ** RoutingConfig
+    RoutingConfig (RoutingConfig'),
+    newRoutingConfig,
 
     -- ** Rule
     Rule (Rule'),
@@ -626,6 +686,10 @@ module Amazonka.CloudWatchEvents
     -- ** SageMakerPipelineParameters
     SageMakerPipelineParameters (SageMakerPipelineParameters'),
     newSageMakerPipelineParameters,
+
+    -- ** Secondary
+    Secondary (Secondary'),
+    newSecondary,
 
     -- ** SqsParameters
     SqsParameters (SqsParameters'),
@@ -666,6 +730,7 @@ import Amazonka.CloudWatchEvents.CancelReplay
 import Amazonka.CloudWatchEvents.CreateApiDestination
 import Amazonka.CloudWatchEvents.CreateArchive
 import Amazonka.CloudWatchEvents.CreateConnection
+import Amazonka.CloudWatchEvents.CreateEndpoint
 import Amazonka.CloudWatchEvents.CreateEventBus
 import Amazonka.CloudWatchEvents.CreatePartnerEventSource
 import Amazonka.CloudWatchEvents.DeactivateEventSource
@@ -673,12 +738,14 @@ import Amazonka.CloudWatchEvents.DeauthorizeConnection
 import Amazonka.CloudWatchEvents.DeleteApiDestination
 import Amazonka.CloudWatchEvents.DeleteArchive
 import Amazonka.CloudWatchEvents.DeleteConnection
+import Amazonka.CloudWatchEvents.DeleteEndpoint
 import Amazonka.CloudWatchEvents.DeleteEventBus
 import Amazonka.CloudWatchEvents.DeletePartnerEventSource
 import Amazonka.CloudWatchEvents.DeleteRule
 import Amazonka.CloudWatchEvents.DescribeApiDestination
 import Amazonka.CloudWatchEvents.DescribeArchive
 import Amazonka.CloudWatchEvents.DescribeConnection
+import Amazonka.CloudWatchEvents.DescribeEndpoint
 import Amazonka.CloudWatchEvents.DescribeEventBus
 import Amazonka.CloudWatchEvents.DescribeEventSource
 import Amazonka.CloudWatchEvents.DescribePartnerEventSource
@@ -690,6 +757,7 @@ import Amazonka.CloudWatchEvents.Lens
 import Amazonka.CloudWatchEvents.ListApiDestinations
 import Amazonka.CloudWatchEvents.ListArchives
 import Amazonka.CloudWatchEvents.ListConnections
+import Amazonka.CloudWatchEvents.ListEndpoints
 import Amazonka.CloudWatchEvents.ListEventBuses
 import Amazonka.CloudWatchEvents.ListEventSources
 import Amazonka.CloudWatchEvents.ListPartnerEventSourceAccounts
@@ -714,6 +782,7 @@ import Amazonka.CloudWatchEvents.UntagResource
 import Amazonka.CloudWatchEvents.UpdateApiDestination
 import Amazonka.CloudWatchEvents.UpdateArchive
 import Amazonka.CloudWatchEvents.UpdateConnection
+import Amazonka.CloudWatchEvents.UpdateEndpoint
 import Amazonka.CloudWatchEvents.Waiters
 
 -- $errors

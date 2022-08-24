@@ -22,12 +22,15 @@
 --
 -- Sends custom events to Amazon EventBridge so that they can be matched to
 -- rules.
+--
+-- PutEvents will only process nested JSON up to 1100 levels deep.
 module Amazonka.CloudWatchEvents.PutEvents
   ( -- * Creating a Request
     PutEvents (..),
     newPutEvents,
 
     -- * Request Lenses
+    putEvents_endpointId,
     putEvents_entries,
 
     -- * Destructuring the Response
@@ -50,7 +53,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPutEvents' smart constructor.
 data PutEvents = PutEvents'
-  { -- | The entry that defines an event in your system. You can specify several
+  { -- | The URL subdomain of the endpoint. For example, if the URL for Endpoint
+    -- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
+    -- @abcde.veo@.
+    --
+    -- When using Java, you must include @auth-crt@ on the class path.
+    endpointId :: Prelude.Maybe Prelude.Text,
+    -- | The entry that defines an event in your system. You can specify several
     -- parameters for the entry such as the source and type of the event,
     -- resources associated with the event, and so on.
     entries :: Prelude.NonEmpty PutEventsRequestEntry
@@ -65,6 +74,12 @@ data PutEvents = PutEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'endpointId', 'putEvents_endpointId' - The URL subdomain of the endpoint. For example, if the URL for Endpoint
+-- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
+-- @abcde.veo@.
+--
+-- When using Java, you must include @auth-crt@ on the class path.
+--
 -- 'entries', 'putEvents_entries' - The entry that defines an event in your system. You can specify several
 -- parameters for the entry such as the source and type of the event,
 -- resources associated with the event, and so on.
@@ -73,7 +88,18 @@ newPutEvents ::
   Prelude.NonEmpty PutEventsRequestEntry ->
   PutEvents
 newPutEvents pEntries_ =
-  PutEvents' {entries = Lens.coerced Lens.# pEntries_}
+  PutEvents'
+    { endpointId = Prelude.Nothing,
+      entries = Lens.coerced Lens.# pEntries_
+    }
+
+-- | The URL subdomain of the endpoint. For example, if the URL for Endpoint
+-- is abcde.veo.endpoints.event.amazonaws.com, then the EndpointId is
+-- @abcde.veo@.
+--
+-- When using Java, you must include @auth-crt@ on the class path.
+putEvents_endpointId :: Lens.Lens' PutEvents (Prelude.Maybe Prelude.Text)
+putEvents_endpointId = Lens.lens (\PutEvents' {endpointId} -> endpointId) (\s@PutEvents' {} a -> s {endpointId = a} :: PutEvents)
 
 -- | The entry that defines an event in your system. You can specify several
 -- parameters for the entry such as the source and type of the event,
@@ -95,10 +121,13 @@ instance Core.AWSRequest PutEvents where
 
 instance Prelude.Hashable PutEvents where
   hashWithSalt _salt PutEvents' {..} =
-    _salt `Prelude.hashWithSalt` entries
+    _salt `Prelude.hashWithSalt` endpointId
+      `Prelude.hashWithSalt` entries
 
 instance Prelude.NFData PutEvents where
-  rnf PutEvents' {..} = Prelude.rnf entries
+  rnf PutEvents' {..} =
+    Prelude.rnf endpointId
+      `Prelude.seq` Prelude.rnf entries
 
 instance Core.ToHeaders PutEvents where
   toHeaders =
@@ -117,7 +146,9 @@ instance Core.ToJSON PutEvents where
   toJSON PutEvents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Entries" Core..= entries)]
+          [ ("EndpointId" Core..=) Prelude.<$> endpointId,
+            Prelude.Just ("Entries" Core..= entries)
+          ]
       )
 
 instance Core.ToPath PutEvents where

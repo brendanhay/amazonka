@@ -118,7 +118,9 @@ data Target = Target'
     -- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
     -- queue events to.
     deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
-    -- | The ID of the target. We recommend using a memorable and unique string.
+    -- | The ID of the target within the specified rule. Use this ID to reference
+    -- the target when updating the rule. We recommend using a memorable and
+    -- unique string.
     id :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target.
     arn :: Prelude.Text
@@ -203,7 +205,9 @@ data Target = Target'
 -- 'deadLetterConfig', 'target_deadLetterConfig' - The @DeadLetterConfig@ that defines the target queue to send dead-letter
 -- queue events to.
 --
--- 'id', 'target_id' - The ID of the target. We recommend using a memorable and unique string.
+-- 'id', 'target_id' - The ID of the target within the specified rule. Use this ID to reference
+-- the target when updating the rule. We recommend using a memorable and
+-- unique string.
 --
 -- 'arn', 'target_arn' - The Amazon Resource Name (ARN) of the target.
 newTarget ::
@@ -330,7 +334,9 @@ target_retryPolicy = Lens.lens (\Target' {retryPolicy} -> retryPolicy) (\s@Targe
 target_deadLetterConfig :: Lens.Lens' Target (Prelude.Maybe DeadLetterConfig)
 target_deadLetterConfig = Lens.lens (\Target' {deadLetterConfig} -> deadLetterConfig) (\s@Target' {} a -> s {deadLetterConfig = a} :: Target)
 
--- | The ID of the target. We recommend using a memorable and unique string.
+-- | The ID of the target within the specified rule. Use this ID to reference
+-- the target when updating the rule. We recommend using a memorable and
+-- unique string.
 target_id :: Lens.Lens' Target Prelude.Text
 target_id = Lens.lens (\Target' {id} -> id) (\s@Target' {} a -> s {id = a} :: Target)
 

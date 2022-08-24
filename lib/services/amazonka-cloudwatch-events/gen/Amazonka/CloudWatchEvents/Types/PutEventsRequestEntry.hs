@@ -33,6 +33,11 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
     -- | The name or ARN of the event bus to receive the event. Only the rules
     -- that are associated with this event bus are used to match the event. If
     -- you omit this, the default event bus is used.
+    --
+    -- If you\'re using a global endpoint with a custom bus, you must enter the
+    -- name, not the ARN, of the event bus in either the primary or secondary
+    -- Region here and the corresponding event bus in the other Region will be
+    -- determined based on the endpoint referenced by the @EndpointId@.
     eventBusName :: Prelude.Maybe Prelude.Text,
     -- | The time stamp of the event, per
     -- <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no time stamp
@@ -46,14 +51,14 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
     -- which the event primarily concerns. Any number, including zero, may be
     -- present.
     resources :: Prelude.Maybe [Prelude.Text],
-    -- | An X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that
+    -- | An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that
     -- contains the trace-id associated with the event.
     --
     -- To learn more about X-Ray trace headers, see
     -- <https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader Tracing header>
     -- in the X-Ray Developer Guide.
     traceHeader :: Prelude.Maybe Prelude.Text,
-    -- | A valid JSON string. There is no other schema imposed. The JSON string
+    -- | A valid JSON object. There is no other schema imposed. The JSON object
     -- may contain fields and nested subobjects.
     detail :: Prelude.Maybe Prelude.Text
   }
@@ -74,6 +79,11 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
 -- that are associated with this event bus are used to match the event. If
 -- you omit this, the default event bus is used.
 --
+-- If you\'re using a global endpoint with a custom bus, you must enter the
+-- name, not the ARN, of the event bus in either the primary or secondary
+-- Region here and the corresponding event bus in the other Region will be
+-- determined based on the endpoint referenced by the @EndpointId@.
+--
 -- 'time', 'putEventsRequestEntry_time' - The time stamp of the event, per
 -- <https://www.rfc-editor.org/rfc/rfc3339.txt RFC3339>. If no time stamp
 -- is provided, the time stamp of the
@@ -86,14 +96,14 @@ data PutEventsRequestEntry = PutEventsRequestEntry'
 -- which the event primarily concerns. Any number, including zero, may be
 -- present.
 --
--- 'traceHeader', 'putEventsRequestEntry_traceHeader' - An X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that
+-- 'traceHeader', 'putEventsRequestEntry_traceHeader' - An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that
 -- contains the trace-id associated with the event.
 --
 -- To learn more about X-Ray trace headers, see
 -- <https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader Tracing header>
 -- in the X-Ray Developer Guide.
 --
--- 'detail', 'putEventsRequestEntry_detail' - A valid JSON string. There is no other schema imposed. The JSON string
+-- 'detail', 'putEventsRequestEntry_detail' - A valid JSON object. There is no other schema imposed. The JSON object
 -- may contain fields and nested subobjects.
 newPutEventsRequestEntry ::
   PutEventsRequestEntry
@@ -117,6 +127,11 @@ putEventsRequestEntry_detailType = Lens.lens (\PutEventsRequestEntry' {detailTyp
 -- | The name or ARN of the event bus to receive the event. Only the rules
 -- that are associated with this event bus are used to match the event. If
 -- you omit this, the default event bus is used.
+--
+-- If you\'re using a global endpoint with a custom bus, you must enter the
+-- name, not the ARN, of the event bus in either the primary or secondary
+-- Region here and the corresponding event bus in the other Region will be
+-- determined based on the endpoint referenced by the @EndpointId@.
 putEventsRequestEntry_eventBusName :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_eventBusName = Lens.lens (\PutEventsRequestEntry' {eventBusName} -> eventBusName) (\s@PutEventsRequestEntry' {} a -> s {eventBusName = a} :: PutEventsRequestEntry)
 
@@ -138,7 +153,7 @@ putEventsRequestEntry_source = Lens.lens (\PutEventsRequestEntry' {source} -> so
 putEventsRequestEntry_resources :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe [Prelude.Text])
 putEventsRequestEntry_resources = Lens.lens (\PutEventsRequestEntry' {resources} -> resources) (\s@PutEventsRequestEntry' {} a -> s {resources = a} :: PutEventsRequestEntry) Prelude.. Lens.mapping Lens.coerced
 
--- | An X-Ray trade header, which is an http header (X-Amzn-Trace-Id) that
+-- | An X-Ray trace header, which is an http header (X-Amzn-Trace-Id) that
 -- contains the trace-id associated with the event.
 --
 -- To learn more about X-Ray trace headers, see
@@ -147,7 +162,7 @@ putEventsRequestEntry_resources = Lens.lens (\PutEventsRequestEntry' {resources}
 putEventsRequestEntry_traceHeader :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_traceHeader = Lens.lens (\PutEventsRequestEntry' {traceHeader} -> traceHeader) (\s@PutEventsRequestEntry' {} a -> s {traceHeader = a} :: PutEventsRequestEntry)
 
--- | A valid JSON string. There is no other schema imposed. The JSON string
+-- | A valid JSON object. There is no other schema imposed. The JSON object
 -- may contain fields and nested subobjects.
 putEventsRequestEntry_detail :: Lens.Lens' PutEventsRequestEntry (Prelude.Maybe Prelude.Text)
 putEventsRequestEntry_detail = Lens.lens (\PutEventsRequestEntry' {detail} -> detail) (\s@PutEventsRequestEntry' {} a -> s {detail = a} :: PutEventsRequestEntry)

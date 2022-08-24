@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestCreateConnection $
 --             newCreateConnection
 --
+--         , requestCreateEndpoint $
+--             newCreateEndpoint
+--
 --         , requestCreateEventBus $
 --             newCreateEventBus
 --
@@ -63,6 +66,9 @@ import Test.Tasty
 --         , requestDeleteConnection $
 --             newDeleteConnection
 --
+--         , requestDeleteEndpoint $
+--             newDeleteEndpoint
+--
 --         , requestDeleteEventBus $
 --             newDeleteEventBus
 --
@@ -80,6 +86,9 @@ import Test.Tasty
 --
 --         , requestDescribeConnection $
 --             newDescribeConnection
+--
+--         , requestDescribeEndpoint $
+--             newDescribeEndpoint
 --
 --         , requestDescribeEventBus $
 --             newDescribeEventBus
@@ -110,6 +119,9 @@ import Test.Tasty
 --
 --         , requestListConnections $
 --             newListConnections
+--
+--         , requestListEndpoints $
+--             newListEndpoints
 --
 --         , requestListEventBuses $
 --             newListEventBuses
@@ -180,6 +192,9 @@ import Test.Tasty
 --         , requestUpdateConnection $
 --             newUpdateConnection
 --
+--         , requestUpdateEndpoint $
+--             newUpdateEndpoint
+--
 --           ]
 
 --     , testGroup "response"
@@ -197,6 +212,9 @@ import Test.Tasty
 --
 --         , responseCreateConnection $
 --             newCreateConnectionResponse
+--
+--         , responseCreateEndpoint $
+--             newCreateEndpointResponse
 --
 --         , responseCreateEventBus $
 --             newCreateEventBusResponse
@@ -219,6 +237,9 @@ import Test.Tasty
 --         , responseDeleteConnection $
 --             newDeleteConnectionResponse
 --
+--         , responseDeleteEndpoint $
+--             newDeleteEndpointResponse
+--
 --         , responseDeleteEventBus $
 --             newDeleteEventBusResponse
 --
@@ -236,6 +257,9 @@ import Test.Tasty
 --
 --         , responseDescribeConnection $
 --             newDescribeConnectionResponse
+--
+--         , responseDescribeEndpoint $
+--             newDescribeEndpointResponse
 --
 --         , responseDescribeEventBus $
 --             newDescribeEventBusResponse
@@ -266,6 +290,9 @@ import Test.Tasty
 --
 --         , responseListConnections $
 --             newListConnectionsResponse
+--
+--         , responseListEndpoints $
+--             newListEndpointsResponse
 --
 --         , responseListEventBuses $
 --             newListEventBusesResponse
@@ -336,6 +363,9 @@ import Test.Tasty
 --         , responseUpdateConnection $
 --             newUpdateConnectionResponse
 --
+--         , responseUpdateEndpoint $
+--             newUpdateEndpointResponse
+--
 --           ]
 --     ]
 
@@ -370,6 +400,12 @@ requestCreateConnection =
   req
     "CreateConnection"
     "fixture/CreateConnection.yaml"
+
+requestCreateEndpoint :: CreateEndpoint -> TestTree
+requestCreateEndpoint =
+  req
+    "CreateEndpoint"
+    "fixture/CreateEndpoint.yaml"
 
 requestCreateEventBus :: CreateEventBus -> TestTree
 requestCreateEventBus =
@@ -413,6 +449,12 @@ requestDeleteConnection =
     "DeleteConnection"
     "fixture/DeleteConnection.yaml"
 
+requestDeleteEndpoint :: DeleteEndpoint -> TestTree
+requestDeleteEndpoint =
+  req
+    "DeleteEndpoint"
+    "fixture/DeleteEndpoint.yaml"
+
 requestDeleteEventBus :: DeleteEventBus -> TestTree
 requestDeleteEventBus =
   req
@@ -448,6 +490,12 @@ requestDescribeConnection =
   req
     "DescribeConnection"
     "fixture/DescribeConnection.yaml"
+
+requestDescribeEndpoint :: DescribeEndpoint -> TestTree
+requestDescribeEndpoint =
+  req
+    "DescribeEndpoint"
+    "fixture/DescribeEndpoint.yaml"
 
 requestDescribeEventBus :: DescribeEventBus -> TestTree
 requestDescribeEventBus =
@@ -508,6 +556,12 @@ requestListConnections =
   req
     "ListConnections"
     "fixture/ListConnections.yaml"
+
+requestListEndpoints :: ListEndpoints -> TestTree
+requestListEndpoints =
+  req
+    "ListEndpoints"
+    "fixture/ListEndpoints.yaml"
 
 requestListEventBuses :: ListEventBuses -> TestTree
 requestListEventBuses =
@@ -647,6 +701,12 @@ requestUpdateConnection =
     "UpdateConnection"
     "fixture/UpdateConnection.yaml"
 
+requestUpdateEndpoint :: UpdateEndpoint -> TestTree
+requestUpdateEndpoint =
+  req
+    "UpdateEndpoint"
+    "fixture/UpdateEndpoint.yaml"
+
 -- Responses
 
 responseActivateEventSource :: ActivateEventSourceResponse -> TestTree
@@ -688,6 +748,14 @@ responseCreateConnection =
     "fixture/CreateConnectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateConnection)
+
+responseCreateEndpoint :: CreateEndpointResponse -> TestTree
+responseCreateEndpoint =
+  res
+    "CreateEndpointResponse"
+    "fixture/CreateEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEndpoint)
 
 responseCreateEventBus :: CreateEventBusResponse -> TestTree
 responseCreateEventBus =
@@ -745,6 +813,14 @@ responseDeleteConnection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteConnection)
 
+responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
+responseDeleteEndpoint =
+  res
+    "DeleteEndpointResponse"
+    "fixture/DeleteEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEndpoint)
+
 responseDeleteEventBus :: DeleteEventBusResponse -> TestTree
 responseDeleteEventBus =
   res
@@ -792,6 +868,14 @@ responseDescribeConnection =
     "fixture/DescribeConnectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeConnection)
+
+responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
+responseDescribeEndpoint =
+  res
+    "DescribeEndpointResponse"
+    "fixture/DescribeEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEndpoint)
 
 responseDescribeEventBus :: DescribeEventBusResponse -> TestTree
 responseDescribeEventBus =
@@ -872,6 +956,14 @@ responseListConnections =
     "fixture/ListConnectionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListConnections)
+
+responseListEndpoints :: ListEndpointsResponse -> TestTree
+responseListEndpoints =
+  res
+    "ListEndpointsResponse"
+    "fixture/ListEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEndpoints)
 
 responseListEventBuses :: ListEventBusesResponse -> TestTree
 responseListEventBuses =
@@ -1056,3 +1148,11 @@ responseUpdateConnection =
     "fixture/UpdateConnectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateConnection)
+
+responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
+responseUpdateEndpoint =
+  res
+    "UpdateEndpointResponse"
+    "fixture/UpdateEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEndpoint)

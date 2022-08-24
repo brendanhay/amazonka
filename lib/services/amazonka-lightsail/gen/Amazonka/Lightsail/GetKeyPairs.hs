@@ -29,6 +29,7 @@ module Amazonka.Lightsail.GetKeyPairs
     newGetKeyPairs,
 
     -- * Request Lenses
+    getKeyPairs_includeDefaultKeyPair,
     getKeyPairs_pageToken,
 
     -- * Destructuring the Response
@@ -51,7 +52,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetKeyPairs' smart constructor.
 data GetKeyPairs = GetKeyPairs'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | A Boolean value that indicates whether to include the default key pair
+    -- in the response of your request.
+    includeDefaultKeyPair :: Prelude.Maybe Prelude.Bool,
+    -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetKeyPairs@ request. If your
     -- results are paginated, the response will return a next page token that
@@ -68,6 +72,9 @@ data GetKeyPairs = GetKeyPairs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'includeDefaultKeyPair', 'getKeyPairs_includeDefaultKeyPair' - A Boolean value that indicates whether to include the default key pair
+-- in the response of your request.
+--
 -- 'pageToken', 'getKeyPairs_pageToken' - The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetKeyPairs@ request. If your
@@ -76,7 +83,16 @@ data GetKeyPairs = GetKeyPairs'
 newGetKeyPairs ::
   GetKeyPairs
 newGetKeyPairs =
-  GetKeyPairs' {pageToken = Prelude.Nothing}
+  GetKeyPairs'
+    { includeDefaultKeyPair =
+        Prelude.Nothing,
+      pageToken = Prelude.Nothing
+    }
+
+-- | A Boolean value that indicates whether to include the default key pair
+-- in the response of your request.
+getKeyPairs_includeDefaultKeyPair :: Lens.Lens' GetKeyPairs (Prelude.Maybe Prelude.Bool)
+getKeyPairs_includeDefaultKeyPair = Lens.lens (\GetKeyPairs' {includeDefaultKeyPair} -> includeDefaultKeyPair) (\s@GetKeyPairs' {} a -> s {includeDefaultKeyPair = a} :: GetKeyPairs)
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -121,10 +137,13 @@ instance Core.AWSRequest GetKeyPairs where
 
 instance Prelude.Hashable GetKeyPairs where
   hashWithSalt _salt GetKeyPairs' {..} =
-    _salt `Prelude.hashWithSalt` pageToken
+    _salt `Prelude.hashWithSalt` includeDefaultKeyPair
+      `Prelude.hashWithSalt` pageToken
 
 instance Prelude.NFData GetKeyPairs where
-  rnf GetKeyPairs' {..} = Prelude.rnf pageToken
+  rnf GetKeyPairs' {..} =
+    Prelude.rnf includeDefaultKeyPair
+      `Prelude.seq` Prelude.rnf pageToken
 
 instance Core.ToHeaders GetKeyPairs where
   toHeaders =
@@ -145,7 +164,10 @@ instance Core.ToJSON GetKeyPairs where
   toJSON GetKeyPairs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("pageToken" Core..=) Prelude.<$> pageToken]
+          [ ("includeDefaultKeyPair" Core..=)
+              Prelude.<$> includeDefaultKeyPair,
+            ("pageToken" Core..=) Prelude.<$> pageToken
+          ]
       )
 
 instance Core.ToPath GetKeyPairs where

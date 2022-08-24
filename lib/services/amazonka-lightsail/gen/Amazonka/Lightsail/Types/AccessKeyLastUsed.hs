@@ -26,7 +26,8 @@ import qualified Amazonka.Prelude as Prelude
 -- | Describes the last time an access key was used.
 --
 -- This object does not include data in the response of a
--- CreateBucketAccessKey action.
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateBucketAccessKey.html CreateBucketAccessKey>
+-- action.
 --
 -- /See:/ 'newAccessKeyLastUsed' smart constructor.
 data AccessKeyLastUsed = AccessKeyLastUsed'

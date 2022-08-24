@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 -- | Describes the origin resource of an Amazon Lightsail content delivery
 -- network (CDN) distribution.
 --
--- An origin can be a Lightsail instance or load balancer. A distribution
--- pulls content from an origin, caches it, and serves it to viewers via a
--- worldwide network of edge servers.
+-- An origin can be a Lightsail instance, bucket, or load balancer. A
+-- distribution pulls content from an origin, caches it, and serves it to
+-- viewers via a worldwide network of edge servers.
 --
 -- /See:/ 'newOrigin' smart constructor.
 data Origin = Origin'

@@ -23,7 +23,8 @@
 -- Deletes a Amazon Lightsail bucket.
 --
 -- When you delete your bucket, the bucket name is released and can be
--- reused for a new bucket in your account or another AWS account.
+-- reused for a new bucket in your account or another Amazon Web Services
+-- account.
 module Amazonka.Lightsail.DeleteBucket
   ( -- * Creating a Request
     DeleteBucket (..),
@@ -60,7 +61,8 @@ data DeleteBucket = DeleteBucket'
     -- -   The bucket is the origin of a distribution.
     --
     -- -   The bucket has instances that were granted access to it using the
-    --     SetResourceAccessForBucket action.
+    --     <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+    --     action.
     --
     -- -   The bucket has objects.
     --
@@ -72,8 +74,9 @@ data DeleteBucket = DeleteBucket'
     forceDelete :: Prelude.Maybe Prelude.Bool,
     -- | The name of the bucket to delete.
     --
-    -- Use the GetBuckets action to get a list of bucket names that you can
-    -- specify.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html GetBuckets>
+    -- action to get a list of bucket names that you can specify.
     bucketName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,7 +97,8 @@ data DeleteBucket = DeleteBucket'
 -- -   The bucket is the origin of a distribution.
 --
 -- -   The bucket has instances that were granted access to it using the
---     SetResourceAccessForBucket action.
+--     <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+--     action.
 --
 -- -   The bucket has objects.
 --
@@ -106,8 +110,9 @@ data DeleteBucket = DeleteBucket'
 --
 -- 'bucketName', 'deleteBucket_bucketName' - The name of the bucket to delete.
 --
--- Use the GetBuckets action to get a list of bucket names that you can
--- specify.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html GetBuckets>
+-- action to get a list of bucket names that you can specify.
 newDeleteBucket ::
   -- | 'bucketName'
   Prelude.Text ->
@@ -126,7 +131,8 @@ newDeleteBucket pBucketName_ =
 -- -   The bucket is the origin of a distribution.
 --
 -- -   The bucket has instances that were granted access to it using the
---     SetResourceAccessForBucket action.
+--     <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+--     action.
 --
 -- -   The bucket has objects.
 --
@@ -140,8 +146,9 @@ deleteBucket_forceDelete = Lens.lens (\DeleteBucket' {forceDelete} -> forceDelet
 
 -- | The name of the bucket to delete.
 --
--- Use the GetBuckets action to get a list of bucket names that you can
--- specify.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html GetBuckets>
+-- action to get a list of bucket names that you can specify.
 deleteBucket_bucketName :: Lens.Lens' DeleteBucket Prelude.Text
 deleteBucket_bucketName = Lens.lens (\DeleteBucket' {bucketName} -> bucketName) (\s@DeleteBucket' {} a -> s {bucketName = a} :: DeleteBucket)
 

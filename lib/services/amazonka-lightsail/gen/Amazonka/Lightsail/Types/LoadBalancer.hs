@@ -44,6 +44,9 @@ data LoadBalancer = LoadBalancer'
     resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the load balancer (e.g., @my-load-balancer@).
     name :: Prelude.Maybe Prelude.Text,
+    -- | A Boolean value that indicates whether HTTPS redirection is enabled for
+    -- the load balancer.
+    httpsRedirectionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The path you specified to perform your health checks. If no path is
     -- specified, the load balancer tries to make a request to the default
     -- (root) page.
@@ -90,7 +93,9 @@ data LoadBalancer = LoadBalancer'
     -- and IPv6.
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The date when your load balancer was created.
-    createdAt :: Prelude.Maybe Core.POSIX
+    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The name of the TLS security policy for the load balancer.
+    tlsPolicyName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -109,6 +114,9 @@ data LoadBalancer = LoadBalancer'
 -- 'resourceType', 'loadBalancer_resourceType' - The resource type (e.g., @LoadBalancer@.
 --
 -- 'name', 'loadBalancer_name' - The name of the load balancer (e.g., @my-load-balancer@).
+--
+-- 'httpsRedirectionEnabled', 'loadBalancer_httpsRedirectionEnabled' - A Boolean value that indicates whether HTTPS redirection is enabled for
+-- the load balancer.
 --
 -- 'healthCheckPath', 'loadBalancer_healthCheckPath' - The path you specified to perform your health checks. If no path is
 -- specified, the load balancer tries to make a request to the default
@@ -156,6 +164,8 @@ data LoadBalancer = LoadBalancer'
 -- and IPv6.
 --
 -- 'createdAt', 'loadBalancer_createdAt' - The date when your load balancer was created.
+--
+-- 'tlsPolicyName', 'loadBalancer_tlsPolicyName' - The name of the TLS security policy for the load balancer.
 newLoadBalancer ::
   LoadBalancer
 newLoadBalancer =
@@ -163,6 +173,7 @@ newLoadBalancer =
     { tags = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
+      httpsRedirectionEnabled = Prelude.Nothing,
       healthCheckPath = Prelude.Nothing,
       instanceHealthSummary = Prelude.Nothing,
       configurationOptions = Prelude.Nothing,
@@ -176,7 +187,8 @@ newLoadBalancer =
       dnsName = Prelude.Nothing,
       supportCode = Prelude.Nothing,
       ipAddressType = Prelude.Nothing,
-      createdAt = Prelude.Nothing
+      createdAt = Prelude.Nothing,
+      tlsPolicyName = Prelude.Nothing
     }
 
 -- | The tag keys and optional values for the resource. For more information
@@ -192,6 +204,11 @@ loadBalancer_resourceType = Lens.lens (\LoadBalancer' {resourceType} -> resource
 -- | The name of the load balancer (e.g., @my-load-balancer@).
 loadBalancer_name :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
 loadBalancer_name = Lens.lens (\LoadBalancer' {name} -> name) (\s@LoadBalancer' {} a -> s {name = a} :: LoadBalancer)
+
+-- | A Boolean value that indicates whether HTTPS redirection is enabled for
+-- the load balancer.
+loadBalancer_httpsRedirectionEnabled :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Bool)
+loadBalancer_httpsRedirectionEnabled = Lens.lens (\LoadBalancer' {httpsRedirectionEnabled} -> httpsRedirectionEnabled) (\s@LoadBalancer' {} a -> s {httpsRedirectionEnabled = a} :: LoadBalancer)
 
 -- | The path you specified to perform your health checks. If no path is
 -- specified, the load balancer tries to make a request to the default
@@ -268,6 +285,10 @@ loadBalancer_ipAddressType = Lens.lens (\LoadBalancer' {ipAddressType} -> ipAddr
 loadBalancer_createdAt :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.UTCTime)
 loadBalancer_createdAt = Lens.lens (\LoadBalancer' {createdAt} -> createdAt) (\s@LoadBalancer' {} a -> s {createdAt = a} :: LoadBalancer) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the TLS security policy for the load balancer.
+loadBalancer_tlsPolicyName :: Lens.Lens' LoadBalancer (Prelude.Maybe Prelude.Text)
+loadBalancer_tlsPolicyName = Lens.lens (\LoadBalancer' {tlsPolicyName} -> tlsPolicyName) (\s@LoadBalancer' {} a -> s {tlsPolicyName = a} :: LoadBalancer)
+
 instance Core.FromJSON LoadBalancer where
   parseJSON =
     Core.withObject
@@ -277,6 +298,7 @@ instance Core.FromJSON LoadBalancer where
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "httpsRedirectionEnabled")
             Prelude.<*> (x Core..:? "healthCheckPath")
             Prelude.<*> ( x Core..:? "instanceHealthSummary"
                             Core..!= Prelude.mempty
@@ -297,6 +319,7 @@ instance Core.FromJSON LoadBalancer where
             Prelude.<*> (x Core..:? "supportCode")
             Prelude.<*> (x Core..:? "ipAddressType")
             Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "tlsPolicyName")
       )
 
 instance Prelude.Hashable LoadBalancer where
@@ -304,6 +327,7 @@ instance Prelude.Hashable LoadBalancer where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` httpsRedirectionEnabled
       `Prelude.hashWithSalt` healthCheckPath
       `Prelude.hashWithSalt` instanceHealthSummary
       `Prelude.hashWithSalt` configurationOptions
@@ -318,12 +342,14 @@ instance Prelude.Hashable LoadBalancer where
       `Prelude.hashWithSalt` supportCode
       `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` createdAt
+      `Prelude.hashWithSalt` tlsPolicyName
 
 instance Prelude.NFData LoadBalancer where
   rnf LoadBalancer' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf httpsRedirectionEnabled
       `Prelude.seq` Prelude.rnf healthCheckPath
       `Prelude.seq` Prelude.rnf instanceHealthSummary
       `Prelude.seq` Prelude.rnf configurationOptions
@@ -338,3 +364,4 @@ instance Prelude.NFData LoadBalancer where
       `Prelude.seq` Prelude.rnf supportCode
       `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf createdAt
+      `Prelude.seq` Prelude.rnf tlsPolicyName

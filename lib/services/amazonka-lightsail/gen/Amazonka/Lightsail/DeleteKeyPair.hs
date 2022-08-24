@@ -20,7 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specific SSH key pair.
+-- Deletes the specified key pair by removing the public key from Amazon
+-- Lightsail.
+--
+-- You can delete key pairs that were created using the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_ImportKeyPair.html ImportKeyPair>
+-- and
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateKeyPair.html CreateKeyPair>
+-- actions, as well as the Lightsail default key pair. A new default key
+-- pair will not be created unless you launch an instance without
+-- specifying a custom key pair, or you call the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_DownloadDefaultKeyPair.html DownloadDefaultKeyPair>
+-- API.
 --
 -- The @delete key pair@ operation supports tag-based access control via
 -- resource tags applied to the resource identified by @key pair name@. For
@@ -32,6 +43,7 @@ module Amazonka.Lightsail.DeleteKeyPair
     newDeleteKeyPair,
 
     -- * Request Lenses
+    deleteKeyPair_expectedFingerprint,
     deleteKeyPair_keyPairName,
 
     -- * Destructuring the Response
@@ -53,7 +65,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteKeyPair' smart constructor.
 data DeleteKeyPair = DeleteKeyPair'
-  { -- | The name of the key pair to delete.
+  { -- | The RSA fingerprint of the Lightsail default key pair to delete.
+    --
+    -- The @expectedFingerprint@ parameter is required only when specifying to
+    -- delete a Lightsail default key pair.
+    expectedFingerprint :: Prelude.Maybe Prelude.Text,
+    -- | The name of the key pair to delete.
     keyPairName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,13 +83,29 @@ data DeleteKeyPair = DeleteKeyPair'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'expectedFingerprint', 'deleteKeyPair_expectedFingerprint' - The RSA fingerprint of the Lightsail default key pair to delete.
+--
+-- The @expectedFingerprint@ parameter is required only when specifying to
+-- delete a Lightsail default key pair.
+--
 -- 'keyPairName', 'deleteKeyPair_keyPairName' - The name of the key pair to delete.
 newDeleteKeyPair ::
   -- | 'keyPairName'
   Prelude.Text ->
   DeleteKeyPair
 newDeleteKeyPair pKeyPairName_ =
-  DeleteKeyPair' {keyPairName = pKeyPairName_}
+  DeleteKeyPair'
+    { expectedFingerprint =
+        Prelude.Nothing,
+      keyPairName = pKeyPairName_
+    }
+
+-- | The RSA fingerprint of the Lightsail default key pair to delete.
+--
+-- The @expectedFingerprint@ parameter is required only when specifying to
+-- delete a Lightsail default key pair.
+deleteKeyPair_expectedFingerprint :: Lens.Lens' DeleteKeyPair (Prelude.Maybe Prelude.Text)
+deleteKeyPair_expectedFingerprint = Lens.lens (\DeleteKeyPair' {expectedFingerprint} -> expectedFingerprint) (\s@DeleteKeyPair' {} a -> s {expectedFingerprint = a} :: DeleteKeyPair)
 
 -- | The name of the key pair to delete.
 deleteKeyPair_keyPairName :: Lens.Lens' DeleteKeyPair Prelude.Text
@@ -93,10 +126,13 @@ instance Core.AWSRequest DeleteKeyPair where
 
 instance Prelude.Hashable DeleteKeyPair where
   hashWithSalt _salt DeleteKeyPair' {..} =
-    _salt `Prelude.hashWithSalt` keyPairName
+    _salt `Prelude.hashWithSalt` expectedFingerprint
+      `Prelude.hashWithSalt` keyPairName
 
 instance Prelude.NFData DeleteKeyPair where
-  rnf DeleteKeyPair' {..} = Prelude.rnf keyPairName
+  rnf DeleteKeyPair' {..} =
+    Prelude.rnf expectedFingerprint
+      `Prelude.seq` Prelude.rnf keyPairName
 
 instance Core.ToHeaders DeleteKeyPair where
   toHeaders =
@@ -117,7 +153,10 @@ instance Core.ToJSON DeleteKeyPair where
   toJSON DeleteKeyPair' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("keyPairName" Core..= keyPairName)]
+          [ ("expectedFingerprint" Core..=)
+              Prelude.<$> expectedFingerprint,
+            Prelude.Just ("keyPairName" Core..= keyPairName)
+          ]
       )
 
 instance Core.ToPath DeleteKeyPair where

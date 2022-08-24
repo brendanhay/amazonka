@@ -49,8 +49,8 @@ data CloudFormationStackRecord = CloudFormationStackRecord'
     -- | A list of objects describing the source of the CloudFormation stack
     -- record.
     sourceInfo :: Prelude.Maybe [CloudFormationStackRecordSourceInfo],
-    -- | A list of objects describing the Availability Zone and AWS Region of the
-    -- CloudFormation stack record.
+    -- | A list of objects describing the Availability Zone and Amazon Web
+    -- Services Region of the CloudFormation stack record.
     location :: Prelude.Maybe ResourceLocation,
     -- | The date when the CloudFormation stack record was created.
     createdAt :: Prelude.Maybe Core.POSIX,
@@ -81,8 +81,8 @@ data CloudFormationStackRecord = CloudFormationStackRecord'
 -- 'sourceInfo', 'cloudFormationStackRecord_sourceInfo' - A list of objects describing the source of the CloudFormation stack
 -- record.
 --
--- 'location', 'cloudFormationStackRecord_location' - A list of objects describing the Availability Zone and AWS Region of the
--- CloudFormation stack record.
+-- 'location', 'cloudFormationStackRecord_location' - A list of objects describing the Availability Zone and Amazon Web
+-- Services Region of the CloudFormation stack record.
 --
 -- 'createdAt', 'cloudFormationStackRecord_createdAt' - The date when the CloudFormation stack record was created.
 --
@@ -126,8 +126,8 @@ cloudFormationStackRecord_state = Lens.lens (\CloudFormationStackRecord' {state}
 cloudFormationStackRecord_sourceInfo :: Lens.Lens' CloudFormationStackRecord (Prelude.Maybe [CloudFormationStackRecordSourceInfo])
 cloudFormationStackRecord_sourceInfo = Lens.lens (\CloudFormationStackRecord' {sourceInfo} -> sourceInfo) (\s@CloudFormationStackRecord' {} a -> s {sourceInfo = a} :: CloudFormationStackRecord) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of objects describing the Availability Zone and AWS Region of the
--- CloudFormation stack record.
+-- | A list of objects describing the Availability Zone and Amazon Web
+-- Services Region of the CloudFormation stack record.
 cloudFormationStackRecord_location :: Lens.Lens' CloudFormationStackRecord (Prelude.Maybe ResourceLocation)
 cloudFormationStackRecord_location = Lens.lens (\CloudFormationStackRecord' {location} -> location) (\s@CloudFormationStackRecord' {} a -> s {location = a} :: CloudFormationStackRecord)
 

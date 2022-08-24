@@ -61,11 +61,12 @@ data LightsailDistribution = LightsailDistribution'
     -- any.
     certificateName :: Prelude.Maybe Prelude.Text,
     -- | An object that describes the location of the distribution, such as the
-    -- AWS Region and Availability Zone.
+    -- Amazon Web Services Region and Availability Zone.
     --
     -- Lightsail distributions are global resources that can reference an
-    -- origin in any AWS Region, and distribute its content globally. However,
-    -- all distributions are located in the @us-east-1@ Region.
+    -- origin in any Amazon Web Services Region, and distribute its content
+    -- globally. However, all distributions are located in the @us-east-1@
+    -- Region.
     location :: Prelude.Maybe ResourceLocation,
     -- | Indicates whether the bundle that is currently applied to your
     -- distribution, specified using the @distributionName@ parameter, can be
@@ -91,7 +92,7 @@ data LightsailDistribution = LightsailDistribution'
     -- and IPv6.
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | An object that describes the origin resource of the distribution, such
-    -- as a Lightsail instance or load balancer.
+    -- as a Lightsail instance, bucket, or load balancer.
     --
     -- The distribution pulls, caches, and serves content from the origin.
     origin :: Prelude.Maybe Origin,
@@ -135,11 +136,12 @@ data LightsailDistribution = LightsailDistribution'
 -- any.
 --
 -- 'location', 'lightsailDistribution_location' - An object that describes the location of the distribution, such as the
--- AWS Region and Availability Zone.
+-- Amazon Web Services Region and Availability Zone.
 --
 -- Lightsail distributions are global resources that can reference an
--- origin in any AWS Region, and distribute its content globally. However,
--- all distributions are located in the @us-east-1@ Region.
+-- origin in any Amazon Web Services Region, and distribute its content
+-- globally. However, all distributions are located in the @us-east-1@
+-- Region.
 --
 -- 'ableToUpdateBundle', 'lightsailDistribution_ableToUpdateBundle' - Indicates whether the bundle that is currently applied to your
 -- distribution, specified using the @distributionName@ parameter, can be
@@ -165,7 +167,7 @@ data LightsailDistribution = LightsailDistribution'
 -- and IPv6.
 --
 -- 'origin', 'lightsailDistribution_origin' - An object that describes the origin resource of the distribution, such
--- as a Lightsail instance or load balancer.
+-- as a Lightsail instance, bucket, or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
 --
@@ -243,11 +245,12 @@ lightsailDistribution_certificateName :: Lens.Lens' LightsailDistribution (Prelu
 lightsailDistribution_certificateName = Lens.lens (\LightsailDistribution' {certificateName} -> certificateName) (\s@LightsailDistribution' {} a -> s {certificateName = a} :: LightsailDistribution)
 
 -- | An object that describes the location of the distribution, such as the
--- AWS Region and Availability Zone.
+-- Amazon Web Services Region and Availability Zone.
 --
 -- Lightsail distributions are global resources that can reference an
--- origin in any AWS Region, and distribute its content globally. However,
--- all distributions are located in the @us-east-1@ Region.
+-- origin in any Amazon Web Services Region, and distribute its content
+-- globally. However, all distributions are located in the @us-east-1@
+-- Region.
 lightsailDistribution_location :: Lens.Lens' LightsailDistribution (Prelude.Maybe ResourceLocation)
 lightsailDistribution_location = Lens.lens (\LightsailDistribution' {location} -> location) (\s@LightsailDistribution' {} a -> s {location = a} :: LightsailDistribution)
 
@@ -287,7 +290,7 @@ lightsailDistribution_ipAddressType :: Lens.Lens' LightsailDistribution (Prelude
 lightsailDistribution_ipAddressType = Lens.lens (\LightsailDistribution' {ipAddressType} -> ipAddressType) (\s@LightsailDistribution' {} a -> s {ipAddressType = a} :: LightsailDistribution)
 
 -- | An object that describes the origin resource of the distribution, such
--- as a Lightsail instance or load balancer.
+-- as a Lightsail instance, bucket, or load balancer.
 --
 -- The distribution pulls, caches, and serves content from the origin.
 lightsailDistribution_origin :: Lens.Lens' LightsailDistribution (Prelude.Maybe Origin)

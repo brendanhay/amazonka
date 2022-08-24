@@ -31,6 +31,9 @@ module Amazonka.Lightsail.Types
     -- * AccessType
     AccessType (..),
 
+    -- * AccountLevelBpaSyncStatus
+    AccountLevelBpaSyncStatus (..),
+
     -- * AddOnType
     AddOnType (..),
 
@@ -39,6 +42,9 @@ module Amazonka.Lightsail.Types
 
     -- * AutoSnapshotStatus
     AutoSnapshotStatus (..),
+
+    -- * BPAStatusMessage
+    BPAStatusMessage (..),
 
     -- * BehaviorEnum
     BehaviorEnum (..),
@@ -233,6 +239,14 @@ module Amazonka.Lightsail.Types
     accessRules_allowPublicOverrides,
     accessRules_getObject,
 
+    -- * AccountLevelBpaSync
+    AccountLevelBpaSync (..),
+    newAccountLevelBpaSync,
+    accountLevelBpaSync_message,
+    accountLevelBpaSync_status,
+    accountLevelBpaSync_lastSyncedAt,
+    accountLevelBpaSync_bpaImpactsLightsail,
+
     -- * AddOn
     AddOn (..),
     newAddOn,
@@ -330,6 +344,14 @@ module Amazonka.Lightsail.Types
     bucket_accessRules,
     bucket_supportCode,
     bucket_createdAt,
+    bucket_accessLogConfig,
+
+    -- * BucketAccessLogConfig
+    BucketAccessLogConfig (..),
+    newBucketAccessLogConfig,
+    bucketAccessLogConfig_destination,
+    bucketAccessLogConfig_prefix,
+    bucketAccessLogConfig_enabled,
 
     -- * BucketBundle
     BucketBundle (..),
@@ -485,6 +507,7 @@ module Amazonka.Lightsail.Types
     containerService_scale,
     containerService_createdAt,
     containerService_publicDomainNames,
+    containerService_privateRegistryAccess,
     containerService_isDisabled,
     containerService_nextDeployment,
 
@@ -502,6 +525,17 @@ module Amazonka.Lightsail.Types
     newContainerServiceDeploymentRequest,
     containerServiceDeploymentRequest_containers,
     containerServiceDeploymentRequest_publicEndpoint,
+
+    -- * ContainerServiceECRImagePullerRole
+    ContainerServiceECRImagePullerRole (..),
+    newContainerServiceECRImagePullerRole,
+    containerServiceECRImagePullerRole_isActive,
+    containerServiceECRImagePullerRole_principalArn,
+
+    -- * ContainerServiceECRImagePullerRoleRequest
+    ContainerServiceECRImagePullerRoleRequest (..),
+    newContainerServiceECRImagePullerRoleRequest,
+    containerServiceECRImagePullerRoleRequest_isActive,
 
     -- * ContainerServiceEndpoint
     ContainerServiceEndpoint (..),
@@ -881,6 +915,7 @@ module Amazonka.Lightsail.Types
     loadBalancer_tags,
     loadBalancer_resourceType,
     loadBalancer_name,
+    loadBalancer_httpsRedirectionEnabled,
     loadBalancer_healthCheckPath,
     loadBalancer_instanceHealthSummary,
     loadBalancer_configurationOptions,
@@ -895,6 +930,7 @@ module Amazonka.Lightsail.Types
     loadBalancer_supportCode,
     loadBalancer_ipAddressType,
     loadBalancer_createdAt,
+    loadBalancer_tlsPolicyName,
 
     -- * LoadBalancerTlsCertificate
     LoadBalancerTlsCertificate (..),
@@ -951,6 +987,15 @@ module Amazonka.Lightsail.Types
     newLoadBalancerTlsCertificateSummary,
     loadBalancerTlsCertificateSummary_name,
     loadBalancerTlsCertificateSummary_isAttached,
+
+    -- * LoadBalancerTlsPolicy
+    LoadBalancerTlsPolicy (..),
+    newLoadBalancerTlsPolicy,
+    loadBalancerTlsPolicy_name,
+    loadBalancerTlsPolicy_protocols,
+    loadBalancerTlsPolicy_description,
+    loadBalancerTlsPolicy_isDefault,
+    loadBalancerTlsPolicy_ciphers,
 
     -- * LogEvent
     LogEvent (..),
@@ -1034,6 +1079,16 @@ module Amazonka.Lightsail.Types
     portInfo_cidrs,
     portInfo_protocol,
     portInfo_fromPort,
+
+    -- * PrivateRegistryAccess
+    PrivateRegistryAccess (..),
+    newPrivateRegistryAccess,
+    privateRegistryAccess_ecrImagePullerRole,
+
+    -- * PrivateRegistryAccessRequest
+    PrivateRegistryAccessRequest (..),
+    newPrivateRegistryAccessRequest,
+    privateRegistryAccessRequest_ecrImagePullerRole,
 
     -- * QueryStringObject
     QueryStringObject (..),
@@ -1211,6 +1266,8 @@ import Amazonka.Lightsail.Types.AccessKey
 import Amazonka.Lightsail.Types.AccessKeyLastUsed
 import Amazonka.Lightsail.Types.AccessRules
 import Amazonka.Lightsail.Types.AccessType
+import Amazonka.Lightsail.Types.AccountLevelBpaSync
+import Amazonka.Lightsail.Types.AccountLevelBpaSyncStatus
 import Amazonka.Lightsail.Types.AddOn
 import Amazonka.Lightsail.Types.AddOnRequest
 import Amazonka.Lightsail.Types.AddOnType
@@ -1221,10 +1278,12 @@ import Amazonka.Lightsail.Types.AutoSnapshotAddOnRequest
 import Amazonka.Lightsail.Types.AutoSnapshotDetails
 import Amazonka.Lightsail.Types.AutoSnapshotStatus
 import Amazonka.Lightsail.Types.AvailabilityZone
+import Amazonka.Lightsail.Types.BPAStatusMessage
 import Amazonka.Lightsail.Types.BehaviorEnum
 import Amazonka.Lightsail.Types.Blueprint
 import Amazonka.Lightsail.Types.BlueprintType
 import Amazonka.Lightsail.Types.Bucket
+import Amazonka.Lightsail.Types.BucketAccessLogConfig
 import Amazonka.Lightsail.Types.BucketBundle
 import Amazonka.Lightsail.Types.BucketMetricName
 import Amazonka.Lightsail.Types.BucketState
@@ -1249,6 +1308,8 @@ import Amazonka.Lightsail.Types.ContainerService
 import Amazonka.Lightsail.Types.ContainerServiceDeployment
 import Amazonka.Lightsail.Types.ContainerServiceDeploymentRequest
 import Amazonka.Lightsail.Types.ContainerServiceDeploymentState
+import Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRole
+import Amazonka.Lightsail.Types.ContainerServiceECRImagePullerRoleRequest
 import Amazonka.Lightsail.Types.ContainerServiceEndpoint
 import Amazonka.Lightsail.Types.ContainerServiceHealthCheckConfig
 import Amazonka.Lightsail.Types.ContainerServiceLogEvent
@@ -1318,6 +1379,7 @@ import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateRevocationReason
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateStatus
 import Amazonka.Lightsail.Types.LoadBalancerTlsCertificateSummary
+import Amazonka.Lightsail.Types.LoadBalancerTlsPolicy
 import Amazonka.Lightsail.Types.LogEvent
 import Amazonka.Lightsail.Types.MetricDatapoint
 import Amazonka.Lightsail.Types.MetricName
@@ -1338,6 +1400,8 @@ import Amazonka.Lightsail.Types.PortAccessType
 import Amazonka.Lightsail.Types.PortInfo
 import Amazonka.Lightsail.Types.PortInfoSourceType
 import Amazonka.Lightsail.Types.PortState
+import Amazonka.Lightsail.Types.PrivateRegistryAccess
+import Amazonka.Lightsail.Types.PrivateRegistryAccessRequest
 import Amazonka.Lightsail.Types.QueryStringObject
 import Amazonka.Lightsail.Types.RecordState
 import Amazonka.Lightsail.Types.RegionInfo
@@ -1456,8 +1520,9 @@ _AccountSetupInProgressException =
 -- validation rules of an input field.
 --
 -- Domain and distribution APIs are only available in the N. Virginia
--- (@us-east-1@) AWS Region. Please set your AWS Region configuration to
--- @us-east-1@ to create, view, or edit these resources.
+-- (@us-east-1@) Amazon Web Services Region. Please set your Amazon Web
+-- Services Region configuration to @us-east-1@ to create, view, or edit
+-- these resources.
 _InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError

@@ -12,13 +12,13 @@
 -- Derived from API version @2016-11-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Amazon Lightsail is the easiest way to get started with Amazon Web
--- Services (AWS) for developers who need to build websites or web
--- applications. It includes everything you need to launch your project
--- quickly - instances (virtual private servers), container services,
--- storage buckets, managed databases, SSD-based block storage, static IP
--- addresses, load balancers, content delivery network (CDN) distributions,
--- DNS management of registered domains, and resource snapshots (backups) -
--- for a low, predictable monthly price.
+-- Services (Amazon Web Services) for developers who need to build websites
+-- or web applications. It includes everything you need to launch your
+-- project quickly - instances (virtual private servers), container
+-- services, storage buckets, managed databases, SSD-based block storage,
+-- static IP addresses, load balancers, content delivery network (CDN)
+-- distributions, DNS management of registered domains, and resource
+-- snapshots (backups) - for a low, predictable monthly price.
 --
 -- You can manage your Lightsail resources using the Lightsail console,
 -- Lightsail API, AWS Command Line Interface (AWS CLI), or SDKs. For more
@@ -27,10 +27,10 @@
 --
 -- This API Reference provides detailed information about the actions, data
 -- types, parameters, and errors of the Lightsail service. For more
--- information about the supported AWS Regions, endpoints, and service
--- quotas of the Lightsail service, see
+-- information about the supported Amazon Web Services Regions, endpoints,
+-- and service quotas of the Lightsail service, see
 -- <https://docs.aws.amazon.com/general/latest/gr/lightsail.html Amazon Lightsail Endpoints and Quotas>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 module Amazonka.Lightsail
   ( -- * Service Configuration
     defaultService,
@@ -683,6 +683,12 @@ module Amazonka.Lightsail
     GetLoadBalancerTlsCertificatesResponse (GetLoadBalancerTlsCertificatesResponse'),
     newGetLoadBalancerTlsCertificatesResponse,
 
+    -- ** GetLoadBalancerTlsPolicies
+    GetLoadBalancerTlsPolicies (GetLoadBalancerTlsPolicies'),
+    newGetLoadBalancerTlsPolicies,
+    GetLoadBalancerTlsPoliciesResponse (GetLoadBalancerTlsPoliciesResponse'),
+    newGetLoadBalancerTlsPoliciesResponse,
+
     -- ** GetLoadBalancers (Paginated)
     GetLoadBalancers (GetLoadBalancers'),
     newGetLoadBalancers,
@@ -991,6 +997,9 @@ module Amazonka.Lightsail
     -- ** AccessType
     AccessType (..),
 
+    -- ** AccountLevelBpaSyncStatus
+    AccountLevelBpaSyncStatus (..),
+
     -- ** AddOnType
     AddOnType (..),
 
@@ -999,6 +1008,9 @@ module Amazonka.Lightsail
 
     -- ** AutoSnapshotStatus
     AutoSnapshotStatus (..),
+
+    -- ** BPAStatusMessage
+    BPAStatusMessage (..),
 
     -- ** BehaviorEnum
     BehaviorEnum (..),
@@ -1183,6 +1195,10 @@ module Amazonka.Lightsail
     AccessRules (AccessRules'),
     newAccessRules,
 
+    -- ** AccountLevelBpaSync
+    AccountLevelBpaSync (AccountLevelBpaSync'),
+    newAccountLevelBpaSync,
+
     -- ** AddOn
     AddOn (AddOn'),
     newAddOn,
@@ -1218,6 +1234,10 @@ module Amazonka.Lightsail
     -- ** Bucket
     Bucket (Bucket'),
     newBucket,
+
+    -- ** BucketAccessLogConfig
+    BucketAccessLogConfig (BucketAccessLogConfig'),
+    newBucketAccessLogConfig,
 
     -- ** BucketBundle
     BucketBundle (BucketBundle'),
@@ -1282,6 +1302,14 @@ module Amazonka.Lightsail
     -- ** ContainerServiceDeploymentRequest
     ContainerServiceDeploymentRequest (ContainerServiceDeploymentRequest'),
     newContainerServiceDeploymentRequest,
+
+    -- ** ContainerServiceECRImagePullerRole
+    ContainerServiceECRImagePullerRole (ContainerServiceECRImagePullerRole'),
+    newContainerServiceECRImagePullerRole,
+
+    -- ** ContainerServiceECRImagePullerRoleRequest
+    ContainerServiceECRImagePullerRoleRequest (ContainerServiceECRImagePullerRoleRequest'),
+    newContainerServiceECRImagePullerRoleRequest,
 
     -- ** ContainerServiceEndpoint
     ContainerServiceEndpoint (ContainerServiceEndpoint'),
@@ -1451,6 +1479,10 @@ module Amazonka.Lightsail
     LoadBalancerTlsCertificateSummary (LoadBalancerTlsCertificateSummary'),
     newLoadBalancerTlsCertificateSummary,
 
+    -- ** LoadBalancerTlsPolicy
+    LoadBalancerTlsPolicy (LoadBalancerTlsPolicy'),
+    newLoadBalancerTlsPolicy,
+
     -- ** LogEvent
     LogEvent (LogEvent'),
     newLogEvent,
@@ -1490,6 +1522,14 @@ module Amazonka.Lightsail
     -- ** PortInfo
     PortInfo (PortInfo'),
     newPortInfo,
+
+    -- ** PrivateRegistryAccess
+    PrivateRegistryAccess (PrivateRegistryAccess'),
+    newPrivateRegistryAccess,
+
+    -- ** PrivateRegistryAccessRequest
+    PrivateRegistryAccessRequest (PrivateRegistryAccessRequest'),
+    newPrivateRegistryAccessRequest,
 
     -- ** QueryStringObject
     QueryStringObject (QueryStringObject'),
@@ -1660,6 +1700,7 @@ import Amazonka.Lightsail.GetKeyPairs
 import Amazonka.Lightsail.GetLoadBalancer
 import Amazonka.Lightsail.GetLoadBalancerMetricData
 import Amazonka.Lightsail.GetLoadBalancerTlsCertificates
+import Amazonka.Lightsail.GetLoadBalancerTlsPolicies
 import Amazonka.Lightsail.GetLoadBalancers
 import Amazonka.Lightsail.GetOperation
 import Amazonka.Lightsail.GetOperations

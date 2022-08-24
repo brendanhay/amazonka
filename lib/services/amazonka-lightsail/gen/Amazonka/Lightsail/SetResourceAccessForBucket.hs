@@ -24,7 +24,7 @@
 -- Lightsail bucket.
 --
 -- Lightsail buckets currently support setting access for Lightsail
--- instances in the same AWS Region.
+-- instances in the same Amazon Web Services Region.
 module Amazonka.Lightsail.SetResourceAccessForBucket
   ( -- * Creating a Request
     SetResourceAccessForBucket (..),

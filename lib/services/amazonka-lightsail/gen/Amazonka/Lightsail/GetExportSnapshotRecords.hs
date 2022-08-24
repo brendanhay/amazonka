@@ -24,7 +24,8 @@
 -- @export snapshot@ operation.
 --
 -- An export snapshot record can be used to create a new Amazon EC2
--- instance and its related resources with the CreateCloudFormationStack
+-- instance and its related resources with the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_CreateCloudFormationStack.html CreateCloudFormationStack>
 -- action.
 --
 -- This operation returns paginated results.

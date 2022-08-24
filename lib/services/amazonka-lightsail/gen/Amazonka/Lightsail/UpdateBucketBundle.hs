@@ -26,9 +26,10 @@
 -- A bucket bundle specifies the monthly cost, storage space, and data
 -- transfer quota for a bucket. You can update a bucket\'s bundle only one
 -- time within a monthly AWS billing cycle. To determine if you can update
--- a bucket\'s bundle, use the GetBuckets action. The @ableToUpdateBundle@
--- parameter in the response will indicate whether you can currently update
--- a bucket\'s bundle.
+-- a bucket\'s bundle, use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html GetBuckets>
+-- action. The @ableToUpdateBundle@ parameter in the response will indicate
+-- whether you can currently update a bucket\'s bundle.
 --
 -- Update a bucket\'s bundle if it\'s consistently going over its storage
 -- space or data transfer quota, or if a bucket\'s usage is consistently in
@@ -70,8 +71,9 @@ data UpdateBucketBundle = UpdateBucketBundle'
     bucketName :: Prelude.Text,
     -- | The ID of the new bundle to apply to the bucket.
     --
-    -- Use the GetBucketBundles action to get a list of bundle IDs that you can
-    -- specify.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html GetBucketBundles>
+    -- action to get a list of bundle IDs that you can specify.
     bundleId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,8 +90,9 @@ data UpdateBucketBundle = UpdateBucketBundle'
 --
 -- 'bundleId', 'updateBucketBundle_bundleId' - The ID of the new bundle to apply to the bucket.
 --
--- Use the GetBucketBundles action to get a list of bundle IDs that you can
--- specify.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html GetBucketBundles>
+-- action to get a list of bundle IDs that you can specify.
 newUpdateBucketBundle ::
   -- | 'bucketName'
   Prelude.Text ->
@@ -108,8 +111,9 @@ updateBucketBundle_bucketName = Lens.lens (\UpdateBucketBundle' {bucketName} -> 
 
 -- | The ID of the new bundle to apply to the bucket.
 --
--- Use the GetBucketBundles action to get a list of bundle IDs that you can
--- specify.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html GetBucketBundles>
+-- action to get a list of bundle IDs that you can specify.
 updateBucketBundle_bundleId :: Lens.Lens' UpdateBucketBundle Prelude.Text
 updateBucketBundle_bundleId = Lens.lens (\UpdateBucketBundle' {bundleId} -> bundleId) (\s@UpdateBucketBundle' {} a -> s {bundleId = a} :: UpdateBucketBundle)
 

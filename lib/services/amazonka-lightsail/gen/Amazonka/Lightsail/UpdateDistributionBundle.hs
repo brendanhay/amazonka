@@ -24,7 +24,7 @@
 -- (CDN) distribution.
 --
 -- A distribution bundle specifies the monthly network transfer quota and
--- monthly cost of your dsitribution.
+-- monthly cost of your distribution.
 --
 -- Update your distribution\'s bundle if your distribution is going over
 -- its monthly network transfer quota and is incurring an overage fee.
@@ -171,7 +171,10 @@ instance Core.ToQuery UpdateDistributionBundle where
 
 -- | /See:/ 'newUpdateDistributionBundleResponse' smart constructor.
 data UpdateDistributionBundleResponse = UpdateDistributionBundleResponse'
-  { operation :: Prelude.Maybe Operation,
+  { -- | An object that describes the result of the action, such as the status of
+    -- the request, the timestamp of the request, and the resources affected by
+    -- the request.
+    operation :: Prelude.Maybe Operation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,7 +188,9 @@ data UpdateDistributionBundleResponse = UpdateDistributionBundleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operation', 'updateDistributionBundleResponse_operation' - Undocumented member.
+-- 'operation', 'updateDistributionBundleResponse_operation' - An object that describes the result of the action, such as the status of
+-- the request, the timestamp of the request, and the resources affected by
+-- the request.
 --
 -- 'httpStatus', 'updateDistributionBundleResponse_httpStatus' - The response's http status code.
 newUpdateDistributionBundleResponse ::
@@ -199,7 +204,9 @@ newUpdateDistributionBundleResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | An object that describes the result of the action, such as the status of
+-- the request, the timestamp of the request, and the resources affected by
+-- the request.
 updateDistributionBundleResponse_operation :: Lens.Lens' UpdateDistributionBundleResponse (Prelude.Maybe Operation)
 updateDistributionBundleResponse_operation = Lens.lens (\UpdateDistributionBundleResponse' {operation} -> operation) (\s@UpdateDistributionBundleResponse' {} a -> s {operation = a} :: UpdateDistributionBundleResponse)
 

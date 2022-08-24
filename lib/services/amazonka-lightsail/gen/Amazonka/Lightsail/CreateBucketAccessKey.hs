@@ -26,8 +26,10 @@
 --
 -- Access keys grant full programmatic access to the specified bucket and
 -- its objects. You can have a maximum of two access keys per bucket. Use
--- the GetBucketAccessKeys action to get a list of current access keys for
--- a specific bucket. For more information about access keys, see
+-- the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketAccessKeys.html GetBucketAccessKeys>
+-- action to get a list of current access keys for a specific bucket. For
+-- more information about access keys, see
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys Creating access keys for a bucket in Amazon Lightsail>
 -- in the /Amazon Lightsail Developer Guide/.
 --

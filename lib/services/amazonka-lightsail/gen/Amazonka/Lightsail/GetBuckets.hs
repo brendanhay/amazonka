@@ -20,11 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about one or more Amazon Lightsail buckets.
+-- Returns information about one or more Amazon Lightsail buckets. The
+-- information returned includes the synchronization status of the Amazon
+-- Simple Storage Service (Amazon S3) account-level block public access
+-- feature for your Lightsail buckets.
 --
 -- For more information about buckets, see
 -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail Buckets in Amazon Lightsail>
--- in the /Amazon Lightsail Developer Guide/..
+-- in the /Amazon Lightsail Developer Guide/.
 module Amazonka.Lightsail.GetBuckets
   ( -- * Creating a Request
     GetBuckets (..),
@@ -41,6 +44,7 @@ module Amazonka.Lightsail.GetBuckets
 
     -- * Response Lenses
     getBucketsResponse_nextPageToken,
+    getBucketsResponse_accountLevelBpaSync,
     getBucketsResponse_buckets,
     getBucketsResponse_httpStatus,
   )
@@ -57,7 +61,8 @@ import qualified Amazonka.Response as Response
 data GetBuckets = GetBuckets'
   { -- | A Boolean value that indicates whether to include Lightsail instances
     -- that were given access to the bucket using the
-    -- SetResourceAccessForBucket action.
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+    -- action.
     includeConnectedResources :: Prelude.Maybe Prelude.Bool,
     -- | The token to advance to the next page of results from your request.
     --
@@ -67,8 +72,8 @@ data GetBuckets = GetBuckets'
     pageToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to return information.
     --
-    -- When omitted, the response includes all of your buckets in the AWS
-    -- Region where the request is made.
+    -- When omitted, the response includes all of your buckets in the Amazon
+    -- Web Services Region where the request is made.
     bucketName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +88,8 @@ data GetBuckets = GetBuckets'
 --
 -- 'includeConnectedResources', 'getBuckets_includeConnectedResources' - A Boolean value that indicates whether to include Lightsail instances
 -- that were given access to the bucket using the
--- SetResourceAccessForBucket action.
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+-- action.
 --
 -- 'pageToken', 'getBuckets_pageToken' - The token to advance to the next page of results from your request.
 --
@@ -93,8 +99,8 @@ data GetBuckets = GetBuckets'
 --
 -- 'bucketName', 'getBuckets_bucketName' - The name of the bucket for which to return information.
 --
--- When omitted, the response includes all of your buckets in the AWS
--- Region where the request is made.
+-- When omitted, the response includes all of your buckets in the Amazon
+-- Web Services Region where the request is made.
 newGetBuckets ::
   GetBuckets
 newGetBuckets =
@@ -107,7 +113,8 @@ newGetBuckets =
 
 -- | A Boolean value that indicates whether to include Lightsail instances
 -- that were given access to the bucket using the
--- SetResourceAccessForBucket action.
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_SetResourceAccessForBucket.html SetResourceAccessForBucket>
+-- action.
 getBuckets_includeConnectedResources :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Bool)
 getBuckets_includeConnectedResources = Lens.lens (\GetBuckets' {includeConnectedResources} -> includeConnectedResources) (\s@GetBuckets' {} a -> s {includeConnectedResources = a} :: GetBuckets)
 
@@ -121,8 +128,8 @@ getBuckets_pageToken = Lens.lens (\GetBuckets' {pageToken} -> pageToken) (\s@Get
 
 -- | The name of the bucket for which to return information.
 --
--- When omitted, the response includes all of your buckets in the AWS
--- Region where the request is made.
+-- When omitted, the response includes all of your buckets in the Amazon
+-- Web Services Region where the request is made.
 getBuckets_bucketName :: Lens.Lens' GetBuckets (Prelude.Maybe Prelude.Text)
 getBuckets_bucketName = Lens.lens (\GetBuckets' {bucketName} -> bucketName) (\s@GetBuckets' {} a -> s {bucketName = a} :: GetBuckets)
 
@@ -134,6 +141,7 @@ instance Core.AWSRequest GetBuckets where
       ( \s h x ->
           GetBucketsResponse'
             Prelude.<$> (x Core..?> "nextPageToken")
+            Prelude.<*> (x Core..?> "accountLevelBpaSync")
             Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -193,6 +201,13 @@ data GetBucketsResponse = GetBucketsResponse'
     -- To get the next page of results, perform another @GetBuckets@ request
     -- and specify the next page token using the @pageToken@ parameter.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An object that describes the synchronization status of the Amazon S3
+    -- account-level block public access feature for your Lightsail buckets.
+    --
+    -- For more information about this feature and how it affects Lightsail
+    -- buckets, see
+    -- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-block-public-access-for-buckets Block public access for buckets in Amazon Lightsail>.
+    accountLevelBpaSync :: Prelude.Maybe AccountLevelBpaSync,
     -- | An array of objects that describe buckets.
     buckets :: Prelude.Maybe [Bucket],
     -- | The response's http status code.
@@ -216,6 +231,13 @@ data GetBucketsResponse = GetBucketsResponse'
 -- To get the next page of results, perform another @GetBuckets@ request
 -- and specify the next page token using the @pageToken@ parameter.
 --
+-- 'accountLevelBpaSync', 'getBucketsResponse_accountLevelBpaSync' - An object that describes the synchronization status of the Amazon S3
+-- account-level block public access feature for your Lightsail buckets.
+--
+-- For more information about this feature and how it affects Lightsail
+-- buckets, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-block-public-access-for-buckets Block public access for buckets in Amazon Lightsail>.
+--
 -- 'buckets', 'getBucketsResponse_buckets' - An array of objects that describe buckets.
 --
 -- 'httpStatus', 'getBucketsResponse_httpStatus' - The response's http status code.
@@ -227,6 +249,7 @@ newGetBucketsResponse pHttpStatus_ =
   GetBucketsResponse'
     { nextPageToken =
         Prelude.Nothing,
+      accountLevelBpaSync = Prelude.Nothing,
       buckets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -241,6 +264,15 @@ newGetBucketsResponse pHttpStatus_ =
 getBucketsResponse_nextPageToken :: Lens.Lens' GetBucketsResponse (Prelude.Maybe Prelude.Text)
 getBucketsResponse_nextPageToken = Lens.lens (\GetBucketsResponse' {nextPageToken} -> nextPageToken) (\s@GetBucketsResponse' {} a -> s {nextPageToken = a} :: GetBucketsResponse)
 
+-- | An object that describes the synchronization status of the Amazon S3
+-- account-level block public access feature for your Lightsail buckets.
+--
+-- For more information about this feature and how it affects Lightsail
+-- buckets, see
+-- <https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-block-public-access-for-buckets Block public access for buckets in Amazon Lightsail>.
+getBucketsResponse_accountLevelBpaSync :: Lens.Lens' GetBucketsResponse (Prelude.Maybe AccountLevelBpaSync)
+getBucketsResponse_accountLevelBpaSync = Lens.lens (\GetBucketsResponse' {accountLevelBpaSync} -> accountLevelBpaSync) (\s@GetBucketsResponse' {} a -> s {accountLevelBpaSync = a} :: GetBucketsResponse)
+
 -- | An array of objects that describe buckets.
 getBucketsResponse_buckets :: Lens.Lens' GetBucketsResponse (Prelude.Maybe [Bucket])
 getBucketsResponse_buckets = Lens.lens (\GetBucketsResponse' {buckets} -> buckets) (\s@GetBucketsResponse' {} a -> s {buckets = a} :: GetBucketsResponse) Prelude.. Lens.mapping Lens.coerced
@@ -252,5 +284,6 @@ getBucketsResponse_httpStatus = Lens.lens (\GetBucketsResponse' {httpStatus} -> 
 instance Prelude.NFData GetBucketsResponse where
   rnf GetBucketsResponse' {..} =
     Prelude.rnf nextPageToken
+      `Prelude.seq` Prelude.rnf accountLevelBpaSync
       `Prelude.seq` Prelude.rnf buckets
       `Prelude.seq` Prelude.rnf httpStatus

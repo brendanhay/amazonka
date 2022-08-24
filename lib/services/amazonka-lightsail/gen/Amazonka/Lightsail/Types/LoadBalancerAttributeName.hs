@@ -21,8 +21,10 @@ module Amazonka.Lightsail.Types.LoadBalancerAttributeName
   ( LoadBalancerAttributeName
       ( ..,
         LoadBalancerAttributeName_HealthCheckPath,
+        LoadBalancerAttributeName_HttpsRedirectionEnabled,
         LoadBalancerAttributeName_SessionStickinessEnabled,
-        LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds
+        LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds,
+        LoadBalancerAttributeName_TlsPolicyName
       ),
   )
 where
@@ -61,15 +63,23 @@ newtype LoadBalancerAttributeName = LoadBalancerAttributeName'
 pattern LoadBalancerAttributeName_HealthCheckPath :: LoadBalancerAttributeName
 pattern LoadBalancerAttributeName_HealthCheckPath = LoadBalancerAttributeName' "HealthCheckPath"
 
+pattern LoadBalancerAttributeName_HttpsRedirectionEnabled :: LoadBalancerAttributeName
+pattern LoadBalancerAttributeName_HttpsRedirectionEnabled = LoadBalancerAttributeName' "HttpsRedirectionEnabled"
+
 pattern LoadBalancerAttributeName_SessionStickinessEnabled :: LoadBalancerAttributeName
 pattern LoadBalancerAttributeName_SessionStickinessEnabled = LoadBalancerAttributeName' "SessionStickinessEnabled"
 
 pattern LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds :: LoadBalancerAttributeName
 pattern LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds = LoadBalancerAttributeName' "SessionStickiness_LB_CookieDurationSeconds"
 
+pattern LoadBalancerAttributeName_TlsPolicyName :: LoadBalancerAttributeName
+pattern LoadBalancerAttributeName_TlsPolicyName = LoadBalancerAttributeName' "TlsPolicyName"
+
 {-# COMPLETE
   LoadBalancerAttributeName_HealthCheckPath,
+  LoadBalancerAttributeName_HttpsRedirectionEnabled,
   LoadBalancerAttributeName_SessionStickinessEnabled,
   LoadBalancerAttributeName_SessionStickiness_LB_CookieDurationSeconds,
+  LoadBalancerAttributeName_TlsPolicyName,
   LoadBalancerAttributeName'
   #-}

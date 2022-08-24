@@ -25,7 +25,9 @@
 -- The bucket bundle specifies the monthly cost, storage quota, and data
 -- transfer quota for a bucket.
 --
--- Use the UpdateBucketBundle action to update the bundle for a bucket.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+-- action to update the bundle for a bucket.
 module Amazonka.Lightsail.GetBucketBundles
   ( -- * Creating a Request
     GetBucketBundles (..),
@@ -54,7 +56,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetBucketBundles' smart constructor.
 data GetBucketBundles = GetBucketBundles'
   { -- | A Boolean value that indicates whether to include inactive (unavailable)
-    -- bundles in the response.
+    -- bundles in the response of your request.
     includeInactive :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +70,7 @@ data GetBucketBundles = GetBucketBundles'
 -- for backwards compatibility:
 --
 -- 'includeInactive', 'getBucketBundles_includeInactive' - A Boolean value that indicates whether to include inactive (unavailable)
--- bundles in the response.
+-- bundles in the response of your request.
 newGetBucketBundles ::
   GetBucketBundles
 newGetBucketBundles =
@@ -78,7 +80,7 @@ newGetBucketBundles =
     }
 
 -- | A Boolean value that indicates whether to include inactive (unavailable)
--- bundles in the response.
+-- bundles in the response of your request.
 getBucketBundles_includeInactive :: Lens.Lens' GetBucketBundles (Prelude.Maybe Prelude.Bool)
 getBucketBundles_includeInactive = Lens.lens (\GetBucketBundles' {includeInactive} -> includeInactive) (\s@GetBucketBundles' {} a -> s {includeInactive = a} :: GetBucketBundles)
 

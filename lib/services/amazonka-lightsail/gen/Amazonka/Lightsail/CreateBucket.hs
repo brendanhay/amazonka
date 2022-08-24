@@ -60,7 +60,9 @@ import qualified Amazonka.Response as Response
 data CreateBucket = CreateBucket'
   { -- | The tag keys and optional values to add to the bucket during creation.
     --
-    -- Use the TagResource action to tag the bucket after it\'s created.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
+    -- action to tag the bucket after it\'s created.
     tags :: Prelude.Maybe [Tag],
     -- | A Boolean value that indicates whether to enable versioning of objects
     -- in the bucket.
@@ -80,11 +82,13 @@ data CreateBucket = CreateBucket'
     -- A bucket bundle specifies the monthly cost, storage space, and data
     -- transfer quota for a bucket.
     --
-    -- Use the GetBucketBundles action to get a list of bundle IDs that you can
-    -- specify.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html GetBucketBundles>
+    -- action to get a list of bundle IDs that you can specify.
     --
-    -- Use the UpdateBucketBundle action to change the bundle after the bucket
-    -- is created.
+    -- Use the
+    -- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+    -- action to change the bundle after the bucket is created.
     bundleId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -99,7 +103,9 @@ data CreateBucket = CreateBucket'
 --
 -- 'tags', 'createBucket_tags' - The tag keys and optional values to add to the bucket during creation.
 --
--- Use the TagResource action to tag the bucket after it\'s created.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
+-- action to tag the bucket after it\'s created.
 --
 -- 'enableObjectVersioning', 'createBucket_enableObjectVersioning' - A Boolean value that indicates whether to enable versioning of objects
 -- in the bucket.
@@ -119,11 +125,13 @@ data CreateBucket = CreateBucket'
 -- A bucket bundle specifies the monthly cost, storage space, and data
 -- transfer quota for a bucket.
 --
--- Use the GetBucketBundles action to get a list of bundle IDs that you can
--- specify.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html GetBucketBundles>
+-- action to get a list of bundle IDs that you can specify.
 --
--- Use the UpdateBucketBundle action to change the bundle after the bucket
--- is created.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+-- action to change the bundle after the bucket is created.
 newCreateBucket ::
   -- | 'bucketName'
   Prelude.Text ->
@@ -140,7 +148,9 @@ newCreateBucket pBucketName_ pBundleId_ =
 
 -- | The tag keys and optional values to add to the bucket during creation.
 --
--- Use the TagResource action to tag the bucket after it\'s created.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_TagResource.html TagResource>
+-- action to tag the bucket after it\'s created.
 createBucket_tags :: Lens.Lens' CreateBucket (Prelude.Maybe [Tag])
 createBucket_tags = Lens.lens (\CreateBucket' {tags} -> tags) (\s@CreateBucket' {} a -> s {tags = a} :: CreateBucket) Prelude.. Lens.mapping Lens.coerced
 
@@ -166,11 +176,13 @@ createBucket_bucketName = Lens.lens (\CreateBucket' {bucketName} -> bucketName) 
 -- A bucket bundle specifies the monthly cost, storage space, and data
 -- transfer quota for a bucket.
 --
--- Use the GetBucketBundles action to get a list of bundle IDs that you can
--- specify.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBucketBundles.html GetBucketBundles>
+-- action to get a list of bundle IDs that you can specify.
 --
--- Use the UpdateBucketBundle action to change the bundle after the bucket
--- is created.
+-- Use the
+-- <https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_UpdateBucketBundle.html UpdateBucketBundle>
+-- action to change the bundle after the bucket is created.
 createBucket_bundleId :: Lens.Lens' CreateBucket Prelude.Text
 createBucket_bundleId = Lens.lens (\CreateBucket' {bundleId} -> bundleId) (\s@CreateBucket' {} a -> s {bundleId = a} :: CreateBucket)
 

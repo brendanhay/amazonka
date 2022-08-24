@@ -23,8 +23,8 @@
 -- Copies a manual snapshot of an instance or disk as another manual
 -- snapshot, or copies an automatic snapshot of an instance or disk as a
 -- manual snapshot. This operation can also be used to copy a manual or
--- automatic snapshot of an instance or a disk from one AWS Region to
--- another in Amazon Lightsail.
+-- automatic snapshot of an instance or a disk from one Amazon Web Services
+-- Region to another in Amazon Lightsail.
 --
 -- When copying a /manual snapshot/, be sure to define the @source region@,
 -- @source snapshot name@, and @target snapshot name@ parameters.
@@ -113,7 +113,8 @@ data CopySnapshot = CopySnapshot'
     sourceSnapshotName :: Prelude.Maybe Prelude.Text,
     -- | The name of the new manual snapshot to be created as a copy.
     targetSnapshotName :: Prelude.Text,
-    -- | The AWS Region where the source manual or automatic snapshot is located.
+    -- | The Amazon Web Services Region where the source manual or automatic
+    -- snapshot is located.
     sourceRegion :: RegionName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -174,7 +175,8 @@ data CopySnapshot = CopySnapshot'
 --
 -- 'targetSnapshotName', 'copySnapshot_targetSnapshotName' - The name of the new manual snapshot to be created as a copy.
 --
--- 'sourceRegion', 'copySnapshot_sourceRegion' - The AWS Region where the source manual or automatic snapshot is located.
+-- 'sourceRegion', 'copySnapshot_sourceRegion' - The Amazon Web Services Region where the source manual or automatic
+-- snapshot is located.
 newCopySnapshot ::
   -- | 'targetSnapshotName'
   Prelude.Text ->
@@ -250,7 +252,8 @@ copySnapshot_sourceSnapshotName = Lens.lens (\CopySnapshot' {sourceSnapshotName}
 copySnapshot_targetSnapshotName :: Lens.Lens' CopySnapshot Prelude.Text
 copySnapshot_targetSnapshotName = Lens.lens (\CopySnapshot' {targetSnapshotName} -> targetSnapshotName) (\s@CopySnapshot' {} a -> s {targetSnapshotName = a} :: CopySnapshot)
 
--- | The AWS Region where the source manual or automatic snapshot is located.
+-- | The Amazon Web Services Region where the source manual or automatic
+-- snapshot is located.
 copySnapshot_sourceRegion :: Lens.Lens' CopySnapshot RegionName
 copySnapshot_sourceRegion = Lens.lens (\CopySnapshot' {sourceRegion} -> sourceRegion) (\s@CopySnapshot' {} a -> s {sourceRegion = a} :: CopySnapshot)
 

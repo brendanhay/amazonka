@@ -40,11 +40,11 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption Encrypting Your CRLs>.
 --
 -- Your private CA uses the value in the __ExpirationInDays__ parameter to
--- calculate the __nextUpdate__ field in the CRL. The CRL is refreshed at
--- 1\/2 the age of next update or when a certificate is revoked. When a
--- certificate is revoked, it is recorded in the next CRL that is generated
--- and in the next audit report. Only time valid certificates are listed in
--- the CRL. Expired certificates are not included.
+-- calculate the __nextUpdate__ field in the CRL. The CRL is refreshed
+-- prior to a certificate\'s expiration date or when a certificate is
+-- revoked. When a certificate is revoked, it appears in the CRL until the
+-- certificate expires, and then in one additional CRL after expiration,
+-- and it always appears in the audit report.
 --
 -- A CRL is typically updated approximately 30 minutes after a certificate
 -- is revoked. If for any reason a CRL update fails, ACM Private CA makes
@@ -98,7 +98,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html Planning a certificate revocation list (CRL)>
--- in the /AWS Certificate Manager Private Certificate Authority (PCA) User
+-- in the /Certificate Manager Private Certificate Authority (PCA) User
 -- Guide/
 --
 -- /See:/ 'newCrlConfiguration' smart constructor.

@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.CertificateManagerPCA.Types.Extensions where
 
+import Amazonka.CertificateManagerPCA.Types.CustomExtension
 import Amazonka.CertificateManagerPCA.Types.ExtendedKeyUsage
 import Amazonka.CertificateManagerPCA.Types.GeneralName
 import Amazonka.CertificateManagerPCA.Types.KeyUsage
@@ -45,6 +46,11 @@ data Extensions = Extensions'
     -- used. In a CA certificate, these terms limit the set of policies for
     -- certification paths that include this certificate.
     certificatePolicies :: Prelude.Maybe (Prelude.NonEmpty PolicyInformation),
+    -- | Contains a sequence of one or more X.509 extensions, each of which
+    -- consists of an object identifier (OID), a base64-encoded value, and the
+    -- critical flag. For more information, see the
+    -- <https://oidref.com/2.5.29 Global OID reference database.>
+    customExtensions :: Prelude.Maybe (Prelude.NonEmpty CustomExtension),
     -- | The subject alternative name extension allows identities to be bound to
     -- the subject of the certificate. These identities may be included in
     -- addition to or in place of the identity in the subject field of the
@@ -76,6 +82,11 @@ data Extensions = Extensions'
 -- used. In a CA certificate, these terms limit the set of policies for
 -- certification paths that include this certificate.
 --
+-- 'customExtensions', 'extensions_customExtensions' - Contains a sequence of one or more X.509 extensions, each of which
+-- consists of an object identifier (OID), a base64-encoded value, and the
+-- critical flag. For more information, see the
+-- <https://oidref.com/2.5.29 Global OID reference database.>
+--
 -- 'subjectAlternativeNames', 'extensions_subjectAlternativeNames' - The subject alternative name extension allows identities to be bound to
 -- the subject of the certificate. These identities may be included in
 -- addition to or in place of the identity in the subject field of the
@@ -87,6 +98,7 @@ newExtensions =
     { extendedKeyUsage = Prelude.Nothing,
       keyUsage = Prelude.Nothing,
       certificatePolicies = Prelude.Nothing,
+      customExtensions = Prelude.Nothing,
       subjectAlternativeNames = Prelude.Nothing
     }
 
@@ -111,6 +123,13 @@ extensions_keyUsage = Lens.lens (\Extensions' {keyUsage} -> keyUsage) (\s@Extens
 extensions_certificatePolicies :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty PolicyInformation))
 extensions_certificatePolicies = Lens.lens (\Extensions' {certificatePolicies} -> certificatePolicies) (\s@Extensions' {} a -> s {certificatePolicies = a} :: Extensions) Prelude.. Lens.mapping Lens.coerced
 
+-- | Contains a sequence of one or more X.509 extensions, each of which
+-- consists of an object identifier (OID), a base64-encoded value, and the
+-- critical flag. For more information, see the
+-- <https://oidref.com/2.5.29 Global OID reference database.>
+extensions_customExtensions :: Lens.Lens' Extensions (Prelude.Maybe (Prelude.NonEmpty CustomExtension))
+extensions_customExtensions = Lens.lens (\Extensions' {customExtensions} -> customExtensions) (\s@Extensions' {} a -> s {customExtensions = a} :: Extensions) Prelude.. Lens.mapping Lens.coerced
+
 -- | The subject alternative name extension allows identities to be bound to
 -- the subject of the certificate. These identities may be included in
 -- addition to or in place of the identity in the subject field of the
@@ -123,6 +142,7 @@ instance Prelude.Hashable Extensions where
     _salt `Prelude.hashWithSalt` extendedKeyUsage
       `Prelude.hashWithSalt` keyUsage
       `Prelude.hashWithSalt` certificatePolicies
+      `Prelude.hashWithSalt` customExtensions
       `Prelude.hashWithSalt` subjectAlternativeNames
 
 instance Prelude.NFData Extensions where
@@ -130,6 +150,7 @@ instance Prelude.NFData Extensions where
     Prelude.rnf extendedKeyUsage
       `Prelude.seq` Prelude.rnf keyUsage
       `Prelude.seq` Prelude.rnf certificatePolicies
+      `Prelude.seq` Prelude.rnf customExtensions
       `Prelude.seq` Prelude.rnf subjectAlternativeNames
 
 instance Core.ToJSON Extensions where
@@ -141,6 +162,8 @@ instance Core.ToJSON Extensions where
             ("KeyUsage" Core..=) Prelude.<$> keyUsage,
             ("CertificatePolicies" Core..=)
               Prelude.<$> certificatePolicies,
+            ("CustomExtensions" Core..=)
+              Prelude.<$> customExtensions,
             ("SubjectAlternativeNames" Core..=)
               Prelude.<$> subjectAlternativeNames
           ]

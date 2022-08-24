@@ -11,16 +11,16 @@
 --
 -- Derived from API version @2017-08-22@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- This is the /ACM Private CA API Reference/. It provides descriptions,
--- syntax, and usage examples for each of the actions and data types
--- involved in creating and managing private certificate authorities (CA)
--- for your organization.
+-- This is the /Certificate Manager Private Certificate Authority (PCA) API
+-- Reference/. It provides descriptions, syntax, and usage examples for
+-- each of the actions and data types involved in creating and managing a
+-- private certificate authority (CA) for your organization.
 --
--- The documentation for each action shows the Query API request parameters
--- and the XML response. Alternatively, you can use one of the AWS SDKs to
--- access an API that\'s tailored to the programming language or platform
--- that you\'re using. For more information, see
--- <https://aws.amazon.com/tools/#SDKs AWS SDKs>.
+-- The documentation for each action shows the API request parameters and
+-- the JSON response. Alternatively, you can use one of the Amazon Web
+-- Services SDKs to access an API that is tailored to the programming
+-- language or platform that you prefer. For more information, see
+-- <https://aws.amazon.com/tools/#SDKs Amazon Web Services SDKs>.
 --
 -- Each ACM Private CA API operation has a quota that determines the number
 -- of times the operation can be called per second. ACM Private CA
@@ -34,7 +34,7 @@
 -- APIs.
 --
 -- To see an up-to-date list of your ACM Private CA quotas, or to request a
--- quota increase, log into your AWS account and visit the
+-- quota increase, log into your Amazon Web Services account and visit the
 -- <https://console.aws.amazon.com/servicequotas/ Service Quotas> console.
 module Amazonka.CertificateManagerPCA
   ( -- * Service Configuration
@@ -334,6 +334,14 @@ module Amazonka.CertificateManagerPCA
     -- ** CsrExtensions
     CsrExtensions (CsrExtensions'),
     newCsrExtensions,
+
+    -- ** CustomAttribute
+    CustomAttribute (CustomAttribute'),
+    newCustomAttribute,
+
+    -- ** CustomExtension
+    CustomExtension (CustomExtension'),
+    newCustomExtension,
 
     -- ** EdiPartyName
     EdiPartyName (EdiPartyName'),

@@ -35,7 +35,7 @@
 -- bucket that you specify. If the IAM principal making the call does not
 -- have permission to write to the bucket, then an exception is thrown. For
 -- more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html Configure Access to ACM Private CA>.
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
 --
 -- ACM Private CA also writes revocation information to the audit report.
 -- For more information, see
@@ -85,7 +85,7 @@ data RevokeCertificate = RevokeCertificate'
     --
     -- You can also copy the serial number from the console or use the
     -- <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate>
-    -- action in the /AWS Certificate Manager API Reference/.
+    -- action in the /Certificate Manager API Reference/.
     certificateSerial :: Prelude.Text,
     -- | Specifies why you revoked the certificate.
     revocationReason :: RevocationReason
@@ -118,7 +118,7 @@ data RevokeCertificate = RevokeCertificate'
 --
 -- You can also copy the serial number from the console or use the
 -- <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate>
--- action in the /AWS Certificate Manager API Reference/.
+-- action in the /Certificate Manager API Reference/.
 --
 -- 'revocationReason', 'revokeCertificate_revocationReason' - Specifies why you revoked the certificate.
 newRevokeCertificate ::
@@ -160,7 +160,7 @@ revokeCertificate_certificateAuthorityArn = Lens.lens (\RevokeCertificate' {cert
 --
 -- You can also copy the serial number from the console or use the
 -- <https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html DescribeCertificate>
--- action in the /AWS Certificate Manager API Reference/.
+-- action in the /Certificate Manager API Reference/.
 revokeCertificate_certificateSerial :: Lens.Lens' RevokeCertificate Prelude.Text
 revokeCertificate_certificateSerial = Lens.lens (\RevokeCertificate' {certificateSerial} -> certificateSerial) (\s@RevokeCertificate' {} a -> s {certificateSerial = a} :: RevokeCertificate)
 

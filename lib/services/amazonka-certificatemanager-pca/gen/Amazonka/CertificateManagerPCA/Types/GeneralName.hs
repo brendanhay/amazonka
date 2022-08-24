@@ -27,8 +27,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an ASN.1 X.400 @GeneralName@ as defined in
--- <https://tools.ietf.org/html/rfc5280 RFC 5280>. Only one of the
--- following naming options should be provided. Providing more than one
+-- <https://datatracker.ietf.org/doc/html/rfc5280 RFC 5280>. Only one of
+-- the following naming options should be provided. Providing more than one
 -- option results in an @InvalidArgsException@ error.
 --
 -- /See:/ 'newGeneralName' smart constructor.
@@ -37,7 +37,7 @@ data GeneralName = GeneralName'
     -- | Represents @GeneralName@ as an object identifier (OID).
     registeredId :: Prelude.Maybe Prelude.Text,
     -- | Represents @GeneralName@ as an
-    -- <https://tools.ietf.org/html/rfc822 RFC 822> email address.
+    -- <https://datatracker.ietf.org/doc/html/rfc822 RFC 822> email address.
     rfc822Name :: Prelude.Maybe Prelude.Text,
     -- | Represents @GeneralName@ as an @EdiPartyName@ object.
     ediPartyName :: Prelude.Maybe EdiPartyName,
@@ -65,7 +65,7 @@ data GeneralName = GeneralName'
 -- 'registeredId', 'generalName_registeredId' - Represents @GeneralName@ as an object identifier (OID).
 --
 -- 'rfc822Name', 'generalName_rfc822Name' - Represents @GeneralName@ as an
--- <https://tools.ietf.org/html/rfc822 RFC 822> email address.
+-- <https://datatracker.ietf.org/doc/html/rfc822 RFC 822> email address.
 --
 -- 'ediPartyName', 'generalName_ediPartyName' - Represents @GeneralName@ as an @EdiPartyName@ object.
 --
@@ -99,7 +99,7 @@ generalName_registeredId :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
 generalName_registeredId = Lens.lens (\GeneralName' {registeredId} -> registeredId) (\s@GeneralName' {} a -> s {registeredId = a} :: GeneralName)
 
 -- | Represents @GeneralName@ as an
--- <https://tools.ietf.org/html/rfc822 RFC 822> email address.
+-- <https://datatracker.ietf.org/doc/html/rfc822 RFC 822> email address.
 generalName_rfc822Name :: Lens.Lens' GeneralName (Prelude.Maybe Prelude.Text)
 generalName_rfc822Name = Lens.lens (\GeneralName' {rfc822Name} -> rfc822Name) (\s@GeneralName' {} a -> s {rfc822Name = a} :: GeneralName)
 

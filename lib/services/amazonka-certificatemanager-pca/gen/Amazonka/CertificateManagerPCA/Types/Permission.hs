@@ -25,9 +25,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Permissions designate which private CA actions can be performed by an
--- AWS service or entity. In order for ACM to automatically renew private
--- certificates, you must give the ACM service principal all available
--- permissions (@IssueCertificate@, @GetCertificate@, and
+-- Amazon Web Services service or entity. In order for ACM to automatically
+-- renew private certificates, you must give the ACM service principal all
+-- available permissions (@IssueCertificate@, @GetCertificate@, and
 -- @ListPermissions@). Permissions can be assigned with the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreatePermission.html CreatePermission>
 -- action, removed with the
@@ -38,8 +38,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPermission' smart constructor.
 data Permission = Permission'
-  { -- | The AWS service or entity that holds the permission. At this time, the
-    -- only valid principal is @acm.amazonaws.com@.
+  { -- | The Amazon Web Services service or entity that holds the permission. At
+    -- this time, the only valid principal is @acm.amazonaws.com@.
     principal :: Prelude.Maybe Prelude.Text,
     -- | The name of the policy that is associated with the permission.
     policy :: Prelude.Maybe Prelude.Text,
@@ -50,8 +50,8 @@ data Permission = Permission'
     createdAt :: Prelude.Maybe Core.POSIX,
     -- | The ID of the account that assigned the permission.
     sourceAccount :: Prelude.Maybe Prelude.Text,
-    -- | The private CA actions that can be performed by the designated AWS
-    -- service.
+    -- | The private CA actions that can be performed by the designated Amazon
+    -- Web Services service.
     actions :: Prelude.Maybe (Prelude.NonEmpty ActionType)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,8 +64,8 @@ data Permission = Permission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principal', 'permission_principal' - The AWS service or entity that holds the permission. At this time, the
--- only valid principal is @acm.amazonaws.com@.
+-- 'principal', 'permission_principal' - The Amazon Web Services service or entity that holds the permission. At
+-- this time, the only valid principal is @acm.amazonaws.com@.
 --
 -- 'policy', 'permission_policy' - The name of the policy that is associated with the permission.
 --
@@ -76,8 +76,8 @@ data Permission = Permission'
 --
 -- 'sourceAccount', 'permission_sourceAccount' - The ID of the account that assigned the permission.
 --
--- 'actions', 'permission_actions' - The private CA actions that can be performed by the designated AWS
--- service.
+-- 'actions', 'permission_actions' - The private CA actions that can be performed by the designated Amazon
+-- Web Services service.
 newPermission ::
   Permission
 newPermission =
@@ -90,8 +90,8 @@ newPermission =
       actions = Prelude.Nothing
     }
 
--- | The AWS service or entity that holds the permission. At this time, the
--- only valid principal is @acm.amazonaws.com@.
+-- | The Amazon Web Services service or entity that holds the permission. At
+-- this time, the only valid principal is @acm.amazonaws.com@.
 permission_principal :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_principal = Lens.lens (\Permission' {principal} -> principal) (\s@Permission' {} a -> s {principal = a} :: Permission)
 
@@ -112,8 +112,8 @@ permission_createdAt = Lens.lens (\Permission' {createdAt} -> createdAt) (\s@Per
 permission_sourceAccount :: Lens.Lens' Permission (Prelude.Maybe Prelude.Text)
 permission_sourceAccount = Lens.lens (\Permission' {sourceAccount} -> sourceAccount) (\s@Permission' {} a -> s {sourceAccount = a} :: Permission)
 
--- | The private CA actions that can be performed by the designated AWS
--- service.
+-- | The private CA actions that can be performed by the designated Amazon
+-- Web Services service.
 permission_actions :: Lens.Lens' Permission (Prelude.Maybe (Prelude.NonEmpty ActionType))
 permission_actions = Lens.lens (\Permission' {actions} -> actions) (\s@Permission' {} a -> s {actions = a} :: Permission) Prelude.. Lens.mapping Lens.coerced
 

@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all permissions on a private CA, if any, granted to the AWS
--- Certificate Manager (ACM) service principal (acm.amazonaws.com).
+-- List all permissions on a private CA, if any, granted to the Certificate
+-- Manager (ACM) service principal (acm.amazonaws.com).
 --
 -- These permissions allow ACM to issue and renew ACM certificates that
--- reside in the same AWS account as the CA.
+-- reside in the same Amazon Web Services account as the CA.
 --
 -- Permissions can be granted with the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreatePermission.html CreatePermission>

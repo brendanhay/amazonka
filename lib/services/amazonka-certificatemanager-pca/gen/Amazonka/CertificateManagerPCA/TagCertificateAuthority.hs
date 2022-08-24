@@ -21,13 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more tags to your private CA. Tags are labels that you can
--- use to identify and organize your AWS resources. Each tag consists of a
--- key and an optional value. You specify the private CA on input by its
--- Amazon Resource Name (ARN). You specify the tag by using a key-value
--- pair. You can apply a tag to just one private CA if you want to identify
--- a specific characteristic of that CA, or you can apply the same tag to
--- multiple private CAs if you want to filter for a common relationship
--- among those CAs. To remove one or more tags, use the
+-- use to identify and organize your Amazon Web Services resources. Each
+-- tag consists of a key and an optional value. You specify the private CA
+-- on input by its Amazon Resource Name (ARN). You specify the tag by using
+-- a key-value pair. You can apply a tag to just one private CA if you want
+-- to identify a specific characteristic of that CA, or you can apply the
+-- same tag to multiple private CAs if you want to filter for a common
+-- relationship among those CAs. To remove one or more tags, use the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UntagCertificateAuthority.html UntagCertificateAuthority>
 -- action. Call the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html ListTags>

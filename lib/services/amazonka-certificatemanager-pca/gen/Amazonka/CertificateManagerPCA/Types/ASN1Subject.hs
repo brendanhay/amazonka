@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.CertificateManagerPCA.Types.ASN1Subject where
 
+import Amazonka.CertificateManagerPCA.Types.CustomAttribute
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -56,6 +57,14 @@ data ASN1Subject = ASN1Subject'
     -- | A title such as Mr. or Ms., which is pre-pended to the name to refer
     -- formally to the certificate subject.
     title :: Prelude.Maybe Prelude.Text,
+    -- | Contains a sequence of one or more X.500 relative distinguished names
+    -- (RDNs), each of which consists of an object identifier (OID) and a
+    -- value. For more information, see NIST’s definition of
+    -- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
+    --
+    -- Custom attributes cannot be used in combination with standard
+    -- attributes.
+    customAttributes :: Prelude.Maybe (Prelude.NonEmpty CustomAttribute),
     -- | The locality (such as a city or town) in which the certificate subject
     -- is located.
     locality :: Prelude.Maybe Prelude.Text,
@@ -111,6 +120,14 @@ data ASN1Subject = ASN1Subject'
 -- 'title', 'aSN1Subject_title' - A title such as Mr. or Ms., which is pre-pended to the name to refer
 -- formally to the certificate subject.
 --
+-- 'customAttributes', 'aSN1Subject_customAttributes' - Contains a sequence of one or more X.500 relative distinguished names
+-- (RDNs), each of which consists of an object identifier (OID) and a
+-- value. For more information, see NIST’s definition of
+-- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
+--
+-- Custom attributes cannot be used in combination with standard
+-- attributes.
+--
 -- 'locality', 'aSN1Subject_locality' - The locality (such as a city or town) in which the certificate subject
 -- is located.
 --
@@ -142,6 +159,7 @@ newASN1Subject =
       pseudonym = Prelude.Nothing,
       surname = Prelude.Nothing,
       title = Prelude.Nothing,
+      customAttributes = Prelude.Nothing,
       locality = Prelude.Nothing,
       organization = Prelude.Nothing,
       serialNumber = Prelude.Nothing,
@@ -190,6 +208,16 @@ aSN1Subject_surname = Lens.lens (\ASN1Subject' {surname} -> surname) (\s@ASN1Sub
 aSN1Subject_title :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
 aSN1Subject_title = Lens.lens (\ASN1Subject' {title} -> title) (\s@ASN1Subject' {} a -> s {title = a} :: ASN1Subject)
 
+-- | Contains a sequence of one or more X.500 relative distinguished names
+-- (RDNs), each of which consists of an object identifier (OID) and a
+-- value. For more information, see NIST’s definition of
+-- <https://csrc.nist.gov/glossary/term/Object_Identifier Object Identifier (OID)>.
+--
+-- Custom attributes cannot be used in combination with standard
+-- attributes.
+aSN1Subject_customAttributes :: Lens.Lens' ASN1Subject (Prelude.Maybe (Prelude.NonEmpty CustomAttribute))
+aSN1Subject_customAttributes = Lens.lens (\ASN1Subject' {customAttributes} -> customAttributes) (\s@ASN1Subject' {} a -> s {customAttributes = a} :: ASN1Subject) Prelude.. Lens.mapping Lens.coerced
+
 -- | The locality (such as a city or town) in which the certificate subject
 -- is located.
 aSN1Subject_locality :: Lens.Lens' ASN1Subject (Prelude.Maybe Prelude.Text)
@@ -236,6 +264,7 @@ instance Core.FromJSON ASN1Subject where
             Prelude.<*> (x Core..:? "Pseudonym")
             Prelude.<*> (x Core..:? "Surname")
             Prelude.<*> (x Core..:? "Title")
+            Prelude.<*> (x Core..:? "CustomAttributes")
             Prelude.<*> (x Core..:? "Locality")
             Prelude.<*> (x Core..:? "Organization")
             Prelude.<*> (x Core..:? "SerialNumber")
@@ -254,6 +283,7 @@ instance Prelude.Hashable ASN1Subject where
       `Prelude.hashWithSalt` pseudonym
       `Prelude.hashWithSalt` surname
       `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` customAttributes
       `Prelude.hashWithSalt` locality
       `Prelude.hashWithSalt` organization
       `Prelude.hashWithSalt` serialNumber
@@ -271,6 +301,7 @@ instance Prelude.NFData ASN1Subject where
       `Prelude.seq` Prelude.rnf pseudonym
       `Prelude.seq` Prelude.rnf surname
       `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf customAttributes
       `Prelude.seq` Prelude.rnf locality
       `Prelude.seq` Prelude.rnf organization
       `Prelude.seq` Prelude.rnf serialNumber
@@ -292,6 +323,8 @@ instance Core.ToJSON ASN1Subject where
             ("Pseudonym" Core..=) Prelude.<$> pseudonym,
             ("Surname" Core..=) Prelude.<$> surname,
             ("Title" Core..=) Prelude.<$> title,
+            ("CustomAttributes" Core..=)
+              Prelude.<$> customAttributes,
             ("Locality" Core..=) Prelude.<$> locality,
             ("Organization" Core..=) Prelude.<$> organization,
             ("SerialNumber" Core..=) Prelude.<$> serialNumber,

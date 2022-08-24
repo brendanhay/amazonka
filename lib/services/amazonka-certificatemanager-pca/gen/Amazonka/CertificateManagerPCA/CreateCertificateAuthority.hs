@@ -42,7 +42,7 @@
 -- bucket that you specify. If the IAM principal making the call does not
 -- have permission to write to the bucket, then an exception is thrown. For
 -- more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html Configure Access to ACM Private CA>.
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
 module Amazonka.CertificateManagerPCA.CreateCertificateAuthority
   ( -- * Creating a Request
     CreateCertificateAuthority (..),
@@ -85,9 +85,15 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     --
     -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
     --
-    -- Note: @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in Region
-    -- ap-northeast-3. When creating a CA in the ap-northeast-3, you must
-    -- provide @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
+    -- /Note:/ @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in the following
+    -- Regions:
+    --
+    -- -   ap-northeast-3
+    --
+    -- -   ap-southeast-3
+    --
+    -- When creating a CA in these Regions, you must provide
+    -- @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
     -- @KeyStorageSecurityStandard@. Failure to do this results in an
     -- @InvalidArgsException@ with the message, \"A certificate authority
     -- cannot be created in this region with the specified security standard.\"
@@ -136,9 +142,15 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 --
 -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 --
--- Note: @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in Region
--- ap-northeast-3. When creating a CA in the ap-northeast-3, you must
--- provide @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
+-- /Note:/ @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in the following
+-- Regions:
+--
+-- -   ap-northeast-3
+--
+-- -   ap-southeast-3
+--
+-- When creating a CA in these Regions, you must provide
+-- @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
 -- @KeyStorageSecurityStandard@. Failure to do this results in an
 -- @InvalidArgsException@ with the message, \"A certificate authority
 -- cannot be created in this region with the specified security standard.\"
@@ -197,9 +209,15 @@ createCertificateAuthority_tags = Lens.lens (\CreateCertificateAuthority' {tags}
 --
 -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
 --
--- Note: @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in Region
--- ap-northeast-3. When creating a CA in the ap-northeast-3, you must
--- provide @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
+-- /Note:/ @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in the following
+-- Regions:
+--
+-- -   ap-northeast-3
+--
+-- -   ap-southeast-3
+--
+-- When creating a CA in these Regions, you must provide
+-- @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
 -- @KeyStorageSecurityStandard@. Failure to do this results in an
 -- @InvalidArgsException@ with the message, \"A certificate authority
 -- cannot be created in this region with the specified security standard.\"

@@ -99,8 +99,8 @@ data IssueCertificate = IssueCertificate'
     -- using the @Validity@ type value @ABSOLUTE@. For more information, see
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html Validity>
     -- in this API reference and
-    -- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
-    -- 5280.
+    -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
+    -- in RFC 5280.
     validityNotBefore :: Prelude.Maybe Validity,
     -- | Specifies a custom configuration template to use when issuing a
     -- certificate. If this parameter is not provided, ACM Private CA defaults
@@ -132,7 +132,7 @@ data IssueCertificate = IssueCertificate'
     -- command. The @usr_cert@ block in the configuration file contains your
     -- X509 version 3 extensions.
     --
-    -- @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days -365 -keyout private\/test_cert_priv_key.pem -out csr\/test_cert_.csr@
+    -- @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days 365 -keyout private\/test_cert_priv_key.pem -out csr\/test_cert_.csr@
     --
     -- Note: A CSR must provide either a /subject name/ or a /subject
     -- alternative name/ or the request will be rejected.
@@ -142,6 +142,9 @@ data IssueCertificate = IssueCertificate'
     --
     -- This parameter should not be confused with the @SigningAlgorithm@
     -- parameter used to sign a CSR in the @CreateCertificateAuthority@ action.
+    --
+    -- The specified signing algorithm family (RSA or ECDSA) much match the
+    -- algorithm family of the CA\'s secret key.
     signingAlgorithm :: SigningAlgorithm,
     -- | Information describing the end of the validity period of the
     -- certificate. This parameter sets the “Not After” date for the
@@ -151,8 +154,8 @@ data IssueCertificate = IssueCertificate'
     -- valid. Validity can be expressed as an explicit date and time when the
     -- certificate expires, or as a span of time after issuance, stated in
     -- days, months, or years. For more information, see
-    -- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
-    -- 5280.
+    -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
+    -- in RFC 5280.
     --
     -- This value is unaffected when @ValidityNotBefore@ is also specified. For
     -- example, if @Validity@ is set to 20 days in the future, the certificate
@@ -209,8 +212,8 @@ data IssueCertificate = IssueCertificate'
 -- using the @Validity@ type value @ABSOLUTE@. For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html Validity>
 -- in this API reference and
--- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
--- 5280.
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
+-- in RFC 5280.
 --
 -- 'templateArn', 'issueCertificate_templateArn' - Specifies a custom configuration template to use when issuing a
 -- certificate. If this parameter is not provided, ACM Private CA defaults
@@ -242,7 +245,7 @@ data IssueCertificate = IssueCertificate'
 -- command. The @usr_cert@ block in the configuration file contains your
 -- X509 version 3 extensions.
 --
--- @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days -365 -keyout private\/test_cert_priv_key.pem -out csr\/test_cert_.csr@
+-- @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days 365 -keyout private\/test_cert_priv_key.pem -out csr\/test_cert_.csr@
 --
 -- Note: A CSR must provide either a /subject name/ or a /subject
 -- alternative name/ or the request will be rejected.--
@@ -257,6 +260,9 @@ data IssueCertificate = IssueCertificate'
 -- This parameter should not be confused with the @SigningAlgorithm@
 -- parameter used to sign a CSR in the @CreateCertificateAuthority@ action.
 --
+-- The specified signing algorithm family (RSA or ECDSA) much match the
+-- algorithm family of the CA\'s secret key.
+--
 -- 'validity', 'issueCertificate_validity' - Information describing the end of the validity period of the
 -- certificate. This parameter sets the “Not After” date for the
 -- certificate.
@@ -265,8 +271,8 @@ data IssueCertificate = IssueCertificate'
 -- valid. Validity can be expressed as an explicit date and time when the
 -- certificate expires, or as a span of time after issuance, stated in
 -- days, months, or years. For more information, see
--- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
--- 5280.
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
+-- in RFC 5280.
 --
 -- This value is unaffected when @ValidityNotBefore@ is also specified. For
 -- example, if @Validity@ is set to 20 days in the future, the certificate
@@ -342,8 +348,8 @@ issueCertificate_apiPassthrough = Lens.lens (\IssueCertificate' {apiPassthrough}
 -- using the @Validity@ type value @ABSOLUTE@. For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_Validity.html Validity>
 -- in this API reference and
--- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
--- 5280.
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
+-- in RFC 5280.
 issueCertificate_validityNotBefore :: Lens.Lens' IssueCertificate (Prelude.Maybe Validity)
 issueCertificate_validityNotBefore = Lens.lens (\IssueCertificate' {validityNotBefore} -> validityNotBefore) (\s@IssueCertificate' {} a -> s {validityNotBefore = a} :: IssueCertificate)
 
@@ -381,7 +387,7 @@ issueCertificate_certificateAuthorityArn = Lens.lens (\IssueCertificate' {certif
 -- command. The @usr_cert@ block in the configuration file contains your
 -- X509 version 3 extensions.
 --
--- @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days -365 -keyout private\/test_cert_priv_key.pem -out csr\/test_cert_.csr@
+-- @openssl req -new -config openssl_rsa.cnf -extensions usr_cert -newkey rsa:2048 -days 365 -keyout private\/test_cert_priv_key.pem -out csr\/test_cert_.csr@
 --
 -- Note: A CSR must provide either a /subject name/ or a /subject
 -- alternative name/ or the request will be rejected.--
@@ -397,6 +403,9 @@ issueCertificate_csr = Lens.lens (\IssueCertificate' {csr} -> csr) (\s@IssueCert
 --
 -- This parameter should not be confused with the @SigningAlgorithm@
 -- parameter used to sign a CSR in the @CreateCertificateAuthority@ action.
+--
+-- The specified signing algorithm family (RSA or ECDSA) much match the
+-- algorithm family of the CA\'s secret key.
 issueCertificate_signingAlgorithm :: Lens.Lens' IssueCertificate SigningAlgorithm
 issueCertificate_signingAlgorithm = Lens.lens (\IssueCertificate' {signingAlgorithm} -> signingAlgorithm) (\s@IssueCertificate' {} a -> s {signingAlgorithm = a} :: IssueCertificate)
 
@@ -408,8 +417,8 @@ issueCertificate_signingAlgorithm = Lens.lens (\IssueCertificate' {signingAlgori
 -- valid. Validity can be expressed as an explicit date and time when the
 -- certificate expires, or as a span of time after issuance, stated in
 -- days, months, or years. For more information, see
--- <https://tools.ietf.org/html/rfc5280#section-4.1.2.5 Validity> in RFC
--- 5280.
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.1.2.5 Validity>
+-- in RFC 5280.
 --
 -- This value is unaffected when @ValidityNotBefore@ is also specified. For
 -- example, if @Validity@ is set to 20 days in the future, the certificate

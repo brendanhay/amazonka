@@ -42,6 +42,8 @@ haskell_library(
         "gen/Amazonka/CertificateManagerPCA/Types/CertificateAuthorityType.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/CrlConfiguration.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/CsrExtensions.hs",
+        "gen/Amazonka/CertificateManagerPCA/Types/CustomAttribute.hs",
+        "gen/Amazonka/CertificateManagerPCA/Types/CustomExtension.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/EdiPartyName.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/ExtendedKeyUsage.hs",
         "gen/Amazonka/CertificateManagerPCA/Types/ExtendedKeyUsageType.hs",

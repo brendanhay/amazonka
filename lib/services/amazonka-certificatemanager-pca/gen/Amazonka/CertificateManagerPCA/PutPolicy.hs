@@ -22,8 +22,8 @@
 --
 -- Attaches a resource-based policy to a private CA.
 --
--- A policy can also be applied by sharing a private CA through AWS
--- Resource Access Manager (RAM). For more information, see
+-- A policy can also be applied by sharing a private CA through Amazon Web
+-- Services Resource Access Manager (RAM). For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
 --
 -- The policy can be displayed with
@@ -33,13 +33,14 @@
 --
 -- __About Policies__
 --
--- -   A policy grants access on a private CA to an AWS customer account,
---     to AWS Organizations, or to an AWS Organizations unit. Policies are
---     under the control of a CA administrator. For more information, see
+-- -   A policy grants access on a private CA to an Amazon Web Services
+--     customer account, to Amazon Web Services Organizations, or to an
+--     Amazon Web Services Organizations unit. Policies are under the
+--     control of a CA administrator. For more information, see
 --     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-rbp.html Using a Resource Based Policy with ACM Private CA>.
 --
--- -   A policy permits a user of AWS Certificate Manager (ACM) to issue
---     ACM certificates signed by a CA in another account.
+-- -   A policy permits a user of Certificate Manager (ACM) to issue ACM
+--     certificates signed by a CA in another account.
 --
 -- -   For ACM to manage automatic renewal of these certificates, the ACM
 --     user must configure a Service Linked Role (SLR). The SLR allows the
@@ -48,8 +49,8 @@
 --     information, see
 --     <https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html Using a Service Linked Role with ACM>.
 --
--- -   Updates made in AWS Resource Manager (RAM) are reflected in
---     policies. For more information, see
+-- -   Updates made in Amazon Web Services Resource Manager (RAM) are
+--     reflected in policies. For more information, see
 --     <https://docs.aws.amazon.com/acm-pca/latest/userguide/pca-ram.html Attach a Policy for Cross-Account Access>.
 module Amazonka.CertificateManagerPCA.PutPolicy
   ( -- * Creating a Request

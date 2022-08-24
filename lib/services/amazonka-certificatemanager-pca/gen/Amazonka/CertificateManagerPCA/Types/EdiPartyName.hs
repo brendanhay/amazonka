@@ -25,8 +25,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an Electronic Data Interchange (EDI) entity as described in as
 -- defined in
--- <https://tools.ietf.org/html/rfc5280 Subject Alternative Name> in RFC
--- 5280.
+-- <https://datatracker.ietf.org/doc/html/rfc5280 Subject Alternative Name>
+-- in RFC 5280.
 --
 -- /See:/ 'newEdiPartyName' smart constructor.
 data EdiPartyName = EdiPartyName'

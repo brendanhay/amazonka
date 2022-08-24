@@ -32,11 +32,13 @@
 -- bucket that you specify. If the IAM principal making the call does not
 -- have permission to write to the bucket, then an exception is thrown. For
 -- more information, see
--- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html Configure Access to ACM Private CA>.
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html#s3-policies Access policies for CRLs in Amazon S3>.
 --
 -- ACM Private CA assets that are stored in Amazon S3 can be protected with
 -- encryption. For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption Encrypting Your Audit Reports>.
+--
+-- You can generate a maximum of one report every 30 minutes.
 module Amazonka.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
   ( -- * Creating a Request
     CreateCertificateAuthorityAuditReport (..),

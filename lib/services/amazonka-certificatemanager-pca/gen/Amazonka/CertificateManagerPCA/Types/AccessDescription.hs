@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Provides access information used by the @authorityInfoAccess@ and
 -- @subjectInfoAccess@ extensions described in
--- <https://tools.ietf.org/html/rfc5280 RFC 5280>.
+-- <https://datatracker.ietf.org/doc/html/rfc5280 RFC 5280>.
 --
 -- /See:/ 'newAccessDescription' smart constructor.
 data AccessDescription = AccessDescription'

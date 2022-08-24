@@ -33,7 +33,7 @@ data CsrExtensions = CsrExtensions'
   { -- | For CA certificates, provides a path to additional information
     -- pertaining to the CA, such as revocation and policy. For more
     -- information, see
-    -- <https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access>
+    -- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2 Subject Information Access>
     -- in RFC 5280.
     subjectInformationAccess :: Prelude.Maybe [AccessDescription],
     -- | Indicates the purpose of the certificate and of the key contained in the
@@ -53,7 +53,7 @@ data CsrExtensions = CsrExtensions'
 -- 'subjectInformationAccess', 'csrExtensions_subjectInformationAccess' - For CA certificates, provides a path to additional information
 -- pertaining to the CA, such as revocation and policy. For more
 -- information, see
--- <https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access>
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2 Subject Information Access>
 -- in RFC 5280.
 --
 -- 'keyUsage', 'csrExtensions_keyUsage' - Indicates the purpose of the certificate and of the key contained in the
@@ -70,7 +70,7 @@ newCsrExtensions =
 -- | For CA certificates, provides a path to additional information
 -- pertaining to the CA, such as revocation and policy. For more
 -- information, see
--- <https://tools.ietf.org/html/rfc5280#section-4.2.2.2 Subject Information Access>
+-- <https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2 Subject Information Access>
 -- in RFC 5280.
 csrExtensions_subjectInformationAccess :: Lens.Lens' CsrExtensions (Prelude.Maybe [AccessDescription])
 csrExtensions_subjectInformationAccess = Lens.lens (\CsrExtensions' {subjectInformationAccess} -> subjectInformationAccess) (\s@CsrExtensions' {} a -> s {subjectInformationAccess = a} :: CsrExtensions) Prelude.. Lens.mapping Lens.coerced

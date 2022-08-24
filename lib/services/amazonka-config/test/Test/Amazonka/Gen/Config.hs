@@ -189,6 +189,9 @@ import Test.Tasty
 --         , requestGetConformancePackComplianceSummary $
 --             newGetConformancePackComplianceSummary
 --
+--         , requestGetCustomRulePolicy $
+--             newGetCustomRulePolicy
+--
 --         , requestGetDiscoveredResourceCounts $
 --             newGetDiscoveredResourceCounts
 --
@@ -198,6 +201,9 @@ import Test.Tasty
 --         , requestGetOrganizationConformancePackDetailedStatus $
 --             newGetOrganizationConformancePackDetailedStatus
 --
+--         , requestGetOrganizationCustomRulePolicy $
+--             newGetOrganizationCustomRulePolicy
+--
 --         , requestGetResourceConfigHistory $
 --             newGetResourceConfigHistory
 --
@@ -206,6 +212,9 @@ import Test.Tasty
 --
 --         , requestListAggregateDiscoveredResources $
 --             newListAggregateDiscoveredResources
+--
+--         , requestListConformancePackComplianceScores $
+--             newListConformancePackComplianceScores
 --
 --         , requestListDiscoveredResources $
 --             newListDiscoveredResources
@@ -450,6 +459,9 @@ import Test.Tasty
 --         , responseGetConformancePackComplianceSummary $
 --             newGetConformancePackComplianceSummaryResponse
 --
+--         , responseGetCustomRulePolicy $
+--             newGetCustomRulePolicyResponse
+--
 --         , responseGetDiscoveredResourceCounts $
 --             newGetDiscoveredResourceCountsResponse
 --
@@ -459,6 +471,9 @@ import Test.Tasty
 --         , responseGetOrganizationConformancePackDetailedStatus $
 --             newGetOrganizationConformancePackDetailedStatusResponse
 --
+--         , responseGetOrganizationCustomRulePolicy $
+--             newGetOrganizationCustomRulePolicyResponse
+--
 --         , responseGetResourceConfigHistory $
 --             newGetResourceConfigHistoryResponse
 --
@@ -467,6 +482,9 @@ import Test.Tasty
 --
 --         , responseListAggregateDiscoveredResources $
 --             newListAggregateDiscoveredResourcesResponse
+--
+--         , responseListConformancePackComplianceScores $
+--             newListConformancePackComplianceScoresResponse
 --
 --         , responseListDiscoveredResources $
 --             newListDiscoveredResourcesResponse
@@ -875,6 +893,12 @@ requestGetConformancePackComplianceSummary =
     "GetConformancePackComplianceSummary"
     "fixture/GetConformancePackComplianceSummary.yaml"
 
+requestGetCustomRulePolicy :: GetCustomRulePolicy -> TestTree
+requestGetCustomRulePolicy =
+  req
+    "GetCustomRulePolicy"
+    "fixture/GetCustomRulePolicy.yaml"
+
 requestGetDiscoveredResourceCounts :: GetDiscoveredResourceCounts -> TestTree
 requestGetDiscoveredResourceCounts =
   req
@@ -893,6 +917,12 @@ requestGetOrganizationConformancePackDetailedStatus =
     "GetOrganizationConformancePackDetailedStatus"
     "fixture/GetOrganizationConformancePackDetailedStatus.yaml"
 
+requestGetOrganizationCustomRulePolicy :: GetOrganizationCustomRulePolicy -> TestTree
+requestGetOrganizationCustomRulePolicy =
+  req
+    "GetOrganizationCustomRulePolicy"
+    "fixture/GetOrganizationCustomRulePolicy.yaml"
+
 requestGetResourceConfigHistory :: GetResourceConfigHistory -> TestTree
 requestGetResourceConfigHistory =
   req
@@ -910,6 +940,12 @@ requestListAggregateDiscoveredResources =
   req
     "ListAggregateDiscoveredResources"
     "fixture/ListAggregateDiscoveredResources.yaml"
+
+requestListConformancePackComplianceScores :: ListConformancePackComplianceScores -> TestTree
+requestListConformancePackComplianceScores =
+  req
+    "ListConformancePackComplianceScores"
+    "fixture/ListConformancePackComplianceScores.yaml"
 
 requestListDiscoveredResources :: ListDiscoveredResources -> TestTree
 requestListDiscoveredResources =
@@ -1501,6 +1537,14 @@ responseGetConformancePackComplianceSummary =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetConformancePackComplianceSummary)
 
+responseGetCustomRulePolicy :: GetCustomRulePolicyResponse -> TestTree
+responseGetCustomRulePolicy =
+  res
+    "GetCustomRulePolicyResponse"
+    "fixture/GetCustomRulePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCustomRulePolicy)
+
 responseGetDiscoveredResourceCounts :: GetDiscoveredResourceCountsResponse -> TestTree
 responseGetDiscoveredResourceCounts =
   res
@@ -1525,6 +1569,14 @@ responseGetOrganizationConformancePackDetailedStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetOrganizationConformancePackDetailedStatus)
 
+responseGetOrganizationCustomRulePolicy :: GetOrganizationCustomRulePolicyResponse -> TestTree
+responseGetOrganizationCustomRulePolicy =
+  res
+    "GetOrganizationCustomRulePolicyResponse"
+    "fixture/GetOrganizationCustomRulePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetOrganizationCustomRulePolicy)
+
 responseGetResourceConfigHistory :: GetResourceConfigHistoryResponse -> TestTree
 responseGetResourceConfigHistory =
   res
@@ -1548,6 +1600,14 @@ responseListAggregateDiscoveredResources =
     "fixture/ListAggregateDiscoveredResourcesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAggregateDiscoveredResources)
+
+responseListConformancePackComplianceScores :: ListConformancePackComplianceScoresResponse -> TestTree
+responseListConformancePackComplianceScores =
+  res
+    "ListConformancePackComplianceScoresResponse"
+    "fixture/ListConformancePackComplianceScoresResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListConformancePackComplianceScores)
 
 responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
 responseListDiscoveredResources =

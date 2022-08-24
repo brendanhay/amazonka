@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Config.Types.Owner
+-- Module      : Amazonka.Config.Types.SortOrder
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Config.Types.Owner
-  ( Owner
+module Amazonka.Config.Types.SortOrder
+  ( SortOrder
       ( ..,
-        Owner_AWS,
-        Owner_CUSTOM_LAMBDA,
-        Owner_CUSTOM_POLICY
+        SortOrder_ASCENDING,
+        SortOrder_DESCENDING
       ),
   )
 where
@@ -30,7 +29,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype Owner = Owner' {fromOwner :: Core.Text}
+newtype SortOrder = SortOrder'
+  { fromSortOrder ::
+      Core.Text
+  }
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -55,18 +57,14 @@ newtype Owner = Owner' {fromOwner :: Core.Text}
       Core.ToXML
     )
 
-pattern Owner_AWS :: Owner
-pattern Owner_AWS = Owner' "AWS"
+pattern SortOrder_ASCENDING :: SortOrder
+pattern SortOrder_ASCENDING = SortOrder' "ASCENDING"
 
-pattern Owner_CUSTOM_LAMBDA :: Owner
-pattern Owner_CUSTOM_LAMBDA = Owner' "CUSTOM_LAMBDA"
-
-pattern Owner_CUSTOM_POLICY :: Owner
-pattern Owner_CUSTOM_POLICY = Owner' "CUSTOM_POLICY"
+pattern SortOrder_DESCENDING :: SortOrder
+pattern SortOrder_DESCENDING = SortOrder' "DESCENDING"
 
 {-# COMPLETE
-  Owner_AWS,
-  Owner_CUSTOM_LAMBDA,
-  Owner_CUSTOM_POLICY,
-  Owner'
+  SortOrder_ASCENDING,
+  SortOrder_DESCENDING,
+  SortOrder'
   #-}

@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationManagedRuleMetadata' smart constructor.
 data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
-  { -- | The maximum frequency with which Config runs evaluations for a rule. You
-    -- are using an Config managed rule that is triggered at a periodic
+  { -- | The maximum frequency with which Config runs evaluations for a rule.
+    -- This is for an Config managed rule that is triggered at a periodic
     -- frequency.
     --
     -- By default, rules with a periodic trigger are evaluated every 24 hours.
@@ -41,15 +41,15 @@ data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
     maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
     -- | The type of the Amazon Web Services resource that was evaluated.
     resourceTypesScope :: Prelude.Maybe [Prelude.Text],
-    -- | A string, in JSON format, that is passed to organization config rule
-    -- Lambda function.
+    -- | A string, in JSON format, that is passed to your organization Config
+    -- rule Lambda function.
     inputParameters :: Prelude.Maybe Prelude.Text,
     -- | The optional part of a key-value pair that make up a tag. A value acts
     -- as a descriptor within a tag category (key).
     tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services resource that was evaluated.
     resourceIdScope :: Prelude.Maybe Prelude.Text,
-    -- | The description that you provide for organization config rule.
+    -- | The description that you provide for your organization Config rule.
     description :: Prelude.Maybe Prelude.Text,
     -- | One part of a key-value pair that make up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
@@ -70,8 +70,8 @@ data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maximumExecutionFrequency', 'organizationManagedRuleMetadata_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule. You
--- are using an Config managed rule that is triggered at a periodic
+-- 'maximumExecutionFrequency', 'organizationManagedRuleMetadata_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule.
+-- This is for an Config managed rule that is triggered at a periodic
 -- frequency.
 --
 -- By default, rules with a periodic trigger are evaluated every 24 hours.
@@ -80,15 +80,15 @@ data OrganizationManagedRuleMetadata = OrganizationManagedRuleMetadata'
 --
 -- 'resourceTypesScope', 'organizationManagedRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
 --
--- 'inputParameters', 'organizationManagedRuleMetadata_inputParameters' - A string, in JSON format, that is passed to organization config rule
--- Lambda function.
+-- 'inputParameters', 'organizationManagedRuleMetadata_inputParameters' - A string, in JSON format, that is passed to your organization Config
+-- rule Lambda function.
 --
 -- 'tagValueScope', 'organizationManagedRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
 -- as a descriptor within a tag category (key).
 --
 -- 'resourceIdScope', 'organizationManagedRuleMetadata_resourceIdScope' - The ID of the Amazon Web Services resource that was evaluated.
 --
--- 'description', 'organizationManagedRuleMetadata_description' - The description that you provide for organization config rule.
+-- 'description', 'organizationManagedRuleMetadata_description' - The description that you provide for your organization Config rule.
 --
 -- 'tagKeyScope', 'organizationManagedRuleMetadata_tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
@@ -114,8 +114,8 @@ newOrganizationManagedRuleMetadata pRuleIdentifier_ =
       ruleIdentifier = pRuleIdentifier_
     }
 
--- | The maximum frequency with which Config runs evaluations for a rule. You
--- are using an Config managed rule that is triggered at a periodic
+-- | The maximum frequency with which Config runs evaluations for a rule.
+-- This is for an Config managed rule that is triggered at a periodic
 -- frequency.
 --
 -- By default, rules with a periodic trigger are evaluated every 24 hours.
@@ -128,8 +128,8 @@ organizationManagedRuleMetadata_maximumExecutionFrequency = Lens.lens (\Organiza
 organizationManagedRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe [Prelude.Text])
 organizationManagedRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationManagedRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationManagedRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationManagedRuleMetadata) Prelude.. Lens.mapping Lens.coerced
 
--- | A string, in JSON format, that is passed to organization config rule
--- Lambda function.
+-- | A string, in JSON format, that is passed to your organization Config
+-- rule Lambda function.
 organizationManagedRuleMetadata_inputParameters :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationManagedRuleMetadata_inputParameters = Lens.lens (\OrganizationManagedRuleMetadata' {inputParameters} -> inputParameters) (\s@OrganizationManagedRuleMetadata' {} a -> s {inputParameters = a} :: OrganizationManagedRuleMetadata)
 
@@ -142,7 +142,7 @@ organizationManagedRuleMetadata_tagValueScope = Lens.lens (\OrganizationManagedR
 organizationManagedRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationManagedRuleMetadata_resourceIdScope = Lens.lens (\OrganizationManagedRuleMetadata' {resourceIdScope} -> resourceIdScope) (\s@OrganizationManagedRuleMetadata' {} a -> s {resourceIdScope = a} :: OrganizationManagedRuleMetadata)
 
--- | The description that you provide for organization config rule.
+-- | The description that you provide for your organization Config rule.
 organizationManagedRuleMetadata_description :: Lens.Lens' OrganizationManagedRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationManagedRuleMetadata_description = Lens.lens (\OrganizationManagedRuleMetadata' {description} -> description) (\s@OrganizationManagedRuleMetadata' {} a -> s {description = a} :: OrganizationManagedRuleMetadata)
 

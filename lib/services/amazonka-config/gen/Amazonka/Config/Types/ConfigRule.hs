@@ -27,29 +27,39 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An Config rule represents an Lambda function that you create for a
--- custom rule or a predefined function for an Config managed rule. The
--- function evaluates configuration items to assess whether your Amazon Web
--- Services resources comply with your desired configurations. This
--- function can run when Config detects a configuration change to an Amazon
--- Web Services resource and at a periodic frequency that you choose (for
--- example, every 24 hours).
+-- | Config rules evaluate the configuration settings of your Amazon Web
+-- Services resources. A rule can run when Config detects a configuration
+-- change to an Amazon Web Services resource or at a periodic frequency
+-- that you choose (for example, every 24 hours). There are two types of
+-- rules: Config Managed Rules and Config Custom Rules. Managed rules are
+-- predefined, customizable rules created by Config. For a list of managed
+-- rules, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html List of Config Managed Rules>.
+--
+-- Custom rules are rules that you can create using either Guard or Lambda
+-- functions. Guard
+-- (<https://github.com/aws-cloudformation/cloudformation-guard Guard GitHub Repository>)
+-- is a policy-as-code language that allows you to write policies that are
+-- enforced by Config Custom Policy rules. Lambda uses custom code that you
+-- upload to evaluate a custom rule. It is invoked by events that are
+-- published to it by an event source, which Config invokes when the custom
+-- rule is initiated.
+--
+-- For more information about developing and using Config rules, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating Amazon Web Services resource Configurations with Config>
+-- in the /Config Developer Guide/.
 --
 -- You can use the Amazon Web Services CLI and Amazon Web Services SDKs if
 -- you want to create a rule that triggers evaluations for your resources
 -- when Config delivers the configuration snapshot. For more information,
 -- see ConfigSnapshotDeliveryProperties.
 --
--- For more information about developing and using Config rules, see
--- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html Evaluating Amazon Web Services resource Configurations with Config>
--- in the /Config Developer Guide/.
---
 -- /See:/ 'newConfigRule' smart constructor.
 data ConfigRule = ConfigRule'
   { -- | The maximum frequency with which Config runs evaluations for a rule. You
     -- can specify a value for @MaximumExecutionFrequency@ when:
     --
-    -- -   You are using an Config managed rule that is triggered at a periodic
+    -- -   This is for an Config managed rule that is triggered at a periodic
     --     frequency.
     --
     -- -   Your custom rule is triggered when Config delivers the configuration
@@ -100,12 +110,13 @@ data ConfigRule = ConfigRule'
     configRuleState :: Prelude.Maybe ConfigRuleState,
     -- | Service principal name of the service that created the rule.
     --
-    -- The field is populated only if the service linked rule is created by a
+    -- The field is populated only if the service-linked rule is created by a
     -- service. The field is empty if you create your own rule.
     createdBy :: Prelude.Maybe Prelude.Text,
-    -- | Provides the rule owner (Amazon Web Services or customer), the rule
-    -- identifier, and the notifications that cause the function to evaluate
-    -- your Amazon Web Services resources.
+    -- | Provides the rule owner (@Amazon Web Services@ for managed rules,
+    -- @CUSTOM_POLICY@ for Custom Policy rules, and @CUSTOM_LAMBDA@ for Custom
+    -- Lambda rules), the rule identifier, and the notifications that cause the
+    -- function to evaluate your Amazon Web Services resources.
     source :: Source
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -121,7 +132,7 @@ data ConfigRule = ConfigRule'
 -- 'maximumExecutionFrequency', 'configRule_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule. You
 -- can specify a value for @MaximumExecutionFrequency@ when:
 --
--- -   You are using an Config managed rule that is triggered at a periodic
+-- -   This is for an Config managed rule that is triggered at a periodic
 --     frequency.
 --
 -- -   Your custom rule is triggered when Config delivers the configuration
@@ -172,12 +183,13 @@ data ConfigRule = ConfigRule'
 --
 -- 'createdBy', 'configRule_createdBy' - Service principal name of the service that created the rule.
 --
--- The field is populated only if the service linked rule is created by a
+-- The field is populated only if the service-linked rule is created by a
 -- service. The field is empty if you create your own rule.
 --
--- 'source', 'configRule_source' - Provides the rule owner (Amazon Web Services or customer), the rule
--- identifier, and the notifications that cause the function to evaluate
--- your Amazon Web Services resources.
+-- 'source', 'configRule_source' - Provides the rule owner (@Amazon Web Services@ for managed rules,
+-- @CUSTOM_POLICY@ for Custom Policy rules, and @CUSTOM_LAMBDA@ for Custom
+-- Lambda rules), the rule identifier, and the notifications that cause the
+-- function to evaluate your Amazon Web Services resources.
 newConfigRule ::
   -- | 'source'
   Source ->
@@ -200,7 +212,7 @@ newConfigRule pSource_ =
 -- | The maximum frequency with which Config runs evaluations for a rule. You
 -- can specify a value for @MaximumExecutionFrequency@ when:
 --
--- -   You are using an Config managed rule that is triggered at a periodic
+-- -   This is for an Config managed rule that is triggered at a periodic
 --     frequency.
 --
 -- -   Your custom rule is triggered when Config delivers the configuration
@@ -267,14 +279,15 @@ configRule_configRuleState = Lens.lens (\ConfigRule' {configRuleState} -> config
 
 -- | Service principal name of the service that created the rule.
 --
--- The field is populated only if the service linked rule is created by a
+-- The field is populated only if the service-linked rule is created by a
 -- service. The field is empty if you create your own rule.
 configRule_createdBy :: Lens.Lens' ConfigRule (Prelude.Maybe Prelude.Text)
 configRule_createdBy = Lens.lens (\ConfigRule' {createdBy} -> createdBy) (\s@ConfigRule' {} a -> s {createdBy = a} :: ConfigRule)
 
--- | Provides the rule owner (Amazon Web Services or customer), the rule
--- identifier, and the notifications that cause the function to evaluate
--- your Amazon Web Services resources.
+-- | Provides the rule owner (@Amazon Web Services@ for managed rules,
+-- @CUSTOM_POLICY@ for Custom Policy rules, and @CUSTOM_LAMBDA@ for Custom
+-- Lambda rules), the rule identifier, and the notifications that cause the
+-- function to evaluate your Amazon Web Services resources.
 configRule_source :: Lens.Lens' ConfigRule Source
 configRule_source = Lens.lens (\ConfigRule' {source} -> source) (\s@ConfigRule' {} a -> s {source = a} :: ConfigRule)
 

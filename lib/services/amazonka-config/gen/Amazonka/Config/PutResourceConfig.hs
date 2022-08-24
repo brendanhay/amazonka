@@ -64,6 +64,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newPutResourceConfig' smart constructor.
 data PutResourceConfig = PutResourceConfig'
   { -- | Tags associated with the resource.
+    --
+    -- This field is not to be confused with the Amazon Web Services-wide tag
+    -- feature for Amazon Web Services resources. Tags for @PutResourceConfig@
+    -- are tags that you supply for the configuration items of your custom
+    -- resources.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Name of the resource.
     resourceName :: Prelude.Maybe Prelude.Text,
@@ -95,6 +100,11 @@ data PutResourceConfig = PutResourceConfig'
 -- for backwards compatibility:
 --
 -- 'tags', 'putResourceConfig_tags' - Tags associated with the resource.
+--
+-- This field is not to be confused with the Amazon Web Services-wide tag
+-- feature for Amazon Web Services resources. Tags for @PutResourceConfig@
+-- are tags that you supply for the configuration items of your custom
+-- resources.
 --
 -- 'resourceName', 'putResourceConfig_resourceName' - Name of the resource.
 --
@@ -138,6 +148,11 @@ newPutResourceConfig
       }
 
 -- | Tags associated with the resource.
+--
+-- This field is not to be confused with the Amazon Web Services-wide tag
+-- feature for Amazon Web Services resources. Tags for @PutResourceConfig@
+-- are tags that you supply for the configuration items of your custom
+-- resources.
 putResourceConfig_tags :: Lens.Lens' PutResourceConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putResourceConfig_tags = Lens.lens (\PutResourceConfig' {tags} -> tags) (\s@PutResourceConfig' {} a -> s {tags = a} :: PutResourceConfig) Prelude.. Lens.mapping Lens.coerced
 

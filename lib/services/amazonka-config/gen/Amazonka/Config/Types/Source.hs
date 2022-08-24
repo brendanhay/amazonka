@@ -19,33 +19,57 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Config.Types.Source where
 
+import Amazonka.Config.Types.CustomPolicyDetails
 import Amazonka.Config.Types.Owner
 import Amazonka.Config.Types.SourceDetail
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides the Config rule owner (Amazon Web Services or customer), the
--- rule identifier, and the events that trigger the evaluation of your
--- Amazon Web Services resources.
+-- | Provides the CustomPolicyDetails, the rule owner (@Amazon Web Services@
+-- for managed rules, @CUSTOM_POLICY@ for Custom Policy rules, and
+-- @CUSTOM_LAMBDA@ for Custom Lambda rules), the rule identifier, and the
+-- events that cause the evaluation of your Amazon Web Services resources.
 --
 -- /See:/ 'newSource' smart constructor.
 data Source = Source'
-  { -- | Provides the source and type of the event that causes Config to evaluate
-    -- your Amazon Web Services resources.
+  { -- | Provides the runtime system, policy definition, and whether debug
+    -- logging is enabled. Required when owner is set to @CUSTOM_POLICY@.
+    customPolicyDetails :: Prelude.Maybe CustomPolicyDetails,
+    -- | Provides the source and the message types that cause Config to evaluate
+    -- your Amazon Web Services resources against a rule. It also provides the
+    -- frequency with which you want Config to run evaluations for the rule if
+    -- the trigger type is periodic.
+    --
+    -- If the owner is set to @CUSTOM_POLICY@, the only acceptable values for
+    -- the Config rule trigger message type are
+    -- @ConfigurationItemChangeNotification@ and
+    -- @OversizedConfigurationItemChangeNotification@.
     sourceDetails :: Prelude.Maybe [SourceDetail],
-    -- | Indicates whether Amazon Web Services or the customer owns and manages
-    -- the Config rule.
-    owner :: Owner,
-    -- | For Config managed rules, a predefined identifier from a list. For
+    -- | For Config Managed rules, a predefined identifier from a list. For
     -- example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed
     -- rule, see
-    -- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using Config managed rules>.
+    -- <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html List of Config Managed Rules>.
     --
-    -- For custom rules, the identifier is the Amazon Resource Name (ARN) of
-    -- the rule\'s Lambda function, such as
+    -- For Config Custom Lambda rules, the identifier is the Amazon Resource
+    -- Name (ARN) of the rule\'s Lambda function, such as
     -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
-    sourceIdentifier :: Prelude.Text
+    --
+    -- For Config Custom Policy rules, this field will be ignored.
+    sourceIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether Amazon Web Services or the customer owns and manages
+    -- the Config rule.
+    --
+    -- Config Managed Rules are predefined rules owned by Amazon Web Services.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Config Managed Rules>
+    -- in the /Config developer guide/.
+    --
+    -- Config Custom Rules are rules that you can develop either with Guard
+    -- (@CUSTOM_POLICY@) or Lambda (@CUSTOM_LAMBDA@). For more information, see
+    -- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html Config Custom Rules>
+    -- in the /Config developer guide/.
+    owner :: Owner
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,53 +81,98 @@ data Source = Source'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceDetails', 'source_sourceDetails' - Provides the source and type of the event that causes Config to evaluate
--- your Amazon Web Services resources.
+-- 'customPolicyDetails', 'source_customPolicyDetails' - Provides the runtime system, policy definition, and whether debug
+-- logging is enabled. Required when owner is set to @CUSTOM_POLICY@.
+--
+-- 'sourceDetails', 'source_sourceDetails' - Provides the source and the message types that cause Config to evaluate
+-- your Amazon Web Services resources against a rule. It also provides the
+-- frequency with which you want Config to run evaluations for the rule if
+-- the trigger type is periodic.
+--
+-- If the owner is set to @CUSTOM_POLICY@, the only acceptable values for
+-- the Config rule trigger message type are
+-- @ConfigurationItemChangeNotification@ and
+-- @OversizedConfigurationItemChangeNotification@.
+--
+-- 'sourceIdentifier', 'source_sourceIdentifier' - For Config Managed rules, a predefined identifier from a list. For
+-- example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed
+-- rule, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html List of Config Managed Rules>.
+--
+-- For Config Custom Lambda rules, the identifier is the Amazon Resource
+-- Name (ARN) of the rule\'s Lambda function, such as
+-- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
+--
+-- For Config Custom Policy rules, this field will be ignored.
 --
 -- 'owner', 'source_owner' - Indicates whether Amazon Web Services or the customer owns and manages
 -- the Config rule.
 --
--- 'sourceIdentifier', 'source_sourceIdentifier' - For Config managed rules, a predefined identifier from a list. For
--- example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed
--- rule, see
--- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using Config managed rules>.
+-- Config Managed Rules are predefined rules owned by Amazon Web Services.
+-- For more information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Config Managed Rules>
+-- in the /Config developer guide/.
 --
--- For custom rules, the identifier is the Amazon Resource Name (ARN) of
--- the rule\'s Lambda function, such as
--- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
+-- Config Custom Rules are rules that you can develop either with Guard
+-- (@CUSTOM_POLICY@) or Lambda (@CUSTOM_LAMBDA@). For more information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html Config Custom Rules>
+-- in the /Config developer guide/.
 newSource ::
   -- | 'owner'
   Owner ->
-  -- | 'sourceIdentifier'
-  Prelude.Text ->
   Source
-newSource pOwner_ pSourceIdentifier_ =
+newSource pOwner_ =
   Source'
-    { sourceDetails = Prelude.Nothing,
-      owner = pOwner_,
-      sourceIdentifier = pSourceIdentifier_
+    { customPolicyDetails = Prelude.Nothing,
+      sourceDetails = Prelude.Nothing,
+      sourceIdentifier = Prelude.Nothing,
+      owner = pOwner_
     }
 
--- | Provides the source and type of the event that causes Config to evaluate
--- your Amazon Web Services resources.
+-- | Provides the runtime system, policy definition, and whether debug
+-- logging is enabled. Required when owner is set to @CUSTOM_POLICY@.
+source_customPolicyDetails :: Lens.Lens' Source (Prelude.Maybe CustomPolicyDetails)
+source_customPolicyDetails = Lens.lens (\Source' {customPolicyDetails} -> customPolicyDetails) (\s@Source' {} a -> s {customPolicyDetails = a} :: Source)
+
+-- | Provides the source and the message types that cause Config to evaluate
+-- your Amazon Web Services resources against a rule. It also provides the
+-- frequency with which you want Config to run evaluations for the rule if
+-- the trigger type is periodic.
+--
+-- If the owner is set to @CUSTOM_POLICY@, the only acceptable values for
+-- the Config rule trigger message type are
+-- @ConfigurationItemChangeNotification@ and
+-- @OversizedConfigurationItemChangeNotification@.
 source_sourceDetails :: Lens.Lens' Source (Prelude.Maybe [SourceDetail])
 source_sourceDetails = Lens.lens (\Source' {sourceDetails} -> sourceDetails) (\s@Source' {} a -> s {sourceDetails = a} :: Source) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates whether Amazon Web Services or the customer owns and manages
--- the Config rule.
-source_owner :: Lens.Lens' Source Owner
-source_owner = Lens.lens (\Source' {owner} -> owner) (\s@Source' {} a -> s {owner = a} :: Source)
-
--- | For Config managed rules, a predefined identifier from a list. For
+-- | For Config Managed rules, a predefined identifier from a list. For
 -- example, @IAM_PASSWORD_POLICY@ is a managed rule. To reference a managed
 -- rule, see
--- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Using Config managed rules>.
+-- <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html List of Config Managed Rules>.
 --
--- For custom rules, the identifier is the Amazon Resource Name (ARN) of
--- the rule\'s Lambda function, such as
+-- For Config Custom Lambda rules, the identifier is the Amazon Resource
+-- Name (ARN) of the rule\'s Lambda function, such as
 -- @arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name@.
-source_sourceIdentifier :: Lens.Lens' Source Prelude.Text
+--
+-- For Config Custom Policy rules, this field will be ignored.
+source_sourceIdentifier :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_sourceIdentifier = Lens.lens (\Source' {sourceIdentifier} -> sourceIdentifier) (\s@Source' {} a -> s {sourceIdentifier = a} :: Source)
+
+-- | Indicates whether Amazon Web Services or the customer owns and manages
+-- the Config rule.
+--
+-- Config Managed Rules are predefined rules owned by Amazon Web Services.
+-- For more information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html Config Managed Rules>
+-- in the /Config developer guide/.
+--
+-- Config Custom Rules are rules that you can develop either with Guard
+-- (@CUSTOM_POLICY@) or Lambda (@CUSTOM_LAMBDA@). For more information, see
+-- <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html Config Custom Rules>
+-- in the /Config developer guide/.
+source_owner :: Lens.Lens' Source Owner
+source_owner = Lens.lens (\Source' {owner} -> owner) (\s@Source' {} a -> s {owner = a} :: Source)
 
 instance Core.FromJSON Source where
   parseJSON =
@@ -111,30 +180,35 @@ instance Core.FromJSON Source where
       "Source"
       ( \x ->
           Source'
-            Prelude.<$> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "CustomPolicyDetails")
+            Prelude.<*> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SourceIdentifier")
             Prelude.<*> (x Core..: "Owner")
-            Prelude.<*> (x Core..: "SourceIdentifier")
       )
 
 instance Prelude.Hashable Source where
   hashWithSalt _salt Source' {..} =
-    _salt `Prelude.hashWithSalt` sourceDetails
-      `Prelude.hashWithSalt` owner
+    _salt `Prelude.hashWithSalt` customPolicyDetails
+      `Prelude.hashWithSalt` sourceDetails
       `Prelude.hashWithSalt` sourceIdentifier
+      `Prelude.hashWithSalt` owner
 
 instance Prelude.NFData Source where
   rnf Source' {..} =
-    Prelude.rnf sourceDetails
-      `Prelude.seq` Prelude.rnf owner
+    Prelude.rnf customPolicyDetails
+      `Prelude.seq` Prelude.rnf sourceDetails
       `Prelude.seq` Prelude.rnf sourceIdentifier
+      `Prelude.seq` Prelude.rnf owner
 
 instance Core.ToJSON Source where
   toJSON Source' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SourceDetails" Core..=) Prelude.<$> sourceDetails,
-            Prelude.Just ("Owner" Core..= owner),
-            Prelude.Just
-              ("SourceIdentifier" Core..= sourceIdentifier)
+          [ ("CustomPolicyDetails" Core..=)
+              Prelude.<$> customPolicyDetails,
+            ("SourceDetails" Core..=) Prelude.<$> sourceDetails,
+            ("SourceIdentifier" Core..=)
+              Prelude.<$> sourceIdentifier,
+            Prelude.Just ("Owner" Core..= owner)
           ]
       )

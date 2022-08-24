@@ -21,10 +21,13 @@ module Amazonka.Config.Types.ResourceType
   ( ResourceType
       ( ..,
         ResourceType_AWS__ACM__Certificate,
+        ResourceType_AWS__AccessAnalyzer__Analyzer,
         ResourceType_AWS__ApiGatewayV2__Api,
         ResourceType_AWS__ApiGatewayV2__Stage,
         ResourceType_AWS__ApiGateway__RestApi,
         ResourceType_AWS__ApiGateway__Stage,
+        ResourceType_AWS__Athena__DataCatalog,
+        ResourceType_AWS__Athena__WorkGroup,
         ResourceType_AWS__AutoScaling__AutoScalingGroup,
         ResourceType_AWS__AutoScaling__LaunchConfiguration,
         ResourceType_AWS__AutoScaling__ScalingPolicy,
@@ -33,15 +36,24 @@ module Amazonka.Config.Types.ResourceType
         ResourceType_AWS__Backup__BackupSelection,
         ResourceType_AWS__Backup__BackupVault,
         ResourceType_AWS__Backup__RecoveryPoint,
+        ResourceType_AWS__Batch__ComputeEnvironment,
+        ResourceType_AWS__Batch__JobQueue,
         ResourceType_AWS__CloudFormation__Stack,
         ResourceType_AWS__CloudFront__Distribution,
         ResourceType_AWS__CloudFront__StreamingDistribution,
         ResourceType_AWS__CloudTrail__Trail,
         ResourceType_AWS__CloudWatch__Alarm,
         ResourceType_AWS__CodeBuild__Project,
+        ResourceType_AWS__CodeDeploy__Application,
+        ResourceType_AWS__CodeDeploy__DeploymentConfig,
+        ResourceType_AWS__CodeDeploy__DeploymentGroup,
         ResourceType_AWS__CodePipeline__Pipeline,
         ResourceType_AWS__Config__ConformancePackCompliance,
         ResourceType_AWS__Config__ResourceCompliance,
+        ResourceType_AWS__DMS__Certificate,
+        ResourceType_AWS__DMS__EventSubscription,
+        ResourceType_AWS__DMS__ReplicationSubnetGroup,
+        ResourceType_AWS__Detective__Graph,
         ResourceType_AWS__DynamoDB__Table,
         ResourceType_AWS__EC2__CustomerGateway,
         ResourceType_AWS__EC2__EIP,
@@ -50,6 +62,7 @@ module Amazonka.Config.Types.ResourceType
         ResourceType_AWS__EC2__Host,
         ResourceType_AWS__EC2__Instance,
         ResourceType_AWS__EC2__InternetGateway,
+        ResourceType_AWS__EC2__LaunchTemplate,
         ResourceType_AWS__EC2__NatGateway,
         ResourceType_AWS__EC2__NetworkAcl,
         ResourceType_AWS__EC2__NetworkInterface,
@@ -57,6 +70,9 @@ module Amazonka.Config.Types.ResourceType
         ResourceType_AWS__EC2__RouteTable,
         ResourceType_AWS__EC2__SecurityGroup,
         ResourceType_AWS__EC2__Subnet,
+        ResourceType_AWS__EC2__TransitGateway,
+        ResourceType_AWS__EC2__TransitGatewayAttachment,
+        ResourceType_AWS__EC2__TransitGatewayRouteTable,
         ResourceType_AWS__EC2__VPC,
         ResourceType_AWS__EC2__VPCEndpoint,
         ResourceType_AWS__EC2__VPCEndpointService,
@@ -64,6 +80,7 @@ module Amazonka.Config.Types.ResourceType
         ResourceType_AWS__EC2__VPNConnection,
         ResourceType_AWS__EC2__VPNGateway,
         ResourceType_AWS__EC2__Volume,
+        ResourceType_AWS__ECR__PublicRepository,
         ResourceType_AWS__ECR__Repository,
         ResourceType_AWS__ECS__Cluster,
         ResourceType_AWS__ECS__Service,
@@ -71,18 +88,27 @@ module Amazonka.Config.Types.ResourceType
         ResourceType_AWS__EFS__AccessPoint,
         ResourceType_AWS__EFS__FileSystem,
         ResourceType_AWS__EKS__Cluster,
+        ResourceType_AWS__EMR__SecurityConfiguration,
         ResourceType_AWS__ElasticBeanstalk__Application,
         ResourceType_AWS__ElasticBeanstalk__ApplicationVersion,
         ResourceType_AWS__ElasticBeanstalk__Environment,
+        ResourceType_AWS__ElasticLoadBalancingV2__Listener,
         ResourceType_AWS__ElasticLoadBalancingV2__LoadBalancer,
         ResourceType_AWS__ElasticLoadBalancing__LoadBalancer,
         ResourceType_AWS__Elasticsearch__Domain,
+        ResourceType_AWS__GlobalAccelerator__Accelerator,
+        ResourceType_AWS__GlobalAccelerator__EndpointGroup,
+        ResourceType_AWS__GlobalAccelerator__Listener,
+        ResourceType_AWS__GuardDuty__Detector,
         ResourceType_AWS__IAM__Group,
         ResourceType_AWS__IAM__Policy,
         ResourceType_AWS__IAM__Role,
         ResourceType_AWS__IAM__User,
         ResourceType_AWS__KMS__Key,
+        ResourceType_AWS__Kinesis__Stream,
+        ResourceType_AWS__Kinesis__StreamConsumer,
         ResourceType_AWS__Lambda__Function,
+        ResourceType_AWS__MSK__Cluster,
         ResourceType_AWS__NetworkFirewall__Firewall,
         ResourceType_AWS__NetworkFirewall__FirewallPolicy,
         ResourceType_AWS__NetworkFirewall__RuleGroup,
@@ -101,6 +127,9 @@ module Amazonka.Config.Types.ResourceType
         ResourceType_AWS__Redshift__ClusterSnapshot,
         ResourceType_AWS__Redshift__ClusterSubnetGroup,
         ResourceType_AWS__Redshift__EventSubscription,
+        ResourceType_AWS__Route53Resolver__ResolverEndpoint,
+        ResourceType_AWS__Route53Resolver__ResolverRule,
+        ResourceType_AWS__Route53Resolver__ResolverRuleAssociation,
         ResourceType_AWS__S3__AccountPublicAccessBlock,
         ResourceType_AWS__S3__Bucket,
         ResourceType_AWS__SNS__Topic,
@@ -109,12 +138,16 @@ module Amazonka.Config.Types.ResourceType
         ResourceType_AWS__SSM__FileData,
         ResourceType_AWS__SSM__ManagedInstanceInventory,
         ResourceType_AWS__SSM__PatchCompliance,
+        ResourceType_AWS__SageMaker__CodeRepository,
+        ResourceType_AWS__SageMaker__Model,
         ResourceType_AWS__SecretsManager__Secret,
         ResourceType_AWS__ServiceCatalog__CloudFormationProduct,
         ResourceType_AWS__ServiceCatalog__CloudFormationProvisionedProduct,
         ResourceType_AWS__ServiceCatalog__Portfolio,
         ResourceType_AWS__ShieldRegional__Protection,
         ResourceType_AWS__Shield__Protection,
+        ResourceType_AWS__StepFunctions__Activity,
+        ResourceType_AWS__StepFunctions__StateMachine,
         ResourceType_AWS__WAFRegional__RateBasedRule,
         ResourceType_AWS__WAFRegional__Rule,
         ResourceType_AWS__WAFRegional__RuleGroup,
@@ -128,6 +161,8 @@ module Amazonka.Config.Types.ResourceType
         ResourceType_AWS__WAFv2__RegexPatternSet,
         ResourceType_AWS__WAFv2__RuleGroup,
         ResourceType_AWS__WAFv2__WebACL,
+        ResourceType_AWS__WorkSpaces__ConnectionAlias,
+        ResourceType_AWS__WorkSpaces__Workspace,
         ResourceType_AWS__XRay__EncryptionConfig
       ),
   )
@@ -167,6 +202,9 @@ newtype ResourceType = ResourceType'
 pattern ResourceType_AWS__ACM__Certificate :: ResourceType
 pattern ResourceType_AWS__ACM__Certificate = ResourceType' "AWS::ACM::Certificate"
 
+pattern ResourceType_AWS__AccessAnalyzer__Analyzer :: ResourceType
+pattern ResourceType_AWS__AccessAnalyzer__Analyzer = ResourceType' "AWS::AccessAnalyzer::Analyzer"
+
 pattern ResourceType_AWS__ApiGatewayV2__Api :: ResourceType
 pattern ResourceType_AWS__ApiGatewayV2__Api = ResourceType' "AWS::ApiGatewayV2::Api"
 
@@ -178,6 +216,12 @@ pattern ResourceType_AWS__ApiGateway__RestApi = ResourceType' "AWS::ApiGateway::
 
 pattern ResourceType_AWS__ApiGateway__Stage :: ResourceType
 pattern ResourceType_AWS__ApiGateway__Stage = ResourceType' "AWS::ApiGateway::Stage"
+
+pattern ResourceType_AWS__Athena__DataCatalog :: ResourceType
+pattern ResourceType_AWS__Athena__DataCatalog = ResourceType' "AWS::Athena::DataCatalog"
+
+pattern ResourceType_AWS__Athena__WorkGroup :: ResourceType
+pattern ResourceType_AWS__Athena__WorkGroup = ResourceType' "AWS::Athena::WorkGroup"
 
 pattern ResourceType_AWS__AutoScaling__AutoScalingGroup :: ResourceType
 pattern ResourceType_AWS__AutoScaling__AutoScalingGroup = ResourceType' "AWS::AutoScaling::AutoScalingGroup"
@@ -203,6 +247,12 @@ pattern ResourceType_AWS__Backup__BackupVault = ResourceType' "AWS::Backup::Back
 pattern ResourceType_AWS__Backup__RecoveryPoint :: ResourceType
 pattern ResourceType_AWS__Backup__RecoveryPoint = ResourceType' "AWS::Backup::RecoveryPoint"
 
+pattern ResourceType_AWS__Batch__ComputeEnvironment :: ResourceType
+pattern ResourceType_AWS__Batch__ComputeEnvironment = ResourceType' "AWS::Batch::ComputeEnvironment"
+
+pattern ResourceType_AWS__Batch__JobQueue :: ResourceType
+pattern ResourceType_AWS__Batch__JobQueue = ResourceType' "AWS::Batch::JobQueue"
+
 pattern ResourceType_AWS__CloudFormation__Stack :: ResourceType
 pattern ResourceType_AWS__CloudFormation__Stack = ResourceType' "AWS::CloudFormation::Stack"
 
@@ -221,6 +271,15 @@ pattern ResourceType_AWS__CloudWatch__Alarm = ResourceType' "AWS::CloudWatch::Al
 pattern ResourceType_AWS__CodeBuild__Project :: ResourceType
 pattern ResourceType_AWS__CodeBuild__Project = ResourceType' "AWS::CodeBuild::Project"
 
+pattern ResourceType_AWS__CodeDeploy__Application :: ResourceType
+pattern ResourceType_AWS__CodeDeploy__Application = ResourceType' "AWS::CodeDeploy::Application"
+
+pattern ResourceType_AWS__CodeDeploy__DeploymentConfig :: ResourceType
+pattern ResourceType_AWS__CodeDeploy__DeploymentConfig = ResourceType' "AWS::CodeDeploy::DeploymentConfig"
+
+pattern ResourceType_AWS__CodeDeploy__DeploymentGroup :: ResourceType
+pattern ResourceType_AWS__CodeDeploy__DeploymentGroup = ResourceType' "AWS::CodeDeploy::DeploymentGroup"
+
 pattern ResourceType_AWS__CodePipeline__Pipeline :: ResourceType
 pattern ResourceType_AWS__CodePipeline__Pipeline = ResourceType' "AWS::CodePipeline::Pipeline"
 
@@ -229,6 +288,18 @@ pattern ResourceType_AWS__Config__ConformancePackCompliance = ResourceType' "AWS
 
 pattern ResourceType_AWS__Config__ResourceCompliance :: ResourceType
 pattern ResourceType_AWS__Config__ResourceCompliance = ResourceType' "AWS::Config::ResourceCompliance"
+
+pattern ResourceType_AWS__DMS__Certificate :: ResourceType
+pattern ResourceType_AWS__DMS__Certificate = ResourceType' "AWS::DMS::Certificate"
+
+pattern ResourceType_AWS__DMS__EventSubscription :: ResourceType
+pattern ResourceType_AWS__DMS__EventSubscription = ResourceType' "AWS::DMS::EventSubscription"
+
+pattern ResourceType_AWS__DMS__ReplicationSubnetGroup :: ResourceType
+pattern ResourceType_AWS__DMS__ReplicationSubnetGroup = ResourceType' "AWS::DMS::ReplicationSubnetGroup"
+
+pattern ResourceType_AWS__Detective__Graph :: ResourceType
+pattern ResourceType_AWS__Detective__Graph = ResourceType' "AWS::Detective::Graph"
 
 pattern ResourceType_AWS__DynamoDB__Table :: ResourceType
 pattern ResourceType_AWS__DynamoDB__Table = ResourceType' "AWS::DynamoDB::Table"
@@ -254,6 +325,9 @@ pattern ResourceType_AWS__EC2__Instance = ResourceType' "AWS::EC2::Instance"
 pattern ResourceType_AWS__EC2__InternetGateway :: ResourceType
 pattern ResourceType_AWS__EC2__InternetGateway = ResourceType' "AWS::EC2::InternetGateway"
 
+pattern ResourceType_AWS__EC2__LaunchTemplate :: ResourceType
+pattern ResourceType_AWS__EC2__LaunchTemplate = ResourceType' "AWS::EC2::LaunchTemplate"
+
 pattern ResourceType_AWS__EC2__NatGateway :: ResourceType
 pattern ResourceType_AWS__EC2__NatGateway = ResourceType' "AWS::EC2::NatGateway"
 
@@ -274,6 +348,15 @@ pattern ResourceType_AWS__EC2__SecurityGroup = ResourceType' "AWS::EC2::Security
 
 pattern ResourceType_AWS__EC2__Subnet :: ResourceType
 pattern ResourceType_AWS__EC2__Subnet = ResourceType' "AWS::EC2::Subnet"
+
+pattern ResourceType_AWS__EC2__TransitGateway :: ResourceType
+pattern ResourceType_AWS__EC2__TransitGateway = ResourceType' "AWS::EC2::TransitGateway"
+
+pattern ResourceType_AWS__EC2__TransitGatewayAttachment :: ResourceType
+pattern ResourceType_AWS__EC2__TransitGatewayAttachment = ResourceType' "AWS::EC2::TransitGatewayAttachment"
+
+pattern ResourceType_AWS__EC2__TransitGatewayRouteTable :: ResourceType
+pattern ResourceType_AWS__EC2__TransitGatewayRouteTable = ResourceType' "AWS::EC2::TransitGatewayRouteTable"
 
 pattern ResourceType_AWS__EC2__VPC :: ResourceType
 pattern ResourceType_AWS__EC2__VPC = ResourceType' "AWS::EC2::VPC"
@@ -296,6 +379,9 @@ pattern ResourceType_AWS__EC2__VPNGateway = ResourceType' "AWS::EC2::VPNGateway"
 pattern ResourceType_AWS__EC2__Volume :: ResourceType
 pattern ResourceType_AWS__EC2__Volume = ResourceType' "AWS::EC2::Volume"
 
+pattern ResourceType_AWS__ECR__PublicRepository :: ResourceType
+pattern ResourceType_AWS__ECR__PublicRepository = ResourceType' "AWS::ECR::PublicRepository"
+
 pattern ResourceType_AWS__ECR__Repository :: ResourceType
 pattern ResourceType_AWS__ECR__Repository = ResourceType' "AWS::ECR::Repository"
 
@@ -317,6 +403,9 @@ pattern ResourceType_AWS__EFS__FileSystem = ResourceType' "AWS::EFS::FileSystem"
 pattern ResourceType_AWS__EKS__Cluster :: ResourceType
 pattern ResourceType_AWS__EKS__Cluster = ResourceType' "AWS::EKS::Cluster"
 
+pattern ResourceType_AWS__EMR__SecurityConfiguration :: ResourceType
+pattern ResourceType_AWS__EMR__SecurityConfiguration = ResourceType' "AWS::EMR::SecurityConfiguration"
+
 pattern ResourceType_AWS__ElasticBeanstalk__Application :: ResourceType
 pattern ResourceType_AWS__ElasticBeanstalk__Application = ResourceType' "AWS::ElasticBeanstalk::Application"
 
@@ -326,6 +415,9 @@ pattern ResourceType_AWS__ElasticBeanstalk__ApplicationVersion = ResourceType' "
 pattern ResourceType_AWS__ElasticBeanstalk__Environment :: ResourceType
 pattern ResourceType_AWS__ElasticBeanstalk__Environment = ResourceType' "AWS::ElasticBeanstalk::Environment"
 
+pattern ResourceType_AWS__ElasticLoadBalancingV2__Listener :: ResourceType
+pattern ResourceType_AWS__ElasticLoadBalancingV2__Listener = ResourceType' "AWS::ElasticLoadBalancingV2::Listener"
+
 pattern ResourceType_AWS__ElasticLoadBalancingV2__LoadBalancer :: ResourceType
 pattern ResourceType_AWS__ElasticLoadBalancingV2__LoadBalancer = ResourceType' "AWS::ElasticLoadBalancingV2::LoadBalancer"
 
@@ -334,6 +426,18 @@ pattern ResourceType_AWS__ElasticLoadBalancing__LoadBalancer = ResourceType' "AW
 
 pattern ResourceType_AWS__Elasticsearch__Domain :: ResourceType
 pattern ResourceType_AWS__Elasticsearch__Domain = ResourceType' "AWS::Elasticsearch::Domain"
+
+pattern ResourceType_AWS__GlobalAccelerator__Accelerator :: ResourceType
+pattern ResourceType_AWS__GlobalAccelerator__Accelerator = ResourceType' "AWS::GlobalAccelerator::Accelerator"
+
+pattern ResourceType_AWS__GlobalAccelerator__EndpointGroup :: ResourceType
+pattern ResourceType_AWS__GlobalAccelerator__EndpointGroup = ResourceType' "AWS::GlobalAccelerator::EndpointGroup"
+
+pattern ResourceType_AWS__GlobalAccelerator__Listener :: ResourceType
+pattern ResourceType_AWS__GlobalAccelerator__Listener = ResourceType' "AWS::GlobalAccelerator::Listener"
+
+pattern ResourceType_AWS__GuardDuty__Detector :: ResourceType
+pattern ResourceType_AWS__GuardDuty__Detector = ResourceType' "AWS::GuardDuty::Detector"
 
 pattern ResourceType_AWS__IAM__Group :: ResourceType
 pattern ResourceType_AWS__IAM__Group = ResourceType' "AWS::IAM::Group"
@@ -350,8 +454,17 @@ pattern ResourceType_AWS__IAM__User = ResourceType' "AWS::IAM::User"
 pattern ResourceType_AWS__KMS__Key :: ResourceType
 pattern ResourceType_AWS__KMS__Key = ResourceType' "AWS::KMS::Key"
 
+pattern ResourceType_AWS__Kinesis__Stream :: ResourceType
+pattern ResourceType_AWS__Kinesis__Stream = ResourceType' "AWS::Kinesis::Stream"
+
+pattern ResourceType_AWS__Kinesis__StreamConsumer :: ResourceType
+pattern ResourceType_AWS__Kinesis__StreamConsumer = ResourceType' "AWS::Kinesis::StreamConsumer"
+
 pattern ResourceType_AWS__Lambda__Function :: ResourceType
 pattern ResourceType_AWS__Lambda__Function = ResourceType' "AWS::Lambda::Function"
+
+pattern ResourceType_AWS__MSK__Cluster :: ResourceType
+pattern ResourceType_AWS__MSK__Cluster = ResourceType' "AWS::MSK::Cluster"
 
 pattern ResourceType_AWS__NetworkFirewall__Firewall :: ResourceType
 pattern ResourceType_AWS__NetworkFirewall__Firewall = ResourceType' "AWS::NetworkFirewall::Firewall"
@@ -407,6 +520,15 @@ pattern ResourceType_AWS__Redshift__ClusterSubnetGroup = ResourceType' "AWS::Red
 pattern ResourceType_AWS__Redshift__EventSubscription :: ResourceType
 pattern ResourceType_AWS__Redshift__EventSubscription = ResourceType' "AWS::Redshift::EventSubscription"
 
+pattern ResourceType_AWS__Route53Resolver__ResolverEndpoint :: ResourceType
+pattern ResourceType_AWS__Route53Resolver__ResolverEndpoint = ResourceType' "AWS::Route53Resolver::ResolverEndpoint"
+
+pattern ResourceType_AWS__Route53Resolver__ResolverRule :: ResourceType
+pattern ResourceType_AWS__Route53Resolver__ResolverRule = ResourceType' "AWS::Route53Resolver::ResolverRule"
+
+pattern ResourceType_AWS__Route53Resolver__ResolverRuleAssociation :: ResourceType
+pattern ResourceType_AWS__Route53Resolver__ResolverRuleAssociation = ResourceType' "AWS::Route53Resolver::ResolverRuleAssociation"
+
 pattern ResourceType_AWS__S3__AccountPublicAccessBlock :: ResourceType
 pattern ResourceType_AWS__S3__AccountPublicAccessBlock = ResourceType' "AWS::S3::AccountPublicAccessBlock"
 
@@ -431,6 +553,12 @@ pattern ResourceType_AWS__SSM__ManagedInstanceInventory = ResourceType' "AWS::SS
 pattern ResourceType_AWS__SSM__PatchCompliance :: ResourceType
 pattern ResourceType_AWS__SSM__PatchCompliance = ResourceType' "AWS::SSM::PatchCompliance"
 
+pattern ResourceType_AWS__SageMaker__CodeRepository :: ResourceType
+pattern ResourceType_AWS__SageMaker__CodeRepository = ResourceType' "AWS::SageMaker::CodeRepository"
+
+pattern ResourceType_AWS__SageMaker__Model :: ResourceType
+pattern ResourceType_AWS__SageMaker__Model = ResourceType' "AWS::SageMaker::Model"
+
 pattern ResourceType_AWS__SecretsManager__Secret :: ResourceType
 pattern ResourceType_AWS__SecretsManager__Secret = ResourceType' "AWS::SecretsManager::Secret"
 
@@ -448,6 +576,12 @@ pattern ResourceType_AWS__ShieldRegional__Protection = ResourceType' "AWS::Shiel
 
 pattern ResourceType_AWS__Shield__Protection :: ResourceType
 pattern ResourceType_AWS__Shield__Protection = ResourceType' "AWS::Shield::Protection"
+
+pattern ResourceType_AWS__StepFunctions__Activity :: ResourceType
+pattern ResourceType_AWS__StepFunctions__Activity = ResourceType' "AWS::StepFunctions::Activity"
+
+pattern ResourceType_AWS__StepFunctions__StateMachine :: ResourceType
+pattern ResourceType_AWS__StepFunctions__StateMachine = ResourceType' "AWS::StepFunctions::StateMachine"
 
 pattern ResourceType_AWS__WAFRegional__RateBasedRule :: ResourceType
 pattern ResourceType_AWS__WAFRegional__RateBasedRule = ResourceType' "AWS::WAFRegional::RateBasedRule"
@@ -488,15 +622,24 @@ pattern ResourceType_AWS__WAFv2__RuleGroup = ResourceType' "AWS::WAFv2::RuleGrou
 pattern ResourceType_AWS__WAFv2__WebACL :: ResourceType
 pattern ResourceType_AWS__WAFv2__WebACL = ResourceType' "AWS::WAFv2::WebACL"
 
+pattern ResourceType_AWS__WorkSpaces__ConnectionAlias :: ResourceType
+pattern ResourceType_AWS__WorkSpaces__ConnectionAlias = ResourceType' "AWS::WorkSpaces::ConnectionAlias"
+
+pattern ResourceType_AWS__WorkSpaces__Workspace :: ResourceType
+pattern ResourceType_AWS__WorkSpaces__Workspace = ResourceType' "AWS::WorkSpaces::Workspace"
+
 pattern ResourceType_AWS__XRay__EncryptionConfig :: ResourceType
 pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::EncryptionConfig"
 
 {-# COMPLETE
   ResourceType_AWS__ACM__Certificate,
+  ResourceType_AWS__AccessAnalyzer__Analyzer,
   ResourceType_AWS__ApiGatewayV2__Api,
   ResourceType_AWS__ApiGatewayV2__Stage,
   ResourceType_AWS__ApiGateway__RestApi,
   ResourceType_AWS__ApiGateway__Stage,
+  ResourceType_AWS__Athena__DataCatalog,
+  ResourceType_AWS__Athena__WorkGroup,
   ResourceType_AWS__AutoScaling__AutoScalingGroup,
   ResourceType_AWS__AutoScaling__LaunchConfiguration,
   ResourceType_AWS__AutoScaling__ScalingPolicy,
@@ -505,15 +648,24 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__Backup__BackupSelection,
   ResourceType_AWS__Backup__BackupVault,
   ResourceType_AWS__Backup__RecoveryPoint,
+  ResourceType_AWS__Batch__ComputeEnvironment,
+  ResourceType_AWS__Batch__JobQueue,
   ResourceType_AWS__CloudFormation__Stack,
   ResourceType_AWS__CloudFront__Distribution,
   ResourceType_AWS__CloudFront__StreamingDistribution,
   ResourceType_AWS__CloudTrail__Trail,
   ResourceType_AWS__CloudWatch__Alarm,
   ResourceType_AWS__CodeBuild__Project,
+  ResourceType_AWS__CodeDeploy__Application,
+  ResourceType_AWS__CodeDeploy__DeploymentConfig,
+  ResourceType_AWS__CodeDeploy__DeploymentGroup,
   ResourceType_AWS__CodePipeline__Pipeline,
   ResourceType_AWS__Config__ConformancePackCompliance,
   ResourceType_AWS__Config__ResourceCompliance,
+  ResourceType_AWS__DMS__Certificate,
+  ResourceType_AWS__DMS__EventSubscription,
+  ResourceType_AWS__DMS__ReplicationSubnetGroup,
+  ResourceType_AWS__Detective__Graph,
   ResourceType_AWS__DynamoDB__Table,
   ResourceType_AWS__EC2__CustomerGateway,
   ResourceType_AWS__EC2__EIP,
@@ -522,6 +674,7 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__EC2__Host,
   ResourceType_AWS__EC2__Instance,
   ResourceType_AWS__EC2__InternetGateway,
+  ResourceType_AWS__EC2__LaunchTemplate,
   ResourceType_AWS__EC2__NatGateway,
   ResourceType_AWS__EC2__NetworkAcl,
   ResourceType_AWS__EC2__NetworkInterface,
@@ -529,6 +682,9 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__EC2__RouteTable,
   ResourceType_AWS__EC2__SecurityGroup,
   ResourceType_AWS__EC2__Subnet,
+  ResourceType_AWS__EC2__TransitGateway,
+  ResourceType_AWS__EC2__TransitGatewayAttachment,
+  ResourceType_AWS__EC2__TransitGatewayRouteTable,
   ResourceType_AWS__EC2__VPC,
   ResourceType_AWS__EC2__VPCEndpoint,
   ResourceType_AWS__EC2__VPCEndpointService,
@@ -536,6 +692,7 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__EC2__VPNConnection,
   ResourceType_AWS__EC2__VPNGateway,
   ResourceType_AWS__EC2__Volume,
+  ResourceType_AWS__ECR__PublicRepository,
   ResourceType_AWS__ECR__Repository,
   ResourceType_AWS__ECS__Cluster,
   ResourceType_AWS__ECS__Service,
@@ -543,18 +700,27 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__EFS__AccessPoint,
   ResourceType_AWS__EFS__FileSystem,
   ResourceType_AWS__EKS__Cluster,
+  ResourceType_AWS__EMR__SecurityConfiguration,
   ResourceType_AWS__ElasticBeanstalk__Application,
   ResourceType_AWS__ElasticBeanstalk__ApplicationVersion,
   ResourceType_AWS__ElasticBeanstalk__Environment,
+  ResourceType_AWS__ElasticLoadBalancingV2__Listener,
   ResourceType_AWS__ElasticLoadBalancingV2__LoadBalancer,
   ResourceType_AWS__ElasticLoadBalancing__LoadBalancer,
   ResourceType_AWS__Elasticsearch__Domain,
+  ResourceType_AWS__GlobalAccelerator__Accelerator,
+  ResourceType_AWS__GlobalAccelerator__EndpointGroup,
+  ResourceType_AWS__GlobalAccelerator__Listener,
+  ResourceType_AWS__GuardDuty__Detector,
   ResourceType_AWS__IAM__Group,
   ResourceType_AWS__IAM__Policy,
   ResourceType_AWS__IAM__Role,
   ResourceType_AWS__IAM__User,
   ResourceType_AWS__KMS__Key,
+  ResourceType_AWS__Kinesis__Stream,
+  ResourceType_AWS__Kinesis__StreamConsumer,
   ResourceType_AWS__Lambda__Function,
+  ResourceType_AWS__MSK__Cluster,
   ResourceType_AWS__NetworkFirewall__Firewall,
   ResourceType_AWS__NetworkFirewall__FirewallPolicy,
   ResourceType_AWS__NetworkFirewall__RuleGroup,
@@ -573,6 +739,9 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__Redshift__ClusterSnapshot,
   ResourceType_AWS__Redshift__ClusterSubnetGroup,
   ResourceType_AWS__Redshift__EventSubscription,
+  ResourceType_AWS__Route53Resolver__ResolverEndpoint,
+  ResourceType_AWS__Route53Resolver__ResolverRule,
+  ResourceType_AWS__Route53Resolver__ResolverRuleAssociation,
   ResourceType_AWS__S3__AccountPublicAccessBlock,
   ResourceType_AWS__S3__Bucket,
   ResourceType_AWS__SNS__Topic,
@@ -581,12 +750,16 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__SSM__FileData,
   ResourceType_AWS__SSM__ManagedInstanceInventory,
   ResourceType_AWS__SSM__PatchCompliance,
+  ResourceType_AWS__SageMaker__CodeRepository,
+  ResourceType_AWS__SageMaker__Model,
   ResourceType_AWS__SecretsManager__Secret,
   ResourceType_AWS__ServiceCatalog__CloudFormationProduct,
   ResourceType_AWS__ServiceCatalog__CloudFormationProvisionedProduct,
   ResourceType_AWS__ServiceCatalog__Portfolio,
   ResourceType_AWS__ShieldRegional__Protection,
   ResourceType_AWS__Shield__Protection,
+  ResourceType_AWS__StepFunctions__Activity,
+  ResourceType_AWS__StepFunctions__StateMachine,
   ResourceType_AWS__WAFRegional__RateBasedRule,
   ResourceType_AWS__WAFRegional__Rule,
   ResourceType_AWS__WAFRegional__RuleGroup,
@@ -600,6 +773,8 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__WAFv2__RegexPatternSet,
   ResourceType_AWS__WAFv2__RuleGroup,
   ResourceType_AWS__WAFv2__WebACL,
+  ResourceType_AWS__WorkSpaces__ConnectionAlias,
+  ResourceType_AWS__WorkSpaces__Workspace,
   ResourceType_AWS__XRay__EncryptionConfig,
   ResourceType'
   #-}

@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides organization config rule deployment status for an organization.
+-- Provides organization Config rule deployment status for an organization.
 --
--- The status is not considered successful until organization config rule
+-- The status is not considered successful until organization Config rule
 -- is successfully deployed in all the member accounts with an exception of
 -- excluded accounts.
 --
 -- When you specify the limit and the next token, you receive a paginated
 -- response. Limit and next token are not applicable if you specify
--- organization config rule names. It is only applicable, when you request
--- all the organization config rules.
+-- organization Config rule names. It is only applicable, when you request
+-- all the organization Config rules.
 --
 -- This operation returns paginated results.
 module Amazonka.Config.DescribeOrganizationConfigRuleStatuses
@@ -69,7 +69,7 @@ data DescribeOrganizationConfigRuleStatuses = DescribeOrganizationConfigRuleStat
     -- page. If you do no specify a number, Config uses the default. The
     -- default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The names of organization config rules for which you want status
+    -- | The names of organization Config rules for which you want status
     -- details. If you do not specify any names, Config returns details for all
     -- your organization Config rules.
     organizationConfigRuleNames :: Prelude.Maybe [Prelude.Text]
@@ -91,7 +91,7 @@ data DescribeOrganizationConfigRuleStatuses = DescribeOrganizationConfigRuleStat
 -- page. If you do no specify a number, Config uses the default. The
 -- default is 100.
 --
--- 'organizationConfigRuleNames', 'describeOrganizationConfigRuleStatuses_organizationConfigRuleNames' - The names of organization config rules for which you want status
+-- 'organizationConfigRuleNames', 'describeOrganizationConfigRuleStatuses_organizationConfigRuleNames' - The names of organization Config rules for which you want status
 -- details. If you do not specify any names, Config returns details for all
 -- your organization Config rules.
 newDescribeOrganizationConfigRuleStatuses ::
@@ -116,7 +116,7 @@ describeOrganizationConfigRuleStatuses_nextToken = Lens.lens (\DescribeOrganizat
 describeOrganizationConfigRuleStatuses_limit :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe Prelude.Natural)
 describeOrganizationConfigRuleStatuses_limit = Lens.lens (\DescribeOrganizationConfigRuleStatuses' {limit} -> limit) (\s@DescribeOrganizationConfigRuleStatuses' {} a -> s {limit = a} :: DescribeOrganizationConfigRuleStatuses)
 
--- | The names of organization config rules for which you want status
+-- | The names of organization Config rules for which you want status
 -- details. If you do not specify any names, Config returns details for all
 -- your organization Config rules.
 describeOrganizationConfigRuleStatuses_organizationConfigRuleNames :: Lens.Lens' DescribeOrganizationConfigRuleStatuses (Prelude.Maybe [Prelude.Text])

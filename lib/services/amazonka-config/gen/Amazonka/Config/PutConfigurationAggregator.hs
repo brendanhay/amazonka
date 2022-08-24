@@ -26,8 +26,8 @@
 --
 -- @accountIds@ that are passed will be replaced with existing accounts. If
 -- you want to add additional accounts into the aggregator, call
--- @DescribeAggregator@ to get the previous accounts and then append new
--- ones.
+-- @DescribeConfigurationAggregators@ to get the previous accounts and then
+-- append new ones.
 --
 -- Config should be enabled in source accounts and regions you want to
 -- aggregate.
@@ -43,7 +43,7 @@
 --
 -- To register a delegated administrator, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/set-up-aggregator-cli.html#register-a-delegated-administrator-cli Register a Delegated Administrator>
--- in the Config developer guide.
+-- in the /Config developer guide/.
 module Amazonka.Config.PutConfigurationAggregator
   ( -- * Creating a Request
     PutConfigurationAggregator (..),

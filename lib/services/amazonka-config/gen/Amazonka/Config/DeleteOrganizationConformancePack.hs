@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified organization conformance pack and all of the
--- config rules and remediation actions from all member accounts in that
+-- Config rules and remediation actions from all member accounts in that
 -- organization.
 --
 -- Only a master account or a delegated administrator account can delete an

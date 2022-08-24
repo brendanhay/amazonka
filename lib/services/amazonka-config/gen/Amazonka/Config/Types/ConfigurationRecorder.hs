@@ -35,6 +35,9 @@ data ConfigurationRecorder = ConfigurationRecorder'
     name :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
     -- Web Services resources associated with the account.
+    --
+    -- While the API model does not require this field, the server will reject
+    -- a request without a defined roleARN for the configuration recorder.
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | Specifies the types of Amazon Web Services resources for which Config
     -- records configuration changes.
@@ -57,6 +60,9 @@ data ConfigurationRecorder = ConfigurationRecorder'
 -- 'roleARN', 'configurationRecorder_roleARN' - Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
 -- Web Services resources associated with the account.
 --
+-- While the API model does not require this field, the server will reject
+-- a request without a defined roleARN for the configuration recorder.
+--
 -- 'recordingGroup', 'configurationRecorder_recordingGroup' - Specifies the types of Amazon Web Services resources for which Config
 -- records configuration changes.
 newConfigurationRecorder ::
@@ -76,6 +82,9 @@ configurationRecorder_name = Lens.lens (\ConfigurationRecorder' {name} -> name) 
 
 -- | Amazon Resource Name (ARN) of the IAM role used to describe the Amazon
 -- Web Services resources associated with the account.
+--
+-- While the API model does not require this field, the server will reject
+-- a request without a defined roleARN for the configuration recorder.
 configurationRecorder_roleARN :: Lens.Lens' ConfigurationRecorder (Prelude.Maybe Prelude.Text)
 configurationRecorder_roleARN = Lens.lens (\ConfigurationRecorder' {roleARN} -> roleARN) (\s@ConfigurationRecorder' {} a -> s {roleARN = a} :: ConfigurationRecorder)
 

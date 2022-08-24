@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Config.Types.Owner
+-- Module      : Amazonka.Config.Types.SortBy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Config.Types.Owner
-  ( Owner
+module Amazonka.Config.Types.SortBy
+  ( SortBy
       ( ..,
-        Owner_AWS,
-        Owner_CUSTOM_LAMBDA,
-        Owner_CUSTOM_POLICY
+        SortBy_SCORE
       ),
   )
 where
@@ -30,7 +28,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype Owner = Owner' {fromOwner :: Core.Text}
+newtype SortBy = SortBy' {fromSortBy :: Core.Text}
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -55,18 +53,10 @@ newtype Owner = Owner' {fromOwner :: Core.Text}
       Core.ToXML
     )
 
-pattern Owner_AWS :: Owner
-pattern Owner_AWS = Owner' "AWS"
-
-pattern Owner_CUSTOM_LAMBDA :: Owner
-pattern Owner_CUSTOM_LAMBDA = Owner' "CUSTOM_LAMBDA"
-
-pattern Owner_CUSTOM_POLICY :: Owner
-pattern Owner_CUSTOM_POLICY = Owner' "CUSTOM_POLICY"
+pattern SortBy_SCORE :: SortBy
+pattern SortBy_SCORE = SortBy' "SCORE"
 
 {-# COMPLETE
-  Owner_AWS,
-  Owner_CUSTOM_LAMBDA,
-  Owner_CUSTOM_POLICY,
-  Owner'
+  SortBy_SCORE,
+  SortBy'
   #-}

@@ -45,7 +45,7 @@ data DeliveryChannel = DeliveryChannel'
     -- account, that bucket must have policies that grant access permissions to
     -- Config. For more information, see
     -- <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket>
-    -- in the Config Developer Guide.
+    -- in the /Config Developer Guide/.
     s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config
     -- sends notifications about configuration changes.
@@ -53,7 +53,7 @@ data DeliveryChannel = DeliveryChannel'
     -- If you choose a topic from another account, the topic must have policies
     -- that grant access permissions to Config. For more information, see
     -- <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic>
-    -- in the Config Developer Guide.
+    -- in the /Config Developer Guide/.
     snsTopicARN :: Prelude.Maybe Prelude.Text,
     -- | The options for how often Config delivers configuration snapshots to the
     -- Amazon S3 bucket.
@@ -89,7 +89,7 @@ data DeliveryChannel = DeliveryChannel'
 -- account, that bucket must have policies that grant access permissions to
 -- Config. For more information, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket>
--- in the Config Developer Guide.
+-- in the /Config Developer Guide/.
 --
 -- 'snsTopicARN', 'deliveryChannel_snsTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic to which Config
 -- sends notifications about configuration changes.
@@ -97,7 +97,7 @@ data DeliveryChannel = DeliveryChannel'
 -- If you choose a topic from another account, the topic must have policies
 -- that grant access permissions to Config. For more information, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic>
--- in the Config Developer Guide.
+-- in the /Config Developer Guide/.
 --
 -- 'configSnapshotDeliveryProperties', 'deliveryChannel_configSnapshotDeliveryProperties' - The options for how often Config delivers configuration snapshots to the
 -- Amazon S3 bucket.
@@ -137,7 +137,7 @@ deliveryChannel_name = Lens.lens (\DeliveryChannel' {name} -> name) (\s@Delivery
 -- account, that bucket must have policies that grant access permissions to
 -- Config. For more information, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html Permissions for the Amazon S3 Bucket>
--- in the Config Developer Guide.
+-- in the /Config Developer Guide/.
 deliveryChannel_s3BucketName :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
 deliveryChannel_s3BucketName = Lens.lens (\DeliveryChannel' {s3BucketName} -> s3BucketName) (\s@DeliveryChannel' {} a -> s {s3BucketName = a} :: DeliveryChannel)
 
@@ -147,7 +147,7 @@ deliveryChannel_s3BucketName = Lens.lens (\DeliveryChannel' {s3BucketName} -> s3
 -- If you choose a topic from another account, the topic must have policies
 -- that grant access permissions to Config. For more information, see
 -- <https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html Permissions for the Amazon SNS Topic>
--- in the Config Developer Guide.
+-- in the /Config Developer Guide/.
 deliveryChannel_snsTopicARN :: Lens.Lens' DeliveryChannel (Prelude.Maybe Prelude.Text)
 deliveryChannel_snsTopicARN = Lens.lens (\DeliveryChannel' {snsTopicARN} -> snsTopicARN) (\s@DeliveryChannel' {} a -> s {snsTopicARN = a} :: DeliveryChannel)
 

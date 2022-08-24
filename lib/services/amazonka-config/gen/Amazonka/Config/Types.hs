@@ -119,6 +119,9 @@ module Amazonka.Config.Types
     -- * OrganizationConfigRuleTriggerType
     OrganizationConfigRuleTriggerType (..),
 
+    -- * OrganizationConfigRuleTriggerTypeNoSN
+    OrganizationConfigRuleTriggerTypeNoSN (..),
+
     -- * OrganizationResourceDetailedStatus
     OrganizationResourceDetailedStatus (..),
 
@@ -151,6 +154,12 @@ module Amazonka.Config.Types
 
     -- * ResourceValueType
     ResourceValueType (..),
+
+    -- * SortBy
+    SortBy (..),
+
+    -- * SortOrder
+    SortOrder (..),
 
     -- * AccountAggregationSource
     AccountAggregationSource (..),
@@ -351,6 +360,8 @@ module Amazonka.Config.Types
     -- * ConfigRuleEvaluationStatus
     ConfigRuleEvaluationStatus (..),
     newConfigRuleEvaluationStatus,
+    configRuleEvaluationStatus_lastDebugLogDeliveryStatus,
+    configRuleEvaluationStatus_lastDebugLogDeliveryStatusReason,
     configRuleEvaluationStatus_firstEvaluationStarted,
     configRuleEvaluationStatus_lastErrorCode,
     configRuleEvaluationStatus_lastSuccessfulEvaluationTime,
@@ -361,6 +372,7 @@ module Amazonka.Config.Types
     configRuleEvaluationStatus_firstActivatedTime,
     configRuleEvaluationStatus_configRuleId,
     configRuleEvaluationStatus_configRuleName,
+    configRuleEvaluationStatus_lastDebugLogDeliveryTime,
     configRuleEvaluationStatus_lastSuccessfulInvocationTime,
     configRuleEvaluationStatus_lastErrorMessage,
 
@@ -435,6 +447,18 @@ module Amazonka.Config.Types
     conformancePackComplianceFilters_configRuleNames,
     conformancePackComplianceFilters_complianceType,
 
+    -- * ConformancePackComplianceScore
+    ConformancePackComplianceScore (..),
+    newConformancePackComplianceScore,
+    conformancePackComplianceScore_score,
+    conformancePackComplianceScore_conformancePackName,
+    conformancePackComplianceScore_lastUpdatedTime,
+
+    -- * ConformancePackComplianceScoresFilters
+    ConformancePackComplianceScoresFilters (..),
+    newConformancePackComplianceScoresFilters,
+    conformancePackComplianceScoresFilters_conformancePackNames,
+
     -- * ConformancePackComplianceSummary
     ConformancePackComplianceSummary (..),
     newConformancePackComplianceSummary,
@@ -494,6 +518,13 @@ module Amazonka.Config.Types
     conformancePackStatusDetail_conformancePackState,
     conformancePackStatusDetail_stackArn,
     conformancePackStatusDetail_lastUpdateRequestedTime,
+
+    -- * CustomPolicyDetails
+    CustomPolicyDetails (..),
+    newCustomPolicyDetails,
+    customPolicyDetails_enableDebugLogDelivery,
+    customPolicyDetails_policyRuntime,
+    customPolicyDetails_policyText,
 
     -- * DeliveryChannel
     DeliveryChannel (..),
@@ -608,6 +639,7 @@ module Amazonka.Config.Types
     -- * OrganizationConfigRule
     OrganizationConfigRule (..),
     newOrganizationConfigRule,
+    organizationConfigRule_organizationCustomPolicyRuleMetadata,
     organizationConfigRule_excludedAccounts,
     organizationConfigRule_lastUpdateTime,
     organizationConfigRule_organizationManagedRuleMetadata,
@@ -653,6 +685,35 @@ module Amazonka.Config.Types
     organizationConformancePackStatus_lastUpdateTime,
     organizationConformancePackStatus_organizationConformancePackName,
     organizationConformancePackStatus_status,
+
+    -- * OrganizationCustomPolicyRuleMetadata
+    OrganizationCustomPolicyRuleMetadata (..),
+    newOrganizationCustomPolicyRuleMetadata,
+    organizationCustomPolicyRuleMetadata_maximumExecutionFrequency,
+    organizationCustomPolicyRuleMetadata_resourceTypesScope,
+    organizationCustomPolicyRuleMetadata_inputParameters,
+    organizationCustomPolicyRuleMetadata_tagValueScope,
+    organizationCustomPolicyRuleMetadata_resourceIdScope,
+    organizationCustomPolicyRuleMetadata_debugLogDeliveryAccounts,
+    organizationCustomPolicyRuleMetadata_description,
+    organizationCustomPolicyRuleMetadata_organizationConfigRuleTriggerTypes,
+    organizationCustomPolicyRuleMetadata_tagKeyScope,
+    organizationCustomPolicyRuleMetadata_policyRuntime,
+    organizationCustomPolicyRuleMetadata_policyText,
+
+    -- * OrganizationCustomPolicyRuleMetadataNoPolicy
+    OrganizationCustomPolicyRuleMetadataNoPolicy (..),
+    newOrganizationCustomPolicyRuleMetadataNoPolicy,
+    organizationCustomPolicyRuleMetadataNoPolicy_maximumExecutionFrequency,
+    organizationCustomPolicyRuleMetadataNoPolicy_resourceTypesScope,
+    organizationCustomPolicyRuleMetadataNoPolicy_inputParameters,
+    organizationCustomPolicyRuleMetadataNoPolicy_tagValueScope,
+    organizationCustomPolicyRuleMetadataNoPolicy_resourceIdScope,
+    organizationCustomPolicyRuleMetadataNoPolicy_debugLogDeliveryAccounts,
+    organizationCustomPolicyRuleMetadataNoPolicy_description,
+    organizationCustomPolicyRuleMetadataNoPolicy_organizationConfigRuleTriggerTypes,
+    organizationCustomPolicyRuleMetadataNoPolicy_policyRuntime,
+    organizationCustomPolicyRuleMetadataNoPolicy_tagKeyScope,
 
     -- * OrganizationCustomRuleMetadata
     OrganizationCustomRuleMetadata (..),
@@ -823,9 +884,10 @@ module Amazonka.Config.Types
     -- * Source
     Source (..),
     newSource,
+    source_customPolicyDetails,
     source_sourceDetails,
-    source_owner,
     source_sourceIdentifier,
+    source_owner,
 
     -- * SourceDetail
     SourceDetail (..),
@@ -916,6 +978,8 @@ import Amazonka.Config.Types.ConfigurationItemStatus
 import Amazonka.Config.Types.ConfigurationRecorder
 import Amazonka.Config.Types.ConfigurationRecorderStatus
 import Amazonka.Config.Types.ConformancePackComplianceFilters
+import Amazonka.Config.Types.ConformancePackComplianceScore
+import Amazonka.Config.Types.ConformancePackComplianceScoresFilters
 import Amazonka.Config.Types.ConformancePackComplianceSummary
 import Amazonka.Config.Types.ConformancePackComplianceType
 import Amazonka.Config.Types.ConformancePackDetail
@@ -925,6 +989,7 @@ import Amazonka.Config.Types.ConformancePackInputParameter
 import Amazonka.Config.Types.ConformancePackRuleCompliance
 import Amazonka.Config.Types.ConformancePackState
 import Amazonka.Config.Types.ConformancePackStatusDetail
+import Amazonka.Config.Types.CustomPolicyDetails
 import Amazonka.Config.Types.DeliveryChannel
 import Amazonka.Config.Types.DeliveryChannelStatus
 import Amazonka.Config.Types.DeliveryStatus
@@ -948,9 +1013,12 @@ import Amazonka.Config.Types.OrganizationAggregationSource
 import Amazonka.Config.Types.OrganizationConfigRule
 import Amazonka.Config.Types.OrganizationConfigRuleStatus
 import Amazonka.Config.Types.OrganizationConfigRuleTriggerType
+import Amazonka.Config.Types.OrganizationConfigRuleTriggerTypeNoSN
 import Amazonka.Config.Types.OrganizationConformancePack
 import Amazonka.Config.Types.OrganizationConformancePackDetailedStatus
 import Amazonka.Config.Types.OrganizationConformancePackStatus
+import Amazonka.Config.Types.OrganizationCustomPolicyRuleMetadata
+import Amazonka.Config.Types.OrganizationCustomPolicyRuleMetadataNoPolicy
 import Amazonka.Config.Types.OrganizationCustomRuleMetadata
 import Amazonka.Config.Types.OrganizationManagedRuleMetadata
 import Amazonka.Config.Types.OrganizationResourceDetailedStatus
@@ -983,6 +1051,8 @@ import Amazonka.Config.Types.ResourceValue
 import Amazonka.Config.Types.ResourceValueType
 import Amazonka.Config.Types.RetentionConfiguration
 import Amazonka.Config.Types.Scope
+import Amazonka.Config.Types.SortBy
+import Amazonka.Config.Types.SortOrder
 import Amazonka.Config.Types.Source
 import Amazonka.Config.Types.SourceDetail
 import Amazonka.Config.Types.SsmControls
@@ -1127,15 +1197,15 @@ _InvalidRecordingGroupException =
 -- -   For PutConfigRule, the Lambda function cannot be invoked. Check the
 --     function ARN, and check the function\'s permissions.
 --
--- -   For PutOrganizationConfigRule, organization config rule cannot be
+-- -   For PutOrganizationConfigRule, organization Config rule cannot be
 --     created because you do not have permissions to call IAM @GetRole@
---     action or create a service linked role.
+--     action or create a service-linked role.
 --
 -- -   For PutConformancePack and PutOrganizationConformancePack, a
 --     conformance pack cannot be created because you do not have
 --     permissions:
 --
---     -   To call IAM @GetRole@ action or create a service linked role.
+--     -   To call IAM @GetRole@ action or create a service-linked role.
 --
 --     -   To read Amazon S3 bucket.
 _InsufficientPermissionsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1194,10 +1264,10 @@ _NoSuchRemediationConfigurationException =
 --     action associated with the rule before deleting the rule and try
 --     your request again later.
 --
--- -   For PutConfigOrganizationRule, organization config rule deletion is
+-- -   For PutConfigOrganizationRule, organization Config rule deletion is
 --     in progress. Try your request again later.
 --
--- -   For DeleteOrganizationConfigRule, organization config rule creation
+-- -   For DeleteOrganizationConfigRule, organization Config rule creation
 --     is in progress. Try your request again later.
 --
 -- -   For PutConformancePack and PutOrganizationConformancePack, a
@@ -1337,7 +1407,7 @@ _InsufficientDeliveryPolicyException =
     defaultService
     "InsufficientDeliveryPolicyException"
 
--- | You have reached the limit of the number of organization config rules
+-- | You have reached the limit of the number of organization Config rules
 -- you can create.
 _MaxNumberOfOrganizationConfigRulesExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MaxNumberOfOrganizationConfigRulesExceededException =
@@ -1390,8 +1460,9 @@ _InvalidS3KmsKeyArnException =
     defaultService
     "InvalidS3KmsKeyArnException"
 
--- | One or more Config rules in the request are invalid. Verify that the
--- rule names are correct and try again.
+-- | The Config rule in the request is not valid. Verify that the rule is an
+-- Config Custom Policy rule, that the rule name is correct, and that valid
+-- Amazon Resouce Names (ARNs) are used before trying again.
 _NoSuchConfigRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchConfigRuleException =
   Core._MatchServiceError
@@ -1535,7 +1606,9 @@ _InvalidParameterValueException =
     defaultService
     "InvalidParameterValueException"
 
--- | You specified one or more organization config rules that do not exist.
+-- | The Config rule in the request is not valid. Verify that the rule is an
+-- organization Config Custom Policy rule, that the rule name is correct,
+-- and that valid Amazon Resouce Names (ARNs) are used before trying again.
 _NoSuchOrganizationConfigRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoSuchOrganizationConfigRuleException =
   Core._MatchServiceError

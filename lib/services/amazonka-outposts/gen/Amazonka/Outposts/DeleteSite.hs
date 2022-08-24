@@ -47,7 +47,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSite' smart constructor.
 data DeleteSite = DeleteSite'
-  { siteId :: Prelude.Text
+  { -- | The ID or the Amazon Resource Name (ARN) of the site.
+    --
+    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+    -- API. To address backwards compatibility, the parameter names @OutpostID@
+    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
+    -- request with an ARN.
+    siteId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,7 +66,13 @@ data DeleteSite = DeleteSite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'siteId', 'deleteSite_siteId' - Undocumented member.
+-- 'siteId', 'deleteSite_siteId' - The ID or the Amazon Resource Name (ARN) of the site.
+--
+-- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+-- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+-- API. To address backwards compatibility, the parameter names @OutpostID@
+-- or @SiteID@ remain in use. Despite the parameter name, you can make the
+-- request with an ARN.
 newDeleteSite ::
   -- | 'siteId'
   Prelude.Text ->
@@ -67,7 +80,13 @@ newDeleteSite ::
 newDeleteSite pSiteId_ =
   DeleteSite' {siteId = pSiteId_}
 
--- | Undocumented member.
+-- | The ID or the Amazon Resource Name (ARN) of the site.
+--
+-- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+-- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+-- API. To address backwards compatibility, the parameter names @OutpostID@
+-- or @SiteID@ remain in use. Despite the parameter name, you can make the
+-- request with an ARN.
 deleteSite_siteId :: Lens.Lens' DeleteSite Prelude.Text
 deleteSite_siteId = Lens.lens (\DeleteSite' {siteId} -> siteId) (\s@DeleteSite' {} a -> s {siteId = a} :: DeleteSite)
 

@@ -47,7 +47,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteOutpost' smart constructor.
 data DeleteOutpost = DeleteOutpost'
-  { -- | The ID of the Outpost.
+  { -- | The ID or the Amazon Resource Name (ARN) of the Outpost.
+    --
+    -- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+    -- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+    -- API. To address backwards compatibility, the parameter names @OutpostID@
+    -- or @SiteID@ remain in use. Despite the parameter name, you can make the
+    -- request with an ARN.
     outpostId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +66,13 @@ data DeleteOutpost = DeleteOutpost'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outpostId', 'deleteOutpost_outpostId' - The ID of the Outpost.
+-- 'outpostId', 'deleteOutpost_outpostId' - The ID or the Amazon Resource Name (ARN) of the Outpost.
+--
+-- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+-- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+-- API. To address backwards compatibility, the parameter names @OutpostID@
+-- or @SiteID@ remain in use. Despite the parameter name, you can make the
+-- request with an ARN.
 newDeleteOutpost ::
   -- | 'outpostId'
   Prelude.Text ->
@@ -68,7 +80,13 @@ newDeleteOutpost ::
 newDeleteOutpost pOutpostId_ =
   DeleteOutpost' {outpostId = pOutpostId_}
 
--- | The ID of the Outpost.
+-- | The ID or the Amazon Resource Name (ARN) of the Outpost.
+--
+-- In requests, Amazon Web Services Outposts accepts the Amazon Resource
+-- Name (ARN) or an ID for Outposts and sites throughout the Outposts Query
+-- API. To address backwards compatibility, the parameter names @OutpostID@
+-- or @SiteID@ remain in use. Despite the parameter name, you can make the
+-- request with an ARN.
 deleteOutpost_outpostId :: Lens.Lens' DeleteOutpost Prelude.Text
 deleteOutpost_outpostId = Lens.lens (\DeleteOutpost' {outpostId} -> outpostId) (\s@DeleteOutpost' {} a -> s {outpostId = a} :: DeleteOutpost)
 

@@ -24,14 +24,130 @@ module Amazonka.Outposts.Types
     _ConflictException,
     _ValidationException,
 
+    -- * AddressType
+    AddressType (..),
+
+    -- * AssetType
+    AssetType (..),
+
+    -- * CatalogItemClass
+    CatalogItemClass (..),
+
+    -- * CatalogItemStatus
+    CatalogItemStatus (..),
+
+    -- * FiberOpticCableType
+    FiberOpticCableType (..),
+
+    -- * LineItemStatus
+    LineItemStatus (..),
+
+    -- * MaximumSupportedWeightLbs
+    MaximumSupportedWeightLbs (..),
+
+    -- * OpticalStandard
+    OpticalStandard (..),
+
     -- * OrderStatus
     OrderStatus (..),
+
+    -- * OrderType
+    OrderType (..),
 
     -- * PaymentOption
     PaymentOption (..),
 
     -- * PaymentTerm
     PaymentTerm (..),
+
+    -- * PowerConnector
+    PowerConnector (..),
+
+    -- * PowerDrawKva
+    PowerDrawKva (..),
+
+    -- * PowerFeedDrop
+    PowerFeedDrop (..),
+
+    -- * PowerPhase
+    PowerPhase (..),
+
+    -- * ShipmentCarrier
+    ShipmentCarrier (..),
+
+    -- * SupportedHardwareType
+    SupportedHardwareType (..),
+
+    -- * SupportedStorageEnum
+    SupportedStorageEnum (..),
+
+    -- * UplinkCount
+    UplinkCount (..),
+
+    -- * UplinkGbps
+    UplinkGbps (..),
+
+    -- * Address
+    Address (..),
+    newAddress,
+    address_addressLine2,
+    address_contactName,
+    address_contactPhoneNumber,
+    address_districtOrCounty,
+    address_addressLine3,
+    address_municipality,
+    address_addressLine1,
+    address_city,
+    address_stateOrRegion,
+    address_postalCode,
+    address_countryCode,
+
+    -- * AssetInfo
+    AssetInfo (..),
+    newAssetInfo,
+    assetInfo_assetLocation,
+    assetInfo_assetId,
+    assetInfo_computeAttributes,
+    assetInfo_assetType,
+    assetInfo_rackId,
+
+    -- * AssetLocation
+    AssetLocation (..),
+    newAssetLocation,
+    assetLocation_rackElevation,
+
+    -- * CatalogItem
+    CatalogItem (..),
+    newCatalogItem,
+    catalogItem_powerKva,
+    catalogItem_weightLbs,
+    catalogItem_eC2Capacities,
+    catalogItem_catalogItemId,
+    catalogItem_itemStatus,
+    catalogItem_supportedUplinkGbps,
+    catalogItem_supportedStorage,
+
+    -- * ComputeAttributes
+    ComputeAttributes (..),
+    newComputeAttributes,
+    computeAttributes_hostId,
+
+    -- * ConnectionDetails
+    ConnectionDetails (..),
+    newConnectionDetails,
+    connectionDetails_serverEndpoint,
+    connectionDetails_serverPublicKey,
+    connectionDetails_clientPublicKey,
+    connectionDetails_clientTunnelAddress,
+    connectionDetails_serverTunnelAddress,
+    connectionDetails_allowedIps,
+
+    -- * EC2Capacity
+    EC2Capacity (..),
+    newEC2Capacity,
+    eC2Capacity_quantity,
+    eC2Capacity_family,
+    eC2Capacity_maxSize,
 
     -- * InstanceTypeItem
     InstanceTypeItem (..),
@@ -42,9 +158,17 @@ module Amazonka.Outposts.Types
     LineItem (..),
     newLineItem,
     lineItem_quantity,
+    lineItem_assetInformationList,
     lineItem_status,
     lineItem_catalogItemId,
+    lineItem_shipmentInformation,
     lineItem_lineItemId,
+
+    -- * LineItemAssetInformation
+    LineItemAssetInformation (..),
+    newLineItemAssetInformation,
+    lineItemAssetInformation_macAddressList,
+    lineItemAssetInformation_assetId,
 
     -- * LineItemRequest
     LineItemRequest (..),
@@ -63,6 +187,17 @@ module Amazonka.Outposts.Types
     order_orderSubmissionDate,
     order_paymentOption,
 
+    -- * OrderSummary
+    OrderSummary (..),
+    newOrderSummary,
+    orderSummary_outpostId,
+    orderSummary_orderFulfilledDate,
+    orderSummary_lineItemCountsByStatus,
+    orderSummary_status,
+    orderSummary_orderId,
+    orderSummary_orderType,
+    orderSummary_orderSubmissionDate,
+
     -- * Outpost
     Outpost (..),
     newOutpost,
@@ -72,11 +207,31 @@ module Amazonka.Outposts.Types
     outpost_outpostArn,
     outpost_ownerId,
     outpost_siteArn,
+    outpost_supportedHardwareType,
     outpost_availabilityZone,
     outpost_description,
     outpost_siteId,
     outpost_lifeCycleStatus,
     outpost_availabilityZoneId,
+
+    -- * RackPhysicalProperties
+    RackPhysicalProperties (..),
+    newRackPhysicalProperties,
+    rackPhysicalProperties_powerPhase,
+    rackPhysicalProperties_powerDrawKva,
+    rackPhysicalProperties_fiberOpticCableType,
+    rackPhysicalProperties_maximumSupportedWeightLbs,
+    rackPhysicalProperties_powerConnector,
+    rackPhysicalProperties_opticalStandard,
+    rackPhysicalProperties_powerFeedDrop,
+    rackPhysicalProperties_uplinkCount,
+    rackPhysicalProperties_uplinkGbps,
+
+    -- * ShipmentInformation
+    ShipmentInformation (..),
+    newShipmentInformation,
+    shipmentInformation_shipmentTrackingNumber,
+    shipmentInformation_shipmentCarrier,
 
     -- * Site
     Site (..),
@@ -87,20 +242,54 @@ module Amazonka.Outposts.Types
     site_description,
     site_siteId,
     site_accountId,
+    site_operatingAddressCity,
+    site_notes,
+    site_rackPhysicalProperties,
+    site_operatingAddressStateOrRegion,
+    site_operatingAddressCountryCode,
   )
 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Outposts.Types.Address
+import Amazonka.Outposts.Types.AddressType
+import Amazonka.Outposts.Types.AssetInfo
+import Amazonka.Outposts.Types.AssetLocation
+import Amazonka.Outposts.Types.AssetType
+import Amazonka.Outposts.Types.CatalogItem
+import Amazonka.Outposts.Types.CatalogItemClass
+import Amazonka.Outposts.Types.CatalogItemStatus
+import Amazonka.Outposts.Types.ComputeAttributes
+import Amazonka.Outposts.Types.ConnectionDetails
+import Amazonka.Outposts.Types.EC2Capacity
+import Amazonka.Outposts.Types.FiberOpticCableType
 import Amazonka.Outposts.Types.InstanceTypeItem
 import Amazonka.Outposts.Types.LineItem
+import Amazonka.Outposts.Types.LineItemAssetInformation
 import Amazonka.Outposts.Types.LineItemRequest
+import Amazonka.Outposts.Types.LineItemStatus
+import Amazonka.Outposts.Types.MaximumSupportedWeightLbs
+import Amazonka.Outposts.Types.OpticalStandard
 import Amazonka.Outposts.Types.Order
 import Amazonka.Outposts.Types.OrderStatus
+import Amazonka.Outposts.Types.OrderSummary
+import Amazonka.Outposts.Types.OrderType
 import Amazonka.Outposts.Types.Outpost
 import Amazonka.Outposts.Types.PaymentOption
 import Amazonka.Outposts.Types.PaymentTerm
+import Amazonka.Outposts.Types.PowerConnector
+import Amazonka.Outposts.Types.PowerDrawKva
+import Amazonka.Outposts.Types.PowerFeedDrop
+import Amazonka.Outposts.Types.PowerPhase
+import Amazonka.Outposts.Types.RackPhysicalProperties
+import Amazonka.Outposts.Types.ShipmentCarrier
+import Amazonka.Outposts.Types.ShipmentInformation
 import Amazonka.Outposts.Types.Site
+import Amazonka.Outposts.Types.SupportedHardwareType
+import Amazonka.Outposts.Types.SupportedStorageEnum
+import Amazonka.Outposts.Types.UplinkCount
+import Amazonka.Outposts.Types.UplinkGbps
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 

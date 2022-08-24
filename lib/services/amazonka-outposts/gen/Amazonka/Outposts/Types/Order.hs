@@ -30,13 +30,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrder' smart constructor.
 data Order = Order'
-  { -- | The ID of the Outpost.
+  { -- | The ID of the Outpost in the order.
     outpostId :: Prelude.Maybe Prelude.Text,
     -- | The fulfillment date of the order.
     orderFulfilledDate :: Prelude.Maybe Core.POSIX,
     -- | The line items for the order
     lineItems :: Prelude.Maybe [LineItem],
-    -- | The status of the order
+    -- | The status of the order.
+    --
+    -- -   @PREPARING@ - Order is received and being prepared.
+    --
+    -- -   @IN_PROGRESS@ - Order is either being built, shipped, or installed.
+    --     To get more details, see the @LineItem@ status.
+    --
+    -- -   @COMPLETED@ - Order is complete.
+    --
+    -- -   @CANCELLED@ - Order is cancelled.
+    --
+    -- -   @ERROR@ - Customer should contact support.
+    --
+    -- The following status are deprecated: @RECEIVED@, @PENDING@,
+    -- @PROCESSING@, @INSTALLING@, and @FULFILLED@.
     status :: Prelude.Maybe OrderStatus,
     -- | The ID of the order.
     orderId :: Prelude.Maybe Prelude.Text,
@@ -55,13 +69,27 @@ data Order = Order'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'outpostId', 'order_outpostId' - The ID of the Outpost.
+-- 'outpostId', 'order_outpostId' - The ID of the Outpost in the order.
 --
 -- 'orderFulfilledDate', 'order_orderFulfilledDate' - The fulfillment date of the order.
 --
 -- 'lineItems', 'order_lineItems' - The line items for the order
 --
--- 'status', 'order_status' - The status of the order
+-- 'status', 'order_status' - The status of the order.
+--
+-- -   @PREPARING@ - Order is received and being prepared.
+--
+-- -   @IN_PROGRESS@ - Order is either being built, shipped, or installed.
+--     To get more details, see the @LineItem@ status.
+--
+-- -   @COMPLETED@ - Order is complete.
+--
+-- -   @CANCELLED@ - Order is cancelled.
+--
+-- -   @ERROR@ - Customer should contact support.
+--
+-- The following status are deprecated: @RECEIVED@, @PENDING@,
+-- @PROCESSING@, @INSTALLING@, and @FULFILLED@.
 --
 -- 'orderId', 'order_orderId' - The ID of the order.
 --
@@ -81,7 +109,7 @@ newOrder =
       paymentOption = Prelude.Nothing
     }
 
--- | The ID of the Outpost.
+-- | The ID of the Outpost in the order.
 order_outpostId :: Lens.Lens' Order (Prelude.Maybe Prelude.Text)
 order_outpostId = Lens.lens (\Order' {outpostId} -> outpostId) (\s@Order' {} a -> s {outpostId = a} :: Order)
 
@@ -93,7 +121,21 @@ order_orderFulfilledDate = Lens.lens (\Order' {orderFulfilledDate} -> orderFulfi
 order_lineItems :: Lens.Lens' Order (Prelude.Maybe [LineItem])
 order_lineItems = Lens.lens (\Order' {lineItems} -> lineItems) (\s@Order' {} a -> s {lineItems = a} :: Order) Prelude.. Lens.mapping Lens.coerced
 
--- | The status of the order
+-- | The status of the order.
+--
+-- -   @PREPARING@ - Order is received and being prepared.
+--
+-- -   @IN_PROGRESS@ - Order is either being built, shipped, or installed.
+--     To get more details, see the @LineItem@ status.
+--
+-- -   @COMPLETED@ - Order is complete.
+--
+-- -   @CANCELLED@ - Order is cancelled.
+--
+-- -   @ERROR@ - Customer should contact support.
+--
+-- The following status are deprecated: @RECEIVED@, @PENDING@,
+-- @PROCESSING@, @INSTALLING@, and @FULFILLED@.
 order_status :: Lens.Lens' Order (Prelude.Maybe OrderStatus)
 order_status = Lens.lens (\Order' {status} -> status) (\s@Order' {} a -> s {status = a} :: Order)
 

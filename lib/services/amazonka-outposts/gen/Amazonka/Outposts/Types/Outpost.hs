@@ -21,6 +21,7 @@ module Amazonka.Outposts.Types.Outpost where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Outposts.Types.SupportedHardwareType
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about an Outpost.
@@ -35,6 +36,8 @@ data Outpost = Outpost'
     outpostArn :: Prelude.Maybe Prelude.Text,
     ownerId :: Prelude.Maybe Prelude.Text,
     siteArn :: Prelude.Maybe Prelude.Text,
+    -- | The hardware type.
+    supportedHardwareType :: Prelude.Maybe SupportedHardwareType,
     availabilityZone :: Prelude.Maybe Prelude.Text,
     description :: Prelude.Maybe Prelude.Text,
     siteId :: Prelude.Maybe Prelude.Text,
@@ -63,6 +66,8 @@ data Outpost = Outpost'
 --
 -- 'siteArn', 'outpost_siteArn' - Undocumented member.
 --
+-- 'supportedHardwareType', 'outpost_supportedHardwareType' - The hardware type.
+--
 -- 'availabilityZone', 'outpost_availabilityZone' - Undocumented member.
 --
 -- 'description', 'outpost_description' - Undocumented member.
@@ -82,6 +87,7 @@ newOutpost =
       outpostArn = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       siteArn = Prelude.Nothing,
+      supportedHardwareType = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       description = Prelude.Nothing,
       siteId = Prelude.Nothing,
@@ -112,6 +118,10 @@ outpost_ownerId = Lens.lens (\Outpost' {ownerId} -> ownerId) (\s@Outpost' {} a -
 -- | Undocumented member.
 outpost_siteArn :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
 outpost_siteArn = Lens.lens (\Outpost' {siteArn} -> siteArn) (\s@Outpost' {} a -> s {siteArn = a} :: Outpost)
+
+-- | The hardware type.
+outpost_supportedHardwareType :: Lens.Lens' Outpost (Prelude.Maybe SupportedHardwareType)
+outpost_supportedHardwareType = Lens.lens (\Outpost' {supportedHardwareType} -> supportedHardwareType) (\s@Outpost' {} a -> s {supportedHardwareType = a} :: Outpost)
 
 -- | Undocumented member.
 outpost_availabilityZone :: Lens.Lens' Outpost (Prelude.Maybe Prelude.Text)
@@ -145,6 +155,7 @@ instance Core.FromJSON Outpost where
             Prelude.<*> (x Core..:? "OutpostArn")
             Prelude.<*> (x Core..:? "OwnerId")
             Prelude.<*> (x Core..:? "SiteArn")
+            Prelude.<*> (x Core..:? "SupportedHardwareType")
             Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SiteId")
@@ -160,6 +171,7 @@ instance Prelude.Hashable Outpost where
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` siteArn
+      `Prelude.hashWithSalt` supportedHardwareType
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` siteId
@@ -174,6 +186,7 @@ instance Prelude.NFData Outpost where
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf siteArn
+      `Prelude.seq` Prelude.rnf supportedHardwareType
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf siteId

@@ -11,12 +11,13 @@
 --
 -- Derived from API version @2019-12-03@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Outposts is a fully managed service that extends AWS infrastructure,
--- APIs, and tools to customer premises. By providing local access to AWS
--- managed infrastructure, AWS Outposts enables customers to build and run
--- applications on premises using the same programming interfaces as in AWS
--- Regions, while using local compute and storage resources for lower
--- latency and local data processing needs.
+-- Amazon Web Services Outposts is a fully managed service that extends
+-- Amazon Web Services infrastructure, APIs, and tools to customer
+-- premises. By providing local access to Amazon Web Services managed
+-- infrastructure, Amazon Web Services Outposts enables customers to build
+-- and run applications on premises using the same programming interfaces
+-- as in Amazon Web Services Regions, while using local compute and storage
+-- resources for lower latency and local data processing needs.
 module Amazonka.Outposts
   ( -- * Service Configuration
     defaultService,
@@ -48,6 +49,12 @@ module Amazonka.Outposts
     -- * Operations
     -- $operations
 
+    -- ** CancelOrder
+    CancelOrder (CancelOrder'),
+    newCancelOrder,
+    CancelOrderResponse (CancelOrderResponse'),
+    newCancelOrderResponse,
+
     -- ** CreateOrder
     CreateOrder (CreateOrder'),
     newCreateOrder,
@@ -59,6 +66,12 @@ module Amazonka.Outposts
     newCreateOutpost,
     CreateOutpostResponse (CreateOutpostResponse'),
     newCreateOutpostResponse,
+
+    -- ** CreateSite
+    CreateSite (CreateSite'),
+    newCreateSite,
+    CreateSiteResponse (CreateSiteResponse'),
+    newCreateSiteResponse,
 
     -- ** DeleteOutpost
     DeleteOutpost (DeleteOutpost'),
@@ -72,6 +85,24 @@ module Amazonka.Outposts
     DeleteSiteResponse (DeleteSiteResponse'),
     newDeleteSiteResponse,
 
+    -- ** GetCatalogItem
+    GetCatalogItem (GetCatalogItem'),
+    newGetCatalogItem,
+    GetCatalogItemResponse (GetCatalogItemResponse'),
+    newGetCatalogItemResponse,
+
+    -- ** GetConnection
+    GetConnection (GetConnection'),
+    newGetConnection,
+    GetConnectionResponse (GetConnectionResponse'),
+    newGetConnectionResponse,
+
+    -- ** GetOrder
+    GetOrder (GetOrder'),
+    newGetOrder,
+    GetOrderResponse (GetOrderResponse'),
+    newGetOrderResponse,
+
     -- ** GetOutpost
     GetOutpost (GetOutpost'),
     newGetOutpost,
@@ -83,6 +114,36 @@ module Amazonka.Outposts
     newGetOutpostInstanceTypes,
     GetOutpostInstanceTypesResponse (GetOutpostInstanceTypesResponse'),
     newGetOutpostInstanceTypesResponse,
+
+    -- ** GetSite
+    GetSite (GetSite'),
+    newGetSite,
+    GetSiteResponse (GetSiteResponse'),
+    newGetSiteResponse,
+
+    -- ** GetSiteAddress
+    GetSiteAddress (GetSiteAddress'),
+    newGetSiteAddress,
+    GetSiteAddressResponse (GetSiteAddressResponse'),
+    newGetSiteAddressResponse,
+
+    -- ** ListAssets
+    ListAssets (ListAssets'),
+    newListAssets,
+    ListAssetsResponse (ListAssetsResponse'),
+    newListAssetsResponse,
+
+    -- ** ListCatalogItems
+    ListCatalogItems (ListCatalogItems'),
+    newListCatalogItems,
+    ListCatalogItemsResponse (ListCatalogItemsResponse'),
+    newListCatalogItemsResponse,
+
+    -- ** ListOrders
+    ListOrders (ListOrders'),
+    newListOrders,
+    ListOrdersResponse (ListOrdersResponse'),
+    newListOrdersResponse,
 
     -- ** ListOutposts
     ListOutposts (ListOutposts'),
@@ -102,6 +163,12 @@ module Amazonka.Outposts
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** StartConnection
+    StartConnection (StartConnection'),
+    newStartConnection,
+    StartConnectionResponse (StartConnectionResponse'),
+    newStartConnectionResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -114,16 +181,122 @@ module Amazonka.Outposts
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateOutpost
+    UpdateOutpost (UpdateOutpost'),
+    newUpdateOutpost,
+    UpdateOutpostResponse (UpdateOutpostResponse'),
+    newUpdateOutpostResponse,
+
+    -- ** UpdateSite
+    UpdateSite (UpdateSite'),
+    newUpdateSite,
+    UpdateSiteResponse (UpdateSiteResponse'),
+    newUpdateSiteResponse,
+
+    -- ** UpdateSiteAddress
+    UpdateSiteAddress (UpdateSiteAddress'),
+    newUpdateSiteAddress,
+    UpdateSiteAddressResponse (UpdateSiteAddressResponse'),
+    newUpdateSiteAddressResponse,
+
+    -- ** UpdateSiteRackPhysicalProperties
+    UpdateSiteRackPhysicalProperties (UpdateSiteRackPhysicalProperties'),
+    newUpdateSiteRackPhysicalProperties,
+    UpdateSiteRackPhysicalPropertiesResponse (UpdateSiteRackPhysicalPropertiesResponse'),
+    newUpdateSiteRackPhysicalPropertiesResponse,
+
     -- * Types
+
+    -- ** AddressType
+    AddressType (..),
+
+    -- ** AssetType
+    AssetType (..),
+
+    -- ** CatalogItemClass
+    CatalogItemClass (..),
+
+    -- ** CatalogItemStatus
+    CatalogItemStatus (..),
+
+    -- ** FiberOpticCableType
+    FiberOpticCableType (..),
+
+    -- ** LineItemStatus
+    LineItemStatus (..),
+
+    -- ** MaximumSupportedWeightLbs
+    MaximumSupportedWeightLbs (..),
+
+    -- ** OpticalStandard
+    OpticalStandard (..),
 
     -- ** OrderStatus
     OrderStatus (..),
+
+    -- ** OrderType
+    OrderType (..),
 
     -- ** PaymentOption
     PaymentOption (..),
 
     -- ** PaymentTerm
     PaymentTerm (..),
+
+    -- ** PowerConnector
+    PowerConnector (..),
+
+    -- ** PowerDrawKva
+    PowerDrawKva (..),
+
+    -- ** PowerFeedDrop
+    PowerFeedDrop (..),
+
+    -- ** PowerPhase
+    PowerPhase (..),
+
+    -- ** ShipmentCarrier
+    ShipmentCarrier (..),
+
+    -- ** SupportedHardwareType
+    SupportedHardwareType (..),
+
+    -- ** SupportedStorageEnum
+    SupportedStorageEnum (..),
+
+    -- ** UplinkCount
+    UplinkCount (..),
+
+    -- ** UplinkGbps
+    UplinkGbps (..),
+
+    -- ** Address
+    Address (Address'),
+    newAddress,
+
+    -- ** AssetInfo
+    AssetInfo (AssetInfo'),
+    newAssetInfo,
+
+    -- ** AssetLocation
+    AssetLocation (AssetLocation'),
+    newAssetLocation,
+
+    -- ** CatalogItem
+    CatalogItem (CatalogItem'),
+    newCatalogItem,
+
+    -- ** ComputeAttributes
+    ComputeAttributes (ComputeAttributes'),
+    newComputeAttributes,
+
+    -- ** ConnectionDetails
+    ConnectionDetails (ConnectionDetails'),
+    newConnectionDetails,
+
+    -- ** EC2Capacity
+    EC2Capacity (EC2Capacity'),
+    newEC2Capacity,
 
     -- ** InstanceTypeItem
     InstanceTypeItem (InstanceTypeItem'),
@@ -133,6 +306,10 @@ module Amazonka.Outposts
     LineItem (LineItem'),
     newLineItem,
 
+    -- ** LineItemAssetInformation
+    LineItemAssetInformation (LineItemAssetInformation'),
+    newLineItemAssetInformation,
+
     -- ** LineItemRequest
     LineItemRequest (LineItemRequest'),
     newLineItemRequest,
@@ -141,9 +318,21 @@ module Amazonka.Outposts
     Order (Order'),
     newOrder,
 
+    -- ** OrderSummary
+    OrderSummary (OrderSummary'),
+    newOrderSummary,
+
     -- ** Outpost
     Outpost (Outpost'),
     newOutpost,
+
+    -- ** RackPhysicalProperties
+    RackPhysicalProperties (RackPhysicalProperties'),
+    newRackPhysicalProperties,
+
+    -- ** ShipmentInformation
+    ShipmentInformation (ShipmentInformation'),
+    newShipmentInformation,
 
     -- ** Site
     Site (Site'),
@@ -151,19 +340,34 @@ module Amazonka.Outposts
   )
 where
 
+import Amazonka.Outposts.CancelOrder
 import Amazonka.Outposts.CreateOrder
 import Amazonka.Outposts.CreateOutpost
+import Amazonka.Outposts.CreateSite
 import Amazonka.Outposts.DeleteOutpost
 import Amazonka.Outposts.DeleteSite
+import Amazonka.Outposts.GetCatalogItem
+import Amazonka.Outposts.GetConnection
+import Amazonka.Outposts.GetOrder
 import Amazonka.Outposts.GetOutpost
 import Amazonka.Outposts.GetOutpostInstanceTypes
+import Amazonka.Outposts.GetSite
+import Amazonka.Outposts.GetSiteAddress
 import Amazonka.Outposts.Lens
+import Amazonka.Outposts.ListAssets
+import Amazonka.Outposts.ListCatalogItems
+import Amazonka.Outposts.ListOrders
 import Amazonka.Outposts.ListOutposts
 import Amazonka.Outposts.ListSites
 import Amazonka.Outposts.ListTagsForResource
+import Amazonka.Outposts.StartConnection
 import Amazonka.Outposts.TagResource
 import Amazonka.Outposts.Types
 import Amazonka.Outposts.UntagResource
+import Amazonka.Outposts.UpdateOutpost
+import Amazonka.Outposts.UpdateSite
+import Amazonka.Outposts.UpdateSiteAddress
+import Amazonka.Outposts.UpdateSiteRackPhysicalProperties
 import Amazonka.Outposts.Waiters
 
 -- $errors

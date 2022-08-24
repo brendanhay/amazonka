@@ -202,15 +202,7 @@ instance Prelude.NFData ListHumanLoops where
       `Prelude.seq` Prelude.rnf flowDefinitionArn
 
 instance Core.ToHeaders ListHumanLoops where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListHumanLoops where
   toPath = Prelude.const "/human-loops"

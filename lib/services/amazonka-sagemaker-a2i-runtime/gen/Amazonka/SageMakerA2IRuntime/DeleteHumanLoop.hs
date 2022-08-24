@@ -95,15 +95,7 @@ instance Prelude.NFData DeleteHumanLoop where
   rnf DeleteHumanLoop' {..} = Prelude.rnf humanLoopName
 
 instance Core.ToHeaders DeleteHumanLoop where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath DeleteHumanLoop where
   toPath DeleteHumanLoop' {..} =

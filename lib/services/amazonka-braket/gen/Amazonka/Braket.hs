@@ -13,6 +13,10 @@
 --
 -- The Amazon Braket API Reference provides information about the
 -- operations and structures supported in Amazon Braket.
+--
+-- Additional Resources:
+--
+-- -   <https://docs.aws.amazon.com/braket/latest/developerguide/what-is-braket.html Amazon Braket Developer Guide>
 module Amazonka.Braket
   ( -- * Service Configuration
     defaultService,
@@ -53,11 +57,23 @@ module Amazonka.Braket
     -- * Operations
     -- $operations
 
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
     -- ** CancelQuantumTask
     CancelQuantumTask (CancelQuantumTask'),
     newCancelQuantumTask,
     CancelQuantumTaskResponse (CancelQuantumTaskResponse'),
     newCancelQuantumTaskResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
 
     -- ** CreateQuantumTask
     CreateQuantumTask (CreateQuantumTask'),
@@ -70,6 +86,12 @@ module Amazonka.Braket
     newGetDevice,
     GetDeviceResponse (GetDeviceResponse'),
     newGetDeviceResponse,
+
+    -- ** GetJob
+    GetJob (GetJob'),
+    newGetJob,
+    GetJobResponse (GetJobResponse'),
+    newGetJobResponse,
 
     -- ** GetQuantumTask
     GetQuantumTask (GetQuantumTask'),
@@ -88,6 +110,12 @@ module Amazonka.Braket
     newSearchDevices,
     SearchDevicesResponse (SearchDevicesResponse'),
     newSearchDevicesResponse,
+
+    -- ** SearchJobs (Paginated)
+    SearchJobs (SearchJobs'),
+    newSearchJobs,
+    SearchJobsResponse (SearchJobsResponse'),
+    newSearchJobsResponse,
 
     -- ** SearchQuantumTasks (Paginated)
     SearchQuantumTasks (SearchQuantumTasks'),
@@ -112,29 +140,100 @@ module Amazonka.Braket
     -- ** CancellationStatus
     CancellationStatus (..),
 
+    -- ** CompressionType
+    CompressionType (..),
+
     -- ** DeviceStatus
     DeviceStatus (..),
 
     -- ** DeviceType
     DeviceType (..),
 
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** JobEventType
+    JobEventType (..),
+
+    -- ** JobPrimaryStatus
+    JobPrimaryStatus (..),
+
     -- ** QuantumTaskStatus
     QuantumTaskStatus (..),
 
+    -- ** SearchJobsFilterOperator
+    SearchJobsFilterOperator (..),
+
     -- ** SearchQuantumTasksFilterOperator
     SearchQuantumTasksFilterOperator (..),
+
+    -- ** AlgorithmSpecification
+    AlgorithmSpecification (AlgorithmSpecification'),
+    newAlgorithmSpecification,
+
+    -- ** ContainerImage
+    ContainerImage (ContainerImage'),
+    newContainerImage,
+
+    -- ** DataSource
+    DataSource (DataSource'),
+    newDataSource,
+
+    -- ** DeviceConfig
+    DeviceConfig (DeviceConfig'),
+    newDeviceConfig,
 
     -- ** DeviceSummary
     DeviceSummary (DeviceSummary'),
     newDeviceSummary,
 
+    -- ** InputFileConfig
+    InputFileConfig (InputFileConfig'),
+    newInputFileConfig,
+
+    -- ** InstanceConfig
+    InstanceConfig (InstanceConfig'),
+    newInstanceConfig,
+
+    -- ** JobCheckpointConfig
+    JobCheckpointConfig (JobCheckpointConfig'),
+    newJobCheckpointConfig,
+
+    -- ** JobEventDetails
+    JobEventDetails (JobEventDetails'),
+    newJobEventDetails,
+
+    -- ** JobOutputDataConfig
+    JobOutputDataConfig (JobOutputDataConfig'),
+    newJobOutputDataConfig,
+
+    -- ** JobStoppingCondition
+    JobStoppingCondition (JobStoppingCondition'),
+    newJobStoppingCondition,
+
+    -- ** JobSummary
+    JobSummary (JobSummary'),
+    newJobSummary,
+
     -- ** QuantumTaskSummary
     QuantumTaskSummary (QuantumTaskSummary'),
     newQuantumTaskSummary,
 
+    -- ** S3DataSource
+    S3DataSource (S3DataSource'),
+    newS3DataSource,
+
+    -- ** ScriptModeConfig
+    ScriptModeConfig (ScriptModeConfig'),
+    newScriptModeConfig,
+
     -- ** SearchDevicesFilter
     SearchDevicesFilter (SearchDevicesFilter'),
     newSearchDevicesFilter,
+
+    -- ** SearchJobsFilter
+    SearchJobsFilter (SearchJobsFilter'),
+    newSearchJobsFilter,
 
     -- ** SearchQuantumTasksFilter
     SearchQuantumTasksFilter (SearchQuantumTasksFilter'),
@@ -142,13 +241,17 @@ module Amazonka.Braket
   )
 where
 
+import Amazonka.Braket.CancelJob
 import Amazonka.Braket.CancelQuantumTask
+import Amazonka.Braket.CreateJob
 import Amazonka.Braket.CreateQuantumTask
 import Amazonka.Braket.GetDevice
+import Amazonka.Braket.GetJob
 import Amazonka.Braket.GetQuantumTask
 import Amazonka.Braket.Lens
 import Amazonka.Braket.ListTagsForResource
 import Amazonka.Braket.SearchDevices
+import Amazonka.Braket.SearchJobs
 import Amazonka.Braket.SearchQuantumTasks
 import Amazonka.Braket.TagResource
 import Amazonka.Braket.Types

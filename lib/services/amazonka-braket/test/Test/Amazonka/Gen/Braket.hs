@@ -27,14 +27,23 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestCancelQuantumTask $
+--         [ requestCancelJob $
+--             newCancelJob
+--
+--         , requestCancelQuantumTask $
 --             newCancelQuantumTask
+--
+--         , requestCreateJob $
+--             newCreateJob
 --
 --         , requestCreateQuantumTask $
 --             newCreateQuantumTask
 --
 --         , requestGetDevice $
 --             newGetDevice
+--
+--         , requestGetJob $
+--             newGetJob
 --
 --         , requestGetQuantumTask $
 --             newGetQuantumTask
@@ -44,6 +53,9 @@ import Test.Tasty
 --
 --         , requestSearchDevices $
 --             newSearchDevices
+--
+--         , requestSearchJobs $
+--             newSearchJobs
 --
 --         , requestSearchQuantumTasks $
 --             newSearchQuantumTasks
@@ -57,14 +69,23 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseCancelQuantumTask $
+--         [ responseCancelJob $
+--             newCancelJobResponse
+--
+--         , responseCancelQuantumTask $
 --             newCancelQuantumTaskResponse
+--
+--         , responseCreateJob $
+--             newCreateJobResponse
 --
 --         , responseCreateQuantumTask $
 --             newCreateQuantumTaskResponse
 --
 --         , responseGetDevice $
 --             newGetDeviceResponse
+--
+--         , responseGetJob $
+--             newGetJobResponse
 --
 --         , responseGetQuantumTask $
 --             newGetQuantumTaskResponse
@@ -74,6 +95,9 @@ import Test.Tasty
 --
 --         , responseSearchDevices $
 --             newSearchDevicesResponse
+--
+--         , responseSearchJobs $
+--             newSearchJobsResponse
 --
 --         , responseSearchQuantumTasks $
 --             newSearchQuantumTasksResponse
@@ -89,11 +113,23 @@ import Test.Tasty
 
 -- Requests
 
+requestCancelJob :: CancelJob -> TestTree
+requestCancelJob =
+  req
+    "CancelJob"
+    "fixture/CancelJob.yaml"
+
 requestCancelQuantumTask :: CancelQuantumTask -> TestTree
 requestCancelQuantumTask =
   req
     "CancelQuantumTask"
     "fixture/CancelQuantumTask.yaml"
+
+requestCreateJob :: CreateJob -> TestTree
+requestCreateJob =
+  req
+    "CreateJob"
+    "fixture/CreateJob.yaml"
 
 requestCreateQuantumTask :: CreateQuantumTask -> TestTree
 requestCreateQuantumTask =
@@ -106,6 +142,12 @@ requestGetDevice =
   req
     "GetDevice"
     "fixture/GetDevice.yaml"
+
+requestGetJob :: GetJob -> TestTree
+requestGetJob =
+  req
+    "GetJob"
+    "fixture/GetJob.yaml"
 
 requestGetQuantumTask :: GetQuantumTask -> TestTree
 requestGetQuantumTask =
@@ -124,6 +166,12 @@ requestSearchDevices =
   req
     "SearchDevices"
     "fixture/SearchDevices.yaml"
+
+requestSearchJobs :: SearchJobs -> TestTree
+requestSearchJobs =
+  req
+    "SearchJobs"
+    "fixture/SearchJobs.yaml"
 
 requestSearchQuantumTasks :: SearchQuantumTasks -> TestTree
 requestSearchQuantumTasks =
@@ -145,6 +193,14 @@ requestUntagResource =
 
 -- Responses
 
+responseCancelJob :: CancelJobResponse -> TestTree
+responseCancelJob =
+  res
+    "CancelJobResponse"
+    "fixture/CancelJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelJob)
+
 responseCancelQuantumTask :: CancelQuantumTaskResponse -> TestTree
 responseCancelQuantumTask =
   res
@@ -152,6 +208,14 @@ responseCancelQuantumTask =
     "fixture/CancelQuantumTaskResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelQuantumTask)
+
+responseCreateJob :: CreateJobResponse -> TestTree
+responseCreateJob =
+  res
+    "CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateJob)
 
 responseCreateQuantumTask :: CreateQuantumTaskResponse -> TestTree
 responseCreateQuantumTask =
@@ -168,6 +232,14 @@ responseGetDevice =
     "fixture/GetDeviceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDevice)
+
+responseGetJob :: GetJobResponse -> TestTree
+responseGetJob =
+  res
+    "GetJobResponse"
+    "fixture/GetJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetJob)
 
 responseGetQuantumTask :: GetQuantumTaskResponse -> TestTree
 responseGetQuantumTask =
@@ -192,6 +264,14 @@ responseSearchDevices =
     "fixture/SearchDevicesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchDevices)
+
+responseSearchJobs :: SearchJobsResponse -> TestTree
+responseSearchJobs =
+  res
+    "SearchJobsResponse"
+    "fixture/SearchJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchJobs)
 
 responseSearchQuantumTasks :: SearchQuantumTasksResponse -> TestTree
 responseSearchQuantumTasks =

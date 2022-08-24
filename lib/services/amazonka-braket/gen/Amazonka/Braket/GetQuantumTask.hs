@@ -36,6 +36,7 @@ module Amazonka.Braket.GetQuantumTask
     -- * Response Lenses
     getQuantumTaskResponse_tags,
     getQuantumTaskResponse_endedAt,
+    getQuantumTaskResponse_jobArn,
     getQuantumTaskResponse_failureReason,
     getQuantumTaskResponse_httpStatus,
     getQuantumTaskResponse_createdAt,
@@ -94,6 +95,7 @@ instance Core.AWSRequest GetQuantumTask where
           GetQuantumTaskResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "endedAt")
+            Prelude.<*> (x Core..?> "jobArn")
             Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "createdAt")
@@ -138,6 +140,8 @@ data GetQuantumTaskResponse = GetQuantumTaskResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time at which the task ended.
     endedAt :: Prelude.Maybe Core.POSIX,
+    -- | The ARN of the Amazon Braket job associated with the quantum task.
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The reason that a task failed.
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -172,6 +176,8 @@ data GetQuantumTaskResponse = GetQuantumTaskResponse'
 -- 'tags', 'getQuantumTaskResponse_tags' - The tags that belong to this task.
 --
 -- 'endedAt', 'getQuantumTaskResponse_endedAt' - The time at which the task ended.
+--
+-- 'jobArn', 'getQuantumTaskResponse_jobArn' - The ARN of the Amazon Braket job associated with the quantum task.
 --
 -- 'failureReason', 'getQuantumTaskResponse_failureReason' - The reason that a task failed.
 --
@@ -225,6 +231,7 @@ newGetQuantumTaskResponse
     GetQuantumTaskResponse'
       { tags = Prelude.Nothing,
         endedAt = Prelude.Nothing,
+        jobArn = Prelude.Nothing,
         failureReason = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         createdAt = Core._Time Lens.# pCreatedAt_,
@@ -244,6 +251,10 @@ getQuantumTaskResponse_tags = Lens.lens (\GetQuantumTaskResponse' {tags} -> tags
 -- | The time at which the task ended.
 getQuantumTaskResponse_endedAt :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe Prelude.UTCTime)
 getQuantumTaskResponse_endedAt = Lens.lens (\GetQuantumTaskResponse' {endedAt} -> endedAt) (\s@GetQuantumTaskResponse' {} a -> s {endedAt = a} :: GetQuantumTaskResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The ARN of the Amazon Braket job associated with the quantum task.
+getQuantumTaskResponse_jobArn :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe Prelude.Text)
+getQuantumTaskResponse_jobArn = Lens.lens (\GetQuantumTaskResponse' {jobArn} -> jobArn) (\s@GetQuantumTaskResponse' {} a -> s {jobArn = a} :: GetQuantumTaskResponse)
 
 -- | The reason that a task failed.
 getQuantumTaskResponse_failureReason :: Lens.Lens' GetQuantumTaskResponse (Prelude.Maybe Prelude.Text)
@@ -289,6 +300,7 @@ instance Prelude.NFData GetQuantumTaskResponse where
   rnf GetQuantumTaskResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf endedAt
+      `Prelude.seq` Prelude.rnf jobArn
       `Prelude.seq` Prelude.rnf failureReason
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf createdAt

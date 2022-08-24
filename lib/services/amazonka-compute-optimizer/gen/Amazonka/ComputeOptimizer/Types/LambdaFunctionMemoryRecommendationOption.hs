@@ -20,6 +20,7 @@
 module Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryRecommendationOption where
 
 import Amazonka.ComputeOptimizer.Types.LambdaFunctionMemoryProjectedMetric
+import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -30,6 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data LambdaFunctionMemoryRecommendationOption = LambdaFunctionMemoryRecommendationOption'
   { -- | The memory size, in MB, of the function recommendation option.
     memorySize :: Prelude.Maybe Prelude.Int,
+    -- | An object that describes the savings opportunity for the Lambda function
+    -- recommendation option. Savings opportunity includes the estimated
+    -- monthly savings amount and percentage.
+    savingsOpportunity :: Prelude.Maybe SavingsOpportunity,
     -- | The rank of the function recommendation option.
     --
     -- The top recommendation option is ranked as @1@.
@@ -50,6 +55,10 @@ data LambdaFunctionMemoryRecommendationOption = LambdaFunctionMemoryRecommendati
 --
 -- 'memorySize', 'lambdaFunctionMemoryRecommendationOption_memorySize' - The memory size, in MB, of the function recommendation option.
 --
+-- 'savingsOpportunity', 'lambdaFunctionMemoryRecommendationOption_savingsOpportunity' - An object that describes the savings opportunity for the Lambda function
+-- recommendation option. Savings opportunity includes the estimated
+-- monthly savings amount and percentage.
+--
 -- 'rank', 'lambdaFunctionMemoryRecommendationOption_rank' - The rank of the function recommendation option.
 --
 -- The top recommendation option is ranked as @1@.
@@ -62,6 +71,8 @@ newLambdaFunctionMemoryRecommendationOption =
   LambdaFunctionMemoryRecommendationOption'
     { memorySize =
         Prelude.Nothing,
+      savingsOpportunity =
+        Prelude.Nothing,
       rank = Prelude.Nothing,
       projectedUtilizationMetrics =
         Prelude.Nothing
@@ -70,6 +81,12 @@ newLambdaFunctionMemoryRecommendationOption =
 -- | The memory size, in MB, of the function recommendation option.
 lambdaFunctionMemoryRecommendationOption_memorySize :: Lens.Lens' LambdaFunctionMemoryRecommendationOption (Prelude.Maybe Prelude.Int)
 lambdaFunctionMemoryRecommendationOption_memorySize = Lens.lens (\LambdaFunctionMemoryRecommendationOption' {memorySize} -> memorySize) (\s@LambdaFunctionMemoryRecommendationOption' {} a -> s {memorySize = a} :: LambdaFunctionMemoryRecommendationOption)
+
+-- | An object that describes the savings opportunity for the Lambda function
+-- recommendation option. Savings opportunity includes the estimated
+-- monthly savings amount and percentage.
+lambdaFunctionMemoryRecommendationOption_savingsOpportunity :: Lens.Lens' LambdaFunctionMemoryRecommendationOption (Prelude.Maybe SavingsOpportunity)
+lambdaFunctionMemoryRecommendationOption_savingsOpportunity = Lens.lens (\LambdaFunctionMemoryRecommendationOption' {savingsOpportunity} -> savingsOpportunity) (\s@LambdaFunctionMemoryRecommendationOption' {} a -> s {savingsOpportunity = a} :: LambdaFunctionMemoryRecommendationOption)
 
 -- | The rank of the function recommendation option.
 --
@@ -92,6 +109,7 @@ instance
       ( \x ->
           LambdaFunctionMemoryRecommendationOption'
             Prelude.<$> (x Core..:? "memorySize")
+            Prelude.<*> (x Core..:? "savingsOpportunity")
             Prelude.<*> (x Core..:? "rank")
             Prelude.<*> ( x Core..:? "projectedUtilizationMetrics"
                             Core..!= Prelude.mempty
@@ -106,6 +124,7 @@ instance
     _salt
     LambdaFunctionMemoryRecommendationOption' {..} =
       _salt `Prelude.hashWithSalt` memorySize
+        `Prelude.hashWithSalt` savingsOpportunity
         `Prelude.hashWithSalt` rank
         `Prelude.hashWithSalt` projectedUtilizationMetrics
 
@@ -115,5 +134,6 @@ instance
   where
   rnf LambdaFunctionMemoryRecommendationOption' {..} =
     Prelude.rnf memorySize
+      `Prelude.seq` Prelude.rnf savingsOpportunity
       `Prelude.seq` Prelude.rnf rank
       `Prelude.seq` Prelude.rnf projectedUtilizationMetrics

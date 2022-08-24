@@ -11,20 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ComputeOptimizer.Types.ResourceType
+-- Module      : Amazonka.ComputeOptimizer.Types.RecommendationPreferenceName
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ComputeOptimizer.Types.ResourceType
-  ( ResourceType
+module Amazonka.ComputeOptimizer.Types.RecommendationPreferenceName
+  ( RecommendationPreferenceName
       ( ..,
-        ResourceType_AutoScalingGroup,
-        ResourceType_EbsVolume,
-        ResourceType_Ec2Instance,
-        ResourceType_LambdaFunction,
-        ResourceType_NotApplicable
+        RecommendationPreferenceName_EnhancedInfrastructureMetrics,
+        RecommendationPreferenceName_InferredWorkloadTypes
       ),
   )
 where
@@ -32,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ResourceType = ResourceType'
-  { fromResourceType ::
+newtype RecommendationPreferenceName = RecommendationPreferenceName'
+  { fromRecommendationPreferenceName ::
       Core.Text
   }
   deriving stock
@@ -60,26 +57,14 @@ newtype ResourceType = ResourceType'
       Core.ToXML
     )
 
-pattern ResourceType_AutoScalingGroup :: ResourceType
-pattern ResourceType_AutoScalingGroup = ResourceType' "AutoScalingGroup"
+pattern RecommendationPreferenceName_EnhancedInfrastructureMetrics :: RecommendationPreferenceName
+pattern RecommendationPreferenceName_EnhancedInfrastructureMetrics = RecommendationPreferenceName' "EnhancedInfrastructureMetrics"
 
-pattern ResourceType_EbsVolume :: ResourceType
-pattern ResourceType_EbsVolume = ResourceType' "EbsVolume"
-
-pattern ResourceType_Ec2Instance :: ResourceType
-pattern ResourceType_Ec2Instance = ResourceType' "Ec2Instance"
-
-pattern ResourceType_LambdaFunction :: ResourceType
-pattern ResourceType_LambdaFunction = ResourceType' "LambdaFunction"
-
-pattern ResourceType_NotApplicable :: ResourceType
-pattern ResourceType_NotApplicable = ResourceType' "NotApplicable"
+pattern RecommendationPreferenceName_InferredWorkloadTypes :: RecommendationPreferenceName
+pattern RecommendationPreferenceName_InferredWorkloadTypes = RecommendationPreferenceName' "InferredWorkloadTypes"
 
 {-# COMPLETE
-  ResourceType_AutoScalingGroup,
-  ResourceType_EbsVolume,
-  ResourceType_Ec2Instance,
-  ResourceType_LambdaFunction,
-  ResourceType_NotApplicable,
-  ResourceType'
+  RecommendationPreferenceName_EnhancedInfrastructureMetrics,
+  RecommendationPreferenceName_InferredWorkloadTypes,
+  RecommendationPreferenceName'
   #-}

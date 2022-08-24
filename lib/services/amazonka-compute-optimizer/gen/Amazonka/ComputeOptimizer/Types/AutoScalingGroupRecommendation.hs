@@ -21,7 +21,10 @@ module Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendation where
 
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupConfiguration
 import Amazonka.ComputeOptimizer.Types.AutoScalingGroupRecommendationOption
+import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
+import Amazonka.ComputeOptimizer.Types.EffectiveRecommendationPreferences
 import Amazonka.ComputeOptimizer.Types.Finding
+import Amazonka.ComputeOptimizer.Types.InferredWorkloadType
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -31,13 +34,43 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingGroupRecommendation' smart constructor.
 data AutoScalingGroupRecommendation = AutoScalingGroupRecommendation'
-  { -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
+  { -- | The risk of the current Auto Scaling group not meeting the performance
+    -- needs of its workloads. The higher the risk, the more likely the current
+    -- Auto Scaling group configuration has insufficient capacity and cannot
+    -- meet workload requirements.
+    currentPerformanceRisk :: Prelude.Maybe CurrentPerformanceRisk,
+    -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
     autoScalingGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The applications that might be running on the instances in the Auto
+    -- Scaling group as inferred by Compute Optimizer.
+    --
+    -- Compute Optimizer can infer if one of the following applications might
+    -- be running on the instances:
+    --
+    -- -   @AmazonEmr@ - Infers that Amazon EMR might be running on the
+    --     instances.
+    --
+    -- -   @ApacheCassandra@ - Infers that Apache Cassandra might be running on
+    --     the instances.
+    --
+    -- -   @ApacheHadoop@ - Infers that Apache Hadoop might be running on the
+    --     instances.
+    --
+    -- -   @Memcached@ - Infers that Memcached might be running on the
+    --     instances.
+    --
+    -- -   @NGINX@ - Infers that NGINX might be running on the instances.
+    --
+    -- -   @PostgreSql@ - Infers that PostgreSQL might be running on the
+    --     instances.
+    --
+    -- -   @Redis@ - Infers that Redis might be running on the instances.
+    inferredWorkloadTypes :: Prelude.Maybe [InferredWorkloadType],
     -- | An array of objects that describe the recommendation options for the
     -- Auto Scaling group.
     recommendationOptions :: Prelude.Maybe [AutoScalingGroupRecommendationOption],
     -- | The timestamp of when the Auto Scaling group recommendation was last
-    -- refreshed.
+    -- generated.
     lastRefreshTimestamp :: Prelude.Maybe Core.POSIX,
     -- | An array of objects that describe the current configuration of the Auto
     -- Scaling group.
@@ -49,6 +82,9 @@ data AutoScalingGroupRecommendation = AutoScalingGroupRecommendation'
     autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services account ID of the Auto Scaling group.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | An object that describes the effective recommendation preferences for
+    -- the Auto Scaling group.
+    effectiveRecommendationPreferences :: Prelude.Maybe EffectiveRecommendationPreferences,
     -- | An array of objects that describe the utilization metrics of the Auto
     -- Scaling group.
     utilizationMetrics :: Prelude.Maybe [UtilizationMetric],
@@ -77,13 +113,43 @@ data AutoScalingGroupRecommendation = AutoScalingGroupRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'currentPerformanceRisk', 'autoScalingGroupRecommendation_currentPerformanceRisk' - The risk of the current Auto Scaling group not meeting the performance
+-- needs of its workloads. The higher the risk, the more likely the current
+-- Auto Scaling group configuration has insufficient capacity and cannot
+-- meet workload requirements.
+--
 -- 'autoScalingGroupArn', 'autoScalingGroupRecommendation_autoScalingGroupArn' - The Amazon Resource Name (ARN) of the Auto Scaling group.
+--
+-- 'inferredWorkloadTypes', 'autoScalingGroupRecommendation_inferredWorkloadTypes' - The applications that might be running on the instances in the Auto
+-- Scaling group as inferred by Compute Optimizer.
+--
+-- Compute Optimizer can infer if one of the following applications might
+-- be running on the instances:
+--
+-- -   @AmazonEmr@ - Infers that Amazon EMR might be running on the
+--     instances.
+--
+-- -   @ApacheCassandra@ - Infers that Apache Cassandra might be running on
+--     the instances.
+--
+-- -   @ApacheHadoop@ - Infers that Apache Hadoop might be running on the
+--     instances.
+--
+-- -   @Memcached@ - Infers that Memcached might be running on the
+--     instances.
+--
+-- -   @NGINX@ - Infers that NGINX might be running on the instances.
+--
+-- -   @PostgreSql@ - Infers that PostgreSQL might be running on the
+--     instances.
+--
+-- -   @Redis@ - Infers that Redis might be running on the instances.
 --
 -- 'recommendationOptions', 'autoScalingGroupRecommendation_recommendationOptions' - An array of objects that describe the recommendation options for the
 -- Auto Scaling group.
 --
 -- 'lastRefreshTimestamp', 'autoScalingGroupRecommendation_lastRefreshTimestamp' - The timestamp of when the Auto Scaling group recommendation was last
--- refreshed.
+-- generated.
 --
 -- 'currentConfiguration', 'autoScalingGroupRecommendation_currentConfiguration' - An array of objects that describe the current configuration of the Auto
 -- Scaling group.
@@ -94,6 +160,9 @@ data AutoScalingGroupRecommendation = AutoScalingGroupRecommendation'
 -- 'autoScalingGroupName', 'autoScalingGroupRecommendation_autoScalingGroupName' - The name of the Auto Scaling group.
 --
 -- 'accountId', 'autoScalingGroupRecommendation_accountId' - The Amazon Web Services account ID of the Auto Scaling group.
+--
+-- 'effectiveRecommendationPreferences', 'autoScalingGroupRecommendation_effectiveRecommendationPreferences' - An object that describes the effective recommendation preferences for
+-- the Auto Scaling group.
 --
 -- 'utilizationMetrics', 'autoScalingGroupRecommendation_utilizationMetrics' - An array of objects that describe the utilization metrics of the Auto
 -- Scaling group.
@@ -115,21 +184,59 @@ newAutoScalingGroupRecommendation ::
   AutoScalingGroupRecommendation
 newAutoScalingGroupRecommendation =
   AutoScalingGroupRecommendation'
-    { autoScalingGroupArn =
+    { currentPerformanceRisk =
         Prelude.Nothing,
+      autoScalingGroupArn = Prelude.Nothing,
+      inferredWorkloadTypes = Prelude.Nothing,
       recommendationOptions = Prelude.Nothing,
       lastRefreshTimestamp = Prelude.Nothing,
       currentConfiguration = Prelude.Nothing,
       lookBackPeriodInDays = Prelude.Nothing,
       autoScalingGroupName = Prelude.Nothing,
       accountId = Prelude.Nothing,
+      effectiveRecommendationPreferences =
+        Prelude.Nothing,
       utilizationMetrics = Prelude.Nothing,
       finding = Prelude.Nothing
     }
 
+-- | The risk of the current Auto Scaling group not meeting the performance
+-- needs of its workloads. The higher the risk, the more likely the current
+-- Auto Scaling group configuration has insufficient capacity and cannot
+-- meet workload requirements.
+autoScalingGroupRecommendation_currentPerformanceRisk :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe CurrentPerformanceRisk)
+autoScalingGroupRecommendation_currentPerformanceRisk = Lens.lens (\AutoScalingGroupRecommendation' {currentPerformanceRisk} -> currentPerformanceRisk) (\s@AutoScalingGroupRecommendation' {} a -> s {currentPerformanceRisk = a} :: AutoScalingGroupRecommendation)
+
 -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
 autoScalingGroupRecommendation_autoScalingGroupArn :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe Prelude.Text)
 autoScalingGroupRecommendation_autoScalingGroupArn = Lens.lens (\AutoScalingGroupRecommendation' {autoScalingGroupArn} -> autoScalingGroupArn) (\s@AutoScalingGroupRecommendation' {} a -> s {autoScalingGroupArn = a} :: AutoScalingGroupRecommendation)
+
+-- | The applications that might be running on the instances in the Auto
+-- Scaling group as inferred by Compute Optimizer.
+--
+-- Compute Optimizer can infer if one of the following applications might
+-- be running on the instances:
+--
+-- -   @AmazonEmr@ - Infers that Amazon EMR might be running on the
+--     instances.
+--
+-- -   @ApacheCassandra@ - Infers that Apache Cassandra might be running on
+--     the instances.
+--
+-- -   @ApacheHadoop@ - Infers that Apache Hadoop might be running on the
+--     instances.
+--
+-- -   @Memcached@ - Infers that Memcached might be running on the
+--     instances.
+--
+-- -   @NGINX@ - Infers that NGINX might be running on the instances.
+--
+-- -   @PostgreSql@ - Infers that PostgreSQL might be running on the
+--     instances.
+--
+-- -   @Redis@ - Infers that Redis might be running on the instances.
+autoScalingGroupRecommendation_inferredWorkloadTypes :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe [InferredWorkloadType])
+autoScalingGroupRecommendation_inferredWorkloadTypes = Lens.lens (\AutoScalingGroupRecommendation' {inferredWorkloadTypes} -> inferredWorkloadTypes) (\s@AutoScalingGroupRecommendation' {} a -> s {inferredWorkloadTypes = a} :: AutoScalingGroupRecommendation) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of objects that describe the recommendation options for the
 -- Auto Scaling group.
@@ -137,7 +244,7 @@ autoScalingGroupRecommendation_recommendationOptions :: Lens.Lens' AutoScalingGr
 autoScalingGroupRecommendation_recommendationOptions = Lens.lens (\AutoScalingGroupRecommendation' {recommendationOptions} -> recommendationOptions) (\s@AutoScalingGroupRecommendation' {} a -> s {recommendationOptions = a} :: AutoScalingGroupRecommendation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The timestamp of when the Auto Scaling group recommendation was last
--- refreshed.
+-- generated.
 autoScalingGroupRecommendation_lastRefreshTimestamp :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe Prelude.UTCTime)
 autoScalingGroupRecommendation_lastRefreshTimestamp = Lens.lens (\AutoScalingGroupRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@AutoScalingGroupRecommendation' {} a -> s {lastRefreshTimestamp = a} :: AutoScalingGroupRecommendation) Prelude.. Lens.mapping Core._Time
 
@@ -158,6 +265,11 @@ autoScalingGroupRecommendation_autoScalingGroupName = Lens.lens (\AutoScalingGro
 -- | The Amazon Web Services account ID of the Auto Scaling group.
 autoScalingGroupRecommendation_accountId :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe Prelude.Text)
 autoScalingGroupRecommendation_accountId = Lens.lens (\AutoScalingGroupRecommendation' {accountId} -> accountId) (\s@AutoScalingGroupRecommendation' {} a -> s {accountId = a} :: AutoScalingGroupRecommendation)
+
+-- | An object that describes the effective recommendation preferences for
+-- the Auto Scaling group.
+autoScalingGroupRecommendation_effectiveRecommendationPreferences :: Lens.Lens' AutoScalingGroupRecommendation (Prelude.Maybe EffectiveRecommendationPreferences)
+autoScalingGroupRecommendation_effectiveRecommendationPreferences = Lens.lens (\AutoScalingGroupRecommendation' {effectiveRecommendationPreferences} -> effectiveRecommendationPreferences) (\s@AutoScalingGroupRecommendation' {} a -> s {effectiveRecommendationPreferences = a} :: AutoScalingGroupRecommendation)
 
 -- | An array of objects that describe the utilization metrics of the Auto
 -- Scaling group.
@@ -186,7 +298,11 @@ instance Core.FromJSON AutoScalingGroupRecommendation where
       "AutoScalingGroupRecommendation"
       ( \x ->
           AutoScalingGroupRecommendation'
-            Prelude.<$> (x Core..:? "autoScalingGroupArn")
+            Prelude.<$> (x Core..:? "currentPerformanceRisk")
+            Prelude.<*> (x Core..:? "autoScalingGroupArn")
+            Prelude.<*> ( x Core..:? "inferredWorkloadTypes"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Core..:? "recommendationOptions"
                             Core..!= Prelude.mempty
                         )
@@ -195,6 +311,7 @@ instance Core.FromJSON AutoScalingGroupRecommendation where
             Prelude.<*> (x Core..:? "lookBackPeriodInDays")
             Prelude.<*> (x Core..:? "autoScalingGroupName")
             Prelude.<*> (x Core..:? "accountId")
+            Prelude.<*> (x Core..:? "effectiveRecommendationPreferences")
             Prelude.<*> ( x Core..:? "utilizationMetrics"
                             Core..!= Prelude.mempty
                         )
@@ -208,13 +325,16 @@ instance
   hashWithSalt
     _salt
     AutoScalingGroupRecommendation' {..} =
-      _salt `Prelude.hashWithSalt` autoScalingGroupArn
+      _salt `Prelude.hashWithSalt` currentPerformanceRisk
+        `Prelude.hashWithSalt` autoScalingGroupArn
+        `Prelude.hashWithSalt` inferredWorkloadTypes
         `Prelude.hashWithSalt` recommendationOptions
         `Prelude.hashWithSalt` lastRefreshTimestamp
         `Prelude.hashWithSalt` currentConfiguration
         `Prelude.hashWithSalt` lookBackPeriodInDays
         `Prelude.hashWithSalt` autoScalingGroupName
         `Prelude.hashWithSalt` accountId
+        `Prelude.hashWithSalt` effectiveRecommendationPreferences
         `Prelude.hashWithSalt` utilizationMetrics
         `Prelude.hashWithSalt` finding
 
@@ -223,12 +343,15 @@ instance
     AutoScalingGroupRecommendation
   where
   rnf AutoScalingGroupRecommendation' {..} =
-    Prelude.rnf autoScalingGroupArn
+    Prelude.rnf currentPerformanceRisk
+      `Prelude.seq` Prelude.rnf autoScalingGroupArn
+      `Prelude.seq` Prelude.rnf inferredWorkloadTypes
       `Prelude.seq` Prelude.rnf recommendationOptions
       `Prelude.seq` Prelude.rnf lastRefreshTimestamp
       `Prelude.seq` Prelude.rnf currentConfiguration
       `Prelude.seq` Prelude.rnf lookBackPeriodInDays
       `Prelude.seq` Prelude.rnf autoScalingGroupName
       `Prelude.seq` Prelude.rnf accountId
+      `Prelude.seq` Prelude.rnf effectiveRecommendationPreferences
       `Prelude.seq` Prelude.rnf utilizationMetrics
       `Prelude.seq` Prelude.rnf finding

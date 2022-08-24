@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ComputeOptimizer.Types.VolumeRecommendation where
 
+import Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
 import Amazonka.ComputeOptimizer.Types.EBSFinding
 import Amazonka.ComputeOptimizer.Types.EBSUtilizationMetric
 import Amazonka.ComputeOptimizer.Types.VolumeConfiguration
@@ -32,7 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newVolumeRecommendation' smart constructor.
 data VolumeRecommendation = VolumeRecommendation'
-  { -- | The timestamp of when the volume recommendation was last refreshed.
+  { -- | The risk of the current EBS volume not meeting the performance needs of
+    -- its workloads. The higher the risk, the more likely the current EBS
+    -- volume doesn\'t have sufficient capacity.
+    currentPerformanceRisk :: Prelude.Maybe CurrentPerformanceRisk,
+    -- | The timestamp of when the volume recommendation was last generated.
     lastRefreshTimestamp :: Prelude.Maybe Core.POSIX,
     -- | An array of objects that describe the current configuration of the
     -- volume.
@@ -74,7 +79,11 @@ data VolumeRecommendation = VolumeRecommendation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastRefreshTimestamp', 'volumeRecommendation_lastRefreshTimestamp' - The timestamp of when the volume recommendation was last refreshed.
+-- 'currentPerformanceRisk', 'volumeRecommendation_currentPerformanceRisk' - The risk of the current EBS volume not meeting the performance needs of
+-- its workloads. The higher the risk, the more likely the current EBS
+-- volume doesn\'t have sufficient capacity.
+--
+-- 'lastRefreshTimestamp', 'volumeRecommendation_lastRefreshTimestamp' - The timestamp of when the volume recommendation was last generated.
 --
 -- 'currentConfiguration', 'volumeRecommendation_currentConfiguration' - An array of objects that describe the current configuration of the
 -- volume.
@@ -108,8 +117,9 @@ newVolumeRecommendation ::
   VolumeRecommendation
 newVolumeRecommendation =
   VolumeRecommendation'
-    { lastRefreshTimestamp =
+    { currentPerformanceRisk =
         Prelude.Nothing,
+      lastRefreshTimestamp = Prelude.Nothing,
       currentConfiguration = Prelude.Nothing,
       volumeArn = Prelude.Nothing,
       lookBackPeriodInDays = Prelude.Nothing,
@@ -119,7 +129,13 @@ newVolumeRecommendation =
       finding = Prelude.Nothing
     }
 
--- | The timestamp of when the volume recommendation was last refreshed.
+-- | The risk of the current EBS volume not meeting the performance needs of
+-- its workloads. The higher the risk, the more likely the current EBS
+-- volume doesn\'t have sufficient capacity.
+volumeRecommendation_currentPerformanceRisk :: Lens.Lens' VolumeRecommendation (Prelude.Maybe CurrentPerformanceRisk)
+volumeRecommendation_currentPerformanceRisk = Lens.lens (\VolumeRecommendation' {currentPerformanceRisk} -> currentPerformanceRisk) (\s@VolumeRecommendation' {} a -> s {currentPerformanceRisk = a} :: VolumeRecommendation)
+
+-- | The timestamp of when the volume recommendation was last generated.
 volumeRecommendation_lastRefreshTimestamp :: Lens.Lens' VolumeRecommendation (Prelude.Maybe Prelude.UTCTime)
 volumeRecommendation_lastRefreshTimestamp = Lens.lens (\VolumeRecommendation' {lastRefreshTimestamp} -> lastRefreshTimestamp) (\s@VolumeRecommendation' {} a -> s {lastRefreshTimestamp = a} :: VolumeRecommendation) Prelude.. Lens.mapping Core._Time
 
@@ -172,7 +188,8 @@ instance Core.FromJSON VolumeRecommendation where
       "VolumeRecommendation"
       ( \x ->
           VolumeRecommendation'
-            Prelude.<$> (x Core..:? "lastRefreshTimestamp")
+            Prelude.<$> (x Core..:? "currentPerformanceRisk")
+            Prelude.<*> (x Core..:? "lastRefreshTimestamp")
             Prelude.<*> (x Core..:? "currentConfiguration")
             Prelude.<*> (x Core..:? "volumeArn")
             Prelude.<*> (x Core..:? "lookBackPeriodInDays")
@@ -188,7 +205,8 @@ instance Core.FromJSON VolumeRecommendation where
 
 instance Prelude.Hashable VolumeRecommendation where
   hashWithSalt _salt VolumeRecommendation' {..} =
-    _salt `Prelude.hashWithSalt` lastRefreshTimestamp
+    _salt `Prelude.hashWithSalt` currentPerformanceRisk
+      `Prelude.hashWithSalt` lastRefreshTimestamp
       `Prelude.hashWithSalt` currentConfiguration
       `Prelude.hashWithSalt` volumeArn
       `Prelude.hashWithSalt` lookBackPeriodInDays
@@ -199,7 +217,8 @@ instance Prelude.Hashable VolumeRecommendation where
 
 instance Prelude.NFData VolumeRecommendation where
   rnf VolumeRecommendation' {..} =
-    Prelude.rnf lastRefreshTimestamp
+    Prelude.rnf currentPerformanceRisk
+      `Prelude.seq` Prelude.rnf lastRefreshTimestamp
       `Prelude.seq` Prelude.rnf currentConfiguration
       `Prelude.seq` Prelude.rnf volumeArn
       `Prelude.seq` Prelude.rnf lookBackPeriodInDays

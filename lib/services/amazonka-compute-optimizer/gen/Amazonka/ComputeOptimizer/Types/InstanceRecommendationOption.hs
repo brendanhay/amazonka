@@ -19,7 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.ComputeOptimizer.Types.InstanceRecommendationOption where
 
+import Amazonka.ComputeOptimizer.Types.MigrationEffort
 import Amazonka.ComputeOptimizer.Types.PlatformDifference
+import Amazonka.ComputeOptimizer.Types.SavingsOpportunity
 import Amazonka.ComputeOptimizer.Types.UtilizationMetric
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -46,6 +48,20 @@ data InstanceRecommendationOption = InstanceRecommendationOption'
     -- whether the recommendation will meet the performance requirements of
     -- your workload before migrating your resource.
     performanceRisk :: Prelude.Maybe Prelude.Double,
+    -- | The level of effort required to migrate from the current instance type
+    -- to the recommended instance type.
+    --
+    -- For example, the migration effort is @Low@ if Amazon EMR is the inferred
+    -- workload type and an Amazon Web Services Graviton instance type is
+    -- recommended. The migration effort is @Medium@ if a workload type
+    -- couldn\'t be inferred but an Amazon Web Services Graviton instance type
+    -- is recommended. The migration effort is @VeryLow@ if both the current
+    -- and recommended instance types are of the same CPU architecture.
+    migrationEffort :: Prelude.Maybe MigrationEffort,
+    -- | An object that describes the savings opportunity for the instance
+    -- recommendation option. Savings opportunity includes the estimated
+    -- monthly savings amount and percentage.
+    savingsOpportunity :: Prelude.Maybe SavingsOpportunity,
     -- | Describes the configuration differences between the current instance and
     -- the recommended instance type. You should consider the configuration
     -- differences before migrating your workloads from the current instance to
@@ -182,6 +198,20 @@ data InstanceRecommendationOption = InstanceRecommendationOption'
 -- whether the recommendation will meet the performance requirements of
 -- your workload before migrating your resource.
 --
+-- 'migrationEffort', 'instanceRecommendationOption_migrationEffort' - The level of effort required to migrate from the current instance type
+-- to the recommended instance type.
+--
+-- For example, the migration effort is @Low@ if Amazon EMR is the inferred
+-- workload type and an Amazon Web Services Graviton instance type is
+-- recommended. The migration effort is @Medium@ if a workload type
+-- couldn\'t be inferred but an Amazon Web Services Graviton instance type
+-- is recommended. The migration effort is @VeryLow@ if both the current
+-- and recommended instance types are of the same CPU architecture.
+--
+-- 'savingsOpportunity', 'instanceRecommendationOption_savingsOpportunity' - An object that describes the savings opportunity for the instance
+-- recommendation option. Savings opportunity includes the estimated
+-- monthly savings amount and percentage.
+--
 -- 'platformDifferences', 'instanceRecommendationOption_platformDifferences' - Describes the configuration differences between the current instance and
 -- the recommended instance type. You should consider the configuration
 -- differences before migrating your workloads from the current instance to
@@ -295,6 +325,8 @@ newInstanceRecommendationOption =
   InstanceRecommendationOption'
     { performanceRisk =
         Prelude.Nothing,
+      migrationEffort = Prelude.Nothing,
+      savingsOpportunity = Prelude.Nothing,
       platformDifferences = Prelude.Nothing,
       rank = Prelude.Nothing,
       instanceType = Prelude.Nothing,
@@ -319,6 +351,24 @@ newInstanceRecommendationOption =
 -- your workload before migrating your resource.
 instanceRecommendationOption_performanceRisk :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe Prelude.Double)
 instanceRecommendationOption_performanceRisk = Lens.lens (\InstanceRecommendationOption' {performanceRisk} -> performanceRisk) (\s@InstanceRecommendationOption' {} a -> s {performanceRisk = a} :: InstanceRecommendationOption)
+
+-- | The level of effort required to migrate from the current instance type
+-- to the recommended instance type.
+--
+-- For example, the migration effort is @Low@ if Amazon EMR is the inferred
+-- workload type and an Amazon Web Services Graviton instance type is
+-- recommended. The migration effort is @Medium@ if a workload type
+-- couldn\'t be inferred but an Amazon Web Services Graviton instance type
+-- is recommended. The migration effort is @VeryLow@ if both the current
+-- and recommended instance types are of the same CPU architecture.
+instanceRecommendationOption_migrationEffort :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe MigrationEffort)
+instanceRecommendationOption_migrationEffort = Lens.lens (\InstanceRecommendationOption' {migrationEffort} -> migrationEffort) (\s@InstanceRecommendationOption' {} a -> s {migrationEffort = a} :: InstanceRecommendationOption)
+
+-- | An object that describes the savings opportunity for the instance
+-- recommendation option. Savings opportunity includes the estimated
+-- monthly savings amount and percentage.
+instanceRecommendationOption_savingsOpportunity :: Lens.Lens' InstanceRecommendationOption (Prelude.Maybe SavingsOpportunity)
+instanceRecommendationOption_savingsOpportunity = Lens.lens (\InstanceRecommendationOption' {savingsOpportunity} -> savingsOpportunity) (\s@InstanceRecommendationOption' {} a -> s {savingsOpportunity = a} :: InstanceRecommendationOption)
 
 -- | Describes the configuration differences between the current instance and
 -- the recommended instance type. You should consider the configuration
@@ -443,6 +493,8 @@ instance Core.FromJSON InstanceRecommendationOption where
       ( \x ->
           InstanceRecommendationOption'
             Prelude.<$> (x Core..:? "performanceRisk")
+            Prelude.<*> (x Core..:? "migrationEffort")
+            Prelude.<*> (x Core..:? "savingsOpportunity")
             Prelude.<*> ( x Core..:? "platformDifferences"
                             Core..!= Prelude.mempty
                         )
@@ -459,6 +511,8 @@ instance
   where
   hashWithSalt _salt InstanceRecommendationOption' {..} =
     _salt `Prelude.hashWithSalt` performanceRisk
+      `Prelude.hashWithSalt` migrationEffort
+      `Prelude.hashWithSalt` savingsOpportunity
       `Prelude.hashWithSalt` platformDifferences
       `Prelude.hashWithSalt` rank
       `Prelude.hashWithSalt` instanceType
@@ -467,6 +521,8 @@ instance
 instance Prelude.NFData InstanceRecommendationOption where
   rnf InstanceRecommendationOption' {..} =
     Prelude.rnf performanceRisk
+      `Prelude.seq` Prelude.rnf migrationEffort
+      `Prelude.seq` Prelude.rnf savingsOpportunity
       `Prelude.seq` Prelude.rnf platformDifferences
       `Prelude.seq` Prelude.rnf rank
       `Prelude.seq` Prelude.rnf instanceType

@@ -11,20 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ComputeOptimizer.Types.ResourceType
+-- Module      : Amazonka.ComputeOptimizer.Types.MigrationEffort
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ComputeOptimizer.Types.ResourceType
-  ( ResourceType
+module Amazonka.ComputeOptimizer.Types.MigrationEffort
+  ( MigrationEffort
       ( ..,
-        ResourceType_AutoScalingGroup,
-        ResourceType_EbsVolume,
-        ResourceType_Ec2Instance,
-        ResourceType_LambdaFunction,
-        ResourceType_NotApplicable
+        MigrationEffort_High,
+        MigrationEffort_Low,
+        MigrationEffort_Medium,
+        MigrationEffort_VeryLow
       ),
   )
 where
@@ -32,8 +31,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ResourceType = ResourceType'
-  { fromResourceType ::
+newtype MigrationEffort = MigrationEffort'
+  { fromMigrationEffort ::
       Core.Text
   }
   deriving stock
@@ -60,26 +59,22 @@ newtype ResourceType = ResourceType'
       Core.ToXML
     )
 
-pattern ResourceType_AutoScalingGroup :: ResourceType
-pattern ResourceType_AutoScalingGroup = ResourceType' "AutoScalingGroup"
+pattern MigrationEffort_High :: MigrationEffort
+pattern MigrationEffort_High = MigrationEffort' "High"
 
-pattern ResourceType_EbsVolume :: ResourceType
-pattern ResourceType_EbsVolume = ResourceType' "EbsVolume"
+pattern MigrationEffort_Low :: MigrationEffort
+pattern MigrationEffort_Low = MigrationEffort' "Low"
 
-pattern ResourceType_Ec2Instance :: ResourceType
-pattern ResourceType_Ec2Instance = ResourceType' "Ec2Instance"
+pattern MigrationEffort_Medium :: MigrationEffort
+pattern MigrationEffort_Medium = MigrationEffort' "Medium"
 
-pattern ResourceType_LambdaFunction :: ResourceType
-pattern ResourceType_LambdaFunction = ResourceType' "LambdaFunction"
-
-pattern ResourceType_NotApplicable :: ResourceType
-pattern ResourceType_NotApplicable = ResourceType' "NotApplicable"
+pattern MigrationEffort_VeryLow :: MigrationEffort
+pattern MigrationEffort_VeryLow = MigrationEffort' "VeryLow"
 
 {-# COMPLETE
-  ResourceType_AutoScalingGroup,
-  ResourceType_EbsVolume,
-  ResourceType_Ec2Instance,
-  ResourceType_LambdaFunction,
-  ResourceType_NotApplicable,
-  ResourceType'
+  MigrationEffort_High,
+  MigrationEffort_Low,
+  MigrationEffort_Medium,
+  MigrationEffort_VeryLow,
+  MigrationEffort'
   #-}

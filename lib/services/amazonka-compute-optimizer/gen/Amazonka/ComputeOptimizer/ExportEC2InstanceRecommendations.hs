@@ -117,10 +117,10 @@ data ExportEC2InstanceRecommendations = ExportEC2InstanceRecommendations'
     -- You must create the destination Amazon S3 bucket for your
     -- recommendations export before you create the export job. Compute
     -- Optimizer does not create the S3 bucket for you. After you create the S3
-    -- bucket, ensure that it has the required permissions policy policy to
-    -- allow Compute Optimizer to write the export file to it. If you plan to
-    -- specify an object prefix when you create the export job, you must
-    -- include the object prefix in the that you add to the S3 bucket. For more
+    -- bucket, ensure that it has the required permissions policy to allow
+    -- Compute Optimizer to write the export file to it. If you plan to specify
+    -- an object prefix when you create the export job, you must include the
+    -- object prefix in the policy that you add to the S3 bucket. For more
     -- information, see
     -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html Amazon S3 Bucket Policy for Compute Optimizer>
     -- in the /Compute Optimizer User Guide/.
@@ -188,10 +188,10 @@ data ExportEC2InstanceRecommendations = ExportEC2InstanceRecommendations'
 -- You must create the destination Amazon S3 bucket for your
 -- recommendations export before you create the export job. Compute
 -- Optimizer does not create the S3 bucket for you. After you create the S3
--- bucket, ensure that it has the required permissions policy policy to
--- allow Compute Optimizer to write the export file to it. If you plan to
--- specify an object prefix when you create the export job, you must
--- include the object prefix in the that you add to the S3 bucket. For more
+-- bucket, ensure that it has the required permissions policy to allow
+-- Compute Optimizer to write the export file to it. If you plan to specify
+-- an object prefix when you create the export job, you must include the
+-- object prefix in the policy that you add to the S3 bucket. For more
 -- information, see
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html Amazon S3 Bucket Policy for Compute Optimizer>
 -- in the /Compute Optimizer User Guide/.
@@ -278,10 +278,10 @@ exportEC2InstanceRecommendations_fieldsToExport = Lens.lens (\ExportEC2InstanceR
 -- You must create the destination Amazon S3 bucket for your
 -- recommendations export before you create the export job. Compute
 -- Optimizer does not create the S3 bucket for you. After you create the S3
--- bucket, ensure that it has the required permissions policy policy to
--- allow Compute Optimizer to write the export file to it. If you plan to
--- specify an object prefix when you create the export job, you must
--- include the object prefix in the that you add to the S3 bucket. For more
+-- bucket, ensure that it has the required permissions policy to allow
+-- Compute Optimizer to write the export file to it. If you plan to specify
+-- an object prefix when you create the export job, you must include the
+-- object prefix in the policy that you add to the S3 bucket. For more
 -- information, see
 -- <https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html Amazon S3 Bucket Policy for Compute Optimizer>
 -- in the /Compute Optimizer User Guide/.

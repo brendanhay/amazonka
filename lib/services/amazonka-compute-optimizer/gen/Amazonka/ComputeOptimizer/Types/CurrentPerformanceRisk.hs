@@ -11,20 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ComputeOptimizer.Types.ResourceType
+-- Module      : Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ComputeOptimizer.Types.ResourceType
-  ( ResourceType
+module Amazonka.ComputeOptimizer.Types.CurrentPerformanceRisk
+  ( CurrentPerformanceRisk
       ( ..,
-        ResourceType_AutoScalingGroup,
-        ResourceType_EbsVolume,
-        ResourceType_Ec2Instance,
-        ResourceType_LambdaFunction,
-        ResourceType_NotApplicable
+        CurrentPerformanceRisk_High,
+        CurrentPerformanceRisk_Low,
+        CurrentPerformanceRisk_Medium,
+        CurrentPerformanceRisk_VeryLow
       ),
   )
 where
@@ -32,8 +31,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ResourceType = ResourceType'
-  { fromResourceType ::
+newtype CurrentPerformanceRisk = CurrentPerformanceRisk'
+  { fromCurrentPerformanceRisk ::
       Core.Text
   }
   deriving stock
@@ -60,26 +59,22 @@ newtype ResourceType = ResourceType'
       Core.ToXML
     )
 
-pattern ResourceType_AutoScalingGroup :: ResourceType
-pattern ResourceType_AutoScalingGroup = ResourceType' "AutoScalingGroup"
+pattern CurrentPerformanceRisk_High :: CurrentPerformanceRisk
+pattern CurrentPerformanceRisk_High = CurrentPerformanceRisk' "High"
 
-pattern ResourceType_EbsVolume :: ResourceType
-pattern ResourceType_EbsVolume = ResourceType' "EbsVolume"
+pattern CurrentPerformanceRisk_Low :: CurrentPerformanceRisk
+pattern CurrentPerformanceRisk_Low = CurrentPerformanceRisk' "Low"
 
-pattern ResourceType_Ec2Instance :: ResourceType
-pattern ResourceType_Ec2Instance = ResourceType' "Ec2Instance"
+pattern CurrentPerformanceRisk_Medium :: CurrentPerformanceRisk
+pattern CurrentPerformanceRisk_Medium = CurrentPerformanceRisk' "Medium"
 
-pattern ResourceType_LambdaFunction :: ResourceType
-pattern ResourceType_LambdaFunction = ResourceType' "LambdaFunction"
-
-pattern ResourceType_NotApplicable :: ResourceType
-pattern ResourceType_NotApplicable = ResourceType' "NotApplicable"
+pattern CurrentPerformanceRisk_VeryLow :: CurrentPerformanceRisk
+pattern CurrentPerformanceRisk_VeryLow = CurrentPerformanceRisk' "VeryLow"
 
 {-# COMPLETE
-  ResourceType_AutoScalingGroup,
-  ResourceType_EbsVolume,
-  ResourceType_Ec2Instance,
-  ResourceType_LambdaFunction,
-  ResourceType_NotApplicable,
-  ResourceType'
+  CurrentPerformanceRisk_High,
+  CurrentPerformanceRisk_Low,
+  CurrentPerformanceRisk_Medium,
+  CurrentPerformanceRisk_VeryLow,
+  CurrentPerformanceRisk'
   #-}

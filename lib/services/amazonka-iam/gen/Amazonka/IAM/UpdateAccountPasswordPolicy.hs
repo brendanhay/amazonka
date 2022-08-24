@@ -23,13 +23,13 @@
 -- Updates the password policy settings for the Amazon Web Services
 -- account.
 --
--- -   This operation does not support partial updates. No parameters are
---     required, but if you do not specify a parameter, that parameter\'s
---     value reverts to its default value. See the __Request Parameters__
---     section for each parameter\'s default value. Also note that some
---     parameters do not allow the default parameter to be explicitly set.
---     Instead, to invoke the default value, do not include that parameter
---     when you invoke the operation.
+-- This operation does not support partial updates. No parameters are
+-- required, but if you do not specify a parameter, that parameter\'s value
+-- reverts to its default value. See the __Request Parameters__ section for
+-- each parameter\'s default value. Also note that some parameters do not
+-- allow the default parameter to be explicitly set. Instead, to invoke the
+-- default value, do not include that parameter when you invoke the
+-- operation.
 --
 -- For more information about using a password policy, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM password policy>
@@ -79,7 +79,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     -- | Allows all IAM users in your account to use the Amazon Web Services
     -- Management Console to change their own passwords. For more information,
     -- see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM users change their own passwords>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html Permitting IAM users to change their own passwords>
     -- in the /IAM User Guide/.
     --
     -- If you do not specify a value for this parameter, then the operation
@@ -124,14 +124,24 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     -- uses the default value of @false@. The result is that passwords do not
     -- require at least one uppercase character.
     requireUppercaseCharacters :: Prelude.Maybe Prelude.Bool,
-    -- | Prevents IAM users from setting a new password after their password has
-    -- expired. The IAM user cannot be accessed until an administrator resets
-    -- the password.
+    -- | Prevents IAM users who are accessing the account via the Amazon Web
+    -- Services Management Console from setting a new console password after
+    -- their password has expired. The IAM user cannot access the console until
+    -- an administrator resets the password.
     --
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @false@. The result is that IAM users can
     -- change their passwords after they expire and continue to sign in as the
     -- user.
+    --
+    -- In the Amazon Web Services Management Console, the custom password
+    -- policy option __Allow users to change their own password__ gives IAM
+    -- users permissions to @iam:ChangePassword@ for only their user and to the
+    -- @iam:GetAccountPasswordPolicy@ action. This option does not attach a
+    -- permissions policy to each user, rather the permissions are applied at
+    -- the account-level for all users by IAM. IAM users with
+    -- @iam:ChangePassword@ permission and active access keys can reset their
+    -- own expired console password using the CLI or API.
     hardExpiry :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -158,7 +168,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 -- 'allowUsersToChangePassword', 'updateAccountPasswordPolicy_allowUsersToChangePassword' - Allows all IAM users in your account to use the Amazon Web Services
 -- Management Console to change their own passwords. For more information,
 -- see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM users change their own passwords>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html Permitting IAM users to change their own passwords>
 -- in the /IAM User Guide/.
 --
 -- If you do not specify a value for this parameter, then the operation
@@ -203,14 +213,24 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 -- uses the default value of @false@. The result is that passwords do not
 -- require at least one uppercase character.
 --
--- 'hardExpiry', 'updateAccountPasswordPolicy_hardExpiry' - Prevents IAM users from setting a new password after their password has
--- expired. The IAM user cannot be accessed until an administrator resets
--- the password.
+-- 'hardExpiry', 'updateAccountPasswordPolicy_hardExpiry' - Prevents IAM users who are accessing the account via the Amazon Web
+-- Services Management Console from setting a new console password after
+-- their password has expired. The IAM user cannot access the console until
+-- an administrator resets the password.
 --
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @false@. The result is that IAM users can
 -- change their passwords after they expire and continue to sign in as the
 -- user.
+--
+-- In the Amazon Web Services Management Console, the custom password
+-- policy option __Allow users to change their own password__ gives IAM
+-- users permissions to @iam:ChangePassword@ for only their user and to the
+-- @iam:GetAccountPasswordPolicy@ action. This option does not attach a
+-- permissions policy to each user, rather the permissions are applied at
+-- the account-level for all users by IAM. IAM users with
+-- @iam:ChangePassword@ permission and active access keys can reset their
+-- own expired console password using the CLI or API.
 newUpdateAccountPasswordPolicy ::
   UpdateAccountPasswordPolicy
 newUpdateAccountPasswordPolicy =
@@ -245,7 +265,7 @@ updateAccountPasswordPolicy_minimumPasswordLength = Lens.lens (\UpdateAccountPas
 -- | Allows all IAM users in your account to use the Amazon Web Services
 -- Management Console to change their own passwords. For more information,
 -- see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM users change their own passwords>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html Permitting IAM users to change their own passwords>
 -- in the /IAM User Guide/.
 --
 -- If you do not specify a value for this parameter, then the operation
@@ -302,14 +322,24 @@ updateAccountPasswordPolicy_requireSymbols = Lens.lens (\UpdateAccountPasswordPo
 updateAccountPasswordPolicy_requireUppercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
 updateAccountPasswordPolicy_requireUppercaseCharacters = Lens.lens (\UpdateAccountPasswordPolicy' {requireUppercaseCharacters} -> requireUppercaseCharacters) (\s@UpdateAccountPasswordPolicy' {} a -> s {requireUppercaseCharacters = a} :: UpdateAccountPasswordPolicy)
 
--- | Prevents IAM users from setting a new password after their password has
--- expired. The IAM user cannot be accessed until an administrator resets
--- the password.
+-- | Prevents IAM users who are accessing the account via the Amazon Web
+-- Services Management Console from setting a new console password after
+-- their password has expired. The IAM user cannot access the console until
+-- an administrator resets the password.
 --
 -- If you do not specify a value for this parameter, then the operation
 -- uses the default value of @false@. The result is that IAM users can
 -- change their passwords after they expire and continue to sign in as the
 -- user.
+--
+-- In the Amazon Web Services Management Console, the custom password
+-- policy option __Allow users to change their own password__ gives IAM
+-- users permissions to @iam:ChangePassword@ for only their user and to the
+-- @iam:GetAccountPasswordPolicy@ action. This option does not attach a
+-- permissions policy to each user, rather the permissions are applied at
+-- the account-level for all users by IAM. IAM users with
+-- @iam:ChangePassword@ permission and active access keys can reset their
+-- own expired console password using the CLI or API.
 updateAccountPasswordPolicy_hardExpiry :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
 updateAccountPasswordPolicy_hardExpiry = Lens.lens (\UpdateAccountPasswordPolicy' {hardExpiry} -> hardExpiry) (\s@UpdateAccountPasswordPolicy' {} a -> s {hardExpiry = a} :: UpdateAccountPasswordPolicy)
 

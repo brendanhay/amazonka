@@ -31,7 +31,7 @@
 -- in the IoT Developer Guide.
 --
 -- For more information about messaging costs, see
--- <http://aws.amazon.com/iot-core/pricing/#Messaging IoT Core pricing - Messaging>.
+-- <http://aws.amazon.com/iot-core/pricing/#Messaging Amazon Web Services IoT Core pricing - Messaging>.
 module Amazonka.IoTData.Publish
   ( -- * Creating a Request
     Publish (..),
@@ -74,7 +74,8 @@ data Publish = Publish'
     -- payloads.
     --
     -- Publishing an empty (null) payload with __retain__ = @true@ deletes the
-    -- retained message identified by __topic__ from IoT Core.
+    -- retained message identified by __topic__ from Amazon Web Services IoT
+    -- Core.
     payload :: Prelude.Maybe Prelude.ByteString,
     -- | The Quality of Service (QoS) level.
     qos :: Prelude.Maybe Prelude.Natural,
@@ -105,7 +106,8 @@ data Publish = Publish'
 -- payloads.
 --
 -- Publishing an empty (null) payload with __retain__ = @true@ deletes the
--- retained message identified by __topic__ from IoT Core.
+-- retained message identified by __topic__ from Amazon Web Services IoT
+-- Core.
 --
 -- 'qos', 'publish_qos' - The Quality of Service (QoS) level.
 --
@@ -138,7 +140,8 @@ publish_retain = Lens.lens (\Publish' {retain} -> retain) (\s@Publish' {} a -> s
 -- payloads.
 --
 -- Publishing an empty (null) payload with __retain__ = @true@ deletes the
--- retained message identified by __topic__ from IoT Core.
+-- retained message identified by __topic__ from Amazon Web Services IoT
+-- Core.
 publish_payload :: Lens.Lens' Publish (Prelude.Maybe Prelude.ByteString)
 publish_payload = Lens.lens (\Publish' {payload} -> payload) (\s@Publish' {} a -> s {payload = a} :: Publish)
 

@@ -57,11 +57,20 @@ import Test.Tasty
 --         , requestListTables $
 --             newListTables
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestQueryTableRows $
 --             newQueryTableRows
 --
 --         , requestStartTableDataImportJob $
 --             newStartTableDataImportJob
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --           ]
 
@@ -96,11 +105,20 @@ import Test.Tasty
 --         , responseListTables $
 --             newListTablesResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responseQueryTableRows $
 --             newQueryTableRowsResponse
 --
 --         , responseStartTableDataImportJob $
 --             newStartTableDataImportJobResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --           ]
 --     ]
@@ -167,6 +185,12 @@ requestListTables =
     "ListTables"
     "fixture/ListTables.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestQueryTableRows :: QueryTableRows -> TestTree
 requestQueryTableRows =
   req
@@ -178,6 +202,18 @@ requestStartTableDataImportJob =
   req
     "StartTableDataImportJob"
     "fixture/StartTableDataImportJob.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 -- Responses
 
@@ -261,6 +297,14 @@ responseListTables =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTables)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responseQueryTableRows :: QueryTableRowsResponse -> TestTree
 responseQueryTableRows =
   res
@@ -276,3 +320,19 @@ responseStartTableDataImportJob =
     "fixture/StartTableDataImportJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartTableDataImportJob)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)

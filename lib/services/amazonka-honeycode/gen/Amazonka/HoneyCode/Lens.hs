@@ -56,6 +56,7 @@ module Amazonka.HoneyCode.Lens
     describeTableDataImportJob_workbookId,
     describeTableDataImportJob_tableId,
     describeTableDataImportJob_jobId,
+    describeTableDataImportJobResponse_errorCode,
     describeTableDataImportJobResponse_httpStatus,
     describeTableDataImportJobResponse_jobStatus,
     describeTableDataImportJobResponse_message,
@@ -115,6 +116,11 @@ module Amazonka.HoneyCode.Lens
     listTablesResponse_httpStatus,
     listTablesResponse_tables,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** QueryTableRows
     queryTableRows_nextToken,
     queryTableRows_maxResults,
@@ -138,15 +144,27 @@ module Amazonka.HoneyCode.Lens
     startTableDataImportJobResponse_jobId,
     startTableDataImportJobResponse_jobStatus,
 
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
     -- * Types
 
     -- ** Cell
     cell_format,
     cell_formattedValue,
     cell_formula,
+    cell_formattedValues,
     cell_rawValue,
 
     -- ** CellInput
+    cellInput_facts,
     cellInput_fact,
 
     -- ** ColumnMetadata
@@ -251,8 +269,10 @@ import Amazonka.HoneyCode.InvokeScreenAutomation
 import Amazonka.HoneyCode.ListTableColumns
 import Amazonka.HoneyCode.ListTableRows
 import Amazonka.HoneyCode.ListTables
+import Amazonka.HoneyCode.ListTagsForResource
 import Amazonka.HoneyCode.QueryTableRows
 import Amazonka.HoneyCode.StartTableDataImportJob
+import Amazonka.HoneyCode.TagResource
 import Amazonka.HoneyCode.Types.Cell
 import Amazonka.HoneyCode.Types.CellInput
 import Amazonka.HoneyCode.Types.ColumnMetadata
@@ -277,3 +297,4 @@ import Amazonka.HoneyCode.Types.UpdateRowData
 import Amazonka.HoneyCode.Types.UpsertRowData
 import Amazonka.HoneyCode.Types.UpsertRowsResult
 import Amazonka.HoneyCode.Types.VariableValue
+import Amazonka.HoneyCode.UntagResource

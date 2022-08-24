@@ -28,6 +28,9 @@ module Amazonka.HoneyCode.Types
     _ValidationException,
     _AutomationExecutionException,
 
+    -- * ErrorCode
+    ErrorCode (..),
+
     -- * Format
     Format (..),
 
@@ -49,11 +52,13 @@ module Amazonka.HoneyCode.Types
     cell_format,
     cell_formattedValue,
     cell_formula,
+    cell_formattedValues,
     cell_rawValue,
 
     -- * CellInput
     CellInput (..),
     newCellInput,
+    cellInput_facts,
     cellInput_fact,
 
     -- * ColumnMetadata
@@ -200,6 +205,7 @@ import Amazonka.HoneyCode.Types.CreateRowData
 import Amazonka.HoneyCode.Types.DataItem
 import Amazonka.HoneyCode.Types.DelimitedTextImportOptions
 import Amazonka.HoneyCode.Types.DestinationOptions
+import Amazonka.HoneyCode.Types.ErrorCode
 import Amazonka.HoneyCode.Types.FailedBatchItem
 import Amazonka.HoneyCode.Types.Filter
 import Amazonka.HoneyCode.Types.Format

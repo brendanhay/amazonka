@@ -77,7 +77,7 @@ data GetScreenData = GetScreenData'
     variables :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive VariableValue))),
     -- | The ID of the workbook that contains the screen.
     workbookId :: Prelude.Text,
-    -- | The ID of the app that contains the screem.
+    -- | The ID of the app that contains the screen.
     appId :: Prelude.Text,
     -- | The ID of the screen.
     screenId :: Prelude.Text
@@ -112,7 +112,7 @@ data GetScreenData = GetScreenData'
 --
 -- 'workbookId', 'getScreenData_workbookId' - The ID of the workbook that contains the screen.
 --
--- 'appId', 'getScreenData_appId' - The ID of the app that contains the screem.
+-- 'appId', 'getScreenData_appId' - The ID of the app that contains the screen.
 --
 -- 'screenId', 'getScreenData_screenId' - The ID of the screen.
 newGetScreenData ::
@@ -161,7 +161,7 @@ getScreenData_variables = Lens.lens (\GetScreenData' {variables} -> variables) (
 getScreenData_workbookId :: Lens.Lens' GetScreenData Prelude.Text
 getScreenData_workbookId = Lens.lens (\GetScreenData' {workbookId} -> workbookId) (\s@GetScreenData' {} a -> s {workbookId = a} :: GetScreenData)
 
--- | The ID of the app that contains the screem.
+-- | The ID of the app that contains the screen.
 getScreenData_appId :: Lens.Lens' GetScreenData Prelude.Text
 getScreenData_appId = Lens.lens (\GetScreenData' {appId} -> appId) (\s@GetScreenData' {} a -> s {appId = a} :: GetScreenData)
 

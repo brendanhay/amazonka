@@ -55,8 +55,10 @@ library
     Amazonka.HoneyCode.ListTableColumns
     Amazonka.HoneyCode.ListTableRows
     Amazonka.HoneyCode.ListTables
+    Amazonka.HoneyCode.ListTagsForResource
     Amazonka.HoneyCode.QueryTableRows
     Amazonka.HoneyCode.StartTableDataImportJob
+    Amazonka.HoneyCode.TagResource
     Amazonka.HoneyCode.Types
     Amazonka.HoneyCode.Types.Cell
     Amazonka.HoneyCode.Types.CellInput
@@ -65,6 +67,7 @@ library
     Amazonka.HoneyCode.Types.DataItem
     Amazonka.HoneyCode.Types.DelimitedTextImportOptions
     Amazonka.HoneyCode.Types.DestinationOptions
+    Amazonka.HoneyCode.Types.ErrorCode
     Amazonka.HoneyCode.Types.FailedBatchItem
     Amazonka.HoneyCode.Types.Filter
     Amazonka.HoneyCode.Types.Format
@@ -87,6 +90,7 @@ library
     Amazonka.HoneyCode.Types.UpsertRowData
     Amazonka.HoneyCode.Types.UpsertRowsResult
     Amazonka.HoneyCode.Types.VariableValue
+    Amazonka.HoneyCode.UntagResource
     Amazonka.HoneyCode.Waiters
 
   build-depends:

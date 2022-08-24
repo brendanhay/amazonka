@@ -37,6 +37,7 @@ module Amazonka.HoneyCode.DescribeTableDataImportJob
     newDescribeTableDataImportJobResponse,
 
     -- * Response Lenses
+    describeTableDataImportJobResponse_errorCode,
     describeTableDataImportJobResponse_httpStatus,
     describeTableDataImportJobResponse_jobStatus,
     describeTableDataImportJobResponse_message,
@@ -145,7 +146,8 @@ instance Core.AWSRequest DescribeTableDataImportJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeTableDataImportJobResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Core..?> "errorCode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "jobStatus")
             Prelude.<*> (x Core..:> "message")
             Prelude.<*> (x Core..:> "jobMetadata")
@@ -190,7 +192,10 @@ instance Core.ToQuery DescribeTableDataImportJob where
 
 -- | /See:/ 'newDescribeTableDataImportJobResponse' smart constructor.
 data DescribeTableDataImportJobResponse = DescribeTableDataImportJobResponse'
-  { -- | The response's http status code.
+  { -- | If job status is failed, error code to understand reason for the
+    -- failure.
+    errorCode :: Prelude.Maybe ErrorCode,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The current status of the import job.
     jobStatus :: TableDataImportJobStatus,
@@ -209,6 +214,9 @@ data DescribeTableDataImportJobResponse = DescribeTableDataImportJobResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'errorCode', 'describeTableDataImportJobResponse_errorCode' - If job status is failed, error code to understand reason for the
+-- failure.
 --
 -- 'httpStatus', 'describeTableDataImportJobResponse_httpStatus' - The response's http status code.
 --
@@ -234,12 +242,18 @@ newDescribeTableDataImportJobResponse
   pMessage_
   pJobMetadata_ =
     DescribeTableDataImportJobResponse'
-      { httpStatus =
-          pHttpStatus_,
+      { errorCode =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         jobStatus = pJobStatus_,
         message = pMessage_,
         jobMetadata = pJobMetadata_
       }
+
+-- | If job status is failed, error code to understand reason for the
+-- failure.
+describeTableDataImportJobResponse_errorCode :: Lens.Lens' DescribeTableDataImportJobResponse (Prelude.Maybe ErrorCode)
+describeTableDataImportJobResponse_errorCode = Lens.lens (\DescribeTableDataImportJobResponse' {errorCode} -> errorCode) (\s@DescribeTableDataImportJobResponse' {} a -> s {errorCode = a} :: DescribeTableDataImportJobResponse)
 
 -- | The response's http status code.
 describeTableDataImportJobResponse_httpStatus :: Lens.Lens' DescribeTableDataImportJobResponse Prelude.Int
@@ -263,7 +277,8 @@ instance
     DescribeTableDataImportJobResponse
   where
   rnf DescribeTableDataImportJobResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf errorCode
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobStatus
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf jobMetadata

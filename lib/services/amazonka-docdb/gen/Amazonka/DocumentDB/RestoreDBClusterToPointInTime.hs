@@ -35,6 +35,7 @@ module Amazonka.DocumentDB.RestoreDBClusterToPointInTime
     restoreDBClusterToPointInTime_port,
     restoreDBClusterToPointInTime_vpcSecurityGroupIds,
     restoreDBClusterToPointInTime_dbSubnetGroupName,
+    restoreDBClusterToPointInTime_restoreType,
     restoreDBClusterToPointInTime_enableCloudwatchLogsExports,
     restoreDBClusterToPointInTime_restoreToTime,
     restoreDBClusterToPointInTime_useLatestRestorableTime,
@@ -81,6 +82,18 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     --
     -- Example: @mySubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The type of restore to be performed. You can specify one of the
+    -- following values:
+    --
+    -- -   @full-copy@ - The new DB cluster is restored as a full copy of the
+    --     source DB cluster.
+    --
+    -- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
+    --     source DB cluster.
+    --
+    -- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
+    -- restored as a full copy of the source DB cluster.
+    restoreType :: Prelude.Maybe Prelude.Text,
     -- | A list of log types that must be enabled for exporting to Amazon
     -- CloudWatch Logs.
     enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
@@ -115,10 +128,10 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
     -- an encrypted cluster.
     --
     -- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
-    -- encryption key. If you are restoring a cluster with the same account
-    -- that owns the KMS encryption key used to encrypt the new cluster, then
-    -- you can use the KMS key alias instead of the ARN for the KMS encryption
-    -- key.
+    -- encryption key. If you are restoring a cluster with the same Amazon Web
+    -- Services account that owns the KMS encryption key used to encrypt the
+    -- new cluster, then you can use the KMS key alias instead of the ARN for
+    -- the KMS encryption key.
     --
     -- You can restore to a new cluster and encrypt the new cluster with an KMS
     -- key that is different from the KMS key used to encrypt the source
@@ -186,6 +199,18 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 --
 -- Example: @mySubnetgroup@
 --
+-- 'restoreType', 'restoreDBClusterToPointInTime_restoreType' - The type of restore to be performed. You can specify one of the
+-- following values:
+--
+-- -   @full-copy@ - The new DB cluster is restored as a full copy of the
+--     source DB cluster.
+--
+-- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
+--     source DB cluster.
+--
+-- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
+-- restored as a full copy of the source DB cluster.
+--
 -- 'enableCloudwatchLogsExports', 'restoreDBClusterToPointInTime_enableCloudwatchLogsExports' - A list of log types that must be enabled for exporting to Amazon
 -- CloudWatch Logs.
 --
@@ -220,10 +245,10 @@ data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
 -- an encrypted cluster.
 --
 -- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
--- encryption key. If you are restoring a cluster with the same account
--- that owns the KMS encryption key used to encrypt the new cluster, then
--- you can use the KMS key alias instead of the ARN for the KMS encryption
--- key.
+-- encryption key. If you are restoring a cluster with the same Amazon Web
+-- Services account that owns the KMS encryption key used to encrypt the
+-- new cluster, then you can use the KMS key alias instead of the ARN for
+-- the KMS encryption key.
 --
 -- You can restore to a new cluster and encrypt the new cluster with an KMS
 -- key that is different from the KMS key used to encrypt the source
@@ -277,6 +302,7 @@ newRestoreDBClusterToPointInTime
         port = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         dbSubnetGroupName = Prelude.Nothing,
+        restoreType = Prelude.Nothing,
         enableCloudwatchLogsExports =
           Prelude.Nothing,
         restoreToTime = Prelude.Nothing,
@@ -312,6 +338,20 @@ restoreDBClusterToPointInTime_vpcSecurityGroupIds = Lens.lens (\RestoreDBCluster
 -- Example: @mySubnetgroup@
 restoreDBClusterToPointInTime_dbSubnetGroupName :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
 restoreDBClusterToPointInTime_dbSubnetGroupName = Lens.lens (\RestoreDBClusterToPointInTime' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBClusterToPointInTime' {} a -> s {dbSubnetGroupName = a} :: RestoreDBClusterToPointInTime)
+
+-- | The type of restore to be performed. You can specify one of the
+-- following values:
+--
+-- -   @full-copy@ - The new DB cluster is restored as a full copy of the
+--     source DB cluster.
+--
+-- -   @copy-on-write@ - The new DB cluster is restored as a clone of the
+--     source DB cluster.
+--
+-- If you don\'t specify a @RestoreType@ value, then the new DB cluster is
+-- restored as a full copy of the source DB cluster.
+restoreDBClusterToPointInTime_restoreType :: Lens.Lens' RestoreDBClusterToPointInTime (Prelude.Maybe Prelude.Text)
+restoreDBClusterToPointInTime_restoreType = Lens.lens (\RestoreDBClusterToPointInTime' {restoreType} -> restoreType) (\s@RestoreDBClusterToPointInTime' {} a -> s {restoreType = a} :: RestoreDBClusterToPointInTime)
 
 -- | A list of log types that must be enabled for exporting to Amazon
 -- CloudWatch Logs.
@@ -353,10 +393,10 @@ restoreDBClusterToPointInTime_useLatestRestorableTime = Lens.lens (\RestoreDBClu
 -- an encrypted cluster.
 --
 -- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
--- encryption key. If you are restoring a cluster with the same account
--- that owns the KMS encryption key used to encrypt the new cluster, then
--- you can use the KMS key alias instead of the ARN for the KMS encryption
--- key.
+-- encryption key. If you are restoring a cluster with the same Amazon Web
+-- Services account that owns the KMS encryption key used to encrypt the
+-- new cluster, then you can use the KMS key alias instead of the ARN for
+-- the KMS encryption key.
 --
 -- You can restore to a new cluster and encrypt the new cluster with an KMS
 -- key that is different from the KMS key used to encrypt the source
@@ -430,6 +470,7 @@ instance
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` vpcSecurityGroupIds
       `Prelude.hashWithSalt` dbSubnetGroupName
+      `Prelude.hashWithSalt` restoreType
       `Prelude.hashWithSalt` enableCloudwatchLogsExports
       `Prelude.hashWithSalt` restoreToTime
       `Prelude.hashWithSalt` useLatestRestorableTime
@@ -444,6 +485,7 @@ instance Prelude.NFData RestoreDBClusterToPointInTime where
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
+      `Prelude.seq` Prelude.rnf restoreType
       `Prelude.seq` Prelude.rnf enableCloudwatchLogsExports
       `Prelude.seq` Prelude.rnf restoreToTime
       `Prelude.seq` Prelude.rnf useLatestRestorableTime
@@ -477,6 +519,7 @@ instance Core.ToQuery RestoreDBClusterToPointInTime where
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "DBSubnetGroupName" Core.=: dbSubnetGroupName,
+        "RestoreType" Core.=: restoreType,
         "EnableCloudwatchLogsExports"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"

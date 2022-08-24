@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of certificate authority (CA) certificates provided by
--- Amazon DocumentDB for this account.
+-- Amazon DocumentDB for this Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.DocumentDB.DescribeCertificates
@@ -253,7 +253,7 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
     -- in the next call to @DescribeCertificates@ results in the next page of
     -- certificates.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A list of certificates for this account.
+    -- | A list of certificates for this Amazon Web Services account.
     certificates :: Prelude.Maybe [Certificate],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -274,7 +274,7 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
 -- in the next call to @DescribeCertificates@ results in the next page of
 -- certificates.
 --
--- 'certificates', 'describeCertificatesResponse_certificates' - A list of certificates for this account.
+-- 'certificates', 'describeCertificatesResponse_certificates' - A list of certificates for this Amazon Web Services account.
 --
 -- 'httpStatus', 'describeCertificatesResponse_httpStatus' - The response's http status code.
 newDescribeCertificatesResponse ::
@@ -297,7 +297,7 @@ newDescribeCertificatesResponse pHttpStatus_ =
 describeCertificatesResponse_marker :: Lens.Lens' DescribeCertificatesResponse (Prelude.Maybe Prelude.Text)
 describeCertificatesResponse_marker = Lens.lens (\DescribeCertificatesResponse' {marker} -> marker) (\s@DescribeCertificatesResponse' {} a -> s {marker = a} :: DescribeCertificatesResponse)
 
--- | A list of certificates for this account.
+-- | A list of certificates for this Amazon Web Services account.
 describeCertificatesResponse_certificates :: Lens.Lens' DescribeCertificatesResponse (Prelude.Maybe [Certificate])
 describeCertificatesResponse_certificates = Lens.lens (\DescribeCertificatesResponse' {certificates} -> certificates) (\s@DescribeCertificatesResponse' {} a -> s {certificates = a} :: DescribeCertificatesResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -81,7 +81,7 @@ data CreateDBCluster = CreateDBCluster'
     -- parameter.
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each Region.
+    -- block of time for each Amazon Web Services Region.
     --
     -- Constraints:
     --
@@ -140,18 +140,19 @@ data CreateDBCluster = CreateDBCluster'
     -- | The KMS key identifier for an encrypted cluster.
     --
     -- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
-    -- encryption key. If you are creating a cluster using the same account
-    -- that owns the KMS encryption key that is used to encrypt the new
-    -- cluster, you can use the KMS key alias instead of the ARN for the KMS
-    -- encryption key.
+    -- encryption key. If you are creating a cluster using the same Amazon Web
+    -- Services account that owns the KMS encryption key that is used to
+    -- encrypt the new cluster, you can use the KMS key alias instead of the
+    -- ARN for the KMS encryption key.
     --
     -- If an encryption key is not specified in @KmsKeyId@:
     --
     -- -   If the @StorageEncrypted@ parameter is @true@, Amazon DocumentDB
     --     uses your default encryption key.
     --
-    -- KMS creates the default encryption key for your account. Your account
-    -- has a different default encryption key for each Regions.
+    -- KMS creates the default encryption key for your Amazon Web Services
+    -- account. Your Amazon Web Services account has a different default
+    -- encryption key for each Amazon Web Services Regions.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The cluster identifier of the new global cluster.
     globalClusterIdentifier :: Prelude.Maybe Prelude.Text,
@@ -166,7 +167,8 @@ data CreateDBCluster = CreateDBCluster'
     -- Format: @ddd:hh24:mi-ddd:hh24:mi@
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each Region, occurring on a random day of the week.
+    -- block of time for each Amazon Web Services Region, occurring on a random
+    -- day of the week.
     --
     -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
     --
@@ -220,7 +222,7 @@ data CreateDBCluster = CreateDBCluster'
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region.
+-- block of time for each Amazon Web Services Region.
 --
 -- Constraints:
 --
@@ -279,18 +281,19 @@ data CreateDBCluster = CreateDBCluster'
 -- 'kmsKeyId', 'createDBCluster_kmsKeyId' - The KMS key identifier for an encrypted cluster.
 --
 -- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
--- encryption key. If you are creating a cluster using the same account
--- that owns the KMS encryption key that is used to encrypt the new
--- cluster, you can use the KMS key alias instead of the ARN for the KMS
--- encryption key.
+-- encryption key. If you are creating a cluster using the same Amazon Web
+-- Services account that owns the KMS encryption key that is used to
+-- encrypt the new cluster, you can use the KMS key alias instead of the
+-- ARN for the KMS encryption key.
 --
 -- If an encryption key is not specified in @KmsKeyId@:
 --
 -- -   If the @StorageEncrypted@ parameter is @true@, Amazon DocumentDB
 --     uses your default encryption key.
 --
--- KMS creates the default encryption key for your account. Your account
--- has a different default encryption key for each Regions.
+-- KMS creates the default encryption key for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default
+-- encryption key for each Amazon Web Services Regions.
 --
 -- 'globalClusterIdentifier', 'createDBCluster_globalClusterIdentifier' - The cluster identifier of the new global cluster.
 --
@@ -305,7 +308,8 @@ data CreateDBCluster = CreateDBCluster'
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region, occurring on a random day of the week.
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week.
 --
 -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
@@ -383,7 +387,7 @@ createDBCluster_vpcSecurityGroupIds = Lens.lens (\CreateDBCluster' {vpcSecurityG
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region.
+-- block of time for each Amazon Web Services Region.
 --
 -- Constraints:
 --
@@ -458,18 +462,19 @@ createDBCluster_storageEncrypted = Lens.lens (\CreateDBCluster' {storageEncrypte
 -- | The KMS key identifier for an encrypted cluster.
 --
 -- The KMS key identifier is the Amazon Resource Name (ARN) for the KMS
--- encryption key. If you are creating a cluster using the same account
--- that owns the KMS encryption key that is used to encrypt the new
--- cluster, you can use the KMS key alias instead of the ARN for the KMS
--- encryption key.
+-- encryption key. If you are creating a cluster using the same Amazon Web
+-- Services account that owns the KMS encryption key that is used to
+-- encrypt the new cluster, you can use the KMS key alias instead of the
+-- ARN for the KMS encryption key.
 --
 -- If an encryption key is not specified in @KmsKeyId@:
 --
 -- -   If the @StorageEncrypted@ parameter is @true@, Amazon DocumentDB
 --     uses your default encryption key.
 --
--- KMS creates the default encryption key for your account. Your account
--- has a different default encryption key for each Regions.
+-- KMS creates the default encryption key for your Amazon Web Services
+-- account. Your Amazon Web Services account has a different default
+-- encryption key for each Amazon Web Services Regions.
 createDBCluster_kmsKeyId :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
 createDBCluster_kmsKeyId = Lens.lens (\CreateDBCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateDBCluster' {} a -> s {kmsKeyId = a} :: CreateDBCluster)
 
@@ -490,7 +495,8 @@ createDBCluster_deletionProtection = Lens.lens (\CreateDBCluster' {deletionProte
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region, occurring on a random day of the week.
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week.
 --
 -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --

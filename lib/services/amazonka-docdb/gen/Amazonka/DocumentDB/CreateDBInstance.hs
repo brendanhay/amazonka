@@ -28,9 +28,12 @@ module Amazonka.DocumentDB.CreateDBInstance
 
     -- * Request Lenses
     createDBInstance_tags,
+    createDBInstance_copyTagsToSnapshot,
     createDBInstance_promotionTier,
     createDBInstance_autoMinorVersionUpgrade,
+    createDBInstance_performanceInsightsKMSKeyId,
     createDBInstance_availabilityZone,
+    createDBInstance_enablePerformanceInsights,
     createDBInstance_preferredMaintenanceWindow,
     createDBInstance_dbInstanceIdentifier,
     createDBInstance_dbInstanceClass,
@@ -61,6 +64,9 @@ data CreateDBInstance = CreateDBInstance'
   { -- | The tags to be assigned to the instance. You can assign up to 10 tags to
     -- an instance.
     tags :: Prelude.Maybe [Tag],
+    -- | A value that indicates whether to copy tags from the DB instance to
+    -- snapshots of the DB instance. By default, tags are not copied.
+    copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | A value that specifies the order in which an Amazon DocumentDB replica
     -- is promoted to the primary instance after a failure of the existing
     -- primary instance.
@@ -74,20 +80,35 @@ data CreateDBInstance = CreateDBInstance'
     --
     -- Default: @false@
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The KMS key identifier for encryption of Performance Insights data.
+    --
+    -- The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
+    -- for the KMS key.
+    --
+    -- If you do not specify a value for PerformanceInsightsKMSKeyId, then
+    -- Amazon DocumentDB uses your default KMS key. There is a default KMS key
+    -- for your Amazon Web Services account. Your Amazon Web Services account
+    -- has a different default KMS key for each Amazon Web Services region.
+    performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon EC2 Availability Zone that the instance is created in.
     --
     -- Default: A random, system-chosen Availability Zone in the endpoint\'s
-    -- Region.
+    -- Amazon Web Services Region.
     --
     -- Example: @us-east-1d@
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether to enable Performance Insights for the DB
+    -- Instance. For more information, see
+    -- <https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html Using Amazon Performance Insights>.
+    enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
     -- | The time range each week during which system maintenance can occur, in
     -- Universal Coordinated Time (UTC).
     --
     -- Format: @ddd:hh24:mi-ddd:hh24:mi@
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each Region, occurring on a random day of the week.
+    -- block of time for each Amazon Web Services Region, occurring on a random
+    -- day of the week.
     --
     -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
     --
@@ -128,6 +149,9 @@ data CreateDBInstance = CreateDBInstance'
 -- 'tags', 'createDBInstance_tags' - The tags to be assigned to the instance. You can assign up to 10 tags to
 -- an instance.
 --
+-- 'copyTagsToSnapshot', 'createDBInstance_copyTagsToSnapshot' - A value that indicates whether to copy tags from the DB instance to
+-- snapshots of the DB instance. By default, tags are not copied.
+--
 -- 'promotionTier', 'createDBInstance_promotionTier' - A value that specifies the order in which an Amazon DocumentDB replica
 -- is promoted to the primary instance after a failure of the existing
 -- primary instance.
@@ -141,12 +165,26 @@ data CreateDBInstance = CreateDBInstance'
 --
 -- Default: @false@
 --
+-- 'performanceInsightsKMSKeyId', 'createDBInstance_performanceInsightsKMSKeyId' - The KMS key identifier for encryption of Performance Insights data.
+--
+-- The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
+-- for the KMS key.
+--
+-- If you do not specify a value for PerformanceInsightsKMSKeyId, then
+-- Amazon DocumentDB uses your default KMS key. There is a default KMS key
+-- for your Amazon Web Services account. Your Amazon Web Services account
+-- has a different default KMS key for each Amazon Web Services region.
+--
 -- 'availabilityZone', 'createDBInstance_availabilityZone' - The Amazon EC2 Availability Zone that the instance is created in.
 --
 -- Default: A random, system-chosen Availability Zone in the endpoint\'s
--- Region.
+-- Amazon Web Services Region.
 --
 -- Example: @us-east-1d@
+--
+-- 'enablePerformanceInsights', 'createDBInstance_enablePerformanceInsights' - A value that indicates whether to enable Performance Insights for the DB
+-- Instance. For more information, see
+-- <https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html Using Amazon Performance Insights>.
 --
 -- 'preferredMaintenanceWindow', 'createDBInstance_preferredMaintenanceWindow' - The time range each week during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
@@ -154,7 +192,8 @@ data CreateDBInstance = CreateDBInstance'
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region, occurring on a random day of the week.
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week.
 --
 -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
@@ -197,9 +236,12 @@ newCreateDBInstance
   pDBClusterIdentifier_ =
     CreateDBInstance'
       { tags = Prelude.Nothing,
+        copyTagsToSnapshot = Prelude.Nothing,
         promotionTier = Prelude.Nothing,
         autoMinorVersionUpgrade = Prelude.Nothing,
+        performanceInsightsKMSKeyId = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
+        enablePerformanceInsights = Prelude.Nothing,
         preferredMaintenanceWindow = Prelude.Nothing,
         dbInstanceIdentifier = pDBInstanceIdentifier_,
         dbInstanceClass = pDBInstanceClass_,
@@ -211,6 +253,11 @@ newCreateDBInstance
 -- an instance.
 createDBInstance_tags :: Lens.Lens' CreateDBInstance (Prelude.Maybe [Tag])
 createDBInstance_tags = Lens.lens (\CreateDBInstance' {tags} -> tags) (\s@CreateDBInstance' {} a -> s {tags = a} :: CreateDBInstance) Prelude.. Lens.mapping Lens.coerced
+
+-- | A value that indicates whether to copy tags from the DB instance to
+-- snapshots of the DB instance. By default, tags are not copied.
+createDBInstance_copyTagsToSnapshot :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Bool)
+createDBInstance_copyTagsToSnapshot = Lens.lens (\CreateDBInstance' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@CreateDBInstance' {} a -> s {copyTagsToSnapshot = a} :: CreateDBInstance)
 
 -- | A value that specifies the order in which an Amazon DocumentDB replica
 -- is promoted to the primary instance after a failure of the existing
@@ -229,14 +276,32 @@ createDBInstance_promotionTier = Lens.lens (\CreateDBInstance' {promotionTier} -
 createDBInstance_autoMinorVersionUpgrade :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Bool)
 createDBInstance_autoMinorVersionUpgrade = Lens.lens (\CreateDBInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateDBInstance' {} a -> s {autoMinorVersionUpgrade = a} :: CreateDBInstance)
 
+-- | The KMS key identifier for encryption of Performance Insights data.
+--
+-- The KMS key identifier is the key ARN, key ID, alias ARN, or alias name
+-- for the KMS key.
+--
+-- If you do not specify a value for PerformanceInsightsKMSKeyId, then
+-- Amazon DocumentDB uses your default KMS key. There is a default KMS key
+-- for your Amazon Web Services account. Your Amazon Web Services account
+-- has a different default KMS key for each Amazon Web Services region.
+createDBInstance_performanceInsightsKMSKeyId :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
+createDBInstance_performanceInsightsKMSKeyId = Lens.lens (\CreateDBInstance' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@CreateDBInstance' {} a -> s {performanceInsightsKMSKeyId = a} :: CreateDBInstance)
+
 -- | The Amazon EC2 Availability Zone that the instance is created in.
 --
 -- Default: A random, system-chosen Availability Zone in the endpoint\'s
--- Region.
+-- Amazon Web Services Region.
 --
 -- Example: @us-east-1d@
 createDBInstance_availabilityZone :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Text)
 createDBInstance_availabilityZone = Lens.lens (\CreateDBInstance' {availabilityZone} -> availabilityZone) (\s@CreateDBInstance' {} a -> s {availabilityZone = a} :: CreateDBInstance)
+
+-- | A value that indicates whether to enable Performance Insights for the DB
+-- Instance. For more information, see
+-- <https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html Using Amazon Performance Insights>.
+createDBInstance_enablePerformanceInsights :: Lens.Lens' CreateDBInstance (Prelude.Maybe Prelude.Bool)
+createDBInstance_enablePerformanceInsights = Lens.lens (\CreateDBInstance' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@CreateDBInstance' {} a -> s {enablePerformanceInsights = a} :: CreateDBInstance)
 
 -- | The time range each week during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
@@ -244,7 +309,8 @@ createDBInstance_availabilityZone = Lens.lens (\CreateDBInstance' {availabilityZ
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region, occurring on a random day of the week.
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week.
 --
 -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
@@ -298,9 +364,12 @@ instance Core.AWSRequest CreateDBInstance where
 instance Prelude.Hashable CreateDBInstance where
   hashWithSalt _salt CreateDBInstance' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` copyTagsToSnapshot
       `Prelude.hashWithSalt` promotionTier
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
+      `Prelude.hashWithSalt` performanceInsightsKMSKeyId
       `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` enablePerformanceInsights
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` dbInstanceClass
@@ -310,9 +379,12 @@ instance Prelude.Hashable CreateDBInstance where
 instance Prelude.NFData CreateDBInstance where
   rnf CreateDBInstance' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf promotionTier
       `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf performanceInsightsKMSKeyId
       `Prelude.seq` Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf enablePerformanceInsights
       `Prelude.seq` Prelude.rnf preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf dbInstanceClass
@@ -335,10 +407,15 @@ instance Core.ToQuery CreateDBInstance where
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
+        "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "PromotionTier" Core.=: promotionTier,
         "AutoMinorVersionUpgrade"
           Core.=: autoMinorVersionUpgrade,
+        "PerformanceInsightsKMSKeyId"
+          Core.=: performanceInsightsKMSKeyId,
         "AvailabilityZone" Core.=: availabilityZone,
+        "EnablePerformanceInsights"
+          Core.=: enablePerformanceInsights,
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,
         "DBInstanceIdentifier" Core.=: dbInstanceIdentifier,

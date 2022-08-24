@@ -91,7 +91,7 @@ data ModifyDBCluster = ModifyDBCluster'
     -- parameter.
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each Region.
+    -- block of time for each Amazon Web Services Region.
     --
     -- Constraints:
     --
@@ -150,7 +150,8 @@ data ModifyDBCluster = ModifyDBCluster'
     -- Format: @ddd:hh24:mi-ddd:hh24:mi@
     --
     -- The default is a 30-minute window selected at random from an 8-hour
-    -- block of time for each Region, occurring on a random day of the week.
+    -- block of time for each Amazon Web Services Region, occurring on a random
+    -- day of the week.
     --
     -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
     --
@@ -206,7 +207,7 @@ data ModifyDBCluster = ModifyDBCluster'
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region.
+-- block of time for each Amazon Web Services Region.
 --
 -- Constraints:
 --
@@ -265,7 +266,8 @@ data ModifyDBCluster = ModifyDBCluster'
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region, occurring on a random day of the week.
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week.
 --
 -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --
@@ -337,7 +339,7 @@ modifyDBCluster_vpcSecurityGroupIds = Lens.lens (\ModifyDBCluster' {vpcSecurityG
 -- parameter.
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region.
+-- block of time for each Amazon Web Services Region.
 --
 -- Constraints:
 --
@@ -408,7 +410,8 @@ modifyDBCluster_deletionProtection = Lens.lens (\ModifyDBCluster' {deletionProte
 -- Format: @ddd:hh24:mi-ddd:hh24:mi@
 --
 -- The default is a 30-minute window selected at random from an 8-hour
--- block of time for each Region, occurring on a random day of the week.
+-- block of time for each Amazon Web Services Region, occurring on a random
+-- day of the week.
 --
 -- Valid days: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 --

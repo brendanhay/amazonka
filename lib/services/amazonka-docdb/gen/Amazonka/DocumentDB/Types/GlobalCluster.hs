@@ -46,9 +46,10 @@ data GlobalCluster = GlobalCluster'
     engine :: Prelude.Maybe Prelude.Text,
     -- | The deletion protection setting for the new global cluster.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
-    -- | The Region-unique, immutable identifier for the global database cluster.
-    -- This identifier is found in AWS CloudTrail log entries whenever the AWS
-    -- KMS customer master key (CMK) for the cluster is accessed.
+    -- | The Amazon Web Services Region-unique, immutable identifier for the
+    -- global database cluster. This identifier is found in AWS CloudTrail log
+    -- entries whenever the AWS KMS customer master key (CMK) for the cluster
+    -- is accessed.
     globalClusterResourceId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the database engine version.
     engineVersion :: Prelude.Maybe Prelude.Text
@@ -81,9 +82,10 @@ data GlobalCluster = GlobalCluster'
 --
 -- 'deletionProtection', 'globalCluster_deletionProtection' - The deletion protection setting for the new global cluster.
 --
--- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The Region-unique, immutable identifier for the global database cluster.
--- This identifier is found in AWS CloudTrail log entries whenever the AWS
--- KMS customer master key (CMK) for the cluster is accessed.
+-- 'globalClusterResourceId', 'globalCluster_globalClusterResourceId' - The Amazon Web Services Region-unique, immutable identifier for the
+-- global database cluster. This identifier is found in AWS CloudTrail log
+-- entries whenever the AWS KMS customer master key (CMK) for the cluster
+-- is accessed.
 --
 -- 'engineVersion', 'globalCluster_engineVersion' - Indicates the database engine version.
 newGlobalCluster ::
@@ -137,9 +139,10 @@ globalCluster_engine = Lens.lens (\GlobalCluster' {engine} -> engine) (\s@Global
 globalCluster_deletionProtection :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Bool)
 globalCluster_deletionProtection = Lens.lens (\GlobalCluster' {deletionProtection} -> deletionProtection) (\s@GlobalCluster' {} a -> s {deletionProtection = a} :: GlobalCluster)
 
--- | The Region-unique, immutable identifier for the global database cluster.
--- This identifier is found in AWS CloudTrail log entries whenever the AWS
--- KMS customer master key (CMK) for the cluster is accessed.
+-- | The Amazon Web Services Region-unique, immutable identifier for the
+-- global database cluster. This identifier is found in AWS CloudTrail log
+-- entries whenever the AWS KMS customer master key (CMK) for the cluster
+-- is accessed.
 globalCluster_globalClusterResourceId :: Lens.Lens' GlobalCluster (Prelude.Maybe Prelude.Text)
 globalCluster_globalClusterResourceId = Lens.lens (\GlobalCluster' {globalClusterResourceId} -> globalClusterResourceId) (\s@GlobalCluster' {} a -> s {globalClusterResourceId = a} :: GlobalCluster)
 

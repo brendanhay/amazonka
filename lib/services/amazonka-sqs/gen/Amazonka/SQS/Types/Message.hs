@@ -37,7 +37,7 @@ data Message = Message'
     -- | The message\'s contents (not URL-encoded).
     body :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the message. A @MessageId@is considered unique
-    -- across all accounts for an extended period of time.
+    -- across all Amazon Web Services accounts for an extended period of time.
     messageId :: Prelude.Maybe Prelude.Text,
     -- | Each message attribute consists of a @Name@, @Type@, and @Value@. For
     -- more information, see
@@ -92,7 +92,7 @@ data Message = Message'
 -- 'body', 'message_body' - The message\'s contents (not URL-encoded).
 --
 -- 'messageId', 'message_messageId' - A unique identifier for the message. A @MessageId@is considered unique
--- across all accounts for an extended period of time.
+-- across all Amazon Web Services accounts for an extended period of time.
 --
 -- 'messageAttributes', 'message_messageAttributes' - Each message attribute consists of a @Name@, @Type@, and @Value@. For
 -- more information, see
@@ -152,7 +152,7 @@ message_body :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_body = Lens.lens (\Message' {body} -> body) (\s@Message' {} a -> s {body = a} :: Message)
 
 -- | A unique identifier for the message. A @MessageId@is considered unique
--- across all accounts for an extended period of time.
+-- across all Amazon Web Services accounts for an extended period of time.
 message_messageId :: Lens.Lens' Message (Prelude.Maybe Prelude.Text)
 message_messageId = Lens.lens (\Message' {messageId} -> messageId) (\s@Message' {} a -> s {messageId = a} :: Message)
 

@@ -40,6 +40,7 @@ module Amazonka.SQS.Types.QueueAttributeName
         QueueAttributeName_ReceiveMessageWaitTimeSeconds,
         QueueAttributeName_RedriveAllowPolicy,
         QueueAttributeName_RedrivePolicy,
+        QueueAttributeName_SqsManagedSseEnabled,
         QueueAttributeName_VisibilityTimeout
       ),
   )
@@ -136,6 +137,9 @@ pattern QueueAttributeName_RedriveAllowPolicy = QueueAttributeName' "RedriveAllo
 pattern QueueAttributeName_RedrivePolicy :: QueueAttributeName
 pattern QueueAttributeName_RedrivePolicy = QueueAttributeName' "RedrivePolicy"
 
+pattern QueueAttributeName_SqsManagedSseEnabled :: QueueAttributeName
+pattern QueueAttributeName_SqsManagedSseEnabled = QueueAttributeName' "SqsManagedSseEnabled"
+
 pattern QueueAttributeName_VisibilityTimeout :: QueueAttributeName
 pattern QueueAttributeName_VisibilityTimeout = QueueAttributeName' "VisibilityTimeout"
 
@@ -160,6 +164,7 @@ pattern QueueAttributeName_VisibilityTimeout = QueueAttributeName' "VisibilityTi
   QueueAttributeName_ReceiveMessageWaitTimeSeconds,
   QueueAttributeName_RedriveAllowPolicy,
   QueueAttributeName_RedrivePolicy,
+  QueueAttributeName_SqsManagedSseEnabled,
   QueueAttributeName_VisibilityTimeout,
   QueueAttributeName'
   #-}

@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrometheus' smart constructor.
 data Prometheus = Prometheus'
-  { -- | Indicates whether you want to enable or disable the JMX Exporter.
+  { -- | Indicates whether you want to turn on or turn off the JMX Exporter.
     jmxExporter :: Prelude.Maybe JmxExporter,
-    -- | Indicates whether you want to enable or disable the Node Exporter.
+    -- | Indicates whether you want to turn on or turn off the Node Exporter.
     nodeExporter :: Prelude.Maybe NodeExporter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +44,9 @@ data Prometheus = Prometheus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jmxExporter', 'prometheus_jmxExporter' - Indicates whether you want to enable or disable the JMX Exporter.
+-- 'jmxExporter', 'prometheus_jmxExporter' - Indicates whether you want to turn on or turn off the JMX Exporter.
 --
--- 'nodeExporter', 'prometheus_nodeExporter' - Indicates whether you want to enable or disable the Node Exporter.
+-- 'nodeExporter', 'prometheus_nodeExporter' - Indicates whether you want to turn on or turn off the Node Exporter.
 newPrometheus ::
   Prometheus
 newPrometheus =
@@ -55,11 +55,11 @@ newPrometheus =
       nodeExporter = Prelude.Nothing
     }
 
--- | Indicates whether you want to enable or disable the JMX Exporter.
+-- | Indicates whether you want to turn on or turn off the JMX Exporter.
 prometheus_jmxExporter :: Lens.Lens' Prometheus (Prelude.Maybe JmxExporter)
 prometheus_jmxExporter = Lens.lens (\Prometheus' {jmxExporter} -> jmxExporter) (\s@Prometheus' {} a -> s {jmxExporter = a} :: Prometheus)
 
--- | Indicates whether you want to enable or disable the Node Exporter.
+-- | Indicates whether you want to turn on or turn off the Node Exporter.
 prometheus_nodeExporter :: Lens.Lens' Prometheus (Prelude.Maybe NodeExporter)
 prometheus_nodeExporter = Lens.lens (\Prometheus' {nodeExporter} -> nodeExporter) (\s@Prometheus' {} a -> s {nodeExporter = a} :: Prometheus)
 

@@ -35,7 +35,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The state of a Kafka cluster.
+-- | The state of the Apache Kafka cluster.
 newtype ClusterState = ClusterState'
   { fromClusterState ::
       Core.Text

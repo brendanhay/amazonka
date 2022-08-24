@@ -20,6 +20,7 @@
 module Amazonka.Kafka.Types.BrokerEBSVolumeInfo where
 
 import qualified Amazonka.Core as Core
+import Amazonka.Kafka.Types.ProvisionedThroughput
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -29,8 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBrokerEBSVolumeInfo' smart constructor.
 data BrokerEBSVolumeInfo = BrokerEBSVolumeInfo'
-  { -- | Size of the EBS volume to update.
-    volumeSizeGB :: Prelude.Int,
+  { -- | EBS volume provisioned throughput information.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
+    -- | Size of the EBS volume to update.
+    volumeSizeGB :: Prelude.Maybe Prelude.Int,
     -- | The ID of the broker to update.
     kafkaBrokerNodeId :: Prelude.Text
   }
@@ -44,25 +47,29 @@ data BrokerEBSVolumeInfo = BrokerEBSVolumeInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'provisionedThroughput', 'brokerEBSVolumeInfo_provisionedThroughput' - EBS volume provisioned throughput information.
+--
 -- 'volumeSizeGB', 'brokerEBSVolumeInfo_volumeSizeGB' - Size of the EBS volume to update.
 --
 -- 'kafkaBrokerNodeId', 'brokerEBSVolumeInfo_kafkaBrokerNodeId' - The ID of the broker to update.
 newBrokerEBSVolumeInfo ::
-  -- | 'volumeSizeGB'
-  Prelude.Int ->
   -- | 'kafkaBrokerNodeId'
   Prelude.Text ->
   BrokerEBSVolumeInfo
-newBrokerEBSVolumeInfo
-  pVolumeSizeGB_
-  pKafkaBrokerNodeId_ =
-    BrokerEBSVolumeInfo'
-      { volumeSizeGB = pVolumeSizeGB_,
-        kafkaBrokerNodeId = pKafkaBrokerNodeId_
-      }
+newBrokerEBSVolumeInfo pKafkaBrokerNodeId_ =
+  BrokerEBSVolumeInfo'
+    { provisionedThroughput =
+        Prelude.Nothing,
+      volumeSizeGB = Prelude.Nothing,
+      kafkaBrokerNodeId = pKafkaBrokerNodeId_
+    }
+
+-- | EBS volume provisioned throughput information.
+brokerEBSVolumeInfo_provisionedThroughput :: Lens.Lens' BrokerEBSVolumeInfo (Prelude.Maybe ProvisionedThroughput)
+brokerEBSVolumeInfo_provisionedThroughput = Lens.lens (\BrokerEBSVolumeInfo' {provisionedThroughput} -> provisionedThroughput) (\s@BrokerEBSVolumeInfo' {} a -> s {provisionedThroughput = a} :: BrokerEBSVolumeInfo)
 
 -- | Size of the EBS volume to update.
-brokerEBSVolumeInfo_volumeSizeGB :: Lens.Lens' BrokerEBSVolumeInfo Prelude.Int
+brokerEBSVolumeInfo_volumeSizeGB :: Lens.Lens' BrokerEBSVolumeInfo (Prelude.Maybe Prelude.Int)
 brokerEBSVolumeInfo_volumeSizeGB = Lens.lens (\BrokerEBSVolumeInfo' {volumeSizeGB} -> volumeSizeGB) (\s@BrokerEBSVolumeInfo' {} a -> s {volumeSizeGB = a} :: BrokerEBSVolumeInfo)
 
 -- | The ID of the broker to update.
@@ -75,25 +82,30 @@ instance Core.FromJSON BrokerEBSVolumeInfo where
       "BrokerEBSVolumeInfo"
       ( \x ->
           BrokerEBSVolumeInfo'
-            Prelude.<$> (x Core..: "volumeSizeGB")
+            Prelude.<$> (x Core..:? "provisionedThroughput")
+            Prelude.<*> (x Core..:? "volumeSizeGB")
             Prelude.<*> (x Core..: "kafkaBrokerNodeId")
       )
 
 instance Prelude.Hashable BrokerEBSVolumeInfo where
   hashWithSalt _salt BrokerEBSVolumeInfo' {..} =
-    _salt `Prelude.hashWithSalt` volumeSizeGB
+    _salt `Prelude.hashWithSalt` provisionedThroughput
+      `Prelude.hashWithSalt` volumeSizeGB
       `Prelude.hashWithSalt` kafkaBrokerNodeId
 
 instance Prelude.NFData BrokerEBSVolumeInfo where
   rnf BrokerEBSVolumeInfo' {..} =
-    Prelude.rnf volumeSizeGB
+    Prelude.rnf provisionedThroughput
+      `Prelude.seq` Prelude.rnf volumeSizeGB
       `Prelude.seq` Prelude.rnf kafkaBrokerNodeId
 
 instance Core.ToJSON BrokerEBSVolumeInfo where
   toJSON BrokerEBSVolumeInfo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("volumeSizeGB" Core..= volumeSizeGB),
+          [ ("provisionedThroughput" Core..=)
+              Prelude.<$> provisionedThroughput,
+            ("volumeSizeGB" Core..=) Prelude.<$> volumeSizeGB,
             Prelude.Just
               ("kafkaBrokerNodeId" Core..= kafkaBrokerNodeId)
           ]

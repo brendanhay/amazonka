@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestCreateCluster $
 --             newCreateCluster
 --
+--         , requestCreateClusterV2 $
+--             newCreateClusterV2
+--
 --         , requestCreateConfiguration $
 --             newCreateConfiguration
 --
@@ -50,6 +53,9 @@ import Test.Tasty
 --
 --         , requestDescribeClusterOperation $
 --             newDescribeClusterOperation
+--
+--         , requestDescribeClusterV2 $
+--             newDescribeClusterV2
 --
 --         , requestDescribeConfiguration $
 --             newDescribeConfiguration
@@ -68,6 +74,9 @@ import Test.Tasty
 --
 --         , requestListClusters $
 --             newListClusters
+--
+--         , requestListClustersV2 $
+--             newListClustersV2
 --
 --         , requestListConfigurationRevisions $
 --             newListConfigurationRevisions
@@ -114,6 +123,9 @@ import Test.Tasty
 --         , requestUpdateConfiguration $
 --             newUpdateConfiguration
 --
+--         , requestUpdateConnectivity $
+--             newUpdateConnectivity
+--
 --         , requestUpdateMonitoring $
 --             newUpdateMonitoring
 --
@@ -132,6 +144,9 @@ import Test.Tasty
 --         , responseCreateCluster $
 --             newCreateClusterResponse
 --
+--         , responseCreateClusterV2 $
+--             newCreateClusterV2Response
+--
 --         , responseCreateConfiguration $
 --             newCreateConfigurationResponse
 --
@@ -146,6 +161,9 @@ import Test.Tasty
 --
 --         , responseDescribeClusterOperation $
 --             newDescribeClusterOperationResponse
+--
+--         , responseDescribeClusterV2 $
+--             newDescribeClusterV2Response
 --
 --         , responseDescribeConfiguration $
 --             newDescribeConfigurationResponse
@@ -164,6 +182,9 @@ import Test.Tasty
 --
 --         , responseListClusters $
 --             newListClustersResponse
+--
+--         , responseListClustersV2 $
+--             newListClustersV2Response
 --
 --         , responseListConfigurationRevisions $
 --             newListConfigurationRevisionsResponse
@@ -210,6 +231,9 @@ import Test.Tasty
 --         , responseUpdateConfiguration $
 --             newUpdateConfigurationResponse
 --
+--         , responseUpdateConnectivity $
+--             newUpdateConnectivityResponse
+--
 --         , responseUpdateMonitoring $
 --             newUpdateMonitoringResponse
 --
@@ -238,6 +262,12 @@ requestCreateCluster =
   req
     "CreateCluster"
     "fixture/CreateCluster.yaml"
+
+requestCreateClusterV2 :: CreateClusterV2 -> TestTree
+requestCreateClusterV2 =
+  req
+    "CreateClusterV2"
+    "fixture/CreateClusterV2.yaml"
 
 requestCreateConfiguration :: CreateConfiguration -> TestTree
 requestCreateConfiguration =
@@ -268,6 +298,12 @@ requestDescribeClusterOperation =
   req
     "DescribeClusterOperation"
     "fixture/DescribeClusterOperation.yaml"
+
+requestDescribeClusterV2 :: DescribeClusterV2 -> TestTree
+requestDescribeClusterV2 =
+  req
+    "DescribeClusterV2"
+    "fixture/DescribeClusterV2.yaml"
 
 requestDescribeConfiguration :: DescribeConfiguration -> TestTree
 requestDescribeConfiguration =
@@ -304,6 +340,12 @@ requestListClusters =
   req
     "ListClusters"
     "fixture/ListClusters.yaml"
+
+requestListClustersV2 :: ListClustersV2 -> TestTree
+requestListClustersV2 =
+  req
+    "ListClustersV2"
+    "fixture/ListClustersV2.yaml"
 
 requestListConfigurationRevisions :: ListConfigurationRevisions -> TestTree
 requestListConfigurationRevisions =
@@ -395,6 +437,12 @@ requestUpdateConfiguration =
     "UpdateConfiguration"
     "fixture/UpdateConfiguration.yaml"
 
+requestUpdateConnectivity :: UpdateConnectivity -> TestTree
+requestUpdateConnectivity =
+  req
+    "UpdateConnectivity"
+    "fixture/UpdateConnectivity.yaml"
+
 requestUpdateMonitoring :: UpdateMonitoring -> TestTree
 requestUpdateMonitoring =
   req
@@ -432,6 +480,14 @@ responseCreateCluster =
     "fixture/CreateClusterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCluster)
+
+responseCreateClusterV2 :: CreateClusterV2Response -> TestTree
+responseCreateClusterV2 =
+  res
+    "CreateClusterV2Response"
+    "fixture/CreateClusterV2Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateClusterV2)
 
 responseCreateConfiguration :: CreateConfigurationResponse -> TestTree
 responseCreateConfiguration =
@@ -472,6 +528,14 @@ responseDescribeClusterOperation =
     "fixture/DescribeClusterOperationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeClusterOperation)
+
+responseDescribeClusterV2 :: DescribeClusterV2Response -> TestTree
+responseDescribeClusterV2 =
+  res
+    "DescribeClusterV2Response"
+    "fixture/DescribeClusterV2Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeClusterV2)
 
 responseDescribeConfiguration :: DescribeConfigurationResponse -> TestTree
 responseDescribeConfiguration =
@@ -520,6 +584,14 @@ responseListClusters =
     "fixture/ListClustersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListClusters)
+
+responseListClustersV2 :: ListClustersV2Response -> TestTree
+responseListClustersV2 =
+  res
+    "ListClustersV2Response"
+    "fixture/ListClustersV2Response.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListClustersV2)
 
 responseListConfigurationRevisions :: ListConfigurationRevisionsResponse -> TestTree
 responseListConfigurationRevisions =
@@ -640,6 +712,14 @@ responseUpdateConfiguration =
     "fixture/UpdateConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateConfiguration)
+
+responseUpdateConnectivity :: UpdateConnectivityResponse -> TestTree
+responseUpdateConnectivity =
+  res
+    "UpdateConnectivityResponse"
+    "fixture/UpdateConnectivityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectivity)
 
 responseUpdateMonitoring :: UpdateMonitoringResponse -> TestTree
 responseUpdateMonitoring =

@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Indicates whether you want to enable or disable the Node Exporter.
+-- | Indicates whether you want to turn on or turn off the Node Exporter.
 --
 -- /See:/ 'newNodeExporter' smart constructor.
 data NodeExporter = NodeExporter'
-  { -- | Indicates whether you want to enable or disable the Node Exporter.
+  { -- | Indicates whether you want to turn on or turn off the Node Exporter.
     enabledInBroker :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,7 +40,7 @@ data NodeExporter = NodeExporter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabledInBroker', 'nodeExporter_enabledInBroker' - Indicates whether you want to enable or disable the Node Exporter.
+-- 'enabledInBroker', 'nodeExporter_enabledInBroker' - Indicates whether you want to turn on or turn off the Node Exporter.
 newNodeExporter ::
   -- | 'enabledInBroker'
   Prelude.Bool ->
@@ -48,7 +48,7 @@ newNodeExporter ::
 newNodeExporter pEnabledInBroker_ =
   NodeExporter' {enabledInBroker = pEnabledInBroker_}
 
--- | Indicates whether you want to enable or disable the Node Exporter.
+-- | Indicates whether you want to turn on or turn off the Node Exporter.
 nodeExporter_enabledInBroker :: Lens.Lens' NodeExporter Prelude.Bool
 nodeExporter_enabledInBroker = Lens.lens (\NodeExporter' {enabledInBroker} -> enabledInBroker) (\s@NodeExporter' {} a -> s {enabledInBroker = a} :: NodeExporter)
 

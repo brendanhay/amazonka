@@ -67,6 +67,12 @@ module Amazonka.Kafka
     CreateClusterResponse (CreateClusterResponse'),
     newCreateClusterResponse,
 
+    -- ** CreateClusterV2
+    CreateClusterV2 (CreateClusterV2'),
+    newCreateClusterV2,
+    CreateClusterV2Response (CreateClusterV2Response'),
+    newCreateClusterV2Response,
+
     -- ** CreateConfiguration
     CreateConfiguration (CreateConfiguration'),
     newCreateConfiguration,
@@ -96,6 +102,12 @@ module Amazonka.Kafka
     newDescribeClusterOperation,
     DescribeClusterOperationResponse (DescribeClusterOperationResponse'),
     newDescribeClusterOperationResponse,
+
+    -- ** DescribeClusterV2
+    DescribeClusterV2 (DescribeClusterV2'),
+    newDescribeClusterV2,
+    DescribeClusterV2Response (DescribeClusterV2Response'),
+    newDescribeClusterV2Response,
 
     -- ** DescribeConfiguration
     DescribeConfiguration (DescribeConfiguration'),
@@ -132,6 +144,12 @@ module Amazonka.Kafka
     newListClusters,
     ListClustersResponse (ListClustersResponse'),
     newListClustersResponse,
+
+    -- ** ListClustersV2 (Paginated)
+    ListClustersV2 (ListClustersV2'),
+    newListClustersV2,
+    ListClustersV2Response (ListClustersV2Response'),
+    newListClustersV2Response,
 
     -- ** ListConfigurationRevisions (Paginated)
     ListConfigurationRevisions (ListConfigurationRevisions'),
@@ -223,6 +241,12 @@ module Amazonka.Kafka
     UpdateConfigurationResponse (UpdateConfigurationResponse'),
     newUpdateConfigurationResponse,
 
+    -- ** UpdateConnectivity
+    UpdateConnectivity (UpdateConnectivity'),
+    newUpdateConnectivity,
+    UpdateConnectivityResponse (UpdateConnectivityResponse'),
+    newUpdateConnectivityResponse,
+
     -- ** UpdateMonitoring
     UpdateMonitoring (UpdateMonitoring'),
     newUpdateMonitoring,
@@ -245,6 +269,9 @@ module Amazonka.Kafka
 
     -- ** ClusterState
     ClusterState (..),
+
+    -- ** ClusterType
+    ClusterType (..),
 
     -- ** ConfigurationState
     ConfigurationState (..),
@@ -286,6 +313,10 @@ module Amazonka.Kafka
     CloudWatchLogs (CloudWatchLogs'),
     newCloudWatchLogs,
 
+    -- ** Cluster
+    Cluster (Cluster'),
+    newCluster,
+
     -- ** ClusterInfo
     ClusterInfo (ClusterInfo'),
     newClusterInfo,
@@ -317,6 +348,10 @@ module Amazonka.Kafka
     -- ** ConfigurationRevision
     ConfigurationRevision (ConfigurationRevision'),
     newConfigurationRevision,
+
+    -- ** ConnectivityInfo
+    ConnectivityInfo (ConnectivityInfo'),
+    newConnectivityInfo,
 
     -- ** EBSStorageInfo
     EBSStorageInfo (EBSStorageInfo'),
@@ -394,6 +429,22 @@ module Amazonka.Kafka
     PrometheusInfo (PrometheusInfo'),
     newPrometheusInfo,
 
+    -- ** Provisioned
+    Provisioned (Provisioned'),
+    newProvisioned,
+
+    -- ** ProvisionedRequest
+    ProvisionedRequest (ProvisionedRequest'),
+    newProvisionedRequest,
+
+    -- ** ProvisionedThroughput
+    ProvisionedThroughput (ProvisionedThroughput'),
+    newProvisionedThroughput,
+
+    -- ** PublicAccess
+    PublicAccess (PublicAccess'),
+    newPublicAccess,
+
     -- ** S3
     S3 (S3'),
     newS3,
@@ -405,6 +456,22 @@ module Amazonka.Kafka
     -- ** Scram
     Scram (Scram'),
     newScram,
+
+    -- ** Serverless
+    Serverless (Serverless'),
+    newServerless,
+
+    -- ** ServerlessClientAuthentication
+    ServerlessClientAuthentication (ServerlessClientAuthentication'),
+    newServerlessClientAuthentication,
+
+    -- ** ServerlessRequest
+    ServerlessRequest (ServerlessRequest'),
+    newServerlessRequest,
+
+    -- ** ServerlessSasl
+    ServerlessSasl (ServerlessSasl'),
+    newServerlessSasl,
 
     -- ** StateInfo
     StateInfo (StateInfo'),
@@ -426,6 +493,10 @@ module Amazonka.Kafka
     UnprocessedScramSecret (UnprocessedScramSecret'),
     newUnprocessedScramSecret,
 
+    -- ** VpcConfig
+    VpcConfig (VpcConfig'),
+    newVpcConfig,
+
     -- ** ZookeeperNodeInfo
     ZookeeperNodeInfo (ZookeeperNodeInfo'),
     newZookeeperNodeInfo,
@@ -435,11 +506,13 @@ where
 import Amazonka.Kafka.BatchAssociateScramSecret
 import Amazonka.Kafka.BatchDisassociateScramSecret
 import Amazonka.Kafka.CreateCluster
+import Amazonka.Kafka.CreateClusterV2
 import Amazonka.Kafka.CreateConfiguration
 import Amazonka.Kafka.DeleteCluster
 import Amazonka.Kafka.DeleteConfiguration
 import Amazonka.Kafka.DescribeCluster
 import Amazonka.Kafka.DescribeClusterOperation
+import Amazonka.Kafka.DescribeClusterV2
 import Amazonka.Kafka.DescribeConfiguration
 import Amazonka.Kafka.DescribeConfigurationRevision
 import Amazonka.Kafka.GetBootstrapBrokers
@@ -447,6 +520,7 @@ import Amazonka.Kafka.GetCompatibleKafkaVersions
 import Amazonka.Kafka.Lens
 import Amazonka.Kafka.ListClusterOperations
 import Amazonka.Kafka.ListClusters
+import Amazonka.Kafka.ListClustersV2
 import Amazonka.Kafka.ListConfigurationRevisions
 import Amazonka.Kafka.ListConfigurations
 import Amazonka.Kafka.ListKafkaVersions
@@ -463,6 +537,7 @@ import Amazonka.Kafka.UpdateBrokerType
 import Amazonka.Kafka.UpdateClusterConfiguration
 import Amazonka.Kafka.UpdateClusterKafkaVersion
 import Amazonka.Kafka.UpdateConfiguration
+import Amazonka.Kafka.UpdateConnectivity
 import Amazonka.Kafka.UpdateMonitoring
 import Amazonka.Kafka.UpdateSecurity
 import Amazonka.Kafka.Waiters

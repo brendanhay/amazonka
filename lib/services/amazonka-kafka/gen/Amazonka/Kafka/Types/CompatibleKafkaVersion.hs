@@ -23,13 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains source Kafka versions and compatible target Kafka versions.
+-- | Contains source Apache Kafka versions and compatible target Apache Kafka
+-- versions.
 --
 -- /See:/ 'newCompatibleKafkaVersion' smart constructor.
 data CompatibleKafkaVersion = CompatibleKafkaVersion'
-  { -- | A list of Kafka versions.
+  { -- | A list of Apache Kafka versions.
     targetVersions :: Prelude.Maybe [Prelude.Text],
-    -- | A Kafka version.
+    -- | An Apache Kafka version.
     sourceVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +43,9 @@ data CompatibleKafkaVersion = CompatibleKafkaVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetVersions', 'compatibleKafkaVersion_targetVersions' - A list of Kafka versions.
+-- 'targetVersions', 'compatibleKafkaVersion_targetVersions' - A list of Apache Kafka versions.
 --
--- 'sourceVersion', 'compatibleKafkaVersion_sourceVersion' - A Kafka version.
+-- 'sourceVersion', 'compatibleKafkaVersion_sourceVersion' - An Apache Kafka version.
 newCompatibleKafkaVersion ::
   CompatibleKafkaVersion
 newCompatibleKafkaVersion =
@@ -54,11 +55,11 @@ newCompatibleKafkaVersion =
       sourceVersion = Prelude.Nothing
     }
 
--- | A list of Kafka versions.
+-- | A list of Apache Kafka versions.
 compatibleKafkaVersion_targetVersions :: Lens.Lens' CompatibleKafkaVersion (Prelude.Maybe [Prelude.Text])
 compatibleKafkaVersion_targetVersions = Lens.lens (\CompatibleKafkaVersion' {targetVersions} -> targetVersions) (\s@CompatibleKafkaVersion' {} a -> s {targetVersions = a} :: CompatibleKafkaVersion) Prelude.. Lens.mapping Lens.coerced
 
--- | A Kafka version.
+-- | An Apache Kafka version.
 compatibleKafkaVersion_sourceVersion :: Lens.Lens' CompatibleKafkaVersion (Prelude.Maybe Prelude.Text)
 compatibleKafkaVersion_sourceVersion = Lens.lens (\CompatibleKafkaVersion' {sourceVersion} -> sourceVersion) (\s@CompatibleKafkaVersion' {} a -> s {sourceVersion = a} :: CompatibleKafkaVersion)
 

@@ -35,6 +35,9 @@ module Amazonka.Kafka.Types
     -- * ClusterState
     ClusterState (..),
 
+    -- * ClusterType
+    ClusterType (..),
+
     -- * ConfigurationState
     ConfigurationState (..),
 
@@ -50,6 +53,7 @@ module Amazonka.Kafka.Types
     -- * BrokerEBSVolumeInfo
     BrokerEBSVolumeInfo (..),
     newBrokerEBSVolumeInfo,
+    brokerEBSVolumeInfo_provisionedThroughput,
     brokerEBSVolumeInfo_volumeSizeGB,
     brokerEBSVolumeInfo_kafkaBrokerNodeId,
 
@@ -64,6 +68,7 @@ module Amazonka.Kafka.Types
     BrokerNodeGroupInfo (..),
     newBrokerNodeGroupInfo,
     brokerNodeGroupInfo_storageInfo,
+    brokerNodeGroupInfo_connectivityInfo,
     brokerNodeGroupInfo_securityGroups,
     brokerNodeGroupInfo_brokerAZDistribution,
     brokerNodeGroupInfo_clientSubnets,
@@ -98,6 +103,21 @@ module Amazonka.Kafka.Types
     newCloudWatchLogs,
     cloudWatchLogs_logGroup,
     cloudWatchLogs_enabled,
+
+    -- * Cluster
+    Cluster (..),
+    newCluster,
+    cluster_clusterArn,
+    cluster_tags,
+    cluster_serverless,
+    cluster_stateInfo,
+    cluster_state,
+    cluster_currentVersion,
+    cluster_provisioned,
+    cluster_creationTime,
+    cluster_activeOperationArn,
+    cluster_clusterType,
+    cluster_clusterName,
 
     -- * ClusterInfo
     ClusterInfo (..),
@@ -177,9 +197,15 @@ module Amazonka.Kafka.Types
     configurationRevision_revision,
     configurationRevision_creationTime,
 
+    -- * ConnectivityInfo
+    ConnectivityInfo (..),
+    newConnectivityInfo,
+    connectivityInfo_publicAccess,
+
     -- * EBSStorageInfo
     EBSStorageInfo (..),
     newEBSStorageInfo,
+    eBSStorageInfo_provisionedThroughput,
     eBSStorageInfo_volumeSize,
 
     -- * EncryptionAtRest
@@ -241,6 +267,7 @@ module Amazonka.Kafka.Types
     MutableClusterInfo (..),
     newMutableClusterInfo,
     mutableClusterInfo_openMonitoring,
+    mutableClusterInfo_connectivityInfo,
     mutableClusterInfo_encryptionInfo,
     mutableClusterInfo_numberOfBrokerNodes,
     mutableClusterInfo_clientAuthentication,
@@ -293,6 +320,44 @@ module Amazonka.Kafka.Types
     prometheusInfo_jmxExporter,
     prometheusInfo_nodeExporter,
 
+    -- * Provisioned
+    Provisioned (..),
+    newProvisioned,
+    provisioned_openMonitoring,
+    provisioned_encryptionInfo,
+    provisioned_clientAuthentication,
+    provisioned_zookeeperConnectString,
+    provisioned_loggingInfo,
+    provisioned_currentBrokerSoftwareInfo,
+    provisioned_zookeeperConnectStringTls,
+    provisioned_enhancedMonitoring,
+    provisioned_brokerNodeGroupInfo,
+    provisioned_numberOfBrokerNodes,
+
+    -- * ProvisionedRequest
+    ProvisionedRequest (..),
+    newProvisionedRequest,
+    provisionedRequest_openMonitoring,
+    provisionedRequest_encryptionInfo,
+    provisionedRequest_clientAuthentication,
+    provisionedRequest_loggingInfo,
+    provisionedRequest_configurationInfo,
+    provisionedRequest_enhancedMonitoring,
+    provisionedRequest_brokerNodeGroupInfo,
+    provisionedRequest_kafkaVersion,
+    provisionedRequest_numberOfBrokerNodes,
+
+    -- * ProvisionedThroughput
+    ProvisionedThroughput (..),
+    newProvisionedThroughput,
+    provisionedThroughput_enabled,
+    provisionedThroughput_volumeThroughput,
+
+    -- * PublicAccess
+    PublicAccess (..),
+    newPublicAccess,
+    publicAccess_type,
+
     -- * S3
     S3 (..),
     newS3,
@@ -310,6 +375,28 @@ module Amazonka.Kafka.Types
     Scram (..),
     newScram,
     scram_enabled,
+
+    -- * Serverless
+    Serverless (..),
+    newServerless,
+    serverless_clientAuthentication,
+    serverless_vpcConfigs,
+
+    -- * ServerlessClientAuthentication
+    ServerlessClientAuthentication (..),
+    newServerlessClientAuthentication,
+    serverlessClientAuthentication_sasl,
+
+    -- * ServerlessRequest
+    ServerlessRequest (..),
+    newServerlessRequest,
+    serverlessRequest_clientAuthentication,
+    serverlessRequest_vpcConfigs,
+
+    -- * ServerlessSasl
+    ServerlessSasl (..),
+    newServerlessSasl,
+    serverlessSasl_iam,
 
     -- * StateInfo
     StateInfo (..),
@@ -340,6 +427,12 @@ module Amazonka.Kafka.Types
     unprocessedScramSecret_secretArn,
     unprocessedScramSecret_errorCode,
 
+    -- * VpcConfig
+    VpcConfig (..),
+    newVpcConfig,
+    vpcConfig_securityGroupIds,
+    vpcConfig_subnetIds,
+
     -- * ZookeeperNodeInfo
     ZookeeperNodeInfo (..),
     newZookeeperNodeInfo,
@@ -361,16 +454,19 @@ import Amazonka.Kafka.Types.BrokerSoftwareInfo
 import Amazonka.Kafka.Types.ClientAuthentication
 import Amazonka.Kafka.Types.ClientBroker
 import Amazonka.Kafka.Types.CloudWatchLogs
+import Amazonka.Kafka.Types.Cluster
 import Amazonka.Kafka.Types.ClusterInfo
 import Amazonka.Kafka.Types.ClusterOperationInfo
 import Amazonka.Kafka.Types.ClusterOperationStep
 import Amazonka.Kafka.Types.ClusterOperationStepInfo
 import Amazonka.Kafka.Types.ClusterState
+import Amazonka.Kafka.Types.ClusterType
 import Amazonka.Kafka.Types.CompatibleKafkaVersion
 import Amazonka.Kafka.Types.Configuration
 import Amazonka.Kafka.Types.ConfigurationInfo
 import Amazonka.Kafka.Types.ConfigurationRevision
 import Amazonka.Kafka.Types.ConfigurationState
+import Amazonka.Kafka.Types.ConnectivityInfo
 import Amazonka.Kafka.Types.EBSStorageInfo
 import Amazonka.Kafka.Types.EncryptionAtRest
 import Amazonka.Kafka.Types.EncryptionInTransit
@@ -393,14 +489,23 @@ import Amazonka.Kafka.Types.OpenMonitoring
 import Amazonka.Kafka.Types.OpenMonitoringInfo
 import Amazonka.Kafka.Types.Prometheus
 import Amazonka.Kafka.Types.PrometheusInfo
+import Amazonka.Kafka.Types.Provisioned
+import Amazonka.Kafka.Types.ProvisionedRequest
+import Amazonka.Kafka.Types.ProvisionedThroughput
+import Amazonka.Kafka.Types.PublicAccess
 import Amazonka.Kafka.Types.S3
 import Amazonka.Kafka.Types.Sasl
 import Amazonka.Kafka.Types.Scram
+import Amazonka.Kafka.Types.Serverless
+import Amazonka.Kafka.Types.ServerlessClientAuthentication
+import Amazonka.Kafka.Types.ServerlessRequest
+import Amazonka.Kafka.Types.ServerlessSasl
 import Amazonka.Kafka.Types.StateInfo
 import Amazonka.Kafka.Types.StorageInfo
 import Amazonka.Kafka.Types.Tls
 import Amazonka.Kafka.Types.Unauthenticated
 import Amazonka.Kafka.Types.UnprocessedScramSecret
+import Amazonka.Kafka.Types.VpcConfig
 import Amazonka.Kafka.Types.ZookeeperNodeInfo
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude

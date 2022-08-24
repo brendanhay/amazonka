@@ -64,7 +64,7 @@ data ClusterInfo = ClusterInfo'
     activeOperationArn :: Prelude.Maybe Prelude.Text,
     loggingInfo :: Prelude.Maybe LoggingInfo,
     -- | Information about the version of software currently deployed on the
-    -- Kafka brokers in the cluster.
+    -- Apache Kafka brokers in the cluster.
     currentBrokerSoftwareInfo :: Prelude.Maybe BrokerSoftwareInfo,
     -- | The name of the cluster.
     clusterName :: Prelude.Maybe Prelude.Text,
@@ -118,7 +118,7 @@ data ClusterInfo = ClusterInfo'
 -- 'loggingInfo', 'clusterInfo_loggingInfo' - Undocumented member.
 --
 -- 'currentBrokerSoftwareInfo', 'clusterInfo_currentBrokerSoftwareInfo' - Information about the version of software currently deployed on the
--- Kafka brokers in the cluster.
+-- Apache Kafka brokers in the cluster.
 --
 -- 'clusterName', 'clusterInfo_clusterName' - The name of the cluster.
 --
@@ -212,7 +212,7 @@ clusterInfo_loggingInfo :: Lens.Lens' ClusterInfo (Prelude.Maybe LoggingInfo)
 clusterInfo_loggingInfo = Lens.lens (\ClusterInfo' {loggingInfo} -> loggingInfo) (\s@ClusterInfo' {} a -> s {loggingInfo = a} :: ClusterInfo)
 
 -- | Information about the version of software currently deployed on the
--- Kafka brokers in the cluster.
+-- Apache Kafka brokers in the cluster.
 clusterInfo_currentBrokerSoftwareInfo :: Lens.Lens' ClusterInfo (Prelude.Maybe BrokerSoftwareInfo)
 clusterInfo_currentBrokerSoftwareInfo = Lens.lens (\ClusterInfo' {currentBrokerSoftwareInfo} -> currentBrokerSoftwareInfo) (\s@ClusterInfo' {} a -> s {currentBrokerSoftwareInfo = a} :: ClusterInfo)
 

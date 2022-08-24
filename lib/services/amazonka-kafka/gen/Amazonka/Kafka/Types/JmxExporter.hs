@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Indicates whether you want to enable or disable the JMX Exporter.
+-- | Indicates whether you want to turn on or turn off the JMX Exporter.
 --
 -- /See:/ 'newJmxExporter' smart constructor.
 data JmxExporter = JmxExporter'
-  { -- | Indicates whether you want to enable or disable the JMX Exporter.
+  { -- | Indicates whether you want to turn on or turn off the JMX Exporter.
     enabledInBroker :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,7 +40,7 @@ data JmxExporter = JmxExporter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'enabledInBroker', 'jmxExporter_enabledInBroker' - Indicates whether you want to enable or disable the JMX Exporter.
+-- 'enabledInBroker', 'jmxExporter_enabledInBroker' - Indicates whether you want to turn on or turn off the JMX Exporter.
 newJmxExporter ::
   -- | 'enabledInBroker'
   Prelude.Bool ->
@@ -48,7 +48,7 @@ newJmxExporter ::
 newJmxExporter pEnabledInBroker_ =
   JmxExporter' {enabledInBroker = pEnabledInBroker_}
 
--- | Indicates whether you want to enable or disable the JMX Exporter.
+-- | Indicates whether you want to turn on or turn off the JMX Exporter.
 jmxExporter_enabledInBroker :: Lens.Lens' JmxExporter Prelude.Bool
 jmxExporter_enabledInBroker = Lens.lens (\JmxExporter' {enabledInBroker} -> enabledInBroker) (\s@JmxExporter' {} a -> s {enabledInBroker = a} :: JmxExporter)
 

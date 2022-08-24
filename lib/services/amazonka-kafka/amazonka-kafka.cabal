@@ -47,11 +47,13 @@ library
     Amazonka.Kafka.BatchAssociateScramSecret
     Amazonka.Kafka.BatchDisassociateScramSecret
     Amazonka.Kafka.CreateCluster
+    Amazonka.Kafka.CreateClusterV2
     Amazonka.Kafka.CreateConfiguration
     Amazonka.Kafka.DeleteCluster
     Amazonka.Kafka.DeleteConfiguration
     Amazonka.Kafka.DescribeCluster
     Amazonka.Kafka.DescribeClusterOperation
+    Amazonka.Kafka.DescribeClusterV2
     Amazonka.Kafka.DescribeConfiguration
     Amazonka.Kafka.DescribeConfigurationRevision
     Amazonka.Kafka.GetBootstrapBrokers
@@ -59,6 +61,7 @@ library
     Amazonka.Kafka.Lens
     Amazonka.Kafka.ListClusterOperations
     Amazonka.Kafka.ListClusters
+    Amazonka.Kafka.ListClustersV2
     Amazonka.Kafka.ListConfigurationRevisions
     Amazonka.Kafka.ListConfigurations
     Amazonka.Kafka.ListKafkaVersions
@@ -77,16 +80,19 @@ library
     Amazonka.Kafka.Types.ClientAuthentication
     Amazonka.Kafka.Types.ClientBroker
     Amazonka.Kafka.Types.CloudWatchLogs
+    Amazonka.Kafka.Types.Cluster
     Amazonka.Kafka.Types.ClusterInfo
     Amazonka.Kafka.Types.ClusterOperationInfo
     Amazonka.Kafka.Types.ClusterOperationStep
     Amazonka.Kafka.Types.ClusterOperationStepInfo
     Amazonka.Kafka.Types.ClusterState
+    Amazonka.Kafka.Types.ClusterType
     Amazonka.Kafka.Types.CompatibleKafkaVersion
     Amazonka.Kafka.Types.Configuration
     Amazonka.Kafka.Types.ConfigurationInfo
     Amazonka.Kafka.Types.ConfigurationRevision
     Amazonka.Kafka.Types.ConfigurationState
+    Amazonka.Kafka.Types.ConnectivityInfo
     Amazonka.Kafka.Types.EBSStorageInfo
     Amazonka.Kafka.Types.EncryptionAtRest
     Amazonka.Kafka.Types.EncryptionInfo
@@ -109,14 +115,23 @@ library
     Amazonka.Kafka.Types.OpenMonitoringInfo
     Amazonka.Kafka.Types.Prometheus
     Amazonka.Kafka.Types.PrometheusInfo
+    Amazonka.Kafka.Types.Provisioned
+    Amazonka.Kafka.Types.ProvisionedRequest
+    Amazonka.Kafka.Types.ProvisionedThroughput
+    Amazonka.Kafka.Types.PublicAccess
     Amazonka.Kafka.Types.S3
     Amazonka.Kafka.Types.Sasl
     Amazonka.Kafka.Types.Scram
+    Amazonka.Kafka.Types.Serverless
+    Amazonka.Kafka.Types.ServerlessClientAuthentication
+    Amazonka.Kafka.Types.ServerlessRequest
+    Amazonka.Kafka.Types.ServerlessSasl
     Amazonka.Kafka.Types.StateInfo
     Amazonka.Kafka.Types.StorageInfo
     Amazonka.Kafka.Types.Tls
     Amazonka.Kafka.Types.Unauthenticated
     Amazonka.Kafka.Types.UnprocessedScramSecret
+    Amazonka.Kafka.Types.VpcConfig
     Amazonka.Kafka.Types.ZookeeperNodeInfo
     Amazonka.Kafka.UntagResource
     Amazonka.Kafka.UpdateBrokerCount
@@ -125,6 +140,7 @@ library
     Amazonka.Kafka.UpdateClusterConfiguration
     Amazonka.Kafka.UpdateClusterKafkaVersion
     Amazonka.Kafka.UpdateConfiguration
+    Amazonka.Kafka.UpdateConnectivity
     Amazonka.Kafka.UpdateMonitoring
     Amazonka.Kafka.UpdateSecurity
     Amazonka.Kafka.Waiters

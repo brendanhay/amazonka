@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPrometheusInfo' smart constructor.
 data PrometheusInfo = PrometheusInfo'
-  { -- | Indicates whether you want to enable or disable the JMX Exporter.
+  { -- | Indicates whether you want to turn on or turn off the JMX Exporter.
     jmxExporter :: Prelude.Maybe JmxExporterInfo,
-    -- | Indicates whether you want to enable or disable the Node Exporter.
+    -- | Indicates whether you want to turn on or turn off the Node Exporter.
     nodeExporter :: Prelude.Maybe NodeExporterInfo
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +44,9 @@ data PrometheusInfo = PrometheusInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jmxExporter', 'prometheusInfo_jmxExporter' - Indicates whether you want to enable or disable the JMX Exporter.
+-- 'jmxExporter', 'prometheusInfo_jmxExporter' - Indicates whether you want to turn on or turn off the JMX Exporter.
 --
--- 'nodeExporter', 'prometheusInfo_nodeExporter' - Indicates whether you want to enable or disable the Node Exporter.
+-- 'nodeExporter', 'prometheusInfo_nodeExporter' - Indicates whether you want to turn on or turn off the Node Exporter.
 newPrometheusInfo ::
   PrometheusInfo
 newPrometheusInfo =
@@ -55,13 +55,23 @@ newPrometheusInfo =
       nodeExporter = Prelude.Nothing
     }
 
--- | Indicates whether you want to enable or disable the JMX Exporter.
+-- | Indicates whether you want to turn on or turn off the JMX Exporter.
 prometheusInfo_jmxExporter :: Lens.Lens' PrometheusInfo (Prelude.Maybe JmxExporterInfo)
 prometheusInfo_jmxExporter = Lens.lens (\PrometheusInfo' {jmxExporter} -> jmxExporter) (\s@PrometheusInfo' {} a -> s {jmxExporter = a} :: PrometheusInfo)
 
--- | Indicates whether you want to enable or disable the Node Exporter.
+-- | Indicates whether you want to turn on or turn off the Node Exporter.
 prometheusInfo_nodeExporter :: Lens.Lens' PrometheusInfo (Prelude.Maybe NodeExporterInfo)
 prometheusInfo_nodeExporter = Lens.lens (\PrometheusInfo' {nodeExporter} -> nodeExporter) (\s@PrometheusInfo' {} a -> s {nodeExporter = a} :: PrometheusInfo)
+
+instance Core.FromJSON PrometheusInfo where
+  parseJSON =
+    Core.withObject
+      "PrometheusInfo"
+      ( \x ->
+          PrometheusInfo'
+            Prelude.<$> (x Core..:? "jmxExporter")
+            Prelude.<*> (x Core..:? "nodeExporter")
+      )
 
 instance Prelude.Hashable PrometheusInfo where
   hashWithSalt _salt PrometheusInfo' {..} =

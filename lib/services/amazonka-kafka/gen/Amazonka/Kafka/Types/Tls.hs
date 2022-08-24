@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data Tls = Tls'
   { -- | List of ACM Certificate Authority ARNs.
     certificateAuthorityArnList :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether you want to enable or disable TLS authentication.
+    -- | Specifies whether you want to turn on or turn off TLS authentication.
     enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data Tls = Tls'
 --
 -- 'certificateAuthorityArnList', 'tls_certificateAuthorityArnList' - List of ACM Certificate Authority ARNs.
 --
--- 'enabled', 'tls_enabled' - Specifies whether you want to enable or disable TLS authentication.
+-- 'enabled', 'tls_enabled' - Specifies whether you want to turn on or turn off TLS authentication.
 newTls ::
   Tls
 newTls =
@@ -57,7 +57,7 @@ newTls =
 tls_certificateAuthorityArnList :: Lens.Lens' Tls (Prelude.Maybe [Prelude.Text])
 tls_certificateAuthorityArnList = Lens.lens (\Tls' {certificateAuthorityArnList} -> certificateAuthorityArnList) (\s@Tls' {} a -> s {certificateAuthorityArnList = a} :: Tls) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether you want to enable or disable TLS authentication.
+-- | Specifies whether you want to turn on or turn off TLS authentication.
 tls_enabled :: Lens.Lens' Tls (Prelude.Maybe Prelude.Bool)
 tls_enabled = Lens.lens (\Tls' {enabled} -> enabled) (\s@Tls' {} a -> s {enabled = a} :: Tls)
 

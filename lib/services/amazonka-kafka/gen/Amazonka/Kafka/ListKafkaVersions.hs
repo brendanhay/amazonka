@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of Kafka versions.
+-- Returns a list of Apache Kafka versions.
 --
 -- This operation returns paginated results.
 module Amazonka.Kafka.ListKafkaVersions

@@ -28,6 +28,7 @@ module Amazonka.FIS.UpdateExperimentTemplate
 
     -- * Request Lenses
     updateExperimentTemplate_stopConditions,
+    updateExperimentTemplate_logConfiguration,
     updateExperimentTemplate_roleArn,
     updateExperimentTemplate_targets,
     updateExperimentTemplate_description,
@@ -55,7 +56,9 @@ import qualified Amazonka.Response as Response
 data UpdateExperimentTemplate = UpdateExperimentTemplate'
   { -- | The stop conditions for the experiment.
     stopConditions :: Prelude.Maybe [UpdateExperimentTemplateStopConditionInput],
-    -- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+    -- | The configuration for experiment logging.
+    logConfiguration :: Prelude.Maybe UpdateExperimentTemplateLogConfigurationInput,
+    -- | The Amazon Resource Name (ARN) of an IAM role that grants the FIS
     -- service permission to perform service actions on your behalf.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The targets for the experiment.
@@ -79,7 +82,9 @@ data UpdateExperimentTemplate = UpdateExperimentTemplate'
 --
 -- 'stopConditions', 'updateExperimentTemplate_stopConditions' - The stop conditions for the experiment.
 --
--- 'roleArn', 'updateExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+-- 'logConfiguration', 'updateExperimentTemplate_logConfiguration' - The configuration for experiment logging.
+--
+-- 'roleArn', 'updateExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the FIS
 -- service permission to perform service actions on your behalf.
 --
 -- 'targets', 'updateExperimentTemplate_targets' - The targets for the experiment.
@@ -97,6 +102,7 @@ newUpdateExperimentTemplate pId_ =
   UpdateExperimentTemplate'
     { stopConditions =
         Prelude.Nothing,
+      logConfiguration = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       targets = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -108,7 +114,11 @@ newUpdateExperimentTemplate pId_ =
 updateExperimentTemplate_stopConditions :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe [UpdateExperimentTemplateStopConditionInput])
 updateExperimentTemplate_stopConditions = Lens.lens (\UpdateExperimentTemplate' {stopConditions} -> stopConditions) (\s@UpdateExperimentTemplate' {} a -> s {stopConditions = a} :: UpdateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+-- | The configuration for experiment logging.
+updateExperimentTemplate_logConfiguration :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe UpdateExperimentTemplateLogConfigurationInput)
+updateExperimentTemplate_logConfiguration = Lens.lens (\UpdateExperimentTemplate' {logConfiguration} -> logConfiguration) (\s@UpdateExperimentTemplate' {} a -> s {logConfiguration = a} :: UpdateExperimentTemplate)
+
+-- | The Amazon Resource Name (ARN) of an IAM role that grants the FIS
 -- service permission to perform service actions on your behalf.
 updateExperimentTemplate_roleArn :: Lens.Lens' UpdateExperimentTemplate (Prelude.Maybe Prelude.Text)
 updateExperimentTemplate_roleArn = Lens.lens (\UpdateExperimentTemplate' {roleArn} -> roleArn) (\s@UpdateExperimentTemplate' {} a -> s {roleArn = a} :: UpdateExperimentTemplate)
@@ -145,6 +155,7 @@ instance Core.AWSRequest UpdateExperimentTemplate where
 instance Prelude.Hashable UpdateExperimentTemplate where
   hashWithSalt _salt UpdateExperimentTemplate' {..} =
     _salt `Prelude.hashWithSalt` stopConditions
+      `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` description
@@ -154,6 +165,7 @@ instance Prelude.Hashable UpdateExperimentTemplate where
 instance Prelude.NFData UpdateExperimentTemplate where
   rnf UpdateExperimentTemplate' {..} =
     Prelude.rnf stopConditions
+      `Prelude.seq` Prelude.rnf logConfiguration
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf description
@@ -177,6 +189,8 @@ instance Core.ToJSON UpdateExperimentTemplate where
       ( Prelude.catMaybes
           [ ("stopConditions" Core..=)
               Prelude.<$> stopConditions,
+            ("logConfiguration" Core..=)
+              Prelude.<$> logConfiguration,
             ("roleArn" Core..=) Prelude.<$> roleArn,
             ("targets" Core..=) Prelude.<$> targets,
             ("description" Core..=) Prelude.<$> description,

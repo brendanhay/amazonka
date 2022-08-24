@@ -21,6 +21,7 @@ module Amazonka.FIS.Types.Experiment where
 
 import qualified Amazonka.Core as Core
 import Amazonka.FIS.Types.ExperimentAction
+import Amazonka.FIS.Types.ExperimentLogConfiguration
 import Amazonka.FIS.Types.ExperimentState
 import Amazonka.FIS.Types.ExperimentStopCondition
 import Amazonka.FIS.Types.ExperimentTarget
@@ -35,7 +36,9 @@ data Experiment = Experiment'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The stop conditions for the experiment.
     stopConditions :: Prelude.Maybe [ExperimentStopCondition],
-    -- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+    -- | The configuration for experiment logging.
+    logConfiguration :: Prelude.Maybe ExperimentLogConfiguration,
+    -- | The Amazon Resource Name (ARN) of an IAM role that grants the FIS
     -- service permission to perform service actions on your behalf.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The state of the experiment.
@@ -48,9 +51,9 @@ data Experiment = Experiment'
     id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the experiment template.
     experimentTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The time the experiment was created.
+    -- | The time that the experiment was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The time that the experiment was started.
+    -- | The time that the experiment started.
     startTime :: Prelude.Maybe Core.POSIX,
     -- | The actions for the experiment.
     actions :: Prelude.Maybe (Prelude.HashMap Prelude.Text ExperimentAction)
@@ -69,7 +72,9 @@ data Experiment = Experiment'
 --
 -- 'stopConditions', 'experiment_stopConditions' - The stop conditions for the experiment.
 --
--- 'roleArn', 'experiment_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+-- 'logConfiguration', 'experiment_logConfiguration' - The configuration for experiment logging.
+--
+-- 'roleArn', 'experiment_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the FIS
 -- service permission to perform service actions on your behalf.
 --
 -- 'state', 'experiment_state' - The state of the experiment.
@@ -82,9 +87,9 @@ data Experiment = Experiment'
 --
 -- 'experimentTemplateId', 'experiment_experimentTemplateId' - The ID of the experiment template.
 --
--- 'creationTime', 'experiment_creationTime' - The time the experiment was created.
+-- 'creationTime', 'experiment_creationTime' - The time that the experiment was created.
 --
--- 'startTime', 'experiment_startTime' - The time that the experiment was started.
+-- 'startTime', 'experiment_startTime' - The time that the experiment started.
 --
 -- 'actions', 'experiment_actions' - The actions for the experiment.
 newExperiment ::
@@ -93,6 +98,7 @@ newExperiment =
   Experiment'
     { tags = Prelude.Nothing,
       stopConditions = Prelude.Nothing,
+      logConfiguration = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       state = Prelude.Nothing,
       targets = Prelude.Nothing,
@@ -112,7 +118,11 @@ experiment_tags = Lens.lens (\Experiment' {tags} -> tags) (\s@Experiment' {} a -
 experiment_stopConditions :: Lens.Lens' Experiment (Prelude.Maybe [ExperimentStopCondition])
 experiment_stopConditions = Lens.lens (\Experiment' {stopConditions} -> stopConditions) (\s@Experiment' {} a -> s {stopConditions = a} :: Experiment) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+-- | The configuration for experiment logging.
+experiment_logConfiguration :: Lens.Lens' Experiment (Prelude.Maybe ExperimentLogConfiguration)
+experiment_logConfiguration = Lens.lens (\Experiment' {logConfiguration} -> logConfiguration) (\s@Experiment' {} a -> s {logConfiguration = a} :: Experiment)
+
+-- | The Amazon Resource Name (ARN) of an IAM role that grants the FIS
 -- service permission to perform service actions on your behalf.
 experiment_roleArn :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
 experiment_roleArn = Lens.lens (\Experiment' {roleArn} -> roleArn) (\s@Experiment' {} a -> s {roleArn = a} :: Experiment)
@@ -137,11 +147,11 @@ experiment_id = Lens.lens (\Experiment' {id} -> id) (\s@Experiment' {} a -> s {i
 experiment_experimentTemplateId :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
 experiment_experimentTemplateId = Lens.lens (\Experiment' {experimentTemplateId} -> experimentTemplateId) (\s@Experiment' {} a -> s {experimentTemplateId = a} :: Experiment)
 
--- | The time the experiment was created.
+-- | The time that the experiment was created.
 experiment_creationTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
 experiment_creationTime = Lens.lens (\Experiment' {creationTime} -> creationTime) (\s@Experiment' {} a -> s {creationTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
 
--- | The time that the experiment was started.
+-- | The time that the experiment started.
 experiment_startTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
 experiment_startTime = Lens.lens (\Experiment' {startTime} -> startTime) (\s@Experiment' {} a -> s {startTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
 
@@ -157,6 +167,7 @@ instance Core.FromJSON Experiment where
           Experiment'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "stopConditions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "logConfiguration")
             Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "targets" Core..!= Prelude.mempty)
@@ -172,6 +183,7 @@ instance Prelude.Hashable Experiment where
   hashWithSalt _salt Experiment' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` stopConditions
+      `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` targets
@@ -186,6 +198,7 @@ instance Prelude.NFData Experiment where
   rnf Experiment' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf stopConditions
+      `Prelude.seq` Prelude.rnf logConfiguration
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf targets

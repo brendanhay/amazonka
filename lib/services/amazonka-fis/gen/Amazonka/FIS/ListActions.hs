@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the available AWS FIS actions.
+-- Lists the available FIS actions.
 module Amazonka.FIS.ListActions
   ( -- * Creating a Request
     ListActions (..),

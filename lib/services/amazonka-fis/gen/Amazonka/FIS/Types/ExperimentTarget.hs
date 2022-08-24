@@ -35,6 +35,8 @@ data ExperimentTarget = ExperimentTarget'
     filters :: Prelude.Maybe [ExperimentTargetFilter],
     -- | The tags for the target resources.
     resourceTags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The resource type parameters.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The Amazon Resource Names (ARNs) of the resources.
     resourceArns :: Prelude.Maybe [Prelude.Text],
     -- | Scopes the identified resources to a specific count or percentage.
@@ -57,6 +59,8 @@ data ExperimentTarget = ExperimentTarget'
 --
 -- 'resourceTags', 'experimentTarget_resourceTags' - The tags for the target resources.
 --
+-- 'parameters', 'experimentTarget_parameters' - The resource type parameters.
+--
 -- 'resourceArns', 'experimentTarget_resourceArns' - The Amazon Resource Names (ARNs) of the resources.
 --
 -- 'selectionMode', 'experimentTarget_selectionMode' - Scopes the identified resources to a specific count or percentage.
@@ -67,6 +71,7 @@ newExperimentTarget =
     { resourceType = Prelude.Nothing,
       filters = Prelude.Nothing,
       resourceTags = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       resourceArns = Prelude.Nothing,
       selectionMode = Prelude.Nothing
     }
@@ -83,6 +88,10 @@ experimentTarget_filters = Lens.lens (\ExperimentTarget' {filters} -> filters) (
 -- | The tags for the target resources.
 experimentTarget_resourceTags :: Lens.Lens' ExperimentTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 experimentTarget_resourceTags = Lens.lens (\ExperimentTarget' {resourceTags} -> resourceTags) (\s@ExperimentTarget' {} a -> s {resourceTags = a} :: ExperimentTarget) Prelude.. Lens.mapping Lens.coerced
+
+-- | The resource type parameters.
+experimentTarget_parameters :: Lens.Lens' ExperimentTarget (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+experimentTarget_parameters = Lens.lens (\ExperimentTarget' {parameters} -> parameters) (\s@ExperimentTarget' {} a -> s {parameters = a} :: ExperimentTarget) Prelude.. Lens.mapping Lens.coerced
 
 -- | The Amazon Resource Names (ARNs) of the resources.
 experimentTarget_resourceArns :: Lens.Lens' ExperimentTarget (Prelude.Maybe [Prelude.Text])
@@ -101,6 +110,7 @@ instance Core.FromJSON ExperimentTarget where
             Prelude.<$> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "filters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "resourceTags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "resourceArns" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "selectionMode")
       )
@@ -110,6 +120,7 @@ instance Prelude.Hashable ExperimentTarget where
     _salt `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` filters
       `Prelude.hashWithSalt` resourceTags
+      `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` resourceArns
       `Prelude.hashWithSalt` selectionMode
 
@@ -118,5 +129,6 @@ instance Prelude.NFData ExperimentTarget where
     Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf filters
       `Prelude.seq` Prelude.rnf resourceTags
+      `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf resourceArns
       `Prelude.seq` Prelude.rnf selectionMode

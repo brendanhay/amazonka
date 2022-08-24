@@ -23,8 +23,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a filter used for the target resource input in an experiment
+-- | Specifies a filter used for the target resource input in an experiment
 -- template.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters Resource filters>
+-- in the /Fault Injection Simulator User Guide/.
 --
 -- /See:/ 'newExperimentTemplateTargetInputFilter' smart constructor.
 data ExperimentTemplateTargetInputFilter = ExperimentTemplateTargetInputFilter'

@@ -22,11 +22,11 @@
 --
 -- Creates an experiment template.
 --
--- To create a template, specify the following information:
+-- An experiment template includes the following components:
 --
--- -   __Targets__: A target can be a specific resource in your AWS
---     environment, or one or more resources that match criteria that you
---     specify, for example, resources that have specific tags.
+-- -   __Targets__: A target can be a specific resource in your Amazon Web
+--     Services environment, or one or more resources that match criteria
+--     that you specify, for example, resources that have specific tags.
 --
 -- -   __Actions__: The actions to carry out on the target. You can specify
 --     multiple actions, the duration of each action, and when to start
@@ -36,8 +36,9 @@
 --     experiment is running, the experiment is automatically stopped. You
 --     can define a stop condition as a CloudWatch alarm.
 --
--- For more information, see the
--- <https://docs.aws.amazon.com/fis/latest/userguide/ AWS Fault Injection Simulator User Guide>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html Experiment templates>
+-- in the /Fault Injection Simulator User Guide/.
 module Amazonka.FIS.CreateExperimentTemplate
   ( -- * Creating a Request
     CreateExperimentTemplate (..),
@@ -45,6 +46,7 @@ module Amazonka.FIS.CreateExperimentTemplate
 
     -- * Request Lenses
     createExperimentTemplate_tags,
+    createExperimentTemplate_logConfiguration,
     createExperimentTemplate_targets,
     createExperimentTemplate_clientToken,
     createExperimentTemplate_description,
@@ -73,19 +75,20 @@ import qualified Amazonka.Response as Response
 data CreateExperimentTemplate = CreateExperimentTemplate'
   { -- | The tags to apply to the experiment template.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The configuration for experiment logging.
+    logConfiguration :: Prelude.Maybe CreateExperimentTemplateLogConfigurationInput,
     -- | The targets for the experiment.
     targets :: Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Text,
-    -- | A description for the experiment template. Can contain up to 64 letters
-    -- (A-Z and a-z).
+    -- | A description for the experiment template.
     description :: Prelude.Text,
     -- | The stop conditions.
     stopConditions :: [CreateExperimentTemplateStopConditionInput],
     -- | The actions for the experiment.
     actions :: Prelude.HashMap Prelude.Text CreateExperimentTemplateActionInput,
-    -- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+    -- | The Amazon Resource Name (ARN) of an IAM role that grants the FIS
     -- service permission to perform service actions on your behalf.
     roleArn :: Prelude.Text
   }
@@ -101,19 +104,20 @@ data CreateExperimentTemplate = CreateExperimentTemplate'
 --
 -- 'tags', 'createExperimentTemplate_tags' - The tags to apply to the experiment template.
 --
+-- 'logConfiguration', 'createExperimentTemplate_logConfiguration' - The configuration for experiment logging.
+--
 -- 'targets', 'createExperimentTemplate_targets' - The targets for the experiment.
 --
 -- 'clientToken', 'createExperimentTemplate_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'description', 'createExperimentTemplate_description' - A description for the experiment template. Can contain up to 64 letters
--- (A-Z and a-z).
+-- 'description', 'createExperimentTemplate_description' - A description for the experiment template.
 --
 -- 'stopConditions', 'createExperimentTemplate_stopConditions' - The stop conditions.
 --
 -- 'actions', 'createExperimentTemplate_actions' - The actions for the experiment.
 --
--- 'roleArn', 'createExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+-- 'roleArn', 'createExperimentTemplate_roleArn' - The Amazon Resource Name (ARN) of an IAM role that grants the FIS
 -- service permission to perform service actions on your behalf.
 newCreateExperimentTemplate ::
   -- | 'clientToken'
@@ -129,6 +133,7 @@ newCreateExperimentTemplate
   pRoleArn_ =
     CreateExperimentTemplate'
       { tags = Prelude.Nothing,
+        logConfiguration = Prelude.Nothing,
         targets = Prelude.Nothing,
         clientToken = pClientToken_,
         description = pDescription_,
@@ -141,6 +146,10 @@ newCreateExperimentTemplate
 createExperimentTemplate_tags :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createExperimentTemplate_tags = Lens.lens (\CreateExperimentTemplate' {tags} -> tags) (\s@CreateExperimentTemplate' {} a -> s {tags = a} :: CreateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
 
+-- | The configuration for experiment logging.
+createExperimentTemplate_logConfiguration :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe CreateExperimentTemplateLogConfigurationInput)
+createExperimentTemplate_logConfiguration = Lens.lens (\CreateExperimentTemplate' {logConfiguration} -> logConfiguration) (\s@CreateExperimentTemplate' {} a -> s {logConfiguration = a} :: CreateExperimentTemplate)
+
 -- | The targets for the experiment.
 createExperimentTemplate_targets :: Lens.Lens' CreateExperimentTemplate (Prelude.Maybe (Prelude.HashMap Prelude.Text CreateExperimentTemplateTargetInput))
 createExperimentTemplate_targets = Lens.lens (\CreateExperimentTemplate' {targets} -> targets) (\s@CreateExperimentTemplate' {} a -> s {targets = a} :: CreateExperimentTemplate) Prelude.. Lens.mapping Lens.coerced
@@ -150,8 +159,7 @@ createExperimentTemplate_targets = Lens.lens (\CreateExperimentTemplate' {target
 createExperimentTemplate_clientToken :: Lens.Lens' CreateExperimentTemplate Prelude.Text
 createExperimentTemplate_clientToken = Lens.lens (\CreateExperimentTemplate' {clientToken} -> clientToken) (\s@CreateExperimentTemplate' {} a -> s {clientToken = a} :: CreateExperimentTemplate)
 
--- | A description for the experiment template. Can contain up to 64 letters
--- (A-Z and a-z).
+-- | A description for the experiment template.
 createExperimentTemplate_description :: Lens.Lens' CreateExperimentTemplate Prelude.Text
 createExperimentTemplate_description = Lens.lens (\CreateExperimentTemplate' {description} -> description) (\s@CreateExperimentTemplate' {} a -> s {description = a} :: CreateExperimentTemplate)
 
@@ -163,7 +171,7 @@ createExperimentTemplate_stopConditions = Lens.lens (\CreateExperimentTemplate' 
 createExperimentTemplate_actions :: Lens.Lens' CreateExperimentTemplate (Prelude.HashMap Prelude.Text CreateExperimentTemplateActionInput)
 createExperimentTemplate_actions = Lens.lens (\CreateExperimentTemplate' {actions} -> actions) (\s@CreateExperimentTemplate' {} a -> s {actions = a} :: CreateExperimentTemplate) Prelude.. Lens.coerced
 
--- | The Amazon Resource Name (ARN) of an IAM role that grants the AWS FIS
+-- | The Amazon Resource Name (ARN) of an IAM role that grants the FIS
 -- service permission to perform service actions on your behalf.
 createExperimentTemplate_roleArn :: Lens.Lens' CreateExperimentTemplate Prelude.Text
 createExperimentTemplate_roleArn = Lens.lens (\CreateExperimentTemplate' {roleArn} -> roleArn) (\s@CreateExperimentTemplate' {} a -> s {roleArn = a} :: CreateExperimentTemplate)
@@ -184,6 +192,7 @@ instance Core.AWSRequest CreateExperimentTemplate where
 instance Prelude.Hashable CreateExperimentTemplate where
   hashWithSalt _salt CreateExperimentTemplate' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` logConfiguration
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` description
@@ -194,6 +203,7 @@ instance Prelude.Hashable CreateExperimentTemplate where
 instance Prelude.NFData CreateExperimentTemplate where
   rnf CreateExperimentTemplate' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf logConfiguration
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf description
@@ -217,6 +227,8 @@ instance Core.ToJSON CreateExperimentTemplate where
     Core.object
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
+            ("logConfiguration" Core..=)
+              Prelude.<$> logConfiguration,
             ("targets" Core..=) Prelude.<$> targets,
             Prelude.Just ("clientToken" Core..= clientToken),
             Prelude.Just ("description" Core..= description),

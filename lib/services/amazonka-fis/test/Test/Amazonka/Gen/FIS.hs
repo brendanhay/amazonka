@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestGetExperimentTemplate $
 --             newGetExperimentTemplate
 --
+--         , requestGetTargetResourceType $
+--             newGetTargetResourceType
+--
 --         , requestListActions $
 --             newListActions
 --
@@ -53,6 +56,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListTargetResourceTypes $
+--             newListTargetResourceTypes
 --
 --         , requestStartExperiment $
 --             newStartExperiment
@@ -87,6 +93,9 @@ import Test.Tasty
 --         , responseGetExperimentTemplate $
 --             newGetExperimentTemplateResponse
 --
+--         , responseGetTargetResourceType $
+--             newGetTargetResourceTypeResponse
+--
 --         , responseListActions $
 --             newListActionsResponse
 --
@@ -98,6 +107,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListTargetResourceTypes $
+--             newListTargetResourceTypesResponse
 --
 --         , responseStartExperiment $
 --             newStartExperimentResponse
@@ -149,6 +161,12 @@ requestGetExperimentTemplate =
     "GetExperimentTemplate"
     "fixture/GetExperimentTemplate.yaml"
 
+requestGetTargetResourceType :: GetTargetResourceType -> TestTree
+requestGetTargetResourceType =
+  req
+    "GetTargetResourceType"
+    "fixture/GetTargetResourceType.yaml"
+
 requestListActions :: ListActions -> TestTree
 requestListActions =
   req
@@ -172,6 +190,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListTargetResourceTypes :: ListTargetResourceTypes -> TestTree
+requestListTargetResourceTypes =
+  req
+    "ListTargetResourceTypes"
+    "fixture/ListTargetResourceTypes.yaml"
 
 requestStartExperiment :: StartExperiment -> TestTree
 requestStartExperiment =
@@ -245,6 +269,14 @@ responseGetExperimentTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetExperimentTemplate)
 
+responseGetTargetResourceType :: GetTargetResourceTypeResponse -> TestTree
+responseGetTargetResourceType =
+  res
+    "GetTargetResourceTypeResponse"
+    "fixture/GetTargetResourceTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTargetResourceType)
+
 responseListActions :: ListActionsResponse -> TestTree
 responseListActions =
   res
@@ -276,6 +308,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTargetResourceTypes :: ListTargetResourceTypesResponse -> TestTree
+responseListTargetResourceTypes =
+  res
+    "ListTargetResourceTypesResponse"
+    "fixture/ListTargetResourceTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTargetResourceTypes)
 
 responseStartExperiment :: StartExperimentResponse -> TestTree
 responseStartExperiment =

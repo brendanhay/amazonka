@@ -49,11 +49,13 @@ library
     Amazonka.FIS.GetAction
     Amazonka.FIS.GetExperiment
     Amazonka.FIS.GetExperimentTemplate
+    Amazonka.FIS.GetTargetResourceType
     Amazonka.FIS.Lens
     Amazonka.FIS.ListActions
     Amazonka.FIS.ListExperiments
     Amazonka.FIS.ListExperimentTemplates
     Amazonka.FIS.ListTagsForResource
+    Amazonka.FIS.ListTargetResourceTypes
     Amazonka.FIS.StartExperiment
     Amazonka.FIS.StopExperiment
     Amazonka.FIS.TagResource
@@ -63,12 +65,16 @@ library
     Amazonka.FIS.Types.ActionSummary
     Amazonka.FIS.Types.ActionTarget
     Amazonka.FIS.Types.CreateExperimentTemplateActionInput
+    Amazonka.FIS.Types.CreateExperimentTemplateLogConfigurationInput
     Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput
     Amazonka.FIS.Types.CreateExperimentTemplateTargetInput
     Amazonka.FIS.Types.Experiment
     Amazonka.FIS.Types.ExperimentAction
     Amazonka.FIS.Types.ExperimentActionState
     Amazonka.FIS.Types.ExperimentActionStatus
+    Amazonka.FIS.Types.ExperimentCloudWatchLogsLogConfiguration
+    Amazonka.FIS.Types.ExperimentLogConfiguration
+    Amazonka.FIS.Types.ExperimentS3LogConfiguration
     Amazonka.FIS.Types.ExperimentState
     Amazonka.FIS.Types.ExperimentStatus
     Amazonka.FIS.Types.ExperimentStopCondition
@@ -77,12 +83,21 @@ library
     Amazonka.FIS.Types.ExperimentTargetFilter
     Amazonka.FIS.Types.ExperimentTemplate
     Amazonka.FIS.Types.ExperimentTemplateAction
+    Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfiguration
+    Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfigurationInput
+    Amazonka.FIS.Types.ExperimentTemplateLogConfiguration
+    Amazonka.FIS.Types.ExperimentTemplateS3LogConfiguration
+    Amazonka.FIS.Types.ExperimentTemplateS3LogConfigurationInput
     Amazonka.FIS.Types.ExperimentTemplateStopCondition
     Amazonka.FIS.Types.ExperimentTemplateSummary
     Amazonka.FIS.Types.ExperimentTemplateTarget
     Amazonka.FIS.Types.ExperimentTemplateTargetFilter
     Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter
+    Amazonka.FIS.Types.TargetResourceType
+    Amazonka.FIS.Types.TargetResourceTypeParameter
+    Amazonka.FIS.Types.TargetResourceTypeSummary
     Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem
+    Amazonka.FIS.Types.UpdateExperimentTemplateLogConfigurationInput
     Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput
     Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput
     Amazonka.FIS.UntagResource

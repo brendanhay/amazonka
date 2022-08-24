@@ -16,6 +16,7 @@ module Amazonka.FIS.Lens
 
     -- ** CreateExperimentTemplate
     createExperimentTemplate_tags,
+    createExperimentTemplate_logConfiguration,
     createExperimentTemplate_targets,
     createExperimentTemplate_clientToken,
     createExperimentTemplate_description,
@@ -45,6 +46,11 @@ module Amazonka.FIS.Lens
     getExperimentTemplateResponse_experimentTemplate,
     getExperimentTemplateResponse_httpStatus,
 
+    -- ** GetTargetResourceType
+    getTargetResourceType_resourceType,
+    getTargetResourceTypeResponse_targetResourceType,
+    getTargetResourceTypeResponse_httpStatus,
+
     -- ** ListActions
     listActions_nextToken,
     listActions_maxResults,
@@ -71,6 +77,13 @@ module Amazonka.FIS.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
+    -- ** ListTargetResourceTypes
+    listTargetResourceTypes_nextToken,
+    listTargetResourceTypes_maxResults,
+    listTargetResourceTypesResponse_nextToken,
+    listTargetResourceTypesResponse_targetResourceTypes,
+    listTargetResourceTypesResponse_httpStatus,
+
     -- ** StartExperiment
     startExperiment_tags,
     startExperiment_clientToken,
@@ -95,6 +108,7 @@ module Amazonka.FIS.Lens
 
     -- ** UpdateExperimentTemplate
     updateExperimentTemplate_stopConditions,
+    updateExperimentTemplate_logConfiguration,
     updateExperimentTemplate_roleArn,
     updateExperimentTemplate_targets,
     updateExperimentTemplate_description,
@@ -132,6 +146,11 @@ module Amazonka.FIS.Lens
     createExperimentTemplateActionInput_parameters,
     createExperimentTemplateActionInput_actionId,
 
+    -- ** CreateExperimentTemplateLogConfigurationInput
+    createExperimentTemplateLogConfigurationInput_s3Configuration,
+    createExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration,
+    createExperimentTemplateLogConfigurationInput_logSchemaVersion,
+
     -- ** CreateExperimentTemplateStopConditionInput
     createExperimentTemplateStopConditionInput_value,
     createExperimentTemplateStopConditionInput_source,
@@ -139,6 +158,7 @@ module Amazonka.FIS.Lens
     -- ** CreateExperimentTemplateTargetInput
     createExperimentTemplateTargetInput_filters,
     createExperimentTemplateTargetInput_resourceTags,
+    createExperimentTemplateTargetInput_parameters,
     createExperimentTemplateTargetInput_resourceArns,
     createExperimentTemplateTargetInput_resourceType,
     createExperimentTemplateTargetInput_selectionMode,
@@ -146,6 +166,7 @@ module Amazonka.FIS.Lens
     -- ** Experiment
     experiment_tags,
     experiment_stopConditions,
+    experiment_logConfiguration,
     experiment_roleArn,
     experiment_state,
     experiment_targets,
@@ -161,12 +182,26 @@ module Amazonka.FIS.Lens
     experimentAction_state,
     experimentAction_targets,
     experimentAction_description,
+    experimentAction_endTime,
     experimentAction_actionId,
+    experimentAction_startTime,
     experimentAction_parameters,
 
     -- ** ExperimentActionState
     experimentActionState_status,
     experimentActionState_reason,
+
+    -- ** ExperimentCloudWatchLogsLogConfiguration
+    experimentCloudWatchLogsLogConfiguration_logGroupArn,
+
+    -- ** ExperimentLogConfiguration
+    experimentLogConfiguration_s3Configuration,
+    experimentLogConfiguration_logSchemaVersion,
+    experimentLogConfiguration_cloudWatchLogsConfiguration,
+
+    -- ** ExperimentS3LogConfiguration
+    experimentS3LogConfiguration_bucketName,
+    experimentS3LogConfiguration_prefix,
 
     -- ** ExperimentState
     experimentState_status,
@@ -187,6 +222,7 @@ module Amazonka.FIS.Lens
     experimentTarget_resourceType,
     experimentTarget_filters,
     experimentTarget_resourceTags,
+    experimentTarget_parameters,
     experimentTarget_resourceArns,
     experimentTarget_selectionMode,
 
@@ -197,6 +233,7 @@ module Amazonka.FIS.Lens
     -- ** ExperimentTemplate
     experimentTemplate_tags,
     experimentTemplate_stopConditions,
+    experimentTemplate_logConfiguration,
     experimentTemplate_roleArn,
     experimentTemplate_targets,
     experimentTemplate_description,
@@ -211,6 +248,25 @@ module Amazonka.FIS.Lens
     experimentTemplateAction_description,
     experimentTemplateAction_actionId,
     experimentTemplateAction_parameters,
+
+    -- ** ExperimentTemplateCloudWatchLogsLogConfiguration
+    experimentTemplateCloudWatchLogsLogConfiguration_logGroupArn,
+
+    -- ** ExperimentTemplateCloudWatchLogsLogConfigurationInput
+    experimentTemplateCloudWatchLogsLogConfigurationInput_logGroupArn,
+
+    -- ** ExperimentTemplateLogConfiguration
+    experimentTemplateLogConfiguration_s3Configuration,
+    experimentTemplateLogConfiguration_logSchemaVersion,
+    experimentTemplateLogConfiguration_cloudWatchLogsConfiguration,
+
+    -- ** ExperimentTemplateS3LogConfiguration
+    experimentTemplateS3LogConfiguration_bucketName,
+    experimentTemplateS3LogConfiguration_prefix,
+
+    -- ** ExperimentTemplateS3LogConfigurationInput
+    experimentTemplateS3LogConfigurationInput_prefix,
+    experimentTemplateS3LogConfigurationInput_bucketName,
 
     -- ** ExperimentTemplateStopCondition
     experimentTemplateStopCondition_source,
@@ -227,6 +283,7 @@ module Amazonka.FIS.Lens
     experimentTemplateTarget_resourceType,
     experimentTemplateTarget_filters,
     experimentTemplateTarget_resourceTags,
+    experimentTemplateTarget_parameters,
     experimentTemplateTarget_resourceArns,
     experimentTemplateTarget_selectionMode,
 
@@ -238,12 +295,30 @@ module Amazonka.FIS.Lens
     experimentTemplateTargetInputFilter_path,
     experimentTemplateTargetInputFilter_values,
 
+    -- ** TargetResourceType
+    targetResourceType_resourceType,
+    targetResourceType_description,
+    targetResourceType_parameters,
+
+    -- ** TargetResourceTypeParameter
+    targetResourceTypeParameter_required,
+    targetResourceTypeParameter_description,
+
+    -- ** TargetResourceTypeSummary
+    targetResourceTypeSummary_resourceType,
+    targetResourceTypeSummary_description,
+
     -- ** UpdateExperimentTemplateActionInputItem
     updateExperimentTemplateActionInputItem_startAfter,
     updateExperimentTemplateActionInputItem_targets,
     updateExperimentTemplateActionInputItem_description,
     updateExperimentTemplateActionInputItem_actionId,
     updateExperimentTemplateActionInputItem_parameters,
+
+    -- ** UpdateExperimentTemplateLogConfigurationInput
+    updateExperimentTemplateLogConfigurationInput_s3Configuration,
+    updateExperimentTemplateLogConfigurationInput_logSchemaVersion,
+    updateExperimentTemplateLogConfigurationInput_cloudWatchLogsConfiguration,
 
     -- ** UpdateExperimentTemplateStopConditionInput
     updateExperimentTemplateStopConditionInput_value,
@@ -252,6 +327,7 @@ module Amazonka.FIS.Lens
     -- ** UpdateExperimentTemplateTargetInput
     updateExperimentTemplateTargetInput_filters,
     updateExperimentTemplateTargetInput_resourceTags,
+    updateExperimentTemplateTargetInput_parameters,
     updateExperimentTemplateTargetInput_resourceArns,
     updateExperimentTemplateTargetInput_resourceType,
     updateExperimentTemplateTargetInput_selectionMode,
@@ -263,10 +339,12 @@ import Amazonka.FIS.DeleteExperimentTemplate
 import Amazonka.FIS.GetAction
 import Amazonka.FIS.GetExperiment
 import Amazonka.FIS.GetExperimentTemplate
+import Amazonka.FIS.GetTargetResourceType
 import Amazonka.FIS.ListActions
 import Amazonka.FIS.ListExperimentTemplates
 import Amazonka.FIS.ListExperiments
 import Amazonka.FIS.ListTagsForResource
+import Amazonka.FIS.ListTargetResourceTypes
 import Amazonka.FIS.StartExperiment
 import Amazonka.FIS.StopExperiment
 import Amazonka.FIS.TagResource
@@ -275,11 +353,15 @@ import Amazonka.FIS.Types.ActionParameter
 import Amazonka.FIS.Types.ActionSummary
 import Amazonka.FIS.Types.ActionTarget
 import Amazonka.FIS.Types.CreateExperimentTemplateActionInput
+import Amazonka.FIS.Types.CreateExperimentTemplateLogConfigurationInput
 import Amazonka.FIS.Types.CreateExperimentTemplateStopConditionInput
 import Amazonka.FIS.Types.CreateExperimentTemplateTargetInput
 import Amazonka.FIS.Types.Experiment
 import Amazonka.FIS.Types.ExperimentAction
 import Amazonka.FIS.Types.ExperimentActionState
+import Amazonka.FIS.Types.ExperimentCloudWatchLogsLogConfiguration
+import Amazonka.FIS.Types.ExperimentLogConfiguration
+import Amazonka.FIS.Types.ExperimentS3LogConfiguration
 import Amazonka.FIS.Types.ExperimentState
 import Amazonka.FIS.Types.ExperimentStopCondition
 import Amazonka.FIS.Types.ExperimentSummary
@@ -287,12 +369,21 @@ import Amazonka.FIS.Types.ExperimentTarget
 import Amazonka.FIS.Types.ExperimentTargetFilter
 import Amazonka.FIS.Types.ExperimentTemplate
 import Amazonka.FIS.Types.ExperimentTemplateAction
+import Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfiguration
+import Amazonka.FIS.Types.ExperimentTemplateCloudWatchLogsLogConfigurationInput
+import Amazonka.FIS.Types.ExperimentTemplateLogConfiguration
+import Amazonka.FIS.Types.ExperimentTemplateS3LogConfiguration
+import Amazonka.FIS.Types.ExperimentTemplateS3LogConfigurationInput
 import Amazonka.FIS.Types.ExperimentTemplateStopCondition
 import Amazonka.FIS.Types.ExperimentTemplateSummary
 import Amazonka.FIS.Types.ExperimentTemplateTarget
 import Amazonka.FIS.Types.ExperimentTemplateTargetFilter
 import Amazonka.FIS.Types.ExperimentTemplateTargetInputFilter
+import Amazonka.FIS.Types.TargetResourceType
+import Amazonka.FIS.Types.TargetResourceTypeParameter
+import Amazonka.FIS.Types.TargetResourceTypeSummary
 import Amazonka.FIS.Types.UpdateExperimentTemplateActionInputItem
+import Amazonka.FIS.Types.UpdateExperimentTemplateLogConfigurationInput
 import Amazonka.FIS.Types.UpdateExperimentTemplateStopConditionInput
 import Amazonka.FIS.Types.UpdateExperimentTemplateTargetInput
 import Amazonka.FIS.UntagResource

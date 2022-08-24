@@ -26,8 +26,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes an action. For more information, see
--- <https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html AWS FIS actions>
--- in the /AWS Fault Injection Simulator User Guide/.
+-- <https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html FIS actions>
+-- in the /Fault Injection Simulator User Guide/.
 --
 -- /See:/ 'newAction' smart constructor.
 data Action = Action'

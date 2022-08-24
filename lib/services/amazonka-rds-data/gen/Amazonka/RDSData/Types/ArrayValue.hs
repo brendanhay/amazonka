@@ -31,9 +31,9 @@ data ArrayValue = ArrayValue'
     stringValues :: Prelude.Maybe [Prelude.Text],
     -- | An array of Boolean values.
     booleanValues :: Prelude.Maybe [Prelude.Bool],
-    -- | An array of floating point numbers.
-    longValues :: Prelude.Maybe [Prelude.Integer],
     -- | An array of integers.
+    longValues :: Prelude.Maybe [Prelude.Integer],
+    -- | An array of floating-point numbers.
     doubleValues :: Prelude.Maybe [Prelude.Double],
     -- | An array of arrays.
     arrayValues :: Prelude.Maybe [ArrayValue]
@@ -52,9 +52,9 @@ data ArrayValue = ArrayValue'
 --
 -- 'booleanValues', 'arrayValue_booleanValues' - An array of Boolean values.
 --
--- 'longValues', 'arrayValue_longValues' - An array of floating point numbers.
+-- 'longValues', 'arrayValue_longValues' - An array of integers.
 --
--- 'doubleValues', 'arrayValue_doubleValues' - An array of integers.
+-- 'doubleValues', 'arrayValue_doubleValues' - An array of floating-point numbers.
 --
 -- 'arrayValues', 'arrayValue_arrayValues' - An array of arrays.
 newArrayValue ::
@@ -76,11 +76,11 @@ arrayValue_stringValues = Lens.lens (\ArrayValue' {stringValues} -> stringValues
 arrayValue_booleanValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Bool])
 arrayValue_booleanValues = Lens.lens (\ArrayValue' {booleanValues} -> booleanValues) (\s@ArrayValue' {} a -> s {booleanValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of floating point numbers.
+-- | An array of integers.
 arrayValue_longValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Integer])
 arrayValue_longValues = Lens.lens (\ArrayValue' {longValues} -> longValues) (\s@ArrayValue' {} a -> s {longValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
 
--- | An array of integers.
+-- | An array of floating-point numbers.
 arrayValue_doubleValues :: Lens.Lens' ArrayValue (Prelude.Maybe [Prelude.Double])
 arrayValue_doubleValues = Lens.lens (\ArrayValue' {doubleValues} -> doubleValues) (\s@ArrayValue' {} a -> s {doubleValues = a} :: ArrayValue) Prelude.. Lens.mapping Lens.coerced
 

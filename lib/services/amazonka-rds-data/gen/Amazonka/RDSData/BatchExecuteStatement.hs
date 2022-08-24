@@ -30,6 +30,18 @@
 -- If a call isn\'t part of a transaction because it doesn\'t include the
 -- @transactionID@ parameter, changes that result from the call are
 -- committed automatically.
+--
+-- There isn\'t a fixed upper limit on the number of parameter sets.
+-- However, the maximum size of the HTTP request submitted through the Data
+-- API is 4 MiB. If the request exceeds this limit, the Data API returns an
+-- error and doesn\'t process the request. This 4-MiB limit includes the
+-- size of the HTTP headers and the JSON notation in the request. Thus, the
+-- number of parameter sets that you can include depends on a combination
+-- of factors, such as the size of the SQL statement and the size of each
+-- parameter set.
+--
+-- The response size limit is 1 MiB. If the call returns more than 1 MiB of
+-- response data, the call is terminated.
 module Amazonka.RDSData.BatchExecuteStatement
   ( -- * Creating a Request
     BatchExecuteStatement (..),
@@ -92,9 +104,14 @@ data BatchExecuteStatement = BatchExecuteStatement'
     schema :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
     resourceArn :: Prelude.Text,
-    -- | The name or ARN of the secret that enables access to the DB cluster.
+    -- | The ARN of the secret that enables access to the DB cluster. Enter the
+    -- database user name and password for the credentials in the secret.
+    --
+    -- For information about creating the secret, see
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html Create a database secret>.
     secretArn :: Prelude.Text,
-    -- | The SQL statement to run.
+    -- | The SQL statement to run. Don\'t include a semicolon (;) at the end of
+    -- the SQL statement.
     sql :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -133,9 +150,14 @@ data BatchExecuteStatement = BatchExecuteStatement'
 --
 -- 'resourceArn', 'batchExecuteStatement_resourceArn' - The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.
 --
--- 'secretArn', 'batchExecuteStatement_secretArn' - The name or ARN of the secret that enables access to the DB cluster.
+-- 'secretArn', 'batchExecuteStatement_secretArn' - The ARN of the secret that enables access to the DB cluster. Enter the
+-- database user name and password for the credentials in the secret.
 --
--- 'sql', 'batchExecuteStatement_sql' - The SQL statement to run.
+-- For information about creating the secret, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html Create a database secret>.
+--
+-- 'sql', 'batchExecuteStatement_sql' - The SQL statement to run. Don\'t include a semicolon (;) at the end of
+-- the SQL statement.
 newBatchExecuteStatement ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -195,11 +217,16 @@ batchExecuteStatement_schema = Lens.lens (\BatchExecuteStatement' {schema} -> sc
 batchExecuteStatement_resourceArn :: Lens.Lens' BatchExecuteStatement Prelude.Text
 batchExecuteStatement_resourceArn = Lens.lens (\BatchExecuteStatement' {resourceArn} -> resourceArn) (\s@BatchExecuteStatement' {} a -> s {resourceArn = a} :: BatchExecuteStatement)
 
--- | The name or ARN of the secret that enables access to the DB cluster.
+-- | The ARN of the secret that enables access to the DB cluster. Enter the
+-- database user name and password for the credentials in the secret.
+--
+-- For information about creating the secret, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_database_secret.html Create a database secret>.
 batchExecuteStatement_secretArn :: Lens.Lens' BatchExecuteStatement Prelude.Text
 batchExecuteStatement_secretArn = Lens.lens (\BatchExecuteStatement' {secretArn} -> secretArn) (\s@BatchExecuteStatement' {} a -> s {secretArn = a} :: BatchExecuteStatement)
 
--- | The SQL statement to run.
+-- | The SQL statement to run. Don\'t include a semicolon (;) at the end of
+-- the SQL statement.
 batchExecuteStatement_sql :: Lens.Lens' BatchExecuteStatement Prelude.Text
 batchExecuteStatement_sql = Lens.lens (\BatchExecuteStatement' {sql} -> sql) (\s@BatchExecuteStatement' {} a -> s {sql = a} :: BatchExecuteStatement)
 

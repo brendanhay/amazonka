@@ -18,7 +18,7 @@
 -- Data Service API.
 --
 -- For more information about the Data Service API, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API for Aurora Serverless>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html Using the Data API>
 -- in the /Amazon Aurora User Guide/.
 module Amazonka.RDSData
   ( -- * Service Configuration
@@ -26,6 +26,9 @@ module Amazonka.RDSData
 
     -- * Errors
     -- $errors
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** NotFoundException
     _NotFoundException,
@@ -85,6 +88,12 @@ module Amazonka.RDSData
 
     -- ** DecimalReturnType
     DecimalReturnType (..),
+
+    -- ** LongReturnType
+    LongReturnType (..),
+
+    -- ** RecordsFormatType
+    RecordsFormatType (..),
 
     -- ** TypeHint
     TypeHint (..),

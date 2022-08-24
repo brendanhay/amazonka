@@ -17,6 +17,7 @@ module Amazonka.RDSData.Types
     defaultService,
 
     -- * Errors
+    _AccessDeniedException,
     _NotFoundException,
     _InternalServerErrorException,
     _ForbiddenException,
@@ -26,6 +27,12 @@ module Amazonka.RDSData.Types
 
     -- * DecimalReturnType
     DecimalReturnType (..),
+
+    -- * LongReturnType
+    LongReturnType (..),
+
+    -- * RecordsFormatType
+    RecordsFormatType (..),
 
     -- * TypeHint
     TypeHint (..),
@@ -72,6 +79,7 @@ module Amazonka.RDSData.Types
     ResultSetOptions (..),
     newResultSetOptions,
     resultSetOptions_decimalReturnType,
+    resultSetOptions_longReturnType,
 
     -- * SqlParameter
     SqlParameter (..),
@@ -94,6 +102,8 @@ import Amazonka.RDSData.Types.ArrayValue
 import Amazonka.RDSData.Types.ColumnMetadata
 import Amazonka.RDSData.Types.DecimalReturnType
 import Amazonka.RDSData.Types.Field
+import Amazonka.RDSData.Types.LongReturnType
+import Amazonka.RDSData.Types.RecordsFormatType
 import Amazonka.RDSData.Types.ResultSetOptions
 import Amazonka.RDSData.Types.SqlParameter
 import Amazonka.RDSData.Types.TypeHint
@@ -169,6 +179,14 @@ defaultService =
           e =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | You do not have sufficient access to perform this action.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
 
 -- | The @resourceArn@, @secretArn@, or @transactionId@ value can\'t be
 -- found.

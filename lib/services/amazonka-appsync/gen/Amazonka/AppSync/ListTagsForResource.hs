@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The @GraphqlApi@ ARN.
+  { -- | The @GraphqlApi@ Amazon Resource Name (ARN).
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The @GraphqlApi@ ARN.
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The @GraphqlApi@ Amazon Resource Name (ARN).
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -69,7 +69,7 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The @GraphqlApi@ ARN.
+-- | The @GraphqlApi@ Amazon Resource Name (ARN).
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 

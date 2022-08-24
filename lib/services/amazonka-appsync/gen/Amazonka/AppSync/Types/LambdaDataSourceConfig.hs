@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes an Amazon Web Services Lambda data source configuration.
+-- | Describes an Lambda data source configuration.
 --
 -- /See:/ 'newLambdaDataSourceConfig' smart constructor.
 data LambdaDataSourceConfig = LambdaDataSourceConfig'
-  { -- | The ARN for the Lambda function.
+  { -- | The Amazon Resource Name (ARN) for the Lambda function.
     lambdaFunctionArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,7 +40,7 @@ data LambdaDataSourceConfig = LambdaDataSourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaFunctionArn', 'lambdaDataSourceConfig_lambdaFunctionArn' - The ARN for the Lambda function.
+-- 'lambdaFunctionArn', 'lambdaDataSourceConfig_lambdaFunctionArn' - The Amazon Resource Name (ARN) for the Lambda function.
 newLambdaDataSourceConfig ::
   -- | 'lambdaFunctionArn'
   Prelude.Text ->
@@ -51,7 +51,7 @@ newLambdaDataSourceConfig pLambdaFunctionArn_ =
         pLambdaFunctionArn_
     }
 
--- | The ARN for the Lambda function.
+-- | The Amazon Resource Name (ARN) for the Lambda function.
 lambdaDataSourceConfig_lambdaFunctionArn :: Lens.Lens' LambdaDataSourceConfig Prelude.Text
 lambdaDataSourceConfig_lambdaFunctionArn = Lens.lens (\LambdaDataSourceConfig' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@LambdaDataSourceConfig' {} a -> s {lambdaFunctionArn = a} :: LambdaDataSourceConfig)
 

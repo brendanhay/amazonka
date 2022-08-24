@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The @GraphqlApi@ ARN.
+  { -- | The @GraphqlApi@ Amazon Resource Name (ARN).
     resourceArn :: Prelude.Text,
     -- | A list of @TagKey@ objects.
     tagKeys :: Prelude.NonEmpty Prelude.Text
@@ -63,7 +63,7 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The @GraphqlApi@ ARN.
+-- 'resourceArn', 'untagResource_resourceArn' - The @GraphqlApi@ Amazon Resource Name (ARN).
 --
 -- 'tagKeys', 'untagResource_tagKeys' - A list of @TagKey@ objects.
 newUntagResource ::
@@ -78,7 +78,7 @@ newUntagResource pResourceArn_ pTagKeys_ =
       tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
--- | The @GraphqlApi@ ARN.
+-- | The @GraphqlApi@ Amazon Resource Name (ARN).
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 

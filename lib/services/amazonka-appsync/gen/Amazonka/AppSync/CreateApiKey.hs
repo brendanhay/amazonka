@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a unique key that you can distribute to clients who are
--- executing your API.
+-- Creates a unique key that you can distribute to clients who invoke your
+-- API.
 module Amazonka.AppSync.CreateApiKey
   ( -- * Creating a Request
     CreateApiKey (..),
@@ -53,10 +53,10 @@ import qualified Amazonka.Response as Response
 data CreateApiKey = CreateApiKey'
   { -- | A description of the purpose of the API key.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The time from creation time after which the API key expires. The date is
-    -- represented as seconds since the epoch, rounded down to the nearest
-    -- hour. The default value for this parameter is 7 days from creation time.
-    -- For more information, see .
+    -- | From the creation time, the time after which the API key expires. The
+    -- date is represented as seconds since the epoch, rounded down to the
+    -- nearest hour. The default value for this parameter is 7 days from
+    -- creation time. For more information, see .
     expires :: Prelude.Maybe Prelude.Integer,
     -- | The ID for your GraphQL API.
     apiId :: Prelude.Text
@@ -73,10 +73,10 @@ data CreateApiKey = CreateApiKey'
 --
 -- 'description', 'createApiKey_description' - A description of the purpose of the API key.
 --
--- 'expires', 'createApiKey_expires' - The time from creation time after which the API key expires. The date is
--- represented as seconds since the epoch, rounded down to the nearest
--- hour. The default value for this parameter is 7 days from creation time.
--- For more information, see .
+-- 'expires', 'createApiKey_expires' - From the creation time, the time after which the API key expires. The
+-- date is represented as seconds since the epoch, rounded down to the
+-- nearest hour. The default value for this parameter is 7 days from
+-- creation time. For more information, see .
 --
 -- 'apiId', 'createApiKey_apiId' - The ID for your GraphQL API.
 newCreateApiKey ::
@@ -94,10 +94,10 @@ newCreateApiKey pApiId_ =
 createApiKey_description :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Text)
 createApiKey_description = Lens.lens (\CreateApiKey' {description} -> description) (\s@CreateApiKey' {} a -> s {description = a} :: CreateApiKey)
 
--- | The time from creation time after which the API key expires. The date is
--- represented as seconds since the epoch, rounded down to the nearest
--- hour. The default value for this parameter is 7 days from creation time.
--- For more information, see .
+-- | From the creation time, the time after which the API key expires. The
+-- date is represented as seconds since the epoch, rounded down to the
+-- nearest hour. The default value for this parameter is 7 days from
+-- creation time. For more information, see .
 createApiKey_expires :: Lens.Lens' CreateApiKey (Prelude.Maybe Prelude.Integer)
 createApiKey_expires = Lens.lens (\CreateApiKey' {expires} -> expires) (\s@CreateApiKey' {} a -> s {expires = a} :: CreateApiKey)
 

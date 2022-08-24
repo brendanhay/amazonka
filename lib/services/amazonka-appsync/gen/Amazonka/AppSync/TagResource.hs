@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The @GraphqlApi@ ARN.
+  { -- | The @GraphqlApi@ Amazon Resource Name (ARN).
     resourceArn :: Prelude.Text,
     -- | A @TagMap@ object.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
@@ -63,7 +63,7 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The @GraphqlApi@ ARN.
+-- 'resourceArn', 'tagResource_resourceArn' - The @GraphqlApi@ Amazon Resource Name (ARN).
 --
 -- 'tags', 'tagResource_tags' - A @TagMap@ object.
 newTagResource ::
@@ -76,7 +76,7 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The @GraphqlApi@ ARN.
+-- | The @GraphqlApi@ Amazon Resource Name (ARN).
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 

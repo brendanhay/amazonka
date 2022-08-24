@@ -27,6 +27,7 @@ module Amazonka.AppSync.UpdateFunction
     newUpdateFunction,
 
     -- * Request Lenses
+    updateFunction_maxBatchSize,
     updateFunction_description,
     updateFunction_responseMappingTemplate,
     updateFunction_syncConfig,
@@ -56,7 +57,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateFunction' smart constructor.
 data UpdateFunction = UpdateFunction'
-  { -- | The @Function@ description.
+  { -- | The maximum batching size for a resolver.
+    maxBatchSize :: Prelude.Maybe Prelude.Natural,
+    -- | The @Function@ description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The @Function@ request mapping template.
     responseMappingTemplate :: Prelude.Maybe Prelude.Text,
@@ -72,7 +75,7 @@ data UpdateFunction = UpdateFunction'
     functionId :: Prelude.Text,
     -- | The @Function@ @DataSource@ name.
     dataSourceName :: Prelude.Text,
-    -- | The @version@ of the request mapping template. Currently the supported
+    -- | The @version@ of the request mapping template. Currently, the supported
     -- value is 2018-05-29.
     functionVersion :: Prelude.Text
   }
@@ -85,6 +88,8 @@ data UpdateFunction = UpdateFunction'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maxBatchSize', 'updateFunction_maxBatchSize' - The maximum batching size for a resolver.
 --
 -- 'description', 'updateFunction_description' - The @Function@ description.
 --
@@ -103,7 +108,7 @@ data UpdateFunction = UpdateFunction'
 --
 -- 'dataSourceName', 'updateFunction_dataSourceName' - The @Function@ @DataSource@ name.
 --
--- 'functionVersion', 'updateFunction_functionVersion' - The @version@ of the request mapping template. Currently the supported
+-- 'functionVersion', 'updateFunction_functionVersion' - The @version@ of the request mapping template. Currently, the supported
 -- value is 2018-05-29.
 newUpdateFunction ::
   -- | 'apiId'
@@ -124,7 +129,8 @@ newUpdateFunction
   pDataSourceName_
   pFunctionVersion_ =
     UpdateFunction'
-      { description = Prelude.Nothing,
+      { maxBatchSize = Prelude.Nothing,
+        description = Prelude.Nothing,
         responseMappingTemplate = Prelude.Nothing,
         syncConfig = Prelude.Nothing,
         requestMappingTemplate = Prelude.Nothing,
@@ -134,6 +140,10 @@ newUpdateFunction
         dataSourceName = pDataSourceName_,
         functionVersion = pFunctionVersion_
       }
+
+-- | The maximum batching size for a resolver.
+updateFunction_maxBatchSize :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Natural)
+updateFunction_maxBatchSize = Lens.lens (\UpdateFunction' {maxBatchSize} -> maxBatchSize) (\s@UpdateFunction' {} a -> s {maxBatchSize = a} :: UpdateFunction)
 
 -- | The @Function@ description.
 updateFunction_description :: Lens.Lens' UpdateFunction (Prelude.Maybe Prelude.Text)
@@ -168,7 +178,7 @@ updateFunction_functionId = Lens.lens (\UpdateFunction' {functionId} -> function
 updateFunction_dataSourceName :: Lens.Lens' UpdateFunction Prelude.Text
 updateFunction_dataSourceName = Lens.lens (\UpdateFunction' {dataSourceName} -> dataSourceName) (\s@UpdateFunction' {} a -> s {dataSourceName = a} :: UpdateFunction)
 
--- | The @version@ of the request mapping template. Currently the supported
+-- | The @version@ of the request mapping template. Currently, the supported
 -- value is 2018-05-29.
 updateFunction_functionVersion :: Lens.Lens' UpdateFunction Prelude.Text
 updateFunction_functionVersion = Lens.lens (\UpdateFunction' {functionVersion} -> functionVersion) (\s@UpdateFunction' {} a -> s {functionVersion = a} :: UpdateFunction)
@@ -188,7 +198,8 @@ instance Core.AWSRequest UpdateFunction where
 
 instance Prelude.Hashable UpdateFunction where
   hashWithSalt _salt UpdateFunction' {..} =
-    _salt `Prelude.hashWithSalt` description
+    _salt `Prelude.hashWithSalt` maxBatchSize
+      `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` responseMappingTemplate
       `Prelude.hashWithSalt` syncConfig
       `Prelude.hashWithSalt` requestMappingTemplate
@@ -200,7 +211,8 @@ instance Prelude.Hashable UpdateFunction where
 
 instance Prelude.NFData UpdateFunction where
   rnf UpdateFunction' {..} =
-    Prelude.rnf description
+    Prelude.rnf maxBatchSize
+      `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf responseMappingTemplate
       `Prelude.seq` Prelude.rnf syncConfig
       `Prelude.seq` Prelude.rnf requestMappingTemplate
@@ -225,7 +237,8 @@ instance Core.ToJSON UpdateFunction where
   toJSON UpdateFunction' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
+          [ ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
+            ("description" Core..=) Prelude.<$> description,
             ("responseMappingTemplate" Core..=)
               Prelude.<$> responseMappingTemplate,
             ("syncConfig" Core..=) Prelude.<$> syncConfig,

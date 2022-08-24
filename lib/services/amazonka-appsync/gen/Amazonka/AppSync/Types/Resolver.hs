@@ -31,7 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResolver' smart constructor.
 data Resolver = Resolver'
-  { -- | The resolver ARN.
+  { -- | The maximum batching size for a resolver.
+    maxBatchSize :: Prelude.Maybe Prelude.Natural,
+    -- | The resolver Amazon Resource Name (ARN).
     resolverArn :: Prelude.Maybe Prelude.Text,
     -- | The resolver field name.
     fieldName :: Prelude.Maybe Prelude.Text,
@@ -42,13 +44,13 @@ data Resolver = Resolver'
     -- | The resolver type.
     --
     -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
-    --     resolver type. A UNIT resolver enables you to execute a GraphQL
-    --     query against a single data source.
+    --     resolver type. You can use a UNIT resolver to run a GraphQL query
+    --     against a single data source.
     --
-    -- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
-    --     you to execute a series of @Function@ in a serial manner. You can
-    --     use a pipeline resolver to execute a GraphQL query against multiple
-    --     data sources.
+    -- -   __PIPELINE__: A PIPELINE resolver type. You can use a PIPELINE
+    --     resolver to invoke a series of @Function@ objects in a serial
+    --     manner. You can use a pipeline resolver to run a GraphQL query
+    --     against multiple data sources.
     kind :: Prelude.Maybe ResolverKind,
     -- | The resolver type name.
     typeName :: Prelude.Maybe Prelude.Text,
@@ -56,7 +58,7 @@ data Resolver = Resolver'
     dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | The response mapping template.
     responseMappingTemplate :: Prelude.Maybe Prelude.Text,
-    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+    -- | The @SyncConfig@ for a resolver attached to a versioned data source.
     syncConfig :: Prelude.Maybe SyncConfig,
     -- | The request mapping template.
     requestMappingTemplate :: Prelude.Maybe Prelude.Text
@@ -71,7 +73,9 @@ data Resolver = Resolver'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resolverArn', 'resolver_resolverArn' - The resolver ARN.
+-- 'maxBatchSize', 'resolver_maxBatchSize' - The maximum batching size for a resolver.
+--
+-- 'resolverArn', 'resolver_resolverArn' - The resolver Amazon Resource Name (ARN).
 --
 -- 'fieldName', 'resolver_fieldName' - The resolver field name.
 --
@@ -82,13 +86,13 @@ data Resolver = Resolver'
 -- 'kind', 'resolver_kind' - The resolver type.
 --
 -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
---     resolver type. A UNIT resolver enables you to execute a GraphQL
---     query against a single data source.
+--     resolver type. You can use a UNIT resolver to run a GraphQL query
+--     against a single data source.
 --
--- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
---     you to execute a series of @Function@ in a serial manner. You can
---     use a pipeline resolver to execute a GraphQL query against multiple
---     data sources.
+-- -   __PIPELINE__: A PIPELINE resolver type. You can use a PIPELINE
+--     resolver to invoke a series of @Function@ objects in a serial
+--     manner. You can use a pipeline resolver to run a GraphQL query
+--     against multiple data sources.
 --
 -- 'typeName', 'resolver_typeName' - The resolver type name.
 --
@@ -96,14 +100,15 @@ data Resolver = Resolver'
 --
 -- 'responseMappingTemplate', 'resolver_responseMappingTemplate' - The response mapping template.
 --
--- 'syncConfig', 'resolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
+-- 'syncConfig', 'resolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned data source.
 --
 -- 'requestMappingTemplate', 'resolver_requestMappingTemplate' - The request mapping template.
 newResolver ::
   Resolver
 newResolver =
   Resolver'
-    { resolverArn = Prelude.Nothing,
+    { maxBatchSize = Prelude.Nothing,
+      resolverArn = Prelude.Nothing,
       fieldName = Prelude.Nothing,
       cachingConfig = Prelude.Nothing,
       pipelineConfig = Prelude.Nothing,
@@ -115,7 +120,11 @@ newResolver =
       requestMappingTemplate = Prelude.Nothing
     }
 
--- | The resolver ARN.
+-- | The maximum batching size for a resolver.
+resolver_maxBatchSize :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Natural)
+resolver_maxBatchSize = Lens.lens (\Resolver' {maxBatchSize} -> maxBatchSize) (\s@Resolver' {} a -> s {maxBatchSize = a} :: Resolver)
+
+-- | The resolver Amazon Resource Name (ARN).
 resolver_resolverArn :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
 resolver_resolverArn = Lens.lens (\Resolver' {resolverArn} -> resolverArn) (\s@Resolver' {} a -> s {resolverArn = a} :: Resolver)
 
@@ -134,13 +143,13 @@ resolver_pipelineConfig = Lens.lens (\Resolver' {pipelineConfig} -> pipelineConf
 -- | The resolver type.
 --
 -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
---     resolver type. A UNIT resolver enables you to execute a GraphQL
---     query against a single data source.
+--     resolver type. You can use a UNIT resolver to run a GraphQL query
+--     against a single data source.
 --
--- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
---     you to execute a series of @Function@ in a serial manner. You can
---     use a pipeline resolver to execute a GraphQL query against multiple
---     data sources.
+-- -   __PIPELINE__: A PIPELINE resolver type. You can use a PIPELINE
+--     resolver to invoke a series of @Function@ objects in a serial
+--     manner. You can use a pipeline resolver to run a GraphQL query
+--     against multiple data sources.
 resolver_kind :: Lens.Lens' Resolver (Prelude.Maybe ResolverKind)
 resolver_kind = Lens.lens (\Resolver' {kind} -> kind) (\s@Resolver' {} a -> s {kind = a} :: Resolver)
 
@@ -156,7 +165,7 @@ resolver_dataSourceName = Lens.lens (\Resolver' {dataSourceName} -> dataSourceNa
 resolver_responseMappingTemplate :: Lens.Lens' Resolver (Prelude.Maybe Prelude.Text)
 resolver_responseMappingTemplate = Lens.lens (\Resolver' {responseMappingTemplate} -> responseMappingTemplate) (\s@Resolver' {} a -> s {responseMappingTemplate = a} :: Resolver)
 
--- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+-- | The @SyncConfig@ for a resolver attached to a versioned data source.
 resolver_syncConfig :: Lens.Lens' Resolver (Prelude.Maybe SyncConfig)
 resolver_syncConfig = Lens.lens (\Resolver' {syncConfig} -> syncConfig) (\s@Resolver' {} a -> s {syncConfig = a} :: Resolver)
 
@@ -170,7 +179,8 @@ instance Core.FromJSON Resolver where
       "Resolver"
       ( \x ->
           Resolver'
-            Prelude.<$> (x Core..:? "resolverArn")
+            Prelude.<$> (x Core..:? "maxBatchSize")
+            Prelude.<*> (x Core..:? "resolverArn")
             Prelude.<*> (x Core..:? "fieldName")
             Prelude.<*> (x Core..:? "cachingConfig")
             Prelude.<*> (x Core..:? "pipelineConfig")
@@ -184,7 +194,8 @@ instance Core.FromJSON Resolver where
 
 instance Prelude.Hashable Resolver where
   hashWithSalt _salt Resolver' {..} =
-    _salt `Prelude.hashWithSalt` resolverArn
+    _salt `Prelude.hashWithSalt` maxBatchSize
+      `Prelude.hashWithSalt` resolverArn
       `Prelude.hashWithSalt` fieldName
       `Prelude.hashWithSalt` cachingConfig
       `Prelude.hashWithSalt` pipelineConfig
@@ -197,7 +208,8 @@ instance Prelude.Hashable Resolver where
 
 instance Prelude.NFData Resolver where
   rnf Resolver' {..} =
-    Prelude.rnf resolverArn
+    Prelude.rnf maxBatchSize
+      `Prelude.seq` Prelude.rnf resolverArn
       `Prelude.seq` Prelude.rnf fieldName
       `Prelude.seq` Prelude.rnf cachingConfig
       `Prelude.seq` Prelude.rnf pipelineConfig

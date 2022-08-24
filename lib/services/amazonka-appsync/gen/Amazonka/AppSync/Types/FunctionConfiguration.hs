@@ -24,16 +24,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A function is a reusable entity. Multiple functions can be used to
+-- | A function is a reusable entity. You can use multiple functions to
 -- compose the resolver logic.
 --
 -- /See:/ 'newFunctionConfiguration' smart constructor.
 data FunctionConfiguration = FunctionConfiguration'
-  { -- | The ARN of the @Function@ object.
+  { -- | The Amazon Resource Name (ARN) of the @Function@ object.
     functionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the @Function@ object.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The version of the request mapping template. Currently only the
+    -- | The maximum batching size for a resolver.
+    maxBatchSize :: Prelude.Maybe Prelude.Natural,
+    -- | The version of the request mapping template. Currently, only the
     -- 2018-05-29 version of the template is supported.
     functionVersion :: Prelude.Maybe Prelude.Text,
     -- | The @Function@ description.
@@ -59,11 +61,13 @@ data FunctionConfiguration = FunctionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'functionArn', 'functionConfiguration_functionArn' - The ARN of the @Function@ object.
+-- 'functionArn', 'functionConfiguration_functionArn' - The Amazon Resource Name (ARN) of the @Function@ object.
 --
 -- 'name', 'functionConfiguration_name' - The name of the @Function@ object.
 --
--- 'functionVersion', 'functionConfiguration_functionVersion' - The version of the request mapping template. Currently only the
+-- 'maxBatchSize', 'functionConfiguration_maxBatchSize' - The maximum batching size for a resolver.
+--
+-- 'functionVersion', 'functionConfiguration_functionVersion' - The version of the request mapping template. Currently, only the
 -- 2018-05-29 version of the template is supported.
 --
 -- 'description', 'functionConfiguration_description' - The @Function@ description.
@@ -85,6 +89,7 @@ newFunctionConfiguration =
     { functionArn =
         Prelude.Nothing,
       name = Prelude.Nothing,
+      maxBatchSize = Prelude.Nothing,
       functionVersion = Prelude.Nothing,
       description = Prelude.Nothing,
       dataSourceName = Prelude.Nothing,
@@ -94,7 +99,7 @@ newFunctionConfiguration =
       requestMappingTemplate = Prelude.Nothing
     }
 
--- | The ARN of the @Function@ object.
+-- | The Amazon Resource Name (ARN) of the @Function@ object.
 functionConfiguration_functionArn :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {functionArn} -> functionArn) (\s@FunctionConfiguration' {} a -> s {functionArn = a} :: FunctionConfiguration)
 
@@ -102,7 +107,11 @@ functionConfiguration_functionArn = Lens.lens (\FunctionConfiguration' {function
 functionConfiguration_name :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_name = Lens.lens (\FunctionConfiguration' {name} -> name) (\s@FunctionConfiguration' {} a -> s {name = a} :: FunctionConfiguration)
 
--- | The version of the request mapping template. Currently only the
+-- | The maximum batching size for a resolver.
+functionConfiguration_maxBatchSize :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Natural)
+functionConfiguration_maxBatchSize = Lens.lens (\FunctionConfiguration' {maxBatchSize} -> maxBatchSize) (\s@FunctionConfiguration' {} a -> s {maxBatchSize = a} :: FunctionConfiguration)
+
+-- | The version of the request mapping template. Currently, only the
 -- 2018-05-29 version of the template is supported.
 functionConfiguration_functionVersion :: Lens.Lens' FunctionConfiguration (Prelude.Maybe Prelude.Text)
 functionConfiguration_functionVersion = Lens.lens (\FunctionConfiguration' {functionVersion} -> functionVersion) (\s@FunctionConfiguration' {} a -> s {functionVersion = a} :: FunctionConfiguration)
@@ -140,6 +149,7 @@ instance Core.FromJSON FunctionConfiguration where
           FunctionConfiguration'
             Prelude.<$> (x Core..:? "functionArn")
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "maxBatchSize")
             Prelude.<*> (x Core..:? "functionVersion")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "dataSourceName")
@@ -153,6 +163,7 @@ instance Prelude.Hashable FunctionConfiguration where
   hashWithSalt _salt FunctionConfiguration' {..} =
     _salt `Prelude.hashWithSalt` functionArn
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maxBatchSize
       `Prelude.hashWithSalt` functionVersion
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dataSourceName
@@ -165,6 +176,7 @@ instance Prelude.NFData FunctionConfiguration where
   rnf FunctionConfiguration' {..} =
     Prelude.rnf functionArn
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maxBatchSize
       `Prelude.seq` Prelude.rnf functionVersion
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dataSourceName

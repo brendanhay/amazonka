@@ -55,10 +55,10 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListTypes' smart constructor.
 data ListTypes = ListTypes'
   { -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
+    -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results you want the request to return.
+    -- | The maximum number of results that you want the request to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The API ID.
     apiId :: Prelude.Text,
@@ -76,10 +76,10 @@ data ListTypes = ListTypes'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listTypes_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 --
--- 'maxResults', 'listTypes_maxResults' - The maximum number of results you want the request to return.
+-- 'maxResults', 'listTypes_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listTypes_apiId' - The API ID.
 --
@@ -99,12 +99,12 @@ newListTypes pApiId_ pFormat_ =
     }
 
 -- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 listTypes_nextToken :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Text)
 listTypes_nextToken = Lens.lens (\ListTypes' {nextToken} -> nextToken) (\s@ListTypes' {} a -> s {nextToken = a} :: ListTypes)
 
--- | The maximum number of results you want the request to return.
+-- | The maximum number of results that you want the request to return.
 listTypes_maxResults :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Natural)
 listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@ListTypes' {} a -> s {maxResults = a} :: ListTypes)
 
@@ -187,8 +187,8 @@ instance Core.ToQuery ListTypes where
 
 -- | /See:/ 'newListTypesResponse' smart constructor.
 data ListTypesResponse = ListTypesResponse'
-  { -- | An identifier to be passed in the next request to this operation to
-    -- return the next set of items in the list.
+  { -- | An identifier to pass in the next request to this operation to return
+    -- the next set of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The @Type@ objects.
     types :: Prelude.Maybe [Type],
@@ -205,8 +205,8 @@ data ListTypesResponse = ListTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTypesResponse_nextToken' - An identifier to be passed in the next request to this operation to
--- return the next set of items in the list.
+-- 'nextToken', 'listTypesResponse_nextToken' - An identifier to pass in the next request to this operation to return
+-- the next set of items in the list.
 --
 -- 'types', 'listTypesResponse_types' - The @Type@ objects.
 --
@@ -222,8 +222,8 @@ newListTypesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An identifier to be passed in the next request to this operation to
--- return the next set of items in the list.
+-- | An identifier to pass in the next request to this operation to return
+-- the next set of items in the list.
 listTypesResponse_nextToken :: Lens.Lens' ListTypesResponse (Prelude.Maybe Prelude.Text)
 listTypesResponse_nextToken = Lens.lens (\ListTypesResponse' {nextToken} -> nextToken) (\s@ListTypesResponse' {} a -> s {nextToken = a} :: ListTypesResponse)
 

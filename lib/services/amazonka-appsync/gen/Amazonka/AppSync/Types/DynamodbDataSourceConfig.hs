@@ -33,7 +33,7 @@ data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
     -- | Set to TRUE to use Conflict Detection and Resolution with this data
     -- source.
     versioned :: Prelude.Maybe Prelude.Bool,
-    -- | The @DeltaSyncConfig@ for a versioned datasource.
+    -- | The @DeltaSyncConfig@ for a versioned data source.
     deltaSyncConfig :: Prelude.Maybe DeltaSyncConfig,
     -- | The table name.
     tableName :: Prelude.Text,
@@ -55,7 +55,7 @@ data DynamodbDataSourceConfig = DynamodbDataSourceConfig'
 -- 'versioned', 'dynamodbDataSourceConfig_versioned' - Set to TRUE to use Conflict Detection and Resolution with this data
 -- source.
 --
--- 'deltaSyncConfig', 'dynamodbDataSourceConfig_deltaSyncConfig' - The @DeltaSyncConfig@ for a versioned datasource.
+-- 'deltaSyncConfig', 'dynamodbDataSourceConfig_deltaSyncConfig' - The @DeltaSyncConfig@ for a versioned data source.
 --
 -- 'tableName', 'dynamodbDataSourceConfig_tableName' - The table name.
 --
@@ -85,7 +85,7 @@ dynamodbDataSourceConfig_useCallerCredentials = Lens.lens (\DynamodbDataSourceCo
 dynamodbDataSourceConfig_versioned :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe Prelude.Bool)
 dynamodbDataSourceConfig_versioned = Lens.lens (\DynamodbDataSourceConfig' {versioned} -> versioned) (\s@DynamodbDataSourceConfig' {} a -> s {versioned = a} :: DynamodbDataSourceConfig)
 
--- | The @DeltaSyncConfig@ for a versioned datasource.
+-- | The @DeltaSyncConfig@ for a versioned data source.
 dynamodbDataSourceConfig_deltaSyncConfig :: Lens.Lens' DynamodbDataSourceConfig (Prelude.Maybe DeltaSyncConfig)
 dynamodbDataSourceConfig_deltaSyncConfig = Lens.lens (\DynamodbDataSourceConfig' {deltaSyncConfig} -> deltaSyncConfig) (\s@DynamodbDataSourceConfig' {} a -> s {deltaSyncConfig = a} :: DynamodbDataSourceConfig)
 

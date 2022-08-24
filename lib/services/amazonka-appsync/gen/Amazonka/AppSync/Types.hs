@@ -38,6 +38,9 @@ module Amazonka.AppSync.Types
     -- * ApiCachingBehavior
     ApiCachingBehavior (..),
 
+    -- * AssociationStatus
+    AssociationStatus (..),
+
     -- * AuthenticationType
     AuthenticationType (..),
 
@@ -82,6 +85,14 @@ module Amazonka.AppSync.Types
     additionalAuthenticationProvider_userPoolConfig,
     additionalAuthenticationProvider_lambdaAuthorizerConfig,
 
+    -- * ApiAssociation
+    ApiAssociation (..),
+    newApiAssociation,
+    apiAssociation_domainName,
+    apiAssociation_apiId,
+    apiAssociation_associationStatus,
+    apiAssociation_deploymentDetail,
+
     -- * ApiCache
     ApiCache (..),
     newApiCache,
@@ -115,8 +126,8 @@ module Amazonka.AppSync.Types
     -- * CachingConfig
     CachingConfig (..),
     newCachingConfig,
-    cachingConfig_ttl,
     cachingConfig_cachingKeys,
+    cachingConfig_ttl,
 
     -- * CognitoUserPoolConfig
     CognitoUserPoolConfig (..),
@@ -147,6 +158,15 @@ module Amazonka.AppSync.Types
     deltaSyncConfig_deltaSyncTableName,
     deltaSyncConfig_deltaSyncTableTTL,
 
+    -- * DomainNameConfig
+    DomainNameConfig (..),
+    newDomainNameConfig,
+    domainNameConfig_hostedZoneId,
+    domainNameConfig_domainName,
+    domainNameConfig_description,
+    domainNameConfig_appsyncDomainName,
+    domainNameConfig_certificateArn,
+
     -- * DynamodbDataSourceConfig
     DynamodbDataSourceConfig (..),
     newDynamodbDataSourceConfig,
@@ -162,11 +182,17 @@ module Amazonka.AppSync.Types
     elasticsearchDataSourceConfig_endpoint,
     elasticsearchDataSourceConfig_awsRegion,
 
+    -- * ErrorDetail
+    ErrorDetail (..),
+    newErrorDetail,
+    errorDetail_message,
+
     -- * FunctionConfiguration
     FunctionConfiguration (..),
     newFunctionConfiguration,
     functionConfiguration_functionArn,
     functionConfiguration_name,
+    functionConfiguration_maxBatchSize,
     functionConfiguration_functionVersion,
     functionConfiguration_description,
     functionConfiguration_dataSourceName,
@@ -259,6 +285,7 @@ module Amazonka.AppSync.Types
     -- * Resolver
     Resolver (..),
     newResolver,
+    resolver_maxBatchSize,
     resolver_resolverArn,
     resolver_fieldName,
     resolver_cachingConfig,
@@ -297,11 +324,13 @@ module Amazonka.AppSync.Types
 where
 
 import Amazonka.AppSync.Types.AdditionalAuthenticationProvider
+import Amazonka.AppSync.Types.ApiAssociation
 import Amazonka.AppSync.Types.ApiCache
 import Amazonka.AppSync.Types.ApiCacheStatus
 import Amazonka.AppSync.Types.ApiCacheType
 import Amazonka.AppSync.Types.ApiCachingBehavior
 import Amazonka.AppSync.Types.ApiKey
+import Amazonka.AppSync.Types.AssociationStatus
 import Amazonka.AppSync.Types.AuthenticationType
 import Amazonka.AppSync.Types.AuthorizationConfig
 import Amazonka.AppSync.Types.AuthorizationType
@@ -314,8 +343,10 @@ import Amazonka.AppSync.Types.DataSource
 import Amazonka.AppSync.Types.DataSourceType
 import Amazonka.AppSync.Types.DefaultAction
 import Amazonka.AppSync.Types.DeltaSyncConfig
+import Amazonka.AppSync.Types.DomainNameConfig
 import Amazonka.AppSync.Types.DynamodbDataSourceConfig
 import Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
+import Amazonka.AppSync.Types.ErrorDetail
 import Amazonka.AppSync.Types.FieldLogLevel
 import Amazonka.AppSync.Types.FunctionConfiguration
 import Amazonka.AppSync.Types.GraphqlApi
@@ -430,7 +461,7 @@ _ConcurrentModificationException =
     "ConcurrentModificationException"
     Prelude.. Core.hasStatus 409
 
--- | You do not have access to perform this operation on this resource.
+-- | You don\'t have access to perform this operation on this resource.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
@@ -438,7 +469,7 @@ _AccessDeniedException =
     "AccessDeniedException"
     Prelude.. Core.hasStatus 403
 
--- | You are not authorized to perform this operation.
+-- | You aren\'t authorized to perform this operation.
 _UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnauthorizedException =
   Core._MatchServiceError

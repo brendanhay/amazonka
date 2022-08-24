@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newCognitoUserPoolConfig' smart constructor.
 data CognitoUserPoolConfig = CognitoUserPoolConfig'
   { -- | A regular expression for validating the incoming Amazon Cognito user
-    -- pool app client ID.
+    -- pool app client ID. If this value isn\'t set, no filtering is applied.
     appIdClientRegex :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
@@ -46,7 +46,7 @@ data CognitoUserPoolConfig = CognitoUserPoolConfig'
 -- for backwards compatibility:
 --
 -- 'appIdClientRegex', 'cognitoUserPoolConfig_appIdClientRegex' - A regular expression for validating the incoming Amazon Cognito user
--- pool app client ID.
+-- pool app client ID. If this value isn\'t set, no filtering is applied.
 --
 -- 'userPoolId', 'cognitoUserPoolConfig_userPoolId' - The user pool ID.
 --
@@ -66,7 +66,7 @@ newCognitoUserPoolConfig pUserPoolId_ pAwsRegion_ =
     }
 
 -- | A regular expression for validating the incoming Amazon Cognito user
--- pool app client ID.
+-- pool app client ID. If this value isn\'t set, no filtering is applied.
 cognitoUserPoolConfig_appIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Prelude.Maybe Prelude.Text)
 cognitoUserPoolConfig_appIdClientRegex = Lens.lens (\CognitoUserPoolConfig' {appIdClientRegex} -> appIdClientRegex) (\s@CognitoUserPoolConfig' {} a -> s {appIdClientRegex = a} :: CognitoUserPoolConfig)
 

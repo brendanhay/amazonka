@@ -59,6 +59,12 @@ module Amazonka.AppSync
     -- * Operations
     -- $operations
 
+    -- ** AssociateApi
+    AssociateApi (AssociateApi'),
+    newAssociateApi,
+    AssociateApiResponse (AssociateApiResponse'),
+    newAssociateApiResponse,
+
     -- ** CreateApiCache
     CreateApiCache (CreateApiCache'),
     newCreateApiCache,
@@ -76,6 +82,12 @@ module Amazonka.AppSync
     newCreateDataSource,
     CreateDataSourceResponse (CreateDataSourceResponse'),
     newCreateDataSourceResponse,
+
+    -- ** CreateDomainName
+    CreateDomainName (CreateDomainName'),
+    newCreateDomainName,
+    CreateDomainNameResponse (CreateDomainNameResponse'),
+    newCreateDomainNameResponse,
 
     -- ** CreateFunction
     CreateFunction (CreateFunction'),
@@ -119,6 +131,12 @@ module Amazonka.AppSync
     DeleteDataSourceResponse (DeleteDataSourceResponse'),
     newDeleteDataSourceResponse,
 
+    -- ** DeleteDomainName
+    DeleteDomainName (DeleteDomainName'),
+    newDeleteDomainName,
+    DeleteDomainNameResponse (DeleteDomainNameResponse'),
+    newDeleteDomainNameResponse,
+
     -- ** DeleteFunction
     DeleteFunction (DeleteFunction'),
     newDeleteFunction,
@@ -143,11 +161,29 @@ module Amazonka.AppSync
     DeleteTypeResponse (DeleteTypeResponse'),
     newDeleteTypeResponse,
 
+    -- ** DisassociateApi
+    DisassociateApi (DisassociateApi'),
+    newDisassociateApi,
+    DisassociateApiResponse (DisassociateApiResponse'),
+    newDisassociateApiResponse,
+
+    -- ** EvaluateMappingTemplate
+    EvaluateMappingTemplate (EvaluateMappingTemplate'),
+    newEvaluateMappingTemplate,
+    EvaluateMappingTemplateResponse (EvaluateMappingTemplateResponse'),
+    newEvaluateMappingTemplateResponse,
+
     -- ** FlushApiCache
     FlushApiCache (FlushApiCache'),
     newFlushApiCache,
     FlushApiCacheResponse (FlushApiCacheResponse'),
     newFlushApiCacheResponse,
+
+    -- ** GetApiAssociation
+    GetApiAssociation (GetApiAssociation'),
+    newGetApiAssociation,
+    GetApiAssociationResponse (GetApiAssociationResponse'),
+    newGetApiAssociationResponse,
 
     -- ** GetApiCache
     GetApiCache (GetApiCache'),
@@ -160,6 +196,12 @@ module Amazonka.AppSync
     newGetDataSource,
     GetDataSourceResponse (GetDataSourceResponse'),
     newGetDataSourceResponse,
+
+    -- ** GetDomainName
+    GetDomainName (GetDomainName'),
+    newGetDomainName,
+    GetDomainNameResponse (GetDomainNameResponse'),
+    newGetDomainNameResponse,
 
     -- ** GetFunction
     GetFunction (GetFunction'),
@@ -208,6 +250,12 @@ module Amazonka.AppSync
     newListDataSources,
     ListDataSourcesResponse (ListDataSourcesResponse'),
     newListDataSourcesResponse,
+
+    -- ** ListDomainNames
+    ListDomainNames (ListDomainNames'),
+    newListDomainNames,
+    ListDomainNamesResponse (ListDomainNamesResponse'),
+    newListDomainNamesResponse,
 
     -- ** ListFunctions (Paginated)
     ListFunctions (ListFunctions'),
@@ -281,6 +329,12 @@ module Amazonka.AppSync
     UpdateDataSourceResponse (UpdateDataSourceResponse'),
     newUpdateDataSourceResponse,
 
+    -- ** UpdateDomainName
+    UpdateDomainName (UpdateDomainName'),
+    newUpdateDomainName,
+    UpdateDomainNameResponse (UpdateDomainNameResponse'),
+    newUpdateDomainNameResponse,
+
     -- ** UpdateFunction
     UpdateFunction (UpdateFunction'),
     newUpdateFunction,
@@ -315,6 +369,9 @@ module Amazonka.AppSync
 
     -- ** ApiCachingBehavior
     ApiCachingBehavior (..),
+
+    -- ** AssociationStatus
+    AssociationStatus (..),
 
     -- ** AuthenticationType
     AuthenticationType (..),
@@ -356,6 +413,10 @@ module Amazonka.AppSync
     AdditionalAuthenticationProvider (AdditionalAuthenticationProvider'),
     newAdditionalAuthenticationProvider,
 
+    -- ** ApiAssociation
+    ApiAssociation (ApiAssociation'),
+    newApiAssociation,
+
     -- ** ApiCache
     ApiCache (ApiCache'),
     newApiCache,
@@ -388,6 +449,10 @@ module Amazonka.AppSync
     DeltaSyncConfig (DeltaSyncConfig'),
     newDeltaSyncConfig,
 
+    -- ** DomainNameConfig
+    DomainNameConfig (DomainNameConfig'),
+    newDomainNameConfig,
+
     -- ** DynamodbDataSourceConfig
     DynamodbDataSourceConfig (DynamodbDataSourceConfig'),
     newDynamodbDataSourceConfig,
@@ -395,6 +460,10 @@ module Amazonka.AppSync
     -- ** ElasticsearchDataSourceConfig
     ElasticsearchDataSourceConfig (ElasticsearchDataSourceConfig'),
     newElasticsearchDataSourceConfig,
+
+    -- ** ErrorDetail
+    ErrorDetail (ErrorDetail'),
+    newErrorDetail,
 
     -- ** FunctionConfiguration
     FunctionConfiguration (FunctionConfiguration'),
@@ -462,9 +531,11 @@ module Amazonka.AppSync
   )
 where
 
+import Amazonka.AppSync.AssociateApi
 import Amazonka.AppSync.CreateApiCache
 import Amazonka.AppSync.CreateApiKey
 import Amazonka.AppSync.CreateDataSource
+import Amazonka.AppSync.CreateDomainName
 import Amazonka.AppSync.CreateFunction
 import Amazonka.AppSync.CreateGraphqlApi
 import Amazonka.AppSync.CreateResolver
@@ -472,13 +543,18 @@ import Amazonka.AppSync.CreateType
 import Amazonka.AppSync.DeleteApiCache
 import Amazonka.AppSync.DeleteApiKey
 import Amazonka.AppSync.DeleteDataSource
+import Amazonka.AppSync.DeleteDomainName
 import Amazonka.AppSync.DeleteFunction
 import Amazonka.AppSync.DeleteGraphqlApi
 import Amazonka.AppSync.DeleteResolver
 import Amazonka.AppSync.DeleteType
+import Amazonka.AppSync.DisassociateApi
+import Amazonka.AppSync.EvaluateMappingTemplate
 import Amazonka.AppSync.FlushApiCache
+import Amazonka.AppSync.GetApiAssociation
 import Amazonka.AppSync.GetApiCache
 import Amazonka.AppSync.GetDataSource
+import Amazonka.AppSync.GetDomainName
 import Amazonka.AppSync.GetFunction
 import Amazonka.AppSync.GetGraphqlApi
 import Amazonka.AppSync.GetIntrospectionSchema
@@ -488,6 +564,7 @@ import Amazonka.AppSync.GetType
 import Amazonka.AppSync.Lens
 import Amazonka.AppSync.ListApiKeys
 import Amazonka.AppSync.ListDataSources
+import Amazonka.AppSync.ListDomainNames
 import Amazonka.AppSync.ListFunctions
 import Amazonka.AppSync.ListGraphqlApis
 import Amazonka.AppSync.ListResolvers
@@ -501,6 +578,7 @@ import Amazonka.AppSync.UntagResource
 import Amazonka.AppSync.UpdateApiCache
 import Amazonka.AppSync.UpdateApiKey
 import Amazonka.AppSync.UpdateDataSource
+import Amazonka.AppSync.UpdateDomainName
 import Amazonka.AppSync.UpdateFunction
 import Amazonka.AppSync.UpdateGraphqlApi
 import Amazonka.AppSync.UpdateResolver

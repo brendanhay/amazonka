@@ -28,10 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 -- Customers invoke AppSync GraphQL API operations with API keys as an
 -- identity mechanism. There are two key versions:
 --
--- __da1__: This version was introduced at launch in November 2017. These
--- keys always expire after 7 days. Key expiration is managed by Amazon
--- DynamoDB TTL. The keys ceased to be valid after February 21, 2018 and
--- should not be used after that date.
+-- __da1__: We introduced this version at launch in November 2017. These
+-- keys always expire after 7 days. Amazon DynamoDB TTL manages key
+-- expiration. These keys ceased to be valid after February 21, 2018, and
+-- they should no longer be used.
 --
 -- -   @ListApiKeys@ returns the expiration time in milliseconds.
 --
@@ -41,13 +41,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- -   @DeleteApiKey@ deletes the item from the table.
 --
--- -   Expiration is stored in Amazon DynamoDB as milliseconds. This
---     results in a bug where keys are not automatically deleted because
---     DynamoDB expects the TTL to be stored in seconds. As a one-time
---     action, we will delete these keys from the table after February 21,
---     2018.
+-- -   Expiration is stored in DynamoDB as milliseconds. This results in a
+--     bug where keys are not automatically deleted because DynamoDB
+--     expects the TTL to be stored in seconds. As a one-time action, we
+--     deleted these keys from the table on February 21, 2018.
 --
--- __da2__: This version was introduced in February 2018 when AppSync added
+-- __da2__: We introduced this version in February 2018 when AppSync added
 -- support to extend key expiration.
 --
 -- -   @ListApiKeys@ returns the expiration time and deletion time in
@@ -58,17 +57,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- -   @UpdateApiKey@ returns the expiration time and and deletion time in
 --     seconds and accepts a user-provided expiration time in seconds.
---     Expired API keys are kept for 60 days after the expiration time. Key
---     expiration time can be updated while the key is not deleted.
+--     Expired API keys are kept for 60 days after the expiration time. You
+--     can update the key expiration time as long as the key isn\'t
+--     deleted.
 --
 -- -   @DeleteApiKey@ deletes the item from the table.
 --
--- -   Expiration is stored in Amazon DynamoDB as seconds. After the
---     expiration time, using the key to authenticate will fail. But the
---     key can be reinstated before deletion.
+-- -   Expiration is stored in DynamoDB as seconds. After the expiration
+--     time, using the key to authenticate will fail. However, you can
+--     reinstate the key before deletion.
 --
--- -   Deletion is stored in Amazon DynamoDB as seconds. The key will be
---     deleted after deletion time.
+-- -   Deletion is stored in DynamoDB as seconds. The key is deleted after
+--     deletion time.
 --
 -- /See:/ 'newApiKey' smart constructor.
 data ApiKey = ApiKey'

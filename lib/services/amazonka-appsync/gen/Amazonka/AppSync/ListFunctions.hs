@@ -54,10 +54,10 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListFunctions' smart constructor.
 data ListFunctions = ListFunctions'
   { -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
+    -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results you want the request to return.
+    -- | The maximum number of results that you want the request to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The GraphQL API ID.
     apiId :: Prelude.Text
@@ -73,10 +73,10 @@ data ListFunctions = ListFunctions'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listFunctions_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 --
--- 'maxResults', 'listFunctions_maxResults' - The maximum number of results you want the request to return.
+-- 'maxResults', 'listFunctions_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listFunctions_apiId' - The GraphQL API ID.
 newListFunctions ::
@@ -91,12 +91,12 @@ newListFunctions pApiId_ =
     }
 
 -- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 listFunctions_nextToken :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Text)
 listFunctions_nextToken = Lens.lens (\ListFunctions' {nextToken} -> nextToken) (\s@ListFunctions' {} a -> s {nextToken = a} :: ListFunctions)
 
--- | The maximum number of results you want the request to return.
+-- | The maximum number of results that you want the request to return.
 listFunctions_maxResults :: Lens.Lens' ListFunctions (Prelude.Maybe Prelude.Natural)
 listFunctions_maxResults = Lens.lens (\ListFunctions' {maxResults} -> maxResults) (\s@ListFunctions' {} a -> s {maxResults = a} :: ListFunctions)
 
@@ -177,7 +177,7 @@ data ListFunctionsResponse = ListFunctionsResponse'
   { -- | A list of @Function@ objects.
     functions :: Prelude.Maybe [FunctionConfiguration],
     -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
+    -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -196,7 +196,7 @@ data ListFunctionsResponse = ListFunctionsResponse'
 -- 'functions', 'listFunctionsResponse_functions' - A list of @Function@ objects.
 --
 -- 'nextToken', 'listFunctionsResponse_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 --
 -- 'httpStatus', 'listFunctionsResponse_httpStatus' - The response's http status code.
@@ -216,7 +216,7 @@ listFunctionsResponse_functions :: Lens.Lens' ListFunctionsResponse (Prelude.May
 listFunctionsResponse_functions = Lens.lens (\ListFunctionsResponse' {functions} -> functions) (\s@ListFunctionsResponse' {} a -> s {functions = a} :: ListFunctionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
+-- operation, which you can use to return the next set of items in the
 -- list.
 listFunctionsResponse_nextToken :: Lens.Lens' ListFunctionsResponse (Prelude.Maybe Prelude.Text)
 listFunctionsResponse_nextToken = Lens.lens (\ListFunctionsResponse' {nextToken} -> nextToken) (\s@ListFunctionsResponse' {} a -> s {nextToken = a} :: ListFunctionsResponse)

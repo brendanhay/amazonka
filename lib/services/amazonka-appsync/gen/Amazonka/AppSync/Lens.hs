@@ -14,6 +14,12 @@
 module Amazonka.AppSync.Lens
   ( -- * Operations
 
+    -- ** AssociateApi
+    associateApi_domainName,
+    associateApi_apiId,
+    associateApiResponse_apiAssociation,
+    associateApiResponse_httpStatus,
+
     -- ** CreateApiCache
     createApiCache_transitEncryptionEnabled,
     createApiCache_atRestEncryptionEnabled,
@@ -46,7 +52,15 @@ module Amazonka.AppSync.Lens
     createDataSourceResponse_dataSource,
     createDataSourceResponse_httpStatus,
 
+    -- ** CreateDomainName
+    createDomainName_description,
+    createDomainName_domainName,
+    createDomainName_certificateArn,
+    createDomainNameResponse_domainNameConfig,
+    createDomainNameResponse_httpStatus,
+
     -- ** CreateFunction
+    createFunction_maxBatchSize,
     createFunction_description,
     createFunction_responseMappingTemplate,
     createFunction_syncConfig,
@@ -72,6 +86,7 @@ module Amazonka.AppSync.Lens
     createGraphqlApiResponse_httpStatus,
 
     -- ** CreateResolver
+    createResolver_maxBatchSize,
     createResolver_cachingConfig,
     createResolver_pipelineConfig,
     createResolver_kind,
@@ -106,6 +121,10 @@ module Amazonka.AppSync.Lens
     deleteDataSource_name,
     deleteDataSourceResponse_httpStatus,
 
+    -- ** DeleteDomainName
+    deleteDomainName_domainName,
+    deleteDomainNameResponse_httpStatus,
+
     -- ** DeleteFunction
     deleteFunction_apiId,
     deleteFunction_functionId,
@@ -126,9 +145,25 @@ module Amazonka.AppSync.Lens
     deleteType_typeName,
     deleteTypeResponse_httpStatus,
 
+    -- ** DisassociateApi
+    disassociateApi_domainName,
+    disassociateApiResponse_httpStatus,
+
+    -- ** EvaluateMappingTemplate
+    evaluateMappingTemplate_template,
+    evaluateMappingTemplate_context,
+    evaluateMappingTemplateResponse_evaluationResult,
+    evaluateMappingTemplateResponse_error,
+    evaluateMappingTemplateResponse_httpStatus,
+
     -- ** FlushApiCache
     flushApiCache_apiId,
     flushApiCacheResponse_httpStatus,
+
+    -- ** GetApiAssociation
+    getApiAssociation_domainName,
+    getApiAssociationResponse_apiAssociation,
+    getApiAssociationResponse_httpStatus,
 
     -- ** GetApiCache
     getApiCache_apiId,
@@ -140,6 +175,11 @@ module Amazonka.AppSync.Lens
     getDataSource_name,
     getDataSourceResponse_dataSource,
     getDataSourceResponse_httpStatus,
+
+    -- ** GetDomainName
+    getDomainName_domainName,
+    getDomainNameResponse_domainNameConfig,
+    getDomainNameResponse_httpStatus,
 
     -- ** GetFunction
     getFunction_apiId,
@@ -194,6 +234,13 @@ module Amazonka.AppSync.Lens
     listDataSourcesResponse_nextToken,
     listDataSourcesResponse_dataSources,
     listDataSourcesResponse_httpStatus,
+
+    -- ** ListDomainNames
+    listDomainNames_nextToken,
+    listDomainNames_maxResults,
+    listDomainNamesResponse_nextToken,
+    listDomainNamesResponse_domainNameConfigs,
+    listDomainNamesResponse_httpStatus,
 
     -- ** ListFunctions
     listFunctions_nextToken,
@@ -289,7 +336,14 @@ module Amazonka.AppSync.Lens
     updateDataSourceResponse_dataSource,
     updateDataSourceResponse_httpStatus,
 
+    -- ** UpdateDomainName
+    updateDomainName_description,
+    updateDomainName_domainName,
+    updateDomainNameResponse_domainNameConfig,
+    updateDomainNameResponse_httpStatus,
+
     -- ** UpdateFunction
+    updateFunction_maxBatchSize,
     updateFunction_description,
     updateFunction_responseMappingTemplate,
     updateFunction_syncConfig,
@@ -316,6 +370,7 @@ module Amazonka.AppSync.Lens
     updateGraphqlApiResponse_httpStatus,
 
     -- ** UpdateResolver
+    updateResolver_maxBatchSize,
     updateResolver_cachingConfig,
     updateResolver_pipelineConfig,
     updateResolver_kind,
@@ -345,6 +400,12 @@ module Amazonka.AppSync.Lens
     additionalAuthenticationProvider_userPoolConfig,
     additionalAuthenticationProvider_lambdaAuthorizerConfig,
 
+    -- ** ApiAssociation
+    apiAssociation_domainName,
+    apiAssociation_apiId,
+    apiAssociation_associationStatus,
+    apiAssociation_deploymentDetail,
+
     -- ** ApiCache
     apiCache_transitEncryptionEnabled,
     apiCache_type,
@@ -368,8 +429,8 @@ module Amazonka.AppSync.Lens
     awsIamConfig_signingRegion,
 
     -- ** CachingConfig
-    cachingConfig_ttl,
     cachingConfig_cachingKeys,
+    cachingConfig_ttl,
 
     -- ** CognitoUserPoolConfig
     cognitoUserPoolConfig_appIdClientRegex,
@@ -394,6 +455,13 @@ module Amazonka.AppSync.Lens
     deltaSyncConfig_deltaSyncTableName,
     deltaSyncConfig_deltaSyncTableTTL,
 
+    -- ** DomainNameConfig
+    domainNameConfig_hostedZoneId,
+    domainNameConfig_domainName,
+    domainNameConfig_description,
+    domainNameConfig_appsyncDomainName,
+    domainNameConfig_certificateArn,
+
     -- ** DynamodbDataSourceConfig
     dynamodbDataSourceConfig_useCallerCredentials,
     dynamodbDataSourceConfig_versioned,
@@ -405,9 +473,13 @@ module Amazonka.AppSync.Lens
     elasticsearchDataSourceConfig_endpoint,
     elasticsearchDataSourceConfig_awsRegion,
 
+    -- ** ErrorDetail
+    errorDetail_message,
+
     -- ** FunctionConfiguration
     functionConfiguration_functionArn,
     functionConfiguration_name,
+    functionConfiguration_maxBatchSize,
     functionConfiguration_functionVersion,
     functionConfiguration_description,
     functionConfiguration_dataSourceName,
@@ -476,6 +548,7 @@ module Amazonka.AppSync.Lens
     relationalDatabaseDataSourceConfig_rdsHttpEndpointConfig,
 
     -- ** Resolver
+    resolver_maxBatchSize,
     resolver_resolverArn,
     resolver_fieldName,
     resolver_cachingConfig,
@@ -507,9 +580,11 @@ module Amazonka.AppSync.Lens
   )
 where
 
+import Amazonka.AppSync.AssociateApi
 import Amazonka.AppSync.CreateApiCache
 import Amazonka.AppSync.CreateApiKey
 import Amazonka.AppSync.CreateDataSource
+import Amazonka.AppSync.CreateDomainName
 import Amazonka.AppSync.CreateFunction
 import Amazonka.AppSync.CreateGraphqlApi
 import Amazonka.AppSync.CreateResolver
@@ -517,13 +592,18 @@ import Amazonka.AppSync.CreateType
 import Amazonka.AppSync.DeleteApiCache
 import Amazonka.AppSync.DeleteApiKey
 import Amazonka.AppSync.DeleteDataSource
+import Amazonka.AppSync.DeleteDomainName
 import Amazonka.AppSync.DeleteFunction
 import Amazonka.AppSync.DeleteGraphqlApi
 import Amazonka.AppSync.DeleteResolver
 import Amazonka.AppSync.DeleteType
+import Amazonka.AppSync.DisassociateApi
+import Amazonka.AppSync.EvaluateMappingTemplate
 import Amazonka.AppSync.FlushApiCache
+import Amazonka.AppSync.GetApiAssociation
 import Amazonka.AppSync.GetApiCache
 import Amazonka.AppSync.GetDataSource
+import Amazonka.AppSync.GetDomainName
 import Amazonka.AppSync.GetFunction
 import Amazonka.AppSync.GetGraphqlApi
 import Amazonka.AppSync.GetIntrospectionSchema
@@ -532,6 +612,7 @@ import Amazonka.AppSync.GetSchemaCreationStatus
 import Amazonka.AppSync.GetType
 import Amazonka.AppSync.ListApiKeys
 import Amazonka.AppSync.ListDataSources
+import Amazonka.AppSync.ListDomainNames
 import Amazonka.AppSync.ListFunctions
 import Amazonka.AppSync.ListGraphqlApis
 import Amazonka.AppSync.ListResolvers
@@ -541,6 +622,7 @@ import Amazonka.AppSync.ListTypes
 import Amazonka.AppSync.StartSchemaCreation
 import Amazonka.AppSync.TagResource
 import Amazonka.AppSync.Types.AdditionalAuthenticationProvider
+import Amazonka.AppSync.Types.ApiAssociation
 import Amazonka.AppSync.Types.ApiCache
 import Amazonka.AppSync.Types.ApiKey
 import Amazonka.AppSync.Types.AuthorizationConfig
@@ -549,8 +631,10 @@ import Amazonka.AppSync.Types.CachingConfig
 import Amazonka.AppSync.Types.CognitoUserPoolConfig
 import Amazonka.AppSync.Types.DataSource
 import Amazonka.AppSync.Types.DeltaSyncConfig
+import Amazonka.AppSync.Types.DomainNameConfig
 import Amazonka.AppSync.Types.DynamodbDataSourceConfig
 import Amazonka.AppSync.Types.ElasticsearchDataSourceConfig
+import Amazonka.AppSync.Types.ErrorDetail
 import Amazonka.AppSync.Types.FunctionConfiguration
 import Amazonka.AppSync.Types.GraphqlApi
 import Amazonka.AppSync.Types.HttpDataSourceConfig
@@ -571,6 +655,7 @@ import Amazonka.AppSync.UntagResource
 import Amazonka.AppSync.UpdateApiCache
 import Amazonka.AppSync.UpdateApiKey
 import Amazonka.AppSync.UpdateDataSource
+import Amazonka.AppSync.UpdateDomainName
 import Amazonka.AppSync.UpdateFunction
 import Amazonka.AppSync.UpdateGraphqlApi
 import Amazonka.AppSync.UpdateResolver

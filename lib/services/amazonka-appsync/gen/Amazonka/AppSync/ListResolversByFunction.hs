@@ -58,11 +58,11 @@ data ListResolversByFunction = ListResolversByFunction'
     -- operation, which you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results you want the request to return.
+    -- | The maximum number of results that you want the request to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The API ID.
     apiId :: Prelude.Text,
-    -- | The Function ID.
+    -- | The function ID.
     functionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,11 +79,11 @@ data ListResolversByFunction = ListResolversByFunction'
 -- operation, which you can use to return the next set of items in the
 -- list.
 --
--- 'maxResults', 'listResolversByFunction_maxResults' - The maximum number of results you want the request to return.
+-- 'maxResults', 'listResolversByFunction_maxResults' - The maximum number of results that you want the request to return.
 --
 -- 'apiId', 'listResolversByFunction_apiId' - The API ID.
 --
--- 'functionId', 'listResolversByFunction_functionId' - The Function ID.
+-- 'functionId', 'listResolversByFunction_functionId' - The function ID.
 newListResolversByFunction ::
   -- | 'apiId'
   Prelude.Text ->
@@ -105,7 +105,7 @@ newListResolversByFunction pApiId_ pFunctionId_ =
 listResolversByFunction_nextToken :: Lens.Lens' ListResolversByFunction (Prelude.Maybe Prelude.Text)
 listResolversByFunction_nextToken = Lens.lens (\ListResolversByFunction' {nextToken} -> nextToken) (\s@ListResolversByFunction' {} a -> s {nextToken = a} :: ListResolversByFunction)
 
--- | The maximum number of results you want the request to return.
+-- | The maximum number of results that you want the request to return.
 listResolversByFunction_maxResults :: Lens.Lens' ListResolversByFunction (Prelude.Maybe Prelude.Natural)
 listResolversByFunction_maxResults = Lens.lens (\ListResolversByFunction' {maxResults} -> maxResults) (\s@ListResolversByFunction' {} a -> s {maxResults = a} :: ListResolversByFunction)
 
@@ -113,7 +113,7 @@ listResolversByFunction_maxResults = Lens.lens (\ListResolversByFunction' {maxRe
 listResolversByFunction_apiId :: Lens.Lens' ListResolversByFunction Prelude.Text
 listResolversByFunction_apiId = Lens.lens (\ListResolversByFunction' {apiId} -> apiId) (\s@ListResolversByFunction' {} a -> s {apiId = a} :: ListResolversByFunction)
 
--- | The Function ID.
+-- | The function ID.
 listResolversByFunction_functionId :: Lens.Lens' ListResolversByFunction Prelude.Text
 listResolversByFunction_functionId = Lens.lens (\ListResolversByFunction' {functionId} -> functionId) (\s@ListResolversByFunction' {} a -> s {functionId = a} :: ListResolversByFunction)
 
@@ -197,7 +197,7 @@ instance Core.ToQuery ListResolversByFunction where
 
 -- | /See:/ 'newListResolversByFunctionResponse' smart constructor.
 data ListResolversByFunctionResponse = ListResolversByFunctionResponse'
-  { -- | An identifier that can be used to return the next set of items in the
+  { -- | An identifier that you can use to return the next set of items in the
     -- list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of resolvers.
@@ -215,7 +215,7 @@ data ListResolversByFunctionResponse = ListResolversByFunctionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResolversByFunctionResponse_nextToken' - An identifier that can be used to return the next set of items in the
+-- 'nextToken', 'listResolversByFunctionResponse_nextToken' - An identifier that you can use to return the next set of items in the
 -- list.
 --
 -- 'resolvers', 'listResolversByFunctionResponse_resolvers' - The list of resolvers.
@@ -233,7 +233,7 @@ newListResolversByFunctionResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An identifier that can be used to return the next set of items in the
+-- | An identifier that you can use to return the next set of items in the
 -- list.
 listResolversByFunctionResponse_nextToken :: Lens.Lens' ListResolversByFunctionResponse (Prelude.Maybe Prelude.Text)
 listResolversByFunctionResponse_nextToken = Lens.lens (\ListResolversByFunctionResponse' {nextToken} -> nextToken) (\s@ListResolversByFunctionResponse' {} a -> s {nextToken = a} :: ListResolversByFunctionResponse)

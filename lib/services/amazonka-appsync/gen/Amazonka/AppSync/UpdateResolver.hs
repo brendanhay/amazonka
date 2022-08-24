@@ -27,6 +27,7 @@ module Amazonka.AppSync.UpdateResolver
     newUpdateResolver,
 
     -- * Request Lenses
+    updateResolver_maxBatchSize,
     updateResolver_cachingConfig,
     updateResolver_pipelineConfig,
     updateResolver_kind,
@@ -57,26 +58,28 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResolver' smart constructor.
 data UpdateResolver = UpdateResolver'
-  { -- | The caching configuration for the resolver.
+  { -- | The maximum batching size for a resolver.
+    maxBatchSize :: Prelude.Maybe Prelude.Natural,
+    -- | The caching configuration for the resolver.
     cachingConfig :: Prelude.Maybe CachingConfig,
     -- | The @PipelineConfig@.
     pipelineConfig :: Prelude.Maybe PipelineConfig,
     -- | The resolver type.
     --
     -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
-    --     resolver type. A UNIT resolver enables you to execute a GraphQL
-    --     query against a single data source.
+    --     resolver type. You can use a UNIT resolver to run a GraphQL query
+    --     against a single data source.
     --
-    -- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
-    --     you to execute a series of @Function@ in a serial manner. You can
-    --     use a pipeline resolver to execute a GraphQL query against multiple
-    --     data sources.
+    -- -   __PIPELINE__: A PIPELINE resolver type. You can use a PIPELINE
+    --     resolver to invoke a series of @Function@ objects in a serial
+    --     manner. You can use a pipeline resolver to run a GraphQL query
+    --     against multiple data sources.
     kind :: Prelude.Maybe ResolverKind,
     -- | The new data source name.
     dataSourceName :: Prelude.Maybe Prelude.Text,
     -- | The new response mapping template.
     responseMappingTemplate :: Prelude.Maybe Prelude.Text,
-    -- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+    -- | The @SyncConfig@ for a resolver attached to a versioned data source.
     syncConfig :: Prelude.Maybe SyncConfig,
     -- | The new request mapping template.
     --
@@ -84,7 +87,7 @@ data UpdateResolver = UpdateResolver'
     -- expression into a format that a data source can understand. Mapping
     -- templates are written in Apache Velocity Template Language (VTL).
     --
-    -- VTL request mapping templates are optional when using a Lambda data
+    -- VTL request mapping templates are optional when using an Lambda data
     -- source. For all other data sources, VTL request and response mapping
     -- templates are required.
     requestMappingTemplate :: Prelude.Maybe Prelude.Text,
@@ -105,6 +108,8 @@ data UpdateResolver = UpdateResolver'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'maxBatchSize', 'updateResolver_maxBatchSize' - The maximum batching size for a resolver.
+--
 -- 'cachingConfig', 'updateResolver_cachingConfig' - The caching configuration for the resolver.
 --
 -- 'pipelineConfig', 'updateResolver_pipelineConfig' - The @PipelineConfig@.
@@ -112,19 +117,19 @@ data UpdateResolver = UpdateResolver'
 -- 'kind', 'updateResolver_kind' - The resolver type.
 --
 -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
---     resolver type. A UNIT resolver enables you to execute a GraphQL
---     query against a single data source.
+--     resolver type. You can use a UNIT resolver to run a GraphQL query
+--     against a single data source.
 --
--- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
---     you to execute a series of @Function@ in a serial manner. You can
---     use a pipeline resolver to execute a GraphQL query against multiple
---     data sources.
+-- -   __PIPELINE__: A PIPELINE resolver type. You can use a PIPELINE
+--     resolver to invoke a series of @Function@ objects in a serial
+--     manner. You can use a pipeline resolver to run a GraphQL query
+--     against multiple data sources.
 --
 -- 'dataSourceName', 'updateResolver_dataSourceName' - The new data source name.
 --
 -- 'responseMappingTemplate', 'updateResolver_responseMappingTemplate' - The new response mapping template.
 --
--- 'syncConfig', 'updateResolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned datasource.
+-- 'syncConfig', 'updateResolver_syncConfig' - The @SyncConfig@ for a resolver attached to a versioned data source.
 --
 -- 'requestMappingTemplate', 'updateResolver_requestMappingTemplate' - The new request mapping template.
 --
@@ -132,7 +137,7 @@ data UpdateResolver = UpdateResolver'
 -- expression into a format that a data source can understand. Mapping
 -- templates are written in Apache Velocity Template Language (VTL).
 --
--- VTL request mapping templates are optional when using a Lambda data
+-- VTL request mapping templates are optional when using an Lambda data
 -- source. For all other data sources, VTL request and response mapping
 -- templates are required.
 --
@@ -151,7 +156,8 @@ newUpdateResolver ::
   UpdateResolver
 newUpdateResolver pApiId_ pTypeName_ pFieldName_ =
   UpdateResolver'
-    { cachingConfig = Prelude.Nothing,
+    { maxBatchSize = Prelude.Nothing,
+      cachingConfig = Prelude.Nothing,
       pipelineConfig = Prelude.Nothing,
       kind = Prelude.Nothing,
       dataSourceName = Prelude.Nothing,
@@ -162,6 +168,10 @@ newUpdateResolver pApiId_ pTypeName_ pFieldName_ =
       typeName = pTypeName_,
       fieldName = pFieldName_
     }
+
+-- | The maximum batching size for a resolver.
+updateResolver_maxBatchSize :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Natural)
+updateResolver_maxBatchSize = Lens.lens (\UpdateResolver' {maxBatchSize} -> maxBatchSize) (\s@UpdateResolver' {} a -> s {maxBatchSize = a} :: UpdateResolver)
 
 -- | The caching configuration for the resolver.
 updateResolver_cachingConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe CachingConfig)
@@ -174,13 +184,13 @@ updateResolver_pipelineConfig = Lens.lens (\UpdateResolver' {pipelineConfig} -> 
 -- | The resolver type.
 --
 -- -   __UNIT__: A UNIT resolver type. A UNIT resolver is the default
---     resolver type. A UNIT resolver enables you to execute a GraphQL
---     query against a single data source.
+--     resolver type. You can use a UNIT resolver to run a GraphQL query
+--     against a single data source.
 --
--- -   __PIPELINE__: A PIPELINE resolver type. A PIPELINE resolver enables
---     you to execute a series of @Function@ in a serial manner. You can
---     use a pipeline resolver to execute a GraphQL query against multiple
---     data sources.
+-- -   __PIPELINE__: A PIPELINE resolver type. You can use a PIPELINE
+--     resolver to invoke a series of @Function@ objects in a serial
+--     manner. You can use a pipeline resolver to run a GraphQL query
+--     against multiple data sources.
 updateResolver_kind :: Lens.Lens' UpdateResolver (Prelude.Maybe ResolverKind)
 updateResolver_kind = Lens.lens (\UpdateResolver' {kind} -> kind) (\s@UpdateResolver' {} a -> s {kind = a} :: UpdateResolver)
 
@@ -192,7 +202,7 @@ updateResolver_dataSourceName = Lens.lens (\UpdateResolver' {dataSourceName} -> 
 updateResolver_responseMappingTemplate :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
 updateResolver_responseMappingTemplate = Lens.lens (\UpdateResolver' {responseMappingTemplate} -> responseMappingTemplate) (\s@UpdateResolver' {} a -> s {responseMappingTemplate = a} :: UpdateResolver)
 
--- | The @SyncConfig@ for a resolver attached to a versioned datasource.
+-- | The @SyncConfig@ for a resolver attached to a versioned data source.
 updateResolver_syncConfig :: Lens.Lens' UpdateResolver (Prelude.Maybe SyncConfig)
 updateResolver_syncConfig = Lens.lens (\UpdateResolver' {syncConfig} -> syncConfig) (\s@UpdateResolver' {} a -> s {syncConfig = a} :: UpdateResolver)
 
@@ -202,7 +212,7 @@ updateResolver_syncConfig = Lens.lens (\UpdateResolver' {syncConfig} -> syncConf
 -- expression into a format that a data source can understand. Mapping
 -- templates are written in Apache Velocity Template Language (VTL).
 --
--- VTL request mapping templates are optional when using a Lambda data
+-- VTL request mapping templates are optional when using an Lambda data
 -- source. For all other data sources, VTL request and response mapping
 -- templates are required.
 updateResolver_requestMappingTemplate :: Lens.Lens' UpdateResolver (Prelude.Maybe Prelude.Text)
@@ -235,7 +245,8 @@ instance Core.AWSRequest UpdateResolver where
 
 instance Prelude.Hashable UpdateResolver where
   hashWithSalt _salt UpdateResolver' {..} =
-    _salt `Prelude.hashWithSalt` cachingConfig
+    _salt `Prelude.hashWithSalt` maxBatchSize
+      `Prelude.hashWithSalt` cachingConfig
       `Prelude.hashWithSalt` pipelineConfig
       `Prelude.hashWithSalt` kind
       `Prelude.hashWithSalt` dataSourceName
@@ -248,7 +259,8 @@ instance Prelude.Hashable UpdateResolver where
 
 instance Prelude.NFData UpdateResolver where
   rnf UpdateResolver' {..} =
-    Prelude.rnf cachingConfig
+    Prelude.rnf maxBatchSize
+      `Prelude.seq` Prelude.rnf cachingConfig
       `Prelude.seq` Prelude.rnf pipelineConfig
       `Prelude.seq` Prelude.rnf kind
       `Prelude.seq` Prelude.rnf dataSourceName
@@ -274,7 +286,8 @@ instance Core.ToJSON UpdateResolver where
   toJSON UpdateResolver' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
+          [ ("maxBatchSize" Core..=) Prelude.<$> maxBatchSize,
+            ("cachingConfig" Core..=) Prelude.<$> cachingConfig,
             ("pipelineConfig" Core..=)
               Prelude.<$> pipelineConfig,
             ("kind" Core..=) Prelude.<$> kind,

@@ -58,22 +58,22 @@ import qualified Amazonka.Response as Response
 data CreateGraphqlApi = CreateGraphqlApi'
   { -- | A @TagMap@ object.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
+    -- | A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
     xrayEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The OpenID Connect configuration.
+    -- | The OIDC configuration.
     openIDConnectConfig :: Prelude.Maybe OpenIDConnectConfig,
     -- | The Amazon Cognito user pool configuration.
     userPoolConfig :: Prelude.Maybe UserPoolConfig,
     -- | A list of additional authentication providers for the @GraphqlApi@ API.
     additionalAuthenticationProviders :: Prelude.Maybe [AdditionalAuthenticationProvider],
-    -- | Configuration for Amazon Web Services Lambda function authorization.
+    -- | Configuration for Lambda function authorization.
     lambdaAuthorizerConfig :: Prelude.Maybe LambdaAuthorizerConfig,
     -- | The Amazon CloudWatch Logs configuration.
     logConfig :: Prelude.Maybe LogConfig,
     -- | A user-supplied name for the @GraphqlApi@.
     name :: Prelude.Text,
-    -- | The authentication type: API key, Identity and Access Management, OIDC,
-    -- Amazon Cognito user pools, or Amazon Web Services Lambda.
+    -- | The authentication type: API key, Identity and Access Management (IAM),
+    -- OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
     authenticationType :: AuthenticationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,22 +88,22 @@ data CreateGraphqlApi = CreateGraphqlApi'
 --
 -- 'tags', 'createGraphqlApi_tags' - A @TagMap@ object.
 --
--- 'xrayEnabled', 'createGraphqlApi_xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
+-- 'xrayEnabled', 'createGraphqlApi_xrayEnabled' - A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
 --
--- 'openIDConnectConfig', 'createGraphqlApi_openIDConnectConfig' - The OpenID Connect configuration.
+-- 'openIDConnectConfig', 'createGraphqlApi_openIDConnectConfig' - The OIDC configuration.
 --
 -- 'userPoolConfig', 'createGraphqlApi_userPoolConfig' - The Amazon Cognito user pool configuration.
 --
 -- 'additionalAuthenticationProviders', 'createGraphqlApi_additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.
 --
--- 'lambdaAuthorizerConfig', 'createGraphqlApi_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.
+-- 'lambdaAuthorizerConfig', 'createGraphqlApi_lambdaAuthorizerConfig' - Configuration for Lambda function authorization.
 --
 -- 'logConfig', 'createGraphqlApi_logConfig' - The Amazon CloudWatch Logs configuration.
 --
 -- 'name', 'createGraphqlApi_name' - A user-supplied name for the @GraphqlApi@.
 --
--- 'authenticationType', 'createGraphqlApi_authenticationType' - The authentication type: API key, Identity and Access Management, OIDC,
--- Amazon Cognito user pools, or Amazon Web Services Lambda.
+-- 'authenticationType', 'createGraphqlApi_authenticationType' - The authentication type: API key, Identity and Access Management (IAM),
+-- OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
 newCreateGraphqlApi ::
   -- | 'name'
   Prelude.Text ->
@@ -127,11 +127,11 @@ newCreateGraphqlApi pName_ pAuthenticationType_ =
 createGraphqlApi_tags :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createGraphqlApi_tags = Lens.lens (\CreateGraphqlApi' {tags} -> tags) (\s@CreateGraphqlApi' {} a -> s {tags = a} :: CreateGraphqlApi) Prelude.. Lens.mapping Lens.coerced
 
--- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.
+-- | A flag indicating whether to use X-Ray tracing for the @GraphqlApi@.
 createGraphqlApi_xrayEnabled :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe Prelude.Bool)
 createGraphqlApi_xrayEnabled = Lens.lens (\CreateGraphqlApi' {xrayEnabled} -> xrayEnabled) (\s@CreateGraphqlApi' {} a -> s {xrayEnabled = a} :: CreateGraphqlApi)
 
--- | The OpenID Connect configuration.
+-- | The OIDC configuration.
 createGraphqlApi_openIDConnectConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe OpenIDConnectConfig)
 createGraphqlApi_openIDConnectConfig = Lens.lens (\CreateGraphqlApi' {openIDConnectConfig} -> openIDConnectConfig) (\s@CreateGraphqlApi' {} a -> s {openIDConnectConfig = a} :: CreateGraphqlApi)
 
@@ -143,7 +143,7 @@ createGraphqlApi_userPoolConfig = Lens.lens (\CreateGraphqlApi' {userPoolConfig}
 createGraphqlApi_additionalAuthenticationProviders :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe [AdditionalAuthenticationProvider])
 createGraphqlApi_additionalAuthenticationProviders = Lens.lens (\CreateGraphqlApi' {additionalAuthenticationProviders} -> additionalAuthenticationProviders) (\s@CreateGraphqlApi' {} a -> s {additionalAuthenticationProviders = a} :: CreateGraphqlApi) Prelude.. Lens.mapping Lens.coerced
 
--- | Configuration for Amazon Web Services Lambda function authorization.
+-- | Configuration for Lambda function authorization.
 createGraphqlApi_lambdaAuthorizerConfig :: Lens.Lens' CreateGraphqlApi (Prelude.Maybe LambdaAuthorizerConfig)
 createGraphqlApi_lambdaAuthorizerConfig = Lens.lens (\CreateGraphqlApi' {lambdaAuthorizerConfig} -> lambdaAuthorizerConfig) (\s@CreateGraphqlApi' {} a -> s {lambdaAuthorizerConfig = a} :: CreateGraphqlApi)
 
@@ -155,8 +155,8 @@ createGraphqlApi_logConfig = Lens.lens (\CreateGraphqlApi' {logConfig} -> logCon
 createGraphqlApi_name :: Lens.Lens' CreateGraphqlApi Prelude.Text
 createGraphqlApi_name = Lens.lens (\CreateGraphqlApi' {name} -> name) (\s@CreateGraphqlApi' {} a -> s {name = a} :: CreateGraphqlApi)
 
--- | The authentication type: API key, Identity and Access Management, OIDC,
--- Amazon Cognito user pools, or Amazon Web Services Lambda.
+-- | The authentication type: API key, Identity and Access Management (IAM),
+-- OpenID Connect (OIDC), Amazon Cognito user pools, or Lambda.
 createGraphqlApi_authenticationType :: Lens.Lens' CreateGraphqlApi AuthenticationType
 createGraphqlApi_authenticationType = Lens.lens (\CreateGraphqlApi' {authenticationType} -> authenticationType) (\s@CreateGraphqlApi' {} a -> s {authenticationType = a} :: CreateGraphqlApi)
 

@@ -20,11 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stores a new encrypted secret value in the specified secret. To do this,
--- the operation creates a new version and attaches it to the secret. The
--- version can contain a new @SecretString@ value or a new @SecretBinary@
--- value. You can also specify the staging labels that are initially
--- attached to the new version.
+-- Creates a new version with a new encrypted secret value and attaches it
+-- to the secret. The version can contain a new @SecretString@ value or a
+-- new @SecretBinary@ value.
 --
 -- We recommend you avoid calling @PutSecretValue@ at a sustained rate of
 -- more than once every 10 minutes. When you update the secret value,
@@ -35,73 +33,30 @@
 -- versions than Secrets Manager removes, and you will reach the quota for
 -- secret versions.
 --
--- -   If this operation creates the first version for the secret then
---     Secrets Manager automatically attaches the staging label
---     @AWSCURRENT@ to the new version.
+-- You can specify the staging labels to attach to the new version in
+-- @VersionStages@. If you don\'t include @VersionStages@, then Secrets
+-- Manager automatically moves the staging label @AWSCURRENT@ to this
+-- version. If this operation creates the first version for the secret,
+-- then Secrets Manager automatically attaches the staging label
+-- @AWSCURRENT@ to it .
 --
--- -   If you do not specify a value for VersionStages then Secrets Manager
---     automatically moves the staging label @AWSCURRENT@ to this new
---     version.
+-- If this operation moves the staging label @AWSCURRENT@ from another
+-- version to this version, then Secrets Manager also automatically moves
+-- the staging label @AWSPREVIOUS@ to the version that @AWSCURRENT@ was
+-- removed from.
 --
--- -   If this operation moves the staging label @AWSCURRENT@ from another
---     version to this version, then Secrets Manager also automatically
---     moves the staging label @AWSPREVIOUS@ to the version that
---     @AWSCURRENT@ was removed from.
+-- This operation is idempotent. If you call this operation with a
+-- @ClientRequestToken@ that matches an existing version\'s VersionId, and
+-- you specify the same secret data, the operation succeeds but does
+-- nothing. However, if the secret data is different, then the operation
+-- fails because you can\'t modify an existing version; you can only create
+-- new ones.
 --
--- -   This operation is idempotent. If a version with a @VersionId@ with
---     the same value as the @ClientRequestToken@ parameter already exists
---     and you specify the same secret data, the operation succeeds but
---     does nothing. However, if the secret data is different, then the
---     operation fails because you cannot modify an existing version; you
---     can only create new ones.
---
--- -   If you call an operation to encrypt or decrypt the @SecretString@ or
---     @SecretBinary@ for a secret in the same account as the calling user
---     and that secret doesn\'t specify a Amazon Web Services KMS
---     encryption key, Secrets Manager uses the account\'s default Amazon
---     Web Services managed customer master key (CMK) with the alias
---     @aws\/secretsmanager@. If this key doesn\'t already exist in your
---     account then Secrets Manager creates it for you automatically. All
---     users and roles in the same Amazon Web Services account
---     automatically have access to use the default CMK. Note that if an
---     Secrets Manager API call results in Amazon Web Services creating the
---     account\'s Amazon Web Services-managed CMK, it can result in a
---     one-time significant delay in returning the result.
---
--- -   If the secret resides in a different Amazon Web Services account
---     from the credentials calling an API that requires encryption or
---     decryption of the secret value then you must create and use a custom
---     Amazon Web Services KMS CMK because you can\'t access the default
---     CMK for the account using credentials from a different Amazon Web
---     Services account. Store the ARN of the CMK in the secret when you
---     create the secret or when you update it by including it in the
---     @KMSKeyId@. If you call an API that must encrypt or decrypt
---     @SecretString@ or @SecretBinary@ using credentials from a different
---     account then the Amazon Web Services KMS key policy must grant
---     cross-account access to that other account\'s user or role for both
---     the kms:GenerateDataKey and kms:Decrypt operations.
---
--- __Minimum permissions__
---
--- To run this command, you must have the following permissions:
---
--- -   secretsmanager:PutSecretValue
---
--- -   kms:GenerateDataKey - needed only if you use a customer-managed
---     Amazon Web Services KMS key to encrypt the secret. You do not need
---     this permission to use the account\'s default Amazon Web Services
---     managed CMK for Secrets Manager.
---
--- __Related operations__
---
--- -   To retrieve the encrypted value you store in the version of a
---     secret, use GetSecretValue.
---
--- -   To create a secret, use CreateSecret.
---
--- -   To get the details for a secret, use DescribeSecret.
---
--- -   To list the versions attached to a secret, use ListSecretVersionIds.
+-- __Required permissions:__ @secretsmanager:PutSecretValue@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 module Amazonka.SecretsManager.PutSecretValue
   ( -- * Creating a Request
     PutSecretValue (..),
@@ -136,33 +91,33 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newPutSecretValue' smart constructor.
 data PutSecretValue = PutSecretValue'
-  { -- | (Optional) Specifies a list of staging labels that are attached to this
-    -- version of the secret. These staging labels are used to track the
-    -- versions through the rotation process by the Lambda rotation function.
+  { -- | A list of staging labels to attach to this version of the secret.
+    -- Secrets Manager uses staging labels to track versions of a secret
+    -- through the rotation process.
     --
-    -- A staging label must be unique to a single version of the secret. If you
-    -- specify a staging label that\'s already associated with a different
-    -- version of the same secret then that staging label is automatically
-    -- removed from the other version and attached to this version.
+    -- If you specify a staging label that\'s already associated with a
+    -- different version of the same secret, then Secrets Manager removes the
+    -- label from the other version and attaches it to this version. If you
+    -- specify @AWSCURRENT@, and it is already attached to another version,
+    -- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
+    -- version that @AWSCURRENT@ was removed from.
     --
-    -- If you do not specify a value for @VersionStages@ then Secrets Manager
-    -- automatically moves the staging label @AWSCURRENT@ to this new version.
+    -- If you don\'t include @VersionStages@, then Secrets Manager
+    -- automatically moves the staging label @AWSCURRENT@ to this version.
     versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | (Optional) Specifies a unique identifier for the new version of the
-    -- secret.
+    -- | A unique identifier for the new version of the secret.
     --
     -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
-    -- SDK to call this operation, then you can leave this parameter empty. The
-    -- CLI or SDK generates a random UUID for you and includes that in the
-    -- request. If you don\'t use the SDK and instead generate a raw HTTP
-    -- request to the Secrets Manager service endpoint, then you must generate
-    -- a @ClientRequestToken@ yourself for new versions and include that value
-    -- in the request.
+    -- SDKs to call this operation, then you can leave this parameter empty
+    -- because they generate a random UUID for you. If you don\'t use the SDK
+    -- and instead generate a raw HTTP request to the Secrets Manager service
+    -- endpoint, then you must generate a @ClientRequestToken@ yourself for new
+    -- versions and include that value in the request.
     --
     -- This value helps ensure idempotency. Secrets Manager uses this value to
     -- prevent the accidental creation of duplicate versions if there are
-    -- failures and retries during the Lambda rotation function\'s processing.
-    -- We recommend that you generate a
+    -- failures and retries during the Lambda rotation function processing. We
+    -- recommend that you generate a
     -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
     -- value to ensure uniqueness within the specified secret.
     --
@@ -171,47 +126,39 @@ data PutSecretValue = PutSecretValue'
     --
     -- -   If a version with this value already exists and that version\'s
     --     @SecretString@ or @SecretBinary@ values are the same as those in the
-    --     request then the request is ignored (the operation is idempotent).
+    --     request then the request is ignored. The operation is idempotent.
     --
     -- -   If a version with this value already exists and the version of the
     --     @SecretString@ and @SecretBinary@ values are different from those in
-    --     the request then the request fails because you cannot modify an
-    --     existing secret version. You can only create new versions to store
-    --     new secret values.
+    --     the request, then the request fails because you can\'t modify a
+    --     secret version. You can only create new versions to store new secret
+    --     values.
     --
     -- This value becomes the @VersionId@ of the new version.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Specifies binary data that you want to encrypt and store in
-    -- the new version of the secret. To use this parameter in the command-line
-    -- tools, we recommend that you store your binary data in a file and then
-    -- use the appropriate technique for your tool to pass the contents of the
-    -- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
-    -- value, but not both. They cannot both be empty.
+    -- | The binary data to encrypt and store in the new version of the secret.
+    -- To use this parameter in the command-line tools, we recommend that you
+    -- store your binary data in a file and then pass the contents of the file
+    -- as a parameter.
     --
-    -- This parameter is not accessible if the secret using the Secrets Manager
-    -- console.
+    -- You must include @SecretBinary@ or @SecretString@, but not both.
+    --
+    -- You can\'t access this value from the Secrets Manager console.
     secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | (Optional) Specifies text data that you want to encrypt and store in
-    -- this new version of the secret. Either @SecretString@ or @SecretBinary@
-    -- must have a value, but not both. They cannot both be empty.
+    -- | The text to encrypt and store in the new version of the secret.
     --
-    -- If you create this secret by using the Secrets Manager console then
-    -- Secrets Manager puts the protected secret text in only the
-    -- @SecretString@ parameter. The Secrets Manager console stores the
-    -- information as a JSON structure of key\/value pairs that the default
-    -- Lambda rotation function knows how to parse.
+    -- You must include @SecretBinary@ or @SecretString@, but not both.
     --
-    -- For storing multiple values, we recommend that you use a JSON text
-    -- string argument and specify key\/value pairs. For more information, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
-    -- in the Amazon Web Services CLI User Guide.
+    -- We recommend you create the secret string as JSON key\/value pairs, as
+    -- shown in the example.
     secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Specifies the secret to which you want to add a new version. You can
-    -- specify either the Amazon Resource Name (ARN) or the friendly name of
-    -- the secret. The secret must already exist.
+    -- | The ARN or name of the secret to add a new version to.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
-    -- partial ARN.
+    -- partial ARN. See
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
+    --
+    -- If the secret doesn\'t already exist, use @CreateSecret@ instead.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -224,33 +171,33 @@ data PutSecretValue = PutSecretValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionStages', 'putSecretValue_versionStages' - (Optional) Specifies a list of staging labels that are attached to this
--- version of the secret. These staging labels are used to track the
--- versions through the rotation process by the Lambda rotation function.
+-- 'versionStages', 'putSecretValue_versionStages' - A list of staging labels to attach to this version of the secret.
+-- Secrets Manager uses staging labels to track versions of a secret
+-- through the rotation process.
 --
--- A staging label must be unique to a single version of the secret. If you
--- specify a staging label that\'s already associated with a different
--- version of the same secret then that staging label is automatically
--- removed from the other version and attached to this version.
+-- If you specify a staging label that\'s already associated with a
+-- different version of the same secret, then Secrets Manager removes the
+-- label from the other version and attaches it to this version. If you
+-- specify @AWSCURRENT@, and it is already attached to another version,
+-- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
+-- version that @AWSCURRENT@ was removed from.
 --
--- If you do not specify a value for @VersionStages@ then Secrets Manager
--- automatically moves the staging label @AWSCURRENT@ to this new version.
+-- If you don\'t include @VersionStages@, then Secrets Manager
+-- automatically moves the staging label @AWSCURRENT@ to this version.
 --
--- 'clientRequestToken', 'putSecretValue_clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the
--- secret.
+-- 'clientRequestToken', 'putSecretValue_clientRequestToken' - A unique identifier for the new version of the secret.
 --
 -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
--- SDK to call this operation, then you can leave this parameter empty. The
--- CLI or SDK generates a random UUID for you and includes that in the
--- request. If you don\'t use the SDK and instead generate a raw HTTP
--- request to the Secrets Manager service endpoint, then you must generate
--- a @ClientRequestToken@ yourself for new versions and include that value
--- in the request.
+-- SDKs to call this operation, then you can leave this parameter empty
+-- because they generate a random UUID for you. If you don\'t use the SDK
+-- and instead generate a raw HTTP request to the Secrets Manager service
+-- endpoint, then you must generate a @ClientRequestToken@ yourself for new
+-- versions and include that value in the request.
 --
 -- This value helps ensure idempotency. Secrets Manager uses this value to
 -- prevent the accidental creation of duplicate versions if there are
--- failures and retries during the Lambda rotation function\'s processing.
--- We recommend that you generate a
+-- failures and retries during the Lambda rotation function processing. We
+-- recommend that you generate a
 -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
 -- value to ensure uniqueness within the specified secret.
 --
@@ -259,51 +206,43 @@ data PutSecretValue = PutSecretValue'
 --
 -- -   If a version with this value already exists and that version\'s
 --     @SecretString@ or @SecretBinary@ values are the same as those in the
---     request then the request is ignored (the operation is idempotent).
+--     request then the request is ignored. The operation is idempotent.
 --
 -- -   If a version with this value already exists and the version of the
 --     @SecretString@ and @SecretBinary@ values are different from those in
---     the request then the request fails because you cannot modify an
---     existing secret version. You can only create new versions to store
---     new secret values.
+--     the request, then the request fails because you can\'t modify a
+--     secret version. You can only create new versions to store new secret
+--     values.
 --
 -- This value becomes the @VersionId@ of the new version.
 --
--- 'secretBinary', 'putSecretValue_secretBinary' - (Optional) Specifies binary data that you want to encrypt and store in
--- the new version of the secret. To use this parameter in the command-line
--- tools, we recommend that you store your binary data in a file and then
--- use the appropriate technique for your tool to pass the contents of the
--- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
--- value, but not both. They cannot both be empty.
+-- 'secretBinary', 'putSecretValue_secretBinary' - The binary data to encrypt and store in the new version of the secret.
+-- To use this parameter in the command-line tools, we recommend that you
+-- store your binary data in a file and then pass the contents of the file
+-- as a parameter.
 --
--- This parameter is not accessible if the secret using the Secrets Manager
--- console.--
+-- You must include @SecretBinary@ or @SecretString@, but not both.
+--
+-- You can\'t access this value from the Secrets Manager console.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'secretString', 'putSecretValue_secretString' - (Optional) Specifies text data that you want to encrypt and store in
--- this new version of the secret. Either @SecretString@ or @SecretBinary@
--- must have a value, but not both. They cannot both be empty.
+-- 'secretString', 'putSecretValue_secretString' - The text to encrypt and store in the new version of the secret.
 --
--- If you create this secret by using the Secrets Manager console then
--- Secrets Manager puts the protected secret text in only the
--- @SecretString@ parameter. The Secrets Manager console stores the
--- information as a JSON structure of key\/value pairs that the default
--- Lambda rotation function knows how to parse.
+-- You must include @SecretBinary@ or @SecretString@, but not both.
 --
--- For storing multiple values, we recommend that you use a JSON text
--- string argument and specify key\/value pairs. For more information, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
--- in the Amazon Web Services CLI User Guide.
+-- We recommend you create the secret string as JSON key\/value pairs, as
+-- shown in the example.
 --
--- 'secretId', 'putSecretValue_secretId' - Specifies the secret to which you want to add a new version. You can
--- specify either the Amazon Resource Name (ARN) or the friendly name of
--- the secret. The secret must already exist.
+-- 'secretId', 'putSecretValue_secretId' - The ARN or name of the secret to add a new version to.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
+--
+-- If the secret doesn\'t already exist, use @CreateSecret@ instead.
 newPutSecretValue ::
   -- | 'secretId'
   Prelude.Text ->
@@ -317,35 +256,35 @@ newPutSecretValue pSecretId_ =
       secretId = pSecretId_
     }
 
--- | (Optional) Specifies a list of staging labels that are attached to this
--- version of the secret. These staging labels are used to track the
--- versions through the rotation process by the Lambda rotation function.
+-- | A list of staging labels to attach to this version of the secret.
+-- Secrets Manager uses staging labels to track versions of a secret
+-- through the rotation process.
 --
--- A staging label must be unique to a single version of the secret. If you
--- specify a staging label that\'s already associated with a different
--- version of the same secret then that staging label is automatically
--- removed from the other version and attached to this version.
+-- If you specify a staging label that\'s already associated with a
+-- different version of the same secret, then Secrets Manager removes the
+-- label from the other version and attaches it to this version. If you
+-- specify @AWSCURRENT@, and it is already attached to another version,
+-- then Secrets Manager also moves the staging label @AWSPREVIOUS@ to the
+-- version that @AWSCURRENT@ was removed from.
 --
--- If you do not specify a value for @VersionStages@ then Secrets Manager
--- automatically moves the staging label @AWSCURRENT@ to this new version.
+-- If you don\'t include @VersionStages@, then Secrets Manager
+-- automatically moves the staging label @AWSCURRENT@ to this version.
 putSecretValue_versionStages :: Lens.Lens' PutSecretValue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> versionStages) (\s@PutSecretValue' {} a -> s {versionStages = a} :: PutSecretValue) Prelude.. Lens.mapping Lens.coerced
 
--- | (Optional) Specifies a unique identifier for the new version of the
--- secret.
+-- | A unique identifier for the new version of the secret.
 --
 -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
--- SDK to call this operation, then you can leave this parameter empty. The
--- CLI or SDK generates a random UUID for you and includes that in the
--- request. If you don\'t use the SDK and instead generate a raw HTTP
--- request to the Secrets Manager service endpoint, then you must generate
--- a @ClientRequestToken@ yourself for new versions and include that value
--- in the request.
+-- SDKs to call this operation, then you can leave this parameter empty
+-- because they generate a random UUID for you. If you don\'t use the SDK
+-- and instead generate a raw HTTP request to the Secrets Manager service
+-- endpoint, then you must generate a @ClientRequestToken@ yourself for new
+-- versions and include that value in the request.
 --
 -- This value helps ensure idempotency. Secrets Manager uses this value to
 -- prevent the accidental creation of duplicate versions if there are
--- failures and retries during the Lambda rotation function\'s processing.
--- We recommend that you generate a
+-- failures and retries during the Lambda rotation function processing. We
+-- recommend that you generate a
 -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
 -- value to ensure uniqueness within the specified secret.
 --
@@ -354,27 +293,26 @@ putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> ve
 --
 -- -   If a version with this value already exists and that version\'s
 --     @SecretString@ or @SecretBinary@ values are the same as those in the
---     request then the request is ignored (the operation is idempotent).
+--     request then the request is ignored. The operation is idempotent.
 --
 -- -   If a version with this value already exists and the version of the
 --     @SecretString@ and @SecretBinary@ values are different from those in
---     the request then the request fails because you cannot modify an
---     existing secret version. You can only create new versions to store
---     new secret values.
+--     the request, then the request fails because you can\'t modify a
+--     secret version. You can only create new versions to store new secret
+--     values.
 --
 -- This value becomes the @VersionId@ of the new version.
 putSecretValue_clientRequestToken :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
 putSecretValue_clientRequestToken = Lens.lens (\PutSecretValue' {clientRequestToken} -> clientRequestToken) (\s@PutSecretValue' {} a -> s {clientRequestToken = a} :: PutSecretValue)
 
--- | (Optional) Specifies binary data that you want to encrypt and store in
--- the new version of the secret. To use this parameter in the command-line
--- tools, we recommend that you store your binary data in a file and then
--- use the appropriate technique for your tool to pass the contents of the
--- file as a parameter. Either @SecretBinary@ or @SecretString@ must have a
--- value, but not both. They cannot both be empty.
+-- | The binary data to encrypt and store in the new version of the secret.
+-- To use this parameter in the command-line tools, we recommend that you
+-- store your binary data in a file and then pass the contents of the file
+-- as a parameter.
 --
--- This parameter is not accessible if the secret using the Secrets Manager
--- console.--
+-- You must include @SecretBinary@ or @SecretString@, but not both.
+--
+-- You can\'t access this value from the Secrets Manager console.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -382,29 +320,22 @@ putSecretValue_clientRequestToken = Lens.lens (\PutSecretValue' {clientRequestTo
 putSecretValue_secretBinary :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.ByteString)
 putSecretValue_secretBinary = Lens.lens (\PutSecretValue' {secretBinary} -> secretBinary) (\s@PutSecretValue' {} a -> s {secretBinary = a} :: PutSecretValue) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | (Optional) Specifies text data that you want to encrypt and store in
--- this new version of the secret. Either @SecretString@ or @SecretBinary@
--- must have a value, but not both. They cannot both be empty.
+-- | The text to encrypt and store in the new version of the secret.
 --
--- If you create this secret by using the Secrets Manager console then
--- Secrets Manager puts the protected secret text in only the
--- @SecretString@ parameter. The Secrets Manager console stores the
--- information as a JSON structure of key\/value pairs that the default
--- Lambda rotation function knows how to parse.
+-- You must include @SecretBinary@ or @SecretString@, but not both.
 --
--- For storing multiple values, we recommend that you use a JSON text
--- string argument and specify key\/value pairs. For more information, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html Specifying parameter values for the Amazon Web Services CLI>
--- in the Amazon Web Services CLI User Guide.
+-- We recommend you create the secret string as JSON key\/value pairs, as
+-- shown in the example.
 putSecretValue_secretString :: Lens.Lens' PutSecretValue (Prelude.Maybe Prelude.Text)
 putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secretString) (\s@PutSecretValue' {} a -> s {secretString = a} :: PutSecretValue) Prelude.. Lens.mapping Core._Sensitive
 
--- | Specifies the secret to which you want to add a new version. You can
--- specify either the Amazon Resource Name (ARN) or the friendly name of
--- the secret. The secret must already exist.
+-- | The ARN or name of the secret to add a new version to.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
+--
+-- If the secret doesn\'t already exist, use @CreateSecret@ instead.
 putSecretValue_secretId :: Lens.Lens' PutSecretValue Prelude.Text
 putSecretValue_secretId = Lens.lens (\PutSecretValue' {secretId} -> secretId) (\s@PutSecretValue' {} a -> s {secretId = a} :: PutSecretValue)
 
@@ -477,17 +408,14 @@ instance Core.ToQuery PutSecretValue where
 -- | /See:/ 'newPutSecretValueResponse' smart constructor.
 data PutSecretValueResponse = PutSecretValueResponse'
   { -- | The list of staging labels that are currently attached to this version
-    -- of the secret. Staging labels are used to track a version as it
-    -- progresses through the secret rotation process.
+    -- of the secret. Secrets Manager uses staging labels to track a version as
+    -- it progresses through the secret rotation process.
     versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The friendly name of the secret for which you just created or updated a
-    -- version.
+    -- | The name of the secret.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) for the secret for which you just created
-    -- a version.
+    -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the version of the secret you just created or
-    -- updated.
+    -- | The unique identifier of the version of the secret.
     versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -503,17 +431,14 @@ data PutSecretValueResponse = PutSecretValueResponse'
 -- for backwards compatibility:
 --
 -- 'versionStages', 'putSecretValueResponse_versionStages' - The list of staging labels that are currently attached to this version
--- of the secret. Staging labels are used to track a version as it
--- progresses through the secret rotation process.
+-- of the secret. Secrets Manager uses staging labels to track a version as
+-- it progresses through the secret rotation process.
 --
--- 'name', 'putSecretValueResponse_name' - The friendly name of the secret for which you just created or updated a
--- version.
+-- 'name', 'putSecretValueResponse_name' - The name of the secret.
 --
--- 'arn', 'putSecretValueResponse_arn' - The Amazon Resource Name (ARN) for the secret for which you just created
--- a version.
+-- 'arn', 'putSecretValueResponse_arn' - The ARN of the secret.
 --
--- 'versionId', 'putSecretValueResponse_versionId' - The unique identifier of the version of the secret you just created or
--- updated.
+-- 'versionId', 'putSecretValueResponse_versionId' - The unique identifier of the version of the secret.
 --
 -- 'httpStatus', 'putSecretValueResponse_httpStatus' - The response's http status code.
 newPutSecretValueResponse ::
@@ -531,23 +456,20 @@ newPutSecretValueResponse pHttpStatus_ =
     }
 
 -- | The list of staging labels that are currently attached to this version
--- of the secret. Staging labels are used to track a version as it
--- progresses through the secret rotation process.
+-- of the secret. Secrets Manager uses staging labels to track a version as
+-- it progresses through the secret rotation process.
 putSecretValueResponse_versionStages :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 putSecretValueResponse_versionStages = Lens.lens (\PutSecretValueResponse' {versionStages} -> versionStages) (\s@PutSecretValueResponse' {} a -> s {versionStages = a} :: PutSecretValueResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The friendly name of the secret for which you just created or updated a
--- version.
+-- | The name of the secret.
 putSecretValueResponse_name :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_name = Lens.lens (\PutSecretValueResponse' {name} -> name) (\s@PutSecretValueResponse' {} a -> s {name = a} :: PutSecretValueResponse)
 
--- | The Amazon Resource Name (ARN) for the secret for which you just created
--- a version.
+-- | The ARN of the secret.
 putSecretValueResponse_arn :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_arn = Lens.lens (\PutSecretValueResponse' {arn} -> arn) (\s@PutSecretValueResponse' {} a -> s {arn = a} :: PutSecretValueResponse)
 
--- | The unique identifier of the version of the secret you just created or
--- updated.
+-- | The unique identifier of the version of the secret.
 putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_versionId = Lens.lens (\PutSecretValueResponse' {versionId} -> versionId) (\s@PutSecretValueResponse' {} a -> s {versionId = a} :: PutSecretValueResponse)
 

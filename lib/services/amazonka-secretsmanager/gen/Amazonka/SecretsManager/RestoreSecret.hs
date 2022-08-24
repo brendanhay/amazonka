@@ -21,17 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Cancels the scheduled deletion of a secret by removing the @DeletedDate@
--- time stamp. This makes the secret accessible to query once again.
+-- time stamp. You can access a secret again after it has been restored.
 --
--- __Minimum permissions__
---
--- To run this command, you must have the following permissions:
---
--- -   secretsmanager:RestoreSecret
---
--- __Related operations__
---
--- -   To delete a secret, use DeleteSecret.
+-- __Required permissions:__ @secretsmanager:RestoreSecret@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 module Amazonka.SecretsManager.RestoreSecret
   ( -- * Creating a Request
     RestoreSecret (..),
@@ -60,12 +56,11 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newRestoreSecret' smart constructor.
 data RestoreSecret = RestoreSecret'
-  { -- | Specifies the secret that you want to restore from a previously
-    -- scheduled deletion. You can specify either the Amazon Resource Name
-    -- (ARN) or the friendly name of the secret.
+  { -- | The ARN or name of the secret to restore.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
-    -- partial ARN.
+    -- partial ARN. See
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,12 +73,11 @@ data RestoreSecret = RestoreSecret'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretId', 'restoreSecret_secretId' - Specifies the secret that you want to restore from a previously
--- scheduled deletion. You can specify either the Amazon Resource Name
--- (ARN) or the friendly name of the secret.
+-- 'secretId', 'restoreSecret_secretId' - The ARN or name of the secret to restore.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 newRestoreSecret ::
   -- | 'secretId'
   Prelude.Text ->
@@ -91,12 +85,11 @@ newRestoreSecret ::
 newRestoreSecret pSecretId_ =
   RestoreSecret' {secretId = pSecretId_}
 
--- | Specifies the secret that you want to restore from a previously
--- scheduled deletion. You can specify either the Amazon Resource Name
--- (ARN) or the friendly name of the secret.
+-- | The ARN or name of the secret to restore.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 restoreSecret_secretId :: Lens.Lens' RestoreSecret Prelude.Text
 restoreSecret_secretId = Lens.lens (\RestoreSecret' {secretId} -> secretId) (\s@RestoreSecret' {} a -> s {secretId = a} :: RestoreSecret)
 
@@ -151,7 +144,7 @@ instance Core.ToQuery RestoreSecret where
 
 -- | /See:/ 'newRestoreSecretResponse' smart constructor.
 data RestoreSecretResponse = RestoreSecretResponse'
-  { -- | The friendly name of the secret that was restored.
+  { -- | The name of the secret that was restored.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the secret that was restored.
     arn :: Prelude.Maybe Prelude.Text,
@@ -168,7 +161,7 @@ data RestoreSecretResponse = RestoreSecretResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'restoreSecretResponse_name' - The friendly name of the secret that was restored.
+-- 'name', 'restoreSecretResponse_name' - The name of the secret that was restored.
 --
 -- 'arn', 'restoreSecretResponse_arn' - The ARN of the secret that was restored.
 --
@@ -184,7 +177,7 @@ newRestoreSecretResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The friendly name of the secret that was restored.
+-- | The name of the secret that was restored.
 restoreSecretResponse_name :: Lens.Lens' RestoreSecretResponse (Prelude.Maybe Prelude.Text)
 restoreSecretResponse_name = Lens.lens (\RestoreSecretResponse' {name} -> name) (\s@RestoreSecretResponse' {} a -> s {name = a} :: RestoreSecretResponse)
 

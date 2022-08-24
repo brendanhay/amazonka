@@ -20,19 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches one or more tags, each consisting of a key name and a value, to
--- the specified secret. Tags are part of the secret\'s overall metadata,
--- and are not associated with any specific version of the secret. This
--- operation only appends tags to the existing list of tags. To remove
--- tags, you must use UntagResource.
+-- Attaches tags to a secret. Tags consist of a key name and a value. Tags
+-- are part of the secret\'s metadata. They are not associated with
+-- specific versions of the secret. This operation appends tags to the
+-- existing list of tags.
 --
--- The following basic restrictions apply to tags:
+-- The following restrictions apply to tags:
 --
--- -   Maximum number of tags per secret—50
+-- -   Maximum number of tags per secret: 50
 --
--- -   Maximum key length—127 Unicode characters in UTF-8
+-- -   Maximum key length: 127 Unicode characters in UTF-8
 --
--- -   Maximum value length—255 Unicode characters in UTF-8
+-- -   Maximum value length: 255 Unicode characters in UTF-8
 --
 -- -   Tag keys and values are case sensitive.
 --
@@ -42,9 +41,9 @@
 --     with this prefix do not count against your tags per secret limit.
 --
 -- -   If you use your tagging schema across multiple services and
---     resources, remember other services might have restrictions on
---     allowed characters. Generally allowed characters: letters, spaces,
---     and numbers representable in UTF-8, plus the following special
+--     resources, other services might have restrictions on allowed
+--     characters. Generally allowed characters: letters, spaces, and
+--     numbers representable in UTF-8, plus the following special
 --     characters: + - = . _ : \/ \@.
 --
 -- If you use tags as part of your security strategy, then adding or
@@ -52,18 +51,11 @@
 -- operation would result in you losing your permissions for this secret,
 -- then the operation is blocked and returns an Access Denied error.
 --
--- __Minimum permissions__
---
--- To run this command, you must have the following permissions:
---
--- -   secretsmanager:TagResource
---
--- __Related operations__
---
--- -   To remove one or more tags from the collection attached to a secret,
---     use UntagResource.
---
--- -   To view the list of tags attached to a secret, use DescribeSecret.
+-- __Required permissions:__ @secretsmanager:TagResource@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 module Amazonka.SecretsManager.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -88,17 +80,15 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The identifier for the secret that you want to attach tags to. You can
-    -- specify either the Amazon Resource Name (ARN) or the friendly name of
-    -- the secret.
+  { -- | The identifier for the secret to attach tags to. You can specify either
+    -- the Amazon Resource Name (ARN) or the friendly name of the secret.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
-    -- partial ARN.
+    -- partial ARN. See
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
     secretId :: Prelude.Text,
-    -- | The tags to attach to the secret. Each element in the list consists of a
-    -- @Key@ and a @Value@.
-    --
-    -- This parameter to the API requires a JSON text string argument.
+    -- | The tags to attach to the secret as a JSON text string argument. Each
+    -- element in the list consists of a @Key@ and a @Value@.
     --
     -- For storing multiple values, we recommend that you use a JSON text
     -- string argument and specify key\/value pairs. For more information, see
@@ -116,17 +106,15 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretId', 'tagResource_secretId' - The identifier for the secret that you want to attach tags to. You can
--- specify either the Amazon Resource Name (ARN) or the friendly name of
--- the secret.
+-- 'secretId', 'tagResource_secretId' - The identifier for the secret to attach tags to. You can specify either
+-- the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 --
--- 'tags', 'tagResource_tags' - The tags to attach to the secret. Each element in the list consists of a
--- @Key@ and a @Value@.
---
--- This parameter to the API requires a JSON text string argument.
+-- 'tags', 'tagResource_tags' - The tags to attach to the secret as a JSON text string argument. Each
+-- element in the list consists of a @Key@ and a @Value@.
 --
 -- For storing multiple values, we recommend that you use a JSON text
 -- string argument and specify key\/value pairs. For more information, see
@@ -142,19 +130,17 @@ newTagResource pSecretId_ =
       tags = Prelude.mempty
     }
 
--- | The identifier for the secret that you want to attach tags to. You can
--- specify either the Amazon Resource Name (ARN) or the friendly name of
--- the secret.
+-- | The identifier for the secret to attach tags to. You can specify either
+-- the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 tagResource_secretId :: Lens.Lens' TagResource Prelude.Text
 tagResource_secretId = Lens.lens (\TagResource' {secretId} -> secretId) (\s@TagResource' {} a -> s {secretId = a} :: TagResource)
 
--- | The tags to attach to the secret. Each element in the list consists of a
--- @Key@ and a @Value@.
---
--- This parameter to the API requires a JSON text string argument.
+-- | The tags to attach to the secret as a JSON text string argument. Each
+-- element in the list consists of a @Key@ and a @Value@.
 --
 -- For storing multiple values, we recommend that you use a JSON text
 -- string argument and specify key\/value pairs. For more information, see

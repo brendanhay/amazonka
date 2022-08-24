@@ -20,28 +20,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all of the secrets that are stored by Secrets Manager in the
--- Amazon Web Services account. To list the versions currently stored for a
--- specific secret, use ListSecretVersionIds. The encrypted fields
--- @SecretString@ and @SecretBinary@ are not included in the output. To get
--- that information, call the GetSecretValue operation.
+-- Lists the secrets that are stored by Secrets Manager in the Amazon Web
+-- Services account, not including secrets that are marked for deletion. To
+-- see secrets marked for deletion, use the Secrets Manager console.
 --
--- Always check the @NextToken@ response parameter when calling any of the
--- @List*@ operations. These operations can occasionally return an empty or
--- shorter than expected list of results even when there more results
--- become available. When this happens, the @NextToken@ response parameter
--- contains a value to pass to the next call to the same API to request the
--- next part of the list.
+-- ListSecrets is eventually consistent, however it might not reflect
+-- changes from the last five minutes. To get the latest information for a
+-- specific secret, use DescribeSecret.
 --
--- __Minimum permissions__
+-- To list the versions of a secret, use ListSecretVersionIds.
 --
--- To run this command, you must have the following permissions:
+-- To get the secret value from @SecretString@ or @SecretBinary@, call
+-- GetSecretValue.
 --
--- -   secretsmanager:ListSecrets
+-- For information about finding secrets in the console, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html Find secrets in Secrets Manager>.
 --
--- __Related operations__
---
--- -   To list the versions attached to a secret, use ListSecretVersionIds.
+-- __Required permissions:__ @secretsmanager:ListSecrets@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 --
 -- This operation returns paginated results.
 module Amazonka.SecretsManager.ListSecrets
@@ -77,24 +76,17 @@ import Amazonka.SecretsManager.Types
 data ListSecrets = ListSecrets'
   { -- | Lists secrets in the requested order.
     sortOrder :: Prelude.Maybe SortOrderType,
-    -- | (Optional) Use this parameter in a request if you receive a @NextToken@
-    -- response in a previous request indicating there\'s more output
-    -- available. In a subsequent call, set it to the value of the previous
-    -- call @NextToken@ response to indicate where the output should continue
-    -- from.
+    -- | A token that indicates where the output should continue from, if a
+    -- previous call did not show all results. To get the next results, call
+    -- @ListSecrets@ again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Lists the secret request filters.
+    -- | The filters to apply to the list of secrets.
     filters :: Prelude.Maybe [Filter],
-    -- | (Optional) Limits the number of results you want to include in the
-    -- response. If you don\'t include this parameter, it defaults to a value
-    -- that\'s specific to the operation. If additional items exist beyond the
-    -- maximum you specify, the @NextToken@ response element is present and has
-    -- a value (isn\'t null). Include that value as the @NextToken@ request
-    -- parameter in the next call to the operation to get the next part of the
-    -- results. Note that Secrets Manager might return fewer results than the
-    -- maximum even when there are more results available. You should check
-    -- @NextToken@ after every operation to ensure that you receive all of the
-    -- results.
+    -- | The number of results to include in the response.
+    --
+    -- If there are more results available, in the response, Secrets Manager
+    -- includes @NextToken@. To get the next results, call @ListSecrets@ again
+    -- with the value from @NextToken@.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -109,24 +101,17 @@ data ListSecrets = ListSecrets'
 --
 -- 'sortOrder', 'listSecrets_sortOrder' - Lists secrets in the requested order.
 --
--- 'nextToken', 'listSecrets_nextToken' - (Optional) Use this parameter in a request if you receive a @NextToken@
--- response in a previous request indicating there\'s more output
--- available. In a subsequent call, set it to the value of the previous
--- call @NextToken@ response to indicate where the output should continue
--- from.
+-- 'nextToken', 'listSecrets_nextToken' - A token that indicates where the output should continue from, if a
+-- previous call did not show all results. To get the next results, call
+-- @ListSecrets@ again with this value.
 --
--- 'filters', 'listSecrets_filters' - Lists the secret request filters.
+-- 'filters', 'listSecrets_filters' - The filters to apply to the list of secrets.
 --
--- 'maxResults', 'listSecrets_maxResults' - (Optional) Limits the number of results you want to include in the
--- response. If you don\'t include this parameter, it defaults to a value
--- that\'s specific to the operation. If additional items exist beyond the
--- maximum you specify, the @NextToken@ response element is present and has
--- a value (isn\'t null). Include that value as the @NextToken@ request
--- parameter in the next call to the operation to get the next part of the
--- results. Note that Secrets Manager might return fewer results than the
--- maximum even when there are more results available. You should check
--- @NextToken@ after every operation to ensure that you receive all of the
--- results.
+-- 'maxResults', 'listSecrets_maxResults' - The number of results to include in the response.
+--
+-- If there are more results available, in the response, Secrets Manager
+-- includes @NextToken@. To get the next results, call @ListSecrets@ again
+-- with the value from @NextToken@.
 newListSecrets ::
   ListSecrets
 newListSecrets =
@@ -141,28 +126,21 @@ newListSecrets =
 listSecrets_sortOrder :: Lens.Lens' ListSecrets (Prelude.Maybe SortOrderType)
 listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@ListSecrets' {} a -> s {sortOrder = a} :: ListSecrets)
 
--- | (Optional) Use this parameter in a request if you receive a @NextToken@
--- response in a previous request indicating there\'s more output
--- available. In a subsequent call, set it to the value of the previous
--- call @NextToken@ response to indicate where the output should continue
--- from.
+-- | A token that indicates where the output should continue from, if a
+-- previous call did not show all results. To get the next results, call
+-- @ListSecrets@ again with this value.
 listSecrets_nextToken :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Text)
 listSecrets_nextToken = Lens.lens (\ListSecrets' {nextToken} -> nextToken) (\s@ListSecrets' {} a -> s {nextToken = a} :: ListSecrets)
 
--- | Lists the secret request filters.
+-- | The filters to apply to the list of secrets.
 listSecrets_filters :: Lens.Lens' ListSecrets (Prelude.Maybe [Filter])
 listSecrets_filters = Lens.lens (\ListSecrets' {filters} -> filters) (\s@ListSecrets' {} a -> s {filters = a} :: ListSecrets) Prelude.. Lens.mapping Lens.coerced
 
--- | (Optional) Limits the number of results you want to include in the
--- response. If you don\'t include this parameter, it defaults to a value
--- that\'s specific to the operation. If additional items exist beyond the
--- maximum you specify, the @NextToken@ response element is present and has
--- a value (isn\'t null). Include that value as the @NextToken@ request
--- parameter in the next call to the operation to get the next part of the
--- results. Note that Secrets Manager might return fewer results than the
--- maximum even when there are more results available. You should check
--- @NextToken@ after every operation to ensure that you receive all of the
--- results.
+-- | The number of results to include in the response.
+--
+-- If there are more results available, in the response, Secrets Manager
+-- includes @NextToken@. To get the next results, call @ListSecrets@ again
+-- with the value from @NextToken@.
 listSecrets_maxResults :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Natural)
 listSecrets_maxResults = Lens.lens (\ListSecrets' {maxResults} -> maxResults) (\s@ListSecrets' {} a -> s {maxResults = a} :: ListSecrets)
 
@@ -243,14 +221,11 @@ instance Core.ToQuery ListSecrets where
 
 -- | /See:/ 'newListSecretsResponse' smart constructor.
 data ListSecretsResponse = ListSecretsResponse'
-  { -- | If present in the response, this value indicates that there\'s more
-    -- output available than included in the current response. This can occur
-    -- even when the response includes no values at all, such as when you ask
-    -- for a filtered view of a very long list. Use this value in the
-    -- @NextToken@ request parameter in a subsequent call to the operation to
-    -- continue processing and get the next part of the output. You should
-    -- repeat this until the @NextToken@ response element comes back empty (as
-    -- @null@).
+  { -- | Secrets Manager includes this value if there\'s more output available
+    -- than what is included in the current response. This can occur even when
+    -- the response includes no values at all, such as when you ask for a
+    -- filtered view of a long list. To get the next results, call
+    -- @ListSecrets@ again with this value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of the secrets in the account.
     secretList :: Prelude.Maybe [SecretListEntry],
@@ -267,14 +242,11 @@ data ListSecretsResponse = ListSecretsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listSecretsResponse_nextToken' - If present in the response, this value indicates that there\'s more
--- output available than included in the current response. This can occur
--- even when the response includes no values at all, such as when you ask
--- for a filtered view of a very long list. Use this value in the
--- @NextToken@ request parameter in a subsequent call to the operation to
--- continue processing and get the next part of the output. You should
--- repeat this until the @NextToken@ response element comes back empty (as
--- @null@).
+-- 'nextToken', 'listSecretsResponse_nextToken' - Secrets Manager includes this value if there\'s more output available
+-- than what is included in the current response. This can occur even when
+-- the response includes no values at all, such as when you ask for a
+-- filtered view of a long list. To get the next results, call
+-- @ListSecrets@ again with this value.
 --
 -- 'secretList', 'listSecretsResponse_secretList' - A list of the secrets in the account.
 --
@@ -290,14 +262,11 @@ newListSecretsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If present in the response, this value indicates that there\'s more
--- output available than included in the current response. This can occur
--- even when the response includes no values at all, such as when you ask
--- for a filtered view of a very long list. Use this value in the
--- @NextToken@ request parameter in a subsequent call to the operation to
--- continue processing and get the next part of the output. You should
--- repeat this until the @NextToken@ response element comes back empty (as
--- @null@).
+-- | Secrets Manager includes this value if there\'s more output available
+-- than what is included in the current response. This can occur even when
+-- the response includes no values at all, such as when you ask for a
+-- filtered view of a long list. To get the next results, call
+-- @ListSecrets@ again with this value.
 listSecretsResponse_nextToken :: Lens.Lens' ListSecretsResponse (Prelude.Maybe Prelude.Text)
 listSecretsResponse_nextToken = Lens.lens (\ListSecretsResponse' {nextToken} -> nextToken) (\s@ListSecretsResponse' {} a -> s {nextToken = a} :: ListSecretsResponse)
 

@@ -63,6 +63,8 @@ module Amazonka.SecretsManager.Types
     -- * RotationRulesType
     RotationRulesType (..),
     newRotationRulesType,
+    rotationRulesType_scheduleExpression,
+    rotationRulesType_duration,
     rotationRulesType_automaticallyAfterDays,
 
     -- * SecretListEntry
@@ -204,7 +206,7 @@ _PreconditionNotMetException =
     defaultService
     "PreconditionNotMetException"
 
--- | We can\'t find the resource that you asked for.
+-- | Secrets Manager can\'t find the resource that you asked for.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -212,7 +214,7 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
 
 -- | The request failed because it would exceed one of the Secrets Manager
--- internal limits.
+-- quotas.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
@@ -220,24 +222,24 @@ _LimitExceededException =
     "LimitExceededException"
 
 -- | Secrets Manager can\'t encrypt the protected secret text using the
--- provided KMS key. Check that the customer master key (CMK) is available,
--- enabled, and not in an invalid state. For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>.
+-- provided KMS key. Check that the KMS key is available, enabled, and not
+-- in an invalid state. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>.
 _EncryptionFailure :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EncryptionFailure =
   Core._MatchServiceError
     defaultService
     "EncryptionFailure"
 
--- | The BlockPublicPolicy parameter is set to true and the resource policy
--- did not prevent broad access to the secret.
+-- | The @BlockPublicPolicy@ parameter is set to true, and the resource
+-- policy did not prevent broad access to the secret.
 _PublicPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PublicPolicyException =
   Core._MatchServiceError
     defaultService
     "PublicPolicyException"
 
--- | You provided an invalid @NextToken@ value.
+-- | The @NextToken@ value is invalid.
 _InvalidNextTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidNextTokenException =
   Core._MatchServiceError
@@ -259,7 +261,7 @@ _DecryptionFailure =
     defaultService
     "DecryptionFailure"
 
--- | You provided a resource-based policy with syntax errors.
+-- | The resource policy has syntax errors.
 _MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
@@ -273,24 +275,26 @@ _ResourceExistsException =
     defaultService
     "ResourceExistsException"
 
--- | You provided a parameter value that is not valid for the current state
--- of the resource.
+-- | A parameter value is not valid for the current state of the resource.
 --
 -- Possible causes:
 --
--- -   You tried to perform the operation on a secret that\'s currently
---     marked deleted.
+-- -   The secret is scheduled for deletion.
 --
 -- -   You tried to enable rotation on a secret that doesn\'t already have
 --     a Lambda function ARN configured and you didn\'t include such an ARN
 --     as a parameter in this call.
+--
+-- -   The secret is managed by another service, and you must use that
+--     service to update it. For more information, see
+--     <https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html Secrets managed by other Amazon Web Services services>.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
--- | You provided an invalid value for a parameter.
+-- | The parameter name or value is invalid.
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError

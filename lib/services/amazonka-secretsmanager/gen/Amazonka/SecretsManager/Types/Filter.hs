@@ -25,13 +25,27 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecretsManager.Types.FilterNameStringType
 
 -- | Allows you to add filters when you use the search function in Secrets
--- Manager.
+-- Manager. For more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html Find secrets in Secrets Manager>.
 --
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'
-  { -- | Filters your list of secrets by a specific key.
+  { -- | The following are keys you can use:
+    --
+    -- -   __description__: Prefix match, not case-sensitive.
+    --
+    -- -   __name__: Prefix match, case-sensitive.
+    --
+    -- -   __tag-key__: Prefix match, case-sensitive.
+    --
+    -- -   __tag-value__: Prefix match, case-sensitive.
+    --
+    -- -   __primary-region__: Prefix match, case-sensitive.
+    --
+    -- -   __all__: Breaks the filter value string into words and then searches
+    --     all attributes for matches. Not case-sensitive.
     key :: Prelude.Maybe FilterNameStringType,
-    -- | Filters your list of secrets by a specific value.
+    -- | The keyword to filter for.
     --
     -- You can prefix your search value with an exclamation mark (@!@) in order
     -- to perform negation filters.
@@ -47,9 +61,22 @@ data Filter = Filter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'filter_key' - Filters your list of secrets by a specific key.
+-- 'key', 'filter_key' - The following are keys you can use:
 --
--- 'values', 'filter_values' - Filters your list of secrets by a specific value.
+-- -   __description__: Prefix match, not case-sensitive.
+--
+-- -   __name__: Prefix match, case-sensitive.
+--
+-- -   __tag-key__: Prefix match, case-sensitive.
+--
+-- -   __tag-value__: Prefix match, case-sensitive.
+--
+-- -   __primary-region__: Prefix match, case-sensitive.
+--
+-- -   __all__: Breaks the filter value string into words and then searches
+--     all attributes for matches. Not case-sensitive.
+--
+-- 'values', 'filter_values' - The keyword to filter for.
 --
 -- You can prefix your search value with an exclamation mark (@!@) in order
 -- to perform negation filters.
@@ -61,11 +88,24 @@ newFilter =
       values = Prelude.Nothing
     }
 
--- | Filters your list of secrets by a specific key.
+-- | The following are keys you can use:
+--
+-- -   __description__: Prefix match, not case-sensitive.
+--
+-- -   __name__: Prefix match, case-sensitive.
+--
+-- -   __tag-key__: Prefix match, case-sensitive.
+--
+-- -   __tag-value__: Prefix match, case-sensitive.
+--
+-- -   __primary-region__: Prefix match, case-sensitive.
+--
+-- -   __all__: Breaks the filter value string into words and then searches
+--     all attributes for matches. Not case-sensitive.
 filter_key :: Lens.Lens' Filter (Prelude.Maybe FilterNameStringType)
 filter_key = Lens.lens (\Filter' {key} -> key) (\s@Filter' {} a -> s {key = a} :: Filter)
 
--- | Filters your list of secrets by a specific value.
+-- | The keyword to filter for.
 --
 -- You can prefix your search value with an exclamation mark (@!@) in order
 -- to perform negation filters.

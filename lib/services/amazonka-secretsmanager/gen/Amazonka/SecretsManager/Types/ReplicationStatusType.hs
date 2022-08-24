@@ -29,7 +29,8 @@ import Amazonka.SecretsManager.Types.StatusType
 --
 -- /See:/ 'newReplicationStatusType' smart constructor.
 data ReplicationStatusType = ReplicationStatusType'
-  { -- | The date that you last accessed the secret in the Region.
+  { -- | The date that the secret was last accessed in the Region. This field is
+    -- omitted if the secret has never been retrieved in the Region.
     lastAccessedDate :: Prelude.Maybe Core.POSIX,
     -- | The status can be @InProgress@, @Failed@, or @InSync@.
     status :: Prelude.Maybe StatusType,
@@ -51,7 +52,8 @@ data ReplicationStatusType = ReplicationStatusType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastAccessedDate', 'replicationStatusType_lastAccessedDate' - The date that you last accessed the secret in the Region.
+-- 'lastAccessedDate', 'replicationStatusType_lastAccessedDate' - The date that the secret was last accessed in the Region. This field is
+-- omitted if the secret has never been retrieved in the Region.
 --
 -- 'status', 'replicationStatusType_status' - The status can be @InProgress@, @Failed@, or @InSync@.
 --
@@ -73,7 +75,8 @@ newReplicationStatusType =
       statusMessage = Prelude.Nothing
     }
 
--- | The date that you last accessed the secret in the Region.
+-- | The date that the secret was last accessed in the Region. This field is
+-- omitted if the secret has never been retrieved in the Region.
 replicationStatusType_lastAccessedDate :: Lens.Lens' ReplicationStatusType (Prelude.Maybe Prelude.UTCTime)
 replicationStatusType_lastAccessedDate = Lens.lens (\ReplicationStatusType' {lastAccessedDate} -> lastAccessedDate) (\s@ReplicationStatusType' {} a -> s {lastAccessedDate = a} :: ReplicationStatusType) Prelude.. Lens.mapping Core._Time
 

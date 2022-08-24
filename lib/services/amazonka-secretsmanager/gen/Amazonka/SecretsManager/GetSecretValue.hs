@@ -24,24 +24,22 @@
 -- @SecretBinary@ from the specified version of a secret, whichever
 -- contains content.
 --
--- __Minimum permissions__
+-- We recommend that you cache your secret values by using client-side
+-- caching. Caching secrets improves speed and reduces your costs. For more
+-- information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets.html Cache secrets for your applications>.
 --
--- To run this command, you must have the following permissions:
+-- To retrieve the previous version of a secret, use @VersionStage@ and
+-- specify AWSPREVIOUS. To revert to the previous version of a secret, call
+-- <https://docs.aws.amazon.com/cli/latest/reference/secretsmanager/update-secret-version-stage.html UpdateSecretVersionStage>.
 --
--- -   secretsmanager:GetSecretValue
---
--- -   kms:Decrypt - required only if you use a customer-managed Amazon Web
---     Services KMS key to encrypt the secret. You do not need this
---     permission to use the account\'s default Amazon Web Services managed
---     CMK for Secrets Manager.
---
--- __Related operations__
---
--- -   To create a new version of the secret with different encrypted
---     information, use PutSecretValue.
---
--- -   To retrieve the non-encrypted details for the secret, use
---     DescribeSecret.
+-- __Required permissions:__ @secretsmanager:GetSecretValue@. If the secret
+-- is encrypted using a customer-managed key instead of the Amazon Web
+-- Services managed key @aws\/secretsmanager@, then you also need
+-- @kms:Decrypt@ permissions for that key. For more information, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions IAM policy actions for Secrets Manager>
+-- and
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and access control in Secrets Manager>.
 module Amazonka.SecretsManager.GetSecretValue
   ( -- * Creating a Request
     GetSecretValue (..),
@@ -77,33 +75,29 @@ import Amazonka.SecretsManager.Types
 
 -- | /See:/ 'newGetSecretValue' smart constructor.
 data GetSecretValue = GetSecretValue'
-  { -- | Specifies the secret version that you want to retrieve by the staging
-    -- label attached to the version.
+  { -- | The staging label of the version of the secret to retrieve.
     --
-    -- Staging labels are used to keep track of different versions during the
-    -- rotation process. If you specify both this parameter and @VersionId@,
-    -- the two parameters must refer to the same secret version . If you don\'t
-    -- specify either a @VersionStage@ or @VersionId@, then the default is to
-    -- perform the operation on the version with the @VersionStage@ value of
-    -- @AWSCURRENT@.
+    -- Secrets Manager uses staging labels to keep track of different versions
+    -- during the rotation process. If you include both this parameter and
+    -- @VersionId@, the two parameters must refer to the same secret version.
+    -- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
+    -- Manager returns the @AWSCURRENT@ version.
     versionStage :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the unique identifier of the version of the secret that you
-    -- want to retrieve. If you specify both this parameter and @VersionStage@,
-    -- the two parameters must refer to the same secret version. If you don\'t
-    -- specify either a @VersionStage@ or @VersionId@ then the default is to
-    -- perform the operation on the version with the @VersionStage@ value of
-    -- @AWSCURRENT@.
+    -- | The unique identifier of the version of the secret to retrieve. If you
+    -- include both this parameter and @VersionStage@, the two parameters must
+    -- refer to the same secret version. If you don\'t specify either a
+    -- @VersionStage@ or @VersionId@, then Secrets Manager returns the
+    -- @AWSCURRENT@ version.
     --
     -- This value is typically a
     -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
     -- value with 32 hexadecimal digits.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the secret containing the version that you want to retrieve.
-    -- You can specify either the Amazon Resource Name (ARN) or the friendly
-    -- name of the secret.
+    -- | The ARN or name of the secret to retrieve.
     --
     -- For an ARN, we recommend that you specify a complete ARN rather than a
-    -- partial ARN.
+    -- partial ARN. See
+    -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
     secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -116,33 +110,29 @@ data GetSecretValue = GetSecretValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'versionStage', 'getSecretValue_versionStage' - Specifies the secret version that you want to retrieve by the staging
--- label attached to the version.
+-- 'versionStage', 'getSecretValue_versionStage' - The staging label of the version of the secret to retrieve.
 --
--- Staging labels are used to keep track of different versions during the
--- rotation process. If you specify both this parameter and @VersionId@,
--- the two parameters must refer to the same secret version . If you don\'t
--- specify either a @VersionStage@ or @VersionId@, then the default is to
--- perform the operation on the version with the @VersionStage@ value of
--- @AWSCURRENT@.
+-- Secrets Manager uses staging labels to keep track of different versions
+-- during the rotation process. If you include both this parameter and
+-- @VersionId@, the two parameters must refer to the same secret version.
+-- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
+-- Manager returns the @AWSCURRENT@ version.
 --
--- 'versionId', 'getSecretValue_versionId' - Specifies the unique identifier of the version of the secret that you
--- want to retrieve. If you specify both this parameter and @VersionStage@,
--- the two parameters must refer to the same secret version. If you don\'t
--- specify either a @VersionStage@ or @VersionId@ then the default is to
--- perform the operation on the version with the @VersionStage@ value of
--- @AWSCURRENT@.
+-- 'versionId', 'getSecretValue_versionId' - The unique identifier of the version of the secret to retrieve. If you
+-- include both this parameter and @VersionStage@, the two parameters must
+-- refer to the same secret version. If you don\'t specify either a
+-- @VersionStage@ or @VersionId@, then Secrets Manager returns the
+-- @AWSCURRENT@ version.
 --
 -- This value is typically a
 -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
 -- value with 32 hexadecimal digits.
 --
--- 'secretId', 'getSecretValue_secretId' - Specifies the secret containing the version that you want to retrieve.
--- You can specify either the Amazon Resource Name (ARN) or the friendly
--- name of the secret.
+-- 'secretId', 'getSecretValue_secretId' - The ARN or name of the secret to retrieve.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 newGetSecretValue ::
   -- | 'secretId'
   Prelude.Text ->
@@ -154,24 +144,21 @@ newGetSecretValue pSecretId_ =
       secretId = pSecretId_
     }
 
--- | Specifies the secret version that you want to retrieve by the staging
--- label attached to the version.
+-- | The staging label of the version of the secret to retrieve.
 --
--- Staging labels are used to keep track of different versions during the
--- rotation process. If you specify both this parameter and @VersionId@,
--- the two parameters must refer to the same secret version . If you don\'t
--- specify either a @VersionStage@ or @VersionId@, then the default is to
--- perform the operation on the version with the @VersionStage@ value of
--- @AWSCURRENT@.
+-- Secrets Manager uses staging labels to keep track of different versions
+-- during the rotation process. If you include both this parameter and
+-- @VersionId@, the two parameters must refer to the same secret version.
+-- If you don\'t specify either a @VersionStage@ or @VersionId@, Secrets
+-- Manager returns the @AWSCURRENT@ version.
 getSecretValue_versionStage :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
 getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> versionStage) (\s@GetSecretValue' {} a -> s {versionStage = a} :: GetSecretValue)
 
--- | Specifies the unique identifier of the version of the secret that you
--- want to retrieve. If you specify both this parameter and @VersionStage@,
--- the two parameters must refer to the same secret version. If you don\'t
--- specify either a @VersionStage@ or @VersionId@ then the default is to
--- perform the operation on the version with the @VersionStage@ value of
--- @AWSCURRENT@.
+-- | The unique identifier of the version of the secret to retrieve. If you
+-- include both this parameter and @VersionStage@, the two parameters must
+-- refer to the same secret version. If you don\'t specify either a
+-- @VersionStage@ or @VersionId@, then Secrets Manager returns the
+-- @AWSCURRENT@ version.
 --
 -- This value is typically a
 -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID-type>
@@ -179,12 +166,11 @@ getSecretValue_versionStage = Lens.lens (\GetSecretValue' {versionStage} -> vers
 getSecretValue_versionId :: Lens.Lens' GetSecretValue (Prelude.Maybe Prelude.Text)
 getSecretValue_versionId = Lens.lens (\GetSecretValue' {versionId} -> versionId) (\s@GetSecretValue' {} a -> s {versionId = a} :: GetSecretValue)
 
--- | Specifies the secret containing the version that you want to retrieve.
--- You can specify either the Amazon Resource Name (ARN) or the friendly
--- name of the secret.
+-- | The ARN or name of the secret to retrieve.
 --
 -- For an ARN, we recommend that you specify a complete ARN rather than a
--- partial ARN.
+-- partial ARN. See
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen Finding a secret from a partial ARN>.
 getSecretValue_secretId :: Lens.Lens' GetSecretValue Prelude.Text
 getSecretValue_secretId = Lens.lens (\GetSecretValue' {secretId} -> secretId) (\s@GetSecretValue' {} a -> s {secretId = a} :: GetSecretValue)
 
@@ -259,33 +245,24 @@ data GetSecretValueResponse = GetSecretValueResponse'
     name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The decrypted part of the protected secret information that was
-    -- originally provided as binary data in the form of a byte array. The
-    -- response parameter represents the binary data as a
+    -- | The decrypted secret value, if the secret value was originally provided
+    -- as binary data in the form of a byte array. The response parameter
+    -- represents the binary data as a
     -- <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string.
     --
-    -- This parameter is not used if the secret is created by the Secrets
-    -- Manager console.
-    --
-    -- If you store custom information in this field of the secret, then you
-    -- must code your Lambda rotation function to parse and interpret whatever
-    -- you store in the @SecretString@ or @SecretBinary@ fields.
+    -- If the secret was created by using the Secrets Manager console, or if
+    -- the secret value was originally provided as a string, then this field is
+    -- omitted. The secret value appears in @SecretString@ instead.
     secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | The decrypted part of the protected secret information that was
-    -- originally provided as a string.
+    -- | The decrypted secret value, if the secret value was originally provided
+    -- as a string or through the Secrets Manager console.
     --
-    -- If you create this secret by using the Secrets Manager console then only
-    -- the @SecretString@ parameter contains data. Secrets Manager stores the
-    -- information as a JSON structure of key\/value pairs that the Lambda
-    -- rotation function knows how to parse.
-    --
-    -- If you store custom information in the secret by using the CreateSecret,
-    -- UpdateSecret, or PutSecretValue API operations instead of the Secrets
-    -- Manager console, or by using the __Other secret type__ in the console,
-    -- then you must code your Lambda rotation function to parse and interpret
-    -- those values.
+    -- If this secret was created by using the console, then Secrets Manager
+    -- stores the information as a JSON structure of key\/value pairs.
     secretString :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The date and time that this version of the secret was created.
+    -- | The date and time that this version of the secret was created. If you
+    -- don\'t specify which version in @VersionId@ or @VersionStage@, then
+    -- Secrets Manager uses the @AWSCURRENT@ version.
     createdDate :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier of this version of the secret.
     versionId :: Prelude.Maybe Prelude.Text,
@@ -309,37 +286,28 @@ data GetSecretValueResponse = GetSecretValueResponse'
 --
 -- 'arn', 'getSecretValueResponse_arn' - The ARN of the secret.
 --
--- 'secretBinary', 'getSecretValueResponse_secretBinary' - The decrypted part of the protected secret information that was
--- originally provided as binary data in the form of a byte array. The
--- response parameter represents the binary data as a
+-- 'secretBinary', 'getSecretValueResponse_secretBinary' - The decrypted secret value, if the secret value was originally provided
+-- as binary data in the form of a byte array. The response parameter
+-- represents the binary data as a
 -- <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string.
 --
--- This parameter is not used if the secret is created by the Secrets
--- Manager console.
---
--- If you store custom information in this field of the secret, then you
--- must code your Lambda rotation function to parse and interpret whatever
--- you store in the @SecretString@ or @SecretBinary@ fields.--
+-- If the secret was created by using the Secrets Manager console, or if
+-- the secret value was originally provided as a string, then this field is
+-- omitted. The secret value appears in @SecretString@ instead.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'secretString', 'getSecretValueResponse_secretString' - The decrypted part of the protected secret information that was
--- originally provided as a string.
+-- 'secretString', 'getSecretValueResponse_secretString' - The decrypted secret value, if the secret value was originally provided
+-- as a string or through the Secrets Manager console.
 --
--- If you create this secret by using the Secrets Manager console then only
--- the @SecretString@ parameter contains data. Secrets Manager stores the
--- information as a JSON structure of key\/value pairs that the Lambda
--- rotation function knows how to parse.
+-- If this secret was created by using the console, then Secrets Manager
+-- stores the information as a JSON structure of key\/value pairs.
 --
--- If you store custom information in the secret by using the CreateSecret,
--- UpdateSecret, or PutSecretValue API operations instead of the Secrets
--- Manager console, or by using the __Other secret type__ in the console,
--- then you must code your Lambda rotation function to parse and interpret
--- those values.
---
--- 'createdDate', 'getSecretValueResponse_createdDate' - The date and time that this version of the secret was created.
+-- 'createdDate', 'getSecretValueResponse_createdDate' - The date and time that this version of the secret was created. If you
+-- don\'t specify which version in @VersionId@ or @VersionStage@, then
+-- Secrets Manager uses the @AWSCURRENT@ version.
 --
 -- 'versionId', 'getSecretValueResponse_versionId' - The unique identifier of this version of the secret.
 --
@@ -374,17 +342,14 @@ getSecretValueResponse_name = Lens.lens (\GetSecretValueResponse' {name} -> name
 getSecretValueResponse_arn :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
 getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (\s@GetSecretValueResponse' {} a -> s {arn = a} :: GetSecretValueResponse)
 
--- | The decrypted part of the protected secret information that was
--- originally provided as binary data in the form of a byte array. The
--- response parameter represents the binary data as a
+-- | The decrypted secret value, if the secret value was originally provided
+-- as binary data in the form of a byte array. The response parameter
+-- represents the binary data as a
 -- <https://tools.ietf.org/html/rfc4648#section-4 base64-encoded> string.
 --
--- This parameter is not used if the secret is created by the Secrets
--- Manager console.
---
--- If you store custom information in this field of the secret, then you
--- must code your Lambda rotation function to parse and interpret whatever
--- you store in the @SecretString@ or @SecretBinary@ fields.--
+-- If the secret was created by using the Secrets Manager console, or if
+-- the secret value was originally provided as a string, then this field is
+-- omitted. The secret value appears in @SecretString@ instead.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -392,23 +357,17 @@ getSecretValueResponse_arn = Lens.lens (\GetSecretValueResponse' {arn} -> arn) (
 getSecretValueResponse_secretBinary :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.ByteString)
 getSecretValueResponse_secretBinary = Lens.lens (\GetSecretValueResponse' {secretBinary} -> secretBinary) (\s@GetSecretValueResponse' {} a -> s {secretBinary = a} :: GetSecretValueResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | The decrypted part of the protected secret information that was
--- originally provided as a string.
+-- | The decrypted secret value, if the secret value was originally provided
+-- as a string or through the Secrets Manager console.
 --
--- If you create this secret by using the Secrets Manager console then only
--- the @SecretString@ parameter contains data. Secrets Manager stores the
--- information as a JSON structure of key\/value pairs that the Lambda
--- rotation function knows how to parse.
---
--- If you store custom information in the secret by using the CreateSecret,
--- UpdateSecret, or PutSecretValue API operations instead of the Secrets
--- Manager console, or by using the __Other secret type__ in the console,
--- then you must code your Lambda rotation function to parse and interpret
--- those values.
+-- If this secret was created by using the console, then Secrets Manager
+-- stores the information as a JSON structure of key\/value pairs.
 getSecretValueResponse_secretString :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.Text)
 getSecretValueResponse_secretString = Lens.lens (\GetSecretValueResponse' {secretString} -> secretString) (\s@GetSecretValueResponse' {} a -> s {secretString = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Core._Sensitive
 
--- | The date and time that this version of the secret was created.
+-- | The date and time that this version of the secret was created. If you
+-- don\'t specify which version in @VersionId@ or @VersionStage@, then
+-- Secrets Manager uses the @AWSCURRENT@ version.
 getSecretValueResponse_createdDate :: Lens.Lens' GetSecretValueResponse (Prelude.Maybe Prelude.UTCTime)
 getSecretValueResponse_createdDate = Lens.lens (\GetSecretValueResponse' {createdDate} -> createdDate) (\s@GetSecretValueResponse' {} a -> s {createdDate = a} :: GetSecretValueResponse) Prelude.. Lens.mapping Core._Time
 

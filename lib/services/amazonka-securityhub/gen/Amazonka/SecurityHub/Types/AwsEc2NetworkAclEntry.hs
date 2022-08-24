@@ -45,7 +45,7 @@ data AwsEc2NetworkAclEntry = AwsEc2NetworkAclEntry'
     -- | Whether the rule is used to allow access or deny access.
     ruleAction :: Prelude.Maybe Prelude.Text,
     -- | The protocol that the rule applies to. To deny or allow access to all
-    -- protocols, use the value -1.
+    -- protocols, use the value @-1@.
     protocol :: Prelude.Maybe Prelude.Text,
     -- | The IPV6 network range for which to deny or allow access.
     ipv6CidrBlock :: Prelude.Maybe Prelude.Text
@@ -75,7 +75,7 @@ data AwsEc2NetworkAclEntry = AwsEc2NetworkAclEntry'
 -- 'ruleAction', 'awsEc2NetworkAclEntry_ruleAction' - Whether the rule is used to allow access or deny access.
 --
 -- 'protocol', 'awsEc2NetworkAclEntry_protocol' - The protocol that the rule applies to. To deny or allow access to all
--- protocols, use the value -1.
+-- protocols, use the value @-1@.
 --
 -- 'ipv6CidrBlock', 'awsEc2NetworkAclEntry_ipv6CidrBlock' - The IPV6 network range for which to deny or allow access.
 newAwsEc2NetworkAclEntry ::
@@ -120,7 +120,7 @@ awsEc2NetworkAclEntry_ruleAction :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Ma
 awsEc2NetworkAclEntry_ruleAction = Lens.lens (\AwsEc2NetworkAclEntry' {ruleAction} -> ruleAction) (\s@AwsEc2NetworkAclEntry' {} a -> s {ruleAction = a} :: AwsEc2NetworkAclEntry)
 
 -- | The protocol that the rule applies to. To deny or allow access to all
--- protocols, use the value -1.
+-- protocols, use the value @-1@.
 awsEc2NetworkAclEntry_protocol :: Lens.Lens' AwsEc2NetworkAclEntry (Prelude.Maybe Prelude.Text)
 awsEc2NetworkAclEntry_protocol = Lens.lens (\AwsEc2NetworkAclEntry' {protocol} -> protocol) (\s@AwsEc2NetworkAclEntry' {} a -> s {protocol = a} :: AwsEc2NetworkAclEntry)
 

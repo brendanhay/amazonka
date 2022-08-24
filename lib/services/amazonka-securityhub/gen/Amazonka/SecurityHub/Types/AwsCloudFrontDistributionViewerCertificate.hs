@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the TLS\/SSL configuration that the
--- distribution uses to communicate with viewers.
+-- CloudFront distribution uses to communicate with viewers.
 --
 -- /See:/ 'newAwsCloudFrontDistributionViewerCertificate' smart constructor.
 data AwsCloudFrontDistributionViewerCertificate = AwsCloudFrontDistributionViewerCertificate'

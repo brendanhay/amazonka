@@ -43,7 +43,13 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
     registryId :: Prelude.Maybe Prelude.Text,
     -- | The sha256 digest of the image manifest.
     imageDigest :: Prelude.Maybe Prelude.Text,
-    -- | The architecture of the image.
+    -- | The architecture of the image. Valid values are as follows:
+    --
+    -- -   @arm64@
+    --
+    -- -   @i386@
+    --
+    -- -   @x86_64@
     architecture :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +78,13 @@ data AwsEcrContainerImageDetails = AwsEcrContainerImageDetails'
 --
 -- 'imageDigest', 'awsEcrContainerImageDetails_imageDigest' - The sha256 digest of the image manifest.
 --
--- 'architecture', 'awsEcrContainerImageDetails_architecture' - The architecture of the image.
+-- 'architecture', 'awsEcrContainerImageDetails_architecture' - The architecture of the image. Valid values are as follows:
+--
+-- -   @arm64@
+--
+-- -   @i386@
+--
+-- -   @x86_64@
 newAwsEcrContainerImageDetails ::
   AwsEcrContainerImageDetails
 newAwsEcrContainerImageDetails =
@@ -112,7 +124,13 @@ awsEcrContainerImageDetails_registryId = Lens.lens (\AwsEcrContainerImageDetails
 awsEcrContainerImageDetails_imageDigest :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
 awsEcrContainerImageDetails_imageDigest = Lens.lens (\AwsEcrContainerImageDetails' {imageDigest} -> imageDigest) (\s@AwsEcrContainerImageDetails' {} a -> s {imageDigest = a} :: AwsEcrContainerImageDetails)
 
--- | The architecture of the image.
+-- | The architecture of the image. Valid values are as follows:
+--
+-- -   @arm64@
+--
+-- -   @i386@
+--
+-- -   @x86_64@
 awsEcrContainerImageDetails_architecture :: Lens.Lens' AwsEcrContainerImageDetails (Prelude.Maybe Prelude.Text)
 awsEcrContainerImageDetails_architecture = Lens.lens (\AwsEcrContainerImageDetails' {architecture} -> architecture) (\s@AwsEcrContainerImageDetails' {} a -> s {architecture = a} :: AwsEcrContainerImageDetails)
 

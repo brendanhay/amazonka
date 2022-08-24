@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails
+import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationMetadataOptions
 
 -- | Details about a launch configuration.
 --
@@ -78,7 +79,9 @@ data AwsAutoScalingLaunchConfigurationDetails = AwsAutoScalingLaunchConfiguratio
     imageId :: Prelude.Maybe Prelude.Text,
     -- | The identifiers of one or more security groups for the VPC that is
     -- specified in @ClassicLinkVPCId@.
-    classicLinkVpcSecurityGroups :: Prelude.Maybe [Prelude.Text]
+    classicLinkVpcSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | The metadata options for the instances.
+    metadataOptions :: Prelude.Maybe AwsAutoScalingLaunchConfigurationMetadataOptions
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -139,6 +142,8 @@ data AwsAutoScalingLaunchConfigurationDetails = AwsAutoScalingLaunchConfiguratio
 --
 -- 'classicLinkVpcSecurityGroups', 'awsAutoScalingLaunchConfigurationDetails_classicLinkVpcSecurityGroups' - The identifiers of one or more security groups for the VPC that is
 -- specified in @ClassicLinkVPCId@.
+--
+-- 'metadataOptions', 'awsAutoScalingLaunchConfigurationDetails_metadataOptions' - The metadata options for the instances.
 newAwsAutoScalingLaunchConfigurationDetails ::
   AwsAutoScalingLaunchConfigurationDetails
 newAwsAutoScalingLaunchConfigurationDetails =
@@ -169,7 +174,8 @@ newAwsAutoScalingLaunchConfigurationDetails =
       spotPrice = Prelude.Nothing,
       imageId = Prelude.Nothing,
       classicLinkVpcSecurityGroups =
-        Prelude.Nothing
+        Prelude.Nothing,
+      metadataOptions = Prelude.Nothing
     }
 
 -- | Whether the launch configuration is optimized for Amazon EBS I\/O.
@@ -258,6 +264,10 @@ awsAutoScalingLaunchConfigurationDetails_imageId = Lens.lens (\AwsAutoScalingLau
 awsAutoScalingLaunchConfigurationDetails_classicLinkVpcSecurityGroups :: Lens.Lens' AwsAutoScalingLaunchConfigurationDetails (Prelude.Maybe [Prelude.Text])
 awsAutoScalingLaunchConfigurationDetails_classicLinkVpcSecurityGroups = Lens.lens (\AwsAutoScalingLaunchConfigurationDetails' {classicLinkVpcSecurityGroups} -> classicLinkVpcSecurityGroups) (\s@AwsAutoScalingLaunchConfigurationDetails' {} a -> s {classicLinkVpcSecurityGroups = a} :: AwsAutoScalingLaunchConfigurationDetails) Prelude.. Lens.mapping Lens.coerced
 
+-- | The metadata options for the instances.
+awsAutoScalingLaunchConfigurationDetails_metadataOptions :: Lens.Lens' AwsAutoScalingLaunchConfigurationDetails (Prelude.Maybe AwsAutoScalingLaunchConfigurationMetadataOptions)
+awsAutoScalingLaunchConfigurationDetails_metadataOptions = Lens.lens (\AwsAutoScalingLaunchConfigurationDetails' {metadataOptions} -> metadataOptions) (\s@AwsAutoScalingLaunchConfigurationDetails' {} a -> s {metadataOptions = a} :: AwsAutoScalingLaunchConfigurationDetails)
+
 instance
   Core.FromJSON
     AwsAutoScalingLaunchConfigurationDetails
@@ -289,6 +299,7 @@ instance
             Prelude.<*> ( x Core..:? "ClassicLinkVpcSecurityGroups"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "MetadataOptions")
       )
 
 instance
@@ -316,6 +327,7 @@ instance
         `Prelude.hashWithSalt` spotPrice
         `Prelude.hashWithSalt` imageId
         `Prelude.hashWithSalt` classicLinkVpcSecurityGroups
+        `Prelude.hashWithSalt` metadataOptions
 
 instance
   Prelude.NFData
@@ -341,6 +353,7 @@ instance
       `Prelude.seq` Prelude.rnf imageId
       `Prelude.seq` Prelude.rnf
         classicLinkVpcSecurityGroups
+      `Prelude.seq` Prelude.rnf metadataOptions
 
 instance
   Core.ToJSON
@@ -375,6 +388,8 @@ instance
             ("SpotPrice" Core..=) Prelude.<$> spotPrice,
             ("ImageId" Core..=) Prelude.<$> imageId,
             ("ClassicLinkVpcSecurityGroups" Core..=)
-              Prelude.<$> classicLinkVpcSecurityGroups
+              Prelude.<$> classicLinkVpcSecurityGroups,
+            ("MetadataOptions" Core..=)
+              Prelude.<$> metadataOptions
           ]
       )

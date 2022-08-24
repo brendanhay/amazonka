@@ -33,7 +33,8 @@ data AwsCertificateManagerCertificateRenewalSummary = AwsCertificateManagerCerti
     -- as it pertains to Certificate Manager managed renewal. Provided only
     -- when the certificate type is @AMAZON_ISSUED@.
     domainValidationOptions :: Prelude.Maybe [AwsCertificateManagerCertificateDomainValidationOption],
-    -- | The reason that a renewal request was unsuccessful.
+    -- | The reason that a renewal request was unsuccessful. This attribute is
+    -- used only when @RenewalStatus@ is @FAILED@.
     --
     -- Valid values: @NO_AVAILABLE_CONTACTS@ |
     -- @ADDITIONAL_VERIFICATION_REQUIRED@ | @DOMAIN_NOT_ALLOWED@ |
@@ -71,7 +72,8 @@ data AwsCertificateManagerCertificateRenewalSummary = AwsCertificateManagerCerti
 -- as it pertains to Certificate Manager managed renewal. Provided only
 -- when the certificate type is @AMAZON_ISSUED@.
 --
--- 'renewalStatusReason', 'awsCertificateManagerCertificateRenewalSummary_renewalStatusReason' - The reason that a renewal request was unsuccessful.
+-- 'renewalStatusReason', 'awsCertificateManagerCertificateRenewalSummary_renewalStatusReason' - The reason that a renewal request was unsuccessful. This attribute is
+-- used only when @RenewalStatus@ is @FAILED@.
 --
 -- Valid values: @NO_AVAILABLE_CONTACTS@ |
 -- @ADDITIONAL_VERIFICATION_REQUIRED@ | @DOMAIN_NOT_ALLOWED@ |
@@ -112,7 +114,8 @@ newAwsCertificateManagerCertificateRenewalSummary =
 awsCertificateManagerCertificateRenewalSummary_domainValidationOptions :: Lens.Lens' AwsCertificateManagerCertificateRenewalSummary (Prelude.Maybe [AwsCertificateManagerCertificateDomainValidationOption])
 awsCertificateManagerCertificateRenewalSummary_domainValidationOptions = Lens.lens (\AwsCertificateManagerCertificateRenewalSummary' {domainValidationOptions} -> domainValidationOptions) (\s@AwsCertificateManagerCertificateRenewalSummary' {} a -> s {domainValidationOptions = a} :: AwsCertificateManagerCertificateRenewalSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | The reason that a renewal request was unsuccessful.
+-- | The reason that a renewal request was unsuccessful. This attribute is
+-- used only when @RenewalStatus@ is @FAILED@.
 --
 -- Valid values: @NO_AVAILABLE_CONTACTS@ |
 -- @ADDITIONAL_VERIFICATION_REQUIRED@ | @DOMAIN_NOT_ALLOWED@ |

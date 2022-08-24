@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsS3AccountPublicAccessBlockDetails
 import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsS3BucketBucketVersioningConfiguration
 import Amazonka.SecurityHub.Types.AwsS3BucketLoggingConfiguration
 import Amazonka.SecurityHub.Types.AwsS3BucketNotificationConfiguration
 import Amazonka.SecurityHub.Types.AwsS3BucketServerSideEncryptionConfiguration
@@ -39,6 +40,8 @@ data AwsS3BucketDetails = AwsS3BucketDetails'
     ownerName :: Prelude.Maybe Prelude.Text,
     -- | The canonical user ID of the owner of the S3 bucket.
     ownerId :: Prelude.Maybe Prelude.Text,
+    -- | The versioning state of an S3 bucket.
+    bucketVersioningConfiguration :: Prelude.Maybe AwsS3BucketBucketVersioningConfiguration,
     -- | The notification configuration for the S3 bucket.
     bucketNotificationConfiguration :: Prelude.Maybe AwsS3BucketNotificationConfiguration,
     -- | The encryption rules that are applied to the S3 bucket.
@@ -79,6 +82,8 @@ data AwsS3BucketDetails = AwsS3BucketDetails'
 --
 -- 'ownerId', 'awsS3BucketDetails_ownerId' - The canonical user ID of the owner of the S3 bucket.
 --
+-- 'bucketVersioningConfiguration', 'awsS3BucketDetails_bucketVersioningConfiguration' - The versioning state of an S3 bucket.
+--
 -- 'bucketNotificationConfiguration', 'awsS3BucketDetails_bucketNotificationConfiguration' - The notification configuration for the S3 bucket.
 --
 -- 'serverSideEncryptionConfiguration', 'awsS3BucketDetails_serverSideEncryptionConfiguration' - The encryption rules that are applied to the S3 bucket.
@@ -109,6 +114,7 @@ newAwsS3BucketDetails =
         Prelude.Nothing,
       ownerName = Prelude.Nothing,
       ownerId = Prelude.Nothing,
+      bucketVersioningConfiguration = Prelude.Nothing,
       bucketNotificationConfiguration = Prelude.Nothing,
       serverSideEncryptionConfiguration = Prelude.Nothing,
       bucketLoggingConfiguration = Prelude.Nothing,
@@ -130,6 +136,10 @@ awsS3BucketDetails_ownerName = Lens.lens (\AwsS3BucketDetails' {ownerName} -> ow
 -- | The canonical user ID of the owner of the S3 bucket.
 awsS3BucketDetails_ownerId :: Lens.Lens' AwsS3BucketDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketDetails_ownerId = Lens.lens (\AwsS3BucketDetails' {ownerId} -> ownerId) (\s@AwsS3BucketDetails' {} a -> s {ownerId = a} :: AwsS3BucketDetails)
+
+-- | The versioning state of an S3 bucket.
+awsS3BucketDetails_bucketVersioningConfiguration :: Lens.Lens' AwsS3BucketDetails (Prelude.Maybe AwsS3BucketBucketVersioningConfiguration)
+awsS3BucketDetails_bucketVersioningConfiguration = Lens.lens (\AwsS3BucketDetails' {bucketVersioningConfiguration} -> bucketVersioningConfiguration) (\s@AwsS3BucketDetails' {} a -> s {bucketVersioningConfiguration = a} :: AwsS3BucketDetails)
 
 -- | The notification configuration for the S3 bucket.
 awsS3BucketDetails_bucketNotificationConfiguration :: Lens.Lens' AwsS3BucketDetails (Prelude.Maybe AwsS3BucketNotificationConfiguration)
@@ -179,6 +189,7 @@ instance Core.FromJSON AwsS3BucketDetails where
             Prelude.<$> (x Core..:? "AccessControlList")
             Prelude.<*> (x Core..:? "OwnerName")
             Prelude.<*> (x Core..:? "OwnerId")
+            Prelude.<*> (x Core..:? "BucketVersioningConfiguration")
             Prelude.<*> (x Core..:? "BucketNotificationConfiguration")
             Prelude.<*> (x Core..:? "ServerSideEncryptionConfiguration")
             Prelude.<*> (x Core..:? "BucketLoggingConfiguration")
@@ -194,6 +205,7 @@ instance Prelude.Hashable AwsS3BucketDetails where
     _salt `Prelude.hashWithSalt` accessControlList
       `Prelude.hashWithSalt` ownerName
       `Prelude.hashWithSalt` ownerId
+      `Prelude.hashWithSalt` bucketVersioningConfiguration
       `Prelude.hashWithSalt` bucketNotificationConfiguration
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
       `Prelude.hashWithSalt` bucketLoggingConfiguration
@@ -208,6 +220,7 @@ instance Prelude.NFData AwsS3BucketDetails where
     Prelude.rnf accessControlList
       `Prelude.seq` Prelude.rnf ownerName
       `Prelude.seq` Prelude.rnf ownerId
+      `Prelude.seq` Prelude.rnf bucketVersioningConfiguration
       `Prelude.seq` Prelude.rnf bucketNotificationConfiguration
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
       `Prelude.seq` Prelude.rnf bucketLoggingConfiguration
@@ -225,6 +238,8 @@ instance Core.ToJSON AwsS3BucketDetails where
               Prelude.<$> accessControlList,
             ("OwnerName" Core..=) Prelude.<$> ownerName,
             ("OwnerId" Core..=) Prelude.<$> ownerId,
+            ("BucketVersioningConfiguration" Core..=)
+              Prelude.<$> bucketVersioningConfiguration,
             ("BucketNotificationConfiguration" Core..=)
               Prelude.<$> bucketNotificationConfiguration,
             ("ServerSideEncryptionConfiguration" Core..=)

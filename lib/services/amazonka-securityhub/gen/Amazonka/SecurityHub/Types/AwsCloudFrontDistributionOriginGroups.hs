@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionOriginGroup
 
 -- | Provides information about origin groups that are associated with the
--- distribution.
+-- CloudFront distribution.
 --
 -- /See:/ 'newAwsCloudFrontDistributionOriginGroups' smart constructor.
 data AwsCloudFrontDistributionOriginGroups = AwsCloudFrontDistributionOriginGroups'

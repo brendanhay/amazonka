@@ -28,19 +28,39 @@ import Amazonka.SecurityHub.Types.AwsEc2VolumeAttachment
 --
 -- /See:/ 'newAwsEc2VolumeDetails' smart constructor.
 data AwsEc2VolumeDetails = AwsEc2VolumeDetails'
-  { -- | The snapshot from which the volume was created.
+  { -- | The device name for the volume that is attached to the instance.
+    deviceName :: Prelude.Maybe Prelude.Text,
+    -- | The snapshot from which the volume was created.
     snapshotId :: Prelude.Maybe Prelude.Text,
     -- | The size of the volume, in GiBs.
     size :: Prelude.Maybe Prelude.Int,
-    -- | The volume state.
+    -- | The volume type.
+    volumeType :: Prelude.Maybe Prelude.Text,
+    -- | The volume state. Valid values are as follows:
+    --
+    -- -   @available@
+    --
+    -- -   @creating@
+    --
+    -- -   @deleted@
+    --
+    -- -   @deleting@
+    --
+    -- -   @error@
+    --
+    -- -   @in-use@
     status :: Prelude.Maybe Prelude.Text,
     -- | The volume attachments.
     attachments :: Prelude.Maybe [AwsEc2VolumeAttachment],
-    -- | Whether the volume is encrypted.
+    -- | Indicates whether the volume was scanned or skipped.
+    volumeScanStatus :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the volume is encrypted.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the KMS key that was used to protect the volume encryption
     -- key for the volume.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the volume.
+    volumeId :: Prelude.Maybe Prelude.Text,
     -- | Indicates when the volume was created.
     --
     -- Uses the @date-time@ format specified in
@@ -59,18 +79,38 @@ data AwsEc2VolumeDetails = AwsEc2VolumeDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deviceName', 'awsEc2VolumeDetails_deviceName' - The device name for the volume that is attached to the instance.
+--
 -- 'snapshotId', 'awsEc2VolumeDetails_snapshotId' - The snapshot from which the volume was created.
 --
 -- 'size', 'awsEc2VolumeDetails_size' - The size of the volume, in GiBs.
 --
--- 'status', 'awsEc2VolumeDetails_status' - The volume state.
+-- 'volumeType', 'awsEc2VolumeDetails_volumeType' - The volume type.
+--
+-- 'status', 'awsEc2VolumeDetails_status' - The volume state. Valid values are as follows:
+--
+-- -   @available@
+--
+-- -   @creating@
+--
+-- -   @deleted@
+--
+-- -   @deleting@
+--
+-- -   @error@
+--
+-- -   @in-use@
 --
 -- 'attachments', 'awsEc2VolumeDetails_attachments' - The volume attachments.
 --
--- 'encrypted', 'awsEc2VolumeDetails_encrypted' - Whether the volume is encrypted.
+-- 'volumeScanStatus', 'awsEc2VolumeDetails_volumeScanStatus' - Indicates whether the volume was scanned or skipped.
+--
+-- 'encrypted', 'awsEc2VolumeDetails_encrypted' - Specifies whether the volume is encrypted.
 --
 -- 'kmsKeyId', 'awsEc2VolumeDetails_kmsKeyId' - The ARN of the KMS key that was used to protect the volume encryption
 -- key for the volume.
+--
+-- 'volumeId', 'awsEc2VolumeDetails_volumeId' - The ID of the volume.
 --
 -- 'createTime', 'awsEc2VolumeDetails_createTime' - Indicates when the volume was created.
 --
@@ -82,14 +122,22 @@ newAwsEc2VolumeDetails ::
   AwsEc2VolumeDetails
 newAwsEc2VolumeDetails =
   AwsEc2VolumeDetails'
-    { snapshotId = Prelude.Nothing,
+    { deviceName = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
       size = Prelude.Nothing,
+      volumeType = Prelude.Nothing,
       status = Prelude.Nothing,
       attachments = Prelude.Nothing,
+      volumeScanStatus = Prelude.Nothing,
       encrypted = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      volumeId = Prelude.Nothing,
       createTime = Prelude.Nothing
     }
+
+-- | The device name for the volume that is attached to the instance.
+awsEc2VolumeDetails_deviceName :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
+awsEc2VolumeDetails_deviceName = Lens.lens (\AwsEc2VolumeDetails' {deviceName} -> deviceName) (\s@AwsEc2VolumeDetails' {} a -> s {deviceName = a} :: AwsEc2VolumeDetails)
 
 -- | The snapshot from which the volume was created.
 awsEc2VolumeDetails_snapshotId :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
@@ -99,7 +147,23 @@ awsEc2VolumeDetails_snapshotId = Lens.lens (\AwsEc2VolumeDetails' {snapshotId} -
 awsEc2VolumeDetails_size :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Int)
 awsEc2VolumeDetails_size = Lens.lens (\AwsEc2VolumeDetails' {size} -> size) (\s@AwsEc2VolumeDetails' {} a -> s {size = a} :: AwsEc2VolumeDetails)
 
--- | The volume state.
+-- | The volume type.
+awsEc2VolumeDetails_volumeType :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
+awsEc2VolumeDetails_volumeType = Lens.lens (\AwsEc2VolumeDetails' {volumeType} -> volumeType) (\s@AwsEc2VolumeDetails' {} a -> s {volumeType = a} :: AwsEc2VolumeDetails)
+
+-- | The volume state. Valid values are as follows:
+--
+-- -   @available@
+--
+-- -   @creating@
+--
+-- -   @deleted@
+--
+-- -   @deleting@
+--
+-- -   @error@
+--
+-- -   @in-use@
 awsEc2VolumeDetails_status :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
 awsEc2VolumeDetails_status = Lens.lens (\AwsEc2VolumeDetails' {status} -> status) (\s@AwsEc2VolumeDetails' {} a -> s {status = a} :: AwsEc2VolumeDetails)
 
@@ -107,7 +171,11 @@ awsEc2VolumeDetails_status = Lens.lens (\AwsEc2VolumeDetails' {status} -> status
 awsEc2VolumeDetails_attachments :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe [AwsEc2VolumeAttachment])
 awsEc2VolumeDetails_attachments = Lens.lens (\AwsEc2VolumeDetails' {attachments} -> attachments) (\s@AwsEc2VolumeDetails' {} a -> s {attachments = a} :: AwsEc2VolumeDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether the volume is encrypted.
+-- | Indicates whether the volume was scanned or skipped.
+awsEc2VolumeDetails_volumeScanStatus :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
+awsEc2VolumeDetails_volumeScanStatus = Lens.lens (\AwsEc2VolumeDetails' {volumeScanStatus} -> volumeScanStatus) (\s@AwsEc2VolumeDetails' {} a -> s {volumeScanStatus = a} :: AwsEc2VolumeDetails)
+
+-- | Specifies whether the volume is encrypted.
 awsEc2VolumeDetails_encrypted :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Bool)
 awsEc2VolumeDetails_encrypted = Lens.lens (\AwsEc2VolumeDetails' {encrypted} -> encrypted) (\s@AwsEc2VolumeDetails' {} a -> s {encrypted = a} :: AwsEc2VolumeDetails)
 
@@ -115,6 +183,10 @@ awsEc2VolumeDetails_encrypted = Lens.lens (\AwsEc2VolumeDetails' {encrypted} -> 
 -- key for the volume.
 awsEc2VolumeDetails_kmsKeyId :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
 awsEc2VolumeDetails_kmsKeyId = Lens.lens (\AwsEc2VolumeDetails' {kmsKeyId} -> kmsKeyId) (\s@AwsEc2VolumeDetails' {} a -> s {kmsKeyId = a} :: AwsEc2VolumeDetails)
+
+-- | The ID of the volume.
+awsEc2VolumeDetails_volumeId :: Lens.Lens' AwsEc2VolumeDetails (Prelude.Maybe Prelude.Text)
+awsEc2VolumeDetails_volumeId = Lens.lens (\AwsEc2VolumeDetails' {volumeId} -> volumeId) (\s@AwsEc2VolumeDetails' {} a -> s {volumeId = a} :: AwsEc2VolumeDetails)
 
 -- | Indicates when the volume was created.
 --
@@ -131,45 +203,62 @@ instance Core.FromJSON AwsEc2VolumeDetails where
       "AwsEc2VolumeDetails"
       ( \x ->
           AwsEc2VolumeDetails'
-            Prelude.<$> (x Core..:? "SnapshotId")
+            Prelude.<$> (x Core..:? "DeviceName")
+            Prelude.<*> (x Core..:? "SnapshotId")
             Prelude.<*> (x Core..:? "Size")
+            Prelude.<*> (x Core..:? "VolumeType")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Attachments" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "VolumeScanStatus")
             Prelude.<*> (x Core..:? "Encrypted")
             Prelude.<*> (x Core..:? "KmsKeyId")
+            Prelude.<*> (x Core..:? "VolumeId")
             Prelude.<*> (x Core..:? "CreateTime")
       )
 
 instance Prelude.Hashable AwsEc2VolumeDetails where
   hashWithSalt _salt AwsEc2VolumeDetails' {..} =
-    _salt `Prelude.hashWithSalt` snapshotId
+    _salt `Prelude.hashWithSalt` deviceName
+      `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` size
+      `Prelude.hashWithSalt` volumeType
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` attachments
+      `Prelude.hashWithSalt` volumeScanStatus
       `Prelude.hashWithSalt` encrypted
       `Prelude.hashWithSalt` kmsKeyId
+      `Prelude.hashWithSalt` volumeId
       `Prelude.hashWithSalt` createTime
 
 instance Prelude.NFData AwsEc2VolumeDetails where
   rnf AwsEc2VolumeDetails' {..} =
-    Prelude.rnf snapshotId
+    Prelude.rnf deviceName
+      `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf size
+      `Prelude.seq` Prelude.rnf volumeType
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf attachments
+      `Prelude.seq` Prelude.rnf volumeScanStatus
       `Prelude.seq` Prelude.rnf encrypted
       `Prelude.seq` Prelude.rnf kmsKeyId
+      `Prelude.seq` Prelude.rnf volumeId
       `Prelude.seq` Prelude.rnf createTime
 
 instance Core.ToJSON AwsEc2VolumeDetails where
   toJSON AwsEc2VolumeDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SnapshotId" Core..=) Prelude.<$> snapshotId,
+          [ ("DeviceName" Core..=) Prelude.<$> deviceName,
+            ("SnapshotId" Core..=) Prelude.<$> snapshotId,
             ("Size" Core..=) Prelude.<$> size,
+            ("VolumeType" Core..=) Prelude.<$> volumeType,
             ("Status" Core..=) Prelude.<$> status,
             ("Attachments" Core..=) Prelude.<$> attachments,
+            ("VolumeScanStatus" Core..=)
+              Prelude.<$> volumeScanStatus,
             ("Encrypted" Core..=) Prelude.<$> encrypted,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("VolumeId" Core..=) Prelude.<$> volumeId,
             ("CreateTime" Core..=) Prelude.<$> createTime
           ]
       )

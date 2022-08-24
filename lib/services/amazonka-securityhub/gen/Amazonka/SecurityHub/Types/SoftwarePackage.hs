@@ -31,6 +31,12 @@ data SoftwarePackage = SoftwarePackage'
     filePath :: Prelude.Maybe Prelude.Text,
     -- | The name of the software package.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The version of the software package in which the vulnerability has been
+    -- resolved.
+    fixedInVersion :: Prelude.Maybe Prelude.Text,
+    -- | Describes the actions a customer can take to resolve the vulnerability
+    -- in the software package.
+    remediation :: Prelude.Maybe Prelude.Text,
     -- | The epoch of the software package.
     epoch :: Prelude.Maybe Prelude.Text,
     -- | The source of the package.
@@ -56,6 +62,12 @@ data SoftwarePackage = SoftwarePackage'
 --
 -- 'name', 'softwarePackage_name' - The name of the software package.
 --
+-- 'fixedInVersion', 'softwarePackage_fixedInVersion' - The version of the software package in which the vulnerability has been
+-- resolved.
+--
+-- 'remediation', 'softwarePackage_remediation' - Describes the actions a customer can take to resolve the vulnerability
+-- in the software package.
+--
 -- 'epoch', 'softwarePackage_epoch' - The epoch of the software package.
 --
 -- 'packageManager', 'softwarePackage_packageManager' - The source of the package.
@@ -71,6 +83,8 @@ newSoftwarePackage =
   SoftwarePackage'
     { filePath = Prelude.Nothing,
       name = Prelude.Nothing,
+      fixedInVersion = Prelude.Nothing,
+      remediation = Prelude.Nothing,
       epoch = Prelude.Nothing,
       packageManager = Prelude.Nothing,
       release = Prelude.Nothing,
@@ -85,6 +99,16 @@ softwarePackage_filePath = Lens.lens (\SoftwarePackage' {filePath} -> filePath) 
 -- | The name of the software package.
 softwarePackage_name :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
 softwarePackage_name = Lens.lens (\SoftwarePackage' {name} -> name) (\s@SoftwarePackage' {} a -> s {name = a} :: SoftwarePackage)
+
+-- | The version of the software package in which the vulnerability has been
+-- resolved.
+softwarePackage_fixedInVersion :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
+softwarePackage_fixedInVersion = Lens.lens (\SoftwarePackage' {fixedInVersion} -> fixedInVersion) (\s@SoftwarePackage' {} a -> s {fixedInVersion = a} :: SoftwarePackage)
+
+-- | Describes the actions a customer can take to resolve the vulnerability
+-- in the software package.
+softwarePackage_remediation :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
+softwarePackage_remediation = Lens.lens (\SoftwarePackage' {remediation} -> remediation) (\s@SoftwarePackage' {} a -> s {remediation = a} :: SoftwarePackage)
 
 -- | The epoch of the software package.
 softwarePackage_epoch :: Lens.Lens' SoftwarePackage (Prelude.Maybe Prelude.Text)
@@ -114,6 +138,8 @@ instance Core.FromJSON SoftwarePackage where
           SoftwarePackage'
             Prelude.<$> (x Core..:? "FilePath")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "FixedInVersion")
+            Prelude.<*> (x Core..:? "Remediation")
             Prelude.<*> (x Core..:? "Epoch")
             Prelude.<*> (x Core..:? "PackageManager")
             Prelude.<*> (x Core..:? "Release")
@@ -125,6 +151,8 @@ instance Prelude.Hashable SoftwarePackage where
   hashWithSalt _salt SoftwarePackage' {..} =
     _salt `Prelude.hashWithSalt` filePath
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` fixedInVersion
+      `Prelude.hashWithSalt` remediation
       `Prelude.hashWithSalt` epoch
       `Prelude.hashWithSalt` packageManager
       `Prelude.hashWithSalt` release
@@ -135,6 +163,8 @@ instance Prelude.NFData SoftwarePackage where
   rnf SoftwarePackage' {..} =
     Prelude.rnf filePath
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf fixedInVersion
+      `Prelude.seq` Prelude.rnf remediation
       `Prelude.seq` Prelude.rnf epoch
       `Prelude.seq` Prelude.rnf packageManager
       `Prelude.seq` Prelude.rnf release
@@ -147,6 +177,9 @@ instance Core.ToJSON SoftwarePackage where
       ( Prelude.catMaybes
           [ ("FilePath" Core..=) Prelude.<$> filePath,
             ("Name" Core..=) Prelude.<$> name,
+            ("FixedInVersion" Core..=)
+              Prelude.<$> fixedInVersion,
+            ("Remediation" Core..=) Prelude.<$> remediation,
             ("Epoch" Core..=) Prelude.<$> epoch,
             ("PackageManager" Core..=)
               Prelude.<$> packageManager,

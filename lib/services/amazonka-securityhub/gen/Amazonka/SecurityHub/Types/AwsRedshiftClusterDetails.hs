@@ -31,6 +31,7 @@ import Amazonka.SecurityHub.Types.AwsRedshiftClusterElasticIpStatus
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterEndpoint
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterHsmStatus
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterIamRole
+import Amazonka.SecurityHub.Types.AwsRedshiftClusterLoggingStatus
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterPendingModifiedValues
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterResizeInfo
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterRestoreStatus
@@ -46,11 +47,11 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
     clusterPublicKey :: Prelude.Maybe Prelude.Text,
     -- | The default number of days to retain a manual snapshot.
     --
-    -- If the value is -1, the snapshot is retained indefinitely.
+    -- If the value is @-1@, the snapshot is retained indefinitely.
     --
     -- This setting doesn\'t change the retention period of existing snapshots.
     --
-    -- Valid values: Either -1 or an integer between 1 and 3,653
+    -- Valid values: Either @-1@ or an integer between 1 and 3,653
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The master user name for the cluster. This name is used to connect to
     -- the database that is specified in as the value of @DBName@.
@@ -83,6 +84,8 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
     clusterNodes :: Prelude.Maybe [AwsRedshiftClusterClusterNode],
     -- | The version ID of the Amazon Redshift engine that runs on the cluster.
     clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | Information about the logging status of the cluster.
+    loggingStatus :: Prelude.Maybe AwsRedshiftClusterLoggingStatus,
     -- | A list of cluster operations that are waiting to start.
     pendingActions :: Prelude.Maybe [Prelude.Text],
     -- | The specific revision number of the database in the cluster.
@@ -218,11 +221,11 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
 --
 -- 'manualSnapshotRetentionPeriod', 'awsRedshiftClusterDetails_manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot.
 --
--- If the value is -1, the snapshot is retained indefinitely.
+-- If the value is @-1@, the snapshot is retained indefinitely.
 --
 -- This setting doesn\'t change the retention period of existing snapshots.
 --
--- Valid values: Either -1 or an integer between 1 and 3,653
+-- Valid values: Either @-1@ or an integer between 1 and 3,653
 --
 -- 'masterUsername', 'awsRedshiftClusterDetails_masterUsername' - The master user name for the cluster. This name is used to connect to
 -- the database that is specified in as the value of @DBName@.
@@ -254,6 +257,8 @@ data AwsRedshiftClusterDetails = AwsRedshiftClusterDetails'
 -- 'clusterNodes', 'awsRedshiftClusterDetails_clusterNodes' - The nodes in the cluster.
 --
 -- 'clusterVersion', 'awsRedshiftClusterDetails_clusterVersion' - The version ID of the Amazon Redshift engine that runs on the cluster.
+--
+-- 'loggingStatus', 'awsRedshiftClusterDetails_loggingStatus' - Information about the logging status of the cluster.
 --
 -- 'pendingActions', 'awsRedshiftClusterDetails_pendingActions' - A list of cluster operations that are waiting to start.
 --
@@ -391,6 +396,7 @@ newAwsRedshiftClusterDetails =
       elasticIpStatus = Prelude.Nothing,
       clusterNodes = Prelude.Nothing,
       clusterVersion = Prelude.Nothing,
+      loggingStatus = Prelude.Nothing,
       pendingActions = Prelude.Nothing,
       clusterRevisionNumber = Prelude.Nothing,
       maintenanceTrackName = Prelude.Nothing,
@@ -436,11 +442,11 @@ awsRedshiftClusterDetails_clusterPublicKey = Lens.lens (\AwsRedshiftClusterDetai
 
 -- | The default number of days to retain a manual snapshot.
 --
--- If the value is -1, the snapshot is retained indefinitely.
+-- If the value is @-1@, the snapshot is retained indefinitely.
 --
 -- This setting doesn\'t change the retention period of existing snapshots.
 --
--- Valid values: Either -1 or an integer between 1 and 3,653
+-- Valid values: Either @-1@ or an integer between 1 and 3,653
 awsRedshiftClusterDetails_manualSnapshotRetentionPeriod :: Lens.Lens' AwsRedshiftClusterDetails (Prelude.Maybe Prelude.Int)
 awsRedshiftClusterDetails_manualSnapshotRetentionPeriod = Lens.lens (\AwsRedshiftClusterDetails' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@AwsRedshiftClusterDetails' {} a -> s {manualSnapshotRetentionPeriod = a} :: AwsRedshiftClusterDetails)
 
@@ -494,6 +500,10 @@ awsRedshiftClusterDetails_clusterNodes = Lens.lens (\AwsRedshiftClusterDetails' 
 -- | The version ID of the Amazon Redshift engine that runs on the cluster.
 awsRedshiftClusterDetails_clusterVersion :: Lens.Lens' AwsRedshiftClusterDetails (Prelude.Maybe Prelude.Text)
 awsRedshiftClusterDetails_clusterVersion = Lens.lens (\AwsRedshiftClusterDetails' {clusterVersion} -> clusterVersion) (\s@AwsRedshiftClusterDetails' {} a -> s {clusterVersion = a} :: AwsRedshiftClusterDetails)
+
+-- | Information about the logging status of the cluster.
+awsRedshiftClusterDetails_loggingStatus :: Lens.Lens' AwsRedshiftClusterDetails (Prelude.Maybe AwsRedshiftClusterLoggingStatus)
+awsRedshiftClusterDetails_loggingStatus = Lens.lens (\AwsRedshiftClusterDetails' {loggingStatus} -> loggingStatus) (\s@AwsRedshiftClusterDetails' {} a -> s {loggingStatus = a} :: AwsRedshiftClusterDetails)
 
 -- | A list of cluster operations that are waiting to start.
 awsRedshiftClusterDetails_pendingActions :: Lens.Lens' AwsRedshiftClusterDetails (Prelude.Maybe [Prelude.Text])
@@ -694,6 +704,7 @@ instance Core.FromJSON AwsRedshiftClusterDetails where
             Prelude.<*> (x Core..:? "ElasticIpStatus")
             Prelude.<*> (x Core..:? "ClusterNodes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ClusterVersion")
+            Prelude.<*> (x Core..:? "LoggingStatus")
             Prelude.<*> (x Core..:? "PendingActions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ClusterRevisionNumber")
             Prelude.<*> (x Core..:? "MaintenanceTrackName")
@@ -747,6 +758,7 @@ instance Prelude.Hashable AwsRedshiftClusterDetails where
       `Prelude.hashWithSalt` elasticIpStatus
       `Prelude.hashWithSalt` clusterNodes
       `Prelude.hashWithSalt` clusterVersion
+      `Prelude.hashWithSalt` loggingStatus
       `Prelude.hashWithSalt` pendingActions
       `Prelude.hashWithSalt` clusterRevisionNumber
       `Prelude.hashWithSalt` maintenanceTrackName
@@ -793,13 +805,15 @@ instance Prelude.NFData AwsRedshiftClusterDetails where
       `Prelude.seq` Prelude.rnf elasticIpStatus
       `Prelude.seq` Prelude.rnf clusterNodes
       `Prelude.seq` Prelude.rnf clusterVersion
+      `Prelude.seq` Prelude.rnf loggingStatus
       `Prelude.seq` Prelude.rnf pendingActions
       `Prelude.seq` Prelude.rnf clusterRevisionNumber
       `Prelude.seq` Prelude.rnf maintenanceTrackName
       `Prelude.seq` Prelude.rnf iamRoles
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf nodeType
-      `Prelude.seq` Prelude.rnf publiclyAccessible
+      `Prelude.seq` Prelude.rnf
+        publiclyAccessible
       `Prelude.seq` Prelude.rnf
         clusterSnapshotCopyStatus
       `Prelude.seq` Prelude.rnf
@@ -875,6 +889,7 @@ instance Core.ToJSON AwsRedshiftClusterDetails where
             ("ClusterNodes" Core..=) Prelude.<$> clusterNodes,
             ("ClusterVersion" Core..=)
               Prelude.<$> clusterVersion,
+            ("LoggingStatus" Core..=) Prelude.<$> loggingStatus,
             ("PendingActions" Core..=)
               Prelude.<$> pendingActions,
             ("ClusterRevisionNumber" Core..=)

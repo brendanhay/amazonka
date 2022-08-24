@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerAccessLog
+import Amazonka.SecurityHub.Types.AwsElbLoadBalancerAdditionalAttribute
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerConnectionDraining
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerConnectionSettings
 import Amazonka.SecurityHub.Types.AwsElbLoadBalancerCrossZoneLoadBalancing
@@ -44,6 +45,8 @@ data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
     -- requests to complete before it shifts traffic away from a deregistered
     -- or unhealthy instance.
     connectionDraining :: Prelude.Maybe AwsElbLoadBalancerConnectionDraining,
+    -- | Any additional attributes for a load balancer.
+    additionalAttributes :: Prelude.Maybe [AwsElbLoadBalancerAdditionalAttribute],
     -- | Information about the access log configuration for the load balancer.
     --
     -- If the access log is enabled, the load balancer captures detailed
@@ -80,6 +83,8 @@ data AwsElbLoadBalancerAttributes = AwsElbLoadBalancerAttributes'
 -- requests to complete before it shifts traffic away from a deregistered
 -- or unhealthy instance.
 --
+-- 'additionalAttributes', 'awsElbLoadBalancerAttributes_additionalAttributes' - Any additional attributes for a load balancer.
+--
 -- 'accessLog', 'awsElbLoadBalancerAttributes_accessLog' - Information about the access log configuration for the load balancer.
 --
 -- If the access log is enabled, the load balancer captures detailed
@@ -98,6 +103,7 @@ newAwsElbLoadBalancerAttributes =
     { connectionSettings =
         Prelude.Nothing,
       connectionDraining = Prelude.Nothing,
+      additionalAttributes = Prelude.Nothing,
       accessLog = Prelude.Nothing,
       crossZoneLoadBalancing = Prelude.Nothing
     }
@@ -118,6 +124,10 @@ awsElbLoadBalancerAttributes_connectionSettings = Lens.lens (\AwsElbLoadBalancer
 -- or unhealthy instance.
 awsElbLoadBalancerAttributes_connectionDraining :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe AwsElbLoadBalancerConnectionDraining)
 awsElbLoadBalancerAttributes_connectionDraining = Lens.lens (\AwsElbLoadBalancerAttributes' {connectionDraining} -> connectionDraining) (\s@AwsElbLoadBalancerAttributes' {} a -> s {connectionDraining = a} :: AwsElbLoadBalancerAttributes)
+
+-- | Any additional attributes for a load balancer.
+awsElbLoadBalancerAttributes_additionalAttributes :: Lens.Lens' AwsElbLoadBalancerAttributes (Prelude.Maybe [AwsElbLoadBalancerAdditionalAttribute])
+awsElbLoadBalancerAttributes_additionalAttributes = Lens.lens (\AwsElbLoadBalancerAttributes' {additionalAttributes} -> additionalAttributes) (\s@AwsElbLoadBalancerAttributes' {} a -> s {additionalAttributes = a} :: AwsElbLoadBalancerAttributes) Prelude.. Lens.mapping Lens.coerced
 
 -- | Information about the access log configuration for the load balancer.
 --
@@ -143,6 +153,9 @@ instance Core.FromJSON AwsElbLoadBalancerAttributes where
           AwsElbLoadBalancerAttributes'
             Prelude.<$> (x Core..:? "ConnectionSettings")
             Prelude.<*> (x Core..:? "ConnectionDraining")
+            Prelude.<*> ( x Core..:? "AdditionalAttributes"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "AccessLog")
             Prelude.<*> (x Core..:? "CrossZoneLoadBalancing")
       )
@@ -154,6 +167,7 @@ instance
   hashWithSalt _salt AwsElbLoadBalancerAttributes' {..} =
     _salt `Prelude.hashWithSalt` connectionSettings
       `Prelude.hashWithSalt` connectionDraining
+      `Prelude.hashWithSalt` additionalAttributes
       `Prelude.hashWithSalt` accessLog
       `Prelude.hashWithSalt` crossZoneLoadBalancing
 
@@ -161,6 +175,7 @@ instance Prelude.NFData AwsElbLoadBalancerAttributes where
   rnf AwsElbLoadBalancerAttributes' {..} =
     Prelude.rnf connectionSettings
       `Prelude.seq` Prelude.rnf connectionDraining
+      `Prelude.seq` Prelude.rnf additionalAttributes
       `Prelude.seq` Prelude.rnf accessLog
       `Prelude.seq` Prelude.rnf crossZoneLoadBalancing
 
@@ -172,6 +187,8 @@ instance Core.ToJSON AwsElbLoadBalancerAttributes where
               Prelude.<$> connectionSettings,
             ("ConnectionDraining" Core..=)
               Prelude.<$> connectionDraining,
+            ("AdditionalAttributes" Core..=)
+              Prelude.<$> additionalAttributes,
             ("AccessLog" Core..=) Prelude.<$> accessLog,
             ("CrossZoneLoadBalancing" Core..=)
               Prelude.<$> crossZoneLoadBalancing

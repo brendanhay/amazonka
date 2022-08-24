@@ -37,7 +37,19 @@ data AwsEksClusterDetails = AwsEksClusterDetails'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the cluster.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the cluster.
+    -- | The status of the cluster. Valid values are as follows:
+    --
+    -- -   @ACTIVE@
+    --
+    -- -   @CREATING@
+    --
+    -- -   @DELETING@
+    --
+    -- -   @FAILED@
+    --
+    -- -   @PENDING@
+    --
+    -- -   @UPDATING@
     clusterStatus :: Prelude.Maybe Prelude.Text,
     -- | The logging configuration for the cluster.
     logging :: Prelude.Maybe AwsEksClusterLoggingDetails,
@@ -68,7 +80,19 @@ data AwsEksClusterDetails = AwsEksClusterDetails'
 --
 -- 'arn', 'awsEksClusterDetails_arn' - The ARN of the cluster.
 --
--- 'clusterStatus', 'awsEksClusterDetails_clusterStatus' - The status of the cluster.
+-- 'clusterStatus', 'awsEksClusterDetails_clusterStatus' - The status of the cluster. Valid values are as follows:
+--
+-- -   @ACTIVE@
+--
+-- -   @CREATING@
+--
+-- -   @DELETING@
+--
+-- -   @FAILED@
+--
+-- -   @PENDING@
+--
+-- -   @UPDATING@
 --
 -- 'logging', 'awsEksClusterDetails_logging' - The logging configuration for the cluster.
 --
@@ -108,7 +132,19 @@ awsEksClusterDetails_roleArn = Lens.lens (\AwsEksClusterDetails' {roleArn} -> ro
 awsEksClusterDetails_arn :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
 awsEksClusterDetails_arn = Lens.lens (\AwsEksClusterDetails' {arn} -> arn) (\s@AwsEksClusterDetails' {} a -> s {arn = a} :: AwsEksClusterDetails)
 
--- | The status of the cluster.
+-- | The status of the cluster. Valid values are as follows:
+--
+-- -   @ACTIVE@
+--
+-- -   @CREATING@
+--
+-- -   @DELETING@
+--
+-- -   @FAILED@
+--
+-- -   @PENDING@
+--
+-- -   @UPDATING@
 awsEksClusterDetails_clusterStatus :: Lens.Lens' AwsEksClusterDetails (Prelude.Maybe Prelude.Text)
 awsEksClusterDetails_clusterStatus = Lens.lens (\AwsEksClusterDetails' {clusterStatus} -> clusterStatus) (\s@AwsEksClusterDetails' {} a -> s {clusterStatus = a} :: AwsEksClusterDetails)
 

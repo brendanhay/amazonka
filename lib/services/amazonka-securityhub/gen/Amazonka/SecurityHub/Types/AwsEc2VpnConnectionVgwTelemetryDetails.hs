@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data AwsEc2VpnConnectionVgwTelemetryDetails = AwsEc2VpnConnectionVgwTelemetryDetails'
   { -- | The number of accepted routes.
     acceptedRouteCount :: Prelude.Maybe Prelude.Int,
-    -- | The status of the VPN tunnel.
+    -- | The status of the VPN tunnel. Valid values are @DOWN@ or @UP@.
     status :: Prelude.Maybe Prelude.Text,
     -- | The date and time of the last change in status.
     --
@@ -58,7 +58,7 @@ data AwsEc2VpnConnectionVgwTelemetryDetails = AwsEc2VpnConnectionVgwTelemetryDet
 --
 -- 'acceptedRouteCount', 'awsEc2VpnConnectionVgwTelemetryDetails_acceptedRouteCount' - The number of accepted routes.
 --
--- 'status', 'awsEc2VpnConnectionVgwTelemetryDetails_status' - The status of the VPN tunnel.
+-- 'status', 'awsEc2VpnConnectionVgwTelemetryDetails_status' - The status of the VPN tunnel. Valid values are @DOWN@ or @UP@.
 --
 -- 'lastStatusChange', 'awsEc2VpnConnectionVgwTelemetryDetails_lastStatusChange' - The date and time of the last change in status.
 --
@@ -90,7 +90,7 @@ newAwsEc2VpnConnectionVgwTelemetryDetails =
 awsEc2VpnConnectionVgwTelemetryDetails_acceptedRouteCount :: Lens.Lens' AwsEc2VpnConnectionVgwTelemetryDetails (Prelude.Maybe Prelude.Int)
 awsEc2VpnConnectionVgwTelemetryDetails_acceptedRouteCount = Lens.lens (\AwsEc2VpnConnectionVgwTelemetryDetails' {acceptedRouteCount} -> acceptedRouteCount) (\s@AwsEc2VpnConnectionVgwTelemetryDetails' {} a -> s {acceptedRouteCount = a} :: AwsEc2VpnConnectionVgwTelemetryDetails)
 
--- | The status of the VPN tunnel.
+-- | The status of the VPN tunnel. Valid values are @DOWN@ or @UP@.
 awsEc2VpnConnectionVgwTelemetryDetails_status :: Lens.Lens' AwsEc2VpnConnectionVgwTelemetryDetails (Prelude.Maybe Prelude.Text)
 awsEc2VpnConnectionVgwTelemetryDetails_status = Lens.lens (\AwsEc2VpnConnectionVgwTelemetryDetails' {status} -> status) (\s@AwsEc2VpnConnectionVgwTelemetryDetails' {} a -> s {status = a} :: AwsEc2VpnConnectionVgwTelemetryDetails)
 

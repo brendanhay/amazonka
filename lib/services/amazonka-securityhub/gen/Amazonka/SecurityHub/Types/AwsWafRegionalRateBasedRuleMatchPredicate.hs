@@ -29,7 +29,21 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsWafRegionalRateBasedRuleMatchPredicate' smart constructor.
 data AwsWafRegionalRateBasedRuleMatchPredicate = AwsWafRegionalRateBasedRuleMatchPredicate'
-  { -- | The type of predicate.
+  { -- | The type of predicate. Valid values are as follows:
+    --
+    -- -   @ByteMatch@
+    --
+    -- -   @GeoMatch@
+    --
+    -- -   @IPMatch@
+    --
+    -- -   @RegexMatch@
+    --
+    -- -   @SizeConstraint@
+    --
+    -- -   @SqlInjectionMatch@
+    --
+    -- -   @XssMatch@
     type' :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the predicate.
     dataId :: Prelude.Maybe Prelude.Text,
@@ -50,7 +64,21 @@ data AwsWafRegionalRateBasedRuleMatchPredicate = AwsWafRegionalRateBasedRuleMatc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsWafRegionalRateBasedRuleMatchPredicate_type' - The type of predicate.
+-- 'type'', 'awsWafRegionalRateBasedRuleMatchPredicate_type' - The type of predicate. Valid values are as follows:
+--
+-- -   @ByteMatch@
+--
+-- -   @GeoMatch@
+--
+-- -   @IPMatch@
+--
+-- -   @RegexMatch@
+--
+-- -   @SizeConstraint@
+--
+-- -   @SqlInjectionMatch@
+--
+-- -   @XssMatch@
 --
 -- 'dataId', 'awsWafRegionalRateBasedRuleMatchPredicate_dataId' - The unique identifier for the predicate.
 --
@@ -69,7 +97,21 @@ newAwsWafRegionalRateBasedRuleMatchPredicate =
       negated = Prelude.Nothing
     }
 
--- | The type of predicate.
+-- | The type of predicate. Valid values are as follows:
+--
+-- -   @ByteMatch@
+--
+-- -   @GeoMatch@
+--
+-- -   @IPMatch@
+--
+-- -   @RegexMatch@
+--
+-- -   @SizeConstraint@
+--
+-- -   @SqlInjectionMatch@
+--
+-- -   @XssMatch@
 awsWafRegionalRateBasedRuleMatchPredicate_type :: Lens.Lens' AwsWafRegionalRateBasedRuleMatchPredicate (Prelude.Maybe Prelude.Text)
 awsWafRegionalRateBasedRuleMatchPredicate_type = Lens.lens (\AwsWafRegionalRateBasedRuleMatchPredicate' {type'} -> type') (\s@AwsWafRegionalRateBasedRuleMatchPredicate' {} a -> s {type' = a} :: AwsWafRegionalRateBasedRuleMatchPredicate)
 

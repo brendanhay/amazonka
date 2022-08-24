@@ -34,7 +34,17 @@ data AwsElasticsearchDomainServiceSoftwareOptions = AwsElasticsearchDomainServic
     updateAvailable :: Prelude.Maybe Prelude.Bool,
     -- | Whether a request to update the domain can be canceled.
     cancellable :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the service software update.
+    -- | The status of the service software update. Valid values are as follows:
+    --
+    -- -   @COMPLETED@
+    --
+    -- -   @ELIGIBLE@
+    --
+    -- -   @IN_PROGRESS@
+    --
+    -- -   @NOT_ELIGIBLE@
+    --
+    -- -   @PENDING_UPDATE@
     updateStatus :: Prelude.Maybe Prelude.Text,
     -- | The epoch time when the deployment window closes for required updates.
     -- After this time, Amazon OpenSearch Service schedules the software
@@ -62,7 +72,17 @@ data AwsElasticsearchDomainServiceSoftwareOptions = AwsElasticsearchDomainServic
 --
 -- 'cancellable', 'awsElasticsearchDomainServiceSoftwareOptions_cancellable' - Whether a request to update the domain can be canceled.
 --
--- 'updateStatus', 'awsElasticsearchDomainServiceSoftwareOptions_updateStatus' - The status of the service software update.
+-- 'updateStatus', 'awsElasticsearchDomainServiceSoftwareOptions_updateStatus' - The status of the service software update. Valid values are as follows:
+--
+-- -   @COMPLETED@
+--
+-- -   @ELIGIBLE@
+--
+-- -   @IN_PROGRESS@
+--
+-- -   @NOT_ELIGIBLE@
+--
+-- -   @PENDING_UPDATE@
 --
 -- 'automatedUpdateDate', 'awsElasticsearchDomainServiceSoftwareOptions_automatedUpdateDate' - The epoch time when the deployment window closes for required updates.
 -- After this time, Amazon OpenSearch Service schedules the software
@@ -102,7 +122,17 @@ awsElasticsearchDomainServiceSoftwareOptions_updateAvailable = Lens.lens (\AwsEl
 awsElasticsearchDomainServiceSoftwareOptions_cancellable :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Bool)
 awsElasticsearchDomainServiceSoftwareOptions_cancellable = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {cancellable} -> cancellable) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {cancellable = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
 
--- | The status of the service software update.
+-- | The status of the service software update. Valid values are as follows:
+--
+-- -   @COMPLETED@
+--
+-- -   @ELIGIBLE@
+--
+-- -   @IN_PROGRESS@
+--
+-- -   @NOT_ELIGIBLE@
+--
+-- -   @PENDING_UPDATE@
 awsElasticsearchDomainServiceSoftwareOptions_updateStatus :: Lens.Lens' AwsElasticsearchDomainServiceSoftwareOptions (Prelude.Maybe Prelude.Text)
 awsElasticsearchDomainServiceSoftwareOptions_updateStatus = Lens.lens (\AwsElasticsearchDomainServiceSoftwareOptions' {updateStatus} -> updateStatus) (\s@AwsElasticsearchDomainServiceSoftwareOptions' {} a -> s {updateStatus = a} :: AwsElasticsearchDomainServiceSoftwareOptions)
 

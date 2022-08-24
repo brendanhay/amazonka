@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails = AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails'
-  { -- | The log router to use.
+  { -- | The log router to use. Valid values are @fluentbit@ or @fluentd@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The options to use to configure the log router.
     --
@@ -51,7 +51,7 @@ data AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails = AwsE
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type' - The log router to use.
+-- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type' - The log router to use. Valid values are @fluentbit@ or @fluentd@.
 --
 -- 'options', 'awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_options' - The options to use to configure the log router.
 --
@@ -72,7 +72,7 @@ newAwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails =
         Prelude.Nothing
     }
 
--- | The log router to use.
+-- | The log router to use. Valid values are @fluentbit@ or @fluentd@.
 awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails_type = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails)
 

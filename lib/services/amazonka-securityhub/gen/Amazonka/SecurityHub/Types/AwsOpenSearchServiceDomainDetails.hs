@@ -22,6 +22,7 @@ module Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDetails where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails
 import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainClusterConfigDetails
 import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDomainEndpointOptionsDetails
 import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails
@@ -38,6 +39,8 @@ data AwsOpenSearchServiceDomainDetails = AwsOpenSearchServiceDomainDetails'
     nodeToNodeEncryptionOptions :: Prelude.Maybe AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails,
     -- | Details about the configuration of an OpenSearch cluster.
     clusterConfig :: Prelude.Maybe AwsOpenSearchServiceDomainClusterConfigDetails,
+    -- | Specifies options for fine-grained access control.
+    advancedSecurityOptions :: Prelude.Maybe AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails,
     -- | The name of the endpoint.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the OpenSearch Service domain.
@@ -83,6 +86,8 @@ data AwsOpenSearchServiceDomainDetails = AwsOpenSearchServiceDomainDetails'
 --
 -- 'clusterConfig', 'awsOpenSearchServiceDomainDetails_clusterConfig' - Details about the configuration of an OpenSearch cluster.
 --
+-- 'advancedSecurityOptions', 'awsOpenSearchServiceDomainDetails_advancedSecurityOptions' - Specifies options for fine-grained access control.
+--
 -- 'domainName', 'awsOpenSearchServiceDomainDetails_domainName' - The name of the endpoint.
 --
 -- 'arn', 'awsOpenSearchServiceDomainDetails_arn' - The ARN of the OpenSearch Service domain.
@@ -119,6 +124,8 @@ newAwsOpenSearchServiceDomainDetails =
     { nodeToNodeEncryptionOptions =
         Prelude.Nothing,
       clusterConfig = Prelude.Nothing,
+      advancedSecurityOptions =
+        Prelude.Nothing,
       domainName = Prelude.Nothing,
       arn = Prelude.Nothing,
       encryptionAtRestOptions =
@@ -141,6 +148,10 @@ awsOpenSearchServiceDomainDetails_nodeToNodeEncryptionOptions = Lens.lens (\AwsO
 -- | Details about the configuration of an OpenSearch cluster.
 awsOpenSearchServiceDomainDetails_clusterConfig :: Lens.Lens' AwsOpenSearchServiceDomainDetails (Prelude.Maybe AwsOpenSearchServiceDomainClusterConfigDetails)
 awsOpenSearchServiceDomainDetails_clusterConfig = Lens.lens (\AwsOpenSearchServiceDomainDetails' {clusterConfig} -> clusterConfig) (\s@AwsOpenSearchServiceDomainDetails' {} a -> s {clusterConfig = a} :: AwsOpenSearchServiceDomainDetails)
+
+-- | Specifies options for fine-grained access control.
+awsOpenSearchServiceDomainDetails_advancedSecurityOptions :: Lens.Lens' AwsOpenSearchServiceDomainDetails (Prelude.Maybe AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails)
+awsOpenSearchServiceDomainDetails_advancedSecurityOptions = Lens.lens (\AwsOpenSearchServiceDomainDetails' {advancedSecurityOptions} -> advancedSecurityOptions) (\s@AwsOpenSearchServiceDomainDetails' {} a -> s {advancedSecurityOptions = a} :: AwsOpenSearchServiceDomainDetails)
 
 -- | The name of the endpoint.
 awsOpenSearchServiceDomainDetails_domainName :: Lens.Lens' AwsOpenSearchServiceDomainDetails (Prelude.Maybe Prelude.Text)
@@ -207,6 +218,7 @@ instance
           AwsOpenSearchServiceDomainDetails'
             Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
             Prelude.<*> (x Core..:? "ClusterConfig")
+            Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
             Prelude.<*> (x Core..:? "DomainName")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
@@ -233,6 +245,7 @@ instance
       _salt
         `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
         `Prelude.hashWithSalt` clusterConfig
+        `Prelude.hashWithSalt` advancedSecurityOptions
         `Prelude.hashWithSalt` domainName
         `Prelude.hashWithSalt` arn
         `Prelude.hashWithSalt` encryptionAtRestOptions
@@ -253,6 +266,7 @@ instance
   rnf AwsOpenSearchServiceDomainDetails' {..} =
     Prelude.rnf nodeToNodeEncryptionOptions
       `Prelude.seq` Prelude.rnf clusterConfig
+      `Prelude.seq` Prelude.rnf advancedSecurityOptions
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf encryptionAtRestOptions
@@ -276,6 +290,8 @@ instance
           [ ("NodeToNodeEncryptionOptions" Core..=)
               Prelude.<$> nodeToNodeEncryptionOptions,
             ("ClusterConfig" Core..=) Prelude.<$> clusterConfig,
+            ("AdvancedSecurityOptions" Core..=)
+              Prelude.<$> advancedSecurityOptions,
             ("DomainName" Core..=) Prelude.<$> domainName,
             ("Arn" Core..=) Prelude.<$> arn,
             ("EncryptionAtRestOptions" Core..=)

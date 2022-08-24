@@ -29,8 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 data AwsS3BucketWebsiteConfigurationRedirectTo = AwsS3BucketWebsiteConfigurationRedirectTo'
   { -- | The name of the host to redirect requests to.
     hostname :: Prelude.Maybe Prelude.Text,
-    -- | The protocol to use when redirecting requests. By default, uses the same
-    -- protocol as the original request.
+    -- | The protocol to use when redirecting requests. By default, this field
+    -- uses the same protocol as the original request. Valid values are @http@
+    -- or @https@.
     protocol :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,8 +46,9 @@ data AwsS3BucketWebsiteConfigurationRedirectTo = AwsS3BucketWebsiteConfiguration
 --
 -- 'hostname', 'awsS3BucketWebsiteConfigurationRedirectTo_hostname' - The name of the host to redirect requests to.
 --
--- 'protocol', 'awsS3BucketWebsiteConfigurationRedirectTo_protocol' - The protocol to use when redirecting requests. By default, uses the same
--- protocol as the original request.
+-- 'protocol', 'awsS3BucketWebsiteConfigurationRedirectTo_protocol' - The protocol to use when redirecting requests. By default, this field
+-- uses the same protocol as the original request. Valid values are @http@
+-- or @https@.
 newAwsS3BucketWebsiteConfigurationRedirectTo ::
   AwsS3BucketWebsiteConfigurationRedirectTo
 newAwsS3BucketWebsiteConfigurationRedirectTo =
@@ -60,8 +62,9 @@ newAwsS3BucketWebsiteConfigurationRedirectTo =
 awsS3BucketWebsiteConfigurationRedirectTo_hostname :: Lens.Lens' AwsS3BucketWebsiteConfigurationRedirectTo (Prelude.Maybe Prelude.Text)
 awsS3BucketWebsiteConfigurationRedirectTo_hostname = Lens.lens (\AwsS3BucketWebsiteConfigurationRedirectTo' {hostname} -> hostname) (\s@AwsS3BucketWebsiteConfigurationRedirectTo' {} a -> s {hostname = a} :: AwsS3BucketWebsiteConfigurationRedirectTo)
 
--- | The protocol to use when redirecting requests. By default, uses the same
--- protocol as the original request.
+-- | The protocol to use when redirecting requests. By default, this field
+-- uses the same protocol as the original request. Valid values are @http@
+-- or @https@.
 awsS3BucketWebsiteConfigurationRedirectTo_protocol :: Lens.Lens' AwsS3BucketWebsiteConfigurationRedirectTo (Prelude.Maybe Prelude.Text)
 awsS3BucketWebsiteConfigurationRedirectTo_protocol = Lens.lens (\AwsS3BucketWebsiteConfigurationRedirectTo' {protocol} -> protocol) (\s@AwsS3BucketWebsiteConfigurationRedirectTo' {} a -> s {protocol = a} :: AwsS3BucketWebsiteConfigurationRedirectTo)
 

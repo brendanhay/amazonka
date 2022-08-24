@@ -49,6 +49,10 @@ data AwsOpenSearchServiceDomainClusterConfigDetails = AwsOpenSearchServiceDomain
     -- | The type of UltraWarm instance.
     warmType :: Prelude.Maybe Prelude.Text,
     -- | The instance type for your data nodes.
+    --
+    -- For a list of valid values, see
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+    -- in the /Amazon OpenSearch Service Developer Guide/.
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | Configuration options for zone awareness. Provided if
     -- @ZoneAwarenessEnabled@ is @true@.
@@ -92,6 +96,10 @@ data AwsOpenSearchServiceDomainClusterConfigDetails = AwsOpenSearchServiceDomain
 -- 'warmType', 'awsOpenSearchServiceDomainClusterConfigDetails_warmType' - The type of UltraWarm instance.
 --
 -- 'instanceType', 'awsOpenSearchServiceDomainClusterConfigDetails_instanceType' - The instance type for your data nodes.
+--
+-- For a list of valid values, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+-- in the /Amazon OpenSearch Service Developer Guide/.
 --
 -- 'zoneAwarenessConfig', 'awsOpenSearchServiceDomainClusterConfigDetails_zoneAwarenessConfig' - Configuration options for zone awareness. Provided if
 -- @ZoneAwarenessEnabled@ is @true@.
@@ -158,6 +166,10 @@ awsOpenSearchServiceDomainClusterConfigDetails_warmType :: Lens.Lens' AwsOpenSea
 awsOpenSearchServiceDomainClusterConfigDetails_warmType = Lens.lens (\AwsOpenSearchServiceDomainClusterConfigDetails' {warmType} -> warmType) (\s@AwsOpenSearchServiceDomainClusterConfigDetails' {} a -> s {warmType = a} :: AwsOpenSearchServiceDomainClusterConfigDetails)
 
 -- | The instance type for your data nodes.
+--
+-- For a list of valid values, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+-- in the /Amazon OpenSearch Service Developer Guide/.
 awsOpenSearchServiceDomainClusterConfigDetails_instanceType :: Lens.Lens' AwsOpenSearchServiceDomainClusterConfigDetails (Prelude.Maybe Prelude.Text)
 awsOpenSearchServiceDomainClusterConfigDetails_instanceType = Lens.lens (\AwsOpenSearchServiceDomainClusterConfigDetails' {instanceType} -> instanceType) (\s@AwsOpenSearchServiceDomainClusterConfigDetails' {} a -> s {instanceType = a} :: AwsOpenSearchServiceDomainClusterConfigDetails)
 

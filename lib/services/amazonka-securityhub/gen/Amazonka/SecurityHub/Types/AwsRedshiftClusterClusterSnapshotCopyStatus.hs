@@ -30,9 +30,9 @@ data AwsRedshiftClusterClusterSnapshotCopyStatus = AwsRedshiftClusterClusterSnap
   { -- | The number of days that manual snapshots are retained in the destination
     -- region after they are copied from a source region.
     --
-    -- If the value is -1, then the manual snapshot is retained indefinitely.
+    -- If the value is @-1@, then the manual snapshot is retained indefinitely.
     --
-    -- Valid values: Either -1 or an integer between 1 and 3,653
+    -- Valid values: Either @-1@ or an integer between 1 and 3,653
     manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The name of the snapshot copy grant.
     snapshotCopyGrantName :: Prelude.Maybe Prelude.Text,
@@ -56,9 +56,9 @@ data AwsRedshiftClusterClusterSnapshotCopyStatus = AwsRedshiftClusterClusterSnap
 -- 'manualSnapshotRetentionPeriod', 'awsRedshiftClusterClusterSnapshotCopyStatus_manualSnapshotRetentionPeriod' - The number of days that manual snapshots are retained in the destination
 -- region after they are copied from a source region.
 --
--- If the value is -1, then the manual snapshot is retained indefinitely.
+-- If the value is @-1@, then the manual snapshot is retained indefinitely.
 --
--- Valid values: Either -1 or an integer between 1 and 3,653
+-- Valid values: Either @-1@ or an integer between 1 and 3,653
 --
 -- 'snapshotCopyGrantName', 'awsRedshiftClusterClusterSnapshotCopyStatus_snapshotCopyGrantName' - The name of the snapshot copy grant.
 --
@@ -84,9 +84,9 @@ newAwsRedshiftClusterClusterSnapshotCopyStatus =
 -- | The number of days that manual snapshots are retained in the destination
 -- region after they are copied from a source region.
 --
--- If the value is -1, then the manual snapshot is retained indefinitely.
+-- If the value is @-1@, then the manual snapshot is retained indefinitely.
 --
--- Valid values: Either -1 or an integer between 1 and 3,653
+-- Valid values: Either @-1@ or an integer between 1 and 3,653
 awsRedshiftClusterClusterSnapshotCopyStatus_manualSnapshotRetentionPeriod :: Lens.Lens' AwsRedshiftClusterClusterSnapshotCopyStatus (Prelude.Maybe Prelude.Int)
 awsRedshiftClusterClusterSnapshotCopyStatus_manualSnapshotRetentionPeriod = Lens.lens (\AwsRedshiftClusterClusterSnapshotCopyStatus' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@AwsRedshiftClusterClusterSnapshotCopyStatus' {} a -> s {manualSnapshotRetentionPeriod = a} :: AwsRedshiftClusterClusterSnapshotCopyStatus)
 

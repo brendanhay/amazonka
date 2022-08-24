@@ -27,7 +27,37 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails = AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'
-  { -- | The type of the ulimit.
+  { -- | The type of the ulimit. Valid values are as follows:
+    --
+    -- -   @core@
+    --
+    -- -   @cpu@
+    --
+    -- -   @data@
+    --
+    -- -   @fsize@
+    --
+    -- -   @locks@
+    --
+    -- -   @memlock@
+    --
+    -- -   @msgqueue@
+    --
+    -- -   @nice@
+    --
+    -- -   @nofile@
+    --
+    -- -   @nproc@
+    --
+    -- -   @rss@
+    --
+    -- -   @rtprio@
+    --
+    -- -   @rttime@
+    --
+    -- -   @sigpending@
+    --
+    -- -   @stack@
     name :: Prelude.Maybe Prelude.Text,
     -- | The soft limit for the ulimit type.
     softLimit :: Prelude.Maybe Prelude.Int,
@@ -44,7 +74,37 @@ data AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails = AwsEcsTaskDefiniti
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name' - The type of the ulimit.
+-- 'name', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name' - The type of the ulimit. Valid values are as follows:
+--
+-- -   @core@
+--
+-- -   @cpu@
+--
+-- -   @data@
+--
+-- -   @fsize@
+--
+-- -   @locks@
+--
+-- -   @memlock@
+--
+-- -   @msgqueue@
+--
+-- -   @nice@
+--
+-- -   @nofile@
+--
+-- -   @nproc@
+--
+-- -   @rss@
+--
+-- -   @rtprio@
+--
+-- -   @rttime@
+--
+-- -   @sigpending@
+--
+-- -   @stack@
 --
 -- 'softLimit', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit' - The soft limit for the ulimit type.
 --
@@ -61,7 +121,37 @@ newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails =
         Prelude.Nothing
     }
 
--- | The type of the ulimit.
+-- | The type of the ulimit. Valid values are as follows:
+--
+-- -   @core@
+--
+-- -   @cpu@
+--
+-- -   @data@
+--
+-- -   @fsize@
+--
+-- -   @locks@
+--
+-- -   @memlock@
+--
+-- -   @msgqueue@
+--
+-- -   @nice@
+--
+-- -   @nofile@
+--
+-- -   @nproc@
+--
+-- -   @rss@
+--
+-- -   @rtprio@
+--
+-- -   @rttime@
+--
+-- -   @sigpending@
+--
+-- -   @stack@
 awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {name} -> name) (\s@AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' {} a -> s {name = a} :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
 

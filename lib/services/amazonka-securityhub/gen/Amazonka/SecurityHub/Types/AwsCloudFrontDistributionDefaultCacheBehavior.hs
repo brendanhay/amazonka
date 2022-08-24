@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the default cache configuration for the
--- distribution.
+-- CloudFront distribution.
 --
 -- /See:/ 'newAwsCloudFrontDistributionDefaultCacheBehavior' smart constructor.
 data AwsCloudFrontDistributionDefaultCacheBehavior = AwsCloudFrontDistributionDefaultCacheBehavior'

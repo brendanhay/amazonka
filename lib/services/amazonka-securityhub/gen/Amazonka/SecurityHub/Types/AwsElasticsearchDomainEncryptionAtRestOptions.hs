@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data AwsElasticsearchDomainEncryptionAtRestOptions = AwsElasticsearchDomainEncryptionAtRestOptions'
   { -- | Whether encryption at rest is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.
+    -- | The KMS key ID. Takes the form @1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a@.
     kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data AwsElasticsearchDomainEncryptionAtRestOptions = AwsElasticsearchDomainEncry
 --
 -- 'enabled', 'awsElasticsearchDomainEncryptionAtRestOptions_enabled' - Whether encryption at rest is enabled.
 --
--- 'kmsKeyId', 'awsElasticsearchDomainEncryptionAtRestOptions_kmsKeyId' - The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.
+-- 'kmsKeyId', 'awsElasticsearchDomainEncryptionAtRestOptions_kmsKeyId' - The KMS key ID. Takes the form @1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a@.
 newAwsElasticsearchDomainEncryptionAtRestOptions ::
   AwsElasticsearchDomainEncryptionAtRestOptions
 newAwsElasticsearchDomainEncryptionAtRestOptions =
@@ -58,7 +58,7 @@ newAwsElasticsearchDomainEncryptionAtRestOptions =
 awsElasticsearchDomainEncryptionAtRestOptions_enabled :: Lens.Lens' AwsElasticsearchDomainEncryptionAtRestOptions (Prelude.Maybe Prelude.Bool)
 awsElasticsearchDomainEncryptionAtRestOptions_enabled = Lens.lens (\AwsElasticsearchDomainEncryptionAtRestOptions' {enabled} -> enabled) (\s@AwsElasticsearchDomainEncryptionAtRestOptions' {} a -> s {enabled = a} :: AwsElasticsearchDomainEncryptionAtRestOptions)
 
--- | The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.
+-- | The KMS key ID. Takes the form @1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a@.
 awsElasticsearchDomainEncryptionAtRestOptions_kmsKeyId :: Lens.Lens' AwsElasticsearchDomainEncryptionAtRestOptions (Prelude.Maybe Prelude.Text)
 awsElasticsearchDomainEncryptionAtRestOptions_kmsKeyId = Lens.lens (\AwsElasticsearchDomainEncryptionAtRestOptions' {kmsKeyId} -> kmsKeyId) (\s@AwsElasticsearchDomainEncryptionAtRestOptions' {} a -> s {kmsKeyId = a} :: AwsElasticsearchDomainEncryptionAtRestOptions)
 

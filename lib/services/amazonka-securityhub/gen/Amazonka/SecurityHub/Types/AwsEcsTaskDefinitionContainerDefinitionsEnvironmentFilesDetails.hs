@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails = AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails'
-  { -- | The type of environment file.
+  { -- | The type of environment file. The valid value is @s3@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the S3 object that contains the environment variable file.
     value :: Prelude.Maybe Prelude.Text
@@ -42,7 +42,7 @@ data AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails = AwsEcsTas
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_type' - The type of environment file.
+-- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_type' - The type of environment file. The valid value is @s3@.
 --
 -- 'value', 'awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_value' - The ARN of the S3 object that contains the environment variable file.
 newAwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails ::
@@ -55,7 +55,7 @@ newAwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails =
         Prelude.Nothing
     }
 
--- | The type of environment file.
+-- | The type of environment file. The valid value is @s3@.
 awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_type :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails_type = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails)
 

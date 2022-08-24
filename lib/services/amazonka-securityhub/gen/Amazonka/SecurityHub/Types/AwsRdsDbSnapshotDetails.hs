@@ -59,7 +59,14 @@ data AwsRdsDbSnapshotDetails = AwsRdsDbSnapshotDetails'
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | When the snapshot was taken in Coordinated Universal Time (UTC).
     snapshotCreateTime :: Prelude.Maybe Prelude.Text,
-    -- | The storage type associated with the DB snapshot.
+    -- | The storage type associated with the DB snapshot. Valid values are as
+    -- follows:
+    --
+    -- -   @gp2@
+    --
+    -- -   @io1@
+    --
+    -- -   @standard@
     storageType :: Prelude.Maybe Prelude.Text,
     -- | The number of CPU cores and the number of threads per core for the DB
     -- instance class of the DB instance.
@@ -72,7 +79,36 @@ data AwsRdsDbSnapshotDetails = AwsRdsDbSnapshotDetails'
     -- | If @Encrypted@ is @true@, the KMS key identifier for the encrypted DB
     -- snapshot.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database engine to use for this DB instance.
+    -- | The name of the database engine to use for this DB instance. Valid
+    -- values are as follows:
+    --
+    -- -   @aurora@
+    --
+    -- -   @aurora-mysql@
+    --
+    -- -   @aurora-postgresql@
+    --
+    -- -   @c@
+    --
+    -- -   @mariadb@
+    --
+    -- -   @mysql@
+    --
+    -- -   @oracle-ee@
+    --
+    -- -   @oracle-se@
+    --
+    -- -   @oracle-se1@
+    --
+    -- -   @oracle-se2@
+    --
+    -- -   @sqlserver-ee@
+    --
+    -- -   @sqlserver-ex@
+    --
+    -- -   @sqlserver-se@
+    --
+    -- -   @sqlserver-web@
     engine :: Prelude.Maybe Prelude.Text,
     -- | The amount of storage (in gigabytes) to be initially allocated for the
     -- database instance.
@@ -134,7 +170,14 @@ data AwsRdsDbSnapshotDetails = AwsRdsDbSnapshotDetails'
 --
 -- 'snapshotCreateTime', 'awsRdsDbSnapshotDetails_snapshotCreateTime' - When the snapshot was taken in Coordinated Universal Time (UTC).
 --
--- 'storageType', 'awsRdsDbSnapshotDetails_storageType' - The storage type associated with the DB snapshot.
+-- 'storageType', 'awsRdsDbSnapshotDetails_storageType' - The storage type associated with the DB snapshot. Valid values are as
+-- follows:
+--
+-- -   @gp2@
+--
+-- -   @io1@
+--
+-- -   @standard@
 --
 -- 'processorFeatures', 'awsRdsDbSnapshotDetails_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
@@ -147,7 +190,36 @@ data AwsRdsDbSnapshotDetails = AwsRdsDbSnapshotDetails'
 -- 'kmsKeyId', 'awsRdsDbSnapshotDetails_kmsKeyId' - If @Encrypted@ is @true@, the KMS key identifier for the encrypted DB
 -- snapshot.
 --
--- 'engine', 'awsRdsDbSnapshotDetails_engine' - The name of the database engine to use for this DB instance.
+-- 'engine', 'awsRdsDbSnapshotDetails_engine' - The name of the database engine to use for this DB instance. Valid
+-- values are as follows:
+--
+-- -   @aurora@
+--
+-- -   @aurora-mysql@
+--
+-- -   @aurora-postgresql@
+--
+-- -   @c@
+--
+-- -   @mariadb@
+--
+-- -   @mysql@
+--
+-- -   @oracle-ee@
+--
+-- -   @oracle-se@
+--
+-- -   @oracle-se1@
+--
+-- -   @oracle-se2@
+--
+-- -   @sqlserver-ee@
+--
+-- -   @sqlserver-ex@
+--
+-- -   @sqlserver-se@
+--
+-- -   @sqlserver-web@
 --
 -- 'allocatedStorage', 'awsRdsDbSnapshotDetails_allocatedStorage' - The amount of storage (in gigabytes) to be initially allocated for the
 -- database instance.
@@ -256,7 +328,14 @@ awsRdsDbSnapshotDetails_availabilityZone = Lens.lens (\AwsRdsDbSnapshotDetails' 
 awsRdsDbSnapshotDetails_snapshotCreateTime :: Lens.Lens' AwsRdsDbSnapshotDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbSnapshotDetails_snapshotCreateTime = Lens.lens (\AwsRdsDbSnapshotDetails' {snapshotCreateTime} -> snapshotCreateTime) (\s@AwsRdsDbSnapshotDetails' {} a -> s {snapshotCreateTime = a} :: AwsRdsDbSnapshotDetails)
 
--- | The storage type associated with the DB snapshot.
+-- | The storage type associated with the DB snapshot. Valid values are as
+-- follows:
+--
+-- -   @gp2@
+--
+-- -   @io1@
+--
+-- -   @standard@
 awsRdsDbSnapshotDetails_storageType :: Lens.Lens' AwsRdsDbSnapshotDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbSnapshotDetails_storageType = Lens.lens (\AwsRdsDbSnapshotDetails' {storageType} -> storageType) (\s@AwsRdsDbSnapshotDetails' {} a -> s {storageType = a} :: AwsRdsDbSnapshotDetails)
 
@@ -279,7 +358,36 @@ awsRdsDbSnapshotDetails_encrypted = Lens.lens (\AwsRdsDbSnapshotDetails' {encryp
 awsRdsDbSnapshotDetails_kmsKeyId :: Lens.Lens' AwsRdsDbSnapshotDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbSnapshotDetails_kmsKeyId = Lens.lens (\AwsRdsDbSnapshotDetails' {kmsKeyId} -> kmsKeyId) (\s@AwsRdsDbSnapshotDetails' {} a -> s {kmsKeyId = a} :: AwsRdsDbSnapshotDetails)
 
--- | The name of the database engine to use for this DB instance.
+-- | The name of the database engine to use for this DB instance. Valid
+-- values are as follows:
+--
+-- -   @aurora@
+--
+-- -   @aurora-mysql@
+--
+-- -   @aurora-postgresql@
+--
+-- -   @c@
+--
+-- -   @mariadb@
+--
+-- -   @mysql@
+--
+-- -   @oracle-ee@
+--
+-- -   @oracle-se@
+--
+-- -   @oracle-se1@
+--
+-- -   @oracle-se2@
+--
+-- -   @sqlserver-ee@
+--
+-- -   @sqlserver-ex@
+--
+-- -   @sqlserver-se@
+--
+-- -   @sqlserver-web@
 awsRdsDbSnapshotDetails_engine :: Lens.Lens' AwsRdsDbSnapshotDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbSnapshotDetails_engine = Lens.lens (\AwsRdsDbSnapshotDetails' {engine} -> engine) (\s@AwsRdsDbSnapshotDetails' {} a -> s {engine = a} :: AwsRdsDbSnapshotDetails)
 

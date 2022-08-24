@@ -38,7 +38,18 @@ data AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails = AwsS3Bucke
     -- | The number of days after which to transition the object to the specified
     -- storage class. If you provide @Days@, you cannot provide @Date@.
     days :: Prelude.Maybe Prelude.Int,
-    -- | The storage class to transition the object to.
+    -- | The storage class to transition the object to. Valid values are as
+    -- follows:
+    --
+    -- -   @DEEP_ARCHIVE@
+    --
+    -- -   @GLACIER@
+    --
+    -- -   @INTELLIGENT_TIERING@
+    --
+    -- -   @ONEZONE_IA@
+    --
+    -- -   @STANDARD_IA@
     storageClass :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +73,18 @@ data AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails = AwsS3Bucke
 -- 'days', 'awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days' - The number of days after which to transition the object to the specified
 -- storage class. If you provide @Days@, you cannot provide @Date@.
 --
--- 'storageClass', 'awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_storageClass' - The storage class to transition the object to.
+-- 'storageClass', 'awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_storageClass' - The storage class to transition the object to. Valid values are as
+-- follows:
+--
+-- -   @DEEP_ARCHIVE@
+--
+-- -   @GLACIER@
+--
+-- -   @INTELLIGENT_TIERING@
+--
+-- -   @ONEZONE_IA@
+--
+-- -   @STANDARD_IA@
 newAwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails ::
   AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails
 newAwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails =
@@ -90,7 +112,18 @@ awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_date = Lens.lens 
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails (Prelude.Maybe Prelude.Int)
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_days = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {days} -> days) (\s@AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {} a -> s {days = a} :: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails)
 
--- | The storage class to transition the object to.
+-- | The storage class to transition the object to. Valid values are as
+-- follows:
+--
+-- -   @DEEP_ARCHIVE@
+--
+-- -   @GLACIER@
+--
+-- -   @INTELLIGENT_TIERING@
+--
+-- -   @ONEZONE_IA@
+--
+-- -   @STANDARD_IA@
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_storageClass :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails_storageClass = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {storageClass} -> storageClass) (\s@AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails' {} a -> s {storageClass = a} :: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails)
 

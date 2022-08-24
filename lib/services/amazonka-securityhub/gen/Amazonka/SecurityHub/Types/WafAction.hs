@@ -40,7 +40,7 @@ data WafAction = WafAction'
     -- -   @COUNT@ - WAF increments a counter of the requests that match all of
     --     the conditions in the rule. WAF then continues to inspect the web
     --     request based on the remaining rules in the web ACL. You can\'t
-    --     specify @COUNT@ for the default action for a WebACL.
+    --     specify @COUNT@ for the default action for a web ACL.
     type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +65,7 @@ data WafAction = WafAction'
 -- -   @COUNT@ - WAF increments a counter of the requests that match all of
 --     the conditions in the rule. WAF then continues to inspect the web
 --     request based on the remaining rules in the web ACL. You can\'t
---     specify @COUNT@ for the default action for a WebACL.
+--     specify @COUNT@ for the default action for a web ACL.
 newWafAction ::
   WafAction
 newWafAction = WafAction' {type' = Prelude.Nothing}
@@ -82,7 +82,7 @@ newWafAction = WafAction' {type' = Prelude.Nothing}
 -- -   @COUNT@ - WAF increments a counter of the requests that match all of
 --     the conditions in the rule. WAF then continues to inspect the web
 --     request based on the remaining rules in the web ACL. You can\'t
---     specify @COUNT@ for the default action for a WebACL.
+--     specify @COUNT@ for the default action for a web ACL.
 wafAction_type :: Lens.Lens' WafAction (Prelude.Maybe Prelude.Text)
 wafAction_type = Lens.lens (\WafAction' {type'} -> type') (\s@WafAction' {} a -> s {type' = a} :: WafAction)
 

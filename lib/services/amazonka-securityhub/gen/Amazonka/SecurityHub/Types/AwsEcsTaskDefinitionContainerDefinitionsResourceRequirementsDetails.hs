@@ -27,7 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' smart constructor.
 data AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails = AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails'
-  { -- | The type of resource to assign to a container.
+  { -- | The type of resource to assign to a container. Valid values are @GPU@ or
+    -- @InferenceAccelerator@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The value for the specified resource type.
     --
@@ -48,7 +49,8 @@ data AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails = AwsEc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type' - The type of resource to assign to a container.
+-- 'type'', 'awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type' - The type of resource to assign to a container. Valid values are @GPU@ or
+-- @InferenceAccelerator@.
 --
 -- 'value', 'awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_value' - The value for the specified resource type.
 --
@@ -67,7 +69,8 @@ newAwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails =
         Prelude.Nothing
     }
 
--- | The type of resource to assign to a container.
+-- | The type of resource to assign to a container. Valid values are @GPU@ or
+-- @InferenceAccelerator@.
 awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails_type = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {type'} -> type') (\s@AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails' {} a -> s {type' = a} :: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails)
 

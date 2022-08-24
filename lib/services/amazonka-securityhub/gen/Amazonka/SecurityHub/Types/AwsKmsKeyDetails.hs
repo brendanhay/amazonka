@@ -37,14 +37,24 @@ data AwsKmsKeyDetails = AwsKmsKeyDetails'
     -- The value cannot contain spaces. For example,
     -- @2020-03-22T13:22:13.933Z@.
     creationDate :: Prelude.Maybe Prelude.Double,
-    -- | A description of the key.
+    -- | A description of the KMS key.
     description :: Prelude.Maybe Prelude.Text,
     -- | Whether the key has key rotation enabled.
     keyRotationStatus :: Prelude.Maybe Prelude.Bool,
     -- | The manager of the KMS key. KMS keys in your Amazon Web Services account
     -- are either customer managed or Amazon Web Services managed.
     keyManager :: Prelude.Maybe Prelude.Text,
-    -- | The state of the KMS key.
+    -- | The state of the KMS key. Valid values are as follows:
+    --
+    -- -   @Disabled@
+    --
+    -- -   @Enabled@
+    --
+    -- -   @PendingDeletion@
+    --
+    -- -   @PendingImport@
+    --
+    -- -   @Unavailable@
     keyState :: Prelude.Maybe Prelude.Text,
     -- | The globally unique identifier for the KMS key.
     keyId :: Prelude.Maybe Prelude.Text,
@@ -80,14 +90,24 @@ data AwsKmsKeyDetails = AwsKmsKeyDetails'
 -- The value cannot contain spaces. For example,
 -- @2020-03-22T13:22:13.933Z@.
 --
--- 'description', 'awsKmsKeyDetails_description' - A description of the key.
+-- 'description', 'awsKmsKeyDetails_description' - A description of the KMS key.
 --
 -- 'keyRotationStatus', 'awsKmsKeyDetails_keyRotationStatus' - Whether the key has key rotation enabled.
 --
 -- 'keyManager', 'awsKmsKeyDetails_keyManager' - The manager of the KMS key. KMS keys in your Amazon Web Services account
 -- are either customer managed or Amazon Web Services managed.
 --
--- 'keyState', 'awsKmsKeyDetails_keyState' - The state of the KMS key.
+-- 'keyState', 'awsKmsKeyDetails_keyState' - The state of the KMS key. Valid values are as follows:
+--
+-- -   @Disabled@
+--
+-- -   @Enabled@
+--
+-- -   @PendingDeletion@
+--
+-- -   @PendingImport@
+--
+-- -   @Unavailable@
 --
 -- 'keyId', 'awsKmsKeyDetails_keyId' - The globally unique identifier for the KMS key.
 --
@@ -129,7 +149,7 @@ awsKmsKeyDetails_aWSAccountId = Lens.lens (\AwsKmsKeyDetails' {aWSAccountId} -> 
 awsKmsKeyDetails_creationDate :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Double)
 awsKmsKeyDetails_creationDate = Lens.lens (\AwsKmsKeyDetails' {creationDate} -> creationDate) (\s@AwsKmsKeyDetails' {} a -> s {creationDate = a} :: AwsKmsKeyDetails)
 
--- | A description of the key.
+-- | A description of the KMS key.
 awsKmsKeyDetails_description :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
 awsKmsKeyDetails_description = Lens.lens (\AwsKmsKeyDetails' {description} -> description) (\s@AwsKmsKeyDetails' {} a -> s {description = a} :: AwsKmsKeyDetails)
 
@@ -142,7 +162,17 @@ awsKmsKeyDetails_keyRotationStatus = Lens.lens (\AwsKmsKeyDetails' {keyRotationS
 awsKmsKeyDetails_keyManager :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
 awsKmsKeyDetails_keyManager = Lens.lens (\AwsKmsKeyDetails' {keyManager} -> keyManager) (\s@AwsKmsKeyDetails' {} a -> s {keyManager = a} :: AwsKmsKeyDetails)
 
--- | The state of the KMS key.
+-- | The state of the KMS key. Valid values are as follows:
+--
+-- -   @Disabled@
+--
+-- -   @Enabled@
+--
+-- -   @PendingDeletion@
+--
+-- -   @PendingImport@
+--
+-- -   @Unavailable@
 awsKmsKeyDetails_keyState :: Lens.Lens' AwsKmsKeyDetails (Prelude.Maybe Prelude.Text)
 awsKmsKeyDetails_keyState = Lens.lens (\AwsKmsKeyDetails' {keyState} -> keyState) (\s@AwsKmsKeyDetails' {} a -> s {keyState = a} :: AwsKmsKeyDetails)
 

@@ -41,6 +41,14 @@ data AwsDynamoDbTableGlobalSecondaryIndex = AwsDynamoDbTableGlobalSecondaryIndex
     -- | The ARN of the index.
     indexArn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the index.
+    --
+    -- -   @ACTIVE@
+    --
+    -- -   @CREATING@
+    --
+    -- -   @DELETING@
+    --
+    -- -   @UPDATING@
     indexStatus :: Prelude.Maybe Prelude.Text,
     -- | The total size in bytes of the index.
     indexSizeBytes :: Prelude.Maybe Prelude.Integer,
@@ -70,6 +78,14 @@ data AwsDynamoDbTableGlobalSecondaryIndex = AwsDynamoDbTableGlobalSecondaryIndex
 -- 'indexArn', 'awsDynamoDbTableGlobalSecondaryIndex_indexArn' - The ARN of the index.
 --
 -- 'indexStatus', 'awsDynamoDbTableGlobalSecondaryIndex_indexStatus' - The current status of the index.
+--
+-- -   @ACTIVE@
+--
+-- -   @CREATING@
+--
+-- -   @DELETING@
+--
+-- -   @UPDATING@
 --
 -- 'indexSizeBytes', 'awsDynamoDbTableGlobalSecondaryIndex_indexSizeBytes' - The total size in bytes of the index.
 --
@@ -114,6 +130,14 @@ awsDynamoDbTableGlobalSecondaryIndex_indexArn :: Lens.Lens' AwsDynamoDbTableGlob
 awsDynamoDbTableGlobalSecondaryIndex_indexArn = Lens.lens (\AwsDynamoDbTableGlobalSecondaryIndex' {indexArn} -> indexArn) (\s@AwsDynamoDbTableGlobalSecondaryIndex' {} a -> s {indexArn = a} :: AwsDynamoDbTableGlobalSecondaryIndex)
 
 -- | The current status of the index.
+--
+-- -   @ACTIVE@
+--
+-- -   @CREATING@
+--
+-- -   @DELETING@
+--
+-- -   @UPDATING@
 awsDynamoDbTableGlobalSecondaryIndex_indexStatus :: Lens.Lens' AwsDynamoDbTableGlobalSecondaryIndex (Prelude.Maybe Prelude.Text)
 awsDynamoDbTableGlobalSecondaryIndex_indexStatus = Lens.lens (\AwsDynamoDbTableGlobalSecondaryIndex' {indexStatus} -> indexStatus) (\s@AwsDynamoDbTableGlobalSecondaryIndex' {} a -> s {indexStatus = a} :: AwsDynamoDbTableGlobalSecondaryIndex)
 

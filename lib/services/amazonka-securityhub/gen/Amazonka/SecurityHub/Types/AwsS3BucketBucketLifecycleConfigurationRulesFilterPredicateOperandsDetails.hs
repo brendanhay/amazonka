@@ -28,7 +28,8 @@ import Amazonka.SecurityHub.Types.AwsS3BucketBucketLifecycleConfigurationRulesFi
 --
 -- /See:/ 'newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' smart constructor.
 data AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails'
-  { -- | The type of filter value.
+  { -- | The type of filter value. Valid values are @LifecyclePrefixPredicate@ or
+    -- @LifecycleTagPredicate@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | A tag that is assigned to matching objects.
     tag :: Prelude.Maybe AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails,
@@ -45,7 +46,8 @@ data AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails 
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type' - The type of filter value.
+-- 'type'', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type' - The type of filter value. Valid values are @LifecyclePrefixPredicate@ or
+-- @LifecycleTagPredicate@.
 --
 -- 'tag', 'awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_tag' - A tag that is assigned to matching objects.
 --
@@ -62,7 +64,8 @@ newAwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails =
         Prelude.Nothing
     }
 
--- | The type of filter value.
+-- | The type of filter value. Valid values are @LifecyclePrefixPredicate@ or
+-- @LifecycleTagPredicate@.
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type :: Lens.Lens' AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails (Prelude.Maybe Prelude.Text)
 awsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails_type = Lens.lens (\AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {type'} -> type') (\s@AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails' {} a -> s {type' = a} :: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails)
 

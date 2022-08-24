@@ -50,7 +50,15 @@ data AwsRdsDbClusterDetails = AwsRdsDbClusterDetails'
     -- | Whether tags are copied from the DB cluster to snapshots of the DB
     -- cluster.
     copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the database activity stream.
+    -- | The status of the database activity stream. Valid values are as follows:
+    --
+    -- -   @started@
+    --
+    -- -   @starting@
+    --
+    -- -   @stopped@
+    --
+    -- -   @stopping@
     activityStreamStatus :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster parameter group for the DB cluster.
     dbClusterParameterGroup :: Prelude.Maybe Prelude.Text,
@@ -82,14 +90,31 @@ data AwsRdsDbClusterDetails = AwsRdsDbClusterDetails'
     httpEndpointEnabled :: Prelude.Maybe Prelude.Bool,
     -- | A list of custom endpoints for the DB cluster.
     customEndpoints :: Prelude.Maybe [Prelude.Text],
-    -- | The database engine mode of the DB cluster.
+    -- | The database engine mode of the DB cluster.Valid values are as follows:
+    --
+    -- -   @global@
+    --
+    -- -   @multimaster@
+    --
+    -- -   @parallelquery@
+    --
+    -- -   @provisioned@
+    --
+    -- -   @serverless@
     engineMode :: Prelude.Maybe Prelude.Text,
     -- | Whether the DB cluster is encrypted.
     storageEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the KMS master key that is used to encrypt the database
     -- instances in the DB cluster.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the database engine to use for this DB cluster.
+    -- | The name of the database engine to use for this DB cluster. Valid values
+    -- are as follows:
+    --
+    -- -   @aurora@
+    --
+    -- -   @aurora-mysql@
+    --
+    -- -   @aurora-postgresql@
     engine :: Prelude.Maybe Prelude.Text,
     -- | For all database engines except Aurora, specifies the allocated storage
     -- size in gibibytes (GiB).
@@ -165,7 +190,15 @@ data AwsRdsDbClusterDetails = AwsRdsDbClusterDetails'
 -- 'copyTagsToSnapshot', 'awsRdsDbClusterDetails_copyTagsToSnapshot' - Whether tags are copied from the DB cluster to snapshots of the DB
 -- cluster.
 --
--- 'activityStreamStatus', 'awsRdsDbClusterDetails_activityStreamStatus' - The status of the database activity stream.
+-- 'activityStreamStatus', 'awsRdsDbClusterDetails_activityStreamStatus' - The status of the database activity stream. Valid values are as follows:
+--
+-- -   @started@
+--
+-- -   @starting@
+--
+-- -   @stopped@
+--
+-- -   @stopping@
 --
 -- 'dbClusterParameterGroup', 'awsRdsDbClusterDetails_dbClusterParameterGroup' - The name of the DB cluster parameter group for the DB cluster.
 --
@@ -197,14 +230,31 @@ data AwsRdsDbClusterDetails = AwsRdsDbClusterDetails'
 --
 -- 'customEndpoints', 'awsRdsDbClusterDetails_customEndpoints' - A list of custom endpoints for the DB cluster.
 --
--- 'engineMode', 'awsRdsDbClusterDetails_engineMode' - The database engine mode of the DB cluster.
+-- 'engineMode', 'awsRdsDbClusterDetails_engineMode' - The database engine mode of the DB cluster.Valid values are as follows:
+--
+-- -   @global@
+--
+-- -   @multimaster@
+--
+-- -   @parallelquery@
+--
+-- -   @provisioned@
+--
+-- -   @serverless@
 --
 -- 'storageEncrypted', 'awsRdsDbClusterDetails_storageEncrypted' - Whether the DB cluster is encrypted.
 --
 -- 'kmsKeyId', 'awsRdsDbClusterDetails_kmsKeyId' - The ARN of the KMS master key that is used to encrypt the database
 -- instances in the DB cluster.
 --
--- 'engine', 'awsRdsDbClusterDetails_engine' - The name of the database engine to use for this DB cluster.
+-- 'engine', 'awsRdsDbClusterDetails_engine' - The name of the database engine to use for this DB cluster. Valid values
+-- are as follows:
+--
+-- -   @aurora@
+--
+-- -   @aurora-mysql@
+--
+-- -   @aurora-postgresql@
 --
 -- 'allocatedStorage', 'awsRdsDbClusterDetails_allocatedStorage' - For all database engines except Aurora, specifies the allocated storage
 -- size in gibibytes (GiB).
@@ -323,7 +373,15 @@ awsRdsDbClusterDetails_masterUsername = Lens.lens (\AwsRdsDbClusterDetails' {mas
 awsRdsDbClusterDetails_copyTagsToSnapshot :: Lens.Lens' AwsRdsDbClusterDetails (Prelude.Maybe Prelude.Bool)
 awsRdsDbClusterDetails_copyTagsToSnapshot = Lens.lens (\AwsRdsDbClusterDetails' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@AwsRdsDbClusterDetails' {} a -> s {copyTagsToSnapshot = a} :: AwsRdsDbClusterDetails)
 
--- | The status of the database activity stream.
+-- | The status of the database activity stream. Valid values are as follows:
+--
+-- -   @started@
+--
+-- -   @starting@
+--
+-- -   @stopped@
+--
+-- -   @stopping@
 awsRdsDbClusterDetails_activityStreamStatus :: Lens.Lens' AwsRdsDbClusterDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterDetails_activityStreamStatus = Lens.lens (\AwsRdsDbClusterDetails' {activityStreamStatus} -> activityStreamStatus) (\s@AwsRdsDbClusterDetails' {} a -> s {activityStreamStatus = a} :: AwsRdsDbClusterDetails)
 
@@ -381,7 +439,17 @@ awsRdsDbClusterDetails_httpEndpointEnabled = Lens.lens (\AwsRdsDbClusterDetails'
 awsRdsDbClusterDetails_customEndpoints :: Lens.Lens' AwsRdsDbClusterDetails (Prelude.Maybe [Prelude.Text])
 awsRdsDbClusterDetails_customEndpoints = Lens.lens (\AwsRdsDbClusterDetails' {customEndpoints} -> customEndpoints) (\s@AwsRdsDbClusterDetails' {} a -> s {customEndpoints = a} :: AwsRdsDbClusterDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | The database engine mode of the DB cluster.
+-- | The database engine mode of the DB cluster.Valid values are as follows:
+--
+-- -   @global@
+--
+-- -   @multimaster@
+--
+-- -   @parallelquery@
+--
+-- -   @provisioned@
+--
+-- -   @serverless@
 awsRdsDbClusterDetails_engineMode :: Lens.Lens' AwsRdsDbClusterDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterDetails_engineMode = Lens.lens (\AwsRdsDbClusterDetails' {engineMode} -> engineMode) (\s@AwsRdsDbClusterDetails' {} a -> s {engineMode = a} :: AwsRdsDbClusterDetails)
 
@@ -394,7 +462,14 @@ awsRdsDbClusterDetails_storageEncrypted = Lens.lens (\AwsRdsDbClusterDetails' {s
 awsRdsDbClusterDetails_kmsKeyId :: Lens.Lens' AwsRdsDbClusterDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterDetails_kmsKeyId = Lens.lens (\AwsRdsDbClusterDetails' {kmsKeyId} -> kmsKeyId) (\s@AwsRdsDbClusterDetails' {} a -> s {kmsKeyId = a} :: AwsRdsDbClusterDetails)
 
--- | The name of the database engine to use for this DB cluster.
+-- | The name of the database engine to use for this DB cluster. Valid values
+-- are as follows:
+--
+-- -   @aurora@
+--
+-- -   @aurora-mysql@
+--
+-- -   @aurora-postgresql@
 awsRdsDbClusterDetails_engine :: Lens.Lens' AwsRdsDbClusterDetails (Prelude.Maybe Prelude.Text)
 awsRdsDbClusterDetails_engine = Lens.lens (\AwsRdsDbClusterDetails' {engine} -> engine) (\s@AwsRdsDbClusterDetails' {} a -> s {engine = a} :: AwsRdsDbClusterDetails)
 

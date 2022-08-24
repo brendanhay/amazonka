@@ -27,7 +27,20 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIpv6CidrBlockAssociation' smart constructor.
 data Ipv6CidrBlockAssociation = Ipv6CidrBlockAssociation'
-  { -- | Information about the state of the CIDR block.
+  { -- | Information about the state of the CIDR block. Valid values are as
+    -- follows:
+    --
+    -- -   @associating@
+    --
+    -- -   @associated@
+    --
+    -- -   @disassociating@
+    --
+    -- -   @disassociated@
+    --
+    -- -   @failed@
+    --
+    -- -   @failing@
     cidrBlockState :: Prelude.Maybe Prelude.Text,
     -- | The association ID for the IPv6 CIDR block.
     associationId :: Prelude.Maybe Prelude.Text,
@@ -44,7 +57,20 @@ data Ipv6CidrBlockAssociation = Ipv6CidrBlockAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cidrBlockState', 'ipv6CidrBlockAssociation_cidrBlockState' - Information about the state of the CIDR block.
+-- 'cidrBlockState', 'ipv6CidrBlockAssociation_cidrBlockState' - Information about the state of the CIDR block. Valid values are as
+-- follows:
+--
+-- -   @associating@
+--
+-- -   @associated@
+--
+-- -   @disassociating@
+--
+-- -   @disassociated@
+--
+-- -   @failed@
+--
+-- -   @failing@
 --
 -- 'associationId', 'ipv6CidrBlockAssociation_associationId' - The association ID for the IPv6 CIDR block.
 --
@@ -59,7 +85,20 @@ newIpv6CidrBlockAssociation =
       ipv6CidrBlock = Prelude.Nothing
     }
 
--- | Information about the state of the CIDR block.
+-- | Information about the state of the CIDR block. Valid values are as
+-- follows:
+--
+-- -   @associating@
+--
+-- -   @associated@
+--
+-- -   @disassociating@
+--
+-- -   @disassociated@
+--
+-- -   @failed@
+--
+-- -   @failing@
 ipv6CidrBlockAssociation_cidrBlockState :: Lens.Lens' Ipv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 ipv6CidrBlockAssociation_cidrBlockState = Lens.lens (\Ipv6CidrBlockAssociation' {cidrBlockState} -> cidrBlockState) (\s@Ipv6CidrBlockAssociation' {} a -> s {cidrBlockState = a} :: Ipv6CidrBlockAssociation)
 

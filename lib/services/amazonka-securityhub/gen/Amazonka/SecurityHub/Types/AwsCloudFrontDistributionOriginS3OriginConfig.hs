@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about an origin that is an S3 bucket that is not configured
--- with static website hosting.
+-- | Information about an origin that is an Amazon S3 bucket that is not
+-- configured with static website hosting.
 --
 -- /See:/ 'newAwsCloudFrontDistributionOriginS3OriginConfig' smart constructor.
 data AwsCloudFrontDistributionOriginS3OriginConfig = AwsCloudFrontDistributionOriginS3OriginConfig'

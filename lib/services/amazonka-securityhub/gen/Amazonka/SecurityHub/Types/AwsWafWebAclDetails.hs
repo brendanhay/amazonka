@@ -24,19 +24,19 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SecurityHub.Types.AwsWafWebAclRule
 
--- | Details about an WAF WebACL.
+-- | Provides information about an WAF web access control list (web ACL).
 --
 -- /See:/ 'newAwsWafWebAclDetails' smart constructor.
 data AwsWafWebAclDetails = AwsWafWebAclDetails'
-  { -- | A friendly name or description of the WebACL. You can\'t change the name
-    -- of a WebACL after you create it.
+  { -- | A friendly name or description of the web ACL. You can\'t change the
+    -- name of a web ACL after you create it.
     name :: Prelude.Maybe Prelude.Text,
-    -- | An array that contains the action for each rule in a WebACL, the
+    -- | An array that contains the action for each rule in a web ACL, the
     -- priority of the rule, and the ID of the rule.
     rules :: Prelude.Maybe [AwsWafWebAclRule],
-    -- | A unique identifier for a WebACL.
+    -- | A unique identifier for a web ACL.
     webAclId :: Prelude.Maybe Prelude.Text,
-    -- | The action to perform if none of the rules contained in the WebACL
+    -- | The action to perform if none of the rules contained in the web ACL
     -- match.
     defaultAction :: Prelude.Maybe Prelude.Text
   }
@@ -50,15 +50,15 @@ data AwsWafWebAclDetails = AwsWafWebAclDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsWafWebAclDetails_name' - A friendly name or description of the WebACL. You can\'t change the name
--- of a WebACL after you create it.
+-- 'name', 'awsWafWebAclDetails_name' - A friendly name or description of the web ACL. You can\'t change the
+-- name of a web ACL after you create it.
 --
--- 'rules', 'awsWafWebAclDetails_rules' - An array that contains the action for each rule in a WebACL, the
+-- 'rules', 'awsWafWebAclDetails_rules' - An array that contains the action for each rule in a web ACL, the
 -- priority of the rule, and the ID of the rule.
 --
--- 'webAclId', 'awsWafWebAclDetails_webAclId' - A unique identifier for a WebACL.
+-- 'webAclId', 'awsWafWebAclDetails_webAclId' - A unique identifier for a web ACL.
 --
--- 'defaultAction', 'awsWafWebAclDetails_defaultAction' - The action to perform if none of the rules contained in the WebACL
+-- 'defaultAction', 'awsWafWebAclDetails_defaultAction' - The action to perform if none of the rules contained in the web ACL
 -- match.
 newAwsWafWebAclDetails ::
   AwsWafWebAclDetails
@@ -70,21 +70,21 @@ newAwsWafWebAclDetails =
       defaultAction = Prelude.Nothing
     }
 
--- | A friendly name or description of the WebACL. You can\'t change the name
--- of a WebACL after you create it.
+-- | A friendly name or description of the web ACL. You can\'t change the
+-- name of a web ACL after you create it.
 awsWafWebAclDetails_name :: Lens.Lens' AwsWafWebAclDetails (Prelude.Maybe Prelude.Text)
 awsWafWebAclDetails_name = Lens.lens (\AwsWafWebAclDetails' {name} -> name) (\s@AwsWafWebAclDetails' {} a -> s {name = a} :: AwsWafWebAclDetails)
 
--- | An array that contains the action for each rule in a WebACL, the
+-- | An array that contains the action for each rule in a web ACL, the
 -- priority of the rule, and the ID of the rule.
 awsWafWebAclDetails_rules :: Lens.Lens' AwsWafWebAclDetails (Prelude.Maybe [AwsWafWebAclRule])
 awsWafWebAclDetails_rules = Lens.lens (\AwsWafWebAclDetails' {rules} -> rules) (\s@AwsWafWebAclDetails' {} a -> s {rules = a} :: AwsWafWebAclDetails) Prelude.. Lens.mapping Lens.coerced
 
--- | A unique identifier for a WebACL.
+-- | A unique identifier for a web ACL.
 awsWafWebAclDetails_webAclId :: Lens.Lens' AwsWafWebAclDetails (Prelude.Maybe Prelude.Text)
 awsWafWebAclDetails_webAclId = Lens.lens (\AwsWafWebAclDetails' {webAclId} -> webAclId) (\s@AwsWafWebAclDetails' {} a -> s {webAclId = a} :: AwsWafWebAclDetails)
 
--- | The action to perform if none of the rules contained in the WebACL
+-- | The action to perform if none of the rules contained in the web ACL
 -- match.
 awsWafWebAclDetails_defaultAction :: Lens.Lens' AwsWafWebAclDetails (Prelude.Maybe Prelude.Text)
 awsWafWebAclDetails_defaultAction = Lens.lens (\AwsWafWebAclDetails' {defaultAction} -> defaultAction) (\s@AwsWafWebAclDetails' {} a -> s {defaultAction = a} :: AwsWafWebAclDetails)

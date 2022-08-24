@@ -28,7 +28,7 @@ import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionPlacementConstraintsDetail
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionProxyConfigurationDetails
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails
 
--- | details about a task definition. A task definition describes the
+-- | Details about a task definition. A task definition describes the
 -- container and volume definitions of an Amazon Elastic Container Service
 -- task.
 --
@@ -36,11 +36,30 @@ import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionVolumesDetails
 data AwsEcsTaskDefinitionDetails = AwsEcsTaskDefinitionDetails'
   { -- | The configuration details for the App Mesh proxy.
     proxyConfiguration :: Prelude.Maybe AwsEcsTaskDefinitionProxyConfigurationDetails,
-    -- | The process namespace to use for the containers in the task.
+    -- | The process namespace to use for the containers in the task. Valid
+    -- values are @host@ or @task@.
     pidMode :: Prelude.Maybe Prelude.Text,
-    -- | The number of CPU units used by the task.
+    -- | The number of CPU units used by the task.Valid values are as follows:
+    --
+    -- -   @256 (.25 vCPU)@
+    --
+    -- -   @512 (.5 vCPU)@
+    --
+    -- -   @1024 (1 vCPU)@
+    --
+    -- -   @2048 (2 vCPU)@
+    --
+    -- -   @4096 (4 vCPU)@
     cpu :: Prelude.Maybe Prelude.Text,
     -- | The amount (in MiB) of memory used by the task.
+    --
+    -- For tasks that are hosted on Amazon EC2, you can provide a task-level
+    -- memory value or a container-level memory value. For tasks that are
+    -- hosted on Fargate, you must use one of the
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size specified values>
+    -- in the //Amazon Elastic Container Service Developer Guide// , which
+    -- determines your range of supported values for the @Cpu@ and @Memory@
+    -- parameters.
     memory :: Prelude.Maybe Prelude.Text,
     -- | The short name or ARN of the IAM role that grants containers in the task
     -- permission to call Amazon Web Services API operations on your behalf.
@@ -62,9 +81,25 @@ data AwsEcsTaskDefinitionDetails = AwsEcsTaskDefinitionDetails'
     -- | The ARN of the task execution role that grants the container agent
     -- permission to make API calls on behalf of the container user.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Docker networking mode to use for the containers in the task.
+    -- | The Docker networking mode to use for the containers in the task. Valid
+    -- values are as follows:
+    --
+    -- -   @awsvpc@
+    --
+    -- -   @bridge@
+    --
+    -- -   @host@
+    --
+    -- -   @none@
     networkMode :: Prelude.Maybe Prelude.Text,
-    -- | The IPC resource namespace to use for the containers in the task.
+    -- | The inter-process communication (IPC) resource namespace to use for the
+    -- containers in the task. Valid values are as follows:
+    --
+    -- -   @host@
+    --
+    -- -   @none@
+    --
+    -- -   @task@
     ipcMode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,11 +114,30 @@ data AwsEcsTaskDefinitionDetails = AwsEcsTaskDefinitionDetails'
 --
 -- 'proxyConfiguration', 'awsEcsTaskDefinitionDetails_proxyConfiguration' - The configuration details for the App Mesh proxy.
 --
--- 'pidMode', 'awsEcsTaskDefinitionDetails_pidMode' - The process namespace to use for the containers in the task.
+-- 'pidMode', 'awsEcsTaskDefinitionDetails_pidMode' - The process namespace to use for the containers in the task. Valid
+-- values are @host@ or @task@.
 --
--- 'cpu', 'awsEcsTaskDefinitionDetails_cpu' - The number of CPU units used by the task.
+-- 'cpu', 'awsEcsTaskDefinitionDetails_cpu' - The number of CPU units used by the task.Valid values are as follows:
+--
+-- -   @256 (.25 vCPU)@
+--
+-- -   @512 (.5 vCPU)@
+--
+-- -   @1024 (1 vCPU)@
+--
+-- -   @2048 (2 vCPU)@
+--
+-- -   @4096 (4 vCPU)@
 --
 -- 'memory', 'awsEcsTaskDefinitionDetails_memory' - The amount (in MiB) of memory used by the task.
+--
+-- For tasks that are hosted on Amazon EC2, you can provide a task-level
+-- memory value or a container-level memory value. For tasks that are
+-- hosted on Fargate, you must use one of the
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size specified values>
+-- in the //Amazon Elastic Container Service Developer Guide// , which
+-- determines your range of supported values for the @Cpu@ and @Memory@
+-- parameters.
 --
 -- 'taskRoleArn', 'awsEcsTaskDefinitionDetails_taskRoleArn' - The short name or ARN of the IAM role that grants containers in the task
 -- permission to call Amazon Web Services API operations on your behalf.
@@ -105,9 +159,25 @@ data AwsEcsTaskDefinitionDetails = AwsEcsTaskDefinitionDetails'
 -- 'executionRoleArn', 'awsEcsTaskDefinitionDetails_executionRoleArn' - The ARN of the task execution role that grants the container agent
 -- permission to make API calls on behalf of the container user.
 --
--- 'networkMode', 'awsEcsTaskDefinitionDetails_networkMode' - The Docker networking mode to use for the containers in the task.
+-- 'networkMode', 'awsEcsTaskDefinitionDetails_networkMode' - The Docker networking mode to use for the containers in the task. Valid
+-- values are as follows:
 --
--- 'ipcMode', 'awsEcsTaskDefinitionDetails_ipcMode' - The IPC resource namespace to use for the containers in the task.
+-- -   @awsvpc@
+--
+-- -   @bridge@
+--
+-- -   @host@
+--
+-- -   @none@
+--
+-- 'ipcMode', 'awsEcsTaskDefinitionDetails_ipcMode' - The inter-process communication (IPC) resource namespace to use for the
+-- containers in the task. Valid values are as follows:
+--
+-- -   @host@
+--
+-- -   @none@
+--
+-- -   @task@
 newAwsEcsTaskDefinitionDetails ::
   AwsEcsTaskDefinitionDetails
 newAwsEcsTaskDefinitionDetails =
@@ -133,15 +203,34 @@ newAwsEcsTaskDefinitionDetails =
 awsEcsTaskDefinitionDetails_proxyConfiguration :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe AwsEcsTaskDefinitionProxyConfigurationDetails)
 awsEcsTaskDefinitionDetails_proxyConfiguration = Lens.lens (\AwsEcsTaskDefinitionDetails' {proxyConfiguration} -> proxyConfiguration) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {proxyConfiguration = a} :: AwsEcsTaskDefinitionDetails)
 
--- | The process namespace to use for the containers in the task.
+-- | The process namespace to use for the containers in the task. Valid
+-- values are @host@ or @task@.
 awsEcsTaskDefinitionDetails_pidMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_pidMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {pidMode} -> pidMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {pidMode = a} :: AwsEcsTaskDefinitionDetails)
 
--- | The number of CPU units used by the task.
+-- | The number of CPU units used by the task.Valid values are as follows:
+--
+-- -   @256 (.25 vCPU)@
+--
+-- -   @512 (.5 vCPU)@
+--
+-- -   @1024 (1 vCPU)@
+--
+-- -   @2048 (2 vCPU)@
+--
+-- -   @4096 (4 vCPU)@
 awsEcsTaskDefinitionDetails_cpu :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_cpu = Lens.lens (\AwsEcsTaskDefinitionDetails' {cpu} -> cpu) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {cpu = a} :: AwsEcsTaskDefinitionDetails)
 
 -- | The amount (in MiB) of memory used by the task.
+--
+-- For tasks that are hosted on Amazon EC2, you can provide a task-level
+-- memory value or a container-level memory value. For tasks that are
+-- hosted on Fargate, you must use one of the
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size specified values>
+-- in the //Amazon Elastic Container Service Developer Guide// , which
+-- determines your range of supported values for the @Cpu@ and @Memory@
+-- parameters.
 awsEcsTaskDefinitionDetails_memory :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_memory = Lens.lens (\AwsEcsTaskDefinitionDetails' {memory} -> memory) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {memory = a} :: AwsEcsTaskDefinitionDetails)
 
@@ -181,11 +270,27 @@ awsEcsTaskDefinitionDetails_containerDefinitions = Lens.lens (\AwsEcsTaskDefinit
 awsEcsTaskDefinitionDetails_executionRoleArn :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_executionRoleArn = Lens.lens (\AwsEcsTaskDefinitionDetails' {executionRoleArn} -> executionRoleArn) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {executionRoleArn = a} :: AwsEcsTaskDefinitionDetails)
 
--- | The Docker networking mode to use for the containers in the task.
+-- | The Docker networking mode to use for the containers in the task. Valid
+-- values are as follows:
+--
+-- -   @awsvpc@
+--
+-- -   @bridge@
+--
+-- -   @host@
+--
+-- -   @none@
 awsEcsTaskDefinitionDetails_networkMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_networkMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {networkMode} -> networkMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {networkMode = a} :: AwsEcsTaskDefinitionDetails)
 
--- | The IPC resource namespace to use for the containers in the task.
+-- | The inter-process communication (IPC) resource namespace to use for the
+-- containers in the task. Valid values are as follows:
+--
+-- -   @host@
+--
+-- -   @none@
+--
+-- -   @task@
 awsEcsTaskDefinitionDetails_ipcMode :: Lens.Lens' AwsEcsTaskDefinitionDetails (Prelude.Maybe Prelude.Text)
 awsEcsTaskDefinitionDetails_ipcMode = Lens.lens (\AwsEcsTaskDefinitionDetails' {ipcMode} -> ipcMode) (\s@AwsEcsTaskDefinitionDetails' {} a -> s {ipcMode = a} :: AwsEcsTaskDefinitionDetails)
 

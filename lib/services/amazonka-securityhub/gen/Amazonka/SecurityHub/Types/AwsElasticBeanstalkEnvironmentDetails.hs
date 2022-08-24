@@ -34,7 +34,24 @@ data AwsElasticBeanstalkEnvironmentDetails = AwsElasticBeanstalkEnvironmentDetai
     cname :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment.
     environmentName :: Prelude.Maybe Prelude.Text,
-    -- | The current operational status of the environment.
+    -- | The current operational status of the environment. Valid values are as
+    -- follows:
+    --
+    -- -   @Aborting@
+    --
+    -- -   @Launching@
+    --
+    -- -   @LinkingFrom@
+    --
+    -- -   @LinkingTo@
+    --
+    -- -   @Ready@
+    --
+    -- -   @Terminated@
+    --
+    -- -   @Terminating@
+    --
+    -- -   @Updating@
     status :: Prelude.Maybe Prelude.Text,
     -- | A description of the environment.
     description :: Prelude.Maybe Prelude.Text,
@@ -79,7 +96,24 @@ data AwsElasticBeanstalkEnvironmentDetails = AwsElasticBeanstalkEnvironmentDetai
 --
 -- 'environmentName', 'awsElasticBeanstalkEnvironmentDetails_environmentName' - The name of the environment.
 --
--- 'status', 'awsElasticBeanstalkEnvironmentDetails_status' - The current operational status of the environment.
+-- 'status', 'awsElasticBeanstalkEnvironmentDetails_status' - The current operational status of the environment. Valid values are as
+-- follows:
+--
+-- -   @Aborting@
+--
+-- -   @Launching@
+--
+-- -   @LinkingFrom@
+--
+-- -   @LinkingTo@
+--
+-- -   @Ready@
+--
+-- -   @Terminated@
+--
+-- -   @Terminating@
+--
+-- -   @Updating@
 --
 -- 'description', 'awsElasticBeanstalkEnvironmentDetails_description' - A description of the environment.
 --
@@ -139,7 +173,24 @@ awsElasticBeanstalkEnvironmentDetails_cname = Lens.lens (\AwsElasticBeanstalkEnv
 awsElasticBeanstalkEnvironmentDetails_environmentName :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentDetails_environmentName = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {environmentName} -> environmentName) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {environmentName = a} :: AwsElasticBeanstalkEnvironmentDetails)
 
--- | The current operational status of the environment.
+-- | The current operational status of the environment. Valid values are as
+-- follows:
+--
+-- -   @Aborting@
+--
+-- -   @Launching@
+--
+-- -   @LinkingFrom@
+--
+-- -   @LinkingTo@
+--
+-- -   @Ready@
+--
+-- -   @Terminated@
+--
+-- -   @Terminating@
+--
+-- -   @Updating@
 awsElasticBeanstalkEnvironmentDetails_status :: Lens.Lens' AwsElasticBeanstalkEnvironmentDetails (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentDetails_status = Lens.lens (\AwsElasticBeanstalkEnvironmentDetails' {status} -> status) (\s@AwsElasticBeanstalkEnvironmentDetails' {} a -> s {status = a} :: AwsElasticBeanstalkEnvironmentDetails)
 

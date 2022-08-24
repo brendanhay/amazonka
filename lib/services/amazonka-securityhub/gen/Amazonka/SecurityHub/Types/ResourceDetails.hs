@@ -28,9 +28,14 @@ import Amazonka.SecurityHub.Types.AwsApiGatewayV2ApiDetails
 import Amazonka.SecurityHub.Types.AwsApiGatewayV2StageDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingAutoScalingGroupDetails
 import Amazonka.SecurityHub.Types.AwsAutoScalingLaunchConfigurationDetails
+import Amazonka.SecurityHub.Types.AwsBackupBackupPlanDetails
+import Amazonka.SecurityHub.Types.AwsBackupBackupVaultDetails
+import Amazonka.SecurityHub.Types.AwsBackupRecoveryPointDetails
 import Amazonka.SecurityHub.Types.AwsCertificateManagerCertificateDetails
+import Amazonka.SecurityHub.Types.AwsCloudFormationStackDetails
 import Amazonka.SecurityHub.Types.AwsCloudFrontDistributionDetails
 import Amazonka.SecurityHub.Types.AwsCloudTrailTrailDetails
+import Amazonka.SecurityHub.Types.AwsCloudWatchAlarmDetails
 import Amazonka.SecurityHub.Types.AwsCodeBuildProjectDetails
 import Amazonka.SecurityHub.Types.AwsDynamoDbTableDetails
 import Amazonka.SecurityHub.Types.AwsEc2EipDetails
@@ -39,15 +44,20 @@ import Amazonka.SecurityHub.Types.AwsEc2NetworkAclDetails
 import Amazonka.SecurityHub.Types.AwsEc2NetworkInterfaceDetails
 import Amazonka.SecurityHub.Types.AwsEc2SecurityGroupDetails
 import Amazonka.SecurityHub.Types.AwsEc2SubnetDetails
+import Amazonka.SecurityHub.Types.AwsEc2TransitGatewayDetails
 import Amazonka.SecurityHub.Types.AwsEc2VolumeDetails
 import Amazonka.SecurityHub.Types.AwsEc2VpcDetails
 import Amazonka.SecurityHub.Types.AwsEc2VpcEndpointServiceDetails
+import Amazonka.SecurityHub.Types.AwsEc2VpcPeeringConnectionDetails
 import Amazonka.SecurityHub.Types.AwsEc2VpnConnectionDetails
 import Amazonka.SecurityHub.Types.AwsEcrContainerImageDetails
 import Amazonka.SecurityHub.Types.AwsEcrRepositoryDetails
 import Amazonka.SecurityHub.Types.AwsEcsClusterDetails
+import Amazonka.SecurityHub.Types.AwsEcsContainerDetails
 import Amazonka.SecurityHub.Types.AwsEcsServiceDetails
 import Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionDetails
+import Amazonka.SecurityHub.Types.AwsEcsTaskDetails
+import Amazonka.SecurityHub.Types.AwsEfsAccessPointDetails
 import Amazonka.SecurityHub.Types.AwsEksClusterDetails
 import Amazonka.SecurityHub.Types.AwsElasticBeanstalkEnvironmentDetails
 import Amazonka.SecurityHub.Types.AwsElasticsearchDomainDetails
@@ -58,13 +68,18 @@ import Amazonka.SecurityHub.Types.AwsIamGroupDetails
 import Amazonka.SecurityHub.Types.AwsIamPolicyDetails
 import Amazonka.SecurityHub.Types.AwsIamRoleDetails
 import Amazonka.SecurityHub.Types.AwsIamUserDetails
+import Amazonka.SecurityHub.Types.AwsKinesisStreamDetails
 import Amazonka.SecurityHub.Types.AwsKmsKeyDetails
 import Amazonka.SecurityHub.Types.AwsLambdaFunctionDetails
 import Amazonka.SecurityHub.Types.AwsLambdaLayerVersionDetails
+import Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallDetails
+import Amazonka.SecurityHub.Types.AwsNetworkFirewallFirewallPolicyDetails
+import Amazonka.SecurityHub.Types.AwsNetworkFirewallRuleGroupDetails
 import Amazonka.SecurityHub.Types.AwsOpenSearchServiceDomainDetails
 import Amazonka.SecurityHub.Types.AwsRdsDbClusterDetails
 import Amazonka.SecurityHub.Types.AwsRdsDbClusterSnapshotDetails
 import Amazonka.SecurityHub.Types.AwsRdsDbInstanceDetails
+import Amazonka.SecurityHub.Types.AwsRdsDbSecurityGroupDetails
 import Amazonka.SecurityHub.Types.AwsRdsDbSnapshotDetails
 import Amazonka.SecurityHub.Types.AwsRdsEventSubscriptionDetails
 import Amazonka.SecurityHub.Types.AwsRedshiftClusterDetails
@@ -77,6 +92,11 @@ import Amazonka.SecurityHub.Types.AwsSqsQueueDetails
 import Amazonka.SecurityHub.Types.AwsSsmPatchComplianceDetails
 import Amazonka.SecurityHub.Types.AwsWafRateBasedRuleDetails
 import Amazonka.SecurityHub.Types.AwsWafRegionalRateBasedRuleDetails
+import Amazonka.SecurityHub.Types.AwsWafRegionalRuleDetails
+import Amazonka.SecurityHub.Types.AwsWafRegionalRuleGroupDetails
+import Amazonka.SecurityHub.Types.AwsWafRegionalWebAclDetails
+import Amazonka.SecurityHub.Types.AwsWafRuleDetails
+import Amazonka.SecurityHub.Types.AwsWafRuleGroupDetails
 import Amazonka.SecurityHub.Types.AwsWafWebAclDetails
 import Amazonka.SecurityHub.Types.AwsXrayEncryptionConfigDetails
 import Amazonka.SecurityHub.Types.ContainerDetails
@@ -96,7 +116,9 @@ import Amazonka.SecurityHub.Types.ContainerDetails
 --
 -- /See:/ 'newResourceDetails' smart constructor.
 data ResourceDetails = ResourceDetails'
-  { -- | Details about an EC2 instance related to a finding.
+  { -- | Details about an Network Firewall rule group.
+    awsNetworkFirewallRuleGroup :: Prelude.Maybe AwsNetworkFirewallRuleGroupDetails,
+    -- | Details about an EC2 instance related to a finding.
     awsEc2Instance :: Prelude.Maybe AwsEc2InstanceDetails,
     -- | Details about an IAM role.
     awsIamRole :: Prelude.Maybe AwsIamRoleDetails,
@@ -107,6 +129,10 @@ data ResourceDetails = ResourceDetails'
     awsSqsQueue :: Prelude.Maybe AwsSqsQueueDetails,
     -- | Details about a load balancer.
     awsElbv2LoadBalancer :: Prelude.Maybe AwsElbv2LoadBalancerDetails,
+    -- | Details about an Amazon CloudWatch alarm. An alarm allows you to monitor
+    -- and receive alerts about your Amazon Web Services resources and
+    -- applications across multiple Regions.
+    awsCloudWatchAlarm :: Prelude.Maybe AwsCloudWatchAlarmDetails,
     -- | Details about an IAM permissions policy.
     awsIamPolicy :: Prelude.Maybe AwsIamPolicyDetails,
     -- | Details for an EC2 network interface.
@@ -115,9 +141,14 @@ data ResourceDetails = ResourceDetails'
     awsEksCluster :: Prelude.Maybe AwsEksClusterDetails,
     -- | Details about a rate-based rule for global resources.
     awsWafRateBasedRule :: Prelude.Maybe AwsWafRateBasedRuleDetails,
+    -- | Provides information about a Docker container that\'s part of a task.
+    awsEcsContainer :: Prelude.Maybe AwsEcsContainerDetails,
     -- | Details about an RDS event notification subscription.
     awsRdsEventSubscription :: Prelude.Maybe AwsRdsEventSubscriptionDetails,
-    -- | Details for an WAF WebACL.
+    -- | Details about an CloudFormation stack. A stack is a collection of Amazon
+    -- Web Services resources that you can manage as a single unit.
+    awsCloudFormationStack :: Prelude.Maybe AwsCloudFormationStackDetails,
+    -- | Details for an WAF web ACL.
     awsWafWebAcl :: Prelude.Maybe AwsWafWebAclDetails,
     -- | Details about a resource that are not available in a type-specific
     -- details object. Use the @Other@ object in the following cases.
@@ -137,11 +168,11 @@ data ResourceDetails = ResourceDetails'
     awsOpenSearchServiceDomain :: Prelude.Maybe AwsOpenSearchServiceDomainDetails,
     -- | Details about a DynamoDB table.
     awsDynamoDbTable :: Prelude.Maybe AwsDynamoDbTableDetails,
-    -- | Details for an EC2 volume.
+    -- | Details for an Amazon EC2 volume.
     awsEc2Volume :: Prelude.Maybe AwsEc2VolumeDetails,
     -- | Provides details about an Certificate Manager certificate.
     awsCertificateManagerCertificate :: Prelude.Maybe AwsCertificateManagerCertificateDetails,
-    -- | Details about an EC2 VPN connection.
+    -- | Details about an Amazon EC2 VPN connection.
     awsEc2VpnConnection :: Prelude.Maybe AwsEc2VpnConnectionDetails,
     -- | Details about a subnet in Amazon EC2.
     awsEc2Subnet :: Prelude.Maybe AwsEc2SubnetDetails,
@@ -149,6 +180,8 @@ data ResourceDetails = ResourceDetails'
     awsIamGroup :: Prelude.Maybe AwsIamGroupDetails,
     -- | Details about an IAM user.
     awsIamUser :: Prelude.Maybe AwsIamUserDetails,
+    -- | Provides details about an Backup backup vault.
+    awsBackupBackupVault :: Prelude.Maybe AwsBackupBackupVaultDetails,
     -- | Provides information about a version 2 API in Amazon API Gateway.
     awsApiGatewayV2Api :: Prelude.Maybe AwsApiGatewayV2ApiDetails,
     -- | Details about a task definition. A task definition describes the
@@ -159,6 +192,11 @@ data ResourceDetails = ResourceDetails'
     awsAutoScalingAutoScalingGroup :: Prelude.Maybe AwsAutoScalingAutoScalingGroupDetails,
     -- | Details about an EC2 network access control list (ACL).
     awsEc2NetworkAcl :: Prelude.Maybe AwsEc2NetworkAclDetails,
+    -- | Details about an Amazon EFS access point. An access point is an
+    -- application-specific view into an EFS file system that applies an
+    -- operating system user and group, and a file system path, to any file
+    -- system request made through the access point.
+    awsEfsAccessPoint :: Prelude.Maybe AwsEfsAccessPointDetails,
     -- | Details about the service configuration for a VPC endpoint service.
     awsEc2VpcEndpointService :: Prelude.Maybe AwsEc2VpcEndpointServiceDetails,
     -- | Details for an CodeBuild project.
@@ -175,22 +213,44 @@ data ResourceDetails = ResourceDetails'
     awsIamAccessKey :: Prelude.Maybe AwsIamAccessKeyDetails,
     -- | Contains details about an Amazon Redshift cluster.
     awsRedshiftCluster :: Prelude.Maybe AwsRedshiftClusterDetails,
-    -- | Details for an EC2 VPC.
+    -- | Details about an Network Firewall firewall policy.
+    awsNetworkFirewallFirewallPolicy :: Prelude.Maybe AwsNetworkFirewallFirewallPolicyDetails,
+    -- | Details for an Amazon EC2 VPC.
     awsEc2Vpc :: Prelude.Maybe AwsEc2VpcDetails,
     -- | Information about an Amazon Elastic Container Registry repository.
     awsEcrRepository :: Prelude.Maybe AwsEcrRepositoryDetails,
+    -- | Details about an WAF rule group for Regional resources.
+    awsWafRegionalRuleGroup :: Prelude.Maybe AwsWafRegionalRuleGroupDetails,
     -- | Details about a rate-based rule for Regional resources.
     awsWafRegionalRateBasedRule :: Prelude.Maybe AwsWafRegionalRateBasedRuleDetails,
+    -- | Details about an WAF rule for Regional resources.
+    awsWafRegionalRule :: Prelude.Maybe AwsWafRegionalRuleDetails,
     -- | Provides information about a version 2 stage for Amazon API Gateway.
     awsApiGatewayV2Stage :: Prelude.Maybe AwsApiGatewayV2StageDetails,
     -- | Details about an Amazon RDS database cluster.
     awsRdsDbCluster :: Prelude.Maybe AwsRdsDbClusterDetails,
     -- | Details about an S3 object related to a finding.
     awsS3Object :: Prelude.Maybe AwsS3ObjectDetails,
+    -- | Details about an Network Firewall firewall.
+    awsNetworkFirewallFirewall :: Prelude.Maybe AwsNetworkFirewallFirewallDetails,
+    -- | Details about an WAF rule group for global resources.
+    awsWafRuleGroup :: Prelude.Maybe AwsWafRuleGroupDetails,
+    -- | Details about an Amazon EC2 VPC peering connection. A VPC peering
+    -- connection is a networking connection between two VPCs that enables you
+    -- to route traffic between them privately.
+    awsEc2VpcPeeringConnection :: Prelude.Maybe AwsEc2VpcPeeringConnectionDetails,
+    -- | Details about an Amazon EC2 transit gateway that interconnects your
+    -- virtual private clouds (VPC) and on-premises networks.
+    awsEc2TransitGateway :: Prelude.Maybe AwsEc2TransitGatewayDetails,
     -- | Details about an S3 bucket related to a finding.
     awsS3Bucket :: Prelude.Maybe AwsS3BucketDetails,
+    -- | Details about an WAF web access control list (web ACL) for Regional
+    -- resources.
+    awsWafRegionalWebAcl :: Prelude.Maybe AwsWafRegionalWebAclDetails,
     -- | Details about an Elastic IP address.
     awsEc2Eip :: Prelude.Maybe AwsEc2EipDetails,
+    -- | Provides details about an Backup backup plan.
+    awsBackupBackupPlan :: Prelude.Maybe AwsBackupBackupPlanDetails,
     -- | Details about a Lambda function.
     awsLambdaFunction :: Prelude.Maybe AwsLambdaFunctionDetails,
     -- | Details about a container resource related to a finding.
@@ -207,17 +267,27 @@ data ResourceDetails = ResourceDetails'
     awsApiGatewayStage :: Prelude.Maybe AwsApiGatewayStageDetails,
     -- | Details about an SNS topic.
     awsSnsTopic :: Prelude.Maybe AwsSnsTopicDetails,
+    -- | Details about an Amazon RDS DB security group.
+    awsRdsDbSecurityGroup :: Prelude.Maybe AwsRdsDbSecurityGroupDetails,
+    -- | Details about an Amazon Kinesis data stream.
+    awsKinesisStream :: Prelude.Maybe AwsKinesisStreamDetails,
     -- | Details for an EC2 security group.
     awsEc2SecurityGroup :: Prelude.Maybe AwsEc2SecurityGroupDetails,
-    -- | Details about an ECS cluster.
+    -- | Details about an Amazon ECS cluster.
     awsEcsCluster :: Prelude.Maybe AwsEcsClusterDetails,
     -- | Provides information about a REST API in version 1 of Amazon API
     -- Gateway.
     awsApiGatewayRestApi :: Prelude.Maybe AwsApiGatewayRestApiDetails,
+    -- | Details about an WAF rule for global resources.
+    awsWafRule :: Prelude.Maybe AwsWafRuleDetails,
+    -- | Provides details about an Backup backup, or recovery point.
+    awsBackupRecoveryPoint :: Prelude.Maybe AwsBackupRecoveryPointDetails,
     -- | Details about an Amazon RDS database snapshot.
     awsRdsDbSnapshot :: Prelude.Maybe AwsRdsDbSnapshotDetails,
     -- | Details about an Elastic Beanstalk environment.
     awsElasticBeanstalkEnvironment :: Prelude.Maybe AwsElasticBeanstalkEnvironmentDetails,
+    -- | Details about a task in a cluster.
+    awsEcsTask :: Prelude.Maybe AwsEcsTaskDetails,
     -- | Information about the encryption configuration for X-Ray.
     awsXrayEncryptionConfig :: Prelude.Maybe AwsXrayEncryptionConfigDetails,
     -- | Details for a Lambda layer version.
@@ -239,6 +309,8 @@ data ResourceDetails = ResourceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'awsNetworkFirewallRuleGroup', 'resourceDetails_awsNetworkFirewallRuleGroup' - Details about an Network Firewall rule group.
+--
 -- 'awsEc2Instance', 'resourceDetails_awsEc2Instance' - Details about an EC2 instance related to a finding.
 --
 -- 'awsIamRole', 'resourceDetails_awsIamRole' - Details about an IAM role.
@@ -250,6 +322,10 @@ data ResourceDetails = ResourceDetails'
 --
 -- 'awsElbv2LoadBalancer', 'resourceDetails_awsElbv2LoadBalancer' - Details about a load balancer.
 --
+-- 'awsCloudWatchAlarm', 'resourceDetails_awsCloudWatchAlarm' - Details about an Amazon CloudWatch alarm. An alarm allows you to monitor
+-- and receive alerts about your Amazon Web Services resources and
+-- applications across multiple Regions.
+--
 -- 'awsIamPolicy', 'resourceDetails_awsIamPolicy' - Details about an IAM permissions policy.
 --
 -- 'awsEc2NetworkInterface', 'resourceDetails_awsEc2NetworkInterface' - Details for an EC2 network interface.
@@ -258,9 +334,14 @@ data ResourceDetails = ResourceDetails'
 --
 -- 'awsWafRateBasedRule', 'resourceDetails_awsWafRateBasedRule' - Details about a rate-based rule for global resources.
 --
+-- 'awsEcsContainer', 'resourceDetails_awsEcsContainer' - Provides information about a Docker container that\'s part of a task.
+--
 -- 'awsRdsEventSubscription', 'resourceDetails_awsRdsEventSubscription' - Details about an RDS event notification subscription.
 --
--- 'awsWafWebAcl', 'resourceDetails_awsWafWebAcl' - Details for an WAF WebACL.
+-- 'awsCloudFormationStack', 'resourceDetails_awsCloudFormationStack' - Details about an CloudFormation stack. A stack is a collection of Amazon
+-- Web Services resources that you can manage as a single unit.
+--
+-- 'awsWafWebAcl', 'resourceDetails_awsWafWebAcl' - Details for an WAF web ACL.
 --
 -- 'other', 'resourceDetails_other' - Details about a resource that are not available in a type-specific
 -- details object. Use the @Other@ object in the following cases.
@@ -280,17 +361,19 @@ data ResourceDetails = ResourceDetails'
 --
 -- 'awsDynamoDbTable', 'resourceDetails_awsDynamoDbTable' - Details about a DynamoDB table.
 --
--- 'awsEc2Volume', 'resourceDetails_awsEc2Volume' - Details for an EC2 volume.
+-- 'awsEc2Volume', 'resourceDetails_awsEc2Volume' - Details for an Amazon EC2 volume.
 --
 -- 'awsCertificateManagerCertificate', 'resourceDetails_awsCertificateManagerCertificate' - Provides details about an Certificate Manager certificate.
 --
--- 'awsEc2VpnConnection', 'resourceDetails_awsEc2VpnConnection' - Details about an EC2 VPN connection.
+-- 'awsEc2VpnConnection', 'resourceDetails_awsEc2VpnConnection' - Details about an Amazon EC2 VPN connection.
 --
 -- 'awsEc2Subnet', 'resourceDetails_awsEc2Subnet' - Details about a subnet in Amazon EC2.
 --
 -- 'awsIamGroup', 'resourceDetails_awsIamGroup' - Contains details about an IAM group.
 --
 -- 'awsIamUser', 'resourceDetails_awsIamUser' - Details about an IAM user.
+--
+-- 'awsBackupBackupVault', 'resourceDetails_awsBackupBackupVault' - Provides details about an Backup backup vault.
 --
 -- 'awsApiGatewayV2Api', 'resourceDetails_awsApiGatewayV2Api' - Provides information about a version 2 API in Amazon API Gateway.
 --
@@ -301,6 +384,11 @@ data ResourceDetails = ResourceDetails'
 -- 'awsAutoScalingAutoScalingGroup', 'resourceDetails_awsAutoScalingAutoScalingGroup' - Details for an autoscaling group.
 --
 -- 'awsEc2NetworkAcl', 'resourceDetails_awsEc2NetworkAcl' - Details about an EC2 network access control list (ACL).
+--
+-- 'awsEfsAccessPoint', 'resourceDetails_awsEfsAccessPoint' - Details about an Amazon EFS access point. An access point is an
+-- application-specific view into an EFS file system that applies an
+-- operating system user and group, and a file system path, to any file
+-- system request made through the access point.
 --
 -- 'awsEc2VpcEndpointService', 'resourceDetails_awsEc2VpcEndpointService' - Details about the service configuration for a VPC endpoint service.
 --
@@ -318,11 +406,17 @@ data ResourceDetails = ResourceDetails'
 --
 -- 'awsRedshiftCluster', 'resourceDetails_awsRedshiftCluster' - Contains details about an Amazon Redshift cluster.
 --
--- 'awsEc2Vpc', 'resourceDetails_awsEc2Vpc' - Details for an EC2 VPC.
+-- 'awsNetworkFirewallFirewallPolicy', 'resourceDetails_awsNetworkFirewallFirewallPolicy' - Details about an Network Firewall firewall policy.
+--
+-- 'awsEc2Vpc', 'resourceDetails_awsEc2Vpc' - Details for an Amazon EC2 VPC.
 --
 -- 'awsEcrRepository', 'resourceDetails_awsEcrRepository' - Information about an Amazon Elastic Container Registry repository.
 --
+-- 'awsWafRegionalRuleGroup', 'resourceDetails_awsWafRegionalRuleGroup' - Details about an WAF rule group for Regional resources.
+--
 -- 'awsWafRegionalRateBasedRule', 'resourceDetails_awsWafRegionalRateBasedRule' - Details about a rate-based rule for Regional resources.
+--
+-- 'awsWafRegionalRule', 'resourceDetails_awsWafRegionalRule' - Details about an WAF rule for Regional resources.
 --
 -- 'awsApiGatewayV2Stage', 'resourceDetails_awsApiGatewayV2Stage' - Provides information about a version 2 stage for Amazon API Gateway.
 --
@@ -330,9 +424,25 @@ data ResourceDetails = ResourceDetails'
 --
 -- 'awsS3Object', 'resourceDetails_awsS3Object' - Details about an S3 object related to a finding.
 --
+-- 'awsNetworkFirewallFirewall', 'resourceDetails_awsNetworkFirewallFirewall' - Details about an Network Firewall firewall.
+--
+-- 'awsWafRuleGroup', 'resourceDetails_awsWafRuleGroup' - Details about an WAF rule group for global resources.
+--
+-- 'awsEc2VpcPeeringConnection', 'resourceDetails_awsEc2VpcPeeringConnection' - Details about an Amazon EC2 VPC peering connection. A VPC peering
+-- connection is a networking connection between two VPCs that enables you
+-- to route traffic between them privately.
+--
+-- 'awsEc2TransitGateway', 'resourceDetails_awsEc2TransitGateway' - Details about an Amazon EC2 transit gateway that interconnects your
+-- virtual private clouds (VPC) and on-premises networks.
+--
 -- 'awsS3Bucket', 'resourceDetails_awsS3Bucket' - Details about an S3 bucket related to a finding.
 --
+-- 'awsWafRegionalWebAcl', 'resourceDetails_awsWafRegionalWebAcl' - Details about an WAF web access control list (web ACL) for Regional
+-- resources.
+--
 -- 'awsEc2Eip', 'resourceDetails_awsEc2Eip' - Details about an Elastic IP address.
+--
+-- 'awsBackupBackupPlan', 'resourceDetails_awsBackupBackupPlan' - Provides details about an Backup backup plan.
 --
 -- 'awsLambdaFunction', 'resourceDetails_awsLambdaFunction' - Details about a Lambda function.
 --
@@ -350,16 +460,26 @@ data ResourceDetails = ResourceDetails'
 --
 -- 'awsSnsTopic', 'resourceDetails_awsSnsTopic' - Details about an SNS topic.
 --
+-- 'awsRdsDbSecurityGroup', 'resourceDetails_awsRdsDbSecurityGroup' - Details about an Amazon RDS DB security group.
+--
+-- 'awsKinesisStream', 'resourceDetails_awsKinesisStream' - Details about an Amazon Kinesis data stream.
+--
 -- 'awsEc2SecurityGroup', 'resourceDetails_awsEc2SecurityGroup' - Details for an EC2 security group.
 --
--- 'awsEcsCluster', 'resourceDetails_awsEcsCluster' - Details about an ECS cluster.
+-- 'awsEcsCluster', 'resourceDetails_awsEcsCluster' - Details about an Amazon ECS cluster.
 --
 -- 'awsApiGatewayRestApi', 'resourceDetails_awsApiGatewayRestApi' - Provides information about a REST API in version 1 of Amazon API
 -- Gateway.
 --
+-- 'awsWafRule', 'resourceDetails_awsWafRule' - Details about an WAF rule for global resources.
+--
+-- 'awsBackupRecoveryPoint', 'resourceDetails_awsBackupRecoveryPoint' - Provides details about an Backup backup, or recovery point.
+--
 -- 'awsRdsDbSnapshot', 'resourceDetails_awsRdsDbSnapshot' - Details about an Amazon RDS database snapshot.
 --
 -- 'awsElasticBeanstalkEnvironment', 'resourceDetails_awsElasticBeanstalkEnvironment' - Details about an Elastic Beanstalk environment.
+--
+-- 'awsEcsTask', 'resourceDetails_awsEcsTask' - Details about a task in a cluster.
 --
 -- 'awsXrayEncryptionConfig', 'resourceDetails_awsXrayEncryptionConfig' - Information about the encryption configuration for X-Ray.
 --
@@ -374,16 +494,21 @@ newResourceDetails ::
   ResourceDetails
 newResourceDetails =
   ResourceDetails'
-    { awsEc2Instance = Prelude.Nothing,
+    { awsNetworkFirewallRuleGroup =
+        Prelude.Nothing,
+      awsEc2Instance = Prelude.Nothing,
       awsIamRole = Prelude.Nothing,
       awsS3AccountPublicAccessBlock = Prelude.Nothing,
       awsSqsQueue = Prelude.Nothing,
       awsElbv2LoadBalancer = Prelude.Nothing,
+      awsCloudWatchAlarm = Prelude.Nothing,
       awsIamPolicy = Prelude.Nothing,
       awsEc2NetworkInterface = Prelude.Nothing,
       awsEksCluster = Prelude.Nothing,
       awsWafRateBasedRule = Prelude.Nothing,
+      awsEcsContainer = Prelude.Nothing,
       awsRdsEventSubscription = Prelude.Nothing,
+      awsCloudFormationStack = Prelude.Nothing,
       awsWafWebAcl = Prelude.Nothing,
       other = Prelude.Nothing,
       awsSsmPatchCompliance = Prelude.Nothing,
@@ -395,10 +520,12 @@ newResourceDetails =
       awsEc2Subnet = Prelude.Nothing,
       awsIamGroup = Prelude.Nothing,
       awsIamUser = Prelude.Nothing,
+      awsBackupBackupVault = Prelude.Nothing,
       awsApiGatewayV2Api = Prelude.Nothing,
       awsEcsTaskDefinition = Prelude.Nothing,
       awsAutoScalingAutoScalingGroup = Prelude.Nothing,
       awsEc2NetworkAcl = Prelude.Nothing,
+      awsEfsAccessPoint = Prelude.Nothing,
       awsEc2VpcEndpointService = Prelude.Nothing,
       awsCodeBuildProject = Prelude.Nothing,
       awsRdsDbInstance = Prelude.Nothing,
@@ -407,14 +534,23 @@ newResourceDetails =
       awsAutoScalingLaunchConfiguration = Prelude.Nothing,
       awsIamAccessKey = Prelude.Nothing,
       awsRedshiftCluster = Prelude.Nothing,
+      awsNetworkFirewallFirewallPolicy = Prelude.Nothing,
       awsEc2Vpc = Prelude.Nothing,
       awsEcrRepository = Prelude.Nothing,
+      awsWafRegionalRuleGroup = Prelude.Nothing,
       awsWafRegionalRateBasedRule = Prelude.Nothing,
+      awsWafRegionalRule = Prelude.Nothing,
       awsApiGatewayV2Stage = Prelude.Nothing,
       awsRdsDbCluster = Prelude.Nothing,
       awsS3Object = Prelude.Nothing,
+      awsNetworkFirewallFirewall = Prelude.Nothing,
+      awsWafRuleGroup = Prelude.Nothing,
+      awsEc2VpcPeeringConnection = Prelude.Nothing,
+      awsEc2TransitGateway = Prelude.Nothing,
       awsS3Bucket = Prelude.Nothing,
+      awsWafRegionalWebAcl = Prelude.Nothing,
       awsEc2Eip = Prelude.Nothing,
+      awsBackupBackupPlan = Prelude.Nothing,
       awsLambdaFunction = Prelude.Nothing,
       container = Prelude.Nothing,
       awsRdsDbClusterSnapshot = Prelude.Nothing,
@@ -423,17 +559,26 @@ newResourceDetails =
       awsEcsService = Prelude.Nothing,
       awsApiGatewayStage = Prelude.Nothing,
       awsSnsTopic = Prelude.Nothing,
+      awsRdsDbSecurityGroup = Prelude.Nothing,
+      awsKinesisStream = Prelude.Nothing,
       awsEc2SecurityGroup = Prelude.Nothing,
       awsEcsCluster = Prelude.Nothing,
       awsApiGatewayRestApi = Prelude.Nothing,
+      awsWafRule = Prelude.Nothing,
+      awsBackupRecoveryPoint = Prelude.Nothing,
       awsRdsDbSnapshot = Prelude.Nothing,
       awsElasticBeanstalkEnvironment = Prelude.Nothing,
+      awsEcsTask = Prelude.Nothing,
       awsXrayEncryptionConfig = Prelude.Nothing,
       awsLambdaLayerVersion = Prelude.Nothing,
       awsKmsKey = Prelude.Nothing,
       awsSecretsManagerSecret = Prelude.Nothing,
       awsCloudFrontDistribution = Prelude.Nothing
     }
+
+-- | Details about an Network Firewall rule group.
+resourceDetails_awsNetworkFirewallRuleGroup :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsNetworkFirewallRuleGroupDetails)
+resourceDetails_awsNetworkFirewallRuleGroup = Lens.lens (\ResourceDetails' {awsNetworkFirewallRuleGroup} -> awsNetworkFirewallRuleGroup) (\s@ResourceDetails' {} a -> s {awsNetworkFirewallRuleGroup = a} :: ResourceDetails)
 
 -- | Details about an EC2 instance related to a finding.
 resourceDetails_awsEc2Instance :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2InstanceDetails)
@@ -456,6 +601,12 @@ resourceDetails_awsSqsQueue = Lens.lens (\ResourceDetails' {awsSqsQueue} -> awsS
 resourceDetails_awsElbv2LoadBalancer :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsElbv2LoadBalancerDetails)
 resourceDetails_awsElbv2LoadBalancer = Lens.lens (\ResourceDetails' {awsElbv2LoadBalancer} -> awsElbv2LoadBalancer) (\s@ResourceDetails' {} a -> s {awsElbv2LoadBalancer = a} :: ResourceDetails)
 
+-- | Details about an Amazon CloudWatch alarm. An alarm allows you to monitor
+-- and receive alerts about your Amazon Web Services resources and
+-- applications across multiple Regions.
+resourceDetails_awsCloudWatchAlarm :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsCloudWatchAlarmDetails)
+resourceDetails_awsCloudWatchAlarm = Lens.lens (\ResourceDetails' {awsCloudWatchAlarm} -> awsCloudWatchAlarm) (\s@ResourceDetails' {} a -> s {awsCloudWatchAlarm = a} :: ResourceDetails)
+
 -- | Details about an IAM permissions policy.
 resourceDetails_awsIamPolicy :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsIamPolicyDetails)
 resourceDetails_awsIamPolicy = Lens.lens (\ResourceDetails' {awsIamPolicy} -> awsIamPolicy) (\s@ResourceDetails' {} a -> s {awsIamPolicy = a} :: ResourceDetails)
@@ -472,11 +623,20 @@ resourceDetails_awsEksCluster = Lens.lens (\ResourceDetails' {awsEksCluster} -> 
 resourceDetails_awsWafRateBasedRule :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafRateBasedRuleDetails)
 resourceDetails_awsWafRateBasedRule = Lens.lens (\ResourceDetails' {awsWafRateBasedRule} -> awsWafRateBasedRule) (\s@ResourceDetails' {} a -> s {awsWafRateBasedRule = a} :: ResourceDetails)
 
+-- | Provides information about a Docker container that\'s part of a task.
+resourceDetails_awsEcsContainer :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEcsContainerDetails)
+resourceDetails_awsEcsContainer = Lens.lens (\ResourceDetails' {awsEcsContainer} -> awsEcsContainer) (\s@ResourceDetails' {} a -> s {awsEcsContainer = a} :: ResourceDetails)
+
 -- | Details about an RDS event notification subscription.
 resourceDetails_awsRdsEventSubscription :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsRdsEventSubscriptionDetails)
 resourceDetails_awsRdsEventSubscription = Lens.lens (\ResourceDetails' {awsRdsEventSubscription} -> awsRdsEventSubscription) (\s@ResourceDetails' {} a -> s {awsRdsEventSubscription = a} :: ResourceDetails)
 
--- | Details for an WAF WebACL.
+-- | Details about an CloudFormation stack. A stack is a collection of Amazon
+-- Web Services resources that you can manage as a single unit.
+resourceDetails_awsCloudFormationStack :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsCloudFormationStackDetails)
+resourceDetails_awsCloudFormationStack = Lens.lens (\ResourceDetails' {awsCloudFormationStack} -> awsCloudFormationStack) (\s@ResourceDetails' {} a -> s {awsCloudFormationStack = a} :: ResourceDetails)
+
+-- | Details for an WAF web ACL.
 resourceDetails_awsWafWebAcl :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafWebAclDetails)
 resourceDetails_awsWafWebAcl = Lens.lens (\ResourceDetails' {awsWafWebAcl} -> awsWafWebAcl) (\s@ResourceDetails' {} a -> s {awsWafWebAcl = a} :: ResourceDetails)
 
@@ -506,7 +666,7 @@ resourceDetails_awsOpenSearchServiceDomain = Lens.lens (\ResourceDetails' {awsOp
 resourceDetails_awsDynamoDbTable :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsDynamoDbTableDetails)
 resourceDetails_awsDynamoDbTable = Lens.lens (\ResourceDetails' {awsDynamoDbTable} -> awsDynamoDbTable) (\s@ResourceDetails' {} a -> s {awsDynamoDbTable = a} :: ResourceDetails)
 
--- | Details for an EC2 volume.
+-- | Details for an Amazon EC2 volume.
 resourceDetails_awsEc2Volume :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2VolumeDetails)
 resourceDetails_awsEc2Volume = Lens.lens (\ResourceDetails' {awsEc2Volume} -> awsEc2Volume) (\s@ResourceDetails' {} a -> s {awsEc2Volume = a} :: ResourceDetails)
 
@@ -514,7 +674,7 @@ resourceDetails_awsEc2Volume = Lens.lens (\ResourceDetails' {awsEc2Volume} -> aw
 resourceDetails_awsCertificateManagerCertificate :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsCertificateManagerCertificateDetails)
 resourceDetails_awsCertificateManagerCertificate = Lens.lens (\ResourceDetails' {awsCertificateManagerCertificate} -> awsCertificateManagerCertificate) (\s@ResourceDetails' {} a -> s {awsCertificateManagerCertificate = a} :: ResourceDetails)
 
--- | Details about an EC2 VPN connection.
+-- | Details about an Amazon EC2 VPN connection.
 resourceDetails_awsEc2VpnConnection :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2VpnConnectionDetails)
 resourceDetails_awsEc2VpnConnection = Lens.lens (\ResourceDetails' {awsEc2VpnConnection} -> awsEc2VpnConnection) (\s@ResourceDetails' {} a -> s {awsEc2VpnConnection = a} :: ResourceDetails)
 
@@ -529,6 +689,10 @@ resourceDetails_awsIamGroup = Lens.lens (\ResourceDetails' {awsIamGroup} -> awsI
 -- | Details about an IAM user.
 resourceDetails_awsIamUser :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsIamUserDetails)
 resourceDetails_awsIamUser = Lens.lens (\ResourceDetails' {awsIamUser} -> awsIamUser) (\s@ResourceDetails' {} a -> s {awsIamUser = a} :: ResourceDetails)
+
+-- | Provides details about an Backup backup vault.
+resourceDetails_awsBackupBackupVault :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsBackupBackupVaultDetails)
+resourceDetails_awsBackupBackupVault = Lens.lens (\ResourceDetails' {awsBackupBackupVault} -> awsBackupBackupVault) (\s@ResourceDetails' {} a -> s {awsBackupBackupVault = a} :: ResourceDetails)
 
 -- | Provides information about a version 2 API in Amazon API Gateway.
 resourceDetails_awsApiGatewayV2Api :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsApiGatewayV2ApiDetails)
@@ -547,6 +711,13 @@ resourceDetails_awsAutoScalingAutoScalingGroup = Lens.lens (\ResourceDetails' {a
 -- | Details about an EC2 network access control list (ACL).
 resourceDetails_awsEc2NetworkAcl :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2NetworkAclDetails)
 resourceDetails_awsEc2NetworkAcl = Lens.lens (\ResourceDetails' {awsEc2NetworkAcl} -> awsEc2NetworkAcl) (\s@ResourceDetails' {} a -> s {awsEc2NetworkAcl = a} :: ResourceDetails)
+
+-- | Details about an Amazon EFS access point. An access point is an
+-- application-specific view into an EFS file system that applies an
+-- operating system user and group, and a file system path, to any file
+-- system request made through the access point.
+resourceDetails_awsEfsAccessPoint :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEfsAccessPointDetails)
+resourceDetails_awsEfsAccessPoint = Lens.lens (\ResourceDetails' {awsEfsAccessPoint} -> awsEfsAccessPoint) (\s@ResourceDetails' {} a -> s {awsEfsAccessPoint = a} :: ResourceDetails)
 
 -- | Details about the service configuration for a VPC endpoint service.
 resourceDetails_awsEc2VpcEndpointService :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2VpcEndpointServiceDetails)
@@ -580,7 +751,11 @@ resourceDetails_awsIamAccessKey = Lens.lens (\ResourceDetails' {awsIamAccessKey}
 resourceDetails_awsRedshiftCluster :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsRedshiftClusterDetails)
 resourceDetails_awsRedshiftCluster = Lens.lens (\ResourceDetails' {awsRedshiftCluster} -> awsRedshiftCluster) (\s@ResourceDetails' {} a -> s {awsRedshiftCluster = a} :: ResourceDetails)
 
--- | Details for an EC2 VPC.
+-- | Details about an Network Firewall firewall policy.
+resourceDetails_awsNetworkFirewallFirewallPolicy :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsNetworkFirewallFirewallPolicyDetails)
+resourceDetails_awsNetworkFirewallFirewallPolicy = Lens.lens (\ResourceDetails' {awsNetworkFirewallFirewallPolicy} -> awsNetworkFirewallFirewallPolicy) (\s@ResourceDetails' {} a -> s {awsNetworkFirewallFirewallPolicy = a} :: ResourceDetails)
+
+-- | Details for an Amazon EC2 VPC.
 resourceDetails_awsEc2Vpc :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2VpcDetails)
 resourceDetails_awsEc2Vpc = Lens.lens (\ResourceDetails' {awsEc2Vpc} -> awsEc2Vpc) (\s@ResourceDetails' {} a -> s {awsEc2Vpc = a} :: ResourceDetails)
 
@@ -588,9 +763,17 @@ resourceDetails_awsEc2Vpc = Lens.lens (\ResourceDetails' {awsEc2Vpc} -> awsEc2Vp
 resourceDetails_awsEcrRepository :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEcrRepositoryDetails)
 resourceDetails_awsEcrRepository = Lens.lens (\ResourceDetails' {awsEcrRepository} -> awsEcrRepository) (\s@ResourceDetails' {} a -> s {awsEcrRepository = a} :: ResourceDetails)
 
+-- | Details about an WAF rule group for Regional resources.
+resourceDetails_awsWafRegionalRuleGroup :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafRegionalRuleGroupDetails)
+resourceDetails_awsWafRegionalRuleGroup = Lens.lens (\ResourceDetails' {awsWafRegionalRuleGroup} -> awsWafRegionalRuleGroup) (\s@ResourceDetails' {} a -> s {awsWafRegionalRuleGroup = a} :: ResourceDetails)
+
 -- | Details about a rate-based rule for Regional resources.
 resourceDetails_awsWafRegionalRateBasedRule :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafRegionalRateBasedRuleDetails)
 resourceDetails_awsWafRegionalRateBasedRule = Lens.lens (\ResourceDetails' {awsWafRegionalRateBasedRule} -> awsWafRegionalRateBasedRule) (\s@ResourceDetails' {} a -> s {awsWafRegionalRateBasedRule = a} :: ResourceDetails)
+
+-- | Details about an WAF rule for Regional resources.
+resourceDetails_awsWafRegionalRule :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafRegionalRuleDetails)
+resourceDetails_awsWafRegionalRule = Lens.lens (\ResourceDetails' {awsWafRegionalRule} -> awsWafRegionalRule) (\s@ResourceDetails' {} a -> s {awsWafRegionalRule = a} :: ResourceDetails)
 
 -- | Provides information about a version 2 stage for Amazon API Gateway.
 resourceDetails_awsApiGatewayV2Stage :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsApiGatewayV2StageDetails)
@@ -604,13 +787,41 @@ resourceDetails_awsRdsDbCluster = Lens.lens (\ResourceDetails' {awsRdsDbCluster}
 resourceDetails_awsS3Object :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsS3ObjectDetails)
 resourceDetails_awsS3Object = Lens.lens (\ResourceDetails' {awsS3Object} -> awsS3Object) (\s@ResourceDetails' {} a -> s {awsS3Object = a} :: ResourceDetails)
 
+-- | Details about an Network Firewall firewall.
+resourceDetails_awsNetworkFirewallFirewall :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsNetworkFirewallFirewallDetails)
+resourceDetails_awsNetworkFirewallFirewall = Lens.lens (\ResourceDetails' {awsNetworkFirewallFirewall} -> awsNetworkFirewallFirewall) (\s@ResourceDetails' {} a -> s {awsNetworkFirewallFirewall = a} :: ResourceDetails)
+
+-- | Details about an WAF rule group for global resources.
+resourceDetails_awsWafRuleGroup :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafRuleGroupDetails)
+resourceDetails_awsWafRuleGroup = Lens.lens (\ResourceDetails' {awsWafRuleGroup} -> awsWafRuleGroup) (\s@ResourceDetails' {} a -> s {awsWafRuleGroup = a} :: ResourceDetails)
+
+-- | Details about an Amazon EC2 VPC peering connection. A VPC peering
+-- connection is a networking connection between two VPCs that enables you
+-- to route traffic between them privately.
+resourceDetails_awsEc2VpcPeeringConnection :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2VpcPeeringConnectionDetails)
+resourceDetails_awsEc2VpcPeeringConnection = Lens.lens (\ResourceDetails' {awsEc2VpcPeeringConnection} -> awsEc2VpcPeeringConnection) (\s@ResourceDetails' {} a -> s {awsEc2VpcPeeringConnection = a} :: ResourceDetails)
+
+-- | Details about an Amazon EC2 transit gateway that interconnects your
+-- virtual private clouds (VPC) and on-premises networks.
+resourceDetails_awsEc2TransitGateway :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2TransitGatewayDetails)
+resourceDetails_awsEc2TransitGateway = Lens.lens (\ResourceDetails' {awsEc2TransitGateway} -> awsEc2TransitGateway) (\s@ResourceDetails' {} a -> s {awsEc2TransitGateway = a} :: ResourceDetails)
+
 -- | Details about an S3 bucket related to a finding.
 resourceDetails_awsS3Bucket :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsS3BucketDetails)
 resourceDetails_awsS3Bucket = Lens.lens (\ResourceDetails' {awsS3Bucket} -> awsS3Bucket) (\s@ResourceDetails' {} a -> s {awsS3Bucket = a} :: ResourceDetails)
 
+-- | Details about an WAF web access control list (web ACL) for Regional
+-- resources.
+resourceDetails_awsWafRegionalWebAcl :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafRegionalWebAclDetails)
+resourceDetails_awsWafRegionalWebAcl = Lens.lens (\ResourceDetails' {awsWafRegionalWebAcl} -> awsWafRegionalWebAcl) (\s@ResourceDetails' {} a -> s {awsWafRegionalWebAcl = a} :: ResourceDetails)
+
 -- | Details about an Elastic IP address.
 resourceDetails_awsEc2Eip :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2EipDetails)
 resourceDetails_awsEc2Eip = Lens.lens (\ResourceDetails' {awsEc2Eip} -> awsEc2Eip) (\s@ResourceDetails' {} a -> s {awsEc2Eip = a} :: ResourceDetails)
+
+-- | Provides details about an Backup backup plan.
+resourceDetails_awsBackupBackupPlan :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsBackupBackupPlanDetails)
+resourceDetails_awsBackupBackupPlan = Lens.lens (\ResourceDetails' {awsBackupBackupPlan} -> awsBackupBackupPlan) (\s@ResourceDetails' {} a -> s {awsBackupBackupPlan = a} :: ResourceDetails)
 
 -- | Details about a Lambda function.
 resourceDetails_awsLambdaFunction :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsLambdaFunctionDetails)
@@ -644,11 +855,19 @@ resourceDetails_awsApiGatewayStage = Lens.lens (\ResourceDetails' {awsApiGateway
 resourceDetails_awsSnsTopic :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsSnsTopicDetails)
 resourceDetails_awsSnsTopic = Lens.lens (\ResourceDetails' {awsSnsTopic} -> awsSnsTopic) (\s@ResourceDetails' {} a -> s {awsSnsTopic = a} :: ResourceDetails)
 
+-- | Details about an Amazon RDS DB security group.
+resourceDetails_awsRdsDbSecurityGroup :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsRdsDbSecurityGroupDetails)
+resourceDetails_awsRdsDbSecurityGroup = Lens.lens (\ResourceDetails' {awsRdsDbSecurityGroup} -> awsRdsDbSecurityGroup) (\s@ResourceDetails' {} a -> s {awsRdsDbSecurityGroup = a} :: ResourceDetails)
+
+-- | Details about an Amazon Kinesis data stream.
+resourceDetails_awsKinesisStream :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsKinesisStreamDetails)
+resourceDetails_awsKinesisStream = Lens.lens (\ResourceDetails' {awsKinesisStream} -> awsKinesisStream) (\s@ResourceDetails' {} a -> s {awsKinesisStream = a} :: ResourceDetails)
+
 -- | Details for an EC2 security group.
 resourceDetails_awsEc2SecurityGroup :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEc2SecurityGroupDetails)
 resourceDetails_awsEc2SecurityGroup = Lens.lens (\ResourceDetails' {awsEc2SecurityGroup} -> awsEc2SecurityGroup) (\s@ResourceDetails' {} a -> s {awsEc2SecurityGroup = a} :: ResourceDetails)
 
--- | Details about an ECS cluster.
+-- | Details about an Amazon ECS cluster.
 resourceDetails_awsEcsCluster :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEcsClusterDetails)
 resourceDetails_awsEcsCluster = Lens.lens (\ResourceDetails' {awsEcsCluster} -> awsEcsCluster) (\s@ResourceDetails' {} a -> s {awsEcsCluster = a} :: ResourceDetails)
 
@@ -657,6 +876,14 @@ resourceDetails_awsEcsCluster = Lens.lens (\ResourceDetails' {awsEcsCluster} -> 
 resourceDetails_awsApiGatewayRestApi :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsApiGatewayRestApiDetails)
 resourceDetails_awsApiGatewayRestApi = Lens.lens (\ResourceDetails' {awsApiGatewayRestApi} -> awsApiGatewayRestApi) (\s@ResourceDetails' {} a -> s {awsApiGatewayRestApi = a} :: ResourceDetails)
 
+-- | Details about an WAF rule for global resources.
+resourceDetails_awsWafRule :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsWafRuleDetails)
+resourceDetails_awsWafRule = Lens.lens (\ResourceDetails' {awsWafRule} -> awsWafRule) (\s@ResourceDetails' {} a -> s {awsWafRule = a} :: ResourceDetails)
+
+-- | Provides details about an Backup backup, or recovery point.
+resourceDetails_awsBackupRecoveryPoint :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsBackupRecoveryPointDetails)
+resourceDetails_awsBackupRecoveryPoint = Lens.lens (\ResourceDetails' {awsBackupRecoveryPoint} -> awsBackupRecoveryPoint) (\s@ResourceDetails' {} a -> s {awsBackupRecoveryPoint = a} :: ResourceDetails)
+
 -- | Details about an Amazon RDS database snapshot.
 resourceDetails_awsRdsDbSnapshot :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsRdsDbSnapshotDetails)
 resourceDetails_awsRdsDbSnapshot = Lens.lens (\ResourceDetails' {awsRdsDbSnapshot} -> awsRdsDbSnapshot) (\s@ResourceDetails' {} a -> s {awsRdsDbSnapshot = a} :: ResourceDetails)
@@ -664,6 +891,10 @@ resourceDetails_awsRdsDbSnapshot = Lens.lens (\ResourceDetails' {awsRdsDbSnapsho
 -- | Details about an Elastic Beanstalk environment.
 resourceDetails_awsElasticBeanstalkEnvironment :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsElasticBeanstalkEnvironmentDetails)
 resourceDetails_awsElasticBeanstalkEnvironment = Lens.lens (\ResourceDetails' {awsElasticBeanstalkEnvironment} -> awsElasticBeanstalkEnvironment) (\s@ResourceDetails' {} a -> s {awsElasticBeanstalkEnvironment = a} :: ResourceDetails)
+
+-- | Details about a task in a cluster.
+resourceDetails_awsEcsTask :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsEcsTaskDetails)
+resourceDetails_awsEcsTask = Lens.lens (\ResourceDetails' {awsEcsTask} -> awsEcsTask) (\s@ResourceDetails' {} a -> s {awsEcsTask = a} :: ResourceDetails)
 
 -- | Information about the encryption configuration for X-Ray.
 resourceDetails_awsXrayEncryptionConfig :: Lens.Lens' ResourceDetails (Prelude.Maybe AwsXrayEncryptionConfigDetails)
@@ -691,16 +922,20 @@ instance Core.FromJSON ResourceDetails where
       "ResourceDetails"
       ( \x ->
           ResourceDetails'
-            Prelude.<$> (x Core..:? "AwsEc2Instance")
+            Prelude.<$> (x Core..:? "AwsNetworkFirewallRuleGroup")
+            Prelude.<*> (x Core..:? "AwsEc2Instance")
             Prelude.<*> (x Core..:? "AwsIamRole")
             Prelude.<*> (x Core..:? "AwsS3AccountPublicAccessBlock")
             Prelude.<*> (x Core..:? "AwsSqsQueue")
             Prelude.<*> (x Core..:? "AwsElbv2LoadBalancer")
+            Prelude.<*> (x Core..:? "AwsCloudWatchAlarm")
             Prelude.<*> (x Core..:? "AwsIamPolicy")
             Prelude.<*> (x Core..:? "AwsEc2NetworkInterface")
             Prelude.<*> (x Core..:? "AwsEksCluster")
             Prelude.<*> (x Core..:? "AwsWafRateBasedRule")
+            Prelude.<*> (x Core..:? "AwsEcsContainer")
             Prelude.<*> (x Core..:? "AwsRdsEventSubscription")
+            Prelude.<*> (x Core..:? "AwsCloudFormationStack")
             Prelude.<*> (x Core..:? "AwsWafWebAcl")
             Prelude.<*> (x Core..:? "Other" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AwsSsmPatchCompliance")
@@ -712,10 +947,12 @@ instance Core.FromJSON ResourceDetails where
             Prelude.<*> (x Core..:? "AwsEc2Subnet")
             Prelude.<*> (x Core..:? "AwsIamGroup")
             Prelude.<*> (x Core..:? "AwsIamUser")
+            Prelude.<*> (x Core..:? "AwsBackupBackupVault")
             Prelude.<*> (x Core..:? "AwsApiGatewayV2Api")
             Prelude.<*> (x Core..:? "AwsEcsTaskDefinition")
             Prelude.<*> (x Core..:? "AwsAutoScalingAutoScalingGroup")
             Prelude.<*> (x Core..:? "AwsEc2NetworkAcl")
+            Prelude.<*> (x Core..:? "AwsEfsAccessPoint")
             Prelude.<*> (x Core..:? "AwsEc2VpcEndpointService")
             Prelude.<*> (x Core..:? "AwsCodeBuildProject")
             Prelude.<*> (x Core..:? "AwsRdsDbInstance")
@@ -724,14 +961,23 @@ instance Core.FromJSON ResourceDetails where
             Prelude.<*> (x Core..:? "AwsAutoScalingLaunchConfiguration")
             Prelude.<*> (x Core..:? "AwsIamAccessKey")
             Prelude.<*> (x Core..:? "AwsRedshiftCluster")
+            Prelude.<*> (x Core..:? "AwsNetworkFirewallFirewallPolicy")
             Prelude.<*> (x Core..:? "AwsEc2Vpc")
             Prelude.<*> (x Core..:? "AwsEcrRepository")
+            Prelude.<*> (x Core..:? "AwsWafRegionalRuleGroup")
             Prelude.<*> (x Core..:? "AwsWafRegionalRateBasedRule")
+            Prelude.<*> (x Core..:? "AwsWafRegionalRule")
             Prelude.<*> (x Core..:? "AwsApiGatewayV2Stage")
             Prelude.<*> (x Core..:? "AwsRdsDbCluster")
             Prelude.<*> (x Core..:? "AwsS3Object")
+            Prelude.<*> (x Core..:? "AwsNetworkFirewallFirewall")
+            Prelude.<*> (x Core..:? "AwsWafRuleGroup")
+            Prelude.<*> (x Core..:? "AwsEc2VpcPeeringConnection")
+            Prelude.<*> (x Core..:? "AwsEc2TransitGateway")
             Prelude.<*> (x Core..:? "AwsS3Bucket")
+            Prelude.<*> (x Core..:? "AwsWafRegionalWebAcl")
             Prelude.<*> (x Core..:? "AwsEc2Eip")
+            Prelude.<*> (x Core..:? "AwsBackupBackupPlan")
             Prelude.<*> (x Core..:? "AwsLambdaFunction")
             Prelude.<*> (x Core..:? "Container")
             Prelude.<*> (x Core..:? "AwsRdsDbClusterSnapshot")
@@ -740,11 +986,16 @@ instance Core.FromJSON ResourceDetails where
             Prelude.<*> (x Core..:? "AwsEcsService")
             Prelude.<*> (x Core..:? "AwsApiGatewayStage")
             Prelude.<*> (x Core..:? "AwsSnsTopic")
+            Prelude.<*> (x Core..:? "AwsRdsDbSecurityGroup")
+            Prelude.<*> (x Core..:? "AwsKinesisStream")
             Prelude.<*> (x Core..:? "AwsEc2SecurityGroup")
             Prelude.<*> (x Core..:? "AwsEcsCluster")
             Prelude.<*> (x Core..:? "AwsApiGatewayRestApi")
+            Prelude.<*> (x Core..:? "AwsWafRule")
+            Prelude.<*> (x Core..:? "AwsBackupRecoveryPoint")
             Prelude.<*> (x Core..:? "AwsRdsDbSnapshot")
             Prelude.<*> (x Core..:? "AwsElasticBeanstalkEnvironment")
+            Prelude.<*> (x Core..:? "AwsEcsTask")
             Prelude.<*> (x Core..:? "AwsXrayEncryptionConfig")
             Prelude.<*> (x Core..:? "AwsLambdaLayerVersion")
             Prelude.<*> (x Core..:? "AwsKmsKey")
@@ -754,16 +1005,21 @@ instance Core.FromJSON ResourceDetails where
 
 instance Prelude.Hashable ResourceDetails where
   hashWithSalt _salt ResourceDetails' {..} =
-    _salt `Prelude.hashWithSalt` awsEc2Instance
+    _salt
+      `Prelude.hashWithSalt` awsNetworkFirewallRuleGroup
+      `Prelude.hashWithSalt` awsEc2Instance
       `Prelude.hashWithSalt` awsIamRole
       `Prelude.hashWithSalt` awsS3AccountPublicAccessBlock
       `Prelude.hashWithSalt` awsSqsQueue
       `Prelude.hashWithSalt` awsElbv2LoadBalancer
+      `Prelude.hashWithSalt` awsCloudWatchAlarm
       `Prelude.hashWithSalt` awsIamPolicy
       `Prelude.hashWithSalt` awsEc2NetworkInterface
       `Prelude.hashWithSalt` awsEksCluster
       `Prelude.hashWithSalt` awsWafRateBasedRule
+      `Prelude.hashWithSalt` awsEcsContainer
       `Prelude.hashWithSalt` awsRdsEventSubscription
+      `Prelude.hashWithSalt` awsCloudFormationStack
       `Prelude.hashWithSalt` awsWafWebAcl
       `Prelude.hashWithSalt` other
       `Prelude.hashWithSalt` awsSsmPatchCompliance
@@ -775,10 +1031,12 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsEc2Subnet
       `Prelude.hashWithSalt` awsIamGroup
       `Prelude.hashWithSalt` awsIamUser
+      `Prelude.hashWithSalt` awsBackupBackupVault
       `Prelude.hashWithSalt` awsApiGatewayV2Api
       `Prelude.hashWithSalt` awsEcsTaskDefinition
       `Prelude.hashWithSalt` awsAutoScalingAutoScalingGroup
       `Prelude.hashWithSalt` awsEc2NetworkAcl
+      `Prelude.hashWithSalt` awsEfsAccessPoint
       `Prelude.hashWithSalt` awsEc2VpcEndpointService
       `Prelude.hashWithSalt` awsCodeBuildProject
       `Prelude.hashWithSalt` awsRdsDbInstance
@@ -787,14 +1045,23 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsAutoScalingLaunchConfiguration
       `Prelude.hashWithSalt` awsIamAccessKey
       `Prelude.hashWithSalt` awsRedshiftCluster
+      `Prelude.hashWithSalt` awsNetworkFirewallFirewallPolicy
       `Prelude.hashWithSalt` awsEc2Vpc
       `Prelude.hashWithSalt` awsEcrRepository
+      `Prelude.hashWithSalt` awsWafRegionalRuleGroup
       `Prelude.hashWithSalt` awsWafRegionalRateBasedRule
+      `Prelude.hashWithSalt` awsWafRegionalRule
       `Prelude.hashWithSalt` awsApiGatewayV2Stage
       `Prelude.hashWithSalt` awsRdsDbCluster
       `Prelude.hashWithSalt` awsS3Object
+      `Prelude.hashWithSalt` awsNetworkFirewallFirewall
+      `Prelude.hashWithSalt` awsWafRuleGroup
+      `Prelude.hashWithSalt` awsEc2VpcPeeringConnection
+      `Prelude.hashWithSalt` awsEc2TransitGateway
       `Prelude.hashWithSalt` awsS3Bucket
+      `Prelude.hashWithSalt` awsWafRegionalWebAcl
       `Prelude.hashWithSalt` awsEc2Eip
+      `Prelude.hashWithSalt` awsBackupBackupPlan
       `Prelude.hashWithSalt` awsLambdaFunction
       `Prelude.hashWithSalt` container
       `Prelude.hashWithSalt` awsRdsDbClusterSnapshot
@@ -803,11 +1070,16 @@ instance Prelude.Hashable ResourceDetails where
       `Prelude.hashWithSalt` awsEcsService
       `Prelude.hashWithSalt` awsApiGatewayStage
       `Prelude.hashWithSalt` awsSnsTopic
+      `Prelude.hashWithSalt` awsRdsDbSecurityGroup
+      `Prelude.hashWithSalt` awsKinesisStream
       `Prelude.hashWithSalt` awsEc2SecurityGroup
       `Prelude.hashWithSalt` awsEcsCluster
       `Prelude.hashWithSalt` awsApiGatewayRestApi
+      `Prelude.hashWithSalt` awsWafRule
+      `Prelude.hashWithSalt` awsBackupRecoveryPoint
       `Prelude.hashWithSalt` awsRdsDbSnapshot
       `Prelude.hashWithSalt` awsElasticBeanstalkEnvironment
+      `Prelude.hashWithSalt` awsEcsTask
       `Prelude.hashWithSalt` awsXrayEncryptionConfig
       `Prelude.hashWithSalt` awsLambdaLayerVersion
       `Prelude.hashWithSalt` awsKmsKey
@@ -816,28 +1088,38 @@ instance Prelude.Hashable ResourceDetails where
 
 instance Prelude.NFData ResourceDetails where
   rnf ResourceDetails' {..} =
-    Prelude.rnf awsEc2Instance
+    Prelude.rnf awsNetworkFirewallRuleGroup
+      `Prelude.seq` Prelude.rnf awsEc2Instance
       `Prelude.seq` Prelude.rnf awsIamRole
       `Prelude.seq` Prelude.rnf awsS3AccountPublicAccessBlock
       `Prelude.seq` Prelude.rnf awsSqsQueue
       `Prelude.seq` Prelude.rnf awsElbv2LoadBalancer
+      `Prelude.seq` Prelude.rnf awsCloudWatchAlarm
       `Prelude.seq` Prelude.rnf awsIamPolicy
       `Prelude.seq` Prelude.rnf awsEc2NetworkInterface
       `Prelude.seq` Prelude.rnf awsEksCluster
       `Prelude.seq` Prelude.rnf awsWafRateBasedRule
+      `Prelude.seq` Prelude.rnf awsEcsContainer
       `Prelude.seq` Prelude.rnf awsRdsEventSubscription
+      `Prelude.seq` Prelude.rnf awsCloudFormationStack
       `Prelude.seq` Prelude.rnf awsWafWebAcl
       `Prelude.seq` Prelude.rnf other
       `Prelude.seq` Prelude.rnf awsSsmPatchCompliance
-      `Prelude.seq` Prelude.rnf awsOpenSearchServiceDomain
+      `Prelude.seq` Prelude.rnf
+        awsOpenSearchServiceDomain
       `Prelude.seq` Prelude.rnf awsDynamoDbTable
       `Prelude.seq` Prelude.rnf awsEc2Volume
       `Prelude.seq` Prelude.rnf
         awsCertificateManagerCertificate
-      `Prelude.seq` Prelude.rnf awsEc2VpnConnection
+      `Prelude.seq` Prelude.rnf
+        awsEc2VpnConnection
       `Prelude.seq` Prelude.rnf awsEc2Subnet
-      `Prelude.seq` Prelude.rnf awsIamGroup
-      `Prelude.seq` Prelude.rnf awsIamUser
+      `Prelude.seq` Prelude.rnf
+        awsIamGroup
+      `Prelude.seq` Prelude.rnf
+        awsIamUser
+      `Prelude.seq` Prelude.rnf
+        awsBackupBackupVault
       `Prelude.seq` Prelude.rnf
         awsApiGatewayV2Api
       `Prelude.seq` Prelude.rnf
@@ -846,6 +1128,8 @@ instance Prelude.NFData ResourceDetails where
         awsAutoScalingAutoScalingGroup
       `Prelude.seq` Prelude.rnf
         awsEc2NetworkAcl
+      `Prelude.seq` Prelude.rnf
+        awsEfsAccessPoint
       `Prelude.seq` Prelude.rnf
         awsEc2VpcEndpointService
       `Prelude.seq` Prelude.rnf
@@ -863,11 +1147,17 @@ instance Prelude.NFData ResourceDetails where
       `Prelude.seq` Prelude.rnf
         awsRedshiftCluster
       `Prelude.seq` Prelude.rnf
+        awsNetworkFirewallFirewallPolicy
+      `Prelude.seq` Prelude.rnf
         awsEc2Vpc
       `Prelude.seq` Prelude.rnf
         awsEcrRepository
       `Prelude.seq` Prelude.rnf
+        awsWafRegionalRuleGroup
+      `Prelude.seq` Prelude.rnf
         awsWafRegionalRateBasedRule
+      `Prelude.seq` Prelude.rnf
+        awsWafRegionalRule
       `Prelude.seq` Prelude.rnf
         awsApiGatewayV2Stage
       `Prelude.seq` Prelude.rnf
@@ -875,9 +1165,21 @@ instance Prelude.NFData ResourceDetails where
       `Prelude.seq` Prelude.rnf
         awsS3Object
       `Prelude.seq` Prelude.rnf
+        awsNetworkFirewallFirewall
+      `Prelude.seq` Prelude.rnf
+        awsWafRuleGroup
+      `Prelude.seq` Prelude.rnf
+        awsEc2VpcPeeringConnection
+      `Prelude.seq` Prelude.rnf
+        awsEc2TransitGateway
+      `Prelude.seq` Prelude.rnf
         awsS3Bucket
       `Prelude.seq` Prelude.rnf
+        awsWafRegionalWebAcl
+      `Prelude.seq` Prelude.rnf
         awsEc2Eip
+      `Prelude.seq` Prelude.rnf
+        awsBackupBackupPlan
       `Prelude.seq` Prelude.rnf
         awsLambdaFunction
       `Prelude.seq` Prelude.rnf
@@ -895,15 +1197,25 @@ instance Prelude.NFData ResourceDetails where
       `Prelude.seq` Prelude.rnf
         awsSnsTopic
       `Prelude.seq` Prelude.rnf
+        awsRdsDbSecurityGroup
+      `Prelude.seq` Prelude.rnf
+        awsKinesisStream
+      `Prelude.seq` Prelude.rnf
         awsEc2SecurityGroup
       `Prelude.seq` Prelude.rnf
         awsEcsCluster
       `Prelude.seq` Prelude.rnf
         awsApiGatewayRestApi
       `Prelude.seq` Prelude.rnf
+        awsWafRule
+      `Prelude.seq` Prelude.rnf
+        awsBackupRecoveryPoint
+      `Prelude.seq` Prelude.rnf
         awsRdsDbSnapshot
       `Prelude.seq` Prelude.rnf
         awsElasticBeanstalkEnvironment
+      `Prelude.seq` Prelude.rnf
+        awsEcsTask
       `Prelude.seq` Prelude.rnf
         awsXrayEncryptionConfig
       `Prelude.seq` Prelude.rnf
@@ -919,7 +1231,9 @@ instance Core.ToJSON ResourceDetails where
   toJSON ResourceDetails' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AwsEc2Instance" Core..=)
+          [ ("AwsNetworkFirewallRuleGroup" Core..=)
+              Prelude.<$> awsNetworkFirewallRuleGroup,
+            ("AwsEc2Instance" Core..=)
               Prelude.<$> awsEc2Instance,
             ("AwsIamRole" Core..=) Prelude.<$> awsIamRole,
             ("AwsS3AccountPublicAccessBlock" Core..=)
@@ -927,14 +1241,20 @@ instance Core.ToJSON ResourceDetails where
             ("AwsSqsQueue" Core..=) Prelude.<$> awsSqsQueue,
             ("AwsElbv2LoadBalancer" Core..=)
               Prelude.<$> awsElbv2LoadBalancer,
+            ("AwsCloudWatchAlarm" Core..=)
+              Prelude.<$> awsCloudWatchAlarm,
             ("AwsIamPolicy" Core..=) Prelude.<$> awsIamPolicy,
             ("AwsEc2NetworkInterface" Core..=)
               Prelude.<$> awsEc2NetworkInterface,
             ("AwsEksCluster" Core..=) Prelude.<$> awsEksCluster,
             ("AwsWafRateBasedRule" Core..=)
               Prelude.<$> awsWafRateBasedRule,
+            ("AwsEcsContainer" Core..=)
+              Prelude.<$> awsEcsContainer,
             ("AwsRdsEventSubscription" Core..=)
               Prelude.<$> awsRdsEventSubscription,
+            ("AwsCloudFormationStack" Core..=)
+              Prelude.<$> awsCloudFormationStack,
             ("AwsWafWebAcl" Core..=) Prelude.<$> awsWafWebAcl,
             ("Other" Core..=) Prelude.<$> other,
             ("AwsSsmPatchCompliance" Core..=)
@@ -951,6 +1271,8 @@ instance Core.ToJSON ResourceDetails where
             ("AwsEc2Subnet" Core..=) Prelude.<$> awsEc2Subnet,
             ("AwsIamGroup" Core..=) Prelude.<$> awsIamGroup,
             ("AwsIamUser" Core..=) Prelude.<$> awsIamUser,
+            ("AwsBackupBackupVault" Core..=)
+              Prelude.<$> awsBackupBackupVault,
             ("AwsApiGatewayV2Api" Core..=)
               Prelude.<$> awsApiGatewayV2Api,
             ("AwsEcsTaskDefinition" Core..=)
@@ -959,6 +1281,8 @@ instance Core.ToJSON ResourceDetails where
               Prelude.<$> awsAutoScalingAutoScalingGroup,
             ("AwsEc2NetworkAcl" Core..=)
               Prelude.<$> awsEc2NetworkAcl,
+            ("AwsEfsAccessPoint" Core..=)
+              Prelude.<$> awsEfsAccessPoint,
             ("AwsEc2VpcEndpointService" Core..=)
               Prelude.<$> awsEc2VpcEndpointService,
             ("AwsCodeBuildProject" Core..=)
@@ -975,18 +1299,36 @@ instance Core.ToJSON ResourceDetails where
               Prelude.<$> awsIamAccessKey,
             ("AwsRedshiftCluster" Core..=)
               Prelude.<$> awsRedshiftCluster,
+            ("AwsNetworkFirewallFirewallPolicy" Core..=)
+              Prelude.<$> awsNetworkFirewallFirewallPolicy,
             ("AwsEc2Vpc" Core..=) Prelude.<$> awsEc2Vpc,
             ("AwsEcrRepository" Core..=)
               Prelude.<$> awsEcrRepository,
+            ("AwsWafRegionalRuleGroup" Core..=)
+              Prelude.<$> awsWafRegionalRuleGroup,
             ("AwsWafRegionalRateBasedRule" Core..=)
               Prelude.<$> awsWafRegionalRateBasedRule,
+            ("AwsWafRegionalRule" Core..=)
+              Prelude.<$> awsWafRegionalRule,
             ("AwsApiGatewayV2Stage" Core..=)
               Prelude.<$> awsApiGatewayV2Stage,
             ("AwsRdsDbCluster" Core..=)
               Prelude.<$> awsRdsDbCluster,
             ("AwsS3Object" Core..=) Prelude.<$> awsS3Object,
+            ("AwsNetworkFirewallFirewall" Core..=)
+              Prelude.<$> awsNetworkFirewallFirewall,
+            ("AwsWafRuleGroup" Core..=)
+              Prelude.<$> awsWafRuleGroup,
+            ("AwsEc2VpcPeeringConnection" Core..=)
+              Prelude.<$> awsEc2VpcPeeringConnection,
+            ("AwsEc2TransitGateway" Core..=)
+              Prelude.<$> awsEc2TransitGateway,
             ("AwsS3Bucket" Core..=) Prelude.<$> awsS3Bucket,
+            ("AwsWafRegionalWebAcl" Core..=)
+              Prelude.<$> awsWafRegionalWebAcl,
             ("AwsEc2Eip" Core..=) Prelude.<$> awsEc2Eip,
+            ("AwsBackupBackupPlan" Core..=)
+              Prelude.<$> awsBackupBackupPlan,
             ("AwsLambdaFunction" Core..=)
               Prelude.<$> awsLambdaFunction,
             ("Container" Core..=) Prelude.<$> container,
@@ -1000,15 +1342,23 @@ instance Core.ToJSON ResourceDetails where
             ("AwsApiGatewayStage" Core..=)
               Prelude.<$> awsApiGatewayStage,
             ("AwsSnsTopic" Core..=) Prelude.<$> awsSnsTopic,
+            ("AwsRdsDbSecurityGroup" Core..=)
+              Prelude.<$> awsRdsDbSecurityGroup,
+            ("AwsKinesisStream" Core..=)
+              Prelude.<$> awsKinesisStream,
             ("AwsEc2SecurityGroup" Core..=)
               Prelude.<$> awsEc2SecurityGroup,
             ("AwsEcsCluster" Core..=) Prelude.<$> awsEcsCluster,
             ("AwsApiGatewayRestApi" Core..=)
               Prelude.<$> awsApiGatewayRestApi,
+            ("AwsWafRule" Core..=) Prelude.<$> awsWafRule,
+            ("AwsBackupRecoveryPoint" Core..=)
+              Prelude.<$> awsBackupRecoveryPoint,
             ("AwsRdsDbSnapshot" Core..=)
               Prelude.<$> awsRdsDbSnapshot,
             ("AwsElasticBeanstalkEnvironment" Core..=)
               Prelude.<$> awsElasticBeanstalkEnvironment,
+            ("AwsEcsTask" Core..=) Prelude.<$> awsEcsTask,
             ("AwsXrayEncryptionConfig" Core..=)
               Prelude.<$> awsXrayEncryptionConfig,
             ("AwsLambdaLayerVersion" Core..=)

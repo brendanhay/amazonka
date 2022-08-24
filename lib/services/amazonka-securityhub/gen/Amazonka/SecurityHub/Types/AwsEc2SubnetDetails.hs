@@ -36,7 +36,8 @@ data AwsEc2SubnetDetails = AwsEc2SubnetDetails'
     defaultForAz :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the subnet.
     subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The current state of the subnet.
+    -- | The current state of the subnet. Valid values are @available@ or
+    -- @pending@.
     state :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone for the subnet.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -75,7 +76,8 @@ data AwsEc2SubnetDetails = AwsEc2SubnetDetails'
 --
 -- 'subnetId', 'awsEc2SubnetDetails_subnetId' - The identifier of the subnet.
 --
--- 'state', 'awsEc2SubnetDetails_state' - The current state of the subnet.
+-- 'state', 'awsEc2SubnetDetails_state' - The current state of the subnet. Valid values are @available@ or
+-- @pending@.
 --
 -- 'availabilityZone', 'awsEc2SubnetDetails_availabilityZone' - The Availability Zone for the subnet.
 --
@@ -129,7 +131,8 @@ awsEc2SubnetDetails_defaultForAz = Lens.lens (\AwsEc2SubnetDetails' {defaultForA
 awsEc2SubnetDetails_subnetId :: Lens.Lens' AwsEc2SubnetDetails (Prelude.Maybe Prelude.Text)
 awsEc2SubnetDetails_subnetId = Lens.lens (\AwsEc2SubnetDetails' {subnetId} -> subnetId) (\s@AwsEc2SubnetDetails' {} a -> s {subnetId = a} :: AwsEc2SubnetDetails)
 
--- | The current state of the subnet.
+-- | The current state of the subnet. Valid values are @available@ or
+-- @pending@.
 awsEc2SubnetDetails_state :: Lens.Lens' AwsEc2SubnetDetails (Prelude.Maybe Prelude.Text)
 awsEc2SubnetDetails_state = Lens.lens (\AwsEc2SubnetDetails' {state} -> state) (\s@AwsEc2SubnetDetails' {} a -> s {state = a} :: AwsEc2SubnetDetails)
 

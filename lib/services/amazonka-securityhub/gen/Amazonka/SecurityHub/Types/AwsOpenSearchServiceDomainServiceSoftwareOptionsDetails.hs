@@ -36,7 +36,17 @@ data AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails = AwsOpenSearchServ
     updateAvailable :: Prelude.Maybe Prelude.Bool,
     -- | Whether a request to update the domain can be canceled.
     cancellable :: Prelude.Maybe Prelude.Bool,
-    -- | The status of the service software update.
+    -- | The status of the service software update. Valid values are as follows:
+    --
+    -- -   @COMPLETED@
+    --
+    -- -   @ELIGIBLE@
+    --
+    -- -   @IN_PROGRESS@
+    --
+    -- -   @NOT_ELIGIBLE@
+    --
+    -- -   @PENDING_UPDATE@
     updateStatus :: Prelude.Maybe Prelude.Text,
     -- | The epoch time when the deployment window closes for required updates.
     -- After this time, OpenSearch Service schedules the software upgrade
@@ -66,7 +76,17 @@ data AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails = AwsOpenSearchServ
 --
 -- 'cancellable', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable' - Whether a request to update the domain can be canceled.
 --
--- 'updateStatus', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus' - The status of the service software update.
+-- 'updateStatus', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus' - The status of the service software update. Valid values are as follows:
+--
+-- -   @COMPLETED@
+--
+-- -   @ELIGIBLE@
+--
+-- -   @IN_PROGRESS@
+--
+-- -   @NOT_ELIGIBLE@
+--
+-- -   @PENDING_UPDATE@
 --
 -- 'automatedUpdateDate', 'awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_automatedUpdateDate' - The epoch time when the deployment window closes for required updates.
 -- After this time, OpenSearch Service schedules the software upgrade
@@ -114,7 +134,17 @@ awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateAvailable = Lens.l
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Bool)
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_cancellable = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {cancellable} -> cancellable) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {cancellable = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
 
--- | The status of the service software update.
+-- | The status of the service software update. Valid values are as follows:
+--
+-- -   @COMPLETED@
+--
+-- -   @ELIGIBLE@
+--
+-- -   @IN_PROGRESS@
+--
+-- -   @NOT_ELIGIBLE@
+--
+-- -   @PENDING_UPDATE@
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus :: Lens.Lens' AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails (Prelude.Maybe Prelude.Text)
 awsOpenSearchServiceDomainServiceSoftwareOptionsDetails_updateStatus = Lens.lens (\AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {updateStatus} -> updateStatus) (\s@AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails' {} a -> s {updateStatus = a} :: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails)
 

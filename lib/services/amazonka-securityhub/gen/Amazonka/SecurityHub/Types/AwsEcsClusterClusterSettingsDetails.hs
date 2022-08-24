@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsEcsClusterClusterSettingsDetails' smart constructor.
 data AwsEcsClusterClusterSettingsDetails = AwsEcsClusterClusterSettingsDetails'
-  { -- | The name of the setting.
+  { -- | The name of the setting. The valid value is @containerInsights@.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The value of the setting.
+    -- | The value of the setting. Valid values are @disabled@ or @enabled@.
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +43,9 @@ data AwsEcsClusterClusterSettingsDetails = AwsEcsClusterClusterSettingsDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsEcsClusterClusterSettingsDetails_name' - The name of the setting.
+-- 'name', 'awsEcsClusterClusterSettingsDetails_name' - The name of the setting. The valid value is @containerInsights@.
 --
--- 'value', 'awsEcsClusterClusterSettingsDetails_value' - The value of the setting.
+-- 'value', 'awsEcsClusterClusterSettingsDetails_value' - The value of the setting. Valid values are @disabled@ or @enabled@.
 newAwsEcsClusterClusterSettingsDetails ::
   AwsEcsClusterClusterSettingsDetails
 newAwsEcsClusterClusterSettingsDetails =
@@ -55,11 +55,11 @@ newAwsEcsClusterClusterSettingsDetails =
       value = Prelude.Nothing
     }
 
--- | The name of the setting.
+-- | The name of the setting. The valid value is @containerInsights@.
 awsEcsClusterClusterSettingsDetails_name :: Lens.Lens' AwsEcsClusterClusterSettingsDetails (Prelude.Maybe Prelude.Text)
 awsEcsClusterClusterSettingsDetails_name = Lens.lens (\AwsEcsClusterClusterSettingsDetails' {name} -> name) (\s@AwsEcsClusterClusterSettingsDetails' {} a -> s {name = a} :: AwsEcsClusterClusterSettingsDetails)
 
--- | The value of the setting.
+-- | The value of the setting. Valid values are @disabled@ or @enabled@.
 awsEcsClusterClusterSettingsDetails_value :: Lens.Lens' AwsEcsClusterClusterSettingsDetails (Prelude.Maybe Prelude.Text)
 awsEcsClusterClusterSettingsDetails_value = Lens.lens (\AwsEcsClusterClusterSettingsDetails' {value} -> value) (\s@AwsEcsClusterClusterSettingsDetails' {} a -> s {value = a} :: AwsEcsClusterClusterSettingsDetails)
 

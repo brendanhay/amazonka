@@ -32,6 +32,16 @@ data AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails = AwsEc
     -- | The maximum size (in MiB) of the tmpfs volume.
     size :: Prelude.Maybe Prelude.Int,
     -- | The list of tmpfs volume mount options.
+    --
+    -- Valid values: @\"defaults\"@ | @\"ro\"@ | @\"rw\"@ | @\"suid\"@ |
+    -- @\"nosuid\"@ | @\"dev\"@ | @\"nodev\"@ |@ \"exec\"@ | @\"noexec\"@ |
+    -- @\"sync\"@ | @\"async\"@ | @\"dirsync\"@ | @\"remount\"@ | @\"mand\"@ |
+    -- @\"nomand\"@ | @\"atime\"@ | @\"noatime\"@ | @\"diratime\"@ |
+    -- @\"nodiratime\"@ | @\"bind\"@ | @\"rbind\"@ | @\"unbindable\"@ |
+    -- @\"runbindable\"@ | @\"private\"@ | @\"rprivate\"@ | @\"shared\"@ |
+    -- @\"rshared\"@ | @\"slave\"@ | @\"rslave\"@ | @\"relatime\"@ |
+    -- @\"norelatime\"@ | @\"strictatime\"@ | @\"nostrictatime\"@ |@ \"mode\"@
+    -- | @\"uid\"@ | @\"gid\"@ | @\"nr_inodes\"@ |@ \"nr_blocks\"@ | @\"mpol\"@
     mountOptions :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,6 +59,16 @@ data AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails = AwsEc
 -- 'size', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size' - The maximum size (in MiB) of the tmpfs volume.
 --
 -- 'mountOptions', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_mountOptions' - The list of tmpfs volume mount options.
+--
+-- Valid values: @\"defaults\"@ | @\"ro\"@ | @\"rw\"@ | @\"suid\"@ |
+-- @\"nosuid\"@ | @\"dev\"@ | @\"nodev\"@ |@ \"exec\"@ | @\"noexec\"@ |
+-- @\"sync\"@ | @\"async\"@ | @\"dirsync\"@ | @\"remount\"@ | @\"mand\"@ |
+-- @\"nomand\"@ | @\"atime\"@ | @\"noatime\"@ | @\"diratime\"@ |
+-- @\"nodiratime\"@ | @\"bind\"@ | @\"rbind\"@ | @\"unbindable\"@ |
+-- @\"runbindable\"@ | @\"private\"@ | @\"rprivate\"@ | @\"shared\"@ |
+-- @\"rshared\"@ | @\"slave\"@ | @\"rslave\"@ | @\"relatime\"@ |
+-- @\"norelatime\"@ | @\"strictatime\"@ | @\"nostrictatime\"@ |@ \"mode\"@
+-- | @\"uid\"@ | @\"gid\"@ | @\"nr_inodes\"@ |@ \"nr_blocks\"@ | @\"mpol\"@
 newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails ::
   AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails
 newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails =
@@ -70,6 +90,16 @@ awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size :: Lens
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_size = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {size} -> size) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {} a -> s {size = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails)
 
 -- | The list of tmpfs volume mount options.
+--
+-- Valid values: @\"defaults\"@ | @\"ro\"@ | @\"rw\"@ | @\"suid\"@ |
+-- @\"nosuid\"@ | @\"dev\"@ | @\"nodev\"@ |@ \"exec\"@ | @\"noexec\"@ |
+-- @\"sync\"@ | @\"async\"@ | @\"dirsync\"@ | @\"remount\"@ | @\"mand\"@ |
+-- @\"nomand\"@ | @\"atime\"@ | @\"noatime\"@ | @\"diratime\"@ |
+-- @\"nodiratime\"@ | @\"bind\"@ | @\"rbind\"@ | @\"unbindable\"@ |
+-- @\"runbindable\"@ | @\"private\"@ | @\"rprivate\"@ | @\"shared\"@ |
+-- @\"rshared\"@ | @\"slave\"@ | @\"rslave\"@ | @\"relatime\"@ |
+-- @\"norelatime\"@ | @\"strictatime\"@ | @\"nostrictatime\"@ |@ \"mode\"@
+-- | @\"uid\"@ | @\"gid\"@ | @\"nr_inodes\"@ |@ \"nr_blocks\"@ | @\"mpol\"@
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_mountOptions :: Lens.Lens' AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails (Prelude.Maybe [Prelude.Text])
 awsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails_mountOptions = Lens.lens (\AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {mountOptions} -> mountOptions) (\s@AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails' {} a -> s {mountOptions = a} :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails) Prelude.. Lens.mapping Lens.coerced
 

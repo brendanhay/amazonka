@@ -27,9 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAwsElasticBeanstalkEnvironmentTier' smart constructor.
 data AwsElasticBeanstalkEnvironmentTier = AwsElasticBeanstalkEnvironmentTier'
-  { -- | The name of the environment tier.
+  { -- | The name of the environment tier. Valid values are @WebServer@ or
+    -- @Worker@.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The type of environment tier.
+    -- | The type of environment tier. Valid values are @Standard@ or
+    -- @SQS\/HTTP@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The version of the environment tier.
     version :: Prelude.Maybe Prelude.Text
@@ -44,9 +46,11 @@ data AwsElasticBeanstalkEnvironmentTier = AwsElasticBeanstalkEnvironmentTier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'awsElasticBeanstalkEnvironmentTier_name' - The name of the environment tier.
+-- 'name', 'awsElasticBeanstalkEnvironmentTier_name' - The name of the environment tier. Valid values are @WebServer@ or
+-- @Worker@.
 --
--- 'type'', 'awsElasticBeanstalkEnvironmentTier_type' - The type of environment tier.
+-- 'type'', 'awsElasticBeanstalkEnvironmentTier_type' - The type of environment tier. Valid values are @Standard@ or
+-- @SQS\/HTTP@.
 --
 -- 'version', 'awsElasticBeanstalkEnvironmentTier_version' - The version of the environment tier.
 newAwsElasticBeanstalkEnvironmentTier ::
@@ -59,11 +63,13 @@ newAwsElasticBeanstalkEnvironmentTier =
       version = Prelude.Nothing
     }
 
--- | The name of the environment tier.
+-- | The name of the environment tier. Valid values are @WebServer@ or
+-- @Worker@.
 awsElasticBeanstalkEnvironmentTier_name :: Lens.Lens' AwsElasticBeanstalkEnvironmentTier (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentTier_name = Lens.lens (\AwsElasticBeanstalkEnvironmentTier' {name} -> name) (\s@AwsElasticBeanstalkEnvironmentTier' {} a -> s {name = a} :: AwsElasticBeanstalkEnvironmentTier)
 
--- | The type of environment tier.
+-- | The type of environment tier. Valid values are @Standard@ or
+-- @SQS\/HTTP@.
 awsElasticBeanstalkEnvironmentTier_type :: Lens.Lens' AwsElasticBeanstalkEnvironmentTier (Prelude.Maybe Prelude.Text)
 awsElasticBeanstalkEnvironmentTier_type = Lens.lens (\AwsElasticBeanstalkEnvironmentTier' {type'} -> type') (\s@AwsElasticBeanstalkEnvironmentTier' {} a -> s {type' = a} :: AwsElasticBeanstalkEnvironmentTier)
 

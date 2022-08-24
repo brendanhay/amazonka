@@ -29,8 +29,12 @@ import Amazonka.SecurityHub.Types.AwsElasticsearchDomainElasticsearchClusterConf
 -- /See:/ 'newAwsElasticsearchDomainElasticsearchClusterConfigDetails' smart constructor.
 data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchDomainElasticsearchClusterConfigDetails'
   { -- | The hardware configuration of the computer that hosts the dedicated
-    -- master node. For example, @m3.medium.elasticsearch@. If this attribute
-    -- is specified, then @DedicatedMasterEnabled@ must be @true@.
+    -- master node. A sample value is @m3.medium.elasticsearch@. If this
+    -- attribute is specified, then @DedicatedMasterEnabled@ must be @true@.
+    --
+    -- For a list of valid values, see
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+    -- in the /Amazon OpenSearch Service Developer Guide/.
     dedicatedMasterType :: Prelude.Maybe Prelude.Text,
     -- | Whether to enable zone awareness for the Elasticsearch domain. When zone
     -- awareness is enabled, OpenSearch allocates the cluster\'s nodes and
@@ -44,6 +48,10 @@ data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchD
     dedicatedMasterEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The instance type for your data nodes. For example,
     -- @m3.medium.elasticsearch@.
+    --
+    -- For a list of valid values, see
+    -- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+    -- in the /Amazon OpenSearch Service Developer Guide/.
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | Configuration options for zone awareness. Provided if
     -- @ZoneAwarenessEnabled@ is @true@.
@@ -65,8 +73,12 @@ data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchD
 -- for backwards compatibility:
 --
 -- 'dedicatedMasterType', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterType' - The hardware configuration of the computer that hosts the dedicated
--- master node. For example, @m3.medium.elasticsearch@. If this attribute
--- is specified, then @DedicatedMasterEnabled@ must be @true@.
+-- master node. A sample value is @m3.medium.elasticsearch@. If this
+-- attribute is specified, then @DedicatedMasterEnabled@ must be @true@.
+--
+-- For a list of valid values, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+-- in the /Amazon OpenSearch Service Developer Guide/.
 --
 -- 'zoneAwarenessEnabled', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessEnabled' - Whether to enable zone awareness for the Elasticsearch domain. When zone
 -- awareness is enabled, OpenSearch allocates the cluster\'s nodes and
@@ -80,6 +92,10 @@ data AwsElasticsearchDomainElasticsearchClusterConfigDetails = AwsElasticsearchD
 --
 -- 'instanceType', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceType' - The instance type for your data nodes. For example,
 -- @m3.medium.elasticsearch@.
+--
+-- For a list of valid values, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+-- in the /Amazon OpenSearch Service Developer Guide/.
 --
 -- 'zoneAwarenessConfig', 'awsElasticsearchDomainElasticsearchClusterConfigDetails_zoneAwarenessConfig' - Configuration options for zone awareness. Provided if
 -- @ZoneAwarenessEnabled@ is @true@.
@@ -109,8 +125,12 @@ newAwsElasticsearchDomainElasticsearchClusterConfigDetails =
     }
 
 -- | The hardware configuration of the computer that hosts the dedicated
--- master node. For example, @m3.medium.elasticsearch@. If this attribute
--- is specified, then @DedicatedMasterEnabled@ must be @true@.
+-- master node. A sample value is @m3.medium.elasticsearch@. If this
+-- attribute is specified, then @DedicatedMasterEnabled@ must be @true@.
+--
+-- For a list of valid values, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+-- in the /Amazon OpenSearch Service Developer Guide/.
 awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterType :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Text)
 awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterType = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {dedicatedMasterType} -> dedicatedMasterType) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {dedicatedMasterType = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
 
@@ -130,6 +150,10 @@ awsElasticsearchDomainElasticsearchClusterConfigDetails_dedicatedMasterEnabled =
 
 -- | The instance type for your data nodes. For example,
 -- @m3.medium.elasticsearch@.
+--
+-- For a list of valid values, see
+-- <https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html Supported instance types in Amazon OpenSearch Service>
+-- in the /Amazon OpenSearch Service Developer Guide/.
 awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceType :: Lens.Lens' AwsElasticsearchDomainElasticsearchClusterConfigDetails (Prelude.Maybe Prelude.Text)
 awsElasticsearchDomainElasticsearchClusterConfigDetails_instanceType = Lens.lens (\AwsElasticsearchDomainElasticsearchClusterConfigDetails' {instanceType} -> instanceType) (\s@AwsElasticsearchDomainElasticsearchClusterConfigDetails' {} a -> s {instanceType = a} :: AwsElasticsearchDomainElasticsearchClusterConfigDetails)
 

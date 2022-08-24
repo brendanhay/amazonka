@@ -27,9 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newS3Logs' smart constructor.
 data S3Logs = S3Logs'
-  { -- | The Amazon S3 path in which to store the logs.
+  { -- | The Amazon S3 path to the bucket where the logs are stored.
     s3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 bucket in which to store the logs.
+    -- | The S3 bucket in which to store the logs.
     s3BucketName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data S3Logs = S3Logs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 's3KeyPrefix', 's3Logs_s3KeyPrefix' - The Amazon S3 path in which to store the logs.
+-- 's3KeyPrefix', 's3Logs_s3KeyPrefix' - The Amazon S3 path to the bucket where the logs are stored.
 --
--- 's3BucketName', 's3Logs_s3BucketName' - The Amazon S3 bucket in which to store the logs.
+-- 's3BucketName', 's3Logs_s3BucketName' - The S3 bucket in which to store the logs.
 newS3Logs ::
   S3Logs
 newS3Logs =
@@ -53,11 +53,11 @@ newS3Logs =
       s3BucketName = Prelude.Nothing
     }
 
--- | The Amazon S3 path in which to store the logs.
+-- | The Amazon S3 path to the bucket where the logs are stored.
 s3Logs_s3KeyPrefix :: Lens.Lens' S3Logs (Prelude.Maybe Prelude.Text)
 s3Logs_s3KeyPrefix = Lens.lens (\S3Logs' {s3KeyPrefix} -> s3KeyPrefix) (\s@S3Logs' {} a -> s {s3KeyPrefix = a} :: S3Logs)
 
--- | The Amazon S3 bucket in which to store the logs.
+-- | The S3 bucket in which to store the logs.
 s3Logs_s3BucketName :: Lens.Lens' S3Logs (Prelude.Maybe Prelude.Text)
 s3Logs_s3BucketName = Lens.lens (\S3Logs' {s3BucketName} -> s3BucketName) (\s@S3Logs' {} a -> s {s3BucketName = a} :: S3Logs)
 

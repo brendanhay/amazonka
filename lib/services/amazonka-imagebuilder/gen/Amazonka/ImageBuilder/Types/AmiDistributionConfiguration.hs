@@ -33,8 +33,8 @@ data AmiDistributionConfiguration = AmiDistributionConfiguration'
     launchPermission :: Prelude.Maybe LaunchPermissionConfiguration,
     -- | The name of the output AMI.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The description of the distribution configuration. Minimum and maximum
-    -- length are in characters.
+    -- | The description of the AMI distribution configuration. Minimum and
+    -- maximum length are in characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of an account to which you want to distribute an image.
     targetAccountIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -58,8 +58,8 @@ data AmiDistributionConfiguration = AmiDistributionConfiguration'
 --
 -- 'name', 'amiDistributionConfiguration_name' - The name of the output AMI.
 --
--- 'description', 'amiDistributionConfiguration_description' - The description of the distribution configuration. Minimum and maximum
--- length are in characters.
+-- 'description', 'amiDistributionConfiguration_description' - The description of the AMI distribution configuration. Minimum and
+-- maximum length are in characters.
 --
 -- 'targetAccountIds', 'amiDistributionConfiguration_targetAccountIds' - The ID of an account to which you want to distribute an image.
 --
@@ -88,8 +88,8 @@ amiDistributionConfiguration_launchPermission = Lens.lens (\AmiDistributionConfi
 amiDistributionConfiguration_name :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe Prelude.Text)
 amiDistributionConfiguration_name = Lens.lens (\AmiDistributionConfiguration' {name} -> name) (\s@AmiDistributionConfiguration' {} a -> s {name = a} :: AmiDistributionConfiguration)
 
--- | The description of the distribution configuration. Minimum and maximum
--- length are in characters.
+-- | The description of the AMI distribution configuration. Minimum and
+-- maximum length are in characters.
 amiDistributionConfiguration_description :: Lens.Lens' AmiDistributionConfiguration (Prelude.Maybe Prelude.Text)
 amiDistributionConfiguration_description = Lens.lens (\AmiDistributionConfiguration' {description} -> description) (\s@AmiDistributionConfiguration' {} a -> s {description = a} :: AmiDistributionConfiguration)
 

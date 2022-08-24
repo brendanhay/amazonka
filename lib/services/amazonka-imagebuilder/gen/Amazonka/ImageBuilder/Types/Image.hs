@@ -20,6 +20,7 @@
 module Amazonka.ImageBuilder.Types.Image where
 
 import qualified Amazonka.Core as Core
+import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.ContainerRecipe
 import Amazonka.ImageBuilder.Types.DistributionConfiguration
 import Amazonka.ImageBuilder.Types.ImageRecipe
@@ -91,6 +92,17 @@ data Image = Image'
     dateCreated :: Prelude.Maybe Prelude.Text,
     -- | The infrastructure used when creating this image.
     infrastructureConfiguration :: Prelude.Maybe InfrastructureConfiguration,
+    -- | Indicates the type of build that created this image. The build can be
+    -- initiated in the following ways:
+    --
+    -- -   __USER_INITIATED__ – A manual pipeline build request.
+    --
+    -- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+    --     the Image Builder pipeline, or from EventBridge.
+    --
+    -- -   __IMPORT__ – A VM import created the image to use as the base image
+    --     for the recipe.
+    buildType :: Prelude.Maybe BuildType,
     -- | The semantic version of the image.
     --
     -- The semantic version has four nodes:
@@ -176,6 +188,17 @@ data Image = Image'
 --
 -- 'infrastructureConfiguration', 'image_infrastructureConfiguration' - The infrastructure used when creating this image.
 --
+-- 'buildType', 'image_buildType' - Indicates the type of build that created this image. The build can be
+-- initiated in the following ways:
+--
+-- -   __USER_INITIATED__ – A manual pipeline build request.
+--
+-- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+--     the Image Builder pipeline, or from EventBridge.
+--
+-- -   __IMPORT__ – A VM import created the image to use as the base image
+--     for the recipe.
+--
 -- 'version', 'image_version' - The semantic version of the image.
 --
 -- The semantic version has four nodes:
@@ -219,6 +242,7 @@ newImage =
       sourcePipelineName = Prelude.Nothing,
       dateCreated = Prelude.Nothing,
       infrastructureConfiguration = Prelude.Nothing,
+      buildType = Prelude.Nothing,
       version = Prelude.Nothing
     }
 
@@ -308,6 +332,19 @@ image_dateCreated = Lens.lens (\Image' {dateCreated} -> dateCreated) (\s@Image' 
 image_infrastructureConfiguration :: Lens.Lens' Image (Prelude.Maybe InfrastructureConfiguration)
 image_infrastructureConfiguration = Lens.lens (\Image' {infrastructureConfiguration} -> infrastructureConfiguration) (\s@Image' {} a -> s {infrastructureConfiguration = a} :: Image)
 
+-- | Indicates the type of build that created this image. The build can be
+-- initiated in the following ways:
+--
+-- -   __USER_INITIATED__ – A manual pipeline build request.
+--
+-- -   __SCHEDULED__ – A pipeline build initiated by a cron expression in
+--     the Image Builder pipeline, or from EventBridge.
+--
+-- -   __IMPORT__ – A VM import created the image to use as the base image
+--     for the recipe.
+image_buildType :: Lens.Lens' Image (Prelude.Maybe BuildType)
+image_buildType = Lens.lens (\Image' {buildType} -> buildType) (\s@Image' {} a -> s {buildType = a} :: Image)
+
 -- | The semantic version of the image.
 --
 -- The semantic version has four nodes:
@@ -355,6 +392,7 @@ instance Core.FromJSON Image where
             Prelude.<*> (x Core..:? "sourcePipelineName")
             Prelude.<*> (x Core..:? "dateCreated")
             Prelude.<*> (x Core..:? "infrastructureConfiguration")
+            Prelude.<*> (x Core..:? "buildType")
             Prelude.<*> (x Core..:? "version")
       )
 
@@ -378,6 +416,7 @@ instance Prelude.Hashable Image where
       `Prelude.hashWithSalt` sourcePipelineName
       `Prelude.hashWithSalt` dateCreated
       `Prelude.hashWithSalt` infrastructureConfiguration
+      `Prelude.hashWithSalt` buildType
       `Prelude.hashWithSalt` version
 
 instance Prelude.NFData Image where
@@ -400,4 +439,5 @@ instance Prelude.NFData Image where
       `Prelude.seq` Prelude.rnf dateCreated
       `Prelude.seq` Prelude.rnf
         infrastructureConfiguration
+      `Prelude.seq` Prelude.rnf buildType
       `Prelude.seq` Prelude.rnf version

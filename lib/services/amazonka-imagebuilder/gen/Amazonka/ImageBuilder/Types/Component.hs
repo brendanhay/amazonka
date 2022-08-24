@@ -57,7 +57,7 @@ data Component = Component'
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The date that the component was created.
     dateCreated :: Prelude.Maybe Prelude.Text,
-    -- | The data of the component.
+    -- | Component data contains the YAML document content for the component.
     data' :: Prelude.Maybe Prelude.Text,
     -- | The operating system (OS) version supported by the component. If the OS
     -- information is available, a prefix match is performed against the base
@@ -105,7 +105,7 @@ data Component = Component'
 --
 -- 'dateCreated', 'component_dateCreated' - The date that the component was created.
 --
--- 'data'', 'component_data' - The data of the component.
+-- 'data'', 'component_data' - Component data contains the YAML document content for the component.
 --
 -- 'supportedOsVersions', 'component_supportedOsVersions' - The operating system (OS) version supported by the component. If the OS
 -- information is available, a prefix match is performed against the base
@@ -187,7 +187,7 @@ component_kmsKeyId = Lens.lens (\Component' {kmsKeyId} -> kmsKeyId) (\s@Componen
 component_dateCreated :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_dateCreated = Lens.lens (\Component' {dateCreated} -> dateCreated) (\s@Component' {} a -> s {dateCreated = a} :: Component)
 
--- | The data of the component.
+-- | Component data contains the YAML document content for the component.
 component_data :: Lens.Lens' Component (Prelude.Maybe Prelude.Text)
 component_data = Lens.lens (\Component' {data'} -> data') (\s@Component' {} a -> s {data' = a} :: Component)
 

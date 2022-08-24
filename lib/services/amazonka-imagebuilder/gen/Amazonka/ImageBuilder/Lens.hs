@@ -266,6 +266,20 @@ module Amazonka.ImageBuilder.Lens
     importComponentResponse_componentBuildVersionArn,
     importComponentResponse_httpStatus,
 
+    -- ** ImportVmImage
+    importVmImage_tags,
+    importVmImage_osVersion,
+    importVmImage_description,
+    importVmImage_name,
+    importVmImage_semanticVersion,
+    importVmImage_platform,
+    importVmImage_vmImportTaskId,
+    importVmImage_clientToken,
+    importVmImageResponse_clientToken,
+    importVmImageResponse_requestId,
+    importVmImageResponse_imageArn,
+    importVmImageResponse_httpStatus,
+
     -- ** ListComponentBuildVersions
     listComponentBuildVersions_nextToken,
     listComponentBuildVersions_maxResults,
@@ -595,6 +609,8 @@ module Amazonka.ImageBuilder.Lens
     -- ** Distribution
     distribution_amiDistributionConfiguration,
     distribution_licenseConfigurationArns,
+    distribution_s3ExportConfiguration,
+    distribution_fastLaunchConfigurations,
     distribution_launchTemplateConfigurations,
     distribution_containerDistributionConfiguration,
     distribution_region,
@@ -628,6 +644,21 @@ module Amazonka.ImageBuilder.Lens
     ebsInstanceBlockDeviceSpecification_throughput,
     ebsInstanceBlockDeviceSpecification_iops,
 
+    -- ** FastLaunchConfiguration
+    fastLaunchConfiguration_launchTemplate,
+    fastLaunchConfiguration_snapshotConfiguration,
+    fastLaunchConfiguration_accountId,
+    fastLaunchConfiguration_maxParallelLaunches,
+    fastLaunchConfiguration_enabled,
+
+    -- ** FastLaunchLaunchTemplateSpecification
+    fastLaunchLaunchTemplateSpecification_launchTemplateVersion,
+    fastLaunchLaunchTemplateSpecification_launchTemplateId,
+    fastLaunchLaunchTemplateSpecification_launchTemplateName,
+
+    -- ** FastLaunchSnapshotConfiguration
+    fastLaunchSnapshotConfiguration_targetResourceCount,
+
     -- ** Filter
     filter_name,
     filter_values,
@@ -650,6 +681,7 @@ module Amazonka.ImageBuilder.Lens
     image_sourcePipelineName,
     image_dateCreated,
     image_infrastructureConfiguration,
+    image_buildType,
     image_version,
 
     -- ** ImagePackage
@@ -715,6 +747,7 @@ module Amazonka.ImageBuilder.Lens
     imageSummary_platform,
     imageSummary_outputResources,
     imageSummary_dateCreated,
+    imageSummary_buildType,
     imageSummary_version,
 
     -- ** ImageTestsConfiguration
@@ -729,6 +762,7 @@ module Amazonka.ImageBuilder.Lens
     imageVersion_owner,
     imageVersion_platform,
     imageVersion_dateCreated,
+    imageVersion_buildType,
     imageVersion_version,
 
     -- ** InfrastructureConfiguration
@@ -776,7 +810,9 @@ module Amazonka.ImageBuilder.Lens
 
     -- ** LaunchPermissionConfiguration
     launchPermissionConfiguration_userGroups,
+    launchPermissionConfiguration_organizationArns,
     launchPermissionConfiguration_userIds,
+    launchPermissionConfiguration_organizationalUnitArns,
 
     -- ** LaunchTemplateConfiguration
     launchTemplateConfiguration_accountId,
@@ -789,6 +825,12 @@ module Amazonka.ImageBuilder.Lens
     -- ** OutputResources
     outputResources_containers,
     outputResources_amis,
+
+    -- ** S3ExportConfiguration
+    s3ExportConfiguration_s3Prefix,
+    s3ExportConfiguration_roleName,
+    s3ExportConfiguration_diskImageFormat,
+    s3ExportConfiguration_s3Bucket,
 
     -- ** S3Logs
     s3Logs_s3KeyPrefix,
@@ -835,6 +877,7 @@ import Amazonka.ImageBuilder.GetImageRecipe
 import Amazonka.ImageBuilder.GetImageRecipePolicy
 import Amazonka.ImageBuilder.GetInfrastructureConfiguration
 import Amazonka.ImageBuilder.ImportComponent
+import Amazonka.ImageBuilder.ImportVmImage
 import Amazonka.ImageBuilder.ListComponentBuildVersions
 import Amazonka.ImageBuilder.ListComponents
 import Amazonka.ImageBuilder.ListContainerRecipes
@@ -871,6 +914,9 @@ import Amazonka.ImageBuilder.Types.Distribution
 import Amazonka.ImageBuilder.Types.DistributionConfiguration
 import Amazonka.ImageBuilder.Types.DistributionConfigurationSummary
 import Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
+import Amazonka.ImageBuilder.Types.FastLaunchConfiguration
+import Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification
+import Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration
 import Amazonka.ImageBuilder.Types.Filter
 import Amazonka.ImageBuilder.Types.Image
 import Amazonka.ImageBuilder.Types.ImagePackage
@@ -890,6 +936,7 @@ import Amazonka.ImageBuilder.Types.LaunchPermissionConfiguration
 import Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration
 import Amazonka.ImageBuilder.Types.Logging
 import Amazonka.ImageBuilder.Types.OutputResources
+import Amazonka.ImageBuilder.Types.S3ExportConfiguration
 import Amazonka.ImageBuilder.Types.S3Logs
 import Amazonka.ImageBuilder.Types.Schedule
 import Amazonka.ImageBuilder.Types.SystemsManagerAgent

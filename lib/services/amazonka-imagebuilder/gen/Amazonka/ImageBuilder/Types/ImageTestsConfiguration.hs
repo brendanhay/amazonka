@@ -23,11 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Image tests configuration.
+-- | Configure image tests for your pipeline build. Tests run after building
+-- the image, to verify that the AMI or container image is valid before
+-- distributing it.
 --
 -- /See:/ 'newImageTestsConfiguration' smart constructor.
 data ImageTestsConfiguration = ImageTestsConfiguration'
-  { -- | Defines if tests should be executed when building this image.
+  { -- | Determines if tests should run after building the image. Image Builder
+    -- defaults to enable tests to run following the image build, before image
+    -- distribution.
     imageTestsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The maximum time in minutes that tests are permitted to run.
     timeoutMinutes :: Prelude.Maybe Prelude.Natural
@@ -42,7 +46,9 @@ data ImageTestsConfiguration = ImageTestsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageTestsEnabled', 'imageTestsConfiguration_imageTestsEnabled' - Defines if tests should be executed when building this image.
+-- 'imageTestsEnabled', 'imageTestsConfiguration_imageTestsEnabled' - Determines if tests should run after building the image. Image Builder
+-- defaults to enable tests to run following the image build, before image
+-- distribution.
 --
 -- 'timeoutMinutes', 'imageTestsConfiguration_timeoutMinutes' - The maximum time in minutes that tests are permitted to run.
 newImageTestsConfiguration ::
@@ -54,7 +60,9 @@ newImageTestsConfiguration =
       timeoutMinutes = Prelude.Nothing
     }
 
--- | Defines if tests should be executed when building this image.
+-- | Determines if tests should run after building the image. Image Builder
+-- defaults to enable tests to run following the image build, before image
+-- distribution.
 imageTestsConfiguration_imageTestsEnabled :: Lens.Lens' ImageTestsConfiguration (Prelude.Maybe Prelude.Bool)
 imageTestsConfiguration_imageTestsEnabled = Lens.lens (\ImageTestsConfiguration' {imageTestsEnabled} -> imageTestsEnabled) (\s@ImageTestsConfiguration' {} a -> s {imageTestsEnabled = a} :: ImageTestsConfiguration)
 

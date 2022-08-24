@@ -242,6 +242,12 @@ module Amazonka.ImageBuilder
     ImportComponentResponse (ImportComponentResponse'),
     newImportComponentResponse,
 
+    -- ** ImportVmImage
+    ImportVmImage (ImportVmImage'),
+    newImportVmImage,
+    ImportVmImageResponse (ImportVmImageResponse'),
+    newImportVmImageResponse,
+
     -- ** ListComponentBuildVersions
     ListComponentBuildVersions (ListComponentBuildVersions'),
     newListComponentBuildVersions,
@@ -376,6 +382,9 @@ module Amazonka.ImageBuilder
 
     -- * Types
 
+    -- ** BuildType
+    BuildType (..),
+
     -- ** ComponentFormat
     ComponentFormat (..),
 
@@ -390,6 +399,9 @@ module Amazonka.ImageBuilder
 
     -- ** ContainerType
     ContainerType (..),
+
+    -- ** DiskImageFormat
+    DiskImageFormat (..),
 
     -- ** EbsVolumeType
     EbsVolumeType (..),
@@ -484,6 +496,18 @@ module Amazonka.ImageBuilder
     EbsInstanceBlockDeviceSpecification (EbsInstanceBlockDeviceSpecification'),
     newEbsInstanceBlockDeviceSpecification,
 
+    -- ** FastLaunchConfiguration
+    FastLaunchConfiguration (FastLaunchConfiguration'),
+    newFastLaunchConfiguration,
+
+    -- ** FastLaunchLaunchTemplateSpecification
+    FastLaunchLaunchTemplateSpecification (FastLaunchLaunchTemplateSpecification'),
+    newFastLaunchLaunchTemplateSpecification,
+
+    -- ** FastLaunchSnapshotConfiguration
+    FastLaunchSnapshotConfiguration (FastLaunchSnapshotConfiguration'),
+    newFastLaunchSnapshotConfiguration,
+
     -- ** Filter
     Filter (Filter'),
     newFilter,
@@ -560,6 +584,10 @@ module Amazonka.ImageBuilder
     OutputResources (OutputResources'),
     newOutputResources,
 
+    -- ** S3ExportConfiguration
+    S3ExportConfiguration (S3ExportConfiguration'),
+    newS3ExportConfiguration,
+
     -- ** S3Logs
     S3Logs (S3Logs'),
     newS3Logs,
@@ -605,6 +633,7 @@ import Amazonka.ImageBuilder.GetImageRecipe
 import Amazonka.ImageBuilder.GetImageRecipePolicy
 import Amazonka.ImageBuilder.GetInfrastructureConfiguration
 import Amazonka.ImageBuilder.ImportComponent
+import Amazonka.ImageBuilder.ImportVmImage
 import Amazonka.ImageBuilder.Lens
 import Amazonka.ImageBuilder.ListComponentBuildVersions
 import Amazonka.ImageBuilder.ListComponents

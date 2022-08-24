@@ -21,7 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new component that can be used to build, validate, test, and
--- assess your image.
+-- assess your image. The component is based on a YAML document that you
+-- specify using exactly one of the following methods:
+--
+-- -   Inline, using the @data@ property in the request body.
+--
+-- -   A URL that points to a YAML document file stored in Amazon S3, using
+--     the @uri@ property in the request body.
 module Amazonka.ImageBuilder.CreateComponent
   ( -- * Creating a Request
     CreateComponent (..),
@@ -70,15 +76,19 @@ data CreateComponent = CreateComponent'
     -- | The description of the component. Describes the contents of the
     -- component.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The uri of the component. Must be an Amazon S3 URL and the requester
-    -- must have permission to access the Amazon S3 bucket. If you use Amazon
-    -- S3, you can specify component content up to your service quota. Either
-    -- @data@ or @uri@ can be used to specify the data within the component.
+    -- | The @uri@ of a YAML component document file. This must be an S3 URL
+    -- (@s3:\/\/bucket\/key@), and the requester must have permission to access
+    -- the S3 bucket it points to. If you use Amazon S3, you can specify
+    -- component content up to your service quota.
+    --
+    -- Alternatively, you can specify the YAML document inline, using the
+    -- component @data@ property. You cannot specify both properties.
     uri :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key that should be used to encrypt this component.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The data of the component. Used to specify the data inline. Either
-    -- @data@ or @uri@ can be used to specify the data within the component.
+    -- | Component @data@ contains inline YAML document content for the
+    -- component. Alternatively, you can specify the @uri@ of a YAML document
+    -- file stored in Amazon S3. However, you cannot specify both properties.
     data' :: Prelude.Maybe Prelude.Text,
     -- | The operating system (OS) version supported by the component. If the OS
     -- information is available, a prefix match is performed against the base
@@ -127,15 +137,19 @@ data CreateComponent = CreateComponent'
 -- 'description', 'createComponent_description' - The description of the component. Describes the contents of the
 -- component.
 --
--- 'uri', 'createComponent_uri' - The uri of the component. Must be an Amazon S3 URL and the requester
--- must have permission to access the Amazon S3 bucket. If you use Amazon
--- S3, you can specify component content up to your service quota. Either
--- @data@ or @uri@ can be used to specify the data within the component.
+-- 'uri', 'createComponent_uri' - The @uri@ of a YAML component document file. This must be an S3 URL
+-- (@s3:\/\/bucket\/key@), and the requester must have permission to access
+-- the S3 bucket it points to. If you use Amazon S3, you can specify
+-- component content up to your service quota.
+--
+-- Alternatively, you can specify the YAML document inline, using the
+-- component @data@ property. You cannot specify both properties.
 --
 -- 'kmsKeyId', 'createComponent_kmsKeyId' - The ID of the KMS key that should be used to encrypt this component.
 --
--- 'data'', 'createComponent_data' - The data of the component. Used to specify the data inline. Either
--- @data@ or @uri@ can be used to specify the data within the component.
+-- 'data'', 'createComponent_data' - Component @data@ contains inline YAML document content for the
+-- component. Alternatively, you can specify the @uri@ of a YAML document
+-- file stored in Amazon S3. However, you cannot specify both properties.
 --
 -- 'supportedOsVersions', 'createComponent_supportedOsVersions' - The operating system (OS) version supported by the component. If the OS
 -- information is available, a prefix match is performed against the base
@@ -207,10 +221,13 @@ createComponent_changeDescription = Lens.lens (\CreateComponent' {changeDescript
 createComponent_description :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
 createComponent_description = Lens.lens (\CreateComponent' {description} -> description) (\s@CreateComponent' {} a -> s {description = a} :: CreateComponent)
 
--- | The uri of the component. Must be an Amazon S3 URL and the requester
--- must have permission to access the Amazon S3 bucket. If you use Amazon
--- S3, you can specify component content up to your service quota. Either
--- @data@ or @uri@ can be used to specify the data within the component.
+-- | The @uri@ of a YAML component document file. This must be an S3 URL
+-- (@s3:\/\/bucket\/key@), and the requester must have permission to access
+-- the S3 bucket it points to. If you use Amazon S3, you can specify
+-- component content up to your service quota.
+--
+-- Alternatively, you can specify the YAML document inline, using the
+-- component @data@ property. You cannot specify both properties.
 createComponent_uri :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
 createComponent_uri = Lens.lens (\CreateComponent' {uri} -> uri) (\s@CreateComponent' {} a -> s {uri = a} :: CreateComponent)
 
@@ -218,8 +235,9 @@ createComponent_uri = Lens.lens (\CreateComponent' {uri} -> uri) (\s@CreateCompo
 createComponent_kmsKeyId :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
 createComponent_kmsKeyId = Lens.lens (\CreateComponent' {kmsKeyId} -> kmsKeyId) (\s@CreateComponent' {} a -> s {kmsKeyId = a} :: CreateComponent)
 
--- | The data of the component. Used to specify the data inline. Either
--- @data@ or @uri@ can be used to specify the data within the component.
+-- | Component @data@ contains inline YAML document content for the
+-- component. Alternatively, you can specify the @uri@ of a YAML document
+-- file stored in Amazon S3. However, you cannot specify both properties.
 createComponent_data :: Lens.Lens' CreateComponent (Prelude.Maybe Prelude.Text)
 createComponent_data = Lens.lens (\CreateComponent' {data'} -> data') (\s@CreateComponent' {} a -> s {data' = a} :: CreateComponent)
 

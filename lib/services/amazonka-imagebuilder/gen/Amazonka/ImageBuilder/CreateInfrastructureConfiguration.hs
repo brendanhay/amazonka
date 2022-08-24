@@ -86,7 +86,13 @@ data CreateInfrastructureConfiguration = CreateInfrastructureConfiguration'
     keyPair :: Prelude.Maybe Prelude.Text,
     -- | The logging configuration of the infrastructure configuration.
     logging :: Prelude.Maybe Logging,
-    -- | The SNS topic on which to send image build events.
+    -- | The Amazon Resource Name (ARN) for the SNS topic to which we send image
+    -- build event notifications.
+    --
+    -- EC2 Image Builder is unable to send notifications to SNS topics that are
+    -- encrypted using keys from other accounts. The key that is used to
+    -- encrypt the SNS topic must reside in the account that the Image Builder
+    -- service runs under.
     snsTopicArn :: Prelude.Maybe Prelude.Text,
     -- | The instance metadata options that you can set for the HTTP requests
     -- that pipeline builds use to launch EC2 build and test instances.
@@ -135,7 +141,13 @@ data CreateInfrastructureConfiguration = CreateInfrastructureConfiguration'
 --
 -- 'logging', 'createInfrastructureConfiguration_logging' - The logging configuration of the infrastructure configuration.
 --
--- 'snsTopicArn', 'createInfrastructureConfiguration_snsTopicArn' - The SNS topic on which to send image build events.
+-- 'snsTopicArn', 'createInfrastructureConfiguration_snsTopicArn' - The Amazon Resource Name (ARN) for the SNS topic to which we send image
+-- build event notifications.
+--
+-- EC2 Image Builder is unable to send notifications to SNS topics that are
+-- encrypted using keys from other accounts. The key that is used to
+-- encrypt the SNS topic must reside in the account that the Image Builder
+-- service runs under.
 --
 -- 'instanceMetadataOptions', 'createInfrastructureConfiguration_instanceMetadataOptions' - The instance metadata options that you can set for the HTTP requests
 -- that pipeline builds use to launch EC2 build and test instances.
@@ -221,7 +233,13 @@ createInfrastructureConfiguration_keyPair = Lens.lens (\CreateInfrastructureConf
 createInfrastructureConfiguration_logging :: Lens.Lens' CreateInfrastructureConfiguration (Prelude.Maybe Logging)
 createInfrastructureConfiguration_logging = Lens.lens (\CreateInfrastructureConfiguration' {logging} -> logging) (\s@CreateInfrastructureConfiguration' {} a -> s {logging = a} :: CreateInfrastructureConfiguration)
 
--- | The SNS topic on which to send image build events.
+-- | The Amazon Resource Name (ARN) for the SNS topic to which we send image
+-- build event notifications.
+--
+-- EC2 Image Builder is unable to send notifications to SNS topics that are
+-- encrypted using keys from other accounts. The key that is used to
+-- encrypt the SNS topic must reside in the account that the Image Builder
+-- service runs under.
 createInfrastructureConfiguration_snsTopicArn :: Lens.Lens' CreateInfrastructureConfiguration (Prelude.Maybe Prelude.Text)
 createInfrastructureConfiguration_snsTopicArn = Lens.lens (\CreateInfrastructureConfiguration' {snsTopicArn} -> snsTopicArn) (\s@CreateInfrastructureConfiguration' {} a -> s {snsTopicArn = a} :: CreateInfrastructureConfiguration)
 

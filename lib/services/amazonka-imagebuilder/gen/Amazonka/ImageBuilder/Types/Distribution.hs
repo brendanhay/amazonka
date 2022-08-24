@@ -22,7 +22,9 @@ module Amazonka.ImageBuilder.Types.Distribution where
 import qualified Amazonka.Core as Core
 import Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
 import Amazonka.ImageBuilder.Types.ContainerDistributionConfiguration
+import Amazonka.ImageBuilder.Types.FastLaunchConfiguration
 import Amazonka.ImageBuilder.Types.LaunchTemplateConfiguration
+import Amazonka.ImageBuilder.Types.S3ExportConfiguration
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -35,6 +37,12 @@ data Distribution = Distribution'
     -- | The License Manager Configuration to associate with the AMI in the
     -- specified Region.
     licenseConfigurationArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Configure export settings to deliver disk images created from your image
+    -- build, using a file format that is compatible with your VMs in that
+    -- Region.
+    s3ExportConfiguration :: Prelude.Maybe S3ExportConfiguration,
+    -- | The Windows faster-launching configurations to use for AMI distribution.
+    fastLaunchConfigurations :: Prelude.Maybe (Prelude.NonEmpty FastLaunchConfiguration),
     -- | A group of launchTemplateConfiguration settings that apply to image
     -- distribution for specified accounts.
     launchTemplateConfigurations :: Prelude.Maybe (Prelude.NonEmpty LaunchTemplateConfiguration),
@@ -59,6 +67,12 @@ data Distribution = Distribution'
 -- 'licenseConfigurationArns', 'distribution_licenseConfigurationArns' - The License Manager Configuration to associate with the AMI in the
 -- specified Region.
 --
+-- 's3ExportConfiguration', 'distribution_s3ExportConfiguration' - Configure export settings to deliver disk images created from your image
+-- build, using a file format that is compatible with your VMs in that
+-- Region.
+--
+-- 'fastLaunchConfigurations', 'distribution_fastLaunchConfigurations' - The Windows faster-launching configurations to use for AMI distribution.
+--
 -- 'launchTemplateConfigurations', 'distribution_launchTemplateConfigurations' - A group of launchTemplateConfiguration settings that apply to image
 -- distribution for specified accounts.
 --
@@ -75,6 +89,8 @@ newDistribution pRegion_ =
     { amiDistributionConfiguration =
         Prelude.Nothing,
       licenseConfigurationArns = Prelude.Nothing,
+      s3ExportConfiguration = Prelude.Nothing,
+      fastLaunchConfigurations = Prelude.Nothing,
       launchTemplateConfigurations = Prelude.Nothing,
       containerDistributionConfiguration = Prelude.Nothing,
       region = pRegion_
@@ -88,6 +104,16 @@ distribution_amiDistributionConfiguration = Lens.lens (\Distribution' {amiDistri
 -- specified Region.
 distribution_licenseConfigurationArns :: Lens.Lens' Distribution (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 distribution_licenseConfigurationArns = Lens.lens (\Distribution' {licenseConfigurationArns} -> licenseConfigurationArns) (\s@Distribution' {} a -> s {licenseConfigurationArns = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
+
+-- | Configure export settings to deliver disk images created from your image
+-- build, using a file format that is compatible with your VMs in that
+-- Region.
+distribution_s3ExportConfiguration :: Lens.Lens' Distribution (Prelude.Maybe S3ExportConfiguration)
+distribution_s3ExportConfiguration = Lens.lens (\Distribution' {s3ExportConfiguration} -> s3ExportConfiguration) (\s@Distribution' {} a -> s {s3ExportConfiguration = a} :: Distribution)
+
+-- | The Windows faster-launching configurations to use for AMI distribution.
+distribution_fastLaunchConfigurations :: Lens.Lens' Distribution (Prelude.Maybe (Prelude.NonEmpty FastLaunchConfiguration))
+distribution_fastLaunchConfigurations = Lens.lens (\Distribution' {fastLaunchConfigurations} -> fastLaunchConfigurations) (\s@Distribution' {} a -> s {fastLaunchConfigurations = a} :: Distribution) Prelude.. Lens.mapping Lens.coerced
 
 -- | A group of launchTemplateConfiguration settings that apply to image
 -- distribution for specified accounts.
@@ -111,6 +137,8 @@ instance Core.FromJSON Distribution where
           Distribution'
             Prelude.<$> (x Core..:? "amiDistributionConfiguration")
             Prelude.<*> (x Core..:? "licenseConfigurationArns")
+            Prelude.<*> (x Core..:? "s3ExportConfiguration")
+            Prelude.<*> (x Core..:? "fastLaunchConfigurations")
             Prelude.<*> (x Core..:? "launchTemplateConfigurations")
             Prelude.<*> (x Core..:? "containerDistributionConfiguration")
             Prelude.<*> (x Core..: "region")
@@ -121,6 +149,8 @@ instance Prelude.Hashable Distribution where
     _salt
       `Prelude.hashWithSalt` amiDistributionConfiguration
       `Prelude.hashWithSalt` licenseConfigurationArns
+      `Prelude.hashWithSalt` s3ExportConfiguration
+      `Prelude.hashWithSalt` fastLaunchConfigurations
       `Prelude.hashWithSalt` launchTemplateConfigurations
       `Prelude.hashWithSalt` containerDistributionConfiguration
       `Prelude.hashWithSalt` region
@@ -129,6 +159,8 @@ instance Prelude.NFData Distribution where
   rnf Distribution' {..} =
     Prelude.rnf amiDistributionConfiguration
       `Prelude.seq` Prelude.rnf licenseConfigurationArns
+      `Prelude.seq` Prelude.rnf s3ExportConfiguration
+      `Prelude.seq` Prelude.rnf fastLaunchConfigurations
       `Prelude.seq` Prelude.rnf launchTemplateConfigurations
       `Prelude.seq` Prelude.rnf containerDistributionConfiguration
       `Prelude.seq` Prelude.rnf region
@@ -141,6 +173,10 @@ instance Core.ToJSON Distribution where
               Prelude.<$> amiDistributionConfiguration,
             ("licenseConfigurationArns" Core..=)
               Prelude.<$> licenseConfigurationArns,
+            ("s3ExportConfiguration" Core..=)
+              Prelude.<$> s3ExportConfiguration,
+            ("fastLaunchConfigurations" Core..=)
+              Prelude.<$> fastLaunchConfigurations,
             ("launchTemplateConfigurations" Core..=)
               Prelude.<$> launchTemplateConfigurations,
             ("containerDistributionConfiguration" Core..=)

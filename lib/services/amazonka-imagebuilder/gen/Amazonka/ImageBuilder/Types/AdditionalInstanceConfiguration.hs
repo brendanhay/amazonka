@@ -40,6 +40,16 @@ data AdditionalInstanceConfiguration = AdditionalInstanceConfiguration'
     -- Linux build instance. If you override the user data, make sure that you
     -- add commands to install Systems Manager, if it is not pre-installed on
     -- your base image.
+    --
+    -- The user data is always base 64 encoded. For example, the following
+    -- commands are encoded as
+    -- @IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$@:
+    --
+    -- /#!\/bin\/bash/
+    --
+    -- mkdir -p \/var\/bb\/
+    --
+    -- touch \/var
     userDataOverride :: Prelude.Maybe Prelude.Text,
     -- | Contains settings for the Systems Manager agent on your build instance.
     systemsManagerAgent :: Prelude.Maybe SystemsManagerAgent
@@ -63,6 +73,16 @@ data AdditionalInstanceConfiguration = AdditionalInstanceConfiguration'
 -- add commands to install Systems Manager, if it is not pre-installed on
 -- your base image.
 --
+-- The user data is always base 64 encoded. For example, the following
+-- commands are encoded as
+-- @IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$@:
+--
+-- /#!\/bin\/bash/
+--
+-- mkdir -p \/var\/bb\/
+--
+-- touch \/var
+--
 -- 'systemsManagerAgent', 'additionalInstanceConfiguration_systemsManagerAgent' - Contains settings for the Systems Manager agent on your build instance.
 newAdditionalInstanceConfiguration ::
   AdditionalInstanceConfiguration
@@ -81,6 +101,16 @@ newAdditionalInstanceConfiguration =
 -- Linux build instance. If you override the user data, make sure that you
 -- add commands to install Systems Manager, if it is not pre-installed on
 -- your base image.
+--
+-- The user data is always base 64 encoded. For example, the following
+-- commands are encoded as
+-- @IyEvYmluL2Jhc2gKbWtkaXIgLXAgL3Zhci9iYi8KdG91Y2ggL3Zhci$@:
+--
+-- /#!\/bin\/bash/
+--
+-- mkdir -p \/var\/bb\/
+--
+-- touch \/var
 additionalInstanceConfiguration_userDataOverride :: Lens.Lens' AdditionalInstanceConfiguration (Prelude.Maybe Prelude.Text)
 additionalInstanceConfiguration_userDataOverride = Lens.lens (\AdditionalInstanceConfiguration' {userDataOverride} -> userDataOverride) (\s@AdditionalInstanceConfiguration' {} a -> s {userDataOverride = a} :: AdditionalInstanceConfiguration)
 

@@ -35,6 +35,9 @@ module Amazonka.ImageBuilder.Types
     _IdempotentParameterMismatchException,
     _InvalidParameterException,
 
+    -- * BuildType
+    BuildType (..),
+
     -- * ComponentFormat
     ComponentFormat (..),
 
@@ -49,6 +52,9 @@ module Amazonka.ImageBuilder.Types
 
     -- * ContainerType
     ContainerType (..),
+
+    -- * DiskImageFormat
+    DiskImageFormat (..),
 
     -- * EbsVolumeType
     EbsVolumeType (..),
@@ -223,6 +229,8 @@ module Amazonka.ImageBuilder.Types
     newDistribution,
     distribution_amiDistributionConfiguration,
     distribution_licenseConfigurationArns,
+    distribution_s3ExportConfiguration,
+    distribution_fastLaunchConfigurations,
     distribution_launchTemplateConfigurations,
     distribution_containerDistributionConfiguration,
     distribution_region,
@@ -262,6 +270,27 @@ module Amazonka.ImageBuilder.Types
     ebsInstanceBlockDeviceSpecification_throughput,
     ebsInstanceBlockDeviceSpecification_iops,
 
+    -- * FastLaunchConfiguration
+    FastLaunchConfiguration (..),
+    newFastLaunchConfiguration,
+    fastLaunchConfiguration_launchTemplate,
+    fastLaunchConfiguration_snapshotConfiguration,
+    fastLaunchConfiguration_accountId,
+    fastLaunchConfiguration_maxParallelLaunches,
+    fastLaunchConfiguration_enabled,
+
+    -- * FastLaunchLaunchTemplateSpecification
+    FastLaunchLaunchTemplateSpecification (..),
+    newFastLaunchLaunchTemplateSpecification,
+    fastLaunchLaunchTemplateSpecification_launchTemplateVersion,
+    fastLaunchLaunchTemplateSpecification_launchTemplateId,
+    fastLaunchLaunchTemplateSpecification_launchTemplateName,
+
+    -- * FastLaunchSnapshotConfiguration
+    FastLaunchSnapshotConfiguration (..),
+    newFastLaunchSnapshotConfiguration,
+    fastLaunchSnapshotConfiguration_targetResourceCount,
+
     -- * Filter
     Filter (..),
     newFilter,
@@ -288,6 +317,7 @@ module Amazonka.ImageBuilder.Types
     image_sourcePipelineName,
     image_dateCreated,
     image_infrastructureConfiguration,
+    image_buildType,
     image_version,
 
     -- * ImagePackage
@@ -365,6 +395,7 @@ module Amazonka.ImageBuilder.Types
     imageSummary_platform,
     imageSummary_outputResources,
     imageSummary_dateCreated,
+    imageSummary_buildType,
     imageSummary_version,
 
     -- * ImageTestsConfiguration
@@ -383,6 +414,7 @@ module Amazonka.ImageBuilder.Types
     imageVersion_owner,
     imageVersion_platform,
     imageVersion_dateCreated,
+    imageVersion_buildType,
     imageVersion_version,
 
     -- * InfrastructureConfiguration
@@ -442,7 +474,9 @@ module Amazonka.ImageBuilder.Types
     LaunchPermissionConfiguration (..),
     newLaunchPermissionConfiguration,
     launchPermissionConfiguration_userGroups,
+    launchPermissionConfiguration_organizationArns,
     launchPermissionConfiguration_userIds,
+    launchPermissionConfiguration_organizationalUnitArns,
 
     -- * LaunchTemplateConfiguration
     LaunchTemplateConfiguration (..),
@@ -461,6 +495,14 @@ module Amazonka.ImageBuilder.Types
     newOutputResources,
     outputResources_containers,
     outputResources_amis,
+
+    -- * S3ExportConfiguration
+    S3ExportConfiguration (..),
+    newS3ExportConfiguration,
+    s3ExportConfiguration_s3Prefix,
+    s3ExportConfiguration_roleName,
+    s3ExportConfiguration_diskImageFormat,
+    s3ExportConfiguration_s3Bucket,
 
     -- * S3Logs
     S3Logs (..),
@@ -492,6 +534,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.ImageBuilder.Types.AdditionalInstanceConfiguration
 import Amazonka.ImageBuilder.Types.Ami
 import Amazonka.ImageBuilder.Types.AmiDistributionConfiguration
+import Amazonka.ImageBuilder.Types.BuildType
 import Amazonka.ImageBuilder.Types.Component
 import Amazonka.ImageBuilder.Types.ComponentConfiguration
 import Amazonka.ImageBuilder.Types.ComponentFormat
@@ -508,11 +551,15 @@ import Amazonka.ImageBuilder.Types.ContainerRecipe
 import Amazonka.ImageBuilder.Types.ContainerRecipeSummary
 import Amazonka.ImageBuilder.Types.ContainerRepositoryService
 import Amazonka.ImageBuilder.Types.ContainerType
+import Amazonka.ImageBuilder.Types.DiskImageFormat
 import Amazonka.ImageBuilder.Types.Distribution
 import Amazonka.ImageBuilder.Types.DistributionConfiguration
 import Amazonka.ImageBuilder.Types.DistributionConfigurationSummary
 import Amazonka.ImageBuilder.Types.EbsInstanceBlockDeviceSpecification
 import Amazonka.ImageBuilder.Types.EbsVolumeType
+import Amazonka.ImageBuilder.Types.FastLaunchConfiguration
+import Amazonka.ImageBuilder.Types.FastLaunchLaunchTemplateSpecification
+import Amazonka.ImageBuilder.Types.FastLaunchSnapshotConfiguration
 import Amazonka.ImageBuilder.Types.Filter
 import Amazonka.ImageBuilder.Types.Image
 import Amazonka.ImageBuilder.Types.ImagePackage
@@ -538,6 +585,7 @@ import Amazonka.ImageBuilder.Types.Ownership
 import Amazonka.ImageBuilder.Types.PipelineExecutionStartCondition
 import Amazonka.ImageBuilder.Types.PipelineStatus
 import Amazonka.ImageBuilder.Types.Platform
+import Amazonka.ImageBuilder.Types.S3ExportConfiguration
 import Amazonka.ImageBuilder.Types.S3Logs
 import Amazonka.ImageBuilder.Types.Schedule
 import Amazonka.ImageBuilder.Types.SystemsManagerAgent

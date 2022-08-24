@@ -22,8 +22,10 @@
 --
 -- Returns a set of temporary security credentials for users who have been
 -- authenticated in a mobile or web application with a web identity
--- provider. Example providers include Amazon Cognito, Login with Amazon,
--- Facebook, Google, or any OpenID Connect-compatible identity provider.
+-- provider. Example providers include the OAuth 2.0 providers Login with
+-- Amazon and Facebook, or any OpenID Connect-compatible identity provider
+-- such as Google or
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html Amazon Cognito federated identities>.
 --
 -- For mobile applications, we recommend that you use Amazon Cognito. You
 -- can use Amazon Cognito with the
@@ -51,7 +53,7 @@
 -- temporary credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
 -- and
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the STS API operations>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the Amazon Web Services STS API operations>
 -- in the /IAM User Guide/.
 --
 -- The temporary security credentials returned by this API consist of an
@@ -291,16 +293,16 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
     -- The request to the federation endpoint for a console sign-in token takes
     -- a @SessionDuration@ parameter that specifies the maximum length of the
     -- console session. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
     -- in the /IAM User Guide/.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The fully qualified host component of the domain name of the identity
-    -- provider.
+    -- | The fully qualified host component of the domain name of the OAuth 2.0
+    -- identity provider. Do not specify this value for an OpenID Connect
+    -- identity provider.
     --
-    -- Specify this value only for OAuth 2.0 access tokens. Currently
-    -- @www.amazon.com@ and @graph.facebook.com@ are the only supported
-    -- identity providers for OAuth 2.0 access tokens. Do not include URL
-    -- schemes and port numbers.
+    -- Currently @www.amazon.com@ and @graph.facebook.com@ are the only
+    -- supported identity providers for OAuth 2.0 access tokens. Do not include
+    -- URL schemes and port numbers.
     --
     -- Do not specify this value for OpenID Connect ID tokens.
     providerId :: Prelude.Maybe Prelude.Text,
@@ -409,16 +411,16 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
 -- The request to the federation endpoint for a console sign-in token takes
 -- a @SessionDuration@ parameter that specifies the maximum length of the
 -- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
 -- in the /IAM User Guide/.
 --
--- 'providerId', 'assumeRoleWithWebIdentity_providerId' - The fully qualified host component of the domain name of the identity
--- provider.
+-- 'providerId', 'assumeRoleWithWebIdentity_providerId' - The fully qualified host component of the domain name of the OAuth 2.0
+-- identity provider. Do not specify this value for an OpenID Connect
+-- identity provider.
 --
--- Specify this value only for OAuth 2.0 access tokens. Currently
--- @www.amazon.com@ and @graph.facebook.com@ are the only supported
--- identity providers for OAuth 2.0 access tokens. Do not include URL
--- schemes and port numbers.
+-- Currently @www.amazon.com@ and @graph.facebook.com@ are the only
+-- supported identity providers for OAuth 2.0 access tokens. Do not include
+-- URL schemes and port numbers.
 --
 -- Do not specify this value for OpenID Connect ID tokens.
 --
@@ -542,18 +544,18 @@ assumeRoleWithWebIdentity_policyArns = Lens.lens (\AssumeRoleWithWebIdentity' {p
 -- The request to the federation endpoint for a console sign-in token takes
 -- a @SessionDuration@ parameter that specifies the maximum length of the
 -- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
 -- in the /IAM User Guide/.
 assumeRoleWithWebIdentity_durationSeconds :: Lens.Lens' AssumeRoleWithWebIdentity (Prelude.Maybe Prelude.Natural)
 assumeRoleWithWebIdentity_durationSeconds = Lens.lens (\AssumeRoleWithWebIdentity' {durationSeconds} -> durationSeconds) (\s@AssumeRoleWithWebIdentity' {} a -> s {durationSeconds = a} :: AssumeRoleWithWebIdentity)
 
--- | The fully qualified host component of the domain name of the identity
--- provider.
+-- | The fully qualified host component of the domain name of the OAuth 2.0
+-- identity provider. Do not specify this value for an OpenID Connect
+-- identity provider.
 --
--- Specify this value only for OAuth 2.0 access tokens. Currently
--- @www.amazon.com@ and @graph.facebook.com@ are the only supported
--- identity providers for OAuth 2.0 access tokens. Do not include URL
--- schemes and port numbers.
+-- Currently @www.amazon.com@ and @graph.facebook.com@ are the only
+-- supported identity providers for OAuth 2.0 access tokens. Do not include
+-- URL schemes and port numbers.
 --
 -- Do not specify this value for OpenID Connect ID tokens.
 assumeRoleWithWebIdentity_providerId :: Lens.Lens' AssumeRoleWithWebIdentity (Prelude.Maybe Prelude.Text)

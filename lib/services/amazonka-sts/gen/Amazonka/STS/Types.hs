@@ -157,7 +157,7 @@ _ExpiredTokenException =
 --
 -- You could receive this error even though you meet other defined session
 -- policy and session tag limits. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html IAM and STS Entity Character Limits>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length IAM and STS Entity Character Limits>
 -- in the /IAM User Guide/.
 _PackedPolicyTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PackedPolicyTooLargeException =

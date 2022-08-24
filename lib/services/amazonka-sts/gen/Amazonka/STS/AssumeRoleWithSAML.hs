@@ -28,7 +28,7 @@
 -- with the other API operations that produce temporary credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
 -- and
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the STS API operations>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the Amazon Web Services STS API operations>
 -- in the /IAM User Guide/.
 --
 -- The temporary security credentials returned by this operation consist of
@@ -278,7 +278,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- The request to the federation endpoint for a console sign-in token takes
     -- a @SessionDuration@ parameter that specifies the maximum length of the
     -- console session. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
     -- in the /IAM User Guide/.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
@@ -380,7 +380,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- The request to the federation endpoint for a console sign-in token takes
 -- a @SessionDuration@ parameter that specifies the maximum length of the
 -- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
 -- in the /IAM User Guide/.
 --
 -- 'roleArn', 'assumeRoleWithSAML_roleArn' - The Amazon Resource Name (ARN) of the role that the caller is assuming.
@@ -495,7 +495,7 @@ assumeRoleWithSAML_policyArns = Lens.lens (\AssumeRoleWithSAML' {policyArns} -> 
 -- The request to the federation endpoint for a console sign-in token takes
 -- a @SessionDuration@ parameter that specifies the maximum length of the
 -- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Amazon Web Services Management Console>
 -- in the /IAM User Guide/.
 assumeRoleWithSAML_durationSeconds :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Natural)
 assumeRoleWithSAML_durationSeconds = Lens.lens (\AssumeRoleWithSAML' {durationSeconds} -> durationSeconds) (\s@AssumeRoleWithSAML' {} a -> s {durationSeconds = a} :: AssumeRoleWithSAML)

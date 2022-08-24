@@ -35,7 +35,14 @@
 -- produce temporary credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
 -- and
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the STS API operations>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the Amazon Web Services STS API operations>
+-- in the /IAM User Guide/.
+--
+-- No permissions are required for users to perform this operation. The
+-- purpose of the @sts:GetSessionToken@ operation is to authenticate the
+-- user using MFA. You cannot use policies to control authentication
+-- operations. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_getsessiontoken.html Permissions for GetSessionToken>
 -- in the /IAM User Guide/.
 --
 -- __Session Duration__
@@ -133,8 +140,8 @@ data GetSessionToken = GetSessionToken'
     -- either the serial number for a hardware device (such as @GAHT12345678@)
     -- or an Amazon Resource Name (ARN) for a virtual device (such as
     -- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
-    -- IAM user by going to the Management Console and viewing the user\'s
-    -- security credentials.
+    -- IAM user by going to the Amazon Web Services Management Console and
+    -- viewing the user\'s security credentials.
     --
     -- The regex used to validate this parameter is a string of characters
     -- consisting of upper- and lower-case alphanumeric characters with no
@@ -176,8 +183,8 @@ data GetSessionToken = GetSessionToken'
 -- either the serial number for a hardware device (such as @GAHT12345678@)
 -- or an Amazon Resource Name (ARN) for a virtual device (such as
 -- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
--- IAM user by going to the Management Console and viewing the user\'s
--- security credentials.
+-- IAM user by going to the Amazon Web Services Management Console and
+-- viewing the user\'s security credentials.
 --
 -- The regex used to validate this parameter is a string of characters
 -- consisting of upper- and lower-case alphanumeric characters with no
@@ -220,8 +227,8 @@ getSessionToken_tokenCode = Lens.lens (\GetSessionToken' {tokenCode} -> tokenCod
 -- either the serial number for a hardware device (such as @GAHT12345678@)
 -- or an Amazon Resource Name (ARN) for a virtual device (such as
 -- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
--- IAM user by going to the Management Console and viewing the user\'s
--- security credentials.
+-- IAM user by going to the Amazon Web Services Management Console and
+-- viewing the user\'s security credentials.
 --
 -- The regex used to validate this parameter is a string of characters
 -- consisting of upper- and lower-case alphanumeric characters with no

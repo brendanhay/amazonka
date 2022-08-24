@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | You can pass custom key-value pair attributes when you assume a role or
 -- federate a user. These are called session tags. You can then use the
 -- session tags to control access to resources. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging STS Sessions>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Tagging Amazon Web Services STS Sessions>
 -- in the /IAM User Guide/.
 --
 -- /See:/ 'newTag' smart constructor.

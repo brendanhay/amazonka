@@ -66,6 +66,9 @@ import Test.Tasty
 --         , requestDescribeBudgetActionsForBudget $
 --             newDescribeBudgetActionsForBudget
 --
+--         , requestDescribeBudgetNotificationsForAccount $
+--             newDescribeBudgetNotificationsForAccount
+--
 --         , requestDescribeBudgetPerformanceHistory $
 --             newDescribeBudgetPerformanceHistory
 --
@@ -134,6 +137,9 @@ import Test.Tasty
 --
 --         , responseDescribeBudgetActionsForBudget $
 --             newDescribeBudgetActionsForBudgetResponse
+--
+--         , responseDescribeBudgetNotificationsForAccount $
+--             newDescribeBudgetNotificationsForAccountResponse
 --
 --         , responseDescribeBudgetPerformanceHistory $
 --             newDescribeBudgetPerformanceHistoryResponse
@@ -244,6 +250,12 @@ requestDescribeBudgetActionsForBudget =
   req
     "DescribeBudgetActionsForBudget"
     "fixture/DescribeBudgetActionsForBudget.yaml"
+
+requestDescribeBudgetNotificationsForAccount :: DescribeBudgetNotificationsForAccount -> TestTree
+requestDescribeBudgetNotificationsForAccount =
+  req
+    "DescribeBudgetNotificationsForAccount"
+    "fixture/DescribeBudgetNotificationsForAccount.yaml"
 
 requestDescribeBudgetPerformanceHistory :: DescribeBudgetPerformanceHistory -> TestTree
 requestDescribeBudgetPerformanceHistory =
@@ -404,6 +416,14 @@ responseDescribeBudgetActionsForBudget =
     "fixture/DescribeBudgetActionsForBudgetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeBudgetActionsForBudget)
+
+responseDescribeBudgetNotificationsForAccount :: DescribeBudgetNotificationsForAccountResponse -> TestTree
+responseDescribeBudgetNotificationsForAccount =
+  res
+    "DescribeBudgetNotificationsForAccountResponse"
+    "fixture/DescribeBudgetNotificationsForAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBudgetNotificationsForAccount)
 
 responseDescribeBudgetPerformanceHistory :: DescribeBudgetPerformanceHistoryResponse -> TestTree
 responseDescribeBudgetPerformanceHistory =

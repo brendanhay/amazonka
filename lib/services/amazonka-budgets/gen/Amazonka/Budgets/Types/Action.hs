@@ -51,7 +51,7 @@ data Action = Action'
     executionRoleArn :: Prelude.Text,
     -- | This specifies if the action needs manual or automatic approval.
     approvalModel :: ApprovalModel,
-    -- | The status of action.
+    -- | The status of the action.
     status :: ActionStatus,
     subscribers :: Prelude.NonEmpty Subscriber
   }
@@ -84,7 +84,7 @@ data Action = Action'
 --
 -- 'approvalModel', 'action_approvalModel' - This specifies if the action needs manual or automatic approval.
 --
--- 'status', 'action_status' - The status of action.
+-- 'status', 'action_status' - The status of the action.
 --
 -- 'subscribers', 'action_subscribers' - Undocumented member.
 newAction ::
@@ -168,7 +168,7 @@ action_executionRoleArn = Lens.lens (\Action' {executionRoleArn} -> executionRol
 action_approvalModel :: Lens.Lens' Action ApprovalModel
 action_approvalModel = Lens.lens (\Action' {approvalModel} -> approvalModel) (\s@Action' {} a -> s {approvalModel = a} :: Action)
 
--- | The status of action.
+-- | The status of the action.
 action_status :: Lens.Lens' Action ActionStatus
 action_status = Lens.lens (\Action' {status} -> status) (\s@Action' {} a -> s {status = a} :: Action)
 

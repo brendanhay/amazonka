@@ -33,8 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newBudgetPerformanceHistory' smart constructor.
 data BudgetPerformanceHistory = BudgetPerformanceHistory'
   { timeUnit :: Prelude.Maybe TimeUnit,
-    -- | A list of amounts of cost or usage that you created budgets for,
-    -- compared to your actual costs or usage.
+    -- | A list of amounts of cost or usage that you created budgets for, which
+    -- are compared to your actual costs or usage.
     budgetedAndActualAmountsList :: Prelude.Maybe [BudgetedAndActualAmounts],
     -- | The history of the cost filters for a budget during the specified time
     -- period.
@@ -57,8 +57,8 @@ data BudgetPerformanceHistory = BudgetPerformanceHistory'
 --
 -- 'timeUnit', 'budgetPerformanceHistory_timeUnit' - Undocumented member.
 --
--- 'budgetedAndActualAmountsList', 'budgetPerformanceHistory_budgetedAndActualAmountsList' - A list of amounts of cost or usage that you created budgets for,
--- compared to your actual costs or usage.
+-- 'budgetedAndActualAmountsList', 'budgetPerformanceHistory_budgetedAndActualAmountsList' - A list of amounts of cost or usage that you created budgets for, which
+-- are compared to your actual costs or usage.
 --
 -- 'costFilters', 'budgetPerformanceHistory_costFilters' - The history of the cost filters for a budget during the specified time
 -- period.
@@ -86,8 +86,8 @@ newBudgetPerformanceHistory =
 budgetPerformanceHistory_timeUnit :: Lens.Lens' BudgetPerformanceHistory (Prelude.Maybe TimeUnit)
 budgetPerformanceHistory_timeUnit = Lens.lens (\BudgetPerformanceHistory' {timeUnit} -> timeUnit) (\s@BudgetPerformanceHistory' {} a -> s {timeUnit = a} :: BudgetPerformanceHistory)
 
--- | A list of amounts of cost or usage that you created budgets for,
--- compared to your actual costs or usage.
+-- | A list of amounts of cost or usage that you created budgets for, which
+-- are compared to your actual costs or usage.
 budgetPerformanceHistory_budgetedAndActualAmountsList :: Lens.Lens' BudgetPerformanceHistory (Prelude.Maybe [BudgetedAndActualAmounts])
 budgetPerformanceHistory_budgetedAndActualAmountsList = Lens.lens (\BudgetPerformanceHistory' {budgetedAndActualAmountsList} -> budgetedAndActualAmountsList) (\s@BudgetPerformanceHistory' {} a -> s {budgetedAndActualAmountsList = a} :: BudgetPerformanceHistory) Prelude.. Lens.mapping Lens.coerced
 

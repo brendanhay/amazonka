@@ -23,6 +23,7 @@ module Amazonka.Budgets.Types
     _InternalErrorException,
     _NotFoundException,
     _InvalidNextTokenException,
+    _ThrottlingException,
     _ResourceLockedException,
     _CreationLimitExceededException,
     _InvalidParameterException,
@@ -38,6 +39,9 @@ module Amazonka.Budgets.Types
 
     -- * ApprovalModel
     ApprovalModel (..),
+
+    -- * AutoAdjustType
+    AutoAdjustType (..),
 
     -- * BudgetType
     BudgetType (..),
@@ -100,9 +104,17 @@ module Amazonka.Budgets.Types
     actionThreshold_actionThresholdValue,
     actionThreshold_actionThresholdType,
 
+    -- * AutoAdjustData
+    AutoAdjustData (..),
+    newAutoAdjustData,
+    autoAdjustData_lastAutoAdjustTime,
+    autoAdjustData_historicalOptions,
+    autoAdjustData_autoAdjustType,
+
     -- * Budget
     Budget (..),
     newBudget,
+    budget_autoAdjustData,
     budget_budgetLimit,
     budget_plannedBudgetLimits,
     budget_costFilters,
@@ -113,6 +125,12 @@ module Amazonka.Budgets.Types
     budget_budgetName,
     budget_timeUnit,
     budget_budgetType,
+
+    -- * BudgetNotificationsForAccount
+    BudgetNotificationsForAccount (..),
+    newBudgetNotificationsForAccount,
+    budgetNotificationsForAccount_notifications,
+    budgetNotificationsForAccount_budgetName,
 
     -- * BudgetPerformanceHistory
     BudgetPerformanceHistory (..),
@@ -158,6 +176,12 @@ module Amazonka.Budgets.Types
     definition_ssmActionDefinition,
     definition_scpActionDefinition,
     definition_iamActionDefinition,
+
+    -- * HistoricalOptions
+    HistoricalOptions (..),
+    newHistoricalOptions,
+    historicalOptions_lookBackAvailablePeriods,
+    historicalOptions_budgetAdjustmentPeriod,
 
     -- * IamActionDefinition
     IamActionDefinition (..),
@@ -223,7 +247,10 @@ import Amazonka.Budgets.Types.ActionSubType
 import Amazonka.Budgets.Types.ActionThreshold
 import Amazonka.Budgets.Types.ActionType
 import Amazonka.Budgets.Types.ApprovalModel
+import Amazonka.Budgets.Types.AutoAdjustData
+import Amazonka.Budgets.Types.AutoAdjustType
 import Amazonka.Budgets.Types.Budget
+import Amazonka.Budgets.Types.BudgetNotificationsForAccount
 import Amazonka.Budgets.Types.BudgetPerformanceHistory
 import Amazonka.Budgets.Types.BudgetType
 import Amazonka.Budgets.Types.BudgetedAndActualAmounts
@@ -233,6 +260,7 @@ import Amazonka.Budgets.Types.CostTypes
 import Amazonka.Budgets.Types.Definition
 import Amazonka.Budgets.Types.EventType
 import Amazonka.Budgets.Types.ExecutionType
+import Amazonka.Budgets.Types.HistoricalOptions
 import Amazonka.Budgets.Types.IamActionDefinition
 import Amazonka.Budgets.Types.Notification
 import Amazonka.Budgets.Types.NotificationState
@@ -364,6 +392,14 @@ _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
+
+-- | The number of API requests has exceeded the maximum allowed API request
+-- throttling limit for the account.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
 
 -- | The request was received and recognized by the server, but the server
 -- rejected that particular method for the requested resource.

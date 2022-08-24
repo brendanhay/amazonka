@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Budgets.Types.Budget where
 
+import Amazonka.Budgets.Types.AutoAdjustData
 import Amazonka.Budgets.Types.BudgetType
 import Amazonka.Budgets.Types.CalculatedSpend
 import Amazonka.Budgets.Types.CostTypes
@@ -33,20 +34,23 @@ import qualified Amazonka.Prelude as Prelude
 -- consists of the detailed metadata and data file information, and the
 -- current status of the @budget@ object.
 --
--- This is the ARN pattern for a budget:
+-- This is the Amazon Resource Name (ARN) pattern for a budget:
 --
 -- @arn:aws:budgets::AccountId:budget\/budgetName@
 --
 -- /See:/ 'newBudget' smart constructor.
 data Budget = Budget'
-  { -- | The total amount of cost, usage, RI utilization, RI coverage, Savings
+  { -- | The parameters that determine the budget amount for an auto-adjusting
+    -- budget.
+    autoAdjustData :: Prelude.Maybe AutoAdjustData,
+    -- | The total amount of cost, usage, RI utilization, RI coverage, Savings
     -- Plans utilization, or Savings Plans coverage that you want to track with
     -- your budget.
     --
     -- @BudgetLimit@ is required for cost or usage budgets, but optional for RI
     -- or Savings Plans utilization or coverage budgets. RI and Savings Plans
-    -- utilization or coverage budgets default to @100@, which is the only
-    -- valid value for RI or Savings Plans utilization or coverage budgets. You
+    -- utilization or coverage budgets default to @100@. This is the only valid
+    -- value for RI or Savings Plans utilization or coverage budgets. You
     -- can\'t use @BudgetLimit@ with @PlannedBudgetLimits@ for @CreateBudget@
     -- and @UpdateBudget@ actions.
     budgetLimit :: Prelude.Maybe Spend,
@@ -54,20 +58,20 @@ data Budget = Budget'
     -- limits.
     --
     -- @PlannedBudgetLimits@ is available for cost or usage budget and supports
-    -- monthly and quarterly @TimeUnit@.
+    -- both monthly and quarterly @TimeUnit@.
     --
     -- For monthly budgets, provide 12 months of @PlannedBudgetLimits@ values.
     -- This must start from the current month and include the next 11 months.
     -- The @key@ is the start of the month, @UTC@ in epoch seconds.
     --
-    -- For quarterly budgets, provide 4 quarters of @PlannedBudgetLimits@ value
-    -- entries in standard calendar quarter increments. This must start from
-    -- the current quarter and include the next 3 quarters. The @key@ is the
-    -- start of the quarter, @UTC@ in epoch seconds.
+    -- For quarterly budgets, provide four quarters of @PlannedBudgetLimits@
+    -- value entries in standard calendar quarter increments. This must start
+    -- from the current quarter and include the next three quarters. The @key@
+    -- is the start of the quarter, @UTC@ in epoch seconds.
     --
-    -- If the planned budget expires before 12 months for monthly or 4 quarters
-    -- for quarterly, provide the @PlannedBudgetLimits@ values only for the
-    -- remaining periods.
+    -- If the planned budget expires before 12 months for monthly or four
+    -- quarters for quarterly, provide the @PlannedBudgetLimits@ values only
+    -- for the remaining periods.
     --
     -- If the budget begins at a date in the future, provide
     -- @PlannedBudgetLimits@ values from the start date of the budget.
@@ -78,17 +82,19 @@ data Budget = Budget'
     -- budget.
     --
     -- @DescribeBudget@ and @DescribeBudgets@ response along with
-    -- @PlannedBudgetLimits@ will also contain @BudgetLimit@ representing the
+    -- @PlannedBudgetLimits@ also contain @BudgetLimit@ representing the
     -- current month or quarter limit present in @PlannedBudgetLimits@. This
-    -- only applies to budgets created with @PlannedBudgetLimits@. Budgets
-    -- created without @PlannedBudgetLimits@ will only contain @BudgetLimit@,
-    -- and no @PlannedBudgetLimits@.
+    -- only applies to budgets that are created with @PlannedBudgetLimits@.
+    -- Budgets that are created without @PlannedBudgetLimits@ only contain
+    -- @BudgetLimit@. They don\'t contain @PlannedBudgetLimits@.
     plannedBudgetLimits :: Prelude.Maybe (Prelude.HashMap Prelude.Text Spend),
-    -- | The cost filters, such as service or tag, that are applied to a budget.
+    -- | The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
+    -- or @Cost Category@, that are applied to a budget.
     --
-    -- AWS Budgets supports the following services as a filter for RI budgets:
+    -- Amazon Web Services Budgets supports the following services as a
+    -- @Service@ filter for RI budgets:
     --
-    -- -   Amazon Elastic Compute Cloud - Compute
+    -- -   Amazon EC2
     --
     -- -   Amazon Redshift
     --
@@ -96,29 +102,30 @@ data Budget = Budget'
     --
     -- -   Amazon ElastiCache
     --
-    -- -   Amazon Elasticsearch Service
+    -- -   Amazon OpenSearch Service
     costFilters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | The last time that you updated this budget.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
     -- | The actual and forecasted cost or usage that the budget tracks.
     calculatedSpend :: Prelude.Maybe CalculatedSpend,
-    -- | The period of time that is covered by a budget. The period has a start
-    -- date and an end date. The start date must come before the end date. The
-    -- end date must come before @06\/15\/87 00:00 UTC@.
+    -- | The period of time that\'s covered by a budget. You setthe start date
+    -- and end date. The start date must come before the end date. The end date
+    -- must come before @06\/15\/87 00:00 UTC@.
     --
-    -- If you create your budget and don\'t specify a start date, AWS defaults
-    -- to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or
-    -- ANNUALLY). For example, if you created your budget on January 24, 2018,
-    -- chose @DAILY@, and didn\'t set a start date, AWS set your start date to
-    -- @01\/24\/18 00:00 UTC@. If you chose @MONTHLY@, AWS set your start date
-    -- to @01\/01\/18 00:00 UTC@. If you didn\'t specify an end date, AWS set
-    -- your end date to @06\/15\/87 00:00 UTC@. The defaults are the same for
-    -- the AWS Billing and Cost Management console and the API.
+    -- If you create your budget and don\'t specify a start date, Amazon Web
+    -- Services defaults to the start of your chosen time period (DAILY,
+    -- MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your
+    -- budget on January 24, 2018, chose @DAILY@, and didn\'t set a start date,
+    -- Amazon Web Services set your start date to @01\/24\/18 00:00 UTC@. If
+    -- you chose @MONTHLY@, Amazon Web Services set your start date to
+    -- @01\/01\/18 00:00 UTC@. If you didn\'t specify an end date, Amazon Web
+    -- Services set your end date to @06\/15\/87 00:00 UTC@. The defaults are
+    -- the same for the Billing and Cost Management console and the API.
     --
     -- You can change either date with the @UpdateBudget@ operation.
     --
-    -- After the end date, AWS deletes the budget and all associated
-    -- notifications and subscribers.
+    -- After the end date, Amazon Web Services deletes the budget and all the
+    -- associated notifications and subscribers.
     timePeriod :: Prelude.Maybe TimePeriod,
     -- | The types of costs that are included in this @COST@ budget.
     --
@@ -131,8 +138,8 @@ data Budget = Budget'
     -- | The length of time until a budget resets the actual and forecasted
     -- spend.
     timeUnit :: TimeUnit,
-    -- | Whether this budget tracks costs, usage, RI utilization, RI coverage,
-    -- Savings Plans utilization, or Savings Plans coverage.
+    -- | Specifies whether this budget tracks costs, usage, RI utilization, RI
+    -- coverage, Savings Plans utilization, or Savings Plans coverage.
     budgetType :: BudgetType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -145,14 +152,17 @@ data Budget = Budget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoAdjustData', 'budget_autoAdjustData' - The parameters that determine the budget amount for an auto-adjusting
+-- budget.
+--
 -- 'budgetLimit', 'budget_budgetLimit' - The total amount of cost, usage, RI utilization, RI coverage, Savings
 -- Plans utilization, or Savings Plans coverage that you want to track with
 -- your budget.
 --
 -- @BudgetLimit@ is required for cost or usage budgets, but optional for RI
 -- or Savings Plans utilization or coverage budgets. RI and Savings Plans
--- utilization or coverage budgets default to @100@, which is the only
--- valid value for RI or Savings Plans utilization or coverage budgets. You
+-- utilization or coverage budgets default to @100@. This is the only valid
+-- value for RI or Savings Plans utilization or coverage budgets. You
 -- can\'t use @BudgetLimit@ with @PlannedBudgetLimits@ for @CreateBudget@
 -- and @UpdateBudget@ actions.
 --
@@ -160,20 +170,20 @@ data Budget = Budget'
 -- limits.
 --
 -- @PlannedBudgetLimits@ is available for cost or usage budget and supports
--- monthly and quarterly @TimeUnit@.
+-- both monthly and quarterly @TimeUnit@.
 --
 -- For monthly budgets, provide 12 months of @PlannedBudgetLimits@ values.
 -- This must start from the current month and include the next 11 months.
 -- The @key@ is the start of the month, @UTC@ in epoch seconds.
 --
--- For quarterly budgets, provide 4 quarters of @PlannedBudgetLimits@ value
--- entries in standard calendar quarter increments. This must start from
--- the current quarter and include the next 3 quarters. The @key@ is the
--- start of the quarter, @UTC@ in epoch seconds.
+-- For quarterly budgets, provide four quarters of @PlannedBudgetLimits@
+-- value entries in standard calendar quarter increments. This must start
+-- from the current quarter and include the next three quarters. The @key@
+-- is the start of the quarter, @UTC@ in epoch seconds.
 --
--- If the planned budget expires before 12 months for monthly or 4 quarters
--- for quarterly, provide the @PlannedBudgetLimits@ values only for the
--- remaining periods.
+-- If the planned budget expires before 12 months for monthly or four
+-- quarters for quarterly, provide the @PlannedBudgetLimits@ values only
+-- for the remaining periods.
 --
 -- If the budget begins at a date in the future, provide
 -- @PlannedBudgetLimits@ values from the start date of the budget.
@@ -184,17 +194,19 @@ data Budget = Budget'
 -- budget.
 --
 -- @DescribeBudget@ and @DescribeBudgets@ response along with
--- @PlannedBudgetLimits@ will also contain @BudgetLimit@ representing the
+-- @PlannedBudgetLimits@ also contain @BudgetLimit@ representing the
 -- current month or quarter limit present in @PlannedBudgetLimits@. This
--- only applies to budgets created with @PlannedBudgetLimits@. Budgets
--- created without @PlannedBudgetLimits@ will only contain @BudgetLimit@,
--- and no @PlannedBudgetLimits@.
+-- only applies to budgets that are created with @PlannedBudgetLimits@.
+-- Budgets that are created without @PlannedBudgetLimits@ only contain
+-- @BudgetLimit@. They don\'t contain @PlannedBudgetLimits@.
 --
--- 'costFilters', 'budget_costFilters' - The cost filters, such as service or tag, that are applied to a budget.
+-- 'costFilters', 'budget_costFilters' - The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
+-- or @Cost Category@, that are applied to a budget.
 --
--- AWS Budgets supports the following services as a filter for RI budgets:
+-- Amazon Web Services Budgets supports the following services as a
+-- @Service@ filter for RI budgets:
 --
--- -   Amazon Elastic Compute Cloud - Compute
+-- -   Amazon EC2
 --
 -- -   Amazon Redshift
 --
@@ -202,29 +214,30 @@ data Budget = Budget'
 --
 -- -   Amazon ElastiCache
 --
--- -   Amazon Elasticsearch Service
+-- -   Amazon OpenSearch Service
 --
 -- 'lastUpdatedTime', 'budget_lastUpdatedTime' - The last time that you updated this budget.
 --
 -- 'calculatedSpend', 'budget_calculatedSpend' - The actual and forecasted cost or usage that the budget tracks.
 --
--- 'timePeriod', 'budget_timePeriod' - The period of time that is covered by a budget. The period has a start
--- date and an end date. The start date must come before the end date. The
--- end date must come before @06\/15\/87 00:00 UTC@.
+-- 'timePeriod', 'budget_timePeriod' - The period of time that\'s covered by a budget. You setthe start date
+-- and end date. The start date must come before the end date. The end date
+-- must come before @06\/15\/87 00:00 UTC@.
 --
--- If you create your budget and don\'t specify a start date, AWS defaults
--- to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or
--- ANNUALLY). For example, if you created your budget on January 24, 2018,
--- chose @DAILY@, and didn\'t set a start date, AWS set your start date to
--- @01\/24\/18 00:00 UTC@. If you chose @MONTHLY@, AWS set your start date
--- to @01\/01\/18 00:00 UTC@. If you didn\'t specify an end date, AWS set
--- your end date to @06\/15\/87 00:00 UTC@. The defaults are the same for
--- the AWS Billing and Cost Management console and the API.
+-- If you create your budget and don\'t specify a start date, Amazon Web
+-- Services defaults to the start of your chosen time period (DAILY,
+-- MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your
+-- budget on January 24, 2018, chose @DAILY@, and didn\'t set a start date,
+-- Amazon Web Services set your start date to @01\/24\/18 00:00 UTC@. If
+-- you chose @MONTHLY@, Amazon Web Services set your start date to
+-- @01\/01\/18 00:00 UTC@. If you didn\'t specify an end date, Amazon Web
+-- Services set your end date to @06\/15\/87 00:00 UTC@. The defaults are
+-- the same for the Billing and Cost Management console and the API.
 --
 -- You can change either date with the @UpdateBudget@ operation.
 --
--- After the end date, AWS deletes the budget and all associated
--- notifications and subscribers.
+-- After the end date, Amazon Web Services deletes the budget and all the
+-- associated notifications and subscribers.
 --
 -- 'costTypes', 'budget_costTypes' - The types of costs that are included in this @COST@ budget.
 --
@@ -237,8 +250,8 @@ data Budget = Budget'
 -- 'timeUnit', 'budget_timeUnit' - The length of time until a budget resets the actual and forecasted
 -- spend.
 --
--- 'budgetType', 'budget_budgetType' - Whether this budget tracks costs, usage, RI utilization, RI coverage,
--- Savings Plans utilization, or Savings Plans coverage.
+-- 'budgetType', 'budget_budgetType' - Specifies whether this budget tracks costs, usage, RI utilization, RI
+-- coverage, Savings Plans utilization, or Savings Plans coverage.
 newBudget ::
   -- | 'budgetName'
   Prelude.Text ->
@@ -249,7 +262,8 @@ newBudget ::
   Budget
 newBudget pBudgetName_ pTimeUnit_ pBudgetType_ =
   Budget'
-    { budgetLimit = Prelude.Nothing,
+    { autoAdjustData = Prelude.Nothing,
+      budgetLimit = Prelude.Nothing,
       plannedBudgetLimits = Prelude.Nothing,
       costFilters = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing,
@@ -261,14 +275,19 @@ newBudget pBudgetName_ pTimeUnit_ pBudgetType_ =
       budgetType = pBudgetType_
     }
 
+-- | The parameters that determine the budget amount for an auto-adjusting
+-- budget.
+budget_autoAdjustData :: Lens.Lens' Budget (Prelude.Maybe AutoAdjustData)
+budget_autoAdjustData = Lens.lens (\Budget' {autoAdjustData} -> autoAdjustData) (\s@Budget' {} a -> s {autoAdjustData = a} :: Budget)
+
 -- | The total amount of cost, usage, RI utilization, RI coverage, Savings
 -- Plans utilization, or Savings Plans coverage that you want to track with
 -- your budget.
 --
 -- @BudgetLimit@ is required for cost or usage budgets, but optional for RI
 -- or Savings Plans utilization or coverage budgets. RI and Savings Plans
--- utilization or coverage budgets default to @100@, which is the only
--- valid value for RI or Savings Plans utilization or coverage budgets. You
+-- utilization or coverage budgets default to @100@. This is the only valid
+-- value for RI or Savings Plans utilization or coverage budgets. You
 -- can\'t use @BudgetLimit@ with @PlannedBudgetLimits@ for @CreateBudget@
 -- and @UpdateBudget@ actions.
 budget_budgetLimit :: Lens.Lens' Budget (Prelude.Maybe Spend)
@@ -278,20 +297,20 @@ budget_budgetLimit = Lens.lens (\Budget' {budgetLimit} -> budgetLimit) (\s@Budge
 -- limits.
 --
 -- @PlannedBudgetLimits@ is available for cost or usage budget and supports
--- monthly and quarterly @TimeUnit@.
+-- both monthly and quarterly @TimeUnit@.
 --
 -- For monthly budgets, provide 12 months of @PlannedBudgetLimits@ values.
 -- This must start from the current month and include the next 11 months.
 -- The @key@ is the start of the month, @UTC@ in epoch seconds.
 --
--- For quarterly budgets, provide 4 quarters of @PlannedBudgetLimits@ value
--- entries in standard calendar quarter increments. This must start from
--- the current quarter and include the next 3 quarters. The @key@ is the
--- start of the quarter, @UTC@ in epoch seconds.
+-- For quarterly budgets, provide four quarters of @PlannedBudgetLimits@
+-- value entries in standard calendar quarter increments. This must start
+-- from the current quarter and include the next three quarters. The @key@
+-- is the start of the quarter, @UTC@ in epoch seconds.
 --
--- If the planned budget expires before 12 months for monthly or 4 quarters
--- for quarterly, provide the @PlannedBudgetLimits@ values only for the
--- remaining periods.
+-- If the planned budget expires before 12 months for monthly or four
+-- quarters for quarterly, provide the @PlannedBudgetLimits@ values only
+-- for the remaining periods.
 --
 -- If the budget begins at a date in the future, provide
 -- @PlannedBudgetLimits@ values from the start date of the budget.
@@ -302,19 +321,21 @@ budget_budgetLimit = Lens.lens (\Budget' {budgetLimit} -> budgetLimit) (\s@Budge
 -- budget.
 --
 -- @DescribeBudget@ and @DescribeBudgets@ response along with
--- @PlannedBudgetLimits@ will also contain @BudgetLimit@ representing the
+-- @PlannedBudgetLimits@ also contain @BudgetLimit@ representing the
 -- current month or quarter limit present in @PlannedBudgetLimits@. This
--- only applies to budgets created with @PlannedBudgetLimits@. Budgets
--- created without @PlannedBudgetLimits@ will only contain @BudgetLimit@,
--- and no @PlannedBudgetLimits@.
+-- only applies to budgets that are created with @PlannedBudgetLimits@.
+-- Budgets that are created without @PlannedBudgetLimits@ only contain
+-- @BudgetLimit@. They don\'t contain @PlannedBudgetLimits@.
 budget_plannedBudgetLimits :: Lens.Lens' Budget (Prelude.Maybe (Prelude.HashMap Prelude.Text Spend))
 budget_plannedBudgetLimits = Lens.lens (\Budget' {plannedBudgetLimits} -> plannedBudgetLimits) (\s@Budget' {} a -> s {plannedBudgetLimits = a} :: Budget) Prelude.. Lens.mapping Lens.coerced
 
--- | The cost filters, such as service or tag, that are applied to a budget.
+-- | The cost filters, such as @Region@, @Service@, @member account@, @Tag@,
+-- or @Cost Category@, that are applied to a budget.
 --
--- AWS Budgets supports the following services as a filter for RI budgets:
+-- Amazon Web Services Budgets supports the following services as a
+-- @Service@ filter for RI budgets:
 --
--- -   Amazon Elastic Compute Cloud - Compute
+-- -   Amazon EC2
 --
 -- -   Amazon Redshift
 --
@@ -322,7 +343,7 @@ budget_plannedBudgetLimits = Lens.lens (\Budget' {plannedBudgetLimits} -> planne
 --
 -- -   Amazon ElastiCache
 --
--- -   Amazon Elasticsearch Service
+-- -   Amazon OpenSearch Service
 budget_costFilters :: Lens.Lens' Budget (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 budget_costFilters = Lens.lens (\Budget' {costFilters} -> costFilters) (\s@Budget' {} a -> s {costFilters = a} :: Budget) Prelude.. Lens.mapping Lens.coerced
 
@@ -334,23 +355,24 @@ budget_lastUpdatedTime = Lens.lens (\Budget' {lastUpdatedTime} -> lastUpdatedTim
 budget_calculatedSpend :: Lens.Lens' Budget (Prelude.Maybe CalculatedSpend)
 budget_calculatedSpend = Lens.lens (\Budget' {calculatedSpend} -> calculatedSpend) (\s@Budget' {} a -> s {calculatedSpend = a} :: Budget)
 
--- | The period of time that is covered by a budget. The period has a start
--- date and an end date. The start date must come before the end date. The
--- end date must come before @06\/15\/87 00:00 UTC@.
+-- | The period of time that\'s covered by a budget. You setthe start date
+-- and end date. The start date must come before the end date. The end date
+-- must come before @06\/15\/87 00:00 UTC@.
 --
--- If you create your budget and don\'t specify a start date, AWS defaults
--- to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY, or
--- ANNUALLY). For example, if you created your budget on January 24, 2018,
--- chose @DAILY@, and didn\'t set a start date, AWS set your start date to
--- @01\/24\/18 00:00 UTC@. If you chose @MONTHLY@, AWS set your start date
--- to @01\/01\/18 00:00 UTC@. If you didn\'t specify an end date, AWS set
--- your end date to @06\/15\/87 00:00 UTC@. The defaults are the same for
--- the AWS Billing and Cost Management console and the API.
+-- If you create your budget and don\'t specify a start date, Amazon Web
+-- Services defaults to the start of your chosen time period (DAILY,
+-- MONTHLY, QUARTERLY, or ANNUALLY). For example, if you created your
+-- budget on January 24, 2018, chose @DAILY@, and didn\'t set a start date,
+-- Amazon Web Services set your start date to @01\/24\/18 00:00 UTC@. If
+-- you chose @MONTHLY@, Amazon Web Services set your start date to
+-- @01\/01\/18 00:00 UTC@. If you didn\'t specify an end date, Amazon Web
+-- Services set your end date to @06\/15\/87 00:00 UTC@. The defaults are
+-- the same for the Billing and Cost Management console and the API.
 --
 -- You can change either date with the @UpdateBudget@ operation.
 --
--- After the end date, AWS deletes the budget and all associated
--- notifications and subscribers.
+-- After the end date, Amazon Web Services deletes the budget and all the
+-- associated notifications and subscribers.
 budget_timePeriod :: Lens.Lens' Budget (Prelude.Maybe TimePeriod)
 budget_timePeriod = Lens.lens (\Budget' {timePeriod} -> timePeriod) (\s@Budget' {} a -> s {timePeriod = a} :: Budget)
 
@@ -371,8 +393,8 @@ budget_budgetName = Lens.lens (\Budget' {budgetName} -> budgetName) (\s@Budget' 
 budget_timeUnit :: Lens.Lens' Budget TimeUnit
 budget_timeUnit = Lens.lens (\Budget' {timeUnit} -> timeUnit) (\s@Budget' {} a -> s {timeUnit = a} :: Budget)
 
--- | Whether this budget tracks costs, usage, RI utilization, RI coverage,
--- Savings Plans utilization, or Savings Plans coverage.
+-- | Specifies whether this budget tracks costs, usage, RI utilization, RI
+-- coverage, Savings Plans utilization, or Savings Plans coverage.
 budget_budgetType :: Lens.Lens' Budget BudgetType
 budget_budgetType = Lens.lens (\Budget' {budgetType} -> budgetType) (\s@Budget' {} a -> s {budgetType = a} :: Budget)
 
@@ -382,7 +404,8 @@ instance Core.FromJSON Budget where
       "Budget"
       ( \x ->
           Budget'
-            Prelude.<$> (x Core..:? "BudgetLimit")
+            Prelude.<$> (x Core..:? "AutoAdjustData")
+            Prelude.<*> (x Core..:? "BudgetLimit")
             Prelude.<*> ( x Core..:? "PlannedBudgetLimits"
                             Core..!= Prelude.mempty
                         )
@@ -398,7 +421,8 @@ instance Core.FromJSON Budget where
 
 instance Prelude.Hashable Budget where
   hashWithSalt _salt Budget' {..} =
-    _salt `Prelude.hashWithSalt` budgetLimit
+    _salt `Prelude.hashWithSalt` autoAdjustData
+      `Prelude.hashWithSalt` budgetLimit
       `Prelude.hashWithSalt` plannedBudgetLimits
       `Prelude.hashWithSalt` costFilters
       `Prelude.hashWithSalt` lastUpdatedTime
@@ -411,7 +435,8 @@ instance Prelude.Hashable Budget where
 
 instance Prelude.NFData Budget where
   rnf Budget' {..} =
-    Prelude.rnf budgetLimit
+    Prelude.rnf autoAdjustData
+      `Prelude.seq` Prelude.rnf budgetLimit
       `Prelude.seq` Prelude.rnf plannedBudgetLimits
       `Prelude.seq` Prelude.rnf costFilters
       `Prelude.seq` Prelude.rnf lastUpdatedTime
@@ -426,7 +451,9 @@ instance Core.ToJSON Budget where
   toJSON Budget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("BudgetLimit" Core..=) Prelude.<$> budgetLimit,
+          [ ("AutoAdjustData" Core..=)
+              Prelude.<$> autoAdjustData,
+            ("BudgetLimit" Core..=) Prelude.<$> budgetLimit,
             ("PlannedBudgetLimits" Core..=)
               Prelude.<$> plannedBudgetLimits,
             ("CostFilters" Core..=) Prelude.<$> costFilters,

@@ -61,8 +61,8 @@ data CreateBudget = CreateBudget'
   { -- | A notification that you want to associate with a budget. A budget can
     -- have up to five notifications, and each notification can have one SNS
     -- subscriber and up to 10 email subscribers. If you include notifications
-    -- and subscribers in your @CreateBudget@ call, AWS creates the
-    -- notifications and subscribers for you.
+    -- and subscribers in your @CreateBudget@ call, Amazon Web Services creates
+    -- the notifications and subscribers for you.
     notificationsWithSubscribers :: Prelude.Maybe [NotificationWithSubscribers],
     -- | The @accountId@ that is associated with the budget.
     accountId :: Prelude.Text,
@@ -82,8 +82,8 @@ data CreateBudget = CreateBudget'
 -- 'notificationsWithSubscribers', 'createBudget_notificationsWithSubscribers' - A notification that you want to associate with a budget. A budget can
 -- have up to five notifications, and each notification can have one SNS
 -- subscriber and up to 10 email subscribers. If you include notifications
--- and subscribers in your @CreateBudget@ call, AWS creates the
--- notifications and subscribers for you.
+-- and subscribers in your @CreateBudget@ call, Amazon Web Services creates
+-- the notifications and subscribers for you.
 --
 -- 'accountId', 'createBudget_accountId' - The @accountId@ that is associated with the budget.
 --
@@ -105,8 +105,8 @@ newCreateBudget pAccountId_ pBudget_ =
 -- | A notification that you want to associate with a budget. A budget can
 -- have up to five notifications, and each notification can have one SNS
 -- subscriber and up to 10 email subscribers. If you include notifications
--- and subscribers in your @CreateBudget@ call, AWS creates the
--- notifications and subscribers for you.
+-- and subscribers in your @CreateBudget@ call, Amazon Web Services creates
+-- the notifications and subscribers for you.
 createBudget_notificationsWithSubscribers :: Lens.Lens' CreateBudget (Prelude.Maybe [NotificationWithSubscribers])
 createBudget_notificationsWithSubscribers = Lens.lens (\CreateBudget' {notificationsWithSubscribers} -> notificationsWithSubscribers) (\s@CreateBudget' {} a -> s {notificationsWithSubscribers = a} :: CreateBudget) Prelude.. Lens.mapping Lens.coerced
 

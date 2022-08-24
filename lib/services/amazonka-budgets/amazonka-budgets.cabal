@@ -57,6 +57,7 @@ library
     Amazonka.Budgets.DescribeBudgetActionHistories
     Amazonka.Budgets.DescribeBudgetActionsForAccount
     Amazonka.Budgets.DescribeBudgetActionsForBudget
+    Amazonka.Budgets.DescribeBudgetNotificationsForAccount
     Amazonka.Budgets.DescribeBudgetPerformanceHistory
     Amazonka.Budgets.DescribeBudgets
     Amazonka.Budgets.DescribeNotificationsForBudget
@@ -72,8 +73,11 @@ library
     Amazonka.Budgets.Types.ActionThreshold
     Amazonka.Budgets.Types.ActionType
     Amazonka.Budgets.Types.ApprovalModel
+    Amazonka.Budgets.Types.AutoAdjustData
+    Amazonka.Budgets.Types.AutoAdjustType
     Amazonka.Budgets.Types.Budget
     Amazonka.Budgets.Types.BudgetedAndActualAmounts
+    Amazonka.Budgets.Types.BudgetNotificationsForAccount
     Amazonka.Budgets.Types.BudgetPerformanceHistory
     Amazonka.Budgets.Types.BudgetType
     Amazonka.Budgets.Types.CalculatedSpend
@@ -82,6 +86,7 @@ library
     Amazonka.Budgets.Types.Definition
     Amazonka.Budgets.Types.EventType
     Amazonka.Budgets.Types.ExecutionType
+    Amazonka.Budgets.Types.HistoricalOptions
     Amazonka.Budgets.Types.IamActionDefinition
     Amazonka.Budgets.Types.Notification
     Amazonka.Budgets.Types.NotificationState

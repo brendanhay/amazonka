@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Budgets.Types.ComparisonOperator
+-- Module      : Amazonka.Budgets.Types.AutoAdjustType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Budgets.Types.ComparisonOperator
-  ( ComparisonOperator
+module Amazonka.Budgets.Types.AutoAdjustType
+  ( AutoAdjustType
       ( ..,
-        ComparisonOperator_EQUAL_TO,
-        ComparisonOperator_GREATER_THAN,
-        ComparisonOperator_LESS_THAN
+        AutoAdjustType_FORECAST,
+        AutoAdjustType_HISTORICAL
       ),
   )
 where
@@ -30,12 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The comparison operator of a notification. Currently, the service
--- supports the following operators:
---
--- @GREATER_THAN@, @LESS_THAN@, @EQUAL_TO@
-newtype ComparisonOperator = ComparisonOperator'
-  { fromComparisonOperator ::
+newtype AutoAdjustType = AutoAdjustType'
+  { fromAutoAdjustType ::
       Core.Text
   }
   deriving stock
@@ -62,18 +57,14 @@ newtype ComparisonOperator = ComparisonOperator'
       Core.ToXML
     )
 
-pattern ComparisonOperator_EQUAL_TO :: ComparisonOperator
-pattern ComparisonOperator_EQUAL_TO = ComparisonOperator' "EQUAL_TO"
+pattern AutoAdjustType_FORECAST :: AutoAdjustType
+pattern AutoAdjustType_FORECAST = AutoAdjustType' "FORECAST"
 
-pattern ComparisonOperator_GREATER_THAN :: ComparisonOperator
-pattern ComparisonOperator_GREATER_THAN = ComparisonOperator' "GREATER_THAN"
-
-pattern ComparisonOperator_LESS_THAN :: ComparisonOperator
-pattern ComparisonOperator_LESS_THAN = ComparisonOperator' "LESS_THAN"
+pattern AutoAdjustType_HISTORICAL :: AutoAdjustType
+pattern AutoAdjustType_HISTORICAL = AutoAdjustType' "HISTORICAL"
 
 {-# COMPLETE
-  ComparisonOperator_EQUAL_TO,
-  ComparisonOperator_GREATER_THAN,
-  ComparisonOperator_LESS_THAN,
-  ComparisonOperator'
+  AutoAdjustType_FORECAST,
+  AutoAdjustType_HISTORICAL,
+  AutoAdjustType'
   #-}

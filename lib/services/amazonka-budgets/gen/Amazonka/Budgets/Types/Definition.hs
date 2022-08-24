@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDefinition' smart constructor.
 data Definition = Definition'
-  { -- | The AWS Systems Manager (SSM) action definition details.
+  { -- | The Amazon Web Services Systems Manager (SSM) action definition details.
     ssmActionDefinition :: Prelude.Maybe SsmActionDefinition,
     -- | The service control policies (SCPs) action definition details.
     scpActionDefinition :: Prelude.Maybe ScpActionDefinition,
-    -- | The AWS Identity and Access Management (IAM) action definition details.
+    -- | The Identity and Access Management (IAM) action definition details.
     iamActionDefinition :: Prelude.Maybe IamActionDefinition
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,11 +47,11 @@ data Definition = Definition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ssmActionDefinition', 'definition_ssmActionDefinition' - The AWS Systems Manager (SSM) action definition details.
+-- 'ssmActionDefinition', 'definition_ssmActionDefinition' - The Amazon Web Services Systems Manager (SSM) action definition details.
 --
 -- 'scpActionDefinition', 'definition_scpActionDefinition' - The service control policies (SCPs) action definition details.
 --
--- 'iamActionDefinition', 'definition_iamActionDefinition' - The AWS Identity and Access Management (IAM) action definition details.
+-- 'iamActionDefinition', 'definition_iamActionDefinition' - The Identity and Access Management (IAM) action definition details.
 newDefinition ::
   Definition
 newDefinition =
@@ -61,7 +61,7 @@ newDefinition =
       iamActionDefinition = Prelude.Nothing
     }
 
--- | The AWS Systems Manager (SSM) action definition details.
+-- | The Amazon Web Services Systems Manager (SSM) action definition details.
 definition_ssmActionDefinition :: Lens.Lens' Definition (Prelude.Maybe SsmActionDefinition)
 definition_ssmActionDefinition = Lens.lens (\Definition' {ssmActionDefinition} -> ssmActionDefinition) (\s@Definition' {} a -> s {ssmActionDefinition = a} :: Definition)
 
@@ -69,7 +69,7 @@ definition_ssmActionDefinition = Lens.lens (\Definition' {ssmActionDefinition} -
 definition_scpActionDefinition :: Lens.Lens' Definition (Prelude.Maybe ScpActionDefinition)
 definition_scpActionDefinition = Lens.lens (\Definition' {scpActionDefinition} -> scpActionDefinition) (\s@Definition' {} a -> s {scpActionDefinition = a} :: Definition)
 
--- | The AWS Identity and Access Management (IAM) action definition details.
+-- | The Identity and Access Management (IAM) action definition details.
 definition_iamActionDefinition :: Lens.Lens' Definition (Prelude.Maybe IamActionDefinition)
 definition_iamActionDefinition = Lens.lens (\Definition' {iamActionDefinition} -> iamActionDefinition) (\s@Definition' {} a -> s {iamActionDefinition = a} :: Definition)
 

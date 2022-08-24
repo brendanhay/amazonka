@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | The subscriber to a budget notification. The subscriber consists of a
 -- subscription type and either an Amazon SNS topic or an email address.
 --
--- For example, an email subscriber would have the following parameters:
+-- For example, an email subscriber has the following parameters:
 --
 -- -   A @subscriptionType@ of @EMAIL@
 --
@@ -35,10 +35,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSubscriber' smart constructor.
 data Subscriber = Subscriber'
-  { -- | The type of notification that AWS sends to a subscriber.
+  { -- | The type of notification that Amazon Web Services sends to a subscriber.
     subscriptionType :: SubscriptionType,
-    -- | The address that AWS sends budget notifications to, either an SNS topic
-    -- or an email.
+    -- | The address that Amazon Web Services sends budget notifications to,
+    -- either an SNS topic or an email.
     --
     -- When you create a subscriber, the value of @Address@ can\'t contain line
     -- breaks.
@@ -54,10 +54,10 @@ data Subscriber = Subscriber'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'subscriptionType', 'subscriber_subscriptionType' - The type of notification that AWS sends to a subscriber.
+-- 'subscriptionType', 'subscriber_subscriptionType' - The type of notification that Amazon Web Services sends to a subscriber.
 --
--- 'address', 'subscriber_address' - The address that AWS sends budget notifications to, either an SNS topic
--- or an email.
+-- 'address', 'subscriber_address' - The address that Amazon Web Services sends budget notifications to,
+-- either an SNS topic or an email.
 --
 -- When you create a subscriber, the value of @Address@ can\'t contain line
 -- breaks.
@@ -73,12 +73,12 @@ newSubscriber pSubscriptionType_ pAddress_ =
       address = Core._Sensitive Lens.# pAddress_
     }
 
--- | The type of notification that AWS sends to a subscriber.
+-- | The type of notification that Amazon Web Services sends to a subscriber.
 subscriber_subscriptionType :: Lens.Lens' Subscriber SubscriptionType
 subscriber_subscriptionType = Lens.lens (\Subscriber' {subscriptionType} -> subscriptionType) (\s@Subscriber' {} a -> s {subscriptionType = a} :: Subscriber)
 
--- | The address that AWS sends budget notifications to, either an SNS topic
--- or an email.
+-- | The address that Amazon Web Services sends budget notifications to,
+-- either an SNS topic or an email.
 --
 -- When you create a subscriber, the value of @Address@ can\'t contain line
 -- breaks.

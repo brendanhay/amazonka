@@ -58,7 +58,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newUpdateInstanceAccessControlAttributeConfiguration' smart constructor.
 data UpdateInstanceAccessControlAttributeConfiguration = UpdateInstanceAccessControlAttributeConfiguration'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed.
     instanceArn :: Prelude.Text,
     -- | Updates the attributes for your ABAC configuration.
     instanceAccessControlAttributeConfiguration :: InstanceAccessControlAttributeConfiguration
@@ -73,7 +74,8 @@ data UpdateInstanceAccessControlAttributeConfiguration = UpdateInstanceAccessCon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'updateInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
+-- 'instanceArn', 'updateInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed.
 --
 -- 'instanceAccessControlAttributeConfiguration', 'updateInstanceAccessControlAttributeConfiguration_instanceAccessControlAttributeConfiguration' - Updates the attributes for your ABAC configuration.
 newUpdateInstanceAccessControlAttributeConfiguration ::
@@ -92,7 +94,8 @@ newUpdateInstanceAccessControlAttributeConfiguration
           pInstanceAccessControlAttributeConfiguration_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed.
 updateInstanceAccessControlAttributeConfiguration_instanceArn :: Lens.Lens' UpdateInstanceAccessControlAttributeConfiguration Prelude.Text
 updateInstanceAccessControlAttributeConfiguration_instanceArn = Lens.lens (\UpdateInstanceAccessControlAttributeConfiguration' {instanceArn} -> instanceArn) (\s@UpdateInstanceAccessControlAttributeConfiguration' {} a -> s {instanceArn = a} :: UpdateInstanceAccessControlAttributeConfiguration)
 

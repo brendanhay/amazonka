@@ -49,8 +49,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDescribeAccountAssignmentDeletionStatus' smart constructor.
 data DescribeAccountAssignmentDeletionStatus = DescribeAccountAssignmentDeletionStatus'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -67,8 +67,8 @@ data DescribeAccountAssignmentDeletionStatus = DescribeAccountAssignmentDeletion
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'describeAccountAssignmentDeletionStatus_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'describeAccountAssignmentDeletionStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -89,8 +89,8 @@ newDescribeAccountAssignmentDeletionStatus
           pAccountAssignmentDeletionRequestId_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 describeAccountAssignmentDeletionStatus_instanceArn :: Lens.Lens' DescribeAccountAssignmentDeletionStatus Prelude.Text

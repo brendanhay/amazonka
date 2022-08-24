@@ -61,8 +61,8 @@ data ListAccountAssignments = ListAccountAssignments'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -87,8 +87,8 @@ data ListAccountAssignments = ListAccountAssignments'
 --
 -- 'maxResults', 'listAccountAssignments_maxResults' - The maximum number of results to display for the assignment.
 --
--- 'instanceArn', 'listAccountAssignments_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'listAccountAssignments_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -126,8 +126,8 @@ listAccountAssignments_nextToken = Lens.lens (\ListAccountAssignments' {nextToke
 listAccountAssignments_maxResults :: Lens.Lens' ListAccountAssignments (Prelude.Maybe Prelude.Natural)
 listAccountAssignments_maxResults = Lens.lens (\ListAccountAssignments' {maxResults} -> maxResults) (\s@ListAccountAssignments' {} a -> s {maxResults = a} :: ListAccountAssignments)
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 listAccountAssignments_instanceArn :: Lens.Lens' ListAccountAssignments Prelude.Text

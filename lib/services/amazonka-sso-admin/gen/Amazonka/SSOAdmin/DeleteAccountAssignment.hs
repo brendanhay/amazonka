@@ -22,6 +22,10 @@
 --
 -- Deletes a principal\'s access from a specified Amazon Web Services
 -- account using a specified permission set.
+--
+-- After a successful response, call
+-- @DescribeAccountAssignmentCreationStatus@ to describe the status of an
+-- assignment deletion request.
 module Amazonka.SSOAdmin.DeleteAccountAssignment
   ( -- * Creating a Request
     DeleteAccountAssignment (..),
@@ -54,8 +58,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDeleteAccountAssignment' smart constructor.
 data DeleteAccountAssignment = DeleteAccountAssignment'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -85,8 +89,8 @@ data DeleteAccountAssignment = DeleteAccountAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'deleteAccountAssignment_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'deleteAccountAssignment_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -135,8 +139,8 @@ newDeleteAccountAssignment
         principalId = pPrincipalId_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 deleteAccountAssignment_instanceArn :: Lens.Lens' DeleteAccountAssignment Prelude.Text

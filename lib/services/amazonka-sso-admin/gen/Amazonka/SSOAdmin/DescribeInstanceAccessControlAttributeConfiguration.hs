@@ -56,7 +56,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDescribeInstanceAccessControlAttributeConfiguration' smart constructor.
 data DescribeInstanceAccessControlAttributeConfiguration = DescribeInstanceAccessControlAttributeConfiguration'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed.
     instanceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +70,8 @@ data DescribeInstanceAccessControlAttributeConfiguration = DescribeInstanceAcces
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'describeInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
+-- 'instanceArn', 'describeInstanceAccessControlAttributeConfiguration_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed.
 newDescribeInstanceAccessControlAttributeConfiguration ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -81,7 +83,8 @@ newDescribeInstanceAccessControlAttributeConfiguration
           pInstanceArn_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed.
 describeInstanceAccessControlAttributeConfiguration_instanceArn :: Lens.Lens' DescribeInstanceAccessControlAttributeConfiguration Prelude.Text
 describeInstanceAccessControlAttributeConfiguration_instanceArn = Lens.lens (\DescribeInstanceAccessControlAttributeConfiguration' {instanceArn} -> instanceArn) (\s@DescribeInstanceAccessControlAttributeConfiguration' {} a -> s {instanceArn = a} :: DescribeInstanceAccessControlAttributeConfiguration)
 

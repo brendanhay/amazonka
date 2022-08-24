@@ -55,8 +55,8 @@ data ProvisionPermissionSet = ProvisionPermissionSet'
   { -- | TargetID is an Amazon Web Services account identifier, typically a 10-12
     -- digit string (For example, 123456789012).
     targetId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -78,8 +78,8 @@ data ProvisionPermissionSet = ProvisionPermissionSet'
 -- 'targetId', 'provisionPermissionSet_targetId' - TargetID is an Amazon Web Services account identifier, typically a 10-12
 -- digit string (For example, 123456789012).
 --
--- 'instanceArn', 'provisionPermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'provisionPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -110,8 +110,8 @@ newProvisionPermissionSet
 provisionPermissionSet_targetId :: Lens.Lens' ProvisionPermissionSet (Prelude.Maybe Prelude.Text)
 provisionPermissionSet_targetId = Lens.lens (\ProvisionPermissionSet' {targetId} -> targetId) (\s@ProvisionPermissionSet' {} a -> s {targetId = a} :: ProvisionPermissionSet)
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 provisionPermissionSet_instanceArn :: Lens.Lens' ProvisionPermissionSet Prelude.Text

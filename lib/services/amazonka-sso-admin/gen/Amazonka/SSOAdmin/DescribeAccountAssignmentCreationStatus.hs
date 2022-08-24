@@ -49,8 +49,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDescribeAccountAssignmentCreationStatus' smart constructor.
 data DescribeAccountAssignmentCreationStatus = DescribeAccountAssignmentCreationStatus'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -67,8 +67,8 @@ data DescribeAccountAssignmentCreationStatus = DescribeAccountAssignmentCreation
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'describeAccountAssignmentCreationStatus_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'describeAccountAssignmentCreationStatus_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -89,8 +89,8 @@ newDescribeAccountAssignmentCreationStatus
           pAccountAssignmentCreationRequestId_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 describeAccountAssignmentCreationStatus_instanceArn :: Lens.Lens' DescribeAccountAssignmentCreationStatus Prelude.Text

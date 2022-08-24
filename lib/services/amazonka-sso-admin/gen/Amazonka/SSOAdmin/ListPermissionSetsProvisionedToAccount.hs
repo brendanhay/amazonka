@@ -63,8 +63,8 @@ data ListPermissionSetsProvisionedToAccount = ListPermissionSetsProvisionedToAcc
     provisioningStatus :: Prelude.Maybe ProvisioningStatus,
     -- | The maximum number of results to display for the assignment.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -89,8 +89,8 @@ data ListPermissionSetsProvisionedToAccount = ListPermissionSetsProvisionedToAcc
 --
 -- 'maxResults', 'listPermissionSetsProvisionedToAccount_maxResults' - The maximum number of results to display for the assignment.
 --
--- 'instanceArn', 'listPermissionSetsProvisionedToAccount_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'listPermissionSetsProvisionedToAccount_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -128,8 +128,8 @@ listPermissionSetsProvisionedToAccount_provisioningStatus = Lens.lens (\ListPerm
 listPermissionSetsProvisionedToAccount_maxResults :: Lens.Lens' ListPermissionSetsProvisionedToAccount (Prelude.Maybe Prelude.Natural)
 listPermissionSetsProvisionedToAccount_maxResults = Lens.lens (\ListPermissionSetsProvisionedToAccount' {maxResults} -> maxResults) (\s@ListPermissionSetsProvisionedToAccount' {} a -> s {maxResults = a} :: ListPermissionSetsProvisionedToAccount)
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 listPermissionSetsProvisionedToAccount_instanceArn :: Lens.Lens' ListPermissionSetsProvisionedToAccount Prelude.Text

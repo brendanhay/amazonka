@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAttachManagedPolicyToPermissionSet $
+--         [ requestAttachCustomerManagedPolicyReferenceToPermissionSet $
+--             newAttachCustomerManagedPolicyReferenceToPermissionSet
+--
+--         , requestAttachManagedPolicyToPermissionSet $
 --             newAttachManagedPolicyToPermissionSet
 --
 --         , requestCreateAccountAssignment $
@@ -51,6 +54,9 @@ import Test.Tasty
 --         , requestDeletePermissionSet $
 --             newDeletePermissionSet
 --
+--         , requestDeletePermissionsBoundaryFromPermissionSet $
+--             newDeletePermissionsBoundaryFromPermissionSet
+--
 --         , requestDescribeAccountAssignmentCreationStatus $
 --             newDescribeAccountAssignmentCreationStatus
 --
@@ -66,11 +72,17 @@ import Test.Tasty
 --         , requestDescribePermissionSetProvisioningStatus $
 --             newDescribePermissionSetProvisioningStatus
 --
+--         , requestDetachCustomerManagedPolicyReferenceFromPermissionSet $
+--             newDetachCustomerManagedPolicyReferenceFromPermissionSet
+--
 --         , requestDetachManagedPolicyFromPermissionSet $
 --             newDetachManagedPolicyFromPermissionSet
 --
 --         , requestGetInlinePolicyForPermissionSet $
 --             newGetInlinePolicyForPermissionSet
+--
+--         , requestGetPermissionsBoundaryForPermissionSet $
+--             newGetPermissionsBoundaryForPermissionSet
 --
 --         , requestListAccountAssignmentCreationStatus $
 --             newListAccountAssignmentCreationStatus
@@ -83,6 +95,9 @@ import Test.Tasty
 --
 --         , requestListAccountsForProvisionedPermissionSet $
 --             newListAccountsForProvisionedPermissionSet
+--
+--         , requestListCustomerManagedPolicyReferencesInPermissionSet $
+--             newListCustomerManagedPolicyReferencesInPermissionSet
 --
 --         , requestListInstances $
 --             newListInstances
@@ -108,6 +123,9 @@ import Test.Tasty
 --         , requestPutInlinePolicyToPermissionSet $
 --             newPutInlinePolicyToPermissionSet
 --
+--         , requestPutPermissionsBoundaryToPermissionSet $
+--             newPutPermissionsBoundaryToPermissionSet
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -123,7 +141,10 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseAttachManagedPolicyToPermissionSet $
+--         [ responseAttachCustomerManagedPolicyReferenceToPermissionSet $
+--             newAttachCustomerManagedPolicyReferenceToPermissionSetResponse
+--
+--         , responseAttachManagedPolicyToPermissionSet $
 --             newAttachManagedPolicyToPermissionSetResponse
 --
 --         , responseCreateAccountAssignment $
@@ -147,6 +168,9 @@ import Test.Tasty
 --         , responseDeletePermissionSet $
 --             newDeletePermissionSetResponse
 --
+--         , responseDeletePermissionsBoundaryFromPermissionSet $
+--             newDeletePermissionsBoundaryFromPermissionSetResponse
+--
 --         , responseDescribeAccountAssignmentCreationStatus $
 --             newDescribeAccountAssignmentCreationStatusResponse
 --
@@ -162,11 +186,17 @@ import Test.Tasty
 --         , responseDescribePermissionSetProvisioningStatus $
 --             newDescribePermissionSetProvisioningStatusResponse
 --
+--         , responseDetachCustomerManagedPolicyReferenceFromPermissionSet $
+--             newDetachCustomerManagedPolicyReferenceFromPermissionSetResponse
+--
 --         , responseDetachManagedPolicyFromPermissionSet $
 --             newDetachManagedPolicyFromPermissionSetResponse
 --
 --         , responseGetInlinePolicyForPermissionSet $
 --             newGetInlinePolicyForPermissionSetResponse
+--
+--         , responseGetPermissionsBoundaryForPermissionSet $
+--             newGetPermissionsBoundaryForPermissionSetResponse
 --
 --         , responseListAccountAssignmentCreationStatus $
 --             newListAccountAssignmentCreationStatusResponse
@@ -179,6 +209,9 @@ import Test.Tasty
 --
 --         , responseListAccountsForProvisionedPermissionSet $
 --             newListAccountsForProvisionedPermissionSetResponse
+--
+--         , responseListCustomerManagedPolicyReferencesInPermissionSet $
+--             newListCustomerManagedPolicyReferencesInPermissionSetResponse
 --
 --         , responseListInstances $
 --             newListInstancesResponse
@@ -204,6 +237,9 @@ import Test.Tasty
 --         , responsePutInlinePolicyToPermissionSet $
 --             newPutInlinePolicyToPermissionSetResponse
 --
+--         , responsePutPermissionsBoundaryToPermissionSet $
+--             newPutPermissionsBoundaryToPermissionSetResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
 --
@@ -220,6 +256,12 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestAttachCustomerManagedPolicyReferenceToPermissionSet :: AttachCustomerManagedPolicyReferenceToPermissionSet -> TestTree
+requestAttachCustomerManagedPolicyReferenceToPermissionSet =
+  req
+    "AttachCustomerManagedPolicyReferenceToPermissionSet"
+    "fixture/AttachCustomerManagedPolicyReferenceToPermissionSet.yaml"
 
 requestAttachManagedPolicyToPermissionSet :: AttachManagedPolicyToPermissionSet -> TestTree
 requestAttachManagedPolicyToPermissionSet =
@@ -269,6 +311,12 @@ requestDeletePermissionSet =
     "DeletePermissionSet"
     "fixture/DeletePermissionSet.yaml"
 
+requestDeletePermissionsBoundaryFromPermissionSet :: DeletePermissionsBoundaryFromPermissionSet -> TestTree
+requestDeletePermissionsBoundaryFromPermissionSet =
+  req
+    "DeletePermissionsBoundaryFromPermissionSet"
+    "fixture/DeletePermissionsBoundaryFromPermissionSet.yaml"
+
 requestDescribeAccountAssignmentCreationStatus :: DescribeAccountAssignmentCreationStatus -> TestTree
 requestDescribeAccountAssignmentCreationStatus =
   req
@@ -299,6 +347,12 @@ requestDescribePermissionSetProvisioningStatus =
     "DescribePermissionSetProvisioningStatus"
     "fixture/DescribePermissionSetProvisioningStatus.yaml"
 
+requestDetachCustomerManagedPolicyReferenceFromPermissionSet :: DetachCustomerManagedPolicyReferenceFromPermissionSet -> TestTree
+requestDetachCustomerManagedPolicyReferenceFromPermissionSet =
+  req
+    "DetachCustomerManagedPolicyReferenceFromPermissionSet"
+    "fixture/DetachCustomerManagedPolicyReferenceFromPermissionSet.yaml"
+
 requestDetachManagedPolicyFromPermissionSet :: DetachManagedPolicyFromPermissionSet -> TestTree
 requestDetachManagedPolicyFromPermissionSet =
   req
@@ -310,6 +364,12 @@ requestGetInlinePolicyForPermissionSet =
   req
     "GetInlinePolicyForPermissionSet"
     "fixture/GetInlinePolicyForPermissionSet.yaml"
+
+requestGetPermissionsBoundaryForPermissionSet :: GetPermissionsBoundaryForPermissionSet -> TestTree
+requestGetPermissionsBoundaryForPermissionSet =
+  req
+    "GetPermissionsBoundaryForPermissionSet"
+    "fixture/GetPermissionsBoundaryForPermissionSet.yaml"
 
 requestListAccountAssignmentCreationStatus :: ListAccountAssignmentCreationStatus -> TestTree
 requestListAccountAssignmentCreationStatus =
@@ -334,6 +394,12 @@ requestListAccountsForProvisionedPermissionSet =
   req
     "ListAccountsForProvisionedPermissionSet"
     "fixture/ListAccountsForProvisionedPermissionSet.yaml"
+
+requestListCustomerManagedPolicyReferencesInPermissionSet :: ListCustomerManagedPolicyReferencesInPermissionSet -> TestTree
+requestListCustomerManagedPolicyReferencesInPermissionSet =
+  req
+    "ListCustomerManagedPolicyReferencesInPermissionSet"
+    "fixture/ListCustomerManagedPolicyReferencesInPermissionSet.yaml"
 
 requestListInstances :: ListInstances -> TestTree
 requestListInstances =
@@ -383,6 +449,12 @@ requestPutInlinePolicyToPermissionSet =
     "PutInlinePolicyToPermissionSet"
     "fixture/PutInlinePolicyToPermissionSet.yaml"
 
+requestPutPermissionsBoundaryToPermissionSet :: PutPermissionsBoundaryToPermissionSet -> TestTree
+requestPutPermissionsBoundaryToPermissionSet =
+  req
+    "PutPermissionsBoundaryToPermissionSet"
+    "fixture/PutPermissionsBoundaryToPermissionSet.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -408,6 +480,14 @@ requestUpdatePermissionSet =
     "fixture/UpdatePermissionSet.yaml"
 
 -- Responses
+
+responseAttachCustomerManagedPolicyReferenceToPermissionSet :: AttachCustomerManagedPolicyReferenceToPermissionSetResponse -> TestTree
+responseAttachCustomerManagedPolicyReferenceToPermissionSet =
+  res
+    "AttachCustomerManagedPolicyReferenceToPermissionSetResponse"
+    "fixture/AttachCustomerManagedPolicyReferenceToPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AttachCustomerManagedPolicyReferenceToPermissionSet)
 
 responseAttachManagedPolicyToPermissionSet :: AttachManagedPolicyToPermissionSetResponse -> TestTree
 responseAttachManagedPolicyToPermissionSet =
@@ -473,6 +553,14 @@ responseDeletePermissionSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePermissionSet)
 
+responseDeletePermissionsBoundaryFromPermissionSet :: DeletePermissionsBoundaryFromPermissionSetResponse -> TestTree
+responseDeletePermissionsBoundaryFromPermissionSet =
+  res
+    "DeletePermissionsBoundaryFromPermissionSetResponse"
+    "fixture/DeletePermissionsBoundaryFromPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePermissionsBoundaryFromPermissionSet)
+
 responseDescribeAccountAssignmentCreationStatus :: DescribeAccountAssignmentCreationStatusResponse -> TestTree
 responseDescribeAccountAssignmentCreationStatus =
   res
@@ -513,6 +601,14 @@ responseDescribePermissionSetProvisioningStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePermissionSetProvisioningStatus)
 
+responseDetachCustomerManagedPolicyReferenceFromPermissionSet :: DetachCustomerManagedPolicyReferenceFromPermissionSetResponse -> TestTree
+responseDetachCustomerManagedPolicyReferenceFromPermissionSet =
+  res
+    "DetachCustomerManagedPolicyReferenceFromPermissionSetResponse"
+    "fixture/DetachCustomerManagedPolicyReferenceFromPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetachCustomerManagedPolicyReferenceFromPermissionSet)
+
 responseDetachManagedPolicyFromPermissionSet :: DetachManagedPolicyFromPermissionSetResponse -> TestTree
 responseDetachManagedPolicyFromPermissionSet =
   res
@@ -528,6 +624,14 @@ responseGetInlinePolicyForPermissionSet =
     "fixture/GetInlinePolicyForPermissionSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetInlinePolicyForPermissionSet)
+
+responseGetPermissionsBoundaryForPermissionSet :: GetPermissionsBoundaryForPermissionSetResponse -> TestTree
+responseGetPermissionsBoundaryForPermissionSet =
+  res
+    "GetPermissionsBoundaryForPermissionSetResponse"
+    "fixture/GetPermissionsBoundaryForPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetPermissionsBoundaryForPermissionSet)
 
 responseListAccountAssignmentCreationStatus :: ListAccountAssignmentCreationStatusResponse -> TestTree
 responseListAccountAssignmentCreationStatus =
@@ -560,6 +664,14 @@ responseListAccountsForProvisionedPermissionSet =
     "fixture/ListAccountsForProvisionedPermissionSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAccountsForProvisionedPermissionSet)
+
+responseListCustomerManagedPolicyReferencesInPermissionSet :: ListCustomerManagedPolicyReferencesInPermissionSetResponse -> TestTree
+responseListCustomerManagedPolicyReferencesInPermissionSet =
+  res
+    "ListCustomerManagedPolicyReferencesInPermissionSetResponse"
+    "fixture/ListCustomerManagedPolicyReferencesInPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCustomerManagedPolicyReferencesInPermissionSet)
 
 responseListInstances :: ListInstancesResponse -> TestTree
 responseListInstances =
@@ -624,6 +736,14 @@ responsePutInlinePolicyToPermissionSet =
     "fixture/PutInlinePolicyToPermissionSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutInlinePolicyToPermissionSet)
+
+responsePutPermissionsBoundaryToPermissionSet :: PutPermissionsBoundaryToPermissionSetResponse -> TestTree
+responsePutPermissionsBoundaryToPermissionSet =
+  res
+    "PutPermissionsBoundaryToPermissionSetResponse"
+    "fixture/PutPermissionsBoundaryToPermissionSetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutPermissionsBoundaryToPermissionSet)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

@@ -48,8 +48,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDeleteInlinePolicyFromPermissionSet' smart constructor.
 data DeleteInlinePolicyFromPermissionSet = DeleteInlinePolicyFromPermissionSet'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -66,8 +66,8 @@ data DeleteInlinePolicyFromPermissionSet = DeleteInlinePolicyFromPermissionSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'deleteInlinePolicyFromPermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'deleteInlinePolicyFromPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -87,8 +87,8 @@ newDeleteInlinePolicyFromPermissionSet
         permissionSetArn = pPermissionSetArn_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 deleteInlinePolicyFromPermissionSet_instanceArn :: Lens.Lens' DeleteInlinePolicyFromPermissionSet Prelude.Text

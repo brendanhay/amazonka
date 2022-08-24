@@ -23,13 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure that stores the details of the IAM managed policy.
+-- | A structure that stores the details of the Amazon Web Services managed
+-- policy.
 --
 -- /See:/ 'newAttachedManagedPolicy' smart constructor.
 data AttachedManagedPolicy = AttachedManagedPolicy'
-  { -- | The name of the IAM managed policy.
+  { -- | The name of the Amazon Web Services managed policy.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the IAM managed policy. For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services managed policy. For more information
+    -- about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text
@@ -44,9 +46,10 @@ data AttachedManagedPolicy = AttachedManagedPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'attachedManagedPolicy_name' - The name of the IAM managed policy.
+-- 'name', 'attachedManagedPolicy_name' - The name of the Amazon Web Services managed policy.
 --
--- 'arn', 'attachedManagedPolicy_arn' - The ARN of the IAM managed policy. For more information about ARNs, see
+-- 'arn', 'attachedManagedPolicy_arn' - The ARN of the Amazon Web Services managed policy. For more information
+-- about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 newAttachedManagedPolicy ::
@@ -57,11 +60,12 @@ newAttachedManagedPolicy =
       arn = Prelude.Nothing
     }
 
--- | The name of the IAM managed policy.
+-- | The name of the Amazon Web Services managed policy.
 attachedManagedPolicy_name :: Lens.Lens' AttachedManagedPolicy (Prelude.Maybe Prelude.Text)
 attachedManagedPolicy_name = Lens.lens (\AttachedManagedPolicy' {name} -> name) (\s@AttachedManagedPolicy' {} a -> s {name = a} :: AttachedManagedPolicy)
 
--- | The ARN of the IAM managed policy. For more information about ARNs, see
+-- | The ARN of the Amazon Web Services managed policy. For more information
+-- about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 attachedManagedPolicy_arn :: Lens.Lens' AttachedManagedPolicy (Prelude.Maybe Prelude.Text)

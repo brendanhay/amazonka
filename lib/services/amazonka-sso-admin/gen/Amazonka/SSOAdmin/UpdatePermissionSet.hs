@@ -59,8 +59,8 @@ data UpdatePermissionSet = UpdatePermissionSet'
     -- | Used to redirect users within the application during the federation
     -- authentication process.
     relayState :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -85,8 +85,8 @@ data UpdatePermissionSet = UpdatePermissionSet'
 -- 'relayState', 'updatePermissionSet_relayState' - Used to redirect users within the application during the federation
 -- authentication process.
 --
--- 'instanceArn', 'updatePermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'updatePermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -122,8 +122,8 @@ updatePermissionSet_sessionDuration = Lens.lens (\UpdatePermissionSet' {sessionD
 updatePermissionSet_relayState :: Lens.Lens' UpdatePermissionSet (Prelude.Maybe Prelude.Text)
 updatePermissionSet_relayState = Lens.lens (\UpdatePermissionSet' {relayState} -> relayState) (\s@UpdatePermissionSet' {} a -> s {relayState = a} :: UpdatePermissionSet)
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 updatePermissionSet_instanceArn :: Lens.Lens' UpdatePermissionSet Prelude.Text

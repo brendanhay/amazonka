@@ -28,11 +28,15 @@
 --
 -- As part of a successful @CreateAccountAssignment@ call, the specified
 -- permission set will automatically be provisioned to the account in the
--- form of an IAM policy. That policy is attached to the SSO-created IAM
--- role. If the permission set is subsequently updated, the corresponding
--- IAM policies attached to roles in your accounts will not be updated
--- automatically. In this case, you must call @ ProvisionPermissionSet @ to
--- make these updates.
+-- form of an IAM policy. That policy is attached to the IAM role created
+-- in Amazon Web Services SSO. If the permission set is subsequently
+-- updated, the corresponding IAM policies attached to roles in your
+-- accounts will not be updated automatically. In this case, you must call
+-- @ ProvisionPermissionSet @ to make these updates.
+--
+-- After a successful response, call
+-- @DescribeAccountAssignmentCreationStatus@ to describe the status of an
+-- assignment creation request.
 module Amazonka.SSOAdmin.CreateAccountAssignment
   ( -- * Creating a Request
     CreateAccountAssignment (..),
@@ -65,8 +69,8 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newCreateAccountAssignment' smart constructor.
 data CreateAccountAssignment = CreateAccountAssignment'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
@@ -97,8 +101,8 @@ data CreateAccountAssignment = CreateAccountAssignment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'createAccountAssignment_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'createAccountAssignment_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
@@ -148,8 +152,8 @@ newCreateAccountAssignment
         principalId = pPrincipalId_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 createAccountAssignment_instanceArn :: Lens.Lens' CreateAccountAssignment Prelude.Text

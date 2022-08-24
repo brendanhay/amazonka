@@ -88,6 +88,12 @@ module Amazonka.SSOAdmin.Types
     attachedManagedPolicy_name,
     attachedManagedPolicy_arn,
 
+    -- * CustomerManagedPolicyReference
+    CustomerManagedPolicyReference (..),
+    newCustomerManagedPolicyReference,
+    customerManagedPolicyReference_path,
+    customerManagedPolicyReference_name,
+
     -- * InstanceAccessControlAttributeConfiguration
     InstanceAccessControlAttributeConfiguration (..),
     newInstanceAccessControlAttributeConfiguration,
@@ -131,6 +137,12 @@ module Amazonka.SSOAdmin.Types
     permissionSetProvisioningStatusMetadata_status,
     permissionSetProvisioningStatusMetadata_createdDate,
 
+    -- * PermissionsBoundary
+    PermissionsBoundary (..),
+    newPermissionsBoundary,
+    permissionsBoundary_managedPolicyArn,
+    permissionsBoundary_customerManagedPolicyReference,
+
     -- * Tag
     Tag (..),
     newTag,
@@ -148,6 +160,7 @@ import Amazonka.SSOAdmin.Types.AccountAssignment
 import Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatus
 import Amazonka.SSOAdmin.Types.AccountAssignmentOperationStatusMetadata
 import Amazonka.SSOAdmin.Types.AttachedManagedPolicy
+import Amazonka.SSOAdmin.Types.CustomerManagedPolicyReference
 import Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfiguration
 import Amazonka.SSOAdmin.Types.InstanceAccessControlAttributeConfigurationStatus
 import Amazonka.SSOAdmin.Types.InstanceMetadata
@@ -155,6 +168,7 @@ import Amazonka.SSOAdmin.Types.OperationStatusFilter
 import Amazonka.SSOAdmin.Types.PermissionSet
 import Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatus
 import Amazonka.SSOAdmin.Types.PermissionSetProvisioningStatusMetadata
+import Amazonka.SSOAdmin.Types.PermissionsBoundary
 import Amazonka.SSOAdmin.Types.PrincipalType
 import Amazonka.SSOAdmin.Types.ProvisionTargetType
 import Amazonka.SSOAdmin.Types.ProvisioningStatus

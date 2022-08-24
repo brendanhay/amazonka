@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a permission set within a specified SSO instance.
+-- Creates a permission set within a specified Amazon Web Services SSO
+-- instance.
 --
 -- To grant users and groups access to Amazon Web Services account
 -- resources, use @ CreateAccountAssignment @.
@@ -68,8 +69,8 @@ data CreatePermissionSet = CreatePermissionSet'
     relayState :: Prelude.Maybe Prelude.Text,
     -- | The name of the PermissionSet.
     name :: Prelude.Text,
-    -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+    -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text
@@ -96,8 +97,8 @@ data CreatePermissionSet = CreatePermissionSet'
 --
 -- 'name', 'createPermissionSet_name' - The name of the PermissionSet.
 --
--- 'instanceArn', 'createPermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'createPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 newCreatePermissionSet ::
@@ -138,8 +139,8 @@ createPermissionSet_relayState = Lens.lens (\CreatePermissionSet' {relayState} -
 createPermissionSet_name :: Lens.Lens' CreatePermissionSet Prelude.Text
 createPermissionSet_name = Lens.lens (\CreatePermissionSet' {name} -> name) (\s@CreatePermissionSet' {} a -> s {name = a} :: CreatePermissionSet)
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 createPermissionSet_instanceArn :: Lens.Lens' CreatePermissionSet Prelude.Text

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches an IAM managed policy ARN to a permission set.
+-- Attaches an Amazon Web Services managed policy ARN to a permission set.
 --
 -- If the permission set is already referenced by one or more account
 -- assignments, you will need to call @ ProvisionPermissionSet @ after this
@@ -54,15 +54,16 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newAttachManagedPolicyToPermissionSet' smart constructor.
 data AttachManagedPolicyToPermissionSet = AttachManagedPolicyToPermissionSet'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
     -- | The ARN of the PermissionSet that the managed policy should be attached
     -- to.
     permissionSetArn :: Prelude.Text,
-    -- | The IAM managed policy ARN to be attached to a permission set.
+    -- | The Amazon Web Services managed policy ARN to be attached to a
+    -- permission set.
     managedPolicyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,15 +76,16 @@ data AttachManagedPolicyToPermissionSet = AttachManagedPolicyToPermissionSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'attachManagedPolicyToPermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'attachManagedPolicyToPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
 -- 'permissionSetArn', 'attachManagedPolicyToPermissionSet_permissionSetArn' - The ARN of the PermissionSet that the managed policy should be attached
 -- to.
 --
--- 'managedPolicyArn', 'attachManagedPolicyToPermissionSet_managedPolicyArn' - The IAM managed policy ARN to be attached to a permission set.
+-- 'managedPolicyArn', 'attachManagedPolicyToPermissionSet_managedPolicyArn' - The Amazon Web Services managed policy ARN to be attached to a
+-- permission set.
 newAttachManagedPolicyToPermissionSet ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -103,8 +105,8 @@ newAttachManagedPolicyToPermissionSet
         managedPolicyArn = pManagedPolicyArn_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 attachManagedPolicyToPermissionSet_instanceArn :: Lens.Lens' AttachManagedPolicyToPermissionSet Prelude.Text
@@ -115,7 +117,8 @@ attachManagedPolicyToPermissionSet_instanceArn = Lens.lens (\AttachManagedPolicy
 attachManagedPolicyToPermissionSet_permissionSetArn :: Lens.Lens' AttachManagedPolicyToPermissionSet Prelude.Text
 attachManagedPolicyToPermissionSet_permissionSetArn = Lens.lens (\AttachManagedPolicyToPermissionSet' {permissionSetArn} -> permissionSetArn) (\s@AttachManagedPolicyToPermissionSet' {} a -> s {permissionSetArn = a} :: AttachManagedPolicyToPermissionSet)
 
--- | The IAM managed policy ARN to be attached to a permission set.
+-- | The Amazon Web Services managed policy ARN to be attached to a
+-- permission set.
 attachManagedPolicyToPermissionSet_managedPolicyArn :: Lens.Lens' AttachManagedPolicyToPermissionSet Prelude.Text
 attachManagedPolicyToPermissionSet_managedPolicyArn = Lens.lens (\AttachManagedPolicyToPermissionSet' {managedPolicyArn} -> managedPolicyArn) (\s@AttachManagedPolicyToPermissionSet' {} a -> s {managedPolicyArn = a} :: AttachManagedPolicyToPermissionSet)
 

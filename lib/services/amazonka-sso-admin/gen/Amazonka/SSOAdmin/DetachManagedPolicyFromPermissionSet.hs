@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Detaches the attached IAM managed policy ARN from the specified
--- permission set.
+-- Detaches the attached Amazon Web Services managed policy ARN from the
+-- specified permission set.
 module Amazonka.SSOAdmin.DetachManagedPolicyFromPermissionSet
   ( -- * Creating a Request
     DetachManagedPolicyFromPermissionSet (..),
@@ -50,14 +50,15 @@ import Amazonka.SSOAdmin.Types
 
 -- | /See:/ 'newDetachManagedPolicyFromPermissionSet' smart constructor.
 data DetachManagedPolicyFromPermissionSet = DetachManagedPolicyFromPermissionSet'
-  { -- | The ARN of the SSO instance under which the operation will be executed.
-    -- For more information about ARNs, see
+  { -- | The ARN of the Amazon Web Services SSO instance under which the
+    -- operation will be executed. For more information about ARNs, see
     -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
     -- in the /Amazon Web Services General Reference/.
     instanceArn :: Prelude.Text,
     -- | The ARN of the PermissionSet from which the policy should be detached.
     permissionSetArn :: Prelude.Text,
-    -- | The IAM managed policy ARN to be attached to a permission set.
+    -- | The Amazon Web Services managed policy ARN to be detached from a
+    -- permission set.
     managedPolicyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,14 +71,15 @@ data DetachManagedPolicyFromPermissionSet = DetachManagedPolicyFromPermissionSet
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceArn', 'detachManagedPolicyFromPermissionSet_instanceArn' - The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- 'instanceArn', 'detachManagedPolicyFromPermissionSet_instanceArn' - The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 --
 -- 'permissionSetArn', 'detachManagedPolicyFromPermissionSet_permissionSetArn' - The ARN of the PermissionSet from which the policy should be detached.
 --
--- 'managedPolicyArn', 'detachManagedPolicyFromPermissionSet_managedPolicyArn' - The IAM managed policy ARN to be attached to a permission set.
+-- 'managedPolicyArn', 'detachManagedPolicyFromPermissionSet_managedPolicyArn' - The Amazon Web Services managed policy ARN to be detached from a
+-- permission set.
 newDetachManagedPolicyFromPermissionSet ::
   -- | 'instanceArn'
   Prelude.Text ->
@@ -97,8 +99,8 @@ newDetachManagedPolicyFromPermissionSet
         managedPolicyArn = pManagedPolicyArn_
       }
 
--- | The ARN of the SSO instance under which the operation will be executed.
--- For more information about ARNs, see
+-- | The ARN of the Amazon Web Services SSO instance under which the
+-- operation will be executed. For more information about ARNs, see
 -- </general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
 -- in the /Amazon Web Services General Reference/.
 detachManagedPolicyFromPermissionSet_instanceArn :: Lens.Lens' DetachManagedPolicyFromPermissionSet Prelude.Text
@@ -108,7 +110,8 @@ detachManagedPolicyFromPermissionSet_instanceArn = Lens.lens (\DetachManagedPoli
 detachManagedPolicyFromPermissionSet_permissionSetArn :: Lens.Lens' DetachManagedPolicyFromPermissionSet Prelude.Text
 detachManagedPolicyFromPermissionSet_permissionSetArn = Lens.lens (\DetachManagedPolicyFromPermissionSet' {permissionSetArn} -> permissionSetArn) (\s@DetachManagedPolicyFromPermissionSet' {} a -> s {permissionSetArn = a} :: DetachManagedPolicyFromPermissionSet)
 
--- | The IAM managed policy ARN to be attached to a permission set.
+-- | The Amazon Web Services managed policy ARN to be detached from a
+-- permission set.
 detachManagedPolicyFromPermissionSet_managedPolicyArn :: Lens.Lens' DetachManagedPolicyFromPermissionSet Prelude.Text
 detachManagedPolicyFromPermissionSet_managedPolicyArn = Lens.lens (\DetachManagedPolicyFromPermissionSet' {managedPolicyArn} -> managedPolicyArn) (\s@DetachManagedPolicyFromPermissionSet' {} a -> s {managedPolicyArn = a} :: DetachManagedPolicyFromPermissionSet)
 

@@ -31,9 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The key for the tag.
-    key :: Prelude.Maybe Prelude.Text,
+    key :: Prelude.Text,
     -- | The value of the tag.
-    value :: Prelude.Maybe Prelude.Text
+    value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -49,19 +49,20 @@ data Tag = Tag'
 --
 -- 'value', 'tag_value' - The value of the tag.
 newTag ::
+  -- | 'key'
+  Prelude.Text ->
+  -- | 'value'
+  Prelude.Text ->
   Tag
-newTag =
-  Tag'
-    { key = Prelude.Nothing,
-      value = Prelude.Nothing
-    }
+newTag pKey_ pValue_ =
+  Tag' {key = pKey_, value = pValue_}
 
 -- | The key for the tag.
-tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value of the tag.
-tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 
 instance Core.FromJSON Tag where
@@ -70,7 +71,7 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
       )
 
 instance Prelude.Hashable Tag where
@@ -86,7 +87,7 @@ instance Core.ToJSON Tag where
   toJSON Tag' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
-            ("Value" Core..=) Prelude.<$> value
+          [ Prelude.Just ("Key" Core..= key),
+            Prelude.Just ("Value" Core..= value)
           ]
       )

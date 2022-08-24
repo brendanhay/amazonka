@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAdminAccount' smart constructor.
 data AdminAccount = AdminAccount'
-  { -- | The AWS account ID for the account.
+  { -- | The Amazon Web Services account ID for the account.
     adminAccountId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the account is enabled as the delegated administrator.
     adminStatus :: Prelude.Maybe AdminStatus
@@ -44,7 +44,7 @@ data AdminAccount = AdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccountId', 'adminAccount_adminAccountId' - The AWS account ID for the account.
+-- 'adminAccountId', 'adminAccount_adminAccountId' - The Amazon Web Services account ID for the account.
 --
 -- 'adminStatus', 'adminAccount_adminStatus' - Indicates whether the account is enabled as the delegated administrator.
 newAdminAccount ::
@@ -55,7 +55,7 @@ newAdminAccount =
       adminStatus = Prelude.Nothing
     }
 
--- | The AWS account ID for the account.
+-- | The Amazon Web Services account ID for the account.
 adminAccount_adminAccountId :: Lens.Lens' AdminAccount (Prelude.Maybe Prelude.Text)
 adminAccount_adminAccountId = Lens.lens (\AdminAccount' {adminAccountId} -> adminAccountId) (\s@AdminAccount' {} a -> s {adminAccountId = a} :: AdminAccount)
 

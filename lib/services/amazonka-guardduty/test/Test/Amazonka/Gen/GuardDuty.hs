@@ -27,8 +27,8 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAcceptInvitation $
---             newAcceptInvitation
+--         [ requestAcceptAdministratorInvitation $
+--             newAcceptAdministratorInvitation
 --
 --         , requestArchiveFindings $
 --             newArchiveFindings
@@ -78,6 +78,9 @@ import Test.Tasty
 --         , requestDeleteThreatIntelSet $
 --             newDeleteThreatIntelSet
 --
+--         , requestDescribeMalwareScans $
+--             newDescribeMalwareScans
+--
 --         , requestDescribeOrganizationConfiguration $
 --             newDescribeOrganizationConfiguration
 --
@@ -87,14 +90,17 @@ import Test.Tasty
 --         , requestDisableOrganizationAdminAccount $
 --             newDisableOrganizationAdminAccount
 --
---         , requestDisassociateFromMasterAccount $
---             newDisassociateFromMasterAccount
+--         , requestDisassociateFromAdministratorAccount $
+--             newDisassociateFromAdministratorAccount
 --
 --         , requestDisassociateMembers $
 --             newDisassociateMembers
 --
 --         , requestEnableOrganizationAdminAccount $
 --             newEnableOrganizationAdminAccount
+--
+--         , requestGetAdministratorAccount $
+--             newGetAdministratorAccount
 --
 --         , requestGetDetector $
 --             newGetDetector
@@ -114,14 +120,17 @@ import Test.Tasty
 --         , requestGetInvitationsCount $
 --             newGetInvitationsCount
 --
---         , requestGetMasterAccount $
---             newGetMasterAccount
+--         , requestGetMalwareScanSettings $
+--             newGetMalwareScanSettings
 --
 --         , requestGetMemberDetectors $
 --             newGetMemberDetectors
 --
 --         , requestGetMembers $
 --             newGetMembers
+--
+--         , requestGetRemainingFreeTrialDays $
+--             newGetRemainingFreeTrialDays
 --
 --         , requestGetThreatIntelSet $
 --             newGetThreatIntelSet
@@ -189,6 +198,9 @@ import Test.Tasty
 --         , requestUpdateIPSet $
 --             newUpdateIPSet
 --
+--         , requestUpdateMalwareScanSettings $
+--             newUpdateMalwareScanSettings
+--
 --         , requestUpdateMemberDetectors $
 --             newUpdateMemberDetectors
 --
@@ -204,8 +216,8 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseAcceptInvitation $
---             newAcceptInvitationResponse
+--         [ responseAcceptAdministratorInvitation $
+--             newAcceptAdministratorInvitationResponse
 --
 --         , responseArchiveFindings $
 --             newArchiveFindingsResponse
@@ -255,6 +267,9 @@ import Test.Tasty
 --         , responseDeleteThreatIntelSet $
 --             newDeleteThreatIntelSetResponse
 --
+--         , responseDescribeMalwareScans $
+--             newDescribeMalwareScansResponse
+--
 --         , responseDescribeOrganizationConfiguration $
 --             newDescribeOrganizationConfigurationResponse
 --
@@ -264,14 +279,17 @@ import Test.Tasty
 --         , responseDisableOrganizationAdminAccount $
 --             newDisableOrganizationAdminAccountResponse
 --
---         , responseDisassociateFromMasterAccount $
---             newDisassociateFromMasterAccountResponse
+--         , responseDisassociateFromAdministratorAccount $
+--             newDisassociateFromAdministratorAccountResponse
 --
 --         , responseDisassociateMembers $
 --             newDisassociateMembersResponse
 --
 --         , responseEnableOrganizationAdminAccount $
 --             newEnableOrganizationAdminAccountResponse
+--
+--         , responseGetAdministratorAccount $
+--             newGetAdministratorAccountResponse
 --
 --         , responseGetDetector $
 --             newGetDetectorResponse
@@ -291,14 +309,17 @@ import Test.Tasty
 --         , responseGetInvitationsCount $
 --             newGetInvitationsCountResponse
 --
---         , responseGetMasterAccount $
---             newGetMasterAccountResponse
+--         , responseGetMalwareScanSettings $
+--             newGetMalwareScanSettingsResponse
 --
 --         , responseGetMemberDetectors $
 --             newGetMemberDetectorsResponse
 --
 --         , responseGetMembers $
 --             newGetMembersResponse
+--
+--         , responseGetRemainingFreeTrialDays $
+--             newGetRemainingFreeTrialDaysResponse
 --
 --         , responseGetThreatIntelSet $
 --             newGetThreatIntelSetResponse
@@ -366,6 +387,9 @@ import Test.Tasty
 --         , responseUpdateIPSet $
 --             newUpdateIPSetResponse
 --
+--         , responseUpdateMalwareScanSettings $
+--             newUpdateMalwareScanSettingsResponse
+--
 --         , responseUpdateMemberDetectors $
 --             newUpdateMemberDetectorsResponse
 --
@@ -383,11 +407,11 @@ import Test.Tasty
 
 -- Requests
 
-requestAcceptInvitation :: AcceptInvitation -> TestTree
-requestAcceptInvitation =
+requestAcceptAdministratorInvitation :: AcceptAdministratorInvitation -> TestTree
+requestAcceptAdministratorInvitation =
   req
-    "AcceptInvitation"
-    "fixture/AcceptInvitation.yaml"
+    "AcceptAdministratorInvitation"
+    "fixture/AcceptAdministratorInvitation.yaml"
 
 requestArchiveFindings :: ArchiveFindings -> TestTree
 requestArchiveFindings =
@@ -485,6 +509,12 @@ requestDeleteThreatIntelSet =
     "DeleteThreatIntelSet"
     "fixture/DeleteThreatIntelSet.yaml"
 
+requestDescribeMalwareScans :: DescribeMalwareScans -> TestTree
+requestDescribeMalwareScans =
+  req
+    "DescribeMalwareScans"
+    "fixture/DescribeMalwareScans.yaml"
+
 requestDescribeOrganizationConfiguration :: DescribeOrganizationConfiguration -> TestTree
 requestDescribeOrganizationConfiguration =
   req
@@ -503,11 +533,11 @@ requestDisableOrganizationAdminAccount =
     "DisableOrganizationAdminAccount"
     "fixture/DisableOrganizationAdminAccount.yaml"
 
-requestDisassociateFromMasterAccount :: DisassociateFromMasterAccount -> TestTree
-requestDisassociateFromMasterAccount =
+requestDisassociateFromAdministratorAccount :: DisassociateFromAdministratorAccount -> TestTree
+requestDisassociateFromAdministratorAccount =
   req
-    "DisassociateFromMasterAccount"
-    "fixture/DisassociateFromMasterAccount.yaml"
+    "DisassociateFromAdministratorAccount"
+    "fixture/DisassociateFromAdministratorAccount.yaml"
 
 requestDisassociateMembers :: DisassociateMembers -> TestTree
 requestDisassociateMembers =
@@ -520,6 +550,12 @@ requestEnableOrganizationAdminAccount =
   req
     "EnableOrganizationAdminAccount"
     "fixture/EnableOrganizationAdminAccount.yaml"
+
+requestGetAdministratorAccount :: GetAdministratorAccount -> TestTree
+requestGetAdministratorAccount =
+  req
+    "GetAdministratorAccount"
+    "fixture/GetAdministratorAccount.yaml"
 
 requestGetDetector :: GetDetector -> TestTree
 requestGetDetector =
@@ -557,11 +593,11 @@ requestGetInvitationsCount =
     "GetInvitationsCount"
     "fixture/GetInvitationsCount.yaml"
 
-requestGetMasterAccount :: GetMasterAccount -> TestTree
-requestGetMasterAccount =
+requestGetMalwareScanSettings :: GetMalwareScanSettings -> TestTree
+requestGetMalwareScanSettings =
   req
-    "GetMasterAccount"
-    "fixture/GetMasterAccount.yaml"
+    "GetMalwareScanSettings"
+    "fixture/GetMalwareScanSettings.yaml"
 
 requestGetMemberDetectors :: GetMemberDetectors -> TestTree
 requestGetMemberDetectors =
@@ -574,6 +610,12 @@ requestGetMembers =
   req
     "GetMembers"
     "fixture/GetMembers.yaml"
+
+requestGetRemainingFreeTrialDays :: GetRemainingFreeTrialDays -> TestTree
+requestGetRemainingFreeTrialDays =
+  req
+    "GetRemainingFreeTrialDays"
+    "fixture/GetRemainingFreeTrialDays.yaml"
 
 requestGetThreatIntelSet :: GetThreatIntelSet -> TestTree
 requestGetThreatIntelSet =
@@ -707,6 +749,12 @@ requestUpdateIPSet =
     "UpdateIPSet"
     "fixture/UpdateIPSet.yaml"
 
+requestUpdateMalwareScanSettings :: UpdateMalwareScanSettings -> TestTree
+requestUpdateMalwareScanSettings =
+  req
+    "UpdateMalwareScanSettings"
+    "fixture/UpdateMalwareScanSettings.yaml"
+
 requestUpdateMemberDetectors :: UpdateMemberDetectors -> TestTree
 requestUpdateMemberDetectors =
   req
@@ -733,13 +781,13 @@ requestUpdateThreatIntelSet =
 
 -- Responses
 
-responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
-responseAcceptInvitation =
+responseAcceptAdministratorInvitation :: AcceptAdministratorInvitationResponse -> TestTree
+responseAcceptAdministratorInvitation =
   res
-    "AcceptInvitationResponse"
-    "fixture/AcceptInvitationResponse.proto"
+    "AcceptAdministratorInvitationResponse"
+    "fixture/AcceptAdministratorInvitationResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy AcceptInvitation)
+    (Proxy.Proxy :: Proxy.Proxy AcceptAdministratorInvitation)
 
 responseArchiveFindings :: ArchiveFindingsResponse -> TestTree
 responseArchiveFindings =
@@ -869,6 +917,14 @@ responseDeleteThreatIntelSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteThreatIntelSet)
 
+responseDescribeMalwareScans :: DescribeMalwareScansResponse -> TestTree
+responseDescribeMalwareScans =
+  res
+    "DescribeMalwareScansResponse"
+    "fixture/DescribeMalwareScansResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeMalwareScans)
+
 responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
 responseDescribeOrganizationConfiguration =
   res
@@ -893,13 +949,13 @@ responseDisableOrganizationAdminAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisableOrganizationAdminAccount)
 
-responseDisassociateFromMasterAccount :: DisassociateFromMasterAccountResponse -> TestTree
-responseDisassociateFromMasterAccount =
+responseDisassociateFromAdministratorAccount :: DisassociateFromAdministratorAccountResponse -> TestTree
+responseDisassociateFromAdministratorAccount =
   res
-    "DisassociateFromMasterAccountResponse"
-    "fixture/DisassociateFromMasterAccountResponse.proto"
+    "DisassociateFromAdministratorAccountResponse"
+    "fixture/DisassociateFromAdministratorAccountResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DisassociateFromMasterAccount)
+    (Proxy.Proxy :: Proxy.Proxy DisassociateFromAdministratorAccount)
 
 responseDisassociateMembers :: DisassociateMembersResponse -> TestTree
 responseDisassociateMembers =
@@ -916,6 +972,14 @@ responseEnableOrganizationAdminAccount =
     "fixture/EnableOrganizationAdminAccountResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy EnableOrganizationAdminAccount)
+
+responseGetAdministratorAccount :: GetAdministratorAccountResponse -> TestTree
+responseGetAdministratorAccount =
+  res
+    "GetAdministratorAccountResponse"
+    "fixture/GetAdministratorAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAdministratorAccount)
 
 responseGetDetector :: GetDetectorResponse -> TestTree
 responseGetDetector =
@@ -965,13 +1029,13 @@ responseGetInvitationsCount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetInvitationsCount)
 
-responseGetMasterAccount :: GetMasterAccountResponse -> TestTree
-responseGetMasterAccount =
+responseGetMalwareScanSettings :: GetMalwareScanSettingsResponse -> TestTree
+responseGetMalwareScanSettings =
   res
-    "GetMasterAccountResponse"
-    "fixture/GetMasterAccountResponse.proto"
+    "GetMalwareScanSettingsResponse"
+    "fixture/GetMalwareScanSettingsResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy GetMasterAccount)
+    (Proxy.Proxy :: Proxy.Proxy GetMalwareScanSettings)
 
 responseGetMemberDetectors :: GetMemberDetectorsResponse -> TestTree
 responseGetMemberDetectors =
@@ -988,6 +1052,14 @@ responseGetMembers =
     "fixture/GetMembersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMembers)
+
+responseGetRemainingFreeTrialDays :: GetRemainingFreeTrialDaysResponse -> TestTree
+responseGetRemainingFreeTrialDays =
+  res
+    "GetRemainingFreeTrialDaysResponse"
+    "fixture/GetRemainingFreeTrialDaysResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRemainingFreeTrialDays)
 
 responseGetThreatIntelSet :: GetThreatIntelSetResponse -> TestTree
 responseGetThreatIntelSet =
@@ -1164,6 +1236,14 @@ responseUpdateIPSet =
     "fixture/UpdateIPSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateIPSet)
+
+responseUpdateMalwareScanSettings :: UpdateMalwareScanSettingsResponse -> TestTree
+responseUpdateMalwareScanSettings =
+  res
+    "UpdateMalwareScanSettingsResponse"
+    "fixture/UpdateMalwareScanSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateMalwareScanSettings)
 
 responseUpdateMemberDetectors :: UpdateMemberDetectorsResponse -> TestTree
 responseUpdateMemberDetectors =

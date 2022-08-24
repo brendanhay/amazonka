@@ -11,13 +11,13 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.GuardDuty.Types.Master
+-- Module      : Amazonka.GuardDuty.Types.Administrator
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.GuardDuty.Types.Master where
+module Amazonka.GuardDuty.Types.Administrator where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -25,8 +25,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Contains information about the administrator account and invitation.
 --
--- /See:/ 'newMaster' smart constructor.
-data Master = Master'
+-- /See:/ 'newAdministrator' smart constructor.
+data Administrator = Administrator'
   { -- | The ID of the account used as the administrator account.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when the invitation was sent.
@@ -34,33 +34,33 @@ data Master = Master'
     -- | The status of the relationship between the administrator and member
     -- accounts.
     relationshipStatus :: Prelude.Maybe Prelude.Text,
-    -- | The value used to validate the administrator account to the member
-    -- account.
+    -- | The value that is used to validate the administrator account to the
+    -- member account.
     invitationId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'Master' with all optional fields omitted.
+-- Create a value of 'Administrator' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'master_accountId' - The ID of the account used as the administrator account.
+-- 'accountId', 'administrator_accountId' - The ID of the account used as the administrator account.
 --
--- 'invitedAt', 'master_invitedAt' - The timestamp when the invitation was sent.
+-- 'invitedAt', 'administrator_invitedAt' - The timestamp when the invitation was sent.
 --
--- 'relationshipStatus', 'master_relationshipStatus' - The status of the relationship between the administrator and member
+-- 'relationshipStatus', 'administrator_relationshipStatus' - The status of the relationship between the administrator and member
 -- accounts.
 --
--- 'invitationId', 'master_invitationId' - The value used to validate the administrator account to the member
--- account.
-newMaster ::
-  Master
-newMaster =
-  Master'
+-- 'invitationId', 'administrator_invitationId' - The value that is used to validate the administrator account to the
+-- member account.
+newAdministrator ::
+  Administrator
+newAdministrator =
+  Administrator'
     { accountId = Prelude.Nothing,
       invitedAt = Prelude.Nothing,
       relationshipStatus = Prelude.Nothing,
@@ -68,44 +68,44 @@ newMaster =
     }
 
 -- | The ID of the account used as the administrator account.
-master_accountId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
-master_accountId = Lens.lens (\Master' {accountId} -> accountId) (\s@Master' {} a -> s {accountId = a} :: Master)
+administrator_accountId :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
+administrator_accountId = Lens.lens (\Administrator' {accountId} -> accountId) (\s@Administrator' {} a -> s {accountId = a} :: Administrator)
 
 -- | The timestamp when the invitation was sent.
-master_invitedAt :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
-master_invitedAt = Lens.lens (\Master' {invitedAt} -> invitedAt) (\s@Master' {} a -> s {invitedAt = a} :: Master)
+administrator_invitedAt :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
+administrator_invitedAt = Lens.lens (\Administrator' {invitedAt} -> invitedAt) (\s@Administrator' {} a -> s {invitedAt = a} :: Administrator)
 
 -- | The status of the relationship between the administrator and member
 -- accounts.
-master_relationshipStatus :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
-master_relationshipStatus = Lens.lens (\Master' {relationshipStatus} -> relationshipStatus) (\s@Master' {} a -> s {relationshipStatus = a} :: Master)
+administrator_relationshipStatus :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
+administrator_relationshipStatus = Lens.lens (\Administrator' {relationshipStatus} -> relationshipStatus) (\s@Administrator' {} a -> s {relationshipStatus = a} :: Administrator)
 
--- | The value used to validate the administrator account to the member
--- account.
-master_invitationId :: Lens.Lens' Master (Prelude.Maybe Prelude.Text)
-master_invitationId = Lens.lens (\Master' {invitationId} -> invitationId) (\s@Master' {} a -> s {invitationId = a} :: Master)
+-- | The value that is used to validate the administrator account to the
+-- member account.
+administrator_invitationId :: Lens.Lens' Administrator (Prelude.Maybe Prelude.Text)
+administrator_invitationId = Lens.lens (\Administrator' {invitationId} -> invitationId) (\s@Administrator' {} a -> s {invitationId = a} :: Administrator)
 
-instance Core.FromJSON Master where
+instance Core.FromJSON Administrator where
   parseJSON =
     Core.withObject
-      "Master"
+      "Administrator"
       ( \x ->
-          Master'
+          Administrator'
             Prelude.<$> (x Core..:? "accountId")
             Prelude.<*> (x Core..:? "invitedAt")
             Prelude.<*> (x Core..:? "relationshipStatus")
             Prelude.<*> (x Core..:? "invitationId")
       )
 
-instance Prelude.Hashable Master where
-  hashWithSalt _salt Master' {..} =
+instance Prelude.Hashable Administrator where
+  hashWithSalt _salt Administrator' {..} =
     _salt `Prelude.hashWithSalt` accountId
       `Prelude.hashWithSalt` invitedAt
       `Prelude.hashWithSalt` relationshipStatus
       `Prelude.hashWithSalt` invitationId
 
-instance Prelude.NFData Master where
-  rnf Master' {..} =
+instance Prelude.NFData Administrator where
+  rnf Administrator' {..} =
     Prelude.rnf accountId
       `Prelude.seq` Prelude.rnf invitedAt
       `Prelude.seq` Prelude.rnf relationshipStatus

@@ -23,6 +23,8 @@ import qualified Amazonka.Core as Core
 import Amazonka.GuardDuty.Types.CloudTrailConfigurationResult
 import Amazonka.GuardDuty.Types.DNSLogsConfigurationResult
 import Amazonka.GuardDuty.Types.FlowLogsConfigurationResult
+import Amazonka.GuardDuty.Types.KubernetesConfigurationResult
+import Amazonka.GuardDuty.Types.MalwareProtectionConfigurationResult
 import Amazonka.GuardDuty.Types.S3LogsConfigurationResult
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -31,7 +33,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDataSourceConfigurationsResult' smart constructor.
 data DataSourceConfigurationsResult = DataSourceConfigurationsResult'
-  { -- | An object that contains information on the status of CloudTrail as a
+  { -- | Describes the configuration of Malware Protection data sources.
+    malwareProtection :: Prelude.Maybe MalwareProtectionConfigurationResult,
+    -- | An object that contains information on the status of all Kubernetes data
+    -- sources.
+    kubernetes :: Prelude.Maybe KubernetesConfigurationResult,
+    -- | An object that contains information on the status of CloudTrail as a
     -- data source.
     cloudTrail :: CloudTrailConfigurationResult,
     -- | An object that contains information on the status of DNS logs as a data
@@ -53,6 +60,11 @@ data DataSourceConfigurationsResult = DataSourceConfigurationsResult'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'malwareProtection', 'dataSourceConfigurationsResult_malwareProtection' - Describes the configuration of Malware Protection data sources.
+--
+-- 'kubernetes', 'dataSourceConfigurationsResult_kubernetes' - An object that contains information on the status of all Kubernetes data
+-- sources.
 --
 -- 'cloudTrail', 'dataSourceConfigurationsResult_cloudTrail' - An object that contains information on the status of CloudTrail as a
 -- data source.
@@ -81,12 +93,23 @@ newDataSourceConfigurationsResult
   pFlowLogs_
   pS3Logs_ =
     DataSourceConfigurationsResult'
-      { cloudTrail =
-          pCloudTrail_,
+      { malwareProtection =
+          Prelude.Nothing,
+        kubernetes = Prelude.Nothing,
+        cloudTrail = pCloudTrail_,
         dNSLogs = pDNSLogs_,
         flowLogs = pFlowLogs_,
         s3Logs = pS3Logs_
       }
+
+-- | Describes the configuration of Malware Protection data sources.
+dataSourceConfigurationsResult_malwareProtection :: Lens.Lens' DataSourceConfigurationsResult (Prelude.Maybe MalwareProtectionConfigurationResult)
+dataSourceConfigurationsResult_malwareProtection = Lens.lens (\DataSourceConfigurationsResult' {malwareProtection} -> malwareProtection) (\s@DataSourceConfigurationsResult' {} a -> s {malwareProtection = a} :: DataSourceConfigurationsResult)
+
+-- | An object that contains information on the status of all Kubernetes data
+-- sources.
+dataSourceConfigurationsResult_kubernetes :: Lens.Lens' DataSourceConfigurationsResult (Prelude.Maybe KubernetesConfigurationResult)
+dataSourceConfigurationsResult_kubernetes = Lens.lens (\DataSourceConfigurationsResult' {kubernetes} -> kubernetes) (\s@DataSourceConfigurationsResult' {} a -> s {kubernetes = a} :: DataSourceConfigurationsResult)
 
 -- | An object that contains information on the status of CloudTrail as a
 -- data source.
@@ -114,7 +137,9 @@ instance Core.FromJSON DataSourceConfigurationsResult where
       "DataSourceConfigurationsResult"
       ( \x ->
           DataSourceConfigurationsResult'
-            Prelude.<$> (x Core..: "cloudTrail")
+            Prelude.<$> (x Core..:? "malwareProtection")
+            Prelude.<*> (x Core..:? "kubernetes")
+            Prelude.<*> (x Core..: "cloudTrail")
             Prelude.<*> (x Core..: "dnsLogs")
             Prelude.<*> (x Core..: "flowLogs")
             Prelude.<*> (x Core..: "s3Logs")
@@ -127,7 +152,9 @@ instance
   hashWithSalt
     _salt
     DataSourceConfigurationsResult' {..} =
-      _salt `Prelude.hashWithSalt` cloudTrail
+      _salt `Prelude.hashWithSalt` malwareProtection
+        `Prelude.hashWithSalt` kubernetes
+        `Prelude.hashWithSalt` cloudTrail
         `Prelude.hashWithSalt` dNSLogs
         `Prelude.hashWithSalt` flowLogs
         `Prelude.hashWithSalt` s3Logs
@@ -137,7 +164,9 @@ instance
     DataSourceConfigurationsResult
   where
   rnf DataSourceConfigurationsResult' {..} =
-    Prelude.rnf cloudTrail
+    Prelude.rnf malwareProtection
+      `Prelude.seq` Prelude.rnf kubernetes
+      `Prelude.seq` Prelude.rnf cloudTrail
       `Prelude.seq` Prelude.rnf dNSLogs
       `Prelude.seq` Prelude.rnf flowLogs
       `Prelude.seq` Prelude.rnf s3Logs

@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates member accounts of the current AWS account by specifying a list
--- of AWS account IDs. This step is a prerequisite for managing the
--- associated member accounts either by invitation or through an
--- organization.
+-- Creates member accounts of the current Amazon Web Services account by
+-- specifying a list of Amazon Web Services account IDs. This step is a
+-- prerequisite for managing the associated member accounts either by
+-- invitation or through an organization.
 --
 -- When using @Create Members@ as an organizations delegated administrator
 -- this action will enable GuardDuty in the added member accounts, with the

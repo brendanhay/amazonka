@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainDetails' smart constructor.
 data DomainDetails = DomainDetails'
-  { -- | The domain information for the AWS API call.
+  { -- | The domain information for the Amazon Web Services API call.
     domain :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,13 +40,13 @@ data DomainDetails = DomainDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'domainDetails_domain' - The domain information for the AWS API call.
+-- 'domain', 'domainDetails_domain' - The domain information for the Amazon Web Services API call.
 newDomainDetails ::
   DomainDetails
 newDomainDetails =
   DomainDetails' {domain = Prelude.Nothing}
 
--- | The domain information for the AWS API call.
+-- | The domain information for the Amazon Web Services API call.
 domainDetails_domain :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
 domainDetails_domain = Lens.lens (\DomainDetails' {domain} -> domain) (\s@DomainDetails' {} a -> s {domain = a} :: DomainDetails)
 

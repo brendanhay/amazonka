@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes invitations sent to the current member account by AWS accounts
--- specified by their account IDs.
+-- Deletes invitations sent to the current member account by Amazon Web
+-- Services accounts specified by their account IDs.
 module Amazonka.GuardDuty.DeleteInvitations
   ( -- * Creating a Request
     DeleteInvitations (..),
@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteInvitations' smart constructor.
 data DeleteInvitations = DeleteInvitations'
-  { -- | A list of account IDs of the AWS accounts that sent invitations to the
-    -- current member account that you want to delete invitations from.
+  { -- | A list of account IDs of the Amazon Web Services accounts that sent
+    -- invitations to the current member account that you want to delete
+    -- invitations from.
     accountIds :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +64,9 @@ data DeleteInvitations = DeleteInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountIds', 'deleteInvitations_accountIds' - A list of account IDs of the AWS accounts that sent invitations to the
--- current member account that you want to delete invitations from.
+-- 'accountIds', 'deleteInvitations_accountIds' - A list of account IDs of the Amazon Web Services accounts that sent
+-- invitations to the current member account that you want to delete
+-- invitations from.
 newDeleteInvitations ::
   -- | 'accountIds'
   Prelude.NonEmpty Prelude.Text ->
@@ -75,8 +77,9 @@ newDeleteInvitations pAccountIds_ =
         Lens.coerced Lens.# pAccountIds_
     }
 
--- | A list of account IDs of the AWS accounts that sent invitations to the
--- current member account that you want to delete invitations from.
+-- | A list of account IDs of the Amazon Web Services accounts that sent
+-- invitations to the current member account that you want to delete
+-- invitations from.
 deleteInvitations_accountIds :: Lens.Lens' DeleteInvitations (Prelude.NonEmpty Prelude.Text)
 deleteInvitations_accountIds = Lens.lens (\DeleteInvitations' {accountIds} -> accountIds) (\s@DeleteInvitations' {} a -> s {accountIds = a} :: DeleteInvitations) Prelude.. Lens.coerced
 

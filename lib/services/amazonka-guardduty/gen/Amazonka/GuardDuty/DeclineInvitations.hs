@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Declines invitations sent to the current member account by AWS accounts
--- specified by their account IDs.
+-- Declines invitations sent to the current member account by Amazon Web
+-- Services accounts specified by their account IDs.
 module Amazonka.GuardDuty.DeclineInvitations
   ( -- * Creating a Request
     DeclineInvitations (..),
@@ -49,8 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeclineInvitations' smart constructor.
 data DeclineInvitations = DeclineInvitations'
-  { -- | A list of account IDs of the AWS accounts that sent invitations to the
-    -- current member account that you want to decline invitations from.
+  { -- | A list of account IDs of the Amazon Web Services accounts that sent
+    -- invitations to the current member account that you want to decline
+    -- invitations from.
     accountIds :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +64,9 @@ data DeclineInvitations = DeclineInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountIds', 'declineInvitations_accountIds' - A list of account IDs of the AWS accounts that sent invitations to the
--- current member account that you want to decline invitations from.
+-- 'accountIds', 'declineInvitations_accountIds' - A list of account IDs of the Amazon Web Services accounts that sent
+-- invitations to the current member account that you want to decline
+-- invitations from.
 newDeclineInvitations ::
   -- | 'accountIds'
   Prelude.NonEmpty Prelude.Text ->
@@ -75,8 +77,9 @@ newDeclineInvitations pAccountIds_ =
         Lens.coerced Lens.# pAccountIds_
     }
 
--- | A list of account IDs of the AWS accounts that sent invitations to the
--- current member account that you want to decline invitations from.
+-- | A list of account IDs of the Amazon Web Services accounts that sent
+-- invitations to the current member account that you want to decline
+-- invitations from.
 declineInvitations_accountIds :: Lens.Lens' DeclineInvitations (Prelude.NonEmpty Prelude.Text)
 declineInvitations_accountIds = Lens.lens (\DeclineInvitations' {accountIds} -> accountIds) (\s@DeclineInvitations' {} a -> s {accountIds = a} :: DeclineInvitations) Prelude.. Lens.coerced
 

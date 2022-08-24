@@ -53,8 +53,7 @@ import qualified Amazonka.Response as Response
 data UpdateIPSet = UpdateIPSet'
   { -- | The unique ID that specifies the IPSet that you want to update.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The updated URI of the file that contains the IPSet. For example:
-    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+    -- | The updated URI of the file that contains the IPSet.
     location :: Prelude.Maybe Prelude.Text,
     -- | The updated Boolean value that specifies whether the IPSet is active or
     -- not.
@@ -77,8 +76,7 @@ data UpdateIPSet = UpdateIPSet'
 --
 -- 'name', 'updateIPSet_name' - The unique ID that specifies the IPSet that you want to update.
 --
--- 'location', 'updateIPSet_location' - The updated URI of the file that contains the IPSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- 'location', 'updateIPSet_location' - The updated URI of the file that contains the IPSet.
 --
 -- 'activate', 'updateIPSet_activate' - The updated Boolean value that specifies whether the IPSet is active or
 -- not.
@@ -106,8 +104,7 @@ newUpdateIPSet pDetectorId_ pIpSetId_ =
 updateIPSet_name :: Lens.Lens' UpdateIPSet (Prelude.Maybe Prelude.Text)
 updateIPSet_name = Lens.lens (\UpdateIPSet' {name} -> name) (\s@UpdateIPSet' {} a -> s {name = a} :: UpdateIPSet)
 
--- | The updated URI of the file that contains the IPSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- | The updated URI of the file that contains the IPSet.
 updateIPSet_location :: Lens.Lens' UpdateIPSet (Prelude.Maybe Prelude.Text)
 updateIPSet_location = Lens.lens (\UpdateIPSet' {location} -> location) (\s@UpdateIPSet' {} a -> s {location = a} :: UpdateIPSet)
 

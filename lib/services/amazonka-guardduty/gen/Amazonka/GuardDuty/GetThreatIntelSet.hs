@@ -156,8 +156,7 @@ data GetThreatIntelSetResponse = GetThreatIntelSetResponse'
     name :: Prelude.Text,
     -- | The format of the threatIntelSet.
     format :: ThreatIntelSetFormat,
-    -- | The URI of the file that contains the ThreatIntelSet. For example:
-    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+    -- | The URI of the file that contains the ThreatIntelSet.
     location :: Prelude.Text,
     -- | The status of threatIntelSet file uploaded.
     status :: ThreatIntelSetStatus
@@ -182,8 +181,7 @@ data GetThreatIntelSetResponse = GetThreatIntelSetResponse'
 --
 -- 'format', 'getThreatIntelSetResponse_format' - The format of the threatIntelSet.
 --
--- 'location', 'getThreatIntelSetResponse_location' - The URI of the file that contains the ThreatIntelSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- 'location', 'getThreatIntelSetResponse_location' - The URI of the file that contains the ThreatIntelSet.
 --
 -- 'status', 'getThreatIntelSetResponse_status' - The status of threatIntelSet file uploaded.
 newGetThreatIntelSetResponse ::
@@ -231,8 +229,7 @@ getThreatIntelSetResponse_name = Lens.lens (\GetThreatIntelSetResponse' {name} -
 getThreatIntelSetResponse_format :: Lens.Lens' GetThreatIntelSetResponse ThreatIntelSetFormat
 getThreatIntelSetResponse_format = Lens.lens (\GetThreatIntelSetResponse' {format} -> format) (\s@GetThreatIntelSetResponse' {} a -> s {format = a} :: GetThreatIntelSetResponse)
 
--- | The URI of the file that contains the ThreatIntelSet. For example:
--- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+-- | The URI of the file that contains the ThreatIntelSet.
 getThreatIntelSetResponse_location :: Lens.Lens' GetThreatIntelSetResponse Prelude.Text
 getThreatIntelSetResponse_location = Lens.lens (\GetThreatIntelSetResponse' {location} -> location) (\s@GetThreatIntelSetResponse' {} a -> s {location = a} :: GetThreatIntelSetResponse)
 

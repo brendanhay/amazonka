@@ -37,8 +37,8 @@ data InstanceDetails = InstanceDetails'
     instanceState :: Prelude.Maybe Prelude.Text,
     -- | The profile information of the EC2 instance.
     iamInstanceProfile :: Prelude.Maybe IamInstanceProfile,
-    -- | The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to
-    -- AWS Outposts instances.
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Outpost. Only
+    -- applicable to Amazon Web Services Outposts instances.
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | The image description of the EC2 instance.
     imageDescription :: Prelude.Maybe Prelude.Text,
@@ -75,8 +75,8 @@ data InstanceDetails = InstanceDetails'
 --
 -- 'iamInstanceProfile', 'instanceDetails_iamInstanceProfile' - The profile information of the EC2 instance.
 --
--- 'outpostArn', 'instanceDetails_outpostArn' - The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to
--- AWS Outposts instances.
+-- 'outpostArn', 'instanceDetails_outpostArn' - The Amazon Resource Name (ARN) of the Amazon Web Services Outpost. Only
+-- applicable to Amazon Web Services Outposts instances.
 --
 -- 'imageDescription', 'instanceDetails_imageDescription' - The image description of the EC2 instance.
 --
@@ -126,8 +126,8 @@ instanceDetails_instanceState = Lens.lens (\InstanceDetails' {instanceState} -> 
 instanceDetails_iamInstanceProfile :: Lens.Lens' InstanceDetails (Prelude.Maybe IamInstanceProfile)
 instanceDetails_iamInstanceProfile = Lens.lens (\InstanceDetails' {iamInstanceProfile} -> iamInstanceProfile) (\s@InstanceDetails' {} a -> s {iamInstanceProfile = a} :: InstanceDetails)
 
--- | The Amazon Resource Name (ARN) of the AWS Outpost. Only applicable to
--- AWS Outposts instances.
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Outpost. Only
+-- applicable to Amazon Web Services Outposts instances.
 instanceDetails_outpostArn :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
 instanceDetails_outpostArn = Lens.lens (\InstanceDetails' {outpostArn} -> outpostArn) (\s@InstanceDetails' {} a -> s {outpostArn = a} :: InstanceDetails)
 

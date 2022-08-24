@@ -41,6 +41,9 @@ module Amazonka.ECR
     -- ** LayerAlreadyExistsException
     _LayerAlreadyExistsException,
 
+    -- ** PullThroughCacheRuleNotFoundException
+    _PullThroughCacheRuleNotFoundException,
+
     -- ** LayerPartTooSmallException
     _LayerPartTooSmallException,
 
@@ -95,8 +98,14 @@ module Amazonka.ECR
     -- ** LifecyclePolicyNotFoundException
     _LifecyclePolicyNotFoundException,
 
+    -- ** UnsupportedUpstreamRegistryException
+    _UnsupportedUpstreamRegistryException,
+
     -- ** UploadNotFoundException
     _UploadNotFoundException,
+
+    -- ** PullThroughCacheRuleAlreadyExistsException
+    _PullThroughCacheRuleAlreadyExistsException,
 
     -- ** ScanNotFoundException
     _ScanNotFoundException,
@@ -152,11 +161,23 @@ module Amazonka.ECR
     BatchGetImageResponse (BatchGetImageResponse'),
     newBatchGetImageResponse,
 
+    -- ** BatchGetRepositoryScanningConfiguration
+    BatchGetRepositoryScanningConfiguration (BatchGetRepositoryScanningConfiguration'),
+    newBatchGetRepositoryScanningConfiguration,
+    BatchGetRepositoryScanningConfigurationResponse (BatchGetRepositoryScanningConfigurationResponse'),
+    newBatchGetRepositoryScanningConfigurationResponse,
+
     -- ** CompleteLayerUpload
     CompleteLayerUpload (CompleteLayerUpload'),
     newCompleteLayerUpload,
     CompleteLayerUploadResponse (CompleteLayerUploadResponse'),
     newCompleteLayerUploadResponse,
+
+    -- ** CreatePullThroughCacheRule
+    CreatePullThroughCacheRule (CreatePullThroughCacheRule'),
+    newCreatePullThroughCacheRule,
+    CreatePullThroughCacheRuleResponse (CreatePullThroughCacheRuleResponse'),
+    newCreatePullThroughCacheRuleResponse,
 
     -- ** CreateRepository
     CreateRepository (CreateRepository'),
@@ -169,6 +190,12 @@ module Amazonka.ECR
     newDeleteLifecyclePolicy,
     DeleteLifecyclePolicyResponse (DeleteLifecyclePolicyResponse'),
     newDeleteLifecyclePolicyResponse,
+
+    -- ** DeletePullThroughCacheRule
+    DeletePullThroughCacheRule (DeletePullThroughCacheRule'),
+    newDeletePullThroughCacheRule,
+    DeletePullThroughCacheRuleResponse (DeletePullThroughCacheRuleResponse'),
+    newDeletePullThroughCacheRuleResponse,
 
     -- ** DeleteRegistryPolicy
     DeleteRegistryPolicy (DeleteRegistryPolicy'),
@@ -205,6 +232,12 @@ module Amazonka.ECR
     newDescribeImages,
     DescribeImagesResponse (DescribeImagesResponse'),
     newDescribeImagesResponse,
+
+    -- ** DescribePullThroughCacheRules (Paginated)
+    DescribePullThroughCacheRules (DescribePullThroughCacheRules'),
+    newDescribePullThroughCacheRules,
+    DescribePullThroughCacheRulesResponse (DescribePullThroughCacheRulesResponse'),
+    newDescribePullThroughCacheRulesResponse,
 
     -- ** DescribeRegistry
     DescribeRegistry (DescribeRegistry'),
@@ -247,6 +280,12 @@ module Amazonka.ECR
     newGetRegistryPolicy,
     GetRegistryPolicyResponse (GetRegistryPolicyResponse'),
     newGetRegistryPolicyResponse,
+
+    -- ** GetRegistryScanningConfiguration
+    GetRegistryScanningConfiguration (GetRegistryScanningConfiguration'),
+    newGetRegistryScanningConfiguration,
+    GetRegistryScanningConfigurationResponse (GetRegistryScanningConfigurationResponse'),
+    newGetRegistryScanningConfigurationResponse,
 
     -- ** GetRepositoryPolicy
     GetRepositoryPolicy (GetRepositoryPolicy'),
@@ -301,6 +340,12 @@ module Amazonka.ECR
     newPutRegistryPolicy,
     PutRegistryPolicyResponse (PutRegistryPolicyResponse'),
     newPutRegistryPolicyResponse,
+
+    -- ** PutRegistryScanningConfiguration
+    PutRegistryScanningConfiguration (PutRegistryScanningConfiguration'),
+    newPutRegistryScanningConfiguration,
+    PutRegistryScanningConfigurationResponse (PutRegistryScanningConfigurationResponse'),
+    newPutRegistryScanningConfigurationResponse,
 
     -- ** PutReplicationConfiguration
     PutReplicationConfiguration (PutReplicationConfiguration'),
@@ -376,8 +421,20 @@ module Amazonka.ECR
     -- ** RepositoryFilterType
     RepositoryFilterType (..),
 
+    -- ** ScanFrequency
+    ScanFrequency (..),
+
     -- ** ScanStatus
     ScanStatus (..),
+
+    -- ** ScanType
+    ScanType (..),
+
+    -- ** ScanningConfigurationFailureCode
+    ScanningConfigurationFailureCode (..),
+
+    -- ** ScanningRepositoryFilterType
+    ScanningRepositoryFilterType (..),
 
     -- ** TagStatus
     TagStatus (..),
@@ -390,6 +447,22 @@ module Amazonka.ECR
     AuthorizationData (AuthorizationData'),
     newAuthorizationData,
 
+    -- ** AwsEcrContainerImageDetails
+    AwsEcrContainerImageDetails (AwsEcrContainerImageDetails'),
+    newAwsEcrContainerImageDetails,
+
+    -- ** CvssScore
+    CvssScore (CvssScore'),
+    newCvssScore,
+
+    -- ** CvssScoreAdjustment
+    CvssScoreAdjustment (CvssScoreAdjustment'),
+    newCvssScoreAdjustment,
+
+    -- ** CvssScoreDetails
+    CvssScoreDetails (CvssScoreDetails'),
+    newCvssScoreDetails,
+
     -- ** DescribeImagesFilter
     DescribeImagesFilter (DescribeImagesFilter'),
     newDescribeImagesFilter,
@@ -397,6 +470,10 @@ module Amazonka.ECR
     -- ** EncryptionConfiguration
     EncryptionConfiguration (EncryptionConfiguration'),
     newEncryptionConfiguration,
+
+    -- ** EnhancedImageScanFinding
+    EnhancedImageScanFinding (EnhancedImageScanFinding'),
+    newEnhancedImageScanFinding,
 
     -- ** Image
     Image (Image'),
@@ -466,6 +543,30 @@ module Amazonka.ECR
     ListImagesFilter (ListImagesFilter'),
     newListImagesFilter,
 
+    -- ** PackageVulnerabilityDetails
+    PackageVulnerabilityDetails (PackageVulnerabilityDetails'),
+    newPackageVulnerabilityDetails,
+
+    -- ** PullThroughCacheRule
+    PullThroughCacheRule (PullThroughCacheRule'),
+    newPullThroughCacheRule,
+
+    -- ** Recommendation
+    Recommendation (Recommendation'),
+    newRecommendation,
+
+    -- ** RegistryScanningConfiguration
+    RegistryScanningConfiguration (RegistryScanningConfiguration'),
+    newRegistryScanningConfiguration,
+
+    -- ** RegistryScanningRule
+    RegistryScanningRule (RegistryScanningRule'),
+    newRegistryScanningRule,
+
+    -- ** Remediation
+    Remediation (Remediation'),
+    newRemediation,
+
     -- ** ReplicationConfiguration
     ReplicationConfiguration (ReplicationConfiguration'),
     newReplicationConfiguration,
@@ -486,24 +587,56 @@ module Amazonka.ECR
     RepositoryFilter (RepositoryFilter'),
     newRepositoryFilter,
 
+    -- ** RepositoryScanningConfiguration
+    RepositoryScanningConfiguration (RepositoryScanningConfiguration'),
+    newRepositoryScanningConfiguration,
+
+    -- ** RepositoryScanningConfigurationFailure
+    RepositoryScanningConfigurationFailure (RepositoryScanningConfigurationFailure'),
+    newRepositoryScanningConfigurationFailure,
+
+    -- ** Resource
+    Resource (Resource'),
+    newResource,
+
+    -- ** ResourceDetails
+    ResourceDetails (ResourceDetails'),
+    newResourceDetails,
+
+    -- ** ScanningRepositoryFilter
+    ScanningRepositoryFilter (ScanningRepositoryFilter'),
+    newScanningRepositoryFilter,
+
+    -- ** ScoreDetails
+    ScoreDetails (ScoreDetails'),
+    newScoreDetails,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** VulnerablePackage
+    VulnerablePackage (VulnerablePackage'),
+    newVulnerablePackage,
   )
 where
 
 import Amazonka.ECR.BatchCheckLayerAvailability
 import Amazonka.ECR.BatchDeleteImage
 import Amazonka.ECR.BatchGetImage
+import Amazonka.ECR.BatchGetRepositoryScanningConfiguration
 import Amazonka.ECR.CompleteLayerUpload
+import Amazonka.ECR.CreatePullThroughCacheRule
 import Amazonka.ECR.CreateRepository
 import Amazonka.ECR.DeleteLifecyclePolicy
+import Amazonka.ECR.DeletePullThroughCacheRule
 import Amazonka.ECR.DeleteRegistryPolicy
 import Amazonka.ECR.DeleteRepository
 import Amazonka.ECR.DeleteRepositoryPolicy
 import Amazonka.ECR.DescribeImageReplicationStatus
 import Amazonka.ECR.DescribeImageScanFindings
 import Amazonka.ECR.DescribeImages
+import Amazonka.ECR.DescribePullThroughCacheRules
 import Amazonka.ECR.DescribeRegistry
 import Amazonka.ECR.DescribeRepositories
 import Amazonka.ECR.GetAuthorizationToken
@@ -511,6 +644,7 @@ import Amazonka.ECR.GetDownloadUrlForLayer
 import Amazonka.ECR.GetLifecyclePolicy
 import Amazonka.ECR.GetLifecyclePolicyPreview
 import Amazonka.ECR.GetRegistryPolicy
+import Amazonka.ECR.GetRegistryScanningConfiguration
 import Amazonka.ECR.GetRepositoryPolicy
 import Amazonka.ECR.InitiateLayerUpload
 import Amazonka.ECR.Lens
@@ -521,6 +655,7 @@ import Amazonka.ECR.PutImageScanningConfiguration
 import Amazonka.ECR.PutImageTagMutability
 import Amazonka.ECR.PutLifecyclePolicy
 import Amazonka.ECR.PutRegistryPolicy
+import Amazonka.ECR.PutRegistryScanningConfiguration
 import Amazonka.ECR.PutReplicationConfiguration
 import Amazonka.ECR.SetRepositoryPolicy
 import Amazonka.ECR.StartImageScan

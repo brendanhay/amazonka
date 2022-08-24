@@ -47,15 +47,19 @@ library
     Amazonka.ECR.BatchCheckLayerAvailability
     Amazonka.ECR.BatchDeleteImage
     Amazonka.ECR.BatchGetImage
+    Amazonka.ECR.BatchGetRepositoryScanningConfiguration
     Amazonka.ECR.CompleteLayerUpload
+    Amazonka.ECR.CreatePullThroughCacheRule
     Amazonka.ECR.CreateRepository
     Amazonka.ECR.DeleteLifecyclePolicy
+    Amazonka.ECR.DeletePullThroughCacheRule
     Amazonka.ECR.DeleteRegistryPolicy
     Amazonka.ECR.DeleteRepository
     Amazonka.ECR.DeleteRepositoryPolicy
     Amazonka.ECR.DescribeImageReplicationStatus
     Amazonka.ECR.DescribeImages
     Amazonka.ECR.DescribeImageScanFindings
+    Amazonka.ECR.DescribePullThroughCacheRules
     Amazonka.ECR.DescribeRegistry
     Amazonka.ECR.DescribeRepositories
     Amazonka.ECR.GetAuthorizationToken
@@ -63,6 +67,7 @@ library
     Amazonka.ECR.GetLifecyclePolicy
     Amazonka.ECR.GetLifecyclePolicyPreview
     Amazonka.ECR.GetRegistryPolicy
+    Amazonka.ECR.GetRegistryScanningConfiguration
     Amazonka.ECR.GetRepositoryPolicy
     Amazonka.ECR.InitiateLayerUpload
     Amazonka.ECR.Lens
@@ -73,6 +78,7 @@ library
     Amazonka.ECR.PutImageTagMutability
     Amazonka.ECR.PutLifecyclePolicy
     Amazonka.ECR.PutRegistryPolicy
+    Amazonka.ECR.PutRegistryScanningConfiguration
     Amazonka.ECR.PutReplicationConfiguration
     Amazonka.ECR.SetRepositoryPolicy
     Amazonka.ECR.StartImageScan
@@ -81,9 +87,14 @@ library
     Amazonka.ECR.Types
     Amazonka.ECR.Types.Attribute
     Amazonka.ECR.Types.AuthorizationData
+    Amazonka.ECR.Types.AwsEcrContainerImageDetails
+    Amazonka.ECR.Types.CvssScore
+    Amazonka.ECR.Types.CvssScoreAdjustment
+    Amazonka.ECR.Types.CvssScoreDetails
     Amazonka.ECR.Types.DescribeImagesFilter
     Amazonka.ECR.Types.EncryptionConfiguration
     Amazonka.ECR.Types.EncryptionType
+    Amazonka.ECR.Types.EnhancedImageScanFinding
     Amazonka.ECR.Types.FindingSeverity
     Amazonka.ECR.Types.Image
     Amazonka.ECR.Types.ImageActionType
@@ -108,6 +119,12 @@ library
     Amazonka.ECR.Types.LifecyclePolicyPreviewSummary
     Amazonka.ECR.Types.LifecyclePolicyRuleAction
     Amazonka.ECR.Types.ListImagesFilter
+    Amazonka.ECR.Types.PackageVulnerabilityDetails
+    Amazonka.ECR.Types.PullThroughCacheRule
+    Amazonka.ECR.Types.Recommendation
+    Amazonka.ECR.Types.RegistryScanningConfiguration
+    Amazonka.ECR.Types.RegistryScanningRule
+    Amazonka.ECR.Types.Remediation
     Amazonka.ECR.Types.ReplicationConfiguration
     Amazonka.ECR.Types.ReplicationDestination
     Amazonka.ECR.Types.ReplicationRule
@@ -115,9 +132,20 @@ library
     Amazonka.ECR.Types.Repository
     Amazonka.ECR.Types.RepositoryFilter
     Amazonka.ECR.Types.RepositoryFilterType
+    Amazonka.ECR.Types.RepositoryScanningConfiguration
+    Amazonka.ECR.Types.RepositoryScanningConfigurationFailure
+    Amazonka.ECR.Types.Resource
+    Amazonka.ECR.Types.ResourceDetails
+    Amazonka.ECR.Types.ScanFrequency
+    Amazonka.ECR.Types.ScanningConfigurationFailureCode
+    Amazonka.ECR.Types.ScanningRepositoryFilter
+    Amazonka.ECR.Types.ScanningRepositoryFilterType
     Amazonka.ECR.Types.ScanStatus
+    Amazonka.ECR.Types.ScanType
+    Amazonka.ECR.Types.ScoreDetails
     Amazonka.ECR.Types.Tag
     Amazonka.ECR.Types.TagStatus
+    Amazonka.ECR.Types.VulnerablePackage
     Amazonka.ECR.UntagResource
     Amazonka.ECR.UploadLayerPart
     Amazonka.ECR.Waiters

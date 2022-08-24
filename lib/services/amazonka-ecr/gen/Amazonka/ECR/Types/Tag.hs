@@ -23,18 +23,17 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The metadata that you apply to a resource to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define. Tag keys can have a maximum character length of 128
--- characters, and tag values can have a maximum length of 256 characters.
+-- | The metadata to apply to a resource to help you categorize and organize
+-- them. Each tag consists of a key and a value, both of which you define.
+-- Tag keys can have a maximum character length of 128 characters, and tag
+-- values can have a maximum length of 256 characters.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | One part of a key-value pair that make up a tag. A @key@ is a general
     -- label that acts like a category for more specific tag values.
     key :: Prelude.Maybe Prelude.Text,
-    -- | The optional part of a key-value pair that make up a tag. A @value@ acts
-    -- as a descriptor within a tag category (key).
+    -- | A @value@ acts as a descriptor within a tag category (key).
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,8 +49,7 @@ data Tag = Tag'
 -- 'key', 'tag_key' - One part of a key-value pair that make up a tag. A @key@ is a general
 -- label that acts like a category for more specific tag values.
 --
--- 'value', 'tag_value' - The optional part of a key-value pair that make up a tag. A @value@ acts
--- as a descriptor within a tag category (key).
+-- 'value', 'tag_value' - A @value@ acts as a descriptor within a tag category (key).
 newTag ::
   Tag
 newTag =
@@ -65,8 +63,7 @@ newTag =
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The optional part of a key-value pair that make up a tag. A @value@ acts
--- as a descriptor within a tag category (key).
+-- | A @value@ acts as a descriptor within a tag category (key).
 tag_value :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

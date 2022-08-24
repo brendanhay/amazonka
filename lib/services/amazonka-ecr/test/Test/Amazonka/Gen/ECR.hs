@@ -36,14 +36,23 @@ import Test.Tasty
 --         , requestBatchGetImage $
 --             newBatchGetImage
 --
+--         , requestBatchGetRepositoryScanningConfiguration $
+--             newBatchGetRepositoryScanningConfiguration
+--
 --         , requestCompleteLayerUpload $
 --             newCompleteLayerUpload
+--
+--         , requestCreatePullThroughCacheRule $
+--             newCreatePullThroughCacheRule
 --
 --         , requestCreateRepository $
 --             newCreateRepository
 --
 --         , requestDeleteLifecyclePolicy $
 --             newDeleteLifecyclePolicy
+--
+--         , requestDeletePullThroughCacheRule $
+--             newDeletePullThroughCacheRule
 --
 --         , requestDeleteRegistryPolicy $
 --             newDeleteRegistryPolicy
@@ -62,6 +71,9 @@ import Test.Tasty
 --
 --         , requestDescribeImages $
 --             newDescribeImages
+--
+--         , requestDescribePullThroughCacheRules $
+--             newDescribePullThroughCacheRules
 --
 --         , requestDescribeRegistry $
 --             newDescribeRegistry
@@ -83,6 +95,9 @@ import Test.Tasty
 --
 --         , requestGetRegistryPolicy $
 --             newGetRegistryPolicy
+--
+--         , requestGetRegistryScanningConfiguration $
+--             newGetRegistryScanningConfiguration
 --
 --         , requestGetRepositoryPolicy $
 --             newGetRepositoryPolicy
@@ -110,6 +125,9 @@ import Test.Tasty
 --
 --         , requestPutRegistryPolicy $
 --             newPutRegistryPolicy
+--
+--         , requestPutRegistryScanningConfiguration $
+--             newPutRegistryScanningConfiguration
 --
 --         , requestPutReplicationConfiguration $
 --             newPutReplicationConfiguration
@@ -144,14 +162,23 @@ import Test.Tasty
 --         , responseBatchGetImage $
 --             newBatchGetImageResponse
 --
+--         , responseBatchGetRepositoryScanningConfiguration $
+--             newBatchGetRepositoryScanningConfigurationResponse
+--
 --         , responseCompleteLayerUpload $
 --             newCompleteLayerUploadResponse
+--
+--         , responseCreatePullThroughCacheRule $
+--             newCreatePullThroughCacheRuleResponse
 --
 --         , responseCreateRepository $
 --             newCreateRepositoryResponse
 --
 --         , responseDeleteLifecyclePolicy $
 --             newDeleteLifecyclePolicyResponse
+--
+--         , responseDeletePullThroughCacheRule $
+--             newDeletePullThroughCacheRuleResponse
 --
 --         , responseDeleteRegistryPolicy $
 --             newDeleteRegistryPolicyResponse
@@ -170,6 +197,9 @@ import Test.Tasty
 --
 --         , responseDescribeImages $
 --             newDescribeImagesResponse
+--
+--         , responseDescribePullThroughCacheRules $
+--             newDescribePullThroughCacheRulesResponse
 --
 --         , responseDescribeRegistry $
 --             newDescribeRegistryResponse
@@ -191,6 +221,9 @@ import Test.Tasty
 --
 --         , responseGetRegistryPolicy $
 --             newGetRegistryPolicyResponse
+--
+--         , responseGetRegistryScanningConfiguration $
+--             newGetRegistryScanningConfigurationResponse
 --
 --         , responseGetRepositoryPolicy $
 --             newGetRepositoryPolicyResponse
@@ -218,6 +251,9 @@ import Test.Tasty
 --
 --         , responsePutRegistryPolicy $
 --             newPutRegistryPolicyResponse
+--
+--         , responsePutRegistryScanningConfiguration $
+--             newPutRegistryScanningConfigurationResponse
 --
 --         , responsePutReplicationConfiguration $
 --             newPutReplicationConfigurationResponse
@@ -263,11 +299,23 @@ requestBatchGetImage =
     "BatchGetImage"
     "fixture/BatchGetImage.yaml"
 
+requestBatchGetRepositoryScanningConfiguration :: BatchGetRepositoryScanningConfiguration -> TestTree
+requestBatchGetRepositoryScanningConfiguration =
+  req
+    "BatchGetRepositoryScanningConfiguration"
+    "fixture/BatchGetRepositoryScanningConfiguration.yaml"
+
 requestCompleteLayerUpload :: CompleteLayerUpload -> TestTree
 requestCompleteLayerUpload =
   req
     "CompleteLayerUpload"
     "fixture/CompleteLayerUpload.yaml"
+
+requestCreatePullThroughCacheRule :: CreatePullThroughCacheRule -> TestTree
+requestCreatePullThroughCacheRule =
+  req
+    "CreatePullThroughCacheRule"
+    "fixture/CreatePullThroughCacheRule.yaml"
 
 requestCreateRepository :: CreateRepository -> TestTree
 requestCreateRepository =
@@ -280,6 +328,12 @@ requestDeleteLifecyclePolicy =
   req
     "DeleteLifecyclePolicy"
     "fixture/DeleteLifecyclePolicy.yaml"
+
+requestDeletePullThroughCacheRule :: DeletePullThroughCacheRule -> TestTree
+requestDeletePullThroughCacheRule =
+  req
+    "DeletePullThroughCacheRule"
+    "fixture/DeletePullThroughCacheRule.yaml"
 
 requestDeleteRegistryPolicy :: DeleteRegistryPolicy -> TestTree
 requestDeleteRegistryPolicy =
@@ -316,6 +370,12 @@ requestDescribeImages =
   req
     "DescribeImages"
     "fixture/DescribeImages.yaml"
+
+requestDescribePullThroughCacheRules :: DescribePullThroughCacheRules -> TestTree
+requestDescribePullThroughCacheRules =
+  req
+    "DescribePullThroughCacheRules"
+    "fixture/DescribePullThroughCacheRules.yaml"
 
 requestDescribeRegistry :: DescribeRegistry -> TestTree
 requestDescribeRegistry =
@@ -358,6 +418,12 @@ requestGetRegistryPolicy =
   req
     "GetRegistryPolicy"
     "fixture/GetRegistryPolicy.yaml"
+
+requestGetRegistryScanningConfiguration :: GetRegistryScanningConfiguration -> TestTree
+requestGetRegistryScanningConfiguration =
+  req
+    "GetRegistryScanningConfiguration"
+    "fixture/GetRegistryScanningConfiguration.yaml"
 
 requestGetRepositoryPolicy :: GetRepositoryPolicy -> TestTree
 requestGetRepositoryPolicy =
@@ -412,6 +478,12 @@ requestPutRegistryPolicy =
   req
     "PutRegistryPolicy"
     "fixture/PutRegistryPolicy.yaml"
+
+requestPutRegistryScanningConfiguration :: PutRegistryScanningConfiguration -> TestTree
+requestPutRegistryScanningConfiguration =
+  req
+    "PutRegistryScanningConfiguration"
+    "fixture/PutRegistryScanningConfiguration.yaml"
 
 requestPutReplicationConfiguration :: PutReplicationConfiguration -> TestTree
 requestPutReplicationConfiguration =
@@ -481,6 +553,14 @@ responseBatchGetImage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetImage)
 
+responseBatchGetRepositoryScanningConfiguration :: BatchGetRepositoryScanningConfigurationResponse -> TestTree
+responseBatchGetRepositoryScanningConfiguration =
+  res
+    "BatchGetRepositoryScanningConfigurationResponse"
+    "fixture/BatchGetRepositoryScanningConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetRepositoryScanningConfiguration)
+
 responseCompleteLayerUpload :: CompleteLayerUploadResponse -> TestTree
 responseCompleteLayerUpload =
   res
@@ -488,6 +568,14 @@ responseCompleteLayerUpload =
     "fixture/CompleteLayerUploadResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CompleteLayerUpload)
+
+responseCreatePullThroughCacheRule :: CreatePullThroughCacheRuleResponse -> TestTree
+responseCreatePullThroughCacheRule =
+  res
+    "CreatePullThroughCacheRuleResponse"
+    "fixture/CreatePullThroughCacheRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePullThroughCacheRule)
 
 responseCreateRepository :: CreateRepositoryResponse -> TestTree
 responseCreateRepository =
@@ -504,6 +592,14 @@ responseDeleteLifecyclePolicy =
     "fixture/DeleteLifecyclePolicyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteLifecyclePolicy)
+
+responseDeletePullThroughCacheRule :: DeletePullThroughCacheRuleResponse -> TestTree
+responseDeletePullThroughCacheRule =
+  res
+    "DeletePullThroughCacheRuleResponse"
+    "fixture/DeletePullThroughCacheRuleResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePullThroughCacheRule)
 
 responseDeleteRegistryPolicy :: DeleteRegistryPolicyResponse -> TestTree
 responseDeleteRegistryPolicy =
@@ -552,6 +648,14 @@ responseDescribeImages =
     "fixture/DescribeImagesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeImages)
+
+responseDescribePullThroughCacheRules :: DescribePullThroughCacheRulesResponse -> TestTree
+responseDescribePullThroughCacheRules =
+  res
+    "DescribePullThroughCacheRulesResponse"
+    "fixture/DescribePullThroughCacheRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePullThroughCacheRules)
 
 responseDescribeRegistry :: DescribeRegistryResponse -> TestTree
 responseDescribeRegistry =
@@ -608,6 +712,14 @@ responseGetRegistryPolicy =
     "fixture/GetRegistryPolicyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRegistryPolicy)
+
+responseGetRegistryScanningConfiguration :: GetRegistryScanningConfigurationResponse -> TestTree
+responseGetRegistryScanningConfiguration =
+  res
+    "GetRegistryScanningConfigurationResponse"
+    "fixture/GetRegistryScanningConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetRegistryScanningConfiguration)
 
 responseGetRepositoryPolicy :: GetRepositoryPolicyResponse -> TestTree
 responseGetRepositoryPolicy =
@@ -680,6 +792,14 @@ responsePutRegistryPolicy =
     "fixture/PutRegistryPolicyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutRegistryPolicy)
+
+responsePutRegistryScanningConfiguration :: PutRegistryScanningConfigurationResponse -> TestTree
+responsePutRegistryScanningConfiguration =
+  res
+    "PutRegistryScanningConfigurationResponse"
+    "fixture/PutRegistryScanningConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutRegistryScanningConfiguration)
 
 responsePutReplicationConfiguration :: PutReplicationConfigurationResponse -> TestTree
 responsePutReplicationConfiguration =

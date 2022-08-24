@@ -20,6 +20,7 @@ module Amazonka.ECR.Types
     _InvalidLayerPartException,
     _RepositoryAlreadyExistsException,
     _LayerAlreadyExistsException,
+    _PullThroughCacheRuleNotFoundException,
     _LayerPartTooSmallException,
     _ImageAlreadyExistsException,
     _RepositoryNotFoundException,
@@ -38,7 +39,9 @@ module Amazonka.ECR.Types
     _RepositoryPolicyNotFoundException,
     _ImageTagAlreadyExistsException,
     _LifecyclePolicyNotFoundException,
+    _UnsupportedUpstreamRegistryException,
     _UploadNotFoundException,
+    _PullThroughCacheRuleAlreadyExistsException,
     _ScanNotFoundException,
     _ValidationException,
     _ImageNotFoundException,
@@ -78,8 +81,20 @@ module Amazonka.ECR.Types
     -- * RepositoryFilterType
     RepositoryFilterType (..),
 
+    -- * ScanFrequency
+    ScanFrequency (..),
+
     -- * ScanStatus
     ScanStatus (..),
+
+    -- * ScanType
+    ScanType (..),
+
+    -- * ScanningConfigurationFailureCode
+    ScanningConfigurationFailureCode (..),
+
+    -- * ScanningRepositoryFilterType
+    ScanningRepositoryFilterType (..),
 
     -- * TagStatus
     TagStatus (..),
@@ -97,6 +112,41 @@ module Amazonka.ECR.Types
     authorizationData_authorizationToken,
     authorizationData_proxyEndpoint,
 
+    -- * AwsEcrContainerImageDetails
+    AwsEcrContainerImageDetails (..),
+    newAwsEcrContainerImageDetails,
+    awsEcrContainerImageDetails_author,
+    awsEcrContainerImageDetails_registry,
+    awsEcrContainerImageDetails_repositoryName,
+    awsEcrContainerImageDetails_platform,
+    awsEcrContainerImageDetails_imageTags,
+    awsEcrContainerImageDetails_architecture,
+    awsEcrContainerImageDetails_imageHash,
+    awsEcrContainerImageDetails_pushedAt,
+
+    -- * CvssScore
+    CvssScore (..),
+    newCvssScore,
+    cvssScore_baseScore,
+    cvssScore_scoringVector,
+    cvssScore_source,
+    cvssScore_version,
+
+    -- * CvssScoreAdjustment
+    CvssScoreAdjustment (..),
+    newCvssScoreAdjustment,
+    cvssScoreAdjustment_reason,
+    cvssScoreAdjustment_metric,
+
+    -- * CvssScoreDetails
+    CvssScoreDetails (..),
+    newCvssScoreDetails,
+    cvssScoreDetails_score,
+    cvssScoreDetails_scoreSource,
+    cvssScoreDetails_scoringVector,
+    cvssScoreDetails_adjustments,
+    cvssScoreDetails_version,
+
     -- * DescribeImagesFilter
     DescribeImagesFilter (..),
     newDescribeImagesFilter,
@@ -107,6 +157,25 @@ module Amazonka.ECR.Types
     newEncryptionConfiguration,
     encryptionConfiguration_kmsKey,
     encryptionConfiguration_encryptionType,
+
+    -- * EnhancedImageScanFinding
+    EnhancedImageScanFinding (..),
+    newEnhancedImageScanFinding,
+    enhancedImageScanFinding_awsAccountId,
+    enhancedImageScanFinding_severity,
+    enhancedImageScanFinding_type,
+    enhancedImageScanFinding_scoreDetails,
+    enhancedImageScanFinding_remediation,
+    enhancedImageScanFinding_score,
+    enhancedImageScanFinding_status,
+    enhancedImageScanFinding_description,
+    enhancedImageScanFinding_packageVulnerabilityDetails,
+    enhancedImageScanFinding_title,
+    enhancedImageScanFinding_firstObservedAt,
+    enhancedImageScanFinding_lastObservedAt,
+    enhancedImageScanFinding_resources,
+    enhancedImageScanFinding_findingArn,
+    enhancedImageScanFinding_updatedAt,
 
     -- * Image
     Image (..),
@@ -130,6 +199,7 @@ module Amazonka.ECR.Types
     imageDetail_imageDigest,
     imageDetail_imageScanStatus,
     imageDetail_imageScanFindingsSummary,
+    imageDetail_lastRecordedPullTime,
 
     -- * ImageFailure
     ImageFailure (..),
@@ -165,6 +235,7 @@ module Amazonka.ECR.Types
     ImageScanFindings (..),
     newImageScanFindings,
     imageScanFindings_findings,
+    imageScanFindings_enhancedFindings,
     imageScanFindings_vulnerabilitySourceUpdatedAt,
     imageScanFindings_findingSeverityCounts,
     imageScanFindings_imageScanCompletedAt,
@@ -231,6 +302,51 @@ module Amazonka.ECR.Types
     newListImagesFilter,
     listImagesFilter_tagStatus,
 
+    -- * PackageVulnerabilityDetails
+    PackageVulnerabilityDetails (..),
+    newPackageVulnerabilityDetails,
+    packageVulnerabilityDetails_vulnerablePackages,
+    packageVulnerabilityDetails_referenceUrls,
+    packageVulnerabilityDetails_vendorUpdatedAt,
+    packageVulnerabilityDetails_source,
+    packageVulnerabilityDetails_vendorCreatedAt,
+    packageVulnerabilityDetails_cvss,
+    packageVulnerabilityDetails_vendorSeverity,
+    packageVulnerabilityDetails_relatedVulnerabilities,
+    packageVulnerabilityDetails_vulnerabilityId,
+    packageVulnerabilityDetails_sourceUrl,
+
+    -- * PullThroughCacheRule
+    PullThroughCacheRule (..),
+    newPullThroughCacheRule,
+    pullThroughCacheRule_upstreamRegistryUrl,
+    pullThroughCacheRule_registryId,
+    pullThroughCacheRule_ecrRepositoryPrefix,
+    pullThroughCacheRule_createdAt,
+
+    -- * Recommendation
+    Recommendation (..),
+    newRecommendation,
+    recommendation_url,
+    recommendation_text,
+
+    -- * RegistryScanningConfiguration
+    RegistryScanningConfiguration (..),
+    newRegistryScanningConfiguration,
+    registryScanningConfiguration_rules,
+    registryScanningConfiguration_scanType,
+
+    -- * RegistryScanningRule
+    RegistryScanningRule (..),
+    newRegistryScanningRule,
+    registryScanningRule_scanFrequency,
+    registryScanningRule_repositoryFilters,
+
+    -- * Remediation
+    Remediation (..),
+    newRemediation,
+    remediation_recommendation,
+
     -- * ReplicationConfiguration
     ReplicationConfiguration (..),
     newReplicationConfiguration,
@@ -266,20 +382,77 @@ module Amazonka.ECR.Types
     repositoryFilter_filter,
     repositoryFilter_filterType,
 
+    -- * RepositoryScanningConfiguration
+    RepositoryScanningConfiguration (..),
+    newRepositoryScanningConfiguration,
+    repositoryScanningConfiguration_repositoryArn,
+    repositoryScanningConfiguration_scanOnPush,
+    repositoryScanningConfiguration_scanFrequency,
+    repositoryScanningConfiguration_repositoryName,
+    repositoryScanningConfiguration_appliedScanFilters,
+
+    -- * RepositoryScanningConfigurationFailure
+    RepositoryScanningConfigurationFailure (..),
+    newRepositoryScanningConfigurationFailure,
+    repositoryScanningConfigurationFailure_failureCode,
+    repositoryScanningConfigurationFailure_repositoryName,
+    repositoryScanningConfigurationFailure_failureReason,
+
+    -- * Resource
+    Resource (..),
+    newResource,
+    resource_tags,
+    resource_type,
+    resource_details,
+    resource_id,
+
+    -- * ResourceDetails
+    ResourceDetails (..),
+    newResourceDetails,
+    resourceDetails_awsEcrContainerImage,
+
+    -- * ScanningRepositoryFilter
+    ScanningRepositoryFilter (..),
+    newScanningRepositoryFilter,
+    scanningRepositoryFilter_filter,
+    scanningRepositoryFilter_filterType,
+
+    -- * ScoreDetails
+    ScoreDetails (..),
+    newScoreDetails,
+    scoreDetails_cvss,
+
     -- * Tag
     Tag (..),
     newTag,
     tag_key,
     tag_value,
+
+    -- * VulnerablePackage
+    VulnerablePackage (..),
+    newVulnerablePackage,
+    vulnerablePackage_name,
+    vulnerablePackage_filePath,
+    vulnerablePackage_arch,
+    vulnerablePackage_epoch,
+    vulnerablePackage_packageManager,
+    vulnerablePackage_release,
+    vulnerablePackage_sourceLayerHash,
+    vulnerablePackage_version,
   )
 where
 
 import qualified Amazonka.Core as Core
 import Amazonka.ECR.Types.Attribute
 import Amazonka.ECR.Types.AuthorizationData
+import Amazonka.ECR.Types.AwsEcrContainerImageDetails
+import Amazonka.ECR.Types.CvssScore
+import Amazonka.ECR.Types.CvssScoreAdjustment
+import Amazonka.ECR.Types.CvssScoreDetails
 import Amazonka.ECR.Types.DescribeImagesFilter
 import Amazonka.ECR.Types.EncryptionConfiguration
 import Amazonka.ECR.Types.EncryptionType
+import Amazonka.ECR.Types.EnhancedImageScanFinding
 import Amazonka.ECR.Types.FindingSeverity
 import Amazonka.ECR.Types.Image
 import Amazonka.ECR.Types.ImageActionType
@@ -304,6 +477,12 @@ import Amazonka.ECR.Types.LifecyclePolicyPreviewStatus
 import Amazonka.ECR.Types.LifecyclePolicyPreviewSummary
 import Amazonka.ECR.Types.LifecyclePolicyRuleAction
 import Amazonka.ECR.Types.ListImagesFilter
+import Amazonka.ECR.Types.PackageVulnerabilityDetails
+import Amazonka.ECR.Types.PullThroughCacheRule
+import Amazonka.ECR.Types.Recommendation
+import Amazonka.ECR.Types.RegistryScanningConfiguration
+import Amazonka.ECR.Types.RegistryScanningRule
+import Amazonka.ECR.Types.Remediation
 import Amazonka.ECR.Types.ReplicationConfiguration
 import Amazonka.ECR.Types.ReplicationDestination
 import Amazonka.ECR.Types.ReplicationRule
@@ -311,9 +490,20 @@ import Amazonka.ECR.Types.ReplicationStatus
 import Amazonka.ECR.Types.Repository
 import Amazonka.ECR.Types.RepositoryFilter
 import Amazonka.ECR.Types.RepositoryFilterType
+import Amazonka.ECR.Types.RepositoryScanningConfiguration
+import Amazonka.ECR.Types.RepositoryScanningConfigurationFailure
+import Amazonka.ECR.Types.Resource
+import Amazonka.ECR.Types.ResourceDetails
+import Amazonka.ECR.Types.ScanFrequency
 import Amazonka.ECR.Types.ScanStatus
+import Amazonka.ECR.Types.ScanType
+import Amazonka.ECR.Types.ScanningConfigurationFailureCode
+import Amazonka.ECR.Types.ScanningRepositoryFilter
+import Amazonka.ECR.Types.ScanningRepositoryFilterType
+import Amazonka.ECR.Types.ScoreDetails
 import Amazonka.ECR.Types.Tag
 import Amazonka.ECR.Types.TagStatus
+import Amazonka.ECR.Types.VulnerablePackage
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -409,6 +599,14 @@ _LayerAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "LayerAlreadyExistsException"
+
+-- | The pull through cache rule was not found. Specify a valid pull through
+-- cache rule and try again.
+_PullThroughCacheRuleNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PullThroughCacheRuleNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PullThroughCacheRuleNotFoundException"
 
 -- | Layer parts must be at least 5 MiB in size.
 _LayerPartTooSmallException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -552,6 +750,13 @@ _LifecyclePolicyNotFoundException =
     defaultService
     "LifecyclePolicyNotFoundException"
 
+-- | The specified upstream registry isn\'t supported.
+_UnsupportedUpstreamRegistryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedUpstreamRegistryException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedUpstreamRegistryException"
+
 -- | The upload could not be found, or the specified upload ID is not valid
 -- for this repository.
 _UploadNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -559,6 +764,14 @@ _UploadNotFoundException =
   Core._MatchServiceError
     defaultService
     "UploadNotFoundException"
+
+-- | A pull through cache rule with these settings already exists for the
+-- private registry.
+_PullThroughCacheRuleAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PullThroughCacheRuleAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "PullThroughCacheRuleAlreadyExistsException"
 
 -- | The specified image scan could not be found. Ensure that image scanning
 -- is enabled on the repository and try again.

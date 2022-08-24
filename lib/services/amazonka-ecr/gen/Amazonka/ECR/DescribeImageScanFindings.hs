@@ -184,6 +184,14 @@ instance Core.AWSPager DescribeImageScanFindings where
               Prelude.. Lens._Just
         ) =
       Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeImageScanFindingsResponse_imageScanFindings
+              Prelude.. Lens._Just
+              Prelude.. imageScanFindings_enhancedFindings
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
     | Prelude.otherwise =
       Prelude.Just Prelude.$
         rq

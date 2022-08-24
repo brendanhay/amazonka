@@ -20,6 +20,7 @@
 module Amazonka.ECR.Types.ImageScanFindings where
 
 import qualified Amazonka.Core as Core
+import Amazonka.ECR.Types.EnhancedImageScanFinding
 import Amazonka.ECR.Types.FindingSeverity
 import Amazonka.ECR.Types.ImageScanFinding
 import qualified Amazonka.Lens as Lens
@@ -31,6 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data ImageScanFindings = ImageScanFindings'
   { -- | The findings from the image scan.
     findings :: Prelude.Maybe [ImageScanFinding],
+    -- | Details about the enhanced scan findings from Amazon Inspector.
+    enhancedFindings :: Prelude.Maybe [EnhancedImageScanFinding],
     -- | The time when the vulnerability data was last scanned.
     vulnerabilitySourceUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The image vulnerability counts, sorted by severity.
@@ -50,6 +53,8 @@ data ImageScanFindings = ImageScanFindings'
 --
 -- 'findings', 'imageScanFindings_findings' - The findings from the image scan.
 --
+-- 'enhancedFindings', 'imageScanFindings_enhancedFindings' - Details about the enhanced scan findings from Amazon Inspector.
+--
 -- 'vulnerabilitySourceUpdatedAt', 'imageScanFindings_vulnerabilitySourceUpdatedAt' - The time when the vulnerability data was last scanned.
 --
 -- 'findingSeverityCounts', 'imageScanFindings_findingSeverityCounts' - The image vulnerability counts, sorted by severity.
@@ -60,6 +65,7 @@ newImageScanFindings ::
 newImageScanFindings =
   ImageScanFindings'
     { findings = Prelude.Nothing,
+      enhancedFindings = Prelude.Nothing,
       vulnerabilitySourceUpdatedAt = Prelude.Nothing,
       findingSeverityCounts = Prelude.Nothing,
       imageScanCompletedAt = Prelude.Nothing
@@ -68,6 +74,10 @@ newImageScanFindings =
 -- | The findings from the image scan.
 imageScanFindings_findings :: Lens.Lens' ImageScanFindings (Prelude.Maybe [ImageScanFinding])
 imageScanFindings_findings = Lens.lens (\ImageScanFindings' {findings} -> findings) (\s@ImageScanFindings' {} a -> s {findings = a} :: ImageScanFindings) Prelude.. Lens.mapping Lens.coerced
+
+-- | Details about the enhanced scan findings from Amazon Inspector.
+imageScanFindings_enhancedFindings :: Lens.Lens' ImageScanFindings (Prelude.Maybe [EnhancedImageScanFinding])
+imageScanFindings_enhancedFindings = Lens.lens (\ImageScanFindings' {enhancedFindings} -> enhancedFindings) (\s@ImageScanFindings' {} a -> s {enhancedFindings = a} :: ImageScanFindings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The time when the vulnerability data was last scanned.
 imageScanFindings_vulnerabilitySourceUpdatedAt :: Lens.Lens' ImageScanFindings (Prelude.Maybe Prelude.UTCTime)
@@ -88,6 +98,9 @@ instance Core.FromJSON ImageScanFindings where
       ( \x ->
           ImageScanFindings'
             Prelude.<$> (x Core..:? "findings" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "enhancedFindings"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "vulnerabilitySourceUpdatedAt")
             Prelude.<*> ( x Core..:? "findingSeverityCounts"
                             Core..!= Prelude.mempty
@@ -98,6 +111,7 @@ instance Core.FromJSON ImageScanFindings where
 instance Prelude.Hashable ImageScanFindings where
   hashWithSalt _salt ImageScanFindings' {..} =
     _salt `Prelude.hashWithSalt` findings
+      `Prelude.hashWithSalt` enhancedFindings
       `Prelude.hashWithSalt` vulnerabilitySourceUpdatedAt
       `Prelude.hashWithSalt` findingSeverityCounts
       `Prelude.hashWithSalt` imageScanCompletedAt
@@ -105,6 +119,7 @@ instance Prelude.Hashable ImageScanFindings where
 instance Prelude.NFData ImageScanFindings where
   rnf ImageScanFindings' {..} =
     Prelude.rnf findings
+      `Prelude.seq` Prelude.rnf enhancedFindings
       `Prelude.seq` Prelude.rnf vulnerabilitySourceUpdatedAt
       `Prelude.seq` Prelude.rnf findingSeverityCounts
       `Prelude.seq` Prelude.rnf imageScanCompletedAt

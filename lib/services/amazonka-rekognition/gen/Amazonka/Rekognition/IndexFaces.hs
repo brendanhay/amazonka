@@ -30,7 +30,7 @@
 -- Rekognition uses feature vectors when it performs face match and search
 -- operations using the SearchFaces and SearchFacesByImage operations.
 --
--- For more information, see Adding Faces to a Collection in the Amazon
+-- For more information, see Adding faces to a collection in the Amazon
 -- Rekognition Developer Guide.
 --
 -- To get the number of faces in a collection, call DescribeCollection.

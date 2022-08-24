@@ -26,6 +26,17 @@ module Amazonka.Rekognition.Lens
     compareFacesResponse_sourceImageFace,
     compareFacesResponse_httpStatus,
 
+    -- ** CopyProjectVersion
+    copyProjectVersion_tags,
+    copyProjectVersion_kmsKeyId,
+    copyProjectVersion_sourceProjectArn,
+    copyProjectVersion_sourceProjectVersionArn,
+    copyProjectVersion_destinationProjectArn,
+    copyProjectVersion_versionName,
+    copyProjectVersion_outputConfig,
+    copyProjectVersionResponse_projectVersionArn,
+    copyProjectVersionResponse_httpStatus,
+
     -- ** CreateCollection
     createCollection_tags,
     createCollection_collectionId,
@@ -34,6 +45,13 @@ module Amazonka.Rekognition.Lens
     createCollectionResponse_collectionArn,
     createCollectionResponse_httpStatus,
 
+    -- ** CreateDataset
+    createDataset_datasetSource,
+    createDataset_datasetType,
+    createDataset_projectArn,
+    createDatasetResponse_datasetArn,
+    createDatasetResponse_httpStatus,
+
     -- ** CreateProject
     createProject_projectName,
     createProjectResponse_projectArn,
@@ -41,17 +59,21 @@ module Amazonka.Rekognition.Lens
 
     -- ** CreateProjectVersion
     createProjectVersion_tags,
+    createProjectVersion_testingData,
     createProjectVersion_kmsKeyId,
+    createProjectVersion_trainingData,
     createProjectVersion_projectArn,
     createProjectVersion_versionName,
     createProjectVersion_outputConfig,
-    createProjectVersion_trainingData,
-    createProjectVersion_testingData,
     createProjectVersionResponse_projectVersionArn,
     createProjectVersionResponse_httpStatus,
 
     -- ** CreateStreamProcessor
     createStreamProcessor_tags,
+    createStreamProcessor_regionsOfInterest,
+    createStreamProcessor_kmsKeyId,
+    createStreamProcessor_dataSharingPreference,
+    createStreamProcessor_notificationChannel,
     createStreamProcessor_input,
     createStreamProcessor_output,
     createStreamProcessor_name,
@@ -65,6 +87,10 @@ module Amazonka.Rekognition.Lens
     deleteCollectionResponse_statusCode,
     deleteCollectionResponse_httpStatus,
 
+    -- ** DeleteDataset
+    deleteDataset_datasetArn,
+    deleteDatasetResponse_httpStatus,
+
     -- ** DeleteFaces
     deleteFaces_collectionId,
     deleteFaces_faceIds,
@@ -75,6 +101,12 @@ module Amazonka.Rekognition.Lens
     deleteProject_projectArn,
     deleteProjectResponse_status,
     deleteProjectResponse_httpStatus,
+
+    -- ** DeleteProjectPolicy
+    deleteProjectPolicy_policyRevisionId,
+    deleteProjectPolicy_projectArn,
+    deleteProjectPolicy_policyName,
+    deleteProjectPolicyResponse_httpStatus,
 
     -- ** DeleteProjectVersion
     deleteProjectVersion_projectVersionArn,
@@ -93,6 +125,11 @@ module Amazonka.Rekognition.Lens
     describeCollectionResponse_collectionARN,
     describeCollectionResponse_httpStatus,
 
+    -- ** DescribeDataset
+    describeDataset_datasetArn,
+    describeDatasetResponse_datasetDescription,
+    describeDatasetResponse_httpStatus,
+
     -- ** DescribeProjectVersions
     describeProjectVersions_nextToken,
     describeProjectVersions_versionNames,
@@ -104,6 +141,7 @@ module Amazonka.Rekognition.Lens
 
     -- ** DescribeProjects
     describeProjects_nextToken,
+    describeProjects_projectNames,
     describeProjects_maxResults,
     describeProjectsResponse_nextToken,
     describeProjectsResponse_projectDescriptions,
@@ -112,6 +150,7 @@ module Amazonka.Rekognition.Lens
     -- ** DescribeStreamProcessor
     describeStreamProcessor_name,
     describeStreamProcessorResponse_streamProcessorArn,
+    describeStreamProcessorResponse_regionsOfInterest,
     describeStreamProcessorResponse_name,
     describeStreamProcessorResponse_lastUpdateTimestamp,
     describeStreamProcessorResponse_roleArn,
@@ -120,7 +159,10 @@ module Amazonka.Rekognition.Lens
     describeStreamProcessorResponse_input,
     describeStreamProcessorResponse_settings,
     describeStreamProcessorResponse_output,
+    describeStreamProcessorResponse_kmsKeyId,
+    describeStreamProcessorResponse_dataSharingPreference,
     describeStreamProcessorResponse_statusMessage,
+    describeStreamProcessorResponse_notificationChannel,
     describeStreamProcessorResponse_httpStatus,
 
     -- ** DetectCustomLabels
@@ -170,6 +212,10 @@ module Amazonka.Rekognition.Lens
     detectTextResponse_textDetections,
     detectTextResponse_textModelVersion,
     detectTextResponse_httpStatus,
+
+    -- ** DistributeDatasetEntries
+    distributeDatasetEntries_datasets,
+    distributeDatasetEntriesResponse_httpStatus,
 
     -- ** GetCelebrityInfo
     getCelebrityInfo_id,
@@ -297,6 +343,26 @@ module Amazonka.Rekognition.Lens
     listCollectionsResponse_faceModelVersions,
     listCollectionsResponse_httpStatus,
 
+    -- ** ListDatasetEntries
+    listDatasetEntries_nextToken,
+    listDatasetEntries_labeled,
+    listDatasetEntries_containsLabels,
+    listDatasetEntries_sourceRefContains,
+    listDatasetEntries_hasErrors,
+    listDatasetEntries_maxResults,
+    listDatasetEntries_datasetArn,
+    listDatasetEntriesResponse_nextToken,
+    listDatasetEntriesResponse_datasetEntries,
+    listDatasetEntriesResponse_httpStatus,
+
+    -- ** ListDatasetLabels
+    listDatasetLabels_nextToken,
+    listDatasetLabels_maxResults,
+    listDatasetLabels_datasetArn,
+    listDatasetLabelsResponse_nextToken,
+    listDatasetLabelsResponse_datasetLabelDescriptions,
+    listDatasetLabelsResponse_httpStatus,
+
     -- ** ListFaces
     listFaces_nextToken,
     listFaces_maxResults,
@@ -305,6 +371,14 @@ module Amazonka.Rekognition.Lens
     listFacesResponse_faces,
     listFacesResponse_faceModelVersion,
     listFacesResponse_httpStatus,
+
+    -- ** ListProjectPolicies
+    listProjectPolicies_nextToken,
+    listProjectPolicies_maxResults,
+    listProjectPolicies_projectArn,
+    listProjectPoliciesResponse_projectPolicies,
+    listProjectPoliciesResponse_nextToken,
+    listProjectPoliciesResponse_httpStatus,
 
     -- ** ListStreamProcessors
     listStreamProcessors_nextToken,
@@ -317,6 +391,14 @@ module Amazonka.Rekognition.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** PutProjectPolicy
+    putProjectPolicy_policyRevisionId,
+    putProjectPolicy_projectArn,
+    putProjectPolicy_policyName,
+    putProjectPolicy_policyDocument,
+    putProjectPolicyResponse_policyRevisionId,
+    putProjectPolicyResponse_httpStatus,
 
     -- ** RecognizeCelebrities
     recognizeCelebrities_image,
@@ -401,6 +483,7 @@ module Amazonka.Rekognition.Lens
     startPersonTrackingResponse_httpStatus,
 
     -- ** StartProjectVersion
+    startProjectVersion_maxInferenceUnits,
     startProjectVersion_projectVersionArn,
     startProjectVersion_minInferenceUnits,
     startProjectVersionResponse_status,
@@ -417,7 +500,10 @@ module Amazonka.Rekognition.Lens
     startSegmentDetectionResponse_httpStatus,
 
     -- ** StartStreamProcessor
+    startStreamProcessor_startSelector,
+    startStreamProcessor_stopSelector,
     startStreamProcessor_name,
+    startStreamProcessorResponse_sessionId,
     startStreamProcessorResponse_httpStatus,
 
     -- ** StartTextDetection
@@ -447,6 +533,19 @@ module Amazonka.Rekognition.Lens
     untagResource_resourceArn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
+
+    -- ** UpdateDatasetEntries
+    updateDatasetEntries_datasetArn,
+    updateDatasetEntries_changes,
+    updateDatasetEntriesResponse_httpStatus,
+
+    -- ** UpdateStreamProcessor
+    updateStreamProcessor_dataSharingPreferenceForUpdate,
+    updateStreamProcessor_settingsForUpdate,
+    updateStreamProcessor_regionsOfInterestForUpdate,
+    updateStreamProcessor_parametersToDelete,
+    updateStreamProcessor_name,
+    updateStreamProcessorResponse_httpStatus,
 
     -- * Types
 
@@ -487,6 +586,7 @@ module Amazonka.Rekognition.Lens
 
     -- ** CelebrityDetail
     celebrityDetail_name,
+    celebrityDetail_knownGender,
     celebrityDetail_confidence,
     celebrityDetail_id,
     celebrityDetail_face,
@@ -514,6 +614,14 @@ module Amazonka.Rekognition.Lens
     comparedSourceImageFace_confidence,
     comparedSourceImageFace_boundingBox,
 
+    -- ** ConnectedHomeSettings
+    connectedHomeSettings_minConfidence,
+    connectedHomeSettings_labels,
+
+    -- ** ConnectedHomeSettingsForUpdate
+    connectedHomeSettingsForUpdate_minConfidence,
+    connectedHomeSettingsForUpdate_labels,
+
     -- ** ContentModerationDetection
     contentModerationDetection_timestamp,
     contentModerationDetection_moderationLabel,
@@ -527,6 +635,43 @@ module Amazonka.Rekognition.Lens
     customLabel_confidence,
     customLabel_geometry,
 
+    -- ** DatasetChanges
+    datasetChanges_groundTruth,
+
+    -- ** DatasetDescription
+    datasetDescription_statusMessageCode,
+    datasetDescription_lastUpdatedTimestamp,
+    datasetDescription_status,
+    datasetDescription_datasetStats,
+    datasetDescription_creationTimestamp,
+    datasetDescription_statusMessage,
+
+    -- ** DatasetLabelDescription
+    datasetLabelDescription_labelName,
+    datasetLabelDescription_labelStats,
+
+    -- ** DatasetLabelStats
+    datasetLabelStats_boundingBoxCount,
+    datasetLabelStats_entryCount,
+
+    -- ** DatasetMetadata
+    datasetMetadata_statusMessageCode,
+    datasetMetadata_datasetType,
+    datasetMetadata_status,
+    datasetMetadata_creationTimestamp,
+    datasetMetadata_datasetArn,
+    datasetMetadata_statusMessage,
+
+    -- ** DatasetSource
+    datasetSource_datasetArn,
+    datasetSource_groundTruthManifest,
+
+    -- ** DatasetStats
+    datasetStats_errorEntries,
+    datasetStats_totalEntries,
+    datasetStats_totalLabels,
+    datasetStats_labeledEntries,
+
     -- ** DetectTextFilters
     detectTextFilters_regionsOfInterest,
     detectTextFilters_wordFilter,
@@ -535,6 +680,9 @@ module Amazonka.Rekognition.Lens
     detectionFilter_minBoundingBoxHeight,
     detectionFilter_minBoundingBoxWidth,
     detectionFilter_minConfidence,
+
+    -- ** DistributeDataset
+    distributeDataset_arn,
 
     -- ** Emotion
     emotion_type,
@@ -559,6 +707,7 @@ module Amazonka.Rekognition.Lens
     eyeglasses_value,
 
     -- ** Face
+    face_indexFacesModelVersion,
     face_confidence,
     face_faceId,
     face_boundingBox,
@@ -640,6 +789,10 @@ module Amazonka.Rekognition.Lens
     -- ** KinesisVideoStream
     kinesisVideoStream_arn,
 
+    -- ** KinesisVideoStreamStartSelector
+    kinesisVideoStreamStartSelector_producerTimestamp,
+    kinesisVideoStreamStartSelector_fragmentNumber,
+
     -- ** KnownGender
     knownGender_type,
 
@@ -706,13 +859,23 @@ module Amazonka.Rekognition.Lens
     pose_yaw,
 
     -- ** ProjectDescription
+    projectDescription_datasets,
     projectDescription_status,
     projectDescription_creationTimestamp,
     projectDescription_projectArn,
 
+    -- ** ProjectPolicy
+    projectPolicy_policyName,
+    projectPolicy_lastUpdatedTimestamp,
+    projectPolicy_creationTimestamp,
+    projectPolicy_policyRevisionId,
+    projectPolicy_policyDocument,
+    projectPolicy_projectArn,
+
     -- ** ProjectVersionDescription
     projectVersionDescription_trainingEndTimestamp,
     projectVersionDescription_minInferenceUnits,
+    projectVersionDescription_sourceProjectVersionArn,
     projectVersionDescription_status,
     projectVersionDescription_testingDataResult,
     projectVersionDescription_creationTimestamp,
@@ -721,6 +884,7 @@ module Amazonka.Rekognition.Lens
     projectVersionDescription_evaluationResult,
     projectVersionDescription_kmsKeyId,
     projectVersionDescription_projectVersionArn,
+    projectVersionDescription_maxInferenceUnits,
     projectVersionDescription_billableTrainingTimeInSeconds,
     projectVersionDescription_statusMessage,
     projectVersionDescription_outputConfig,
@@ -746,7 +910,12 @@ module Amazonka.Rekognition.Lens
     protectiveEquipmentSummary_personsIndeterminate,
 
     -- ** RegionOfInterest
+    regionOfInterest_polygon,
     regionOfInterest_boundingBox,
+
+    -- ** S3Destination
+    s3Destination_bucket,
+    s3Destination_keyPrefix,
 
     -- ** S3Object
     s3Object_name,
@@ -794,18 +963,35 @@ module Amazonka.Rekognition.Lens
     startTextDetectionFilters_regionsOfInterest,
     startTextDetectionFilters_wordFilter,
 
+    -- ** StreamProcessingStartSelector
+    streamProcessingStartSelector_kVSStreamStartSelector,
+
+    -- ** StreamProcessingStopSelector
+    streamProcessingStopSelector_maxDurationInSeconds,
+
     -- ** StreamProcessor
     streamProcessor_name,
     streamProcessor_status,
 
+    -- ** StreamProcessorDataSharingPreference
+    streamProcessorDataSharingPreference_optIn,
+
     -- ** StreamProcessorInput
     streamProcessorInput_kinesisVideoStream,
 
+    -- ** StreamProcessorNotificationChannel
+    streamProcessorNotificationChannel_sNSTopicArn,
+
     -- ** StreamProcessorOutput
+    streamProcessorOutput_s3Destination,
     streamProcessorOutput_kinesisDataStream,
 
     -- ** StreamProcessorSettings
+    streamProcessorSettings_connectedHome,
     streamProcessorSettings_faceSearch,
+
+    -- ** StreamProcessorSettingsForUpdate
+    streamProcessorSettingsForUpdate_connectedHomeForUpdate,
 
     -- ** Summary
     summary_s3Object,
@@ -869,16 +1055,21 @@ module Amazonka.Rekognition.Lens
 where
 
 import Amazonka.Rekognition.CompareFaces
+import Amazonka.Rekognition.CopyProjectVersion
 import Amazonka.Rekognition.CreateCollection
+import Amazonka.Rekognition.CreateDataset
 import Amazonka.Rekognition.CreateProject
 import Amazonka.Rekognition.CreateProjectVersion
 import Amazonka.Rekognition.CreateStreamProcessor
 import Amazonka.Rekognition.DeleteCollection
+import Amazonka.Rekognition.DeleteDataset
 import Amazonka.Rekognition.DeleteFaces
 import Amazonka.Rekognition.DeleteProject
+import Amazonka.Rekognition.DeleteProjectPolicy
 import Amazonka.Rekognition.DeleteProjectVersion
 import Amazonka.Rekognition.DeleteStreamProcessor
 import Amazonka.Rekognition.DescribeCollection
+import Amazonka.Rekognition.DescribeDataset
 import Amazonka.Rekognition.DescribeProjectVersions
 import Amazonka.Rekognition.DescribeProjects
 import Amazonka.Rekognition.DescribeStreamProcessor
@@ -888,6 +1079,7 @@ import Amazonka.Rekognition.DetectLabels
 import Amazonka.Rekognition.DetectModerationLabels
 import Amazonka.Rekognition.DetectProtectiveEquipment
 import Amazonka.Rekognition.DetectText
+import Amazonka.Rekognition.DistributeDatasetEntries
 import Amazonka.Rekognition.GetCelebrityInfo
 import Amazonka.Rekognition.GetCelebrityRecognition
 import Amazonka.Rekognition.GetContentModeration
@@ -899,9 +1091,13 @@ import Amazonka.Rekognition.GetSegmentDetection
 import Amazonka.Rekognition.GetTextDetection
 import Amazonka.Rekognition.IndexFaces
 import Amazonka.Rekognition.ListCollections
+import Amazonka.Rekognition.ListDatasetEntries
+import Amazonka.Rekognition.ListDatasetLabels
 import Amazonka.Rekognition.ListFaces
+import Amazonka.Rekognition.ListProjectPolicies
 import Amazonka.Rekognition.ListStreamProcessors
 import Amazonka.Rekognition.ListTagsForResource
+import Amazonka.Rekognition.PutProjectPolicy
 import Amazonka.Rekognition.RecognizeCelebrities
 import Amazonka.Rekognition.SearchFaces
 import Amazonka.Rekognition.SearchFacesByImage
@@ -930,11 +1126,21 @@ import Amazonka.Rekognition.Types.CelebrityRecognition
 import Amazonka.Rekognition.Types.CompareFacesMatch
 import Amazonka.Rekognition.Types.ComparedFace
 import Amazonka.Rekognition.Types.ComparedSourceImageFace
+import Amazonka.Rekognition.Types.ConnectedHomeSettings
+import Amazonka.Rekognition.Types.ConnectedHomeSettingsForUpdate
 import Amazonka.Rekognition.Types.ContentModerationDetection
 import Amazonka.Rekognition.Types.CoversBodyPart
 import Amazonka.Rekognition.Types.CustomLabel
+import Amazonka.Rekognition.Types.DatasetChanges
+import Amazonka.Rekognition.Types.DatasetDescription
+import Amazonka.Rekognition.Types.DatasetLabelDescription
+import Amazonka.Rekognition.Types.DatasetLabelStats
+import Amazonka.Rekognition.Types.DatasetMetadata
+import Amazonka.Rekognition.Types.DatasetSource
+import Amazonka.Rekognition.Types.DatasetStats
 import Amazonka.Rekognition.Types.DetectTextFilters
 import Amazonka.Rekognition.Types.DetectionFilter
+import Amazonka.Rekognition.Types.DistributeDataset
 import Amazonka.Rekognition.Types.Emotion
 import Amazonka.Rekognition.Types.EquipmentDetection
 import Amazonka.Rekognition.Types.EvaluationResult
@@ -957,6 +1163,7 @@ import Amazonka.Rekognition.Types.ImageQuality
 import Amazonka.Rekognition.Types.Instance
 import Amazonka.Rekognition.Types.KinesisDataStream
 import Amazonka.Rekognition.Types.KinesisVideoStream
+import Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector
 import Amazonka.Rekognition.Types.KnownGender
 import Amazonka.Rekognition.Types.Label
 import Amazonka.Rekognition.Types.LabelDetection
@@ -973,12 +1180,14 @@ import Amazonka.Rekognition.Types.PersonMatch
 import Amazonka.Rekognition.Types.Point
 import Amazonka.Rekognition.Types.Pose
 import Amazonka.Rekognition.Types.ProjectDescription
+import Amazonka.Rekognition.Types.ProjectPolicy
 import Amazonka.Rekognition.Types.ProjectVersionDescription
 import Amazonka.Rekognition.Types.ProtectiveEquipmentBodyPart
 import Amazonka.Rekognition.Types.ProtectiveEquipmentPerson
 import Amazonka.Rekognition.Types.ProtectiveEquipmentSummarizationAttributes
 import Amazonka.Rekognition.Types.ProtectiveEquipmentSummary
 import Amazonka.Rekognition.Types.RegionOfInterest
+import Amazonka.Rekognition.Types.S3Destination
 import Amazonka.Rekognition.Types.S3Object
 import Amazonka.Rekognition.Types.SegmentDetection
 import Amazonka.Rekognition.Types.SegmentTypeInfo
@@ -988,10 +1197,15 @@ import Amazonka.Rekognition.Types.StartSegmentDetectionFilters
 import Amazonka.Rekognition.Types.StartShotDetectionFilter
 import Amazonka.Rekognition.Types.StartTechnicalCueDetectionFilter
 import Amazonka.Rekognition.Types.StartTextDetectionFilters
+import Amazonka.Rekognition.Types.StreamProcessingStartSelector
+import Amazonka.Rekognition.Types.StreamProcessingStopSelector
 import Amazonka.Rekognition.Types.StreamProcessor
+import Amazonka.Rekognition.Types.StreamProcessorDataSharingPreference
 import Amazonka.Rekognition.Types.StreamProcessorInput
+import Amazonka.Rekognition.Types.StreamProcessorNotificationChannel
 import Amazonka.Rekognition.Types.StreamProcessorOutput
 import Amazonka.Rekognition.Types.StreamProcessorSettings
+import Amazonka.Rekognition.Types.StreamProcessorSettingsForUpdate
 import Amazonka.Rekognition.Types.Summary
 import Amazonka.Rekognition.Types.Sunglasses
 import Amazonka.Rekognition.Types.TechnicalCueSegment
@@ -1006,3 +1220,5 @@ import Amazonka.Rekognition.Types.ValidationData
 import Amazonka.Rekognition.Types.Video
 import Amazonka.Rekognition.Types.VideoMetadata
 import Amazonka.Rekognition.UntagResource
+import Amazonka.Rekognition.UpdateDatasetEntries
+import Amazonka.Rekognition.UpdateStreamProcessor

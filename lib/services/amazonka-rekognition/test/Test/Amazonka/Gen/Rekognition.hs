@@ -30,8 +30,14 @@ import Test.Tasty
 --         [ requestCompareFaces $
 --             newCompareFaces
 --
+--         , requestCopyProjectVersion $
+--             newCopyProjectVersion
+--
 --         , requestCreateCollection $
 --             newCreateCollection
+--
+--         , requestCreateDataset $
+--             newCreateDataset
 --
 --         , requestCreateProject $
 --             newCreateProject
@@ -45,11 +51,17 @@ import Test.Tasty
 --         , requestDeleteCollection $
 --             newDeleteCollection
 --
+--         , requestDeleteDataset $
+--             newDeleteDataset
+--
 --         , requestDeleteFaces $
 --             newDeleteFaces
 --
 --         , requestDeleteProject $
 --             newDeleteProject
+--
+--         , requestDeleteProjectPolicy $
+--             newDeleteProjectPolicy
 --
 --         , requestDeleteProjectVersion $
 --             newDeleteProjectVersion
@@ -59,6 +71,9 @@ import Test.Tasty
 --
 --         , requestDescribeCollection $
 --             newDescribeCollection
+--
+--         , requestDescribeDataset $
+--             newDescribeDataset
 --
 --         , requestDescribeProjectVersions $
 --             newDescribeProjectVersions
@@ -86,6 +101,9 @@ import Test.Tasty
 --
 --         , requestDetectText $
 --             newDetectText
+--
+--         , requestDistributeDatasetEntries $
+--             newDistributeDatasetEntries
 --
 --         , requestGetCelebrityInfo $
 --             newGetCelebrityInfo
@@ -120,14 +138,26 @@ import Test.Tasty
 --         , requestListCollections $
 --             newListCollections
 --
+--         , requestListDatasetEntries $
+--             newListDatasetEntries
+--
+--         , requestListDatasetLabels $
+--             newListDatasetLabels
+--
 --         , requestListFaces $
 --             newListFaces
+--
+--         , requestListProjectPolicies $
+--             newListProjectPolicies
 --
 --         , requestListStreamProcessors $
 --             newListStreamProcessors
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestPutProjectPolicy $
+--             newPutProjectPolicy
 --
 --         , requestRecognizeCelebrities $
 --             newRecognizeCelebrities
@@ -180,14 +210,26 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateDatasetEntries $
+--             newUpdateDatasetEntries
+--
+--         , requestUpdateStreamProcessor $
+--             newUpdateStreamProcessor
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseCompareFaces $
 --             newCompareFacesResponse
 --
+--         , responseCopyProjectVersion $
+--             newCopyProjectVersionResponse
+--
 --         , responseCreateCollection $
 --             newCreateCollectionResponse
+--
+--         , responseCreateDataset $
+--             newCreateDatasetResponse
 --
 --         , responseCreateProject $
 --             newCreateProjectResponse
@@ -201,11 +243,17 @@ import Test.Tasty
 --         , responseDeleteCollection $
 --             newDeleteCollectionResponse
 --
+--         , responseDeleteDataset $
+--             newDeleteDatasetResponse
+--
 --         , responseDeleteFaces $
 --             newDeleteFacesResponse
 --
 --         , responseDeleteProject $
 --             newDeleteProjectResponse
+--
+--         , responseDeleteProjectPolicy $
+--             newDeleteProjectPolicyResponse
 --
 --         , responseDeleteProjectVersion $
 --             newDeleteProjectVersionResponse
@@ -215,6 +263,9 @@ import Test.Tasty
 --
 --         , responseDescribeCollection $
 --             newDescribeCollectionResponse
+--
+--         , responseDescribeDataset $
+--             newDescribeDatasetResponse
 --
 --         , responseDescribeProjectVersions $
 --             newDescribeProjectVersionsResponse
@@ -242,6 +293,9 @@ import Test.Tasty
 --
 --         , responseDetectText $
 --             newDetectTextResponse
+--
+--         , responseDistributeDatasetEntries $
+--             newDistributeDatasetEntriesResponse
 --
 --         , responseGetCelebrityInfo $
 --             newGetCelebrityInfoResponse
@@ -276,14 +330,26 @@ import Test.Tasty
 --         , responseListCollections $
 --             newListCollectionsResponse
 --
+--         , responseListDatasetEntries $
+--             newListDatasetEntriesResponse
+--
+--         , responseListDatasetLabels $
+--             newListDatasetLabelsResponse
+--
 --         , responseListFaces $
 --             newListFacesResponse
+--
+--         , responseListProjectPolicies $
+--             newListProjectPoliciesResponse
 --
 --         , responseListStreamProcessors $
 --             newListStreamProcessorsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responsePutProjectPolicy $
+--             newPutProjectPolicyResponse
 --
 --         , responseRecognizeCelebrities $
 --             newRecognizeCelebritiesResponse
@@ -336,6 +402,12 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateDatasetEntries $
+--             newUpdateDatasetEntriesResponse
+--
+--         , responseUpdateStreamProcessor $
+--             newUpdateStreamProcessorResponse
+--
 --           ]
 --     ]
 
@@ -347,11 +419,23 @@ requestCompareFaces =
     "CompareFaces"
     "fixture/CompareFaces.yaml"
 
+requestCopyProjectVersion :: CopyProjectVersion -> TestTree
+requestCopyProjectVersion =
+  req
+    "CopyProjectVersion"
+    "fixture/CopyProjectVersion.yaml"
+
 requestCreateCollection :: CreateCollection -> TestTree
 requestCreateCollection =
   req
     "CreateCollection"
     "fixture/CreateCollection.yaml"
+
+requestCreateDataset :: CreateDataset -> TestTree
+requestCreateDataset =
+  req
+    "CreateDataset"
+    "fixture/CreateDataset.yaml"
 
 requestCreateProject :: CreateProject -> TestTree
 requestCreateProject =
@@ -377,6 +461,12 @@ requestDeleteCollection =
     "DeleteCollection"
     "fixture/DeleteCollection.yaml"
 
+requestDeleteDataset :: DeleteDataset -> TestTree
+requestDeleteDataset =
+  req
+    "DeleteDataset"
+    "fixture/DeleteDataset.yaml"
+
 requestDeleteFaces :: DeleteFaces -> TestTree
 requestDeleteFaces =
   req
@@ -388,6 +478,12 @@ requestDeleteProject =
   req
     "DeleteProject"
     "fixture/DeleteProject.yaml"
+
+requestDeleteProjectPolicy :: DeleteProjectPolicy -> TestTree
+requestDeleteProjectPolicy =
+  req
+    "DeleteProjectPolicy"
+    "fixture/DeleteProjectPolicy.yaml"
 
 requestDeleteProjectVersion :: DeleteProjectVersion -> TestTree
 requestDeleteProjectVersion =
@@ -406,6 +502,12 @@ requestDescribeCollection =
   req
     "DescribeCollection"
     "fixture/DescribeCollection.yaml"
+
+requestDescribeDataset :: DescribeDataset -> TestTree
+requestDescribeDataset =
+  req
+    "DescribeDataset"
+    "fixture/DescribeDataset.yaml"
 
 requestDescribeProjectVersions :: DescribeProjectVersions -> TestTree
 requestDescribeProjectVersions =
@@ -460,6 +562,12 @@ requestDetectText =
   req
     "DetectText"
     "fixture/DetectText.yaml"
+
+requestDistributeDatasetEntries :: DistributeDatasetEntries -> TestTree
+requestDistributeDatasetEntries =
+  req
+    "DistributeDatasetEntries"
+    "fixture/DistributeDatasetEntries.yaml"
 
 requestGetCelebrityInfo :: GetCelebrityInfo -> TestTree
 requestGetCelebrityInfo =
@@ -527,11 +635,29 @@ requestListCollections =
     "ListCollections"
     "fixture/ListCollections.yaml"
 
+requestListDatasetEntries :: ListDatasetEntries -> TestTree
+requestListDatasetEntries =
+  req
+    "ListDatasetEntries"
+    "fixture/ListDatasetEntries.yaml"
+
+requestListDatasetLabels :: ListDatasetLabels -> TestTree
+requestListDatasetLabels =
+  req
+    "ListDatasetLabels"
+    "fixture/ListDatasetLabels.yaml"
+
 requestListFaces :: ListFaces -> TestTree
 requestListFaces =
   req
     "ListFaces"
     "fixture/ListFaces.yaml"
+
+requestListProjectPolicies :: ListProjectPolicies -> TestTree
+requestListProjectPolicies =
+  req
+    "ListProjectPolicies"
+    "fixture/ListProjectPolicies.yaml"
 
 requestListStreamProcessors :: ListStreamProcessors -> TestTree
 requestListStreamProcessors =
@@ -544,6 +670,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestPutProjectPolicy :: PutProjectPolicy -> TestTree
+requestPutProjectPolicy =
+  req
+    "PutProjectPolicy"
+    "fixture/PutProjectPolicy.yaml"
 
 requestRecognizeCelebrities :: RecognizeCelebrities -> TestTree
 requestRecognizeCelebrities =
@@ -647,6 +779,18 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateDatasetEntries :: UpdateDatasetEntries -> TestTree
+requestUpdateDatasetEntries =
+  req
+    "UpdateDatasetEntries"
+    "fixture/UpdateDatasetEntries.yaml"
+
+requestUpdateStreamProcessor :: UpdateStreamProcessor -> TestTree
+requestUpdateStreamProcessor =
+  req
+    "UpdateStreamProcessor"
+    "fixture/UpdateStreamProcessor.yaml"
+
 -- Responses
 
 responseCompareFaces :: CompareFacesResponse -> TestTree
@@ -657,6 +801,14 @@ responseCompareFaces =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CompareFaces)
 
+responseCopyProjectVersion :: CopyProjectVersionResponse -> TestTree
+responseCopyProjectVersion =
+  res
+    "CopyProjectVersionResponse"
+    "fixture/CopyProjectVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CopyProjectVersion)
+
 responseCreateCollection :: CreateCollectionResponse -> TestTree
 responseCreateCollection =
   res
@@ -664,6 +816,14 @@ responseCreateCollection =
     "fixture/CreateCollectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCollection)
+
+responseCreateDataset :: CreateDatasetResponse -> TestTree
+responseCreateDataset =
+  res
+    "CreateDatasetResponse"
+    "fixture/CreateDatasetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateDataset)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
 responseCreateProject =
@@ -697,6 +857,14 @@ responseDeleteCollection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteCollection)
 
+responseDeleteDataset :: DeleteDatasetResponse -> TestTree
+responseDeleteDataset =
+  res
+    "DeleteDatasetResponse"
+    "fixture/DeleteDatasetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDataset)
+
 responseDeleteFaces :: DeleteFacesResponse -> TestTree
 responseDeleteFaces =
   res
@@ -712,6 +880,14 @@ responseDeleteProject =
     "fixture/DeleteProjectResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteProject)
+
+responseDeleteProjectPolicy :: DeleteProjectPolicyResponse -> TestTree
+responseDeleteProjectPolicy =
+  res
+    "DeleteProjectPolicyResponse"
+    "fixture/DeleteProjectPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProjectPolicy)
 
 responseDeleteProjectVersion :: DeleteProjectVersionResponse -> TestTree
 responseDeleteProjectVersion =
@@ -736,6 +912,14 @@ responseDescribeCollection =
     "fixture/DescribeCollectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeCollection)
+
+responseDescribeDataset :: DescribeDatasetResponse -> TestTree
+responseDescribeDataset =
+  res
+    "DescribeDatasetResponse"
+    "fixture/DescribeDatasetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDataset)
 
 responseDescribeProjectVersions :: DescribeProjectVersionsResponse -> TestTree
 responseDescribeProjectVersions =
@@ -808,6 +992,14 @@ responseDetectText =
     "fixture/DetectTextResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetectText)
+
+responseDistributeDatasetEntries :: DistributeDatasetEntriesResponse -> TestTree
+responseDistributeDatasetEntries =
+  res
+    "DistributeDatasetEntriesResponse"
+    "fixture/DistributeDatasetEntriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DistributeDatasetEntries)
 
 responseGetCelebrityInfo :: GetCelebrityInfoResponse -> TestTree
 responseGetCelebrityInfo =
@@ -897,6 +1089,22 @@ responseListCollections =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCollections)
 
+responseListDatasetEntries :: ListDatasetEntriesResponse -> TestTree
+responseListDatasetEntries =
+  res
+    "ListDatasetEntriesResponse"
+    "fixture/ListDatasetEntriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetEntries)
+
+responseListDatasetLabels :: ListDatasetLabelsResponse -> TestTree
+responseListDatasetLabels =
+  res
+    "ListDatasetLabelsResponse"
+    "fixture/ListDatasetLabelsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDatasetLabels)
+
 responseListFaces :: ListFacesResponse -> TestTree
 responseListFaces =
   res
@@ -904,6 +1112,14 @@ responseListFaces =
     "fixture/ListFacesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFaces)
+
+responseListProjectPolicies :: ListProjectPoliciesResponse -> TestTree
+responseListProjectPolicies =
+  res
+    "ListProjectPoliciesResponse"
+    "fixture/ListProjectPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProjectPolicies)
 
 responseListStreamProcessors :: ListStreamProcessorsResponse -> TestTree
 responseListStreamProcessors =
@@ -920,6 +1136,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responsePutProjectPolicy :: PutProjectPolicyResponse -> TestTree
+responsePutProjectPolicy =
+  res
+    "PutProjectPolicyResponse"
+    "fixture/PutProjectPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutProjectPolicy)
 
 responseRecognizeCelebrities :: RecognizeCelebritiesResponse -> TestTree
 responseRecognizeCelebrities =
@@ -1056,3 +1280,19 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateDatasetEntries :: UpdateDatasetEntriesResponse -> TestTree
+responseUpdateDatasetEntries =
+  res
+    "UpdateDatasetEntriesResponse"
+    "fixture/UpdateDatasetEntriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDatasetEntries)
+
+responseUpdateStreamProcessor :: UpdateStreamProcessorResponse -> TestTree
+responseUpdateStreamProcessor =
+  res
+    "UpdateStreamProcessorResponse"
+    "fixture/UpdateStreamProcessorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateStreamProcessor)

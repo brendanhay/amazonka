@@ -25,7 +25,8 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.KnownGenderType
 
 -- | The known gender identity for the celebrity that matches the provided
--- ID.
+-- ID. The known gender identity can be Male, Female, Nonbinary, or
+-- Unlisted.
 --
 -- /See:/ 'newKnownGender' smart constructor.
 data KnownGender = KnownGender'

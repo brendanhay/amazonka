@@ -33,7 +33,7 @@
 -- topic is @SUCCEEDED@. If so, call GetFaceDetection and pass the job
 -- identifier (@JobId@) from the initial call to @StartFaceDetection@.
 --
--- For more information, see Detecting Faces in a Stored Video in the
+-- For more information, see Detecting faces in a stored video in the
 -- Amazon Rekognition Developer Guide.
 module Amazonka.Rekognition.StartFaceDetection
   ( -- * Creating a Request

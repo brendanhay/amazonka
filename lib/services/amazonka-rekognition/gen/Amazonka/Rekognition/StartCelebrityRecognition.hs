@@ -34,7 +34,7 @@
 -- call GetCelebrityRecognition and pass the job identifier (@JobId@) from
 -- the initial call to @StartCelebrityRecognition@.
 --
--- For more information, see Recognizing Celebrities in the Amazon
+-- For more information, see Recognizing celebrities in the Amazon
 -- Rekognition Developer Guide.
 module Amazonka.Rekognition.StartCelebrityRecognition
   ( -- * Creating a Request

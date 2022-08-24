@@ -45,16 +45,21 @@ library
   exposed-modules:
     Amazonka.Rekognition
     Amazonka.Rekognition.CompareFaces
+    Amazonka.Rekognition.CopyProjectVersion
     Amazonka.Rekognition.CreateCollection
+    Amazonka.Rekognition.CreateDataset
     Amazonka.Rekognition.CreateProject
     Amazonka.Rekognition.CreateProjectVersion
     Amazonka.Rekognition.CreateStreamProcessor
     Amazonka.Rekognition.DeleteCollection
+    Amazonka.Rekognition.DeleteDataset
     Amazonka.Rekognition.DeleteFaces
     Amazonka.Rekognition.DeleteProject
+    Amazonka.Rekognition.DeleteProjectPolicy
     Amazonka.Rekognition.DeleteProjectVersion
     Amazonka.Rekognition.DeleteStreamProcessor
     Amazonka.Rekognition.DescribeCollection
+    Amazonka.Rekognition.DescribeDataset
     Amazonka.Rekognition.DescribeProjects
     Amazonka.Rekognition.DescribeProjectVersions
     Amazonka.Rekognition.DescribeStreamProcessor
@@ -64,6 +69,7 @@ library
     Amazonka.Rekognition.DetectModerationLabels
     Amazonka.Rekognition.DetectProtectiveEquipment
     Amazonka.Rekognition.DetectText
+    Amazonka.Rekognition.DistributeDatasetEntries
     Amazonka.Rekognition.GetCelebrityInfo
     Amazonka.Rekognition.GetCelebrityRecognition
     Amazonka.Rekognition.GetContentModeration
@@ -76,9 +82,13 @@ library
     Amazonka.Rekognition.IndexFaces
     Amazonka.Rekognition.Lens
     Amazonka.Rekognition.ListCollections
+    Amazonka.Rekognition.ListDatasetEntries
+    Amazonka.Rekognition.ListDatasetLabels
     Amazonka.Rekognition.ListFaces
+    Amazonka.Rekognition.ListProjectPolicies
     Amazonka.Rekognition.ListStreamProcessors
     Amazonka.Rekognition.ListTagsForResource
+    Amazonka.Rekognition.PutProjectPolicy
     Amazonka.Rekognition.RecognizeCelebrities
     Amazonka.Rekognition.SearchFaces
     Amazonka.Rekognition.SearchFacesByImage
@@ -111,13 +121,26 @@ library
     Amazonka.Rekognition.Types.ComparedFace
     Amazonka.Rekognition.Types.ComparedSourceImageFace
     Amazonka.Rekognition.Types.CompareFacesMatch
+    Amazonka.Rekognition.Types.ConnectedHomeSettings
+    Amazonka.Rekognition.Types.ConnectedHomeSettingsForUpdate
     Amazonka.Rekognition.Types.ContentClassifier
     Amazonka.Rekognition.Types.ContentModerationDetection
     Amazonka.Rekognition.Types.ContentModerationSortBy
     Amazonka.Rekognition.Types.CoversBodyPart
     Amazonka.Rekognition.Types.CustomLabel
+    Amazonka.Rekognition.Types.DatasetChanges
+    Amazonka.Rekognition.Types.DatasetDescription
+    Amazonka.Rekognition.Types.DatasetLabelDescription
+    Amazonka.Rekognition.Types.DatasetLabelStats
+    Amazonka.Rekognition.Types.DatasetMetadata
+    Amazonka.Rekognition.Types.DatasetSource
+    Amazonka.Rekognition.Types.DatasetStats
+    Amazonka.Rekognition.Types.DatasetStatus
+    Amazonka.Rekognition.Types.DatasetStatusMessageCode
+    Amazonka.Rekognition.Types.DatasetType
     Amazonka.Rekognition.Types.DetectionFilter
     Amazonka.Rekognition.Types.DetectTextFilters
+    Amazonka.Rekognition.Types.DistributeDataset
     Amazonka.Rekognition.Types.Emotion
     Amazonka.Rekognition.Types.EmotionName
     Amazonka.Rekognition.Types.EquipmentDetection
@@ -144,6 +167,7 @@ library
     Amazonka.Rekognition.Types.Instance
     Amazonka.Rekognition.Types.KinesisDataStream
     Amazonka.Rekognition.Types.KinesisVideoStream
+    Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector
     Amazonka.Rekognition.Types.KnownGender
     Amazonka.Rekognition.Types.KnownGenderType
     Amazonka.Rekognition.Types.Label
@@ -165,6 +189,7 @@ library
     Amazonka.Rekognition.Types.Point
     Amazonka.Rekognition.Types.Pose
     Amazonka.Rekognition.Types.ProjectDescription
+    Amazonka.Rekognition.Types.ProjectPolicy
     Amazonka.Rekognition.Types.ProjectStatus
     Amazonka.Rekognition.Types.ProjectVersionDescription
     Amazonka.Rekognition.Types.ProjectVersionStatus
@@ -176,6 +201,7 @@ library
     Amazonka.Rekognition.Types.QualityFilter
     Amazonka.Rekognition.Types.Reason
     Amazonka.Rekognition.Types.RegionOfInterest
+    Amazonka.Rekognition.Types.S3Destination
     Amazonka.Rekognition.Types.S3Object
     Amazonka.Rekognition.Types.SegmentDetection
     Amazonka.Rekognition.Types.SegmentType
@@ -186,10 +212,16 @@ library
     Amazonka.Rekognition.Types.StartShotDetectionFilter
     Amazonka.Rekognition.Types.StartTechnicalCueDetectionFilter
     Amazonka.Rekognition.Types.StartTextDetectionFilters
+    Amazonka.Rekognition.Types.StreamProcessingStartSelector
+    Amazonka.Rekognition.Types.StreamProcessingStopSelector
     Amazonka.Rekognition.Types.StreamProcessor
+    Amazonka.Rekognition.Types.StreamProcessorDataSharingPreference
     Amazonka.Rekognition.Types.StreamProcessorInput
+    Amazonka.Rekognition.Types.StreamProcessorNotificationChannel
     Amazonka.Rekognition.Types.StreamProcessorOutput
+    Amazonka.Rekognition.Types.StreamProcessorParameterToDelete
     Amazonka.Rekognition.Types.StreamProcessorSettings
+    Amazonka.Rekognition.Types.StreamProcessorSettingsForUpdate
     Amazonka.Rekognition.Types.StreamProcessorStatus
     Amazonka.Rekognition.Types.Summary
     Amazonka.Rekognition.Types.Sunglasses
@@ -209,6 +241,8 @@ library
     Amazonka.Rekognition.Types.VideoJobStatus
     Amazonka.Rekognition.Types.VideoMetadata
     Amazonka.Rekognition.UntagResource
+    Amazonka.Rekognition.UpdateDatasetEntries
+    Amazonka.Rekognition.UpdateStreamProcessor
     Amazonka.Rekognition.Waiters
 
   build-depends:

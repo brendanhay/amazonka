@@ -24,7 +24,7 @@
 -- truncated, the response also provides a @NextToken@ that you can use in
 -- the subsequent request to fetch the next set of collection IDs.
 --
--- For an example, see Listing Collections in the Amazon Rekognition
+-- For an example, see Listing collections in the Amazon Rekognition
 -- Developer Guide.
 --
 -- This operation requires permissions to perform the

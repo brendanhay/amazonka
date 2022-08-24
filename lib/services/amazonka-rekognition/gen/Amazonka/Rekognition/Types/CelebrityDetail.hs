@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.BoundingBox
 import Amazonka.Rekognition.Types.FaceDetail
+import Amazonka.Rekognition.Types.KnownGender
 
 -- | Information about a recognized celebrity.
 --
@@ -31,6 +32,8 @@ import Amazonka.Rekognition.Types.FaceDetail
 data CelebrityDetail = CelebrityDetail'
   { -- | The name of the celebrity.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Retrieves the known gender for the celebrity.
+    knownGender :: Prelude.Maybe KnownGender,
     -- | The confidence, in percentage, that Amazon Rekognition has that the
     -- recognized face is the celebrity.
     confidence :: Prelude.Maybe Prelude.Double,
@@ -55,6 +58,8 @@ data CelebrityDetail = CelebrityDetail'
 --
 -- 'name', 'celebrityDetail_name' - The name of the celebrity.
 --
+-- 'knownGender', 'celebrityDetail_knownGender' - Retrieves the known gender for the celebrity.
+--
 -- 'confidence', 'celebrityDetail_confidence' - The confidence, in percentage, that Amazon Rekognition has that the
 -- recognized face is the celebrity.
 --
@@ -70,6 +75,7 @@ newCelebrityDetail ::
 newCelebrityDetail =
   CelebrityDetail'
     { name = Prelude.Nothing,
+      knownGender = Prelude.Nothing,
       confidence = Prelude.Nothing,
       id = Prelude.Nothing,
       face = Prelude.Nothing,
@@ -80,6 +86,10 @@ newCelebrityDetail =
 -- | The name of the celebrity.
 celebrityDetail_name :: Lens.Lens' CelebrityDetail (Prelude.Maybe Prelude.Text)
 celebrityDetail_name = Lens.lens (\CelebrityDetail' {name} -> name) (\s@CelebrityDetail' {} a -> s {name = a} :: CelebrityDetail)
+
+-- | Retrieves the known gender for the celebrity.
+celebrityDetail_knownGender :: Lens.Lens' CelebrityDetail (Prelude.Maybe KnownGender)
+celebrityDetail_knownGender = Lens.lens (\CelebrityDetail' {knownGender} -> knownGender) (\s@CelebrityDetail' {} a -> s {knownGender = a} :: CelebrityDetail)
 
 -- | The confidence, in percentage, that Amazon Rekognition has that the
 -- recognized face is the celebrity.
@@ -109,6 +119,7 @@ instance Core.FromJSON CelebrityDetail where
       ( \x ->
           CelebrityDetail'
             Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "KnownGender")
             Prelude.<*> (x Core..:? "Confidence")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Face")
@@ -119,6 +130,7 @@ instance Core.FromJSON CelebrityDetail where
 instance Prelude.Hashable CelebrityDetail where
   hashWithSalt _salt CelebrityDetail' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` knownGender
       `Prelude.hashWithSalt` confidence
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` face
@@ -128,6 +140,7 @@ instance Prelude.Hashable CelebrityDetail where
 instance Prelude.NFData CelebrityDetail where
   rnf CelebrityDetail' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf knownGender
       `Prelude.seq` Prelude.rnf confidence
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf face

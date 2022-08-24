@@ -29,7 +29,7 @@ import Amazonka.Rekognition.Types.ProjectVersionStatus
 import Amazonka.Rekognition.Types.TestingDataResult
 import Amazonka.Rekognition.Types.TrainingDataResult
 
--- | The description of a version of a model.
+-- | A description of a version of an Amazon Rekognition Custom Labels model.
 --
 -- /See:/ 'newProjectVersionDescription' smart constructor.
 data ProjectVersionDescription = ProjectVersionDescription'
@@ -38,6 +38,9 @@ data ProjectVersionDescription = ProjectVersionDescription'
     -- | The minimum number of inference units used by the model. For more
     -- information, see StartProjectVersion.
     minInferenceUnits :: Prelude.Maybe Prelude.Natural,
+    -- | If the model version was copied from a different project,
+    -- @SourceProjectVersionArn@ contains the ARN of the source model version.
+    sourceProjectVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The current status of the model version.
     status :: Prelude.Maybe ProjectVersionStatus,
     -- | Contains information about the testing results.
@@ -52,14 +55,18 @@ data ProjectVersionDescription = ProjectVersionDescription'
     -- | The training results. @EvaluationResult@ is only returned if training is
     -- successful.
     evaluationResult :: Prelude.Maybe EvaluationResult,
-    -- | The identifer for the AWS Key Management Service (AWS KMS) customer
-    -- master key that was used to encrypt the model during training.
+    -- | The identifer for the AWS Key Management Service key (AWS KMS key) that
+    -- was used to encrypt the model during training.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the model version.
     projectVersionArn :: Prelude.Maybe Prelude.Text,
-    -- | The duration, in seconds, that the model version has been billed for
-    -- training. This value is only returned if the model version has been
-    -- successfully trained.
+    -- | The maximum number of inference units Amazon Rekognition Custom Labels
+    -- uses to auto-scale the model. For more information, see
+    -- StartProjectVersion.
+    maxInferenceUnits :: Prelude.Maybe Prelude.Natural,
+    -- | The duration, in seconds, that you were billed for a successful training
+    -- of the model version. This value is only returned if the model version
+    -- has been successfully trained.
     billableTrainingTimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | A descriptive message for an error or warning that occurred.
     statusMessage :: Prelude.Maybe Prelude.Text,
@@ -81,6 +88,9 @@ data ProjectVersionDescription = ProjectVersionDescription'
 -- 'minInferenceUnits', 'projectVersionDescription_minInferenceUnits' - The minimum number of inference units used by the model. For more
 -- information, see StartProjectVersion.
 --
+-- 'sourceProjectVersionArn', 'projectVersionDescription_sourceProjectVersionArn' - If the model version was copied from a different project,
+-- @SourceProjectVersionArn@ contains the ARN of the source model version.
+--
 -- 'status', 'projectVersionDescription_status' - The current status of the model version.
 --
 -- 'testingDataResult', 'projectVersionDescription_testingDataResult' - Contains information about the testing results.
@@ -95,14 +105,18 @@ data ProjectVersionDescription = ProjectVersionDescription'
 -- 'evaluationResult', 'projectVersionDescription_evaluationResult' - The training results. @EvaluationResult@ is only returned if training is
 -- successful.
 --
--- 'kmsKeyId', 'projectVersionDescription_kmsKeyId' - The identifer for the AWS Key Management Service (AWS KMS) customer
--- master key that was used to encrypt the model during training.
+-- 'kmsKeyId', 'projectVersionDescription_kmsKeyId' - The identifer for the AWS Key Management Service key (AWS KMS key) that
+-- was used to encrypt the model during training.
 --
 -- 'projectVersionArn', 'projectVersionDescription_projectVersionArn' - The Amazon Resource Name (ARN) of the model version.
 --
--- 'billableTrainingTimeInSeconds', 'projectVersionDescription_billableTrainingTimeInSeconds' - The duration, in seconds, that the model version has been billed for
--- training. This value is only returned if the model version has been
--- successfully trained.
+-- 'maxInferenceUnits', 'projectVersionDescription_maxInferenceUnits' - The maximum number of inference units Amazon Rekognition Custom Labels
+-- uses to auto-scale the model. For more information, see
+-- StartProjectVersion.
+--
+-- 'billableTrainingTimeInSeconds', 'projectVersionDescription_billableTrainingTimeInSeconds' - The duration, in seconds, that you were billed for a successful training
+-- of the model version. This value is only returned if the model version
+-- has been successfully trained.
 --
 -- 'statusMessage', 'projectVersionDescription_statusMessage' - A descriptive message for an error or warning that occurred.
 --
@@ -114,6 +128,7 @@ newProjectVersionDescription =
     { trainingEndTimestamp =
         Prelude.Nothing,
       minInferenceUnits = Prelude.Nothing,
+      sourceProjectVersionArn = Prelude.Nothing,
       status = Prelude.Nothing,
       testingDataResult = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
@@ -122,6 +137,7 @@ newProjectVersionDescription =
       evaluationResult = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       projectVersionArn = Prelude.Nothing,
+      maxInferenceUnits = Prelude.Nothing,
       billableTrainingTimeInSeconds = Prelude.Nothing,
       statusMessage = Prelude.Nothing,
       outputConfig = Prelude.Nothing
@@ -135,6 +151,11 @@ projectVersionDescription_trainingEndTimestamp = Lens.lens (\ProjectVersionDescr
 -- information, see StartProjectVersion.
 projectVersionDescription_minInferenceUnits :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Natural)
 projectVersionDescription_minInferenceUnits = Lens.lens (\ProjectVersionDescription' {minInferenceUnits} -> minInferenceUnits) (\s@ProjectVersionDescription' {} a -> s {minInferenceUnits = a} :: ProjectVersionDescription)
+
+-- | If the model version was copied from a different project,
+-- @SourceProjectVersionArn@ contains the ARN of the source model version.
+projectVersionDescription_sourceProjectVersionArn :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
+projectVersionDescription_sourceProjectVersionArn = Lens.lens (\ProjectVersionDescription' {sourceProjectVersionArn} -> sourceProjectVersionArn) (\s@ProjectVersionDescription' {} a -> s {sourceProjectVersionArn = a} :: ProjectVersionDescription)
 
 -- | The current status of the model version.
 projectVersionDescription_status :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe ProjectVersionStatus)
@@ -162,8 +183,8 @@ projectVersionDescription_trainingDataResult = Lens.lens (\ProjectVersionDescrip
 projectVersionDescription_evaluationResult :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe EvaluationResult)
 projectVersionDescription_evaluationResult = Lens.lens (\ProjectVersionDescription' {evaluationResult} -> evaluationResult) (\s@ProjectVersionDescription' {} a -> s {evaluationResult = a} :: ProjectVersionDescription)
 
--- | The identifer for the AWS Key Management Service (AWS KMS) customer
--- master key that was used to encrypt the model during training.
+-- | The identifer for the AWS Key Management Service key (AWS KMS key) that
+-- was used to encrypt the model during training.
 projectVersionDescription_kmsKeyId :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
 projectVersionDescription_kmsKeyId = Lens.lens (\ProjectVersionDescription' {kmsKeyId} -> kmsKeyId) (\s@ProjectVersionDescription' {} a -> s {kmsKeyId = a} :: ProjectVersionDescription)
 
@@ -171,9 +192,15 @@ projectVersionDescription_kmsKeyId = Lens.lens (\ProjectVersionDescription' {kms
 projectVersionDescription_projectVersionArn :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Text)
 projectVersionDescription_projectVersionArn = Lens.lens (\ProjectVersionDescription' {projectVersionArn} -> projectVersionArn) (\s@ProjectVersionDescription' {} a -> s {projectVersionArn = a} :: ProjectVersionDescription)
 
--- | The duration, in seconds, that the model version has been billed for
--- training. This value is only returned if the model version has been
--- successfully trained.
+-- | The maximum number of inference units Amazon Rekognition Custom Labels
+-- uses to auto-scale the model. For more information, see
+-- StartProjectVersion.
+projectVersionDescription_maxInferenceUnits :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Natural)
+projectVersionDescription_maxInferenceUnits = Lens.lens (\ProjectVersionDescription' {maxInferenceUnits} -> maxInferenceUnits) (\s@ProjectVersionDescription' {} a -> s {maxInferenceUnits = a} :: ProjectVersionDescription)
+
+-- | The duration, in seconds, that you were billed for a successful training
+-- of the model version. This value is only returned if the model version
+-- has been successfully trained.
 projectVersionDescription_billableTrainingTimeInSeconds :: Lens.Lens' ProjectVersionDescription (Prelude.Maybe Prelude.Natural)
 projectVersionDescription_billableTrainingTimeInSeconds = Lens.lens (\ProjectVersionDescription' {billableTrainingTimeInSeconds} -> billableTrainingTimeInSeconds) (\s@ProjectVersionDescription' {} a -> s {billableTrainingTimeInSeconds = a} :: ProjectVersionDescription)
 
@@ -193,6 +220,7 @@ instance Core.FromJSON ProjectVersionDescription where
           ProjectVersionDescription'
             Prelude.<$> (x Core..:? "TrainingEndTimestamp")
             Prelude.<*> (x Core..:? "MinInferenceUnits")
+            Prelude.<*> (x Core..:? "SourceProjectVersionArn")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "TestingDataResult")
             Prelude.<*> (x Core..:? "CreationTimestamp")
@@ -201,6 +229,7 @@ instance Core.FromJSON ProjectVersionDescription where
             Prelude.<*> (x Core..:? "EvaluationResult")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "ProjectVersionArn")
+            Prelude.<*> (x Core..:? "MaxInferenceUnits")
             Prelude.<*> (x Core..:? "BillableTrainingTimeInSeconds")
             Prelude.<*> (x Core..:? "StatusMessage")
             Prelude.<*> (x Core..:? "OutputConfig")
@@ -210,6 +239,7 @@ instance Prelude.Hashable ProjectVersionDescription where
   hashWithSalt _salt ProjectVersionDescription' {..} =
     _salt `Prelude.hashWithSalt` trainingEndTimestamp
       `Prelude.hashWithSalt` minInferenceUnits
+      `Prelude.hashWithSalt` sourceProjectVersionArn
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` testingDataResult
       `Prelude.hashWithSalt` creationTimestamp
@@ -218,6 +248,7 @@ instance Prelude.Hashable ProjectVersionDescription where
       `Prelude.hashWithSalt` evaluationResult
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` projectVersionArn
+      `Prelude.hashWithSalt` maxInferenceUnits
       `Prelude.hashWithSalt` billableTrainingTimeInSeconds
       `Prelude.hashWithSalt` statusMessage
       `Prelude.hashWithSalt` outputConfig
@@ -226,6 +257,7 @@ instance Prelude.NFData ProjectVersionDescription where
   rnf ProjectVersionDescription' {..} =
     Prelude.rnf trainingEndTimestamp
       `Prelude.seq` Prelude.rnf minInferenceUnits
+      `Prelude.seq` Prelude.rnf sourceProjectVersionArn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf testingDataResult
       `Prelude.seq` Prelude.rnf creationTimestamp
@@ -234,6 +266,7 @@ instance Prelude.NFData ProjectVersionDescription where
       `Prelude.seq` Prelude.rnf evaluationResult
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf projectVersionArn
+      `Prelude.seq` Prelude.rnf maxInferenceUnits
       `Prelude.seq` Prelude.rnf billableTrainingTimeInSeconds
       `Prelude.seq` Prelude.rnf statusMessage
       `Prelude.seq` Prelude.rnf outputConfig

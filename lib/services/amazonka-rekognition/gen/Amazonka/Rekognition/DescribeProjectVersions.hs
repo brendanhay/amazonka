@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists and describes the models in an Amazon Rekognition Custom Labels
--- project. You can specify up to 10 model versions in
+-- Lists and describes the versions of a model in an Amazon Rekognition
+-- Custom Labels project. You can specify up to 10 model versions in
 -- @ProjectVersionArns@. If you don\'t specify a value, descriptions for
--- all models are returned.
+-- all model versions in the project are returned.
 --
 -- This operation requires permissions to perform the
 -- @rekognition:DescribeProjectVersions@ action.

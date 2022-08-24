@@ -29,10 +29,12 @@ module Amazonka.Rekognition.Types
     _ResourceNotFoundException,
     _ResourceInUseException,
     _LimitExceededException,
+    _InvalidPolicyRevisionIdException,
     _InternalServerError,
     _ThrottlingException,
     _InvalidImageFormatException,
     _InvalidS3ObjectException,
+    _MalformedPolicyDocumentException,
     _IdempotentParameterMismatchException,
     _InvalidParameterException,
 
@@ -50,6 +52,15 @@ module Amazonka.Rekognition.Types
 
     -- * ContentModerationSortBy
     ContentModerationSortBy (..),
+
+    -- * DatasetStatus
+    DatasetStatus (..),
+
+    -- * DatasetStatusMessageCode
+    DatasetStatusMessageCode (..),
+
+    -- * DatasetType
+    DatasetType (..),
 
     -- * EmotionName
     EmotionName (..),
@@ -95,6 +106,9 @@ module Amazonka.Rekognition.Types
 
     -- * SegmentType
     SegmentType (..),
+
+    -- * StreamProcessorParameterToDelete
+    StreamProcessorParameterToDelete (..),
 
     -- * StreamProcessorStatus
     StreamProcessorStatus (..),
@@ -164,6 +178,7 @@ module Amazonka.Rekognition.Types
     CelebrityDetail (..),
     newCelebrityDetail,
     celebrityDetail_name,
+    celebrityDetail_knownGender,
     celebrityDetail_confidence,
     celebrityDetail_id,
     celebrityDetail_face,
@@ -199,6 +214,18 @@ module Amazonka.Rekognition.Types
     comparedSourceImageFace_confidence,
     comparedSourceImageFace_boundingBox,
 
+    -- * ConnectedHomeSettings
+    ConnectedHomeSettings (..),
+    newConnectedHomeSettings,
+    connectedHomeSettings_minConfidence,
+    connectedHomeSettings_labels,
+
+    -- * ConnectedHomeSettingsForUpdate
+    ConnectedHomeSettingsForUpdate (..),
+    newConnectedHomeSettingsForUpdate,
+    connectedHomeSettingsForUpdate_minConfidence,
+    connectedHomeSettingsForUpdate_labels,
+
     -- * ContentModerationDetection
     ContentModerationDetection (..),
     newContentModerationDetection,
@@ -218,6 +245,57 @@ module Amazonka.Rekognition.Types
     customLabel_confidence,
     customLabel_geometry,
 
+    -- * DatasetChanges
+    DatasetChanges (..),
+    newDatasetChanges,
+    datasetChanges_groundTruth,
+
+    -- * DatasetDescription
+    DatasetDescription (..),
+    newDatasetDescription,
+    datasetDescription_statusMessageCode,
+    datasetDescription_lastUpdatedTimestamp,
+    datasetDescription_status,
+    datasetDescription_datasetStats,
+    datasetDescription_creationTimestamp,
+    datasetDescription_statusMessage,
+
+    -- * DatasetLabelDescription
+    DatasetLabelDescription (..),
+    newDatasetLabelDescription,
+    datasetLabelDescription_labelName,
+    datasetLabelDescription_labelStats,
+
+    -- * DatasetLabelStats
+    DatasetLabelStats (..),
+    newDatasetLabelStats,
+    datasetLabelStats_boundingBoxCount,
+    datasetLabelStats_entryCount,
+
+    -- * DatasetMetadata
+    DatasetMetadata (..),
+    newDatasetMetadata,
+    datasetMetadata_statusMessageCode,
+    datasetMetadata_datasetType,
+    datasetMetadata_status,
+    datasetMetadata_creationTimestamp,
+    datasetMetadata_datasetArn,
+    datasetMetadata_statusMessage,
+
+    -- * DatasetSource
+    DatasetSource (..),
+    newDatasetSource,
+    datasetSource_datasetArn,
+    datasetSource_groundTruthManifest,
+
+    -- * DatasetStats
+    DatasetStats (..),
+    newDatasetStats,
+    datasetStats_errorEntries,
+    datasetStats_totalEntries,
+    datasetStats_totalLabels,
+    datasetStats_labeledEntries,
+
     -- * DetectTextFilters
     DetectTextFilters (..),
     newDetectTextFilters,
@@ -230,6 +308,11 @@ module Amazonka.Rekognition.Types
     detectionFilter_minBoundingBoxHeight,
     detectionFilter_minBoundingBoxWidth,
     detectionFilter_minConfidence,
+
+    -- * DistributeDataset
+    DistributeDataset (..),
+    newDistributeDataset,
+    distributeDataset_arn,
 
     -- * Emotion
     Emotion (..),
@@ -266,6 +349,7 @@ module Amazonka.Rekognition.Types
     -- * Face
     Face (..),
     newFace,
+    face_indexFacesModelVersion,
     face_confidence,
     face_faceId,
     face_boundingBox,
@@ -379,6 +463,12 @@ module Amazonka.Rekognition.Types
     newKinesisVideoStream,
     kinesisVideoStream_arn,
 
+    -- * KinesisVideoStreamStartSelector
+    KinesisVideoStreamStartSelector (..),
+    newKinesisVideoStreamStartSelector,
+    kinesisVideoStreamStartSelector_producerTimestamp,
+    kinesisVideoStreamStartSelector_fragmentNumber,
+
     -- * KnownGender
     KnownGender (..),
     newKnownGender,
@@ -477,15 +567,27 @@ module Amazonka.Rekognition.Types
     -- * ProjectDescription
     ProjectDescription (..),
     newProjectDescription,
+    projectDescription_datasets,
     projectDescription_status,
     projectDescription_creationTimestamp,
     projectDescription_projectArn,
+
+    -- * ProjectPolicy
+    ProjectPolicy (..),
+    newProjectPolicy,
+    projectPolicy_policyName,
+    projectPolicy_lastUpdatedTimestamp,
+    projectPolicy_creationTimestamp,
+    projectPolicy_policyRevisionId,
+    projectPolicy_policyDocument,
+    projectPolicy_projectArn,
 
     -- * ProjectVersionDescription
     ProjectVersionDescription (..),
     newProjectVersionDescription,
     projectVersionDescription_trainingEndTimestamp,
     projectVersionDescription_minInferenceUnits,
+    projectVersionDescription_sourceProjectVersionArn,
     projectVersionDescription_status,
     projectVersionDescription_testingDataResult,
     projectVersionDescription_creationTimestamp,
@@ -494,6 +596,7 @@ module Amazonka.Rekognition.Types
     projectVersionDescription_evaluationResult,
     projectVersionDescription_kmsKeyId,
     projectVersionDescription_projectVersionArn,
+    projectVersionDescription_maxInferenceUnits,
     projectVersionDescription_billableTrainingTimeInSeconds,
     projectVersionDescription_statusMessage,
     projectVersionDescription_outputConfig,
@@ -529,7 +632,14 @@ module Amazonka.Rekognition.Types
     -- * RegionOfInterest
     RegionOfInterest (..),
     newRegionOfInterest,
+    regionOfInterest_polygon,
     regionOfInterest_boundingBox,
+
+    -- * S3Destination
+    S3Destination (..),
+    newS3Destination,
+    s3Destination_bucket,
+    s3Destination_keyPrefix,
 
     -- * S3Object
     S3Object (..),
@@ -595,26 +705,53 @@ module Amazonka.Rekognition.Types
     startTextDetectionFilters_regionsOfInterest,
     startTextDetectionFilters_wordFilter,
 
+    -- * StreamProcessingStartSelector
+    StreamProcessingStartSelector (..),
+    newStreamProcessingStartSelector,
+    streamProcessingStartSelector_kVSStreamStartSelector,
+
+    -- * StreamProcessingStopSelector
+    StreamProcessingStopSelector (..),
+    newStreamProcessingStopSelector,
+    streamProcessingStopSelector_maxDurationInSeconds,
+
     -- * StreamProcessor
     StreamProcessor (..),
     newStreamProcessor,
     streamProcessor_name,
     streamProcessor_status,
 
+    -- * StreamProcessorDataSharingPreference
+    StreamProcessorDataSharingPreference (..),
+    newStreamProcessorDataSharingPreference,
+    streamProcessorDataSharingPreference_optIn,
+
     -- * StreamProcessorInput
     StreamProcessorInput (..),
     newStreamProcessorInput,
     streamProcessorInput_kinesisVideoStream,
 
+    -- * StreamProcessorNotificationChannel
+    StreamProcessorNotificationChannel (..),
+    newStreamProcessorNotificationChannel,
+    streamProcessorNotificationChannel_sNSTopicArn,
+
     -- * StreamProcessorOutput
     StreamProcessorOutput (..),
     newStreamProcessorOutput,
+    streamProcessorOutput_s3Destination,
     streamProcessorOutput_kinesisDataStream,
 
     -- * StreamProcessorSettings
     StreamProcessorSettings (..),
     newStreamProcessorSettings,
+    streamProcessorSettings_connectedHome,
     streamProcessorSettings_faceSearch,
+
+    -- * StreamProcessorSettingsForUpdate
+    StreamProcessorSettingsForUpdate (..),
+    newStreamProcessorSettingsForUpdate,
+    streamProcessorSettingsForUpdate_connectedHomeForUpdate,
 
     -- * Summary
     Summary (..),
@@ -721,13 +858,26 @@ import Amazonka.Rekognition.Types.CelebrityRecognitionSortBy
 import Amazonka.Rekognition.Types.CompareFacesMatch
 import Amazonka.Rekognition.Types.ComparedFace
 import Amazonka.Rekognition.Types.ComparedSourceImageFace
+import Amazonka.Rekognition.Types.ConnectedHomeSettings
+import Amazonka.Rekognition.Types.ConnectedHomeSettingsForUpdate
 import Amazonka.Rekognition.Types.ContentClassifier
 import Amazonka.Rekognition.Types.ContentModerationDetection
 import Amazonka.Rekognition.Types.ContentModerationSortBy
 import Amazonka.Rekognition.Types.CoversBodyPart
 import Amazonka.Rekognition.Types.CustomLabel
+import Amazonka.Rekognition.Types.DatasetChanges
+import Amazonka.Rekognition.Types.DatasetDescription
+import Amazonka.Rekognition.Types.DatasetLabelDescription
+import Amazonka.Rekognition.Types.DatasetLabelStats
+import Amazonka.Rekognition.Types.DatasetMetadata
+import Amazonka.Rekognition.Types.DatasetSource
+import Amazonka.Rekognition.Types.DatasetStats
+import Amazonka.Rekognition.Types.DatasetStatus
+import Amazonka.Rekognition.Types.DatasetStatusMessageCode
+import Amazonka.Rekognition.Types.DatasetType
 import Amazonka.Rekognition.Types.DetectTextFilters
 import Amazonka.Rekognition.Types.DetectionFilter
+import Amazonka.Rekognition.Types.DistributeDataset
 import Amazonka.Rekognition.Types.Emotion
 import Amazonka.Rekognition.Types.EmotionName
 import Amazonka.Rekognition.Types.EquipmentDetection
@@ -754,6 +904,7 @@ import Amazonka.Rekognition.Types.ImageQuality
 import Amazonka.Rekognition.Types.Instance
 import Amazonka.Rekognition.Types.KinesisDataStream
 import Amazonka.Rekognition.Types.KinesisVideoStream
+import Amazonka.Rekognition.Types.KinesisVideoStreamStartSelector
 import Amazonka.Rekognition.Types.KnownGender
 import Amazonka.Rekognition.Types.KnownGenderType
 import Amazonka.Rekognition.Types.Label
@@ -775,6 +926,7 @@ import Amazonka.Rekognition.Types.PersonTrackingSortBy
 import Amazonka.Rekognition.Types.Point
 import Amazonka.Rekognition.Types.Pose
 import Amazonka.Rekognition.Types.ProjectDescription
+import Amazonka.Rekognition.Types.ProjectPolicy
 import Amazonka.Rekognition.Types.ProjectStatus
 import Amazonka.Rekognition.Types.ProjectVersionDescription
 import Amazonka.Rekognition.Types.ProjectVersionStatus
@@ -786,6 +938,7 @@ import Amazonka.Rekognition.Types.ProtectiveEquipmentType
 import Amazonka.Rekognition.Types.QualityFilter
 import Amazonka.Rekognition.Types.Reason
 import Amazonka.Rekognition.Types.RegionOfInterest
+import Amazonka.Rekognition.Types.S3Destination
 import Amazonka.Rekognition.Types.S3Object
 import Amazonka.Rekognition.Types.SegmentDetection
 import Amazonka.Rekognition.Types.SegmentType
@@ -796,10 +949,16 @@ import Amazonka.Rekognition.Types.StartSegmentDetectionFilters
 import Amazonka.Rekognition.Types.StartShotDetectionFilter
 import Amazonka.Rekognition.Types.StartTechnicalCueDetectionFilter
 import Amazonka.Rekognition.Types.StartTextDetectionFilters
+import Amazonka.Rekognition.Types.StreamProcessingStartSelector
+import Amazonka.Rekognition.Types.StreamProcessingStopSelector
 import Amazonka.Rekognition.Types.StreamProcessor
+import Amazonka.Rekognition.Types.StreamProcessorDataSharingPreference
 import Amazonka.Rekognition.Types.StreamProcessorInput
+import Amazonka.Rekognition.Types.StreamProcessorNotificationChannel
 import Amazonka.Rekognition.Types.StreamProcessorOutput
+import Amazonka.Rekognition.Types.StreamProcessorParameterToDelete
 import Amazonka.Rekognition.Types.StreamProcessorSettings
+import Amazonka.Rekognition.Types.StreamProcessorSettingsForUpdate
 import Amazonka.Rekognition.Types.StreamProcessorStatus
 import Amazonka.Rekognition.Types.Summary
 import Amazonka.Rekognition.Types.Sunglasses
@@ -916,8 +1075,8 @@ _AccessDeniedException =
 
 -- | The input image size exceeds the allowed limit. If you are calling
 -- DetectProtectiveEquipment, the image size or resolution exceeds the
--- allowed limit. For more information, see Limits in Amazon Rekognition in
--- the Amazon Rekognition Developer Guide.
+-- allowed limit. For more information, see Guidelines and quotas in Amazon
+-- Rekognition in the Amazon Rekognition Developer Guide.
 _ImageTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ImageTooLargeException =
   Core._MatchServiceError
@@ -933,8 +1092,8 @@ _ProvisionedThroughputExceededException =
     "ProvisionedThroughputExceededException"
 
 -- | The size of the collection exceeds the allowed limit. For more
--- information, see Limits in Amazon Rekognition in the Amazon Rekognition
--- Developer Guide.
+-- information, see Guidelines and quotas in Amazon Rekognition in the
+-- Amazon Rekognition Developer Guide.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
@@ -990,6 +1149,13 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
+-- | The supplied revision id for the project policy is invalid.
+_InvalidPolicyRevisionIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidPolicyRevisionIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidPolicyRevisionIdException"
+
 -- | Amazon Rekognition experienced a service issue. Try your call again.
 _InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
@@ -1019,6 +1185,14 @@ _InvalidS3ObjectException =
   Core._MatchServiceError
     defaultService
     "InvalidS3ObjectException"
+
+-- | The format of the project policy document that you supplied to
+-- @PutProjectPolicy@ is incorrect.
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedPolicyDocumentException"
 
 -- | A @ClientRequestToken@ input parameter was reused with an operation, but
 -- at least one of the other input parameters is different from the

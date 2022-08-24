@@ -32,7 +32,8 @@
 -- search results, first check that the status value published to the
 -- Amazon SNS topic is @SUCCEEDED@. If so, call GetFaceSearch and pass the
 -- job identifier (@JobId@) from the initial call to @StartFaceSearch@. For
--- more information, see procedure-person-search-videos.
+-- more information, see
+-- <https://docs.aws.amazon.com/rekognition/latest/dg/procedure-person-search-videos.html Searching stored videos for faces>.
 module Amazonka.Rekognition.StartFaceSearch
   ( -- * Creating a Request
     StartFaceSearch (..),

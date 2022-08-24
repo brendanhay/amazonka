@@ -34,9 +34,8 @@
 -- information about a single word or line of text that was detected in the
 -- image.
 --
--- A word is one or more ISO basic latin script characters that are not
--- separated by spaces. @DetectText@ can detect up to 100 words in an
--- image.
+-- A word is one or more script characters that are not separated by
+-- spaces. @DetectText@ can detect up to 100 words in an image.
 --
 -- A line is a string of equally spaced words. A line isn\'t necessarily a
 -- complete sentence. For example, a driver\'s license number is detected
@@ -53,8 +52,8 @@
 -- To be detected, text must be within +\/- 90 degrees orientation of the
 -- horizontal axis.
 --
--- For more information, see DetectText in the Amazon Rekognition Developer
--- Guide.
+-- For more information, see Detecting text in the Amazon Rekognition
+-- Developer Guide.
 module Amazonka.Rekognition.DetectText
   ( -- * Creating a Request
     DetectText (..),

@@ -37,8 +37,8 @@ data DetectionFilter = DetectionFilter'
     -- Value is relative to the video frame width.
     minBoundingBoxWidth :: Prelude.Maybe Prelude.Double,
     -- | Sets the confidence of word detection. Words with detection confidence
-    -- below this will be excluded from the result. Values should be between 50
-    -- and 100 as Text in Video will not return any result below 50.
+    -- below this will be excluded from the result. Values should be between 0
+    -- and 100. The default MinConfidence is 80.
     minConfidence :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,8 +60,8 @@ data DetectionFilter = DetectionFilter'
 -- Value is relative to the video frame width.
 --
 -- 'minConfidence', 'detectionFilter_minConfidence' - Sets the confidence of word detection. Words with detection confidence
--- below this will be excluded from the result. Values should be between 50
--- and 100 as Text in Video will not return any result below 50.
+-- below this will be excluded from the result. Values should be between 0
+-- and 100. The default MinConfidence is 80.
 newDetectionFilter ::
   DetectionFilter
 newDetectionFilter =
@@ -85,8 +85,8 @@ detectionFilter_minBoundingBoxWidth :: Lens.Lens' DetectionFilter (Prelude.Maybe
 detectionFilter_minBoundingBoxWidth = Lens.lens (\DetectionFilter' {minBoundingBoxWidth} -> minBoundingBoxWidth) (\s@DetectionFilter' {} a -> s {minBoundingBoxWidth = a} :: DetectionFilter)
 
 -- | Sets the confidence of word detection. Words with detection confidence
--- below this will be excluded from the result. Values should be between 50
--- and 100 as Text in Video will not return any result below 50.
+-- below this will be excluded from the result. Values should be between 0
+-- and 100. The default MinConfidence is 80.
 detectionFilter_minConfidence :: Lens.Lens' DetectionFilter (Prelude.Maybe Prelude.Double)
 detectionFilter_minConfidence = Lens.lens (\DetectionFilter' {minConfidence} -> minConfidence) (\s@DetectionFilter' {} a -> s {minConfidence = a} :: DetectionFilter)
 

@@ -23,10 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Identifies the bounding box around the label, face, text or personal
--- protective equipment. The @left@ (x-coordinate) and @top@ (y-coordinate)
--- are coordinates representing the top and left sides of the bounding box.
--- Note that the upper-left corner of the image is the origin (0,0).
+-- | Identifies the bounding box around the label, face, text, object of
+-- interest, or personal protective equipment. The @left@ (x-coordinate)
+-- and @top@ (y-coordinate) are coordinates representing the top and left
+-- sides of the bounding box. Note that the upper-left corner of the image
+-- is the origin (0,0).
 --
 -- The @top@ and @left@ values returned are ratios of the overall image
 -- size. For example, if the input image is 700x200 pixels, and the

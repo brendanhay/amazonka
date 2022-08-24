@@ -25,15 +25,16 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Simple Notification Service topic to which Amazon Rekognition
 -- publishes the completion status of a video analysis operation. For more
--- information, see api-video. Note that the Amazon SNS topic must have a
--- topic name that begins with /AmazonRekognition/ if you are using the
--- AmazonRekognitionServiceRole permissions policy to access the topic. For
--- more information, see
+-- information, see
+-- <https://docs.aws.amazon.com/rekognition/latest/dg/api-video.html Calling Amazon Rekognition Video operations>.
+-- Note that the Amazon SNS topic must have a topic name that begins with
+-- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole
+-- permissions policy to access the topic. For more information, see
 -- <https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics Giving access to multiple Amazon SNS topics>.
 --
 -- /See:/ 'newNotificationChannel' smart constructor.
 data NotificationChannel = NotificationChannel'
-  { -- | The Amazon SNS topic to which Amazon Rekognition to posts the completion
+  { -- | The Amazon SNS topic to which Amazon Rekognition posts the completion
     -- status.
     sNSTopicArn :: Prelude.Text,
     -- | The ARN of an IAM role that gives Amazon Rekognition publishing
@@ -50,7 +51,7 @@ data NotificationChannel = NotificationChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sNSTopicArn', 'notificationChannel_sNSTopicArn' - The Amazon SNS topic to which Amazon Rekognition to posts the completion
+-- 'sNSTopicArn', 'notificationChannel_sNSTopicArn' - The Amazon SNS topic to which Amazon Rekognition posts the completion
 -- status.
 --
 -- 'roleArn', 'notificationChannel_roleArn' - The ARN of an IAM role that gives Amazon Rekognition publishing
@@ -67,7 +68,7 @@ newNotificationChannel pSNSTopicArn_ pRoleArn_ =
       roleArn = pRoleArn_
     }
 
--- | The Amazon SNS topic to which Amazon Rekognition to posts the completion
+-- | The Amazon SNS topic to which Amazon Rekognition posts the completion
 -- status.
 notificationChannel_sNSTopicArn :: Lens.Lens' NotificationChannel Prelude.Text
 notificationChannel_sNSTopicArn = Lens.lens (\NotificationChannel' {sNSTopicArn} -> sNSTopicArn) (\s@NotificationChannel' {} a -> s {sNSTopicArn = a} :: NotificationChannel)

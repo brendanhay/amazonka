@@ -24,8 +24,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Rekognition.Types.StreamProcessorStatus
 
--- | An object that recognizes faces in a streaming video. An Amazon
--- Rekognition stream processor is created by a call to
+-- | An object that recognizes faces or labels in a streaming video. An
+-- Amazon Rekognition stream processor is created by a call to
 -- CreateStreamProcessor. The request parameters for
 -- @CreateStreamProcessor@ describe the Kinesis video stream source for the
 -- streaming video, face recognition parameters, and where to stream the

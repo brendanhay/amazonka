@@ -25,7 +25,7 @@
 -- an array of URLs. If there is no additional information about the
 -- celebrity, this list is empty.
 --
--- For more information, see Recognizing Celebrities in an Image in the
+-- For more information, see Getting information about a celebrity in the
 -- Amazon Rekognition Developer Guide.
 --
 -- This operation requires permissions to perform the

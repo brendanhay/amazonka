@@ -49,8 +49,8 @@ import Amazonka.Rekognition.Types.S3Object
 -- using the S3Object property.
 --
 -- For Amazon Rekognition to process an S3 object, the user must have
--- permission to access the S3 object. For more information, see Resource
--- Based Policies in the Amazon Rekognition Developer Guide.
+-- permission to access the S3 object. For more information, see How Amazon
+-- Rekognition works with IAM in the Amazon Rekognition Developer Guide.
 --
 -- /See:/ 'newImage' smart constructor.
 data Image = Image'

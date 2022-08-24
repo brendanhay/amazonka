@@ -38,7 +38,7 @@
 -- GetContentModeration and pass the job identifier (@JobId@) from the
 -- initial call to @StartContentModeration@.
 --
--- For more information, see Content moderation in the Amazon Rekognition
+-- For more information, see Moderating content in the Amazon Rekognition
 -- Developer Guide.
 module Amazonka.Rekognition.StartContentModeration
   ( -- * Creating a Request

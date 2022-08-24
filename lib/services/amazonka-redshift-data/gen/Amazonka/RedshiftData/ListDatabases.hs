@@ -24,14 +24,18 @@
 -- database list. Depending on the authorization method, use one of the
 -- following combinations of request parameters:
 --
--- -   Secrets Manager - specify the Amazon Resource Name (ARN) of the
---     secret, the database name, and the cluster identifier that matches
---     the cluster in the secret.
+-- -   Secrets Manager - when connecting to a cluster, specify the Amazon
+--     Resource Name (ARN) of the secret, the database name, and the
+--     cluster identifier that matches the cluster in the secret. When
+--     connecting to a serverless workgroup, specify the Amazon Resource
+--     Name (ARN) of the secret and the database name.
 --
--- -   Temporary credentials - specify the cluster identifier, the database
---     name, and the database user name. Permission to call the
---     @redshift:GetClusterCredentials@ operation is required to use this
---     method.
+-- -   Temporary credentials - when connecting to a cluster, specify the
+--     cluster identifier, the database name, and the database user name.
+--     Also, permission to call the @redshift:GetClusterCredentials@
+--     operation is required. When connecting to a serverless workgroup,
+--     specify the workgroup name and database name. Also, permission to
+--     call the @redshift-serverless:GetCredentials@ operation is required.
 --
 -- This operation returns paginated results.
 module Amazonka.RedshiftData.ListDatabases
@@ -40,11 +44,12 @@ module Amazonka.RedshiftData.ListDatabases
     newListDatabases,
 
     -- * Request Lenses
+    listDatabases_clusterIdentifier,
     listDatabases_nextToken,
+    listDatabases_workgroupName,
     listDatabases_maxResults,
     listDatabases_secretArn,
     listDatabases_dbUser,
-    listDatabases_clusterIdentifier,
     listDatabases_database,
 
     -- * Destructuring the Response
@@ -67,13 +72,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListDatabases' smart constructor.
 data ListDatabases = ListDatabases'
-  { -- | A value that indicates the starting point for the next set of response
+  { -- | The cluster identifier. This parameter is required when connecting to a
+    -- cluster and authenticating using either Secrets Manager or temporary
+    -- credentials.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- NextToken value in the next NextToken parameter and retrying the
     -- command. If the NextToken field is empty, all response records have been
     -- retrieved for the request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The serverless workgroup name. This parameter is required when
+    -- connecting to a serverless workgroup and authenticating using either
+    -- Secrets Manager or temporary credentials.
+    workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of databases to return in the response. If more
     -- databases exist than fit in one response, then @NextToken@ is returned
     -- to page through the results.
@@ -81,12 +94,9 @@ data ListDatabases = ListDatabases'
     -- | The name or ARN of the secret that enables access to the database. This
     -- parameter is required when authenticating using Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The database user name. This parameter is required when authenticating
-    -- using temporary credentials.
+    -- | The database user name. This parameter is required when connecting to a
+    -- cluster and authenticating using temporary credentials.
     dbUser :: Prelude.Maybe Prelude.Text,
-    -- | The cluster identifier. This parameter is required when authenticating
-    -- using either Secrets Manager or temporary credentials.
-    clusterIdentifier :: Prelude.Text,
     -- | The name of the database. This parameter is required when authenticating
     -- using either Secrets Manager or temporary credentials.
     database :: Prelude.Text
@@ -101,12 +111,20 @@ data ListDatabases = ListDatabases'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterIdentifier', 'listDatabases_clusterIdentifier' - The cluster identifier. This parameter is required when connecting to a
+-- cluster and authenticating using either Secrets Manager or temporary
+-- credentials.
+--
 -- 'nextToken', 'listDatabases_nextToken' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
 -- NextToken value in the next NextToken parameter and retrying the
 -- command. If the NextToken field is empty, all response records have been
 -- retrieved for the request.
+--
+-- 'workgroupName', 'listDatabases_workgroupName' - The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
 --
 -- 'maxResults', 'listDatabases_maxResults' - The maximum number of databases to return in the response. If more
 -- databases exist than fit in one response, then @NextToken@ is returned
@@ -115,29 +133,31 @@ data ListDatabases = ListDatabases'
 -- 'secretArn', 'listDatabases_secretArn' - The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
 --
--- 'dbUser', 'listDatabases_dbUser' - The database user name. This parameter is required when authenticating
--- using temporary credentials.
---
--- 'clusterIdentifier', 'listDatabases_clusterIdentifier' - The cluster identifier. This parameter is required when authenticating
--- using either Secrets Manager or temporary credentials.
+-- 'dbUser', 'listDatabases_dbUser' - The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
 --
 -- 'database', 'listDatabases_database' - The name of the database. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
 newListDatabases ::
-  -- | 'clusterIdentifier'
-  Prelude.Text ->
   -- | 'database'
   Prelude.Text ->
   ListDatabases
-newListDatabases pClusterIdentifier_ pDatabase_ =
+newListDatabases pDatabase_ =
   ListDatabases'
-    { nextToken = Prelude.Nothing,
+    { clusterIdentifier = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      workgroupName = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       secretArn = Prelude.Nothing,
       dbUser = Prelude.Nothing,
-      clusterIdentifier = pClusterIdentifier_,
       database = pDatabase_
     }
+
+-- | The cluster identifier. This parameter is required when connecting to a
+-- cluster and authenticating using either Secrets Manager or temporary
+-- credentials.
+listDatabases_clusterIdentifier :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
+listDatabases_clusterIdentifier = Lens.lens (\ListDatabases' {clusterIdentifier} -> clusterIdentifier) (\s@ListDatabases' {} a -> s {clusterIdentifier = a} :: ListDatabases)
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -147,6 +167,12 @@ newListDatabases pClusterIdentifier_ pDatabase_ =
 -- retrieved for the request.
 listDatabases_nextToken :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_nextToken = Lens.lens (\ListDatabases' {nextToken} -> nextToken) (\s@ListDatabases' {} a -> s {nextToken = a} :: ListDatabases)
+
+-- | The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
+listDatabases_workgroupName :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
+listDatabases_workgroupName = Lens.lens (\ListDatabases' {workgroupName} -> workgroupName) (\s@ListDatabases' {} a -> s {workgroupName = a} :: ListDatabases)
 
 -- | The maximum number of databases to return in the response. If more
 -- databases exist than fit in one response, then @NextToken@ is returned
@@ -159,15 +185,10 @@ listDatabases_maxResults = Lens.lens (\ListDatabases' {maxResults} -> maxResults
 listDatabases_secretArn :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_secretArn = Lens.lens (\ListDatabases' {secretArn} -> secretArn) (\s@ListDatabases' {} a -> s {secretArn = a} :: ListDatabases)
 
--- | The database user name. This parameter is required when authenticating
--- using temporary credentials.
+-- | The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
 listDatabases_dbUser :: Lens.Lens' ListDatabases (Prelude.Maybe Prelude.Text)
 listDatabases_dbUser = Lens.lens (\ListDatabases' {dbUser} -> dbUser) (\s@ListDatabases' {} a -> s {dbUser = a} :: ListDatabases)
-
--- | The cluster identifier. This parameter is required when authenticating
--- using either Secrets Manager or temporary credentials.
-listDatabases_clusterIdentifier :: Lens.Lens' ListDatabases Prelude.Text
-listDatabases_clusterIdentifier = Lens.lens (\ListDatabases' {clusterIdentifier} -> clusterIdentifier) (\s@ListDatabases' {} a -> s {clusterIdentifier = a} :: ListDatabases)
 
 -- | The name of the database. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -209,20 +230,22 @@ instance Core.AWSRequest ListDatabases where
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` workgroupName
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` dbUser
-      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData ListDatabases where
   rnf ListDatabases' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workgroupName
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf database
 
 instance Core.ToHeaders ListDatabases where
@@ -242,12 +265,13 @@ instance Core.ToJSON ListDatabases where
   toJSON ListDatabases' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("ClusterIdentifier" Core..=)
+              Prelude.<$> clusterIdentifier,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("WorkgroupName" Core..=) Prelude.<$> workgroupName,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SecretArn" Core..=) Prelude.<$> secretArn,
             ("DbUser" Core..=) Prelude.<$> dbUser,
-            Prelude.Just
-              ("ClusterIdentifier" Core..= clusterIdentifier),
             Prelude.Just ("Database" Core..= database)
           ]
       )

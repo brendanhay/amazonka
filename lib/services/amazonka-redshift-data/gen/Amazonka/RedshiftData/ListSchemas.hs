@@ -24,14 +24,18 @@
 -- schema list. Depending on the authorization method, use one of the
 -- following combinations of request parameters:
 --
--- -   Secrets Manager - specify the Amazon Resource Name (ARN) of the
---     secret, the database name, and the cluster identifier that matches
---     the cluster in the secret.
+-- -   Secrets Manager - when connecting to a cluster, specify the Amazon
+--     Resource Name (ARN) of the secret, the database name, and the
+--     cluster identifier that matches the cluster in the secret. When
+--     connecting to a serverless workgroup, specify the Amazon Resource
+--     Name (ARN) of the secret and the database name.
 --
--- -   Temporary credentials - specify the cluster identifier, the database
---     name, and the database user name. Permission to call the
---     @redshift:GetClusterCredentials@ operation is required to use this
---     method.
+-- -   Temporary credentials - when connecting to a cluster, specify the
+--     cluster identifier, the database name, and the database user name.
+--     Also, permission to call the @redshift:GetClusterCredentials@
+--     operation is required. When connecting to a serverless workgroup,
+--     specify the workgroup name and database name. Also, permission to
+--     call the @redshift-serverless:GetCredentials@ operation is required.
 --
 -- This operation returns paginated results.
 module Amazonka.RedshiftData.ListSchemas
@@ -40,13 +44,14 @@ module Amazonka.RedshiftData.ListSchemas
     newListSchemas,
 
     -- * Request Lenses
+    listSchemas_clusterIdentifier,
     listSchemas_nextToken,
+    listSchemas_workgroupName,
     listSchemas_connectedDatabase,
     listSchemas_maxResults,
     listSchemas_secretArn,
     listSchemas_dbUser,
     listSchemas_schemaPattern,
-    listSchemas_clusterIdentifier,
     listSchemas_database,
 
     -- * Destructuring the Response
@@ -69,13 +74,21 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListSchemas' smart constructor.
 data ListSchemas = ListSchemas'
-  { -- | A value that indicates the starting point for the next set of response
+  { -- | The cluster identifier. This parameter is required when connecting to a
+    -- cluster and authenticating using either Secrets Manager or temporary
+    -- credentials.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates the starting point for the next set of response
     -- records in a subsequent request. If a value is returned in a response,
     -- you can retrieve the next set of records by providing this returned
     -- NextToken value in the next NextToken parameter and retrying the
     -- command. If the NextToken field is empty, all response records have been
     -- retrieved for the request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The serverless workgroup name. This parameter is required when
+    -- connecting to a serverless workgroup and authenticating using either
+    -- Secrets Manager or temporary credentials.
+    workgroupName :: Prelude.Maybe Prelude.Text,
     -- | A database name. The connected database is specified when you connect
     -- with your authentication credentials.
     connectedDatabase :: Prelude.Maybe Prelude.Text,
@@ -86,17 +99,14 @@ data ListSchemas = ListSchemas'
     -- | The name or ARN of the secret that enables access to the database. This
     -- parameter is required when authenticating using Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The database user name. This parameter is required when authenticating
-    -- using temporary credentials.
+    -- | The database user name. This parameter is required when connecting to a
+    -- cluster and authenticating using temporary credentials.
     dbUser :: Prelude.Maybe Prelude.Text,
     -- | A pattern to filter results by schema name. Within a schema pattern,
     -- \"%\" means match any substring of 0 or more characters and \"_\" means
     -- match any one character. Only schema name entries matching the search
     -- pattern are returned.
     schemaPattern :: Prelude.Maybe Prelude.Text,
-    -- | The cluster identifier. This parameter is required when authenticating
-    -- using either Secrets Manager or temporary credentials.
-    clusterIdentifier :: Prelude.Text,
     -- | The name of the database that contains the schemas to list. If
     -- @ConnectedDatabase@ is not specified, this is also the database to
     -- connect to with your authentication credentials.
@@ -112,12 +122,20 @@ data ListSchemas = ListSchemas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterIdentifier', 'listSchemas_clusterIdentifier' - The cluster identifier. This parameter is required when connecting to a
+-- cluster and authenticating using either Secrets Manager or temporary
+-- credentials.
+--
 -- 'nextToken', 'listSchemas_nextToken' - A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
 -- NextToken value in the next NextToken parameter and retrying the
 -- command. If the NextToken field is empty, all response records have been
 -- retrieved for the request.
+--
+-- 'workgroupName', 'listSchemas_workgroupName' - The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
 --
 -- 'connectedDatabase', 'listSchemas_connectedDatabase' - A database name. The connected database is specified when you connect
 -- with your authentication credentials.
@@ -129,37 +147,39 @@ data ListSchemas = ListSchemas'
 -- 'secretArn', 'listSchemas_secretArn' - The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
 --
--- 'dbUser', 'listSchemas_dbUser' - The database user name. This parameter is required when authenticating
--- using temporary credentials.
+-- 'dbUser', 'listSchemas_dbUser' - The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
 --
 -- 'schemaPattern', 'listSchemas_schemaPattern' - A pattern to filter results by schema name. Within a schema pattern,
 -- \"%\" means match any substring of 0 or more characters and \"_\" means
 -- match any one character. Only schema name entries matching the search
 -- pattern are returned.
 --
--- 'clusterIdentifier', 'listSchemas_clusterIdentifier' - The cluster identifier. This parameter is required when authenticating
--- using either Secrets Manager or temporary credentials.
---
 -- 'database', 'listSchemas_database' - The name of the database that contains the schemas to list. If
 -- @ConnectedDatabase@ is not specified, this is also the database to
 -- connect to with your authentication credentials.
 newListSchemas ::
-  -- | 'clusterIdentifier'
-  Prelude.Text ->
   -- | 'database'
   Prelude.Text ->
   ListSchemas
-newListSchemas pClusterIdentifier_ pDatabase_ =
+newListSchemas pDatabase_ =
   ListSchemas'
-    { nextToken = Prelude.Nothing,
+    { clusterIdentifier = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      workgroupName = Prelude.Nothing,
       connectedDatabase = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       secretArn = Prelude.Nothing,
       dbUser = Prelude.Nothing,
       schemaPattern = Prelude.Nothing,
-      clusterIdentifier = pClusterIdentifier_,
       database = pDatabase_
     }
+
+-- | The cluster identifier. This parameter is required when connecting to a
+-- cluster and authenticating using either Secrets Manager or temporary
+-- credentials.
+listSchemas_clusterIdentifier :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_clusterIdentifier = Lens.lens (\ListSchemas' {clusterIdentifier} -> clusterIdentifier) (\s@ListSchemas' {} a -> s {clusterIdentifier = a} :: ListSchemas)
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -169,6 +189,12 @@ newListSchemas pClusterIdentifier_ pDatabase_ =
 -- retrieved for the request.
 listSchemas_nextToken :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_nextToken = Lens.lens (\ListSchemas' {nextToken} -> nextToken) (\s@ListSchemas' {} a -> s {nextToken = a} :: ListSchemas)
+
+-- | The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
+listSchemas_workgroupName :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
+listSchemas_workgroupName = Lens.lens (\ListSchemas' {workgroupName} -> workgroupName) (\s@ListSchemas' {} a -> s {workgroupName = a} :: ListSchemas)
 
 -- | A database name. The connected database is specified when you connect
 -- with your authentication credentials.
@@ -186,8 +212,8 @@ listSchemas_maxResults = Lens.lens (\ListSchemas' {maxResults} -> maxResults) (\
 listSchemas_secretArn :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_secretArn = Lens.lens (\ListSchemas' {secretArn} -> secretArn) (\s@ListSchemas' {} a -> s {secretArn = a} :: ListSchemas)
 
--- | The database user name. This parameter is required when authenticating
--- using temporary credentials.
+-- | The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
 listSchemas_dbUser :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_dbUser = Lens.lens (\ListSchemas' {dbUser} -> dbUser) (\s@ListSchemas' {} a -> s {dbUser = a} :: ListSchemas)
 
@@ -197,11 +223,6 @@ listSchemas_dbUser = Lens.lens (\ListSchemas' {dbUser} -> dbUser) (\s@ListSchema
 -- pattern are returned.
 listSchemas_schemaPattern :: Lens.Lens' ListSchemas (Prelude.Maybe Prelude.Text)
 listSchemas_schemaPattern = Lens.lens (\ListSchemas' {schemaPattern} -> schemaPattern) (\s@ListSchemas' {} a -> s {schemaPattern = a} :: ListSchemas)
-
--- | The cluster identifier. This parameter is required when authenticating
--- using either Secrets Manager or temporary credentials.
-listSchemas_clusterIdentifier :: Lens.Lens' ListSchemas Prelude.Text
-listSchemas_clusterIdentifier = Lens.lens (\ListSchemas' {clusterIdentifier} -> clusterIdentifier) (\s@ListSchemas' {} a -> s {clusterIdentifier = a} :: ListSchemas)
 
 -- | The name of the database that contains the schemas to list. If
 -- @ConnectedDatabase@ is not specified, this is also the database to
@@ -242,24 +263,26 @@ instance Core.AWSRequest ListSchemas where
 
 instance Prelude.Hashable ListSchemas where
   hashWithSalt _salt ListSchemas' {..} =
-    _salt `Prelude.hashWithSalt` nextToken
+    _salt `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` workgroupName
       `Prelude.hashWithSalt` connectedDatabase
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` dbUser
       `Prelude.hashWithSalt` schemaPattern
-      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` database
 
 instance Prelude.NFData ListSchemas where
   rnf ListSchemas' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf workgroupName
       `Prelude.seq` Prelude.rnf connectedDatabase
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf dbUser
       `Prelude.seq` Prelude.rnf schemaPattern
-      `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf database
 
 instance Core.ToHeaders ListSchemas where
@@ -279,15 +302,16 @@ instance Core.ToJSON ListSchemas where
   toJSON ListSchemas' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("ClusterIdentifier" Core..=)
+              Prelude.<$> clusterIdentifier,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("WorkgroupName" Core..=) Prelude.<$> workgroupName,
             ("ConnectedDatabase" Core..=)
               Prelude.<$> connectedDatabase,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SecretArn" Core..=) Prelude.<$> secretArn,
             ("DbUser" Core..=) Prelude.<$> dbUser,
             ("SchemaPattern" Core..=) Prelude.<$> schemaPattern,
-            Prelude.Just
-              ("ClusterIdentifier" Core..= clusterIdentifier),
             Prelude.Just ("Database" Core..= database)
           ]
       )

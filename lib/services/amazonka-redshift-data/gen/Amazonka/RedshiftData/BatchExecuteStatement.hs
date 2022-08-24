@@ -24,25 +24,30 @@
 -- (DML) or data definition language (DDL). Depending on the authorization
 -- method, use one of the following combinations of request parameters:
 --
--- -   Secrets Manager - specify the Amazon Resource Name (ARN) of the
---     secret, the database name, and the cluster identifier that matches
---     the cluster in the secret.
+-- -   Secrets Manager - when connecting to a cluster, specify the Amazon
+--     Resource Name (ARN) of the secret, the database name, and the
+--     cluster identifier that matches the cluster in the secret. When
+--     connecting to a serverless workgroup, specify the Amazon Resource
+--     Name (ARN) of the secret and the database name.
 --
--- -   Temporary credentials - specify the cluster identifier, the database
---     name, and the database user name. Permission to call the
---     @redshift:GetClusterCredentials@ operation is required to use this
---     method.
+-- -   Temporary credentials - when connecting to a cluster, specify the
+--     cluster identifier, the database name, and the database user name.
+--     Also, permission to call the @redshift:GetClusterCredentials@
+--     operation is required. When connecting to a serverless workgroup,
+--     specify the workgroup name and database name. Also, permission to
+--     call the @redshift-serverless:GetCredentials@ operation is required.
 module Amazonka.RedshiftData.BatchExecuteStatement
   ( -- * Creating a Request
     BatchExecuteStatement (..),
     newBatchExecuteStatement,
 
     -- * Request Lenses
+    batchExecuteStatement_clusterIdentifier,
+    batchExecuteStatement_workgroupName,
     batchExecuteStatement_secretArn,
     batchExecuteStatement_statementName,
     batchExecuteStatement_withEvent,
     batchExecuteStatement_dbUser,
-    batchExecuteStatement_clusterIdentifier,
     batchExecuteStatement_database,
     batchExecuteStatement_sqls,
 
@@ -52,6 +57,7 @@ module Amazonka.RedshiftData.BatchExecuteStatement
 
     -- * Response Lenses
     batchExecuteStatementResponse_clusterIdentifier,
+    batchExecuteStatementResponse_workgroupName,
     batchExecuteStatementResponse_id,
     batchExecuteStatementResponse_database,
     batchExecuteStatementResponse_secretArn,
@@ -70,7 +76,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchExecuteStatement' smart constructor.
 data BatchExecuteStatement = BatchExecuteStatement'
-  { -- | The name or ARN of the secret that enables access to the database. This
+  { -- | The cluster identifier. This parameter is required when connecting to a
+    -- cluster and authenticating using either Secrets Manager or temporary
+    -- credentials.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The serverless workgroup name. This parameter is required when
+    -- connecting to a serverless workgroup and authenticating using either
+    -- Secrets Manager or temporary credentials.
+    workgroupName :: Prelude.Maybe Prelude.Text,
+    -- | The name or ARN of the secret that enables access to the database. This
     -- parameter is required when authenticating using Secrets Manager.
     secretArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the SQL statements. You can name the SQL statements when you
@@ -79,12 +93,9 @@ data BatchExecuteStatement = BatchExecuteStatement'
     -- | A value that indicates whether to send an event to the Amazon
     -- EventBridge event bus after the SQL statements run.
     withEvent :: Prelude.Maybe Prelude.Bool,
-    -- | The database user name. This parameter is required when authenticating
-    -- using temporary credentials.
+    -- | The database user name. This parameter is required when connecting to a
+    -- cluster and authenticating using temporary credentials.
     dbUser :: Prelude.Maybe Prelude.Text,
-    -- | The cluster identifier. This parameter is required when authenticating
-    -- using either Secrets Manager or temporary credentials.
-    clusterIdentifier :: Prelude.Text,
     -- | The name of the database. This parameter is required when authenticating
     -- using either Secrets Manager or temporary credentials.
     database :: Prelude.Text,
@@ -101,6 +112,14 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'clusterIdentifier', 'batchExecuteStatement_clusterIdentifier' - The cluster identifier. This parameter is required when connecting to a
+-- cluster and authenticating using either Secrets Manager or temporary
+-- credentials.
+--
+-- 'workgroupName', 'batchExecuteStatement_workgroupName' - The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
+--
 -- 'secretArn', 'batchExecuteStatement_secretArn' - The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
 --
@@ -110,37 +129,43 @@ data BatchExecuteStatement = BatchExecuteStatement'
 -- 'withEvent', 'batchExecuteStatement_withEvent' - A value that indicates whether to send an event to the Amazon
 -- EventBridge event bus after the SQL statements run.
 --
--- 'dbUser', 'batchExecuteStatement_dbUser' - The database user name. This parameter is required when authenticating
--- using temporary credentials.
---
--- 'clusterIdentifier', 'batchExecuteStatement_clusterIdentifier' - The cluster identifier. This parameter is required when authenticating
--- using either Secrets Manager or temporary credentials.
+-- 'dbUser', 'batchExecuteStatement_dbUser' - The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
 --
 -- 'database', 'batchExecuteStatement_database' - The name of the database. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
 --
 -- 'sqls', 'batchExecuteStatement_sqls' - One or more SQL statements to run.
 newBatchExecuteStatement ::
-  -- | 'clusterIdentifier'
-  Prelude.Text ->
   -- | 'database'
   Prelude.Text ->
   -- | 'sqls'
   Prelude.NonEmpty Prelude.Text ->
   BatchExecuteStatement
-newBatchExecuteStatement
-  pClusterIdentifier_
-  pDatabase_
-  pSqls_ =
-    BatchExecuteStatement'
-      { secretArn = Prelude.Nothing,
-        statementName = Prelude.Nothing,
-        withEvent = Prelude.Nothing,
-        dbUser = Prelude.Nothing,
-        clusterIdentifier = pClusterIdentifier_,
-        database = pDatabase_,
-        sqls = Lens.coerced Lens.# pSqls_
-      }
+newBatchExecuteStatement pDatabase_ pSqls_ =
+  BatchExecuteStatement'
+    { clusterIdentifier =
+        Prelude.Nothing,
+      workgroupName = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
+      statementName = Prelude.Nothing,
+      withEvent = Prelude.Nothing,
+      dbUser = Prelude.Nothing,
+      database = pDatabase_,
+      sqls = Lens.coerced Lens.# pSqls_
+    }
+
+-- | The cluster identifier. This parameter is required when connecting to a
+-- cluster and authenticating using either Secrets Manager or temporary
+-- credentials.
+batchExecuteStatement_clusterIdentifier :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
+batchExecuteStatement_clusterIdentifier = Lens.lens (\BatchExecuteStatement' {clusterIdentifier} -> clusterIdentifier) (\s@BatchExecuteStatement' {} a -> s {clusterIdentifier = a} :: BatchExecuteStatement)
+
+-- | The serverless workgroup name. This parameter is required when
+-- connecting to a serverless workgroup and authenticating using either
+-- Secrets Manager or temporary credentials.
+batchExecuteStatement_workgroupName :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
+batchExecuteStatement_workgroupName = Lens.lens (\BatchExecuteStatement' {workgroupName} -> workgroupName) (\s@BatchExecuteStatement' {} a -> s {workgroupName = a} :: BatchExecuteStatement)
 
 -- | The name or ARN of the secret that enables access to the database. This
 -- parameter is required when authenticating using Secrets Manager.
@@ -157,15 +182,10 @@ batchExecuteStatement_statementName = Lens.lens (\BatchExecuteStatement' {statem
 batchExecuteStatement_withEvent :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Bool)
 batchExecuteStatement_withEvent = Lens.lens (\BatchExecuteStatement' {withEvent} -> withEvent) (\s@BatchExecuteStatement' {} a -> s {withEvent = a} :: BatchExecuteStatement)
 
--- | The database user name. This parameter is required when authenticating
--- using temporary credentials.
+-- | The database user name. This parameter is required when connecting to a
+-- cluster and authenticating using temporary credentials.
 batchExecuteStatement_dbUser :: Lens.Lens' BatchExecuteStatement (Prelude.Maybe Prelude.Text)
 batchExecuteStatement_dbUser = Lens.lens (\BatchExecuteStatement' {dbUser} -> dbUser) (\s@BatchExecuteStatement' {} a -> s {dbUser = a} :: BatchExecuteStatement)
-
--- | The cluster identifier. This parameter is required when authenticating
--- using either Secrets Manager or temporary credentials.
-batchExecuteStatement_clusterIdentifier :: Lens.Lens' BatchExecuteStatement Prelude.Text
-batchExecuteStatement_clusterIdentifier = Lens.lens (\BatchExecuteStatement' {clusterIdentifier} -> clusterIdentifier) (\s@BatchExecuteStatement' {} a -> s {clusterIdentifier = a} :: BatchExecuteStatement)
 
 -- | The name of the database. This parameter is required when authenticating
 -- using either Secrets Manager or temporary credentials.
@@ -186,6 +206,7 @@ instance Core.AWSRequest BatchExecuteStatement where
       ( \s h x ->
           BatchExecuteStatementResponse'
             Prelude.<$> (x Core..?> "ClusterIdentifier")
+            Prelude.<*> (x Core..?> "WorkgroupName")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Database")
             Prelude.<*> (x Core..?> "SecretArn")
@@ -196,21 +217,23 @@ instance Core.AWSRequest BatchExecuteStatement where
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =
-    _salt `Prelude.hashWithSalt` secretArn
+    _salt `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` workgroupName
+      `Prelude.hashWithSalt` secretArn
       `Prelude.hashWithSalt` statementName
       `Prelude.hashWithSalt` withEvent
       `Prelude.hashWithSalt` dbUser
-      `Prelude.hashWithSalt` clusterIdentifier
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` sqls
 
 instance Prelude.NFData BatchExecuteStatement where
   rnf BatchExecuteStatement' {..} =
-    Prelude.rnf secretArn
+    Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf workgroupName
+      `Prelude.seq` Prelude.rnf secretArn
       `Prelude.seq` Prelude.rnf statementName
       `Prelude.seq` Prelude.rnf withEvent
       `Prelude.seq` Prelude.rnf dbUser
-      `Prelude.seq` Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf sqls
 
@@ -233,12 +256,13 @@ instance Core.ToJSON BatchExecuteStatement where
   toJSON BatchExecuteStatement' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SecretArn" Core..=) Prelude.<$> secretArn,
+          [ ("ClusterIdentifier" Core..=)
+              Prelude.<$> clusterIdentifier,
+            ("WorkgroupName" Core..=) Prelude.<$> workgroupName,
+            ("SecretArn" Core..=) Prelude.<$> secretArn,
             ("StatementName" Core..=) Prelude.<$> statementName,
             ("WithEvent" Core..=) Prelude.<$> withEvent,
             ("DbUser" Core..=) Prelude.<$> dbUser,
-            Prelude.Just
-              ("ClusterIdentifier" Core..= clusterIdentifier),
             Prelude.Just ("Database" Core..= database),
             Prelude.Just ("Sqls" Core..= sqls)
           ]
@@ -252,8 +276,12 @@ instance Core.ToQuery BatchExecuteStatement where
 
 -- | /See:/ 'newBatchExecuteStatementResponse' smart constructor.
 data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
-  { -- | The cluster identifier.
+  { -- | The cluster identifier. This element is not returned when connecting to
+    -- a serverless workgroup.
     clusterIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The serverless workgroup name. This element is not returned when
+    -- connecting to a provisioned cluster.
+    workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the SQL statement whose results are to be fetched.
     -- This value is a universally unique identifier (UUID) generated by Amazon
     -- Redshift Data API. This identifier is returned by
@@ -280,7 +308,11 @@ data BatchExecuteStatementResponse = BatchExecuteStatementResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clusterIdentifier', 'batchExecuteStatementResponse_clusterIdentifier' - The cluster identifier.
+-- 'clusterIdentifier', 'batchExecuteStatementResponse_clusterIdentifier' - The cluster identifier. This element is not returned when connecting to
+-- a serverless workgroup.
+--
+-- 'workgroupName', 'batchExecuteStatementResponse_workgroupName' - The serverless workgroup name. This element is not returned when
+-- connecting to a provisioned cluster.
 --
 -- 'id', 'batchExecuteStatementResponse_id' - The identifier of the SQL statement whose results are to be fetched.
 -- This value is a universally unique identifier (UUID) generated by Amazon
@@ -304,6 +336,7 @@ newBatchExecuteStatementResponse pHttpStatus_ =
   BatchExecuteStatementResponse'
     { clusterIdentifier =
         Prelude.Nothing,
+      workgroupName = Prelude.Nothing,
       id = Prelude.Nothing,
       database = Prelude.Nothing,
       secretArn = Prelude.Nothing,
@@ -312,9 +345,15 @@ newBatchExecuteStatementResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The cluster identifier.
+-- | The cluster identifier. This element is not returned when connecting to
+-- a serverless workgroup.
 batchExecuteStatementResponse_clusterIdentifier :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
 batchExecuteStatementResponse_clusterIdentifier = Lens.lens (\BatchExecuteStatementResponse' {clusterIdentifier} -> clusterIdentifier) (\s@BatchExecuteStatementResponse' {} a -> s {clusterIdentifier = a} :: BatchExecuteStatementResponse)
+
+-- | The serverless workgroup name. This element is not returned when
+-- connecting to a provisioned cluster.
+batchExecuteStatementResponse_workgroupName :: Lens.Lens' BatchExecuteStatementResponse (Prelude.Maybe Prelude.Text)
+batchExecuteStatementResponse_workgroupName = Lens.lens (\BatchExecuteStatementResponse' {workgroupName} -> workgroupName) (\s@BatchExecuteStatementResponse' {} a -> s {workgroupName = a} :: BatchExecuteStatementResponse)
 
 -- | The identifier of the SQL statement whose results are to be fetched.
 -- This value is a universally unique identifier (UUID) generated by Amazon
@@ -346,6 +385,7 @@ batchExecuteStatementResponse_httpStatus = Lens.lens (\BatchExecuteStatementResp
 instance Prelude.NFData BatchExecuteStatementResponse where
   rnf BatchExecuteStatementResponse' {..} =
     Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf workgroupName
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf secretArn

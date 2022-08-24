@@ -17,6 +17,7 @@ module Amazonka.RedshiftData.Types
     defaultService,
 
     -- * Errors
+    _DatabaseConnectionException,
     _ExecuteStatementException,
     _InternalServerException,
     _ResourceNotFoundException,
@@ -184,6 +185,13 @@ defaultService =
           e =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
+
+-- | Connection to a database failed.
+_DatabaseConnectionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DatabaseConnectionException =
+  Core._MatchServiceError
+    defaultService
+    "DatabaseConnectionException"
 
 -- | The SQL statement encountered an environmental error while running.
 _ExecuteStatementException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -40,6 +40,7 @@ module Amazonka.RedshiftData.DescribeStatement
     describeStatementResponse_clusterIdentifier,
     describeStatementResponse_redshiftQueryId,
     describeStatementResponse_resultRows,
+    describeStatementResponse_workgroupName,
     describeStatementResponse_status,
     describeStatementResponse_queryParameters,
     describeStatementResponse_hasResultSet,
@@ -123,6 +124,7 @@ instance Core.AWSRequest DescribeStatement where
             Prelude.<$> (x Core..?> "ClusterIdentifier")
             Prelude.<*> (x Core..?> "RedshiftQueryId")
             Prelude.<*> (x Core..?> "ResultRows")
+            Prelude.<*> (x Core..?> "WorkgroupName")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "QueryParameters")
             Prelude.<*> (x Core..?> "HasResultSet")
@@ -187,6 +189,8 @@ data DescribeStatementResponse = DescribeStatementResponse'
     -- can be the number of rows affected by SQL statements such as INSERT,
     -- UPDATE, DELETE, COPY, and others. A @-1@ indicates the value is null.
     resultRows :: Prelude.Maybe Prelude.Integer,
+    -- | The serverless workgroup name.
+    workgroupName :: Prelude.Maybe Prelude.Text,
     -- | The status of the SQL statement being described. Status values are
     -- defined as follows:
     --
@@ -208,7 +212,8 @@ data DescribeStatementResponse = DescribeStatementResponse'
     -- | The parameters for the SQL statement.
     queryParameters :: Prelude.Maybe (Prelude.NonEmpty SqlParameter),
     -- | A value that indicates whether the statement has a result set. The
-    -- result set can be empty.
+    -- result set can be empty. The value is true for an empty result set. The
+    -- value is true if any substatement returns a result set.
     hasResultSet :: Prelude.Maybe Prelude.Bool,
     -- | The name of the database.
     database :: Prelude.Maybe Prelude.Text,
@@ -264,6 +269,8 @@ data DescribeStatementResponse = DescribeStatementResponse'
 -- can be the number of rows affected by SQL statements such as INSERT,
 -- UPDATE, DELETE, COPY, and others. A @-1@ indicates the value is null.
 --
+-- 'workgroupName', 'describeStatementResponse_workgroupName' - The serverless workgroup name.
+--
 -- 'status', 'describeStatementResponse_status' - The status of the SQL statement being described. Status values are
 -- defined as follows:
 --
@@ -285,7 +292,8 @@ data DescribeStatementResponse = DescribeStatementResponse'
 -- 'queryParameters', 'describeStatementResponse_queryParameters' - The parameters for the SQL statement.
 --
 -- 'hasResultSet', 'describeStatementResponse_hasResultSet' - A value that indicates whether the statement has a result set. The
--- result set can be empty.
+-- result set can be empty. The value is true for an empty result set. The
+-- value is true if any substatement returns a result set.
 --
 -- 'database', 'describeStatementResponse_database' - The name of the database.
 --
@@ -330,6 +338,7 @@ newDescribeStatementResponse pHttpStatus_ pId_ =
         Prelude.Nothing,
       redshiftQueryId = Prelude.Nothing,
       resultRows = Prelude.Nothing,
+      workgroupName = Prelude.Nothing,
       status = Prelude.Nothing,
       queryParameters = Prelude.Nothing,
       hasResultSet = Prelude.Nothing,
@@ -365,6 +374,10 @@ describeStatementResponse_redshiftQueryId = Lens.lens (\DescribeStatementRespons
 describeStatementResponse_resultRows :: Lens.Lens' DescribeStatementResponse (Prelude.Maybe Prelude.Integer)
 describeStatementResponse_resultRows = Lens.lens (\DescribeStatementResponse' {resultRows} -> resultRows) (\s@DescribeStatementResponse' {} a -> s {resultRows = a} :: DescribeStatementResponse)
 
+-- | The serverless workgroup name.
+describeStatementResponse_workgroupName :: Lens.Lens' DescribeStatementResponse (Prelude.Maybe Prelude.Text)
+describeStatementResponse_workgroupName = Lens.lens (\DescribeStatementResponse' {workgroupName} -> workgroupName) (\s@DescribeStatementResponse' {} a -> s {workgroupName = a} :: DescribeStatementResponse)
+
 -- | The status of the SQL statement being described. Status values are
 -- defined as follows:
 --
@@ -390,7 +403,8 @@ describeStatementResponse_queryParameters :: Lens.Lens' DescribeStatementRespons
 describeStatementResponse_queryParameters = Lens.lens (\DescribeStatementResponse' {queryParameters} -> queryParameters) (\s@DescribeStatementResponse' {} a -> s {queryParameters = a} :: DescribeStatementResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | A value that indicates whether the statement has a result set. The
--- result set can be empty.
+-- result set can be empty. The value is true for an empty result set. The
+-- value is true if any substatement returns a result set.
 describeStatementResponse_hasResultSet :: Lens.Lens' DescribeStatementResponse (Prelude.Maybe Prelude.Bool)
 describeStatementResponse_hasResultSet = Lens.lens (\DescribeStatementResponse' {hasResultSet} -> hasResultSet) (\s@DescribeStatementResponse' {} a -> s {hasResultSet = a} :: DescribeStatementResponse)
 
@@ -457,6 +471,7 @@ instance Prelude.NFData DescribeStatementResponse where
     Prelude.rnf clusterIdentifier
       `Prelude.seq` Prelude.rnf redshiftQueryId
       `Prelude.seq` Prelude.rnf resultRows
+      `Prelude.seq` Prelude.rnf workgroupName
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf queryParameters
       `Prelude.seq` Prelude.rnf hasResultSet

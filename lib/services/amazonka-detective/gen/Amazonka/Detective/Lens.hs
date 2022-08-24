@@ -17,6 +17,19 @@ module Amazonka.Detective.Lens
     -- ** AcceptInvitation
     acceptInvitation_graphArn,
 
+    -- ** BatchGetGraphMemberDatasources
+    batchGetGraphMemberDatasources_graphArn,
+    batchGetGraphMemberDatasources_accountIds,
+    batchGetGraphMemberDatasourcesResponse_unprocessedAccounts,
+    batchGetGraphMemberDatasourcesResponse_memberDatasources,
+    batchGetGraphMemberDatasourcesResponse_httpStatus,
+
+    -- ** BatchGetMembershipDatasources
+    batchGetMembershipDatasources_graphArns,
+    batchGetMembershipDatasourcesResponse_unprocessedGraphs,
+    batchGetMembershipDatasourcesResponse_membershipDatasources,
+    batchGetMembershipDatasourcesResponse_httpStatus,
+
     -- ** CreateGraph
     createGraph_tags,
     createGraphResponse_graphArn,
@@ -41,8 +54,18 @@ module Amazonka.Detective.Lens
     deleteMembersResponse_unprocessedAccounts,
     deleteMembersResponse_httpStatus,
 
+    -- ** DescribeOrganizationConfiguration
+    describeOrganizationConfiguration_graphArn,
+    describeOrganizationConfigurationResponse_autoEnable,
+    describeOrganizationConfigurationResponse_httpStatus,
+
+    -- ** DisableOrganizationAdminAccount
+
     -- ** DisassociateMembership
     disassociateMembership_graphArn,
+
+    -- ** EnableOrganizationAdminAccount
+    enableOrganizationAdminAccount_accountId,
 
     -- ** GetMembers
     getMembers_graphArn,
@@ -50,6 +73,14 @@ module Amazonka.Detective.Lens
     getMembersResponse_unprocessedAccounts,
     getMembersResponse_memberDetails,
     getMembersResponse_httpStatus,
+
+    -- ** ListDatasourcePackages
+    listDatasourcePackages_nextToken,
+    listDatasourcePackages_maxResults,
+    listDatasourcePackages_graphArn,
+    listDatasourcePackagesResponse_datasourcePackages,
+    listDatasourcePackagesResponse_nextToken,
+    listDatasourcePackagesResponse_httpStatus,
 
     -- ** ListGraphs
     listGraphs_nextToken,
@@ -73,6 +104,13 @@ module Amazonka.Detective.Lens
     listMembersResponse_memberDetails,
     listMembersResponse_httpStatus,
 
+    -- ** ListOrganizationAdminAccounts
+    listOrganizationAdminAccounts_nextToken,
+    listOrganizationAdminAccounts_maxResults,
+    listOrganizationAdminAccountsResponse_nextToken,
+    listOrganizationAdminAccountsResponse_administrators,
+    listOrganizationAdminAccountsResponse_httpStatus,
+
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
@@ -95,11 +133,32 @@ module Amazonka.Detective.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateDatasourcePackages
+    updateDatasourcePackages_graphArn,
+    updateDatasourcePackages_datasourcePackages,
+
+    -- ** UpdateOrganizationConfiguration
+    updateOrganizationConfiguration_autoEnable,
+    updateOrganizationConfiguration_graphArn,
+
     -- * Types
 
     -- ** Account
     account_accountId,
     account_emailAddress,
+
+    -- ** Administrator
+    administrator_graphArn,
+    administrator_accountId,
+    administrator_delegationTime,
+
+    -- ** DatasourcePackageIngestDetail
+    datasourcePackageIngestDetail_datasourcePackageIngestState,
+    datasourcePackageIngestDetail_lastIngestStateChange,
+
+    -- ** DatasourcePackageUsageInfo
+    datasourcePackageUsageInfo_volumeUsageInBytes,
+    datasourcePackageUsageInfo_volumeUsageUpdateTime,
 
     -- ** Graph
     graph_createdTime,
@@ -113,35 +172,65 @@ module Amazonka.Detective.Lens
     memberDetail_administratorId,
     memberDetail_disabledReason,
     memberDetail_status,
+    memberDetail_volumeUsageByDatasourcePackage,
     memberDetail_percentOfGraphUtilizationUpdatedTime,
     memberDetail_accountId,
     memberDetail_volumeUsageUpdatedTime,
     memberDetail_masterId,
+    memberDetail_invitationType,
     memberDetail_emailAddress,
     memberDetail_updatedTime,
+    memberDetail_datasourcePackageIngestStates,
+
+    -- ** MembershipDatasources
+    membershipDatasources_datasourcePackageIngestHistory,
+    membershipDatasources_graphArn,
+    membershipDatasources_accountId,
+
+    -- ** TimestampForCollection
+    timestampForCollection_timestamp,
 
     -- ** UnprocessedAccount
     unprocessedAccount_accountId,
     unprocessedAccount_reason,
+
+    -- ** UnprocessedGraph
+    unprocessedGraph_graphArn,
+    unprocessedGraph_reason,
   )
 where
 
 import Amazonka.Detective.AcceptInvitation
+import Amazonka.Detective.BatchGetGraphMemberDatasources
+import Amazonka.Detective.BatchGetMembershipDatasources
 import Amazonka.Detective.CreateGraph
 import Amazonka.Detective.CreateMembers
 import Amazonka.Detective.DeleteGraph
 import Amazonka.Detective.DeleteMembers
+import Amazonka.Detective.DescribeOrganizationConfiguration
+import Amazonka.Detective.DisableOrganizationAdminAccount
 import Amazonka.Detective.DisassociateMembership
+import Amazonka.Detective.EnableOrganizationAdminAccount
 import Amazonka.Detective.GetMembers
+import Amazonka.Detective.ListDatasourcePackages
 import Amazonka.Detective.ListGraphs
 import Amazonka.Detective.ListInvitations
 import Amazonka.Detective.ListMembers
+import Amazonka.Detective.ListOrganizationAdminAccounts
 import Amazonka.Detective.ListTagsForResource
 import Amazonka.Detective.RejectInvitation
 import Amazonka.Detective.StartMonitoringMember
 import Amazonka.Detective.TagResource
 import Amazonka.Detective.Types.Account
+import Amazonka.Detective.Types.Administrator
+import Amazonka.Detective.Types.DatasourcePackageIngestDetail
+import Amazonka.Detective.Types.DatasourcePackageUsageInfo
 import Amazonka.Detective.Types.Graph
 import Amazonka.Detective.Types.MemberDetail
+import Amazonka.Detective.Types.MembershipDatasources
+import Amazonka.Detective.Types.TimestampForCollection
 import Amazonka.Detective.Types.UnprocessedAccount
+import Amazonka.Detective.Types.UnprocessedGraph
 import Amazonka.Detective.UntagResource
+import Amazonka.Detective.UpdateDatasourcePackages
+import Amazonka.Detective.UpdateOrganizationConfiguration

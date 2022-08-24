@@ -45,28 +45,46 @@ library
   exposed-modules:
     Amazonka.Detective
     Amazonka.Detective.AcceptInvitation
+    Amazonka.Detective.BatchGetGraphMemberDatasources
+    Amazonka.Detective.BatchGetMembershipDatasources
     Amazonka.Detective.CreateGraph
     Amazonka.Detective.CreateMembers
     Amazonka.Detective.DeleteGraph
     Amazonka.Detective.DeleteMembers
+    Amazonka.Detective.DescribeOrganizationConfiguration
+    Amazonka.Detective.DisableOrganizationAdminAccount
     Amazonka.Detective.DisassociateMembership
+    Amazonka.Detective.EnableOrganizationAdminAccount
     Amazonka.Detective.GetMembers
     Amazonka.Detective.Lens
+    Amazonka.Detective.ListDatasourcePackages
     Amazonka.Detective.ListGraphs
     Amazonka.Detective.ListInvitations
     Amazonka.Detective.ListMembers
+    Amazonka.Detective.ListOrganizationAdminAccounts
     Amazonka.Detective.ListTagsForResource
     Amazonka.Detective.RejectInvitation
     Amazonka.Detective.StartMonitoringMember
     Amazonka.Detective.TagResource
     Amazonka.Detective.Types
     Amazonka.Detective.Types.Account
+    Amazonka.Detective.Types.Administrator
+    Amazonka.Detective.Types.DatasourcePackage
+    Amazonka.Detective.Types.DatasourcePackageIngestDetail
+    Amazonka.Detective.Types.DatasourcePackageIngestState
+    Amazonka.Detective.Types.DatasourcePackageUsageInfo
     Amazonka.Detective.Types.Graph
+    Amazonka.Detective.Types.InvitationType
     Amazonka.Detective.Types.MemberDetail
     Amazonka.Detective.Types.MemberDisabledReason
+    Amazonka.Detective.Types.MembershipDatasources
     Amazonka.Detective.Types.MemberStatus
+    Amazonka.Detective.Types.TimestampForCollection
     Amazonka.Detective.Types.UnprocessedAccount
+    Amazonka.Detective.Types.UnprocessedGraph
     Amazonka.Detective.UntagResource
+    Amazonka.Detective.UpdateDatasourcePackages
+    Amazonka.Detective.UpdateOrganizationConfiguration
     Amazonka.Detective.Waiters
 
   build-depends:

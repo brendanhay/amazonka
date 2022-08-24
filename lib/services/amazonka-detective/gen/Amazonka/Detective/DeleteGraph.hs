@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables the specified behavior graph and queues it to be deleted. This
--- operation removes the graph from each member account\'s list of behavior
--- graphs.
+-- operation removes the behavior graph from each member account\'s list of
+-- behavior graphs.
 --
 -- @DeleteGraph@ can only be called by the administrator account for a
 -- behavior graph.

@@ -22,6 +22,16 @@ module Amazonka.Detective.Types
     _ResourceNotFoundException,
     _ConflictException,
     _ValidationException,
+    _TooManyRequestsException,
+
+    -- * DatasourcePackage
+    DatasourcePackage (..),
+
+    -- * DatasourcePackageIngestState
+    DatasourcePackageIngestState (..),
+
+    -- * InvitationType
+    InvitationType (..),
 
     -- * MemberDisabledReason
     MemberDisabledReason (..),
@@ -34,6 +44,25 @@ module Amazonka.Detective.Types
     newAccount,
     account_accountId,
     account_emailAddress,
+
+    -- * Administrator
+    Administrator (..),
+    newAdministrator,
+    administrator_graphArn,
+    administrator_accountId,
+    administrator_delegationTime,
+
+    -- * DatasourcePackageIngestDetail
+    DatasourcePackageIngestDetail (..),
+    newDatasourcePackageIngestDetail,
+    datasourcePackageIngestDetail_datasourcePackageIngestState,
+    datasourcePackageIngestDetail_lastIngestStateChange,
+
+    -- * DatasourcePackageUsageInfo
+    DatasourcePackageUsageInfo (..),
+    newDatasourcePackageUsageInfo,
+    datasourcePackageUsageInfo_volumeUsageInBytes,
+    datasourcePackageUsageInfo_volumeUsageUpdateTime,
 
     -- * Graph
     Graph (..),
@@ -51,28 +80,58 @@ module Amazonka.Detective.Types
     memberDetail_administratorId,
     memberDetail_disabledReason,
     memberDetail_status,
+    memberDetail_volumeUsageByDatasourcePackage,
     memberDetail_percentOfGraphUtilizationUpdatedTime,
     memberDetail_accountId,
     memberDetail_volumeUsageUpdatedTime,
     memberDetail_masterId,
+    memberDetail_invitationType,
     memberDetail_emailAddress,
     memberDetail_updatedTime,
+    memberDetail_datasourcePackageIngestStates,
+
+    -- * MembershipDatasources
+    MembershipDatasources (..),
+    newMembershipDatasources,
+    membershipDatasources_datasourcePackageIngestHistory,
+    membershipDatasources_graphArn,
+    membershipDatasources_accountId,
+
+    -- * TimestampForCollection
+    TimestampForCollection (..),
+    newTimestampForCollection,
+    timestampForCollection_timestamp,
 
     -- * UnprocessedAccount
     UnprocessedAccount (..),
     newUnprocessedAccount,
     unprocessedAccount_accountId,
     unprocessedAccount_reason,
+
+    -- * UnprocessedGraph
+    UnprocessedGraph (..),
+    newUnprocessedGraph,
+    unprocessedGraph_graphArn,
+    unprocessedGraph_reason,
   )
 where
 
 import qualified Amazonka.Core as Core
 import Amazonka.Detective.Types.Account
+import Amazonka.Detective.Types.Administrator
+import Amazonka.Detective.Types.DatasourcePackage
+import Amazonka.Detective.Types.DatasourcePackageIngestDetail
+import Amazonka.Detective.Types.DatasourcePackageIngestState
+import Amazonka.Detective.Types.DatasourcePackageUsageInfo
 import Amazonka.Detective.Types.Graph
+import Amazonka.Detective.Types.InvitationType
 import Amazonka.Detective.Types.MemberDetail
 import Amazonka.Detective.Types.MemberDisabledReason
 import Amazonka.Detective.Types.MemberStatus
+import Amazonka.Detective.Types.MembershipDatasources
+import Amazonka.Detective.Types.TimestampForCollection
 import Amazonka.Detective.Types.UnprocessedAccount
+import Amazonka.Detective.Types.UnprocessedGraph
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -159,7 +218,7 @@ _InternalServerException =
 --
 -- -   The request would cause the number of member accounts in the
 --     behavior graph to exceed the maximum allowed. A behavior graph
---     cannot have more than 1000 member accounts.
+--     cannot have more than 1200 member accounts.
 --
 -- -   The request would cause the data rate for the behavior graph to
 --     exceed the maximum allowed.
@@ -197,3 +256,12 @@ _ValidationException =
     defaultService
     "ValidationException"
     Prelude.. Core.hasStatus 400
+
+-- | The request cannot be completed because too many other requests are
+-- occurring at the same time.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429

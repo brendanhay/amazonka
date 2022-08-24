@@ -30,6 +30,12 @@ import Test.Tasty
 --         [ requestAcceptInvitation $
 --             newAcceptInvitation
 --
+--         , requestBatchGetGraphMemberDatasources $
+--             newBatchGetGraphMemberDatasources
+--
+--         , requestBatchGetMembershipDatasources $
+--             newBatchGetMembershipDatasources
+--
 --         , requestCreateGraph $
 --             newCreateGraph
 --
@@ -42,11 +48,23 @@ import Test.Tasty
 --         , requestDeleteMembers $
 --             newDeleteMembers
 --
+--         , requestDescribeOrganizationConfiguration $
+--             newDescribeOrganizationConfiguration
+--
+--         , requestDisableOrganizationAdminAccount $
+--             newDisableOrganizationAdminAccount
+--
 --         , requestDisassociateMembership $
 --             newDisassociateMembership
 --
+--         , requestEnableOrganizationAdminAccount $
+--             newEnableOrganizationAdminAccount
+--
 --         , requestGetMembers $
 --             newGetMembers
+--
+--         , requestListDatasourcePackages $
+--             newListDatasourcePackages
 --
 --         , requestListGraphs $
 --             newListGraphs
@@ -56,6 +74,9 @@ import Test.Tasty
 --
 --         , requestListMembers $
 --             newListMembers
+--
+--         , requestListOrganizationAdminAccounts $
+--             newListOrganizationAdminAccounts
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -72,11 +93,23 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateDatasourcePackages $
+--             newUpdateDatasourcePackages
+--
+--         , requestUpdateOrganizationConfiguration $
+--             newUpdateOrganizationConfiguration
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseAcceptInvitation $
 --             newAcceptInvitationResponse
+--
+--         , responseBatchGetGraphMemberDatasources $
+--             newBatchGetGraphMemberDatasourcesResponse
+--
+--         , responseBatchGetMembershipDatasources $
+--             newBatchGetMembershipDatasourcesResponse
 --
 --         , responseCreateGraph $
 --             newCreateGraphResponse
@@ -90,11 +123,23 @@ import Test.Tasty
 --         , responseDeleteMembers $
 --             newDeleteMembersResponse
 --
+--         , responseDescribeOrganizationConfiguration $
+--             newDescribeOrganizationConfigurationResponse
+--
+--         , responseDisableOrganizationAdminAccount $
+--             newDisableOrganizationAdminAccountResponse
+--
 --         , responseDisassociateMembership $
 --             newDisassociateMembershipResponse
 --
+--         , responseEnableOrganizationAdminAccount $
+--             newEnableOrganizationAdminAccountResponse
+--
 --         , responseGetMembers $
 --             newGetMembersResponse
+--
+--         , responseListDatasourcePackages $
+--             newListDatasourcePackagesResponse
 --
 --         , responseListGraphs $
 --             newListGraphsResponse
@@ -104,6 +149,9 @@ import Test.Tasty
 --
 --         , responseListMembers $
 --             newListMembersResponse
+--
+--         , responseListOrganizationAdminAccounts $
+--             newListOrganizationAdminAccountsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -120,6 +168,12 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateDatasourcePackages $
+--             newUpdateDatasourcePackagesResponse
+--
+--         , responseUpdateOrganizationConfiguration $
+--             newUpdateOrganizationConfigurationResponse
+--
 --           ]
 --     ]
 
@@ -130,6 +184,18 @@ requestAcceptInvitation =
   req
     "AcceptInvitation"
     "fixture/AcceptInvitation.yaml"
+
+requestBatchGetGraphMemberDatasources :: BatchGetGraphMemberDatasources -> TestTree
+requestBatchGetGraphMemberDatasources =
+  req
+    "BatchGetGraphMemberDatasources"
+    "fixture/BatchGetGraphMemberDatasources.yaml"
+
+requestBatchGetMembershipDatasources :: BatchGetMembershipDatasources -> TestTree
+requestBatchGetMembershipDatasources =
+  req
+    "BatchGetMembershipDatasources"
+    "fixture/BatchGetMembershipDatasources.yaml"
 
 requestCreateGraph :: CreateGraph -> TestTree
 requestCreateGraph =
@@ -155,17 +221,41 @@ requestDeleteMembers =
     "DeleteMembers"
     "fixture/DeleteMembers.yaml"
 
+requestDescribeOrganizationConfiguration :: DescribeOrganizationConfiguration -> TestTree
+requestDescribeOrganizationConfiguration =
+  req
+    "DescribeOrganizationConfiguration"
+    "fixture/DescribeOrganizationConfiguration.yaml"
+
+requestDisableOrganizationAdminAccount :: DisableOrganizationAdminAccount -> TestTree
+requestDisableOrganizationAdminAccount =
+  req
+    "DisableOrganizationAdminAccount"
+    "fixture/DisableOrganizationAdminAccount.yaml"
+
 requestDisassociateMembership :: DisassociateMembership -> TestTree
 requestDisassociateMembership =
   req
     "DisassociateMembership"
     "fixture/DisassociateMembership.yaml"
 
+requestEnableOrganizationAdminAccount :: EnableOrganizationAdminAccount -> TestTree
+requestEnableOrganizationAdminAccount =
+  req
+    "EnableOrganizationAdminAccount"
+    "fixture/EnableOrganizationAdminAccount.yaml"
+
 requestGetMembers :: GetMembers -> TestTree
 requestGetMembers =
   req
     "GetMembers"
     "fixture/GetMembers.yaml"
+
+requestListDatasourcePackages :: ListDatasourcePackages -> TestTree
+requestListDatasourcePackages =
+  req
+    "ListDatasourcePackages"
+    "fixture/ListDatasourcePackages.yaml"
 
 requestListGraphs :: ListGraphs -> TestTree
 requestListGraphs =
@@ -184,6 +274,12 @@ requestListMembers =
   req
     "ListMembers"
     "fixture/ListMembers.yaml"
+
+requestListOrganizationAdminAccounts :: ListOrganizationAdminAccounts -> TestTree
+requestListOrganizationAdminAccounts =
+  req
+    "ListOrganizationAdminAccounts"
+    "fixture/ListOrganizationAdminAccounts.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -215,6 +311,18 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateDatasourcePackages :: UpdateDatasourcePackages -> TestTree
+requestUpdateDatasourcePackages =
+  req
+    "UpdateDatasourcePackages"
+    "fixture/UpdateDatasourcePackages.yaml"
+
+requestUpdateOrganizationConfiguration :: UpdateOrganizationConfiguration -> TestTree
+requestUpdateOrganizationConfiguration =
+  req
+    "UpdateOrganizationConfiguration"
+    "fixture/UpdateOrganizationConfiguration.yaml"
+
 -- Responses
 
 responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
@@ -224,6 +332,22 @@ responseAcceptInvitation =
     "fixture/AcceptInvitationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AcceptInvitation)
+
+responseBatchGetGraphMemberDatasources :: BatchGetGraphMemberDatasourcesResponse -> TestTree
+responseBatchGetGraphMemberDatasources =
+  res
+    "BatchGetGraphMemberDatasourcesResponse"
+    "fixture/BatchGetGraphMemberDatasourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetGraphMemberDatasources)
+
+responseBatchGetMembershipDatasources :: BatchGetMembershipDatasourcesResponse -> TestTree
+responseBatchGetMembershipDatasources =
+  res
+    "BatchGetMembershipDatasourcesResponse"
+    "fixture/BatchGetMembershipDatasourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetMembershipDatasources)
 
 responseCreateGraph :: CreateGraphResponse -> TestTree
 responseCreateGraph =
@@ -257,6 +381,22 @@ responseDeleteMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteMembers)
 
+responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
+responseDescribeOrganizationConfiguration =
+  res
+    "DescribeOrganizationConfigurationResponse"
+    "fixture/DescribeOrganizationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationConfiguration)
+
+responseDisableOrganizationAdminAccount :: DisableOrganizationAdminAccountResponse -> TestTree
+responseDisableOrganizationAdminAccount =
+  res
+    "DisableOrganizationAdminAccountResponse"
+    "fixture/DisableOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableOrganizationAdminAccount)
+
 responseDisassociateMembership :: DisassociateMembershipResponse -> TestTree
 responseDisassociateMembership =
   res
@@ -265,6 +405,14 @@ responseDisassociateMembership =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateMembership)
 
+responseEnableOrganizationAdminAccount :: EnableOrganizationAdminAccountResponse -> TestTree
+responseEnableOrganizationAdminAccount =
+  res
+    "EnableOrganizationAdminAccountResponse"
+    "fixture/EnableOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableOrganizationAdminAccount)
+
 responseGetMembers :: GetMembersResponse -> TestTree
 responseGetMembers =
   res
@@ -272,6 +420,14 @@ responseGetMembers =
     "fixture/GetMembersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetMembers)
+
+responseListDatasourcePackages :: ListDatasourcePackagesResponse -> TestTree
+responseListDatasourcePackages =
+  res
+    "ListDatasourcePackagesResponse"
+    "fixture/ListDatasourcePackagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListDatasourcePackages)
 
 responseListGraphs :: ListGraphsResponse -> TestTree
 responseListGraphs =
@@ -296,6 +452,14 @@ responseListMembers =
     "fixture/ListMembersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListMembers)
+
+responseListOrganizationAdminAccounts :: ListOrganizationAdminAccountsResponse -> TestTree
+responseListOrganizationAdminAccounts =
+  res
+    "ListOrganizationAdminAccountsResponse"
+    "fixture/ListOrganizationAdminAccountsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOrganizationAdminAccounts)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -336,3 +500,19 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateDatasourcePackages :: UpdateDatasourcePackagesResponse -> TestTree
+responseUpdateDatasourcePackages =
+  res
+    "UpdateDatasourcePackagesResponse"
+    "fixture/UpdateDatasourcePackagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateDatasourcePackages)
+
+responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
+responseUpdateOrganizationConfiguration =
+  res
+    "UpdateOrganizationConfigurationResponse"
+    "fixture/UpdateOrganizationConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateOrganizationConfiguration)

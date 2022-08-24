@@ -20,8 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the list of member accounts for a behavior graph. Does not
--- return member accounts that were removed from the behavior graph.
+-- Retrieves the list of member accounts for a behavior graph.
+--
+-- For invited accounts, the results do not include member accounts that
+-- were removed from the behavior graph.
+--
+-- For the organization behavior graph, the results do not include
+-- organization accounts that the Detective administrator account has not
+-- enabled as member accounts.
 module Amazonka.Detective.ListMembers
   ( -- * Creating a Request
     ListMembers (..),
@@ -165,15 +171,19 @@ instance Core.ToQuery ListMembers where
 
 -- | /See:/ 'newListMembersResponse' smart constructor.
 data ListMembersResponse = ListMembersResponse'
-  { -- | If there are more member accounts remaining in the results, then this is
-    -- the pagination token to use to request the next page of member accounts.
+  { -- | If there are more member accounts remaining in the results, then use
+    -- this pagination token to request the next page of member accounts.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The list of member accounts in the behavior graph.
     --
-    -- The results include member accounts that did not pass verification and
-    -- member accounts that have not yet accepted the invitation to the
-    -- behavior graph. The results do not include member accounts that were
-    -- removed from the behavior graph.
+    -- For invited accounts, the results include member accounts that did not
+    -- pass verification and member accounts that have not yet accepted the
+    -- invitation to the behavior graph. The results do not include member
+    -- accounts that were removed from the behavior graph.
+    --
+    -- For the organization behavior graph, the results do not include
+    -- organization accounts that the Detective administrator account has not
+    -- enabled as member accounts.
     memberDetails :: Prelude.Maybe [MemberDetail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -188,15 +198,19 @@ data ListMembersResponse = ListMembersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMembersResponse_nextToken' - If there are more member accounts remaining in the results, then this is
--- the pagination token to use to request the next page of member accounts.
+-- 'nextToken', 'listMembersResponse_nextToken' - If there are more member accounts remaining in the results, then use
+-- this pagination token to request the next page of member accounts.
 --
 -- 'memberDetails', 'listMembersResponse_memberDetails' - The list of member accounts in the behavior graph.
 --
--- The results include member accounts that did not pass verification and
--- member accounts that have not yet accepted the invitation to the
--- behavior graph. The results do not include member accounts that were
--- removed from the behavior graph.
+-- For invited accounts, the results include member accounts that did not
+-- pass verification and member accounts that have not yet accepted the
+-- invitation to the behavior graph. The results do not include member
+-- accounts that were removed from the behavior graph.
+--
+-- For the organization behavior graph, the results do not include
+-- organization accounts that the Detective administrator account has not
+-- enabled as member accounts.
 --
 -- 'httpStatus', 'listMembersResponse_httpStatus' - The response's http status code.
 newListMembersResponse ::
@@ -210,17 +224,21 @@ newListMembersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If there are more member accounts remaining in the results, then this is
--- the pagination token to use to request the next page of member accounts.
+-- | If there are more member accounts remaining in the results, then use
+-- this pagination token to request the next page of member accounts.
 listMembersResponse_nextToken :: Lens.Lens' ListMembersResponse (Prelude.Maybe Prelude.Text)
 listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> nextToken) (\s@ListMembersResponse' {} a -> s {nextToken = a} :: ListMembersResponse)
 
 -- | The list of member accounts in the behavior graph.
 --
--- The results include member accounts that did not pass verification and
--- member accounts that have not yet accepted the invitation to the
--- behavior graph. The results do not include member accounts that were
--- removed from the behavior graph.
+-- For invited accounts, the results include member accounts that did not
+-- pass verification and member accounts that have not yet accepted the
+-- invitation to the behavior graph. The results do not include member
+-- accounts that were removed from the behavior graph.
+--
+-- For the organization behavior graph, the results do not include
+-- organization accounts that the Detective administrator account has not
+-- enabled as member accounts.
 listMembersResponse_memberDetails :: Lens.Lens' ListMembersResponse (Prelude.Maybe [MemberDetail])
 listMembersResponse_memberDetails = Lens.lens (\ListMembersResponse' {memberDetails} -> memberDetails) (\s@ListMembersResponse' {} a -> s {memberDetails = a} :: ListMembersResponse) Prelude.. Lens.mapping Lens.coerced
 

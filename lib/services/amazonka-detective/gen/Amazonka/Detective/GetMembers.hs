@@ -53,9 +53,9 @@ import qualified Amazonka.Response as Response
 data GetMembers = GetMembers'
   { -- | The ARN of the behavior graph for which to request the member details.
     graphArn :: Prelude.Text,
-    -- | The list of AWS account identifiers for the member account for which to
-    -- return member details. You can request details for up to 50 member
-    -- accounts at a time.
+    -- | The list of Amazon Web Services account identifiers for the member
+    -- account for which to return member details. You can request details for
+    -- up to 50 member accounts at a time.
     --
     -- You cannot use @GetMembers@ to retrieve information about member
     -- accounts that were removed from the behavior graph.
@@ -73,9 +73,9 @@ data GetMembers = GetMembers'
 --
 -- 'graphArn', 'getMembers_graphArn' - The ARN of the behavior graph for which to request the member details.
 --
--- 'accountIds', 'getMembers_accountIds' - The list of AWS account identifiers for the member account for which to
--- return member details. You can request details for up to 50 member
--- accounts at a time.
+-- 'accountIds', 'getMembers_accountIds' - The list of Amazon Web Services account identifiers for the member
+-- account for which to return member details. You can request details for
+-- up to 50 member accounts at a time.
 --
 -- You cannot use @GetMembers@ to retrieve information about member
 -- accounts that were removed from the behavior graph.
@@ -95,9 +95,9 @@ newGetMembers pGraphArn_ pAccountIds_ =
 getMembers_graphArn :: Lens.Lens' GetMembers Prelude.Text
 getMembers_graphArn = Lens.lens (\GetMembers' {graphArn} -> graphArn) (\s@GetMembers' {} a -> s {graphArn = a} :: GetMembers)
 
--- | The list of AWS account identifiers for the member account for which to
--- return member details. You can request details for up to 50 member
--- accounts at a time.
+-- | The list of Amazon Web Services account identifiers for the member
+-- account for which to return member details. You can request details for
+-- up to 50 member accounts at a time.
 --
 -- You cannot use @GetMembers@ to retrieve information about member
 -- accounts that were removed from the behavior graph.

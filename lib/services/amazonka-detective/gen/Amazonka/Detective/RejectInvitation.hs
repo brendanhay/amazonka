@@ -21,8 +21,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Rejects an invitation to contribute the account data to a behavior
--- graph. This operation must be called by a member account that has the
--- @INVITED@ status.
+-- graph. This operation must be called by an invited member account that
+-- has the @INVITED@ status.
+--
+-- @RejectInvitation@ cannot be called by an organization account in the
+-- organization behavior graph. In the organization behavior graph,
+-- organization accounts do not receive an invitation.
 module Amazonka.Detective.RejectInvitation
   ( -- * Creating a Request
     RejectInvitation (..),

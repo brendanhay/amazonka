@@ -12,23 +12,38 @@
 -- Derived from API version @2018-10-26@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- Detective uses machine learning and purpose-built visualizations to help
--- you analyze and investigate security issues across your Amazon Web
--- Services (AWS) workloads. Detective automatically extracts time-based
--- events such as login attempts, API calls, and network traffic from AWS
--- CloudTrail and Amazon Virtual Private Cloud (Amazon VPC) flow logs. It
--- also extracts findings detected by Amazon GuardDuty.
+-- you to analyze and investigate security issues across your Amazon Web
+-- Services (Amazon Web Services) workloads. Detective automatically
+-- extracts time-based events such as login attempts, API calls, and
+-- network traffic from CloudTrail and Amazon Virtual Private Cloud (Amazon
+-- VPC) flow logs. It also extracts findings detected by Amazon GuardDuty.
 --
 -- The Detective API primarily supports the creation and management of
 -- behavior graphs. A behavior graph contains the extracted data from a set
 -- of member accounts, and is created and managed by an administrator
 -- account.
 --
--- Every behavior graph is specific to a Region. You can only use the API
--- to manage graphs that belong to the Region that is associated with the
--- currently selected endpoint.
+-- To add a member account to the behavior graph, the administrator account
+-- sends an invitation to the account. When the account accepts the
+-- invitation, it becomes a member account in the behavior graph.
 --
--- A Detective administrator account can use the Detective API to do the
--- following:
+-- Detective is also integrated with Organizations. The organization
+-- management account designates the Detective administrator account for
+-- the organization. That account becomes the administrator account for the
+-- organization behavior graph. The Detective administrator account is also
+-- the delegated administrator account for Detective in Organizations.
+--
+-- The Detective administrator account can enable any organization account
+-- as a member account in the organization behavior graph. The organization
+-- accounts do not receive invitations. The Detective administrator account
+-- can also invite other accounts to the organization behavior graph.
+--
+-- Every behavior graph is specific to a Region. You can only use the API
+-- to manage behavior graphs that belong to the Region that is associated
+-- with the currently selected endpoint.
+--
+-- The administrator account for a behavior graph can use the Detective API
+-- to do the following:
 --
 -- -   Enable and disable Detective. Enabling Detective creates a new
 --     behavior graph.
@@ -39,7 +54,20 @@
 --
 -- -   Remove member accounts from a behavior graph.
 --
--- A member account can use the Detective API to do the following:
+-- -   Apply tags to a behavior graph.
+--
+-- The organization management account can use the Detective API to select
+-- the delegated administrator for Detective.
+--
+-- The Detective administrator account for an organization can use the
+-- Detective API to do the following:
+--
+-- -   Perform all of the functions of an administrator account.
+--
+-- -   Determine whether to automatically enable new organization accounts
+--     as member accounts in the organization behavior graph.
+--
+-- An invited member account can use the Detective API to do the following:
 --
 -- -   View the list of behavior graphs that they are invited to.
 --
@@ -78,6 +106,9 @@ module Amazonka.Detective
     -- ** ValidationException
     _ValidationException,
 
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
     -- * Waiters
     -- $waiters
 
@@ -89,6 +120,18 @@ module Amazonka.Detective
     newAcceptInvitation,
     AcceptInvitationResponse (AcceptInvitationResponse'),
     newAcceptInvitationResponse,
+
+    -- ** BatchGetGraphMemberDatasources
+    BatchGetGraphMemberDatasources (BatchGetGraphMemberDatasources'),
+    newBatchGetGraphMemberDatasources,
+    BatchGetGraphMemberDatasourcesResponse (BatchGetGraphMemberDatasourcesResponse'),
+    newBatchGetGraphMemberDatasourcesResponse,
+
+    -- ** BatchGetMembershipDatasources
+    BatchGetMembershipDatasources (BatchGetMembershipDatasources'),
+    newBatchGetMembershipDatasources,
+    BatchGetMembershipDatasourcesResponse (BatchGetMembershipDatasourcesResponse'),
+    newBatchGetMembershipDatasourcesResponse,
 
     -- ** CreateGraph
     CreateGraph (CreateGraph'),
@@ -114,17 +157,41 @@ module Amazonka.Detective
     DeleteMembersResponse (DeleteMembersResponse'),
     newDeleteMembersResponse,
 
+    -- ** DescribeOrganizationConfiguration
+    DescribeOrganizationConfiguration (DescribeOrganizationConfiguration'),
+    newDescribeOrganizationConfiguration,
+    DescribeOrganizationConfigurationResponse (DescribeOrganizationConfigurationResponse'),
+    newDescribeOrganizationConfigurationResponse,
+
+    -- ** DisableOrganizationAdminAccount
+    DisableOrganizationAdminAccount (DisableOrganizationAdminAccount'),
+    newDisableOrganizationAdminAccount,
+    DisableOrganizationAdminAccountResponse (DisableOrganizationAdminAccountResponse'),
+    newDisableOrganizationAdminAccountResponse,
+
     -- ** DisassociateMembership
     DisassociateMembership (DisassociateMembership'),
     newDisassociateMembership,
     DisassociateMembershipResponse (DisassociateMembershipResponse'),
     newDisassociateMembershipResponse,
 
+    -- ** EnableOrganizationAdminAccount
+    EnableOrganizationAdminAccount (EnableOrganizationAdminAccount'),
+    newEnableOrganizationAdminAccount,
+    EnableOrganizationAdminAccountResponse (EnableOrganizationAdminAccountResponse'),
+    newEnableOrganizationAdminAccountResponse,
+
     -- ** GetMembers
     GetMembers (GetMembers'),
     newGetMembers,
     GetMembersResponse (GetMembersResponse'),
     newGetMembersResponse,
+
+    -- ** ListDatasourcePackages
+    ListDatasourcePackages (ListDatasourcePackages'),
+    newListDatasourcePackages,
+    ListDatasourcePackagesResponse (ListDatasourcePackagesResponse'),
+    newListDatasourcePackagesResponse,
 
     -- ** ListGraphs
     ListGraphs (ListGraphs'),
@@ -143,6 +210,12 @@ module Amazonka.Detective
     newListMembers,
     ListMembersResponse (ListMembersResponse'),
     newListMembersResponse,
+
+    -- ** ListOrganizationAdminAccounts
+    ListOrganizationAdminAccounts (ListOrganizationAdminAccounts'),
+    newListOrganizationAdminAccounts,
+    ListOrganizationAdminAccountsResponse (ListOrganizationAdminAccountsResponse'),
+    newListOrganizationAdminAccountsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -174,7 +247,28 @@ module Amazonka.Detective
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateDatasourcePackages
+    UpdateDatasourcePackages (UpdateDatasourcePackages'),
+    newUpdateDatasourcePackages,
+    UpdateDatasourcePackagesResponse (UpdateDatasourcePackagesResponse'),
+    newUpdateDatasourcePackagesResponse,
+
+    -- ** UpdateOrganizationConfiguration
+    UpdateOrganizationConfiguration (UpdateOrganizationConfiguration'),
+    newUpdateOrganizationConfiguration,
+    UpdateOrganizationConfigurationResponse (UpdateOrganizationConfigurationResponse'),
+    newUpdateOrganizationConfigurationResponse,
+
     -- * Types
+
+    -- ** DatasourcePackage
+    DatasourcePackage (..),
+
+    -- ** DatasourcePackageIngestState
+    DatasourcePackageIngestState (..),
+
+    -- ** InvitationType
+    InvitationType (..),
 
     -- ** MemberDisabledReason
     MemberDisabledReason (..),
@@ -186,6 +280,18 @@ module Amazonka.Detective
     Account (Account'),
     newAccount,
 
+    -- ** Administrator
+    Administrator (Administrator'),
+    newAdministrator,
+
+    -- ** DatasourcePackageIngestDetail
+    DatasourcePackageIngestDetail (DatasourcePackageIngestDetail'),
+    newDatasourcePackageIngestDetail,
+
+    -- ** DatasourcePackageUsageInfo
+    DatasourcePackageUsageInfo (DatasourcePackageUsageInfo'),
+    newDatasourcePackageUsageInfo,
+
     -- ** Graph
     Graph (Graph'),
     newGraph,
@@ -194,29 +300,50 @@ module Amazonka.Detective
     MemberDetail (MemberDetail'),
     newMemberDetail,
 
+    -- ** MembershipDatasources
+    MembershipDatasources (MembershipDatasources'),
+    newMembershipDatasources,
+
+    -- ** TimestampForCollection
+    TimestampForCollection (TimestampForCollection'),
+    newTimestampForCollection,
+
     -- ** UnprocessedAccount
     UnprocessedAccount (UnprocessedAccount'),
     newUnprocessedAccount,
+
+    -- ** UnprocessedGraph
+    UnprocessedGraph (UnprocessedGraph'),
+    newUnprocessedGraph,
   )
 where
 
 import Amazonka.Detective.AcceptInvitation
+import Amazonka.Detective.BatchGetGraphMemberDatasources
+import Amazonka.Detective.BatchGetMembershipDatasources
 import Amazonka.Detective.CreateGraph
 import Amazonka.Detective.CreateMembers
 import Amazonka.Detective.DeleteGraph
 import Amazonka.Detective.DeleteMembers
+import Amazonka.Detective.DescribeOrganizationConfiguration
+import Amazonka.Detective.DisableOrganizationAdminAccount
 import Amazonka.Detective.DisassociateMembership
+import Amazonka.Detective.EnableOrganizationAdminAccount
 import Amazonka.Detective.GetMembers
 import Amazonka.Detective.Lens
+import Amazonka.Detective.ListDatasourcePackages
 import Amazonka.Detective.ListGraphs
 import Amazonka.Detective.ListInvitations
 import Amazonka.Detective.ListMembers
+import Amazonka.Detective.ListOrganizationAdminAccounts
 import Amazonka.Detective.ListTagsForResource
 import Amazonka.Detective.RejectInvitation
 import Amazonka.Detective.StartMonitoringMember
 import Amazonka.Detective.TagResource
 import Amazonka.Detective.Types
 import Amazonka.Detective.UntagResource
+import Amazonka.Detective.UpdateDatasourcePackages
+import Amazonka.Detective.UpdateOrganizationConfiguration
 import Amazonka.Detective.Waiters
 
 -- $errors

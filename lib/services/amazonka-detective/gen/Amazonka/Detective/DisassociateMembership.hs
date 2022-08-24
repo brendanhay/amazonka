@@ -21,8 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes the member account from the specified behavior graph. This
--- operation can only be called by a member account that has the @ENABLED@
--- status.
+-- operation can only be called by an invited member account that has the
+-- @ENABLED@ status.
+--
+-- @DisassociateMembership@ cannot be called by an organization account in
+-- the organization behavior graph. For the organization behavior graph,
+-- the Detective administrator account determines which organization
+-- accounts to enable or disable as member accounts.
 module Amazonka.Detective.DisassociateMembership
   ( -- * Creating a Request
     DisassociateMembership (..),

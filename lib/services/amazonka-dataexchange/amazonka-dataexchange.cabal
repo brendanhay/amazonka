@@ -65,10 +65,13 @@ library
     Amazonka.DataExchange.ListJobs
     Amazonka.DataExchange.ListRevisionAssets
     Amazonka.DataExchange.ListTagsForResource
+    Amazonka.DataExchange.RevokeRevision
+    Amazonka.DataExchange.SendApiAsset
     Amazonka.DataExchange.StartJob
     Amazonka.DataExchange.TagResource
     Amazonka.DataExchange.Types
     Amazonka.DataExchange.Types.Action
+    Amazonka.DataExchange.Types.ApiGatewayApiAsset
     Amazonka.DataExchange.Types.AssetDestinationEntry
     Amazonka.DataExchange.Types.AssetDetails
     Amazonka.DataExchange.Types.AssetEntry
@@ -88,6 +91,8 @@ library
     Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
     Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
     Amazonka.DataExchange.Types.ExportServerSideEncryption
+    Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiRequestDetails
+    Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiResponseDetails
     Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
     Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
     Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
@@ -101,6 +106,7 @@ library
     Amazonka.DataExchange.Types.JobErrorResourceTypes
     Amazonka.DataExchange.Types.Origin
     Amazonka.DataExchange.Types.OriginDetails
+    Amazonka.DataExchange.Types.ProtocolType
     Amazonka.DataExchange.Types.RedshiftDataShareAsset
     Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
     Amazonka.DataExchange.Types.RequestDetails

@@ -31,6 +31,9 @@ data RevisionEntry = RevisionEntry'
     -- revision being viewed. This parameter is returned when a revision owner
     -- is viewing the entitled copy of its owned revision.
     sourceId :: Prelude.Maybe Prelude.Text,
+    -- | A required comment to inform subscribers of the reason their access to
+    -- the revision was revoked.
+    revocationComment :: Prelude.Maybe Prelude.Text,
     -- | An optional comment about the revision.
     comment :: Prelude.Maybe Prelude.Text,
     -- | To publish a revision to a data set in a product, the revision must
@@ -43,6 +46,11 @@ data RevisionEntry = RevisionEntry'
     -- Marketplace Catalog API action. When using the API, revisions are
     -- uniquely identified by their ARN.
     finalized :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time that the revision was revoked, in ISO 8601 format.
+    revokedAt :: Prelude.Maybe Core.POSIX,
+    -- | A status indicating that subscribers\' access to the revision was
+    -- revoked.
+    revoked :: Prelude.Maybe Prelude.Bool,
     -- | The date and time that the revision was created, in ISO 8601 format.
     createdAt :: Core.POSIX,
     -- | The unique identifier for the data set associated with this revision.
@@ -69,6 +77,9 @@ data RevisionEntry = RevisionEntry'
 -- revision being viewed. This parameter is returned when a revision owner
 -- is viewing the entitled copy of its owned revision.
 --
+-- 'revocationComment', 'revisionEntry_revocationComment' - A required comment to inform subscribers of the reason their access to
+-- the revision was revoked.
+--
 -- 'comment', 'revisionEntry_comment' - An optional comment about the revision.
 --
 -- 'finalized', 'revisionEntry_finalized' - To publish a revision to a data set in a product, the revision must
@@ -80,6 +91,11 @@ data RevisionEntry = RevisionEntry'
 -- console or the AWS Marketplace Catalog API, using the StartChangeSet AWS
 -- Marketplace Catalog API action. When using the API, revisions are
 -- uniquely identified by their ARN.
+--
+-- 'revokedAt', 'revisionEntry_revokedAt' - The date and time that the revision was revoked, in ISO 8601 format.
+--
+-- 'revoked', 'revisionEntry_revoked' - A status indicating that subscribers\' access to the revision was
+-- revoked.
 --
 -- 'createdAt', 'revisionEntry_createdAt' - The date and time that the revision was created, in ISO 8601 format.
 --
@@ -111,8 +127,11 @@ newRevisionEntry
   pUpdatedAt_ =
     RevisionEntry'
       { sourceId = Prelude.Nothing,
+        revocationComment = Prelude.Nothing,
         comment = Prelude.Nothing,
         finalized = Prelude.Nothing,
+        revokedAt = Prelude.Nothing,
+        revoked = Prelude.Nothing,
         createdAt = Core._Time Lens.# pCreatedAt_,
         dataSetId = pDataSetId_,
         id = pId_,
@@ -125,6 +144,11 @@ newRevisionEntry
 -- is viewing the entitled copy of its owned revision.
 revisionEntry_sourceId :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Text)
 revisionEntry_sourceId = Lens.lens (\RevisionEntry' {sourceId} -> sourceId) (\s@RevisionEntry' {} a -> s {sourceId = a} :: RevisionEntry)
+
+-- | A required comment to inform subscribers of the reason their access to
+-- the revision was revoked.
+revisionEntry_revocationComment :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Text)
+revisionEntry_revocationComment = Lens.lens (\RevisionEntry' {revocationComment} -> revocationComment) (\s@RevisionEntry' {} a -> s {revocationComment = a} :: RevisionEntry)
 
 -- | An optional comment about the revision.
 revisionEntry_comment :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Text)
@@ -141,6 +165,15 @@ revisionEntry_comment = Lens.lens (\RevisionEntry' {comment} -> comment) (\s@Rev
 -- uniquely identified by their ARN.
 revisionEntry_finalized :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Bool)
 revisionEntry_finalized = Lens.lens (\RevisionEntry' {finalized} -> finalized) (\s@RevisionEntry' {} a -> s {finalized = a} :: RevisionEntry)
+
+-- | The date and time that the revision was revoked, in ISO 8601 format.
+revisionEntry_revokedAt :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.UTCTime)
+revisionEntry_revokedAt = Lens.lens (\RevisionEntry' {revokedAt} -> revokedAt) (\s@RevisionEntry' {} a -> s {revokedAt = a} :: RevisionEntry) Prelude.. Lens.mapping Core._Time
+
+-- | A status indicating that subscribers\' access to the revision was
+-- revoked.
+revisionEntry_revoked :: Lens.Lens' RevisionEntry (Prelude.Maybe Prelude.Bool)
+revisionEntry_revoked = Lens.lens (\RevisionEntry' {revoked} -> revoked) (\s@RevisionEntry' {} a -> s {revoked = a} :: RevisionEntry)
 
 -- | The date and time that the revision was created, in ISO 8601 format.
 revisionEntry_createdAt :: Lens.Lens' RevisionEntry Prelude.UTCTime
@@ -170,8 +203,11 @@ instance Core.FromJSON RevisionEntry where
       ( \x ->
           RevisionEntry'
             Prelude.<$> (x Core..:? "SourceId")
+            Prelude.<*> (x Core..:? "RevocationComment")
             Prelude.<*> (x Core..:? "Comment")
             Prelude.<*> (x Core..:? "Finalized")
+            Prelude.<*> (x Core..:? "RevokedAt")
+            Prelude.<*> (x Core..:? "Revoked")
             Prelude.<*> (x Core..: "CreatedAt")
             Prelude.<*> (x Core..: "DataSetId")
             Prelude.<*> (x Core..: "Id")
@@ -182,8 +218,11 @@ instance Core.FromJSON RevisionEntry where
 instance Prelude.Hashable RevisionEntry where
   hashWithSalt _salt RevisionEntry' {..} =
     _salt `Prelude.hashWithSalt` sourceId
+      `Prelude.hashWithSalt` revocationComment
       `Prelude.hashWithSalt` comment
       `Prelude.hashWithSalt` finalized
+      `Prelude.hashWithSalt` revokedAt
+      `Prelude.hashWithSalt` revoked
       `Prelude.hashWithSalt` createdAt
       `Prelude.hashWithSalt` dataSetId
       `Prelude.hashWithSalt` id
@@ -193,8 +232,11 @@ instance Prelude.Hashable RevisionEntry where
 instance Prelude.NFData RevisionEntry where
   rnf RevisionEntry' {..} =
     Prelude.rnf sourceId
+      `Prelude.seq` Prelude.rnf revocationComment
       `Prelude.seq` Prelude.rnf comment
       `Prelude.seq` Prelude.rnf finalized
+      `Prelude.seq` Prelude.rnf revokedAt
+      `Prelude.seq` Prelude.rnf revoked
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf dataSetId
       `Prelude.seq` Prelude.rnf id

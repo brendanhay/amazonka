@@ -70,7 +70,9 @@ data UpdateAsset = UpdateAsset'
     dataSetId :: Prelude.Text,
     -- | The name of the asset. When importing from Amazon S3, the S3 object key
     -- is used as the asset name. When exporting to Amazon S3, the asset name
-    -- is used as default target S3 object key.
+    -- is used as default target S3 object key. When importing from Amazon API
+    -- Gateway API, the API name is used as the asset name. When importing from
+    -- Amazon Redshift, the datashare name is used as the asset name.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,7 +93,9 @@ data UpdateAsset = UpdateAsset'
 --
 -- 'name', 'updateAsset_name' - The name of the asset. When importing from Amazon S3, the S3 object key
 -- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key.
+-- is used as default target S3 object key. When importing from Amazon API
+-- Gateway API, the API name is used as the asset name. When importing from
+-- Amazon Redshift, the datashare name is used as the asset name.
 newUpdateAsset ::
   -- | 'revisionId'
   Prelude.Text ->
@@ -128,7 +132,9 @@ updateAsset_dataSetId = Lens.lens (\UpdateAsset' {dataSetId} -> dataSetId) (\s@U
 
 -- | The name of the asset. When importing from Amazon S3, the S3 object key
 -- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key.
+-- is used as default target S3 object key. When importing from Amazon API
+-- Gateway API, the API name is used as the asset name. When importing from
+-- Amazon Redshift, the datashare name is used as the asset name.
 updateAsset_name :: Lens.Lens' UpdateAsset Prelude.Text
 updateAsset_name = Lens.lens (\UpdateAsset' {name} -> name) (\s@UpdateAsset' {} a -> s {name = a} :: UpdateAsset)
 
@@ -202,7 +208,9 @@ instance Core.ToQuery UpdateAsset where
 data UpdateAssetResponse = UpdateAssetResponse'
   { -- | The name of the asset. When importing from Amazon S3, the S3 object key
     -- is used as the asset name. When exporting to Amazon S3, the asset name
-    -- is used as default target S3 object key.
+    -- is used as default target S3 object key. When importing from Amazon API
+    -- Gateway API, the API name is used as the asset name. When importing from
+    -- Amazon Redshift, the datashare name is used as the asset name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The asset ID of the owned asset corresponding to the entitled asset
     -- being viewed. This parameter is returned when an asset owner is viewing
@@ -239,7 +247,9 @@ data UpdateAssetResponse = UpdateAssetResponse'
 --
 -- 'name', 'updateAssetResponse_name' - The name of the asset. When importing from Amazon S3, the S3 object key
 -- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key.
+-- is used as default target S3 object key. When importing from Amazon API
+-- Gateway API, the API name is used as the asset name. When importing from
+-- Amazon Redshift, the datashare name is used as the asset name.
 --
 -- 'sourceId', 'updateAssetResponse_sourceId' - The asset ID of the owned asset corresponding to the entitled asset
 -- being viewed. This parameter is returned when an asset owner is viewing
@@ -283,7 +293,9 @@ newUpdateAssetResponse pHttpStatus_ =
 
 -- | The name of the asset. When importing from Amazon S3, the S3 object key
 -- is used as the asset name. When exporting to Amazon S3, the asset name
--- is used as default target S3 object key.
+-- is used as default target S3 object key. When importing from Amazon API
+-- Gateway API, the API name is used as the asset name. When importing from
+-- Amazon Redshift, the datashare name is used as the asset name.
 updateAssetResponse_name :: Lens.Lens' UpdateAssetResponse (Prelude.Maybe Prelude.Text)
 updateAssetResponse_name = Lens.lens (\UpdateAssetResponse' {name} -> name) (\s@UpdateAssetResponse' {} a -> s {name = a} :: UpdateAssetResponse)
 

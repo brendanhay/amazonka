@@ -40,6 +40,9 @@ module Amazonka.DataExchange.Types
     -- * Origin
     Origin (..),
 
+    -- * ProtocolType
+    ProtocolType (..),
+
     -- * ServerSideEncryptionTypes
     ServerSideEncryptionTypes (..),
 
@@ -54,6 +57,19 @@ module Amazonka.DataExchange.Types
     newAction,
     action_exportRevisionToS3,
 
+    -- * ApiGatewayApiAsset
+    ApiGatewayApiAsset (..),
+    newApiGatewayApiAsset,
+    apiGatewayApiAsset_apiEndpoint,
+    apiGatewayApiAsset_apiId,
+    apiGatewayApiAsset_apiSpecificationDownloadUrlExpiresAt,
+    apiGatewayApiAsset_apiKey,
+    apiGatewayApiAsset_apiSpecificationDownloadUrl,
+    apiGatewayApiAsset_protocolType,
+    apiGatewayApiAsset_stage,
+    apiGatewayApiAsset_apiName,
+    apiGatewayApiAsset_apiDescription,
+
     -- * AssetDestinationEntry
     AssetDestinationEntry (..),
     newAssetDestinationEntry,
@@ -65,6 +81,7 @@ module Amazonka.DataExchange.Types
     AssetDetails (..),
     newAssetDetails,
     assetDetails_s3SnapshotAsset,
+    assetDetails_apiGatewayApiAsset,
     assetDetails_redshiftDataShareAsset,
 
     -- * AssetEntry
@@ -187,6 +204,34 @@ module Amazonka.DataExchange.Types
     exportServerSideEncryption_kmsKeyArn,
     exportServerSideEncryption_type,
 
+    -- * ImportAssetFromApiGatewayApiRequestDetails
+    ImportAssetFromApiGatewayApiRequestDetails (..),
+    newImportAssetFromApiGatewayApiRequestDetails,
+    importAssetFromApiGatewayApiRequestDetails_apiKey,
+    importAssetFromApiGatewayApiRequestDetails_apiDescription,
+    importAssetFromApiGatewayApiRequestDetails_apiName,
+    importAssetFromApiGatewayApiRequestDetails_protocolType,
+    importAssetFromApiGatewayApiRequestDetails_apiSpecificationMd5Hash,
+    importAssetFromApiGatewayApiRequestDetails_stage,
+    importAssetFromApiGatewayApiRequestDetails_dataSetId,
+    importAssetFromApiGatewayApiRequestDetails_apiId,
+    importAssetFromApiGatewayApiRequestDetails_revisionId,
+
+    -- * ImportAssetFromApiGatewayApiResponseDetails
+    ImportAssetFromApiGatewayApiResponseDetails (..),
+    newImportAssetFromApiGatewayApiResponseDetails,
+    importAssetFromApiGatewayApiResponseDetails_apiKey,
+    importAssetFromApiGatewayApiResponseDetails_apiDescription,
+    importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrlExpiresAt,
+    importAssetFromApiGatewayApiResponseDetails_apiName,
+    importAssetFromApiGatewayApiResponseDetails_protocolType,
+    importAssetFromApiGatewayApiResponseDetails_apiSpecificationMd5Hash,
+    importAssetFromApiGatewayApiResponseDetails_stage,
+    importAssetFromApiGatewayApiResponseDetails_dataSetId,
+    importAssetFromApiGatewayApiResponseDetails_apiId,
+    importAssetFromApiGatewayApiResponseDetails_revisionId,
+    importAssetFromApiGatewayApiResponseDetails_apiSpecificationUploadUrl,
+
     -- * ImportAssetFromSignedUrlJobErrorDetails
     ImportAssetFromSignedUrlJobErrorDetails (..),
     newImportAssetFromSignedUrlJobErrorDetails,
@@ -285,6 +330,7 @@ module Amazonka.DataExchange.Types
     requestDetails_exportRevisionsToS3,
     requestDetails_exportAssetsToS3,
     requestDetails_importAssetsFromS3,
+    requestDetails_importAssetFromApiGatewayApi,
 
     -- * ResponseDetails
     ResponseDetails (..),
@@ -295,6 +341,7 @@ module Amazonka.DataExchange.Types
     responseDetails_exportRevisionsToS3,
     responseDetails_exportAssetsToS3,
     responseDetails_importAssetsFromS3,
+    responseDetails_importAssetFromApiGatewayApi,
 
     -- * RevisionDestinationEntry
     RevisionDestinationEntry (..),
@@ -307,8 +354,11 @@ module Amazonka.DataExchange.Types
     RevisionEntry (..),
     newRevisionEntry,
     revisionEntry_sourceId,
+    revisionEntry_revocationComment,
     revisionEntry_comment,
     revisionEntry_finalized,
+    revisionEntry_revokedAt,
+    revisionEntry_revoked,
     revisionEntry_createdAt,
     revisionEntry_dataSetId,
     revisionEntry_id,
@@ -329,6 +379,7 @@ where
 
 import qualified Amazonka.Core as Core
 import Amazonka.DataExchange.Types.Action
+import Amazonka.DataExchange.Types.ApiGatewayApiAsset
 import Amazonka.DataExchange.Types.AssetDestinationEntry
 import Amazonka.DataExchange.Types.AssetDetails
 import Amazonka.DataExchange.Types.AssetEntry
@@ -348,6 +399,8 @@ import Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails
 import Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
 import Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
 import Amazonka.DataExchange.Types.ExportServerSideEncryption
+import Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiRequestDetails
+import Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiResponseDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
@@ -361,6 +414,7 @@ import Amazonka.DataExchange.Types.JobErrorLimitName
 import Amazonka.DataExchange.Types.JobErrorResourceTypes
 import Amazonka.DataExchange.Types.Origin
 import Amazonka.DataExchange.Types.OriginDetails
+import Amazonka.DataExchange.Types.ProtocolType
 import Amazonka.DataExchange.Types.RedshiftDataShareAsset
 import Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
 import Amazonka.DataExchange.Types.RequestDetails

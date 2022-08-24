@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
 import Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails
 import Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
+import Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
@@ -44,7 +45,9 @@ data RequestDetails = RequestDetails'
     -- | Details about the export to Amazon S3 request.
     exportAssetsToS3 :: Prelude.Maybe ExportAssetsToS3RequestDetails,
     -- | Details about the import from Amazon S3 request.
-    importAssetsFromS3 :: Prelude.Maybe ImportAssetsFromS3RequestDetails
+    importAssetsFromS3 :: Prelude.Maybe ImportAssetsFromS3RequestDetails,
+    -- | Information about the import asset from API Gateway API request.
+    importAssetFromApiGatewayApi :: Prelude.Maybe ImportAssetFromApiGatewayApiRequestDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +70,8 @@ data RequestDetails = RequestDetails'
 -- 'exportAssetsToS3', 'requestDetails_exportAssetsToS3' - Details about the export to Amazon S3 request.
 --
 -- 'importAssetsFromS3', 'requestDetails_importAssetsFromS3' - Details about the import from Amazon S3 request.
+--
+-- 'importAssetFromApiGatewayApi', 'requestDetails_importAssetFromApiGatewayApi' - Information about the import asset from API Gateway API request.
 newRequestDetails ::
   RequestDetails
 newRequestDetails =
@@ -77,7 +82,8 @@ newRequestDetails =
       exportAssetToSignedUrl = Prelude.Nothing,
       exportRevisionsToS3 = Prelude.Nothing,
       exportAssetsToS3 = Prelude.Nothing,
-      importAssetsFromS3 = Prelude.Nothing
+      importAssetsFromS3 = Prelude.Nothing,
+      importAssetFromApiGatewayApi = Prelude.Nothing
     }
 
 -- | Details about the import from signed URL request.
@@ -104,6 +110,10 @@ requestDetails_exportAssetsToS3 = Lens.lens (\RequestDetails' {exportAssetsToS3}
 requestDetails_importAssetsFromS3 :: Lens.Lens' RequestDetails (Prelude.Maybe ImportAssetsFromS3RequestDetails)
 requestDetails_importAssetsFromS3 = Lens.lens (\RequestDetails' {importAssetsFromS3} -> importAssetsFromS3) (\s@RequestDetails' {} a -> s {importAssetsFromS3 = a} :: RequestDetails)
 
+-- | Information about the import asset from API Gateway API request.
+requestDetails_importAssetFromApiGatewayApi :: Lens.Lens' RequestDetails (Prelude.Maybe ImportAssetFromApiGatewayApiRequestDetails)
+requestDetails_importAssetFromApiGatewayApi = Lens.lens (\RequestDetails' {importAssetFromApiGatewayApi} -> importAssetFromApiGatewayApi) (\s@RequestDetails' {} a -> s {importAssetFromApiGatewayApi = a} :: RequestDetails)
+
 instance Prelude.Hashable RequestDetails where
   hashWithSalt _salt RequestDetails' {..} =
     _salt
@@ -113,6 +123,7 @@ instance Prelude.Hashable RequestDetails where
       `Prelude.hashWithSalt` exportRevisionsToS3
       `Prelude.hashWithSalt` exportAssetsToS3
       `Prelude.hashWithSalt` importAssetsFromS3
+      `Prelude.hashWithSalt` importAssetFromApiGatewayApi
 
 instance Prelude.NFData RequestDetails where
   rnf RequestDetails' {..} =
@@ -122,6 +133,7 @@ instance Prelude.NFData RequestDetails where
       `Prelude.seq` Prelude.rnf exportRevisionsToS3
       `Prelude.seq` Prelude.rnf exportAssetsToS3
       `Prelude.seq` Prelude.rnf importAssetsFromS3
+      `Prelude.seq` Prelude.rnf importAssetFromApiGatewayApi
 
 instance Core.ToJSON RequestDetails where
   toJSON RequestDetails' {..} =
@@ -138,6 +150,8 @@ instance Core.ToJSON RequestDetails where
             ("ExportAssetsToS3" Core..=)
               Prelude.<$> exportAssetsToS3,
             ("ImportAssetsFromS3" Core..=)
-              Prelude.<$> importAssetsFromS3
+              Prelude.<$> importAssetsFromS3,
+            ("ImportAssetFromApiGatewayApi" Core..=)
+              Prelude.<$> importAssetFromApiGatewayApi
           ]
       )

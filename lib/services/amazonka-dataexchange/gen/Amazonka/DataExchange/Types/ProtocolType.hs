@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.DataExchange.Types.AssetType
+-- Module      : Amazonka.DataExchange.Types.ProtocolType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.DataExchange.Types.AssetType
-  ( AssetType
+module Amazonka.DataExchange.Types.ProtocolType
+  ( ProtocolType
       ( ..,
-        AssetType_API_GATEWAY_API,
-        AssetType_REDSHIFT_DATA_SHARE,
-        AssetType_S3_SNAPSHOT
+        ProtocolType_REST
       ),
   )
 where
@@ -30,9 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The type of asset that is added to a data set.
-newtype AssetType = AssetType'
-  { fromAssetType ::
+newtype ProtocolType = ProtocolType'
+  { fromProtocolType ::
       Core.Text
   }
   deriving stock
@@ -59,18 +56,10 @@ newtype AssetType = AssetType'
       Core.ToXML
     )
 
-pattern AssetType_API_GATEWAY_API :: AssetType
-pattern AssetType_API_GATEWAY_API = AssetType' "API_GATEWAY_API"
-
-pattern AssetType_REDSHIFT_DATA_SHARE :: AssetType
-pattern AssetType_REDSHIFT_DATA_SHARE = AssetType' "REDSHIFT_DATA_SHARE"
-
-pattern AssetType_S3_SNAPSHOT :: AssetType
-pattern AssetType_S3_SNAPSHOT = AssetType' "S3_SNAPSHOT"
+pattern ProtocolType_REST :: ProtocolType
+pattern ProtocolType_REST = ProtocolType' "REST"
 
 {-# COMPLETE
-  AssetType_API_GATEWAY_API,
-  AssetType_REDSHIFT_DATA_SHARE,
-  AssetType_S3_SNAPSHOT,
-  AssetType'
+  ProtocolType_REST,
+  ProtocolType'
   #-}

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
 import Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails
 import Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
+import Amazonka.DataExchange.Types.ImportAssetFromApiGatewayApiResponseDetails
 import Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
 import Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails
@@ -44,7 +45,9 @@ data ResponseDetails = ResponseDetails'
     -- | Details for the export to Amazon S3 response.
     exportAssetsToS3 :: Prelude.Maybe ExportAssetsToS3ResponseDetails,
     -- | Details for the import from Amazon S3 response.
-    importAssetsFromS3 :: Prelude.Maybe ImportAssetsFromS3ResponseDetails
+    importAssetsFromS3 :: Prelude.Maybe ImportAssetsFromS3ResponseDetails,
+    -- | The response details.
+    importAssetFromApiGatewayApi :: Prelude.Maybe ImportAssetFromApiGatewayApiResponseDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,6 +70,8 @@ data ResponseDetails = ResponseDetails'
 -- 'exportAssetsToS3', 'responseDetails_exportAssetsToS3' - Details for the export to Amazon S3 response.
 --
 -- 'importAssetsFromS3', 'responseDetails_importAssetsFromS3' - Details for the import from Amazon S3 response.
+--
+-- 'importAssetFromApiGatewayApi', 'responseDetails_importAssetFromApiGatewayApi' - The response details.
 newResponseDetails ::
   ResponseDetails
 newResponseDetails =
@@ -77,7 +82,8 @@ newResponseDetails =
       exportAssetToSignedUrl = Prelude.Nothing,
       exportRevisionsToS3 = Prelude.Nothing,
       exportAssetsToS3 = Prelude.Nothing,
-      importAssetsFromS3 = Prelude.Nothing
+      importAssetsFromS3 = Prelude.Nothing,
+      importAssetFromApiGatewayApi = Prelude.Nothing
     }
 
 -- | Details for the import from signed URL response.
@@ -104,6 +110,10 @@ responseDetails_exportAssetsToS3 = Lens.lens (\ResponseDetails' {exportAssetsToS
 responseDetails_importAssetsFromS3 :: Lens.Lens' ResponseDetails (Prelude.Maybe ImportAssetsFromS3ResponseDetails)
 responseDetails_importAssetsFromS3 = Lens.lens (\ResponseDetails' {importAssetsFromS3} -> importAssetsFromS3) (\s@ResponseDetails' {} a -> s {importAssetsFromS3 = a} :: ResponseDetails)
 
+-- | The response details.
+responseDetails_importAssetFromApiGatewayApi :: Lens.Lens' ResponseDetails (Prelude.Maybe ImportAssetFromApiGatewayApiResponseDetails)
+responseDetails_importAssetFromApiGatewayApi = Lens.lens (\ResponseDetails' {importAssetFromApiGatewayApi} -> importAssetFromApiGatewayApi) (\s@ResponseDetails' {} a -> s {importAssetFromApiGatewayApi = a} :: ResponseDetails)
+
 instance Core.FromJSON ResponseDetails where
   parseJSON =
     Core.withObject
@@ -116,6 +126,7 @@ instance Core.FromJSON ResponseDetails where
             Prelude.<*> (x Core..:? "ExportRevisionsToS3")
             Prelude.<*> (x Core..:? "ExportAssetsToS3")
             Prelude.<*> (x Core..:? "ImportAssetsFromS3")
+            Prelude.<*> (x Core..:? "ImportAssetFromApiGatewayApi")
       )
 
 instance Prelude.Hashable ResponseDetails where
@@ -127,6 +138,7 @@ instance Prelude.Hashable ResponseDetails where
       `Prelude.hashWithSalt` exportRevisionsToS3
       `Prelude.hashWithSalt` exportAssetsToS3
       `Prelude.hashWithSalt` importAssetsFromS3
+      `Prelude.hashWithSalt` importAssetFromApiGatewayApi
 
 instance Prelude.NFData ResponseDetails where
   rnf ResponseDetails' {..} =
@@ -136,3 +148,4 @@ instance Prelude.NFData ResponseDetails where
       `Prelude.seq` Prelude.rnf exportRevisionsToS3
       `Prelude.seq` Prelude.rnf exportAssetsToS3
       `Prelude.seq` Prelude.rnf importAssetsFromS3
+      `Prelude.seq` Prelude.rnf importAssetFromApiGatewayApi

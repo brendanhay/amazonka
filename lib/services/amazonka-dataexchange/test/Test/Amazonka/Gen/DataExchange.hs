@@ -87,6 +87,12 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestRevokeRevision $
+--             newRevokeRevision
+--
+--         , requestSendApiAsset $
+--             newSendApiAsset
+--
 --         , requestStartJob $
 --             newStartJob
 --
@@ -170,6 +176,12 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseRevokeRevision $
+--             newRevokeRevisionResponse
+--
+--         , responseSendApiAsset $
+--             newSendApiAssetResponse
 --
 --         , responseStartJob $
 --             newStartJobResponse
@@ -316,6 +328,18 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestRevokeRevision :: RevokeRevision -> TestTree
+requestRevokeRevision =
+  req
+    "RevokeRevision"
+    "fixture/RevokeRevision.yaml"
+
+requestSendApiAsset :: SendApiAsset -> TestTree
+requestSendApiAsset =
+  req
+    "SendApiAsset"
+    "fixture/SendApiAsset.yaml"
 
 requestStartJob :: StartJob -> TestTree
 requestStartJob =
@@ -520,6 +544,22 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseRevokeRevision :: RevokeRevisionResponse -> TestTree
+responseRevokeRevision =
+  res
+    "RevokeRevisionResponse"
+    "fixture/RevokeRevisionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RevokeRevision)
+
+responseSendApiAsset :: SendApiAssetResponse -> TestTree
+responseSendApiAsset =
+  res
+    "SendApiAssetResponse"
+    "fixture/SendApiAssetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendApiAsset)
 
 responseStartJob :: StartJobResponse -> TestTree
 responseStartJob =

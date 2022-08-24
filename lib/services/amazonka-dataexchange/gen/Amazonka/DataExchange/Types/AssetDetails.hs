@@ -20,6 +20,7 @@
 module Amazonka.DataExchange.Types.AssetDetails where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DataExchange.Types.ApiGatewayApiAsset
 import Amazonka.DataExchange.Types.RedshiftDataShareAsset
 import Amazonka.DataExchange.Types.S3SnapshotAsset
 import qualified Amazonka.Lens as Lens
@@ -31,6 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data AssetDetails = AssetDetails'
   { -- | The S3 object that is the asset.
     s3SnapshotAsset :: Prelude.Maybe S3SnapshotAsset,
+    -- | Information about the API Gateway API asset.
+    apiGatewayApiAsset :: Prelude.Maybe ApiGatewayApiAsset,
     -- | The Amazon Redshift datashare that is the asset.
     redshiftDataShareAsset :: Prelude.Maybe RedshiftDataShareAsset
   }
@@ -46,18 +49,25 @@ data AssetDetails = AssetDetails'
 --
 -- 's3SnapshotAsset', 'assetDetails_s3SnapshotAsset' - The S3 object that is the asset.
 --
+-- 'apiGatewayApiAsset', 'assetDetails_apiGatewayApiAsset' - Information about the API Gateway API asset.
+--
 -- 'redshiftDataShareAsset', 'assetDetails_redshiftDataShareAsset' - The Amazon Redshift datashare that is the asset.
 newAssetDetails ::
   AssetDetails
 newAssetDetails =
   AssetDetails'
     { s3SnapshotAsset = Prelude.Nothing,
+      apiGatewayApiAsset = Prelude.Nothing,
       redshiftDataShareAsset = Prelude.Nothing
     }
 
 -- | The S3 object that is the asset.
 assetDetails_s3SnapshotAsset :: Lens.Lens' AssetDetails (Prelude.Maybe S3SnapshotAsset)
 assetDetails_s3SnapshotAsset = Lens.lens (\AssetDetails' {s3SnapshotAsset} -> s3SnapshotAsset) (\s@AssetDetails' {} a -> s {s3SnapshotAsset = a} :: AssetDetails)
+
+-- | Information about the API Gateway API asset.
+assetDetails_apiGatewayApiAsset :: Lens.Lens' AssetDetails (Prelude.Maybe ApiGatewayApiAsset)
+assetDetails_apiGatewayApiAsset = Lens.lens (\AssetDetails' {apiGatewayApiAsset} -> apiGatewayApiAsset) (\s@AssetDetails' {} a -> s {apiGatewayApiAsset = a} :: AssetDetails)
 
 -- | The Amazon Redshift datashare that is the asset.
 assetDetails_redshiftDataShareAsset :: Lens.Lens' AssetDetails (Prelude.Maybe RedshiftDataShareAsset)
@@ -70,15 +80,18 @@ instance Core.FromJSON AssetDetails where
       ( \x ->
           AssetDetails'
             Prelude.<$> (x Core..:? "S3SnapshotAsset")
+            Prelude.<*> (x Core..:? "ApiGatewayApiAsset")
             Prelude.<*> (x Core..:? "RedshiftDataShareAsset")
       )
 
 instance Prelude.Hashable AssetDetails where
   hashWithSalt _salt AssetDetails' {..} =
     _salt `Prelude.hashWithSalt` s3SnapshotAsset
+      `Prelude.hashWithSalt` apiGatewayApiAsset
       `Prelude.hashWithSalt` redshiftDataShareAsset
 
 instance Prelude.NFData AssetDetails where
   rnf AssetDetails' {..} =
     Prelude.rnf s3SnapshotAsset
+      `Prelude.seq` Prelude.rnf apiGatewayApiAsset
       `Prelude.seq` Prelude.rnf redshiftDataShareAsset

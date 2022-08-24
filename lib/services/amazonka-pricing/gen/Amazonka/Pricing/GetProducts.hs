@@ -32,8 +32,8 @@ module Amazonka.Pricing.GetProducts
     getProducts_nextToken,
     getProducts_formatVersion,
     getProducts_filters,
-    getProducts_serviceCode,
     getProducts_maxResults,
+    getProducts_serviceCode,
 
     -- * Destructuring the Response
     GetProductsResponse (..),
@@ -66,10 +66,10 @@ data GetProducts = GetProducts'
     -- | The list of filters that limit the returned products. only products that
     -- match all filters are returned.
     filters :: Prelude.Maybe [Filter],
-    -- | The code for the service whose products you want to retrieve.
-    serviceCode :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The code for the service whose products you want to retrieve.
+    serviceCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -91,18 +91,20 @@ data GetProducts = GetProducts'
 -- 'filters', 'getProducts_filters' - The list of filters that limit the returned products. only products that
 -- match all filters are returned.
 --
--- 'serviceCode', 'getProducts_serviceCode' - The code for the service whose products you want to retrieve.
---
 -- 'maxResults', 'getProducts_maxResults' - The maximum number of results to return in the response.
+--
+-- 'serviceCode', 'getProducts_serviceCode' - The code for the service whose products you want to retrieve.
 newGetProducts ::
+  -- | 'serviceCode'
+  Prelude.Text ->
   GetProducts
-newGetProducts =
+newGetProducts pServiceCode_ =
   GetProducts'
     { nextToken = Prelude.Nothing,
       formatVersion = Prelude.Nothing,
       filters = Prelude.Nothing,
-      serviceCode = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      serviceCode = pServiceCode_
     }
 
 -- | The pagination token that indicates the next set of results that you
@@ -121,13 +123,13 @@ getProducts_formatVersion = Lens.lens (\GetProducts' {formatVersion} -> formatVe
 getProducts_filters :: Lens.Lens' GetProducts (Prelude.Maybe [Filter])
 getProducts_filters = Lens.lens (\GetProducts' {filters} -> filters) (\s@GetProducts' {} a -> s {filters = a} :: GetProducts) Prelude.. Lens.mapping Lens.coerced
 
--- | The code for the service whose products you want to retrieve.
-getProducts_serviceCode :: Lens.Lens' GetProducts (Prelude.Maybe Prelude.Text)
-getProducts_serviceCode = Lens.lens (\GetProducts' {serviceCode} -> serviceCode) (\s@GetProducts' {} a -> s {serviceCode = a} :: GetProducts)
-
 -- | The maximum number of results to return in the response.
 getProducts_maxResults :: Lens.Lens' GetProducts (Prelude.Maybe Prelude.Natural)
 getProducts_maxResults = Lens.lens (\GetProducts' {maxResults} -> maxResults) (\s@GetProducts' {} a -> s {maxResults = a} :: GetProducts)
+
+-- | The code for the service whose products you want to retrieve.
+getProducts_serviceCode :: Lens.Lens' GetProducts Prelude.Text
+getProducts_serviceCode = Lens.lens (\GetProducts' {serviceCode} -> serviceCode) (\s@GetProducts' {} a -> s {serviceCode = a} :: GetProducts)
 
 instance Core.AWSPager GetProducts where
   page rq rs
@@ -166,16 +168,16 @@ instance Prelude.Hashable GetProducts where
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` formatVersion
       `Prelude.hashWithSalt` filters
-      `Prelude.hashWithSalt` serviceCode
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` serviceCode
 
 instance Prelude.NFData GetProducts where
   rnf GetProducts' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf formatVersion
       `Prelude.seq` Prelude.rnf filters
-      `Prelude.seq` Prelude.rnf serviceCode
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf serviceCode
 
 instance Core.ToHeaders GetProducts where
   toHeaders =
@@ -199,8 +201,8 @@ instance Core.ToJSON GetProducts where
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("FormatVersion" Core..=) Prelude.<$> formatVersion,
             ("Filters" Core..=) Prelude.<$> filters,
-            ("ServiceCode" Core..=) Prelude.<$> serviceCode,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            Prelude.Just ("ServiceCode" Core..= serviceCode)
           ]
       )
 

@@ -216,7 +216,7 @@ instance Core.ToQuery DescribeServices where
 
 -- | /See:/ 'newDescribeServicesResponse' smart constructor.
 data DescribeServicesResponse = DescribeServicesResponse'
-  { -- | The pagination token for the next set of retreivable results.
+  { -- | The pagination token for the next set of retrievable results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The format version of the response. For example, @aws_v1@.
     formatVersion :: Prelude.Maybe Prelude.Text,
@@ -235,7 +235,7 @@ data DescribeServicesResponse = DescribeServicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeServicesResponse_nextToken' - The pagination token for the next set of retreivable results.
+-- 'nextToken', 'describeServicesResponse_nextToken' - The pagination token for the next set of retrievable results.
 --
 -- 'formatVersion', 'describeServicesResponse_formatVersion' - The format version of the response. For example, @aws_v1@.
 --
@@ -255,7 +255,7 @@ newDescribeServicesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token for the next set of retreivable results.
+-- | The pagination token for the next set of retrievable results.
 describeServicesResponse_nextToken :: Lens.Lens' DescribeServicesResponse (Prelude.Maybe Prelude.Text)
 describeServicesResponse_nextToken = Lens.lens (\DescribeServicesResponse' {nextToken} -> nextToken) (\s@DescribeServicesResponse' {} a -> s {nextToken = a} :: DescribeServicesResponse)
 

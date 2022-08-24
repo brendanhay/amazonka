@@ -31,7 +31,7 @@ data PricingService = PricingService'
   { -- | The attributes that are available for this service.
     attributeNames :: Prelude.Maybe [Prelude.Text],
     -- | The code for the Amazon Web Services service.
-    serviceCode :: Prelude.Maybe Prelude.Text
+    serviceCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -47,11 +47,13 @@ data PricingService = PricingService'
 --
 -- 'serviceCode', 'pricingService_serviceCode' - The code for the Amazon Web Services service.
 newPricingService ::
+  -- | 'serviceCode'
+  Prelude.Text ->
   PricingService
-newPricingService =
+newPricingService pServiceCode_ =
   PricingService'
     { attributeNames = Prelude.Nothing,
-      serviceCode = Prelude.Nothing
+      serviceCode = pServiceCode_
     }
 
 -- | The attributes that are available for this service.
@@ -59,7 +61,7 @@ pricingService_attributeNames :: Lens.Lens' PricingService (Prelude.Maybe [Prelu
 pricingService_attributeNames = Lens.lens (\PricingService' {attributeNames} -> attributeNames) (\s@PricingService' {} a -> s {attributeNames = a} :: PricingService) Prelude.. Lens.mapping Lens.coerced
 
 -- | The code for the Amazon Web Services service.
-pricingService_serviceCode :: Lens.Lens' PricingService (Prelude.Maybe Prelude.Text)
+pricingService_serviceCode :: Lens.Lens' PricingService Prelude.Text
 pricingService_serviceCode = Lens.lens (\PricingService' {serviceCode} -> serviceCode) (\s@PricingService' {} a -> s {serviceCode = a} :: PricingService)
 
 instance Core.FromJSON PricingService where
@@ -69,7 +71,7 @@ instance Core.FromJSON PricingService where
       ( \x ->
           PricingService'
             Prelude.<$> (x Core..:? "AttributeNames" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ServiceCode")
+            Prelude.<*> (x Core..: "ServiceCode")
       )
 
 instance Prelude.Hashable PricingService where

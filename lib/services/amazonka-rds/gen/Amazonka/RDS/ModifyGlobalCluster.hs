@@ -24,8 +24,8 @@
 -- or more database configuration parameters by specifying these parameters
 -- and the new values in the request. For more information on Amazon
 -- Aurora, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?>
--- in the /Amazon Aurora User Guide./
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
+-- in the /Amazon Aurora User Guide/.
 --
 -- This action only applies to Aurora DB clusters.
 module Amazonka.RDS.ModifyGlobalCluster
@@ -105,7 +105,8 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
     -- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
     --
     -- To list all of the available engine versions for @aurora-mysql@ (for
-    -- MySQL 5.7-compatible Aurora), use the following command:
+    -- MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following
+    -- command:
     --
     -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
     --
@@ -171,7 +172,8 @@ data ModifyGlobalCluster = ModifyGlobalCluster'
 -- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
 --
 -- To list all of the available engine versions for @aurora-mysql@ (for
--- MySQL 5.7-compatible Aurora), use the following command:
+-- MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following
+-- command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
 --
@@ -245,7 +247,8 @@ modifyGlobalCluster_newGlobalClusterIdentifier = Lens.lens (\ModifyGlobalCluster
 -- @aws rds describe-db-engine-versions --engine aurora --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
 --
 -- To list all of the available engine versions for @aurora-mysql@ (for
--- MySQL 5.7-compatible Aurora), use the following command:
+-- MySQL 5.7-compatible and MySQL 8.0-compatible Aurora), use the following
+-- command:
 --
 -- @aws rds describe-db-engine-versions --engine aurora-mysql --query \'*[]|[?SupportsGlobalDatabases == \`true\`].[EngineVersion]\'@
 --

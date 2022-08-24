@@ -19,10 +19,83 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.DescribeDBClusterSnapshots
+import Amazonka.RDS.DescribeDBClusters
 import Amazonka.RDS.DescribeDBInstances
 import Amazonka.RDS.DescribeDBSnapshots
 import Amazonka.RDS.Lens
 import Amazonka.RDS.Types
+
+-- | Polls 'Amazonka.RDS.DescribeDBClusters' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newDBClusterDeleted :: Core.Wait DescribeDBClusters
+newDBClusterDeleted =
+  Core.Wait
+    { Core._waitName = "DBClusterDeleted",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchNonEmpty
+            Prelude.True
+            Core.AcceptSuccess
+            ( describeDBClustersResponse_dbClusters
+                Prelude.. Lens._Just
+            ),
+          Core.matchError
+            "DBClusterNotFoundFault"
+            Core.AcceptSuccess,
+          Core.matchAny
+            "creating"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "modifying"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "rebooting"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "resetting-master-credentials"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
 
 -- | Polls 'Amazonka.RDS.DescribeDBClusterSnapshots' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
 newDBClusterSnapshotDeleted :: Core.Wait DescribeDBClusterSnapshots
@@ -458,6 +531,95 @@ newDBInstanceDeleted =
                     )
                 )
                 Prelude.. dbInstance_dbInstanceStatus
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Amazonka.RDS.DescribeDBClusters' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newDBClusterAvailable :: Core.Wait DescribeDBClusters
+newDBClusterAvailable =
+  Core.Wait
+    { Core._waitName = "DBClusterAvailable",
+      Core._waitAttempts = 60,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "available"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "deleted"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "deleting"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "failed"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "incompatible-restore"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "incompatible-parameters"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeDBClustersResponse_dbClusters
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. dbCluster_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )

@@ -52,7 +52,14 @@ data DBClusterSnapshot = DBClusterSnapshot'
     -- the Amazon Resource Name (ARN) for the source DB cluster snapshot,
     -- otherwise, a null value.
     sourceDBClusterSnapshotArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the status of this DB cluster snapshot.
+    -- | Specifies the status of this DB cluster snapshot. Valid statuses are the
+    -- following:
+    --
+    -- -   @available@
+    --
+    -- -   @copying@
+    --
+    -- -   @creating@
     status :: Prelude.Maybe Prelude.Text,
     -- | Provides the time when the snapshot was taken, in Universal Coordinated
     -- Time (UTC).
@@ -66,8 +73,7 @@ data DBClusterSnapshot = DBClusterSnapshot'
     -- identifier for the encrypted DB cluster snapshot.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the database engine for this DB cluster snapshot.
     engine :: Prelude.Maybe Prelude.Text,
@@ -123,7 +129,14 @@ data DBClusterSnapshot = DBClusterSnapshot'
 -- the Amazon Resource Name (ARN) for the source DB cluster snapshot,
 -- otherwise, a null value.
 --
--- 'status', 'dbClusterSnapshot_status' - Specifies the status of this DB cluster snapshot.
+-- 'status', 'dbClusterSnapshot_status' - Specifies the status of this DB cluster snapshot. Valid statuses are the
+-- following:
+--
+-- -   @available@
+--
+-- -   @copying@
+--
+-- -   @creating@
 --
 -- 'snapshotCreateTime', 'dbClusterSnapshot_snapshotCreateTime' - Provides the time when the snapshot was taken, in Universal Coordinated
 -- Time (UTC).
@@ -137,8 +150,7 @@ data DBClusterSnapshot = DBClusterSnapshot'
 -- identifier for the encrypted DB cluster snapshot.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- 'engine', 'dbClusterSnapshot_engine' - Specifies the name of the database engine for this DB cluster snapshot.
 --
@@ -226,7 +238,14 @@ dbClusterSnapshot_availabilityZones = Lens.lens (\DBClusterSnapshot' {availabili
 dbClusterSnapshot_sourceDBClusterSnapshotArn :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
 dbClusterSnapshot_sourceDBClusterSnapshotArn = Lens.lens (\DBClusterSnapshot' {sourceDBClusterSnapshotArn} -> sourceDBClusterSnapshotArn) (\s@DBClusterSnapshot' {} a -> s {sourceDBClusterSnapshotArn = a} :: DBClusterSnapshot)
 
--- | Specifies the status of this DB cluster snapshot.
+-- | Specifies the status of this DB cluster snapshot. Valid statuses are the
+-- following:
+--
+-- -   @available@
+--
+-- -   @copying@
+--
+-- -   @creating@
 dbClusterSnapshot_status :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
 dbClusterSnapshot_status = Lens.lens (\DBClusterSnapshot' {status} -> status) (\s@DBClusterSnapshot' {} a -> s {status = a} :: DBClusterSnapshot)
 
@@ -248,8 +267,7 @@ dbClusterSnapshot_storageEncrypted = Lens.lens (\DBClusterSnapshot' {storageEncr
 -- identifier for the encrypted DB cluster snapshot.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 dbClusterSnapshot_kmsKeyId :: Lens.Lens' DBClusterSnapshot (Prelude.Maybe Prelude.Text)
 dbClusterSnapshot_kmsKeyId = Lens.lens (\DBClusterSnapshot' {kmsKeyId} -> kmsKeyId) (\s@DBClusterSnapshot' {} a -> s {kmsKeyId = a} :: DBClusterSnapshot)
 

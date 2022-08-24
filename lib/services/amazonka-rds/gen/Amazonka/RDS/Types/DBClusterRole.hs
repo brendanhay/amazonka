@@ -32,8 +32,8 @@ data DBClusterRole = DBClusterRole'
     -- the DB cluster.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the feature associated with the Amazon Web Services Identity
-    -- and Access Management (IAM) role. For the list of supported feature
-    -- names, see DBEngineVersion.
+    -- and Access Management (IAM) role. For information about supported
+    -- feature names, see DBEngineVersion.
     featureName :: Prelude.Maybe Prelude.Text,
     -- | Describes the state of association between the IAM role and the DB
     -- cluster. The Status property returns one of the following values:
@@ -63,8 +63,8 @@ data DBClusterRole = DBClusterRole'
 -- the DB cluster.
 --
 -- 'featureName', 'dbClusterRole_featureName' - The name of the feature associated with the Amazon Web Services Identity
--- and Access Management (IAM) role. For the list of supported feature
--- names, see DBEngineVersion.
+-- and Access Management (IAM) role. For information about supported
+-- feature names, see DBEngineVersion.
 --
 -- 'status', 'dbClusterRole_status' - Describes the state of association between the IAM role and the DB
 -- cluster. The Status property returns one of the following values:
@@ -93,8 +93,8 @@ dbClusterRole_roleArn :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
 dbClusterRole_roleArn = Lens.lens (\DBClusterRole' {roleArn} -> roleArn) (\s@DBClusterRole' {} a -> s {roleArn = a} :: DBClusterRole)
 
 -- | The name of the feature associated with the Amazon Web Services Identity
--- and Access Management (IAM) role. For the list of supported feature
--- names, see DBEngineVersion.
+-- and Access Management (IAM) role. For information about supported
+-- feature names, see DBEngineVersion.
 dbClusterRole_featureName :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
 dbClusterRole_featureName = Lens.lens (\DBClusterRole' {featureName} -> featureName) (\s@DBClusterRole' {} a -> s {featureName = a} :: DBClusterRole)
 

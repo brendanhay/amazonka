@@ -84,8 +84,10 @@ data DeleteDBInstance = DeleteDBInstance'
   { -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
     -- @SkipFinalSnapshot@ parameter is disabled.
     --
-    -- Specifying this parameter and also specifying to skip final DB snapshot
-    -- creation in SkipFinalShapshot results in an error.
+    -- If you enable this parameter and also enable SkipFinalShapshot, the
+    -- command results in an error.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     --
     -- Constraints:
     --
@@ -103,19 +105,22 @@ data DeleteDBInstance = DeleteDBInstance'
     -- instance is deleted.
     deleteAutomatedBackups :: Prelude.Maybe Prelude.Bool,
     -- | A value that indicates whether to skip the creation of a final DB
-    -- snapshot before the DB instance is deleted. If skip is specified, no DB
-    -- snapshot is created. If skip isn\'t specified, a DB snapshot is created
-    -- before the DB instance is deleted. By default, skip isn\'t specified,
-    -- and the DB snapshot is created.
+    -- snapshot before deleting the instance. If you enable this parameter, RDS
+    -- doesn\'t create a DB snapshot. If you don\'t enable this parameter, RDS
+    -- creates a DB snapshot before the DB instance is deleted. By default,
+    -- skip isn\'t enabled, and the DB snapshot is created.
     --
-    -- When a DB instance is in a failure state and has a status of \'failed\',
-    -- \'incompatible-restore\', or \'incompatible-network\', it can only be
-    -- deleted when skip is specified.
+    -- If you don\'t enable this parameter, you must specify the
+    -- @FinalDBSnapshotIdentifier@ parameter.
     --
-    -- Specify skip when deleting a read replica.
+    -- When a DB instance is in a failure state and has a status of @failed@,
+    -- @incompatible-restore@, or @incompatible-network@, RDS can delete the
+    -- instance only if you enable this parameter.
     --
-    -- The FinalDBSnapshotIdentifier parameter must be specified if skip isn\'t
-    -- specified.
+    -- If you delete a read replica or an RDS Custom instance, you must enable
+    -- this setting.
+    --
+    -- This setting is required for RDS Custom.
     skipFinalSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | The DB instance identifier for the DB instance to be deleted. This
     -- parameter isn\'t case-sensitive.
@@ -138,8 +143,10 @@ data DeleteDBInstance = DeleteDBInstance'
 -- 'finalDBSnapshotIdentifier', 'deleteDBInstance_finalDBSnapshotIdentifier' - The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
 -- @SkipFinalSnapshot@ parameter is disabled.
 --
--- Specifying this parameter and also specifying to skip final DB snapshot
--- creation in SkipFinalShapshot results in an error.
+-- If you enable this parameter and also enable SkipFinalShapshot, the
+-- command results in an error.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- Constraints:
 --
@@ -157,19 +164,22 @@ data DeleteDBInstance = DeleteDBInstance'
 -- instance is deleted.
 --
 -- 'skipFinalSnapshot', 'deleteDBInstance_skipFinalSnapshot' - A value that indicates whether to skip the creation of a final DB
--- snapshot before the DB instance is deleted. If skip is specified, no DB
--- snapshot is created. If skip isn\'t specified, a DB snapshot is created
--- before the DB instance is deleted. By default, skip isn\'t specified,
--- and the DB snapshot is created.
+-- snapshot before deleting the instance. If you enable this parameter, RDS
+-- doesn\'t create a DB snapshot. If you don\'t enable this parameter, RDS
+-- creates a DB snapshot before the DB instance is deleted. By default,
+-- skip isn\'t enabled, and the DB snapshot is created.
 --
--- When a DB instance is in a failure state and has a status of \'failed\',
--- \'incompatible-restore\', or \'incompatible-network\', it can only be
--- deleted when skip is specified.
+-- If you don\'t enable this parameter, you must specify the
+-- @FinalDBSnapshotIdentifier@ parameter.
 --
--- Specify skip when deleting a read replica.
+-- When a DB instance is in a failure state and has a status of @failed@,
+-- @incompatible-restore@, or @incompatible-network@, RDS can delete the
+-- instance only if you enable this parameter.
 --
--- The FinalDBSnapshotIdentifier parameter must be specified if skip isn\'t
--- specified.
+-- If you delete a read replica or an RDS Custom instance, you must enable
+-- this setting.
+--
+-- This setting is required for RDS Custom.
 --
 -- 'dbInstanceIdentifier', 'deleteDBInstance_dbInstanceIdentifier' - The DB instance identifier for the DB instance to be deleted. This
 -- parameter isn\'t case-sensitive.
@@ -193,8 +203,10 @@ newDeleteDBInstance pDBInstanceIdentifier_ =
 -- | The @DBSnapshotIdentifier@ of the new @DBSnapshot@ created when the
 -- @SkipFinalSnapshot@ parameter is disabled.
 --
--- Specifying this parameter and also specifying to skip final DB snapshot
--- creation in SkipFinalShapshot results in an error.
+-- If you enable this parameter and also enable SkipFinalShapshot, the
+-- command results in an error.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- Constraints:
 --
@@ -216,19 +228,22 @@ deleteDBInstance_deleteAutomatedBackups :: Lens.Lens' DeleteDBInstance (Prelude.
 deleteDBInstance_deleteAutomatedBackups = Lens.lens (\DeleteDBInstance' {deleteAutomatedBackups} -> deleteAutomatedBackups) (\s@DeleteDBInstance' {} a -> s {deleteAutomatedBackups = a} :: DeleteDBInstance)
 
 -- | A value that indicates whether to skip the creation of a final DB
--- snapshot before the DB instance is deleted. If skip is specified, no DB
--- snapshot is created. If skip isn\'t specified, a DB snapshot is created
--- before the DB instance is deleted. By default, skip isn\'t specified,
--- and the DB snapshot is created.
+-- snapshot before deleting the instance. If you enable this parameter, RDS
+-- doesn\'t create a DB snapshot. If you don\'t enable this parameter, RDS
+-- creates a DB snapshot before the DB instance is deleted. By default,
+-- skip isn\'t enabled, and the DB snapshot is created.
 --
--- When a DB instance is in a failure state and has a status of \'failed\',
--- \'incompatible-restore\', or \'incompatible-network\', it can only be
--- deleted when skip is specified.
+-- If you don\'t enable this parameter, you must specify the
+-- @FinalDBSnapshotIdentifier@ parameter.
 --
--- Specify skip when deleting a read replica.
+-- When a DB instance is in a failure state and has a status of @failed@,
+-- @incompatible-restore@, or @incompatible-network@, RDS can delete the
+-- instance only if you enable this parameter.
 --
--- The FinalDBSnapshotIdentifier parameter must be specified if skip isn\'t
--- specified.
+-- If you delete a read replica or an RDS Custom instance, you must enable
+-- this setting.
+--
+-- This setting is required for RDS Custom.
 deleteDBInstance_skipFinalSnapshot :: Lens.Lens' DeleteDBInstance (Prelude.Maybe Prelude.Bool)
 deleteDBInstance_skipFinalSnapshot = Lens.lens (\DeleteDBInstance' {skipFinalSnapshot} -> skipFinalSnapshot) (\s@DeleteDBInstance' {} a -> s {skipFinalSnapshot = a} :: DeleteDBInstance)
 

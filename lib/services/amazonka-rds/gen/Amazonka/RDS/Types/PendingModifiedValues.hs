@@ -22,6 +22,7 @@ module Amazonka.RDS.Types.PendingModifiedValues where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.RDS.Types.AutomationMode
 import Amazonka.RDS.Types.PendingCloudwatchLogsExports
 import Amazonka.RDS.Types.ProcessorFeature
 
@@ -37,11 +38,20 @@ data PendingModifiedValues = PendingModifiedValues'
     backupRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | The name of the compute and memory capacity class for the DB instance.
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
+    -- | The automation mode of the RDS Custom DB instance: @full@ or
+    -- @all-paused@. If @full@, the DB instance automates monitoring and
+    -- instance recovery. If @all-paused@, the instance pauses automation for
+    -- the duration set by @--resume-full-automation-mode-minutes@.
+    automationMode :: Prelude.Maybe AutomationMode,
     -- | The DB subnet group for the DB instance.
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The database identifier for the DB instance.
     dbInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     pendingCloudwatchLogsExports :: Prelude.Maybe PendingCloudwatchLogsExports,
+    -- | The number of minutes to pause the automation. When the time period
+    -- ends, RDS Custom resumes full automation. The minimum value is 60
+    -- (default). The maximum value is 1,440.
+    resumeFullAutomationModeTime :: Prelude.Maybe Core.ISO8601,
     -- | The master credentials for the DB instance.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | The storage type of the DB instance.
@@ -86,11 +96,20 @@ data PendingModifiedValues = PendingModifiedValues'
 --
 -- 'dbInstanceClass', 'pendingModifiedValues_dbInstanceClass' - The name of the compute and memory capacity class for the DB instance.
 --
+-- 'automationMode', 'pendingModifiedValues_automationMode' - The automation mode of the RDS Custom DB instance: @full@ or
+-- @all-paused@. If @full@, the DB instance automates monitoring and
+-- instance recovery. If @all-paused@, the instance pauses automation for
+-- the duration set by @--resume-full-automation-mode-minutes@.
+--
 -- 'dbSubnetGroupName', 'pendingModifiedValues_dbSubnetGroupName' - The DB subnet group for the DB instance.
 --
 -- 'dbInstanceIdentifier', 'pendingModifiedValues_dbInstanceIdentifier' - The database identifier for the DB instance.
 --
 -- 'pendingCloudwatchLogsExports', 'pendingModifiedValues_pendingCloudwatchLogsExports' - Undocumented member.
+--
+-- 'resumeFullAutomationModeTime', 'pendingModifiedValues_resumeFullAutomationModeTime' - The number of minutes to pause the automation. When the time period
+-- ends, RDS Custom resumes full automation. The minimum value is 60
+-- (default). The maximum value is 1,440.
 --
 -- 'masterUserPassword', 'pendingModifiedValues_masterUserPassword' - The master credentials for the DB instance.
 --
@@ -125,9 +144,11 @@ newPendingModifiedValues =
     { port = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
+      automationMode = Prelude.Nothing,
       dbSubnetGroupName = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
       pendingCloudwatchLogsExports = Prelude.Nothing,
+      resumeFullAutomationModeTime = Prelude.Nothing,
       masterUserPassword = Prelude.Nothing,
       storageType = Prelude.Nothing,
       processorFeatures = Prelude.Nothing,
@@ -152,6 +173,13 @@ pendingModifiedValues_backupRetentionPeriod = Lens.lens (\PendingModifiedValues'
 pendingModifiedValues_dbInstanceClass :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_dbInstanceClass = Lens.lens (\PendingModifiedValues' {dbInstanceClass} -> dbInstanceClass) (\s@PendingModifiedValues' {} a -> s {dbInstanceClass = a} :: PendingModifiedValues)
 
+-- | The automation mode of the RDS Custom DB instance: @full@ or
+-- @all-paused@. If @full@, the DB instance automates monitoring and
+-- instance recovery. If @all-paused@, the instance pauses automation for
+-- the duration set by @--resume-full-automation-mode-minutes@.
+pendingModifiedValues_automationMode :: Lens.Lens' PendingModifiedValues (Prelude.Maybe AutomationMode)
+pendingModifiedValues_automationMode = Lens.lens (\PendingModifiedValues' {automationMode} -> automationMode) (\s@PendingModifiedValues' {} a -> s {automationMode = a} :: PendingModifiedValues)
+
 -- | The DB subnet group for the DB instance.
 pendingModifiedValues_dbSubnetGroupName :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_dbSubnetGroupName = Lens.lens (\PendingModifiedValues' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@PendingModifiedValues' {} a -> s {dbSubnetGroupName = a} :: PendingModifiedValues)
@@ -163,6 +191,12 @@ pendingModifiedValues_dbInstanceIdentifier = Lens.lens (\PendingModifiedValues' 
 -- | Undocumented member.
 pendingModifiedValues_pendingCloudwatchLogsExports :: Lens.Lens' PendingModifiedValues (Prelude.Maybe PendingCloudwatchLogsExports)
 pendingModifiedValues_pendingCloudwatchLogsExports = Lens.lens (\PendingModifiedValues' {pendingCloudwatchLogsExports} -> pendingCloudwatchLogsExports) (\s@PendingModifiedValues' {} a -> s {pendingCloudwatchLogsExports = a} :: PendingModifiedValues)
+
+-- | The number of minutes to pause the automation. When the time period
+-- ends, RDS Custom resumes full automation. The minimum value is 60
+-- (default). The maximum value is 1,440.
+pendingModifiedValues_resumeFullAutomationModeTime :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.UTCTime)
+pendingModifiedValues_resumeFullAutomationModeTime = Lens.lens (\PendingModifiedValues' {resumeFullAutomationModeTime} -> resumeFullAutomationModeTime) (\s@PendingModifiedValues' {} a -> s {resumeFullAutomationModeTime = a} :: PendingModifiedValues) Prelude.. Lens.mapping Core._Time
 
 -- | The master credentials for the DB instance.
 pendingModifiedValues_masterUserPassword :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
@@ -217,9 +251,11 @@ instance Core.FromXML PendingModifiedValues where
       Prelude.<$> (x Core..@? "Port")
       Prelude.<*> (x Core..@? "BackupRetentionPeriod")
       Prelude.<*> (x Core..@? "DBInstanceClass")
+      Prelude.<*> (x Core..@? "AutomationMode")
       Prelude.<*> (x Core..@? "DBSubnetGroupName")
       Prelude.<*> (x Core..@? "DBInstanceIdentifier")
       Prelude.<*> (x Core..@? "PendingCloudwatchLogsExports")
+      Prelude.<*> (x Core..@? "ResumeFullAutomationModeTime")
       Prelude.<*> (x Core..@? "MasterUserPassword")
       Prelude.<*> (x Core..@? "StorageType")
       Prelude.<*> ( x Core..@? "ProcessorFeatures"
@@ -239,9 +275,11 @@ instance Prelude.Hashable PendingModifiedValues where
     _salt `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbInstanceClass
+      `Prelude.hashWithSalt` automationMode
       `Prelude.hashWithSalt` dbSubnetGroupName
       `Prelude.hashWithSalt` dbInstanceIdentifier
       `Prelude.hashWithSalt` pendingCloudwatchLogsExports
+      `Prelude.hashWithSalt` resumeFullAutomationModeTime
       `Prelude.hashWithSalt` masterUserPassword
       `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` processorFeatures
@@ -258,15 +296,18 @@ instance Prelude.NFData PendingModifiedValues where
     Prelude.rnf port
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf dbInstanceClass
+      `Prelude.seq` Prelude.rnf automationMode
       `Prelude.seq` Prelude.rnf dbSubnetGroupName
       `Prelude.seq` Prelude.rnf dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf pendingCloudwatchLogsExports
+      `Prelude.seq` Prelude.rnf resumeFullAutomationModeTime
       `Prelude.seq` Prelude.rnf masterUserPassword
       `Prelude.seq` Prelude.rnf storageType
       `Prelude.seq` Prelude.rnf processorFeatures
       `Prelude.seq` Prelude.rnf cACertificateIdentifier
       `Prelude.seq` Prelude.rnf allocatedStorage
-      `Prelude.seq` Prelude.rnf iAMDatabaseAuthenticationEnabled
+      `Prelude.seq` Prelude.rnf
+        iAMDatabaseAuthenticationEnabled
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf multiAZ

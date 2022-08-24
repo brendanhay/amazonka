@@ -36,8 +36,11 @@ data DBProxy = DBProxy'
     dbProxyArn :: Prelude.Maybe Prelude.Text,
     -- | Provides a list of VPC security groups that the proxy belongs to.
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The engine family applies to MySQL and PostgreSQL for both RDS and
-    -- Aurora.
+    -- | The kinds of databases that the proxy can connect to. This value
+    -- determines which database network protocol the proxy recognizes when it
+    -- interprets network traffic to and from the database. @MYSQL@ supports
+    -- Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases. @POSTGRESQL@
+    -- supports Aurora PostgreSQL and RDS for PostgreSQL databases.
     engineFamily :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the IAM role that the proxy uses to
     -- access Amazon Secrets Manager.
@@ -100,8 +103,11 @@ data DBProxy = DBProxy'
 --
 -- 'vpcSecurityGroupIds', 'dbProxy_vpcSecurityGroupIds' - Provides a list of VPC security groups that the proxy belongs to.
 --
--- 'engineFamily', 'dbProxy_engineFamily' - The engine family applies to MySQL and PostgreSQL for both RDS and
--- Aurora.
+-- 'engineFamily', 'dbProxy_engineFamily' - The kinds of databases that the proxy can connect to. This value
+-- determines which database network protocol the proxy recognizes when it
+-- interprets network traffic to and from the database. @MYSQL@ supports
+-- Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases. @POSTGRESQL@
+-- supports Aurora PostgreSQL and RDS for PostgreSQL databases.
 --
 -- 'roleArn', 'dbProxy_roleArn' - The Amazon Resource Name (ARN) for the IAM role that the proxy uses to
 -- access Amazon Secrets Manager.
@@ -177,8 +183,11 @@ dbProxy_dbProxyArn = Lens.lens (\DBProxy' {dbProxyArn} -> dbProxyArn) (\s@DBProx
 dbProxy_vpcSecurityGroupIds :: Lens.Lens' DBProxy (Prelude.Maybe [Prelude.Text])
 dbProxy_vpcSecurityGroupIds = Lens.lens (\DBProxy' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@DBProxy' {} a -> s {vpcSecurityGroupIds = a} :: DBProxy) Prelude.. Lens.mapping Lens.coerced
 
--- | The engine family applies to MySQL and PostgreSQL for both RDS and
--- Aurora.
+-- | The kinds of databases that the proxy can connect to. This value
+-- determines which database network protocol the proxy recognizes when it
+-- interprets network traffic to and from the database. @MYSQL@ supports
+-- Aurora MySQL, RDS for MariaDB, and RDS for MySQL databases. @POSTGRESQL@
+-- supports Aurora PostgreSQL and RDS for PostgreSQL databases.
 dbProxy_engineFamily :: Lens.Lens' DBProxy (Prelude.Maybe Prelude.Text)
 dbProxy_engineFamily = Lens.lens (\DBProxy' {engineFamily} -> engineFamily) (\s@DBProxy' {} a -> s {engineFamily = a} :: DBProxy)
 

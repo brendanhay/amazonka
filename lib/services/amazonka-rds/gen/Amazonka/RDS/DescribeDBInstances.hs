@@ -78,12 +78,12 @@ data DescribeDBInstances = DescribeDBInstances'
     -- Supported filters:
     --
     -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
-    --     Amazon Resource Names (ARNs). The results list will only include
+    --     Amazon Resource Names (ARNs). The results list only includes
     --     information about the DB instances associated with the DB clusters
     --     identified by these ARNs.
     --
     -- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance
-    --     Amazon Resource Names (ARNs). The results list will only include
+    --     Amazon Resource Names (ARNs). The results list only includes
     --     information about the DB instances identified by these ARNs.
     --
     -- -   @dbi-resource-id@ - Accepts DB instance resource identifiers. The
@@ -91,10 +91,10 @@ data DescribeDBInstances = DescribeDBInstances'
     --     identified by these DB instance resource identifiers.
     --
     -- -   @domain@ - Accepts Active Directory directory IDs. The results list
-    --     will only include information about the DB instances associated with
+    --     only includes information about the DB instances associated with
     --     these domains.
     --
-    -- -   @engine@ - Accepts engine names. The results list will only include
+    -- -   @engine@ - Accepts engine names. The results list only includes
     --     information about the DB instances for these engines.
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
@@ -135,12 +135,12 @@ data DescribeDBInstances = DescribeDBInstances'
 -- Supported filters:
 --
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
---     Amazon Resource Names (ARNs). The results list will only include
+--     Amazon Resource Names (ARNs). The results list only includes
 --     information about the DB instances associated with the DB clusters
 --     identified by these ARNs.
 --
 -- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance
---     Amazon Resource Names (ARNs). The results list will only include
+--     Amazon Resource Names (ARNs). The results list only includes
 --     information about the DB instances identified by these ARNs.
 --
 -- -   @dbi-resource-id@ - Accepts DB instance resource identifiers. The
@@ -148,10 +148,10 @@ data DescribeDBInstances = DescribeDBInstances'
 --     identified by these DB instance resource identifiers.
 --
 -- -   @domain@ - Accepts Active Directory directory IDs. The results list
---     will only include information about the DB instances associated with
+--     only includes information about the DB instances associated with
 --     these domains.
 --
--- -   @engine@ - Accepts engine names. The results list will only include
+-- -   @engine@ - Accepts engine names. The results list only includes
 --     information about the DB instances for these engines.
 --
 -- 'maxRecords', 'describeDBInstances_maxRecords' - The maximum number of records to include in the response. If more
@@ -194,12 +194,12 @@ describeDBInstances_dbInstanceIdentifier = Lens.lens (\DescribeDBInstances' {dbI
 -- Supported filters:
 --
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
---     Amazon Resource Names (ARNs). The results list will only include
+--     Amazon Resource Names (ARNs). The results list only includes
 --     information about the DB instances associated with the DB clusters
 --     identified by these ARNs.
 --
 -- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance
---     Amazon Resource Names (ARNs). The results list will only include
+--     Amazon Resource Names (ARNs). The results list only includes
 --     information about the DB instances identified by these ARNs.
 --
 -- -   @dbi-resource-id@ - Accepts DB instance resource identifiers. The
@@ -207,10 +207,10 @@ describeDBInstances_dbInstanceIdentifier = Lens.lens (\DescribeDBInstances' {dbI
 --     identified by these DB instance resource identifiers.
 --
 -- -   @domain@ - Accepts Active Directory directory IDs. The results list
---     will only include information about the DB instances associated with
+--     only includes information about the DB instances associated with
 --     these domains.
 --
--- -   @engine@ - Accepts engine names. The results list will only include
+-- -   @engine@ - Accepts engine names. The results list only includes
 --     information about the DB instances for these engines.
 describeDBInstances_filters :: Lens.Lens' DescribeDBInstances (Prelude.Maybe [Filter])
 describeDBInstances_filters = Lens.lens (\DescribeDBInstances' {filters} -> filters) (\s@DescribeDBInstances' {} a -> s {filters = a} :: DescribeDBInstances) Prelude.. Lens.mapping Lens.coerced

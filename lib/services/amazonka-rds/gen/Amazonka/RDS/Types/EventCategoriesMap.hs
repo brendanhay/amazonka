@@ -24,7 +24,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the results of a successful invocation of the
--- @DescribeEventCategories@ operation.
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html DescribeEventCategories>
+-- operation.
 --
 -- /See:/ 'newEventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'

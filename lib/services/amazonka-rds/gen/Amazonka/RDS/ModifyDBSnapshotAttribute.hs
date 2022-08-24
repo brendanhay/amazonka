@@ -41,8 +41,8 @@
 --
 -- To view which Amazon Web Services accounts have access to copy or
 -- restore a manual DB snapshot, or whether a manual DB snapshot public or
--- private, use the DescribeDBSnapshotAttributes API action. The accounts
--- are returned as values for the @restore@ attribute.
+-- private, use the DescribeDBSnapshotAttributes API operation. The
+-- accounts are returned as values for the @restore@ attribute.
 module Amazonka.RDS.ModifyDBSnapshotAttribute
   ( -- * Creating a Request
     ModifyDBSnapshotAttribute (..),
@@ -104,7 +104,7 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
     -- or restore a manual DB snapshot, set this value to @restore@.
     --
     -- To view the list of attributes available to modify, use the
-    -- DescribeDBSnapshotAttributes API action.
+    -- DescribeDBSnapshotAttributes API operation.
     attributeName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -146,7 +146,7 @@ data ModifyDBSnapshotAttribute = ModifyDBSnapshotAttribute'
 -- or restore a manual DB snapshot, set this value to @restore@.
 --
 -- To view the list of attributes available to modify, use the
--- DescribeDBSnapshotAttributes API action.
+-- DescribeDBSnapshotAttributes API operation.
 newModifyDBSnapshotAttribute ::
   -- | 'dbSnapshotIdentifier'
   Prelude.Text ->
@@ -199,7 +199,7 @@ modifyDBSnapshotAttribute_dbSnapshotIdentifier = Lens.lens (\ModifyDBSnapshotAtt
 -- or restore a manual DB snapshot, set this value to @restore@.
 --
 -- To view the list of attributes available to modify, use the
--- DescribeDBSnapshotAttributes API action.
+-- DescribeDBSnapshotAttributes API operation.
 modifyDBSnapshotAttribute_attributeName :: Lens.Lens' ModifyDBSnapshotAttribute Prelude.Text
 modifyDBSnapshotAttribute_attributeName = Lens.lens (\ModifyDBSnapshotAttribute' {attributeName} -> attributeName) (\s@ModifyDBSnapshotAttribute' {} a -> s {attributeName = a} :: ModifyDBSnapshotAttribute)
 

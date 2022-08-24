@@ -20,29 +20,30 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Set the capacity of an Aurora Serverless DB cluster to a specific value.
+-- Set the capacity of an Aurora Serverless v1 DB cluster to a specific
+-- value.
 --
--- Aurora Serverless scales seamlessly based on the workload on the DB
+-- Aurora Serverless v1 scales seamlessly based on the workload on the DB
 -- cluster. In some cases, the capacity might not scale fast enough to meet
 -- a sudden change in workload, such as a large number of new transactions.
 -- Call @ModifyCurrentDBClusterCapacity@ to set the capacity explicitly.
 --
--- After this call sets the DB cluster capacity, Aurora Serverless can
+-- After this call sets the DB cluster capacity, Aurora Serverless v1 can
 -- automatically scale the DB cluster based on the cooldown period for
 -- scaling up and the cooldown period for scaling down.
 --
--- For more information about Aurora Serverless, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless>
+-- For more information about Aurora Serverless v1, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
 --
 -- If you call @ModifyCurrentDBClusterCapacity@ with the default
--- @TimeoutAction@, connections that prevent Aurora Serverless from finding
--- a scaling point might be dropped. For more information about scaling
--- points, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless>
+-- @TimeoutAction@, connections that prevent Aurora Serverless v1 from
+-- finding a scaling point might be dropped. For more information about
+-- scaling points, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
 --
--- This action only applies to Aurora Serverless DB clusters.
+-- This action only applies to Aurora Serverless v1 DB clusters.
 module Amazonka.RDS.ModifyCurrentDBClusterCapacity
   ( -- * Creating a Request
     ModifyCurrentDBClusterCapacity (..),
@@ -86,16 +87,16 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
     -- @RollbackCapacityChange@ ignores the capacity change if a scaling point
     -- isn\'t found in the timeout period.
     timeoutAction :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time, in seconds, that Aurora Serverless tries to find a
-    -- scaling point to perform seamless scaling before enforcing the timeout
+    -- | The amount of time, in seconds, that Aurora Serverless v1 tries to find
+    -- a scaling point to perform seamless scaling before enforcing the timeout
     -- action. The default is 300.
     --
     -- Specify a value between 10 and 600 seconds.
     secondsBeforeTimeout :: Prelude.Maybe Prelude.Int,
     -- | The DB cluster capacity.
     --
-    -- When you change the capacity of a paused Aurora Serverless DB cluster,
-    -- it automatically resumes.
+    -- When you change the capacity of a paused Aurora Serverless v1 DB
+    -- cluster, it automatically resumes.
     --
     -- Constraints:
     --
@@ -132,16 +133,16 @@ data ModifyCurrentDBClusterCapacity = ModifyCurrentDBClusterCapacity'
 -- @RollbackCapacityChange@ ignores the capacity change if a scaling point
 -- isn\'t found in the timeout period.
 --
--- 'secondsBeforeTimeout', 'modifyCurrentDBClusterCapacity_secondsBeforeTimeout' - The amount of time, in seconds, that Aurora Serverless tries to find a
--- scaling point to perform seamless scaling before enforcing the timeout
+-- 'secondsBeforeTimeout', 'modifyCurrentDBClusterCapacity_secondsBeforeTimeout' - The amount of time, in seconds, that Aurora Serverless v1 tries to find
+-- a scaling point to perform seamless scaling before enforcing the timeout
 -- action. The default is 300.
 --
 -- Specify a value between 10 and 600 seconds.
 --
 -- 'capacity', 'modifyCurrentDBClusterCapacity_capacity' - The DB cluster capacity.
 --
--- When you change the capacity of a paused Aurora Serverless DB cluster,
--- it automatically resumes.
+-- When you change the capacity of a paused Aurora Serverless v1 DB
+-- cluster, it automatically resumes.
 --
 -- Constraints:
 --
@@ -182,8 +183,8 @@ newModifyCurrentDBClusterCapacity
 modifyCurrentDBClusterCapacity_timeoutAction :: Lens.Lens' ModifyCurrentDBClusterCapacity (Prelude.Maybe Prelude.Text)
 modifyCurrentDBClusterCapacity_timeoutAction = Lens.lens (\ModifyCurrentDBClusterCapacity' {timeoutAction} -> timeoutAction) (\s@ModifyCurrentDBClusterCapacity' {} a -> s {timeoutAction = a} :: ModifyCurrentDBClusterCapacity)
 
--- | The amount of time, in seconds, that Aurora Serverless tries to find a
--- scaling point to perform seamless scaling before enforcing the timeout
+-- | The amount of time, in seconds, that Aurora Serverless v1 tries to find
+-- a scaling point to perform seamless scaling before enforcing the timeout
 -- action. The default is 300.
 --
 -- Specify a value between 10 and 600 seconds.
@@ -192,8 +193,8 @@ modifyCurrentDBClusterCapacity_secondsBeforeTimeout = Lens.lens (\ModifyCurrentD
 
 -- | The DB cluster capacity.
 --
--- When you change the capacity of a paused Aurora Serverless DB cluster,
--- it automatically resumes.
+-- When you change the capacity of a paused Aurora Serverless v1 DB
+-- cluster, it automatically resumes.
 --
 -- Constraints:
 --

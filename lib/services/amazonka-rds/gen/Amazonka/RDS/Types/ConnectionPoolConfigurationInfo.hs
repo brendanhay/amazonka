@@ -29,12 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newConnectionPoolConfigurationInfo' smart constructor.
 data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
   { -- | Controls how actively the proxy closes idle database connections in the
-    -- connection pool. A high value enables the proxy to leave a high
-    -- percentage of idle connections open. A low value causes the proxy to
-    -- close idle client connections and return the underlying database
-    -- connections to the connection pool. For Aurora MySQL, it is expressed as
-    -- a percentage of the @max_connections@ setting for the RDS DB instance or
-    -- Aurora DB cluster used by the target group.
+    -- connection pool. The value is expressed as a percentage of the
+    -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+    -- used by the target group. With a high value, the proxy leaves a high
+    -- percentage of idle database connections open. A low value causes the
+    -- proxy to close more idle connections and return them to the database.
     maxIdleConnectionsPercent :: Prelude.Maybe Prelude.Int,
     -- | One or more SQL statements for the proxy to run when opening each new
     -- database connection. Typically used with @SET@ statements to make sure
@@ -49,9 +48,9 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
     -- client sessions.
     connectionBorrowTimeout :: Prelude.Maybe Prelude.Int,
     -- | The maximum size of the connection pool for each target in a target
-    -- group. For Aurora MySQL, it is expressed as a percentage of the
-    -- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
-    -- used by the target group.
+    -- group. The value is expressed as a percentage of the @max_connections@
+    -- setting for the RDS DB instance or Aurora DB cluster used by the target
+    -- group.
     maxConnectionsPercent :: Prelude.Maybe Prelude.Int,
     -- | Each item in the list represents a class of SQL operations that normally
     -- cause all later statements in a session using a proxy to be pinned to
@@ -71,12 +70,11 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
 -- for backwards compatibility:
 --
 -- 'maxIdleConnectionsPercent', 'connectionPoolConfigurationInfo_maxIdleConnectionsPercent' - Controls how actively the proxy closes idle database connections in the
--- connection pool. A high value enables the proxy to leave a high
--- percentage of idle connections open. A low value causes the proxy to
--- close idle client connections and return the underlying database
--- connections to the connection pool. For Aurora MySQL, it is expressed as
--- a percentage of the @max_connections@ setting for the RDS DB instance or
--- Aurora DB cluster used by the target group.
+-- connection pool. The value is expressed as a percentage of the
+-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+-- used by the target group. With a high value, the proxy leaves a high
+-- percentage of idle database connections open. A low value causes the
+-- proxy to close more idle connections and return them to the database.
 --
 -- 'initQuery', 'connectionPoolConfigurationInfo_initQuery' - One or more SQL statements for the proxy to run when opening each new
 -- database connection. Typically used with @SET@ statements to make sure
@@ -91,9 +89,9 @@ data ConnectionPoolConfigurationInfo = ConnectionPoolConfigurationInfo'
 -- client sessions.
 --
 -- 'maxConnectionsPercent', 'connectionPoolConfigurationInfo_maxConnectionsPercent' - The maximum size of the connection pool for each target in a target
--- group. For Aurora MySQL, it is expressed as a percentage of the
--- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
--- used by the target group.
+-- group. The value is expressed as a percentage of the @max_connections@
+-- setting for the RDS DB instance or Aurora DB cluster used by the target
+-- group.
 --
 -- 'sessionPinningFilters', 'connectionPoolConfigurationInfo_sessionPinningFilters' - Each item in the list represents a class of SQL operations that normally
 -- cause all later statements in a session using a proxy to be pinned to
@@ -113,12 +111,11 @@ newConnectionPoolConfigurationInfo =
     }
 
 -- | Controls how actively the proxy closes idle database connections in the
--- connection pool. A high value enables the proxy to leave a high
--- percentage of idle connections open. A low value causes the proxy to
--- close idle client connections and return the underlying database
--- connections to the connection pool. For Aurora MySQL, it is expressed as
--- a percentage of the @max_connections@ setting for the RDS DB instance or
--- Aurora DB cluster used by the target group.
+-- connection pool. The value is expressed as a percentage of the
+-- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
+-- used by the target group. With a high value, the proxy leaves a high
+-- percentage of idle database connections open. A low value causes the
+-- proxy to close more idle connections and return them to the database.
 connectionPoolConfigurationInfo_maxIdleConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
 connectionPoolConfigurationInfo_maxIdleConnectionsPercent = Lens.lens (\ConnectionPoolConfigurationInfo' {maxIdleConnectionsPercent} -> maxIdleConnectionsPercent) (\s@ConnectionPoolConfigurationInfo' {} a -> s {maxIdleConnectionsPercent = a} :: ConnectionPoolConfigurationInfo)
 
@@ -139,9 +136,9 @@ connectionPoolConfigurationInfo_connectionBorrowTimeout :: Lens.Lens' Connection
 connectionPoolConfigurationInfo_connectionBorrowTimeout = Lens.lens (\ConnectionPoolConfigurationInfo' {connectionBorrowTimeout} -> connectionBorrowTimeout) (\s@ConnectionPoolConfigurationInfo' {} a -> s {connectionBorrowTimeout = a} :: ConnectionPoolConfigurationInfo)
 
 -- | The maximum size of the connection pool for each target in a target
--- group. For Aurora MySQL, it is expressed as a percentage of the
--- @max_connections@ setting for the RDS DB instance or Aurora DB cluster
--- used by the target group.
+-- group. The value is expressed as a percentage of the @max_connections@
+-- setting for the RDS DB instance or Aurora DB cluster used by the target
+-- group.
 connectionPoolConfigurationInfo_maxConnectionsPercent :: Lens.Lens' ConnectionPoolConfigurationInfo (Prelude.Maybe Prelude.Int)
 connectionPoolConfigurationInfo_maxConnectionsPercent = Lens.lens (\ConnectionPoolConfigurationInfo' {maxConnectionsPercent} -> maxConnectionsPercent) (\s@ConnectionPoolConfigurationInfo' {} a -> s {maxConnectionsPercent = a} :: ConnectionPoolConfigurationInfo)
 

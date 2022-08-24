@@ -28,7 +28,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpgradeTarget' smart constructor.
 data UpgradeTarget = UpgradeTarget'
-  { -- | A value that indicates whether the target version is applied to any
+  { -- | A value that indicates whether you can use Babelfish for Aurora
+    -- PostgreSQL with the target engine version.
+    supportsBabelfish :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether the target version is applied to any
     -- source DB instances that have @AutoMinorVersionUpgrade@ set to true.
     autoUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | A list of the supported DB engine modes for the target engine version.
@@ -60,6 +63,9 @@ data UpgradeTarget = UpgradeTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'supportsBabelfish', 'upgradeTarget_supportsBabelfish' - A value that indicates whether you can use Babelfish for Aurora
+-- PostgreSQL with the target engine version.
+--
 -- 'autoUpgrade', 'upgradeTarget_autoUpgrade' - A value that indicates whether the target version is applied to any
 -- source DB instances that have @AutoMinorVersionUpgrade@ set to true.
 --
@@ -84,7 +90,8 @@ newUpgradeTarget ::
   UpgradeTarget
 newUpgradeTarget =
   UpgradeTarget'
-    { autoUpgrade = Prelude.Nothing,
+    { supportsBabelfish = Prelude.Nothing,
+      autoUpgrade = Prelude.Nothing,
       supportedEngineModes = Prelude.Nothing,
       description = Prelude.Nothing,
       supportsParallelQuery = Prelude.Nothing,
@@ -93,6 +100,11 @@ newUpgradeTarget =
       engineVersion = Prelude.Nothing,
       isMajorVersionUpgrade = Prelude.Nothing
     }
+
+-- | A value that indicates whether you can use Babelfish for Aurora
+-- PostgreSQL with the target engine version.
+upgradeTarget_supportsBabelfish :: Lens.Lens' UpgradeTarget (Prelude.Maybe Prelude.Bool)
+upgradeTarget_supportsBabelfish = Lens.lens (\UpgradeTarget' {supportsBabelfish} -> supportsBabelfish) (\s@UpgradeTarget' {} a -> s {supportsBabelfish = a} :: UpgradeTarget)
 
 -- | A value that indicates whether the target version is applied to any
 -- source DB instances that have @AutoMinorVersionUpgrade@ set to true.
@@ -134,7 +146,8 @@ upgradeTarget_isMajorVersionUpgrade = Lens.lens (\UpgradeTarget' {isMajorVersion
 instance Core.FromXML UpgradeTarget where
   parseXML x =
     UpgradeTarget'
-      Prelude.<$> (x Core..@? "AutoUpgrade")
+      Prelude.<$> (x Core..@? "SupportsBabelfish")
+      Prelude.<*> (x Core..@? "AutoUpgrade")
       Prelude.<*> ( x Core..@? "SupportedEngineModes"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -148,7 +161,8 @@ instance Core.FromXML UpgradeTarget where
 
 instance Prelude.Hashable UpgradeTarget where
   hashWithSalt _salt UpgradeTarget' {..} =
-    _salt `Prelude.hashWithSalt` autoUpgrade
+    _salt `Prelude.hashWithSalt` supportsBabelfish
+      `Prelude.hashWithSalt` autoUpgrade
       `Prelude.hashWithSalt` supportedEngineModes
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` supportsParallelQuery
@@ -159,7 +173,8 @@ instance Prelude.Hashable UpgradeTarget where
 
 instance Prelude.NFData UpgradeTarget where
   rnf UpgradeTarget' {..} =
-    Prelude.rnf autoUpgrade
+    Prelude.rnf supportsBabelfish
+      `Prelude.seq` Prelude.rnf autoUpgrade
       `Prelude.seq` Prelude.rnf supportedEngineModes
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf supportsParallelQuery

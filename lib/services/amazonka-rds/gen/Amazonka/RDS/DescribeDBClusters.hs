@@ -20,12 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about provisioned Aurora DB clusters. This API
--- supports pagination.
+-- Returns information about Amazon Aurora DB clusters and Multi-AZ DB
+-- clusters. This API supports pagination.
 --
--- For more information on Amazon Aurora, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?>
--- in the /Amazon Aurora User Guide./
+-- For more information on Amazon Aurora DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
+-- in the /Amazon Aurora User Guide/.
+--
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide/.
 --
 -- This operation can also return information for Amazon Neptune DB
 -- instances and Amazon DocumentDB instances.
@@ -78,18 +82,18 @@ data DescribeDBClusters = DescribeDBClusters'
     -- Supported filters:
     --
     -- -   @clone-group-id@ - Accepts clone group identifiers. The results list
-    --     will only include information about the DB clusters associated with
+    --     only includes information about the DB clusters associated with
     --     these clone groups.
     --
     -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
-    --     Amazon Resource Names (ARNs). The results list will only include
+    --     Amazon Resource Names (ARNs). The results list only includes
     --     information about the DB clusters identified by these ARNs.
     --
     -- -   @domain@ - Accepts Active Directory directory IDs. The results list
-    --     will only include information about the DB clusters associated with
+    --     only includes information about the DB clusters associated with
     --     these domains.
     --
-    -- -   @engine@ - Accepts engine names. The results list will only include
+    -- -   @engine@ - Accepts engine names. The results list only includes
     --     information about the DB clusters for these engines.
     filters :: Prelude.Maybe [Filter],
     -- | The user-supplied DB cluster identifier. If this parameter is specified,
@@ -133,18 +137,18 @@ data DescribeDBClusters = DescribeDBClusters'
 -- Supported filters:
 --
 -- -   @clone-group-id@ - Accepts clone group identifiers. The results list
---     will only include information about the DB clusters associated with
+--     only includes information about the DB clusters associated with
 --     these clone groups.
 --
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
---     Amazon Resource Names (ARNs). The results list will only include
+--     Amazon Resource Names (ARNs). The results list only includes
 --     information about the DB clusters identified by these ARNs.
 --
 -- -   @domain@ - Accepts Active Directory directory IDs. The results list
---     will only include information about the DB clusters associated with
+--     only includes information about the DB clusters associated with
 --     these domains.
 --
--- -   @engine@ - Accepts engine names. The results list will only include
+-- -   @engine@ - Accepts engine names. The results list only includes
 --     information about the DB clusters for these engines.
 --
 -- 'dbClusterIdentifier', 'describeDBClusters_dbClusterIdentifier' - The user-supplied DB cluster identifier. If this parameter is specified,
@@ -192,18 +196,18 @@ describeDBClusters_marker = Lens.lens (\DescribeDBClusters' {marker} -> marker) 
 -- Supported filters:
 --
 -- -   @clone-group-id@ - Accepts clone group identifiers. The results list
---     will only include information about the DB clusters associated with
+--     only includes information about the DB clusters associated with
 --     these clone groups.
 --
 -- -   @db-cluster-id@ - Accepts DB cluster identifiers and DB cluster
---     Amazon Resource Names (ARNs). The results list will only include
+--     Amazon Resource Names (ARNs). The results list only includes
 --     information about the DB clusters identified by these ARNs.
 --
 -- -   @domain@ - Accepts Active Directory directory IDs. The results list
---     will only include information about the DB clusters associated with
+--     only includes information about the DB clusters associated with
 --     these domains.
 --
--- -   @engine@ - Accepts engine names. The results list will only include
+-- -   @engine@ - Accepts engine names. The results list only includes
 --     information about the DB clusters for these engines.
 describeDBClusters_filters :: Lens.Lens' DescribeDBClusters (Prelude.Maybe [Filter])
 describeDBClusters_filters = Lens.lens (\DescribeDBClusters' {filters} -> filters) (\s@DescribeDBClusters' {} a -> s {filters = a} :: DescribeDBClusters) Prelude.. Lens.mapping Lens.coerced

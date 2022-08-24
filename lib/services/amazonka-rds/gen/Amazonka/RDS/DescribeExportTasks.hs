@@ -77,8 +77,20 @@ data DescribeExportTasks = DescribeExportTasks'
     -- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot
     --     exported to Amazon S3
     --
-    -- -   @status@ - The status of the export task. Must be lowercase, for
-    --     example, @complete@.
+    -- -   @status@ - The status of the export task. Must be lowercase. Valid
+    --     statuses are the following:
+    --
+    --     -   @canceled@
+    --
+    --     -   @canceling@
+    --
+    --     -   @complete@
+    --
+    --     -   @failed@
+    --
+    --     -   @in_progress@
+    --
+    --     -   @starting@
     filters :: Prelude.Maybe [Filter],
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified value, a pagination token called a
@@ -123,8 +135,20 @@ data DescribeExportTasks = DescribeExportTasks'
 -- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot
 --     exported to Amazon S3
 --
--- -   @status@ - The status of the export task. Must be lowercase, for
---     example, @complete@.
+-- -   @status@ - The status of the export task. Must be lowercase. Valid
+--     statuses are the following:
+--
+--     -   @canceled@
+--
+--     -   @canceling@
+--
+--     -   @complete@
+--
+--     -   @failed@
+--
+--     -   @in_progress@
+--
+--     -   @starting@
 --
 -- 'maxRecords', 'describeExportTasks_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified value, a pagination token called a
@@ -172,8 +196,20 @@ describeExportTasks_sourceArn = Lens.lens (\DescribeExportTasks' {sourceArn} -> 
 -- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot
 --     exported to Amazon S3
 --
--- -   @status@ - The status of the export task. Must be lowercase, for
---     example, @complete@.
+-- -   @status@ - The status of the export task. Must be lowercase. Valid
+--     statuses are the following:
+--
+--     -   @canceled@
+--
+--     -   @canceling@
+--
+--     -   @complete@
+--
+--     -   @failed@
+--
+--     -   @in_progress@
+--
+--     -   @starting@
 describeExportTasks_filters :: Lens.Lens' DescribeExportTasks (Prelude.Maybe [Filter])
 describeExportTasks_filters = Lens.lens (\DescribeExportTasks' {filters} -> filters) (\s@DescribeExportTasks' {} a -> s {filters = a} :: DescribeExportTasks) Prelude.. Lens.mapping Lens.coerced
 

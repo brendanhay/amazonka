@@ -73,6 +73,18 @@ data DBSnapshot = DBSnapshot'
     -- | Specifies when the snapshot was taken in Coordinated Universal Time
     -- (UTC). Changes for the copy when the snapshot is copied.
     snapshotCreateTime :: Prelude.Maybe Core.ISO8601,
+    -- | The timestamp of the most recent transaction applied to the database
+    -- that you\'re backing up. Thus, if you restore a snapshot,
+    -- SnapshotDatabaseTime is the most recent transaction in the restored DB
+    -- instance. In contrast, originalSnapshotCreateTime specifies the system
+    -- time that the snapshot completed.
+    --
+    -- If you back up a read replica, you can determine the replica lag by
+    -- comparing SnapshotDatabaseTime with originalSnapshotCreateTime. For
+    -- example, if originalSnapshotCreateTime is two hours later than
+    -- SnapshotDatabaseTime, then the replica lag is two hours. *** REVIEWERS
+    -- 7\/27: Switchover
+    snapshotDatabaseTime :: Prelude.Maybe Core.ISO8601,
     -- | Specifies the storage type associated with DB snapshot.
     storageType :: Prelude.Maybe Prelude.Text,
     -- | The number of CPU cores and the number of threads per core for the DB
@@ -89,8 +101,7 @@ data DBSnapshot = DBSnapshot'
     -- the encrypted DB snapshot.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the name of the database engine.
     engine :: Prelude.Maybe Prelude.Text,
@@ -101,6 +112,9 @@ data DBSnapshot = DBSnapshot'
     iAMDatabaseAuthenticationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Provides the VPC ID associated with the DB snapshot.
     vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies where manual snapshots are stored: Amazon Web Services
+    -- Outposts or the Amazon Web Services Region.
+    snapshotTarget :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the source DB instance, which can\'t be changed and
     -- which is unique to an Amazon Web Services Region.
     dbiResourceId :: Prelude.Maybe Prelude.Text,
@@ -166,6 +180,18 @@ data DBSnapshot = DBSnapshot'
 -- 'snapshotCreateTime', 'dbSnapshot_snapshotCreateTime' - Specifies when the snapshot was taken in Coordinated Universal Time
 -- (UTC). Changes for the copy when the snapshot is copied.
 --
+-- 'snapshotDatabaseTime', 'dbSnapshot_snapshotDatabaseTime' - The timestamp of the most recent transaction applied to the database
+-- that you\'re backing up. Thus, if you restore a snapshot,
+-- SnapshotDatabaseTime is the most recent transaction in the restored DB
+-- instance. In contrast, originalSnapshotCreateTime specifies the system
+-- time that the snapshot completed.
+--
+-- If you back up a read replica, you can determine the replica lag by
+-- comparing SnapshotDatabaseTime with originalSnapshotCreateTime. For
+-- example, if originalSnapshotCreateTime is two hours later than
+-- SnapshotDatabaseTime, then the replica lag is two hours. *** REVIEWERS
+-- 7\/27: Switchover
+--
 -- 'storageType', 'dbSnapshot_storageType' - Specifies the storage type associated with DB snapshot.
 --
 -- 'processorFeatures', 'dbSnapshot_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
@@ -182,8 +208,7 @@ data DBSnapshot = DBSnapshot'
 -- the encrypted DB snapshot.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- 'engine', 'dbSnapshot_engine' - Specifies the name of the database engine.
 --
@@ -193,6 +218,9 @@ data DBSnapshot = DBSnapshot'
 -- (IAM) accounts to database accounts is enabled, and otherwise false.
 --
 -- 'vpcId', 'dbSnapshot_vpcId' - Provides the VPC ID associated with the DB snapshot.
+--
+-- 'snapshotTarget', 'dbSnapshot_snapshotTarget' - Specifies where manual snapshots are stored: Amazon Web Services
+-- Outposts or the Amazon Web Services Region.
 --
 -- 'dbiResourceId', 'dbSnapshot_dbiResourceId' - The identifier for the source DB instance, which can\'t be changed and
 -- which is unique to an Amazon Web Services Region.
@@ -224,6 +252,7 @@ newDBSnapshot =
       status = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       snapshotCreateTime = Prelude.Nothing,
+      snapshotDatabaseTime = Prelude.Nothing,
       storageType = Prelude.Nothing,
       processorFeatures = Prelude.Nothing,
       tdeCredentialArn = Prelude.Nothing,
@@ -234,6 +263,7 @@ newDBSnapshot =
       allocatedStorage = Prelude.Nothing,
       iAMDatabaseAuthenticationEnabled = Prelude.Nothing,
       vpcId = Prelude.Nothing,
+      snapshotTarget = Prelude.Nothing,
       dbiResourceId = Prelude.Nothing,
       iops = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
@@ -313,6 +343,20 @@ dbSnapshot_availabilityZone = Lens.lens (\DBSnapshot' {availabilityZone} -> avai
 dbSnapshot_snapshotCreateTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
 dbSnapshot_snapshotCreateTime = Lens.lens (\DBSnapshot' {snapshotCreateTime} -> snapshotCreateTime) (\s@DBSnapshot' {} a -> s {snapshotCreateTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
 
+-- | The timestamp of the most recent transaction applied to the database
+-- that you\'re backing up. Thus, if you restore a snapshot,
+-- SnapshotDatabaseTime is the most recent transaction in the restored DB
+-- instance. In contrast, originalSnapshotCreateTime specifies the system
+-- time that the snapshot completed.
+--
+-- If you back up a read replica, you can determine the replica lag by
+-- comparing SnapshotDatabaseTime with originalSnapshotCreateTime. For
+-- example, if originalSnapshotCreateTime is two hours later than
+-- SnapshotDatabaseTime, then the replica lag is two hours. *** REVIEWERS
+-- 7\/27: Switchover
+dbSnapshot_snapshotDatabaseTime :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.UTCTime)
+dbSnapshot_snapshotDatabaseTime = Lens.lens (\DBSnapshot' {snapshotDatabaseTime} -> snapshotDatabaseTime) (\s@DBSnapshot' {} a -> s {snapshotDatabaseTime = a} :: DBSnapshot) Prelude.. Lens.mapping Core._Time
+
 -- | Specifies the storage type associated with DB snapshot.
 dbSnapshot_storageType :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_storageType = Lens.lens (\DBSnapshot' {storageType} -> storageType) (\s@DBSnapshot' {} a -> s {storageType = a} :: DBSnapshot)
@@ -339,8 +383,7 @@ dbSnapshot_encrypted = Lens.lens (\DBSnapshot' {encrypted} -> encrypted) (\s@DBS
 -- the encrypted DB snapshot.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 dbSnapshot_kmsKeyId :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_kmsKeyId = Lens.lens (\DBSnapshot' {kmsKeyId} -> kmsKeyId) (\s@DBSnapshot' {} a -> s {kmsKeyId = a} :: DBSnapshot)
 
@@ -360,6 +403,11 @@ dbSnapshot_iAMDatabaseAuthenticationEnabled = Lens.lens (\DBSnapshot' {iAMDataba
 -- | Provides the VPC ID associated with the DB snapshot.
 dbSnapshot_vpcId :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
 dbSnapshot_vpcId = Lens.lens (\DBSnapshot' {vpcId} -> vpcId) (\s@DBSnapshot' {} a -> s {vpcId = a} :: DBSnapshot)
+
+-- | Specifies where manual snapshots are stored: Amazon Web Services
+-- Outposts or the Amazon Web Services Region.
+dbSnapshot_snapshotTarget :: Lens.Lens' DBSnapshot (Prelude.Maybe Prelude.Text)
+dbSnapshot_snapshotTarget = Lens.lens (\DBSnapshot' {snapshotTarget} -> snapshotTarget) (\s@DBSnapshot' {} a -> s {snapshotTarget = a} :: DBSnapshot)
 
 -- | The identifier for the source DB instance, which can\'t be changed and
 -- which is unique to an Amazon Web Services Region.
@@ -403,6 +451,7 @@ instance Core.FromXML DBSnapshot where
       Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "AvailabilityZone")
       Prelude.<*> (x Core..@? "SnapshotCreateTime")
+      Prelude.<*> (x Core..@? "SnapshotDatabaseTime")
       Prelude.<*> (x Core..@? "StorageType")
       Prelude.<*> ( x Core..@? "ProcessorFeatures"
                       Core..!@ Prelude.mempty
@@ -416,6 +465,7 @@ instance Core.FromXML DBSnapshot where
       Prelude.<*> (x Core..@? "AllocatedStorage")
       Prelude.<*> (x Core..@? "IAMDatabaseAuthenticationEnabled")
       Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> (x Core..@? "SnapshotTarget")
       Prelude.<*> (x Core..@? "DbiResourceId")
       Prelude.<*> (x Core..@? "Iops")
       Prelude.<*> (x Core..@? "EngineVersion")
@@ -439,6 +489,7 @@ instance Prelude.Hashable DBSnapshot where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` snapshotCreateTime
+      `Prelude.hashWithSalt` snapshotDatabaseTime
       `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` processorFeatures
       `Prelude.hashWithSalt` tdeCredentialArn
@@ -449,6 +500,7 @@ instance Prelude.Hashable DBSnapshot where
       `Prelude.hashWithSalt` allocatedStorage
       `Prelude.hashWithSalt` iAMDatabaseAuthenticationEnabled
       `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` snapshotTarget
       `Prelude.hashWithSalt` dbiResourceId
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` engineVersion
@@ -472,6 +524,7 @@ instance Prelude.NFData DBSnapshot where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf snapshotCreateTime
+      `Prelude.seq` Prelude.rnf snapshotDatabaseTime
       `Prelude.seq` Prelude.rnf storageType
       `Prelude.seq` Prelude.rnf processorFeatures
       `Prelude.seq` Prelude.rnf tdeCredentialArn
@@ -485,8 +538,11 @@ instance Prelude.NFData DBSnapshot where
         iAMDatabaseAuthenticationEnabled
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf
+        snapshotTarget
+      `Prelude.seq` Prelude.rnf
         dbiResourceId
-      `Prelude.seq` Prelude.rnf iops
+      `Prelude.seq` Prelude.rnf
+        iops
       `Prelude.seq` Prelude.rnf
         engineVersion
       `Prelude.seq` Prelude.rnf

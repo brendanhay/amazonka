@@ -23,10 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains the scaling configuration of an Aurora Serverless DB cluster.
+-- | Contains the scaling configuration of an Aurora Serverless v1 DB
+-- cluster.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html Using Amazon Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
 --
 -- /See:/ 'newScalingConfiguration' smart constructor.
@@ -41,14 +42,14 @@ data ScalingConfiguration = ScalingConfiguration'
     -- scaling point isn\'t found in the timeout period.
     --
     -- If you specify @ForceApplyCapacityChange@, connections that prevent
-    -- Aurora Serverless from finding a scaling point might be dropped.
+    -- Aurora Serverless v1 from finding a scaling point might be dropped.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless>
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless v1>
     -- in the /Amazon Aurora User Guide/.
     timeoutAction :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time, in seconds, that Aurora Serverless tries to find a
-    -- scaling point to perform seamless scaling before enforcing the timeout
+    -- | The amount of time, in seconds, that Aurora Serverless v1 tries to find
+    -- a scaling point to perform seamless scaling before enforcing the timeout
     -- action. The default is 300.
     --
     -- Specify a value between 60 and 600 seconds.
@@ -110,14 +111,14 @@ data ScalingConfiguration = ScalingConfiguration'
 -- scaling point isn\'t found in the timeout period.
 --
 -- If you specify @ForceApplyCapacityChange@, connections that prevent
--- Aurora Serverless from finding a scaling point might be dropped.
+-- Aurora Serverless v1 from finding a scaling point might be dropped.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
 --
--- 'secondsBeforeTimeout', 'scalingConfiguration_secondsBeforeTimeout' - The amount of time, in seconds, that Aurora Serverless tries to find a
--- scaling point to perform seamless scaling before enforcing the timeout
+-- 'secondsBeforeTimeout', 'scalingConfiguration_secondsBeforeTimeout' - The amount of time, in seconds, that Aurora Serverless v1 tries to find
+-- a scaling point to perform seamless scaling before enforcing the timeout
 -- action. The default is 300.
 --
 -- Specify a value between 60 and 600 seconds.
@@ -180,16 +181,16 @@ newScalingConfiguration =
 -- scaling point isn\'t found in the timeout period.
 --
 -- If you specify @ForceApplyCapacityChange@, connections that prevent
--- Aurora Serverless from finding a scaling point might be dropped.
+-- Aurora Serverless v1 from finding a scaling point might be dropped.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless>
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling Autoscaling for Aurora Serverless v1>
 -- in the /Amazon Aurora User Guide/.
 scalingConfiguration_timeoutAction :: Lens.Lens' ScalingConfiguration (Prelude.Maybe Prelude.Text)
 scalingConfiguration_timeoutAction = Lens.lens (\ScalingConfiguration' {timeoutAction} -> timeoutAction) (\s@ScalingConfiguration' {} a -> s {timeoutAction = a} :: ScalingConfiguration)
 
--- | The amount of time, in seconds, that Aurora Serverless tries to find a
--- scaling point to perform seamless scaling before enforcing the timeout
+-- | The amount of time, in seconds, that Aurora Serverless v1 tries to find
+-- a scaling point to perform seamless scaling before enforcing the timeout
 -- action. The default is 300.
 --
 -- Specify a value between 60 and 600 seconds.

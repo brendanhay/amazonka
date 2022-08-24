@@ -34,6 +34,12 @@ import Amazonka.RDS.Types.AvailableProcessorFeature
 data OrderableDBInstanceOption = OrderableDBInstanceOption'
   { -- | Indicates whether a DB instance supports encrypted storage.
     supportsStorageEncryption :: Prelude.Maybe Prelude.Bool,
+    -- | Whether DB instances can be configured as a Multi-AZ DB cluster.
+    --
+    -- For more information on Multi-AZ DB clusters, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+    -- in the /Amazon RDS User Guide./
+    supportsClusters :: Prelude.Maybe Prelude.Bool,
     -- | Maximum storage size for a DB instance.
     maxStorageSize :: Prelude.Maybe Prelude.Int,
     -- | Indicates whether a DB instance is Multi-AZ capable.
@@ -98,7 +104,16 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     -- | Minimum provisioned IOPS per GiB for a DB instance.
     minIopsPerGib :: Prelude.Maybe Prelude.Double,
     -- | The license model for a DB instance.
-    licenseModel :: Prelude.Maybe Prelude.Text
+    licenseModel :: Prelude.Maybe Prelude.Text,
+    -- | The network types supported by the DB instance (@IPV4@ or @DUAL@).
+    --
+    -- A DB instance can support only the IPv4 protocol or the IPv4 and the
+    -- IPv6 protocols (@DUAL@).
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+    -- in the /Amazon RDS User Guide./
+    supportedNetworkTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -111,6 +126,12 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 -- for backwards compatibility:
 --
 -- 'supportsStorageEncryption', 'orderableDBInstanceOption_supportsStorageEncryption' - Indicates whether a DB instance supports encrypted storage.
+--
+-- 'supportsClusters', 'orderableDBInstanceOption_supportsClusters' - Whether DB instances can be configured as a Multi-AZ DB cluster.
+--
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide./
 --
 -- 'maxStorageSize', 'orderableDBInstanceOption_maxStorageSize' - Maximum storage size for a DB instance.
 --
@@ -176,12 +197,22 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 -- 'minIopsPerGib', 'orderableDBInstanceOption_minIopsPerGib' - Minimum provisioned IOPS per GiB for a DB instance.
 --
 -- 'licenseModel', 'orderableDBInstanceOption_licenseModel' - The license model for a DB instance.
+--
+-- 'supportedNetworkTypes', 'orderableDBInstanceOption_supportedNetworkTypes' - The network types supported by the DB instance (@IPV4@ or @DUAL@).
+--
+-- A DB instance can support only the IPv4 protocol or the IPv4 and the
+-- IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide./
 newOrderableDBInstanceOption ::
   OrderableDBInstanceOption
 newOrderableDBInstanceOption =
   OrderableDBInstanceOption'
     { supportsStorageEncryption =
         Prelude.Nothing,
+      supportsClusters = Prelude.Nothing,
       maxStorageSize = Prelude.Nothing,
       multiAZCapable = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
@@ -209,12 +240,21 @@ newOrderableDBInstanceOption =
       engineVersion = Prelude.Nothing,
       supportsKerberosAuthentication = Prelude.Nothing,
       minIopsPerGib = Prelude.Nothing,
-      licenseModel = Prelude.Nothing
+      licenseModel = Prelude.Nothing,
+      supportedNetworkTypes = Prelude.Nothing
     }
 
 -- | Indicates whether a DB instance supports encrypted storage.
 orderableDBInstanceOption_supportsStorageEncryption :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
 orderableDBInstanceOption_supportsStorageEncryption = Lens.lens (\OrderableDBInstanceOption' {supportsStorageEncryption} -> supportsStorageEncryption) (\s@OrderableDBInstanceOption' {} a -> s {supportsStorageEncryption = a} :: OrderableDBInstanceOption)
+
+-- | Whether DB instances can be configured as a Multi-AZ DB cluster.
+--
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide./
+orderableDBInstanceOption_supportsClusters :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
+orderableDBInstanceOption_supportsClusters = Lens.lens (\OrderableDBInstanceOption' {supportsClusters} -> supportsClusters) (\s@OrderableDBInstanceOption' {} a -> s {supportsClusters = a} :: OrderableDBInstanceOption)
 
 -- | Maximum storage size for a DB instance.
 orderableDBInstanceOption_maxStorageSize :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Int)
@@ -335,10 +375,22 @@ orderableDBInstanceOption_minIopsPerGib = Lens.lens (\OrderableDBInstanceOption'
 orderableDBInstanceOption_licenseModel :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Text)
 orderableDBInstanceOption_licenseModel = Lens.lens (\OrderableDBInstanceOption' {licenseModel} -> licenseModel) (\s@OrderableDBInstanceOption' {} a -> s {licenseModel = a} :: OrderableDBInstanceOption)
 
+-- | The network types supported by the DB instance (@IPV4@ or @DUAL@).
+--
+-- A DB instance can support only the IPv4 protocol or the IPv4 and the
+-- IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide./
+orderableDBInstanceOption_supportedNetworkTypes :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe [Prelude.Text])
+orderableDBInstanceOption_supportedNetworkTypes = Lens.lens (\OrderableDBInstanceOption' {supportedNetworkTypes} -> supportedNetworkTypes) (\s@OrderableDBInstanceOption' {} a -> s {supportedNetworkTypes = a} :: OrderableDBInstanceOption) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromXML OrderableDBInstanceOption where
   parseXML x =
     OrderableDBInstanceOption'
       Prelude.<$> (x Core..@? "SupportsStorageEncryption")
+      Prelude.<*> (x Core..@? "SupportsClusters")
       Prelude.<*> (x Core..@? "MaxStorageSize")
       Prelude.<*> (x Core..@? "MultiAZCapable")
       Prelude.<*> (x Core..@? "DBInstanceClass")
@@ -379,11 +431,16 @@ instance Core.FromXML OrderableDBInstanceOption where
       Prelude.<*> (x Core..@? "SupportsKerberosAuthentication")
       Prelude.<*> (x Core..@? "MinIopsPerGib")
       Prelude.<*> (x Core..@? "LicenseModel")
+      Prelude.<*> ( x Core..@? "SupportedNetworkTypes"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
 instance Prelude.Hashable OrderableDBInstanceOption where
   hashWithSalt _salt OrderableDBInstanceOption' {..} =
     _salt
       `Prelude.hashWithSalt` supportsStorageEncryption
+      `Prelude.hashWithSalt` supportsClusters
       `Prelude.hashWithSalt` maxStorageSize
       `Prelude.hashWithSalt` multiAZCapable
       `Prelude.hashWithSalt` dbInstanceClass
@@ -411,10 +468,12 @@ instance Prelude.Hashable OrderableDBInstanceOption where
       `Prelude.hashWithSalt` supportsKerberosAuthentication
       `Prelude.hashWithSalt` minIopsPerGib
       `Prelude.hashWithSalt` licenseModel
+      `Prelude.hashWithSalt` supportedNetworkTypes
 
 instance Prelude.NFData OrderableDBInstanceOption where
   rnf OrderableDBInstanceOption' {..} =
     Prelude.rnf supportsStorageEncryption
+      `Prelude.seq` Prelude.rnf supportsClusters
       `Prelude.seq` Prelude.rnf maxStorageSize
       `Prelude.seq` Prelude.rnf multiAZCapable
       `Prelude.seq` Prelude.rnf dbInstanceClass
@@ -453,3 +512,5 @@ instance Prelude.NFData OrderableDBInstanceOption where
         minIopsPerGib
       `Prelude.seq` Prelude.rnf
         licenseModel
+      `Prelude.seq` Prelude.rnf
+        supportedNetworkTypes

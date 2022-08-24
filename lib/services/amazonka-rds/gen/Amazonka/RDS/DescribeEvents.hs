@@ -21,13 +21,19 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns events related to DB instances, DB clusters, DB parameter
--- groups, DB security groups, DB snapshots, and DB cluster snapshots for
--- the past 14 days. Events specific to a particular DB instances, DB
--- clusters, DB parameter groups, DB security groups, DB snapshots, and DB
--- cluster snapshots group can be obtained by providing the name as a
--- parameter.
+-- groups, DB security groups, DB snapshots, DB cluster snapshots, and RDS
+-- Proxies for the past 14 days. Events specific to a particular DB
+-- instance, DB cluster, DB parameter group, DB security group, DB
+-- snapshot, DB cluster snapshot group, or RDS Proxy can be obtained by
+-- providing the name as a parameter.
 --
--- By default, the past hour of events are returned.
+-- For more information on working with events, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/working-with-events.html Monitoring Amazon RDS events>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/working-with-events.html Monitoring Amazon Aurora events>
+-- in the /Amazon Aurora User Guide/.
+--
+-- By default, RDS returns events that were generated in the past hour.
 --
 -- This operation returns paginated results.
 module Amazonka.RDS.DescribeEvents
@@ -122,6 +128,9 @@ data DescribeEvents = DescribeEvents'
     -- -   If the source type is a DB cluster snapshot, a
     --     @DBClusterSnapshotIdentifier@ value must be supplied.
     --
+    -- -   If the source type is an RDS Proxy, a @DBProxyName@ value must be
+    --     supplied.
+    --
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     sourceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | A list of event categories that trigger notifications for a event
@@ -197,6 +206,9 @@ data DescribeEvents = DescribeEvents'
 --
 -- -   If the source type is a DB cluster snapshot, a
 --     @DBClusterSnapshotIdentifier@ value must be supplied.
+--
+-- -   If the source type is an RDS Proxy, a @DBProxyName@ value must be
+--     supplied.
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
@@ -288,6 +300,9 @@ describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\
 --
 -- -   If the source type is a DB cluster snapshot, a
 --     @DBClusterSnapshotIdentifier@ value must be supplied.
+--
+-- -   If the source type is an RDS Proxy, a @DBProxyName@ value must be
+--     supplied.
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 describeEvents_sourceIdentifier :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
@@ -403,7 +418,7 @@ instance Core.ToQuery DescribeEvents where
 data DescribeEventsResponse = DescribeEventsResponse'
   { -- | An optional pagination token provided by a previous Events request. If
     -- this parameter is specified, the response includes only records beyond
-    -- the marker, up to the value specified by @MaxRecords@ .
+    -- the marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
     -- | A list of @Event@ instances.
     events :: Prelude.Maybe [Event],
@@ -422,7 +437,7 @@ data DescribeEventsResponse = DescribeEventsResponse'
 --
 -- 'marker', 'describeEventsResponse_marker' - An optional pagination token provided by a previous Events request. If
 -- this parameter is specified, the response includes only records beyond
--- the marker, up to the value specified by @MaxRecords@ .
+-- the marker, up to the value specified by @MaxRecords@.
 --
 -- 'events', 'describeEventsResponse_events' - A list of @Event@ instances.
 --
@@ -440,7 +455,7 @@ newDescribeEventsResponse pHttpStatus_ =
 
 -- | An optional pagination token provided by a previous Events request. If
 -- this parameter is specified, the response includes only records beyond
--- the marker, up to the value specified by @MaxRecords@ .
+-- the marker, up to the value specified by @MaxRecords@.
 describeEventsResponse_marker :: Lens.Lens' DescribeEventsResponse (Prelude.Maybe Prelude.Text)
 describeEventsResponse_marker = Lens.lens (\DescribeEventsResponse' {marker} -> marker) (\s@DescribeEventsResponse' {} a -> s {marker = a} :: DescribeEventsResponse)
 

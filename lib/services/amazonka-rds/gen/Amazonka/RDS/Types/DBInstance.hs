@@ -23,7 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.ActivityStreamMode
+import Amazonka.RDS.Types.ActivityStreamPolicyStatus
 import Amazonka.RDS.Types.ActivityStreamStatus
+import Amazonka.RDS.Types.AutomationMode
 import Amazonka.RDS.Types.DBInstanceAutomatedBackupsReplication
 import Amazonka.RDS.Types.DBInstanceRole
 import Amazonka.RDS.Types.DBInstanceStatusInfo
@@ -41,8 +43,12 @@ import Amazonka.RDS.Types.VpcSecurityGroupMembership
 
 -- | Contains the details of an Amazon RDS DB instance.
 --
--- This data type is used as a response element in the
--- @DescribeDBInstances@ action.
+-- This data type is used as a response element in the operations
+-- @CreateDBInstance@, @CreateDBInstanceReadReplica@, @DeleteDBInstance@,
+-- @DescribeDBInstances@, @ModifyDBInstance@, @PromoteReadReplica@,
+-- @RebootDBInstance@, @RestoreDBInstanceFromDBSnapshot@,
+-- @RestoreDBInstanceFromS3@, @RestoreDBInstanceToPointInTime@,
+-- @StartDBInstance@, and @StopDBInstance@.
 --
 -- /See:/ 'newDBInstance' smart constructor.
 data DBInstance = DBInstance'
@@ -54,8 +60,24 @@ data DBInstance = DBInstance'
     dbInstanceAutomatedBackupsReplications :: Prelude.Maybe [DBInstanceAutomatedBackupsReplication],
     -- | Specifies the listener connection endpoint for SQL Server Always On.
     listenerEndpoint :: Prelude.Maybe Endpoint,
-    -- | The amount of time, in days, to retain Performance Insights data. Valid
-    -- values are 7 or 731 (2 years).
+    -- | The number of days to retain Performance Insights data. The default is 7
+    -- days. The following values are valid:
+    --
+    -- -   7
+    --
+    -- -   /month/ * 31, where /month/ is a number of months from 1-23
+    --
+    -- -   731
+    --
+    -- For example, the following values are valid:
+    --
+    -- -   93 (3 months * 31)
+    --
+    -- -   341 (11 months * 31)
+    --
+    -- -   589 (19 months * 31)
+    --
+    -- -   731
     performanceInsightsRetentionPeriod :: Prelude.Maybe Prelude.Int,
     -- | Specifies the current state of this database.
     --
@@ -65,6 +87,9 @@ data DBInstance = DBInstance'
     dbInstanceStatus :: Prelude.Maybe Prelude.Text,
     -- | Provides the list of option group memberships for this DB instance.
     optionGroupMemberships :: Prelude.Maybe [OptionGroupMembership],
+    -- | Specifies where automated backups and manual snapshots are stored:
+    -- Amazon Web Services Outposts or the Amazon Web Services Region.
+    backupTarget :: Prelude.Maybe Prelude.Text,
     -- | Specifies the daily time range during which automated backups are
     -- created if automated backups are enabled, as determined by the
     -- @BackupRetentionPeriod@.
@@ -100,6 +125,11 @@ data DBInstance = DBInstance'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>
     -- in the /Amazon Aurora User Guide/.
     promotionTier :: Prelude.Maybe Prelude.Int,
+    -- | The automation mode of the RDS Custom DB instance: @full@ or
+    -- @all paused@. If @full@, the DB instance automates monitoring and
+    -- instance recovery. If @all paused@, the instance pauses automation for
+    -- the duration set by @--resume-full-automation-mode-minutes@.
+    automationMode :: Prelude.Maybe AutomationMode,
     -- | If present, specifies the name of the secondary Availability Zone for a
     -- DB instance with multi-AZ support.
     secondaryAvailabilityZone :: Prelude.Maybe Prelude.Text,
@@ -143,8 +173,7 @@ data DBInstance = DBInstance'
     -- Insights data.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     performanceInsightsKMSKeyId :: Prelude.Maybe Prelude.Text,
     -- | A list of DB security group elements containing @DBSecurityGroup.Name@
     -- and @DBSecurityGroup.Status@ subelements.
@@ -167,14 +196,19 @@ data DBInstance = DBInstance'
     -- | Specifies the name of the Availability Zone the DB instance is located
     -- in.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The number of minutes to pause the automation. When the time period
+    -- ends, RDS Custom resumes full automation. The minimum value is 60
+    -- (default). The maximum value is 1,440.
+    resumeFullAutomationModeTime :: Prelude.Maybe Core.ISO8601,
     -- | Specifies the accessibility options for the DB instance.
     --
-    -- When the DB instance is publicly accessible, its DNS endpoint resolves
-    -- to the private IP address from within the DB instance\'s VPC, and to the
-    -- public IP address from outside of the DB instance\'s VPC. Access to the
-    -- DB instance is ultimately controlled by the security group it uses, and
-    -- that public access is not permitted if the security group assigned to
-    -- the DB instance doesn\'t permit it.
+    -- When the DB cluster is publicly accessible, its Domain Name System (DNS)
+    -- endpoint resolves to the private IP address from within the DB
+    -- cluster\'s virtual private cloud (VPC). It resolves to the public IP
+    -- address from outside of the DB cluster\'s VPC. Access to the DB cluster
+    -- is ultimately controlled by the security group it uses. That public
+    -- access isn\'t permitted if the security group assigned to the DB cluster
+    -- doesn\'t permit it.
     --
     -- When the DB instance isn\'t publicly accessible, it is an internal DB
     -- instance with a DNS name that resolves to a private IP address.
@@ -188,9 +222,10 @@ data DBInstance = DBInstance'
     processorFeatures :: Prelude.Maybe [ProcessorFeature],
     -- | Contains one or more identifiers of Aurora DB clusters to which the RDS
     -- DB instance is replicated as a read replica. For example, when you
-    -- create an Aurora read replica of an RDS MySQL DB instance, the Aurora
-    -- MySQL DB cluster for the Aurora read replica is shown. This output does
-    -- not contain information about cross region Aurora read replicas.
+    -- create an Aurora read replica of an RDS for MySQL DB instance, the
+    -- Aurora MySQL DB cluster for the Aurora read replica is shown. This
+    -- output doesn\'t contain information about cross-Region Aurora read
+    -- replicas.
     --
     -- Currently, each RDS DB instance can have only one Aurora read replica.
     readReplicaDBClusterIdentifiers :: Prelude.Maybe [Prelude.Text],
@@ -237,8 +272,7 @@ data DBInstance = DBInstance'
     -- identifier for the encrypted DB instance.
     --
     -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
-    -- ARN, or alias name for the Amazon Web Services KMS customer master key
-    -- (CMK).
+    -- ARN, or alias name for the KMS key.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database engine to be used for this DB instance.
     engine :: Prelude.Maybe Prelude.Text,
@@ -279,9 +313,25 @@ data DBInstance = DBInstance'
     endpoint :: Prelude.Maybe Endpoint,
     -- | The Amazon Web Services Region-unique, immutable identifier for the DB
     -- instance. This identifier is found in Amazon Web Services CloudTrail log
-    -- entries whenever the Amazon Web Services KMS customer master key (CMK)
-    -- for the DB instance is accessed.
+    -- entries whenever the Amazon Web Services KMS key for the DB instance is
+    -- accessed.
     dbiResourceId :: Prelude.Maybe Prelude.Text,
+    -- | The instance profile associated with the underlying Amazon EC2 instance
+    -- of an RDS Custom DB instance. The instance profile must meet the
+    -- following requirements:
+    --
+    -- -   The profile must exist in your account.
+    --
+    -- -   The profile must have an IAM role that Amazon EC2 has permissions to
+    --     assume.
+    --
+    -- -   The instance profile name and the associated IAM role name must
+    --     start with the prefix @AWSRDSCustom@.
+    --
+    -- For the list of permissions required for the IAM role, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc Configure IAM and your VPC>
+    -- in the /Amazon RDS User Guide/.
+    customIamInstanceProfile :: Prelude.Maybe Prelude.Text,
     -- | Provides the list of DB parameter groups applied to this DB instance.
     dbParameterGroups :: Prelude.Maybe [DBParameterGroupStatus],
     -- | A list of log types that this DB instance is configured to export to
@@ -316,17 +366,39 @@ data DBInstance = DBInstance'
     -- shown when the returned parameters do not apply to an Oracle DB
     -- instance.
     dbName :: Prelude.Maybe Prelude.Text,
-    -- | Specifies if the DB instance is a Multi-AZ deployment.
+    -- | The network type of the DB instance.
+    --
+    -- Valid values:
+    --
+    -- -   @IPV4@
+    --
+    -- -   @DUAL@
+    --
+    -- The network type is determined by the @DBSubnetGroup@ specified for the
+    -- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+    -- IPv4 and the IPv6 protocols (@DUAL@).
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+    -- in the /Amazon RDS User Guide/ and
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+    -- in the /Amazon Aurora User Guide./
+    networkType :: Prelude.Maybe Prelude.Text,
+    -- | The status of the policy state of the activity stream.
+    activityStreamPolicyStatus :: Prelude.Maybe ActivityStreamPolicyStatus,
+    -- | Specifies if the DB instance is a Multi-AZ deployment. This setting
+    -- doesn\'t apply to RDS Custom.
     multiAZ :: Prelude.Maybe Prelude.Bool,
     -- | Contains the identifier of the source DB instance if this DB instance is
     -- a read replica.
     readReplicaSourceDBInstanceIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services KMS key identifier used for encrypting messages
     -- in the database activity stream. The Amazon Web Services KMS key
-    -- identifier is the key ARN, key ID, alias ARN, or alias name for the
-    -- Amazon Web Services KMS customer master key (CMK).
+    -- identifier is the key ARN, key ID, alias ARN, or alias name for the KMS
+    -- key.
     activityStreamKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | License model information for this DB instance.
+    -- | License model information for this DB instance. This setting doesn\'t
+    -- apply to RDS Custom.
     licenseModel :: Prelude.Maybe Prelude.Text,
     -- | The status of a read replica. If the instance isn\'t a read replica,
     -- this is blank.
@@ -353,8 +425,24 @@ data DBInstance = DBInstance'
 --
 -- 'listenerEndpoint', 'dbInstance_listenerEndpoint' - Specifies the listener connection endpoint for SQL Server Always On.
 --
--- 'performanceInsightsRetentionPeriod', 'dbInstance_performanceInsightsRetentionPeriod' - The amount of time, in days, to retain Performance Insights data. Valid
--- values are 7 or 731 (2 years).
+-- 'performanceInsightsRetentionPeriod', 'dbInstance_performanceInsightsRetentionPeriod' - The number of days to retain Performance Insights data. The default is 7
+-- days. The following values are valid:
+--
+-- -   7
+--
+-- -   /month/ * 31, where /month/ is a number of months from 1-23
+--
+-- -   731
+--
+-- For example, the following values are valid:
+--
+-- -   93 (3 months * 31)
+--
+-- -   341 (11 months * 31)
+--
+-- -   589 (19 months * 31)
+--
+-- -   731
 --
 -- 'dbInstanceStatus', 'dbInstance_dbInstanceStatus' - Specifies the current state of this database.
 --
@@ -363,6 +451,9 @@ data DBInstance = DBInstance'
 -- in the /Amazon RDS User Guide./
 --
 -- 'optionGroupMemberships', 'dbInstance_optionGroupMemberships' - Provides the list of option group memberships for this DB instance.
+--
+-- 'backupTarget', 'dbInstance_backupTarget' - Specifies where automated backups and manual snapshots are stored:
+-- Amazon Web Services Outposts or the Amazon Web Services Region.
 --
 -- 'preferredBackupWindow', 'dbInstance_preferredBackupWindow' - Specifies the daily time range during which automated backups are
 -- created if automated backups are enabled, as determined by the
@@ -398,6 +489,11 @@ data DBInstance = DBInstance'
 -- instance. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster>
 -- in the /Amazon Aurora User Guide/.
+--
+-- 'automationMode', 'dbInstance_automationMode' - The automation mode of the RDS Custom DB instance: @full@ or
+-- @all paused@. If @full@, the DB instance automates monitoring and
+-- instance recovery. If @all paused@, the instance pauses automation for
+-- the duration set by @--resume-full-automation-mode-minutes@.
 --
 -- 'secondaryAvailabilityZone', 'dbInstance_secondaryAvailabilityZone' - If present, specifies the name of the secondary Availability Zone for a
 -- DB instance with multi-AZ support.
@@ -443,8 +539,7 @@ data DBInstance = DBInstance'
 -- Insights data.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- 'dbSecurityGroups', 'dbInstance_dbSecurityGroups' - A list of DB security group elements containing @DBSecurityGroup.Name@
 -- and @DBSecurityGroup.Status@ subelements.
@@ -467,14 +562,19 @@ data DBInstance = DBInstance'
 -- 'availabilityZone', 'dbInstance_availabilityZone' - Specifies the name of the Availability Zone the DB instance is located
 -- in.
 --
+-- 'resumeFullAutomationModeTime', 'dbInstance_resumeFullAutomationModeTime' - The number of minutes to pause the automation. When the time period
+-- ends, RDS Custom resumes full automation. The minimum value is 60
+-- (default). The maximum value is 1,440.
+--
 -- 'publiclyAccessible', 'dbInstance_publiclyAccessible' - Specifies the accessibility options for the DB instance.
 --
--- When the DB instance is publicly accessible, its DNS endpoint resolves
--- to the private IP address from within the DB instance\'s VPC, and to the
--- public IP address from outside of the DB instance\'s VPC. Access to the
--- DB instance is ultimately controlled by the security group it uses, and
--- that public access is not permitted if the security group assigned to
--- the DB instance doesn\'t permit it.
+-- When the DB cluster is publicly accessible, its Domain Name System (DNS)
+-- endpoint resolves to the private IP address from within the DB
+-- cluster\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB cluster\'s VPC. Access to the DB cluster
+-- is ultimately controlled by the security group it uses. That public
+-- access isn\'t permitted if the security group assigned to the DB cluster
+-- doesn\'t permit it.
 --
 -- When the DB instance isn\'t publicly accessible, it is an internal DB
 -- instance with a DNS name that resolves to a private IP address.
@@ -488,9 +588,10 @@ data DBInstance = DBInstance'
 --
 -- 'readReplicaDBClusterIdentifiers', 'dbInstance_readReplicaDBClusterIdentifiers' - Contains one or more identifiers of Aurora DB clusters to which the RDS
 -- DB instance is replicated as a read replica. For example, when you
--- create an Aurora read replica of an RDS MySQL DB instance, the Aurora
--- MySQL DB cluster for the Aurora read replica is shown. This output does
--- not contain information about cross region Aurora read replicas.
+-- create an Aurora read replica of an RDS for MySQL DB instance, the
+-- Aurora MySQL DB cluster for the Aurora read replica is shown. This
+-- output doesn\'t contain information about cross-Region Aurora read
+-- replicas.
 --
 -- Currently, each RDS DB instance can have only one Aurora read replica.
 --
@@ -537,8 +638,7 @@ data DBInstance = DBInstance'
 -- identifier for the encrypted DB instance.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 --
 -- 'engine', 'dbInstance_engine' - The name of the database engine to be used for this DB instance.
 --
@@ -579,8 +679,24 @@ data DBInstance = DBInstance'
 --
 -- 'dbiResourceId', 'dbInstance_dbiResourceId' - The Amazon Web Services Region-unique, immutable identifier for the DB
 -- instance. This identifier is found in Amazon Web Services CloudTrail log
--- entries whenever the Amazon Web Services KMS customer master key (CMK)
--- for the DB instance is accessed.
+-- entries whenever the Amazon Web Services KMS key for the DB instance is
+-- accessed.
+--
+-- 'customIamInstanceProfile', 'dbInstance_customIamInstanceProfile' - The instance profile associated with the underlying Amazon EC2 instance
+-- of an RDS Custom DB instance. The instance profile must meet the
+-- following requirements:
+--
+-- -   The profile must exist in your account.
+--
+-- -   The profile must have an IAM role that Amazon EC2 has permissions to
+--     assume.
+--
+-- -   The instance profile name and the associated IAM role name must
+--     start with the prefix @AWSRDSCustom@.
+--
+-- For the list of permissions required for the IAM role, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc Configure IAM and your VPC>
+-- in the /Amazon RDS User Guide/.
 --
 -- 'dbParameterGroups', 'dbInstance_dbParameterGroups' - Provides the list of DB parameter groups applied to this DB instance.
 --
@@ -616,17 +732,39 @@ data DBInstance = DBInstance'
 -- shown when the returned parameters do not apply to an Oracle DB
 -- instance.
 --
--- 'multiAZ', 'dbInstance_multiAZ' - Specifies if the DB instance is a Multi-AZ deployment.
+-- 'networkType', 'dbInstance_networkType' - The network type of the DB instance.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon Aurora User Guide./
+--
+-- 'activityStreamPolicyStatus', 'dbInstance_activityStreamPolicyStatus' - The status of the policy state of the activity stream.
+--
+-- 'multiAZ', 'dbInstance_multiAZ' - Specifies if the DB instance is a Multi-AZ deployment. This setting
+-- doesn\'t apply to RDS Custom.
 --
 -- 'readReplicaSourceDBInstanceIdentifier', 'dbInstance_readReplicaSourceDBInstanceIdentifier' - Contains the identifier of the source DB instance if this DB instance is
 -- a read replica.
 --
 -- 'activityStreamKmsKeyId', 'dbInstance_activityStreamKmsKeyId' - The Amazon Web Services KMS key identifier used for encrypting messages
 -- in the database activity stream. The Amazon Web Services KMS key
--- identifier is the key ARN, key ID, alias ARN, or alias name for the
--- Amazon Web Services KMS customer master key (CMK).
+-- identifier is the key ARN, key ID, alias ARN, or alias name for the KMS
+-- key.
 --
--- 'licenseModel', 'dbInstance_licenseModel' - License model information for this DB instance.
+-- 'licenseModel', 'dbInstance_licenseModel' - License model information for this DB instance. This setting doesn\'t
+-- apply to RDS Custom.
 --
 -- 'statusInfos', 'dbInstance_statusInfos' - The status of a read replica. If the instance isn\'t a read replica,
 -- this is blank.
@@ -644,6 +782,7 @@ newDBInstance =
       performanceInsightsRetentionPeriod = Prelude.Nothing,
       dbInstanceStatus = Prelude.Nothing,
       optionGroupMemberships = Prelude.Nothing,
+      backupTarget = Prelude.Nothing,
       preferredBackupWindow = Prelude.Nothing,
       backupRetentionPeriod = Prelude.Nothing,
       dbInstanceClass = Prelude.Nothing,
@@ -654,6 +793,7 @@ newDBInstance =
       activityStreamEngineNativeAuditFieldsIncluded =
         Prelude.Nothing,
       promotionTier = Prelude.Nothing,
+      automationMode = Prelude.Nothing,
       secondaryAvailabilityZone = Prelude.Nothing,
       autoMinorVersionUpgrade = Prelude.Nothing,
       dbInstanceIdentifier = Prelude.Nothing,
@@ -675,6 +815,7 @@ newDBInstance =
       instanceCreateTime = Prelude.Nothing,
       activityStreamKinesisStreamName = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
+      resumeFullAutomationModeTime = Prelude.Nothing,
       publiclyAccessible = Prelude.Nothing,
       storageType = Prelude.Nothing,
       processorFeatures = Prelude.Nothing,
@@ -697,12 +838,15 @@ newDBInstance =
       preferredMaintenanceWindow = Prelude.Nothing,
       endpoint = Prelude.Nothing,
       dbiResourceId = Prelude.Nothing,
+      customIamInstanceProfile = Prelude.Nothing,
       dbParameterGroups = Prelude.Nothing,
       enabledCloudwatchLogsExports = Prelude.Nothing,
       iops = Prelude.Nothing,
       associatedRoles = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       dbName = Prelude.Nothing,
+      networkType = Prelude.Nothing,
+      activityStreamPolicyStatus = Prelude.Nothing,
       multiAZ = Prelude.Nothing,
       readReplicaSourceDBInstanceIdentifier =
         Prelude.Nothing,
@@ -726,8 +870,24 @@ dbInstance_dbInstanceAutomatedBackupsReplications = Lens.lens (\DBInstance' {dbI
 dbInstance_listenerEndpoint :: Lens.Lens' DBInstance (Prelude.Maybe Endpoint)
 dbInstance_listenerEndpoint = Lens.lens (\DBInstance' {listenerEndpoint} -> listenerEndpoint) (\s@DBInstance' {} a -> s {listenerEndpoint = a} :: DBInstance)
 
--- | The amount of time, in days, to retain Performance Insights data. Valid
--- values are 7 or 731 (2 years).
+-- | The number of days to retain Performance Insights data. The default is 7
+-- days. The following values are valid:
+--
+-- -   7
+--
+-- -   /month/ * 31, where /month/ is a number of months from 1-23
+--
+-- -   731
+--
+-- For example, the following values are valid:
+--
+-- -   93 (3 months * 31)
+--
+-- -   341 (11 months * 31)
+--
+-- -   589 (19 months * 31)
+--
+-- -   731
 dbInstance_performanceInsightsRetentionPeriod :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Int)
 dbInstance_performanceInsightsRetentionPeriod = Lens.lens (\DBInstance' {performanceInsightsRetentionPeriod} -> performanceInsightsRetentionPeriod) (\s@DBInstance' {} a -> s {performanceInsightsRetentionPeriod = a} :: DBInstance)
 
@@ -742,6 +902,11 @@ dbInstance_dbInstanceStatus = Lens.lens (\DBInstance' {dbInstanceStatus} -> dbIn
 -- | Provides the list of option group memberships for this DB instance.
 dbInstance_optionGroupMemberships :: Lens.Lens' DBInstance (Prelude.Maybe [OptionGroupMembership])
 dbInstance_optionGroupMemberships = Lens.lens (\DBInstance' {optionGroupMemberships} -> optionGroupMemberships) (\s@DBInstance' {} a -> s {optionGroupMemberships = a} :: DBInstance) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies where automated backups and manual snapshots are stored:
+-- Amazon Web Services Outposts or the Amazon Web Services Region.
+dbInstance_backupTarget :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
+dbInstance_backupTarget = Lens.lens (\DBInstance' {backupTarget} -> backupTarget) (\s@DBInstance' {} a -> s {backupTarget = a} :: DBInstance)
 
 -- | Specifies the daily time range during which automated backups are
 -- created if automated backups are enabled, as determined by the
@@ -795,6 +960,13 @@ dbInstance_activityStreamEngineNativeAuditFieldsIncluded = Lens.lens (\DBInstanc
 -- in the /Amazon Aurora User Guide/.
 dbInstance_promotionTier :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Int)
 dbInstance_promotionTier = Lens.lens (\DBInstance' {promotionTier} -> promotionTier) (\s@DBInstance' {} a -> s {promotionTier = a} :: DBInstance)
+
+-- | The automation mode of the RDS Custom DB instance: @full@ or
+-- @all paused@. If @full@, the DB instance automates monitoring and
+-- instance recovery. If @all paused@, the instance pauses automation for
+-- the duration set by @--resume-full-automation-mode-minutes@.
+dbInstance_automationMode :: Lens.Lens' DBInstance (Prelude.Maybe AutomationMode)
+dbInstance_automationMode = Lens.lens (\DBInstance' {automationMode} -> automationMode) (\s@DBInstance' {} a -> s {automationMode = a} :: DBInstance)
 
 -- | If present, specifies the name of the secondary Availability Zone for a
 -- DB instance with multi-AZ support.
@@ -866,8 +1038,7 @@ dbInstance_automaticRestartTime = Lens.lens (\DBInstance' {automaticRestartTime}
 -- Insights data.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 dbInstance_performanceInsightsKMSKeyId :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_performanceInsightsKMSKeyId = Lens.lens (\DBInstance' {performanceInsightsKMSKeyId} -> performanceInsightsKMSKeyId) (\s@DBInstance' {} a -> s {performanceInsightsKMSKeyId = a} :: DBInstance)
 
@@ -906,14 +1077,21 @@ dbInstance_activityStreamKinesisStreamName = Lens.lens (\DBInstance' {activitySt
 dbInstance_availabilityZone :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_availabilityZone = Lens.lens (\DBInstance' {availabilityZone} -> availabilityZone) (\s@DBInstance' {} a -> s {availabilityZone = a} :: DBInstance)
 
+-- | The number of minutes to pause the automation. When the time period
+-- ends, RDS Custom resumes full automation. The minimum value is 60
+-- (default). The maximum value is 1,440.
+dbInstance_resumeFullAutomationModeTime :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.UTCTime)
+dbInstance_resumeFullAutomationModeTime = Lens.lens (\DBInstance' {resumeFullAutomationModeTime} -> resumeFullAutomationModeTime) (\s@DBInstance' {} a -> s {resumeFullAutomationModeTime = a} :: DBInstance) Prelude.. Lens.mapping Core._Time
+
 -- | Specifies the accessibility options for the DB instance.
 --
--- When the DB instance is publicly accessible, its DNS endpoint resolves
--- to the private IP address from within the DB instance\'s VPC, and to the
--- public IP address from outside of the DB instance\'s VPC. Access to the
--- DB instance is ultimately controlled by the security group it uses, and
--- that public access is not permitted if the security group assigned to
--- the DB instance doesn\'t permit it.
+-- When the DB cluster is publicly accessible, its Domain Name System (DNS)
+-- endpoint resolves to the private IP address from within the DB
+-- cluster\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB cluster\'s VPC. Access to the DB cluster
+-- is ultimately controlled by the security group it uses. That public
+-- access isn\'t permitted if the security group assigned to the DB cluster
+-- doesn\'t permit it.
 --
 -- When the DB instance isn\'t publicly accessible, it is an internal DB
 -- instance with a DNS name that resolves to a private IP address.
@@ -933,9 +1111,10 @@ dbInstance_processorFeatures = Lens.lens (\DBInstance' {processorFeatures} -> pr
 
 -- | Contains one or more identifiers of Aurora DB clusters to which the RDS
 -- DB instance is replicated as a read replica. For example, when you
--- create an Aurora read replica of an RDS MySQL DB instance, the Aurora
--- MySQL DB cluster for the Aurora read replica is shown. This output does
--- not contain information about cross region Aurora read replicas.
+-- create an Aurora read replica of an RDS for MySQL DB instance, the
+-- Aurora MySQL DB cluster for the Aurora read replica is shown. This
+-- output doesn\'t contain information about cross-Region Aurora read
+-- replicas.
 --
 -- Currently, each RDS DB instance can have only one Aurora read replica.
 dbInstance_readReplicaDBClusterIdentifiers :: Lens.Lens' DBInstance (Prelude.Maybe [Prelude.Text])
@@ -1000,8 +1179,7 @@ dbInstance_storageEncrypted = Lens.lens (\DBInstance' {storageEncrypted} -> stor
 -- identifier for the encrypted DB instance.
 --
 -- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias
--- ARN, or alias name for the Amazon Web Services KMS customer master key
--- (CMK).
+-- ARN, or alias name for the KMS key.
 dbInstance_kmsKeyId :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_kmsKeyId = Lens.lens (\DBInstance' {kmsKeyId} -> kmsKeyId) (\s@DBInstance' {} a -> s {kmsKeyId = a} :: DBInstance)
 
@@ -1060,10 +1238,28 @@ dbInstance_endpoint = Lens.lens (\DBInstance' {endpoint} -> endpoint) (\s@DBInst
 
 -- | The Amazon Web Services Region-unique, immutable identifier for the DB
 -- instance. This identifier is found in Amazon Web Services CloudTrail log
--- entries whenever the Amazon Web Services KMS customer master key (CMK)
--- for the DB instance is accessed.
+-- entries whenever the Amazon Web Services KMS key for the DB instance is
+-- accessed.
 dbInstance_dbiResourceId :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_dbiResourceId = Lens.lens (\DBInstance' {dbiResourceId} -> dbiResourceId) (\s@DBInstance' {} a -> s {dbiResourceId = a} :: DBInstance)
+
+-- | The instance profile associated with the underlying Amazon EC2 instance
+-- of an RDS Custom DB instance. The instance profile must meet the
+-- following requirements:
+--
+-- -   The profile must exist in your account.
+--
+-- -   The profile must have an IAM role that Amazon EC2 has permissions to
+--     assume.
+--
+-- -   The instance profile name and the associated IAM role name must
+--     start with the prefix @AWSRDSCustom@.
+--
+-- For the list of permissions required for the IAM role, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc Configure IAM and your VPC>
+-- in the /Amazon RDS User Guide/.
+dbInstance_customIamInstanceProfile :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
+dbInstance_customIamInstanceProfile = Lens.lens (\DBInstance' {customIamInstanceProfile} -> customIamInstanceProfile) (\s@DBInstance' {} a -> s {customIamInstanceProfile = a} :: DBInstance)
 
 -- | Provides the list of DB parameter groups applied to this DB instance.
 dbInstance_dbParameterGroups :: Lens.Lens' DBInstance (Prelude.Maybe [DBParameterGroupStatus])
@@ -1111,7 +1307,32 @@ dbInstance_engineVersion = Lens.lens (\DBInstance' {engineVersion} -> engineVers
 dbInstance_dbName :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_dbName = Lens.lens (\DBInstance' {dbName} -> dbName) (\s@DBInstance' {} a -> s {dbName = a} :: DBInstance)
 
--- | Specifies if the DB instance is a Multi-AZ deployment.
+-- | The network type of the DB instance.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide/ and
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon Aurora User Guide./
+dbInstance_networkType :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
+dbInstance_networkType = Lens.lens (\DBInstance' {networkType} -> networkType) (\s@DBInstance' {} a -> s {networkType = a} :: DBInstance)
+
+-- | The status of the policy state of the activity stream.
+dbInstance_activityStreamPolicyStatus :: Lens.Lens' DBInstance (Prelude.Maybe ActivityStreamPolicyStatus)
+dbInstance_activityStreamPolicyStatus = Lens.lens (\DBInstance' {activityStreamPolicyStatus} -> activityStreamPolicyStatus) (\s@DBInstance' {} a -> s {activityStreamPolicyStatus = a} :: DBInstance)
+
+-- | Specifies if the DB instance is a Multi-AZ deployment. This setting
+-- doesn\'t apply to RDS Custom.
 dbInstance_multiAZ :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Bool)
 dbInstance_multiAZ = Lens.lens (\DBInstance' {multiAZ} -> multiAZ) (\s@DBInstance' {} a -> s {multiAZ = a} :: DBInstance)
 
@@ -1122,12 +1343,13 @@ dbInstance_readReplicaSourceDBInstanceIdentifier = Lens.lens (\DBInstance' {read
 
 -- | The Amazon Web Services KMS key identifier used for encrypting messages
 -- in the database activity stream. The Amazon Web Services KMS key
--- identifier is the key ARN, key ID, alias ARN, or alias name for the
--- Amazon Web Services KMS customer master key (CMK).
+-- identifier is the key ARN, key ID, alias ARN, or alias name for the KMS
+-- key.
 dbInstance_activityStreamKmsKeyId :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_activityStreamKmsKeyId = Lens.lens (\DBInstance' {activityStreamKmsKeyId} -> activityStreamKmsKeyId) (\s@DBInstance' {} a -> s {activityStreamKmsKeyId = a} :: DBInstance)
 
--- | License model information for this DB instance.
+-- | License model information for this DB instance. This setting doesn\'t
+-- apply to RDS Custom.
 dbInstance_licenseModel :: Lens.Lens' DBInstance (Prelude.Maybe Prelude.Text)
 dbInstance_licenseModel = Lens.lens (\DBInstance' {licenseModel} -> licenseModel) (\s@DBInstance' {} a -> s {licenseModel = a} :: DBInstance)
 
@@ -1159,6 +1381,7 @@ instance Core.FromXML DBInstance where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "OptionGroupMembership")
                   )
+      Prelude.<*> (x Core..@? "BackupTarget")
       Prelude.<*> (x Core..@? "PreferredBackupWindow")
       Prelude.<*> (x Core..@? "BackupRetentionPeriod")
       Prelude.<*> (x Core..@? "DBInstanceClass")
@@ -1170,6 +1393,7 @@ instance Core.FromXML DBInstance where
                       Core..@? "ActivityStreamEngineNativeAuditFieldsIncluded"
                   )
       Prelude.<*> (x Core..@? "PromotionTier")
+      Prelude.<*> (x Core..@? "AutomationMode")
       Prelude.<*> (x Core..@? "SecondaryAvailabilityZone")
       Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
       Prelude.<*> (x Core..@? "DBInstanceIdentifier")
@@ -1205,6 +1429,7 @@ instance Core.FromXML DBInstance where
       Prelude.<*> (x Core..@? "InstanceCreateTime")
       Prelude.<*> (x Core..@? "ActivityStreamKinesisStreamName")
       Prelude.<*> (x Core..@? "AvailabilityZone")
+      Prelude.<*> (x Core..@? "ResumeFullAutomationModeTime")
       Prelude.<*> (x Core..@? "PubliclyAccessible")
       Prelude.<*> (x Core..@? "StorageType")
       Prelude.<*> ( x Core..@? "ProcessorFeatures"
@@ -1234,6 +1459,7 @@ instance Core.FromXML DBInstance where
       Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
       Prelude.<*> (x Core..@? "Endpoint")
       Prelude.<*> (x Core..@? "DbiResourceId")
+      Prelude.<*> (x Core..@? "CustomIamInstanceProfile")
       Prelude.<*> ( x Core..@? "DBParameterGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "DBParameterGroup")
@@ -1248,6 +1474,8 @@ instance Core.FromXML DBInstance where
                   )
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "DBName")
+      Prelude.<*> (x Core..@? "NetworkType")
+      Prelude.<*> (x Core..@? "ActivityStreamPolicyStatus")
       Prelude.<*> (x Core..@? "MultiAZ")
       Prelude.<*> (x Core..@? "ReadReplicaSourceDBInstanceIdentifier")
       Prelude.<*> (x Core..@? "ActivityStreamKmsKeyId")
@@ -1269,6 +1497,7 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` performanceInsightsRetentionPeriod
       `Prelude.hashWithSalt` dbInstanceStatus
       `Prelude.hashWithSalt` optionGroupMemberships
+      `Prelude.hashWithSalt` backupTarget
       `Prelude.hashWithSalt` preferredBackupWindow
       `Prelude.hashWithSalt` backupRetentionPeriod
       `Prelude.hashWithSalt` dbInstanceClass
@@ -1278,6 +1507,7 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` activityStreamStatus
       `Prelude.hashWithSalt` activityStreamEngineNativeAuditFieldsIncluded
       `Prelude.hashWithSalt` promotionTier
+      `Prelude.hashWithSalt` automationMode
       `Prelude.hashWithSalt` secondaryAvailabilityZone
       `Prelude.hashWithSalt` autoMinorVersionUpgrade
       `Prelude.hashWithSalt` dbInstanceIdentifier
@@ -1299,6 +1529,7 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` instanceCreateTime
       `Prelude.hashWithSalt` activityStreamKinesisStreamName
       `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` resumeFullAutomationModeTime
       `Prelude.hashWithSalt` publiclyAccessible
       `Prelude.hashWithSalt` storageType
       `Prelude.hashWithSalt` processorFeatures
@@ -1321,12 +1552,15 @@ instance Prelude.Hashable DBInstance where
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` endpoint
       `Prelude.hashWithSalt` dbiResourceId
+      `Prelude.hashWithSalt` customIamInstanceProfile
       `Prelude.hashWithSalt` dbParameterGroups
       `Prelude.hashWithSalt` enabledCloudwatchLogsExports
       `Prelude.hashWithSalt` iops
       `Prelude.hashWithSalt` associatedRoles
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` dbName
+      `Prelude.hashWithSalt` networkType
+      `Prelude.hashWithSalt` activityStreamPolicyStatus
       `Prelude.hashWithSalt` multiAZ
       `Prelude.hashWithSalt` readReplicaSourceDBInstanceIdentifier
       `Prelude.hashWithSalt` activityStreamKmsKeyId
@@ -1342,6 +1576,7 @@ instance Prelude.NFData DBInstance where
       `Prelude.seq` Prelude.rnf performanceInsightsRetentionPeriod
       `Prelude.seq` Prelude.rnf dbInstanceStatus
       `Prelude.seq` Prelude.rnf optionGroupMemberships
+      `Prelude.seq` Prelude.rnf backupTarget
       `Prelude.seq` Prelude.rnf preferredBackupWindow
       `Prelude.seq` Prelude.rnf backupRetentionPeriod
       `Prelude.seq` Prelude.rnf dbInstanceClass
@@ -1352,11 +1587,16 @@ instance Prelude.NFData DBInstance where
       `Prelude.seq` Prelude.rnf
         activityStreamEngineNativeAuditFieldsIncluded
       `Prelude.seq` Prelude.rnf promotionTier
-      `Prelude.seq` Prelude.rnf secondaryAvailabilityZone
-      `Prelude.seq` Prelude.rnf autoMinorVersionUpgrade
-      `Prelude.seq` Prelude.rnf dbInstanceIdentifier
+      `Prelude.seq` Prelude.rnf automationMode
+      `Prelude.seq` Prelude.rnf
+        secondaryAvailabilityZone
+      `Prelude.seq` Prelude.rnf
+        autoMinorVersionUpgrade
+      `Prelude.seq` Prelude.rnf
+        dbInstanceIdentifier
       `Prelude.seq` Prelude.rnf dbInstancePort
-      `Prelude.seq` Prelude.rnf activityStreamMode
+      `Prelude.seq` Prelude.rnf
+        activityStreamMode
       `Prelude.seq` Prelude.rnf tagList
       `Prelude.seq` Prelude.rnf
         latestRestorableTime
@@ -1388,6 +1628,8 @@ instance Prelude.NFData DBInstance where
         activityStreamKinesisStreamName
       `Prelude.seq` Prelude.rnf
         availabilityZone
+      `Prelude.seq` Prelude.rnf
+        resumeFullAutomationModeTime
       `Prelude.seq` Prelude.rnf
         publiclyAccessible
       `Prelude.seq` Prelude.rnf
@@ -1433,6 +1675,8 @@ instance Prelude.NFData DBInstance where
       `Prelude.seq` Prelude.rnf
         dbiResourceId
       `Prelude.seq` Prelude.rnf
+        customIamInstanceProfile
+      `Prelude.seq` Prelude.rnf
         dbParameterGroups
       `Prelude.seq` Prelude.rnf
         enabledCloudwatchLogsExports
@@ -1444,6 +1688,10 @@ instance Prelude.NFData DBInstance where
         engineVersion
       `Prelude.seq` Prelude.rnf
         dbName
+      `Prelude.seq` Prelude.rnf
+        networkType
+      `Prelude.seq` Prelude.rnf
+        activityStreamPolicyStatus
       `Prelude.seq` Prelude.rnf
         multiAZ
       `Prelude.seq` Prelude.rnf

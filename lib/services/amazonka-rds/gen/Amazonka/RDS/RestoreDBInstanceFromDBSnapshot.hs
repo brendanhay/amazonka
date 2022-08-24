@@ -52,6 +52,7 @@ module Amazonka.RDS.RestoreDBInstanceFromDBSnapshot
     restoreDBInstanceFromDBSnapshot_port,
     restoreDBInstanceFromDBSnapshot_vpcSecurityGroupIds,
     restoreDBInstanceFromDBSnapshot_dbParameterGroupName,
+    restoreDBInstanceFromDBSnapshot_backupTarget,
     restoreDBInstanceFromDBSnapshot_dbInstanceClass,
     restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot,
     restoreDBInstanceFromDBSnapshot_domainIAMRoleName,
@@ -69,8 +70,10 @@ module Amazonka.RDS.RestoreDBInstanceFromDBSnapshot
     restoreDBInstanceFromDBSnapshot_tdeCredentialArn,
     restoreDBInstanceFromDBSnapshot_engine,
     restoreDBInstanceFromDBSnapshot_deletionProtection,
+    restoreDBInstanceFromDBSnapshot_customIamInstanceProfile,
     restoreDBInstanceFromDBSnapshot_iops,
     restoreDBInstanceFromDBSnapshot_dbName,
+    restoreDBInstanceFromDBSnapshot_networkType,
     restoreDBInstanceFromDBSnapshot_multiAZ,
     restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp,
     restoreDBInstanceFromDBSnapshot_licenseModel,
@@ -113,8 +116,10 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The name of the DB parameter group to associate with this DB instance.
     --
-    -- If you do not specify a value for @DBParameterGroupName@, then the
-    -- default @DBParameterGroup@ for the specified DB engine is used.
+    -- If you don\'t specify a value for @DBParameterGroupName@, then RDS uses
+    -- the default @DBParameterGroup@ for the specified DB engine.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     --
     -- Constraints:
     --
@@ -126,8 +131,18 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     --
     -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
     dbParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies where automated backups and manual snapshots are stored for
+    -- the restored DB instance.
+    --
+    -- Possible values are @outposts@ (Amazon Web Services Outposts) and
+    -- @region@ (Amazon Web Services Region). The default is @region@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+    -- in the /Amazon RDS User Guide/.
+    backupTarget :: Prelude.Maybe Prelude.Text,
     -- | The compute and memory capacity of the Amazon RDS DB instance, for
-    -- example, @db.m4.large@. Not all DB instance classes are available in all
+    -- example db.m4.large. Not all DB instance classes are available in all
     -- Amazon Web Services Regions, or for all database engines. For the full
     -- list of DB instance classes, and availability for your engine, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
@@ -136,37 +151,56 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- Default: The same DBInstanceClass as the original DB instance.
     dbInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to copy all tags from the restored DB
-    -- instance to snapshots of the DB instance. By default, tags are not
-    -- copied.
+    -- instance to snapshots of the DB instance.
+    --
+    -- In most cases, tags aren\'t copied by default. However, when you restore
+    -- a DB instance from a DB snapshot, RDS checks whether you specify new
+    -- tags. If yes, the new tags are added to the restored DB instance. If
+    -- there are no new tags, RDS looks for the tags from the source DB
+    -- instance for the DB snapshot, and then adds those tags to the restored
+    -- DB instance.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.CopyTags Copying tags to DB instance snapshots>
+    -- in the /Amazon RDS User Guide/.
     copyTagsToSnapshot :: Prelude.Maybe Prelude.Bool,
     -- | Specify the name of the IAM role to be used when making API calls to the
     -- Directory Service.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     domainIAMRoleName :: Prelude.Maybe Prelude.Text,
     -- | The DB subnet group name to use for the new instance.
     --
     -- Constraints: If supplied, must match the name of an existing
     -- DBSubnetGroup.
     --
-    -- Example: @mySubnetgroup@
+    -- Example: @mydbsubnetgroup@
     dbSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether minor version upgrades are applied
     -- automatically to the DB instance during the maintenance window.
+    --
+    -- If you restore an RDS Custom DB instance, you must disable this
+    -- parameter.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | Specify the Active Directory directory ID to restore the DB instance in.
-    -- The domain must be created prior to this operation. Currently, only
-    -- MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be
-    -- created in an Active Directory Domain.
+    -- The domain\/ must be created prior to this operation. Currently, you can
+    -- create only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
+    -- instances in an Active Directory Domain.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
     -- in the /Amazon RDS User Guide/.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     domain :: Prelude.Maybe Prelude.Text,
     -- | The name of the option group to be used for the restored DB instance.
     --
     -- Permanent options, such as the TDE option for Oracle Advanced Security
     -- TDE, can\'t be removed from an option group, and that option group
-    -- can\'t be removed from a DB instance once it is associated with a DB
-    -- instance
+    -- can\'t be removed from a DB instance after it is associated with a DB
+    -- instance.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     optionGroupName :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
     -- Identity and Access Management (IAM) accounts to database accounts. By
@@ -175,9 +209,13 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- For more information about IAM database authentication, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
     -- in the /Amazon RDS User Guide./
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     enableIAMDatabaseAuthentication :: Prelude.Maybe Prelude.Bool,
     -- | The password for the given ARN from the key store in order to access the
     -- device.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     tdeCredentialPassword :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone (AZ) where the DB instance will be created.
     --
@@ -190,12 +228,13 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance is publicly accessible.
     --
-    -- When the DB instance is publicly accessible, its DNS endpoint resolves
-    -- to the private IP address from within the DB instance\'s VPC, and to the
-    -- public IP address from outside of the DB instance\'s VPC. Access to the
-    -- DB instance is ultimately controlled by the security group it uses, and
-    -- that public access is not permitted if the security group assigned to
-    -- the DB instance doesn\'t permit it.
+    -- When the DB instance is publicly accessible, its Domain Name System
+    -- (DNS) endpoint resolves to the private IP address from within the DB
+    -- instance\'s virtual private cloud (VPC). It resolves to the public IP
+    -- address from outside of the DB instance\'s VPC. Access to the DB
+    -- instance is ultimately controlled by the security group it uses. That
+    -- public access is not permitted if the security group assigned to the DB
+    -- instance doesn\'t permit it.
     --
     -- When the DB instance isn\'t publicly accessible, it is an internal DB
     -- instance with a DNS name that resolves to a private IP address.
@@ -216,14 +255,22 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- used. For more information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
     -- in the /Amazon RDS User Guide/.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     enableCloudwatchLogsExports :: Prelude.Maybe [Prelude.Text],
     -- | The number of CPU cores and the number of threads per core for the DB
     -- instance class of the DB instance.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     processorFeatures :: Prelude.Maybe [ProcessorFeature],
     -- | The ARN from the key store with which to associate the instance for TDE
     -- encryption.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     tdeCredentialArn :: Prelude.Maybe Prelude.Text,
     -- | The database engine to use for the new instance.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     --
     -- Default: The same as source
     --
@@ -257,10 +304,28 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     engine :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance has deletion protection
     -- enabled. The database can\'t be deleted when deletion protection is
-    -- enabled. By default, deletion protection is disabled. For more
+    -- enabled. By default, deletion protection isn\'t enabled. For more
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
     deletionProtection :: Prelude.Maybe Prelude.Bool,
+    -- | The instance profile associated with the underlying Amazon EC2 instance
+    -- of an RDS Custom DB instance. The instance profile must meet the
+    -- following requirements:
+    --
+    -- -   The profile must exist in your account.
+    --
+    -- -   The profile must have an IAM role that Amazon EC2 has permissions to
+    --     assume.
+    --
+    -- -   The instance profile name and the associated IAM role name must
+    --     start with the prefix @AWSRDSCustom@.
+    --
+    -- For the list of permissions required for the IAM role, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc Configure IAM and your VPC>
+    -- in the /Amazon RDS User Guide/.
+    --
+    -- This setting is required for RDS Custom.
+    customIamInstanceProfile :: Prelude.Maybe Prelude.Text,
     -- | Specifies the amount of provisioned IOPS for the DB instance, expressed
     -- in I\/O operations per second. If this parameter isn\'t specified, the
     -- IOPS value is taken from the backup. If this parameter is set to 0, the
@@ -278,9 +343,27 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- | The database name for the restored DB instance.
     --
     -- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
-    -- engines.
+    -- engines. It also doesn\'t apply to RDS Custom DB instances.
     dbName :: Prelude.Maybe Prelude.Text,
+    -- | The network type of the DB instance.
+    --
+    -- Valid values:
+    --
+    -- -   @IPV4@
+    --
+    -- -   @DUAL@
+    --
+    -- The network type is determined by the @DBSubnetGroup@ specified for the
+    -- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+    -- IPv4 and the IPv6 protocols (@DUAL@).
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+    -- in the /Amazon RDS User Guide./
+    networkType :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     --
     -- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
     -- DB instance is a Multi-AZ deployment.
@@ -293,6 +376,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     -- CoIP can provide lower latency for connections to the DB instance from
     -- outside of its virtual private cloud (VPC) on your local network.
     --
+    -- This setting doesn\'t apply to RDS Custom.
+    --
     -- For more information about RDS on Outposts, see
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
     -- in the /Amazon RDS User Guide/.
@@ -303,6 +388,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     enableCustomerOwnedIp :: Prelude.Maybe Prelude.Bool,
     -- | License model information for the restored DB instance.
     --
+    -- This setting doesn\'t apply to RDS Custom.
+    --
     -- Default: Same as source.
     --
     -- Valid values: @license-included@ | @bring-your-own-license@ |
@@ -310,6 +397,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     licenseModel :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether the DB instance class of the DB instance
     -- uses its default processor features.
+    --
+    -- This setting doesn\'t apply to RDS Custom.
     useDefaultProcessorFeatures :: Prelude.Maybe Prelude.Bool,
     -- | Name of the DB instance to create from the DB snapshot. This parameter
     -- isn\'t case-sensitive.
@@ -359,8 +448,10 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- 'dbParameterGroupName', 'restoreDBInstanceFromDBSnapshot_dbParameterGroupName' - The name of the DB parameter group to associate with this DB instance.
 --
--- If you do not specify a value for @DBParameterGroupName@, then the
--- default @DBParameterGroup@ for the specified DB engine is used.
+-- If you don\'t specify a value for @DBParameterGroupName@, then RDS uses
+-- the default @DBParameterGroup@ for the specified DB engine.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- Constraints:
 --
@@ -372,8 +463,18 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- -   Can\'t end with a hyphen or contain two consecutive hyphens.
 --
+-- 'backupTarget', 'restoreDBInstanceFromDBSnapshot_backupTarget' - Specifies where automated backups and manual snapshots are stored for
+-- the restored DB instance.
+--
+-- Possible values are @outposts@ (Amazon Web Services Outposts) and
+-- @region@ (Amazon Web Services Region). The default is @region@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+-- in the /Amazon RDS User Guide/.
+--
 -- 'dbInstanceClass', 'restoreDBInstanceFromDBSnapshot_dbInstanceClass' - The compute and memory capacity of the Amazon RDS DB instance, for
--- example, @db.m4.large@. Not all DB instance classes are available in all
+-- example db.m4.large. Not all DB instance classes are available in all
 -- Amazon Web Services Regions, or for all database engines. For the full
 -- list of DB instance classes, and availability for your engine, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
@@ -382,37 +483,56 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- Default: The same DBInstanceClass as the original DB instance.
 --
 -- 'copyTagsToSnapshot', 'restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot' - A value that indicates whether to copy all tags from the restored DB
--- instance to snapshots of the DB instance. By default, tags are not
--- copied.
+-- instance to snapshots of the DB instance.
+--
+-- In most cases, tags aren\'t copied by default. However, when you restore
+-- a DB instance from a DB snapshot, RDS checks whether you specify new
+-- tags. If yes, the new tags are added to the restored DB instance. If
+-- there are no new tags, RDS looks for the tags from the source DB
+-- instance for the DB snapshot, and then adds those tags to the restored
+-- DB instance.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.CopyTags Copying tags to DB instance snapshots>
+-- in the /Amazon RDS User Guide/.
 --
 -- 'domainIAMRoleName', 'restoreDBInstanceFromDBSnapshot_domainIAMRoleName' - Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- 'dbSubnetGroupName', 'restoreDBInstanceFromDBSnapshot_dbSubnetGroupName' - The DB subnet group name to use for the new instance.
 --
 -- Constraints: If supplied, must match the name of an existing
 -- DBSubnetGroup.
 --
--- Example: @mySubnetgroup@
+-- Example: @mydbsubnetgroup@
 --
 -- 'autoMinorVersionUpgrade', 'restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade' - A value that indicates whether minor version upgrades are applied
 -- automatically to the DB instance during the maintenance window.
 --
+-- If you restore an RDS Custom DB instance, you must disable this
+-- parameter.
+--
 -- 'domain', 'restoreDBInstanceFromDBSnapshot_domain' - Specify the Active Directory directory ID to restore the DB instance in.
--- The domain must be created prior to this operation. Currently, only
--- MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be
--- created in an Active Directory Domain.
+-- The domain\/ must be created prior to this operation. Currently, you can
+-- create only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
+-- instances in an Active Directory Domain.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
 -- in the /Amazon RDS User Guide/.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- 'optionGroupName', 'restoreDBInstanceFromDBSnapshot_optionGroupName' - The name of the option group to be used for the restored DB instance.
 --
 -- Permanent options, such as the TDE option for Oracle Advanced Security
 -- TDE, can\'t be removed from an option group, and that option group
--- can\'t be removed from a DB instance once it is associated with a DB
--- instance
+-- can\'t be removed from a DB instance after it is associated with a DB
+-- instance.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- 'enableIAMDatabaseAuthentication', 'restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
@@ -422,8 +542,12 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- 'tdeCredentialPassword', 'restoreDBInstanceFromDBSnapshot_tdeCredentialPassword' - The password for the given ARN from the key store in order to access the
 -- device.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- 'availabilityZone', 'restoreDBInstanceFromDBSnapshot_availabilityZone' - The Availability Zone (AZ) where the DB instance will be created.
 --
@@ -436,12 +560,13 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- 'publiclyAccessible', 'restoreDBInstanceFromDBSnapshot_publiclyAccessible' - A value that indicates whether the DB instance is publicly accessible.
 --
--- When the DB instance is publicly accessible, its DNS endpoint resolves
--- to the private IP address from within the DB instance\'s VPC, and to the
--- public IP address from outside of the DB instance\'s VPC. Access to the
--- DB instance is ultimately controlled by the security group it uses, and
--- that public access is not permitted if the security group assigned to
--- the DB instance doesn\'t permit it.
+-- When the DB instance is publicly accessible, its Domain Name System
+-- (DNS) endpoint resolves to the private IP address from within the DB
+-- instance\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB instance\'s VPC. Access to the DB
+-- instance is ultimately controlled by the security group it uses. That
+-- public access is not permitted if the security group assigned to the DB
+-- instance doesn\'t permit it.
 --
 -- When the DB instance isn\'t publicly accessible, it is an internal DB
 -- instance with a DNS name that resolves to a private IP address.
@@ -463,13 +588,21 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon RDS User Guide/.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- 'processorFeatures', 'restoreDBInstanceFromDBSnapshot_processorFeatures' - The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- 'tdeCredentialArn', 'restoreDBInstanceFromDBSnapshot_tdeCredentialArn' - The ARN from the key store with which to associate the instance for TDE
 -- encryption.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- 'engine', 'restoreDBInstanceFromDBSnapshot_engine' - The database engine to use for the new instance.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- Default: The same as source
 --
@@ -503,9 +636,27 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- 'deletionProtection', 'restoreDBInstanceFromDBSnapshot_deletionProtection' - A value that indicates whether the DB instance has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled. For more
+-- enabled. By default, deletion protection isn\'t enabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
+--
+-- 'customIamInstanceProfile', 'restoreDBInstanceFromDBSnapshot_customIamInstanceProfile' - The instance profile associated with the underlying Amazon EC2 instance
+-- of an RDS Custom DB instance. The instance profile must meet the
+-- following requirements:
+--
+-- -   The profile must exist in your account.
+--
+-- -   The profile must have an IAM role that Amazon EC2 has permissions to
+--     assume.
+--
+-- -   The instance profile name and the associated IAM role name must
+--     start with the prefix @AWSRDSCustom@.
+--
+-- For the list of permissions required for the IAM role, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc Configure IAM and your VPC>
+-- in the /Amazon RDS User Guide/.
+--
+-- This setting is required for RDS Custom.
 --
 -- 'iops', 'restoreDBInstanceFromDBSnapshot_iops' - Specifies the amount of provisioned IOPS for the DB instance, expressed
 -- in I\/O operations per second. If this parameter isn\'t specified, the
@@ -524,9 +675,27 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- 'dbName', 'restoreDBInstanceFromDBSnapshot_dbName' - The database name for the restored DB instance.
 --
 -- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
--- engines.
+-- engines. It also doesn\'t apply to RDS Custom DB instances.
+--
+-- 'networkType', 'restoreDBInstanceFromDBSnapshot_networkType' - The network type of the DB instance.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide./
 --
 -- 'multiAZ', 'restoreDBInstanceFromDBSnapshot_multiAZ' - A value that indicates whether the DB instance is a Multi-AZ deployment.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
 -- DB instance is a Multi-AZ deployment.
@@ -539,6 +708,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 -- CoIP can provide lower latency for connections to the DB instance from
 -- outside of its virtual private cloud (VPC) on your local network.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- For more information about RDS on Outposts, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide/.
@@ -549,6 +720,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- 'licenseModel', 'restoreDBInstanceFromDBSnapshot_licenseModel' - License model information for the restored DB instance.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- Default: Same as source.
 --
 -- Valid values: @license-included@ | @bring-your-own-license@ |
@@ -556,6 +729,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 --
 -- 'useDefaultProcessorFeatures', 'restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures' - A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- 'dbInstanceIdentifier', 'restoreDBInstanceFromDBSnapshot_dbInstanceIdentifier' - Name of the DB instance to create from the DB snapshot. This parameter
 -- isn\'t case-sensitive.
@@ -593,6 +768,7 @@ newRestoreDBInstanceFromDBSnapshot
         port = Prelude.Nothing,
         vpcSecurityGroupIds = Prelude.Nothing,
         dbParameterGroupName = Prelude.Nothing,
+        backupTarget = Prelude.Nothing,
         dbInstanceClass = Prelude.Nothing,
         copyTagsToSnapshot = Prelude.Nothing,
         domainIAMRoleName = Prelude.Nothing,
@@ -612,8 +788,10 @@ newRestoreDBInstanceFromDBSnapshot
         tdeCredentialArn = Prelude.Nothing,
         engine = Prelude.Nothing,
         deletionProtection = Prelude.Nothing,
+        customIamInstanceProfile = Prelude.Nothing,
         iops = Prelude.Nothing,
         dbName = Prelude.Nothing,
+        networkType = Prelude.Nothing,
         multiAZ = Prelude.Nothing,
         enableCustomerOwnedIp = Prelude.Nothing,
         licenseModel = Prelude.Nothing,
@@ -646,8 +824,10 @@ restoreDBInstanceFromDBSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreDBInsta
 
 -- | The name of the DB parameter group to associate with this DB instance.
 --
--- If you do not specify a value for @DBParameterGroupName@, then the
--- default @DBParameterGroup@ for the specified DB engine is used.
+-- If you don\'t specify a value for @DBParameterGroupName@, then RDS uses
+-- the default @DBParameterGroup@ for the specified DB engine.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- Constraints:
 --
@@ -661,8 +841,20 @@ restoreDBInstanceFromDBSnapshot_vpcSecurityGroupIds = Lens.lens (\RestoreDBInsta
 restoreDBInstanceFromDBSnapshot_dbParameterGroupName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_dbParameterGroupName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbParameterGroupName} -> dbParameterGroupName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbParameterGroupName = a} :: RestoreDBInstanceFromDBSnapshot)
 
+-- | Specifies where automated backups and manual snapshots are stored for
+-- the restored DB instance.
+--
+-- Possible values are @outposts@ (Amazon Web Services Outposts) and
+-- @region@ (Amazon Web Services Region). The default is @region@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
+-- in the /Amazon RDS User Guide/.
+restoreDBInstanceFromDBSnapshot_backupTarget :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_backupTarget = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {backupTarget} -> backupTarget) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {backupTarget = a} :: RestoreDBInstanceFromDBSnapshot)
+
 -- | The compute and memory capacity of the Amazon RDS DB instance, for
--- example, @db.m4.large@. Not all DB instance classes are available in all
+-- example db.m4.large. Not all DB instance classes are available in all
 -- Amazon Web Services Regions, or for all database engines. For the full
 -- list of DB instance classes, and availability for your engine, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html DB Instance Class>
@@ -673,13 +865,25 @@ restoreDBInstanceFromDBSnapshot_dbInstanceClass :: Lens.Lens' RestoreDBInstanceF
 restoreDBInstanceFromDBSnapshot_dbInstanceClass = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbInstanceClass} -> dbInstanceClass) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbInstanceClass = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | A value that indicates whether to copy all tags from the restored DB
--- instance to snapshots of the DB instance. By default, tags are not
--- copied.
+-- instance to snapshots of the DB instance.
+--
+-- In most cases, tags aren\'t copied by default. However, when you restore
+-- a DB instance from a DB snapshot, RDS checks whether you specify new
+-- tags. If yes, the new tags are added to the restored DB instance. If
+-- there are no new tags, RDS looks for the tags from the source DB
+-- instance for the DB snapshot, and then adds those tags to the restored
+-- DB instance.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.CopyTags Copying tags to DB instance snapshots>
+-- in the /Amazon RDS User Guide/.
 restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_copyTagsToSnapshot = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {copyTagsToSnapshot} -> copyTagsToSnapshot) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {copyTagsToSnapshot = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | Specify the name of the IAM role to be used when making API calls to the
 -- Directory Service.
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_domainIAMRoleName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_domainIAMRoleName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {domainIAMRoleName} -> domainIAMRoleName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {domainIAMRoleName = a} :: RestoreDBInstanceFromDBSnapshot)
 
@@ -688,23 +892,28 @@ restoreDBInstanceFromDBSnapshot_domainIAMRoleName = Lens.lens (\RestoreDBInstanc
 -- Constraints: If supplied, must match the name of an existing
 -- DBSubnetGroup.
 --
--- Example: @mySubnetgroup@
+-- Example: @mydbsubnetgroup@
 restoreDBInstanceFromDBSnapshot_dbSubnetGroupName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_dbSubnetGroupName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbSubnetGroupName = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | A value that indicates whether minor version upgrades are applied
 -- automatically to the DB instance during the maintenance window.
+--
+-- If you restore an RDS Custom DB instance, you must disable this
+-- parameter.
 restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_autoMinorVersionUpgrade = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {autoMinorVersionUpgrade = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | Specify the Active Directory directory ID to restore the DB instance in.
--- The domain must be created prior to this operation. Currently, only
--- MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be
--- created in an Active Directory Domain.
+-- The domain\/ must be created prior to this operation. Currently, you can
+-- create only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB
+-- instances in an Active Directory Domain.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/kerberos-authentication.html Kerberos Authentication>
 -- in the /Amazon RDS User Guide/.
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_domain :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_domain = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {domain} -> domain) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {domain = a} :: RestoreDBInstanceFromDBSnapshot)
 
@@ -712,8 +921,10 @@ restoreDBInstanceFromDBSnapshot_domain = Lens.lens (\RestoreDBInstanceFromDBSnap
 --
 -- Permanent options, such as the TDE option for Oracle Advanced Security
 -- TDE, can\'t be removed from an option group, and that option group
--- can\'t be removed from a DB instance once it is associated with a DB
--- instance
+-- can\'t be removed from a DB instance after it is associated with a DB
+-- instance.
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_optionGroupName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_optionGroupName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {optionGroupName} -> optionGroupName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {optionGroupName = a} :: RestoreDBInstanceFromDBSnapshot)
 
@@ -724,11 +935,15 @@ restoreDBInstanceFromDBSnapshot_optionGroupName = Lens.lens (\RestoreDBInstanceF
 -- For more information about IAM database authentication, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html IAM Database Authentication for MySQL and PostgreSQL>
 -- in the /Amazon RDS User Guide./
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_enableIAMDatabaseAuthentication = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {enableIAMDatabaseAuthentication} -> enableIAMDatabaseAuthentication) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {enableIAMDatabaseAuthentication = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | The password for the given ARN from the key store in order to access the
 -- device.
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_tdeCredentialPassword :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_tdeCredentialPassword = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {tdeCredentialPassword} -> tdeCredentialPassword) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {tdeCredentialPassword = a} :: RestoreDBInstanceFromDBSnapshot)
 
@@ -745,12 +960,13 @@ restoreDBInstanceFromDBSnapshot_availabilityZone = Lens.lens (\RestoreDBInstance
 
 -- | A value that indicates whether the DB instance is publicly accessible.
 --
--- When the DB instance is publicly accessible, its DNS endpoint resolves
--- to the private IP address from within the DB instance\'s VPC, and to the
--- public IP address from outside of the DB instance\'s VPC. Access to the
--- DB instance is ultimately controlled by the security group it uses, and
--- that public access is not permitted if the security group assigned to
--- the DB instance doesn\'t permit it.
+-- When the DB instance is publicly accessible, its Domain Name System
+-- (DNS) endpoint resolves to the private IP address from within the DB
+-- instance\'s virtual private cloud (VPC). It resolves to the public IP
+-- address from outside of the DB instance\'s VPC. Access to the DB
+-- instance is ultimately controlled by the security group it uses. That
+-- public access is not permitted if the security group assigned to the DB
+-- instance doesn\'t permit it.
 --
 -- When the DB instance isn\'t publicly accessible, it is an internal DB
 -- instance with a DNS name that resolves to a private IP address.
@@ -775,20 +991,28 @@ restoreDBInstanceFromDBSnapshot_storageType = Lens.lens (\RestoreDBInstanceFromD
 -- used. For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch Publishing Database Logs to Amazon CloudWatch Logs>
 -- in the /Amazon RDS User Guide/.
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_enableCloudwatchLogsExports :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe [Prelude.Text])
 restoreDBInstanceFromDBSnapshot_enableCloudwatchLogsExports = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {enableCloudwatchLogsExports} -> enableCloudwatchLogsExports) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {enableCloudwatchLogsExports = a} :: RestoreDBInstanceFromDBSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of CPU cores and the number of threads per core for the DB
 -- instance class of the DB instance.
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_processorFeatures :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe [ProcessorFeature])
 restoreDBInstanceFromDBSnapshot_processorFeatures = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {processorFeatures} -> processorFeatures) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {processorFeatures = a} :: RestoreDBInstanceFromDBSnapshot) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN from the key store with which to associate the instance for TDE
 -- encryption.
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_tdeCredentialArn :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_tdeCredentialArn = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {tdeCredentialArn} -> tdeCredentialArn) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {tdeCredentialArn = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | The database engine to use for the new instance.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- Default: The same as source
 --
@@ -824,11 +1048,31 @@ restoreDBInstanceFromDBSnapshot_engine = Lens.lens (\RestoreDBInstanceFromDBSnap
 
 -- | A value that indicates whether the DB instance has deletion protection
 -- enabled. The database can\'t be deleted when deletion protection is
--- enabled. By default, deletion protection is disabled. For more
+-- enabled. By default, deletion protection isn\'t enabled. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html Deleting a DB Instance>.
 restoreDBInstanceFromDBSnapshot_deletionProtection :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_deletionProtection = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {deletionProtection} -> deletionProtection) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {deletionProtection = a} :: RestoreDBInstanceFromDBSnapshot)
+
+-- | The instance profile associated with the underlying Amazon EC2 instance
+-- of an RDS Custom DB instance. The instance profile must meet the
+-- following requirements:
+--
+-- -   The profile must exist in your account.
+--
+-- -   The profile must have an IAM role that Amazon EC2 has permissions to
+--     assume.
+--
+-- -   The instance profile name and the associated IAM role name must
+--     start with the prefix @AWSRDSCustom@.
+--
+-- For the list of permissions required for the IAM role, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc Configure IAM and your VPC>
+-- in the /Amazon RDS User Guide/.
+--
+-- This setting is required for RDS Custom.
+restoreDBInstanceFromDBSnapshot_customIamInstanceProfile :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_customIamInstanceProfile = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {customIamInstanceProfile} -> customIamInstanceProfile) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {customIamInstanceProfile = a} :: RestoreDBInstanceFromDBSnapshot)
 
 -- | Specifies the amount of provisioned IOPS for the DB instance, expressed
 -- in I\/O operations per second. If this parameter isn\'t specified, the
@@ -849,11 +1093,31 @@ restoreDBInstanceFromDBSnapshot_iops = Lens.lens (\RestoreDBInstanceFromDBSnapsh
 -- | The database name for the restored DB instance.
 --
 -- This parameter doesn\'t apply to the MySQL, PostgreSQL, or MariaDB
--- engines.
+-- engines. It also doesn\'t apply to RDS Custom DB instances.
 restoreDBInstanceFromDBSnapshot_dbName :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
 restoreDBInstanceFromDBSnapshot_dbName = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {dbName} -> dbName) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {dbName = a} :: RestoreDBInstanceFromDBSnapshot)
 
+-- | The network type of the DB instance.
+--
+-- Valid values:
+--
+-- -   @IPV4@
+--
+-- -   @DUAL@
+--
+-- The network type is determined by the @DBSubnetGroup@ specified for the
+-- DB instance. A @DBSubnetGroup@ can support only the IPv4 protocol or the
+-- IPv4 and the IPv6 protocols (@DUAL@).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html Working with a DB instance in a VPC>
+-- in the /Amazon RDS User Guide./
+restoreDBInstanceFromDBSnapshot_networkType :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Text)
+restoreDBInstanceFromDBSnapshot_networkType = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {networkType} -> networkType) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {networkType = a} :: RestoreDBInstanceFromDBSnapshot)
+
 -- | A value that indicates whether the DB instance is a Multi-AZ deployment.
+--
+-- This setting doesn\'t apply to RDS Custom.
 --
 -- Constraint: You can\'t specify the @AvailabilityZone@ parameter if the
 -- DB instance is a Multi-AZ deployment.
@@ -868,6 +1132,8 @@ restoreDBInstanceFromDBSnapshot_multiAZ = Lens.lens (\RestoreDBInstanceFromDBSna
 -- CoIP can provide lower latency for connections to the DB instance from
 -- outside of its virtual private cloud (VPC) on your local network.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- For more information about RDS on Outposts, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html Working with Amazon RDS on Amazon Web Services Outposts>
 -- in the /Amazon RDS User Guide/.
@@ -880,6 +1146,8 @@ restoreDBInstanceFromDBSnapshot_enableCustomerOwnedIp = Lens.lens (\RestoreDBIns
 
 -- | License model information for the restored DB instance.
 --
+-- This setting doesn\'t apply to RDS Custom.
+--
 -- Default: Same as source.
 --
 -- Valid values: @license-included@ | @bring-your-own-license@ |
@@ -889,6 +1157,8 @@ restoreDBInstanceFromDBSnapshot_licenseModel = Lens.lens (\RestoreDBInstanceFrom
 
 -- | A value that indicates whether the DB instance class of the DB instance
 -- uses its default processor features.
+--
+-- This setting doesn\'t apply to RDS Custom.
 restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures :: Lens.Lens' RestoreDBInstanceFromDBSnapshot (Prelude.Maybe Prelude.Bool)
 restoreDBInstanceFromDBSnapshot_useDefaultProcessorFeatures = Lens.lens (\RestoreDBInstanceFromDBSnapshot' {useDefaultProcessorFeatures} -> useDefaultProcessorFeatures) (\s@RestoreDBInstanceFromDBSnapshot' {} a -> s {useDefaultProcessorFeatures = a} :: RestoreDBInstanceFromDBSnapshot)
 
@@ -946,6 +1216,7 @@ instance
         `Prelude.hashWithSalt` port
         `Prelude.hashWithSalt` vpcSecurityGroupIds
         `Prelude.hashWithSalt` dbParameterGroupName
+        `Prelude.hashWithSalt` backupTarget
         `Prelude.hashWithSalt` dbInstanceClass
         `Prelude.hashWithSalt` copyTagsToSnapshot
         `Prelude.hashWithSalt` domainIAMRoleName
@@ -963,8 +1234,10 @@ instance
         `Prelude.hashWithSalt` tdeCredentialArn
         `Prelude.hashWithSalt` engine
         `Prelude.hashWithSalt` deletionProtection
+        `Prelude.hashWithSalt` customIamInstanceProfile
         `Prelude.hashWithSalt` iops
         `Prelude.hashWithSalt` dbName
+        `Prelude.hashWithSalt` networkType
         `Prelude.hashWithSalt` multiAZ
         `Prelude.hashWithSalt` enableCustomerOwnedIp
         `Prelude.hashWithSalt` licenseModel
@@ -981,6 +1254,7 @@ instance
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf vpcSecurityGroupIds
       `Prelude.seq` Prelude.rnf dbParameterGroupName
+      `Prelude.seq` Prelude.rnf backupTarget
       `Prelude.seq` Prelude.rnf dbInstanceClass
       `Prelude.seq` Prelude.rnf copyTagsToSnapshot
       `Prelude.seq` Prelude.rnf domainIAMRoleName
@@ -1000,9 +1274,14 @@ instance
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf
         deletionProtection
+      `Prelude.seq` Prelude.rnf
+        customIamInstanceProfile
       `Prelude.seq` Prelude.rnf iops
       `Prelude.seq` Prelude.rnf dbName
-      `Prelude.seq` Prelude.rnf multiAZ
+      `Prelude.seq` Prelude.rnf
+        networkType
+      `Prelude.seq` Prelude.rnf
+        multiAZ
       `Prelude.seq` Prelude.rnf
         enableCustomerOwnedIp
       `Prelude.seq` Prelude.rnf
@@ -1042,6 +1321,7 @@ instance Core.ToQuery RestoreDBInstanceFromDBSnapshot where
                 Prelude.<$> vpcSecurityGroupIds
             ),
         "DBParameterGroupName" Core.=: dbParameterGroupName,
+        "BackupTarget" Core.=: backupTarget,
         "DBInstanceClass" Core.=: dbInstanceClass,
         "CopyTagsToSnapshot" Core.=: copyTagsToSnapshot,
         "DomainIAMRoleName" Core.=: domainIAMRoleName,
@@ -1070,8 +1350,11 @@ instance Core.ToQuery RestoreDBInstanceFromDBSnapshot where
         "TdeCredentialArn" Core.=: tdeCredentialArn,
         "Engine" Core.=: engine,
         "DeletionProtection" Core.=: deletionProtection,
+        "CustomIamInstanceProfile"
+          Core.=: customIamInstanceProfile,
         "Iops" Core.=: iops,
         "DBName" Core.=: dbName,
+        "NetworkType" Core.=: networkType,
         "MultiAZ" Core.=: multiAZ,
         "EnableCustomerOwnedIp"
           Core.=: enableCustomerOwnedIp,

@@ -21,8 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Promotes a read replica DB cluster to a standalone DB cluster.
---
--- This action only applies to Aurora DB clusters.
 module Amazonka.RDS.PromoteReadReplicaDBCluster
   ( -- * Creating a Request
     PromoteReadReplicaDBCluster (..),

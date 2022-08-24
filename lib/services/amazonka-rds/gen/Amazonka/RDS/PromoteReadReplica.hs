@@ -31,7 +31,8 @@
 --     on your read replica, configure the automated backup window so that
 --     daily backups do not interfere with read replica promotion.
 --
--- -   This command doesn\'t apply to Aurora MySQL and Aurora PostgreSQL.
+-- -   This command doesn\'t apply to Aurora MySQL, Aurora PostgreSQL, or
+--     RDS Custom.
 module Amazonka.RDS.PromoteReadReplica
   ( -- * Creating a Request
     PromoteReadReplica (..),

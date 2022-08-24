@@ -236,7 +236,7 @@ data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A list of SourceRegion instances that contains each source Amazon Web
+    -- | A list of @SourceRegion@ instances that contains each source Amazon Web
     -- Services Region that the current Amazon Web Services Region can get a
     -- read replica or a DB snapshot from.
     sourceRegions :: Prelude.Maybe [SourceRegion],
@@ -257,7 +257,7 @@ data DescribeSourceRegionsResponse = DescribeSourceRegionsResponse'
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 --
--- 'sourceRegions', 'describeSourceRegionsResponse_sourceRegions' - A list of SourceRegion instances that contains each source Amazon Web
+-- 'sourceRegions', 'describeSourceRegionsResponse_sourceRegions' - A list of @SourceRegion@ instances that contains each source Amazon Web
 -- Services Region that the current Amazon Web Services Region can get a
 -- read replica or a DB snapshot from.
 --
@@ -280,7 +280,7 @@ newDescribeSourceRegionsResponse pHttpStatus_ =
 describeSourceRegionsResponse_marker :: Lens.Lens' DescribeSourceRegionsResponse (Prelude.Maybe Prelude.Text)
 describeSourceRegionsResponse_marker = Lens.lens (\DescribeSourceRegionsResponse' {marker} -> marker) (\s@DescribeSourceRegionsResponse' {} a -> s {marker = a} :: DescribeSourceRegionsResponse)
 
--- | A list of SourceRegion instances that contains each source Amazon Web
+-- | A list of @SourceRegion@ instances that contains each source Amazon Web
 -- Services Region that the current Amazon Web Services Region can get a
 -- read replica or a DB snapshot from.
 describeSourceRegionsResponse_sourceRegions :: Lens.Lens' DescribeSourceRegionsResponse (Prelude.Maybe [SourceRegion])

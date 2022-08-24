@@ -27,7 +27,7 @@
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html Stopping and Starting an Aurora Cluster>
--- in the /Amazon Aurora User Guide./
+-- in the /Amazon Aurora User Guide/.
 --
 -- This action only applies to Aurora DB clusters.
 module Amazonka.RDS.StopDBCluster

@@ -23,6 +23,8 @@
 -- You can call @DescribeValidDBInstanceModifications@ to learn what
 -- modifications you can make to your DB instance. You can use this
 -- information when you call @ModifyDBInstance@.
+--
+-- This command doesn\'t apply to RDS Custom.
 module Amazonka.RDS.DescribeValidDBInstanceModifications
   ( -- * Creating a Request
     DescribeValidDBInstanceModifications (..),

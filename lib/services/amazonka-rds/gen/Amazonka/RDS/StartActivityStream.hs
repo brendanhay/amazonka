@@ -76,8 +76,7 @@ data StartActivityStream = StartActivityStream'
     mode :: ActivityStreamMode,
     -- | The Amazon Web Services KMS key identifier for encrypting messages in
     -- the database activity stream. The Amazon Web Services KMS key identifier
-    -- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web
-    -- Services KMS customer master key (CMK).
+    -- is the key ARN, key ID, alias ARN, or alias name for the KMS key.
     kmsKeyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -106,8 +105,7 @@ data StartActivityStream = StartActivityStream'
 --
 -- 'kmsKeyId', 'startActivityStream_kmsKeyId' - The Amazon Web Services KMS key identifier for encrypting messages in
 -- the database activity stream. The Amazon Web Services KMS key identifier
--- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web
--- Services KMS customer master key (CMK).
+-- is the key ARN, key ID, alias ARN, or alias name for the KMS key.
 newStartActivityStream ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -153,8 +151,7 @@ startActivityStream_mode = Lens.lens (\StartActivityStream' {mode} -> mode) (\s@
 
 -- | The Amazon Web Services KMS key identifier for encrypting messages in
 -- the database activity stream. The Amazon Web Services KMS key identifier
--- is the key ARN, key ID, alias ARN, or alias name for the Amazon Web
--- Services KMS customer master key (CMK).
+-- is the key ARN, key ID, alias ARN, or alias name for the KMS key.
 startActivityStream_kmsKeyId :: Lens.Lens' StartActivityStream Prelude.Text
 startActivityStream_kmsKeyId = Lens.lens (\StartActivityStream' {kmsKeyId} -> kmsKeyId) (\s@StartActivityStream' {} a -> s {kmsKeyId = a} :: StartActivityStream)
 

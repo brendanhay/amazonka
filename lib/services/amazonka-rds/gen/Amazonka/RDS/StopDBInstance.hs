@@ -29,8 +29,8 @@
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html Stopping an Amazon RDS DB Instance Temporarily>
 -- in the /Amazon RDS User Guide./
 --
--- This command doesn\'t apply to Aurora MySQL and Aurora PostgreSQL. For
--- Aurora clusters, use @StopDBCluster@ instead.
+-- This command doesn\'t apply to RDS Custom, Aurora MySQL, and Aurora
+-- PostgreSQL. For Aurora clusters, use @StopDBCluster@ instead.
 module Amazonka.RDS.StopDBInstance
   ( -- * Creating a Request
     StopDBInstance (..),

@@ -24,7 +24,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.RDS.Types.SourceType
 
--- | This data type is used as a response element in the @DescribeEvents@
+-- | This data type is used as a response element in the
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html DescribeEvents>
 -- action.
 --
 -- /See:/ 'newEvent' smart constructor.

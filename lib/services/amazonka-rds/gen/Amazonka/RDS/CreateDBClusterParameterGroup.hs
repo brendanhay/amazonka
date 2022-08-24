@@ -30,10 +30,16 @@
 -- To provide custom values for any of the parameters, you must modify the
 -- group after creating it using @ModifyDBClusterParameterGroup@. Once
 -- you\'ve created a DB cluster parameter group, you need to associate it
--- with your DB cluster using @ModifyDBCluster@. When you associate a new
--- DB cluster parameter group with a running DB cluster, you need to reboot
--- the DB instances in the DB cluster without failover for the new DB
--- cluster parameter group and associated settings to take effect.
+-- with your DB cluster using @ModifyDBCluster@.
+--
+-- When you associate a new DB cluster parameter group with a running
+-- Aurora DB cluster, reboot the DB instances in the DB cluster without
+-- failover for the new DB cluster parameter group and associated settings
+-- to take effect.
+--
+-- When you associate a new DB cluster parameter group with a running
+-- Multi-AZ DB cluster, reboot the DB cluster without failover for the new
+-- DB cluster parameter group and associated settings to take effect.
 --
 -- After you create a DB cluster parameter group, you should wait at least
 -- 5 minutes before creating your first DB cluster that uses that DB
@@ -45,14 +51,16 @@
 -- default database defined by the @character_set_database@ parameter. You
 -- can use the /Parameter Groups/ option of the
 -- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
--- @DescribeDBClusterParameters@ action to verify that your DB cluster
+-- @DescribeDBClusterParameters@ operation to verify that your DB cluster
 -- parameter group has been created or modified.
 --
 -- For more information on Amazon Aurora, see
--- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?>
--- in the /Amazon Aurora User Guide./
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What is Amazon Aurora?>
+-- in the /Amazon Aurora User Guide/.
 --
--- This action only applies to Aurora DB clusters.
+-- For more information on Multi-AZ DB clusters, see
+-- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html Multi-AZ deployments with two readable standby DB instances>
+-- in the /Amazon RDS User Guide/.
 module Amazonka.RDS.CreateDBClusterParameterGroup
   ( -- * Creating a Request
     CreateDBClusterParameterGroup (..),
@@ -91,7 +99,7 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
     --
     -- Constraints:
     --
-    -- -   Must match the name of an existing DB cluster parameter group.
+    -- -   Must not match the name of an existing DB cluster parameter group.
     --
     -- This value is stored as a lowercase string.
     dbClusterParameterGroupName :: Prelude.Text,
@@ -103,11 +111,19 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
     --
     -- __Aurora MySQL__
     --
-    -- Example: @aurora5.6@, @aurora-mysql5.7@
+    -- Example: @aurora5.6@, @aurora-mysql5.7@, @aurora-mysql8.0@
     --
     -- __Aurora PostgreSQL__
     --
     -- Example: @aurora-postgresql9.6@
+    --
+    -- __RDS for MySQL__
+    --
+    -- Example: @mysql8.0@
+    --
+    -- __RDS for PostgreSQL__
+    --
+    -- Example: @postgres12@
     --
     -- To list all of the available parameter group families for a DB engine,
     -- use the following command:
@@ -125,9 +141,14 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
     --
     -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
     --
-    -- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+    -- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+    --     Aurora)
     --
     -- -   @aurora-postgresql@
+    --
+    -- -   @mysql@
+    --
+    -- -   @postgres@
     dbParameterGroupFamily :: Prelude.Text,
     -- | The description for the DB cluster parameter group.
     description :: Prelude.Text
@@ -148,7 +169,7 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 --
 -- Constraints:
 --
--- -   Must match the name of an existing DB cluster parameter group.
+-- -   Must not match the name of an existing DB cluster parameter group.
 --
 -- This value is stored as a lowercase string.
 --
@@ -160,11 +181,19 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 --
 -- __Aurora MySQL__
 --
--- Example: @aurora5.6@, @aurora-mysql5.7@
+-- Example: @aurora5.6@, @aurora-mysql5.7@, @aurora-mysql8.0@
 --
 -- __Aurora PostgreSQL__
 --
 -- Example: @aurora-postgresql9.6@
+--
+-- __RDS for MySQL__
+--
+-- Example: @mysql8.0@
+--
+-- __RDS for PostgreSQL__
+--
+-- Example: @postgres12@
 --
 -- To list all of the available parameter group families for a DB engine,
 -- use the following command:
@@ -182,9 +211,14 @@ data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
 --
 -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
 --
--- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+--     Aurora)
 --
 -- -   @aurora-postgresql@
+--
+-- -   @mysql@
+--
+-- -   @postgres@
 --
 -- 'description', 'createDBClusterParameterGroup_description' - The description for the DB cluster parameter group.
 newCreateDBClusterParameterGroup ::
@@ -217,7 +251,7 @@ createDBClusterParameterGroup_tags = Lens.lens (\CreateDBClusterParameterGroup' 
 --
 -- Constraints:
 --
--- -   Must match the name of an existing DB cluster parameter group.
+-- -   Must not match the name of an existing DB cluster parameter group.
 --
 -- This value is stored as a lowercase string.
 createDBClusterParameterGroup_dbClusterParameterGroupName :: Lens.Lens' CreateDBClusterParameterGroup Prelude.Text
@@ -231,11 +265,19 @@ createDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\CreateDB
 --
 -- __Aurora MySQL__
 --
--- Example: @aurora5.6@, @aurora-mysql5.7@
+-- Example: @aurora5.6@, @aurora-mysql5.7@, @aurora-mysql8.0@
 --
 -- __Aurora PostgreSQL__
 --
 -- Example: @aurora-postgresql9.6@
+--
+-- __RDS for MySQL__
+--
+-- Example: @mysql8.0@
+--
+-- __RDS for PostgreSQL__
+--
+-- Example: @postgres12@
 --
 -- To list all of the available parameter group families for a DB engine,
 -- use the following command:
@@ -253,9 +295,14 @@ createDBClusterParameterGroup_dbClusterParameterGroupName = Lens.lens (\CreateDB
 --
 -- -   @aurora@ (for MySQL 5.6-compatible Aurora)
 --
--- -   @aurora-mysql@ (for MySQL 5.7-compatible Aurora)
+-- -   @aurora-mysql@ (for MySQL 5.7-compatible and MySQL 8.0-compatible
+--     Aurora)
 --
 -- -   @aurora-postgresql@
+--
+-- -   @mysql@
+--
+-- -   @postgres@
 createDBClusterParameterGroup_dbParameterGroupFamily :: Lens.Lens' CreateDBClusterParameterGroup Prelude.Text
 createDBClusterParameterGroup_dbParameterGroupFamily = Lens.lens (\CreateDBClusterParameterGroup' {dbParameterGroupFamily} -> dbParameterGroupFamily) (\s@CreateDBClusterParameterGroup' {} a -> s {dbParameterGroupFamily = a} :: CreateDBClusterParameterGroup)
 

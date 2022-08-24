@@ -66,8 +66,8 @@ import Test.Tasty
 --         , requestCopyOptionGroup $
 --             newCopyOptionGroup
 --
---         , requestCreateCustomAvailabilityZone $
---             newCreateCustomAvailabilityZone
+--         , requestCreateCustomDBEngineVersion $
+--             newCreateCustomDBEngineVersion
 --
 --         , requestCreateDBCluster $
 --             newCreateDBCluster
@@ -114,8 +114,8 @@ import Test.Tasty
 --         , requestCreateOptionGroup $
 --             newCreateOptionGroup
 --
---         , requestDeleteCustomAvailabilityZone $
---             newDeleteCustomAvailabilityZone
+--         , requestDeleteCustomDBEngineVersion $
+--             newDeleteCustomDBEngineVersion
 --
 --         , requestDeleteDBCluster $
 --             newDeleteDBCluster
@@ -159,9 +159,6 @@ import Test.Tasty
 --         , requestDeleteGlobalCluster $
 --             newDeleteGlobalCluster
 --
---         , requestDeleteInstallationMedia $
---             newDeleteInstallationMedia
---
 --         , requestDeleteOptionGroup $
 --             newDeleteOptionGroup
 --
@@ -173,9 +170,6 @@ import Test.Tasty
 --
 --         , requestDescribeCertificates $
 --             newDescribeCertificates
---
---         , requestDescribeCustomAvailabilityZones $
---             newDescribeCustomAvailabilityZones
 --
 --         , requestDescribeDBClusterBacktracks $
 --             newDescribeDBClusterBacktracks
@@ -261,9 +255,6 @@ import Test.Tasty
 --         , requestDescribeGlobalClusters $
 --             newDescribeGlobalClusters
 --
---         , requestDescribeInstallationMedia $
---             newDescribeInstallationMedia
---
 --         , requestDescribeOptionGroupOptions $
 --             newDescribeOptionGroupOptions
 --
@@ -297,17 +288,20 @@ import Test.Tasty
 --         , requestFailoverGlobalCluster $
 --             newFailoverGlobalCluster
 --
---         , requestImportInstallationMedia $
---             newImportInstallationMedia
---
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestModifyActivityStream $
+--             newModifyActivityStream
 --
 --         , requestModifyCertificates $
 --             newModifyCertificates
 --
 --         , requestModifyCurrentDBClusterCapacity $
 --             newModifyCurrentDBClusterCapacity
+--
+--         , requestModifyCustomDBEngineVersion $
+--             newModifyCustomDBEngineVersion
 --
 --         , requestModifyDBCluster $
 --             newModifyDBCluster
@@ -362,6 +356,9 @@ import Test.Tasty
 --
 --         , requestPurchaseReservedDBInstancesOffering $
 --             newPurchaseReservedDBInstancesOffering
+--
+--         , requestRebootDBCluster $
+--             newRebootDBCluster
 --
 --         , requestRebootDBInstance $
 --             newRebootDBInstance
@@ -438,6 +435,9 @@ import Test.Tasty
 --         , requestStopDBInstanceAutomatedBackupsReplication $
 --             newStopDBInstanceAutomatedBackupsReplication
 --
+--         , requestSwitchoverReadReplica $
+--             newSwitchoverReadReplica
+--
 --           ]
 
 --     , testGroup "response"
@@ -480,8 +480,8 @@ import Test.Tasty
 --         , responseCopyOptionGroup $
 --             newCopyOptionGroupResponse
 --
---         , responseCreateCustomAvailabilityZone $
---             newCreateCustomAvailabilityZoneResponse
+--         , responseCreateCustomDBEngineVersion $
+--             newDBEngineVersion
 --
 --         , responseCreateDBCluster $
 --             newCreateDBClusterResponse
@@ -528,8 +528,8 @@ import Test.Tasty
 --         , responseCreateOptionGroup $
 --             newCreateOptionGroupResponse
 --
---         , responseDeleteCustomAvailabilityZone $
---             newDeleteCustomAvailabilityZoneResponse
+--         , responseDeleteCustomDBEngineVersion $
+--             newDBEngineVersion
 --
 --         , responseDeleteDBCluster $
 --             newDeleteDBClusterResponse
@@ -573,9 +573,6 @@ import Test.Tasty
 --         , responseDeleteGlobalCluster $
 --             newDeleteGlobalClusterResponse
 --
---         , responseDeleteInstallationMedia $
---             newInstallationMedia
---
 --         , responseDeleteOptionGroup $
 --             newDeleteOptionGroupResponse
 --
@@ -587,9 +584,6 @@ import Test.Tasty
 --
 --         , responseDescribeCertificates $
 --             newDescribeCertificatesResponse
---
---         , responseDescribeCustomAvailabilityZones $
---             newDescribeCustomAvailabilityZonesResponse
 --
 --         , responseDescribeDBClusterBacktracks $
 --             newDescribeDBClusterBacktracksResponse
@@ -675,9 +669,6 @@ import Test.Tasty
 --         , responseDescribeGlobalClusters $
 --             newDescribeGlobalClustersResponse
 --
---         , responseDescribeInstallationMedia $
---             newDescribeInstallationMediaResponse
---
 --         , responseDescribeOptionGroupOptions $
 --             newDescribeOptionGroupOptionsResponse
 --
@@ -711,17 +702,20 @@ import Test.Tasty
 --         , responseFailoverGlobalCluster $
 --             newFailoverGlobalClusterResponse
 --
---         , responseImportInstallationMedia $
---             newInstallationMedia
---
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseModifyActivityStream $
+--             newModifyActivityStreamResponse
 --
 --         , responseModifyCertificates $
 --             newModifyCertificatesResponse
 --
 --         , responseModifyCurrentDBClusterCapacity $
 --             newModifyCurrentDBClusterCapacityResponse
+--
+--         , responseModifyCustomDBEngineVersion $
+--             newDBEngineVersion
 --
 --         , responseModifyDBCluster $
 --             newModifyDBClusterResponse
@@ -776,6 +770,9 @@ import Test.Tasty
 --
 --         , responsePurchaseReservedDBInstancesOffering $
 --             newPurchaseReservedDBInstancesOfferingResponse
+--
+--         , responseRebootDBCluster $
+--             newRebootDBClusterResponse
 --
 --         , responseRebootDBInstance $
 --             newRebootDBInstanceResponse
@@ -851,6 +848,9 @@ import Test.Tasty
 --
 --         , responseStopDBInstanceAutomatedBackupsReplication $
 --             newStopDBInstanceAutomatedBackupsReplicationResponse
+--
+--         , responseSwitchoverReadReplica $
+--             newSwitchoverReadReplicaResponse
 --
 --           ]
 --     ]
@@ -935,11 +935,11 @@ requestCopyOptionGroup =
     "CopyOptionGroup"
     "fixture/CopyOptionGroup.yaml"
 
-requestCreateCustomAvailabilityZone :: CreateCustomAvailabilityZone -> TestTree
-requestCreateCustomAvailabilityZone =
+requestCreateCustomDBEngineVersion :: CreateCustomDBEngineVersion -> TestTree
+requestCreateCustomDBEngineVersion =
   req
-    "CreateCustomAvailabilityZone"
-    "fixture/CreateCustomAvailabilityZone.yaml"
+    "CreateCustomDBEngineVersion"
+    "fixture/CreateCustomDBEngineVersion.yaml"
 
 requestCreateDBCluster :: CreateDBCluster -> TestTree
 requestCreateDBCluster =
@@ -1031,11 +1031,11 @@ requestCreateOptionGroup =
     "CreateOptionGroup"
     "fixture/CreateOptionGroup.yaml"
 
-requestDeleteCustomAvailabilityZone :: DeleteCustomAvailabilityZone -> TestTree
-requestDeleteCustomAvailabilityZone =
+requestDeleteCustomDBEngineVersion :: DeleteCustomDBEngineVersion -> TestTree
+requestDeleteCustomDBEngineVersion =
   req
-    "DeleteCustomAvailabilityZone"
-    "fixture/DeleteCustomAvailabilityZone.yaml"
+    "DeleteCustomDBEngineVersion"
+    "fixture/DeleteCustomDBEngineVersion.yaml"
 
 requestDeleteDBCluster :: DeleteDBCluster -> TestTree
 requestDeleteDBCluster =
@@ -1121,12 +1121,6 @@ requestDeleteGlobalCluster =
     "DeleteGlobalCluster"
     "fixture/DeleteGlobalCluster.yaml"
 
-requestDeleteInstallationMedia :: DeleteInstallationMedia -> TestTree
-requestDeleteInstallationMedia =
-  req
-    "DeleteInstallationMedia"
-    "fixture/DeleteInstallationMedia.yaml"
-
 requestDeleteOptionGroup :: DeleteOptionGroup -> TestTree
 requestDeleteOptionGroup =
   req
@@ -1150,12 +1144,6 @@ requestDescribeCertificates =
   req
     "DescribeCertificates"
     "fixture/DescribeCertificates.yaml"
-
-requestDescribeCustomAvailabilityZones :: DescribeCustomAvailabilityZones -> TestTree
-requestDescribeCustomAvailabilityZones =
-  req
-    "DescribeCustomAvailabilityZones"
-    "fixture/DescribeCustomAvailabilityZones.yaml"
 
 requestDescribeDBClusterBacktracks :: DescribeDBClusterBacktracks -> TestTree
 requestDescribeDBClusterBacktracks =
@@ -1325,12 +1313,6 @@ requestDescribeGlobalClusters =
     "DescribeGlobalClusters"
     "fixture/DescribeGlobalClusters.yaml"
 
-requestDescribeInstallationMedia :: DescribeInstallationMedia -> TestTree
-requestDescribeInstallationMedia =
-  req
-    "DescribeInstallationMedia"
-    "fixture/DescribeInstallationMedia.yaml"
-
 requestDescribeOptionGroupOptions :: DescribeOptionGroupOptions -> TestTree
 requestDescribeOptionGroupOptions =
   req
@@ -1397,17 +1379,17 @@ requestFailoverGlobalCluster =
     "FailoverGlobalCluster"
     "fixture/FailoverGlobalCluster.yaml"
 
-requestImportInstallationMedia :: ImportInstallationMedia -> TestTree
-requestImportInstallationMedia =
-  req
-    "ImportInstallationMedia"
-    "fixture/ImportInstallationMedia.yaml"
-
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestModifyActivityStream :: ModifyActivityStream -> TestTree
+requestModifyActivityStream =
+  req
+    "ModifyActivityStream"
+    "fixture/ModifyActivityStream.yaml"
 
 requestModifyCertificates :: ModifyCertificates -> TestTree
 requestModifyCertificates =
@@ -1420,6 +1402,12 @@ requestModifyCurrentDBClusterCapacity =
   req
     "ModifyCurrentDBClusterCapacity"
     "fixture/ModifyCurrentDBClusterCapacity.yaml"
+
+requestModifyCustomDBEngineVersion :: ModifyCustomDBEngineVersion -> TestTree
+requestModifyCustomDBEngineVersion =
+  req
+    "ModifyCustomDBEngineVersion"
+    "fixture/ModifyCustomDBEngineVersion.yaml"
 
 requestModifyDBCluster :: ModifyDBCluster -> TestTree
 requestModifyDBCluster =
@@ -1528,6 +1516,12 @@ requestPurchaseReservedDBInstancesOffering =
   req
     "PurchaseReservedDBInstancesOffering"
     "fixture/PurchaseReservedDBInstancesOffering.yaml"
+
+requestRebootDBCluster :: RebootDBCluster -> TestTree
+requestRebootDBCluster =
+  req
+    "RebootDBCluster"
+    "fixture/RebootDBCluster.yaml"
 
 requestRebootDBInstance :: RebootDBInstance -> TestTree
 requestRebootDBInstance =
@@ -1679,6 +1673,12 @@ requestStopDBInstanceAutomatedBackupsReplication =
     "StopDBInstanceAutomatedBackupsReplication"
     "fixture/StopDBInstanceAutomatedBackupsReplication.yaml"
 
+requestSwitchoverReadReplica :: SwitchoverReadReplica -> TestTree
+requestSwitchoverReadReplica =
+  req
+    "SwitchoverReadReplica"
+    "fixture/SwitchoverReadReplica.yaml"
+
 -- Responses
 
 responseAddRoleToDBCluster :: AddRoleToDBClusterResponse -> TestTree
@@ -1785,13 +1785,13 @@ responseCopyOptionGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CopyOptionGroup)
 
-responseCreateCustomAvailabilityZone :: CreateCustomAvailabilityZoneResponse -> TestTree
-responseCreateCustomAvailabilityZone =
+responseCreateCustomDBEngineVersion :: DBEngineVersion -> TestTree
+responseCreateCustomDBEngineVersion =
   res
-    "CreateCustomAvailabilityZoneResponse"
-    "fixture/CreateCustomAvailabilityZoneResponse.proto"
+    "CreateCustomDBEngineVersionResponse"
+    "fixture/CreateCustomDBEngineVersionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateCustomAvailabilityZone)
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomDBEngineVersion)
 
 responseCreateDBCluster :: CreateDBClusterResponse -> TestTree
 responseCreateDBCluster =
@@ -1913,13 +1913,13 @@ responseCreateOptionGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateOptionGroup)
 
-responseDeleteCustomAvailabilityZone :: DeleteCustomAvailabilityZoneResponse -> TestTree
-responseDeleteCustomAvailabilityZone =
+responseDeleteCustomDBEngineVersion :: DBEngineVersion -> TestTree
+responseDeleteCustomDBEngineVersion =
   res
-    "DeleteCustomAvailabilityZoneResponse"
-    "fixture/DeleteCustomAvailabilityZoneResponse.proto"
+    "DeleteCustomDBEngineVersionResponse"
+    "fixture/DeleteCustomDBEngineVersionResponse.proto"
     defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteCustomAvailabilityZone)
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomDBEngineVersion)
 
 responseDeleteDBCluster :: DeleteDBClusterResponse -> TestTree
 responseDeleteDBCluster =
@@ -2033,14 +2033,6 @@ responseDeleteGlobalCluster =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteGlobalCluster)
 
-responseDeleteInstallationMedia :: InstallationMedia -> TestTree
-responseDeleteInstallationMedia =
-  res
-    "DeleteInstallationMediaResponse"
-    "fixture/DeleteInstallationMediaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteInstallationMedia)
-
 responseDeleteOptionGroup :: DeleteOptionGroupResponse -> TestTree
 responseDeleteOptionGroup =
   res
@@ -2072,14 +2064,6 @@ responseDescribeCertificates =
     "fixture/DescribeCertificatesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeCertificates)
-
-responseDescribeCustomAvailabilityZones :: DescribeCustomAvailabilityZonesResponse -> TestTree
-responseDescribeCustomAvailabilityZones =
-  res
-    "DescribeCustomAvailabilityZonesResponse"
-    "fixture/DescribeCustomAvailabilityZonesResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeCustomAvailabilityZones)
 
 responseDescribeDBClusterBacktracks :: DescribeDBClusterBacktracksResponse -> TestTree
 responseDescribeDBClusterBacktracks =
@@ -2305,14 +2289,6 @@ responseDescribeGlobalClusters =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeGlobalClusters)
 
-responseDescribeInstallationMedia :: DescribeInstallationMediaResponse -> TestTree
-responseDescribeInstallationMedia =
-  res
-    "DescribeInstallationMediaResponse"
-    "fixture/DescribeInstallationMediaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeInstallationMedia)
-
 responseDescribeOptionGroupOptions :: DescribeOptionGroupOptionsResponse -> TestTree
 responseDescribeOptionGroupOptions =
   res
@@ -2401,14 +2377,6 @@ responseFailoverGlobalCluster =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy FailoverGlobalCluster)
 
-responseImportInstallationMedia :: InstallationMedia -> TestTree
-responseImportInstallationMedia =
-  res
-    "ImportInstallationMediaResponse"
-    "fixture/ImportInstallationMediaResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ImportInstallationMedia)
-
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -2416,6 +2384,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseModifyActivityStream :: ModifyActivityStreamResponse -> TestTree
+responseModifyActivityStream =
+  res
+    "ModifyActivityStreamResponse"
+    "fixture/ModifyActivityStreamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyActivityStream)
 
 responseModifyCertificates :: ModifyCertificatesResponse -> TestTree
 responseModifyCertificates =
@@ -2432,6 +2408,14 @@ responseModifyCurrentDBClusterCapacity =
     "fixture/ModifyCurrentDBClusterCapacityResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyCurrentDBClusterCapacity)
+
+responseModifyCustomDBEngineVersion :: DBEngineVersion -> TestTree
+responseModifyCustomDBEngineVersion =
+  res
+    "ModifyCustomDBEngineVersionResponse"
+    "fixture/ModifyCustomDBEngineVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyCustomDBEngineVersion)
 
 responseModifyDBCluster :: ModifyDBClusterResponse -> TestTree
 responseModifyDBCluster =
@@ -2576,6 +2560,14 @@ responsePurchaseReservedDBInstancesOffering =
     "fixture/PurchaseReservedDBInstancesOfferingResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PurchaseReservedDBInstancesOffering)
+
+responseRebootDBCluster :: RebootDBClusterResponse -> TestTree
+responseRebootDBCluster =
+  res
+    "RebootDBClusterResponse"
+    "fixture/RebootDBClusterResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RebootDBCluster)
 
 responseRebootDBInstance :: RebootDBInstanceResponse -> TestTree
 responseRebootDBInstance =
@@ -2776,3 +2768,11 @@ responseStopDBInstanceAutomatedBackupsReplication =
     "fixture/StopDBInstanceAutomatedBackupsReplicationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopDBInstanceAutomatedBackupsReplication)
+
+responseSwitchoverReadReplica :: SwitchoverReadReplicaResponse -> TestTree
+responseSwitchoverReadReplica =
+  res
+    "SwitchoverReadReplicaResponse"
+    "fixture/SwitchoverReadReplicaResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SwitchoverReadReplica)

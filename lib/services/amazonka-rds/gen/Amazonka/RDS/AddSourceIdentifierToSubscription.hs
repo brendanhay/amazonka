@@ -76,6 +76,9 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
     --
     -- -   If the source type is a DB cluster snapshot, a
     --     @DBClusterSnapshotIdentifier@ value must be supplied.
+    --
+    -- -   If the source type is an RDS Proxy, a @DBProxyName@ value must be
+    --     supplied.
     sourceIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,6 +115,9 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
 --
 -- -   If the source type is a DB cluster snapshot, a
 --     @DBClusterSnapshotIdentifier@ value must be supplied.
+--
+-- -   If the source type is an RDS Proxy, a @DBProxyName@ value must be
+--     supplied.
 newAddSourceIdentifierToSubscription ::
   -- | 'subscriptionName'
   Prelude.Text ->
@@ -153,6 +159,9 @@ addSourceIdentifierToSubscription_subscriptionName = Lens.lens (\AddSourceIdenti
 --
 -- -   If the source type is a DB cluster snapshot, a
 --     @DBClusterSnapshotIdentifier@ value must be supplied.
+--
+-- -   If the source type is an RDS Proxy, a @DBProxyName@ value must be
+--     supplied.
 addSourceIdentifierToSubscription_sourceIdentifier :: Lens.Lens' AddSourceIdentifierToSubscription Prelude.Text
 addSourceIdentifierToSubscription_sourceIdentifier = Lens.lens (\AddSourceIdentifierToSubscription' {sourceIdentifier} -> sourceIdentifier) (\s@AddSourceIdentifierToSubscription' {} a -> s {sourceIdentifier = a} :: AddSourceIdentifierToSubscription)
 

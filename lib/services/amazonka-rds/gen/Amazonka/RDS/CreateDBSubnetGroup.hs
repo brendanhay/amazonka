@@ -59,10 +59,16 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup'
     -- | The name for the DB subnet group. This value is stored as a lowercase
     -- string.
     --
-    -- Constraints: Must contain no more than 255 letters, numbers, periods,
-    -- underscores, spaces, or hyphens. Must not be default.
+    -- Constraints:
     --
-    -- Example: @mySubnetgroup@
+    -- -   Must contain no more than 255 letters, numbers, periods,
+    --     underscores, spaces, or hyphens.
+    --
+    -- -   Must not be default.
+    --
+    -- -   First character must be a letter.
+    --
+    -- Example: @mydbsubnetgroup@
     dbSubnetGroupName :: Prelude.Text,
     -- | The description for the DB subnet group.
     dbSubnetGroupDescription :: Prelude.Text,
@@ -84,10 +90,16 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup'
 -- 'dbSubnetGroupName', 'createDBSubnetGroup_dbSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase
 -- string.
 --
--- Constraints: Must contain no more than 255 letters, numbers, periods,
--- underscores, spaces, or hyphens. Must not be default.
+-- Constraints:
 --
--- Example: @mySubnetgroup@
+-- -   Must contain no more than 255 letters, numbers, periods,
+--     underscores, spaces, or hyphens.
+--
+-- -   Must not be default.
+--
+-- -   First character must be a letter.
+--
+-- Example: @mydbsubnetgroup@
 --
 -- 'dbSubnetGroupDescription', 'createDBSubnetGroup_dbSubnetGroupDescription' - The description for the DB subnet group.
 --
@@ -116,10 +128,16 @@ createDBSubnetGroup_tags = Lens.lens (\CreateDBSubnetGroup' {tags} -> tags) (\s@
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
 --
--- Constraints: Must contain no more than 255 letters, numbers, periods,
--- underscores, spaces, or hyphens. Must not be default.
+-- Constraints:
 --
--- Example: @mySubnetgroup@
+-- -   Must contain no more than 255 letters, numbers, periods,
+--     underscores, spaces, or hyphens.
+--
+-- -   Must not be default.
+--
+-- -   First character must be a letter.
+--
+-- Example: @mydbsubnetgroup@
 createDBSubnetGroup_dbSubnetGroupName :: Lens.Lens' CreateDBSubnetGroup Prelude.Text
 createDBSubnetGroup_dbSubnetGroupName = Lens.lens (\CreateDBSubnetGroup' {dbSubnetGroupName} -> dbSubnetGroupName) (\s@CreateDBSubnetGroup' {} a -> s {dbSubnetGroupName = a} :: CreateDBSubnetGroup)
 

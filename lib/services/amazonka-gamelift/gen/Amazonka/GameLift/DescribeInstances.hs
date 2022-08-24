@@ -91,7 +91,7 @@ data DescribeInstances = DescribeInstances'
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of a location to retrieve instance information for, in the form
-    -- of an AWS Region code such as @us-west-2@.
+    -- of an Amazon Web Services Region code such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for an instance to retrieve. Specify an instance ID
     -- or leave blank to retrieve all instances in the fleet.
@@ -118,7 +118,7 @@ data DescribeInstances = DescribeInstances'
 -- To start at the beginning of the result set, do not specify a value.
 --
 -- 'location', 'describeInstances_location' - The name of a location to retrieve instance information for, in the form
--- of an AWS Region code such as @us-west-2@.
+-- of an Amazon Web Services Region code such as @us-west-2@.
 --
 -- 'instanceId', 'describeInstances_instanceId' - A unique identifier for an instance to retrieve. Specify an instance ID
 -- or leave blank to retrieve all instances in the fleet.
@@ -148,7 +148,7 @@ describeInstances_nextToken :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelu
 describeInstances_nextToken = Lens.lens (\DescribeInstances' {nextToken} -> nextToken) (\s@DescribeInstances' {} a -> s {nextToken = a} :: DescribeInstances)
 
 -- | The name of a location to retrieve instance information for, in the form
--- of an AWS Region code such as @us-west-2@.
+-- of an Amazon Web Services Region code such as @us-west-2@.
 describeInstances_location :: Lens.Lens' DescribeInstances (Prelude.Maybe Prelude.Text)
 describeInstances_location = Lens.lens (\DescribeInstances' {location} -> location) (\s@DescribeInstances' {} a -> s {location = a} :: DescribeInstances)
 

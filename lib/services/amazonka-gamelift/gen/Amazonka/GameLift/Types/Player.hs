@@ -39,8 +39,8 @@ data Player = Player'
     -- @\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}@.
     playerAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | A set of values, expressed in milliseconds, that indicates the amount of
-    -- latency that a player experiences when connected to AWS Regions. If this
-    -- property is present, FlexMatch considers placing the match only in
+    -- latency that a player experiences when connected to \@aws; Regions. If
+    -- this property is present, FlexMatch considers placing the match only in
     -- Regions for which latency is reported.
     --
     -- If a matchmaker has a rule that evaluates player latency, players must
@@ -70,8 +70,8 @@ data Player = Player'
 -- @\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}@.
 --
 -- 'latencyInMs', 'player_latencyInMs' - A set of values, expressed in milliseconds, that indicates the amount of
--- latency that a player experiences when connected to AWS Regions. If this
--- property is present, FlexMatch considers placing the match only in
+-- latency that a player experiences when connected to \@aws; Regions. If
+-- this property is present, FlexMatch considers placing the match only in
 -- Regions for which latency is reported.
 --
 -- If a matchmaker has a rule that evaluates player latency, players must
@@ -103,8 +103,8 @@ player_playerAttributes :: Lens.Lens' Player (Prelude.Maybe (Prelude.HashMap Pre
 player_playerAttributes = Lens.lens (\Player' {playerAttributes} -> playerAttributes) (\s@Player' {} a -> s {playerAttributes = a} :: Player) Prelude.. Lens.mapping Lens.coerced
 
 -- | A set of values, expressed in milliseconds, that indicates the amount of
--- latency that a player experiences when connected to AWS Regions. If this
--- property is present, FlexMatch considers placing the match only in
+-- latency that a player experiences when connected to \@aws; Regions. If
+-- this property is present, FlexMatch considers placing the match only in
 -- Regions for which latency is reported.
 --
 -- If a matchmaker has a rule that evaluates player latency, players must

@@ -40,9 +40,10 @@ data InstanceDefinition = InstanceDefinition'
     -- cost per unit hour and better identify the most cost-effective options.
     -- For detailed information on weighting instance capacity, see
     -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
-    -- in the /Amazon EC2 Auto Scaling User Guide/. Default value is \"1\".
+    -- in the /Amazon Elastic Compute Cloud Auto Scaling User Guide/. Default
+    -- value is \"1\".
     weightedCapacity :: Prelude.Maybe Prelude.Text,
-    -- | An EC2 instance type designation.
+    -- | An Amazon EC2 instance type designation.
     instanceType :: GameServerGroupInstanceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,9 +62,10 @@ data InstanceDefinition = InstanceDefinition'
 -- cost per unit hour and better identify the most cost-effective options.
 -- For detailed information on weighting instance capacity, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
--- in the /Amazon EC2 Auto Scaling User Guide/. Default value is \"1\".
+-- in the /Amazon Elastic Compute Cloud Auto Scaling User Guide/. Default
+-- value is \"1\".
 --
--- 'instanceType', 'instanceDefinition_instanceType' - An EC2 instance type designation.
+-- 'instanceType', 'instanceDefinition_instanceType' - An Amazon EC2 instance type designation.
 newInstanceDefinition ::
   -- | 'instanceType'
   GameServerGroupInstanceType ->
@@ -81,11 +83,12 @@ newInstanceDefinition pInstanceType_ =
 -- cost per unit hour and better identify the most cost-effective options.
 -- For detailed information on weighting instance capacity, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting>
--- in the /Amazon EC2 Auto Scaling User Guide/. Default value is \"1\".
+-- in the /Amazon Elastic Compute Cloud Auto Scaling User Guide/. Default
+-- value is \"1\".
 instanceDefinition_weightedCapacity :: Lens.Lens' InstanceDefinition (Prelude.Maybe Prelude.Text)
 instanceDefinition_weightedCapacity = Lens.lens (\InstanceDefinition' {weightedCapacity} -> weightedCapacity) (\s@InstanceDefinition' {} a -> s {weightedCapacity = a} :: InstanceDefinition)
 
--- | An EC2 instance type designation.
+-- | An Amazon EC2 instance type designation.
 instanceDefinition_instanceType :: Lens.Lens' InstanceDefinition GameServerGroupInstanceType
 instanceDefinition_instanceType = Lens.lens (\InstanceDefinition' {instanceType} -> instanceType) (\s@InstanceDefinition' {} a -> s {instanceType = a} :: InstanceDefinition)
 

@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns a tag to a GameLift resource. AWS resource tags provide an
--- additional management tool set. You can use tags to organize resources,
--- create IAM permissions policies to manage access to groups of resources,
--- customize AWS cost breakdowns, etc. This operation handles the
--- permissions necessary to manage tags for the following GameLift resource
--- types:
+-- Assigns a tag to a GameLift resource. Amazon Web Services resource tags
+-- provide an additional management tool set. You can use tags to organize
+-- resources, create IAM permissions policies to manage access to groups of
+-- resources, customize Amazon Web Services cost breakdowns, etc. This
+-- operation handles the permissions necessary to manage tags for the
+-- following GameLift resource types:
 --
 -- -   Build
 --
@@ -48,10 +48,10 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/
 --
--- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>
+-- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ Amazon Web Services Tagging Strategies>
 --
 -- __Related actions__
 --
@@ -94,7 +94,7 @@ data TagResource = TagResource'
     -- | A list of one or more tags to assign to the specified GameLift resource.
     -- Tags are developer-defined and structured as key-value pairs. The
     -- maximum tag limit may be lower than stated. See
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
     -- for actual tagging limits.
     tags :: [Tag]
   }
@@ -118,7 +118,7 @@ data TagResource = TagResource'
 -- 'tags', 'tagResource_tags' - A list of one or more tags to assign to the specified GameLift resource.
 -- Tags are developer-defined and structured as key-value pairs. The
 -- maximum tag limit may be lower than stated. See
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for actual tagging limits.
 newTagResource ::
   -- | 'resourceARN'
@@ -142,7 +142,7 @@ tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN)
 -- | A list of one or more tags to assign to the specified GameLift resource.
 -- Tags are developer-defined and structured as key-value pairs. The
 -- maximum tag limit may be lower than stated. See
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
 -- for actual tagging limits.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced

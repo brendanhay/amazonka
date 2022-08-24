@@ -106,7 +106,7 @@ data GameSessionPlacement = GameSessionPlacement'
     -- timed out.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | A set of values, expressed in milliseconds, that indicates the amount of
-    -- latency that a player experiences when connected to AWS Regions.
+    -- latency that a player experiences when connected to \@aws; Regions.
     playerLatencies :: Prelude.Maybe [PlayerLatency],
     -- | The maximum number of players that can be connected simultaneously to
     -- the game session.
@@ -219,7 +219,7 @@ data GameSessionPlacement = GameSessionPlacement'
 -- timed out.
 --
 -- 'playerLatencies', 'gameSessionPlacement_playerLatencies' - A set of values, expressed in milliseconds, that indicates the amount of
--- latency that a player experiences when connected to AWS Regions.
+-- latency that a player experiences when connected to \@aws; Regions.
 --
 -- 'maximumPlayerSessionCount', 'gameSessionPlacement_maximumPlayerSessionCount' - The maximum number of players that can be connected simultaneously to
 -- the game session.
@@ -367,7 +367,7 @@ gameSessionPlacement_endTime :: Lens.Lens' GameSessionPlacement (Prelude.Maybe P
 gameSessionPlacement_endTime = Lens.lens (\GameSessionPlacement' {endTime} -> endTime) (\s@GameSessionPlacement' {} a -> s {endTime = a} :: GameSessionPlacement) Prelude.. Lens.mapping Core._Time
 
 -- | A set of values, expressed in milliseconds, that indicates the amount of
--- latency that a player experiences when connected to AWS Regions.
+-- latency that a player experiences when connected to \@aws; Regions.
 gameSessionPlacement_playerLatencies :: Lens.Lens' GameSessionPlacement (Prelude.Maybe [PlayerLatency])
 gameSessionPlacement_playerLatencies = Lens.lens (\GameSessionPlacement' {playerLatencies} -> playerLatencies) (\s@GameSessionPlacement' {} a -> s {playerLatencies = a} :: GameSessionPlacement) Prelude.. Lens.mapping Lens.coerced
 

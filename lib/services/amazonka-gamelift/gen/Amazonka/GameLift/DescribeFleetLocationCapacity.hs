@@ -80,7 +80,8 @@ data DescribeFleetLocationCapacity = DescribeFleetLocationCapacity'
     -- can use either the fleet ID or ARN value.
     fleetId :: Prelude.Text,
     -- | The fleet location to retrieve capacity information for. Specify a
-    -- location in the form of an AWS Region code, such as @us-west-2@.
+    -- location in the form of an Amazon Web Services Region code, such as
+    -- @us-west-2@.
     location :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,7 +98,8 @@ data DescribeFleetLocationCapacity = DescribeFleetLocationCapacity'
 -- can use either the fleet ID or ARN value.
 --
 -- 'location', 'describeFleetLocationCapacity_location' - The fleet location to retrieve capacity information for. Specify a
--- location in the form of an AWS Region code, such as @us-west-2@.
+-- location in the form of an Amazon Web Services Region code, such as
+-- @us-west-2@.
 newDescribeFleetLocationCapacity ::
   -- | 'fleetId'
   Prelude.Text ->
@@ -116,7 +118,8 @@ describeFleetLocationCapacity_fleetId :: Lens.Lens' DescribeFleetLocationCapacit
 describeFleetLocationCapacity_fleetId = Lens.lens (\DescribeFleetLocationCapacity' {fleetId} -> fleetId) (\s@DescribeFleetLocationCapacity' {} a -> s {fleetId = a} :: DescribeFleetLocationCapacity)
 
 -- | The fleet location to retrieve capacity information for. Specify a
--- location in the form of an AWS Region code, such as @us-west-2@.
+-- location in the form of an Amazon Web Services Region code, such as
+-- @us-west-2@.
 describeFleetLocationCapacity_location :: Lens.Lens' DescribeFleetLocationCapacity Prelude.Text
 describeFleetLocationCapacity_location = Lens.lens (\DescribeFleetLocationCapacity' {location} -> location) (\s@DescribeFleetLocationCapacity' {} a -> s {location = a} :: DescribeFleetLocationCapacity)
 

@@ -24,8 +24,9 @@
 -- server groups.__
 --
 -- Retrieves information on all game servers groups that exist in the
--- current AWS account for the selected Region. Use the pagination
--- parameters to retrieve results in a set of sequential segments.
+-- current Amazon Web Services account for the selected Region. Use the
+-- pagination parameters to retrieve results in a set of sequential
+-- segments.
 --
 -- __Learn more__
 --

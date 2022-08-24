@@ -34,7 +34,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newFilterConfiguration' smart constructor.
 data FilterConfiguration = FilterConfiguration'
   { -- | A list of locations to allow game session placement in, in the form of
-    -- AWS Region codes such as @us-west-2@.
+    -- Amazon Web Services Region codes such as @us-west-2@.
     allowedLocations :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +48,7 @@ data FilterConfiguration = FilterConfiguration'
 -- for backwards compatibility:
 --
 -- 'allowedLocations', 'filterConfiguration_allowedLocations' - A list of locations to allow game session placement in, in the form of
--- AWS Region codes such as @us-west-2@.
+-- Amazon Web Services Region codes such as @us-west-2@.
 newFilterConfiguration ::
   FilterConfiguration
 newFilterConfiguration =
@@ -58,7 +58,7 @@ newFilterConfiguration =
     }
 
 -- | A list of locations to allow game session placement in, in the form of
--- AWS Region codes such as @us-west-2@.
+-- Amazon Web Services Region codes such as @us-west-2@.
 filterConfiguration_allowedLocations :: Lens.Lens' FilterConfiguration (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 filterConfiguration_allowedLocations = Lens.lens (\FilterConfiguration' {allowedLocations} -> allowedLocations) (\s@FilterConfiguration' {} a -> s {allowedLocations = a} :: FilterConfiguration) Prelude.. Lens.mapping Lens.coerced
 

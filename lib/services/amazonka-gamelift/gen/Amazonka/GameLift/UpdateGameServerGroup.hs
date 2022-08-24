@@ -77,14 +77,14 @@ import qualified Amazonka.Response as Response
 data UpdateGameServerGroup = UpdateGameServerGroup'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
-    -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
-    -- Scaling groups.
+    -- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+    -- Auto Scaling groups.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | An updated list of EC2 instance types to use in the Auto Scaling group.
-    -- The instance definitions must specify at least two different instance
-    -- types that are supported by GameLift FleetIQ. This updated list replaces
-    -- the entire current list of instance definitions for the game server
-    -- group. For more information on instance types, see
+    -- | An updated list of Amazon EC2 instance types to use in the Auto Scaling
+    -- group. The instance definitions must specify at least two different
+    -- instance types that are supported by GameLift FleetIQ. This updated list
+    -- replaces the entire current list of instance definitions for the game
+    -- server group. For more information on instance types, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
     -- in the /Amazon EC2 User Guide/. You can optionally specify capacity
     -- weighting for each instance type. If no weight value is specified for an
@@ -99,9 +99,9 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
     -- causing players to be dropped from the game. Protected instances cannot
     -- be terminated while there are active game servers running except in the
     -- event of a forced game server group deletion (see ). An exception to
-    -- this is with Spot Instances, which can be terminated by AWS regardless
-    -- of protection status. This property is set to @NO_PROTECTION@ by
-    -- default.
+    -- this is with Spot Instances, which can be terminated by Amazon Web
+    -- Services regardless of protection status. This property is set to
+    -- @NO_PROTECTION@ by default.
     gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
     -- | Indicates how GameLift FleetIQ balances the use of Spot Instances and
     -- On-Demand Instances in the game server group. Method options include the
@@ -141,14 +141,14 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 --
 -- 'roleArn', 'updateGameServerGroup_roleArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- for an IAM role that allows Amazon GameLift to access your EC2 Auto
--- Scaling groups.
+-- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+-- Auto Scaling groups.
 --
--- 'instanceDefinitions', 'updateGameServerGroup_instanceDefinitions' - An updated list of EC2 instance types to use in the Auto Scaling group.
--- The instance definitions must specify at least two different instance
--- types that are supported by GameLift FleetIQ. This updated list replaces
--- the entire current list of instance definitions for the game server
--- group. For more information on instance types, see
+-- 'instanceDefinitions', 'updateGameServerGroup_instanceDefinitions' - An updated list of Amazon EC2 instance types to use in the Auto Scaling
+-- group. The instance definitions must specify at least two different
+-- instance types that are supported by GameLift FleetIQ. This updated list
+-- replaces the entire current list of instance definitions for the game
+-- server group. For more information on instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
 -- in the /Amazon EC2 User Guide/. You can optionally specify capacity
 -- weighting for each instance type. If no weight value is specified for an
@@ -163,9 +163,9 @@ data UpdateGameServerGroup = UpdateGameServerGroup'
 -- causing players to be dropped from the game. Protected instances cannot
 -- be terminated while there are active game servers running except in the
 -- event of a forced game server group deletion (see ). An exception to
--- this is with Spot Instances, which can be terminated by AWS regardless
--- of protection status. This property is set to @NO_PROTECTION@ by
--- default.
+-- this is with Spot Instances, which can be terminated by Amazon Web
+-- Services regardless of protection status. This property is set to
+-- @NO_PROTECTION@ by default.
 --
 -- 'balancingStrategy', 'updateGameServerGroup_balancingStrategy' - Indicates how GameLift FleetIQ balances the use of Spot Instances and
 -- On-Demand Instances in the game server group. Method options include the
@@ -206,16 +206,16 @@ newUpdateGameServerGroup pGameServerGroupName_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
--- for an IAM role that allows Amazon GameLift to access your EC2 Auto
--- Scaling groups.
+-- for an IAM role that allows Amazon GameLift to access your Amazon EC2
+-- Auto Scaling groups.
 updateGameServerGroup_roleArn :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe Prelude.Text)
 updateGameServerGroup_roleArn = Lens.lens (\UpdateGameServerGroup' {roleArn} -> roleArn) (\s@UpdateGameServerGroup' {} a -> s {roleArn = a} :: UpdateGameServerGroup)
 
--- | An updated list of EC2 instance types to use in the Auto Scaling group.
--- The instance definitions must specify at least two different instance
--- types that are supported by GameLift FleetIQ. This updated list replaces
--- the entire current list of instance definitions for the game server
--- group. For more information on instance types, see
+-- | An updated list of Amazon EC2 instance types to use in the Auto Scaling
+-- group. The instance definitions must specify at least two different
+-- instance types that are supported by GameLift FleetIQ. This updated list
+-- replaces the entire current list of instance definitions for the game
+-- server group. For more information on instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html EC2 Instance Types>
 -- in the /Amazon EC2 User Guide/. You can optionally specify capacity
 -- weighting for each instance type. If no weight value is specified for an
@@ -232,9 +232,9 @@ updateGameServerGroup_instanceDefinitions = Lens.lens (\UpdateGameServerGroup' {
 -- causing players to be dropped from the game. Protected instances cannot
 -- be terminated while there are active game servers running except in the
 -- event of a forced game server group deletion (see ). An exception to
--- this is with Spot Instances, which can be terminated by AWS regardless
--- of protection status. This property is set to @NO_PROTECTION@ by
--- default.
+-- this is with Spot Instances, which can be terminated by Amazon Web
+-- Services regardless of protection status. This property is set to
+-- @NO_PROTECTION@ by default.
 updateGameServerGroup_gameServerProtectionPolicy :: Lens.Lens' UpdateGameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
 updateGameServerGroup_gameServerProtectionPolicy = Lens.lens (\UpdateGameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@UpdateGameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: UpdateGameServerGroup)
 

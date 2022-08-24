@@ -76,14 +76,15 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newCreateAlias' smart constructor.
 data CreateAlias = CreateAlias'
   { -- | A list of labels to assign to the new alias resource. Tags are
-    -- developer-defined key-value pairs. Tagging AWS resources are useful for
-    -- resource management, access management and cost allocation. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in the /AWS General Reference/. Once the resource is created, you can
-    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
-    -- and view tags. The maximum tag limit may be lower than stated. See the
-    -- AWS General Reference for actual tagging limits.
+    -- developer-defined key-value pairs. Tagging Amazon Web Services resources
+    -- are useful for resource management, access management and cost
+    -- allocation. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in the /Amazon Web Services General Reference/. Once the resource is
+    -- created, you can use TagResource, UntagResource, and ListTagsForResource
+    -- to add, remove, and view tags. The maximum tag limit may be lower than
+    -- stated. See the Amazon Web Services General Reference for actual tagging
+    -- limits.
     tags :: Prelude.Maybe [Tag],
     -- | A human-readable description of the alias.
     description :: Prelude.Maybe Prelude.Text,
@@ -105,14 +106,15 @@ data CreateAlias = CreateAlias'
 -- for backwards compatibility:
 --
 -- 'tags', 'createAlias_tags' - A list of labels to assign to the new alias resource. Tags are
--- developer-defined key-value pairs. Tagging AWS resources are useful for
--- resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- developer-defined key-value pairs. Tagging Amazon Web Services resources
+-- are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 --
 -- 'description', 'createAlias_description' - A human-readable description of the alias.
 --
@@ -136,14 +138,15 @@ newCreateAlias pName_ pRoutingStrategy_ =
     }
 
 -- | A list of labels to assign to the new alias resource. Tags are
--- developer-defined key-value pairs. Tagging AWS resources are useful for
--- resource management, access management and cost allocation. For more
--- information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- developer-defined key-value pairs. Tagging Amazon Web Services resources
+-- are useful for resource management, access management and cost
+-- allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 createAlias_tags :: Lens.Lens' CreateAlias (Prelude.Maybe [Tag])
 createAlias_tags = Lens.lens (\CreateAlias' {tags} -> tags) (\s@CreateAlias' {} a -> s {tags = a} :: CreateAlias) Prelude.. Lens.mapping Lens.coerced
 

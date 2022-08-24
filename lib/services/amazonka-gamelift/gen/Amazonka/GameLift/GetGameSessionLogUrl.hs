@@ -26,7 +26,7 @@
 -- to download the logs.
 --
 -- See the
--- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift AWS Service Limits>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift Amazon Web Services Service Limits>
 -- page for maximum log file sizes. Log files that exceed this limit are
 -- not saved.
 --

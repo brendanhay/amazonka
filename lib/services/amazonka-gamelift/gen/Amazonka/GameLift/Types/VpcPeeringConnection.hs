@@ -24,10 +24,10 @@ import Amazonka.GameLift.Types.VpcPeeringConnectionStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents a peering connection between a VPC on one of your AWS
--- accounts and the VPC for your Amazon GameLift fleets. This record may be
--- for an active peering connection or a pending connection that has not
--- yet been established.
+-- | Represents a peering connection between a VPC on one of your Amazon Web
+-- Services accounts and the VPC for your Amazon GameLift fleets. This
+-- record may be for an active peering connection or a pending connection
+-- that has not yet been established.
 --
 -- __Related actions__
 --
@@ -43,7 +43,7 @@ data VpcPeeringConnection = VpcPeeringConnection'
     fleetId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the VPC that contains the Amazon GameLift fleet
     -- for this connection. This VPC is managed by Amazon GameLift and does not
-    -- appear in your AWS account.
+    -- appear in your Amazon Web Services account.
     gameLiftVpcId :: Prelude.Maybe Prelude.Text,
     -- | CIDR block of IPv4 addresses assigned to the VPC peering connection for
     -- the GameLift VPC. The peered VPC also has an IPv4 CIDR block associated
@@ -64,8 +64,8 @@ data VpcPeeringConnection = VpcPeeringConnection'
     -- | A unique identifier for a VPC with resources to be accessed by your
     -- GameLift fleet. The VPC must be in the same Region as your fleet. To
     -- look up a VPC ID, use the
-    -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
-    -- Management Console. Learn more about VPC peering in
+    -- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
+    -- Services Management Console. Learn more about VPC peering in
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
     peerVpcId :: Prelude.Maybe Prelude.Text
   }
@@ -84,7 +84,7 @@ data VpcPeeringConnection = VpcPeeringConnection'
 --
 -- 'gameLiftVpcId', 'vpcPeeringConnection_gameLiftVpcId' - A unique identifier for the VPC that contains the Amazon GameLift fleet
 -- for this connection. This VPC is managed by Amazon GameLift and does not
--- appear in your AWS account.
+-- appear in your Amazon Web Services account.
 --
 -- 'ipV4CidrBlock', 'vpcPeeringConnection_ipV4CidrBlock' - CIDR block of IPv4 addresses assigned to the VPC peering connection for
 -- the GameLift VPC. The peered VPC also has an IPv4 CIDR block associated
@@ -105,8 +105,8 @@ data VpcPeeringConnection = VpcPeeringConnection'
 -- 'peerVpcId', 'vpcPeeringConnection_peerVpcId' - A unique identifier for a VPC with resources to be accessed by your
 -- GameLift fleet. The VPC must be in the same Region as your fleet. To
 -- look up a VPC ID, use the
--- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
--- Management Console. Learn more about VPC peering in
+-- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
+-- Services Management Console. Learn more about VPC peering in
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
 newVpcPeeringConnection ::
   VpcPeeringConnection
@@ -128,7 +128,7 @@ vpcPeeringConnection_fleetId = Lens.lens (\VpcPeeringConnection' {fleetId} -> fl
 
 -- | A unique identifier for the VPC that contains the Amazon GameLift fleet
 -- for this connection. This VPC is managed by Amazon GameLift and does not
--- appear in your AWS account.
+-- appear in your Amazon Web Services account.
 vpcPeeringConnection_gameLiftVpcId :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.Text)
 vpcPeeringConnection_gameLiftVpcId = Lens.lens (\VpcPeeringConnection' {gameLiftVpcId} -> gameLiftVpcId) (\s@VpcPeeringConnection' {} a -> s {gameLiftVpcId = a} :: VpcPeeringConnection)
 
@@ -159,8 +159,8 @@ vpcPeeringConnection_fleetArn = Lens.lens (\VpcPeeringConnection' {fleetArn} -> 
 -- | A unique identifier for a VPC with resources to be accessed by your
 -- GameLift fleet. The VPC must be in the same Region as your fleet. To
 -- look up a VPC ID, use the
--- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the AWS
--- Management Console. Learn more about VPC peering in
+-- <https://console.aws.amazon.com/vpc/ VPC Dashboard> in the Amazon Web
+-- Services Management Console. Learn more about VPC peering in
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html VPC Peering with GameLift Fleets>.
 vpcPeeringConnection_peerVpcId :: Lens.Lens' VpcPeeringConnection (Prelude.Maybe Prelude.Text)
 vpcPeeringConnection_peerVpcId = Lens.lens (\VpcPeeringConnection' {peerVpcId} -> peerVpcId) (\s@VpcPeeringConnection' {} a -> s {peerVpcId = a} :: VpcPeeringConnection)

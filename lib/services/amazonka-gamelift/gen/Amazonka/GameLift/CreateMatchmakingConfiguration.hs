@@ -38,8 +38,8 @@
 -- with GameLift hosting, you also need to identify the game session queue
 -- to use when starting a game session for the match.
 --
--- In addition, you must set up an Amazon Simple Notification Service (SNS)
--- topic to receive matchmaking notifications. Provide the topic ARN in the
+-- In addition, you must set up an Amazon Simple Notification Service topic
+-- to receive matchmaking notifications. Provide the topic ARN in the
 -- matchmaking configuration. An alternative method, continuously polling
 -- ticket status with DescribeMatchmaking, is only suitable for games in
 -- development with low matchmaking usage.
@@ -101,14 +101,15 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newCreateMatchmakingConfiguration' smart constructor.
 data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
   { -- | A list of labels to assign to the new matchmaking configuration
-    -- resource. Tags are developer-defined key-value pairs. Tagging AWS
-    -- resources are useful for resource management, access management and cost
-    -- allocation. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
-    -- in the /AWS General Reference/. Once the resource is created, you can
-    -- use TagResource, UntagResource, and ListTagsForResource to add, remove,
-    -- and view tags. The maximum tag limit may be lower than stated. See the
-    -- AWS General Reference for actual tagging limits.
+    -- resource. Tags are developer-defined key-value pairs. Tagging Amazon Web
+    -- Services resources are useful for resource management, access management
+    -- and cost allocation. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- in the /Amazon Web Services General Reference/. Once the resource is
+    -- created, you can use TagResource, UntagResource, and ListTagsForResource
+    -- to add, remove, and view tags. The maximum tag limit may be lower than
+    -- stated. See the Amazon Web Services General Reference for actual tagging
+    -- limits.
     tags :: Prelude.Maybe [Tag],
     -- | An SNS topic ARN that is set up to receive matchmaking notifications.
     -- See
@@ -207,14 +208,15 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- for backwards compatibility:
 --
 -- 'tags', 'createMatchmakingConfiguration_tags' - A list of labels to assign to the new matchmaking configuration
--- resource. Tags are developer-defined key-value pairs. Tagging AWS
--- resources are useful for resource management, access management and cost
--- allocation. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- resource. Tags are developer-defined key-value pairs. Tagging Amazon Web
+-- Services resources are useful for resource management, access management
+-- and cost allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 --
 -- 'notificationTarget', 'createMatchmakingConfiguration_notificationTarget' - An SNS topic ARN that is set up to receive matchmaking notifications.
 -- See
@@ -336,14 +338,15 @@ newCreateMatchmakingConfiguration
       }
 
 -- | A list of labels to assign to the new matchmaking configuration
--- resource. Tags are developer-defined key-value pairs. Tagging AWS
--- resources are useful for resource management, access management and cost
--- allocation. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/. Once the resource is created, you can
--- use TagResource, UntagResource, and ListTagsForResource to add, remove,
--- and view tags. The maximum tag limit may be lower than stated. See the
--- AWS General Reference for actual tagging limits.
+-- resource. Tags are developer-defined key-value pairs. Tagging Amazon Web
+-- Services resources are useful for resource management, access management
+-- and cost allocation. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/. Once the resource is
+-- created, you can use TagResource, UntagResource, and ListTagsForResource
+-- to add, remove, and view tags. The maximum tag limit may be lower than
+-- stated. See the Amazon Web Services General Reference for actual tagging
+-- limits.
 createMatchmakingConfiguration_tags :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe [Tag])
 createMatchmakingConfiguration_tags = Lens.lens (\CreateMatchmakingConfiguration' {tags} -> tags) (\s@CreateMatchmakingConfiguration' {} a -> s {tags = a} :: CreateMatchmakingConfiguration) Prelude.. Lens.mapping Lens.coerced
 

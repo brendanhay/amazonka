@@ -88,7 +88,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newStopFleetActions' smart constructor.
 data StopFleetActions = StopFleetActions'
   { -- | The fleet location to stop fleet actions for. Specify a location in the
-    -- form of an AWS Region code, such as @us-west-2@.
+    -- form of an Amazon Web Services Region code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet to stop actions on. You can use either
     -- the fleet ID or ARN value.
@@ -107,7 +107,7 @@ data StopFleetActions = StopFleetActions'
 -- for backwards compatibility:
 --
 -- 'location', 'stopFleetActions_location' - The fleet location to stop fleet actions for. Specify a location in the
--- form of an AWS Region code, such as @us-west-2@.
+-- form of an Amazon Web Services Region code, such as @us-west-2@.
 --
 -- 'fleetId', 'stopFleetActions_fleetId' - A unique identifier for the fleet to stop actions on. You can use either
 -- the fleet ID or ARN value.
@@ -127,7 +127,7 @@ newStopFleetActions pFleetId_ pActions_ =
     }
 
 -- | The fleet location to stop fleet actions for. Specify a location in the
--- form of an AWS Region code, such as @us-west-2@.
+-- form of an Amazon Web Services Region code, such as @us-west-2@.
 stopFleetActions_location :: Lens.Lens' StopFleetActions (Prelude.Maybe Prelude.Text)
 stopFleetActions_location = Lens.lens (\StopFleetActions' {location} -> location) (\s@StopFleetActions' {} a -> s {location = a} :: StopFleetActions)
 

@@ -120,7 +120,7 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
     -- | Set of information on each player to create a player session for.
     desiredPlayerSessions :: Prelude.Maybe [DesiredPlayerSession],
     -- | A set of values, expressed in milliseconds, that indicates the amount of
-    -- latency that a player experiences when connected to AWS Regions. This
+    -- latency that a player experiences when connected to \@aws; Regions. This
     -- information is used to try to place the new game session where it can
     -- offer the best possible gameplay experience for the players.
     playerLatencies :: Prelude.Maybe [PlayerLatency],
@@ -162,7 +162,7 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
 -- 'desiredPlayerSessions', 'startGameSessionPlacement_desiredPlayerSessions' - Set of information on each player to create a player session for.
 --
 -- 'playerLatencies', 'startGameSessionPlacement_playerLatencies' - A set of values, expressed in milliseconds, that indicates the amount of
--- latency that a player experiences when connected to AWS Regions. This
+-- latency that a player experiences when connected to \@aws; Regions. This
 -- information is used to try to place the new game session where it can
 -- offer the best possible gameplay experience for the players.
 --
@@ -223,7 +223,7 @@ startGameSessionPlacement_desiredPlayerSessions :: Lens.Lens' StartGameSessionPl
 startGameSessionPlacement_desiredPlayerSessions = Lens.lens (\StartGameSessionPlacement' {desiredPlayerSessions} -> desiredPlayerSessions) (\s@StartGameSessionPlacement' {} a -> s {desiredPlayerSessions = a} :: StartGameSessionPlacement) Prelude.. Lens.mapping Lens.coerced
 
 -- | A set of values, expressed in milliseconds, that indicates the amount of
--- latency that a player experiences when connected to AWS Regions. This
+-- latency that a player experiences when connected to \@aws; Regions. This
 -- information is used to try to place the new game session where it can
 -- offer the best possible gameplay experience for the players.
 startGameSessionPlacement_playerLatencies :: Lens.Lens' StartGameSessionPlacement (Prelude.Maybe [PlayerLatency])

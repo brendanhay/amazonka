@@ -23,6 +23,14 @@
 -- Retrieves all active game sessions that match a set of search criteria
 -- and sorts them into a specified order.
 --
+-- This operation is not designed to be continually called to track game
+-- session status. This practice can cause you to exceed your API limit,
+-- which results in errors. Instead, you must configure configure an Amazon
+-- Simple Notification Service (SNS) topic to receive notifications from
+-- FlexMatch or queues. Continuously polling game session status with
+-- @DescribeGameSessions@ should only be used for games in development with
+-- low game session usage.
+--
 -- When searching for game sessions, you specify exactly where you want to
 -- search and provide a search filter expression, a sort expression, or
 -- both. A search request can search only one fleet, but it can search all
@@ -209,8 +217,8 @@ data SearchGameSessions = SearchGameSessions'
     -- @\"maximumSessions>=10 AND hasAvailablePlayerSessions=true\"@.
     filterExpression :: Prelude.Maybe Prelude.Text,
     -- | A fleet location to search for game sessions. You can specify a fleet\'s
-    -- home Region or a remote location. Use the AWS Region code format, such
-    -- as @us-west-2@.
+    -- home Region or a remote location. Use the Amazon Web Services Region
+    -- code format, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages. The maximum
@@ -302,8 +310,8 @@ data SearchGameSessions = SearchGameSessions'
 -- @\"maximumSessions>=10 AND hasAvailablePlayerSessions=true\"@.
 --
 -- 'location', 'searchGameSessions_location' - A fleet location to search for game sessions. You can specify a fleet\'s
--- home Region or a remote location. Use the AWS Region code format, such
--- as @us-west-2@.
+-- home Region or a remote location. Use the Amazon Web Services Region
+-- code format, such as @us-west-2@.
 --
 -- 'limit', 'searchGameSessions_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages. The maximum
@@ -406,8 +414,8 @@ searchGameSessions_filterExpression :: Lens.Lens' SearchGameSessions (Prelude.Ma
 searchGameSessions_filterExpression = Lens.lens (\SearchGameSessions' {filterExpression} -> filterExpression) (\s@SearchGameSessions' {} a -> s {filterExpression = a} :: SearchGameSessions)
 
 -- | A fleet location to search for game sessions. You can specify a fleet\'s
--- home Region or a remote location. Use the AWS Region code format, such
--- as @us-west-2@.
+-- home Region or a remote location. Use the Amazon Web Services Region
+-- code format, such as @us-west-2@.
 searchGameSessions_location :: Lens.Lens' SearchGameSessions (Prelude.Maybe Prelude.Text)
 searchGameSessions_location = Lens.lens (\SearchGameSessions' {location} -> location) (\s@SearchGameSessions' {} a -> s {location = a} :: SearchGameSessions)
 

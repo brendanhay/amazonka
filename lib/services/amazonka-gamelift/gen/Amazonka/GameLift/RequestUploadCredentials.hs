@@ -149,9 +149,9 @@ instance Core.ToQuery RequestUploadCredentials where
 --
 -- /See:/ 'newRequestUploadCredentialsResponse' smart constructor.
 data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
-  { -- | AWS credentials required when uploading a game build to the storage
-    -- location. These credentials have a limited lifespan and are valid only
-    -- for the build they were issued for.
+  { -- | Amazon Web Services credentials required when uploading a game build to
+    -- the storage location. These credentials have a limited lifespan and are
+    -- valid only for the build they were issued for.
     uploadCredentials :: Prelude.Maybe (Core.Sensitive AwsCredentials),
     -- | Amazon S3 path and key, identifying where the game build files are
     -- stored.
@@ -169,9 +169,9 @@ data RequestUploadCredentialsResponse = RequestUploadCredentialsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'uploadCredentials', 'requestUploadCredentialsResponse_uploadCredentials' - AWS credentials required when uploading a game build to the storage
--- location. These credentials have a limited lifespan and are valid only
--- for the build they were issued for.
+-- 'uploadCredentials', 'requestUploadCredentialsResponse_uploadCredentials' - Amazon Web Services credentials required when uploading a game build to
+-- the storage location. These credentials have a limited lifespan and are
+-- valid only for the build they were issued for.
 --
 -- 'storageLocation', 'requestUploadCredentialsResponse_storageLocation' - Amazon S3 path and key, identifying where the game build files are
 -- stored.
@@ -189,9 +189,9 @@ newRequestUploadCredentialsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | AWS credentials required when uploading a game build to the storage
--- location. These credentials have a limited lifespan and are valid only
--- for the build they were issued for.
+-- | Amazon Web Services credentials required when uploading a game build to
+-- the storage location. These credentials have a limited lifespan and are
+-- valid only for the build they were issued for.
 requestUploadCredentialsResponse_uploadCredentials :: Lens.Lens' RequestUploadCredentialsResponse (Prelude.Maybe AwsCredentials)
 requestUploadCredentialsResponse_uploadCredentials = Lens.lens (\RequestUploadCredentialsResponse' {uploadCredentials} -> uploadCredentials) (\s@RequestUploadCredentialsResponse' {} a -> s {uploadCredentials = a} :: RequestUploadCredentialsResponse) Prelude.. Lens.mapping Core._Sensitive
 

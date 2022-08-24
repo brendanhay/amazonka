@@ -35,6 +35,9 @@
 -- the player reservation with the GameLift service. Player sessions cannot
 -- be updated.
 --
+-- The maximum number of players per game session is 200. It is not
+-- adjustable.
+--
 -- /Available in Amazon GameLift Local./
 --
 -- __Related actions__

@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/
 --
--- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>
+-- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ Amazon Web Services Tagging Strategies>
 --
 -- __Related actions__
 --
@@ -39,11 +39,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The key for a developer-defined key:value pair for tagging an AWS
-    -- resource.
+  { -- | The key for a developer-defined key:value pair for tagging an Amazon Web
+    -- Services resource.
     key :: Prelude.Text,
-    -- | The value for a developer-defined key:value pair for tagging an AWS
-    -- resource.
+    -- | The value for a developer-defined key:value pair for tagging an Amazon
+    -- Web Services resource.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,11 +56,11 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The key for a developer-defined key:value pair for tagging an AWS
--- resource.
+-- 'key', 'tag_key' - The key for a developer-defined key:value pair for tagging an Amazon Web
+-- Services resource.
 --
--- 'value', 'tag_value' - The value for a developer-defined key:value pair for tagging an AWS
--- resource.
+-- 'value', 'tag_value' - The value for a developer-defined key:value pair for tagging an Amazon
+-- Web Services resource.
 newTag ::
   -- | 'key'
   Prelude.Text ->
@@ -70,13 +70,13 @@ newTag ::
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
--- | The key for a developer-defined key:value pair for tagging an AWS
--- resource.
+-- | The key for a developer-defined key:value pair for tagging an Amazon Web
+-- Services resource.
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The value for a developer-defined key:value pair for tagging an AWS
--- resource.
+-- | The value for a developer-defined key:value pair for tagging an Amazon
+-- Web Services resource.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

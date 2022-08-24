@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAttributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-  { -- | For a list of up to 10 strings. Maximum length for each string is 100
+  { -- | For a list of up to 100 strings. Maximum length for each string is 100
     -- characters. Duplicate values are not recognized; all occurrences of the
     -- repeated value after the first of a repeated value are ignored.
     sl :: Prelude.Maybe [Prelude.Text],
@@ -52,7 +52,7 @@ data AttributeValue = AttributeValue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sl', 'attributeValue_sl' - For a list of up to 10 strings. Maximum length for each string is 100
+-- 'sl', 'attributeValue_sl' - For a list of up to 100 strings. Maximum length for each string is 100
 -- characters. Duplicate values are not recognized; all occurrences of the
 -- repeated value after the first of a repeated value are ignored.
 --
@@ -72,7 +72,7 @@ newAttributeValue =
       n = Prelude.Nothing
     }
 
--- | For a list of up to 10 strings. Maximum length for each string is 100
+-- | For a list of up to 100 strings. Maximum length for each string is 100
 -- characters. Duplicate values are not recognized; all occurrences of the
 -- repeated value after the first of a repeated value are ignored.
 attributeValue_sl :: Lens.Lens' AttributeValue (Prelude.Maybe [Prelude.Text])

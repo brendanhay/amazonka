@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes a tag that is assigned to a GameLift resource. Resource tags are
--- used to organize AWS resources for a range of purposes. This operation
--- handles the permissions necessary to manage tags for the following
--- GameLift resource types:
+-- used to organize Amazon Web Services resources for a range of purposes.
+-- This operation handles the permissions necessary to manage tags for the
+-- following GameLift resource types:
 --
 -- -   Build
 --
@@ -46,10 +46,10 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>
--- in the /AWS General Reference/
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- in the /Amazon Web Services General Reference/
 --
--- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>
+-- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ Amazon Web Services Tagging Strategies>
 --
 -- __Related actions__
 --
@@ -90,8 +90,9 @@ data UntagResource = UntagResource'
     -- or Describe operation for the resource type.
     resourceARN :: Prelude.Text,
     -- | A list of one or more tag keys to remove from the specified GameLift
-    -- resource. An AWS resource can have only one tag with a specific tag key,
-    -- so specifying the tag key identifies which tag to remove.
+    -- resource. An Amazon Web Services resource can have only one tag with a
+    -- specific tag key, so specifying the tag key identifies which tag to
+    -- remove.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -112,8 +113,9 @@ data UntagResource = UntagResource'
 -- or Describe operation for the resource type.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - A list of one or more tag keys to remove from the specified GameLift
--- resource. An AWS resource can have only one tag with a specific tag key,
--- so specifying the tag key identifies which tag to remove.
+-- resource. An Amazon Web Services resource can have only one tag with a
+-- specific tag key, so specifying the tag key identifies which tag to
+-- remove.
 newUntagResource ::
   -- | 'resourceARN'
   Prelude.Text ->
@@ -134,8 +136,9 @@ untagResource_resourceARN :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceARN = Lens.lens (\UntagResource' {resourceARN} -> resourceARN) (\s@UntagResource' {} a -> s {resourceARN = a} :: UntagResource)
 
 -- | A list of one or more tag keys to remove from the specified GameLift
--- resource. An AWS resource can have only one tag with a specific tag key,
--- so specifying the tag key identifies which tag to remove.
+-- resource. An Amazon Web Services resource can have only one tag with a
+-- specific tag key, so specifying the tag key identifies which tag to
+-- remove.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 

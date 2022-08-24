@@ -31,8 +31,14 @@
 --
 -- __Related actions__
 --
--- CreateGameSessionQueue | DescribeGameSessionQueues |
--- UpdateGameSessionQueue | DeleteGameSessionQueue |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateGameSessionQueue.html CreateGameSessionQueue>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessionQueues.html DescribeGameSessionQueues>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSessionQueue.html UpdateGameSessionQueue>
+-- |
+-- <https://docs.aws.amazon.com/gamelift/latest/apireference/API_DeleteGameSessionQueue.html DeleteGameSessionQueue>
+-- |
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Amazonka.GameLift.UpdateGameSessionQueue
   ( -- * Creating a Request
@@ -99,10 +105,10 @@ data UpdateGameSessionQueue = UpdateGameSessionQueue'
     -- of destinations.
     destinations :: Prelude.Maybe [GameSessionQueueDestination],
     -- | A list of locations where a queue is allowed to place new game sessions.
-    -- Locations are specified in the form of AWS Region codes, such as
-    -- @us-west-2@. If this parameter is not set, game sessions can be placed
-    -- in any queue location. To remove an existing filter configuration, pass
-    -- in an empty set.
+    -- Locations are specified in the form of Amazon Web Services Region codes,
+    -- such as @us-west-2@. If this parameter is not set, game sessions can be
+    -- placed in any queue location. To remove an existing filter
+    -- configuration, pass in an empty set.
     filterConfiguration :: Prelude.Maybe FilterConfiguration,
     -- | Information to be added to all events that are related to this game
     -- session queue.
@@ -151,10 +157,10 @@ data UpdateGameSessionQueue = UpdateGameSessionQueue'
 -- of destinations.
 --
 -- 'filterConfiguration', 'updateGameSessionQueue_filterConfiguration' - A list of locations where a queue is allowed to place new game sessions.
--- Locations are specified in the form of AWS Region codes, such as
--- @us-west-2@. If this parameter is not set, game sessions can be placed
--- in any queue location. To remove an existing filter configuration, pass
--- in an empty set.
+-- Locations are specified in the form of Amazon Web Services Region codes,
+-- such as @us-west-2@. If this parameter is not set, game sessions can be
+-- placed in any queue location. To remove an existing filter
+-- configuration, pass in an empty set.
 --
 -- 'customEventData', 'updateGameSessionQueue_customEventData' - Information to be added to all events that are related to this game
 -- session queue.
@@ -218,10 +224,10 @@ updateGameSessionQueue_destinations :: Lens.Lens' UpdateGameSessionQueue (Prelud
 updateGameSessionQueue_destinations = Lens.lens (\UpdateGameSessionQueue' {destinations} -> destinations) (\s@UpdateGameSessionQueue' {} a -> s {destinations = a} :: UpdateGameSessionQueue) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of locations where a queue is allowed to place new game sessions.
--- Locations are specified in the form of AWS Region codes, such as
--- @us-west-2@. If this parameter is not set, game sessions can be placed
--- in any queue location. To remove an existing filter configuration, pass
--- in an empty set.
+-- Locations are specified in the form of Amazon Web Services Region codes,
+-- such as @us-west-2@. If this parameter is not set, game sessions can be
+-- placed in any queue location. To remove an existing filter
+-- configuration, pass in an empty set.
 updateGameSessionQueue_filterConfiguration :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe FilterConfiguration)
 updateGameSessionQueue_filterConfiguration = Lens.lens (\UpdateGameSessionQueue' {filterConfiguration} -> filterConfiguration) (\s@UpdateGameSessionQueue' {} a -> s {filterConfiguration = a} :: UpdateGameSessionQueue)
 

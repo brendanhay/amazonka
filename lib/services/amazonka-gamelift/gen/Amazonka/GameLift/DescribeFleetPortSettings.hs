@@ -87,7 +87,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDescribeFleetPortSettings' smart constructor.
 data DescribeFleetPortSettings = DescribeFleetPortSettings'
   { -- | A remote location to check for status of port setting updates. Use the
-    -- AWS Region code format, such as @us-west-2@.
+    -- Amazon Web Services Region code format, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the fleet to retrieve port settings for. You can
     -- use either the fleet ID or ARN value.
@@ -104,7 +104,7 @@ data DescribeFleetPortSettings = DescribeFleetPortSettings'
 -- for backwards compatibility:
 --
 -- 'location', 'describeFleetPortSettings_location' - A remote location to check for status of port setting updates. Use the
--- AWS Region code format, such as @us-west-2@.
+-- Amazon Web Services Region code format, such as @us-west-2@.
 --
 -- 'fleetId', 'describeFleetPortSettings_fleetId' - A unique identifier for the fleet to retrieve port settings for. You can
 -- use either the fleet ID or ARN value.
@@ -120,7 +120,7 @@ newDescribeFleetPortSettings pFleetId_ =
     }
 
 -- | A remote location to check for status of port setting updates. Use the
--- AWS Region code format, such as @us-west-2@.
+-- Amazon Web Services Region code format, such as @us-west-2@.
 describeFleetPortSettings_location :: Lens.Lens' DescribeFleetPortSettings (Prelude.Maybe Prelude.Text)
 describeFleetPortSettings_location = Lens.lens (\DescribeFleetPortSettings' {location} -> location) (\s@DescribeFleetPortSettings' {} a -> s {location = a} :: DescribeFleetPortSettings)
 
@@ -201,8 +201,8 @@ data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
     -- update was requested for the fleet but has not yet been completed for
     -- the location.
     updateStatus :: Prelude.Maybe LocationUpdateStatus,
-    -- | The requested fleet location, expressed as an AWS Region code, such as
-    -- @us-west-2@.
+    -- | The requested fleet location, expressed as an Amazon Web Services Region
+    -- code, such as @us-west-2@.
     location :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -232,8 +232,8 @@ data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
 -- update was requested for the fleet but has not yet been completed for
 -- the location.
 --
--- 'location', 'describeFleetPortSettingsResponse_location' - The requested fleet location, expressed as an AWS Region code, such as
--- @us-west-2@.
+-- 'location', 'describeFleetPortSettingsResponse_location' - The requested fleet location, expressed as an Amazon Web Services Region
+-- code, such as @us-west-2@.
 --
 -- 'fleetArn', 'describeFleetPortSettingsResponse_fleetArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -272,8 +272,8 @@ describeFleetPortSettingsResponse_inboundPermissions = Lens.lens (\DescribeFleet
 describeFleetPortSettingsResponse_updateStatus :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe LocationUpdateStatus)
 describeFleetPortSettingsResponse_updateStatus = Lens.lens (\DescribeFleetPortSettingsResponse' {updateStatus} -> updateStatus) (\s@DescribeFleetPortSettingsResponse' {} a -> s {updateStatus = a} :: DescribeFleetPortSettingsResponse)
 
--- | The requested fleet location, expressed as an AWS Region code, such as
--- @us-west-2@.
+-- | The requested fleet location, expressed as an Amazon Web Services Region
+-- code, such as @us-west-2@.
 describeFleetPortSettingsResponse_location :: Lens.Lens' DescribeFleetPortSettingsResponse (Prelude.Maybe Prelude.Text)
 describeFleetPortSettingsResponse_location = Lens.lens (\DescribeFleetPortSettingsResponse' {location} -> location) (\s@DescribeFleetPortSettingsResponse' {} a -> s {location = a} :: DescribeFleetPortSettingsResponse)
 

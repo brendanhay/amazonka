@@ -60,8 +60,8 @@ data GameServerInstance = GameServerInstance'
     --     started on this instance.
     instanceStatus :: Prelude.Maybe GameServerInstanceStatus,
     -- | A developer-defined identifier for the game server group that includes
-    -- the game server instance. The name is unique for each Region in each AWS
-    -- account.
+    -- the game server instance. The name is unique for each Region in each
+    -- Amazon Web Services account.
     gameServerGroupName :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the instance where the game server is running.
     -- This ID is available in the instance metadata. EC2 instance IDs use a
@@ -97,8 +97,8 @@ data GameServerInstance = GameServerInstance'
 --     started on this instance.
 --
 -- 'gameServerGroupName', 'gameServerInstance_gameServerGroupName' - A developer-defined identifier for the game server group that includes
--- the game server instance. The name is unique for each Region in each AWS
--- account.
+-- the game server instance. The name is unique for each Region in each
+-- Amazon Web Services account.
 --
 -- 'instanceId', 'gameServerInstance_instanceId' - The unique identifier for the instance where the game server is running.
 -- This ID is available in the instance metadata. EC2 instance IDs use a
@@ -135,8 +135,8 @@ gameServerInstance_instanceStatus :: Lens.Lens' GameServerInstance (Prelude.Mayb
 gameServerInstance_instanceStatus = Lens.lens (\GameServerInstance' {instanceStatus} -> instanceStatus) (\s@GameServerInstance' {} a -> s {instanceStatus = a} :: GameServerInstance)
 
 -- | A developer-defined identifier for the game server group that includes
--- the game server instance. The name is unique for each Region in each AWS
--- account.
+-- the game server instance. The name is unique for each Region in each
+-- Amazon Web Services account.
 gameServerInstance_gameServerGroupName :: Lens.Lens' GameServerInstance (Prelude.Maybe Prelude.Text)
 gameServerInstance_gameServerGroupName = Lens.lens (\GameServerInstance' {gameServerGroupName} -> gameServerGroupName) (\s@GameServerInstance' {} a -> s {gameServerGroupName = a} :: GameServerInstance)
 

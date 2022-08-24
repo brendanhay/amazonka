@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves script records for all Realtime scripts that are associated
--- with the AWS account in use.
+-- with the Amazon Web Services account in use.
 --
 -- __Learn more__
 --

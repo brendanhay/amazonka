@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the pre-signed URL to download a public component artifact. Core
--- devices call this operation to identify the URL that they can use to
--- download an artifact to install.
+-- Gets the pre-signed URL to download a public or a Lambda component
+-- artifact. Core devices call this operation to identify the URL that they
+-- can use to download an artifact to install.
 module Amazonka.GreengrassV2.GetComponentVersionArtifact
   ( -- * Creating a Request
     GetComponentVersionArtifact (..),
@@ -53,7 +53,8 @@ import qualified Amazonka.Response as Response
 data GetComponentVersionArtifact = GetComponentVersionArtifact'
   { -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
-    -- of the component version. Specify the ARN of a public component version.
+    -- of the component version. Specify the ARN of a public or a Lambda
+    -- component version.
     arn :: Prelude.Text,
     -- | The name of the artifact.
     --
@@ -77,7 +78,8 @@ data GetComponentVersionArtifact = GetComponentVersionArtifact'
 --
 -- 'arn', 'getComponentVersionArtifact_arn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
--- of the component version. Specify the ARN of a public component version.
+-- of the component version. Specify the ARN of a public or a Lambda
+-- component version.
 --
 -- 'artifactName', 'getComponentVersionArtifact_artifactName' - The name of the artifact.
 --
@@ -101,7 +103,8 @@ newGetComponentVersionArtifact pArn_ pArtifactName_ =
 
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
--- of the component version. Specify the ARN of a public component version.
+-- of the component version. Specify the ARN of a public or a Lambda
+-- component version.
 getComponentVersionArtifact_arn :: Lens.Lens' GetComponentVersionArtifact Prelude.Text
 getComponentVersionArtifact_arn = Lens.lens (\GetComponentVersionArtifact' {arn} -> arn) (\s@GetComponentVersionArtifact' {} a -> s {arn = a} :: GetComponentVersionArtifact)
 
@@ -140,15 +143,7 @@ instance Prelude.NFData GetComponentVersionArtifact where
       `Prelude.seq` Prelude.rnf artifactName
 
 instance Core.ToHeaders GetComponentVersionArtifact where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath GetComponentVersionArtifact where
   toPath GetComponentVersionArtifact' {..} =

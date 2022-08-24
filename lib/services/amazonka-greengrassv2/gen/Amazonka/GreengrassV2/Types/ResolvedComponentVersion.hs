@@ -20,6 +20,7 @@
 module Amazonka.GreengrassV2.Types.ResolvedComponentVersion where
 
 import qualified Amazonka.Core as Core
+import Amazonka.GreengrassV2.Types.VendorGuidance
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -28,7 +29,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResolvedComponentVersion' smart constructor.
 data ResolvedComponentVersion = ResolvedComponentVersion'
-  { -- | The version of the component.
+  { -- | A message that communicates details about the vendor guidance state of
+    -- the component version. This message communicates why a component version
+    -- is discontinued or deleted.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The vendor guidance state for the component version. This state
+    -- indicates whether the component version has any issues that you should
+    -- consider before you deploy it. The vendor guidance state can be:
+    --
+    -- -   @ACTIVE@ – This component version is available and recommended for
+    --     use.
+    --
+    -- -   @DISCONTINUED@ – This component version has been discontinued by its
+    --     publisher. You can deploy this component version, but we recommend
+    --     that you use a different version of this component.
+    --
+    -- -   @DELETED@ – This component version has been deleted by its
+    --     publisher, so you can\'t deploy it. If you have any existing
+    --     deployments that specify this component version, those deployments
+    --     will fail.
+    vendorGuidance :: Prelude.Maybe VendorGuidance,
+    -- | The version of the component.
     componentVersion :: Prelude.Maybe Prelude.Text,
     -- | The recipe of the component version.
     recipe :: Prelude.Maybe Core.Base64,
@@ -49,6 +70,26 @@ data ResolvedComponentVersion = ResolvedComponentVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'message', 'resolvedComponentVersion_message' - A message that communicates details about the vendor guidance state of
+-- the component version. This message communicates why a component version
+-- is discontinued or deleted.
+--
+-- 'vendorGuidance', 'resolvedComponentVersion_vendorGuidance' - The vendor guidance state for the component version. This state
+-- indicates whether the component version has any issues that you should
+-- consider before you deploy it. The vendor guidance state can be:
+--
+-- -   @ACTIVE@ – This component version is available and recommended for
+--     use.
+--
+-- -   @DISCONTINUED@ – This component version has been discontinued by its
+--     publisher. You can deploy this component version, but we recommend
+--     that you use a different version of this component.
+--
+-- -   @DELETED@ – This component version has been deleted by its
+--     publisher, so you can\'t deploy it. If you have any existing
+--     deployments that specify this component version, those deployments
+--     will fail.
+--
 -- 'componentVersion', 'resolvedComponentVersion_componentVersion' - The version of the component.
 --
 -- 'recipe', 'resolvedComponentVersion_recipe' - The recipe of the component version.--
@@ -66,12 +107,38 @@ newResolvedComponentVersion ::
   ResolvedComponentVersion
 newResolvedComponentVersion =
   ResolvedComponentVersion'
-    { componentVersion =
+    { message =
         Prelude.Nothing,
+      vendorGuidance = Prelude.Nothing,
+      componentVersion = Prelude.Nothing,
       recipe = Prelude.Nothing,
       componentName = Prelude.Nothing,
       arn = Prelude.Nothing
     }
+
+-- | A message that communicates details about the vendor guidance state of
+-- the component version. This message communicates why a component version
+-- is discontinued or deleted.
+resolvedComponentVersion_message :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.Text)
+resolvedComponentVersion_message = Lens.lens (\ResolvedComponentVersion' {message} -> message) (\s@ResolvedComponentVersion' {} a -> s {message = a} :: ResolvedComponentVersion)
+
+-- | The vendor guidance state for the component version. This state
+-- indicates whether the component version has any issues that you should
+-- consider before you deploy it. The vendor guidance state can be:
+--
+-- -   @ACTIVE@ – This component version is available and recommended for
+--     use.
+--
+-- -   @DISCONTINUED@ – This component version has been discontinued by its
+--     publisher. You can deploy this component version, but we recommend
+--     that you use a different version of this component.
+--
+-- -   @DELETED@ – This component version has been deleted by its
+--     publisher, so you can\'t deploy it. If you have any existing
+--     deployments that specify this component version, those deployments
+--     will fail.
+resolvedComponentVersion_vendorGuidance :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe VendorGuidance)
+resolvedComponentVersion_vendorGuidance = Lens.lens (\ResolvedComponentVersion' {vendorGuidance} -> vendorGuidance) (\s@ResolvedComponentVersion' {} a -> s {vendorGuidance = a} :: ResolvedComponentVersion)
 
 -- | The version of the component.
 resolvedComponentVersion_componentVersion :: Lens.Lens' ResolvedComponentVersion (Prelude.Maybe Prelude.Text)
@@ -101,7 +168,9 @@ instance Core.FromJSON ResolvedComponentVersion where
       "ResolvedComponentVersion"
       ( \x ->
           ResolvedComponentVersion'
-            Prelude.<$> (x Core..:? "componentVersion")
+            Prelude.<$> (x Core..:? "message")
+            Prelude.<*> (x Core..:? "vendorGuidance")
+            Prelude.<*> (x Core..:? "componentVersion")
             Prelude.<*> (x Core..:? "recipe")
             Prelude.<*> (x Core..:? "componentName")
             Prelude.<*> (x Core..:? "arn")
@@ -109,14 +178,18 @@ instance Core.FromJSON ResolvedComponentVersion where
 
 instance Prelude.Hashable ResolvedComponentVersion where
   hashWithSalt _salt ResolvedComponentVersion' {..} =
-    _salt `Prelude.hashWithSalt` componentVersion
+    _salt `Prelude.hashWithSalt` message
+      `Prelude.hashWithSalt` vendorGuidance
+      `Prelude.hashWithSalt` componentVersion
       `Prelude.hashWithSalt` recipe
       `Prelude.hashWithSalt` componentName
       `Prelude.hashWithSalt` arn
 
 instance Prelude.NFData ResolvedComponentVersion where
   rnf ResolvedComponentVersion' {..} =
-    Prelude.rnf componentVersion
+    Prelude.rnf message
+      `Prelude.seq` Prelude.rnf vendorGuidance
+      `Prelude.seq` Prelude.rnf componentVersion
       `Prelude.seq` Prelude.rnf recipe
       `Prelude.seq` Prelude.rnf componentName
       `Prelude.seq` Prelude.rnf arn

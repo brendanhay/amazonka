@@ -55,14 +55,23 @@
 --
 --     -   Python 3.8 – @python3.8@
 --
+--     -   Python 3.9 – @python3.9@
+--
 --     -   Java 8 – @java8@
+--
+--     -   Java 11 – @java11@
 --
 --     -   Node.js 10 – @nodejs10.x@
 --
 --     -   Node.js 12 – @nodejs12.x@
 --
+--     -   Node.js 14 – @nodejs14.x@
+--
 --     To create a component from a Lambda function, specify
 --     @lambdaFunction@ when you call this operation.
+--
+--     IoT Greengrass currently supports Lambda functions on only Linux
+--     core devices.
 module Amazonka.GreengrassV2.CreateComponentVersion
   ( -- * Creating a Request
     CreateComponentVersion (..),
@@ -238,15 +247,7 @@ instance Prelude.NFData CreateComponentVersion where
       `Prelude.seq` Prelude.rnf lambdaFunction
 
 instance Core.ToHeaders CreateComponentVersion where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON CreateComponentVersion where
   toJSON CreateComponentVersion' {..} =

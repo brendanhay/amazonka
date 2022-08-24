@@ -121,15 +121,7 @@ instance Prelude.NFData TagResource where
       `Prelude.seq` Prelude.rnf tags
 
 instance Core.ToHeaders TagResource where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToJSON TagResource where
   toJSON TagResource' {..} =

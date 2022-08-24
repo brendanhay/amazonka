@@ -27,7 +27,10 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestBatchAssociateClientDeviceWithCoreDevice $
+--         [ requestAssociateServiceRoleToAccount $
+--             newAssociateServiceRoleToAccount
+--
+--         , requestBatchAssociateClientDeviceWithCoreDevice $
 --             newBatchAssociateClientDeviceWithCoreDevice
 --
 --         , requestBatchDisassociateClientDeviceFromCoreDevice $
@@ -48,8 +51,14 @@ import Test.Tasty
 --         , requestDeleteCoreDevice $
 --             newDeleteCoreDevice
 --
+--         , requestDeleteDeployment $
+--             newDeleteDeployment
+--
 --         , requestDescribeComponent $
 --             newDescribeComponent
+--
+--         , requestDisassociateServiceRoleFromAccount $
+--             newDisassociateServiceRoleFromAccount
 --
 --         , requestGetComponent $
 --             newGetComponent
@@ -57,11 +66,17 @@ import Test.Tasty
 --         , requestGetComponentVersionArtifact $
 --             newGetComponentVersionArtifact
 --
+--         , requestGetConnectivityInfo $
+--             newGetConnectivityInfo
+--
 --         , requestGetCoreDevice $
 --             newGetCoreDevice
 --
 --         , requestGetDeployment $
 --             newGetDeployment
+--
+--         , requestGetServiceRoleForAccount $
+--             newGetServiceRoleForAccount
 --
 --         , requestListClientDevicesAssociatedWithCoreDevice $
 --             newListClientDevicesAssociatedWithCoreDevice
@@ -96,10 +111,16 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateConnectivityInfo $
+--             newUpdateConnectivityInfo
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseBatchAssociateClientDeviceWithCoreDevice $
+--         [ responseAssociateServiceRoleToAccount $
+--             newAssociateServiceRoleToAccountResponse
+--
+--         , responseBatchAssociateClientDeviceWithCoreDevice $
 --             newBatchAssociateClientDeviceWithCoreDeviceResponse
 --
 --         , responseBatchDisassociateClientDeviceFromCoreDevice $
@@ -120,8 +141,14 @@ import Test.Tasty
 --         , responseDeleteCoreDevice $
 --             newDeleteCoreDeviceResponse
 --
+--         , responseDeleteDeployment $
+--             newDeleteDeploymentResponse
+--
 --         , responseDescribeComponent $
 --             newDescribeComponentResponse
+--
+--         , responseDisassociateServiceRoleFromAccount $
+--             newDisassociateServiceRoleFromAccountResponse
 --
 --         , responseGetComponent $
 --             newGetComponentResponse
@@ -129,11 +156,17 @@ import Test.Tasty
 --         , responseGetComponentVersionArtifact $
 --             newGetComponentVersionArtifactResponse
 --
+--         , responseGetConnectivityInfo $
+--             newGetConnectivityInfoResponse
+--
 --         , responseGetCoreDevice $
 --             newGetCoreDeviceResponse
 --
 --         , responseGetDeployment $
 --             newGetDeploymentResponse
+--
+--         , responseGetServiceRoleForAccount $
+--             newGetServiceRoleForAccountResponse
 --
 --         , responseListClientDevicesAssociatedWithCoreDevice $
 --             newListClientDevicesAssociatedWithCoreDeviceResponse
@@ -168,10 +201,19 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateConnectivityInfo $
+--             newUpdateConnectivityInfoResponse
+--
 --           ]
 --     ]
 
 -- Requests
+
+requestAssociateServiceRoleToAccount :: AssociateServiceRoleToAccount -> TestTree
+requestAssociateServiceRoleToAccount =
+  req
+    "AssociateServiceRoleToAccount"
+    "fixture/AssociateServiceRoleToAccount.yaml"
 
 requestBatchAssociateClientDeviceWithCoreDevice :: BatchAssociateClientDeviceWithCoreDevice -> TestTree
 requestBatchAssociateClientDeviceWithCoreDevice =
@@ -215,11 +257,23 @@ requestDeleteCoreDevice =
     "DeleteCoreDevice"
     "fixture/DeleteCoreDevice.yaml"
 
+requestDeleteDeployment :: DeleteDeployment -> TestTree
+requestDeleteDeployment =
+  req
+    "DeleteDeployment"
+    "fixture/DeleteDeployment.yaml"
+
 requestDescribeComponent :: DescribeComponent -> TestTree
 requestDescribeComponent =
   req
     "DescribeComponent"
     "fixture/DescribeComponent.yaml"
+
+requestDisassociateServiceRoleFromAccount :: DisassociateServiceRoleFromAccount -> TestTree
+requestDisassociateServiceRoleFromAccount =
+  req
+    "DisassociateServiceRoleFromAccount"
+    "fixture/DisassociateServiceRoleFromAccount.yaml"
 
 requestGetComponent :: GetComponent -> TestTree
 requestGetComponent =
@@ -233,6 +287,12 @@ requestGetComponentVersionArtifact =
     "GetComponentVersionArtifact"
     "fixture/GetComponentVersionArtifact.yaml"
 
+requestGetConnectivityInfo :: GetConnectivityInfo -> TestTree
+requestGetConnectivityInfo =
+  req
+    "GetConnectivityInfo"
+    "fixture/GetConnectivityInfo.yaml"
+
 requestGetCoreDevice :: GetCoreDevice -> TestTree
 requestGetCoreDevice =
   req
@@ -244,6 +304,12 @@ requestGetDeployment =
   req
     "GetDeployment"
     "fixture/GetDeployment.yaml"
+
+requestGetServiceRoleForAccount :: GetServiceRoleForAccount -> TestTree
+requestGetServiceRoleForAccount =
+  req
+    "GetServiceRoleForAccount"
+    "fixture/GetServiceRoleForAccount.yaml"
 
 requestListClientDevicesAssociatedWithCoreDevice :: ListClientDevicesAssociatedWithCoreDevice -> TestTree
 requestListClientDevicesAssociatedWithCoreDevice =
@@ -311,7 +377,21 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateConnectivityInfo :: UpdateConnectivityInfo -> TestTree
+requestUpdateConnectivityInfo =
+  req
+    "UpdateConnectivityInfo"
+    "fixture/UpdateConnectivityInfo.yaml"
+
 -- Responses
+
+responseAssociateServiceRoleToAccount :: AssociateServiceRoleToAccountResponse -> TestTree
+responseAssociateServiceRoleToAccount =
+  res
+    "AssociateServiceRoleToAccountResponse"
+    "fixture/AssociateServiceRoleToAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateServiceRoleToAccount)
 
 responseBatchAssociateClientDeviceWithCoreDevice :: BatchAssociateClientDeviceWithCoreDeviceResponse -> TestTree
 responseBatchAssociateClientDeviceWithCoreDevice =
@@ -369,6 +449,14 @@ responseDeleteCoreDevice =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteCoreDevice)
 
+responseDeleteDeployment :: DeleteDeploymentResponse -> TestTree
+responseDeleteDeployment =
+  res
+    "DeleteDeploymentResponse"
+    "fixture/DeleteDeploymentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteDeployment)
+
 responseDescribeComponent :: DescribeComponentResponse -> TestTree
 responseDescribeComponent =
   res
@@ -376,6 +464,14 @@ responseDescribeComponent =
     "fixture/DescribeComponentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeComponent)
+
+responseDisassociateServiceRoleFromAccount :: DisassociateServiceRoleFromAccountResponse -> TestTree
+responseDisassociateServiceRoleFromAccount =
+  res
+    "DisassociateServiceRoleFromAccountResponse"
+    "fixture/DisassociateServiceRoleFromAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateServiceRoleFromAccount)
 
 responseGetComponent :: GetComponentResponse -> TestTree
 responseGetComponent =
@@ -393,6 +489,14 @@ responseGetComponentVersionArtifact =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetComponentVersionArtifact)
 
+responseGetConnectivityInfo :: GetConnectivityInfoResponse -> TestTree
+responseGetConnectivityInfo =
+  res
+    "GetConnectivityInfoResponse"
+    "fixture/GetConnectivityInfoResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetConnectivityInfo)
+
 responseGetCoreDevice :: GetCoreDeviceResponse -> TestTree
 responseGetCoreDevice =
   res
@@ -408,6 +512,14 @@ responseGetDeployment =
     "fixture/GetDeploymentResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDeployment)
+
+responseGetServiceRoleForAccount :: GetServiceRoleForAccountResponse -> TestTree
+responseGetServiceRoleForAccount =
+  res
+    "GetServiceRoleForAccountResponse"
+    "fixture/GetServiceRoleForAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetServiceRoleForAccount)
 
 responseListClientDevicesAssociatedWithCoreDevice :: ListClientDevicesAssociatedWithCoreDeviceResponse -> TestTree
 responseListClientDevicesAssociatedWithCoreDevice =
@@ -496,3 +608,11 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateConnectivityInfo :: UpdateConnectivityInfoResponse -> TestTree
+responseUpdateConnectivityInfo =
+  res
+    "UpdateConnectivityInfoResponse"
+    "fixture/UpdateConnectivityInfoResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnectivityInfo)

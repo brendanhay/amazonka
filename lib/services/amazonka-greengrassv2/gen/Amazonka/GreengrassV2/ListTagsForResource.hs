@@ -101,15 +101,7 @@ instance Prelude.NFData ListTagsForResource where
     Prelude.rnf resourceArn
 
 instance Core.ToHeaders ListTagsForResource where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListTagsForResource where
   toPath ListTagsForResource' {..} =

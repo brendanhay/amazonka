@@ -22,6 +22,26 @@
 --
 -- Retrieves a paginated list of Greengrass core devices.
 --
+-- IoT Greengrass relies on individual devices to send status updates to
+-- the Amazon Web Services Cloud. If the IoT Greengrass Core software
+-- isn\'t running on the device, or if device isn\'t connected to the
+-- Amazon Web Services Cloud, then the reported status of that device might
+-- not reflect its current status. The status timestamp indicates when the
+-- device status was last updated.
+--
+-- Core devices send status updates at the following times:
+--
+-- -   When the IoT Greengrass Core software starts
+--
+-- -   When the core device receives a deployment from the Amazon Web
+--     Services Cloud
+--
+-- -   When the status of any component on the core device becomes @BROKEN@
+--
+-- -   At a
+--     <https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss regular interval that you can configure>,
+--     which defaults to 24 hours
+--
 -- This operation returns paginated results.
 module Amazonka.GreengrassV2.ListCoreDevices
   ( -- * Creating a Request
@@ -71,8 +91,10 @@ data ListCoreDevices = ListCoreDevices'
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
     -- of the IoT thing group by which to filter. If you specify this
-    -- parameter, the list includes only core devices that are members of this
-    -- thing group.
+    -- parameter, the list includes only core devices that have successfully
+    -- deployed a deployment that targets the thing group. When you remove a
+    -- core device from a thing group, the list continues to include that core
+    -- device.
     thingGroupArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,8 +124,10 @@ data ListCoreDevices = ListCoreDevices'
 -- 'thingGroupArn', 'listCoreDevices_thingGroupArn' - The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the IoT thing group by which to filter. If you specify this
--- parameter, the list includes only core devices that are members of this
--- thing group.
+-- parameter, the list includes only core devices that have successfully
+-- deployed a deployment that targets the thing group. When you remove a
+-- core device from a thing group, the list continues to include that core
+-- device.
 newListCoreDevices ::
   ListCoreDevices
 newListCoreDevices =
@@ -137,8 +161,10 @@ listCoreDevices_maxResults = Lens.lens (\ListCoreDevices' {maxResults} -> maxRes
 -- | The
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
 -- of the IoT thing group by which to filter. If you specify this
--- parameter, the list includes only core devices that are members of this
--- thing group.
+-- parameter, the list includes only core devices that have successfully
+-- deployed a deployment that targets the thing group. When you remove a
+-- core device from a thing group, the list continues to include that core
+-- device.
 listCoreDevices_thingGroupArn :: Lens.Lens' ListCoreDevices (Prelude.Maybe Prelude.Text)
 listCoreDevices_thingGroupArn = Lens.lens (\ListCoreDevices' {thingGroupArn} -> thingGroupArn) (\s@ListCoreDevices' {} a -> s {thingGroupArn = a} :: ListCoreDevices)
 
@@ -193,15 +219,7 @@ instance Prelude.NFData ListCoreDevices where
       `Prelude.seq` Prelude.rnf thingGroupArn
 
 instance Core.ToHeaders ListCoreDevices where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListCoreDevices where
   toPath = Prelude.const "/greengrass/v2/coreDevices"

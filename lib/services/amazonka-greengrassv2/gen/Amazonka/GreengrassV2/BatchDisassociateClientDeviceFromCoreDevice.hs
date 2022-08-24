@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociate a list of client devices from a core device. After you
+-- Disassociates a list of client devices from a core device. After you
 -- disassociate a client device from a core device, the client device
 -- won\'t be able to use cloud discovery to retrieve the core device\'s
 -- connectivity information and certificates.
@@ -104,7 +104,7 @@ instance
     Response.receiveJSON
       ( \s h x ->
           BatchDisassociateClientDeviceFromCoreDeviceResponse'
-            Prelude.<$> (x Core..?> "errorEntries")
+            Prelude.<$> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -130,15 +130,7 @@ instance
   Core.ToHeaders
     BatchDisassociateClientDeviceFromCoreDevice
   where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance
   Core.ToJSON
@@ -171,9 +163,9 @@ instance
 
 -- | /See:/ 'newBatchDisassociateClientDeviceFromCoreDeviceResponse' smart constructor.
 data BatchDisassociateClientDeviceFromCoreDeviceResponse = BatchDisassociateClientDeviceFromCoreDeviceResponse'
-  { -- | The list of errors (if any) for the entries in the request. Each error
-    -- entry contains the name of the IoT thing that failed to disassociate.
-    errorEntries :: Prelude.Maybe (Prelude.NonEmpty DisassociateClientDeviceFromCoreDeviceErrorEntry),
+  { -- | The list of any errors for the entries in the request. Each error entry
+    -- contains the name of the IoT thing that failed to disassociate.
+    errorEntries :: Prelude.Maybe [DisassociateClientDeviceFromCoreDeviceErrorEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -187,8 +179,8 @@ data BatchDisassociateClientDeviceFromCoreDeviceResponse = BatchDisassociateClie
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorEntries', 'batchDisassociateClientDeviceFromCoreDeviceResponse_errorEntries' - The list of errors (if any) for the entries in the request. Each error
--- entry contains the name of the IoT thing that failed to disassociate.
+-- 'errorEntries', 'batchDisassociateClientDeviceFromCoreDeviceResponse_errorEntries' - The list of any errors for the entries in the request. Each error entry
+-- contains the name of the IoT thing that failed to disassociate.
 --
 -- 'httpStatus', 'batchDisassociateClientDeviceFromCoreDeviceResponse_httpStatus' - The response's http status code.
 newBatchDisassociateClientDeviceFromCoreDeviceResponse ::
@@ -204,9 +196,9 @@ newBatchDisassociateClientDeviceFromCoreDeviceResponse
           pHttpStatus_
       }
 
--- | The list of errors (if any) for the entries in the request. Each error
--- entry contains the name of the IoT thing that failed to disassociate.
-batchDisassociateClientDeviceFromCoreDeviceResponse_errorEntries :: Lens.Lens' BatchDisassociateClientDeviceFromCoreDeviceResponse (Prelude.Maybe (Prelude.NonEmpty DisassociateClientDeviceFromCoreDeviceErrorEntry))
+-- | The list of any errors for the entries in the request. Each error entry
+-- contains the name of the IoT thing that failed to disassociate.
+batchDisassociateClientDeviceFromCoreDeviceResponse_errorEntries :: Lens.Lens' BatchDisassociateClientDeviceFromCoreDeviceResponse (Prelude.Maybe [DisassociateClientDeviceFromCoreDeviceErrorEntry])
 batchDisassociateClientDeviceFromCoreDeviceResponse_errorEntries = Lens.lens (\BatchDisassociateClientDeviceFromCoreDeviceResponse' {errorEntries} -> errorEntries) (\s@BatchDisassociateClientDeviceFromCoreDeviceResponse' {} a -> s {errorEntries = a} :: BatchDisassociateClientDeviceFromCoreDeviceResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.

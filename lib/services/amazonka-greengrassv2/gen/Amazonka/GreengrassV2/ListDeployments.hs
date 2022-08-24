@@ -187,15 +187,7 @@ instance Prelude.NFData ListDeployments where
       `Prelude.seq` Prelude.rnf historyFilter
 
 instance Core.ToHeaders ListDeployments where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "Content-Type"
-              Core.=# ( "application/x-amz-json-1.1" ::
-                          Prelude.ByteString
-                      )
-          ]
-      )
+  toHeaders = Prelude.const Prelude.mempty
 
 instance Core.ToPath ListDeployments where
   toPath = Prelude.const "/greengrass/v2/deployments"

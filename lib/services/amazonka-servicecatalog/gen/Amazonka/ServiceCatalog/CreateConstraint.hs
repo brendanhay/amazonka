@@ -125,8 +125,8 @@ data CreateConstraint = CreateConstraint'
     --     You also cannot have more than one @STACKSET@ constraint on a
     --     product and portfolio.
     --
-    --     Products with a @STACKSET@ constraint will launch an AWS
-    --     CloudFormation stack set.
+    --     Products with a @STACKSET@ constraint will launch an CloudFormation
+    --     stack set.
     --
     -- [TEMPLATE]
     --     Specify the @Rules@ property. For more information, see
@@ -226,8 +226,8 @@ data CreateConstraint = CreateConstraint'
 --     You also cannot have more than one @STACKSET@ constraint on a
 --     product and portfolio.
 --
---     Products with a @STACKSET@ constraint will launch an AWS
---     CloudFormation stack set.
+--     Products with a @STACKSET@ constraint will launch an CloudFormation
+--     stack set.
 --
 -- [TEMPLATE]
 --     Specify the @Rules@ property. For more information, see
@@ -351,8 +351,8 @@ createConstraint_productId = Lens.lens (\CreateConstraint' {productId} -> produc
 --     You also cannot have more than one @STACKSET@ constraint on a
 --     product and portfolio.
 --
---     Products with a @STACKSET@ constraint will launch an AWS
---     CloudFormation stack set.
+--     Products with a @STACKSET@ constraint will launch an CloudFormation
+--     stack set.
 --
 -- [TEMPLATE]
 --     Specify the @Rules@ property. For more information, see

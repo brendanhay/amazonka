@@ -24,7 +24,9 @@
 -- new product.
 --
 -- You can copy a product to the same account or another account. You can
--- copy a product to the same region or another region.
+-- copy a product to the same Region or another Region. If you copy a
+-- product to another account, you must first share the product in a
+-- portfolio using CreatePortfolioShare.
 --
 -- This operation is performed asynchronously. To track the progress of the
 -- operation, use DescribeCopyProductStatus.

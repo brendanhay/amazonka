@@ -70,15 +70,15 @@ data CreateServiceAction = CreateServiceAction'
     -- | The self-service action definition. Can be one of the following:
     --
     -- [Name]
-    --     The name of the AWS Systems Manager document (SSM document). For
-    --     example, @AWS-RestartEC2Instance@.
+    --     The name of the Amazon Web Services Systems Manager document (SSM
+    --     document). For example, @AWS-RestartEC2Instance@.
     --
     --     If you are using a shared SSM document, you must provide the ARN
     --     instead of the name.
     --
     -- [Version]
-    --     The AWS Systems Manager automation document version. For example,
-    --     @\"Version\": \"1\"@
+    --     The Amazon Web Services Systems Manager automation document version.
+    --     For example, @\"Version\": \"1\"@
     --
     -- [AssumeRole]
     --     The Amazon Resource Name (ARN) of the role that performs the
@@ -127,15 +127,15 @@ data CreateServiceAction = CreateServiceAction'
 -- 'definition', 'createServiceAction_definition' - The self-service action definition. Can be one of the following:
 --
 -- [Name]
---     The name of the AWS Systems Manager document (SSM document). For
---     example, @AWS-RestartEC2Instance@.
+--     The name of the Amazon Web Services Systems Manager document (SSM
+--     document). For example, @AWS-RestartEC2Instance@.
 --
 --     If you are using a shared SSM document, you must provide the ARN
 --     instead of the name.
 --
 -- [Version]
---     The AWS Systems Manager automation document version. For example,
---     @\"Version\": \"1\"@
+--     The Amazon Web Services Systems Manager automation document version.
+--     For example, @\"Version\": \"1\"@
 --
 -- [AssumeRole]
 --     The Amazon Resource Name (ARN) of the role that performs the
@@ -201,15 +201,15 @@ createServiceAction_definitionType = Lens.lens (\CreateServiceAction' {definitio
 -- | The self-service action definition. Can be one of the following:
 --
 -- [Name]
---     The name of the AWS Systems Manager document (SSM document). For
---     example, @AWS-RestartEC2Instance@.
+--     The name of the Amazon Web Services Systems Manager document (SSM
+--     document). For example, @AWS-RestartEC2Instance@.
 --
 --     If you are using a shared SSM document, you must provide the ARN
 --     instead of the name.
 --
 -- [Version]
---     The AWS Systems Manager automation document version. For example,
---     @\"Version\": \"1\"@
+--     The Amazon Web Services Systems Manager automation document version.
+--     For example, @\"Version\": \"1\"@
 --
 -- [AssumeRole]
 --     The Amazon Resource Name (ARN) of the role that performs the

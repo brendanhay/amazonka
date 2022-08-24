@@ -330,6 +330,7 @@ module Amazonka.ServiceCatalog.Lens
     describeProvisioningParametersResponse_tagOptions,
     describeProvisioningParametersResponse_provisioningArtifactParameters,
     describeProvisioningParametersResponse_provisioningArtifactPreferences,
+    describeProvisioningParametersResponse_provisioningArtifactOutputKeys,
     describeProvisioningParametersResponse_httpStatus,
 
     -- ** DescribeRecord

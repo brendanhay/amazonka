@@ -36,7 +36,7 @@ data ProductViewSummary = ProductViewSummary'
     shortDescription :: Prelude.Maybe Prelude.Text,
     -- | The product type. Contact the product administrator for the significance
     -- of this value. If this value is @MARKETPLACE@, the product was created
-    -- by AWS Marketplace.
+    -- by Amazon Web Services Marketplace.
     type' :: Prelude.Maybe ProductType,
     -- | The email contact information to obtain support for this Product.
     supportEmail :: Prelude.Maybe Prelude.Text,
@@ -77,7 +77,7 @@ data ProductViewSummary = ProductViewSummary'
 --
 -- 'type'', 'productViewSummary_type' - The product type. Contact the product administrator for the significance
 -- of this value. If this value is @MARKETPLACE@, the product was created
--- by AWS Marketplace.
+-- by Amazon Web Services Marketplace.
 --
 -- 'supportEmail', 'productViewSummary_supportEmail' - The email contact information to obtain support for this Product.
 --
@@ -130,7 +130,7 @@ productViewSummary_shortDescription = Lens.lens (\ProductViewSummary' {shortDesc
 
 -- | The product type. Contact the product administrator for the significance
 -- of this value. If this value is @MARKETPLACE@, the product was created
--- by AWS Marketplace.
+-- by Amazon Web Services Marketplace.
 productViewSummary_type :: Lens.Lens' ProductViewSummary (Prelude.Maybe ProductType)
 productViewSummary_type = Lens.lens (\ProductViewSummary' {type'} -> type') (\s@ProductViewSummary' {} a -> s {type' = a} :: ProductViewSummary)
 

@@ -107,8 +107,8 @@ data ProvisionProduct = ProvisionProduct'
     -- -   @zh@ - Chinese
     acceptLanguage :: Prelude.Maybe Prelude.Text,
     -- | A user-friendly name for the provisioned product. This value must be
-    -- unique for the AWS account and cannot be updated after the product is
-    -- provisioned.
+    -- unique for the Amazon Web Services account and cannot be updated after
+    -- the product is provisioned.
     provisionedProductName :: Prelude.Text,
     -- | An idempotency token that uniquely identifies the provisioning request.
     provisionToken :: Prelude.Text
@@ -160,8 +160,8 @@ data ProvisionProduct = ProvisionProduct'
 -- -   @zh@ - Chinese
 --
 -- 'provisionedProductName', 'provisionProduct_provisionedProductName' - A user-friendly name for the provisioned product. This value must be
--- unique for the AWS account and cannot be updated after the product is
--- provisioned.
+-- unique for the Amazon Web Services account and cannot be updated after
+-- the product is provisioned.
 --
 -- 'provisionToken', 'provisionProduct_provisionToken' - An idempotency token that uniquely identifies the provisioning request.
 newProvisionProduct ::
@@ -248,8 +248,8 @@ provisionProduct_acceptLanguage :: Lens.Lens' ProvisionProduct (Prelude.Maybe Pr
 provisionProduct_acceptLanguage = Lens.lens (\ProvisionProduct' {acceptLanguage} -> acceptLanguage) (\s@ProvisionProduct' {} a -> s {acceptLanguage = a} :: ProvisionProduct)
 
 -- | A user-friendly name for the provisioned product. This value must be
--- unique for the AWS account and cannot be updated after the product is
--- provisioned.
+-- unique for the Amazon Web Services account and cannot be updated after
+-- the product is provisioned.
 provisionProduct_provisionedProductName :: Lens.Lens' ProvisionProduct Prelude.Text
 provisionProduct_provisionedProductName = Lens.lens (\ProvisionProduct' {provisionedProductName} -> provisionedProductName) (\s@ProvisionProduct' {} a -> s {provisionedProductName = a} :: ProvisionProduct)
 

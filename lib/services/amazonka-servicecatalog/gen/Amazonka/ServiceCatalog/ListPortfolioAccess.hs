@@ -215,7 +215,8 @@ instance Core.ToQuery ListPortfolioAccess where
 
 -- | /See:/ 'newListPortfolioAccessResponse' smart constructor.
 data ListPortfolioAccessResponse = ListPortfolioAccessResponse'
-  { -- | Information about the AWS accounts with access to the portfolio.
+  { -- | Information about the Amazon Web Services accounts with access to the
+    -- portfolio.
     accountIds :: Prelude.Maybe [Prelude.Text],
     -- | The page token to use to retrieve the next set of results. If there are
     -- no additional results, this value is null.
@@ -233,7 +234,8 @@ data ListPortfolioAccessResponse = ListPortfolioAccessResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountIds', 'listPortfolioAccessResponse_accountIds' - Information about the AWS accounts with access to the portfolio.
+-- 'accountIds', 'listPortfolioAccessResponse_accountIds' - Information about the Amazon Web Services accounts with access to the
+-- portfolio.
 --
 -- 'nextPageToken', 'listPortfolioAccessResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
 -- no additional results, this value is null.
@@ -251,7 +253,8 @@ newListPortfolioAccessResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about the AWS accounts with access to the portfolio.
+-- | Information about the Amazon Web Services accounts with access to the
+-- portfolio.
 listPortfolioAccessResponse_accountIds :: Lens.Lens' ListPortfolioAccessResponse (Prelude.Maybe [Prelude.Text])
 listPortfolioAccessResponse_accountIds = Lens.lens (\ListPortfolioAccessResponse' {accountIds} -> accountIds) (\s@ListPortfolioAccessResponse' {} a -> s {accountIds = a} :: ListPortfolioAccessResponse) Prelude.. Lens.mapping Lens.coerced
 

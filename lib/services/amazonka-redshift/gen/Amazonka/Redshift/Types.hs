@@ -31,6 +31,7 @@ module Amazonka.Redshift.Types
     _UsageLimitNotFoundFault,
     _DependentServiceUnavailableFault,
     _InvalidSubnet,
+    _ReservedNodeExchangeNotFoundFault,
     _InvalidAuthenticationProfileRequestFault,
     _InvalidSnapshotCopyGrantStateFault,
     _ReservedNodeNotFoundFault,
@@ -167,6 +168,9 @@ module Amazonka.Redshift.Types
     -- * DataShareStatusForProducer
     DataShareStatusForProducer (..),
 
+    -- * LogDestinationType
+    LogDestinationType (..),
+
     -- * Mode
     Mode (..),
 
@@ -181,6 +185,12 @@ module Amazonka.Redshift.Types
 
     -- * PartnerIntegrationStatus
     PartnerIntegrationStatus (..),
+
+    -- * ReservedNodeExchangeActionType
+    ReservedNodeExchangeActionType (..),
+
+    -- * ReservedNodeExchangeStatusType
+    ReservedNodeExchangeStatusType (..),
 
     -- * ReservedNodeOfferingType
     ReservedNodeOfferingType (..),
@@ -294,6 +304,7 @@ module Amazonka.Redshift.Types
     cluster_dataTransferProgress,
     cluster_numberOfNodes,
     cluster_kmsKeyId,
+    cluster_defaultIamRoleArn,
     cluster_expectedNextSnapshotScheduleTime,
     cluster_elasticResizeNumberOfNodeOptions,
     cluster_pendingModifiedValues,
@@ -304,6 +315,7 @@ module Amazonka.Redshift.Types
     cluster_vpcId,
     cluster_automatedSnapshotRetentionPeriod,
     cluster_clusterCreateTime,
+    cluster_reservedNodeExchangeStatus,
     cluster_totalStorageCapacityInMegaBytes,
     cluster_dbName,
     cluster_restoreStatus,
@@ -412,6 +424,7 @@ module Amazonka.Redshift.Types
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
 
     -- * DataShareAssociation
     DataShareAssociation (..),
@@ -420,6 +433,7 @@ module Amazonka.Redshift.Types
     dataShareAssociation_statusChangeDate,
     dataShareAssociation_status,
     dataShareAssociation_createdDate,
+    dataShareAssociation_consumerRegion,
 
     -- * DataTransferProgress
     DataTransferProgress (..),
@@ -576,8 +590,10 @@ module Amazonka.Redshift.Types
     loggingStatus_s3KeyPrefix,
     loggingStatus_lastFailureMessage,
     loggingStatus_loggingEnabled,
+    loggingStatus_logExports,
     loggingStatus_bucketName,
     loggingStatus_lastFailureTime,
+    loggingStatus_logDestinationType,
 
     -- * MaintenanceTrack
     MaintenanceTrack (..),
@@ -697,6 +713,26 @@ module Amazonka.Redshift.Types
     reservedNode_startTime,
     reservedNode_usagePrice,
 
+    -- * ReservedNodeConfigurationOption
+    ReservedNodeConfigurationOption (..),
+    newReservedNodeConfigurationOption,
+    reservedNodeConfigurationOption_targetReservedNodeCount,
+    reservedNodeConfigurationOption_sourceReservedNode,
+    reservedNodeConfigurationOption_targetReservedNodeOffering,
+
+    -- * ReservedNodeExchangeStatus
+    ReservedNodeExchangeStatus (..),
+    newReservedNodeExchangeStatus,
+    reservedNodeExchangeStatus_targetReservedNodeCount,
+    reservedNodeExchangeStatus_targetReservedNodeType,
+    reservedNodeExchangeStatus_reservedNodeExchangeRequestId,
+    reservedNodeExchangeStatus_requestTime,
+    reservedNodeExchangeStatus_status,
+    reservedNodeExchangeStatus_sourceReservedNodeId,
+    reservedNodeExchangeStatus_targetReservedNodeOfferingId,
+    reservedNodeExchangeStatus_sourceReservedNodeCount,
+    reservedNodeExchangeStatus_sourceReservedNodeType,
+
     -- * ReservedNodeOffering
     ReservedNodeOffering (..),
     newReservedNodeOffering,
@@ -713,10 +749,12 @@ module Amazonka.Redshift.Types
     -- * ResizeClusterMessage
     ResizeClusterMessage (..),
     newResizeClusterMessage,
+    resizeClusterMessage_reservedNodeId,
     resizeClusterMessage_nodeType,
     resizeClusterMessage_classic,
     resizeClusterMessage_numberOfNodes,
     resizeClusterMessage_clusterType,
+    resizeClusterMessage_targetReservedNodeOfferingId,
     resizeClusterMessage_clusterIdentifier,
 
     -- * ResizeInfo
@@ -995,6 +1033,7 @@ import Amazonka.Redshift.Types.HsmClientCertificate
 import Amazonka.Redshift.Types.HsmConfiguration
 import Amazonka.Redshift.Types.HsmStatus
 import Amazonka.Redshift.Types.IPRange
+import Amazonka.Redshift.Types.LogDestinationType
 import Amazonka.Redshift.Types.LoggingStatus
 import Amazonka.Redshift.Types.MaintenanceTrack
 import Amazonka.Redshift.Types.Mode
@@ -1014,6 +1053,10 @@ import Amazonka.Redshift.Types.PauseClusterMessage
 import Amazonka.Redshift.Types.PendingModifiedValues
 import Amazonka.Redshift.Types.RecurringCharge
 import Amazonka.Redshift.Types.ReservedNode
+import Amazonka.Redshift.Types.ReservedNodeConfigurationOption
+import Amazonka.Redshift.Types.ReservedNodeExchangeActionType
+import Amazonka.Redshift.Types.ReservedNodeExchangeStatus
+import Amazonka.Redshift.Types.ReservedNodeExchangeStatusType
 import Amazonka.Redshift.Types.ReservedNodeOffering
 import Amazonka.Redshift.Types.ReservedNodeOfferingType
 import Amazonka.Redshift.Types.ResizeClusterMessage
@@ -1246,6 +1289,14 @@ _InvalidSubnet =
     defaultService
     "InvalidSubnet"
     Prelude.. Core.hasStatus 400
+
+-- | The reserved-node exchange status wasn\'t found.
+_ReservedNodeExchangeNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReservedNodeExchangeNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "ReservedNodeExchangeNotFond"
+    Prelude.. Core.hasStatus 404
 
 -- | The authentication profile request is not valid. The profile name can\'t
 -- be null or empty. The authentication profile API operation must be

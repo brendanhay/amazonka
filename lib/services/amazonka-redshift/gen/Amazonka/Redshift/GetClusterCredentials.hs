@@ -42,7 +42,7 @@
 -- @redshift:JoinGroup@ action with access to the listed @dbgroups@.
 --
 -- In addition, if the @AutoCreate@ parameter is set to @True@, then the
--- policy must include the @redshift:CreateClusterUser@ privilege.
+-- policy must include the @redshift:CreateClusterUser@ permission.
 --
 -- If the @DbName@ parameter is specified, the IAM policy must allow access
 -- to the resource @dbname@ for the specified database name.
@@ -159,7 +159,7 @@ data GetClusterCredentials = GetClusterCredentials'
     --     in the Amazon Redshift Database Developer Guide.
     dbUser :: Prelude.Text,
     -- | The unique identifier of the cluster that contains the database for
-    -- which your are requesting credentials. This parameter is case sensitive.
+    -- which you are requesting credentials. This parameter is case sensitive.
     clusterIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -249,7 +249,7 @@ data GetClusterCredentials = GetClusterCredentials'
 --     in the Amazon Redshift Database Developer Guide.
 --
 -- 'clusterIdentifier', 'getClusterCredentials_clusterIdentifier' - The unique identifier of the cluster that contains the database for
--- which your are requesting credentials. This parameter is case sensitive.
+-- which you are requesting credentials. This parameter is case sensitive.
 newGetClusterCredentials ::
   -- | 'dbUser'
   Prelude.Text ->
@@ -354,7 +354,7 @@ getClusterCredentials_dbUser :: Lens.Lens' GetClusterCredentials Prelude.Text
 getClusterCredentials_dbUser = Lens.lens (\GetClusterCredentials' {dbUser} -> dbUser) (\s@GetClusterCredentials' {} a -> s {dbUser = a} :: GetClusterCredentials)
 
 -- | The unique identifier of the cluster that contains the database for
--- which your are requesting credentials. This parameter is case sensitive.
+-- which you are requesting credentials. This parameter is case sensitive.
 getClusterCredentials_clusterIdentifier :: Lens.Lens' GetClusterCredentials Prelude.Text
 getClusterCredentials_clusterIdentifier = Lens.lens (\GetClusterCredentials' {clusterIdentifier} -> clusterIdentifier) (\s@GetClusterCredentials' {} a -> s {clusterIdentifier = a} :: GetClusterCredentials)
 
@@ -427,7 +427,7 @@ data GetClusterCredentialsResponse = GetClusterCredentialsResponse'
     dbPassword :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A database user name that is authorized to log on to the database
     -- @DbName@ using the password @DbPassword@. If the specified DbUser exists
-    -- in the database, the new user name has the same database privileges as
+    -- in the database, the new user name has the same database permissions as
     -- the the user named in DbUser. By default, the user is added to PUBLIC.
     -- If the @DbGroups@ parameter is specifed, @DbUser@ is added to the listed
     -- groups for any sessions created using these credentials.
@@ -452,7 +452,7 @@ data GetClusterCredentialsResponse = GetClusterCredentialsResponse'
 --
 -- 'dbUser', 'getClusterCredentialsResponse_dbUser' - A database user name that is authorized to log on to the database
 -- @DbName@ using the password @DbPassword@. If the specified DbUser exists
--- in the database, the new user name has the same database privileges as
+-- in the database, the new user name has the same database permissions as
 -- the the user named in DbUser. By default, the user is added to PUBLIC.
 -- If the @DbGroups@ parameter is specifed, @DbUser@ is added to the listed
 -- groups for any sessions created using these credentials.
@@ -482,7 +482,7 @@ getClusterCredentialsResponse_dbPassword = Lens.lens (\GetClusterCredentialsResp
 
 -- | A database user name that is authorized to log on to the database
 -- @DbName@ using the password @DbPassword@. If the specified DbUser exists
--- in the database, the new user name has the same database privileges as
+-- in the database, the new user name has the same database permissions as
 -- the the user named in DbUser. By default, the user is added to PUBLIC.
 -- If the @DbGroups@ parameter is specifed, @DbUser@ is added to the listed
 -- groups for any sessions created using these credentials.

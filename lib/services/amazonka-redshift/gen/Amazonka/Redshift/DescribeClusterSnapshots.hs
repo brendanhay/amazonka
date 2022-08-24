@@ -49,6 +49,7 @@ module Amazonka.Redshift.DescribeClusterSnapshots
     describeClusterSnapshots_tagKeys,
     describeClusterSnapshots_marker,
     describeClusterSnapshots_clusterExists,
+    describeClusterSnapshots_snapshotArn,
     describeClusterSnapshots_tagValues,
     describeClusterSnapshots_snapshotIdentifier,
     describeClusterSnapshots_endTime,
@@ -115,6 +116,9 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     -- -   If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is
     --     specified for an existing cluster, no snapshots are returned.
     clusterExists :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the snapshot associated with the
+    -- message to describe cluster snapshots.
+    snapshotArn :: Prelude.Maybe Prelude.Text,
     -- | A tag value or values for which you want to return all matching cluster
     -- snapshots that are associated with the specified tag value or values.
     -- For example, suppose that you have snapshots that are tagged with values
@@ -206,6 +210,9 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
 -- -   If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is
 --     specified for an existing cluster, no snapshots are returned.
 --
+-- 'snapshotArn', 'describeClusterSnapshots_snapshotArn' - The Amazon Resource Name (ARN) of the snapshot associated with the
+-- message to describe cluster snapshots.
+--
 -- 'tagValues', 'describeClusterSnapshots_tagValues' - A tag value or values for which you want to return all matching cluster
 -- snapshots that are associated with the specified tag value or values.
 -- For example, suppose that you have snapshots that are tagged with values
@@ -260,6 +267,7 @@ newDescribeClusterSnapshots =
       tagKeys = Prelude.Nothing,
       marker = Prelude.Nothing,
       clusterExists = Prelude.Nothing,
+      snapshotArn = Prelude.Nothing,
       tagValues = Prelude.Nothing,
       snapshotIdentifier = Prelude.Nothing,
       endTime = Prelude.Nothing,
@@ -312,6 +320,11 @@ describeClusterSnapshots_marker = Lens.lens (\DescribeClusterSnapshots' {marker}
 --     specified for an existing cluster, no snapshots are returned.
 describeClusterSnapshots_clusterExists :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Bool)
 describeClusterSnapshots_clusterExists = Lens.lens (\DescribeClusterSnapshots' {clusterExists} -> clusterExists) (\s@DescribeClusterSnapshots' {} a -> s {clusterExists = a} :: DescribeClusterSnapshots)
+
+-- | The Amazon Resource Name (ARN) of the snapshot associated with the
+-- message to describe cluster snapshots.
+describeClusterSnapshots_snapshotArn :: Lens.Lens' DescribeClusterSnapshots (Prelude.Maybe Prelude.Text)
+describeClusterSnapshots_snapshotArn = Lens.lens (\DescribeClusterSnapshots' {snapshotArn} -> snapshotArn) (\s@DescribeClusterSnapshots' {} a -> s {snapshotArn = a} :: DescribeClusterSnapshots)
 
 -- | A tag value or values for which you want to return all matching cluster
 -- snapshots that are associated with the specified tag value or values.
@@ -420,6 +433,7 @@ instance Prelude.Hashable DescribeClusterSnapshots where
       `Prelude.hashWithSalt` tagKeys
       `Prelude.hashWithSalt` marker
       `Prelude.hashWithSalt` clusterExists
+      `Prelude.hashWithSalt` snapshotArn
       `Prelude.hashWithSalt` tagValues
       `Prelude.hashWithSalt` snapshotIdentifier
       `Prelude.hashWithSalt` endTime
@@ -435,6 +449,7 @@ instance Prelude.NFData DescribeClusterSnapshots where
       `Prelude.seq` Prelude.rnf tagKeys
       `Prelude.seq` Prelude.rnf marker
       `Prelude.seq` Prelude.rnf clusterExists
+      `Prelude.seq` Prelude.rnf snapshotArn
       `Prelude.seq` Prelude.rnf tagValues
       `Prelude.seq` Prelude.rnf snapshotIdentifier
       `Prelude.seq` Prelude.rnf endTime
@@ -463,6 +478,7 @@ instance Core.ToQuery DescribeClusterSnapshots where
             (Core.toQueryList "TagKey" Prelude.<$> tagKeys),
         "Marker" Core.=: marker,
         "ClusterExists" Core.=: clusterExists,
+        "SnapshotArn" Core.=: snapshotArn,
         "TagValues"
           Core.=: Core.toQuery
             (Core.toQueryList "TagValue" Prelude.<$> tagValues),

@@ -29,7 +29,9 @@ import Amazonka.Redshift.Internal
 --
 -- /See:/ 'newResizeClusterMessage' smart constructor.
 data ResizeClusterMessage = ResizeClusterMessage'
-  { -- | The new node type for the nodes you are adding. If not specified, the
+  { -- | The identifier of the reserved node.
+    reservedNodeId :: Prelude.Maybe Prelude.Text,
+    -- | The new node type for the nodes you are adding. If not specified, the
     -- cluster\'s current node type is used.
     nodeType :: Prelude.Maybe Prelude.Text,
     -- | A boolean value indicating whether the resize operation is using the
@@ -41,6 +43,8 @@ data ResizeClusterMessage = ResizeClusterMessage'
     numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The new cluster type for the specified cluster.
     clusterType :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of the target reserved node offering.
+    targetReservedNodeOfferingId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the cluster to resize.
     clusterIdentifier :: Prelude.Text
   }
@@ -54,6 +58,8 @@ data ResizeClusterMessage = ResizeClusterMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'reservedNodeId', 'resizeClusterMessage_reservedNodeId' - The identifier of the reserved node.
+--
 -- 'nodeType', 'resizeClusterMessage_nodeType' - The new node type for the nodes you are adding. If not specified, the
 -- cluster\'s current node type is used.
 --
@@ -66,6 +72,8 @@ data ResizeClusterMessage = ResizeClusterMessage'
 --
 -- 'clusterType', 'resizeClusterMessage_clusterType' - The new cluster type for the specified cluster.
 --
+-- 'targetReservedNodeOfferingId', 'resizeClusterMessage_targetReservedNodeOfferingId' - The identifier of the target reserved node offering.
+--
 -- 'clusterIdentifier', 'resizeClusterMessage_clusterIdentifier' - The unique identifier for the cluster to resize.
 newResizeClusterMessage ::
   -- | 'clusterIdentifier'
@@ -73,12 +81,19 @@ newResizeClusterMessage ::
   ResizeClusterMessage
 newResizeClusterMessage pClusterIdentifier_ =
   ResizeClusterMessage'
-    { nodeType = Prelude.Nothing,
+    { reservedNodeId =
+        Prelude.Nothing,
+      nodeType = Prelude.Nothing,
       classic = Prelude.Nothing,
       numberOfNodes = Prelude.Nothing,
       clusterType = Prelude.Nothing,
+      targetReservedNodeOfferingId = Prelude.Nothing,
       clusterIdentifier = pClusterIdentifier_
     }
+
+-- | The identifier of the reserved node.
+resizeClusterMessage_reservedNodeId :: Lens.Lens' ResizeClusterMessage (Prelude.Maybe Prelude.Text)
+resizeClusterMessage_reservedNodeId = Lens.lens (\ResizeClusterMessage' {reservedNodeId} -> reservedNodeId) (\s@ResizeClusterMessage' {} a -> s {reservedNodeId = a} :: ResizeClusterMessage)
 
 -- | The new node type for the nodes you are adding. If not specified, the
 -- cluster\'s current node type is used.
@@ -100,6 +115,10 @@ resizeClusterMessage_numberOfNodes = Lens.lens (\ResizeClusterMessage' {numberOf
 resizeClusterMessage_clusterType :: Lens.Lens' ResizeClusterMessage (Prelude.Maybe Prelude.Text)
 resizeClusterMessage_clusterType = Lens.lens (\ResizeClusterMessage' {clusterType} -> clusterType) (\s@ResizeClusterMessage' {} a -> s {clusterType = a} :: ResizeClusterMessage)
 
+-- | The identifier of the target reserved node offering.
+resizeClusterMessage_targetReservedNodeOfferingId :: Lens.Lens' ResizeClusterMessage (Prelude.Maybe Prelude.Text)
+resizeClusterMessage_targetReservedNodeOfferingId = Lens.lens (\ResizeClusterMessage' {targetReservedNodeOfferingId} -> targetReservedNodeOfferingId) (\s@ResizeClusterMessage' {} a -> s {targetReservedNodeOfferingId = a} :: ResizeClusterMessage)
+
 -- | The unique identifier for the cluster to resize.
 resizeClusterMessage_clusterIdentifier :: Lens.Lens' ResizeClusterMessage Prelude.Text
 resizeClusterMessage_clusterIdentifier = Lens.lens (\ResizeClusterMessage' {clusterIdentifier} -> clusterIdentifier) (\s@ResizeClusterMessage' {} a -> s {clusterIdentifier = a} :: ResizeClusterMessage)
@@ -107,34 +126,43 @@ resizeClusterMessage_clusterIdentifier = Lens.lens (\ResizeClusterMessage' {clus
 instance Core.FromXML ResizeClusterMessage where
   parseXML x =
     ResizeClusterMessage'
-      Prelude.<$> (x Core..@? "NodeType")
+      Prelude.<$> (x Core..@? "ReservedNodeId")
+      Prelude.<*> (x Core..@? "NodeType")
       Prelude.<*> (x Core..@? "Classic")
       Prelude.<*> (x Core..@? "NumberOfNodes")
       Prelude.<*> (x Core..@? "ClusterType")
+      Prelude.<*> (x Core..@? "TargetReservedNodeOfferingId")
       Prelude.<*> (x Core..@ "ClusterIdentifier")
 
 instance Prelude.Hashable ResizeClusterMessage where
   hashWithSalt _salt ResizeClusterMessage' {..} =
-    _salt `Prelude.hashWithSalt` nodeType
+    _salt `Prelude.hashWithSalt` reservedNodeId
+      `Prelude.hashWithSalt` nodeType
       `Prelude.hashWithSalt` classic
       `Prelude.hashWithSalt` numberOfNodes
       `Prelude.hashWithSalt` clusterType
+      `Prelude.hashWithSalt` targetReservedNodeOfferingId
       `Prelude.hashWithSalt` clusterIdentifier
 
 instance Prelude.NFData ResizeClusterMessage where
   rnf ResizeClusterMessage' {..} =
-    Prelude.rnf nodeType
+    Prelude.rnf reservedNodeId
+      `Prelude.seq` Prelude.rnf nodeType
       `Prelude.seq` Prelude.rnf classic
       `Prelude.seq` Prelude.rnf numberOfNodes
       `Prelude.seq` Prelude.rnf clusterType
+      `Prelude.seq` Prelude.rnf targetReservedNodeOfferingId
       `Prelude.seq` Prelude.rnf clusterIdentifier
 
 instance Core.ToQuery ResizeClusterMessage where
   toQuery ResizeClusterMessage' {..} =
     Prelude.mconcat
-      [ "NodeType" Core.=: nodeType,
+      [ "ReservedNodeId" Core.=: reservedNodeId,
+        "NodeType" Core.=: nodeType,
         "Classic" Core.=: classic,
         "NumberOfNodes" Core.=: numberOfNodes,
         "ClusterType" Core.=: clusterType,
+        "TargetReservedNodeOfferingId"
+          Core.=: targetReservedNodeOfferingId,
         "ClusterIdentifier" Core.=: clusterIdentifier
       ]

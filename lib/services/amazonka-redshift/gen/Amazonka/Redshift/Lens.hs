@@ -31,11 +31,13 @@ module Amazonka.Redshift.Lens
     -- ** AssociateDataShareConsumer
     associateDataShareConsumer_associateEntireAccount,
     associateDataShareConsumer_consumerArn,
+    associateDataShareConsumer_consumerRegion,
     associateDataShareConsumer_dataShareArn,
     dataShare_dataShareAssociations,
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
 
     -- ** AuthorizeClusterSecurityGroupIngress
     authorizeClusterSecurityGroupIngress_eC2SecurityGroupOwnerId,
@@ -52,6 +54,7 @@ module Amazonka.Redshift.Lens
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
 
     -- ** AuthorizeEndpointAccess
     authorizeEndpointAccess_clusterIdentifier,
@@ -68,8 +71,9 @@ module Amazonka.Redshift.Lens
     endpointAuthorization_allowedVPCs,
 
     -- ** AuthorizeSnapshotAccess
-    authorizeSnapshotAccess_snapshotClusterIdentifier,
+    authorizeSnapshotAccess_snapshotArn,
     authorizeSnapshotAccess_snapshotIdentifier,
+    authorizeSnapshotAccess_snapshotClusterIdentifier,
     authorizeSnapshotAccess_accountWithRestoreAccess,
     authorizeSnapshotAccessResponse_snapshot,
     authorizeSnapshotAccessResponse_httpStatus,
@@ -134,6 +138,7 @@ module Amazonka.Redshift.Lens
     createCluster_snapshotScheduleIdentifier,
     createCluster_aquaConfigurationStatus,
     createCluster_clusterVersion,
+    createCluster_loadSampleData,
     createCluster_maintenanceTrackName,
     createCluster_iamRoles,
     createCluster_hsmClientCertificateIdentifier,
@@ -144,6 +149,7 @@ module Amazonka.Redshift.Lens
     createCluster_numberOfNodes,
     createCluster_kmsKeyId,
     createCluster_availabilityZoneRelocation,
+    createCluster_defaultIamRoleArn,
     createCluster_enhancedVpcRouting,
     createCluster_preferredMaintenanceWindow,
     createCluster_clusterType,
@@ -304,6 +310,7 @@ module Amazonka.Redshift.Lens
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
 
     -- ** DeleteAuthenticationProfile
     deleteAuthenticationProfile_authenticationProfileName,
@@ -431,6 +438,7 @@ module Amazonka.Redshift.Lens
     describeClusterSnapshots_tagKeys,
     describeClusterSnapshots_marker,
     describeClusterSnapshots_clusterExists,
+    describeClusterSnapshots_snapshotArn,
     describeClusterSnapshots_tagValues,
     describeClusterSnapshots_snapshotIdentifier,
     describeClusterSnapshots_endTime,
@@ -587,12 +595,15 @@ module Amazonka.Redshift.Lens
     loggingStatus_s3KeyPrefix,
     loggingStatus_lastFailureMessage,
     loggingStatus_loggingEnabled,
+    loggingStatus_logExports,
     loggingStatus_bucketName,
     loggingStatus_lastFailureTime,
+    loggingStatus_logDestinationType,
 
     -- ** DescribeNodeConfigurationOptions
     describeNodeConfigurationOptions_clusterIdentifier,
     describeNodeConfigurationOptions_marker,
+    describeNodeConfigurationOptions_snapshotArn,
     describeNodeConfigurationOptions_snapshotIdentifier,
     describeNodeConfigurationOptions_filters,
     describeNodeConfigurationOptions_maxRecords,
@@ -618,6 +629,15 @@ module Amazonka.Redshift.Lens
     describePartners_clusterIdentifier,
     describePartnersResponse_partnerIntegrationInfoList,
     describePartnersResponse_httpStatus,
+
+    -- ** DescribeReservedNodeExchangeStatus
+    describeReservedNodeExchangeStatus_marker,
+    describeReservedNodeExchangeStatus_reservedNodeExchangeRequestId,
+    describeReservedNodeExchangeStatus_reservedNodeId,
+    describeReservedNodeExchangeStatus_maxRecords,
+    describeReservedNodeExchangeStatusResponse_marker,
+    describeReservedNodeExchangeStatusResponse_reservedNodeExchangeStatusDetails,
+    describeReservedNodeExchangeStatusResponse_httpStatus,
 
     -- ** DescribeReservedNodeOfferings
     describeReservedNodeOfferings_marker,
@@ -731,8 +751,10 @@ module Amazonka.Redshift.Lens
     loggingStatus_s3KeyPrefix,
     loggingStatus_lastFailureMessage,
     loggingStatus_loggingEnabled,
+    loggingStatus_logExports,
     loggingStatus_bucketName,
     loggingStatus_lastFailureTime,
+    loggingStatus_logDestinationType,
 
     -- ** DisableSnapshotCopy
     disableSnapshotCopy_clusterIdentifier,
@@ -742,22 +764,28 @@ module Amazonka.Redshift.Lens
     -- ** DisassociateDataShareConsumer
     disassociateDataShareConsumer_disassociateEntireAccount,
     disassociateDataShareConsumer_consumerArn,
+    disassociateDataShareConsumer_consumerRegion,
     disassociateDataShareConsumer_dataShareArn,
     dataShare_dataShareAssociations,
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
 
     -- ** EnableLogging
     enableLogging_s3KeyPrefix,
-    enableLogging_clusterIdentifier,
+    enableLogging_logExports,
     enableLogging_bucketName,
+    enableLogging_logDestinationType,
+    enableLogging_clusterIdentifier,
     loggingStatus_lastSuccessfulDeliveryTime,
     loggingStatus_s3KeyPrefix,
     loggingStatus_lastFailureMessage,
     loggingStatus_loggingEnabled,
+    loggingStatus_logExports,
     loggingStatus_bucketName,
     loggingStatus_lastFailureTime,
+    loggingStatus_logDestinationType,
 
     -- ** EnableSnapshotCopy
     enableSnapshotCopy_manualSnapshotRetentionPeriod,
@@ -779,6 +807,26 @@ module Amazonka.Redshift.Lens
     getClusterCredentialsResponse_dbPassword,
     getClusterCredentialsResponse_dbUser,
     getClusterCredentialsResponse_httpStatus,
+
+    -- ** GetClusterCredentialsWithIAM
+    getClusterCredentialsWithIAM_durationSeconds,
+    getClusterCredentialsWithIAM_dbName,
+    getClusterCredentialsWithIAM_clusterIdentifier,
+    getClusterCredentialsWithIAMResponse_expiration,
+    getClusterCredentialsWithIAMResponse_dbPassword,
+    getClusterCredentialsWithIAMResponse_nextRefreshTime,
+    getClusterCredentialsWithIAMResponse_dbUser,
+    getClusterCredentialsWithIAMResponse_httpStatus,
+
+    -- ** GetReservedNodeExchangeConfigurationOptions
+    getReservedNodeExchangeConfigurationOptions_clusterIdentifier,
+    getReservedNodeExchangeConfigurationOptions_marker,
+    getReservedNodeExchangeConfigurationOptions_snapshotIdentifier,
+    getReservedNodeExchangeConfigurationOptions_maxRecords,
+    getReservedNodeExchangeConfigurationOptions_actionType,
+    getReservedNodeExchangeConfigurationOptionsResponse_marker,
+    getReservedNodeExchangeConfigurationOptionsResponse_reservedNodeConfigurationOptionList,
+    getReservedNodeExchangeConfigurationOptionsResponse_httpStatus,
 
     -- ** GetReservedNodeExchangeOfferings
     getReservedNodeExchangeOfferings_marker,
@@ -839,6 +887,7 @@ module Amazonka.Redshift.Lens
     -- ** ModifyClusterIamRoles
     modifyClusterIamRoles_removeIamRoles,
     modifyClusterIamRoles_addIamRoles,
+    modifyClusterIamRoles_defaultIamRoleArn,
     modifyClusterIamRoles_clusterIdentifier,
     modifyClusterIamRolesResponse_cluster,
     modifyClusterIamRolesResponse_httpStatus,
@@ -975,6 +1024,7 @@ module Amazonka.Redshift.Lens
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
 
     -- ** ResetClusterParameterGroup
     resetClusterParameterGroup_resetAllParameters,
@@ -984,10 +1034,12 @@ module Amazonka.Redshift.Lens
     clusterParameterGroupNameMessage_parameterGroupStatus,
 
     -- ** ResizeCluster
+    resizeCluster_reservedNodeId,
     resizeCluster_nodeType,
     resizeCluster_classic,
     resizeCluster_numberOfNodes,
     resizeCluster_clusterType,
+    resizeCluster_targetReservedNodeOfferingId,
     resizeCluster_clusterIdentifier,
     resizeClusterResponse_cluster,
     resizeClusterResponse_httpStatus,
@@ -1001,26 +1053,31 @@ module Amazonka.Redshift.Lens
     restoreFromClusterSnapshot_allowVersionUpgrade,
     restoreFromClusterSnapshot_clusterSubnetGroupName,
     restoreFromClusterSnapshot_snapshotScheduleIdentifier,
+    restoreFromClusterSnapshot_snapshotArn,
     restoreFromClusterSnapshot_aquaConfigurationStatus,
+    restoreFromClusterSnapshot_snapshotIdentifier,
     restoreFromClusterSnapshot_maintenanceTrackName,
     restoreFromClusterSnapshot_snapshotClusterIdentifier,
     restoreFromClusterSnapshot_iamRoles,
+    restoreFromClusterSnapshot_reservedNodeId,
     restoreFromClusterSnapshot_hsmClientCertificateIdentifier,
     restoreFromClusterSnapshot_availabilityZone,
     restoreFromClusterSnapshot_nodeType,
     restoreFromClusterSnapshot_publiclyAccessible,
     restoreFromClusterSnapshot_clusterParameterGroupName,
+    restoreFromClusterSnapshot_encrypted,
     restoreFromClusterSnapshot_numberOfNodes,
     restoreFromClusterSnapshot_kmsKeyId,
     restoreFromClusterSnapshot_availabilityZoneRelocation,
+    restoreFromClusterSnapshot_defaultIamRoleArn,
     restoreFromClusterSnapshot_enhancedVpcRouting,
     restoreFromClusterSnapshot_preferredMaintenanceWindow,
     restoreFromClusterSnapshot_clusterSecurityGroups,
     restoreFromClusterSnapshot_automatedSnapshotRetentionPeriod,
     restoreFromClusterSnapshot_ownerAccount,
+    restoreFromClusterSnapshot_targetReservedNodeOfferingId,
     restoreFromClusterSnapshot_hsmConfigurationIdentifier,
     restoreFromClusterSnapshot_clusterIdentifier,
-    restoreFromClusterSnapshot_snapshotIdentifier,
     restoreFromClusterSnapshotResponse_cluster,
     restoreFromClusterSnapshotResponse_httpStatus,
 
@@ -1066,8 +1123,9 @@ module Amazonka.Redshift.Lens
     endpointAuthorization_allowedVPCs,
 
     -- ** RevokeSnapshotAccess
-    revokeSnapshotAccess_snapshotClusterIdentifier,
+    revokeSnapshotAccess_snapshotArn,
     revokeSnapshotAccess_snapshotIdentifier,
+    revokeSnapshotAccess_snapshotClusterIdentifier,
     revokeSnapshotAccess_accountWithRestoreAccess,
     revokeSnapshotAccessResponse_snapshot,
     revokeSnapshotAccessResponse_httpStatus,
@@ -1148,6 +1206,7 @@ module Amazonka.Redshift.Lens
     cluster_dataTransferProgress,
     cluster_numberOfNodes,
     cluster_kmsKeyId,
+    cluster_defaultIamRoleArn,
     cluster_expectedNextSnapshotScheduleTime,
     cluster_elasticResizeNumberOfNodeOptions,
     cluster_pendingModifiedValues,
@@ -1158,6 +1217,7 @@ module Amazonka.Redshift.Lens
     cluster_vpcId,
     cluster_automatedSnapshotRetentionPeriod,
     cluster_clusterCreateTime,
+    cluster_reservedNodeExchangeStatus,
     cluster_totalStorageCapacityInMegaBytes,
     cluster_dbName,
     cluster_restoreStatus,
@@ -1238,12 +1298,14 @@ module Amazonka.Redshift.Lens
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
 
     -- ** DataShareAssociation
     dataShareAssociation_consumerIdentifier,
     dataShareAssociation_statusChangeDate,
     dataShareAssociation_status,
     dataShareAssociation_createdDate,
+    dataShareAssociation_consumerRegion,
 
     -- ** DataTransferProgress
     dataTransferProgress_totalDataInMegaBytes,
@@ -1364,8 +1426,10 @@ module Amazonka.Redshift.Lens
     loggingStatus_s3KeyPrefix,
     loggingStatus_lastFailureMessage,
     loggingStatus_loggingEnabled,
+    loggingStatus_logExports,
     loggingStatus_bucketName,
     loggingStatus_lastFailureTime,
+    loggingStatus_logDestinationType,
 
     -- ** MaintenanceTrack
     maintenanceTrack_maintenanceTrackName,
@@ -1459,6 +1523,22 @@ module Amazonka.Redshift.Lens
     reservedNode_startTime,
     reservedNode_usagePrice,
 
+    -- ** ReservedNodeConfigurationOption
+    reservedNodeConfigurationOption_targetReservedNodeCount,
+    reservedNodeConfigurationOption_sourceReservedNode,
+    reservedNodeConfigurationOption_targetReservedNodeOffering,
+
+    -- ** ReservedNodeExchangeStatus
+    reservedNodeExchangeStatus_targetReservedNodeCount,
+    reservedNodeExchangeStatus_targetReservedNodeType,
+    reservedNodeExchangeStatus_reservedNodeExchangeRequestId,
+    reservedNodeExchangeStatus_requestTime,
+    reservedNodeExchangeStatus_status,
+    reservedNodeExchangeStatus_sourceReservedNodeId,
+    reservedNodeExchangeStatus_targetReservedNodeOfferingId,
+    reservedNodeExchangeStatus_sourceReservedNodeCount,
+    reservedNodeExchangeStatus_sourceReservedNodeType,
+
     -- ** ReservedNodeOffering
     reservedNodeOffering_recurringCharges,
     reservedNodeOffering_offeringType,
@@ -1471,10 +1551,12 @@ module Amazonka.Redshift.Lens
     reservedNodeOffering_usagePrice,
 
     -- ** ResizeClusterMessage
+    resizeClusterMessage_reservedNodeId,
     resizeClusterMessage_nodeType,
     resizeClusterMessage_classic,
     resizeClusterMessage_numberOfNodes,
     resizeClusterMessage_clusterType,
+    resizeClusterMessage_targetReservedNodeOfferingId,
     resizeClusterMessage_clusterIdentifier,
 
     -- ** ResizeInfo
@@ -1726,6 +1808,7 @@ import Amazonka.Redshift.DescribeLoggingStatus
 import Amazonka.Redshift.DescribeNodeConfigurationOptions
 import Amazonka.Redshift.DescribeOrderableClusterOptions
 import Amazonka.Redshift.DescribePartners
+import Amazonka.Redshift.DescribeReservedNodeExchangeStatus
 import Amazonka.Redshift.DescribeReservedNodeOfferings
 import Amazonka.Redshift.DescribeReservedNodes
 import Amazonka.Redshift.DescribeResize
@@ -1742,6 +1825,8 @@ import Amazonka.Redshift.DisassociateDataShareConsumer
 import Amazonka.Redshift.EnableLogging
 import Amazonka.Redshift.EnableSnapshotCopy
 import Amazonka.Redshift.GetClusterCredentials
+import Amazonka.Redshift.GetClusterCredentialsWithIAM
+import Amazonka.Redshift.GetReservedNodeExchangeConfigurationOptions
 import Amazonka.Redshift.GetReservedNodeExchangeOfferings
 import Amazonka.Redshift.ModifyAquaConfiguration
 import Amazonka.Redshift.ModifyAuthenticationProfile
@@ -1825,6 +1910,8 @@ import Amazonka.Redshift.Types.PauseClusterMessage
 import Amazonka.Redshift.Types.PendingModifiedValues
 import Amazonka.Redshift.Types.RecurringCharge
 import Amazonka.Redshift.Types.ReservedNode
+import Amazonka.Redshift.Types.ReservedNodeConfigurationOption
+import Amazonka.Redshift.Types.ReservedNodeExchangeStatus
 import Amazonka.Redshift.Types.ReservedNodeOffering
 import Amazonka.Redshift.Types.ResizeClusterMessage
 import Amazonka.Redshift.Types.ResizeInfo

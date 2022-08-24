@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Redshift.Types.UsageLimitFeatureType
+-- Module      : Amazonka.Redshift.Types.ReservedNodeExchangeActionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Redshift.Types.UsageLimitFeatureType
-  ( UsageLimitFeatureType
+module Amazonka.Redshift.Types.ReservedNodeExchangeActionType
+  ( ReservedNodeExchangeActionType
       ( ..,
-        UsageLimitFeatureType_Concurrency_scaling,
-        UsageLimitFeatureType_Cross_region_datasharing,
-        UsageLimitFeatureType_Spectrum
+        ReservedNodeExchangeActionType_Resize_cluster,
+        ReservedNodeExchangeActionType_Restore_cluster
       ),
   )
 where
@@ -31,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
-newtype UsageLimitFeatureType = UsageLimitFeatureType'
-  { fromUsageLimitFeatureType ::
+newtype ReservedNodeExchangeActionType = ReservedNodeExchangeActionType'
+  { fromReservedNodeExchangeActionType ::
       Core.Text
   }
   deriving stock
@@ -59,18 +58,14 @@ newtype UsageLimitFeatureType = UsageLimitFeatureType'
       Core.ToXML
     )
 
-pattern UsageLimitFeatureType_Concurrency_scaling :: UsageLimitFeatureType
-pattern UsageLimitFeatureType_Concurrency_scaling = UsageLimitFeatureType' "concurrency-scaling"
+pattern ReservedNodeExchangeActionType_Resize_cluster :: ReservedNodeExchangeActionType
+pattern ReservedNodeExchangeActionType_Resize_cluster = ReservedNodeExchangeActionType' "resize-cluster"
 
-pattern UsageLimitFeatureType_Cross_region_datasharing :: UsageLimitFeatureType
-pattern UsageLimitFeatureType_Cross_region_datasharing = UsageLimitFeatureType' "cross-region-datasharing"
-
-pattern UsageLimitFeatureType_Spectrum :: UsageLimitFeatureType
-pattern UsageLimitFeatureType_Spectrum = UsageLimitFeatureType' "spectrum"
+pattern ReservedNodeExchangeActionType_Restore_cluster :: ReservedNodeExchangeActionType
+pattern ReservedNodeExchangeActionType_Restore_cluster = ReservedNodeExchangeActionType' "restore-cluster"
 
 {-# COMPLETE
-  UsageLimitFeatureType_Concurrency_scaling,
-  UsageLimitFeatureType_Cross_region_datasharing,
-  UsageLimitFeatureType_Spectrum,
-  UsageLimitFeatureType'
+  ReservedNodeExchangeActionType_Resize_cluster,
+  ReservedNodeExchangeActionType_Restore_cluster,
+  ReservedNodeExchangeActionType'
   #-}

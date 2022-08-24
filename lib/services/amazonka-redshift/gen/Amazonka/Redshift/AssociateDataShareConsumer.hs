@@ -32,6 +32,7 @@ module Amazonka.Redshift.AssociateDataShareConsumer
     -- * Request Lenses
     associateDataShareConsumer_associateEntireAccount,
     associateDataShareConsumer_consumerArn,
+    associateDataShareConsumer_consumerRegion,
     associateDataShareConsumer_dataShareArn,
 
     -- * Destructuring the Response
@@ -43,6 +44,7 @@ module Amazonka.Redshift.AssociateDataShareConsumer
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
   )
 where
 
@@ -61,6 +63,10 @@ data AssociateDataShareConsumer = AssociateDataShareConsumer'
     -- | The Amazon Resource Name (ARN) of the consumer that is associated with
     -- the datashare.
     consumerArn :: Prelude.Maybe Prelude.Text,
+    -- | From a datashare consumer account, associates a datashare with all
+    -- existing and future namespaces in the specified Amazon Web Services
+    -- Region.
+    consumerRegion :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the datashare that the consumer is to
     -- use with the account or the namespace.
     dataShareArn :: Prelude.Text
@@ -81,6 +87,10 @@ data AssociateDataShareConsumer = AssociateDataShareConsumer'
 -- 'consumerArn', 'associateDataShareConsumer_consumerArn' - The Amazon Resource Name (ARN) of the consumer that is associated with
 -- the datashare.
 --
+-- 'consumerRegion', 'associateDataShareConsumer_consumerRegion' - From a datashare consumer account, associates a datashare with all
+-- existing and future namespaces in the specified Amazon Web Services
+-- Region.
+--
 -- 'dataShareArn', 'associateDataShareConsumer_dataShareArn' - The Amazon Resource Name (ARN) of the datashare that the consumer is to
 -- use with the account or the namespace.
 newAssociateDataShareConsumer ::
@@ -92,6 +102,7 @@ newAssociateDataShareConsumer pDataShareArn_ =
     { associateEntireAccount =
         Prelude.Nothing,
       consumerArn = Prelude.Nothing,
+      consumerRegion = Prelude.Nothing,
       dataShareArn = pDataShareArn_
     }
 
@@ -104,6 +115,12 @@ associateDataShareConsumer_associateEntireAccount = Lens.lens (\AssociateDataSha
 -- the datashare.
 associateDataShareConsumer_consumerArn :: Lens.Lens' AssociateDataShareConsumer (Prelude.Maybe Prelude.Text)
 associateDataShareConsumer_consumerArn = Lens.lens (\AssociateDataShareConsumer' {consumerArn} -> consumerArn) (\s@AssociateDataShareConsumer' {} a -> s {consumerArn = a} :: AssociateDataShareConsumer)
+
+-- | From a datashare consumer account, associates a datashare with all
+-- existing and future namespaces in the specified Amazon Web Services
+-- Region.
+associateDataShareConsumer_consumerRegion :: Lens.Lens' AssociateDataShareConsumer (Prelude.Maybe Prelude.Text)
+associateDataShareConsumer_consumerRegion = Lens.lens (\AssociateDataShareConsumer' {consumerRegion} -> consumerRegion) (\s@AssociateDataShareConsumer' {} a -> s {consumerRegion = a} :: AssociateDataShareConsumer)
 
 -- | The Amazon Resource Name (ARN) of the datashare that the consumer is to
 -- use with the account or the namespace.
@@ -124,12 +141,14 @@ instance Prelude.Hashable AssociateDataShareConsumer where
   hashWithSalt _salt AssociateDataShareConsumer' {..} =
     _salt `Prelude.hashWithSalt` associateEntireAccount
       `Prelude.hashWithSalt` consumerArn
+      `Prelude.hashWithSalt` consumerRegion
       `Prelude.hashWithSalt` dataShareArn
 
 instance Prelude.NFData AssociateDataShareConsumer where
   rnf AssociateDataShareConsumer' {..} =
     Prelude.rnf associateEntireAccount
       `Prelude.seq` Prelude.rnf consumerArn
+      `Prelude.seq` Prelude.rnf consumerRegion
       `Prelude.seq` Prelude.rnf dataShareArn
 
 instance Core.ToHeaders AssociateDataShareConsumer where
@@ -148,5 +167,6 @@ instance Core.ToQuery AssociateDataShareConsumer where
         "AssociateEntireAccount"
           Core.=: associateEntireAccount,
         "ConsumerArn" Core.=: consumerArn,
+        "ConsumerRegion" Core.=: consumerRegion,
         "DataShareArn" Core.=: dataShareArn
       ]

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- From the producer account, removes authorization from the specified
--- datashare.
+-- From a datashare producer account, removes authorization from the
+-- specified datashare.
 module Amazonka.Redshift.DeauthorizeDataShare
   ( -- * Creating a Request
     DeauthorizeDataShare (..),
@@ -40,6 +40,7 @@ module Amazonka.Redshift.DeauthorizeDataShare
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
   )
 where
 
@@ -56,7 +57,8 @@ data DeauthorizeDataShare = DeauthorizeDataShare'
     -- from.
     dataShareArn :: Prelude.Text,
     -- | The identifier of the data consumer that is to have authorization
-    -- removed from the datashare. This identifier is an AWS account ID.
+    -- removed from the datashare. This identifier is an Amazon Web Services
+    -- account ID or a keyword, such as ADX.
     consumerIdentifier :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +75,8 @@ data DeauthorizeDataShare = DeauthorizeDataShare'
 -- from.
 --
 -- 'consumerIdentifier', 'deauthorizeDataShare_consumerIdentifier' - The identifier of the data consumer that is to have authorization
--- removed from the datashare. This identifier is an AWS account ID.
+-- removed from the datashare. This identifier is an Amazon Web Services
+-- account ID or a keyword, such as ADX.
 newDeauthorizeDataShare ::
   -- | 'dataShareArn'
   Prelude.Text ->
@@ -95,7 +98,8 @@ deauthorizeDataShare_dataShareArn :: Lens.Lens' DeauthorizeDataShare Prelude.Tex
 deauthorizeDataShare_dataShareArn = Lens.lens (\DeauthorizeDataShare' {dataShareArn} -> dataShareArn) (\s@DeauthorizeDataShare' {} a -> s {dataShareArn = a} :: DeauthorizeDataShare)
 
 -- | The identifier of the data consumer that is to have authorization
--- removed from the datashare. This identifier is an AWS account ID.
+-- removed from the datashare. This identifier is an Amazon Web Services
+-- account ID or a keyword, such as ADX.
 deauthorizeDataShare_consumerIdentifier :: Lens.Lens' DeauthorizeDataShare Prelude.Text
 deauthorizeDataShare_consumerIdentifier = Lens.lens (\DeauthorizeDataShare' {consumerIdentifier} -> consumerIdentifier) (\s@DeauthorizeDataShare' {} a -> s {consumerIdentifier = a} :: DeauthorizeDataShare)
 

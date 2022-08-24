@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- From the consumer account, rejects the specified datashare.
+-- From a datashare consumer account, rejects the specified datashare.
 module Amazonka.Redshift.RejectDataShare
   ( -- * Creating a Request
     RejectDataShare (..),
@@ -38,6 +38,7 @@ module Amazonka.Redshift.RejectDataShare
     dataShare_producerArn,
     dataShare_allowPubliclyAccessibleConsumers,
     dataShare_dataShareArn,
+    dataShare_managedBy,
   )
 where
 

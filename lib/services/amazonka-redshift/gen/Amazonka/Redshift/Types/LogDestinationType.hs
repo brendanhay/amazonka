@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Redshift.Types.UsageLimitFeatureType
+-- Module      : Amazonka.Redshift.Types.LogDestinationType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Redshift.Types.UsageLimitFeatureType
-  ( UsageLimitFeatureType
+module Amazonka.Redshift.Types.LogDestinationType
+  ( LogDestinationType
       ( ..,
-        UsageLimitFeatureType_Concurrency_scaling,
-        UsageLimitFeatureType_Cross_region_datasharing,
-        UsageLimitFeatureType_Spectrum
+        LogDestinationType_Cloudwatch,
+        LogDestinationType_S3
       ),
   )
 where
@@ -31,8 +30,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Redshift.Internal
 
-newtype UsageLimitFeatureType = UsageLimitFeatureType'
-  { fromUsageLimitFeatureType ::
+newtype LogDestinationType = LogDestinationType'
+  { fromLogDestinationType ::
       Core.Text
   }
   deriving stock
@@ -59,18 +58,14 @@ newtype UsageLimitFeatureType = UsageLimitFeatureType'
       Core.ToXML
     )
 
-pattern UsageLimitFeatureType_Concurrency_scaling :: UsageLimitFeatureType
-pattern UsageLimitFeatureType_Concurrency_scaling = UsageLimitFeatureType' "concurrency-scaling"
+pattern LogDestinationType_Cloudwatch :: LogDestinationType
+pattern LogDestinationType_Cloudwatch = LogDestinationType' "cloudwatch"
 
-pattern UsageLimitFeatureType_Cross_region_datasharing :: UsageLimitFeatureType
-pattern UsageLimitFeatureType_Cross_region_datasharing = UsageLimitFeatureType' "cross-region-datasharing"
-
-pattern UsageLimitFeatureType_Spectrum :: UsageLimitFeatureType
-pattern UsageLimitFeatureType_Spectrum = UsageLimitFeatureType' "spectrum"
+pattern LogDestinationType_S3 :: LogDestinationType
+pattern LogDestinationType_S3 = LogDestinationType' "s3"
 
 {-# COMPLETE
-  UsageLimitFeatureType_Concurrency_scaling,
-  UsageLimitFeatureType_Cross_region_datasharing,
-  UsageLimitFeatureType_Spectrum,
-  UsageLimitFeatureType'
+  LogDestinationType_Cloudwatch,
+  LogDestinationType_S3,
+  LogDestinationType'
   #-}

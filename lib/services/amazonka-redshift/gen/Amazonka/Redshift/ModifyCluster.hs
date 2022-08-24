@@ -163,8 +163,8 @@ data ModifyCluster = ModifyCluster'
     --
     -- -   Must contain one number.
     --
-    -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
-    --     \' (single quote), \" (double quote), \\, \/, \@, or space.
+    -- -   Can be any printable ASCII character (ASCII code 33-126) except @\'@
+    --     (single quote), @\"@ (double quote), @\\@, @\/@, or @\@@.
     masterUserPassword :: Prelude.Maybe Prelude.Text,
     -- | The new node type of the cluster. If you specify a new node type, you
     -- must also specify the number of nodes parameter.
@@ -391,8 +391,8 @@ data ModifyCluster = ModifyCluster'
 --
 -- -   Must contain one number.
 --
--- -   Can be any printable ASCII character (ASCII code 33 to 126) except
---     \' (single quote), \" (double quote), \\, \/, \@, or space.
+-- -   Can be any printable ASCII character (ASCII code 33-126) except @\'@
+--     (single quote), @\"@ (double quote), @\\@, @\/@, or @\@@.
 --
 -- 'nodeType', 'modifyCluster_nodeType' - The new node type of the cluster. If you specify a new node type, you
 -- must also specify the number of nodes parameter.
@@ -658,8 +658,8 @@ modifyCluster_availabilityZone = Lens.lens (\ModifyCluster' {availabilityZone} -
 --
 -- -   Must contain one number.
 --
--- -   Can be any printable ASCII character (ASCII code 33 to 126) except
---     \' (single quote), \" (double quote), \\, \/, \@, or space.
+-- -   Can be any printable ASCII character (ASCII code 33-126) except @\'@
+--     (single quote), @\"@ (double quote), @\\@, @\/@, or @\@@.
 modifyCluster_masterUserPassword :: Lens.Lens' ModifyCluster (Prelude.Maybe Prelude.Text)
 modifyCluster_masterUserPassword = Lens.lens (\ModifyCluster' {masterUserPassword} -> masterUserPassword) (\s@ModifyCluster' {} a -> s {masterUserPassword = a} :: ModifyCluster)
 

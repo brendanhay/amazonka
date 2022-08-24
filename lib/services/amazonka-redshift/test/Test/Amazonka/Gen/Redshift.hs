@@ -234,6 +234,9 @@ import Test.Tasty
 --         , requestDescribePartners $
 --             newDescribePartners
 --
+--         , requestDescribeReservedNodeExchangeStatus $
+--             newDescribeReservedNodeExchangeStatus
+--
 --         , requestDescribeReservedNodeOfferings $
 --             newDescribeReservedNodeOfferings
 --
@@ -281,6 +284,12 @@ import Test.Tasty
 --
 --         , requestGetClusterCredentials $
 --             newGetClusterCredentials
+--
+--         , requestGetClusterCredentialsWithIAM $
+--             newGetClusterCredentialsWithIAM
+--
+--         , requestGetReservedNodeExchangeConfigurationOptions $
+--             newGetReservedNodeExchangeConfigurationOptions
 --
 --         , requestGetReservedNodeExchangeOfferings $
 --             newGetReservedNodeExchangeOfferings
@@ -585,6 +594,9 @@ import Test.Tasty
 --         , responseDescribePartners $
 --             newDescribePartnersResponse
 --
+--         , responseDescribeReservedNodeExchangeStatus $
+--             newDescribeReservedNodeExchangeStatusResponse
+--
 --         , responseDescribeReservedNodeOfferings $
 --             newDescribeReservedNodeOfferingsResponse
 --
@@ -632,6 +644,12 @@ import Test.Tasty
 --
 --         , responseGetClusterCredentials $
 --             newGetClusterCredentialsResponse
+--
+--         , responseGetClusterCredentialsWithIAM $
+--             newGetClusterCredentialsWithIAMResponse
+--
+--         , responseGetReservedNodeExchangeConfigurationOptions $
+--             newGetReservedNodeExchangeConfigurationOptionsResponse
 --
 --         , responseGetReservedNodeExchangeOfferings $
 --             newGetReservedNodeExchangeOfferingsResponse
@@ -1145,6 +1163,12 @@ requestDescribePartners =
     "DescribePartners"
     "fixture/DescribePartners.yaml"
 
+requestDescribeReservedNodeExchangeStatus :: DescribeReservedNodeExchangeStatus -> TestTree
+requestDescribeReservedNodeExchangeStatus =
+  req
+    "DescribeReservedNodeExchangeStatus"
+    "fixture/DescribeReservedNodeExchangeStatus.yaml"
+
 requestDescribeReservedNodeOfferings :: DescribeReservedNodeOfferings -> TestTree
 requestDescribeReservedNodeOfferings =
   req
@@ -1240,6 +1264,18 @@ requestGetClusterCredentials =
   req
     "GetClusterCredentials"
     "fixture/GetClusterCredentials.yaml"
+
+requestGetClusterCredentialsWithIAM :: GetClusterCredentialsWithIAM -> TestTree
+requestGetClusterCredentialsWithIAM =
+  req
+    "GetClusterCredentialsWithIAM"
+    "fixture/GetClusterCredentialsWithIAM.yaml"
+
+requestGetReservedNodeExchangeConfigurationOptions :: GetReservedNodeExchangeConfigurationOptions -> TestTree
+requestGetReservedNodeExchangeConfigurationOptions =
+  req
+    "GetReservedNodeExchangeConfigurationOptions"
+    "fixture/GetReservedNodeExchangeConfigurationOptions.yaml"
 
 requestGetReservedNodeExchangeOfferings :: GetReservedNodeExchangeOfferings -> TestTree
 requestGetReservedNodeExchangeOfferings =
@@ -1981,6 +2017,14 @@ responseDescribePartners =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePartners)
 
+responseDescribeReservedNodeExchangeStatus :: DescribeReservedNodeExchangeStatusResponse -> TestTree
+responseDescribeReservedNodeExchangeStatus =
+  res
+    "DescribeReservedNodeExchangeStatusResponse"
+    "fixture/DescribeReservedNodeExchangeStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeReservedNodeExchangeStatus)
+
 responseDescribeReservedNodeOfferings :: DescribeReservedNodeOfferingsResponse -> TestTree
 responseDescribeReservedNodeOfferings =
   res
@@ -2108,6 +2152,22 @@ responseGetClusterCredentials =
     "fixture/GetClusterCredentialsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetClusterCredentials)
+
+responseGetClusterCredentialsWithIAM :: GetClusterCredentialsWithIAMResponse -> TestTree
+responseGetClusterCredentialsWithIAM =
+  res
+    "GetClusterCredentialsWithIAMResponse"
+    "fixture/GetClusterCredentialsWithIAMResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetClusterCredentialsWithIAM)
+
+responseGetReservedNodeExchangeConfigurationOptions :: GetReservedNodeExchangeConfigurationOptionsResponse -> TestTree
+responseGetReservedNodeExchangeConfigurationOptions =
+  res
+    "GetReservedNodeExchangeConfigurationOptionsResponse"
+    "fixture/GetReservedNodeExchangeConfigurationOptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetReservedNodeExchangeConfigurationOptions)
 
 responseGetReservedNodeExchangeOfferings :: GetReservedNodeExchangeOfferingsResponse -> TestTree
 responseGetReservedNodeExchangeOfferings =

@@ -49,6 +49,10 @@ module Amazonka.ChimeSDKIdentity.Lens
     -- ** DeleteAppInstanceUser
     deleteAppInstanceUser_appInstanceUserArn,
 
+    -- ** DeregisterAppInstanceUserEndpoint
+    deregisterAppInstanceUserEndpoint_appInstanceUserArn,
+    deregisterAppInstanceUserEndpoint_endpointId,
+
     -- ** DescribeAppInstance
     describeAppInstance_appInstanceArn,
     describeAppInstanceResponse_appInstance,
@@ -65,6 +69,12 @@ module Amazonka.ChimeSDKIdentity.Lens
     describeAppInstanceUserResponse_appInstanceUser,
     describeAppInstanceUserResponse_httpStatus,
 
+    -- ** DescribeAppInstanceUserEndpoint
+    describeAppInstanceUserEndpoint_appInstanceUserArn,
+    describeAppInstanceUserEndpoint_endpointId,
+    describeAppInstanceUserEndpointResponse_appInstanceUserEndpoint,
+    describeAppInstanceUserEndpointResponse_httpStatus,
+
     -- ** GetAppInstanceRetentionSettings
     getAppInstanceRetentionSettings_appInstanceArn,
     getAppInstanceRetentionSettingsResponse_appInstanceRetentionSettings,
@@ -79,6 +89,14 @@ module Amazonka.ChimeSDKIdentity.Lens
     listAppInstanceAdminsResponse_appInstanceArn,
     listAppInstanceAdminsResponse_appInstanceAdmins,
     listAppInstanceAdminsResponse_httpStatus,
+
+    -- ** ListAppInstanceUserEndpoints
+    listAppInstanceUserEndpoints_nextToken,
+    listAppInstanceUserEndpoints_maxResults,
+    listAppInstanceUserEndpoints_appInstanceUserArn,
+    listAppInstanceUserEndpointsResponse_nextToken,
+    listAppInstanceUserEndpointsResponse_appInstanceUserEndpoints,
+    listAppInstanceUserEndpointsResponse_httpStatus,
 
     -- ** ListAppInstanceUsers
     listAppInstanceUsers_nextToken,
@@ -96,12 +114,37 @@ module Amazonka.ChimeSDKIdentity.Lens
     listAppInstancesResponse_appInstances,
     listAppInstancesResponse_httpStatus,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceARN,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
     -- ** PutAppInstanceRetentionSettings
     putAppInstanceRetentionSettings_appInstanceArn,
     putAppInstanceRetentionSettings_appInstanceRetentionSettings,
     putAppInstanceRetentionSettingsResponse_appInstanceRetentionSettings,
     putAppInstanceRetentionSettingsResponse_initiateDeletionTimestamp,
     putAppInstanceRetentionSettingsResponse_httpStatus,
+
+    -- ** RegisterAppInstanceUserEndpoint
+    registerAppInstanceUserEndpoint_name,
+    registerAppInstanceUserEndpoint_allowMessages,
+    registerAppInstanceUserEndpoint_appInstanceUserArn,
+    registerAppInstanceUserEndpoint_type,
+    registerAppInstanceUserEndpoint_resourceArn,
+    registerAppInstanceUserEndpoint_endpointAttributes,
+    registerAppInstanceUserEndpoint_clientRequestToken,
+    registerAppInstanceUserEndpointResponse_endpointId,
+    registerAppInstanceUserEndpointResponse_appInstanceUserArn,
+    registerAppInstanceUserEndpointResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+
+    -- ** UntagResource
+    untagResource_resourceARN,
+    untagResource_tagKeys,
 
     -- ** UpdateAppInstance
     updateAppInstance_appInstanceArn,
@@ -116,6 +159,15 @@ module Amazonka.ChimeSDKIdentity.Lens
     updateAppInstanceUser_metadata,
     updateAppInstanceUserResponse_appInstanceUserArn,
     updateAppInstanceUserResponse_httpStatus,
+
+    -- ** UpdateAppInstanceUserEndpoint
+    updateAppInstanceUserEndpoint_name,
+    updateAppInstanceUserEndpoint_allowMessages,
+    updateAppInstanceUserEndpoint_appInstanceUserArn,
+    updateAppInstanceUserEndpoint_endpointId,
+    updateAppInstanceUserEndpointResponse_endpointId,
+    updateAppInstanceUserEndpointResponse_appInstanceUserArn,
+    updateAppInstanceUserEndpointResponse_httpStatus,
 
     -- * Types
 
@@ -149,6 +201,26 @@ module Amazonka.ChimeSDKIdentity.Lens
     appInstanceUser_appInstanceUserArn,
     appInstanceUser_createdTimestamp,
 
+    -- ** AppInstanceUserEndpoint
+    appInstanceUserEndpoint_lastUpdatedTimestamp,
+    appInstanceUserEndpoint_name,
+    appInstanceUserEndpoint_type,
+    appInstanceUserEndpoint_endpointId,
+    appInstanceUserEndpoint_appInstanceUserArn,
+    appInstanceUserEndpoint_createdTimestamp,
+    appInstanceUserEndpoint_endpointAttributes,
+    appInstanceUserEndpoint_endpointState,
+    appInstanceUserEndpoint_resourceArn,
+    appInstanceUserEndpoint_allowMessages,
+
+    -- ** AppInstanceUserEndpointSummary
+    appInstanceUserEndpointSummary_name,
+    appInstanceUserEndpointSummary_type,
+    appInstanceUserEndpointSummary_endpointId,
+    appInstanceUserEndpointSummary_appInstanceUserArn,
+    appInstanceUserEndpointSummary_endpointState,
+    appInstanceUserEndpointSummary_allowMessages,
+
     -- ** AppInstanceUserSummary
     appInstanceUserSummary_name,
     appInstanceUserSummary_metadata,
@@ -156,6 +228,14 @@ module Amazonka.ChimeSDKIdentity.Lens
 
     -- ** ChannelRetentionSettings
     channelRetentionSettings_retentionDays,
+
+    -- ** EndpointAttributes
+    endpointAttributes_voipDeviceToken,
+    endpointAttributes_deviceToken,
+
+    -- ** EndpointState
+    endpointState_statusReason,
+    endpointState_status,
 
     -- ** Identity
     identity_name,
@@ -173,23 +253,35 @@ import Amazonka.ChimeSDKIdentity.CreateAppInstanceUser
 import Amazonka.ChimeSDKIdentity.DeleteAppInstance
 import Amazonka.ChimeSDKIdentity.DeleteAppInstanceAdmin
 import Amazonka.ChimeSDKIdentity.DeleteAppInstanceUser
+import Amazonka.ChimeSDKIdentity.DeregisterAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.DescribeAppInstance
 import Amazonka.ChimeSDKIdentity.DescribeAppInstanceAdmin
 import Amazonka.ChimeSDKIdentity.DescribeAppInstanceUser
+import Amazonka.ChimeSDKIdentity.DescribeAppInstanceUserEndpoint
 import Amazonka.ChimeSDKIdentity.GetAppInstanceRetentionSettings
 import Amazonka.ChimeSDKIdentity.ListAppInstanceAdmins
+import Amazonka.ChimeSDKIdentity.ListAppInstanceUserEndpoints
 import Amazonka.ChimeSDKIdentity.ListAppInstanceUsers
 import Amazonka.ChimeSDKIdentity.ListAppInstances
+import Amazonka.ChimeSDKIdentity.ListTagsForResource
 import Amazonka.ChimeSDKIdentity.PutAppInstanceRetentionSettings
+import Amazonka.ChimeSDKIdentity.RegisterAppInstanceUserEndpoint
+import Amazonka.ChimeSDKIdentity.TagResource
 import Amazonka.ChimeSDKIdentity.Types.AppInstance
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdmin
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceAdminSummary
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceRetentionSettings
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceUser
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpoint
+import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserEndpointSummary
 import Amazonka.ChimeSDKIdentity.Types.AppInstanceUserSummary
 import Amazonka.ChimeSDKIdentity.Types.ChannelRetentionSettings
+import Amazonka.ChimeSDKIdentity.Types.EndpointAttributes
+import Amazonka.ChimeSDKIdentity.Types.EndpointState
 import Amazonka.ChimeSDKIdentity.Types.Identity
 import Amazonka.ChimeSDKIdentity.Types.Tag
+import Amazonka.ChimeSDKIdentity.UntagResource
 import Amazonka.ChimeSDKIdentity.UpdateAppInstance
 import Amazonka.ChimeSDKIdentity.UpdateAppInstanceUser
+import Amazonka.ChimeSDKIdentity.UpdateAppInstanceUserEndpoint

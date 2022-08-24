@@ -23,13 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a tag applied to a resource.
+-- | A tag object containing a key-value pair.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The key of the tag.
+  { -- | The key in a tag.
     key :: Core.Sensitive Prelude.Text,
-    -- | The value of the tag.
+    -- | The value in a tag.
     value :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The key of the tag.
+-- 'key', 'tag_key' - The key in a tag.
 --
--- 'value', 'tag_value' - The value of the tag.
+-- 'value', 'tag_value' - The value in a tag.
 newTag ::
   -- | 'key'
   Prelude.Text ->
@@ -57,13 +57,22 @@ newTag pKey_ pValue_ =
       value = Core._Sensitive Lens.# pValue_
     }
 
--- | The key of the tag.
+-- | The key in a tag.
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag) Prelude.. Core._Sensitive
 
--- | The value of the tag.
+-- | The value in a tag.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag) Prelude.. Core._Sensitive
+
+instance Core.FromJSON Tag where
+  parseJSON =
+    Core.withObject
+      "Tag"
+      ( \x ->
+          Tag'
+            Prelude.<$> (x Core..: "Key") Prelude.<*> (x Core..: "Value")
+      )
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =

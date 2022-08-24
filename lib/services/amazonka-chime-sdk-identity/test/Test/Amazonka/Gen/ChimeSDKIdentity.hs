@@ -45,6 +45,9 @@ import Test.Tasty
 --         , requestDeleteAppInstanceUser $
 --             newDeleteAppInstanceUser
 --
+--         , requestDeregisterAppInstanceUserEndpoint $
+--             newDeregisterAppInstanceUserEndpoint
+--
 --         , requestDescribeAppInstance $
 --             newDescribeAppInstance
 --
@@ -54,11 +57,17 @@ import Test.Tasty
 --         , requestDescribeAppInstanceUser $
 --             newDescribeAppInstanceUser
 --
+--         , requestDescribeAppInstanceUserEndpoint $
+--             newDescribeAppInstanceUserEndpoint
+--
 --         , requestGetAppInstanceRetentionSettings $
 --             newGetAppInstanceRetentionSettings
 --
 --         , requestListAppInstanceAdmins $
 --             newListAppInstanceAdmins
+--
+--         , requestListAppInstanceUserEndpoints $
+--             newListAppInstanceUserEndpoints
 --
 --         , requestListAppInstanceUsers $
 --             newListAppInstanceUsers
@@ -66,14 +75,29 @@ import Test.Tasty
 --         , requestListAppInstances $
 --             newListAppInstances
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestPutAppInstanceRetentionSettings $
 --             newPutAppInstanceRetentionSettings
+--
+--         , requestRegisterAppInstanceUserEndpoint $
+--             newRegisterAppInstanceUserEndpoint
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestUpdateAppInstance $
 --             newUpdateAppInstance
 --
 --         , requestUpdateAppInstanceUser $
 --             newUpdateAppInstanceUser
+--
+--         , requestUpdateAppInstanceUserEndpoint $
+--             newUpdateAppInstanceUserEndpoint
 --
 --           ]
 
@@ -96,6 +120,9 @@ import Test.Tasty
 --         , responseDeleteAppInstanceUser $
 --             newDeleteAppInstanceUserResponse
 --
+--         , responseDeregisterAppInstanceUserEndpoint $
+--             newDeregisterAppInstanceUserEndpointResponse
+--
 --         , responseDescribeAppInstance $
 --             newDescribeAppInstanceResponse
 --
@@ -105,11 +132,17 @@ import Test.Tasty
 --         , responseDescribeAppInstanceUser $
 --             newDescribeAppInstanceUserResponse
 --
+--         , responseDescribeAppInstanceUserEndpoint $
+--             newDescribeAppInstanceUserEndpointResponse
+--
 --         , responseGetAppInstanceRetentionSettings $
 --             newGetAppInstanceRetentionSettingsResponse
 --
 --         , responseListAppInstanceAdmins $
 --             newListAppInstanceAdminsResponse
+--
+--         , responseListAppInstanceUserEndpoints $
+--             newListAppInstanceUserEndpointsResponse
 --
 --         , responseListAppInstanceUsers $
 --             newListAppInstanceUsersResponse
@@ -117,14 +150,29 @@ import Test.Tasty
 --         , responseListAppInstances $
 --             newListAppInstancesResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responsePutAppInstanceRetentionSettings $
 --             newPutAppInstanceRetentionSettingsResponse
+--
+--         , responseRegisterAppInstanceUserEndpoint $
+--             newRegisterAppInstanceUserEndpointResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdateAppInstance $
 --             newUpdateAppInstanceResponse
 --
 --         , responseUpdateAppInstanceUser $
 --             newUpdateAppInstanceUserResponse
+--
+--         , responseUpdateAppInstanceUserEndpoint $
+--             newUpdateAppInstanceUserEndpointResponse
 --
 --           ]
 --     ]
@@ -167,6 +215,12 @@ requestDeleteAppInstanceUser =
     "DeleteAppInstanceUser"
     "fixture/DeleteAppInstanceUser.yaml"
 
+requestDeregisterAppInstanceUserEndpoint :: DeregisterAppInstanceUserEndpoint -> TestTree
+requestDeregisterAppInstanceUserEndpoint =
+  req
+    "DeregisterAppInstanceUserEndpoint"
+    "fixture/DeregisterAppInstanceUserEndpoint.yaml"
+
 requestDescribeAppInstance :: DescribeAppInstance -> TestTree
 requestDescribeAppInstance =
   req
@@ -185,6 +239,12 @@ requestDescribeAppInstanceUser =
     "DescribeAppInstanceUser"
     "fixture/DescribeAppInstanceUser.yaml"
 
+requestDescribeAppInstanceUserEndpoint :: DescribeAppInstanceUserEndpoint -> TestTree
+requestDescribeAppInstanceUserEndpoint =
+  req
+    "DescribeAppInstanceUserEndpoint"
+    "fixture/DescribeAppInstanceUserEndpoint.yaml"
+
 requestGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettings -> TestTree
 requestGetAppInstanceRetentionSettings =
   req
@@ -196,6 +256,12 @@ requestListAppInstanceAdmins =
   req
     "ListAppInstanceAdmins"
     "fixture/ListAppInstanceAdmins.yaml"
+
+requestListAppInstanceUserEndpoints :: ListAppInstanceUserEndpoints -> TestTree
+requestListAppInstanceUserEndpoints =
+  req
+    "ListAppInstanceUserEndpoints"
+    "fixture/ListAppInstanceUserEndpoints.yaml"
 
 requestListAppInstanceUsers :: ListAppInstanceUsers -> TestTree
 requestListAppInstanceUsers =
@@ -209,11 +275,35 @@ requestListAppInstances =
     "ListAppInstances"
     "fixture/ListAppInstances.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestPutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettings -> TestTree
 requestPutAppInstanceRetentionSettings =
   req
     "PutAppInstanceRetentionSettings"
     "fixture/PutAppInstanceRetentionSettings.yaml"
+
+requestRegisterAppInstanceUserEndpoint :: RegisterAppInstanceUserEndpoint -> TestTree
+requestRegisterAppInstanceUserEndpoint =
+  req
+    "RegisterAppInstanceUserEndpoint"
+    "fixture/RegisterAppInstanceUserEndpoint.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateAppInstance :: UpdateAppInstance -> TestTree
 requestUpdateAppInstance =
@@ -226,6 +316,12 @@ requestUpdateAppInstanceUser =
   req
     "UpdateAppInstanceUser"
     "fixture/UpdateAppInstanceUser.yaml"
+
+requestUpdateAppInstanceUserEndpoint :: UpdateAppInstanceUserEndpoint -> TestTree
+requestUpdateAppInstanceUserEndpoint =
+  req
+    "UpdateAppInstanceUserEndpoint"
+    "fixture/UpdateAppInstanceUserEndpoint.yaml"
 
 -- Responses
 
@@ -277,6 +373,14 @@ responseDeleteAppInstanceUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAppInstanceUser)
 
+responseDeregisterAppInstanceUserEndpoint :: DeregisterAppInstanceUserEndpointResponse -> TestTree
+responseDeregisterAppInstanceUserEndpoint =
+  res
+    "DeregisterAppInstanceUserEndpointResponse"
+    "fixture/DeregisterAppInstanceUserEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeregisterAppInstanceUserEndpoint)
+
 responseDescribeAppInstance :: DescribeAppInstanceResponse -> TestTree
 responseDescribeAppInstance =
   res
@@ -301,6 +405,14 @@ responseDescribeAppInstanceUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceUser)
 
+responseDescribeAppInstanceUserEndpoint :: DescribeAppInstanceUserEndpointResponse -> TestTree
+responseDescribeAppInstanceUserEndpoint =
+  res
+    "DescribeAppInstanceUserEndpointResponse"
+    "fixture/DescribeAppInstanceUserEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppInstanceUserEndpoint)
+
 responseGetAppInstanceRetentionSettings :: GetAppInstanceRetentionSettingsResponse -> TestTree
 responseGetAppInstanceRetentionSettings =
   res
@@ -316,6 +428,14 @@ responseListAppInstanceAdmins =
     "fixture/ListAppInstanceAdminsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAppInstanceAdmins)
+
+responseListAppInstanceUserEndpoints :: ListAppInstanceUserEndpointsResponse -> TestTree
+responseListAppInstanceUserEndpoints =
+  res
+    "ListAppInstanceUserEndpointsResponse"
+    "fixture/ListAppInstanceUserEndpointsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAppInstanceUserEndpoints)
 
 responseListAppInstanceUsers :: ListAppInstanceUsersResponse -> TestTree
 responseListAppInstanceUsers =
@@ -333,6 +453,14 @@ responseListAppInstances =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAppInstances)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responsePutAppInstanceRetentionSettings :: PutAppInstanceRetentionSettingsResponse -> TestTree
 responsePutAppInstanceRetentionSettings =
   res
@@ -340,6 +468,30 @@ responsePutAppInstanceRetentionSettings =
     "fixture/PutAppInstanceRetentionSettingsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutAppInstanceRetentionSettings)
+
+responseRegisterAppInstanceUserEndpoint :: RegisterAppInstanceUserEndpointResponse -> TestTree
+responseRegisterAppInstanceUserEndpoint =
+  res
+    "RegisterAppInstanceUserEndpointResponse"
+    "fixture/RegisterAppInstanceUserEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RegisterAppInstanceUserEndpoint)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateAppInstance :: UpdateAppInstanceResponse -> TestTree
 responseUpdateAppInstance =
@@ -356,3 +508,11 @@ responseUpdateAppInstanceUser =
     "fixture/UpdateAppInstanceUserResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceUser)
+
+responseUpdateAppInstanceUserEndpoint :: UpdateAppInstanceUserEndpointResponse -> TestTree
+responseUpdateAppInstanceUserEndpoint =
+  res
+    "UpdateAppInstanceUserEndpointResponse"
+    "fixture/UpdateAppInstanceUserEndpointResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAppInstanceUserEndpoint)

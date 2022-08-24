@@ -33,9 +33,11 @@ data EBSOptions = EBSOptions'
     volumeType :: Prelude.Maybe VolumeType,
     -- | Integer to specify the size of an EBS volume.
     volumeSize :: Prelude.Maybe Prelude.Int,
+    -- | The Throughput for GP3 EBS volume (SSD).
+    throughput :: Prelude.Maybe Prelude.Int,
     -- | Whether EBS-based storage is enabled.
     eBSEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The IOPD for a Provisioned IOPS EBS volume (SSD).
+    -- | The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).
     iops :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,15 +54,18 @@ data EBSOptions = EBSOptions'
 --
 -- 'volumeSize', 'eBSOptions_volumeSize' - Integer to specify the size of an EBS volume.
 --
+-- 'throughput', 'eBSOptions_throughput' - The Throughput for GP3 EBS volume (SSD).
+--
 -- 'eBSEnabled', 'eBSOptions_eBSEnabled' - Whether EBS-based storage is enabled.
 --
--- 'iops', 'eBSOptions_iops' - The IOPD for a Provisioned IOPS EBS volume (SSD).
+-- 'iops', 'eBSOptions_iops' - The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).
 newEBSOptions ::
   EBSOptions
 newEBSOptions =
   EBSOptions'
     { volumeType = Prelude.Nothing,
       volumeSize = Prelude.Nothing,
+      throughput = Prelude.Nothing,
       eBSEnabled = Prelude.Nothing,
       iops = Prelude.Nothing
     }
@@ -73,11 +78,15 @@ eBSOptions_volumeType = Lens.lens (\EBSOptions' {volumeType} -> volumeType) (\s@
 eBSOptions_volumeSize :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
 eBSOptions_volumeSize = Lens.lens (\EBSOptions' {volumeSize} -> volumeSize) (\s@EBSOptions' {} a -> s {volumeSize = a} :: EBSOptions)
 
+-- | The Throughput for GP3 EBS volume (SSD).
+eBSOptions_throughput :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
+eBSOptions_throughput = Lens.lens (\EBSOptions' {throughput} -> throughput) (\s@EBSOptions' {} a -> s {throughput = a} :: EBSOptions)
+
 -- | Whether EBS-based storage is enabled.
 eBSOptions_eBSEnabled :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Bool)
 eBSOptions_eBSEnabled = Lens.lens (\EBSOptions' {eBSEnabled} -> eBSEnabled) (\s@EBSOptions' {} a -> s {eBSEnabled = a} :: EBSOptions)
 
--- | The IOPD for a Provisioned IOPS EBS volume (SSD).
+-- | The IOPS for Provisioned IOPS And GP3 EBS volume (SSD).
 eBSOptions_iops :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
 eBSOptions_iops = Lens.lens (\EBSOptions' {iops} -> iops) (\s@EBSOptions' {} a -> s {iops = a} :: EBSOptions)
 
@@ -89,6 +98,7 @@ instance Core.FromJSON EBSOptions where
           EBSOptions'
             Prelude.<$> (x Core..:? "VolumeType")
             Prelude.<*> (x Core..:? "VolumeSize")
+            Prelude.<*> (x Core..:? "Throughput")
             Prelude.<*> (x Core..:? "EBSEnabled")
             Prelude.<*> (x Core..:? "Iops")
       )
@@ -97,6 +107,7 @@ instance Prelude.Hashable EBSOptions where
   hashWithSalt _salt EBSOptions' {..} =
     _salt `Prelude.hashWithSalt` volumeType
       `Prelude.hashWithSalt` volumeSize
+      `Prelude.hashWithSalt` throughput
       `Prelude.hashWithSalt` eBSEnabled
       `Prelude.hashWithSalt` iops
 
@@ -104,6 +115,7 @@ instance Prelude.NFData EBSOptions where
   rnf EBSOptions' {..} =
     Prelude.rnf volumeType
       `Prelude.seq` Prelude.rnf volumeSize
+      `Prelude.seq` Prelude.rnf throughput
       `Prelude.seq` Prelude.rnf eBSEnabled
       `Prelude.seq` Prelude.rnf iops
 
@@ -113,6 +125,7 @@ instance Core.ToJSON EBSOptions where
       ( Prelude.catMaybes
           [ ("VolumeType" Core..=) Prelude.<$> volumeType,
             ("VolumeSize" Core..=) Prelude.<$> volumeSize,
+            ("Throughput" Core..=) Prelude.<$> throughput,
             ("EBSEnabled" Core..=) Prelude.<$> eBSEnabled,
             ("Iops" Core..=) Prelude.<$> iops
           ]

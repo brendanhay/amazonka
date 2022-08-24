@@ -25,6 +25,7 @@ import Amazonka.OpenSearch.Types.AccessPoliciesStatus
 import Amazonka.OpenSearch.Types.AdvancedOptionsStatus
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptionsStatus
 import Amazonka.OpenSearch.Types.AutoTuneOptionsStatus
+import Amazonka.OpenSearch.Types.ChangeProgressDetails
 import Amazonka.OpenSearch.Types.ClusterConfigStatus
 import Amazonka.OpenSearch.Types.CognitoOptionsStatus
 import Amazonka.OpenSearch.Types.DomainEndpointOptionsStatus
@@ -49,6 +50,8 @@ data DomainConfig = DomainConfig'
     -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>
     -- for more information.
     advancedOptions :: Prelude.Maybe AdvancedOptionsStatus,
+    -- | Specifies change details of the domain configuration change.
+    changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
     -- | Specifies @AdvancedSecurityOptions@ for the domain.
     advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsStatus,
     -- | The @CognitoOptions@ for the specified domain. For more information, see
@@ -93,6 +96,8 @@ data DomainConfig = DomainConfig'
 -- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options Advanced options>
 -- for more information.
 --
+-- 'changeProgressDetails', 'domainConfig_changeProgressDetails' - Specifies change details of the domain configuration change.
+--
 -- 'advancedSecurityOptions', 'domainConfig_advancedSecurityOptions' - Specifies @AdvancedSecurityOptions@ for the domain.
 --
 -- 'cognitoOptions', 'domainConfig_cognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see
@@ -125,6 +130,7 @@ newDomainConfig =
         Prelude.Nothing,
       clusterConfig = Prelude.Nothing,
       advancedOptions = Prelude.Nothing,
+      changeProgressDetails = Prelude.Nothing,
       advancedSecurityOptions = Prelude.Nothing,
       cognitoOptions = Prelude.Nothing,
       encryptionAtRestOptions = Prelude.Nothing,
@@ -151,6 +157,10 @@ domainConfig_clusterConfig = Lens.lens (\DomainConfig' {clusterConfig} -> cluste
 -- for more information.
 domainConfig_advancedOptions :: Lens.Lens' DomainConfig (Prelude.Maybe AdvancedOptionsStatus)
 domainConfig_advancedOptions = Lens.lens (\DomainConfig' {advancedOptions} -> advancedOptions) (\s@DomainConfig' {} a -> s {advancedOptions = a} :: DomainConfig)
+
+-- | Specifies change details of the domain configuration change.
+domainConfig_changeProgressDetails :: Lens.Lens' DomainConfig (Prelude.Maybe ChangeProgressDetails)
+domainConfig_changeProgressDetails = Lens.lens (\DomainConfig' {changeProgressDetails} -> changeProgressDetails) (\s@DomainConfig' {} a -> s {changeProgressDetails = a} :: DomainConfig)
 
 -- | Specifies @AdvancedSecurityOptions@ for the domain.
 domainConfig_advancedSecurityOptions :: Lens.Lens' DomainConfig (Prelude.Maybe AdvancedSecurityOptionsStatus)
@@ -208,6 +218,7 @@ instance Core.FromJSON DomainConfig where
             Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
             Prelude.<*> (x Core..:? "ClusterConfig")
             Prelude.<*> (x Core..:? "AdvancedOptions")
+            Prelude.<*> (x Core..:? "ChangeProgressDetails")
             Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
             Prelude.<*> (x Core..:? "CognitoOptions")
             Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
@@ -227,6 +238,7 @@ instance Prelude.Hashable DomainConfig where
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
       `Prelude.hashWithSalt` clusterConfig
       `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` changeProgressDetails
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` cognitoOptions
       `Prelude.hashWithSalt` encryptionAtRestOptions
@@ -244,6 +256,7 @@ instance Prelude.NFData DomainConfig where
     Prelude.rnf nodeToNodeEncryptionOptions
       `Prelude.seq` Prelude.rnf clusterConfig
       `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf changeProgressDetails
       `Prelude.seq` Prelude.rnf advancedSecurityOptions
       `Prelude.seq` Prelude.rnf cognitoOptions
       `Prelude.seq` Prelude.rnf encryptionAtRestOptions

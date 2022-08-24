@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.OpenSearch.Types.AdvancedSecurityOptions
 import Amazonka.OpenSearch.Types.AutoTuneOptionsOutput
+import Amazonka.OpenSearch.Types.ChangeProgressDetails
 import Amazonka.OpenSearch.Types.ClusterConfig
 import Amazonka.OpenSearch.Types.CognitoOptions
 import Amazonka.OpenSearch.Types.DomainEndpointOptions
@@ -44,6 +45,8 @@ data DomainStatus = DomainStatus'
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
     -- | The status of the @AdvancedOptions@.
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies change details of the domain configuration change.
+    changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
     -- | The domain deletion status. @True@ if a delete request has been received
     -- for the domain but resource cleanup is still in progress. @False@ if the
     -- domain has not been deleted. Once domain deletion is complete, the
@@ -119,6 +122,8 @@ data DomainStatus = DomainStatus'
 -- 'nodeToNodeEncryptionOptions', 'domainStatus_nodeToNodeEncryptionOptions' - The status of the @NodeToNodeEncryptionOptions@.
 --
 -- 'advancedOptions', 'domainStatus_advancedOptions' - The status of the @AdvancedOptions@.
+--
+-- 'changeProgressDetails', 'domainStatus_changeProgressDetails' - Specifies change details of the domain configuration change.
 --
 -- 'deleted', 'domainStatus_deleted' - The domain deletion status. @True@ if a delete request has been received
 -- for the domain but resource cleanup is still in progress. @False@ if the
@@ -200,6 +205,7 @@ newDomainStatus
       { nodeToNodeEncryptionOptions =
           Prelude.Nothing,
         advancedOptions = Prelude.Nothing,
+        changeProgressDetails = Prelude.Nothing,
         deleted = Prelude.Nothing,
         created = Prelude.Nothing,
         advancedSecurityOptions = Prelude.Nothing,
@@ -231,6 +237,10 @@ domainStatus_nodeToNodeEncryptionOptions = Lens.lens (\DomainStatus' {nodeToNode
 -- | The status of the @AdvancedOptions@.
 domainStatus_advancedOptions :: Lens.Lens' DomainStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 domainStatus_advancedOptions = Lens.lens (\DomainStatus' {advancedOptions} -> advancedOptions) (\s@DomainStatus' {} a -> s {advancedOptions = a} :: DomainStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies change details of the domain configuration change.
+domainStatus_changeProgressDetails :: Lens.Lens' DomainStatus (Prelude.Maybe ChangeProgressDetails)
+domainStatus_changeProgressDetails = Lens.lens (\DomainStatus' {changeProgressDetails} -> changeProgressDetails) (\s@DomainStatus' {} a -> s {changeProgressDetails = a} :: DomainStatus)
 
 -- | The domain deletion status. @True@ if a delete request has been received
 -- for the domain but resource cleanup is still in progress. @False@ if the
@@ -348,6 +358,7 @@ instance Core.FromJSON DomainStatus where
             Prelude.<*> ( x Core..:? "AdvancedOptions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ChangeProgressDetails")
             Prelude.<*> (x Core..:? "Deleted")
             Prelude.<*> (x Core..:? "Created")
             Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
@@ -379,6 +390,7 @@ instance Prelude.Hashable DomainStatus where
     _salt
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
       `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` changeProgressDetails
       `Prelude.hashWithSalt` deleted
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` advancedSecurityOptions
@@ -406,6 +418,7 @@ instance Prelude.NFData DomainStatus where
   rnf DomainStatus' {..} =
     Prelude.rnf nodeToNodeEncryptionOptions
       `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf changeProgressDetails
       `Prelude.seq` Prelude.rnf deleted
       `Prelude.seq` Prelude.rnf created
       `Prelude.seq` Prelude.rnf advancedSecurityOptions
@@ -422,7 +435,8 @@ instance Prelude.NFData DomainStatus where
       `Prelude.seq` Prelude.rnf endpoint
       `Prelude.seq` Prelude.rnf serviceSoftwareOptions
       `Prelude.seq` Prelude.rnf snapshotOptions
-      `Prelude.seq` Prelude.rnf logPublishingOptions
+      `Prelude.seq` Prelude.rnf
+        logPublishingOptions
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf domainId
       `Prelude.seq` Prelude.rnf domainName

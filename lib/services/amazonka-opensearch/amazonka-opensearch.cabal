@@ -57,6 +57,7 @@ library
     Amazonka.OpenSearch.DeletePackage
     Amazonka.OpenSearch.DescribeDomain
     Amazonka.OpenSearch.DescribeDomainAutoTunes
+    Amazonka.OpenSearch.DescribeDomainChangeProgress
     Amazonka.OpenSearch.DescribeDomainConfig
     Amazonka.OpenSearch.DescribeDomains
     Amazonka.OpenSearch.DescribeInboundConnections
@@ -100,6 +101,9 @@ library
     Amazonka.OpenSearch.Types.AutoTuneStatus
     Amazonka.OpenSearch.Types.AutoTuneType
     Amazonka.OpenSearch.Types.AWSDomainInformation
+    Amazonka.OpenSearch.Types.ChangeProgressDetails
+    Amazonka.OpenSearch.Types.ChangeProgressStage
+    Amazonka.OpenSearch.Types.ChangeProgressStatusDetails
     Amazonka.OpenSearch.Types.ClusterConfig
     Amazonka.OpenSearch.Types.ClusterConfigStatus
     Amazonka.OpenSearch.Types.CognitoOptions
@@ -117,6 +121,7 @@ library
     Amazonka.OpenSearch.Types.DomainPackageDetails
     Amazonka.OpenSearch.Types.DomainPackageStatus
     Amazonka.OpenSearch.Types.DomainStatus
+    Amazonka.OpenSearch.Types.DryRunResults
     Amazonka.OpenSearch.Types.Duration
     Amazonka.OpenSearch.Types.EBSOptions
     Amazonka.OpenSearch.Types.EBSOptionsStatus
@@ -145,6 +150,7 @@ library
     Amazonka.OpenSearch.Types.OutboundConnection
     Amazonka.OpenSearch.Types.OutboundConnectionStatus
     Amazonka.OpenSearch.Types.OutboundConnectionStatusCode
+    Amazonka.OpenSearch.Types.OverallChangeStatus
     Amazonka.OpenSearch.Types.PackageDetails
     Amazonka.OpenSearch.Types.PackageSource
     Amazonka.OpenSearch.Types.PackageStatus

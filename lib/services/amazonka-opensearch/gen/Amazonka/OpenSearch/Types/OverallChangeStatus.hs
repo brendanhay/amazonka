@@ -11,19 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.OpenSearch.Types.VolumeType
+-- Module      : Amazonka.OpenSearch.Types.OverallChangeStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.OpenSearch.Types.VolumeType
-  ( VolumeType
+module Amazonka.OpenSearch.Types.OverallChangeStatus
+  ( OverallChangeStatus
       ( ..,
-        VolumeType_Gp2,
-        VolumeType_Gp3,
-        VolumeType_Io1,
-        VolumeType_Standard
+        OverallChangeStatus_COMPLETED,
+        OverallChangeStatus_FAILED,
+        OverallChangeStatus_PENDING,
+        OverallChangeStatus_PROCESSING
       ),
   )
 where
@@ -31,11 +31,9 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The type of EBS volume, standard, gp2, gp3 or io1. See
--- <http://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-createupdatedomains.html#opensearch-createdomain-configure-ebs Configuring EBS-based Storage>
--- for more information.
-newtype VolumeType = VolumeType'
-  { fromVolumeType ::
+-- | The overall status value of the domain configuration change.
+newtype OverallChangeStatus = OverallChangeStatus'
+  { fromOverallChangeStatus ::
       Core.Text
   }
   deriving stock
@@ -62,22 +60,22 @@ newtype VolumeType = VolumeType'
       Core.ToXML
     )
 
-pattern VolumeType_Gp2 :: VolumeType
-pattern VolumeType_Gp2 = VolumeType' "gp2"
+pattern OverallChangeStatus_COMPLETED :: OverallChangeStatus
+pattern OverallChangeStatus_COMPLETED = OverallChangeStatus' "COMPLETED"
 
-pattern VolumeType_Gp3 :: VolumeType
-pattern VolumeType_Gp3 = VolumeType' "gp3"
+pattern OverallChangeStatus_FAILED :: OverallChangeStatus
+pattern OverallChangeStatus_FAILED = OverallChangeStatus' "FAILED"
 
-pattern VolumeType_Io1 :: VolumeType
-pattern VolumeType_Io1 = VolumeType' "io1"
+pattern OverallChangeStatus_PENDING :: OverallChangeStatus
+pattern OverallChangeStatus_PENDING = OverallChangeStatus' "PENDING"
 
-pattern VolumeType_Standard :: VolumeType
-pattern VolumeType_Standard = VolumeType' "standard"
+pattern OverallChangeStatus_PROCESSING :: OverallChangeStatus
+pattern OverallChangeStatus_PROCESSING = OverallChangeStatus' "PROCESSING"
 
 {-# COMPLETE
-  VolumeType_Gp2,
-  VolumeType_Gp3,
-  VolumeType_Io1,
-  VolumeType_Standard,
-  VolumeType'
+  OverallChangeStatus_COMPLETED,
+  OverallChangeStatus_FAILED,
+  OverallChangeStatus_PENDING,
+  OverallChangeStatus_PROCESSING,
+  OverallChangeStatus'
   #-}

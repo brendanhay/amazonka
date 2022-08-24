@@ -34,6 +34,7 @@ module Amazonka.OpenSearch.UpdateDomainConfig
     updateDomainConfig_advancedSecurityOptions,
     updateDomainConfig_cognitoOptions,
     updateDomainConfig_encryptionAtRestOptions,
+    updateDomainConfig_dryRun,
     updateDomainConfig_eBSOptions,
     updateDomainConfig_accessPolicies,
     updateDomainConfig_vPCOptions,
@@ -48,6 +49,7 @@ module Amazonka.OpenSearch.UpdateDomainConfig
     newUpdateDomainConfigResponse,
 
     -- * Response Lenses
+    updateDomainConfigResponse_dryRunResults,
     updateDomainConfigResponse_httpStatus,
     updateDomainConfigResponse_domainConfig,
   )
@@ -83,6 +85,10 @@ data UpdateDomainConfig = UpdateDomainConfig'
     cognitoOptions :: Prelude.Maybe CognitoOptions,
     -- | Specifies encryption of data at rest options.
     encryptionAtRestOptions :: Prelude.Maybe EncryptionAtRestOptions,
+    -- | This flag, when set to True, specifies whether the @UpdateDomain@
+    -- request should return the results of validation checks (DryRunResults)
+    -- without actually applying the change.
+    dryRun :: Prelude.Maybe Prelude.Bool,
     -- | Specify the type and size of the EBS volume to use.
     eBSOptions :: Prelude.Maybe EBSOptions,
     -- | IAM access policy as a JSON-formatted string.
@@ -134,6 +140,10 @@ data UpdateDomainConfig = UpdateDomainConfig'
 --
 -- 'encryptionAtRestOptions', 'updateDomainConfig_encryptionAtRestOptions' - Specifies encryption of data at rest options.
 --
+-- 'dryRun', 'updateDomainConfig_dryRun' - This flag, when set to True, specifies whether the @UpdateDomain@
+-- request should return the results of validation checks (DryRunResults)
+-- without actually applying the change.
+--
 -- 'eBSOptions', 'updateDomainConfig_eBSOptions' - Specify the type and size of the EBS volume to use.
 --
 -- 'accessPolicies', 'updateDomainConfig_accessPolicies' - IAM access policy as a JSON-formatted string.
@@ -168,6 +178,7 @@ newUpdateDomainConfig pDomainName_ =
       advancedSecurityOptions = Prelude.Nothing,
       cognitoOptions = Prelude.Nothing,
       encryptionAtRestOptions = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       eBSOptions = Prelude.Nothing,
       accessPolicies = Prelude.Nothing,
       vPCOptions = Prelude.Nothing,
@@ -207,6 +218,12 @@ updateDomainConfig_cognitoOptions = Lens.lens (\UpdateDomainConfig' {cognitoOpti
 -- | Specifies encryption of data at rest options.
 updateDomainConfig_encryptionAtRestOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe EncryptionAtRestOptions)
 updateDomainConfig_encryptionAtRestOptions = Lens.lens (\UpdateDomainConfig' {encryptionAtRestOptions} -> encryptionAtRestOptions) (\s@UpdateDomainConfig' {} a -> s {encryptionAtRestOptions = a} :: UpdateDomainConfig)
+
+-- | This flag, when set to True, specifies whether the @UpdateDomain@
+-- request should return the results of validation checks (DryRunResults)
+-- without actually applying the change.
+updateDomainConfig_dryRun :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe Prelude.Bool)
+updateDomainConfig_dryRun = Lens.lens (\UpdateDomainConfig' {dryRun} -> dryRun) (\s@UpdateDomainConfig' {} a -> s {dryRun = a} :: UpdateDomainConfig)
 
 -- | Specify the type and size of the EBS volume to use.
 updateDomainConfig_eBSOptions :: Lens.Lens' UpdateDomainConfig (Prelude.Maybe EBSOptions)
@@ -255,7 +272,8 @@ instance Core.AWSRequest UpdateDomainConfig where
     Response.receiveJSON
       ( \s h x ->
           UpdateDomainConfigResponse'
-            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (x Core..?> "DryRunResults")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DomainConfig")
       )
 
@@ -268,6 +286,7 @@ instance Prelude.Hashable UpdateDomainConfig where
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` cognitoOptions
       `Prelude.hashWithSalt` encryptionAtRestOptions
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` eBSOptions
       `Prelude.hashWithSalt` accessPolicies
       `Prelude.hashWithSalt` vPCOptions
@@ -285,6 +304,7 @@ instance Prelude.NFData UpdateDomainConfig where
       `Prelude.seq` Prelude.rnf advancedSecurityOptions
       `Prelude.seq` Prelude.rnf cognitoOptions
       `Prelude.seq` Prelude.rnf encryptionAtRestOptions
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf eBSOptions
       `Prelude.seq` Prelude.rnf accessPolicies
       `Prelude.seq` Prelude.rnf vPCOptions
@@ -312,6 +332,7 @@ instance Core.ToJSON UpdateDomainConfig where
               Prelude.<$> cognitoOptions,
             ("EncryptionAtRestOptions" Core..=)
               Prelude.<$> encryptionAtRestOptions,
+            ("DryRun" Core..=) Prelude.<$> dryRun,
             ("EBSOptions" Core..=) Prelude.<$> eBSOptions,
             ("AccessPolicies" Core..=)
               Prelude.<$> accessPolicies,
@@ -343,7 +364,9 @@ instance Core.ToQuery UpdateDomainConfig where
 --
 -- /See:/ 'newUpdateDomainConfigResponse' smart constructor.
 data UpdateDomainConfigResponse = UpdateDomainConfigResponse'
-  { -- | The response's http status code.
+  { -- | Contains result of DryRun.
+    dryRunResults :: Prelude.Maybe DryRunResults,
+    -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The status of the updated domain.
     domainConfig :: DomainConfig
@@ -358,6 +381,8 @@ data UpdateDomainConfigResponse = UpdateDomainConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'dryRunResults', 'updateDomainConfigResponse_dryRunResults' - Contains result of DryRun.
+--
 -- 'httpStatus', 'updateDomainConfigResponse_httpStatus' - The response's http status code.
 --
 -- 'domainConfig', 'updateDomainConfigResponse_domainConfig' - The status of the updated domain.
@@ -371,10 +396,15 @@ newUpdateDomainConfigResponse
   pHttpStatus_
   pDomainConfig_ =
     UpdateDomainConfigResponse'
-      { httpStatus =
-          pHttpStatus_,
+      { dryRunResults =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_,
         domainConfig = pDomainConfig_
       }
+
+-- | Contains result of DryRun.
+updateDomainConfigResponse_dryRunResults :: Lens.Lens' UpdateDomainConfigResponse (Prelude.Maybe DryRunResults)
+updateDomainConfigResponse_dryRunResults = Lens.lens (\UpdateDomainConfigResponse' {dryRunResults} -> dryRunResults) (\s@UpdateDomainConfigResponse' {} a -> s {dryRunResults = a} :: UpdateDomainConfigResponse)
 
 -- | The response's http status code.
 updateDomainConfigResponse_httpStatus :: Lens.Lens' UpdateDomainConfigResponse Prelude.Int
@@ -386,5 +416,6 @@ updateDomainConfigResponse_domainConfig = Lens.lens (\UpdateDomainConfigResponse
 
 instance Prelude.NFData UpdateDomainConfigResponse where
   rnf UpdateDomainConfigResponse' {..} =
-    Prelude.rnf httpStatus
+    Prelude.rnf dryRunResults
+      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainConfig

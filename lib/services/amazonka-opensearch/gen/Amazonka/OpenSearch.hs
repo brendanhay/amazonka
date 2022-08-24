@@ -149,6 +149,12 @@ module Amazonka.OpenSearch
     DescribeDomainAutoTunesResponse (DescribeDomainAutoTunesResponse'),
     newDescribeDomainAutoTunesResponse,
 
+    -- ** DescribeDomainChangeProgress
+    DescribeDomainChangeProgress (DescribeDomainChangeProgress'),
+    newDescribeDomainChangeProgress,
+    DescribeDomainChangeProgressResponse (DescribeDomainChangeProgressResponse'),
+    newDescribeDomainChangeProgressResponse,
+
     -- ** DescribeDomainConfig
     DescribeDomainConfig (DescribeDomainConfig'),
     newDescribeDomainConfig,
@@ -346,6 +352,9 @@ module Amazonka.OpenSearch
     -- ** OutboundConnectionStatusCode
     OutboundConnectionStatusCode (..),
 
+    -- ** OverallChangeStatus
+    OverallChangeStatus (..),
+
     -- ** PackageStatus
     PackageStatus (..),
 
@@ -439,6 +448,18 @@ module Amazonka.OpenSearch
     AutoTuneStatus (AutoTuneStatus'),
     newAutoTuneStatus,
 
+    -- ** ChangeProgressDetails
+    ChangeProgressDetails (ChangeProgressDetails'),
+    newChangeProgressDetails,
+
+    -- ** ChangeProgressStage
+    ChangeProgressStage (ChangeProgressStage'),
+    newChangeProgressStage,
+
+    -- ** ChangeProgressStatusDetails
+    ChangeProgressStatusDetails (ChangeProgressStatusDetails'),
+    newChangeProgressStatusDetails,
+
     -- ** ClusterConfig
     ClusterConfig (ClusterConfig'),
     newClusterConfig,
@@ -494,6 +515,10 @@ module Amazonka.OpenSearch
     -- ** DomainStatus
     DomainStatus (DomainStatus'),
     newDomainStatus,
+
+    -- ** DryRunResults
+    DryRunResults (DryRunResults'),
+    newDryRunResults,
 
     -- ** Duration
     Duration (Duration'),
@@ -686,6 +711,7 @@ import Amazonka.OpenSearch.DeleteOutboundConnection
 import Amazonka.OpenSearch.DeletePackage
 import Amazonka.OpenSearch.DescribeDomain
 import Amazonka.OpenSearch.DescribeDomainAutoTunes
+import Amazonka.OpenSearch.DescribeDomainChangeProgress
 import Amazonka.OpenSearch.DescribeDomainConfig
 import Amazonka.OpenSearch.DescribeDomains
 import Amazonka.OpenSearch.DescribeInboundConnections

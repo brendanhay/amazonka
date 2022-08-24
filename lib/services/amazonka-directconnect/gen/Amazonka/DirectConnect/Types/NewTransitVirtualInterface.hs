@@ -52,6 +52,8 @@ data NewTransitVirtualInterface = NewTransitVirtualInterface'
     -- | The maximum transmission unit (MTU), in bytes. The supported values are
     -- 1500 and 9001. The default value is 1500.
     mtu :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether to enable or disable SiteLink.
+    enableSiteLink :: Prelude.Maybe Prelude.Bool,
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
@@ -90,6 +92,8 @@ data NewTransitVirtualInterface = NewTransitVirtualInterface'
 -- 'mtu', 'newTransitVirtualInterface_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
 -- 1500 and 9001. The default value is 1500.
 --
+-- 'enableSiteLink', 'newTransitVirtualInterface_enableSiteLink' - Indicates whether to enable or disable SiteLink.
+--
 -- 'virtualInterfaceName', 'newTransitVirtualInterface_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
@@ -106,6 +110,7 @@ newNewTransitVirtualInterface =
       asn = Prelude.Nothing,
       amazonAddress = Prelude.Nothing,
       mtu = Prelude.Nothing,
+      enableSiteLink = Prelude.Nothing,
       virtualInterfaceName = Prelude.Nothing
     }
 
@@ -150,6 +155,10 @@ newTransitVirtualInterface_amazonAddress = Lens.lens (\NewTransitVirtualInterfac
 newTransitVirtualInterface_mtu :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe Prelude.Int)
 newTransitVirtualInterface_mtu = Lens.lens (\NewTransitVirtualInterface' {mtu} -> mtu) (\s@NewTransitVirtualInterface' {} a -> s {mtu = a} :: NewTransitVirtualInterface)
 
+-- | Indicates whether to enable or disable SiteLink.
+newTransitVirtualInterface_enableSiteLink :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe Prelude.Bool)
+newTransitVirtualInterface_enableSiteLink = Lens.lens (\NewTransitVirtualInterface' {enableSiteLink} -> enableSiteLink) (\s@NewTransitVirtualInterface' {} a -> s {enableSiteLink = a} :: NewTransitVirtualInterface)
+
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
@@ -167,6 +176,7 @@ instance Prelude.Hashable NewTransitVirtualInterface where
       `Prelude.hashWithSalt` asn
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` mtu
+      `Prelude.hashWithSalt` enableSiteLink
       `Prelude.hashWithSalt` virtualInterfaceName
 
 instance Prelude.NFData NewTransitVirtualInterface where
@@ -180,6 +190,7 @@ instance Prelude.NFData NewTransitVirtualInterface where
       `Prelude.seq` Prelude.rnf asn
       `Prelude.seq` Prelude.rnf amazonAddress
       `Prelude.seq` Prelude.rnf mtu
+      `Prelude.seq` Prelude.rnf enableSiteLink
       `Prelude.seq` Prelude.rnf virtualInterfaceName
 
 instance Core.ToJSON NewTransitVirtualInterface where
@@ -197,6 +208,8 @@ instance Core.ToJSON NewTransitVirtualInterface where
             ("asn" Core..=) Prelude.<$> asn,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
             ("mtu" Core..=) Prelude.<$> mtu,
+            ("enableSiteLink" Core..=)
+              Prelude.<$> enableSiteLink,
             ("virtualInterfaceName" Core..=)
               Prelude.<$> virtualInterfaceName
           ]

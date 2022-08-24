@@ -47,6 +47,8 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
     -- | The maximum transmission unit (MTU), in bytes. The supported values are
     -- 1500 and 9001. The default value is 1500.
     mtu :: Prelude.Maybe Prelude.Int,
+    -- | Indicates whether to enable or disable SiteLink.
+    enableSiteLink :: Prelude.Maybe Prelude.Bool,
     -- | The name of the virtual interface assigned by the customer network. The
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
@@ -87,6 +89,8 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 -- 'mtu', 'newPrivateVirtualInterface_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are
 -- 1500 and 9001. The default value is 1500.
 --
+-- 'enableSiteLink', 'newPrivateVirtualInterface_enableSiteLink' - Indicates whether to enable or disable SiteLink.
+--
 -- 'virtualInterfaceName', 'newPrivateVirtualInterface_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
@@ -118,6 +122,7 @@ newNewPrivateVirtualInterface
         customerAddress = Prelude.Nothing,
         amazonAddress = Prelude.Nothing,
         mtu = Prelude.Nothing,
+        enableSiteLink = Prelude.Nothing,
         virtualInterfaceName = pVirtualInterfaceName_,
         vlan = pVlan_,
         asn = pAsn_
@@ -157,6 +162,10 @@ newPrivateVirtualInterface_amazonAddress = Lens.lens (\NewPrivateVirtualInterfac
 newPrivateVirtualInterface_mtu :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Int)
 newPrivateVirtualInterface_mtu = Lens.lens (\NewPrivateVirtualInterface' {mtu} -> mtu) (\s@NewPrivateVirtualInterface' {} a -> s {mtu = a} :: NewPrivateVirtualInterface)
 
+-- | Indicates whether to enable or disable SiteLink.
+newPrivateVirtualInterface_enableSiteLink :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Bool)
+newPrivateVirtualInterface_enableSiteLink = Lens.lens (\NewPrivateVirtualInterface' {enableSiteLink} -> enableSiteLink) (\s@NewPrivateVirtualInterface' {} a -> s {enableSiteLink = a} :: NewPrivateVirtualInterface)
+
 -- | The name of the virtual interface assigned by the customer network. The
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
@@ -184,6 +193,7 @@ instance Prelude.Hashable NewPrivateVirtualInterface where
       `Prelude.hashWithSalt` customerAddress
       `Prelude.hashWithSalt` amazonAddress
       `Prelude.hashWithSalt` mtu
+      `Prelude.hashWithSalt` enableSiteLink
       `Prelude.hashWithSalt` virtualInterfaceName
       `Prelude.hashWithSalt` vlan
       `Prelude.hashWithSalt` asn
@@ -198,6 +208,7 @@ instance Prelude.NFData NewPrivateVirtualInterface where
       `Prelude.seq` Prelude.rnf customerAddress
       `Prelude.seq` Prelude.rnf amazonAddress
       `Prelude.seq` Prelude.rnf mtu
+      `Prelude.seq` Prelude.rnf enableSiteLink
       `Prelude.seq` Prelude.rnf virtualInterfaceName
       `Prelude.seq` Prelude.rnf vlan
       `Prelude.seq` Prelude.rnf asn
@@ -217,6 +228,8 @@ instance Core.ToJSON NewPrivateVirtualInterface where
               Prelude.<$> customerAddress,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
             ("mtu" Core..=) Prelude.<$> mtu,
+            ("enableSiteLink" Core..=)
+              Prelude.<$> enableSiteLink,
             Prelude.Just
               ( "virtualInterfaceName"
                   Core..= virtualInterfaceName

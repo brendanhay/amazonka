@@ -160,7 +160,7 @@ data DescribeRouterConfigurationResponse = DescribeRouterConfigurationResponse'
     virtualInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The customer router configuration.
     customerRouterConfig :: Prelude.Maybe Prelude.Text,
-    -- | The name of the virtual interface assigned by the customer network.
+    -- | Provides the details about a virtual interface\'s router.
     virtualInterfaceName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -181,7 +181,7 @@ data DescribeRouterConfigurationResponse = DescribeRouterConfigurationResponse'
 --
 -- 'customerRouterConfig', 'describeRouterConfigurationResponse_customerRouterConfig' - The customer router configuration.
 --
--- 'virtualInterfaceName', 'describeRouterConfigurationResponse_virtualInterfaceName' - The name of the virtual interface assigned by the customer network.
+-- 'virtualInterfaceName', 'describeRouterConfigurationResponse_virtualInterfaceName' - Provides the details about a virtual interface\'s router.
 --
 -- 'httpStatus', 'describeRouterConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeRouterConfigurationResponse ::
@@ -210,7 +210,7 @@ describeRouterConfigurationResponse_virtualInterfaceId = Lens.lens (\DescribeRou
 describeRouterConfigurationResponse_customerRouterConfig :: Lens.Lens' DescribeRouterConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeRouterConfigurationResponse_customerRouterConfig = Lens.lens (\DescribeRouterConfigurationResponse' {customerRouterConfig} -> customerRouterConfig) (\s@DescribeRouterConfigurationResponse' {} a -> s {customerRouterConfig = a} :: DescribeRouterConfigurationResponse)
 
--- | The name of the virtual interface assigned by the customer network.
+-- | Provides the details about a virtual interface\'s router.
 describeRouterConfigurationResponse_virtualInterfaceName :: Lens.Lens' DescribeRouterConfigurationResponse (Prelude.Maybe Prelude.Text)
 describeRouterConfigurationResponse_virtualInterfaceName = Lens.lens (\DescribeRouterConfigurationResponse' {virtualInterfaceName} -> virtualInterfaceName) (\s@DescribeRouterConfigurationResponse' {} a -> s {virtualInterfaceName = a} :: DescribeRouterConfigurationResponse)
 

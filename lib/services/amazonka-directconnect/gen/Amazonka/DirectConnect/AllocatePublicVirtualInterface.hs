@@ -65,6 +65,7 @@ module Amazonka.DirectConnect.AllocatePublicVirtualInterface
     virtualInterface_asn,
     virtualInterface_location,
     virtualInterface_region,
+    virtualInterface_siteLinkEnabled,
     virtualInterface_amazonAddress,
     virtualInterface_virtualInterfaceId,
     virtualInterface_bgpPeers,

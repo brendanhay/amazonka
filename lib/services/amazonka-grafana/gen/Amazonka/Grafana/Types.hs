@@ -142,6 +142,7 @@ module Amazonka.Grafana.Types
     -- * WorkspaceDescription
     WorkspaceDescription (..),
     newWorkspaceDescription,
+    workspaceDescription_tags,
     workspaceDescription_permissionType,
     workspaceDescription_name,
     workspaceDescription_organizationRoleName,
@@ -167,6 +168,7 @@ module Amazonka.Grafana.Types
     -- * WorkspaceSummary
     WorkspaceSummary (..),
     newWorkspaceSummary,
+    workspaceSummary_tags,
     workspaceSummary_name,
     workspaceSummary_description,
     workspaceSummary_notificationDestinations,

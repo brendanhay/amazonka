@@ -35,7 +35,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newWorkspaceDescription' smart constructor.
 data WorkspaceDescription = WorkspaceDescription'
-  { -- | If this is @Service Managed@, Amazon Managed Grafana automatically
+  { -- | The list of tags associated with the workspace.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | If this is @Service Managed@, Amazon Managed Grafana automatically
     -- creates the IAM roles and provisions the permissions that the workspace
     -- needs to use Amazon Web Services data sources and notification channels.
     --
@@ -120,6 +122,8 @@ data WorkspaceDescription = WorkspaceDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'workspaceDescription_tags' - The list of tags associated with the workspace.
 --
 -- 'permissionType', 'workspaceDescription_permissionType' - If this is @Service Managed@, Amazon Managed Grafana automatically
 -- creates the IAM roles and provisions the permissions that the workspace
@@ -220,8 +224,8 @@ newWorkspaceDescription
   pModified_
   pStatus_ =
     WorkspaceDescription'
-      { permissionType =
-          Prelude.Nothing,
+      { tags = Prelude.Nothing,
+        permissionType = Prelude.Nothing,
         name = Prelude.Nothing,
         organizationRoleName = Prelude.Nothing,
         freeTrialConsumed = Prelude.Nothing,
@@ -243,6 +247,10 @@ newWorkspaceDescription
         modified = Core._Time Lens.# pModified_,
         status = pStatus_
       }
+
+-- | The list of tags associated with the workspace.
+workspaceDescription_tags :: Lens.Lens' WorkspaceDescription (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+workspaceDescription_tags = Lens.lens (\WorkspaceDescription' {tags} -> tags) (\s@WorkspaceDescription' {} a -> s {tags = a} :: WorkspaceDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | If this is @Service Managed@, Amazon Managed Grafana automatically
 -- creates the IAM roles and provisions the permissions that the workspace
@@ -367,7 +375,8 @@ instance Core.FromJSON WorkspaceDescription where
       "WorkspaceDescription"
       ( \x ->
           WorkspaceDescription'
-            Prelude.<$> (x Core..:? "permissionType")
+            Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "permissionType")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "organizationRoleName")
             Prelude.<*> (x Core..:? "freeTrialConsumed")
@@ -396,7 +405,8 @@ instance Core.FromJSON WorkspaceDescription where
 
 instance Prelude.Hashable WorkspaceDescription where
   hashWithSalt _salt WorkspaceDescription' {..} =
-    _salt `Prelude.hashWithSalt` permissionType
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` permissionType
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` organizationRoleName
       `Prelude.hashWithSalt` freeTrialConsumed
@@ -420,7 +430,8 @@ instance Prelude.Hashable WorkspaceDescription where
 
 instance Prelude.NFData WorkspaceDescription where
   rnf WorkspaceDescription' {..} =
-    Prelude.rnf permissionType
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf permissionType
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf organizationRoleName
       `Prelude.seq` Prelude.rnf freeTrialConsumed

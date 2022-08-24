@@ -33,8 +33,14 @@ import Test.Tasty
 --         , requestCreateWorkspace $
 --             newCreateWorkspace
 --
+--         , requestCreateWorkspaceApiKey $
+--             newCreateWorkspaceApiKey
+--
 --         , requestDeleteWorkspace $
 --             newDeleteWorkspace
+--
+--         , requestDeleteWorkspaceApiKey $
+--             newDeleteWorkspaceApiKey
 --
 --         , requestDescribeWorkspace $
 --             newDescribeWorkspace
@@ -48,8 +54,17 @@ import Test.Tasty
 --         , requestListPermissions $
 --             newListPermissions
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestListWorkspaces $
 --             newListWorkspaces
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestUpdatePermissions $
 --             newUpdatePermissions
@@ -69,8 +84,14 @@ import Test.Tasty
 --         , responseCreateWorkspace $
 --             newCreateWorkspaceResponse
 --
+--         , responseCreateWorkspaceApiKey $
+--             newCreateWorkspaceApiKeyResponse
+--
 --         , responseDeleteWorkspace $
 --             newDeleteWorkspaceResponse
+--
+--         , responseDeleteWorkspaceApiKey $
+--             newDeleteWorkspaceApiKeyResponse
 --
 --         , responseDescribeWorkspace $
 --             newDescribeWorkspaceResponse
@@ -84,8 +105,17 @@ import Test.Tasty
 --         , responseListPermissions $
 --             newListPermissionsResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responseListWorkspaces $
 --             newListWorkspacesResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdatePermissions $
 --             newUpdatePermissionsResponse
@@ -113,11 +143,23 @@ requestCreateWorkspace =
     "CreateWorkspace"
     "fixture/CreateWorkspace.yaml"
 
+requestCreateWorkspaceApiKey :: CreateWorkspaceApiKey -> TestTree
+requestCreateWorkspaceApiKey =
+  req
+    "CreateWorkspaceApiKey"
+    "fixture/CreateWorkspaceApiKey.yaml"
+
 requestDeleteWorkspace :: DeleteWorkspace -> TestTree
 requestDeleteWorkspace =
   req
     "DeleteWorkspace"
     "fixture/DeleteWorkspace.yaml"
+
+requestDeleteWorkspaceApiKey :: DeleteWorkspaceApiKey -> TestTree
+requestDeleteWorkspaceApiKey =
+  req
+    "DeleteWorkspaceApiKey"
+    "fixture/DeleteWorkspaceApiKey.yaml"
 
 requestDescribeWorkspace :: DescribeWorkspace -> TestTree
 requestDescribeWorkspace =
@@ -143,11 +185,29 @@ requestListPermissions =
     "ListPermissions"
     "fixture/ListPermissions.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestListWorkspaces :: ListWorkspaces -> TestTree
 requestListWorkspaces =
   req
     "ListWorkspaces"
     "fixture/ListWorkspaces.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdatePermissions :: UpdatePermissions -> TestTree
 requestUpdatePermissions =
@@ -185,6 +245,14 @@ responseCreateWorkspace =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateWorkspace)
 
+responseCreateWorkspaceApiKey :: CreateWorkspaceApiKeyResponse -> TestTree
+responseCreateWorkspaceApiKey =
+  res
+    "CreateWorkspaceApiKeyResponse"
+    "fixture/CreateWorkspaceApiKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateWorkspaceApiKey)
+
 responseDeleteWorkspace :: DeleteWorkspaceResponse -> TestTree
 responseDeleteWorkspace =
   res
@@ -192,6 +260,14 @@ responseDeleteWorkspace =
     "fixture/DeleteWorkspaceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteWorkspace)
+
+responseDeleteWorkspaceApiKey :: DeleteWorkspaceApiKeyResponse -> TestTree
+responseDeleteWorkspaceApiKey =
+  res
+    "DeleteWorkspaceApiKeyResponse"
+    "fixture/DeleteWorkspaceApiKeyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkspaceApiKey)
 
 responseDescribeWorkspace :: DescribeWorkspaceResponse -> TestTree
 responseDescribeWorkspace =
@@ -225,6 +301,14 @@ responseListPermissions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListPermissions)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
 responseListWorkspaces :: ListWorkspacesResponse -> TestTree
 responseListWorkspaces =
   res
@@ -232,6 +316,22 @@ responseListWorkspaces =
     "fixture/ListWorkspacesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListWorkspaces)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdatePermissions :: UpdatePermissionsResponse -> TestTree
 responseUpdatePermissions =

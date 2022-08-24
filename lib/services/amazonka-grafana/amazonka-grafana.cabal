@@ -46,13 +46,17 @@ library
     Amazonka.Grafana
     Amazonka.Grafana.AssociateLicense
     Amazonka.Grafana.CreateWorkspace
+    Amazonka.Grafana.CreateWorkspaceApiKey
     Amazonka.Grafana.DeleteWorkspace
+    Amazonka.Grafana.DeleteWorkspaceApiKey
     Amazonka.Grafana.DescribeWorkspace
     Amazonka.Grafana.DescribeWorkspaceAuthentication
     Amazonka.Grafana.DisassociateLicense
     Amazonka.Grafana.Lens
     Amazonka.Grafana.ListPermissions
+    Amazonka.Grafana.ListTagsForResource
     Amazonka.Grafana.ListWorkspaces
+    Amazonka.Grafana.TagResource
     Amazonka.Grafana.Types
     Amazonka.Grafana.Types.AccountAccessType
     Amazonka.Grafana.Types.AssertionAttributes
@@ -79,6 +83,7 @@ library
     Amazonka.Grafana.Types.WorkspaceDescription
     Amazonka.Grafana.Types.WorkspaceStatus
     Amazonka.Grafana.Types.WorkspaceSummary
+    Amazonka.Grafana.UntagResource
     Amazonka.Grafana.UpdatePermissions
     Amazonka.Grafana.UpdateWorkspace
     Amazonka.Grafana.UpdateWorkspaceAuthentication

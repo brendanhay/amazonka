@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the tags for an Batch resource. Batch resources that support tags
--- are compute environments, jobs, job definitions, and job queues. ARNs
--- for child jobs of array and multi-node parallel (MNP) jobs are not
--- supported.
+-- are compute environments, jobs, job definitions, job queues, and
+-- scheduling policies. ARNs for child jobs of array and multi-node
+-- parallel (MNP) jobs are not supported.
 module Amazonka.Batch.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -49,12 +49,15 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newListTagsForResource' smart constructor.
+-- | Contains the parameters for @ListTagsForResource@.
+--
+-- /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
   { -- | The Amazon Resource Name (ARN) that identifies the resource that tags
     -- are listed for. Batch resources that support tags are compute
-    -- environments, jobs, job definitions, and job queues. ARNs for child jobs
-    -- of array and multi-node parallel (MNP) jobs are not supported.
+    -- environments, jobs, job definitions, job queues, and scheduling
+    -- policies. ARNs for child jobs of array and multi-node parallel (MNP)
+    -- jobs are not supported.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,8 +72,9 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource that tags
 -- are listed for. Batch resources that support tags are compute
--- environments, jobs, job definitions, and job queues. ARNs for child jobs
--- of array and multi-node parallel (MNP) jobs are not supported.
+-- environments, jobs, job definitions, job queues, and scheduling
+-- policies. ARNs for child jobs of array and multi-node parallel (MNP)
+-- jobs are not supported.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -80,8 +84,9 @@ newListTagsForResource pResourceArn_ =
 
 -- | The Amazon Resource Name (ARN) that identifies the resource that tags
 -- are listed for. Batch resources that support tags are compute
--- environments, jobs, job definitions, and job queues. ARNs for child jobs
--- of array and multi-node parallel (MNP) jobs are not supported.
+-- environments, jobs, job definitions, job queues, and scheduling
+-- policies. ARNs for child jobs of array and multi-node parallel (MNP)
+-- jobs are not supported.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 

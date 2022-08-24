@@ -59,7 +59,7 @@ data LinuxParameters = LinuxParameters'
     --     The Amazon ECS optimized AMIs don\'t have swap enabled by default.
     --     You must enable swap on the instance to use this feature. For more
     --     information, see
-    --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html Instance Store Swap Volumes>
+    --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html Instance store swap volumes>
     --     in the /Amazon EC2 User Guide for Linux Instances/ or
     --     <http://aws.amazon.com/premiumsupport/knowledge-center/ec2-memory-swap-file/ How do I allocate memory to work as swap space in an Amazon EC2 instance by using a swap file?>
     --
@@ -153,7 +153,7 @@ data LinuxParameters = LinuxParameters'
 --     The Amazon ECS optimized AMIs don\'t have swap enabled by default.
 --     You must enable swap on the instance to use this feature. For more
 --     information, see
---     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html Instance Store Swap Volumes>
+--     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html Instance store swap volumes>
 --     in the /Amazon EC2 User Guide for Linux Instances/ or
 --     <http://aws.amazon.com/premiumsupport/knowledge-center/ec2-memory-swap-file/ How do I allocate memory to work as swap space in an Amazon EC2 instance by using a swap file?>
 --
@@ -249,7 +249,7 @@ linuxParameters_devices = Lens.lens (\LinuxParameters' {devices} -> devices) (\s
 --     The Amazon ECS optimized AMIs don\'t have swap enabled by default.
 --     You must enable swap on the instance to use this feature. For more
 --     information, see
---     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html Instance Store Swap Volumes>
+--     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-store-swap-volumes.html Instance store swap volumes>
 --     in the /Amazon EC2 User Guide for Linux Instances/ or
 --     <http://aws.amazon.com/premiumsupport/knowledge-center/ec2-memory-swap-file/ How do I allocate memory to work as swap space in an Amazon EC2 instance by using a swap file?>
 --

@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLogConfiguration' smart constructor.
 data LogConfiguration = LogConfiguration'
   { -- | The secrets to pass to the log configuration. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying sensitive data>
     -- in the /Batch User Guide/.
     secretOptions :: Prelude.Maybe [Secret],
     -- | The configuration options to send to the log driver. This parameter
@@ -53,7 +53,7 @@ data LogConfiguration = LogConfiguration'
     -- [awslogs]
     --     Specifies the Amazon CloudWatch Logs logging driver. For more
     --     information, see
-    --     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs Log Driver>
+    --     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs log driver>
     --     in the /Batch User Guide/ and
     --     <https://docs.docker.com/config/containers/logging/awslogs/ Amazon CloudWatch Logs logging driver>
     --     in the Docker documentation.
@@ -120,7 +120,7 @@ data LogConfiguration = LogConfiguration'
 -- for backwards compatibility:
 --
 -- 'secretOptions', 'logConfiguration_secretOptions' - The secrets to pass to the log configuration. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying sensitive data>
 -- in the /Batch User Guide/.
 --
 -- 'options', 'logConfiguration_options' - The configuration options to send to the log driver. This parameter
@@ -142,7 +142,7 @@ data LogConfiguration = LogConfiguration'
 -- [awslogs]
 --     Specifies the Amazon CloudWatch Logs logging driver. For more
 --     information, see
---     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs Log Driver>
+--     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs log driver>
 --     in the /Batch User Guide/ and
 --     <https://docs.docker.com/config/containers/logging/awslogs/ Amazon CloudWatch Logs logging driver>
 --     in the Docker documentation.
@@ -208,7 +208,7 @@ newLogConfiguration pLogDriver_ =
     }
 
 -- | The secrets to pass to the log configuration. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying Sensitive Data>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html Specifying sensitive data>
 -- in the /Batch User Guide/.
 logConfiguration_secretOptions :: Lens.Lens' LogConfiguration (Prelude.Maybe [Secret])
 logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Prelude.. Lens.mapping Lens.coerced
@@ -234,7 +234,7 @@ logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (
 -- [awslogs]
 --     Specifies the Amazon CloudWatch Logs logging driver. For more
 --     information, see
---     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs Log Driver>
+--     <https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.html Using the awslogs log driver>
 --     in the /Batch User Guide/ and
 --     <https://docs.docker.com/config/containers/logging/awslogs/ Amazon CloudWatch Logs logging driver>
 --     in the Docker documentation.

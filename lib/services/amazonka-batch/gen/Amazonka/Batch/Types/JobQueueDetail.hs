@@ -39,6 +39,11 @@ data JobQueueDetail = JobQueueDetail'
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The status of the job queue (for example, @CREATING@ or @VALID@).
     status :: Prelude.Maybe JQStatus,
+    -- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
+    -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
+    -- example,
+    -- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+    schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the job queue.
     jobQueueName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the job queue.
@@ -81,6 +86,11 @@ data JobQueueDetail = JobQueueDetail'
 --
 -- 'status', 'jobQueueDetail_status' - The status of the job queue (for example, @CREATING@ or @VALID@).
 --
+-- 'schedulingPolicyArn', 'jobQueueDetail_schedulingPolicyArn' - The Amazon Resource Name (ARN) of the scheduling policy. The format is
+-- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
+-- example,
+-- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+--
 -- 'jobQueueName', 'jobQueueDetail_jobQueueName' - The name of the job queue.
 --
 -- 'jobQueueArn', 'jobQueueDetail_jobQueueArn' - The Amazon Resource Name (ARN) of the job queue.
@@ -121,6 +131,7 @@ newJobQueueDetail
       { tags = Prelude.Nothing,
         statusReason = Prelude.Nothing,
         status = Prelude.Nothing,
+        schedulingPolicyArn = Prelude.Nothing,
         jobQueueName = pJobQueueName_,
         jobQueueArn = pJobQueueArn_,
         state = pState_,
@@ -142,6 +153,13 @@ jobQueueDetail_statusReason = Lens.lens (\JobQueueDetail' {statusReason} -> stat
 -- | The status of the job queue (for example, @CREATING@ or @VALID@).
 jobQueueDetail_status :: Lens.Lens' JobQueueDetail (Prelude.Maybe JQStatus)
 jobQueueDetail_status = Lens.lens (\JobQueueDetail' {status} -> status) (\s@JobQueueDetail' {} a -> s {status = a} :: JobQueueDetail)
+
+-- | The Amazon Resource Name (ARN) of the scheduling policy. The format is
+-- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
+-- example,
+-- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+jobQueueDetail_schedulingPolicyArn :: Lens.Lens' JobQueueDetail (Prelude.Maybe Prelude.Text)
+jobQueueDetail_schedulingPolicyArn = Lens.lens (\JobQueueDetail' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@JobQueueDetail' {} a -> s {schedulingPolicyArn = a} :: JobQueueDetail)
 
 -- | The name of the job queue.
 jobQueueDetail_jobQueueName :: Lens.Lens' JobQueueDetail Prelude.Text
@@ -184,6 +202,7 @@ instance Core.FromJSON JobQueueDetail where
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "statusReason")
             Prelude.<*> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "schedulingPolicyArn")
             Prelude.<*> (x Core..: "jobQueueName")
             Prelude.<*> (x Core..: "jobQueueArn")
             Prelude.<*> (x Core..: "state")
@@ -198,6 +217,7 @@ instance Prelude.Hashable JobQueueDetail where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` schedulingPolicyArn
       `Prelude.hashWithSalt` jobQueueName
       `Prelude.hashWithSalt` jobQueueArn
       `Prelude.hashWithSalt` state
@@ -209,6 +229,7 @@ instance Prelude.NFData JobQueueDetail where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf schedulingPolicyArn
       `Prelude.seq` Prelude.rnf jobQueueName
       `Prelude.seq` Prelude.rnf jobQueueArn
       `Prelude.seq` Prelude.rnf state

@@ -36,11 +36,17 @@ import Test.Tasty
 --         , requestCreateJobQueue $
 --             newCreateJobQueue
 --
+--         , requestCreateSchedulingPolicy $
+--             newCreateSchedulingPolicy
+--
 --         , requestDeleteComputeEnvironment $
 --             newDeleteComputeEnvironment
 --
 --         , requestDeleteJobQueue $
 --             newDeleteJobQueue
+--
+--         , requestDeleteSchedulingPolicy $
+--             newDeleteSchedulingPolicy
 --
 --         , requestDeregisterJobDefinition $
 --             newDeregisterJobDefinition
@@ -57,8 +63,14 @@ import Test.Tasty
 --         , requestDescribeJobs $
 --             newDescribeJobs
 --
+--         , requestDescribeSchedulingPolicies $
+--             newDescribeSchedulingPolicies
+--
 --         , requestListJobs $
 --             newListJobs
+--
+--         , requestListSchedulingPolicies $
+--             newListSchedulingPolicies
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -84,6 +96,9 @@ import Test.Tasty
 --         , requestUpdateJobQueue $
 --             newUpdateJobQueue
 --
+--         , requestUpdateSchedulingPolicy $
+--             newUpdateSchedulingPolicy
+--
 --           ]
 
 --     , testGroup "response"
@@ -96,11 +111,17 @@ import Test.Tasty
 --         , responseCreateJobQueue $
 --             newCreateJobQueueResponse
 --
+--         , responseCreateSchedulingPolicy $
+--             newCreateSchedulingPolicyResponse
+--
 --         , responseDeleteComputeEnvironment $
 --             newDeleteComputeEnvironmentResponse
 --
 --         , responseDeleteJobQueue $
 --             newDeleteJobQueueResponse
+--
+--         , responseDeleteSchedulingPolicy $
+--             newDeleteSchedulingPolicyResponse
 --
 --         , responseDeregisterJobDefinition $
 --             newDeregisterJobDefinitionResponse
@@ -117,8 +138,14 @@ import Test.Tasty
 --         , responseDescribeJobs $
 --             newDescribeJobsResponse
 --
+--         , responseDescribeSchedulingPolicies $
+--             newDescribeSchedulingPoliciesResponse
+--
 --         , responseListJobs $
 --             newListJobsResponse
+--
+--         , responseListSchedulingPolicies $
+--             newListSchedulingPoliciesResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -144,6 +171,9 @@ import Test.Tasty
 --         , responseUpdateJobQueue $
 --             newUpdateJobQueueResponse
 --
+--         , responseUpdateSchedulingPolicy $
+--             newUpdateSchedulingPolicyResponse
+--
 --           ]
 --     ]
 
@@ -167,6 +197,12 @@ requestCreateJobQueue =
     "CreateJobQueue"
     "fixture/CreateJobQueue.yaml"
 
+requestCreateSchedulingPolicy :: CreateSchedulingPolicy -> TestTree
+requestCreateSchedulingPolicy =
+  req
+    "CreateSchedulingPolicy"
+    "fixture/CreateSchedulingPolicy.yaml"
+
 requestDeleteComputeEnvironment :: DeleteComputeEnvironment -> TestTree
 requestDeleteComputeEnvironment =
   req
@@ -178,6 +214,12 @@ requestDeleteJobQueue =
   req
     "DeleteJobQueue"
     "fixture/DeleteJobQueue.yaml"
+
+requestDeleteSchedulingPolicy :: DeleteSchedulingPolicy -> TestTree
+requestDeleteSchedulingPolicy =
+  req
+    "DeleteSchedulingPolicy"
+    "fixture/DeleteSchedulingPolicy.yaml"
 
 requestDeregisterJobDefinition :: DeregisterJobDefinition -> TestTree
 requestDeregisterJobDefinition =
@@ -209,11 +251,23 @@ requestDescribeJobs =
     "DescribeJobs"
     "fixture/DescribeJobs.yaml"
 
+requestDescribeSchedulingPolicies :: DescribeSchedulingPolicies -> TestTree
+requestDescribeSchedulingPolicies =
+  req
+    "DescribeSchedulingPolicies"
+    "fixture/DescribeSchedulingPolicies.yaml"
+
 requestListJobs :: ListJobs -> TestTree
 requestListJobs =
   req
     "ListJobs"
     "fixture/ListJobs.yaml"
+
+requestListSchedulingPolicies :: ListSchedulingPolicies -> TestTree
+requestListSchedulingPolicies =
+  req
+    "ListSchedulingPolicies"
+    "fixture/ListSchedulingPolicies.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -263,6 +317,12 @@ requestUpdateJobQueue =
     "UpdateJobQueue"
     "fixture/UpdateJobQueue.yaml"
 
+requestUpdateSchedulingPolicy :: UpdateSchedulingPolicy -> TestTree
+requestUpdateSchedulingPolicy =
+  req
+    "UpdateSchedulingPolicy"
+    "fixture/UpdateSchedulingPolicy.yaml"
+
 -- Responses
 
 responseCancelJob :: CancelJobResponse -> TestTree
@@ -289,6 +349,14 @@ responseCreateJobQueue =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateJobQueue)
 
+responseCreateSchedulingPolicy :: CreateSchedulingPolicyResponse -> TestTree
+responseCreateSchedulingPolicy =
+  res
+    "CreateSchedulingPolicyResponse"
+    "fixture/CreateSchedulingPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateSchedulingPolicy)
+
 responseDeleteComputeEnvironment :: DeleteComputeEnvironmentResponse -> TestTree
 responseDeleteComputeEnvironment =
   res
@@ -304,6 +372,14 @@ responseDeleteJobQueue =
     "fixture/DeleteJobQueueResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteJobQueue)
+
+responseDeleteSchedulingPolicy :: DeleteSchedulingPolicyResponse -> TestTree
+responseDeleteSchedulingPolicy =
+  res
+    "DeleteSchedulingPolicyResponse"
+    "fixture/DeleteSchedulingPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSchedulingPolicy)
 
 responseDeregisterJobDefinition :: DeregisterJobDefinitionResponse -> TestTree
 responseDeregisterJobDefinition =
@@ -345,6 +421,14 @@ responseDescribeJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeJobs)
 
+responseDescribeSchedulingPolicies :: DescribeSchedulingPoliciesResponse -> TestTree
+responseDescribeSchedulingPolicies =
+  res
+    "DescribeSchedulingPoliciesResponse"
+    "fixture/DescribeSchedulingPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSchedulingPolicies)
+
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =
   res
@@ -352,6 +436,14 @@ responseListJobs =
     "fixture/ListJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListJobs)
+
+responseListSchedulingPolicies :: ListSchedulingPoliciesResponse -> TestTree
+responseListSchedulingPolicies =
+  res
+    "ListSchedulingPoliciesResponse"
+    "fixture/ListSchedulingPoliciesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSchedulingPolicies)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -416,3 +508,11 @@ responseUpdateJobQueue =
     "fixture/UpdateJobQueueResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateJobQueue)
+
+responseUpdateSchedulingPolicy :: UpdateSchedulingPolicyResponse -> TestTree
+responseUpdateSchedulingPolicy =
+  res
+    "UpdateSchedulingPolicyResponse"
+    "fixture/UpdateSchedulingPolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSchedulingPolicy)

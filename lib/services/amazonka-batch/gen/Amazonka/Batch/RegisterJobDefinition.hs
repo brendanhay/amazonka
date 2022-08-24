@@ -34,6 +34,7 @@ module Amazonka.Batch.RegisterJobDefinition
     registerJobDefinition_platformCapabilities,
     registerJobDefinition_propagateTags,
     registerJobDefinition_nodeProperties,
+    registerJobDefinition_schedulingPriority,
     registerJobDefinition_parameters,
     registerJobDefinition_jobDefinitionName,
     registerJobDefinition_type,
@@ -111,13 +112,22 @@ data RegisterJobDefinition = RegisterJobDefinition'
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use @containerProperties@ instead.
     nodeProperties :: Prelude.Maybe NodeProperties,
+    -- | The scheduling priority for jobs that are submitted with this job
+    -- definition. This will only affect jobs in job queues with a fair share
+    -- policy. Jobs with a higher scheduling priority will be scheduled before
+    -- jobs with a lower scheduling priority.
+    --
+    -- The minimum supported value is 0 and the maximum supported value is
+    -- 9999.
+    schedulingPriority :: Prelude.Maybe Prelude.Int,
     -- | Default parameter substitution placeholders to set in the job
     -- definition. Parameters are specified as a key-value pair mapping.
     -- Parameters in a @SubmitJob@ request override any corresponding parameter
     -- defaults from the job definition.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the job definition to register. Up to 128 letters (uppercase
-    -- and lowercase), numbers, hyphens, and underscores are allowed.
+    -- | The name of the job definition to register. It can be up to 128 letters
+    -- long. It can contain uppercase and lowercase letters, numbers, hyphens
+    -- (-), and underscores (_).
     jobDefinitionName :: Prelude.Text,
     -- | The type of job definition. For more information about multi-node
     -- parallel jobs, see
@@ -188,13 +198,22 @@ data RegisterJobDefinition = RegisterJobDefinition'
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use @containerProperties@ instead.
 --
+-- 'schedulingPriority', 'registerJobDefinition_schedulingPriority' - The scheduling priority for jobs that are submitted with this job
+-- definition. This will only affect jobs in job queues with a fair share
+-- policy. Jobs with a higher scheduling priority will be scheduled before
+-- jobs with a lower scheduling priority.
+--
+-- The minimum supported value is 0 and the maximum supported value is
+-- 9999.
+--
 -- 'parameters', 'registerJobDefinition_parameters' - Default parameter substitution placeholders to set in the job
 -- definition. Parameters are specified as a key-value pair mapping.
 -- Parameters in a @SubmitJob@ request override any corresponding parameter
 -- defaults from the job definition.
 --
--- 'jobDefinitionName', 'registerJobDefinition_jobDefinitionName' - The name of the job definition to register. Up to 128 letters (uppercase
--- and lowercase), numbers, hyphens, and underscores are allowed.
+-- 'jobDefinitionName', 'registerJobDefinition_jobDefinitionName' - The name of the job definition to register. It can be up to 128 letters
+-- long. It can contain uppercase and lowercase letters, numbers, hyphens
+-- (-), and underscores (_).
 --
 -- 'type'', 'registerJobDefinition_type' - The type of job definition. For more information about multi-node
 -- parallel jobs, see
@@ -218,6 +237,7 @@ newRegisterJobDefinition pJobDefinitionName_ pType_ =
       platformCapabilities = Prelude.Nothing,
       propagateTags = Prelude.Nothing,
       nodeProperties = Prelude.Nothing,
+      schedulingPriority = Prelude.Nothing,
       parameters = Prelude.Nothing,
       jobDefinitionName = pJobDefinitionName_,
       type' = pType_
@@ -287,6 +307,16 @@ registerJobDefinition_propagateTags = Lens.lens (\RegisterJobDefinition' {propag
 registerJobDefinition_nodeProperties :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe NodeProperties)
 registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeProperties} -> nodeProperties) (\s@RegisterJobDefinition' {} a -> s {nodeProperties = a} :: RegisterJobDefinition)
 
+-- | The scheduling priority for jobs that are submitted with this job
+-- definition. This will only affect jobs in job queues with a fair share
+-- policy. Jobs with a higher scheduling priority will be scheduled before
+-- jobs with a lower scheduling priority.
+--
+-- The minimum supported value is 0 and the maximum supported value is
+-- 9999.
+registerJobDefinition_schedulingPriority :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe Prelude.Int)
+registerJobDefinition_schedulingPriority = Lens.lens (\RegisterJobDefinition' {schedulingPriority} -> schedulingPriority) (\s@RegisterJobDefinition' {} a -> s {schedulingPriority = a} :: RegisterJobDefinition)
+
 -- | Default parameter substitution placeholders to set in the job
 -- definition. Parameters are specified as a key-value pair mapping.
 -- Parameters in a @SubmitJob@ request override any corresponding parameter
@@ -294,8 +324,9 @@ registerJobDefinition_nodeProperties = Lens.lens (\RegisterJobDefinition' {nodeP
 registerJobDefinition_parameters :: Lens.Lens' RegisterJobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 registerJobDefinition_parameters = Lens.lens (\RegisterJobDefinition' {parameters} -> parameters) (\s@RegisterJobDefinition' {} a -> s {parameters = a} :: RegisterJobDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the job definition to register. Up to 128 letters (uppercase
--- and lowercase), numbers, hyphens, and underscores are allowed.
+-- | The name of the job definition to register. It can be up to 128 letters
+-- long. It can contain uppercase and lowercase letters, numbers, hyphens
+-- (-), and underscores (_).
 registerJobDefinition_jobDefinitionName :: Lens.Lens' RegisterJobDefinition Prelude.Text
 registerJobDefinition_jobDefinitionName = Lens.lens (\RegisterJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@RegisterJobDefinition' {} a -> s {jobDefinitionName = a} :: RegisterJobDefinition)
 
@@ -333,6 +364,7 @@ instance Prelude.Hashable RegisterJobDefinition where
       `Prelude.hashWithSalt` platformCapabilities
       `Prelude.hashWithSalt` propagateTags
       `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` schedulingPriority
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` jobDefinitionName
       `Prelude.hashWithSalt` type'
@@ -346,6 +378,7 @@ instance Prelude.NFData RegisterJobDefinition where
       `Prelude.seq` Prelude.rnf platformCapabilities
       `Prelude.seq` Prelude.rnf propagateTags
       `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf schedulingPriority
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf type'
@@ -375,6 +408,8 @@ instance Core.ToJSON RegisterJobDefinition where
             ("propagateTags" Core..=) Prelude.<$> propagateTags,
             ("nodeProperties" Core..=)
               Prelude.<$> nodeProperties,
+            ("schedulingPriority" Core..=)
+              Prelude.<$> schedulingPriority,
             ("parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just
               ("jobDefinitionName" Core..= jobDefinitionName),

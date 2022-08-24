@@ -43,6 +43,8 @@ data JobDetail = JobDetail'
     timeout :: Prelude.Maybe JobTimeout,
     -- | A list of job IDs that this job depends on.
     dependsOn :: Prelude.Maybe [JobDependency],
+    -- | The share identifier for the job.
+    shareIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The retry strategy to use for this job if an attempt fails.
     retryStrategy :: Prelude.Maybe RetryStrategy,
     -- | The platform capabilities required by the job definition. If no value is
@@ -76,6 +78,10 @@ data JobDetail = JobDetail'
     -- | An object representing the details of the container that\'s associated
     -- with the job.
     container :: Prelude.Maybe ContainerDetail,
+    -- | The scheduling policy of the job definition. This only affects jobs in
+    -- job queues with a fair share policy. Jobs with a higher scheduling
+    -- priority are scheduled before jobs with a lower scheduling priority.
+    schedulingPriority :: Prelude.Maybe Prelude.Int,
     -- | A list of job attempts associated with this job.
     attempts :: Prelude.Maybe [AttemptDetail],
     -- | The Unix timestamp (in milliseconds) for when the job was stopped (when
@@ -104,10 +110,11 @@ data JobDetail = JobDetail'
     -- | The current status for the job.
     --
     -- If your jobs don\'t progress to @STARTING@, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs Stuck in RUNNABLE Status>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs stuck in RUNNABLE status>
     -- in the troubleshooting section of the /Batch User Guide/.
     status :: JobStatus,
-    -- | The job definition that\'s used by this job.
+    -- | The Amazon Resource Name (ARN) of the job definition that\'s used by
+    -- this job.
     jobDefinition :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -125,6 +132,8 @@ data JobDetail = JobDetail'
 -- 'timeout', 'jobDetail_timeout' - The timeout configuration for the job.
 --
 -- 'dependsOn', 'jobDetail_dependsOn' - A list of job IDs that this job depends on.
+--
+-- 'shareIdentifier', 'jobDetail_shareIdentifier' - The share identifier for the job.
 --
 -- 'retryStrategy', 'jobDetail_retryStrategy' - The retry strategy to use for this job if an attempt fails.
 --
@@ -159,6 +168,10 @@ data JobDetail = JobDetail'
 -- 'container', 'jobDetail_container' - An object representing the details of the container that\'s associated
 -- with the job.
 --
+-- 'schedulingPriority', 'jobDetail_schedulingPriority' - The scheduling policy of the job definition. This only affects jobs in
+-- job queues with a fair share policy. Jobs with a higher scheduling
+-- priority are scheduled before jobs with a lower scheduling priority.
+--
 -- 'attempts', 'jobDetail_attempts' - A list of job attempts associated with this job.
 --
 -- 'stoppedAt', 'jobDetail_stoppedAt' - The Unix timestamp (in milliseconds) for when the job was stopped (when
@@ -187,10 +200,11 @@ data JobDetail = JobDetail'
 -- 'status', 'jobDetail_status' - The current status for the job.
 --
 -- If your jobs don\'t progress to @STARTING@, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs Stuck in RUNNABLE Status>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs stuck in RUNNABLE status>
 -- in the troubleshooting section of the /Batch User Guide/.
 --
--- 'jobDefinition', 'jobDetail_jobDefinition' - The job definition that\'s used by this job.
+-- 'jobDefinition', 'jobDetail_jobDefinition' - The Amazon Resource Name (ARN) of the job definition that\'s used by
+-- this job.
 newJobDetail ::
   -- | 'jobName'
   Prelude.Text ->
@@ -213,6 +227,7 @@ newJobDetail
       { tags = Prelude.Nothing,
         timeout = Prelude.Nothing,
         dependsOn = Prelude.Nothing,
+        shareIdentifier = Prelude.Nothing,
         retryStrategy = Prelude.Nothing,
         platformCapabilities = Prelude.Nothing,
         arrayProperties = Prelude.Nothing,
@@ -222,6 +237,7 @@ newJobDetail
         propagateTags = Prelude.Nothing,
         nodeProperties = Prelude.Nothing,
         container = Prelude.Nothing,
+        schedulingPriority = Prelude.Nothing,
         attempts = Prelude.Nothing,
         stoppedAt = Prelude.Nothing,
         jobArn = Prelude.Nothing,
@@ -245,6 +261,10 @@ jobDetail_timeout = Lens.lens (\JobDetail' {timeout} -> timeout) (\s@JobDetail' 
 -- | A list of job IDs that this job depends on.
 jobDetail_dependsOn :: Lens.Lens' JobDetail (Prelude.Maybe [JobDependency])
 jobDetail_dependsOn = Lens.lens (\JobDetail' {dependsOn} -> dependsOn) (\s@JobDetail' {} a -> s {dependsOn = a} :: JobDetail) Prelude.. Lens.mapping Lens.coerced
+
+-- | The share identifier for the job.
+jobDetail_shareIdentifier :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Text)
+jobDetail_shareIdentifier = Lens.lens (\JobDetail' {shareIdentifier} -> shareIdentifier) (\s@JobDetail' {} a -> s {shareIdentifier = a} :: JobDetail)
 
 -- | The retry strategy to use for this job if an attempt fails.
 jobDetail_retryStrategy :: Lens.Lens' JobDetail (Prelude.Maybe RetryStrategy)
@@ -297,6 +317,12 @@ jobDetail_nodeProperties = Lens.lens (\JobDetail' {nodeProperties} -> nodeProper
 jobDetail_container :: Lens.Lens' JobDetail (Prelude.Maybe ContainerDetail)
 jobDetail_container = Lens.lens (\JobDetail' {container} -> container) (\s@JobDetail' {} a -> s {container = a} :: JobDetail)
 
+-- | The scheduling policy of the job definition. This only affects jobs in
+-- job queues with a fair share policy. Jobs with a higher scheduling
+-- priority are scheduled before jobs with a lower scheduling priority.
+jobDetail_schedulingPriority :: Lens.Lens' JobDetail (Prelude.Maybe Prelude.Int)
+jobDetail_schedulingPriority = Lens.lens (\JobDetail' {schedulingPriority} -> schedulingPriority) (\s@JobDetail' {} a -> s {schedulingPriority = a} :: JobDetail)
+
 -- | A list of job attempts associated with this job.
 jobDetail_attempts :: Lens.Lens' JobDetail (Prelude.Maybe [AttemptDetail])
 jobDetail_attempts = Lens.lens (\JobDetail' {attempts} -> attempts) (\s@JobDetail' {} a -> s {attempts = a} :: JobDetail) Prelude.. Lens.mapping Lens.coerced
@@ -341,12 +367,13 @@ jobDetail_jobQueue = Lens.lens (\JobDetail' {jobQueue} -> jobQueue) (\s@JobDetai
 -- | The current status for the job.
 --
 -- If your jobs don\'t progress to @STARTING@, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs Stuck in RUNNABLE Status>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable Jobs stuck in RUNNABLE status>
 -- in the troubleshooting section of the /Batch User Guide/.
 jobDetail_status :: Lens.Lens' JobDetail JobStatus
 jobDetail_status = Lens.lens (\JobDetail' {status} -> status) (\s@JobDetail' {} a -> s {status = a} :: JobDetail)
 
--- | The job definition that\'s used by this job.
+-- | The Amazon Resource Name (ARN) of the job definition that\'s used by
+-- this job.
 jobDetail_jobDefinition :: Lens.Lens' JobDetail Prelude.Text
 jobDetail_jobDefinition = Lens.lens (\JobDetail' {jobDefinition} -> jobDefinition) (\s@JobDetail' {} a -> s {jobDefinition = a} :: JobDetail)
 
@@ -359,6 +386,7 @@ instance Core.FromJSON JobDetail where
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "timeout")
             Prelude.<*> (x Core..:? "dependsOn" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "shareIdentifier")
             Prelude.<*> (x Core..:? "retryStrategy")
             Prelude.<*> ( x Core..:? "platformCapabilities"
                             Core..!= Prelude.mempty
@@ -370,6 +398,7 @@ instance Core.FromJSON JobDetail where
             Prelude.<*> (x Core..:? "propagateTags")
             Prelude.<*> (x Core..:? "nodeProperties")
             Prelude.<*> (x Core..:? "container")
+            Prelude.<*> (x Core..:? "schedulingPriority")
             Prelude.<*> (x Core..:? "attempts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "stoppedAt")
             Prelude.<*> (x Core..:? "jobArn")
@@ -387,6 +416,7 @@ instance Prelude.Hashable JobDetail where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` dependsOn
+      `Prelude.hashWithSalt` shareIdentifier
       `Prelude.hashWithSalt` retryStrategy
       `Prelude.hashWithSalt` platformCapabilities
       `Prelude.hashWithSalt` arrayProperties
@@ -396,6 +426,7 @@ instance Prelude.Hashable JobDetail where
       `Prelude.hashWithSalt` propagateTags
       `Prelude.hashWithSalt` nodeProperties
       `Prelude.hashWithSalt` container
+      `Prelude.hashWithSalt` schedulingPriority
       `Prelude.hashWithSalt` attempts
       `Prelude.hashWithSalt` stoppedAt
       `Prelude.hashWithSalt` jobArn
@@ -412,6 +443,7 @@ instance Prelude.NFData JobDetail where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf dependsOn
+      `Prelude.seq` Prelude.rnf shareIdentifier
       `Prelude.seq` Prelude.rnf retryStrategy
       `Prelude.seq` Prelude.rnf platformCapabilities
       `Prelude.seq` Prelude.rnf arrayProperties
@@ -421,6 +453,7 @@ instance Prelude.NFData JobDetail where
       `Prelude.seq` Prelude.rnf propagateTags
       `Prelude.seq` Prelude.rnf nodeProperties
       `Prelude.seq` Prelude.rnf container
+      `Prelude.seq` Prelude.rnf schedulingPriority
       `Prelude.seq` Prelude.rnf attempts
       `Prelude.seq` Prelude.rnf stoppedAt
       `Prelude.seq` Prelude.rnf jobArn
@@ -430,4 +463,5 @@ instance Prelude.NFData JobDetail where
       `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf jobQueue
       `Prelude.seq` Prelude.rnf status
-      `Prelude.seq` Prelude.rnf jobDefinition
+      `Prelude.seq` Prelude.rnf
+        jobDefinition

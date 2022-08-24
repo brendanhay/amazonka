@@ -61,12 +61,16 @@ data JobDefinition = JobDefinition'
     -- If the job runs on Fargate resources, then you must not specify
     -- @nodeProperties@; use @containerProperties@ instead.
     nodeProperties :: Prelude.Maybe NodeProperties,
+    -- | The scheduling priority of the job definition. This only affects jobs in
+    -- job queues with a fair share policy. Jobs with a higher scheduling
+    -- priority are scheduled before jobs with a lower scheduling priority.
+    schedulingPriority :: Prelude.Maybe Prelude.Int,
     -- | Default parameters or parameter substitution placeholders that are set
     -- in the job definition. Parameters are specified as a key-value pair
     -- mapping. Parameters in a @SubmitJob@ request override any corresponding
     -- parameter defaults from the job definition. For more information about
     -- specifying parameters, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters>
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job definition parameters>
     -- in the /Batch User Guide/.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the job definition.
@@ -75,9 +79,9 @@ data JobDefinition = JobDefinition'
     jobDefinitionArn :: Prelude.Text,
     -- | The revision of the job definition.
     revision :: Prelude.Int,
-    -- | The type of job definition. If the job is run on Fargate resources, then
-    -- @multinode@ isn\'t supported. For more information about multi-node
-    -- parallel jobs, see
+    -- | The type of job definition, either @container@ or @multinode@. If the
+    -- job is run on Fargate resources, then @multinode@ isn\'t supported. For
+    -- more information about multi-node parallel jobs, see
     -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
     -- in the /Batch User Guide/.
     type' :: Prelude.Text
@@ -121,12 +125,16 @@ data JobDefinition = JobDefinition'
 -- If the job runs on Fargate resources, then you must not specify
 -- @nodeProperties@; use @containerProperties@ instead.
 --
+-- 'schedulingPriority', 'jobDefinition_schedulingPriority' - The scheduling priority of the job definition. This only affects jobs in
+-- job queues with a fair share policy. Jobs with a higher scheduling
+-- priority are scheduled before jobs with a lower scheduling priority.
+--
 -- 'parameters', 'jobDefinition_parameters' - Default parameters or parameter substitution placeholders that are set
 -- in the job definition. Parameters are specified as a key-value pair
 -- mapping. Parameters in a @SubmitJob@ request override any corresponding
 -- parameter defaults from the job definition. For more information about
 -- specifying parameters, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job definition parameters>
 -- in the /Batch User Guide/.
 --
 -- 'jobDefinitionName', 'jobDefinition_jobDefinitionName' - The name of the job definition.
@@ -135,9 +143,9 @@ data JobDefinition = JobDefinition'
 --
 -- 'revision', 'jobDefinition_revision' - The revision of the job definition.
 --
--- 'type'', 'jobDefinition_type' - The type of job definition. If the job is run on Fargate resources, then
--- @multinode@ isn\'t supported. For more information about multi-node
--- parallel jobs, see
+-- 'type'', 'jobDefinition_type' - The type of job definition, either @container@ or @multinode@. If the
+-- job is run on Fargate resources, then @multinode@ isn\'t supported. For
+-- more information about multi-node parallel jobs, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
 -- in the /Batch User Guide/.
 newJobDefinition ::
@@ -164,6 +172,7 @@ newJobDefinition
         status = Prelude.Nothing,
         propagateTags = Prelude.Nothing,
         nodeProperties = Prelude.Nothing,
+        schedulingPriority = Prelude.Nothing,
         parameters = Prelude.Nothing,
         jobDefinitionName = pJobDefinitionName_,
         jobDefinitionArn = pJobDefinitionArn_,
@@ -216,12 +225,18 @@ jobDefinition_propagateTags = Lens.lens (\JobDefinition' {propagateTags} -> prop
 jobDefinition_nodeProperties :: Lens.Lens' JobDefinition (Prelude.Maybe NodeProperties)
 jobDefinition_nodeProperties = Lens.lens (\JobDefinition' {nodeProperties} -> nodeProperties) (\s@JobDefinition' {} a -> s {nodeProperties = a} :: JobDefinition)
 
+-- | The scheduling priority of the job definition. This only affects jobs in
+-- job queues with a fair share policy. Jobs with a higher scheduling
+-- priority are scheduled before jobs with a lower scheduling priority.
+jobDefinition_schedulingPriority :: Lens.Lens' JobDefinition (Prelude.Maybe Prelude.Int)
+jobDefinition_schedulingPriority = Lens.lens (\JobDefinition' {schedulingPriority} -> schedulingPriority) (\s@JobDefinition' {} a -> s {schedulingPriority = a} :: JobDefinition)
+
 -- | Default parameters or parameter substitution placeholders that are set
 -- in the job definition. Parameters are specified as a key-value pair
 -- mapping. Parameters in a @SubmitJob@ request override any corresponding
 -- parameter defaults from the job definition. For more information about
 -- specifying parameters, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job Definition Parameters>
+-- <https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html Job definition parameters>
 -- in the /Batch User Guide/.
 jobDefinition_parameters :: Lens.Lens' JobDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 jobDefinition_parameters = Lens.lens (\JobDefinition' {parameters} -> parameters) (\s@JobDefinition' {} a -> s {parameters = a} :: JobDefinition) Prelude.. Lens.mapping Lens.coerced
@@ -238,9 +253,9 @@ jobDefinition_jobDefinitionArn = Lens.lens (\JobDefinition' {jobDefinitionArn} -
 jobDefinition_revision :: Lens.Lens' JobDefinition Prelude.Int
 jobDefinition_revision = Lens.lens (\JobDefinition' {revision} -> revision) (\s@JobDefinition' {} a -> s {revision = a} :: JobDefinition)
 
--- | The type of job definition. If the job is run on Fargate resources, then
--- @multinode@ isn\'t supported. For more information about multi-node
--- parallel jobs, see
+-- | The type of job definition, either @container@ or @multinode@. If the
+-- job is run on Fargate resources, then @multinode@ isn\'t supported. For
+-- more information about multi-node parallel jobs, see
 -- <https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html Creating a multi-node parallel job definition>
 -- in the /Batch User Guide/.
 jobDefinition_type :: Lens.Lens' JobDefinition Prelude.Text
@@ -262,6 +277,7 @@ instance Core.FromJSON JobDefinition where
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "propagateTags")
             Prelude.<*> (x Core..:? "nodeProperties")
+            Prelude.<*> (x Core..:? "schedulingPriority")
             Prelude.<*> (x Core..:? "parameters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "jobDefinitionName")
             Prelude.<*> (x Core..: "jobDefinitionArn")
@@ -279,6 +295,7 @@ instance Prelude.Hashable JobDefinition where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` propagateTags
       `Prelude.hashWithSalt` nodeProperties
+      `Prelude.hashWithSalt` schedulingPriority
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` jobDefinitionName
       `Prelude.hashWithSalt` jobDefinitionArn
@@ -295,6 +312,7 @@ instance Prelude.NFData JobDefinition where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf propagateTags
       `Prelude.seq` Prelude.rnf nodeProperties
+      `Prelude.seq` Prelude.rnf schedulingPriority
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf jobDefinitionName
       `Prelude.seq` Prelude.rnf jobDefinitionArn

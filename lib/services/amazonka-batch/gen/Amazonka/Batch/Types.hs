@@ -41,6 +41,9 @@ module Amazonka.Batch.Types
     -- * CRType
     CRType (..),
 
+    -- * CRUpdateAllocationStrategy
+    CRUpdateAllocationStrategy (..),
+
     -- * DeviceCgroupPermission
     DeviceCgroupPermission (..),
 
@@ -115,14 +118,16 @@ module Amazonka.Batch.Types
     newComputeEnvironmentDetail,
     computeEnvironmentDetail_tags,
     computeEnvironmentDetail_type,
+    computeEnvironmentDetail_ecsClusterArn,
     computeEnvironmentDetail_statusReason,
     computeEnvironmentDetail_state,
     computeEnvironmentDetail_status,
     computeEnvironmentDetail_serviceRole,
+    computeEnvironmentDetail_updatePolicy,
     computeEnvironmentDetail_computeResources,
+    computeEnvironmentDetail_unmanagedvCpus,
     computeEnvironmentDetail_computeEnvironmentName,
     computeEnvironmentDetail_computeEnvironmentArn,
-    computeEnvironmentDetail_ecsClusterArn,
 
     -- * ComputeEnvironmentOrder
     ComputeEnvironmentOrder (..),
@@ -154,11 +159,23 @@ module Amazonka.Batch.Types
     -- * ComputeResourceUpdate
     ComputeResourceUpdate (..),
     newComputeResourceUpdate,
+    computeResourceUpdate_tags,
+    computeResourceUpdate_updateToLatestImageVersion,
+    computeResourceUpdate_ec2KeyPair,
+    computeResourceUpdate_type,
+    computeResourceUpdate_ec2Configuration,
     computeResourceUpdate_minvCpus,
+    computeResourceUpdate_instanceTypes,
     computeResourceUpdate_securityGroupIds,
     computeResourceUpdate_desiredvCpus,
     computeResourceUpdate_maxvCpus,
     computeResourceUpdate_subnets,
+    computeResourceUpdate_launchTemplate,
+    computeResourceUpdate_bidPercentage,
+    computeResourceUpdate_instanceRole,
+    computeResourceUpdate_allocationStrategy,
+    computeResourceUpdate_placementGroup,
+    computeResourceUpdate_imageId,
 
     -- * ContainerDetail
     ContainerDetail (..),
@@ -266,6 +283,13 @@ module Amazonka.Batch.Types
     evaluateOnExit_onStatusReason,
     evaluateOnExit_action,
 
+    -- * FairsharePolicy
+    FairsharePolicy (..),
+    newFairsharePolicy,
+    fairsharePolicy_shareDistribution,
+    fairsharePolicy_shareDecaySeconds,
+    fairsharePolicy_computeReservation,
+
     -- * FargatePlatformConfiguration
     FargatePlatformConfiguration (..),
     newFargatePlatformConfiguration,
@@ -287,6 +311,7 @@ module Amazonka.Batch.Types
     jobDefinition_status,
     jobDefinition_propagateTags,
     jobDefinition_nodeProperties,
+    jobDefinition_schedulingPriority,
     jobDefinition_parameters,
     jobDefinition_jobDefinitionName,
     jobDefinition_jobDefinitionArn,
@@ -305,6 +330,7 @@ module Amazonka.Batch.Types
     jobDetail_tags,
     jobDetail_timeout,
     jobDetail_dependsOn,
+    jobDetail_shareIdentifier,
     jobDetail_retryStrategy,
     jobDetail_platformCapabilities,
     jobDetail_arrayProperties,
@@ -314,6 +340,7 @@ module Amazonka.Batch.Types
     jobDetail_propagateTags,
     jobDetail_nodeProperties,
     jobDetail_container,
+    jobDetail_schedulingPriority,
     jobDetail_attempts,
     jobDetail_stoppedAt,
     jobDetail_jobArn,
@@ -331,6 +358,7 @@ module Amazonka.Batch.Types
     jobQueueDetail_tags,
     jobQueueDetail_statusReason,
     jobQueueDetail_status,
+    jobQueueDetail_schedulingPolicyArn,
     jobQueueDetail_jobQueueName,
     jobQueueDetail_jobQueueArn,
     jobQueueDetail_state,
@@ -463,11 +491,30 @@ module Amazonka.Batch.Types
     retryStrategy_evaluateOnExit,
     retryStrategy_attempts,
 
+    -- * SchedulingPolicyDetail
+    SchedulingPolicyDetail (..),
+    newSchedulingPolicyDetail,
+    schedulingPolicyDetail_tags,
+    schedulingPolicyDetail_fairsharePolicy,
+    schedulingPolicyDetail_name,
+    schedulingPolicyDetail_arn,
+
+    -- * SchedulingPolicyListingDetail
+    SchedulingPolicyListingDetail (..),
+    newSchedulingPolicyListingDetail,
+    schedulingPolicyListingDetail_arn,
+
     -- * Secret
     Secret (..),
     newSecret,
     secret_name,
     secret_valueFrom,
+
+    -- * ShareAttributes
+    ShareAttributes (..),
+    newShareAttributes,
+    shareAttributes_weightFactor,
+    shareAttributes_shareIdentifier,
 
     -- * Tmpfs
     Tmpfs (..),
@@ -482,6 +529,12 @@ module Amazonka.Batch.Types
     ulimit_hardLimit,
     ulimit_name,
     ulimit_softLimit,
+
+    -- * UpdatePolicy
+    UpdatePolicy (..),
+    newUpdatePolicy,
+    updatePolicy_terminateJobsOnUpdate,
+    updatePolicy_jobExecutionTimeoutMinutes,
 
     -- * Volume
     Volume (..),
@@ -504,6 +557,7 @@ import Amazonka.Batch.Types.CEStatus
 import Amazonka.Batch.Types.CEType
 import Amazonka.Batch.Types.CRAllocationStrategy
 import Amazonka.Batch.Types.CRType
+import Amazonka.Batch.Types.CRUpdateAllocationStrategy
 import Amazonka.Batch.Types.ComputeEnvironmentDetail
 import Amazonka.Batch.Types.ComputeEnvironmentOrder
 import Amazonka.Batch.Types.ComputeResource
@@ -520,6 +574,7 @@ import Amazonka.Batch.Types.EFSTransitEncryption
 import Amazonka.Batch.Types.EFSVolumeConfiguration
 import Amazonka.Batch.Types.Ec2Configuration
 import Amazonka.Batch.Types.EvaluateOnExit
+import Amazonka.Batch.Types.FairsharePolicy
 import Amazonka.Batch.Types.FargatePlatformConfiguration
 import Amazonka.Batch.Types.Host
 import Amazonka.Batch.Types.JQState
@@ -552,9 +607,13 @@ import Amazonka.Batch.Types.ResourceRequirement
 import Amazonka.Batch.Types.ResourceType
 import Amazonka.Batch.Types.RetryAction
 import Amazonka.Batch.Types.RetryStrategy
+import Amazonka.Batch.Types.SchedulingPolicyDetail
+import Amazonka.Batch.Types.SchedulingPolicyListingDetail
 import Amazonka.Batch.Types.Secret
+import Amazonka.Batch.Types.ShareAttributes
 import Amazonka.Batch.Types.Tmpfs
 import Amazonka.Batch.Types.Ulimit
+import Amazonka.Batch.Types.UpdatePolicy
 import Amazonka.Batch.Types.Volume
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens

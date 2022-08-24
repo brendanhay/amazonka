@@ -123,14 +123,14 @@ data ListJobs = ListJobs'
     -- [BEFORE_CREATED_AT]
     --     The value for the filter is the time that\'s before the job was
     --     created. This corresponds to the @createdAt@ value. The value is a
-    --     string representation of the number of seconds since 00:00:00 UTC
-    --     (midnight) on January 1, 1970.
+    --     string representation of the number of milliseconds since 00:00:00
+    --     UTC (midnight) on January 1, 1970.
     --
     -- [AFTER_CREATED_AT]
     --     The value for the filter is the time that\'s after the job was
     --     created. This corresponds to the @createdAt@ value. The value is a
-    --     string representation of the number of seconds since 00:00:00 UTC
-    --     (midnight) on January 1, 1970.
+    --     string representation of the number of milliseconds since 00:00:00
+    --     UTC (midnight) on January 1, 1970.
     filters :: Prelude.Maybe [KeyValuesPair],
     -- | The job ID for an array job. Specifying an array job ID with this
     -- parameter lists all child jobs from within the specified array.
@@ -211,14 +211,14 @@ data ListJobs = ListJobs'
 -- [BEFORE_CREATED_AT]
 --     The value for the filter is the time that\'s before the job was
 --     created. This corresponds to the @createdAt@ value. The value is a
---     string representation of the number of seconds since 00:00:00 UTC
---     (midnight) on January 1, 1970.
+--     string representation of the number of milliseconds since 00:00:00
+--     UTC (midnight) on January 1, 1970.
 --
 -- [AFTER_CREATED_AT]
 --     The value for the filter is the time that\'s after the job was
 --     created. This corresponds to the @createdAt@ value. The value is a
---     string representation of the number of seconds since 00:00:00 UTC
---     (midnight) on January 1, 1970.
+--     string representation of the number of milliseconds since 00:00:00
+--     UTC (midnight) on January 1, 1970.
 --
 -- 'arrayJobId', 'listJobs_arrayJobId' - The job ID for an array job. Specifying an array job ID with this
 -- parameter lists all child jobs from within the specified array.
@@ -306,14 +306,14 @@ listJobs_multiNodeJobId = Lens.lens (\ListJobs' {multiNodeJobId} -> multiNodeJob
 -- [BEFORE_CREATED_AT]
 --     The value for the filter is the time that\'s before the job was
 --     created. This corresponds to the @createdAt@ value. The value is a
---     string representation of the number of seconds since 00:00:00 UTC
---     (midnight) on January 1, 1970.
+--     string representation of the number of milliseconds since 00:00:00
+--     UTC (midnight) on January 1, 1970.
 --
 -- [AFTER_CREATED_AT]
 --     The value for the filter is the time that\'s after the job was
 --     created. This corresponds to the @createdAt@ value. The value is a
---     string representation of the number of seconds since 00:00:00 UTC
---     (midnight) on January 1, 1970.
+--     string representation of the number of milliseconds since 00:00:00
+--     UTC (midnight) on January 1, 1970.
 listJobs_filters :: Lens.Lens' ListJobs (Prelude.Maybe [KeyValuesPair])
 listJobs_filters = Lens.lens (\ListJobs' {filters} -> filters) (\s@ListJobs' {} a -> s {filters = a} :: ListJobs) Prelude.. Lens.mapping Lens.coerced
 

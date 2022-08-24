@@ -23,11 +23,14 @@
 -- Submits an Batch job from a job definition. Parameters that are
 -- specified during SubmitJob override parameters defined in the job
 -- definition. vCPU and memory requirements that are specified in the
--- @ResourceRequirements@ objects in the job definition are the exception.
+-- @resourceRequirements@ objects in the job definition are the exception.
 -- They can\'t be overridden this way using the @memory@ and @vcpus@
 -- parameters. Rather, you must specify updates to job definition
--- parameters in a @ResourceRequirements@ object that\'s included in the
+-- parameters in a @resourceRequirements@ object that\'s included in the
 -- @containerOverrides@ parameter.
+--
+-- Job queues with a scheduling policy are limited to 500 active fair share
+-- identifiers at a time.
 --
 -- Jobs that run on Fargate resources can\'t be guaranteed to run for more
 -- than 14 days. This is because, after 14 days, Fargate resources might
@@ -41,6 +44,8 @@ module Amazonka.Batch.SubmitJob
     submitJob_tags,
     submitJob_timeout,
     submitJob_dependsOn,
+    submitJob_shareIdentifier,
+    submitJob_schedulingPriorityOverride,
     submitJob_nodeOverrides,
     submitJob_retryStrategy,
     submitJob_arrayProperties,
@@ -98,6 +103,18 @@ data SubmitJob = SubmitJob'
     -- each index child of this job must wait for the corresponding index child
     -- of each dependency to complete before it can begin.
     dependsOn :: Prelude.Maybe [JobDependency],
+    -- | The share identifier for the job. If the job queue does not have a
+    -- scheduling policy, then this parameter must not be specified. If the job
+    -- queue has a scheduling policy, then this parameter must be specified.
+    shareIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The scheduling priority for the job. This will only affect jobs in job
+    -- queues with a fair share policy. Jobs with a higher scheduling priority
+    -- will be scheduled before jobs with a lower scheduling priority. This
+    -- will override any scheduling priority in the job definition.
+    --
+    -- The minimum supported value is 0 and the maximum supported value is
+    -- 9999.
+    schedulingPriorityOverride :: Prelude.Maybe Prelude.Int,
     -- | A list of node overrides in JSON format that specify the node range to
     -- target and the container overrides for that node range.
     --
@@ -125,11 +142,11 @@ data SubmitJob = SubmitJob'
     propagateTags :: Prelude.Maybe Prelude.Bool,
     -- | A list of container overrides in the JSON format that specify the name
     -- of a container in the specified job definition and the overrides it
-    -- should receive. You can override the default command for a container,
-    -- which is specified in the job definition or the Docker image, with a
-    -- @command@ override. You can also override existing environment variables
-    -- on a container or add new environment variables to it with an
-    -- @environment@ override.
+    -- receives. You can override the default command for a container, which is
+    -- specified in the job definition or the Docker image, with a @command@
+    -- override. You can also override existing environment variables on a
+    -- container or add new environment variables to it with an @environment@
+    -- override.
     containerOverrides :: Prelude.Maybe ContainerOverrides,
     -- | Additional parameters passed to the job that replace parameter
     -- substitution placeholders that are set in the job definition. Parameters
@@ -137,9 +154,9 @@ data SubmitJob = SubmitJob'
     -- @SubmitJob@ request override any corresponding parameter defaults from
     -- the job definition.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the job. The first character must be alphanumeric, and up to
-    -- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
-    -- are allowed.
+    -- | The name of the job. It can be up to 128 letters long. The first
+    -- character must be alphanumeric, can contain uppercase and lowercase
+    -- letters, numbers, hyphens (-), and underscores (_).
     jobName :: Prelude.Text,
     -- | The job queue where the job is submitted. You can specify either the
     -- name or the Amazon Resource Name (ARN) of the queue.
@@ -184,6 +201,18 @@ data SubmitJob = SubmitJob'
 -- each index child of this job must wait for the corresponding index child
 -- of each dependency to complete before it can begin.
 --
+-- 'shareIdentifier', 'submitJob_shareIdentifier' - The share identifier for the job. If the job queue does not have a
+-- scheduling policy, then this parameter must not be specified. If the job
+-- queue has a scheduling policy, then this parameter must be specified.
+--
+-- 'schedulingPriorityOverride', 'submitJob_schedulingPriorityOverride' - The scheduling priority for the job. This will only affect jobs in job
+-- queues with a fair share policy. Jobs with a higher scheduling priority
+-- will be scheduled before jobs with a lower scheduling priority. This
+-- will override any scheduling priority in the job definition.
+--
+-- The minimum supported value is 0 and the maximum supported value is
+-- 9999.
+--
 -- 'nodeOverrides', 'submitJob_nodeOverrides' - A list of node overrides in JSON format that specify the node range to
 -- target and the container overrides for that node range.
 --
@@ -211,11 +240,11 @@ data SubmitJob = SubmitJob'
 --
 -- 'containerOverrides', 'submitJob_containerOverrides' - A list of container overrides in the JSON format that specify the name
 -- of a container in the specified job definition and the overrides it
--- should receive. You can override the default command for a container,
--- which is specified in the job definition or the Docker image, with a
--- @command@ override. You can also override existing environment variables
--- on a container or add new environment variables to it with an
--- @environment@ override.
+-- receives. You can override the default command for a container, which is
+-- specified in the job definition or the Docker image, with a @command@
+-- override. You can also override existing environment variables on a
+-- container or add new environment variables to it with an @environment@
+-- override.
 --
 -- 'parameters', 'submitJob_parameters' - Additional parameters passed to the job that replace parameter
 -- substitution placeholders that are set in the job definition. Parameters
@@ -223,9 +252,9 @@ data SubmitJob = SubmitJob'
 -- @SubmitJob@ request override any corresponding parameter defaults from
 -- the job definition.
 --
--- 'jobName', 'submitJob_jobName' - The name of the job. The first character must be alphanumeric, and up to
--- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
--- are allowed.
+-- 'jobName', 'submitJob_jobName' - The name of the job. It can be up to 128 letters long. The first
+-- character must be alphanumeric, can contain uppercase and lowercase
+-- letters, numbers, hyphens (-), and underscores (_).
 --
 -- 'jobQueue', 'submitJob_jobQueue' - The job queue where the job is submitted. You can specify either the
 -- name or the Amazon Resource Name (ARN) of the queue.
@@ -247,6 +276,8 @@ newSubmitJob pJobName_ pJobQueue_ pJobDefinition_ =
     { tags = Prelude.Nothing,
       timeout = Prelude.Nothing,
       dependsOn = Prelude.Nothing,
+      shareIdentifier = Prelude.Nothing,
+      schedulingPriorityOverride = Prelude.Nothing,
       nodeOverrides = Prelude.Nothing,
       retryStrategy = Prelude.Nothing,
       arrayProperties = Prelude.Nothing,
@@ -288,6 +319,22 @@ submitJob_timeout = Lens.lens (\SubmitJob' {timeout} -> timeout) (\s@SubmitJob' 
 submitJob_dependsOn :: Lens.Lens' SubmitJob (Prelude.Maybe [JobDependency])
 submitJob_dependsOn = Lens.lens (\SubmitJob' {dependsOn} -> dependsOn) (\s@SubmitJob' {} a -> s {dependsOn = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
 
+-- | The share identifier for the job. If the job queue does not have a
+-- scheduling policy, then this parameter must not be specified. If the job
+-- queue has a scheduling policy, then this parameter must be specified.
+submitJob_shareIdentifier :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Text)
+submitJob_shareIdentifier = Lens.lens (\SubmitJob' {shareIdentifier} -> shareIdentifier) (\s@SubmitJob' {} a -> s {shareIdentifier = a} :: SubmitJob)
+
+-- | The scheduling priority for the job. This will only affect jobs in job
+-- queues with a fair share policy. Jobs with a higher scheduling priority
+-- will be scheduled before jobs with a lower scheduling priority. This
+-- will override any scheduling priority in the job definition.
+--
+-- The minimum supported value is 0 and the maximum supported value is
+-- 9999.
+submitJob_schedulingPriorityOverride :: Lens.Lens' SubmitJob (Prelude.Maybe Prelude.Int)
+submitJob_schedulingPriorityOverride = Lens.lens (\SubmitJob' {schedulingPriorityOverride} -> schedulingPriorityOverride) (\s@SubmitJob' {} a -> s {schedulingPriorityOverride = a} :: SubmitJob)
+
 -- | A list of node overrides in JSON format that specify the node range to
 -- target and the container overrides for that node range.
 --
@@ -323,11 +370,11 @@ submitJob_propagateTags = Lens.lens (\SubmitJob' {propagateTags} -> propagateTag
 
 -- | A list of container overrides in the JSON format that specify the name
 -- of a container in the specified job definition and the overrides it
--- should receive. You can override the default command for a container,
--- which is specified in the job definition or the Docker image, with a
--- @command@ override. You can also override existing environment variables
--- on a container or add new environment variables to it with an
--- @environment@ override.
+-- receives. You can override the default command for a container, which is
+-- specified in the job definition or the Docker image, with a @command@
+-- override. You can also override existing environment variables on a
+-- container or add new environment variables to it with an @environment@
+-- override.
 submitJob_containerOverrides :: Lens.Lens' SubmitJob (Prelude.Maybe ContainerOverrides)
 submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> containerOverrides) (\s@SubmitJob' {} a -> s {containerOverrides = a} :: SubmitJob)
 
@@ -339,9 +386,9 @@ submitJob_containerOverrides = Lens.lens (\SubmitJob' {containerOverrides} -> co
 submitJob_parameters :: Lens.Lens' SubmitJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 submitJob_parameters = Lens.lens (\SubmitJob' {parameters} -> parameters) (\s@SubmitJob' {} a -> s {parameters = a} :: SubmitJob) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the job. The first character must be alphanumeric, and up to
--- 128 letters (uppercase and lowercase), numbers, hyphens, and underscores
--- are allowed.
+-- | The name of the job. It can be up to 128 letters long. The first
+-- character must be alphanumeric, can contain uppercase and lowercase
+-- letters, numbers, hyphens (-), and underscores (_).
 submitJob_jobName :: Lens.Lens' SubmitJob Prelude.Text
 submitJob_jobName = Lens.lens (\SubmitJob' {jobName} -> jobName) (\s@SubmitJob' {} a -> s {jobName = a} :: SubmitJob)
 
@@ -375,6 +422,8 @@ instance Prelude.Hashable SubmitJob where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` timeout
       `Prelude.hashWithSalt` dependsOn
+      `Prelude.hashWithSalt` shareIdentifier
+      `Prelude.hashWithSalt` schedulingPriorityOverride
       `Prelude.hashWithSalt` nodeOverrides
       `Prelude.hashWithSalt` retryStrategy
       `Prelude.hashWithSalt` arrayProperties
@@ -390,6 +439,8 @@ instance Prelude.NFData SubmitJob where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf timeout
       `Prelude.seq` Prelude.rnf dependsOn
+      `Prelude.seq` Prelude.rnf shareIdentifier
+      `Prelude.seq` Prelude.rnf schedulingPriorityOverride
       `Prelude.seq` Prelude.rnf nodeOverrides
       `Prelude.seq` Prelude.rnf retryStrategy
       `Prelude.seq` Prelude.rnf arrayProperties
@@ -418,6 +469,10 @@ instance Core.ToJSON SubmitJob where
           [ ("tags" Core..=) Prelude.<$> tags,
             ("timeout" Core..=) Prelude.<$> timeout,
             ("dependsOn" Core..=) Prelude.<$> dependsOn,
+            ("shareIdentifier" Core..=)
+              Prelude.<$> shareIdentifier,
+            ("schedulingPriorityOverride" Core..=)
+              Prelude.<$> schedulingPriorityOverride,
             ("nodeOverrides" Core..=) Prelude.<$> nodeOverrides,
             ("retryStrategy" Core..=) Prelude.<$> retryStrategy,
             ("arrayProperties" Core..=)

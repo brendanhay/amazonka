@@ -33,9 +33,10 @@ data Volume = Volume'
     -- System file system for job storage. Jobs that are running on Fargate
     -- resources must specify a @platformVersion@ of at least @1.4.0@.
     efsVolumeConfiguration :: Prelude.Maybe EFSVolumeConfiguration,
-    -- | The name of the volume. Up to 255 letters (uppercase and lowercase),
-    -- numbers, hyphens, and underscores are allowed. This name is referenced
-    -- in the @sourceVolume@ parameter of container definition @mountPoints@.
+    -- | The name of the volume. It can be up to 255 letters long. It can contain
+    -- uppercase and lowercase letters, numbers, hyphens (-), and underscores
+    -- (_). This name is referenced in the @sourceVolume@ parameter of
+    -- container definition @mountPoints@.
     name :: Prelude.Maybe Prelude.Text,
     -- | The contents of the @host@ parameter determine whether your data volume
     -- persists on the host container instance and where it is stored. If the
@@ -61,9 +62,10 @@ data Volume = Volume'
 -- System file system for job storage. Jobs that are running on Fargate
 -- resources must specify a @platformVersion@ of at least @1.4.0@.
 --
--- 'name', 'volume_name' - The name of the volume. Up to 255 letters (uppercase and lowercase),
--- numbers, hyphens, and underscores are allowed. This name is referenced
--- in the @sourceVolume@ parameter of container definition @mountPoints@.
+-- 'name', 'volume_name' - The name of the volume. It can be up to 255 letters long. It can contain
+-- uppercase and lowercase letters, numbers, hyphens (-), and underscores
+-- (_). This name is referenced in the @sourceVolume@ parameter of
+-- container definition @mountPoints@.
 --
 -- 'host', 'volume_host' - The contents of the @host@ parameter determine whether your data volume
 -- persists on the host container instance and where it is stored. If the
@@ -88,9 +90,10 @@ newVolume =
 volume_efsVolumeConfiguration :: Lens.Lens' Volume (Prelude.Maybe EFSVolumeConfiguration)
 volume_efsVolumeConfiguration = Lens.lens (\Volume' {efsVolumeConfiguration} -> efsVolumeConfiguration) (\s@Volume' {} a -> s {efsVolumeConfiguration = a} :: Volume)
 
--- | The name of the volume. Up to 255 letters (uppercase and lowercase),
--- numbers, hyphens, and underscores are allowed. This name is referenced
--- in the @sourceVolume@ parameter of container definition @mountPoints@.
+-- | The name of the volume. It can be up to 255 letters long. It can contain
+-- uppercase and lowercase letters, numbers, hyphens (-), and underscores
+-- (_). This name is referenced in the @sourceVolume@ parameter of
+-- container definition @mountPoints@.
 volume_name :: Lens.Lens' Volume (Prelude.Maybe Prelude.Text)
 volume_name = Lens.lens (\Volume' {name} -> name) (\s@Volume' {} a -> s {name = a} :: Volume)
 

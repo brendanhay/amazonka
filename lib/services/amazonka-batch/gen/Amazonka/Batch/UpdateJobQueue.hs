@@ -30,6 +30,7 @@ module Amazonka.Batch.UpdateJobQueue
     updateJobQueue_computeEnvironmentOrder,
     updateJobQueue_state,
     updateJobQueue_priority,
+    updateJobQueue_schedulingPolicyArn,
     updateJobQueue_jobQueue,
 
     -- * Destructuring the Response
@@ -56,8 +57,8 @@ import qualified Amazonka.Response as Response
 data UpdateJobQueue = UpdateJobQueue'
   { -- | Details the set of compute environments mapped to a job queue and their
     -- order relative to each other. This is one of the parameters used by the
-    -- job scheduler to determine which compute environment should run a given
-    -- job. Compute environments must be in the @VALID@ state before you can
+    -- job scheduler to determine which compute environment runs a given job.
+    -- Compute environments must be in the @VALID@ state before you can
     -- associate them with a job queue. All of the compute environments must be
     -- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@).
     -- EC2 and Fargate compute environments can\'t be mixed.
@@ -74,12 +75,19 @@ data UpdateJobQueue = UpdateJobQueue'
     -- | The priority of the job queue. Job queues with a higher priority (or a
     -- higher integer value for the @priority@ parameter) are evaluated first
     -- when associated with the same compute environment. Priority is
-    -- determined in descending order, for example, a job queue with a priority
+    -- determined in descending order. For example, a job queue with a priority
     -- value of @10@ is given scheduling preference over a job queue with a
     -- priority value of @1@. All of the compute environments must be either
     -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@). EC2 and
     -- Fargate compute environments can\'t be mixed.
     priority :: Prelude.Maybe Prelude.Int,
+    -- | Amazon Resource Name (ARN) of the fair share scheduling policy. Once a
+    -- job queue is created, the fair share scheduling policy can be replaced
+    -- but not removed. The format is
+    -- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
+    -- example,
+    -- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+    schedulingPolicyArn :: Prelude.Maybe Prelude.Text,
     -- | The name or the Amazon Resource Name (ARN) of the job queue.
     jobQueue :: Prelude.Text
   }
@@ -95,8 +103,8 @@ data UpdateJobQueue = UpdateJobQueue'
 --
 -- 'computeEnvironmentOrder', 'updateJobQueue_computeEnvironmentOrder' - Details the set of compute environments mapped to a job queue and their
 -- order relative to each other. This is one of the parameters used by the
--- job scheduler to determine which compute environment should run a given
--- job. Compute environments must be in the @VALID@ state before you can
+-- job scheduler to determine which compute environment runs a given job.
+-- Compute environments must be in the @VALID@ state before you can
 -- associate them with a job queue. All of the compute environments must be
 -- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@).
 -- EC2 and Fargate compute environments can\'t be mixed.
@@ -113,11 +121,18 @@ data UpdateJobQueue = UpdateJobQueue'
 -- 'priority', 'updateJobQueue_priority' - The priority of the job queue. Job queues with a higher priority (or a
 -- higher integer value for the @priority@ parameter) are evaluated first
 -- when associated with the same compute environment. Priority is
--- determined in descending order, for example, a job queue with a priority
+-- determined in descending order. For example, a job queue with a priority
 -- value of @10@ is given scheduling preference over a job queue with a
 -- priority value of @1@. All of the compute environments must be either
 -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@). EC2 and
 -- Fargate compute environments can\'t be mixed.
+--
+-- 'schedulingPolicyArn', 'updateJobQueue_schedulingPolicyArn' - Amazon Resource Name (ARN) of the fair share scheduling policy. Once a
+-- job queue is created, the fair share scheduling policy can be replaced
+-- but not removed. The format is
+-- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
+-- example,
+-- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
 --
 -- 'jobQueue', 'updateJobQueue_jobQueue' - The name or the Amazon Resource Name (ARN) of the job queue.
 newUpdateJobQueue ::
@@ -130,13 +145,14 @@ newUpdateJobQueue pJobQueue_ =
         Prelude.Nothing,
       state = Prelude.Nothing,
       priority = Prelude.Nothing,
+      schedulingPolicyArn = Prelude.Nothing,
       jobQueue = pJobQueue_
     }
 
 -- | Details the set of compute environments mapped to a job queue and their
 -- order relative to each other. This is one of the parameters used by the
--- job scheduler to determine which compute environment should run a given
--- job. Compute environments must be in the @VALID@ state before you can
+-- job scheduler to determine which compute environment runs a given job.
+-- Compute environments must be in the @VALID@ state before you can
 -- associate them with a job queue. All of the compute environments must be
 -- either EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@).
 -- EC2 and Fargate compute environments can\'t be mixed.
@@ -157,13 +173,22 @@ updateJobQueue_state = Lens.lens (\UpdateJobQueue' {state} -> state) (\s@UpdateJ
 -- | The priority of the job queue. Job queues with a higher priority (or a
 -- higher integer value for the @priority@ parameter) are evaluated first
 -- when associated with the same compute environment. Priority is
--- determined in descending order, for example, a job queue with a priority
+-- determined in descending order. For example, a job queue with a priority
 -- value of @10@ is given scheduling preference over a job queue with a
 -- priority value of @1@. All of the compute environments must be either
 -- EC2 (@EC2@ or @SPOT@) or Fargate (@FARGATE@ or @FARGATE_SPOT@). EC2 and
 -- Fargate compute environments can\'t be mixed.
 updateJobQueue_priority :: Lens.Lens' UpdateJobQueue (Prelude.Maybe Prelude.Int)
 updateJobQueue_priority = Lens.lens (\UpdateJobQueue' {priority} -> priority) (\s@UpdateJobQueue' {} a -> s {priority = a} :: UpdateJobQueue)
+
+-- | Amazon Resource Name (ARN) of the fair share scheduling policy. Once a
+-- job queue is created, the fair share scheduling policy can be replaced
+-- but not removed. The format is
+-- @aws:Partition:batch:Region:Account:scheduling-policy\/Name @. For
+-- example,
+-- @aws:aws:batch:us-west-2:012345678910:scheduling-policy\/MySchedulingPolicy@.
+updateJobQueue_schedulingPolicyArn :: Lens.Lens' UpdateJobQueue (Prelude.Maybe Prelude.Text)
+updateJobQueue_schedulingPolicyArn = Lens.lens (\UpdateJobQueue' {schedulingPolicyArn} -> schedulingPolicyArn) (\s@UpdateJobQueue' {} a -> s {schedulingPolicyArn = a} :: UpdateJobQueue)
 
 -- | The name or the Amazon Resource Name (ARN) of the job queue.
 updateJobQueue_jobQueue :: Lens.Lens' UpdateJobQueue Prelude.Text
@@ -189,6 +214,7 @@ instance Prelude.Hashable UpdateJobQueue where
       `Prelude.hashWithSalt` computeEnvironmentOrder
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` priority
+      `Prelude.hashWithSalt` schedulingPolicyArn
       `Prelude.hashWithSalt` jobQueue
 
 instance Prelude.NFData UpdateJobQueue where
@@ -196,6 +222,7 @@ instance Prelude.NFData UpdateJobQueue where
     Prelude.rnf computeEnvironmentOrder
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf priority
+      `Prelude.seq` Prelude.rnf schedulingPolicyArn
       `Prelude.seq` Prelude.rnf jobQueue
 
 instance Core.ToHeaders UpdateJobQueue where
@@ -217,6 +244,8 @@ instance Core.ToJSON UpdateJobQueue where
               Prelude.<$> computeEnvironmentOrder,
             ("state" Core..=) Prelude.<$> state,
             ("priority" Core..=) Prelude.<$> priority,
+            ("schedulingPolicyArn" Core..=)
+              Prelude.<$> schedulingPolicyArn,
             Prelude.Just ("jobQueue" Core..= jobQueue)
           ]
       )

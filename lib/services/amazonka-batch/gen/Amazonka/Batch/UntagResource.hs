@@ -46,12 +46,14 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newUntagResource' smart constructor.
+-- | Contains the parameters for @UntagResource@.
+--
+-- /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the resource from which to delete
     -- tags. Batch resources that support tags are compute environments, jobs,
-    -- job definitions, and job queues. ARNs for child jobs of array and
-    -- multi-node parallel (MNP) jobs are not supported.
+    -- job definitions, job queues, and scheduling policies. ARNs for child
+    -- jobs of array and multi-node parallel (MNP) jobs are not supported.
     resourceArn :: Prelude.Text,
     -- | The keys of the tags to be removed.
     tagKeys :: Prelude.NonEmpty Prelude.Text
@@ -68,8 +70,8 @@ data UntagResource = UntagResource'
 --
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource from which to delete
 -- tags. Batch resources that support tags are compute environments, jobs,
--- job definitions, and job queues. ARNs for child jobs of array and
--- multi-node parallel (MNP) jobs are not supported.
+-- job definitions, job queues, and scheduling policies. ARNs for child
+-- jobs of array and multi-node parallel (MNP) jobs are not supported.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to be removed.
 newUntagResource ::
@@ -86,8 +88,8 @@ newUntagResource pResourceArn_ pTagKeys_ =
 
 -- | The Amazon Resource Name (ARN) of the resource from which to delete
 -- tags. Batch resources that support tags are compute environments, jobs,
--- job definitions, and job queues. ARNs for child jobs of array and
--- multi-node parallel (MNP) jobs are not supported.
+-- job definitions, job queues, and scheduling policies. ARNs for child
+-- jobs of array and multi-node parallel (MNP) jobs are not supported.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 

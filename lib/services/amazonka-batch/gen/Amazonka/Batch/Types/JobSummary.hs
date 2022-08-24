@@ -56,10 +56,11 @@ data JobSummary = JobSummary'
     stoppedAt :: Prelude.Maybe Prelude.Integer,
     -- | The Amazon Resource Name (ARN) of the job.
     jobArn :: Prelude.Maybe Prelude.Text,
-    -- | The Unix timestamp for when the job was created. For non-array jobs and
-    -- parent array jobs, this is when the job entered the @SUBMITTED@ state
-    -- (at the time SubmitJob was called). For array child jobs, this is when
-    -- the child job was spawned by its parent and entered the @PENDING@ state.
+    -- | The Unix timestamp (in milliseconds) for when the job was created. For
+    -- non-array jobs and parent array jobs, this is when the job entered the
+    -- @SUBMITTED@ state (at the time SubmitJob was called). For array child
+    -- jobs, this is when the child job was spawned by its parent and entered
+    -- the @PENDING@ state.
     createdAt :: Prelude.Maybe Prelude.Integer,
     -- | The ID of the job.
     jobId :: Prelude.Text,
@@ -101,10 +102,11 @@ data JobSummary = JobSummary'
 --
 -- 'jobArn', 'jobSummary_jobArn' - The Amazon Resource Name (ARN) of the job.
 --
--- 'createdAt', 'jobSummary_createdAt' - The Unix timestamp for when the job was created. For non-array jobs and
--- parent array jobs, this is when the job entered the @SUBMITTED@ state
--- (at the time SubmitJob was called). For array child jobs, this is when
--- the child job was spawned by its parent and entered the @PENDING@ state.
+-- 'createdAt', 'jobSummary_createdAt' - The Unix timestamp (in milliseconds) for when the job was created. For
+-- non-array jobs and parent array jobs, this is when the job entered the
+-- @SUBMITTED@ state (at the time SubmitJob was called). For array child
+-- jobs, this is when the child job was spawned by its parent and entered
+-- the @PENDING@ state.
 --
 -- 'jobId', 'jobSummary_jobId' - The ID of the job.
 --
@@ -174,10 +176,11 @@ jobSummary_stoppedAt = Lens.lens (\JobSummary' {stoppedAt} -> stoppedAt) (\s@Job
 jobSummary_jobArn :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Text)
 jobSummary_jobArn = Lens.lens (\JobSummary' {jobArn} -> jobArn) (\s@JobSummary' {} a -> s {jobArn = a} :: JobSummary)
 
--- | The Unix timestamp for when the job was created. For non-array jobs and
--- parent array jobs, this is when the job entered the @SUBMITTED@ state
--- (at the time SubmitJob was called). For array child jobs, this is when
--- the child job was spawned by its parent and entered the @PENDING@ state.
+-- | The Unix timestamp (in milliseconds) for when the job was created. For
+-- non-array jobs and parent array jobs, this is when the job entered the
+-- @SUBMITTED@ state (at the time SubmitJob was called). For array child
+-- jobs, this is when the child job was spawned by its parent and entered
+-- the @PENDING@ state.
 jobSummary_createdAt :: Lens.Lens' JobSummary (Prelude.Maybe Prelude.Integer)
 jobSummary_createdAt = Lens.lens (\JobSummary' {createdAt} -> createdAt) (\s@JobSummary' {} a -> s {createdAt = a} :: JobSummary)
 

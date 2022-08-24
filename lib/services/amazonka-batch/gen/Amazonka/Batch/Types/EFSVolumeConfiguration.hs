@@ -37,7 +37,7 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
     -- port, it uses the port selection strategy that the Amazon EFS mount
     -- helper uses. The value must be between 0 and 65,535. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper>
+    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
     -- in the /Amazon Elastic File System User Guide/.
     transitEncryptionPort :: Prelude.Maybe Prelude.Int,
     -- | The directory within the Amazon EFS file system to mount as the root
@@ -77,7 +77,7 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
 -- port, it uses the port selection strategy that the Amazon EFS mount
 -- helper uses. The value must be between 0 and 65,535. For more
 -- information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper>
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
 -- in the /Amazon Elastic File System User Guide/.
 --
 -- 'rootDirectory', 'eFSVolumeConfiguration_rootDirectory' - The directory within the Amazon EFS file system to mount as the root
@@ -119,7 +119,7 @@ newEFSVolumeConfiguration pFileSystemId_ =
 -- port, it uses the port selection strategy that the Amazon EFS mount
 -- helper uses. The value must be between 0 and 65,535. For more
 -- information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper>
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
 -- in the /Amazon Elastic File System User Guide/.
 eFSVolumeConfiguration_transitEncryptionPort :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe Prelude.Int)
 eFSVolumeConfiguration_transitEncryptionPort = Lens.lens (\EFSVolumeConfiguration' {transitEncryptionPort} -> transitEncryptionPort) (\s@EFSVolumeConfiguration' {} a -> s {transitEncryptionPort = a} :: EFSVolumeConfiguration)

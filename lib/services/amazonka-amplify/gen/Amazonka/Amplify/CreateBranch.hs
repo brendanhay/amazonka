@@ -78,7 +78,9 @@ data CreateBranch = CreateBranch'
     enablePerformanceMode :: Prelude.Maybe Prelude.Bool,
     -- | The content Time To Live (TTL) for the website in seconds.
     ttl :: Prelude.Maybe Prelude.Text,
-    -- | The basic authorization credentials for the branch.
+    -- | The basic authorization credentials for the branch. You must
+    -- base64-encode the authorization credentials and provide them in the
+    -- format @user:password@.
     basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The display name for a branch. This is used as the default domain
     -- prefix.
@@ -103,7 +105,7 @@ data CreateBranch = CreateBranch'
     -- | The framework for the branch.
     framework :: Prelude.Maybe Prelude.Text,
     -- | The build specification (build spec) for the branch.
-    buildSpec :: Prelude.Maybe Prelude.Text,
+    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Enables pull request previews for this branch.
     enablePullRequestPreview :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID for an Amplify app.
@@ -132,7 +134,9 @@ data CreateBranch = CreateBranch'
 --
 -- 'ttl', 'createBranch_ttl' - The content Time To Live (TTL) for the website in seconds.
 --
--- 'basicAuthCredentials', 'createBranch_basicAuthCredentials' - The basic authorization credentials for the branch.
+-- 'basicAuthCredentials', 'createBranch_basicAuthCredentials' - The basic authorization credentials for the branch. You must
+-- base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
 --
 -- 'displayName', 'createBranch_displayName' - The display name for a branch. This is used as the default domain
 -- prefix.
@@ -208,7 +212,9 @@ createBranch_enablePerformanceMode = Lens.lens (\CreateBranch' {enablePerformanc
 createBranch_ttl :: Lens.Lens' CreateBranch (Prelude.Maybe Prelude.Text)
 createBranch_ttl = Lens.lens (\CreateBranch' {ttl} -> ttl) (\s@CreateBranch' {} a -> s {ttl = a} :: CreateBranch)
 
--- | The basic authorization credentials for the branch.
+-- | The basic authorization credentials for the branch. You must
+-- base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
 createBranch_basicAuthCredentials :: Lens.Lens' CreateBranch (Prelude.Maybe Prelude.Text)
 createBranch_basicAuthCredentials = Lens.lens (\CreateBranch' {basicAuthCredentials} -> basicAuthCredentials) (\s@CreateBranch' {} a -> s {basicAuthCredentials = a} :: CreateBranch) Prelude.. Lens.mapping Core._Sensitive
 
@@ -256,7 +262,7 @@ createBranch_framework = Lens.lens (\CreateBranch' {framework} -> framework) (\s
 
 -- | The build specification (build spec) for the branch.
 createBranch_buildSpec :: Lens.Lens' CreateBranch (Prelude.Maybe Prelude.Text)
-createBranch_buildSpec = Lens.lens (\CreateBranch' {buildSpec} -> buildSpec) (\s@CreateBranch' {} a -> s {buildSpec = a} :: CreateBranch)
+createBranch_buildSpec = Lens.lens (\CreateBranch' {buildSpec} -> buildSpec) (\s@CreateBranch' {} a -> s {buildSpec = a} :: CreateBranch) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Enables pull request previews for this branch.
 createBranch_enablePullRequestPreview :: Lens.Lens' CreateBranch (Prelude.Maybe Prelude.Bool)

@@ -288,6 +288,9 @@ module Amazonka.Amplify
     -- ** Platform
     Platform (..),
 
+    -- ** RepositoryCloneMethod
+    RepositoryCloneMethod (..),
+
     -- ** Stage
     Stage (..),
 

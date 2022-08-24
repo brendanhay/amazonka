@@ -53,6 +53,7 @@ haskell_library(
         "gen/Amazonka/Amplify/Types/JobType.hs",
         "gen/Amazonka/Amplify/Types/Platform.hs",
         "gen/Amazonka/Amplify/Types/ProductionBranch.hs",
+        "gen/Amazonka/Amplify/Types/RepositoryCloneMethod.hs",
         "gen/Amazonka/Amplify/Types/Stage.hs",
         "gen/Amazonka/Amplify/Types/Step.hs",
         "gen/Amazonka/Amplify/Types/SubDomain.hs",

@@ -92,6 +92,7 @@ library
     Amazonka.Amplify.Types.JobType
     Amazonka.Amplify.Types.Platform
     Amazonka.Amplify.Types.ProductionBranch
+    Amazonka.Amplify.Types.RepositoryCloneMethod
     Amazonka.Amplify.Types.Stage
     Amazonka.Amplify.Types.Step
     Amazonka.Amplify.Types.SubDomain

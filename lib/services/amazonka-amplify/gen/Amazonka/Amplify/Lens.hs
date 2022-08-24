@@ -323,12 +323,12 @@ module Amazonka.Amplify.Lens
     updateBranchResponse_branch,
 
     -- ** UpdateDomainAssociation
+    updateDomainAssociation_subDomainSettings,
     updateDomainAssociation_autoSubDomainIAMRole,
     updateDomainAssociation_autoSubDomainCreationPatterns,
     updateDomainAssociation_enableAutoSubDomain,
     updateDomainAssociation_appId,
     updateDomainAssociation_domainName,
-    updateDomainAssociation_subDomainSettings,
     updateDomainAssociationResponse_httpStatus,
     updateDomainAssociationResponse_domainAssociation,
 
@@ -343,6 +343,7 @@ module Amazonka.Amplify.Lens
 
     -- ** App
     app_tags,
+    app_repositoryCloneMethod,
     app_iamServiceRoleArn,
     app_autoBranchCreationPatterns,
     app_customHeaders,

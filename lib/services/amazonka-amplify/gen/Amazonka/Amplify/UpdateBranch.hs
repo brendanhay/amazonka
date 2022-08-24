@@ -75,7 +75,9 @@ data UpdateBranch = UpdateBranch'
     enablePerformanceMode :: Prelude.Maybe Prelude.Bool,
     -- | The content Time to Live (TTL) for the website in seconds.
     ttl :: Prelude.Maybe Prelude.Text,
-    -- | The basic authorization credentials for the branch.
+    -- | The basic authorization credentials for the branch. You must
+    -- base64-encode the authorization credentials and provide them in the
+    -- format @user:password@.
     basicAuthCredentials :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The display name for a branch. This is used as the default domain
     -- prefix.
@@ -100,7 +102,7 @@ data UpdateBranch = UpdateBranch'
     -- | The framework for the branch.
     framework :: Prelude.Maybe Prelude.Text,
     -- | The build specification (build spec) for the branch.
-    buildSpec :: Prelude.Maybe Prelude.Text,
+    buildSpec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Enables pull request previews for this branch.
     enablePullRequestPreview :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID for an Amplify app.
@@ -127,7 +129,9 @@ data UpdateBranch = UpdateBranch'
 --
 -- 'ttl', 'updateBranch_ttl' - The content Time to Live (TTL) for the website in seconds.
 --
--- 'basicAuthCredentials', 'updateBranch_basicAuthCredentials' - The basic authorization credentials for the branch.
+-- 'basicAuthCredentials', 'updateBranch_basicAuthCredentials' - The basic authorization credentials for the branch. You must
+-- base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
 --
 -- 'displayName', 'updateBranch_displayName' - The display name for a branch. This is used as the default domain
 -- prefix.
@@ -199,7 +203,9 @@ updateBranch_enablePerformanceMode = Lens.lens (\UpdateBranch' {enablePerformanc
 updateBranch_ttl :: Lens.Lens' UpdateBranch (Prelude.Maybe Prelude.Text)
 updateBranch_ttl = Lens.lens (\UpdateBranch' {ttl} -> ttl) (\s@UpdateBranch' {} a -> s {ttl = a} :: UpdateBranch)
 
--- | The basic authorization credentials for the branch.
+-- | The basic authorization credentials for the branch. You must
+-- base64-encode the authorization credentials and provide them in the
+-- format @user:password@.
 updateBranch_basicAuthCredentials :: Lens.Lens' UpdateBranch (Prelude.Maybe Prelude.Text)
 updateBranch_basicAuthCredentials = Lens.lens (\UpdateBranch' {basicAuthCredentials} -> basicAuthCredentials) (\s@UpdateBranch' {} a -> s {basicAuthCredentials = a} :: UpdateBranch) Prelude.. Lens.mapping Core._Sensitive
 
@@ -247,7 +253,7 @@ updateBranch_framework = Lens.lens (\UpdateBranch' {framework} -> framework) (\s
 
 -- | The build specification (build spec) for the branch.
 updateBranch_buildSpec :: Lens.Lens' UpdateBranch (Prelude.Maybe Prelude.Text)
-updateBranch_buildSpec = Lens.lens (\UpdateBranch' {buildSpec} -> buildSpec) (\s@UpdateBranch' {} a -> s {buildSpec = a} :: UpdateBranch)
+updateBranch_buildSpec = Lens.lens (\UpdateBranch' {buildSpec} -> buildSpec) (\s@UpdateBranch' {} a -> s {buildSpec = a} :: UpdateBranch) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Enables pull request previews for this branch.
 updateBranch_enablePullRequestPreview :: Lens.Lens' UpdateBranch (Prelude.Maybe Prelude.Bool)

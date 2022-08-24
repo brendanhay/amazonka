@@ -37,6 +37,9 @@ module Amazonka.Amplify.Types
     -- * Platform
     Platform (..),
 
+    -- * RepositoryCloneMethod
+    RepositoryCloneMethod (..),
+
     -- * Stage
     Stage (..),
 
@@ -44,6 +47,7 @@ module Amazonka.Amplify.Types
     App (..),
     newApp,
     app_tags,
+    app_repositoryCloneMethod,
     app_iamServiceRoleArn,
     app_autoBranchCreationPatterns,
     app_customHeaders,
@@ -231,6 +235,7 @@ import Amazonka.Amplify.Types.JobSummary
 import Amazonka.Amplify.Types.JobType
 import Amazonka.Amplify.Types.Platform
 import Amazonka.Amplify.Types.ProductionBranch
+import Amazonka.Amplify.Types.RepositoryCloneMethod
 import Amazonka.Amplify.Types.Stage
 import Amazonka.Amplify.Types.Step
 import Amazonka.Amplify.Types.SubDomain

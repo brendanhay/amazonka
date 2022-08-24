@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Amplify.Types.Platform
+-- Module      : Amazonka.Amplify.Types.RepositoryCloneMethod
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Amplify.Types.Platform
-  ( Platform
+module Amazonka.Amplify.Types.RepositoryCloneMethod
+  ( RepositoryCloneMethod
       ( ..,
-        Platform_WEB,
-        Platform_WEB_DYNAMIC
+        RepositoryCloneMethod_SIGV4,
+        RepositoryCloneMethod_SSH,
+        RepositoryCloneMethod_TOKEN
       ),
   )
 where
@@ -29,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype Platform = Platform'
-  { fromPlatform ::
+newtype RepositoryCloneMethod = RepositoryCloneMethod'
+  { fromRepositoryCloneMethod ::
       Core.Text
   }
   deriving stock
@@ -57,14 +58,18 @@ newtype Platform = Platform'
       Core.ToXML
     )
 
-pattern Platform_WEB :: Platform
-pattern Platform_WEB = Platform' "WEB"
+pattern RepositoryCloneMethod_SIGV4 :: RepositoryCloneMethod
+pattern RepositoryCloneMethod_SIGV4 = RepositoryCloneMethod' "SIGV4"
 
-pattern Platform_WEB_DYNAMIC :: Platform
-pattern Platform_WEB_DYNAMIC = Platform' "WEB_DYNAMIC"
+pattern RepositoryCloneMethod_SSH :: RepositoryCloneMethod
+pattern RepositoryCloneMethod_SSH = RepositoryCloneMethod' "SSH"
+
+pattern RepositoryCloneMethod_TOKEN :: RepositoryCloneMethod
+pattern RepositoryCloneMethod_TOKEN = RepositoryCloneMethod' "TOKEN"
 
 {-# COMPLETE
-  Platform_WEB,
-  Platform_WEB_DYNAMIC,
-  Platform'
+  RepositoryCloneMethod_SIGV4,
+  RepositoryCloneMethod_SSH,
+  RepositoryCloneMethod_TOKEN,
+  RepositoryCloneMethod'
   #-}

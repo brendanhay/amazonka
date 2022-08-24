@@ -31,7 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEventAccountFilter' smart constructor.
 data EventAccountFilter = EventAccountFilter'
-  { -- | The 12-digit AWS account numbers that contains the affected entities.
+  { -- | The 12-digit Amazon Web Services account numbers that contains the
+    -- affected entities.
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event. The event ARN has the
     -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
@@ -52,7 +53,8 @@ data EventAccountFilter = EventAccountFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'eventAccountFilter_awsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
+-- 'awsAccountId', 'eventAccountFilter_awsAccountId' - The 12-digit Amazon Web Services account numbers that contains the
+-- affected entities.
 --
 -- 'eventArn', 'eventAccountFilter_eventArn' - The unique identifier for the event. The event ARN has the
 -- @arn:aws:health:event-region::event\/SERVICE\/EVENT_TYPE_CODE\/EVENT_TYPE_PLUS_ID @
@@ -71,7 +73,8 @@ newEventAccountFilter pEventArn_ =
       eventArn = pEventArn_
     }
 
--- | The 12-digit AWS account numbers that contains the affected entities.
+-- | The 12-digit Amazon Web Services account numbers that contains the
+-- affected entities.
 eventAccountFilter_awsAccountId :: Lens.Lens' EventAccountFilter (Prelude.Maybe Prelude.Text)
 eventAccountFilter_awsAccountId = Lens.lens (\EventAccountFilter' {awsAccountId} -> awsAccountId) (\s@EventAccountFilter' {} a -> s {awsAccountId = a} :: EventAccountFilter)
 

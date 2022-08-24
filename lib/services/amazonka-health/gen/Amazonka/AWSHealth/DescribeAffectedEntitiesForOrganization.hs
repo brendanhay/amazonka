@@ -21,17 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of entities that have been affected by one or more events
--- for one or more accounts in your organization in AWS Organizations,
--- based on the filter criteria. Entities can refer to individual customer
+-- for one or more accounts in your organization in Organizations, based on
+-- the filter criteria. Entities can refer to individual customer
 -- resources, groups of customer resources, or any other construct,
--- depending on the AWS service.
+-- depending on the Amazon Web Services service.
 --
 -- At least one event Amazon Resource Name (ARN) and account ID are
--- required. Results are sorted by the @lastUpdatedTime@ of the entity,
--- starting with the most recent.
+-- required.
 --
--- Before you can call this operation, you must first enable AWS Health to
--- work with AWS Organizations. To do this, call the
+-- Before you can call this operation, you must first enable Health to work
+-- with Organizations. To do this, call the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html EnableHealthServiceAccessForOrganization>
 -- operation from your organization\'s management account.
 --
@@ -39,10 +38,10 @@
 --     parameter in the next request to return more results.
 --
 -- -   This operation doesn\'t support resource-level permissions. You
---     can\'t use this operation to allow or deny access to specific AWS
---     Health events. For more information, see
+--     can\'t use this operation to allow or deny access to specific Health
+--     events. For more information, see
 --     <https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions Resource- and action-based conditions>
---     in the /AWS Health User Guide/.
+--     in the /Health User Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.AWSHealth.DescribeAffectedEntitiesForOrganization

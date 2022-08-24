@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of accounts in the organization from AWS Organizations
--- that are affected by the provided event. For more information about the
--- different types of AWS Health events, see
+-- Returns a list of accounts in the organization from Organizations that
+-- are affected by the provided event. For more information about the
+-- different types of Health events, see
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event>.
 --
--- Before you can call this operation, you must first enable AWS Health to
--- work with AWS Organizations. To do this, call the
+-- Before you can call this operation, you must first enable Health to work
+-- with Organizations. To do this, call the
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html EnableHealthServiceAccessForOrganization>
 -- operation from your organization\'s management account.
 --
@@ -261,17 +261,18 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
     -- request and include the returned token. When all results have been
     -- returned, the response does not contain a pagination token value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | This parameter specifies if the AWS Health event is a public AWS service
-    -- event or an account-specific event.
+    -- | This parameter specifies if the Health event is a public Amazon Web
+    -- Services service event or an account-specific event.
     --
     -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
     --     @affectedAccounts@ value is always empty.
     --
     -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
-    --     @affectedAccounts@ value lists the affected AWS accounts in your
-    --     organization. For example, if an event affects a service such as
-    --     Amazon Elastic Compute Cloud and you have AWS accounts that use that
-    --     service, those account IDs appear in the response.
+    --     @affectedAccounts@ value lists the affected Amazon Web Services
+    --     accounts in your organization. For example, if an event affects a
+    --     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+    --     Services accounts that use that service, those account IDs appear in
+    --     the response.
     --
     -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
     --     you specified in the request is invalid or doesn\'t exist.
@@ -297,17 +298,18 @@ data DescribeAffectedAccountsForOrganizationResponse = DescribeAffectedAccountsF
 -- request and include the returned token. When all results have been
 -- returned, the response does not contain a pagination token value.
 --
--- 'eventScopeCode', 'describeAffectedAccountsForOrganizationResponse_eventScopeCode' - This parameter specifies if the AWS Health event is a public AWS service
--- event or an account-specific event.
+-- 'eventScopeCode', 'describeAffectedAccountsForOrganizationResponse_eventScopeCode' - This parameter specifies if the Health event is a public Amazon Web
+-- Services service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
 --
 -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
---     @affectedAccounts@ value lists the affected AWS accounts in your
---     organization. For example, if an event affects a service such as
---     Amazon Elastic Compute Cloud and you have AWS accounts that use that
---     service, those account IDs appear in the response.
+--     @affectedAccounts@ value lists the affected Amazon Web Services
+--     accounts in your organization. For example, if an event affects a
+--     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+--     Services accounts that use that service, those account IDs appear in
+--     the response.
 --
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
@@ -339,17 +341,18 @@ newDescribeAffectedAccountsForOrganizationResponse
 describeAffectedAccountsForOrganizationResponse_nextToken :: Lens.Lens' DescribeAffectedAccountsForOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeAffectedAccountsForOrganizationResponse_nextToken = Lens.lens (\DescribeAffectedAccountsForOrganizationResponse' {nextToken} -> nextToken) (\s@DescribeAffectedAccountsForOrganizationResponse' {} a -> s {nextToken = a} :: DescribeAffectedAccountsForOrganizationResponse)
 
--- | This parameter specifies if the AWS Health event is a public AWS service
--- event or an account-specific event.
+-- | This parameter specifies if the Health event is a public Amazon Web
+-- Services service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
 --
 -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
---     @affectedAccounts@ value lists the affected AWS accounts in your
---     organization. For example, if an event affects a service such as
---     Amazon Elastic Compute Cloud and you have AWS accounts that use that
---     service, those account IDs appear in the response.
+--     @affectedAccounts@ value lists the affected Amazon Web Services
+--     accounts in your organization. For example, if an event affects a
+--     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+--     Services accounts that use that service, those account IDs appear in
+--     the response.
 --
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.

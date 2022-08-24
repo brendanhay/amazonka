@@ -33,13 +33,13 @@
 -- are sorted by @lastModifiedTime@, starting with the most recent event.
 --
 -- -   When you call the @DescribeEvents@ operation and specify an entity
---     for the @entityValues@ parameter, AWS Health might return public
---     events that aren\'t specific to that resource. For example, if you
---     call @DescribeEvents@ and specify an ID for an Amazon Elastic
---     Compute Cloud (Amazon EC2) instance, AWS Health might return events
---     that aren\'t specific to that resource or service. To get events
---     that are specific to a service, use the @services@ parameter in the
---     @filter@ object. For more information, see
+--     for the @entityValues@ parameter, Health might return public events
+--     that aren\'t specific to that resource. For example, if you call
+--     @DescribeEvents@ and specify an ID for an Amazon Elastic Compute
+--     Cloud (Amazon EC2) instance, Health might return events that aren\'t
+--     specific to that resource or service. To get events that are
+--     specific to a service, use the @services@ parameter in the @filter@
+--     object. For more information, see
 --     <https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html Event>.
 --
 -- -   This API operation uses pagination. Specify the @nextToken@

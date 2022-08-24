@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns detailed information about one or more specified events.
--- Information includes standard event data (AWS Region, service, and so
--- on, as returned by
+-- Information includes standard event data (Amazon Web Services Region,
+-- service, and so on, as returned by
 -- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEvents.html DescribeEvents>),
 -- a detailed event description, and possible additional metadata that
 -- depends upon the nature of the event. Affected entities are not
@@ -34,10 +34,10 @@
 -- for that event.
 --
 -- This operation supports resource-level permissions. You can use this
--- operation to allow or deny access to specific AWS Health events. For
--- more information, see
+-- operation to allow or deny access to specific Health events. For more
+-- information, see
 -- <https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html#resource-action-based-conditions Resource- and action-based conditions>
--- in the /AWS Health User Guide/.
+-- in the /Health User Guide/.
 module Amazonka.AWSHealth.DescribeEventDetails
   ( -- * Creating a Request
     DescribeEventDetails (..),

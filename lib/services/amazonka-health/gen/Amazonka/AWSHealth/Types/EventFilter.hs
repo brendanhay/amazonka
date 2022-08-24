@@ -45,11 +45,12 @@ data EventFilter = EventFilter'
     -- | A list of event ARNs (unique identifiers). For example:
     -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
     eventArns :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of AWS Regions.
+    -- | A list of Amazon Web Services Regions.
     regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of AWS Availability Zones.
+    -- | A list of Amazon Web Services Availability Zones.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
-    -- | The AWS services associated with the event. For example, @EC2@, @RDS@.
+    -- | The Amazon Web Services services associated with the event. For example,
+    -- @EC2@, @RDS@.
     services :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A list of event status codes.
     eventStatusCodes :: Prelude.Maybe (Prelude.NonEmpty EventStatusCode),
@@ -63,8 +64,9 @@ data EventFilter = EventFilter'
     -- | A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@) or
     -- EBS volumes (@vol-426ab23e@).
     entityValues :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | A list of event type category codes (@issue@, @scheduledChange@, or
-    -- @accountNotification@).
+    -- | A list of event type category codes. Possible values are @issue@,
+    -- @accountNotification@, or @scheduledChange@. Currently, the
+    -- @investigation@ value isn\'t supported at this time.
     eventTypeCategories :: Prelude.Maybe (Prelude.NonEmpty EventTypeCategory)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,11 +90,12 @@ data EventFilter = EventFilter'
 -- 'eventArns', 'eventFilter_eventArns' - A list of event ARNs (unique identifiers). For example:
 -- @\"arn:aws:health:us-east-1::event\/EC2\/EC2_INSTANCE_RETIREMENT_SCHEDULED\/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event\/EBS\/AWS_EBS_LOST_VOLUME\/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"@
 --
--- 'regions', 'eventFilter_regions' - A list of AWS Regions.
+-- 'regions', 'eventFilter_regions' - A list of Amazon Web Services Regions.
 --
--- 'availabilityZones', 'eventFilter_availabilityZones' - A list of AWS Availability Zones.
+-- 'availabilityZones', 'eventFilter_availabilityZones' - A list of Amazon Web Services Availability Zones.
 --
--- 'services', 'eventFilter_services' - The AWS services associated with the event. For example, @EC2@, @RDS@.
+-- 'services', 'eventFilter_services' - The Amazon Web Services services associated with the event. For example,
+-- @EC2@, @RDS@.
 --
 -- 'eventStatusCodes', 'eventFilter_eventStatusCodes' - A list of event status codes.
 --
@@ -106,8 +109,9 @@ data EventFilter = EventFilter'
 -- 'entityValues', 'eventFilter_entityValues' - A list of entity identifiers, such as EC2 instance IDs (@i-34ab692e@) or
 -- EBS volumes (@vol-426ab23e@).
 --
--- 'eventTypeCategories', 'eventFilter_eventTypeCategories' - A list of event type category codes (@issue@, @scheduledChange@, or
--- @accountNotification@).
+-- 'eventTypeCategories', 'eventFilter_eventTypeCategories' - A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
 newEventFilter ::
   EventFilter
 newEventFilter =
@@ -146,15 +150,16 @@ eventFilter_entityArns = Lens.lens (\EventFilter' {entityArns} -> entityArns) (\
 eventFilter_eventArns :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventFilter_eventArns = Lens.lens (\EventFilter' {eventArns} -> eventArns) (\s@EventFilter' {} a -> s {eventArns = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of AWS Regions.
+-- | A list of Amazon Web Services Regions.
 eventFilter_regions :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventFilter_regions = Lens.lens (\EventFilter' {regions} -> regions) (\s@EventFilter' {} a -> s {regions = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of AWS Availability Zones.
+-- | A list of Amazon Web Services Availability Zones.
 eventFilter_availabilityZones :: Lens.Lens' EventFilter (Prelude.Maybe [Prelude.Text])
 eventFilter_availabilityZones = Lens.lens (\EventFilter' {availabilityZones} -> availabilityZones) (\s@EventFilter' {} a -> s {availabilityZones = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | The AWS services associated with the event. For example, @EC2@, @RDS@.
+-- | The Amazon Web Services services associated with the event. For example,
+-- @EC2@, @RDS@.
 eventFilter_services :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventFilter_services = Lens.lens (\EventFilter' {services} -> services) (\s@EventFilter' {} a -> s {services = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 
@@ -180,8 +185,9 @@ eventFilter_lastUpdatedTimes = Lens.lens (\EventFilter' {lastUpdatedTimes} -> la
 eventFilter_entityValues :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 eventFilter_entityValues = Lens.lens (\EventFilter' {entityValues} -> entityValues) (\s@EventFilter' {} a -> s {entityValues = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of event type category codes (@issue@, @scheduledChange@, or
--- @accountNotification@).
+-- | A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
 eventFilter_eventTypeCategories :: Lens.Lens' EventFilter (Prelude.Maybe (Prelude.NonEmpty EventTypeCategory))
 eventFilter_eventTypeCategories = Lens.lens (\EventFilter' {eventTypeCategories} -> eventTypeCategories) (\s@EventFilter' {} a -> s {eventTypeCategories = a} :: EventFilter) Prelude.. Lens.mapping Lens.coerced
 

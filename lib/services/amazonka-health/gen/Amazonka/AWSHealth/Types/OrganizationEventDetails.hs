@@ -35,7 +35,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationEventDetails' smart constructor.
 data OrganizationEventDetails = OrganizationEventDetails'
-  { -- | The 12-digit AWS account numbers that contains the affected entities.
+  { -- | The 12-digit Amazon Web Services account numbers that contains the
+    -- affected entities.
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Additional metadata about the event.
     eventMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -52,7 +53,8 @@ data OrganizationEventDetails = OrganizationEventDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'organizationEventDetails_awsAccountId' - The 12-digit AWS account numbers that contains the affected entities.
+-- 'awsAccountId', 'organizationEventDetails_awsAccountId' - The 12-digit Amazon Web Services account numbers that contains the
+-- affected entities.
 --
 -- 'eventMetadata', 'organizationEventDetails_eventMetadata' - Additional metadata about the event.
 --
@@ -70,7 +72,8 @@ newOrganizationEventDetails =
       eventDescription = Prelude.Nothing
     }
 
--- | The 12-digit AWS account numbers that contains the affected entities.
+-- | The 12-digit Amazon Web Services account numbers that contains the
+-- affected entities.
 organizationEventDetails_awsAccountId :: Lens.Lens' OrganizationEventDetails (Prelude.Maybe Prelude.Text)
 organizationEventDetails_awsAccountId = Lens.lens (\OrganizationEventDetails' {awsAccountId} -> awsAccountId) (\s@OrganizationEventDetails' {} a -> s {awsAccountId = a} :: OrganizationEventDetails)
 

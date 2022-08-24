@@ -28,7 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAffectedEntity' smart constructor.
 data AffectedEntity = AffectedEntity'
-  { -- | The 12-digit AWS account number that contains the affected entity.
+  { -- | The 12-digit Amazon Web Services account number that contains the
+    -- affected entity.
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | A map of entity tags attached to the affected entity.
     --
@@ -66,7 +67,8 @@ data AffectedEntity = AffectedEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'affectedEntity_awsAccountId' - The 12-digit AWS account number that contains the affected entity.
+-- 'awsAccountId', 'affectedEntity_awsAccountId' - The 12-digit Amazon Web Services account number that contains the
+-- affected entity.
 --
 -- 'tags', 'affectedEntity_tags' - A map of entity tags attached to the affected entity.
 --
@@ -106,7 +108,8 @@ newAffectedEntity =
       entityArn = Prelude.Nothing
     }
 
--- | The 12-digit AWS account number that contains the affected entity.
+-- | The 12-digit Amazon Web Services account number that contains the
+-- affected entity.
 affectedEntity_awsAccountId :: Lens.Lens' AffectedEntity (Prelude.Maybe Prelude.Text)
 affectedEntity_awsAccountId = Lens.lens (\AffectedEntity' {awsAccountId} -> awsAccountId) (\s@AffectedEntity' {} a -> s {awsAccountId = a} :: AffectedEntity)
 

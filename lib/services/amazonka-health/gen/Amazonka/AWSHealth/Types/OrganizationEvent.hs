@@ -44,30 +44,34 @@ data OrganizationEvent = OrganizationEvent'
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
     -- | The date and time that the event ended.
     endTime :: Prelude.Maybe Core.POSIX,
-    -- | The AWS service that is affected by the event, such as EC2 and RDS.
+    -- | The Amazon Web Services service that is affected by the event, such as
+    -- EC2 and RDS.
     service :: Prelude.Maybe Prelude.Text,
-    -- | This parameter specifies if the AWS Health event is a public AWS service
-    -- event or an account-specific event.
+    -- | This parameter specifies if the Health event is a public Amazon Web
+    -- Services service event or an account-specific event.
     --
     -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
     --     @affectedAccounts@ value is always empty.
     --
     -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
-    --     @affectedAccounts@ value lists the affected AWS accounts in your
-    --     organization. For example, if an event affects a service such as
-    --     Amazon Elastic Compute Cloud and you have AWS accounts that use that
-    --     service, those account IDs appear in the response.
+    --     @affectedAccounts@ value lists the affected Amazon Web Services
+    --     accounts in your organization. For example, if an event affects a
+    --     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+    --     Services accounts that use that service, those account IDs appear in
+    --     the response.
     --
     -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
     --     you specified in the request is invalid or doesn\'t exist.
     eventScopeCode :: Prelude.Maybe EventScopeCode,
-    -- | The AWS Region name of the event.
+    -- | The Amazon Web Services Region name of the event.
     region :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the event type. The format is
     -- @AWS_SERVICE_DESCRIPTION@. For example,
     -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
     eventTypeCode :: Prelude.Maybe Prelude.Text,
-    -- | The category of the event type.
+    -- | A list of event type category codes. Possible values are @issue@,
+    -- @accountNotification@, or @scheduledChange@. Currently, the
+    -- @investigation@ value isn\'t supported at this time.
     eventTypeCategory :: Prelude.Maybe EventTypeCategory,
     -- | The most recent status of the event. Possible values are @open@,
     -- @closed@, and @upcoming@.
@@ -97,30 +101,34 @@ data OrganizationEvent = OrganizationEvent'
 --
 -- 'endTime', 'organizationEvent_endTime' - The date and time that the event ended.
 --
--- 'service', 'organizationEvent_service' - The AWS service that is affected by the event, such as EC2 and RDS.
+-- 'service', 'organizationEvent_service' - The Amazon Web Services service that is affected by the event, such as
+-- EC2 and RDS.
 --
--- 'eventScopeCode', 'organizationEvent_eventScopeCode' - This parameter specifies if the AWS Health event is a public AWS service
--- event or an account-specific event.
+-- 'eventScopeCode', 'organizationEvent_eventScopeCode' - This parameter specifies if the Health event is a public Amazon Web
+-- Services service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
 --
 -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
---     @affectedAccounts@ value lists the affected AWS accounts in your
---     organization. For example, if an event affects a service such as
---     Amazon Elastic Compute Cloud and you have AWS accounts that use that
---     service, those account IDs appear in the response.
+--     @affectedAccounts@ value lists the affected Amazon Web Services
+--     accounts in your organization. For example, if an event affects a
+--     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+--     Services accounts that use that service, those account IDs appear in
+--     the response.
 --
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
 --
--- 'region', 'organizationEvent_region' - The AWS Region name of the event.
+-- 'region', 'organizationEvent_region' - The Amazon Web Services Region name of the event.
 --
 -- 'eventTypeCode', 'organizationEvent_eventTypeCode' - The unique identifier for the event type. The format is
 -- @AWS_SERVICE_DESCRIPTION@. For example,
 -- @AWS_EC2_SYSTEM_MAINTENANCE_EVENT@.
 --
--- 'eventTypeCategory', 'organizationEvent_eventTypeCategory' - The category of the event type.
+-- 'eventTypeCategory', 'organizationEvent_eventTypeCategory' - A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
 --
 -- 'statusCode', 'organizationEvent_statusCode' - The most recent status of the event. Possible values are @open@,
 -- @closed@, and @upcoming@.
@@ -160,28 +168,30 @@ organizationEvent_lastUpdatedTime = Lens.lens (\OrganizationEvent' {lastUpdatedT
 organizationEvent_endTime :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.UTCTime)
 organizationEvent_endTime = Lens.lens (\OrganizationEvent' {endTime} -> endTime) (\s@OrganizationEvent' {} a -> s {endTime = a} :: OrganizationEvent) Prelude.. Lens.mapping Core._Time
 
--- | The AWS service that is affected by the event, such as EC2 and RDS.
+-- | The Amazon Web Services service that is affected by the event, such as
+-- EC2 and RDS.
 organizationEvent_service :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.Text)
 organizationEvent_service = Lens.lens (\OrganizationEvent' {service} -> service) (\s@OrganizationEvent' {} a -> s {service = a} :: OrganizationEvent)
 
--- | This parameter specifies if the AWS Health event is a public AWS service
--- event or an account-specific event.
+-- | This parameter specifies if the Health event is a public Amazon Web
+-- Services service event or an account-specific event.
 --
 -- -   If the @eventScopeCode@ value is @PUBLIC@, then the
 --     @affectedAccounts@ value is always empty.
 --
 -- -   If the @eventScopeCode@ value is @ACCOUNT_SPECIFIC@, then the
---     @affectedAccounts@ value lists the affected AWS accounts in your
---     organization. For example, if an event affects a service such as
---     Amazon Elastic Compute Cloud and you have AWS accounts that use that
---     service, those account IDs appear in the response.
+--     @affectedAccounts@ value lists the affected Amazon Web Services
+--     accounts in your organization. For example, if an event affects a
+--     service such as Amazon Elastic Compute Cloud and you have Amazon Web
+--     Services accounts that use that service, those account IDs appear in
+--     the response.
 --
 -- -   If the @eventScopeCode@ value is @NONE@, then the @eventArn@ that
 --     you specified in the request is invalid or doesn\'t exist.
 organizationEvent_eventScopeCode :: Lens.Lens' OrganizationEvent (Prelude.Maybe EventScopeCode)
 organizationEvent_eventScopeCode = Lens.lens (\OrganizationEvent' {eventScopeCode} -> eventScopeCode) (\s@OrganizationEvent' {} a -> s {eventScopeCode = a} :: OrganizationEvent)
 
--- | The AWS Region name of the event.
+-- | The Amazon Web Services Region name of the event.
 organizationEvent_region :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.Text)
 organizationEvent_region = Lens.lens (\OrganizationEvent' {region} -> region) (\s@OrganizationEvent' {} a -> s {region = a} :: OrganizationEvent)
 
@@ -191,7 +201,9 @@ organizationEvent_region = Lens.lens (\OrganizationEvent' {region} -> region) (\
 organizationEvent_eventTypeCode :: Lens.Lens' OrganizationEvent (Prelude.Maybe Prelude.Text)
 organizationEvent_eventTypeCode = Lens.lens (\OrganizationEvent' {eventTypeCode} -> eventTypeCode) (\s@OrganizationEvent' {} a -> s {eventTypeCode = a} :: OrganizationEvent)
 
--- | The category of the event type.
+-- | A list of event type category codes. Possible values are @issue@,
+-- @accountNotification@, or @scheduledChange@. Currently, the
+-- @investigation@ value isn\'t supported at this time.
 organizationEvent_eventTypeCategory :: Lens.Lens' OrganizationEvent (Prelude.Maybe EventTypeCategory)
 organizationEvent_eventTypeCategory = Lens.lens (\OrganizationEvent' {eventTypeCategory} -> eventTypeCategory) (\s@OrganizationEvent' {} a -> s {eventTypeCategory = a} :: OrganizationEvent)
 

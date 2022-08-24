@@ -346,7 +346,8 @@ _InvalidSequenceTokenException =
     defaultService
     "InvalidSequenceTokenException"
 
--- | Multiple requests to update the same resource were in conflict.
+-- | Multiple concurrent requests to update the same resource were in
+-- conflict.
 _OperationAbortedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OperationAbortedException =
   Core._MatchServiceError

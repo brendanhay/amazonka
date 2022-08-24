@@ -212,6 +212,7 @@ module Amazonka.CloudWatchLogs.Lens
     putDestinationResponse_httpStatus,
 
     -- ** PutDestinationPolicy
+    putDestinationPolicy_forceUpdate,
     putDestinationPolicy_destinationName,
     putDestinationPolicy_accessPolicy,
 

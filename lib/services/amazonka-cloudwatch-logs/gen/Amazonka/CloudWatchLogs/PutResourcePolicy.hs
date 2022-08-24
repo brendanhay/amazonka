@@ -70,7 +70,7 @@ data PutResourcePolicy = PutResourcePolicy'
     -- condition context keys.
     --
     -- In the example resource policy, you would replace the value of
-    -- @SourceArn@ with the resource making the call from Route 53 to
+    -- @SourceArn@ with the resource making the call from Route 53 to
     -- CloudWatch Logs and replace the value of @SourceAccount@ with the Amazon
     -- Web Services account ID making that call.
     --
@@ -105,7 +105,7 @@ data PutResourcePolicy = PutResourcePolicy'
 -- condition context keys.
 --
 -- In the example resource policy, you would replace the value of
--- @SourceArn@ with the resource making the call from Route 53 to
+-- @SourceArn@ with the resource making the call from Route 53 to
 -- CloudWatch Logs and replace the value of @SourceAccount@ with the Amazon
 -- Web Services account ID making that call.
 --
@@ -138,7 +138,7 @@ putResourcePolicy_policyName = Lens.lens (\PutResourcePolicy' {policyName} -> po
 -- condition context keys.
 --
 -- In the example resource policy, you would replace the value of
--- @SourceArn@ with the resource making the call from Route 53 to
+-- @SourceArn@ with the resource making the call from Route 53 to
 -- CloudWatch Logs and replace the value of @SourceAccount@ with the Amazon
 -- Web Services account ID making that call.
 --

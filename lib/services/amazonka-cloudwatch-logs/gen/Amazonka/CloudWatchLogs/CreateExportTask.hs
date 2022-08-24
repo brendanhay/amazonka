@@ -26,6 +26,12 @@
 -- permission to write to the S3 bucket that you specify as the
 -- destination.
 --
+-- Exporting log data to Amazon S3 buckets that are encrypted by KMS is not
+-- supported. Exporting log data to Amazon S3 buckets that have S3 Object
+-- Lock enabled with a retention period is not supported.
+--
+-- Exporting to S3 buckets that are encrypted with AES-256 is supported.
+--
 -- This is an asynchronous call. If all the required information is
 -- provided, this operation initiates an export task and responds with the
 -- ID of the task. After the task has started, you can use
@@ -40,8 +46,9 @@
 -- can specify a prefix to be used as the Amazon S3 key prefix for all
 -- exported objects.
 --
--- Exporting to S3 buckets that are encrypted with AES-256 is supported.
--- Exporting to S3 buckets encrypted with SSE-KMS is not supported.
+-- Time-based sorting on chunks of log data inside an exported file is not
+-- guaranteed. You can sort the exported log fild data by using Linux
+-- utilities.
 module Amazonka.CloudWatchLogs.CreateExportTask
   ( -- * Creating a Request
     CreateExportTask (..),
@@ -89,9 +96,9 @@ data CreateExportTask = CreateExportTask'
     -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
     -- earlier than this time are not exported.
     from :: Prelude.Natural,
-    -- | The end time of the range for the request, expreswatchlogsdocused as the
-    -- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a
-    -- timestamp later than this time are not exported.
+    -- | The end time of the range for the request, expressed as the number of
+    -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+    -- later than this time are not exported.
     to :: Prelude.Natural,
     -- | The name of S3 bucket for the exported log data. The bucket must be in
     -- the same Amazon Web Services region.
@@ -121,9 +128,9 @@ data CreateExportTask = CreateExportTask'
 -- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
 -- earlier than this time are not exported.
 --
--- 'to', 'createExportTask_to' - The end time of the range for the request, expreswatchlogsdocused as the
--- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a
--- timestamp later than this time are not exported.
+-- 'to', 'createExportTask_to' - The end time of the range for the request, expressed as the number of
+-- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+-- later than this time are not exported.
 --
 -- 'destination', 'createExportTask_destination' - The name of S3 bucket for the exported log data. The bucket must be in
 -- the same Amazon Web Services region.
@@ -177,9 +184,9 @@ createExportTask_logGroupName = Lens.lens (\CreateExportTask' {logGroupName} -> 
 createExportTask_from :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_from = Lens.lens (\CreateExportTask' {from} -> from) (\s@CreateExportTask' {} a -> s {from = a} :: CreateExportTask)
 
--- | The end time of the range for the request, expreswatchlogsdocused as the
--- number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a
--- timestamp later than this time are not exported.
+-- | The end time of the range for the request, expressed as the number of
+-- milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp
+-- later than this time are not exported.
 createExportTask_to :: Lens.Lens' CreateExportTask Prelude.Natural
 createExportTask_to = Lens.lens (\CreateExportTask' {to} -> to) (\s@CreateExportTask' {} a -> s {to = a} :: CreateExportTask)
 

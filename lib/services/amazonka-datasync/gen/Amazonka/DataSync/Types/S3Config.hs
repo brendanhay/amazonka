@@ -24,17 +24,14 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon Resource Name (ARN) of the Identity and Access Management
--- (IAM) role that is used to access an Amazon S3 bucket.
+-- (IAM) role used to access an Amazon S3 bucket.
 --
 -- For detailed information about using such a role, see Creating a
 -- Location for Amazon S3 in the /DataSync User Guide/.
 --
 -- /See:/ 'newS3Config' smart constructor.
 data S3Config = S3Config'
-  { -- | The Amazon S3 bucket to access. This bucket is used as a parameter in
-    -- the
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html CreateLocationS3>
-    -- operation.
+  { -- | The ARN of the IAM role for accessing the S3 bucket.
     bucketAccessRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,10 +44,7 @@ data S3Config = S3Config'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bucketAccessRoleArn', 's3Config_bucketAccessRoleArn' - The Amazon S3 bucket to access. This bucket is used as a parameter in
--- the
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html CreateLocationS3>
--- operation.
+-- 'bucketAccessRoleArn', 's3Config_bucketAccessRoleArn' - The ARN of the IAM role for accessing the S3 bucket.
 newS3Config ::
   -- | 'bucketAccessRoleArn'
   Prelude.Text ->
@@ -61,10 +55,7 @@ newS3Config pBucketAccessRoleArn_ =
         pBucketAccessRoleArn_
     }
 
--- | The Amazon S3 bucket to access. This bucket is used as a parameter in
--- the
--- <https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateLocationS3.html CreateLocationS3>
--- operation.
+-- | The ARN of the IAM role for accessing the S3 bucket.
 s3Config_bucketAccessRoleArn :: Lens.Lens' S3Config Prelude.Text
 s3Config_bucketAccessRoleArn = Lens.lens (\S3Config' {bucketAccessRoleArn} -> bucketAccessRoleArn) (\s@S3Config' {} a -> s {bucketAccessRoleArn = a} :: S3Config)
 

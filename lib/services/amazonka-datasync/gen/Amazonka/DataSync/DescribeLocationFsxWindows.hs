@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns metadata, such as the path information about an Amazon FSx for
--- Windows File Server location.
+-- Returns metadata about an Amazon FSx for Windows File Server location,
+-- such as information about its path.
 module Amazonka.DataSync.DescribeLocationFsxWindows
   ( -- * Creating a Request
     DescribeLocationFsxWindows (..),

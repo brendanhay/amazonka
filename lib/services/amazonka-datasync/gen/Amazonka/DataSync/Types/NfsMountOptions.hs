@@ -24,30 +24,30 @@ import Amazonka.DataSync.Types.NfsVersion
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents the mount options that are available for DataSync to access
--- an NFS location.
+-- | Specifies how DataSync can access a location using the NFS protocol.
 --
 -- /See:/ 'newNfsMountOptions' smart constructor.
 data NfsMountOptions = NfsMountOptions'
-  { -- | The specific NFS version that you want DataSync to use to mount your NFS
-    -- share. If the server refuses to use the version specified, the sync will
-    -- fail. If you don\'t specify a version, DataSync defaults to @AUTOMATIC@.
-    -- That is, DataSync automatically selects a version based on negotiation
-    -- with the NFS server.
+  { -- | Specifies the NFS version that you want DataSync to use when mounting
+    -- your NFS share. If the server refuses to use the version specified, the
+    -- task fails.
     --
-    -- You can specify the following NFS versions:
+    -- You can specify the following options:
     --
-    -- -   __<https://tools.ietf.org/html/rfc1813 NFSv3>__ - stateless protocol
-    --     version that allows for asynchronous writes on the server.
+    -- -   @AUTOMATIC@ (default): DataSync chooses NFS version 4.1.
     --
-    -- -   __<https://tools.ietf.org/html/rfc3530 NFSv4.0>__ - stateful,
-    --     firewall-friendly protocol version that supports delegations and
-    --     pseudo filesystems.
+    -- -   @NFS3@: Stateless protocol version that allows for asynchronous
+    --     writes on the server.
     --
-    -- -   __<https://tools.ietf.org/html/rfc5661 NFSv4.1>__ - stateful
-    --     protocol version that supports sessions, directory delegations, and
-    --     parallel data processing. Version 4.1 also includes all features
-    --     available in version 4.0.
+    -- -   @NFSv4_0@: Stateful, firewall-friendly protocol version that
+    --     supports delegations and pseudo file systems.
+    --
+    -- -   @NFSv4_1@: Stateful protocol version that supports sessions,
+    --     directory delegations, and parallel data processing. NFS version 4.1
+    --     also includes all features available in version 4.0.
+    --
+    -- DataSync currently only supports NFS version 3 with Amazon FSx for
+    -- NetApp ONTAP locations.
     version :: Prelude.Maybe NfsVersion
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,49 +60,51 @@ data NfsMountOptions = NfsMountOptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'version', 'nfsMountOptions_version' - The specific NFS version that you want DataSync to use to mount your NFS
--- share. If the server refuses to use the version specified, the sync will
--- fail. If you don\'t specify a version, DataSync defaults to @AUTOMATIC@.
--- That is, DataSync automatically selects a version based on negotiation
--- with the NFS server.
+-- 'version', 'nfsMountOptions_version' - Specifies the NFS version that you want DataSync to use when mounting
+-- your NFS share. If the server refuses to use the version specified, the
+-- task fails.
 --
--- You can specify the following NFS versions:
+-- You can specify the following options:
 --
--- -   __<https://tools.ietf.org/html/rfc1813 NFSv3>__ - stateless protocol
---     version that allows for asynchronous writes on the server.
+-- -   @AUTOMATIC@ (default): DataSync chooses NFS version 4.1.
 --
--- -   __<https://tools.ietf.org/html/rfc3530 NFSv4.0>__ - stateful,
---     firewall-friendly protocol version that supports delegations and
---     pseudo filesystems.
+-- -   @NFS3@: Stateless protocol version that allows for asynchronous
+--     writes on the server.
 --
--- -   __<https://tools.ietf.org/html/rfc5661 NFSv4.1>__ - stateful
---     protocol version that supports sessions, directory delegations, and
---     parallel data processing. Version 4.1 also includes all features
---     available in version 4.0.
+-- -   @NFSv4_0@: Stateful, firewall-friendly protocol version that
+--     supports delegations and pseudo file systems.
+--
+-- -   @NFSv4_1@: Stateful protocol version that supports sessions,
+--     directory delegations, and parallel data processing. NFS version 4.1
+--     also includes all features available in version 4.0.
+--
+-- DataSync currently only supports NFS version 3 with Amazon FSx for
+-- NetApp ONTAP locations.
 newNfsMountOptions ::
   NfsMountOptions
 newNfsMountOptions =
   NfsMountOptions' {version = Prelude.Nothing}
 
--- | The specific NFS version that you want DataSync to use to mount your NFS
--- share. If the server refuses to use the version specified, the sync will
--- fail. If you don\'t specify a version, DataSync defaults to @AUTOMATIC@.
--- That is, DataSync automatically selects a version based on negotiation
--- with the NFS server.
+-- | Specifies the NFS version that you want DataSync to use when mounting
+-- your NFS share. If the server refuses to use the version specified, the
+-- task fails.
 --
--- You can specify the following NFS versions:
+-- You can specify the following options:
 --
--- -   __<https://tools.ietf.org/html/rfc1813 NFSv3>__ - stateless protocol
---     version that allows for asynchronous writes on the server.
+-- -   @AUTOMATIC@ (default): DataSync chooses NFS version 4.1.
 --
--- -   __<https://tools.ietf.org/html/rfc3530 NFSv4.0>__ - stateful,
---     firewall-friendly protocol version that supports delegations and
---     pseudo filesystems.
+-- -   @NFS3@: Stateless protocol version that allows for asynchronous
+--     writes on the server.
 --
--- -   __<https://tools.ietf.org/html/rfc5661 NFSv4.1>__ - stateful
---     protocol version that supports sessions, directory delegations, and
---     parallel data processing. Version 4.1 also includes all features
---     available in version 4.0.
+-- -   @NFSv4_0@: Stateful, firewall-friendly protocol version that
+--     supports delegations and pseudo file systems.
+--
+-- -   @NFSv4_1@: Stateful protocol version that supports sessions,
+--     directory delegations, and parallel data processing. NFS version 4.1
+--     also includes all features available in version 4.0.
+--
+-- DataSync currently only supports NFS version 3 with Amazon FSx for
+-- NetApp ONTAP locations.
 nfsMountOptions_version :: Lens.Lens' NfsMountOptions (Prelude.Maybe NfsVersion)
 nfsMountOptions_version = Lens.lens (\NfsMountOptions' {version} -> version) (\s@NfsMountOptions' {} a -> s {version = a} :: NfsMountOptions)
 

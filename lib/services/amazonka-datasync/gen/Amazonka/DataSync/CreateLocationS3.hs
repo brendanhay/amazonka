@@ -78,7 +78,7 @@ data CreateLocationS3 = CreateLocationS3'
     -- is used to read data from the S3 source location or write data to the S3
     -- destination.
     subdirectory :: Prelude.Maybe Prelude.Text,
-    -- | If you are using DataSync on an Amazon Web Services Outpost, specify the
+    -- | If you\'re using DataSync on an Amazon Web Services Outpost, specify the
     -- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
     -- Outpost. For more information about launching a DataSync agent on an
     -- Amazon Web Services Outpost, see
@@ -118,7 +118,7 @@ data CreateLocationS3 = CreateLocationS3'
 -- is used to read data from the S3 source location or write data to the S3
 -- destination.
 --
--- 'agentArns', 'createLocationS3_agentArns' - If you are using DataSync on an Amazon Web Services Outpost, specify the
+-- 'agentArns', 'createLocationS3_agentArns' - If you\'re using DataSync on an Amazon Web Services Outpost, specify the
 -- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
 -- Outpost. For more information about launching a DataSync agent on an
 -- Amazon Web Services Outpost, see
@@ -169,7 +169,7 @@ createLocationS3_s3StorageClass = Lens.lens (\CreateLocationS3' {s3StorageClass}
 createLocationS3_subdirectory :: Lens.Lens' CreateLocationS3 (Prelude.Maybe Prelude.Text)
 createLocationS3_subdirectory = Lens.lens (\CreateLocationS3' {subdirectory} -> subdirectory) (\s@CreateLocationS3' {} a -> s {subdirectory = a} :: CreateLocationS3)
 
--- | If you are using DataSync on an Amazon Web Services Outpost, specify the
+-- | If you\'re using DataSync on an Amazon Web Services Outpost, specify the
 -- Amazon Resource Names (ARNs) of the DataSync agents deployed on your
 -- Outpost. For more information about launching a DataSync agent on an
 -- Amazon Web Services Outpost, see

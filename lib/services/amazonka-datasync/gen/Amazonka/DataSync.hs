@@ -57,11 +57,35 @@ module Amazonka.DataSync
     CreateLocationEfsResponse (CreateLocationEfsResponse'),
     newCreateLocationEfsResponse,
 
+    -- ** CreateLocationFsxLustre
+    CreateLocationFsxLustre (CreateLocationFsxLustre'),
+    newCreateLocationFsxLustre,
+    CreateLocationFsxLustreResponse (CreateLocationFsxLustreResponse'),
+    newCreateLocationFsxLustreResponse,
+
+    -- ** CreateLocationFsxOntap
+    CreateLocationFsxOntap (CreateLocationFsxOntap'),
+    newCreateLocationFsxOntap,
+    CreateLocationFsxOntapResponse (CreateLocationFsxOntapResponse'),
+    newCreateLocationFsxOntapResponse,
+
+    -- ** CreateLocationFsxOpenZfs
+    CreateLocationFsxOpenZfs (CreateLocationFsxOpenZfs'),
+    newCreateLocationFsxOpenZfs,
+    CreateLocationFsxOpenZfsResponse (CreateLocationFsxOpenZfsResponse'),
+    newCreateLocationFsxOpenZfsResponse,
+
     -- ** CreateLocationFsxWindows
     CreateLocationFsxWindows (CreateLocationFsxWindows'),
     newCreateLocationFsxWindows,
     CreateLocationFsxWindowsResponse (CreateLocationFsxWindowsResponse'),
     newCreateLocationFsxWindowsResponse,
+
+    -- ** CreateLocationHdfs
+    CreateLocationHdfs (CreateLocationHdfs'),
+    newCreateLocationHdfs,
+    CreateLocationHdfsResponse (CreateLocationHdfsResponse'),
+    newCreateLocationHdfsResponse,
 
     -- ** CreateLocationNfs
     CreateLocationNfs (CreateLocationNfs'),
@@ -123,11 +147,35 @@ module Amazonka.DataSync
     DescribeLocationEfsResponse (DescribeLocationEfsResponse'),
     newDescribeLocationEfsResponse,
 
+    -- ** DescribeLocationFsxLustre
+    DescribeLocationFsxLustre (DescribeLocationFsxLustre'),
+    newDescribeLocationFsxLustre,
+    DescribeLocationFsxLustreResponse (DescribeLocationFsxLustreResponse'),
+    newDescribeLocationFsxLustreResponse,
+
+    -- ** DescribeLocationFsxOntap
+    DescribeLocationFsxOntap (DescribeLocationFsxOntap'),
+    newDescribeLocationFsxOntap,
+    DescribeLocationFsxOntapResponse (DescribeLocationFsxOntapResponse'),
+    newDescribeLocationFsxOntapResponse,
+
+    -- ** DescribeLocationFsxOpenZfs
+    DescribeLocationFsxOpenZfs (DescribeLocationFsxOpenZfs'),
+    newDescribeLocationFsxOpenZfs,
+    DescribeLocationFsxOpenZfsResponse (DescribeLocationFsxOpenZfsResponse'),
+    newDescribeLocationFsxOpenZfsResponse,
+
     -- ** DescribeLocationFsxWindows
     DescribeLocationFsxWindows (DescribeLocationFsxWindows'),
     newDescribeLocationFsxWindows,
     DescribeLocationFsxWindowsResponse (DescribeLocationFsxWindowsResponse'),
     newDescribeLocationFsxWindowsResponse,
+
+    -- ** DescribeLocationHdfs
+    DescribeLocationHdfs (DescribeLocationHdfs'),
+    newDescribeLocationHdfs,
+    DescribeLocationHdfsResponse (DescribeLocationHdfsResponse'),
+    newDescribeLocationHdfsResponse,
 
     -- ** DescribeLocationNfs
     DescribeLocationNfs (DescribeLocationNfs'),
@@ -219,6 +267,12 @@ module Amazonka.DataSync
     UpdateAgentResponse (UpdateAgentResponse'),
     newUpdateAgentResponse,
 
+    -- ** UpdateLocationHdfs
+    UpdateLocationHdfs (UpdateLocationHdfs'),
+    newUpdateLocationHdfs,
+    UpdateLocationHdfsResponse (UpdateLocationHdfsResponse'),
+    newUpdateLocationHdfsResponse,
+
     -- ** UpdateLocationNfs
     UpdateLocationNfs (UpdateLocationNfs'),
     newUpdateLocationNfs,
@@ -257,6 +311,9 @@ module Amazonka.DataSync
     -- ** Atime
     Atime (..),
 
+    -- ** EfsInTransitEncryption
+    EfsInTransitEncryption (..),
+
     -- ** EndpointType
     EndpointType (..),
 
@@ -265,6 +322,15 @@ module Amazonka.DataSync
 
     -- ** Gid
     Gid (..),
+
+    -- ** HdfsAuthenticationType
+    HdfsAuthenticationType (..),
+
+    -- ** HdfsDataTransferProtection
+    HdfsDataTransferProtection (..),
+
+    -- ** HdfsRpcProtection
+    HdfsRpcProtection (..),
 
     -- ** LocationFilterName
     LocationFilterName (..),
@@ -280,6 +346,9 @@ module Amazonka.DataSync
 
     -- ** ObjectStorageServerProtocol
     ObjectStorageServerProtocol (..),
+
+    -- ** ObjectTags
+    ObjectTags (..),
 
     -- ** Operator
     Operator (..),
@@ -341,6 +410,22 @@ module Amazonka.DataSync
     FilterRule (FilterRule'),
     newFilterRule,
 
+    -- ** FsxProtocol
+    FsxProtocol (FsxProtocol'),
+    newFsxProtocol,
+
+    -- ** FsxProtocolNfs
+    FsxProtocolNfs (FsxProtocolNfs'),
+    newFsxProtocolNfs,
+
+    -- ** FsxProtocolSmb
+    FsxProtocolSmb (FsxProtocolSmb'),
+    newFsxProtocolSmb,
+
+    -- ** HdfsNameNode
+    HdfsNameNode (HdfsNameNode'),
+    newHdfsNameNode,
+
     -- ** LocationFilter
     LocationFilter (LocationFilter'),
     newLocationFilter,
@@ -364,6 +449,10 @@ module Amazonka.DataSync
     -- ** PrivateLinkConfig
     PrivateLinkConfig (PrivateLinkConfig'),
     newPrivateLinkConfig,
+
+    -- ** QopConfiguration
+    QopConfiguration (QopConfiguration'),
+    newQopConfiguration,
 
     -- ** S3Config
     S3Config (S3Config'),
@@ -402,7 +491,11 @@ where
 import Amazonka.DataSync.CancelTaskExecution
 import Amazonka.DataSync.CreateAgent
 import Amazonka.DataSync.CreateLocationEfs
+import Amazonka.DataSync.CreateLocationFsxLustre
+import Amazonka.DataSync.CreateLocationFsxOntap
+import Amazonka.DataSync.CreateLocationFsxOpenZfs
 import Amazonka.DataSync.CreateLocationFsxWindows
+import Amazonka.DataSync.CreateLocationHdfs
 import Amazonka.DataSync.CreateLocationNfs
 import Amazonka.DataSync.CreateLocationObjectStorage
 import Amazonka.DataSync.CreateLocationS3
@@ -413,7 +506,11 @@ import Amazonka.DataSync.DeleteLocation
 import Amazonka.DataSync.DeleteTask
 import Amazonka.DataSync.DescribeAgent
 import Amazonka.DataSync.DescribeLocationEfs
+import Amazonka.DataSync.DescribeLocationFsxLustre
+import Amazonka.DataSync.DescribeLocationFsxOntap
+import Amazonka.DataSync.DescribeLocationFsxOpenZfs
 import Amazonka.DataSync.DescribeLocationFsxWindows
+import Amazonka.DataSync.DescribeLocationHdfs
 import Amazonka.DataSync.DescribeLocationNfs
 import Amazonka.DataSync.DescribeLocationObjectStorage
 import Amazonka.DataSync.DescribeLocationS3
@@ -431,6 +528,7 @@ import Amazonka.DataSync.TagResource
 import Amazonka.DataSync.Types
 import Amazonka.DataSync.UntagResource
 import Amazonka.DataSync.UpdateAgent
+import Amazonka.DataSync.UpdateLocationHdfs
 import Amazonka.DataSync.UpdateLocationNfs
 import Amazonka.DataSync.UpdateLocationObjectStorage
 import Amazonka.DataSync.UpdateLocationSmb

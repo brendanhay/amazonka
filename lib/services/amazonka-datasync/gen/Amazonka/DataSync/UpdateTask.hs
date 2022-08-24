@@ -64,19 +64,19 @@ data UpdateTask = UpdateTask'
     schedule :: Prelude.Maybe TaskSchedule,
     -- | The name of the task to update.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource name of the CloudWatch
-    -- LogGroup.
+    -- | The Amazon Resource Name (ARN) of the resource name of the Amazon
+    -- CloudWatch log group.
     cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | A list of filter rules that determines which files to exclude from a
     -- task. The list should contain a single filter string that consists of
     -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
-    -- pipe), for example: @\"\/folder1|\/folder2\"@
+    -- pipe), for example, @\"\/folder1|\/folder2\"@.
     excludes :: Prelude.Maybe [FilterRule],
     options :: Prelude.Maybe Options,
     -- | A list of filter rules that determines which files to include when
-    -- running a task. The pattern should contain a single filter string that
+    -- running a task. The pattern contains a single filter string that
     -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+    -- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
     includes :: Prelude.Maybe [FilterRule],
     -- | The Amazon Resource Name (ARN) of the resource name of the task to
     -- update.
@@ -101,20 +101,20 @@ data UpdateTask = UpdateTask'
 --
 -- 'name', 'updateTask_name' - The name of the task to update.
 --
--- 'cloudWatchLogGroupArn', 'updateTask_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) of the resource name of the CloudWatch
--- LogGroup.
+-- 'cloudWatchLogGroupArn', 'updateTask_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) of the resource name of the Amazon
+-- CloudWatch log group.
 --
 -- 'excludes', 'updateTask_excludes' - A list of filter rules that determines which files to exclude from a
 -- task. The list should contain a single filter string that consists of
 -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example: @\"\/folder1|\/folder2\"@
+-- pipe), for example, @\"\/folder1|\/folder2\"@.
 --
 -- 'options', 'updateTask_options' - Undocumented member.
 --
 -- 'includes', 'updateTask_includes' - A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
+-- running a task. The pattern contains a single filter string that
 -- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+-- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
 --
 -- 'taskArn', 'updateTask_taskArn' - The Amazon Resource Name (ARN) of the resource name of the task to
 -- update.
@@ -146,15 +146,15 @@ updateTask_schedule = Lens.lens (\UpdateTask' {schedule} -> schedule) (\s@Update
 updateTask_name :: Lens.Lens' UpdateTask (Prelude.Maybe Prelude.Text)
 updateTask_name = Lens.lens (\UpdateTask' {name} -> name) (\s@UpdateTask' {} a -> s {name = a} :: UpdateTask)
 
--- | The Amazon Resource Name (ARN) of the resource name of the CloudWatch
--- LogGroup.
+-- | The Amazon Resource Name (ARN) of the resource name of the Amazon
+-- CloudWatch log group.
 updateTask_cloudWatchLogGroupArn :: Lens.Lens' UpdateTask (Prelude.Maybe Prelude.Text)
 updateTask_cloudWatchLogGroupArn = Lens.lens (\UpdateTask' {cloudWatchLogGroupArn} -> cloudWatchLogGroupArn) (\s@UpdateTask' {} a -> s {cloudWatchLogGroupArn = a} :: UpdateTask)
 
 -- | A list of filter rules that determines which files to exclude from a
 -- task. The list should contain a single filter string that consists of
 -- the patterns to exclude. The patterns are delimited by \"|\" (that is, a
--- pipe), for example: @\"\/folder1|\/folder2\"@
+-- pipe), for example, @\"\/folder1|\/folder2\"@.
 updateTask_excludes :: Lens.Lens' UpdateTask (Prelude.Maybe [FilterRule])
 updateTask_excludes = Lens.lens (\UpdateTask' {excludes} -> excludes) (\s@UpdateTask' {} a -> s {excludes = a} :: UpdateTask) Prelude.. Lens.mapping Lens.coerced
 
@@ -163,9 +163,9 @@ updateTask_options :: Lens.Lens' UpdateTask (Prelude.Maybe Options)
 updateTask_options = Lens.lens (\UpdateTask' {options} -> options) (\s@UpdateTask' {} a -> s {options = a} :: UpdateTask)
 
 -- | A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
+-- running a task. The pattern contains a single filter string that
 -- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+-- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
 updateTask_includes :: Lens.Lens' UpdateTask (Prelude.Maybe [FilterRule])
 updateTask_includes = Lens.lens (\UpdateTask' {includes} -> includes) (\s@UpdateTask' {} a -> s {includes = a} :: UpdateTask) Prelude.. Lens.mapping Lens.coerced
 

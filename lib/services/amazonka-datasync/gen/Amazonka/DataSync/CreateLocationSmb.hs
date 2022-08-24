@@ -96,8 +96,8 @@ data CreateLocationSmb = CreateLocationSmb'
     -- and folders in the SMB share.
     --
     -- For information about choosing a user name that ensures sufficient
-    -- permissions to files, folders, and metadata, see
-    -- <create-smb-location.html#SMBuser user>.
+    -- permissions to files, folders, and metadata, see the
+    -- <create-smb-location.html#SMBuser User setting> for SMB locations.
     user :: Prelude.Text,
     -- | The password of the user who can mount the share, has the permissions to
     -- access files and folders in the SMB share.
@@ -154,8 +154,8 @@ data CreateLocationSmb = CreateLocationSmb'
 -- and folders in the SMB share.
 --
 -- For information about choosing a user name that ensures sufficient
--- permissions to files, folders, and metadata, see
--- <create-smb-location.html#SMBuser user>.
+-- permissions to files, folders, and metadata, see the
+-- <create-smb-location.html#SMBuser User setting> for SMB locations.
 --
 -- 'password', 'createLocationSmb_password' - The password of the user who can mount the share, has the permissions to
 -- access files and folders in the SMB share.
@@ -239,8 +239,8 @@ createLocationSmb_serverHostname = Lens.lens (\CreateLocationSmb' {serverHostnam
 -- and folders in the SMB share.
 --
 -- For information about choosing a user name that ensures sufficient
--- permissions to files, folders, and metadata, see
--- <create-smb-location.html#SMBuser user>.
+-- permissions to files, folders, and metadata, see the
+-- <create-smb-location.html#SMBuser User setting> for SMB locations.
 createLocationSmb_user :: Lens.Lens' CreateLocationSmb Prelude.Text
 createLocationSmb_user = Lens.lens (\CreateLocationSmb' {user} -> user) (\s@CreateLocationSmb' {} a -> s {user = a} :: CreateLocationSmb)
 

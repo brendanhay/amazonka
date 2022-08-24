@@ -30,6 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 -- you can use @ListTasks@ with filter name @LocationId@ and
 -- @Operator Equals@ with the ARN for the location.
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html filtering DataSync resources>.
+--
 -- /See:/ 'newTaskFilter' smart constructor.
 data TaskFilter = TaskFilter'
   { -- | The name of the filter being used. Each API call supports a list of
@@ -40,8 +43,7 @@ data TaskFilter = TaskFilter'
     -- display only tasks for a specific destination location.
     values :: [Prelude.Text],
     -- | The operator that is used to compare filter values (for example,
-    -- @Equals@ or @Contains@). For more about API filtering operators, see
-    -- <https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html API filters for ListTasks and ListLocations>.
+    -- @Equals@ or @Contains@).
     operator :: Operator
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +64,7 @@ data TaskFilter = TaskFilter'
 -- display only tasks for a specific destination location.
 --
 -- 'operator', 'taskFilter_operator' - The operator that is used to compare filter values (for example,
--- @Equals@ or @Contains@). For more about API filtering operators, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html API filters for ListTasks and ListLocations>.
+-- @Equals@ or @Contains@).
 newTaskFilter ::
   -- | 'name'
   TaskFilterName ->
@@ -89,8 +90,7 @@ taskFilter_values :: Lens.Lens' TaskFilter [Prelude.Text]
 taskFilter_values = Lens.lens (\TaskFilter' {values} -> values) (\s@TaskFilter' {} a -> s {values = a} :: TaskFilter) Prelude.. Lens.coerced
 
 -- | The operator that is used to compare filter values (for example,
--- @Equals@ or @Contains@). For more about API filtering operators, see
--- <https://docs.aws.amazon.com/datasync/latest/userguide/query-resources.html API filters for ListTasks and ListLocations>.
+-- @Equals@ or @Contains@).
 taskFilter_operator :: Lens.Lens' TaskFilter Operator
 taskFilter_operator = Lens.lens (\TaskFilter' {operator} -> operator) (\s@TaskFilter' {} a -> s {operator = a} :: TaskFilter)
 

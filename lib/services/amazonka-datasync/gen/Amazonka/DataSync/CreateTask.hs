@@ -20,27 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a task.
+-- Configures a task, which defines where and how DataSync transfers your
+-- data.
 --
--- A task includes a source location and a destination location, and a
--- configuration that specifies how data is transferred. A task always
--- transfers data from the source location to the destination location. The
--- configuration specifies options such as task scheduling, bandwidth
--- limits, etc. A task is the complete definition of a data transfer.
+-- A task includes a source location, a destination location, and the
+-- preferences for how and when you want to transfer your data (such as
+-- bandwidth limits, scheduling, among other options).
 --
 -- When you create a task that transfers data between Amazon Web Services
--- services in different Amazon Web Services Regions, one of the two
--- locations that you specify must reside in the Region where DataSync is
--- being used. The other location must be specified in a different Region.
+-- services in different Amazon Web Services Regions, one of your locations
+-- must reside in the Region where you\'re using DataSync.
 --
--- You can transfer data between commercial Amazon Web Services Regions
--- except for China, or between Amazon Web Services GovCloud (US) Regions.
+-- For more information, see the following topics:
 --
--- When you use DataSync to copy files or objects between Amazon Web
--- Services Regions, you pay for data transfer between Regions. This is
--- billed as data transfer OUT from your source Region to your destination
--- Region. For more information, see
--- <http://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer Data Transfer pricing>.
+-- -   <https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html Working with DataSync locations>
+--
+-- -   <https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html Configure DataSync task settings>
 module Amazonka.DataSync.CreateTask
   ( -- * Creating a Request
     CreateTask (..),
@@ -110,9 +105,9 @@ data CreateTask = CreateTask'
     -- operation.
     options :: Prelude.Maybe Options,
     -- | A list of filter rules that determines which files to include when
-    -- running a task. The pattern should contain a single filter string that
+    -- running a task. The pattern contains a single filter string that
     -- consists of the patterns to include. The patterns are delimited by \"|\"
-    -- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+    -- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
     includes :: Prelude.Maybe [FilterRule],
     -- | The Amazon Resource Name (ARN) of the source location for the task.
     sourceLocationArn :: Prelude.Text,
@@ -162,9 +157,9 @@ data CreateTask = CreateTask'
 -- operation.
 --
 -- 'includes', 'createTask_includes' - A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
+-- running a task. The pattern contains a single filter string that
 -- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+-- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
 --
 -- 'sourceLocationArn', 'createTask_sourceLocationArn' - The Amazon Resource Name (ARN) of the source location for the task.
 --
@@ -235,9 +230,9 @@ createTask_options :: Lens.Lens' CreateTask (Prelude.Maybe Options)
 createTask_options = Lens.lens (\CreateTask' {options} -> options) (\s@CreateTask' {} a -> s {options = a} :: CreateTask)
 
 -- | A list of filter rules that determines which files to include when
--- running a task. The pattern should contain a single filter string that
+-- running a task. The pattern contains a single filter string that
 -- consists of the patterns to include. The patterns are delimited by \"|\"
--- (that is, a pipe). For example: @\"\/folder1|\/folder2@\"
+-- (that is, a pipe), for example, @\"\/folder1|\/folder2\"@.
 createTask_includes :: Lens.Lens' CreateTask (Prelude.Maybe [FilterRule])
 createTask_includes = Lens.lens (\CreateTask' {includes} -> includes) (\s@CreateTask' {} a -> s {includes = a} :: CreateTask) Prelude.. Lens.mapping Lens.coerced
 

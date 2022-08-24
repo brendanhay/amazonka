@@ -90,7 +90,7 @@ data CreateLocationNfs = CreateLocationNfs'
     subdirectory :: Prelude.Text,
     -- | The name of the NFS server. This value is the IP address or Domain Name
     -- Service (DNS) name of the NFS server. An agent that is installed
-    -- on-premises uses this host name to mount the NFS server in a network.
+    -- on-premises uses this hostname to mount the NFS server in a network.
     --
     -- If you are copying data to or from your Snowcone device, see
     -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone NFS Server on Snowcone>
@@ -152,7 +152,7 @@ data CreateLocationNfs = CreateLocationNfs'
 --
 -- 'serverHostname', 'createLocationNfs_serverHostname' - The name of the NFS server. This value is the IP address or Domain Name
 -- Service (DNS) name of the NFS server. An agent that is installed
--- on-premises uses this host name to mount the NFS server in a network.
+-- on-premises uses this hostname to mount the NFS server in a network.
 --
 -- If you are copying data to or from your Snowcone device, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone NFS Server on Snowcone>
@@ -228,7 +228,7 @@ createLocationNfs_subdirectory = Lens.lens (\CreateLocationNfs' {subdirectory} -
 
 -- | The name of the NFS server. This value is the IP address or Domain Name
 -- Service (DNS) name of the NFS server. An agent that is installed
--- on-premises uses this host name to mount the NFS server in a network.
+-- on-premises uses this hostname to mount the NFS server in a network.
 --
 -- If you are copying data to or from your Snowcone device, see
 -- <https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html#nfs-on-snowcone NFS Server on Snowcone>

@@ -17,6 +17,11 @@ module Amazonka.FMS.Lens
     -- ** AssociateAdminAccount
     associateAdminAccount_adminAccount,
 
+    -- ** AssociateThirdPartyFirewall
+    associateThirdPartyFirewall_thirdPartyFirewall,
+    associateThirdPartyFirewallResponse_thirdPartyFirewallStatus,
+    associateThirdPartyFirewallResponse_httpStatus,
+
     -- ** DeleteAppsList
     deleteAppsList_listId,
 
@@ -30,6 +35,11 @@ module Amazonka.FMS.Lens
     deleteProtocolsList_listId,
 
     -- ** DisassociateAdminAccount
+
+    -- ** DisassociateThirdPartyFirewall
+    disassociateThirdPartyFirewall_thirdPartyFirewall,
+    disassociateThirdPartyFirewallResponse_thirdPartyFirewallStatus,
+    disassociateThirdPartyFirewallResponse_httpStatus,
 
     -- ** GetAdminAccount
     getAdminAccountResponse_adminAccount,
@@ -79,6 +89,12 @@ module Amazonka.FMS.Lens
     getProtocolsListResponse_protocolsListArn,
     getProtocolsListResponse_protocolsList,
     getProtocolsListResponse_httpStatus,
+
+    -- ** GetThirdPartyFirewallAssociationStatus
+    getThirdPartyFirewallAssociationStatus_thirdPartyFirewall,
+    getThirdPartyFirewallAssociationStatusResponse_marketplaceOnboardingStatus,
+    getThirdPartyFirewallAssociationStatusResponse_thirdPartyFirewallStatus,
+    getThirdPartyFirewallAssociationStatusResponse_httpStatus,
 
     -- ** GetViolationDetails
     getViolationDetails_policyId,
@@ -130,6 +146,14 @@ module Amazonka.FMS.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tagList,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** ListThirdPartyFirewallFirewallPolicies
+    listThirdPartyFirewallFirewallPolicies_nextToken,
+    listThirdPartyFirewallFirewallPolicies_thirdPartyFirewall,
+    listThirdPartyFirewallFirewallPolicies_maxResults,
+    listThirdPartyFirewallFirewallPoliciesResponse_nextToken,
+    listThirdPartyFirewallFirewallPoliciesResponse_thirdPartyFirewallFirewallPolicies,
+    listThirdPartyFirewallFirewallPoliciesResponse_httpStatus,
 
     -- ** PutAppsList
     putAppsList_tagList,
@@ -209,6 +233,7 @@ module Amazonka.FMS.Lens
     -- ** ComplianceViolator
     complianceViolator_resourceId,
     complianceViolator_resourceType,
+    complianceViolator_metadata,
     complianceViolator_violationReason,
 
     -- ** DnsDuplicateRuleGroupViolation
@@ -284,6 +309,23 @@ module Amazonka.FMS.Lens
     expectedRoute_ipV6Cidr,
     expectedRoute_ipV4Cidr,
 
+    -- ** FMSPolicyUpdateFirewallCreationConfigAction
+    fMSPolicyUpdateFirewallCreationConfigAction_firewallCreationConfig,
+    fMSPolicyUpdateFirewallCreationConfigAction_description,
+
+    -- ** FirewallSubnetIsOutOfScopeViolation
+    firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZoneId,
+    firewallSubnetIsOutOfScopeViolation_vpcEndpointId,
+    firewallSubnetIsOutOfScopeViolation_subnetAvailabilityZone,
+    firewallSubnetIsOutOfScopeViolation_firewallSubnetId,
+    firewallSubnetIsOutOfScopeViolation_vpcId,
+
+    -- ** FirewallSubnetMissingVPCEndpointViolation
+    firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZoneId,
+    firewallSubnetMissingVPCEndpointViolation_subnetAvailabilityZone,
+    firewallSubnetMissingVPCEndpointViolation_firewallSubnetId,
+    firewallSubnetMissingVPCEndpointViolation_vpcId,
+
     -- ** NetworkFirewallBlackHoleRouteDetectedViolation
     networkFirewallBlackHoleRouteDetectedViolation_violatingRoutes,
     networkFirewallBlackHoleRouteDetectedViolation_violationTarget,
@@ -349,8 +391,13 @@ module Amazonka.FMS.Lens
     networkFirewallMissingSubnetViolation_availabilityZone,
     networkFirewallMissingSubnetViolation_targetViolationReason,
 
+    -- ** NetworkFirewallPolicy
+    networkFirewallPolicy_firewallDeploymentModel,
+
     -- ** NetworkFirewallPolicyDescription
+    networkFirewallPolicyDescription_statefulEngineOptions,
     networkFirewallPolicyDescription_statelessCustomActions,
+    networkFirewallPolicyDescription_statefulDefaultActions,
     networkFirewallPolicyDescription_statelessDefaultActions,
     networkFirewallPolicyDescription_statelessRuleGroups,
     networkFirewallPolicyDescription_statelessFragmentDefaultActions,
@@ -410,6 +457,10 @@ module Amazonka.FMS.Lens
     policyComplianceStatus_issueInfoMap,
     policyComplianceStatus_memberAccount,
 
+    -- ** PolicyOption
+    policyOption_thirdPartyFirewallPolicy,
+    policyOption_networkFirewallPolicy,
+
     -- ** PolicySummary
     policySummary_policyName,
     policySummary_policyId,
@@ -447,6 +498,7 @@ module Amazonka.FMS.Lens
     remediationAction_eC2AssociateRouteTableAction,
     remediationAction_eC2DeleteRouteAction,
     remediationAction_eC2ReplaceRouteAction,
+    remediationAction_fMSPolicyUpdateFirewallCreationConfigAction,
     remediationAction_description,
     remediationAction_eC2CreateRouteTableAction,
     remediationAction_eC2CopyRouteTableAction,
@@ -462,7 +514,9 @@ module Amazonka.FMS.Lens
     resourceTag_key,
 
     -- ** ResourceViolation
+    resourceViolation_thirdPartyFirewallMissingSubnetViolation,
     resourceViolation_dnsRuleGroupPriorityConflictViolation,
+    resourceViolation_thirdPartyFirewallMissingExpectedRouteTableViolation,
     resourceViolation_networkFirewallMissingExpectedRoutesViolation,
     resourceViolation_networkFirewallUnexpectedFirewallRoutesViolation,
     resourceViolation_dnsDuplicateRuleGroupViolation,
@@ -470,11 +524,15 @@ module Amazonka.FMS.Lens
     resourceViolation_networkFirewallMissingFirewallViolation,
     resourceViolation_networkFirewallInternetTrafficNotInspectedViolation,
     resourceViolation_awsEc2InstanceViolation,
+    resourceViolation_firewallSubnetMissingVPCEndpointViolation,
+    resourceViolation_thirdPartyFirewallMissingFirewallViolation,
     resourceViolation_possibleRemediationActions,
     resourceViolation_networkFirewallMissingSubnetViolation,
     resourceViolation_networkFirewallPolicyModifiedViolation,
     resourceViolation_networkFirewallUnexpectedGatewayRoutesViolation,
     resourceViolation_networkFirewallBlackHoleRouteDetectedViolation,
+    resourceViolation_firewallSubnetIsOutOfScopeViolation,
+    resourceViolation_routeHasOutOfScopeEndpointViolation,
     resourceViolation_networkFirewallInvalidRouteConfigurationViolation,
     resourceViolation_awsEc2NetworkInterfaceViolation,
     resourceViolation_awsVPCSecurityGroupViolation,
@@ -485,6 +543,20 @@ module Amazonka.FMS.Lens
     route_destinationType,
     route_target,
     route_targetType,
+
+    -- ** RouteHasOutOfScopeEndpointViolation
+    routeHasOutOfScopeEndpointViolation_violatingRoutes,
+    routeHasOutOfScopeEndpointViolation_subnetAvailabilityZoneId,
+    routeHasOutOfScopeEndpointViolation_internetGatewayRoutes,
+    routeHasOutOfScopeEndpointViolation_subnetId,
+    routeHasOutOfScopeEndpointViolation_currentFirewallSubnetRouteTable,
+    routeHasOutOfScopeEndpointViolation_firewallSubnetRoutes,
+    routeHasOutOfScopeEndpointViolation_currentInternetGatewayRouteTable,
+    routeHasOutOfScopeEndpointViolation_routeTableId,
+    routeHasOutOfScopeEndpointViolation_internetGatewayId,
+    routeHasOutOfScopeEndpointViolation_subnetAvailabilityZone,
+    routeHasOutOfScopeEndpointViolation_firewallSubnetId,
+    routeHasOutOfScopeEndpointViolation_vpcId,
 
     -- ** SecurityGroupRemediationAction
     securityGroupRemediationAction_description,
@@ -502,11 +574,16 @@ module Amazonka.FMS.Lens
 
     -- ** SecurityServicePolicyData
     securityServicePolicyData_managedServiceData,
+    securityServicePolicyData_policyOption,
     securityServicePolicyData_type,
+
+    -- ** StatefulEngineOptions
+    statefulEngineOptions_ruleOrder,
 
     -- ** StatefulRuleGroup
     statefulRuleGroup_resourceId,
     statefulRuleGroup_ruleGroupName,
+    statefulRuleGroup_priority,
 
     -- ** StatelessRuleGroup
     statelessRuleGroup_resourceId,
@@ -516,6 +593,32 @@ module Amazonka.FMS.Lens
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** ThirdPartyFirewallFirewallPolicy
+    thirdPartyFirewallFirewallPolicy_firewallPolicyName,
+    thirdPartyFirewallFirewallPolicy_firewallPolicyId,
+
+    -- ** ThirdPartyFirewallMissingExpectedRouteTableViolation
+    thirdPartyFirewallMissingExpectedRouteTableViolation_vpc,
+    thirdPartyFirewallMissingExpectedRouteTableViolation_violationTarget,
+    thirdPartyFirewallMissingExpectedRouteTableViolation_currentRouteTable,
+    thirdPartyFirewallMissingExpectedRouteTableViolation_availabilityZone,
+    thirdPartyFirewallMissingExpectedRouteTableViolation_expectedRouteTable,
+
+    -- ** ThirdPartyFirewallMissingFirewallViolation
+    thirdPartyFirewallMissingFirewallViolation_vpc,
+    thirdPartyFirewallMissingFirewallViolation_violationTarget,
+    thirdPartyFirewallMissingFirewallViolation_availabilityZone,
+    thirdPartyFirewallMissingFirewallViolation_targetViolationReason,
+
+    -- ** ThirdPartyFirewallMissingSubnetViolation
+    thirdPartyFirewallMissingSubnetViolation_vpc,
+    thirdPartyFirewallMissingSubnetViolation_violationTarget,
+    thirdPartyFirewallMissingSubnetViolation_availabilityZone,
+    thirdPartyFirewallMissingSubnetViolation_targetViolationReason,
+
+    -- ** ThirdPartyFirewallPolicy
+    thirdPartyFirewallPolicy_firewallDeploymentModel,
 
     -- ** ViolationDetail
     violationDetail_resourceTags,
@@ -529,11 +632,13 @@ module Amazonka.FMS.Lens
 where
 
 import Amazonka.FMS.AssociateAdminAccount
+import Amazonka.FMS.AssociateThirdPartyFirewall
 import Amazonka.FMS.DeleteAppsList
 import Amazonka.FMS.DeleteNotificationChannel
 import Amazonka.FMS.DeletePolicy
 import Amazonka.FMS.DeleteProtocolsList
 import Amazonka.FMS.DisassociateAdminAccount
+import Amazonka.FMS.DisassociateThirdPartyFirewall
 import Amazonka.FMS.GetAdminAccount
 import Amazonka.FMS.GetAppsList
 import Amazonka.FMS.GetComplianceDetail
@@ -541,6 +646,7 @@ import Amazonka.FMS.GetNotificationChannel
 import Amazonka.FMS.GetPolicy
 import Amazonka.FMS.GetProtectionStatus
 import Amazonka.FMS.GetProtocolsList
+import Amazonka.FMS.GetThirdPartyFirewallAssociationStatus
 import Amazonka.FMS.GetViolationDetails
 import Amazonka.FMS.ListAppsLists
 import Amazonka.FMS.ListComplianceStatus
@@ -548,6 +654,7 @@ import Amazonka.FMS.ListMemberAccounts
 import Amazonka.FMS.ListPolicies
 import Amazonka.FMS.ListProtocolsLists
 import Amazonka.FMS.ListTagsForResource
+import Amazonka.FMS.ListThirdPartyFirewallFirewallPolicies
 import Amazonka.FMS.PutAppsList
 import Amazonka.FMS.PutNotificationChannel
 import Amazonka.FMS.PutPolicy
@@ -573,6 +680,9 @@ import Amazonka.FMS.Types.EC2ReplaceRouteAction
 import Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
 import Amazonka.FMS.Types.EvaluationResult
 import Amazonka.FMS.Types.ExpectedRoute
+import Amazonka.FMS.Types.FMSPolicyUpdateFirewallCreationConfigAction
+import Amazonka.FMS.Types.FirewallSubnetIsOutOfScopeViolation
+import Amazonka.FMS.Types.FirewallSubnetMissingVPCEndpointViolation
 import Amazonka.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
 import Amazonka.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
 import Amazonka.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
@@ -580,6 +690,7 @@ import Amazonka.FMS.Types.NetworkFirewallMissingExpectedRTViolation
 import Amazonka.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
 import Amazonka.FMS.Types.NetworkFirewallMissingFirewallViolation
 import Amazonka.FMS.Types.NetworkFirewallMissingSubnetViolation
+import Amazonka.FMS.Types.NetworkFirewallPolicy
 import Amazonka.FMS.Types.NetworkFirewallPolicyDescription
 import Amazonka.FMS.Types.NetworkFirewallPolicyModifiedViolation
 import Amazonka.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
@@ -588,6 +699,7 @@ import Amazonka.FMS.Types.PartialMatch
 import Amazonka.FMS.Types.Policy
 import Amazonka.FMS.Types.PolicyComplianceDetail
 import Amazonka.FMS.Types.PolicyComplianceStatus
+import Amazonka.FMS.Types.PolicyOption
 import Amazonka.FMS.Types.PolicySummary
 import Amazonka.FMS.Types.PossibleRemediationAction
 import Amazonka.FMS.Types.PossibleRemediationActions
@@ -598,11 +710,18 @@ import Amazonka.FMS.Types.RemediationActionWithOrder
 import Amazonka.FMS.Types.ResourceTag
 import Amazonka.FMS.Types.ResourceViolation
 import Amazonka.FMS.Types.Route
+import Amazonka.FMS.Types.RouteHasOutOfScopeEndpointViolation
 import Amazonka.FMS.Types.SecurityGroupRemediationAction
 import Amazonka.FMS.Types.SecurityGroupRuleDescription
 import Amazonka.FMS.Types.SecurityServicePolicyData
+import Amazonka.FMS.Types.StatefulEngineOptions
 import Amazonka.FMS.Types.StatefulRuleGroup
 import Amazonka.FMS.Types.StatelessRuleGroup
 import Amazonka.FMS.Types.Tag
+import Amazonka.FMS.Types.ThirdPartyFirewallFirewallPolicy
+import Amazonka.FMS.Types.ThirdPartyFirewallMissingExpectedRouteTableViolation
+import Amazonka.FMS.Types.ThirdPartyFirewallMissingFirewallViolation
+import Amazonka.FMS.Types.ThirdPartyFirewallMissingSubnetViolation
+import Amazonka.FMS.Types.ThirdPartyFirewallPolicy
 import Amazonka.FMS.Types.ViolationDetail
 import Amazonka.FMS.UntagResource

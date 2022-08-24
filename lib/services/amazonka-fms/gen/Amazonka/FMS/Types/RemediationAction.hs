@@ -27,6 +27,7 @@ import Amazonka.FMS.Types.EC2CreateRouteTableAction
 import Amazonka.FMS.Types.EC2DeleteRouteAction
 import Amazonka.FMS.Types.EC2ReplaceRouteAction
 import Amazonka.FMS.Types.EC2ReplaceRouteTableAssociationAction
+import Amazonka.FMS.Types.FMSPolicyUpdateFirewallCreationConfigAction
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -41,6 +42,8 @@ data RemediationAction = RemediationAction'
     eC2DeleteRouteAction :: Prelude.Maybe EC2DeleteRouteAction,
     -- | Information about the ReplaceRoute action in the Amazon EC2 API.
     eC2ReplaceRouteAction :: Prelude.Maybe EC2ReplaceRouteAction,
+    -- | The remedial action to take when updating a firewall configuration.
+    fMSPolicyUpdateFirewallCreationConfigAction :: Prelude.Maybe FMSPolicyUpdateFirewallCreationConfigAction,
     -- | A description of a remediation action.
     description :: Prelude.Maybe Prelude.Text,
     -- | Information about the CreateRouteTable action in the Amazon EC2 API.
@@ -69,6 +72,8 @@ data RemediationAction = RemediationAction'
 --
 -- 'eC2ReplaceRouteAction', 'remediationAction_eC2ReplaceRouteAction' - Information about the ReplaceRoute action in the Amazon EC2 API.
 --
+-- 'fMSPolicyUpdateFirewallCreationConfigAction', 'remediationAction_fMSPolicyUpdateFirewallCreationConfigAction' - The remedial action to take when updating a firewall configuration.
+--
 -- 'description', 'remediationAction_description' - A description of a remediation action.
 --
 -- 'eC2CreateRouteTableAction', 'remediationAction_eC2CreateRouteTableAction' - Information about the CreateRouteTable action in the Amazon EC2 API.
@@ -87,6 +92,8 @@ newRemediationAction =
         Prelude.Nothing,
       eC2DeleteRouteAction = Prelude.Nothing,
       eC2ReplaceRouteAction = Prelude.Nothing,
+      fMSPolicyUpdateFirewallCreationConfigAction =
+        Prelude.Nothing,
       description = Prelude.Nothing,
       eC2CreateRouteTableAction = Prelude.Nothing,
       eC2CopyRouteTableAction = Prelude.Nothing,
@@ -106,6 +113,10 @@ remediationAction_eC2DeleteRouteAction = Lens.lens (\RemediationAction' {eC2Dele
 -- | Information about the ReplaceRoute action in the Amazon EC2 API.
 remediationAction_eC2ReplaceRouteAction :: Lens.Lens' RemediationAction (Prelude.Maybe EC2ReplaceRouteAction)
 remediationAction_eC2ReplaceRouteAction = Lens.lens (\RemediationAction' {eC2ReplaceRouteAction} -> eC2ReplaceRouteAction) (\s@RemediationAction' {} a -> s {eC2ReplaceRouteAction = a} :: RemediationAction)
+
+-- | The remedial action to take when updating a firewall configuration.
+remediationAction_fMSPolicyUpdateFirewallCreationConfigAction :: Lens.Lens' RemediationAction (Prelude.Maybe FMSPolicyUpdateFirewallCreationConfigAction)
+remediationAction_fMSPolicyUpdateFirewallCreationConfigAction = Lens.lens (\RemediationAction' {fMSPolicyUpdateFirewallCreationConfigAction} -> fMSPolicyUpdateFirewallCreationConfigAction) (\s@RemediationAction' {} a -> s {fMSPolicyUpdateFirewallCreationConfigAction = a} :: RemediationAction)
 
 -- | A description of a remediation action.
 remediationAction_description :: Lens.Lens' RemediationAction (Prelude.Maybe Prelude.Text)
@@ -137,6 +148,9 @@ instance Core.FromJSON RemediationAction where
             Prelude.<$> (x Core..:? "EC2AssociateRouteTableAction")
             Prelude.<*> (x Core..:? "EC2DeleteRouteAction")
             Prelude.<*> (x Core..:? "EC2ReplaceRouteAction")
+            Prelude.<*> ( x
+                            Core..:? "FMSPolicyUpdateFirewallCreationConfigAction"
+                        )
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "EC2CreateRouteTableAction")
             Prelude.<*> (x Core..:? "EC2CopyRouteTableAction")
@@ -150,6 +164,7 @@ instance Prelude.Hashable RemediationAction where
       `Prelude.hashWithSalt` eC2AssociateRouteTableAction
       `Prelude.hashWithSalt` eC2DeleteRouteAction
       `Prelude.hashWithSalt` eC2ReplaceRouteAction
+      `Prelude.hashWithSalt` fMSPolicyUpdateFirewallCreationConfigAction
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` eC2CreateRouteTableAction
       `Prelude.hashWithSalt` eC2CopyRouteTableAction
@@ -161,6 +176,8 @@ instance Prelude.NFData RemediationAction where
     Prelude.rnf eC2AssociateRouteTableAction
       `Prelude.seq` Prelude.rnf eC2DeleteRouteAction
       `Prelude.seq` Prelude.rnf eC2ReplaceRouteAction
+      `Prelude.seq` Prelude.rnf
+        fMSPolicyUpdateFirewallCreationConfigAction
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf eC2CreateRouteTableAction
       `Prelude.seq` Prelude.rnf eC2CopyRouteTableAction

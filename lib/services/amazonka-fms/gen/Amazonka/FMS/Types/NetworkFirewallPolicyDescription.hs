@@ -20,6 +20,7 @@
 module Amazonka.FMS.Types.NetworkFirewallPolicyDescription where
 
 import qualified Amazonka.Core as Core
+import Amazonka.FMS.Types.StatefulEngineOptions
 import Amazonka.FMS.Types.StatefulRuleGroup
 import Amazonka.FMS.Types.StatelessRuleGroup
 import qualified Amazonka.Lens as Lens
@@ -29,9 +30,27 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkFirewallPolicyDescription' smart constructor.
 data NetworkFirewallPolicyDescription = NetworkFirewallPolicyDescription'
-  { -- | Names of custom actions that are available for use in the stateless
+  { -- | Additional options governing how Network Firewall handles stateful
+    -- rules. The stateful rule groups that you use in your policy must have
+    -- stateful rule options settings that are compatible with these settings.
+    statefulEngineOptions :: Prelude.Maybe StatefulEngineOptions,
+    -- | Names of custom actions that are available for use in the stateless
     -- default actions settings.
     statelessCustomActions :: Prelude.Maybe [Prelude.Text],
+    -- | The default actions to take on a packet that doesn\'t match any stateful
+    -- rules. The stateful default action is optional, and is only valid when
+    -- using the strict rule order.
+    --
+    -- Valid values of the stateful default action:
+    --
+    -- -   aws:drop_strict
+    --
+    -- -   aws:drop_established
+    --
+    -- -   aws:alert_strict
+    --
+    -- -   aws:alert_established
+    statefulDefaultActions :: Prelude.Maybe [Prelude.Text],
     -- | The actions to take on packets that don\'t match any of the stateless
     -- rule groups.
     statelessDefaultActions :: Prelude.Maybe [Prelude.Text],
@@ -55,8 +74,26 @@ data NetworkFirewallPolicyDescription = NetworkFirewallPolicyDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'statefulEngineOptions', 'networkFirewallPolicyDescription_statefulEngineOptions' - Additional options governing how Network Firewall handles stateful
+-- rules. The stateful rule groups that you use in your policy must have
+-- stateful rule options settings that are compatible with these settings.
+--
 -- 'statelessCustomActions', 'networkFirewallPolicyDescription_statelessCustomActions' - Names of custom actions that are available for use in the stateless
 -- default actions settings.
+--
+-- 'statefulDefaultActions', 'networkFirewallPolicyDescription_statefulDefaultActions' - The default actions to take on a packet that doesn\'t match any stateful
+-- rules. The stateful default action is optional, and is only valid when
+-- using the strict rule order.
+--
+-- Valid values of the stateful default action:
+--
+-- -   aws:drop_strict
+--
+-- -   aws:drop_established
+--
+-- -   aws:alert_strict
+--
+-- -   aws:alert_established
 --
 -- 'statelessDefaultActions', 'networkFirewallPolicyDescription_statelessDefaultActions' - The actions to take on packets that don\'t match any of the stateless
 -- rule groups.
@@ -73,8 +110,10 @@ newNetworkFirewallPolicyDescription ::
   NetworkFirewallPolicyDescription
 newNetworkFirewallPolicyDescription =
   NetworkFirewallPolicyDescription'
-    { statelessCustomActions =
+    { statefulEngineOptions =
         Prelude.Nothing,
+      statelessCustomActions = Prelude.Nothing,
+      statefulDefaultActions = Prelude.Nothing,
       statelessDefaultActions = Prelude.Nothing,
       statelessRuleGroups = Prelude.Nothing,
       statelessFragmentDefaultActions =
@@ -82,10 +121,32 @@ newNetworkFirewallPolicyDescription =
       statefulRuleGroups = Prelude.Nothing
     }
 
+-- | Additional options governing how Network Firewall handles stateful
+-- rules. The stateful rule groups that you use in your policy must have
+-- stateful rule options settings that are compatible with these settings.
+networkFirewallPolicyDescription_statefulEngineOptions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe StatefulEngineOptions)
+networkFirewallPolicyDescription_statefulEngineOptions = Lens.lens (\NetworkFirewallPolicyDescription' {statefulEngineOptions} -> statefulEngineOptions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statefulEngineOptions = a} :: NetworkFirewallPolicyDescription)
+
 -- | Names of custom actions that are available for use in the stateless
 -- default actions settings.
 networkFirewallPolicyDescription_statelessCustomActions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [Prelude.Text])
 networkFirewallPolicyDescription_statelessCustomActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessCustomActions} -> statelessCustomActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessCustomActions = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The default actions to take on a packet that doesn\'t match any stateful
+-- rules. The stateful default action is optional, and is only valid when
+-- using the strict rule order.
+--
+-- Valid values of the stateful default action:
+--
+-- -   aws:drop_strict
+--
+-- -   aws:drop_established
+--
+-- -   aws:alert_strict
+--
+-- -   aws:alert_established
+networkFirewallPolicyDescription_statefulDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [Prelude.Text])
+networkFirewallPolicyDescription_statefulDefaultActions = Lens.lens (\NetworkFirewallPolicyDescription' {statefulDefaultActions} -> statefulDefaultActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statefulDefaultActions = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The actions to take on packets that don\'t match any of the stateless
 -- rule groups.
@@ -116,7 +177,11 @@ instance
       "NetworkFirewallPolicyDescription"
       ( \x ->
           NetworkFirewallPolicyDescription'
-            Prelude.<$> ( x Core..:? "StatelessCustomActions"
+            Prelude.<$> (x Core..:? "StatefulEngineOptions")
+            Prelude.<*> ( x Core..:? "StatelessCustomActions"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> ( x Core..:? "StatefulDefaultActions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "StatelessDefaultActions"
@@ -140,7 +205,9 @@ instance
   hashWithSalt
     _salt
     NetworkFirewallPolicyDescription' {..} =
-      _salt `Prelude.hashWithSalt` statelessCustomActions
+      _salt `Prelude.hashWithSalt` statefulEngineOptions
+        `Prelude.hashWithSalt` statelessCustomActions
+        `Prelude.hashWithSalt` statefulDefaultActions
         `Prelude.hashWithSalt` statelessDefaultActions
         `Prelude.hashWithSalt` statelessRuleGroups
         `Prelude.hashWithSalt` statelessFragmentDefaultActions
@@ -151,7 +218,9 @@ instance
     NetworkFirewallPolicyDescription
   where
   rnf NetworkFirewallPolicyDescription' {..} =
-    Prelude.rnf statelessCustomActions
+    Prelude.rnf statefulEngineOptions
+      `Prelude.seq` Prelude.rnf statelessCustomActions
+      `Prelude.seq` Prelude.rnf statefulDefaultActions
       `Prelude.seq` Prelude.rnf statelessDefaultActions
       `Prelude.seq` Prelude.rnf statelessRuleGroups
       `Prelude.seq` Prelude.rnf statelessFragmentDefaultActions

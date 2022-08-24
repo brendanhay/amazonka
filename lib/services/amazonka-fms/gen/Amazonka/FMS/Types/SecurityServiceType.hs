@@ -26,6 +26,7 @@ module Amazonka.FMS.Types.SecurityServiceType
         SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT,
         SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT,
         SecurityServiceType_SHIELD_ADVANCED,
+        SecurityServiceType_THIRD_PARTY_FIREWALL,
         SecurityServiceType_WAF,
         SecurityServiceType_WAFV2
       ),
@@ -81,6 +82,9 @@ pattern SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT = SecurityServiceType' "
 pattern SecurityServiceType_SHIELD_ADVANCED :: SecurityServiceType
 pattern SecurityServiceType_SHIELD_ADVANCED = SecurityServiceType' "SHIELD_ADVANCED"
 
+pattern SecurityServiceType_THIRD_PARTY_FIREWALL :: SecurityServiceType
+pattern SecurityServiceType_THIRD_PARTY_FIREWALL = SecurityServiceType' "THIRD_PARTY_FIREWALL"
+
 pattern SecurityServiceType_WAF :: SecurityServiceType
 pattern SecurityServiceType_WAF = SecurityServiceType' "WAF"
 
@@ -94,6 +98,7 @@ pattern SecurityServiceType_WAFV2 = SecurityServiceType' "WAFV2"
   SecurityServiceType_SECURITY_GROUPS_CONTENT_AUDIT,
   SecurityServiceType_SECURITY_GROUPS_USAGE_AUDIT,
   SecurityServiceType_SHIELD_ADVANCED,
+  SecurityServiceType_THIRD_PARTY_FIREWALL,
   SecurityServiceType_WAF,
   SecurityServiceType_WAFV2,
   SecurityServiceType'

@@ -214,6 +214,15 @@ module Amazonka.DirectoryService.Lens
     describeRegionsResponse_regionsDescription,
     describeRegionsResponse_httpStatus,
 
+    -- ** DescribeSettings
+    describeSettings_nextToken,
+    describeSettings_status,
+    describeSettings_directoryId,
+    describeSettingsResponse_directoryId,
+    describeSettingsResponse_nextToken,
+    describeSettingsResponse_settingEntries,
+    describeSettingsResponse_httpStatus,
+
     -- ** DescribeSharedDirectories
     describeSharedDirectories_nextToken,
     describeSharedDirectories_limit,
@@ -410,6 +419,12 @@ module Amazonka.DirectoryService.Lens
     updateRadius_directoryId,
     updateRadius_radiusSettings,
     updateRadiusResponse_httpStatus,
+
+    -- ** UpdateSettings
+    updateSettings_directoryId,
+    updateSettings_settings,
+    updateSettingsResponse_directoryId,
+    updateSettingsResponse_httpStatus,
 
     -- ** UpdateTrust
     updateTrust_selectiveAuth,
@@ -609,6 +624,22 @@ module Amazonka.DirectoryService.Lens
     schemaExtensionInfo_schemaExtensionStatusReason,
     schemaExtensionInfo_endDateTime,
 
+    -- ** Setting
+    setting_name,
+    setting_value,
+
+    -- ** SettingEntry
+    settingEntry_requestDetailedStatus,
+    settingEntry_name,
+    settingEntry_type,
+    settingEntry_requestStatusMessage,
+    settingEntry_appliedValue,
+    settingEntry_requestedValue,
+    settingEntry_requestStatus,
+    settingEntry_allowedValues,
+    settingEntry_lastUpdatedDateTime,
+    settingEntry_lastRequestedDateTime,
+
     -- ** ShareTarget
     shareTarget_id,
     shareTarget_type,
@@ -689,6 +720,7 @@ import Amazonka.DirectoryService.DescribeDomainControllers
 import Amazonka.DirectoryService.DescribeEventTopics
 import Amazonka.DirectoryService.DescribeLDAPSSettings
 import Amazonka.DirectoryService.DescribeRegions
+import Amazonka.DirectoryService.DescribeSettings
 import Amazonka.DirectoryService.DescribeSharedDirectories
 import Amazonka.DirectoryService.DescribeSnapshots
 import Amazonka.DirectoryService.DescribeTrusts
@@ -741,6 +773,8 @@ import Amazonka.DirectoryService.Types.RadiusSettings
 import Amazonka.DirectoryService.Types.RegionDescription
 import Amazonka.DirectoryService.Types.RegionsInfo
 import Amazonka.DirectoryService.Types.SchemaExtensionInfo
+import Amazonka.DirectoryService.Types.Setting
+import Amazonka.DirectoryService.Types.SettingEntry
 import Amazonka.DirectoryService.Types.ShareTarget
 import Amazonka.DirectoryService.Types.SharedDirectory
 import Amazonka.DirectoryService.Types.Snapshot
@@ -752,5 +786,6 @@ import Amazonka.DirectoryService.UnshareDirectory
 import Amazonka.DirectoryService.UpdateConditionalForwarder
 import Amazonka.DirectoryService.UpdateNumberOfDomainControllers
 import Amazonka.DirectoryService.UpdateRadius
+import Amazonka.DirectoryService.UpdateSettings
 import Amazonka.DirectoryService.UpdateTrust
 import Amazonka.DirectoryService.VerifyTrust

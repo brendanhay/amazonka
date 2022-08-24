@@ -114,6 +114,9 @@ import Test.Tasty
 --         , requestDescribeRegions $
 --             newDescribeRegions
 --
+--         , requestDescribeSettings $
+--             newDescribeSettings
+--
 --         , requestDescribeSharedDirectories $
 --             newDescribeSharedDirectories
 --
@@ -209,6 +212,9 @@ import Test.Tasty
 --
 --         , requestUpdateRadius $
 --             newUpdateRadius
+--
+--         , requestUpdateSettings $
+--             newUpdateSettings
 --
 --         , requestUpdateTrust $
 --             newUpdateTrust
@@ -306,6 +312,9 @@ import Test.Tasty
 --         , responseDescribeRegions $
 --             newDescribeRegionsResponse
 --
+--         , responseDescribeSettings $
+--             newDescribeSettingsResponse
+--
 --         , responseDescribeSharedDirectories $
 --             newDescribeSharedDirectoriesResponse
 --
@@ -401,6 +410,9 @@ import Test.Tasty
 --
 --         , responseUpdateRadius $
 --             newUpdateRadiusResponse
+--
+--         , responseUpdateSettings $
+--             newUpdateSettingsResponse
 --
 --         , responseUpdateTrust $
 --             newUpdateTrustResponse
@@ -586,6 +598,12 @@ requestDescribeRegions =
   req
     "DescribeRegions"
     "fixture/DescribeRegions.yaml"
+
+requestDescribeSettings :: DescribeSettings -> TestTree
+requestDescribeSettings =
+  req
+    "DescribeSettings"
+    "fixture/DescribeSettings.yaml"
 
 requestDescribeSharedDirectories :: DescribeSharedDirectories -> TestTree
 requestDescribeSharedDirectories =
@@ -778,6 +796,12 @@ requestUpdateRadius =
   req
     "UpdateRadius"
     "fixture/UpdateRadius.yaml"
+
+requestUpdateSettings :: UpdateSettings -> TestTree
+requestUpdateSettings =
+  req
+    "UpdateSettings"
+    "fixture/UpdateSettings.yaml"
 
 requestUpdateTrust :: UpdateTrust -> TestTree
 requestUpdateTrust =
@@ -1024,6 +1048,14 @@ responseDescribeRegions =
     "fixture/DescribeRegionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeRegions)
+
+responseDescribeSettings :: DescribeSettingsResponse -> TestTree
+responseDescribeSettings =
+  res
+    "DescribeSettingsResponse"
+    "fixture/DescribeSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSettings)
 
 responseDescribeSharedDirectories :: DescribeSharedDirectoriesResponse -> TestTree
 responseDescribeSharedDirectories =
@@ -1280,6 +1312,14 @@ responseUpdateRadius =
     "fixture/UpdateRadiusResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateRadius)
+
+responseUpdateSettings :: UpdateSettingsResponse -> TestTree
+responseUpdateSettings =
+  res
+    "UpdateSettingsResponse"
+    "fixture/UpdateSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSettings)
 
 responseUpdateTrust :: UpdateTrustResponse -> TestTree
 responseUpdateTrust =

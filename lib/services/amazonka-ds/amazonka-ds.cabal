@@ -73,6 +73,7 @@ library
     Amazonka.DirectoryService.DescribeEventTopics
     Amazonka.DirectoryService.DescribeLDAPSSettings
     Amazonka.DirectoryService.DescribeRegions
+    Amazonka.DirectoryService.DescribeSettings
     Amazonka.DirectoryService.DescribeSharedDirectories
     Amazonka.DirectoryService.DescribeSnapshots
     Amazonka.DirectoryService.DescribeTrusts
@@ -114,6 +115,7 @@ library
     Amazonka.DirectoryService.Types.ClientCertAuthSettings
     Amazonka.DirectoryService.Types.Computer
     Amazonka.DirectoryService.Types.ConditionalForwarder
+    Amazonka.DirectoryService.Types.DirectoryConfigurationStatus
     Amazonka.DirectoryService.Types.DirectoryConnectSettings
     Amazonka.DirectoryService.Types.DirectoryConnectSettingsDescription
     Amazonka.DirectoryService.Types.DirectoryDescription
@@ -145,6 +147,8 @@ library
     Amazonka.DirectoryService.Types.SchemaExtensionInfo
     Amazonka.DirectoryService.Types.SchemaExtensionStatus
     Amazonka.DirectoryService.Types.SelectiveAuth
+    Amazonka.DirectoryService.Types.Setting
+    Amazonka.DirectoryService.Types.SettingEntry
     Amazonka.DirectoryService.Types.SharedDirectory
     Amazonka.DirectoryService.Types.ShareMethod
     Amazonka.DirectoryService.Types.ShareStatus
@@ -165,6 +169,7 @@ library
     Amazonka.DirectoryService.UpdateConditionalForwarder
     Amazonka.DirectoryService.UpdateNumberOfDomainControllers
     Amazonka.DirectoryService.UpdateRadius
+    Amazonka.DirectoryService.UpdateSettings
     Amazonka.DirectoryService.UpdateTrust
     Amazonka.DirectoryService.VerifyTrust
     Amazonka.DirectoryService.Waiters

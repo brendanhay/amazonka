@@ -29,6 +29,7 @@ module Amazonka.DirectoryService.Types
     _AccessDeniedException,
     _ShareLimitExceededException,
     _EntityDoesNotExistException,
+    _UnsupportedSettingsException,
     _InvalidPasswordException,
     _NoAvailableCertificateException,
     _RegionLimitExceededException,
@@ -50,6 +51,7 @@ module Amazonka.DirectoryService.Types
     _DirectoryUnavailableException,
     _AuthenticationFailedException,
     _DirectoryAlreadyInRegionException,
+    _IncompatibleSettingsException,
     _InvalidParameterException,
 
     -- * CertificateState
@@ -63,6 +65,9 @@ module Amazonka.DirectoryService.Types
 
     -- * ClientAuthenticationType
     ClientAuthenticationType (..),
+
+    -- * DirectoryConfigurationStatus
+    DirectoryConfigurationStatus (..),
 
     -- * DirectoryEdition
     DirectoryEdition (..),
@@ -365,6 +370,26 @@ module Amazonka.DirectoryService.Types
     schemaExtensionInfo_schemaExtensionStatusReason,
     schemaExtensionInfo_endDateTime,
 
+    -- * Setting
+    Setting (..),
+    newSetting,
+    setting_name,
+    setting_value,
+
+    -- * SettingEntry
+    SettingEntry (..),
+    newSettingEntry,
+    settingEntry_requestDetailedStatus,
+    settingEntry_name,
+    settingEntry_type,
+    settingEntry_requestStatusMessage,
+    settingEntry_appliedValue,
+    settingEntry_requestedValue,
+    settingEntry_requestStatus,
+    settingEntry_allowedValues,
+    settingEntry_lastUpdatedDateTime,
+    settingEntry_lastRequestedDateTime,
+
     -- * ShareTarget
     ShareTarget (..),
     newShareTarget,
@@ -442,6 +467,7 @@ import Amazonka.DirectoryService.Types.ClientAuthenticationType
 import Amazonka.DirectoryService.Types.ClientCertAuthSettings
 import Amazonka.DirectoryService.Types.Computer
 import Amazonka.DirectoryService.Types.ConditionalForwarder
+import Amazonka.DirectoryService.Types.DirectoryConfigurationStatus
 import Amazonka.DirectoryService.Types.DirectoryConnectSettings
 import Amazonka.DirectoryService.Types.DirectoryConnectSettingsDescription
 import Amazonka.DirectoryService.Types.DirectoryDescription
@@ -473,6 +499,8 @@ import Amazonka.DirectoryService.Types.ReplicationScope
 import Amazonka.DirectoryService.Types.SchemaExtensionInfo
 import Amazonka.DirectoryService.Types.SchemaExtensionStatus
 import Amazonka.DirectoryService.Types.SelectiveAuth
+import Amazonka.DirectoryService.Types.Setting
+import Amazonka.DirectoryService.Types.SettingEntry
 import Amazonka.DirectoryService.Types.ShareMethod
 import Amazonka.DirectoryService.Types.ShareStatus
 import Amazonka.DirectoryService.Types.ShareTarget
@@ -654,6 +682,13 @@ _EntityDoesNotExistException =
     defaultService
     "EntityDoesNotExistException"
 
+-- | The specified directory setting is not supported.
+_UnsupportedSettingsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedSettingsException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedSettingsException"
+
 -- | The new password provided by the user does not meet the password
 -- complexity requirements defined in your directory.
 _InvalidPasswordException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -814,6 +849,13 @@ _DirectoryAlreadyInRegionException =
   Core._MatchServiceError
     defaultService
     "DirectoryAlreadyInRegionException"
+
+-- | The specified directory setting is not compatible with other settings.
+_IncompatibleSettingsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncompatibleSettingsException =
+  Core._MatchServiceError
+    defaultService
+    "IncompatibleSettingsException"
 
 -- | One or more parameters are not valid.
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

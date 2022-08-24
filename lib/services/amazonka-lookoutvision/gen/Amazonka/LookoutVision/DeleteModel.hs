@@ -24,8 +24,8 @@
 -- model. To stop a running model, use the StopModel operation.
 --
 -- It might take a few seconds to delete a model. To determine if a model
--- has been deleted, call ListProjects and check if the version of the
--- model (@ModelVersion@) is in the @Models@ array.
+-- has been deleted, call ListModels and check if the version of the model
+-- (@ModelVersion@) is in the @Models@ array.
 --
 -- This operation requires permissions to perform the
 -- @lookoutvision:DeleteModel@ operation.
@@ -59,13 +59,19 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDeleteModel' smart constructor.
 data DeleteModel = DeleteModel'
   { -- | ClientToken is an idempotency token that ensures a call to @DeleteModel@
-    -- completes only once. You choose the value to pass. For example, An
-    -- issue, such as an network outage, might prevent you from getting a
-    -- response from @DeleteModel@. In this case, safely retry your call to
-    -- @DeleteModel@ by using the same @ClientToken@ parameter value. An error
-    -- occurs if the other input parameters are not the same as in the first
-    -- request. Using a different value for @ClientToken@ is considered a new
-    -- call to @DeleteModel@. An idempotency token is active for 8 hours.
+    -- completes only once. You choose the value to pass. For example, an issue
+    -- might prevent you from getting a response from @DeleteModel@. In this
+    -- case, safely retry your call to @DeleteModel@ by using the same
+    -- @ClientToken@ parameter value.
+    --
+    -- If you don\'t supply a value for ClientToken, the AWS SDK you are using
+    -- inserts a value for you. This prevents retries after a network error
+    -- from making multiple model deletion requests. You\'ll need to provide
+    -- your own value for other use cases.
+    --
+    -- An error occurs if the other input parameters are not the same as in the
+    -- first request. Using a different value for @ClientToken@ is considered a
+    -- new call to @DeleteModel@. An idempotency token is active for 8 hours.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the project that contains the model that you want to delete.
     projectName :: Prelude.Text,
@@ -83,13 +89,19 @@ data DeleteModel = DeleteModel'
 -- for backwards compatibility:
 --
 -- 'clientToken', 'deleteModel_clientToken' - ClientToken is an idempotency token that ensures a call to @DeleteModel@
--- completes only once. You choose the value to pass. For example, An
--- issue, such as an network outage, might prevent you from getting a
--- response from @DeleteModel@. In this case, safely retry your call to
--- @DeleteModel@ by using the same @ClientToken@ parameter value. An error
--- occurs if the other input parameters are not the same as in the first
--- request. Using a different value for @ClientToken@ is considered a new
--- call to @DeleteModel@. An idempotency token is active for 8 hours.
+-- completes only once. You choose the value to pass. For example, an issue
+-- might prevent you from getting a response from @DeleteModel@. In this
+-- case, safely retry your call to @DeleteModel@ by using the same
+-- @ClientToken@ parameter value.
+--
+-- If you don\'t supply a value for ClientToken, the AWS SDK you are using
+-- inserts a value for you. This prevents retries after a network error
+-- from making multiple model deletion requests. You\'ll need to provide
+-- your own value for other use cases.
+--
+-- An error occurs if the other input parameters are not the same as in the
+-- first request. Using a different value for @ClientToken@ is considered a
+-- new call to @DeleteModel@. An idempotency token is active for 8 hours.
 --
 -- 'projectName', 'deleteModel_projectName' - The name of the project that contains the model that you want to delete.
 --
@@ -108,13 +120,19 @@ newDeleteModel pProjectName_ pModelVersion_ =
     }
 
 -- | ClientToken is an idempotency token that ensures a call to @DeleteModel@
--- completes only once. You choose the value to pass. For example, An
--- issue, such as an network outage, might prevent you from getting a
--- response from @DeleteModel@. In this case, safely retry your call to
--- @DeleteModel@ by using the same @ClientToken@ parameter value. An error
--- occurs if the other input parameters are not the same as in the first
--- request. Using a different value for @ClientToken@ is considered a new
--- call to @DeleteModel@. An idempotency token is active for 8 hours.
+-- completes only once. You choose the value to pass. For example, an issue
+-- might prevent you from getting a response from @DeleteModel@. In this
+-- case, safely retry your call to @DeleteModel@ by using the same
+-- @ClientToken@ parameter value.
+--
+-- If you don\'t supply a value for ClientToken, the AWS SDK you are using
+-- inserts a value for you. This prevents retries after a network error
+-- from making multiple model deletion requests. You\'ll need to provide
+-- your own value for other use cases.
+--
+-- An error occurs if the other input parameters are not the same as in the
+-- first request. Using a different value for @ClientToken@ is considered a
+-- new call to @DeleteModel@. An idempotency token is active for 8 hours.
 deleteModel_clientToken :: Lens.Lens' DeleteModel (Prelude.Maybe Prelude.Text)
 deleteModel_clientToken = Lens.lens (\DeleteModel' {clientToken} -> clientToken) (\s@DeleteModel' {} a -> s {clientToken = a} :: DeleteModel)
 

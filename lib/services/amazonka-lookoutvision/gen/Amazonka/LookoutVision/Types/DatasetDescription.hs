@@ -44,6 +44,7 @@ data DatasetDescription = DatasetDescription'
     projectName :: Prelude.Maybe Prelude.Text,
     -- | The status message for the dataset.
     statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | Statistics about the images in a dataset.
     imageStats :: Prelude.Maybe DatasetImageStats
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +71,7 @@ data DatasetDescription = DatasetDescription'
 --
 -- 'statusMessage', 'datasetDescription_statusMessage' - The status message for the dataset.
 --
--- 'imageStats', 'datasetDescription_imageStats' -
+-- 'imageStats', 'datasetDescription_imageStats' - Statistics about the images in a dataset.
 newDatasetDescription ::
   DatasetDescription
 newDatasetDescription =
@@ -111,7 +112,7 @@ datasetDescription_projectName = Lens.lens (\DatasetDescription' {projectName} -
 datasetDescription_statusMessage :: Lens.Lens' DatasetDescription (Prelude.Maybe Prelude.Text)
 datasetDescription_statusMessage = Lens.lens (\DatasetDescription' {statusMessage} -> statusMessage) (\s@DatasetDescription' {} a -> s {statusMessage = a} :: DatasetDescription)
 
--- |
+-- | Statistics about the images in a dataset.
 datasetDescription_imageStats :: Lens.Lens' DatasetDescription (Prelude.Maybe DatasetImageStats)
 datasetDescription_imageStats = Lens.lens (\DatasetDescription' {imageStats} -> imageStats) (\s@DatasetDescription' {} a -> s {imageStats = a} :: DatasetDescription)
 

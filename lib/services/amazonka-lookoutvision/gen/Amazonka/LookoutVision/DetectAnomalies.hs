@@ -24,13 +24,18 @@
 --
 -- The response from @DetectAnomalies@ includes a boolean prediction that
 -- the image contains one or more anomalies and a confidence value for the
--- prediction.
+-- prediction. If the model is an image segmentation model, the response
+-- also includes segmentation information for each type of anomaly found in
+-- the image.
 --
 -- Before calling @DetectAnomalies@, you must first start your model with
 -- the StartModel operation. You are charged for the amount of time, in
 -- minutes, that a model runs and for the number of anomaly detection units
 -- that your model uses. If you are not using a model, use the StopModel
 -- operation to stop your model.
+--
+-- For more information, see /Detecting anomalies in an image/ in the
+-- Amazon Lookout for Vision developer guide.
 --
 -- This operation requires permissions to perform the
 -- @lookoutvision:DetectAnomalies@ operation.

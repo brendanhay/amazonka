@@ -20,9 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more JSON Line entries to a dataset. A JSON Line includes
--- information about an image used for training or testing an Amazon
--- Lookout for Vision model. The following is an example JSON Line.
+-- Adds or updates one or more JSON Line entries in a dataset. A JSON Line
+-- includes information about an image used for training or testing an
+-- Amazon Lookout for Vision model.
+--
+-- To update an existing JSON Line, use the @source-ref@ field to identify
+-- the JSON Line. The JSON line that you supply replaces the existing JSON
+-- line. Any existing annotations that are not in the new JSON line are
+-- removed from the dataset.
+--
+-- For more information, see /Defining JSON lines for anomaly
+-- classification/ in the Amazon Lookout for Vision Developer Guide.
+--
+-- The images you reference in the @source-ref@ field of a JSON line, must
+-- be in the same S3 bucket as the existing images in the dataset.
 --
 -- Updating a dataset might take a while to complete. To check the current
 -- status, call DescribeDataset and check the @Status@ field in the
@@ -62,13 +73,19 @@ import qualified Amazonka.Response as Response
 data UpdateDatasetEntries = UpdateDatasetEntries'
   { -- | ClientToken is an idempotency token that ensures a call to
     -- @UpdateDatasetEntries@ completes only once. You choose the value to
-    -- pass. For example, An issue, such as an network outage, might prevent
-    -- you from getting a response from @UpdateDatasetEntries@. In this case,
-    -- safely retry your call to @UpdateDatasetEntries@ by using the same
-    -- @ClientToken@ parameter value. An error occurs if the other input
-    -- parameters are not the same as in the first request. Using a different
-    -- value for @ClientToken@ is considered a new call to
-    -- @UpdateDatasetEntries@. An idempotency token is active for 8 hours.
+    -- pass. For example, An issue might prevent you from getting a response
+    -- from @UpdateDatasetEntries@. In this case, safely retry your call to
+    -- @UpdateDatasetEntries@ by using the same @ClientToken@ parameter value.
+    --
+    -- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+    -- using inserts a value for you. This prevents retries after a network
+    -- error from making multiple updates with the same dataset entries.
+    -- You\'ll need to provide your own value for other use cases.
+    --
+    -- An error occurs if the other input parameters are not the same as in the
+    -- first request. Using a different value for @ClientToken@ is considered a
+    -- new call to @UpdateDatasetEntries@. An idempotency token is active for 8
+    -- hours.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the project that contains the dataset that you want to
     -- update.
@@ -92,13 +109,19 @@ data UpdateDatasetEntries = UpdateDatasetEntries'
 --
 -- 'clientToken', 'updateDatasetEntries_clientToken' - ClientToken is an idempotency token that ensures a call to
 -- @UpdateDatasetEntries@ completes only once. You choose the value to
--- pass. For example, An issue, such as an network outage, might prevent
--- you from getting a response from @UpdateDatasetEntries@. In this case,
--- safely retry your call to @UpdateDatasetEntries@ by using the same
--- @ClientToken@ parameter value. An error occurs if the other input
--- parameters are not the same as in the first request. Using a different
--- value for @ClientToken@ is considered a new call to
--- @UpdateDatasetEntries@. An idempotency token is active for 8 hours.
+-- pass. For example, An issue might prevent you from getting a response
+-- from @UpdateDatasetEntries@. In this case, safely retry your call to
+-- @UpdateDatasetEntries@ by using the same @ClientToken@ parameter value.
+--
+-- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+-- using inserts a value for you. This prevents retries after a network
+-- error from making multiple updates with the same dataset entries.
+-- You\'ll need to provide your own value for other use cases.
+--
+-- An error occurs if the other input parameters are not the same as in the
+-- first request. Using a different value for @ClientToken@ is considered a
+-- new call to @UpdateDatasetEntries@. An idempotency token is active for 8
+-- hours.
 --
 -- 'projectName', 'updateDatasetEntries_projectName' - The name of the project that contains the dataset that you want to
 -- update.
@@ -134,13 +157,19 @@ newUpdateDatasetEntries
 
 -- | ClientToken is an idempotency token that ensures a call to
 -- @UpdateDatasetEntries@ completes only once. You choose the value to
--- pass. For example, An issue, such as an network outage, might prevent
--- you from getting a response from @UpdateDatasetEntries@. In this case,
--- safely retry your call to @UpdateDatasetEntries@ by using the same
--- @ClientToken@ parameter value. An error occurs if the other input
--- parameters are not the same as in the first request. Using a different
--- value for @ClientToken@ is considered a new call to
--- @UpdateDatasetEntries@. An idempotency token is active for 8 hours.
+-- pass. For example, An issue might prevent you from getting a response
+-- from @UpdateDatasetEntries@. In this case, safely retry your call to
+-- @UpdateDatasetEntries@ by using the same @ClientToken@ parameter value.
+--
+-- If you don\'t supply a value for @ClientToken@, the AWS SDK you are
+-- using inserts a value for you. This prevents retries after a network
+-- error from making multiple updates with the same dataset entries.
+-- You\'ll need to provide your own value for other use cases.
+--
+-- An error occurs if the other input parameters are not the same as in the
+-- first request. Using a different value for @ClientToken@ is considered a
+-- new call to @UpdateDatasetEntries@. An idempotency token is active for 8
+-- hours.
 updateDatasetEntries_clientToken :: Lens.Lens' UpdateDatasetEntries (Prelude.Maybe Prelude.Text)
 updateDatasetEntries_clientToken = Lens.lens (\UpdateDatasetEntries' {clientToken} -> clientToken) (\s@UpdateDatasetEntries' {} a -> s {clientToken = a} :: UpdateDatasetEntries)
 

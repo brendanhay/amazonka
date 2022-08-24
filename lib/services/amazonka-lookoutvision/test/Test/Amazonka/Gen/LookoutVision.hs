@@ -51,6 +51,9 @@ import Test.Tasty
 --         , requestDescribeModel $
 --             newDescribeModel
 --
+--         , requestDescribeModelPackagingJob $
+--             newDescribeModelPackagingJob
+--
 --         , requestDescribeProject $
 --             newDescribeProject
 --
@@ -59,6 +62,9 @@ import Test.Tasty
 --
 --         , requestListDatasetEntries $
 --             newListDatasetEntries
+--
+--         , requestListModelPackagingJobs $
+--             newListModelPackagingJobs
 --
 --         , requestListModels $
 --             newListModels
@@ -71,6 +77,9 @@ import Test.Tasty
 --
 --         , requestStartModel $
 --             newStartModel
+--
+--         , requestStartModelPackagingJob $
+--             newStartModelPackagingJob
 --
 --         , requestStopModel $
 --             newStopModel
@@ -111,6 +120,9 @@ import Test.Tasty
 --         , responseDescribeModel $
 --             newDescribeModelResponse
 --
+--         , responseDescribeModelPackagingJob $
+--             newDescribeModelPackagingJobResponse
+--
 --         , responseDescribeProject $
 --             newDescribeProjectResponse
 --
@@ -119,6 +131,9 @@ import Test.Tasty
 --
 --         , responseListDatasetEntries $
 --             newListDatasetEntriesResponse
+--
+--         , responseListModelPackagingJobs $
+--             newListModelPackagingJobsResponse
 --
 --         , responseListModels $
 --             newListModelsResponse
@@ -131,6 +146,9 @@ import Test.Tasty
 --
 --         , responseStartModel $
 --             newStartModelResponse
+--
+--         , responseStartModelPackagingJob $
+--             newStartModelPackagingJobResponse
 --
 --         , responseStopModel $
 --             newStopModelResponse
@@ -197,6 +215,12 @@ requestDescribeModel =
     "DescribeModel"
     "fixture/DescribeModel.yaml"
 
+requestDescribeModelPackagingJob :: DescribeModelPackagingJob -> TestTree
+requestDescribeModelPackagingJob =
+  req
+    "DescribeModelPackagingJob"
+    "fixture/DescribeModelPackagingJob.yaml"
+
 requestDescribeProject :: DescribeProject -> TestTree
 requestDescribeProject =
   req
@@ -208,6 +232,12 @@ requestListDatasetEntries =
   req
     "ListDatasetEntries"
     "fixture/ListDatasetEntries.yaml"
+
+requestListModelPackagingJobs :: ListModelPackagingJobs -> TestTree
+requestListModelPackagingJobs =
+  req
+    "ListModelPackagingJobs"
+    "fixture/ListModelPackagingJobs.yaml"
 
 requestListModels :: ListModels -> TestTree
 requestListModels =
@@ -232,6 +262,12 @@ requestStartModel =
   req
     "StartModel"
     "fixture/StartModel.yaml"
+
+requestStartModelPackagingJob :: StartModelPackagingJob -> TestTree
+requestStartModelPackagingJob =
+  req
+    "StartModelPackagingJob"
+    "fixture/StartModelPackagingJob.yaml"
 
 requestStopModel :: StopModel -> TestTree
 requestStopModel =
@@ -323,6 +359,14 @@ responseDescribeModel =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeModel)
 
+responseDescribeModelPackagingJob :: DescribeModelPackagingJobResponse -> TestTree
+responseDescribeModelPackagingJob =
+  res
+    "DescribeModelPackagingJobResponse"
+    "fixture/DescribeModelPackagingJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeModelPackagingJob)
+
 responseDescribeProject :: DescribeProjectResponse -> TestTree
 responseDescribeProject =
   res
@@ -346,6 +390,14 @@ responseListDatasetEntries =
     "fixture/ListDatasetEntriesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDatasetEntries)
+
+responseListModelPackagingJobs :: ListModelPackagingJobsResponse -> TestTree
+responseListModelPackagingJobs =
+  res
+    "ListModelPackagingJobsResponse"
+    "fixture/ListModelPackagingJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListModelPackagingJobs)
 
 responseListModels :: ListModelsResponse -> TestTree
 responseListModels =
@@ -378,6 +430,14 @@ responseStartModel =
     "fixture/StartModelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartModel)
+
+responseStartModelPackagingJob :: StartModelPackagingJobResponse -> TestTree
+responseStartModelPackagingJob =
+  res
+    "StartModelPackagingJobResponse"
+    "fixture/StartModelPackagingJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartModelPackagingJob)
 
 responseStopModel :: StopModelResponse -> TestTree
 responseStopModel =

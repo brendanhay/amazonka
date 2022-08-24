@@ -52,17 +52,21 @@ library
     Amazonka.LookoutVision.DeleteProject
     Amazonka.LookoutVision.DescribeDataset
     Amazonka.LookoutVision.DescribeModel
+    Amazonka.LookoutVision.DescribeModelPackagingJob
     Amazonka.LookoutVision.DescribeProject
     Amazonka.LookoutVision.DetectAnomalies
     Amazonka.LookoutVision.Lens
     Amazonka.LookoutVision.ListDatasetEntries
+    Amazonka.LookoutVision.ListModelPackagingJobs
     Amazonka.LookoutVision.ListModels
     Amazonka.LookoutVision.ListProjects
     Amazonka.LookoutVision.ListTagsForResource
     Amazonka.LookoutVision.StartModel
+    Amazonka.LookoutVision.StartModelPackagingJob
     Amazonka.LookoutVision.StopModel
     Amazonka.LookoutVision.TagResource
     Amazonka.LookoutVision.Types
+    Amazonka.LookoutVision.Types.Anomaly
     Amazonka.LookoutVision.Types.DatasetDescription
     Amazonka.LookoutVision.Types.DatasetGroundTruthManifest
     Amazonka.LookoutVision.Types.DatasetImageStats
@@ -70,19 +74,32 @@ library
     Amazonka.LookoutVision.Types.DatasetSource
     Amazonka.LookoutVision.Types.DatasetStatus
     Amazonka.LookoutVision.Types.DetectAnomalyResult
+    Amazonka.LookoutVision.Types.GreengrassConfiguration
+    Amazonka.LookoutVision.Types.GreengrassOutputDetails
     Amazonka.LookoutVision.Types.ImageSource
     Amazonka.LookoutVision.Types.InputS3Object
     Amazonka.LookoutVision.Types.ModelDescription
     Amazonka.LookoutVision.Types.ModelHostingStatus
     Amazonka.LookoutVision.Types.ModelMetadata
+    Amazonka.LookoutVision.Types.ModelPackagingConfiguration
+    Amazonka.LookoutVision.Types.ModelPackagingDescription
+    Amazonka.LookoutVision.Types.ModelPackagingJobMetadata
+    Amazonka.LookoutVision.Types.ModelPackagingJobStatus
+    Amazonka.LookoutVision.Types.ModelPackagingOutputDetails
     Amazonka.LookoutVision.Types.ModelPerformance
     Amazonka.LookoutVision.Types.ModelStatus
     Amazonka.LookoutVision.Types.OutputConfig
     Amazonka.LookoutVision.Types.OutputS3Object
+    Amazonka.LookoutVision.Types.PixelAnomaly
     Amazonka.LookoutVision.Types.ProjectDescription
     Amazonka.LookoutVision.Types.ProjectMetadata
     Amazonka.LookoutVision.Types.S3Location
     Amazonka.LookoutVision.Types.Tag
+    Amazonka.LookoutVision.Types.TargetDevice
+    Amazonka.LookoutVision.Types.TargetPlatform
+    Amazonka.LookoutVision.Types.TargetPlatformAccelerator
+    Amazonka.LookoutVision.Types.TargetPlatformArch
+    Amazonka.LookoutVision.Types.TargetPlatformOs
     Amazonka.LookoutVision.UntagResource
     Amazonka.LookoutVision.UpdateDatasetEntries
     Amazonka.LookoutVision.Waiters

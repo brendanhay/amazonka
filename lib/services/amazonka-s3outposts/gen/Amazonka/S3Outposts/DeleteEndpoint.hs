@@ -20,15 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon S3 on Outposts Access Points simplify managing data access at
--- scale for shared datasets in S3 on Outposts. S3 on Outposts uses
--- endpoints to connect to Outposts buckets so that you can perform actions
--- within your virtual private cloud (VPC). For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/AccessingS3Outposts.html Accessing S3 on Outposts using VPC only access points>.
+-- Deletes an endpoint.
 --
--- This action deletes an endpoint.
---
--- It can take up to 5 minutes for this action to complete.
+-- It can take up to 5 minutes for this action to finish.
 --
 -- Related actions include:
 --
@@ -61,7 +55,7 @@ import Amazonka.S3Outposts.Types
 data DeleteEndpoint = DeleteEndpoint'
   { -- | The ID of the endpoint.
     endpointId :: Prelude.Text,
-    -- | The ID of the AWS Outposts.
+    -- | The ID of the Outposts.
     outpostId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +70,7 @@ data DeleteEndpoint = DeleteEndpoint'
 --
 -- 'endpointId', 'deleteEndpoint_endpointId' - The ID of the endpoint.
 --
--- 'outpostId', 'deleteEndpoint_outpostId' - The ID of the AWS Outposts.
+-- 'outpostId', 'deleteEndpoint_outpostId' - The ID of the Outposts.
 newDeleteEndpoint ::
   -- | 'endpointId'
   Prelude.Text ->
@@ -93,7 +87,7 @@ newDeleteEndpoint pEndpointId_ pOutpostId_ =
 deleteEndpoint_endpointId :: Lens.Lens' DeleteEndpoint Prelude.Text
 deleteEndpoint_endpointId = Lens.lens (\DeleteEndpoint' {endpointId} -> endpointId) (\s@DeleteEndpoint' {} a -> s {endpointId = a} :: DeleteEndpoint)
 
--- | The ID of the AWS Outposts.
+-- | The ID of the Outposts.
 deleteEndpoint_outpostId :: Lens.Lens' DeleteEndpoint Prelude.Text
 deleteEndpoint_outpostId = Lens.lens (\DeleteEndpoint' {outpostId} -> outpostId) (\s@DeleteEndpoint' {} a -> s {outpostId = a} :: DeleteEndpoint)
 

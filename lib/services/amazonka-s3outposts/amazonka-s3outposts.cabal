@@ -48,6 +48,7 @@ library
     Amazonka.S3Outposts.DeleteEndpoint
     Amazonka.S3Outposts.Lens
     Amazonka.S3Outposts.ListEndpoints
+    Amazonka.S3Outposts.ListSharedEndpoints
     Amazonka.S3Outposts.Types
     Amazonka.S3Outposts.Types.Endpoint
     Amazonka.S3Outposts.Types.EndpointAccessType

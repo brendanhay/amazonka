@@ -27,6 +27,7 @@ module Amazonka.ApplicationInsights.UpdateApplication
     newUpdateApplication,
 
     -- * Request Lenses
+    updateApplication_autoConfigEnabled,
     updateApplication_opsItemSNSTopicArn,
     updateApplication_cWEMonitorEnabled,
     updateApplication_removeSNSTopic,
@@ -52,7 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | The SNS topic provided to Application Insights that is associated to the
+  { -- | Turns auto-configuration on or off.
+    autoConfigEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The SNS topic provided to Application Insights that is associated to the
     -- created opsItem. Allows you to receive notifications for updates to the
     -- opsItem.
     opsItemSNSTopicArn :: Prelude.Maybe Prelude.Text,
@@ -79,6 +82,8 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'autoConfigEnabled', 'updateApplication_autoConfigEnabled' - Turns auto-configuration on or off.
+--
 -- 'opsItemSNSTopicArn', 'updateApplication_opsItemSNSTopicArn' - The SNS topic provided to Application Insights that is associated to the
 -- created opsItem. Allows you to receive notifications for updates to the
 -- opsItem.
@@ -100,13 +105,18 @@ newUpdateApplication ::
   UpdateApplication
 newUpdateApplication pResourceGroupName_ =
   UpdateApplication'
-    { opsItemSNSTopicArn =
+    { autoConfigEnabled =
         Prelude.Nothing,
+      opsItemSNSTopicArn = Prelude.Nothing,
       cWEMonitorEnabled = Prelude.Nothing,
       removeSNSTopic = Prelude.Nothing,
       opsCenterEnabled = Prelude.Nothing,
       resourceGroupName = pResourceGroupName_
     }
+
+-- | Turns auto-configuration on or off.
+updateApplication_autoConfigEnabled :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Bool)
+updateApplication_autoConfigEnabled = Lens.lens (\UpdateApplication' {autoConfigEnabled} -> autoConfigEnabled) (\s@UpdateApplication' {} a -> s {autoConfigEnabled = a} :: UpdateApplication)
 
 -- | The SNS topic provided to Application Insights that is associated to the
 -- created opsItem. Allows you to receive notifications for updates to the
@@ -149,7 +159,8 @@ instance Core.AWSRequest UpdateApplication where
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =
-    _salt `Prelude.hashWithSalt` opsItemSNSTopicArn
+    _salt `Prelude.hashWithSalt` autoConfigEnabled
+      `Prelude.hashWithSalt` opsItemSNSTopicArn
       `Prelude.hashWithSalt` cWEMonitorEnabled
       `Prelude.hashWithSalt` removeSNSTopic
       `Prelude.hashWithSalt` opsCenterEnabled
@@ -157,7 +168,8 @@ instance Prelude.Hashable UpdateApplication where
 
 instance Prelude.NFData UpdateApplication where
   rnf UpdateApplication' {..} =
-    Prelude.rnf opsItemSNSTopicArn
+    Prelude.rnf autoConfigEnabled
+      `Prelude.seq` Prelude.rnf opsItemSNSTopicArn
       `Prelude.seq` Prelude.rnf cWEMonitorEnabled
       `Prelude.seq` Prelude.rnf removeSNSTopic
       `Prelude.seq` Prelude.rnf opsCenterEnabled
@@ -182,7 +194,9 @@ instance Core.ToJSON UpdateApplication where
   toJSON UpdateApplication' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OpsItemSNSTopicArn" Core..=)
+          [ ("AutoConfigEnabled" Core..=)
+              Prelude.<$> autoConfigEnabled,
+            ("OpsItemSNSTopicArn" Core..=)
               Prelude.<$> opsItemSNSTopicArn,
             ("CWEMonitorEnabled" Core..=)
               Prelude.<$> cWEMonitorEnabled,

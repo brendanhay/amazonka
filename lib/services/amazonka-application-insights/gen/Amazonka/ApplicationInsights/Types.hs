@@ -35,11 +35,17 @@ module Amazonka.ApplicationInsights.Types
     -- * ConfigurationEventStatus
     ConfigurationEventStatus (..),
 
+    -- * DiscoveryType
+    DiscoveryType (..),
+
     -- * FeedbackKey
     FeedbackKey (..),
 
     -- * FeedbackValue
     FeedbackValue (..),
+
+    -- * GroupingType
+    GroupingType (..),
 
     -- * LogFilter
     LogFilter (..),
@@ -71,6 +77,8 @@ module Amazonka.ApplicationInsights.Types
     ApplicationInfo (..),
     newApplicationInfo,
     applicationInfo_lifeCycle,
+    applicationInfo_autoConfigEnabled,
+    applicationInfo_discoveryType,
     applicationInfo_opsItemSNSTopicArn,
     applicationInfo_cWEMonitorEnabled,
     applicationInfo_resourceGroupName,
@@ -148,6 +156,7 @@ module Amazonka.ApplicationInsights.Types
     Problem (..),
     newProblem,
     problem_affectedResource,
+    problem_recurringCount,
     problem_feedback,
     problem_status,
     problem_endTime,
@@ -156,6 +165,7 @@ module Amazonka.ApplicationInsights.Types
     problem_resourceGroupName,
     problem_title,
     problem_severityLevel,
+    problem_lastRecurrenceTime,
     problem_startTime,
 
     -- * RelatedObservations
@@ -177,8 +187,10 @@ import Amazonka.ApplicationInsights.Types.CloudWatchEventSource
 import Amazonka.ApplicationInsights.Types.ConfigurationEvent
 import Amazonka.ApplicationInsights.Types.ConfigurationEventResourceType
 import Amazonka.ApplicationInsights.Types.ConfigurationEventStatus
+import Amazonka.ApplicationInsights.Types.DiscoveryType
 import Amazonka.ApplicationInsights.Types.FeedbackKey
 import Amazonka.ApplicationInsights.Types.FeedbackValue
+import Amazonka.ApplicationInsights.Types.GroupingType
 import Amazonka.ApplicationInsights.Types.LogFilter
 import Amazonka.ApplicationInsights.Types.LogPattern
 import Amazonka.ApplicationInsights.Types.Observation

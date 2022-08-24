@@ -11,19 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ApplicationInsights.Types.Status
+-- Module      : Amazonka.ApplicationInsights.Types.GroupingType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ApplicationInsights.Types.Status
-  ( Status
+module Amazonka.ApplicationInsights.Types.GroupingType
+  ( GroupingType
       ( ..,
-        Status_IGNORE,
-        Status_PENDING,
-        Status_RECURRING,
-        Status_RESOLVED
+        GroupingType_ACCOUNT_BASED
       ),
   )
 where
@@ -31,7 +28,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype Status = Status' {fromStatus :: Core.Text}
+newtype GroupingType = GroupingType'
+  { fromGroupingType ::
+      Core.Text
+  }
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -56,22 +56,10 @@ newtype Status = Status' {fromStatus :: Core.Text}
       Core.ToXML
     )
 
-pattern Status_IGNORE :: Status
-pattern Status_IGNORE = Status' "IGNORE"
-
-pattern Status_PENDING :: Status
-pattern Status_PENDING = Status' "PENDING"
-
-pattern Status_RECURRING :: Status
-pattern Status_RECURRING = Status' "RECURRING"
-
-pattern Status_RESOLVED :: Status
-pattern Status_RESOLVED = Status' "RESOLVED"
+pattern GroupingType_ACCOUNT_BASED :: GroupingType
+pattern GroupingType_ACCOUNT_BASED = GroupingType' "ACCOUNT_BASED"
 
 {-# COMPLETE
-  Status_IGNORE,
-  Status_PENDING,
-  Status_RECURRING,
-  Status_RESOLVED,
-  Status'
+  GroupingType_ACCOUNT_BASED,
+  GroupingType'
   #-}

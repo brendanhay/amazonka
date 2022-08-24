@@ -16,10 +16,13 @@ module Amazonka.ApplicationInsights.Lens
 
     -- ** CreateApplication
     createApplication_tags,
+    createApplication_autoConfigEnabled,
     createApplication_opsItemSNSTopicArn,
     createApplication_cWEMonitorEnabled,
-    createApplication_opsCenterEnabled,
     createApplication_resourceGroupName,
+    createApplication_groupingType,
+    createApplication_opsCenterEnabled,
+    createApplication_autoCreate,
     createApplicationResponse_applicationInfo,
     createApplicationResponse_httpStatus,
 
@@ -151,12 +154,14 @@ module Amazonka.ApplicationInsights.Lens
 
     -- ** ListProblems
     listProblems_nextToken,
+    listProblems_componentName,
     listProblems_endTime,
     listProblems_resourceGroupName,
     listProblems_maxResults,
     listProblems_startTime,
     listProblemsResponse_nextToken,
     listProblemsResponse_problemList,
+    listProblemsResponse_resourceGroupName,
     listProblemsResponse_httpStatus,
 
     -- ** ListTagsForResource
@@ -175,6 +180,7 @@ module Amazonka.ApplicationInsights.Lens
     untagResourceResponse_httpStatus,
 
     -- ** UpdateApplication
+    updateApplication_autoConfigEnabled,
     updateApplication_opsItemSNSTopicArn,
     updateApplication_cWEMonitorEnabled,
     updateApplication_removeSNSTopic,
@@ -191,6 +197,7 @@ module Amazonka.ApplicationInsights.Lens
     updateComponentResponse_httpStatus,
 
     -- ** UpdateComponentConfiguration
+    updateComponentConfiguration_autoConfigEnabled,
     updateComponentConfiguration_tier,
     updateComponentConfiguration_monitor,
     updateComponentConfiguration_componentConfiguration,
@@ -221,6 +228,8 @@ module Amazonka.ApplicationInsights.Lens
 
     -- ** ApplicationInfo
     applicationInfo_lifeCycle,
+    applicationInfo_autoConfigEnabled,
+    applicationInfo_discoveryType,
     applicationInfo_opsItemSNSTopicArn,
     applicationInfo_cWEMonitorEnabled,
     applicationInfo_resourceGroupName,
@@ -290,6 +299,7 @@ module Amazonka.ApplicationInsights.Lens
 
     -- ** Problem
     problem_affectedResource,
+    problem_recurringCount,
     problem_feedback,
     problem_status,
     problem_endTime,
@@ -298,6 +308,7 @@ module Amazonka.ApplicationInsights.Lens
     problem_resourceGroupName,
     problem_title,
     problem_severityLevel,
+    problem_lastRecurrenceTime,
     problem_startTime,
 
     -- ** RelatedObservations

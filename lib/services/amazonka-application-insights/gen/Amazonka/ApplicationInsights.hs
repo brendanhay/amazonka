@@ -237,11 +237,17 @@ module Amazonka.ApplicationInsights
     -- ** ConfigurationEventStatus
     ConfigurationEventStatus (..),
 
+    -- ** DiscoveryType
+    DiscoveryType (..),
+
     -- ** FeedbackKey
     FeedbackKey (..),
 
     -- ** FeedbackValue
     FeedbackValue (..),
+
+    -- ** GroupingType
+    GroupingType (..),
 
     -- ** LogFilter
     LogFilter (..),

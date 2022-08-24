@@ -20,6 +20,7 @@
 module Amazonka.ApplicationInsights.Types.Tier
   ( Tier
       ( ..,
+        Tier_ACTIVE_DIRECTORY,
         Tier_CUSTOM,
         Tier_DEFAULT,
         Tier_DOT_NET_CORE,
@@ -30,8 +31,13 @@ module Amazonka.ApplicationInsights.Types.Tier
         Tier_MYSQL,
         Tier_ORACLE,
         Tier_POSTGRESQL,
+        Tier_SAP_HANA_HIGH_AVAILABILITY,
+        Tier_SAP_HANA_MULTI_NODE,
+        Tier_SAP_HANA_SINGLE_NODE,
+        Tier_SHAREPOINT,
         Tier_SQL_SERVER,
-        Tier_SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP
+        Tier_SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP,
+        Tier_SQL_SERVER_FAILOVER_CLUSTER_INSTANCE
       ),
   )
 where
@@ -64,6 +70,9 @@ newtype Tier = Tier' {fromTier :: Core.Text}
       Core.ToXML
     )
 
+pattern Tier_ACTIVE_DIRECTORY :: Tier
+pattern Tier_ACTIVE_DIRECTORY = Tier' "ACTIVE_DIRECTORY"
+
 pattern Tier_CUSTOM :: Tier
 pattern Tier_CUSTOM = Tier' "CUSTOM"
 
@@ -94,13 +103,29 @@ pattern Tier_ORACLE = Tier' "ORACLE"
 pattern Tier_POSTGRESQL :: Tier
 pattern Tier_POSTGRESQL = Tier' "POSTGRESQL"
 
+pattern Tier_SAP_HANA_HIGH_AVAILABILITY :: Tier
+pattern Tier_SAP_HANA_HIGH_AVAILABILITY = Tier' "SAP_HANA_HIGH_AVAILABILITY"
+
+pattern Tier_SAP_HANA_MULTI_NODE :: Tier
+pattern Tier_SAP_HANA_MULTI_NODE = Tier' "SAP_HANA_MULTI_NODE"
+
+pattern Tier_SAP_HANA_SINGLE_NODE :: Tier
+pattern Tier_SAP_HANA_SINGLE_NODE = Tier' "SAP_HANA_SINGLE_NODE"
+
+pattern Tier_SHAREPOINT :: Tier
+pattern Tier_SHAREPOINT = Tier' "SHAREPOINT"
+
 pattern Tier_SQL_SERVER :: Tier
 pattern Tier_SQL_SERVER = Tier' "SQL_SERVER"
 
 pattern Tier_SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP :: Tier
 pattern Tier_SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP = Tier' "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP"
 
+pattern Tier_SQL_SERVER_FAILOVER_CLUSTER_INSTANCE :: Tier
+pattern Tier_SQL_SERVER_FAILOVER_CLUSTER_INSTANCE = Tier' "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE"
+
 {-# COMPLETE
+  Tier_ACTIVE_DIRECTORY,
   Tier_CUSTOM,
   Tier_DEFAULT,
   Tier_DOT_NET_CORE,
@@ -111,7 +136,12 @@ pattern Tier_SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP = Tier' "SQL_SERVER_ALWAYSON
   Tier_MYSQL,
   Tier_ORACLE,
   Tier_POSTGRESQL,
+  Tier_SAP_HANA_HIGH_AVAILABILITY,
+  Tier_SAP_HANA_MULTI_NODE,
+  Tier_SAP_HANA_SINGLE_NODE,
+  Tier_SHAREPOINT,
   Tier_SQL_SERVER,
   Tier_SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP,
+  Tier_SQL_SERVER_FAILOVER_CLUSTER_INSTANCE,
   Tier'
   #-}

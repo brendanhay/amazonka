@@ -21,6 +21,7 @@ module Amazonka.MediaLive.Types.CaptionDescription where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MediaLive.Types.AccessibilityType
 import Amazonka.MediaLive.Types.CaptionDestinationSettings
 import qualified Amazonka.Prelude as Prelude
 
@@ -28,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCaptionDescription' smart constructor.
 data CaptionDescription = CaptionDescription'
-  { -- | Human readable information to indicate captions available for players
+  { -- | Indicates whether the caption track implements accessibility features
+    -- such as written descriptions of spoken dialog, music, and sounds.
+    accessibility :: Prelude.Maybe AccessibilityType,
+    -- | Human readable information to indicate captions available for players
     -- (eg. English, or Spanish).
     languageDescription :: Prelude.Maybe Prelude.Text,
     -- | ISO 639-2 three-digit code: http:\/\/www.loc.gov\/standards\/iso639-2\/
@@ -54,6 +58,9 @@ data CaptionDescription = CaptionDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accessibility', 'captionDescription_accessibility' - Indicates whether the caption track implements accessibility features
+-- such as written descriptions of spoken dialog, music, and sounds.
+--
 -- 'languageDescription', 'captionDescription_languageDescription' - Human readable information to indicate captions available for players
 -- (eg. English, or Spanish).
 --
@@ -76,13 +83,19 @@ newCaptionDescription ::
   CaptionDescription
 newCaptionDescription pCaptionSelectorName_ pName_ =
   CaptionDescription'
-    { languageDescription =
+    { accessibility =
         Prelude.Nothing,
+      languageDescription = Prelude.Nothing,
       languageCode = Prelude.Nothing,
       destinationSettings = Prelude.Nothing,
       captionSelectorName = pCaptionSelectorName_,
       name = pName_
     }
+
+-- | Indicates whether the caption track implements accessibility features
+-- such as written descriptions of spoken dialog, music, and sounds.
+captionDescription_accessibility :: Lens.Lens' CaptionDescription (Prelude.Maybe AccessibilityType)
+captionDescription_accessibility = Lens.lens (\CaptionDescription' {accessibility} -> accessibility) (\s@CaptionDescription' {} a -> s {accessibility = a} :: CaptionDescription)
 
 -- | Human readable information to indicate captions available for players
 -- (eg. English, or Spanish).
@@ -115,7 +128,8 @@ instance Core.FromJSON CaptionDescription where
       "CaptionDescription"
       ( \x ->
           CaptionDescription'
-            Prelude.<$> (x Core..:? "languageDescription")
+            Prelude.<$> (x Core..:? "accessibility")
+            Prelude.<*> (x Core..:? "languageDescription")
             Prelude.<*> (x Core..:? "languageCode")
             Prelude.<*> (x Core..:? "destinationSettings")
             Prelude.<*> (x Core..: "captionSelectorName")
@@ -124,7 +138,8 @@ instance Core.FromJSON CaptionDescription where
 
 instance Prelude.Hashable CaptionDescription where
   hashWithSalt _salt CaptionDescription' {..} =
-    _salt `Prelude.hashWithSalt` languageDescription
+    _salt `Prelude.hashWithSalt` accessibility
+      `Prelude.hashWithSalt` languageDescription
       `Prelude.hashWithSalt` languageCode
       `Prelude.hashWithSalt` destinationSettings
       `Prelude.hashWithSalt` captionSelectorName
@@ -132,7 +147,8 @@ instance Prelude.Hashable CaptionDescription where
 
 instance Prelude.NFData CaptionDescription where
   rnf CaptionDescription' {..} =
-    Prelude.rnf languageDescription
+    Prelude.rnf accessibility
+      `Prelude.seq` Prelude.rnf languageDescription
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf destinationSettings
       `Prelude.seq` Prelude.rnf captionSelectorName
@@ -142,7 +158,8 @@ instance Core.ToJSON CaptionDescription where
   toJSON CaptionDescription' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("languageDescription" Core..=)
+          [ ("accessibility" Core..=) Prelude.<$> accessibility,
+            ("languageDescription" Core..=)
               Prelude.<$> languageDescription,
             ("languageCode" Core..=) Prelude.<$> languageCode,
             ("destinationSettings" Core..=)

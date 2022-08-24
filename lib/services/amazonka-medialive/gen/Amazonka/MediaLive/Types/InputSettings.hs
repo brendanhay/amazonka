@@ -57,6 +57,9 @@ data InputSettings = InputSettings'
     -- | Loop input if it is a file. This allows a file input to be streamed
     -- indefinitely.
     sourceEndBehavior :: Prelude.Maybe InputSourceEndBehavior,
+    -- | PID from which to read SCTE-35 messages. If left undefined, EML will
+    -- select the first SCTE-35 PID found in the input.
+    scte35Pid :: Prelude.Maybe Prelude.Natural,
     -- | Enable or disable the denoise filter when filtering.
     denoiseFilter :: Prelude.Maybe InputDenoiseFilter,
     -- | Informs which video elementary stream to decode for input types that
@@ -99,6 +102,9 @@ data InputSettings = InputSettings'
 -- 'sourceEndBehavior', 'inputSettings_sourceEndBehavior' - Loop input if it is a file. This allows a file input to be streamed
 -- indefinitely.
 --
+-- 'scte35Pid', 'inputSettings_scte35Pid' - PID from which to read SCTE-35 messages. If left undefined, EML will
+-- select the first SCTE-35 PID found in the input.
+--
 -- 'denoiseFilter', 'inputSettings_denoiseFilter' - Enable or disable the denoise filter when filtering.
 --
 -- 'videoSelector', 'inputSettings_videoSelector' - Informs which video elementary stream to decode for input types that
@@ -120,6 +126,7 @@ newInputSettings =
       inputFilter = Prelude.Nothing,
       audioSelectors = Prelude.Nothing,
       sourceEndBehavior = Prelude.Nothing,
+      scte35Pid = Prelude.Nothing,
       denoiseFilter = Prelude.Nothing,
       videoSelector = Prelude.Nothing,
       smpte2038DataPreference = Prelude.Nothing
@@ -159,6 +166,11 @@ inputSettings_audioSelectors = Lens.lens (\InputSettings' {audioSelectors} -> au
 inputSettings_sourceEndBehavior :: Lens.Lens' InputSettings (Prelude.Maybe InputSourceEndBehavior)
 inputSettings_sourceEndBehavior = Lens.lens (\InputSettings' {sourceEndBehavior} -> sourceEndBehavior) (\s@InputSettings' {} a -> s {sourceEndBehavior = a} :: InputSettings)
 
+-- | PID from which to read SCTE-35 messages. If left undefined, EML will
+-- select the first SCTE-35 PID found in the input.
+inputSettings_scte35Pid :: Lens.Lens' InputSettings (Prelude.Maybe Prelude.Natural)
+inputSettings_scte35Pid = Lens.lens (\InputSettings' {scte35Pid} -> scte35Pid) (\s@InputSettings' {} a -> s {scte35Pid = a} :: InputSettings)
+
 -- | Enable or disable the denoise filter when filtering.
 inputSettings_denoiseFilter :: Lens.Lens' InputSettings (Prelude.Maybe InputDenoiseFilter)
 inputSettings_denoiseFilter = Lens.lens (\InputSettings' {denoiseFilter} -> denoiseFilter) (\s@InputSettings' {} a -> s {denoiseFilter = a} :: InputSettings)
@@ -191,6 +203,7 @@ instance Core.FromJSON InputSettings where
             Prelude.<*> (x Core..:? "inputFilter")
             Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "sourceEndBehavior")
+            Prelude.<*> (x Core..:? "scte35Pid")
             Prelude.<*> (x Core..:? "denoiseFilter")
             Prelude.<*> (x Core..:? "videoSelector")
             Prelude.<*> (x Core..:? "smpte2038DataPreference")
@@ -205,6 +218,7 @@ instance Prelude.Hashable InputSettings where
       `Prelude.hashWithSalt` inputFilter
       `Prelude.hashWithSalt` audioSelectors
       `Prelude.hashWithSalt` sourceEndBehavior
+      `Prelude.hashWithSalt` scte35Pid
       `Prelude.hashWithSalt` denoiseFilter
       `Prelude.hashWithSalt` videoSelector
       `Prelude.hashWithSalt` smpte2038DataPreference
@@ -218,6 +232,7 @@ instance Prelude.NFData InputSettings where
       `Prelude.seq` Prelude.rnf inputFilter
       `Prelude.seq` Prelude.rnf audioSelectors
       `Prelude.seq` Prelude.rnf sourceEndBehavior
+      `Prelude.seq` Prelude.rnf scte35Pid
       `Prelude.seq` Prelude.rnf denoiseFilter
       `Prelude.seq` Prelude.rnf videoSelector
       `Prelude.seq` Prelude.rnf smpte2038DataPreference
@@ -238,6 +253,7 @@ instance Core.ToJSON InputSettings where
               Prelude.<$> audioSelectors,
             ("sourceEndBehavior" Core..=)
               Prelude.<$> sourceEndBehavior,
+            ("scte35Pid" Core..=) Prelude.<$> scte35Pid,
             ("denoiseFilter" Core..=) Prelude.<$> denoiseFilter,
             ("videoSelector" Core..=) Prelude.<$> videoSelector,
             ("smpte2038DataPreference" Core..=)

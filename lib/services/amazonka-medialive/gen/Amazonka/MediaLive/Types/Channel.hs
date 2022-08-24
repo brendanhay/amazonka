@@ -29,6 +29,7 @@ import Amazonka.MediaLive.Types.EncoderSettings
 import Amazonka.MediaLive.Types.InputAttachment
 import Amazonka.MediaLive.Types.InputSpecification
 import Amazonka.MediaLive.Types.LogLevel
+import Amazonka.MediaLive.Types.MaintenanceStatus
 import Amazonka.MediaLive.Types.OutputDestination
 import Amazonka.MediaLive.Types.PipelineDetail
 import Amazonka.MediaLive.Types.VpcOutputSettingsDescription
@@ -42,6 +43,8 @@ data Channel = Channel'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the channel. (user-mutable)
     name :: Prelude.Maybe Prelude.Text,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceStatus,
     -- | The Amazon Resource Name (ARN) of the role assumed when running the
     -- Channel.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -89,6 +92,8 @@ data Channel = Channel'
 --
 -- 'name', 'channel_name' - The name of the channel. (user-mutable)
 --
+-- 'maintenance', 'channel_maintenance' - Maintenance settings for this channel.
+--
 -- 'roleArn', 'channel_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
 --
@@ -128,6 +133,7 @@ newChannel =
   Channel'
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
@@ -152,6 +158,10 @@ channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags
 -- | The name of the channel. (user-mutable)
 channel_name :: Lens.Lens' Channel (Prelude.Maybe Prelude.Text)
 channel_name = Lens.lens (\Channel' {name} -> name) (\s@Channel' {} a -> s {name = a} :: Channel)
+
+-- | Maintenance settings for this channel.
+channel_maintenance :: Lens.Lens' Channel (Prelude.Maybe MaintenanceStatus)
+channel_maintenance = Lens.lens (\Channel' {maintenance} -> maintenance) (\s@Channel' {} a -> s {maintenance = a} :: Channel)
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
@@ -225,6 +235,7 @@ instance Core.FromJSON Channel where
           Channel'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
+            Prelude.<*> (x Core..:? "maintenance")
             Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "vpc")
             Prelude.<*> (x Core..:? "logLevel")
@@ -252,6 +263,7 @@ instance Prelude.Hashable Channel where
   hashWithSalt _salt Channel' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` vpc
       `Prelude.hashWithSalt` logLevel
@@ -272,6 +284,7 @@ instance Prelude.NFData Channel where
   rnf Channel' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel

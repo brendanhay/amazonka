@@ -39,6 +39,7 @@ import Amazonka.MediaLive.Types.HlsManifestDurationFormat
 import Amazonka.MediaLive.Types.HlsMode
 import Amazonka.MediaLive.Types.HlsOutputSelection
 import Amazonka.MediaLive.Types.HlsProgramDateTime
+import Amazonka.MediaLive.Types.HlsProgramDateTimeClock
 import Amazonka.MediaLive.Types.HlsRedundantManifest
 import Amazonka.MediaLive.Types.HlsSegmentationMode
 import Amazonka.MediaLive.Types.HlsStreamInfResolution
@@ -77,6 +78,15 @@ data HlsGroupSettings = HlsGroupSettings'
     -- .m3u8 file. Can be used if base manifest is delivered from a different
     -- URL than the main .m3u8 file.
     baseUrlManifest :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the algorithm used to drive the HLS EXT-X-PROGRAM-DATE-TIME
+    -- clock. Options include: INITIALIZE_FROM_OUTPUT_TIMECODE: The PDT clock
+    -- is initialized as a function of the first output timecode, then
+    -- incremented by the EXTINF duration of each encoded segment.
+    -- SYSTEM_CLOCK: The PDT clock is initialized as a function of the UTC wall
+    -- clock, then incremented by the EXTINF duration of each encoded segment.
+    -- If the PDT clock diverges from the wall clock by more than 500ms, it is
+    -- resynchronized to the wall clock.
+    programDateTimeClock :: Prelude.Maybe HlsProgramDateTimeClock,
     -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
     -- tag of variant manifest.
     streamInfResolution :: Prelude.Maybe HlsStreamInfResolution,
@@ -94,10 +104,7 @@ data HlsGroupSettings = HlsGroupSettings'
     -- from MediaLive is irrelevant.
     redundantManifest :: Prelude.Maybe HlsRedundantManifest,
     -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
-    -- files. The value is calculated as follows: either the program date and
-    -- time are initialized using the input timecode source, or the time is
-    -- initialized using the input timecode source and the date is initialized
-    -- using the timestampOffset.
+    -- files. The value is calculated using the program date time clock.
     programDateTime :: Prelude.Maybe HlsProgramDateTime,
     -- | When set to gzip, compresses HLS playlist.
     manifestCompression :: Prelude.Maybe HlsManifestCompression,
@@ -281,6 +288,15 @@ data HlsGroupSettings = HlsGroupSettings'
 -- .m3u8 file. Can be used if base manifest is delivered from a different
 -- URL than the main .m3u8 file.
 --
+-- 'programDateTimeClock', 'hlsGroupSettings_programDateTimeClock' - Specifies the algorithm used to drive the HLS EXT-X-PROGRAM-DATE-TIME
+-- clock. Options include: INITIALIZE_FROM_OUTPUT_TIMECODE: The PDT clock
+-- is initialized as a function of the first output timecode, then
+-- incremented by the EXTINF duration of each encoded segment.
+-- SYSTEM_CLOCK: The PDT clock is initialized as a function of the UTC wall
+-- clock, then incremented by the EXTINF duration of each encoded segment.
+-- If the PDT clock diverges from the wall clock by more than 500ms, it is
+-- resynchronized to the wall clock.
+--
 -- 'streamInfResolution', 'hlsGroupSettings_streamInfResolution' - Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
 -- tag of variant manifest.
 --
@@ -298,10 +314,7 @@ data HlsGroupSettings = HlsGroupSettings'
 -- from MediaLive is irrelevant.
 --
 -- 'programDateTime', 'hlsGroupSettings_programDateTime' - Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
--- files. The value is calculated as follows: either the program date and
--- time are initialized using the input timecode source, or the time is
--- initialized using the input timecode source and the date is initialized
--- using the timestampOffset.
+-- files. The value is calculated using the program date time clock.
 --
 -- 'manifestCompression', 'hlsGroupSettings_manifestCompression' - When set to gzip, compresses HLS playlist.
 --
@@ -463,6 +476,7 @@ newHlsGroupSettings pDestination_ =
       baseUrlContent1 = Prelude.Nothing,
       hlsId3SegmentTagging = Prelude.Nothing,
       baseUrlManifest = Prelude.Nothing,
+      programDateTimeClock = Prelude.Nothing,
       streamInfResolution = Prelude.Nothing,
       redundantManifest = Prelude.Nothing,
       programDateTime = Prelude.Nothing,
@@ -536,6 +550,17 @@ hlsGroupSettings_hlsId3SegmentTagging = Lens.lens (\HlsGroupSettings' {hlsId3Seg
 hlsGroupSettings_baseUrlManifest :: Lens.Lens' HlsGroupSettings (Prelude.Maybe Prelude.Text)
 hlsGroupSettings_baseUrlManifest = Lens.lens (\HlsGroupSettings' {baseUrlManifest} -> baseUrlManifest) (\s@HlsGroupSettings' {} a -> s {baseUrlManifest = a} :: HlsGroupSettings)
 
+-- | Specifies the algorithm used to drive the HLS EXT-X-PROGRAM-DATE-TIME
+-- clock. Options include: INITIALIZE_FROM_OUTPUT_TIMECODE: The PDT clock
+-- is initialized as a function of the first output timecode, then
+-- incremented by the EXTINF duration of each encoded segment.
+-- SYSTEM_CLOCK: The PDT clock is initialized as a function of the UTC wall
+-- clock, then incremented by the EXTINF duration of each encoded segment.
+-- If the PDT clock diverges from the wall clock by more than 500ms, it is
+-- resynchronized to the wall clock.
+hlsGroupSettings_programDateTimeClock :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsProgramDateTimeClock)
+hlsGroupSettings_programDateTimeClock = Lens.lens (\HlsGroupSettings' {programDateTimeClock} -> programDateTimeClock) (\s@HlsGroupSettings' {} a -> s {programDateTimeClock = a} :: HlsGroupSettings)
+
 -- | Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF
 -- tag of variant manifest.
 hlsGroupSettings_streamInfResolution :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsStreamInfResolution)
@@ -557,10 +582,7 @@ hlsGroupSettings_redundantManifest :: Lens.Lens' HlsGroupSettings (Prelude.Maybe
 hlsGroupSettings_redundantManifest = Lens.lens (\HlsGroupSettings' {redundantManifest} -> redundantManifest) (\s@HlsGroupSettings' {} a -> s {redundantManifest = a} :: HlsGroupSettings)
 
 -- | Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest
--- files. The value is calculated as follows: either the program date and
--- time are initialized using the input timecode source, or the time is
--- initialized using the input timecode source and the date is initialized
--- using the timestampOffset.
+-- files. The value is calculated using the program date time clock.
 hlsGroupSettings_programDateTime :: Lens.Lens' HlsGroupSettings (Prelude.Maybe HlsProgramDateTime)
 hlsGroupSettings_programDateTime = Lens.lens (\HlsGroupSettings' {programDateTime} -> programDateTime) (\s@HlsGroupSettings' {} a -> s {programDateTime = a} :: HlsGroupSettings)
 
@@ -790,6 +812,7 @@ instance Core.FromJSON HlsGroupSettings where
             Prelude.<*> (x Core..:? "baseUrlContent1")
             Prelude.<*> (x Core..:? "hlsId3SegmentTagging")
             Prelude.<*> (x Core..:? "baseUrlManifest")
+            Prelude.<*> (x Core..:? "programDateTimeClock")
             Prelude.<*> (x Core..:? "streamInfResolution")
             Prelude.<*> (x Core..:? "redundantManifest")
             Prelude.<*> (x Core..:? "programDateTime")
@@ -838,6 +861,7 @@ instance Prelude.Hashable HlsGroupSettings where
       `Prelude.hashWithSalt` baseUrlContent1
       `Prelude.hashWithSalt` hlsId3SegmentTagging
       `Prelude.hashWithSalt` baseUrlManifest
+      `Prelude.hashWithSalt` programDateTimeClock
       `Prelude.hashWithSalt` streamInfResolution
       `Prelude.hashWithSalt` redundantManifest
       `Prelude.hashWithSalt` programDateTime
@@ -883,6 +907,7 @@ instance Prelude.NFData HlsGroupSettings where
       `Prelude.seq` Prelude.rnf baseUrlContent1
       `Prelude.seq` Prelude.rnf hlsId3SegmentTagging
       `Prelude.seq` Prelude.rnf baseUrlManifest
+      `Prelude.seq` Prelude.rnf programDateTimeClock
       `Prelude.seq` Prelude.rnf streamInfResolution
       `Prelude.seq` Prelude.rnf redundantManifest
       `Prelude.seq` Prelude.rnf programDateTime
@@ -897,10 +922,13 @@ instance Prelude.NFData HlsGroupSettings where
       `Prelude.seq` Prelude.rnf codecSpecification
       `Prelude.seq` Prelude.rnf ivSource
       `Prelude.seq` Prelude.rnf outputSelection
-      `Prelude.seq` Prelude.rnf segmentationMode
-      `Prelude.seq` Prelude.rnf hlsCdnSettings
+      `Prelude.seq` Prelude.rnf
+        segmentationMode
+      `Prelude.seq` Prelude.rnf
+        hlsCdnSettings
       `Prelude.seq` Prelude.rnf keyFormat
-      `Prelude.seq` Prelude.rnf adMarkers
+      `Prelude.seq` Prelude.rnf
+        adMarkers
       `Prelude.seq` Prelude.rnf
         constantIv
       `Prelude.seq` Prelude.rnf
@@ -953,6 +981,8 @@ instance Core.ToJSON HlsGroupSettings where
               Prelude.<$> hlsId3SegmentTagging,
             ("baseUrlManifest" Core..=)
               Prelude.<$> baseUrlManifest,
+            ("programDateTimeClock" Core..=)
+              Prelude.<$> programDateTimeClock,
             ("streamInfResolution" Core..=)
               Prelude.<$> streamInfResolution,
             ("redundantManifest" Core..=)

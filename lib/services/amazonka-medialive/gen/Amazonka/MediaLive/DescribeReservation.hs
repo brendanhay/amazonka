@@ -36,6 +36,7 @@ module Amazonka.MediaLive.DescribeReservation
     -- * Response Lenses
     describeReservationResponse_tags,
     describeReservationResponse_name,
+    describeReservationResponse_renewalSettings,
     describeReservationResponse_start,
     describeReservationResponse_arn,
     describeReservationResponse_resourceSpecification,
@@ -106,6 +107,7 @@ instance Core.AWSRequest DescribeReservation where
           DescribeReservationResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "renewalSettings")
             Prelude.<*> (x Core..?> "start")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "resourceSpecification")
@@ -160,6 +162,8 @@ data DescribeReservationResponse = DescribeReservationResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | User specified reservation name
     name :: Prelude.Maybe Prelude.Text,
+    -- | Renewal settings for the reservation
+    renewalSettings :: Prelude.Maybe RenewalSettings,
     -- | Reservation UTC start date and time in ISO-8601 format, e.g.
     -- \'2018-03-01T00:00:00\'
     start :: Prelude.Maybe Prelude.Text,
@@ -215,6 +219,8 @@ data DescribeReservationResponse = DescribeReservationResponse'
 --
 -- 'name', 'describeReservationResponse_name' - User specified reservation name
 --
+-- 'renewalSettings', 'describeReservationResponse_renewalSettings' - Renewal settings for the reservation
+--
 -- 'start', 'describeReservationResponse_start' - Reservation UTC start date and time in ISO-8601 format, e.g.
 -- \'2018-03-01T00:00:00\'
 --
@@ -263,6 +269,7 @@ newDescribeReservationResponse pHttpStatus_ =
     { tags =
         Prelude.Nothing,
       name = Prelude.Nothing,
+      renewalSettings = Prelude.Nothing,
       start = Prelude.Nothing,
       arn = Prelude.Nothing,
       resourceSpecification = Prelude.Nothing,
@@ -289,6 +296,10 @@ describeReservationResponse_tags = Lens.lens (\DescribeReservationResponse' {tag
 -- | User specified reservation name
 describeReservationResponse_name :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
 describeReservationResponse_name = Lens.lens (\DescribeReservationResponse' {name} -> name) (\s@DescribeReservationResponse' {} a -> s {name = a} :: DescribeReservationResponse)
+
+-- | Renewal settings for the reservation
+describeReservationResponse_renewalSettings :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe RenewalSettings)
+describeReservationResponse_renewalSettings = Lens.lens (\DescribeReservationResponse' {renewalSettings} -> renewalSettings) (\s@DescribeReservationResponse' {} a -> s {renewalSettings = a} :: DescribeReservationResponse)
 
 -- | Reservation UTC start date and time in ISO-8601 format, e.g.
 -- \'2018-03-01T00:00:00\'
@@ -368,6 +379,7 @@ instance Prelude.NFData DescribeReservationResponse where
   rnf DescribeReservationResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renewalSettings
       `Prelude.seq` Prelude.rnf start
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf resourceSpecification

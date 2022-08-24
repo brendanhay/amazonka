@@ -343,6 +343,12 @@ module Amazonka.MediaLive
     PurchaseOfferingResponse (PurchaseOfferingResponse'),
     newPurchaseOfferingResponse,
 
+    -- ** RebootInputDevice
+    RebootInputDevice' (RebootInputDevice''),
+    newRebootInputDevice',
+    RebootInputDeviceResponse (RebootInputDeviceResponse'),
+    newRebootInputDeviceResponse,
+
     -- ** RejectInputDeviceTransfer
     RejectInputDeviceTransfer (RejectInputDeviceTransfer'),
     newRejectInputDeviceTransfer,
@@ -354,6 +360,12 @@ module Amazonka.MediaLive
     newStartChannel,
     StartChannelResponse (StartChannelResponse'),
     newStartChannelResponse,
+
+    -- ** StartInputDeviceMaintenanceWindow
+    StartInputDeviceMaintenanceWindow (StartInputDeviceMaintenanceWindow'),
+    newStartInputDeviceMaintenanceWindow,
+    StartInputDeviceMaintenanceWindowResponse (StartInputDeviceMaintenanceWindowResponse'),
+    newStartInputDeviceMaintenanceWindowResponse,
 
     -- ** StartMultiplex
     StartMultiplex (StartMultiplex'),
@@ -467,6 +479,9 @@ module Amazonka.MediaLive
 
     -- ** AcceptHeader
     AcceptHeader (..),
+
+    -- ** AccessibilityType
+    AccessibilityType (..),
 
     -- ** AfdSignaling
     AfdSignaling (..),
@@ -813,6 +828,9 @@ module Amazonka.MediaLive
     -- ** HlsProgramDateTime
     HlsProgramDateTime (..),
 
+    -- ** HlsProgramDateTimeClock
+    HlsProgramDateTimeClock (..),
+
     -- ** HlsRedundantManifest
     HlsRedundantManifest (..),
 
@@ -993,6 +1011,9 @@ module Amazonka.MediaLive
     -- ** M3u8TimedMetadataBehavior
     M3u8TimedMetadataBehavior (..),
 
+    -- ** MaintenanceDay
+    MaintenanceDay (..),
+
     -- ** MotionGraphicsInsertion
     MotionGraphicsInsertion (..),
 
@@ -1052,6 +1073,12 @@ module Amazonka.MediaLive
 
     -- ** PreferredChannelPipeline
     PreferredChannelPipeline (..),
+
+    -- ** RebootInputDeviceForce
+    RebootInputDeviceForce (..),
+
+    -- ** ReservationAutomaticRenewal
+    ReservationAutomaticRenewal (..),
 
     -- ** ReservationCodec
     ReservationCodec (..),
@@ -1677,6 +1704,18 @@ module Amazonka.MediaLive
     M3u8Settings (M3u8Settings'),
     newM3u8Settings,
 
+    -- ** MaintenanceCreateSettings
+    MaintenanceCreateSettings (MaintenanceCreateSettings'),
+    newMaintenanceCreateSettings,
+
+    -- ** MaintenanceStatus
+    MaintenanceStatus (MaintenanceStatus'),
+    newMaintenanceStatus,
+
+    -- ** MaintenanceUpdateSettings
+    MaintenanceUpdateSettings (MaintenanceUpdateSettings'),
+    newMaintenanceUpdateSettings,
+
     -- ** MediaConnectFlow
     MediaConnectFlow (MediaConnectFlow'),
     newMediaConnectFlow,
@@ -1884,6 +1923,10 @@ module Amazonka.MediaLive
     -- ** RemixSettings
     RemixSettings (RemixSettings'),
     newRemixSettings,
+
+    -- ** RenewalSettings
+    RenewalSettings (RenewalSettings'),
+    newRenewalSettings,
 
     -- ** Reservation
     Reservation (Reservation'),
@@ -2127,8 +2170,10 @@ import Amazonka.MediaLive.ListOfferings
 import Amazonka.MediaLive.ListReservations
 import Amazonka.MediaLive.ListTagsForResource
 import Amazonka.MediaLive.PurchaseOffering
+import Amazonka.MediaLive.RebootInputDevice
 import Amazonka.MediaLive.RejectInputDeviceTransfer
 import Amazonka.MediaLive.StartChannel
+import Amazonka.MediaLive.StartInputDeviceMaintenanceWindow
 import Amazonka.MediaLive.StartMultiplex
 import Amazonka.MediaLive.StopChannel
 import Amazonka.MediaLive.StopMultiplex

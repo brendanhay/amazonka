@@ -88,8 +88,10 @@ library
     Amazonka.MediaLive.ListReservations
     Amazonka.MediaLive.ListTagsForResource
     Amazonka.MediaLive.PurchaseOffering
+    Amazonka.MediaLive.RebootInputDevice
     Amazonka.MediaLive.RejectInputDeviceTransfer
     Amazonka.MediaLive.StartChannel
+    Amazonka.MediaLive.StartInputDeviceMaintenanceWindow
     Amazonka.MediaLive.StartMultiplex
     Amazonka.MediaLive.StopChannel
     Amazonka.MediaLive.StopMultiplex
@@ -110,6 +112,7 @@ library
     Amazonka.MediaLive.Types.Ac3MetadataControl
     Amazonka.MediaLive.Types.Ac3Settings
     Amazonka.MediaLive.Types.AcceptHeader
+    Amazonka.MediaLive.Types.AccessibilityType
     Amazonka.MediaLive.Types.AfdSignaling
     Amazonka.MediaLive.Types.AncillarySourceSettings
     Amazonka.MediaLive.Types.ArchiveCdnSettings
@@ -310,6 +313,7 @@ library
     Amazonka.MediaLive.Types.HlsOutputSelection
     Amazonka.MediaLive.Types.HlsOutputSettings
     Amazonka.MediaLive.Types.HlsProgramDateTime
+    Amazonka.MediaLive.Types.HlsProgramDateTimeClock
     Amazonka.MediaLive.Types.HlsRedundantManifest
     Amazonka.MediaLive.Types.HlsS3Settings
     Amazonka.MediaLive.Types.HlsScte35SourceType
@@ -406,6 +410,10 @@ library
     Amazonka.MediaLive.Types.M3u8Scte35Behavior
     Amazonka.MediaLive.Types.M3u8Settings
     Amazonka.MediaLive.Types.M3u8TimedMetadataBehavior
+    Amazonka.MediaLive.Types.MaintenanceCreateSettings
+    Amazonka.MediaLive.Types.MaintenanceDay
+    Amazonka.MediaLive.Types.MaintenanceStatus
+    Amazonka.MediaLive.Types.MaintenanceUpdateSettings
     Amazonka.MediaLive.Types.MediaConnectFlow
     Amazonka.MediaLive.Types.MediaConnectFlowRequest
     Amazonka.MediaLive.Types.MediaPackageGroupSettings
@@ -475,10 +483,13 @@ library
     Amazonka.MediaLive.Types.PipelinePauseStateSettings
     Amazonka.MediaLive.Types.PreferredChannelPipeline
     Amazonka.MediaLive.Types.RawSettings
+    Amazonka.MediaLive.Types.RebootInputDeviceForce
     Amazonka.MediaLive.Types.Rec601Settings
     Amazonka.MediaLive.Types.Rec709Settings
     Amazonka.MediaLive.Types.RemixSettings
+    Amazonka.MediaLive.Types.RenewalSettings
     Amazonka.MediaLive.Types.Reservation
+    Amazonka.MediaLive.Types.ReservationAutomaticRenewal
     Amazonka.MediaLive.Types.ReservationCodec
     Amazonka.MediaLive.Types.ReservationMaximumBitrate
     Amazonka.MediaLive.Types.ReservationMaximumFramerate

@@ -55,9 +55,8 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
     -- “serif”), or “default” (to let the downstream player choose the font). -
     -- Leave blank to set the family to “monospace”.
     fontFamily :: Prelude.Maybe Prelude.Text,
-    -- | Applies only if you plan to convert these source captions to EBU-TT-D or
-    -- TTML in an output. Complete this field if you want to include the name
-    -- of the copyright holder in the copyright metadata tag in the TTML
+    -- | Complete this field if you want to include the name of the copyright
+    -- holder in the copyright tag in the captions metadata.
     copyrightHolder :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,9 +95,8 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
 -- “serif”), or “default” (to let the downstream player choose the font). -
 -- Leave blank to set the family to “monospace”.
 --
--- 'copyrightHolder', 'ebuTtDDestinationSettings_copyrightHolder' - Applies only if you plan to convert these source captions to EBU-TT-D or
--- TTML in an output. Complete this field if you want to include the name
--- of the copyright holder in the copyright metadata tag in the TTML
+-- 'copyrightHolder', 'ebuTtDDestinationSettings_copyrightHolder' - Complete this field if you want to include the name of the copyright
+-- holder in the copyright tag in the captions metadata.
 newEbuTtDDestinationSettings ::
   EbuTtDDestinationSettings
 newEbuTtDDestinationSettings =
@@ -142,9 +140,8 @@ ebuTtDDestinationSettings_styleControl = Lens.lens (\EbuTtDDestinationSettings' 
 ebuTtDDestinationSettings_fontFamily :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe Prelude.Text)
 ebuTtDDestinationSettings_fontFamily = Lens.lens (\EbuTtDDestinationSettings' {fontFamily} -> fontFamily) (\s@EbuTtDDestinationSettings' {} a -> s {fontFamily = a} :: EbuTtDDestinationSettings)
 
--- | Applies only if you plan to convert these source captions to EBU-TT-D or
--- TTML in an output. Complete this field if you want to include the name
--- of the copyright holder in the copyright metadata tag in the TTML
+-- | Complete this field if you want to include the name of the copyright
+-- holder in the copyright tag in the captions metadata.
 ebuTtDDestinationSettings_copyrightHolder :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe Prelude.Text)
 ebuTtDDestinationSettings_copyrightHolder = Lens.lens (\EbuTtDDestinationSettings' {copyrightHolder} -> copyrightHolder) (\s@EbuTtDDestinationSettings' {} a -> s {copyrightHolder = a} :: EbuTtDDestinationSettings)
 

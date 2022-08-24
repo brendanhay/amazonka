@@ -60,6 +60,7 @@ module Amazonka.MediaLive.Lens
     -- ** CreateChannel
     createChannel'_tags,
     createChannel'_name,
+    createChannel'_maintenance,
     createChannel'_roleArn,
     createChannel'_vpc,
     createChannel'_logLevel,
@@ -127,6 +128,7 @@ module Amazonka.MediaLive.Lens
     deleteChannel_channelId,
     deleteChannelResponse_tags,
     deleteChannelResponse_name,
+    deleteChannelResponse_maintenance,
     deleteChannelResponse_roleArn,
     deleteChannelResponse_vpc,
     deleteChannelResponse_logLevel,
@@ -180,6 +182,7 @@ module Amazonka.MediaLive.Lens
     deleteReservation_reservationId,
     deleteReservationResponse_tags,
     deleteReservationResponse_name,
+    deleteReservationResponse_renewalSettings,
     deleteReservationResponse_start,
     deleteReservationResponse_arn,
     deleteReservationResponse_resourceSpecification,
@@ -210,6 +213,7 @@ module Amazonka.MediaLive.Lens
     describeChannel_channelId,
     describeChannelResponse_tags,
     describeChannelResponse_name,
+    describeChannelResponse_maintenance,
     describeChannelResponse_roleArn,
     describeChannelResponse_vpc,
     describeChannelResponse_logLevel,
@@ -326,6 +330,7 @@ module Amazonka.MediaLive.Lens
     describeReservation_reservationId,
     describeReservationResponse_tags,
     describeReservationResponse_name,
+    describeReservationResponse_renewalSettings,
     describeReservationResponse_start,
     describeReservationResponse_arn,
     describeReservationResponse_resourceSpecification,
@@ -443,12 +448,18 @@ module Amazonka.MediaLive.Lens
     -- ** PurchaseOffering
     purchaseOffering'_tags,
     purchaseOffering'_name,
+    purchaseOffering'_renewalSettings,
     purchaseOffering'_start,
     purchaseOffering'_requestId,
     purchaseOffering'_offeringId,
     purchaseOffering'_count,
     purchaseOfferingResponse_reservation,
     purchaseOfferingResponse_httpStatus,
+
+    -- ** RebootInputDevice
+    rebootInputDevice'_force,
+    rebootInputDevice'_inputDeviceId,
+    rebootInputDeviceResponse_httpStatus,
 
     -- ** RejectInputDeviceTransfer
     rejectInputDeviceTransfer_inputDeviceId,
@@ -458,6 +469,7 @@ module Amazonka.MediaLive.Lens
     startChannel_channelId,
     startChannelResponse_tags,
     startChannelResponse_name,
+    startChannelResponse_maintenance,
     startChannelResponse_roleArn,
     startChannelResponse_vpc,
     startChannelResponse_logLevel,
@@ -474,6 +486,10 @@ module Amazonka.MediaLive.Lens
     startChannelResponse_encoderSettings,
     startChannelResponse_egressEndpoints,
     startChannelResponse_httpStatus,
+
+    -- ** StartInputDeviceMaintenanceWindow
+    startInputDeviceMaintenanceWindow_inputDeviceId,
+    startInputDeviceMaintenanceWindowResponse_httpStatus,
 
     -- ** StartMultiplex
     startMultiplex_multiplexId,
@@ -493,6 +509,7 @@ module Amazonka.MediaLive.Lens
     stopChannel_channelId,
     stopChannelResponse_tags,
     stopChannelResponse_name,
+    stopChannelResponse_maintenance,
     stopChannelResponse_roleArn,
     stopChannelResponse_vpc,
     stopChannelResponse_logLevel,
@@ -533,6 +550,7 @@ module Amazonka.MediaLive.Lens
 
     -- ** UpdateChannel
     updateChannel'_name,
+    updateChannel'_maintenance,
     updateChannel'_roleArn,
     updateChannel'_logLevel,
     updateChannel'_inputSpecification,
@@ -605,6 +623,7 @@ module Amazonka.MediaLive.Lens
 
     -- ** UpdateReservation
     updateReservation'_name,
+    updateReservation'_renewalSettings,
     updateReservation'_reservationId,
     updateReservationResponse_reservation,
     updateReservationResponse_httpStatus,
@@ -795,6 +814,7 @@ module Amazonka.MediaLive.Lens
     burnInDestinationSettings_shadowColor,
 
     -- ** CaptionDescription
+    captionDescription_accessibility,
     captionDescription_languageDescription,
     captionDescription_languageCode,
     captionDescription_destinationSettings,
@@ -847,6 +867,7 @@ module Amazonka.MediaLive.Lens
     -- ** Channel
     channel_tags,
     channel_name,
+    channel_maintenance,
     channel_roleArn,
     channel_vpc,
     channel_logLevel,
@@ -869,6 +890,7 @@ module Amazonka.MediaLive.Lens
     -- ** ChannelSummary
     channelSummary_tags,
     channelSummary_name,
+    channelSummary_maintenance,
     channelSummary_roleArn,
     channelSummary_vpc,
     channelSummary_logLevel,
@@ -1153,6 +1175,7 @@ module Amazonka.MediaLive.Lens
     hlsGroupSettings_baseUrlContent1,
     hlsGroupSettings_hlsId3SegmentTagging,
     hlsGroupSettings_baseUrlManifest,
+    hlsGroupSettings_programDateTimeClock,
     hlsGroupSettings_streamInfResolution,
     hlsGroupSettings_redundantManifest,
     hlsGroupSettings_programDateTime,
@@ -1369,6 +1392,7 @@ module Amazonka.MediaLive.Lens
     inputSettings_inputFilter,
     inputSettings_audioSelectors,
     inputSettings_sourceEndBehavior,
+    inputSettings_scte35Pid,
     inputSettings_denoiseFilter,
     inputSettings_videoSelector,
     inputSettings_smpte2038DataPreference,
@@ -1473,6 +1497,21 @@ module Amazonka.MediaLive.Lens
     m3u8Settings_timedMetadataBehavior,
     m3u8Settings_pmtPid,
     m3u8Settings_audioPids,
+
+    -- ** MaintenanceCreateSettings
+    maintenanceCreateSettings_maintenanceDay,
+    maintenanceCreateSettings_maintenanceStartTime,
+
+    -- ** MaintenanceStatus
+    maintenanceStatus_maintenanceDeadline,
+    maintenanceStatus_maintenanceScheduledDate,
+    maintenanceStatus_maintenanceDay,
+    maintenanceStatus_maintenanceStartTime,
+
+    -- ** MaintenanceUpdateSettings
+    maintenanceUpdateSettings_maintenanceScheduledDate,
+    maintenanceUpdateSettings_maintenanceDay,
+    maintenanceUpdateSettings_maintenanceStartTime,
 
     -- ** MediaConnectFlow
     mediaConnectFlow_flowArn,
@@ -1758,9 +1797,14 @@ module Amazonka.MediaLive.Lens
     remixSettings_channelsOut,
     remixSettings_channelMappings,
 
+    -- ** RenewalSettings
+    renewalSettings_automaticRenewal,
+    renewalSettings_renewalCount,
+
     -- ** Reservation
     reservation_tags,
     reservation_name,
+    reservation_renewalSettings,
     reservation_start,
     reservation_arn,
     reservation_resourceSpecification,
@@ -2058,8 +2102,10 @@ import Amazonka.MediaLive.ListOfferings
 import Amazonka.MediaLive.ListReservations
 import Amazonka.MediaLive.ListTagsForResource
 import Amazonka.MediaLive.PurchaseOffering
+import Amazonka.MediaLive.RebootInputDevice
 import Amazonka.MediaLive.RejectInputDeviceTransfer
 import Amazonka.MediaLive.StartChannel
+import Amazonka.MediaLive.StartInputDeviceMaintenanceWindow
 import Amazonka.MediaLive.StartMultiplex
 import Amazonka.MediaLive.StopChannel
 import Amazonka.MediaLive.StopMultiplex
@@ -2187,6 +2233,9 @@ import Amazonka.MediaLive.Types.InputWhitelistRuleCidr
 import Amazonka.MediaLive.Types.KeyProviderSettings
 import Amazonka.MediaLive.Types.M2tsSettings
 import Amazonka.MediaLive.Types.M3u8Settings
+import Amazonka.MediaLive.Types.MaintenanceCreateSettings
+import Amazonka.MediaLive.Types.MaintenanceStatus
+import Amazonka.MediaLive.Types.MaintenanceUpdateSettings
 import Amazonka.MediaLive.Types.MediaConnectFlow
 import Amazonka.MediaLive.Types.MediaConnectFlowRequest
 import Amazonka.MediaLive.Types.MediaPackageGroupSettings
@@ -2239,6 +2288,7 @@ import Amazonka.MediaLive.Types.RawSettings
 import Amazonka.MediaLive.Types.Rec601Settings
 import Amazonka.MediaLive.Types.Rec709Settings
 import Amazonka.MediaLive.Types.RemixSettings
+import Amazonka.MediaLive.Types.RenewalSettings
 import Amazonka.MediaLive.Types.Reservation
 import Amazonka.MediaLive.Types.ReservationResourceSpecification
 import Amazonka.MediaLive.Types.RtmpCaptionInfoDestinationSettings

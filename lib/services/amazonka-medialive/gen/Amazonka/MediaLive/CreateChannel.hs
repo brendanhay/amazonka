@@ -29,6 +29,7 @@ module Amazonka.MediaLive.CreateChannel
     -- * Request Lenses
     createChannel'_tags,
     createChannel'_name,
+    createChannel'_maintenance,
     createChannel'_roleArn,
     createChannel'_vpc,
     createChannel'_logLevel,
@@ -66,6 +67,8 @@ data CreateChannel' = CreateChannel''
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Name of channel.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceCreateSettings,
     -- | An optional Amazon Resource Name (ARN) of the role to assume when
     -- running the Channel.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -104,6 +107,8 @@ data CreateChannel' = CreateChannel''
 --
 -- 'name', 'createChannel'_name' - Name of channel.
 --
+-- 'maintenance', 'createChannel'_maintenance' - Maintenance settings for this channel.
+--
 -- 'roleArn', 'createChannel'_roleArn' - An optional Amazon Resource Name (ARN) of the role to assume when
 -- running the Channel.
 --
@@ -134,6 +139,7 @@ newCreateChannel' =
   CreateChannel''
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
@@ -154,6 +160,10 @@ createChannel'_tags = Lens.lens (\CreateChannel'' {tags} -> tags) (\s@CreateChan
 -- | Name of channel.
 createChannel'_name :: Lens.Lens' CreateChannel' (Prelude.Maybe Prelude.Text)
 createChannel'_name = Lens.lens (\CreateChannel'' {name} -> name) (\s@CreateChannel'' {} a -> s {name = a} :: CreateChannel')
+
+-- | Maintenance settings for this channel.
+createChannel'_maintenance :: Lens.Lens' CreateChannel' (Prelude.Maybe MaintenanceCreateSettings)
+createChannel'_maintenance = Lens.lens (\CreateChannel'' {maintenance} -> maintenance) (\s@CreateChannel'' {} a -> s {maintenance = a} :: CreateChannel')
 
 -- | An optional Amazon Resource Name (ARN) of the role to assume when
 -- running the Channel.
@@ -219,6 +229,7 @@ instance Prelude.Hashable CreateChannel' where
   hashWithSalt _salt CreateChannel'' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` vpc
       `Prelude.hashWithSalt` logLevel
@@ -235,6 +246,7 @@ instance Prelude.NFData CreateChannel' where
   rnf CreateChannel'' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel
@@ -264,6 +276,7 @@ instance Core.ToJSON CreateChannel' where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("name" Core..=) Prelude.<$> name,
+            ("maintenance" Core..=) Prelude.<$> maintenance,
             ("roleArn" Core..=) Prelude.<$> roleArn,
             ("vpc" Core..=) Prelude.<$> vpc,
             ("logLevel" Core..=) Prelude.<$> logLevel,

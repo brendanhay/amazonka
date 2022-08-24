@@ -66,6 +66,9 @@ module Amazonka.MediaLive.Types
     -- * AcceptHeader
     AcceptHeader (..),
 
+    -- * AccessibilityType
+    AccessibilityType (..),
+
     -- * AfdSignaling
     AfdSignaling (..),
 
@@ -411,6 +414,9 @@ module Amazonka.MediaLive.Types
     -- * HlsProgramDateTime
     HlsProgramDateTime (..),
 
+    -- * HlsProgramDateTimeClock
+    HlsProgramDateTimeClock (..),
+
     -- * HlsRedundantManifest
     HlsRedundantManifest (..),
 
@@ -591,6 +597,9 @@ module Amazonka.MediaLive.Types
     -- * M3u8TimedMetadataBehavior
     M3u8TimedMetadataBehavior (..),
 
+    -- * MaintenanceDay
+    MaintenanceDay (..),
+
     -- * MotionGraphicsInsertion
     MotionGraphicsInsertion (..),
 
@@ -650,6 +659,12 @@ module Amazonka.MediaLive.Types
 
     -- * PreferredChannelPipeline
     PreferredChannelPipeline (..),
+
+    -- * RebootInputDeviceForce
+    RebootInputDeviceForce (..),
+
+    -- * ReservationAutomaticRenewal
+    ReservationAutomaticRenewal (..),
 
     -- * ReservationCodec
     ReservationCodec (..),
@@ -1041,6 +1056,7 @@ module Amazonka.MediaLive.Types
     -- * CaptionDescription
     CaptionDescription (..),
     newCaptionDescription,
+    captionDescription_accessibility,
     captionDescription_languageDescription,
     captionDescription_languageCode,
     captionDescription_destinationSettings,
@@ -1107,6 +1123,7 @@ module Amazonka.MediaLive.Types
     newChannel,
     channel_tags,
     channel_name,
+    channel_maintenance,
     channel_roleArn,
     channel_vpc,
     channel_logLevel,
@@ -1133,6 +1150,7 @@ module Amazonka.MediaLive.Types
     newChannelSummary,
     channelSummary_tags,
     channelSummary_name,
+    channelSummary_maintenance,
     channelSummary_roleArn,
     channelSummary_vpc,
     channelSummary_logLevel,
@@ -1491,6 +1509,7 @@ module Amazonka.MediaLive.Types
     hlsGroupSettings_baseUrlContent1,
     hlsGroupSettings_hlsId3SegmentTagging,
     hlsGroupSettings_baseUrlManifest,
+    hlsGroupSettings_programDateTimeClock,
     hlsGroupSettings_streamInfResolution,
     hlsGroupSettings_redundantManifest,
     hlsGroupSettings_programDateTime,
@@ -1767,6 +1786,7 @@ module Amazonka.MediaLive.Types
     inputSettings_inputFilter,
     inputSettings_audioSelectors,
     inputSettings_sourceEndBehavior,
+    inputSettings_scte35Pid,
     inputSettings_denoiseFilter,
     inputSettings_videoSelector,
     inputSettings_smpte2038DataPreference,
@@ -1891,6 +1911,27 @@ module Amazonka.MediaLive.Types
     m3u8Settings_timedMetadataBehavior,
     m3u8Settings_pmtPid,
     m3u8Settings_audioPids,
+
+    -- * MaintenanceCreateSettings
+    MaintenanceCreateSettings (..),
+    newMaintenanceCreateSettings,
+    maintenanceCreateSettings_maintenanceDay,
+    maintenanceCreateSettings_maintenanceStartTime,
+
+    -- * MaintenanceStatus
+    MaintenanceStatus (..),
+    newMaintenanceStatus,
+    maintenanceStatus_maintenanceDeadline,
+    maintenanceStatus_maintenanceScheduledDate,
+    maintenanceStatus_maintenanceDay,
+    maintenanceStatus_maintenanceStartTime,
+
+    -- * MaintenanceUpdateSettings
+    MaintenanceUpdateSettings (..),
+    newMaintenanceUpdateSettings,
+    maintenanceUpdateSettings_maintenanceScheduledDate,
+    maintenanceUpdateSettings_maintenanceDay,
+    maintenanceUpdateSettings_maintenanceStartTime,
 
     -- * MediaConnectFlow
     MediaConnectFlow (..),
@@ -2280,11 +2321,18 @@ module Amazonka.MediaLive.Types
     remixSettings_channelsOut,
     remixSettings_channelMappings,
 
+    -- * RenewalSettings
+    RenewalSettings (..),
+    newRenewalSettings,
+    renewalSettings_automaticRenewal,
+    renewalSettings_renewalCount,
+
     -- * Reservation
     Reservation (..),
     newReservation,
     reservation_tags,
     reservation_name,
+    reservation_renewalSettings,
     reservation_start,
     reservation_arn,
     reservation_resourceSpecification,
@@ -2652,6 +2700,7 @@ import Amazonka.MediaLive.Types.Ac3LfeFilter
 import Amazonka.MediaLive.Types.Ac3MetadataControl
 import Amazonka.MediaLive.Types.Ac3Settings
 import Amazonka.MediaLive.Types.AcceptHeader
+import Amazonka.MediaLive.Types.AccessibilityType
 import Amazonka.MediaLive.Types.AfdSignaling
 import Amazonka.MediaLive.Types.AncillarySourceSettings
 import Amazonka.MediaLive.Types.ArchiveCdnSettings
@@ -2852,6 +2901,7 @@ import Amazonka.MediaLive.Types.HlsMode
 import Amazonka.MediaLive.Types.HlsOutputSelection
 import Amazonka.MediaLive.Types.HlsOutputSettings
 import Amazonka.MediaLive.Types.HlsProgramDateTime
+import Amazonka.MediaLive.Types.HlsProgramDateTimeClock
 import Amazonka.MediaLive.Types.HlsRedundantManifest
 import Amazonka.MediaLive.Types.HlsS3Settings
 import Amazonka.MediaLive.Types.HlsScte35SourceType
@@ -2948,6 +2998,10 @@ import Amazonka.MediaLive.Types.M3u8PcrControl
 import Amazonka.MediaLive.Types.M3u8Scte35Behavior
 import Amazonka.MediaLive.Types.M3u8Settings
 import Amazonka.MediaLive.Types.M3u8TimedMetadataBehavior
+import Amazonka.MediaLive.Types.MaintenanceCreateSettings
+import Amazonka.MediaLive.Types.MaintenanceDay
+import Amazonka.MediaLive.Types.MaintenanceStatus
+import Amazonka.MediaLive.Types.MaintenanceUpdateSettings
 import Amazonka.MediaLive.Types.MediaConnectFlow
 import Amazonka.MediaLive.Types.MediaConnectFlowRequest
 import Amazonka.MediaLive.Types.MediaPackageGroupSettings
@@ -3017,10 +3071,13 @@ import Amazonka.MediaLive.Types.PipelineId
 import Amazonka.MediaLive.Types.PipelinePauseStateSettings
 import Amazonka.MediaLive.Types.PreferredChannelPipeline
 import Amazonka.MediaLive.Types.RawSettings
+import Amazonka.MediaLive.Types.RebootInputDeviceForce
 import Amazonka.MediaLive.Types.Rec601Settings
 import Amazonka.MediaLive.Types.Rec709Settings
 import Amazonka.MediaLive.Types.RemixSettings
+import Amazonka.MediaLive.Types.RenewalSettings
 import Amazonka.MediaLive.Types.Reservation
+import Amazonka.MediaLive.Types.ReservationAutomaticRenewal
 import Amazonka.MediaLive.Types.ReservationCodec
 import Amazonka.MediaLive.Types.ReservationMaximumBitrate
 import Amazonka.MediaLive.Types.ReservationMaximumFramerate

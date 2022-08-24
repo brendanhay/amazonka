@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaLive.Types.DeviceUpdateStatus
+-- Module      : Amazonka.MediaLive.Types.ReservationAutomaticRenewal
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaLive.Types.DeviceUpdateStatus
-  ( DeviceUpdateStatus
+module Amazonka.MediaLive.Types.ReservationAutomaticRenewal
+  ( ReservationAutomaticRenewal
       ( ..,
-        DeviceUpdateStatus_NOT_UP_TO_DATE,
-        DeviceUpdateStatus_UPDATING,
-        DeviceUpdateStatus_UP_TO_DATE
+        ReservationAutomaticRenewal_DISABLED,
+        ReservationAutomaticRenewal_ENABLED,
+        ReservationAutomaticRenewal_UNAVAILABLE
       ),
   )
 where
@@ -30,9 +30,9 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The status of software on the input device.
-newtype DeviceUpdateStatus = DeviceUpdateStatus'
-  { fromDeviceUpdateStatus ::
+-- | Automatic Renewal Status for Reservation
+newtype ReservationAutomaticRenewal = ReservationAutomaticRenewal'
+  { fromReservationAutomaticRenewal ::
       Core.Text
   }
   deriving stock
@@ -59,18 +59,18 @@ newtype DeviceUpdateStatus = DeviceUpdateStatus'
       Core.ToXML
     )
 
-pattern DeviceUpdateStatus_NOT_UP_TO_DATE :: DeviceUpdateStatus
-pattern DeviceUpdateStatus_NOT_UP_TO_DATE = DeviceUpdateStatus' "NOT_UP_TO_DATE"
+pattern ReservationAutomaticRenewal_DISABLED :: ReservationAutomaticRenewal
+pattern ReservationAutomaticRenewal_DISABLED = ReservationAutomaticRenewal' "DISABLED"
 
-pattern DeviceUpdateStatus_UPDATING :: DeviceUpdateStatus
-pattern DeviceUpdateStatus_UPDATING = DeviceUpdateStatus' "UPDATING"
+pattern ReservationAutomaticRenewal_ENABLED :: ReservationAutomaticRenewal
+pattern ReservationAutomaticRenewal_ENABLED = ReservationAutomaticRenewal' "ENABLED"
 
-pattern DeviceUpdateStatus_UP_TO_DATE :: DeviceUpdateStatus
-pattern DeviceUpdateStatus_UP_TO_DATE = DeviceUpdateStatus' "UP_TO_DATE"
+pattern ReservationAutomaticRenewal_UNAVAILABLE :: ReservationAutomaticRenewal
+pattern ReservationAutomaticRenewal_UNAVAILABLE = ReservationAutomaticRenewal' "UNAVAILABLE"
 
 {-# COMPLETE
-  DeviceUpdateStatus_NOT_UP_TO_DATE,
-  DeviceUpdateStatus_UPDATING,
-  DeviceUpdateStatus_UP_TO_DATE,
-  DeviceUpdateStatus'
+  ReservationAutomaticRenewal_DISABLED,
+  ReservationAutomaticRenewal_ENABLED,
+  ReservationAutomaticRenewal_UNAVAILABLE,
+  ReservationAutomaticRenewal'
   #-}

@@ -36,6 +36,7 @@ module Amazonka.MediaLive.DeleteChannel
     -- * Response Lenses
     deleteChannelResponse_tags,
     deleteChannelResponse_name,
+    deleteChannelResponse_maintenance,
     deleteChannelResponse_roleArn,
     deleteChannelResponse_vpc,
     deleteChannelResponse_logLevel,
@@ -102,6 +103,7 @@ instance Core.AWSRequest DeleteChannel where
           DeleteChannelResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "name")
+            Prelude.<*> (x Core..?> "maintenance")
             Prelude.<*> (x Core..?> "roleArn")
             Prelude.<*> (x Core..?> "vpc")
             Prelude.<*> (x Core..?> "logLevel")
@@ -160,6 +162,8 @@ data DeleteChannelResponse = DeleteChannelResponse'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the channel. (user-mutable)
     name :: Prelude.Maybe Prelude.Text,
+    -- | Maintenance settings for this channel.
+    maintenance :: Prelude.Maybe MaintenanceStatus,
     -- | The Amazon Resource Name (ARN) of the role assumed when running the
     -- Channel.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -209,6 +213,8 @@ data DeleteChannelResponse = DeleteChannelResponse'
 --
 -- 'name', 'deleteChannelResponse_name' - The name of the channel. (user-mutable)
 --
+-- 'maintenance', 'deleteChannelResponse_maintenance' - Maintenance settings for this channel.
+--
 -- 'roleArn', 'deleteChannelResponse_roleArn' - The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
 --
@@ -252,6 +258,7 @@ newDeleteChannelResponse pHttpStatus_ =
   DeleteChannelResponse'
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       vpc = Prelude.Nothing,
       logLevel = Prelude.Nothing,
@@ -277,6 +284,10 @@ deleteChannelResponse_tags = Lens.lens (\DeleteChannelResponse' {tags} -> tags) 
 -- | The name of the channel. (user-mutable)
 deleteChannelResponse_name :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe Prelude.Text)
 deleteChannelResponse_name = Lens.lens (\DeleteChannelResponse' {name} -> name) (\s@DeleteChannelResponse' {} a -> s {name = a} :: DeleteChannelResponse)
+
+-- | Maintenance settings for this channel.
+deleteChannelResponse_maintenance :: Lens.Lens' DeleteChannelResponse (Prelude.Maybe MaintenanceStatus)
+deleteChannelResponse_maintenance = Lens.lens (\DeleteChannelResponse' {maintenance} -> maintenance) (\s@DeleteChannelResponse' {} a -> s {maintenance = a} :: DeleteChannelResponse)
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the
 -- Channel.
@@ -350,6 +361,7 @@ instance Prelude.NFData DeleteChannelResponse where
   rnf DeleteChannelResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf vpc
       `Prelude.seq` Prelude.rnf logLevel

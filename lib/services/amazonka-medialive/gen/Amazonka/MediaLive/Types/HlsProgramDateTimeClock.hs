@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaLive.Types.DeviceUpdateStatus
+-- Module      : Amazonka.MediaLive.Types.HlsProgramDateTimeClock
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaLive.Types.DeviceUpdateStatus
-  ( DeviceUpdateStatus
+module Amazonka.MediaLive.Types.HlsProgramDateTimeClock
+  ( HlsProgramDateTimeClock
       ( ..,
-        DeviceUpdateStatus_NOT_UP_TO_DATE,
-        DeviceUpdateStatus_UPDATING,
-        DeviceUpdateStatus_UP_TO_DATE
+        HlsProgramDateTimeClock_INITIALIZE_FROM_OUTPUT_TIMECODE,
+        HlsProgramDateTimeClock_SYSTEM_CLOCK
       ),
   )
 where
@@ -30,9 +29,9 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The status of software on the input device.
-newtype DeviceUpdateStatus = DeviceUpdateStatus'
-  { fromDeviceUpdateStatus ::
+-- | Hls Program Date Time Clock
+newtype HlsProgramDateTimeClock = HlsProgramDateTimeClock'
+  { fromHlsProgramDateTimeClock ::
       Core.Text
   }
   deriving stock
@@ -59,18 +58,14 @@ newtype DeviceUpdateStatus = DeviceUpdateStatus'
       Core.ToXML
     )
 
-pattern DeviceUpdateStatus_NOT_UP_TO_DATE :: DeviceUpdateStatus
-pattern DeviceUpdateStatus_NOT_UP_TO_DATE = DeviceUpdateStatus' "NOT_UP_TO_DATE"
+pattern HlsProgramDateTimeClock_INITIALIZE_FROM_OUTPUT_TIMECODE :: HlsProgramDateTimeClock
+pattern HlsProgramDateTimeClock_INITIALIZE_FROM_OUTPUT_TIMECODE = HlsProgramDateTimeClock' "INITIALIZE_FROM_OUTPUT_TIMECODE"
 
-pattern DeviceUpdateStatus_UPDATING :: DeviceUpdateStatus
-pattern DeviceUpdateStatus_UPDATING = DeviceUpdateStatus' "UPDATING"
-
-pattern DeviceUpdateStatus_UP_TO_DATE :: DeviceUpdateStatus
-pattern DeviceUpdateStatus_UP_TO_DATE = DeviceUpdateStatus' "UP_TO_DATE"
+pattern HlsProgramDateTimeClock_SYSTEM_CLOCK :: HlsProgramDateTimeClock
+pattern HlsProgramDateTimeClock_SYSTEM_CLOCK = HlsProgramDateTimeClock' "SYSTEM_CLOCK"
 
 {-# COMPLETE
-  DeviceUpdateStatus_NOT_UP_TO_DATE,
-  DeviceUpdateStatus_UPDATING,
-  DeviceUpdateStatus_UP_TO_DATE,
-  DeviceUpdateStatus'
+  HlsProgramDateTimeClock_INITIALIZE_FROM_OUTPUT_TIMECODE,
+  HlsProgramDateTimeClock_SYSTEM_CLOCK,
+  HlsProgramDateTimeClock'
   #-}

@@ -29,6 +29,7 @@ module Amazonka.MediaLive.PurchaseOffering
     -- * Request Lenses
     purchaseOffering'_tags,
     purchaseOffering'_name,
+    purchaseOffering'_renewalSettings,
     purchaseOffering'_start,
     purchaseOffering'_requestId,
     purchaseOffering'_offeringId,
@@ -59,6 +60,8 @@ data PurchaseOffering' = PurchaseOffering''
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Name for the new reservation
     name :: Prelude.Maybe Prelude.Text,
+    -- | Renewal settings for the reservation
+    renewalSettings :: Prelude.Maybe RenewalSettings,
     -- | Requested reservation start time (UTC) in ISO-8601 format. The specified
     -- time must be between the first day of the current month and one year
     -- from now. If no value is given, the default is now.
@@ -85,6 +88,8 @@ data PurchaseOffering' = PurchaseOffering''
 --
 -- 'name', 'purchaseOffering'_name' - Name for the new reservation
 --
+-- 'renewalSettings', 'purchaseOffering'_renewalSettings' - Renewal settings for the reservation
+--
 -- 'start', 'purchaseOffering'_start' - Requested reservation start time (UTC) in ISO-8601 format. The specified
 -- time must be between the first day of the current month and one year
 -- from now. If no value is given, the default is now.
@@ -105,6 +110,7 @@ newPurchaseOffering' pOfferingId_ pCount_ =
   PurchaseOffering''
     { tags = Prelude.Nothing,
       name = Prelude.Nothing,
+      renewalSettings = Prelude.Nothing,
       start = Prelude.Nothing,
       requestId = Prelude.Nothing,
       offeringId = pOfferingId_,
@@ -118,6 +124,10 @@ purchaseOffering'_tags = Lens.lens (\PurchaseOffering'' {tags} -> tags) (\s@Purc
 -- | Name for the new reservation
 purchaseOffering'_name :: Lens.Lens' PurchaseOffering' (Prelude.Maybe Prelude.Text)
 purchaseOffering'_name = Lens.lens (\PurchaseOffering'' {name} -> name) (\s@PurchaseOffering'' {} a -> s {name = a} :: PurchaseOffering')
+
+-- | Renewal settings for the reservation
+purchaseOffering'_renewalSettings :: Lens.Lens' PurchaseOffering' (Prelude.Maybe RenewalSettings)
+purchaseOffering'_renewalSettings = Lens.lens (\PurchaseOffering'' {renewalSettings} -> renewalSettings) (\s@PurchaseOffering'' {} a -> s {renewalSettings = a} :: PurchaseOffering')
 
 -- | Requested reservation start time (UTC) in ISO-8601 format. The specified
 -- time must be between the first day of the current month and one year
@@ -155,6 +165,7 @@ instance Prelude.Hashable PurchaseOffering' where
   hashWithSalt _salt PurchaseOffering'' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` renewalSettings
       `Prelude.hashWithSalt` start
       `Prelude.hashWithSalt` requestId
       `Prelude.hashWithSalt` offeringId
@@ -164,6 +175,7 @@ instance Prelude.NFData PurchaseOffering' where
   rnf PurchaseOffering'' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf renewalSettings
       `Prelude.seq` Prelude.rnf start
       `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf offeringId
@@ -186,6 +198,8 @@ instance Core.ToJSON PurchaseOffering' where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("name" Core..=) Prelude.<$> name,
+            ("renewalSettings" Core..=)
+              Prelude.<$> renewalSettings,
             ("start" Core..=) Prelude.<$> start,
             ("requestId" Core..=) Prelude.<$> requestId,
             Prelude.Just ("count" Core..= count)

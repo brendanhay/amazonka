@@ -32,7 +32,7 @@ data MediaPlacement = MediaPlacement'
     signalingUrl :: Prelude.Maybe Prelude.Text,
     -- | The screen viewing URL.
     screenViewingUrl :: Prelude.Maybe Prelude.Text,
-    -- | The event ingestion URL.
+    -- | The event ingestion URL to which you send client meeting events.
     eventIngestionUrl :: Prelude.Maybe Prelude.Text,
     -- | The audio host URL.
     audioHostUrl :: Prelude.Maybe Prelude.Text,
@@ -59,7 +59,7 @@ data MediaPlacement = MediaPlacement'
 --
 -- 'screenViewingUrl', 'mediaPlacement_screenViewingUrl' - The screen viewing URL.
 --
--- 'eventIngestionUrl', 'mediaPlacement_eventIngestionUrl' - The event ingestion URL.
+-- 'eventIngestionUrl', 'mediaPlacement_eventIngestionUrl' - The event ingestion URL to which you send client meeting events.
 --
 -- 'audioHostUrl', 'mediaPlacement_audioHostUrl' - The audio host URL.
 --
@@ -92,7 +92,7 @@ mediaPlacement_signalingUrl = Lens.lens (\MediaPlacement' {signalingUrl} -> sign
 mediaPlacement_screenViewingUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
 mediaPlacement_screenViewingUrl = Lens.lens (\MediaPlacement' {screenViewingUrl} -> screenViewingUrl) (\s@MediaPlacement' {} a -> s {screenViewingUrl = a} :: MediaPlacement)
 
--- | The event ingestion URL.
+-- | The event ingestion URL to which you send client meeting events.
 mediaPlacement_eventIngestionUrl :: Lens.Lens' MediaPlacement (Prelude.Maybe Prelude.Text)
 mediaPlacement_eventIngestionUrl = Lens.lens (\MediaPlacement' {eventIngestionUrl} -> eventIngestionUrl) (\s@MediaPlacement' {} a -> s {eventIngestionUrl = a} :: MediaPlacement)
 

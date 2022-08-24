@@ -597,6 +597,9 @@ import Test.Tasty
 --         , requestUpdateVoiceConnectorGroup $
 --             newUpdateVoiceConnectorGroup
 --
+--         , requestValidateE911Address $
+--             newValidateE911Address
+--
 --           ]
 
 --     , testGroup "response"
@@ -1169,6 +1172,9 @@ import Test.Tasty
 --
 --         , responseUpdateVoiceConnectorGroup $
 --             newUpdateVoiceConnectorGroupResponse
+--
+--         , responseValidateE911Address $
+--             newValidateE911AddressResponse
 --
 --           ]
 --     ]
@@ -2314,6 +2320,12 @@ requestUpdateVoiceConnectorGroup =
   req
     "UpdateVoiceConnectorGroup"
     "fixture/UpdateVoiceConnectorGroup.yaml"
+
+requestValidateE911Address :: ValidateE911Address -> TestTree
+requestValidateE911Address =
+  req
+    "ValidateE911Address"
+    "fixture/ValidateE911Address.yaml"
 
 -- Responses
 
@@ -3836,3 +3848,11 @@ responseUpdateVoiceConnectorGroup =
     "fixture/UpdateVoiceConnectorGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateVoiceConnectorGroup)
+
+responseValidateE911Address :: ValidateE911AddressResponse -> TestTree
+responseValidateE911Address =
+  res
+    "ValidateE911AddressResponse"
+    "fixture/ValidateE911AddressResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ValidateE911Address)

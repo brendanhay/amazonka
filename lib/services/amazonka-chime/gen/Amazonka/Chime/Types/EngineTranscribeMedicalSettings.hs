@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Chime.Types.EngineTranscribeMedicalSettings where
 
+import Amazonka.Chime.Types.TranscribeMedicalContentIdentificationType
 import Amazonka.Chime.Types.TranscribeMedicalLanguageCode
 import Amazonka.Chime.Types.TranscribeMedicalRegion
 import Amazonka.Chime.Types.TranscribeMedicalSpecialty
@@ -33,6 +34,9 @@ import qualified Amazonka.Prelude as Prelude
 data EngineTranscribeMedicalSettings = EngineTranscribeMedicalSettings'
   { -- | The name of the vocabulary passed to Amazon Transcribe Medical.
     vocabularyName :: Prelude.Maybe Prelude.Text,
+    -- | Set this field to @PHI@ to identify personal health information in the
+    -- transcription output.
+    contentIdentificationType :: Prelude.Maybe TranscribeMedicalContentIdentificationType,
     -- | The AWS Region passed to Amazon Transcribe Medical. If you don\'t
     -- specify a Region, Amazon Chime uses the meeting\'s Region.
     region :: Prelude.Maybe TranscribeMedicalRegion,
@@ -54,6 +58,9 @@ data EngineTranscribeMedicalSettings = EngineTranscribeMedicalSettings'
 -- for backwards compatibility:
 --
 -- 'vocabularyName', 'engineTranscribeMedicalSettings_vocabularyName' - The name of the vocabulary passed to Amazon Transcribe Medical.
+--
+-- 'contentIdentificationType', 'engineTranscribeMedicalSettings_contentIdentificationType' - Set this field to @PHI@ to identify personal health information in the
+-- transcription output.
 --
 -- 'region', 'engineTranscribeMedicalSettings_region' - The AWS Region passed to Amazon Transcribe Medical. If you don\'t
 -- specify a Region, Amazon Chime uses the meeting\'s Region.
@@ -78,6 +85,8 @@ newEngineTranscribeMedicalSettings
     EngineTranscribeMedicalSettings'
       { vocabularyName =
           Prelude.Nothing,
+        contentIdentificationType =
+          Prelude.Nothing,
         region = Prelude.Nothing,
         languageCode = pLanguageCode_,
         specialty = pSpecialty_,
@@ -87,6 +96,11 @@ newEngineTranscribeMedicalSettings
 -- | The name of the vocabulary passed to Amazon Transcribe Medical.
 engineTranscribeMedicalSettings_vocabularyName :: Lens.Lens' EngineTranscribeMedicalSettings (Prelude.Maybe Prelude.Text)
 engineTranscribeMedicalSettings_vocabularyName = Lens.lens (\EngineTranscribeMedicalSettings' {vocabularyName} -> vocabularyName) (\s@EngineTranscribeMedicalSettings' {} a -> s {vocabularyName = a} :: EngineTranscribeMedicalSettings)
+
+-- | Set this field to @PHI@ to identify personal health information in the
+-- transcription output.
+engineTranscribeMedicalSettings_contentIdentificationType :: Lens.Lens' EngineTranscribeMedicalSettings (Prelude.Maybe TranscribeMedicalContentIdentificationType)
+engineTranscribeMedicalSettings_contentIdentificationType = Lens.lens (\EngineTranscribeMedicalSettings' {contentIdentificationType} -> contentIdentificationType) (\s@EngineTranscribeMedicalSettings' {} a -> s {contentIdentificationType = a} :: EngineTranscribeMedicalSettings)
 
 -- | The AWS Region passed to Amazon Transcribe Medical. If you don\'t
 -- specify a Region, Amazon Chime uses the meeting\'s Region.
@@ -113,6 +127,7 @@ instance
     _salt
     EngineTranscribeMedicalSettings' {..} =
       _salt `Prelude.hashWithSalt` vocabularyName
+        `Prelude.hashWithSalt` contentIdentificationType
         `Prelude.hashWithSalt` region
         `Prelude.hashWithSalt` languageCode
         `Prelude.hashWithSalt` specialty
@@ -124,6 +139,7 @@ instance
   where
   rnf EngineTranscribeMedicalSettings' {..} =
     Prelude.rnf vocabularyName
+      `Prelude.seq` Prelude.rnf contentIdentificationType
       `Prelude.seq` Prelude.rnf region
       `Prelude.seq` Prelude.rnf languageCode
       `Prelude.seq` Prelude.rnf specialty
@@ -135,6 +151,8 @@ instance Core.ToJSON EngineTranscribeMedicalSettings where
       ( Prelude.catMaybes
           [ ("VocabularyName" Core..=)
               Prelude.<$> vocabularyName,
+            ("ContentIdentificationType" Core..=)
+              Prelude.<$> contentIdentificationType,
             ("Region" Core..=) Prelude.<$> region,
             Prelude.Just ("LanguageCode" Core..= languageCode),
             Prelude.Just ("Specialty" Core..= specialty),

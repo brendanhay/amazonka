@@ -31,7 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data LoggingConfiguration = LoggingConfiguration'
   { -- | When true, enables SIP message logs for sending to Amazon CloudWatch
     -- Logs.
-    enableSIPLogs :: Prelude.Maybe Prelude.Bool
+    enableSIPLogs :: Prelude.Maybe Prelude.Bool,
+    -- | Boolean that enables the logging of Voice Connector metrics to
+    -- Cloudwatch.
+    enableMediaMetricLogs :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,18 +48,27 @@ data LoggingConfiguration = LoggingConfiguration'
 --
 -- 'enableSIPLogs', 'loggingConfiguration_enableSIPLogs' - When true, enables SIP message logs for sending to Amazon CloudWatch
 -- Logs.
+--
+-- 'enableMediaMetricLogs', 'loggingConfiguration_enableMediaMetricLogs' - Boolean that enables the logging of Voice Connector metrics to
+-- Cloudwatch.
 newLoggingConfiguration ::
   LoggingConfiguration
 newLoggingConfiguration =
   LoggingConfiguration'
     { enableSIPLogs =
-        Prelude.Nothing
+        Prelude.Nothing,
+      enableMediaMetricLogs = Prelude.Nothing
     }
 
 -- | When true, enables SIP message logs for sending to Amazon CloudWatch
 -- Logs.
 loggingConfiguration_enableSIPLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
 loggingConfiguration_enableSIPLogs = Lens.lens (\LoggingConfiguration' {enableSIPLogs} -> enableSIPLogs) (\s@LoggingConfiguration' {} a -> s {enableSIPLogs = a} :: LoggingConfiguration)
+
+-- | Boolean that enables the logging of Voice Connector metrics to
+-- Cloudwatch.
+loggingConfiguration_enableMediaMetricLogs :: Lens.Lens' LoggingConfiguration (Prelude.Maybe Prelude.Bool)
+loggingConfiguration_enableMediaMetricLogs = Lens.lens (\LoggingConfiguration' {enableMediaMetricLogs} -> enableMediaMetricLogs) (\s@LoggingConfiguration' {} a -> s {enableMediaMetricLogs = a} :: LoggingConfiguration)
 
 instance Core.FromJSON LoggingConfiguration where
   parseJSON =
@@ -65,21 +77,25 @@ instance Core.FromJSON LoggingConfiguration where
       ( \x ->
           LoggingConfiguration'
             Prelude.<$> (x Core..:? "EnableSIPLogs")
+            Prelude.<*> (x Core..:? "EnableMediaMetricLogs")
       )
 
 instance Prelude.Hashable LoggingConfiguration where
   hashWithSalt _salt LoggingConfiguration' {..} =
     _salt `Prelude.hashWithSalt` enableSIPLogs
+      `Prelude.hashWithSalt` enableMediaMetricLogs
 
 instance Prelude.NFData LoggingConfiguration where
   rnf LoggingConfiguration' {..} =
     Prelude.rnf enableSIPLogs
+      `Prelude.seq` Prelude.rnf enableMediaMetricLogs
 
 instance Core.ToJSON LoggingConfiguration where
   toJSON LoggingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EnableSIPLogs" Core..=)
-              Prelude.<$> enableSIPLogs
+          [ ("EnableSIPLogs" Core..=) Prelude.<$> enableSIPLogs,
+            ("EnableMediaMetricLogs" Core..=)
+              Prelude.<$> enableMediaMetricLogs
           ]
       )

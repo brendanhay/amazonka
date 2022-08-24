@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 data UpdateGlobalNetwork = UpdateGlobalNetwork'
   { -- | A description of the global network.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of your global network.
     globalNetworkId :: Prelude.Text
@@ -69,7 +69,7 @@ data UpdateGlobalNetwork = UpdateGlobalNetwork'
 --
 -- 'description', 'updateGlobalNetwork_description' - A description of the global network.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 --
 -- 'globalNetworkId', 'updateGlobalNetwork_globalNetworkId' - The ID of your global network.
 newUpdateGlobalNetwork ::
@@ -84,7 +84,7 @@ newUpdateGlobalNetwork pGlobalNetworkId_ =
 
 -- | A description of the global network.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 updateGlobalNetwork_description :: Lens.Lens' UpdateGlobalNetwork (Prelude.Maybe Prelude.Text)
 updateGlobalNetwork_description = Lens.lens (\UpdateGlobalNetwork' {description} -> description) (\s@UpdateGlobalNetwork' {} a -> s {description = a} :: UpdateGlobalNetwork)
 

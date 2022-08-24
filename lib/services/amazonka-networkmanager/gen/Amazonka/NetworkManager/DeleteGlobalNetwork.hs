@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes an existing global network. You must first delete all global
--- network objects (devices, links, and sites) and deregister all transit
--- gateways.
+-- network objects (devices, links, and sites), deregister all transit
+-- gateways, and delete any core networks.
 module Amazonka.NetworkManager.DeleteGlobalNetwork
   ( -- * Creating a Request
     DeleteGlobalNetwork (..),

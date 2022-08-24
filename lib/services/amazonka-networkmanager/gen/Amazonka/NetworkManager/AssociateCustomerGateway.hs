@@ -24,11 +24,11 @@
 -- If you specify a link, it must be associated with the specified device.
 --
 -- You can only associate customer gateways that are connected to a VPN
--- attachment on a transit gateway. The transit gateway must be registered
--- in your global network. When you register a transit gateway, customer
--- gateways that are connected to the transit gateway are automatically
--- included in the global network. To list customer gateways that are
--- connected to a transit gateway, use the
+-- attachment on a transit gateway or core network registered in your
+-- global network. When you register a transit gateway or core network,
+-- customer gateways that are connected to the transit gateway are
+-- automatically included in the global network. To list customer gateways
+-- that are connected to a transit gateway, use the
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnConnections.html DescribeVpnConnections>
 -- EC2 API and filter by @transit-gateway-id@.
 --
@@ -66,9 +66,7 @@ import qualified Amazonka.Response as Response
 data AssociateCustomerGateway = AssociateCustomerGateway'
   { -- | The ID of the link.
     linkId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the customer gateway. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+    -- | The Amazon Resource Name (ARN) of the customer gateway.
     customerGatewayArn :: Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
@@ -87,9 +85,7 @@ data AssociateCustomerGateway = AssociateCustomerGateway'
 --
 -- 'linkId', 'associateCustomerGateway_linkId' - The ID of the link.
 --
--- 'customerGatewayArn', 'associateCustomerGateway_customerGatewayArn' - The Amazon Resource Name (ARN) of the customer gateway. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+-- 'customerGatewayArn', 'associateCustomerGateway_customerGatewayArn' - The Amazon Resource Name (ARN) of the customer gateway.
 --
 -- 'globalNetworkId', 'associateCustomerGateway_globalNetworkId' - The ID of the global network.
 --
@@ -117,9 +113,7 @@ newAssociateCustomerGateway
 associateCustomerGateway_linkId :: Lens.Lens' AssociateCustomerGateway (Prelude.Maybe Prelude.Text)
 associateCustomerGateway_linkId = Lens.lens (\AssociateCustomerGateway' {linkId} -> linkId) (\s@AssociateCustomerGateway' {} a -> s {linkId = a} :: AssociateCustomerGateway)
 
--- | The Amazon Resource Name (ARN) of the customer gateway. For more
--- information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2.html#amazonec2-resources-for-iam-policies Resources Defined by Amazon EC2>.
+-- | The Amazon Resource Name (ARN) of the customer gateway.
 associateCustomerGateway_customerGatewayArn :: Lens.Lens' AssociateCustomerGateway Prelude.Text
 associateCustomerGateway_customerGatewayArn = Lens.lens (\AssociateCustomerGateway' {customerGatewayArn} -> customerGatewayArn) (\s@AssociateCustomerGateway' {} a -> s {customerGatewayArn = a} :: AssociateCustomerGateway)
 

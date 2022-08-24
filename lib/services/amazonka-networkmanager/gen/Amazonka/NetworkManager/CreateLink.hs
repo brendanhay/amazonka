@@ -58,19 +58,17 @@ data CreateLink = CreateLink'
     tags :: Prelude.Maybe [Tag],
     -- | The type of the link.
     --
-    -- Constraints: Cannot include the following characters: | \\ ^
-    --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters. Cannot include the
+    -- following characters: | \\ ^
     type' :: Prelude.Maybe Prelude.Text,
     -- | The provider of the link.
     --
-    -- Constraints: Cannot include the following characters: | \\ ^
-    --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters. Cannot include the
+    -- following characters: | \\ ^
     provider :: Prelude.Maybe Prelude.Text,
     -- | A description of the link.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
@@ -93,19 +91,17 @@ data CreateLink = CreateLink'
 --
 -- 'type'', 'createLink_type' - The type of the link.
 --
--- Constraints: Cannot include the following characters: | \\ ^
---
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters. Cannot include the
+-- following characters: | \\ ^
 --
 -- 'provider', 'createLink_provider' - The provider of the link.
 --
--- Constraints: Cannot include the following characters: | \\ ^
---
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters. Cannot include the
+-- following characters: | \\ ^
 --
 -- 'description', 'createLink_description' - A description of the link.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 --
 -- 'globalNetworkId', 'createLink_globalNetworkId' - The ID of the global network.
 --
@@ -137,23 +133,21 @@ createLink_tags = Lens.lens (\CreateLink' {tags} -> tags) (\s@CreateLink' {} a -
 
 -- | The type of the link.
 --
--- Constraints: Cannot include the following characters: | \\ ^
---
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters. Cannot include the
+-- following characters: | \\ ^
 createLink_type :: Lens.Lens' CreateLink (Prelude.Maybe Prelude.Text)
 createLink_type = Lens.lens (\CreateLink' {type'} -> type') (\s@CreateLink' {} a -> s {type' = a} :: CreateLink)
 
 -- | The provider of the link.
 --
--- Constraints: Cannot include the following characters: | \\ ^
---
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters. Cannot include the
+-- following characters: | \\ ^
 createLink_provider :: Lens.Lens' CreateLink (Prelude.Maybe Prelude.Text)
 createLink_provider = Lens.lens (\CreateLink' {provider} -> provider) (\s@CreateLink' {} a -> s {provider = a} :: CreateLink)
 
 -- | A description of the link.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 createLink_description :: Lens.Lens' CreateLink (Prelude.Maybe Prelude.Text)
 createLink_description = Lens.lens (\CreateLink' {description} -> description) (\s@CreateLink' {} a -> s {description = a} :: CreateLink)
 

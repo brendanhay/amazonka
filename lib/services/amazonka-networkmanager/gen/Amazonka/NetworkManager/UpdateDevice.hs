@@ -62,24 +62,25 @@ data UpdateDevice = UpdateDevice'
     type' :: Prelude.Maybe Prelude.Text,
     -- | The model of the device.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     model :: Prelude.Maybe Prelude.Text,
-    -- | The AWS location of the device.
+    -- | The Amazon Web Services location of the device, if applicable. For an
+    -- on-premises device, you can omit this parameter.
     aWSLocation :: Prelude.Maybe AWSLocation,
     -- | A description of the device.
     --
-    -- Length Constraints: Maximum length of 256 characters.
+    -- Constraints: Maximum length of 256 characters.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of the site.
     siteId :: Prelude.Maybe Prelude.Text,
     location :: Prelude.Maybe (Core.Sensitive Location),
     -- | The serial number of the device.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     serialNumber :: Prelude.Maybe Prelude.Text,
     -- | The vendor of the device.
     --
-    -- Length Constraints: Maximum length of 128 characters.
+    -- Constraints: Maximum length of 128 characters.
     vendor :: Prelude.Maybe Prelude.Text,
     -- | The ID of the global network.
     globalNetworkId :: Prelude.Text,
@@ -100,13 +101,14 @@ data UpdateDevice = UpdateDevice'
 --
 -- 'model', 'updateDevice_model' - The model of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
--- 'aWSLocation', 'updateDevice_aWSLocation' - The AWS location of the device.
+-- 'aWSLocation', 'updateDevice_aWSLocation' - The Amazon Web Services location of the device, if applicable. For an
+-- on-premises device, you can omit this parameter.
 --
 -- 'description', 'updateDevice_description' - A description of the device.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 --
 -- 'siteId', 'updateDevice_siteId' - The ID of the site.
 --
@@ -114,11 +116,11 @@ data UpdateDevice = UpdateDevice'
 --
 -- 'serialNumber', 'updateDevice_serialNumber' - The serial number of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
 -- 'vendor', 'updateDevice_vendor' - The vendor of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 --
 -- 'globalNetworkId', 'updateDevice_globalNetworkId' - The ID of the global network.
 --
@@ -149,17 +151,18 @@ updateDevice_type = Lens.lens (\UpdateDevice' {type'} -> type') (\s@UpdateDevice
 
 -- | The model of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 updateDevice_model :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_model = Lens.lens (\UpdateDevice' {model} -> model) (\s@UpdateDevice' {} a -> s {model = a} :: UpdateDevice)
 
--- | The AWS location of the device.
+-- | The Amazon Web Services location of the device, if applicable. For an
+-- on-premises device, you can omit this parameter.
 updateDevice_aWSLocation :: Lens.Lens' UpdateDevice (Prelude.Maybe AWSLocation)
 updateDevice_aWSLocation = Lens.lens (\UpdateDevice' {aWSLocation} -> aWSLocation) (\s@UpdateDevice' {} a -> s {aWSLocation = a} :: UpdateDevice)
 
 -- | A description of the device.
 --
--- Length Constraints: Maximum length of 256 characters.
+-- Constraints: Maximum length of 256 characters.
 updateDevice_description :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_description = Lens.lens (\UpdateDevice' {description} -> description) (\s@UpdateDevice' {} a -> s {description = a} :: UpdateDevice)
 
@@ -173,13 +176,13 @@ updateDevice_location = Lens.lens (\UpdateDevice' {location} -> location) (\s@Up
 
 -- | The serial number of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 updateDevice_serialNumber :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_serialNumber = Lens.lens (\UpdateDevice' {serialNumber} -> serialNumber) (\s@UpdateDevice' {} a -> s {serialNumber = a} :: UpdateDevice)
 
 -- | The vendor of the device.
 --
--- Length Constraints: Maximum length of 128 characters.
+-- Constraints: Maximum length of 128 characters.
 updateDevice_vendor :: Lens.Lens' UpdateDevice (Prelude.Maybe Prelude.Text)
 updateDevice_vendor = Lens.lens (\UpdateDevice' {vendor} -> vendor) (\s@UpdateDevice' {} a -> s {vendor = a} :: UpdateDevice)
 

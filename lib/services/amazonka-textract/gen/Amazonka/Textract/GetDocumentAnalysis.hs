@@ -52,6 +52,11 @@
 --     relationship with the value of the @StartDocumentAnalysis@
 --     @FeatureTypes@ input parameter).
 --
+-- -   Queries. A QUERIES_RESULT Block object contains the answer to the
+--     query, the alias associated and an ID that connect it to the query
+--     asked. This Block also contains a location and attached confidence
+--     score
+--
 -- Selection elements such as check boxes and option buttons (radio
 -- buttons) can be detected in form data and in tables. A SELECTION_ELEMENT
 -- @Block@ object contains information about a selection element, including

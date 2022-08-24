@@ -23,9 +23,13 @@ module Amazonka.Textract.Types.BlockType
         BlockType_CELL,
         BlockType_KEY_VALUE_SET,
         BlockType_LINE,
+        BlockType_MERGED_CELL,
         BlockType_PAGE,
+        BlockType_QUERY,
+        BlockType_QUERY_RESULT,
         BlockType_SELECTION_ELEMENT,
         BlockType_TABLE,
+        BlockType_TITLE,
         BlockType_WORD
       ),
   )
@@ -71,14 +75,26 @@ pattern BlockType_KEY_VALUE_SET = BlockType' "KEY_VALUE_SET"
 pattern BlockType_LINE :: BlockType
 pattern BlockType_LINE = BlockType' "LINE"
 
+pattern BlockType_MERGED_CELL :: BlockType
+pattern BlockType_MERGED_CELL = BlockType' "MERGED_CELL"
+
 pattern BlockType_PAGE :: BlockType
 pattern BlockType_PAGE = BlockType' "PAGE"
+
+pattern BlockType_QUERY :: BlockType
+pattern BlockType_QUERY = BlockType' "QUERY"
+
+pattern BlockType_QUERY_RESULT :: BlockType
+pattern BlockType_QUERY_RESULT = BlockType' "QUERY_RESULT"
 
 pattern BlockType_SELECTION_ELEMENT :: BlockType
 pattern BlockType_SELECTION_ELEMENT = BlockType' "SELECTION_ELEMENT"
 
 pattern BlockType_TABLE :: BlockType
 pattern BlockType_TABLE = BlockType' "TABLE"
+
+pattern BlockType_TITLE :: BlockType
+pattern BlockType_TITLE = BlockType' "TITLE"
 
 pattern BlockType_WORD :: BlockType
 pattern BlockType_WORD = BlockType' "WORD"
@@ -87,9 +103,13 @@ pattern BlockType_WORD = BlockType' "WORD"
   BlockType_CELL,
   BlockType_KEY_VALUE_SET,
   BlockType_LINE,
+  BlockType_MERGED_CELL,
   BlockType_PAGE,
+  BlockType_QUERY,
+  BlockType_QUERY_RESULT,
   BlockType_SELECTION_ELEMENT,
   BlockType_TABLE,
+  BlockType_TITLE,
   BlockType_WORD,
   BlockType'
   #-}

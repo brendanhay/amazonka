@@ -46,13 +46,17 @@ library
     Amazonka.Textract
     Amazonka.Textract.AnalyzeDocument
     Amazonka.Textract.AnalyzeExpense
+    Amazonka.Textract.AnalyzeID
     Amazonka.Textract.DetectDocumentText
     Amazonka.Textract.GetDocumentAnalysis
     Amazonka.Textract.GetDocumentTextDetection
+    Amazonka.Textract.GetExpenseAnalysis
     Amazonka.Textract.Lens
     Amazonka.Textract.StartDocumentAnalysis
     Amazonka.Textract.StartDocumentTextDetection
+    Amazonka.Textract.StartExpenseAnalysis
     Amazonka.Textract.Types
+    Amazonka.Textract.Types.AnalyzeIDDetections
     Amazonka.Textract.Types.Block
     Amazonka.Textract.Types.BlockType
     Amazonka.Textract.Types.BoundingBox
@@ -70,17 +74,23 @@ library
     Amazonka.Textract.Types.HumanLoopActivationOutput
     Amazonka.Textract.Types.HumanLoopConfig
     Amazonka.Textract.Types.HumanLoopDataAttributes
+    Amazonka.Textract.Types.IdentityDocument
+    Amazonka.Textract.Types.IdentityDocumentField
     Amazonka.Textract.Types.JobStatus
     Amazonka.Textract.Types.LineItemFields
     Amazonka.Textract.Types.LineItemGroup
+    Amazonka.Textract.Types.NormalizedValue
     Amazonka.Textract.Types.NotificationChannel
     Amazonka.Textract.Types.OutputConfig
     Amazonka.Textract.Types.Point
+    Amazonka.Textract.Types.QueriesConfig
+    Amazonka.Textract.Types.Query
     Amazonka.Textract.Types.Relationship
     Amazonka.Textract.Types.RelationshipType
     Amazonka.Textract.Types.S3Object
     Amazonka.Textract.Types.SelectionStatus
     Amazonka.Textract.Types.TextType
+    Amazonka.Textract.Types.ValueType
     Amazonka.Textract.Types.Warning
     Amazonka.Textract.Waiters
 

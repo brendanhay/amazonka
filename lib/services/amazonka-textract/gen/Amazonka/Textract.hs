@@ -81,6 +81,12 @@ module Amazonka.Textract
     AnalyzeExpenseResponse (AnalyzeExpenseResponse'),
     newAnalyzeExpenseResponse,
 
+    -- ** AnalyzeID
+    AnalyzeID (AnalyzeID'),
+    newAnalyzeID,
+    AnalyzeIDResponse (AnalyzeIDResponse'),
+    newAnalyzeIDResponse,
+
     -- ** DetectDocumentText
     DetectDocumentText (DetectDocumentText'),
     newDetectDocumentText,
@@ -99,6 +105,12 @@ module Amazonka.Textract
     GetDocumentTextDetectionResponse (GetDocumentTextDetectionResponse'),
     newGetDocumentTextDetectionResponse,
 
+    -- ** GetExpenseAnalysis
+    GetExpenseAnalysis (GetExpenseAnalysis'),
+    newGetExpenseAnalysis,
+    GetExpenseAnalysisResponse (GetExpenseAnalysisResponse'),
+    newGetExpenseAnalysisResponse,
+
     -- ** StartDocumentAnalysis
     StartDocumentAnalysis (StartDocumentAnalysis'),
     newStartDocumentAnalysis,
@@ -110,6 +122,12 @@ module Amazonka.Textract
     newStartDocumentTextDetection,
     StartDocumentTextDetectionResponse (StartDocumentTextDetectionResponse'),
     newStartDocumentTextDetectionResponse,
+
+    -- ** StartExpenseAnalysis
+    StartExpenseAnalysis (StartExpenseAnalysis'),
+    newStartExpenseAnalysis,
+    StartExpenseAnalysisResponse (StartExpenseAnalysisResponse'),
+    newStartExpenseAnalysisResponse,
 
     -- * Types
 
@@ -136,6 +154,13 @@ module Amazonka.Textract
 
     -- ** TextType
     TextType (..),
+
+    -- ** ValueType
+    ValueType (..),
+
+    -- ** AnalyzeIDDetections
+    AnalyzeIDDetections (AnalyzeIDDetections'),
+    newAnalyzeIDDetections,
 
     -- ** Block
     Block (Block'),
@@ -189,6 +214,14 @@ module Amazonka.Textract
     HumanLoopDataAttributes (HumanLoopDataAttributes'),
     newHumanLoopDataAttributes,
 
+    -- ** IdentityDocument
+    IdentityDocument (IdentityDocument'),
+    newIdentityDocument,
+
+    -- ** IdentityDocumentField
+    IdentityDocumentField (IdentityDocumentField'),
+    newIdentityDocumentField,
+
     -- ** LineItemFields
     LineItemFields (LineItemFields'),
     newLineItemFields,
@@ -196,6 +229,10 @@ module Amazonka.Textract
     -- ** LineItemGroup
     LineItemGroup (LineItemGroup'),
     newLineItemGroup,
+
+    -- ** NormalizedValue
+    NormalizedValue (NormalizedValue'),
+    newNormalizedValue,
 
     -- ** NotificationChannel
     NotificationChannel (NotificationChannel'),
@@ -208,6 +245,14 @@ module Amazonka.Textract
     -- ** Point
     Point (Point'),
     newPoint,
+
+    -- ** QueriesConfig
+    QueriesConfig (QueriesConfig'),
+    newQueriesConfig,
+
+    -- ** Query
+    Query (Query'),
+    newQuery,
 
     -- ** Relationship
     Relationship (Relationship'),
@@ -225,12 +270,15 @@ where
 
 import Amazonka.Textract.AnalyzeDocument
 import Amazonka.Textract.AnalyzeExpense
+import Amazonka.Textract.AnalyzeID
 import Amazonka.Textract.DetectDocumentText
 import Amazonka.Textract.GetDocumentAnalysis
 import Amazonka.Textract.GetDocumentTextDetection
+import Amazonka.Textract.GetExpenseAnalysis
 import Amazonka.Textract.Lens
 import Amazonka.Textract.StartDocumentAnalysis
 import Amazonka.Textract.StartDocumentTextDetection
+import Amazonka.Textract.StartExpenseAnalysis
 import Amazonka.Textract.Types
 import Amazonka.Textract.Waiters
 

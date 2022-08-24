@@ -21,6 +21,7 @@ module Amazonka.Textract.Types.FeatureType
   ( FeatureType
       ( ..,
         FeatureType_FORMS,
+        FeatureType_QUERIES,
         FeatureType_TABLES
       ),
   )
@@ -60,11 +61,15 @@ newtype FeatureType = FeatureType'
 pattern FeatureType_FORMS :: FeatureType
 pattern FeatureType_FORMS = FeatureType' "FORMS"
 
+pattern FeatureType_QUERIES :: FeatureType
+pattern FeatureType_QUERIES = FeatureType' "QUERIES"
+
 pattern FeatureType_TABLES :: FeatureType
 pattern FeatureType_TABLES = FeatureType' "TABLES"
 
 {-# COMPLETE
   FeatureType_FORMS,
+  FeatureType_QUERIES,
   FeatureType_TABLES,
   FeatureType'
   #-}

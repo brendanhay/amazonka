@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestAnalyzeExpense $
 --             newAnalyzeExpense
 --
+--         , requestAnalyzeID $
+--             newAnalyzeID
+--
 --         , requestDetectDocumentText $
 --             newDetectDocumentText
 --
@@ -42,11 +45,17 @@ import Test.Tasty
 --         , requestGetDocumentTextDetection $
 --             newGetDocumentTextDetection
 --
+--         , requestGetExpenseAnalysis $
+--             newGetExpenseAnalysis
+--
 --         , requestStartDocumentAnalysis $
 --             newStartDocumentAnalysis
 --
 --         , requestStartDocumentTextDetection $
 --             newStartDocumentTextDetection
+--
+--         , requestStartExpenseAnalysis $
+--             newStartExpenseAnalysis
 --
 --           ]
 
@@ -57,6 +66,9 @@ import Test.Tasty
 --         , responseAnalyzeExpense $
 --             newAnalyzeExpenseResponse
 --
+--         , responseAnalyzeID $
+--             newAnalyzeIDResponse
+--
 --         , responseDetectDocumentText $
 --             newDetectDocumentTextResponse
 --
@@ -66,11 +78,17 @@ import Test.Tasty
 --         , responseGetDocumentTextDetection $
 --             newGetDocumentTextDetectionResponse
 --
+--         , responseGetExpenseAnalysis $
+--             newGetExpenseAnalysisResponse
+--
 --         , responseStartDocumentAnalysis $
 --             newStartDocumentAnalysisResponse
 --
 --         , responseStartDocumentTextDetection $
 --             newStartDocumentTextDetectionResponse
+--
+--         , responseStartExpenseAnalysis $
+--             newStartExpenseAnalysisResponse
 --
 --           ]
 --     ]
@@ -88,6 +106,12 @@ requestAnalyzeExpense =
   req
     "AnalyzeExpense"
     "fixture/AnalyzeExpense.yaml"
+
+requestAnalyzeID :: AnalyzeID -> TestTree
+requestAnalyzeID =
+  req
+    "AnalyzeID"
+    "fixture/AnalyzeID.yaml"
 
 requestDetectDocumentText :: DetectDocumentText -> TestTree
 requestDetectDocumentText =
@@ -107,6 +131,12 @@ requestGetDocumentTextDetection =
     "GetDocumentTextDetection"
     "fixture/GetDocumentTextDetection.yaml"
 
+requestGetExpenseAnalysis :: GetExpenseAnalysis -> TestTree
+requestGetExpenseAnalysis =
+  req
+    "GetExpenseAnalysis"
+    "fixture/GetExpenseAnalysis.yaml"
+
 requestStartDocumentAnalysis :: StartDocumentAnalysis -> TestTree
 requestStartDocumentAnalysis =
   req
@@ -118,6 +148,12 @@ requestStartDocumentTextDetection =
   req
     "StartDocumentTextDetection"
     "fixture/StartDocumentTextDetection.yaml"
+
+requestStartExpenseAnalysis :: StartExpenseAnalysis -> TestTree
+requestStartExpenseAnalysis =
+  req
+    "StartExpenseAnalysis"
+    "fixture/StartExpenseAnalysis.yaml"
 
 -- Responses
 
@@ -136,6 +172,14 @@ responseAnalyzeExpense =
     "fixture/AnalyzeExpenseResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AnalyzeExpense)
+
+responseAnalyzeID :: AnalyzeIDResponse -> TestTree
+responseAnalyzeID =
+  res
+    "AnalyzeIDResponse"
+    "fixture/AnalyzeIDResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AnalyzeID)
 
 responseDetectDocumentText :: DetectDocumentTextResponse -> TestTree
 responseDetectDocumentText =
@@ -161,6 +205,14 @@ responseGetDocumentTextDetection =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDocumentTextDetection)
 
+responseGetExpenseAnalysis :: GetExpenseAnalysisResponse -> TestTree
+responseGetExpenseAnalysis =
+  res
+    "GetExpenseAnalysisResponse"
+    "fixture/GetExpenseAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetExpenseAnalysis)
+
 responseStartDocumentAnalysis :: StartDocumentAnalysisResponse -> TestTree
 responseStartDocumentAnalysis =
   res
@@ -176,3 +228,11 @@ responseStartDocumentTextDetection =
     "fixture/StartDocumentTextDetectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartDocumentTextDetection)
+
+responseStartExpenseAnalysis :: StartExpenseAnalysisResponse -> TestTree
+responseStartExpenseAnalysis =
+  res
+    "StartExpenseAnalysisResponse"
+    "fixture/StartExpenseAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartExpenseAnalysis)

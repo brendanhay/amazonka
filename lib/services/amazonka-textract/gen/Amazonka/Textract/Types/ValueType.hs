@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Textract.Types.EntityType
+-- Module      : Amazonka.Textract.Types.ValueType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Textract.Types.EntityType
-  ( EntityType
+module Amazonka.Textract.Types.ValueType
+  ( ValueType
       ( ..,
-        EntityType_COLUMN_HEADER,
-        EntityType_KEY,
-        EntityType_VALUE
+        ValueType_DATE
       ),
   )
 where
@@ -30,8 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype EntityType = EntityType'
-  { fromEntityType ::
+newtype ValueType = ValueType'
+  { fromValueType ::
       Core.Text
   }
   deriving stock
@@ -58,18 +56,10 @@ newtype EntityType = EntityType'
       Core.ToXML
     )
 
-pattern EntityType_COLUMN_HEADER :: EntityType
-pattern EntityType_COLUMN_HEADER = EntityType' "COLUMN_HEADER"
-
-pattern EntityType_KEY :: EntityType
-pattern EntityType_KEY = EntityType' "KEY"
-
-pattern EntityType_VALUE :: EntityType
-pattern EntityType_VALUE = EntityType' "VALUE"
+pattern ValueType_DATE :: ValueType
+pattern ValueType_DATE = ValueType' "DATE"
 
 {-# COMPLETE
-  EntityType_COLUMN_HEADER,
-  EntityType_KEY,
-  EntityType_VALUE,
-  EntityType'
+  ValueType_DATE,
+  ValueType'
   #-}

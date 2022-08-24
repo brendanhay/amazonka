@@ -25,6 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Textract.Types.BlockType
 import Amazonka.Textract.Types.EntityType
 import Amazonka.Textract.Types.Geometry
+import Amazonka.Textract.Types.Query
 import Amazonka.Textract.Types.Relationship
 import Amazonka.Textract.Types.SelectionStatus
 import Amazonka.Textract.Types.TextType
@@ -88,6 +89,13 @@ data Block = Block'
     --     (radio button) or a check box that\'s detected on a document page.
     --     Use the value of @SelectionStatus@ to determine the status of the
     --     selection element.
+    --
+    -- -   /QUERY/ - A question asked during the call of AnalyzeDocument.
+    --     Contains an alias and an ID that attachs it to its answer.
+    --
+    -- -   /QUERY_RESULT/ - A response to a question asked during the call of
+    --     analyze document. Comes with an alias and ID for ease of locating in
+    --     a response. Also contains location and confidence score.
     blockType :: Prelude.Maybe BlockType,
     -- | The number of rows that a table cell spans. Currently this value is
     -- always 1, even if the number of rows spanned is greater than 1.
@@ -126,9 +134,10 @@ data Block = Block'
     -- | The identifier for the recognized text. The identifier is only unique
     -- for a single operation.
     id :: Prelude.Maybe Prelude.Text,
+    query :: Prelude.Maybe Query,
     -- | The page on which a block was detected. @Page@ is returned by
     -- asynchronous operations. Page values greater than 1 are only returned
-    -- for multipage documents that are in PDF format. A scanned image
+    -- for multipage documents that are in PDF or TIFF format. A scanned image
     -- (JPEG\/PNG), even if it contains multiple document pages, is considered
     -- to be a single-page document. The value of @Page@ is always 1.
     -- Synchronous operations don\'t return @Page@ because every input document
@@ -205,6 +214,13 @@ data Block = Block'
 --     Use the value of @SelectionStatus@ to determine the status of the
 --     selection element.
 --
+-- -   /QUERY/ - A question asked during the call of AnalyzeDocument.
+--     Contains an alias and an ID that attachs it to its answer.
+--
+-- -   /QUERY_RESULT/ - A response to a question asked during the call of
+--     analyze document. Comes with an alias and ID for ease of locating in
+--     a response. Also contains location and confidence score.
+--
 -- 'rowSpan', 'block_rowSpan' - The number of rows that a table cell spans. Currently this value is
 -- always 1, even if the number of rows spanned is greater than 1.
 -- @RowSpan@ isn\'t returned by @DetectDocumentText@ and
@@ -242,9 +258,11 @@ data Block = Block'
 -- 'id', 'block_id' - The identifier for the recognized text. The identifier is only unique
 -- for a single operation.
 --
+-- 'query', 'block_query' -
+--
 -- 'page', 'block_page' - The page on which a block was detected. @Page@ is returned by
 -- asynchronous operations. Page values greater than 1 are only returned
--- for multipage documents that are in PDF format. A scanned image
+-- for multipage documents that are in PDF or TIFF format. A scanned image
 -- (JPEG\/PNG), even if it contains multiple document pages, is considered
 -- to be a single-page document. The value of @Page@ is always 1.
 -- Synchronous operations don\'t return @Page@ because every input document
@@ -281,6 +299,7 @@ newBlock =
       rowIndex = Prelude.Nothing,
       selectionStatus = Prelude.Nothing,
       id = Prelude.Nothing,
+      query = Prelude.Nothing,
       page = Prelude.Nothing,
       textType = Prelude.Nothing,
       relationships = Prelude.Nothing,
@@ -328,6 +347,13 @@ newBlock =
 --     (radio button) or a check box that\'s detected on a document page.
 --     Use the value of @SelectionStatus@ to determine the status of the
 --     selection element.
+--
+-- -   /QUERY/ - A question asked during the call of AnalyzeDocument.
+--     Contains an alias and an ID that attachs it to its answer.
+--
+-- -   /QUERY_RESULT/ - A response to a question asked during the call of
+--     analyze document. Comes with an alias and ID for ease of locating in
+--     a response. Also contains location and confidence score.
 block_blockType :: Lens.Lens' Block (Prelude.Maybe BlockType)
 block_blockType = Lens.lens (\Block' {blockType} -> blockType) (\s@Block' {} a -> s {blockType = a} :: Block)
 
@@ -384,9 +410,13 @@ block_selectionStatus = Lens.lens (\Block' {selectionStatus} -> selectionStatus)
 block_id :: Lens.Lens' Block (Prelude.Maybe Prelude.Text)
 block_id = Lens.lens (\Block' {id} -> id) (\s@Block' {} a -> s {id = a} :: Block)
 
+-- |
+block_query :: Lens.Lens' Block (Prelude.Maybe Query)
+block_query = Lens.lens (\Block' {query} -> query) (\s@Block' {} a -> s {query = a} :: Block)
+
 -- | The page on which a block was detected. @Page@ is returned by
 -- asynchronous operations. Page values greater than 1 are only returned
--- for multipage documents that are in PDF format. A scanned image
+-- for multipage documents that are in PDF or TIFF format. A scanned image
 -- (JPEG\/PNG), even if it contains multiple document pages, is considered
 -- to be a single-page document. The value of @Page@ is always 1.
 -- Synchronous operations don\'t return @Page@ because every input document
@@ -436,6 +466,7 @@ instance Core.FromJSON Block where
             Prelude.<*> (x Core..:? "RowIndex")
             Prelude.<*> (x Core..:? "SelectionStatus")
             Prelude.<*> (x Core..:? "Id")
+            Prelude.<*> (x Core..:? "Query")
             Prelude.<*> (x Core..:? "Page")
             Prelude.<*> (x Core..:? "TextType")
             Prelude.<*> (x Core..:? "Relationships" Core..!= Prelude.mempty)
@@ -454,6 +485,7 @@ instance Prelude.Hashable Block where
       `Prelude.hashWithSalt` rowIndex
       `Prelude.hashWithSalt` selectionStatus
       `Prelude.hashWithSalt` id
+      `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` page
       `Prelude.hashWithSalt` textType
       `Prelude.hashWithSalt` relationships
@@ -471,6 +503,7 @@ instance Prelude.NFData Block where
       `Prelude.seq` Prelude.rnf rowIndex
       `Prelude.seq` Prelude.rnf selectionStatus
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf query
       `Prelude.seq` Prelude.rnf page
       `Prelude.seq` Prelude.rnf textType
       `Prelude.seq` Prelude.rnf relationships

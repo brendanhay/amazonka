@@ -26,7 +26,7 @@ import Amazonka.Textract.Types.ExpenseDetection
 import Amazonka.Textract.Types.ExpenseType
 
 -- | Breakdown of detected information, seperated into the catagories Type,
--- LableDetection, and ValueDetection
+-- LabelDetection, and ValueDetection
 --
 -- /See:/ 'newExpenseField' smart constructor.
 data ExpenseField = ExpenseField'

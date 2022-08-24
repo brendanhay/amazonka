@@ -39,6 +39,11 @@
 --     document are returned (including text that doesn\'t have a
 --     relationship with the value of @FeatureTypes@).
 --
+-- -   Queries.A QUERIES_RESULT Block object contains the answer to the
+--     query, the alias associated and an ID that connect it to the query
+--     asked. This Block also contains a location and attached confidence
+--     score.
+--
 -- Selection elements such as check boxes and option buttons (radio
 -- buttons) can be detected in form data and in tables. A SELECTION_ELEMENT
 -- @Block@ object contains information about a selection element, including
@@ -61,6 +66,7 @@ module Amazonka.Textract.AnalyzeDocument
 
     -- * Request Lenses
     analyzeDocument_humanLoopConfig,
+    analyzeDocument_queriesConfig,
     analyzeDocument_document,
     analyzeDocument_featureTypes,
 
@@ -89,9 +95,13 @@ data AnalyzeDocument = AnalyzeDocument'
   { -- | Sets the configuration for the human in the loop workflow for analyzing
     -- documents.
     humanLoopConfig :: Prelude.Maybe HumanLoopConfig,
+    -- | Contains Queries and the alias for those Queries, as determined by the
+    -- input.
+    queriesConfig :: Prelude.Maybe QueriesConfig,
     -- | The input document as base64-encoded bytes or an Amazon S3 object. If
     -- you use the AWS CLI to call Amazon Textract operations, you can\'t pass
-    -- image bytes. The document must be an image in JPEG or PNG format.
+    -- image bytes. The document must be an image in JPEG, PNG, PDF, or TIFF
+    -- format.
     --
     -- If you\'re using an AWS SDK to call Amazon Textract, you might not need
     -- to base64-encode image bytes that are passed using the @Bytes@ field.
@@ -117,9 +127,13 @@ data AnalyzeDocument = AnalyzeDocument'
 -- 'humanLoopConfig', 'analyzeDocument_humanLoopConfig' - Sets the configuration for the human in the loop workflow for analyzing
 -- documents.
 --
+-- 'queriesConfig', 'analyzeDocument_queriesConfig' - Contains Queries and the alias for those Queries, as determined by the
+-- input.
+--
 -- 'document', 'analyzeDocument_document' - The input document as base64-encoded bytes or an Amazon S3 object. If
 -- you use the AWS CLI to call Amazon Textract operations, you can\'t pass
--- image bytes. The document must be an image in JPEG or PNG format.
+-- image bytes. The document must be an image in JPEG, PNG, PDF, or TIFF
+-- format.
 --
 -- If you\'re using an AWS SDK to call Amazon Textract, you might not need
 -- to base64-encode image bytes that are passed using the @Bytes@ field.
@@ -137,6 +151,7 @@ newAnalyzeDocument ::
 newAnalyzeDocument pDocument_ =
   AnalyzeDocument'
     { humanLoopConfig = Prelude.Nothing,
+      queriesConfig = Prelude.Nothing,
       document = pDocument_,
       featureTypes = Prelude.mempty
     }
@@ -146,9 +161,15 @@ newAnalyzeDocument pDocument_ =
 analyzeDocument_humanLoopConfig :: Lens.Lens' AnalyzeDocument (Prelude.Maybe HumanLoopConfig)
 analyzeDocument_humanLoopConfig = Lens.lens (\AnalyzeDocument' {humanLoopConfig} -> humanLoopConfig) (\s@AnalyzeDocument' {} a -> s {humanLoopConfig = a} :: AnalyzeDocument)
 
+-- | Contains Queries and the alias for those Queries, as determined by the
+-- input.
+analyzeDocument_queriesConfig :: Lens.Lens' AnalyzeDocument (Prelude.Maybe QueriesConfig)
+analyzeDocument_queriesConfig = Lens.lens (\AnalyzeDocument' {queriesConfig} -> queriesConfig) (\s@AnalyzeDocument' {} a -> s {queriesConfig = a} :: AnalyzeDocument)
+
 -- | The input document as base64-encoded bytes or an Amazon S3 object. If
 -- you use the AWS CLI to call Amazon Textract operations, you can\'t pass
--- image bytes. The document must be an image in JPEG or PNG format.
+-- image bytes. The document must be an image in JPEG, PNG, PDF, or TIFF
+-- format.
 --
 -- If you\'re using an AWS SDK to call Amazon Textract, you might not need
 -- to base64-encode image bytes that are passed using the @Bytes@ field.
@@ -183,12 +204,14 @@ instance Core.AWSRequest AnalyzeDocument where
 instance Prelude.Hashable AnalyzeDocument where
   hashWithSalt _salt AnalyzeDocument' {..} =
     _salt `Prelude.hashWithSalt` humanLoopConfig
+      `Prelude.hashWithSalt` queriesConfig
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` featureTypes
 
 instance Prelude.NFData AnalyzeDocument where
   rnf AnalyzeDocument' {..} =
     Prelude.rnf humanLoopConfig
+      `Prelude.seq` Prelude.rnf queriesConfig
       `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf featureTypes
 
@@ -211,6 +234,7 @@ instance Core.ToJSON AnalyzeDocument where
       ( Prelude.catMaybes
           [ ("HumanLoopConfig" Core..=)
               Prelude.<$> humanLoopConfig,
+            ("QueriesConfig" Core..=) Prelude.<$> queriesConfig,
             Prelude.Just ("Document" Core..= document),
             Prelude.Just ("FeatureTypes" Core..= featureTypes)
           ]

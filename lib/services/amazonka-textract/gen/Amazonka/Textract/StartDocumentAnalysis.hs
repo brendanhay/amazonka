@@ -25,9 +25,9 @@
 -- elements.
 --
 -- @StartDocumentAnalysis@ can analyze text in documents that are in JPEG,
--- PNG, and PDF format. The documents are stored in an Amazon S3 bucket.
--- Use DocumentLocation to specify the bucket name and file name of the
--- document.
+-- PNG, TIFF, and PDF format. The documents are stored in an Amazon S3
+-- bucket. Use DocumentLocation to specify the bucket name and file name of
+-- the document.
 --
 -- @StartDocumentAnalysis@ returns a job identifier (@JobId@) that you use
 -- to get the results of the operation. When text analysis is finished,
@@ -47,6 +47,7 @@ module Amazonka.Textract.StartDocumentAnalysis
 
     -- * Request Lenses
     startDocumentAnalysis_clientRequestToken,
+    startDocumentAnalysis_queriesConfig,
     startDocumentAnalysis_kmsKeyId,
     startDocumentAnalysis_jobTag,
     startDocumentAnalysis_outputConfig,
@@ -80,6 +81,7 @@ data StartDocumentAnalysis = StartDocumentAnalysis'
     -- information, see
     -- <https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations>.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    queriesConfig :: Prelude.Maybe QueriesConfig,
     -- | The KMS key used to encrypt the inference results. This can be in either
     -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
     -- be used for server-side encryption of the objects in the customer
@@ -125,6 +127,8 @@ data StartDocumentAnalysis = StartDocumentAnalysis'
 -- information, see
 -- <https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations>.
 --
+-- 'queriesConfig', 'startDocumentAnalysis_queriesConfig' - Undocumented member.
+--
 -- 'kmsKeyId', 'startDocumentAnalysis_kmsKeyId' - The KMS key used to encrypt the inference results. This can be in either
 -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
 -- be used for server-side encryption of the objects in the customer
@@ -159,6 +163,7 @@ newStartDocumentAnalysis pDocumentLocation_ =
   StartDocumentAnalysis'
     { clientRequestToken =
         Prelude.Nothing,
+      queriesConfig = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       jobTag = Prelude.Nothing,
       outputConfig = Prelude.Nothing,
@@ -175,6 +180,10 @@ newStartDocumentAnalysis pDocumentLocation_ =
 -- <https://docs.aws.amazon.com/textract/latest/dg/api-async.html Calling Amazon Textract Asynchronous Operations>.
 startDocumentAnalysis_clientRequestToken :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe Prelude.Text)
 startDocumentAnalysis_clientRequestToken = Lens.lens (\StartDocumentAnalysis' {clientRequestToken} -> clientRequestToken) (\s@StartDocumentAnalysis' {} a -> s {clientRequestToken = a} :: StartDocumentAnalysis)
+
+-- | Undocumented member.
+startDocumentAnalysis_queriesConfig :: Lens.Lens' StartDocumentAnalysis (Prelude.Maybe QueriesConfig)
+startDocumentAnalysis_queriesConfig = Lens.lens (\StartDocumentAnalysis' {queriesConfig} -> queriesConfig) (\s@StartDocumentAnalysis' {} a -> s {queriesConfig = a} :: StartDocumentAnalysis)
 
 -- | The KMS key used to encrypt the inference results. This can be in either
 -- Key ID or Key Alias format. When a KMS key is provided, the KMS key will
@@ -231,6 +240,7 @@ instance Core.AWSRequest StartDocumentAnalysis where
 instance Prelude.Hashable StartDocumentAnalysis where
   hashWithSalt _salt StartDocumentAnalysis' {..} =
     _salt `Prelude.hashWithSalt` clientRequestToken
+      `Prelude.hashWithSalt` queriesConfig
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` jobTag
       `Prelude.hashWithSalt` outputConfig
@@ -241,6 +251,7 @@ instance Prelude.Hashable StartDocumentAnalysis where
 instance Prelude.NFData StartDocumentAnalysis where
   rnf StartDocumentAnalysis' {..} =
     Prelude.rnf clientRequestToken
+      `Prelude.seq` Prelude.rnf queriesConfig
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf jobTag
       `Prelude.seq` Prelude.rnf outputConfig
@@ -269,6 +280,7 @@ instance Core.ToJSON StartDocumentAnalysis where
       ( Prelude.catMaybes
           [ ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("QueriesConfig" Core..=) Prelude.<$> queriesConfig,
             ("KMSKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("JobTag" Core..=) Prelude.<$> jobTag,
             ("OutputConfig" Core..=) Prelude.<$> outputConfig,

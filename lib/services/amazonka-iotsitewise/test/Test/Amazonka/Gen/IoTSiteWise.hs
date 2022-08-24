@@ -30,11 +30,23 @@ import Test.Tasty
 --         [ requestAssociateAssets $
 --             newAssociateAssets
 --
+--         , requestAssociateTimeSeriesToAssetProperty $
+--             newAssociateTimeSeriesToAssetProperty
+--
 --         , requestBatchAssociateProjectAssets $
 --             newBatchAssociateProjectAssets
 --
 --         , requestBatchDisassociateProjectAssets $
 --             newBatchDisassociateProjectAssets
+--
+--         , requestBatchGetAssetPropertyAggregates $
+--             newBatchGetAssetPropertyAggregates
+--
+--         , requestBatchGetAssetPropertyValue $
+--             newBatchGetAssetPropertyValue
+--
+--         , requestBatchGetAssetPropertyValueHistory $
+--             newBatchGetAssetPropertyValueHistory
 --
 --         , requestBatchPutAssetPropertyValue $
 --             newBatchPutAssetPropertyValue
@@ -47,6 +59,9 @@ import Test.Tasty
 --
 --         , requestCreateAssetModel $
 --             newCreateAssetModel
+--
+--         , requestCreateBulkImportJob $
+--             newCreateBulkImportJob
 --
 --         , requestCreateDashboard $
 --             newCreateDashboard
@@ -81,6 +96,9 @@ import Test.Tasty
 --         , requestDeleteProject $
 --             newDeleteProject
 --
+--         , requestDeleteTimeSeries $
+--             newDeleteTimeSeries
+--
 --         , requestDescribeAccessPolicy $
 --             newDescribeAccessPolicy
 --
@@ -92,6 +110,9 @@ import Test.Tasty
 --
 --         , requestDescribeAssetProperty $
 --             newDescribeAssetProperty
+--
+--         , requestDescribeBulkImportJob $
+--             newDescribeBulkImportJob
 --
 --         , requestDescribeDashboard $
 --             newDescribeDashboard
@@ -117,8 +138,14 @@ import Test.Tasty
 --         , requestDescribeStorageConfiguration $
 --             newDescribeStorageConfiguration
 --
+--         , requestDescribeTimeSeries $
+--             newDescribeTimeSeries
+--
 --         , requestDisassociateAssets $
 --             newDisassociateAssets
+--
+--         , requestDisassociateTimeSeriesFromAssetProperty $
+--             newDisassociateTimeSeriesFromAssetProperty
 --
 --         , requestGetAssetPropertyAggregates $
 --             newGetAssetPropertyAggregates
@@ -147,6 +174,9 @@ import Test.Tasty
 --         , requestListAssociatedAssets $
 --             newListAssociatedAssets
 --
+--         , requestListBulkImportJobs $
+--             newListBulkImportJobs
+--
 --         , requestListDashboards $
 --             newListDashboards
 --
@@ -164,6 +194,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListTimeSeries $
+--             newListTimeSeries
 --
 --         , requestPutDefaultEncryptionConfiguration $
 --             newPutDefaultEncryptionConfiguration
@@ -213,11 +246,23 @@ import Test.Tasty
 --         [ responseAssociateAssets $
 --             newAssociateAssetsResponse
 --
+--         , responseAssociateTimeSeriesToAssetProperty $
+--             newAssociateTimeSeriesToAssetPropertyResponse
+--
 --         , responseBatchAssociateProjectAssets $
 --             newBatchAssociateProjectAssetsResponse
 --
 --         , responseBatchDisassociateProjectAssets $
 --             newBatchDisassociateProjectAssetsResponse
+--
+--         , responseBatchGetAssetPropertyAggregates $
+--             newBatchGetAssetPropertyAggregatesResponse
+--
+--         , responseBatchGetAssetPropertyValue $
+--             newBatchGetAssetPropertyValueResponse
+--
+--         , responseBatchGetAssetPropertyValueHistory $
+--             newBatchGetAssetPropertyValueHistoryResponse
 --
 --         , responseBatchPutAssetPropertyValue $
 --             newBatchPutAssetPropertyValueResponse
@@ -230,6 +275,9 @@ import Test.Tasty
 --
 --         , responseCreateAssetModel $
 --             newCreateAssetModelResponse
+--
+--         , responseCreateBulkImportJob $
+--             newCreateBulkImportJobResponse
 --
 --         , responseCreateDashboard $
 --             newCreateDashboardResponse
@@ -264,6 +312,9 @@ import Test.Tasty
 --         , responseDeleteProject $
 --             newDeleteProjectResponse
 --
+--         , responseDeleteTimeSeries $
+--             newDeleteTimeSeriesResponse
+--
 --         , responseDescribeAccessPolicy $
 --             newDescribeAccessPolicyResponse
 --
@@ -275,6 +326,9 @@ import Test.Tasty
 --
 --         , responseDescribeAssetProperty $
 --             newDescribeAssetPropertyResponse
+--
+--         , responseDescribeBulkImportJob $
+--             newDescribeBulkImportJobResponse
 --
 --         , responseDescribeDashboard $
 --             newDescribeDashboardResponse
@@ -300,8 +354,14 @@ import Test.Tasty
 --         , responseDescribeStorageConfiguration $
 --             newDescribeStorageConfigurationResponse
 --
+--         , responseDescribeTimeSeries $
+--             newDescribeTimeSeriesResponse
+--
 --         , responseDisassociateAssets $
 --             newDisassociateAssetsResponse
+--
+--         , responseDisassociateTimeSeriesFromAssetProperty $
+--             newDisassociateTimeSeriesFromAssetPropertyResponse
 --
 --         , responseGetAssetPropertyAggregates $
 --             newGetAssetPropertyAggregatesResponse
@@ -330,6 +390,9 @@ import Test.Tasty
 --         , responseListAssociatedAssets $
 --             newListAssociatedAssetsResponse
 --
+--         , responseListBulkImportJobs $
+--             newListBulkImportJobsResponse
+--
 --         , responseListDashboards $
 --             newListDashboardsResponse
 --
@@ -347,6 +410,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListTimeSeries $
+--             newListTimeSeriesResponse
 --
 --         , responsePutDefaultEncryptionConfiguration $
 --             newPutDefaultEncryptionConfigurationResponse
@@ -401,6 +467,12 @@ requestAssociateAssets =
     "AssociateAssets"
     "fixture/AssociateAssets.yaml"
 
+requestAssociateTimeSeriesToAssetProperty :: AssociateTimeSeriesToAssetProperty -> TestTree
+requestAssociateTimeSeriesToAssetProperty =
+  req
+    "AssociateTimeSeriesToAssetProperty"
+    "fixture/AssociateTimeSeriesToAssetProperty.yaml"
+
 requestBatchAssociateProjectAssets :: BatchAssociateProjectAssets -> TestTree
 requestBatchAssociateProjectAssets =
   req
@@ -412,6 +484,24 @@ requestBatchDisassociateProjectAssets =
   req
     "BatchDisassociateProjectAssets"
     "fixture/BatchDisassociateProjectAssets.yaml"
+
+requestBatchGetAssetPropertyAggregates :: BatchGetAssetPropertyAggregates -> TestTree
+requestBatchGetAssetPropertyAggregates =
+  req
+    "BatchGetAssetPropertyAggregates"
+    "fixture/BatchGetAssetPropertyAggregates.yaml"
+
+requestBatchGetAssetPropertyValue :: BatchGetAssetPropertyValue -> TestTree
+requestBatchGetAssetPropertyValue =
+  req
+    "BatchGetAssetPropertyValue"
+    "fixture/BatchGetAssetPropertyValue.yaml"
+
+requestBatchGetAssetPropertyValueHistory :: BatchGetAssetPropertyValueHistory -> TestTree
+requestBatchGetAssetPropertyValueHistory =
+  req
+    "BatchGetAssetPropertyValueHistory"
+    "fixture/BatchGetAssetPropertyValueHistory.yaml"
 
 requestBatchPutAssetPropertyValue :: BatchPutAssetPropertyValue -> TestTree
 requestBatchPutAssetPropertyValue =
@@ -436,6 +526,12 @@ requestCreateAssetModel =
   req
     "CreateAssetModel"
     "fixture/CreateAssetModel.yaml"
+
+requestCreateBulkImportJob :: CreateBulkImportJob -> TestTree
+requestCreateBulkImportJob =
+  req
+    "CreateBulkImportJob"
+    "fixture/CreateBulkImportJob.yaml"
 
 requestCreateDashboard :: CreateDashboard -> TestTree
 requestCreateDashboard =
@@ -503,6 +599,12 @@ requestDeleteProject =
     "DeleteProject"
     "fixture/DeleteProject.yaml"
 
+requestDeleteTimeSeries :: DeleteTimeSeries -> TestTree
+requestDeleteTimeSeries =
+  req
+    "DeleteTimeSeries"
+    "fixture/DeleteTimeSeries.yaml"
+
 requestDescribeAccessPolicy :: DescribeAccessPolicy -> TestTree
 requestDescribeAccessPolicy =
   req
@@ -526,6 +628,12 @@ requestDescribeAssetProperty =
   req
     "DescribeAssetProperty"
     "fixture/DescribeAssetProperty.yaml"
+
+requestDescribeBulkImportJob :: DescribeBulkImportJob -> TestTree
+requestDescribeBulkImportJob =
+  req
+    "DescribeBulkImportJob"
+    "fixture/DescribeBulkImportJob.yaml"
 
 requestDescribeDashboard :: DescribeDashboard -> TestTree
 requestDescribeDashboard =
@@ -575,11 +683,23 @@ requestDescribeStorageConfiguration =
     "DescribeStorageConfiguration"
     "fixture/DescribeStorageConfiguration.yaml"
 
+requestDescribeTimeSeries :: DescribeTimeSeries -> TestTree
+requestDescribeTimeSeries =
+  req
+    "DescribeTimeSeries"
+    "fixture/DescribeTimeSeries.yaml"
+
 requestDisassociateAssets :: DisassociateAssets -> TestTree
 requestDisassociateAssets =
   req
     "DisassociateAssets"
     "fixture/DisassociateAssets.yaml"
+
+requestDisassociateTimeSeriesFromAssetProperty :: DisassociateTimeSeriesFromAssetProperty -> TestTree
+requestDisassociateTimeSeriesFromAssetProperty =
+  req
+    "DisassociateTimeSeriesFromAssetProperty"
+    "fixture/DisassociateTimeSeriesFromAssetProperty.yaml"
 
 requestGetAssetPropertyAggregates :: GetAssetPropertyAggregates -> TestTree
 requestGetAssetPropertyAggregates =
@@ -635,6 +755,12 @@ requestListAssociatedAssets =
     "ListAssociatedAssets"
     "fixture/ListAssociatedAssets.yaml"
 
+requestListBulkImportJobs :: ListBulkImportJobs -> TestTree
+requestListBulkImportJobs =
+  req
+    "ListBulkImportJobs"
+    "fixture/ListBulkImportJobs.yaml"
+
 requestListDashboards :: ListDashboards -> TestTree
 requestListDashboards =
   req
@@ -670,6 +796,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListTimeSeries :: ListTimeSeries -> TestTree
+requestListTimeSeries =
+  req
+    "ListTimeSeries"
+    "fixture/ListTimeSeries.yaml"
 
 requestPutDefaultEncryptionConfiguration :: PutDefaultEncryptionConfiguration -> TestTree
 requestPutDefaultEncryptionConfiguration =
@@ -765,6 +897,14 @@ responseAssociateAssets =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateAssets)
 
+responseAssociateTimeSeriesToAssetProperty :: AssociateTimeSeriesToAssetPropertyResponse -> TestTree
+responseAssociateTimeSeriesToAssetProperty =
+  res
+    "AssociateTimeSeriesToAssetPropertyResponse"
+    "fixture/AssociateTimeSeriesToAssetPropertyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateTimeSeriesToAssetProperty)
+
 responseBatchAssociateProjectAssets :: BatchAssociateProjectAssetsResponse -> TestTree
 responseBatchAssociateProjectAssets =
   res
@@ -780,6 +920,30 @@ responseBatchDisassociateProjectAssets =
     "fixture/BatchDisassociateProjectAssetsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchDisassociateProjectAssets)
+
+responseBatchGetAssetPropertyAggregates :: BatchGetAssetPropertyAggregatesResponse -> TestTree
+responseBatchGetAssetPropertyAggregates =
+  res
+    "BatchGetAssetPropertyAggregatesResponse"
+    "fixture/BatchGetAssetPropertyAggregatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetAssetPropertyAggregates)
+
+responseBatchGetAssetPropertyValue :: BatchGetAssetPropertyValueResponse -> TestTree
+responseBatchGetAssetPropertyValue =
+  res
+    "BatchGetAssetPropertyValueResponse"
+    "fixture/BatchGetAssetPropertyValueResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetAssetPropertyValue)
+
+responseBatchGetAssetPropertyValueHistory :: BatchGetAssetPropertyValueHistoryResponse -> TestTree
+responseBatchGetAssetPropertyValueHistory =
+  res
+    "BatchGetAssetPropertyValueHistoryResponse"
+    "fixture/BatchGetAssetPropertyValueHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetAssetPropertyValueHistory)
 
 responseBatchPutAssetPropertyValue :: BatchPutAssetPropertyValueResponse -> TestTree
 responseBatchPutAssetPropertyValue =
@@ -812,6 +976,14 @@ responseCreateAssetModel =
     "fixture/CreateAssetModelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAssetModel)
+
+responseCreateBulkImportJob :: CreateBulkImportJobResponse -> TestTree
+responseCreateBulkImportJob =
+  res
+    "CreateBulkImportJobResponse"
+    "fixture/CreateBulkImportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBulkImportJob)
 
 responseCreateDashboard :: CreateDashboardResponse -> TestTree
 responseCreateDashboard =
@@ -901,6 +1073,14 @@ responseDeleteProject =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteProject)
 
+responseDeleteTimeSeries :: DeleteTimeSeriesResponse -> TestTree
+responseDeleteTimeSeries =
+  res
+    "DeleteTimeSeriesResponse"
+    "fixture/DeleteTimeSeriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTimeSeries)
+
 responseDescribeAccessPolicy :: DescribeAccessPolicyResponse -> TestTree
 responseDescribeAccessPolicy =
   res
@@ -932,6 +1112,14 @@ responseDescribeAssetProperty =
     "fixture/DescribeAssetPropertyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAssetProperty)
+
+responseDescribeBulkImportJob :: DescribeBulkImportJobResponse -> TestTree
+responseDescribeBulkImportJob =
+  res
+    "DescribeBulkImportJobResponse"
+    "fixture/DescribeBulkImportJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBulkImportJob)
 
 responseDescribeDashboard :: DescribeDashboardResponse -> TestTree
 responseDescribeDashboard =
@@ -997,6 +1185,14 @@ responseDescribeStorageConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeStorageConfiguration)
 
+responseDescribeTimeSeries :: DescribeTimeSeriesResponse -> TestTree
+responseDescribeTimeSeries =
+  res
+    "DescribeTimeSeriesResponse"
+    "fixture/DescribeTimeSeriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTimeSeries)
+
 responseDisassociateAssets :: DisassociateAssetsResponse -> TestTree
 responseDisassociateAssets =
   res
@@ -1004,6 +1200,14 @@ responseDisassociateAssets =
     "fixture/DisassociateAssetsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateAssets)
+
+responseDisassociateTimeSeriesFromAssetProperty :: DisassociateTimeSeriesFromAssetPropertyResponse -> TestTree
+responseDisassociateTimeSeriesFromAssetProperty =
+  res
+    "DisassociateTimeSeriesFromAssetPropertyResponse"
+    "fixture/DisassociateTimeSeriesFromAssetPropertyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTimeSeriesFromAssetProperty)
 
 responseGetAssetPropertyAggregates :: GetAssetPropertyAggregatesResponse -> TestTree
 responseGetAssetPropertyAggregates =
@@ -1077,6 +1281,14 @@ responseListAssociatedAssets =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAssociatedAssets)
 
+responseListBulkImportJobs :: ListBulkImportJobsResponse -> TestTree
+responseListBulkImportJobs =
+  res
+    "ListBulkImportJobsResponse"
+    "fixture/ListBulkImportJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBulkImportJobs)
+
 responseListDashboards :: ListDashboardsResponse -> TestTree
 responseListDashboards =
   res
@@ -1124,6 +1336,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListTimeSeries :: ListTimeSeriesResponse -> TestTree
+responseListTimeSeries =
+  res
+    "ListTimeSeriesResponse"
+    "fixture/ListTimeSeriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTimeSeries)
 
 responsePutDefaultEncryptionConfiguration :: PutDefaultEncryptionConfigurationResponse -> TestTree
 responsePutDefaultEncryptionConfiguration =

@@ -98,8 +98,7 @@ data CreatePortal = CreatePortal'
     --     Amazon Web Services Regions other than the China Regions.
     --
     -- -   @IAM@ – The portal uses Identity and Access Management to
-    --     authenticate users and manage user permissions. This option is only
-    --     available in the China Regions.
+    --     authenticate users and manage user permissions.
     --
     -- You can\'t change this value after you create a portal.
     --
@@ -167,8 +166,7 @@ data CreatePortal = CreatePortal'
 --     Amazon Web Services Regions other than the China Regions.
 --
 -- -   @IAM@ – The portal uses Identity and Access Management to
---     authenticate users and manage user permissions. This option is only
---     available in the China Regions.
+--     authenticate users and manage user permissions.
 --
 -- You can\'t change this value after you create a portal.
 --
@@ -257,8 +255,7 @@ createPortal_portalDescription = Lens.lens (\CreatePortal' {portalDescription} -
 --     Amazon Web Services Regions other than the China Regions.
 --
 -- -   @IAM@ – The portal uses Identity and Access Management to
---     authenticate users and manage user permissions. This option is only
---     available in the China Regions.
+--     authenticate users and manage user permissions.
 --
 -- You can\'t change this value after you create a portal.
 --

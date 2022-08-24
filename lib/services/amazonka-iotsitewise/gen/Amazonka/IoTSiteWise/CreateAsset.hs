@@ -31,6 +31,7 @@ module Amazonka.IoTSiteWise.CreateAsset
     -- * Request Lenses
     createAsset_tags,
     createAsset_clientToken,
+    createAsset_assetDescription,
     createAsset_assetName,
     createAsset_assetModelId,
 
@@ -64,6 +65,8 @@ data CreateAsset = CreateAsset'
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description for the asset.
+    assetDescription :: Prelude.Maybe Prelude.Text,
     -- | A unique, friendly name for the asset.
     assetName :: Prelude.Text,
     -- | The ID of the asset model from which to create the asset.
@@ -88,6 +91,8 @@ data CreateAsset = CreateAsset'
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 --
+-- 'assetDescription', 'createAsset_assetDescription' - A description for the asset.
+--
 -- 'assetName', 'createAsset_assetName' - A unique, friendly name for the asset.
 --
 -- 'assetModelId', 'createAsset_assetModelId' - The ID of the asset model from which to create the asset.
@@ -101,6 +106,7 @@ newCreateAsset pAssetName_ pAssetModelId_ =
   CreateAsset'
     { tags = Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      assetDescription = Prelude.Nothing,
       assetName = pAssetName_,
       assetModelId = pAssetModelId_
     }
@@ -117,6 +123,10 @@ createAsset_tags = Lens.lens (\CreateAsset' {tags} -> tags) (\s@CreateAsset' {} 
 -- idempotent request is required.
 createAsset_clientToken :: Lens.Lens' CreateAsset (Prelude.Maybe Prelude.Text)
 createAsset_clientToken = Lens.lens (\CreateAsset' {clientToken} -> clientToken) (\s@CreateAsset' {} a -> s {clientToken = a} :: CreateAsset)
+
+-- | A description for the asset.
+createAsset_assetDescription :: Lens.Lens' CreateAsset (Prelude.Maybe Prelude.Text)
+createAsset_assetDescription = Lens.lens (\CreateAsset' {assetDescription} -> assetDescription) (\s@CreateAsset' {} a -> s {assetDescription = a} :: CreateAsset)
 
 -- | A unique, friendly name for the asset.
 createAsset_assetName :: Lens.Lens' CreateAsset Prelude.Text
@@ -143,6 +153,7 @@ instance Prelude.Hashable CreateAsset where
   hashWithSalt _salt CreateAsset' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` assetDescription
       `Prelude.hashWithSalt` assetName
       `Prelude.hashWithSalt` assetModelId
 
@@ -150,6 +161,7 @@ instance Prelude.NFData CreateAsset where
   rnf CreateAsset' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf assetDescription
       `Prelude.seq` Prelude.rnf assetName
       `Prelude.seq` Prelude.rnf assetModelId
 
@@ -170,6 +182,8 @@ instance Core.ToJSON CreateAsset where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("assetDescription" Core..=)
+              Prelude.<$> assetDescription,
             Prelude.Just ("assetName" Core..= assetName),
             Prelude.Just ("assetModelId" Core..= assetModelId)
           ]

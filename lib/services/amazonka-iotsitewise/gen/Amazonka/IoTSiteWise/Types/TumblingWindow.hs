@@ -24,17 +24,18 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains a tumbling window, which is a repeating fixed-sized,
--- non-overlapping, and contiguous time window. You use this window in
+-- non-overlapping, and contiguous time window. You can use this window in
 -- metrics to aggregate data from properties and other assets.
 --
 -- You can use @m@, @h@, @d@, and @w@ when you specify an interval or
--- offset. Note that @m@ represents minutes, and @w@ represents weeks. You
--- can also use @s@ to represent seconds in @offset@.
+-- offset. Note that @m@ represents minutes, @h@ represents hours, @d@
+-- represents days, and @w@ represents weeks. You can also use @s@ to
+-- represent seconds in @offset@.
 --
 -- The @interval@ and @offset@ parameters support the
 -- <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601 format>. For example,
--- @PT5S@ represents five seconds, @PT5M@ represents five minutes, and
--- @PT5H@ represents five hours.
+-- @PT5S@ represents 5 seconds, @PT5M@ represents 5 minutes, and @PT5H@
+-- represents 5 hours.
 --
 -- /See:/ 'newTumblingWindow' smart constructor.
 data TumblingWindow = TumblingWindow'
@@ -47,11 +48,11 @@ data TumblingWindow = TumblingWindow'
     --     @interval@, IoT SiteWise aggregates data in one of the following
     --     ways:
     --
-    --     -   If you create the metric before or at 6:00 PM (UTC), you get the
+    --     -   If you create the metric before or at 6 PM (UTC), you get the
     --         first aggregation result at 6 PM (UTC) on the day when you
     --         create the metric.
     --
-    --     -   If you create the metric after 6:00 PM (UTC), you get the first
+    --     -   If you create the metric after 6 PM (UTC), you get the first
     --         aggregation result at 6 PM (UTC) the next day.
     --
     -- -   The ISO 8601 format.
@@ -60,16 +61,16 @@ data TumblingWindow = TumblingWindow'
     --     @interval@, IoT SiteWise aggregates data in one of the following
     --     ways:
     --
-    --     -   If you create the metric before or at 6:00 PM (UTC), you get the
+    --     -   If you create the metric before or at 6 PM (UTC), you get the
     --         first aggregation result at 6 PM (UTC) on the day when you
     --         create the metric.
     --
-    --     -   If you create the metric after 6:00 PM (UTC), you get the first
+    --     -   If you create the metric after 6 PM (UTC), you get the first
     --         aggregation result at 6 PM (UTC) the next day.
     --
     -- -   The 24-hour clock.
     --
-    --     For example, if you specify @00:03:00@ for @offset@ and @5m@ for
+    --     For example, if you specify @00:03:00@ for @offset@, @5m@ for
     --     @interval@, and you create the metric at 2 PM (UTC), you get the
     --     first aggregation result at 2:03 PM (UTC). You get the second
     --     aggregation result at 2:08 PM (UTC).
@@ -80,11 +81,11 @@ data TumblingWindow = TumblingWindow'
     --     @1d@ for @interval@, IoT SiteWise aggregates data in one of the
     --     following ways:
     --
-    --     -   If you create the metric before or at 6:00 PM (PST), you get the
+    --     -   If you create the metric before or at 6 PM (PST), you get the
     --         first aggregation result at 6 PM (PST) on the day when you
     --         create the metric.
     --
-    --     -   If you create the metric after 6:00 PM (PST), you get the first
+    --     -   If you create the metric after 6 PM (PST), you get the first
     --         aggregation result at 6 PM (PST) the next day.
     offset :: Prelude.Maybe Prelude.Text,
     -- | The time interval for the tumbling window. The interval time must be
@@ -119,11 +120,11 @@ data TumblingWindow = TumblingWindow'
 --     @interval@, IoT SiteWise aggregates data in one of the following
 --     ways:
 --
---     -   If you create the metric before or at 6:00 PM (UTC), you get the
+--     -   If you create the metric before or at 6 PM (UTC), you get the
 --         first aggregation result at 6 PM (UTC) on the day when you
 --         create the metric.
 --
---     -   If you create the metric after 6:00 PM (UTC), you get the first
+--     -   If you create the metric after 6 PM (UTC), you get the first
 --         aggregation result at 6 PM (UTC) the next day.
 --
 -- -   The ISO 8601 format.
@@ -132,16 +133,16 @@ data TumblingWindow = TumblingWindow'
 --     @interval@, IoT SiteWise aggregates data in one of the following
 --     ways:
 --
---     -   If you create the metric before or at 6:00 PM (UTC), you get the
+--     -   If you create the metric before or at 6 PM (UTC), you get the
 --         first aggregation result at 6 PM (UTC) on the day when you
 --         create the metric.
 --
---     -   If you create the metric after 6:00 PM (UTC), you get the first
+--     -   If you create the metric after 6 PM (UTC), you get the first
 --         aggregation result at 6 PM (UTC) the next day.
 --
 -- -   The 24-hour clock.
 --
---     For example, if you specify @00:03:00@ for @offset@ and @5m@ for
+--     For example, if you specify @00:03:00@ for @offset@, @5m@ for
 --     @interval@, and you create the metric at 2 PM (UTC), you get the
 --     first aggregation result at 2:03 PM (UTC). You get the second
 --     aggregation result at 2:08 PM (UTC).
@@ -152,11 +153,11 @@ data TumblingWindow = TumblingWindow'
 --     @1d@ for @interval@, IoT SiteWise aggregates data in one of the
 --     following ways:
 --
---     -   If you create the metric before or at 6:00 PM (PST), you get the
+--     -   If you create the metric before or at 6 PM (PST), you get the
 --         first aggregation result at 6 PM (PST) on the day when you
 --         create the metric.
 --
---     -   If you create the metric after 6:00 PM (PST), you get the first
+--     -   If you create the metric after 6 PM (PST), you get the first
 --         aggregation result at 6 PM (PST) the next day.
 --
 -- 'interval', 'tumblingWindow_interval' - The time interval for the tumbling window. The interval time must be
@@ -189,11 +190,11 @@ newTumblingWindow pInterval_ =
 --     @interval@, IoT SiteWise aggregates data in one of the following
 --     ways:
 --
---     -   If you create the metric before or at 6:00 PM (UTC), you get the
+--     -   If you create the metric before or at 6 PM (UTC), you get the
 --         first aggregation result at 6 PM (UTC) on the day when you
 --         create the metric.
 --
---     -   If you create the metric after 6:00 PM (UTC), you get the first
+--     -   If you create the metric after 6 PM (UTC), you get the first
 --         aggregation result at 6 PM (UTC) the next day.
 --
 -- -   The ISO 8601 format.
@@ -202,16 +203,16 @@ newTumblingWindow pInterval_ =
 --     @interval@, IoT SiteWise aggregates data in one of the following
 --     ways:
 --
---     -   If you create the metric before or at 6:00 PM (UTC), you get the
+--     -   If you create the metric before or at 6 PM (UTC), you get the
 --         first aggregation result at 6 PM (UTC) on the day when you
 --         create the metric.
 --
---     -   If you create the metric after 6:00 PM (UTC), you get the first
+--     -   If you create the metric after 6 PM (UTC), you get the first
 --         aggregation result at 6 PM (UTC) the next day.
 --
 -- -   The 24-hour clock.
 --
---     For example, if you specify @00:03:00@ for @offset@ and @5m@ for
+--     For example, if you specify @00:03:00@ for @offset@, @5m@ for
 --     @interval@, and you create the metric at 2 PM (UTC), you get the
 --     first aggregation result at 2:03 PM (UTC). You get the second
 --     aggregation result at 2:08 PM (UTC).
@@ -222,11 +223,11 @@ newTumblingWindow pInterval_ =
 --     @1d@ for @interval@, IoT SiteWise aggregates data in one of the
 --     following ways:
 --
---     -   If you create the metric before or at 6:00 PM (PST), you get the
+--     -   If you create the metric before or at 6 PM (PST), you get the
 --         first aggregation result at 6 PM (PST) on the day when you
 --         create the metric.
 --
---     -   If you create the metric after 6:00 PM (PST), you get the first
+--     -   If you create the metric after 6 PM (PST), you get the first
 --         aggregation result at 6 PM (PST) the next day.
 tumblingWindow_offset :: Lens.Lens' TumblingWindow (Prelude.Maybe Prelude.Text)
 tumblingWindow_offset = Lens.lens (\TumblingWindow' {offset} -> offset) (\s@TumblingWindow' {} a -> s {offset = a} :: TumblingWindow)

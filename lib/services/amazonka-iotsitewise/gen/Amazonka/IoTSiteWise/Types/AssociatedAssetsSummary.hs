@@ -29,7 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssociatedAssetsSummary' smart constructor.
 data AssociatedAssetsSummary = AssociatedAssetsSummary'
-  { -- | The ID of the asset.
+  { -- | A description for the asset.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the asset.
     id :: Prelude.Text,
     -- | The
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>
@@ -60,6 +62,8 @@ data AssociatedAssetsSummary = AssociatedAssetsSummary'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'description', 'associatedAssetsSummary_description' - A description for the asset.
 --
 -- 'id', 'associatedAssetsSummary_id' - The ID of the asset.
 --
@@ -106,7 +110,9 @@ newAssociatedAssetsSummary
   pLastUpdateDate_
   pStatus_ =
     AssociatedAssetsSummary'
-      { id = pId_,
+      { description =
+          Prelude.Nothing,
+        id = pId_,
         arn = pArn_,
         name = pName_,
         assetModelId = pAssetModelId_,
@@ -116,6 +122,10 @@ newAssociatedAssetsSummary
         status = pStatus_,
         hierarchies = Prelude.mempty
       }
+
+-- | A description for the asset.
+associatedAssetsSummary_description :: Lens.Lens' AssociatedAssetsSummary (Prelude.Maybe Prelude.Text)
+associatedAssetsSummary_description = Lens.lens (\AssociatedAssetsSummary' {description} -> description) (\s@AssociatedAssetsSummary' {} a -> s {description = a} :: AssociatedAssetsSummary)
 
 -- | The ID of the asset.
 associatedAssetsSummary_id :: Lens.Lens' AssociatedAssetsSummary Prelude.Text
@@ -160,7 +170,8 @@ instance Core.FromJSON AssociatedAssetsSummary where
       "AssociatedAssetsSummary"
       ( \x ->
           AssociatedAssetsSummary'
-            Prelude.<$> (x Core..: "id")
+            Prelude.<$> (x Core..:? "description")
+            Prelude.<*> (x Core..: "id")
             Prelude.<*> (x Core..: "arn")
             Prelude.<*> (x Core..: "name")
             Prelude.<*> (x Core..: "assetModelId")
@@ -172,7 +183,8 @@ instance Core.FromJSON AssociatedAssetsSummary where
 
 instance Prelude.Hashable AssociatedAssetsSummary where
   hashWithSalt _salt AssociatedAssetsSummary' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` assetModelId
@@ -183,7 +195,8 @@ instance Prelude.Hashable AssociatedAssetsSummary where
 
 instance Prelude.NFData AssociatedAssetsSummary where
   rnf AssociatedAssetsSummary' {..} =
-    Prelude.rnf id
+    Prelude.rnf description
+      `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf assetModelId

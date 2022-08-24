@@ -35,6 +35,7 @@ module Amazonka.IoTSiteWise.DescribeAsset
 
     -- * Response Lenses
     describeAssetResponse_assetCompositeModels,
+    describeAssetResponse_assetDescription,
     describeAssetResponse_httpStatus,
     describeAssetResponse_assetId,
     describeAssetResponse_assetArn,
@@ -94,6 +95,7 @@ instance Core.AWSRequest DescribeAsset where
             Prelude.<$> ( x Core..?> "assetCompositeModels"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "assetDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "assetId")
             Prelude.<*> (x Core..:> "assetArn")
@@ -139,6 +141,8 @@ instance Core.ToQuery DescribeAsset where
 data DescribeAssetResponse = DescribeAssetResponse'
   { -- | The composite models for the asset.
     assetCompositeModels :: Prelude.Maybe [AssetCompositeModel],
+    -- | A description for the asset.
+    assetDescription :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The ID of the asset.
@@ -181,6 +185,8 @@ data DescribeAssetResponse = DescribeAssetResponse'
 -- for backwards compatibility:
 --
 -- 'assetCompositeModels', 'describeAssetResponse_assetCompositeModels' - The composite models for the asset.
+--
+-- 'assetDescription', 'describeAssetResponse_assetDescription' - A description for the asset.
 --
 -- 'httpStatus', 'describeAssetResponse_httpStatus' - The response's http status code.
 --
@@ -241,6 +247,7 @@ newDescribeAssetResponse
     DescribeAssetResponse'
       { assetCompositeModels =
           Prelude.Nothing,
+        assetDescription = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         assetId = pAssetId_,
         assetArn = pAssetArn_,
@@ -258,6 +265,10 @@ newDescribeAssetResponse
 -- | The composite models for the asset.
 describeAssetResponse_assetCompositeModels :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe [AssetCompositeModel])
 describeAssetResponse_assetCompositeModels = Lens.lens (\DescribeAssetResponse' {assetCompositeModels} -> assetCompositeModels) (\s@DescribeAssetResponse' {} a -> s {assetCompositeModels = a} :: DescribeAssetResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A description for the asset.
+describeAssetResponse_assetDescription :: Lens.Lens' DescribeAssetResponse (Prelude.Maybe Prelude.Text)
+describeAssetResponse_assetDescription = Lens.lens (\DescribeAssetResponse' {assetDescription} -> assetDescription) (\s@DescribeAssetResponse' {} a -> s {assetDescription = a} :: DescribeAssetResponse)
 
 -- | The response's http status code.
 describeAssetResponse_httpStatus :: Lens.Lens' DescribeAssetResponse Prelude.Int
@@ -312,6 +323,7 @@ describeAssetResponse_assetStatus = Lens.lens (\DescribeAssetResponse' {assetSta
 instance Prelude.NFData DescribeAssetResponse where
   rnf DescribeAssetResponse' {..} =
     Prelude.rnf assetCompositeModels
+      `Prelude.seq` Prelude.rnf assetDescription
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf assetArn

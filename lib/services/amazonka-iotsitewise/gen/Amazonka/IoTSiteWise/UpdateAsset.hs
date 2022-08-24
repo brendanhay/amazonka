@@ -30,6 +30,7 @@ module Amazonka.IoTSiteWise.UpdateAsset
 
     -- * Request Lenses
     updateAsset_clientToken,
+    updateAsset_assetDescription,
     updateAsset_assetId,
     updateAsset_assetName,
 
@@ -56,6 +57,8 @@ data UpdateAsset = UpdateAsset'
     -- idempotency of the request. Don\'t reuse this client token if a new
     -- idempotent request is required.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | A description for the asset.
+    assetDescription :: Prelude.Maybe Prelude.Text,
     -- | The ID of the asset to update.
     assetId :: Prelude.Text,
     -- | A unique, friendly name for the asset.
@@ -75,6 +78,8 @@ data UpdateAsset = UpdateAsset'
 -- idempotency of the request. Don\'t reuse this client token if a new
 -- idempotent request is required.
 --
+-- 'assetDescription', 'updateAsset_assetDescription' - A description for the asset.
+--
 -- 'assetId', 'updateAsset_assetId' - The ID of the asset to update.
 --
 -- 'assetName', 'updateAsset_assetName' - A unique, friendly name for the asset.
@@ -87,6 +92,7 @@ newUpdateAsset ::
 newUpdateAsset pAssetId_ pAssetName_ =
   UpdateAsset'
     { clientToken = Prelude.Nothing,
+      assetDescription = Prelude.Nothing,
       assetId = pAssetId_,
       assetName = pAssetName_
     }
@@ -96,6 +102,10 @@ newUpdateAsset pAssetId_ pAssetName_ =
 -- idempotent request is required.
 updateAsset_clientToken :: Lens.Lens' UpdateAsset (Prelude.Maybe Prelude.Text)
 updateAsset_clientToken = Lens.lens (\UpdateAsset' {clientToken} -> clientToken) (\s@UpdateAsset' {} a -> s {clientToken = a} :: UpdateAsset)
+
+-- | A description for the asset.
+updateAsset_assetDescription :: Lens.Lens' UpdateAsset (Prelude.Maybe Prelude.Text)
+updateAsset_assetDescription = Lens.lens (\UpdateAsset' {assetDescription} -> assetDescription) (\s@UpdateAsset' {} a -> s {assetDescription = a} :: UpdateAsset)
 
 -- | The ID of the asset to update.
 updateAsset_assetId :: Lens.Lens' UpdateAsset Prelude.Text
@@ -119,12 +129,14 @@ instance Core.AWSRequest UpdateAsset where
 instance Prelude.Hashable UpdateAsset where
   hashWithSalt _salt UpdateAsset' {..} =
     _salt `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` assetDescription
       `Prelude.hashWithSalt` assetId
       `Prelude.hashWithSalt` assetName
 
 instance Prelude.NFData UpdateAsset where
   rnf UpdateAsset' {..} =
     Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf assetDescription
       `Prelude.seq` Prelude.rnf assetId
       `Prelude.seq` Prelude.rnf assetName
 
@@ -144,6 +156,8 @@ instance Core.ToJSON UpdateAsset where
     Core.object
       ( Prelude.catMaybes
           [ ("clientToken" Core..=) Prelude.<$> clientToken,
+            ("assetDescription" Core..=)
+              Prelude.<$> assetDescription,
             Prelude.Just ("assetName" Core..= assetName)
           ]
       )

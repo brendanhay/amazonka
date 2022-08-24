@@ -107,25 +107,25 @@ module Amazonka.VoiceId
     EvaluateSessionResponse (EvaluateSessionResponse'),
     newEvaluateSessionResponse,
 
-    -- ** ListDomains
+    -- ** ListDomains (Paginated)
     ListDomains (ListDomains'),
     newListDomains,
     ListDomainsResponse (ListDomainsResponse'),
     newListDomainsResponse,
 
-    -- ** ListFraudsterRegistrationJobs
+    -- ** ListFraudsterRegistrationJobs (Paginated)
     ListFraudsterRegistrationJobs (ListFraudsterRegistrationJobs'),
     newListFraudsterRegistrationJobs,
     ListFraudsterRegistrationJobsResponse (ListFraudsterRegistrationJobsResponse'),
     newListFraudsterRegistrationJobsResponse,
 
-    -- ** ListSpeakerEnrollmentJobs
+    -- ** ListSpeakerEnrollmentJobs (Paginated)
     ListSpeakerEnrollmentJobs (ListSpeakerEnrollmentJobs'),
     newListSpeakerEnrollmentJobs,
     ListSpeakerEnrollmentJobsResponse (ListSpeakerEnrollmentJobsResponse'),
     newListSpeakerEnrollmentJobsResponse,
 
-    -- ** ListSpeakers
+    -- ** ListSpeakers (Paginated)
     ListSpeakers (ListSpeakers'),
     newListSpeakers,
     ListSpeakersResponse (ListSpeakersResponse'),
@@ -198,6 +198,9 @@ module Amazonka.VoiceId
 
     -- ** FraudsterRegistrationJobStatus
     FraudsterRegistrationJobStatus (..),
+
+    -- ** ServerSideEncryptionUpdateStatus
+    ServerSideEncryptionUpdateStatus (..),
 
     -- ** SpeakerEnrollmentJobStatus
     SpeakerEnrollmentJobStatus (..),
@@ -283,6 +286,10 @@ module Amazonka.VoiceId
     -- ** ServerSideEncryptionConfiguration
     ServerSideEncryptionConfiguration (ServerSideEncryptionConfiguration'),
     newServerSideEncryptionConfiguration,
+
+    -- ** ServerSideEncryptionUpdateDetails
+    ServerSideEncryptionUpdateDetails (ServerSideEncryptionUpdateDetails'),
+    newServerSideEncryptionUpdateDetails,
 
     -- ** Speaker
     Speaker (Speaker'),

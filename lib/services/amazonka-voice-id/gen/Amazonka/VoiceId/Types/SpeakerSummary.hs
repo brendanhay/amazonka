@@ -28,7 +28,11 @@ import Amazonka.VoiceId.Types.SpeakerStatus
 --
 -- /See:/ 'newSpeakerSummary' smart constructor.
 data SpeakerSummary = SpeakerSummary'
-  { -- | The current status of the speaker.
+  { -- | The timestamp when the speaker was last accessed for enrollment,
+    -- re-enrollment or a successful authentication. This timestamp is accurate
+    -- to one hour.
+    lastAccessedAt :: Prelude.Maybe Core.POSIX,
+    -- | The current status of the speaker.
     status :: Prelude.Maybe SpeakerStatus,
     -- | The client-provided identifier for the speaker.
     customerSpeakerId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -51,6 +55,10 @@ data SpeakerSummary = SpeakerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastAccessedAt', 'speakerSummary_lastAccessedAt' - The timestamp when the speaker was last accessed for enrollment,
+-- re-enrollment or a successful authentication. This timestamp is accurate
+-- to one hour.
+--
 -- 'status', 'speakerSummary_status' - The current status of the speaker.
 --
 -- 'customerSpeakerId', 'speakerSummary_customerSpeakerId' - The client-provided identifier for the speaker.
@@ -66,13 +74,20 @@ newSpeakerSummary ::
   SpeakerSummary
 newSpeakerSummary =
   SpeakerSummary'
-    { status = Prelude.Nothing,
+    { lastAccessedAt = Prelude.Nothing,
+      status = Prelude.Nothing,
       customerSpeakerId = Prelude.Nothing,
       generatedSpeakerId = Prelude.Nothing,
       domainId = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
+
+-- | The timestamp when the speaker was last accessed for enrollment,
+-- re-enrollment or a successful authentication. This timestamp is accurate
+-- to one hour.
+speakerSummary_lastAccessedAt :: Lens.Lens' SpeakerSummary (Prelude.Maybe Prelude.UTCTime)
+speakerSummary_lastAccessedAt = Lens.lens (\SpeakerSummary' {lastAccessedAt} -> lastAccessedAt) (\s@SpeakerSummary' {} a -> s {lastAccessedAt = a} :: SpeakerSummary) Prelude.. Lens.mapping Core._Time
 
 -- | The current status of the speaker.
 speakerSummary_status :: Lens.Lens' SpeakerSummary (Prelude.Maybe SpeakerStatus)
@@ -104,7 +119,8 @@ instance Core.FromJSON SpeakerSummary where
       "SpeakerSummary"
       ( \x ->
           SpeakerSummary'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "LastAccessedAt")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "CustomerSpeakerId")
             Prelude.<*> (x Core..:? "GeneratedSpeakerId")
             Prelude.<*> (x Core..:? "DomainId")
@@ -114,7 +130,8 @@ instance Core.FromJSON SpeakerSummary where
 
 instance Prelude.Hashable SpeakerSummary where
   hashWithSalt _salt SpeakerSummary' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` lastAccessedAt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` customerSpeakerId
       `Prelude.hashWithSalt` generatedSpeakerId
       `Prelude.hashWithSalt` domainId
@@ -123,7 +140,8 @@ instance Prelude.Hashable SpeakerSummary where
 
 instance Prelude.NFData SpeakerSummary where
   rnf SpeakerSummary' {..} =
-    Prelude.rnf status
+    Prelude.rnf lastAccessedAt
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf customerSpeakerId
       `Prelude.seq` Prelude.rnf generatedSpeakerId
       `Prelude.seq` Prelude.rnf domainId

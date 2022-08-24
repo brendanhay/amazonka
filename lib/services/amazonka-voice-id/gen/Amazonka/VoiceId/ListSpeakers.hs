@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all speakers in a specified domain.
+--
+-- This operation returns paginated results.
 module Amazonka.VoiceId.ListSpeakers
   ( -- * Creating a Request
     ListSpeakers (..),
@@ -110,6 +112,26 @@ listSpeakers_maxResults = Lens.lens (\ListSpeakers' {maxResults} -> maxResults) 
 -- | The identifier of the domain.
 listSpeakers_domainId :: Lens.Lens' ListSpeakers Prelude.Text
 listSpeakers_domainId = Lens.lens (\ListSpeakers' {domainId} -> domainId) (\s@ListSpeakers' {} a -> s {domainId = a} :: ListSpeakers)
+
+instance Core.AWSPager ListSpeakers where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listSpeakersResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listSpeakersResponse_speakerSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listSpeakers_nextToken
+          Lens..~ rs
+          Lens.^? listSpeakersResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeakers where
   type AWSResponse ListSpeakers = ListSpeakersResponse

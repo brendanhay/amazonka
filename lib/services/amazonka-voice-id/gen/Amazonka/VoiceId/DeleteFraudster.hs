@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified fraudster from the Amazon Connect Voice ID system.
+-- Deletes the specified fraudster from Voice ID.
 module Amazonka.VoiceId.DeleteFraudster
   ( -- * Creating a Request
     DeleteFraudster (..),

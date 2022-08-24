@@ -53,6 +53,8 @@ haskell_library(
         "gen/Amazonka/VoiceId/Types/OutputDataConfig.hs",
         "gen/Amazonka/VoiceId/Types/RegistrationConfig.hs",
         "gen/Amazonka/VoiceId/Types/ServerSideEncryptionConfiguration.hs",
+        "gen/Amazonka/VoiceId/Types/ServerSideEncryptionUpdateDetails.hs",
+        "gen/Amazonka/VoiceId/Types/ServerSideEncryptionUpdateStatus.hs",
         "gen/Amazonka/VoiceId/Types/Speaker.hs",
         "gen/Amazonka/VoiceId/Types/SpeakerEnrollmentJob.hs",
         "gen/Amazonka/VoiceId/Types/SpeakerEnrollmentJobStatus.hs",

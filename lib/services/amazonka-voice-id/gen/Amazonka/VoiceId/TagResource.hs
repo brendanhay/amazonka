@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Tags an Amazon Connect Voice ID resource with the provided list of tags.
+-- Tags a Voice ID resource with the provided list of tags.
 module Amazonka.VoiceId.TagResource
   ( -- * Creating a Request
     TagResource (..),

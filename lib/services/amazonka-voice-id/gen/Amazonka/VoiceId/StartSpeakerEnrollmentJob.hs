@@ -55,8 +55,8 @@ import Amazonka.VoiceId.Types
 -- | /See:/ 'newStartSpeakerEnrollmentJob' smart constructor.
 data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
   { -- | The enrollment config that contains details such as the action to take
-    -- when a speaker is already enrolled in the Voice ID system or when a
-    -- speaker is identified as a fraudster.
+    -- when a speaker is already enrolled in Voice ID or when a speaker is
+    -- identified as a fraudster.
     enrollmentConfig :: Prelude.Maybe EnrollmentConfig,
     -- | The idempotency token for starting a new speaker enrollment Job. If not
     -- provided, Amazon Web Services SDK populates this field.
@@ -76,7 +76,7 @@ data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
     -- file that contains the list of speaker enrollment requests.
     inputDataConfig :: InputDataConfig,
     -- | The output data config containing the S3 location where Voice ID writes
-    -- the job output file; you must also include a KMS Key ID to encrypt the
+    -- the job output file; you must also include a KMS key ID to encrypt the
     -- file.
     outputDataConfig :: OutputDataConfig
   }
@@ -91,8 +91,8 @@ data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
 -- for backwards compatibility:
 --
 -- 'enrollmentConfig', 'startSpeakerEnrollmentJob_enrollmentConfig' - The enrollment config that contains details such as the action to take
--- when a speaker is already enrolled in the Voice ID system or when a
--- speaker is identified as a fraudster.
+-- when a speaker is already enrolled in Voice ID or when a speaker is
+-- identified as a fraudster.
 --
 -- 'clientToken', 'startSpeakerEnrollmentJob_clientToken' - The idempotency token for starting a new speaker enrollment Job. If not
 -- provided, Amazon Web Services SDK populates this field.
@@ -112,7 +112,7 @@ data StartSpeakerEnrollmentJob = StartSpeakerEnrollmentJob'
 -- file that contains the list of speaker enrollment requests.
 --
 -- 'outputDataConfig', 'startSpeakerEnrollmentJob_outputDataConfig' - The output data config containing the S3 location where Voice ID writes
--- the job output file; you must also include a KMS Key ID to encrypt the
+-- the job output file; you must also include a KMS key ID to encrypt the
 -- file.
 newStartSpeakerEnrollmentJob ::
   -- | 'dataAccessRoleArn'
@@ -141,8 +141,8 @@ newStartSpeakerEnrollmentJob
       }
 
 -- | The enrollment config that contains details such as the action to take
--- when a speaker is already enrolled in the Voice ID system or when a
--- speaker is identified as a fraudster.
+-- when a speaker is already enrolled in Voice ID or when a speaker is
+-- identified as a fraudster.
 startSpeakerEnrollmentJob_enrollmentConfig :: Lens.Lens' StartSpeakerEnrollmentJob (Prelude.Maybe EnrollmentConfig)
 startSpeakerEnrollmentJob_enrollmentConfig = Lens.lens (\StartSpeakerEnrollmentJob' {enrollmentConfig} -> enrollmentConfig) (\s@StartSpeakerEnrollmentJob' {} a -> s {enrollmentConfig = a} :: StartSpeakerEnrollmentJob)
 
@@ -174,7 +174,7 @@ startSpeakerEnrollmentJob_inputDataConfig :: Lens.Lens' StartSpeakerEnrollmentJo
 startSpeakerEnrollmentJob_inputDataConfig = Lens.lens (\StartSpeakerEnrollmentJob' {inputDataConfig} -> inputDataConfig) (\s@StartSpeakerEnrollmentJob' {} a -> s {inputDataConfig = a} :: StartSpeakerEnrollmentJob)
 
 -- | The output data config containing the S3 location where Voice ID writes
--- the job output file; you must also include a KMS Key ID to encrypt the
+-- the job output file; you must also include a KMS key ID to encrypt the
 -- file.
 startSpeakerEnrollmentJob_outputDataConfig :: Lens.Lens' StartSpeakerEnrollmentJob OutputDataConfig
 startSpeakerEnrollmentJob_outputDataConfig = Lens.lens (\StartSpeakerEnrollmentJob' {outputDataConfig} -> outputDataConfig) (\s@StartSpeakerEnrollmentJob' {} a -> s {outputDataConfig = a} :: StartSpeakerEnrollmentJob)

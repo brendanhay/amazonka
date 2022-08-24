@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.VoiceId.Types.DomainStatus
 import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
+import Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
 
 -- | Contains a summary of information about a domain.
 --
@@ -31,8 +32,14 @@ import Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
 data DomainSummary = DomainSummary'
   { -- | The client-provided name for the domain.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The server-side encryption configuration containing the KMS Key
-    -- Identifier you want Voice ID to use to encrypt your data..
+    -- | Details about the most recent server-side encryption configuration
+    -- update. When the server-side encryption configuration is changed,
+    -- dependency on the old KMS key is removed through an asynchronous
+    -- process. When this update is complete, the domain’s data can only be
+    -- accessed using the new KMS key.
+    serverSideEncryptionUpdateDetails :: Prelude.Maybe ServerSideEncryptionUpdateDetails,
+    -- | The server-side encryption configuration containing the KMS key
+    -- identifier you want Voice ID to use to encrypt your data.
     serverSideEncryptionConfiguration :: Prelude.Maybe ServerSideEncryptionConfiguration,
     -- | The Amazon Resource Name (ARN) for the domain.
     arn :: Prelude.Maybe Prelude.Text,
@@ -59,8 +66,14 @@ data DomainSummary = DomainSummary'
 --
 -- 'name', 'domainSummary_name' - The client-provided name for the domain.
 --
--- 'serverSideEncryptionConfiguration', 'domainSummary_serverSideEncryptionConfiguration' - The server-side encryption configuration containing the KMS Key
--- Identifier you want Voice ID to use to encrypt your data..
+-- 'serverSideEncryptionUpdateDetails', 'domainSummary_serverSideEncryptionUpdateDetails' - Details about the most recent server-side encryption configuration
+-- update. When the server-side encryption configuration is changed,
+-- dependency on the old KMS key is removed through an asynchronous
+-- process. When this update is complete, the domain’s data can only be
+-- accessed using the new KMS key.
+--
+-- 'serverSideEncryptionConfiguration', 'domainSummary_serverSideEncryptionConfiguration' - The server-side encryption configuration containing the KMS key
+-- identifier you want Voice ID to use to encrypt your data.
 --
 -- 'arn', 'domainSummary_arn' - The Amazon Resource Name (ARN) for the domain.
 --
@@ -78,6 +91,7 @@ newDomainSummary ::
 newDomainSummary =
   DomainSummary'
     { name = Prelude.Nothing,
+      serverSideEncryptionUpdateDetails = Prelude.Nothing,
       serverSideEncryptionConfiguration = Prelude.Nothing,
       arn = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -91,8 +105,16 @@ newDomainSummary =
 domainSummary_name :: Lens.Lens' DomainSummary (Prelude.Maybe Prelude.Text)
 domainSummary_name = Lens.lens (\DomainSummary' {name} -> name) (\s@DomainSummary' {} a -> s {name = a} :: DomainSummary) Prelude.. Lens.mapping Core._Sensitive
 
--- | The server-side encryption configuration containing the KMS Key
--- Identifier you want Voice ID to use to encrypt your data..
+-- | Details about the most recent server-side encryption configuration
+-- update. When the server-side encryption configuration is changed,
+-- dependency on the old KMS key is removed through an asynchronous
+-- process. When this update is complete, the domain’s data can only be
+-- accessed using the new KMS key.
+domainSummary_serverSideEncryptionUpdateDetails :: Lens.Lens' DomainSummary (Prelude.Maybe ServerSideEncryptionUpdateDetails)
+domainSummary_serverSideEncryptionUpdateDetails = Lens.lens (\DomainSummary' {serverSideEncryptionUpdateDetails} -> serverSideEncryptionUpdateDetails) (\s@DomainSummary' {} a -> s {serverSideEncryptionUpdateDetails = a} :: DomainSummary)
+
+-- | The server-side encryption configuration containing the KMS key
+-- identifier you want Voice ID to use to encrypt your data.
 domainSummary_serverSideEncryptionConfiguration :: Lens.Lens' DomainSummary (Prelude.Maybe ServerSideEncryptionConfiguration)
 domainSummary_serverSideEncryptionConfiguration = Lens.lens (\DomainSummary' {serverSideEncryptionConfiguration} -> serverSideEncryptionConfiguration) (\s@DomainSummary' {} a -> s {serverSideEncryptionConfiguration = a} :: DomainSummary)
 
@@ -127,6 +149,7 @@ instance Core.FromJSON DomainSummary where
       ( \x ->
           DomainSummary'
             Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ServerSideEncryptionUpdateDetails")
             Prelude.<*> (x Core..:? "ServerSideEncryptionConfiguration")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Description")
@@ -139,6 +162,7 @@ instance Core.FromJSON DomainSummary where
 instance Prelude.Hashable DomainSummary where
   hashWithSalt _salt DomainSummary' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` serverSideEncryptionUpdateDetails
       `Prelude.hashWithSalt` serverSideEncryptionConfiguration
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` description
@@ -150,6 +174,7 @@ instance Prelude.Hashable DomainSummary where
 instance Prelude.NFData DomainSummary where
   rnf DomainSummary' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf serverSideEncryptionUpdateDetails
       `Prelude.seq` Prelude.rnf serverSideEncryptionConfiguration
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf description

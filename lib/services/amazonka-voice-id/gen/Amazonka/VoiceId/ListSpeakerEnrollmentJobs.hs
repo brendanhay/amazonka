@@ -23,6 +23,8 @@
 -- Lists all the speaker enrollment jobs in the domain with the specified
 -- @JobStatus@. If @JobStatus@ is not provided, this lists all jobs with
 -- all possible speaker enrollment job statuses.
+--
+-- This operation returns paginated results.
 module Amazonka.VoiceId.ListSpeakerEnrollmentJobs
   ( -- * Creating a Request
     ListSpeakerEnrollmentJobs (..),
@@ -123,6 +125,28 @@ listSpeakerEnrollmentJobs_maxResults = Lens.lens (\ListSpeakerEnrollmentJobs' {m
 -- | The identifier of the domain containing the speaker enrollment jobs.
 listSpeakerEnrollmentJobs_domainId :: Lens.Lens' ListSpeakerEnrollmentJobs Prelude.Text
 listSpeakerEnrollmentJobs_domainId = Lens.lens (\ListSpeakerEnrollmentJobs' {domainId} -> domainId) (\s@ListSpeakerEnrollmentJobs' {} a -> s {domainId = a} :: ListSpeakerEnrollmentJobs)
+
+instance Core.AWSPager ListSpeakerEnrollmentJobs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listSpeakerEnrollmentJobsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listSpeakerEnrollmentJobsResponse_jobSummaries
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listSpeakerEnrollmentJobs_nextToken
+          Lens..~ rs
+          Lens.^? listSpeakerEnrollmentJobsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSpeakerEnrollmentJobs where
   type

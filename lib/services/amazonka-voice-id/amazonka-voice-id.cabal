@@ -92,6 +92,8 @@ library
     Amazonka.VoiceId.Types.OutputDataConfig
     Amazonka.VoiceId.Types.RegistrationConfig
     Amazonka.VoiceId.Types.ServerSideEncryptionConfiguration
+    Amazonka.VoiceId.Types.ServerSideEncryptionUpdateDetails
+    Amazonka.VoiceId.Types.ServerSideEncryptionUpdateStatus
     Amazonka.VoiceId.Types.Speaker
     Amazonka.VoiceId.Types.SpeakerEnrollmentJob
     Amazonka.VoiceId.Types.SpeakerEnrollmentJobStatus

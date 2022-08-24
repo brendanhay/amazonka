@@ -28,7 +28,11 @@ import Amazonka.VoiceId.Types.SpeakerStatus
 --
 -- /See:/ 'newSpeaker' smart constructor.
 data Speaker = Speaker'
-  { -- | The current status of the speaker.
+  { -- | The timestamp when the speaker was last accessed for enrollment,
+    -- re-enrollment or a successful authentication. This timestamp is accurate
+    -- to one hour.
+    lastAccessedAt :: Prelude.Maybe Core.POSIX,
+    -- | The current status of the speaker.
     status :: Prelude.Maybe SpeakerStatus,
     -- | The client-provided identifier for the speaker.
     customerSpeakerId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -51,6 +55,10 @@ data Speaker = Speaker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lastAccessedAt', 'speaker_lastAccessedAt' - The timestamp when the speaker was last accessed for enrollment,
+-- re-enrollment or a successful authentication. This timestamp is accurate
+-- to one hour.
+--
 -- 'status', 'speaker_status' - The current status of the speaker.
 --
 -- 'customerSpeakerId', 'speaker_customerSpeakerId' - The client-provided identifier for the speaker.
@@ -66,13 +74,20 @@ newSpeaker ::
   Speaker
 newSpeaker =
   Speaker'
-    { status = Prelude.Nothing,
+    { lastAccessedAt = Prelude.Nothing,
+      status = Prelude.Nothing,
       customerSpeakerId = Prelude.Nothing,
       generatedSpeakerId = Prelude.Nothing,
       domainId = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       updatedAt = Prelude.Nothing
     }
+
+-- | The timestamp when the speaker was last accessed for enrollment,
+-- re-enrollment or a successful authentication. This timestamp is accurate
+-- to one hour.
+speaker_lastAccessedAt :: Lens.Lens' Speaker (Prelude.Maybe Prelude.UTCTime)
+speaker_lastAccessedAt = Lens.lens (\Speaker' {lastAccessedAt} -> lastAccessedAt) (\s@Speaker' {} a -> s {lastAccessedAt = a} :: Speaker) Prelude.. Lens.mapping Core._Time
 
 -- | The current status of the speaker.
 speaker_status :: Lens.Lens' Speaker (Prelude.Maybe SpeakerStatus)
@@ -104,7 +119,8 @@ instance Core.FromJSON Speaker where
       "Speaker"
       ( \x ->
           Speaker'
-            Prelude.<$> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "LastAccessedAt")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "CustomerSpeakerId")
             Prelude.<*> (x Core..:? "GeneratedSpeakerId")
             Prelude.<*> (x Core..:? "DomainId")
@@ -114,7 +130,8 @@ instance Core.FromJSON Speaker where
 
 instance Prelude.Hashable Speaker where
   hashWithSalt _salt Speaker' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` lastAccessedAt
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` customerSpeakerId
       `Prelude.hashWithSalt` generatedSpeakerId
       `Prelude.hashWithSalt` domainId
@@ -123,7 +140,8 @@ instance Prelude.Hashable Speaker where
 
 instance Prelude.NFData Speaker where
   rnf Speaker' {..} =
-    Prelude.rnf status
+    Prelude.rnf lastAccessedAt
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf customerSpeakerId
       `Prelude.seq` Prelude.rnf generatedSpeakerId
       `Prelude.seq` Prelude.rnf domainId

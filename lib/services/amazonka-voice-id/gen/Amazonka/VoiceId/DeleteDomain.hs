@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified domain from the Amazon Connect Voice ID system.
+-- Deletes the specified domain from Voice ID.
 module Amazonka.VoiceId.DeleteDomain
   ( -- * Creating a Request
     DeleteDomain (..),

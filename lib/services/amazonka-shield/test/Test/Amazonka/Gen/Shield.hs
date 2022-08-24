@@ -75,6 +75,9 @@ import Test.Tasty
 --         , requestDescribeSubscription $
 --             newDescribeSubscription
 --
+--         , requestDisableApplicationLayerAutomaticResponse $
+--             newDisableApplicationLayerAutomaticResponse
+--
 --         , requestDisableProactiveEngagement $
 --             newDisableProactiveEngagement
 --
@@ -86,6 +89,9 @@ import Test.Tasty
 --
 --         , requestDisassociateHealthCheck $
 --             newDisassociateHealthCheck
+--
+--         , requestEnableApplicationLayerAutomaticResponse $
+--             newEnableApplicationLayerAutomaticResponse
 --
 --         , requestEnableProactiveEngagement $
 --             newEnableProactiveEngagement
@@ -113,6 +119,9 @@ import Test.Tasty
 --
 --         , requestUntagResource $
 --             newUntagResource
+--
+--         , requestUpdateApplicationLayerAutomaticResponse $
+--             newUpdateApplicationLayerAutomaticResponse
 --
 --         , requestUpdateEmergencyContactSettings $
 --             newUpdateEmergencyContactSettings
@@ -174,6 +183,9 @@ import Test.Tasty
 --         , responseDescribeSubscription $
 --             newDescribeSubscriptionResponse
 --
+--         , responseDisableApplicationLayerAutomaticResponse $
+--             newDisableApplicationLayerAutomaticResponseResponse
+--
 --         , responseDisableProactiveEngagement $
 --             newDisableProactiveEngagementResponse
 --
@@ -185,6 +197,9 @@ import Test.Tasty
 --
 --         , responseDisassociateHealthCheck $
 --             newDisassociateHealthCheckResponse
+--
+--         , responseEnableApplicationLayerAutomaticResponse $
+--             newEnableApplicationLayerAutomaticResponseResponse
 --
 --         , responseEnableProactiveEngagement $
 --             newEnableProactiveEngagementResponse
@@ -212,6 +227,9 @@ import Test.Tasty
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseUpdateApplicationLayerAutomaticResponse $
+--             newUpdateApplicationLayerAutomaticResponseResponse
 --
 --         , responseUpdateEmergencyContactSettings $
 --             newUpdateEmergencyContactSettingsResponse
@@ -323,6 +341,12 @@ requestDescribeSubscription =
     "DescribeSubscription"
     "fixture/DescribeSubscription.yaml"
 
+requestDisableApplicationLayerAutomaticResponse :: DisableApplicationLayerAutomaticResponse -> TestTree
+requestDisableApplicationLayerAutomaticResponse =
+  req
+    "DisableApplicationLayerAutomaticResponse"
+    "fixture/DisableApplicationLayerAutomaticResponse.yaml"
+
 requestDisableProactiveEngagement :: DisableProactiveEngagement -> TestTree
 requestDisableProactiveEngagement =
   req
@@ -346,6 +370,12 @@ requestDisassociateHealthCheck =
   req
     "DisassociateHealthCheck"
     "fixture/DisassociateHealthCheck.yaml"
+
+requestEnableApplicationLayerAutomaticResponse :: EnableApplicationLayerAutomaticResponse -> TestTree
+requestEnableApplicationLayerAutomaticResponse =
+  req
+    "EnableApplicationLayerAutomaticResponse"
+    "fixture/EnableApplicationLayerAutomaticResponse.yaml"
 
 requestEnableProactiveEngagement :: EnableProactiveEngagement -> TestTree
 requestEnableProactiveEngagement =
@@ -400,6 +430,12 @@ requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestUpdateApplicationLayerAutomaticResponse :: UpdateApplicationLayerAutomaticResponse -> TestTree
+requestUpdateApplicationLayerAutomaticResponse =
+  req
+    "UpdateApplicationLayerAutomaticResponse"
+    "fixture/UpdateApplicationLayerAutomaticResponse.yaml"
 
 requestUpdateEmergencyContactSettings :: UpdateEmergencyContactSettings -> TestTree
 requestUpdateEmergencyContactSettings =
@@ -549,6 +585,14 @@ responseDescribeSubscription =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSubscription)
 
+responseDisableApplicationLayerAutomaticResponse :: DisableApplicationLayerAutomaticResponseResponse -> TestTree
+responseDisableApplicationLayerAutomaticResponse =
+  res
+    "DisableApplicationLayerAutomaticResponseResponse"
+    "fixture/DisableApplicationLayerAutomaticResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableApplicationLayerAutomaticResponse)
+
 responseDisableProactiveEngagement :: DisableProactiveEngagementResponse -> TestTree
 responseDisableProactiveEngagement =
   res
@@ -580,6 +624,14 @@ responseDisassociateHealthCheck =
     "fixture/DisassociateHealthCheckResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateHealthCheck)
+
+responseEnableApplicationLayerAutomaticResponse :: EnableApplicationLayerAutomaticResponseResponse -> TestTree
+responseEnableApplicationLayerAutomaticResponse =
+  res
+    "EnableApplicationLayerAutomaticResponseResponse"
+    "fixture/EnableApplicationLayerAutomaticResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableApplicationLayerAutomaticResponse)
 
 responseEnableProactiveEngagement :: EnableProactiveEngagementResponse -> TestTree
 responseEnableProactiveEngagement =
@@ -652,6 +704,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateApplicationLayerAutomaticResponse :: UpdateApplicationLayerAutomaticResponseResponse -> TestTree
+responseUpdateApplicationLayerAutomaticResponse =
+  res
+    "UpdateApplicationLayerAutomaticResponseResponse"
+    "fixture/UpdateApplicationLayerAutomaticResponseResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplicationLayerAutomaticResponse)
 
 responseUpdateEmergencyContactSettings :: UpdateEmergencyContactSettingsResponse -> TestTree
 responseUpdateEmergencyContactSettings =

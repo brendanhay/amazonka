@@ -22,6 +22,7 @@ module Amazonka.Shield.Types.Protection where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.Shield.Types.ApplicationLayerAutomaticResponseConfiguration
 
 -- | An object that represents a resource that is under DDoS protection.
 --
@@ -29,6 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data Protection = Protection'
   { -- | The name of the protection. For example, @My CloudFront distributions@.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The automatic application layer DDoS mitigation settings for the
+    -- protection. This configuration determines whether Shield Advanced
+    -- automatically manages rules in the web ACL in order to respond to
+    -- application layer events that Shield Advanced determines to be DDoS
+    -- attacks.
+    applicationLayerAutomaticResponseConfiguration :: Prelude.Maybe ApplicationLayerAutomaticResponseConfiguration,
     -- | The unique identifier (ID) of the protection.
     id :: Prelude.Maybe Prelude.Text,
     -- | The ARN (Amazon Resource Name) of the protection.
@@ -36,7 +43,7 @@ data Protection = Protection'
     -- | The ARN (Amazon Resource Name) of the Amazon Web Services resource that
     -- is protected.
     resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier (ID) for the Route 53 health check that\'s
+    -- | The unique identifier (ID) for the Route 53 health check that\'s
     -- associated with the protection.
     healthCheckIds :: Prelude.Maybe [Prelude.Text]
   }
@@ -52,6 +59,12 @@ data Protection = Protection'
 --
 -- 'name', 'protection_name' - The name of the protection. For example, @My CloudFront distributions@.
 --
+-- 'applicationLayerAutomaticResponseConfiguration', 'protection_applicationLayerAutomaticResponseConfiguration' - The automatic application layer DDoS mitigation settings for the
+-- protection. This configuration determines whether Shield Advanced
+-- automatically manages rules in the web ACL in order to respond to
+-- application layer events that Shield Advanced determines to be DDoS
+-- attacks.
+--
 -- 'id', 'protection_id' - The unique identifier (ID) of the protection.
 --
 -- 'protectionArn', 'protection_protectionArn' - The ARN (Amazon Resource Name) of the protection.
@@ -59,13 +72,15 @@ data Protection = Protection'
 -- 'resourceArn', 'protection_resourceArn' - The ARN (Amazon Resource Name) of the Amazon Web Services resource that
 -- is protected.
 --
--- 'healthCheckIds', 'protection_healthCheckIds' - The unique identifier (ID) for the Route 53 health check that\'s
+-- 'healthCheckIds', 'protection_healthCheckIds' - The unique identifier (ID) for the Route 53 health check that\'s
 -- associated with the protection.
 newProtection ::
   Protection
 newProtection =
   Protection'
     { name = Prelude.Nothing,
+      applicationLayerAutomaticResponseConfiguration =
+        Prelude.Nothing,
       id = Prelude.Nothing,
       protectionArn = Prelude.Nothing,
       resourceArn = Prelude.Nothing,
@@ -75,6 +90,14 @@ newProtection =
 -- | The name of the protection. For example, @My CloudFront distributions@.
 protection_name :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
 protection_name = Lens.lens (\Protection' {name} -> name) (\s@Protection' {} a -> s {name = a} :: Protection)
+
+-- | The automatic application layer DDoS mitigation settings for the
+-- protection. This configuration determines whether Shield Advanced
+-- automatically manages rules in the web ACL in order to respond to
+-- application layer events that Shield Advanced determines to be DDoS
+-- attacks.
+protection_applicationLayerAutomaticResponseConfiguration :: Lens.Lens' Protection (Prelude.Maybe ApplicationLayerAutomaticResponseConfiguration)
+protection_applicationLayerAutomaticResponseConfiguration = Lens.lens (\Protection' {applicationLayerAutomaticResponseConfiguration} -> applicationLayerAutomaticResponseConfiguration) (\s@Protection' {} a -> s {applicationLayerAutomaticResponseConfiguration = a} :: Protection)
 
 -- | The unique identifier (ID) of the protection.
 protection_id :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
@@ -89,7 +112,7 @@ protection_protectionArn = Lens.lens (\Protection' {protectionArn} -> protection
 protection_resourceArn :: Lens.Lens' Protection (Prelude.Maybe Prelude.Text)
 protection_resourceArn = Lens.lens (\Protection' {resourceArn} -> resourceArn) (\s@Protection' {} a -> s {resourceArn = a} :: Protection)
 
--- | The unique identifier (ID) for the Route 53 health check that\'s
+-- | The unique identifier (ID) for the Route 53 health check that\'s
 -- associated with the protection.
 protection_healthCheckIds :: Lens.Lens' Protection (Prelude.Maybe [Prelude.Text])
 protection_healthCheckIds = Lens.lens (\Protection' {healthCheckIds} -> healthCheckIds) (\s@Protection' {} a -> s {healthCheckIds = a} :: Protection) Prelude.. Lens.mapping Lens.coerced
@@ -101,6 +124,9 @@ instance Core.FromJSON Protection where
       ( \x ->
           Protection'
             Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> ( x
+                            Core..:? "ApplicationLayerAutomaticResponseConfiguration"
+                        )
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "ProtectionArn")
             Prelude.<*> (x Core..:? "ResourceArn")
@@ -112,6 +138,7 @@ instance Core.FromJSON Protection where
 instance Prelude.Hashable Protection where
   hashWithSalt _salt Protection' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` applicationLayerAutomaticResponseConfiguration
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` protectionArn
       `Prelude.hashWithSalt` resourceArn
@@ -120,6 +147,8 @@ instance Prelude.Hashable Protection where
 instance Prelude.NFData Protection where
   rnf Protection' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf
+        applicationLayerAutomaticResponseConfiguration
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf protectionArn
       `Prelude.seq` Prelude.rnf resourceArn

@@ -21,18 +21,20 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Enables Shield Advanced for a specific Amazon Web Services resource. The
--- resource can be an Amazon CloudFront distribution, Elastic Load
--- Balancing load balancer, Global Accelerator accelerator, Elastic IP
--- Address, or an Amazon Route 53 hosted zone.
+-- resource can be an Amazon CloudFront distribution, Amazon Route 53
+-- hosted zone, Global Accelerator standard accelerator, Elastic IP
+-- Address, Application Load Balancer, or a Classic Load Balancer. You can
+-- protect Amazon EC2 instances and Network Load Balancers by association
+-- with protected Amazon EC2 Elastic IP addresses.
 --
 -- You can add protection to only a single resource with each
--- CreateProtection request. If you want to add protection to multiple
--- resources at once, use the
--- <https://console.aws.amazon.com/waf/ WAF console>. For more information
+-- @CreateProtection@ request. You can add protection to multiple resources
+-- at once through the Shield Advanced console at
+-- <https://console.aws.amazon.com/wafv2/shieldv2#/>. For more information
 -- see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/getting-started-ddos.html Getting Started with Shield Advanced>
 -- and
--- <https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html Add Shield Advanced Protection to more Amazon Web Services Resources>.
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/configure-new-protection.html Adding Shield Advanced protection to Amazon Web Services resources>.
 module Amazonka.Shield.CreateProtection
   ( -- * Creating a Request
     CreateProtection (..),
@@ -80,10 +82,10 @@ data CreateProtection = CreateProtection'
     -- -   For an Amazon CloudFront distribution:
     --     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
     --
-    -- -   For an Global Accelerator accelerator:
+    -- -   For an Global Accelerator standard accelerator:
     --     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
     --
-    -- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
+    -- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
     --
     -- -   For an Elastic IP address:
     --     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @
@@ -117,10 +119,10 @@ data CreateProtection = CreateProtection'
 -- -   For an Amazon CloudFront distribution:
 --     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
 --
--- -   For an Global Accelerator accelerator:
+-- -   For an Global Accelerator standard accelerator:
 --     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
 --
--- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
+-- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
 --
 -- -   For an Elastic IP address:
 --     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @
@@ -159,10 +161,10 @@ createProtection_name = Lens.lens (\CreateProtection' {name} -> name) (\s@Create
 -- -   For an Amazon CloudFront distribution:
 --     @arn:aws:cloudfront::account-id:distribution\/distribution-id @
 --
--- -   For an Global Accelerator accelerator:
+-- -   For an Global Accelerator standard accelerator:
 --     @arn:aws:globalaccelerator::account-id:accelerator\/accelerator-id @
 --
--- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
+-- -   For Amazon Route 53: @arn:aws:route53:::hostedzone\/hosted-zone-id @
 --
 -- -   For an Elastic IP address:
 --     @arn:aws:ec2:region:account-id:eip-allocation\/allocation-id @

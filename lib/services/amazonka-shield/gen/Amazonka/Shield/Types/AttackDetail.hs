@@ -36,9 +36,7 @@ data AttackDetail = AttackDetail'
     -- | If applicable, additional detail about the resource being attacked, for
     -- example, IP address or URL.
     subResources :: Prelude.Maybe [SubResourceSummary],
-    -- | The time the attack ended, in Unix time in seconds. For more information
-    -- see
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+    -- | The time the attack ended, in Unix time in seconds.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | List of mitigation actions taken for the attack.
     mitigations :: Prelude.Maybe [Mitigation],
@@ -48,15 +46,13 @@ data AttackDetail = AttackDetail'
     attackCounters :: Prelude.Maybe [SummarizedCounter],
     -- | The array of objects that provide details of the Shield event.
     --
-    -- For infrastructure layer events (L3 and L4 events) after January 25,
-    -- 2021, you can view metrics for top contributors in Amazon CloudWatch
-    -- metrics. For more information, see
+    -- For infrastructure layer events (L3 and L4 events), you can view metrics
+    -- for top contributors in Amazon CloudWatch metrics. For more information,
+    -- see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
     -- in the /WAF Developer Guide/.
     attackProperties :: Prelude.Maybe [AttackProperty],
-    -- | The time the attack started, in Unix time in seconds. For more
-    -- information see
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+    -- | The time the attack started, in Unix time in seconds.
     startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,9 +70,7 @@ data AttackDetail = AttackDetail'
 -- 'subResources', 'attackDetail_subResources' - If applicable, additional detail about the resource being attacked, for
 -- example, IP address or URL.
 --
--- 'endTime', 'attackDetail_endTime' - The time the attack ended, in Unix time in seconds. For more information
--- see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- 'endTime', 'attackDetail_endTime' - The time the attack ended, in Unix time in seconds.
 --
 -- 'mitigations', 'attackDetail_mitigations' - List of mitigation actions taken for the attack.
 --
@@ -86,15 +80,13 @@ data AttackDetail = AttackDetail'
 --
 -- 'attackProperties', 'attackDetail_attackProperties' - The array of objects that provide details of the Shield event.
 --
--- For infrastructure layer events (L3 and L4 events) after January 25,
--- 2021, you can view metrics for top contributors in Amazon CloudWatch
--- metrics. For more information, see
+-- For infrastructure layer events (L3 and L4 events), you can view metrics
+-- for top contributors in Amazon CloudWatch metrics. For more information,
+-- see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
 -- in the /WAF Developer Guide/.
 --
--- 'startTime', 'attackDetail_startTime' - The time the attack started, in Unix time in seconds. For more
--- information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- 'startTime', 'attackDetail_startTime' - The time the attack started, in Unix time in seconds.
 newAttackDetail ::
   AttackDetail
 newAttackDetail =
@@ -118,9 +110,7 @@ attackDetail_attackId = Lens.lens (\AttackDetail' {attackId} -> attackId) (\s@At
 attackDetail_subResources :: Lens.Lens' AttackDetail (Prelude.Maybe [SubResourceSummary])
 attackDetail_subResources = Lens.lens (\AttackDetail' {subResources} -> subResources) (\s@AttackDetail' {} a -> s {subResources = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The time the attack ended, in Unix time in seconds. For more information
--- see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- | The time the attack ended, in Unix time in seconds.
 attackDetail_endTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
 attackDetail_endTime = Lens.lens (\AttackDetail' {endTime} -> endTime) (\s@AttackDetail' {} a -> s {endTime = a} :: AttackDetail) Prelude.. Lens.mapping Core._Time
 
@@ -138,17 +128,15 @@ attackDetail_attackCounters = Lens.lens (\AttackDetail' {attackCounters} -> atta
 
 -- | The array of objects that provide details of the Shield event.
 --
--- For infrastructure layer events (L3 and L4 events) after January 25,
--- 2021, you can view metrics for top contributors in Amazon CloudWatch
--- metrics. For more information, see
+-- For infrastructure layer events (L3 and L4 events), you can view metrics
+-- for top contributors in Amazon CloudWatch metrics. For more information,
+-- see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
 -- in the /WAF Developer Guide/.
 attackDetail_attackProperties :: Lens.Lens' AttackDetail (Prelude.Maybe [AttackProperty])
 attackDetail_attackProperties = Lens.lens (\AttackDetail' {attackProperties} -> attackProperties) (\s@AttackDetail' {} a -> s {attackProperties = a} :: AttackDetail) Prelude.. Lens.mapping Lens.coerced
 
--- | The time the attack started, in Unix time in seconds. For more
--- information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- | The time the attack started, in Unix time in seconds.
 attackDetail_startTime :: Lens.Lens' AttackDetail (Prelude.Maybe Prelude.UTCTime)
 attackDetail_startTime = Lens.lens (\AttackDetail' {startTime} -> startTime) (\s@AttackDetail' {} a -> s {startTime = a} :: AttackDetail) Prelude.. Lens.mapping Core._Time
 

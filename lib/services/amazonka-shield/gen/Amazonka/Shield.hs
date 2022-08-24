@@ -167,6 +167,12 @@ module Amazonka.Shield
     DescribeSubscriptionResponse (DescribeSubscriptionResponse'),
     newDescribeSubscriptionResponse,
 
+    -- ** DisableApplicationLayerAutomaticResponse
+    DisableApplicationLayerAutomaticResponse (DisableApplicationLayerAutomaticResponse'),
+    newDisableApplicationLayerAutomaticResponse,
+    DisableApplicationLayerAutomaticResponseResponse (DisableApplicationLayerAutomaticResponseResponse'),
+    newDisableApplicationLayerAutomaticResponseResponse,
+
     -- ** DisableProactiveEngagement
     DisableProactiveEngagement (DisableProactiveEngagement'),
     newDisableProactiveEngagement,
@@ -190,6 +196,12 @@ module Amazonka.Shield
     newDisassociateHealthCheck,
     DisassociateHealthCheckResponse (DisassociateHealthCheckResponse'),
     newDisassociateHealthCheckResponse,
+
+    -- ** EnableApplicationLayerAutomaticResponse
+    EnableApplicationLayerAutomaticResponse (EnableApplicationLayerAutomaticResponse'),
+    newEnableApplicationLayerAutomaticResponse,
+    EnableApplicationLayerAutomaticResponseResponse (EnableApplicationLayerAutomaticResponseResponse'),
+    newEnableApplicationLayerAutomaticResponseResponse,
 
     -- ** EnableProactiveEngagement
     EnableProactiveEngagement (EnableProactiveEngagement'),
@@ -245,6 +257,12 @@ module Amazonka.Shield
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
+    -- ** UpdateApplicationLayerAutomaticResponse
+    UpdateApplicationLayerAutomaticResponse (UpdateApplicationLayerAutomaticResponse'),
+    newUpdateApplicationLayerAutomaticResponse,
+    UpdateApplicationLayerAutomaticResponseResponse (UpdateApplicationLayerAutomaticResponseResponse'),
+    newUpdateApplicationLayerAutomaticResponseResponse,
+
     -- ** UpdateEmergencyContactSettings
     UpdateEmergencyContactSettings (UpdateEmergencyContactSettings'),
     newUpdateEmergencyContactSettings,
@@ -264,6 +282,9 @@ module Amazonka.Shield
     newUpdateSubscriptionResponse,
 
     -- * Types
+
+    -- ** ApplicationLayerAutomaticResponseStatus
+    ApplicationLayerAutomaticResponseStatus (..),
 
     -- ** AttackLayer
     AttackLayer (..),
@@ -295,6 +316,10 @@ module Amazonka.Shield
     -- ** Unit
     Unit (..),
 
+    -- ** ApplicationLayerAutomaticResponseConfiguration
+    ApplicationLayerAutomaticResponseConfiguration (ApplicationLayerAutomaticResponseConfiguration'),
+    newApplicationLayerAutomaticResponseConfiguration,
+
     -- ** AttackDetail
     AttackDetail (AttackDetail'),
     newAttackDetail,
@@ -323,13 +348,29 @@ module Amazonka.Shield
     AttackVolumeStatistics (AttackVolumeStatistics'),
     newAttackVolumeStatistics,
 
+    -- ** BlockAction
+    BlockAction (BlockAction'),
+    newBlockAction,
+
     -- ** Contributor
     Contributor (Contributor'),
     newContributor,
 
+    -- ** CountAction
+    CountAction (CountAction'),
+    newCountAction,
+
     -- ** EmergencyContact
     EmergencyContact (EmergencyContact'),
     newEmergencyContact,
+
+    -- ** InclusionProtectionFilters
+    InclusionProtectionFilters (InclusionProtectionFilters'),
+    newInclusionProtectionFilters,
+
+    -- ** InclusionProtectionGroupFilters
+    InclusionProtectionGroupFilters (InclusionProtectionGroupFilters'),
+    newInclusionProtectionGroupFilters,
 
     -- ** Limit
     Limit (Limit'),
@@ -362,6 +403,10 @@ module Amazonka.Shield
     -- ** ProtectionLimits
     ProtectionLimits (ProtectionLimits'),
     newProtectionLimits,
+
+    -- ** ResponseAction
+    ResponseAction (ResponseAction'),
+    newResponseAction,
 
     -- ** SubResourceSummary
     SubResourceSummary (SubResourceSummary'),
@@ -409,10 +454,12 @@ import Amazonka.Shield.DescribeEmergencyContactSettings
 import Amazonka.Shield.DescribeProtection
 import Amazonka.Shield.DescribeProtectionGroup
 import Amazonka.Shield.DescribeSubscription
+import Amazonka.Shield.DisableApplicationLayerAutomaticResponse
 import Amazonka.Shield.DisableProactiveEngagement
 import Amazonka.Shield.DisassociateDRTLogBucket
 import Amazonka.Shield.DisassociateDRTRole
 import Amazonka.Shield.DisassociateHealthCheck
+import Amazonka.Shield.EnableApplicationLayerAutomaticResponse
 import Amazonka.Shield.EnableProactiveEngagement
 import Amazonka.Shield.GetSubscriptionState
 import Amazonka.Shield.Lens
@@ -424,6 +471,7 @@ import Amazonka.Shield.ListTagsForResource
 import Amazonka.Shield.TagResource
 import Amazonka.Shield.Types
 import Amazonka.Shield.UntagResource
+import Amazonka.Shield.UpdateApplicationLayerAutomaticResponse
 import Amazonka.Shield.UpdateEmergencyContactSettings
 import Amazonka.Shield.UpdateProtectionGroup
 import Amazonka.Shield.UpdateSubscription

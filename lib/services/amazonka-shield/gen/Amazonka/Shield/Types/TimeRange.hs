@@ -27,11 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { -- | The end time, in Unix time in seconds. For more information see
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+  { -- | The end time, in Unix time in seconds.
     toExclusive :: Prelude.Maybe Core.POSIX,
-    -- | The start time, in Unix time in seconds. For more information see
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+    -- | The start time, in Unix time in seconds.
     fromInclusive :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,11 +42,9 @@ data TimeRange = TimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toExclusive', 'timeRange_toExclusive' - The end time, in Unix time in seconds. For more information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- 'toExclusive', 'timeRange_toExclusive' - The end time, in Unix time in seconds.
 --
--- 'fromInclusive', 'timeRange_fromInclusive' - The start time, in Unix time in seconds. For more information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- 'fromInclusive', 'timeRange_fromInclusive' - The start time, in Unix time in seconds.
 newTimeRange ::
   TimeRange
 newTimeRange =
@@ -57,13 +53,11 @@ newTimeRange =
       fromInclusive = Prelude.Nothing
     }
 
--- | The end time, in Unix time in seconds. For more information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- | The end time, in Unix time in seconds.
 timeRange_toExclusive :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
 timeRange_toExclusive = Lens.lens (\TimeRange' {toExclusive} -> toExclusive) (\s@TimeRange' {} a -> s {toExclusive = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 
--- | The start time, in Unix time in seconds. For more information see
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp>.
+-- | The start time, in Unix time in seconds.
 timeRange_fromInclusive :: Lens.Lens' TimeRange (Prelude.Maybe Prelude.UTCTime)
 timeRange_fromInclusive = Lens.lens (\TimeRange' {fromInclusive} -> fromInclusive) (\s@TimeRange' {} a -> s {fromInclusive = a} :: TimeRange) Prelude.. Lens.mapping Core._Time
 

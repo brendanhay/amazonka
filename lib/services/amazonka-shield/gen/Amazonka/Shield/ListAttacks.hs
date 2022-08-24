@@ -56,33 +56,44 @@ import Amazonka.Shield.Types
 
 -- | /See:/ 'newListAttacks' smart constructor.
 data ListAttacks = ListAttacks'
-  { -- | The @ListAttacksRequest.NextMarker@ value from a previous call to
-    -- @ListAttacksRequest@. Pass null if this is the first call.
+  { -- | When you request a list of objects from Shield Advanced, if the response
+    -- does not include all of the remaining available objects, Shield Advanced
+    -- includes a @NextToken@ value in the response. You can retrieve the next
+    -- batch of objects by requesting the list again and providing the token
+    -- that was returned by the prior call in your request.
+    --
+    -- You can indicate the maximum number of objects that you want Shield
+    -- Advanced to return for a single call with the @MaxResults@ setting.
+    -- Shield Advanced will not return more than @MaxResults@ objects, but may
+    -- return fewer, even if more objects are still available.
+    --
+    -- Whenever more objects remain that Shield Advanced has not yet returned
+    -- to you, the response will include a @NextToken@ value.
+    --
+    -- On your first call to a list operation, leave this setting empty.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The end of the time period for the attacks. This is a @timestamp@ type.
-    -- The sample request above indicates a @number@ type because the default
-    -- used by WAF is Unix time in seconds. However any valid
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
-    -- is allowed.
+    -- The request syntax listing for this call indicates a @number@ type, but
+    -- you can provide the time in any valid
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp timestamp format>
+    -- setting.
     endTime :: Prelude.Maybe TimeRange,
-    -- | The maximum number of AttackSummary objects to return. If you leave this
-    -- blank, Shield Advanced returns the first 20 results.
+    -- | The greatest number of objects that you want Shield Advanced to return
+    -- to the list request. Shield Advanced might return fewer objects than you
+    -- indicate in this setting, even if more objects are available. If there
+    -- are more objects remaining, Shield Advanced will always also return a
+    -- @NextToken@ value in the response.
     --
-    -- This is a maximum value. Shield Advanced might return the results in
-    -- smaller batches. That is, the number of objects returned could be less
-    -- than @MaxResults@, even if there are still more objects yet to return.
-    -- If there are more objects to return, Shield Advanced returns a value in
-    -- @NextToken@ that you can use in your next request, to get the next batch
-    -- of objects.
+    -- The default setting is 20.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The start of the time period for the attacks. This is a @timestamp@
-    -- type. The sample request above indicates a @number@ type because the
-    -- default used by WAF is Unix time in seconds. However any valid
-    -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
-    -- is allowed.
+    -- type. The request syntax listing for this call indicates a @number@
+    -- type, but you can provide the time in any valid
+    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp timestamp format>
+    -- setting.
     startTime :: Prelude.Maybe TimeRange,
-    -- | The ARN (Amazon Resource Name) of the resource that was attacked. If
-    -- this is left blank, all applicable resources for this account will be
+    -- | The ARNs (Amazon Resource Names) of the resources that were attacked. If
+    -- you leave this blank, all applicable resources for this account will be
     -- included.
     resourceArns :: Prelude.Maybe [Prelude.Text]
   }
@@ -96,33 +107,44 @@ data ListAttacks = ListAttacks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAttacks_nextToken' - The @ListAttacksRequest.NextMarker@ value from a previous call to
--- @ListAttacksRequest@. Pass null if this is the first call.
+-- 'nextToken', 'listAttacks_nextToken' - When you request a list of objects from Shield Advanced, if the response
+-- does not include all of the remaining available objects, Shield Advanced
+-- includes a @NextToken@ value in the response. You can retrieve the next
+-- batch of objects by requesting the list again and providing the token
+-- that was returned by the prior call in your request.
+--
+-- You can indicate the maximum number of objects that you want Shield
+-- Advanced to return for a single call with the @MaxResults@ setting.
+-- Shield Advanced will not return more than @MaxResults@ objects, but may
+-- return fewer, even if more objects are still available.
+--
+-- Whenever more objects remain that Shield Advanced has not yet returned
+-- to you, the response will include a @NextToken@ value.
+--
+-- On your first call to a list operation, leave this setting empty.
 --
 -- 'endTime', 'listAttacks_endTime' - The end of the time period for the attacks. This is a @timestamp@ type.
--- The sample request above indicates a @number@ type because the default
--- used by WAF is Unix time in seconds. However any valid
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
--- is allowed.
+-- The request syntax listing for this call indicates a @number@ type, but
+-- you can provide the time in any valid
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp timestamp format>
+-- setting.
 --
--- 'maxResults', 'listAttacks_maxResults' - The maximum number of AttackSummary objects to return. If you leave this
--- blank, Shield Advanced returns the first 20 results.
+-- 'maxResults', 'listAttacks_maxResults' - The greatest number of objects that you want Shield Advanced to return
+-- to the list request. Shield Advanced might return fewer objects than you
+-- indicate in this setting, even if more objects are available. If there
+-- are more objects remaining, Shield Advanced will always also return a
+-- @NextToken@ value in the response.
 --
--- This is a maximum value. Shield Advanced might return the results in
--- smaller batches. That is, the number of objects returned could be less
--- than @MaxResults@, even if there are still more objects yet to return.
--- If there are more objects to return, Shield Advanced returns a value in
--- @NextToken@ that you can use in your next request, to get the next batch
--- of objects.
+-- The default setting is 20.
 --
 -- 'startTime', 'listAttacks_startTime' - The start of the time period for the attacks. This is a @timestamp@
--- type. The sample request above indicates a @number@ type because the
--- default used by WAF is Unix time in seconds. However any valid
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
--- is allowed.
+-- type. The request syntax listing for this call indicates a @number@
+-- type, but you can provide the time in any valid
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp timestamp format>
+-- setting.
 --
--- 'resourceArns', 'listAttacks_resourceArns' - The ARN (Amazon Resource Name) of the resource that was attacked. If
--- this is left blank, all applicable resources for this account will be
+-- 'resourceArns', 'listAttacks_resourceArns' - The ARNs (Amazon Resource Names) of the resources that were attacked. If
+-- you leave this blank, all applicable resources for this account will be
 -- included.
 newListAttacks ::
   ListAttacks
@@ -135,41 +157,52 @@ newListAttacks =
       resourceArns = Prelude.Nothing
     }
 
--- | The @ListAttacksRequest.NextMarker@ value from a previous call to
--- @ListAttacksRequest@. Pass null if this is the first call.
+-- | When you request a list of objects from Shield Advanced, if the response
+-- does not include all of the remaining available objects, Shield Advanced
+-- includes a @NextToken@ value in the response. You can retrieve the next
+-- batch of objects by requesting the list again and providing the token
+-- that was returned by the prior call in your request.
+--
+-- You can indicate the maximum number of objects that you want Shield
+-- Advanced to return for a single call with the @MaxResults@ setting.
+-- Shield Advanced will not return more than @MaxResults@ objects, but may
+-- return fewer, even if more objects are still available.
+--
+-- Whenever more objects remain that Shield Advanced has not yet returned
+-- to you, the response will include a @NextToken@ value.
+--
+-- On your first call to a list operation, leave this setting empty.
 listAttacks_nextToken :: Lens.Lens' ListAttacks (Prelude.Maybe Prelude.Text)
 listAttacks_nextToken = Lens.lens (\ListAttacks' {nextToken} -> nextToken) (\s@ListAttacks' {} a -> s {nextToken = a} :: ListAttacks)
 
 -- | The end of the time period for the attacks. This is a @timestamp@ type.
--- The sample request above indicates a @number@ type because the default
--- used by WAF is Unix time in seconds. However any valid
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
--- is allowed.
+-- The request syntax listing for this call indicates a @number@ type, but
+-- you can provide the time in any valid
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp timestamp format>
+-- setting.
 listAttacks_endTime :: Lens.Lens' ListAttacks (Prelude.Maybe TimeRange)
 listAttacks_endTime = Lens.lens (\ListAttacks' {endTime} -> endTime) (\s@ListAttacks' {} a -> s {endTime = a} :: ListAttacks)
 
--- | The maximum number of AttackSummary objects to return. If you leave this
--- blank, Shield Advanced returns the first 20 results.
+-- | The greatest number of objects that you want Shield Advanced to return
+-- to the list request. Shield Advanced might return fewer objects than you
+-- indicate in this setting, even if more objects are available. If there
+-- are more objects remaining, Shield Advanced will always also return a
+-- @NextToken@ value in the response.
 --
--- This is a maximum value. Shield Advanced might return the results in
--- smaller batches. That is, the number of objects returned could be less
--- than @MaxResults@, even if there are still more objects yet to return.
--- If there are more objects to return, Shield Advanced returns a value in
--- @NextToken@ that you can use in your next request, to get the next batch
--- of objects.
+-- The default setting is 20.
 listAttacks_maxResults :: Lens.Lens' ListAttacks (Prelude.Maybe Prelude.Natural)
 listAttacks_maxResults = Lens.lens (\ListAttacks' {maxResults} -> maxResults) (\s@ListAttacks' {} a -> s {maxResults = a} :: ListAttacks)
 
 -- | The start of the time period for the attacks. This is a @timestamp@
--- type. The sample request above indicates a @number@ type because the
--- default used by WAF is Unix time in seconds. However any valid
--- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp format>
--- is allowed.
+-- type. The request syntax listing for this call indicates a @number@
+-- type, but you can provide the time in any valid
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp timestamp format>
+-- setting.
 listAttacks_startTime :: Lens.Lens' ListAttacks (Prelude.Maybe TimeRange)
 listAttacks_startTime = Lens.lens (\ListAttacks' {startTime} -> startTime) (\s@ListAttacks' {} a -> s {startTime = a} :: ListAttacks)
 
--- | The ARN (Amazon Resource Name) of the resource that was attacked. If
--- this is left blank, all applicable resources for this account will be
+-- | The ARNs (Amazon Resource Names) of the resources that were attacked. If
+-- you leave this blank, all applicable resources for this account will be
 -- included.
 listAttacks_resourceArns :: Lens.Lens' ListAttacks (Prelude.Maybe [Prelude.Text])
 listAttacks_resourceArns = Lens.lens (\ListAttacks' {resourceArns} -> resourceArns) (\s@ListAttacks' {} a -> s {resourceArns = a} :: ListAttacks) Prelude.. Lens.mapping Lens.coerced
@@ -259,15 +292,19 @@ instance Core.ToQuery ListAttacks where
 
 -- | /See:/ 'newListAttacksResponse' smart constructor.
 data ListAttacksResponse = ListAttacksResponse'
-  { -- | The token returned by a previous call to indicate that there is more
-    -- data available. If not null, more results are available. Pass this value
-    -- for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to
-    -- retrieve the next set of items.
+  { -- | When you request a list of objects from Shield Advanced, if the response
+    -- does not include all of the remaining available objects, Shield Advanced
+    -- includes a @NextToken@ value in the response. You can retrieve the next
+    -- batch of objects by requesting the list again and providing the token
+    -- that was returned by the prior call in your request.
     --
-    -- Shield Advanced might return the list of AttackSummary objects in
-    -- batches smaller than the number specified by MaxResults. If there are
-    -- more attack summary objects to return, Shield Advanced will always also
-    -- return a @NextToken@.
+    -- You can indicate the maximum number of objects that you want Shield
+    -- Advanced to return for a single call with the @MaxResults@ setting.
+    -- Shield Advanced will not return more than @MaxResults@ objects, but may
+    -- return fewer, even if more objects are still available.
+    --
+    -- Whenever more objects remain that Shield Advanced has not yet returned
+    -- to you, the response will include a @NextToken@ value.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The attack information for the specified time range.
     attackSummaries :: Prelude.Maybe [AttackSummary],
@@ -284,15 +321,19 @@ data ListAttacksResponse = ListAttacksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAttacksResponse_nextToken' - The token returned by a previous call to indicate that there is more
--- data available. If not null, more results are available. Pass this value
--- for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to
--- retrieve the next set of items.
+-- 'nextToken', 'listAttacksResponse_nextToken' - When you request a list of objects from Shield Advanced, if the response
+-- does not include all of the remaining available objects, Shield Advanced
+-- includes a @NextToken@ value in the response. You can retrieve the next
+-- batch of objects by requesting the list again and providing the token
+-- that was returned by the prior call in your request.
 --
--- Shield Advanced might return the list of AttackSummary objects in
--- batches smaller than the number specified by MaxResults. If there are
--- more attack summary objects to return, Shield Advanced will always also
--- return a @NextToken@.
+-- You can indicate the maximum number of objects that you want Shield
+-- Advanced to return for a single call with the @MaxResults@ setting.
+-- Shield Advanced will not return more than @MaxResults@ objects, but may
+-- return fewer, even if more objects are still available.
+--
+-- Whenever more objects remain that Shield Advanced has not yet returned
+-- to you, the response will include a @NextToken@ value.
 --
 -- 'attackSummaries', 'listAttacksResponse_attackSummaries' - The attack information for the specified time range.
 --
@@ -308,15 +349,19 @@ newListAttacksResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token returned by a previous call to indicate that there is more
--- data available. If not null, more results are available. Pass this value
--- for the @NextMarker@ parameter in a subsequent call to @ListAttacks@ to
--- retrieve the next set of items.
+-- | When you request a list of objects from Shield Advanced, if the response
+-- does not include all of the remaining available objects, Shield Advanced
+-- includes a @NextToken@ value in the response. You can retrieve the next
+-- batch of objects by requesting the list again and providing the token
+-- that was returned by the prior call in your request.
 --
--- Shield Advanced might return the list of AttackSummary objects in
--- batches smaller than the number specified by MaxResults. If there are
--- more attack summary objects to return, Shield Advanced will always also
--- return a @NextToken@.
+-- You can indicate the maximum number of objects that you want Shield
+-- Advanced to return for a single call with the @MaxResults@ setting.
+-- Shield Advanced will not return more than @MaxResults@ objects, but may
+-- return fewer, even if more objects are still available.
+--
+-- Whenever more objects remain that Shield Advanced has not yet returned
+-- to you, the response will include a @NextToken@ value.
 listAttacksResponse_nextToken :: Lens.Lens' ListAttacksResponse (Prelude.Maybe Prelude.Text)
 listAttacksResponse_nextToken = Lens.lens (\ListAttacksResponse' {nextToken} -> nextToken) (\s@ListAttacksResponse' {} a -> s {nextToken = a} :: ListAttacksResponse)
 

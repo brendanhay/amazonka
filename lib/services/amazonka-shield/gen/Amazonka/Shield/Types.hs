@@ -31,6 +31,9 @@ module Amazonka.Shield.Types
     _LockedSubscriptionException,
     _InvalidParameterException,
 
+    -- * ApplicationLayerAutomaticResponseStatus
+    ApplicationLayerAutomaticResponseStatus (..),
+
     -- * AttackLayer
     AttackLayer (..),
 
@@ -60,6 +63,12 @@ module Amazonka.Shield.Types
 
     -- * Unit
     Unit (..),
+
+    -- * ApplicationLayerAutomaticResponseConfiguration
+    ApplicationLayerAutomaticResponseConfiguration (..),
+    newApplicationLayerAutomaticResponseConfiguration,
+    applicationLayerAutomaticResponseConfiguration_status,
+    applicationLayerAutomaticResponseConfiguration_action,
 
     -- * AttackDetail
     AttackDetail (..),
@@ -114,11 +123,19 @@ module Amazonka.Shield.Types
     newAttackVolumeStatistics,
     attackVolumeStatistics_max,
 
+    -- * BlockAction
+    BlockAction (..),
+    newBlockAction,
+
     -- * Contributor
     Contributor (..),
     newContributor,
     contributor_name,
     contributor_value,
+
+    -- * CountAction
+    CountAction (..),
+    newCountAction,
 
     -- * EmergencyContact
     EmergencyContact (..),
@@ -126,6 +143,21 @@ module Amazonka.Shield.Types
     emergencyContact_contactNotes,
     emergencyContact_phoneNumber,
     emergencyContact_emailAddress,
+
+    -- * InclusionProtectionFilters
+    InclusionProtectionFilters (..),
+    newInclusionProtectionFilters,
+    inclusionProtectionFilters_resourceTypes,
+    inclusionProtectionFilters_protectionNames,
+    inclusionProtectionFilters_resourceArns,
+
+    -- * InclusionProtectionGroupFilters
+    InclusionProtectionGroupFilters (..),
+    newInclusionProtectionGroupFilters,
+    inclusionProtectionGroupFilters_aggregations,
+    inclusionProtectionGroupFilters_patterns,
+    inclusionProtectionGroupFilters_resourceTypes,
+    inclusionProtectionGroupFilters_protectionGroupIds,
 
     -- * Limit
     Limit (..),
@@ -142,6 +174,7 @@ module Amazonka.Shield.Types
     Protection (..),
     newProtection,
     protection_name,
+    protection_applicationLayerAutomaticResponseConfiguration,
     protection_id,
     protection_protectionArn,
     protection_resourceArn,
@@ -177,6 +210,12 @@ module Amazonka.Shield.Types
     ProtectionLimits (..),
     newProtectionLimits,
     protectionLimits_protectedResourceTypeLimits,
+
+    -- * ResponseAction
+    ResponseAction (..),
+    newResponseAction,
+    responseAction_count,
+    responseAction_block,
 
     -- * SubResourceSummary
     SubResourceSummary (..),
@@ -237,6 +276,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.Shield.Types.ApplicationLayerAutomaticResponseConfiguration
+import Amazonka.Shield.Types.ApplicationLayerAutomaticResponseStatus
 import Amazonka.Shield.Types.AttackDetail
 import Amazonka.Shield.Types.AttackLayer
 import Amazonka.Shield.Types.AttackProperty
@@ -247,8 +288,12 @@ import Amazonka.Shield.Types.AttackVectorDescription
 import Amazonka.Shield.Types.AttackVolume
 import Amazonka.Shield.Types.AttackVolumeStatistics
 import Amazonka.Shield.Types.AutoRenew
+import Amazonka.Shield.Types.BlockAction
 import Amazonka.Shield.Types.Contributor
+import Amazonka.Shield.Types.CountAction
 import Amazonka.Shield.Types.EmergencyContact
+import Amazonka.Shield.Types.InclusionProtectionFilters
+import Amazonka.Shield.Types.InclusionProtectionGroupFilters
 import Amazonka.Shield.Types.Limit
 import Amazonka.Shield.Types.Mitigation
 import Amazonka.Shield.Types.ProactiveEngagementStatus
@@ -261,6 +306,7 @@ import Amazonka.Shield.Types.ProtectionGroupLimits
 import Amazonka.Shield.Types.ProtectionGroupPattern
 import Amazonka.Shield.Types.ProtectionGroupPatternTypeLimits
 import Amazonka.Shield.Types.ProtectionLimits
+import Amazonka.Shield.Types.ResponseAction
 import Amazonka.Shield.Types.SubResourceSummary
 import Amazonka.Shield.Types.SubResourceType
 import Amazonka.Shield.Types.Subscription
@@ -351,7 +397,7 @@ _ResourceAlreadyExistsException =
     defaultService
     "ResourceAlreadyExistsException"
 
--- | The ARN of the role that you specifed does not exist.
+-- | The ARN of the role that you specified does not exist.
 _NoAssociatedRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoAssociatedRoleException =
   Core._MatchServiceError
@@ -391,9 +437,9 @@ _InternalErrorException =
     defaultService
     "InternalErrorException"
 
--- | Exception that indicates that the NextToken specified in the request is
--- invalid. Submit the request using the NextToken value that was returned
--- in the response.
+-- | Exception that indicates that the @NextToken@ specified in the request
+-- is invalid. Submit the request using the @NextToken@ value that was
+-- returned in the prior response.
 _InvalidPaginationTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidPaginationTokenException =
   Core._MatchServiceError

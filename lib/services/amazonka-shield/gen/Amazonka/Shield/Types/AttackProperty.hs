@@ -36,13 +36,15 @@ data AttackProperty = AttackProperty'
     -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
     -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
     --
-    -- For infrastructure layer events (L3 and L4 events) after January 25,
-    -- 2021, you can view metrics for top contributors in Amazon CloudWatch
-    -- metrics. For more information, see
+    -- For infrastructure layer events (L3 and L4 events), you can view metrics
+    -- for top contributors in Amazon CloudWatch metrics. For more information,
+    -- see
     -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
     -- in the /WAF Developer Guide/.
     attackLayer :: Prelude.Maybe AttackLayer,
-    -- | Contributor objects for the top five contributors to a Shield event.
+    -- | Contributor objects for the top five contributors to a Shield event. A
+    -- contributor is a source of traffic that Shield Advanced identifies as
+    -- responsible for some or all of an event.
     topContributors :: Prelude.Maybe [Contributor],
     -- | Defines the Shield event property information that is provided. The
     -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
@@ -66,13 +68,15 @@ data AttackProperty = AttackProperty'
 -- 'attackLayer', 'attackProperty_attackLayer' - The type of Shield event that was observed. @NETWORK@ indicates layer 3
 -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
 --
--- For infrastructure layer events (L3 and L4 events) after January 25,
--- 2021, you can view metrics for top contributors in Amazon CloudWatch
--- metrics. For more information, see
+-- For infrastructure layer events (L3 and L4 events), you can view metrics
+-- for top contributors in Amazon CloudWatch metrics. For more information,
+-- see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
 -- in the /WAF Developer Guide/.
 --
--- 'topContributors', 'attackProperty_topContributors' - Contributor objects for the top five contributors to a Shield event.
+-- 'topContributors', 'attackProperty_topContributors' - Contributor objects for the top five contributors to a Shield event. A
+-- contributor is a source of traffic that Shield Advanced identifies as
+-- responsible for some or all of an event.
 --
 -- 'attackPropertyIdentifier', 'attackProperty_attackPropertyIdentifier' - Defines the Shield event property information that is provided. The
 -- @WORDPRESS_PINGBACK_REFLECTOR@ and @WORDPRESS_PINGBACK_SOURCE@ values
@@ -97,15 +101,17 @@ attackProperty_total = Lens.lens (\AttackProperty' {total} -> total) (\s@AttackP
 -- | The type of Shield event that was observed. @NETWORK@ indicates layer 3
 -- and layer 4 events and @APPLICATION@ indicates layer 7 events.
 --
--- For infrastructure layer events (L3 and L4 events) after January 25,
--- 2021, you can view metrics for top contributors in Amazon CloudWatch
--- metrics. For more information, see
+-- For infrastructure layer events (L3 and L4 events), you can view metrics
+-- for top contributors in Amazon CloudWatch metrics. For more information,
+-- see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms Shield metrics and alarms>
 -- in the /WAF Developer Guide/.
 attackProperty_attackLayer :: Lens.Lens' AttackProperty (Prelude.Maybe AttackLayer)
 attackProperty_attackLayer = Lens.lens (\AttackProperty' {attackLayer} -> attackLayer) (\s@AttackProperty' {} a -> s {attackLayer = a} :: AttackProperty)
 
--- | Contributor objects for the top five contributors to a Shield event.
+-- | Contributor objects for the top five contributors to a Shield event. A
+-- contributor is a source of traffic that Shield Advanced identifies as
+-- responsible for some or all of an event.
 attackProperty_topContributors :: Lens.Lens' AttackProperty (Prelude.Maybe [Contributor])
 attackProperty_topContributors = Lens.lens (\AttackProperty' {topContributors} -> topContributors) (\s@AttackProperty' {} a -> s {topContributors = a} :: AttackProperty) Prelude.. Lens.mapping Lens.coerced
 

@@ -48,7 +48,7 @@ import Amazonka.Shield.Types
 
 -- | /See:/ 'newDescribeAttack' smart constructor.
 data DescribeAttack = DescribeAttack'
-  { -- | The unique identifier (ID) for the attack that to be described.
+  { -- | The unique identifier (ID) for the attack.
     attackId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data DescribeAttack = DescribeAttack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attackId', 'describeAttack_attackId' - The unique identifier (ID) for the attack that to be described.
+-- 'attackId', 'describeAttack_attackId' - The unique identifier (ID) for the attack.
 newDescribeAttack ::
   -- | 'attackId'
   Prelude.Text ->
@@ -69,7 +69,7 @@ newDescribeAttack ::
 newDescribeAttack pAttackId_ =
   DescribeAttack' {attackId = pAttackId_}
 
--- | The unique identifier (ID) for the attack that to be described.
+-- | The unique identifier (ID) for the attack.
 describeAttack_attackId :: Lens.Lens' DescribeAttack Prelude.Text
 describeAttack_attackId = Lens.lens (\DescribeAttack' {attackId} -> attackId) (\s@DescribeAttack' {} a -> s {attackId = a} :: DescribeAttack)
 
@@ -123,7 +123,7 @@ instance Core.ToQuery DescribeAttack where
 
 -- | /See:/ 'newDescribeAttackResponse' smart constructor.
 data DescribeAttackResponse = DescribeAttackResponse'
-  { -- | The attack that is described.
+  { -- | The attack that you requested.
     attack :: Prelude.Maybe AttackDetail,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -138,7 +138,7 @@ data DescribeAttackResponse = DescribeAttackResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attack', 'describeAttackResponse_attack' - The attack that is described.
+-- 'attack', 'describeAttackResponse_attack' - The attack that you requested.
 --
 -- 'httpStatus', 'describeAttackResponse_httpStatus' - The response's http status code.
 newDescribeAttackResponse ::
@@ -151,7 +151,7 @@ newDescribeAttackResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The attack that is described.
+-- | The attack that you requested.
 describeAttackResponse_attack :: Lens.Lens' DescribeAttackResponse (Prelude.Maybe AttackDetail)
 describeAttackResponse_attack = Lens.lens (\DescribeAttackResponse' {attack} -> attack) (\s@DescribeAttackResponse' {} a -> s {attack = a} :: DescribeAttackResponse)
 

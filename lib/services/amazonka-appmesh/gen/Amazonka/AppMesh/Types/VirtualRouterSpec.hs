@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data VirtualRouterSpec = VirtualRouterSpec'
   { -- | The listeners that the virtual router is expected to receive inbound
     -- traffic from. You can specify one listener.
-    listeners :: Prelude.Maybe (Prelude.NonEmpty VirtualRouterListener)
+    listeners :: Prelude.Maybe [VirtualRouterListener]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,7 +51,7 @@ newVirtualRouterSpec =
 
 -- | The listeners that the virtual router is expected to receive inbound
 -- traffic from. You can specify one listener.
-virtualRouterSpec_listeners :: Lens.Lens' VirtualRouterSpec (Prelude.Maybe (Prelude.NonEmpty VirtualRouterListener))
+virtualRouterSpec_listeners :: Lens.Lens' VirtualRouterSpec (Prelude.Maybe [VirtualRouterListener])
 virtualRouterSpec_listeners = Lens.lens (\VirtualRouterSpec' {listeners} -> listeners) (\s@VirtualRouterSpec' {} a -> s {listeners = a} :: VirtualRouterSpec) Prelude.. Lens.mapping Lens.coerced
 
 instance Core.FromJSON VirtualRouterSpec where
@@ -60,7 +60,7 @@ instance Core.FromJSON VirtualRouterSpec where
       "VirtualRouterSpec"
       ( \x ->
           VirtualRouterSpec'
-            Prelude.<$> (x Core..:? "listeners")
+            Prelude.<$> (x Core..:? "listeners" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable VirtualRouterSpec where

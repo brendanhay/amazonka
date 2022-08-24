@@ -61,9 +61,9 @@ data ListVirtualNodes = ListVirtualNodes'
     -- exceeded the value of that parameter. Pagination continues from the end
     -- of the previous results that returned the @nextToken@ value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results returned by @ListVirtualNodes@ in
@@ -93,9 +93,9 @@ data ListVirtualNodes = ListVirtualNodes'
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @nextToken@ value.
 --
--- 'meshOwner', 'listVirtualNodes_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'listVirtualNodes_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'limit', 'listVirtualNodes_limit' - The maximum number of results returned by @ListVirtualNodes@ in
@@ -127,9 +127,9 @@ newListVirtualNodes pMeshName_ =
 listVirtualNodes_nextToken :: Lens.Lens' ListVirtualNodes (Prelude.Maybe Prelude.Text)
 listVirtualNodes_nextToken = Lens.lens (\ListVirtualNodes' {nextToken} -> nextToken) (\s@ListVirtualNodes' {} a -> s {nextToken = a} :: ListVirtualNodes)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 listVirtualNodes_meshOwner :: Lens.Lens' ListVirtualNodes (Prelude.Maybe Prelude.Text)
 listVirtualNodes_meshOwner = Lens.lens (\ListVirtualNodes' {meshOwner} -> meshOwner) (\s@ListVirtualNodes' {} a -> s {meshOwner = a} :: ListVirtualNodes)

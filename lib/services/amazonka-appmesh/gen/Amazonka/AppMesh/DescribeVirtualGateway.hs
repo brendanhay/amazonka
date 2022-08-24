@@ -50,9 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeVirtualGateway' smart constructor.
 data DescribeVirtualGateway = DescribeVirtualGateway'
-  { -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+  { -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh that the gateway route resides in.
@@ -70,9 +70,9 @@ data DescribeVirtualGateway = DescribeVirtualGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'meshOwner', 'describeVirtualGateway_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'describeVirtualGateway_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'describeVirtualGateway_meshName' - The name of the service mesh that the gateway route resides in.
@@ -94,9 +94,9 @@ newDescribeVirtualGateway
         virtualGatewayName = pVirtualGatewayName_
       }
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 describeVirtualGateway_meshOwner :: Lens.Lens' DescribeVirtualGateway (Prelude.Maybe Prelude.Text)
 describeVirtualGateway_meshOwner = Lens.lens (\DescribeVirtualGateway' {meshOwner} -> meshOwner) (\s@DescribeVirtualGateway' {} a -> s {meshOwner = a} :: DescribeVirtualGateway)

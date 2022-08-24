@@ -58,9 +58,9 @@ data UpdateVirtualService = UpdateVirtualService'
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh that the virtual service resides in.
@@ -85,9 +85,9 @@ data UpdateVirtualService = UpdateVirtualService'
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
 --
--- 'meshOwner', 'updateVirtualService_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'updateVirtualService_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'updateVirtualService_meshName' - The name of the service mesh that the virtual service resides in.
@@ -123,9 +123,9 @@ newUpdateVirtualService
 updateVirtualService_clientToken :: Lens.Lens' UpdateVirtualService (Prelude.Maybe Prelude.Text)
 updateVirtualService_clientToken = Lens.lens (\UpdateVirtualService' {clientToken} -> clientToken) (\s@UpdateVirtualService' {} a -> s {clientToken = a} :: UpdateVirtualService)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 updateVirtualService_meshOwner :: Lens.Lens' UpdateVirtualService (Prelude.Maybe Prelude.Text)
 updateVirtualService_meshOwner = Lens.lens (\UpdateVirtualService' {meshOwner} -> meshOwner) (\s@UpdateVirtualService' {} a -> s {meshOwner = a} :: UpdateVirtualService)

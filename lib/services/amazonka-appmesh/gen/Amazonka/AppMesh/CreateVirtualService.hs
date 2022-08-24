@@ -75,10 +75,10 @@ data CreateVirtualService = CreateVirtualService'
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then the account that you specify must share the mesh with
-    -- your account before you can create the resource in the service mesh. For
-    -- more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then the account that you specify must share
+    -- the mesh with your account before you can create the resource in the
+    -- service mesh. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh to create the virtual service in.
@@ -108,10 +108,10 @@ data CreateVirtualService = CreateVirtualService'
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
 --
--- 'meshOwner', 'createVirtualService_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then the account that you specify must share the mesh with
--- your account before you can create the resource in the service mesh. For
--- more information about mesh sharing, see
+-- 'meshOwner', 'createVirtualService_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then the account that you specify must share
+-- the mesh with your account before you can create the resource in the
+-- service mesh. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'createVirtualService_meshName' - The name of the service mesh to create the virtual service in.
@@ -154,10 +154,10 @@ createVirtualService_tags = Lens.lens (\CreateVirtualService' {tags} -> tags) (\
 createVirtualService_clientToken :: Lens.Lens' CreateVirtualService (Prelude.Maybe Prelude.Text)
 createVirtualService_clientToken = Lens.lens (\CreateVirtualService' {clientToken} -> clientToken) (\s@CreateVirtualService' {} a -> s {clientToken = a} :: CreateVirtualService)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then the account that you specify must share the mesh with
--- your account before you can create the resource in the service mesh. For
--- more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then the account that you specify must share
+-- the mesh with your account before you can create the resource in the
+-- service mesh. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 createVirtualService_meshOwner :: Lens.Lens' CreateVirtualService (Prelude.Maybe Prelude.Text)
 createVirtualService_meshOwner = Lens.lens (\CreateVirtualService' {meshOwner} -> meshOwner) (\s@CreateVirtualService' {} a -> s {meshOwner = a} :: CreateVirtualService)

@@ -73,10 +73,10 @@ data CreateVirtualGateway = CreateVirtualGateway'
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then the account that you specify must share the mesh with
-    -- your account before you can create the resource in the service mesh. For
-    -- more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then the account that you specify must share
+    -- the mesh with your account before you can create the resource in the
+    -- service mesh. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh to create the virtual gateway in.
@@ -106,10 +106,10 @@ data CreateVirtualGateway = CreateVirtualGateway'
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
 --
--- 'meshOwner', 'createVirtualGateway_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then the account that you specify must share the mesh with
--- your account before you can create the resource in the service mesh. For
--- more information about mesh sharing, see
+-- 'meshOwner', 'createVirtualGateway_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then the account that you specify must share
+-- the mesh with your account before you can create the resource in the
+-- service mesh. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'createVirtualGateway_meshName' - The name of the service mesh to create the virtual gateway in.
@@ -152,10 +152,10 @@ createVirtualGateway_tags = Lens.lens (\CreateVirtualGateway' {tags} -> tags) (\
 createVirtualGateway_clientToken :: Lens.Lens' CreateVirtualGateway (Prelude.Maybe Prelude.Text)
 createVirtualGateway_clientToken = Lens.lens (\CreateVirtualGateway' {clientToken} -> clientToken) (\s@CreateVirtualGateway' {} a -> s {clientToken = a} :: CreateVirtualGateway)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then the account that you specify must share the mesh with
--- your account before you can create the resource in the service mesh. For
--- more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then the account that you specify must share
+-- the mesh with your account before you can create the resource in the
+-- service mesh. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 createVirtualGateway_meshOwner :: Lens.Lens' CreateVirtualGateway (Prelude.Maybe Prelude.Text)
 createVirtualGateway_meshOwner = Lens.lens (\CreateVirtualGateway' {meshOwner} -> meshOwner) (\s@CreateVirtualGateway' {} a -> s {meshOwner = a} :: CreateVirtualGateway)

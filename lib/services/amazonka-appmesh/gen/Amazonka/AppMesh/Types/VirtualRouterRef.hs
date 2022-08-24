@@ -36,14 +36,15 @@ data VirtualRouterRef = VirtualRouterRef'
     lastUpdatedAt :: Core.POSIX,
     -- | The name of the service mesh that the virtual router resides in.
     meshName :: Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Text,
-    -- | The AWS IAM account ID of the resource owner. If the account ID is not
-    -- your own, then it\'s the ID of the mesh owner or of another account that
-    -- the mesh is shared with. For more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the resource owner. If the
+    -- account ID is not your own, then it\'s the ID of the mesh owner or of
+    -- another account that the mesh is shared with. For more information about
+    -- mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     resourceOwner :: Prelude.Text,
     -- | The version of the resource. Resources are created at version 1, and
@@ -71,14 +72,15 @@ data VirtualRouterRef = VirtualRouterRef'
 --
 -- 'meshName', 'virtualRouterRef_meshName' - The name of the service mesh that the virtual router resides in.
 --
--- 'meshOwner', 'virtualRouterRef_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'virtualRouterRef_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
--- 'resourceOwner', 'virtualRouterRef_resourceOwner' - The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- 'resourceOwner', 'virtualRouterRef_resourceOwner' - The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'version', 'virtualRouterRef_version' - The version of the resource. Resources are created at version 1, and
@@ -140,16 +142,17 @@ virtualRouterRef_lastUpdatedAt = Lens.lens (\VirtualRouterRef' {lastUpdatedAt} -
 virtualRouterRef_meshName :: Lens.Lens' VirtualRouterRef Prelude.Text
 virtualRouterRef_meshName = Lens.lens (\VirtualRouterRef' {meshName} -> meshName) (\s@VirtualRouterRef' {} a -> s {meshName = a} :: VirtualRouterRef)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 virtualRouterRef_meshOwner :: Lens.Lens' VirtualRouterRef Prelude.Text
 virtualRouterRef_meshOwner = Lens.lens (\VirtualRouterRef' {meshOwner} -> meshOwner) (\s@VirtualRouterRef' {} a -> s {meshOwner = a} :: VirtualRouterRef)
 
--- | The AWS IAM account ID of the resource owner. If the account ID is not
--- your own, then it\'s the ID of the mesh owner or of another account that
--- the mesh is shared with. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the resource owner. If the
+-- account ID is not your own, then it\'s the ID of the mesh owner or of
+-- another account that the mesh is shared with. For more information about
+-- mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 virtualRouterRef_resourceOwner :: Lens.Lens' VirtualRouterRef Prelude.Text
 virtualRouterRef_resourceOwner = Lens.lens (\VirtualRouterRef' {resourceOwner} -> resourceOwner) (\s@VirtualRouterRef' {} a -> s {resourceOwner = a} :: VirtualRouterRef)

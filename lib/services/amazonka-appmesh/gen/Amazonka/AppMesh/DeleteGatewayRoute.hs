@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteGatewayRoute' smart constructor.
 data DeleteGatewayRoute = DeleteGatewayRoute'
-  { -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+  { -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the gateway route to delete.
@@ -73,9 +73,9 @@ data DeleteGatewayRoute = DeleteGatewayRoute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'meshOwner', 'deleteGatewayRoute_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'deleteGatewayRoute_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'gatewayRouteName', 'deleteGatewayRoute_gatewayRouteName' - The name of the gateway route to delete.
@@ -102,9 +102,9 @@ newDeleteGatewayRoute
         virtualGatewayName = pVirtualGatewayName_
       }
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 deleteGatewayRoute_meshOwner :: Lens.Lens' DeleteGatewayRoute (Prelude.Maybe Prelude.Text)
 deleteGatewayRoute_meshOwner = Lens.lens (\DeleteGatewayRoute' {meshOwner} -> meshOwner) (\s@DeleteGatewayRoute' {} a -> s {meshOwner = a} :: DeleteGatewayRoute)

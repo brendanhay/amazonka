@@ -55,9 +55,9 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteVirtualNode' smart constructor.
 data DeleteVirtualNode = DeleteVirtualNode'
-  { -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then it\'s the ID of the account that shared the mesh with
-    -- your account. For more information about mesh sharing, see
+  { -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then it\'s the ID of the account that shared
+    -- the mesh with your account. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh to delete the virtual node in.
@@ -75,9 +75,9 @@ data DeleteVirtualNode = DeleteVirtualNode'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'meshOwner', 'deleteVirtualNode_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- 'meshOwner', 'deleteVirtualNode_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'deleteVirtualNode_meshName' - The name of the service mesh to delete the virtual node in.
@@ -96,9 +96,9 @@ newDeleteVirtualNode pMeshName_ pVirtualNodeName_ =
       virtualNodeName = pVirtualNodeName_
     }
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then it\'s the ID of the account that shared the mesh with
--- your account. For more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then it\'s the ID of the account that shared
+-- the mesh with your account. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 deleteVirtualNode_meshOwner :: Lens.Lens' DeleteVirtualNode (Prelude.Maybe Prelude.Text)
 deleteVirtualNode_meshOwner = Lens.lens (\DeleteVirtualNode' {meshOwner} -> meshOwner) (\s@DeleteVirtualNode' {} a -> s {meshOwner = a} :: DeleteVirtualNode)

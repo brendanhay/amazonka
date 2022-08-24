@@ -50,7 +50,7 @@
 -- You must be using @1.15.0@ or later of the Envoy image when setting
 -- these variables. For more information aboutApp Mesh Envoy variables, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/envoy.html Envoy image>
--- in the AWS App Mesh User Guide.
+-- in the App Mesh User Guide.
 module Amazonka.AppMesh.CreateVirtualNode
   ( -- * Creating a Request
     CreateVirtualNode (..),
@@ -95,10 +95,10 @@ data CreateVirtualNode = CreateVirtualNode'
     -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
     -- underscores are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS IAM account ID of the service mesh owner. If the account ID is
-    -- not your own, then the account that you specify must share the mesh with
-    -- your account before you can create the resource in the service mesh. For
-    -- more information about mesh sharing, see
+    -- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+    -- account ID is not your own, then the account that you specify must share
+    -- the mesh with your account before you can create the resource in the
+    -- service mesh. For more information about mesh sharing, see
     -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
     meshOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the service mesh to create the virtual node in.
@@ -128,10 +128,10 @@ data CreateVirtualNode = CreateVirtualNode'
 -- idempotency of the request. Up to 36 letters, numbers, hyphens, and
 -- underscores are allowed.
 --
--- 'meshOwner', 'createVirtualNode_meshOwner' - The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then the account that you specify must share the mesh with
--- your account before you can create the resource in the service mesh. For
--- more information about mesh sharing, see
+-- 'meshOwner', 'createVirtualNode_meshOwner' - The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then the account that you specify must share
+-- the mesh with your account before you can create the resource in the
+-- service mesh. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 --
 -- 'meshName', 'createVirtualNode_meshName' - The name of the service mesh to create the virtual node in.
@@ -174,10 +174,10 @@ createVirtualNode_tags = Lens.lens (\CreateVirtualNode' {tags} -> tags) (\s@Crea
 createVirtualNode_clientToken :: Lens.Lens' CreateVirtualNode (Prelude.Maybe Prelude.Text)
 createVirtualNode_clientToken = Lens.lens (\CreateVirtualNode' {clientToken} -> clientToken) (\s@CreateVirtualNode' {} a -> s {clientToken = a} :: CreateVirtualNode)
 
--- | The AWS IAM account ID of the service mesh owner. If the account ID is
--- not your own, then the account that you specify must share the mesh with
--- your account before you can create the resource in the service mesh. For
--- more information about mesh sharing, see
+-- | The Amazon Web Services IAM account ID of the service mesh owner. If the
+-- account ID is not your own, then the account that you specify must share
+-- the mesh with your account before you can create the resource in the
+-- service mesh. For more information about mesh sharing, see
 -- <https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html Working with shared meshes>.
 createVirtualNode_meshOwner :: Lens.Lens' CreateVirtualNode (Prelude.Maybe Prelude.Text)
 createVirtualNode_meshOwner = Lens.lens (\CreateVirtualNode' {meshOwner} -> meshOwner) (\s@CreateVirtualNode' {} a -> s {meshOwner = a} :: CreateVirtualNode)

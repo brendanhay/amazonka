@@ -20,6 +20,7 @@
 module Amazonka.AppMesh.Types.TcpRoute where
 
 import Amazonka.AppMesh.Types.TcpRouteAction
+import Amazonka.AppMesh.Types.TcpRouteMatch
 import Amazonka.AppMesh.Types.TcpTimeout
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -31,6 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data TcpRoute = TcpRoute'
   { -- | An object that represents types of timeouts.
     timeout :: Prelude.Maybe TcpTimeout,
+    -- | An object that represents the criteria for determining a request match.
+    match :: Prelude.Maybe TcpRouteMatch,
     -- | The action to take if a match is determined.
     action :: TcpRouteAction
   }
@@ -46,6 +49,8 @@ data TcpRoute = TcpRoute'
 --
 -- 'timeout', 'tcpRoute_timeout' - An object that represents types of timeouts.
 --
+-- 'match', 'tcpRoute_match' - An object that represents the criteria for determining a request match.
+--
 -- 'action', 'tcpRoute_action' - The action to take if a match is determined.
 newTcpRoute ::
   -- | 'action'
@@ -54,12 +59,17 @@ newTcpRoute ::
 newTcpRoute pAction_ =
   TcpRoute'
     { timeout = Prelude.Nothing,
+      match = Prelude.Nothing,
       action = pAction_
     }
 
 -- | An object that represents types of timeouts.
 tcpRoute_timeout :: Lens.Lens' TcpRoute (Prelude.Maybe TcpTimeout)
 tcpRoute_timeout = Lens.lens (\TcpRoute' {timeout} -> timeout) (\s@TcpRoute' {} a -> s {timeout = a} :: TcpRoute)
+
+-- | An object that represents the criteria for determining a request match.
+tcpRoute_match :: Lens.Lens' TcpRoute (Prelude.Maybe TcpRouteMatch)
+tcpRoute_match = Lens.lens (\TcpRoute' {match} -> match) (\s@TcpRoute' {} a -> s {match = a} :: TcpRoute)
 
 -- | The action to take if a match is determined.
 tcpRoute_action :: Lens.Lens' TcpRoute TcpRouteAction
@@ -72,17 +82,20 @@ instance Core.FromJSON TcpRoute where
       ( \x ->
           TcpRoute'
             Prelude.<$> (x Core..:? "timeout")
+            Prelude.<*> (x Core..:? "match")
             Prelude.<*> (x Core..: "action")
       )
 
 instance Prelude.Hashable TcpRoute where
   hashWithSalt _salt TcpRoute' {..} =
     _salt `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` match
       `Prelude.hashWithSalt` action
 
 instance Prelude.NFData TcpRoute where
   rnf TcpRoute' {..} =
     Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf match
       `Prelude.seq` Prelude.rnf action
 
 instance Core.ToJSON TcpRoute where
@@ -90,6 +103,7 @@ instance Core.ToJSON TcpRoute where
     Core.object
       ( Prelude.catMaybes
           [ ("timeout" Core..=) Prelude.<$> timeout,
+            ("match" Core..=) Prelude.<$> match,
             Prelude.Just ("action" Core..= action)
           ]
       )

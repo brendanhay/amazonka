@@ -134,6 +134,8 @@ library
     Amazonka.AppMesh.Types.HttpRouteMatch
     Amazonka.AppMesh.Types.HttpScheme
     Amazonka.AppMesh.Types.HttpTimeout
+    Amazonka.AppMesh.Types.IpPreference
+    Amazonka.AppMesh.Types.JsonFormatRef
     Amazonka.AppMesh.Types.Listener
     Amazonka.AppMesh.Types.ListenerTimeout
     Amazonka.AppMesh.Types.ListenerTls
@@ -145,9 +147,11 @@ library
     Amazonka.AppMesh.Types.ListenerTlsValidationContext
     Amazonka.AppMesh.Types.ListenerTlsValidationContextTrust
     Amazonka.AppMesh.Types.Logging
+    Amazonka.AppMesh.Types.LoggingFormat
     Amazonka.AppMesh.Types.MatchRange
     Amazonka.AppMesh.Types.MeshData
     Amazonka.AppMesh.Types.MeshRef
+    Amazonka.AppMesh.Types.MeshServiceDiscovery
     Amazonka.AppMesh.Types.MeshSpec
     Amazonka.AppMesh.Types.MeshStatus
     Amazonka.AppMesh.Types.MeshStatusCode
@@ -168,6 +172,7 @@ library
     Amazonka.AppMesh.Types.TcpRetryPolicyEvent
     Amazonka.AppMesh.Types.TcpRoute
     Amazonka.AppMesh.Types.TcpRouteAction
+    Amazonka.AppMesh.Types.TcpRouteMatch
     Amazonka.AppMesh.Types.TcpTimeout
     Amazonka.AppMesh.Types.TlsValidationContext
     Amazonka.AppMesh.Types.TlsValidationContextAcmTrust

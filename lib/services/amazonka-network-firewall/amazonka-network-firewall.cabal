@@ -58,6 +58,7 @@ library
     Amazonka.NetworkFirewall.DescribeLoggingConfiguration
     Amazonka.NetworkFirewall.DescribeResourcePolicy
     Amazonka.NetworkFirewall.DescribeRuleGroup
+    Amazonka.NetworkFirewall.DescribeRuleGroupMetadata
     Amazonka.NetworkFirewall.DisassociateSubnets
     Amazonka.NetworkFirewall.Lens
     Amazonka.NetworkFirewall.ListFirewallPolicies
@@ -71,9 +72,13 @@ library
     Amazonka.NetworkFirewall.Types.Address
     Amazonka.NetworkFirewall.Types.Attachment
     Amazonka.NetworkFirewall.Types.AttachmentStatus
+    Amazonka.NetworkFirewall.Types.CapacityUsageSummary
+    Amazonka.NetworkFirewall.Types.CIDRSummary
     Amazonka.NetworkFirewall.Types.ConfigurationSyncState
     Amazonka.NetworkFirewall.Types.CustomAction
     Amazonka.NetworkFirewall.Types.Dimension
+    Amazonka.NetworkFirewall.Types.EncryptionConfiguration
+    Amazonka.NetworkFirewall.Types.EncryptionType
     Amazonka.NetworkFirewall.Types.Firewall
     Amazonka.NetworkFirewall.Types.FirewallMetadata
     Amazonka.NetworkFirewall.Types.FirewallPolicy
@@ -84,16 +89,22 @@ library
     Amazonka.NetworkFirewall.Types.GeneratedRulesType
     Amazonka.NetworkFirewall.Types.Header
     Amazonka.NetworkFirewall.Types.IPSet
+    Amazonka.NetworkFirewall.Types.IPSetMetadata
+    Amazonka.NetworkFirewall.Types.IPSetReference
     Amazonka.NetworkFirewall.Types.LogDestinationConfig
     Amazonka.NetworkFirewall.Types.LogDestinationType
     Amazonka.NetworkFirewall.Types.LoggingConfiguration
     Amazonka.NetworkFirewall.Types.LogType
     Amazonka.NetworkFirewall.Types.MatchAttributes
+    Amazonka.NetworkFirewall.Types.OverrideAction
     Amazonka.NetworkFirewall.Types.PerObjectStatus
     Amazonka.NetworkFirewall.Types.PerObjectSyncStatus
     Amazonka.NetworkFirewall.Types.PortRange
     Amazonka.NetworkFirewall.Types.PortSet
     Amazonka.NetworkFirewall.Types.PublishMetricAction
+    Amazonka.NetworkFirewall.Types.ReferenceSets
+    Amazonka.NetworkFirewall.Types.ResourceManagedStatus
+    Amazonka.NetworkFirewall.Types.ResourceManagedType
     Amazonka.NetworkFirewall.Types.ResourceStatus
     Amazonka.NetworkFirewall.Types.RuleDefinition
     Amazonka.NetworkFirewall.Types.RuleGroup
@@ -105,10 +116,12 @@ library
     Amazonka.NetworkFirewall.Types.RulesSource
     Amazonka.NetworkFirewall.Types.RulesSourceList
     Amazonka.NetworkFirewall.Types.RuleVariables
+    Amazonka.NetworkFirewall.Types.SourceMetadata
     Amazonka.NetworkFirewall.Types.StatefulAction
     Amazonka.NetworkFirewall.Types.StatefulEngineOptions
     Amazonka.NetworkFirewall.Types.StatefulRule
     Amazonka.NetworkFirewall.Types.StatefulRuleDirection
+    Amazonka.NetworkFirewall.Types.StatefulRuleGroupOverride
     Amazonka.NetworkFirewall.Types.StatefulRuleGroupReference
     Amazonka.NetworkFirewall.Types.StatefulRuleOptions
     Amazonka.NetworkFirewall.Types.StatefulRuleProtocol
@@ -124,6 +137,7 @@ library
     Amazonka.NetworkFirewall.UntagResource
     Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
     Amazonka.NetworkFirewall.UpdateFirewallDescription
+    Amazonka.NetworkFirewall.UpdateFirewallEncryptionConfiguration
     Amazonka.NetworkFirewall.UpdateFirewallPolicy
     Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
     Amazonka.NetworkFirewall.UpdateLoggingConfiguration

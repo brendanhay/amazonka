@@ -30,6 +30,7 @@ module Amazonka.NetworkFirewall.UpdateFirewallPolicy
     updateFirewallPolicy_firewallPolicyName,
     updateFirewallPolicy_description,
     updateFirewallPolicy_dryRun,
+    updateFirewallPolicy_encryptionConfiguration,
     updateFirewallPolicy_firewallPolicyArn,
     updateFirewallPolicy_updateToken,
     updateFirewallPolicy_firewallPolicy,
@@ -75,6 +76,9 @@ data UpdateFirewallPolicy = UpdateFirewallPolicy'
     -- If set to @FALSE@, Network Firewall makes the requested changes to your
     -- resources.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | A complex type that contains settings for encryption of your firewall
+    -- policy resources.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The Amazon Resource Name (ARN) of the firewall policy.
     --
     -- You must specify the ARN or the name, and you can specify both.
@@ -125,6 +129,9 @@ data UpdateFirewallPolicy = UpdateFirewallPolicy'
 -- If set to @FALSE@, Network Firewall makes the requested changes to your
 -- resources.
 --
+-- 'encryptionConfiguration', 'updateFirewallPolicy_encryptionConfiguration' - A complex type that contains settings for encryption of your firewall
+-- policy resources.
+--
 -- 'firewallPolicyArn', 'updateFirewallPolicy_firewallPolicyArn' - The Amazon Resource Name (ARN) of the firewall policy.
 --
 -- You must specify the ARN or the name, and you can specify both.
@@ -156,6 +163,7 @@ newUpdateFirewallPolicy
           Prelude.Nothing,
         description = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        encryptionConfiguration = Prelude.Nothing,
         firewallPolicyArn = Prelude.Nothing,
         updateToken = pUpdateToken_,
         firewallPolicy = pFirewallPolicy_
@@ -187,6 +195,11 @@ updateFirewallPolicy_description = Lens.lens (\UpdateFirewallPolicy' {descriptio
 -- resources.
 updateFirewallPolicy_dryRun :: Lens.Lens' UpdateFirewallPolicy (Prelude.Maybe Prelude.Bool)
 updateFirewallPolicy_dryRun = Lens.lens (\UpdateFirewallPolicy' {dryRun} -> dryRun) (\s@UpdateFirewallPolicy' {} a -> s {dryRun = a} :: UpdateFirewallPolicy)
+
+-- | A complex type that contains settings for encryption of your firewall
+-- policy resources.
+updateFirewallPolicy_encryptionConfiguration :: Lens.Lens' UpdateFirewallPolicy (Prelude.Maybe EncryptionConfiguration)
+updateFirewallPolicy_encryptionConfiguration = Lens.lens (\UpdateFirewallPolicy' {encryptionConfiguration} -> encryptionConfiguration) (\s@UpdateFirewallPolicy' {} a -> s {encryptionConfiguration = a} :: UpdateFirewallPolicy)
 
 -- | The Amazon Resource Name (ARN) of the firewall policy.
 --
@@ -231,6 +244,7 @@ instance Prelude.Hashable UpdateFirewallPolicy where
     _salt `Prelude.hashWithSalt` firewallPolicyName
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` firewallPolicyArn
       `Prelude.hashWithSalt` updateToken
       `Prelude.hashWithSalt` firewallPolicy
@@ -240,6 +254,7 @@ instance Prelude.NFData UpdateFirewallPolicy where
     Prelude.rnf firewallPolicyName
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf firewallPolicyArn
       `Prelude.seq` Prelude.rnf updateToken
       `Prelude.seq` Prelude.rnf firewallPolicy
@@ -267,6 +282,8 @@ instance Core.ToJSON UpdateFirewallPolicy where
               Prelude.<$> firewallPolicyName,
             ("Description" Core..=) Prelude.<$> description,
             ("DryRun" Core..=) Prelude.<$> dryRun,
+            ("EncryptionConfiguration" Core..=)
+              Prelude.<$> encryptionConfiguration,
             ("FirewallPolicyArn" Core..=)
               Prelude.<$> firewallPolicyArn,
             Prelude.Just ("UpdateToken" Core..= updateToken),

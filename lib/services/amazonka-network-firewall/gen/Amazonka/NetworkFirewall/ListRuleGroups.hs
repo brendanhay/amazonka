@@ -32,7 +32,10 @@ module Amazonka.NetworkFirewall.ListRuleGroups
 
     -- * Request Lenses
     listRuleGroups_nextToken,
+    listRuleGroups_type,
+    listRuleGroups_managedType,
     listRuleGroups_maxResults,
+    listRuleGroups_scope,
 
     -- * Destructuring the Response
     ListRuleGroupsResponse (..),
@@ -60,11 +63,22 @@ data ListRuleGroups = ListRuleGroups'
     -- the response. To retrieve the next batch of objects, use the token
     -- returned from the prior request in your next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether the rule group is stateless or stateful. If the rule
+    -- group is stateless, it contains stateless rules. If it is stateful, it
+    -- contains stateful rules.
+    type' :: Prelude.Maybe RuleGroupType,
+    -- | Indicates the general category of the Amazon Web Services managed rule
+    -- group.
+    managedType :: Prelude.Maybe ResourceManagedType,
     -- | The maximum number of objects that you want Network Firewall to return
     -- for this request. If more objects are available, in the response,
     -- Network Firewall provides a @NextToken@ value that you can use in a
     -- subsequent call to get the next batch of objects.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The scope of the request. The default setting of @ACCOUNT@ or a setting
+    -- of @NULL@ returns all of the rule groups in your account. A setting of
+    -- @MANAGED@ returns all available managed rule groups.
+    scope :: Prelude.Maybe ResourceManagedStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -82,16 +96,30 @@ data ListRuleGroups = ListRuleGroups'
 -- the response. To retrieve the next batch of objects, use the token
 -- returned from the prior request in your next request.
 --
+-- 'type'', 'listRuleGroups_type' - Indicates whether the rule group is stateless or stateful. If the rule
+-- group is stateless, it contains stateless rules. If it is stateful, it
+-- contains stateful rules.
+--
+-- 'managedType', 'listRuleGroups_managedType' - Indicates the general category of the Amazon Web Services managed rule
+-- group.
+--
 -- 'maxResults', 'listRuleGroups_maxResults' - The maximum number of objects that you want Network Firewall to return
 -- for this request. If more objects are available, in the response,
 -- Network Firewall provides a @NextToken@ value that you can use in a
 -- subsequent call to get the next batch of objects.
+--
+-- 'scope', 'listRuleGroups_scope' - The scope of the request. The default setting of @ACCOUNT@ or a setting
+-- of @NULL@ returns all of the rule groups in your account. A setting of
+-- @MANAGED@ returns all available managed rule groups.
 newListRuleGroups ::
   ListRuleGroups
 newListRuleGroups =
   ListRuleGroups'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      type' = Prelude.Nothing,
+      managedType = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      scope = Prelude.Nothing
     }
 
 -- | When you request a list of objects with a @MaxResults@ setting, if the
@@ -102,12 +130,29 @@ newListRuleGroups =
 listRuleGroups_nextToken :: Lens.Lens' ListRuleGroups (Prelude.Maybe Prelude.Text)
 listRuleGroups_nextToken = Lens.lens (\ListRuleGroups' {nextToken} -> nextToken) (\s@ListRuleGroups' {} a -> s {nextToken = a} :: ListRuleGroups)
 
+-- | Indicates whether the rule group is stateless or stateful. If the rule
+-- group is stateless, it contains stateless rules. If it is stateful, it
+-- contains stateful rules.
+listRuleGroups_type :: Lens.Lens' ListRuleGroups (Prelude.Maybe RuleGroupType)
+listRuleGroups_type = Lens.lens (\ListRuleGroups' {type'} -> type') (\s@ListRuleGroups' {} a -> s {type' = a} :: ListRuleGroups)
+
+-- | Indicates the general category of the Amazon Web Services managed rule
+-- group.
+listRuleGroups_managedType :: Lens.Lens' ListRuleGroups (Prelude.Maybe ResourceManagedType)
+listRuleGroups_managedType = Lens.lens (\ListRuleGroups' {managedType} -> managedType) (\s@ListRuleGroups' {} a -> s {managedType = a} :: ListRuleGroups)
+
 -- | The maximum number of objects that you want Network Firewall to return
 -- for this request. If more objects are available, in the response,
 -- Network Firewall provides a @NextToken@ value that you can use in a
 -- subsequent call to get the next batch of objects.
 listRuleGroups_maxResults :: Lens.Lens' ListRuleGroups (Prelude.Maybe Prelude.Natural)
 listRuleGroups_maxResults = Lens.lens (\ListRuleGroups' {maxResults} -> maxResults) (\s@ListRuleGroups' {} a -> s {maxResults = a} :: ListRuleGroups)
+
+-- | The scope of the request. The default setting of @ACCOUNT@ or a setting
+-- of @NULL@ returns all of the rule groups in your account. A setting of
+-- @MANAGED@ returns all available managed rule groups.
+listRuleGroups_scope :: Lens.Lens' ListRuleGroups (Prelude.Maybe ResourceManagedStatus)
+listRuleGroups_scope = Lens.lens (\ListRuleGroups' {scope} -> scope) (\s@ListRuleGroups' {} a -> s {scope = a} :: ListRuleGroups)
 
 instance Core.AWSPager ListRuleGroups where
   page rq rs
@@ -147,12 +192,18 @@ instance Core.AWSRequest ListRuleGroups where
 instance Prelude.Hashable ListRuleGroups where
   hashWithSalt _salt ListRuleGroups' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` managedType
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` scope
 
 instance Prelude.NFData ListRuleGroups where
   rnf ListRuleGroups' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf managedType
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf scope
 
 instance Core.ToHeaders ListRuleGroups where
   toHeaders =
@@ -174,7 +225,10 @@ instance Core.ToJSON ListRuleGroups where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("MaxResults" Core..=) Prelude.<$> maxResults
+            ("Type" Core..=) Prelude.<$> type',
+            ("ManagedType" Core..=) Prelude.<$> managedType,
+            ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Scope" Core..=) Prelude.<$> scope
           ]
       )
 

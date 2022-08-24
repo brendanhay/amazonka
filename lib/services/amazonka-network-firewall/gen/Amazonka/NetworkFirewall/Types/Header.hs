@@ -25,14 +25,14 @@ import Amazonka.NetworkFirewall.Types.StatefulRuleDirection
 import Amazonka.NetworkFirewall.Types.StatefulRuleProtocol
 import qualified Amazonka.Prelude as Prelude
 
--- | The basic rule criteria for AWS Network Firewall to use to inspect
--- packet headers in stateful traffic flow inspection. Traffic flows that
--- match the criteria are a match for the corresponding StatefulRule.
+-- | The basic rule criteria for Network Firewall to use to inspect packet
+-- headers in stateful traffic flow inspection. Traffic flows that match
+-- the criteria are a match for the corresponding StatefulRule.
 --
 -- /See:/ 'newHeader' smart constructor.
 data Header = Header'
   { -- | The protocol to inspect for. To specify all, you can use @IP@, because
-    -- all traffic on AWS and on the internet is IP.
+    -- all traffic on Amazon Web Services and on the internet is IP.
     protocol :: StatefulRuleProtocol,
     -- | The source IP address or address range to inspect for, in CIDR notation.
     -- To match with any address, specify @ANY@.
@@ -96,7 +96,7 @@ data Header = Header'
 -- for backwards compatibility:
 --
 -- 'protocol', 'header_protocol' - The protocol to inspect for. To specify all, you can use @IP@, because
--- all traffic on AWS and on the internet is IP.
+-- all traffic on Amazon Web Services and on the internet is IP.
 --
 -- 'source', 'header_source' - The source IP address or address range to inspect for, in CIDR notation.
 -- To match with any address, specify @ANY@.
@@ -178,7 +178,7 @@ newHeader
       }
 
 -- | The protocol to inspect for. To specify all, you can use @IP@, because
--- all traffic on AWS and on the internet is IP.
+-- all traffic on Amazon Web Services and on the internet is IP.
 header_protocol :: Lens.Lens' Header StatefulRuleProtocol
 header_protocol = Lens.lens (\Header' {protocol} -> protocol) (\s@Header' {} a -> s {protocol = a} :: Header)
 

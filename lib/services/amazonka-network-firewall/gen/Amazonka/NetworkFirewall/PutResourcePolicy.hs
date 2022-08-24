@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates an AWS Identity and Access Management policy for your
--- rule group or firewall policy. Use this to share rule groups and
--- firewall policies between accounts. This operation works in conjunction
--- with the AWS Resource Access Manager (RAM) service to manage resource
--- sharing for Network Firewall.
+-- Creates or updates an IAM policy for your rule group or firewall policy.
+-- Use this to share rule groups and firewall policies between accounts.
+-- This operation works in conjunction with the Amazon Web Services
+-- Resource Access Manager (RAM) service to manage resource sharing for
+-- Network Firewall.
 --
 -- Use this operation to create or update a resource policy for your rule
 -- group or firewall policy. In the policy, you specify the accounts that
@@ -43,7 +43,7 @@
 --     - Accepts the share invitation for a specified resource share.
 --
 -- For additional information about resource sharing using RAM, see
--- <https://docs.aws.amazon.com/ram/latest/userguide/what-is.html AWS Resource Access Manager User Guide>.
+-- <https://docs.aws.amazon.com/ram/latest/userguide/what-is.html Resource Access Manager User Guide>.
 module Amazonka.NetworkFirewall.PutResourcePolicy
   ( -- * Creating a Request
     PutResourcePolicy (..),
@@ -74,9 +74,9 @@ data PutResourcePolicy = PutResourcePolicy'
   { -- | The Amazon Resource Name (ARN) of the account that you want to share
     -- rule groups and firewall policies with.
     resourceArn :: Prelude.Text,
-    -- | The AWS Identity and Access Management policy statement that lists the
-    -- accounts that you want to share your rule group or firewall policy with
-    -- and the operations that you want the accounts to be able to perform.
+    -- | The IAM policy statement that lists the accounts that you want to share
+    -- your rule group or firewall policy with and the operations that you want
+    -- the accounts to be able to perform.
     --
     -- For a rule group resource, you can specify the following operations in
     -- the Actions section of the statement:
@@ -116,9 +116,9 @@ data PutResourcePolicy = PutResourcePolicy'
 -- 'resourceArn', 'putResourcePolicy_resourceArn' - The Amazon Resource Name (ARN) of the account that you want to share
 -- rule groups and firewall policies with.
 --
--- 'policy', 'putResourcePolicy_policy' - The AWS Identity and Access Management policy statement that lists the
--- accounts that you want to share your rule group or firewall policy with
--- and the operations that you want the accounts to be able to perform.
+-- 'policy', 'putResourcePolicy_policy' - The IAM policy statement that lists the accounts that you want to share
+-- your rule group or firewall policy with and the operations that you want
+-- the accounts to be able to perform.
 --
 -- For a rule group resource, you can specify the following operations in
 -- the Actions section of the statement:
@@ -160,9 +160,9 @@ newPutResourcePolicy pResourceArn_ pPolicy_ =
 putResourcePolicy_resourceArn :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_resourceArn = Lens.lens (\PutResourcePolicy' {resourceArn} -> resourceArn) (\s@PutResourcePolicy' {} a -> s {resourceArn = a} :: PutResourcePolicy)
 
--- | The AWS Identity and Access Management policy statement that lists the
--- accounts that you want to share your rule group or firewall policy with
--- and the operations that you want the accounts to be able to perform.
+-- | The IAM policy statement that lists the accounts that you want to share
+-- your rule group or firewall policy with and the operations that you want
+-- the accounts to be able to perform.
 --
 -- For a rule group resource, you can specify the following operations in
 -- the Actions section of the statement:

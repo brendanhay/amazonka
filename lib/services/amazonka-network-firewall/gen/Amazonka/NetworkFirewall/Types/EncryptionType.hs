@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.NetworkFirewall.Types.ConfigurationSyncState
+-- Module      : Amazonka.NetworkFirewall.Types.EncryptionType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.NetworkFirewall.Types.ConfigurationSyncState
-  ( ConfigurationSyncState
+module Amazonka.NetworkFirewall.Types.EncryptionType
+  ( EncryptionType
       ( ..,
-        ConfigurationSyncState_CAPACITY_CONSTRAINED,
-        ConfigurationSyncState_IN_SYNC,
-        ConfigurationSyncState_PENDING
+        EncryptionType_AWS_OWNED_KMS_KEY,
+        EncryptionType_CUSTOMER_KMS
       ),
   )
 where
@@ -30,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ConfigurationSyncState = ConfigurationSyncState'
-  { fromConfigurationSyncState ::
+newtype EncryptionType = EncryptionType'
+  { fromEncryptionType ::
       Core.Text
   }
   deriving stock
@@ -58,18 +57,14 @@ newtype ConfigurationSyncState = ConfigurationSyncState'
       Core.ToXML
     )
 
-pattern ConfigurationSyncState_CAPACITY_CONSTRAINED :: ConfigurationSyncState
-pattern ConfigurationSyncState_CAPACITY_CONSTRAINED = ConfigurationSyncState' "CAPACITY_CONSTRAINED"
+pattern EncryptionType_AWS_OWNED_KMS_KEY :: EncryptionType
+pattern EncryptionType_AWS_OWNED_KMS_KEY = EncryptionType' "AWS_OWNED_KMS_KEY"
 
-pattern ConfigurationSyncState_IN_SYNC :: ConfigurationSyncState
-pattern ConfigurationSyncState_IN_SYNC = ConfigurationSyncState' "IN_SYNC"
-
-pattern ConfigurationSyncState_PENDING :: ConfigurationSyncState
-pattern ConfigurationSyncState_PENDING = ConfigurationSyncState' "PENDING"
+pattern EncryptionType_CUSTOMER_KMS :: EncryptionType
+pattern EncryptionType_CUSTOMER_KMS = EncryptionType' "CUSTOMER_KMS"
 
 {-# COMPLETE
-  ConfigurationSyncState_CAPACITY_CONSTRAINED,
-  ConfigurationSyncState_IN_SYNC,
-  ConfigurationSyncState_PENDING,
-  ConfigurationSyncState'
+  EncryptionType_AWS_OWNED_KMS_KEY,
+  EncryptionType_CUSTOMER_KMS,
+  EncryptionType'
   #-}

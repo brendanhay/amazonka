@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.FirewallPolicyResponse where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
 import Amazonka.NetworkFirewall.Types.ResourceStatus
 import Amazonka.NetworkFirewall.Types.Tag
 import qualified Amazonka.Prelude as Prelude
@@ -42,6 +43,11 @@ data FirewallPolicyResponse = FirewallPolicyResponse'
     consumedStatefulRuleCapacity :: Prelude.Maybe Prelude.Int,
     -- | A description of the firewall policy.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The last time that the firewall policy was changed.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | A complex type that contains the Amazon Web Services KMS encryption
+    -- configuration settings for your firewall policy.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The number of firewalls that are associated with this firewall policy.
     numberOfAssociations :: Prelude.Maybe Prelude.Int,
     -- | The number of capacity units currently consumed by the policy\'s
@@ -80,6 +86,11 @@ data FirewallPolicyResponse = FirewallPolicyResponse'
 --
 -- 'description', 'firewallPolicyResponse_description' - A description of the firewall policy.
 --
+-- 'lastModifiedTime', 'firewallPolicyResponse_lastModifiedTime' - The last time that the firewall policy was changed.
+--
+-- 'encryptionConfiguration', 'firewallPolicyResponse_encryptionConfiguration' - A complex type that contains the Amazon Web Services KMS encryption
+-- configuration settings for your firewall policy.
+--
 -- 'numberOfAssociations', 'firewallPolicyResponse_numberOfAssociations' - The number of firewalls that are associated with this firewall policy.
 --
 -- 'consumedStatelessRuleCapacity', 'firewallPolicyResponse_consumedStatelessRuleCapacity' - The number of capacity units currently consumed by the policy\'s
@@ -112,6 +123,8 @@ newFirewallPolicyResponse
         firewallPolicyStatus = Prelude.Nothing,
         consumedStatefulRuleCapacity = Prelude.Nothing,
         description = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        encryptionConfiguration = Prelude.Nothing,
         numberOfAssociations = Prelude.Nothing,
         consumedStatelessRuleCapacity = Prelude.Nothing,
         firewallPolicyName = pFirewallPolicyName_,
@@ -137,6 +150,15 @@ firewallPolicyResponse_consumedStatefulRuleCapacity = Lens.lens (\FirewallPolicy
 -- | A description of the firewall policy.
 firewallPolicyResponse_description :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.Text)
 firewallPolicyResponse_description = Lens.lens (\FirewallPolicyResponse' {description} -> description) (\s@FirewallPolicyResponse' {} a -> s {description = a} :: FirewallPolicyResponse)
+
+-- | The last time that the firewall policy was changed.
+firewallPolicyResponse_lastModifiedTime :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.UTCTime)
+firewallPolicyResponse_lastModifiedTime = Lens.lens (\FirewallPolicyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@FirewallPolicyResponse' {} a -> s {lastModifiedTime = a} :: FirewallPolicyResponse) Prelude.. Lens.mapping Core._Time
+
+-- | A complex type that contains the Amazon Web Services KMS encryption
+-- configuration settings for your firewall policy.
+firewallPolicyResponse_encryptionConfiguration :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe EncryptionConfiguration)
+firewallPolicyResponse_encryptionConfiguration = Lens.lens (\FirewallPolicyResponse' {encryptionConfiguration} -> encryptionConfiguration) (\s@FirewallPolicyResponse' {} a -> s {encryptionConfiguration = a} :: FirewallPolicyResponse)
 
 -- | The number of firewalls that are associated with this firewall policy.
 firewallPolicyResponse_numberOfAssociations :: Lens.Lens' FirewallPolicyResponse (Prelude.Maybe Prelude.Int)
@@ -174,6 +196,8 @@ instance Core.FromJSON FirewallPolicyResponse where
             Prelude.<*> (x Core..:? "FirewallPolicyStatus")
             Prelude.<*> (x Core..:? "ConsumedStatefulRuleCapacity")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "EncryptionConfiguration")
             Prelude.<*> (x Core..:? "NumberOfAssociations")
             Prelude.<*> (x Core..:? "ConsumedStatelessRuleCapacity")
             Prelude.<*> (x Core..: "FirewallPolicyName")
@@ -187,6 +211,8 @@ instance Prelude.Hashable FirewallPolicyResponse where
       `Prelude.hashWithSalt` firewallPolicyStatus
       `Prelude.hashWithSalt` consumedStatefulRuleCapacity
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` numberOfAssociations
       `Prelude.hashWithSalt` consumedStatelessRuleCapacity
       `Prelude.hashWithSalt` firewallPolicyName
@@ -199,6 +225,8 @@ instance Prelude.NFData FirewallPolicyResponse where
       `Prelude.seq` Prelude.rnf firewallPolicyStatus
       `Prelude.seq` Prelude.rnf consumedStatefulRuleCapacity
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf numberOfAssociations
       `Prelude.seq` Prelude.rnf consumedStatelessRuleCapacity
       `Prelude.seq` Prelude.rnf firewallPolicyName

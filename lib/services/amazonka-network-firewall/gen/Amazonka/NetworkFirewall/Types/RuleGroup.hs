@@ -21,6 +21,7 @@ module Amazonka.NetworkFirewall.Types.RuleGroup where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.ReferenceSets
 import Amazonka.NetworkFirewall.Types.RuleVariables
 import Amazonka.NetworkFirewall.Types.RulesSource
 import Amazonka.NetworkFirewall.Types.StatefulRuleOptions
@@ -30,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- RuleGroupResponse, define the rule group. You can retrieve all objects
 -- for a rule group by calling DescribeRuleGroup.
 --
--- AWS Network Firewall uses a rule group to inspect and control network
+-- Network Firewall uses a rule group to inspect and control network
 -- traffic. You define stateless rule groups to inspect individual packets
 -- and you define stateful rule groups to inspect packets in the context of
 -- their traffic flow.
@@ -46,6 +47,8 @@ data RuleGroup = RuleGroup'
     -- rules. The policies where you use your stateful rule group must have
     -- stateful rule options settings that are compatible with these settings.
     statefulRuleOptions :: Prelude.Maybe StatefulRuleOptions,
+    -- | The list of a rule group\'s reference sets.
+    referenceSets :: Prelude.Maybe ReferenceSets,
     -- | Settings that are available for use in the rules in the rule group. You
     -- can only use these for stateful rule groups.
     ruleVariables :: Prelude.Maybe RuleVariables,
@@ -66,6 +69,8 @@ data RuleGroup = RuleGroup'
 -- rules. The policies where you use your stateful rule group must have
 -- stateful rule options settings that are compatible with these settings.
 --
+-- 'referenceSets', 'ruleGroup_referenceSets' - The list of a rule group\'s reference sets.
+--
 -- 'ruleVariables', 'ruleGroup_ruleVariables' - Settings that are available for use in the rules in the rule group. You
 -- can only use these for stateful rule groups.
 --
@@ -77,6 +82,7 @@ newRuleGroup ::
 newRuleGroup pRulesSource_ =
   RuleGroup'
     { statefulRuleOptions = Prelude.Nothing,
+      referenceSets = Prelude.Nothing,
       ruleVariables = Prelude.Nothing,
       rulesSource = pRulesSource_
     }
@@ -86,6 +92,10 @@ newRuleGroup pRulesSource_ =
 -- stateful rule options settings that are compatible with these settings.
 ruleGroup_statefulRuleOptions :: Lens.Lens' RuleGroup (Prelude.Maybe StatefulRuleOptions)
 ruleGroup_statefulRuleOptions = Lens.lens (\RuleGroup' {statefulRuleOptions} -> statefulRuleOptions) (\s@RuleGroup' {} a -> s {statefulRuleOptions = a} :: RuleGroup)
+
+-- | The list of a rule group\'s reference sets.
+ruleGroup_referenceSets :: Lens.Lens' RuleGroup (Prelude.Maybe ReferenceSets)
+ruleGroup_referenceSets = Lens.lens (\RuleGroup' {referenceSets} -> referenceSets) (\s@RuleGroup' {} a -> s {referenceSets = a} :: RuleGroup)
 
 -- | Settings that are available for use in the rules in the rule group. You
 -- can only use these for stateful rule groups.
@@ -103,6 +113,7 @@ instance Core.FromJSON RuleGroup where
       ( \x ->
           RuleGroup'
             Prelude.<$> (x Core..:? "StatefulRuleOptions")
+            Prelude.<*> (x Core..:? "ReferenceSets")
             Prelude.<*> (x Core..:? "RuleVariables")
             Prelude.<*> (x Core..: "RulesSource")
       )
@@ -110,12 +121,14 @@ instance Core.FromJSON RuleGroup where
 instance Prelude.Hashable RuleGroup where
   hashWithSalt _salt RuleGroup' {..} =
     _salt `Prelude.hashWithSalt` statefulRuleOptions
+      `Prelude.hashWithSalt` referenceSets
       `Prelude.hashWithSalt` ruleVariables
       `Prelude.hashWithSalt` rulesSource
 
 instance Prelude.NFData RuleGroup where
   rnf RuleGroup' {..} =
     Prelude.rnf statefulRuleOptions
+      `Prelude.seq` Prelude.rnf referenceSets
       `Prelude.seq` Prelude.rnf ruleVariables
       `Prelude.seq` Prelude.rnf rulesSource
 
@@ -125,6 +138,7 @@ instance Core.ToJSON RuleGroup where
       ( Prelude.catMaybes
           [ ("StatefulRuleOptions" Core..=)
               Prelude.<$> statefulRuleOptions,
+            ("ReferenceSets" Core..=) Prelude.<$> referenceSets,
             ("RuleVariables" Core..=) Prelude.<$> ruleVariables,
             Prelude.Just ("RulesSource" Core..= rulesSource)
           ]

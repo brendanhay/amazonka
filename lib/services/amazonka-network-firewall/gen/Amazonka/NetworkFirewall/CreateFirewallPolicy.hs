@@ -23,9 +23,9 @@
 -- Creates the firewall policy for the firewall according to the
 -- specifications.
 --
--- An AWS Network Firewall firewall policy defines the behavior of a
--- firewall, in a collection of stateless and stateful rule groups and
--- other settings. You can use one firewall policy for multiple firewalls.
+-- An Network Firewall firewall policy defines the behavior of a firewall,
+-- in a collection of stateless and stateful rule groups and other
+-- settings. You can use one firewall policy for multiple firewalls.
 module Amazonka.NetworkFirewall.CreateFirewallPolicy
   ( -- * Creating a Request
     CreateFirewallPolicy (..),
@@ -35,6 +35,7 @@ module Amazonka.NetworkFirewall.CreateFirewallPolicy
     createFirewallPolicy_tags,
     createFirewallPolicy_description,
     createFirewallPolicy_dryRun,
+    createFirewallPolicy_encryptionConfiguration,
     createFirewallPolicy_firewallPolicyName,
     createFirewallPolicy_firewallPolicy,
 
@@ -76,6 +77,9 @@ data CreateFirewallPolicy = CreateFirewallPolicy'
     -- If set to @FALSE@, Network Firewall makes the requested changes to your
     -- resources.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | A complex type that contains settings for encryption of your firewall
+    -- policy resources.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The descriptive name of the firewall policy. You can\'t change the name
     -- of a firewall policy after you create it.
     firewallPolicyName :: Prelude.Text,
@@ -110,6 +114,9 @@ data CreateFirewallPolicy = CreateFirewallPolicy'
 -- If set to @FALSE@, Network Firewall makes the requested changes to your
 -- resources.
 --
+-- 'encryptionConfiguration', 'createFirewallPolicy_encryptionConfiguration' - A complex type that contains settings for encryption of your firewall
+-- policy resources.
+--
 -- 'firewallPolicyName', 'createFirewallPolicy_firewallPolicyName' - The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
 --
@@ -127,6 +134,7 @@ newCreateFirewallPolicy
       { tags = Prelude.Nothing,
         description = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        encryptionConfiguration = Prelude.Nothing,
         firewallPolicyName = pFirewallPolicyName_,
         firewallPolicy = pFirewallPolicy_
       }
@@ -154,6 +162,11 @@ createFirewallPolicy_description = Lens.lens (\CreateFirewallPolicy' {descriptio
 -- resources.
 createFirewallPolicy_dryRun :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe Prelude.Bool)
 createFirewallPolicy_dryRun = Lens.lens (\CreateFirewallPolicy' {dryRun} -> dryRun) (\s@CreateFirewallPolicy' {} a -> s {dryRun = a} :: CreateFirewallPolicy)
+
+-- | A complex type that contains settings for encryption of your firewall
+-- policy resources.
+createFirewallPolicy_encryptionConfiguration :: Lens.Lens' CreateFirewallPolicy (Prelude.Maybe EncryptionConfiguration)
+createFirewallPolicy_encryptionConfiguration = Lens.lens (\CreateFirewallPolicy' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateFirewallPolicy' {} a -> s {encryptionConfiguration = a} :: CreateFirewallPolicy)
 
 -- | The descriptive name of the firewall policy. You can\'t change the name
 -- of a firewall policy after you create it.
@@ -183,6 +196,7 @@ instance Prelude.Hashable CreateFirewallPolicy where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` firewallPolicyName
       `Prelude.hashWithSalt` firewallPolicy
 
@@ -191,6 +205,7 @@ instance Prelude.NFData CreateFirewallPolicy where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf firewallPolicyName
       `Prelude.seq` Prelude.rnf firewallPolicy
 
@@ -216,6 +231,8 @@ instance Core.ToJSON CreateFirewallPolicy where
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
             ("DryRun" Core..=) Prelude.<$> dryRun,
+            ("EncryptionConfiguration" Core..=)
+              Prelude.<$> encryptionConfiguration,
             Prelude.Just
               ("FirewallPolicyName" Core..= firewallPolicyName),
             Prelude.Just

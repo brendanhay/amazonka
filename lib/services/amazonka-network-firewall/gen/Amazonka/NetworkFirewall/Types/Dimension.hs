@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 -- dimension is a name\/value pair that\'s part of the identity of a
 -- metric.
 --
--- AWS Network Firewall sets the dimension name to @CustomAction@ and you
+-- Network Firewall sets the dimension name to @CustomAction@ and you
 -- provide the dimension value.
 --
 -- For more information about CloudWatch custom metric dimensions, see

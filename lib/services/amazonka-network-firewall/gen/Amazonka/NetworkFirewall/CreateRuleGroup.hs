@@ -36,6 +36,8 @@ module Amazonka.NetworkFirewall.CreateRuleGroup
     createRuleGroup_rules,
     createRuleGroup_description,
     createRuleGroup_dryRun,
+    createRuleGroup_sourceMetadata,
+    createRuleGroup_encryptionConfiguration,
     createRuleGroup_ruleGroupName,
     createRuleGroup_type,
     createRuleGroup_capacity,
@@ -95,6 +97,13 @@ data CreateRuleGroup = CreateRuleGroup'
     -- If set to @FALSE@, Network Firewall makes the requested changes to your
     -- resources.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | A complex type that contains metadata about the rule group that your own
+    -- rule group is copied from. You can use the metadata to keep track of
+    -- updates made to the originating rule group.
+    sourceMetadata :: Prelude.Maybe SourceMetadata,
+    -- | A complex type that contains settings for encryption of your rule group
+    -- resources.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The descriptive name of the rule group. You can\'t change the name of a
     -- rule group after you create it.
     ruleGroupName :: Prelude.Text,
@@ -193,6 +202,13 @@ data CreateRuleGroup = CreateRuleGroup'
 -- If set to @FALSE@, Network Firewall makes the requested changes to your
 -- resources.
 --
+-- 'sourceMetadata', 'createRuleGroup_sourceMetadata' - A complex type that contains metadata about the rule group that your own
+-- rule group is copied from. You can use the metadata to keep track of
+-- updates made to the originating rule group.
+--
+-- 'encryptionConfiguration', 'createRuleGroup_encryptionConfiguration' - A complex type that contains settings for encryption of your rule group
+-- resources.
+--
 -- 'ruleGroupName', 'createRuleGroup_ruleGroupName' - The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
 --
@@ -259,6 +275,8 @@ newCreateRuleGroup pRuleGroupName_ pType_ pCapacity_ =
       rules = Prelude.Nothing,
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      sourceMetadata = Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing,
       ruleGroupName = pRuleGroupName_,
       type' = pType_,
       capacity = pCapacity_
@@ -308,6 +326,17 @@ createRuleGroup_description = Lens.lens (\CreateRuleGroup' {description} -> desc
 -- resources.
 createRuleGroup_dryRun :: Lens.Lens' CreateRuleGroup (Prelude.Maybe Prelude.Bool)
 createRuleGroup_dryRun = Lens.lens (\CreateRuleGroup' {dryRun} -> dryRun) (\s@CreateRuleGroup' {} a -> s {dryRun = a} :: CreateRuleGroup)
+
+-- | A complex type that contains metadata about the rule group that your own
+-- rule group is copied from. You can use the metadata to keep track of
+-- updates made to the originating rule group.
+createRuleGroup_sourceMetadata :: Lens.Lens' CreateRuleGroup (Prelude.Maybe SourceMetadata)
+createRuleGroup_sourceMetadata = Lens.lens (\CreateRuleGroup' {sourceMetadata} -> sourceMetadata) (\s@CreateRuleGroup' {} a -> s {sourceMetadata = a} :: CreateRuleGroup)
+
+-- | A complex type that contains settings for encryption of your rule group
+-- resources.
+createRuleGroup_encryptionConfiguration :: Lens.Lens' CreateRuleGroup (Prelude.Maybe EncryptionConfiguration)
+createRuleGroup_encryptionConfiguration = Lens.lens (\CreateRuleGroup' {encryptionConfiguration} -> encryptionConfiguration) (\s@CreateRuleGroup' {} a -> s {encryptionConfiguration = a} :: CreateRuleGroup)
 
 -- | The descriptive name of the rule group. You can\'t change the name of a
 -- rule group after you create it.
@@ -388,6 +417,8 @@ instance Prelude.Hashable CreateRuleGroup where
       `Prelude.hashWithSalt` rules
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` sourceMetadata
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` ruleGroupName
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` capacity
@@ -399,6 +430,8 @@ instance Prelude.NFData CreateRuleGroup where
       `Prelude.seq` Prelude.rnf rules
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf sourceMetadata
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf ruleGroupName
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf capacity
@@ -427,6 +460,10 @@ instance Core.ToJSON CreateRuleGroup where
             ("Rules" Core..=) Prelude.<$> rules,
             ("Description" Core..=) Prelude.<$> description,
             ("DryRun" Core..=) Prelude.<$> dryRun,
+            ("SourceMetadata" Core..=)
+              Prelude.<$> sourceMetadata,
+            ("EncryptionConfiguration" Core..=)
+              Prelude.<$> encryptionConfiguration,
             Prelude.Just ("RuleGroupName" Core..= ruleGroupName),
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just ("Capacity" Core..= capacity)

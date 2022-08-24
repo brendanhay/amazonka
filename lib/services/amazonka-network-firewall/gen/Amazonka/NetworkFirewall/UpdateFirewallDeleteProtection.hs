@@ -284,6 +284,11 @@ data UpdateFirewallDeleteProtectionResponse = UpdateFirewallDeleteProtectionResp
     -- token. Reapply your changes as needed, then try the operation again
     -- using the new token.
     updateToken :: Prelude.Maybe Prelude.Text,
+    -- | A flag indicating whether it is possible to delete the firewall. A
+    -- setting of @TRUE@ indicates that the firewall is protected against
+    -- deletion. Use this setting to protect against accidentally deleting a
+    -- firewall that is in use. When you create a firewall, the operation
+    -- initializes this flag to @TRUE@.
     deleteProtection :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the firewall.
     firewallArn :: Prelude.Maybe Prelude.Text,
@@ -321,7 +326,11 @@ data UpdateFirewallDeleteProtectionResponse = UpdateFirewallDeleteProtectionResp
 -- token. Reapply your changes as needed, then try the operation again
 -- using the new token.
 --
--- 'deleteProtection', 'updateFirewallDeleteProtectionResponse_deleteProtection' -
+-- 'deleteProtection', 'updateFirewallDeleteProtectionResponse_deleteProtection' - A flag indicating whether it is possible to delete the firewall. A
+-- setting of @TRUE@ indicates that the firewall is protected against
+-- deletion. Use this setting to protect against accidentally deleting a
+-- firewall that is in use. When you create a firewall, the operation
+-- initializes this flag to @TRUE@.
 --
 -- 'firewallArn', 'updateFirewallDeleteProtectionResponse_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
 --
@@ -364,7 +373,11 @@ newUpdateFirewallDeleteProtectionResponse
 updateFirewallDeleteProtectionResponse_updateToken :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Text)
 updateFirewallDeleteProtectionResponse_updateToken = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {updateToken} -> updateToken) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {updateToken = a} :: UpdateFirewallDeleteProtectionResponse)
 
--- |
+-- | A flag indicating whether it is possible to delete the firewall. A
+-- setting of @TRUE@ indicates that the firewall is protected against
+-- deletion. Use this setting to protect against accidentally deleting a
+-- firewall that is in use. When you create a firewall, the operation
+-- initializes this flag to @TRUE@.
 updateFirewallDeleteProtectionResponse_deleteProtection :: Lens.Lens' UpdateFirewallDeleteProtectionResponse (Prelude.Maybe Prelude.Bool)
 updateFirewallDeleteProtectionResponse_deleteProtection = Lens.lens (\UpdateFirewallDeleteProtectionResponse' {deleteProtection} -> deleteProtection) (\s@UpdateFirewallDeleteProtectionResponse' {} a -> s {deleteProtection = a} :: UpdateFirewallDeleteProtectionResponse)
 

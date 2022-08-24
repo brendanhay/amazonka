@@ -11,22 +11,23 @@
 --
 -- Derived from API version @2020-11-12@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- This is the API Reference for AWS Network Firewall. This guide is for
+-- This is the API Reference for Network Firewall. This guide is for
 -- developers who need detailed information about the Network Firewall API
 -- actions, data types, and errors.
 --
 -- -   The REST API requires you to handle connection details, such as
 --     calculating signatures, handling request retries, and error
---     handling. For general information about using the AWS REST APIs, see
---     <https://docs.aws.amazon.com/general/latest/gr/aws-apis.html AWS APIs>.
+--     handling. For general information about using the Amazon Web
+--     Services REST APIs, see
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-apis.html Amazon Web Services APIs>.
 --
 --     To access Network Firewall using the REST API endpoint:
 --     @https:\/\/network-firewall.\<region>.amazonaws.com @
 --
--- -   Alternatively, you can use one of the AWS SDKs to access an API
---     that\'s tailored to the programming language or platform that
---     you\'re using. For more information, see
---     <http://aws.amazon.com/tools/#SDKs AWS SDKs>.
+-- -   Alternatively, you can use one of the Amazon Web Services SDKs to
+--     access an API that\'s tailored to the programming language or
+--     platform that you\'re using. For more information, see
+--     <http://aws.amazon.com/tools/#SDKs Amazon Web Services SDKs>.
 --
 -- -   For descriptions of Network Firewall features, including and
 --     step-by-step instructions on how to use them through the Network
@@ -37,17 +38,17 @@
 -- detection and prevention service for Amazon Virtual Private Cloud
 -- (Amazon VPC). With Network Firewall, you can filter traffic at the
 -- perimeter of your VPC. This includes filtering traffic going to and
--- coming from an internet gateway, NAT gateway, or over VPN or AWS Direct
+-- coming from an internet gateway, NAT gateway, or over VPN or Direct
 -- Connect. Network Firewall uses rules that are compatible with Suricata,
--- a free, open source intrusion detection system (IDS) engine. AWS Network
+-- a free, open source intrusion detection system (IDS) engine. Network
 -- Firewall supports Suricata version 5.0.2. For information about
 -- Suricata, see the <https://suricata-ids.org/ Suricata website>.
 --
 -- You can use Network Firewall to monitor and protect your VPC traffic in
 -- a number of ways. The following are just a few examples:
 --
--- -   Allow domains or IP addresses for known AWS service endpoints, such
---     as Amazon S3, and block all other forms of traffic.
+-- -   Allow domains or IP addresses for known Amazon Web Services service
+--     endpoints, such as Amazon S3, and block all other forms of traffic.
 --
 -- -   Use custom lists of known bad domains to limit the types of domain
 --     names that your applications can access.
@@ -219,6 +220,12 @@ module Amazonka.NetworkFirewall
     DescribeRuleGroupResponse (DescribeRuleGroupResponse'),
     newDescribeRuleGroupResponse,
 
+    -- ** DescribeRuleGroupMetadata
+    DescribeRuleGroupMetadata (DescribeRuleGroupMetadata'),
+    newDescribeRuleGroupMetadata,
+    DescribeRuleGroupMetadataResponse (DescribeRuleGroupMetadataResponse'),
+    newDescribeRuleGroupMetadataResponse,
+
     -- ** DisassociateSubnets
     DisassociateSubnets (DisassociateSubnets'),
     newDisassociateSubnets,
@@ -279,6 +286,12 @@ module Amazonka.NetworkFirewall
     UpdateFirewallDescriptionResponse (UpdateFirewallDescriptionResponse'),
     newUpdateFirewallDescriptionResponse,
 
+    -- ** UpdateFirewallEncryptionConfiguration
+    UpdateFirewallEncryptionConfiguration (UpdateFirewallEncryptionConfiguration'),
+    newUpdateFirewallEncryptionConfiguration,
+    UpdateFirewallEncryptionConfigurationResponse (UpdateFirewallEncryptionConfigurationResponse'),
+    newUpdateFirewallEncryptionConfigurationResponse,
+
     -- ** UpdateFirewallPolicy
     UpdateFirewallPolicy (UpdateFirewallPolicy'),
     newUpdateFirewallPolicy,
@@ -317,6 +330,9 @@ module Amazonka.NetworkFirewall
     -- ** ConfigurationSyncState
     ConfigurationSyncState (..),
 
+    -- ** EncryptionType
+    EncryptionType (..),
+
     -- ** FirewallStatusValue
     FirewallStatusValue (..),
 
@@ -329,8 +345,17 @@ module Amazonka.NetworkFirewall
     -- ** LogType
     LogType (..),
 
+    -- ** OverrideAction
+    OverrideAction (..),
+
     -- ** PerObjectSyncStatus
     PerObjectSyncStatus (..),
+
+    -- ** ResourceManagedStatus
+    ResourceManagedStatus (..),
+
+    -- ** ResourceManagedType
+    ResourceManagedType (..),
 
     -- ** ResourceStatus
     ResourceStatus (..),
@@ -368,6 +393,14 @@ module Amazonka.NetworkFirewall
     Attachment (Attachment'),
     newAttachment,
 
+    -- ** CIDRSummary
+    CIDRSummary (CIDRSummary'),
+    newCIDRSummary,
+
+    -- ** CapacityUsageSummary
+    CapacityUsageSummary (CapacityUsageSummary'),
+    newCapacityUsageSummary,
+
     -- ** CustomAction
     CustomAction (CustomAction'),
     newCustomAction,
@@ -375,6 +408,10 @@ module Amazonka.NetworkFirewall
     -- ** Dimension
     Dimension (Dimension'),
     newDimension,
+
+    -- ** EncryptionConfiguration
+    EncryptionConfiguration (EncryptionConfiguration'),
+    newEncryptionConfiguration,
 
     -- ** Firewall
     Firewall (Firewall'),
@@ -408,6 +445,14 @@ module Amazonka.NetworkFirewall
     IPSet (IPSet'),
     newIPSet,
 
+    -- ** IPSetMetadata
+    IPSetMetadata (IPSetMetadata'),
+    newIPSetMetadata,
+
+    -- ** IPSetReference
+    IPSetReference (IPSetReference'),
+    newIPSetReference,
+
     -- ** LogDestinationConfig
     LogDestinationConfig (LogDestinationConfig'),
     newLogDestinationConfig,
@@ -435,6 +480,10 @@ module Amazonka.NetworkFirewall
     -- ** PublishMetricAction
     PublishMetricAction (PublishMetricAction'),
     newPublishMetricAction,
+
+    -- ** ReferenceSets
+    ReferenceSets (ReferenceSets'),
+    newReferenceSets,
 
     -- ** RuleDefinition
     RuleDefinition (RuleDefinition'),
@@ -468,6 +517,10 @@ module Amazonka.NetworkFirewall
     RulesSourceList (RulesSourceList'),
     newRulesSourceList,
 
+    -- ** SourceMetadata
+    SourceMetadata (SourceMetadata'),
+    newSourceMetadata,
+
     -- ** StatefulEngineOptions
     StatefulEngineOptions (StatefulEngineOptions'),
     newStatefulEngineOptions,
@@ -475,6 +528,10 @@ module Amazonka.NetworkFirewall
     -- ** StatefulRule
     StatefulRule (StatefulRule'),
     newStatefulRule,
+
+    -- ** StatefulRuleGroupOverride
+    StatefulRuleGroupOverride (StatefulRuleGroupOverride'),
+    newStatefulRuleGroupOverride,
 
     -- ** StatefulRuleGroupReference
     StatefulRuleGroupReference (StatefulRuleGroupReference'),
@@ -528,6 +585,7 @@ import Amazonka.NetworkFirewall.DescribeFirewallPolicy
 import Amazonka.NetworkFirewall.DescribeLoggingConfiguration
 import Amazonka.NetworkFirewall.DescribeResourcePolicy
 import Amazonka.NetworkFirewall.DescribeRuleGroup
+import Amazonka.NetworkFirewall.DescribeRuleGroupMetadata
 import Amazonka.NetworkFirewall.DisassociateSubnets
 import Amazonka.NetworkFirewall.Lens
 import Amazonka.NetworkFirewall.ListFirewallPolicies
@@ -540,6 +598,7 @@ import Amazonka.NetworkFirewall.Types
 import Amazonka.NetworkFirewall.UntagResource
 import Amazonka.NetworkFirewall.UpdateFirewallDeleteProtection
 import Amazonka.NetworkFirewall.UpdateFirewallDescription
+import Amazonka.NetworkFirewall.UpdateFirewallEncryptionConfiguration
 import Amazonka.NetworkFirewall.UpdateFirewallPolicy
 import Amazonka.NetworkFirewall.UpdateFirewallPolicyChangeProtection
 import Amazonka.NetworkFirewall.UpdateLoggingConfiguration

@@ -69,6 +69,9 @@ import Test.Tasty
 --         , requestDescribeRuleGroup $
 --             newDescribeRuleGroup
 --
+--         , requestDescribeRuleGroupMetadata $
+--             newDescribeRuleGroupMetadata
+--
 --         , requestDisassociateSubnets $
 --             newDisassociateSubnets
 --
@@ -98,6 +101,9 @@ import Test.Tasty
 --
 --         , requestUpdateFirewallDescription $
 --             newUpdateFirewallDescription
+--
+--         , requestUpdateFirewallEncryptionConfiguration $
+--             newUpdateFirewallEncryptionConfiguration
 --
 --         , requestUpdateFirewallPolicy $
 --             newUpdateFirewallPolicy
@@ -159,6 +165,9 @@ import Test.Tasty
 --         , responseDescribeRuleGroup $
 --             newDescribeRuleGroupResponse
 --
+--         , responseDescribeRuleGroupMetadata $
+--             newDescribeRuleGroupMetadataResponse
+--
 --         , responseDisassociateSubnets $
 --             newDisassociateSubnetsResponse
 --
@@ -188,6 +197,9 @@ import Test.Tasty
 --
 --         , responseUpdateFirewallDescription $
 --             newUpdateFirewallDescriptionResponse
+--
+--         , responseUpdateFirewallEncryptionConfiguration $
+--             newUpdateFirewallEncryptionConfigurationResponse
 --
 --         , responseUpdateFirewallPolicy $
 --             newUpdateFirewallPolicyResponse
@@ -293,6 +305,12 @@ requestDescribeRuleGroup =
     "DescribeRuleGroup"
     "fixture/DescribeRuleGroup.yaml"
 
+requestDescribeRuleGroupMetadata :: DescribeRuleGroupMetadata -> TestTree
+requestDescribeRuleGroupMetadata =
+  req
+    "DescribeRuleGroupMetadata"
+    "fixture/DescribeRuleGroupMetadata.yaml"
+
 requestDisassociateSubnets :: DisassociateSubnets -> TestTree
 requestDisassociateSubnets =
   req
@@ -352,6 +370,12 @@ requestUpdateFirewallDescription =
   req
     "UpdateFirewallDescription"
     "fixture/UpdateFirewallDescription.yaml"
+
+requestUpdateFirewallEncryptionConfiguration :: UpdateFirewallEncryptionConfiguration -> TestTree
+requestUpdateFirewallEncryptionConfiguration =
+  req
+    "UpdateFirewallEncryptionConfiguration"
+    "fixture/UpdateFirewallEncryptionConfiguration.yaml"
 
 requestUpdateFirewallPolicy :: UpdateFirewallPolicy -> TestTree
 requestUpdateFirewallPolicy =
@@ -497,6 +521,14 @@ responseDescribeRuleGroup =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeRuleGroup)
 
+responseDescribeRuleGroupMetadata :: DescribeRuleGroupMetadataResponse -> TestTree
+responseDescribeRuleGroupMetadata =
+  res
+    "DescribeRuleGroupMetadataResponse"
+    "fixture/DescribeRuleGroupMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRuleGroupMetadata)
+
 responseDisassociateSubnets :: DisassociateSubnetsResponse -> TestTree
 responseDisassociateSubnets =
   res
@@ -576,6 +608,14 @@ responseUpdateFirewallDescription =
     "fixture/UpdateFirewallDescriptionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFirewallDescription)
+
+responseUpdateFirewallEncryptionConfiguration :: UpdateFirewallEncryptionConfigurationResponse -> TestTree
+responseUpdateFirewallEncryptionConfiguration =
+  res
+    "UpdateFirewallEncryptionConfigurationResponse"
+    "fixture/UpdateFirewallEncryptionConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFirewallEncryptionConfiguration)
 
 responseUpdateFirewallPolicy :: UpdateFirewallPolicyResponse -> TestTree
 responseUpdateFirewallPolicy =

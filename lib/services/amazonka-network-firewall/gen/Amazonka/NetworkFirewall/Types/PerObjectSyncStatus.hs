@@ -20,6 +20,7 @@
 module Amazonka.NetworkFirewall.Types.PerObjectSyncStatus
   ( PerObjectSyncStatus
       ( ..,
+        PerObjectSyncStatus_CAPACITY_CONSTRAINED,
         PerObjectSyncStatus_IN_SYNC,
         PerObjectSyncStatus_PENDING
       ),
@@ -57,6 +58,9 @@ newtype PerObjectSyncStatus = PerObjectSyncStatus'
       Core.ToXML
     )
 
+pattern PerObjectSyncStatus_CAPACITY_CONSTRAINED :: PerObjectSyncStatus
+pattern PerObjectSyncStatus_CAPACITY_CONSTRAINED = PerObjectSyncStatus' "CAPACITY_CONSTRAINED"
+
 pattern PerObjectSyncStatus_IN_SYNC :: PerObjectSyncStatus
 pattern PerObjectSyncStatus_IN_SYNC = PerObjectSyncStatus' "IN_SYNC"
 
@@ -64,6 +68,7 @@ pattern PerObjectSyncStatus_PENDING :: PerObjectSyncStatus
 pattern PerObjectSyncStatus_PENDING = PerObjectSyncStatus' "PENDING"
 
 {-# COMPLETE
+  PerObjectSyncStatus_CAPACITY_CONSTRAINED,
   PerObjectSyncStatus_IN_SYNC,
   PerObjectSyncStatus_PENDING,
   PerObjectSyncStatus'

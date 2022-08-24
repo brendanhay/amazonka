@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.NetworkFirewall.Types.ConfigurationSyncState
+-- Module      : Amazonka.NetworkFirewall.Types.OverrideAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.NetworkFirewall.Types.ConfigurationSyncState
-  ( ConfigurationSyncState
+module Amazonka.NetworkFirewall.Types.OverrideAction
+  ( OverrideAction
       ( ..,
-        ConfigurationSyncState_CAPACITY_CONSTRAINED,
-        ConfigurationSyncState_IN_SYNC,
-        ConfigurationSyncState_PENDING
+        OverrideAction_DROP_TO_ALERT
       ),
   )
 where
@@ -30,8 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ConfigurationSyncState = ConfigurationSyncState'
-  { fromConfigurationSyncState ::
+newtype OverrideAction = OverrideAction'
+  { fromOverrideAction ::
       Core.Text
   }
   deriving stock
@@ -58,18 +56,10 @@ newtype ConfigurationSyncState = ConfigurationSyncState'
       Core.ToXML
     )
 
-pattern ConfigurationSyncState_CAPACITY_CONSTRAINED :: ConfigurationSyncState
-pattern ConfigurationSyncState_CAPACITY_CONSTRAINED = ConfigurationSyncState' "CAPACITY_CONSTRAINED"
-
-pattern ConfigurationSyncState_IN_SYNC :: ConfigurationSyncState
-pattern ConfigurationSyncState_IN_SYNC = ConfigurationSyncState' "IN_SYNC"
-
-pattern ConfigurationSyncState_PENDING :: ConfigurationSyncState
-pattern ConfigurationSyncState_PENDING = ConfigurationSyncState' "PENDING"
+pattern OverrideAction_DROP_TO_ALERT :: OverrideAction
+pattern OverrideAction_DROP_TO_ALERT = OverrideAction' "DROP_TO_ALERT"
 
 {-# COMPLETE
-  ConfigurationSyncState_CAPACITY_CONSTRAINED,
-  ConfigurationSyncState_IN_SYNC,
-  ConfigurationSyncState_PENDING,
-  ConfigurationSyncState'
+  OverrideAction_DROP_TO_ALERT,
+  OverrideAction'
   #-}

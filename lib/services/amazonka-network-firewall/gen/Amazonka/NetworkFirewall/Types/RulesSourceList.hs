@@ -36,14 +36,13 @@ import qualified Amazonka.Prelude as Prelude
 -- @HOME_NET@ rule variable to include the CIDR range of the deployment VPC
 -- plus the other CIDR ranges. For more information, see RuleVariables in
 -- this guide and
--- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html Stateful domain list rule groups in AWS Network Firewall>
+-- <https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html Stateful domain list rule groups in Network Firewall>
 -- in the /Network Firewall Developer Guide/.
 --
 -- /See:/ 'newRulesSourceList' smart constructor.
 data RulesSourceList = RulesSourceList'
-  { -- | The domains that you want to inspect for in your traffic flows. To
-    -- provide multiple domains, separate them with commas. Valid domain
-    -- specifications are the following:
+  { -- | The domains that you want to inspect for in your traffic flows. Valid
+    -- domain specifications are the following:
     --
     -- -   Explicit names. For example, @abc.example.com@ matches only the
     --     domain @abc.example.com@.
@@ -70,9 +69,8 @@ data RulesSourceList = RulesSourceList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targets', 'rulesSourceList_targets' - The domains that you want to inspect for in your traffic flows. To
--- provide multiple domains, separate them with commas. Valid domain
--- specifications are the following:
+-- 'targets', 'rulesSourceList_targets' - The domains that you want to inspect for in your traffic flows. Valid
+-- domain specifications are the following:
 --
 -- -   Explicit names. For example, @abc.example.com@ matches only the
 --     domain @abc.example.com@.
@@ -98,9 +96,8 @@ newRulesSourceList pGeneratedRulesType_ =
       generatedRulesType = pGeneratedRulesType_
     }
 
--- | The domains that you want to inspect for in your traffic flows. To
--- provide multiple domains, separate them with commas. Valid domain
--- specifications are the following:
+-- | The domains that you want to inspect for in your traffic flows. Valid
+-- domain specifications are the following:
 --
 -- -   Explicit names. For example, @abc.example.com@ matches only the
 --     domain @abc.example.com@.

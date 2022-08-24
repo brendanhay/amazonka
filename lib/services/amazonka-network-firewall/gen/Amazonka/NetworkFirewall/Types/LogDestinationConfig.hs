@@ -25,9 +25,9 @@ import Amazonka.NetworkFirewall.Types.LogDestinationType
 import Amazonka.NetworkFirewall.Types.LogType
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines where AWS Network Firewall sends logs for the firewall for one
--- log type. This is used in LoggingConfiguration. You can send each type
--- of log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data
+-- | Defines where Network Firewall sends logs for the firewall for one log
+-- type. This is used in LoggingConfiguration. You can send each type of
+-- log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data
 -- Firehose delivery stream.
 --
 -- Network Firewall generates logs for stateful rule groups. You can save

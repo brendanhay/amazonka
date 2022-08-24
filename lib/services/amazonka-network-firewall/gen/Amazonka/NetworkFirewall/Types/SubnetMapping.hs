@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The ID for a subnet that you want to associate with the firewall. This
--- is used with CreateFirewall and AssociateSubnets. AWS Network Firewall
+-- is used with CreateFirewall and AssociateSubnets. Network Firewall
 -- creates an instance of the associated firewall in each subnet that you
 -- specify, to filter traffic in the subnet\'s Availability Zone.
 --

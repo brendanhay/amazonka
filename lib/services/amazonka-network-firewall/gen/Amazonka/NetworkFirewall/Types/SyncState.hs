@@ -28,8 +28,8 @@ import qualified Amazonka.Prelude as Prelude
 -- | The status of the firewall endpoint and firewall policy configuration
 -- for a single VPC subnet.
 --
--- For each VPC subnet that you associate with a firewall, AWS Network
--- Firewall does the following:
+-- For each VPC subnet that you associate with a firewall, Network Firewall
+-- does the following:
 --
 -- -   Instantiates a firewall endpoint in the subnet, ready to take
 --     traffic.

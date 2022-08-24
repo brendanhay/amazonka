@@ -21,14 +21,15 @@ module Amazonka.NetworkFirewall.Types.Firewall where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.NetworkFirewall.Types.EncryptionConfiguration
 import Amazonka.NetworkFirewall.Types.SubnetMapping
 import Amazonka.NetworkFirewall.Types.Tag
 import qualified Amazonka.Prelude as Prelude
 
--- | The firewall defines the configuration settings for an AWS Network
--- Firewall firewall. These settings include the firewall policy, the
--- subnets in your VPC to use for the firewall endpoints, and any tags that
--- are attached to the firewall AWS resource.
+-- | The firewall defines the configuration settings for an Network Firewall
+-- firewall. These settings include the firewall policy, the subnets in
+-- your VPC to use for the firewall endpoints, and any tags that are
+-- attached to the firewall Amazon Web Services resource.
 --
 -- The status of the firewall, for example whether it\'s ready to filter
 -- network traffic, is provided in the corresponding FirewallStatus. You
@@ -59,6 +60,9 @@ data Firewall = Firewall'
     firewallPolicyChangeProtection :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the firewall.
     firewallArn :: Prelude.Maybe Prelude.Text,
+    -- | A complex type that contains the Amazon Web Services KMS encryption
+    -- configuration settings for your firewall.
+    encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The descriptive name of the firewall. You can\'t change the name of a
     -- firewall after you create it.
     firewallName :: Prelude.Maybe Prelude.Text,
@@ -110,6 +114,9 @@ data Firewall = Firewall'
 --
 -- 'firewallArn', 'firewall_firewallArn' - The Amazon Resource Name (ARN) of the firewall.
 --
+-- 'encryptionConfiguration', 'firewall_encryptionConfiguration' - A complex type that contains the Amazon Web Services KMS encryption
+-- configuration settings for your firewall.
+--
 -- 'firewallName', 'firewall_firewallName' - The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
 --
@@ -141,6 +148,7 @@ newFirewall pFirewallPolicyArn_ pVpcId_ pFirewallId_ =
       description = Prelude.Nothing,
       firewallPolicyChangeProtection = Prelude.Nothing,
       firewallArn = Prelude.Nothing,
+      encryptionConfiguration = Prelude.Nothing,
       firewallName = Prelude.Nothing,
       firewallPolicyArn = pFirewallPolicyArn_,
       vpcId = pVpcId_,
@@ -184,6 +192,11 @@ firewall_firewallPolicyChangeProtection = Lens.lens (\Firewall' {firewallPolicyC
 firewall_firewallArn :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Text)
 firewall_firewallArn = Lens.lens (\Firewall' {firewallArn} -> firewallArn) (\s@Firewall' {} a -> s {firewallArn = a} :: Firewall)
 
+-- | A complex type that contains the Amazon Web Services KMS encryption
+-- configuration settings for your firewall.
+firewall_encryptionConfiguration :: Lens.Lens' Firewall (Prelude.Maybe EncryptionConfiguration)
+firewall_encryptionConfiguration = Lens.lens (\Firewall' {encryptionConfiguration} -> encryptionConfiguration) (\s@Firewall' {} a -> s {encryptionConfiguration = a} :: Firewall)
+
 -- | The descriptive name of the firewall. You can\'t change the name of a
 -- firewall after you create it.
 firewall_firewallName :: Lens.Lens' Firewall (Prelude.Maybe Prelude.Text)
@@ -222,6 +235,7 @@ instance Core.FromJSON Firewall where
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "FirewallPolicyChangeProtection")
             Prelude.<*> (x Core..:? "FirewallArn")
+            Prelude.<*> (x Core..:? "EncryptionConfiguration")
             Prelude.<*> (x Core..:? "FirewallName")
             Prelude.<*> (x Core..: "FirewallPolicyArn")
             Prelude.<*> (x Core..: "VpcId")
@@ -237,6 +251,7 @@ instance Prelude.Hashable Firewall where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` firewallPolicyChangeProtection
       `Prelude.hashWithSalt` firewallArn
+      `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` firewallName
       `Prelude.hashWithSalt` firewallPolicyArn
       `Prelude.hashWithSalt` vpcId
@@ -251,6 +266,7 @@ instance Prelude.NFData Firewall where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf firewallPolicyChangeProtection
       `Prelude.seq` Prelude.rnf firewallArn
+      `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf firewallName
       `Prelude.seq` Prelude.rnf firewallPolicyArn
       `Prelude.seq` Prelude.rnf vpcId

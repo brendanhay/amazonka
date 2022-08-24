@@ -23,11 +23,25 @@
 -- Updates the specified fleet.
 --
 -- If the fleet is in the @STOPPED@ state, you can update any attribute
--- except the fleet name. If the fleet is in the @RUNNING@ state, you can
--- update the @DisplayName@, @ComputeCapacity@, @ImageARN@, @ImageName@,
--- @IdleDisconnectTimeoutInSeconds@, and @DisconnectTimeoutInSeconds@
--- attributes. If the fleet is in the @STARTING@ or @STOPPING@ state, you
--- can\'t update it.
+-- except the fleet name.
+--
+-- If the fleet is in the @RUNNING@ state, you can update the following
+-- based on the fleet type:
+--
+-- -   Always-On and On-Demand fleet types
+--
+--     You can update the @DisplayName@, @ComputeCapacity@, @ImageARN@,
+--     @ImageName@, @IdleDisconnectTimeoutInSeconds@, and
+--     @DisconnectTimeoutInSeconds@ attributes.
+--
+-- -   Elastic fleet type
+--
+--     You can update the @DisplayName@, @IdleDisconnectTimeoutInSeconds@,
+--     @DisconnectTimeoutInSeconds@, @MaxConcurrentSessions@,
+--     @SessionScriptS3Location@ and @UsbDeviceFilterStrings@ attributes.
+--
+-- If the fleet is in the @STARTING@ or @STOPPED@ state, you can\'t update
+-- it.
 module Amazonka.AppStream.UpdateFleet
   ( -- * Creating a Request
     UpdateFleet (..),
@@ -35,16 +49,20 @@ module Amazonka.AppStream.UpdateFleet
 
     -- * Request Lenses
     updateFleet_name,
+    updateFleet_sessionScriptS3Location,
+    updateFleet_maxConcurrentSessions,
     updateFleet_attributesToDelete,
     updateFleet_vpcConfig,
     updateFleet_deleteVpcConfig,
     updateFleet_displayName,
     updateFleet_imageArn,
+    updateFleet_platform,
     updateFleet_description,
     updateFleet_disconnectTimeoutInSeconds,
     updateFleet_idleDisconnectTimeoutInSeconds,
     updateFleet_instanceType,
     updateFleet_iamRoleArn,
+    updateFleet_usbDeviceFilterStrings,
     updateFleet_domainJoinInfo,
     updateFleet_streamView,
     updateFleet_enableDefaultInternetAccess,
@@ -73,9 +91,16 @@ import qualified Amazonka.Response as Response
 data UpdateFleet = UpdateFleet'
   { -- | A unique name for the fleet.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The S3 location of the session scripts configuration zip file. This only
+    -- applies to Elastic fleets.
+    sessionScriptS3Location :: Prelude.Maybe S3Location,
+    -- | The maximum number of concurrent sessions for a fleet.
+    maxConcurrentSessions :: Prelude.Maybe Prelude.Int,
     -- | The fleet attributes to delete.
     attributesToDelete :: Prelude.Maybe [FleetAttribute],
-    -- | The VPC configuration for the fleet.
+    -- | The VPC configuration for the fleet. This is required for Elastic
+    -- fleets, but not required for other fleet types. Elastic fleets require
+    -- that you specify at least two subnets in different availability zones.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | Deletes the VPC association for the specified fleet.
     deleteVpcConfig :: Prelude.Maybe Prelude.Bool,
@@ -83,6 +108,9 @@ data UpdateFleet = UpdateFleet'
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the public, private, or shared image to use.
     imageArn :: Prelude.Maybe Prelude.Text,
+    -- | The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are
+    -- supported for Elastic fleets.
+    platform :: Prelude.Maybe PlatformType,
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
     -- | The amount of time that a streaming session remains active after users
@@ -186,6 +214,12 @@ data UpdateFleet = UpdateFleet'
     -- -   stream.graphics-pro.8xlarge
     --
     -- -   stream.graphics-pro.16xlarge
+    --
+    -- The following instance types are available for Elastic fleets:
+    --
+    -- -   stream.standard.small
+    --
+    -- -   stream.standard.medium
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
     -- assume a role, a fleet instance calls the AWS Security Token Service
@@ -198,6 +232,10 @@ data UpdateFleet = UpdateFleet'
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The USB device filter strings that specify which USB devices a user can
+    -- redirect to the fleet streaming session, when using the Windows native
+    -- client. This is allowed but not required for Elastic fleets.
+    usbDeviceFilterStrings :: Prelude.Maybe [Prelude.Text],
     -- | The name of the directory and organizational unit (OU) to use to join
     -- the fleet to a Microsoft Active Directory domain.
     domainJoinInfo :: Prelude.Maybe DomainJoinInfo,
@@ -210,7 +248,8 @@ data UpdateFleet = UpdateFleet'
     streamView :: Prelude.Maybe StreamView,
     -- | Enables or disables default internet access for the fleet.
     enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
-    -- | The desired capacity for the fleet.
+    -- | The desired capacity for the fleet. This is not allowed for Elastic
+    -- fleets.
     computeCapacity :: Prelude.Maybe ComputeCapacity,
     -- | The name of the image used to create the fleet.
     imageName :: Prelude.Maybe Prelude.Text,
@@ -235,15 +274,25 @@ data UpdateFleet = UpdateFleet'
 --
 -- 'name', 'updateFleet_name' - A unique name for the fleet.
 --
+-- 'sessionScriptS3Location', 'updateFleet_sessionScriptS3Location' - The S3 location of the session scripts configuration zip file. This only
+-- applies to Elastic fleets.
+--
+-- 'maxConcurrentSessions', 'updateFleet_maxConcurrentSessions' - The maximum number of concurrent sessions for a fleet.
+--
 -- 'attributesToDelete', 'updateFleet_attributesToDelete' - The fleet attributes to delete.
 --
--- 'vpcConfig', 'updateFleet_vpcConfig' - The VPC configuration for the fleet.
+-- 'vpcConfig', 'updateFleet_vpcConfig' - The VPC configuration for the fleet. This is required for Elastic
+-- fleets, but not required for other fleet types. Elastic fleets require
+-- that you specify at least two subnets in different availability zones.
 --
 -- 'deleteVpcConfig', 'updateFleet_deleteVpcConfig' - Deletes the VPC association for the specified fleet.
 --
 -- 'displayName', 'updateFleet_displayName' - The fleet name to display.
 --
 -- 'imageArn', 'updateFleet_imageArn' - The ARN of the public, private, or shared image to use.
+--
+-- 'platform', 'updateFleet_platform' - The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are
+-- supported for Elastic fleets.
 --
 -- 'description', 'updateFleet_description' - The description to display.
 --
@@ -349,6 +398,12 @@ data UpdateFleet = UpdateFleet'
 --
 -- -   stream.graphics-pro.16xlarge
 --
+-- The following instance types are available for Elastic fleets:
+--
+-- -   stream.standard.small
+--
+-- -   stream.standard.medium
+--
 -- 'iamRoleArn', 'updateFleet_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
 -- assume a role, a fleet instance calls the AWS Security Token Service
 -- (STS) @AssumeRole@ API operation and passes the ARN of the role to use.
@@ -359,6 +414,10 @@ data UpdateFleet = UpdateFleet'
 -- For more information, see
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
+--
+-- 'usbDeviceFilterStrings', 'updateFleet_usbDeviceFilterStrings' - The USB device filter strings that specify which USB devices a user can
+-- redirect to the fleet streaming session, when using the Windows native
+-- client. This is allowed but not required for Elastic fleets.
 --
 -- 'domainJoinInfo', 'updateFleet_domainJoinInfo' - The name of the directory and organizational unit (OU) to use to join
 -- the fleet to a Microsoft Active Directory domain.
@@ -372,7 +431,8 @@ data UpdateFleet = UpdateFleet'
 --
 -- 'enableDefaultInternetAccess', 'updateFleet_enableDefaultInternetAccess' - Enables or disables default internet access for the fleet.
 --
--- 'computeCapacity', 'updateFleet_computeCapacity' - The desired capacity for the fleet.
+-- 'computeCapacity', 'updateFleet_computeCapacity' - The desired capacity for the fleet. This is not allowed for Elastic
+-- fleets.
 --
 -- 'imageName', 'updateFleet_imageName' - The name of the image used to create the fleet.
 --
@@ -388,16 +448,20 @@ newUpdateFleet ::
 newUpdateFleet =
   UpdateFleet'
     { name = Prelude.Nothing,
+      sessionScriptS3Location = Prelude.Nothing,
+      maxConcurrentSessions = Prelude.Nothing,
       attributesToDelete = Prelude.Nothing,
       vpcConfig = Prelude.Nothing,
       deleteVpcConfig = Prelude.Nothing,
       displayName = Prelude.Nothing,
       imageArn = Prelude.Nothing,
+      platform = Prelude.Nothing,
       description = Prelude.Nothing,
       disconnectTimeoutInSeconds = Prelude.Nothing,
       idleDisconnectTimeoutInSeconds = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       iamRoleArn = Prelude.Nothing,
+      usbDeviceFilterStrings = Prelude.Nothing,
       domainJoinInfo = Prelude.Nothing,
       streamView = Prelude.Nothing,
       enableDefaultInternetAccess = Prelude.Nothing,
@@ -410,11 +474,22 @@ newUpdateFleet =
 updateFleet_name :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_name = Lens.lens (\UpdateFleet' {name} -> name) (\s@UpdateFleet' {} a -> s {name = a} :: UpdateFleet)
 
+-- | The S3 location of the session scripts configuration zip file. This only
+-- applies to Elastic fleets.
+updateFleet_sessionScriptS3Location :: Lens.Lens' UpdateFleet (Prelude.Maybe S3Location)
+updateFleet_sessionScriptS3Location = Lens.lens (\UpdateFleet' {sessionScriptS3Location} -> sessionScriptS3Location) (\s@UpdateFleet' {} a -> s {sessionScriptS3Location = a} :: UpdateFleet)
+
+-- | The maximum number of concurrent sessions for a fleet.
+updateFleet_maxConcurrentSessions :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Int)
+updateFleet_maxConcurrentSessions = Lens.lens (\UpdateFleet' {maxConcurrentSessions} -> maxConcurrentSessions) (\s@UpdateFleet' {} a -> s {maxConcurrentSessions = a} :: UpdateFleet)
+
 -- | The fleet attributes to delete.
 updateFleet_attributesToDelete :: Lens.Lens' UpdateFleet (Prelude.Maybe [FleetAttribute])
 updateFleet_attributesToDelete = Lens.lens (\UpdateFleet' {attributesToDelete} -> attributesToDelete) (\s@UpdateFleet' {} a -> s {attributesToDelete = a} :: UpdateFleet) Prelude.. Lens.mapping Lens.coerced
 
--- | The VPC configuration for the fleet.
+-- | The VPC configuration for the fleet. This is required for Elastic
+-- fleets, but not required for other fleet types. Elastic fleets require
+-- that you specify at least two subnets in different availability zones.
 updateFleet_vpcConfig :: Lens.Lens' UpdateFleet (Prelude.Maybe VpcConfig)
 updateFleet_vpcConfig = Lens.lens (\UpdateFleet' {vpcConfig} -> vpcConfig) (\s@UpdateFleet' {} a -> s {vpcConfig = a} :: UpdateFleet)
 
@@ -429,6 +504,11 @@ updateFleet_displayName = Lens.lens (\UpdateFleet' {displayName} -> displayName)
 -- | The ARN of the public, private, or shared image to use.
 updateFleet_imageArn :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_imageArn = Lens.lens (\UpdateFleet' {imageArn} -> imageArn) (\s@UpdateFleet' {} a -> s {imageArn = a} :: UpdateFleet)
+
+-- | The platform of the fleet. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are
+-- supported for Elastic fleets.
+updateFleet_platform :: Lens.Lens' UpdateFleet (Prelude.Maybe PlatformType)
+updateFleet_platform = Lens.lens (\UpdateFleet' {platform} -> platform) (\s@UpdateFleet' {} a -> s {platform = a} :: UpdateFleet)
 
 -- | The description to display.
 updateFleet_description :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
@@ -539,6 +619,12 @@ updateFleet_idleDisconnectTimeoutInSeconds = Lens.lens (\UpdateFleet' {idleDisco
 -- -   stream.graphics-pro.8xlarge
 --
 -- -   stream.graphics-pro.16xlarge
+--
+-- The following instance types are available for Elastic fleets:
+--
+-- -   stream.standard.small
+--
+-- -   stream.standard.medium
 updateFleet_instanceType :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_instanceType = Lens.lens (\UpdateFleet' {instanceType} -> instanceType) (\s@UpdateFleet' {} a -> s {instanceType = a} :: UpdateFleet)
 
@@ -554,6 +640,12 @@ updateFleet_instanceType = Lens.lens (\UpdateFleet' {instanceType} -> instanceTy
 -- in the /Amazon AppStream 2.0 Administration Guide/.
 updateFleet_iamRoleArn :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_iamRoleArn = Lens.lens (\UpdateFleet' {iamRoleArn} -> iamRoleArn) (\s@UpdateFleet' {} a -> s {iamRoleArn = a} :: UpdateFleet)
+
+-- | The USB device filter strings that specify which USB devices a user can
+-- redirect to the fleet streaming session, when using the Windows native
+-- client. This is allowed but not required for Elastic fleets.
+updateFleet_usbDeviceFilterStrings :: Lens.Lens' UpdateFleet (Prelude.Maybe [Prelude.Text])
+updateFleet_usbDeviceFilterStrings = Lens.lens (\UpdateFleet' {usbDeviceFilterStrings} -> usbDeviceFilterStrings) (\s@UpdateFleet' {} a -> s {usbDeviceFilterStrings = a} :: UpdateFleet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the directory and organizational unit (OU) to use to join
 -- the fleet to a Microsoft Active Directory domain.
@@ -573,7 +665,8 @@ updateFleet_streamView = Lens.lens (\UpdateFleet' {streamView} -> streamView) (\
 updateFleet_enableDefaultInternetAccess :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Bool)
 updateFleet_enableDefaultInternetAccess = Lens.lens (\UpdateFleet' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@UpdateFleet' {} a -> s {enableDefaultInternetAccess = a} :: UpdateFleet)
 
--- | The desired capacity for the fleet.
+-- | The desired capacity for the fleet. This is not allowed for Elastic
+-- fleets.
 updateFleet_computeCapacity :: Lens.Lens' UpdateFleet (Prelude.Maybe ComputeCapacity)
 updateFleet_computeCapacity = Lens.lens (\UpdateFleet' {computeCapacity} -> computeCapacity) (\s@UpdateFleet' {} a -> s {computeCapacity = a} :: UpdateFleet)
 
@@ -605,16 +698,20 @@ instance Core.AWSRequest UpdateFleet where
 instance Prelude.Hashable UpdateFleet where
   hashWithSalt _salt UpdateFleet' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` sessionScriptS3Location
+      `Prelude.hashWithSalt` maxConcurrentSessions
       `Prelude.hashWithSalt` attributesToDelete
       `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` deleteVpcConfig
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` imageArn
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disconnectTimeoutInSeconds
       `Prelude.hashWithSalt` idleDisconnectTimeoutInSeconds
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` usbDeviceFilterStrings
       `Prelude.hashWithSalt` domainJoinInfo
       `Prelude.hashWithSalt` streamView
       `Prelude.hashWithSalt` enableDefaultInternetAccess
@@ -625,22 +722,28 @@ instance Prelude.Hashable UpdateFleet where
 instance Prelude.NFData UpdateFleet where
   rnf UpdateFleet' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf sessionScriptS3Location
+      `Prelude.seq` Prelude.rnf maxConcurrentSessions
       `Prelude.seq` Prelude.rnf attributesToDelete
       `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf deleteVpcConfig
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf disconnectTimeoutInSeconds
       `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInSeconds
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf usbDeviceFilterStrings
       `Prelude.seq` Prelude.rnf domainJoinInfo
       `Prelude.seq` Prelude.rnf streamView
-      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
+      `Prelude.seq` Prelude.rnf
+        enableDefaultInternetAccess
       `Prelude.seq` Prelude.rnf computeCapacity
       `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf maxUserDurationInSeconds
+      `Prelude.seq` Prelude.rnf
+        maxUserDurationInSeconds
 
 instance Core.ToHeaders UpdateFleet where
   toHeaders =
@@ -662,6 +765,10 @@ instance Core.ToJSON UpdateFleet where
     Core.object
       ( Prelude.catMaybes
           [ ("Name" Core..=) Prelude.<$> name,
+            ("SessionScriptS3Location" Core..=)
+              Prelude.<$> sessionScriptS3Location,
+            ("MaxConcurrentSessions" Core..=)
+              Prelude.<$> maxConcurrentSessions,
             ("AttributesToDelete" Core..=)
               Prelude.<$> attributesToDelete,
             ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
@@ -669,6 +776,7 @@ instance Core.ToJSON UpdateFleet where
               Prelude.<$> deleteVpcConfig,
             ("DisplayName" Core..=) Prelude.<$> displayName,
             ("ImageArn" Core..=) Prelude.<$> imageArn,
+            ("Platform" Core..=) Prelude.<$> platform,
             ("Description" Core..=) Prelude.<$> description,
             ("DisconnectTimeoutInSeconds" Core..=)
               Prelude.<$> disconnectTimeoutInSeconds,
@@ -676,6 +784,8 @@ instance Core.ToJSON UpdateFleet where
               Prelude.<$> idleDisconnectTimeoutInSeconds,
             ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
+            ("UsbDeviceFilterStrings" Core..=)
+              Prelude.<$> usbDeviceFilterStrings,
             ("DomainJoinInfo" Core..=)
               Prelude.<$> domainJoinInfo,
             ("StreamView" Core..=) Prelude.<$> streamView,

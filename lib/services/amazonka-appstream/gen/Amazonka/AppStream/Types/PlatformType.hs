@@ -20,6 +20,7 @@
 module Amazonka.AppStream.Types.PlatformType
   ( PlatformType
       ( ..,
+        PlatformType_AMAZON_LINUX2,
         PlatformType_WINDOWS,
         PlatformType_WINDOWS_SERVER_2016,
         PlatformType_WINDOWS_SERVER_2019
@@ -58,6 +59,9 @@ newtype PlatformType = PlatformType'
       Core.ToXML
     )
 
+pattern PlatformType_AMAZON_LINUX2 :: PlatformType
+pattern PlatformType_AMAZON_LINUX2 = PlatformType' "AMAZON_LINUX2"
+
 pattern PlatformType_WINDOWS :: PlatformType
 pattern PlatformType_WINDOWS = PlatformType' "WINDOWS"
 
@@ -68,6 +72,7 @@ pattern PlatformType_WINDOWS_SERVER_2019 :: PlatformType
 pattern PlatformType_WINDOWS_SERVER_2019 = PlatformType' "WINDOWS_SERVER_2019"
 
 {-# COMPLETE
+  PlatformType_AMAZON_LINUX2,
   PlatformType_WINDOWS,
   PlatformType_WINDOWS_SERVER_2016,
   PlatformType_WINDOWS_SERVER_2019,

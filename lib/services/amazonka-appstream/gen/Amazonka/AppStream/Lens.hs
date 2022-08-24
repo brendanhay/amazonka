@@ -14,6 +14,18 @@
 module Amazonka.AppStream.Lens
   ( -- * Operations
 
+    -- ** AssociateApplicationFleet
+    associateApplicationFleet_fleetName,
+    associateApplicationFleet_applicationArn,
+    associateApplicationFleetResponse_applicationFleetAssociation,
+    associateApplicationFleetResponse_httpStatus,
+
+    -- ** AssociateApplicationToEntitlement
+    associateApplicationToEntitlement_stackName,
+    associateApplicationToEntitlement_entitlementName,
+    associateApplicationToEntitlement_applicationIdentifier,
+    associateApplicationToEntitlementResponse_httpStatus,
+
     -- ** AssociateFleet
     associateFleet_fleetName,
     associateFleet_stackName,
@@ -37,6 +49,31 @@ module Amazonka.AppStream.Lens
     copyImageResponse_destinationImageName,
     copyImageResponse_httpStatus,
 
+    -- ** CreateAppBlock
+    createAppBlock_tags,
+    createAppBlock_displayName,
+    createAppBlock_description,
+    createAppBlock_name,
+    createAppBlock_sourceS3Location,
+    createAppBlock_setupScriptDetails,
+    createAppBlockResponse_appBlock,
+    createAppBlockResponse_httpStatus,
+
+    -- ** CreateApplication
+    createApplication_tags,
+    createApplication_displayName,
+    createApplication_description,
+    createApplication_launchParameters,
+    createApplication_workingDirectory,
+    createApplication_name,
+    createApplication_iconS3Location,
+    createApplication_launchPath,
+    createApplication_platforms,
+    createApplication_instanceFamilies,
+    createApplication_appBlockArn,
+    createApplicationResponse_application,
+    createApplicationResponse_httpStatus,
+
     -- ** CreateDirectoryConfig
     createDirectoryConfig_serviceAccountCredentials,
     createDirectoryConfig_directoryName,
@@ -44,24 +81,37 @@ module Amazonka.AppStream.Lens
     createDirectoryConfigResponse_directoryConfig,
     createDirectoryConfigResponse_httpStatus,
 
+    -- ** CreateEntitlement
+    createEntitlement_description,
+    createEntitlement_name,
+    createEntitlement_stackName,
+    createEntitlement_appVisibility,
+    createEntitlement_attributes,
+    createEntitlementResponse_entitlement,
+    createEntitlementResponse_httpStatus,
+
     -- ** CreateFleet
     createFleet_tags,
+    createFleet_sessionScriptS3Location,
+    createFleet_maxConcurrentSessions,
     createFleet_fleetType,
     createFleet_vpcConfig,
     createFleet_displayName,
     createFleet_imageArn,
+    createFleet_platform,
     createFleet_description,
     createFleet_disconnectTimeoutInSeconds,
     createFleet_idleDisconnectTimeoutInSeconds,
     createFleet_iamRoleArn,
+    createFleet_usbDeviceFilterStrings,
     createFleet_domainJoinInfo,
     createFleet_streamView,
     createFleet_enableDefaultInternetAccess,
+    createFleet_computeCapacity,
     createFleet_imageName,
     createFleet_maxUserDurationInSeconds,
     createFleet_name,
     createFleet_instanceType,
-    createFleet_computeCapacity,
     createFleetResponse_fleet,
     createFleetResponse_httpStatus,
 
@@ -98,6 +148,7 @@ module Amazonka.AppStream.Lens
     createStack_accessEndpoints,
     createStack_description,
     createStack_redirectURL,
+    createStack_streamingExperienceSettings,
     createStack_feedbackURL,
     createStack_userSettings,
     createStack_name,
@@ -139,9 +190,22 @@ module Amazonka.AppStream.Lens
     createUser_authenticationType,
     createUserResponse_httpStatus,
 
+    -- ** DeleteAppBlock
+    deleteAppBlock_name,
+    deleteAppBlockResponse_httpStatus,
+
+    -- ** DeleteApplication
+    deleteApplication_name,
+    deleteApplicationResponse_httpStatus,
+
     -- ** DeleteDirectoryConfig
     deleteDirectoryConfig_directoryName,
     deleteDirectoryConfigResponse_httpStatus,
+
+    -- ** DeleteEntitlement
+    deleteEntitlement_name,
+    deleteEntitlement_stackName,
+    deleteEntitlementResponse_httpStatus,
 
     -- ** DeleteFleet
     deleteFleet_name,
@@ -174,6 +238,31 @@ module Amazonka.AppStream.Lens
     deleteUser_authenticationType,
     deleteUserResponse_httpStatus,
 
+    -- ** DescribeAppBlocks
+    describeAppBlocks_nextToken,
+    describeAppBlocks_arns,
+    describeAppBlocks_maxResults,
+    describeAppBlocksResponse_nextToken,
+    describeAppBlocksResponse_appBlocks,
+    describeAppBlocksResponse_httpStatus,
+
+    -- ** DescribeApplicationFleetAssociations
+    describeApplicationFleetAssociations_nextToken,
+    describeApplicationFleetAssociations_applicationArn,
+    describeApplicationFleetAssociations_fleetName,
+    describeApplicationFleetAssociations_maxResults,
+    describeApplicationFleetAssociationsResponse_nextToken,
+    describeApplicationFleetAssociationsResponse_applicationFleetAssociations,
+    describeApplicationFleetAssociationsResponse_httpStatus,
+
+    -- ** DescribeApplications
+    describeApplications_nextToken,
+    describeApplications_arns,
+    describeApplications_maxResults,
+    describeApplicationsResponse_nextToken,
+    describeApplicationsResponse_applications,
+    describeApplicationsResponse_httpStatus,
+
     -- ** DescribeDirectoryConfigs
     describeDirectoryConfigs_nextToken,
     describeDirectoryConfigs_directoryNames,
@@ -181,6 +270,15 @@ module Amazonka.AppStream.Lens
     describeDirectoryConfigsResponse_nextToken,
     describeDirectoryConfigsResponse_directoryConfigs,
     describeDirectoryConfigsResponse_httpStatus,
+
+    -- ** DescribeEntitlements
+    describeEntitlements_name,
+    describeEntitlements_nextToken,
+    describeEntitlements_maxResults,
+    describeEntitlements_stackName,
+    describeEntitlementsResponse_nextToken,
+    describeEntitlementsResponse_entitlements,
+    describeEntitlementsResponse_httpStatus,
 
     -- ** DescribeFleets
     describeFleets_nextToken,
@@ -265,6 +363,17 @@ module Amazonka.AppStream.Lens
     disableUser_authenticationType,
     disableUserResponse_httpStatus,
 
+    -- ** DisassociateApplicationFleet
+    disassociateApplicationFleet_fleetName,
+    disassociateApplicationFleet_applicationArn,
+    disassociateApplicationFleetResponse_httpStatus,
+
+    -- ** DisassociateApplicationFromEntitlement
+    disassociateApplicationFromEntitlement_stackName,
+    disassociateApplicationFromEntitlement_entitlementName,
+    disassociateApplicationFromEntitlement_applicationIdentifier,
+    disassociateApplicationFromEntitlementResponse_httpStatus,
+
     -- ** DisassociateFleet
     disassociateFleet_fleetName,
     disassociateFleet_stackName,
@@ -292,6 +401,15 @@ module Amazonka.AppStream.Lens
     listAssociatedStacksResponse_nextToken,
     listAssociatedStacksResponse_names,
     listAssociatedStacksResponse_httpStatus,
+
+    -- ** ListEntitledApplications
+    listEntitledApplications_nextToken,
+    listEntitledApplications_maxResults,
+    listEntitledApplications_stackName,
+    listEntitledApplications_entitlementName,
+    listEntitledApplicationsResponse_nextToken,
+    listEntitledApplicationsResponse_entitledApplications,
+    listEntitledApplicationsResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -327,6 +445,19 @@ module Amazonka.AppStream.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateApplication
+    updateApplication_launchPath,
+    updateApplication_attributesToDelete,
+    updateApplication_displayName,
+    updateApplication_description,
+    updateApplication_iconS3Location,
+    updateApplication_appBlockArn,
+    updateApplication_launchParameters,
+    updateApplication_workingDirectory,
+    updateApplication_name,
+    updateApplicationResponse_application,
+    updateApplicationResponse_httpStatus,
+
     -- ** UpdateDirectoryConfig
     updateDirectoryConfig_serviceAccountCredentials,
     updateDirectoryConfig_organizationalUnitDistinguishedNames,
@@ -334,18 +465,31 @@ module Amazonka.AppStream.Lens
     updateDirectoryConfigResponse_directoryConfig,
     updateDirectoryConfigResponse_httpStatus,
 
+    -- ** UpdateEntitlement
+    updateEntitlement_description,
+    updateEntitlement_attributes,
+    updateEntitlement_appVisibility,
+    updateEntitlement_name,
+    updateEntitlement_stackName,
+    updateEntitlementResponse_entitlement,
+    updateEntitlementResponse_httpStatus,
+
     -- ** UpdateFleet
     updateFleet_name,
+    updateFleet_sessionScriptS3Location,
+    updateFleet_maxConcurrentSessions,
     updateFleet_attributesToDelete,
     updateFleet_vpcConfig,
     updateFleet_deleteVpcConfig,
     updateFleet_displayName,
     updateFleet_imageArn,
+    updateFleet_platform,
     updateFleet_description,
     updateFleet_disconnectTimeoutInSeconds,
     updateFleet_idleDisconnectTimeoutInSeconds,
     updateFleet_instanceType,
     updateFleet_iamRoleArn,
+    updateFleet_usbDeviceFilterStrings,
     updateFleet_domainJoinInfo,
     updateFleet_streamView,
     updateFleet_enableDefaultInternetAccess,
@@ -371,6 +515,7 @@ module Amazonka.AppStream.Lens
     updateStack_accessEndpoints,
     updateStack_description,
     updateStack_redirectURL,
+    updateStack_streamingExperienceSettings,
     updateStack_feedbackURL,
     updateStack_userSettings,
     updateStack_name,
@@ -383,14 +528,35 @@ module Amazonka.AppStream.Lens
     accessEndpoint_vpceId,
     accessEndpoint_endpointType,
 
+    -- ** AppBlock
+    appBlock_createdTime,
+    appBlock_displayName,
+    appBlock_description,
+    appBlock_sourceS3Location,
+    appBlock_name,
+    appBlock_arn,
+    appBlock_setupScriptDetails,
+
     -- ** Application
     application_name,
+    application_createdTime,
     application_launchPath,
     application_metadata,
+    application_arn,
     application_displayName,
+    application_description,
+    application_iconS3Location,
     application_enabled,
     application_iconURL,
+    application_instanceFamilies,
+    application_platforms,
+    application_appBlockArn,
     application_launchParameters,
+    application_workingDirectory,
+
+    -- ** ApplicationFleetAssociation
+    applicationFleetAssociation_fleetName,
+    applicationFleetAssociation_applicationArn,
 
     -- ** ApplicationSettings
     applicationSettings_settingsGroup,
@@ -420,17 +586,37 @@ module Amazonka.AppStream.Lens
     domainJoinInfo_directoryName,
     domainJoinInfo_organizationalUnitDistinguishedName,
 
+    -- ** EntitledApplication
+    entitledApplication_applicationIdentifier,
+
+    -- ** Entitlement
+    entitlement_createdTime,
+    entitlement_description,
+    entitlement_lastModifiedTime,
+    entitlement_name,
+    entitlement_stackName,
+    entitlement_appVisibility,
+    entitlement_attributes,
+
+    -- ** EntitlementAttribute
+    entitlementAttribute_name,
+    entitlementAttribute_value,
+
     -- ** Fleet
     fleet_createdTime,
+    fleet_sessionScriptS3Location,
+    fleet_maxConcurrentSessions,
     fleet_fleetType,
     fleet_vpcConfig,
     fleet_fleetErrors,
     fleet_displayName,
     fleet_imageArn,
+    fleet_platform,
     fleet_description,
     fleet_disconnectTimeoutInSeconds,
     fleet_idleDisconnectTimeoutInSeconds,
     fleet_iamRoleArn,
+    fleet_usbDeviceFilterStrings,
     fleet_domainJoinInfo,
     fleet_streamView,
     fleet_enableDefaultInternetAccess,
@@ -510,6 +696,16 @@ module Amazonka.AppStream.Lens
     resourceError_errorTimestamp,
     resourceError_errorCode,
 
+    -- ** S3Location
+    s3Location_s3Bucket,
+    s3Location_s3Key,
+
+    -- ** ScriptDetails
+    scriptDetails_executableParameters,
+    scriptDetails_scriptS3Location,
+    scriptDetails_executablePath,
+    scriptDetails_timeoutInSeconds,
+
     -- ** ServiceAccountCredentials
     serviceAccountCredentials_accountName,
     serviceAccountCredentials_accountPassword,
@@ -541,6 +737,7 @@ module Amazonka.AppStream.Lens
     stack_accessEndpoints,
     stack_description,
     stack_redirectURL,
+    stack_streamingExperienceSettings,
     stack_feedbackURL,
     stack_userSettings,
     stack_name,
@@ -553,6 +750,9 @@ module Amazonka.AppStream.Lens
     storageConnector_domains,
     storageConnector_resourceIdentifier,
     storageConnector_connectorType,
+
+    -- ** StreamingExperienceSettings
+    streamingExperienceSettings_preferredProtocol,
 
     -- ** UsageReportSubscription
     usageReportSubscription_schedule,
@@ -591,11 +791,16 @@ module Amazonka.AppStream.Lens
   )
 where
 
+import Amazonka.AppStream.AssociateApplicationFleet
+import Amazonka.AppStream.AssociateApplicationToEntitlement
 import Amazonka.AppStream.AssociateFleet
 import Amazonka.AppStream.BatchAssociateUserStack
 import Amazonka.AppStream.BatchDisassociateUserStack
 import Amazonka.AppStream.CopyImage
+import Amazonka.AppStream.CreateAppBlock
+import Amazonka.AppStream.CreateApplication
 import Amazonka.AppStream.CreateDirectoryConfig
+import Amazonka.AppStream.CreateEntitlement
 import Amazonka.AppStream.CreateFleet
 import Amazonka.AppStream.CreateImageBuilder
 import Amazonka.AppStream.CreateImageBuilderStreamingURL
@@ -604,7 +809,10 @@ import Amazonka.AppStream.CreateStreamingURL
 import Amazonka.AppStream.CreateUpdatedImage
 import Amazonka.AppStream.CreateUsageReportSubscription
 import Amazonka.AppStream.CreateUser
+import Amazonka.AppStream.DeleteAppBlock
+import Amazonka.AppStream.DeleteApplication
 import Amazonka.AppStream.DeleteDirectoryConfig
+import Amazonka.AppStream.DeleteEntitlement
 import Amazonka.AppStream.DeleteFleet
 import Amazonka.AppStream.DeleteImage
 import Amazonka.AppStream.DeleteImageBuilder
@@ -612,7 +820,11 @@ import Amazonka.AppStream.DeleteImagePermissions
 import Amazonka.AppStream.DeleteStack
 import Amazonka.AppStream.DeleteUsageReportSubscription
 import Amazonka.AppStream.DeleteUser
+import Amazonka.AppStream.DescribeAppBlocks
+import Amazonka.AppStream.DescribeApplicationFleetAssociations
+import Amazonka.AppStream.DescribeApplications
 import Amazonka.AppStream.DescribeDirectoryConfigs
+import Amazonka.AppStream.DescribeEntitlements
 import Amazonka.AppStream.DescribeFleets
 import Amazonka.AppStream.DescribeImageBuilders
 import Amazonka.AppStream.DescribeImagePermissions
@@ -623,11 +835,14 @@ import Amazonka.AppStream.DescribeUsageReportSubscriptions
 import Amazonka.AppStream.DescribeUserStackAssociations
 import Amazonka.AppStream.DescribeUsers
 import Amazonka.AppStream.DisableUser
+import Amazonka.AppStream.DisassociateApplicationFleet
+import Amazonka.AppStream.DisassociateApplicationFromEntitlement
 import Amazonka.AppStream.DisassociateFleet
 import Amazonka.AppStream.EnableUser
 import Amazonka.AppStream.ExpireSession
 import Amazonka.AppStream.ListAssociatedFleets
 import Amazonka.AppStream.ListAssociatedStacks
+import Amazonka.AppStream.ListEntitledApplications
 import Amazonka.AppStream.ListTagsForResource
 import Amazonka.AppStream.StartFleet
 import Amazonka.AppStream.StartImageBuilder
@@ -635,13 +850,18 @@ import Amazonka.AppStream.StopFleet
 import Amazonka.AppStream.StopImageBuilder
 import Amazonka.AppStream.TagResource
 import Amazonka.AppStream.Types.AccessEndpoint
+import Amazonka.AppStream.Types.AppBlock
 import Amazonka.AppStream.Types.Application
+import Amazonka.AppStream.Types.ApplicationFleetAssociation
 import Amazonka.AppStream.Types.ApplicationSettings
 import Amazonka.AppStream.Types.ApplicationSettingsResponse
 import Amazonka.AppStream.Types.ComputeCapacity
 import Amazonka.AppStream.Types.ComputeCapacityStatus
 import Amazonka.AppStream.Types.DirectoryConfig
 import Amazonka.AppStream.Types.DomainJoinInfo
+import Amazonka.AppStream.Types.EntitledApplication
+import Amazonka.AppStream.Types.Entitlement
+import Amazonka.AppStream.Types.EntitlementAttribute
 import Amazonka.AppStream.Types.Fleet
 import Amazonka.AppStream.Types.FleetError
 import Amazonka.AppStream.Types.Image
@@ -652,12 +872,15 @@ import Amazonka.AppStream.Types.ImageStateChangeReason
 import Amazonka.AppStream.Types.LastReportGenerationExecutionError
 import Amazonka.AppStream.Types.NetworkAccessConfiguration
 import Amazonka.AppStream.Types.ResourceError
+import Amazonka.AppStream.Types.S3Location
+import Amazonka.AppStream.Types.ScriptDetails
 import Amazonka.AppStream.Types.ServiceAccountCredentials
 import Amazonka.AppStream.Types.Session
 import Amazonka.AppStream.Types.SharedImagePermissions
 import Amazonka.AppStream.Types.Stack
 import Amazonka.AppStream.Types.StackError
 import Amazonka.AppStream.Types.StorageConnector
+import Amazonka.AppStream.Types.StreamingExperienceSettings
 import Amazonka.AppStream.Types.UsageReportSubscription
 import Amazonka.AppStream.Types.User
 import Amazonka.AppStream.Types.UserSetting
@@ -665,7 +888,9 @@ import Amazonka.AppStream.Types.UserStackAssociation
 import Amazonka.AppStream.Types.UserStackAssociationError
 import Amazonka.AppStream.Types.VpcConfig
 import Amazonka.AppStream.UntagResource
+import Amazonka.AppStream.UpdateApplication
 import Amazonka.AppStream.UpdateDirectoryConfig
+import Amazonka.AppStream.UpdateEntitlement
 import Amazonka.AppStream.UpdateFleet
 import Amazonka.AppStream.UpdateImagePermissions
 import Amazonka.AppStream.UpdateStack

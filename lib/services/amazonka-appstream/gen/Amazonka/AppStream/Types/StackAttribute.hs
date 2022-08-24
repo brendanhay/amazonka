@@ -29,6 +29,7 @@ module Amazonka.AppStream.Types.StackAttribute
         StackAttribute_STORAGE_CONNECTOR_GOOGLE_DRIVE,
         StackAttribute_STORAGE_CONNECTOR_HOMEFOLDERS,
         StackAttribute_STORAGE_CONNECTOR_ONE_DRIVE,
+        StackAttribute_STREAMING_EXPERIENCE_SETTINGS,
         StackAttribute_THEME_NAME,
         StackAttribute_USER_SETTINGS
       ),
@@ -93,6 +94,9 @@ pattern StackAttribute_STORAGE_CONNECTOR_HOMEFOLDERS = StackAttribute' "STORAGE_
 pattern StackAttribute_STORAGE_CONNECTOR_ONE_DRIVE :: StackAttribute
 pattern StackAttribute_STORAGE_CONNECTOR_ONE_DRIVE = StackAttribute' "STORAGE_CONNECTOR_ONE_DRIVE"
 
+pattern StackAttribute_STREAMING_EXPERIENCE_SETTINGS :: StackAttribute
+pattern StackAttribute_STREAMING_EXPERIENCE_SETTINGS = StackAttribute' "STREAMING_EXPERIENCE_SETTINGS"
+
 pattern StackAttribute_THEME_NAME :: StackAttribute
 pattern StackAttribute_THEME_NAME = StackAttribute' "THEME_NAME"
 
@@ -109,6 +113,7 @@ pattern StackAttribute_USER_SETTINGS = StackAttribute' "USER_SETTINGS"
   StackAttribute_STORAGE_CONNECTOR_GOOGLE_DRIVE,
   StackAttribute_STORAGE_CONNECTOR_HOMEFOLDERS,
   StackAttribute_STORAGE_CONNECTOR_ONE_DRIVE,
+  StackAttribute_STREAMING_EXPERIENCE_SETTINGS,
   StackAttribute_THEME_NAME,
   StackAttribute_USER_SETTINGS,
   StackAttribute'

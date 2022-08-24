@@ -24,6 +24,8 @@ import Amazonka.AppStream.Types.DomainJoinInfo
 import Amazonka.AppStream.Types.FleetError
 import Amazonka.AppStream.Types.FleetState
 import Amazonka.AppStream.Types.FleetType
+import Amazonka.AppStream.Types.PlatformType
+import Amazonka.AppStream.Types.S3Location
 import Amazonka.AppStream.Types.StreamView
 import Amazonka.AppStream.Types.VpcConfig
 import qualified Amazonka.Core as Core
@@ -36,6 +38,11 @@ import qualified Amazonka.Prelude as Prelude
 data Fleet = Fleet'
   { -- | The time the fleet was created.
     createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The S3 location of the session scripts configuration zip file. This only
+    -- applies to Elastic fleets.
+    sessionScriptS3Location :: Prelude.Maybe S3Location,
+    -- | The maximum number of concurrent sessions for the fleet.
+    maxConcurrentSessions :: Prelude.Maybe Prelude.Int,
     -- | The fleet type.
     --
     -- [ALWAYS_ON]
@@ -57,6 +64,8 @@ data Fleet = Fleet'
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the public, private, or shared image.
     imageArn :: Prelude.Maybe Prelude.Text,
+    -- | The platform of the fleet.
+    platform :: Prelude.Maybe PlatformType,
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
     -- | The amount of time that a streaming session remains active after users
@@ -103,6 +112,8 @@ data Fleet = Fleet'
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The USB device filter strings associated with the fleet.
+    usbDeviceFilterStrings :: Prelude.Maybe [Prelude.Text],
     -- | The name of the directory and organizational unit (OU) to use to join
     -- the fleet to a Microsoft Active Directory domain.
     domainJoinInfo :: Prelude.Maybe DomainJoinInfo,
@@ -215,6 +226,11 @@ data Fleet = Fleet'
 --
 -- 'createdTime', 'fleet_createdTime' - The time the fleet was created.
 --
+-- 'sessionScriptS3Location', 'fleet_sessionScriptS3Location' - The S3 location of the session scripts configuration zip file. This only
+-- applies to Elastic fleets.
+--
+-- 'maxConcurrentSessions', 'fleet_maxConcurrentSessions' - The maximum number of concurrent sessions for the fleet.
+--
 -- 'fleetType', 'fleet_fleetType' - The fleet type.
 --
 -- [ALWAYS_ON]
@@ -235,6 +251,8 @@ data Fleet = Fleet'
 -- 'displayName', 'fleet_displayName' - The fleet name to display.
 --
 -- 'imageArn', 'fleet_imageArn' - The ARN for the public, private, or shared image.
+--
+-- 'platform', 'fleet_platform' - The platform of the fleet.
 --
 -- 'description', 'fleet_description' - The description to display.
 --
@@ -281,6 +299,8 @@ data Fleet = Fleet'
 -- For more information, see
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
+--
+-- 'usbDeviceFilterStrings', 'fleet_usbDeviceFilterStrings' - The USB device filter strings associated with the fleet.
 --
 -- 'domainJoinInfo', 'fleet_domainJoinInfo' - The name of the directory and organizational unit (OU) to use to join
 -- the fleet to a Microsoft Active Directory domain.
@@ -400,15 +420,19 @@ newFleet
   pState_ =
     Fleet'
       { createdTime = Prelude.Nothing,
+        sessionScriptS3Location = Prelude.Nothing,
+        maxConcurrentSessions = Prelude.Nothing,
         fleetType = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
         fleetErrors = Prelude.Nothing,
         displayName = Prelude.Nothing,
         imageArn = Prelude.Nothing,
+        platform = Prelude.Nothing,
         description = Prelude.Nothing,
         disconnectTimeoutInSeconds = Prelude.Nothing,
         idleDisconnectTimeoutInSeconds = Prelude.Nothing,
         iamRoleArn = Prelude.Nothing,
+        usbDeviceFilterStrings = Prelude.Nothing,
         domainJoinInfo = Prelude.Nothing,
         streamView = Prelude.Nothing,
         enableDefaultInternetAccess = Prelude.Nothing,
@@ -424,6 +448,15 @@ newFleet
 -- | The time the fleet was created.
 fleet_createdTime :: Lens.Lens' Fleet (Prelude.Maybe Prelude.UTCTime)
 fleet_createdTime = Lens.lens (\Fleet' {createdTime} -> createdTime) (\s@Fleet' {} a -> s {createdTime = a} :: Fleet) Prelude.. Lens.mapping Core._Time
+
+-- | The S3 location of the session scripts configuration zip file. This only
+-- applies to Elastic fleets.
+fleet_sessionScriptS3Location :: Lens.Lens' Fleet (Prelude.Maybe S3Location)
+fleet_sessionScriptS3Location = Lens.lens (\Fleet' {sessionScriptS3Location} -> sessionScriptS3Location) (\s@Fleet' {} a -> s {sessionScriptS3Location = a} :: Fleet)
+
+-- | The maximum number of concurrent sessions for the fleet.
+fleet_maxConcurrentSessions :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Int)
+fleet_maxConcurrentSessions = Lens.lens (\Fleet' {maxConcurrentSessions} -> maxConcurrentSessions) (\s@Fleet' {} a -> s {maxConcurrentSessions = a} :: Fleet)
 
 -- | The fleet type.
 --
@@ -455,6 +488,10 @@ fleet_displayName = Lens.lens (\Fleet' {displayName} -> displayName) (\s@Fleet' 
 -- | The ARN for the public, private, or shared image.
 fleet_imageArn :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Text)
 fleet_imageArn = Lens.lens (\Fleet' {imageArn} -> imageArn) (\s@Fleet' {} a -> s {imageArn = a} :: Fleet)
+
+-- | The platform of the fleet.
+fleet_platform :: Lens.Lens' Fleet (Prelude.Maybe PlatformType)
+fleet_platform = Lens.lens (\Fleet' {platform} -> platform) (\s@Fleet' {} a -> s {platform = a} :: Fleet)
 
 -- | The description to display.
 fleet_description :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Text)
@@ -509,6 +546,10 @@ fleet_idleDisconnectTimeoutInSeconds = Lens.lens (\Fleet' {idleDisconnectTimeout
 -- in the /Amazon AppStream 2.0 Administration Guide/.
 fleet_iamRoleArn :: Lens.Lens' Fleet (Prelude.Maybe Prelude.Text)
 fleet_iamRoleArn = Lens.lens (\Fleet' {iamRoleArn} -> iamRoleArn) (\s@Fleet' {} a -> s {iamRoleArn = a} :: Fleet)
+
+-- | The USB device filter strings associated with the fleet.
+fleet_usbDeviceFilterStrings :: Lens.Lens' Fleet (Prelude.Maybe [Prelude.Text])
+fleet_usbDeviceFilterStrings = Lens.lens (\Fleet' {usbDeviceFilterStrings} -> usbDeviceFilterStrings) (\s@Fleet' {} a -> s {usbDeviceFilterStrings = a} :: Fleet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the directory and organizational unit (OU) to use to join
 -- the fleet to a Microsoft Active Directory domain.
@@ -636,15 +677,21 @@ instance Core.FromJSON Fleet where
       ( \x ->
           Fleet'
             Prelude.<$> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "SessionScriptS3Location")
+            Prelude.<*> (x Core..:? "MaxConcurrentSessions")
             Prelude.<*> (x Core..:? "FleetType")
             Prelude.<*> (x Core..:? "VpcConfig")
             Prelude.<*> (x Core..:? "FleetErrors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "ImageArn")
+            Prelude.<*> (x Core..:? "Platform")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "DisconnectTimeoutInSeconds")
             Prelude.<*> (x Core..:? "IdleDisconnectTimeoutInSeconds")
             Prelude.<*> (x Core..:? "IamRoleArn")
+            Prelude.<*> ( x Core..:? "UsbDeviceFilterStrings"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "DomainJoinInfo")
             Prelude.<*> (x Core..:? "StreamView")
             Prelude.<*> (x Core..:? "EnableDefaultInternetAccess")
@@ -660,15 +707,19 @@ instance Core.FromJSON Fleet where
 instance Prelude.Hashable Fleet where
   hashWithSalt _salt Fleet' {..} =
     _salt `Prelude.hashWithSalt` createdTime
+      `Prelude.hashWithSalt` sessionScriptS3Location
+      `Prelude.hashWithSalt` maxConcurrentSessions
       `Prelude.hashWithSalt` fleetType
       `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` fleetErrors
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` imageArn
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disconnectTimeoutInSeconds
       `Prelude.hashWithSalt` idleDisconnectTimeoutInSeconds
       `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` usbDeviceFilterStrings
       `Prelude.hashWithSalt` domainJoinInfo
       `Prelude.hashWithSalt` streamView
       `Prelude.hashWithSalt` enableDefaultInternetAccess
@@ -683,20 +734,26 @@ instance Prelude.Hashable Fleet where
 instance Prelude.NFData Fleet where
   rnf Fleet' {..} =
     Prelude.rnf createdTime
+      `Prelude.seq` Prelude.rnf sessionScriptS3Location
+      `Prelude.seq` Prelude.rnf maxConcurrentSessions
       `Prelude.seq` Prelude.rnf fleetType
       `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf fleetErrors
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf disconnectTimeoutInSeconds
       `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInSeconds
       `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf usbDeviceFilterStrings
       `Prelude.seq` Prelude.rnf domainJoinInfo
       `Prelude.seq` Prelude.rnf streamView
-      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
+      `Prelude.seq` Prelude.rnf
+        enableDefaultInternetAccess
       `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf maxUserDurationInSeconds
+      `Prelude.seq` Prelude.rnf
+        maxUserDurationInSeconds
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceType

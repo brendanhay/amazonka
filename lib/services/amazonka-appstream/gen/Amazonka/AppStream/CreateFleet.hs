@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a fleet. A fleet consists of streaming instances that run a
--- specified image.
+-- specified image when using Always-On or On-Demand.
 module Amazonka.AppStream.CreateFleet
   ( -- * Creating a Request
     CreateFleet (..),
@@ -29,22 +29,26 @@ module Amazonka.AppStream.CreateFleet
 
     -- * Request Lenses
     createFleet_tags,
+    createFleet_sessionScriptS3Location,
+    createFleet_maxConcurrentSessions,
     createFleet_fleetType,
     createFleet_vpcConfig,
     createFleet_displayName,
     createFleet_imageArn,
+    createFleet_platform,
     createFleet_description,
     createFleet_disconnectTimeoutInSeconds,
     createFleet_idleDisconnectTimeoutInSeconds,
     createFleet_iamRoleArn,
+    createFleet_usbDeviceFilterStrings,
     createFleet_domainJoinInfo,
     createFleet_streamView,
     createFleet_enableDefaultInternetAccess,
+    createFleet_computeCapacity,
     createFleet_imageName,
     createFleet_maxUserDurationInSeconds,
     createFleet_name,
     createFleet_instanceType,
-    createFleet_computeCapacity,
 
     -- * Destructuring the Response
     CreateFleetResponse (..),
@@ -80,6 +84,12 @@ data CreateFleet = CreateFleet'
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The S3 location of the session scripts configuration zip file. This only
+    -- applies to Elastic fleets.
+    sessionScriptS3Location :: Prelude.Maybe S3Location,
+    -- | The maximum concurrent sessions of the Elastic fleet. This is required
+    -- for Elastic fleets, and not allowed for other fleet types.
+    maxConcurrentSessions :: Prelude.Maybe Prelude.Int,
     -- | The fleet type.
     --
     -- [ALWAYS_ON]
@@ -93,12 +103,17 @@ data CreateFleet = CreateFleet'
     --     when users are connected and a small hourly fee for instances that
     --     are not streaming apps.
     fleetType :: Prelude.Maybe FleetType,
-    -- | The VPC configuration for the fleet.
+    -- | The VPC configuration for the fleet. This is required for Elastic
+    -- fleets, but not required for other fleet types. Elastic fleets require
+    -- that you specify at least two subnets in different availability zones.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The fleet name to display.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the public, private, or shared image to use.
     imageArn :: Prelude.Maybe Prelude.Text,
+    -- | The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported
+    -- for Elastic fleets.
+    platform :: Prelude.Maybe PlatformType,
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
     -- | The amount of time that a streaming session remains active after users
@@ -145,8 +160,13 @@ data CreateFleet = CreateFleet'
     -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
     -- in the /Amazon AppStream 2.0 Administration Guide/.
     iamRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The USB device filter strings that specify which USB devices a user can
+    -- redirect to the fleet streaming session, when using the Windows native
+    -- client. This is allowed but not required for Elastic fleets.
+    usbDeviceFilterStrings :: Prelude.Maybe [Prelude.Text],
     -- | The name of the directory and organizational unit (OU) to use to join
-    -- the fleet to a Microsoft Active Directory domain.
+    -- the fleet to a Microsoft Active Directory domain. This is not allowed
+    -- for Elastic fleets.
     domainJoinInfo :: Prelude.Maybe DomainJoinInfo,
     -- | The AppStream 2.0 view that is displayed to your users when they stream
     -- from the fleet. When @APP@ is specified, only the windows of
@@ -157,6 +177,9 @@ data CreateFleet = CreateFleet'
     streamView :: Prelude.Maybe StreamView,
     -- | Enables or disables default internet access for the fleet.
     enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
+    -- | The desired capacity for the fleet. This is not allowed for Elastic
+    -- fleets. For Elastic fleets, specify MaxConcurrentSessions instead.
+    computeCapacity :: Prelude.Maybe ComputeCapacity,
     -- | The name of the image used to create the fleet.
     imageName :: Prelude.Maybe Prelude.Text,
     -- | The maximum amount of time that a streaming session can remain active,
@@ -237,9 +260,13 @@ data CreateFleet = CreateFleet'
     -- -   stream.graphics-pro.8xlarge
     --
     -- -   stream.graphics-pro.16xlarge
-    instanceType :: Prelude.Text,
-    -- | The desired capacity for the fleet.
-    computeCapacity :: ComputeCapacity
+    --
+    -- The following instance types are available for Elastic fleets:
+    --
+    -- -   stream.standard.small
+    --
+    -- -   stream.standard.medium
+    instanceType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -266,6 +293,12 @@ data CreateFleet = CreateFleet'
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html Tagging Your Resources>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
 --
+-- 'sessionScriptS3Location', 'createFleet_sessionScriptS3Location' - The S3 location of the session scripts configuration zip file. This only
+-- applies to Elastic fleets.
+--
+-- 'maxConcurrentSessions', 'createFleet_maxConcurrentSessions' - The maximum concurrent sessions of the Elastic fleet. This is required
+-- for Elastic fleets, and not allowed for other fleet types.
+--
 -- 'fleetType', 'createFleet_fleetType' - The fleet type.
 --
 -- [ALWAYS_ON]
@@ -279,11 +312,16 @@ data CreateFleet = CreateFleet'
 --     when users are connected and a small hourly fee for instances that
 --     are not streaming apps.
 --
--- 'vpcConfig', 'createFleet_vpcConfig' - The VPC configuration for the fleet.
+-- 'vpcConfig', 'createFleet_vpcConfig' - The VPC configuration for the fleet. This is required for Elastic
+-- fleets, but not required for other fleet types. Elastic fleets require
+-- that you specify at least two subnets in different availability zones.
 --
 -- 'displayName', 'createFleet_displayName' - The fleet name to display.
 --
 -- 'imageArn', 'createFleet_imageArn' - The ARN of the public, private, or shared image to use.
+--
+-- 'platform', 'createFleet_platform' - The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported
+-- for Elastic fleets.
 --
 -- 'description', 'createFleet_description' - The description to display.
 --
@@ -331,8 +369,13 @@ data CreateFleet = CreateFleet'
 -- <https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html Using an IAM Role to Grant Permissions to Applications and Scripts Running on AppStream 2.0 Streaming Instances>
 -- in the /Amazon AppStream 2.0 Administration Guide/.
 --
+-- 'usbDeviceFilterStrings', 'createFleet_usbDeviceFilterStrings' - The USB device filter strings that specify which USB devices a user can
+-- redirect to the fleet streaming session, when using the Windows native
+-- client. This is allowed but not required for Elastic fleets.
+--
 -- 'domainJoinInfo', 'createFleet_domainJoinInfo' - The name of the directory and organizational unit (OU) to use to join
--- the fleet to a Microsoft Active Directory domain.
+-- the fleet to a Microsoft Active Directory domain. This is not allowed
+-- for Elastic fleets.
 --
 -- 'streamView', 'createFleet_streamView' - The AppStream 2.0 view that is displayed to your users when they stream
 -- from the fleet. When @APP@ is specified, only the windows of
@@ -342,6 +385,9 @@ data CreateFleet = CreateFleet'
 -- The default value is @APP@.
 --
 -- 'enableDefaultInternetAccess', 'createFleet_enableDefaultInternetAccess' - Enables or disables default internet access for the fleet.
+--
+-- 'computeCapacity', 'createFleet_computeCapacity' - The desired capacity for the fleet. This is not allowed for Elastic
+-- fleets. For Elastic fleets, specify MaxConcurrentSessions instead.
 --
 -- 'imageName', 'createFleet_imageName' - The name of the image used to create the fleet.
 --
@@ -424,38 +470,41 @@ data CreateFleet = CreateFleet'
 --
 -- -   stream.graphics-pro.16xlarge
 --
--- 'computeCapacity', 'createFleet_computeCapacity' - The desired capacity for the fleet.
+-- The following instance types are available for Elastic fleets:
+--
+-- -   stream.standard.small
+--
+-- -   stream.standard.medium
 newCreateFleet ::
   -- | 'name'
   Prelude.Text ->
   -- | 'instanceType'
   Prelude.Text ->
-  -- | 'computeCapacity'
-  ComputeCapacity ->
   CreateFleet
-newCreateFleet
-  pName_
-  pInstanceType_
-  pComputeCapacity_ =
-    CreateFleet'
-      { tags = Prelude.Nothing,
-        fleetType = Prelude.Nothing,
-        vpcConfig = Prelude.Nothing,
-        displayName = Prelude.Nothing,
-        imageArn = Prelude.Nothing,
-        description = Prelude.Nothing,
-        disconnectTimeoutInSeconds = Prelude.Nothing,
-        idleDisconnectTimeoutInSeconds = Prelude.Nothing,
-        iamRoleArn = Prelude.Nothing,
-        domainJoinInfo = Prelude.Nothing,
-        streamView = Prelude.Nothing,
-        enableDefaultInternetAccess = Prelude.Nothing,
-        imageName = Prelude.Nothing,
-        maxUserDurationInSeconds = Prelude.Nothing,
-        name = pName_,
-        instanceType = pInstanceType_,
-        computeCapacity = pComputeCapacity_
-      }
+newCreateFleet pName_ pInstanceType_ =
+  CreateFleet'
+    { tags = Prelude.Nothing,
+      sessionScriptS3Location = Prelude.Nothing,
+      maxConcurrentSessions = Prelude.Nothing,
+      fleetType = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
+      displayName = Prelude.Nothing,
+      imageArn = Prelude.Nothing,
+      platform = Prelude.Nothing,
+      description = Prelude.Nothing,
+      disconnectTimeoutInSeconds = Prelude.Nothing,
+      idleDisconnectTimeoutInSeconds = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
+      usbDeviceFilterStrings = Prelude.Nothing,
+      domainJoinInfo = Prelude.Nothing,
+      streamView = Prelude.Nothing,
+      enableDefaultInternetAccess = Prelude.Nothing,
+      computeCapacity = Prelude.Nothing,
+      imageName = Prelude.Nothing,
+      maxUserDurationInSeconds = Prelude.Nothing,
+      name = pName_,
+      instanceType = pInstanceType_
+    }
 
 -- | The tags to associate with the fleet. A tag is a key-value pair, and the
 -- value is optional. For example, Environment=Test. If you do not specify
@@ -474,6 +523,16 @@ newCreateFleet
 createFleet_tags :: Lens.Lens' CreateFleet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} a -> s {tags = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
 
+-- | The S3 location of the session scripts configuration zip file. This only
+-- applies to Elastic fleets.
+createFleet_sessionScriptS3Location :: Lens.Lens' CreateFleet (Prelude.Maybe S3Location)
+createFleet_sessionScriptS3Location = Lens.lens (\CreateFleet' {sessionScriptS3Location} -> sessionScriptS3Location) (\s@CreateFleet' {} a -> s {sessionScriptS3Location = a} :: CreateFleet)
+
+-- | The maximum concurrent sessions of the Elastic fleet. This is required
+-- for Elastic fleets, and not allowed for other fleet types.
+createFleet_maxConcurrentSessions :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Int)
+createFleet_maxConcurrentSessions = Lens.lens (\CreateFleet' {maxConcurrentSessions} -> maxConcurrentSessions) (\s@CreateFleet' {} a -> s {maxConcurrentSessions = a} :: CreateFleet)
+
 -- | The fleet type.
 --
 -- [ALWAYS_ON]
@@ -489,7 +548,9 @@ createFleet_tags = Lens.lens (\CreateFleet' {tags} -> tags) (\s@CreateFleet' {} 
 createFleet_fleetType :: Lens.Lens' CreateFleet (Prelude.Maybe FleetType)
 createFleet_fleetType = Lens.lens (\CreateFleet' {fleetType} -> fleetType) (\s@CreateFleet' {} a -> s {fleetType = a} :: CreateFleet)
 
--- | The VPC configuration for the fleet.
+-- | The VPC configuration for the fleet. This is required for Elastic
+-- fleets, but not required for other fleet types. Elastic fleets require
+-- that you specify at least two subnets in different availability zones.
 createFleet_vpcConfig :: Lens.Lens' CreateFleet (Prelude.Maybe VpcConfig)
 createFleet_vpcConfig = Lens.lens (\CreateFleet' {vpcConfig} -> vpcConfig) (\s@CreateFleet' {} a -> s {vpcConfig = a} :: CreateFleet)
 
@@ -500,6 +561,11 @@ createFleet_displayName = Lens.lens (\CreateFleet' {displayName} -> displayName)
 -- | The ARN of the public, private, or shared image to use.
 createFleet_imageArn :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_imageArn = Lens.lens (\CreateFleet' {imageArn} -> imageArn) (\s@CreateFleet' {} a -> s {imageArn = a} :: CreateFleet)
+
+-- | The fleet platform. WINDOWS_SERVER_2019 and AMAZON_LINUX2 are supported
+-- for Elastic fleets.
+createFleet_platform :: Lens.Lens' CreateFleet (Prelude.Maybe PlatformType)
+createFleet_platform = Lens.lens (\CreateFleet' {platform} -> platform) (\s@CreateFleet' {} a -> s {platform = a} :: CreateFleet)
 
 -- | The description to display.
 createFleet_description :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
@@ -555,8 +621,15 @@ createFleet_idleDisconnectTimeoutInSeconds = Lens.lens (\CreateFleet' {idleDisco
 createFleet_iamRoleArn :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_iamRoleArn = Lens.lens (\CreateFleet' {iamRoleArn} -> iamRoleArn) (\s@CreateFleet' {} a -> s {iamRoleArn = a} :: CreateFleet)
 
+-- | The USB device filter strings that specify which USB devices a user can
+-- redirect to the fleet streaming session, when using the Windows native
+-- client. This is allowed but not required for Elastic fleets.
+createFleet_usbDeviceFilterStrings :: Lens.Lens' CreateFleet (Prelude.Maybe [Prelude.Text])
+createFleet_usbDeviceFilterStrings = Lens.lens (\CreateFleet' {usbDeviceFilterStrings} -> usbDeviceFilterStrings) (\s@CreateFleet' {} a -> s {usbDeviceFilterStrings = a} :: CreateFleet) Prelude.. Lens.mapping Lens.coerced
+
 -- | The name of the directory and organizational unit (OU) to use to join
--- the fleet to a Microsoft Active Directory domain.
+-- the fleet to a Microsoft Active Directory domain. This is not allowed
+-- for Elastic fleets.
 createFleet_domainJoinInfo :: Lens.Lens' CreateFleet (Prelude.Maybe DomainJoinInfo)
 createFleet_domainJoinInfo = Lens.lens (\CreateFleet' {domainJoinInfo} -> domainJoinInfo) (\s@CreateFleet' {} a -> s {domainJoinInfo = a} :: CreateFleet)
 
@@ -572,6 +645,11 @@ createFleet_streamView = Lens.lens (\CreateFleet' {streamView} -> streamView) (\
 -- | Enables or disables default internet access for the fleet.
 createFleet_enableDefaultInternetAccess :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Bool)
 createFleet_enableDefaultInternetAccess = Lens.lens (\CreateFleet' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@CreateFleet' {} a -> s {enableDefaultInternetAccess = a} :: CreateFleet)
+
+-- | The desired capacity for the fleet. This is not allowed for Elastic
+-- fleets. For Elastic fleets, specify MaxConcurrentSessions instead.
+createFleet_computeCapacity :: Lens.Lens' CreateFleet (Prelude.Maybe ComputeCapacity)
+createFleet_computeCapacity = Lens.lens (\CreateFleet' {computeCapacity} -> computeCapacity) (\s@CreateFleet' {} a -> s {computeCapacity = a} :: CreateFleet)
 
 -- | The name of the image used to create the fleet.
 createFleet_imageName :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
@@ -659,12 +737,14 @@ createFleet_name = Lens.lens (\CreateFleet' {name} -> name) (\s@CreateFleet' {} 
 -- -   stream.graphics-pro.8xlarge
 --
 -- -   stream.graphics-pro.16xlarge
+--
+-- The following instance types are available for Elastic fleets:
+--
+-- -   stream.standard.small
+--
+-- -   stream.standard.medium
 createFleet_instanceType :: Lens.Lens' CreateFleet Prelude.Text
 createFleet_instanceType = Lens.lens (\CreateFleet' {instanceType} -> instanceType) (\s@CreateFleet' {} a -> s {instanceType = a} :: CreateFleet)
-
--- | The desired capacity for the fleet.
-createFleet_computeCapacity :: Lens.Lens' CreateFleet ComputeCapacity
-createFleet_computeCapacity = Lens.lens (\CreateFleet' {computeCapacity} -> computeCapacity) (\s@CreateFleet' {} a -> s {computeCapacity = a} :: CreateFleet)
 
 instance Core.AWSRequest CreateFleet where
   type AWSResponse CreateFleet = CreateFleetResponse
@@ -680,42 +760,52 @@ instance Core.AWSRequest CreateFleet where
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` sessionScriptS3Location
+      `Prelude.hashWithSalt` maxConcurrentSessions
       `Prelude.hashWithSalt` fleetType
       `Prelude.hashWithSalt` vpcConfig
       `Prelude.hashWithSalt` displayName
       `Prelude.hashWithSalt` imageArn
+      `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` disconnectTimeoutInSeconds
       `Prelude.hashWithSalt` idleDisconnectTimeoutInSeconds
       `Prelude.hashWithSalt` iamRoleArn
+      `Prelude.hashWithSalt` usbDeviceFilterStrings
       `Prelude.hashWithSalt` domainJoinInfo
       `Prelude.hashWithSalt` streamView
       `Prelude.hashWithSalt` enableDefaultInternetAccess
+      `Prelude.hashWithSalt` computeCapacity
       `Prelude.hashWithSalt` imageName
       `Prelude.hashWithSalt` maxUserDurationInSeconds
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` instanceType
-      `Prelude.hashWithSalt` computeCapacity
 
 instance Prelude.NFData CreateFleet where
   rnf CreateFleet' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf sessionScriptS3Location
+      `Prelude.seq` Prelude.rnf maxConcurrentSessions
       `Prelude.seq` Prelude.rnf fleetType
       `Prelude.seq` Prelude.rnf vpcConfig
       `Prelude.seq` Prelude.rnf displayName
       `Prelude.seq` Prelude.rnf imageArn
+      `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf disconnectTimeoutInSeconds
       `Prelude.seq` Prelude.rnf idleDisconnectTimeoutInSeconds
       `Prelude.seq` Prelude.rnf iamRoleArn
+      `Prelude.seq` Prelude.rnf usbDeviceFilterStrings
       `Prelude.seq` Prelude.rnf domainJoinInfo
       `Prelude.seq` Prelude.rnf streamView
-      `Prelude.seq` Prelude.rnf enableDefaultInternetAccess
+      `Prelude.seq` Prelude.rnf
+        enableDefaultInternetAccess
+      `Prelude.seq` Prelude.rnf computeCapacity
       `Prelude.seq` Prelude.rnf imageName
-      `Prelude.seq` Prelude.rnf maxUserDurationInSeconds
+      `Prelude.seq` Prelude.rnf
+        maxUserDurationInSeconds
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf instanceType
-      `Prelude.seq` Prelude.rnf computeCapacity
 
 instance Core.ToHeaders CreateFleet where
   toHeaders =
@@ -737,28 +827,35 @@ instance Core.ToJSON CreateFleet where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("SessionScriptS3Location" Core..=)
+              Prelude.<$> sessionScriptS3Location,
+            ("MaxConcurrentSessions" Core..=)
+              Prelude.<$> maxConcurrentSessions,
             ("FleetType" Core..=) Prelude.<$> fleetType,
             ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("DisplayName" Core..=) Prelude.<$> displayName,
             ("ImageArn" Core..=) Prelude.<$> imageArn,
+            ("Platform" Core..=) Prelude.<$> platform,
             ("Description" Core..=) Prelude.<$> description,
             ("DisconnectTimeoutInSeconds" Core..=)
               Prelude.<$> disconnectTimeoutInSeconds,
             ("IdleDisconnectTimeoutInSeconds" Core..=)
               Prelude.<$> idleDisconnectTimeoutInSeconds,
             ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
+            ("UsbDeviceFilterStrings" Core..=)
+              Prelude.<$> usbDeviceFilterStrings,
             ("DomainJoinInfo" Core..=)
               Prelude.<$> domainJoinInfo,
             ("StreamView" Core..=) Prelude.<$> streamView,
             ("EnableDefaultInternetAccess" Core..=)
               Prelude.<$> enableDefaultInternetAccess,
+            ("ComputeCapacity" Core..=)
+              Prelude.<$> computeCapacity,
             ("ImageName" Core..=) Prelude.<$> imageName,
             ("MaxUserDurationInSeconds" Core..=)
               Prelude.<$> maxUserDurationInSeconds,
             Prelude.Just ("Name" Core..= name),
-            Prelude.Just ("InstanceType" Core..= instanceType),
-            Prelude.Just
-              ("ComputeCapacity" Core..= computeCapacity)
+            Prelude.Just ("InstanceType" Core..= instanceType)
           ]
       )
 

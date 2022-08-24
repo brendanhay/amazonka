@@ -21,6 +21,7 @@ module Amazonka.AppStream.Types.FleetType
   ( FleetType
       ( ..,
         FleetType_ALWAYS_ON,
+        FleetType_ELASTIC,
         FleetType_ON_DEMAND
       ),
   )
@@ -60,11 +61,15 @@ newtype FleetType = FleetType'
 pattern FleetType_ALWAYS_ON :: FleetType
 pattern FleetType_ALWAYS_ON = FleetType' "ALWAYS_ON"
 
+pattern FleetType_ELASTIC :: FleetType
+pattern FleetType_ELASTIC = FleetType' "ELASTIC"
+
 pattern FleetType_ON_DEMAND :: FleetType
 pattern FleetType_ON_DEMAND = FleetType' "ON_DEMAND"
 
 {-# COMPLETE
   FleetType_ALWAYS_ON,
+  FleetType_ELASTIC,
   FleetType_ON_DEMAND,
   FleetType'
   #-}

@@ -27,7 +27,13 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestAssociateFleet $
+--         [ requestAssociateApplicationFleet $
+--             newAssociateApplicationFleet
+--
+--         , requestAssociateApplicationToEntitlement $
+--             newAssociateApplicationToEntitlement
+--
+--         , requestAssociateFleet $
 --             newAssociateFleet
 --
 --         , requestBatchAssociateUserStack $
@@ -39,8 +45,17 @@ import Test.Tasty
 --         , requestCopyImage $
 --             newCopyImage
 --
+--         , requestCreateAppBlock $
+--             newCreateAppBlock
+--
+--         , requestCreateApplication $
+--             newCreateApplication
+--
 --         , requestCreateDirectoryConfig $
 --             newCreateDirectoryConfig
+--
+--         , requestCreateEntitlement $
+--             newCreateEntitlement
 --
 --         , requestCreateFleet $
 --             newCreateFleet
@@ -66,8 +81,17 @@ import Test.Tasty
 --         , requestCreateUser $
 --             newCreateUser
 --
+--         , requestDeleteAppBlock $
+--             newDeleteAppBlock
+--
+--         , requestDeleteApplication $
+--             newDeleteApplication
+--
 --         , requestDeleteDirectoryConfig $
 --             newDeleteDirectoryConfig
+--
+--         , requestDeleteEntitlement $
+--             newDeleteEntitlement
 --
 --         , requestDeleteFleet $
 --             newDeleteFleet
@@ -90,8 +114,20 @@ import Test.Tasty
 --         , requestDeleteUser $
 --             newDeleteUser
 --
+--         , requestDescribeAppBlocks $
+--             newDescribeAppBlocks
+--
+--         , requestDescribeApplicationFleetAssociations $
+--             newDescribeApplicationFleetAssociations
+--
+--         , requestDescribeApplications $
+--             newDescribeApplications
+--
 --         , requestDescribeDirectoryConfigs $
 --             newDescribeDirectoryConfigs
+--
+--         , requestDescribeEntitlements $
+--             newDescribeEntitlements
 --
 --         , requestDescribeFleets $
 --             newDescribeFleets
@@ -123,6 +159,12 @@ import Test.Tasty
 --         , requestDisableUser $
 --             newDisableUser
 --
+--         , requestDisassociateApplicationFleet $
+--             newDisassociateApplicationFleet
+--
+--         , requestDisassociateApplicationFromEntitlement $
+--             newDisassociateApplicationFromEntitlement
+--
 --         , requestDisassociateFleet $
 --             newDisassociateFleet
 --
@@ -137,6 +179,9 @@ import Test.Tasty
 --
 --         , requestListAssociatedStacks $
 --             newListAssociatedStacks
+--
+--         , requestListEntitledApplications $
+--             newListEntitledApplications
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -159,8 +204,14 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
+--         , requestUpdateApplication $
+--             newUpdateApplication
+--
 --         , requestUpdateDirectoryConfig $
 --             newUpdateDirectoryConfig
+--
+--         , requestUpdateEntitlement $
+--             newUpdateEntitlement
 --
 --         , requestUpdateFleet $
 --             newUpdateFleet
@@ -174,7 +225,13 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseAssociateFleet $
+--         [ responseAssociateApplicationFleet $
+--             newAssociateApplicationFleetResponse
+--
+--         , responseAssociateApplicationToEntitlement $
+--             newAssociateApplicationToEntitlementResponse
+--
+--         , responseAssociateFleet $
 --             newAssociateFleetResponse
 --
 --         , responseBatchAssociateUserStack $
@@ -186,8 +243,17 @@ import Test.Tasty
 --         , responseCopyImage $
 --             newCopyImageResponse
 --
+--         , responseCreateAppBlock $
+--             newCreateAppBlockResponse
+--
+--         , responseCreateApplication $
+--             newCreateApplicationResponse
+--
 --         , responseCreateDirectoryConfig $
 --             newCreateDirectoryConfigResponse
+--
+--         , responseCreateEntitlement $
+--             newCreateEntitlementResponse
 --
 --         , responseCreateFleet $
 --             newCreateFleetResponse
@@ -213,8 +279,17 @@ import Test.Tasty
 --         , responseCreateUser $
 --             newCreateUserResponse
 --
+--         , responseDeleteAppBlock $
+--             newDeleteAppBlockResponse
+--
+--         , responseDeleteApplication $
+--             newDeleteApplicationResponse
+--
 --         , responseDeleteDirectoryConfig $
 --             newDeleteDirectoryConfigResponse
+--
+--         , responseDeleteEntitlement $
+--             newDeleteEntitlementResponse
 --
 --         , responseDeleteFleet $
 --             newDeleteFleetResponse
@@ -237,8 +312,20 @@ import Test.Tasty
 --         , responseDeleteUser $
 --             newDeleteUserResponse
 --
+--         , responseDescribeAppBlocks $
+--             newDescribeAppBlocksResponse
+--
+--         , responseDescribeApplicationFleetAssociations $
+--             newDescribeApplicationFleetAssociationsResponse
+--
+--         , responseDescribeApplications $
+--             newDescribeApplicationsResponse
+--
 --         , responseDescribeDirectoryConfigs $
 --             newDescribeDirectoryConfigsResponse
+--
+--         , responseDescribeEntitlements $
+--             newDescribeEntitlementsResponse
 --
 --         , responseDescribeFleets $
 --             newDescribeFleetsResponse
@@ -270,6 +357,12 @@ import Test.Tasty
 --         , responseDisableUser $
 --             newDisableUserResponse
 --
+--         , responseDisassociateApplicationFleet $
+--             newDisassociateApplicationFleetResponse
+--
+--         , responseDisassociateApplicationFromEntitlement $
+--             newDisassociateApplicationFromEntitlementResponse
+--
 --         , responseDisassociateFleet $
 --             newDisassociateFleetResponse
 --
@@ -284,6 +377,9 @@ import Test.Tasty
 --
 --         , responseListAssociatedStacks $
 --             newListAssociatedStacksResponse
+--
+--         , responseListEntitledApplications $
+--             newListEntitledApplicationsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -306,8 +402,14 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
+--         , responseUpdateApplication $
+--             newUpdateApplicationResponse
+--
 --         , responseUpdateDirectoryConfig $
 --             newUpdateDirectoryConfigResponse
+--
+--         , responseUpdateEntitlement $
+--             newUpdateEntitlementResponse
 --
 --         , responseUpdateFleet $
 --             newUpdateFleetResponse
@@ -322,6 +424,18 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestAssociateApplicationFleet :: AssociateApplicationFleet -> TestTree
+requestAssociateApplicationFleet =
+  req
+    "AssociateApplicationFleet"
+    "fixture/AssociateApplicationFleet.yaml"
+
+requestAssociateApplicationToEntitlement :: AssociateApplicationToEntitlement -> TestTree
+requestAssociateApplicationToEntitlement =
+  req
+    "AssociateApplicationToEntitlement"
+    "fixture/AssociateApplicationToEntitlement.yaml"
 
 requestAssociateFleet :: AssociateFleet -> TestTree
 requestAssociateFleet =
@@ -347,11 +461,29 @@ requestCopyImage =
     "CopyImage"
     "fixture/CopyImage.yaml"
 
+requestCreateAppBlock :: CreateAppBlock -> TestTree
+requestCreateAppBlock =
+  req
+    "CreateAppBlock"
+    "fixture/CreateAppBlock.yaml"
+
+requestCreateApplication :: CreateApplication -> TestTree
+requestCreateApplication =
+  req
+    "CreateApplication"
+    "fixture/CreateApplication.yaml"
+
 requestCreateDirectoryConfig :: CreateDirectoryConfig -> TestTree
 requestCreateDirectoryConfig =
   req
     "CreateDirectoryConfig"
     "fixture/CreateDirectoryConfig.yaml"
+
+requestCreateEntitlement :: CreateEntitlement -> TestTree
+requestCreateEntitlement =
+  req
+    "CreateEntitlement"
+    "fixture/CreateEntitlement.yaml"
 
 requestCreateFleet :: CreateFleet -> TestTree
 requestCreateFleet =
@@ -401,11 +533,29 @@ requestCreateUser =
     "CreateUser"
     "fixture/CreateUser.yaml"
 
+requestDeleteAppBlock :: DeleteAppBlock -> TestTree
+requestDeleteAppBlock =
+  req
+    "DeleteAppBlock"
+    "fixture/DeleteAppBlock.yaml"
+
+requestDeleteApplication :: DeleteApplication -> TestTree
+requestDeleteApplication =
+  req
+    "DeleteApplication"
+    "fixture/DeleteApplication.yaml"
+
 requestDeleteDirectoryConfig :: DeleteDirectoryConfig -> TestTree
 requestDeleteDirectoryConfig =
   req
     "DeleteDirectoryConfig"
     "fixture/DeleteDirectoryConfig.yaml"
+
+requestDeleteEntitlement :: DeleteEntitlement -> TestTree
+requestDeleteEntitlement =
+  req
+    "DeleteEntitlement"
+    "fixture/DeleteEntitlement.yaml"
 
 requestDeleteFleet :: DeleteFleet -> TestTree
 requestDeleteFleet =
@@ -449,11 +599,35 @@ requestDeleteUser =
     "DeleteUser"
     "fixture/DeleteUser.yaml"
 
+requestDescribeAppBlocks :: DescribeAppBlocks -> TestTree
+requestDescribeAppBlocks =
+  req
+    "DescribeAppBlocks"
+    "fixture/DescribeAppBlocks.yaml"
+
+requestDescribeApplicationFleetAssociations :: DescribeApplicationFleetAssociations -> TestTree
+requestDescribeApplicationFleetAssociations =
+  req
+    "DescribeApplicationFleetAssociations"
+    "fixture/DescribeApplicationFleetAssociations.yaml"
+
+requestDescribeApplications :: DescribeApplications -> TestTree
+requestDescribeApplications =
+  req
+    "DescribeApplications"
+    "fixture/DescribeApplications.yaml"
+
 requestDescribeDirectoryConfigs :: DescribeDirectoryConfigs -> TestTree
 requestDescribeDirectoryConfigs =
   req
     "DescribeDirectoryConfigs"
     "fixture/DescribeDirectoryConfigs.yaml"
+
+requestDescribeEntitlements :: DescribeEntitlements -> TestTree
+requestDescribeEntitlements =
+  req
+    "DescribeEntitlements"
+    "fixture/DescribeEntitlements.yaml"
 
 requestDescribeFleets :: DescribeFleets -> TestTree
 requestDescribeFleets =
@@ -515,6 +689,18 @@ requestDisableUser =
     "DisableUser"
     "fixture/DisableUser.yaml"
 
+requestDisassociateApplicationFleet :: DisassociateApplicationFleet -> TestTree
+requestDisassociateApplicationFleet =
+  req
+    "DisassociateApplicationFleet"
+    "fixture/DisassociateApplicationFleet.yaml"
+
+requestDisassociateApplicationFromEntitlement :: DisassociateApplicationFromEntitlement -> TestTree
+requestDisassociateApplicationFromEntitlement =
+  req
+    "DisassociateApplicationFromEntitlement"
+    "fixture/DisassociateApplicationFromEntitlement.yaml"
+
 requestDisassociateFleet :: DisassociateFleet -> TestTree
 requestDisassociateFleet =
   req
@@ -544,6 +730,12 @@ requestListAssociatedStacks =
   req
     "ListAssociatedStacks"
     "fixture/ListAssociatedStacks.yaml"
+
+requestListEntitledApplications :: ListEntitledApplications -> TestTree
+requestListEntitledApplications =
+  req
+    "ListEntitledApplications"
+    "fixture/ListEntitledApplications.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -587,11 +779,23 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
+requestUpdateApplication :: UpdateApplication -> TestTree
+requestUpdateApplication =
+  req
+    "UpdateApplication"
+    "fixture/UpdateApplication.yaml"
+
 requestUpdateDirectoryConfig :: UpdateDirectoryConfig -> TestTree
 requestUpdateDirectoryConfig =
   req
     "UpdateDirectoryConfig"
     "fixture/UpdateDirectoryConfig.yaml"
+
+requestUpdateEntitlement :: UpdateEntitlement -> TestTree
+requestUpdateEntitlement =
+  req
+    "UpdateEntitlement"
+    "fixture/UpdateEntitlement.yaml"
 
 requestUpdateFleet :: UpdateFleet -> TestTree
 requestUpdateFleet =
@@ -612,6 +816,22 @@ requestUpdateStack =
     "fixture/UpdateStack.yaml"
 
 -- Responses
+
+responseAssociateApplicationFleet :: AssociateApplicationFleetResponse -> TestTree
+responseAssociateApplicationFleet =
+  res
+    "AssociateApplicationFleetResponse"
+    "fixture/AssociateApplicationFleetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateApplicationFleet)
+
+responseAssociateApplicationToEntitlement :: AssociateApplicationToEntitlementResponse -> TestTree
+responseAssociateApplicationToEntitlement =
+  res
+    "AssociateApplicationToEntitlementResponse"
+    "fixture/AssociateApplicationToEntitlementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateApplicationToEntitlement)
 
 responseAssociateFleet :: AssociateFleetResponse -> TestTree
 responseAssociateFleet =
@@ -645,6 +865,22 @@ responseCopyImage =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CopyImage)
 
+responseCreateAppBlock :: CreateAppBlockResponse -> TestTree
+responseCreateAppBlock =
+  res
+    "CreateAppBlockResponse"
+    "fixture/CreateAppBlockResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAppBlock)
+
+responseCreateApplication :: CreateApplicationResponse -> TestTree
+responseCreateApplication =
+  res
+    "CreateApplicationResponse"
+    "fixture/CreateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateApplication)
+
 responseCreateDirectoryConfig :: CreateDirectoryConfigResponse -> TestTree
 responseCreateDirectoryConfig =
   res
@@ -652,6 +888,14 @@ responseCreateDirectoryConfig =
     "fixture/CreateDirectoryConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDirectoryConfig)
+
+responseCreateEntitlement :: CreateEntitlementResponse -> TestTree
+responseCreateEntitlement =
+  res
+    "CreateEntitlementResponse"
+    "fixture/CreateEntitlementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateEntitlement)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
 responseCreateFleet =
@@ -717,6 +961,22 @@ responseCreateUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateUser)
 
+responseDeleteAppBlock :: DeleteAppBlockResponse -> TestTree
+responseDeleteAppBlock =
+  res
+    "DeleteAppBlockResponse"
+    "fixture/DeleteAppBlockResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAppBlock)
+
+responseDeleteApplication :: DeleteApplicationResponse -> TestTree
+responseDeleteApplication =
+  res
+    "DeleteApplicationResponse"
+    "fixture/DeleteApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteApplication)
+
 responseDeleteDirectoryConfig :: DeleteDirectoryConfigResponse -> TestTree
 responseDeleteDirectoryConfig =
   res
@@ -724,6 +984,14 @@ responseDeleteDirectoryConfig =
     "fixture/DeleteDirectoryConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteDirectoryConfig)
+
+responseDeleteEntitlement :: DeleteEntitlementResponse -> TestTree
+responseDeleteEntitlement =
+  res
+    "DeleteEntitlementResponse"
+    "fixture/DeleteEntitlementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteEntitlement)
 
 responseDeleteFleet :: DeleteFleetResponse -> TestTree
 responseDeleteFleet =
@@ -781,6 +1049,30 @@ responseDeleteUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteUser)
 
+responseDescribeAppBlocks :: DescribeAppBlocksResponse -> TestTree
+responseDescribeAppBlocks =
+  res
+    "DescribeAppBlocksResponse"
+    "fixture/DescribeAppBlocksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAppBlocks)
+
+responseDescribeApplicationFleetAssociations :: DescribeApplicationFleetAssociationsResponse -> TestTree
+responseDescribeApplicationFleetAssociations =
+  res
+    "DescribeApplicationFleetAssociationsResponse"
+    "fixture/DescribeApplicationFleetAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplicationFleetAssociations)
+
+responseDescribeApplications :: DescribeApplicationsResponse -> TestTree
+responseDescribeApplications =
+  res
+    "DescribeApplicationsResponse"
+    "fixture/DescribeApplicationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeApplications)
+
 responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
 responseDescribeDirectoryConfigs =
   res
@@ -788,6 +1080,14 @@ responseDescribeDirectoryConfigs =
     "fixture/DescribeDirectoryConfigsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDirectoryConfigs)
+
+responseDescribeEntitlements :: DescribeEntitlementsResponse -> TestTree
+responseDescribeEntitlements =
+  res
+    "DescribeEntitlementsResponse"
+    "fixture/DescribeEntitlementsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEntitlements)
 
 responseDescribeFleets :: DescribeFleetsResponse -> TestTree
 responseDescribeFleets =
@@ -869,6 +1169,22 @@ responseDisableUser =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisableUser)
 
+responseDisassociateApplicationFleet :: DisassociateApplicationFleetResponse -> TestTree
+responseDisassociateApplicationFleet =
+  res
+    "DisassociateApplicationFleetResponse"
+    "fixture/DisassociateApplicationFleetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateApplicationFleet)
+
+responseDisassociateApplicationFromEntitlement :: DisassociateApplicationFromEntitlementResponse -> TestTree
+responseDisassociateApplicationFromEntitlement =
+  res
+    "DisassociateApplicationFromEntitlementResponse"
+    "fixture/DisassociateApplicationFromEntitlementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateApplicationFromEntitlement)
+
 responseDisassociateFleet :: DisassociateFleetResponse -> TestTree
 responseDisassociateFleet =
   res
@@ -908,6 +1224,14 @@ responseListAssociatedStacks =
     "fixture/ListAssociatedStacksResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAssociatedStacks)
+
+responseListEntitledApplications :: ListEntitledApplicationsResponse -> TestTree
+responseListEntitledApplications =
+  res
+    "ListEntitledApplicationsResponse"
+    "fixture/ListEntitledApplicationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEntitledApplications)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -965,6 +1289,14 @@ responseUntagResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
+responseUpdateApplication :: UpdateApplicationResponse -> TestTree
+responseUpdateApplication =
+  res
+    "UpdateApplicationResponse"
+    "fixture/UpdateApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateApplication)
+
 responseUpdateDirectoryConfig :: UpdateDirectoryConfigResponse -> TestTree
 responseUpdateDirectoryConfig =
   res
@@ -972,6 +1304,14 @@ responseUpdateDirectoryConfig =
     "fixture/UpdateDirectoryConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateDirectoryConfig)
+
+responseUpdateEntitlement :: UpdateEntitlementResponse -> TestTree
+responseUpdateEntitlement =
+  res
+    "UpdateEntitlementResponse"
+    "fixture/UpdateEntitlementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEntitlement)
 
 responseUpdateFleet :: UpdateFleetResponse -> TestTree
 responseUpdateFleet =

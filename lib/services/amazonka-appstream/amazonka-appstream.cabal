@@ -44,11 +44,16 @@ library
 
   exposed-modules:
     Amazonka.AppStream
+    Amazonka.AppStream.AssociateApplicationFleet
+    Amazonka.AppStream.AssociateApplicationToEntitlement
     Amazonka.AppStream.AssociateFleet
     Amazonka.AppStream.BatchAssociateUserStack
     Amazonka.AppStream.BatchDisassociateUserStack
     Amazonka.AppStream.CopyImage
+    Amazonka.AppStream.CreateAppBlock
+    Amazonka.AppStream.CreateApplication
     Amazonka.AppStream.CreateDirectoryConfig
+    Amazonka.AppStream.CreateEntitlement
     Amazonka.AppStream.CreateFleet
     Amazonka.AppStream.CreateImageBuilder
     Amazonka.AppStream.CreateImageBuilderStreamingURL
@@ -57,7 +62,10 @@ library
     Amazonka.AppStream.CreateUpdatedImage
     Amazonka.AppStream.CreateUsageReportSubscription
     Amazonka.AppStream.CreateUser
+    Amazonka.AppStream.DeleteAppBlock
+    Amazonka.AppStream.DeleteApplication
     Amazonka.AppStream.DeleteDirectoryConfig
+    Amazonka.AppStream.DeleteEntitlement
     Amazonka.AppStream.DeleteFleet
     Amazonka.AppStream.DeleteImage
     Amazonka.AppStream.DeleteImageBuilder
@@ -65,7 +73,11 @@ library
     Amazonka.AppStream.DeleteStack
     Amazonka.AppStream.DeleteUsageReportSubscription
     Amazonka.AppStream.DeleteUser
+    Amazonka.AppStream.DescribeAppBlocks
+    Amazonka.AppStream.DescribeApplicationFleetAssociations
+    Amazonka.AppStream.DescribeApplications
     Amazonka.AppStream.DescribeDirectoryConfigs
+    Amazonka.AppStream.DescribeEntitlements
     Amazonka.AppStream.DescribeFleets
     Amazonka.AppStream.DescribeImageBuilders
     Amazonka.AppStream.DescribeImagePermissions
@@ -76,12 +88,15 @@ library
     Amazonka.AppStream.DescribeUsers
     Amazonka.AppStream.DescribeUserStackAssociations
     Amazonka.AppStream.DisableUser
+    Amazonka.AppStream.DisassociateApplicationFleet
+    Amazonka.AppStream.DisassociateApplicationFromEntitlement
     Amazonka.AppStream.DisassociateFleet
     Amazonka.AppStream.EnableUser
     Amazonka.AppStream.ExpireSession
     Amazonka.AppStream.Lens
     Amazonka.AppStream.ListAssociatedFleets
     Amazonka.AppStream.ListAssociatedStacks
+    Amazonka.AppStream.ListEntitledApplications
     Amazonka.AppStream.ListTagsForResource
     Amazonka.AppStream.StartFleet
     Amazonka.AppStream.StartImageBuilder
@@ -92,14 +107,21 @@ library
     Amazonka.AppStream.Types.AccessEndpoint
     Amazonka.AppStream.Types.AccessEndpointType
     Amazonka.AppStream.Types.Action
+    Amazonka.AppStream.Types.AppBlock
     Amazonka.AppStream.Types.Application
+    Amazonka.AppStream.Types.ApplicationAttribute
+    Amazonka.AppStream.Types.ApplicationFleetAssociation
     Amazonka.AppStream.Types.ApplicationSettings
     Amazonka.AppStream.Types.ApplicationSettingsResponse
+    Amazonka.AppStream.Types.AppVisibility
     Amazonka.AppStream.Types.AuthenticationType
     Amazonka.AppStream.Types.ComputeCapacity
     Amazonka.AppStream.Types.ComputeCapacityStatus
     Amazonka.AppStream.Types.DirectoryConfig
     Amazonka.AppStream.Types.DomainJoinInfo
+    Amazonka.AppStream.Types.EntitledApplication
+    Amazonka.AppStream.Types.Entitlement
+    Amazonka.AppStream.Types.EntitlementAttribute
     Amazonka.AppStream.Types.Fleet
     Amazonka.AppStream.Types.FleetAttribute
     Amazonka.AppStream.Types.FleetError
@@ -120,7 +142,10 @@ library
     Amazonka.AppStream.Types.NetworkAccessConfiguration
     Amazonka.AppStream.Types.Permission
     Amazonka.AppStream.Types.PlatformType
+    Amazonka.AppStream.Types.PreferredProtocol
     Amazonka.AppStream.Types.ResourceError
+    Amazonka.AppStream.Types.S3Location
+    Amazonka.AppStream.Types.ScriptDetails
     Amazonka.AppStream.Types.ServiceAccountCredentials
     Amazonka.AppStream.Types.Session
     Amazonka.AppStream.Types.SessionConnectionState
@@ -132,6 +157,7 @@ library
     Amazonka.AppStream.Types.StackErrorCode
     Amazonka.AppStream.Types.StorageConnector
     Amazonka.AppStream.Types.StorageConnectorType
+    Amazonka.AppStream.Types.StreamingExperienceSettings
     Amazonka.AppStream.Types.StreamView
     Amazonka.AppStream.Types.UsageReportExecutionErrorCode
     Amazonka.AppStream.Types.UsageReportSchedule
@@ -144,7 +170,9 @@ library
     Amazonka.AppStream.Types.VisibilityType
     Amazonka.AppStream.Types.VpcConfig
     Amazonka.AppStream.UntagResource
+    Amazonka.AppStream.UpdateApplication
     Amazonka.AppStream.UpdateDirectoryConfig
+    Amazonka.AppStream.UpdateEntitlement
     Amazonka.AppStream.UpdateFleet
     Amazonka.AppStream.UpdateImagePermissions
     Amazonka.AppStream.UpdateStack

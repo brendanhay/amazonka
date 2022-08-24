@@ -1,0 +1,76 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Amazonka.Glue.Types.GlueSchema
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Amazonka.Glue.Types.GlueSchema where
+
+import qualified Amazonka.Core as Core
+import Amazonka.Glue.Types.GlueStudioSchemaColumn
+import qualified Amazonka.Lens as Lens
+import qualified Amazonka.Prelude as Prelude
+
+-- | Specifies a user-defined schema when a schema cannot be determined by
+-- AWS Glue.
+--
+-- /See:/ 'newGlueSchema' smart constructor.
+data GlueSchema = GlueSchema'
+  { -- | Specifies the column definitions that make up a Glue schema.
+    columns :: Prelude.Maybe [GlueStudioSchemaColumn]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'GlueSchema' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'columns', 'glueSchema_columns' - Specifies the column definitions that make up a Glue schema.
+newGlueSchema ::
+  GlueSchema
+newGlueSchema =
+  GlueSchema' {columns = Prelude.Nothing}
+
+-- | Specifies the column definitions that make up a Glue schema.
+glueSchema_columns :: Lens.Lens' GlueSchema (Prelude.Maybe [GlueStudioSchemaColumn])
+glueSchema_columns = Lens.lens (\GlueSchema' {columns} -> columns) (\s@GlueSchema' {} a -> s {columns = a} :: GlueSchema) Prelude.. Lens.mapping Lens.coerced
+
+instance Core.FromJSON GlueSchema where
+  parseJSON =
+    Core.withObject
+      "GlueSchema"
+      ( \x ->
+          GlueSchema'
+            Prelude.<$> (x Core..:? "Columns" Core..!= Prelude.mempty)
+      )
+
+instance Prelude.Hashable GlueSchema where
+  hashWithSalt _salt GlueSchema' {..} =
+    _salt `Prelude.hashWithSalt` columns
+
+instance Prelude.NFData GlueSchema where
+  rnf GlueSchema' {..} = Prelude.rnf columns
+
+instance Core.ToJSON GlueSchema where
+  toJSON GlueSchema' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("Columns" Core..=) Prelude.<$> columns]
+      )

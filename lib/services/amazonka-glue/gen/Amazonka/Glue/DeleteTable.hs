@@ -39,6 +39,7 @@ module Amazonka.Glue.DeleteTable
 
     -- * Request Lenses
     deleteTable_catalogId,
+    deleteTable_transactionId,
     deleteTable_databaseName,
     deleteTable_name,
 
@@ -63,6 +64,8 @@ data DeleteTable = DeleteTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
     -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The transaction ID at which to delete the table contents.
+    transactionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text,
@@ -83,6 +86,8 @@ data DeleteTable = DeleteTable'
 -- 'catalogId', 'deleteTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
 -- the Amazon Web Services account ID is used by default.
 --
+-- 'transactionId', 'deleteTable_transactionId' - The transaction ID at which to delete the table contents.
+--
 -- 'databaseName', 'deleteTable_databaseName' - The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
 --
@@ -97,6 +102,7 @@ newDeleteTable ::
 newDeleteTable pDatabaseName_ pName_ =
   DeleteTable'
     { catalogId = Prelude.Nothing,
+      transactionId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       name = pName_
     }
@@ -105,6 +111,10 @@ newDeleteTable pDatabaseName_ pName_ =
 -- the Amazon Web Services account ID is used by default.
 deleteTable_catalogId :: Lens.Lens' DeleteTable (Prelude.Maybe Prelude.Text)
 deleteTable_catalogId = Lens.lens (\DeleteTable' {catalogId} -> catalogId) (\s@DeleteTable' {} a -> s {catalogId = a} :: DeleteTable)
+
+-- | The transaction ID at which to delete the table contents.
+deleteTable_transactionId :: Lens.Lens' DeleteTable (Prelude.Maybe Prelude.Text)
+deleteTable_transactionId = Lens.lens (\DeleteTable' {transactionId} -> transactionId) (\s@DeleteTable' {} a -> s {transactionId = a} :: DeleteTable)
 
 -- | The name of the catalog database in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -129,12 +139,14 @@ instance Core.AWSRequest DeleteTable where
 instance Prelude.Hashable DeleteTable where
   hashWithSalt _salt DeleteTable' {..} =
     _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteTable where
   rnf DeleteTable' {..} =
     Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf name
 
@@ -156,6 +168,7 @@ instance Core.ToJSON DeleteTable where
     Core.object
       ( Prelude.catMaybes
           [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("TransactionId" Core..=) Prelude.<$> transactionId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("Name" Core..= name)
           ]

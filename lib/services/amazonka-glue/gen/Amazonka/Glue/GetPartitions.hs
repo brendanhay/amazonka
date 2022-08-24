@@ -30,10 +30,12 @@ module Amazonka.Glue.GetPartitions
 
     -- * Request Lenses
     getPartitions_nextToken,
+    getPartitions_queryAsOfTime,
     getPartitions_expression,
     getPartitions_segment,
     getPartitions_maxResults,
     getPartitions_catalogId,
+    getPartitions_transactionId,
     getPartitions_excludeColumnSchema,
     getPartitions_databaseName,
     getPartitions_tableName,
@@ -61,6 +63,10 @@ data GetPartitions = GetPartitions'
   { -- | A continuation token, if this is not the first call to retrieve these
     -- partitions.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The time as of when to read the partition contents. If not set, the most
+    -- recent transaction commit time will be used. Cannot be specified along
+    -- with @TransactionId@.
+    queryAsOfTime :: Prelude.Maybe Core.POSIX,
     -- | An expression that filters the partitions to be returned.
     --
     -- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause.
@@ -150,6 +156,8 @@ data GetPartitions = GetPartitions'
     -- | The ID of the Data Catalog where the partitions in question reside. If
     -- none is provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The transaction ID at which to read the partition contents.
+    transactionId :: Prelude.Maybe Prelude.Text,
     -- | When true, specifies not returning the partition column schema. Useful
     -- when you are interested only in other partition attributes such as
     -- partition values or location. This approach avoids the problem of a
@@ -172,6 +180,10 @@ data GetPartitions = GetPartitions'
 --
 -- 'nextToken', 'getPartitions_nextToken' - A continuation token, if this is not the first call to retrieve these
 -- partitions.
+--
+-- 'queryAsOfTime', 'getPartitions_queryAsOfTime' - The time as of when to read the partition contents. If not set, the most
+-- recent transaction commit time will be used. Cannot be specified along
+-- with @TransactionId@.
 --
 -- 'expression', 'getPartitions_expression' - An expression that filters the partitions to be returned.
 --
@@ -262,6 +274,8 @@ data GetPartitions = GetPartitions'
 -- 'catalogId', 'getPartitions_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
 -- none is provided, the Amazon Web Services account ID is used by default.
 --
+-- 'transactionId', 'getPartitions_transactionId' - The transaction ID at which to read the partition contents.
+--
 -- 'excludeColumnSchema', 'getPartitions_excludeColumnSchema' - When true, specifies not returning the partition column schema. Useful
 -- when you are interested only in other partition attributes such as
 -- partition values or location. This approach avoids the problem of a
@@ -279,10 +293,12 @@ newGetPartitions ::
 newGetPartitions pDatabaseName_ pTableName_ =
   GetPartitions'
     { nextToken = Prelude.Nothing,
+      queryAsOfTime = Prelude.Nothing,
       expression = Prelude.Nothing,
       segment = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       catalogId = Prelude.Nothing,
+      transactionId = Prelude.Nothing,
       excludeColumnSchema = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
@@ -292,6 +308,12 @@ newGetPartitions pDatabaseName_ pTableName_ =
 -- partitions.
 getPartitions_nextToken :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
 getPartitions_nextToken = Lens.lens (\GetPartitions' {nextToken} -> nextToken) (\s@GetPartitions' {} a -> s {nextToken = a} :: GetPartitions)
+
+-- | The time as of when to read the partition contents. If not set, the most
+-- recent transaction commit time will be used. Cannot be specified along
+-- with @TransactionId@.
+getPartitions_queryAsOfTime :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.UTCTime)
+getPartitions_queryAsOfTime = Lens.lens (\GetPartitions' {queryAsOfTime} -> queryAsOfTime) (\s@GetPartitions' {} a -> s {queryAsOfTime = a} :: GetPartitions) Prelude.. Lens.mapping Core._Time
 
 -- | An expression that filters the partitions to be returned.
 --
@@ -390,6 +412,10 @@ getPartitions_maxResults = Lens.lens (\GetPartitions' {maxResults} -> maxResults
 getPartitions_catalogId :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
 getPartitions_catalogId = Lens.lens (\GetPartitions' {catalogId} -> catalogId) (\s@GetPartitions' {} a -> s {catalogId = a} :: GetPartitions)
 
+-- | The transaction ID at which to read the partition contents.
+getPartitions_transactionId :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
+getPartitions_transactionId = Lens.lens (\GetPartitions' {transactionId} -> transactionId) (\s@GetPartitions' {} a -> s {transactionId = a} :: GetPartitions)
+
 -- | When true, specifies not returning the partition column schema. Useful
 -- when you are interested only in other partition attributes such as
 -- partition values or location. This approach avoids the problem of a
@@ -442,10 +468,12 @@ instance Core.AWSRequest GetPartitions where
 instance Prelude.Hashable GetPartitions where
   hashWithSalt _salt GetPartitions' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` queryAsOfTime
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` segment
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` excludeColumnSchema
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableName
@@ -453,10 +481,12 @@ instance Prelude.Hashable GetPartitions where
 instance Prelude.NFData GetPartitions where
   rnf GetPartitions' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queryAsOfTime
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf segment
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf excludeColumnSchema
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableName
@@ -479,10 +509,12 @@ instance Core.ToJSON GetPartitions where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("QueryAsOfTime" Core..=) Prelude.<$> queryAsOfTime,
             ("Expression" Core..=) Prelude.<$> expression,
             ("Segment" Core..=) Prelude.<$> segment,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("TransactionId" Core..=) Prelude.<$> transactionId,
             ("ExcludeColumnSchema" Core..=)
               Prelude.<$> excludeColumnSchema,
             Prelude.Just ("DatabaseName" Core..= databaseName),

@@ -58,10 +58,10 @@ data GetConnections = GetConnections'
   { -- | A continuation token, if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Allows you to retrieve the connection metadata without returning the
-    -- password. For instance, the AWS Glue console uses this flag to retrieve
-    -- the connection, and does not display the password. Set this parameter
-    -- when the caller might not have permission to use the KMS key to decrypt
-    -- the password, but it does have permission to access the rest of the
+    -- password. For instance, the Glue console uses this flag to retrieve the
+    -- connection, and does not display the password. Set this parameter when
+    -- the caller might not have permission to use the KMS key to decrypt the
+    -- password, but it does have permission to access the rest of the
     -- connection properties.
     hidePassword :: Prelude.Maybe Prelude.Bool,
     -- | A filter that controls which connections are returned.
@@ -85,10 +85,10 @@ data GetConnections = GetConnections'
 -- 'nextToken', 'getConnections_nextToken' - A continuation token, if this is a continuation call.
 --
 -- 'hidePassword', 'getConnections_hidePassword' - Allows you to retrieve the connection metadata without returning the
--- password. For instance, the AWS Glue console uses this flag to retrieve
--- the connection, and does not display the password. Set this parameter
--- when the caller might not have permission to use the KMS key to decrypt
--- the password, but it does have permission to access the rest of the
+-- password. For instance, the Glue console uses this flag to retrieve the
+-- connection, and does not display the password. Set this parameter when
+-- the caller might not have permission to use the KMS key to decrypt the
+-- password, but it does have permission to access the rest of the
 -- connection properties.
 --
 -- 'filter'', 'getConnections_filter' - A filter that controls which connections are returned.
@@ -113,10 +113,10 @@ getConnections_nextToken :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Tex
 getConnections_nextToken = Lens.lens (\GetConnections' {nextToken} -> nextToken) (\s@GetConnections' {} a -> s {nextToken = a} :: GetConnections)
 
 -- | Allows you to retrieve the connection metadata without returning the
--- password. For instance, the AWS Glue console uses this flag to retrieve
--- the connection, and does not display the password. Set this parameter
--- when the caller might not have permission to use the KMS key to decrypt
--- the password, but it does have permission to access the rest of the
+-- password. For instance, the Glue console uses this flag to retrieve the
+-- connection, and does not display the password. Set this parameter when
+-- the caller might not have permission to use the KMS key to decrypt the
+-- password, but it does have permission to access the rest of the
 -- connection properties.
 getConnections_hidePassword :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Bool)
 getConnections_hidePassword = Lens.lens (\GetConnections' {hidePassword} -> hidePassword) (\s@GetConnections' {} a -> s {hidePassword = a} :: GetConnections)

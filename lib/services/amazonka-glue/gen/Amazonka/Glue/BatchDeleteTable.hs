@@ -39,6 +39,7 @@ module Amazonka.Glue.BatchDeleteTable
 
     -- * Request Lenses
     batchDeleteTable_catalogId,
+    batchDeleteTable_transactionId,
     batchDeleteTable_databaseName,
     batchDeleteTable_tablesToDelete,
 
@@ -64,6 +65,8 @@ data BatchDeleteTable = BatchDeleteTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
     -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The transaction ID at which to delete the table contents.
+    transactionId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the tables to delete reside.
     -- For Hive compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text,
@@ -83,6 +86,8 @@ data BatchDeleteTable = BatchDeleteTable'
 -- 'catalogId', 'batchDeleteTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
 -- the Amazon Web Services account ID is used by default.
 --
+-- 'transactionId', 'batchDeleteTable_transactionId' - The transaction ID at which to delete the table contents.
+--
 -- 'databaseName', 'batchDeleteTable_databaseName' - The name of the catalog database in which the tables to delete reside.
 -- For Hive compatibility, this name is entirely lowercase.
 --
@@ -94,6 +99,7 @@ newBatchDeleteTable ::
 newBatchDeleteTable pDatabaseName_ =
   BatchDeleteTable'
     { catalogId = Prelude.Nothing,
+      transactionId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tablesToDelete = Prelude.mempty
     }
@@ -102,6 +108,10 @@ newBatchDeleteTable pDatabaseName_ =
 -- the Amazon Web Services account ID is used by default.
 batchDeleteTable_catalogId :: Lens.Lens' BatchDeleteTable (Prelude.Maybe Prelude.Text)
 batchDeleteTable_catalogId = Lens.lens (\BatchDeleteTable' {catalogId} -> catalogId) (\s@BatchDeleteTable' {} a -> s {catalogId = a} :: BatchDeleteTable)
+
+-- | The transaction ID at which to delete the table contents.
+batchDeleteTable_transactionId :: Lens.Lens' BatchDeleteTable (Prelude.Maybe Prelude.Text)
+batchDeleteTable_transactionId = Lens.lens (\BatchDeleteTable' {transactionId} -> transactionId) (\s@BatchDeleteTable' {} a -> s {transactionId = a} :: BatchDeleteTable)
 
 -- | The name of the catalog database in which the tables to delete reside.
 -- For Hive compatibility, this name is entirely lowercase.
@@ -128,12 +138,14 @@ instance Core.AWSRequest BatchDeleteTable where
 instance Prelude.Hashable BatchDeleteTable where
   hashWithSalt _salt BatchDeleteTable' {..} =
     _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tablesToDelete
 
 instance Prelude.NFData BatchDeleteTable where
   rnf BatchDeleteTable' {..} =
     Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tablesToDelete
 
@@ -155,6 +167,7 @@ instance Core.ToJSON BatchDeleteTable where
     Core.object
       ( Prelude.catMaybes
           [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("TransactionId" Core..=) Prelude.<$> transactionId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just
               ("TablesToDelete" Core..= tablesToDelete)

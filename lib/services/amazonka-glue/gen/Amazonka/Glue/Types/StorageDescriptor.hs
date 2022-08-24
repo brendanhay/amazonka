@@ -55,6 +55,9 @@ data StorageDescriptor = StorageDescriptor'
     location :: Prelude.Maybe Prelude.Text,
     -- | @True@ if the data in the table is compressed, or @False@ if not.
     compressed :: Prelude.Maybe Prelude.Bool,
+    -- | A list of locations that point to the path where a Delta table is
+    -- located.
+    additionalLocations :: Prelude.Maybe [Prelude.Text],
     -- | An object that references a schema stored in the Glue Schema Registry.
     --
     -- When creating a table, you can pass an empty list of columns for the
@@ -101,6 +104,9 @@ data StorageDescriptor = StorageDescriptor'
 --
 -- 'compressed', 'storageDescriptor_compressed' - @True@ if the data in the table is compressed, or @False@ if not.
 --
+-- 'additionalLocations', 'storageDescriptor_additionalLocations' - A list of locations that point to the path where a Delta table is
+-- located.
+--
 -- 'schemaReference', 'storageDescriptor_schemaReference' - An object that references a schema stored in the Glue Schema Registry.
 --
 -- When creating a table, you can pass an empty list of columns for the
@@ -125,6 +131,7 @@ newStorageDescriptor =
       outputFormat = Prelude.Nothing,
       location = Prelude.Nothing,
       compressed = Prelude.Nothing,
+      additionalLocations = Prelude.Nothing,
       schemaReference = Prelude.Nothing,
       inputFormat = Prelude.Nothing,
       numberOfBuckets = Prelude.Nothing,
@@ -172,6 +179,11 @@ storageDescriptor_location = Lens.lens (\StorageDescriptor' {location} -> locati
 storageDescriptor_compressed :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Bool)
 storageDescriptor_compressed = Lens.lens (\StorageDescriptor' {compressed} -> compressed) (\s@StorageDescriptor' {} a -> s {compressed = a} :: StorageDescriptor)
 
+-- | A list of locations that point to the path where a Delta table is
+-- located.
+storageDescriptor_additionalLocations :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Prelude.Text])
+storageDescriptor_additionalLocations = Lens.lens (\StorageDescriptor' {additionalLocations} -> additionalLocations) (\s@StorageDescriptor' {} a -> s {additionalLocations = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens.coerced
+
 -- | An object that references a schema stored in the Glue Schema Registry.
 --
 -- When creating a table, you can pass an empty list of columns for the
@@ -207,6 +219,9 @@ instance Core.FromJSON StorageDescriptor where
             Prelude.<*> (x Core..:? "OutputFormat")
             Prelude.<*> (x Core..:? "Location")
             Prelude.<*> (x Core..:? "Compressed")
+            Prelude.<*> ( x Core..:? "AdditionalLocations"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "SchemaReference")
             Prelude.<*> (x Core..:? "InputFormat")
             Prelude.<*> (x Core..:? "NumberOfBuckets")
@@ -224,6 +239,7 @@ instance Prelude.Hashable StorageDescriptor where
       `Prelude.hashWithSalt` outputFormat
       `Prelude.hashWithSalt` location
       `Prelude.hashWithSalt` compressed
+      `Prelude.hashWithSalt` additionalLocations
       `Prelude.hashWithSalt` schemaReference
       `Prelude.hashWithSalt` inputFormat
       `Prelude.hashWithSalt` numberOfBuckets
@@ -240,6 +256,7 @@ instance Prelude.NFData StorageDescriptor where
       `Prelude.seq` Prelude.rnf outputFormat
       `Prelude.seq` Prelude.rnf location
       `Prelude.seq` Prelude.rnf compressed
+      `Prelude.seq` Prelude.rnf additionalLocations
       `Prelude.seq` Prelude.rnf schemaReference
       `Prelude.seq` Prelude.rnf inputFormat
       `Prelude.seq` Prelude.rnf numberOfBuckets
@@ -259,6 +276,8 @@ instance Core.ToJSON StorageDescriptor where
             ("OutputFormat" Core..=) Prelude.<$> outputFormat,
             ("Location" Core..=) Prelude.<$> location,
             ("Compressed" Core..=) Prelude.<$> compressed,
+            ("AdditionalLocations" Core..=)
+              Prelude.<$> additionalLocations,
             ("SchemaReference" Core..=)
               Prelude.<$> schemaReference,
             ("InputFormat" Core..=) Prelude.<$> inputFormat,

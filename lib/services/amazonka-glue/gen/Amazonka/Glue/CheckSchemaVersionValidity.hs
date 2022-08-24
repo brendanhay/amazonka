@@ -53,8 +53,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCheckSchemaVersionValidity' smart constructor.
 data CheckSchemaVersionValidity = CheckSchemaVersionValidity'
-  { -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
-    -- are supported.
+  { -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+    -- @PROTOBUF@ are supported.
     dataFormat :: DataFormat,
     -- | The definition of the schema that has to be validated.
     schemaDefinition :: Prelude.Text
@@ -69,8 +69,8 @@ data CheckSchemaVersionValidity = CheckSchemaVersionValidity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dataFormat', 'checkSchemaVersionValidity_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- 'dataFormat', 'checkSchemaVersionValidity_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 --
 -- 'schemaDefinition', 'checkSchemaVersionValidity_schemaDefinition' - The definition of the schema that has to be validated.
 newCheckSchemaVersionValidity ::
@@ -88,8 +88,8 @@ newCheckSchemaVersionValidity
         schemaDefinition = pSchemaDefinition_
       }
 
--- | The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 checkSchemaVersionValidity_dataFormat :: Lens.Lens' CheckSchemaVersionValidity DataFormat
 checkSchemaVersionValidity_dataFormat = Lens.lens (\CheckSchemaVersionValidity' {dataFormat} -> dataFormat) (\s@CheckSchemaVersionValidity' {} a -> s {dataFormat = a} :: CheckSchemaVersionValidity)
 

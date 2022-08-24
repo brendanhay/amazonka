@@ -21,7 +21,8 @@ module Amazonka.Glue.Types.DataFormat
   ( DataFormat
       ( ..,
         DataFormat_AVRO,
-        DataFormat_JSON
+        DataFormat_JSON,
+        DataFormat_PROTOBUF
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern DataFormat_AVRO = DataFormat' "AVRO"
 pattern DataFormat_JSON :: DataFormat
 pattern DataFormat_JSON = DataFormat' "JSON"
 
+pattern DataFormat_PROTOBUF :: DataFormat
+pattern DataFormat_PROTOBUF = DataFormat' "PROTOBUF"
+
 {-# COMPLETE
   DataFormat_AVRO,
   DataFormat_JSON,
+  DataFormat_PROTOBUF,
   DataFormat'
   #-}

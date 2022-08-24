@@ -75,6 +75,8 @@ data Table = Table'
     createdBy :: Prelude.Maybe Prelude.Text,
     -- | The last time that column statistics were computed for this table.
     lastAnalyzedTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the table version.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | These key-value pairs define properties associated with the table.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The table name. For Hive compatibility, this must be entirely lowercase.
@@ -135,6 +137,8 @@ data Table = Table'
 --
 -- 'lastAnalyzedTime', 'table_lastAnalyzedTime' - The last time that column statistics were computed for this table.
 --
+-- 'versionId', 'table_versionId' - The ID of the table version.
+--
 -- 'parameters', 'table_parameters' - These key-value pairs define properties associated with the table.
 --
 -- 'name', 'table_name' - The table name. For Hive compatibility, this must be entirely lowercase.
@@ -161,6 +165,7 @@ newTable pName_ =
       retention = Prelude.Nothing,
       createdBy = Prelude.Nothing,
       lastAnalyzedTime = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       parameters = Prelude.Nothing,
       name = pName_
     }
@@ -244,6 +249,10 @@ table_createdBy = Lens.lens (\Table' {createdBy} -> createdBy) (\s@Table' {} a -
 table_lastAnalyzedTime :: Lens.Lens' Table (Prelude.Maybe Prelude.UTCTime)
 table_lastAnalyzedTime = Lens.lens (\Table' {lastAnalyzedTime} -> lastAnalyzedTime) (\s@Table' {} a -> s {lastAnalyzedTime = a} :: Table) Prelude.. Lens.mapping Core._Time
 
+-- | The ID of the table version.
+table_versionId :: Lens.Lens' Table (Prelude.Maybe Prelude.Text)
+table_versionId = Lens.lens (\Table' {versionId} -> versionId) (\s@Table' {} a -> s {versionId = a} :: Table)
+
 -- | These key-value pairs define properties associated with the table.
 table_parameters :: Lens.Lens' Table (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 table_parameters = Lens.lens (\Table' {parameters} -> parameters) (\s@Table' {} a -> s {parameters = a} :: Table) Prelude.. Lens.mapping Lens.coerced
@@ -275,6 +284,7 @@ instance Core.FromJSON Table where
             Prelude.<*> (x Core..:? "Retention")
             Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "LastAnalyzedTime")
+            Prelude.<*> (x Core..:? "VersionId")
             Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "Name")
       )
@@ -298,6 +308,7 @@ instance Prelude.Hashable Table where
       `Prelude.hashWithSalt` retention
       `Prelude.hashWithSalt` createdBy
       `Prelude.hashWithSalt` lastAnalyzedTime
+      `Prelude.hashWithSalt` versionId
       `Prelude.hashWithSalt` parameters
       `Prelude.hashWithSalt` name
 
@@ -320,5 +331,6 @@ instance Prelude.NFData Table where
       `Prelude.seq` Prelude.rnf retention
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf lastAnalyzedTime
+      `Prelude.seq` Prelude.rnf versionId
       `Prelude.seq` Prelude.rnf parameters
       `Prelude.seq` Prelude.rnf name

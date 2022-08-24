@@ -48,6 +48,9 @@ import Test.Tasty
 --         , requestBatchGetCrawlers $
 --             newBatchGetCrawlers
 --
+--         , requestBatchGetCustomEntityTypes $
+--             newBatchGetCustomEntityTypes
+--
 --         , requestBatchGetDevEndpoints $
 --             newBatchGetDevEndpoints
 --
@@ -72,6 +75,9 @@ import Test.Tasty
 --         , requestCancelMLTaskRun $
 --             newCancelMLTaskRun
 --
+--         , requestCancelStatement $
+--             newCancelStatement
+--
 --         , requestCheckSchemaVersionValidity $
 --             newCheckSchemaVersionValidity
 --
@@ -86,6 +92,9 @@ import Test.Tasty
 --
 --         , requestCreateCrawler $
 --             newCreateCrawler
+--
+--         , requestCreateCustomEntityType $
+--             newCreateCustomEntityType
 --
 --         , requestCreateDatabase $
 --             newCreateDatabase
@@ -117,6 +126,9 @@ import Test.Tasty
 --         , requestCreateSecurityConfiguration $
 --             newCreateSecurityConfiguration
 --
+--         , requestCreateSession $
+--             newCreateSession
+--
 --         , requestCreateTable $
 --             newCreateTable
 --
@@ -146,6 +158,9 @@ import Test.Tasty
 --
 --         , requestDeleteCrawler $
 --             newDeleteCrawler
+--
+--         , requestDeleteCustomEntityType $
+--             newDeleteCustomEntityType
 --
 --         , requestDeleteDatabase $
 --             newDeleteDatabase
@@ -179,6 +194,9 @@ import Test.Tasty
 --
 --         , requestDeleteSecurityConfiguration $
 --             newDeleteSecurityConfiguration
+--
+--         , requestDeleteSession $
+--             newDeleteSession
 --
 --         , requestDeleteTable $
 --             newDeleteTable
@@ -233,6 +251,9 @@ import Test.Tasty
 --
 --         , requestGetCrawlers $
 --             newGetCrawlers
+--
+--         , requestGetCustomEntityType $
+--             newGetCustomEntityType
 --
 --         , requestGetDataCatalogEncryptionSettings $
 --             newGetDataCatalogEncryptionSettings
@@ -321,6 +342,12 @@ import Test.Tasty
 --         , requestGetSecurityConfigurations $
 --             newGetSecurityConfigurations
 --
+--         , requestGetSession $
+--             newGetSession
+--
+--         , requestGetStatement $
+--             newGetStatement
+--
 --         , requestGetTable $
 --             newGetTable
 --
@@ -341,6 +368,15 @@ import Test.Tasty
 --
 --         , requestGetTriggers $
 --             newGetTriggers
+--
+--         , requestGetUnfilteredPartitionMetadata $
+--             newGetUnfilteredPartitionMetadata
+--
+--         , requestGetUnfilteredPartitionsMetadata $
+--             newGetUnfilteredPartitionsMetadata
+--
+--         , requestGetUnfilteredTableMetadata $
+--             newGetUnfilteredTableMetadata
 --
 --         , requestGetUserDefinedFunction $
 --             newGetUserDefinedFunction
@@ -369,6 +405,12 @@ import Test.Tasty
 --         , requestListCrawlers $
 --             newListCrawlers
 --
+--         , requestListCrawls $
+--             newListCrawls
+--
+--         , requestListCustomEntityTypes $
+--             newListCustomEntityTypes
+--
 --         , requestListDevEndpoints $
 --             newListDevEndpoints
 --
@@ -386,6 +428,12 @@ import Test.Tasty
 --
 --         , requestListSchemas $
 --             newListSchemas
+--
+--         , requestListSessions $
+--             newListSessions
+--
+--         , requestListStatements $
+--             newListStatements
 --
 --         , requestListTriggers $
 --             newListTriggers
@@ -419,6 +467,9 @@ import Test.Tasty
 --
 --         , requestResumeWorkflowRun $
 --             newResumeWorkflowRun
+--
+--         , requestRunStatement $
+--             newRunStatement
 --
 --         , requestSearchTables $
 --             newSearchTables
@@ -458,6 +509,9 @@ import Test.Tasty
 --
 --         , requestStopCrawlerSchedule $
 --             newStopCrawlerSchedule
+--
+--         , requestStopSession $
+--             newStopSession
 --
 --         , requestStopTrigger $
 --             newStopTrigger
@@ -549,6 +603,9 @@ import Test.Tasty
 --         , responseBatchGetCrawlers $
 --             newBatchGetCrawlersResponse
 --
+--         , responseBatchGetCustomEntityTypes $
+--             newBatchGetCustomEntityTypesResponse
+--
 --         , responseBatchGetDevEndpoints $
 --             newBatchGetDevEndpointsResponse
 --
@@ -573,6 +630,9 @@ import Test.Tasty
 --         , responseCancelMLTaskRun $
 --             newCancelMLTaskRunResponse
 --
+--         , responseCancelStatement $
+--             newCancelStatementResponse
+--
 --         , responseCheckSchemaVersionValidity $
 --             newCheckSchemaVersionValidityResponse
 --
@@ -587,6 +647,9 @@ import Test.Tasty
 --
 --         , responseCreateCrawler $
 --             newCreateCrawlerResponse
+--
+--         , responseCreateCustomEntityType $
+--             newCreateCustomEntityTypeResponse
 --
 --         , responseCreateDatabase $
 --             newCreateDatabaseResponse
@@ -618,6 +681,9 @@ import Test.Tasty
 --         , responseCreateSecurityConfiguration $
 --             newCreateSecurityConfigurationResponse
 --
+--         , responseCreateSession $
+--             newCreateSessionResponse
+--
 --         , responseCreateTable $
 --             newCreateTableResponse
 --
@@ -647,6 +713,9 @@ import Test.Tasty
 --
 --         , responseDeleteCrawler $
 --             newDeleteCrawlerResponse
+--
+--         , responseDeleteCustomEntityType $
+--             newDeleteCustomEntityTypeResponse
 --
 --         , responseDeleteDatabase $
 --             newDeleteDatabaseResponse
@@ -680,6 +749,9 @@ import Test.Tasty
 --
 --         , responseDeleteSecurityConfiguration $
 --             newDeleteSecurityConfigurationResponse
+--
+--         , responseDeleteSession $
+--             newDeleteSessionResponse
 --
 --         , responseDeleteTable $
 --             newDeleteTableResponse
@@ -734,6 +806,9 @@ import Test.Tasty
 --
 --         , responseGetCrawlers $
 --             newGetCrawlersResponse
+--
+--         , responseGetCustomEntityType $
+--             newGetCustomEntityTypeResponse
 --
 --         , responseGetDataCatalogEncryptionSettings $
 --             newGetDataCatalogEncryptionSettingsResponse
@@ -822,6 +897,12 @@ import Test.Tasty
 --         , responseGetSecurityConfigurations $
 --             newGetSecurityConfigurationsResponse
 --
+--         , responseGetSession $
+--             newGetSessionResponse
+--
+--         , responseGetStatement $
+--             newGetStatementResponse
+--
 --         , responseGetTable $
 --             newGetTableResponse
 --
@@ -842,6 +923,15 @@ import Test.Tasty
 --
 --         , responseGetTriggers $
 --             newGetTriggersResponse
+--
+--         , responseGetUnfilteredPartitionMetadata $
+--             newGetUnfilteredPartitionMetadataResponse
+--
+--         , responseGetUnfilteredPartitionsMetadata $
+--             newGetUnfilteredPartitionsMetadataResponse
+--
+--         , responseGetUnfilteredTableMetadata $
+--             newGetUnfilteredTableMetadataResponse
 --
 --         , responseGetUserDefinedFunction $
 --             newGetUserDefinedFunctionResponse
@@ -870,6 +960,12 @@ import Test.Tasty
 --         , responseListCrawlers $
 --             newListCrawlersResponse
 --
+--         , responseListCrawls $
+--             newListCrawlsResponse
+--
+--         , responseListCustomEntityTypes $
+--             newListCustomEntityTypesResponse
+--
 --         , responseListDevEndpoints $
 --             newListDevEndpointsResponse
 --
@@ -887,6 +983,12 @@ import Test.Tasty
 --
 --         , responseListSchemas $
 --             newListSchemasResponse
+--
+--         , responseListSessions $
+--             newListSessionsResponse
+--
+--         , responseListStatements $
+--             newListStatementsResponse
 --
 --         , responseListTriggers $
 --             newListTriggersResponse
@@ -920,6 +1022,9 @@ import Test.Tasty
 --
 --         , responseResumeWorkflowRun $
 --             newResumeWorkflowRunResponse
+--
+--         , responseRunStatement $
+--             newRunStatementResponse
 --
 --         , responseSearchTables $
 --             newSearchTablesResponse
@@ -959,6 +1064,9 @@ import Test.Tasty
 --
 --         , responseStopCrawlerSchedule $
 --             newStopCrawlerScheduleResponse
+--
+--         , responseStopSession $
+--             newStopSessionResponse
 --
 --         , responseStopTrigger $
 --             newStopTriggerResponse
@@ -1073,6 +1181,12 @@ requestBatchGetCrawlers =
     "BatchGetCrawlers"
     "fixture/BatchGetCrawlers.yaml"
 
+requestBatchGetCustomEntityTypes :: BatchGetCustomEntityTypes -> TestTree
+requestBatchGetCustomEntityTypes =
+  req
+    "BatchGetCustomEntityTypes"
+    "fixture/BatchGetCustomEntityTypes.yaml"
+
 requestBatchGetDevEndpoints :: BatchGetDevEndpoints -> TestTree
 requestBatchGetDevEndpoints =
   req
@@ -1121,6 +1235,12 @@ requestCancelMLTaskRun =
     "CancelMLTaskRun"
     "fixture/CancelMLTaskRun.yaml"
 
+requestCancelStatement :: CancelStatement -> TestTree
+requestCancelStatement =
+  req
+    "CancelStatement"
+    "fixture/CancelStatement.yaml"
+
 requestCheckSchemaVersionValidity :: CheckSchemaVersionValidity -> TestTree
 requestCheckSchemaVersionValidity =
   req
@@ -1150,6 +1270,12 @@ requestCreateCrawler =
   req
     "CreateCrawler"
     "fixture/CreateCrawler.yaml"
+
+requestCreateCustomEntityType :: CreateCustomEntityType -> TestTree
+requestCreateCustomEntityType =
+  req
+    "CreateCustomEntityType"
+    "fixture/CreateCustomEntityType.yaml"
 
 requestCreateDatabase :: CreateDatabase -> TestTree
 requestCreateDatabase =
@@ -1211,6 +1337,12 @@ requestCreateSecurityConfiguration =
     "CreateSecurityConfiguration"
     "fixture/CreateSecurityConfiguration.yaml"
 
+requestCreateSession :: CreateSession -> TestTree
+requestCreateSession =
+  req
+    "CreateSession"
+    "fixture/CreateSession.yaml"
+
 requestCreateTable :: CreateTable -> TestTree
 requestCreateTable =
   req
@@ -1270,6 +1402,12 @@ requestDeleteCrawler =
   req
     "DeleteCrawler"
     "fixture/DeleteCrawler.yaml"
+
+requestDeleteCustomEntityType :: DeleteCustomEntityType -> TestTree
+requestDeleteCustomEntityType =
+  req
+    "DeleteCustomEntityType"
+    "fixture/DeleteCustomEntityType.yaml"
 
 requestDeleteDatabase :: DeleteDatabase -> TestTree
 requestDeleteDatabase =
@@ -1336,6 +1474,12 @@ requestDeleteSecurityConfiguration =
   req
     "DeleteSecurityConfiguration"
     "fixture/DeleteSecurityConfiguration.yaml"
+
+requestDeleteSession :: DeleteSession -> TestTree
+requestDeleteSession =
+  req
+    "DeleteSession"
+    "fixture/DeleteSession.yaml"
 
 requestDeleteTable :: DeleteTable -> TestTree
 requestDeleteTable =
@@ -1444,6 +1588,12 @@ requestGetCrawlers =
   req
     "GetCrawlers"
     "fixture/GetCrawlers.yaml"
+
+requestGetCustomEntityType :: GetCustomEntityType -> TestTree
+requestGetCustomEntityType =
+  req
+    "GetCustomEntityType"
+    "fixture/GetCustomEntityType.yaml"
 
 requestGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettings -> TestTree
 requestGetDataCatalogEncryptionSettings =
@@ -1619,6 +1769,18 @@ requestGetSecurityConfigurations =
     "GetSecurityConfigurations"
     "fixture/GetSecurityConfigurations.yaml"
 
+requestGetSession :: GetSession -> TestTree
+requestGetSession =
+  req
+    "GetSession"
+    "fixture/GetSession.yaml"
+
+requestGetStatement :: GetStatement -> TestTree
+requestGetStatement =
+  req
+    "GetStatement"
+    "fixture/GetStatement.yaml"
+
 requestGetTable :: GetTable -> TestTree
 requestGetTable =
   req
@@ -1660,6 +1822,24 @@ requestGetTriggers =
   req
     "GetTriggers"
     "fixture/GetTriggers.yaml"
+
+requestGetUnfilteredPartitionMetadata :: GetUnfilteredPartitionMetadata -> TestTree
+requestGetUnfilteredPartitionMetadata =
+  req
+    "GetUnfilteredPartitionMetadata"
+    "fixture/GetUnfilteredPartitionMetadata.yaml"
+
+requestGetUnfilteredPartitionsMetadata :: GetUnfilteredPartitionsMetadata -> TestTree
+requestGetUnfilteredPartitionsMetadata =
+  req
+    "GetUnfilteredPartitionsMetadata"
+    "fixture/GetUnfilteredPartitionsMetadata.yaml"
+
+requestGetUnfilteredTableMetadata :: GetUnfilteredTableMetadata -> TestTree
+requestGetUnfilteredTableMetadata =
+  req
+    "GetUnfilteredTableMetadata"
+    "fixture/GetUnfilteredTableMetadata.yaml"
 
 requestGetUserDefinedFunction :: GetUserDefinedFunction -> TestTree
 requestGetUserDefinedFunction =
@@ -1715,6 +1895,18 @@ requestListCrawlers =
     "ListCrawlers"
     "fixture/ListCrawlers.yaml"
 
+requestListCrawls :: ListCrawls -> TestTree
+requestListCrawls =
+  req
+    "ListCrawls"
+    "fixture/ListCrawls.yaml"
+
+requestListCustomEntityTypes :: ListCustomEntityTypes -> TestTree
+requestListCustomEntityTypes =
+  req
+    "ListCustomEntityTypes"
+    "fixture/ListCustomEntityTypes.yaml"
+
 requestListDevEndpoints :: ListDevEndpoints -> TestTree
 requestListDevEndpoints =
   req
@@ -1750,6 +1942,18 @@ requestListSchemas =
   req
     "ListSchemas"
     "fixture/ListSchemas.yaml"
+
+requestListSessions :: ListSessions -> TestTree
+requestListSessions =
+  req
+    "ListSessions"
+    "fixture/ListSessions.yaml"
+
+requestListStatements :: ListStatements -> TestTree
+requestListStatements =
+  req
+    "ListStatements"
+    "fixture/ListStatements.yaml"
 
 requestListTriggers :: ListTriggers -> TestTree
 requestListTriggers =
@@ -1816,6 +2020,12 @@ requestResumeWorkflowRun =
   req
     "ResumeWorkflowRun"
     "fixture/ResumeWorkflowRun.yaml"
+
+requestRunStatement :: RunStatement -> TestTree
+requestRunStatement =
+  req
+    "RunStatement"
+    "fixture/RunStatement.yaml"
 
 requestSearchTables :: SearchTables -> TestTree
 requestSearchTables =
@@ -1894,6 +2104,12 @@ requestStopCrawlerSchedule =
   req
     "StopCrawlerSchedule"
     "fixture/StopCrawlerSchedule.yaml"
+
+requestStopSession :: StopSession -> TestTree
+requestStopSession =
+  req
+    "StopSession"
+    "fixture/StopSession.yaml"
 
 requestStopTrigger :: StopTrigger -> TestTree
 requestStopTrigger =
@@ -2085,6 +2301,14 @@ responseBatchGetCrawlers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchGetCrawlers)
 
+responseBatchGetCustomEntityTypes :: BatchGetCustomEntityTypesResponse -> TestTree
+responseBatchGetCustomEntityTypes =
+  res
+    "BatchGetCustomEntityTypesResponse"
+    "fixture/BatchGetCustomEntityTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy BatchGetCustomEntityTypes)
+
 responseBatchGetDevEndpoints :: BatchGetDevEndpointsResponse -> TestTree
 responseBatchGetDevEndpoints =
   res
@@ -2149,6 +2373,14 @@ responseCancelMLTaskRun =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelMLTaskRun)
 
+responseCancelStatement :: CancelStatementResponse -> TestTree
+responseCancelStatement =
+  res
+    "CancelStatementResponse"
+    "fixture/CancelStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CancelStatement)
+
 responseCheckSchemaVersionValidity :: CheckSchemaVersionValidityResponse -> TestTree
 responseCheckSchemaVersionValidity =
   res
@@ -2188,6 +2420,14 @@ responseCreateCrawler =
     "fixture/CreateCrawlerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateCrawler)
+
+responseCreateCustomEntityType :: CreateCustomEntityTypeResponse -> TestTree
+responseCreateCustomEntityType =
+  res
+    "CreateCustomEntityTypeResponse"
+    "fixture/CreateCustomEntityTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateCustomEntityType)
 
 responseCreateDatabase :: CreateDatabaseResponse -> TestTree
 responseCreateDatabase =
@@ -2269,6 +2509,14 @@ responseCreateSecurityConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateSecurityConfiguration)
 
+responseCreateSession :: CreateSessionResponse -> TestTree
+responseCreateSession =
+  res
+    "CreateSessionResponse"
+    "fixture/CreateSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateSession)
+
 responseCreateTable :: CreateTableResponse -> TestTree
 responseCreateTable =
   res
@@ -2348,6 +2596,14 @@ responseDeleteCrawler =
     "fixture/DeleteCrawlerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteCrawler)
+
+responseDeleteCustomEntityType :: DeleteCustomEntityTypeResponse -> TestTree
+responseDeleteCustomEntityType =
+  res
+    "DeleteCustomEntityTypeResponse"
+    "fixture/DeleteCustomEntityTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCustomEntityType)
 
 responseDeleteDatabase :: DeleteDatabaseResponse -> TestTree
 responseDeleteDatabase =
@@ -2436,6 +2692,14 @@ responseDeleteSecurityConfiguration =
     "fixture/DeleteSecurityConfigurationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSecurityConfiguration)
+
+responseDeleteSession :: DeleteSessionResponse -> TestTree
+responseDeleteSession =
+  res
+    "DeleteSessionResponse"
+    "fixture/DeleteSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteSession)
 
 responseDeleteTable :: DeleteTableResponse -> TestTree
 responseDeleteTable =
@@ -2580,6 +2844,14 @@ responseGetCrawlers =
     "fixture/GetCrawlersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetCrawlers)
+
+responseGetCustomEntityType :: GetCustomEntityTypeResponse -> TestTree
+responseGetCustomEntityType =
+  res
+    "GetCustomEntityTypeResponse"
+    "fixture/GetCustomEntityTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetCustomEntityType)
 
 responseGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettingsResponse -> TestTree
 responseGetDataCatalogEncryptionSettings =
@@ -2813,6 +3085,22 @@ responseGetSecurityConfigurations =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSecurityConfigurations)
 
+responseGetSession :: GetSessionResponse -> TestTree
+responseGetSession =
+  res
+    "GetSessionResponse"
+    "fixture/GetSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSession)
+
+responseGetStatement :: GetStatementResponse -> TestTree
+responseGetStatement =
+  res
+    "GetStatementResponse"
+    "fixture/GetStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStatement)
+
 responseGetTable :: GetTableResponse -> TestTree
 responseGetTable =
   res
@@ -2868,6 +3156,30 @@ responseGetTriggers =
     "fixture/GetTriggersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTriggers)
+
+responseGetUnfilteredPartitionMetadata :: GetUnfilteredPartitionMetadataResponse -> TestTree
+responseGetUnfilteredPartitionMetadata =
+  res
+    "GetUnfilteredPartitionMetadataResponse"
+    "fixture/GetUnfilteredPartitionMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUnfilteredPartitionMetadata)
+
+responseGetUnfilteredPartitionsMetadata :: GetUnfilteredPartitionsMetadataResponse -> TestTree
+responseGetUnfilteredPartitionsMetadata =
+  res
+    "GetUnfilteredPartitionsMetadataResponse"
+    "fixture/GetUnfilteredPartitionsMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUnfilteredPartitionsMetadata)
+
+responseGetUnfilteredTableMetadata :: GetUnfilteredTableMetadataResponse -> TestTree
+responseGetUnfilteredTableMetadata =
+  res
+    "GetUnfilteredTableMetadataResponse"
+    "fixture/GetUnfilteredTableMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetUnfilteredTableMetadata)
 
 responseGetUserDefinedFunction :: GetUserDefinedFunctionResponse -> TestTree
 responseGetUserDefinedFunction =
@@ -2941,6 +3253,22 @@ responseListCrawlers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListCrawlers)
 
+responseListCrawls :: ListCrawlsResponse -> TestTree
+responseListCrawls =
+  res
+    "ListCrawlsResponse"
+    "fixture/ListCrawlsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCrawls)
+
+responseListCustomEntityTypes :: ListCustomEntityTypesResponse -> TestTree
+responseListCustomEntityTypes =
+  res
+    "ListCustomEntityTypesResponse"
+    "fixture/ListCustomEntityTypesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCustomEntityTypes)
+
 responseListDevEndpoints :: ListDevEndpointsResponse -> TestTree
 responseListDevEndpoints =
   res
@@ -2988,6 +3316,22 @@ responseListSchemas =
     "fixture/ListSchemasResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSchemas)
+
+responseListSessions :: ListSessionsResponse -> TestTree
+responseListSessions =
+  res
+    "ListSessionsResponse"
+    "fixture/ListSessionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSessions)
+
+responseListStatements :: ListStatementsResponse -> TestTree
+responseListStatements =
+  res
+    "ListStatementsResponse"
+    "fixture/ListStatementsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStatements)
 
 responseListTriggers :: ListTriggersResponse -> TestTree
 responseListTriggers =
@@ -3076,6 +3420,14 @@ responseResumeWorkflowRun =
     "fixture/ResumeWorkflowRunResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ResumeWorkflowRun)
+
+responseRunStatement :: RunStatementResponse -> TestTree
+responseRunStatement =
+  res
+    "RunStatementResponse"
+    "fixture/RunStatementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RunStatement)
 
 responseSearchTables :: SearchTablesResponse -> TestTree
 responseSearchTables =
@@ -3180,6 +3532,14 @@ responseStopCrawlerSchedule =
     "fixture/StopCrawlerScheduleResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopCrawlerSchedule)
+
+responseStopSession :: StopSessionResponse -> TestTree
+responseStopSession =
+  res
+    "StopSessionResponse"
+    "fixture/StopSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopSession)
 
 responseStopTrigger :: StopTriggerResponse -> TestTree
 responseStopTrigger =

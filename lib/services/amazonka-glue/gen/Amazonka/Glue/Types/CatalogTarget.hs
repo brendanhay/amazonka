@@ -27,7 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCatalogTarget' smart constructor.
 data CatalogTarget = CatalogTarget'
-  { -- | The name of the database to be synchronized.
+  { -- | The name of the connection for an Amazon S3-backed Data Catalog table to
+    -- be a target of the crawl when using a @Catalog@ connection type paired
+    -- with a @NETWORK@ Connection type.
+    connectionName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database to be synchronized.
     databaseName :: Prelude.Text,
     -- | A list of the tables to be synchronized.
     tables :: Prelude.NonEmpty Prelude.Text
@@ -42,6 +46,10 @@ data CatalogTarget = CatalogTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectionName', 'catalogTarget_connectionName' - The name of the connection for an Amazon S3-backed Data Catalog table to
+-- be a target of the crawl when using a @Catalog@ connection type paired
+-- with a @NETWORK@ Connection type.
+--
 -- 'databaseName', 'catalogTarget_databaseName' - The name of the database to be synchronized.
 --
 -- 'tables', 'catalogTarget_tables' - A list of the tables to be synchronized.
@@ -53,9 +61,16 @@ newCatalogTarget ::
   CatalogTarget
 newCatalogTarget pDatabaseName_ pTables_ =
   CatalogTarget'
-    { databaseName = pDatabaseName_,
+    { connectionName = Prelude.Nothing,
+      databaseName = pDatabaseName_,
       tables = Lens.coerced Lens.# pTables_
     }
+
+-- | The name of the connection for an Amazon S3-backed Data Catalog table to
+-- be a target of the crawl when using a @Catalog@ connection type paired
+-- with a @NETWORK@ Connection type.
+catalogTarget_connectionName :: Lens.Lens' CatalogTarget (Prelude.Maybe Prelude.Text)
+catalogTarget_connectionName = Lens.lens (\CatalogTarget' {connectionName} -> connectionName) (\s@CatalogTarget' {} a -> s {connectionName = a} :: CatalogTarget)
 
 -- | The name of the database to be synchronized.
 catalogTarget_databaseName :: Lens.Lens' CatalogTarget Prelude.Text
@@ -71,25 +86,30 @@ instance Core.FromJSON CatalogTarget where
       "CatalogTarget"
       ( \x ->
           CatalogTarget'
-            Prelude.<$> (x Core..: "DatabaseName")
+            Prelude.<$> (x Core..:? "ConnectionName")
+            Prelude.<*> (x Core..: "DatabaseName")
             Prelude.<*> (x Core..: "Tables")
       )
 
 instance Prelude.Hashable CatalogTarget where
   hashWithSalt _salt CatalogTarget' {..} =
-    _salt `Prelude.hashWithSalt` databaseName
+    _salt `Prelude.hashWithSalt` connectionName
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tables
 
 instance Prelude.NFData CatalogTarget where
   rnf CatalogTarget' {..} =
-    Prelude.rnf databaseName
+    Prelude.rnf connectionName
+      `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tables
 
 instance Core.ToJSON CatalogTarget where
   toJSON CatalogTarget' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("DatabaseName" Core..= databaseName),
+          [ ("ConnectionName" Core..=)
+              Prelude.<$> connectionName,
+            Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("Tables" Core..= tables)
           ]
       )

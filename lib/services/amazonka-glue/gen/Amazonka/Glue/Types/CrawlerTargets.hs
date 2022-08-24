@@ -21,6 +21,7 @@ module Amazonka.Glue.Types.CrawlerTargets where
 
 import qualified Amazonka.Core as Core
 import Amazonka.Glue.Types.CatalogTarget
+import Amazonka.Glue.Types.DeltaTarget
 import Amazonka.Glue.Types.DynamoDBTarget
 import Amazonka.Glue.Types.JdbcTarget
 import Amazonka.Glue.Types.MongoDBTarget
@@ -36,6 +37,8 @@ data CrawlerTargets = CrawlerTargets'
     mongoDBTargets :: Prelude.Maybe [MongoDBTarget],
     -- | Specifies Amazon DynamoDB targets.
     dynamoDBTargets :: Prelude.Maybe [DynamoDBTarget],
+    -- | Specifies Delta data store targets.
+    deltaTargets :: Prelude.Maybe [DeltaTarget],
     -- | Specifies JDBC targets.
     jdbcTargets :: Prelude.Maybe [JdbcTarget],
     -- | Specifies Amazon Simple Storage Service (Amazon S3) targets.
@@ -57,6 +60,8 @@ data CrawlerTargets = CrawlerTargets'
 --
 -- 'dynamoDBTargets', 'crawlerTargets_dynamoDBTargets' - Specifies Amazon DynamoDB targets.
 --
+-- 'deltaTargets', 'crawlerTargets_deltaTargets' - Specifies Delta data store targets.
+--
 -- 'jdbcTargets', 'crawlerTargets_jdbcTargets' - Specifies JDBC targets.
 --
 -- 's3Targets', 'crawlerTargets_s3Targets' - Specifies Amazon Simple Storage Service (Amazon S3) targets.
@@ -68,6 +73,7 @@ newCrawlerTargets =
   CrawlerTargets'
     { mongoDBTargets = Prelude.Nothing,
       dynamoDBTargets = Prelude.Nothing,
+      deltaTargets = Prelude.Nothing,
       jdbcTargets = Prelude.Nothing,
       s3Targets = Prelude.Nothing,
       catalogTargets = Prelude.Nothing
@@ -80,6 +86,10 @@ crawlerTargets_mongoDBTargets = Lens.lens (\CrawlerTargets' {mongoDBTargets} -> 
 -- | Specifies Amazon DynamoDB targets.
 crawlerTargets_dynamoDBTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [DynamoDBTarget])
 crawlerTargets_dynamoDBTargets = Lens.lens (\CrawlerTargets' {dynamoDBTargets} -> dynamoDBTargets) (\s@CrawlerTargets' {} a -> s {dynamoDBTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies Delta data store targets.
+crawlerTargets_deltaTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [DeltaTarget])
+crawlerTargets_deltaTargets = Lens.lens (\CrawlerTargets' {deltaTargets} -> deltaTargets) (\s@CrawlerTargets' {} a -> s {deltaTargets = a} :: CrawlerTargets) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies JDBC targets.
 crawlerTargets_jdbcTargets :: Lens.Lens' CrawlerTargets (Prelude.Maybe [JdbcTarget])
@@ -103,6 +113,7 @@ instance Core.FromJSON CrawlerTargets where
             Prelude.<*> ( x Core..:? "DynamoDBTargets"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "DeltaTargets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "JdbcTargets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "S3Targets" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "CatalogTargets"
@@ -114,6 +125,7 @@ instance Prelude.Hashable CrawlerTargets where
   hashWithSalt _salt CrawlerTargets' {..} =
     _salt `Prelude.hashWithSalt` mongoDBTargets
       `Prelude.hashWithSalt` dynamoDBTargets
+      `Prelude.hashWithSalt` deltaTargets
       `Prelude.hashWithSalt` jdbcTargets
       `Prelude.hashWithSalt` s3Targets
       `Prelude.hashWithSalt` catalogTargets
@@ -122,6 +134,7 @@ instance Prelude.NFData CrawlerTargets where
   rnf CrawlerTargets' {..} =
     Prelude.rnf mongoDBTargets
       `Prelude.seq` Prelude.rnf dynamoDBTargets
+      `Prelude.seq` Prelude.rnf deltaTargets
       `Prelude.seq` Prelude.rnf jdbcTargets
       `Prelude.seq` Prelude.rnf s3Targets
       `Prelude.seq` Prelude.rnf catalogTargets
@@ -134,6 +147,7 @@ instance Core.ToJSON CrawlerTargets where
               Prelude.<$> mongoDBTargets,
             ("DynamoDBTargets" Core..=)
               Prelude.<$> dynamoDBTargets,
+            ("DeltaTargets" Core..=) Prelude.<$> deltaTargets,
             ("JdbcTargets" Core..=) Prelude.<$> jdbcTargets,
             ("S3Targets" Core..=) Prelude.<$> s3Targets,
             ("CatalogTargets" Core..=)

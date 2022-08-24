@@ -22,6 +22,7 @@ module Amazonka.Glue.Types.CrawlState
       ( ..,
         CrawlState_CANCELLED,
         CrawlState_CANCELLING,
+        CrawlState_ERROR,
         CrawlState_FAILED,
         CrawlState_RUNNING,
         CrawlState_SUCCEEDED
@@ -66,6 +67,9 @@ pattern CrawlState_CANCELLED = CrawlState' "CANCELLED"
 pattern CrawlState_CANCELLING :: CrawlState
 pattern CrawlState_CANCELLING = CrawlState' "CANCELLING"
 
+pattern CrawlState_ERROR :: CrawlState
+pattern CrawlState_ERROR = CrawlState' "ERROR"
+
 pattern CrawlState_FAILED :: CrawlState
 pattern CrawlState_FAILED = CrawlState' "FAILED"
 
@@ -78,6 +82,7 @@ pattern CrawlState_SUCCEEDED = CrawlState' "SUCCEEDED"
 {-# COMPLETE
   CrawlState_CANCELLED,
   CrawlState_CANCELLING,
+  CrawlState_ERROR,
   CrawlState_FAILED,
   CrawlState_RUNNING,
   CrawlState_SUCCEEDED,

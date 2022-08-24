@@ -40,6 +40,7 @@ module Amazonka.Glue.UpdateCrawler
     updateCrawler_lineageConfiguration,
     updateCrawler_role,
     updateCrawler_crawlerSecurityConfiguration,
+    updateCrawler_lakeFormationConfiguration,
     updateCrawler_name,
 
     -- * Destructuring the Response
@@ -97,6 +98,8 @@ data UpdateCrawler = UpdateCrawler'
     -- | The name of the @SecurityConfiguration@ structure to be used by this
     -- crawler.
     crawlerSecurityConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | Specifies Lake Formation configuration settings for the crawler.
+    lakeFormationConfiguration :: Prelude.Maybe LakeFormationConfiguration,
     -- | Name of the new crawler.
     name :: Prelude.Text
   }
@@ -147,6 +150,8 @@ data UpdateCrawler = UpdateCrawler'
 -- 'crawlerSecurityConfiguration', 'updateCrawler_crawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this
 -- crawler.
 --
+-- 'lakeFormationConfiguration', 'updateCrawler_lakeFormationConfiguration' - Specifies Lake Formation configuration settings for the crawler.
+--
 -- 'name', 'updateCrawler_name' - Name of the new crawler.
 newUpdateCrawler ::
   -- | 'name'
@@ -166,6 +171,7 @@ newUpdateCrawler pName_ =
       lineageConfiguration = Prelude.Nothing,
       role' = Prelude.Nothing,
       crawlerSecurityConfiguration = Prelude.Nothing,
+      lakeFormationConfiguration = Prelude.Nothing,
       name = pName_
     }
 
@@ -230,6 +236,10 @@ updateCrawler_role = Lens.lens (\UpdateCrawler' {role'} -> role') (\s@UpdateCraw
 updateCrawler_crawlerSecurityConfiguration :: Lens.Lens' UpdateCrawler (Prelude.Maybe Prelude.Text)
 updateCrawler_crawlerSecurityConfiguration = Lens.lens (\UpdateCrawler' {crawlerSecurityConfiguration} -> crawlerSecurityConfiguration) (\s@UpdateCrawler' {} a -> s {crawlerSecurityConfiguration = a} :: UpdateCrawler)
 
+-- | Specifies Lake Formation configuration settings for the crawler.
+updateCrawler_lakeFormationConfiguration :: Lens.Lens' UpdateCrawler (Prelude.Maybe LakeFormationConfiguration)
+updateCrawler_lakeFormationConfiguration = Lens.lens (\UpdateCrawler' {lakeFormationConfiguration} -> lakeFormationConfiguration) (\s@UpdateCrawler' {} a -> s {lakeFormationConfiguration = a} :: UpdateCrawler)
+
 -- | Name of the new crawler.
 updateCrawler_name :: Lens.Lens' UpdateCrawler Prelude.Text
 updateCrawler_name = Lens.lens (\UpdateCrawler' {name} -> name) (\s@UpdateCrawler' {} a -> s {name = a} :: UpdateCrawler)
@@ -260,6 +270,7 @@ instance Prelude.Hashable UpdateCrawler where
       `Prelude.hashWithSalt` lineageConfiguration
       `Prelude.hashWithSalt` role'
       `Prelude.hashWithSalt` crawlerSecurityConfiguration
+      `Prelude.hashWithSalt` lakeFormationConfiguration
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData UpdateCrawler where
@@ -276,6 +287,7 @@ instance Prelude.NFData UpdateCrawler where
       `Prelude.seq` Prelude.rnf lineageConfiguration
       `Prelude.seq` Prelude.rnf role'
       `Prelude.seq` Prelude.rnf crawlerSecurityConfiguration
+      `Prelude.seq` Prelude.rnf lakeFormationConfiguration
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders UpdateCrawler where
@@ -310,6 +322,8 @@ instance Core.ToJSON UpdateCrawler where
             ("Role" Core..=) Prelude.<$> role',
             ("CrawlerSecurityConfiguration" Core..=)
               Prelude.<$> crawlerSecurityConfiguration,
+            ("LakeFormationConfiguration" Core..=)
+              Prelude.<$> lakeFormationConfiguration,
             Prelude.Just ("Name" Core..= name)
           ]
       )

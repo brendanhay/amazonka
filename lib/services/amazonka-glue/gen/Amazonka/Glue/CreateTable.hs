@@ -28,6 +28,7 @@ module Amazonka.Glue.CreateTable
 
     -- * Request Lenses
     createTable_catalogId,
+    createTable_transactionId,
     createTable_partitionIndexes,
     createTable_databaseName,
     createTable_tableInput,
@@ -53,6 +54,8 @@ data CreateTable = CreateTable'
   { -- | The ID of the Data Catalog in which to create the @Table@. If none is
     -- supplied, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the transaction.
+    transactionId :: Prelude.Maybe Prelude.Text,
     -- | A list of partition indexes, @PartitionIndex@ structures, to create in
     -- the table.
     partitionIndexes :: Prelude.Maybe [PartitionIndex],
@@ -76,6 +79,8 @@ data CreateTable = CreateTable'
 -- 'catalogId', 'createTable_catalogId' - The ID of the Data Catalog in which to create the @Table@. If none is
 -- supplied, the Amazon Web Services account ID is used by default.
 --
+-- 'transactionId', 'createTable_transactionId' - The ID of the transaction.
+--
 -- 'partitionIndexes', 'createTable_partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in
 -- the table.
 --
@@ -93,6 +98,7 @@ newCreateTable ::
 newCreateTable pDatabaseName_ pTableInput_ =
   CreateTable'
     { catalogId = Prelude.Nothing,
+      transactionId = Prelude.Nothing,
       partitionIndexes = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableInput = pTableInput_
@@ -102,6 +108,10 @@ newCreateTable pDatabaseName_ pTableInput_ =
 -- supplied, the Amazon Web Services account ID is used by default.
 createTable_catalogId :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Text)
 createTable_catalogId = Lens.lens (\CreateTable' {catalogId} -> catalogId) (\s@CreateTable' {} a -> s {catalogId = a} :: CreateTable)
+
+-- | The ID of the transaction.
+createTable_transactionId :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Text)
+createTable_transactionId = Lens.lens (\CreateTable' {transactionId} -> transactionId) (\s@CreateTable' {} a -> s {transactionId = a} :: CreateTable)
 
 -- | A list of partition indexes, @PartitionIndex@ structures, to create in
 -- the table.
@@ -131,6 +141,7 @@ instance Core.AWSRequest CreateTable where
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =
     _salt `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` partitionIndexes
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` tableInput
@@ -138,6 +149,7 @@ instance Prelude.Hashable CreateTable where
 instance Prelude.NFData CreateTable where
   rnf CreateTable' {..} =
     Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf partitionIndexes
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf tableInput
@@ -160,6 +172,7 @@ instance Core.ToJSON CreateTable where
     Core.object
       ( Prelude.catMaybes
           [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("TransactionId" Core..=) Prelude.<$> transactionId,
             ("PartitionIndexes" Core..=)
               Prelude.<$> partitionIndexes,
             Prelude.Just ("DatabaseName" Core..= databaseName),

@@ -27,6 +27,7 @@ module Amazonka.Glue.CreateDatabase
     newCreateDatabase,
 
     -- * Request Lenses
+    createDatabase_tags,
     createDatabase_catalogId,
     createDatabase_databaseInput,
 
@@ -48,7 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatabase' smart constructor.
 data CreateDatabase = CreateDatabase'
-  { -- | The ID of the Data Catalog in which to create the database. If none is
+  { -- | The tags you assign to the database.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ID of the Data Catalog in which to create the database. If none is
     -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The metadata for the database.
@@ -64,6 +67,8 @@ data CreateDatabase = CreateDatabase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createDatabase_tags' - The tags you assign to the database.
+--
 -- 'catalogId', 'createDatabase_catalogId' - The ID of the Data Catalog in which to create the database. If none is
 -- provided, the Amazon Web Services account ID is used by default.
 --
@@ -74,9 +79,14 @@ newCreateDatabase ::
   CreateDatabase
 newCreateDatabase pDatabaseInput_ =
   CreateDatabase'
-    { catalogId = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseInput = pDatabaseInput_
     }
+
+-- | The tags you assign to the database.
+createDatabase_tags :: Lens.Lens' CreateDatabase (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDatabase_tags = Lens.lens (\CreateDatabase' {tags} -> tags) (\s@CreateDatabase' {} a -> s {tags = a} :: CreateDatabase) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ID of the Data Catalog in which to create the database. If none is
 -- provided, the Amazon Web Services account ID is used by default.
@@ -101,12 +111,14 @@ instance Core.AWSRequest CreateDatabase where
 
 instance Prelude.Hashable CreateDatabase where
   hashWithSalt _salt CreateDatabase' {..} =
-    _salt `Prelude.hashWithSalt` catalogId
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` catalogId
       `Prelude.hashWithSalt` databaseInput
 
 instance Prelude.NFData CreateDatabase where
   rnf CreateDatabase' {..} =
-    Prelude.rnf catalogId
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf catalogId
       `Prelude.seq` Prelude.rnf databaseInput
 
 instance Core.ToHeaders CreateDatabase where
@@ -126,7 +138,8 @@ instance Core.ToJSON CreateDatabase where
   toJSON CreateDatabase' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CatalogId" Core..=) Prelude.<$> catalogId,
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just
               ("DatabaseInput" Core..= databaseInput)
           ]

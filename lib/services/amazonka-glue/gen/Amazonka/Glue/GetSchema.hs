@@ -175,8 +175,8 @@ data GetSchemaResponse = GetSchemaResponse'
     createdTime :: Prelude.Maybe Prelude.Text,
     -- | The status of the schema.
     schemaStatus :: Prelude.Maybe SchemaStatus,
-    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
-    -- are supported.
+    -- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+    -- @PROTOBUF@ are supported.
     dataFormat :: Prelude.Maybe DataFormat,
     -- | The name of the schema.
     schemaName :: Prelude.Maybe Prelude.Text,
@@ -218,8 +218,8 @@ data GetSchemaResponse = GetSchemaResponse'
 --
 -- 'schemaStatus', 'getSchemaResponse_schemaStatus' - The status of the schema.
 --
--- 'dataFormat', 'getSchemaResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- 'dataFormat', 'getSchemaResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 --
 -- 'schemaName', 'getSchemaResponse_schemaName' - The name of the schema.
 --
@@ -279,8 +279,8 @@ getSchemaResponse_createdTime = Lens.lens (\GetSchemaResponse' {createdTime} -> 
 getSchemaResponse_schemaStatus :: Lens.Lens' GetSchemaResponse (Prelude.Maybe SchemaStatus)
 getSchemaResponse_schemaStatus = Lens.lens (\GetSchemaResponse' {schemaStatus} -> schemaStatus) (\s@GetSchemaResponse' {} a -> s {schemaStatus = a} :: GetSchemaResponse)
 
--- | The data format of the schema definition. Currently @AVRO@ and @JSON@
--- are supported.
+-- | The data format of the schema definition. Currently @AVRO@, @JSON@ and
+-- @PROTOBUF@ are supported.
 getSchemaResponse_dataFormat :: Lens.Lens' GetSchemaResponse (Prelude.Maybe DataFormat)
 getSchemaResponse_dataFormat = Lens.lens (\GetSchemaResponse' {dataFormat} -> dataFormat) (\s@GetSchemaResponse' {} a -> s {dataFormat = a} :: GetSchemaResponse)
 

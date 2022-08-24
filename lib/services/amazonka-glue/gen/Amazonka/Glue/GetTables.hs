@@ -31,9 +31,11 @@ module Amazonka.Glue.GetTables
 
     -- * Request Lenses
     getTables_nextToken,
+    getTables_queryAsOfTime,
     getTables_expression,
     getTables_maxResults,
     getTables_catalogId,
+    getTables_transactionId,
     getTables_databaseName,
 
     -- * Destructuring the Response
@@ -58,6 +60,10 @@ import qualified Amazonka.Response as Response
 data GetTables = GetTables'
   { -- | A continuation token, included if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The time as of when to read the table contents. If not set, the most
+    -- recent transaction commit time will be used. Cannot be specified along
+    -- with @TransactionId@.
+    queryAsOfTime :: Prelude.Maybe Core.POSIX,
     -- | A regular expression pattern. If present, only those tables whose names
     -- match the pattern are returned.
     expression :: Prelude.Maybe Prelude.Text,
@@ -66,6 +72,8 @@ data GetTables = GetTables'
     -- | The ID of the Data Catalog where the tables reside. If none is provided,
     -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The transaction ID at which to read the table contents.
+    transactionId :: Prelude.Maybe Prelude.Text,
     -- | The database in the catalog whose tables to list. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text
@@ -82,6 +90,10 @@ data GetTables = GetTables'
 --
 -- 'nextToken', 'getTables_nextToken' - A continuation token, included if this is a continuation call.
 --
+-- 'queryAsOfTime', 'getTables_queryAsOfTime' - The time as of when to read the table contents. If not set, the most
+-- recent transaction commit time will be used. Cannot be specified along
+-- with @TransactionId@.
+--
 -- 'expression', 'getTables_expression' - A regular expression pattern. If present, only those tables whose names
 -- match the pattern are returned.
 --
@@ -89,6 +101,8 @@ data GetTables = GetTables'
 --
 -- 'catalogId', 'getTables_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
 -- the Amazon Web Services account ID is used by default.
+--
+-- 'transactionId', 'getTables_transactionId' - The transaction ID at which to read the table contents.
 --
 -- 'databaseName', 'getTables_databaseName' - The database in the catalog whose tables to list. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -99,15 +113,23 @@ newGetTables ::
 newGetTables pDatabaseName_ =
   GetTables'
     { nextToken = Prelude.Nothing,
+      queryAsOfTime = Prelude.Nothing,
       expression = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       catalogId = Prelude.Nothing,
+      transactionId = Prelude.Nothing,
       databaseName = pDatabaseName_
     }
 
 -- | A continuation token, included if this is a continuation call.
 getTables_nextToken :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
 getTables_nextToken = Lens.lens (\GetTables' {nextToken} -> nextToken) (\s@GetTables' {} a -> s {nextToken = a} :: GetTables)
+
+-- | The time as of when to read the table contents. If not set, the most
+-- recent transaction commit time will be used. Cannot be specified along
+-- with @TransactionId@.
+getTables_queryAsOfTime :: Lens.Lens' GetTables (Prelude.Maybe Prelude.UTCTime)
+getTables_queryAsOfTime = Lens.lens (\GetTables' {queryAsOfTime} -> queryAsOfTime) (\s@GetTables' {} a -> s {queryAsOfTime = a} :: GetTables) Prelude.. Lens.mapping Core._Time
 
 -- | A regular expression pattern. If present, only those tables whose names
 -- match the pattern are returned.
@@ -122,6 +144,10 @@ getTables_maxResults = Lens.lens (\GetTables' {maxResults} -> maxResults) (\s@Ge
 -- the Amazon Web Services account ID is used by default.
 getTables_catalogId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
 getTables_catalogId = Lens.lens (\GetTables' {catalogId} -> catalogId) (\s@GetTables' {} a -> s {catalogId = a} :: GetTables)
+
+-- | The transaction ID at which to read the table contents.
+getTables_transactionId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
+getTables_transactionId = Lens.lens (\GetTables' {transactionId} -> transactionId) (\s@GetTables' {} a -> s {transactionId = a} :: GetTables)
 
 -- | The database in the catalog whose tables to list. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -162,17 +188,21 @@ instance Core.AWSRequest GetTables where
 instance Prelude.Hashable GetTables where
   hashWithSalt _salt GetTables' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` queryAsOfTime
       `Prelude.hashWithSalt` expression
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` catalogId
+      `Prelude.hashWithSalt` transactionId
       `Prelude.hashWithSalt` databaseName
 
 instance Prelude.NFData GetTables where
   rnf GetTables' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf queryAsOfTime
       `Prelude.seq` Prelude.rnf expression
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf catalogId
+      `Prelude.seq` Prelude.rnf transactionId
       `Prelude.seq` Prelude.rnf databaseName
 
 instance Core.ToHeaders GetTables where
@@ -193,9 +223,11 @@ instance Core.ToJSON GetTables where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("QueryAsOfTime" Core..=) Prelude.<$> queryAsOfTime,
             ("Expression" Core..=) Prelude.<$> expression,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CatalogId" Core..=) Prelude.<$> catalogId,
+            ("TransactionId" Core..=) Prelude.<$> transactionId,
             Prelude.Just ("DatabaseName" Core..= databaseName)
           ]
       )

@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An edge represents a directed connection between two components on a
--- workflow graph.
+-- | An edge represents a directed connection between two Glue components
+-- that are part of the workflow the edge belongs to.
 --
 -- /See:/ 'newEdge' smart constructor.
 data Edge = Edge'

@@ -26,6 +26,7 @@ import Amazonka.FraudDetector.Types.ModelTypeEnum
 import Amazonka.FraudDetector.Types.TrainingDataSchema
 import Amazonka.FraudDetector.Types.TrainingDataSourceEnum
 import Amazonka.FraudDetector.Types.TrainingResult
+import Amazonka.FraudDetector.Types.TrainingResultV2
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -39,6 +40,9 @@ data ModelVersionDetail = ModelVersionDetail'
     -- @trainingDataSource@ for the model version is specified as
     -- @INGESTED_EVENTS@.
     ingestedEventsDetail :: Prelude.Maybe IngestedEventsDetail,
+    -- | The training result details. The details include the relative importance
+    -- of the variables.
+    trainingResultV2 :: Prelude.Maybe TrainingResultV2,
     -- | The model version number.
     modelVersionNumber :: Prelude.Maybe Prelude.Text,
     -- | The model version ARN.
@@ -78,6 +82,9 @@ data ModelVersionDetail = ModelVersionDetail'
 -- @trainingDataSource@ for the model version is specified as
 -- @INGESTED_EVENTS@.
 --
+-- 'trainingResultV2', 'modelVersionDetail_trainingResultV2' - The training result details. The details include the relative importance
+-- of the variables.
+--
 -- 'modelVersionNumber', 'modelVersionDetail_modelVersionNumber' - The model version number.
 --
 -- 'arn', 'modelVersionDetail_arn' - The model version ARN.
@@ -105,6 +112,7 @@ newModelVersionDetail =
   ModelVersionDetail'
     { createdTime = Prelude.Nothing,
       ingestedEventsDetail = Prelude.Nothing,
+      trainingResultV2 = Prelude.Nothing,
       modelVersionNumber = Prelude.Nothing,
       arn = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -126,6 +134,11 @@ modelVersionDetail_createdTime = Lens.lens (\ModelVersionDetail' {createdTime} -
 -- @INGESTED_EVENTS@.
 modelVersionDetail_ingestedEventsDetail :: Lens.Lens' ModelVersionDetail (Prelude.Maybe IngestedEventsDetail)
 modelVersionDetail_ingestedEventsDetail = Lens.lens (\ModelVersionDetail' {ingestedEventsDetail} -> ingestedEventsDetail) (\s@ModelVersionDetail' {} a -> s {ingestedEventsDetail = a} :: ModelVersionDetail)
+
+-- | The training result details. The details include the relative importance
+-- of the variables.
+modelVersionDetail_trainingResultV2 :: Lens.Lens' ModelVersionDetail (Prelude.Maybe TrainingResultV2)
+modelVersionDetail_trainingResultV2 = Lens.lens (\ModelVersionDetail' {trainingResultV2} -> trainingResultV2) (\s@ModelVersionDetail' {} a -> s {trainingResultV2 = a} :: ModelVersionDetail)
 
 -- | The model version number.
 modelVersionDetail_modelVersionNumber :: Lens.Lens' ModelVersionDetail (Prelude.Maybe Prelude.Text)
@@ -177,6 +190,7 @@ instance Core.FromJSON ModelVersionDetail where
           ModelVersionDetail'
             Prelude.<$> (x Core..:? "createdTime")
             Prelude.<*> (x Core..:? "ingestedEventsDetail")
+            Prelude.<*> (x Core..:? "trainingResultV2")
             Prelude.<*> (x Core..:? "modelVersionNumber")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "status")
@@ -193,6 +207,7 @@ instance Prelude.Hashable ModelVersionDetail where
   hashWithSalt _salt ModelVersionDetail' {..} =
     _salt `Prelude.hashWithSalt` createdTime
       `Prelude.hashWithSalt` ingestedEventsDetail
+      `Prelude.hashWithSalt` trainingResultV2
       `Prelude.hashWithSalt` modelVersionNumber
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` status
@@ -208,6 +223,7 @@ instance Prelude.NFData ModelVersionDetail where
   rnf ModelVersionDetail' {..} =
     Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf ingestedEventsDetail
+      `Prelude.seq` Prelude.rnf trainingResultV2
       `Prelude.seq` Prelude.rnf modelVersionNumber
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf status

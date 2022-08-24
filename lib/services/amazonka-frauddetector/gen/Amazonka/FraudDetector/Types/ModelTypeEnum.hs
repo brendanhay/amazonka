@@ -20,6 +20,7 @@
 module Amazonka.FraudDetector.Types.ModelTypeEnum
   ( ModelTypeEnum
       ( ..,
+        ModelTypeEnum_ACCOUNT_TAKEOVER_INSIGHTS,
         ModelTypeEnum_ONLINE_FRAUD_INSIGHTS,
         ModelTypeEnum_TRANSACTION_FRAUD_INSIGHTS
       ),
@@ -57,6 +58,9 @@ newtype ModelTypeEnum = ModelTypeEnum'
       Core.ToXML
     )
 
+pattern ModelTypeEnum_ACCOUNT_TAKEOVER_INSIGHTS :: ModelTypeEnum
+pattern ModelTypeEnum_ACCOUNT_TAKEOVER_INSIGHTS = ModelTypeEnum' "ACCOUNT_TAKEOVER_INSIGHTS"
+
 pattern ModelTypeEnum_ONLINE_FRAUD_INSIGHTS :: ModelTypeEnum
 pattern ModelTypeEnum_ONLINE_FRAUD_INSIGHTS = ModelTypeEnum' "ONLINE_FRAUD_INSIGHTS"
 
@@ -64,6 +68,7 @@ pattern ModelTypeEnum_TRANSACTION_FRAUD_INSIGHTS :: ModelTypeEnum
 pattern ModelTypeEnum_TRANSACTION_FRAUD_INSIGHTS = ModelTypeEnum' "TRANSACTION_FRAUD_INSIGHTS"
 
 {-# COMPLETE
+  ModelTypeEnum_ACCOUNT_TAKEOVER_INSIGHTS,
   ModelTypeEnum_ONLINE_FRAUD_INSIGHTS,
   ModelTypeEnum_TRANSACTION_FRAUD_INSIGHTS,
   ModelTypeEnum'

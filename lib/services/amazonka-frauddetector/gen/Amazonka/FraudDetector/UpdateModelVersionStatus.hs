@@ -24,9 +24,11 @@
 --
 -- You can perform the following status updates:
 --
--- 1.  Change the @TRAINING_COMPLETE@ status to @ACTIVE@.
+-- 1.  Change the @TRAINING_IN_PROGRESS@ status to @TRAINING_CANCELLED@.
 --
--- 2.  Change @ACTIVE@ to @INACTIVE@.
+-- 2.  Change the @TRAINING_COMPLETE@ status to @ACTIVE@.
+--
+-- 3.  Change @ACTIVE@ to @INACTIVE@.
 module Amazonka.FraudDetector.UpdateModelVersionStatus
   ( -- * Creating a Request
     UpdateModelVersionStatus (..),

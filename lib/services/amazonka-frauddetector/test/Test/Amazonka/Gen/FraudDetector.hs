@@ -135,6 +135,9 @@ import Test.Tasty
 --         , requestGetEventPrediction $
 --             newGetEventPrediction
 --
+--         , requestGetEventPredictionMetadata $
+--             newGetEventPredictionMetadata
+--
 --         , requestGetEventTypes $
 --             newGetEventTypes
 --
@@ -161,6 +164,9 @@ import Test.Tasty
 --
 --         , requestGetVariables $
 --             newGetVariables
+--
+--         , requestListEventPredictions $
+--             newListEventPredictions
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -336,6 +342,9 @@ import Test.Tasty
 --         , responseGetEventPrediction $
 --             newGetEventPredictionResponse
 --
+--         , responseGetEventPredictionMetadata $
+--             newGetEventPredictionMetadataResponse
+--
 --         , responseGetEventTypes $
 --             newGetEventTypesResponse
 --
@@ -362,6 +371,9 @@ import Test.Tasty
 --
 --         , responseGetVariables $
 --             newGetVariablesResponse
+--
+--         , responseListEventPredictions $
+--             newListEventPredictionsResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -647,6 +659,12 @@ requestGetEventPrediction =
     "GetEventPrediction"
     "fixture/GetEventPrediction.yaml"
 
+requestGetEventPredictionMetadata :: GetEventPredictionMetadata -> TestTree
+requestGetEventPredictionMetadata =
+  req
+    "GetEventPredictionMetadata"
+    "fixture/GetEventPredictionMetadata.yaml"
+
 requestGetEventTypes :: GetEventTypes -> TestTree
 requestGetEventTypes =
   req
@@ -700,6 +718,12 @@ requestGetVariables =
   req
     "GetVariables"
     "fixture/GetVariables.yaml"
+
+requestListEventPredictions :: ListEventPredictions -> TestTree
+requestListEventPredictions =
+  req
+    "ListEventPredictions"
+    "fixture/ListEventPredictions.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -1117,6 +1141,14 @@ responseGetEventPrediction =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEventPrediction)
 
+responseGetEventPredictionMetadata :: GetEventPredictionMetadataResponse -> TestTree
+responseGetEventPredictionMetadata =
+  res
+    "GetEventPredictionMetadataResponse"
+    "fixture/GetEventPredictionMetadataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetEventPredictionMetadata)
+
 responseGetEventTypes :: GetEventTypesResponse -> TestTree
 responseGetEventTypes =
   res
@@ -1188,6 +1220,14 @@ responseGetVariables =
     "fixture/GetVariablesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetVariables)
+
+responseListEventPredictions :: ListEventPredictionsResponse -> TestTree
+responseListEventPredictions =
+  res
+    "ListEventPredictionsResponse"
+    "fixture/ListEventPredictionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListEventPredictions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

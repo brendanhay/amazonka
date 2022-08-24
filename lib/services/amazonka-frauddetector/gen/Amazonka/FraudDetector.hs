@@ -16,6 +16,20 @@
 -- actions, data types, and errors. For more information about Amazon Fraud
 -- Detector features, see the
 -- <https://docs.aws.amazon.com/frauddetector/latest/ug/ Amazon Fraud Detector User Guide>.
+--
+-- We provide the Query API as well as AWS software development kits (SDK)
+-- for Amazon Fraud Detector in Java and Python programming languages.
+--
+-- The Amazon Fraud Detector Query API provides HTTPS requests that use the
+-- HTTP verb GET or POST and a Query parameter @Action@. AWS SDK provides
+-- libraries, sample code, tutorials, and other resources for software
+-- developers who prefer to build applications using language-specific APIs
+-- instead of submitting a request over HTTP or HTTPS. These libraries
+-- provide basic functions that automatically take care of tasks such as
+-- cryptographically signing your requests, retrying requests, and handling
+-- error responses, so that it is easier for you to get started. For more
+-- information about the AWS SDKs, see
+-- <https://docs.aws.amazon.com/https:/aws.amazon.com/tools/ Tools to build on AWS>.
 module Amazonka.FraudDetector
   ( -- * Service Configuration
     defaultService,
@@ -266,6 +280,12 @@ module Amazonka.FraudDetector
     GetEventPredictionResponse (GetEventPredictionResponse'),
     newGetEventPredictionResponse,
 
+    -- ** GetEventPredictionMetadata
+    GetEventPredictionMetadata (GetEventPredictionMetadata'),
+    newGetEventPredictionMetadata,
+    GetEventPredictionMetadataResponse (GetEventPredictionMetadataResponse'),
+    newGetEventPredictionMetadataResponse,
+
     -- ** GetEventTypes
     GetEventTypes (GetEventTypes'),
     newGetEventTypes,
@@ -319,6 +339,12 @@ module Amazonka.FraudDetector
     newGetVariables,
     GetVariablesResponse (GetVariablesResponse'),
     newGetVariablesResponse,
+
+    -- ** ListEventPredictions
+    ListEventPredictions (ListEventPredictions'),
+    newListEventPredictions,
+    ListEventPredictionsResponse (ListEventPredictionsResponse'),
+    newListEventPredictionsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -493,6 +519,30 @@ module Amazonka.FraudDetector
     -- ** UnlabeledEventsTreatment
     UnlabeledEventsTreatment (..),
 
+    -- ** ATIMetricDataPoint
+    ATIMetricDataPoint (ATIMetricDataPoint'),
+    newATIMetricDataPoint,
+
+    -- ** ATIModelPerformance
+    ATIModelPerformance (ATIModelPerformance'),
+    newATIModelPerformance,
+
+    -- ** ATITrainingMetricsValue
+    ATITrainingMetricsValue (ATITrainingMetricsValue'),
+    newATITrainingMetricsValue,
+
+    -- ** AggregatedLogOddsMetric
+    AggregatedLogOddsMetric (AggregatedLogOddsMetric'),
+    newAggregatedLogOddsMetric,
+
+    -- ** AggregatedVariablesImpactExplanation
+    AggregatedVariablesImpactExplanation (AggregatedVariablesImpactExplanation'),
+    newAggregatedVariablesImpactExplanation,
+
+    -- ** AggregatedVariablesImportanceMetrics
+    AggregatedVariablesImportanceMetrics (AggregatedVariablesImportanceMetrics'),
+    newAggregatedVariablesImportanceMetrics,
+
     -- ** BatchCreateVariableError
     BatchCreateVariableError (BatchCreateVariableError'),
     newBatchCreateVariableError,
@@ -529,13 +579,33 @@ module Amazonka.FraudDetector
     EntityType (EntityType'),
     newEntityType,
 
+    -- ** EvaluatedExternalModel
+    EvaluatedExternalModel (EvaluatedExternalModel'),
+    newEvaluatedExternalModel,
+
+    -- ** EvaluatedModelVersion
+    EvaluatedModelVersion (EvaluatedModelVersion'),
+    newEvaluatedModelVersion,
+
+    -- ** EvaluatedRule
+    EvaluatedRule (EvaluatedRule'),
+    newEvaluatedRule,
+
     -- ** Event
     Event (Event'),
     newEvent,
 
+    -- ** EventPredictionSummary
+    EventPredictionSummary (EventPredictionSummary'),
+    newEventPredictionSummary,
+
     -- ** EventType
     EventType (EventType'),
     newEventType,
+
+    -- ** EventVariableSummary
+    EventVariableSummary (EventVariableSummary'),
+    newEventVariableSummary,
 
     -- ** ExternalEventsDetail
     ExternalEventsDetail (ExternalEventsDetail'),
@@ -560,6 +630,10 @@ module Amazonka.FraudDetector
     -- ** FileValidationMessage
     FileValidationMessage (FileValidationMessage'),
     newFileValidationMessage,
+
+    -- ** FilterCondition
+    FilterCondition (FilterCondition'),
+    newFilterCondition,
 
     -- ** IngestedEventStatistics
     IngestedEventStatistics (IngestedEventStatistics'),
@@ -621,9 +695,33 @@ module Amazonka.FraudDetector
     ModelVersionDetail (ModelVersionDetail'),
     newModelVersionDetail,
 
+    -- ** ModelVersionEvaluation
+    ModelVersionEvaluation (ModelVersionEvaluation'),
+    newModelVersionEvaluation,
+
+    -- ** OFIMetricDataPoint
+    OFIMetricDataPoint (OFIMetricDataPoint'),
+    newOFIMetricDataPoint,
+
+    -- ** OFIModelPerformance
+    OFIModelPerformance (OFIModelPerformance'),
+    newOFIModelPerformance,
+
+    -- ** OFITrainingMetricsValue
+    OFITrainingMetricsValue (OFITrainingMetricsValue'),
+    newOFITrainingMetricsValue,
+
     -- ** Outcome
     Outcome (Outcome'),
     newOutcome,
+
+    -- ** PredictionExplanations
+    PredictionExplanations (PredictionExplanations'),
+    newPredictionExplanations,
+
+    -- ** PredictionTimeRange
+    PredictionTimeRange (PredictionTimeRange'),
+    newPredictionTimeRange,
 
     -- ** Rule
     Rule (Rule'),
@@ -637,6 +735,18 @@ module Amazonka.FraudDetector
     RuleResult (RuleResult'),
     newRuleResult,
 
+    -- ** TFIMetricDataPoint
+    TFIMetricDataPoint (TFIMetricDataPoint'),
+    newTFIMetricDataPoint,
+
+    -- ** TFIModelPerformance
+    TFIModelPerformance (TFIModelPerformance'),
+    newTFIModelPerformance,
+
+    -- ** TFITrainingMetricsValue
+    TFITrainingMetricsValue (TFITrainingMetricsValue'),
+    newTFITrainingMetricsValue,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
@@ -649,9 +759,17 @@ module Amazonka.FraudDetector
     TrainingMetrics (TrainingMetrics'),
     newTrainingMetrics,
 
+    -- ** TrainingMetricsV2
+    TrainingMetricsV2 (TrainingMetricsV2'),
+    newTrainingMetricsV2,
+
     -- ** TrainingResult
     TrainingResult (TrainingResult'),
     newTrainingResult,
+
+    -- ** TrainingResultV2
+    TrainingResultV2 (TrainingResultV2'),
+    newTrainingResultV2,
 
     -- ** Variable
     Variable (Variable'),
@@ -660,6 +778,10 @@ module Amazonka.FraudDetector
     -- ** VariableEntry
     VariableEntry (VariableEntry'),
     newVariableEntry,
+
+    -- ** VariableImpactExplanation
+    VariableImpactExplanation (VariableImpactExplanation'),
+    newVariableImpactExplanation,
 
     -- ** VariableImportanceMetrics
     VariableImportanceMetrics (VariableImportanceMetrics'),
@@ -703,6 +825,7 @@ import Amazonka.FraudDetector.GetDetectors
 import Amazonka.FraudDetector.GetEntityTypes
 import Amazonka.FraudDetector.GetEvent
 import Amazonka.FraudDetector.GetEventPrediction
+import Amazonka.FraudDetector.GetEventPredictionMetadata
 import Amazonka.FraudDetector.GetEventTypes
 import Amazonka.FraudDetector.GetExternalModels
 import Amazonka.FraudDetector.GetKMSEncryptionKey
@@ -713,6 +836,7 @@ import Amazonka.FraudDetector.GetOutcomes
 import Amazonka.FraudDetector.GetRules
 import Amazonka.FraudDetector.GetVariables
 import Amazonka.FraudDetector.Lens
+import Amazonka.FraudDetector.ListEventPredictions
 import Amazonka.FraudDetector.ListTagsForResource
 import Amazonka.FraudDetector.PutDetector
 import Amazonka.FraudDetector.PutEntityType

@@ -134,7 +134,7 @@ module Amazonka.CloudWatch
     DescribeAlarmsForMetricResponse (DescribeAlarmsForMetricResponse'),
     newDescribeAlarmsForMetricResponse,
 
-    -- ** DescribeAnomalyDetectors
+    -- ** DescribeAnomalyDetectors (Paginated)
     DescribeAnomalyDetectors (DescribeAnomalyDetectors'),
     newDescribeAnomalyDetectors,
     DescribeAnomalyDetectorsResponse (DescribeAnomalyDetectorsResponse'),
@@ -212,6 +212,12 @@ module Amazonka.CloudWatch
     ListDashboardsResponse (ListDashboardsResponse'),
     newListDashboardsResponse,
 
+    -- ** ListManagedInsightRules
+    ListManagedInsightRules (ListManagedInsightRules'),
+    newListManagedInsightRules,
+    ListManagedInsightRulesResponse (ListManagedInsightRulesResponse'),
+    newListManagedInsightRulesResponse,
+
     -- ** ListMetricStreams
     ListMetricStreams (ListMetricStreams'),
     newListMetricStreams,
@@ -253,6 +259,12 @@ module Amazonka.CloudWatch
     newPutInsightRule,
     PutInsightRuleResponse (PutInsightRuleResponse'),
     newPutInsightRuleResponse,
+
+    -- ** PutManagedInsightRules
+    PutManagedInsightRules (PutManagedInsightRules'),
+    newPutManagedInsightRules,
+    PutManagedInsightRulesResponse (PutManagedInsightRulesResponse'),
+    newPutManagedInsightRulesResponse,
 
     -- ** PutMetricAlarm
     PutMetricAlarm (PutMetricAlarm'),
@@ -304,11 +316,17 @@ module Amazonka.CloudWatch
 
     -- * Types
 
+    -- ** ActionsSuppressedBy
+    ActionsSuppressedBy (..),
+
     -- ** AlarmType
     AlarmType (..),
 
     -- ** AnomalyDetectorStateValue
     AnomalyDetectorStateValue (..),
+
+    -- ** AnomalyDetectorType
+    AnomalyDetectorType (..),
 
     -- ** ComparisonOperator
     ComparisonOperator (..),
@@ -393,6 +411,18 @@ module Amazonka.CloudWatch
     LabelOptions (LabelOptions'),
     newLabelOptions,
 
+    -- ** ManagedRule
+    ManagedRule (ManagedRule'),
+    newManagedRule,
+
+    -- ** ManagedRuleDescription
+    ManagedRuleDescription (ManagedRuleDescription'),
+    newManagedRuleDescription,
+
+    -- ** ManagedRuleState
+    ManagedRuleState (ManagedRuleState'),
+    newManagedRuleState,
+
     -- ** MessageData
     MessageData (MessageData'),
     newMessageData,
@@ -417,6 +447,10 @@ module Amazonka.CloudWatch
     MetricDatum (MetricDatum'),
     newMetricDatum,
 
+    -- ** MetricMathAnomalyDetector
+    MetricMathAnomalyDetector (MetricMathAnomalyDetector'),
+    newMetricMathAnomalyDetector,
+
     -- ** MetricStat
     MetricStat (MetricStat'),
     newMetricStat,
@@ -429,6 +463,14 @@ module Amazonka.CloudWatch
     MetricStreamFilter (MetricStreamFilter'),
     newMetricStreamFilter,
 
+    -- ** MetricStreamStatisticsConfiguration
+    MetricStreamStatisticsConfiguration (MetricStreamStatisticsConfiguration'),
+    newMetricStreamStatisticsConfiguration,
+
+    -- ** MetricStreamStatisticsMetric
+    MetricStreamStatisticsMetric (MetricStreamStatisticsMetric'),
+    newMetricStreamStatisticsMetric,
+
     -- ** PartialFailure
     PartialFailure (PartialFailure'),
     newPartialFailure,
@@ -436,6 +478,10 @@ module Amazonka.CloudWatch
     -- ** Range
     Range (Range'),
     newRange,
+
+    -- ** SingleMetricAnomalyDetector
+    SingleMetricAnomalyDetector (SingleMetricAnomalyDetector'),
+    newSingleMetricAnomalyDetector,
 
     -- ** StatisticSet
     StatisticSet (StatisticSet'),
@@ -469,6 +515,7 @@ import Amazonka.CloudWatch.GetMetricStream
 import Amazonka.CloudWatch.GetMetricWidgetImage
 import Amazonka.CloudWatch.Lens
 import Amazonka.CloudWatch.ListDashboards
+import Amazonka.CloudWatch.ListManagedInsightRules
 import Amazonka.CloudWatch.ListMetricStreams
 import Amazonka.CloudWatch.ListMetrics
 import Amazonka.CloudWatch.ListTagsForResource
@@ -476,6 +523,7 @@ import Amazonka.CloudWatch.PutAnomalyDetector
 import Amazonka.CloudWatch.PutCompositeAlarm
 import Amazonka.CloudWatch.PutDashboard
 import Amazonka.CloudWatch.PutInsightRule
+import Amazonka.CloudWatch.PutManagedInsightRules
 import Amazonka.CloudWatch.PutMetricAlarm
 import Amazonka.CloudWatch.PutMetricData
 import Amazonka.CloudWatch.PutMetricStream

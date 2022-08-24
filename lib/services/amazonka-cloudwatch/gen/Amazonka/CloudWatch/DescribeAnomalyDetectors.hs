@@ -21,9 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the anomaly detection models that you have created in your
--- account. You can list all models in your account or filter the results
--- to only the models that are related to a certain namespace, metric name,
--- or metric dimension.
+-- account. For single metric anomaly detectors, you can list all of the
+-- models in your account or filter the results to only the models that are
+-- related to a certain namespace, metric name, or metric dimension. For
+-- metric math anomaly detectors, you can list them by adding @METRIC_MATH@
+-- to the @AnomalyDetectorTypes@ array. This will return all metric math
+-- anomaly detectors in your account.
+--
+-- This operation returns paginated results.
 module Amazonka.CloudWatch.DescribeAnomalyDetectors
   ( -- * Creating a Request
     DescribeAnomalyDetectors (..),
@@ -33,6 +38,7 @@ module Amazonka.CloudWatch.DescribeAnomalyDetectors
     describeAnomalyDetectors_nextToken,
     describeAnomalyDetectors_dimensions,
     describeAnomalyDetectors_maxResults,
+    describeAnomalyDetectors_anomalyDetectorTypes,
     describeAnomalyDetectors_metricName,
     describeAnomalyDetectors_namespace,
 
@@ -70,6 +76,9 @@ data DescribeAnomalyDetectors = DescribeAnomalyDetectors'
     -- To retrieve the remaining results, make another call with the returned
     -- @NextToken@ value.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The anomaly detector types to request when using
+    -- @DescribeAnomalyDetectorsInput@. If empty, defaults to @SINGLE_METRIC@.
+    anomalyDetectorTypes :: Prelude.Maybe [AnomalyDetectorType],
     -- | Limits the results to only the anomaly detection models that are
     -- associated with the specified metric name. If there are multiple metrics
     -- with this name in different namespaces that have anomaly detection
@@ -103,6 +112,9 @@ data DescribeAnomalyDetectors = DescribeAnomalyDetectors'
 -- To retrieve the remaining results, make another call with the returned
 -- @NextToken@ value.
 --
+-- 'anomalyDetectorTypes', 'describeAnomalyDetectors_anomalyDetectorTypes' - The anomaly detector types to request when using
+-- @DescribeAnomalyDetectorsInput@. If empty, defaults to @SINGLE_METRIC@.
+--
 -- 'metricName', 'describeAnomalyDetectors_metricName' - Limits the results to only the anomaly detection models that are
 -- associated with the specified metric name. If there are multiple metrics
 -- with this name in different namespaces that have anomaly detection
@@ -118,6 +130,7 @@ newDescribeAnomalyDetectors =
         Prelude.Nothing,
       dimensions = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      anomalyDetectorTypes = Prelude.Nothing,
       metricName = Prelude.Nothing,
       namespace = Prelude.Nothing
     }
@@ -142,6 +155,11 @@ describeAnomalyDetectors_dimensions = Lens.lens (\DescribeAnomalyDetectors' {dim
 describeAnomalyDetectors_maxResults :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe Prelude.Natural)
 describeAnomalyDetectors_maxResults = Lens.lens (\DescribeAnomalyDetectors' {maxResults} -> maxResults) (\s@DescribeAnomalyDetectors' {} a -> s {maxResults = a} :: DescribeAnomalyDetectors)
 
+-- | The anomaly detector types to request when using
+-- @DescribeAnomalyDetectorsInput@. If empty, defaults to @SINGLE_METRIC@.
+describeAnomalyDetectors_anomalyDetectorTypes :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe [AnomalyDetectorType])
+describeAnomalyDetectors_anomalyDetectorTypes = Lens.lens (\DescribeAnomalyDetectors' {anomalyDetectorTypes} -> anomalyDetectorTypes) (\s@DescribeAnomalyDetectors' {} a -> s {anomalyDetectorTypes = a} :: DescribeAnomalyDetectors) Prelude.. Lens.mapping Lens.coerced
+
 -- | Limits the results to only the anomaly detection models that are
 -- associated with the specified metric name. If there are multiple metrics
 -- with this name in different namespaces that have anomaly detection
@@ -153,6 +171,28 @@ describeAnomalyDetectors_metricName = Lens.lens (\DescribeAnomalyDetectors' {met
 -- associated with the specified namespace.
 describeAnomalyDetectors_namespace :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe Prelude.Text)
 describeAnomalyDetectors_namespace = Lens.lens (\DescribeAnomalyDetectors' {namespace} -> namespace) (\s@DescribeAnomalyDetectors' {} a -> s {namespace = a} :: DescribeAnomalyDetectors)
+
+instance Core.AWSPager DescribeAnomalyDetectors where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeAnomalyDetectorsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeAnomalyDetectorsResponse_anomalyDetectors
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeAnomalyDetectors_nextToken
+          Lens..~ rs
+          Lens.^? describeAnomalyDetectorsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeAnomalyDetectors where
   type
@@ -177,6 +217,7 @@ instance Prelude.Hashable DescribeAnomalyDetectors where
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` anomalyDetectorTypes
       `Prelude.hashWithSalt` metricName
       `Prelude.hashWithSalt` namespace
 
@@ -185,6 +226,7 @@ instance Prelude.NFData DescribeAnomalyDetectors where
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf anomalyDetectorTypes
       `Prelude.seq` Prelude.rnf metricName
       `Prelude.seq` Prelude.rnf namespace
 
@@ -206,6 +248,11 @@ instance Core.ToQuery DescribeAnomalyDetectors where
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> dimensions),
         "MaxResults" Core.=: maxResults,
+        "AnomalyDetectorTypes"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> anomalyDetectorTypes
+            ),
         "MetricName" Core.=: metricName,
         "Namespace" Core.=: namespace
       ]

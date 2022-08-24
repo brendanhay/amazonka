@@ -36,6 +36,7 @@ module Amazonka.CloudWatch.GetMetricStream
     -- * Response Lenses
     getMetricStreamResponse_name,
     getMetricStreamResponse_roleArn,
+    getMetricStreamResponse_statisticsConfigurations,
     getMetricStreamResponse_arn,
     getMetricStreamResponse_state,
     getMetricStreamResponse_creationDate,
@@ -94,6 +95,10 @@ instance Core.AWSRequest GetMetricStream where
           GetMetricStreamResponse'
             Prelude.<$> (x Core..@? "Name")
             Prelude.<*> (x Core..@? "RoleArn")
+            Prelude.<*> ( x Core..@? "StatisticsConfigurations"
+                            Core..!@ Prelude.mempty
+                            Prelude.>>= Core.may (Core.parseXMLList "member")
+                        )
             Prelude.<*> (x Core..@? "Arn")
             Prelude.<*> (x Core..@? "State")
             Prelude.<*> (x Core..@? "CreationDate")
@@ -138,6 +143,11 @@ data GetMetricStreamResponse = GetMetricStreamResponse'
     name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the IAM role that is used by this metric stream.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Each entry in this array displays information about one or more metrics
+    -- that include additional statistics in the metric stream. For more
+    -- information about the additional statistics, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html CloudWatch statistics definitions>.
+    statisticsConfigurations :: Prelude.Maybe [MetricStreamStatisticsConfiguration],
     -- | The ARN of the metric stream.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The state of the metric stream. The possible values are @running@ and
@@ -148,6 +158,10 @@ data GetMetricStreamResponse = GetMetricStreamResponse'
     -- | The date of the most recent update to the metric stream\'s
     -- configuration.
     lastUpdateDate :: Prelude.Maybe Core.ISO8601,
+    -- | The output format for the stream. Valid values are @json@ and
+    -- @opentelemetry0.7@. For more information about metric stream output
+    -- formats, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html Metric streams output formats>.
     outputFormat :: Prelude.Maybe MetricStreamOutputFormat,
     -- | If this array of metric namespaces is present, then these namespaces are
     -- the only metric namespaces that are not streamed by this metric stream.
@@ -177,6 +191,11 @@ data GetMetricStreamResponse = GetMetricStreamResponse'
 --
 -- 'roleArn', 'getMetricStreamResponse_roleArn' - The ARN of the IAM role that is used by this metric stream.
 --
+-- 'statisticsConfigurations', 'getMetricStreamResponse_statisticsConfigurations' - Each entry in this array displays information about one or more metrics
+-- that include additional statistics in the metric stream. For more
+-- information about the additional statistics, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html CloudWatch statistics definitions>.
+--
 -- 'arn', 'getMetricStreamResponse_arn' - The ARN of the metric stream.
 --
 -- 'state', 'getMetricStreamResponse_state' - The state of the metric stream. The possible values are @running@ and
@@ -187,7 +206,10 @@ data GetMetricStreamResponse = GetMetricStreamResponse'
 -- 'lastUpdateDate', 'getMetricStreamResponse_lastUpdateDate' - The date of the most recent update to the metric stream\'s
 -- configuration.
 --
--- 'outputFormat', 'getMetricStreamResponse_outputFormat' -
+-- 'outputFormat', 'getMetricStreamResponse_outputFormat' - The output format for the stream. Valid values are @json@ and
+-- @opentelemetry0.7@. For more information about metric stream output
+-- formats, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html Metric streams output formats>.
 --
 -- 'excludeFilters', 'getMetricStreamResponse_excludeFilters' - If this array of metric namespaces is present, then these namespaces are
 -- the only metric namespaces that are not streamed by this metric stream.
@@ -209,6 +231,7 @@ newGetMetricStreamResponse pHttpStatus_ =
   GetMetricStreamResponse'
     { name = Prelude.Nothing,
       roleArn = Prelude.Nothing,
+      statisticsConfigurations = Prelude.Nothing,
       arn = Prelude.Nothing,
       state = Prelude.Nothing,
       creationDate = Prelude.Nothing,
@@ -228,6 +251,13 @@ getMetricStreamResponse_name = Lens.lens (\GetMetricStreamResponse' {name} -> na
 getMetricStreamResponse_roleArn :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe Prelude.Text)
 getMetricStreamResponse_roleArn = Lens.lens (\GetMetricStreamResponse' {roleArn} -> roleArn) (\s@GetMetricStreamResponse' {} a -> s {roleArn = a} :: GetMetricStreamResponse)
 
+-- | Each entry in this array displays information about one or more metrics
+-- that include additional statistics in the metric stream. For more
+-- information about the additional statistics, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html CloudWatch statistics definitions>.
+getMetricStreamResponse_statisticsConfigurations :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe [MetricStreamStatisticsConfiguration])
+getMetricStreamResponse_statisticsConfigurations = Lens.lens (\GetMetricStreamResponse' {statisticsConfigurations} -> statisticsConfigurations) (\s@GetMetricStreamResponse' {} a -> s {statisticsConfigurations = a} :: GetMetricStreamResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The ARN of the metric stream.
 getMetricStreamResponse_arn :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe Prelude.Text)
 getMetricStreamResponse_arn = Lens.lens (\GetMetricStreamResponse' {arn} -> arn) (\s@GetMetricStreamResponse' {} a -> s {arn = a} :: GetMetricStreamResponse)
@@ -246,7 +276,10 @@ getMetricStreamResponse_creationDate = Lens.lens (\GetMetricStreamResponse' {cre
 getMetricStreamResponse_lastUpdateDate :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe Prelude.UTCTime)
 getMetricStreamResponse_lastUpdateDate = Lens.lens (\GetMetricStreamResponse' {lastUpdateDate} -> lastUpdateDate) (\s@GetMetricStreamResponse' {} a -> s {lastUpdateDate = a} :: GetMetricStreamResponse) Prelude.. Lens.mapping Core._Time
 
--- |
+-- | The output format for the stream. Valid values are @json@ and
+-- @opentelemetry0.7@. For more information about metric stream output
+-- formats, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html Metric streams output formats>.
 getMetricStreamResponse_outputFormat :: Lens.Lens' GetMetricStreamResponse (Prelude.Maybe MetricStreamOutputFormat)
 getMetricStreamResponse_outputFormat = Lens.lens (\GetMetricStreamResponse' {outputFormat} -> outputFormat) (\s@GetMetricStreamResponse' {} a -> s {outputFormat = a} :: GetMetricStreamResponse)
 
@@ -275,6 +308,7 @@ instance Prelude.NFData GetMetricStreamResponse where
   rnf GetMetricStreamResponse' {..} =
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf statisticsConfigurations
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf creationDate

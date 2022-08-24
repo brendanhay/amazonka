@@ -27,6 +27,12 @@
 --
 -- CloudWatch retains the history of an alarm even if you delete the alarm.
 --
+-- To use this operation and return information about a composite alarm,
+-- you must be signed on with the @cloudwatch:DescribeAlarmHistory@
+-- permission that is scoped to @*@. You can\'t return information about
+-- composite alarms if your @cloudwatch:DescribeAlarmHistory@ permission
+-- has a narrower scope.
+--
 -- This operation returns paginated results.
 module Amazonka.CloudWatch.DescribeAlarmHistory
   ( -- * Creating a Request

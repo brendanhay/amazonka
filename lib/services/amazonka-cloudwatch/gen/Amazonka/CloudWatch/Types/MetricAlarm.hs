@@ -60,8 +60,12 @@ data MetricAlarm = MetricAlarm'
     -- | In an alarm based on an anomaly detection model, this is the ID of the
     -- @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
     thresholdMetricId :: Prelude.Maybe Prelude.Text,
-    -- | Sets how this alarm is to handle missing data points. If this parameter
-    -- is omitted, the default behavior of @missing@ is used.
+    -- | Sets how this alarm is to handle missing data points. The valid values
+    -- are @breaching@, @notBreaching@, @ignore@, and @missing@. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring how CloudWatch alarms treat missing data>.
+    --
+    -- If this parameter is omitted, the default behavior of @missing@ is used.
     treatMissingData :: Prelude.Maybe Prelude.Text,
     -- | An array of MetricDataQuery structures, used in an alarm based on a
     -- metric math expression. Each structure either retrieves a metric or
@@ -148,8 +152,12 @@ data MetricAlarm = MetricAlarm'
 -- 'thresholdMetricId', 'metricAlarm_thresholdMetricId' - In an alarm based on an anomaly detection model, this is the ID of the
 -- @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
 --
--- 'treatMissingData', 'metricAlarm_treatMissingData' - Sets how this alarm is to handle missing data points. If this parameter
--- is omitted, the default behavior of @missing@ is used.
+-- 'treatMissingData', 'metricAlarm_treatMissingData' - Sets how this alarm is to handle missing data points. The valid values
+-- are @breaching@, @notBreaching@, @ignore@, and @missing@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring how CloudWatch alarms treat missing data>.
+--
+-- If this parameter is omitted, the default behavior of @missing@ is used.
 --
 -- 'metrics', 'metricAlarm_metrics' - An array of MetricDataQuery structures, used in an alarm based on a
 -- metric math expression. Each structure either retrieves a metric or
@@ -275,8 +283,12 @@ metricAlarm_dimensions = Lens.lens (\MetricAlarm' {dimensions} -> dimensions) (\
 metricAlarm_thresholdMetricId :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
 metricAlarm_thresholdMetricId = Lens.lens (\MetricAlarm' {thresholdMetricId} -> thresholdMetricId) (\s@MetricAlarm' {} a -> s {thresholdMetricId = a} :: MetricAlarm)
 
--- | Sets how this alarm is to handle missing data points. If this parameter
--- is omitted, the default behavior of @missing@ is used.
+-- | Sets how this alarm is to handle missing data points. The valid values
+-- are @breaching@, @notBreaching@, @ignore@, and @missing@. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data Configuring how CloudWatch alarms treat missing data>.
+--
+-- If this parameter is omitted, the default behavior of @missing@ is used.
 metricAlarm_treatMissingData :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
 metricAlarm_treatMissingData = Lens.lens (\MetricAlarm' {treatMissingData} -> treatMissingData) (\s@MetricAlarm' {} a -> s {treatMissingData = a} :: MetricAlarm)
 

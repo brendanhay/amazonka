@@ -90,6 +90,9 @@ import Test.Tasty
 --         , requestListDashboards $
 --             newListDashboards
 --
+--         , requestListManagedInsightRules $
+--             newListManagedInsightRules
+--
 --         , requestListMetricStreams $
 --             newListMetricStreams
 --
@@ -110,6 +113,9 @@ import Test.Tasty
 --
 --         , requestPutInsightRule $
 --             newPutInsightRule
+--
+--         , requestPutManagedInsightRules $
+--             newPutManagedInsightRules
 --
 --         , requestPutMetricAlarm $
 --             newPutMetricAlarm
@@ -201,6 +207,9 @@ import Test.Tasty
 --         , responseListDashboards $
 --             newListDashboardsResponse
 --
+--         , responseListManagedInsightRules $
+--             newListManagedInsightRulesResponse
+--
 --         , responseListMetricStreams $
 --             newListMetricStreamsResponse
 --
@@ -221,6 +230,9 @@ import Test.Tasty
 --
 --         , responsePutInsightRule $
 --             newPutInsightRuleResponse
+--
+--         , responsePutManagedInsightRules $
+--             newPutManagedInsightRulesResponse
 --
 --         , responsePutMetricAlarm $
 --             newPutMetricAlarmResponse
@@ -377,6 +389,12 @@ requestListDashboards =
     "ListDashboards"
     "fixture/ListDashboards.yaml"
 
+requestListManagedInsightRules :: ListManagedInsightRules -> TestTree
+requestListManagedInsightRules =
+  req
+    "ListManagedInsightRules"
+    "fixture/ListManagedInsightRules.yaml"
+
 requestListMetricStreams :: ListMetricStreams -> TestTree
 requestListMetricStreams =
   req
@@ -418,6 +436,12 @@ requestPutInsightRule =
   req
     "PutInsightRule"
     "fixture/PutInsightRule.yaml"
+
+requestPutManagedInsightRules :: PutManagedInsightRules -> TestTree
+requestPutManagedInsightRules =
+  req
+    "PutManagedInsightRules"
+    "fixture/PutManagedInsightRules.yaml"
 
 requestPutMetricAlarm :: PutMetricAlarm -> TestTree
 requestPutMetricAlarm =
@@ -637,6 +661,14 @@ responseListDashboards =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDashboards)
 
+responseListManagedInsightRules :: ListManagedInsightRulesResponse -> TestTree
+responseListManagedInsightRules =
+  res
+    "ListManagedInsightRulesResponse"
+    "fixture/ListManagedInsightRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListManagedInsightRules)
+
 responseListMetricStreams :: ListMetricStreamsResponse -> TestTree
 responseListMetricStreams =
   res
@@ -692,6 +724,14 @@ responsePutInsightRule =
     "fixture/PutInsightRuleResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutInsightRule)
+
+responsePutManagedInsightRules :: PutManagedInsightRulesResponse -> TestTree
+responsePutManagedInsightRules =
+  res
+    "PutManagedInsightRulesResponse"
+    "fixture/PutManagedInsightRulesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutManagedInsightRules)
 
 responsePutMetricAlarm :: PutMetricAlarmResponse -> TestTree
 responsePutMetricAlarm =

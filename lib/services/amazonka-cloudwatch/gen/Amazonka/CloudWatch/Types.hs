@@ -31,11 +31,17 @@ module Amazonka.CloudWatch.Types
     _InvalidFormatFault,
     _InvalidParameterValueException,
 
+    -- * ActionsSuppressedBy
+    ActionsSuppressedBy (..),
+
     -- * AlarmType
     AlarmType (..),
 
     -- * AnomalyDetectorStateValue
     AnomalyDetectorStateValue (..),
+
+    -- * AnomalyDetectorType
+    AnomalyDetectorType (..),
 
     -- * ComparisonOperator
     ComparisonOperator (..),
@@ -77,8 +83,10 @@ module Amazonka.CloudWatch.Types
     -- * AnomalyDetector
     AnomalyDetector (..),
     newAnomalyDetector,
+    anomalyDetector_singleMetricAnomalyDetector,
     anomalyDetector_configuration,
     anomalyDetector_dimensions,
+    anomalyDetector_metricMathAnomalyDetector,
     anomalyDetector_stat,
     anomalyDetector_metricName,
     anomalyDetector_stateValue,
@@ -95,15 +103,21 @@ module Amazonka.CloudWatch.Types
     newCompositeAlarm,
     compositeAlarm_alarmActions,
     compositeAlarm_stateUpdatedTimestamp,
+    compositeAlarm_actionsSuppressorExtensionPeriod,
     compositeAlarm_alarmDescription,
     compositeAlarm_actionsEnabled,
+    compositeAlarm_actionsSuppressedBy,
     compositeAlarm_insufficientDataActions,
+    compositeAlarm_stateTransitionedTimestamp,
     compositeAlarm_alarmArn,
     compositeAlarm_alarmConfigurationUpdatedTimestamp,
     compositeAlarm_stateValue,
     compositeAlarm_stateReasonData,
     compositeAlarm_oKActions,
+    compositeAlarm_actionsSuppressor,
+    compositeAlarm_actionsSuppressorWaitPeriod,
     compositeAlarm_alarmName,
+    compositeAlarm_actionsSuppressedReason,
     compositeAlarm_alarmRule,
     compositeAlarm_stateReason,
 
@@ -148,6 +162,7 @@ module Amazonka.CloudWatch.Types
     -- * InsightRule
     InsightRule (..),
     newInsightRule,
+    insightRule_managedRule,
     insightRule_name,
     insightRule_state,
     insightRule_schema,
@@ -182,6 +197,26 @@ module Amazonka.CloudWatch.Types
     LabelOptions (..),
     newLabelOptions,
     labelOptions_timezone,
+
+    -- * ManagedRule
+    ManagedRule (..),
+    newManagedRule,
+    managedRule_tags,
+    managedRule_templateName,
+    managedRule_resourceARN,
+
+    -- * ManagedRuleDescription
+    ManagedRuleDescription (..),
+    newManagedRuleDescription,
+    managedRuleDescription_templateName,
+    managedRuleDescription_ruleState,
+    managedRuleDescription_resourceARN,
+
+    -- * ManagedRuleState
+    ManagedRuleState (..),
+    newManagedRuleState,
+    managedRuleState_ruleName,
+    managedRuleState_state,
 
     -- * MessageData
     MessageData (..),
@@ -261,6 +296,11 @@ module Amazonka.CloudWatch.Types
     metricDatum_value,
     metricDatum_metricName,
 
+    -- * MetricMathAnomalyDetector
+    MetricMathAnomalyDetector (..),
+    newMetricMathAnomalyDetector,
+    metricMathAnomalyDetector_metricDataQueries,
+
     -- * MetricStat
     MetricStat (..),
     newMetricStat,
@@ -285,6 +325,18 @@ module Amazonka.CloudWatch.Types
     newMetricStreamFilter,
     metricStreamFilter_namespace,
 
+    -- * MetricStreamStatisticsConfiguration
+    MetricStreamStatisticsConfiguration (..),
+    newMetricStreamStatisticsConfiguration,
+    metricStreamStatisticsConfiguration_includeMetrics,
+    metricStreamStatisticsConfiguration_additionalStatistics,
+
+    -- * MetricStreamStatisticsMetric
+    MetricStreamStatisticsMetric (..),
+    newMetricStreamStatisticsMetric,
+    metricStreamStatisticsMetric_namespace,
+    metricStreamStatisticsMetric_metricName,
+
     -- * PartialFailure
     PartialFailure (..),
     newPartialFailure,
@@ -298,6 +350,14 @@ module Amazonka.CloudWatch.Types
     newRange,
     range_startTime,
     range_endTime,
+
+    -- * SingleMetricAnomalyDetector
+    SingleMetricAnomalyDetector (..),
+    newSingleMetricAnomalyDetector,
+    singleMetricAnomalyDetector_dimensions,
+    singleMetricAnomalyDetector_stat,
+    singleMetricAnomalyDetector_metricName,
+    singleMetricAnomalyDetector_namespace,
 
     -- * StatisticSet
     StatisticSet (..),
@@ -315,11 +375,13 @@ module Amazonka.CloudWatch.Types
   )
 where
 
+import Amazonka.CloudWatch.Types.ActionsSuppressedBy
 import Amazonka.CloudWatch.Types.AlarmHistoryItem
 import Amazonka.CloudWatch.Types.AlarmType
 import Amazonka.CloudWatch.Types.AnomalyDetector
 import Amazonka.CloudWatch.Types.AnomalyDetectorConfiguration
 import Amazonka.CloudWatch.Types.AnomalyDetectorStateValue
+import Amazonka.CloudWatch.Types.AnomalyDetectorType
 import Amazonka.CloudWatch.Types.ComparisonOperator
 import Amazonka.CloudWatch.Types.CompositeAlarm
 import Amazonka.CloudWatch.Types.DashboardEntry
@@ -333,20 +395,27 @@ import Amazonka.CloudWatch.Types.InsightRuleContributor
 import Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint
 import Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint
 import Amazonka.CloudWatch.Types.LabelOptions
+import Amazonka.CloudWatch.Types.ManagedRule
+import Amazonka.CloudWatch.Types.ManagedRuleDescription
+import Amazonka.CloudWatch.Types.ManagedRuleState
 import Amazonka.CloudWatch.Types.MessageData
 import Amazonka.CloudWatch.Types.Metric
 import Amazonka.CloudWatch.Types.MetricAlarm
 import Amazonka.CloudWatch.Types.MetricDataQuery
 import Amazonka.CloudWatch.Types.MetricDataResult
 import Amazonka.CloudWatch.Types.MetricDatum
+import Amazonka.CloudWatch.Types.MetricMathAnomalyDetector
 import Amazonka.CloudWatch.Types.MetricStat
 import Amazonka.CloudWatch.Types.MetricStreamEntry
 import Amazonka.CloudWatch.Types.MetricStreamFilter
 import Amazonka.CloudWatch.Types.MetricStreamOutputFormat
+import Amazonka.CloudWatch.Types.MetricStreamStatisticsConfiguration
+import Amazonka.CloudWatch.Types.MetricStreamStatisticsMetric
 import Amazonka.CloudWatch.Types.PartialFailure
 import Amazonka.CloudWatch.Types.Range
 import Amazonka.CloudWatch.Types.RecentlyActive
 import Amazonka.CloudWatch.Types.ScanBy
+import Amazonka.CloudWatch.Types.SingleMetricAnomalyDetector
 import Amazonka.CloudWatch.Types.StandardUnit
 import Amazonka.CloudWatch.Types.StateValue
 import Amazonka.CloudWatch.Types.Statistic

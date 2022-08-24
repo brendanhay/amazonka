@@ -25,7 +25,7 @@
 -- Amazon S3 and to many third-party solutions.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Metric-Streams.html Using Metric Streams>.
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Metric-Streams.html Using Metric Streams>.
 --
 -- To create a metric stream, you must be logged on to an account that has
 -- the @iam:PassRole@ permission and either the @CloudWatchFullAccess@
@@ -42,6 +42,13 @@
 -- -   Stream metrics from only the metric namespaces that you list in
 --     @IncludeFilters@.
 --
+-- By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and
+-- @SAMPLECOUNT@ statistics for each metric that is streamed. You can use
+-- the @StatisticsConfigurations@ parameter to have the metric stream also
+-- send additional statistics in the stream. Streaming additional
+-- statistics incurs additional costs. For more information, see
+-- <https://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+--
 -- When you use @PutMetricStream@ to create a new metric stream, the stream
 -- is created in the @running@ state. If you use it to update an existing
 -- stream, the state of the stream is not changed.
@@ -52,6 +59,7 @@ module Amazonka.CloudWatch.PutMetricStream
 
     -- * Request Lenses
     putMetricStream_tags,
+    putMetricStream_statisticsConfigurations,
     putMetricStream_excludeFilters,
     putMetricStream_includeFilters,
     putMetricStream_name,
@@ -93,6 +101,20 @@ data PutMetricStream = PutMetricStream'
     -- or
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
     tags :: Prelude.Maybe [Tag],
+    -- | By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and
+    -- @SAMPLECOUNT@ statistics for each metric that is streamed. You can use
+    -- this parameter to have the metric stream also send additional statistics
+    -- in the stream. This array can have up to 100 members.
+    --
+    -- For each entry in this array, you specify one or more metrics and the
+    -- list of additional statistics to stream for those metrics. The
+    -- additional statistics that you can stream depend on the stream\'s
+    -- @OutputFormat@. If the @OutputFormat@ is @json@, you can stream any
+    -- additional statistic that is supported by CloudWatch, listed in
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html CloudWatch statistics definitions>.
+    -- If the @OutputFormat@ is @opentelemetry0.7@, you can stream percentile
+    -- statistics such as p95, p99.9 and so on.
+    statisticsConfigurations :: Prelude.Maybe [MetricStreamStatisticsConfiguration],
     -- | If you specify this parameter, the stream sends metrics from all metric
     -- namespaces except for the namespaces that you specify here.
     --
@@ -158,6 +180,20 @@ data PutMetricStream = PutMetricStream'
 -- or
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
 --
+-- 'statisticsConfigurations', 'putMetricStream_statisticsConfigurations' - By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and
+-- @SAMPLECOUNT@ statistics for each metric that is streamed. You can use
+-- this parameter to have the metric stream also send additional statistics
+-- in the stream. This array can have up to 100 members.
+--
+-- For each entry in this array, you specify one or more metrics and the
+-- list of additional statistics to stream for those metrics. The
+-- additional statistics that you can stream depend on the stream\'s
+-- @OutputFormat@. If the @OutputFormat@ is @json@, you can stream any
+-- additional statistic that is supported by CloudWatch, listed in
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html CloudWatch statistics definitions>.
+-- If the @OutputFormat@ is @opentelemetry0.7@, you can stream percentile
+-- statistics such as p95, p99.9 and so on.
+--
 -- 'excludeFilters', 'putMetricStream_excludeFilters' - If you specify this parameter, the stream sends metrics from all metric
 -- namespaces except for the namespaces that you specify here.
 --
@@ -213,6 +249,7 @@ newPutMetricStream
   pOutputFormat_ =
     PutMetricStream'
       { tags = Prelude.Nothing,
+        statisticsConfigurations = Prelude.Nothing,
         excludeFilters = Prelude.Nothing,
         includeFilters = Prelude.Nothing,
         name = pName_,
@@ -237,6 +274,22 @@ newPutMetricStream
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html UntagResource>.
 putMetricStream_tags :: Lens.Lens' PutMetricStream (Prelude.Maybe [Tag])
 putMetricStream_tags = Lens.lens (\PutMetricStream' {tags} -> tags) (\s@PutMetricStream' {} a -> s {tags = a} :: PutMetricStream) Prelude.. Lens.mapping Lens.coerced
+
+-- | By default, a metric stream always sends the @MAX@, @MIN@, @SUM@, and
+-- @SAMPLECOUNT@ statistics for each metric that is streamed. You can use
+-- this parameter to have the metric stream also send additional statistics
+-- in the stream. This array can have up to 100 members.
+--
+-- For each entry in this array, you specify one or more metrics and the
+-- list of additional statistics to stream for those metrics. The
+-- additional statistics that you can stream depend on the stream\'s
+-- @OutputFormat@. If the @OutputFormat@ is @json@, you can stream any
+-- additional statistic that is supported by CloudWatch, listed in
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html CloudWatch statistics definitions>.
+-- If the @OutputFormat@ is @opentelemetry0.7@, you can stream percentile
+-- statistics such as p95, p99.9 and so on.
+putMetricStream_statisticsConfigurations :: Lens.Lens' PutMetricStream (Prelude.Maybe [MetricStreamStatisticsConfiguration])
+putMetricStream_statisticsConfigurations = Lens.lens (\PutMetricStream' {statisticsConfigurations} -> statisticsConfigurations) (\s@PutMetricStream' {} a -> s {statisticsConfigurations = a} :: PutMetricStream) Prelude.. Lens.mapping Lens.coerced
 
 -- | If you specify this parameter, the stream sends metrics from all metric
 -- namespaces except for the namespaces that you specify here.
@@ -306,6 +359,7 @@ instance Core.AWSRequest PutMetricStream where
 instance Prelude.Hashable PutMetricStream where
   hashWithSalt _salt PutMetricStream' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` statisticsConfigurations
       `Prelude.hashWithSalt` excludeFilters
       `Prelude.hashWithSalt` includeFilters
       `Prelude.hashWithSalt` name
@@ -316,6 +370,7 @@ instance Prelude.Hashable PutMetricStream where
 instance Prelude.NFData PutMetricStream where
   rnf PutMetricStream' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf statisticsConfigurations
       `Prelude.seq` Prelude.rnf excludeFilters
       `Prelude.seq` Prelude.rnf includeFilters
       `Prelude.seq` Prelude.rnf name
@@ -339,6 +394,11 @@ instance Core.ToQuery PutMetricStream where
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),
+        "StatisticsConfigurations"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "member"
+                Prelude.<$> statisticsConfigurations
+            ),
         "ExcludeFilters"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"

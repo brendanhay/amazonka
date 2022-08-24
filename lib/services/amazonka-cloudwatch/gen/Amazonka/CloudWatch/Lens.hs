@@ -18,10 +18,12 @@ module Amazonka.CloudWatch.Lens
     deleteAlarms_alarmNames,
 
     -- ** DeleteAnomalyDetector
+    deleteAnomalyDetector_singleMetricAnomalyDetector,
     deleteAnomalyDetector_dimensions,
-    deleteAnomalyDetector_namespace,
-    deleteAnomalyDetector_metricName,
+    deleteAnomalyDetector_metricMathAnomalyDetector,
     deleteAnomalyDetector_stat,
+    deleteAnomalyDetector_metricName,
+    deleteAnomalyDetector_namespace,
     deleteAnomalyDetectorResponse_httpStatus,
 
     -- ** DeleteDashboards
@@ -80,6 +82,7 @@ module Amazonka.CloudWatch.Lens
     describeAnomalyDetectors_nextToken,
     describeAnomalyDetectors_dimensions,
     describeAnomalyDetectors_maxResults,
+    describeAnomalyDetectors_anomalyDetectorTypes,
     describeAnomalyDetectors_metricName,
     describeAnomalyDetectors_namespace,
     describeAnomalyDetectorsResponse_nextToken,
@@ -163,6 +166,7 @@ module Amazonka.CloudWatch.Lens
     getMetricStream_name,
     getMetricStreamResponse_name,
     getMetricStreamResponse_roleArn,
+    getMetricStreamResponse_statisticsConfigurations,
     getMetricStreamResponse_arn,
     getMetricStreamResponse_state,
     getMetricStreamResponse_creationDate,
@@ -185,6 +189,14 @@ module Amazonka.CloudWatch.Lens
     listDashboardsResponse_nextToken,
     listDashboardsResponse_dashboardEntries,
     listDashboardsResponse_httpStatus,
+
+    -- ** ListManagedInsightRules
+    listManagedInsightRules_nextToken,
+    listManagedInsightRules_maxResults,
+    listManagedInsightRules_resourceARN,
+    listManagedInsightRulesResponse_nextToken,
+    listManagedInsightRulesResponse_managedRules,
+    listManagedInsightRulesResponse_httpStatus,
 
     -- ** ListMetricStreams
     listMetricStreams_nextToken,
@@ -209,20 +221,25 @@ module Amazonka.CloudWatch.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** PutAnomalyDetector
+    putAnomalyDetector_singleMetricAnomalyDetector,
     putAnomalyDetector_configuration,
     putAnomalyDetector_dimensions,
-    putAnomalyDetector_namespace,
-    putAnomalyDetector_metricName,
+    putAnomalyDetector_metricMathAnomalyDetector,
     putAnomalyDetector_stat,
+    putAnomalyDetector_metricName,
+    putAnomalyDetector_namespace,
     putAnomalyDetectorResponse_httpStatus,
 
     -- ** PutCompositeAlarm
     putCompositeAlarm_tags,
     putCompositeAlarm_alarmActions,
+    putCompositeAlarm_actionsSuppressorExtensionPeriod,
     putCompositeAlarm_alarmDescription,
     putCompositeAlarm_actionsEnabled,
     putCompositeAlarm_insufficientDataActions,
     putCompositeAlarm_oKActions,
+    putCompositeAlarm_actionsSuppressor,
+    putCompositeAlarm_actionsSuppressorWaitPeriod,
     putCompositeAlarm_alarmName,
     putCompositeAlarm_alarmRule,
 
@@ -238,6 +255,11 @@ module Amazonka.CloudWatch.Lens
     putInsightRule_ruleName,
     putInsightRule_ruleDefinition,
     putInsightRuleResponse_httpStatus,
+
+    -- ** PutManagedInsightRules
+    putManagedInsightRules_managedRules,
+    putManagedInsightRulesResponse_failures,
+    putManagedInsightRulesResponse_httpStatus,
 
     -- ** PutMetricAlarm
     putMetricAlarm_tags,
@@ -269,6 +291,7 @@ module Amazonka.CloudWatch.Lens
 
     -- ** PutMetricStream
     putMetricStream_tags,
+    putMetricStream_statisticsConfigurations,
     putMetricStream_excludeFilters,
     putMetricStream_includeFilters,
     putMetricStream_name,
@@ -313,8 +336,10 @@ module Amazonka.CloudWatch.Lens
     alarmHistoryItem_alarmName,
 
     -- ** AnomalyDetector
+    anomalyDetector_singleMetricAnomalyDetector,
     anomalyDetector_configuration,
     anomalyDetector_dimensions,
+    anomalyDetector_metricMathAnomalyDetector,
     anomalyDetector_stat,
     anomalyDetector_metricName,
     anomalyDetector_stateValue,
@@ -327,15 +352,21 @@ module Amazonka.CloudWatch.Lens
     -- ** CompositeAlarm
     compositeAlarm_alarmActions,
     compositeAlarm_stateUpdatedTimestamp,
+    compositeAlarm_actionsSuppressorExtensionPeriod,
     compositeAlarm_alarmDescription,
     compositeAlarm_actionsEnabled,
+    compositeAlarm_actionsSuppressedBy,
     compositeAlarm_insufficientDataActions,
+    compositeAlarm_stateTransitionedTimestamp,
     compositeAlarm_alarmArn,
     compositeAlarm_alarmConfigurationUpdatedTimestamp,
     compositeAlarm_stateValue,
     compositeAlarm_stateReasonData,
     compositeAlarm_oKActions,
+    compositeAlarm_actionsSuppressor,
+    compositeAlarm_actionsSuppressorWaitPeriod,
     compositeAlarm_alarmName,
+    compositeAlarm_actionsSuppressedReason,
     compositeAlarm_alarmRule,
     compositeAlarm_stateReason,
 
@@ -368,6 +399,7 @@ module Amazonka.CloudWatch.Lens
     dimensionFilter_name,
 
     -- ** InsightRule
+    insightRule_managedRule,
     insightRule_name,
     insightRule_state,
     insightRule_schema,
@@ -394,6 +426,20 @@ module Amazonka.CloudWatch.Lens
 
     -- ** LabelOptions
     labelOptions_timezone,
+
+    -- ** ManagedRule
+    managedRule_tags,
+    managedRule_templateName,
+    managedRule_resourceARN,
+
+    -- ** ManagedRuleDescription
+    managedRuleDescription_templateName,
+    managedRuleDescription_ruleState,
+    managedRuleDescription_resourceARN,
+
+    -- ** ManagedRuleState
+    managedRuleState_ruleName,
+    managedRuleState_state,
 
     -- ** MessageData
     messageData_code,
@@ -461,6 +507,9 @@ module Amazonka.CloudWatch.Lens
     metricDatum_value,
     metricDatum_metricName,
 
+    -- ** MetricMathAnomalyDetector
+    metricMathAnomalyDetector_metricDataQueries,
+
     -- ** MetricStat
     metricStat_unit,
     metricStat_metric,
@@ -479,6 +528,14 @@ module Amazonka.CloudWatch.Lens
     -- ** MetricStreamFilter
     metricStreamFilter_namespace,
 
+    -- ** MetricStreamStatisticsConfiguration
+    metricStreamStatisticsConfiguration_includeMetrics,
+    metricStreamStatisticsConfiguration_additionalStatistics,
+
+    -- ** MetricStreamStatisticsMetric
+    metricStreamStatisticsMetric_namespace,
+    metricStreamStatisticsMetric_metricName,
+
     -- ** PartialFailure
     partialFailure_failureDescription,
     partialFailure_failureCode,
@@ -488,6 +545,12 @@ module Amazonka.CloudWatch.Lens
     -- ** Range
     range_startTime,
     range_endTime,
+
+    -- ** SingleMetricAnomalyDetector
+    singleMetricAnomalyDetector_dimensions,
+    singleMetricAnomalyDetector_stat,
+    singleMetricAnomalyDetector_metricName,
+    singleMetricAnomalyDetector_namespace,
 
     -- ** StatisticSet
     statisticSet_sampleCount,
@@ -522,6 +585,7 @@ import Amazonka.CloudWatch.GetMetricStatistics
 import Amazonka.CloudWatch.GetMetricStream
 import Amazonka.CloudWatch.GetMetricWidgetImage
 import Amazonka.CloudWatch.ListDashboards
+import Amazonka.CloudWatch.ListManagedInsightRules
 import Amazonka.CloudWatch.ListMetricStreams
 import Amazonka.CloudWatch.ListMetrics
 import Amazonka.CloudWatch.ListTagsForResource
@@ -529,6 +593,7 @@ import Amazonka.CloudWatch.PutAnomalyDetector
 import Amazonka.CloudWatch.PutCompositeAlarm
 import Amazonka.CloudWatch.PutDashboard
 import Amazonka.CloudWatch.PutInsightRule
+import Amazonka.CloudWatch.PutManagedInsightRules
 import Amazonka.CloudWatch.PutMetricAlarm
 import Amazonka.CloudWatch.PutMetricData
 import Amazonka.CloudWatch.PutMetricStream
@@ -550,17 +615,24 @@ import Amazonka.CloudWatch.Types.InsightRuleContributor
 import Amazonka.CloudWatch.Types.InsightRuleContributorDatapoint
 import Amazonka.CloudWatch.Types.InsightRuleMetricDatapoint
 import Amazonka.CloudWatch.Types.LabelOptions
+import Amazonka.CloudWatch.Types.ManagedRule
+import Amazonka.CloudWatch.Types.ManagedRuleDescription
+import Amazonka.CloudWatch.Types.ManagedRuleState
 import Amazonka.CloudWatch.Types.MessageData
 import Amazonka.CloudWatch.Types.Metric
 import Amazonka.CloudWatch.Types.MetricAlarm
 import Amazonka.CloudWatch.Types.MetricDataQuery
 import Amazonka.CloudWatch.Types.MetricDataResult
 import Amazonka.CloudWatch.Types.MetricDatum
+import Amazonka.CloudWatch.Types.MetricMathAnomalyDetector
 import Amazonka.CloudWatch.Types.MetricStat
 import Amazonka.CloudWatch.Types.MetricStreamEntry
 import Amazonka.CloudWatch.Types.MetricStreamFilter
+import Amazonka.CloudWatch.Types.MetricStreamStatisticsConfiguration
+import Amazonka.CloudWatch.Types.MetricStreamStatisticsMetric
 import Amazonka.CloudWatch.Types.PartialFailure
 import Amazonka.CloudWatch.Types.Range
+import Amazonka.CloudWatch.Types.SingleMetricAnomalyDetector
 import Amazonka.CloudWatch.Types.StatisticSet
 import Amazonka.CloudWatch.Types.Tag
 import Amazonka.CloudWatch.UntagResource

@@ -29,8 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- When used in @GetMetricData@, it indicates the metric data to return,
 -- and whether this call is just retrieving a batch set of data for one
--- metric, or is performing a math expression on metric data. A single
--- @GetMetricData@ call can include up to 500 @MetricDataQuery@ structures.
+-- metric, or is performing a Metrics Insights query or a math expression.
+-- A single @GetMetricData@ call can include up to 500 @MetricDataQuery@
+-- structures.
 --
 -- When used in @PutMetricAlarm@, it enables you to create an alarm based
 -- on a metric math expression. Each @MetricDataQuery@ in the array
@@ -91,11 +92,16 @@ data MetricDataQuery = MetricDataQuery'
     -- metrics stored by a @PutMetricData@ operation that includes a
     -- @StorageResolution of 1 second@.
     period :: Prelude.Maybe Prelude.Natural,
-    -- | The math expression to be performed on the returned data, if this object
-    -- is performing a math expression. This expression can use the @Id@ of the
-    -- other metrics to refer to those metrics, and can also use the @Id@ of
-    -- other expressions to use the result of those expressions. For more
-    -- information about metric math expressions, see
+    -- | This field can contain either a Metrics Insights query, or a metric math
+    -- expression to be performed on the returned data. For more information
+    -- about Metrics Insights queries, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage Metrics Insights query components and syntax>
+    -- in the /Amazon CloudWatch User Guide/.
+    --
+    -- A math expression can use the @Id@ of the other metrics or queries to
+    -- refer to those metrics, and can also use the @Id@ of other expressions
+    -- to use the result of those expressions. For more information about
+    -- metric math expressions, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions>
     -- in the /Amazon CloudWatch User Guide/.
     --
@@ -161,11 +167,16 @@ data MetricDataQuery = MetricDataQuery'
 -- metrics stored by a @PutMetricData@ operation that includes a
 -- @StorageResolution of 1 second@.
 --
--- 'expression', 'metricDataQuery_expression' - The math expression to be performed on the returned data, if this object
--- is performing a math expression. This expression can use the @Id@ of the
--- other metrics to refer to those metrics, and can also use the @Id@ of
--- other expressions to use the result of those expressions. For more
--- information about metric math expressions, see
+-- 'expression', 'metricDataQuery_expression' - This field can contain either a Metrics Insights query, or a metric math
+-- expression to be performed on the returned data. For more information
+-- about Metrics Insights queries, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage Metrics Insights query components and syntax>
+-- in the /Amazon CloudWatch User Guide/.
+--
+-- A math expression can use the @Id@ of the other metrics or queries to
+-- refer to those metrics, and can also use the @Id@ of other expressions
+-- to use the result of those expressions. For more information about
+-- metric math expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions>
 -- in the /Amazon CloudWatch User Guide/.
 --
@@ -242,11 +253,16 @@ metricDataQuery_label = Lens.lens (\MetricDataQuery' {label} -> label) (\s@Metri
 metricDataQuery_period :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Natural)
 metricDataQuery_period = Lens.lens (\MetricDataQuery' {period} -> period) (\s@MetricDataQuery' {} a -> s {period = a} :: MetricDataQuery)
 
--- | The math expression to be performed on the returned data, if this object
--- is performing a math expression. This expression can use the @Id@ of the
--- other metrics to refer to those metrics, and can also use the @Id@ of
--- other expressions to use the result of those expressions. For more
--- information about metric math expressions, see
+-- | This field can contain either a Metrics Insights query, or a metric math
+-- expression to be performed on the returned data. For more information
+-- about Metrics Insights queries, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage Metrics Insights query components and syntax>
+-- in the /Amazon CloudWatch User Guide/.
+--
+-- A math expression can use the @Id@ of the other metrics or queries to
+-- refer to those metrics, and can also use the @Id@ of other expressions
+-- to use the result of those expressions. For more information about
+-- metric math expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax Metric Math Syntax and Functions>
 -- in the /Amazon CloudWatch User Guide/.
 --

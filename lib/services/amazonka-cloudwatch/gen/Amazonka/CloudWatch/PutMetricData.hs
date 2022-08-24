@@ -34,16 +34,16 @@
 -- up to 150 values per metric with one @PutMetricData@ request, and
 -- supports retrieving percentile statistics on this data.
 --
--- Each @PutMetricData@ request is limited to 40 KB in size for HTTP POST
+-- Each @PutMetricData@ request is limited to 1 MB in size for HTTP POST
 -- requests. You can send a payload compressed by gzip. Each request is
--- also limited to no more than 20 different metrics.
+-- also limited to no more than 1000 different metrics.
 --
 -- Although the @Value@ parameter accepts numbers of type @Double@,
 -- CloudWatch rejects values that are either too small or too large. Values
 -- must be in the range of -2^360 to 2^360. In addition, special values
 -- (for example, NaN, +Infinity, -Infinity) are not supported.
 --
--- You can use up to 10 dimensions per metric to further clarify what data
+-- You can use up to 30 dimensions per metric to further clarify what data
 -- the metric collects. Each dimension consists of a Name and Value pair.
 -- For more information about specifying dimensions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html Publishing Metrics>
@@ -103,7 +103,7 @@ data PutMetricData = PutMetricData'
     -- To avoid conflicts with Amazon Web Services service namespaces, you
     -- should not specify a namespace that begins with @AWS\/@
     namespace :: Prelude.Text,
-    -- | The data for the metric. The array can include no more than 20 metrics
+    -- | The data for the metric. The array can include no more than 1000 metrics
     -- per call.
     metricData :: [MetricDatum]
   }
@@ -122,7 +122,7 @@ data PutMetricData = PutMetricData'
 -- To avoid conflicts with Amazon Web Services service namespaces, you
 -- should not specify a namespace that begins with @AWS\/@
 --
--- 'metricData', 'putMetricData_metricData' - The data for the metric. The array can include no more than 20 metrics
+-- 'metricData', 'putMetricData_metricData' - The data for the metric. The array can include no more than 1000 metrics
 -- per call.
 newPutMetricData ::
   -- | 'namespace'
@@ -141,7 +141,7 @@ newPutMetricData pNamespace_ =
 putMetricData_namespace :: Lens.Lens' PutMetricData Prelude.Text
 putMetricData_namespace = Lens.lens (\PutMetricData' {namespace} -> namespace) (\s@PutMetricData' {} a -> s {namespace = a} :: PutMetricData)
 
--- | The data for the metric. The array can include no more than 20 metrics
+-- | The data for the metric. The array can include no more than 1000 metrics
 -- per call.
 putMetricData_metricData :: Lens.Lens' PutMetricData [MetricDatum]
 putMetricData_metricData = Lens.lens (\PutMetricData' {metricData} -> metricData) (\s@PutMetricData' {} a -> s {metricData = a} :: PutMetricData) Prelude.. Lens.coerced

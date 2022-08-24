@@ -51,7 +51,9 @@ data CacheCluster = CacheCluster'
     -- | A boolean value indicating whether log delivery is enabled for the
     -- replication group.
     replicationGroupLogDeliveryEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | This parameter is currently disabled.
+    -- | If you are running Redis engine version 6.0 or later, set this
+    -- parameter to yes if you want to opt-in to the next auto minor version
+    -- upgrade campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The current state of this cluster, one of the following values:
     -- @available@, @creating@, @deleted@, @deleting@, @incompatible-network@,
@@ -98,9 +100,8 @@ data CacheCluster = CacheCluster'
     --
     --     -   Current generation:
     --
-    --         __M6g node types__ (available only for Redis engine version
-    --         5.0.6 onward and for Memcached engine version 1.5.16 onward).
-    --
+    --         __M6g node types:__ (available only for Redis engine version
+    --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
     --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
     --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
     --         @cache.m6g.16xlarge@
@@ -115,13 +116,19 @@ data CacheCluster = CacheCluster'
     --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
     --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
     --
+    --         __T4g node types__ (available only for Redis engine version
+    --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+    --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+    --
     --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
     --         @cache.t3.medium@
     --
     --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
     --         @cache.t2.medium@
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __T1 node types:__ @cache.t1.micro@
     --
@@ -133,9 +140,22 @@ data CacheCluster = CacheCluster'
     --
     -- -   Compute optimized:
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __C1 node types:__ @cache.c1.xlarge@
+    --
+    -- -   Memory optimized with data tiering:
+    --
+    --     -   Current generation:
+    --
+    --         __R6gd node types__ (available only for Redis engine version 6.2
+    --         onward).
+    --
+    --         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+    --         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+    --         @cache.r6gd.16xlarge@
     --
     -- -   Memory optimized:
     --
@@ -159,7 +179,9 @@ data CacheCluster = CacheCluster'
     --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
     --         @cache.r4.16xlarge@
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
     --         @cache.m2.4xlarge@
@@ -284,7 +306,9 @@ data CacheCluster = CacheCluster'
 -- 'replicationGroupLogDeliveryEnabled', 'cacheCluster_replicationGroupLogDeliveryEnabled' - A boolean value indicating whether log delivery is enabled for the
 -- replication group.
 --
--- 'autoMinorVersionUpgrade', 'cacheCluster_autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- 'autoMinorVersionUpgrade', 'cacheCluster_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 --
 -- 'cacheClusterStatus', 'cacheCluster_cacheClusterStatus' - The current state of this cluster, one of the following values:
 -- @available@, @creating@, @deleted@, @deleting@, @incompatible-network@,
@@ -331,9 +355,8 @@ data CacheCluster = CacheCluster'
 --
 --     -   Current generation:
 --
---         __M6g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward).
---
+--         __M6g node types:__ (available only for Redis engine version
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -348,13 +371,19 @@ data CacheCluster = CacheCluster'
 --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
+--         __T4g node types__ (available only for Redis engine version
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+--         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+--
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
 --         @cache.t3.medium@
 --
 --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
 --         @cache.t2.medium@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __T1 node types:__ @cache.t1.micro@
 --
@@ -366,9 +395,22 @@ data CacheCluster = CacheCluster'
 --
 -- -   Compute optimized:
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
+--
+-- -   Memory optimized with data tiering:
+--
+--     -   Current generation:
+--
+--         __R6gd node types__ (available only for Redis engine version 6.2
+--         onward).
+--
+--         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+--         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+--         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -392,7 +434,9 @@ data CacheCluster = CacheCluster'
 --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
 --         @cache.r4.16xlarge@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
 --         @cache.m2.4xlarge@
@@ -549,7 +593,9 @@ cacheCluster_cacheSubnetGroupName = Lens.lens (\CacheCluster' {cacheSubnetGroupN
 cacheCluster_replicationGroupLogDeliveryEnabled :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
 cacheCluster_replicationGroupLogDeliveryEnabled = Lens.lens (\CacheCluster' {replicationGroupLogDeliveryEnabled} -> replicationGroupLogDeliveryEnabled) (\s@CacheCluster' {} a -> s {replicationGroupLogDeliveryEnabled = a} :: CacheCluster)
 
--- | This parameter is currently disabled.
+-- | If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 cacheCluster_autoMinorVersionUpgrade :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
 cacheCluster_autoMinorVersionUpgrade = Lens.lens (\CacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CacheCluster)
 
@@ -614,9 +660,8 @@ cacheCluster_notificationConfiguration = Lens.lens (\CacheCluster' {notification
 --
 --     -   Current generation:
 --
---         __M6g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward).
---
+--         __M6g node types:__ (available only for Redis engine version
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -631,13 +676,19 @@ cacheCluster_notificationConfiguration = Lens.lens (\CacheCluster' {notification
 --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
+--         __T4g node types__ (available only for Redis engine version
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
+--         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+--
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
 --         @cache.t3.medium@
 --
 --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
 --         @cache.t2.medium@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __T1 node types:__ @cache.t1.micro@
 --
@@ -649,9 +700,22 @@ cacheCluster_notificationConfiguration = Lens.lens (\CacheCluster' {notification
 --
 -- -   Compute optimized:
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
+--
+-- -   Memory optimized with data tiering:
+--
+--     -   Current generation:
+--
+--         __R6gd node types__ (available only for Redis engine version 6.2
+--         onward).
+--
+--         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+--         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+--         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -675,7 +739,9 @@ cacheCluster_notificationConfiguration = Lens.lens (\CacheCluster' {notification
 --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
 --         @cache.r4.16xlarge@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
 --         @cache.m2.4xlarge@

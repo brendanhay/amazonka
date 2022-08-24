@@ -43,6 +43,7 @@ module Amazonka.ElastiCache.ModifyUser
     user_userName,
     user_arn,
     user_status,
+    user_minimumEngineVersion,
     user_userGroupIds,
     user_userId,
     user_engine,

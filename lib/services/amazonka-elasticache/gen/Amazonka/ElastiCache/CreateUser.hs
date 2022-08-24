@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For Redis engine version 6.x onwards: Creates a Redis user. For more
+-- For Redis engine version 6.0 onwards: Creates a Redis user. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html Using Role Based Access Control (RBAC)>.
 module Amazonka.ElastiCache.CreateUser
@@ -47,6 +47,7 @@ module Amazonka.ElastiCache.CreateUser
     user_userName,
     user_arn,
     user_status,
+    user_minimumEngineVersion,
     user_userGroupIds,
     user_userId,
     user_engine,

@@ -31,6 +31,7 @@ module Amazonka.ElastiCache.CreateCacheCluster
     newCreateCacheCluster,
 
     -- * Request Lenses
+    createCacheCluster_transitEncryptionEnabled,
     createCacheCluster_tags,
     createCacheCluster_port,
     createCacheCluster_preferredAvailabilityZones,
@@ -80,7 +81,15 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newCreateCacheCluster' smart constructor.
 data CreateCacheCluster = CreateCacheCluster'
-  { -- | A list of tags to be added to this resource.
+  { -- | A flag that enables in-transit encryption when set to true. You cannot
+    -- modify the value of @TransitEncryptionEnabled@ after the cluster is
+    -- created. To enable in-transit encryption on a cluster you must set
+    -- @TransitEncryptionEnabled@ to true when you create a cluster.
+    --
+    -- __Required:__ Only available when creating a cache cluster in an Amazon
+    -- VPC using Memcached version @1.6.12@ or later.
+    transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of tags to be added to this resource.
     tags :: Prelude.Maybe [Tag],
     -- | The port number on which each of the cache nodes accepts connections.
     port :: Prelude.Maybe Prelude.Int,
@@ -128,7 +137,9 @@ data CreateCacheCluster = CreateCacheCluster'
     -- Use this parameter only when you are creating a cluster in an Amazon
     -- Virtual Private Cloud (Amazon VPC).
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | This parameter is currently disabled.
+    -- | If you are running Redis engine version 6.0 or later, set this
+    -- parameter to yes if you want to opt-in to the next auto minor version
+    -- upgrade campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | __Reserved parameter.__ The password used to access a password protected
     -- server.
@@ -170,8 +181,7 @@ data CreateCacheCluster = CreateCacheCluster'
     --     -   Current generation:
     --
     --         __M6g node types__ (available only for Redis engine version
-    --         5.0.6 onward and for Memcached engine version 1.5.16 onward).
-    --
+    --         5.0.6 onward and for Memcached engine version 1.5.16 onward):
     --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
     --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
     --         @cache.m6g.16xlarge@
@@ -186,13 +196,19 @@ data CreateCacheCluster = CreateCacheCluster'
     --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
     --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
     --
+    --         __T4g node types__ (available only for Redis engine version
+    --         5.0.6 onward and Memcached engine version 1.5.16 onward):
+    --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+    --
     --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
     --         @cache.t3.medium@
     --
     --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
     --         @cache.t2.medium@
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __T1 node types:__ @cache.t1.micro@
     --
@@ -204,7 +220,9 @@ data CreateCacheCluster = CreateCacheCluster'
     --
     -- -   Compute optimized:
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __C1 node types:__ @cache.c1.xlarge@
     --
@@ -230,7 +248,9 @@ data CreateCacheCluster = CreateCacheCluster'
     --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
     --         @cache.r4.16xlarge@
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
     --         @cache.m2.4xlarge@
@@ -322,7 +342,7 @@ data CreateCacheCluster = CreateCacheCluster'
     -- | Specifies the weekly time range during which maintenance on the cluster
     -- is performed. It is specified as a range in the format
     -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
-    -- is a 60 minute period. Valid values for @ddd@ are:
+    -- is a 60 minute period.
     preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The ID of the replication group to which this cluster should belong. If
     -- this parameter is specified, the cluster is added to the specified
@@ -367,6 +387,14 @@ data CreateCacheCluster = CreateCacheCluster'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'transitEncryptionEnabled', 'createCacheCluster_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to true. You cannot
+-- modify the value of @TransitEncryptionEnabled@ after the cluster is
+-- created. To enable in-transit encryption on a cluster you must set
+-- @TransitEncryptionEnabled@ to true when you create a cluster.
+--
+-- __Required:__ Only available when creating a cache cluster in an Amazon
+-- VPC using Memcached version @1.6.12@ or later.
 --
 -- 'tags', 'createCacheCluster_tags' - A list of tags to be added to this resource.
 --
@@ -416,7 +444,9 @@ data CreateCacheCluster = CreateCacheCluster'
 -- Use this parameter only when you are creating a cluster in an Amazon
 -- Virtual Private Cloud (Amazon VPC).
 --
--- 'autoMinorVersionUpgrade', 'createCacheCluster_autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- 'autoMinorVersionUpgrade', 'createCacheCluster_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 --
 -- 'authToken', 'createCacheCluster_authToken' - __Reserved parameter.__ The password used to access a password protected
 -- server.
@@ -458,8 +488,7 @@ data CreateCacheCluster = CreateCacheCluster'
 --     -   Current generation:
 --
 --         __M6g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward).
---
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -474,13 +503,19 @@ data CreateCacheCluster = CreateCacheCluster'
 --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
+--         __T4g node types__ (available only for Redis engine version
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
+--         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+--
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
 --         @cache.t3.medium@
 --
 --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
 --         @cache.t2.medium@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __T1 node types:__ @cache.t1.micro@
 --
@@ -492,7 +527,9 @@ data CreateCacheCluster = CreateCacheCluster'
 --
 -- -   Compute optimized:
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
 --
@@ -518,7 +555,9 @@ data CreateCacheCluster = CreateCacheCluster'
 --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
 --         @cache.r4.16xlarge@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
 --         @cache.m2.4xlarge@
@@ -610,7 +649,7 @@ data CreateCacheCluster = CreateCacheCluster'
 -- 'preferredMaintenanceWindow', 'createCacheCluster_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
+-- is a 60 minute period.
 --
 -- 'replicationGroupId', 'createCacheCluster_replicationGroupId' - The ID of the replication group to which this cluster should belong. If
 -- this parameter is specified, the cluster is added to the specified
@@ -650,7 +689,9 @@ newCreateCacheCluster ::
   CreateCacheCluster
 newCreateCacheCluster pCacheClusterId_ =
   CreateCacheCluster'
-    { tags = Prelude.Nothing,
+    { transitEncryptionEnabled =
+        Prelude.Nothing,
+      tags = Prelude.Nothing,
       port = Prelude.Nothing,
       preferredAvailabilityZones = Prelude.Nothing,
       cacheSubnetGroupName = Prelude.Nothing,
@@ -678,6 +719,16 @@ newCreateCacheCluster pCacheClusterId_ =
       engineVersion = Prelude.Nothing,
       cacheClusterId = pCacheClusterId_
     }
+
+-- | A flag that enables in-transit encryption when set to true. You cannot
+-- modify the value of @TransitEncryptionEnabled@ after the cluster is
+-- created. To enable in-transit encryption on a cluster you must set
+-- @TransitEncryptionEnabled@ to true when you create a cluster.
+--
+-- __Required:__ Only available when creating a cache cluster in an Amazon
+-- VPC using Memcached version @1.6.12@ or later.
+createCacheCluster_transitEncryptionEnabled :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Bool)
+createCacheCluster_transitEncryptionEnabled = Lens.lens (\CreateCacheCluster' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CreateCacheCluster' {} a -> s {transitEncryptionEnabled = a} :: CreateCacheCluster)
 
 -- | A list of tags to be added to this resource.
 createCacheCluster_tags :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Tag])
@@ -743,7 +794,9 @@ createCacheCluster_snapshotName = Lens.lens (\CreateCacheCluster' {snapshotName}
 createCacheCluster_securityGroupIds :: Lens.Lens' CreateCacheCluster (Prelude.Maybe [Prelude.Text])
 createCacheCluster_securityGroupIds = Lens.lens (\CreateCacheCluster' {securityGroupIds} -> securityGroupIds) (\s@CreateCacheCluster' {} a -> s {securityGroupIds = a} :: CreateCacheCluster) Prelude.. Lens.mapping Lens.coerced
 
--- | This parameter is currently disabled.
+-- | If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 createCacheCluster_autoMinorVersionUpgrade :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Bool)
 createCacheCluster_autoMinorVersionUpgrade = Lens.lens (\CreateCacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CreateCacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CreateCacheCluster)
 
@@ -793,8 +846,7 @@ createCacheCluster_numCacheNodes = Lens.lens (\CreateCacheCluster' {numCacheNode
 --     -   Current generation:
 --
 --         __M6g node types__ (available only for Redis engine version
---         5.0.6 onward and for Memcached engine version 1.5.16 onward).
---
+--         5.0.6 onward and for Memcached engine version 1.5.16 onward):
 --         @cache.m6g.large@, @cache.m6g.xlarge@, @cache.m6g.2xlarge@,
 --         @cache.m6g.4xlarge@, @cache.m6g.8xlarge@, @cache.m6g.12xlarge@,
 --         @cache.m6g.16xlarge@
@@ -809,13 +861,19 @@ createCacheCluster_numCacheNodes = Lens.lens (\CreateCacheCluster' {numCacheNode
 --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
+--         __T4g node types__ (available only for Redis engine version
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
+--         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+--
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
 --         @cache.t3.medium@
 --
 --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
 --         @cache.t2.medium@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __T1 node types:__ @cache.t1.micro@
 --
@@ -827,7 +885,9 @@ createCacheCluster_numCacheNodes = Lens.lens (\CreateCacheCluster' {numCacheNode
 --
 -- -   Compute optimized:
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
 --
@@ -853,7 +913,9 @@ createCacheCluster_numCacheNodes = Lens.lens (\CreateCacheCluster' {numCacheNode
 --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
 --         @cache.r4.16xlarge@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
 --         @cache.m2.4xlarge@
@@ -967,7 +1029,7 @@ createCacheCluster_engine = Lens.lens (\CreateCacheCluster' {engine} -> engine) 
 -- | Specifies the weekly time range during which maintenance on the cluster
 -- is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
+-- is a 60 minute period.
 createCacheCluster_preferredMaintenanceWindow :: Lens.Lens' CreateCacheCluster (Prelude.Maybe Prelude.Text)
 createCacheCluster_preferredMaintenanceWindow = Lens.lens (\CreateCacheCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateCacheCluster' {} a -> s {preferredMaintenanceWindow = a} :: CreateCacheCluster)
 
@@ -1026,7 +1088,9 @@ instance Core.AWSRequest CreateCacheCluster where
 
 instance Prelude.Hashable CreateCacheCluster where
   hashWithSalt _salt CreateCacheCluster' {..} =
-    _salt `Prelude.hashWithSalt` tags
+    _salt
+      `Prelude.hashWithSalt` transitEncryptionEnabled
+      `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` preferredAvailabilityZones
       `Prelude.hashWithSalt` cacheSubnetGroupName
@@ -1056,7 +1120,8 @@ instance Prelude.Hashable CreateCacheCluster where
 
 instance Prelude.NFData CreateCacheCluster where
   rnf CreateCacheCluster' {..} =
-    Prelude.rnf tags
+    Prelude.rnf transitEncryptionEnabled
+      `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf preferredAvailabilityZones
       `Prelude.seq` Prelude.rnf cacheSubnetGroupName
@@ -1104,6 +1169,8 @@ instance Core.ToQuery CreateCacheCluster where
           Core.=: ("CreateCacheCluster" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "TransitEncryptionEnabled"
+          Core.=: transitEncryptionEnabled,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),

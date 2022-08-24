@@ -24,6 +24,12 @@
 -- failover on a specified node group (called shard in the console) in a
 -- replication group (called cluster in the console).
 --
+-- This API is designed for testing the behavior of your application in
+-- case of ElastiCache failover. It is not designed to be an operational
+-- tool for initiating a failover to overcome a problem you may have with
+-- the cluster. Moreover, in certain conditions such as large-scale
+-- operational events, Amazon may block this API.
+--
 -- __Note the following__
 --
 -- -   A customer can use this operation to test automatic failover on up

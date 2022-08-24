@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPendingLogDeliveryConfiguration' smart constructor.
 data PendingLogDeliveryConfiguration = PendingLogDeliveryConfiguration'
-  { -- | Refers to <https://redis.io/commands/slowlog slow-log>.
+  { -- | Refers to <https://redis.io/commands/slowlog slow-log> or engine-log..
     logType :: Prelude.Maybe LogType,
     -- | Returns the destination type, either CloudWatch Logs or Kinesis Data
     -- Firehose.
@@ -52,7 +52,7 @@ data PendingLogDeliveryConfiguration = PendingLogDeliveryConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logType', 'pendingLogDeliveryConfiguration_logType' - Refers to <https://redis.io/commands/slowlog slow-log>.
+-- 'logType', 'pendingLogDeliveryConfiguration_logType' - Refers to <https://redis.io/commands/slowlog slow-log> or engine-log..
 --
 -- 'destinationType', 'pendingLogDeliveryConfiguration_destinationType' - Returns the destination type, either CloudWatch Logs or Kinesis Data
 -- Firehose.
@@ -72,7 +72,7 @@ newPendingLogDeliveryConfiguration =
       destinationDetails = Prelude.Nothing
     }
 
--- | Refers to <https://redis.io/commands/slowlog slow-log>.
+-- | Refers to <https://redis.io/commands/slowlog slow-log> or engine-log..
 pendingLogDeliveryConfiguration_logType :: Lens.Lens' PendingLogDeliveryConfiguration (Prelude.Maybe LogType)
 pendingLogDeliveryConfiguration_logType = Lens.lens (\PendingLogDeliveryConfiguration' {logType} -> logType) (\s@PendingLogDeliveryConfiguration' {} a -> s {logType = a} :: PendingLogDeliveryConfiguration)
 

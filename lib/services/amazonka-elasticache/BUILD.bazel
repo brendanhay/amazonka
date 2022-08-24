@@ -95,6 +95,7 @@ haskell_library(
         "gen/Amazonka/ElastiCache/Types/CloudWatchLogsDestinationDetails.hs",
         "gen/Amazonka/ElastiCache/Types/ConfigureShard.hs",
         "gen/Amazonka/ElastiCache/Types/CustomerNodeEndpoint.hs",
+        "gen/Amazonka/ElastiCache/Types/DataTieringStatus.hs",
         "gen/Amazonka/ElastiCache/Types/DestinationDetails.hs",
         "gen/Amazonka/ElastiCache/Types/DestinationType.hs",
         "gen/Amazonka/ElastiCache/Types/EC2SecurityGroup.hs",

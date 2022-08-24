@@ -134,6 +134,7 @@ library
     Amazonka.ElastiCache.Types.CloudWatchLogsDestinationDetails
     Amazonka.ElastiCache.Types.ConfigureShard
     Amazonka.ElastiCache.Types.CustomerNodeEndpoint
+    Amazonka.ElastiCache.Types.DataTieringStatus
     Amazonka.ElastiCache.Types.DestinationDetails
     Amazonka.ElastiCache.Types.DestinationType
     Amazonka.ElastiCache.Types.EC2SecurityGroup

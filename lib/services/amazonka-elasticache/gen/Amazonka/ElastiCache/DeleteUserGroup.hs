@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For Redis engine version 6.x onwards: Deletes a user group. The user
+-- For Redis engine version 6.0 onwards: Deletes a user group. The user
 -- group must first be disassociated from the replication group before it
 -- can be deleted. For more information, see
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html Using Role Based Access Control (RBAC)>.
@@ -42,6 +42,7 @@ module Amazonka.ElastiCache.DeleteUserGroup
     userGroup_arn,
     userGroup_pendingChanges,
     userGroup_status,
+    userGroup_minimumEngineVersion,
     userGroup_engine,
     userGroup_userIds,
   )

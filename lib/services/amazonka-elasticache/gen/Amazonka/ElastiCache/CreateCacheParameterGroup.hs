@@ -77,7 +77,7 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
-    -- @redis6.x@ |
+    -- @redis6.x@
     cacheParameterGroupFamily :: Prelude.Text,
     -- | A user-specified description for the cache parameter group.
     description :: Prelude.Text
@@ -102,7 +102,7 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.x@
 --
 -- 'description', 'createCacheParameterGroup_description' - A user-specified description for the cache parameter group.
 newCreateCacheParameterGroup ::
@@ -140,7 +140,7 @@ createCacheParameterGroup_cacheParameterGroupName = Lens.lens (\CreateCacheParam
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.x@
 createCacheParameterGroup_cacheParameterGroupFamily :: Lens.Lens' CreateCacheParameterGroup Prelude.Text
 createCacheParameterGroup_cacheParameterGroupFamily = Lens.lens (\CreateCacheParameterGroup' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@CreateCacheParameterGroup' {} a -> s {cacheParameterGroupFamily = a} :: CreateCacheParameterGroup)
 

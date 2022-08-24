@@ -661,6 +661,9 @@ module Amazonka.ElastiCache
     -- ** ChangeType
     ChangeType (..),
 
+    -- ** DataTieringStatus
+    DataTieringStatus (..),
+
     -- ** DestinationType
     DestinationType (..),
 

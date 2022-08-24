@@ -39,7 +39,7 @@ data EngineDefaults = EngineDefaults'
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
     -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
-    -- @redis6.x@ |
+    -- @redis6.0@ | @redis6.x@
     cacheParameterGroupFamily :: Prelude.Maybe Prelude.Text,
     -- | Contains a list of engine default parameters.
     parameters :: Prelude.Maybe [Parameter]
@@ -64,7 +64,7 @@ data EngineDefaults = EngineDefaults'
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.0@ | @redis6.x@
 --
 -- 'parameters', 'engineDefaults_parameters' - Contains a list of engine default parameters.
 newEngineDefaults ::
@@ -91,7 +91,7 @@ engineDefaults_cacheNodeTypeSpecificParameters = Lens.lens (\EngineDefaults' {ca
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |
 -- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |
--- @redis6.x@ |
+-- @redis6.0@ | @redis6.x@
 engineDefaults_cacheParameterGroupFamily :: Lens.Lens' EngineDefaults (Prelude.Maybe Prelude.Text)
 engineDefaults_cacheParameterGroupFamily = Lens.lens (\EngineDefaults' {cacheParameterGroupFamily} -> cacheParameterGroupFamily) (\s@EngineDefaults' {} a -> s {cacheParameterGroupFamily = a} :: EngineDefaults)
 

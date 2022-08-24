@@ -21,6 +21,7 @@ module Amazonka.ElastiCache.Types.Snapshot where
 
 import qualified Amazonka.Core as Core
 import Amazonka.ElastiCache.Types.AutomaticFailoverStatus
+import Amazonka.ElastiCache.Types.DataTieringStatus
 import Amazonka.ElastiCache.Types.NodeSnapshot
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -43,7 +44,9 @@ data Snapshot = Snapshot'
     -- | Indicates whether the snapshot is from an automatic backup (@automated@)
     -- or was created manually (@manual@).
     snapshotSource :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is currently disabled.
+    -- | If you are running Redis engine version 6.0 or later, set this
+    -- parameter to yes if you want to opt-in to the next auto minor version
+    -- upgrade campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | Indicates the status of automatic failover for the source Redis
     -- replication group.
@@ -89,13 +92,20 @@ data Snapshot = Snapshot'
     --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
     --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
     --
+    --         __T4g node types__ (available only for Redis engine version
+    --         5.0.6 onward and Memcached engine version 1.5.16 onward):
+    --
+    --         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+    --
     --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
     --         @cache.t3.medium@
     --
     --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
     --         @cache.t2.medium@
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __T1 node types:__ @cache.t1.micro@
     --
@@ -107,9 +117,22 @@ data Snapshot = Snapshot'
     --
     -- -   Compute optimized:
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __C1 node types:__ @cache.c1.xlarge@
+    --
+    -- -   Memory optimized with data tiering:
+    --
+    --     -   Current generation:
+    --
+    --         __R6gd node types__ (available only for Redis engine version 6.2
+    --         onward).
+    --
+    --         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+    --         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+    --         @cache.r6gd.16xlarge@
     --
     -- -   Memory optimized:
     --
@@ -125,6 +148,9 @@ data Snapshot = Snapshot'
     --         For region availability, see
     --         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
     --
+    --         For region availability, see
+    --         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
+    --
     --         __R5 node types:__ @cache.r5.large@, @cache.r5.xlarge@,
     --         @cache.r5.2xlarge@, @cache.r5.4xlarge@, @cache.r5.12xlarge@,
     --         @cache.r5.24xlarge@
@@ -133,7 +159,9 @@ data Snapshot = Snapshot'
     --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
     --         @cache.r4.16xlarge@
     --
-    --     -   Previous generation: (not recommended)
+    --     -   Previous generation: (not recommended. Existing clusters are
+    --         still supported but creation of new clusters is not supported
+    --         for these types.)
     --
     --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
     --         @cache.m2.4xlarge@
@@ -211,6 +239,11 @@ data Snapshot = Snapshot'
     -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
     -- group for the source cluster.
     vpcId :: Prelude.Maybe Prelude.Text,
+    -- | Enables data tiering. Data tiering is only supported for replication
+    -- groups using the r6gd node type. This parameter must be set to true when
+    -- using r6gd nodes. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+    dataTiering :: Prelude.Maybe DataTieringStatus,
     -- | The unique identifier of the source replication group.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
     -- | A list of the cache nodes in the source cluster.
@@ -246,7 +279,9 @@ data Snapshot = Snapshot'
 -- 'snapshotSource', 'snapshot_snapshotSource' - Indicates whether the snapshot is from an automatic backup (@automated@)
 -- or was created manually (@manual@).
 --
--- 'autoMinorVersionUpgrade', 'snapshot_autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- 'autoMinorVersionUpgrade', 'snapshot_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 --
 -- 'automaticFailover', 'snapshot_automaticFailover' - Indicates the status of automatic failover for the source Redis
 -- replication group.
@@ -292,13 +327,20 @@ data Snapshot = Snapshot'
 --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
+--         __T4g node types__ (available only for Redis engine version
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
+--
+--         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+--
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
 --         @cache.t3.medium@
 --
 --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
 --         @cache.t2.medium@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __T1 node types:__ @cache.t1.micro@
 --
@@ -310,9 +352,22 @@ data Snapshot = Snapshot'
 --
 -- -   Compute optimized:
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
+--
+-- -   Memory optimized with data tiering:
+--
+--     -   Current generation:
+--
+--         __R6gd node types__ (available only for Redis engine version 6.2
+--         onward).
+--
+--         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+--         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+--         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -328,6 +383,9 @@ data Snapshot = Snapshot'
 --         For region availability, see
 --         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
 --
+--         For region availability, see
+--         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
+--
 --         __R5 node types:__ @cache.r5.large@, @cache.r5.xlarge@,
 --         @cache.r5.2xlarge@, @cache.r5.4xlarge@, @cache.r5.12xlarge@,
 --         @cache.r5.24xlarge@
@@ -336,7 +394,9 @@ data Snapshot = Snapshot'
 --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
 --         @cache.r4.16xlarge@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
 --         @cache.m2.4xlarge@
@@ -414,6 +474,11 @@ data Snapshot = Snapshot'
 -- 'vpcId', 'snapshot_vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group for the source cluster.
 --
+-- 'dataTiering', 'snapshot_dataTiering' - Enables data tiering. Data tiering is only supported for replication
+-- groups using the r6gd node type. This parameter must be set to true when
+-- using r6gd nodes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+--
 -- 'replicationGroupId', 'snapshot_replicationGroupId' - The unique identifier of the source replication group.
 --
 -- 'nodeSnapshots', 'snapshot_nodeSnapshots' - A list of the cache nodes in the source cluster.
@@ -451,6 +516,7 @@ newSnapshot =
       engine = Prelude.Nothing,
       preferredMaintenanceWindow = Prelude.Nothing,
       vpcId = Prelude.Nothing,
+      dataTiering = Prelude.Nothing,
       replicationGroupId = Prelude.Nothing,
       nodeSnapshots = Prelude.Nothing,
       numNodeGroups = Prelude.Nothing,
@@ -480,7 +546,9 @@ snapshot_snapshotName = Lens.lens (\Snapshot' {snapshotName} -> snapshotName) (\
 snapshot_snapshotSource :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_snapshotSource = Lens.lens (\Snapshot' {snapshotSource} -> snapshotSource) (\s@Snapshot' {} a -> s {snapshotSource = a} :: Snapshot)
 
--- | This parameter is currently disabled.
+-- | If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 snapshot_autoMinorVersionUpgrade :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Bool)
 snapshot_autoMinorVersionUpgrade = Lens.lens (\Snapshot' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@Snapshot' {} a -> s {autoMinorVersionUpgrade = a} :: Snapshot)
 
@@ -538,13 +606,20 @@ snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes)
 --         __M4 node types:__ @cache.m4.large@, @cache.m4.xlarge@,
 --         @cache.m4.2xlarge@, @cache.m4.4xlarge@, @cache.m4.10xlarge@
 --
+--         __T4g node types__ (available only for Redis engine version
+--         5.0.6 onward and Memcached engine version 1.5.16 onward):
+--
+--         @cache.t4g.micro@, @cache.t4g.small@, @cache.t4g.medium@
+--
 --         __T3 node types:__ @cache.t3.micro@, @cache.t3.small@,
 --         @cache.t3.medium@
 --
 --         __T2 node types:__ @cache.t2.micro@, @cache.t2.small@,
 --         @cache.t2.medium@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __T1 node types:__ @cache.t1.micro@
 --
@@ -556,9 +631,22 @@ snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes)
 --
 -- -   Compute optimized:
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __C1 node types:__ @cache.c1.xlarge@
+--
+-- -   Memory optimized with data tiering:
+--
+--     -   Current generation:
+--
+--         __R6gd node types__ (available only for Redis engine version 6.2
+--         onward).
+--
+--         @cache.r6gd.xlarge@, @cache.r6gd.2xlarge@, @cache.r6gd.4xlarge@,
+--         @cache.r6gd.8xlarge@, @cache.r6gd.12xlarge@,
+--         @cache.r6gd.16xlarge@
 --
 -- -   Memory optimized:
 --
@@ -574,6 +662,9 @@ snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes)
 --         For region availability, see
 --         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
 --
+--         For region availability, see
+--         <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion Supported Node Types>
+--
 --         __R5 node types:__ @cache.r5.large@, @cache.r5.xlarge@,
 --         @cache.r5.2xlarge@, @cache.r5.4xlarge@, @cache.r5.12xlarge@,
 --         @cache.r5.24xlarge@
@@ -582,7 +673,9 @@ snapshot_numCacheNodes = Lens.lens (\Snapshot' {numCacheNodes} -> numCacheNodes)
 --         @cache.r4.2xlarge@, @cache.r4.4xlarge@, @cache.r4.8xlarge@,
 --         @cache.r4.16xlarge@
 --
---     -   Previous generation: (not recommended)
+--     -   Previous generation: (not recommended. Existing clusters are
+--         still supported but creation of new clusters is not supported
+--         for these types.)
 --
 --         __M2 node types:__ @cache.m2.xlarge@, @cache.m2.2xlarge@,
 --         @cache.m2.4xlarge@
@@ -684,6 +777,13 @@ snapshot_preferredMaintenanceWindow = Lens.lens (\Snapshot' {preferredMaintenanc
 snapshot_vpcId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_vpcId = Lens.lens (\Snapshot' {vpcId} -> vpcId) (\s@Snapshot' {} a -> s {vpcId = a} :: Snapshot)
 
+-- | Enables data tiering. Data tiering is only supported for replication
+-- groups using the r6gd node type. This parameter must be set to true when
+-- using r6gd nodes. For more information, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html Data tiering>.
+snapshot_dataTiering :: Lens.Lens' Snapshot (Prelude.Maybe DataTieringStatus)
+snapshot_dataTiering = Lens.lens (\Snapshot' {dataTiering} -> dataTiering) (\s@Snapshot' {} a -> s {dataTiering = a} :: Snapshot)
+
 -- | The unique identifier of the source replication group.
 snapshot_replicationGroupId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_replicationGroupId = Lens.lens (\Snapshot' {replicationGroupId} -> replicationGroupId) (\s@Snapshot' {} a -> s {replicationGroupId = a} :: Snapshot)
@@ -729,6 +829,7 @@ instance Core.FromXML Snapshot where
       Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
       Prelude.<*> (x Core..@? "VpcId")
+      Prelude.<*> (x Core..@? "DataTiering")
       Prelude.<*> (x Core..@? "ReplicationGroupId")
       Prelude.<*> ( x Core..@? "NodeSnapshots" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "NodeSnapshot")
@@ -761,6 +862,7 @@ instance Prelude.Hashable Snapshot where
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` preferredMaintenanceWindow
       `Prelude.hashWithSalt` vpcId
+      `Prelude.hashWithSalt` dataTiering
       `Prelude.hashWithSalt` replicationGroupId
       `Prelude.hashWithSalt` nodeSnapshots
       `Prelude.hashWithSalt` numNodeGroups
@@ -793,6 +895,8 @@ instance Prelude.NFData Snapshot where
       `Prelude.seq` Prelude.rnf
         preferredMaintenanceWindow
       `Prelude.seq` Prelude.rnf vpcId
+      `Prelude.seq` Prelude.rnf
+        dataTiering
       `Prelude.seq` Prelude.rnf
         replicationGroupId
       `Prelude.seq` Prelude.rnf

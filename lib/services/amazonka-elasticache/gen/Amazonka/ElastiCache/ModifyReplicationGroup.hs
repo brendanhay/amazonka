@@ -95,7 +95,9 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     -- This parameter can be used only with replication group containing
     -- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | This parameter is currently disabled.
+    -- | If you are running Redis engine version 6.0 or later, set this
+    -- parameter to yes if you want to opt-in to the next auto minor version
+    -- upgrade campaign. This parameter is disabled for previous versions.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | If @true@, this parameter causes the modifications in this request and
     -- any pending modifications to be applied, asynchronously and as soon as
@@ -263,7 +265,9 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 -- This parameter can be used only with replication group containing
 -- clusters running in an Amazon Virtual Private Cloud (Amazon VPC).
 --
--- 'autoMinorVersionUpgrade', 'modifyReplicationGroup_autoMinorVersionUpgrade' - This parameter is currently disabled.
+-- 'autoMinorVersionUpgrade', 'modifyReplicationGroup_autoMinorVersionUpgrade' - If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 --
 -- 'applyImmediately', 'modifyReplicationGroup_applyImmediately' - If @true@, this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
@@ -459,7 +463,9 @@ modifyReplicationGroup_removeUserGroups = Lens.lens (\ModifyReplicationGroup' {r
 modifyReplicationGroup_securityGroupIds :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe [Prelude.Text])
 modifyReplicationGroup_securityGroupIds = Lens.lens (\ModifyReplicationGroup' {securityGroupIds} -> securityGroupIds) (\s@ModifyReplicationGroup' {} a -> s {securityGroupIds = a} :: ModifyReplicationGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | This parameter is currently disabled.
+-- | If you are running Redis engine version 6.0 or later, set this
+-- parameter to yes if you want to opt-in to the next auto minor version
+-- upgrade campaign. This parameter is disabled for previous versions.
 modifyReplicationGroup_autoMinorVersionUpgrade :: Lens.Lens' ModifyReplicationGroup (Prelude.Maybe Prelude.Bool)
 modifyReplicationGroup_autoMinorVersionUpgrade = Lens.lens (\ModifyReplicationGroup' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyReplicationGroup' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyReplicationGroup)
 

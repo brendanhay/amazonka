@@ -36,7 +36,9 @@ data MySQLSettings = MySQLSettings'
     -- Example: @maxFileSize=512@
     maxFileSize :: Prelude.Maybe Prelude.Int,
     -- | Specifies where to migrate source tables on the target, either to a
-    -- single database or multiple databases.
+    -- single database or multiple databases. If you specify
+    -- @SPECIFIC_DATABASE@, specify the database name using the @DatabaseName@
+    -- parameter of the @Endpoint@ object.
     --
     -- Example: @targetDbType=MULTIPLE_DATABASES@
     targetDbType :: Prelude.Maybe TargetDbType,
@@ -73,7 +75,7 @@ data MySQLSettings = MySQLSettings'
     -- database. Specifies how many threads to use to load the data into the
     -- MySQL-compatible target database. Setting a large number of threads can
     -- have an adverse effect on database performance, because a separate
-    -- connection is required for each thread.
+    -- connection is required for each thread. The default is one.
     --
     -- Example: @parallelLoadThreads=1@
     parallelLoadThreads :: Prelude.Maybe Prelude.Int,
@@ -85,7 +87,7 @@ data MySQLSettings = MySQLSettings'
     -- of a file containing the script.
     afterConnectScript :: Prelude.Maybe Prelude.Text,
     -- | Specifies how often to check the binary log for new changes\/events when
-    -- the database is idle.
+    -- the database is idle. The default is five seconds.
     --
     -- Example: @eventsPollInterval=5;@
     --
@@ -126,7 +128,9 @@ data MySQLSettings = MySQLSettings'
 -- Example: @maxFileSize=512@
 --
 -- 'targetDbType', 'mySQLSettings_targetDbType' - Specifies where to migrate source tables on the target, either to a
--- single database or multiple databases.
+-- single database or multiple databases. If you specify
+-- @SPECIFIC_DATABASE@, specify the database name using the @DatabaseName@
+-- parameter of the @Endpoint@ object.
 --
 -- Example: @targetDbType=MULTIPLE_DATABASES@
 --
@@ -163,7 +167,7 @@ data MySQLSettings = MySQLSettings'
 -- database. Specifies how many threads to use to load the data into the
 -- MySQL-compatible target database. Setting a large number of threads can
 -- have an adverse effect on database performance, because a separate
--- connection is required for each thread.
+-- connection is required for each thread. The default is one.
 --
 -- Example: @parallelLoadThreads=1@
 --
@@ -175,7 +179,7 @@ data MySQLSettings = MySQLSettings'
 -- of a file containing the script.
 --
 -- 'eventsPollInterval', 'mySQLSettings_eventsPollInterval' - Specifies how often to check the binary log for new changes\/events when
--- the database is idle.
+-- the database is idle. The default is five seconds.
 --
 -- Example: @eventsPollInterval=5;@
 --
@@ -228,7 +232,9 @@ mySQLSettings_maxFileSize :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Int
 mySQLSettings_maxFileSize = Lens.lens (\MySQLSettings' {maxFileSize} -> maxFileSize) (\s@MySQLSettings' {} a -> s {maxFileSize = a} :: MySQLSettings)
 
 -- | Specifies where to migrate source tables on the target, either to a
--- single database or multiple databases.
+-- single database or multiple databases. If you specify
+-- @SPECIFIC_DATABASE@, specify the database name using the @DatabaseName@
+-- parameter of the @Endpoint@ object.
 --
 -- Example: @targetDbType=MULTIPLE_DATABASES@
 mySQLSettings_targetDbType :: Lens.Lens' MySQLSettings (Prelude.Maybe TargetDbType)
@@ -277,7 +283,7 @@ mySQLSettings_username = Lens.lens (\MySQLSettings' {username} -> username) (\s@
 -- database. Specifies how many threads to use to load the data into the
 -- MySQL-compatible target database. Setting a large number of threads can
 -- have an adverse effect on database performance, because a separate
--- connection is required for each thread.
+-- connection is required for each thread. The default is one.
 --
 -- Example: @parallelLoadThreads=1@
 mySQLSettings_parallelLoadThreads :: Lens.Lens' MySQLSettings (Prelude.Maybe Prelude.Int)
@@ -293,7 +299,7 @@ mySQLSettings_afterConnectScript :: Lens.Lens' MySQLSettings (Prelude.Maybe Prel
 mySQLSettings_afterConnectScript = Lens.lens (\MySQLSettings' {afterConnectScript} -> afterConnectScript) (\s@MySQLSettings' {} a -> s {afterConnectScript = a} :: MySQLSettings)
 
 -- | Specifies how often to check the binary log for new changes\/events when
--- the database is idle.
+-- the database is idle. The default is five seconds.
 --
 -- Example: @eventsPollInterval=5;@
 --

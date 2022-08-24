@@ -49,6 +49,7 @@ library
     Amazonka.DMS.CancelReplicationTaskAssessmentRun
     Amazonka.DMS.CreateEndpoint
     Amazonka.DMS.CreateEventSubscription
+    Amazonka.DMS.CreateFleetAdvisorCollector
     Amazonka.DMS.CreateReplicationInstance
     Amazonka.DMS.CreateReplicationSubnetGroup
     Amazonka.DMS.CreateReplicationTask
@@ -56,6 +57,8 @@ library
     Amazonka.DMS.DeleteConnection
     Amazonka.DMS.DeleteEndpoint
     Amazonka.DMS.DeleteEventSubscription
+    Amazonka.DMS.DeleteFleetAdvisorCollector
+    Amazonka.DMS.DeleteFleetAdvisorDatabases
     Amazonka.DMS.DeleteReplicationInstance
     Amazonka.DMS.DeleteReplicationSubnetGroup
     Amazonka.DMS.DeleteReplicationTask
@@ -70,6 +73,11 @@ library
     Amazonka.DMS.DescribeEventCategories
     Amazonka.DMS.DescribeEvents
     Amazonka.DMS.DescribeEventSubscriptions
+    Amazonka.DMS.DescribeFleetAdvisorCollectors
+    Amazonka.DMS.DescribeFleetAdvisorDatabases
+    Amazonka.DMS.DescribeFleetAdvisorLsaAnalysis
+    Amazonka.DMS.DescribeFleetAdvisorSchemaObjectSummary
+    Amazonka.DMS.DescribeFleetAdvisorSchemas
     Amazonka.DMS.DescribeOrderableReplicationInstances
     Amazonka.DMS.DescribePendingMaintenanceActions
     Amazonka.DMS.DescribeRefreshSchemasStatus
@@ -95,6 +103,7 @@ library
     Amazonka.DMS.RefreshSchemas
     Amazonka.DMS.ReloadTables
     Amazonka.DMS.RemoveTagsFromResource
+    Amazonka.DMS.RunFleetAdvisorLsaAnalysis
     Amazonka.DMS.StartReplicationTask
     Amazonka.DMS.StartReplicationTaskAssessment
     Amazonka.DMS.StartReplicationTaskAssessmentRun
@@ -108,8 +117,15 @@ library
     Amazonka.DMS.Types.CannedAclForObjectsValue
     Amazonka.DMS.Types.Certificate
     Amazonka.DMS.Types.CharLengthSemantics
+    Amazonka.DMS.Types.CollectorHealthCheck
+    Amazonka.DMS.Types.CollectorResponse
+    Amazonka.DMS.Types.CollectorShortInfoResponse
+    Amazonka.DMS.Types.CollectorStatus
     Amazonka.DMS.Types.CompressionTypeValue
     Amazonka.DMS.Types.Connection
+    Amazonka.DMS.Types.DatabaseInstanceSoftwareDetailsResponse
+    Amazonka.DMS.Types.DatabaseResponse
+    Amazonka.DMS.Types.DatabaseShortInfoResponse
     Amazonka.DMS.Types.DataFormatValue
     Amazonka.DMS.Types.DatePartitionDelimiterValue
     Amazonka.DMS.Types.DatePartitionSequenceValue
@@ -127,7 +143,11 @@ library
     Amazonka.DMS.Types.EventCategoryGroup
     Amazonka.DMS.Types.EventSubscription
     Amazonka.DMS.Types.Filter
+    Amazonka.DMS.Types.FleetAdvisorLsaAnalysisResponse
+    Amazonka.DMS.Types.FleetAdvisorSchemaObjectResponse
+    Amazonka.DMS.Types.GcpMySQLSettings
     Amazonka.DMS.Types.IBMDb2Settings
+    Amazonka.DMS.Types.InventoryData
     Amazonka.DMS.Types.KafkaSecurityProtocol
     Amazonka.DMS.Types.KafkaSettings
     Amazonka.DMS.Types.KinesisSettings
@@ -165,6 +185,9 @@ library
     Amazonka.DMS.Types.ResourcePendingMaintenanceActions
     Amazonka.DMS.Types.S3Settings
     Amazonka.DMS.Types.SafeguardPolicy
+    Amazonka.DMS.Types.SchemaResponse
+    Amazonka.DMS.Types.SchemaShortInfoResponse
+    Amazonka.DMS.Types.ServerShortInfoResponse
     Amazonka.DMS.Types.SourceType
     Amazonka.DMS.Types.SslSecurityProtocolValue
     Amazonka.DMS.Types.StartReplicationTaskTypeValue
@@ -175,7 +198,9 @@ library
     Amazonka.DMS.Types.TableToReload
     Amazonka.DMS.Types.Tag
     Amazonka.DMS.Types.TargetDbType
+    Amazonka.DMS.Types.VersionStatus
     Amazonka.DMS.Types.VpcSecurityGroupMembership
+    Amazonka.DMS.UpdateSubscriptionsToEventBridge
     Amazonka.DMS.Waiters
 
   build-depends:

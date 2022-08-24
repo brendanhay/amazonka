@@ -26,8 +26,7 @@
 --
 -- For more information about DMS task assessments, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html Creating a task assessment report>
--- in the
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/Welcome.html Database Migration Service User Guide>.
+-- in the /Database Migration Service User Guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.DMS.DescribeReplicationTaskAssessmentResults

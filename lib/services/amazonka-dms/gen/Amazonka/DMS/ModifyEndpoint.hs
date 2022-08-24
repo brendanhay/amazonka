@@ -48,6 +48,7 @@ module Amazonka.DMS.ModifyEndpoint
     modifyEndpoint_exactSettings,
     modifyEndpoint_databaseName,
     modifyEndpoint_username,
+    modifyEndpoint_gcpMySQLSettings,
     modifyEndpoint_serviceAccessRoleArn,
     modifyEndpoint_extraConnectionAttributes,
     modifyEndpoint_neptuneSettings,
@@ -90,9 +91,9 @@ import qualified Amazonka.Response as Response
 data ModifyEndpoint = ModifyEndpoint'
   { -- | The port used by the endpoint database.
     port :: Prelude.Maybe Prelude.Int,
-    -- | Settings in JSON format for the target Elasticsearch endpoint. For more
+    -- | Settings in JSON format for the target OpenSearch endpoint. For more
     -- information about the available settings, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for DMS>
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using OpenSearch as a Target for DMS>
     -- in the /Database Migration Service User Guide./
     elasticsearchSettings :: Prelude.Maybe ElasticsearchSettings,
     redshiftSettings :: Prelude.Maybe RedshiftSettings,
@@ -100,10 +101,11 @@ data ModifyEndpoint = ModifyEndpoint'
     externalTableDefinition :: Prelude.Maybe Prelude.Text,
     -- | The type of engine for the endpoint. Valid values, depending on the
     -- EndpointType, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
-    -- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@,
-    -- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
-    -- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
-    -- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+    -- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
+    -- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
+    -- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+    -- @\"elasticsearch\"@, @\"documentdb\"@, @\"sqlserver\"@, and
+    -- @\"neptune\"@.
     engineName :: Prelude.Maybe Prelude.Text,
     -- | Settings in JSON format for the source and target MySQL endpoint. For
     -- information about other available settings, see
@@ -158,6 +160,8 @@ data ModifyEndpoint = ModifyEndpoint'
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | The user name to be used to login to the endpoint database.
     username :: Prelude.Maybe Prelude.Text,
+    -- | Settings in JSON format for the source GCP MySQL endpoint.
+    gcpMySQLSettings :: Prelude.Maybe GcpMySQLSettings,
     -- | The Amazon Resource Name (ARN) for the IAM role you want to use to
     -- modify the endpoint. The role must allow the @iam:PassRole@ action.
     serviceAccessRoleArn :: Prelude.Maybe Prelude.Text,
@@ -268,9 +272,9 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- 'port', 'modifyEndpoint_port' - The port used by the endpoint database.
 --
--- 'elasticsearchSettings', 'modifyEndpoint_elasticsearchSettings' - Settings in JSON format for the target Elasticsearch endpoint. For more
+-- 'elasticsearchSettings', 'modifyEndpoint_elasticsearchSettings' - Settings in JSON format for the target OpenSearch endpoint. For more
 -- information about the available settings, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for DMS>
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using OpenSearch as a Target for DMS>
 -- in the /Database Migration Service User Guide./
 --
 -- 'redshiftSettings', 'modifyEndpoint_redshiftSettings' - Undocumented member.
@@ -279,10 +283,11 @@ data ModifyEndpoint = ModifyEndpoint'
 --
 -- 'engineName', 'modifyEndpoint_engineName' - The type of engine for the endpoint. Valid values, depending on the
 -- EndpointType, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
--- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@,
--- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
--- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
--- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
+-- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
+-- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+-- @\"elasticsearch\"@, @\"documentdb\"@, @\"sqlserver\"@, and
+-- @\"neptune\"@.
 --
 -- 'mySQLSettings', 'modifyEndpoint_mySQLSettings' - Settings in JSON format for the source and target MySQL endpoint. For
 -- information about other available settings, see
@@ -336,6 +341,8 @@ data ModifyEndpoint = ModifyEndpoint'
 -- endpoint, do not specify DatabaseName.
 --
 -- 'username', 'modifyEndpoint_username' - The user name to be used to login to the endpoint database.
+--
+-- 'gcpMySQLSettings', 'modifyEndpoint_gcpMySQLSettings' - Settings in JSON format for the source GCP MySQL endpoint.
 --
 -- 'serviceAccessRoleArn', 'modifyEndpoint_serviceAccessRoleArn' - The Amazon Resource Name (ARN) for the IAM role you want to use to
 -- modify the endpoint. The role must allow the @iam:PassRole@ action.
@@ -453,6 +460,7 @@ newModifyEndpoint pEndpointArn_ =
       exactSettings = Prelude.Nothing,
       databaseName = Prelude.Nothing,
       username = Prelude.Nothing,
+      gcpMySQLSettings = Prelude.Nothing,
       serviceAccessRoleArn = Prelude.Nothing,
       extraConnectionAttributes = Prelude.Nothing,
       neptuneSettings = Prelude.Nothing,
@@ -477,9 +485,9 @@ newModifyEndpoint pEndpointArn_ =
 modifyEndpoint_port :: Lens.Lens' ModifyEndpoint (Prelude.Maybe Prelude.Int)
 modifyEndpoint_port = Lens.lens (\ModifyEndpoint' {port} -> port) (\s@ModifyEndpoint' {} a -> s {port = a} :: ModifyEndpoint)
 
--- | Settings in JSON format for the target Elasticsearch endpoint. For more
+-- | Settings in JSON format for the target OpenSearch endpoint. For more
 -- information about the available settings, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using Elasticsearch as a Target for DMS>
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration Extra Connection Attributes When Using OpenSearch as a Target for DMS>
 -- in the /Database Migration Service User Guide./
 modifyEndpoint_elasticsearchSettings :: Lens.Lens' ModifyEndpoint (Prelude.Maybe ElasticsearchSettings)
 modifyEndpoint_elasticsearchSettings = Lens.lens (\ModifyEndpoint' {elasticsearchSettings} -> elasticsearchSettings) (\s@ModifyEndpoint' {} a -> s {elasticsearchSettings = a} :: ModifyEndpoint)
@@ -494,10 +502,11 @@ modifyEndpoint_externalTableDefinition = Lens.lens (\ModifyEndpoint' {externalTa
 
 -- | The type of engine for the endpoint. Valid values, depending on the
 -- EndpointType, include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@,
--- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"redshift\"@,
--- @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@, @\"dynamodb\"@,
--- @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@, @\"elasticsearch\"@,
--- @\"documentdb\"@, @\"sqlserver\"@, and @\"neptune\"@.
+-- @\"mariadb\"@, @\"aurora\"@, @\"aurora-postgresql\"@, @\"opensearch\"@,
+-- @\"redshift\"@, @\"s3\"@, @\"db2\"@, @\"azuredb\"@, @\"sybase\"@,
+-- @\"dynamodb\"@, @\"mongodb\"@, @\"kinesis\"@, @\"kafka\"@,
+-- @\"elasticsearch\"@, @\"documentdb\"@, @\"sqlserver\"@, and
+-- @\"neptune\"@.
 modifyEndpoint_engineName :: Lens.Lens' ModifyEndpoint (Prelude.Maybe Prelude.Text)
 modifyEndpoint_engineName = Lens.lens (\ModifyEndpoint' {engineName} -> engineName) (\s@ModifyEndpoint' {} a -> s {engineName = a} :: ModifyEndpoint)
 
@@ -571,6 +580,10 @@ modifyEndpoint_databaseName = Lens.lens (\ModifyEndpoint' {databaseName} -> data
 -- | The user name to be used to login to the endpoint database.
 modifyEndpoint_username :: Lens.Lens' ModifyEndpoint (Prelude.Maybe Prelude.Text)
 modifyEndpoint_username = Lens.lens (\ModifyEndpoint' {username} -> username) (\s@ModifyEndpoint' {} a -> s {username = a} :: ModifyEndpoint)
+
+-- | Settings in JSON format for the source GCP MySQL endpoint.
+modifyEndpoint_gcpMySQLSettings :: Lens.Lens' ModifyEndpoint (Prelude.Maybe GcpMySQLSettings)
+modifyEndpoint_gcpMySQLSettings = Lens.lens (\ModifyEndpoint' {gcpMySQLSettings} -> gcpMySQLSettings) (\s@ModifyEndpoint' {} a -> s {gcpMySQLSettings = a} :: ModifyEndpoint)
 
 -- | The Amazon Resource Name (ARN) for the IAM role you want to use to
 -- modify the endpoint. The role must allow the @iam:PassRole@ action.
@@ -734,6 +747,7 @@ instance Prelude.Hashable ModifyEndpoint where
       `Prelude.hashWithSalt` exactSettings
       `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` username
+      `Prelude.hashWithSalt` gcpMySQLSettings
       `Prelude.hashWithSalt` serviceAccessRoleArn
       `Prelude.hashWithSalt` extraConnectionAttributes
       `Prelude.hashWithSalt` neptuneSettings
@@ -769,8 +783,10 @@ instance Prelude.NFData ModifyEndpoint where
       `Prelude.seq` Prelude.rnf exactSettings
       `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf username
+      `Prelude.seq` Prelude.rnf gcpMySQLSettings
       `Prelude.seq` Prelude.rnf serviceAccessRoleArn
-      `Prelude.seq` Prelude.rnf extraConnectionAttributes
+      `Prelude.seq` Prelude.rnf
+        extraConnectionAttributes
       `Prelude.seq` Prelude.rnf neptuneSettings
       `Prelude.seq` Prelude.rnf endpointType
       `Prelude.seq` Prelude.rnf kinesisSettings
@@ -780,7 +796,8 @@ instance Prelude.NFData ModifyEndpoint where
         dynamoDbSettings
       `Prelude.seq` Prelude.rnf
         redisSettings
-      `Prelude.seq` Prelude.rnf s3Settings
+      `Prelude.seq` Prelude.rnf
+        s3Settings
       `Prelude.seq` Prelude.rnf
         microsoftSQLServerSettings
       `Prelude.seq` Prelude.rnf
@@ -835,6 +852,8 @@ instance Core.ToJSON ModifyEndpoint where
             ("ExactSettings" Core..=) Prelude.<$> exactSettings,
             ("DatabaseName" Core..=) Prelude.<$> databaseName,
             ("Username" Core..=) Prelude.<$> username,
+            ("GcpMySQLSettings" Core..=)
+              Prelude.<$> gcpMySQLSettings,
             ("ServiceAccessRoleArn" Core..=)
               Prelude.<$> serviceAccessRoleArn,
             ("ExtraConnectionAttributes" Core..=)

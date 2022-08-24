@@ -32,10 +32,12 @@ module Amazonka.DMS.Types
     _InsufficientResourceCapacityFault,
     _SNSNoAuthorizationFault,
     _KMSKeyNotAccessibleFault,
+    _CollectorNotFoundFault,
     _InvalidResourceStateFault,
     _ReplicationSubnetGroupDoesNotCoverEnoughAZs,
     _KMSDisabledFault,
     _ResourceNotFoundFault,
+    _InvalidOperationFault,
     _UpgradeDependencyFailureFault,
     _S3ResourceNotFoundFault,
     _StorageQuotaExceededFault,
@@ -52,6 +54,9 @@ module Amazonka.DMS.Types
 
     -- * CharLengthSemantics
     CharLengthSemantics (..),
+
+    -- * CollectorStatus
+    CollectorStatus (..),
 
     -- * CompressionTypeValue
     CompressionTypeValue (..),
@@ -125,6 +130,9 @@ module Amazonka.DMS.Types
     -- * TargetDbType
     TargetDbType (..),
 
+    -- * VersionStatus
+    VersionStatus (..),
+
     -- * AccountQuota
     AccountQuota (..),
     newAccountQuota,
@@ -151,6 +159,37 @@ module Amazonka.DMS.Types
     certificate_signingAlgorithm,
     certificate_validFromDate,
 
+    -- * CollectorHealthCheck
+    CollectorHealthCheck (..),
+    newCollectorHealthCheck,
+    collectorHealthCheck_collectorStatus,
+    collectorHealthCheck_localCollectorS3Access,
+    collectorHealthCheck_webCollectorGrantedRoleBasedAccess,
+    collectorHealthCheck_webCollectorS3Access,
+
+    -- * CollectorResponse
+    CollectorResponse (..),
+    newCollectorResponse,
+    collectorResponse_collectorName,
+    collectorResponse_s3BucketName,
+    collectorResponse_versionStatus,
+    collectorResponse_serviceAccessRoleArn,
+    collectorResponse_inventoryData,
+    collectorResponse_description,
+    collectorResponse_lastDataReceived,
+    collectorResponse_collectorHealthCheck,
+    collectorResponse_collectorReferencedId,
+    collectorResponse_registeredDate,
+    collectorResponse_createdDate,
+    collectorResponse_modifiedDate,
+    collectorResponse_collectorVersion,
+
+    -- * CollectorShortInfoResponse
+    CollectorShortInfoResponse (..),
+    newCollectorShortInfoResponse,
+    collectorShortInfoResponse_collectorName,
+    collectorShortInfoResponse_collectorReferencedId,
+
     -- * Connection
     Connection (..),
     newConnection,
@@ -160,6 +199,36 @@ module Amazonka.DMS.Types
     connection_endpointIdentifier,
     connection_status,
     connection_endpointArn,
+
+    -- * DatabaseInstanceSoftwareDetailsResponse
+    DatabaseInstanceSoftwareDetailsResponse (..),
+    newDatabaseInstanceSoftwareDetailsResponse,
+    databaseInstanceSoftwareDetailsResponse_engineEdition,
+    databaseInstanceSoftwareDetailsResponse_servicePack,
+    databaseInstanceSoftwareDetailsResponse_engine,
+    databaseInstanceSoftwareDetailsResponse_tooltip,
+    databaseInstanceSoftwareDetailsResponse_supportLevel,
+    databaseInstanceSoftwareDetailsResponse_engineVersion,
+    databaseInstanceSoftwareDetailsResponse_osArchitecture,
+
+    -- * DatabaseResponse
+    DatabaseResponse (..),
+    newDatabaseResponse,
+    databaseResponse_numberOfSchemas,
+    databaseResponse_databaseName,
+    databaseResponse_databaseId,
+    databaseResponse_server,
+    databaseResponse_collectors,
+    databaseResponse_ipAddress,
+    databaseResponse_softwareDetails,
+
+    -- * DatabaseShortInfoResponse
+    DatabaseShortInfoResponse (..),
+    newDatabaseShortInfoResponse,
+    databaseShortInfoResponse_databaseEngine,
+    databaseShortInfoResponse_databaseName,
+    databaseShortInfoResponse_databaseId,
+    databaseShortInfoResponse_databaseIpAddress,
 
     -- * DmsTransferSettings
     DmsTransferSettings (..),
@@ -192,6 +261,7 @@ module Amazonka.DMS.Types
     newElasticsearchSettings,
     elasticsearchSettings_errorRetryDuration,
     elasticsearchSettings_fullLoadErrorPercentage,
+    elasticsearchSettings_useNewMappingType,
     elasticsearchSettings_serviceAccessRoleArn,
     elasticsearchSettings_endpointUri,
 
@@ -211,6 +281,7 @@ module Amazonka.DMS.Types
     endpoint_docDbSettings,
     endpoint_databaseName,
     endpoint_username,
+    endpoint_gcpMySQLSettings,
     endpoint_serviceAccessRoleArn,
     endpoint_extraConnectionAttributes,
     endpoint_neptuneSettings,
@@ -280,6 +351,39 @@ module Amazonka.DMS.Types
     filter_name,
     filter_values,
 
+    -- * FleetAdvisorLsaAnalysisResponse
+    FleetAdvisorLsaAnalysisResponse (..),
+    newFleetAdvisorLsaAnalysisResponse,
+    fleetAdvisorLsaAnalysisResponse_lsaAnalysisId,
+    fleetAdvisorLsaAnalysisResponse_status,
+
+    -- * FleetAdvisorSchemaObjectResponse
+    FleetAdvisorSchemaObjectResponse (..),
+    newFleetAdvisorSchemaObjectResponse,
+    fleetAdvisorSchemaObjectResponse_codeLineCount,
+    fleetAdvisorSchemaObjectResponse_numberOfObjects,
+    fleetAdvisorSchemaObjectResponse_schemaId,
+    fleetAdvisorSchemaObjectResponse_objectType,
+    fleetAdvisorSchemaObjectResponse_codeSize,
+
+    -- * GcpMySQLSettings
+    GcpMySQLSettings (..),
+    newGcpMySQLSettings,
+    gcpMySQLSettings_port,
+    gcpMySQLSettings_maxFileSize,
+    gcpMySQLSettings_targetDbType,
+    gcpMySQLSettings_secretsManagerAccessRoleArn,
+    gcpMySQLSettings_password,
+    gcpMySQLSettings_serverName,
+    gcpMySQLSettings_databaseName,
+    gcpMySQLSettings_username,
+    gcpMySQLSettings_parallelLoadThreads,
+    gcpMySQLSettings_afterConnectScript,
+    gcpMySQLSettings_eventsPollInterval,
+    gcpMySQLSettings_cleanSourceMetadataOnMismatch,
+    gcpMySQLSettings_secretsManagerSecretId,
+    gcpMySQLSettings_serverTimezone,
+
     -- * IBMDb2Settings
     IBMDb2Settings (..),
     newIBMDb2Settings,
@@ -293,6 +397,12 @@ module Amazonka.DMS.Types
     iBMDb2Settings_maxKBytesPerRead,
     iBMDb2Settings_secretsManagerSecretId,
     iBMDb2Settings_currentLsn,
+
+    -- * InventoryData
+    InventoryData (..),
+    newInventoryData,
+    inventoryData_numberOfSchemas,
+    inventoryData_numberOfDatabases,
 
     -- * KafkaSettings
     KafkaSettings (..),
@@ -335,6 +445,7 @@ module Amazonka.DMS.Types
     newMicrosoftSQLServerSettings,
     microsoftSQLServerSettings_port,
     microsoftSQLServerSettings_controlTablesFileGroup,
+    microsoftSQLServerSettings_trimSpaceInChar,
     microsoftSQLServerSettings_secretsManagerAccessRoleArn,
     microsoftSQLServerSettings_password,
     microsoftSQLServerSettings_serverName,
@@ -406,6 +517,7 @@ module Amazonka.DMS.Types
     oracleSettings_archivedLogDestId,
     oracleSettings_secretsManagerOracleAsmAccessRoleArn,
     oracleSettings_charLengthSemantics,
+    oracleSettings_trimSpaceInChar,
     oracleSettings_readAheadBlocks,
     oracleSettings_secretsManagerAccessRoleArn,
     oracleSettings_standbyDelayTime,
@@ -468,6 +580,7 @@ module Amazonka.DMS.Types
     postgreSQLSettings_port,
     postgreSQLSettings_maxFileSize,
     postgreSQLSettings_slotName,
+    postgreSQLSettings_trimSpaceInChar,
     postgreSQLSettings_secretsManagerAccessRoleArn,
     postgreSQLSettings_executeTimeout,
     postgreSQLSettings_password,
@@ -692,11 +805,15 @@ module Amazonka.DMS.Types
     s3Settings_dataPageSize,
     s3Settings_csvNullValue,
     s3Settings_datePartitionEnabled,
+    s3Settings_useTaskStartTimeForFullLoadTimestamp,
+    s3Settings_expectedBucketOwner,
     s3Settings_preserveTransactions,
     s3Settings_serviceAccessRoleArn,
     s3Settings_cdcInsertsOnly,
+    s3Settings_addTrailingPaddingCharacter,
     s3Settings_cdcMaxBatchInterval,
     s3Settings_cdcInsertsAndUpdates,
+    s3Settings_datePartitionTimezone,
     s3Settings_compressionType,
     s3Settings_bucketName,
     s3Settings_enableStatistics,
@@ -714,6 +831,35 @@ module Amazonka.DMS.Types
     s3Settings_encryptionMode,
     s3Settings_csvRowDelimiter,
     s3Settings_encodingType,
+
+    -- * SchemaResponse
+    SchemaResponse (..),
+    newSchemaResponse,
+    schemaResponse_databaseInstance,
+    schemaResponse_similarity,
+    schemaResponse_originalSchema,
+    schemaResponse_codeLineCount,
+    schemaResponse_schemaName,
+    schemaResponse_server,
+    schemaResponse_complexity,
+    schemaResponse_schemaId,
+    schemaResponse_codeSize,
+
+    -- * SchemaShortInfoResponse
+    SchemaShortInfoResponse (..),
+    newSchemaShortInfoResponse,
+    schemaShortInfoResponse_databaseName,
+    schemaShortInfoResponse_schemaName,
+    schemaShortInfoResponse_databaseId,
+    schemaShortInfoResponse_databaseIpAddress,
+    schemaShortInfoResponse_schemaId,
+
+    -- * ServerShortInfoResponse
+    ServerShortInfoResponse (..),
+    newServerShortInfoResponse,
+    serverShortInfoResponse_serverName,
+    serverShortInfoResponse_serverId,
+    serverShortInfoResponse_ipAddress,
 
     -- * Subnet
     Subnet (..),
@@ -794,9 +940,16 @@ import Amazonka.DMS.Types.AvailabilityZone
 import Amazonka.DMS.Types.CannedAclForObjectsValue
 import Amazonka.DMS.Types.Certificate
 import Amazonka.DMS.Types.CharLengthSemantics
+import Amazonka.DMS.Types.CollectorHealthCheck
+import Amazonka.DMS.Types.CollectorResponse
+import Amazonka.DMS.Types.CollectorShortInfoResponse
+import Amazonka.DMS.Types.CollectorStatus
 import Amazonka.DMS.Types.CompressionTypeValue
 import Amazonka.DMS.Types.Connection
 import Amazonka.DMS.Types.DataFormatValue
+import Amazonka.DMS.Types.DatabaseInstanceSoftwareDetailsResponse
+import Amazonka.DMS.Types.DatabaseResponse
+import Amazonka.DMS.Types.DatabaseShortInfoResponse
 import Amazonka.DMS.Types.DatePartitionDelimiterValue
 import Amazonka.DMS.Types.DatePartitionSequenceValue
 import Amazonka.DMS.Types.DmsSslModeValue
@@ -813,7 +966,11 @@ import Amazonka.DMS.Types.Event
 import Amazonka.DMS.Types.EventCategoryGroup
 import Amazonka.DMS.Types.EventSubscription
 import Amazonka.DMS.Types.Filter
+import Amazonka.DMS.Types.FleetAdvisorLsaAnalysisResponse
+import Amazonka.DMS.Types.FleetAdvisorSchemaObjectResponse
+import Amazonka.DMS.Types.GcpMySQLSettings
 import Amazonka.DMS.Types.IBMDb2Settings
+import Amazonka.DMS.Types.InventoryData
 import Amazonka.DMS.Types.KafkaSecurityProtocol
 import Amazonka.DMS.Types.KafkaSettings
 import Amazonka.DMS.Types.KinesisSettings
@@ -851,6 +1008,9 @@ import Amazonka.DMS.Types.ReplicationTaskStats
 import Amazonka.DMS.Types.ResourcePendingMaintenanceActions
 import Amazonka.DMS.Types.S3Settings
 import Amazonka.DMS.Types.SafeguardPolicy
+import Amazonka.DMS.Types.SchemaResponse
+import Amazonka.DMS.Types.SchemaShortInfoResponse
+import Amazonka.DMS.Types.ServerShortInfoResponse
 import Amazonka.DMS.Types.SourceType
 import Amazonka.DMS.Types.SslSecurityProtocolValue
 import Amazonka.DMS.Types.StartReplicationTaskTypeValue
@@ -861,6 +1021,7 @@ import Amazonka.DMS.Types.TableStatistics
 import Amazonka.DMS.Types.TableToReload
 import Amazonka.DMS.Types.Tag
 import Amazonka.DMS.Types.TargetDbType
+import Amazonka.DMS.Types.VersionStatus
 import Amazonka.DMS.Types.VpcSecurityGroupMembership
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -1041,6 +1202,13 @@ _KMSKeyNotAccessibleFault =
     defaultService
     "KMSKeyNotAccessibleFault"
 
+-- | The specified collector doesn\'t exist.
+_CollectorNotFoundFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CollectorNotFoundFault =
+  Core._MatchServiceError
+    defaultService
+    "CollectorNotFoundFault"
+
 -- | The resource is in a state that prevents it from being used for database
 -- migration.
 _InvalidResourceStateFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1057,7 +1225,7 @@ _ReplicationSubnetGroupDoesNotCoverEnoughAZs =
     defaultService
     "ReplicationSubnetGroupDoesNotCoverEnoughAZs"
 
--- | The specified master key (CMK) isn\'t enabled.
+-- | The specified KMS key isn\'t enabled.
 _KMSDisabledFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSDisabledFault =
   Core._MatchServiceError
@@ -1070,6 +1238,13 @@ _ResourceNotFoundFault =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundFault"
+
+-- | The action or operation requested isn\'t valid.
+_InvalidOperationFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationFault =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOperationFault"
 
 -- | An upgrade dependency is preventing the database migration.
 _UpgradeDependencyFailureFault :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

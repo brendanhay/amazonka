@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestCreateEventSubscription $
 --             newCreateEventSubscription
 --
+--         , requestCreateFleetAdvisorCollector $
+--             newCreateFleetAdvisorCollector
+--
 --         , requestCreateReplicationInstance $
 --             newCreateReplicationInstance
 --
@@ -62,6 +65,12 @@ import Test.Tasty
 --
 --         , requestDeleteEventSubscription $
 --             newDeleteEventSubscription
+--
+--         , requestDeleteFleetAdvisorCollector $
+--             newDeleteFleetAdvisorCollector
+--
+--         , requestDeleteFleetAdvisorDatabases $
+--             newDeleteFleetAdvisorDatabases
 --
 --         , requestDeleteReplicationInstance $
 --             newDeleteReplicationInstance
@@ -104,6 +113,21 @@ import Test.Tasty
 --
 --         , requestDescribeEvents $
 --             newDescribeEvents
+--
+--         , requestDescribeFleetAdvisorCollectors $
+--             newDescribeFleetAdvisorCollectors
+--
+--         , requestDescribeFleetAdvisorDatabases $
+--             newDescribeFleetAdvisorDatabases
+--
+--         , requestDescribeFleetAdvisorLsaAnalysis $
+--             newDescribeFleetAdvisorLsaAnalysis
+--
+--         , requestDescribeFleetAdvisorSchemaObjectSummary $
+--             newDescribeFleetAdvisorSchemaObjectSummary
+--
+--         , requestDescribeFleetAdvisorSchemas $
+--             newDescribeFleetAdvisorSchemas
 --
 --         , requestDescribeOrderableReplicationInstances $
 --             newDescribeOrderableReplicationInstances
@@ -177,6 +201,9 @@ import Test.Tasty
 --         , requestRemoveTagsFromResource $
 --             newRemoveTagsFromResource
 --
+--         , requestRunFleetAdvisorLsaAnalysis $
+--             newRunFleetAdvisorLsaAnalysis
+--
 --         , requestStartReplicationTask $
 --             newStartReplicationTask
 --
@@ -191,6 +218,9 @@ import Test.Tasty
 --
 --         , requestTestConnection $
 --             newTestConnection
+--
+--         , requestUpdateSubscriptionsToEventBridge $
+--             newUpdateSubscriptionsToEventBridge
 --
 --           ]
 
@@ -209,6 +239,9 @@ import Test.Tasty
 --
 --         , responseCreateEventSubscription $
 --             newCreateEventSubscriptionResponse
+--
+--         , responseCreateFleetAdvisorCollector $
+--             newCreateFleetAdvisorCollectorResponse
 --
 --         , responseCreateReplicationInstance $
 --             newCreateReplicationInstanceResponse
@@ -230,6 +263,12 @@ import Test.Tasty
 --
 --         , responseDeleteEventSubscription $
 --             newDeleteEventSubscriptionResponse
+--
+--         , responseDeleteFleetAdvisorCollector $
+--             newDeleteFleetAdvisorCollectorResponse
+--
+--         , responseDeleteFleetAdvisorDatabases $
+--             newDeleteFleetAdvisorDatabasesResponse
 --
 --         , responseDeleteReplicationInstance $
 --             newDeleteReplicationInstanceResponse
@@ -272,6 +311,21 @@ import Test.Tasty
 --
 --         , responseDescribeEvents $
 --             newDescribeEventsResponse
+--
+--         , responseDescribeFleetAdvisorCollectors $
+--             newDescribeFleetAdvisorCollectorsResponse
+--
+--         , responseDescribeFleetAdvisorDatabases $
+--             newDescribeFleetAdvisorDatabasesResponse
+--
+--         , responseDescribeFleetAdvisorLsaAnalysis $
+--             newDescribeFleetAdvisorLsaAnalysisResponse
+--
+--         , responseDescribeFleetAdvisorSchemaObjectSummary $
+--             newDescribeFleetAdvisorSchemaObjectSummaryResponse
+--
+--         , responseDescribeFleetAdvisorSchemas $
+--             newDescribeFleetAdvisorSchemasResponse
 --
 --         , responseDescribeOrderableReplicationInstances $
 --             newDescribeOrderableReplicationInstancesResponse
@@ -345,6 +399,9 @@ import Test.Tasty
 --         , responseRemoveTagsFromResource $
 --             newRemoveTagsFromResourceResponse
 --
+--         , responseRunFleetAdvisorLsaAnalysis $
+--             newRunFleetAdvisorLsaAnalysisResponse
+--
 --         , responseStartReplicationTask $
 --             newStartReplicationTaskResponse
 --
@@ -359,6 +416,9 @@ import Test.Tasty
 --
 --         , responseTestConnection $
 --             newTestConnectionResponse
+--
+--         , responseUpdateSubscriptionsToEventBridge $
+--             newUpdateSubscriptionsToEventBridgeResponse
 --
 --           ]
 --     ]
@@ -394,6 +454,12 @@ requestCreateEventSubscription =
   req
     "CreateEventSubscription"
     "fixture/CreateEventSubscription.yaml"
+
+requestCreateFleetAdvisorCollector :: CreateFleetAdvisorCollector -> TestTree
+requestCreateFleetAdvisorCollector =
+  req
+    "CreateFleetAdvisorCollector"
+    "fixture/CreateFleetAdvisorCollector.yaml"
 
 requestCreateReplicationInstance :: CreateReplicationInstance -> TestTree
 requestCreateReplicationInstance =
@@ -436,6 +502,18 @@ requestDeleteEventSubscription =
   req
     "DeleteEventSubscription"
     "fixture/DeleteEventSubscription.yaml"
+
+requestDeleteFleetAdvisorCollector :: DeleteFleetAdvisorCollector -> TestTree
+requestDeleteFleetAdvisorCollector =
+  req
+    "DeleteFleetAdvisorCollector"
+    "fixture/DeleteFleetAdvisorCollector.yaml"
+
+requestDeleteFleetAdvisorDatabases :: DeleteFleetAdvisorDatabases -> TestTree
+requestDeleteFleetAdvisorDatabases =
+  req
+    "DeleteFleetAdvisorDatabases"
+    "fixture/DeleteFleetAdvisorDatabases.yaml"
 
 requestDeleteReplicationInstance :: DeleteReplicationInstance -> TestTree
 requestDeleteReplicationInstance =
@@ -520,6 +598,36 @@ requestDescribeEvents =
   req
     "DescribeEvents"
     "fixture/DescribeEvents.yaml"
+
+requestDescribeFleetAdvisorCollectors :: DescribeFleetAdvisorCollectors -> TestTree
+requestDescribeFleetAdvisorCollectors =
+  req
+    "DescribeFleetAdvisorCollectors"
+    "fixture/DescribeFleetAdvisorCollectors.yaml"
+
+requestDescribeFleetAdvisorDatabases :: DescribeFleetAdvisorDatabases -> TestTree
+requestDescribeFleetAdvisorDatabases =
+  req
+    "DescribeFleetAdvisorDatabases"
+    "fixture/DescribeFleetAdvisorDatabases.yaml"
+
+requestDescribeFleetAdvisorLsaAnalysis :: DescribeFleetAdvisorLsaAnalysis -> TestTree
+requestDescribeFleetAdvisorLsaAnalysis =
+  req
+    "DescribeFleetAdvisorLsaAnalysis"
+    "fixture/DescribeFleetAdvisorLsaAnalysis.yaml"
+
+requestDescribeFleetAdvisorSchemaObjectSummary :: DescribeFleetAdvisorSchemaObjectSummary -> TestTree
+requestDescribeFleetAdvisorSchemaObjectSummary =
+  req
+    "DescribeFleetAdvisorSchemaObjectSummary"
+    "fixture/DescribeFleetAdvisorSchemaObjectSummary.yaml"
+
+requestDescribeFleetAdvisorSchemas :: DescribeFleetAdvisorSchemas -> TestTree
+requestDescribeFleetAdvisorSchemas =
+  req
+    "DescribeFleetAdvisorSchemas"
+    "fixture/DescribeFleetAdvisorSchemas.yaml"
 
 requestDescribeOrderableReplicationInstances :: DescribeOrderableReplicationInstances -> TestTree
 requestDescribeOrderableReplicationInstances =
@@ -665,6 +773,12 @@ requestRemoveTagsFromResource =
     "RemoveTagsFromResource"
     "fixture/RemoveTagsFromResource.yaml"
 
+requestRunFleetAdvisorLsaAnalysis :: RunFleetAdvisorLsaAnalysis -> TestTree
+requestRunFleetAdvisorLsaAnalysis =
+  req
+    "RunFleetAdvisorLsaAnalysis"
+    "fixture/RunFleetAdvisorLsaAnalysis.yaml"
+
 requestStartReplicationTask :: StartReplicationTask -> TestTree
 requestStartReplicationTask =
   req
@@ -694,6 +808,12 @@ requestTestConnection =
   req
     "TestConnection"
     "fixture/TestConnection.yaml"
+
+requestUpdateSubscriptionsToEventBridge :: UpdateSubscriptionsToEventBridge -> TestTree
+requestUpdateSubscriptionsToEventBridge =
+  req
+    "UpdateSubscriptionsToEventBridge"
+    "fixture/UpdateSubscriptionsToEventBridge.yaml"
 
 -- Responses
 
@@ -736,6 +856,14 @@ responseCreateEventSubscription =
     "fixture/CreateEventSubscriptionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateEventSubscription)
+
+responseCreateFleetAdvisorCollector :: CreateFleetAdvisorCollectorResponse -> TestTree
+responseCreateFleetAdvisorCollector =
+  res
+    "CreateFleetAdvisorCollectorResponse"
+    "fixture/CreateFleetAdvisorCollectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateFleetAdvisorCollector)
 
 responseCreateReplicationInstance :: CreateReplicationInstanceResponse -> TestTree
 responseCreateReplicationInstance =
@@ -792,6 +920,22 @@ responseDeleteEventSubscription =
     "fixture/DeleteEventSubscriptionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteEventSubscription)
+
+responseDeleteFleetAdvisorCollector :: DeleteFleetAdvisorCollectorResponse -> TestTree
+responseDeleteFleetAdvisorCollector =
+  res
+    "DeleteFleetAdvisorCollectorResponse"
+    "fixture/DeleteFleetAdvisorCollectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleetAdvisorCollector)
+
+responseDeleteFleetAdvisorDatabases :: DeleteFleetAdvisorDatabasesResponse -> TestTree
+responseDeleteFleetAdvisorDatabases =
+  res
+    "DeleteFleetAdvisorDatabasesResponse"
+    "fixture/DeleteFleetAdvisorDatabasesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFleetAdvisorDatabases)
 
 responseDeleteReplicationInstance :: DeleteReplicationInstanceResponse -> TestTree
 responseDeleteReplicationInstance =
@@ -904,6 +1048,46 @@ responseDescribeEvents =
     "fixture/DescribeEventsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeEvents)
+
+responseDescribeFleetAdvisorCollectors :: DescribeFleetAdvisorCollectorsResponse -> TestTree
+responseDescribeFleetAdvisorCollectors =
+  res
+    "DescribeFleetAdvisorCollectorsResponse"
+    "fixture/DescribeFleetAdvisorCollectorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetAdvisorCollectors)
+
+responseDescribeFleetAdvisorDatabases :: DescribeFleetAdvisorDatabasesResponse -> TestTree
+responseDescribeFleetAdvisorDatabases =
+  res
+    "DescribeFleetAdvisorDatabasesResponse"
+    "fixture/DescribeFleetAdvisorDatabasesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetAdvisorDatabases)
+
+responseDescribeFleetAdvisorLsaAnalysis :: DescribeFleetAdvisorLsaAnalysisResponse -> TestTree
+responseDescribeFleetAdvisorLsaAnalysis =
+  res
+    "DescribeFleetAdvisorLsaAnalysisResponse"
+    "fixture/DescribeFleetAdvisorLsaAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetAdvisorLsaAnalysis)
+
+responseDescribeFleetAdvisorSchemaObjectSummary :: DescribeFleetAdvisorSchemaObjectSummaryResponse -> TestTree
+responseDescribeFleetAdvisorSchemaObjectSummary =
+  res
+    "DescribeFleetAdvisorSchemaObjectSummaryResponse"
+    "fixture/DescribeFleetAdvisorSchemaObjectSummaryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetAdvisorSchemaObjectSummary)
+
+responseDescribeFleetAdvisorSchemas :: DescribeFleetAdvisorSchemasResponse -> TestTree
+responseDescribeFleetAdvisorSchemas =
+  res
+    "DescribeFleetAdvisorSchemasResponse"
+    "fixture/DescribeFleetAdvisorSchemasResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFleetAdvisorSchemas)
 
 responseDescribeOrderableReplicationInstances :: DescribeOrderableReplicationInstancesResponse -> TestTree
 responseDescribeOrderableReplicationInstances =
@@ -1097,6 +1281,14 @@ responseRemoveTagsFromResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RemoveTagsFromResource)
 
+responseRunFleetAdvisorLsaAnalysis :: RunFleetAdvisorLsaAnalysisResponse -> TestTree
+responseRunFleetAdvisorLsaAnalysis =
+  res
+    "RunFleetAdvisorLsaAnalysisResponse"
+    "fixture/RunFleetAdvisorLsaAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RunFleetAdvisorLsaAnalysis)
+
 responseStartReplicationTask :: StartReplicationTaskResponse -> TestTree
 responseStartReplicationTask =
   res
@@ -1136,3 +1328,11 @@ responseTestConnection =
     "fixture/TestConnectionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy TestConnection)
+
+responseUpdateSubscriptionsToEventBridge :: UpdateSubscriptionsToEventBridgeResponse -> TestTree
+responseUpdateSubscriptionsToEventBridge =
+  res
+    "UpdateSubscriptionsToEventBridgeResponse"
+    "fixture/UpdateSubscriptionsToEventBridgeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSubscriptionsToEventBridge)

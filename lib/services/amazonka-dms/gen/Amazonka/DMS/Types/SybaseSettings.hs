@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSybaseSettings' smart constructor.
 data SybaseSettings = SybaseSettings'
-  { -- | Endpoint TCP port.
+  { -- | Endpoint TCP port. The default is 5000.
     port :: Prelude.Maybe Prelude.Int,
     -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
     -- as the trusted entity and grants the required permissions to access the
@@ -67,7 +67,7 @@ data SybaseSettings = SybaseSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'port', 'sybaseSettings_port' - Endpoint TCP port.
+-- 'port', 'sybaseSettings_port' - Endpoint TCP port. The default is 5000.
 --
 -- 'secretsManagerAccessRoleArn', 'sybaseSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
 -- as the trusted entity and grants the required permissions to access the
@@ -108,7 +108,7 @@ newSybaseSettings =
       secretsManagerSecretId = Prelude.Nothing
     }
 
--- | Endpoint TCP port.
+-- | Endpoint TCP port. The default is 5000.
 sybaseSettings_port :: Lens.Lens' SybaseSettings (Prelude.Maybe Prelude.Int)
 sybaseSettings_port = Lens.lens (\SybaseSettings' {port} -> port) (\s@SybaseSettings' {} a -> s {port = a} :: SybaseSettings)
 

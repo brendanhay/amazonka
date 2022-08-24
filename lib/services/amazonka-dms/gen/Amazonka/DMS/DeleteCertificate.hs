@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteCertificate' smart constructor.
 data DeleteCertificate = DeleteCertificate'
-  { -- | The Amazon Resource Name (ARN) of the deleted certificate.
+  { -- | The Amazon Resource Name (ARN) of the certificate.
     certificateArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data DeleteCertificate = DeleteCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateArn', 'deleteCertificate_certificateArn' - The Amazon Resource Name (ARN) of the deleted certificate.
+-- 'certificateArn', 'deleteCertificate_certificateArn' - The Amazon Resource Name (ARN) of the certificate.
 newDeleteCertificate ::
   -- | 'certificateArn'
   Prelude.Text ->
@@ -72,7 +72,7 @@ newDeleteCertificate pCertificateArn_ =
         pCertificateArn_
     }
 
--- | The Amazon Resource Name (ARN) of the deleted certificate.
+-- | The Amazon Resource Name (ARN) of the certificate.
 deleteCertificate_certificateArn :: Lens.Lens' DeleteCertificate Prelude.Text
 deleteCertificate_certificateArn = Lens.lens (\DeleteCertificate' {certificateArn} -> certificateArn) (\s@DeleteCertificate' {} a -> s {certificateArn = a} :: DeleteCertificate)
 

@@ -39,18 +39,38 @@ data ReplicationTask = ReplicationTask'
     -- | The reason the replication task was stopped. This response parameter can
     -- return one of the following values:
     --
-    -- -   @\"STOP_REASON_FULL_LOAD_COMPLETED\"@ – Full-load migration
-    --     completed.
+    -- -   @\"Stop Reason NORMAL\"@
     --
-    -- -   @\"STOP_REASON_CACHED_CHANGES_APPLIED\"@ – Change data capture (CDC)
-    --     load completed.
+    -- -   @\"Stop Reason RECOVERABLE_ERROR\"@
     --
-    -- -   @\"STOP_REASON_CACHED_CHANGES_NOT_APPLIED\"@ – In a full-load and
-    --     CDC migration, the full load stopped as specified before starting
-    --     the CDC migration.
+    -- -   @\"Stop Reason FATAL_ERROR\"@
     --
-    -- -   @\"STOP_REASON_SERVER_TIME\"@ – The migration stopped at the
-    --     specified server time.
+    -- -   @\"Stop Reason FULL_LOAD_ONLY_FINISHED\"@
+    --
+    -- -   @\"Stop Reason STOPPED_AFTER_FULL_LOAD\"@ – Full load completed,
+    --     with cached changes not applied
+    --
+    -- -   @\"Stop Reason STOPPED_AFTER_CACHED_EVENTS\"@ – Full load completed,
+    --     with cached changes applied
+    --
+    -- -   @\"Stop Reason EXPRESS_LICENSE_LIMITS_REACHED\"@
+    --
+    -- -   @\"Stop Reason STOPPED_AFTER_DDL_APPLY\"@ – User-defined stop task
+    --     after DDL applied
+    --
+    -- -   @\"Stop Reason STOPPED_DUE_TO_LOW_MEMORY\"@
+    --
+    -- -   @\"Stop Reason STOPPED_DUE_TO_LOW_DISK\"@
+    --
+    -- -   @\"Stop Reason STOPPED_AT_SERVER_TIME\"@ – User-defined server time
+    --     for stopping task
+    --
+    -- -   @\"Stop Reason STOPPED_AT_COMMIT_TIME\"@ – User-defined commit time
+    --     for stopping task
+    --
+    -- -   @\"Stop Reason RECONFIGURATION_RESTART\"@
+    --
+    -- -   @\"Stop Reason RECYCLE_TASK\"@
     stopReason :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the replication instance.
     replicationInstanceArn :: Prelude.Maybe Prelude.Text,
@@ -212,18 +232,38 @@ data ReplicationTask = ReplicationTask'
 -- 'stopReason', 'replicationTask_stopReason' - The reason the replication task was stopped. This response parameter can
 -- return one of the following values:
 --
--- -   @\"STOP_REASON_FULL_LOAD_COMPLETED\"@ – Full-load migration
---     completed.
+-- -   @\"Stop Reason NORMAL\"@
 --
--- -   @\"STOP_REASON_CACHED_CHANGES_APPLIED\"@ – Change data capture (CDC)
---     load completed.
+-- -   @\"Stop Reason RECOVERABLE_ERROR\"@
 --
--- -   @\"STOP_REASON_CACHED_CHANGES_NOT_APPLIED\"@ – In a full-load and
---     CDC migration, the full load stopped as specified before starting
---     the CDC migration.
+-- -   @\"Stop Reason FATAL_ERROR\"@
 --
--- -   @\"STOP_REASON_SERVER_TIME\"@ – The migration stopped at the
---     specified server time.
+-- -   @\"Stop Reason FULL_LOAD_ONLY_FINISHED\"@
+--
+-- -   @\"Stop Reason STOPPED_AFTER_FULL_LOAD\"@ – Full load completed,
+--     with cached changes not applied
+--
+-- -   @\"Stop Reason STOPPED_AFTER_CACHED_EVENTS\"@ – Full load completed,
+--     with cached changes applied
+--
+-- -   @\"Stop Reason EXPRESS_LICENSE_LIMITS_REACHED\"@
+--
+-- -   @\"Stop Reason STOPPED_AFTER_DDL_APPLY\"@ – User-defined stop task
+--     after DDL applied
+--
+-- -   @\"Stop Reason STOPPED_DUE_TO_LOW_MEMORY\"@
+--
+-- -   @\"Stop Reason STOPPED_DUE_TO_LOW_DISK\"@
+--
+-- -   @\"Stop Reason STOPPED_AT_SERVER_TIME\"@ – User-defined server time
+--     for stopping task
+--
+-- -   @\"Stop Reason STOPPED_AT_COMMIT_TIME\"@ – User-defined commit time
+--     for stopping task
+--
+-- -   @\"Stop Reason RECONFIGURATION_RESTART\"@
+--
+-- -   @\"Stop Reason RECYCLE_TASK\"@
 --
 -- 'replicationInstanceArn', 'replicationTask_replicationInstanceArn' - The ARN of the replication instance.
 --
@@ -401,18 +441,38 @@ replicationTask_targetReplicationInstanceArn = Lens.lens (\ReplicationTask' {tar
 -- | The reason the replication task was stopped. This response parameter can
 -- return one of the following values:
 --
--- -   @\"STOP_REASON_FULL_LOAD_COMPLETED\"@ – Full-load migration
---     completed.
+-- -   @\"Stop Reason NORMAL\"@
 --
--- -   @\"STOP_REASON_CACHED_CHANGES_APPLIED\"@ – Change data capture (CDC)
---     load completed.
+-- -   @\"Stop Reason RECOVERABLE_ERROR\"@
 --
--- -   @\"STOP_REASON_CACHED_CHANGES_NOT_APPLIED\"@ – In a full-load and
---     CDC migration, the full load stopped as specified before starting
---     the CDC migration.
+-- -   @\"Stop Reason FATAL_ERROR\"@
 --
--- -   @\"STOP_REASON_SERVER_TIME\"@ – The migration stopped at the
---     specified server time.
+-- -   @\"Stop Reason FULL_LOAD_ONLY_FINISHED\"@
+--
+-- -   @\"Stop Reason STOPPED_AFTER_FULL_LOAD\"@ – Full load completed,
+--     with cached changes not applied
+--
+-- -   @\"Stop Reason STOPPED_AFTER_CACHED_EVENTS\"@ – Full load completed,
+--     with cached changes applied
+--
+-- -   @\"Stop Reason EXPRESS_LICENSE_LIMITS_REACHED\"@
+--
+-- -   @\"Stop Reason STOPPED_AFTER_DDL_APPLY\"@ – User-defined stop task
+--     after DDL applied
+--
+-- -   @\"Stop Reason STOPPED_DUE_TO_LOW_MEMORY\"@
+--
+-- -   @\"Stop Reason STOPPED_DUE_TO_LOW_DISK\"@
+--
+-- -   @\"Stop Reason STOPPED_AT_SERVER_TIME\"@ – User-defined server time
+--     for stopping task
+--
+-- -   @\"Stop Reason STOPPED_AT_COMMIT_TIME\"@ – User-defined commit time
+--     for stopping task
+--
+-- -   @\"Stop Reason RECONFIGURATION_RESTART\"@
+--
+-- -   @\"Stop Reason RECYCLE_TASK\"@
 replicationTask_stopReason :: Lens.Lens' ReplicationTask (Prelude.Maybe Prelude.Text)
 replicationTask_stopReason = Lens.lens (\ReplicationTask' {stopReason} -> stopReason) (\s@ReplicationTask' {} a -> s {stopReason = a} :: ReplicationTask)
 

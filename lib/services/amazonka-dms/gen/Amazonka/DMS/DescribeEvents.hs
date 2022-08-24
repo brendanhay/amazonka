@@ -68,7 +68,8 @@ data DescribeEvents = DescribeEvents'
     -- parameter is specified, the response includes only records beyond the
     -- marker, up to the value specified by @MaxRecords@.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Filters applied to events.
+    -- | Filters applied to events. The only valid filter is
+    -- @replication-instance-id@.
     filters :: Prelude.Maybe [Filter],
     -- | The type of DMS resource that generates events.
     --
@@ -108,7 +109,8 @@ data DescribeEvents = DescribeEvents'
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
 --
--- 'filters', 'describeEvents_filters' - Filters applied to events.
+-- 'filters', 'describeEvents_filters' - Filters applied to events. The only valid filter is
+-- @replication-instance-id@.
 --
 -- 'sourceType', 'describeEvents_sourceType' - The type of DMS resource that generates events.
 --
@@ -153,7 +155,8 @@ newDescribeEvents =
 describeEvents_marker :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
 describeEvents_marker = Lens.lens (\DescribeEvents' {marker} -> marker) (\s@DescribeEvents' {} a -> s {marker = a} :: DescribeEvents)
 
--- | Filters applied to events.
+-- | Filters applied to events. The only valid filter is
+-- @replication-instance-id@.
 describeEvents_filters :: Lens.Lens' DescribeEvents (Prelude.Maybe [Filter])
 describeEvents_filters = Lens.lens (\DescribeEvents' {filters} -> filters) (\s@DescribeEvents' {} a -> s {filters = a} :: DescribeEvents) Prelude.. Lens.mapping Lens.coerced
 

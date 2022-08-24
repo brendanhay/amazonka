@@ -56,6 +56,8 @@ data ImportCertificate = ImportCertificate'
     -- | The location of an imported Oracle Wallet certificate for use with SSL.
     -- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
     -- can\'t provide the certificate inline.
+    --
+    -- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@
     certificateWallet :: Prelude.Maybe Core.Base64,
     -- | The contents of a @.pem@ file, which contains an X.509 certificate.
     certificatePem :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -78,7 +80,9 @@ data ImportCertificate = ImportCertificate'
 --
 -- 'certificateWallet', 'importCertificate_certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.
 -- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
--- can\'t provide the certificate inline.--
+-- can\'t provide the certificate inline.
+--
+-- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -107,7 +111,9 @@ importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@Impo
 
 -- | The location of an imported Oracle Wallet certificate for use with SSL.
 -- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
--- can\'t provide the certificate inline.--
+-- can\'t provide the certificate inline.
+--
+-- Example: @filebase64(\"${path.root}\/rds-ca-2019-root.sso\")@--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.

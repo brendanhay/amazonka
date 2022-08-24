@@ -76,6 +76,9 @@ module Amazonka.DMS
     -- ** KMSKeyNotAccessibleFault
     _KMSKeyNotAccessibleFault,
 
+    -- ** CollectorNotFoundFault
+    _CollectorNotFoundFault,
+
     -- ** InvalidResourceStateFault
     _InvalidResourceStateFault,
 
@@ -87,6 +90,9 @@ module Amazonka.DMS
 
     -- ** ResourceNotFoundFault
     _ResourceNotFoundFault,
+
+    -- ** InvalidOperationFault
+    _InvalidOperationFault,
 
     -- ** UpgradeDependencyFailureFault
     _UpgradeDependencyFailureFault,
@@ -160,6 +166,12 @@ module Amazonka.DMS
     CreateEventSubscriptionResponse (CreateEventSubscriptionResponse'),
     newCreateEventSubscriptionResponse,
 
+    -- ** CreateFleetAdvisorCollector
+    CreateFleetAdvisorCollector (CreateFleetAdvisorCollector'),
+    newCreateFleetAdvisorCollector,
+    CreateFleetAdvisorCollectorResponse (CreateFleetAdvisorCollectorResponse'),
+    newCreateFleetAdvisorCollectorResponse,
+
     -- ** CreateReplicationInstance
     CreateReplicationInstance (CreateReplicationInstance'),
     newCreateReplicationInstance,
@@ -201,6 +213,18 @@ module Amazonka.DMS
     newDeleteEventSubscription,
     DeleteEventSubscriptionResponse (DeleteEventSubscriptionResponse'),
     newDeleteEventSubscriptionResponse,
+
+    -- ** DeleteFleetAdvisorCollector
+    DeleteFleetAdvisorCollector (DeleteFleetAdvisorCollector'),
+    newDeleteFleetAdvisorCollector,
+    DeleteFleetAdvisorCollectorResponse (DeleteFleetAdvisorCollectorResponse'),
+    newDeleteFleetAdvisorCollectorResponse,
+
+    -- ** DeleteFleetAdvisorDatabases
+    DeleteFleetAdvisorDatabases (DeleteFleetAdvisorDatabases'),
+    newDeleteFleetAdvisorDatabases,
+    DeleteFleetAdvisorDatabasesResponse (DeleteFleetAdvisorDatabasesResponse'),
+    newDeleteFleetAdvisorDatabasesResponse,
 
     -- ** DeleteReplicationInstance
     DeleteReplicationInstance (DeleteReplicationInstance'),
@@ -285,6 +309,36 @@ module Amazonka.DMS
     newDescribeEvents,
     DescribeEventsResponse (DescribeEventsResponse'),
     newDescribeEventsResponse,
+
+    -- ** DescribeFleetAdvisorCollectors
+    DescribeFleetAdvisorCollectors (DescribeFleetAdvisorCollectors'),
+    newDescribeFleetAdvisorCollectors,
+    DescribeFleetAdvisorCollectorsResponse (DescribeFleetAdvisorCollectorsResponse'),
+    newDescribeFleetAdvisorCollectorsResponse,
+
+    -- ** DescribeFleetAdvisorDatabases
+    DescribeFleetAdvisorDatabases (DescribeFleetAdvisorDatabases'),
+    newDescribeFleetAdvisorDatabases,
+    DescribeFleetAdvisorDatabasesResponse (DescribeFleetAdvisorDatabasesResponse'),
+    newDescribeFleetAdvisorDatabasesResponse,
+
+    -- ** DescribeFleetAdvisorLsaAnalysis
+    DescribeFleetAdvisorLsaAnalysis (DescribeFleetAdvisorLsaAnalysis'),
+    newDescribeFleetAdvisorLsaAnalysis,
+    DescribeFleetAdvisorLsaAnalysisResponse (DescribeFleetAdvisorLsaAnalysisResponse'),
+    newDescribeFleetAdvisorLsaAnalysisResponse,
+
+    -- ** DescribeFleetAdvisorSchemaObjectSummary
+    DescribeFleetAdvisorSchemaObjectSummary (DescribeFleetAdvisorSchemaObjectSummary'),
+    newDescribeFleetAdvisorSchemaObjectSummary,
+    DescribeFleetAdvisorSchemaObjectSummaryResponse (DescribeFleetAdvisorSchemaObjectSummaryResponse'),
+    newDescribeFleetAdvisorSchemaObjectSummaryResponse,
+
+    -- ** DescribeFleetAdvisorSchemas
+    DescribeFleetAdvisorSchemas (DescribeFleetAdvisorSchemas'),
+    newDescribeFleetAdvisorSchemas,
+    DescribeFleetAdvisorSchemasResponse (DescribeFleetAdvisorSchemasResponse'),
+    newDescribeFleetAdvisorSchemasResponse,
 
     -- ** DescribeOrderableReplicationInstances (Paginated)
     DescribeOrderableReplicationInstances (DescribeOrderableReplicationInstances'),
@@ -430,6 +484,12 @@ module Amazonka.DMS
     RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
     newRemoveTagsFromResourceResponse,
 
+    -- ** RunFleetAdvisorLsaAnalysis
+    RunFleetAdvisorLsaAnalysis (RunFleetAdvisorLsaAnalysis'),
+    newRunFleetAdvisorLsaAnalysis,
+    RunFleetAdvisorLsaAnalysisResponse (RunFleetAdvisorLsaAnalysisResponse'),
+    newRunFleetAdvisorLsaAnalysisResponse,
+
     -- ** StartReplicationTask
     StartReplicationTask (StartReplicationTask'),
     newStartReplicationTask,
@@ -460,6 +520,12 @@ module Amazonka.DMS
     TestConnectionResponse (TestConnectionResponse'),
     newTestConnectionResponse,
 
+    -- ** UpdateSubscriptionsToEventBridge
+    UpdateSubscriptionsToEventBridge (UpdateSubscriptionsToEventBridge'),
+    newUpdateSubscriptionsToEventBridge,
+    UpdateSubscriptionsToEventBridgeResponse (UpdateSubscriptionsToEventBridgeResponse'),
+    newUpdateSubscriptionsToEventBridgeResponse,
+
     -- * Types
 
     -- ** AuthMechanismValue
@@ -473,6 +539,9 @@ module Amazonka.DMS
 
     -- ** CharLengthSemantics
     CharLengthSemantics (..),
+
+    -- ** CollectorStatus
+    CollectorStatus (..),
 
     -- ** CompressionTypeValue
     CompressionTypeValue (..),
@@ -546,6 +615,9 @@ module Amazonka.DMS
     -- ** TargetDbType
     TargetDbType (..),
 
+    -- ** VersionStatus
+    VersionStatus (..),
+
     -- ** AccountQuota
     AccountQuota (AccountQuota'),
     newAccountQuota,
@@ -558,9 +630,33 @@ module Amazonka.DMS
     Certificate (Certificate'),
     newCertificate,
 
+    -- ** CollectorHealthCheck
+    CollectorHealthCheck (CollectorHealthCheck'),
+    newCollectorHealthCheck,
+
+    -- ** CollectorResponse
+    CollectorResponse (CollectorResponse'),
+    newCollectorResponse,
+
+    -- ** CollectorShortInfoResponse
+    CollectorShortInfoResponse (CollectorShortInfoResponse'),
+    newCollectorShortInfoResponse,
+
     -- ** Connection
     Connection (Connection'),
     newConnection,
+
+    -- ** DatabaseInstanceSoftwareDetailsResponse
+    DatabaseInstanceSoftwareDetailsResponse (DatabaseInstanceSoftwareDetailsResponse'),
+    newDatabaseInstanceSoftwareDetailsResponse,
+
+    -- ** DatabaseResponse
+    DatabaseResponse (DatabaseResponse'),
+    newDatabaseResponse,
+
+    -- ** DatabaseShortInfoResponse
+    DatabaseShortInfoResponse (DatabaseShortInfoResponse'),
+    newDatabaseShortInfoResponse,
 
     -- ** DmsTransferSettings
     DmsTransferSettings (DmsTransferSettings'),
@@ -602,9 +698,25 @@ module Amazonka.DMS
     Filter (Filter'),
     newFilter,
 
+    -- ** FleetAdvisorLsaAnalysisResponse
+    FleetAdvisorLsaAnalysisResponse (FleetAdvisorLsaAnalysisResponse'),
+    newFleetAdvisorLsaAnalysisResponse,
+
+    -- ** FleetAdvisorSchemaObjectResponse
+    FleetAdvisorSchemaObjectResponse (FleetAdvisorSchemaObjectResponse'),
+    newFleetAdvisorSchemaObjectResponse,
+
+    -- ** GcpMySQLSettings
+    GcpMySQLSettings (GcpMySQLSettings'),
+    newGcpMySQLSettings,
+
     -- ** IBMDb2Settings
     IBMDb2Settings (IBMDb2Settings'),
     newIBMDb2Settings,
+
+    -- ** InventoryData
+    InventoryData (InventoryData'),
+    newInventoryData,
 
     -- ** KafkaSettings
     KafkaSettings (KafkaSettings'),
@@ -706,6 +818,18 @@ module Amazonka.DMS
     S3Settings (S3Settings'),
     newS3Settings,
 
+    -- ** SchemaResponse
+    SchemaResponse (SchemaResponse'),
+    newSchemaResponse,
+
+    -- ** SchemaShortInfoResponse
+    SchemaShortInfoResponse (SchemaShortInfoResponse'),
+    newSchemaShortInfoResponse,
+
+    -- ** ServerShortInfoResponse
+    ServerShortInfoResponse (ServerShortInfoResponse'),
+    newServerShortInfoResponse,
+
     -- ** Subnet
     Subnet (Subnet'),
     newSubnet,
@@ -741,6 +865,7 @@ import Amazonka.DMS.ApplyPendingMaintenanceAction
 import Amazonka.DMS.CancelReplicationTaskAssessmentRun
 import Amazonka.DMS.CreateEndpoint
 import Amazonka.DMS.CreateEventSubscription
+import Amazonka.DMS.CreateFleetAdvisorCollector
 import Amazonka.DMS.CreateReplicationInstance
 import Amazonka.DMS.CreateReplicationSubnetGroup
 import Amazonka.DMS.CreateReplicationTask
@@ -748,6 +873,8 @@ import Amazonka.DMS.DeleteCertificate
 import Amazonka.DMS.DeleteConnection
 import Amazonka.DMS.DeleteEndpoint
 import Amazonka.DMS.DeleteEventSubscription
+import Amazonka.DMS.DeleteFleetAdvisorCollector
+import Amazonka.DMS.DeleteFleetAdvisorDatabases
 import Amazonka.DMS.DeleteReplicationInstance
 import Amazonka.DMS.DeleteReplicationSubnetGroup
 import Amazonka.DMS.DeleteReplicationTask
@@ -762,6 +889,11 @@ import Amazonka.DMS.DescribeEndpoints
 import Amazonka.DMS.DescribeEventCategories
 import Amazonka.DMS.DescribeEventSubscriptions
 import Amazonka.DMS.DescribeEvents
+import Amazonka.DMS.DescribeFleetAdvisorCollectors
+import Amazonka.DMS.DescribeFleetAdvisorDatabases
+import Amazonka.DMS.DescribeFleetAdvisorLsaAnalysis
+import Amazonka.DMS.DescribeFleetAdvisorSchemaObjectSummary
+import Amazonka.DMS.DescribeFleetAdvisorSchemas
 import Amazonka.DMS.DescribeOrderableReplicationInstances
 import Amazonka.DMS.DescribePendingMaintenanceActions
 import Amazonka.DMS.DescribeRefreshSchemasStatus
@@ -787,12 +919,14 @@ import Amazonka.DMS.RebootReplicationInstance
 import Amazonka.DMS.RefreshSchemas
 import Amazonka.DMS.ReloadTables
 import Amazonka.DMS.RemoveTagsFromResource
+import Amazonka.DMS.RunFleetAdvisorLsaAnalysis
 import Amazonka.DMS.StartReplicationTask
 import Amazonka.DMS.StartReplicationTaskAssessment
 import Amazonka.DMS.StartReplicationTaskAssessmentRun
 import Amazonka.DMS.StopReplicationTask
 import Amazonka.DMS.TestConnection
 import Amazonka.DMS.Types
+import Amazonka.DMS.UpdateSubscriptionsToEventBridge
 import Amazonka.DMS.Waiters
 
 -- $errors

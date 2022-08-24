@@ -95,7 +95,17 @@ data StartReplicationTask = StartReplicationTask'
     cdcStopPosition :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication task to be started.
     replicationTaskArn :: Prelude.Text,
-    -- | A type of replication task.
+    -- | The type of replication task to start.
+    --
+    -- When the migration type is @full-load@ or @full-load-and-cdc@, the only
+    -- valid value for the first run of the task is @start-replication@. You
+    -- use @reload-target@ to restart the task and @resume-processing@ to
+    -- resume the task.
+    --
+    -- When the migration type is @cdc@, you use @start-replication@ to start
+    -- or restart the task, and @resume-processing@ to resume the task.
+    -- @reload-target@ is not a valid value for a task with migration type of
+    -- @cdc@.
     startReplicationTaskType :: StartReplicationTaskTypeValue
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -145,7 +155,17 @@ data StartReplicationTask = StartReplicationTask'
 --
 -- 'replicationTaskArn', 'startReplicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task to be started.
 --
--- 'startReplicationTaskType', 'startReplicationTask_startReplicationTaskType' - A type of replication task.
+-- 'startReplicationTaskType', 'startReplicationTask_startReplicationTaskType' - The type of replication task to start.
+--
+-- When the migration type is @full-load@ or @full-load-and-cdc@, the only
+-- valid value for the first run of the task is @start-replication@. You
+-- use @reload-target@ to restart the task and @resume-processing@ to
+-- resume the task.
+--
+-- When the migration type is @cdc@, you use @start-replication@ to start
+-- or restart the task, and @resume-processing@ to resume the task.
+-- @reload-target@ is not a valid value for a task with migration type of
+-- @cdc@.
 newStartReplicationTask ::
   -- | 'replicationTaskArn'
   Prelude.Text ->
@@ -210,7 +230,17 @@ startReplicationTask_cdcStopPosition = Lens.lens (\StartReplicationTask' {cdcSto
 startReplicationTask_replicationTaskArn :: Lens.Lens' StartReplicationTask Prelude.Text
 startReplicationTask_replicationTaskArn = Lens.lens (\StartReplicationTask' {replicationTaskArn} -> replicationTaskArn) (\s@StartReplicationTask' {} a -> s {replicationTaskArn = a} :: StartReplicationTask)
 
--- | A type of replication task.
+-- | The type of replication task to start.
+--
+-- When the migration type is @full-load@ or @full-load-and-cdc@, the only
+-- valid value for the first run of the task is @start-replication@. You
+-- use @reload-target@ to restart the task and @resume-processing@ to
+-- resume the task.
+--
+-- When the migration type is @cdc@, you use @start-replication@ to start
+-- or restart the task, and @resume-processing@ to resume the task.
+-- @reload-target@ is not a valid value for a task with migration type of
+-- @cdc@.
 startReplicationTask_startReplicationTaskType :: Lens.Lens' StartReplicationTask StartReplicationTaskTypeValue
 startReplicationTask_startReplicationTaskType = Lens.lens (\StartReplicationTask' {startReplicationTaskType} -> startReplicationTaskType) (\s@StartReplicationTask' {} a -> s {startReplicationTaskType = a} :: StartReplicationTask)
 

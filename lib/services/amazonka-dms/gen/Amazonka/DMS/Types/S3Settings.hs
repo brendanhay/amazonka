@@ -139,6 +139,27 @@ data S3Settings = S3Settings'
     -- information about date-based folder partitioning, see
     -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning>.
     datePartitionEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | When set to true, this parameter uses the task start time as the
+    -- timestamp column value instead of the time data is written to target.
+    -- For full load, when @useTaskStartTimeForFullLoadTimestamp@ is set to
+    -- @true@, each row of the timestamp column contains the task start time.
+    -- For CDC loads, each row of the timestamp column contains the transaction
+    -- commit time.
+    --
+    -- When @useTaskStartTimeForFullLoadTimestamp@ is set to @false@, the full
+    -- load timestamp in the timestamp column increments with the time data
+    -- arrives at the target.
+    useTaskStartTimeForFullLoadTimestamp :: Prelude.Maybe Prelude.Bool,
+    -- | To specify a bucket owner and prevent sniping, you can use the
+    -- @ExpectedBucketOwner@ endpoint setting.
+    --
+    -- Example:
+    -- @--s3-settings=\'{\"ExpectedBucketOwner\": \"AWS_Account_ID\"}\'@
+    --
+    -- When you make a request to test a connection or perform a migration, S3
+    -- checks the account ID of the bucket owner against the specified
+    -- parameter.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | If set to @true@, DMS saves the transaction order for a change data
     -- capture (CDC) load on the Amazon S3 target specified by
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath CdcPath>
@@ -178,6 +199,9 @@ data S3Settings = S3Settings'
     -- for the same endpoint. Set either @CdcInsertsOnly@ or
     -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
     cdcInsertsOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Use the S3 target endpoint setting @AddTrailingPaddingCharacter@ to add
+    -- padding on string data. The default value is @false@.
+    addTrailingPaddingCharacter :: Prelude.Maybe Prelude.Bool,
     -- | Maximum length of the interval, defined in seconds, after which to
     -- output a file to Amazon S3.
     --
@@ -211,6 +235,15 @@ data S3Settings = S3Settings'
     -- for the same endpoint. Set either @CdcInsertsOnly@ or
     -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
     cdcInsertsAndUpdates :: Prelude.Maybe Prelude.Bool,
+    -- | When creating an S3 target endpoint, set @DatePartitionTimezone@ to
+    -- convert the current UTC time into a specified time zone. The conversion
+    -- occurs when a date partition folder is created and a CDC filename is
+    -- generated. The time zone format is Area\/Location. Use this parameter
+    -- when @DatePartitionedEnabled@ is set to @true@, as shown in the
+    -- following example.
+    --
+    -- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"Asia\/Seoul\", \"BucketName\": \"dms-nattarat-test\"}\'@
+    datePartitionTimezone :: Prelude.Maybe Prelude.Text,
     -- | An optional parameter to use GZIP to compress the target files. Set to
     -- GZIP to compress the target files. Either set this parameter to NONE
     -- (the default) or don\'t use it to leave the files uncompressed. This
@@ -526,6 +559,27 @@ data S3Settings = S3Settings'
 -- information about date-based folder partitioning, see
 -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning Using date-based folder partitioning>.
 --
+-- 'useTaskStartTimeForFullLoadTimestamp', 's3Settings_useTaskStartTimeForFullLoadTimestamp' - When set to true, this parameter uses the task start time as the
+-- timestamp column value instead of the time data is written to target.
+-- For full load, when @useTaskStartTimeForFullLoadTimestamp@ is set to
+-- @true@, each row of the timestamp column contains the task start time.
+-- For CDC loads, each row of the timestamp column contains the transaction
+-- commit time.
+--
+-- When @useTaskStartTimeForFullLoadTimestamp@ is set to @false@, the full
+-- load timestamp in the timestamp column increments with the time data
+-- arrives at the target.
+--
+-- 'expectedBucketOwner', 's3Settings_expectedBucketOwner' - To specify a bucket owner and prevent sniping, you can use the
+-- @ExpectedBucketOwner@ endpoint setting.
+--
+-- Example:
+-- @--s3-settings=\'{\"ExpectedBucketOwner\": \"AWS_Account_ID\"}\'@
+--
+-- When you make a request to test a connection or perform a migration, S3
+-- checks the account ID of the bucket owner against the specified
+-- parameter.
+--
 -- 'preserveTransactions', 's3Settings_preserveTransactions' - If set to @true@, DMS saves the transaction order for a change data
 -- capture (CDC) load on the Amazon S3 target specified by
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath CdcPath>
@@ -565,6 +619,9 @@ data S3Settings = S3Settings'
 -- for the same endpoint. Set either @CdcInsertsOnly@ or
 -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
 --
+-- 'addTrailingPaddingCharacter', 's3Settings_addTrailingPaddingCharacter' - Use the S3 target endpoint setting @AddTrailingPaddingCharacter@ to add
+-- padding on string data. The default value is @false@.
+--
 -- 'cdcMaxBatchInterval', 's3Settings_cdcMaxBatchInterval' - Maximum length of the interval, defined in seconds, after which to
 -- output a file to Amazon S3.
 --
@@ -597,6 +654,15 @@ data S3Settings = S3Settings'
 -- @CdcInsertsOnly@ and @CdcInsertsAndUpdates@ can\'t both be set to @true@
 -- for the same endpoint. Set either @CdcInsertsOnly@ or
 -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
+--
+-- 'datePartitionTimezone', 's3Settings_datePartitionTimezone' - When creating an S3 target endpoint, set @DatePartitionTimezone@ to
+-- convert the current UTC time into a specified time zone. The conversion
+-- occurs when a date partition folder is created and a CDC filename is
+-- generated. The time zone format is Area\/Location. Use this parameter
+-- when @DatePartitionedEnabled@ is set to @true@, as shown in the
+-- following example.
+--
+-- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"Asia\/Seoul\", \"BucketName\": \"dms-nattarat-test\"}\'@
 --
 -- 'compressionType', 's3Settings_compressionType' - An optional parameter to use GZIP to compress the target files. Set to
 -- GZIP to compress the target files. Either set this parameter to NONE
@@ -815,11 +881,16 @@ newS3Settings =
       dataPageSize = Prelude.Nothing,
       csvNullValue = Prelude.Nothing,
       datePartitionEnabled = Prelude.Nothing,
+      useTaskStartTimeForFullLoadTimestamp =
+        Prelude.Nothing,
+      expectedBucketOwner = Prelude.Nothing,
       preserveTransactions = Prelude.Nothing,
       serviceAccessRoleArn = Prelude.Nothing,
       cdcInsertsOnly = Prelude.Nothing,
+      addTrailingPaddingCharacter = Prelude.Nothing,
       cdcMaxBatchInterval = Prelude.Nothing,
       cdcInsertsAndUpdates = Prelude.Nothing,
+      datePartitionTimezone = Prelude.Nothing,
       compressionType = Prelude.Nothing,
       bucketName = Prelude.Nothing,
       enableStatistics = Prelude.Nothing,
@@ -971,6 +1042,31 @@ s3Settings_csvNullValue = Lens.lens (\S3Settings' {csvNullValue} -> csvNullValue
 s3Settings_datePartitionEnabled :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
 s3Settings_datePartitionEnabled = Lens.lens (\S3Settings' {datePartitionEnabled} -> datePartitionEnabled) (\s@S3Settings' {} a -> s {datePartitionEnabled = a} :: S3Settings)
 
+-- | When set to true, this parameter uses the task start time as the
+-- timestamp column value instead of the time data is written to target.
+-- For full load, when @useTaskStartTimeForFullLoadTimestamp@ is set to
+-- @true@, each row of the timestamp column contains the task start time.
+-- For CDC loads, each row of the timestamp column contains the transaction
+-- commit time.
+--
+-- When @useTaskStartTimeForFullLoadTimestamp@ is set to @false@, the full
+-- load timestamp in the timestamp column increments with the time data
+-- arrives at the target.
+s3Settings_useTaskStartTimeForFullLoadTimestamp :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
+s3Settings_useTaskStartTimeForFullLoadTimestamp = Lens.lens (\S3Settings' {useTaskStartTimeForFullLoadTimestamp} -> useTaskStartTimeForFullLoadTimestamp) (\s@S3Settings' {} a -> s {useTaskStartTimeForFullLoadTimestamp = a} :: S3Settings)
+
+-- | To specify a bucket owner and prevent sniping, you can use the
+-- @ExpectedBucketOwner@ endpoint setting.
+--
+-- Example:
+-- @--s3-settings=\'{\"ExpectedBucketOwner\": \"AWS_Account_ID\"}\'@
+--
+-- When you make a request to test a connection or perform a migration, S3
+-- checks the account ID of the bucket owner against the specified
+-- parameter.
+s3Settings_expectedBucketOwner :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
+s3Settings_expectedBucketOwner = Lens.lens (\S3Settings' {expectedBucketOwner} -> expectedBucketOwner) (\s@S3Settings' {} a -> s {expectedBucketOwner = a} :: S3Settings)
+
 -- | If set to @true@, DMS saves the transaction order for a change data
 -- capture (CDC) load on the Amazon S3 target specified by
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_S3Settings.html#DMS-Type-S3Settings-CdcPath CdcPath>
@@ -1016,6 +1112,11 @@ s3Settings_serviceAccessRoleArn = Lens.lens (\S3Settings' {serviceAccessRoleArn}
 s3Settings_cdcInsertsOnly :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
 s3Settings_cdcInsertsOnly = Lens.lens (\S3Settings' {cdcInsertsOnly} -> cdcInsertsOnly) (\s@S3Settings' {} a -> s {cdcInsertsOnly = a} :: S3Settings)
 
+-- | Use the S3 target endpoint setting @AddTrailingPaddingCharacter@ to add
+-- padding on string data. The default value is @false@.
+s3Settings_addTrailingPaddingCharacter :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
+s3Settings_addTrailingPaddingCharacter = Lens.lens (\S3Settings' {addTrailingPaddingCharacter} -> addTrailingPaddingCharacter) (\s@S3Settings' {} a -> s {addTrailingPaddingCharacter = a} :: S3Settings)
+
 -- | Maximum length of the interval, defined in seconds, after which to
 -- output a file to Amazon S3.
 --
@@ -1052,6 +1153,17 @@ s3Settings_cdcMaxBatchInterval = Lens.lens (\S3Settings' {cdcMaxBatchInterval} -
 -- @CdcInsertsAndUpdates@ to @true@ for the same endpoint, but not both.
 s3Settings_cdcInsertsAndUpdates :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Bool)
 s3Settings_cdcInsertsAndUpdates = Lens.lens (\S3Settings' {cdcInsertsAndUpdates} -> cdcInsertsAndUpdates) (\s@S3Settings' {} a -> s {cdcInsertsAndUpdates = a} :: S3Settings)
+
+-- | When creating an S3 target endpoint, set @DatePartitionTimezone@ to
+-- convert the current UTC time into a specified time zone. The conversion
+-- occurs when a date partition folder is created and a CDC filename is
+-- generated. The time zone format is Area\/Location. Use this parameter
+-- when @DatePartitionedEnabled@ is set to @true@, as shown in the
+-- following example.
+--
+-- @s3-settings=\'{\"DatePartitionEnabled\": true, \"DatePartitionSequence\": \"YYYYMMDDHH\", \"DatePartitionDelimiter\": \"SLASH\", \"DatePartitionTimezone\":\"Asia\/Seoul\", \"BucketName\": \"dms-nattarat-test\"}\'@
+s3Settings_datePartitionTimezone :: Lens.Lens' S3Settings (Prelude.Maybe Prelude.Text)
+s3Settings_datePartitionTimezone = Lens.lens (\S3Settings' {datePartitionTimezone} -> datePartitionTimezone) (\s@S3Settings' {} a -> s {datePartitionTimezone = a} :: S3Settings)
 
 -- | An optional parameter to use GZIP to compress the target files. Set to
 -- GZIP to compress the target files. Either set this parameter to NONE
@@ -1307,11 +1419,15 @@ instance Core.FromJSON S3Settings where
             Prelude.<*> (x Core..:? "DataPageSize")
             Prelude.<*> (x Core..:? "CsvNullValue")
             Prelude.<*> (x Core..:? "DatePartitionEnabled")
+            Prelude.<*> (x Core..:? "UseTaskStartTimeForFullLoadTimestamp")
+            Prelude.<*> (x Core..:? "ExpectedBucketOwner")
             Prelude.<*> (x Core..:? "PreserveTransactions")
             Prelude.<*> (x Core..:? "ServiceAccessRoleArn")
             Prelude.<*> (x Core..:? "CdcInsertsOnly")
+            Prelude.<*> (x Core..:? "AddTrailingPaddingCharacter")
             Prelude.<*> (x Core..:? "CdcMaxBatchInterval")
             Prelude.<*> (x Core..:? "CdcInsertsAndUpdates")
+            Prelude.<*> (x Core..:? "DatePartitionTimezone")
             Prelude.<*> (x Core..:? "CompressionType")
             Prelude.<*> (x Core..:? "BucketName")
             Prelude.<*> (x Core..:? "EnableStatistics")
@@ -1347,11 +1463,15 @@ instance Prelude.Hashable S3Settings where
       `Prelude.hashWithSalt` dataPageSize
       `Prelude.hashWithSalt` csvNullValue
       `Prelude.hashWithSalt` datePartitionEnabled
+      `Prelude.hashWithSalt` useTaskStartTimeForFullLoadTimestamp
+      `Prelude.hashWithSalt` expectedBucketOwner
       `Prelude.hashWithSalt` preserveTransactions
       `Prelude.hashWithSalt` serviceAccessRoleArn
       `Prelude.hashWithSalt` cdcInsertsOnly
+      `Prelude.hashWithSalt` addTrailingPaddingCharacter
       `Prelude.hashWithSalt` cdcMaxBatchInterval
       `Prelude.hashWithSalt` cdcInsertsAndUpdates
+      `Prelude.hashWithSalt` datePartitionTimezone
       `Prelude.hashWithSalt` compressionType
       `Prelude.hashWithSalt` bucketName
       `Prelude.hashWithSalt` enableStatistics
@@ -1386,16 +1506,28 @@ instance Prelude.NFData S3Settings where
       `Prelude.seq` Prelude.rnf dataPageSize
       `Prelude.seq` Prelude.rnf csvNullValue
       `Prelude.seq` Prelude.rnf datePartitionEnabled
+      `Prelude.seq` Prelude.rnf
+        useTaskStartTimeForFullLoadTimestamp
+      `Prelude.seq` Prelude.rnf expectedBucketOwner
       `Prelude.seq` Prelude.rnf preserveTransactions
       `Prelude.seq` Prelude.rnf serviceAccessRoleArn
       `Prelude.seq` Prelude.rnf cdcInsertsOnly
-      `Prelude.seq` Prelude.rnf cdcMaxBatchInterval
-      `Prelude.seq` Prelude.rnf cdcInsertsAndUpdates
-      `Prelude.seq` Prelude.rnf compressionType
-      `Prelude.seq` Prelude.rnf bucketName
+      `Prelude.seq` Prelude.rnf
+        addTrailingPaddingCharacter
+      `Prelude.seq` Prelude.rnf
+        cdcMaxBatchInterval
+      `Prelude.seq` Prelude.rnf
+        cdcInsertsAndUpdates
+      `Prelude.seq` Prelude.rnf
+        datePartitionTimezone
+      `Prelude.seq` Prelude.rnf
+        compressionType
+      `Prelude.seq` Prelude.rnf
+        bucketName
       `Prelude.seq` Prelude.rnf
         enableStatistics
-      `Prelude.seq` Prelude.rnf cdcPath
+      `Prelude.seq` Prelude.rnf
+        cdcPath
       `Prelude.seq` Prelude.rnf
         parquetTimestampInMillisecond
       `Prelude.seq` Prelude.rnf
@@ -1450,16 +1582,24 @@ instance Core.ToJSON S3Settings where
             ("CsvNullValue" Core..=) Prelude.<$> csvNullValue,
             ("DatePartitionEnabled" Core..=)
               Prelude.<$> datePartitionEnabled,
+            ("UseTaskStartTimeForFullLoadTimestamp" Core..=)
+              Prelude.<$> useTaskStartTimeForFullLoadTimestamp,
+            ("ExpectedBucketOwner" Core..=)
+              Prelude.<$> expectedBucketOwner,
             ("PreserveTransactions" Core..=)
               Prelude.<$> preserveTransactions,
             ("ServiceAccessRoleArn" Core..=)
               Prelude.<$> serviceAccessRoleArn,
             ("CdcInsertsOnly" Core..=)
               Prelude.<$> cdcInsertsOnly,
+            ("AddTrailingPaddingCharacter" Core..=)
+              Prelude.<$> addTrailingPaddingCharacter,
             ("CdcMaxBatchInterval" Core..=)
               Prelude.<$> cdcMaxBatchInterval,
             ("CdcInsertsAndUpdates" Core..=)
               Prelude.<$> cdcInsertsAndUpdates,
+            ("DatePartitionTimezone" Core..=)
+              Prelude.<$> datePartitionTimezone,
             ("CompressionType" Core..=)
               Prelude.<$> compressionType,
             ("BucketName" Core..=) Prelude.<$> bucketName,

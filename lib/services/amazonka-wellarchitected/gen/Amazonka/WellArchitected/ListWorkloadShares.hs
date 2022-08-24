@@ -29,6 +29,7 @@ module Amazonka.WellArchitected.ListWorkloadShares
     -- * Request Lenses
     listWorkloadShares_nextToken,
     listWorkloadShares_sharedWithPrefix,
+    listWorkloadShares_status,
     listWorkloadShares_maxResults,
     listWorkloadShares_workloadId,
 
@@ -56,8 +57,10 @@ import Amazonka.WellArchitected.Types
 -- /See:/ 'newListWorkloadShares' smart constructor.
 data ListWorkloadShares = ListWorkloadShares'
   { nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account ID or IAM role with which the workload is shared.
+    -- | The Amazon Web Services account ID or IAM role with which the workload
+    -- is shared.
     sharedWithPrefix :: Prelude.Maybe Prelude.Text,
+    status :: Prelude.Maybe ShareStatus,
     -- | The maximum number of results to return for this request.
     maxResults :: Prelude.Maybe Prelude.Natural,
     workloadId :: Prelude.Text
@@ -74,7 +77,10 @@ data ListWorkloadShares = ListWorkloadShares'
 --
 -- 'nextToken', 'listWorkloadShares_nextToken' - Undocumented member.
 --
--- 'sharedWithPrefix', 'listWorkloadShares_sharedWithPrefix' - The AWS account ID or IAM role with which the workload is shared.
+-- 'sharedWithPrefix', 'listWorkloadShares_sharedWithPrefix' - The Amazon Web Services account ID or IAM role with which the workload
+-- is shared.
+--
+-- 'status', 'listWorkloadShares_status' - Undocumented member.
 --
 -- 'maxResults', 'listWorkloadShares_maxResults' - The maximum number of results to return for this request.
 --
@@ -87,6 +93,7 @@ newListWorkloadShares pWorkloadId_ =
   ListWorkloadShares'
     { nextToken = Prelude.Nothing,
       sharedWithPrefix = Prelude.Nothing,
+      status = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       workloadId = pWorkloadId_
     }
@@ -95,9 +102,14 @@ newListWorkloadShares pWorkloadId_ =
 listWorkloadShares_nextToken :: Lens.Lens' ListWorkloadShares (Prelude.Maybe Prelude.Text)
 listWorkloadShares_nextToken = Lens.lens (\ListWorkloadShares' {nextToken} -> nextToken) (\s@ListWorkloadShares' {} a -> s {nextToken = a} :: ListWorkloadShares)
 
--- | The AWS account ID or IAM role with which the workload is shared.
+-- | The Amazon Web Services account ID or IAM role with which the workload
+-- is shared.
 listWorkloadShares_sharedWithPrefix :: Lens.Lens' ListWorkloadShares (Prelude.Maybe Prelude.Text)
 listWorkloadShares_sharedWithPrefix = Lens.lens (\ListWorkloadShares' {sharedWithPrefix} -> sharedWithPrefix) (\s@ListWorkloadShares' {} a -> s {sharedWithPrefix = a} :: ListWorkloadShares)
+
+-- | Undocumented member.
+listWorkloadShares_status :: Lens.Lens' ListWorkloadShares (Prelude.Maybe ShareStatus)
+listWorkloadShares_status = Lens.lens (\ListWorkloadShares' {status} -> status) (\s@ListWorkloadShares' {} a -> s {status = a} :: ListWorkloadShares)
 
 -- | The maximum number of results to return for this request.
 listWorkloadShares_maxResults :: Lens.Lens' ListWorkloadShares (Prelude.Maybe Prelude.Natural)
@@ -128,6 +140,7 @@ instance Prelude.Hashable ListWorkloadShares where
   hashWithSalt _salt ListWorkloadShares' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` sharedWithPrefix
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` workloadId
 
@@ -135,6 +148,7 @@ instance Prelude.NFData ListWorkloadShares where
   rnf ListWorkloadShares' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf sharedWithPrefix
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf workloadId
 
@@ -159,6 +173,7 @@ instance Core.ToQuery ListWorkloadShares where
     Prelude.mconcat
       [ "NextToken" Core.=: nextToken,
         "SharedWithPrefix" Core.=: sharedWithPrefix,
+        "Status" Core.=: status,
         "MaxResults" Core.=: maxResults
       ]
 

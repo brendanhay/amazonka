@@ -22,8 +22,11 @@
 --
 -- Disassociate a lens from a workload.
 --
--- The AWS Well-Architected Framework lens (@wellarchitected@) cannot be
--- removed from a workload.
+-- Up to 10 lenses can be disassociated from a workload in a single API
+-- operation.
+--
+-- The Amazon Web Services Well-Architected Framework lens
+-- (@wellarchitected@) cannot be removed from a workload.
 module Amazonka.WellArchitected.DisassociateLenses
   ( -- * Creating a Request
     DisassociateLenses (..),

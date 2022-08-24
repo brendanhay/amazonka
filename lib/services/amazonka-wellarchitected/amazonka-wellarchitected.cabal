@@ -45,23 +45,31 @@ library
   exposed-modules:
     Amazonka.WellArchitected
     Amazonka.WellArchitected.AssociateLenses
+    Amazonka.WellArchitected.CreateLensShare
+    Amazonka.WellArchitected.CreateLensVersion
     Amazonka.WellArchitected.CreateMilestone
     Amazonka.WellArchitected.CreateWorkload
     Amazonka.WellArchitected.CreateWorkloadShare
+    Amazonka.WellArchitected.DeleteLens
+    Amazonka.WellArchitected.DeleteLensShare
     Amazonka.WellArchitected.DeleteWorkload
     Amazonka.WellArchitected.DeleteWorkloadShare
     Amazonka.WellArchitected.DisassociateLenses
+    Amazonka.WellArchitected.ExportLens
     Amazonka.WellArchitected.GetAnswer
+    Amazonka.WellArchitected.GetLens
     Amazonka.WellArchitected.GetLensReview
     Amazonka.WellArchitected.GetLensReviewReport
     Amazonka.WellArchitected.GetLensVersionDifference
     Amazonka.WellArchitected.GetMilestone
     Amazonka.WellArchitected.GetWorkload
+    Amazonka.WellArchitected.ImportLens
     Amazonka.WellArchitected.Lens
     Amazonka.WellArchitected.ListAnswers
     Amazonka.WellArchitected.ListLenses
     Amazonka.WellArchitected.ListLensReviewImprovements
     Amazonka.WellArchitected.ListLensReviews
+    Amazonka.WellArchitected.ListLensShares
     Amazonka.WellArchitected.ListMilestones
     Amazonka.WellArchitected.ListNotifications
     Amazonka.WellArchitected.ListShareInvitations
@@ -70,27 +78,37 @@ library
     Amazonka.WellArchitected.ListWorkloadShares
     Amazonka.WellArchitected.TagResource
     Amazonka.WellArchitected.Types
+    Amazonka.WellArchitected.Types.AdditionalResources
+    Amazonka.WellArchitected.Types.AdditionalResourceType
     Amazonka.WellArchitected.Types.Answer
     Amazonka.WellArchitected.Types.AnswerReason
     Amazonka.WellArchitected.Types.AnswerSummary
     Amazonka.WellArchitected.Types.Choice
     Amazonka.WellArchitected.Types.ChoiceAnswer
     Amazonka.WellArchitected.Types.ChoiceAnswerSummary
+    Amazonka.WellArchitected.Types.ChoiceContent
+    Amazonka.WellArchitected.Types.ChoiceImprovementPlan
     Amazonka.WellArchitected.Types.ChoiceReason
     Amazonka.WellArchitected.Types.ChoiceStatus
     Amazonka.WellArchitected.Types.ChoiceUpdate
     Amazonka.WellArchitected.Types.DifferenceStatus
+    Amazonka.WellArchitected.Types.ImportLensStatus
     Amazonka.WellArchitected.Types.ImprovementSummary
+    Amazonka.WellArchitected.Types.Lens
     Amazonka.WellArchitected.Types.LensReview
     Amazonka.WellArchitected.Types.LensReviewReport
     Amazonka.WellArchitected.Types.LensReviewSummary
+    Amazonka.WellArchitected.Types.LensShareSummary
     Amazonka.WellArchitected.Types.LensStatus
+    Amazonka.WellArchitected.Types.LensStatusType
     Amazonka.WellArchitected.Types.LensSummary
+    Amazonka.WellArchitected.Types.LensType
     Amazonka.WellArchitected.Types.LensUpgradeSummary
     Amazonka.WellArchitected.Types.Milestone
     Amazonka.WellArchitected.Types.MilestoneSummary
     Amazonka.WellArchitected.Types.NotificationSummary
     Amazonka.WellArchitected.Types.NotificationType
+    Amazonka.WellArchitected.Types.OrganizationSharingStatus
     Amazonka.WellArchitected.Types.PermissionType
     Amazonka.WellArchitected.Types.PillarDifference
     Amazonka.WellArchitected.Types.PillarReviewSummary
@@ -99,6 +117,7 @@ library
     Amazonka.WellArchitected.Types.ShareInvitation
     Amazonka.WellArchitected.Types.ShareInvitationAction
     Amazonka.WellArchitected.Types.ShareInvitationSummary
+    Amazonka.WellArchitected.Types.ShareResourceType
     Amazonka.WellArchitected.Types.ShareStatus
     Amazonka.WellArchitected.Types.VersionDifferences
     Amazonka.WellArchitected.Types.Workload
@@ -109,6 +128,7 @@ library
     Amazonka.WellArchitected.Types.WorkloadSummary
     Amazonka.WellArchitected.UntagResource
     Amazonka.WellArchitected.UpdateAnswer
+    Amazonka.WellArchitected.UpdateGlobalSettings
     Amazonka.WellArchitected.UpdateLensReview
     Amazonka.WellArchitected.UpdateShareInvitation
     Amazonka.WellArchitected.UpdateWorkload

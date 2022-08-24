@@ -22,6 +22,9 @@
 --
 -- Deletes specified tags from a resource.
 --
+-- The WorkloadArn parameter can be either a workload ARN or a custom lens
+-- ARN.
+--
 -- To specify multiple tags, use separate __tagKeys__ parameters, for
 -- example:
 --

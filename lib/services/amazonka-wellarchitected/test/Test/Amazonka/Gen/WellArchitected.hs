@@ -30,6 +30,12 @@ import Test.Tasty
 --         [ requestAssociateLenses $
 --             newAssociateLenses
 --
+--         , requestCreateLensShare $
+--             newCreateLensShare
+--
+--         , requestCreateLensVersion $
+--             newCreateLensVersion
+--
 --         , requestCreateMilestone $
 --             newCreateMilestone
 --
@@ -38,6 +44,12 @@ import Test.Tasty
 --
 --         , requestCreateWorkloadShare $
 --             newCreateWorkloadShare
+--
+--         , requestDeleteLens $
+--             newDeleteLens
+--
+--         , requestDeleteLensShare $
+--             newDeleteLensShare
 --
 --         , requestDeleteWorkload $
 --             newDeleteWorkload
@@ -48,8 +60,14 @@ import Test.Tasty
 --         , requestDisassociateLenses $
 --             newDisassociateLenses
 --
+--         , requestExportLens $
+--             newExportLens
+--
 --         , requestGetAnswer $
 --             newGetAnswer
+--
+--         , requestGetLens $
+--             newGetLens
 --
 --         , requestGetLensReview $
 --             newGetLensReview
@@ -66,6 +84,9 @@ import Test.Tasty
 --         , requestGetWorkload $
 --             newGetWorkload
 --
+--         , requestImportLens $
+--             newImportLens
+--
 --         , requestListAnswers $
 --             newListAnswers
 --
@@ -74,6 +95,9 @@ import Test.Tasty
 --
 --         , requestListLensReviews $
 --             newListLensReviews
+--
+--         , requestListLensShares $
+--             newListLensShares
 --
 --         , requestListLenses $
 --             newListLenses
@@ -105,6 +129,9 @@ import Test.Tasty
 --         , requestUpdateAnswer $
 --             newUpdateAnswer
 --
+--         , requestUpdateGlobalSettings $
+--             newUpdateGlobalSettings
+--
 --         , requestUpdateLensReview $
 --             newUpdateLensReview
 --
@@ -126,6 +153,12 @@ import Test.Tasty
 --         [ responseAssociateLenses $
 --             newAssociateLensesResponse
 --
+--         , responseCreateLensShare $
+--             newCreateLensShareResponse
+--
+--         , responseCreateLensVersion $
+--             newCreateLensVersionResponse
+--
 --         , responseCreateMilestone $
 --             newCreateMilestoneResponse
 --
@@ -134,6 +167,12 @@ import Test.Tasty
 --
 --         , responseCreateWorkloadShare $
 --             newCreateWorkloadShareResponse
+--
+--         , responseDeleteLens $
+--             newDeleteLensResponse
+--
+--         , responseDeleteLensShare $
+--             newDeleteLensShareResponse
 --
 --         , responseDeleteWorkload $
 --             newDeleteWorkloadResponse
@@ -144,8 +183,14 @@ import Test.Tasty
 --         , responseDisassociateLenses $
 --             newDisassociateLensesResponse
 --
+--         , responseExportLens $
+--             newExportLensResponse
+--
 --         , responseGetAnswer $
 --             newGetAnswerResponse
+--
+--         , responseGetLens $
+--             newGetLensResponse
 --
 --         , responseGetLensReview $
 --             newGetLensReviewResponse
@@ -162,6 +207,9 @@ import Test.Tasty
 --         , responseGetWorkload $
 --             newGetWorkloadResponse
 --
+--         , responseImportLens $
+--             newImportLensResponse
+--
 --         , responseListAnswers $
 --             newListAnswersResponse
 --
@@ -170,6 +218,9 @@ import Test.Tasty
 --
 --         , responseListLensReviews $
 --             newListLensReviewsResponse
+--
+--         , responseListLensShares $
+--             newListLensSharesResponse
 --
 --         , responseListLenses $
 --             newListLensesResponse
@@ -201,6 +252,9 @@ import Test.Tasty
 --         , responseUpdateAnswer $
 --             newUpdateAnswerResponse
 --
+--         , responseUpdateGlobalSettings $
+--             newUpdateGlobalSettingsResponse
+--
 --         , responseUpdateLensReview $
 --             newUpdateLensReviewResponse
 --
@@ -227,6 +281,18 @@ requestAssociateLenses =
     "AssociateLenses"
     "fixture/AssociateLenses.yaml"
 
+requestCreateLensShare :: CreateLensShare -> TestTree
+requestCreateLensShare =
+  req
+    "CreateLensShare"
+    "fixture/CreateLensShare.yaml"
+
+requestCreateLensVersion :: CreateLensVersion -> TestTree
+requestCreateLensVersion =
+  req
+    "CreateLensVersion"
+    "fixture/CreateLensVersion.yaml"
+
 requestCreateMilestone :: CreateMilestone -> TestTree
 requestCreateMilestone =
   req
@@ -244,6 +310,18 @@ requestCreateWorkloadShare =
   req
     "CreateWorkloadShare"
     "fixture/CreateWorkloadShare.yaml"
+
+requestDeleteLens :: DeleteLens -> TestTree
+requestDeleteLens =
+  req
+    "DeleteLens"
+    "fixture/DeleteLens.yaml"
+
+requestDeleteLensShare :: DeleteLensShare -> TestTree
+requestDeleteLensShare =
+  req
+    "DeleteLensShare"
+    "fixture/DeleteLensShare.yaml"
 
 requestDeleteWorkload :: DeleteWorkload -> TestTree
 requestDeleteWorkload =
@@ -263,11 +341,23 @@ requestDisassociateLenses =
     "DisassociateLenses"
     "fixture/DisassociateLenses.yaml"
 
+requestExportLens :: ExportLens -> TestTree
+requestExportLens =
+  req
+    "ExportLens"
+    "fixture/ExportLens.yaml"
+
 requestGetAnswer :: GetAnswer -> TestTree
 requestGetAnswer =
   req
     "GetAnswer"
     "fixture/GetAnswer.yaml"
+
+requestGetLens :: GetLens -> TestTree
+requestGetLens =
+  req
+    "GetLens"
+    "fixture/GetLens.yaml"
 
 requestGetLensReview :: GetLensReview -> TestTree
 requestGetLensReview =
@@ -299,6 +389,12 @@ requestGetWorkload =
     "GetWorkload"
     "fixture/GetWorkload.yaml"
 
+requestImportLens :: ImportLens -> TestTree
+requestImportLens =
+  req
+    "ImportLens"
+    "fixture/ImportLens.yaml"
+
 requestListAnswers :: ListAnswers -> TestTree
 requestListAnswers =
   req
@@ -316,6 +412,12 @@ requestListLensReviews =
   req
     "ListLensReviews"
     "fixture/ListLensReviews.yaml"
+
+requestListLensShares :: ListLensShares -> TestTree
+requestListLensShares =
+  req
+    "ListLensShares"
+    "fixture/ListLensShares.yaml"
 
 requestListLenses :: ListLenses -> TestTree
 requestListLenses =
@@ -377,6 +479,12 @@ requestUpdateAnswer =
     "UpdateAnswer"
     "fixture/UpdateAnswer.yaml"
 
+requestUpdateGlobalSettings :: UpdateGlobalSettings -> TestTree
+requestUpdateGlobalSettings =
+  req
+    "UpdateGlobalSettings"
+    "fixture/UpdateGlobalSettings.yaml"
+
 requestUpdateLensReview :: UpdateLensReview -> TestTree
 requestUpdateLensReview =
   req
@@ -417,6 +525,22 @@ responseAssociateLenses =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateLenses)
 
+responseCreateLensShare :: CreateLensShareResponse -> TestTree
+responseCreateLensShare =
+  res
+    "CreateLensShareResponse"
+    "fixture/CreateLensShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLensShare)
+
+responseCreateLensVersion :: CreateLensVersionResponse -> TestTree
+responseCreateLensVersion =
+  res
+    "CreateLensVersionResponse"
+    "fixture/CreateLensVersionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLensVersion)
+
 responseCreateMilestone :: CreateMilestoneResponse -> TestTree
 responseCreateMilestone =
   res
@@ -440,6 +564,22 @@ responseCreateWorkloadShare =
     "fixture/CreateWorkloadShareResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateWorkloadShare)
+
+responseDeleteLens :: DeleteLensResponse -> TestTree
+responseDeleteLens =
+  res
+    "DeleteLensResponse"
+    "fixture/DeleteLensResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLens)
+
+responseDeleteLensShare :: DeleteLensShareResponse -> TestTree
+responseDeleteLensShare =
+  res
+    "DeleteLensShareResponse"
+    "fixture/DeleteLensShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLensShare)
 
 responseDeleteWorkload :: DeleteWorkloadResponse -> TestTree
 responseDeleteWorkload =
@@ -465,6 +605,14 @@ responseDisassociateLenses =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateLenses)
 
+responseExportLens :: ExportLensResponse -> TestTree
+responseExportLens =
+  res
+    "ExportLensResponse"
+    "fixture/ExportLensResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ExportLens)
+
 responseGetAnswer :: GetAnswerResponse -> TestTree
 responseGetAnswer =
   res
@@ -472,6 +620,14 @@ responseGetAnswer =
     "fixture/GetAnswerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAnswer)
+
+responseGetLens :: GetLensResponse -> TestTree
+responseGetLens =
+  res
+    "GetLensResponse"
+    "fixture/GetLensResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetLens)
 
 responseGetLensReview :: GetLensReviewResponse -> TestTree
 responseGetLensReview =
@@ -513,6 +669,14 @@ responseGetWorkload =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetWorkload)
 
+responseImportLens :: ImportLensResponse -> TestTree
+responseImportLens =
+  res
+    "ImportLensResponse"
+    "fixture/ImportLensResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportLens)
+
 responseListAnswers :: ListAnswersResponse -> TestTree
 responseListAnswers =
   res
@@ -536,6 +700,14 @@ responseListLensReviews =
     "fixture/ListLensReviewsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListLensReviews)
+
+responseListLensShares :: ListLensSharesResponse -> TestTree
+responseListLensShares =
+  res
+    "ListLensSharesResponse"
+    "fixture/ListLensSharesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLensShares)
 
 responseListLenses :: ListLensesResponse -> TestTree
 responseListLenses =
@@ -616,6 +788,14 @@ responseUpdateAnswer =
     "fixture/UpdateAnswerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAnswer)
+
+responseUpdateGlobalSettings :: UpdateGlobalSettingsResponse -> TestTree
+responseUpdateGlobalSettings =
+  res
+    "UpdateGlobalSettingsResponse"
+    "fixture/UpdateGlobalSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateGlobalSettings)
 
 responseUpdateLensReview :: UpdateLensReviewResponse -> TestTree
 responseUpdateLensReview =

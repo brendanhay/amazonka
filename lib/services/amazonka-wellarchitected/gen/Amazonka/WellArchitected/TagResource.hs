@@ -21,6 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more tags to the specified resource.
+--
+-- The WorkloadArn parameter can be either a workload ARN or a custom lens
+-- ARN.
 module Amazonka.WellArchitected.TagResource
   ( -- * Creating a Request
     TagResource (..),

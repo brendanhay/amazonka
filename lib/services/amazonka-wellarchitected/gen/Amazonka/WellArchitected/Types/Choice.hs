@@ -22,6 +22,8 @@ module Amazonka.WellArchitected.Types.Choice where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.WellArchitected.Types.AdditionalResources
+import Amazonka.WellArchitected.Types.ChoiceContent
 
 -- | A choice available to answer question.
 --
@@ -29,7 +31,15 @@ import qualified Amazonka.Prelude as Prelude
 data Choice = Choice'
   { description :: Prelude.Maybe Prelude.Text,
     choiceId :: Prelude.Maybe Prelude.Text,
-    title :: Prelude.Maybe Prelude.Text
+    title :: Prelude.Maybe Prelude.Text,
+    -- | The choice level helpful resource.
+    helpfulResource :: Prelude.Maybe ChoiceContent,
+    -- | The additional resources for a choice. A choice can have up to two
+    -- additional resources: one of type @HELPFUL_RESOURCE@, one of type
+    -- @IMPROVEMENT_PLAN@, or both.
+    additionalResources :: Prelude.Maybe [AdditionalResources],
+    -- | The choice level improvement plan.
+    improvementPlan :: Prelude.Maybe ChoiceContent
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -46,13 +56,24 @@ data Choice = Choice'
 -- 'choiceId', 'choice_choiceId' - Undocumented member.
 --
 -- 'title', 'choice_title' - Undocumented member.
+--
+-- 'helpfulResource', 'choice_helpfulResource' - The choice level helpful resource.
+--
+-- 'additionalResources', 'choice_additionalResources' - The additional resources for a choice. A choice can have up to two
+-- additional resources: one of type @HELPFUL_RESOURCE@, one of type
+-- @IMPROVEMENT_PLAN@, or both.
+--
+-- 'improvementPlan', 'choice_improvementPlan' - The choice level improvement plan.
 newChoice ::
   Choice
 newChoice =
   Choice'
     { description = Prelude.Nothing,
       choiceId = Prelude.Nothing,
-      title = Prelude.Nothing
+      title = Prelude.Nothing,
+      helpfulResource = Prelude.Nothing,
+      additionalResources = Prelude.Nothing,
+      improvementPlan = Prelude.Nothing
     }
 
 -- | Undocumented member.
@@ -67,6 +88,20 @@ choice_choiceId = Lens.lens (\Choice' {choiceId} -> choiceId) (\s@Choice' {} a -
 choice_title :: Lens.Lens' Choice (Prelude.Maybe Prelude.Text)
 choice_title = Lens.lens (\Choice' {title} -> title) (\s@Choice' {} a -> s {title = a} :: Choice)
 
+-- | The choice level helpful resource.
+choice_helpfulResource :: Lens.Lens' Choice (Prelude.Maybe ChoiceContent)
+choice_helpfulResource = Lens.lens (\Choice' {helpfulResource} -> helpfulResource) (\s@Choice' {} a -> s {helpfulResource = a} :: Choice)
+
+-- | The additional resources for a choice. A choice can have up to two
+-- additional resources: one of type @HELPFUL_RESOURCE@, one of type
+-- @IMPROVEMENT_PLAN@, or both.
+choice_additionalResources :: Lens.Lens' Choice (Prelude.Maybe [AdditionalResources])
+choice_additionalResources = Lens.lens (\Choice' {additionalResources} -> additionalResources) (\s@Choice' {} a -> s {additionalResources = a} :: Choice) Prelude.. Lens.mapping Lens.coerced
+
+-- | The choice level improvement plan.
+choice_improvementPlan :: Lens.Lens' Choice (Prelude.Maybe ChoiceContent)
+choice_improvementPlan = Lens.lens (\Choice' {improvementPlan} -> improvementPlan) (\s@Choice' {} a -> s {improvementPlan = a} :: Choice)
+
 instance Core.FromJSON Choice where
   parseJSON =
     Core.withObject
@@ -76,6 +111,11 @@ instance Core.FromJSON Choice where
             Prelude.<$> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "ChoiceId")
             Prelude.<*> (x Core..:? "Title")
+            Prelude.<*> (x Core..:? "HelpfulResource")
+            Prelude.<*> ( x Core..:? "AdditionalResources"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "ImprovementPlan")
       )
 
 instance Prelude.Hashable Choice where
@@ -83,9 +123,15 @@ instance Prelude.Hashable Choice where
     _salt `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` choiceId
       `Prelude.hashWithSalt` title
+      `Prelude.hashWithSalt` helpfulResource
+      `Prelude.hashWithSalt` additionalResources
+      `Prelude.hashWithSalt` improvementPlan
 
 instance Prelude.NFData Choice where
   rnf Choice' {..} =
     Prelude.rnf description
       `Prelude.seq` Prelude.rnf choiceId
       `Prelude.seq` Prelude.rnf title
+      `Prelude.seq` Prelude.rnf helpfulResource
+      `Prelude.seq` Prelude.rnf additionalResources
+      `Prelude.seq` Prelude.rnf improvementPlan

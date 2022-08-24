@@ -21,6 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- List the tags for a resource.
+--
+-- The WorkloadArn parameter can be either a workload ARN or a custom lens
+-- ARN.
 module Amazonka.WellArchitected.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),

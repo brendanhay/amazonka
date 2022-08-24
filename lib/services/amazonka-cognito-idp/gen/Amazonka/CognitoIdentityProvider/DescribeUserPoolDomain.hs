@@ -48,7 +48,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeUserPoolDomain' smart constructor.
 data DescribeUserPoolDomain = DescribeUserPoolDomain'
-  { -- | The domain string.
+  { -- | The domain string. For custom domains, this is the fully-qualified
+    -- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+    -- domains, this is the prefix alone, such as @auth@.
     domain :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +63,9 @@ data DescribeUserPoolDomain = DescribeUserPoolDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'describeUserPoolDomain_domain' - The domain string.
+-- 'domain', 'describeUserPoolDomain_domain' - The domain string. For custom domains, this is the fully-qualified
+-- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+-- domains, this is the prefix alone, such as @auth@.
 newDescribeUserPoolDomain ::
   -- | 'domain'
   Prelude.Text ->
@@ -69,7 +73,9 @@ newDescribeUserPoolDomain ::
 newDescribeUserPoolDomain pDomain_ =
   DescribeUserPoolDomain' {domain = pDomain_}
 
--- | The domain string.
+-- | The domain string. For custom domains, this is the fully-qualified
+-- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+-- domains, this is the prefix alone, such as @auth@.
 describeUserPoolDomain_domain :: Lens.Lens' DescribeUserPoolDomain Prelude.Text
 describeUserPoolDomain_domain = Lens.lens (\DescribeUserPoolDomain' {domain} -> domain) (\s@DescribeUserPoolDomain' {} a -> s {domain = a} :: DescribeUserPoolDomain)
 

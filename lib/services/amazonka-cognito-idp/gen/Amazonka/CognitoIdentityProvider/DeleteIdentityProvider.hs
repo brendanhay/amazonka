@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an identity provider for a user pool.
+-- Deletes an IdP for a user pool.
 module Amazonka.CognitoIdentityProvider.DeleteIdentityProvider
   ( -- * Creating a Request
     DeleteIdentityProvider (..),
@@ -47,7 +47,7 @@ import qualified Amazonka.Response as Response
 data DeleteIdentityProvider = DeleteIdentityProvider'
   { -- | The user pool ID.
     userPoolId :: Prelude.Text,
-    -- | The identity provider name.
+    -- | The IdP name.
     providerName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data DeleteIdentityProvider = DeleteIdentityProvider'
 --
 -- 'userPoolId', 'deleteIdentityProvider_userPoolId' - The user pool ID.
 --
--- 'providerName', 'deleteIdentityProvider_providerName' - The identity provider name.
+-- 'providerName', 'deleteIdentityProvider_providerName' - The IdP name.
 newDeleteIdentityProvider ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -79,7 +79,7 @@ newDeleteIdentityProvider pUserPoolId_ pProviderName_ =
 deleteIdentityProvider_userPoolId :: Lens.Lens' DeleteIdentityProvider Prelude.Text
 deleteIdentityProvider_userPoolId = Lens.lens (\DeleteIdentityProvider' {userPoolId} -> userPoolId) (\s@DeleteIdentityProvider' {} a -> s {userPoolId = a} :: DeleteIdentityProvider)
 
--- | The identity provider name.
+-- | The IdP name.
 deleteIdentityProvider_providerName :: Lens.Lens' DeleteIdentityProvider Prelude.Text
 deleteIdentityProvider_providerName = Lens.lens (\DeleteIdentityProvider' {providerName} -> providerName) (\s@DeleteIdentityProvider' {} a -> s {providerName = a} :: DeleteIdentityProvider)
 

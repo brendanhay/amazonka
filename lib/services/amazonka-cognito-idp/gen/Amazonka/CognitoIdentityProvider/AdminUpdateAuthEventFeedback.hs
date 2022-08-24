@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides feedback for an authentication event as to whether it was from
+-- Provides feedback for an authentication event indicating if it was from
 -- a valid user. This feedback is used for improving the risk evaluation
 -- decision for the user pool as part of Amazon Cognito advanced security.
 module Amazonka.CognitoIdentityProvider.AdminUpdateAuthEventFeedback

@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- /This action is no longer supported./ You can use it to configure only
--- SMS MFA. You can\'t use it to configure TOTP software token MFA. To
--- configure either type of MFA, use
+-- SMS MFA. You can\'t use it to configure time-based one-time password
+-- (TOTP) software token MFA. To configure either type of MFA, use
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html SetUserMFAPreference>
 -- instead.
 module Amazonka.CognitoIdentityProvider.SetUserSettings
@@ -54,7 +54,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newSetUserSettings' smart constructor.
 data SetUserSettings = SetUserSettings'
-  { -- | The access token for the set user settings request.
+  { -- | A valid access token that Amazon Cognito issued to the user whose user
+    -- settings you want to configure.
     accessToken :: Core.Sensitive Prelude.Text,
     -- | You can use this parameter only to set an SMS configuration that uses
     -- SMS for delivery.
@@ -70,7 +71,8 @@ data SetUserSettings = SetUserSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'setUserSettings_accessToken' - The access token for the set user settings request.
+-- 'accessToken', 'setUserSettings_accessToken' - A valid access token that Amazon Cognito issued to the user whose user
+-- settings you want to configure.
 --
 -- 'mfaOptions', 'setUserSettings_mfaOptions' - You can use this parameter only to set an SMS configuration that uses
 -- SMS for delivery.
@@ -85,7 +87,8 @@ newSetUserSettings pAccessToken_ =
       mfaOptions = Prelude.mempty
     }
 
--- | The access token for the set user settings request.
+-- | A valid access token that Amazon Cognito issued to the user whose user
+-- settings you want to configure.
 setUserSettings_accessToken :: Lens.Lens' SetUserSettings Prelude.Text
 setUserSettings_accessToken = Lens.lens (\SetUserSettings' {accessToken} -> accessToken) (\s@SetUserSettings' {} a -> s {accessToken = a} :: SetUserSettings) Prelude.. Core._Sensitive
 

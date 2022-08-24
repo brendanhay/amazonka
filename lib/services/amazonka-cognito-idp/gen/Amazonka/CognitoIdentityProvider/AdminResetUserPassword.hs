@@ -34,23 +34,22 @@
 -- the end user with the code to change their password.
 --
 -- This action might generate an SMS text message. Starting June 1, 2021,
--- U.S. telecom carriers require that you register an origination phone
--- number before you can send SMS messages to U.S. phone numbers. If you
--- use SMS text messages in Amazon Cognito, you must register a phone
--- number with
--- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
--- will use the the registered number automatically. Otherwise, Cognito
--- users that must receive SMS messages might be unable to sign up,
--- activate their accounts, or sign in.
+-- US telecom carriers require you to register an origination phone number
+-- before you can send SMS messages to US phone numbers. If you use SMS
+-- text messages in Amazon Cognito, you must register a phone number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Amazon
+-- Cognito uses the registered number automatically. Otherwise, Amazon
+-- Cognito users who must receive SMS messages might not be able to sign
+-- up, activate their accounts, or sign in.
 --
 -- If you have never used SMS text messages with Amazon Cognito or any
--- other Amazon Web Service, Amazon SNS might place your account in SMS
--- sandbox. In
+-- other Amazon Web Service, Amazon Simple Notification Service might place
+-- your account in the SMS sandbox. In
 -- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
--- , you’ll have limitations, such as sending messages to only verified
--- phone numbers. After testing in the sandbox environment, you can move
--- out of the SMS sandbox and into production. For more information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- , you can send messages only to verified phone numbers. After you test
+-- your app while in the sandbox environment, you can move out of the
+-- sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Amazon Cognito user pools>
 -- in the /Amazon Cognito Developer Guide/.
 --
 -- Calling this action requires developer credentials.
@@ -98,27 +97,26 @@ data AdminResetUserPassword = AdminResetUserPassword'
     -- to enhance your workflow for your specific needs.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing user pool Workflows with Lambda Triggers>
     -- in the /Amazon Cognito Developer Guide/.
     --
-    -- Take the following limitations into consideration when you use the
-    -- ClientMetadata parameter:
+    -- When you use the ClientMetadata parameter, remember that Amazon Cognito
+    -- won\'t do the following:
     --
-    -- -   Amazon Cognito does not store the ClientMetadata value. This data is
-    --     available only to Lambda triggers that are assigned to a user pool
-    --     to support custom workflows. If your user pool configuration does
-    --     not include triggers, the ClientMetadata parameter serves no
-    --     purpose.
+    -- -   Store the ClientMetadata value. This data is available only to
+    --     Lambda triggers that are assigned to a user pool to support custom
+    --     workflows. If your user pool configuration doesn\'t include
+    --     triggers, the ClientMetadata parameter serves no purpose.
     --
-    -- -   Amazon Cognito does not validate the ClientMetadata value.
+    -- -   Validate the ClientMetadata value.
     --
-    -- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
-    --     don\'t use it to provide sensitive information.
+    -- -   Encrypt the ClientMetadata value. Don\'t use Amazon Cognito to
+    --     provide sensitive information.
     clientMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The user pool ID for the user pool where you want to reset the user\'s
     -- password.
     userPoolId :: Prelude.Text,
-    -- | The user name of the user whose password you wish to reset.
+    -- | The user name of the user whose password you want to reset.
     username :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -145,27 +143,26 @@ data AdminResetUserPassword = AdminResetUserPassword'
 -- to enhance your workflow for your specific needs.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing user pool Workflows with Lambda Triggers>
 -- in the /Amazon Cognito Developer Guide/.
 --
--- Take the following limitations into consideration when you use the
--- ClientMetadata parameter:
+-- When you use the ClientMetadata parameter, remember that Amazon Cognito
+-- won\'t do the following:
 --
--- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to Lambda triggers that are assigned to a user pool
---     to support custom workflows. If your user pool configuration does
---     not include triggers, the ClientMetadata parameter serves no
---     purpose.
+-- -   Store the ClientMetadata value. This data is available only to
+--     Lambda triggers that are assigned to a user pool to support custom
+--     workflows. If your user pool configuration doesn\'t include
+--     triggers, the ClientMetadata parameter serves no purpose.
 --
--- -   Amazon Cognito does not validate the ClientMetadata value.
+-- -   Validate the ClientMetadata value.
 --
--- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
---     don\'t use it to provide sensitive information.
+-- -   Encrypt the ClientMetadata value. Don\'t use Amazon Cognito to
+--     provide sensitive information.
 --
 -- 'userPoolId', 'adminResetUserPassword_userPoolId' - The user pool ID for the user pool where you want to reset the user\'s
 -- password.
 --
--- 'username', 'adminResetUserPassword_username' - The user name of the user whose password you wish to reset.
+-- 'username', 'adminResetUserPassword_username' - The user name of the user whose password you want to reset.
 newAdminResetUserPassword ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -194,22 +191,21 @@ newAdminResetUserPassword pUserPoolId_ pUsername_ =
 -- to enhance your workflow for your specific needs.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing user pool Workflows with Lambda Triggers>
 -- in the /Amazon Cognito Developer Guide/.
 --
--- Take the following limitations into consideration when you use the
--- ClientMetadata parameter:
+-- When you use the ClientMetadata parameter, remember that Amazon Cognito
+-- won\'t do the following:
 --
--- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to Lambda triggers that are assigned to a user pool
---     to support custom workflows. If your user pool configuration does
---     not include triggers, the ClientMetadata parameter serves no
---     purpose.
+-- -   Store the ClientMetadata value. This data is available only to
+--     Lambda triggers that are assigned to a user pool to support custom
+--     workflows. If your user pool configuration doesn\'t include
+--     triggers, the ClientMetadata parameter serves no purpose.
 --
--- -   Amazon Cognito does not validate the ClientMetadata value.
+-- -   Validate the ClientMetadata value.
 --
--- -   Amazon Cognito does not encrypt the the ClientMetadata value, so
---     don\'t use it to provide sensitive information.
+-- -   Encrypt the ClientMetadata value. Don\'t use Amazon Cognito to
+--     provide sensitive information.
 adminResetUserPassword_clientMetadata :: Lens.Lens' AdminResetUserPassword (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 adminResetUserPassword_clientMetadata = Lens.lens (\AdminResetUserPassword' {clientMetadata} -> clientMetadata) (\s@AdminResetUserPassword' {} a -> s {clientMetadata = a} :: AdminResetUserPassword) Prelude.. Lens.mapping Lens.coerced
 
@@ -218,7 +214,7 @@ adminResetUserPassword_clientMetadata = Lens.lens (\AdminResetUserPassword' {cli
 adminResetUserPassword_userPoolId :: Lens.Lens' AdminResetUserPassword Prelude.Text
 adminResetUserPassword_userPoolId = Lens.lens (\AdminResetUserPassword' {userPoolId} -> userPoolId) (\s@AdminResetUserPassword' {} a -> s {userPoolId = a} :: AdminResetUserPassword)
 
--- | The user name of the user whose password you wish to reset.
+-- | The user name of the user whose password you want to reset.
 adminResetUserPassword_username :: Lens.Lens' AdminResetUserPassword Prelude.Text
 adminResetUserPassword_username = Lens.lens (\AdminResetUserPassword' {username} -> username) (\s@AdminResetUserPassword' {} a -> s {username = a} :: AdminResetUserPassword) Prelude.. Core._Sensitive
 

@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomEmailLambdaVersionConfigType' smart constructor.
 data CustomEmailLambdaVersionConfigType = CustomEmailLambdaVersionConfigType'
-  { -- | The Lambda version represents the signature of the \"request\" attribute
-    -- in the \"event\" information Amazon Cognito passes to your custom email
-    -- Lambda function. The only supported value is @V1_0@.
+  { -- | Signature of the \"request\" attribute in the \"event\" information
+    -- Amazon Cognito passes to your custom email Lambda function. The only
+    -- supported value is @V1_0@.
     lambdaVersion :: CustomEmailSenderLambdaVersionType,
-    -- | The Lambda Amazon Resource Name of the Lambda function that Amazon
-    -- Cognito triggers to send email notifications to users.
+    -- | The Amazon Resource Name (ARN) of the Lambda function that Amazon
+    -- Cognito activates to send email notifications to users.
     lambdaArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,12 +46,12 @@ data CustomEmailLambdaVersionConfigType = CustomEmailLambdaVersionConfigType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaVersion', 'customEmailLambdaVersionConfigType_lambdaVersion' - The Lambda version represents the signature of the \"request\" attribute
--- in the \"event\" information Amazon Cognito passes to your custom email
--- Lambda function. The only supported value is @V1_0@.
+-- 'lambdaVersion', 'customEmailLambdaVersionConfigType_lambdaVersion' - Signature of the \"request\" attribute in the \"event\" information
+-- Amazon Cognito passes to your custom email Lambda function. The only
+-- supported value is @V1_0@.
 --
--- 'lambdaArn', 'customEmailLambdaVersionConfigType_lambdaArn' - The Lambda Amazon Resource Name of the Lambda function that Amazon
--- Cognito triggers to send email notifications to users.
+-- 'lambdaArn', 'customEmailLambdaVersionConfigType_lambdaArn' - The Amazon Resource Name (ARN) of the Lambda function that Amazon
+-- Cognito activates to send email notifications to users.
 newCustomEmailLambdaVersionConfigType ::
   -- | 'lambdaVersion'
   CustomEmailSenderLambdaVersionType ->
@@ -67,14 +67,14 @@ newCustomEmailLambdaVersionConfigType
         lambdaArn = pLambdaArn_
       }
 
--- | The Lambda version represents the signature of the \"request\" attribute
--- in the \"event\" information Amazon Cognito passes to your custom email
--- Lambda function. The only supported value is @V1_0@.
+-- | Signature of the \"request\" attribute in the \"event\" information
+-- Amazon Cognito passes to your custom email Lambda function. The only
+-- supported value is @V1_0@.
 customEmailLambdaVersionConfigType_lambdaVersion :: Lens.Lens' CustomEmailLambdaVersionConfigType CustomEmailSenderLambdaVersionType
 customEmailLambdaVersionConfigType_lambdaVersion = Lens.lens (\CustomEmailLambdaVersionConfigType' {lambdaVersion} -> lambdaVersion) (\s@CustomEmailLambdaVersionConfigType' {} a -> s {lambdaVersion = a} :: CustomEmailLambdaVersionConfigType)
 
--- | The Lambda Amazon Resource Name of the Lambda function that Amazon
--- Cognito triggers to send email notifications to users.
+-- | The Amazon Resource Name (ARN) of the Lambda function that Amazon
+-- Cognito activates to send email notifications to users.
 customEmailLambdaVersionConfigType_lambdaArn :: Lens.Lens' CustomEmailLambdaVersionConfigType Prelude.Text
 customEmailLambdaVersionConfigType_lambdaArn = Lens.lens (\CustomEmailLambdaVersionConfigType' {lambdaArn} -> lambdaArn) (\s@CustomEmailLambdaVersionConfigType' {} a -> s {lambdaArn = a} :: CustomEmailLambdaVersionConfigType)
 

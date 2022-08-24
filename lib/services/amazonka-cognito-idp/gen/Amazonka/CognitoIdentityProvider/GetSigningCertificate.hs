@@ -46,7 +46,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Request to get a signing certificate from Cognito.
+-- | Request to get a signing certificate from Amazon Cognito.
 --
 -- /See:/ 'newGetSigningCertificate' smart constructor.
 data GetSigningCertificate = GetSigningCertificate'
@@ -124,7 +124,7 @@ instance Core.ToPath GetSigningCertificate where
 instance Core.ToQuery GetSigningCertificate where
   toQuery = Prelude.const Prelude.mempty
 
--- | Response from Cognito for a signing certificate request.
+-- | Response from Amazon Cognito for a signing certificate request.
 --
 -- /See:/ 'newGetSigningCertificateResponse' smart constructor.
 data GetSigningCertificateResponse = GetSigningCertificateResponse'

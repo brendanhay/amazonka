@@ -53,7 +53,8 @@ import qualified Amazonka.Response as Response
 data UpdateDeviceStatus = UpdateDeviceStatus'
   { -- | The status of whether a device is remembered.
     deviceRememberedStatus :: Prelude.Maybe DeviceRememberedStatusType,
-    -- | The access token.
+    -- | A valid access token that Amazon Cognito issued to the user whose device
+    -- status you want to update.
     accessToken :: Core.Sensitive Prelude.Text,
     -- | The device key.
     deviceKey :: Prelude.Text
@@ -70,7 +71,8 @@ data UpdateDeviceStatus = UpdateDeviceStatus'
 --
 -- 'deviceRememberedStatus', 'updateDeviceStatus_deviceRememberedStatus' - The status of whether a device is remembered.
 --
--- 'accessToken', 'updateDeviceStatus_accessToken' - The access token.
+-- 'accessToken', 'updateDeviceStatus_accessToken' - A valid access token that Amazon Cognito issued to the user whose device
+-- status you want to update.
 --
 -- 'deviceKey', 'updateDeviceStatus_deviceKey' - The device key.
 newUpdateDeviceStatus ::
@@ -91,7 +93,8 @@ newUpdateDeviceStatus pAccessToken_ pDeviceKey_ =
 updateDeviceStatus_deviceRememberedStatus :: Lens.Lens' UpdateDeviceStatus (Prelude.Maybe DeviceRememberedStatusType)
 updateDeviceStatus_deviceRememberedStatus = Lens.lens (\UpdateDeviceStatus' {deviceRememberedStatus} -> deviceRememberedStatus) (\s@UpdateDeviceStatus' {} a -> s {deviceRememberedStatus = a} :: UpdateDeviceStatus)
 
--- | The access token.
+-- | A valid access token that Amazon Cognito issued to the user whose device
+-- status you want to update.
 updateDeviceStatus_accessToken :: Lens.Lens' UpdateDeviceStatus Prelude.Text
 updateDeviceStatus_accessToken = Lens.lens (\UpdateDeviceStatus' {accessToken} -> accessToken) (\s@UpdateDeviceStatus' {} a -> s {accessToken = a} :: UpdateDeviceStatus) Prelude.. Core._Sensitive
 

@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotifyEmailType' smart constructor.
 data NotifyEmailType = NotifyEmailType'
-  { -- | The text body.
+  { -- | The email text body.
     textBody :: Prelude.Maybe Prelude.Text,
-    -- | The HTML body.
+    -- | The email HTML body.
     htmlBody :: Prelude.Maybe Prelude.Text,
-    -- | The subject.
+    -- | The email subject.
     subject :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,11 +44,11 @@ data NotifyEmailType = NotifyEmailType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'textBody', 'notifyEmailType_textBody' - The text body.
+-- 'textBody', 'notifyEmailType_textBody' - The email text body.
 --
--- 'htmlBody', 'notifyEmailType_htmlBody' - The HTML body.
+-- 'htmlBody', 'notifyEmailType_htmlBody' - The email HTML body.
 --
--- 'subject', 'notifyEmailType_subject' - The subject.
+-- 'subject', 'notifyEmailType_subject' - The email subject.
 newNotifyEmailType ::
   -- | 'subject'
   Prelude.Text ->
@@ -60,15 +60,15 @@ newNotifyEmailType pSubject_ =
       subject = pSubject_
     }
 
--- | The text body.
+-- | The email text body.
 notifyEmailType_textBody :: Lens.Lens' NotifyEmailType (Prelude.Maybe Prelude.Text)
 notifyEmailType_textBody = Lens.lens (\NotifyEmailType' {textBody} -> textBody) (\s@NotifyEmailType' {} a -> s {textBody = a} :: NotifyEmailType)
 
--- | The HTML body.
+-- | The email HTML body.
 notifyEmailType_htmlBody :: Lens.Lens' NotifyEmailType (Prelude.Maybe Prelude.Text)
 notifyEmailType_htmlBody = Lens.lens (\NotifyEmailType' {htmlBody} -> htmlBody) (\s@NotifyEmailType' {} a -> s {htmlBody = a} :: NotifyEmailType)
 
--- | The subject.
+-- | The email subject.
 notifyEmailType_subject :: Lens.Lens' NotifyEmailType Prelude.Text
 notifyEmailType_subject = Lens.lens (\NotifyEmailType' {subject} -> subject) (\s@NotifyEmailType' {} a -> s {subject = a} :: NotifyEmailType)
 

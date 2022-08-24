@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 data UserImportJobType = UserImportJobType'
   { -- | The number of users that were skipped.
     skippedUsers :: Prelude.Maybe Prelude.Integer,
-    -- | The number of users that could not be imported.
+    -- | The number of users that couldn\'t be imported.
     failedUsers :: Prelude.Maybe Prelude.Integer,
     -- | The job name for the user import job.
     jobName :: Prelude.Maybe Prelude.Text,
@@ -61,7 +61,7 @@ data UserImportJobType = UserImportJobType'
     --
     -- -   @Expired@ - You created a job, but did not start the job within
     --     24-48 hours. All data associated with the job was deleted, and the
-    --     job cannot be started.
+    --     job can\'t be started.
     status :: Prelude.Maybe UserImportJobStatusType,
     -- | The number of users that were successfully imported.
     importedUsers :: Prelude.Maybe Prelude.Integer,
@@ -70,9 +70,9 @@ data UserImportJobType = UserImportJobType'
     -- | The user pool ID for the user pool that the users are being imported
     -- into.
     userPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The role ARN for the Amazon CloudWatch Logging role for the user import
-    -- job. For more information, see \"Creating the CloudWatch Logs IAM Role\"
-    -- in the Amazon Cognito Developer Guide.
+    -- | The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging
+    -- role for the user import job. For more information, see \"Creating the
+    -- CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
     cloudWatchLogsRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The pre-signed URL to be used to upload the @.csv@ file.
     preSignedUrl :: Prelude.Maybe Prelude.Text,
@@ -91,7 +91,7 @@ data UserImportJobType = UserImportJobType'
 --
 -- 'skippedUsers', 'userImportJobType_skippedUsers' - The number of users that were skipped.
 --
--- 'failedUsers', 'userImportJobType_failedUsers' - The number of users that could not be imported.
+-- 'failedUsers', 'userImportJobType_failedUsers' - The number of users that couldn\'t be imported.
 --
 -- 'jobName', 'userImportJobType_jobName' - The job name for the user import job.
 --
@@ -122,7 +122,7 @@ data UserImportJobType = UserImportJobType'
 --
 -- -   @Expired@ - You created a job, but did not start the job within
 --     24-48 hours. All data associated with the job was deleted, and the
---     job cannot be started.
+--     job can\'t be started.
 --
 -- 'importedUsers', 'userImportJobType_importedUsers' - The number of users that were successfully imported.
 --
@@ -131,9 +131,9 @@ data UserImportJobType = UserImportJobType'
 -- 'userPoolId', 'userImportJobType_userPoolId' - The user pool ID for the user pool that the users are being imported
 -- into.
 --
--- 'cloudWatchLogsRoleArn', 'userImportJobType_cloudWatchLogsRoleArn' - The role ARN for the Amazon CloudWatch Logging role for the user import
--- job. For more information, see \"Creating the CloudWatch Logs IAM Role\"
--- in the Amazon Cognito Developer Guide.
+-- 'cloudWatchLogsRoleArn', 'userImportJobType_cloudWatchLogsRoleArn' - The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging
+-- role for the user import job. For more information, see \"Creating the
+-- CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
 --
 -- 'preSignedUrl', 'userImportJobType_preSignedUrl' - The pre-signed URL to be used to upload the @.csv@ file.
 --
@@ -161,7 +161,7 @@ newUserImportJobType =
 userImportJobType_skippedUsers :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Integer)
 userImportJobType_skippedUsers = Lens.lens (\UserImportJobType' {skippedUsers} -> skippedUsers) (\s@UserImportJobType' {} a -> s {skippedUsers = a} :: UserImportJobType)
 
--- | The number of users that could not be imported.
+-- | The number of users that couldn\'t be imported.
 userImportJobType_failedUsers :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Integer)
 userImportJobType_failedUsers = Lens.lens (\UserImportJobType' {failedUsers} -> failedUsers) (\s@UserImportJobType' {} a -> s {failedUsers = a} :: UserImportJobType)
 
@@ -202,7 +202,7 @@ userImportJobType_jobId = Lens.lens (\UserImportJobType' {jobId} -> jobId) (\s@U
 --
 -- -   @Expired@ - You created a job, but did not start the job within
 --     24-48 hours. All data associated with the job was deleted, and the
---     job cannot be started.
+--     job can\'t be started.
 userImportJobType_status :: Lens.Lens' UserImportJobType (Prelude.Maybe UserImportJobStatusType)
 userImportJobType_status = Lens.lens (\UserImportJobType' {status} -> status) (\s@UserImportJobType' {} a -> s {status = a} :: UserImportJobType)
 
@@ -219,9 +219,9 @@ userImportJobType_startDate = Lens.lens (\UserImportJobType' {startDate} -> star
 userImportJobType_userPoolId :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Text)
 userImportJobType_userPoolId = Lens.lens (\UserImportJobType' {userPoolId} -> userPoolId) (\s@UserImportJobType' {} a -> s {userPoolId = a} :: UserImportJobType)
 
--- | The role ARN for the Amazon CloudWatch Logging role for the user import
--- job. For more information, see \"Creating the CloudWatch Logs IAM Role\"
--- in the Amazon Cognito Developer Guide.
+-- | The role Amazon Resource Name (ARN) for the Amazon CloudWatch Logging
+-- role for the user import job. For more information, see \"Creating the
+-- CloudWatch Logs IAM Role\" in the Amazon Cognito Developer Guide.
 userImportJobType_cloudWatchLogsRoleArn :: Lens.Lens' UserImportJobType (Prelude.Maybe Prelude.Text)
 userImportJobType_cloudWatchLogsRoleArn = Lens.lens (\UserImportJobType' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@UserImportJobType' {} a -> s {cloudWatchLogsRoleArn = a} :: UserImportJobType)
 

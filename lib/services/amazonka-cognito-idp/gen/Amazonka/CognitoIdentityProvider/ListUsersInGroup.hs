@@ -201,9 +201,8 @@ instance Core.ToQuery ListUsersInGroup where
 
 -- | /See:/ 'newListUsersInGroupResponse' smart constructor.
 data ListUsersInGroupResponse = ListUsersInGroupResponse'
-  { -- | An identifier that was returned from the previous call to this
-    -- operation, which can be used to return the next set of items in the
-    -- list.
+  { -- | An identifier that you can use in a later request to return the next set
+    -- of items in the list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The users returned in the request to list users.
     users :: Prelude.Maybe [UserType],
@@ -220,9 +219,8 @@ data ListUsersInGroupResponse = ListUsersInGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listUsersInGroupResponse_nextToken' - An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- 'nextToken', 'listUsersInGroupResponse_nextToken' - An identifier that you can use in a later request to return the next set
+-- of items in the list.
 --
 -- 'users', 'listUsersInGroupResponse_users' - The users returned in the request to list users.
 --
@@ -239,9 +237,8 @@ newListUsersInGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An identifier that was returned from the previous call to this
--- operation, which can be used to return the next set of items in the
--- list.
+-- | An identifier that you can use in a later request to return the next set
+-- of items in the list.
 listUsersInGroupResponse_nextToken :: Lens.Lens' ListUsersInGroupResponse (Prelude.Maybe Prelude.Text)
 listUsersInGroupResponse_nextToken = Lens.lens (\ListUsersInGroupResponse' {nextToken} -> nextToken) (\s@ListUsersInGroupResponse' {} a -> s {nextToken = a} :: ListUsersInGroupResponse)
 

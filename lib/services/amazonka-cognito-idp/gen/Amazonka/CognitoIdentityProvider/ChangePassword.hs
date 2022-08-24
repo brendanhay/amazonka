@@ -55,7 +55,8 @@ data ChangePassword = ChangePassword'
     previousPassword :: Core.Sensitive Prelude.Text,
     -- | The new password.
     proposedPassword :: Core.Sensitive Prelude.Text,
-    -- | The access token.
+    -- | A valid access token that Amazon Cognito issued to the user whose
+    -- password you want to change.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -72,7 +73,8 @@ data ChangePassword = ChangePassword'
 --
 -- 'proposedPassword', 'changePassword_proposedPassword' - The new password.
 --
--- 'accessToken', 'changePassword_accessToken' - The access token.
+-- 'accessToken', 'changePassword_accessToken' - A valid access token that Amazon Cognito issued to the user whose
+-- password you want to change.
 newChangePassword ::
   -- | 'previousPassword'
   Prelude.Text ->
@@ -101,7 +103,8 @@ changePassword_previousPassword = Lens.lens (\ChangePassword' {previousPassword}
 changePassword_proposedPassword :: Lens.Lens' ChangePassword Prelude.Text
 changePassword_proposedPassword = Lens.lens (\ChangePassword' {proposedPassword} -> proposedPassword) (\s@ChangePassword' {} a -> s {proposedPassword = a} :: ChangePassword) Prelude.. Core._Sensitive
 
--- | The access token.
+-- | A valid access token that Amazon Cognito issued to the user whose
+-- password you want to change.
 changePassword_accessToken :: Lens.Lens' ChangePassword Prelude.Text
 changePassword_accessToken = Lens.lens (\ChangePassword' {accessToken} -> accessToken) (\s@ChangePassword' {} a -> s {accessToken = a} :: ChangePassword) Prelude.. Core._Sensitive
 

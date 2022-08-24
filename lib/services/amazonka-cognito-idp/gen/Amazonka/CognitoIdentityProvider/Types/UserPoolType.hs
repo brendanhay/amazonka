@@ -28,6 +28,7 @@ import Amazonka.CognitoIdentityProvider.Types.LambdaConfigType
 import Amazonka.CognitoIdentityProvider.Types.SchemaAttributeType
 import Amazonka.CognitoIdentityProvider.Types.SmsConfigurationType
 import Amazonka.CognitoIdentityProvider.Types.StatusType
+import Amazonka.CognitoIdentityProvider.Types.UserAttributeUpdateSettingsType
 import Amazonka.CognitoIdentityProvider.Types.UserPoolAddOnsType
 import Amazonka.CognitoIdentityProvider.Types.UserPoolMfaType
 import Amazonka.CognitoIdentityProvider.Types.UserPoolPolicyType
@@ -43,7 +44,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUserPoolType' smart constructor.
 data UserPoolType = UserPoolType'
-  { -- | The email configuration.
+  { -- | The email configuration of your user pool. The email configuration type
+    -- sets your preferred sending method, Amazon Web Services Region, and
+    -- sender for messages tfrom your user pool.
     emailConfiguration :: Prelude.Maybe EmailConfigurationType,
     -- | A container with the schema attributes of a user pool.
     schemaAttributes :: Prelude.Maybe (Prelude.NonEmpty SchemaAttributeType),
@@ -53,50 +56,55 @@ data UserPoolType = UserPoolType'
     adminCreateUserConfig :: Prelude.Maybe AdminCreateUserConfigType,
     -- | The template for verification messages.
     verificationMessageTemplate :: Prelude.Maybe VerificationMessageTemplateType,
-    -- | Specifies the attributes that are aliased in a user pool.
+    -- | The attributes that are aliased in a user pool.
     aliasAttributes :: Prelude.Maybe [AliasAttributeType],
-    -- | The device configuration.
+    -- | The device-remembering configuration for a user pool. A null value
+    -- indicates that you have deactivated device remembering in your user
+    -- pool.
+    --
+    -- When you provide a value for any @DeviceConfiguration@ field, you
+    -- activate the Amazon Cognito device-remembering feature.
     deviceConfiguration :: Prelude.Maybe DeviceConfigurationType,
     -- | Can be one of the following values:
     --
-    -- -   @OFF@ - MFA tokens are not required and cannot be specified during
+    -- -   @OFF@ - MFA tokens aren\'t required and can\'t be specified during
     --     user registration.
     --
     -- -   @ON@ - MFA tokens are required for all user registrations. You can
-    --     only specify required when you are initially creating a user pool.
+    --     only specify required when you\'re initially creating a user pool.
     --
     -- -   @OPTIONAL@ - Users have the option when registering to create an MFA
     --     token.
     mfaConfiguration :: Prelude.Maybe UserPoolMfaType,
     -- | The date the user pool was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
-    -- | The reason why the SMS configuration cannot send the messages to your
+    -- | The reason why the SMS configuration can\'t send the messages to your
     -- users.
     --
     -- This message might include comma-separated values to describe why your
     -- SMS configuration can\'t send messages to user pool end users.
     --
-    -- -   InvalidSmsRoleAccessPolicyException - The IAM role which Cognito
-    --     uses to send SMS messages is not properly configured. For more
-    --     information, see
+    -- [InvalidSmsRoleAccessPolicyException]
+    --     The Identity and Access Management role that Amazon Cognito uses to
+    --     send SMS messages isn\'t properly configured. For more information,
+    --     see
     --     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html SmsConfigurationType>.
     --
-    -- -   SNSSandbox - The account is in SNS Sandbox and messages won’t reach
-    --     unverified end users. This parameter won’t get populated with
-    --     SNSSandbox if the IAM user creating the user pool doesn’t have SNS
-    --     permissions. To learn how to move your account out of the sandbox,
-    --     see
+    -- [SNSSandbox]
+    --     The Amazon Web Services account is in the SNS SMS Sandbox and
+    --     messages will only reach verified end users. This parameter won’t
+    --     get populated with SNSSandbox if the IAM user creating the user pool
+    --     doesn’t have SNS permissions. To learn how to move your Amazon Web
+    --     Services account out of the sandbox, see
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html Moving out of the SMS sandbox>.
     smsConfigurationFailure :: Prelude.Maybe Prelude.Text,
-    -- | You can choose to enable case sensitivity on the username input for the
-    -- selected sign-in option. For example, when this is set to @False@, users
-    -- will be able to sign in using either \"username\" or \"Username\". This
-    -- configuration is immutable once it has been set. For more information,
-    -- see
+    -- | Case sensitivity of the username input for the selected sign-in option.
+    -- For example, when case sensitivity is set to @False@, users can sign in
+    -- using either \"username\" or \"Username\". This configuration is
+    -- immutable once it has been set. For more information, see
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
     usernameConfiguration :: Prelude.Maybe UsernameConfigurationType,
-    -- | Holds the domain prefix if the user pool has a domain associated with
-    -- it.
+    -- | The domain prefix, if the user pool has a domain associated with it.
     domain :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the user pool.
     arn :: Prelude.Maybe Prelude.Text,
@@ -106,9 +114,14 @@ data UserPoolType = UserPoolType'
     status :: Prelude.Maybe StatusType,
     -- | The ID of the user pool.
     id :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the attributes that are auto-verified in a user pool.
+    -- | The attributes that are auto-verified in a user pool.
     autoVerifiedAttributes :: Prelude.Maybe [VerifiedAttributeType],
-    -- | The SMS configuration.
+    -- | The SMS configuration with the settings that your Amazon Cognito user
+    -- pool must use to send an SMS message from your Amazon Web Services
+    -- account through Amazon Simple Notification Service. To send SMS messages
+    -- with Amazon SNS in the Amazon Web Services Region that you want, the
+    -- Amazon Cognito user pool uses an Identity and Access Management (IAM)
+    -- role in your Amazon Web Services account.
     smsConfiguration :: Prelude.Maybe SmsConfigurationType,
     -- | The policies associated with the user pool.
     policies :: Prelude.Maybe UserPoolPolicyType,
@@ -116,14 +129,22 @@ data UserPoolType = UserPoolType'
     smsVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | The subject of the email verification message.
     emailVerificationSubject :: Prelude.Maybe Prelude.Text,
-    -- | Use this setting to define which verified available method a user can
-    -- use to recover their password when they call @ForgotPassword@. It allows
-    -- you to define a preferred method when a user has more than one method
-    -- available. With this setting, SMS does not qualify for a valid password
-    -- recovery mechanism if the user also has SMS MFA enabled. In the absence
-    -- of this setting, Cognito uses the legacy behavior to determine the
-    -- recovery method where SMS is preferred over email.
+    -- | The available verified method a user can use to recover their password
+    -- when they call @ForgotPassword@. You can use this setting to define a
+    -- preferred method when a user has more than one method available. With
+    -- this setting, SMS doesn\'t qualify for a valid password recovery
+    -- mechanism if the user also has SMS multi-factor authentication (MFA)
+    -- activated. In the absence of this setting, Amazon Cognito uses the
+    -- legacy behavior to determine the recovery method where SMS is preferred
+    -- through email.
     accountRecoverySetting :: Prelude.Maybe AccountRecoverySettingType,
+    -- | The settings for updates to user attributes. These settings include the
+    -- property @AttributesRequireVerificationBeforeUpdate@, a user-pool
+    -- setting that tells Amazon Cognito how to handle changes to the value of
+    -- your users\' email address and phone number attributes. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates Verifying updates to email addresses and phone numbers>.
+    userAttributeUpdateSettings :: Prelude.Maybe UserAttributeUpdateSettingsType,
     -- | The tags that are assigned to the user pool. A tag is a label that you
     -- can apply to user pools to categorize and manage them in different ways,
     -- such as by purpose, owner, environment, or other criteria.
@@ -132,11 +153,12 @@ data UserPoolType = UserPoolType'
     emailVerificationMessage :: Prelude.Maybe Prelude.Text,
     -- | The contents of the SMS authentication message.
     smsAuthenticationMessage :: Prelude.Maybe Prelude.Text,
-    -- | The reason why the email configuration cannot send the messages to your
-    -- users.
+    -- | Deprecated. Review error codes from API requests with
+    -- @EventSource:cognito-idp.amazonaws.com@ in CloudTrail for information
+    -- about problems with user pool email configuration.
     emailConfigurationFailure :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether email addresses or phone numbers can be specified as
-    -- usernames when a user signs up.
+    -- | Specifies whether a user can use an email address or phone number as a
+    -- username when they sign up.
     usernameAttributes :: Prelude.Maybe [UsernameAttributeType],
     -- | A number estimating the size of the user pool.
     estimatedNumberOfUsers :: Prelude.Maybe Prelude.Int,
@@ -144,7 +166,8 @@ data UserPoolType = UserPoolType'
     lambdaConfig :: Prelude.Maybe LambdaConfigType,
     -- | A custom domain name that you provide to Amazon Cognito. This parameter
     -- applies only if you use a custom domain to host the sign-up and sign-in
-    -- pages for your application. For example: @auth.example.com@.
+    -- pages for your application. An example of a custom domain name might be
+    -- @auth.example.com@.
     --
     -- For more information about adding a custom domain to your user pool, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI>.
@@ -162,7 +185,9 @@ data UserPoolType = UserPoolType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailConfiguration', 'userPoolType_emailConfiguration' - The email configuration.
+-- 'emailConfiguration', 'userPoolType_emailConfiguration' - The email configuration of your user pool. The email configuration type
+-- sets your preferred sending method, Amazon Web Services Region, and
+-- sender for messages tfrom your user pool.
 --
 -- 'schemaAttributes', 'userPoolType_schemaAttributes' - A container with the schema attributes of a user pool.
 --
@@ -172,50 +197,55 @@ data UserPoolType = UserPoolType'
 --
 -- 'verificationMessageTemplate', 'userPoolType_verificationMessageTemplate' - The template for verification messages.
 --
--- 'aliasAttributes', 'userPoolType_aliasAttributes' - Specifies the attributes that are aliased in a user pool.
+-- 'aliasAttributes', 'userPoolType_aliasAttributes' - The attributes that are aliased in a user pool.
 --
--- 'deviceConfiguration', 'userPoolType_deviceConfiguration' - The device configuration.
+-- 'deviceConfiguration', 'userPoolType_deviceConfiguration' - The device-remembering configuration for a user pool. A null value
+-- indicates that you have deactivated device remembering in your user
+-- pool.
+--
+-- When you provide a value for any @DeviceConfiguration@ field, you
+-- activate the Amazon Cognito device-remembering feature.
 --
 -- 'mfaConfiguration', 'userPoolType_mfaConfiguration' - Can be one of the following values:
 --
--- -   @OFF@ - MFA tokens are not required and cannot be specified during
+-- -   @OFF@ - MFA tokens aren\'t required and can\'t be specified during
 --     user registration.
 --
 -- -   @ON@ - MFA tokens are required for all user registrations. You can
---     only specify required when you are initially creating a user pool.
+--     only specify required when you\'re initially creating a user pool.
 --
 -- -   @OPTIONAL@ - Users have the option when registering to create an MFA
 --     token.
 --
 -- 'lastModifiedDate', 'userPoolType_lastModifiedDate' - The date the user pool was last modified.
 --
--- 'smsConfigurationFailure', 'userPoolType_smsConfigurationFailure' - The reason why the SMS configuration cannot send the messages to your
+-- 'smsConfigurationFailure', 'userPoolType_smsConfigurationFailure' - The reason why the SMS configuration can\'t send the messages to your
 -- users.
 --
 -- This message might include comma-separated values to describe why your
 -- SMS configuration can\'t send messages to user pool end users.
 --
--- -   InvalidSmsRoleAccessPolicyException - The IAM role which Cognito
---     uses to send SMS messages is not properly configured. For more
---     information, see
+-- [InvalidSmsRoleAccessPolicyException]
+--     The Identity and Access Management role that Amazon Cognito uses to
+--     send SMS messages isn\'t properly configured. For more information,
+--     see
 --     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html SmsConfigurationType>.
 --
--- -   SNSSandbox - The account is in SNS Sandbox and messages won’t reach
---     unverified end users. This parameter won’t get populated with
---     SNSSandbox if the IAM user creating the user pool doesn’t have SNS
---     permissions. To learn how to move your account out of the sandbox,
---     see
+-- [SNSSandbox]
+--     The Amazon Web Services account is in the SNS SMS Sandbox and
+--     messages will only reach verified end users. This parameter won’t
+--     get populated with SNSSandbox if the IAM user creating the user pool
+--     doesn’t have SNS permissions. To learn how to move your Amazon Web
+--     Services account out of the sandbox, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html Moving out of the SMS sandbox>.
 --
--- 'usernameConfiguration', 'userPoolType_usernameConfiguration' - You can choose to enable case sensitivity on the username input for the
--- selected sign-in option. For example, when this is set to @False@, users
--- will be able to sign in using either \"username\" or \"Username\". This
--- configuration is immutable once it has been set. For more information,
--- see
+-- 'usernameConfiguration', 'userPoolType_usernameConfiguration' - Case sensitivity of the username input for the selected sign-in option.
+-- For example, when case sensitivity is set to @False@, users can sign in
+-- using either \"username\" or \"Username\". This configuration is
+-- immutable once it has been set. For more information, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
 --
--- 'domain', 'userPoolType_domain' - Holds the domain prefix if the user pool has a domain associated with
--- it.
+-- 'domain', 'userPoolType_domain' - The domain prefix, if the user pool has a domain associated with it.
 --
 -- 'arn', 'userPoolType_arn' - The Amazon Resource Name (ARN) for the user pool.
 --
@@ -225,9 +255,14 @@ data UserPoolType = UserPoolType'
 --
 -- 'id', 'userPoolType_id' - The ID of the user pool.
 --
--- 'autoVerifiedAttributes', 'userPoolType_autoVerifiedAttributes' - Specifies the attributes that are auto-verified in a user pool.
+-- 'autoVerifiedAttributes', 'userPoolType_autoVerifiedAttributes' - The attributes that are auto-verified in a user pool.
 --
--- 'smsConfiguration', 'userPoolType_smsConfiguration' - The SMS configuration.
+-- 'smsConfiguration', 'userPoolType_smsConfiguration' - The SMS configuration with the settings that your Amazon Cognito user
+-- pool must use to send an SMS message from your Amazon Web Services
+-- account through Amazon Simple Notification Service. To send SMS messages
+-- with Amazon SNS in the Amazon Web Services Region that you want, the
+-- Amazon Cognito user pool uses an Identity and Access Management (IAM)
+-- role in your Amazon Web Services account.
 --
 -- 'policies', 'userPoolType_policies' - The policies associated with the user pool.
 --
@@ -235,13 +270,21 @@ data UserPoolType = UserPoolType'
 --
 -- 'emailVerificationSubject', 'userPoolType_emailVerificationSubject' - The subject of the email verification message.
 --
--- 'accountRecoverySetting', 'userPoolType_accountRecoverySetting' - Use this setting to define which verified available method a user can
--- use to recover their password when they call @ForgotPassword@. It allows
--- you to define a preferred method when a user has more than one method
--- available. With this setting, SMS does not qualify for a valid password
--- recovery mechanism if the user also has SMS MFA enabled. In the absence
--- of this setting, Cognito uses the legacy behavior to determine the
--- recovery method where SMS is preferred over email.
+-- 'accountRecoverySetting', 'userPoolType_accountRecoverySetting' - The available verified method a user can use to recover their password
+-- when they call @ForgotPassword@. You can use this setting to define a
+-- preferred method when a user has more than one method available. With
+-- this setting, SMS doesn\'t qualify for a valid password recovery
+-- mechanism if the user also has SMS multi-factor authentication (MFA)
+-- activated. In the absence of this setting, Amazon Cognito uses the
+-- legacy behavior to determine the recovery method where SMS is preferred
+-- through email.
+--
+-- 'userAttributeUpdateSettings', 'userPoolType_userAttributeUpdateSettings' - The settings for updates to user attributes. These settings include the
+-- property @AttributesRequireVerificationBeforeUpdate@, a user-pool
+-- setting that tells Amazon Cognito how to handle changes to the value of
+-- your users\' email address and phone number attributes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates Verifying updates to email addresses and phone numbers>.
 --
 -- 'userPoolTags', 'userPoolType_userPoolTags' - The tags that are assigned to the user pool. A tag is a label that you
 -- can apply to user pools to categorize and manage them in different ways,
@@ -251,11 +294,12 @@ data UserPoolType = UserPoolType'
 --
 -- 'smsAuthenticationMessage', 'userPoolType_smsAuthenticationMessage' - The contents of the SMS authentication message.
 --
--- 'emailConfigurationFailure', 'userPoolType_emailConfigurationFailure' - The reason why the email configuration cannot send the messages to your
--- users.
+-- 'emailConfigurationFailure', 'userPoolType_emailConfigurationFailure' - Deprecated. Review error codes from API requests with
+-- @EventSource:cognito-idp.amazonaws.com@ in CloudTrail for information
+-- about problems with user pool email configuration.
 --
--- 'usernameAttributes', 'userPoolType_usernameAttributes' - Specifies whether email addresses or phone numbers can be specified as
--- usernames when a user signs up.
+-- 'usernameAttributes', 'userPoolType_usernameAttributes' - Specifies whether a user can use an email address or phone number as a
+-- username when they sign up.
 --
 -- 'estimatedNumberOfUsers', 'userPoolType_estimatedNumberOfUsers' - A number estimating the size of the user pool.
 --
@@ -263,7 +307,8 @@ data UserPoolType = UserPoolType'
 --
 -- 'customDomain', 'userPoolType_customDomain' - A custom domain name that you provide to Amazon Cognito. This parameter
 -- applies only if you use a custom domain to host the sign-up and sign-in
--- pages for your application. For example: @auth.example.com@.
+-- pages for your application. An example of a custom domain name might be
+-- @auth.example.com@.
 --
 -- For more information about adding a custom domain to your user pool, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI>.
@@ -295,6 +340,7 @@ newUserPoolType =
       smsVerificationMessage = Prelude.Nothing,
       emailVerificationSubject = Prelude.Nothing,
       accountRecoverySetting = Prelude.Nothing,
+      userAttributeUpdateSettings = Prelude.Nothing,
       userPoolTags = Prelude.Nothing,
       emailVerificationMessage = Prelude.Nothing,
       smsAuthenticationMessage = Prelude.Nothing,
@@ -306,7 +352,9 @@ newUserPoolType =
       userPoolAddOns = Prelude.Nothing
     }
 
--- | The email configuration.
+-- | The email configuration of your user pool. The email configuration type
+-- sets your preferred sending method, Amazon Web Services Region, and
+-- sender for messages tfrom your user pool.
 userPoolType_emailConfiguration :: Lens.Lens' UserPoolType (Prelude.Maybe EmailConfigurationType)
 userPoolType_emailConfiguration = Lens.lens (\UserPoolType' {emailConfiguration} -> emailConfiguration) (\s@UserPoolType' {} a -> s {emailConfiguration = a} :: UserPoolType)
 
@@ -326,21 +374,26 @@ userPoolType_adminCreateUserConfig = Lens.lens (\UserPoolType' {adminCreateUserC
 userPoolType_verificationMessageTemplate :: Lens.Lens' UserPoolType (Prelude.Maybe VerificationMessageTemplateType)
 userPoolType_verificationMessageTemplate = Lens.lens (\UserPoolType' {verificationMessageTemplate} -> verificationMessageTemplate) (\s@UserPoolType' {} a -> s {verificationMessageTemplate = a} :: UserPoolType)
 
--- | Specifies the attributes that are aliased in a user pool.
+-- | The attributes that are aliased in a user pool.
 userPoolType_aliasAttributes :: Lens.Lens' UserPoolType (Prelude.Maybe [AliasAttributeType])
 userPoolType_aliasAttributes = Lens.lens (\UserPoolType' {aliasAttributes} -> aliasAttributes) (\s@UserPoolType' {} a -> s {aliasAttributes = a} :: UserPoolType) Prelude.. Lens.mapping Lens.coerced
 
--- | The device configuration.
+-- | The device-remembering configuration for a user pool. A null value
+-- indicates that you have deactivated device remembering in your user
+-- pool.
+--
+-- When you provide a value for any @DeviceConfiguration@ field, you
+-- activate the Amazon Cognito device-remembering feature.
 userPoolType_deviceConfiguration :: Lens.Lens' UserPoolType (Prelude.Maybe DeviceConfigurationType)
 userPoolType_deviceConfiguration = Lens.lens (\UserPoolType' {deviceConfiguration} -> deviceConfiguration) (\s@UserPoolType' {} a -> s {deviceConfiguration = a} :: UserPoolType)
 
 -- | Can be one of the following values:
 --
--- -   @OFF@ - MFA tokens are not required and cannot be specified during
+-- -   @OFF@ - MFA tokens aren\'t required and can\'t be specified during
 --     user registration.
 --
 -- -   @ON@ - MFA tokens are required for all user registrations. You can
---     only specify required when you are initially creating a user pool.
+--     only specify required when you\'re initially creating a user pool.
 --
 -- -   @OPTIONAL@ - Users have the option when registering to create an MFA
 --     token.
@@ -351,37 +404,37 @@ userPoolType_mfaConfiguration = Lens.lens (\UserPoolType' {mfaConfiguration} -> 
 userPoolType_lastModifiedDate :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.UTCTime)
 userPoolType_lastModifiedDate = Lens.lens (\UserPoolType' {lastModifiedDate} -> lastModifiedDate) (\s@UserPoolType' {} a -> s {lastModifiedDate = a} :: UserPoolType) Prelude.. Lens.mapping Core._Time
 
--- | The reason why the SMS configuration cannot send the messages to your
+-- | The reason why the SMS configuration can\'t send the messages to your
 -- users.
 --
 -- This message might include comma-separated values to describe why your
 -- SMS configuration can\'t send messages to user pool end users.
 --
--- -   InvalidSmsRoleAccessPolicyException - The IAM role which Cognito
---     uses to send SMS messages is not properly configured. For more
---     information, see
+-- [InvalidSmsRoleAccessPolicyException]
+--     The Identity and Access Management role that Amazon Cognito uses to
+--     send SMS messages isn\'t properly configured. For more information,
+--     see
 --     <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SmsConfigurationType.html SmsConfigurationType>.
 --
--- -   SNSSandbox - The account is in SNS Sandbox and messages won’t reach
---     unverified end users. This parameter won’t get populated with
---     SNSSandbox if the IAM user creating the user pool doesn’t have SNS
---     permissions. To learn how to move your account out of the sandbox,
---     see
+-- [SNSSandbox]
+--     The Amazon Web Services account is in the SNS SMS Sandbox and
+--     messages will only reach verified end users. This parameter won’t
+--     get populated with SNSSandbox if the IAM user creating the user pool
+--     doesn’t have SNS permissions. To learn how to move your Amazon Web
+--     Services account out of the sandbox, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox-moving-to-production.html Moving out of the SMS sandbox>.
 userPoolType_smsConfigurationFailure :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_smsConfigurationFailure = Lens.lens (\UserPoolType' {smsConfigurationFailure} -> smsConfigurationFailure) (\s@UserPoolType' {} a -> s {smsConfigurationFailure = a} :: UserPoolType)
 
--- | You can choose to enable case sensitivity on the username input for the
--- selected sign-in option. For example, when this is set to @False@, users
--- will be able to sign in using either \"username\" or \"Username\". This
--- configuration is immutable once it has been set. For more information,
--- see
+-- | Case sensitivity of the username input for the selected sign-in option.
+-- For example, when case sensitivity is set to @False@, users can sign in
+-- using either \"username\" or \"Username\". This configuration is
+-- immutable once it has been set. For more information, see
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html UsernameConfigurationType>.
 userPoolType_usernameConfiguration :: Lens.Lens' UserPoolType (Prelude.Maybe UsernameConfigurationType)
 userPoolType_usernameConfiguration = Lens.lens (\UserPoolType' {usernameConfiguration} -> usernameConfiguration) (\s@UserPoolType' {} a -> s {usernameConfiguration = a} :: UserPoolType)
 
--- | Holds the domain prefix if the user pool has a domain associated with
--- it.
+-- | The domain prefix, if the user pool has a domain associated with it.
 userPoolType_domain :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_domain = Lens.lens (\UserPoolType' {domain} -> domain) (\s@UserPoolType' {} a -> s {domain = a} :: UserPoolType)
 
@@ -401,11 +454,16 @@ userPoolType_status = Lens.lens (\UserPoolType' {status} -> status) (\s@UserPool
 userPoolType_id :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_id = Lens.lens (\UserPoolType' {id} -> id) (\s@UserPoolType' {} a -> s {id = a} :: UserPoolType)
 
--- | Specifies the attributes that are auto-verified in a user pool.
+-- | The attributes that are auto-verified in a user pool.
 userPoolType_autoVerifiedAttributes :: Lens.Lens' UserPoolType (Prelude.Maybe [VerifiedAttributeType])
 userPoolType_autoVerifiedAttributes = Lens.lens (\UserPoolType' {autoVerifiedAttributes} -> autoVerifiedAttributes) (\s@UserPoolType' {} a -> s {autoVerifiedAttributes = a} :: UserPoolType) Prelude.. Lens.mapping Lens.coerced
 
--- | The SMS configuration.
+-- | The SMS configuration with the settings that your Amazon Cognito user
+-- pool must use to send an SMS message from your Amazon Web Services
+-- account through Amazon Simple Notification Service. To send SMS messages
+-- with Amazon SNS in the Amazon Web Services Region that you want, the
+-- Amazon Cognito user pool uses an Identity and Access Management (IAM)
+-- role in your Amazon Web Services account.
 userPoolType_smsConfiguration :: Lens.Lens' UserPoolType (Prelude.Maybe SmsConfigurationType)
 userPoolType_smsConfiguration = Lens.lens (\UserPoolType' {smsConfiguration} -> smsConfiguration) (\s@UserPoolType' {} a -> s {smsConfiguration = a} :: UserPoolType)
 
@@ -421,15 +479,25 @@ userPoolType_smsVerificationMessage = Lens.lens (\UserPoolType' {smsVerification
 userPoolType_emailVerificationSubject :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_emailVerificationSubject = Lens.lens (\UserPoolType' {emailVerificationSubject} -> emailVerificationSubject) (\s@UserPoolType' {} a -> s {emailVerificationSubject = a} :: UserPoolType)
 
--- | Use this setting to define which verified available method a user can
--- use to recover their password when they call @ForgotPassword@. It allows
--- you to define a preferred method when a user has more than one method
--- available. With this setting, SMS does not qualify for a valid password
--- recovery mechanism if the user also has SMS MFA enabled. In the absence
--- of this setting, Cognito uses the legacy behavior to determine the
--- recovery method where SMS is preferred over email.
+-- | The available verified method a user can use to recover their password
+-- when they call @ForgotPassword@. You can use this setting to define a
+-- preferred method when a user has more than one method available. With
+-- this setting, SMS doesn\'t qualify for a valid password recovery
+-- mechanism if the user also has SMS multi-factor authentication (MFA)
+-- activated. In the absence of this setting, Amazon Cognito uses the
+-- legacy behavior to determine the recovery method where SMS is preferred
+-- through email.
 userPoolType_accountRecoverySetting :: Lens.Lens' UserPoolType (Prelude.Maybe AccountRecoverySettingType)
 userPoolType_accountRecoverySetting = Lens.lens (\UserPoolType' {accountRecoverySetting} -> accountRecoverySetting) (\s@UserPoolType' {} a -> s {accountRecoverySetting = a} :: UserPoolType)
+
+-- | The settings for updates to user attributes. These settings include the
+-- property @AttributesRequireVerificationBeforeUpdate@, a user-pool
+-- setting that tells Amazon Cognito how to handle changes to the value of
+-- your users\' email address and phone number attributes. For more
+-- information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates Verifying updates to email addresses and phone numbers>.
+userPoolType_userAttributeUpdateSettings :: Lens.Lens' UserPoolType (Prelude.Maybe UserAttributeUpdateSettingsType)
+userPoolType_userAttributeUpdateSettings = Lens.lens (\UserPoolType' {userAttributeUpdateSettings} -> userAttributeUpdateSettings) (\s@UserPoolType' {} a -> s {userAttributeUpdateSettings = a} :: UserPoolType)
 
 -- | The tags that are assigned to the user pool. A tag is a label that you
 -- can apply to user pools to categorize and manage them in different ways,
@@ -445,13 +513,14 @@ userPoolType_emailVerificationMessage = Lens.lens (\UserPoolType' {emailVerifica
 userPoolType_smsAuthenticationMessage :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_smsAuthenticationMessage = Lens.lens (\UserPoolType' {smsAuthenticationMessage} -> smsAuthenticationMessage) (\s@UserPoolType' {} a -> s {smsAuthenticationMessage = a} :: UserPoolType)
 
--- | The reason why the email configuration cannot send the messages to your
--- users.
+-- | Deprecated. Review error codes from API requests with
+-- @EventSource:cognito-idp.amazonaws.com@ in CloudTrail for information
+-- about problems with user pool email configuration.
 userPoolType_emailConfigurationFailure :: Lens.Lens' UserPoolType (Prelude.Maybe Prelude.Text)
 userPoolType_emailConfigurationFailure = Lens.lens (\UserPoolType' {emailConfigurationFailure} -> emailConfigurationFailure) (\s@UserPoolType' {} a -> s {emailConfigurationFailure = a} :: UserPoolType)
 
--- | Specifies whether email addresses or phone numbers can be specified as
--- usernames when a user signs up.
+-- | Specifies whether a user can use an email address or phone number as a
+-- username when they sign up.
 userPoolType_usernameAttributes :: Lens.Lens' UserPoolType (Prelude.Maybe [UsernameAttributeType])
 userPoolType_usernameAttributes = Lens.lens (\UserPoolType' {usernameAttributes} -> usernameAttributes) (\s@UserPoolType' {} a -> s {usernameAttributes = a} :: UserPoolType) Prelude.. Lens.mapping Lens.coerced
 
@@ -465,7 +534,8 @@ userPoolType_lambdaConfig = Lens.lens (\UserPoolType' {lambdaConfig} -> lambdaCo
 
 -- | A custom domain name that you provide to Amazon Cognito. This parameter
 -- applies only if you use a custom domain to host the sign-up and sign-in
--- pages for your application. For example: @auth.example.com@.
+-- pages for your application. An example of a custom domain name might be
+-- @auth.example.com@.
 --
 -- For more information about adding a custom domain to your user pool, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI>.
@@ -508,6 +578,7 @@ instance Core.FromJSON UserPoolType where
             Prelude.<*> (x Core..:? "SmsVerificationMessage")
             Prelude.<*> (x Core..:? "EmailVerificationSubject")
             Prelude.<*> (x Core..:? "AccountRecoverySetting")
+            Prelude.<*> (x Core..:? "UserAttributeUpdateSettings")
             Prelude.<*> (x Core..:? "UserPoolTags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "EmailVerificationMessage")
             Prelude.<*> (x Core..:? "SmsAuthenticationMessage")
@@ -545,6 +616,7 @@ instance Prelude.Hashable UserPoolType where
       `Prelude.hashWithSalt` smsVerificationMessage
       `Prelude.hashWithSalt` emailVerificationSubject
       `Prelude.hashWithSalt` accountRecoverySetting
+      `Prelude.hashWithSalt` userAttributeUpdateSettings
       `Prelude.hashWithSalt` userPoolTags
       `Prelude.hashWithSalt` emailVerificationMessage
       `Prelude.hashWithSalt` smsAuthenticationMessage
@@ -582,7 +654,10 @@ instance Prelude.NFData UserPoolType where
         emailVerificationSubject
       `Prelude.seq` Prelude.rnf
         accountRecoverySetting
-      `Prelude.seq` Prelude.rnf userPoolTags
+      `Prelude.seq` Prelude.rnf
+        userAttributeUpdateSettings
+      `Prelude.seq` Prelude.rnf
+        userPoolTags
       `Prelude.seq` Prelude.rnf
         emailVerificationMessage
       `Prelude.seq` Prelude.rnf

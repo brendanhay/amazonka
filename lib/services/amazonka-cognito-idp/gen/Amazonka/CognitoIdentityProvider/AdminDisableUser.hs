@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 data AdminDisableUser = AdminDisableUser'
   { -- | The user pool ID for the user pool where you want to disable the user.
     userPoolId :: Prelude.Text,
-    -- | The user name of the user you wish to disable.
+    -- | The user name of the user you want to disable.
     username :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -69,7 +69,7 @@ data AdminDisableUser = AdminDisableUser'
 --
 -- 'userPoolId', 'adminDisableUser_userPoolId' - The user pool ID for the user pool where you want to disable the user.
 --
--- 'username', 'adminDisableUser_username' - The user name of the user you wish to disable.
+-- 'username', 'adminDisableUser_username' - The user name of the user you want to disable.
 newAdminDisableUser ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -86,7 +86,7 @@ newAdminDisableUser pUserPoolId_ pUsername_ =
 adminDisableUser_userPoolId :: Lens.Lens' AdminDisableUser Prelude.Text
 adminDisableUser_userPoolId = Lens.lens (\AdminDisableUser' {userPoolId} -> userPoolId) (\s@AdminDisableUser' {} a -> s {userPoolId = a} :: AdminDisableUser)
 
--- | The user name of the user you wish to disable.
+-- | The user name of the user you want to disable.
 adminDisableUser_username :: Lens.Lens' AdminDisableUser Prelude.Text
 adminDisableUser_username = Lens.lens (\AdminDisableUser' {username} -> username) (\s@AdminDisableUser' {} a -> s {username = a} :: AdminDisableUser) Prelude.. Core._Sensitive
 

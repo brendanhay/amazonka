@@ -21,9 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Signs out users from all devices. It also invalidates all refresh tokens
--- issued to a user. The user\'s current access and Id tokens remain valid
--- until their expiry. Access and Id tokens expire one hour after they are
--- issued.
+-- that Amazon Cognito has issued to a user. The user\'s current access and
+-- ID tokens remain valid until their expiry. By default, access and ID
+-- tokens expire one hour after Amazon Cognito issues them. A user can
+-- still use a hosted UI cookie to retrieve new tokens for the duration of
+-- the cookie validity period of 1 hour.
 module Amazonka.CognitoIdentityProvider.GlobalSignOut
   ( -- * Creating a Request
     GlobalSignOut (..),
@@ -52,7 +54,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGlobalSignOut' smart constructor.
 data GlobalSignOut = GlobalSignOut'
-  { -- | The access token.
+  { -- | A valid access token that Amazon Cognito issued to the user who you want
+    -- to sign out.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -65,7 +68,8 @@ data GlobalSignOut = GlobalSignOut'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'globalSignOut_accessToken' - The access token.
+-- 'accessToken', 'globalSignOut_accessToken' - A valid access token that Amazon Cognito issued to the user who you want
+-- to sign out.
 newGlobalSignOut ::
   -- | 'accessToken'
   Prelude.Text ->
@@ -76,7 +80,8 @@ newGlobalSignOut pAccessToken_ =
         Core._Sensitive Lens.# pAccessToken_
     }
 
--- | The access token.
+-- | A valid access token that Amazon Cognito issued to the user who you want
+-- to sign out.
 globalSignOut_accessToken :: Lens.Lens' GlobalSignOut Prelude.Text
 globalSignOut_accessToken = Lens.lens (\GlobalSignOut' {accessToken} -> accessToken) (\s@GlobalSignOut' {} a -> s {accessToken = a} :: GlobalSignOut) Prelude.. Core._Sensitive
 

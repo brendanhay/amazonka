@@ -24,15 +24,17 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The code delivery details being returned from the server.
+-- | The delivery details for an email or SMS message that Amazon Cognito
+-- sent for authentication or verification.
 --
 -- /See:/ 'newCodeDeliveryDetailsType' smart constructor.
 data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
-  { -- | The destination for the code delivery details.
+  { -- | The email address or phone number destination where Amazon Cognito sent
+    -- the code.
     destination :: Prelude.Maybe Prelude.Text,
-    -- | The delivery medium (email message or phone number).
+    -- | The method that Amazon Cognito used to send the code.
     deliveryMedium :: Prelude.Maybe DeliveryMediumType,
-    -- | The attribute name.
+    -- | The name of the attribute that Amazon Cognito verifies with the code.
     attributeName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +47,12 @@ data CodeDeliveryDetailsType = CodeDeliveryDetailsType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'destination', 'codeDeliveryDetailsType_destination' - The destination for the code delivery details.
+-- 'destination', 'codeDeliveryDetailsType_destination' - The email address or phone number destination where Amazon Cognito sent
+-- the code.
 --
--- 'deliveryMedium', 'codeDeliveryDetailsType_deliveryMedium' - The delivery medium (email message or phone number).
+-- 'deliveryMedium', 'codeDeliveryDetailsType_deliveryMedium' - The method that Amazon Cognito used to send the code.
 --
--- 'attributeName', 'codeDeliveryDetailsType_attributeName' - The attribute name.
+-- 'attributeName', 'codeDeliveryDetailsType_attributeName' - The name of the attribute that Amazon Cognito verifies with the code.
 newCodeDeliveryDetailsType ::
   CodeDeliveryDetailsType
 newCodeDeliveryDetailsType =
@@ -60,15 +63,16 @@ newCodeDeliveryDetailsType =
       attributeName = Prelude.Nothing
     }
 
--- | The destination for the code delivery details.
+-- | The email address or phone number destination where Amazon Cognito sent
+-- the code.
 codeDeliveryDetailsType_destination :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
 codeDeliveryDetailsType_destination = Lens.lens (\CodeDeliveryDetailsType' {destination} -> destination) (\s@CodeDeliveryDetailsType' {} a -> s {destination = a} :: CodeDeliveryDetailsType)
 
--- | The delivery medium (email message or phone number).
+-- | The method that Amazon Cognito used to send the code.
 codeDeliveryDetailsType_deliveryMedium :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe DeliveryMediumType)
 codeDeliveryDetailsType_deliveryMedium = Lens.lens (\CodeDeliveryDetailsType' {deliveryMedium} -> deliveryMedium) (\s@CodeDeliveryDetailsType' {} a -> s {deliveryMedium = a} :: CodeDeliveryDetailsType)
 
--- | The attribute name.
+-- | The name of the attribute that Amazon Cognito verifies with the code.
 codeDeliveryDetailsType_attributeName :: Lens.Lens' CodeDeliveryDetailsType (Prelude.Maybe Prelude.Text)
 codeDeliveryDetailsType_attributeName = Lens.lens (\CodeDeliveryDetailsType' {attributeName} -> attributeName) (\s@CodeDeliveryDetailsType' {} a -> s {attributeName = a} :: CodeDeliveryDetailsType)
 

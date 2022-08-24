@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- /This action is no longer supported./ You can use it to configure only
--- SMS MFA. You can\'t use it to configure TOTP software token MFA. To
--- configure either type of MFA, use
+-- SMS MFA. You can\'t use it to configure time-based one-time password
+-- (TOTP) software token MFA. To configure either type of MFA, use
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html AdminSetUserMFAPreference>
 -- instead.
 module Amazonka.CognitoIdentityProvider.AdminSetUserSettings
@@ -56,10 +56,10 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newAdminSetUserSettings' smart constructor.
 data AdminSetUserSettings = AdminSetUserSettings'
-  { -- | The ID of the user pool that contains the user that you are setting
-    -- options for.
+  { -- | The ID of the user pool that contains the user whose options you\'re
+    -- setting.
     userPoolId :: Prelude.Text,
-    -- | The user name of the user that you are setting options for.
+    -- | The user name of the user whose options you\'re setting.
     username :: Core.Sensitive Prelude.Text,
     -- | You can use this parameter only to set an SMS configuration that uses
     -- SMS for delivery.
@@ -75,10 +75,10 @@ data AdminSetUserSettings = AdminSetUserSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userPoolId', 'adminSetUserSettings_userPoolId' - The ID of the user pool that contains the user that you are setting
--- options for.
+-- 'userPoolId', 'adminSetUserSettings_userPoolId' - The ID of the user pool that contains the user whose options you\'re
+-- setting.
 --
--- 'username', 'adminSetUserSettings_username' - The user name of the user that you are setting options for.
+-- 'username', 'adminSetUserSettings_username' - The user name of the user whose options you\'re setting.
 --
 -- 'mfaOptions', 'adminSetUserSettings_mfaOptions' - You can use this parameter only to set an SMS configuration that uses
 -- SMS for delivery.
@@ -95,12 +95,12 @@ newAdminSetUserSettings pUserPoolId_ pUsername_ =
       mfaOptions = Prelude.mempty
     }
 
--- | The ID of the user pool that contains the user that you are setting
--- options for.
+-- | The ID of the user pool that contains the user whose options you\'re
+-- setting.
 adminSetUserSettings_userPoolId :: Lens.Lens' AdminSetUserSettings Prelude.Text
 adminSetUserSettings_userPoolId = Lens.lens (\AdminSetUserSettings' {userPoolId} -> userPoolId) (\s@AdminSetUserSettings' {} a -> s {userPoolId = a} :: AdminSetUserSettings)
 
--- | The user name of the user that you are setting options for.
+-- | The user name of the user whose options you\'re setting.
 adminSetUserSettings_username :: Lens.Lens' AdminSetUserSettings Prelude.Text
 adminSetUserSettings_username = Lens.lens (\AdminSetUserSettings' {username} -> username) (\s@AdminSetUserSettings' {} a -> s {username = a} :: AdminSetUserSettings) Prelude.. Core._Sensitive
 

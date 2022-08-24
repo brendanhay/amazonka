@@ -26,11 +26,10 @@ import qualified Amazonka.Prelude as Prelude
 -- | An Amazon Pinpoint analytics endpoint.
 --
 -- An endpoint uniquely identifies a mobile device, email address, or phone
--- number that can receive messages from Amazon Pinpoint analytics.
---
--- Cognito User Pools only supports sending events to Amazon Pinpoint
--- projects in the US East (N. Virginia) us-east-1 Region, regardless of
--- the region in which the user pool resides.
+-- number that can receive messages from Amazon Pinpoint analytics. For
+-- more information about Amazon Web Services Regions that can contain
+-- Amazon Pinpoint resources for use with Amazon Cognito user pools, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html Using Amazon Pinpoint analytics with Amazon Cognito user pools>.
 --
 -- /See:/ 'newAnalyticsMetadataType' smart constructor.
 data AnalyticsMetadataType = AnalyticsMetadataType'

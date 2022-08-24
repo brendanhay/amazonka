@@ -54,27 +54,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | The role ARN for the group.
+  { -- | The role Amazon Resource Name (ARN) for the group.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | A string containing the description of the group.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A nonnegative integer value that specifies the precedence of this group
+    -- | A non-negative integer value that specifies the precedence of this group
     -- relative to the other groups that a user can belong to in the user pool.
     -- Zero is the highest precedence value. Groups with lower @Precedence@
     -- values take precedence over groups with higher or null @Precedence@
     -- values. If a user belongs to two or more groups, it is the group with
-    -- the lowest precedence value whose role ARN will be used in the
-    -- @cognito:roles@ and @cognito:preferred_role@ claims in the user\'s
-    -- tokens.
+    -- the lowest precedence value whose role ARN is given in the user\'s
+    -- tokens for the @cognito:roles@ and @cognito:preferred_role@ claims.
     --
     -- Two groups can have the same @Precedence@ value. If this happens,
     -- neither group takes precedence over the other. If two groups with the
     -- same @Precedence@ have the same role ARN, that role is used in the
     -- @cognito:preferred_role@ claim in tokens for users in each group. If the
     -- two groups have different role ARNs, the @cognito:preferred_role@ claim
-    -- is not set in users\' tokens.
+    -- isn\'t set in users\' tokens.
     --
-    -- The default @Precedence@ value is null.
+    -- The default @Precedence@ value is null. The maximum @Precedence@ value
+    -- is @2^31-1@.
     precedence :: Prelude.Maybe Prelude.Natural,
     -- | The name of the group. Must be unique.
     groupName :: Prelude.Text,
@@ -91,27 +91,27 @@ data CreateGroup = CreateGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'createGroup_roleArn' - The role ARN for the group.
+-- 'roleArn', 'createGroup_roleArn' - The role Amazon Resource Name (ARN) for the group.
 --
 -- 'description', 'createGroup_description' - A string containing the description of the group.
 --
--- 'precedence', 'createGroup_precedence' - A nonnegative integer value that specifies the precedence of this group
+-- 'precedence', 'createGroup_precedence' - A non-negative integer value that specifies the precedence of this group
 -- relative to the other groups that a user can belong to in the user pool.
 -- Zero is the highest precedence value. Groups with lower @Precedence@
 -- values take precedence over groups with higher or null @Precedence@
 -- values. If a user belongs to two or more groups, it is the group with
--- the lowest precedence value whose role ARN will be used in the
--- @cognito:roles@ and @cognito:preferred_role@ claims in the user\'s
--- tokens.
+-- the lowest precedence value whose role ARN is given in the user\'s
+-- tokens for the @cognito:roles@ and @cognito:preferred_role@ claims.
 --
 -- Two groups can have the same @Precedence@ value. If this happens,
 -- neither group takes precedence over the other. If two groups with the
 -- same @Precedence@ have the same role ARN, that role is used in the
 -- @cognito:preferred_role@ claim in tokens for users in each group. If the
 -- two groups have different role ARNs, the @cognito:preferred_role@ claim
--- is not set in users\' tokens.
+-- isn\'t set in users\' tokens.
 --
--- The default @Precedence@ value is null.
+-- The default @Precedence@ value is null. The maximum @Precedence@ value
+-- is @2^31-1@.
 --
 -- 'groupName', 'createGroup_groupName' - The name of the group. Must be unique.
 --
@@ -131,7 +131,7 @@ newCreateGroup pGroupName_ pUserPoolId_ =
       userPoolId = pUserPoolId_
     }
 
--- | The role ARN for the group.
+-- | The role Amazon Resource Name (ARN) for the group.
 createGroup_roleArn :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
 createGroup_roleArn = Lens.lens (\CreateGroup' {roleArn} -> roleArn) (\s@CreateGroup' {} a -> s {roleArn = a} :: CreateGroup)
 
@@ -139,23 +139,23 @@ createGroup_roleArn = Lens.lens (\CreateGroup' {roleArn} -> roleArn) (\s@CreateG
 createGroup_description :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Text)
 createGroup_description = Lens.lens (\CreateGroup' {description} -> description) (\s@CreateGroup' {} a -> s {description = a} :: CreateGroup)
 
--- | A nonnegative integer value that specifies the precedence of this group
+-- | A non-negative integer value that specifies the precedence of this group
 -- relative to the other groups that a user can belong to in the user pool.
 -- Zero is the highest precedence value. Groups with lower @Precedence@
 -- values take precedence over groups with higher or null @Precedence@
 -- values. If a user belongs to two or more groups, it is the group with
--- the lowest precedence value whose role ARN will be used in the
--- @cognito:roles@ and @cognito:preferred_role@ claims in the user\'s
--- tokens.
+-- the lowest precedence value whose role ARN is given in the user\'s
+-- tokens for the @cognito:roles@ and @cognito:preferred_role@ claims.
 --
 -- Two groups can have the same @Precedence@ value. If this happens,
 -- neither group takes precedence over the other. If two groups with the
 -- same @Precedence@ have the same role ARN, that role is used in the
 -- @cognito:preferred_role@ claim in tokens for users in each group. If the
 -- two groups have different role ARNs, the @cognito:preferred_role@ claim
--- is not set in users\' tokens.
+-- isn\'t set in users\' tokens.
 --
--- The default @Precedence@ value is null.
+-- The default @Precedence@ value is null. The maximum @Precedence@ value
+-- is @2^31-1@.
 createGroup_precedence :: Lens.Lens' CreateGroup (Prelude.Maybe Prelude.Natural)
 createGroup_precedence = Lens.lens (\CreateGroup' {precedence} -> precedence) (\s@CreateGroup' {} a -> s {precedence = a} :: CreateGroup)
 

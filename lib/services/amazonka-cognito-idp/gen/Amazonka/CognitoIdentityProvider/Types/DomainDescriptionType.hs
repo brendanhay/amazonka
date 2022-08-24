@@ -29,11 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDomainDescriptionType' smart constructor.
 data DomainDescriptionType = DomainDescriptionType'
-  { -- | The account ID for the user pool owner.
+  { -- | The Amazon Web Services ID for the user pool owner.
     aWSAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The S3 bucket where the static files for this domain are stored.
+    -- | The Amazon S3 bucket where the static files for this domain are stored.
     s3Bucket :: Prelude.Maybe Prelude.Text,
-    -- | The domain string.
+    -- | The domain string. For custom domains, this is the fully-qualified
+    -- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+    -- domains, this is the prefix alone, such as @auth@.
     domain :: Prelude.Maybe Prelude.Text,
     -- | The configuration for a custom domain that hosts the sign-up and sign-in
     -- webpages for your application.
@@ -42,7 +44,7 @@ data DomainDescriptionType = DomainDescriptionType'
     status :: Prelude.Maybe DomainStatusType,
     -- | The user pool ID.
     userPoolId :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the CloudFront distribution.
+    -- | The Amazon Resource Name (ARN) of the Amazon CloudFront distribution.
     cloudFrontDistribution :: Prelude.Maybe Prelude.Text,
     -- | The app version.
     version :: Prelude.Maybe Prelude.Text
@@ -57,11 +59,13 @@ data DomainDescriptionType = DomainDescriptionType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aWSAccountId', 'domainDescriptionType_aWSAccountId' - The account ID for the user pool owner.
+-- 'aWSAccountId', 'domainDescriptionType_aWSAccountId' - The Amazon Web Services ID for the user pool owner.
 --
--- 's3Bucket', 'domainDescriptionType_s3Bucket' - The S3 bucket where the static files for this domain are stored.
+-- 's3Bucket', 'domainDescriptionType_s3Bucket' - The Amazon S3 bucket where the static files for this domain are stored.
 --
--- 'domain', 'domainDescriptionType_domain' - The domain string.
+-- 'domain', 'domainDescriptionType_domain' - The domain string. For custom domains, this is the fully-qualified
+-- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+-- domains, this is the prefix alone, such as @auth@.
 --
 -- 'customDomainConfig', 'domainDescriptionType_customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in
 -- webpages for your application.
@@ -70,7 +74,7 @@ data DomainDescriptionType = DomainDescriptionType'
 --
 -- 'userPoolId', 'domainDescriptionType_userPoolId' - The user pool ID.
 --
--- 'cloudFrontDistribution', 'domainDescriptionType_cloudFrontDistribution' - The ARN of the CloudFront distribution.
+-- 'cloudFrontDistribution', 'domainDescriptionType_cloudFrontDistribution' - The Amazon Resource Name (ARN) of the Amazon CloudFront distribution.
 --
 -- 'version', 'domainDescriptionType_version' - The app version.
 newDomainDescriptionType ::
@@ -88,15 +92,17 @@ newDomainDescriptionType =
       version = Prelude.Nothing
     }
 
--- | The account ID for the user pool owner.
+-- | The Amazon Web Services ID for the user pool owner.
 domainDescriptionType_aWSAccountId :: Lens.Lens' DomainDescriptionType (Prelude.Maybe Prelude.Text)
 domainDescriptionType_aWSAccountId = Lens.lens (\DomainDescriptionType' {aWSAccountId} -> aWSAccountId) (\s@DomainDescriptionType' {} a -> s {aWSAccountId = a} :: DomainDescriptionType)
 
--- | The S3 bucket where the static files for this domain are stored.
+-- | The Amazon S3 bucket where the static files for this domain are stored.
 domainDescriptionType_s3Bucket :: Lens.Lens' DomainDescriptionType (Prelude.Maybe Prelude.Text)
 domainDescriptionType_s3Bucket = Lens.lens (\DomainDescriptionType' {s3Bucket} -> s3Bucket) (\s@DomainDescriptionType' {} a -> s {s3Bucket = a} :: DomainDescriptionType)
 
--- | The domain string.
+-- | The domain string. For custom domains, this is the fully-qualified
+-- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+-- domains, this is the prefix alone, such as @auth@.
 domainDescriptionType_domain :: Lens.Lens' DomainDescriptionType (Prelude.Maybe Prelude.Text)
 domainDescriptionType_domain = Lens.lens (\DomainDescriptionType' {domain} -> domain) (\s@DomainDescriptionType' {} a -> s {domain = a} :: DomainDescriptionType)
 
@@ -113,7 +119,7 @@ domainDescriptionType_status = Lens.lens (\DomainDescriptionType' {status} -> st
 domainDescriptionType_userPoolId :: Lens.Lens' DomainDescriptionType (Prelude.Maybe Prelude.Text)
 domainDescriptionType_userPoolId = Lens.lens (\DomainDescriptionType' {userPoolId} -> userPoolId) (\s@DomainDescriptionType' {} a -> s {userPoolId = a} :: DomainDescriptionType)
 
--- | The ARN of the CloudFront distribution.
+-- | The Amazon Resource Name (ARN) of the Amazon CloudFront distribution.
 domainDescriptionType_cloudFrontDistribution :: Lens.Lens' DomainDescriptionType (Prelude.Maybe Prelude.Text)
 domainDescriptionType_cloudFrontDistribution = Lens.lens (\DomainDescriptionType' {cloudFrontDistribution} -> cloudFrontDistribution) (\s@DomainDescriptionType' {} a -> s {cloudFrontDistribution = a} :: DomainDescriptionType)
 

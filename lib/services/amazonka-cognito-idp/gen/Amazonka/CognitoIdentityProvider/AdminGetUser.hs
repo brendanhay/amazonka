@@ -65,7 +65,7 @@ data AdminGetUser = AdminGetUser'
   { -- | The user pool ID for the user pool where you want to get information
     -- about the user.
     userPoolId :: Prelude.Text,
-    -- | The user name of the user you wish to retrieve.
+    -- | The user name of the user you want to retrieve.
     username :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -81,7 +81,7 @@ data AdminGetUser = AdminGetUser'
 -- 'userPoolId', 'adminGetUser_userPoolId' - The user pool ID for the user pool where you want to get information
 -- about the user.
 --
--- 'username', 'adminGetUser_username' - The user name of the user you wish to retrieve.
+-- 'username', 'adminGetUser_username' - The user name of the user you want to retrieve.
 newAdminGetUser ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -99,7 +99,7 @@ newAdminGetUser pUserPoolId_ pUsername_ =
 adminGetUser_userPoolId :: Lens.Lens' AdminGetUser Prelude.Text
 adminGetUser_userPoolId = Lens.lens (\AdminGetUser' {userPoolId} -> userPoolId) (\s@AdminGetUser' {} a -> s {userPoolId = a} :: AdminGetUser)
 
--- | The user name of the user you wish to retrieve.
+-- | The user name of the user you want to retrieve.
 adminGetUser_username :: Lens.Lens' AdminGetUser Prelude.Text
 adminGetUser_username = Lens.lens (\AdminGetUser' {username} -> username) (\s@AdminGetUser' {} a -> s {username = a} :: AdminGetUser) Prelude.. Core._Sensitive
 
@@ -169,7 +169,7 @@ instance Core.ToQuery AdminGetUser where
 --
 -- /See:/ 'newAdminGetUserResponse' smart constructor.
 data AdminGetUserResponse = AdminGetUserResponse'
-  { -- | The MFA options that are enabled for the user. The possible values in
+  { -- | The MFA options that are activated for the user. The possible values in
     -- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
     userMFASettingList :: Prelude.Maybe [Prelude.Text],
     -- | The user\'s preferred MFA setting.
@@ -180,7 +180,7 @@ data AdminGetUserResponse = AdminGetUserResponse'
     userCreateDate :: Prelude.Maybe Core.POSIX,
     -- | An array of name-value pairs representing user attributes.
     userAttributes :: Prelude.Maybe [AttributeType],
-    -- | Indicates that the status is enabled.
+    -- | Indicates that the status is @enabled@.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | The user status. Can be one of the following:
     --
@@ -190,27 +190,24 @@ data AdminGetUserResponse = AdminGetUserResponse'
     --
     -- -   ARCHIVED - User is no longer active.
     --
-    -- -   COMPROMISED - User is disabled due to a potential security threat.
-    --
-    -- -   UNKNOWN - User status is not known.
+    -- -   UNKNOWN - User status isn\'t known.
     --
     -- -   RESET_REQUIRED - User is confirmed, but the user must request a code
-    --     and reset his or her password before he or she can sign in.
+    --     and reset their password before they can sign in.
     --
     -- -   FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign
     --     in using a temporary password, but on first sign-in, the user must
-    --     change his or her password to a new value before doing anything
-    --     else.
+    --     change their password to a new value before doing anything else.
     userStatus :: Prelude.Maybe UserStatusType,
     -- | /This response parameter is no longer supported./ It provides
     -- information only about SMS MFA configurations. It doesn\'t provide
-    -- information about TOTP software token MFA configurations. To look up
-    -- information about either type of MFA configuration, use
-    -- UserMFASettingList instead.
+    -- information about time-based one-time password (TOTP) software token MFA
+    -- configurations. To look up information about either type of MFA
+    -- configuration, use UserMFASettingList instead.
     mfaOptions :: Prelude.Maybe [MFAOptionType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The user name of the user about whom you are receiving information.
+    -- | The user name of the user about whom you\'re receiving information.
     username :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -223,7 +220,7 @@ data AdminGetUserResponse = AdminGetUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userMFASettingList', 'adminGetUserResponse_userMFASettingList' - The MFA options that are enabled for the user. The possible values in
+-- 'userMFASettingList', 'adminGetUserResponse_userMFASettingList' - The MFA options that are activated for the user. The possible values in
 -- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
 --
 -- 'preferredMfaSetting', 'adminGetUserResponse_preferredMfaSetting' - The user\'s preferred MFA setting.
@@ -234,7 +231,7 @@ data AdminGetUserResponse = AdminGetUserResponse'
 --
 -- 'userAttributes', 'adminGetUserResponse_userAttributes' - An array of name-value pairs representing user attributes.
 --
--- 'enabled', 'adminGetUserResponse_enabled' - Indicates that the status is enabled.
+-- 'enabled', 'adminGetUserResponse_enabled' - Indicates that the status is @enabled@.
 --
 -- 'userStatus', 'adminGetUserResponse_userStatus' - The user status. Can be one of the following:
 --
@@ -244,27 +241,24 @@ data AdminGetUserResponse = AdminGetUserResponse'
 --
 -- -   ARCHIVED - User is no longer active.
 --
--- -   COMPROMISED - User is disabled due to a potential security threat.
---
--- -   UNKNOWN - User status is not known.
+-- -   UNKNOWN - User status isn\'t known.
 --
 -- -   RESET_REQUIRED - User is confirmed, but the user must request a code
---     and reset his or her password before he or she can sign in.
+--     and reset their password before they can sign in.
 --
 -- -   FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign
 --     in using a temporary password, but on first sign-in, the user must
---     change his or her password to a new value before doing anything
---     else.
+--     change their password to a new value before doing anything else.
 --
 -- 'mfaOptions', 'adminGetUserResponse_mfaOptions' - /This response parameter is no longer supported./ It provides
 -- information only about SMS MFA configurations. It doesn\'t provide
--- information about TOTP software token MFA configurations. To look up
--- information about either type of MFA configuration, use
--- UserMFASettingList instead.
+-- information about time-based one-time password (TOTP) software token MFA
+-- configurations. To look up information about either type of MFA
+-- configuration, use UserMFASettingList instead.
 --
 -- 'httpStatus', 'adminGetUserResponse_httpStatus' - The response's http status code.
 --
--- 'username', 'adminGetUserResponse_username' - The user name of the user about whom you are receiving information.
+-- 'username', 'adminGetUserResponse_username' - The user name of the user about whom you\'re receiving information.
 newAdminGetUserResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -286,7 +280,7 @@ newAdminGetUserResponse pHttpStatus_ pUsername_ =
       username = Core._Sensitive Lens.# pUsername_
     }
 
--- | The MFA options that are enabled for the user. The possible values in
+-- | The MFA options that are activated for the user. The possible values in
 -- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
 adminGetUserResponse_userMFASettingList :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe [Prelude.Text])
 adminGetUserResponse_userMFASettingList = Lens.lens (\AdminGetUserResponse' {userMFASettingList} -> userMFASettingList) (\s@AdminGetUserResponse' {} a -> s {userMFASettingList = a} :: AdminGetUserResponse) Prelude.. Lens.mapping Lens.coerced
@@ -307,7 +301,7 @@ adminGetUserResponse_userCreateDate = Lens.lens (\AdminGetUserResponse' {userCre
 adminGetUserResponse_userAttributes :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe [AttributeType])
 adminGetUserResponse_userAttributes = Lens.lens (\AdminGetUserResponse' {userAttributes} -> userAttributes) (\s@AdminGetUserResponse' {} a -> s {userAttributes = a} :: AdminGetUserResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Indicates that the status is enabled.
+-- | Indicates that the status is @enabled@.
 adminGetUserResponse_enabled :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe Prelude.Bool)
 adminGetUserResponse_enabled = Lens.lens (\AdminGetUserResponse' {enabled} -> enabled) (\s@AdminGetUserResponse' {} a -> s {enabled = a} :: AdminGetUserResponse)
 
@@ -319,25 +313,22 @@ adminGetUserResponse_enabled = Lens.lens (\AdminGetUserResponse' {enabled} -> en
 --
 -- -   ARCHIVED - User is no longer active.
 --
--- -   COMPROMISED - User is disabled due to a potential security threat.
---
--- -   UNKNOWN - User status is not known.
+-- -   UNKNOWN - User status isn\'t known.
 --
 -- -   RESET_REQUIRED - User is confirmed, but the user must request a code
---     and reset his or her password before he or she can sign in.
+--     and reset their password before they can sign in.
 --
 -- -   FORCE_CHANGE_PASSWORD - The user is confirmed and the user can sign
 --     in using a temporary password, but on first sign-in, the user must
---     change his or her password to a new value before doing anything
---     else.
+--     change their password to a new value before doing anything else.
 adminGetUserResponse_userStatus :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe UserStatusType)
 adminGetUserResponse_userStatus = Lens.lens (\AdminGetUserResponse' {userStatus} -> userStatus) (\s@AdminGetUserResponse' {} a -> s {userStatus = a} :: AdminGetUserResponse)
 
 -- | /This response parameter is no longer supported./ It provides
 -- information only about SMS MFA configurations. It doesn\'t provide
--- information about TOTP software token MFA configurations. To look up
--- information about either type of MFA configuration, use
--- UserMFASettingList instead.
+-- information about time-based one-time password (TOTP) software token MFA
+-- configurations. To look up information about either type of MFA
+-- configuration, use UserMFASettingList instead.
 adminGetUserResponse_mfaOptions :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe [MFAOptionType])
 adminGetUserResponse_mfaOptions = Lens.lens (\AdminGetUserResponse' {mfaOptions} -> mfaOptions) (\s@AdminGetUserResponse' {} a -> s {mfaOptions = a} :: AdminGetUserResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -345,7 +336,7 @@ adminGetUserResponse_mfaOptions = Lens.lens (\AdminGetUserResponse' {mfaOptions}
 adminGetUserResponse_httpStatus :: Lens.Lens' AdminGetUserResponse Prelude.Int
 adminGetUserResponse_httpStatus = Lens.lens (\AdminGetUserResponse' {httpStatus} -> httpStatus) (\s@AdminGetUserResponse' {} a -> s {httpStatus = a} :: AdminGetUserResponse)
 
--- | The user name of the user about whom you are receiving information.
+-- | The user name of the user about whom you\'re receiving information.
 adminGetUserResponse_username :: Lens.Lens' AdminGetUserResponse Prelude.Text
 adminGetUserResponse_username = Lens.lens (\AdminGetUserResponse' {username} -> username) (\s@AdminGetUserResponse' {} a -> s {username = a} :: AdminGetUserResponse) Prelude.. Core._Sensitive
 

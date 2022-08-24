@@ -45,10 +45,10 @@ data LambdaConfigType = LambdaConfigType'
     verifyAuthChallengeResponse :: Prelude.Maybe Prelude.Text,
     -- | A custom Message Lambda trigger.
     customMessage :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name of Key Management Service
-    -- </kms/latest/developerguide/concepts.html#master_keys Customer master keys>
-    -- . Amazon Cognito uses the key to encrypt codes and temporary passwords
-    -- sent to @CustomEmailSender@ and @CustomSMSSender@.
+    -- | The Amazon Resource Name (ARN) of an
+    -- </kms/latest/developerguide/concepts.html#master_keys KMS key>. Amazon
+    -- Cognito uses the key to encrypt codes and temporary passwords sent to
+    -- @CustomEmailSender@ and @CustomSMSSender@.
     kmsKeyID :: Prelude.Maybe Prelude.Text,
     -- | A pre-authentication Lambda trigger.
     preAuthentication :: Prelude.Maybe Prelude.Text,
@@ -85,10 +85,10 @@ data LambdaConfigType = LambdaConfigType'
 --
 -- 'customMessage', 'lambdaConfigType_customMessage' - A custom Message Lambda trigger.
 --
--- 'kmsKeyID', 'lambdaConfigType_kmsKeyID' - The Amazon Resource Name of Key Management Service
--- </kms/latest/developerguide/concepts.html#master_keys Customer master keys>
--- . Amazon Cognito uses the key to encrypt codes and temporary passwords
--- sent to @CustomEmailSender@ and @CustomSMSSender@.
+-- 'kmsKeyID', 'lambdaConfigType_kmsKeyID' - The Amazon Resource Name (ARN) of an
+-- </kms/latest/developerguide/concepts.html#master_keys KMS key>. Amazon
+-- Cognito uses the key to encrypt codes and temporary passwords sent to
+-- @CustomEmailSender@ and @CustomSMSSender@.
 --
 -- 'preAuthentication', 'lambdaConfigType_preAuthentication' - A pre-authentication Lambda trigger.
 --
@@ -149,10 +149,10 @@ lambdaConfigType_verifyAuthChallengeResponse = Lens.lens (\LambdaConfigType' {ve
 lambdaConfigType_customMessage :: Lens.Lens' LambdaConfigType (Prelude.Maybe Prelude.Text)
 lambdaConfigType_customMessage = Lens.lens (\LambdaConfigType' {customMessage} -> customMessage) (\s@LambdaConfigType' {} a -> s {customMessage = a} :: LambdaConfigType)
 
--- | The Amazon Resource Name of Key Management Service
--- </kms/latest/developerguide/concepts.html#master_keys Customer master keys>
--- . Amazon Cognito uses the key to encrypt codes and temporary passwords
--- sent to @CustomEmailSender@ and @CustomSMSSender@.
+-- | The Amazon Resource Name (ARN) of an
+-- </kms/latest/developerguide/concepts.html#master_keys KMS key>. Amazon
+-- Cognito uses the key to encrypt codes and temporary passwords sent to
+-- @CustomEmailSender@ and @CustomSMSSender@.
 lambdaConfigType_kmsKeyID :: Lens.Lens' LambdaConfigType (Prelude.Maybe Prelude.Text)
 lambdaConfigType_kmsKeyID = Lens.lens (\LambdaConfigType' {kmsKeyID} -> kmsKeyID) (\s@LambdaConfigType' {} a -> s {kmsKeyID = a} :: LambdaConfigType)
 

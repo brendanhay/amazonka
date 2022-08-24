@@ -36,14 +36,16 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
     -- | Set to @True@ if only the administrator is allowed to create user
     -- profiles. Set to @False@ if users can sign themselves up via an app.
     allowAdminCreateUserOnly :: Prelude.Maybe Prelude.Bool,
-    -- | The user account expiration limit, in days, after which the account is
-    -- no longer usable. To reset the account after that time limit, you must
-    -- call @AdminCreateUser@ again, specifying @\"RESEND\"@ for the
-    -- @MessageAction@ parameter. The default value for this parameter is 7.
+    -- | The user account expiration limit, in days, after which a new account
+    -- that hasn\'t signed in is no longer usable. To reset the account after
+    -- that time limit, you must call @AdminCreateUser@ again, specifying
+    -- @\"RESEND\"@ for the @MessageAction@ parameter. The default value for
+    -- this parameter is 7.
     --
     -- If you set a value for @TemporaryPasswordValidityDays@ in
-    -- @PasswordPolicy@, that value will be used and
-    -- @UnusedAccountValidityDays@ will be deprecated for that user pool.
+    -- @PasswordPolicy@, that value will be used, and
+    -- @UnusedAccountValidityDays@ will be no longer be an available parameter
+    -- for that user pool.
     unusedAccountValidityDays :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,14 +66,16 @@ data AdminCreateUserConfigType = AdminCreateUserConfigType'
 -- 'allowAdminCreateUserOnly', 'adminCreateUserConfigType_allowAdminCreateUserOnly' - Set to @True@ if only the administrator is allowed to create user
 -- profiles. Set to @False@ if users can sign themselves up via an app.
 --
--- 'unusedAccountValidityDays', 'adminCreateUserConfigType_unusedAccountValidityDays' - The user account expiration limit, in days, after which the account is
--- no longer usable. To reset the account after that time limit, you must
--- call @AdminCreateUser@ again, specifying @\"RESEND\"@ for the
--- @MessageAction@ parameter. The default value for this parameter is 7.
+-- 'unusedAccountValidityDays', 'adminCreateUserConfigType_unusedAccountValidityDays' - The user account expiration limit, in days, after which a new account
+-- that hasn\'t signed in is no longer usable. To reset the account after
+-- that time limit, you must call @AdminCreateUser@ again, specifying
+-- @\"RESEND\"@ for the @MessageAction@ parameter. The default value for
+-- this parameter is 7.
 --
 -- If you set a value for @TemporaryPasswordValidityDays@ in
--- @PasswordPolicy@, that value will be used and
--- @UnusedAccountValidityDays@ will be deprecated for that user pool.
+-- @PasswordPolicy@, that value will be used, and
+-- @UnusedAccountValidityDays@ will be no longer be an available parameter
+-- for that user pool.
 newAdminCreateUserConfigType ::
   AdminCreateUserConfigType
 newAdminCreateUserConfigType =
@@ -94,14 +98,16 @@ adminCreateUserConfigType_inviteMessageTemplate = Lens.lens (\AdminCreateUserCon
 adminCreateUserConfigType_allowAdminCreateUserOnly :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe Prelude.Bool)
 adminCreateUserConfigType_allowAdminCreateUserOnly = Lens.lens (\AdminCreateUserConfigType' {allowAdminCreateUserOnly} -> allowAdminCreateUserOnly) (\s@AdminCreateUserConfigType' {} a -> s {allowAdminCreateUserOnly = a} :: AdminCreateUserConfigType)
 
--- | The user account expiration limit, in days, after which the account is
--- no longer usable. To reset the account after that time limit, you must
--- call @AdminCreateUser@ again, specifying @\"RESEND\"@ for the
--- @MessageAction@ parameter. The default value for this parameter is 7.
+-- | The user account expiration limit, in days, after which a new account
+-- that hasn\'t signed in is no longer usable. To reset the account after
+-- that time limit, you must call @AdminCreateUser@ again, specifying
+-- @\"RESEND\"@ for the @MessageAction@ parameter. The default value for
+-- this parameter is 7.
 --
 -- If you set a value for @TemporaryPasswordValidityDays@ in
--- @PasswordPolicy@, that value will be used and
--- @UnusedAccountValidityDays@ will be deprecated for that user pool.
+-- @PasswordPolicy@, that value will be used, and
+-- @UnusedAccountValidityDays@ will be no longer be an available parameter
+-- for that user pool.
 adminCreateUserConfigType_unusedAccountValidityDays :: Lens.Lens' AdminCreateUserConfigType (Prelude.Maybe Prelude.Natural)
 adminCreateUserConfigType_unusedAccountValidityDays = Lens.lens (\AdminCreateUserConfigType' {unusedAccountValidityDays} -> unusedAccountValidityDays) (\s@AdminCreateUserConfigType' {} a -> s {unusedAccountValidityDays = a} :: AdminCreateUserConfigType)
 

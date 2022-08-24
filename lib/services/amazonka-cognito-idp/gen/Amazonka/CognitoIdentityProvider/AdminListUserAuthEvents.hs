@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists a history of user activity and any risks detected as part of
--- Amazon Cognito advanced security.
+-- A history of user activity and any risks detected as part of Amazon
+-- Cognito advanced security.
 --
 -- This operation returns paginated results.
 module Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents

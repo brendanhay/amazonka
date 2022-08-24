@@ -37,9 +37,9 @@ data AuthEventType = AuthEventType'
     eventType :: Prelude.Maybe EventType,
     -- | The event response.
     eventResponse :: Prelude.Maybe EventResponseType,
-    -- | The user context data captured at the time of an event request. It
-    -- provides additional information about the client from which event the
-    -- request is received.
+    -- | The user context data captured at the time of an event request. This
+    -- value provides additional information about the client from which event
+    -- the request is received.
     eventContextData :: Prelude.Maybe EventContextDataType,
     -- | The creation date
     creationDate :: Prelude.Maybe Core.POSIX,
@@ -67,9 +67,9 @@ data AuthEventType = AuthEventType'
 --
 -- 'eventResponse', 'authEventType_eventResponse' - The event response.
 --
--- 'eventContextData', 'authEventType_eventContextData' - The user context data captured at the time of an event request. It
--- provides additional information about the client from which event the
--- request is received.
+-- 'eventContextData', 'authEventType_eventContextData' - The user context data captured at the time of an event request. This
+-- value provides additional information about the client from which event
+-- the request is received.
 --
 -- 'creationDate', 'authEventType_creationDate' - The creation date
 --
@@ -103,9 +103,9 @@ authEventType_eventType = Lens.lens (\AuthEventType' {eventType} -> eventType) (
 authEventType_eventResponse :: Lens.Lens' AuthEventType (Prelude.Maybe EventResponseType)
 authEventType_eventResponse = Lens.lens (\AuthEventType' {eventResponse} -> eventResponse) (\s@AuthEventType' {} a -> s {eventResponse = a} :: AuthEventType)
 
--- | The user context data captured at the time of an event request. It
--- provides additional information about the client from which event the
--- request is received.
+-- | The user context data captured at the time of an event request. This
+-- value provides additional information about the client from which event
+-- the request is received.
 authEventType_eventContextData :: Lens.Lens' AuthEventType (Prelude.Maybe EventContextDataType)
 authEventType_eventContextData = Lens.lens (\AuthEventType' {eventContextData} -> eventContextData) (\s@AuthEventType' {} a -> s {eventContextData = a} :: AuthEventType)
 

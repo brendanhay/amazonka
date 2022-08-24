@@ -24,7 +24,7 @@
 -- for your user pool.
 --
 -- You can use this operation to provide the Amazon Resource Name (ARN) of
--- a new certificate to Amazon Cognito. You cannot use it to change the
+-- a new certificate to Amazon Cognito. You can\'t use it to change the
 -- domain for a user pool.
 --
 -- A custom domain is used to host the Amazon Cognito hosted UI, which
@@ -43,7 +43,7 @@
 -- your custom domain, you must provide this ARN to Amazon Cognito.
 --
 -- When you add your new certificate in ACM, you must choose US East (N.
--- Virginia) as the Region.
+-- Virginia) as the Amazon Web Services Region.
 --
 -- After you submit your request, Amazon Cognito requires up to 1 hour to
 -- distribute your new certificate to your custom domain.
@@ -82,14 +82,14 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newUpdateUserPoolDomain' smart constructor.
 data UpdateUserPoolDomain = UpdateUserPoolDomain'
   { -- | The domain name for the custom domain that hosts the sign-up and sign-in
-    -- pages for your application. For example: @auth.example.com@.
+    -- pages for your application. One example might be @auth.example.com@.
     --
-    -- This string can include only lowercase letters, numbers, and hyphens. Do
-    -- not use a hyphen for the first or last character. Use periods to
+    -- This string can include only lowercase letters, numbers, and hyphens.
+    -- Don\'t use a hyphen for the first or last character. Use periods to
     -- separate subdomain names.
     domain :: Prelude.Text,
-    -- | The ID of the user pool that is associated with the custom domain that
-    -- you are updating the certificate for.
+    -- | The ID of the user pool that is associated with the custom domain whose
+    -- certificate you\'re updating.
     userPoolId :: Prelude.Text,
     -- | The configuration for a custom domain that hosts the sign-up and sign-in
     -- pages for your application. Use this object to specify an SSL
@@ -107,14 +107,14 @@ data UpdateUserPoolDomain = UpdateUserPoolDomain'
 -- for backwards compatibility:
 --
 -- 'domain', 'updateUserPoolDomain_domain' - The domain name for the custom domain that hosts the sign-up and sign-in
--- pages for your application. For example: @auth.example.com@.
+-- pages for your application. One example might be @auth.example.com@.
 --
--- This string can include only lowercase letters, numbers, and hyphens. Do
--- not use a hyphen for the first or last character. Use periods to
+-- This string can include only lowercase letters, numbers, and hyphens.
+-- Don\'t use a hyphen for the first or last character. Use periods to
 -- separate subdomain names.
 --
--- 'userPoolId', 'updateUserPoolDomain_userPoolId' - The ID of the user pool that is associated with the custom domain that
--- you are updating the certificate for.
+-- 'userPoolId', 'updateUserPoolDomain_userPoolId' - The ID of the user pool that is associated with the custom domain whose
+-- certificate you\'re updating.
 --
 -- 'customDomainConfig', 'updateUserPoolDomain_customDomainConfig' - The configuration for a custom domain that hosts the sign-up and sign-in
 -- pages for your application. Use this object to specify an SSL
@@ -138,16 +138,16 @@ newUpdateUserPoolDomain
       }
 
 -- | The domain name for the custom domain that hosts the sign-up and sign-in
--- pages for your application. For example: @auth.example.com@.
+-- pages for your application. One example might be @auth.example.com@.
 --
--- This string can include only lowercase letters, numbers, and hyphens. Do
--- not use a hyphen for the first or last character. Use periods to
+-- This string can include only lowercase letters, numbers, and hyphens.
+-- Don\'t use a hyphen for the first or last character. Use periods to
 -- separate subdomain names.
 updateUserPoolDomain_domain :: Lens.Lens' UpdateUserPoolDomain Prelude.Text
 updateUserPoolDomain_domain = Lens.lens (\UpdateUserPoolDomain' {domain} -> domain) (\s@UpdateUserPoolDomain' {} a -> s {domain = a} :: UpdateUserPoolDomain)
 
--- | The ID of the user pool that is associated with the custom domain that
--- you are updating the certificate for.
+-- | The ID of the user pool that is associated with the custom domain whose
+-- certificate you\'re updating.
 updateUserPoolDomain_userPoolId :: Lens.Lens' UpdateUserPoolDomain Prelude.Text
 updateUserPoolDomain_userPoolId = Lens.lens (\UpdateUserPoolDomain' {userPoolId} -> userPoolId) (\s@UpdateUserPoolDomain' {} a -> s {userPoolId = a} :: UpdateUserPoolDomain)
 

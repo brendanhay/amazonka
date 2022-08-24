@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data ChallengeResponseType = ChallengeResponseType'
   { -- | The challenge response.
     challengeResponse :: Prelude.Maybe ChallengeResponse,
-    -- | The challenge name
+    -- | The challenge name.
     challengeName :: Prelude.Maybe ChallengeName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +46,7 @@ data ChallengeResponseType = ChallengeResponseType'
 --
 -- 'challengeResponse', 'challengeResponseType_challengeResponse' - The challenge response.
 --
--- 'challengeName', 'challengeResponseType_challengeName' - The challenge name
+-- 'challengeName', 'challengeResponseType_challengeName' - The challenge name.
 newChallengeResponseType ::
   ChallengeResponseType
 newChallengeResponseType =
@@ -60,7 +60,7 @@ newChallengeResponseType =
 challengeResponseType_challengeResponse :: Lens.Lens' ChallengeResponseType (Prelude.Maybe ChallengeResponse)
 challengeResponseType_challengeResponse = Lens.lens (\ChallengeResponseType' {challengeResponse} -> challengeResponse) (\s@ChallengeResponseType' {} a -> s {challengeResponse = a} :: ChallengeResponseType)
 
--- | The challenge name
+-- | The challenge name.
 challengeResponseType_challengeName :: Lens.Lens' ChallengeResponseType (Prelude.Maybe ChallengeName)
 challengeResponseType_challengeName = Lens.lens (\ChallengeResponseType' {challengeName} -> challengeName) (\s@ChallengeResponseType' {} a -> s {challengeName = a} :: ChallengeResponseType)
 

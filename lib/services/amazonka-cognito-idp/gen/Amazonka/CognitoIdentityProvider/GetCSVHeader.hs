@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the header information for the .csv file to be used as input for
--- the user import job.
+-- Gets the header information for the comma-separated value (CSV) file to
+-- be used as input for the user import job.
 module Amazonka.CognitoIdentityProvider.GetCSVHeader
   ( -- * Creating a Request
     GetCSVHeader (..),
@@ -48,8 +48,8 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Represents the request to get the header information for the .csv file
--- for the user import job.
+-- | Represents the request to get the header information of the CSV file for
+-- the user import job.
 --
 -- /See:/ 'newGetCSVHeader' smart constructor.
 data GetCSVHeader = GetCSVHeader'
@@ -129,11 +129,11 @@ instance Core.ToQuery GetCSVHeader where
   toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the response from the server to the request to get the header
--- information for the .csv file for the user import job.
+-- information of the CSV file for the user import job.
 --
 -- /See:/ 'newGetCSVHeaderResponse' smart constructor.
 data GetCSVHeaderResponse = GetCSVHeaderResponse'
-  { -- | The header information for the .csv file for the user import job.
+  { -- | The header information of the CSV file for the user import job.
     cSVHeader :: Prelude.Maybe [Prelude.Text],
     -- | The user pool ID for the user pool that the users are to be imported
     -- into.
@@ -151,7 +151,7 @@ data GetCSVHeaderResponse = GetCSVHeaderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cSVHeader', 'getCSVHeaderResponse_cSVHeader' - The header information for the .csv file for the user import job.
+-- 'cSVHeader', 'getCSVHeaderResponse_cSVHeader' - The header information of the CSV file for the user import job.
 --
 -- 'userPoolId', 'getCSVHeaderResponse_userPoolId' - The user pool ID for the user pool that the users are to be imported
 -- into.
@@ -168,7 +168,7 @@ newGetCSVHeaderResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The header information for the .csv file for the user import job.
+-- | The header information of the CSV file for the user import job.
 getCSVHeaderResponse_cSVHeader :: Lens.Lens' GetCSVHeaderResponse (Prelude.Maybe [Prelude.Text])
 getCSVHeaderResponse_cSVHeader = Lens.lens (\GetCSVHeaderResponse' {cSVHeader} -> cSVHeader) (\s@GetCSVHeaderResponse' {} a -> s {cSVHeader = a} :: GetCSVHeaderResponse) Prelude.. Lens.mapping Lens.coerced
 

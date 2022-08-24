@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the UI Customization information for a particular app client\'s app
--- UI, if there is something set. If nothing is set for the particular
--- client, but there is an existing pool level customization (app
--- @clientId@ will be @ALL@), then that is returned. If nothing is present,
--- then an empty shape is returned.
+-- Gets the user interface (UI) Customization information for a particular
+-- app client\'s app UI, if any such information exists for the client. If
+-- nothing is set for the particular client, but there is an existing pool
+-- level customization (the app @clientId@ is @ALL@), then that information
+-- is returned. If nothing is present, then an empty shape is returned.
 module Amazonka.CognitoIdentityProvider.GetUICustomization
   ( -- * Creating a Request
     GetUICustomization (..),

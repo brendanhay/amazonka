@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this API to register a user\'s entered TOTP code and mark the
--- user\'s software token MFA status as \"verified\" if successful. The
--- request takes an access token or a session string, but not both.
+-- Use this API to register a user\'s entered time-based one-time password
+-- (TOTP) code and mark the user\'s software token MFA status as
+-- \"verified\" if successful. The request takes an access token or a
+-- session string, but not both.
 module Amazonka.CognitoIdentityProvider.VerifySoftwareToken
   ( -- * Creating a Request
     VerifySoftwareToken (..),
@@ -54,15 +55,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newVerifySoftwareToken' smart constructor.
 data VerifySoftwareToken = VerifySoftwareToken'
-  { -- | The access token.
+  { -- | A valid access token that Amazon Cognito issued to the user whose
+    -- software token you want to verify.
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The session which should be passed both ways in challenge-response calls
+    -- | The session that should be passed both ways in challenge-response calls
     -- to the service.
     session :: Prelude.Maybe Prelude.Text,
     -- | The friendly device name.
     friendlyDeviceName :: Prelude.Maybe Prelude.Text,
-    -- | The one time password computed using the secret code returned by
-    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken\">.
+    -- | The one- time password computed using the secret code returned by
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken>.
     userCode :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -75,15 +77,16 @@ data VerifySoftwareToken = VerifySoftwareToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'verifySoftwareToken_accessToken' - The access token.
+-- 'accessToken', 'verifySoftwareToken_accessToken' - A valid access token that Amazon Cognito issued to the user whose
+-- software token you want to verify.
 --
--- 'session', 'verifySoftwareToken_session' - The session which should be passed both ways in challenge-response calls
+-- 'session', 'verifySoftwareToken_session' - The session that should be passed both ways in challenge-response calls
 -- to the service.
 --
 -- 'friendlyDeviceName', 'verifySoftwareToken_friendlyDeviceName' - The friendly device name.
 --
--- 'userCode', 'verifySoftwareToken_userCode' - The one time password computed using the secret code returned by
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken\">.
+-- 'userCode', 'verifySoftwareToken_userCode' - The one- time password computed using the secret code returned by
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken>.
 newVerifySoftwareToken ::
   -- | 'userCode'
   Prelude.Text ->
@@ -96,11 +99,12 @@ newVerifySoftwareToken pUserCode_ =
       userCode = pUserCode_
     }
 
--- | The access token.
+-- | A valid access token that Amazon Cognito issued to the user whose
+-- software token you want to verify.
 verifySoftwareToken_accessToken :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
 verifySoftwareToken_accessToken = Lens.lens (\VerifySoftwareToken' {accessToken} -> accessToken) (\s@VerifySoftwareToken' {} a -> s {accessToken = a} :: VerifySoftwareToken) Prelude.. Lens.mapping Core._Sensitive
 
--- | The session which should be passed both ways in challenge-response calls
+-- | The session that should be passed both ways in challenge-response calls
 -- to the service.
 verifySoftwareToken_session :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
 verifySoftwareToken_session = Lens.lens (\VerifySoftwareToken' {session} -> session) (\s@VerifySoftwareToken' {} a -> s {session = a} :: VerifySoftwareToken)
@@ -109,8 +113,8 @@ verifySoftwareToken_session = Lens.lens (\VerifySoftwareToken' {session} -> sess
 verifySoftwareToken_friendlyDeviceName :: Lens.Lens' VerifySoftwareToken (Prelude.Maybe Prelude.Text)
 verifySoftwareToken_friendlyDeviceName = Lens.lens (\VerifySoftwareToken' {friendlyDeviceName} -> friendlyDeviceName) (\s@VerifySoftwareToken' {} a -> s {friendlyDeviceName = a} :: VerifySoftwareToken)
 
--- | The one time password computed using the secret code returned by
--- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken\">.
+-- | The one- time password computed using the secret code returned by
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken>.
 verifySoftwareToken_userCode :: Lens.Lens' VerifySoftwareToken Prelude.Text
 verifySoftwareToken_userCode = Lens.lens (\VerifySoftwareToken' {userCode} -> userCode) (\s@VerifySoftwareToken' {} a -> s {userCode = a} :: VerifySoftwareToken)
 
@@ -177,7 +181,7 @@ instance Core.ToQuery VerifySoftwareToken where
 
 -- | /See:/ 'newVerifySoftwareTokenResponse' smart constructor.
 data VerifySoftwareTokenResponse = VerifySoftwareTokenResponse'
-  { -- | The session which should be passed both ways in challenge-response calls
+  { -- | The session that should be passed both ways in challenge-response calls
     -- to the service.
     session :: Prelude.Maybe Prelude.Text,
     -- | The status of the verify software token.
@@ -195,7 +199,7 @@ data VerifySoftwareTokenResponse = VerifySoftwareTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'session', 'verifySoftwareTokenResponse_session' - The session which should be passed both ways in challenge-response calls
+-- 'session', 'verifySoftwareTokenResponse_session' - The session that should be passed both ways in challenge-response calls
 -- to the service.
 --
 -- 'status', 'verifySoftwareTokenResponse_status' - The status of the verify software token.
@@ -213,7 +217,7 @@ newVerifySoftwareTokenResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The session which should be passed both ways in challenge-response calls
+-- | The session that should be passed both ways in challenge-response calls
 -- to the service.
 verifySoftwareTokenResponse_session :: Lens.Lens' VerifySoftwareTokenResponse (Prelude.Maybe Prelude.Text)
 verifySoftwareTokenResponse_session = Lens.lens (\VerifySoftwareTokenResponse' {session} -> session) (\s@VerifySoftwareTokenResponse' {} a -> s {session = a} :: VerifySoftwareTokenResponse)

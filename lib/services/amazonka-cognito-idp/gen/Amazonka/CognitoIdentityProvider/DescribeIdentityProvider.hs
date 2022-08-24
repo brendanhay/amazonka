@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about a specific identity provider.
+-- Gets information about a specific IdP.
 module Amazonka.CognitoIdentityProvider.DescribeIdentityProvider
   ( -- * Creating a Request
     DescribeIdentityProvider (..),
@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 data DescribeIdentityProvider = DescribeIdentityProvider'
   { -- | The user pool ID.
     userPoolId :: Prelude.Text,
-    -- | The identity provider name.
+    -- | The IdP name.
     providerName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +66,7 @@ data DescribeIdentityProvider = DescribeIdentityProvider'
 --
 -- 'userPoolId', 'describeIdentityProvider_userPoolId' - The user pool ID.
 --
--- 'providerName', 'describeIdentityProvider_providerName' - The identity provider name.
+-- 'providerName', 'describeIdentityProvider_providerName' - The IdP name.
 newDescribeIdentityProvider ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -86,7 +86,7 @@ newDescribeIdentityProvider
 describeIdentityProvider_userPoolId :: Lens.Lens' DescribeIdentityProvider Prelude.Text
 describeIdentityProvider_userPoolId = Lens.lens (\DescribeIdentityProvider' {userPoolId} -> userPoolId) (\s@DescribeIdentityProvider' {} a -> s {userPoolId = a} :: DescribeIdentityProvider)
 
--- | The identity provider name.
+-- | The IdP name.
 describeIdentityProvider_providerName :: Lens.Lens' DescribeIdentityProvider Prelude.Text
 describeIdentityProvider_providerName = Lens.lens (\DescribeIdentityProvider' {providerName} -> providerName) (\s@DescribeIdentityProvider' {} a -> s {providerName = a} :: DescribeIdentityProvider)
 
@@ -147,7 +147,7 @@ instance Core.ToQuery DescribeIdentityProvider where
 data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The identity provider that was deleted.
+    -- | The IdP that was deleted.
     identityProvider :: IdentityProviderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -162,7 +162,7 @@ data DescribeIdentityProviderResponse = DescribeIdentityProviderResponse'
 --
 -- 'httpStatus', 'describeIdentityProviderResponse_httpStatus' - The response's http status code.
 --
--- 'identityProvider', 'describeIdentityProviderResponse_identityProvider' - The identity provider that was deleted.
+-- 'identityProvider', 'describeIdentityProviderResponse_identityProvider' - The IdP that was deleted.
 newDescribeIdentityProviderResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -182,7 +182,7 @@ newDescribeIdentityProviderResponse
 describeIdentityProviderResponse_httpStatus :: Lens.Lens' DescribeIdentityProviderResponse Prelude.Int
 describeIdentityProviderResponse_httpStatus = Lens.lens (\DescribeIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@DescribeIdentityProviderResponse' {} a -> s {httpStatus = a} :: DescribeIdentityProviderResponse)
 
--- | The identity provider that was deleted.
+-- | The IdP that was deleted.
 describeIdentityProviderResponse_identityProvider :: Lens.Lens' DescribeIdentityProviderResponse IdentityProviderType
 describeIdentityProviderResponse_identityProvider = Lens.lens (\DescribeIdentityProviderResponse' {identityProvider} -> identityProvider) (\s@DescribeIdentityProviderResponse' {} a -> s {identityProvider = a} :: DescribeIdentityProviderResponse)
 

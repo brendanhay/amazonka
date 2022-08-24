@@ -21,6 +21,8 @@ module Amazonka.CognitoIdentityProvider.Types.EventType
   ( EventType
       ( ..,
         EventType_ForgotPassword,
+        EventType_PasswordChange,
+        EventType_ResendCode,
         EventType_SignIn,
         EventType_SignUp
       ),
@@ -61,6 +63,12 @@ newtype EventType = EventType'
 pattern EventType_ForgotPassword :: EventType
 pattern EventType_ForgotPassword = EventType' "ForgotPassword"
 
+pattern EventType_PasswordChange :: EventType
+pattern EventType_PasswordChange = EventType' "PasswordChange"
+
+pattern EventType_ResendCode :: EventType
+pattern EventType_ResendCode = EventType' "ResendCode"
+
 pattern EventType_SignIn :: EventType
 pattern EventType_SignIn = EventType' "SignIn"
 
@@ -69,6 +77,8 @@ pattern EventType_SignUp = EventType' "SignUp"
 
 {-# COMPLETE
   EventType_ForgotPassword,
+  EventType_PasswordChange,
+  EventType_ResendCode,
   EventType_SignIn,
   EventType_SignUp,
   EventType'

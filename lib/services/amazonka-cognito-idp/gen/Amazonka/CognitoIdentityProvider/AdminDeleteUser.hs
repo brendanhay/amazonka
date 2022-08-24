@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 data AdminDeleteUser = AdminDeleteUser'
   { -- | The user pool ID for the user pool where you want to delete the user.
     userPoolId :: Prelude.Text,
-    -- | The user name of the user you wish to delete.
+    -- | The user name of the user you want to delete.
     username :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -66,7 +66,7 @@ data AdminDeleteUser = AdminDeleteUser'
 --
 -- 'userPoolId', 'adminDeleteUser_userPoolId' - The user pool ID for the user pool where you want to delete the user.
 --
--- 'username', 'adminDeleteUser_username' - The user name of the user you wish to delete.
+-- 'username', 'adminDeleteUser_username' - The user name of the user you want to delete.
 newAdminDeleteUser ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -83,7 +83,7 @@ newAdminDeleteUser pUserPoolId_ pUsername_ =
 adminDeleteUser_userPoolId :: Lens.Lens' AdminDeleteUser Prelude.Text
 adminDeleteUser_userPoolId = Lens.lens (\AdminDeleteUser' {userPoolId} -> userPoolId) (\s@AdminDeleteUser' {} a -> s {userPoolId = a} :: AdminDeleteUser)
 
--- | The user name of the user you wish to delete.
+-- | The user name of the user you want to delete.
 adminDeleteUser_username :: Lens.Lens' AdminDeleteUser Prelude.Text
 adminDeleteUser_username = Lens.lens (\AdminDeleteUser' {username} -> username) (\s@AdminDeleteUser' {} a -> s {username = a} :: AdminDeleteUser) Prelude.. Core._Sensitive
 

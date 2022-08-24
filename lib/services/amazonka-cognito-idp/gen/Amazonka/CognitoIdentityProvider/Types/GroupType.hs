@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newGroupType' smart constructor.
 data GroupType = GroupType'
-  { -- | The role ARN for the group.
+  { -- | The role Amazon Resource Name (ARN) for the group.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The date the group was last modified.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
@@ -39,20 +39,20 @@ data GroupType = GroupType'
     description :: Prelude.Maybe Prelude.Text,
     -- | The user pool ID for the user pool.
     userPoolId :: Prelude.Maybe Prelude.Text,
-    -- | A nonnegative integer value that specifies the precedence of this group
+    -- | A non-negative integer value that specifies the precedence of this group
     -- relative to the other groups that a user can belong to in the user pool.
-    -- If a user belongs to two or more groups, it is the group with the
-    -- highest precedence whose role ARN will be used in the @cognito:roles@
-    -- and @cognito:preferred_role@ claims in the user\'s tokens. Groups with
-    -- higher @Precedence@ values take precedence over groups with lower
-    -- @Precedence@ values or with null @Precedence@ values.
+    -- Zero is the highest precedence value. Groups with lower @Precedence@
+    -- values take precedence over groups with higher ornull @Precedence@
+    -- values. If a user belongs to two or more groups, it is the group with
+    -- the lowest precedence value whose role ARN is given in the user\'s
+    -- tokens for the @cognito:roles@ and @cognito:preferred_role@ claims.
     --
     -- Two groups can have the same @Precedence@ value. If this happens,
     -- neither group takes precedence over the other. If two groups with the
     -- same @Precedence@ have the same role ARN, that role is used in the
     -- @cognito:preferred_role@ claim in tokens for users in each group. If the
     -- two groups have different role ARNs, the @cognito:preferred_role@ claim
-    -- is not set in users\' tokens.
+    -- isn\'t set in users\' tokens.
     --
     -- The default @Precedence@ value is null.
     precedence :: Prelude.Maybe Prelude.Natural
@@ -67,7 +67,7 @@ data GroupType = GroupType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'groupType_roleArn' - The role ARN for the group.
+-- 'roleArn', 'groupType_roleArn' - The role Amazon Resource Name (ARN) for the group.
 --
 -- 'lastModifiedDate', 'groupType_lastModifiedDate' - The date the group was last modified.
 --
@@ -79,20 +79,20 @@ data GroupType = GroupType'
 --
 -- 'userPoolId', 'groupType_userPoolId' - The user pool ID for the user pool.
 --
--- 'precedence', 'groupType_precedence' - A nonnegative integer value that specifies the precedence of this group
+-- 'precedence', 'groupType_precedence' - A non-negative integer value that specifies the precedence of this group
 -- relative to the other groups that a user can belong to in the user pool.
--- If a user belongs to two or more groups, it is the group with the
--- highest precedence whose role ARN will be used in the @cognito:roles@
--- and @cognito:preferred_role@ claims in the user\'s tokens. Groups with
--- higher @Precedence@ values take precedence over groups with lower
--- @Precedence@ values or with null @Precedence@ values.
+-- Zero is the highest precedence value. Groups with lower @Precedence@
+-- values take precedence over groups with higher ornull @Precedence@
+-- values. If a user belongs to two or more groups, it is the group with
+-- the lowest precedence value whose role ARN is given in the user\'s
+-- tokens for the @cognito:roles@ and @cognito:preferred_role@ claims.
 --
 -- Two groups can have the same @Precedence@ value. If this happens,
 -- neither group takes precedence over the other. If two groups with the
 -- same @Precedence@ have the same role ARN, that role is used in the
 -- @cognito:preferred_role@ claim in tokens for users in each group. If the
 -- two groups have different role ARNs, the @cognito:preferred_role@ claim
--- is not set in users\' tokens.
+-- isn\'t set in users\' tokens.
 --
 -- The default @Precedence@ value is null.
 newGroupType ::
@@ -108,7 +108,7 @@ newGroupType =
       precedence = Prelude.Nothing
     }
 
--- | The role ARN for the group.
+-- | The role Amazon Resource Name (ARN) for the group.
 groupType_roleArn :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
 groupType_roleArn = Lens.lens (\GroupType' {roleArn} -> roleArn) (\s@GroupType' {} a -> s {roleArn = a} :: GroupType)
 
@@ -132,20 +132,20 @@ groupType_description = Lens.lens (\GroupType' {description} -> description) (\s
 groupType_userPoolId :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Text)
 groupType_userPoolId = Lens.lens (\GroupType' {userPoolId} -> userPoolId) (\s@GroupType' {} a -> s {userPoolId = a} :: GroupType)
 
--- | A nonnegative integer value that specifies the precedence of this group
+-- | A non-negative integer value that specifies the precedence of this group
 -- relative to the other groups that a user can belong to in the user pool.
--- If a user belongs to two or more groups, it is the group with the
--- highest precedence whose role ARN will be used in the @cognito:roles@
--- and @cognito:preferred_role@ claims in the user\'s tokens. Groups with
--- higher @Precedence@ values take precedence over groups with lower
--- @Precedence@ values or with null @Precedence@ values.
+-- Zero is the highest precedence value. Groups with lower @Precedence@
+-- values take precedence over groups with higher ornull @Precedence@
+-- values. If a user belongs to two or more groups, it is the group with
+-- the lowest precedence value whose role ARN is given in the user\'s
+-- tokens for the @cognito:roles@ and @cognito:preferred_role@ claims.
 --
 -- Two groups can have the same @Precedence@ value. If this happens,
 -- neither group takes precedence over the other. If two groups with the
 -- same @Precedence@ have the same role ARN, that role is used in the
 -- @cognito:preferred_role@ claim in tokens for users in each group. If the
 -- two groups have different role ARNs, the @cognito:preferred_role@ claim
--- is not set in users\' tokens.
+-- isn\'t set in users\' tokens.
 --
 -- The default @Precedence@ value is null.
 groupType_precedence :: Lens.Lens' GroupType (Prelude.Maybe Prelude.Natural)

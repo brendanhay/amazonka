@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The device verifier against which it will be authenticated.
+-- | The device verifier against which it is authenticated.
 --
 -- /See:/ 'newDeviceSecretVerifierConfigType' smart constructor.
 data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
-  { -- | The salt.
+  { -- | The <https://en.wikipedia.org/wiki/Salt_(cryptography) salt>
     salt :: Prelude.Maybe Prelude.Text,
     -- | The password verifier.
     passwordVerifier :: Prelude.Maybe Prelude.Text
@@ -42,7 +42,7 @@ data DeviceSecretVerifierConfigType = DeviceSecretVerifierConfigType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'salt', 'deviceSecretVerifierConfigType_salt' - The salt.
+-- 'salt', 'deviceSecretVerifierConfigType_salt' - The <https://en.wikipedia.org/wiki/Salt_(cryptography) salt>
 --
 -- 'passwordVerifier', 'deviceSecretVerifierConfigType_passwordVerifier' - The password verifier.
 newDeviceSecretVerifierConfigType ::
@@ -54,7 +54,7 @@ newDeviceSecretVerifierConfigType =
       passwordVerifier = Prelude.Nothing
     }
 
--- | The salt.
+-- | The <https://en.wikipedia.org/wiki/Salt_(cryptography) salt>
 deviceSecretVerifierConfigType_salt :: Lens.Lens' DeviceSecretVerifierConfigType (Prelude.Maybe Prelude.Text)
 deviceSecretVerifierConfigType_salt = Lens.lens (\DeviceSecretVerifierConfigType' {salt} -> salt) (\s@DeviceSecretVerifierConfigType' {} a -> s {salt = a} :: DeviceSecretVerifierConfigType)
 

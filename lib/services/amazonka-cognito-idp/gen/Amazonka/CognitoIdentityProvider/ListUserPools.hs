@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the user pools associated with an account.
+-- Lists the user pools associated with an Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.CognitoIdentityProvider.ListUserPools

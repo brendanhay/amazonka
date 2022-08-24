@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates identity provider information for a user pool.
+-- Updates IdP information for a user pool.
 module Amazonka.CognitoIdentityProvider.UpdateIdentityProvider
   ( -- * Creating a Request
     UpdateIdentityProvider (..),
@@ -52,16 +52,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateIdentityProvider' smart constructor.
 data UpdateIdentityProvider = UpdateIdentityProvider'
-  { -- | The identity provider attribute mapping to be changed.
+  { -- | The IdP attribute mapping to be changed.
     attributeMapping :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The identity provider details to be updated, such as @MetadataURL@ and
-    -- @MetadataFile@.
+    -- | The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
     providerDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A list of identity provider identifiers.
+    -- | A list of IdP identifiers.
     idpIdentifiers :: Prelude.Maybe [Prelude.Text],
     -- | The user pool ID.
     userPoolId :: Prelude.Text,
-    -- | The identity provider name.
+    -- | The IdP name.
     providerName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,16 +73,15 @@ data UpdateIdentityProvider = UpdateIdentityProvider'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributeMapping', 'updateIdentityProvider_attributeMapping' - The identity provider attribute mapping to be changed.
+-- 'attributeMapping', 'updateIdentityProvider_attributeMapping' - The IdP attribute mapping to be changed.
 --
--- 'providerDetails', 'updateIdentityProvider_providerDetails' - The identity provider details to be updated, such as @MetadataURL@ and
--- @MetadataFile@.
+-- 'providerDetails', 'updateIdentityProvider_providerDetails' - The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
 --
--- 'idpIdentifiers', 'updateIdentityProvider_idpIdentifiers' - A list of identity provider identifiers.
+-- 'idpIdentifiers', 'updateIdentityProvider_idpIdentifiers' - A list of IdP identifiers.
 --
 -- 'userPoolId', 'updateIdentityProvider_userPoolId' - The user pool ID.
 --
--- 'providerName', 'updateIdentityProvider_providerName' - The identity provider name.
+-- 'providerName', 'updateIdentityProvider_providerName' - The IdP name.
 newUpdateIdentityProvider ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -100,16 +98,15 @@ newUpdateIdentityProvider pUserPoolId_ pProviderName_ =
       providerName = pProviderName_
     }
 
--- | The identity provider attribute mapping to be changed.
+-- | The IdP attribute mapping to be changed.
 updateIdentityProvider_attributeMapping :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateIdentityProvider_attributeMapping = Lens.lens (\UpdateIdentityProvider' {attributeMapping} -> attributeMapping) (\s@UpdateIdentityProvider' {} a -> s {attributeMapping = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
--- | The identity provider details to be updated, such as @MetadataURL@ and
--- @MetadataFile@.
+-- | The IdP details to be updated, such as @MetadataURL@ and @MetadataFile@.
 updateIdentityProvider_providerDetails :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateIdentityProvider_providerDetails = Lens.lens (\UpdateIdentityProvider' {providerDetails} -> providerDetails) (\s@UpdateIdentityProvider' {} a -> s {providerDetails = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of identity provider identifiers.
+-- | A list of IdP identifiers.
 updateIdentityProvider_idpIdentifiers :: Lens.Lens' UpdateIdentityProvider (Prelude.Maybe [Prelude.Text])
 updateIdentityProvider_idpIdentifiers = Lens.lens (\UpdateIdentityProvider' {idpIdentifiers} -> idpIdentifiers) (\s@UpdateIdentityProvider' {} a -> s {idpIdentifiers = a} :: UpdateIdentityProvider) Prelude.. Lens.mapping Lens.coerced
 
@@ -117,7 +114,7 @@ updateIdentityProvider_idpIdentifiers = Lens.lens (\UpdateIdentityProvider' {idp
 updateIdentityProvider_userPoolId :: Lens.Lens' UpdateIdentityProvider Prelude.Text
 updateIdentityProvider_userPoolId = Lens.lens (\UpdateIdentityProvider' {userPoolId} -> userPoolId) (\s@UpdateIdentityProvider' {} a -> s {userPoolId = a} :: UpdateIdentityProvider)
 
--- | The identity provider name.
+-- | The IdP name.
 updateIdentityProvider_providerName :: Lens.Lens' UpdateIdentityProvider Prelude.Text
 updateIdentityProvider_providerName = Lens.lens (\UpdateIdentityProvider' {providerName} -> providerName) (\s@UpdateIdentityProvider' {} a -> s {providerName = a} :: UpdateIdentityProvider)
 
@@ -190,7 +187,7 @@ instance Core.ToQuery UpdateIdentityProvider where
 data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The identity provider object.
+    -- | The IdP object.
     identityProvider :: IdentityProviderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -205,7 +202,7 @@ data UpdateIdentityProviderResponse = UpdateIdentityProviderResponse'
 --
 -- 'httpStatus', 'updateIdentityProviderResponse_httpStatus' - The response's http status code.
 --
--- 'identityProvider', 'updateIdentityProviderResponse_identityProvider' - The identity provider object.
+-- 'identityProvider', 'updateIdentityProviderResponse_identityProvider' - The IdP object.
 newUpdateIdentityProviderResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -225,7 +222,7 @@ newUpdateIdentityProviderResponse
 updateIdentityProviderResponse_httpStatus :: Lens.Lens' UpdateIdentityProviderResponse Prelude.Int
 updateIdentityProviderResponse_httpStatus = Lens.lens (\UpdateIdentityProviderResponse' {httpStatus} -> httpStatus) (\s@UpdateIdentityProviderResponse' {} a -> s {httpStatus = a} :: UpdateIdentityProviderResponse)
 
--- | The identity provider object.
+-- | The IdP object.
 updateIdentityProviderResponse_identityProvider :: Lens.Lens' UpdateIdentityProviderResponse IdentityProviderType
 updateIdentityProviderResponse_identityProvider = Lens.lens (\UpdateIdentityProviderResponse' {identityProvider} -> identityProvider) (\s@UpdateIdentityProviderResponse' {} a -> s {identityProvider = a} :: UpdateIdentityProviderResponse)
 

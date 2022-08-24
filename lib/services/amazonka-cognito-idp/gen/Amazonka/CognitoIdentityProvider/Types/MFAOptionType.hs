@@ -24,9 +24,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | /This data type is no longer supported./ You can use it only for SMS MFA
--- configurations. You can\'t use it for TOTP software token MFA
--- configurations.
+-- | /This data type is no longer supported./ Applies only to SMS
+-- multi-factor authentication (MFA) configurations. Does not apply to
+-- time-based one-time password (TOTP) software token MFA configurations.
 --
 -- /See:/ 'newMFAOptionType' smart constructor.
 data MFAOptionType = MFAOptionType'

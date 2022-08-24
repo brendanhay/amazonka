@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists information about all identity providers for a user pool.
+-- Lists information about all IdPs for a user pool.
 --
 -- This operation returns paginated results.
 module Amazonka.CognitoIdentityProvider.ListIdentityProviders
@@ -55,7 +55,7 @@ import qualified Amazonka.Response as Response
 data ListIdentityProviders = ListIdentityProviders'
   { -- | A pagination token.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of identity providers to return.
+    -- | The maximum number of IdPs to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The user pool ID.
     userPoolId :: Prelude.Text
@@ -72,7 +72,7 @@ data ListIdentityProviders = ListIdentityProviders'
 --
 -- 'nextToken', 'listIdentityProviders_nextToken' - A pagination token.
 --
--- 'maxResults', 'listIdentityProviders_maxResults' - The maximum number of identity providers to return.
+-- 'maxResults', 'listIdentityProviders_maxResults' - The maximum number of IdPs to return.
 --
 -- 'userPoolId', 'listIdentityProviders_userPoolId' - The user pool ID.
 newListIdentityProviders ::
@@ -90,7 +90,7 @@ newListIdentityProviders pUserPoolId_ =
 listIdentityProviders_nextToken :: Lens.Lens' ListIdentityProviders (Prelude.Maybe Prelude.Text)
 listIdentityProviders_nextToken = Lens.lens (\ListIdentityProviders' {nextToken} -> nextToken) (\s@ListIdentityProviders' {} a -> s {nextToken = a} :: ListIdentityProviders)
 
--- | The maximum number of identity providers to return.
+-- | The maximum number of IdPs to return.
 listIdentityProviders_maxResults :: Lens.Lens' ListIdentityProviders (Prelude.Maybe Prelude.Natural)
 listIdentityProviders_maxResults = Lens.lens (\ListIdentityProviders' {maxResults} -> maxResults) (\s@ListIdentityProviders' {} a -> s {maxResults = a} :: ListIdentityProviders)
 
@@ -180,7 +180,7 @@ data ListIdentityProvidersResponse = ListIdentityProvidersResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | A list of identity provider objects.
+    -- | A list of IdP objects.
     providers :: [ProviderDescription]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -197,7 +197,7 @@ data ListIdentityProvidersResponse = ListIdentityProvidersResponse'
 --
 -- 'httpStatus', 'listIdentityProvidersResponse_httpStatus' - The response's http status code.
 --
--- 'providers', 'listIdentityProvidersResponse_providers' - A list of identity provider objects.
+-- 'providers', 'listIdentityProvidersResponse_providers' - A list of IdP objects.
 newListIdentityProvidersResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -218,7 +218,7 @@ listIdentityProvidersResponse_nextToken = Lens.lens (\ListIdentityProvidersRespo
 listIdentityProvidersResponse_httpStatus :: Lens.Lens' ListIdentityProvidersResponse Prelude.Int
 listIdentityProvidersResponse_httpStatus = Lens.lens (\ListIdentityProvidersResponse' {httpStatus} -> httpStatus) (\s@ListIdentityProvidersResponse' {} a -> s {httpStatus = a} :: ListIdentityProvidersResponse)
 
--- | A list of identity provider objects.
+-- | A list of IdP objects.
 listIdentityProvidersResponse_providers :: Lens.Lens' ListIdentityProvidersResponse [ProviderDescription]
 listIdentityProvidersResponse_providers = Lens.lens (\ListIdentityProvidersResponse' {providers} -> providers) (\s@ListIdentityProvidersResponse' {} a -> s {providers = a} :: ListIdentityProvidersResponse) Prelude.. Lens.coerced
 

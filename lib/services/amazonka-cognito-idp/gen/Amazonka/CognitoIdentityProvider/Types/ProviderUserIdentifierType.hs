@@ -23,17 +23,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A container for information about an identity provider for a user pool.
+-- | A container for information about an IdP for a user pool.
 --
 -- /See:/ 'newProviderUserIdentifierType' smart constructor.
 data ProviderUserIdentifierType = ProviderUserIdentifierType'
-  { -- | The name of the provider, for example, Facebook, Google, or Login with
+  { -- | The name of the provider, such as Facebook, Google, or Login with
     -- Amazon.
     providerName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the provider attribute to link to, for example, @NameID@.
+    -- | The name of the provider attribute to link to, such as @NameID@.
     providerAttributeName :: Prelude.Maybe Prelude.Text,
-    -- | The value of the provider attribute to link to, for example,
-    -- @xxxxx_account@.
+    -- | The value of the provider attribute to link to, such as @xxxxx_account@.
     providerAttributeValue :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,13 +45,12 @@ data ProviderUserIdentifierType = ProviderUserIdentifierType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'providerName', 'providerUserIdentifierType_providerName' - The name of the provider, for example, Facebook, Google, or Login with
+-- 'providerName', 'providerUserIdentifierType_providerName' - The name of the provider, such as Facebook, Google, or Login with
 -- Amazon.
 --
--- 'providerAttributeName', 'providerUserIdentifierType_providerAttributeName' - The name of the provider attribute to link to, for example, @NameID@.
+-- 'providerAttributeName', 'providerUserIdentifierType_providerAttributeName' - The name of the provider attribute to link to, such as @NameID@.
 --
--- 'providerAttributeValue', 'providerUserIdentifierType_providerAttributeValue' - The value of the provider attribute to link to, for example,
--- @xxxxx_account@.
+-- 'providerAttributeValue', 'providerUserIdentifierType_providerAttributeValue' - The value of the provider attribute to link to, such as @xxxxx_account@.
 newProviderUserIdentifierType ::
   ProviderUserIdentifierType
 newProviderUserIdentifierType =
@@ -63,17 +61,16 @@ newProviderUserIdentifierType =
       providerAttributeValue = Prelude.Nothing
     }
 
--- | The name of the provider, for example, Facebook, Google, or Login with
+-- | The name of the provider, such as Facebook, Google, or Login with
 -- Amazon.
 providerUserIdentifierType_providerName :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
 providerUserIdentifierType_providerName = Lens.lens (\ProviderUserIdentifierType' {providerName} -> providerName) (\s@ProviderUserIdentifierType' {} a -> s {providerName = a} :: ProviderUserIdentifierType)
 
--- | The name of the provider attribute to link to, for example, @NameID@.
+-- | The name of the provider attribute to link to, such as @NameID@.
 providerUserIdentifierType_providerAttributeName :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
 providerUserIdentifierType_providerAttributeName = Lens.lens (\ProviderUserIdentifierType' {providerAttributeName} -> providerAttributeName) (\s@ProviderUserIdentifierType' {} a -> s {providerAttributeName = a} :: ProviderUserIdentifierType)
 
--- | The value of the provider attribute to link to, for example,
--- @xxxxx_account@.
+-- | The value of the provider attribute to link to, such as @xxxxx_account@.
 providerUserIdentifierType_providerAttributeValue :: Lens.Lens' ProviderUserIdentifierType (Prelude.Maybe Prelude.Text)
 providerUserIdentifierType_providerAttributeValue = Lens.lens (\ProviderUserIdentifierType' {providerAttributeValue} -> providerAttributeValue) (\s@ProviderUserIdentifierType' {} a -> s {providerAttributeValue = a} :: ProviderUserIdentifierType)
 

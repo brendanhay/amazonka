@@ -51,7 +51,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetDevice' smart constructor.
 data GetDevice = GetDevice'
-  { -- | The access token.
+  { -- | A valid access token that Amazon Cognito issued to the user whose device
+    -- information you want to request.
     accessToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The device key.
     deviceKey :: Prelude.Text
@@ -66,7 +67,8 @@ data GetDevice = GetDevice'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'getDevice_accessToken' - The access token.
+-- 'accessToken', 'getDevice_accessToken' - A valid access token that Amazon Cognito issued to the user whose device
+-- information you want to request.
 --
 -- 'deviceKey', 'getDevice_deviceKey' - The device key.
 newGetDevice ::
@@ -79,7 +81,8 @@ newGetDevice pDeviceKey_ =
       deviceKey = pDeviceKey_
     }
 
--- | The access token.
+-- | A valid access token that Amazon Cognito issued to the user whose device
+-- information you want to request.
 getDevice_accessToken :: Lens.Lens' GetDevice (Prelude.Maybe Prelude.Text)
 getDevice_accessToken = Lens.lens (\GetDevice' {accessToken} -> accessToken) (\s@GetDevice' {} a -> s {accessToken = a} :: GetDevice) Prelude.. Lens.mapping Core._Sensitive
 

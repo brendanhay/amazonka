@@ -54,8 +54,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetUser' smart constructor.
 data GetUser = GetUser'
-  { -- | The access token returned by the server response to get information
-    -- about the user.
+  { -- | A non-expired access token for the user whose information you want to
+    -- query.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -68,8 +68,8 @@ data GetUser = GetUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'getUser_accessToken' - The access token returned by the server response to get information
--- about the user.
+-- 'accessToken', 'getUser_accessToken' - A non-expired access token for the user whose information you want to
+-- query.
 newGetUser ::
   -- | 'accessToken'
   Prelude.Text ->
@@ -80,8 +80,8 @@ newGetUser pAccessToken_ =
         Core._Sensitive Lens.# pAccessToken_
     }
 
--- | The access token returned by the server response to get information
--- about the user.
+-- | A non-expired access token for the user whose information you want to
+-- query.
 getUser_accessToken :: Lens.Lens' GetUser Prelude.Text
 getUser_accessToken = Lens.lens (\GetUser' {accessToken} -> accessToken) (\s@GetUser' {} a -> s {accessToken = a} :: GetUser) Prelude.. Core._Sensitive
 
@@ -144,20 +144,20 @@ instance Core.ToQuery GetUser where
 --
 -- /See:/ 'newGetUserResponse' smart constructor.
 data GetUserResponse = GetUserResponse'
-  { -- | The MFA options that are enabled for the user. The possible values in
+  { -- | The MFA options that are activated for the user. The possible values in
     -- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
     userMFASettingList :: Prelude.Maybe [Prelude.Text],
     -- | The user\'s preferred MFA setting.
     preferredMfaSetting :: Prelude.Maybe Prelude.Text,
     -- | /This response parameter is no longer supported./ It provides
     -- information only about SMS MFA configurations. It doesn\'t provide
-    -- information about TOTP software token MFA configurations. To look up
-    -- information about either type of MFA configuration, use
-    -- UserMFASettingList instead.
+    -- information about time-based one-time password (TOTP) software token MFA
+    -- configurations. To look up information about either type of MFA
+    -- configuration, use UserMFASettingList instead.
     mfaOptions :: Prelude.Maybe [MFAOptionType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The user name of the user you wish to retrieve from the get user
+    -- | The user name of the user you want to retrieve from the get user
     -- request.
     username :: Core.Sensitive Prelude.Text,
     -- | An array of name-value pairs representing user attributes.
@@ -176,20 +176,20 @@ data GetUserResponse = GetUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userMFASettingList', 'getUserResponse_userMFASettingList' - The MFA options that are enabled for the user. The possible values in
+-- 'userMFASettingList', 'getUserResponse_userMFASettingList' - The MFA options that are activated for the user. The possible values in
 -- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
 --
 -- 'preferredMfaSetting', 'getUserResponse_preferredMfaSetting' - The user\'s preferred MFA setting.
 --
 -- 'mfaOptions', 'getUserResponse_mfaOptions' - /This response parameter is no longer supported./ It provides
 -- information only about SMS MFA configurations. It doesn\'t provide
--- information about TOTP software token MFA configurations. To look up
--- information about either type of MFA configuration, use
--- UserMFASettingList instead.
+-- information about time-based one-time password (TOTP) software token MFA
+-- configurations. To look up information about either type of MFA
+-- configuration, use UserMFASettingList instead.
 --
 -- 'httpStatus', 'getUserResponse_httpStatus' - The response's http status code.
 --
--- 'username', 'getUserResponse_username' - The user name of the user you wish to retrieve from the get user
+-- 'username', 'getUserResponse_username' - The user name of the user you want to retrieve from the get user
 -- request.
 --
 -- 'userAttributes', 'getUserResponse_userAttributes' - An array of name-value pairs representing user attributes.
@@ -213,7 +213,7 @@ newGetUserResponse pHttpStatus_ pUsername_ =
       userAttributes = Prelude.mempty
     }
 
--- | The MFA options that are enabled for the user. The possible values in
+-- | The MFA options that are activated for the user. The possible values in
 -- this list are @SMS_MFA@ and @SOFTWARE_TOKEN_MFA@.
 getUserResponse_userMFASettingList :: Lens.Lens' GetUserResponse (Prelude.Maybe [Prelude.Text])
 getUserResponse_userMFASettingList = Lens.lens (\GetUserResponse' {userMFASettingList} -> userMFASettingList) (\s@GetUserResponse' {} a -> s {userMFASettingList = a} :: GetUserResponse) Prelude.. Lens.mapping Lens.coerced
@@ -224,9 +224,9 @@ getUserResponse_preferredMfaSetting = Lens.lens (\GetUserResponse' {preferredMfa
 
 -- | /This response parameter is no longer supported./ It provides
 -- information only about SMS MFA configurations. It doesn\'t provide
--- information about TOTP software token MFA configurations. To look up
--- information about either type of MFA configuration, use
--- UserMFASettingList instead.
+-- information about time-based one-time password (TOTP) software token MFA
+-- configurations. To look up information about either type of MFA
+-- configuration, use UserMFASettingList instead.
 getUserResponse_mfaOptions :: Lens.Lens' GetUserResponse (Prelude.Maybe [MFAOptionType])
 getUserResponse_mfaOptions = Lens.lens (\GetUserResponse' {mfaOptions} -> mfaOptions) (\s@GetUserResponse' {} a -> s {mfaOptions = a} :: GetUserResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -234,7 +234,7 @@ getUserResponse_mfaOptions = Lens.lens (\GetUserResponse' {mfaOptions} -> mfaOpt
 getUserResponse_httpStatus :: Lens.Lens' GetUserResponse Prelude.Int
 getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpStatus) (\s@GetUserResponse' {} a -> s {httpStatus = a} :: GetUserResponse)
 
--- | The user name of the user you wish to retrieve from the get user
+-- | The user name of the user you want to retrieve from the get user
 -- request.
 getUserResponse_username :: Lens.Lens' GetUserResponse Prelude.Text
 getUserResponse_username = Lens.lens (\GetUserResponse' {username} -> username) (\s@GetUserResponse' {} a -> s {username = a} :: GetUserResponse) Prelude.. Core._Sensitive

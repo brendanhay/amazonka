@@ -50,13 +50,14 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteUserAttributes' smart constructor.
 data DeleteUserAttributes = DeleteUserAttributes'
-  { -- | An array of strings representing the user attribute names you wish to
+  { -- | An array of strings representing the user attribute names you want to
     -- delete.
     --
-    -- For custom attributes, you must prepend the @custom:@ prefix to the
-    -- attribute name.
+    -- For custom attributes, you must prependattach the @custom:@ prefix to
+    -- the front of the attribute name.
     userAttributeNames :: [Prelude.Text],
-    -- | The access token used in the request to delete user attributes.
+    -- | A valid access token that Amazon Cognito issued to the user whose
+    -- attributes you want to delete.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -69,13 +70,14 @@ data DeleteUserAttributes = DeleteUserAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'userAttributeNames', 'deleteUserAttributes_userAttributeNames' - An array of strings representing the user attribute names you wish to
+-- 'userAttributeNames', 'deleteUserAttributes_userAttributeNames' - An array of strings representing the user attribute names you want to
 -- delete.
 --
--- For custom attributes, you must prepend the @custom:@ prefix to the
--- attribute name.
+-- For custom attributes, you must prependattach the @custom:@ prefix to
+-- the front of the attribute name.
 --
--- 'accessToken', 'deleteUserAttributes_accessToken' - The access token used in the request to delete user attributes.
+-- 'accessToken', 'deleteUserAttributes_accessToken' - A valid access token that Amazon Cognito issued to the user whose
+-- attributes you want to delete.
 newDeleteUserAttributes ::
   -- | 'accessToken'
   Prelude.Text ->
@@ -87,15 +89,16 @@ newDeleteUserAttributes pAccessToken_ =
       accessToken = Core._Sensitive Lens.# pAccessToken_
     }
 
--- | An array of strings representing the user attribute names you wish to
+-- | An array of strings representing the user attribute names you want to
 -- delete.
 --
--- For custom attributes, you must prepend the @custom:@ prefix to the
--- attribute name.
+-- For custom attributes, you must prependattach the @custom:@ prefix to
+-- the front of the attribute name.
 deleteUserAttributes_userAttributeNames :: Lens.Lens' DeleteUserAttributes [Prelude.Text]
 deleteUserAttributes_userAttributeNames = Lens.lens (\DeleteUserAttributes' {userAttributeNames} -> userAttributeNames) (\s@DeleteUserAttributes' {} a -> s {userAttributeNames = a} :: DeleteUserAttributes) Prelude.. Lens.coerced
 
--- | The access token used in the request to delete user attributes.
+-- | A valid access token that Amazon Cognito issued to the user whose
+-- attributes you want to delete.
 deleteUserAttributes_accessToken :: Lens.Lens' DeleteUserAttributes Prelude.Text
 deleteUserAttributes_accessToken = Lens.lens (\DeleteUserAttributes' {accessToken} -> accessToken) (\s@DeleteUserAttributes' {} a -> s {accessToken = a} :: DeleteUserAttributes) Prelude.. Core._Sensitive
 

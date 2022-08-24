@@ -46,7 +46,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { -- | The access token from a request to delete a user.
+  { -- | A valid access token that Amazon Cognito issued to the user whose user
+    -- profile you want to delete.
     accessToken :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -59,7 +60,8 @@ data DeleteUser = DeleteUser'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accessToken', 'deleteUser_accessToken' - The access token from a request to delete a user.
+-- 'accessToken', 'deleteUser_accessToken' - A valid access token that Amazon Cognito issued to the user whose user
+-- profile you want to delete.
 newDeleteUser ::
   -- | 'accessToken'
   Prelude.Text ->
@@ -70,7 +72,8 @@ newDeleteUser pAccessToken_ =
         Core._Sensitive Lens.# pAccessToken_
     }
 
--- | The access token from a request to delete a user.
+-- | A valid access token that Amazon Cognito issued to the user whose user
+-- profile you want to delete.
 deleteUser_accessToken :: Lens.Lens' DeleteUser Prelude.Text
 deleteUser_accessToken = Lens.lens (\DeleteUser' {accessToken} -> accessToken) (\s@DeleteUser' {} a -> s {accessToken = a} :: DeleteUser) Prelude.. Core._Sensitive
 

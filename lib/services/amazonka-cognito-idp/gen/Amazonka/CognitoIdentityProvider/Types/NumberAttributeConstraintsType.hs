@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The minimum and maximum value of an attribute that is of the number data
--- type.
+-- | The minimum and maximum values of an attribute that is of the number
+-- data type.
 --
 -- /See:/ 'newNumberAttributeConstraintsType' smart constructor.
 data NumberAttributeConstraintsType = NumberAttributeConstraintsType'

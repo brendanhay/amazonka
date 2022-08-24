@@ -57,8 +57,8 @@ data CreateUserImportJob = CreateUserImportJob'
     -- | The user pool ID for the user pool that the users are being imported
     -- into.
     userPoolId :: Prelude.Text,
-    -- | The role ARN for the Amazon CloudWatch Logging role for the user import
-    -- job.
+    -- | The role ARN for the Amazon CloudWatch Logs Logging role for the user
+    -- import job.
     cloudWatchLogsRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,8 +76,8 @@ data CreateUserImportJob = CreateUserImportJob'
 -- 'userPoolId', 'createUserImportJob_userPoolId' - The user pool ID for the user pool that the users are being imported
 -- into.
 --
--- 'cloudWatchLogsRoleArn', 'createUserImportJob_cloudWatchLogsRoleArn' - The role ARN for the Amazon CloudWatch Logging role for the user import
--- job.
+-- 'cloudWatchLogsRoleArn', 'createUserImportJob_cloudWatchLogsRoleArn' - The role ARN for the Amazon CloudWatch Logs Logging role for the user
+-- import job.
 newCreateUserImportJob ::
   -- | 'jobName'
   Prelude.Text ->
@@ -105,8 +105,8 @@ createUserImportJob_jobName = Lens.lens (\CreateUserImportJob' {jobName} -> jobN
 createUserImportJob_userPoolId :: Lens.Lens' CreateUserImportJob Prelude.Text
 createUserImportJob_userPoolId = Lens.lens (\CreateUserImportJob' {userPoolId} -> userPoolId) (\s@CreateUserImportJob' {} a -> s {userPoolId = a} :: CreateUserImportJob)
 
--- | The role ARN for the Amazon CloudWatch Logging role for the user import
--- job.
+-- | The role ARN for the Amazon CloudWatch Logs Logging role for the user
+-- import job.
 createUserImportJob_cloudWatchLogsRoleArn :: Lens.Lens' CreateUserImportJob Prelude.Text
 createUserImportJob_cloudWatchLogsRoleArn = Lens.lens (\CreateUserImportJob' {cloudWatchLogsRoleArn} -> cloudWatchLogsRoleArn) (\s@CreateUserImportJob' {} a -> s {cloudWatchLogsRoleArn = a} :: CreateUserImportJob)
 

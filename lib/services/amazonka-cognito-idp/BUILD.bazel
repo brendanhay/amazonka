@@ -179,6 +179,7 @@ haskell_library(
         "gen/Amazonka/CognitoIdentityProvider/Types/TimeUnitsType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/TokenValidityUnitsType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/UICustomizationType.hs",
+        "gen/Amazonka/CognitoIdentityProvider/Types/UserAttributeUpdateSettingsType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/UserContextDataType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/UserImportJobStatusType.hs",
         "gen/Amazonka/CognitoIdentityProvider/Types/UserImportJobType.hs",

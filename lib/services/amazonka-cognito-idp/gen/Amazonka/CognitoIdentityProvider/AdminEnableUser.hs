@@ -54,7 +54,7 @@ import qualified Amazonka.Response as Response
 data AdminEnableUser = AdminEnableUser'
   { -- | The user pool ID for the user pool where you want to enable the user.
     userPoolId :: Prelude.Text,
-    -- | The user name of the user you wish to enable.
+    -- | The user name of the user you want to enable.
     username :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -69,7 +69,7 @@ data AdminEnableUser = AdminEnableUser'
 --
 -- 'userPoolId', 'adminEnableUser_userPoolId' - The user pool ID for the user pool where you want to enable the user.
 --
--- 'username', 'adminEnableUser_username' - The user name of the user you wish to enable.
+-- 'username', 'adminEnableUser_username' - The user name of the user you want to enable.
 newAdminEnableUser ::
   -- | 'userPoolId'
   Prelude.Text ->
@@ -86,7 +86,7 @@ newAdminEnableUser pUserPoolId_ pUsername_ =
 adminEnableUser_userPoolId :: Lens.Lens' AdminEnableUser Prelude.Text
 adminEnableUser_userPoolId = Lens.lens (\AdminEnableUser' {userPoolId} -> userPoolId) (\s@AdminEnableUser' {} a -> s {userPoolId = a} :: AdminEnableUser)
 
--- | The user name of the user you wish to enable.
+-- | The user name of the user you want to enable.
 adminEnableUser_username :: Lens.Lens' AdminEnableUser Prelude.Text
 adminEnableUser_username = Lens.lens (\AdminEnableUser' {username} -> username) (\s@AdminEnableUser' {} a -> s {username = a} :: AdminEnableUser) Prelude.. Core._Sensitive
 

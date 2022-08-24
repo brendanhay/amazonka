@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNotifyConfigurationType' smart constructor.
 data NotifyConfigurationType = NotifyConfigurationType'
-  { -- | The email address that is sending the email. It must be either
-    -- individually verified with Amazon SES, or from a domain that has been
-    -- verified with Amazon SES.
+  { -- | The email address that is sending the email. The address must be either
+    -- individually verified with Amazon Simple Email Service, or from a domain
+    -- that has been verified with Amazon SES.
     from :: Prelude.Maybe Prelude.Text,
-    -- | The MFA email template used when MFA is challenged as part of a detected
-    -- risk.
+    -- | The multi-factor authentication (MFA) email template used when MFA is
+    -- challenged as part of a detected risk.
     mfaEmail :: Prelude.Maybe NotifyEmailType,
     -- | Email template used when a detected risk event is blocked.
     blockEmail :: Prelude.Maybe NotifyEmailType,
@@ -42,8 +42,8 @@ data NotifyConfigurationType = NotifyConfigurationType'
     -- | The destination to which the receiver of an email should reply to.
     replyTo :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the identity that is associated with
-    -- the sending authorization policy. It permits Amazon Cognito to send for
-    -- the email address specified in the @From@ parameter.
+    -- the sending authorization policy. This identity permits Amazon Cognito
+    -- to send for the email address specified in the @From@ parameter.
     sourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -56,12 +56,12 @@ data NotifyConfigurationType = NotifyConfigurationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'from', 'notifyConfigurationType_from' - The email address that is sending the email. It must be either
--- individually verified with Amazon SES, or from a domain that has been
--- verified with Amazon SES.
+-- 'from', 'notifyConfigurationType_from' - The email address that is sending the email. The address must be either
+-- individually verified with Amazon Simple Email Service, or from a domain
+-- that has been verified with Amazon SES.
 --
--- 'mfaEmail', 'notifyConfigurationType_mfaEmail' - The MFA email template used when MFA is challenged as part of a detected
--- risk.
+-- 'mfaEmail', 'notifyConfigurationType_mfaEmail' - The multi-factor authentication (MFA) email template used when MFA is
+-- challenged as part of a detected risk.
 --
 -- 'blockEmail', 'notifyConfigurationType_blockEmail' - Email template used when a detected risk event is blocked.
 --
@@ -70,8 +70,8 @@ data NotifyConfigurationType = NotifyConfigurationType'
 -- 'replyTo', 'notifyConfigurationType_replyTo' - The destination to which the receiver of an email should reply to.
 --
 -- 'sourceArn', 'notifyConfigurationType_sourceArn' - The Amazon Resource Name (ARN) of the identity that is associated with
--- the sending authorization policy. It permits Amazon Cognito to send for
--- the email address specified in the @From@ parameter.
+-- the sending authorization policy. This identity permits Amazon Cognito
+-- to send for the email address specified in the @From@ parameter.
 newNotifyConfigurationType ::
   -- | 'sourceArn'
   Prelude.Text ->
@@ -86,14 +86,14 @@ newNotifyConfigurationType pSourceArn_ =
       sourceArn = pSourceArn_
     }
 
--- | The email address that is sending the email. It must be either
--- individually verified with Amazon SES, or from a domain that has been
--- verified with Amazon SES.
+-- | The email address that is sending the email. The address must be either
+-- individually verified with Amazon Simple Email Service, or from a domain
+-- that has been verified with Amazon SES.
 notifyConfigurationType_from :: Lens.Lens' NotifyConfigurationType (Prelude.Maybe Prelude.Text)
 notifyConfigurationType_from = Lens.lens (\NotifyConfigurationType' {from} -> from) (\s@NotifyConfigurationType' {} a -> s {from = a} :: NotifyConfigurationType)
 
--- | The MFA email template used when MFA is challenged as part of a detected
--- risk.
+-- | The multi-factor authentication (MFA) email template used when MFA is
+-- challenged as part of a detected risk.
 notifyConfigurationType_mfaEmail :: Lens.Lens' NotifyConfigurationType (Prelude.Maybe NotifyEmailType)
 notifyConfigurationType_mfaEmail = Lens.lens (\NotifyConfigurationType' {mfaEmail} -> mfaEmail) (\s@NotifyConfigurationType' {} a -> s {mfaEmail = a} :: NotifyConfigurationType)
 
@@ -110,8 +110,8 @@ notifyConfigurationType_replyTo :: Lens.Lens' NotifyConfigurationType (Prelude.M
 notifyConfigurationType_replyTo = Lens.lens (\NotifyConfigurationType' {replyTo} -> replyTo) (\s@NotifyConfigurationType' {} a -> s {replyTo = a} :: NotifyConfigurationType)
 
 -- | The Amazon Resource Name (ARN) of the identity that is associated with
--- the sending authorization policy. It permits Amazon Cognito to send for
--- the email address specified in the @From@ parameter.
+-- the sending authorization policy. This identity permits Amazon Cognito
+-- to send for the email address specified in the @From@ parameter.
 notifyConfigurationType_sourceArn :: Lens.Lens' NotifyConfigurationType Prelude.Text
 notifyConfigurationType_sourceArn = Lens.lens (\NotifyConfigurationType' {sourceArn} -> sourceArn) (\s@NotifyConfigurationType' {} a -> s {sourceArn = a} :: NotifyConfigurationType)
 

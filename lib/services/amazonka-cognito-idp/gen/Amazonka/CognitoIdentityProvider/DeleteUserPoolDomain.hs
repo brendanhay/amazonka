@@ -48,7 +48,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteUserPoolDomain' smart constructor.
 data DeleteUserPoolDomain = DeleteUserPoolDomain'
-  { -- | The domain string.
+  { -- | The domain string. For custom domains, this is the fully-qualified
+    -- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+    -- domains, this is the prefix alone, such as @auth@.
     domain :: Prelude.Text,
     -- | The user pool ID.
     userPoolId :: Prelude.Text
@@ -63,7 +65,9 @@ data DeleteUserPoolDomain = DeleteUserPoolDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domain', 'deleteUserPoolDomain_domain' - The domain string.
+-- 'domain', 'deleteUserPoolDomain_domain' - The domain string. For custom domains, this is the fully-qualified
+-- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+-- domains, this is the prefix alone, such as @auth@.
 --
 -- 'userPoolId', 'deleteUserPoolDomain_userPoolId' - The user pool ID.
 newDeleteUserPoolDomain ::
@@ -78,7 +82,9 @@ newDeleteUserPoolDomain pDomain_ pUserPoolId_ =
       userPoolId = pUserPoolId_
     }
 
--- | The domain string.
+-- | The domain string. For custom domains, this is the fully-qualified
+-- domain name, such as @auth.example.com@. For Amazon Cognito prefix
+-- domains, this is the prefix alone, such as @auth@.
 deleteUserPoolDomain_domain :: Lens.Lens' DeleteUserPoolDomain Prelude.Text
 deleteUserPoolDomain_domain = Lens.lens (\DeleteUserPoolDomain' {domain} -> domain) (\s@DeleteUserPoolDomain' {} a -> s {domain = a} :: DeleteUserPoolDomain)
 

@@ -22,6 +22,12 @@
 --
 -- Creates a map resource in your AWS account, which provides map tiles of
 -- different styles sourced from global location data providers.
+--
+-- If your application is tracking or routing assets you use in your
+-- business, such as delivery vehicles or employees, you may only use HERE
+-- as your geolocation provider. See section 82 of the
+-- <http://aws.amazon.com/service-terms AWS service terms> for more
+-- details.
 module Amazonka.Location.CreateMap
   ( -- * Creating a Request
     CreateMap (..),
@@ -30,9 +36,9 @@ module Amazonka.Location.CreateMap
     -- * Request Lenses
     createMap_tags,
     createMap_description,
+    createMap_pricingPlan,
     createMap_configuration,
     createMap_mapName,
-    createMap_pricingPlan,
 
     -- * Destructuring the Response
     CreateMapResponse (..),
@@ -73,9 +79,14 @@ data CreateMap = CreateMap'
     --
     -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
     --     characters: + - = . _ : \/ \@.
+    --
+    -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An optional description for the map resource.
     description :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | Specifies the map style selected from an available data provider.
     configuration :: MapConfiguration,
     -- | The name for the map resource.
@@ -88,12 +99,7 @@ data CreateMap = CreateMap'
     -- -   Must be a unique map resource name.
     --
     -- -   No spaces allowed. For example, @ExampleMap@.
-    mapName :: Prelude.Text,
-    -- | Specifies the pricing plan for your map resource.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-    pricingPlan :: PricingPlan
+    mapName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,7 +130,12 @@ data CreateMap = CreateMap'
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
 --
+-- -   Cannot use \"aws:\" as a prefix for a key.
+--
 -- 'description', 'createMap_description' - An optional description for the map resource.
+--
+-- 'pricingPlan', 'createMap_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
 -- 'configuration', 'createMap_configuration' - Specifies the map style selected from an available data provider.
 --
@@ -138,26 +149,19 @@ data CreateMap = CreateMap'
 -- -   Must be a unique map resource name.
 --
 -- -   No spaces allowed. For example, @ExampleMap@.
---
--- 'pricingPlan', 'createMap_pricingPlan' - Specifies the pricing plan for your map resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
 newCreateMap ::
   -- | 'configuration'
   MapConfiguration ->
   -- | 'mapName'
   Prelude.Text ->
-  -- | 'pricingPlan'
-  PricingPlan ->
   CreateMap
-newCreateMap pConfiguration_ pMapName_ pPricingPlan_ =
+newCreateMap pConfiguration_ pMapName_ =
   CreateMap'
     { tags = Prelude.Nothing,
       description = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
       configuration = pConfiguration_,
-      mapName = pMapName_,
-      pricingPlan = pPricingPlan_
+      mapName = pMapName_
     }
 
 -- | Applies one or more tags to the map resource. A tag is a key-value pair
@@ -178,12 +182,19 @@ newCreateMap pConfiguration_ pMapName_ pPricingPlan_ =
 --
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
 createMap_tags :: Lens.Lens' CreateMap (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createMap_tags = Lens.lens (\CreateMap' {tags} -> tags) (\s@CreateMap' {} a -> s {tags = a} :: CreateMap) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional description for the map resource.
 createMap_description :: Lens.Lens' CreateMap (Prelude.Maybe Prelude.Text)
 createMap_description = Lens.lens (\CreateMap' {description} -> description) (\s@CreateMap' {} a -> s {description = a} :: CreateMap)
+
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createMap_pricingPlan :: Lens.Lens' CreateMap (Prelude.Maybe PricingPlan)
+createMap_pricingPlan = Lens.lens (\CreateMap' {pricingPlan} -> pricingPlan) (\s@CreateMap' {} a -> s {pricingPlan = a} :: CreateMap)
 
 -- | Specifies the map style selected from an available data provider.
 createMap_configuration :: Lens.Lens' CreateMap MapConfiguration
@@ -202,13 +213,6 @@ createMap_configuration = Lens.lens (\CreateMap' {configuration} -> configuratio
 createMap_mapName :: Lens.Lens' CreateMap Prelude.Text
 createMap_mapName = Lens.lens (\CreateMap' {mapName} -> mapName) (\s@CreateMap' {} a -> s {mapName = a} :: CreateMap)
 
--- | Specifies the pricing plan for your map resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-createMap_pricingPlan :: Lens.Lens' CreateMap PricingPlan
-createMap_pricingPlan = Lens.lens (\CreateMap' {pricingPlan} -> pricingPlan) (\s@CreateMap' {} a -> s {pricingPlan = a} :: CreateMap)
-
 instance Core.AWSRequest CreateMap where
   type AWSResponse CreateMap = CreateMapResponse
   request = Request.postJSON defaultService
@@ -226,17 +230,17 @@ instance Prelude.Hashable CreateMap where
   hashWithSalt _salt CreateMap' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` configuration
       `Prelude.hashWithSalt` mapName
-      `Prelude.hashWithSalt` pricingPlan
 
 instance Prelude.NFData CreateMap where
   rnf CreateMap' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf configuration
       `Prelude.seq` Prelude.rnf mapName
-      `Prelude.seq` Prelude.rnf pricingPlan
 
 instance Core.ToHeaders CreateMap where
   toHeaders =
@@ -255,9 +259,9 @@ instance Core.ToJSON CreateMap where
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
             Prelude.Just ("Configuration" Core..= configuration),
-            Prelude.Just ("MapName" Core..= mapName),
-            Prelude.Just ("PricingPlan" Core..= pricingPlan)
+            Prelude.Just ("MapName" Core..= mapName)
           ]
       )
 

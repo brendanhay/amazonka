@@ -54,10 +54,8 @@ import qualified Amazonka.Response as Response
 data UpdateRouteCalculator = UpdateRouteCalculator'
   { -- | Updates the description for the route calculator resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Updates the pricing plan for the route calculator resource.
-    --
-    -- For more information about each pricing plan option restrictions, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the route calculator resource to update.
     calculatorName :: Prelude.Text
@@ -74,10 +72,8 @@ data UpdateRouteCalculator = UpdateRouteCalculator'
 --
 -- 'description', 'updateRouteCalculator_description' - Updates the description for the route calculator resource.
 --
--- 'pricingPlan', 'updateRouteCalculator_pricingPlan' - Updates the pricing plan for the route calculator resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- 'pricingPlan', 'updateRouteCalculator_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
 -- 'calculatorName', 'updateRouteCalculator_calculatorName' - The name of the route calculator resource to update.
 newUpdateRouteCalculator ::
@@ -96,10 +92,8 @@ newUpdateRouteCalculator pCalculatorName_ =
 updateRouteCalculator_description :: Lens.Lens' UpdateRouteCalculator (Prelude.Maybe Prelude.Text)
 updateRouteCalculator_description = Lens.lens (\UpdateRouteCalculator' {description} -> description) (\s@UpdateRouteCalculator' {} a -> s {description = a} :: UpdateRouteCalculator)
 
--- | Updates the pricing plan for the route calculator resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 updateRouteCalculator_pricingPlan :: Lens.Lens' UpdateRouteCalculator (Prelude.Maybe PricingPlan)
 updateRouteCalculator_pricingPlan = Lens.lens (\UpdateRouteCalculator' {pricingPlan} -> pricingPlan) (\s@UpdateRouteCalculator' {} a -> s {pricingPlan = a} :: UpdateRouteCalculator)
 

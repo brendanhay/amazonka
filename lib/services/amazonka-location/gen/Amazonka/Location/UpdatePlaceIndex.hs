@@ -57,10 +57,8 @@ data UpdatePlaceIndex = UpdatePlaceIndex'
     dataSourceConfiguration :: Prelude.Maybe DataSourceConfiguration,
     -- | Updates the description for the place index resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Updates the pricing plan for the place index resource.
-    --
-    -- For more information about each pricing plan option restrictions, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the place index resource to update.
     indexName :: Prelude.Text
@@ -79,10 +77,8 @@ data UpdatePlaceIndex = UpdatePlaceIndex'
 --
 -- 'description', 'updatePlaceIndex_description' - Updates the description for the place index resource.
 --
--- 'pricingPlan', 'updatePlaceIndex_pricingPlan' - Updates the pricing plan for the place index resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- 'pricingPlan', 'updatePlaceIndex_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
 -- 'indexName', 'updatePlaceIndex_indexName' - The name of the place index resource to update.
 newUpdatePlaceIndex ::
@@ -106,10 +102,8 @@ updatePlaceIndex_dataSourceConfiguration = Lens.lens (\UpdatePlaceIndex' {dataSo
 updatePlaceIndex_description :: Lens.Lens' UpdatePlaceIndex (Prelude.Maybe Prelude.Text)
 updatePlaceIndex_description = Lens.lens (\UpdatePlaceIndex' {description} -> description) (\s@UpdatePlaceIndex' {} a -> s {description = a} :: UpdatePlaceIndex)
 
--- | Updates the pricing plan for the place index resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 updatePlaceIndex_pricingPlan :: Lens.Lens' UpdatePlaceIndex (Prelude.Maybe PricingPlan)
 updatePlaceIndex_pricingPlan = Lens.lens (\UpdatePlaceIndex' {pricingPlan} -> pricingPlan) (\s@UpdatePlaceIndex' {} a -> s {pricingPlan = a} :: UpdatePlaceIndex)
 

@@ -23,27 +23,31 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A summary of the reverse geocoding request sent using
--- @SearchPlaceIndexForPosition@.
+-- | A summary of the request sent by using @SearchPlaceIndexForPosition@.
 --
 -- /See:/ 'newSearchPlaceIndexForPositionSummary' smart constructor.
 data SearchPlaceIndexForPositionSummary = SearchPlaceIndexForPositionSummary'
-  { -- | An optional parameter. The maximum number of results returned per
+  { -- | Contains the optional result count limit that is specified in the
     -- request.
     --
     -- Default value: @50@
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The data provider of geospatial data. Indicates one of the available
-    -- providers:
+    -- | The preferred language used to return results. Matches the language in
+    -- the request. The value is a valid
+    -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
+    -- @en@ for English.
+    language :: Prelude.Maybe Prelude.Text,
+    -- | The geospatial data provider attached to the place index resource
+    -- specified in the request. Values can be one of the following:
     --
     -- -   Esri
     --
-    -- -   HERE
+    -- -   Here
     --
-    -- For additional details on data providers, see
+    -- For more information about data providers, see
     -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
     dataSource :: Prelude.Text,
-    -- | The position given in the reverse geocoding request.
+    -- | The position specified in the request.
     position :: Core.Sensitive (Prelude.NonEmpty Prelude.Double)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -56,22 +60,27 @@ data SearchPlaceIndexForPositionSummary = SearchPlaceIndexForPositionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'searchPlaceIndexForPositionSummary_maxResults' - An optional parameter. The maximum number of results returned per
+-- 'maxResults', 'searchPlaceIndexForPositionSummary_maxResults' - Contains the optional result count limit that is specified in the
 -- request.
 --
 -- Default value: @50@
 --
--- 'dataSource', 'searchPlaceIndexForPositionSummary_dataSource' - The data provider of geospatial data. Indicates one of the available
--- providers:
+-- 'language', 'searchPlaceIndexForPositionSummary_language' - The preferred language used to return results. Matches the language in
+-- the request. The value is a valid
+-- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
+-- @en@ for English.
+--
+-- 'dataSource', 'searchPlaceIndexForPositionSummary_dataSource' - The geospatial data provider attached to the place index resource
+-- specified in the request. Values can be one of the following:
 --
 -- -   Esri
 --
--- -   HERE
+-- -   Here
 --
--- For additional details on data providers, see
+-- For more information about data providers, see
 -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
 --
--- 'position', 'searchPlaceIndexForPositionSummary_position' - The position given in the reverse geocoding request.
+-- 'position', 'searchPlaceIndexForPositionSummary_position' - The position specified in the request.
 newSearchPlaceIndexForPositionSummary ::
   -- | 'dataSource'
   Prelude.Text ->
@@ -84,32 +93,40 @@ newSearchPlaceIndexForPositionSummary
     SearchPlaceIndexForPositionSummary'
       { maxResults =
           Prelude.Nothing,
+        language = Prelude.Nothing,
         dataSource = pDataSource_,
         position =
           Core._Sensitive Prelude.. Lens.coerced
             Lens.# pPosition_
       }
 
--- | An optional parameter. The maximum number of results returned per
+-- | Contains the optional result count limit that is specified in the
 -- request.
 --
 -- Default value: @50@
 searchPlaceIndexForPositionSummary_maxResults :: Lens.Lens' SearchPlaceIndexForPositionSummary (Prelude.Maybe Prelude.Natural)
 searchPlaceIndexForPositionSummary_maxResults = Lens.lens (\SearchPlaceIndexForPositionSummary' {maxResults} -> maxResults) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {maxResults = a} :: SearchPlaceIndexForPositionSummary)
 
--- | The data provider of geospatial data. Indicates one of the available
--- providers:
+-- | The preferred language used to return results. Matches the language in
+-- the request. The value is a valid
+-- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
+-- @en@ for English.
+searchPlaceIndexForPositionSummary_language :: Lens.Lens' SearchPlaceIndexForPositionSummary (Prelude.Maybe Prelude.Text)
+searchPlaceIndexForPositionSummary_language = Lens.lens (\SearchPlaceIndexForPositionSummary' {language} -> language) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {language = a} :: SearchPlaceIndexForPositionSummary)
+
+-- | The geospatial data provider attached to the place index resource
+-- specified in the request. Values can be one of the following:
 --
 -- -   Esri
 --
--- -   HERE
+-- -   Here
 --
--- For additional details on data providers, see
+-- For more information about data providers, see
 -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
 searchPlaceIndexForPositionSummary_dataSource :: Lens.Lens' SearchPlaceIndexForPositionSummary Prelude.Text
 searchPlaceIndexForPositionSummary_dataSource = Lens.lens (\SearchPlaceIndexForPositionSummary' {dataSource} -> dataSource) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {dataSource = a} :: SearchPlaceIndexForPositionSummary)
 
--- | The position given in the reverse geocoding request.
+-- | The position specified in the request.
 searchPlaceIndexForPositionSummary_position :: Lens.Lens' SearchPlaceIndexForPositionSummary (Prelude.NonEmpty Prelude.Double)
 searchPlaceIndexForPositionSummary_position = Lens.lens (\SearchPlaceIndexForPositionSummary' {position} -> position) (\s@SearchPlaceIndexForPositionSummary' {} a -> s {position = a} :: SearchPlaceIndexForPositionSummary) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
@@ -123,6 +140,7 @@ instance
       ( \x ->
           SearchPlaceIndexForPositionSummary'
             Prelude.<$> (x Core..:? "MaxResults")
+            Prelude.<*> (x Core..:? "Language")
             Prelude.<*> (x Core..: "DataSource")
             Prelude.<*> (x Core..: "Position")
       )
@@ -135,6 +153,7 @@ instance
     _salt
     SearchPlaceIndexForPositionSummary' {..} =
       _salt `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` language
         `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` position
 
@@ -144,5 +163,6 @@ instance
   where
   rnf SearchPlaceIndexForPositionSummary' {..} =
     Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf language
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf position

@@ -54,10 +54,8 @@ import qualified Amazonka.Response as Response
 data UpdateMap = UpdateMap'
   { -- | Updates the description for the map resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Updates the pricing plan for the map resource.
-    --
-    -- For more information about each pricing plan option restrictions, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the map resource to update.
     mapName :: Prelude.Text
@@ -74,10 +72,8 @@ data UpdateMap = UpdateMap'
 --
 -- 'description', 'updateMap_description' - Updates the description for the map resource.
 --
--- 'pricingPlan', 'updateMap_pricingPlan' - Updates the pricing plan for the map resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- 'pricingPlan', 'updateMap_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
 -- 'mapName', 'updateMap_mapName' - The name of the map resource to update.
 newUpdateMap ::
@@ -95,10 +91,8 @@ newUpdateMap pMapName_ =
 updateMap_description :: Lens.Lens' UpdateMap (Prelude.Maybe Prelude.Text)
 updateMap_description = Lens.lens (\UpdateMap' {description} -> description) (\s@UpdateMap' {} a -> s {description = a} :: UpdateMap)
 
--- | Updates the pricing plan for the map resource.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 updateMap_pricingPlan :: Lens.Lens' UpdateMap (Prelude.Maybe PricingPlan)
 updateMap_pricingPlan = Lens.lens (\UpdateMap' {pricingPlan} -> pricingPlan) (\s@UpdateMap' {} a -> s {pricingPlan = a} :: UpdateMap)
 

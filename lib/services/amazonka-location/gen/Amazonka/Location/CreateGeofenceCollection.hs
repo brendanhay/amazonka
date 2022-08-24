@@ -30,9 +30,9 @@ module Amazonka.Location.CreateGeofenceCollection
     createGeofenceCollection_tags,
     createGeofenceCollection_description,
     createGeofenceCollection_pricingPlanDataSource,
+    createGeofenceCollection_pricingPlan,
     createGeofenceCollection_kmsKeyId,
     createGeofenceCollection_collectionName,
-    createGeofenceCollection_pricingPlan,
 
     -- * Destructuring the Response
     CreateGeofenceCollectionResponse (..),
@@ -73,26 +73,16 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
     --
     -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
     --     characters: + - = . _ : \/ \@.
+    --
+    -- -   Cannot use \"aws:\" as a prefix for a key.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An optional description for the geofence collection.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the data provider for the geofence collection.
-    --
-    -- -   Required value for the following pricing plans:
-    --     @MobileAssetTracking @| @MobileAssetManagement@
-    --
-    -- For more information about
-    -- <https://aws.amazon.com/location/data-providers/ Data Providers>, and
-    -- <https://aws.amazon.com/location/pricing/ Pricing plans>, see the Amazon
-    -- Location Service product page.
-    --
-    -- Amazon Location Service only uses @PricingPlanDataSource@ to calculate
-    -- billing for your geofence collection. Your data won\'t be shared with
-    -- the data provider, and will remain in your AWS account or Region unless
-    -- you move it.
-    --
-    -- Valid Values: @Esri @| @Here@
+    -- | This parameter is no longer used.
     pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | A key identifier for an
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
     -- Enter a key ID, key ARN, alias name, or alias ARN.
@@ -107,13 +97,7 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
     -- -   Must be a unique geofence collection name.
     --
     -- -   No spaces allowed. For example, @ExampleGeofenceCollection@.
-    collectionName :: Prelude.Text,
-    -- | Specifies the pricing plan for the geofence collection.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- the
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
-    pricingPlan :: PricingPlan
+    collectionName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -144,24 +128,14 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
 --
+-- -   Cannot use \"aws:\" as a prefix for a key.
+--
 -- 'description', 'createGeofenceCollection_description' - An optional description for the geofence collection.
 --
--- 'pricingPlanDataSource', 'createGeofenceCollection_pricingPlanDataSource' - Specifies the data provider for the geofence collection.
+-- 'pricingPlanDataSource', 'createGeofenceCollection_pricingPlanDataSource' - This parameter is no longer used.
 --
--- -   Required value for the following pricing plans:
---     @MobileAssetTracking @| @MobileAssetManagement@
---
--- For more information about
--- <https://aws.amazon.com/location/data-providers/ Data Providers>, and
--- <https://aws.amazon.com/location/pricing/ Pricing plans>, see the Amazon
--- Location Service product page.
---
--- Amazon Location Service only uses @PricingPlanDataSource@ to calculate
--- billing for your geofence collection. Your data won\'t be shared with
--- the data provider, and will remain in your AWS account or Region unless
--- you move it.
---
--- Valid Values: @Esri @| @Here@
+-- 'pricingPlan', 'createGeofenceCollection_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
 -- 'kmsKeyId', 'createGeofenceCollection_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
@@ -177,29 +151,19 @@ data CreateGeofenceCollection = CreateGeofenceCollection'
 -- -   Must be a unique geofence collection name.
 --
 -- -   No spaces allowed. For example, @ExampleGeofenceCollection@.
---
--- 'pricingPlan', 'createGeofenceCollection_pricingPlan' - Specifies the pricing plan for the geofence collection.
---
--- For additional details and restrictions on each pricing plan option, see
--- the
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
 newCreateGeofenceCollection ::
   -- | 'collectionName'
   Prelude.Text ->
-  -- | 'pricingPlan'
-  PricingPlan ->
   CreateGeofenceCollection
-newCreateGeofenceCollection
-  pCollectionName_
-  pPricingPlan_ =
-    CreateGeofenceCollection'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
-        pricingPlanDataSource = Prelude.Nothing,
-        kmsKeyId = Prelude.Nothing,
-        collectionName = pCollectionName_,
-        pricingPlan = pPricingPlan_
-      }
+newCreateGeofenceCollection pCollectionName_ =
+  CreateGeofenceCollection'
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      pricingPlanDataSource = Prelude.Nothing,
+      pricingPlan = Prelude.Nothing,
+      kmsKeyId = Prelude.Nothing,
+      collectionName = pCollectionName_
+    }
 
 -- | Applies one or more tags to the geofence collection. A tag is a
 -- key-value pair helps manage, identify, search, and filter your resources
@@ -219,6 +183,8 @@ newCreateGeofenceCollection
 --
 -- -   Can use alphanumeric characters (A–Z, a–z, 0–9), and the following
 --     characters: + - = . _ : \/ \@.
+--
+-- -   Cannot use \"aws:\" as a prefix for a key.
 createGeofenceCollection_tags :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createGeofenceCollection_tags = Lens.lens (\CreateGeofenceCollection' {tags} -> tags) (\s@CreateGeofenceCollection' {} a -> s {tags = a} :: CreateGeofenceCollection) Prelude.. Lens.mapping Lens.coerced
 
@@ -226,24 +192,14 @@ createGeofenceCollection_tags = Lens.lens (\CreateGeofenceCollection' {tags} -> 
 createGeofenceCollection_description :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
 createGeofenceCollection_description = Lens.lens (\CreateGeofenceCollection' {description} -> description) (\s@CreateGeofenceCollection' {} a -> s {description = a} :: CreateGeofenceCollection)
 
--- | Specifies the data provider for the geofence collection.
---
--- -   Required value for the following pricing plans:
---     @MobileAssetTracking @| @MobileAssetManagement@
---
--- For more information about
--- <https://aws.amazon.com/location/data-providers/ Data Providers>, and
--- <https://aws.amazon.com/location/pricing/ Pricing plans>, see the Amazon
--- Location Service product page.
---
--- Amazon Location Service only uses @PricingPlanDataSource@ to calculate
--- billing for your geofence collection. Your data won\'t be shared with
--- the data provider, and will remain in your AWS account or Region unless
--- you move it.
---
--- Valid Values: @Esri @| @Here@
+-- | This parameter is no longer used.
 createGeofenceCollection_pricingPlanDataSource :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe Prelude.Text)
 createGeofenceCollection_pricingPlanDataSource = Lens.lens (\CreateGeofenceCollection' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@CreateGeofenceCollection' {} a -> s {pricingPlanDataSource = a} :: CreateGeofenceCollection)
+
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
+createGeofenceCollection_pricingPlan :: Lens.Lens' CreateGeofenceCollection (Prelude.Maybe PricingPlan)
+createGeofenceCollection_pricingPlan = Lens.lens (\CreateGeofenceCollection' {pricingPlan} -> pricingPlan) (\s@CreateGeofenceCollection' {} a -> s {pricingPlan = a} :: CreateGeofenceCollection)
 
 -- | A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>.
@@ -263,14 +219,6 @@ createGeofenceCollection_kmsKeyId = Lens.lens (\CreateGeofenceCollection' {kmsKe
 -- -   No spaces allowed. For example, @ExampleGeofenceCollection@.
 createGeofenceCollection_collectionName :: Lens.Lens' CreateGeofenceCollection Prelude.Text
 createGeofenceCollection_collectionName = Lens.lens (\CreateGeofenceCollection' {collectionName} -> collectionName) (\s@CreateGeofenceCollection' {} a -> s {collectionName = a} :: CreateGeofenceCollection)
-
--- | Specifies the pricing plan for the geofence collection.
---
--- For additional details and restrictions on each pricing plan option, see
--- the
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
-createGeofenceCollection_pricingPlan :: Lens.Lens' CreateGeofenceCollection PricingPlan
-createGeofenceCollection_pricingPlan = Lens.lens (\CreateGeofenceCollection' {pricingPlan} -> pricingPlan) (\s@CreateGeofenceCollection' {} a -> s {pricingPlan = a} :: CreateGeofenceCollection)
 
 instance Core.AWSRequest CreateGeofenceCollection where
   type
@@ -292,18 +240,18 @@ instance Prelude.Hashable CreateGeofenceCollection where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` pricingPlanDataSource
+      `Prelude.hashWithSalt` pricingPlan
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` collectionName
-      `Prelude.hashWithSalt` pricingPlan
 
 instance Prelude.NFData CreateGeofenceCollection where
   rnf CreateGeofenceCollection' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf collectionName
-      `Prelude.seq` Prelude.rnf pricingPlan
 
 instance Core.ToHeaders CreateGeofenceCollection where
   toHeaders =
@@ -324,10 +272,10 @@ instance Core.ToJSON CreateGeofenceCollection where
             ("Description" Core..=) Prelude.<$> description,
             ("PricingPlanDataSource" Core..=)
               Prelude.<$> pricingPlanDataSource,
+            ("PricingPlan" Core..=) Prelude.<$> pricingPlan,
             ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             Prelude.Just
-              ("CollectionName" Core..= collectionName),
-            Prelude.Just ("PricingPlan" Core..= pricingPlan)
+              ("CollectionName" Core..= collectionName)
           ]
       )
 

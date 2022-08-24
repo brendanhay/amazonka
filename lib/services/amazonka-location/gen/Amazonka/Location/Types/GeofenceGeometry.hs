@@ -21,9 +21,14 @@ module Amazonka.Location.Types.GeofenceGeometry where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Location.Types.Circle
 import qualified Amazonka.Prelude as Prelude
 
 -- | Contains the geofence geometry details.
+--
+-- A geofence geometry is made up of either a polygon or a circle. Can be
+-- either a polygon or a circle. Including both will return a validation
+-- error.
 --
 -- Amazon Location doesn\'t currently support polygons with holes,
 -- multipolygons, polygons that are wound clockwise, or that cross the
@@ -42,7 +47,11 @@ data GeofenceGeometry = GeofenceGeometry'
     -- counter-clockwise order around the ring\'s center, where the left side
     -- is the polygon\'s exterior. Inner rings must list their vertices in
     -- clockwise order, where the left side is the polygon\'s interior.
-    polygon :: Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Core.Sensitive (Prelude.NonEmpty Prelude.Double))))
+    --
+    -- A geofence polygon can consist of between 4 and 1,000 vertices.
+    polygon :: Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Core.Sensitive (Prelude.NonEmpty Prelude.Double)))),
+    -- | A circle on the earth, as defined by a center point and a radius.
+    circle :: Prelude.Maybe (Core.Sensitive Circle)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -65,10 +74,17 @@ data GeofenceGeometry = GeofenceGeometry'
 -- counter-clockwise order around the ring\'s center, where the left side
 -- is the polygon\'s exterior. Inner rings must list their vertices in
 -- clockwise order, where the left side is the polygon\'s interior.
+--
+-- A geofence polygon can consist of between 4 and 1,000 vertices.
+--
+-- 'circle', 'geofenceGeometry_circle' - A circle on the earth, as defined by a center point and a radius.
 newGeofenceGeometry ::
   GeofenceGeometry
 newGeofenceGeometry =
-  GeofenceGeometry' {polygon = Prelude.Nothing}
+  GeofenceGeometry'
+    { polygon = Prelude.Nothing,
+      circle = Prelude.Nothing
+    }
 
 -- | An array of 1 or more linear rings. A linear ring is an array of 4 or
 -- more vertices, where the first and last vertex are the same to form a
@@ -81,27 +97,40 @@ newGeofenceGeometry =
 -- counter-clockwise order around the ring\'s center, where the left side
 -- is the polygon\'s exterior. Inner rings must list their vertices in
 -- clockwise order, where the left side is the polygon\'s interior.
+--
+-- A geofence polygon can consist of between 4 and 1,000 vertices.
 geofenceGeometry_polygon :: Lens.Lens' GeofenceGeometry (Prelude.Maybe (Prelude.NonEmpty (Prelude.NonEmpty (Prelude.NonEmpty Prelude.Double))))
 geofenceGeometry_polygon = Lens.lens (\GeofenceGeometry' {polygon} -> polygon) (\s@GeofenceGeometry' {} a -> s {polygon = a} :: GeofenceGeometry) Prelude.. Lens.mapping Lens.coerced
+
+-- | A circle on the earth, as defined by a center point and a radius.
+geofenceGeometry_circle :: Lens.Lens' GeofenceGeometry (Prelude.Maybe Circle)
+geofenceGeometry_circle = Lens.lens (\GeofenceGeometry' {circle} -> circle) (\s@GeofenceGeometry' {} a -> s {circle = a} :: GeofenceGeometry) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON GeofenceGeometry where
   parseJSON =
     Core.withObject
       "GeofenceGeometry"
       ( \x ->
-          GeofenceGeometry' Prelude.<$> (x Core..:? "Polygon")
+          GeofenceGeometry'
+            Prelude.<$> (x Core..:? "Polygon")
+            Prelude.<*> (x Core..:? "Circle")
       )
 
 instance Prelude.Hashable GeofenceGeometry where
   hashWithSalt _salt GeofenceGeometry' {..} =
     _salt `Prelude.hashWithSalt` polygon
+      `Prelude.hashWithSalt` circle
 
 instance Prelude.NFData GeofenceGeometry where
-  rnf GeofenceGeometry' {..} = Prelude.rnf polygon
+  rnf GeofenceGeometry' {..} =
+    Prelude.rnf polygon
+      `Prelude.seq` Prelude.rnf circle
 
 instance Core.ToJSON GeofenceGeometry where
   toJSON GeofenceGeometry' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("Polygon" Core..=) Prelude.<$> polygon]
+          [ ("Polygon" Core..=) Prelude.<$> polygon,
+            ("Circle" Core..=) Prelude.<$> circle
+          ]
       )

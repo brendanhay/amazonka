@@ -23,36 +23,48 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A summary of the geocoding request sent using @SearchPlaceIndexForText@.
+-- | A summary of the request sent by using @SearchPlaceIndexForText@.
 --
 -- /See:/ 'newSearchPlaceIndexForTextSummary' smart constructor.
 data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
-  { -- | Contains the coordinates for the optional bounding box coordinated
-    -- entered in the geocoding request.
-    filterBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
-    -- | A bounding box that contains the search results within the specified
-    -- area indicated by @FilterBBox@. A subset of bounding box specified using
-    -- @FilterBBox@.
-    resultBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
-    -- | Contains the coordinates for the bias position entered in the geocoding
+  { -- | Contains the coordinates for the optional bounding box specified in the
     -- request.
+    filterBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    -- | The bounding box that fully contains all search results.
+    --
+    -- If you specified the optional @FilterBBox@ parameter in the request,
+    -- @ResultBBox@ is contained within @FilterBBox@.
+    resultBBox :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
+    -- | Contains the coordinates for the optional bias position specified in the
+    -- request.
+    --
+    -- This parameter contains a pair of numbers. The first number represents
+    -- the X coordinate, or longitude; the second number represents the Y
+    -- coordinate, or latitude.
+    --
+    -- For example, @[-123.1174, 49.2847]@ represents the position with
+    -- longitude @-123.1174@ and latitude @49.2847@.
     biasPosition :: Prelude.Maybe (Core.Sensitive (Prelude.NonEmpty Prelude.Double)),
-    -- | Contains the country filter entered in the geocoding request.
+    -- | Contains the optional country filter specified in the request.
     filterCountries :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Contains the maximum number of results indicated for the request.
+    -- | Contains the optional result count limit specified in the request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The data provider of geospatial data. Indicates one of the available
-    -- providers:
+    -- | The preferred language used to return results. Matches the language in
+    -- the request. The value is a valid
+    -- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
+    -- @en@ for English.
+    language :: Prelude.Maybe Prelude.Text,
+    -- | The geospatial data provider attached to the place index resource
+    -- specified in the request. Values can be one of the following:
     --
     -- -   Esri
     --
-    -- -   HERE
+    -- -   Here
     --
-    -- For additional details on data providers, see
+    -- For more information about data providers, see
     -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
     dataSource :: Prelude.Text,
-    -- | The address, name, city or region to be used in the geocoding request.
-    -- In free-form text format. For example, @Vancouver@.
+    -- | The search text specified in the request.
     text :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -65,32 +77,44 @@ data SearchPlaceIndexForTextSummary = SearchPlaceIndexForTextSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'filterBBox', 'searchPlaceIndexForTextSummary_filterBBox' - Contains the coordinates for the optional bounding box coordinated
--- entered in the geocoding request.
---
--- 'resultBBox', 'searchPlaceIndexForTextSummary_resultBBox' - A bounding box that contains the search results within the specified
--- area indicated by @FilterBBox@. A subset of bounding box specified using
--- @FilterBBox@.
---
--- 'biasPosition', 'searchPlaceIndexForTextSummary_biasPosition' - Contains the coordinates for the bias position entered in the geocoding
+-- 'filterBBox', 'searchPlaceIndexForTextSummary_filterBBox' - Contains the coordinates for the optional bounding box specified in the
 -- request.
 --
--- 'filterCountries', 'searchPlaceIndexForTextSummary_filterCountries' - Contains the country filter entered in the geocoding request.
+-- 'resultBBox', 'searchPlaceIndexForTextSummary_resultBBox' - The bounding box that fully contains all search results.
 --
--- 'maxResults', 'searchPlaceIndexForTextSummary_maxResults' - Contains the maximum number of results indicated for the request.
+-- If you specified the optional @FilterBBox@ parameter in the request,
+-- @ResultBBox@ is contained within @FilterBBox@.
 --
--- 'dataSource', 'searchPlaceIndexForTextSummary_dataSource' - The data provider of geospatial data. Indicates one of the available
--- providers:
+-- 'biasPosition', 'searchPlaceIndexForTextSummary_biasPosition' - Contains the coordinates for the optional bias position specified in the
+-- request.
+--
+-- This parameter contains a pair of numbers. The first number represents
+-- the X coordinate, or longitude; the second number represents the Y
+-- coordinate, or latitude.
+--
+-- For example, @[-123.1174, 49.2847]@ represents the position with
+-- longitude @-123.1174@ and latitude @49.2847@.
+--
+-- 'filterCountries', 'searchPlaceIndexForTextSummary_filterCountries' - Contains the optional country filter specified in the request.
+--
+-- 'maxResults', 'searchPlaceIndexForTextSummary_maxResults' - Contains the optional result count limit specified in the request.
+--
+-- 'language', 'searchPlaceIndexForTextSummary_language' - The preferred language used to return results. Matches the language in
+-- the request. The value is a valid
+-- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
+-- @en@ for English.
+--
+-- 'dataSource', 'searchPlaceIndexForTextSummary_dataSource' - The geospatial data provider attached to the place index resource
+-- specified in the request. Values can be one of the following:
 --
 -- -   Esri
 --
--- -   HERE
+-- -   Here
 --
--- For additional details on data providers, see
+-- For more information about data providers, see
 -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
 --
--- 'text', 'searchPlaceIndexForTextSummary_text' - The address, name, city or region to be used in the geocoding request.
--- In free-form text format. For example, @Vancouver@.
+-- 'text', 'searchPlaceIndexForTextSummary_text' - The search text specified in the request.
 newSearchPlaceIndexForTextSummary ::
   -- | 'dataSource'
   Prelude.Text ->
@@ -105,48 +129,63 @@ newSearchPlaceIndexForTextSummary pDataSource_ pText_ =
       biasPosition = Prelude.Nothing,
       filterCountries = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      language = Prelude.Nothing,
       dataSource = pDataSource_,
       text = Core._Sensitive Lens.# pText_
     }
 
--- | Contains the coordinates for the optional bounding box coordinated
--- entered in the geocoding request.
+-- | Contains the coordinates for the optional bounding box specified in the
+-- request.
 searchPlaceIndexForTextSummary_filterBBox :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
 searchPlaceIndexForTextSummary_filterBBox = Lens.lens (\SearchPlaceIndexForTextSummary' {filterBBox} -> filterBBox) (\s@SearchPlaceIndexForTextSummary' {} a -> s {filterBBox = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
--- | A bounding box that contains the search results within the specified
--- area indicated by @FilterBBox@. A subset of bounding box specified using
--- @FilterBBox@.
+-- | The bounding box that fully contains all search results.
+--
+-- If you specified the optional @FilterBBox@ parameter in the request,
+-- @ResultBBox@ is contained within @FilterBBox@.
 searchPlaceIndexForTextSummary_resultBBox :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
 searchPlaceIndexForTextSummary_resultBBox = Lens.lens (\SearchPlaceIndexForTextSummary' {resultBBox} -> resultBBox) (\s@SearchPlaceIndexForTextSummary' {} a -> s {resultBBox = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
--- | Contains the coordinates for the bias position entered in the geocoding
+-- | Contains the coordinates for the optional bias position specified in the
 -- request.
+--
+-- This parameter contains a pair of numbers. The first number represents
+-- the X coordinate, or longitude; the second number represents the Y
+-- coordinate, or latitude.
+--
+-- For example, @[-123.1174, 49.2847]@ represents the position with
+-- longitude @-123.1174@ and latitude @49.2847@.
 searchPlaceIndexForTextSummary_biasPosition :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Double))
 searchPlaceIndexForTextSummary_biasPosition = Lens.lens (\SearchPlaceIndexForTextSummary' {biasPosition} -> biasPosition) (\s@SearchPlaceIndexForTextSummary' {} a -> s {biasPosition = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
--- | Contains the country filter entered in the geocoding request.
+-- | Contains the optional country filter specified in the request.
 searchPlaceIndexForTextSummary_filterCountries :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 searchPlaceIndexForTextSummary_filterCountries = Lens.lens (\SearchPlaceIndexForTextSummary' {filterCountries} -> filterCountries) (\s@SearchPlaceIndexForTextSummary' {} a -> s {filterCountries = a} :: SearchPlaceIndexForTextSummary) Prelude.. Lens.mapping Lens.coerced
 
--- | Contains the maximum number of results indicated for the request.
+-- | Contains the optional result count limit specified in the request.
 searchPlaceIndexForTextSummary_maxResults :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe Prelude.Natural)
 searchPlaceIndexForTextSummary_maxResults = Lens.lens (\SearchPlaceIndexForTextSummary' {maxResults} -> maxResults) (\s@SearchPlaceIndexForTextSummary' {} a -> s {maxResults = a} :: SearchPlaceIndexForTextSummary)
 
--- | The data provider of geospatial data. Indicates one of the available
--- providers:
+-- | The preferred language used to return results. Matches the language in
+-- the request. The value is a valid
+-- <https://tools.ietf.org/search/bcp47 BCP 47> language tag, for example,
+-- @en@ for English.
+searchPlaceIndexForTextSummary_language :: Lens.Lens' SearchPlaceIndexForTextSummary (Prelude.Maybe Prelude.Text)
+searchPlaceIndexForTextSummary_language = Lens.lens (\SearchPlaceIndexForTextSummary' {language} -> language) (\s@SearchPlaceIndexForTextSummary' {} a -> s {language = a} :: SearchPlaceIndexForTextSummary)
+
+-- | The geospatial data provider attached to the place index resource
+-- specified in the request. Values can be one of the following:
 --
 -- -   Esri
 --
--- -   HERE
+-- -   Here
 --
--- For additional details on data providers, see
+-- For more information about data providers, see
 -- <https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html Amazon Location Service data providers>.
 searchPlaceIndexForTextSummary_dataSource :: Lens.Lens' SearchPlaceIndexForTextSummary Prelude.Text
 searchPlaceIndexForTextSummary_dataSource = Lens.lens (\SearchPlaceIndexForTextSummary' {dataSource} -> dataSource) (\s@SearchPlaceIndexForTextSummary' {} a -> s {dataSource = a} :: SearchPlaceIndexForTextSummary)
 
--- | The address, name, city or region to be used in the geocoding request.
--- In free-form text format. For example, @Vancouver@.
+-- | The search text specified in the request.
 searchPlaceIndexForTextSummary_text :: Lens.Lens' SearchPlaceIndexForTextSummary Prelude.Text
 searchPlaceIndexForTextSummary_text = Lens.lens (\SearchPlaceIndexForTextSummary' {text} -> text) (\s@SearchPlaceIndexForTextSummary' {} a -> s {text = a} :: SearchPlaceIndexForTextSummary) Prelude.. Core._Sensitive
 
@@ -161,6 +200,7 @@ instance Core.FromJSON SearchPlaceIndexForTextSummary where
             Prelude.<*> (x Core..:? "BiasPosition")
             Prelude.<*> (x Core..:? "FilterCountries")
             Prelude.<*> (x Core..:? "MaxResults")
+            Prelude.<*> (x Core..:? "Language")
             Prelude.<*> (x Core..: "DataSource")
             Prelude.<*> (x Core..: "Text")
       )
@@ -177,6 +217,7 @@ instance
         `Prelude.hashWithSalt` biasPosition
         `Prelude.hashWithSalt` filterCountries
         `Prelude.hashWithSalt` maxResults
+        `Prelude.hashWithSalt` language
         `Prelude.hashWithSalt` dataSource
         `Prelude.hashWithSalt` text
 
@@ -190,5 +231,6 @@ instance
       `Prelude.seq` Prelude.rnf biasPosition
       `Prelude.seq` Prelude.rnf filterCountries
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf language
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf text

@@ -36,6 +36,12 @@
 --
 -- The last geofence that a device was observed within is tracked for 30
 -- days after the most recent device position update.
+--
+-- Geofence evaluation uses the given device position. It does not account
+-- for the optional @Accuracy@ of a @DevicePositionUpdate@.
+--
+-- The @DeviceID@ is used as a string to represent the device. You do not
+-- need to have a @Tracker@ associated with the @DeviceID@.
 module Amazonka.Location.BatchEvaluateGeofences
   ( -- * Creating a Request
     BatchEvaluateGeofences (..),

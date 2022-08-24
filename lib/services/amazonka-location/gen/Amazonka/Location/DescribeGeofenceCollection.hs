@@ -36,13 +36,13 @@ module Amazonka.Location.DescribeGeofenceCollection
     -- * Response Lenses
     describeGeofenceCollectionResponse_tags,
     describeGeofenceCollectionResponse_pricingPlanDataSource,
+    describeGeofenceCollectionResponse_pricingPlan,
     describeGeofenceCollectionResponse_kmsKeyId,
     describeGeofenceCollectionResponse_httpStatus,
     describeGeofenceCollectionResponse_collectionArn,
     describeGeofenceCollectionResponse_collectionName,
     describeGeofenceCollectionResponse_createTime,
     describeGeofenceCollectionResponse_description,
-    describeGeofenceCollectionResponse_pricingPlan,
     describeGeofenceCollectionResponse_updateTime,
   )
 where
@@ -95,13 +95,13 @@ instance Core.AWSRequest DescribeGeofenceCollection where
           DescribeGeofenceCollectionResponse'
             Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "PricingPlanDataSource")
+            Prelude.<*> (x Core..?> "PricingPlan")
             Prelude.<*> (x Core..?> "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CollectionArn")
             Prelude.<*> (x Core..:> "CollectionName")
             Prelude.<*> (x Core..:> "CreateTime")
             Prelude.<*> (x Core..:> "Description")
-            Prelude.<*> (x Core..:> "PricingPlan")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
@@ -138,8 +138,10 @@ instance Core.ToQuery DescribeGeofenceCollection where
 data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
   { -- | Displays the key, value pairs of tags associated with this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The specified data provider for the geofence collection.
+    -- | No longer used. Always returns an empty string.
     pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
+    -- | No longer used. Always returns @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | A key identifier for an
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
     -- assigned to the Amazon Location resource
@@ -160,12 +162,6 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
     createTime :: Core.POSIX,
     -- | The optional description for the geofence collection.
     description :: Prelude.Text,
-    -- | The pricing plan selected for the specified geofence collection.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- the
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
-    pricingPlan :: PricingPlan,
     -- | The timestamp for when the geofence collection was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
@@ -183,7 +179,9 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
 --
 -- 'tags', 'describeGeofenceCollectionResponse_tags' - Displays the key, value pairs of tags associated with this resource.
 --
--- 'pricingPlanDataSource', 'describeGeofenceCollectionResponse_pricingPlanDataSource' - The specified data provider for the geofence collection.
+-- 'pricingPlanDataSource', 'describeGeofenceCollectionResponse_pricingPlanDataSource' - No longer used. Always returns an empty string.
+--
+-- 'pricingPlan', 'describeGeofenceCollectionResponse_pricingPlan' - No longer used. Always returns @RequestBasedUsage@.
 --
 -- 'kmsKeyId', 'describeGeofenceCollectionResponse_kmsKeyId' - A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
@@ -205,12 +203,6 @@ data DescribeGeofenceCollectionResponse = DescribeGeofenceCollectionResponse'
 --
 -- 'description', 'describeGeofenceCollectionResponse_description' - The optional description for the geofence collection.
 --
--- 'pricingPlan', 'describeGeofenceCollectionResponse_pricingPlan' - The pricing plan selected for the specified geofence collection.
---
--- For additional details and restrictions on each pricing plan option, see
--- the
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
---
 -- 'updateTime', 'describeGeofenceCollectionResponse_updateTime' - The timestamp for when the geofence collection was last updated in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
@@ -225,8 +217,6 @@ newDescribeGeofenceCollectionResponse ::
   Prelude.UTCTime ->
   -- | 'description'
   Prelude.Text ->
-  -- | 'pricingPlan'
-  PricingPlan ->
   -- | 'updateTime'
   Prelude.UTCTime ->
   DescribeGeofenceCollectionResponse
@@ -236,12 +226,12 @@ newDescribeGeofenceCollectionResponse
   pCollectionName_
   pCreateTime_
   pDescription_
-  pPricingPlan_
   pUpdateTime_ =
     DescribeGeofenceCollectionResponse'
       { tags =
           Prelude.Nothing,
         pricingPlanDataSource = Prelude.Nothing,
+        pricingPlan = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         collectionArn = pCollectionArn_,
@@ -249,7 +239,6 @@ newDescribeGeofenceCollectionResponse
         createTime =
           Core._Time Lens.# pCreateTime_,
         description = pDescription_,
-        pricingPlan = pPricingPlan_,
         updateTime =
           Core._Time Lens.# pUpdateTime_
       }
@@ -258,9 +247,13 @@ newDescribeGeofenceCollectionResponse
 describeGeofenceCollectionResponse_tags :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeGeofenceCollectionResponse_tags = Lens.lens (\DescribeGeofenceCollectionResponse' {tags} -> tags) (\s@DescribeGeofenceCollectionResponse' {} a -> s {tags = a} :: DescribeGeofenceCollectionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The specified data provider for the geofence collection.
+-- | No longer used. Always returns an empty string.
 describeGeofenceCollectionResponse_pricingPlanDataSource :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe Prelude.Text)
 describeGeofenceCollectionResponse_pricingPlanDataSource = Lens.lens (\DescribeGeofenceCollectionResponse' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@DescribeGeofenceCollectionResponse' {} a -> s {pricingPlanDataSource = a} :: DescribeGeofenceCollectionResponse)
+
+-- | No longer used. Always returns @RequestBasedUsage@.
+describeGeofenceCollectionResponse_pricingPlan :: Lens.Lens' DescribeGeofenceCollectionResponse (Prelude.Maybe PricingPlan)
+describeGeofenceCollectionResponse_pricingPlan = Lens.lens (\DescribeGeofenceCollectionResponse' {pricingPlan} -> pricingPlan) (\s@DescribeGeofenceCollectionResponse' {} a -> s {pricingPlan = a} :: DescribeGeofenceCollectionResponse)
 
 -- | A key identifier for an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html AWS KMS customer managed key>
@@ -294,14 +287,6 @@ describeGeofenceCollectionResponse_createTime = Lens.lens (\DescribeGeofenceColl
 describeGeofenceCollectionResponse_description :: Lens.Lens' DescribeGeofenceCollectionResponse Prelude.Text
 describeGeofenceCollectionResponse_description = Lens.lens (\DescribeGeofenceCollectionResponse' {description} -> description) (\s@DescribeGeofenceCollectionResponse' {} a -> s {description = a} :: DescribeGeofenceCollectionResponse)
 
--- | The pricing plan selected for the specified geofence collection.
---
--- For additional details and restrictions on each pricing plan option, see
--- the
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing page>.
-describeGeofenceCollectionResponse_pricingPlan :: Lens.Lens' DescribeGeofenceCollectionResponse PricingPlan
-describeGeofenceCollectionResponse_pricingPlan = Lens.lens (\DescribeGeofenceCollectionResponse' {pricingPlan} -> pricingPlan) (\s@DescribeGeofenceCollectionResponse' {} a -> s {pricingPlan = a} :: DescribeGeofenceCollectionResponse)
-
 -- | The timestamp for when the geofence collection was last updated in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@
@@ -315,11 +300,11 @@ instance
   rnf DescribeGeofenceCollectionResponse' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf pricingPlanDataSource
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf collectionArn
       `Prelude.seq` Prelude.rnf collectionName
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf updateTime

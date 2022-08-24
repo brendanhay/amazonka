@@ -30,6 +30,7 @@ module Amazonka.Location.ListGeofences
 
     -- * Request Lenses
     listGeofences_nextToken,
+    listGeofences_maxResults,
     listGeofences_collectionName,
 
     -- * Destructuring the Response
@@ -57,6 +58,10 @@ data ListGeofences = ListGeofences'
     --
     -- Default value: @null@
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | An optional limit for the number of geofences returned in a single call.
+    --
+    -- Default value: @100@
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the geofence collection storing the list of geofences.
     collectionName :: Prelude.Text
   }
@@ -75,6 +80,10 @@ data ListGeofences = ListGeofences'
 --
 -- Default value: @null@
 --
+-- 'maxResults', 'listGeofences_maxResults' - An optional limit for the number of geofences returned in a single call.
+--
+-- Default value: @100@
+--
 -- 'collectionName', 'listGeofences_collectionName' - The name of the geofence collection storing the list of geofences.
 newListGeofences ::
   -- | 'collectionName'
@@ -83,6 +92,7 @@ newListGeofences ::
 newListGeofences pCollectionName_ =
   ListGeofences'
     { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
       collectionName = pCollectionName_
     }
 
@@ -92,6 +102,12 @@ newListGeofences pCollectionName_ =
 -- Default value: @null@
 listGeofences_nextToken :: Lens.Lens' ListGeofences (Prelude.Maybe Prelude.Text)
 listGeofences_nextToken = Lens.lens (\ListGeofences' {nextToken} -> nextToken) (\s@ListGeofences' {} a -> s {nextToken = a} :: ListGeofences)
+
+-- | An optional limit for the number of geofences returned in a single call.
+--
+-- Default value: @100@
+listGeofences_maxResults :: Lens.Lens' ListGeofences (Prelude.Maybe Prelude.Natural)
+listGeofences_maxResults = Lens.lens (\ListGeofences' {maxResults} -> maxResults) (\s@ListGeofences' {} a -> s {maxResults = a} :: ListGeofences)
 
 -- | The name of the geofence collection storing the list of geofences.
 listGeofences_collectionName :: Lens.Lens' ListGeofences Prelude.Text
@@ -131,11 +147,13 @@ instance Core.AWSRequest ListGeofences where
 instance Prelude.Hashable ListGeofences where
   hashWithSalt _salt ListGeofences' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` collectionName
 
 instance Prelude.NFData ListGeofences where
   rnf ListGeofences' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf collectionName
 
 instance Core.ToHeaders ListGeofences where
@@ -153,7 +171,9 @@ instance Core.ToJSON ListGeofences where
   toJSON ListGeofences' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("NextToken" Core..=) Prelude.<$> nextToken]
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("MaxResults" Core..=) Prelude.<$> maxResults
+          ]
       )
 
 instance Core.ToPath ListGeofences where

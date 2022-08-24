@@ -38,6 +38,8 @@ module Amazonka.Location.GetDevicePosition
 
     -- * Response Lenses
     getDevicePositionResponse_deviceId,
+    getDevicePositionResponse_accuracy,
+    getDevicePositionResponse_positionProperties,
     getDevicePositionResponse_httpStatus,
     getDevicePositionResponse_position,
     getDevicePositionResponse_receivedTime,
@@ -102,6 +104,10 @@ instance Core.AWSRequest GetDevicePosition where
       ( \s h x ->
           GetDevicePositionResponse'
             Prelude.<$> (x Core..?> "DeviceId")
+            Prelude.<*> (x Core..?> "Accuracy")
+            Prelude.<*> ( x Core..?> "PositionProperties"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Position")
             Prelude.<*> (x Core..:> "ReceivedTime")
@@ -146,6 +152,10 @@ instance Core.ToQuery GetDevicePosition where
 data GetDevicePositionResponse = GetDevicePositionResponse'
   { -- | The device whose position you retrieved.
     deviceId :: Prelude.Maybe Prelude.Text,
+    -- | The accuracy of the device position.
+    accuracy :: Prelude.Maybe PositionalAccuracy,
+    -- | The properties associated with the position.
+    positionProperties :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The last known device position.
@@ -170,6 +180,10 @@ data GetDevicePositionResponse = GetDevicePositionResponse'
 -- for backwards compatibility:
 --
 -- 'deviceId', 'getDevicePositionResponse_deviceId' - The device whose position you retrieved.
+--
+-- 'accuracy', 'getDevicePositionResponse_accuracy' - The accuracy of the device position.
+--
+-- 'positionProperties', 'getDevicePositionResponse_positionProperties' - The properties associated with the position.
 --
 -- 'httpStatus', 'getDevicePositionResponse_httpStatus' - The response's http status code.
 --
@@ -200,6 +214,8 @@ newGetDevicePositionResponse
     GetDevicePositionResponse'
       { deviceId =
           Prelude.Nothing,
+        accuracy = Prelude.Nothing,
+        positionProperties = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         position =
           Core._Sensitive Prelude.. Lens.coerced
@@ -211,6 +227,14 @@ newGetDevicePositionResponse
 -- | The device whose position you retrieved.
 getDevicePositionResponse_deviceId :: Lens.Lens' GetDevicePositionResponse (Prelude.Maybe Prelude.Text)
 getDevicePositionResponse_deviceId = Lens.lens (\GetDevicePositionResponse' {deviceId} -> deviceId) (\s@GetDevicePositionResponse' {} a -> s {deviceId = a} :: GetDevicePositionResponse)
+
+-- | The accuracy of the device position.
+getDevicePositionResponse_accuracy :: Lens.Lens' GetDevicePositionResponse (Prelude.Maybe PositionalAccuracy)
+getDevicePositionResponse_accuracy = Lens.lens (\GetDevicePositionResponse' {accuracy} -> accuracy) (\s@GetDevicePositionResponse' {} a -> s {accuracy = a} :: GetDevicePositionResponse)
+
+-- | The properties associated with the position.
+getDevicePositionResponse_positionProperties :: Lens.Lens' GetDevicePositionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDevicePositionResponse_positionProperties = Lens.lens (\GetDevicePositionResponse' {positionProperties} -> positionProperties) (\s@GetDevicePositionResponse' {} a -> s {positionProperties = a} :: GetDevicePositionResponse) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The response's http status code.
 getDevicePositionResponse_httpStatus :: Lens.Lens' GetDevicePositionResponse Prelude.Int
@@ -235,6 +259,8 @@ getDevicePositionResponse_sampleTime = Lens.lens (\GetDevicePositionResponse' {s
 instance Prelude.NFData GetDevicePositionResponse where
   rnf GetDevicePositionResponse' {..} =
     Prelude.rnf deviceId
+      `Prelude.seq` Prelude.rnf accuracy
+      `Prelude.seq` Prelude.rnf positionProperties
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf position
       `Prelude.seq` Prelude.rnf receivedTime

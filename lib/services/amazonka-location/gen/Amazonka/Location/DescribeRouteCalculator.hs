@@ -35,13 +35,13 @@ module Amazonka.Location.DescribeRouteCalculator
 
     -- * Response Lenses
     describeRouteCalculatorResponse_tags,
+    describeRouteCalculatorResponse_pricingPlan,
     describeRouteCalculatorResponse_httpStatus,
     describeRouteCalculatorResponse_calculatorArn,
     describeRouteCalculatorResponse_calculatorName,
     describeRouteCalculatorResponse_createTime,
     describeRouteCalculatorResponse_dataSource,
     describeRouteCalculatorResponse_description,
-    describeRouteCalculatorResponse_pricingPlan,
     describeRouteCalculatorResponse_updateTime,
   )
 where
@@ -93,13 +93,13 @@ instance Core.AWSRequest DescribeRouteCalculator where
       ( \s h x ->
           DescribeRouteCalculatorResponse'
             Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "PricingPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CalculatorArn")
             Prelude.<*> (x Core..:> "CalculatorName")
             Prelude.<*> (x Core..:> "CreateTime")
             Prelude.<*> (x Core..:> "DataSource")
             Prelude.<*> (x Core..:> "Description")
-            Prelude.<*> (x Core..:> "PricingPlan")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
 
@@ -134,6 +134,8 @@ instance Core.ToQuery DescribeRouteCalculator where
 data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
   { -- | Tags associated with route calculator resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Always returns @RequestBasedUsage@.
+    pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The Amazon Resource Name (ARN) for the Route calculator resource. Use
@@ -162,11 +164,6 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
     dataSource :: Prelude.Text,
     -- | The optional description of the route calculator resource.
     description :: Prelude.Text,
-    -- | The pricing plan selected for the specified route calculator resource.
-    --
-    -- For additional details and restrictions on each pricing plan option, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-    pricingPlan :: PricingPlan,
     -- | The timestamp when the route calculator resource was last updated in
     -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
     -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
@@ -185,6 +182,8 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
 -- for backwards compatibility:
 --
 -- 'tags', 'describeRouteCalculatorResponse_tags' - Tags associated with route calculator resource.
+--
+-- 'pricingPlan', 'describeRouteCalculatorResponse_pricingPlan' - Always returns @RequestBasedUsage@.
 --
 -- 'httpStatus', 'describeRouteCalculatorResponse_httpStatus' - The response's http status code.
 --
@@ -214,11 +213,6 @@ data DescribeRouteCalculatorResponse = DescribeRouteCalculatorResponse'
 --
 -- 'description', 'describeRouteCalculatorResponse_description' - The optional description of the route calculator resource.
 --
--- 'pricingPlan', 'describeRouteCalculatorResponse_pricingPlan' - The pricing plan selected for the specified route calculator resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
---
 -- 'updateTime', 'describeRouteCalculatorResponse_updateTime' - The timestamp when the route calculator resource was last updated in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
@@ -237,8 +231,6 @@ newDescribeRouteCalculatorResponse ::
   Prelude.Text ->
   -- | 'description'
   Prelude.Text ->
-  -- | 'pricingPlan'
-  PricingPlan ->
   -- | 'updateTime'
   Prelude.UTCTime ->
   DescribeRouteCalculatorResponse
@@ -249,11 +241,11 @@ newDescribeRouteCalculatorResponse
   pCreateTime_
   pDataSource_
   pDescription_
-  pPricingPlan_
   pUpdateTime_ =
     DescribeRouteCalculatorResponse'
       { tags =
           Prelude.Nothing,
+        pricingPlan = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         calculatorArn = pCalculatorArn_,
         calculatorName = pCalculatorName_,
@@ -261,7 +253,6 @@ newDescribeRouteCalculatorResponse
           Core._Time Lens.# pCreateTime_,
         dataSource = pDataSource_,
         description = pDescription_,
-        pricingPlan = pPricingPlan_,
         updateTime =
           Core._Time Lens.# pUpdateTime_
       }
@@ -269,6 +260,10 @@ newDescribeRouteCalculatorResponse
 -- | Tags associated with route calculator resource.
 describeRouteCalculatorResponse_tags :: Lens.Lens' DescribeRouteCalculatorResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeRouteCalculatorResponse_tags = Lens.lens (\DescribeRouteCalculatorResponse' {tags} -> tags) (\s@DescribeRouteCalculatorResponse' {} a -> s {tags = a} :: DescribeRouteCalculatorResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Always returns @RequestBasedUsage@.
+describeRouteCalculatorResponse_pricingPlan :: Lens.Lens' DescribeRouteCalculatorResponse (Prelude.Maybe PricingPlan)
+describeRouteCalculatorResponse_pricingPlan = Lens.lens (\DescribeRouteCalculatorResponse' {pricingPlan} -> pricingPlan) (\s@DescribeRouteCalculatorResponse' {} a -> s {pricingPlan = a} :: DescribeRouteCalculatorResponse)
 
 -- | The response's http status code.
 describeRouteCalculatorResponse_httpStatus :: Lens.Lens' DescribeRouteCalculatorResponse Prelude.Int
@@ -310,13 +305,6 @@ describeRouteCalculatorResponse_dataSource = Lens.lens (\DescribeRouteCalculator
 describeRouteCalculatorResponse_description :: Lens.Lens' DescribeRouteCalculatorResponse Prelude.Text
 describeRouteCalculatorResponse_description = Lens.lens (\DescribeRouteCalculatorResponse' {description} -> description) (\s@DescribeRouteCalculatorResponse' {} a -> s {description = a} :: DescribeRouteCalculatorResponse)
 
--- | The pricing plan selected for the specified route calculator resource.
---
--- For additional details and restrictions on each pricing plan option, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
-describeRouteCalculatorResponse_pricingPlan :: Lens.Lens' DescribeRouteCalculatorResponse PricingPlan
-describeRouteCalculatorResponse_pricingPlan = Lens.lens (\DescribeRouteCalculatorResponse' {pricingPlan} -> pricingPlan) (\s@DescribeRouteCalculatorResponse' {} a -> s {pricingPlan = a} :: DescribeRouteCalculatorResponse)
-
 -- | The timestamp when the route calculator resource was last updated in
 -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601>
 -- format: @YYYY-MM-DDThh:mm:ss.sssZ@.
@@ -331,11 +319,11 @@ instance
   where
   rnf DescribeRouteCalculatorResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf calculatorArn
       `Prelude.seq` Prelude.rnf calculatorName
       `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf description
-      `Prelude.seq` Prelude.rnf pricingPlan
       `Prelude.seq` Prelude.rnf updateTime

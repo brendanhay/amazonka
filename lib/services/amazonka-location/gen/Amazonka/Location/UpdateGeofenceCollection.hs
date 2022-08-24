@@ -55,28 +55,10 @@ import qualified Amazonka.Response as Response
 data UpdateGeofenceCollection = UpdateGeofenceCollection'
   { -- | Updates the description for the geofence collection.
     description :: Prelude.Maybe Prelude.Text,
-    -- | Updates the data provider for the geofence collection.
-    --
-    -- A required value for the following pricing plans: @MobileAssetTracking@|
-    -- @MobileAssetManagement@
-    --
-    -- For more information about
-    -- <https://aws.amazon.com/location/data-providers/ data providers> and
-    -- <https://aws.amazon.com/location/pricing/ pricing plans>, see the Amazon
-    -- Location Service product page.
-    --
-    -- This can only be updated when updating the @PricingPlan@ in the same
-    -- request.
-    --
-    -- Amazon Location Service uses @PricingPlanDataSource@ to calculate
-    -- billing for your geofence collection. Your data won\'t be shared with
-    -- the data provider, and will remain in your AWS account and Region unless
-    -- you move it.
+    -- | This parameter is no longer used.
     pricingPlanDataSource :: Prelude.Maybe Prelude.Text,
-    -- | Updates the pricing plan for the geofence collection.
-    --
-    -- For more information about each pricing plan option restrictions, see
-    -- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+    -- | No longer used. If included, the only allowed value is
+    -- @RequestBasedUsage@.
     pricingPlan :: Prelude.Maybe PricingPlan,
     -- | The name of the geofence collection to update.
     collectionName :: Prelude.Text
@@ -93,28 +75,10 @@ data UpdateGeofenceCollection = UpdateGeofenceCollection'
 --
 -- 'description', 'updateGeofenceCollection_description' - Updates the description for the geofence collection.
 --
--- 'pricingPlanDataSource', 'updateGeofenceCollection_pricingPlanDataSource' - Updates the data provider for the geofence collection.
+-- 'pricingPlanDataSource', 'updateGeofenceCollection_pricingPlanDataSource' - This parameter is no longer used.
 --
--- A required value for the following pricing plans: @MobileAssetTracking@|
--- @MobileAssetManagement@
---
--- For more information about
--- <https://aws.amazon.com/location/data-providers/ data providers> and
--- <https://aws.amazon.com/location/pricing/ pricing plans>, see the Amazon
--- Location Service product page.
---
--- This can only be updated when updating the @PricingPlan@ in the same
--- request.
---
--- Amazon Location Service uses @PricingPlanDataSource@ to calculate
--- billing for your geofence collection. Your data won\'t be shared with
--- the data provider, and will remain in your AWS account and Region unless
--- you move it.
---
--- 'pricingPlan', 'updateGeofenceCollection_pricingPlan' - Updates the pricing plan for the geofence collection.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- 'pricingPlan', 'updateGeofenceCollection_pricingPlan' - No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 --
 -- 'collectionName', 'updateGeofenceCollection_collectionName' - The name of the geofence collection to update.
 newUpdateGeofenceCollection ::
@@ -134,30 +98,12 @@ newUpdateGeofenceCollection pCollectionName_ =
 updateGeofenceCollection_description :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe Prelude.Text)
 updateGeofenceCollection_description = Lens.lens (\UpdateGeofenceCollection' {description} -> description) (\s@UpdateGeofenceCollection' {} a -> s {description = a} :: UpdateGeofenceCollection)
 
--- | Updates the data provider for the geofence collection.
---
--- A required value for the following pricing plans: @MobileAssetTracking@|
--- @MobileAssetManagement@
---
--- For more information about
--- <https://aws.amazon.com/location/data-providers/ data providers> and
--- <https://aws.amazon.com/location/pricing/ pricing plans>, see the Amazon
--- Location Service product page.
---
--- This can only be updated when updating the @PricingPlan@ in the same
--- request.
---
--- Amazon Location Service uses @PricingPlanDataSource@ to calculate
--- billing for your geofence collection. Your data won\'t be shared with
--- the data provider, and will remain in your AWS account and Region unless
--- you move it.
+-- | This parameter is no longer used.
 updateGeofenceCollection_pricingPlanDataSource :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe Prelude.Text)
 updateGeofenceCollection_pricingPlanDataSource = Lens.lens (\UpdateGeofenceCollection' {pricingPlanDataSource} -> pricingPlanDataSource) (\s@UpdateGeofenceCollection' {} a -> s {pricingPlanDataSource = a} :: UpdateGeofenceCollection)
 
--- | Updates the pricing plan for the geofence collection.
---
--- For more information about each pricing plan option restrictions, see
--- <https://aws.amazon.com/location/pricing/ Amazon Location Service pricing>.
+-- | No longer used. If included, the only allowed value is
+-- @RequestBasedUsage@.
 updateGeofenceCollection_pricingPlan :: Lens.Lens' UpdateGeofenceCollection (Prelude.Maybe PricingPlan)
 updateGeofenceCollection_pricingPlan = Lens.lens (\UpdateGeofenceCollection' {pricingPlan} -> pricingPlan) (\s@UpdateGeofenceCollection' {} a -> s {pricingPlan = a} :: UpdateGeofenceCollection)
 

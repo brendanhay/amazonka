@@ -30,6 +30,9 @@
 -- DescribeScheduledActions API call. If you are no longer using a
 -- scheduled action, you can delete it by calling the DeleteScheduledAction
 -- API.
+--
+-- If you try to schedule your action in the past, Amazon EC2 Auto Scaling
+-- returns an error message.
 module Amazonka.AutoScaling.PutScheduledUpdateGroupAction
   ( -- * Creating a Request
     PutScheduledUpdateGroupAction (..),
@@ -70,9 +73,10 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     -- @Pacific\/Tahiti@). For more information, see
     -- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
     timeZone :: Prelude.Maybe Prelude.Text,
-    -- | This parameter is no longer used.
+    -- | This property is no longer used.
     time :: Prelude.Maybe Core.ISO8601,
-    -- | The date and time for the recurring schedule to end, in UTC.
+    -- | The date and time for the recurring schedule to end, in UTC. For
+    -- example, @\"2021-06-01T00:00:00Z\"@.
     endTime :: Prelude.Maybe Core.ISO8601,
     -- | The minimum size of the Auto Scaling group.
     minSize :: Prelude.Maybe Prelude.Int,
@@ -93,17 +97,17 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     -- after the scheduled action runs and the capacity it attempts to
     -- maintain. It can scale beyond this capacity if you add more scaling
     -- conditions.
+    --
+    -- You must specify at least one of the following properties: @MaxSize@,
+    -- @MinSize@, or @DesiredCapacity@.
     desiredCapacity :: Prelude.Maybe Prelude.Int,
     -- | The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ
     -- format in UTC\/GMT only and in quotes (for example,
-    -- @\"2019-06-01T00:00:00Z\"@).
+    -- @\"2021-06-01T00:00:00Z\"@).
     --
     -- If you specify @Recurrence@ and @StartTime@, Amazon EC2 Auto Scaling
     -- performs the action at this time, and then performs the action based on
     -- the specified recurrence.
-    --
-    -- If you try to schedule your action in the past, Amazon EC2 Auto Scaling
-    -- returns an error message.
     startTime :: Prelude.Maybe Core.ISO8601,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text,
@@ -128,9 +132,10 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 -- @Pacific\/Tahiti@). For more information, see
 -- <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>.
 --
--- 'time', 'putScheduledUpdateGroupAction_time' - This parameter is no longer used.
+-- 'time', 'putScheduledUpdateGroupAction_time' - This property is no longer used.
 --
--- 'endTime', 'putScheduledUpdateGroupAction_endTime' - The date and time for the recurring schedule to end, in UTC.
+-- 'endTime', 'putScheduledUpdateGroupAction_endTime' - The date and time for the recurring schedule to end, in UTC. For
+-- example, @\"2021-06-01T00:00:00Z\"@.
 --
 -- 'minSize', 'putScheduledUpdateGroupAction_minSize' - The minimum size of the Auto Scaling group.
 --
@@ -152,16 +157,16 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 -- maintain. It can scale beyond this capacity if you add more scaling
 -- conditions.
 --
+-- You must specify at least one of the following properties: @MaxSize@,
+-- @MinSize@, or @DesiredCapacity@.
+--
 -- 'startTime', 'putScheduledUpdateGroupAction_startTime' - The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ
 -- format in UTC\/GMT only and in quotes (for example,
--- @\"2019-06-01T00:00:00Z\"@).
+-- @\"2021-06-01T00:00:00Z\"@).
 --
 -- If you specify @Recurrence@ and @StartTime@, Amazon EC2 Auto Scaling
 -- performs the action at this time, and then performs the action based on
 -- the specified recurrence.
---
--- If you try to schedule your action in the past, Amazon EC2 Auto Scaling
--- returns an error message.
 --
 -- 'autoScalingGroupName', 'putScheduledUpdateGroupAction_autoScalingGroupName' - The name of the Auto Scaling group.
 --
@@ -200,11 +205,12 @@ newPutScheduledUpdateGroupAction
 putScheduledUpdateGroupAction_timeZone :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
 putScheduledUpdateGroupAction_timeZone = Lens.lens (\PutScheduledUpdateGroupAction' {timeZone} -> timeZone) (\s@PutScheduledUpdateGroupAction' {} a -> s {timeZone = a} :: PutScheduledUpdateGroupAction)
 
--- | This parameter is no longer used.
+-- | This property is no longer used.
 putScheduledUpdateGroupAction_time :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 putScheduledUpdateGroupAction_time = Lens.lens (\PutScheduledUpdateGroupAction' {time} -> time) (\s@PutScheduledUpdateGroupAction' {} a -> s {time = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 
--- | The date and time for the recurring schedule to end, in UTC.
+-- | The date and time for the recurring schedule to end, in UTC. For
+-- example, @\"2021-06-01T00:00:00Z\"@.
 putScheduledUpdateGroupAction_endTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 putScheduledUpdateGroupAction_endTime = Lens.lens (\PutScheduledUpdateGroupAction' {endTime} -> endTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {endTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 
@@ -233,19 +239,19 @@ putScheduledUpdateGroupAction_maxSize = Lens.lens (\PutScheduledUpdateGroupActio
 -- after the scheduled action runs and the capacity it attempts to
 -- maintain. It can scale beyond this capacity if you add more scaling
 -- conditions.
+--
+-- You must specify at least one of the following properties: @MaxSize@,
+-- @MinSize@, or @DesiredCapacity@.
 putScheduledUpdateGroupAction_desiredCapacity :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
 putScheduledUpdateGroupAction_desiredCapacity = Lens.lens (\PutScheduledUpdateGroupAction' {desiredCapacity} -> desiredCapacity) (\s@PutScheduledUpdateGroupAction' {} a -> s {desiredCapacity = a} :: PutScheduledUpdateGroupAction)
 
 -- | The date and time for this action to start, in YYYY-MM-DDThh:mm:ssZ
 -- format in UTC\/GMT only and in quotes (for example,
--- @\"2019-06-01T00:00:00Z\"@).
+-- @\"2021-06-01T00:00:00Z\"@).
 --
 -- If you specify @Recurrence@ and @StartTime@, Amazon EC2 Auto Scaling
 -- performs the action at this time, and then performs the action based on
 -- the specified recurrence.
---
--- If you try to schedule your action in the past, Amazon EC2 Auto Scaling
--- returns an error message.
 putScheduledUpdateGroupAction_startTime :: Lens.Lens' PutScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 putScheduledUpdateGroupAction_startTime = Lens.lens (\PutScheduledUpdateGroupAction' {startTime} -> startTime) (\s@PutScheduledUpdateGroupAction' {} a -> s {startTime = a} :: PutScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 

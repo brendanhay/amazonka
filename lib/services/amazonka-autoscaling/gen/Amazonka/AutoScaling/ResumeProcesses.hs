@@ -70,7 +70,7 @@ data ResumeProcesses = ResumeProcesses'
     --
     -- -   @ScheduledActions@
     --
-    -- If you omit this parameter, all processes are specified.
+    -- If you omit this property, all processes are specified.
     scalingProcesses :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
@@ -105,7 +105,7 @@ data ResumeProcesses = ResumeProcesses'
 --
 -- -   @ScheduledActions@
 --
--- If you omit this parameter, all processes are specified.
+-- If you omit this property, all processes are specified.
 --
 -- 'autoScalingGroupName', 'resumeProcesses_autoScalingGroupName' - The name of the Auto Scaling group.
 newResumeProcesses ::
@@ -139,7 +139,7 @@ newResumeProcesses pAutoScalingGroupName_ =
 --
 -- -   @ScheduledActions@
 --
--- If you omit this parameter, all processes are specified.
+-- If you omit this property, all processes are specified.
 resumeProcesses_scalingProcesses :: Lens.Lens' ResumeProcesses (Prelude.Maybe [Prelude.Text])
 resumeProcesses_scalingProcesses = Lens.lens (\ResumeProcesses' {scalingProcesses} -> scalingProcesses) (\s@ResumeProcesses' {} a -> s {scalingProcesses = a} :: ResumeProcesses) Prelude.. Lens.mapping Lens.coerced
 

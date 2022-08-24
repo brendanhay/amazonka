@@ -47,8 +47,7 @@ import qualified Amazonka.Response as Response
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
   { -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
-    -- (Amazon SNS) topic.
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic.
     topicARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,8 +62,7 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
 --
 -- 'autoScalingGroupName', 'deleteNotificationConfiguration_autoScalingGroupName' - The name of the Auto Scaling group.
 --
--- 'topicARN', 'deleteNotificationConfiguration_topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (Amazon SNS) topic.
+-- 'topicARN', 'deleteNotificationConfiguration_topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic.
 newDeleteNotificationConfiguration ::
   -- | 'autoScalingGroupName'
   Prelude.Text ->
@@ -84,8 +82,7 @@ newDeleteNotificationConfiguration
 deleteNotificationConfiguration_autoScalingGroupName :: Lens.Lens' DeleteNotificationConfiguration Prelude.Text
 deleteNotificationConfiguration_autoScalingGroupName = Lens.lens (\DeleteNotificationConfiguration' {autoScalingGroupName} -> autoScalingGroupName) (\s@DeleteNotificationConfiguration' {} a -> s {autoScalingGroupName = a} :: DeleteNotificationConfiguration)
 
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (Amazon SNS) topic.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic.
 deleteNotificationConfiguration_topicARN :: Lens.Lens' DeleteNotificationConfiguration Prelude.Text
 deleteNotificationConfiguration_topicARN = Lens.lens (\DeleteNotificationConfiguration' {topicARN} -> topicARN) (\s@DeleteNotificationConfiguration' {} a -> s {topicARN = a} :: DeleteNotificationConfiguration)
 

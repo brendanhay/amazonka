@@ -66,8 +66,8 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
     -- -   @ASGAverageNetworkOut@ - Average number of bytes sent out on all
     --     network interfaces by the Auto Scaling group.
     --
-    -- -   @ALBRequestCountPerTarget@ - Number of requests completed per target
-    --     in an Application Load Balancer target group.
+    -- -   @ALBRequestCountPerTarget@ - Average Application Load Balancer
+    --     request count per target for your Auto Scaling group.
     predefinedMetricType :: MetricType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -117,8 +117,8 @@ data PredefinedMetricSpecification = PredefinedMetricSpecification'
 -- -   @ASGAverageNetworkOut@ - Average number of bytes sent out on all
 --     network interfaces by the Auto Scaling group.
 --
--- -   @ALBRequestCountPerTarget@ - Number of requests completed per target
---     in an Application Load Balancer target group.
+-- -   @ALBRequestCountPerTarget@ - Average Application Load Balancer
+--     request count per target for your Auto Scaling group.
 newPredefinedMetricSpecification ::
   -- | 'predefinedMetricType'
   MetricType ->
@@ -171,8 +171,8 @@ predefinedMetricSpecification_resourceLabel = Lens.lens (\PredefinedMetricSpecif
 -- -   @ASGAverageNetworkOut@ - Average number of bytes sent out on all
 --     network interfaces by the Auto Scaling group.
 --
--- -   @ALBRequestCountPerTarget@ - Number of requests completed per target
---     in an Application Load Balancer target group.
+-- -   @ALBRequestCountPerTarget@ - Average Application Load Balancer
+--     request count per target for your Auto Scaling group.
 predefinedMetricSpecification_predefinedMetricType :: Lens.Lens' PredefinedMetricSpecification MetricType
 predefinedMetricSpecification_predefinedMetricType = Lens.lens (\PredefinedMetricSpecification' {predefinedMetricType} -> predefinedMetricType) (\s@PredefinedMetricSpecification' {} a -> s {predefinedMetricType = a} :: PredefinedMetricSpecification)
 

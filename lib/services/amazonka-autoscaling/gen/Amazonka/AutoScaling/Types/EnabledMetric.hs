@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes an enabled metric.
+-- | Describes an enabled Auto Scaling group metric.
 --
 -- /See:/ 'newEnabledMetric' smart constructor.
 data EnabledMetric = EnabledMetric'
@@ -70,6 +70,10 @@ data EnabledMetric = EnabledMetric'
     -- -   @GroupAndWarmPoolDesiredCapacity@
     --
     -- -   @GroupAndWarmPoolTotalCapacity@
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics Auto Scaling group metrics>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
     metric :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -125,6 +129,10 @@ data EnabledMetric = EnabledMetric'
 -- -   @GroupAndWarmPoolDesiredCapacity@
 --
 -- -   @GroupAndWarmPoolTotalCapacity@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics Auto Scaling group metrics>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 newEnabledMetric ::
   EnabledMetric
 newEnabledMetric =
@@ -178,6 +186,10 @@ enabledMetric_granularity = Lens.lens (\EnabledMetric' {granularity} -> granular
 -- -   @GroupAndWarmPoolDesiredCapacity@
 --
 -- -   @GroupAndWarmPoolTotalCapacity@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-cloudwatch-monitoring.html#as-group-metrics Auto Scaling group metrics>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
 enabledMetric_metric :: Lens.Lens' EnabledMetric (Prelude.Maybe Prelude.Text)
 enabledMetric_metric = Lens.lens (\EnabledMetric' {metric} -> metric) (\s@EnabledMetric' {} a -> s {metric = a} :: EnabledMetric)
 

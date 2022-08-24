@@ -21,10 +21,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.
---
--- The @GroupStandbyInstances@ metric is not returned by default. You must
--- explicitly request this metric when calling the EnableMetricsCollection
--- API.
 module Amazonka.AutoScaling.DescribeMetricCollectionTypes
   ( -- * Creating a Request
     DescribeMetricCollectionTypes (..),
@@ -116,7 +112,7 @@ instance Core.ToQuery DescribeMetricCollectionTypes where
 
 -- | /See:/ 'newDescribeMetricCollectionTypesResponse' smart constructor.
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-  { -- | One or more metrics.
+  { -- | The metrics.
     metrics :: Prelude.Maybe [MetricCollectionType],
     -- | The granularities for the metrics.
     granularities :: Prelude.Maybe [MetricGranularityType],
@@ -133,7 +129,7 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metrics', 'describeMetricCollectionTypesResponse_metrics' - One or more metrics.
+-- 'metrics', 'describeMetricCollectionTypesResponse_metrics' - The metrics.
 --
 -- 'granularities', 'describeMetricCollectionTypesResponse_granularities' - The granularities for the metrics.
 --
@@ -150,7 +146,7 @@ newDescribeMetricCollectionTypesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | One or more metrics.
+-- | The metrics.
 describeMetricCollectionTypesResponse_metrics :: Lens.Lens' DescribeMetricCollectionTypesResponse (Prelude.Maybe [MetricCollectionType])
 describeMetricCollectionTypesResponse_metrics = Lens.lens (\DescribeMetricCollectionTypesResponse' {metrics} -> metrics) (\s@DescribeMetricCollectionTypesResponse' {} a -> s {metrics = a} :: DescribeMetricCollectionTypesResponse) Prelude.. Lens.mapping Lens.coerced
 

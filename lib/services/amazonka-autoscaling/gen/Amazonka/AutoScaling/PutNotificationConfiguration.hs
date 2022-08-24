@@ -59,8 +59,7 @@ import qualified Amazonka.Response as Response
 data PutNotificationConfiguration = PutNotificationConfiguration'
   { -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
-    -- (Amazon SNS) topic.
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic.
     topicARN :: Prelude.Text,
     -- | The type of event that causes the notification to be sent. To query the
     -- notification types supported by Amazon EC2 Auto Scaling, call the
@@ -79,8 +78,7 @@ data PutNotificationConfiguration = PutNotificationConfiguration'
 --
 -- 'autoScalingGroupName', 'putNotificationConfiguration_autoScalingGroupName' - The name of the Auto Scaling group.
 --
--- 'topicARN', 'putNotificationConfiguration_topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (Amazon SNS) topic.
+-- 'topicARN', 'putNotificationConfiguration_topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic.
 --
 -- 'notificationTypes', 'putNotificationConfiguration_notificationTypes' - The type of event that causes the notification to be sent. To query the
 -- notification types supported by Amazon EC2 Auto Scaling, call the
@@ -105,8 +103,7 @@ newPutNotificationConfiguration
 putNotificationConfiguration_autoScalingGroupName :: Lens.Lens' PutNotificationConfiguration Prelude.Text
 putNotificationConfiguration_autoScalingGroupName = Lens.lens (\PutNotificationConfiguration' {autoScalingGroupName} -> autoScalingGroupName) (\s@PutNotificationConfiguration' {} a -> s {autoScalingGroupName = a} :: PutNotificationConfiguration)
 
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (Amazon SNS) topic.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic.
 putNotificationConfiguration_topicARN :: Lens.Lens' PutNotificationConfiguration Prelude.Text
 putNotificationConfiguration_topicARN = Lens.lens (\PutNotificationConfiguration' {topicARN} -> topicARN) (\s@PutNotificationConfiguration' {} a -> s {topicARN = a} :: PutNotificationConfiguration)
 

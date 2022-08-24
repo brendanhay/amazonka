@@ -60,7 +60,7 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The launch configuration names. If you omit this parameter, all launch
+    -- | The launch configuration names. If you omit this property, all launch
     -- configurations are described.
     --
     -- Array Members: Maximum number of 50 items.
@@ -82,7 +82,7 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
 -- 'maxRecords', 'describeLaunchConfigurations_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
 --
--- 'launchConfigurationNames', 'describeLaunchConfigurations_launchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch
+-- 'launchConfigurationNames', 'describeLaunchConfigurations_launchConfigurationNames' - The launch configuration names. If you omit this property, all launch
 -- configurations are described.
 --
 -- Array Members: Maximum number of 50 items.
@@ -106,7 +106,7 @@ describeLaunchConfigurations_nextToken = Lens.lens (\DescribeLaunchConfiguration
 describeLaunchConfigurations_maxRecords :: Lens.Lens' DescribeLaunchConfigurations (Prelude.Maybe Prelude.Int)
 describeLaunchConfigurations_maxRecords = Lens.lens (\DescribeLaunchConfigurations' {maxRecords} -> maxRecords) (\s@DescribeLaunchConfigurations' {} a -> s {maxRecords = a} :: DescribeLaunchConfigurations)
 
--- | The launch configuration names. If you omit this parameter, all launch
+-- | The launch configuration names. If you omit this property, all launch
 -- configurations are described.
 --
 -- Array Members: Maximum number of 50 items.

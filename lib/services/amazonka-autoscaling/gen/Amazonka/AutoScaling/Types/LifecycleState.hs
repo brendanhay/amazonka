@@ -33,6 +33,7 @@ module Amazonka.AutoScaling.Types.LifecycleState
         LifecycleState_Terminating,
         LifecycleState_Terminating_Proceed,
         LifecycleState_Terminating_Wait,
+        LifecycleState_Warmed_Hibernated,
         LifecycleState_Warmed_Pending,
         LifecycleState_Warmed_Pending_Proceed,
         LifecycleState_Warmed_Pending_Wait,
@@ -116,6 +117,9 @@ pattern LifecycleState_Terminating_Proceed = LifecycleState' "Terminating:Procee
 pattern LifecycleState_Terminating_Wait :: LifecycleState
 pattern LifecycleState_Terminating_Wait = LifecycleState' "Terminating:Wait"
 
+pattern LifecycleState_Warmed_Hibernated :: LifecycleState
+pattern LifecycleState_Warmed_Hibernated = LifecycleState' "Warmed:Hibernated"
+
 pattern LifecycleState_Warmed_Pending :: LifecycleState
 pattern LifecycleState_Warmed_Pending = LifecycleState' "Warmed:Pending"
 
@@ -157,6 +161,7 @@ pattern LifecycleState_Warmed_Terminating_Wait = LifecycleState' "Warmed:Termina
   LifecycleState_Terminating,
   LifecycleState_Terminating_Proceed,
   LifecycleState_Terminating_Wait,
+  LifecycleState_Warmed_Hibernated,
   LifecycleState_Warmed_Pending,
   LifecycleState_Warmed_Pending_Proceed,
   LifecycleState_Warmed_Pending_Wait,

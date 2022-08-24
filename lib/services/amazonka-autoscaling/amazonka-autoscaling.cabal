@@ -106,13 +106,22 @@ library
     Amazonka.AutoScaling.SuspendProcesses
     Amazonka.AutoScaling.TerminateInstanceInAutoScalingGroup
     Amazonka.AutoScaling.Types
+    Amazonka.AutoScaling.Types.AcceleratorCountRequest
+    Amazonka.AutoScaling.Types.AcceleratorManufacturer
+    Amazonka.AutoScaling.Types.AcceleratorName
+    Amazonka.AutoScaling.Types.AcceleratorTotalMemoryMiBRequest
+    Amazonka.AutoScaling.Types.AcceleratorType
     Amazonka.AutoScaling.Types.Activity
     Amazonka.AutoScaling.Types.AdjustmentType
     Amazonka.AutoScaling.Types.Alarm
     Amazonka.AutoScaling.Types.AutoScalingGroup
     Amazonka.AutoScaling.Types.AutoScalingInstanceDetails
+    Amazonka.AutoScaling.Types.BareMetal
+    Amazonka.AutoScaling.Types.BaselineEbsBandwidthMbpsRequest
     Amazonka.AutoScaling.Types.BlockDeviceMapping
+    Amazonka.AutoScaling.Types.BurstablePerformance
     Amazonka.AutoScaling.Types.CapacityForecast
+    Amazonka.AutoScaling.Types.CpuManufacturer
     Amazonka.AutoScaling.Types.CustomizedMetricSpecification
     Amazonka.AutoScaling.Types.DesiredConfiguration
     Amazonka.AutoScaling.Types.Ebs
@@ -120,6 +129,7 @@ library
     Amazonka.AutoScaling.Types.FailedScheduledUpdateGroupActionRequest
     Amazonka.AutoScaling.Types.Filter
     Amazonka.AutoScaling.Types.Instance
+    Amazonka.AutoScaling.Types.InstanceGeneration
     Amazonka.AutoScaling.Types.InstanceMetadataEndpointState
     Amazonka.AutoScaling.Types.InstanceMetadataHttpTokensState
     Amazonka.AutoScaling.Types.InstanceMetadataOptions
@@ -129,6 +139,8 @@ library
     Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails
     Amazonka.AutoScaling.Types.InstanceRefreshStatus
     Amazonka.AutoScaling.Types.InstanceRefreshWarmPoolProgress
+    Amazonka.AutoScaling.Types.InstanceRequirements
+    Amazonka.AutoScaling.Types.InstanceReusePolicy
     Amazonka.AutoScaling.Types.InstancesDistribution
     Amazonka.AutoScaling.Types.LaunchConfiguration
     Amazonka.AutoScaling.Types.LaunchTemplate
@@ -140,18 +152,29 @@ library
     Amazonka.AutoScaling.Types.LoadBalancerState
     Amazonka.AutoScaling.Types.LoadBalancerTargetGroupState
     Amazonka.AutoScaling.Types.LoadForecast
+    Amazonka.AutoScaling.Types.LocalStorage
+    Amazonka.AutoScaling.Types.LocalStorageType
+    Amazonka.AutoScaling.Types.MemoryGiBPerVCpuRequest
+    Amazonka.AutoScaling.Types.MemoryMiBRequest
+    Amazonka.AutoScaling.Types.Metric
     Amazonka.AutoScaling.Types.MetricCollectionType
+    Amazonka.AutoScaling.Types.MetricDataQuery
     Amazonka.AutoScaling.Types.MetricDimension
     Amazonka.AutoScaling.Types.MetricGranularityType
+    Amazonka.AutoScaling.Types.MetricStat
     Amazonka.AutoScaling.Types.MetricStatistic
     Amazonka.AutoScaling.Types.MetricType
     Amazonka.AutoScaling.Types.MixedInstancesPolicy
+    Amazonka.AutoScaling.Types.NetworkInterfaceCountRequest
     Amazonka.AutoScaling.Types.NotificationConfiguration
     Amazonka.AutoScaling.Types.PredefinedLoadMetricType
     Amazonka.AutoScaling.Types.PredefinedMetricPairType
     Amazonka.AutoScaling.Types.PredefinedMetricSpecification
     Amazonka.AutoScaling.Types.PredefinedScalingMetricType
     Amazonka.AutoScaling.Types.PredictiveScalingConfiguration
+    Amazonka.AutoScaling.Types.PredictiveScalingCustomizedCapacityMetric
+    Amazonka.AutoScaling.Types.PredictiveScalingCustomizedLoadMetric
+    Amazonka.AutoScaling.Types.PredictiveScalingCustomizedScalingMetric
     Amazonka.AutoScaling.Types.PredictiveScalingMaxCapacityBreachBehavior
     Amazonka.AutoScaling.Types.PredictiveScalingMetricSpecification
     Amazonka.AutoScaling.Types.PredictiveScalingMode
@@ -171,6 +194,8 @@ library
     Amazonka.AutoScaling.Types.Tag
     Amazonka.AutoScaling.Types.TagDescription
     Amazonka.AutoScaling.Types.TargetTrackingConfiguration
+    Amazonka.AutoScaling.Types.TotalLocalStorageGBRequest
+    Amazonka.AutoScaling.Types.VCpuCountRequest
     Amazonka.AutoScaling.Types.WarmPoolConfiguration
     Amazonka.AutoScaling.Types.WarmPoolState
     Amazonka.AutoScaling.Types.WarmPoolStatus

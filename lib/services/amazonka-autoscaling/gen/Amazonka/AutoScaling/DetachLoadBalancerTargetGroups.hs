@@ -22,6 +22,11 @@
 --
 -- Detaches one or more target groups from the specified Auto Scaling
 -- group.
+--
+-- When you detach a target group, it enters the @Removing@ state while
+-- deregistering the instances in the group. When all instances are
+-- deregistered, then you can no longer describe the target group using the
+-- DescribeLoadBalancerTargetGroups API call. The instances remain running.
 module Amazonka.AutoScaling.DetachLoadBalancerTargetGroups
   ( -- * Creating a Request
     DetachLoadBalancerTargetGroups (..),

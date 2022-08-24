@@ -66,10 +66,12 @@ module Amazonka.AutoScaling.Lens
     createAutoScalingGroup_vPCZoneIdentifier,
     createAutoScalingGroup_launchConfigurationName,
     createAutoScalingGroup_targetGroupARNs,
+    createAutoScalingGroup_defaultInstanceWarmup,
     createAutoScalingGroup_instanceId,
     createAutoScalingGroup_mixedInstancesPolicy,
     createAutoScalingGroup_healthCheckType,
     createAutoScalingGroup_placementGroup,
+    createAutoScalingGroup_desiredCapacityType,
     createAutoScalingGroup_newInstancesProtectedFromScaleIn,
     createAutoScalingGroup_defaultCooldown,
     createAutoScalingGroup_terminationPolicies,
@@ -385,6 +387,7 @@ module Amazonka.AutoScaling.Lens
     -- ** PutWarmPool
     putWarmPool_poolState,
     putWarmPool_minSize,
+    putWarmPool_instanceReusePolicy,
     putWarmPool_maxGroupPreparedCapacity,
     putWarmPool_autoScalingGroupName,
     putWarmPoolResponse_httpStatus,
@@ -443,10 +446,12 @@ module Amazonka.AutoScaling.Lens
     updateAutoScalingGroup_maxInstanceLifetime,
     updateAutoScalingGroup_vPCZoneIdentifier,
     updateAutoScalingGroup_launchConfigurationName,
+    updateAutoScalingGroup_defaultInstanceWarmup,
     updateAutoScalingGroup_mixedInstancesPolicy,
     updateAutoScalingGroup_minSize,
     updateAutoScalingGroup_healthCheckType,
     updateAutoScalingGroup_placementGroup,
+    updateAutoScalingGroup_desiredCapacityType,
     updateAutoScalingGroup_newInstancesProtectedFromScaleIn,
     updateAutoScalingGroup_defaultCooldown,
     updateAutoScalingGroup_terminationPolicies,
@@ -456,6 +461,14 @@ module Amazonka.AutoScaling.Lens
     updateAutoScalingGroup_autoScalingGroupName,
 
     -- * Types
+
+    -- ** AcceleratorCountRequest
+    acceleratorCountRequest_max,
+    acceleratorCountRequest_min,
+
+    -- ** AcceleratorTotalMemoryMiBRequest
+    acceleratorTotalMemoryMiBRequest_max,
+    acceleratorTotalMemoryMiBRequest_min,
 
     -- ** Activity
     activity_progress,
@@ -495,8 +508,10 @@ module Amazonka.AutoScaling.Lens
     autoScalingGroup_vPCZoneIdentifier,
     autoScalingGroup_launchConfigurationName,
     autoScalingGroup_targetGroupARNs,
+    autoScalingGroup_defaultInstanceWarmup,
     autoScalingGroup_mixedInstancesPolicy,
     autoScalingGroup_placementGroup,
+    autoScalingGroup_desiredCapacityType,
     autoScalingGroup_newInstancesProtectedFromScaleIn,
     autoScalingGroup_terminationPolicies,
     autoScalingGroup_suspendedProcesses,
@@ -522,6 +537,10 @@ module Amazonka.AutoScaling.Lens
     autoScalingInstanceDetails_lifecycleState,
     autoScalingInstanceDetails_healthStatus,
     autoScalingInstanceDetails_protectedFromScaleIn,
+
+    -- ** BaselineEbsBandwidthMbpsRequest
+    baselineEbsBandwidthMbpsRequest_max,
+    baselineEbsBandwidthMbpsRequest_min,
 
     -- ** BlockDeviceMapping
     blockDeviceMapping_ebs,
@@ -610,6 +629,32 @@ module Amazonka.AutoScaling.Lens
     instanceRefreshWarmPoolProgress_percentageComplete,
     instanceRefreshWarmPoolProgress_instancesToUpdate,
 
+    -- ** InstanceRequirements
+    instanceRequirements_instanceGenerations,
+    instanceRequirements_baselineEbsBandwidthMbps,
+    instanceRequirements_bareMetal,
+    instanceRequirements_spotMaxPricePercentageOverLowestPrice,
+    instanceRequirements_acceleratorTypes,
+    instanceRequirements_totalLocalStorageGB,
+    instanceRequirements_localStorageTypes,
+    instanceRequirements_onDemandMaxPricePercentageOverLowestPrice,
+    instanceRequirements_acceleratorNames,
+    instanceRequirements_acceleratorManufacturers,
+    instanceRequirements_excludedInstanceTypes,
+    instanceRequirements_networkInterfaceCount,
+    instanceRequirements_requireHibernateSupport,
+    instanceRequirements_acceleratorTotalMemoryMiB,
+    instanceRequirements_acceleratorCount,
+    instanceRequirements_burstablePerformance,
+    instanceRequirements_cpuManufacturers,
+    instanceRequirements_memoryGiBPerVCpu,
+    instanceRequirements_localStorage,
+    instanceRequirements_vCpuCount,
+    instanceRequirements_memoryMiB,
+
+    -- ** InstanceReusePolicy
+    instanceReusePolicy_reuseOnScaleIn,
+
     -- ** InstancesDistribution
     instancesDistribution_onDemandBaseCapacity,
     instancesDistribution_onDemandPercentageAboveBaseCapacity,
@@ -645,6 +690,7 @@ module Amazonka.AutoScaling.Lens
     launchTemplate_overrides,
 
     -- ** LaunchTemplateOverrides
+    launchTemplateOverrides_instanceRequirements,
     launchTemplateOverrides_launchTemplateSpecification,
     launchTemplateOverrides_instanceType,
     launchTemplateOverrides_weightedCapacity,
@@ -687,8 +733,28 @@ module Amazonka.AutoScaling.Lens
     loadForecast_values,
     loadForecast_metricSpecification,
 
+    -- ** MemoryGiBPerVCpuRequest
+    memoryGiBPerVCpuRequest_max,
+    memoryGiBPerVCpuRequest_min,
+
+    -- ** MemoryMiBRequest
+    memoryMiBRequest_max,
+    memoryMiBRequest_min,
+
+    -- ** Metric
+    metric_dimensions,
+    metric_namespace,
+    metric_metricName,
+
     -- ** MetricCollectionType
     metricCollectionType_metric,
+
+    -- ** MetricDataQuery
+    metricDataQuery_metricStat,
+    metricDataQuery_returnData,
+    metricDataQuery_label,
+    metricDataQuery_expression,
+    metricDataQuery_id,
 
     -- ** MetricDimension
     metricDimension_name,
@@ -697,9 +763,18 @@ module Amazonka.AutoScaling.Lens
     -- ** MetricGranularityType
     metricGranularityType_granularity,
 
+    -- ** MetricStat
+    metricStat_unit,
+    metricStat_metric,
+    metricStat_stat,
+
     -- ** MixedInstancesPolicy
     mixedInstancesPolicy_instancesDistribution,
     mixedInstancesPolicy_launchTemplate,
+
+    -- ** NetworkInterfaceCountRequest
+    networkInterfaceCountRequest_max,
+    networkInterfaceCountRequest_min,
 
     -- ** NotificationConfiguration
     notificationConfiguration_notificationType,
@@ -717,8 +792,20 @@ module Amazonka.AutoScaling.Lens
     predictiveScalingConfiguration_schedulingBufferTime,
     predictiveScalingConfiguration_metricSpecifications,
 
+    -- ** PredictiveScalingCustomizedCapacityMetric
+    predictiveScalingCustomizedCapacityMetric_metricDataQueries,
+
+    -- ** PredictiveScalingCustomizedLoadMetric
+    predictiveScalingCustomizedLoadMetric_metricDataQueries,
+
+    -- ** PredictiveScalingCustomizedScalingMetric
+    predictiveScalingCustomizedScalingMetric_metricDataQueries,
+
     -- ** PredictiveScalingMetricSpecification
+    predictiveScalingMetricSpecification_customizedScalingMetricSpecification,
     predictiveScalingMetricSpecification_predefinedLoadMetricSpecification,
+    predictiveScalingMetricSpecification_customizedLoadMetricSpecification,
+    predictiveScalingMetricSpecification_customizedCapacityMetricSpecification,
     predictiveScalingMetricSpecification_predefinedScalingMetricSpecification,
     predictiveScalingMetricSpecification_predefinedMetricPairSpecification,
     predictiveScalingMetricSpecification_targetValue,
@@ -819,10 +906,19 @@ module Amazonka.AutoScaling.Lens
     targetTrackingConfiguration_predefinedMetricSpecification,
     targetTrackingConfiguration_targetValue,
 
+    -- ** TotalLocalStorageGBRequest
+    totalLocalStorageGBRequest_max,
+    totalLocalStorageGBRequest_min,
+
+    -- ** VCpuCountRequest
+    vCpuCountRequest_max,
+    vCpuCountRequest_min,
+
     -- ** WarmPoolConfiguration
     warmPoolConfiguration_poolState,
     warmPoolConfiguration_status,
     warmPoolConfiguration_minSize,
+    warmPoolConfiguration_instanceReusePolicy,
     warmPoolConfiguration_maxGroupPreparedCapacity,
   )
 where
@@ -887,11 +983,14 @@ import Amazonka.AutoScaling.SetInstanceProtection
 import Amazonka.AutoScaling.StartInstanceRefresh
 import Amazonka.AutoScaling.SuspendProcesses
 import Amazonka.AutoScaling.TerminateInstanceInAutoScalingGroup
+import Amazonka.AutoScaling.Types.AcceleratorCountRequest
+import Amazonka.AutoScaling.Types.AcceleratorTotalMemoryMiBRequest
 import Amazonka.AutoScaling.Types.Activity
 import Amazonka.AutoScaling.Types.AdjustmentType
 import Amazonka.AutoScaling.Types.Alarm
 import Amazonka.AutoScaling.Types.AutoScalingGroup
 import Amazonka.AutoScaling.Types.AutoScalingInstanceDetails
+import Amazonka.AutoScaling.Types.BaselineEbsBandwidthMbpsRequest
 import Amazonka.AutoScaling.Types.BlockDeviceMapping
 import Amazonka.AutoScaling.Types.CapacityForecast
 import Amazonka.AutoScaling.Types.CustomizedMetricSpecification
@@ -907,6 +1006,8 @@ import Amazonka.AutoScaling.Types.InstanceRefresh
 import Amazonka.AutoScaling.Types.InstanceRefreshLivePoolProgress
 import Amazonka.AutoScaling.Types.InstanceRefreshProgressDetails
 import Amazonka.AutoScaling.Types.InstanceRefreshWarmPoolProgress
+import Amazonka.AutoScaling.Types.InstanceRequirements
+import Amazonka.AutoScaling.Types.InstanceReusePolicy
 import Amazonka.AutoScaling.Types.InstancesDistribution
 import Amazonka.AutoScaling.Types.LaunchConfiguration
 import Amazonka.AutoScaling.Types.LaunchTemplate
@@ -917,13 +1018,22 @@ import Amazonka.AutoScaling.Types.LifecycleHookSpecification
 import Amazonka.AutoScaling.Types.LoadBalancerState
 import Amazonka.AutoScaling.Types.LoadBalancerTargetGroupState
 import Amazonka.AutoScaling.Types.LoadForecast
+import Amazonka.AutoScaling.Types.MemoryGiBPerVCpuRequest
+import Amazonka.AutoScaling.Types.MemoryMiBRequest
+import Amazonka.AutoScaling.Types.Metric
 import Amazonka.AutoScaling.Types.MetricCollectionType
+import Amazonka.AutoScaling.Types.MetricDataQuery
 import Amazonka.AutoScaling.Types.MetricDimension
 import Amazonka.AutoScaling.Types.MetricGranularityType
+import Amazonka.AutoScaling.Types.MetricStat
 import Amazonka.AutoScaling.Types.MixedInstancesPolicy
+import Amazonka.AutoScaling.Types.NetworkInterfaceCountRequest
 import Amazonka.AutoScaling.Types.NotificationConfiguration
 import Amazonka.AutoScaling.Types.PredefinedMetricSpecification
 import Amazonka.AutoScaling.Types.PredictiveScalingConfiguration
+import Amazonka.AutoScaling.Types.PredictiveScalingCustomizedCapacityMetric
+import Amazonka.AutoScaling.Types.PredictiveScalingCustomizedLoadMetric
+import Amazonka.AutoScaling.Types.PredictiveScalingCustomizedScalingMetric
 import Amazonka.AutoScaling.Types.PredictiveScalingMetricSpecification
 import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric
 import Amazonka.AutoScaling.Types.PredictiveScalingPredefinedMetricPair
@@ -939,5 +1049,7 @@ import Amazonka.AutoScaling.Types.SuspendedProcess
 import Amazonka.AutoScaling.Types.Tag
 import Amazonka.AutoScaling.Types.TagDescription
 import Amazonka.AutoScaling.Types.TargetTrackingConfiguration
+import Amazonka.AutoScaling.Types.TotalLocalStorageGBRequest
+import Amazonka.AutoScaling.Types.VCpuCountRequest
 import Amazonka.AutoScaling.Types.WarmPoolConfiguration
 import Amazonka.AutoScaling.UpdateAutoScalingGroup

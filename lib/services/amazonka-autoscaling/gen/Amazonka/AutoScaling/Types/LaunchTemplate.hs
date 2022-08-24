@@ -25,16 +25,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a launch template and overrides.
---
--- You specify these properties as part of a mixed instances policy.
---
--- When you update the launch template or overrides in the
--- UpdateAutoScalingGroup API call, existing Amazon EC2 instances continue
--- to run. When scale out occurs, Amazon EC2 Auto Scaling launches
--- instances to match the new settings. When scale in occurs, Amazon EC2
--- Auto Scaling terminates instances according to the group\'s termination
--- policies.
+-- | Describes a launch template and overrides. You specify these properties
+-- as part of a mixed instances policy.
 --
 -- /See:/ 'newLaunchTemplate' smart constructor.
 data LaunchTemplate = LaunchTemplate'
@@ -42,8 +34,11 @@ data LaunchTemplate = LaunchTemplate'
     launchTemplateSpecification :: Prelude.Maybe LaunchTemplateSpecification,
     -- | Any properties that you specify override the same properties in the
     -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
-    -- instance type specified in the launch template when it launches an
-    -- instance.
+    -- instance type or instance type requirements specified in the launch
+    -- template when it launches an instance.
+    --
+    -- The overrides can include either one or more instance types or a set of
+    -- instance requirements, but not both.
     overrides :: Prelude.Maybe [LaunchTemplateOverrides]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,8 +55,11 @@ data LaunchTemplate = LaunchTemplate'
 --
 -- 'overrides', 'launchTemplate_overrides' - Any properties that you specify override the same properties in the
 -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
--- instance type specified in the launch template when it launches an
--- instance.
+-- instance type or instance type requirements specified in the launch
+-- template when it launches an instance.
+--
+-- The overrides can include either one or more instance types or a set of
+-- instance requirements, but not both.
 newLaunchTemplate ::
   LaunchTemplate
 newLaunchTemplate =
@@ -77,8 +75,11 @@ launchTemplate_launchTemplateSpecification = Lens.lens (\LaunchTemplate' {launch
 
 -- | Any properties that you specify override the same properties in the
 -- launch template. If not provided, Amazon EC2 Auto Scaling uses the
--- instance type specified in the launch template when it launches an
--- instance.
+-- instance type or instance type requirements specified in the launch
+-- template when it launches an instance.
+--
+-- The overrides can include either one or more instance types or a set of
+-- instance requirements, but not both.
 launchTemplate_overrides :: Lens.Lens' LaunchTemplate (Prelude.Maybe [LaunchTemplateOverrides])
 launchTemplate_overrides = Lens.lens (\LaunchTemplate' {overrides} -> overrides) (\s@LaunchTemplate' {} a -> s {overrides = a} :: LaunchTemplate) Prelude.. Lens.mapping Lens.coerced
 

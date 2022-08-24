@@ -26,20 +26,18 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a mixed instances policy. A mixed instances policy contains
--- the instance types Amazon EC2 Auto Scaling can launch, and other
--- information Amazon EC2 Auto Scaling can use to launch instances to help
--- you optimize your costs. For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html Auto Scaling groups with multiple instance types and purchase options>
+-- the instance types that Amazon EC2 Auto Scaling can launch and other
+-- information that Amazon EC2 Auto Scaling can use to launch instances and
+-- help optimize your costs. For more information, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html Auto Scaling groups with multiple instance types and purchase options>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 --
 -- /See:/ 'newMixedInstancesPolicy' smart constructor.
 data MixedInstancesPolicy = MixedInstancesPolicy'
-  { -- | Specifies the instances distribution. If not provided, the value for
-    -- each property in @InstancesDistribution@ uses a default value.
+  { -- | The instances distribution.
     instancesDistribution :: Prelude.Maybe InstancesDistribution,
-    -- | Specifies the launch template to use and the instance types (overrides)
-    -- that are used to provision EC2 instances to fulfill On-Demand and Spot
-    -- capacities. Required when creating a mixed instances policy.
+    -- | One or more launch templates and the instance types (overrides) that are
+    -- used to launch EC2 instances to fulfill On-Demand and Spot capacities.
     launchTemplate :: Prelude.Maybe LaunchTemplate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,12 +50,10 @@ data MixedInstancesPolicy = MixedInstancesPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instancesDistribution', 'mixedInstancesPolicy_instancesDistribution' - Specifies the instances distribution. If not provided, the value for
--- each property in @InstancesDistribution@ uses a default value.
+-- 'instancesDistribution', 'mixedInstancesPolicy_instancesDistribution' - The instances distribution.
 --
--- 'launchTemplate', 'mixedInstancesPolicy_launchTemplate' - Specifies the launch template to use and the instance types (overrides)
--- that are used to provision EC2 instances to fulfill On-Demand and Spot
--- capacities. Required when creating a mixed instances policy.
+-- 'launchTemplate', 'mixedInstancesPolicy_launchTemplate' - One or more launch templates and the instance types (overrides) that are
+-- used to launch EC2 instances to fulfill On-Demand and Spot capacities.
 newMixedInstancesPolicy ::
   MixedInstancesPolicy
 newMixedInstancesPolicy =
@@ -67,14 +63,12 @@ newMixedInstancesPolicy =
       launchTemplate = Prelude.Nothing
     }
 
--- | Specifies the instances distribution. If not provided, the value for
--- each property in @InstancesDistribution@ uses a default value.
+-- | The instances distribution.
 mixedInstancesPolicy_instancesDistribution :: Lens.Lens' MixedInstancesPolicy (Prelude.Maybe InstancesDistribution)
 mixedInstancesPolicy_instancesDistribution = Lens.lens (\MixedInstancesPolicy' {instancesDistribution} -> instancesDistribution) (\s@MixedInstancesPolicy' {} a -> s {instancesDistribution = a} :: MixedInstancesPolicy)
 
--- | Specifies the launch template to use and the instance types (overrides)
--- that are used to provision EC2 instances to fulfill On-Demand and Spot
--- capacities. Required when creating a mixed instances policy.
+-- | One or more launch templates and the instance types (overrides) that are
+-- used to launch EC2 instances to fulfill On-Demand and Spot capacities.
 mixedInstancesPolicy_launchTemplate :: Lens.Lens' MixedInstancesPolicy (Prelude.Maybe LaunchTemplate)
 mixedInstancesPolicy_launchTemplate = Lens.lens (\MixedInstancesPolicy' {launchTemplate} -> launchTemplate) (\s@MixedInstancesPolicy' {} a -> s {launchTemplate = a} :: MixedInstancesPolicy)
 

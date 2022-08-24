@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLoadForecast' smart constructor.
 data LoadForecast = LoadForecast'
-  { -- | The time stamps for the data points, in UTC format.
+  { -- | The timestamps for the data points, in UTC format.
     timestamps :: [Core.ISO8601],
     -- | The values of the data points.
     values :: [Prelude.Double],
@@ -48,7 +48,7 @@ data LoadForecast = LoadForecast'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'timestamps', 'loadForecast_timestamps' - The time stamps for the data points, in UTC format.
+-- 'timestamps', 'loadForecast_timestamps' - The timestamps for the data points, in UTC format.
 --
 -- 'values', 'loadForecast_values' - The values of the data points.
 --
@@ -64,7 +64,7 @@ newLoadForecast pMetricSpecification_ =
       metricSpecification = pMetricSpecification_
     }
 
--- | The time stamps for the data points, in UTC format.
+-- | The timestamps for the data points, in UTC format.
 loadForecast_timestamps :: Lens.Lens' LoadForecast [Prelude.UTCTime]
 loadForecast_timestamps = Lens.lens (\LoadForecast' {timestamps} -> timestamps) (\s@LoadForecast' {} a -> s {timestamps = a} :: LoadForecast) Prelude.. Lens.coerced
 

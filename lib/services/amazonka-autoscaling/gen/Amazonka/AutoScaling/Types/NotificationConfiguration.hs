@@ -39,8 +39,7 @@ data NotificationConfiguration = NotificationConfiguration'
     --
     -- -   @autoscaling:TEST_NOTIFICATION@
     notificationType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
-    -- (Amazon SNS) topic.
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic.
     topicARN :: Prelude.Maybe Prelude.Text,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Maybe Prelude.Text
@@ -67,8 +66,7 @@ data NotificationConfiguration = NotificationConfiguration'
 --
 -- -   @autoscaling:TEST_NOTIFICATION@
 --
--- 'topicARN', 'notificationConfiguration_topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (Amazon SNS) topic.
+-- 'topicARN', 'notificationConfiguration_topicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic.
 --
 -- 'autoScalingGroupName', 'notificationConfiguration_autoScalingGroupName' - The name of the Auto Scaling group.
 newNotificationConfiguration ::
@@ -95,8 +93,7 @@ newNotificationConfiguration =
 notificationConfiguration_notificationType :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_notificationType = Lens.lens (\NotificationConfiguration' {notificationType} -> notificationType) (\s@NotificationConfiguration' {} a -> s {notificationType = a} :: NotificationConfiguration)
 
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
--- (Amazon SNS) topic.
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic.
 notificationConfiguration_topicARN :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_topicARN = Lens.lens (\NotificationConfiguration' {topicARN} -> topicARN) (\s@NotificationConfiguration' {} a -> s {topicARN = a} :: NotificationConfiguration)
 

@@ -80,7 +80,7 @@ data DescribeScalingActivities = DescribeScalingActivities'
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The activity IDs of the desired scaling activities. If you omit this
-    -- parameter, all activities for the past six weeks are described. If
+    -- property, all activities for the past six weeks are described. If
     -- unknown activities are requested, they are ignored with no error. If you
     -- specify an Auto Scaling group, the results are limited to that group.
     --
@@ -109,7 +109,7 @@ data DescribeScalingActivities = DescribeScalingActivities'
 -- 'autoScalingGroupName', 'describeScalingActivities_autoScalingGroupName' - The name of the Auto Scaling group.
 --
 -- 'activityIds', 'describeScalingActivities_activityIds' - The activity IDs of the desired scaling activities. If you omit this
--- parameter, all activities for the past six weeks are described. If
+-- property, all activities for the past six weeks are described. If
 -- unknown activities are requested, they are ignored with no error. If you
 -- specify an Auto Scaling group, the results are limited to that group.
 --
@@ -146,7 +146,7 @@ describeScalingActivities_autoScalingGroupName :: Lens.Lens' DescribeScalingActi
 describeScalingActivities_autoScalingGroupName = Lens.lens (\DescribeScalingActivities' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribeScalingActivities' {} a -> s {autoScalingGroupName = a} :: DescribeScalingActivities)
 
 -- | The activity IDs of the desired scaling activities. If you omit this
--- parameter, all activities for the past six weeks are described. If
+-- property, all activities for the past six weeks are described. If
 -- unknown activities are requested, they are ignored with no error. If you
 -- specify an Auto Scaling group, the results are limited to that group.
 --

@@ -41,20 +41,22 @@ data RefreshPreferences = RefreshPreferences'
     -- then it skips replacing instances that have the same configuration that
     -- is already set on the group. The default is @false@.
     skipMatching :: Prelude.Maybe Prelude.Bool,
-    -- | The amount of capacity in the Auto Scaling group that must remain
-    -- healthy during an instance refresh to allow the operation to continue.
-    -- The value is expressed as a percentage of the desired capacity of the
-    -- Auto Scaling group (rounded up to the nearest integer). The default is
-    -- @90@.
+    -- | The amount of capacity in the Auto Scaling group that must pass your
+    -- group\'s health checks to allow the operation to continue. The value is
+    -- expressed as a percentage of the desired capacity of the Auto Scaling
+    -- group (rounded up to the nearest integer). The default is @90@.
     --
     -- Setting the minimum healthy percentage to 100 percent limits the rate of
     -- replacement to one instance at a time. In contrast, setting it to 0
     -- percent has the effect of replacing all instances at the same time.
     minHealthyPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | The number of seconds until a newly launched instance is configured and
-    -- ready to use. During this time, Amazon EC2 Auto Scaling does not
-    -- immediately move on to the next replacement. The default is to use the
-    -- value for the health check grace period defined for the group.
+    -- | /Not needed if the default instance warmup is defined for the group./
+    --
+    -- The duration of the instance warmup, in seconds.
+    --
+    -- The default is to use the value for the default instance warmup defined
+    -- for the group. If default instance warmup is null, then @InstanceWarmup@
+    -- falls back to the value of the health check grace period.
     instanceWarmup :: Prelude.Maybe Prelude.Natural,
     -- | The amount of time, in seconds, to wait after a checkpoint before
     -- continuing. This property is optional, but if you specify a value for
@@ -87,20 +89,22 @@ data RefreshPreferences = RefreshPreferences'
 -- then it skips replacing instances that have the same configuration that
 -- is already set on the group. The default is @false@.
 --
--- 'minHealthyPercentage', 'refreshPreferences_minHealthyPercentage' - The amount of capacity in the Auto Scaling group that must remain
--- healthy during an instance refresh to allow the operation to continue.
--- The value is expressed as a percentage of the desired capacity of the
--- Auto Scaling group (rounded up to the nearest integer). The default is
--- @90@.
+-- 'minHealthyPercentage', 'refreshPreferences_minHealthyPercentage' - The amount of capacity in the Auto Scaling group that must pass your
+-- group\'s health checks to allow the operation to continue. The value is
+-- expressed as a percentage of the desired capacity of the Auto Scaling
+-- group (rounded up to the nearest integer). The default is @90@.
 --
 -- Setting the minimum healthy percentage to 100 percent limits the rate of
 -- replacement to one instance at a time. In contrast, setting it to 0
 -- percent has the effect of replacing all instances at the same time.
 --
--- 'instanceWarmup', 'refreshPreferences_instanceWarmup' - The number of seconds until a newly launched instance is configured and
--- ready to use. During this time, Amazon EC2 Auto Scaling does not
--- immediately move on to the next replacement. The default is to use the
--- value for the health check grace period defined for the group.
+-- 'instanceWarmup', 'refreshPreferences_instanceWarmup' - /Not needed if the default instance warmup is defined for the group./
+--
+-- The duration of the instance warmup, in seconds.
+--
+-- The default is to use the value for the default instance warmup defined
+-- for the group. If default instance warmup is null, then @InstanceWarmup@
+-- falls back to the value of the health check grace period.
 --
 -- 'checkpointDelay', 'refreshPreferences_checkpointDelay' - The amount of time, in seconds, to wait after a checkpoint before
 -- continuing. This property is optional, but if you specify a value for
@@ -137,11 +141,10 @@ refreshPreferences_checkpointPercentages = Lens.lens (\RefreshPreferences' {chec
 refreshPreferences_skipMatching :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Bool)
 refreshPreferences_skipMatching = Lens.lens (\RefreshPreferences' {skipMatching} -> skipMatching) (\s@RefreshPreferences' {} a -> s {skipMatching = a} :: RefreshPreferences)
 
--- | The amount of capacity in the Auto Scaling group that must remain
--- healthy during an instance refresh to allow the operation to continue.
--- The value is expressed as a percentage of the desired capacity of the
--- Auto Scaling group (rounded up to the nearest integer). The default is
--- @90@.
+-- | The amount of capacity in the Auto Scaling group that must pass your
+-- group\'s health checks to allow the operation to continue. The value is
+-- expressed as a percentage of the desired capacity of the Auto Scaling
+-- group (rounded up to the nearest integer). The default is @90@.
 --
 -- Setting the minimum healthy percentage to 100 percent limits the rate of
 -- replacement to one instance at a time. In contrast, setting it to 0
@@ -149,10 +152,13 @@ refreshPreferences_skipMatching = Lens.lens (\RefreshPreferences' {skipMatching}
 refreshPreferences_minHealthyPercentage :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Natural)
 refreshPreferences_minHealthyPercentage = Lens.lens (\RefreshPreferences' {minHealthyPercentage} -> minHealthyPercentage) (\s@RefreshPreferences' {} a -> s {minHealthyPercentage = a} :: RefreshPreferences)
 
--- | The number of seconds until a newly launched instance is configured and
--- ready to use. During this time, Amazon EC2 Auto Scaling does not
--- immediately move on to the next replacement. The default is to use the
--- value for the health check grace period defined for the group.
+-- | /Not needed if the default instance warmup is defined for the group./
+--
+-- The duration of the instance warmup, in seconds.
+--
+-- The default is to use the value for the default instance warmup defined
+-- for the group. If default instance warmup is null, then @InstanceWarmup@
+-- falls back to the value of the health check grace period.
 refreshPreferences_instanceWarmup :: Lens.Lens' RefreshPreferences (Prelude.Maybe Prelude.Natural)
 refreshPreferences_instanceWarmup = Lens.lens (\RefreshPreferences' {instanceWarmup} -> instanceWarmup) (\s@RefreshPreferences' {} a -> s {instanceWarmup = a} :: RefreshPreferences)
 

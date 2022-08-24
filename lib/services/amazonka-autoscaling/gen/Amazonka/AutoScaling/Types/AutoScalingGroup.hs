@@ -47,9 +47,7 @@ data AutoScalingGroup = AutoScalingGroup'
     -- | The predicted capacity of the group when it has a predictive scaling
     -- policy.
     predictedCapacity :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
-    -- before checking the health status of an EC2 instance that has come into
-    -- service.
+    -- | The duration of the health check grace period, in seconds.
     healthCheckGracePeriod :: Prelude.Maybe Prelude.Int,
     -- | The launch template for the group.
     launchTemplate :: Prelude.Maybe LaunchTemplateSpecification,
@@ -75,11 +73,17 @@ data AutoScalingGroup = AutoScalingGroup'
     -- | The Amazon Resource Names (ARN) of the target groups for your load
     -- balancer.
     targetGroupARNs :: Prelude.Maybe [Prelude.Text],
+    -- | The duration of the default instance warmup, in seconds.
+    defaultInstanceWarmup :: Prelude.Maybe Prelude.Int,
     -- | The mixed instances policy for the group.
     mixedInstancesPolicy :: Prelude.Maybe MixedInstancesPolicy,
     -- | The name of the placement group into which to launch your instances, if
     -- any.
     placementGroup :: Prelude.Maybe Prelude.Text,
+    -- | The unit of measurement for the value specified for desired capacity.
+    -- Amazon EC2 Auto Scaling supports @DesiredCapacityType@ for
+    -- attribute-based instance type selection only.
+    desiredCapacityType :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether newly launched instances are protected from
     -- termination by Amazon EC2 Auto Scaling when scaling in.
     newInstancesProtectedFromScaleIn' :: Prelude.Maybe Prelude.Bool,
@@ -134,9 +138,7 @@ data AutoScalingGroup = AutoScalingGroup'
 -- 'predictedCapacity', 'autoScalingGroup_predictedCapacity' - The predicted capacity of the group when it has a predictive scaling
 -- policy.
 --
--- 'healthCheckGracePeriod', 'autoScalingGroup_healthCheckGracePeriod' - The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
--- before checking the health status of an EC2 instance that has come into
--- service.
+-- 'healthCheckGracePeriod', 'autoScalingGroup_healthCheckGracePeriod' - The duration of the health check grace period, in seconds.
 --
 -- 'launchTemplate', 'autoScalingGroup_launchTemplate' - The launch template for the group.
 --
@@ -162,10 +164,16 @@ data AutoScalingGroup = AutoScalingGroup'
 -- 'targetGroupARNs', 'autoScalingGroup_targetGroupARNs' - The Amazon Resource Names (ARN) of the target groups for your load
 -- balancer.
 --
+-- 'defaultInstanceWarmup', 'autoScalingGroup_defaultInstanceWarmup' - The duration of the default instance warmup, in seconds.
+--
 -- 'mixedInstancesPolicy', 'autoScalingGroup_mixedInstancesPolicy' - The mixed instances policy for the group.
 --
 -- 'placementGroup', 'autoScalingGroup_placementGroup' - The name of the placement group into which to launch your instances, if
 -- any.
+--
+-- 'desiredCapacityType', 'autoScalingGroup_desiredCapacityType' - The unit of measurement for the value specified for desired capacity.
+-- Amazon EC2 Auto Scaling supports @DesiredCapacityType@ for
+-- attribute-based instance type selection only.
 --
 -- 'newInstancesProtectedFromScaleIn'', 'autoScalingGroup_newInstancesProtectedFromScaleIn' - Indicates whether newly launched instances are protected from
 -- termination by Amazon EC2 Auto Scaling when scaling in.
@@ -237,8 +245,10 @@ newAutoScalingGroup
         vPCZoneIdentifier = Prelude.Nothing,
         launchConfigurationName = Prelude.Nothing,
         targetGroupARNs = Prelude.Nothing,
+        defaultInstanceWarmup = Prelude.Nothing,
         mixedInstancesPolicy = Prelude.Nothing,
         placementGroup = Prelude.Nothing,
+        desiredCapacityType = Prelude.Nothing,
         newInstancesProtectedFromScaleIn' = Prelude.Nothing,
         terminationPolicies = Prelude.Nothing,
         suspendedProcesses = Prelude.Nothing,
@@ -279,9 +289,7 @@ autoScalingGroup_loadBalancerNames = Lens.lens (\AutoScalingGroup' {loadBalancer
 autoScalingGroup_predictedCapacity :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Int)
 autoScalingGroup_predictedCapacity = Lens.lens (\AutoScalingGroup' {predictedCapacity} -> predictedCapacity) (\s@AutoScalingGroup' {} a -> s {predictedCapacity = a} :: AutoScalingGroup)
 
--- | The amount of time, in seconds, that Amazon EC2 Auto Scaling waits
--- before checking the health status of an EC2 instance that has come into
--- service.
+-- | The duration of the health check grace period, in seconds.
 autoScalingGroup_healthCheckGracePeriod :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Int)
 autoScalingGroup_healthCheckGracePeriod = Lens.lens (\AutoScalingGroup' {healthCheckGracePeriod} -> healthCheckGracePeriod) (\s@AutoScalingGroup' {} a -> s {healthCheckGracePeriod = a} :: AutoScalingGroup)
 
@@ -327,6 +335,10 @@ autoScalingGroup_launchConfigurationName = Lens.lens (\AutoScalingGroup' {launch
 autoScalingGroup_targetGroupARNs :: Lens.Lens' AutoScalingGroup (Prelude.Maybe [Prelude.Text])
 autoScalingGroup_targetGroupARNs = Lens.lens (\AutoScalingGroup' {targetGroupARNs} -> targetGroupARNs) (\s@AutoScalingGroup' {} a -> s {targetGroupARNs = a} :: AutoScalingGroup) Prelude.. Lens.mapping Lens.coerced
 
+-- | The duration of the default instance warmup, in seconds.
+autoScalingGroup_defaultInstanceWarmup :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Int)
+autoScalingGroup_defaultInstanceWarmup = Lens.lens (\AutoScalingGroup' {defaultInstanceWarmup} -> defaultInstanceWarmup) (\s@AutoScalingGroup' {} a -> s {defaultInstanceWarmup = a} :: AutoScalingGroup)
+
 -- | The mixed instances policy for the group.
 autoScalingGroup_mixedInstancesPolicy :: Lens.Lens' AutoScalingGroup (Prelude.Maybe MixedInstancesPolicy)
 autoScalingGroup_mixedInstancesPolicy = Lens.lens (\AutoScalingGroup' {mixedInstancesPolicy} -> mixedInstancesPolicy) (\s@AutoScalingGroup' {} a -> s {mixedInstancesPolicy = a} :: AutoScalingGroup)
@@ -335,6 +347,12 @@ autoScalingGroup_mixedInstancesPolicy = Lens.lens (\AutoScalingGroup' {mixedInst
 -- any.
 autoScalingGroup_placementGroup :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
 autoScalingGroup_placementGroup = Lens.lens (\AutoScalingGroup' {placementGroup} -> placementGroup) (\s@AutoScalingGroup' {} a -> s {placementGroup = a} :: AutoScalingGroup)
+
+-- | The unit of measurement for the value specified for desired capacity.
+-- Amazon EC2 Auto Scaling supports @DesiredCapacityType@ for
+-- attribute-based instance type selection only.
+autoScalingGroup_desiredCapacityType :: Lens.Lens' AutoScalingGroup (Prelude.Maybe Prelude.Text)
+autoScalingGroup_desiredCapacityType = Lens.lens (\AutoScalingGroup' {desiredCapacityType} -> desiredCapacityType) (\s@AutoScalingGroup' {} a -> s {desiredCapacityType = a} :: AutoScalingGroup)
 
 -- | Indicates whether newly launched instances are protected from
 -- termination by Amazon EC2 Auto Scaling when scaling in.
@@ -420,8 +438,10 @@ instance Core.FromXML AutoScalingGroup where
       Prelude.<*> ( x Core..@? "TargetGroupARNs" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "DefaultInstanceWarmup")
       Prelude.<*> (x Core..@? "MixedInstancesPolicy")
       Prelude.<*> (x Core..@? "PlacementGroup")
+      Prelude.<*> (x Core..@? "DesiredCapacityType")
       Prelude.<*> (x Core..@? "NewInstancesProtectedFromScaleIn")
       Prelude.<*> ( x Core..@? "TerminationPolicies"
                       Core..!@ Prelude.mempty
@@ -465,8 +485,10 @@ instance Prelude.Hashable AutoScalingGroup where
       `Prelude.hashWithSalt` vPCZoneIdentifier
       `Prelude.hashWithSalt` launchConfigurationName
       `Prelude.hashWithSalt` targetGroupARNs
+      `Prelude.hashWithSalt` defaultInstanceWarmup
       `Prelude.hashWithSalt` mixedInstancesPolicy
       `Prelude.hashWithSalt` placementGroup
+      `Prelude.hashWithSalt` desiredCapacityType
       `Prelude.hashWithSalt` newInstancesProtectedFromScaleIn'
       `Prelude.hashWithSalt` terminationPolicies
       `Prelude.hashWithSalt` suspendedProcesses
@@ -499,20 +521,25 @@ instance Prelude.NFData AutoScalingGroup where
       `Prelude.seq` Prelude.rnf vPCZoneIdentifier
       `Prelude.seq` Prelude.rnf launchConfigurationName
       `Prelude.seq` Prelude.rnf targetGroupARNs
+      `Prelude.seq` Prelude.rnf defaultInstanceWarmup
       `Prelude.seq` Prelude.rnf mixedInstancesPolicy
       `Prelude.seq` Prelude.rnf placementGroup
+      `Prelude.seq` Prelude.rnf
+        desiredCapacityType
       `Prelude.seq` Prelude.rnf
         newInstancesProtectedFromScaleIn'
       `Prelude.seq` Prelude.rnf
         terminationPolicies
       `Prelude.seq` Prelude.rnf
         suspendedProcesses
-      `Prelude.seq` Prelude.rnf enabledMetrics
+      `Prelude.seq` Prelude.rnf
+        enabledMetrics
       `Prelude.seq` Prelude.rnf
         capacityRebalance
       `Prelude.seq` Prelude.rnf
         autoScalingGroupName
-      `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf
+        minSize
       `Prelude.seq` Prelude.rnf
         maxSize
       `Prelude.seq` Prelude.rnf

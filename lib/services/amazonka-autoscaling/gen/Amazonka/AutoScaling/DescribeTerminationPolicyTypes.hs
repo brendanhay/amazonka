@@ -23,7 +23,7 @@
 -- Describes the termination policies supported by Amazon EC2 Auto Scaling.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html Controlling which Auto Scaling instances terminate during scale in>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html Work with Amazon EC2 Auto Scaling termination policies>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 module Amazonka.AutoScaling.DescribeTerminationPolicyTypes
   ( -- * Creating a Request

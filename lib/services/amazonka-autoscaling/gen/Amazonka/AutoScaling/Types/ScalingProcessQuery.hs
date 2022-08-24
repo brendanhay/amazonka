@@ -45,7 +45,7 @@ data ScalingProcessQuery = ScalingProcessQuery'
     --
     -- -   @ScheduledActions@
     --
-    -- If you omit this parameter, all processes are specified.
+    -- If you omit this property, all processes are specified.
     scalingProcesses :: Prelude.Maybe [Prelude.Text],
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
@@ -80,7 +80,7 @@ data ScalingProcessQuery = ScalingProcessQuery'
 --
 -- -   @ScheduledActions@
 --
--- If you omit this parameter, all processes are specified.
+-- If you omit this property, all processes are specified.
 --
 -- 'autoScalingGroupName', 'scalingProcessQuery_autoScalingGroupName' - The name of the Auto Scaling group.
 newScalingProcessQuery ::
@@ -114,7 +114,7 @@ newScalingProcessQuery pAutoScalingGroupName_ =
 --
 -- -   @ScheduledActions@
 --
--- If you omit this parameter, all processes are specified.
+-- If you omit this property, all processes are specified.
 scalingProcessQuery_scalingProcesses :: Lens.Lens' ScalingProcessQuery (Prelude.Maybe [Prelude.Text])
 scalingProcessQuery_scalingProcesses = Lens.lens (\ScalingProcessQuery' {scalingProcesses} -> scalingProcesses) (\s@ScalingProcessQuery' {} a -> s {scalingProcesses = a} :: ScalingProcessQuery) Prelude.. Lens.mapping Lens.coerced
 

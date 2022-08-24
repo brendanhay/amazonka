@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AutoScaling.Types.WarmPoolConfiguration where
 
+import Amazonka.AutoScaling.Types.InstanceReusePolicy
 import Amazonka.AutoScaling.Types.WarmPoolState
 import Amazonka.AutoScaling.Types.WarmPoolStatus
 import qualified Amazonka.Core as Core
@@ -36,6 +37,8 @@ data WarmPoolConfiguration = WarmPoolConfiguration'
     status :: Prelude.Maybe WarmPoolStatus,
     -- | The minimum number of instances to maintain in the warm pool.
     minSize :: Prelude.Maybe Prelude.Natural,
+    -- | The instance reuse policy.
+    instanceReusePolicy :: Prelude.Maybe InstanceReusePolicy,
     -- | The maximum number of instances that are allowed to be in the warm pool
     -- or in any state except @Terminated@ for the Auto Scaling group.
     maxGroupPreparedCapacity :: Prelude.Maybe Prelude.Int
@@ -57,6 +60,8 @@ data WarmPoolConfiguration = WarmPoolConfiguration'
 --
 -- 'minSize', 'warmPoolConfiguration_minSize' - The minimum number of instances to maintain in the warm pool.
 --
+-- 'instanceReusePolicy', 'warmPoolConfiguration_instanceReusePolicy' - The instance reuse policy.
+--
 -- 'maxGroupPreparedCapacity', 'warmPoolConfiguration_maxGroupPreparedCapacity' - The maximum number of instances that are allowed to be in the warm pool
 -- or in any state except @Terminated@ for the Auto Scaling group.
 newWarmPoolConfiguration ::
@@ -66,6 +71,7 @@ newWarmPoolConfiguration =
     { poolState = Prelude.Nothing,
       status = Prelude.Nothing,
       minSize = Prelude.Nothing,
+      instanceReusePolicy = Prelude.Nothing,
       maxGroupPreparedCapacity = Prelude.Nothing
     }
 
@@ -82,6 +88,10 @@ warmPoolConfiguration_status = Lens.lens (\WarmPoolConfiguration' {status} -> st
 warmPoolConfiguration_minSize :: Lens.Lens' WarmPoolConfiguration (Prelude.Maybe Prelude.Natural)
 warmPoolConfiguration_minSize = Lens.lens (\WarmPoolConfiguration' {minSize} -> minSize) (\s@WarmPoolConfiguration' {} a -> s {minSize = a} :: WarmPoolConfiguration)
 
+-- | The instance reuse policy.
+warmPoolConfiguration_instanceReusePolicy :: Lens.Lens' WarmPoolConfiguration (Prelude.Maybe InstanceReusePolicy)
+warmPoolConfiguration_instanceReusePolicy = Lens.lens (\WarmPoolConfiguration' {instanceReusePolicy} -> instanceReusePolicy) (\s@WarmPoolConfiguration' {} a -> s {instanceReusePolicy = a} :: WarmPoolConfiguration)
+
 -- | The maximum number of instances that are allowed to be in the warm pool
 -- or in any state except @Terminated@ for the Auto Scaling group.
 warmPoolConfiguration_maxGroupPreparedCapacity :: Lens.Lens' WarmPoolConfiguration (Prelude.Maybe Prelude.Int)
@@ -93,6 +103,7 @@ instance Core.FromXML WarmPoolConfiguration where
       Prelude.<$> (x Core..@? "PoolState")
       Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "MinSize")
+      Prelude.<*> (x Core..@? "InstanceReusePolicy")
       Prelude.<*> (x Core..@? "MaxGroupPreparedCapacity")
 
 instance Prelude.Hashable WarmPoolConfiguration where
@@ -100,6 +111,7 @@ instance Prelude.Hashable WarmPoolConfiguration where
     _salt `Prelude.hashWithSalt` poolState
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` minSize
+      `Prelude.hashWithSalt` instanceReusePolicy
       `Prelude.hashWithSalt` maxGroupPreparedCapacity
 
 instance Prelude.NFData WarmPoolConfiguration where
@@ -107,4 +119,5 @@ instance Prelude.NFData WarmPoolConfiguration where
     Prelude.rnf poolState
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf minSize
+      `Prelude.seq` Prelude.rnf instanceReusePolicy
       `Prelude.seq` Prelude.rnf maxGroupPreparedCapacity

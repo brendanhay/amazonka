@@ -26,31 +26,6 @@ import qualified Amazonka.Prelude as Prelude
 -- | Describes information used to specify a lifecycle hook for an Auto
 -- Scaling group.
 --
--- A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on
--- an instance when the instance launches (before it is put into service)
--- or as the instance terminates (before it is fully terminated).
---
--- This step is a part of the procedure for creating a lifecycle hook for
--- an Auto Scaling group:
---
--- 1.  (Optional) Create a Lambda function and a rule that allows
---     CloudWatch Events to invoke your Lambda function when Amazon EC2
---     Auto Scaling launches or terminates instances.
---
--- 2.  (Optional) Create a notification target and an IAM role. The target
---     can be either an Amazon SQS queue or an Amazon SNS topic. The role
---     allows Amazon EC2 Auto Scaling to publish lifecycle notifications to
---     the target.
---
--- 3.  __Create the lifecycle hook. Specify whether the hook is used when
---     the instances launch or terminate.__
---
--- 4.  If you need more time, record the lifecycle action heartbeat to keep
---     the instance in a pending state.
---
--- 5.  If you finish before the timeout period ends, complete the lifecycle
---     action.
---
 -- For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html Amazon EC2 Auto Scaling lifecycle hooks>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
@@ -58,36 +33,42 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLifecycleHookSpecification' smart constructor.
 data LifecycleHookSpecification = LifecycleHookSpecification'
   { -- | The ARN of the IAM role that allows the Auto Scaling group to publish to
-    -- the specified notification target, for example, an Amazon SNS topic or
-    -- an Amazon SQS queue.
+    -- the specified notification target. For information about creating this
+    -- role, see
+    -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target Configure a notification target for a lifecycle hook>
+    -- in the /Amazon EC2 Auto Scaling User Guide/.
+    --
+    -- Valid only if the notification target is an Amazon SNS topic or an
+    -- Amazon SQS queue.
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | Additional information that you want to include any time Amazon EC2 Auto
     -- Scaling sends a message to the notification target.
     notificationMetadata :: Prelude.Maybe Prelude.Text,
-    -- | Defines the action the Auto Scaling group should take when the lifecycle
-    -- hook timeout elapses or if an unexpected failure occurs. The valid
-    -- values are @CONTINUE@ and @ABANDON@. The default value is @ABANDON@.
+    -- | The action the Auto Scaling group takes when the lifecycle hook timeout
+    -- elapses or if an unexpected failure occurs. The default value is
+    -- @ABANDON@.
+    --
+    -- Valid values: @CONTINUE@ | @ABANDON@
     defaultResult :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications
-    -- to when an instance is in the transition state for the lifecycle hook.
-    -- The notification target can be either an SQS queue or an SNS topic.
+    -- | The Amazon Resource Name (ARN) of the notification target that Amazon
+    -- EC2 Auto Scaling sends notifications to when an instance is in a wait
+    -- state for the lifecycle hook. You can specify an Amazon SNS topic or an
+    -- Amazon SQS queue.
     notificationTargetARN :: Prelude.Maybe Prelude.Text,
     -- | The maximum time, in seconds, that can elapse before the lifecycle hook
-    -- times out.
-    --
-    -- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the
-    -- action that you specified in the @DefaultResult@ parameter. You can
-    -- prevent the lifecycle hook from timing out by calling
-    -- RecordLifecycleActionHeartbeat.
+    -- times out. The range is from @30@ to @7200@ seconds. The default value
+    -- is @3600@ seconds (1 hour).
     heartbeatTimeout :: Prelude.Maybe Prelude.Int,
     -- | The name of the lifecycle hook.
     lifecycleHookName :: Prelude.Text,
-    -- | The state of the EC2 instance to which you want to attach the lifecycle
-    -- hook. The valid values are:
+    -- | The lifecycle transition. For Auto Scaling groups, there are two major
+    -- lifecycle transitions.
     --
-    -- -   autoscaling:EC2_INSTANCE_LAUNCHING
+    -- -   To create a lifecycle hook for scale-out events, specify
+    --     @autoscaling:EC2_INSTANCE_LAUNCHING@.
     --
-    -- -   autoscaling:EC2_INSTANCE_TERMINATING
+    -- -   To create a lifecycle hook for scale-in events, specify
+    --     @autoscaling:EC2_INSTANCE_TERMINATING@.
     lifecycleTransition :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,36 +82,42 @@ data LifecycleHookSpecification = LifecycleHookSpecification'
 -- for backwards compatibility:
 --
 -- 'roleARN', 'lifecycleHookSpecification_roleARN' - The ARN of the IAM role that allows the Auto Scaling group to publish to
--- the specified notification target, for example, an Amazon SNS topic or
--- an Amazon SQS queue.
+-- the specified notification target. For information about creating this
+-- role, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target Configure a notification target for a lifecycle hook>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- Valid only if the notification target is an Amazon SNS topic or an
+-- Amazon SQS queue.
 --
 -- 'notificationMetadata', 'lifecycleHookSpecification_notificationMetadata' - Additional information that you want to include any time Amazon EC2 Auto
 -- Scaling sends a message to the notification target.
 --
--- 'defaultResult', 'lifecycleHookSpecification_defaultResult' - Defines the action the Auto Scaling group should take when the lifecycle
--- hook timeout elapses or if an unexpected failure occurs. The valid
--- values are @CONTINUE@ and @ABANDON@. The default value is @ABANDON@.
+-- 'defaultResult', 'lifecycleHookSpecification_defaultResult' - The action the Auto Scaling group takes when the lifecycle hook timeout
+-- elapses or if an unexpected failure occurs. The default value is
+-- @ABANDON@.
 --
--- 'notificationTargetARN', 'lifecycleHookSpecification_notificationTargetARN' - The ARN of the target that Amazon EC2 Auto Scaling sends notifications
--- to when an instance is in the transition state for the lifecycle hook.
--- The notification target can be either an SQS queue or an SNS topic.
+-- Valid values: @CONTINUE@ | @ABANDON@
+--
+-- 'notificationTargetARN', 'lifecycleHookSpecification_notificationTargetARN' - The Amazon Resource Name (ARN) of the notification target that Amazon
+-- EC2 Auto Scaling sends notifications to when an instance is in a wait
+-- state for the lifecycle hook. You can specify an Amazon SNS topic or an
+-- Amazon SQS queue.
 --
 -- 'heartbeatTimeout', 'lifecycleHookSpecification_heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook
--- times out.
---
--- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the
--- action that you specified in the @DefaultResult@ parameter. You can
--- prevent the lifecycle hook from timing out by calling
--- RecordLifecycleActionHeartbeat.
+-- times out. The range is from @30@ to @7200@ seconds. The default value
+-- is @3600@ seconds (1 hour).
 --
 -- 'lifecycleHookName', 'lifecycleHookSpecification_lifecycleHookName' - The name of the lifecycle hook.
 --
--- 'lifecycleTransition', 'lifecycleHookSpecification_lifecycleTransition' - The state of the EC2 instance to which you want to attach the lifecycle
--- hook. The valid values are:
+-- 'lifecycleTransition', 'lifecycleHookSpecification_lifecycleTransition' - The lifecycle transition. For Auto Scaling groups, there are two major
+-- lifecycle transitions.
 --
--- -   autoscaling:EC2_INSTANCE_LAUNCHING
+-- -   To create a lifecycle hook for scale-out events, specify
+--     @autoscaling:EC2_INSTANCE_LAUNCHING@.
 --
--- -   autoscaling:EC2_INSTANCE_TERMINATING
+-- -   To create a lifecycle hook for scale-in events, specify
+--     @autoscaling:EC2_INSTANCE_TERMINATING@.
 newLifecycleHookSpecification ::
   -- | 'lifecycleHookName'
   Prelude.Text ->
@@ -152,8 +139,13 @@ newLifecycleHookSpecification
       }
 
 -- | The ARN of the IAM role that allows the Auto Scaling group to publish to
--- the specified notification target, for example, an Amazon SNS topic or
--- an Amazon SQS queue.
+-- the specified notification target. For information about creating this
+-- role, see
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/prepare-for-lifecycle-notifications.html#lifecycle-hook-notification-target Configure a notification target for a lifecycle hook>
+-- in the /Amazon EC2 Auto Scaling User Guide/.
+--
+-- Valid only if the notification target is an Amazon SNS topic or an
+-- Amazon SQS queue.
 lifecycleHookSpecification_roleARN :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
 lifecycleHookSpecification_roleARN = Lens.lens (\LifecycleHookSpecification' {roleARN} -> roleARN) (\s@LifecycleHookSpecification' {} a -> s {roleARN = a} :: LifecycleHookSpecification)
 
@@ -162,25 +154,24 @@ lifecycleHookSpecification_roleARN = Lens.lens (\LifecycleHookSpecification' {ro
 lifecycleHookSpecification_notificationMetadata :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
 lifecycleHookSpecification_notificationMetadata = Lens.lens (\LifecycleHookSpecification' {notificationMetadata} -> notificationMetadata) (\s@LifecycleHookSpecification' {} a -> s {notificationMetadata = a} :: LifecycleHookSpecification)
 
--- | Defines the action the Auto Scaling group should take when the lifecycle
--- hook timeout elapses or if an unexpected failure occurs. The valid
--- values are @CONTINUE@ and @ABANDON@. The default value is @ABANDON@.
+-- | The action the Auto Scaling group takes when the lifecycle hook timeout
+-- elapses or if an unexpected failure occurs. The default value is
+-- @ABANDON@.
+--
+-- Valid values: @CONTINUE@ | @ABANDON@
 lifecycleHookSpecification_defaultResult :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
 lifecycleHookSpecification_defaultResult = Lens.lens (\LifecycleHookSpecification' {defaultResult} -> defaultResult) (\s@LifecycleHookSpecification' {} a -> s {defaultResult = a} :: LifecycleHookSpecification)
 
--- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications
--- to when an instance is in the transition state for the lifecycle hook.
--- The notification target can be either an SQS queue or an SNS topic.
+-- | The Amazon Resource Name (ARN) of the notification target that Amazon
+-- EC2 Auto Scaling sends notifications to when an instance is in a wait
+-- state for the lifecycle hook. You can specify an Amazon SNS topic or an
+-- Amazon SQS queue.
 lifecycleHookSpecification_notificationTargetARN :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Text)
 lifecycleHookSpecification_notificationTargetARN = Lens.lens (\LifecycleHookSpecification' {notificationTargetARN} -> notificationTargetARN) (\s@LifecycleHookSpecification' {} a -> s {notificationTargetARN = a} :: LifecycleHookSpecification)
 
 -- | The maximum time, in seconds, that can elapse before the lifecycle hook
--- times out.
---
--- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the
--- action that you specified in the @DefaultResult@ parameter. You can
--- prevent the lifecycle hook from timing out by calling
--- RecordLifecycleActionHeartbeat.
+-- times out. The range is from @30@ to @7200@ seconds. The default value
+-- is @3600@ seconds (1 hour).
 lifecycleHookSpecification_heartbeatTimeout :: Lens.Lens' LifecycleHookSpecification (Prelude.Maybe Prelude.Int)
 lifecycleHookSpecification_heartbeatTimeout = Lens.lens (\LifecycleHookSpecification' {heartbeatTimeout} -> heartbeatTimeout) (\s@LifecycleHookSpecification' {} a -> s {heartbeatTimeout = a} :: LifecycleHookSpecification)
 
@@ -188,12 +179,14 @@ lifecycleHookSpecification_heartbeatTimeout = Lens.lens (\LifecycleHookSpecifica
 lifecycleHookSpecification_lifecycleHookName :: Lens.Lens' LifecycleHookSpecification Prelude.Text
 lifecycleHookSpecification_lifecycleHookName = Lens.lens (\LifecycleHookSpecification' {lifecycleHookName} -> lifecycleHookName) (\s@LifecycleHookSpecification' {} a -> s {lifecycleHookName = a} :: LifecycleHookSpecification)
 
--- | The state of the EC2 instance to which you want to attach the lifecycle
--- hook. The valid values are:
+-- | The lifecycle transition. For Auto Scaling groups, there are two major
+-- lifecycle transitions.
 --
--- -   autoscaling:EC2_INSTANCE_LAUNCHING
+-- -   To create a lifecycle hook for scale-out events, specify
+--     @autoscaling:EC2_INSTANCE_LAUNCHING@.
 --
--- -   autoscaling:EC2_INSTANCE_TERMINATING
+-- -   To create a lifecycle hook for scale-in events, specify
+--     @autoscaling:EC2_INSTANCE_TERMINATING@.
 lifecycleHookSpecification_lifecycleTransition :: Lens.Lens' LifecycleHookSpecification Prelude.Text
 lifecycleHookSpecification_lifecycleTransition = Lens.lens (\LifecycleHookSpecification' {lifecycleTransition} -> lifecycleTransition) (\s@LifecycleHookSpecification' {} a -> s {lifecycleTransition = a} :: LifecycleHookSpecification)
 

@@ -77,6 +77,11 @@ data StepAdjustment = StepAdjustment'
     -- | The amount by which to scale, based on the specified adjustment type. A
     -- positive value adds to the current capacity while a negative number
     -- removes from the current capacity.
+    --
+    -- The amount by which to scale. The adjustment is based on the value that
+    -- you specified in the @AdjustmentType@ property (either an absolute
+    -- number or a percentage). A positive value adds to the current capacity
+    -- and a negative number subtracts from the current capacity.
     scalingAdjustment :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -108,6 +113,11 @@ data StepAdjustment = StepAdjustment'
 -- 'scalingAdjustment', 'stepAdjustment_scalingAdjustment' - The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
 -- removes from the current capacity.
+--
+-- The amount by which to scale. The adjustment is based on the value that
+-- you specified in the @AdjustmentType@ property (either an absolute
+-- number or a percentage). A positive value adds to the current capacity
+-- and a negative number subtracts from the current capacity.
 newStepAdjustment ::
   -- | 'scalingAdjustment'
   Prelude.Int ->
@@ -143,6 +153,11 @@ stepAdjustment_metricIntervalLowerBound = Lens.lens (\StepAdjustment' {metricInt
 -- | The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
 -- removes from the current capacity.
+--
+-- The amount by which to scale. The adjustment is based on the value that
+-- you specified in the @AdjustmentType@ property (either an absolute
+-- number or a percentage). A positive value adds to the current capacity
+-- and a negative number subtracts from the current capacity.
 stepAdjustment_scalingAdjustment :: Lens.Lens' StepAdjustment Prelude.Int
 stepAdjustment_scalingAdjustment = Lens.lens (\StepAdjustment' {scalingAdjustment} -> scalingAdjustment) (\s@StepAdjustment' {} a -> s {scalingAdjustment = a} :: StepAdjustment)
 

@@ -43,6 +43,12 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
     -- customized metric.
     predefinedMetricSpecification :: Prelude.Maybe PredefinedMetricSpecification,
     -- | The target value for the metric.
+    --
+    -- Some metrics are based on a count instead of a percentage, such as the
+    -- request count for an Application Load Balancer or the number of messages
+    -- in an SQS queue. If the scaling policy specifies one of these metrics,
+    -- specify the target utilization as the optimal average request or message
+    -- count per instance during any one-minute interval.
     targetValue :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,6 +74,12 @@ data TargetTrackingConfiguration = TargetTrackingConfiguration'
 -- customized metric.
 --
 -- 'targetValue', 'targetTrackingConfiguration_targetValue' - The target value for the metric.
+--
+-- Some metrics are based on a count instead of a percentage, such as the
+-- request count for an Application Load Balancer or the number of messages
+-- in an SQS queue. If the scaling policy specifies one of these metrics,
+-- specify the target utilization as the optimal average request or message
+-- count per instance during any one-minute interval.
 newTargetTrackingConfiguration ::
   -- | 'targetValue'
   Prelude.Double ->
@@ -102,6 +114,12 @@ targetTrackingConfiguration_predefinedMetricSpecification :: Lens.Lens' TargetTr
 targetTrackingConfiguration_predefinedMetricSpecification = Lens.lens (\TargetTrackingConfiguration' {predefinedMetricSpecification} -> predefinedMetricSpecification) (\s@TargetTrackingConfiguration' {} a -> s {predefinedMetricSpecification = a} :: TargetTrackingConfiguration)
 
 -- | The target value for the metric.
+--
+-- Some metrics are based on a count instead of a percentage, such as the
+-- request count for an Application Load Balancer or the number of messages
+-- in an SQS queue. If the scaling policy specifies one of these metrics,
+-- specify the target utilization as the optimal average request or message
+-- count per instance during any one-minute interval.
 targetTrackingConfiguration_targetValue :: Lens.Lens' TargetTrackingConfiguration Prelude.Double
 targetTrackingConfiguration_targetValue = Lens.lens (\TargetTrackingConfiguration' {targetValue} -> targetValue) (\s@TargetTrackingConfiguration' {} a -> s {targetValue = a} :: TargetTrackingConfiguration)
 

@@ -13,16 +13,14 @@
 --
 -- Amazon EC2 Auto Scaling
 --
--- Amazon EC2 Auto Scaling is designed to automatically launch or terminate
--- EC2 instances based on user-defined scaling policies, scheduled actions,
--- and health checks.
+-- Amazon EC2 Auto Scaling is designed to automatically launch and
+-- terminate EC2 instances based on user-defined scaling policies,
+-- scheduled actions, and health checks.
 --
--- For more information about Amazon EC2 Auto Scaling, see the
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html Amazon EC2 Auto Scaling User Guide>.
--- For information about granting IAM users required permissions for calls
--- to Amazon EC2 Auto Scaling, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/ec2-auto-scaling-api-permissions.html Granting IAM users required permissions for Amazon EC2 Auto Scaling resources>
--- in the /Amazon EC2 Auto Scaling API Reference/.
+-- For more information, see the
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/ Amazon EC2 Auto Scaling User Guide>
+-- and the
+-- <https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html Amazon EC2 Auto Scaling API Reference>.
 module Amazonka.AutoScaling
   ( -- * Service Configuration
     defaultService,
@@ -431,6 +429,27 @@ module Amazonka.AutoScaling
 
     -- * Types
 
+    -- ** AcceleratorManufacturer
+    AcceleratorManufacturer (..),
+
+    -- ** AcceleratorName
+    AcceleratorName (..),
+
+    -- ** AcceleratorType
+    AcceleratorType (..),
+
+    -- ** BareMetal
+    BareMetal (..),
+
+    -- ** BurstablePerformance
+    BurstablePerformance (..),
+
+    -- ** CpuManufacturer
+    CpuManufacturer (..),
+
+    -- ** InstanceGeneration
+    InstanceGeneration (..),
+
     -- ** InstanceMetadataEndpointState
     InstanceMetadataEndpointState (..),
 
@@ -442,6 +461,12 @@ module Amazonka.AutoScaling
 
     -- ** LifecycleState
     LifecycleState (..),
+
+    -- ** LocalStorage
+    LocalStorage (..),
+
+    -- ** LocalStorageType
+    LocalStorageType (..),
 
     -- ** MetricStatistic
     MetricStatistic (..),
@@ -476,6 +501,14 @@ module Amazonka.AutoScaling
     -- ** WarmPoolStatus
     WarmPoolStatus (..),
 
+    -- ** AcceleratorCountRequest
+    AcceleratorCountRequest (AcceleratorCountRequest'),
+    newAcceleratorCountRequest,
+
+    -- ** AcceleratorTotalMemoryMiBRequest
+    AcceleratorTotalMemoryMiBRequest (AcceleratorTotalMemoryMiBRequest'),
+    newAcceleratorTotalMemoryMiBRequest,
+
     -- ** Activity
     Activity (Activity'),
     newActivity,
@@ -495,6 +528,10 @@ module Amazonka.AutoScaling
     -- ** AutoScalingInstanceDetails
     AutoScalingInstanceDetails (AutoScalingInstanceDetails'),
     newAutoScalingInstanceDetails,
+
+    -- ** BaselineEbsBandwidthMbpsRequest
+    BaselineEbsBandwidthMbpsRequest (BaselineEbsBandwidthMbpsRequest'),
+    newBaselineEbsBandwidthMbpsRequest,
 
     -- ** BlockDeviceMapping
     BlockDeviceMapping (BlockDeviceMapping'),
@@ -556,6 +593,14 @@ module Amazonka.AutoScaling
     InstanceRefreshWarmPoolProgress (InstanceRefreshWarmPoolProgress'),
     newInstanceRefreshWarmPoolProgress,
 
+    -- ** InstanceRequirements
+    InstanceRequirements (InstanceRequirements'),
+    newInstanceRequirements,
+
+    -- ** InstanceReusePolicy
+    InstanceReusePolicy (InstanceReusePolicy'),
+    newInstanceReusePolicy,
+
     -- ** InstancesDistribution
     InstancesDistribution (InstancesDistribution'),
     newInstancesDistribution,
@@ -596,9 +641,25 @@ module Amazonka.AutoScaling
     LoadForecast (LoadForecast'),
     newLoadForecast,
 
+    -- ** MemoryGiBPerVCpuRequest
+    MemoryGiBPerVCpuRequest (MemoryGiBPerVCpuRequest'),
+    newMemoryGiBPerVCpuRequest,
+
+    -- ** MemoryMiBRequest
+    MemoryMiBRequest (MemoryMiBRequest'),
+    newMemoryMiBRequest,
+
+    -- ** Metric
+    Metric (Metric'),
+    newMetric,
+
     -- ** MetricCollectionType
     MetricCollectionType (MetricCollectionType'),
     newMetricCollectionType,
+
+    -- ** MetricDataQuery
+    MetricDataQuery (MetricDataQuery'),
+    newMetricDataQuery,
 
     -- ** MetricDimension
     MetricDimension (MetricDimension'),
@@ -608,9 +669,17 @@ module Amazonka.AutoScaling
     MetricGranularityType (MetricGranularityType'),
     newMetricGranularityType,
 
+    -- ** MetricStat
+    MetricStat (MetricStat'),
+    newMetricStat,
+
     -- ** MixedInstancesPolicy
     MixedInstancesPolicy (MixedInstancesPolicy'),
     newMixedInstancesPolicy,
+
+    -- ** NetworkInterfaceCountRequest
+    NetworkInterfaceCountRequest (NetworkInterfaceCountRequest'),
+    newNetworkInterfaceCountRequest,
 
     -- ** NotificationConfiguration
     NotificationConfiguration (NotificationConfiguration'),
@@ -623,6 +692,18 @@ module Amazonka.AutoScaling
     -- ** PredictiveScalingConfiguration
     PredictiveScalingConfiguration (PredictiveScalingConfiguration'),
     newPredictiveScalingConfiguration,
+
+    -- ** PredictiveScalingCustomizedCapacityMetric
+    PredictiveScalingCustomizedCapacityMetric (PredictiveScalingCustomizedCapacityMetric'),
+    newPredictiveScalingCustomizedCapacityMetric,
+
+    -- ** PredictiveScalingCustomizedLoadMetric
+    PredictiveScalingCustomizedLoadMetric (PredictiveScalingCustomizedLoadMetric'),
+    newPredictiveScalingCustomizedLoadMetric,
+
+    -- ** PredictiveScalingCustomizedScalingMetric
+    PredictiveScalingCustomizedScalingMetric (PredictiveScalingCustomizedScalingMetric'),
+    newPredictiveScalingCustomizedScalingMetric,
 
     -- ** PredictiveScalingMetricSpecification
     PredictiveScalingMetricSpecification (PredictiveScalingMetricSpecification'),
@@ -683,6 +764,14 @@ module Amazonka.AutoScaling
     -- ** TargetTrackingConfiguration
     TargetTrackingConfiguration (TargetTrackingConfiguration'),
     newTargetTrackingConfiguration,
+
+    -- ** TotalLocalStorageGBRequest
+    TotalLocalStorageGBRequest (TotalLocalStorageGBRequest'),
+    newTotalLocalStorageGBRequest,
+
+    -- ** VCpuCountRequest
+    VCpuCountRequest (VCpuCountRequest'),
+    newVCpuCountRequest,
 
     -- ** WarmPoolConfiguration
     WarmPoolConfiguration (WarmPoolConfiguration'),

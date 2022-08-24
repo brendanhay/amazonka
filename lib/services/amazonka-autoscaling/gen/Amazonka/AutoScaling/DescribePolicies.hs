@@ -64,7 +64,7 @@ data DescribePolicies = DescribePolicies'
     -- | The maximum number of items to be returned with each call. The default
     -- value is @50@ and the maximum value is @100@.
     maxRecords :: Prelude.Maybe Prelude.Int,
-    -- | The names of one or more policies. If you omit this parameter, all
+    -- | The names of one or more policies. If you omit this property, all
     -- policies are described. If a group name is provided, the results are
     -- limited to that group. If you specify an unknown policy name, it is
     -- ignored with no error.
@@ -93,7 +93,7 @@ data DescribePolicies = DescribePolicies'
 -- 'maxRecords', 'describePolicies_maxRecords' - The maximum number of items to be returned with each call. The default
 -- value is @50@ and the maximum value is @100@.
 --
--- 'policyNames', 'describePolicies_policyNames' - The names of one or more policies. If you omit this parameter, all
+-- 'policyNames', 'describePolicies_policyNames' - The names of one or more policies. If you omit this property, all
 -- policies are described. If a group name is provided, the results are
 -- limited to that group. If you specify an unknown policy name, it is
 -- ignored with no error.
@@ -127,7 +127,7 @@ describePolicies_policyTypes = Lens.lens (\DescribePolicies' {policyTypes} -> po
 describePolicies_maxRecords :: Lens.Lens' DescribePolicies (Prelude.Maybe Prelude.Int)
 describePolicies_maxRecords = Lens.lens (\DescribePolicies' {maxRecords} -> maxRecords) (\s@DescribePolicies' {} a -> s {maxRecords = a} :: DescribePolicies)
 
--- | The names of one or more policies. If you omit this parameter, all
+-- | The names of one or more policies. If you omit this property, all
 -- policies are described. If a group name is provided, the results are
 -- limited to that group. If you specify an unknown policy name, it is
 -- ignored with no error.

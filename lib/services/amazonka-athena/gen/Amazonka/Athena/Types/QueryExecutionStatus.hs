@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.Athena.Types.QueryExecutionStatus where
 
+import Amazonka.Athena.Types.AthenaError
 import Amazonka.Athena.Types.QueryExecutionState
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -45,6 +46,8 @@ data QueryExecutionStatus = QueryExecutionStatus'
     -- errors. As a result, you may see the query state transition from
     -- @RUNNING@ or @FAILED@ to @QUEUED@.
     state :: Prelude.Maybe QueryExecutionState,
+    -- | Provides information about an Athena query error.
+    athenaError :: Prelude.Maybe AthenaError,
     -- | The date and time that the query completed.
     completionDateTime :: Prelude.Maybe Core.POSIX
   }
@@ -74,6 +77,8 @@ data QueryExecutionStatus = QueryExecutionStatus'
 -- errors. As a result, you may see the query state transition from
 -- @RUNNING@ or @FAILED@ to @QUEUED@.
 --
+-- 'athenaError', 'queryExecutionStatus_athenaError' - Provides information about an Athena query error.
+--
 -- 'completionDateTime', 'queryExecutionStatus_completionDateTime' - The date and time that the query completed.
 newQueryExecutionStatus ::
   QueryExecutionStatus
@@ -83,6 +88,7 @@ newQueryExecutionStatus =
         Prelude.Nothing,
       submissionDateTime = Prelude.Nothing,
       state = Prelude.Nothing,
+      athenaError = Prelude.Nothing,
       completionDateTime = Prelude.Nothing
     }
 
@@ -108,6 +114,10 @@ queryExecutionStatus_submissionDateTime = Lens.lens (\QueryExecutionStatus' {sub
 queryExecutionStatus_state :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe QueryExecutionState)
 queryExecutionStatus_state = Lens.lens (\QueryExecutionStatus' {state} -> state) (\s@QueryExecutionStatus' {} a -> s {state = a} :: QueryExecutionStatus)
 
+-- | Provides information about an Athena query error.
+queryExecutionStatus_athenaError :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe AthenaError)
+queryExecutionStatus_athenaError = Lens.lens (\QueryExecutionStatus' {athenaError} -> athenaError) (\s@QueryExecutionStatus' {} a -> s {athenaError = a} :: QueryExecutionStatus)
+
 -- | The date and time that the query completed.
 queryExecutionStatus_completionDateTime :: Lens.Lens' QueryExecutionStatus (Prelude.Maybe Prelude.UTCTime)
 queryExecutionStatus_completionDateTime = Lens.lens (\QueryExecutionStatus' {completionDateTime} -> completionDateTime) (\s@QueryExecutionStatus' {} a -> s {completionDateTime = a} :: QueryExecutionStatus) Prelude.. Lens.mapping Core._Time
@@ -121,6 +131,7 @@ instance Core.FromJSON QueryExecutionStatus where
             Prelude.<$> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "SubmissionDateTime")
             Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "AthenaError")
             Prelude.<*> (x Core..:? "CompletionDateTime")
       )
 
@@ -129,6 +140,7 @@ instance Prelude.Hashable QueryExecutionStatus where
     _salt `Prelude.hashWithSalt` stateChangeReason
       `Prelude.hashWithSalt` submissionDateTime
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` athenaError
       `Prelude.hashWithSalt` completionDateTime
 
 instance Prelude.NFData QueryExecutionStatus where
@@ -136,4 +148,5 @@ instance Prelude.NFData QueryExecutionStatus where
     Prelude.rnf stateChangeReason
       `Prelude.seq` Prelude.rnf submissionDateTime
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf athenaError
       `Prelude.seq` Prelude.rnf completionDateTime

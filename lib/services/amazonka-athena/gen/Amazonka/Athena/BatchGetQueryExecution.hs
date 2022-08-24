@@ -53,7 +53,9 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newBatchGetQueryExecution' smart constructor.
+-- | Contains an array of query execution IDs.
+--
+-- /See:/ 'newBatchGetQueryExecution' smart constructor.
 data BatchGetQueryExecution = BatchGetQueryExecution'
   { -- | An array of query execution IDs.
     queryExecutionIds :: Prelude.NonEmpty Prelude.Text

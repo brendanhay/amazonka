@@ -60,6 +60,10 @@ data QueryExecution = QueryExecution'
     query :: Prelude.Maybe Prelude.Text,
     -- | The database in which the query execution occurred.
     queryExecutionContext :: Prelude.Maybe QueryExecutionContext,
+    -- | A list of values for the parameters in a query. The values are applied
+    -- sequentially to the parameters in the query in the order in which the
+    -- parameters occur.
+    executionParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The engine version that executed the query.
     engineVersion :: Prelude.Maybe EngineVersion
   }
@@ -100,6 +104,10 @@ data QueryExecution = QueryExecution'
 --
 -- 'queryExecutionContext', 'queryExecution_queryExecutionContext' - The database in which the query execution occurred.
 --
+-- 'executionParameters', 'queryExecution_executionParameters' - A list of values for the parameters in a query. The values are applied
+-- sequentially to the parameters in the query in the order in which the
+-- parameters occur.
+--
 -- 'engineVersion', 'queryExecution_engineVersion' - The engine version that executed the query.
 newQueryExecution ::
   QueryExecution
@@ -113,6 +121,7 @@ newQueryExecution =
       resultConfiguration = Prelude.Nothing,
       query = Prelude.Nothing,
       queryExecutionContext = Prelude.Nothing,
+      executionParameters = Prelude.Nothing,
       engineVersion = Prelude.Nothing
     }
 
@@ -159,6 +168,12 @@ queryExecution_query = Lens.lens (\QueryExecution' {query} -> query) (\s@QueryEx
 queryExecution_queryExecutionContext :: Lens.Lens' QueryExecution (Prelude.Maybe QueryExecutionContext)
 queryExecution_queryExecutionContext = Lens.lens (\QueryExecution' {queryExecutionContext} -> queryExecutionContext) (\s@QueryExecution' {} a -> s {queryExecutionContext = a} :: QueryExecution)
 
+-- | A list of values for the parameters in a query. The values are applied
+-- sequentially to the parameters in the query in the order in which the
+-- parameters occur.
+queryExecution_executionParameters :: Lens.Lens' QueryExecution (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+queryExecution_executionParameters = Lens.lens (\QueryExecution' {executionParameters} -> executionParameters) (\s@QueryExecution' {} a -> s {executionParameters = a} :: QueryExecution) Prelude.. Lens.mapping Lens.coerced
+
 -- | The engine version that executed the query.
 queryExecution_engineVersion :: Lens.Lens' QueryExecution (Prelude.Maybe EngineVersion)
 queryExecution_engineVersion = Lens.lens (\QueryExecution' {engineVersion} -> engineVersion) (\s@QueryExecution' {} a -> s {engineVersion = a} :: QueryExecution)
@@ -177,6 +192,7 @@ instance Core.FromJSON QueryExecution where
             Prelude.<*> (x Core..:? "ResultConfiguration")
             Prelude.<*> (x Core..:? "Query")
             Prelude.<*> (x Core..:? "QueryExecutionContext")
+            Prelude.<*> (x Core..:? "ExecutionParameters")
             Prelude.<*> (x Core..:? "EngineVersion")
       )
 
@@ -190,6 +206,7 @@ instance Prelude.Hashable QueryExecution where
       `Prelude.hashWithSalt` resultConfiguration
       `Prelude.hashWithSalt` query
       `Prelude.hashWithSalt` queryExecutionContext
+      `Prelude.hashWithSalt` executionParameters
       `Prelude.hashWithSalt` engineVersion
 
 instance Prelude.NFData QueryExecution where
@@ -202,4 +219,5 @@ instance Prelude.NFData QueryExecution where
       `Prelude.seq` Prelude.rnf resultConfiguration
       `Prelude.seq` Prelude.rnf query
       `Prelude.seq` Prelude.rnf queryExecutionContext
+      `Prelude.seq` Prelude.rnf executionParameters
       `Prelude.seq` Prelude.rnf engineVersion

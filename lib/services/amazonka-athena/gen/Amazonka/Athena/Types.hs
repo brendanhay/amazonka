@@ -35,11 +35,27 @@ module Amazonka.Athena.Types
     -- * QueryExecutionState
     QueryExecutionState (..),
 
+    -- * S3AclOption
+    S3AclOption (..),
+
     -- * StatementType
     StatementType (..),
 
     -- * WorkGroupState
     WorkGroupState (..),
+
+    -- * AclConfiguration
+    AclConfiguration (..),
+    newAclConfiguration,
+    aclConfiguration_s3AclOption,
+
+    -- * AthenaError
+    AthenaError (..),
+    newAthenaError,
+    athenaError_retryable,
+    athenaError_errorCategory,
+    athenaError_errorMessage,
+    athenaError_errorType,
 
     -- * Column
     Column (..),
@@ -136,6 +152,7 @@ module Amazonka.Athena.Types
     queryExecution_resultConfiguration,
     queryExecution_query,
     queryExecution_queryExecutionContext,
+    queryExecution_executionParameters,
     queryExecution_engineVersion,
 
     -- * QueryExecutionContext
@@ -161,19 +178,71 @@ module Amazonka.Athena.Types
     queryExecutionStatus_stateChangeReason,
     queryExecutionStatus_submissionDateTime,
     queryExecutionStatus_state,
+    queryExecutionStatus_athenaError,
     queryExecutionStatus_completionDateTime,
+
+    -- * QueryRuntimeStatistics
+    QueryRuntimeStatistics (..),
+    newQueryRuntimeStatistics,
+    queryRuntimeStatistics_rows,
+    queryRuntimeStatistics_timeline,
+    queryRuntimeStatistics_outputStage,
+
+    -- * QueryRuntimeStatisticsRows
+    QueryRuntimeStatisticsRows (..),
+    newQueryRuntimeStatisticsRows,
+    queryRuntimeStatisticsRows_inputBytes,
+    queryRuntimeStatisticsRows_outputBytes,
+    queryRuntimeStatisticsRows_inputRows,
+    queryRuntimeStatisticsRows_outputRows,
+
+    -- * QueryRuntimeStatisticsTimeline
+    QueryRuntimeStatisticsTimeline (..),
+    newQueryRuntimeStatisticsTimeline,
+    queryRuntimeStatisticsTimeline_queryQueueTimeInMillis,
+    queryRuntimeStatisticsTimeline_serviceProcessingTimeInMillis,
+    queryRuntimeStatisticsTimeline_totalExecutionTimeInMillis,
+    queryRuntimeStatisticsTimeline_engineExecutionTimeInMillis,
+    queryRuntimeStatisticsTimeline_queryPlanningTimeInMillis,
+
+    -- * QueryStage
+    QueryStage (..),
+    newQueryStage,
+    queryStage_inputBytes,
+    queryStage_outputBytes,
+    queryStage_inputRows,
+    queryStage_queryStagePlan,
+    queryStage_state,
+    queryStage_executionTime,
+    queryStage_subStages,
+    queryStage_stageId,
+    queryStage_outputRows,
+
+    -- * QueryStagePlanNode
+    QueryStagePlanNode (..),
+    newQueryStagePlanNode,
+    queryStagePlanNode_name,
+    queryStagePlanNode_remoteSources,
+    queryStagePlanNode_children,
+    queryStagePlanNode_identifier,
 
     -- * ResultConfiguration
     ResultConfiguration (..),
     newResultConfiguration,
+    resultConfiguration_aclConfiguration,
+    resultConfiguration_expectedBucketOwner,
     resultConfiguration_outputLocation,
     resultConfiguration_encryptionConfiguration,
 
     -- * ResultConfigurationUpdates
     ResultConfigurationUpdates (..),
     newResultConfigurationUpdates,
+    resultConfigurationUpdates_aclConfiguration,
     resultConfigurationUpdates_removeEncryptionConfiguration,
+    resultConfigurationUpdates_expectedBucketOwner,
+    resultConfigurationUpdates_removeAclConfiguration,
     resultConfigurationUpdates_outputLocation,
+    resultConfigurationUpdates_removeExpectedBucketOwner,
     resultConfigurationUpdates_removeOutputLocation,
     resultConfigurationUpdates_encryptionConfiguration,
 
@@ -216,6 +285,13 @@ module Amazonka.Athena.Types
     unprocessedNamedQueryId_errorMessage,
     unprocessedNamedQueryId_errorCode,
     unprocessedNamedQueryId_namedQueryId,
+
+    -- * UnprocessedPreparedStatementName
+    UnprocessedPreparedStatementName (..),
+    newUnprocessedPreparedStatementName,
+    unprocessedPreparedStatementName_errorMessage,
+    unprocessedPreparedStatementName_errorCode,
+    unprocessedPreparedStatementName_statementName,
 
     -- * UnprocessedQueryExecutionId
     UnprocessedQueryExecutionId (..),
@@ -265,6 +341,8 @@ module Amazonka.Athena.Types
   )
 where
 
+import Amazonka.Athena.Types.AclConfiguration
+import Amazonka.Athena.Types.AthenaError
 import Amazonka.Athena.Types.Column
 import Amazonka.Athena.Types.ColumnInfo
 import Amazonka.Athena.Types.ColumnNullable
@@ -284,15 +362,22 @@ import Amazonka.Athena.Types.QueryExecutionContext
 import Amazonka.Athena.Types.QueryExecutionState
 import Amazonka.Athena.Types.QueryExecutionStatistics
 import Amazonka.Athena.Types.QueryExecutionStatus
+import Amazonka.Athena.Types.QueryRuntimeStatistics
+import Amazonka.Athena.Types.QueryRuntimeStatisticsRows
+import Amazonka.Athena.Types.QueryRuntimeStatisticsTimeline
+import Amazonka.Athena.Types.QueryStage
+import Amazonka.Athena.Types.QueryStagePlanNode
 import Amazonka.Athena.Types.ResultConfiguration
 import Amazonka.Athena.Types.ResultConfigurationUpdates
 import Amazonka.Athena.Types.ResultSet
 import Amazonka.Athena.Types.ResultSetMetadata
 import Amazonka.Athena.Types.Row
+import Amazonka.Athena.Types.S3AclOption
 import Amazonka.Athena.Types.StatementType
 import Amazonka.Athena.Types.TableMetadata
 import Amazonka.Athena.Types.Tag
 import Amazonka.Athena.Types.UnprocessedNamedQueryId
+import Amazonka.Athena.Types.UnprocessedPreparedStatementName
 import Amazonka.Athena.Types.UnprocessedQueryExecutionId
 import Amazonka.Athena.Types.WorkGroup
 import Amazonka.Athena.Types.WorkGroupConfiguration

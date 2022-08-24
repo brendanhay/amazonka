@@ -70,8 +70,9 @@ data DataCatalog = DataCatalog'
     --         @AwsDataCatalog@ must be run on Athena engine version 2.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the data catalog. The catalog name must be unique for the
-    -- Amazon Web Services account and can use a maximum of 128 alphanumeric,
-    -- underscore, at sign, or hyphen characters.
+    -- Amazon Web Services account and can use a maximum of 127 alphanumeric,
+    -- underscore, at sign, or hyphen characters. The remainder of the length
+    -- constraint of 256 is reserved for use by Athena.
     name :: Prelude.Text,
     -- | The type of data catalog to create: @LAMBDA@ for a federated catalog,
     -- @HIVE@ for an external hive metastore, or @GLUE@ for an Glue Data
@@ -129,8 +130,9 @@ data DataCatalog = DataCatalog'
 --         @AwsDataCatalog@ must be run on Athena engine version 2.
 --
 -- 'name', 'dataCatalog_name' - The name of the data catalog. The catalog name must be unique for the
--- Amazon Web Services account and can use a maximum of 128 alphanumeric,
--- underscore, at sign, or hyphen characters.
+-- Amazon Web Services account and can use a maximum of 127 alphanumeric,
+-- underscore, at sign, or hyphen characters. The remainder of the length
+-- constraint of 256 is reserved for use by Athena.
 --
 -- 'type'', 'dataCatalog_type' - The type of data catalog to create: @LAMBDA@ for a federated catalog,
 -- @HIVE@ for an external hive metastore, or @GLUE@ for an Glue Data
@@ -194,8 +196,9 @@ dataCatalog_parameters :: Lens.Lens' DataCatalog (Prelude.Maybe (Prelude.HashMap
 dataCatalog_parameters = Lens.lens (\DataCatalog' {parameters} -> parameters) (\s@DataCatalog' {} a -> s {parameters = a} :: DataCatalog) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the data catalog. The catalog name must be unique for the
--- Amazon Web Services account and can use a maximum of 128 alphanumeric,
--- underscore, at sign, or hyphen characters.
+-- Amazon Web Services account and can use a maximum of 127 alphanumeric,
+-- underscore, at sign, or hyphen characters. The remainder of the length
+-- constraint of 256 is reserved for use by Athena.
 dataCatalog_name :: Lens.Lens' DataCatalog Prelude.Text
 dataCatalog_name = Lens.lens (\DataCatalog' {name} -> name) (\s@DataCatalog' {} a -> s {name = a} :: DataCatalog)
 

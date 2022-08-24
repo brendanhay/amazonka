@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates an evidence folder to the specified assessment report in
--- Audit Manager.
+-- Associates an evidence folder to an assessment report in a Audit Manager
+-- assessment.
 module Amazonka.AuditManager.AssociateAssessmentReportEvidenceFolder
   ( -- * Creating a Request
     AssociateAssessmentReportEvidenceFolder (..),
@@ -49,9 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateAssessmentReportEvidenceFolder' smart constructor.
 data AssociateAssessmentReportEvidenceFolder = AssociateAssessmentReportEvidenceFolder'
-  { -- | The identifier for the specified assessment.
+  { -- | The identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The identifier for the folder in which evidence is stored.
+    -- | The identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +64,9 @@ data AssociateAssessmentReportEvidenceFolder = AssociateAssessmentReportEvidence
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'associateAssessmentReportEvidenceFolder_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'associateAssessmentReportEvidenceFolder_assessmentId' - The identifier for the assessment.
 --
--- 'evidenceFolderId', 'associateAssessmentReportEvidenceFolder_evidenceFolderId' - The identifier for the folder in which evidence is stored.
+-- 'evidenceFolderId', 'associateAssessmentReportEvidenceFolder_evidenceFolderId' - The identifier for the folder that the evidence is stored in.
 newAssociateAssessmentReportEvidenceFolder ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -83,11 +83,11 @@ newAssociateAssessmentReportEvidenceFolder
           pEvidenceFolderId_
       }
 
--- | The identifier for the specified assessment.
+-- | The identifier for the assessment.
 associateAssessmentReportEvidenceFolder_assessmentId :: Lens.Lens' AssociateAssessmentReportEvidenceFolder Prelude.Text
 associateAssessmentReportEvidenceFolder_assessmentId = Lens.lens (\AssociateAssessmentReportEvidenceFolder' {assessmentId} -> assessmentId) (\s@AssociateAssessmentReportEvidenceFolder' {} a -> s {assessmentId = a} :: AssociateAssessmentReportEvidenceFolder)
 
--- | The identifier for the folder in which evidence is stored.
+-- | The identifier for the folder that the evidence is stored in.
 associateAssessmentReportEvidenceFolder_evidenceFolderId :: Lens.Lens' AssociateAssessmentReportEvidenceFolder Prelude.Text
 associateAssessmentReportEvidenceFolder_evidenceFolderId = Lens.lens (\AssociateAssessmentReportEvidenceFolder' {evidenceFolderId} -> evidenceFolderId) (\s@AssociateAssessmentReportEvidenceFolder' {} a -> s {evidenceFolderId = a} :: AssociateAssessmentReportEvidenceFolder)
 

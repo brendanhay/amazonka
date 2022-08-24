@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentControlSet' smart constructor.
 data AssessmentControlSet = AssessmentControlSet'
-  { -- | The total number of evidence objects retrieved automatically for the
-    -- control set.
+  { -- | The total number of evidence objects that are retrieved automatically
+    -- for the control set.
     systemEvidenceCount :: Prelude.Maybe Prelude.Int,
     -- | Specifies the current status of the control set.
     status :: Prelude.Maybe ControlSetStatus,
@@ -41,14 +41,14 @@ data AssessmentControlSet = AssessmentControlSet'
     -- | The identifier of the control set in the assessment. This is the control
     -- set name in a plain string format.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The list of controls contained with the control set.
+    -- | The list of controls that\'s contained with the control set.
     controls :: Prelude.Maybe [AssessmentControl],
-    -- | The delegations associated with the control set.
+    -- | The delegations that are associated with the control set.
     delegations :: Prelude.Maybe [Delegation],
-    -- | The total number of evidence objects uploaded manually to the control
-    -- set.
+    -- | The total number of evidence objects that are uploaded manually to the
+    -- control set.
     manualEvidenceCount :: Prelude.Maybe Prelude.Int,
-    -- | The roles associated with the control set.
+    -- | The roles that are associated with the control set.
     roles :: Prelude.Maybe [Role]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,8 +61,8 @@ data AssessmentControlSet = AssessmentControlSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'systemEvidenceCount', 'assessmentControlSet_systemEvidenceCount' - The total number of evidence objects retrieved automatically for the
--- control set.
+-- 'systemEvidenceCount', 'assessmentControlSet_systemEvidenceCount' - The total number of evidence objects that are retrieved automatically
+-- for the control set.
 --
 -- 'status', 'assessmentControlSet_status' - Specifies the current status of the control set.
 --
@@ -71,14 +71,14 @@ data AssessmentControlSet = AssessmentControlSet'
 -- 'id', 'assessmentControlSet_id' - The identifier of the control set in the assessment. This is the control
 -- set name in a plain string format.
 --
--- 'controls', 'assessmentControlSet_controls' - The list of controls contained with the control set.
+-- 'controls', 'assessmentControlSet_controls' - The list of controls that\'s contained with the control set.
 --
--- 'delegations', 'assessmentControlSet_delegations' - The delegations associated with the control set.
+-- 'delegations', 'assessmentControlSet_delegations' - The delegations that are associated with the control set.
 --
--- 'manualEvidenceCount', 'assessmentControlSet_manualEvidenceCount' - The total number of evidence objects uploaded manually to the control
--- set.
+-- 'manualEvidenceCount', 'assessmentControlSet_manualEvidenceCount' - The total number of evidence objects that are uploaded manually to the
+-- control set.
 --
--- 'roles', 'assessmentControlSet_roles' - The roles associated with the control set.
+-- 'roles', 'assessmentControlSet_roles' - The roles that are associated with the control set.
 newAssessmentControlSet ::
   AssessmentControlSet
 newAssessmentControlSet =
@@ -94,8 +94,8 @@ newAssessmentControlSet =
       roles = Prelude.Nothing
     }
 
--- | The total number of evidence objects retrieved automatically for the
--- control set.
+-- | The total number of evidence objects that are retrieved automatically
+-- for the control set.
 assessmentControlSet_systemEvidenceCount :: Lens.Lens' AssessmentControlSet (Prelude.Maybe Prelude.Int)
 assessmentControlSet_systemEvidenceCount = Lens.lens (\AssessmentControlSet' {systemEvidenceCount} -> systemEvidenceCount) (\s@AssessmentControlSet' {} a -> s {systemEvidenceCount = a} :: AssessmentControlSet)
 
@@ -112,20 +112,20 @@ assessmentControlSet_description = Lens.lens (\AssessmentControlSet' {descriptio
 assessmentControlSet_id :: Lens.Lens' AssessmentControlSet (Prelude.Maybe Prelude.Text)
 assessmentControlSet_id = Lens.lens (\AssessmentControlSet' {id} -> id) (\s@AssessmentControlSet' {} a -> s {id = a} :: AssessmentControlSet)
 
--- | The list of controls contained with the control set.
+-- | The list of controls that\'s contained with the control set.
 assessmentControlSet_controls :: Lens.Lens' AssessmentControlSet (Prelude.Maybe [AssessmentControl])
 assessmentControlSet_controls = Lens.lens (\AssessmentControlSet' {controls} -> controls) (\s@AssessmentControlSet' {} a -> s {controls = a} :: AssessmentControlSet) Prelude.. Lens.mapping Lens.coerced
 
--- | The delegations associated with the control set.
+-- | The delegations that are associated with the control set.
 assessmentControlSet_delegations :: Lens.Lens' AssessmentControlSet (Prelude.Maybe [Delegation])
 assessmentControlSet_delegations = Lens.lens (\AssessmentControlSet' {delegations} -> delegations) (\s@AssessmentControlSet' {} a -> s {delegations = a} :: AssessmentControlSet) Prelude.. Lens.mapping Lens.coerced
 
--- | The total number of evidence objects uploaded manually to the control
--- set.
+-- | The total number of evidence objects that are uploaded manually to the
+-- control set.
 assessmentControlSet_manualEvidenceCount :: Lens.Lens' AssessmentControlSet (Prelude.Maybe Prelude.Int)
 assessmentControlSet_manualEvidenceCount = Lens.lens (\AssessmentControlSet' {manualEvidenceCount} -> manualEvidenceCount) (\s@AssessmentControlSet' {} a -> s {manualEvidenceCount = a} :: AssessmentControlSet)
 
--- | The roles associated with the control set.
+-- | The roles that are associated with the control set.
 assessmentControlSet_roles :: Lens.Lens' AssessmentControlSet (Prelude.Maybe [Role])
 assessmentControlSet_roles = Lens.lens (\AssessmentControlSet' {roles} -> roles) (\s@AssessmentControlSet' {} a -> s {roles = a} :: AssessmentControlSet) Prelude.. Lens.mapping Lens.coerced
 

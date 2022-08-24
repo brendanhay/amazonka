@@ -49,9 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssessmentStatus' smart constructor.
 data UpdateAssessmentStatus = UpdateAssessmentStatus'
-  { -- | The identifier for the specified assessment.
+  { -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The current status of the specified assessment.
+    -- | The current status of the assessment.
     status :: AssessmentStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +64,9 @@ data UpdateAssessmentStatus = UpdateAssessmentStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'updateAssessmentStatus_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'updateAssessmentStatus_assessmentId' - The unique identifier for the assessment.
 --
--- 'status', 'updateAssessmentStatus_status' - The current status of the specified assessment.
+-- 'status', 'updateAssessmentStatus_status' - The current status of the assessment.
 newUpdateAssessmentStatus ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -80,11 +80,11 @@ newUpdateAssessmentStatus pAssessmentId_ pStatus_ =
       status = pStatus_
     }
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 updateAssessmentStatus_assessmentId :: Lens.Lens' UpdateAssessmentStatus Prelude.Text
 updateAssessmentStatus_assessmentId = Lens.lens (\UpdateAssessmentStatus' {assessmentId} -> assessmentId) (\s@UpdateAssessmentStatus' {} a -> s {assessmentId = a} :: UpdateAssessmentStatus)
 
--- | The current status of the specified assessment.
+-- | The current status of the assessment.
 updateAssessmentStatus_status :: Lens.Lens' UpdateAssessmentStatus AssessmentStatus
 updateAssessmentStatus_status = Lens.lens (\UpdateAssessmentStatus' {status} -> status) (\s@UpdateAssessmentStatus' {} a -> s {status = a} :: UpdateAssessmentStatus)
 
@@ -139,8 +139,8 @@ instance Core.ToQuery UpdateAssessmentStatus where
 
 -- | /See:/ 'newUpdateAssessmentStatusResponse' smart constructor.
 data UpdateAssessmentStatusResponse = UpdateAssessmentStatusResponse'
-  { -- | The name of the updated assessment returned by the
-    -- @UpdateAssessmentStatus@ API.
+  { -- | The name of the updated assessment that the @UpdateAssessmentStatus@ API
+    -- returned.
     assessment :: Prelude.Maybe Assessment,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -155,8 +155,8 @@ data UpdateAssessmentStatusResponse = UpdateAssessmentStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessment', 'updateAssessmentStatusResponse_assessment' - The name of the updated assessment returned by the
--- @UpdateAssessmentStatus@ API.
+-- 'assessment', 'updateAssessmentStatusResponse_assessment' - The name of the updated assessment that the @UpdateAssessmentStatus@ API
+-- returned.
 --
 -- 'httpStatus', 'updateAssessmentStatusResponse_httpStatus' - The response's http status code.
 newUpdateAssessmentStatusResponse ::
@@ -170,8 +170,8 @@ newUpdateAssessmentStatusResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the updated assessment returned by the
--- @UpdateAssessmentStatus@ API.
+-- | The name of the updated assessment that the @UpdateAssessmentStatus@ API
+-- returned.
 updateAssessmentStatusResponse_assessment :: Lens.Lens' UpdateAssessmentStatusResponse (Prelude.Maybe Assessment)
 updateAssessmentStatusResponse_assessment = Lens.lens (\UpdateAssessmentStatusResponse' {assessment} -> assessment) (\s@UpdateAssessmentStatusResponse' {} a -> s {assessment = a} :: UpdateAssessmentStatusResponse)
 

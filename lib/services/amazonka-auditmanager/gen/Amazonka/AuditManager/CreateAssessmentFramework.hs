@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateAssessmentFramework' smart constructor.
 data CreateAssessmentFramework = CreateAssessmentFramework'
-  { -- | The tags associated with the framework.
+  { -- | The tags that are associated with the framework.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | An optional description for the new custom framework.
     description :: Prelude.Maybe Prelude.Text,
@@ -61,7 +61,7 @@ data CreateAssessmentFramework = CreateAssessmentFramework'
     complianceType :: Prelude.Maybe Prelude.Text,
     -- | The name of the new custom framework.
     name :: Prelude.Text,
-    -- | The control sets to be associated with the framework.
+    -- | The control sets that are associated with the framework.
     controlSets :: Prelude.NonEmpty CreateAssessmentFrameworkControlSet
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data CreateAssessmentFramework = CreateAssessmentFramework'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createAssessmentFramework_tags' - The tags associated with the framework.
+-- 'tags', 'createAssessmentFramework_tags' - The tags that are associated with the framework.
 --
 -- 'description', 'createAssessmentFramework_description' - An optional description for the new custom framework.
 --
@@ -83,7 +83,7 @@ data CreateAssessmentFramework = CreateAssessmentFramework'
 --
 -- 'name', 'createAssessmentFramework_name' - The name of the new custom framework.
 --
--- 'controlSets', 'createAssessmentFramework_controlSets' - The control sets to be associated with the framework.
+-- 'controlSets', 'createAssessmentFramework_controlSets' - The control sets that are associated with the framework.
 newCreateAssessmentFramework ::
   -- | 'name'
   Prelude.Text ->
@@ -99,7 +99,7 @@ newCreateAssessmentFramework pName_ pControlSets_ =
       controlSets = Lens.coerced Lens.# pControlSets_
     }
 
--- | The tags associated with the framework.
+-- | The tags that are associated with the framework.
 createAssessmentFramework_tags :: Lens.Lens' CreateAssessmentFramework (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createAssessmentFramework_tags = Lens.lens (\CreateAssessmentFramework' {tags} -> tags) (\s@CreateAssessmentFramework' {} a -> s {tags = a} :: CreateAssessmentFramework) Prelude.. Lens.mapping Lens.coerced
 
@@ -116,7 +116,7 @@ createAssessmentFramework_complianceType = Lens.lens (\CreateAssessmentFramework
 createAssessmentFramework_name :: Lens.Lens' CreateAssessmentFramework Prelude.Text
 createAssessmentFramework_name = Lens.lens (\CreateAssessmentFramework' {name} -> name) (\s@CreateAssessmentFramework' {} a -> s {name = a} :: CreateAssessmentFramework)
 
--- | The control sets to be associated with the framework.
+-- | The control sets that are associated with the framework.
 createAssessmentFramework_controlSets :: Lens.Lens' CreateAssessmentFramework (Prelude.NonEmpty CreateAssessmentFrameworkControlSet)
 createAssessmentFramework_controlSets = Lens.lens (\CreateAssessmentFramework' {controlSets} -> controlSets) (\s@CreateAssessmentFramework' {} a -> s {controlSets = a} :: CreateAssessmentFramework) Prelude.. Lens.coerced
 
@@ -181,8 +181,8 @@ instance Core.ToQuery CreateAssessmentFramework where
 
 -- | /See:/ 'newCreateAssessmentFrameworkResponse' smart constructor.
 data CreateAssessmentFrameworkResponse = CreateAssessmentFrameworkResponse'
-  { -- | The name of the new framework returned by the
-    -- @CreateAssessmentFramework@ API.
+  { -- | The name of the new framework that the @CreateAssessmentFramework@ API
+    -- returned.
     framework :: Prelude.Maybe Framework,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -197,8 +197,8 @@ data CreateAssessmentFrameworkResponse = CreateAssessmentFrameworkResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'framework', 'createAssessmentFrameworkResponse_framework' - The name of the new framework returned by the
--- @CreateAssessmentFramework@ API.
+-- 'framework', 'createAssessmentFrameworkResponse_framework' - The name of the new framework that the @CreateAssessmentFramework@ API
+-- returned.
 --
 -- 'httpStatus', 'createAssessmentFrameworkResponse_httpStatus' - The response's http status code.
 newCreateAssessmentFrameworkResponse ::
@@ -212,8 +212,8 @@ newCreateAssessmentFrameworkResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the new framework returned by the
--- @CreateAssessmentFramework@ API.
+-- | The name of the new framework that the @CreateAssessmentFramework@ API
+-- returned.
 createAssessmentFrameworkResponse_framework :: Lens.Lens' CreateAssessmentFrameworkResponse (Prelude.Maybe Framework)
 createAssessmentFrameworkResponse_framework = Lens.lens (\CreateAssessmentFrameworkResponse' {framework} -> framework) (\s@CreateAssessmentFrameworkResponse' {} a -> s {framework = a} :: CreateAssessmentFrameworkResponse)
 

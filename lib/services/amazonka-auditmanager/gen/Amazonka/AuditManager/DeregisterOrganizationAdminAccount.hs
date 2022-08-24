@@ -20,15 +20,53 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified member Amazon Web Services account as a delegated
+-- Removes the specified Amazon Web Services account as a delegated
 -- administrator for Audit Manager.
 --
 -- When you remove a delegated administrator from your Audit Manager
--- settings, or when you deregister a delegated administrator from
--- Organizations, you continue to have access to the evidence that you
--- previously collected under that account. However, Audit Manager will
--- stop collecting and attaching evidence to that delegated administrator
--- account moving forward.
+-- settings, you continue to have access to the evidence that you
+-- previously collected under that account. This is also the case when you
+-- deregister a delegated administrator from Organizations. However, Audit
+-- Manager will stop collecting and attaching evidence to that delegated
+-- administrator account moving forward.
+--
+-- When you deregister a delegated administrator account for Audit Manager,
+-- the data for that account isn’t deleted. If you want to delete resource
+-- data for a delegated administrator account, you must perform that task
+-- separately before you deregister the account. Either, you can do this in
+-- the Audit Manager console. Or, you can use one of the delete API
+-- operations that are provided by Audit Manager.
+--
+-- To delete your Audit Manager resource data, see the following
+-- instructions:
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html DeleteAssessment>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html Deleting an assessment>
+--     in the /Audit Manager User Guide/)
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html DeleteAssessmentFramework>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html Deleting a custom framework>
+--     in the /Audit Manager User Guide/)
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html DeleteAssessmentFrameworkShare>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html Deleting a share request>
+--     in the /Audit Manager User Guide/)
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html DeleteAssessmentReport>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps Deleting an assessment report>
+--     in the /Audit Manager User Guide/)
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html DeleteControl>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html Deleting a custom control>
+--     in the /Audit Manager User Guide/)
+--
+-- At this time, Audit Manager doesn\'t provide an option to delete
+-- evidence. All available delete operations are listed above.
 module Amazonka.AuditManager.DeregisterOrganizationAdminAccount
   ( -- * Creating a Request
     DeregisterOrganizationAdminAccount (..),
@@ -55,7 +93,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeregisterOrganizationAdminAccount' smart constructor.
 data DeregisterOrganizationAdminAccount = DeregisterOrganizationAdminAccount'
-  { -- | The identifier for the specified administrator account.
+  { -- | The identifier for the administrator account.
     adminAccountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +106,7 @@ data DeregisterOrganizationAdminAccount = DeregisterOrganizationAdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccountId', 'deregisterOrganizationAdminAccount_adminAccountId' - The identifier for the specified administrator account.
+-- 'adminAccountId', 'deregisterOrganizationAdminAccount_adminAccountId' - The identifier for the administrator account.
 newDeregisterOrganizationAdminAccount ::
   DeregisterOrganizationAdminAccount
 newDeregisterOrganizationAdminAccount =
@@ -77,7 +115,7 @@ newDeregisterOrganizationAdminAccount =
         Prelude.Nothing
     }
 
--- | The identifier for the specified administrator account.
+-- | The identifier for the administrator account.
 deregisterOrganizationAdminAccount_adminAccountId :: Lens.Lens' DeregisterOrganizationAdminAccount (Prelude.Maybe Prelude.Text)
 deregisterOrganizationAdminAccount_adminAccountId = Lens.lens (\DeregisterOrganizationAdminAccount' {adminAccountId} -> adminAccountId) (\s@DeregisterOrganizationAdminAccount' {} a -> s {adminAccountId = a} :: DeregisterOrganizationAdminAccount)
 

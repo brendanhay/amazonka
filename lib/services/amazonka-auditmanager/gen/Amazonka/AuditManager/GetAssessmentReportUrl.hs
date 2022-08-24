@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the URL of a specified assessment report in Audit Manager.
+-- Returns the URL of an assessment report in Audit Manager.
 module Amazonka.AuditManager.GetAssessmentReportUrl
   ( -- * Creating a Request
     GetAssessmentReportUrl (..),
@@ -49,9 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssessmentReportUrl' smart constructor.
 data GetAssessmentReportUrl = GetAssessmentReportUrl'
-  { -- | The identifier for the assessment report.
+  { -- | The unique identifier for the assessment report.
     assessmentReportId :: Prelude.Text,
-    -- | The identifier for the specified assessment.
+    -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +64,9 @@ data GetAssessmentReportUrl = GetAssessmentReportUrl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentReportId', 'getAssessmentReportUrl_assessmentReportId' - The identifier for the assessment report.
+-- 'assessmentReportId', 'getAssessmentReportUrl_assessmentReportId' - The unique identifier for the assessment report.
 --
--- 'assessmentId', 'getAssessmentReportUrl_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'getAssessmentReportUrl_assessmentId' - The unique identifier for the assessment.
 newGetAssessmentReportUrl ::
   -- | 'assessmentReportId'
   Prelude.Text ->
@@ -82,11 +82,11 @@ newGetAssessmentReportUrl
         assessmentId = pAssessmentId_
       }
 
--- | The identifier for the assessment report.
+-- | The unique identifier for the assessment report.
 getAssessmentReportUrl_assessmentReportId :: Lens.Lens' GetAssessmentReportUrl Prelude.Text
 getAssessmentReportUrl_assessmentReportId = Lens.lens (\GetAssessmentReportUrl' {assessmentReportId} -> assessmentReportId) (\s@GetAssessmentReportUrl' {} a -> s {assessmentReportId = a} :: GetAssessmentReportUrl)
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 getAssessmentReportUrl_assessmentId :: Lens.Lens' GetAssessmentReportUrl Prelude.Text
 getAssessmentReportUrl_assessmentId = Lens.lens (\GetAssessmentReportUrl' {assessmentId} -> assessmentId) (\s@GetAssessmentReportUrl' {} a -> s {assessmentId = a} :: GetAssessmentReportUrl)
 

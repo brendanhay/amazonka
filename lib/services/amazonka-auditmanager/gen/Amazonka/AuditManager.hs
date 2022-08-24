@@ -16,16 +16,16 @@
 -- data types, and errors.
 --
 -- Audit Manager is a service that provides automated evidence collection
--- so that you can continuously audit your Amazon Web Services usage, and
--- assess the effectiveness of your controls to better manage risk and
--- simplify compliance.
+-- so that you can continually audit your Amazon Web Services usage. You
+-- can use it to assess the effectiveness of your controls, manage risk,
+-- and simplify compliance.
 --
--- Audit Manager provides pre-built frameworks that structure and automate
+-- Audit Manager provides prebuilt frameworks that structure and automate
 -- assessments for a given compliance standard. Frameworks include a
--- pre-built collection of controls with descriptions and testing
--- procedures, which are grouped according to the requirements of the
--- specified compliance standard or regulation. You can also customize
--- frameworks and controls to support internal audits with unique
+-- prebuilt collection of controls with descriptions and testing
+-- procedures. These controls are grouped according to the requirements of
+-- the specified compliance standard or regulation. You can also customize
+-- frameworks and controls to support internal audits with specific
 -- requirements.
 --
 -- Use the following links to get started with the Audit Manager API:
@@ -57,8 +57,14 @@ module Amazonka.AuditManager
     -- ** InternalServerException
     _InternalServerException,
 
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
@@ -140,6 +146,12 @@ module Amazonka.AuditManager
     newDeleteAssessmentFramework,
     DeleteAssessmentFrameworkResponse (DeleteAssessmentFrameworkResponse'),
     newDeleteAssessmentFrameworkResponse,
+
+    -- ** DeleteAssessmentFrameworkShare
+    DeleteAssessmentFrameworkShare (DeleteAssessmentFrameworkShare'),
+    newDeleteAssessmentFrameworkShare,
+    DeleteAssessmentFrameworkShareResponse (DeleteAssessmentFrameworkShareResponse'),
+    newDeleteAssessmentFrameworkShareResponse,
 
     -- ** DeleteAssessmentReport
     DeleteAssessmentReport (DeleteAssessmentReport'),
@@ -243,6 +255,18 @@ module Amazonka.AuditManager
     GetEvidenceFoldersByAssessmentControlResponse (GetEvidenceFoldersByAssessmentControlResponse'),
     newGetEvidenceFoldersByAssessmentControlResponse,
 
+    -- ** GetInsights
+    GetInsights (GetInsights'),
+    newGetInsights,
+    GetInsightsResponse (GetInsightsResponse'),
+    newGetInsightsResponse,
+
+    -- ** GetInsightsByAssessment
+    GetInsightsByAssessment (GetInsightsByAssessment'),
+    newGetInsightsByAssessment,
+    GetInsightsByAssessmentResponse (GetInsightsByAssessmentResponse'),
+    newGetInsightsByAssessmentResponse,
+
     -- ** GetOrganizationAdminAccount
     GetOrganizationAdminAccount (GetOrganizationAdminAccount'),
     newGetOrganizationAdminAccount,
@@ -261,6 +285,18 @@ module Amazonka.AuditManager
     GetSettingsResponse (GetSettingsResponse'),
     newGetSettingsResponse,
 
+    -- ** ListAssessmentControlInsightsByControlDomain
+    ListAssessmentControlInsightsByControlDomain (ListAssessmentControlInsightsByControlDomain'),
+    newListAssessmentControlInsightsByControlDomain,
+    ListAssessmentControlInsightsByControlDomainResponse (ListAssessmentControlInsightsByControlDomainResponse'),
+    newListAssessmentControlInsightsByControlDomainResponse,
+
+    -- ** ListAssessmentFrameworkShareRequests
+    ListAssessmentFrameworkShareRequests (ListAssessmentFrameworkShareRequests'),
+    newListAssessmentFrameworkShareRequests,
+    ListAssessmentFrameworkShareRequestsResponse (ListAssessmentFrameworkShareRequestsResponse'),
+    newListAssessmentFrameworkShareRequestsResponse,
+
     -- ** ListAssessmentFrameworks
     ListAssessmentFrameworks (ListAssessmentFrameworks'),
     newListAssessmentFrameworks,
@@ -278,6 +314,24 @@ module Amazonka.AuditManager
     newListAssessments,
     ListAssessmentsResponse (ListAssessmentsResponse'),
     newListAssessmentsResponse,
+
+    -- ** ListControlDomainInsights
+    ListControlDomainInsights (ListControlDomainInsights'),
+    newListControlDomainInsights,
+    ListControlDomainInsightsResponse (ListControlDomainInsightsResponse'),
+    newListControlDomainInsightsResponse,
+
+    -- ** ListControlDomainInsightsByAssessment
+    ListControlDomainInsightsByAssessment (ListControlDomainInsightsByAssessment'),
+    newListControlDomainInsightsByAssessment,
+    ListControlDomainInsightsByAssessmentResponse (ListControlDomainInsightsByAssessmentResponse'),
+    newListControlDomainInsightsByAssessmentResponse,
+
+    -- ** ListControlInsightsByControlDomain
+    ListControlInsightsByControlDomain (ListControlInsightsByControlDomain'),
+    newListControlInsightsByControlDomain,
+    ListControlInsightsByControlDomainResponse (ListControlInsightsByControlDomainResponse'),
+    newListControlInsightsByControlDomainResponse,
 
     -- ** ListControls
     ListControls (ListControls'),
@@ -315,6 +369,12 @@ module Amazonka.AuditManager
     RegisterOrganizationAdminAccountResponse (RegisterOrganizationAdminAccountResponse'),
     newRegisterOrganizationAdminAccountResponse,
 
+    -- ** StartAssessmentFrameworkShare
+    StartAssessmentFrameworkShare (StartAssessmentFrameworkShare'),
+    newStartAssessmentFrameworkShare,
+    StartAssessmentFrameworkShareResponse (StartAssessmentFrameworkShareResponse'),
+    newStartAssessmentFrameworkShareResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -350,6 +410,12 @@ module Amazonka.AuditManager
     newUpdateAssessmentFramework,
     UpdateAssessmentFrameworkResponse (UpdateAssessmentFrameworkResponse'),
     newUpdateAssessmentFrameworkResponse,
+
+    -- ** UpdateAssessmentFrameworkShare
+    UpdateAssessmentFrameworkShare (UpdateAssessmentFrameworkShare'),
+    newUpdateAssessmentFrameworkShare,
+    UpdateAssessmentFrameworkShareResponse (UpdateAssessmentFrameworkShareResponse'),
+    newUpdateAssessmentFrameworkShareResponse,
 
     -- ** UpdateAssessmentStatus
     UpdateAssessmentStatus (UpdateAssessmentStatus'),
@@ -422,6 +488,15 @@ module Amazonka.AuditManager
     -- ** SettingAttribute
     SettingAttribute (..),
 
+    -- ** ShareRequestAction
+    ShareRequestAction (..),
+
+    -- ** ShareRequestStatus
+    ShareRequestStatus (..),
+
+    -- ** ShareRequestType
+    ShareRequestType (..),
+
     -- ** SourceFrequency
     SourceFrequency (..),
 
@@ -462,6 +537,10 @@ module Amazonka.AuditManager
     -- ** AssessmentFrameworkMetadata
     AssessmentFrameworkMetadata (AssessmentFrameworkMetadata'),
     newAssessmentFrameworkMetadata,
+
+    -- ** AssessmentFrameworkShareRequest
+    AssessmentFrameworkShareRequest (AssessmentFrameworkShareRequest'),
+    newAssessmentFrameworkShareRequest,
 
     -- ** AssessmentMetadata
     AssessmentMetadata (AssessmentMetadata'),
@@ -511,6 +590,18 @@ module Amazonka.AuditManager
     ControlComment (ControlComment'),
     newControlComment,
 
+    -- ** ControlDomainInsights
+    ControlDomainInsights (ControlDomainInsights'),
+    newControlDomainInsights,
+
+    -- ** ControlInsightsMetadataByAssessmentItem
+    ControlInsightsMetadataByAssessmentItem (ControlInsightsMetadataByAssessmentItem'),
+    newControlInsightsMetadataByAssessmentItem,
+
+    -- ** ControlInsightsMetadataItem
+    ControlInsightsMetadataItem (ControlInsightsMetadataItem'),
+    newControlInsightsMetadataItem,
+
     -- ** ControlMappingSource
     ControlMappingSource (ControlMappingSource'),
     newControlMappingSource,
@@ -551,6 +642,10 @@ module Amazonka.AuditManager
     Evidence (Evidence'),
     newEvidence,
 
+    -- ** EvidenceInsights
+    EvidenceInsights (EvidenceInsights'),
+    newEvidenceInsights,
+
     -- ** Framework
     Framework (Framework'),
     newFramework,
@@ -558,6 +653,14 @@ module Amazonka.AuditManager
     -- ** FrameworkMetadata
     FrameworkMetadata (FrameworkMetadata'),
     newFrameworkMetadata,
+
+    -- ** Insights
+    Insights (Insights'),
+    newInsights,
+
+    -- ** InsightsByAssessment
+    InsightsByAssessment (InsightsByAssessment'),
+    newInsightsByAssessment,
 
     -- ** ManualEvidence
     ManualEvidence (ManualEvidence'),
@@ -613,6 +716,7 @@ import Amazonka.AuditManager.CreateAssessmentReport
 import Amazonka.AuditManager.CreateControl
 import Amazonka.AuditManager.DeleteAssessment
 import Amazonka.AuditManager.DeleteAssessmentFramework
+import Amazonka.AuditManager.DeleteAssessmentFrameworkShare
 import Amazonka.AuditManager.DeleteAssessmentReport
 import Amazonka.AuditManager.DeleteControl
 import Amazonka.AuditManager.DeregisterAccount
@@ -630,19 +734,27 @@ import Amazonka.AuditManager.GetEvidenceByEvidenceFolder
 import Amazonka.AuditManager.GetEvidenceFolder
 import Amazonka.AuditManager.GetEvidenceFoldersByAssessment
 import Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
+import Amazonka.AuditManager.GetInsights
+import Amazonka.AuditManager.GetInsightsByAssessment
 import Amazonka.AuditManager.GetOrganizationAdminAccount
 import Amazonka.AuditManager.GetServicesInScope
 import Amazonka.AuditManager.GetSettings
 import Amazonka.AuditManager.Lens
+import Amazonka.AuditManager.ListAssessmentControlInsightsByControlDomain
+import Amazonka.AuditManager.ListAssessmentFrameworkShareRequests
 import Amazonka.AuditManager.ListAssessmentFrameworks
 import Amazonka.AuditManager.ListAssessmentReports
 import Amazonka.AuditManager.ListAssessments
+import Amazonka.AuditManager.ListControlDomainInsights
+import Amazonka.AuditManager.ListControlDomainInsightsByAssessment
+import Amazonka.AuditManager.ListControlInsightsByControlDomain
 import Amazonka.AuditManager.ListControls
 import Amazonka.AuditManager.ListKeywordsForDataSource
 import Amazonka.AuditManager.ListNotifications
 import Amazonka.AuditManager.ListTagsForResource
 import Amazonka.AuditManager.RegisterAccount
 import Amazonka.AuditManager.RegisterOrganizationAdminAccount
+import Amazonka.AuditManager.StartAssessmentFrameworkShare
 import Amazonka.AuditManager.TagResource
 import Amazonka.AuditManager.Types
 import Amazonka.AuditManager.UntagResource
@@ -650,6 +762,7 @@ import Amazonka.AuditManager.UpdateAssessment
 import Amazonka.AuditManager.UpdateAssessmentControl
 import Amazonka.AuditManager.UpdateAssessmentControlSetStatus
 import Amazonka.AuditManager.UpdateAssessmentFramework
+import Amazonka.AuditManager.UpdateAssessmentFrameworkShare
 import Amazonka.AuditManager.UpdateAssessmentStatus
 import Amazonka.AuditManager.UpdateControl
 import Amazonka.AuditManager.UpdateSettings

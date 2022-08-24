@@ -50,9 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDelegations' smart constructor.
 data GetDelegations = GetDelegations'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results per page, or per API request
+    -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -66,9 +66,9 @@ data GetDelegations = GetDelegations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getDelegations_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'getDelegations_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'maxResults', 'getDelegations_maxResults' - Represents the maximum number of results per page, or per API request
+-- 'maxResults', 'getDelegations_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
 newGetDelegations ::
   GetDelegations
@@ -78,11 +78,11 @@ newGetDelegations =
       maxResults = Prelude.Nothing
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 getDelegations_nextToken :: Lens.Lens' GetDelegations (Prelude.Maybe Prelude.Text)
 getDelegations_nextToken = Lens.lens (\GetDelegations' {nextToken} -> nextToken) (\s@GetDelegations' {} a -> s {nextToken = a} :: GetDelegations)
 
--- | Represents the maximum number of results per page, or per API request
+-- | Represents the maximum number of results on a page or for an API request
 -- call.
 getDelegations_maxResults :: Lens.Lens' GetDelegations (Prelude.Maybe Prelude.Natural)
 getDelegations_maxResults = Lens.lens (\GetDelegations' {maxResults} -> maxResults) (\s@GetDelegations' {} a -> s {maxResults = a} :: GetDelegations)
@@ -134,9 +134,9 @@ instance Core.ToQuery GetDelegations where
 
 -- | /See:/ 'newGetDelegationsResponse' smart constructor.
 data GetDelegationsResponse = GetDelegationsResponse'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of delegations returned by the @GetDelegations@ API.
+    -- | The list of delegations that the @GetDelegations@ API returned.
     delegations :: Prelude.Maybe [DelegationMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -151,9 +151,9 @@ data GetDelegationsResponse = GetDelegationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getDelegationsResponse_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'getDelegationsResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'delegations', 'getDelegationsResponse_delegations' - The list of delegations returned by the @GetDelegations@ API.
+-- 'delegations', 'getDelegationsResponse_delegations' - The list of delegations that the @GetDelegations@ API returned.
 --
 -- 'httpStatus', 'getDelegationsResponse_httpStatus' - The response's http status code.
 newGetDelegationsResponse ::
@@ -168,11 +168,11 @@ newGetDelegationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 getDelegationsResponse_nextToken :: Lens.Lens' GetDelegationsResponse (Prelude.Maybe Prelude.Text)
 getDelegationsResponse_nextToken = Lens.lens (\GetDelegationsResponse' {nextToken} -> nextToken) (\s@GetDelegationsResponse' {} a -> s {nextToken = a} :: GetDelegationsResponse)
 
--- | The list of delegations returned by the @GetDelegations@ API.
+-- | The list of delegations that the @GetDelegations@ API returned.
 getDelegationsResponse_delegations :: Lens.Lens' GetDelegationsResponse (Prelude.Maybe [DelegationMetadata])
 getDelegationsResponse_delegations = Lens.lens (\GetDelegationsResponse' {delegations} -> delegations) (\s@GetDelegationsResponse' {} a -> s {delegations = a} :: GetDelegationsResponse) Prelude.. Lens.mapping Lens.coerced
 

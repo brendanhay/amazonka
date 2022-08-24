@@ -21,6 +21,43 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deregisters an account in Audit Manager.
+--
+-- When you deregister your account from Audit Manager, your data isn’t
+-- deleted. If you want to delete your resource data, you must perform that
+-- task separately before you deregister your account. Either, you can do
+-- this in the Audit Manager console. Or, you can use one of the delete API
+-- operations that are provided by Audit Manager.
+--
+-- To delete your Audit Manager resource data, see the following
+-- instructions:
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html DeleteAssessment>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html Deleting an assessment>
+--     in the /Audit Manager User Guide/)
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html DeleteAssessmentFramework>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html Deleting a custom framework>
+--     in the /Audit Manager User Guide/)
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html DeleteAssessmentFrameworkShare>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html Deleting a share request>
+--     in the /Audit Manager User Guide/)
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html DeleteAssessmentReport>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps Deleting an assessment report>
+--     in the /Audit Manager User Guide/)
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html DeleteControl>
+--     (see also:
+--     <https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html Deleting a custom control>
+--     in the /Audit Manager User Guide/)
+--
+-- At this time, Audit Manager doesn\'t provide an option to delete
+-- evidence. All available delete operations are listed above.
 module Amazonka.AuditManager.DeregisterAccount
   ( -- * Creating a Request
     DeregisterAccount (..),

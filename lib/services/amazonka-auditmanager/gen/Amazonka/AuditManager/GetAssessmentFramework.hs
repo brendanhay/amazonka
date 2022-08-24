@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetAssessmentFramework' smart constructor.
 data GetAssessmentFramework = GetAssessmentFramework'
-  { -- | The identifier for the specified framework.
+  { -- | The identifier for the framework.
     frameworkId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data GetAssessmentFramework = GetAssessmentFramework'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'frameworkId', 'getAssessmentFramework_frameworkId' - The identifier for the specified framework.
+-- 'frameworkId', 'getAssessmentFramework_frameworkId' - The identifier for the framework.
 newGetAssessmentFramework ::
   -- | 'frameworkId'
   Prelude.Text ->
@@ -72,7 +72,7 @@ newGetAssessmentFramework pFrameworkId_ =
         pFrameworkId_
     }
 
--- | The identifier for the specified framework.
+-- | The identifier for the framework.
 getAssessmentFramework_frameworkId :: Lens.Lens' GetAssessmentFramework Prelude.Text
 getAssessmentFramework_frameworkId = Lens.lens (\GetAssessmentFramework' {frameworkId} -> frameworkId) (\s@GetAssessmentFramework' {} a -> s {frameworkId = a} :: GetAssessmentFramework)
 
@@ -118,7 +118,7 @@ instance Core.ToQuery GetAssessmentFramework where
 
 -- | /See:/ 'newGetAssessmentFrameworkResponse' smart constructor.
 data GetAssessmentFrameworkResponse = GetAssessmentFrameworkResponse'
-  { -- | The framework returned by the @GetAssessmentFramework@ API.
+  { -- | The framework that the @GetAssessmentFramework@ API returned.
     framework :: Prelude.Maybe Framework,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -133,7 +133,7 @@ data GetAssessmentFrameworkResponse = GetAssessmentFrameworkResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'framework', 'getAssessmentFrameworkResponse_framework' - The framework returned by the @GetAssessmentFramework@ API.
+-- 'framework', 'getAssessmentFrameworkResponse_framework' - The framework that the @GetAssessmentFramework@ API returned.
 --
 -- 'httpStatus', 'getAssessmentFrameworkResponse_httpStatus' - The response's http status code.
 newGetAssessmentFrameworkResponse ::
@@ -147,7 +147,7 @@ newGetAssessmentFrameworkResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The framework returned by the @GetAssessmentFramework@ API.
+-- | The framework that the @GetAssessmentFramework@ API returned.
 getAssessmentFrameworkResponse_framework :: Lens.Lens' GetAssessmentFrameworkResponse (Prelude.Maybe Framework)
 getAssessmentFrameworkResponse_framework = Lens.lens (\GetAssessmentFrameworkResponse' {framework} -> framework) (\s@GetAssessmentFrameworkResponse' {} a -> s {framework = a} :: GetAssessmentFrameworkResponse)
 

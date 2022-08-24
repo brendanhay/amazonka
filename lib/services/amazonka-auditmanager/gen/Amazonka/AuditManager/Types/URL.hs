@@ -23,14 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A uniform resource locator, used as a unique identifier to locate a
--- resource on the internet.
+-- | Short for uniform resource locator. A URL is used as a unique identifier
+-- to locate a resource on the internet.
 --
 -- /See:/ 'newURL' smart constructor.
 data URL = URL'
   { -- | The unique identifier for the internet resource.
     link :: Prelude.Maybe Prelude.Text,
-    -- | The name or word used as a hyperlink to the URL.
+    -- | The name or word that\'s used as a hyperlink to the URL.
     hyperlinkName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +45,7 @@ data URL = URL'
 --
 -- 'link', 'url_link' - The unique identifier for the internet resource.
 --
--- 'hyperlinkName', 'url_hyperlinkName' - The name or word used as a hyperlink to the URL.
+-- 'hyperlinkName', 'url_hyperlinkName' - The name or word that\'s used as a hyperlink to the URL.
 newURL ::
   URL
 newURL =
@@ -58,7 +58,7 @@ newURL =
 url_link :: Lens.Lens' URL (Prelude.Maybe Prelude.Text)
 url_link = Lens.lens (\URL' {link} -> link) (\s@URL' {} a -> s {link = a} :: URL)
 
--- | The name or word used as a hyperlink to the URL.
+-- | The name or word that\'s used as a hyperlink to the URL.
 url_hyperlinkName :: Lens.Lens' URL (Prelude.Maybe Prelude.Text)
 url_hyperlinkName = Lens.lens (\URL' {hyperlinkName} -> hyperlinkName) (\s@URL' {} a -> s {hyperlinkName = a} :: URL)
 

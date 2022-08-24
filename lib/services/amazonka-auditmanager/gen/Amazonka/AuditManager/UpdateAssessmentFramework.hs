@@ -52,17 +52,17 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssessmentFramework' smart constructor.
 data UpdateAssessmentFramework = UpdateAssessmentFramework'
-  { -- | The description of the framework that is to be updated.
+  { -- | The description of the updated framework.
     description :: Prelude.Maybe Prelude.Text,
     -- | The compliance type that the new custom framework supports, such as CIS
     -- or HIPAA.
     complianceType :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified framework.
+    -- | The unique identifier for the framework.
     frameworkId :: Prelude.Text,
     -- | The name of the framework to be updated.
     name :: Prelude.Text,
-    -- | The control sets associated with the framework.
-    controlSets :: [UpdateAssessmentFrameworkControlSet]
+    -- | The control sets that are associated with the framework.
+    controlSets :: Prelude.NonEmpty UpdateAssessmentFrameworkControlSet
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,33 +74,38 @@ data UpdateAssessmentFramework = UpdateAssessmentFramework'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'description', 'updateAssessmentFramework_description' - The description of the framework that is to be updated.
+-- 'description', 'updateAssessmentFramework_description' - The description of the updated framework.
 --
 -- 'complianceType', 'updateAssessmentFramework_complianceType' - The compliance type that the new custom framework supports, such as CIS
 -- or HIPAA.
 --
--- 'frameworkId', 'updateAssessmentFramework_frameworkId' - The identifier for the specified framework.
+-- 'frameworkId', 'updateAssessmentFramework_frameworkId' - The unique identifier for the framework.
 --
 -- 'name', 'updateAssessmentFramework_name' - The name of the framework to be updated.
 --
--- 'controlSets', 'updateAssessmentFramework_controlSets' - The control sets associated with the framework.
+-- 'controlSets', 'updateAssessmentFramework_controlSets' - The control sets that are associated with the framework.
 newUpdateAssessmentFramework ::
   -- | 'frameworkId'
   Prelude.Text ->
   -- | 'name'
   Prelude.Text ->
+  -- | 'controlSets'
+  Prelude.NonEmpty UpdateAssessmentFrameworkControlSet ->
   UpdateAssessmentFramework
-newUpdateAssessmentFramework pFrameworkId_ pName_ =
-  UpdateAssessmentFramework'
-    { description =
-        Prelude.Nothing,
-      complianceType = Prelude.Nothing,
-      frameworkId = pFrameworkId_,
-      name = pName_,
-      controlSets = Prelude.mempty
-    }
+newUpdateAssessmentFramework
+  pFrameworkId_
+  pName_
+  pControlSets_ =
+    UpdateAssessmentFramework'
+      { description =
+          Prelude.Nothing,
+        complianceType = Prelude.Nothing,
+        frameworkId = pFrameworkId_,
+        name = pName_,
+        controlSets = Lens.coerced Lens.# pControlSets_
+      }
 
--- | The description of the framework that is to be updated.
+-- | The description of the updated framework.
 updateAssessmentFramework_description :: Lens.Lens' UpdateAssessmentFramework (Prelude.Maybe Prelude.Text)
 updateAssessmentFramework_description = Lens.lens (\UpdateAssessmentFramework' {description} -> description) (\s@UpdateAssessmentFramework' {} a -> s {description = a} :: UpdateAssessmentFramework)
 
@@ -109,7 +114,7 @@ updateAssessmentFramework_description = Lens.lens (\UpdateAssessmentFramework' {
 updateAssessmentFramework_complianceType :: Lens.Lens' UpdateAssessmentFramework (Prelude.Maybe Prelude.Text)
 updateAssessmentFramework_complianceType = Lens.lens (\UpdateAssessmentFramework' {complianceType} -> complianceType) (\s@UpdateAssessmentFramework' {} a -> s {complianceType = a} :: UpdateAssessmentFramework)
 
--- | The identifier for the specified framework.
+-- | The unique identifier for the framework.
 updateAssessmentFramework_frameworkId :: Lens.Lens' UpdateAssessmentFramework Prelude.Text
 updateAssessmentFramework_frameworkId = Lens.lens (\UpdateAssessmentFramework' {frameworkId} -> frameworkId) (\s@UpdateAssessmentFramework' {} a -> s {frameworkId = a} :: UpdateAssessmentFramework)
 
@@ -117,8 +122,8 @@ updateAssessmentFramework_frameworkId = Lens.lens (\UpdateAssessmentFramework' {
 updateAssessmentFramework_name :: Lens.Lens' UpdateAssessmentFramework Prelude.Text
 updateAssessmentFramework_name = Lens.lens (\UpdateAssessmentFramework' {name} -> name) (\s@UpdateAssessmentFramework' {} a -> s {name = a} :: UpdateAssessmentFramework)
 
--- | The control sets associated with the framework.
-updateAssessmentFramework_controlSets :: Lens.Lens' UpdateAssessmentFramework [UpdateAssessmentFrameworkControlSet]
+-- | The control sets that are associated with the framework.
+updateAssessmentFramework_controlSets :: Lens.Lens' UpdateAssessmentFramework (Prelude.NonEmpty UpdateAssessmentFrameworkControlSet)
 updateAssessmentFramework_controlSets = Lens.lens (\UpdateAssessmentFramework' {controlSets} -> controlSets) (\s@UpdateAssessmentFramework' {} a -> s {controlSets = a} :: UpdateAssessmentFramework) Prelude.. Lens.coerced
 
 instance Core.AWSRequest UpdateAssessmentFramework where
@@ -183,7 +188,7 @@ instance Core.ToQuery UpdateAssessmentFramework where
 
 -- | /See:/ 'newUpdateAssessmentFrameworkResponse' smart constructor.
 data UpdateAssessmentFrameworkResponse = UpdateAssessmentFrameworkResponse'
-  { -- | The name of the specified framework.
+  { -- | The name of the framework.
     framework :: Prelude.Maybe Framework,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -198,7 +203,7 @@ data UpdateAssessmentFrameworkResponse = UpdateAssessmentFrameworkResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'framework', 'updateAssessmentFrameworkResponse_framework' - The name of the specified framework.
+-- 'framework', 'updateAssessmentFrameworkResponse_framework' - The name of the framework.
 --
 -- 'httpStatus', 'updateAssessmentFrameworkResponse_httpStatus' - The response's http status code.
 newUpdateAssessmentFrameworkResponse ::
@@ -212,7 +217,7 @@ newUpdateAssessmentFrameworkResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the specified framework.
+-- | The name of the framework.
 updateAssessmentFrameworkResponse_framework :: Lens.Lens' UpdateAssessmentFrameworkResponse (Prelude.Maybe Framework)
 updateAssessmentFrameworkResponse_framework = Lens.lens (\UpdateAssessmentFrameworkResponse' {framework} -> framework) (\s@UpdateAssessmentFrameworkResponse' {} a -> s {framework = a} :: UpdateAssessmentFrameworkResponse)
 

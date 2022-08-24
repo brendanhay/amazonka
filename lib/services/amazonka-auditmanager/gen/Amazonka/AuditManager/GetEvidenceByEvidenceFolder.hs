@@ -53,16 +53,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEvidenceByEvidenceFolder' smart constructor.
 data GetEvidenceByEvidenceFolder = GetEvidenceByEvidenceFolder'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Represents the maximum number of results per page, or per API request
+    -- | Represents the maximum number of results on a page or for an API request
     -- call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier for the specified assessment.
+    -- | The identifier for the assessment.
     assessmentId :: Prelude.Text,
     -- | The identifier for the control set.
     controlSetId :: Prelude.Text,
-    -- | The unique identifier for the folder in which the evidence is stored.
+    -- | The unique identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,16 +75,16 @@ data GetEvidenceByEvidenceFolder = GetEvidenceByEvidenceFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEvidenceByEvidenceFolder_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'getEvidenceByEvidenceFolder_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'maxResults', 'getEvidenceByEvidenceFolder_maxResults' - Represents the maximum number of results per page, or per API request
+-- 'maxResults', 'getEvidenceByEvidenceFolder_maxResults' - Represents the maximum number of results on a page or for an API request
 -- call.
 --
--- 'assessmentId', 'getEvidenceByEvidenceFolder_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'getEvidenceByEvidenceFolder_assessmentId' - The identifier for the assessment.
 --
 -- 'controlSetId', 'getEvidenceByEvidenceFolder_controlSetId' - The identifier for the control set.
 --
--- 'evidenceFolderId', 'getEvidenceByEvidenceFolder_evidenceFolderId' - The unique identifier for the folder in which the evidence is stored.
+-- 'evidenceFolderId', 'getEvidenceByEvidenceFolder_evidenceFolderId' - The unique identifier for the folder that the evidence is stored in.
 newGetEvidenceByEvidenceFolder ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -106,16 +106,16 @@ newGetEvidenceByEvidenceFolder
         evidenceFolderId = pEvidenceFolderId_
       }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 getEvidenceByEvidenceFolder_nextToken :: Lens.Lens' GetEvidenceByEvidenceFolder (Prelude.Maybe Prelude.Text)
 getEvidenceByEvidenceFolder_nextToken = Lens.lens (\GetEvidenceByEvidenceFolder' {nextToken} -> nextToken) (\s@GetEvidenceByEvidenceFolder' {} a -> s {nextToken = a} :: GetEvidenceByEvidenceFolder)
 
--- | Represents the maximum number of results per page, or per API request
+-- | Represents the maximum number of results on a page or for an API request
 -- call.
 getEvidenceByEvidenceFolder_maxResults :: Lens.Lens' GetEvidenceByEvidenceFolder (Prelude.Maybe Prelude.Natural)
 getEvidenceByEvidenceFolder_maxResults = Lens.lens (\GetEvidenceByEvidenceFolder' {maxResults} -> maxResults) (\s@GetEvidenceByEvidenceFolder' {} a -> s {maxResults = a} :: GetEvidenceByEvidenceFolder)
 
--- | The identifier for the specified assessment.
+-- | The identifier for the assessment.
 getEvidenceByEvidenceFolder_assessmentId :: Lens.Lens' GetEvidenceByEvidenceFolder Prelude.Text
 getEvidenceByEvidenceFolder_assessmentId = Lens.lens (\GetEvidenceByEvidenceFolder' {assessmentId} -> assessmentId) (\s@GetEvidenceByEvidenceFolder' {} a -> s {assessmentId = a} :: GetEvidenceByEvidenceFolder)
 
@@ -123,7 +123,7 @@ getEvidenceByEvidenceFolder_assessmentId = Lens.lens (\GetEvidenceByEvidenceFold
 getEvidenceByEvidenceFolder_controlSetId :: Lens.Lens' GetEvidenceByEvidenceFolder Prelude.Text
 getEvidenceByEvidenceFolder_controlSetId = Lens.lens (\GetEvidenceByEvidenceFolder' {controlSetId} -> controlSetId) (\s@GetEvidenceByEvidenceFolder' {} a -> s {controlSetId = a} :: GetEvidenceByEvidenceFolder)
 
--- | The unique identifier for the folder in which the evidence is stored.
+-- | The unique identifier for the folder that the evidence is stored in.
 getEvidenceByEvidenceFolder_evidenceFolderId :: Lens.Lens' GetEvidenceByEvidenceFolder Prelude.Text
 getEvidenceByEvidenceFolder_evidenceFolderId = Lens.lens (\GetEvidenceByEvidenceFolder' {evidenceFolderId} -> evidenceFolderId) (\s@GetEvidenceByEvidenceFolder' {} a -> s {evidenceFolderId = a} :: GetEvidenceByEvidenceFolder)
 
@@ -189,9 +189,10 @@ instance Core.ToQuery GetEvidenceByEvidenceFolder where
 
 -- | /See:/ 'newGetEvidenceByEvidenceFolderResponse' smart constructor.
 data GetEvidenceByEvidenceFolderResponse = GetEvidenceByEvidenceFolderResponse'
-  { -- | The pagination token used to fetch the next set of results.
+  { -- | The pagination token that\'s used to fetch the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of evidence returned by the @GetEvidenceByEvidenceFolder@ API.
+    -- | The list of evidence that the @GetEvidenceByEvidenceFolder@ API
+    -- returned.
     evidence :: Prelude.Maybe [Evidence],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -206,9 +207,10 @@ data GetEvidenceByEvidenceFolderResponse = GetEvidenceByEvidenceFolderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getEvidenceByEvidenceFolderResponse_nextToken' - The pagination token used to fetch the next set of results.
+-- 'nextToken', 'getEvidenceByEvidenceFolderResponse_nextToken' - The pagination token that\'s used to fetch the next set of results.
 --
--- 'evidence', 'getEvidenceByEvidenceFolderResponse_evidence' - The list of evidence returned by the @GetEvidenceByEvidenceFolder@ API.
+-- 'evidence', 'getEvidenceByEvidenceFolderResponse_evidence' - The list of evidence that the @GetEvidenceByEvidenceFolder@ API
+-- returned.
 --
 -- 'httpStatus', 'getEvidenceByEvidenceFolderResponse_httpStatus' - The response's http status code.
 newGetEvidenceByEvidenceFolderResponse ::
@@ -223,11 +225,12 @@ newGetEvidenceByEvidenceFolderResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pagination token used to fetch the next set of results.
+-- | The pagination token that\'s used to fetch the next set of results.
 getEvidenceByEvidenceFolderResponse_nextToken :: Lens.Lens' GetEvidenceByEvidenceFolderResponse (Prelude.Maybe Prelude.Text)
 getEvidenceByEvidenceFolderResponse_nextToken = Lens.lens (\GetEvidenceByEvidenceFolderResponse' {nextToken} -> nextToken) (\s@GetEvidenceByEvidenceFolderResponse' {} a -> s {nextToken = a} :: GetEvidenceByEvidenceFolderResponse)
 
--- | The list of evidence returned by the @GetEvidenceByEvidenceFolder@ API.
+-- | The list of evidence that the @GetEvidenceByEvidenceFolder@ API
+-- returned.
 getEvidenceByEvidenceFolderResponse_evidence :: Lens.Lens' GetEvidenceByEvidenceFolderResponse (Prelude.Maybe [Evidence])
 getEvidenceByEvidenceFolderResponse_evidence = Lens.lens (\GetEvidenceByEvidenceFolderResponse' {evidence} -> evidence) (\s@GetEvidenceByEvidenceFolderResponse' {} a -> s {evidence = a} :: GetEvidenceByEvidenceFolderResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A comment posted by a user on a control. This includes the author\'s
--- name, the comment text, and a timestamp.
+-- | A comment that\'s posted by a user on a control. This includes the
+-- author\'s name, the comment text, and a timestamp.
 --
 -- /See:/ 'newControlComment' smart constructor.
 data ControlComment = ControlComment'

@@ -47,7 +47,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAssessmentFramework' smart constructor.
 data DeleteAssessmentFramework = DeleteAssessmentFramework'
-  { -- | The identifier for the specified framework.
+  { -- | The identifier for the custom framework.
     frameworkId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data DeleteAssessmentFramework = DeleteAssessmentFramework'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'frameworkId', 'deleteAssessmentFramework_frameworkId' - The identifier for the specified framework.
+-- 'frameworkId', 'deleteAssessmentFramework_frameworkId' - The identifier for the custom framework.
 newDeleteAssessmentFramework ::
   -- | 'frameworkId'
   Prelude.Text ->
@@ -71,7 +71,7 @@ newDeleteAssessmentFramework pFrameworkId_ =
         pFrameworkId_
     }
 
--- | The identifier for the specified framework.
+-- | The identifier for the custom framework.
 deleteAssessmentFramework_frameworkId :: Lens.Lens' DeleteAssessmentFramework Prelude.Text
 deleteAssessmentFramework_frameworkId = Lens.lens (\DeleteAssessmentFramework' {frameworkId} -> frameworkId) (\s@DeleteAssessmentFramework' {} a -> s {frameworkId = a} :: DeleteAssessmentFramework)
 

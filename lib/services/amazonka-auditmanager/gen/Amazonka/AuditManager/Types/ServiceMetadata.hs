@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The metadata associated with the specified Amazon Web Service.
+-- | The metadata that\'s associated with the Amazon Web Service.
 --
 -- /See:/ 'newServiceMetadata' smart constructor.
 data ServiceMetadata = ServiceMetadata'
@@ -31,10 +31,10 @@ data ServiceMetadata = ServiceMetadata'
     name :: Prelude.Maybe Prelude.Text,
     -- | The display name of the Amazon Web Service.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the specified Amazon Web Service.
+    -- | The description of the Amazon Web Service.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The category in which the Amazon Web Service belongs, such as compute,
-    -- storage, database, and so on.
+    -- | The category that the Amazon Web Service belongs to, such as compute,
+    -- storage, or database.
     category :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,10 +51,10 @@ data ServiceMetadata = ServiceMetadata'
 --
 -- 'displayName', 'serviceMetadata_displayName' - The display name of the Amazon Web Service.
 --
--- 'description', 'serviceMetadata_description' - The description of the specified Amazon Web Service.
+-- 'description', 'serviceMetadata_description' - The description of the Amazon Web Service.
 --
--- 'category', 'serviceMetadata_category' - The category in which the Amazon Web Service belongs, such as compute,
--- storage, database, and so on.
+-- 'category', 'serviceMetadata_category' - The category that the Amazon Web Service belongs to, such as compute,
+-- storage, or database.
 newServiceMetadata ::
   ServiceMetadata
 newServiceMetadata =
@@ -73,12 +73,12 @@ serviceMetadata_name = Lens.lens (\ServiceMetadata' {name} -> name) (\s@ServiceM
 serviceMetadata_displayName :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
 serviceMetadata_displayName = Lens.lens (\ServiceMetadata' {displayName} -> displayName) (\s@ServiceMetadata' {} a -> s {displayName = a} :: ServiceMetadata)
 
--- | The description of the specified Amazon Web Service.
+-- | The description of the Amazon Web Service.
 serviceMetadata_description :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
 serviceMetadata_description = Lens.lens (\ServiceMetadata' {description} -> description) (\s@ServiceMetadata' {} a -> s {description = a} :: ServiceMetadata)
 
--- | The category in which the Amazon Web Service belongs, such as compute,
--- storage, database, and so on.
+-- | The category that the Amazon Web Service belongs to, such as compute,
+-- storage, or database.
 serviceMetadata_category :: Lens.Lens' ServiceMetadata (Prelude.Maybe Prelude.Text)
 serviceMetadata_category = Lens.lens (\ServiceMetadata' {category} -> category) (\s@ServiceMetadata' {} a -> s {category = a} :: ServiceMetadata)
 

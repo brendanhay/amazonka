@@ -27,17 +27,16 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Control mapping fields that represent the source for evidence
--- collection, along with related parameters and metadata. This does not
+-- | The control mapping fields that represent the source for evidence
+-- collection, along with related parameters and metadata. This doesn\'t
 -- contain @mappingID@.
 --
 -- /See:/ 'newCreateControlMappingSource' smart constructor.
 data CreateControlMappingSource = CreateControlMappingSource'
-  { -- | The frequency of evidence collection for the specified control mapping
-    -- source.
+  { -- | The frequency of evidence collection for the control mapping source.
     sourceFrequency :: Prelude.Maybe SourceFrequency,
-    -- | The description of the data source that determines from where Audit
-    -- Manager collects evidence for the control.
+    -- | The description of the data source that determines where Audit Manager
+    -- collects evidence from for the control.
     sourceDescription :: Prelude.Maybe Prelude.Text,
     sourceKeyword :: Prelude.Maybe SourceKeyword,
     -- | The name of the control mapping data source.
@@ -45,7 +44,7 @@ data CreateControlMappingSource = CreateControlMappingSource'
     -- | The setup option for the data source, which reflects if the evidence
     -- collection is automated or manual.
     sourceSetUpOption :: Prelude.Maybe SourceSetUpOption,
-    -- | The instructions for troubleshooting the specified control.
+    -- | The instructions for troubleshooting the control.
     troubleshootingText :: Prelude.Maybe Prelude.Text,
     -- | Specifies one of the five types of data sources for evidence collection.
     sourceType :: Prelude.Maybe SourceType
@@ -60,11 +59,10 @@ data CreateControlMappingSource = CreateControlMappingSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceFrequency', 'createControlMappingSource_sourceFrequency' - The frequency of evidence collection for the specified control mapping
--- source.
+-- 'sourceFrequency', 'createControlMappingSource_sourceFrequency' - The frequency of evidence collection for the control mapping source.
 --
--- 'sourceDescription', 'createControlMappingSource_sourceDescription' - The description of the data source that determines from where Audit
--- Manager collects evidence for the control.
+-- 'sourceDescription', 'createControlMappingSource_sourceDescription' - The description of the data source that determines where Audit Manager
+-- collects evidence from for the control.
 --
 -- 'sourceKeyword', 'createControlMappingSource_sourceKeyword' - Undocumented member.
 --
@@ -73,7 +71,7 @@ data CreateControlMappingSource = CreateControlMappingSource'
 -- 'sourceSetUpOption', 'createControlMappingSource_sourceSetUpOption' - The setup option for the data source, which reflects if the evidence
 -- collection is automated or manual.
 --
--- 'troubleshootingText', 'createControlMappingSource_troubleshootingText' - The instructions for troubleshooting the specified control.
+-- 'troubleshootingText', 'createControlMappingSource_troubleshootingText' - The instructions for troubleshooting the control.
 --
 -- 'sourceType', 'createControlMappingSource_sourceType' - Specifies one of the five types of data sources for evidence collection.
 newCreateControlMappingSource ::
@@ -90,13 +88,12 @@ newCreateControlMappingSource =
       sourceType = Prelude.Nothing
     }
 
--- | The frequency of evidence collection for the specified control mapping
--- source.
+-- | The frequency of evidence collection for the control mapping source.
 createControlMappingSource_sourceFrequency :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceFrequency)
 createControlMappingSource_sourceFrequency = Lens.lens (\CreateControlMappingSource' {sourceFrequency} -> sourceFrequency) (\s@CreateControlMappingSource' {} a -> s {sourceFrequency = a} :: CreateControlMappingSource)
 
--- | The description of the data source that determines from where Audit
--- Manager collects evidence for the control.
+-- | The description of the data source that determines where Audit Manager
+-- collects evidence from for the control.
 createControlMappingSource_sourceDescription :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe Prelude.Text)
 createControlMappingSource_sourceDescription = Lens.lens (\CreateControlMappingSource' {sourceDescription} -> sourceDescription) (\s@CreateControlMappingSource' {} a -> s {sourceDescription = a} :: CreateControlMappingSource)
 
@@ -113,7 +110,7 @@ createControlMappingSource_sourceName = Lens.lens (\CreateControlMappingSource' 
 createControlMappingSource_sourceSetUpOption :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe SourceSetUpOption)
 createControlMappingSource_sourceSetUpOption = Lens.lens (\CreateControlMappingSource' {sourceSetUpOption} -> sourceSetUpOption) (\s@CreateControlMappingSource' {} a -> s {sourceSetUpOption = a} :: CreateControlMappingSource)
 
--- | The instructions for troubleshooting the specified control.
+-- | The instructions for troubleshooting the control.
 createControlMappingSource_troubleshootingText :: Lens.Lens' CreateControlMappingSource (Prelude.Maybe Prelude.Text)
 createControlMappingSource_troubleshootingText = Lens.lens (\CreateControlMappingSource' {troubleshootingText} -> troubleshootingText) (\s@CreateControlMappingSource' {} a -> s {troubleshootingText = a} :: CreateControlMappingSource)
 

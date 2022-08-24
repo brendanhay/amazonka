@@ -23,13 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A system asset that is evaluated in an Audit Manager assessment.
+-- | A system asset that\'s evaluated in an Audit Manager assessment.
 --
 -- /See:/ 'newResource' smart constructor.
 data Resource = Resource'
-  { -- | The Amazon Resource Name (ARN) for the specified resource.
+  { -- | The Amazon Resource Name (ARN) for the resource.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The value of the specified resource.
+    -- | The value of the resource.
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data Resource = Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'resource_arn' - The Amazon Resource Name (ARN) for the specified resource.
+-- 'arn', 'resource_arn' - The Amazon Resource Name (ARN) for the resource.
 --
--- 'value', 'resource_value' - The value of the specified resource.
+-- 'value', 'resource_value' - The value of the resource.
 newResource ::
   Resource
 newResource =
@@ -53,11 +53,11 @@ newResource =
       value = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) for the specified resource.
+-- | The Amazon Resource Name (ARN) for the resource.
 resource_arn :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_arn = Lens.lens (\Resource' {arn} -> arn) (\s@Resource' {} a -> s {arn = a} :: Resource)
 
--- | The value of the specified resource.
+-- | The value of the resource.
 resource_value :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_value = Lens.lens (\Resource' {value} -> value) (\s@Resource' {} a -> s {value = a} :: Resource)
 

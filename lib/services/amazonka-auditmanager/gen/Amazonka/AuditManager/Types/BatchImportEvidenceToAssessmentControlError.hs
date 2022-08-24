@@ -30,13 +30,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchImportEvidenceToAssessmentControlError' smart constructor.
 data BatchImportEvidenceToAssessmentControlError = BatchImportEvidenceToAssessmentControlError'
-  { -- | The error message returned by the
-    -- @BatchImportEvidenceToAssessmentControl@ API.
+  { -- | The error message that the @BatchImportEvidenceToAssessmentControl@ API
+    -- returned.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The error code returned by the @BatchImportEvidenceToAssessmentControl@
-    -- API.
+    -- | The error code that the @BatchImportEvidenceToAssessmentControl@ API
+    -- returned.
     errorCode :: Prelude.Maybe Prelude.Text,
-    -- | Manual evidence that cannot be collected automatically by Audit Manager.
+    -- | Manual evidence that can\'t be collected automatically by Audit Manager.
     manualEvidence :: Prelude.Maybe ManualEvidence
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,13 +49,13 @@ data BatchImportEvidenceToAssessmentControlError = BatchImportEvidenceToAssessme
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'batchImportEvidenceToAssessmentControlError_errorMessage' - The error message returned by the
--- @BatchImportEvidenceToAssessmentControl@ API.
+-- 'errorMessage', 'batchImportEvidenceToAssessmentControlError_errorMessage' - The error message that the @BatchImportEvidenceToAssessmentControl@ API
+-- returned.
 --
--- 'errorCode', 'batchImportEvidenceToAssessmentControlError_errorCode' - The error code returned by the @BatchImportEvidenceToAssessmentControl@
--- API.
+-- 'errorCode', 'batchImportEvidenceToAssessmentControlError_errorCode' - The error code that the @BatchImportEvidenceToAssessmentControl@ API
+-- returned.
 --
--- 'manualEvidence', 'batchImportEvidenceToAssessmentControlError_manualEvidence' - Manual evidence that cannot be collected automatically by Audit Manager.
+-- 'manualEvidence', 'batchImportEvidenceToAssessmentControlError_manualEvidence' - Manual evidence that can\'t be collected automatically by Audit Manager.
 newBatchImportEvidenceToAssessmentControlError ::
   BatchImportEvidenceToAssessmentControlError
 newBatchImportEvidenceToAssessmentControlError =
@@ -67,17 +67,17 @@ newBatchImportEvidenceToAssessmentControlError =
         Prelude.Nothing
     }
 
--- | The error message returned by the
--- @BatchImportEvidenceToAssessmentControl@ API.
+-- | The error message that the @BatchImportEvidenceToAssessmentControl@ API
+-- returned.
 batchImportEvidenceToAssessmentControlError_errorMessage :: Lens.Lens' BatchImportEvidenceToAssessmentControlError (Prelude.Maybe Prelude.Text)
 batchImportEvidenceToAssessmentControlError_errorMessage = Lens.lens (\BatchImportEvidenceToAssessmentControlError' {errorMessage} -> errorMessage) (\s@BatchImportEvidenceToAssessmentControlError' {} a -> s {errorMessage = a} :: BatchImportEvidenceToAssessmentControlError)
 
--- | The error code returned by the @BatchImportEvidenceToAssessmentControl@
--- API.
+-- | The error code that the @BatchImportEvidenceToAssessmentControl@ API
+-- returned.
 batchImportEvidenceToAssessmentControlError_errorCode :: Lens.Lens' BatchImportEvidenceToAssessmentControlError (Prelude.Maybe Prelude.Text)
 batchImportEvidenceToAssessmentControlError_errorCode = Lens.lens (\BatchImportEvidenceToAssessmentControlError' {errorCode} -> errorCode) (\s@BatchImportEvidenceToAssessmentControlError' {} a -> s {errorCode = a} :: BatchImportEvidenceToAssessmentControlError)
 
--- | Manual evidence that cannot be collected automatically by Audit Manager.
+-- | Manual evidence that can\'t be collected automatically by Audit Manager.
 batchImportEvidenceToAssessmentControlError_manualEvidence :: Lens.Lens' BatchImportEvidenceToAssessmentControlError (Prelude.Maybe ManualEvidence)
 batchImportEvidenceToAssessmentControlError_manualEvidence = Lens.lens (\BatchImportEvidenceToAssessmentControlError' {manualEvidence} -> manualEvidence) (\s@BatchImportEvidenceToAssessmentControlError' {} a -> s {manualEvidence = a} :: BatchImportEvidenceToAssessmentControlError)
 

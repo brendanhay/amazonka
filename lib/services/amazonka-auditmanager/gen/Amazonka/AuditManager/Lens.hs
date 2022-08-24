@@ -102,6 +102,11 @@ module Amazonka.AuditManager.Lens
     deleteAssessmentFramework_frameworkId,
     deleteAssessmentFrameworkResponse_httpStatus,
 
+    -- ** DeleteAssessmentFrameworkShare
+    deleteAssessmentFrameworkShare_requestId,
+    deleteAssessmentFrameworkShare_requestType,
+    deleteAssessmentFrameworkShareResponse_httpStatus,
+
     -- ** DeleteAssessmentReport
     deleteAssessmentReport_assessmentId,
     deleteAssessmentReport_assessmentReportId,
@@ -210,6 +215,15 @@ module Amazonka.AuditManager.Lens
     getEvidenceFoldersByAssessmentControlResponse_nextToken,
     getEvidenceFoldersByAssessmentControlResponse_httpStatus,
 
+    -- ** GetInsights
+    getInsightsResponse_insights,
+    getInsightsResponse_httpStatus,
+
+    -- ** GetInsightsByAssessment
+    getInsightsByAssessment_assessmentId,
+    getInsightsByAssessmentResponse_insights,
+    getInsightsByAssessmentResponse_httpStatus,
+
     -- ** GetOrganizationAdminAccount
     getOrganizationAdminAccountResponse_adminAccountId,
     getOrganizationAdminAccountResponse_organizationId,
@@ -223,6 +237,23 @@ module Amazonka.AuditManager.Lens
     getSettings_attribute,
     getSettingsResponse_settings,
     getSettingsResponse_httpStatus,
+
+    -- ** ListAssessmentControlInsightsByControlDomain
+    listAssessmentControlInsightsByControlDomain_nextToken,
+    listAssessmentControlInsightsByControlDomain_maxResults,
+    listAssessmentControlInsightsByControlDomain_controlDomainId,
+    listAssessmentControlInsightsByControlDomain_assessmentId,
+    listAssessmentControlInsightsByControlDomainResponse_controlInsightsByAssessment,
+    listAssessmentControlInsightsByControlDomainResponse_nextToken,
+    listAssessmentControlInsightsByControlDomainResponse_httpStatus,
+
+    -- ** ListAssessmentFrameworkShareRequests
+    listAssessmentFrameworkShareRequests_nextToken,
+    listAssessmentFrameworkShareRequests_maxResults,
+    listAssessmentFrameworkShareRequests_requestType,
+    listAssessmentFrameworkShareRequestsResponse_nextToken,
+    listAssessmentFrameworkShareRequestsResponse_assessmentFrameworkShareRequests,
+    listAssessmentFrameworkShareRequestsResponse_httpStatus,
 
     -- ** ListAssessmentFrameworks
     listAssessmentFrameworks_nextToken,
@@ -241,10 +272,34 @@ module Amazonka.AuditManager.Lens
 
     -- ** ListAssessments
     listAssessments_nextToken,
+    listAssessments_status,
     listAssessments_maxResults,
     listAssessmentsResponse_nextToken,
     listAssessmentsResponse_assessmentMetadata,
     listAssessmentsResponse_httpStatus,
+
+    -- ** ListControlDomainInsights
+    listControlDomainInsights_nextToken,
+    listControlDomainInsights_maxResults,
+    listControlDomainInsightsResponse_nextToken,
+    listControlDomainInsightsResponse_controlDomainInsights,
+    listControlDomainInsightsResponse_httpStatus,
+
+    -- ** ListControlDomainInsightsByAssessment
+    listControlDomainInsightsByAssessment_nextToken,
+    listControlDomainInsightsByAssessment_maxResults,
+    listControlDomainInsightsByAssessment_assessmentId,
+    listControlDomainInsightsByAssessmentResponse_nextToken,
+    listControlDomainInsightsByAssessmentResponse_controlDomainInsights,
+    listControlDomainInsightsByAssessmentResponse_httpStatus,
+
+    -- ** ListControlInsightsByControlDomain
+    listControlInsightsByControlDomain_nextToken,
+    listControlInsightsByControlDomain_maxResults,
+    listControlInsightsByControlDomain_controlDomainId,
+    listControlInsightsByControlDomainResponse_nextToken,
+    listControlInsightsByControlDomainResponse_controlInsightsMetadata,
+    listControlInsightsByControlDomainResponse_httpStatus,
 
     -- ** ListControls
     listControls_nextToken,
@@ -285,6 +340,14 @@ module Amazonka.AuditManager.Lens
     registerOrganizationAdminAccountResponse_adminAccountId,
     registerOrganizationAdminAccountResponse_organizationId,
     registerOrganizationAdminAccountResponse_httpStatus,
+
+    -- ** StartAssessmentFrameworkShare
+    startAssessmentFrameworkShare_comment,
+    startAssessmentFrameworkShare_frameworkId,
+    startAssessmentFrameworkShare_destinationAccount,
+    startAssessmentFrameworkShare_destinationRegion,
+    startAssessmentFrameworkShareResponse_assessmentFrameworkShareRequest,
+    startAssessmentFrameworkShareResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -331,6 +394,13 @@ module Amazonka.AuditManager.Lens
     updateAssessmentFramework_controlSets,
     updateAssessmentFrameworkResponse_framework,
     updateAssessmentFrameworkResponse_httpStatus,
+
+    -- ** UpdateAssessmentFrameworkShare
+    updateAssessmentFrameworkShare_requestId,
+    updateAssessmentFrameworkShare_requestType,
+    updateAssessmentFrameworkShare_action,
+    updateAssessmentFrameworkShareResponse_assessmentFrameworkShareRequest,
+    updateAssessmentFrameworkShareResponse_httpStatus,
 
     -- ** UpdateAssessmentStatus
     updateAssessmentStatus_assessmentId,
@@ -443,6 +513,23 @@ module Amazonka.AuditManager.Lens
     assessmentFrameworkMetadata_complianceType,
     assessmentFrameworkMetadata_createdAt,
 
+    -- ** AssessmentFrameworkShareRequest
+    assessmentFrameworkShareRequest_customControlsCount,
+    assessmentFrameworkShareRequest_destinationAccount,
+    assessmentFrameworkShareRequest_expirationTime,
+    assessmentFrameworkShareRequest_frameworkDescription,
+    assessmentFrameworkShareRequest_status,
+    assessmentFrameworkShareRequest_id,
+    assessmentFrameworkShareRequest_frameworkName,
+    assessmentFrameworkShareRequest_frameworkId,
+    assessmentFrameworkShareRequest_lastUpdated,
+    assessmentFrameworkShareRequest_comment,
+    assessmentFrameworkShareRequest_creationTime,
+    assessmentFrameworkShareRequest_destinationRegion,
+    assessmentFrameworkShareRequest_complianceType,
+    assessmentFrameworkShareRequest_standardControlsCount,
+    assessmentFrameworkShareRequest_sourceAccount,
+
     -- ** AssessmentMetadata
     assessmentMetadata_name,
     assessmentMetadata_status,
@@ -540,6 +627,27 @@ module Amazonka.AuditManager.Lens
     controlComment_authorName,
     controlComment_commentBody,
 
+    -- ** ControlDomainInsights
+    controlDomainInsights_evidenceInsights,
+    controlDomainInsights_name,
+    controlDomainInsights_totalControlsCount,
+    controlDomainInsights_id,
+    controlDomainInsights_lastUpdated,
+    controlDomainInsights_controlsCountByNoncompliantEvidence,
+
+    -- ** ControlInsightsMetadataByAssessmentItem
+    controlInsightsMetadataByAssessmentItem_evidenceInsights,
+    controlInsightsMetadataByAssessmentItem_name,
+    controlInsightsMetadataByAssessmentItem_id,
+    controlInsightsMetadataByAssessmentItem_lastUpdated,
+    controlInsightsMetadataByAssessmentItem_controlSetName,
+
+    -- ** ControlInsightsMetadataItem
+    controlInsightsMetadataItem_evidenceInsights,
+    controlInsightsMetadataItem_name,
+    controlInsightsMetadataItem_id,
+    controlInsightsMetadataItem_lastUpdated,
+
     -- ** ControlMappingSource
     controlMappingSource_sourceFrequency,
     controlMappingSource_sourceDescription,
@@ -624,6 +732,11 @@ module Amazonka.AuditManager.Lens
     evidence_attributes,
     evidence_eventSource,
 
+    -- ** EvidenceInsights
+    evidenceInsights_compliantEvidenceCount,
+    evidenceInsights_inconclusiveEvidenceCount,
+    evidenceInsights_noncompliantEvidenceCount,
+
     -- ** Framework
     framework_tags,
     framework_name,
@@ -645,6 +758,23 @@ module Amazonka.AuditManager.Lens
     frameworkMetadata_description,
     frameworkMetadata_logo,
     frameworkMetadata_complianceType,
+
+    -- ** Insights
+    insights_totalAssessmentControlsCount,
+    insights_compliantEvidenceCount,
+    insights_lastUpdated,
+    insights_activeAssessmentsCount,
+    insights_inconclusiveEvidenceCount,
+    insights_noncompliantEvidenceCount,
+    insights_assessmentControlsCountByNoncompliantEvidence,
+
+    -- ** InsightsByAssessment
+    insightsByAssessment_totalAssessmentControlsCount,
+    insightsByAssessment_compliantEvidenceCount,
+    insightsByAssessment_lastUpdated,
+    insightsByAssessment_inconclusiveEvidenceCount,
+    insightsByAssessment_noncompliantEvidenceCount,
+    insightsByAssessment_assessmentControlsCountByNoncompliantEvidence,
 
     -- ** ManualEvidence
     manualEvidence_s3ResourcePath,
@@ -694,8 +824,8 @@ module Amazonka.AuditManager.Lens
 
     -- ** UpdateAssessmentFrameworkControlSet
     updateAssessmentFrameworkControlSet_id,
-    updateAssessmentFrameworkControlSet_controls,
     updateAssessmentFrameworkControlSet_name,
+    updateAssessmentFrameworkControlSet_controls,
   )
 where
 
@@ -711,6 +841,7 @@ import Amazonka.AuditManager.CreateAssessmentReport
 import Amazonka.AuditManager.CreateControl
 import Amazonka.AuditManager.DeleteAssessment
 import Amazonka.AuditManager.DeleteAssessmentFramework
+import Amazonka.AuditManager.DeleteAssessmentFrameworkShare
 import Amazonka.AuditManager.DeleteAssessmentReport
 import Amazonka.AuditManager.DeleteControl
 import Amazonka.AuditManager.DeregisterAccount
@@ -728,18 +859,26 @@ import Amazonka.AuditManager.GetEvidenceByEvidenceFolder
 import Amazonka.AuditManager.GetEvidenceFolder
 import Amazonka.AuditManager.GetEvidenceFoldersByAssessment
 import Amazonka.AuditManager.GetEvidenceFoldersByAssessmentControl
+import Amazonka.AuditManager.GetInsights
+import Amazonka.AuditManager.GetInsightsByAssessment
 import Amazonka.AuditManager.GetOrganizationAdminAccount
 import Amazonka.AuditManager.GetServicesInScope
 import Amazonka.AuditManager.GetSettings
+import Amazonka.AuditManager.ListAssessmentControlInsightsByControlDomain
+import Amazonka.AuditManager.ListAssessmentFrameworkShareRequests
 import Amazonka.AuditManager.ListAssessmentFrameworks
 import Amazonka.AuditManager.ListAssessmentReports
 import Amazonka.AuditManager.ListAssessments
+import Amazonka.AuditManager.ListControlDomainInsights
+import Amazonka.AuditManager.ListControlDomainInsightsByAssessment
+import Amazonka.AuditManager.ListControlInsightsByControlDomain
 import Amazonka.AuditManager.ListControls
 import Amazonka.AuditManager.ListKeywordsForDataSource
 import Amazonka.AuditManager.ListNotifications
 import Amazonka.AuditManager.ListTagsForResource
 import Amazonka.AuditManager.RegisterAccount
 import Amazonka.AuditManager.RegisterOrganizationAdminAccount
+import Amazonka.AuditManager.StartAssessmentFrameworkShare
 import Amazonka.AuditManager.TagResource
 import Amazonka.AuditManager.Types.AWSAccount
 import Amazonka.AuditManager.Types.AWSService
@@ -749,6 +888,7 @@ import Amazonka.AuditManager.Types.AssessmentControlSet
 import Amazonka.AuditManager.Types.AssessmentEvidenceFolder
 import Amazonka.AuditManager.Types.AssessmentFramework
 import Amazonka.AuditManager.Types.AssessmentFrameworkMetadata
+import Amazonka.AuditManager.Types.AssessmentFrameworkShareRequest
 import Amazonka.AuditManager.Types.AssessmentMetadata
 import Amazonka.AuditManager.Types.AssessmentMetadataItem
 import Amazonka.AuditManager.Types.AssessmentReport
@@ -761,6 +901,9 @@ import Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError
 import Amazonka.AuditManager.Types.ChangeLog
 import Amazonka.AuditManager.Types.Control
 import Amazonka.AuditManager.Types.ControlComment
+import Amazonka.AuditManager.Types.ControlDomainInsights
+import Amazonka.AuditManager.Types.ControlInsightsMetadataByAssessmentItem
+import Amazonka.AuditManager.Types.ControlInsightsMetadataItem
 import Amazonka.AuditManager.Types.ControlMappingSource
 import Amazonka.AuditManager.Types.ControlMetadata
 import Amazonka.AuditManager.Types.ControlSet
@@ -771,8 +914,11 @@ import Amazonka.AuditManager.Types.CreateDelegationRequest
 import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.DelegationMetadata
 import Amazonka.AuditManager.Types.Evidence
+import Amazonka.AuditManager.Types.EvidenceInsights
 import Amazonka.AuditManager.Types.Framework
 import Amazonka.AuditManager.Types.FrameworkMetadata
+import Amazonka.AuditManager.Types.Insights
+import Amazonka.AuditManager.Types.InsightsByAssessment
 import Amazonka.AuditManager.Types.ManualEvidence
 import Amazonka.AuditManager.Types.Notification
 import Amazonka.AuditManager.Types.Resource
@@ -788,6 +934,7 @@ import Amazonka.AuditManager.UpdateAssessment
 import Amazonka.AuditManager.UpdateAssessmentControl
 import Amazonka.AuditManager.UpdateAssessmentControlSetStatus
 import Amazonka.AuditManager.UpdateAssessmentFramework
+import Amazonka.AuditManager.UpdateAssessmentFrameworkShare
 import Amazonka.AuditManager.UpdateAssessmentStatus
 import Amazonka.AuditManager.UpdateControl
 import Amazonka.AuditManager.UpdateSettings

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates a list of evidence from the specified assessment report in
--- Audit Manager.
+-- Disassociates a list of evidence from an assessment report in Audit
+-- Manager.
 module Amazonka.AuditManager.BatchDisassociateAssessmentReportEvidence
   ( -- * Creating a Request
     BatchDisassociateAssessmentReportEvidence (..),
@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newBatchDisassociateAssessmentReportEvidence' smart constructor.
 data BatchDisassociateAssessmentReportEvidence = BatchDisassociateAssessmentReportEvidence'
-  { -- | The identifier for the specified assessment.
+  { -- | The identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The identifier for the folder in which evidence is stored.
+    -- | The identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Text,
     -- | The list of evidence identifiers.
     evidenceIds :: [Prelude.Text]
@@ -69,9 +69,9 @@ data BatchDisassociateAssessmentReportEvidence = BatchDisassociateAssessmentRepo
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'batchDisassociateAssessmentReportEvidence_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'batchDisassociateAssessmentReportEvidence_assessmentId' - The identifier for the assessment.
 --
--- 'evidenceFolderId', 'batchDisassociateAssessmentReportEvidence_evidenceFolderId' - The identifier for the folder in which evidence is stored.
+-- 'evidenceFolderId', 'batchDisassociateAssessmentReportEvidence_evidenceFolderId' - The identifier for the folder that the evidence is stored in.
 --
 -- 'evidenceIds', 'batchDisassociateAssessmentReportEvidence_evidenceIds' - The list of evidence identifiers.
 newBatchDisassociateAssessmentReportEvidence ::
@@ -91,11 +91,11 @@ newBatchDisassociateAssessmentReportEvidence
         evidenceIds = Prelude.mempty
       }
 
--- | The identifier for the specified assessment.
+-- | The identifier for the assessment.
 batchDisassociateAssessmentReportEvidence_assessmentId :: Lens.Lens' BatchDisassociateAssessmentReportEvidence Prelude.Text
 batchDisassociateAssessmentReportEvidence_assessmentId = Lens.lens (\BatchDisassociateAssessmentReportEvidence' {assessmentId} -> assessmentId) (\s@BatchDisassociateAssessmentReportEvidence' {} a -> s {assessmentId = a} :: BatchDisassociateAssessmentReportEvidence)
 
--- | The identifier for the folder in which evidence is stored.
+-- | The identifier for the folder that the evidence is stored in.
 batchDisassociateAssessmentReportEvidence_evidenceFolderId :: Lens.Lens' BatchDisassociateAssessmentReportEvidence Prelude.Text
 batchDisassociateAssessmentReportEvidence_evidenceFolderId = Lens.lens (\BatchDisassociateAssessmentReportEvidence' {evidenceFolderId} -> evidenceFolderId) (\s@BatchDisassociateAssessmentReportEvidence' {} a -> s {evidenceFolderId = a} :: BatchDisassociateAssessmentReportEvidence)
 
@@ -187,8 +187,8 @@ instance
 
 -- | /See:/ 'newBatchDisassociateAssessmentReportEvidenceResponse' smart constructor.
 data BatchDisassociateAssessmentReportEvidenceResponse = BatchDisassociateAssessmentReportEvidenceResponse'
-  { -- | A list of errors returned by the
-    -- @BatchDisassociateAssessmentReportEvidence@ API.
+  { -- | A list of errors that the @BatchDisassociateAssessmentReportEvidence@
+    -- API returned.
     errors :: Prelude.Maybe [AssessmentReportEvidenceError],
     -- | The identifier for the evidence.
     evidenceIds :: Prelude.Maybe [Prelude.Text],
@@ -205,8 +205,8 @@ data BatchDisassociateAssessmentReportEvidenceResponse = BatchDisassociateAssess
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errors', 'batchDisassociateAssessmentReportEvidenceResponse_errors' - A list of errors returned by the
--- @BatchDisassociateAssessmentReportEvidence@ API.
+-- 'errors', 'batchDisassociateAssessmentReportEvidenceResponse_errors' - A list of errors that the @BatchDisassociateAssessmentReportEvidence@
+-- API returned.
 --
 -- 'evidenceIds', 'batchDisassociateAssessmentReportEvidenceResponse_evidenceIds' - The identifier for the evidence.
 --
@@ -226,8 +226,8 @@ newBatchDisassociateAssessmentReportEvidenceResponse
           pHttpStatus_
       }
 
--- | A list of errors returned by the
--- @BatchDisassociateAssessmentReportEvidence@ API.
+-- | A list of errors that the @BatchDisassociateAssessmentReportEvidence@
+-- API returned.
 batchDisassociateAssessmentReportEvidenceResponse_errors :: Lens.Lens' BatchDisassociateAssessmentReportEvidenceResponse (Prelude.Maybe [AssessmentReportEvidenceError])
 batchDisassociateAssessmentReportEvidenceResponse_errors = Lens.lens (\BatchDisassociateAssessmentReportEvidenceResponse' {errors} -> errors) (\s@BatchDisassociateAssessmentReportEvidenceResponse' {} a -> s {errors = a} :: BatchDisassociateAssessmentReportEvidenceResponse) Prelude.. Lens.mapping Lens.coerced
 

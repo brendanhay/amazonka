@@ -49,9 +49,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateAssessmentReportEvidenceFolder' smart constructor.
 data DisassociateAssessmentReportEvidenceFolder = DisassociateAssessmentReportEvidenceFolder'
-  { -- | The identifier for the specified assessment.
+  { -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The identifier for the folder in which evidence is stored.
+    -- | The unique identifier for the folder that the evidence is stored in.
     evidenceFolderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +64,9 @@ data DisassociateAssessmentReportEvidenceFolder = DisassociateAssessmentReportEv
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentId', 'disassociateAssessmentReportEvidenceFolder_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'disassociateAssessmentReportEvidenceFolder_assessmentId' - The unique identifier for the assessment.
 --
--- 'evidenceFolderId', 'disassociateAssessmentReportEvidenceFolder_evidenceFolderId' - The identifier for the folder in which evidence is stored.
+-- 'evidenceFolderId', 'disassociateAssessmentReportEvidenceFolder_evidenceFolderId' - The unique identifier for the folder that the evidence is stored in.
 newDisassociateAssessmentReportEvidenceFolder ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -83,11 +83,11 @@ newDisassociateAssessmentReportEvidenceFolder
           pEvidenceFolderId_
       }
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 disassociateAssessmentReportEvidenceFolder_assessmentId :: Lens.Lens' DisassociateAssessmentReportEvidenceFolder Prelude.Text
 disassociateAssessmentReportEvidenceFolder_assessmentId = Lens.lens (\DisassociateAssessmentReportEvidenceFolder' {assessmentId} -> assessmentId) (\s@DisassociateAssessmentReportEvidenceFolder' {} a -> s {assessmentId = a} :: DisassociateAssessmentReportEvidenceFolder)
 
--- | The identifier for the folder in which evidence is stored.
+-- | The unique identifier for the folder that the evidence is stored in.
 disassociateAssessmentReportEvidenceFolder_evidenceFolderId :: Lens.Lens' DisassociateAssessmentReportEvidenceFolder Prelude.Text
 disassociateAssessmentReportEvidenceFolder_evidenceFolderId = Lens.lens (\DisassociateAssessmentReportEvidenceFolder' {evidenceFolderId} -> evidenceFolderId) (\s@DisassociateAssessmentReportEvidenceFolder' {} a -> s {evidenceFolderId = a} :: DisassociateAssessmentReportEvidenceFolder)
 

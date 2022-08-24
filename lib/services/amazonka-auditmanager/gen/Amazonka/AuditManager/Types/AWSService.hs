@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An Amazon Web Service such as Amazon S3, CloudTrail, and so on.
+-- | An Amazon Web Service such as Amazon S3 or CloudTrail.
 --
 -- /See:/ 'newAWSService' smart constructor.
 data AWSService = AWSService'

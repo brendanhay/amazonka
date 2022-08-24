@@ -26,7 +26,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A metadata object associated with an assessment in Audit Manager.
+-- | A metadata object that\'s associated with an assessment in Audit
+-- Manager.
 --
 -- /See:/ 'newAssessmentMetadataItem' smart constructor.
 data AssessmentMetadataItem = AssessmentMetadataItem'
@@ -40,12 +41,12 @@ data AssessmentMetadataItem = AssessmentMetadataItem'
     lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | Specifies when the assessment was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The delegations associated with the assessment.
+    -- | The delegations that are associated with the assessment.
     delegations :: Prelude.Maybe [Delegation],
-    -- | The name of the compliance standard related to the assessment, such as
-    -- PCI-DSS.
+    -- | The name of the compliance standard that\'s related to the assessment,
+    -- such as PCI-DSS.
     complianceType :: Prelude.Maybe Prelude.Text,
-    -- | The roles associated with the assessment.
+    -- | The roles that are associated with the assessment.
     roles :: Prelude.Maybe [Role]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,12 +69,12 @@ data AssessmentMetadataItem = AssessmentMetadataItem'
 --
 -- 'creationTime', 'assessmentMetadataItem_creationTime' - Specifies when the assessment was created.
 --
--- 'delegations', 'assessmentMetadataItem_delegations' - The delegations associated with the assessment.
+-- 'delegations', 'assessmentMetadataItem_delegations' - The delegations that are associated with the assessment.
 --
--- 'complianceType', 'assessmentMetadataItem_complianceType' - The name of the compliance standard related to the assessment, such as
--- PCI-DSS.
+-- 'complianceType', 'assessmentMetadataItem_complianceType' - The name of the compliance standard that\'s related to the assessment,
+-- such as PCI-DSS.
 --
--- 'roles', 'assessmentMetadataItem_roles' - The roles associated with the assessment.
+-- 'roles', 'assessmentMetadataItem_roles' - The roles that are associated with the assessment.
 newAssessmentMetadataItem ::
   AssessmentMetadataItem
 newAssessmentMetadataItem =
@@ -108,16 +109,16 @@ assessmentMetadataItem_lastUpdated = Lens.lens (\AssessmentMetadataItem' {lastUp
 assessmentMetadataItem_creationTime :: Lens.Lens' AssessmentMetadataItem (Prelude.Maybe Prelude.UTCTime)
 assessmentMetadataItem_creationTime = Lens.lens (\AssessmentMetadataItem' {creationTime} -> creationTime) (\s@AssessmentMetadataItem' {} a -> s {creationTime = a} :: AssessmentMetadataItem) Prelude.. Lens.mapping Core._Time
 
--- | The delegations associated with the assessment.
+-- | The delegations that are associated with the assessment.
 assessmentMetadataItem_delegations :: Lens.Lens' AssessmentMetadataItem (Prelude.Maybe [Delegation])
 assessmentMetadataItem_delegations = Lens.lens (\AssessmentMetadataItem' {delegations} -> delegations) (\s@AssessmentMetadataItem' {} a -> s {delegations = a} :: AssessmentMetadataItem) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the compliance standard related to the assessment, such as
--- PCI-DSS.
+-- | The name of the compliance standard that\'s related to the assessment,
+-- such as PCI-DSS.
 assessmentMetadataItem_complianceType :: Lens.Lens' AssessmentMetadataItem (Prelude.Maybe Prelude.Text)
 assessmentMetadataItem_complianceType = Lens.lens (\AssessmentMetadataItem' {complianceType} -> complianceType) (\s@AssessmentMetadataItem' {} a -> s {complianceType = a} :: AssessmentMetadataItem)
 
--- | The roles associated with the assessment.
+-- | The roles that are associated with the assessment.
 assessmentMetadataItem_roles :: Lens.Lens' AssessmentMetadataItem (Prelude.Maybe [Role])
 assessmentMetadataItem_roles = Lens.lens (\AssessmentMetadataItem' {roles} -> roles) (\s@AssessmentMetadataItem' {} a -> s {roles = a} :: AssessmentMetadataItem) Prelude.. Lens.mapping Lens.coerced
 

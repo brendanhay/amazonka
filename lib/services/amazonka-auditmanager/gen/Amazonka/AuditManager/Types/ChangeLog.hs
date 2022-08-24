@@ -25,20 +25,22 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The record of a change within Audit Manager, such as a modified
--- assessment, a delegated control set, and so on.
+-- | The record of a change within Audit Manager. For example, this could be
+-- the status change of an assessment or the delegation of a control set.
 --
 -- /See:/ 'newChangeLog' smart constructor.
 data ChangeLog = ChangeLog'
-  { -- | The action performed.
+  { -- | The action that was performed.
     action :: Prelude.Maybe ActionEnum,
-    -- | The name of the changelog object.
+    -- | The name of the object that changed. This could be the name of an
+    -- assessment, control, or control set.
     objectName :: Prelude.Maybe Prelude.Text,
     -- | The IAM user or role that performed the action.
     createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The time of creation for the changelog object.
+    -- | The time when the action was performed and the changelog record was
+    -- created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The changelog object type, such as an assessment, control, or control
+    -- | The object that was changed, such as an assessment, control, or control
     -- set.
     objectType :: Prelude.Maybe ObjectTypeEnum
   }
@@ -52,15 +54,17 @@ data ChangeLog = ChangeLog'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'action', 'changeLog_action' - The action performed.
+-- 'action', 'changeLog_action' - The action that was performed.
 --
--- 'objectName', 'changeLog_objectName' - The name of the changelog object.
+-- 'objectName', 'changeLog_objectName' - The name of the object that changed. This could be the name of an
+-- assessment, control, or control set.
 --
 -- 'createdBy', 'changeLog_createdBy' - The IAM user or role that performed the action.
 --
--- 'createdAt', 'changeLog_createdAt' - The time of creation for the changelog object.
+-- 'createdAt', 'changeLog_createdAt' - The time when the action was performed and the changelog record was
+-- created.
 --
--- 'objectType', 'changeLog_objectType' - The changelog object type, such as an assessment, control, or control
+-- 'objectType', 'changeLog_objectType' - The object that was changed, such as an assessment, control, or control
 -- set.
 newChangeLog ::
   ChangeLog
@@ -73,11 +77,12 @@ newChangeLog =
       objectType = Prelude.Nothing
     }
 
--- | The action performed.
+-- | The action that was performed.
 changeLog_action :: Lens.Lens' ChangeLog (Prelude.Maybe ActionEnum)
 changeLog_action = Lens.lens (\ChangeLog' {action} -> action) (\s@ChangeLog' {} a -> s {action = a} :: ChangeLog)
 
--- | The name of the changelog object.
+-- | The name of the object that changed. This could be the name of an
+-- assessment, control, or control set.
 changeLog_objectName :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.Text)
 changeLog_objectName = Lens.lens (\ChangeLog' {objectName} -> objectName) (\s@ChangeLog' {} a -> s {objectName = a} :: ChangeLog)
 
@@ -85,11 +90,12 @@ changeLog_objectName = Lens.lens (\ChangeLog' {objectName} -> objectName) (\s@Ch
 changeLog_createdBy :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.Text)
 changeLog_createdBy = Lens.lens (\ChangeLog' {createdBy} -> createdBy) (\s@ChangeLog' {} a -> s {createdBy = a} :: ChangeLog)
 
--- | The time of creation for the changelog object.
+-- | The time when the action was performed and the changelog record was
+-- created.
 changeLog_createdAt :: Lens.Lens' ChangeLog (Prelude.Maybe Prelude.UTCTime)
 changeLog_createdAt = Lens.lens (\ChangeLog' {createdAt} -> createdAt) (\s@ChangeLog' {} a -> s {createdAt = a} :: ChangeLog) Prelude.. Lens.mapping Core._Time
 
--- | The changelog object type, such as an assessment, control, or control
+-- | The object that was changed, such as an assessment, control, or control
 -- set.
 changeLog_objectType :: Lens.Lens' ChangeLog (Prelude.Maybe ObjectTypeEnum)
 changeLog_objectType = Lens.lens (\ChangeLog' {objectType} -> objectType) (\s@ChangeLog' {} a -> s {objectType = a} :: ChangeLog)

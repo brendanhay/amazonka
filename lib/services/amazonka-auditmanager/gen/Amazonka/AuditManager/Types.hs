@@ -19,7 +19,9 @@ module Amazonka.AuditManager.Types
     -- * Errors
     _AccessDeniedException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
+    _ThrottlingException,
     _ValidationException,
 
     -- * AccountStatus
@@ -66,6 +68,15 @@ module Amazonka.AuditManager.Types
 
     -- * SettingAttribute
     SettingAttribute (..),
+
+    -- * ShareRequestAction
+    ShareRequestAction (..),
+
+    -- * ShareRequestStatus
+    ShareRequestStatus (..),
+
+    -- * ShareRequestType
+    ShareRequestType (..),
 
     -- * SourceFrequency
     SourceFrequency (..),
@@ -166,6 +177,25 @@ module Amazonka.AuditManager.Types
     assessmentFrameworkMetadata_controlsCount,
     assessmentFrameworkMetadata_complianceType,
     assessmentFrameworkMetadata_createdAt,
+
+    -- * AssessmentFrameworkShareRequest
+    AssessmentFrameworkShareRequest (..),
+    newAssessmentFrameworkShareRequest,
+    assessmentFrameworkShareRequest_customControlsCount,
+    assessmentFrameworkShareRequest_destinationAccount,
+    assessmentFrameworkShareRequest_expirationTime,
+    assessmentFrameworkShareRequest_frameworkDescription,
+    assessmentFrameworkShareRequest_status,
+    assessmentFrameworkShareRequest_id,
+    assessmentFrameworkShareRequest_frameworkName,
+    assessmentFrameworkShareRequest_frameworkId,
+    assessmentFrameworkShareRequest_lastUpdated,
+    assessmentFrameworkShareRequest_comment,
+    assessmentFrameworkShareRequest_creationTime,
+    assessmentFrameworkShareRequest_destinationRegion,
+    assessmentFrameworkShareRequest_complianceType,
+    assessmentFrameworkShareRequest_standardControlsCount,
+    assessmentFrameworkShareRequest_sourceAccount,
 
     -- * AssessmentMetadata
     AssessmentMetadata (..),
@@ -288,6 +318,33 @@ module Amazonka.AuditManager.Types
     controlComment_authorName,
     controlComment_commentBody,
 
+    -- * ControlDomainInsights
+    ControlDomainInsights (..),
+    newControlDomainInsights,
+    controlDomainInsights_evidenceInsights,
+    controlDomainInsights_name,
+    controlDomainInsights_totalControlsCount,
+    controlDomainInsights_id,
+    controlDomainInsights_lastUpdated,
+    controlDomainInsights_controlsCountByNoncompliantEvidence,
+
+    -- * ControlInsightsMetadataByAssessmentItem
+    ControlInsightsMetadataByAssessmentItem (..),
+    newControlInsightsMetadataByAssessmentItem,
+    controlInsightsMetadataByAssessmentItem_evidenceInsights,
+    controlInsightsMetadataByAssessmentItem_name,
+    controlInsightsMetadataByAssessmentItem_id,
+    controlInsightsMetadataByAssessmentItem_lastUpdated,
+    controlInsightsMetadataByAssessmentItem_controlSetName,
+
+    -- * ControlInsightsMetadataItem
+    ControlInsightsMetadataItem (..),
+    newControlInsightsMetadataItem,
+    controlInsightsMetadataItem_evidenceInsights,
+    controlInsightsMetadataItem_name,
+    controlInsightsMetadataItem_id,
+    controlInsightsMetadataItem_lastUpdated,
+
     -- * ControlMappingSource
     ControlMappingSource (..),
     newControlMappingSource,
@@ -392,6 +449,13 @@ module Amazonka.AuditManager.Types
     evidence_attributes,
     evidence_eventSource,
 
+    -- * EvidenceInsights
+    EvidenceInsights (..),
+    newEvidenceInsights,
+    evidenceInsights_compliantEvidenceCount,
+    evidenceInsights_inconclusiveEvidenceCount,
+    evidenceInsights_noncompliantEvidenceCount,
+
     -- * Framework
     Framework (..),
     newFramework,
@@ -417,6 +481,27 @@ module Amazonka.AuditManager.Types
     frameworkMetadata_description,
     frameworkMetadata_logo,
     frameworkMetadata_complianceType,
+
+    -- * Insights
+    Insights (..),
+    newInsights,
+    insights_totalAssessmentControlsCount,
+    insights_compliantEvidenceCount,
+    insights_lastUpdated,
+    insights_activeAssessmentsCount,
+    insights_inconclusiveEvidenceCount,
+    insights_noncompliantEvidenceCount,
+    insights_assessmentControlsCountByNoncompliantEvidence,
+
+    -- * InsightsByAssessment
+    InsightsByAssessment (..),
+    newInsightsByAssessment,
+    insightsByAssessment_totalAssessmentControlsCount,
+    insightsByAssessment_compliantEvidenceCount,
+    insightsByAssessment_lastUpdated,
+    insightsByAssessment_inconclusiveEvidenceCount,
+    insightsByAssessment_noncompliantEvidenceCount,
+    insightsByAssessment_assessmentControlsCountByNoncompliantEvidence,
 
     -- * ManualEvidence
     ManualEvidence (..),
@@ -486,8 +571,8 @@ module Amazonka.AuditManager.Types
     UpdateAssessmentFrameworkControlSet (..),
     newUpdateAssessmentFrameworkControlSet,
     updateAssessmentFrameworkControlSet_id,
-    updateAssessmentFrameworkControlSet_controls,
     updateAssessmentFrameworkControlSet_name,
+    updateAssessmentFrameworkControlSet_controls,
   )
 where
 
@@ -501,6 +586,7 @@ import Amazonka.AuditManager.Types.AssessmentControlSet
 import Amazonka.AuditManager.Types.AssessmentEvidenceFolder
 import Amazonka.AuditManager.Types.AssessmentFramework
 import Amazonka.AuditManager.Types.AssessmentFrameworkMetadata
+import Amazonka.AuditManager.Types.AssessmentFrameworkShareRequest
 import Amazonka.AuditManager.Types.AssessmentMetadata
 import Amazonka.AuditManager.Types.AssessmentMetadataItem
 import Amazonka.AuditManager.Types.AssessmentReport
@@ -516,6 +602,9 @@ import Amazonka.AuditManager.Types.BatchImportEvidenceToAssessmentControlError
 import Amazonka.AuditManager.Types.ChangeLog
 import Amazonka.AuditManager.Types.Control
 import Amazonka.AuditManager.Types.ControlComment
+import Amazonka.AuditManager.Types.ControlDomainInsights
+import Amazonka.AuditManager.Types.ControlInsightsMetadataByAssessmentItem
+import Amazonka.AuditManager.Types.ControlInsightsMetadataItem
 import Amazonka.AuditManager.Types.ControlMappingSource
 import Amazonka.AuditManager.Types.ControlMetadata
 import Amazonka.AuditManager.Types.ControlResponse
@@ -531,9 +620,12 @@ import Amazonka.AuditManager.Types.Delegation
 import Amazonka.AuditManager.Types.DelegationMetadata
 import Amazonka.AuditManager.Types.DelegationStatus
 import Amazonka.AuditManager.Types.Evidence
+import Amazonka.AuditManager.Types.EvidenceInsights
 import Amazonka.AuditManager.Types.Framework
 import Amazonka.AuditManager.Types.FrameworkMetadata
 import Amazonka.AuditManager.Types.FrameworkType
+import Amazonka.AuditManager.Types.Insights
+import Amazonka.AuditManager.Types.InsightsByAssessment
 import Amazonka.AuditManager.Types.KeywordInputType
 import Amazonka.AuditManager.Types.ManualEvidence
 import Amazonka.AuditManager.Types.Notification
@@ -545,6 +637,9 @@ import Amazonka.AuditManager.Types.Scope
 import Amazonka.AuditManager.Types.ServiceMetadata
 import Amazonka.AuditManager.Types.SettingAttribute
 import Amazonka.AuditManager.Types.Settings
+import Amazonka.AuditManager.Types.ShareRequestAction
+import Amazonka.AuditManager.Types.ShareRequestStatus
+import Amazonka.AuditManager.Types.ShareRequestType
 import Amazonka.AuditManager.Types.SourceFrequency
 import Amazonka.AuditManager.Types.SourceKeyword
 import Amazonka.AuditManager.Types.SourceSetUpOption
@@ -627,7 +722,7 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Your account is not registered with Audit Manager. Check the delegated
+-- | Your account isn\'t registered with Audit Manager. Check the delegated
 -- administrator setup on the Audit Manager settings page, and try again.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
@@ -645,13 +740,34 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | The resource specified in the request cannot be found.
+-- | You\'ve reached your account quota for this resource type. To perform
+-- the requested action, delete some existing resources or
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html request a quota increase>
+-- from the Service Quotas console. For a list of Audit Manager service
+-- quotas, see
+-- <https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html Quotas and restrictions for Audit Manager>.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
+-- | The resource that\'s specified in the request can\'t be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 400
 
 -- | The request has invalid or missing parameters.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

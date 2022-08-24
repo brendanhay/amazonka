@@ -27,13 +27,71 @@ import qualified Amazonka.Prelude as Prelude
 -- | The keyword to search for in CloudTrail logs, Config rules, Security Hub
 -- checks, and Amazon Web Services API names.
 --
+-- To learn more about the supported keywords that you can use when mapping
+-- a control data source, see the following pages in the /Audit Manager
+-- User Guide/:
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-ash.html Config rules supported by Audit Manager>
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-config.html Security Hub controls supported by Audit Manager>
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-api.html API calls supported by Audit Manager>
+--
+-- -   <https://docs.aws.amazon.com/audit-manager/latest/userguide/control-data-sources-cloudtrail.html CloudTrail event names supported by Audit Manager>
+--
 -- /See:/ 'newSourceKeyword' smart constructor.
 data SourceKeyword = SourceKeyword'
-  { -- | The value of the keyword used to search CloudTrail logs, Config rules,
-    -- Security Hub checks, and Amazon Web Services API names when mapping a
-    -- control data source.
+  { -- | The value of the keyword that\'s used when mapping a control data
+    -- source. For example, this can be a CloudTrail event name, a rule name
+    -- for Config, a Security Hub control, or the name of an Amazon Web
+    -- Services API call.
+    --
+    -- If you’re mapping a data source to a rule in Config, the @keywordValue@
+    -- that you specify depends on the type of rule:
+    --
+    -- -   For
+    --     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html managed rules>,
+    --     you can use the rule identifier as the @keywordValue@. You can find
+    --     the rule identifier from the
+    --     <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html list of Config managed rules>.
+    --
+    --     -   Managed rule name:
+    --         <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html s3-bucket-acl-prohibited>
+    --
+    --         @keywordValue@: @S3_BUCKET_ACL_PROHIBITED@
+    --
+    -- -   For
+    --     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html custom rules>,
+    --     you form the @keywordValue@ by adding the @Custom_@ prefix to the
+    --     rule name. This prefix distinguishes the rule from a managed rule.
+    --
+    --     -   Custom rule name: my-custom-config-rule
+    --
+    --         @keywordValue@: @Custom_my-custom-config-rule@
+    --
+    -- -   For
+    --     <https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html service-linked rules>,
+    --     you form the @keywordValue@ by adding the @Custom_@ prefix to the
+    --     rule name. In addition, you remove the suffix ID that appears at the
+    --     end of the rule name.
+    --
+    --     -   Service-linked rule name:
+    --         CustomRuleForAccount-conformance-pack-szsm1uv0w
+    --
+    --         @keywordValue@: @Custom_CustomRuleForAccount-conformance-pack@
+    --
+    --     -   Service-linked rule name:
+    --         securityhub-api-gw-cache-encrypted-101104e1
+    --
+    --         @keywordValue@: @Custom_securityhub-api-gw-cache-encrypted@
+    --
+    --     -   Service-linked rule name:
+    --         OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba
+    --
+    --         @keywordValue@:
+    --         @Custom_OrgConfigRule-s3-bucket-versioning-enabled@
     keywordValue :: Prelude.Maybe Prelude.Text,
-    -- | The method of input for the specified keyword.
+    -- | The input method for the keyword.
     keywordInputType :: Prelude.Maybe KeywordInputType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,11 +104,57 @@ data SourceKeyword = SourceKeyword'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keywordValue', 'sourceKeyword_keywordValue' - The value of the keyword used to search CloudTrail logs, Config rules,
--- Security Hub checks, and Amazon Web Services API names when mapping a
--- control data source.
+-- 'keywordValue', 'sourceKeyword_keywordValue' - The value of the keyword that\'s used when mapping a control data
+-- source. For example, this can be a CloudTrail event name, a rule name
+-- for Config, a Security Hub control, or the name of an Amazon Web
+-- Services API call.
 --
--- 'keywordInputType', 'sourceKeyword_keywordInputType' - The method of input for the specified keyword.
+-- If you’re mapping a data source to a rule in Config, the @keywordValue@
+-- that you specify depends on the type of rule:
+--
+-- -   For
+--     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html managed rules>,
+--     you can use the rule identifier as the @keywordValue@. You can find
+--     the rule identifier from the
+--     <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html list of Config managed rules>.
+--
+--     -   Managed rule name:
+--         <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html s3-bucket-acl-prohibited>
+--
+--         @keywordValue@: @S3_BUCKET_ACL_PROHIBITED@
+--
+-- -   For
+--     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html custom rules>,
+--     you form the @keywordValue@ by adding the @Custom_@ prefix to the
+--     rule name. This prefix distinguishes the rule from a managed rule.
+--
+--     -   Custom rule name: my-custom-config-rule
+--
+--         @keywordValue@: @Custom_my-custom-config-rule@
+--
+-- -   For
+--     <https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html service-linked rules>,
+--     you form the @keywordValue@ by adding the @Custom_@ prefix to the
+--     rule name. In addition, you remove the suffix ID that appears at the
+--     end of the rule name.
+--
+--     -   Service-linked rule name:
+--         CustomRuleForAccount-conformance-pack-szsm1uv0w
+--
+--         @keywordValue@: @Custom_CustomRuleForAccount-conformance-pack@
+--
+--     -   Service-linked rule name:
+--         securityhub-api-gw-cache-encrypted-101104e1
+--
+--         @keywordValue@: @Custom_securityhub-api-gw-cache-encrypted@
+--
+--     -   Service-linked rule name:
+--         OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba
+--
+--         @keywordValue@:
+--         @Custom_OrgConfigRule-s3-bucket-versioning-enabled@
+--
+-- 'keywordInputType', 'sourceKeyword_keywordInputType' - The input method for the keyword.
 newSourceKeyword ::
   SourceKeyword
 newSourceKeyword =
@@ -59,13 +163,59 @@ newSourceKeyword =
       keywordInputType = Prelude.Nothing
     }
 
--- | The value of the keyword used to search CloudTrail logs, Config rules,
--- Security Hub checks, and Amazon Web Services API names when mapping a
--- control data source.
+-- | The value of the keyword that\'s used when mapping a control data
+-- source. For example, this can be a CloudTrail event name, a rule name
+-- for Config, a Security Hub control, or the name of an Amazon Web
+-- Services API call.
+--
+-- If you’re mapping a data source to a rule in Config, the @keywordValue@
+-- that you specify depends on the type of rule:
+--
+-- -   For
+--     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html managed rules>,
+--     you can use the rule identifier as the @keywordValue@. You can find
+--     the rule identifier from the
+--     <https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html list of Config managed rules>.
+--
+--     -   Managed rule name:
+--         <https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html s3-bucket-acl-prohibited>
+--
+--         @keywordValue@: @S3_BUCKET_ACL_PROHIBITED@
+--
+-- -   For
+--     <https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html custom rules>,
+--     you form the @keywordValue@ by adding the @Custom_@ prefix to the
+--     rule name. This prefix distinguishes the rule from a managed rule.
+--
+--     -   Custom rule name: my-custom-config-rule
+--
+--         @keywordValue@: @Custom_my-custom-config-rule@
+--
+-- -   For
+--     <https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html service-linked rules>,
+--     you form the @keywordValue@ by adding the @Custom_@ prefix to the
+--     rule name. In addition, you remove the suffix ID that appears at the
+--     end of the rule name.
+--
+--     -   Service-linked rule name:
+--         CustomRuleForAccount-conformance-pack-szsm1uv0w
+--
+--         @keywordValue@: @Custom_CustomRuleForAccount-conformance-pack@
+--
+--     -   Service-linked rule name:
+--         securityhub-api-gw-cache-encrypted-101104e1
+--
+--         @keywordValue@: @Custom_securityhub-api-gw-cache-encrypted@
+--
+--     -   Service-linked rule name:
+--         OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba
+--
+--         @keywordValue@:
+--         @Custom_OrgConfigRule-s3-bucket-versioning-enabled@
 sourceKeyword_keywordValue :: Lens.Lens' SourceKeyword (Prelude.Maybe Prelude.Text)
 sourceKeyword_keywordValue = Lens.lens (\SourceKeyword' {keywordValue} -> keywordValue) (\s@SourceKeyword' {} a -> s {keywordValue = a} :: SourceKeyword)
 
--- | The method of input for the specified keyword.
+-- | The input method for the keyword.
 sourceKeyword_keywordInputType :: Lens.Lens' SourceKeyword (Prelude.Maybe KeywordInputType)
 sourceKeyword_keywordInputType = Lens.lens (\SourceKeyword' {keywordInputType} -> keywordInputType) (\s@SourceKeyword' {} a -> s {keywordInputType = a} :: SourceKeyword)
 

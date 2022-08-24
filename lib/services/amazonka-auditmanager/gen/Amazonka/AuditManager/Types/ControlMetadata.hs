@@ -23,22 +23,23 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The metadata associated with the specified standard or custom control.
+-- | The metadata that\'s associated with the standard control or custom
+-- control.
 --
 -- /See:/ 'newControlMetadata' smart constructor.
 data ControlMetadata = ControlMetadata'
-  { -- | The name of the specified control.
+  { -- | The name of the control.
     name :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the control was most recently updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of the specified control.
+    -- | The Amazon Resource Name (ARN) of the control.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the specified control.
+    -- | The unique identifier for the control.
     id :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the control was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The data source that determines from where Audit Manager collects
-    -- evidence for the control.
+    -- | The data source that determines where Audit Manager collects evidence
+    -- from for the control.
     controlSources :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,18 +52,18 @@ data ControlMetadata = ControlMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'controlMetadata_name' - The name of the specified control.
+-- 'name', 'controlMetadata_name' - The name of the control.
 --
 -- 'lastUpdatedAt', 'controlMetadata_lastUpdatedAt' - Specifies when the control was most recently updated.
 --
--- 'arn', 'controlMetadata_arn' - The Amazon Resource Name (ARN) of the specified control.
+-- 'arn', 'controlMetadata_arn' - The Amazon Resource Name (ARN) of the control.
 --
--- 'id', 'controlMetadata_id' - The unique identifier for the specified control.
+-- 'id', 'controlMetadata_id' - The unique identifier for the control.
 --
 -- 'createdAt', 'controlMetadata_createdAt' - Specifies when the control was created.
 --
--- 'controlSources', 'controlMetadata_controlSources' - The data source that determines from where Audit Manager collects
--- evidence for the control.
+-- 'controlSources', 'controlMetadata_controlSources' - The data source that determines where Audit Manager collects evidence
+-- from for the control.
 newControlMetadata ::
   ControlMetadata
 newControlMetadata =
@@ -75,7 +76,7 @@ newControlMetadata =
       controlSources = Prelude.Nothing
     }
 
--- | The name of the specified control.
+-- | The name of the control.
 controlMetadata_name :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.Text)
 controlMetadata_name = Lens.lens (\ControlMetadata' {name} -> name) (\s@ControlMetadata' {} a -> s {name = a} :: ControlMetadata)
 
@@ -83,11 +84,11 @@ controlMetadata_name = Lens.lens (\ControlMetadata' {name} -> name) (\s@ControlM
 controlMetadata_lastUpdatedAt :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.UTCTime)
 controlMetadata_lastUpdatedAt = Lens.lens (\ControlMetadata' {lastUpdatedAt} -> lastUpdatedAt) (\s@ControlMetadata' {} a -> s {lastUpdatedAt = a} :: ControlMetadata) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Name (ARN) of the specified control.
+-- | The Amazon Resource Name (ARN) of the control.
 controlMetadata_arn :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.Text)
 controlMetadata_arn = Lens.lens (\ControlMetadata' {arn} -> arn) (\s@ControlMetadata' {} a -> s {arn = a} :: ControlMetadata)
 
--- | The unique identifier for the specified control.
+-- | The unique identifier for the control.
 controlMetadata_id :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.Text)
 controlMetadata_id = Lens.lens (\ControlMetadata' {id} -> id) (\s@ControlMetadata' {} a -> s {id = a} :: ControlMetadata)
 
@@ -95,8 +96,8 @@ controlMetadata_id = Lens.lens (\ControlMetadata' {id} -> id) (\s@ControlMetadat
 controlMetadata_createdAt :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.UTCTime)
 controlMetadata_createdAt = Lens.lens (\ControlMetadata' {createdAt} -> createdAt) (\s@ControlMetadata' {} a -> s {createdAt = a} :: ControlMetadata) Prelude.. Lens.mapping Core._Time
 
--- | The data source that determines from where Audit Manager collects
--- evidence for the control.
+-- | The data source that determines where Audit Manager collects evidence
+-- from for the control.
 controlMetadata_controlSources :: Lens.Lens' ControlMetadata (Prelude.Maybe Prelude.Text)
 controlMetadata_controlSources = Lens.lens (\ControlMetadata' {controlSources} -> controlSources) (\s@ControlMetadata' {} a -> s {controlSources = a} :: ControlMetadata)
 

@@ -63,6 +63,9 @@ import Test.Tasty
 --         , requestDeleteAssessmentFramework $
 --             newDeleteAssessmentFramework
 --
+--         , requestDeleteAssessmentFrameworkShare $
+--             newDeleteAssessmentFrameworkShare
+--
 --         , requestDeleteAssessmentReport $
 --             newDeleteAssessmentReport
 --
@@ -114,6 +117,12 @@ import Test.Tasty
 --         , requestGetEvidenceFoldersByAssessmentControl $
 --             newGetEvidenceFoldersByAssessmentControl
 --
+--         , requestGetInsights $
+--             newGetInsights
+--
+--         , requestGetInsightsByAssessment $
+--             newGetInsightsByAssessment
+--
 --         , requestGetOrganizationAdminAccount $
 --             newGetOrganizationAdminAccount
 --
@@ -123,6 +132,12 @@ import Test.Tasty
 --         , requestGetSettings $
 --             newGetSettings
 --
+--         , requestListAssessmentControlInsightsByControlDomain $
+--             newListAssessmentControlInsightsByControlDomain
+--
+--         , requestListAssessmentFrameworkShareRequests $
+--             newListAssessmentFrameworkShareRequests
+--
 --         , requestListAssessmentFrameworks $
 --             newListAssessmentFrameworks
 --
@@ -131,6 +146,15 @@ import Test.Tasty
 --
 --         , requestListAssessments $
 --             newListAssessments
+--
+--         , requestListControlDomainInsights $
+--             newListControlDomainInsights
+--
+--         , requestListControlDomainInsightsByAssessment $
+--             newListControlDomainInsightsByAssessment
+--
+--         , requestListControlInsightsByControlDomain $
+--             newListControlInsightsByControlDomain
 --
 --         , requestListControls $
 --             newListControls
@@ -150,6 +174,9 @@ import Test.Tasty
 --         , requestRegisterOrganizationAdminAccount $
 --             newRegisterOrganizationAdminAccount
 --
+--         , requestStartAssessmentFrameworkShare $
+--             newStartAssessmentFrameworkShare
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -167,6 +194,9 @@ import Test.Tasty
 --
 --         , requestUpdateAssessmentFramework $
 --             newUpdateAssessmentFramework
+--
+--         , requestUpdateAssessmentFrameworkShare $
+--             newUpdateAssessmentFrameworkShare
 --
 --         , requestUpdateAssessmentStatus $
 --             newUpdateAssessmentStatus
@@ -219,6 +249,9 @@ import Test.Tasty
 --         , responseDeleteAssessmentFramework $
 --             newDeleteAssessmentFrameworkResponse
 --
+--         , responseDeleteAssessmentFrameworkShare $
+--             newDeleteAssessmentFrameworkShareResponse
+--
 --         , responseDeleteAssessmentReport $
 --             newDeleteAssessmentReportResponse
 --
@@ -270,6 +303,12 @@ import Test.Tasty
 --         , responseGetEvidenceFoldersByAssessmentControl $
 --             newGetEvidenceFoldersByAssessmentControlResponse
 --
+--         , responseGetInsights $
+--             newGetInsightsResponse
+--
+--         , responseGetInsightsByAssessment $
+--             newGetInsightsByAssessmentResponse
+--
 --         , responseGetOrganizationAdminAccount $
 --             newGetOrganizationAdminAccountResponse
 --
@@ -279,6 +318,12 @@ import Test.Tasty
 --         , responseGetSettings $
 --             newGetSettingsResponse
 --
+--         , responseListAssessmentControlInsightsByControlDomain $
+--             newListAssessmentControlInsightsByControlDomainResponse
+--
+--         , responseListAssessmentFrameworkShareRequests $
+--             newListAssessmentFrameworkShareRequestsResponse
+--
 --         , responseListAssessmentFrameworks $
 --             newListAssessmentFrameworksResponse
 --
@@ -287,6 +332,15 @@ import Test.Tasty
 --
 --         , responseListAssessments $
 --             newListAssessmentsResponse
+--
+--         , responseListControlDomainInsights $
+--             newListControlDomainInsightsResponse
+--
+--         , responseListControlDomainInsightsByAssessment $
+--             newListControlDomainInsightsByAssessmentResponse
+--
+--         , responseListControlInsightsByControlDomain $
+--             newListControlInsightsByControlDomainResponse
 --
 --         , responseListControls $
 --             newListControlsResponse
@@ -306,6 +360,9 @@ import Test.Tasty
 --         , responseRegisterOrganizationAdminAccount $
 --             newRegisterOrganizationAdminAccountResponse
 --
+--         , responseStartAssessmentFrameworkShare $
+--             newStartAssessmentFrameworkShareResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
 --
@@ -323,6 +380,9 @@ import Test.Tasty
 --
 --         , responseUpdateAssessmentFramework $
 --             newUpdateAssessmentFrameworkResponse
+--
+--         , responseUpdateAssessmentFrameworkShare $
+--             newUpdateAssessmentFrameworkShareResponse
 --
 --         , responseUpdateAssessmentStatus $
 --             newUpdateAssessmentStatusResponse
@@ -412,6 +472,12 @@ requestDeleteAssessmentFramework =
   req
     "DeleteAssessmentFramework"
     "fixture/DeleteAssessmentFramework.yaml"
+
+requestDeleteAssessmentFrameworkShare :: DeleteAssessmentFrameworkShare -> TestTree
+requestDeleteAssessmentFrameworkShare =
+  req
+    "DeleteAssessmentFrameworkShare"
+    "fixture/DeleteAssessmentFrameworkShare.yaml"
 
 requestDeleteAssessmentReport :: DeleteAssessmentReport -> TestTree
 requestDeleteAssessmentReport =
@@ -515,6 +581,18 @@ requestGetEvidenceFoldersByAssessmentControl =
     "GetEvidenceFoldersByAssessmentControl"
     "fixture/GetEvidenceFoldersByAssessmentControl.yaml"
 
+requestGetInsights :: GetInsights -> TestTree
+requestGetInsights =
+  req
+    "GetInsights"
+    "fixture/GetInsights.yaml"
+
+requestGetInsightsByAssessment :: GetInsightsByAssessment -> TestTree
+requestGetInsightsByAssessment =
+  req
+    "GetInsightsByAssessment"
+    "fixture/GetInsightsByAssessment.yaml"
+
 requestGetOrganizationAdminAccount :: GetOrganizationAdminAccount -> TestTree
 requestGetOrganizationAdminAccount =
   req
@@ -533,6 +611,18 @@ requestGetSettings =
     "GetSettings"
     "fixture/GetSettings.yaml"
 
+requestListAssessmentControlInsightsByControlDomain :: ListAssessmentControlInsightsByControlDomain -> TestTree
+requestListAssessmentControlInsightsByControlDomain =
+  req
+    "ListAssessmentControlInsightsByControlDomain"
+    "fixture/ListAssessmentControlInsightsByControlDomain.yaml"
+
+requestListAssessmentFrameworkShareRequests :: ListAssessmentFrameworkShareRequests -> TestTree
+requestListAssessmentFrameworkShareRequests =
+  req
+    "ListAssessmentFrameworkShareRequests"
+    "fixture/ListAssessmentFrameworkShareRequests.yaml"
+
 requestListAssessmentFrameworks :: ListAssessmentFrameworks -> TestTree
 requestListAssessmentFrameworks =
   req
@@ -550,6 +640,24 @@ requestListAssessments =
   req
     "ListAssessments"
     "fixture/ListAssessments.yaml"
+
+requestListControlDomainInsights :: ListControlDomainInsights -> TestTree
+requestListControlDomainInsights =
+  req
+    "ListControlDomainInsights"
+    "fixture/ListControlDomainInsights.yaml"
+
+requestListControlDomainInsightsByAssessment :: ListControlDomainInsightsByAssessment -> TestTree
+requestListControlDomainInsightsByAssessment =
+  req
+    "ListControlDomainInsightsByAssessment"
+    "fixture/ListControlDomainInsightsByAssessment.yaml"
+
+requestListControlInsightsByControlDomain :: ListControlInsightsByControlDomain -> TestTree
+requestListControlInsightsByControlDomain =
+  req
+    "ListControlInsightsByControlDomain"
+    "fixture/ListControlInsightsByControlDomain.yaml"
 
 requestListControls :: ListControls -> TestTree
 requestListControls =
@@ -587,6 +695,12 @@ requestRegisterOrganizationAdminAccount =
     "RegisterOrganizationAdminAccount"
     "fixture/RegisterOrganizationAdminAccount.yaml"
 
+requestStartAssessmentFrameworkShare :: StartAssessmentFrameworkShare -> TestTree
+requestStartAssessmentFrameworkShare =
+  req
+    "StartAssessmentFrameworkShare"
+    "fixture/StartAssessmentFrameworkShare.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -622,6 +736,12 @@ requestUpdateAssessmentFramework =
   req
     "UpdateAssessmentFramework"
     "fixture/UpdateAssessmentFramework.yaml"
+
+requestUpdateAssessmentFrameworkShare :: UpdateAssessmentFrameworkShare -> TestTree
+requestUpdateAssessmentFrameworkShare =
+  req
+    "UpdateAssessmentFrameworkShare"
+    "fixture/UpdateAssessmentFrameworkShare.yaml"
 
 requestUpdateAssessmentStatus :: UpdateAssessmentStatus -> TestTree
 requestUpdateAssessmentStatus =
@@ -744,6 +864,14 @@ responseDeleteAssessmentFramework =
     "fixture/DeleteAssessmentFrameworkResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentFramework)
+
+responseDeleteAssessmentFrameworkShare :: DeleteAssessmentFrameworkShareResponse -> TestTree
+responseDeleteAssessmentFrameworkShare =
+  res
+    "DeleteAssessmentFrameworkShareResponse"
+    "fixture/DeleteAssessmentFrameworkShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAssessmentFrameworkShare)
 
 responseDeleteAssessmentReport :: DeleteAssessmentReportResponse -> TestTree
 responseDeleteAssessmentReport =
@@ -881,6 +1009,22 @@ responseGetEvidenceFoldersByAssessmentControl =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetEvidenceFoldersByAssessmentControl)
 
+responseGetInsights :: GetInsightsResponse -> TestTree
+responseGetInsights =
+  res
+    "GetInsightsResponse"
+    "fixture/GetInsightsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInsights)
+
+responseGetInsightsByAssessment :: GetInsightsByAssessmentResponse -> TestTree
+responseGetInsightsByAssessment =
+  res
+    "GetInsightsByAssessmentResponse"
+    "fixture/GetInsightsByAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInsightsByAssessment)
+
 responseGetOrganizationAdminAccount :: GetOrganizationAdminAccountResponse -> TestTree
 responseGetOrganizationAdminAccount =
   res
@@ -905,6 +1049,22 @@ responseGetSettings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSettings)
 
+responseListAssessmentControlInsightsByControlDomain :: ListAssessmentControlInsightsByControlDomainResponse -> TestTree
+responseListAssessmentControlInsightsByControlDomain =
+  res
+    "ListAssessmentControlInsightsByControlDomainResponse"
+    "fixture/ListAssessmentControlInsightsByControlDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentControlInsightsByControlDomain)
+
+responseListAssessmentFrameworkShareRequests :: ListAssessmentFrameworkShareRequestsResponse -> TestTree
+responseListAssessmentFrameworkShareRequests =
+  res
+    "ListAssessmentFrameworkShareRequestsResponse"
+    "fixture/ListAssessmentFrameworkShareRequestsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAssessmentFrameworkShareRequests)
+
 responseListAssessmentFrameworks :: ListAssessmentFrameworksResponse -> TestTree
 responseListAssessmentFrameworks =
   res
@@ -928,6 +1088,30 @@ responseListAssessments =
     "fixture/ListAssessmentsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAssessments)
+
+responseListControlDomainInsights :: ListControlDomainInsightsResponse -> TestTree
+responseListControlDomainInsights =
+  res
+    "ListControlDomainInsightsResponse"
+    "fixture/ListControlDomainInsightsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListControlDomainInsights)
+
+responseListControlDomainInsightsByAssessment :: ListControlDomainInsightsByAssessmentResponse -> TestTree
+responseListControlDomainInsightsByAssessment =
+  res
+    "ListControlDomainInsightsByAssessmentResponse"
+    "fixture/ListControlDomainInsightsByAssessmentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListControlDomainInsightsByAssessment)
+
+responseListControlInsightsByControlDomain :: ListControlInsightsByControlDomainResponse -> TestTree
+responseListControlInsightsByControlDomain =
+  res
+    "ListControlInsightsByControlDomainResponse"
+    "fixture/ListControlInsightsByControlDomainResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListControlInsightsByControlDomain)
 
 responseListControls :: ListControlsResponse -> TestTree
 responseListControls =
@@ -977,6 +1161,14 @@ responseRegisterOrganizationAdminAccount =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RegisterOrganizationAdminAccount)
 
+responseStartAssessmentFrameworkShare :: StartAssessmentFrameworkShareResponse -> TestTree
+responseStartAssessmentFrameworkShare =
+  res
+    "StartAssessmentFrameworkShareResponse"
+    "fixture/StartAssessmentFrameworkShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartAssessmentFrameworkShare)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -1024,6 +1216,14 @@ responseUpdateAssessmentFramework =
     "fixture/UpdateAssessmentFrameworkResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentFramework)
+
+responseUpdateAssessmentFrameworkShare :: UpdateAssessmentFrameworkShareResponse -> TestTree
+responseUpdateAssessmentFrameworkShare =
+  res
+    "UpdateAssessmentFrameworkShareResponse"
+    "fixture/UpdateAssessmentFrameworkShareResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAssessmentFrameworkShare)
 
 responseUpdateAssessmentStatus :: UpdateAssessmentStatusResponse -> TestTree
 responseUpdateAssessmentStatus =

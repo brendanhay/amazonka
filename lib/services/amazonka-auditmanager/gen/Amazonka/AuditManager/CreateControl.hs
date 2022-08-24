@@ -54,19 +54,19 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateControl' smart constructor.
 data CreateControl = CreateControl'
-  { -- | The tags associated with the control.
+  { -- | The tags that are associated with the control.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The recommended actions to carry out if the control is not fulfilled.
+    -- | The recommended actions to carry out if the control isn\'t fulfilled.
     actionPlanInstructions :: Prelude.Maybe Prelude.Text,
     -- | The description of the control.
     description :: Prelude.Maybe Prelude.Text,
     -- | The title of the action plan for remediating the control.
     actionPlanTitle :: Prelude.Maybe Prelude.Text,
-    -- | The steps to follow to determine if the control has been satisfied.
+    -- | The steps to follow to determine if the control is satisfied.
     testingInformation :: Prelude.Maybe Prelude.Text,
     -- | The name of the control.
     name :: Prelude.Text,
-    -- | The data mapping sources for the specified control.
+    -- | The data mapping sources for the control.
     controlMappingSources :: Prelude.NonEmpty CreateControlMappingSource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,19 +79,19 @@ data CreateControl = CreateControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createControl_tags' - The tags associated with the control.
+-- 'tags', 'createControl_tags' - The tags that are associated with the control.
 --
--- 'actionPlanInstructions', 'createControl_actionPlanInstructions' - The recommended actions to carry out if the control is not fulfilled.
+-- 'actionPlanInstructions', 'createControl_actionPlanInstructions' - The recommended actions to carry out if the control isn\'t fulfilled.
 --
 -- 'description', 'createControl_description' - The description of the control.
 --
 -- 'actionPlanTitle', 'createControl_actionPlanTitle' - The title of the action plan for remediating the control.
 --
--- 'testingInformation', 'createControl_testingInformation' - The steps to follow to determine if the control has been satisfied.
+-- 'testingInformation', 'createControl_testingInformation' - The steps to follow to determine if the control is satisfied.
 --
 -- 'name', 'createControl_name' - The name of the control.
 --
--- 'controlMappingSources', 'createControl_controlMappingSources' - The data mapping sources for the specified control.
+-- 'controlMappingSources', 'createControl_controlMappingSources' - The data mapping sources for the control.
 newCreateControl ::
   -- | 'name'
   Prelude.Text ->
@@ -110,11 +110,11 @@ newCreateControl pName_ pControlMappingSources_ =
         Lens.coerced Lens.# pControlMappingSources_
     }
 
--- | The tags associated with the control.
+-- | The tags that are associated with the control.
 createControl_tags :: Lens.Lens' CreateControl (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createControl_tags = Lens.lens (\CreateControl' {tags} -> tags) (\s@CreateControl' {} a -> s {tags = a} :: CreateControl) Prelude.. Lens.mapping Lens.coerced
 
--- | The recommended actions to carry out if the control is not fulfilled.
+-- | The recommended actions to carry out if the control isn\'t fulfilled.
 createControl_actionPlanInstructions :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
 createControl_actionPlanInstructions = Lens.lens (\CreateControl' {actionPlanInstructions} -> actionPlanInstructions) (\s@CreateControl' {} a -> s {actionPlanInstructions = a} :: CreateControl)
 
@@ -126,7 +126,7 @@ createControl_description = Lens.lens (\CreateControl' {description} -> descript
 createControl_actionPlanTitle :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
 createControl_actionPlanTitle = Lens.lens (\CreateControl' {actionPlanTitle} -> actionPlanTitle) (\s@CreateControl' {} a -> s {actionPlanTitle = a} :: CreateControl)
 
--- | The steps to follow to determine if the control has been satisfied.
+-- | The steps to follow to determine if the control is satisfied.
 createControl_testingInformation :: Lens.Lens' CreateControl (Prelude.Maybe Prelude.Text)
 createControl_testingInformation = Lens.lens (\CreateControl' {testingInformation} -> testingInformation) (\s@CreateControl' {} a -> s {testingInformation = a} :: CreateControl)
 
@@ -134,7 +134,7 @@ createControl_testingInformation = Lens.lens (\CreateControl' {testingInformatio
 createControl_name :: Lens.Lens' CreateControl Prelude.Text
 createControl_name = Lens.lens (\CreateControl' {name} -> name) (\s@CreateControl' {} a -> s {name = a} :: CreateControl)
 
--- | The data mapping sources for the specified control.
+-- | The data mapping sources for the control.
 createControl_controlMappingSources :: Lens.Lens' CreateControl (Prelude.NonEmpty CreateControlMappingSource)
 createControl_controlMappingSources = Lens.lens (\CreateControl' {controlMappingSources} -> controlMappingSources) (\s@CreateControl' {} a -> s {controlMappingSources = a} :: CreateControl) Prelude.. Lens.coerced
 
@@ -210,7 +210,7 @@ instance Core.ToQuery CreateControl where
 
 -- | /See:/ 'newCreateControlResponse' smart constructor.
 data CreateControlResponse = CreateControlResponse'
-  { -- | The new control returned by the @CreateControl@ API.
+  { -- | The new control that the @CreateControl@ API returned.
     control :: Prelude.Maybe Control,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -225,7 +225,7 @@ data CreateControlResponse = CreateControlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'control', 'createControlResponse_control' - The new control returned by the @CreateControl@ API.
+-- 'control', 'createControlResponse_control' - The new control that the @CreateControl@ API returned.
 --
 -- 'httpStatus', 'createControlResponse_httpStatus' - The response's http status code.
 newCreateControlResponse ::
@@ -238,7 +238,7 @@ newCreateControlResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The new control returned by the @CreateControl@ API.
+-- | The new control that the @CreateControl@ API returned.
 createControlResponse_control :: Lens.Lens' CreateControlResponse (Prelude.Maybe Control)
 createControlResponse_control = Lens.lens (\CreateControlResponse' {control} -> control) (\s@CreateControlResponse' {} a -> s {control = a} :: CreateControlResponse)
 

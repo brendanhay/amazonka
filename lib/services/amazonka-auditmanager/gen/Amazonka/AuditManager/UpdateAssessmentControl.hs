@@ -52,15 +52,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssessmentControl' smart constructor.
 data UpdateAssessmentControl = UpdateAssessmentControl'
-  { -- | The status of the specified control.
+  { -- | The status of the control.
     controlStatus :: Prelude.Maybe ControlStatus,
-    -- | The comment body text for the specified control.
+    -- | The comment body text for the control.
     commentBody :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified assessment.
+    -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The identifier for the specified control set.
+    -- | The unique identifier for the control set.
     controlSetId :: Prelude.Text,
-    -- | The identifier for the specified control.
+    -- | The unique identifier for the control.
     controlId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,15 +73,15 @@ data UpdateAssessmentControl = UpdateAssessmentControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlStatus', 'updateAssessmentControl_controlStatus' - The status of the specified control.
+-- 'controlStatus', 'updateAssessmentControl_controlStatus' - The status of the control.
 --
--- 'commentBody', 'updateAssessmentControl_commentBody' - The comment body text for the specified control.
+-- 'commentBody', 'updateAssessmentControl_commentBody' - The comment body text for the control.
 --
--- 'assessmentId', 'updateAssessmentControl_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'updateAssessmentControl_assessmentId' - The unique identifier for the assessment.
 --
--- 'controlSetId', 'updateAssessmentControl_controlSetId' - The identifier for the specified control set.
+-- 'controlSetId', 'updateAssessmentControl_controlSetId' - The unique identifier for the control set.
 --
--- 'controlId', 'updateAssessmentControl_controlId' - The identifier for the specified control.
+-- 'controlId', 'updateAssessmentControl_controlId' - The unique identifier for the control.
 newUpdateAssessmentControl ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -103,23 +103,23 @@ newUpdateAssessmentControl
         controlId = pControlId_
       }
 
--- | The status of the specified control.
+-- | The status of the control.
 updateAssessmentControl_controlStatus :: Lens.Lens' UpdateAssessmentControl (Prelude.Maybe ControlStatus)
 updateAssessmentControl_controlStatus = Lens.lens (\UpdateAssessmentControl' {controlStatus} -> controlStatus) (\s@UpdateAssessmentControl' {} a -> s {controlStatus = a} :: UpdateAssessmentControl)
 
--- | The comment body text for the specified control.
+-- | The comment body text for the control.
 updateAssessmentControl_commentBody :: Lens.Lens' UpdateAssessmentControl (Prelude.Maybe Prelude.Text)
 updateAssessmentControl_commentBody = Lens.lens (\UpdateAssessmentControl' {commentBody} -> commentBody) (\s@UpdateAssessmentControl' {} a -> s {commentBody = a} :: UpdateAssessmentControl)
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 updateAssessmentControl_assessmentId :: Lens.Lens' UpdateAssessmentControl Prelude.Text
 updateAssessmentControl_assessmentId = Lens.lens (\UpdateAssessmentControl' {assessmentId} -> assessmentId) (\s@UpdateAssessmentControl' {} a -> s {assessmentId = a} :: UpdateAssessmentControl)
 
--- | The identifier for the specified control set.
+-- | The unique identifier for the control set.
 updateAssessmentControl_controlSetId :: Lens.Lens' UpdateAssessmentControl Prelude.Text
 updateAssessmentControl_controlSetId = Lens.lens (\UpdateAssessmentControl' {controlSetId} -> controlSetId) (\s@UpdateAssessmentControl' {} a -> s {controlSetId = a} :: UpdateAssessmentControl)
 
--- | The identifier for the specified control.
+-- | The unique identifier for the control.
 updateAssessmentControl_controlId :: Lens.Lens' UpdateAssessmentControl Prelude.Text
 updateAssessmentControl_controlId = Lens.lens (\UpdateAssessmentControl' {controlId} -> controlId) (\s@UpdateAssessmentControl' {} a -> s {controlId = a} :: UpdateAssessmentControl)
 
@@ -188,8 +188,8 @@ instance Core.ToQuery UpdateAssessmentControl where
 
 -- | /See:/ 'newUpdateAssessmentControlResponse' smart constructor.
 data UpdateAssessmentControlResponse = UpdateAssessmentControlResponse'
-  { -- | The name of the updated control set returned by the
-    -- @UpdateAssessmentControl@ API.
+  { -- | The name of the updated control set that the @UpdateAssessmentControl@
+    -- API returned.
     control :: Prelude.Maybe AssessmentControl,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -204,8 +204,8 @@ data UpdateAssessmentControlResponse = UpdateAssessmentControlResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'control', 'updateAssessmentControlResponse_control' - The name of the updated control set returned by the
--- @UpdateAssessmentControl@ API.
+-- 'control', 'updateAssessmentControlResponse_control' - The name of the updated control set that the @UpdateAssessmentControl@
+-- API returned.
 --
 -- 'httpStatus', 'updateAssessmentControlResponse_httpStatus' - The response's http status code.
 newUpdateAssessmentControlResponse ::
@@ -219,8 +219,8 @@ newUpdateAssessmentControlResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the updated control set returned by the
--- @UpdateAssessmentControl@ API.
+-- | The name of the updated control set that the @UpdateAssessmentControl@
+-- API returned.
 updateAssessmentControlResponse_control :: Lens.Lens' UpdateAssessmentControlResponse (Prelude.Maybe AssessmentControl)
 updateAssessmentControlResponse_control = Lens.lens (\UpdateAssessmentControlResponse' {control} -> control) (\s@UpdateAssessmentControlResponse' {} a -> s {control = a} :: UpdateAssessmentControlResponse)
 

@@ -53,18 +53,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAssessment' smart constructor.
 data UpdateAssessment = UpdateAssessment'
-  { -- | The name of the specified assessment to be updated.
+  { -- | The name of the assessment to be updated.
     assessmentName :: Prelude.Maybe Prelude.Text,
-    -- | The description of the specified assessment.
+    -- | The description of the assessment.
     assessmentDescription :: Prelude.Maybe Prelude.Text,
-    -- | The assessment report storage destination for the specified assessment
-    -- that is being updated.
+    -- | The assessment report storage destination for the assessment that\'s
+    -- being updated.
     assessmentReportsDestination :: Prelude.Maybe AssessmentReportsDestination,
-    -- | The list of roles for the specified assessment.
+    -- | The list of roles for the assessment.
     roles :: Prelude.Maybe [Role],
-    -- | The identifier for the specified assessment.
+    -- | The unique identifier for the assessment.
     assessmentId :: Prelude.Text,
-    -- | The scope of the specified assessment.
+    -- | The scope of the assessment.
     scope :: Scope
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,18 +77,18 @@ data UpdateAssessment = UpdateAssessment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessmentName', 'updateAssessment_assessmentName' - The name of the specified assessment to be updated.
+-- 'assessmentName', 'updateAssessment_assessmentName' - The name of the assessment to be updated.
 --
--- 'assessmentDescription', 'updateAssessment_assessmentDescription' - The description of the specified assessment.
+-- 'assessmentDescription', 'updateAssessment_assessmentDescription' - The description of the assessment.
 --
--- 'assessmentReportsDestination', 'updateAssessment_assessmentReportsDestination' - The assessment report storage destination for the specified assessment
--- that is being updated.
+-- 'assessmentReportsDestination', 'updateAssessment_assessmentReportsDestination' - The assessment report storage destination for the assessment that\'s
+-- being updated.
 --
--- 'roles', 'updateAssessment_roles' - The list of roles for the specified assessment.
+-- 'roles', 'updateAssessment_roles' - The list of roles for the assessment.
 --
--- 'assessmentId', 'updateAssessment_assessmentId' - The identifier for the specified assessment.
+-- 'assessmentId', 'updateAssessment_assessmentId' - The unique identifier for the assessment.
 --
--- 'scope', 'updateAssessment_scope' - The scope of the specified assessment.
+-- 'scope', 'updateAssessment_scope' - The scope of the assessment.
 newUpdateAssessment ::
   -- | 'assessmentId'
   Prelude.Text ->
@@ -105,28 +105,28 @@ newUpdateAssessment pAssessmentId_ pScope_ =
       scope = pScope_
     }
 
--- | The name of the specified assessment to be updated.
+-- | The name of the assessment to be updated.
 updateAssessment_assessmentName :: Lens.Lens' UpdateAssessment (Prelude.Maybe Prelude.Text)
 updateAssessment_assessmentName = Lens.lens (\UpdateAssessment' {assessmentName} -> assessmentName) (\s@UpdateAssessment' {} a -> s {assessmentName = a} :: UpdateAssessment)
 
--- | The description of the specified assessment.
+-- | The description of the assessment.
 updateAssessment_assessmentDescription :: Lens.Lens' UpdateAssessment (Prelude.Maybe Prelude.Text)
 updateAssessment_assessmentDescription = Lens.lens (\UpdateAssessment' {assessmentDescription} -> assessmentDescription) (\s@UpdateAssessment' {} a -> s {assessmentDescription = a} :: UpdateAssessment)
 
--- | The assessment report storage destination for the specified assessment
--- that is being updated.
+-- | The assessment report storage destination for the assessment that\'s
+-- being updated.
 updateAssessment_assessmentReportsDestination :: Lens.Lens' UpdateAssessment (Prelude.Maybe AssessmentReportsDestination)
 updateAssessment_assessmentReportsDestination = Lens.lens (\UpdateAssessment' {assessmentReportsDestination} -> assessmentReportsDestination) (\s@UpdateAssessment' {} a -> s {assessmentReportsDestination = a} :: UpdateAssessment)
 
--- | The list of roles for the specified assessment.
+-- | The list of roles for the assessment.
 updateAssessment_roles :: Lens.Lens' UpdateAssessment (Prelude.Maybe [Role])
 updateAssessment_roles = Lens.lens (\UpdateAssessment' {roles} -> roles) (\s@UpdateAssessment' {} a -> s {roles = a} :: UpdateAssessment) Prelude.. Lens.mapping Lens.coerced
 
--- | The identifier for the specified assessment.
+-- | The unique identifier for the assessment.
 updateAssessment_assessmentId :: Lens.Lens' UpdateAssessment Prelude.Text
 updateAssessment_assessmentId = Lens.lens (\UpdateAssessment' {assessmentId} -> assessmentId) (\s@UpdateAssessment' {} a -> s {assessmentId = a} :: UpdateAssessment)
 
--- | The scope of the specified assessment.
+-- | The scope of the assessment.
 updateAssessment_scope :: Lens.Lens' UpdateAssessment Scope
 updateAssessment_scope = Lens.lens (\UpdateAssessment' {scope} -> scope) (\s@UpdateAssessment' {} a -> s {scope = a} :: UpdateAssessment)
 
@@ -197,8 +197,8 @@ instance Core.ToQuery UpdateAssessment where
 
 -- | /See:/ 'newUpdateAssessmentResponse' smart constructor.
 data UpdateAssessmentResponse = UpdateAssessmentResponse'
-  { -- | The response object (name of the updated assessment) for the
-    -- @UpdateAssessmentRequest@ API.
+  { -- | The response object for the @UpdateAssessmentRequest@ API. This is the
+    -- name of the updated assessment.
     assessment :: Prelude.Maybe Assessment,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -213,8 +213,8 @@ data UpdateAssessmentResponse = UpdateAssessmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'assessment', 'updateAssessmentResponse_assessment' - The response object (name of the updated assessment) for the
--- @UpdateAssessmentRequest@ API.
+-- 'assessment', 'updateAssessmentResponse_assessment' - The response object for the @UpdateAssessmentRequest@ API. This is the
+-- name of the updated assessment.
 --
 -- 'httpStatus', 'updateAssessmentResponse_httpStatus' - The response's http status code.
 newUpdateAssessmentResponse ::
@@ -228,8 +228,8 @@ newUpdateAssessmentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The response object (name of the updated assessment) for the
--- @UpdateAssessmentRequest@ API.
+-- | The response object for the @UpdateAssessmentRequest@ API. This is the
+-- name of the updated assessment.
 updateAssessmentResponse_assessment :: Lens.Lens' UpdateAssessmentResponse (Prelude.Maybe Assessment)
 updateAssessmentResponse_assessment = Lens.lens (\UpdateAssessmentResponse' {assessment} -> assessment) (\s@UpdateAssessmentResponse' {} a -> s {assessment = a} :: UpdateAssessmentResponse)
 

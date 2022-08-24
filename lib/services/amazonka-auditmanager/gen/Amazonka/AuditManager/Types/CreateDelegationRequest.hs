@@ -24,8 +24,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A collection of attributes used to create a delegation for an assessment
--- in Audit Manager.
+-- | A collection of attributes that\'s used to create a delegation for an
+-- assessment in Audit Manager.
 --
 -- /See:/ 'newCreateDelegationRequest' smart constructor.
 data CreateDelegationRequest = CreateDelegationRequest'
@@ -40,7 +40,7 @@ data CreateDelegationRequest = CreateDelegationRequest'
     roleType :: Prelude.Maybe RoleType,
     -- | The Amazon Resource Name (ARN) of the IAM role.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | A comment related to the delegation request.
+    -- | A comment that\'s related to the delegation request.
     comment :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the control set.
     controlSetId :: Prelude.Maybe Prelude.Text
@@ -66,7 +66,7 @@ data CreateDelegationRequest = CreateDelegationRequest'
 --
 -- 'roleArn', 'createDelegationRequest_roleArn' - The Amazon Resource Name (ARN) of the IAM role.
 --
--- 'comment', 'createDelegationRequest_comment' - A comment related to the delegation request.
+-- 'comment', 'createDelegationRequest_comment' - A comment that\'s related to the delegation request.
 --
 -- 'controlSetId', 'createDelegationRequest_controlSetId' - The unique identifier for the control set.
 newCreateDelegationRequest ::
@@ -95,7 +95,7 @@ createDelegationRequest_roleType = Lens.lens (\CreateDelegationRequest' {roleTyp
 createDelegationRequest_roleArn :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe Prelude.Text)
 createDelegationRequest_roleArn = Lens.lens (\CreateDelegationRequest' {roleArn} -> roleArn) (\s@CreateDelegationRequest' {} a -> s {roleArn = a} :: CreateDelegationRequest)
 
--- | A comment related to the delegation request.
+-- | A comment that\'s related to the delegation request.
 createDelegationRequest_comment :: Lens.Lens' CreateDelegationRequest (Prelude.Maybe Prelude.Text)
 createDelegationRequest_comment = Lens.lens (\CreateDelegationRequest' {comment} -> comment) (\s@CreateDelegationRequest' {} a -> s {comment = a} :: CreateDelegationRequest)
 

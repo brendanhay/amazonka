@@ -28,11 +28,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAssessmentReportEvidenceError' smart constructor.
 data AssessmentReportEvidenceError = AssessmentReportEvidenceError'
-  { -- | The error message returned by the @AssessmentReportEvidence@ API.
+  { -- | The error message that the @AssessmentReportEvidence@ API returned.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the evidence.
     evidenceId :: Prelude.Maybe Prelude.Text,
-    -- | The error code returned by the @AssessmentReportEvidence@ API.
+    -- | The error code that the @AssessmentReportEvidence@ API returned.
     errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +45,11 @@ data AssessmentReportEvidenceError = AssessmentReportEvidenceError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'errorMessage', 'assessmentReportEvidenceError_errorMessage' - The error message returned by the @AssessmentReportEvidence@ API.
+-- 'errorMessage', 'assessmentReportEvidenceError_errorMessage' - The error message that the @AssessmentReportEvidence@ API returned.
 --
 -- 'evidenceId', 'assessmentReportEvidenceError_evidenceId' - The identifier for the evidence.
 --
--- 'errorCode', 'assessmentReportEvidenceError_errorCode' - The error code returned by the @AssessmentReportEvidence@ API.
+-- 'errorCode', 'assessmentReportEvidenceError_errorCode' - The error code that the @AssessmentReportEvidence@ API returned.
 newAssessmentReportEvidenceError ::
   AssessmentReportEvidenceError
 newAssessmentReportEvidenceError =
@@ -60,7 +60,7 @@ newAssessmentReportEvidenceError =
       errorCode = Prelude.Nothing
     }
 
--- | The error message returned by the @AssessmentReportEvidence@ API.
+-- | The error message that the @AssessmentReportEvidence@ API returned.
 assessmentReportEvidenceError_errorMessage :: Lens.Lens' AssessmentReportEvidenceError (Prelude.Maybe Prelude.Text)
 assessmentReportEvidenceError_errorMessage = Lens.lens (\AssessmentReportEvidenceError' {errorMessage} -> errorMessage) (\s@AssessmentReportEvidenceError' {} a -> s {errorMessage = a} :: AssessmentReportEvidenceError)
 
@@ -68,7 +68,7 @@ assessmentReportEvidenceError_errorMessage = Lens.lens (\AssessmentReportEvidenc
 assessmentReportEvidenceError_evidenceId :: Lens.Lens' AssessmentReportEvidenceError (Prelude.Maybe Prelude.Text)
 assessmentReportEvidenceError_evidenceId = Lens.lens (\AssessmentReportEvidenceError' {evidenceId} -> evidenceId) (\s@AssessmentReportEvidenceError' {} a -> s {evidenceId = a} :: AssessmentReportEvidenceError)
 
--- | The error code returned by the @AssessmentReportEvidence@ API.
+-- | The error code that the @AssessmentReportEvidence@ API returned.
 assessmentReportEvidenceError_errorCode :: Lens.Lens' AssessmentReportEvidenceError (Prelude.Maybe Prelude.Text)
 assessmentReportEvidenceError_errorCode = Lens.lens (\AssessmentReportEvidenceError' {errorCode} -> errorCode) (\s@AssessmentReportEvidenceError' {} a -> s {errorCode = a} :: AssessmentReportEvidenceError)
 

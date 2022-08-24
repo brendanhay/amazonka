@@ -24,10 +24,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A finalized document generated from an Audit Manager assessment. These
--- reports summarize the relevant evidence collected for your audit, and
--- link to the relevant evidence folders which are named and organized
--- according to the controls specified in your assessment.
+-- | A finalized document that\'s generated from an Audit Manager assessment.
+-- These reports summarize the relevant evidence that was collected for
+-- your audit, and link to the relevant evidence folders. These evidence
+-- folders are named and organized according to the controls that are
+-- specified in your assessment.
 --
 -- /See:/ 'newAssessmentReport' smart constructor.
 data AssessmentReport = AssessmentReport'
@@ -35,7 +36,7 @@ data AssessmentReport = AssessmentReport'
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | The name of the user who created the assessment report.
     author :: Prelude.Maybe Prelude.Text,
-    -- | The name given to the assessment report.
+    -- | The name that\'s given to the assessment report.
     name :: Prelude.Maybe Prelude.Text,
     -- | The identifier for the specified assessment.
     assessmentId :: Prelude.Maybe Prelude.Text,
@@ -45,7 +46,7 @@ data AssessmentReport = AssessmentReport'
     status :: Prelude.Maybe AssessmentReportStatus,
     -- | The description of the specified assessment report.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the specified assessment report.
+    -- | The unique identifier for the assessment report.
     id :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the assessment report was created.
     creationTime :: Prelude.Maybe Core.POSIX
@@ -64,7 +65,7 @@ data AssessmentReport = AssessmentReport'
 --
 -- 'author', 'assessmentReport_author' - The name of the user who created the assessment report.
 --
--- 'name', 'assessmentReport_name' - The name given to the assessment report.
+-- 'name', 'assessmentReport_name' - The name that\'s given to the assessment report.
 --
 -- 'assessmentId', 'assessmentReport_assessmentId' - The identifier for the specified assessment.
 --
@@ -74,7 +75,7 @@ data AssessmentReport = AssessmentReport'
 --
 -- 'description', 'assessmentReport_description' - The description of the specified assessment report.
 --
--- 'id', 'assessmentReport_id' - The unique identifier for the specified assessment report.
+-- 'id', 'assessmentReport_id' - The unique identifier for the assessment report.
 --
 -- 'creationTime', 'assessmentReport_creationTime' - Specifies when the assessment report was created.
 newAssessmentReport ::
@@ -100,7 +101,7 @@ assessmentReport_awsAccountId = Lens.lens (\AssessmentReport' {awsAccountId} -> 
 assessmentReport_author :: Lens.Lens' AssessmentReport (Prelude.Maybe Prelude.Text)
 assessmentReport_author = Lens.lens (\AssessmentReport' {author} -> author) (\s@AssessmentReport' {} a -> s {author = a} :: AssessmentReport)
 
--- | The name given to the assessment report.
+-- | The name that\'s given to the assessment report.
 assessmentReport_name :: Lens.Lens' AssessmentReport (Prelude.Maybe Prelude.Text)
 assessmentReport_name = Lens.lens (\AssessmentReport' {name} -> name) (\s@AssessmentReport' {} a -> s {name = a} :: AssessmentReport)
 
@@ -120,7 +121,7 @@ assessmentReport_status = Lens.lens (\AssessmentReport' {status} -> status) (\s@
 assessmentReport_description :: Lens.Lens' AssessmentReport (Prelude.Maybe Prelude.Text)
 assessmentReport_description = Lens.lens (\AssessmentReport' {description} -> description) (\s@AssessmentReport' {} a -> s {description = a} :: AssessmentReport)
 
--- | The unique identifier for the specified assessment report.
+-- | The unique identifier for the assessment report.
 assessmentReport_id :: Lens.Lens' AssessmentReport (Prelude.Maybe Prelude.Text)
 assessmentReport_id = Lens.lens (\AssessmentReport' {id} -> id) (\s@AssessmentReport' {} a -> s {id = a} :: AssessmentReport)
 

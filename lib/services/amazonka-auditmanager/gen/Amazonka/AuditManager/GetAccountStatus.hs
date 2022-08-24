@@ -96,7 +96,7 @@ instance Core.ToQuery GetAccountStatus where
 
 -- | /See:/ 'newGetAccountStatusResponse' smart constructor.
 data GetAccountStatusResponse = GetAccountStatusResponse'
-  { -- | The status of the specified Amazon Web Services account.
+  { -- | The status of the Amazon Web Services account.
     status :: Prelude.Maybe AccountStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -111,7 +111,7 @@ data GetAccountStatusResponse = GetAccountStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getAccountStatusResponse_status' - The status of the specified Amazon Web Services account.
+-- 'status', 'getAccountStatusResponse_status' - The status of the Amazon Web Services account.
 --
 -- 'httpStatus', 'getAccountStatusResponse_httpStatus' - The response's http status code.
 newGetAccountStatusResponse ::
@@ -124,7 +124,7 @@ newGetAccountStatusResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The status of the specified Amazon Web Services account.
+-- | The status of the Amazon Web Services account.
 getAccountStatusResponse_status :: Lens.Lens' GetAccountStatusResponse (Prelude.Maybe AccountStatus)
 getAccountStatusResponse_status = Lens.lens (\GetAccountStatusResponse' {status} -> status) (\s@GetAccountStatusResponse' {} a -> s {status = a} :: GetAccountStatusResponse)
 

@@ -47,7 +47,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteControl' smart constructor.
 data DeleteControl = DeleteControl'
-  { -- | The identifier for the specified control.
+  { -- | The unique identifier for the control.
     controlId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data DeleteControl = DeleteControl'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlId', 'deleteControl_controlId' - The identifier for the specified control.
+-- 'controlId', 'deleteControl_controlId' - The unique identifier for the control.
 newDeleteControl ::
   -- | 'controlId'
   Prelude.Text ->
@@ -68,7 +68,7 @@ newDeleteControl ::
 newDeleteControl pControlId_ =
   DeleteControl' {controlId = pControlId_}
 
--- | The identifier for the specified control.
+-- | The unique identifier for the control.
 deleteControl_controlId :: Lens.Lens' DeleteControl Prelude.Text
 deleteControl_controlId = Lens.lens (\DeleteControl' {controlId} -> controlId) (\s@DeleteControl' {} a -> s {controlId = a} :: DeleteControl)
 

@@ -26,14 +26,14 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The wrapper that contains the Amazon Web Services accounts and services
--- in scope for the assessment.
+-- that are in scope for the assessment.
 --
 -- /See:/ 'newScope' smart constructor.
 data Scope = Scope'
-  { -- | The Amazon Web Services accounts included in the scope of the
+  { -- | The Amazon Web Services accounts that are included in the scope of the
     -- assessment.
     awsAccounts :: Prelude.Maybe [AWSAccount],
-    -- | The Amazon Web Services services included in the scope of the
+    -- | The Amazon Web Services services that are included in the scope of the
     -- assessment.
     awsServices :: Prelude.Maybe [AWSService]
   }
@@ -47,10 +47,10 @@ data Scope = Scope'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccounts', 'scope_awsAccounts' - The Amazon Web Services accounts included in the scope of the
+-- 'awsAccounts', 'scope_awsAccounts' - The Amazon Web Services accounts that are included in the scope of the
 -- assessment.
 --
--- 'awsServices', 'scope_awsServices' - The Amazon Web Services services included in the scope of the
+-- 'awsServices', 'scope_awsServices' - The Amazon Web Services services that are included in the scope of the
 -- assessment.
 newScope ::
   Scope
@@ -60,12 +60,12 @@ newScope =
       awsServices = Prelude.Nothing
     }
 
--- | The Amazon Web Services accounts included in the scope of the
+-- | The Amazon Web Services accounts that are included in the scope of the
 -- assessment.
 scope_awsAccounts :: Lens.Lens' Scope (Prelude.Maybe [AWSAccount])
 scope_awsAccounts = Lens.lens (\Scope' {awsAccounts} -> awsAccounts) (\s@Scope' {} a -> s {awsAccounts = a} :: Scope) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services services included in the scope of the
+-- | The Amazon Web Services services that are included in the scope of the
 -- assessment.
 scope_awsServices :: Lens.Lens' Scope (Prelude.Maybe [AWSService])
 scope_awsServices = Lens.lens (\Scope' {awsServices} -> awsServices) (\s@Scope' {} a -> s {awsServices = a} :: Scope) Prelude.. Lens.mapping Lens.coerced

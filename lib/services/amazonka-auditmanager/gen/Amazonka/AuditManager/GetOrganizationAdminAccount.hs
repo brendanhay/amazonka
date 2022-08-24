@@ -101,9 +101,9 @@ instance Core.ToQuery GetOrganizationAdminAccount where
 
 -- | /See:/ 'newGetOrganizationAdminAccountResponse' smart constructor.
 data GetOrganizationAdminAccountResponse = GetOrganizationAdminAccountResponse'
-  { -- | The identifier for the specified administrator account.
+  { -- | The identifier for the administrator account.
     adminAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the specified organization.
+    -- | The identifier for the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -118,9 +118,9 @@ data GetOrganizationAdminAccountResponse = GetOrganizationAdminAccountResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccountId', 'getOrganizationAdminAccountResponse_adminAccountId' - The identifier for the specified administrator account.
+-- 'adminAccountId', 'getOrganizationAdminAccountResponse_adminAccountId' - The identifier for the administrator account.
 --
--- 'organizationId', 'getOrganizationAdminAccountResponse_organizationId' - The identifier for the specified organization.
+-- 'organizationId', 'getOrganizationAdminAccountResponse_organizationId' - The identifier for the organization.
 --
 -- 'httpStatus', 'getOrganizationAdminAccountResponse_httpStatus' - The response's http status code.
 newGetOrganizationAdminAccountResponse ::
@@ -135,11 +135,11 @@ newGetOrganizationAdminAccountResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The identifier for the specified administrator account.
+-- | The identifier for the administrator account.
 getOrganizationAdminAccountResponse_adminAccountId :: Lens.Lens' GetOrganizationAdminAccountResponse (Prelude.Maybe Prelude.Text)
 getOrganizationAdminAccountResponse_adminAccountId = Lens.lens (\GetOrganizationAdminAccountResponse' {adminAccountId} -> adminAccountId) (\s@GetOrganizationAdminAccountResponse' {} a -> s {adminAccountId = a} :: GetOrganizationAdminAccountResponse)
 
--- | The identifier for the specified organization.
+-- | The identifier for the organization.
 getOrganizationAdminAccountResponse_organizationId :: Lens.Lens' GetOrganizationAdminAccountResponse (Prelude.Maybe Prelude.Text)
 getOrganizationAdminAccountResponse_organizationId = Lens.lens (\GetOrganizationAdminAccountResponse' {organizationId} -> organizationId) (\s@GetOrganizationAdminAccountResponse' {} a -> s {organizationId = a} :: GetOrganizationAdminAccountResponse)
 

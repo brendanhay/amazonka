@@ -40,9 +40,10 @@ data Delegation = Delegation'
     roleType :: Prelude.Maybe RoleType,
     -- | The Amazon Resource Name (ARN) of the IAM role.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the associated assessment.
+    -- | The identifier for the assessment that\'s associated with the
+    -- delegation.
     assessmentId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the associated assessment.
+    -- | The name of the assessment that\'s associated with the delegation.
     assessmentName :: Prelude.Maybe Prelude.Text,
     -- | The status of the delegation.
     status :: Prelude.Maybe DelegationStatus,
@@ -50,9 +51,10 @@ data Delegation = Delegation'
     id :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the delegation was last updated.
     lastUpdated :: Prelude.Maybe Core.POSIX,
-    -- | The comment related to the delegation.
+    -- | The comment that\'s related to the delegation.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | The identifier for the associated control set.
+    -- | The identifier for the control set that\'s associated with the
+    -- delegation.
     controlSetId :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the delegation was created.
     creationTime :: Prelude.Maybe Core.POSIX,
@@ -80,9 +82,10 @@ data Delegation = Delegation'
 --
 -- 'roleArn', 'delegation_roleArn' - The Amazon Resource Name (ARN) of the IAM role.
 --
--- 'assessmentId', 'delegation_assessmentId' - The identifier for the associated assessment.
+-- 'assessmentId', 'delegation_assessmentId' - The identifier for the assessment that\'s associated with the
+-- delegation.
 --
--- 'assessmentName', 'delegation_assessmentName' - The name of the associated assessment.
+-- 'assessmentName', 'delegation_assessmentName' - The name of the assessment that\'s associated with the delegation.
 --
 -- 'status', 'delegation_status' - The status of the delegation.
 --
@@ -90,9 +93,10 @@ data Delegation = Delegation'
 --
 -- 'lastUpdated', 'delegation_lastUpdated' - Specifies when the delegation was last updated.
 --
--- 'comment', 'delegation_comment' - The comment related to the delegation.
+-- 'comment', 'delegation_comment' - The comment that\'s related to the delegation.
 --
--- 'controlSetId', 'delegation_controlSetId' - The identifier for the associated control set.
+-- 'controlSetId', 'delegation_controlSetId' - The identifier for the control set that\'s associated with the
+-- delegation.
 --
 -- 'creationTime', 'delegation_creationTime' - Specifies when the delegation was created.
 --
@@ -129,11 +133,12 @@ delegation_roleType = Lens.lens (\Delegation' {roleType} -> roleType) (\s@Delega
 delegation_roleArn :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
 delegation_roleArn = Lens.lens (\Delegation' {roleArn} -> roleArn) (\s@Delegation' {} a -> s {roleArn = a} :: Delegation)
 
--- | The identifier for the associated assessment.
+-- | The identifier for the assessment that\'s associated with the
+-- delegation.
 delegation_assessmentId :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
 delegation_assessmentId = Lens.lens (\Delegation' {assessmentId} -> assessmentId) (\s@Delegation' {} a -> s {assessmentId = a} :: Delegation)
 
--- | The name of the associated assessment.
+-- | The name of the assessment that\'s associated with the delegation.
 delegation_assessmentName :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
 delegation_assessmentName = Lens.lens (\Delegation' {assessmentName} -> assessmentName) (\s@Delegation' {} a -> s {assessmentName = a} :: Delegation)
 
@@ -149,11 +154,12 @@ delegation_id = Lens.lens (\Delegation' {id} -> id) (\s@Delegation' {} a -> s {i
 delegation_lastUpdated :: Lens.Lens' Delegation (Prelude.Maybe Prelude.UTCTime)
 delegation_lastUpdated = Lens.lens (\Delegation' {lastUpdated} -> lastUpdated) (\s@Delegation' {} a -> s {lastUpdated = a} :: Delegation) Prelude.. Lens.mapping Core._Time
 
--- | The comment related to the delegation.
+-- | The comment that\'s related to the delegation.
 delegation_comment :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
 delegation_comment = Lens.lens (\Delegation' {comment} -> comment) (\s@Delegation' {} a -> s {comment = a} :: Delegation)
 
--- | The identifier for the associated control set.
+-- | The identifier for the control set that\'s associated with the
+-- delegation.
 delegation_controlSetId :: Lens.Lens' Delegation (Prelude.Maybe Prelude.Text)
 delegation_controlSetId = Lens.lens (\Delegation' {controlSetId} -> controlSetId) (\s@Delegation' {} a -> s {controlSetId = a} :: Delegation)
 

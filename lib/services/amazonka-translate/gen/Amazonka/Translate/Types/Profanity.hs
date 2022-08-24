@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Translate.Types.TerminologyDataFormat
+-- Module      : Amazonka.Translate.Types.Profanity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Translate.Types.TerminologyDataFormat
-  ( TerminologyDataFormat
+module Amazonka.Translate.Types.Profanity
+  ( Profanity
       ( ..,
-        TerminologyDataFormat_CSV,
-        TerminologyDataFormat_TMX,
-        TerminologyDataFormat_TSV
+        Profanity_MASK
       ),
   )
 where
@@ -30,8 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype TerminologyDataFormat = TerminologyDataFormat'
-  { fromTerminologyDataFormat ::
+newtype Profanity = Profanity'
+  { fromProfanity ::
       Core.Text
   }
   deriving stock
@@ -58,18 +56,10 @@ newtype TerminologyDataFormat = TerminologyDataFormat'
       Core.ToXML
     )
 
-pattern TerminologyDataFormat_CSV :: TerminologyDataFormat
-pattern TerminologyDataFormat_CSV = TerminologyDataFormat' "CSV"
-
-pattern TerminologyDataFormat_TMX :: TerminologyDataFormat
-pattern TerminologyDataFormat_TMX = TerminologyDataFormat' "TMX"
-
-pattern TerminologyDataFormat_TSV :: TerminologyDataFormat
-pattern TerminologyDataFormat_TSV = TerminologyDataFormat' "TSV"
+pattern Profanity_MASK :: Profanity
+pattern Profanity_MASK = Profanity' "MASK"
 
 {-# COMPLETE
-  TerminologyDataFormat_CSV,
-  TerminologyDataFormat_TMX,
-  TerminologyDataFormat_TSV,
-  TerminologyDataFormat'
+  Profanity_MASK,
+  Profanity'
   #-}

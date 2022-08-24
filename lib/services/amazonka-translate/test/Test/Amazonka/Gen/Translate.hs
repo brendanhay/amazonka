@@ -48,6 +48,9 @@ import Test.Tasty
 --         , requestImportTerminology $
 --             newImportTerminology
 --
+--         , requestListLanguages $
+--             newListLanguages
+--
 --         , requestListParallelData $
 --             newListParallelData
 --
@@ -92,6 +95,9 @@ import Test.Tasty
 --
 --         , responseImportTerminology $
 --             newImportTerminologyResponse
+--
+--         , responseListLanguages $
+--             newListLanguagesResponse
 --
 --         , responseListParallelData $
 --             newListParallelDataResponse
@@ -160,6 +166,12 @@ requestImportTerminology =
   req
     "ImportTerminology"
     "fixture/ImportTerminology.yaml"
+
+requestListLanguages :: ListLanguages -> TestTree
+requestListLanguages =
+  req
+    "ListLanguages"
+    "fixture/ListLanguages.yaml"
 
 requestListParallelData :: ListParallelData -> TestTree
 requestListParallelData =
@@ -260,6 +272,14 @@ responseImportTerminology =
     "fixture/ImportTerminologyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ImportTerminology)
+
+responseListLanguages :: ListLanguagesResponse -> TestTree
+responseListLanguages =
+  res
+    "ListLanguagesResponse"
+    "fixture/ListLanguagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListLanguages)
 
 responseListParallelData :: ListParallelDataResponse -> TestTree
 responseListParallelData =

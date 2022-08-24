@@ -38,6 +38,9 @@ module Amazonka.Translate
     -- ** UnsupportedLanguagePairException
     _UnsupportedLanguagePairException,
 
+    -- ** UnsupportedDisplayLanguageCodeException
+    _UnsupportedDisplayLanguageCodeException,
+
     -- ** LimitExceededException
     _LimitExceededException,
 
@@ -107,6 +110,12 @@ module Amazonka.Translate
     ImportTerminologyResponse (ImportTerminologyResponse'),
     newImportTerminologyResponse,
 
+    -- ** ListLanguages
+    ListLanguages (ListLanguages'),
+    newListLanguages,
+    ListLanguagesResponse (ListLanguagesResponse'),
+    newListLanguagesResponse,
+
     -- ** ListParallelData
     ListParallelData (ListParallelData'),
     newListParallelData,
@@ -151,8 +160,17 @@ module Amazonka.Translate
 
     -- * Types
 
+    -- ** Directionality
+    Directionality (..),
+
+    -- ** DisplayLanguageCode
+    DisplayLanguageCode (..),
+
     -- ** EncryptionKeyType
     EncryptionKeyType (..),
+
+    -- ** Formality
+    Formality (..),
 
     -- ** JobStatus
     JobStatus (..),
@@ -165,6 +183,9 @@ module Amazonka.Translate
 
     -- ** ParallelDataStatus
     ParallelDataStatus (..),
+
+    -- ** Profanity
+    Profanity (..),
 
     -- ** TerminologyDataFormat
     TerminologyDataFormat (..),
@@ -184,6 +205,10 @@ module Amazonka.Translate
     -- ** JobDetails
     JobDetails (JobDetails'),
     newJobDetails,
+
+    -- ** Language
+    Language (Language'),
+    newLanguage,
 
     -- ** OutputDataConfig
     OutputDataConfig (OutputDataConfig'),
@@ -224,6 +249,10 @@ module Amazonka.Translate
     -- ** TextTranslationJobProperties
     TextTranslationJobProperties (TextTranslationJobProperties'),
     newTextTranslationJobProperties,
+
+    -- ** TranslationSettings
+    TranslationSettings (TranslationSettings'),
+    newTranslationSettings,
   )
 where
 
@@ -235,6 +264,7 @@ import Amazonka.Translate.GetParallelData
 import Amazonka.Translate.GetTerminology
 import Amazonka.Translate.ImportTerminology
 import Amazonka.Translate.Lens
+import Amazonka.Translate.ListLanguages
 import Amazonka.Translate.ListParallelData
 import Amazonka.Translate.ListTerminologies
 import Amazonka.Translate.ListTextTranslationJobs

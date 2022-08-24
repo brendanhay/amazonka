@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a parallel data resource in Amazon Translate by importing an
--- input file from Amazon S3. Parallel data files contain examples of
--- source phrases and their translations from your translation memory. By
--- adding parallel data, you can influence the style, tone, and word choice
--- in your translation output.
+-- input file from Amazon S3. Parallel data files contain examples that
+-- show how you want segments of text to be translated. By adding parallel
+-- data, you can influence the style, tone, and word choice in your
+-- translation output.
 module Amazonka.Translate.CreateParallelData
   ( -- * Creating a Request
     CreateParallelData (..),

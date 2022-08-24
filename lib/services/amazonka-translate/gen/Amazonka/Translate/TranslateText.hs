@@ -30,6 +30,7 @@ module Amazonka.Translate.TranslateText
 
     -- * Request Lenses
     translateText_terminologyNames,
+    translateText_settings,
     translateText_text,
     translateText_sourceLanguageCode,
     translateText_targetLanguageCode,
@@ -40,6 +41,7 @@ module Amazonka.Translate.TranslateText
 
     -- * Response Lenses
     translateTextResponse_appliedTerminologies,
+    translateTextResponse_appliedSettings,
     translateTextResponse_httpStatus,
     translateTextResponse_translatedText,
     translateTextResponse_sourceLanguageCode,
@@ -60,6 +62,10 @@ data TranslateText = TranslateText'
     -- request. You can use 1 terminology list at most in a @TranslateText@
     -- request. Terminology lists can contain a maximum of 256 terms.
     terminologyNames :: Prelude.Maybe [Prelude.Text],
+    -- | Settings to configure your translation output, including the option to
+    -- set the formality level of the output text and the option to mask
+    -- profane words and phrases.
+    settings :: Prelude.Maybe TranslationSettings,
     -- | The text to translate. The text string can be a maximum of 5,000 bytes
     -- long. Depending on your character set, this may be fewer than 5,000
     -- characters.
@@ -73,6 +79,10 @@ data TranslateText = TranslateText'
     -- @auto@, Amazon Translate will call
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html Amazon Comprehend>
     -- to determine the source language.
+    --
+    -- If you specify @auto@, you must send the @TranslateText@ request in a
+    -- region that supports Amazon Comprehend. Otherwise, the request returns
+    -- an error indicating that autodetect is not supported.
     sourceLanguageCode :: Prelude.Text,
     -- | The language code requested for the language of the target text. The
     -- language must be a language supported by Amazon Translate.
@@ -92,6 +102,10 @@ data TranslateText = TranslateText'
 -- request. You can use 1 terminology list at most in a @TranslateText@
 -- request. Terminology lists can contain a maximum of 256 terms.
 --
+-- 'settings', 'translateText_settings' - Settings to configure your translation output, including the option to
+-- set the formality level of the output text and the option to mask
+-- profane words and phrases.
+--
 -- 'text', 'translateText_text' - The text to translate. The text string can be a maximum of 5,000 bytes
 -- long. Depending on your character set, this may be fewer than 5,000
 -- characters.
@@ -105,6 +119,10 @@ data TranslateText = TranslateText'
 -- @auto@, Amazon Translate will call
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html Amazon Comprehend>
 -- to determine the source language.
+--
+-- If you specify @auto@, you must send the @TranslateText@ request in a
+-- region that supports Amazon Comprehend. Otherwise, the request returns
+-- an error indicating that autodetect is not supported.
 --
 -- 'targetLanguageCode', 'translateText_targetLanguageCode' - The language code requested for the language of the target text. The
 -- language must be a language supported by Amazon Translate.
@@ -122,6 +140,7 @@ newTranslateText
   pTargetLanguageCode_ =
     TranslateText'
       { terminologyNames = Prelude.Nothing,
+        settings = Prelude.Nothing,
         text = pText_,
         sourceLanguageCode = pSourceLanguageCode_,
         targetLanguageCode = pTargetLanguageCode_
@@ -132,6 +151,12 @@ newTranslateText
 -- request. Terminology lists can contain a maximum of 256 terms.
 translateText_terminologyNames :: Lens.Lens' TranslateText (Prelude.Maybe [Prelude.Text])
 translateText_terminologyNames = Lens.lens (\TranslateText' {terminologyNames} -> terminologyNames) (\s@TranslateText' {} a -> s {terminologyNames = a} :: TranslateText) Prelude.. Lens.mapping Lens.coerced
+
+-- | Settings to configure your translation output, including the option to
+-- set the formality level of the output text and the option to mask
+-- profane words and phrases.
+translateText_settings :: Lens.Lens' TranslateText (Prelude.Maybe TranslationSettings)
+translateText_settings = Lens.lens (\TranslateText' {settings} -> settings) (\s@TranslateText' {} a -> s {settings = a} :: TranslateText)
 
 -- | The text to translate. The text string can be a maximum of 5,000 bytes
 -- long. Depending on your character set, this may be fewer than 5,000
@@ -148,6 +173,10 @@ translateText_text = Lens.lens (\TranslateText' {text} -> text) (\s@TranslateTex
 -- @auto@, Amazon Translate will call
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html Amazon Comprehend>
 -- to determine the source language.
+--
+-- If you specify @auto@, you must send the @TranslateText@ request in a
+-- region that supports Amazon Comprehend. Otherwise, the request returns
+-- an error indicating that autodetect is not supported.
 translateText_sourceLanguageCode :: Lens.Lens' TranslateText Prelude.Text
 translateText_sourceLanguageCode = Lens.lens (\TranslateText' {sourceLanguageCode} -> sourceLanguageCode) (\s@TranslateText' {} a -> s {sourceLanguageCode = a} :: TranslateText)
 
@@ -168,6 +197,7 @@ instance Core.AWSRequest TranslateText where
             Prelude.<$> ( x Core..?> "AppliedTerminologies"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "AppliedSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "TranslatedText")
             Prelude.<*> (x Core..:> "SourceLanguageCode")
@@ -177,6 +207,7 @@ instance Core.AWSRequest TranslateText where
 instance Prelude.Hashable TranslateText where
   hashWithSalt _salt TranslateText' {..} =
     _salt `Prelude.hashWithSalt` terminologyNames
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` text
       `Prelude.hashWithSalt` sourceLanguageCode
       `Prelude.hashWithSalt` targetLanguageCode
@@ -184,6 +215,7 @@ instance Prelude.Hashable TranslateText where
 instance Prelude.NFData TranslateText where
   rnf TranslateText' {..} =
     Prelude.rnf terminologyNames
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf text
       `Prelude.seq` Prelude.rnf sourceLanguageCode
       `Prelude.seq` Prelude.rnf targetLanguageCode
@@ -209,6 +241,7 @@ instance Core.ToJSON TranslateText where
       ( Prelude.catMaybes
           [ ("TerminologyNames" Core..=)
               Prelude.<$> terminologyNames,
+            ("Settings" Core..=) Prelude.<$> settings,
             Prelude.Just ("Text" Core..= text),
             Prelude.Just
               ("SourceLanguageCode" Core..= sourceLanguageCode),
@@ -228,6 +261,8 @@ data TranslateTextResponse = TranslateTextResponse'
   { -- | The names of the custom terminologies applied to the input text by
     -- Amazon Translate for the translated text response.
     appliedTerminologies :: Prelude.Maybe [AppliedTerminology],
+    -- | Settings that configure the translation output.
+    appliedSettings :: Prelude.Maybe TranslationSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The translated text.
@@ -249,6 +284,8 @@ data TranslateTextResponse = TranslateTextResponse'
 --
 -- 'appliedTerminologies', 'translateTextResponse_appliedTerminologies' - The names of the custom terminologies applied to the input text by
 -- Amazon Translate for the translated text response.
+--
+-- 'appliedSettings', 'translateTextResponse_appliedSettings' - Settings that configure the translation output.
 --
 -- 'httpStatus', 'translateTextResponse_httpStatus' - The response's http status code.
 --
@@ -275,6 +312,7 @@ newTranslateTextResponse
     TranslateTextResponse'
       { appliedTerminologies =
           Prelude.Nothing,
+        appliedSettings = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         translatedText = pTranslatedText_,
         sourceLanguageCode = pSourceLanguageCode_,
@@ -285,6 +323,10 @@ newTranslateTextResponse
 -- Amazon Translate for the translated text response.
 translateTextResponse_appliedTerminologies :: Lens.Lens' TranslateTextResponse (Prelude.Maybe [AppliedTerminology])
 translateTextResponse_appliedTerminologies = Lens.lens (\TranslateTextResponse' {appliedTerminologies} -> appliedTerminologies) (\s@TranslateTextResponse' {} a -> s {appliedTerminologies = a} :: TranslateTextResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Settings that configure the translation output.
+translateTextResponse_appliedSettings :: Lens.Lens' TranslateTextResponse (Prelude.Maybe TranslationSettings)
+translateTextResponse_appliedSettings = Lens.lens (\TranslateTextResponse' {appliedSettings} -> appliedSettings) (\s@TranslateTextResponse' {} a -> s {appliedSettings = a} :: TranslateTextResponse)
 
 -- | The response's http status code.
 translateTextResponse_httpStatus :: Lens.Lens' TranslateTextResponse Prelude.Int
@@ -305,6 +347,7 @@ translateTextResponse_targetLanguageCode = Lens.lens (\TranslateTextResponse' {t
 instance Prelude.NFData TranslateTextResponse where
   rnf TranslateTextResponse' {..} =
     Prelude.rnf appliedTerminologies
+      `Prelude.seq` Prelude.rnf appliedSettings
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf translatedText
       `Prelude.seq` Prelude.rnf sourceLanguageCode

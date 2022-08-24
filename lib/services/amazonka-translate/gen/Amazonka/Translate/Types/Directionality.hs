@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Translate.Types.TerminologyDataFormat
+-- Module      : Amazonka.Translate.Types.Directionality
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Translate.Types.TerminologyDataFormat
-  ( TerminologyDataFormat
+module Amazonka.Translate.Types.Directionality
+  ( Directionality
       ( ..,
-        TerminologyDataFormat_CSV,
-        TerminologyDataFormat_TMX,
-        TerminologyDataFormat_TSV
+        Directionality_MULTI,
+        Directionality_UNI
       ),
   )
 where
@@ -30,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype TerminologyDataFormat = TerminologyDataFormat'
-  { fromTerminologyDataFormat ::
+newtype Directionality = Directionality'
+  { fromDirectionality ::
       Core.Text
   }
   deriving stock
@@ -58,18 +57,14 @@ newtype TerminologyDataFormat = TerminologyDataFormat'
       Core.ToXML
     )
 
-pattern TerminologyDataFormat_CSV :: TerminologyDataFormat
-pattern TerminologyDataFormat_CSV = TerminologyDataFormat' "CSV"
+pattern Directionality_MULTI :: Directionality
+pattern Directionality_MULTI = Directionality' "MULTI"
 
-pattern TerminologyDataFormat_TMX :: TerminologyDataFormat
-pattern TerminologyDataFormat_TMX = TerminologyDataFormat' "TMX"
-
-pattern TerminologyDataFormat_TSV :: TerminologyDataFormat
-pattern TerminologyDataFormat_TSV = TerminologyDataFormat' "TSV"
+pattern Directionality_UNI :: Directionality
+pattern Directionality_UNI = Directionality' "UNI"
 
 {-# COMPLETE
-  TerminologyDataFormat_CSV,
-  TerminologyDataFormat_TMX,
-  TerminologyDataFormat_TSV,
-  TerminologyDataFormat'
+  Directionality_MULTI,
+  Directionality_UNI,
+  Directionality'
   #-}

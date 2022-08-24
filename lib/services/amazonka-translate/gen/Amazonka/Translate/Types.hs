@@ -23,6 +23,7 @@ module Amazonka.Translate.Types
     _ServiceUnavailableException,
     _ResourceNotFoundException,
     _UnsupportedLanguagePairException,
+    _UnsupportedDisplayLanguageCodeException,
     _LimitExceededException,
     _InvalidFilterException,
     _ConflictException,
@@ -31,8 +32,17 @@ module Amazonka.Translate.Types
     _InvalidRequestException,
     _InvalidParameterValueException,
 
+    -- * Directionality
+    Directionality (..),
+
+    -- * DisplayLanguageCode
+    DisplayLanguageCode (..),
+
     -- * EncryptionKeyType
     EncryptionKeyType (..),
+
+    -- * Formality
+    Formality (..),
 
     -- * JobStatus
     JobStatus (..),
@@ -45,6 +55,9 @@ module Amazonka.Translate.Types
 
     -- * ParallelDataStatus
     ParallelDataStatus (..),
+
+    -- * Profanity
+    Profanity (..),
 
     -- * TerminologyDataFormat
     TerminologyDataFormat (..),
@@ -74,9 +87,16 @@ module Amazonka.Translate.Types
     jobDetails_translatedDocumentsCount,
     jobDetails_inputDocumentsCount,
 
+    -- * Language
+    Language (..),
+    newLanguage,
+    language_languageName,
+    language_languageCode,
+
     -- * OutputDataConfig
     OutputDataConfig (..),
     newOutputDataConfig,
+    outputDataConfig_encryptionKey,
     outputDataConfig_s3Uri,
 
     -- * ParallelDataConfig
@@ -121,6 +141,7 @@ module Amazonka.Translate.Types
     -- * TerminologyData
     TerminologyData (..),
     newTerminologyData,
+    terminologyData_directionality,
     terminologyData_file,
     terminologyData_format,
 
@@ -133,9 +154,13 @@ module Amazonka.Translate.Types
     -- * TerminologyProperties
     TerminologyProperties (..),
     newTerminologyProperties,
+    terminologyProperties_skippedTermCount,
+    terminologyProperties_message,
     terminologyProperties_name,
     terminologyProperties_lastUpdatedAt,
+    terminologyProperties_directionality,
     terminologyProperties_termCount,
+    terminologyProperties_format,
     terminologyProperties_sizeBytes,
     terminologyProperties_arn,
     terminologyProperties_targetLanguageCodes,
@@ -166,9 +191,16 @@ module Amazonka.Translate.Types
     textTranslationJobProperties_dataAccessRoleArn,
     textTranslationJobProperties_terminologyNames,
     textTranslationJobProperties_endTime,
+    textTranslationJobProperties_settings,
     textTranslationJobProperties_sourceLanguageCode,
     textTranslationJobProperties_inputDataConfig,
     textTranslationJobProperties_parallelDataNames,
+
+    -- * TranslationSettings
+    TranslationSettings (..),
+    newTranslationSettings,
+    translationSettings_formality,
+    translationSettings_profanity,
   )
 where
 
@@ -177,11 +209,15 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 import Amazonka.Translate.Types.AppliedTerminology
+import Amazonka.Translate.Types.Directionality
+import Amazonka.Translate.Types.DisplayLanguageCode
 import Amazonka.Translate.Types.EncryptionKey
 import Amazonka.Translate.Types.EncryptionKeyType
+import Amazonka.Translate.Types.Formality
 import Amazonka.Translate.Types.InputDataConfig
 import Amazonka.Translate.Types.JobDetails
 import Amazonka.Translate.Types.JobStatus
+import Amazonka.Translate.Types.Language
 import Amazonka.Translate.Types.MergeStrategy
 import Amazonka.Translate.Types.OutputDataConfig
 import Amazonka.Translate.Types.ParallelDataConfig
@@ -189,6 +225,7 @@ import Amazonka.Translate.Types.ParallelDataDataLocation
 import Amazonka.Translate.Types.ParallelDataFormat
 import Amazonka.Translate.Types.ParallelDataProperties
 import Amazonka.Translate.Types.ParallelDataStatus
+import Amazonka.Translate.Types.Profanity
 import Amazonka.Translate.Types.Term
 import Amazonka.Translate.Types.TerminologyData
 import Amazonka.Translate.Types.TerminologyDataFormat
@@ -196,6 +233,7 @@ import Amazonka.Translate.Types.TerminologyDataLocation
 import Amazonka.Translate.Types.TerminologyProperties
 import Amazonka.Translate.Types.TextTranslationJobFilter
 import Amazonka.Translate.Types.TextTranslationJobProperties
+import Amazonka.Translate.Types.TranslationSettings
 
 -- | API version @2017-07-01@ of the Amazon Translate SDK configuration.
 defaultService :: Core.Service
@@ -294,8 +332,8 @@ _DetectedLanguageLowConfidenceException =
     defaultService
     "DetectedLanguageLowConfidenceException"
 
--- | The Amazon Translate service is temporarily unavailable. Please wait a
--- bit and then retry your request.
+-- | The Amazon Translate service is temporarily unavailable. Wait a bit and
+-- then retry your request.
 _ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError
@@ -320,6 +358,13 @@ _UnsupportedLanguagePairException =
     defaultService
     "UnsupportedLanguagePairException"
 
+-- | Requested display language code is not supported.
+_UnsupportedDisplayLanguageCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedDisplayLanguageCodeException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedDisplayLanguageCodeException"
+
 -- | The specified limit has been exceeded. Review your request and retry it
 -- with a quantity below the stated limit.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -328,7 +373,7 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The filter specified for the operation is invalid. Specify a different
+-- | The filter specified for the operation is not valid. Specify a different
 -- filter.
 _InvalidFilterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidFilterException =
@@ -359,16 +404,16 @@ _TooManyRequestsException =
     defaultService
     "TooManyRequestsException"
 
--- | The request that you made is invalid. Check your request to determine
--- why it\'s invalid and then retry the request.
+-- | The request that you made is not valid. Check your request to determine
+-- why it\'s not valid and then retry the request.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidRequestException =
   Core._MatchServiceError
     defaultService
     "InvalidRequestException"
 
--- | The value of the parameter is invalid. Review the value of the parameter
--- you are using to correct it, and then retry your operation.
+-- | The value of the parameter is not valid. Review the value of the
+-- parameter you are using to correct it, and then retry your operation.
 _InvalidParameterValueException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterValueException =
   Core._MatchServiceError

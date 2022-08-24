@@ -28,11 +28,11 @@ import Amazonka.Translate.Types.EncryptionKeyType
 --
 -- /See:/ 'newEncryptionKey' smart constructor.
 data EncryptionKey = EncryptionKey'
-  { -- | The type of encryption key used by Amazon Translate to encrypt custom
-    -- terminologies.
+  { -- | The type of encryption key used by Amazon Translate to encrypt this
+    -- object.
     type' :: EncryptionKeyType,
     -- | The Amazon Resource Name (ARN) of the encryption key being used to
-    -- encrypt the custom terminology.
+    -- encrypt this object.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +45,11 @@ data EncryptionKey = EncryptionKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'encryptionKey_type' - The type of encryption key used by Amazon Translate to encrypt custom
--- terminologies.
+-- 'type'', 'encryptionKey_type' - The type of encryption key used by Amazon Translate to encrypt this
+-- object.
 --
 -- 'id', 'encryptionKey_id' - The Amazon Resource Name (ARN) of the encryption key being used to
--- encrypt the custom terminology.
+-- encrypt this object.
 newEncryptionKey ::
   -- | 'type''
   EncryptionKeyType ->
@@ -59,13 +59,13 @@ newEncryptionKey ::
 newEncryptionKey pType_ pId_ =
   EncryptionKey' {type' = pType_, id = pId_}
 
--- | The type of encryption key used by Amazon Translate to encrypt custom
--- terminologies.
+-- | The type of encryption key used by Amazon Translate to encrypt this
+-- object.
 encryptionKey_type :: Lens.Lens' EncryptionKey EncryptionKeyType
 encryptionKey_type = Lens.lens (\EncryptionKey' {type'} -> type') (\s@EncryptionKey' {} a -> s {type' = a} :: EncryptionKey)
 
 -- | The Amazon Resource Name (ARN) of the encryption key being used to
--- encrypt the custom terminology.
+-- encrypt this object.
 encryptionKey_id :: Lens.Lens' EncryptionKey Prelude.Text
 encryptionKey_id = Lens.lens (\EncryptionKey' {id} -> id) (\s@EncryptionKey' {} a -> s {id = a} :: EncryptionKey)
 

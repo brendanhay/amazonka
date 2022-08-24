@@ -52,6 +52,7 @@ library
     Amazonka.Translate.GetTerminology
     Amazonka.Translate.ImportTerminology
     Amazonka.Translate.Lens
+    Amazonka.Translate.ListLanguages
     Amazonka.Translate.ListParallelData
     Amazonka.Translate.ListTerminologies
     Amazonka.Translate.ListTextTranslationJobs
@@ -60,11 +61,15 @@ library
     Amazonka.Translate.TranslateText
     Amazonka.Translate.Types
     Amazonka.Translate.Types.AppliedTerminology
+    Amazonka.Translate.Types.Directionality
+    Amazonka.Translate.Types.DisplayLanguageCode
     Amazonka.Translate.Types.EncryptionKey
     Amazonka.Translate.Types.EncryptionKeyType
+    Amazonka.Translate.Types.Formality
     Amazonka.Translate.Types.InputDataConfig
     Amazonka.Translate.Types.JobDetails
     Amazonka.Translate.Types.JobStatus
+    Amazonka.Translate.Types.Language
     Amazonka.Translate.Types.MergeStrategy
     Amazonka.Translate.Types.OutputDataConfig
     Amazonka.Translate.Types.ParallelDataConfig
@@ -72,6 +77,7 @@ library
     Amazonka.Translate.Types.ParallelDataFormat
     Amazonka.Translate.Types.ParallelDataProperties
     Amazonka.Translate.Types.ParallelDataStatus
+    Amazonka.Translate.Types.Profanity
     Amazonka.Translate.Types.Term
     Amazonka.Translate.Types.TerminologyData
     Amazonka.Translate.Types.TerminologyDataFormat
@@ -79,6 +85,7 @@ library
     Amazonka.Translate.Types.TerminologyProperties
     Amazonka.Translate.Types.TextTranslationJobFilter
     Amazonka.Translate.Types.TextTranslationJobProperties
+    Amazonka.Translate.Types.TranslationSettings
     Amazonka.Translate.UpdateParallelData
     Amazonka.Translate.Waiters
 

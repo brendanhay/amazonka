@@ -26,6 +26,7 @@ import Amazonka.Translate.Types.InputDataConfig
 import Amazonka.Translate.Types.JobDetails
 import Amazonka.Translate.Types.JobStatus
 import Amazonka.Translate.Types.OutputDataConfig
+import Amazonka.Translate.Types.TranslationSettings
 
 -- | Provides information about a translation job.
 --
@@ -34,7 +35,7 @@ data TextTranslationJobProperties = TextTranslationJobProperties'
   { -- | The output configuration properties that were specified when the job was
     -- requested.
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
-    -- | An explanation of any errors that may have occured during the
+    -- | An explanation of any errors that may have occurred during the
     -- translation job.
     message :: Prelude.Maybe Prelude.Text,
     -- | The status of the translation job.
@@ -61,6 +62,8 @@ data TextTranslationJobProperties = TextTranslationJobProperties'
     terminologyNames :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the translation job ended.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | Settings that configure the translation output.
+    settings :: Prelude.Maybe TranslationSettings,
     -- | The language code of the language of the source text. The language must
     -- be a language supported by Amazon Translate.
     sourceLanguageCode :: Prelude.Maybe Prelude.Text,
@@ -84,7 +87,7 @@ data TextTranslationJobProperties = TextTranslationJobProperties'
 -- 'outputDataConfig', 'textTranslationJobProperties_outputDataConfig' - The output configuration properties that were specified when the job was
 -- requested.
 --
--- 'message', 'textTranslationJobProperties_message' - An explanation of any errors that may have occured during the
+-- 'message', 'textTranslationJobProperties_message' - An explanation of any errors that may have occurred during the
 -- translation job.
 --
 -- 'jobStatus', 'textTranslationJobProperties_jobStatus' - The status of the translation job.
@@ -111,6 +114,8 @@ data TextTranslationJobProperties = TextTranslationJobProperties'
 --
 -- 'endTime', 'textTranslationJobProperties_endTime' - The time at which the translation job ended.
 --
+-- 'settings', 'textTranslationJobProperties_settings' - Settings that configure the translation output.
+--
 -- 'sourceLanguageCode', 'textTranslationJobProperties_sourceLanguageCode' - The language code of the language of the source text. The language must
 -- be a language supported by Amazon Translate.
 --
@@ -135,6 +140,7 @@ newTextTranslationJobProperties =
       dataAccessRoleArn = Prelude.Nothing,
       terminologyNames = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      settings = Prelude.Nothing,
       sourceLanguageCode = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       parallelDataNames = Prelude.Nothing
@@ -145,7 +151,7 @@ newTextTranslationJobProperties =
 textTranslationJobProperties_outputDataConfig :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe OutputDataConfig)
 textTranslationJobProperties_outputDataConfig = Lens.lens (\TextTranslationJobProperties' {outputDataConfig} -> outputDataConfig) (\s@TextTranslationJobProperties' {} a -> s {outputDataConfig = a} :: TextTranslationJobProperties)
 
--- | An explanation of any errors that may have occured during the
+-- | An explanation of any errors that may have occurred during the
 -- translation job.
 textTranslationJobProperties_message :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.Text)
 textTranslationJobProperties_message = Lens.lens (\TextTranslationJobProperties' {message} -> message) (\s@TextTranslationJobProperties' {} a -> s {message = a} :: TextTranslationJobProperties)
@@ -192,6 +198,10 @@ textTranslationJobProperties_terminologyNames = Lens.lens (\TextTranslationJobPr
 textTranslationJobProperties_endTime :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.UTCTime)
 textTranslationJobProperties_endTime = Lens.lens (\TextTranslationJobProperties' {endTime} -> endTime) (\s@TextTranslationJobProperties' {} a -> s {endTime = a} :: TextTranslationJobProperties) Prelude.. Lens.mapping Core._Time
 
+-- | Settings that configure the translation output.
+textTranslationJobProperties_settings :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe TranslationSettings)
+textTranslationJobProperties_settings = Lens.lens (\TextTranslationJobProperties' {settings} -> settings) (\s@TextTranslationJobProperties' {} a -> s {settings = a} :: TextTranslationJobProperties)
+
 -- | The language code of the language of the source text. The language must
 -- be a language supported by Amazon Translate.
 textTranslationJobProperties_sourceLanguageCode :: Lens.Lens' TextTranslationJobProperties (Prelude.Maybe Prelude.Text)
@@ -226,6 +236,7 @@ instance Core.FromJSON TextTranslationJobProperties where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "Settings")
             Prelude.<*> (x Core..:? "SourceLanguageCode")
             Prelude.<*> (x Core..:? "InputDataConfig")
             Prelude.<*> ( x Core..:? "ParallelDataNames"
@@ -249,6 +260,7 @@ instance
       `Prelude.hashWithSalt` dataAccessRoleArn
       `Prelude.hashWithSalt` terminologyNames
       `Prelude.hashWithSalt` endTime
+      `Prelude.hashWithSalt` settings
       `Prelude.hashWithSalt` sourceLanguageCode
       `Prelude.hashWithSalt` inputDataConfig
       `Prelude.hashWithSalt` parallelDataNames
@@ -266,6 +278,7 @@ instance Prelude.NFData TextTranslationJobProperties where
       `Prelude.seq` Prelude.rnf dataAccessRoleArn
       `Prelude.seq` Prelude.rnf terminologyNames
       `Prelude.seq` Prelude.rnf endTime
+      `Prelude.seq` Prelude.rnf settings
       `Prelude.seq` Prelude.rnf sourceLanguageCode
       `Prelude.seq` Prelude.rnf inputDataConfig
       `Prelude.seq` Prelude.rnf parallelDataNames

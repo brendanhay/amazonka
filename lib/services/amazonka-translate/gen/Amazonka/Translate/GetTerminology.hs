@@ -27,8 +27,8 @@ module Amazonka.Translate.GetTerminology
     newGetTerminology,
 
     -- * Request Lenses
-    getTerminology_name,
     getTerminology_terminologyDataFormat,
+    getTerminology_name,
 
     -- * Destructuring the Response
     GetTerminologyResponse (..),
@@ -36,6 +36,7 @@ module Amazonka.Translate.GetTerminology
 
     -- * Response Lenses
     getTerminologyResponse_terminologyDataLocation,
+    getTerminologyResponse_auxiliaryDataLocation,
     getTerminologyResponse_terminologyProperties,
     getTerminologyResponse_httpStatus,
   )
@@ -50,11 +51,19 @@ import Amazonka.Translate.Types
 
 -- | /See:/ 'newGetTerminology' smart constructor.
 data GetTerminology = GetTerminology'
-  { -- | The name of the custom terminology being retrieved.
-    name :: Prelude.Text,
-    -- | The data format of the custom terminology being retrieved, either CSV or
-    -- TMX.
-    terminologyDataFormat :: TerminologyDataFormat
+  { -- | The data format of the custom terminology being retrieved.
+    --
+    -- If you don\'t specify this parameter, Amazon Translate returns a file
+    -- with the same format as the file that was imported to create the
+    -- terminology.
+    --
+    -- If you specify this parameter when you retrieve a multi-directional
+    -- terminology resource, you must specify the same format as the input file
+    -- that was imported to create it. Otherwise, Amazon Translate throws an
+    -- error.
+    terminologyDataFormat :: Prelude.Maybe TerminologyDataFormat,
+    -- | The name of the custom terminology being retrieved.
+    name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,30 +75,45 @@ data GetTerminology = GetTerminology'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getTerminology_name' - The name of the custom terminology being retrieved.
+-- 'terminologyDataFormat', 'getTerminology_terminologyDataFormat' - The data format of the custom terminology being retrieved.
 --
--- 'terminologyDataFormat', 'getTerminology_terminologyDataFormat' - The data format of the custom terminology being retrieved, either CSV or
--- TMX.
+-- If you don\'t specify this parameter, Amazon Translate returns a file
+-- with the same format as the file that was imported to create the
+-- terminology.
+--
+-- If you specify this parameter when you retrieve a multi-directional
+-- terminology resource, you must specify the same format as the input file
+-- that was imported to create it. Otherwise, Amazon Translate throws an
+-- error.
+--
+-- 'name', 'getTerminology_name' - The name of the custom terminology being retrieved.
 newGetTerminology ::
   -- | 'name'
   Prelude.Text ->
-  -- | 'terminologyDataFormat'
-  TerminologyDataFormat ->
   GetTerminology
-newGetTerminology pName_ pTerminologyDataFormat_ =
+newGetTerminology pName_ =
   GetTerminology'
-    { name = pName_,
-      terminologyDataFormat = pTerminologyDataFormat_
+    { terminologyDataFormat =
+        Prelude.Nothing,
+      name = pName_
     }
+
+-- | The data format of the custom terminology being retrieved.
+--
+-- If you don\'t specify this parameter, Amazon Translate returns a file
+-- with the same format as the file that was imported to create the
+-- terminology.
+--
+-- If you specify this parameter when you retrieve a multi-directional
+-- terminology resource, you must specify the same format as the input file
+-- that was imported to create it. Otherwise, Amazon Translate throws an
+-- error.
+getTerminology_terminologyDataFormat :: Lens.Lens' GetTerminology (Prelude.Maybe TerminologyDataFormat)
+getTerminology_terminologyDataFormat = Lens.lens (\GetTerminology' {terminologyDataFormat} -> terminologyDataFormat) (\s@GetTerminology' {} a -> s {terminologyDataFormat = a} :: GetTerminology)
 
 -- | The name of the custom terminology being retrieved.
 getTerminology_name :: Lens.Lens' GetTerminology Prelude.Text
 getTerminology_name = Lens.lens (\GetTerminology' {name} -> name) (\s@GetTerminology' {} a -> s {name = a} :: GetTerminology)
-
--- | The data format of the custom terminology being retrieved, either CSV or
--- TMX.
-getTerminology_terminologyDataFormat :: Lens.Lens' GetTerminology TerminologyDataFormat
-getTerminology_terminologyDataFormat = Lens.lens (\GetTerminology' {terminologyDataFormat} -> terminologyDataFormat) (\s@GetTerminology' {} a -> s {terminologyDataFormat = a} :: GetTerminology)
 
 instance Core.AWSRequest GetTerminology where
   type
@@ -101,19 +125,20 @@ instance Core.AWSRequest GetTerminology where
       ( \s h x ->
           GetTerminologyResponse'
             Prelude.<$> (x Core..?> "TerminologyDataLocation")
+            Prelude.<*> (x Core..?> "AuxiliaryDataLocation")
             Prelude.<*> (x Core..?> "TerminologyProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable GetTerminology where
   hashWithSalt _salt GetTerminology' {..} =
-    _salt `Prelude.hashWithSalt` name
-      `Prelude.hashWithSalt` terminologyDataFormat
+    _salt `Prelude.hashWithSalt` terminologyDataFormat
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData GetTerminology where
   rnf GetTerminology' {..} =
-    Prelude.rnf name
-      `Prelude.seq` Prelude.rnf terminologyDataFormat
+    Prelude.rnf terminologyDataFormat
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders GetTerminology where
   toHeaders =
@@ -134,11 +159,9 @@ instance Core.ToJSON GetTerminology where
   toJSON GetTerminology' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
-            Prelude.Just
-              ( "TerminologyDataFormat"
-                  Core..= terminologyDataFormat
-              )
+          [ ("TerminologyDataFormat" Core..=)
+              Prelude.<$> terminologyDataFormat,
+            Prelude.Just ("Name" Core..= name)
           ]
       )
 
@@ -150,10 +173,27 @@ instance Core.ToQuery GetTerminology where
 
 -- | /See:/ 'newGetTerminologyResponse' smart constructor.
 data GetTerminologyResponse = GetTerminologyResponse'
-  { -- | The data location of the custom terminology being retrieved. The custom
-    -- terminology file is returned in a presigned url that has a 30 minute
-    -- expiration.
+  { -- | The Amazon S3 location of the most recent custom terminology input file
+    -- that was successfully imported into Amazon Translate. The location is
+    -- returned as a presigned URL that has a 30-minute expiration.
+    --
+    -- Amazon Translate doesn\'t scan all input files for the risk of CSV
+    -- injection attacks.
+    --
+    -- CSV injection occurs when a .csv or .tsv file is altered so that a
+    -- record contains malicious code. The record begins with a special
+    -- character, such as =, +, -, or \@. When the file is opened in a
+    -- spreadsheet program, the program might interpret the record as a formula
+    -- and run the code within it.
+    --
+    -- Before you download an input file from Amazon S3, ensure that you
+    -- recognize the file and trust its creator.
     terminologyDataLocation :: Prelude.Maybe TerminologyDataLocation,
+    -- | The Amazon S3 location of a file that provides any errors or warnings
+    -- that were produced by your input file. This file was created when Amazon
+    -- Translate attempted to create a terminology resource. The location is
+    -- returned as a presigned URL to that has a 30-minute expiration.
+    auxiliaryDataLocation :: Prelude.Maybe TerminologyDataLocation,
     -- | The properties of the custom terminology being retrieved.
     terminologyProperties :: Prelude.Maybe TerminologyProperties,
     -- | The response's http status code.
@@ -169,9 +209,26 @@ data GetTerminologyResponse = GetTerminologyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'terminologyDataLocation', 'getTerminologyResponse_terminologyDataLocation' - The data location of the custom terminology being retrieved. The custom
--- terminology file is returned in a presigned url that has a 30 minute
--- expiration.
+-- 'terminologyDataLocation', 'getTerminologyResponse_terminologyDataLocation' - The Amazon S3 location of the most recent custom terminology input file
+-- that was successfully imported into Amazon Translate. The location is
+-- returned as a presigned URL that has a 30-minute expiration.
+--
+-- Amazon Translate doesn\'t scan all input files for the risk of CSV
+-- injection attacks.
+--
+-- CSV injection occurs when a .csv or .tsv file is altered so that a
+-- record contains malicious code. The record begins with a special
+-- character, such as =, +, -, or \@. When the file is opened in a
+-- spreadsheet program, the program might interpret the record as a formula
+-- and run the code within it.
+--
+-- Before you download an input file from Amazon S3, ensure that you
+-- recognize the file and trust its creator.
+--
+-- 'auxiliaryDataLocation', 'getTerminologyResponse_auxiliaryDataLocation' - The Amazon S3 location of a file that provides any errors or warnings
+-- that were produced by your input file. This file was created when Amazon
+-- Translate attempted to create a terminology resource. The location is
+-- returned as a presigned URL to that has a 30-minute expiration.
 --
 -- 'terminologyProperties', 'getTerminologyResponse_terminologyProperties' - The properties of the custom terminology being retrieved.
 --
@@ -184,15 +241,35 @@ newGetTerminologyResponse pHttpStatus_ =
   GetTerminologyResponse'
     { terminologyDataLocation =
         Prelude.Nothing,
+      auxiliaryDataLocation = Prelude.Nothing,
       terminologyProperties = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The data location of the custom terminology being retrieved. The custom
--- terminology file is returned in a presigned url that has a 30 minute
--- expiration.
+-- | The Amazon S3 location of the most recent custom terminology input file
+-- that was successfully imported into Amazon Translate. The location is
+-- returned as a presigned URL that has a 30-minute expiration.
+--
+-- Amazon Translate doesn\'t scan all input files for the risk of CSV
+-- injection attacks.
+--
+-- CSV injection occurs when a .csv or .tsv file is altered so that a
+-- record contains malicious code. The record begins with a special
+-- character, such as =, +, -, or \@. When the file is opened in a
+-- spreadsheet program, the program might interpret the record as a formula
+-- and run the code within it.
+--
+-- Before you download an input file from Amazon S3, ensure that you
+-- recognize the file and trust its creator.
 getTerminologyResponse_terminologyDataLocation :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyDataLocation)
 getTerminologyResponse_terminologyDataLocation = Lens.lens (\GetTerminologyResponse' {terminologyDataLocation} -> terminologyDataLocation) (\s@GetTerminologyResponse' {} a -> s {terminologyDataLocation = a} :: GetTerminologyResponse)
+
+-- | The Amazon S3 location of a file that provides any errors or warnings
+-- that were produced by your input file. This file was created when Amazon
+-- Translate attempted to create a terminology resource. The location is
+-- returned as a presigned URL to that has a 30-minute expiration.
+getTerminologyResponse_auxiliaryDataLocation :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyDataLocation)
+getTerminologyResponse_auxiliaryDataLocation = Lens.lens (\GetTerminologyResponse' {auxiliaryDataLocation} -> auxiliaryDataLocation) (\s@GetTerminologyResponse' {} a -> s {auxiliaryDataLocation = a} :: GetTerminologyResponse)
 
 -- | The properties of the custom terminology being retrieved.
 getTerminologyResponse_terminologyProperties :: Lens.Lens' GetTerminologyResponse (Prelude.Maybe TerminologyProperties)
@@ -205,5 +282,6 @@ getTerminologyResponse_httpStatus = Lens.lens (\GetTerminologyResponse' {httpSta
 instance Prelude.NFData GetTerminologyResponse where
   rnf GetTerminologyResponse' {..} =
     Prelude.rnf terminologyDataLocation
+      `Prelude.seq` Prelude.rnf auxiliaryDataLocation
       `Prelude.seq` Prelude.rnf terminologyProperties
       `Prelude.seq` Prelude.rnf httpStatus

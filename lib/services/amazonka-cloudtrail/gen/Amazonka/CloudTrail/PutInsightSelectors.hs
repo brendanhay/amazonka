@@ -23,8 +23,8 @@
 -- Lets you enable Insights event logging by specifying the Insights
 -- selectors that you want to enable on an existing trail. You also use
 -- @PutInsightSelectors@ to turn off Insights event logging, by passing an
--- empty list of insight types. The valid Insights event type in this
--- release is @ApiCallRateInsight@.
+-- empty list of insight types. The valid Insights event types in this
+-- release are @ApiErrorRateInsight@ and @ApiCallRateInsight@.
 module Amazonka.CloudTrail.PutInsightSelectors
   ( -- * Creating a Request
     PutInsightSelectors (..),
@@ -57,8 +57,9 @@ data PutInsightSelectors = PutInsightSelectors'
   { -- | The name of the CloudTrail trail for which you want to change or add
     -- Insights selectors.
     trailName :: Prelude.Text,
-    -- | A JSON string that contains the Insights types that you want to log on a
-    -- trail. The valid Insights type in this release is @ApiCallRateInsight@.
+    -- | A JSON string that contains the insight types you want to log on a
+    -- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid insight
+    -- types.
     insightSelectors :: [InsightSelector]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,8 +75,9 @@ data PutInsightSelectors = PutInsightSelectors'
 -- 'trailName', 'putInsightSelectors_trailName' - The name of the CloudTrail trail for which you want to change or add
 -- Insights selectors.
 --
--- 'insightSelectors', 'putInsightSelectors_insightSelectors' - A JSON string that contains the Insights types that you want to log on a
--- trail. The valid Insights type in this release is @ApiCallRateInsight@.
+-- 'insightSelectors', 'putInsightSelectors_insightSelectors' - A JSON string that contains the insight types you want to log on a
+-- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid insight
+-- types.
 newPutInsightSelectors ::
   -- | 'trailName'
   Prelude.Text ->
@@ -91,8 +93,9 @@ newPutInsightSelectors pTrailName_ =
 putInsightSelectors_trailName :: Lens.Lens' PutInsightSelectors Prelude.Text
 putInsightSelectors_trailName = Lens.lens (\PutInsightSelectors' {trailName} -> trailName) (\s@PutInsightSelectors' {} a -> s {trailName = a} :: PutInsightSelectors)
 
--- | A JSON string that contains the Insights types that you want to log on a
--- trail. The valid Insights type in this release is @ApiCallRateInsight@.
+-- | A JSON string that contains the insight types you want to log on a
+-- trail. @ApiCallRateInsight@ and @ApiErrorRateInsight@ are valid insight
+-- types.
 putInsightSelectors_insightSelectors :: Lens.Lens' PutInsightSelectors [InsightSelector]
 putInsightSelectors_insightSelectors = Lens.lens (\PutInsightSelectors' {insightSelectors} -> insightSelectors) (\s@PutInsightSelectors' {} a -> s {insightSelectors = a} :: PutInsightSelectors) Prelude.. Lens.coerced
 
@@ -156,8 +159,8 @@ instance Core.ToQuery PutInsightSelectors where
 -- | /See:/ 'newPutInsightSelectorsResponse' smart constructor.
 data PutInsightSelectorsResponse = PutInsightSelectorsResponse'
   { -- | A JSON string that contains the Insights event types that you want to
-    -- log on a trail. The valid Insights type in this release is
-    -- @ApiCallRateInsight@.
+    -- log on a trail. The valid Insights types in this release are
+    -- @ApiErrorRateInsight@ and @ApiCallRateInsight@.
     insightSelectors :: Prelude.Maybe [InsightSelector],
     -- | The Amazon Resource Name (ARN) of a trail for which you want to change
     -- or add Insights selectors.
@@ -176,8 +179,8 @@ data PutInsightSelectorsResponse = PutInsightSelectorsResponse'
 -- for backwards compatibility:
 --
 -- 'insightSelectors', 'putInsightSelectorsResponse_insightSelectors' - A JSON string that contains the Insights event types that you want to
--- log on a trail. The valid Insights type in this release is
--- @ApiCallRateInsight@.
+-- log on a trail. The valid Insights types in this release are
+-- @ApiErrorRateInsight@ and @ApiCallRateInsight@.
 --
 -- 'trailARN', 'putInsightSelectorsResponse_trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to change
 -- or add Insights selectors.
@@ -196,8 +199,8 @@ newPutInsightSelectorsResponse pHttpStatus_ =
     }
 
 -- | A JSON string that contains the Insights event types that you want to
--- log on a trail. The valid Insights type in this release is
--- @ApiCallRateInsight@.
+-- log on a trail. The valid Insights types in this release are
+-- @ApiErrorRateInsight@ and @ApiCallRateInsight@.
 putInsightSelectorsResponse_insightSelectors :: Lens.Lens' PutInsightSelectorsResponse (Prelude.Maybe [InsightSelector])
 putInsightSelectorsResponse_insightSelectors = Lens.lens (\PutInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@PutInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: PutInsightSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 

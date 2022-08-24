@@ -188,8 +188,8 @@ instance Core.ToQuery GetInsightSelectors where
 -- | /See:/ 'newGetInsightSelectorsResponse' smart constructor.
 data GetInsightSelectorsResponse = GetInsightSelectorsResponse'
   { -- | A JSON string that contains the insight types you want to log on a
-    -- trail. In this release, only @ApiCallRateInsight@ is supported as an
-    -- insight type.
+    -- trail. In this release, @ApiErrorRateInsight@ and @ApiCallRateInsight@
+    -- are supported as insight types.
     insightSelectors :: Prelude.Maybe [InsightSelector],
     -- | The Amazon Resource Name (ARN) of a trail for which you want to get
     -- Insights selectors.
@@ -208,8 +208,8 @@ data GetInsightSelectorsResponse = GetInsightSelectorsResponse'
 -- for backwards compatibility:
 --
 -- 'insightSelectors', 'getInsightSelectorsResponse_insightSelectors' - A JSON string that contains the insight types you want to log on a
--- trail. In this release, only @ApiCallRateInsight@ is supported as an
--- insight type.
+-- trail. In this release, @ApiErrorRateInsight@ and @ApiCallRateInsight@
+-- are supported as insight types.
 --
 -- 'trailARN', 'getInsightSelectorsResponse_trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to get
 -- Insights selectors.
@@ -228,8 +228,8 @@ newGetInsightSelectorsResponse pHttpStatus_ =
     }
 
 -- | A JSON string that contains the insight types you want to log on a
--- trail. In this release, only @ApiCallRateInsight@ is supported as an
--- insight type.
+-- trail. In this release, @ApiErrorRateInsight@ and @ApiCallRateInsight@
+-- are supported as insight types.
 getInsightSelectorsResponse_insightSelectors :: Lens.Lens' GetInsightSelectorsResponse (Prelude.Maybe [InsightSelector])
 getInsightSelectorsResponse_insightSelectors = Lens.lens (\GetInsightSelectorsResponse' {insightSelectors} -> insightSelectors) (\s@GetInsightSelectorsResponse' {} a -> s {insightSelectors = a} :: GetInsightSelectorsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -19,12 +19,14 @@ module Amazonka.CloudTrail.Types
     -- * Errors
     _InvalidS3PrefixException,
     _InvalidTokenException,
+    _EventDataStoreTerminationProtectedException,
     _CloudTrailARNInvalidException,
     _OrganizationNotInAllFeaturesModeException,
     _UnsupportedOperationException,
     _TagsLimitExceededException,
     _TrailNotFoundException,
     _InvalidCloudWatchLogsLogGroupArnException,
+    _EventDataStoreAlreadyExistsException,
     _InvalidCloudWatchLogsRoleArnException,
     _InvalidHomeRegionException,
     _InvalidS3BucketNameException,
@@ -33,16 +35,25 @@ module Amazonka.CloudTrail.Types
     _InsufficientDependencyServiceAccessPermissionException,
     _ResourceNotFoundException,
     _CloudTrailAccessNotEnabledException,
+    _InvalidQueryStatusException,
     _S3BucketDoesNotExistException,
     _InvalidTagParameterException,
+    _InactiveEventDataStoreException,
     _InvalidMaxResultsException,
     _InvalidParameterCombinationException,
     _CloudTrailInvalidClientTokenIdException,
+    _InvalidEventDataStoreStatusException,
     _InvalidNextTokenException,
     _ConflictException,
+    _QueryIdNotFoundException,
     _KmsKeyNotFoundException,
     _InsightNotEnabledException,
+    _EventDataStoreMaxLimitExceededException,
     _InvalidEventCategoryException,
+    _InvalidDateRangeException,
+    _EventDataStoreARNInvalidException,
+    _InvalidQueryStatementException,
+    _InactiveQueryException,
     _TrailNotProvidedException,
     _InsufficientS3BucketPolicyException,
     _InvalidInsightSelectorsException,
@@ -55,21 +66,30 @@ module Amazonka.CloudTrail.Types
     _InsufficientSnsTopicPolicyException,
     _InvalidKmsKeyIdException,
     _MaximumNumberOfTrailsExceededException,
+    _EventDataStoreNotFoundException,
     _TrailAlreadyExistsException,
     _InvalidEventSelectorsException,
     _InvalidSnsTopicNameException,
     _NotOrganizationMasterAccountException,
+    _MaxConcurrentQueriesException,
     _KmsKeyDisabledException,
+    _InvalidParameterException,
     _OrganizationsNotInUseException,
 
     -- * EventCategory
     EventCategory (..),
+
+    -- * EventDataStoreStatus
+    EventDataStoreStatus (..),
 
     -- * InsightType
     InsightType (..),
 
     -- * LookupAttributeKey
     LookupAttributeKey (..),
+
+    -- * QueryStatus
+    QueryStatus (..),
 
     -- * ReadWriteType
     ReadWriteType (..),
@@ -110,6 +130,20 @@ module Amazonka.CloudTrail.Types
     event_accessKeyId,
     event_eventSource,
 
+    -- * EventDataStore
+    EventDataStore (..),
+    newEventDataStore,
+    eventDataStore_name,
+    eventDataStore_eventDataStoreArn,
+    eventDataStore_advancedEventSelectors,
+    eventDataStore_createdTimestamp,
+    eventDataStore_multiRegionEnabled,
+    eventDataStore_updatedTimestamp,
+    eventDataStore_status,
+    eventDataStore_retentionPeriod,
+    eventDataStore_organizationEnabled,
+    eventDataStore_terminationProtectionEnabled,
+
     -- * EventSelector
     EventSelector (..),
     newEventSelector,
@@ -136,6 +170,29 @@ module Amazonka.CloudTrail.Types
     publicKey_validityEndTime,
     publicKey_fingerprint,
     publicKey_value,
+
+    -- * Query
+    Query (..),
+    newQuery,
+    query_queryStatus,
+    query_queryId,
+    query_creationTime,
+
+    -- * QueryStatistics
+    QueryStatistics (..),
+    newQueryStatistics,
+    queryStatistics_totalResultsCount,
+    queryStatistics_bytesScanned,
+    queryStatistics_resultsCount,
+
+    -- * QueryStatisticsForDescribeQuery
+    QueryStatisticsForDescribeQuery (..),
+    newQueryStatisticsForDescribeQuery,
+    queryStatisticsForDescribeQuery_eventsScanned,
+    queryStatisticsForDescribeQuery_bytesScanned,
+    queryStatisticsForDescribeQuery_executionTimeInMillis,
+    queryStatisticsForDescribeQuery_eventsMatched,
+    queryStatisticsForDescribeQuery_creationTime,
 
     -- * Resource
     Resource (..),
@@ -189,12 +246,18 @@ import Amazonka.CloudTrail.Types.AdvancedFieldSelector
 import Amazonka.CloudTrail.Types.DataResource
 import Amazonka.CloudTrail.Types.Event
 import Amazonka.CloudTrail.Types.EventCategory
+import Amazonka.CloudTrail.Types.EventDataStore
+import Amazonka.CloudTrail.Types.EventDataStoreStatus
 import Amazonka.CloudTrail.Types.EventSelector
 import Amazonka.CloudTrail.Types.InsightSelector
 import Amazonka.CloudTrail.Types.InsightType
 import Amazonka.CloudTrail.Types.LookupAttribute
 import Amazonka.CloudTrail.Types.LookupAttributeKey
 import Amazonka.CloudTrail.Types.PublicKey
+import Amazonka.CloudTrail.Types.Query
+import Amazonka.CloudTrail.Types.QueryStatistics
+import Amazonka.CloudTrail.Types.QueryStatisticsForDescribeQuery
+import Amazonka.CloudTrail.Types.QueryStatus
 import Amazonka.CloudTrail.Types.ReadWriteType
 import Amazonka.CloudTrail.Types.Resource
 import Amazonka.CloudTrail.Types.ResourceTag
@@ -291,6 +354,14 @@ _InvalidTokenException =
     defaultService
     "InvalidTokenException"
 
+-- | The event data store cannot be deleted because termination protection is
+-- enabled for it.
+_EventDataStoreTerminationProtectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EventDataStoreTerminationProtectedException =
+  Core._MatchServiceError
+    defaultService
+    "EventDataStoreTerminationProtectedException"
+
 -- | This exception is thrown when an operation is called with a trail ARN
 -- that is not valid. The following is the format of a trail ARN.
 --
@@ -303,8 +374,7 @@ _CloudTrailARNInvalidException =
 
 -- | This exception is thrown when Organizations is not configured to support
 -- all features. All features must be enabled in Organizations to support
--- creating an organization trail. For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html Prepare For Creating a Trail For Your Organization>.
+-- creating an organization trail or event data store.
 _OrganizationNotInAllFeaturesModeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OrganizationNotInAllFeaturesModeException =
   Core._MatchServiceError
@@ -341,6 +411,13 @@ _InvalidCloudWatchLogsLogGroupArnException =
   Core._MatchServiceError
     defaultService
     "InvalidCloudWatchLogsLogGroupArnException"
+
+-- | An event data store with that name already exists.
+_EventDataStoreAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EventDataStoreAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "EventDataStoreAlreadyExistsException"
 
 -- | This exception is thrown when the provided role is not valid.
 _InvalidCloudWatchLogsRoleArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -380,10 +457,8 @@ _ResourceTypeNotSupportedException =
     "ResourceTypeNotSupportedException"
 
 -- | This exception is thrown when the IAM user or role that is used to
--- create the organization trail is lacking one or more required
--- permissions for creating an organization trail in a required service.
--- For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html Prepare For Creating a Trail For Your Organization>.
+-- create the organization resource lacks one or more required permissions
+-- for creating an organization resource in a required service.
 _InsufficientDependencyServiceAccessPermissionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InsufficientDependencyServiceAccessPermissionException =
   Core._MatchServiceError
@@ -408,6 +483,13 @@ _CloudTrailAccessNotEnabledException =
     defaultService
     "CloudTrailAccessNotEnabledException"
 
+-- | The query status is not valid for the operation.
+_InvalidQueryStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidQueryStatusException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidQueryStatusException"
+
 -- | This exception is thrown when the specified S3 bucket does not exist.
 _S3BucketDoesNotExistException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _S3BucketDoesNotExistException =
@@ -423,6 +505,13 @@ _InvalidTagParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidTagParameterException"
+
+-- | The event data store is inactive.
+_InactiveEventDataStoreException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InactiveEventDataStoreException =
+  Core._MatchServiceError
+    defaultService
+    "InactiveEventDataStoreException"
 
 -- | This exception is thrown if the limit specified is not valid.
 _InvalidMaxResultsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -449,6 +538,13 @@ _CloudTrailInvalidClientTokenIdException =
     defaultService
     "CloudTrailInvalidClientTokenIdException"
 
+-- | The event data store is not in a status that supports the operation.
+_InvalidEventDataStoreStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidEventDataStoreStatusException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidEventDataStoreStatusException"
+
 -- | A token that is not valid, or a token that was previously used in a
 -- request with different parameters. This exception is thrown if the token
 -- is not valid.
@@ -459,14 +555,21 @@ _InvalidNextTokenException =
     "InvalidNextTokenException"
 
 -- | This exception is thrown when the specified resource is not ready for an
--- operation. This can occur when you try to run an operation on a trail
--- before CloudTrail has time to fully load the trail. If this exception
+-- operation. This can occur when you try to run an operation on a resource
+-- before CloudTrail has time to fully load the resource. If this exception
 -- occurs, wait a few minutes, and then try the operation again.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
+
+-- | The query ID does not exist or does not map to a query.
+_QueryIdNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_QueryIdNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "QueryIdNotFoundException"
 
 -- | This exception is thrown when the KMS key does not exist, when the S3
 -- bucket and the KMS key are not in the same region, or when the KMS key
@@ -487,6 +590,13 @@ _InsightNotEnabledException =
     defaultService
     "InsightNotEnabledException"
 
+-- | Your account has used the maximum number of event data stores.
+_EventDataStoreMaxLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EventDataStoreMaxLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "EventDataStoreMaxLimitExceededException"
+
 -- | Occurs if an event category that is not valid is specified as a value of
 -- @EventCategory@.
 _InvalidEventCategoryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -494,6 +604,44 @@ _InvalidEventCategoryException =
   Core._MatchServiceError
     defaultService
     "InvalidEventCategoryException"
+
+-- | A date range for the query was specified that is not valid. Be sure that
+-- the start time is chronologically before the end time. For more
+-- information about writing a query, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html Create or edit a query>
+-- in the /CloudTrail User Guide/.
+_InvalidDateRangeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidDateRangeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidDateRangeException"
+
+-- | The specified event data store ARN is not valid or does not map to an
+-- event data store in your account.
+_EventDataStoreARNInvalidException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EventDataStoreARNInvalidException =
+  Core._MatchServiceError
+    defaultService
+    "EventDataStoreARNInvalidException"
+
+-- | The query that was submitted has validation errors, or uses incorrect
+-- syntax or unsupported keywords. For more information about writing a
+-- query, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html Create or edit a query>
+-- in the /CloudTrail User Guide/.
+_InvalidQueryStatementException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidQueryStatementException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidQueryStatementException"
+
+-- | The specified query cannot be canceled because it is in the @FINISHED@,
+-- @FAILED@, @TIMED_OUT@, or @CANCELLED@ state.
+_InactiveQueryException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InactiveQueryException =
+  Core._MatchServiceError
+    defaultService
+    "InactiveQueryException"
 
 -- | This exception is no longer in use.
 _TrailNotProvidedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -601,6 +749,13 @@ _MaximumNumberOfTrailsExceededException =
     defaultService
     "MaximumNumberOfTrailsExceededException"
 
+-- | The specified event data store was not found.
+_EventDataStoreNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EventDataStoreNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "EventDataStoreNotFoundException"
+
 -- | This exception is thrown when the specified trail already exists.
 _TrailAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TrailAlreadyExistsException =
@@ -647,14 +802,25 @@ _InvalidSnsTopicNameException =
     "InvalidSnsTopicNameException"
 
 -- | This exception is thrown when the Amazon Web Services account making the
--- request to create or update an organization trail is not the management
--- account for an organization in Organizations. For more information, see
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html Prepare For Creating a Trail For Your Organization>.
+-- request to create or update an organization trail or event data store is
+-- not the management account for an organization in Organizations. For
+-- more information, see
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html Prepare For Creating a Trail For Your Organization>
+-- or
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html Create an event data store>.
 _NotOrganizationMasterAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NotOrganizationMasterAccountException =
   Core._MatchServiceError
     defaultService
     "NotOrganizationMasterAccountException"
+
+-- | You are already running the maximum number of concurrent queries. Wait a
+-- minute for some queries to finish, and then run the query again.
+_MaxConcurrentQueriesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MaxConcurrentQueriesException =
+  Core._MatchServiceError
+    defaultService
+    "MaxConcurrentQueriesException"
 
 -- | This exception is no longer in use.
 _KmsKeyDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -662,6 +828,13 @@ _KmsKeyDisabledException =
   Core._MatchServiceError
     defaultService
     "KmsKeyDisabledException"
+
+-- | The request includes a parameter that is not valid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
 
 -- | This exception is thrown when the request is made from an Amazon Web
 -- Services account that is not a member of an organization. To make this

@@ -50,6 +50,9 @@ module Amazonka.CloudTrail
     -- ** InvalidTokenException
     _InvalidTokenException,
 
+    -- ** EventDataStoreTerminationProtectedException
+    _EventDataStoreTerminationProtectedException,
+
     -- ** CloudTrailARNInvalidException
     _CloudTrailARNInvalidException,
 
@@ -67,6 +70,9 @@ module Amazonka.CloudTrail
 
     -- ** InvalidCloudWatchLogsLogGroupArnException
     _InvalidCloudWatchLogsLogGroupArnException,
+
+    -- ** EventDataStoreAlreadyExistsException
+    _EventDataStoreAlreadyExistsException,
 
     -- ** InvalidCloudWatchLogsRoleArnException
     _InvalidCloudWatchLogsRoleArnException,
@@ -92,11 +98,17 @@ module Amazonka.CloudTrail
     -- ** CloudTrailAccessNotEnabledException
     _CloudTrailAccessNotEnabledException,
 
+    -- ** InvalidQueryStatusException
+    _InvalidQueryStatusException,
+
     -- ** S3BucketDoesNotExistException
     _S3BucketDoesNotExistException,
 
     -- ** InvalidTagParameterException
     _InvalidTagParameterException,
+
+    -- ** InactiveEventDataStoreException
+    _InactiveEventDataStoreException,
 
     -- ** InvalidMaxResultsException
     _InvalidMaxResultsException,
@@ -107,11 +119,17 @@ module Amazonka.CloudTrail
     -- ** CloudTrailInvalidClientTokenIdException
     _CloudTrailInvalidClientTokenIdException,
 
+    -- ** InvalidEventDataStoreStatusException
+    _InvalidEventDataStoreStatusException,
+
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
 
     -- ** ConflictException
     _ConflictException,
+
+    -- ** QueryIdNotFoundException
+    _QueryIdNotFoundException,
 
     -- ** KmsKeyNotFoundException
     _KmsKeyNotFoundException,
@@ -119,8 +137,23 @@ module Amazonka.CloudTrail
     -- ** InsightNotEnabledException
     _InsightNotEnabledException,
 
+    -- ** EventDataStoreMaxLimitExceededException
+    _EventDataStoreMaxLimitExceededException,
+
     -- ** InvalidEventCategoryException
     _InvalidEventCategoryException,
+
+    -- ** InvalidDateRangeException
+    _InvalidDateRangeException,
+
+    -- ** EventDataStoreARNInvalidException
+    _EventDataStoreARNInvalidException,
+
+    -- ** InvalidQueryStatementException
+    _InvalidQueryStatementException,
+
+    -- ** InactiveQueryException
+    _InactiveQueryException,
 
     -- ** TrailNotProvidedException
     _TrailNotProvidedException,
@@ -158,6 +191,9 @@ module Amazonka.CloudTrail
     -- ** MaximumNumberOfTrailsExceededException
     _MaximumNumberOfTrailsExceededException,
 
+    -- ** EventDataStoreNotFoundException
+    _EventDataStoreNotFoundException,
+
     -- ** TrailAlreadyExistsException
     _TrailAlreadyExistsException,
 
@@ -170,8 +206,14 @@ module Amazonka.CloudTrail
     -- ** NotOrganizationMasterAccountException
     _NotOrganizationMasterAccountException,
 
+    -- ** MaxConcurrentQueriesException
+    _MaxConcurrentQueriesException,
+
     -- ** KmsKeyDisabledException
     _KmsKeyDisabledException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
 
     -- ** OrganizationsNotInUseException
     _OrganizationsNotInUseException,
@@ -188,11 +230,29 @@ module Amazonka.CloudTrail
     AddTagsResponse (AddTagsResponse'),
     newAddTagsResponse,
 
+    -- ** CancelQuery
+    CancelQuery (CancelQuery'),
+    newCancelQuery,
+    CancelQueryResponse (CancelQueryResponse'),
+    newCancelQueryResponse,
+
+    -- ** CreateEventDataStore
+    CreateEventDataStore (CreateEventDataStore'),
+    newCreateEventDataStore,
+    CreateEventDataStoreResponse (CreateEventDataStoreResponse'),
+    newCreateEventDataStoreResponse,
+
     -- ** CreateTrail
     CreateTrail (CreateTrail'),
     newCreateTrail,
     CreateTrailResponse (CreateTrailResponse'),
     newCreateTrailResponse,
+
+    -- ** DeleteEventDataStore
+    DeleteEventDataStore (DeleteEventDataStore'),
+    newDeleteEventDataStore,
+    DeleteEventDataStoreResponse (DeleteEventDataStoreResponse'),
+    newDeleteEventDataStoreResponse,
 
     -- ** DeleteTrail
     DeleteTrail (DeleteTrail'),
@@ -200,11 +260,23 @@ module Amazonka.CloudTrail
     DeleteTrailResponse (DeleteTrailResponse'),
     newDeleteTrailResponse,
 
+    -- ** DescribeQuery
+    DescribeQuery (DescribeQuery'),
+    newDescribeQuery,
+    DescribeQueryResponse (DescribeQueryResponse'),
+    newDescribeQueryResponse,
+
     -- ** DescribeTrails
     DescribeTrails (DescribeTrails'),
     newDescribeTrails,
     DescribeTrailsResponse (DescribeTrailsResponse'),
     newDescribeTrailsResponse,
+
+    -- ** GetEventDataStore
+    GetEventDataStore (GetEventDataStore'),
+    newGetEventDataStore,
+    GetEventDataStoreResponse (GetEventDataStoreResponse'),
+    newGetEventDataStoreResponse,
 
     -- ** GetEventSelectors
     GetEventSelectors (GetEventSelectors'),
@@ -218,6 +290,12 @@ module Amazonka.CloudTrail
     GetInsightSelectorsResponse (GetInsightSelectorsResponse'),
     newGetInsightSelectorsResponse,
 
+    -- ** GetQueryResults
+    GetQueryResults (GetQueryResults'),
+    newGetQueryResults,
+    GetQueryResultsResponse (GetQueryResultsResponse'),
+    newGetQueryResultsResponse,
+
     -- ** GetTrail
     GetTrail (GetTrail'),
     newGetTrail,
@@ -230,11 +308,23 @@ module Amazonka.CloudTrail
     GetTrailStatusResponse (GetTrailStatusResponse'),
     newGetTrailStatusResponse,
 
+    -- ** ListEventDataStores
+    ListEventDataStores (ListEventDataStores'),
+    newListEventDataStores,
+    ListEventDataStoresResponse (ListEventDataStoresResponse'),
+    newListEventDataStoresResponse,
+
     -- ** ListPublicKeys (Paginated)
     ListPublicKeys (ListPublicKeys'),
     newListPublicKeys,
     ListPublicKeysResponse (ListPublicKeysResponse'),
     newListPublicKeysResponse,
+
+    -- ** ListQueries
+    ListQueries (ListQueries'),
+    newListQueries,
+    ListQueriesResponse (ListQueriesResponse'),
+    newListQueriesResponse,
 
     -- ** ListTags (Paginated)
     ListTags (ListTags'),
@@ -272,17 +362,35 @@ module Amazonka.CloudTrail
     RemoveTagsResponse (RemoveTagsResponse'),
     newRemoveTagsResponse,
 
+    -- ** RestoreEventDataStore
+    RestoreEventDataStore (RestoreEventDataStore'),
+    newRestoreEventDataStore,
+    RestoreEventDataStoreResponse (RestoreEventDataStoreResponse'),
+    newRestoreEventDataStoreResponse,
+
     -- ** StartLogging
     StartLogging (StartLogging'),
     newStartLogging,
     StartLoggingResponse (StartLoggingResponse'),
     newStartLoggingResponse,
 
+    -- ** StartQuery
+    StartQuery (StartQuery'),
+    newStartQuery,
+    StartQueryResponse (StartQueryResponse'),
+    newStartQueryResponse,
+
     -- ** StopLogging
     StopLogging (StopLogging'),
     newStopLogging,
     StopLoggingResponse (StopLoggingResponse'),
     newStopLoggingResponse,
+
+    -- ** UpdateEventDataStore
+    UpdateEventDataStore (UpdateEventDataStore'),
+    newUpdateEventDataStore,
+    UpdateEventDataStoreResponse (UpdateEventDataStoreResponse'),
+    newUpdateEventDataStoreResponse,
 
     -- ** UpdateTrail
     UpdateTrail (UpdateTrail'),
@@ -295,11 +403,17 @@ module Amazonka.CloudTrail
     -- ** EventCategory
     EventCategory (..),
 
+    -- ** EventDataStoreStatus
+    EventDataStoreStatus (..),
+
     -- ** InsightType
     InsightType (..),
 
     -- ** LookupAttributeKey
     LookupAttributeKey (..),
+
+    -- ** QueryStatus
+    QueryStatus (..),
 
     -- ** ReadWriteType
     ReadWriteType (..),
@@ -320,6 +434,10 @@ module Amazonka.CloudTrail
     Event (Event'),
     newEvent,
 
+    -- ** EventDataStore
+    EventDataStore (EventDataStore'),
+    newEventDataStore,
+
     -- ** EventSelector
     EventSelector (EventSelector'),
     newEventSelector,
@@ -335,6 +453,18 @@ module Amazonka.CloudTrail
     -- ** PublicKey
     PublicKey (PublicKey'),
     newPublicKey,
+
+    -- ** Query
+    Query (Query'),
+    newQuery,
+
+    -- ** QueryStatistics
+    QueryStatistics (QueryStatistics'),
+    newQueryStatistics,
+
+    -- ** QueryStatisticsForDescribeQuery
+    QueryStatisticsForDescribeQuery (QueryStatisticsForDescribeQuery'),
+    newQueryStatisticsForDescribeQuery,
 
     -- ** Resource
     Resource (Resource'),
@@ -359,24 +489,35 @@ module Amazonka.CloudTrail
 where
 
 import Amazonka.CloudTrail.AddTags
+import Amazonka.CloudTrail.CancelQuery
+import Amazonka.CloudTrail.CreateEventDataStore
 import Amazonka.CloudTrail.CreateTrail
+import Amazonka.CloudTrail.DeleteEventDataStore
 import Amazonka.CloudTrail.DeleteTrail
+import Amazonka.CloudTrail.DescribeQuery
 import Amazonka.CloudTrail.DescribeTrails
+import Amazonka.CloudTrail.GetEventDataStore
 import Amazonka.CloudTrail.GetEventSelectors
 import Amazonka.CloudTrail.GetInsightSelectors
+import Amazonka.CloudTrail.GetQueryResults
 import Amazonka.CloudTrail.GetTrail
 import Amazonka.CloudTrail.GetTrailStatus
 import Amazonka.CloudTrail.Lens
+import Amazonka.CloudTrail.ListEventDataStores
 import Amazonka.CloudTrail.ListPublicKeys
+import Amazonka.CloudTrail.ListQueries
 import Amazonka.CloudTrail.ListTags
 import Amazonka.CloudTrail.ListTrails
 import Amazonka.CloudTrail.LookupEvents
 import Amazonka.CloudTrail.PutEventSelectors
 import Amazonka.CloudTrail.PutInsightSelectors
 import Amazonka.CloudTrail.RemoveTags
+import Amazonka.CloudTrail.RestoreEventDataStore
 import Amazonka.CloudTrail.StartLogging
+import Amazonka.CloudTrail.StartQuery
 import Amazonka.CloudTrail.StopLogging
 import Amazonka.CloudTrail.Types
+import Amazonka.CloudTrail.UpdateEventDataStore
 import Amazonka.CloudTrail.UpdateTrail
 import Amazonka.CloudTrail.Waiters
 

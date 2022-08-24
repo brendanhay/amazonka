@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.CloudTrail.Types.InsightType
+-- Module      : Amazonka.CloudTrail.Types.EventDataStoreStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.CloudTrail.Types.InsightType
-  ( InsightType
+module Amazonka.CloudTrail.Types.EventDataStoreStatus
+  ( EventDataStoreStatus
       ( ..,
-        InsightType_ApiCallRateInsight,
-        InsightType_ApiErrorRateInsight
+        EventDataStoreStatus_CREATED,
+        EventDataStoreStatus_ENABLED,
+        EventDataStoreStatus_PENDING_DELETION
       ),
   )
 where
@@ -29,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype InsightType = InsightType'
-  { fromInsightType ::
+newtype EventDataStoreStatus = EventDataStoreStatus'
+  { fromEventDataStoreStatus ::
       Core.Text
   }
   deriving stock
@@ -57,14 +58,18 @@ newtype InsightType = InsightType'
       Core.ToXML
     )
 
-pattern InsightType_ApiCallRateInsight :: InsightType
-pattern InsightType_ApiCallRateInsight = InsightType' "ApiCallRateInsight"
+pattern EventDataStoreStatus_CREATED :: EventDataStoreStatus
+pattern EventDataStoreStatus_CREATED = EventDataStoreStatus' "CREATED"
 
-pattern InsightType_ApiErrorRateInsight :: InsightType
-pattern InsightType_ApiErrorRateInsight = InsightType' "ApiErrorRateInsight"
+pattern EventDataStoreStatus_ENABLED :: EventDataStoreStatus
+pattern EventDataStoreStatus_ENABLED = EventDataStoreStatus' "ENABLED"
+
+pattern EventDataStoreStatus_PENDING_DELETION :: EventDataStoreStatus
+pattern EventDataStoreStatus_PENDING_DELETION = EventDataStoreStatus' "PENDING_DELETION"
 
 {-# COMPLETE
-  InsightType_ApiCallRateInsight,
-  InsightType_ApiErrorRateInsight,
-  InsightType'
+  EventDataStoreStatus_CREATED,
+  EventDataStoreStatus_ENABLED,
+  EventDataStoreStatus_PENDING_DELETION,
+  EventDataStoreStatus'
   #-}

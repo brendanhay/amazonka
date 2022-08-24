@@ -52,7 +52,9 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     -- management events), @eventName@, @resources.type@, and @resources.ARN@.
     --
     -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
-    --     or @false@. A value of @false@ logs both @read@ and @write@ events.
+    --     or @false@. If you do not add this field, CloudTrail logs both both
+    --     @read@ and @write@ events. A value of @true@ logs only @read@
+    --     events. A value of @false@ logs only @write@ events.
     --
     -- -   __@eventSource@__ - For filtering management events only. This can
     --     be set only to @NotEquals@ @kms.amazonaws.com@.
@@ -67,14 +69,32 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     --
     -- -   __@resources.type@__ - This ﬁeld is required. @resources.type@ can
     --     only use the @Equals@ operator, and the value can be one of the
-    --     following: @AWS::S3::Object@, @AWS::S3::AccessPoint@,
-    --     @AWS::Lambda::Function@, @AWS::DynamoDB::Table@,
-    --     @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
-    --     @AWS::S3ObjectLambda::AccessPoint@, or @AWS::EC2::Snapshot@. You can
-    --     have only one @resources.type@ ﬁeld per selector. To log data events
-    --     on more than one resource type, add another selector.
+    --     following:
     --
-    -- -   __@resources.ARN@__ - You can use any operator with resources.ARN,
+    --     -   @AWS::S3::Object@
+    --
+    --     -   @AWS::Lambda::Function@
+    --
+    --     -   @AWS::DynamoDB::Table@
+    --
+    --     -   @AWS::S3Outposts::Object@
+    --
+    --     -   @AWS::ManagedBlockchain::Node@
+    --
+    --     -   @AWS::S3ObjectLambda::AccessPoint@
+    --
+    --     -   @AWS::EC2::Snapshot@
+    --
+    --     -   @AWS::S3::AccessPoint@
+    --
+    --     -   @AWS::DynamoDB::Stream@
+    --
+    --     -   @AWS::Glue::Table@
+    --
+    --     You can have only one @resources.type@ ﬁeld per selector. To log
+    --     data events on more than one resource type, add another selector.
+    --
+    -- -   __@resources.ARN@__ - You can use any operator with @resources.ARN@,
     --     but if you use @Equals@ or @NotEquals@, the value must exactly match
     --     the ARN of a valid resource of the type you\'ve speciﬁed in the
     --     template as the value of resources.type. For example, if
@@ -112,7 +132,7 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
     --     format:
     --
-    --     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table:\<table_name>@
+    --     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
     --
     --     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
     --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
@@ -137,6 +157,18 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
     --     format:
     --
     --     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
+    --
+    --     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+    --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+    --     following format:
+    --
+    --     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
+    --
+    --     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
+    --     set to @Equals@ or @NotEquals@, the ARN must be in the following
+    --     format:
+    --
+    --     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
     field :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -174,7 +206,9 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 -- management events), @eventName@, @resources.type@, and @resources.ARN@.
 --
 -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
---     or @false@. A value of @false@ logs both @read@ and @write@ events.
+--     or @false@. If you do not add this field, CloudTrail logs both both
+--     @read@ and @write@ events. A value of @true@ logs only @read@
+--     events. A value of @false@ logs only @write@ events.
 --
 -- -   __@eventSource@__ - For filtering management events only. This can
 --     be set only to @NotEquals@ @kms.amazonaws.com@.
@@ -189,14 +223,32 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 --
 -- -   __@resources.type@__ - This ﬁeld is required. @resources.type@ can
 --     only use the @Equals@ operator, and the value can be one of the
---     following: @AWS::S3::Object@, @AWS::S3::AccessPoint@,
---     @AWS::Lambda::Function@, @AWS::DynamoDB::Table@,
---     @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
---     @AWS::S3ObjectLambda::AccessPoint@, or @AWS::EC2::Snapshot@. You can
---     have only one @resources.type@ ﬁeld per selector. To log data events
---     on more than one resource type, add another selector.
+--     following:
 --
--- -   __@resources.ARN@__ - You can use any operator with resources.ARN,
+--     -   @AWS::S3::Object@
+--
+--     -   @AWS::Lambda::Function@
+--
+--     -   @AWS::DynamoDB::Table@
+--
+--     -   @AWS::S3Outposts::Object@
+--
+--     -   @AWS::ManagedBlockchain::Node@
+--
+--     -   @AWS::S3ObjectLambda::AccessPoint@
+--
+--     -   @AWS::EC2::Snapshot@
+--
+--     -   @AWS::S3::AccessPoint@
+--
+--     -   @AWS::DynamoDB::Stream@
+--
+--     -   @AWS::Glue::Table@
+--
+--     You can have only one @resources.type@ ﬁeld per selector. To log
+--     data events on more than one resource type, add another selector.
+--
+-- -   __@resources.ARN@__ - You can use any operator with @resources.ARN@,
 --     but if you use @Equals@ or @NotEquals@, the value must exactly match
 --     the ARN of a valid resource of the type you\'ve speciﬁed in the
 --     template as the value of resources.type. For example, if
@@ -234,7 +286,7 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
 --     format:
 --
---     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table:\<table_name>@
+--     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
 --
 --     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
 --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
@@ -259,6 +311,18 @@ data AdvancedFieldSelector = AdvancedFieldSelector'
 --     format:
 --
 --     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
+--
+--     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
+--
+--     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
+--     set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
 newAdvancedFieldSelector ::
   -- | 'field'
   Prelude.Text ->
@@ -311,7 +375,9 @@ advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notSta
 -- management events), @eventName@, @resources.type@, and @resources.ARN@.
 --
 -- -   __@readOnly@__ - Optional. Can be set to @Equals@ a value of @true@
---     or @false@. A value of @false@ logs both @read@ and @write@ events.
+--     or @false@. If you do not add this field, CloudTrail logs both both
+--     @read@ and @write@ events. A value of @true@ logs only @read@
+--     events. A value of @false@ logs only @write@ events.
 --
 -- -   __@eventSource@__ - For filtering management events only. This can
 --     be set only to @NotEquals@ @kms.amazonaws.com@.
@@ -326,14 +392,32 @@ advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notSta
 --
 -- -   __@resources.type@__ - This ﬁeld is required. @resources.type@ can
 --     only use the @Equals@ operator, and the value can be one of the
---     following: @AWS::S3::Object@, @AWS::S3::AccessPoint@,
---     @AWS::Lambda::Function@, @AWS::DynamoDB::Table@,
---     @AWS::S3Outposts::Object@, @AWS::ManagedBlockchain::Node@,
---     @AWS::S3ObjectLambda::AccessPoint@, or @AWS::EC2::Snapshot@. You can
---     have only one @resources.type@ ﬁeld per selector. To log data events
---     on more than one resource type, add another selector.
+--     following:
 --
--- -   __@resources.ARN@__ - You can use any operator with resources.ARN,
+--     -   @AWS::S3::Object@
+--
+--     -   @AWS::Lambda::Function@
+--
+--     -   @AWS::DynamoDB::Table@
+--
+--     -   @AWS::S3Outposts::Object@
+--
+--     -   @AWS::ManagedBlockchain::Node@
+--
+--     -   @AWS::S3ObjectLambda::AccessPoint@
+--
+--     -   @AWS::EC2::Snapshot@
+--
+--     -   @AWS::S3::AccessPoint@
+--
+--     -   @AWS::DynamoDB::Stream@
+--
+--     -   @AWS::Glue::Table@
+--
+--     You can have only one @resources.type@ ﬁeld per selector. To log
+--     data events on more than one resource type, add another selector.
+--
+-- -   __@resources.ARN@__ - You can use any operator with @resources.ARN@,
 --     but if you use @Equals@ or @NotEquals@, the value must exactly match
 --     the ARN of a valid resource of the type you\'ve speciﬁed in the
 --     template as the value of resources.type. For example, if
@@ -371,7 +455,7 @@ advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notSta
 --     is set to @Equals@ or @NotEquals@, the ARN must be in the following
 --     format:
 --
---     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table:\<table_name>@
+--     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>@
 --
 --     When @resources.type@ equals @AWS::S3Outposts::Object@, and the
 --     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
@@ -396,6 +480,18 @@ advancedFieldSelector_notStartsWith = Lens.lens (\AdvancedFieldSelector' {notSta
 --     format:
 --
 --     -   @arn:\<partition>:ec2:\<region>::snapshot\/\<snapshot_ID>@
+--
+--     When @resources.type@ equals @AWS::DynamoDB::Stream@, and the
+--     operator is set to @Equals@ or @NotEquals@, the ARN must be in the
+--     following format:
+--
+--     -   @arn:\<partition>:dynamodb:\<region>:\<account_ID>:table\/\<table_name>\/stream\/\<date_time>@
+--
+--     When @resources.type@ equals @AWS::Glue::Table@, and the operator is
+--     set to @Equals@ or @NotEquals@, the ARN must be in the following
+--     format:
+--
+--     -   @arn:\<partition>:glue:\<region>:\<account_ID>:table\/\<database_name>\/\<table_name>@
 advancedFieldSelector_field :: Lens.Lens' AdvancedFieldSelector Prelude.Text
 advancedFieldSelector_field = Lens.lens (\AdvancedFieldSelector' {field} -> field) (\s@AdvancedFieldSelector' {} a -> s {field = a} :: AdvancedFieldSelector)
 

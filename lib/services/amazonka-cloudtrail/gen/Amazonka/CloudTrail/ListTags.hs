@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags for the trail in the current region.
+-- Lists the tags for the trail or event data store in the current region.
 --
 -- This operation returns paginated results.
 module Amazonka.CloudTrail.ListTags
@@ -50,16 +50,14 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Specifies a list of trail tags to return.
+-- | Specifies a list of tags to return.
 --
 -- /See:/ 'newListTags' smart constructor.
 data ListTags = ListTags'
   { -- | Reserved for future use.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies a list of trail ARNs whose tags will be listed. The list has a
-    -- limit of 20 ARNs. The following is the format of a trail ARN.
-    --
-    -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+    -- | Specifies a list of trail and event data store ARNs whose tags will be
+    -- listed. The list has a limit of 20 ARNs.
     resourceIdList :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,10 +72,8 @@ data ListTags = ListTags'
 --
 -- 'nextToken', 'listTags_nextToken' - Reserved for future use.
 --
--- 'resourceIdList', 'listTags_resourceIdList' - Specifies a list of trail ARNs whose tags will be listed. The list has a
--- limit of 20 ARNs. The following is the format of a trail ARN.
---
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+-- 'resourceIdList', 'listTags_resourceIdList' - Specifies a list of trail and event data store ARNs whose tags will be
+-- listed. The list has a limit of 20 ARNs.
 newListTags ::
   ListTags
 newListTags =
@@ -90,10 +86,8 @@ newListTags =
 listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
 listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
--- | Specifies a list of trail ARNs whose tags will be listed. The list has a
--- limit of 20 ARNs. The following is the format of a trail ARN.
---
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
+-- | Specifies a list of trail and event data store ARNs whose tags will be
+-- listed. The list has a limit of 20 ARNs.
 listTags_resourceIdList :: Lens.Lens' ListTags [Prelude.Text]
 listTags_resourceIdList = Lens.lens (\ListTags' {resourceIdList} -> resourceIdList) (\s@ListTags' {} a -> s {resourceIdList = a} :: ListTags) Prelude.. Lens.coerced
 

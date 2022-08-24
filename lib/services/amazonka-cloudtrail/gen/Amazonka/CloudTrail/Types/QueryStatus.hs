@@ -11,17 +11,21 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.CloudTrail.Types.InsightType
+-- Module      : Amazonka.CloudTrail.Types.QueryStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.CloudTrail.Types.InsightType
-  ( InsightType
+module Amazonka.CloudTrail.Types.QueryStatus
+  ( QueryStatus
       ( ..,
-        InsightType_ApiCallRateInsight,
-        InsightType_ApiErrorRateInsight
+        QueryStatus_CANCELLED,
+        QueryStatus_FAILED,
+        QueryStatus_FINISHED,
+        QueryStatus_QUEUED,
+        QueryStatus_RUNNING,
+        QueryStatus_TIMED_OUT
       ),
   )
 where
@@ -29,8 +33,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype InsightType = InsightType'
-  { fromInsightType ::
+newtype QueryStatus = QueryStatus'
+  { fromQueryStatus ::
       Core.Text
   }
   deriving stock
@@ -57,14 +61,30 @@ newtype InsightType = InsightType'
       Core.ToXML
     )
 
-pattern InsightType_ApiCallRateInsight :: InsightType
-pattern InsightType_ApiCallRateInsight = InsightType' "ApiCallRateInsight"
+pattern QueryStatus_CANCELLED :: QueryStatus
+pattern QueryStatus_CANCELLED = QueryStatus' "CANCELLED"
 
-pattern InsightType_ApiErrorRateInsight :: InsightType
-pattern InsightType_ApiErrorRateInsight = InsightType' "ApiErrorRateInsight"
+pattern QueryStatus_FAILED :: QueryStatus
+pattern QueryStatus_FAILED = QueryStatus' "FAILED"
+
+pattern QueryStatus_FINISHED :: QueryStatus
+pattern QueryStatus_FINISHED = QueryStatus' "FINISHED"
+
+pattern QueryStatus_QUEUED :: QueryStatus
+pattern QueryStatus_QUEUED = QueryStatus' "QUEUED"
+
+pattern QueryStatus_RUNNING :: QueryStatus
+pattern QueryStatus_RUNNING = QueryStatus' "RUNNING"
+
+pattern QueryStatus_TIMED_OUT :: QueryStatus
+pattern QueryStatus_TIMED_OUT = QueryStatus' "TIMED_OUT"
 
 {-# COMPLETE
-  InsightType_ApiCallRateInsight,
-  InsightType_ApiErrorRateInsight,
-  InsightType'
+  QueryStatus_CANCELLED,
+  QueryStatus_FAILED,
+  QueryStatus_FINISHED,
+  QueryStatus_QUEUED,
+  QueryStatus_RUNNING,
+  QueryStatus_TIMED_OUT,
+  QueryStatus'
   #-}

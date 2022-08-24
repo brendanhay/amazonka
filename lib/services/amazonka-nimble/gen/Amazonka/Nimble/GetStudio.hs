@@ -34,8 +34,8 @@ module Amazonka.Nimble.GetStudio
     newGetStudioResponse,
 
     -- * Response Lenses
-    getStudioResponse_studio,
     getStudioResponse_httpStatus,
+    getStudioResponse_studio,
   )
 where
 
@@ -80,8 +80,8 @@ instance Core.AWSRequest GetStudio where
     Response.receiveJSON
       ( \s h x ->
           GetStudioResponse'
-            Prelude.<$> (x Core..?> "studio")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "studio")
       )
 
 instance Prelude.Hashable GetStudio where
@@ -112,12 +112,12 @@ instance Core.ToQuery GetStudio where
 
 -- | /See:/ 'newGetStudioResponse' smart constructor.
 data GetStudioResponse = GetStudioResponse'
-  { -- | Information about a studio.
-    studio :: Prelude.Maybe Studio,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about a studio.
+    studio :: Studio
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStudioResponse' with all optional fields omitted.
@@ -127,28 +127,30 @@ data GetStudioResponse = GetStudioResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studio', 'getStudioResponse_studio' - Information about a studio.
---
 -- 'httpStatus', 'getStudioResponse_httpStatus' - The response's http status code.
+--
+-- 'studio', 'getStudioResponse_studio' - Information about a studio.
 newGetStudioResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'studio'
+  Studio ->
   GetStudioResponse
-newGetStudioResponse pHttpStatus_ =
+newGetStudioResponse pHttpStatus_ pStudio_ =
   GetStudioResponse'
-    { studio = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+    { httpStatus = pHttpStatus_,
+      studio = pStudio_
     }
-
--- | Information about a studio.
-getStudioResponse_studio :: Lens.Lens' GetStudioResponse (Prelude.Maybe Studio)
-getStudioResponse_studio = Lens.lens (\GetStudioResponse' {studio} -> studio) (\s@GetStudioResponse' {} a -> s {studio = a} :: GetStudioResponse)
 
 -- | The response's http status code.
 getStudioResponse_httpStatus :: Lens.Lens' GetStudioResponse Prelude.Int
 getStudioResponse_httpStatus = Lens.lens (\GetStudioResponse' {httpStatus} -> httpStatus) (\s@GetStudioResponse' {} a -> s {httpStatus = a} :: GetStudioResponse)
 
+-- | Information about a studio.
+getStudioResponse_studio :: Lens.Lens' GetStudioResponse Studio
+getStudioResponse_studio = Lens.lens (\GetStudioResponse' {studio} -> studio) (\s@GetStudioResponse' {} a -> s {studio = a} :: GetStudioResponse)
+
 instance Prelude.NFData GetStudioResponse where
   rnf GetStudioResponse' {..} =
-    Prelude.rnf studio
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf studio

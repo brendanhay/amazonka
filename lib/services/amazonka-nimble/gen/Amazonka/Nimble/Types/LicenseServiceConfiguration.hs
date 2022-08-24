@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 data LicenseServiceConfiguration = LicenseServiceConfiguration'
   { -- | The endpoint of the license service that is accessed by the studio
     -- component resource.
-    endpoint :: Prelude.Maybe Prelude.Text
+    endpoint :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LicenseServiceConfiguration' with all optional fields omitted.
@@ -55,7 +55,7 @@ newLicenseServiceConfiguration =
 -- | The endpoint of the license service that is accessed by the studio
 -- component resource.
 licenseServiceConfiguration_endpoint :: Lens.Lens' LicenseServiceConfiguration (Prelude.Maybe Prelude.Text)
-licenseServiceConfiguration_endpoint = Lens.lens (\LicenseServiceConfiguration' {endpoint} -> endpoint) (\s@LicenseServiceConfiguration' {} a -> s {endpoint = a} :: LicenseServiceConfiguration)
+licenseServiceConfiguration_endpoint = Lens.lens (\LicenseServiceConfiguration' {endpoint} -> endpoint) (\s@LicenseServiceConfiguration' {} a -> s {endpoint = a} :: LicenseServiceConfiguration) Prelude.. Lens.mapping Core._Sensitive
 
 instance Core.FromJSON LicenseServiceConfiguration where
   parseJSON =

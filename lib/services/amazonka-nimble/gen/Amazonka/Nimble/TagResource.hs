@@ -46,14 +46,12 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The ARN for the role that manages access.
---
--- /See:/ 'newTagResource' smart constructor.
+-- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | A collection of labels, in the form of key:value pairs, that apply to
     -- this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ARN of the target resource for tagging operations.
+    -- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +67,7 @@ data TagResource = TagResource'
 -- 'tags', 'tagResource_tags' - A collection of labels, in the form of key:value pairs, that apply to
 -- this resource.
 --
--- 'resourceArn', 'tagResource_resourceArn' - The ARN of the target resource for tagging operations.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource you want to add tags to.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -85,7 +83,7 @@ newTagResource pResourceArn_ =
 tagResource_tags :: Lens.Lens' TagResource (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN of the target resource for tagging operations.
+-- | The Amazon Resource Name (ARN) of the resource you want to add tags to.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 

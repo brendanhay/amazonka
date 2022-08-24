@@ -138,8 +138,14 @@ import Test.Tasty
 --         , requestPutStudioMembers $
 --             newPutStudioMembers
 --
+--         , requestStartStreamingSession $
+--             newStartStreamingSession
+--
 --         , requestStartStudioSSOConfigurationRepair $
 --             newStartStudioSSOConfigurationRepair
+--
+--         , requestStopStreamingSession $
+--             newStopStreamingSession
 --
 --         , requestTagResource $
 --             newTagResource
@@ -276,8 +282,14 @@ import Test.Tasty
 --         , responsePutStudioMembers $
 --             newPutStudioMembersResponse
 --
+--         , responseStartStreamingSession $
+--             newStartStreamingSessionResponse
+--
 --         , responseStartStudioSSOConfigurationRepair $
 --             newStartStudioSSOConfigurationRepairResponse
+--
+--         , responseStopStreamingSession $
+--             newStopStreamingSessionResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -527,11 +539,23 @@ requestPutStudioMembers =
     "PutStudioMembers"
     "fixture/PutStudioMembers.yaml"
 
+requestStartStreamingSession :: StartStreamingSession -> TestTree
+requestStartStreamingSession =
+  req
+    "StartStreamingSession"
+    "fixture/StartStreamingSession.yaml"
+
 requestStartStudioSSOConfigurationRepair :: StartStudioSSOConfigurationRepair -> TestTree
 requestStartStudioSSOConfigurationRepair =
   req
     "StartStudioSSOConfigurationRepair"
     "fixture/StartStudioSSOConfigurationRepair.yaml"
+
+requestStopStreamingSession :: StopStreamingSession -> TestTree
+requestStopStreamingSession =
+  req
+    "StopStreamingSession"
+    "fixture/StopStreamingSession.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -873,6 +897,14 @@ responsePutStudioMembers =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutStudioMembers)
 
+responseStartStreamingSession :: StartStreamingSessionResponse -> TestTree
+responseStartStreamingSession =
+  res
+    "StartStreamingSessionResponse"
+    "fixture/StartStreamingSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartStreamingSession)
+
 responseStartStudioSSOConfigurationRepair :: StartStudioSSOConfigurationRepairResponse -> TestTree
 responseStartStudioSSOConfigurationRepair =
   res
@@ -880,6 +912,14 @@ responseStartStudioSSOConfigurationRepair =
     "fixture/StartStudioSSOConfigurationRepairResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartStudioSSOConfigurationRepair)
+
+responseStopStreamingSession :: StopStreamingSessionResponse -> TestTree
+responseStopStreamingSession =
+  res
+    "StopStreamingSessionResponse"
+    "fixture/StopStreamingSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopStreamingSession)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

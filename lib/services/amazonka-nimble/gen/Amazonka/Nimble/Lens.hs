@@ -26,11 +26,11 @@ module Amazonka.Nimble.Lens
     createLaunchProfile_clientToken,
     createLaunchProfile_description,
     createLaunchProfile_ec2SubnetIds,
-    createLaunchProfile_studioComponentIds,
-    createLaunchProfile_studioId,
     createLaunchProfile_launchProfileProtocolVersions,
     createLaunchProfile_name,
     createLaunchProfile_streamConfiguration,
+    createLaunchProfile_studioComponentIds,
+    createLaunchProfile_studioId,
     createLaunchProfileResponse_launchProfile,
     createLaunchProfileResponse_httpStatus,
 
@@ -38,9 +38,9 @@ module Amazonka.Nimble.Lens
     createStreamingImage_tags,
     createStreamingImage_clientToken,
     createStreamingImage_description,
-    createStreamingImage_studioId,
-    createStreamingImage_name,
     createStreamingImage_ec2ImageId,
+    createStreamingImage_name,
+    createStreamingImage_studioId,
     createStreamingImageResponse_streamingImage,
     createStreamingImageResponse_httpStatus,
 
@@ -58,8 +58,8 @@ module Amazonka.Nimble.Lens
     -- ** CreateStreamingSessionStream
     createStreamingSessionStream_clientToken,
     createStreamingSessionStream_expirationInSeconds,
-    createStreamingSessionStream_studioId,
     createStreamingSessionStream_sessionId,
+    createStreamingSessionStream_studioId,
     createStreamingSessionStreamResponse_stream,
     createStreamingSessionStreamResponse_httpStatus,
 
@@ -67,10 +67,10 @@ module Amazonka.Nimble.Lens
     createStudio_tags,
     createStudio_clientToken,
     createStudio_studioEncryptionConfiguration,
+    createStudio_adminRoleArn,
     createStudio_displayName,
     createStudio_studioName,
     createStudio_userRoleArn,
-    createStudio_adminRoleArn,
     createStudioResponse_studio,
     createStudioResponse_httpStatus,
 
@@ -81,59 +81,61 @@ module Amazonka.Nimble.Lens
     createStudioComponent_initializationScripts,
     createStudioComponent_configuration,
     createStudioComponent_description,
+    createStudioComponent_secureInitializationRoleArn,
     createStudioComponent_subtype,
+    createStudioComponent_runtimeRoleArn,
     createStudioComponent_ec2SecurityGroupIds,
-    createStudioComponent_studioId,
     createStudioComponent_name,
+    createStudioComponent_studioId,
     createStudioComponent_type,
     createStudioComponentResponse_studioComponent,
     createStudioComponentResponse_httpStatus,
 
     -- ** DeleteLaunchProfile
     deleteLaunchProfile_clientToken,
-    deleteLaunchProfile_studioId,
     deleteLaunchProfile_launchProfileId,
+    deleteLaunchProfile_studioId,
     deleteLaunchProfileResponse_launchProfile,
     deleteLaunchProfileResponse_httpStatus,
 
     -- ** DeleteLaunchProfileMember
     deleteLaunchProfileMember_clientToken,
-    deleteLaunchProfileMember_studioId,
-    deleteLaunchProfileMember_principalId,
     deleteLaunchProfileMember_launchProfileId,
+    deleteLaunchProfileMember_principalId,
+    deleteLaunchProfileMember_studioId,
     deleteLaunchProfileMemberResponse_httpStatus,
 
     -- ** DeleteStreamingImage
     deleteStreamingImage_clientToken,
-    deleteStreamingImage_studioId,
     deleteStreamingImage_streamingImageId,
+    deleteStreamingImage_studioId,
     deleteStreamingImageResponse_streamingImage,
     deleteStreamingImageResponse_httpStatus,
 
     -- ** DeleteStreamingSession
     deleteStreamingSession_clientToken,
-    deleteStreamingSession_studioId,
     deleteStreamingSession_sessionId,
+    deleteStreamingSession_studioId,
     deleteStreamingSessionResponse_session,
     deleteStreamingSessionResponse_httpStatus,
 
     -- ** DeleteStudio
     deleteStudio_clientToken,
     deleteStudio_studioId,
-    deleteStudioResponse_studio,
     deleteStudioResponse_httpStatus,
+    deleteStudioResponse_studio,
 
     -- ** DeleteStudioComponent
     deleteStudioComponent_clientToken,
-    deleteStudioComponent_studioId,
     deleteStudioComponent_studioComponentId,
+    deleteStudioComponent_studioId,
     deleteStudioComponentResponse_studioComponent,
     deleteStudioComponentResponse_httpStatus,
 
     -- ** DeleteStudioMember
     deleteStudioMember_clientToken,
-    deleteStudioMember_studioId,
     deleteStudioMember_principalId,
+    deleteStudioMember_studioId,
     deleteStudioMemberResponse_httpStatus,
 
     -- ** GetEula
@@ -142,68 +144,68 @@ module Amazonka.Nimble.Lens
     getEulaResponse_httpStatus,
 
     -- ** GetLaunchProfile
-    getLaunchProfile_studioId,
     getLaunchProfile_launchProfileId,
+    getLaunchProfile_studioId,
     getLaunchProfileResponse_launchProfile,
     getLaunchProfileResponse_httpStatus,
 
     -- ** GetLaunchProfileDetails
-    getLaunchProfileDetails_studioId,
     getLaunchProfileDetails_launchProfileId,
+    getLaunchProfileDetails_studioId,
     getLaunchProfileDetailsResponse_launchProfile,
     getLaunchProfileDetailsResponse_studioComponentSummaries,
     getLaunchProfileDetailsResponse_streamingImages,
     getLaunchProfileDetailsResponse_httpStatus,
 
     -- ** GetLaunchProfileInitialization
-    getLaunchProfileInitialization_studioId,
+    getLaunchProfileInitialization_launchProfileId,
     getLaunchProfileInitialization_launchProfileProtocolVersions,
     getLaunchProfileInitialization_launchPurpose,
-    getLaunchProfileInitialization_launchProfileId,
     getLaunchProfileInitialization_platform,
+    getLaunchProfileInitialization_studioId,
     getLaunchProfileInitializationResponse_launchProfileInitialization,
     getLaunchProfileInitializationResponse_httpStatus,
 
     -- ** GetLaunchProfileMember
-    getLaunchProfileMember_studioId,
-    getLaunchProfileMember_principalId,
     getLaunchProfileMember_launchProfileId,
+    getLaunchProfileMember_principalId,
+    getLaunchProfileMember_studioId,
     getLaunchProfileMemberResponse_member,
     getLaunchProfileMemberResponse_httpStatus,
 
     -- ** GetStreamingImage
-    getStreamingImage_studioId,
     getStreamingImage_streamingImageId,
+    getStreamingImage_studioId,
     getStreamingImageResponse_streamingImage,
     getStreamingImageResponse_httpStatus,
 
     -- ** GetStreamingSession
-    getStreamingSession_studioId,
     getStreamingSession_sessionId,
+    getStreamingSession_studioId,
     getStreamingSessionResponse_session,
     getStreamingSessionResponse_httpStatus,
 
     -- ** GetStreamingSessionStream
-    getStreamingSessionStream_studioId,
-    getStreamingSessionStream_streamId,
     getStreamingSessionStream_sessionId,
+    getStreamingSessionStream_streamId,
+    getStreamingSessionStream_studioId,
     getStreamingSessionStreamResponse_stream,
     getStreamingSessionStreamResponse_httpStatus,
 
     -- ** GetStudio
     getStudio_studioId,
-    getStudioResponse_studio,
     getStudioResponse_httpStatus,
+    getStudioResponse_studio,
 
     -- ** GetStudioComponent
-    getStudioComponent_studioId,
     getStudioComponent_studioComponentId,
+    getStudioComponent_studioId,
     getStudioComponentResponse_studioComponent,
     getStudioComponentResponse_httpStatus,
 
     -- ** GetStudioMember
-    getStudioMember_studioId,
     getStudioMember_principalId,
+    getStudioMember_studioId,
     getStudioMemberResponse_member,
     getStudioMemberResponse_httpStatus,
 
@@ -225,8 +227,8 @@ module Amazonka.Nimble.Lens
     -- ** ListLaunchProfileMembers
     listLaunchProfileMembers_nextToken,
     listLaunchProfileMembers_maxResults,
-    listLaunchProfileMembers_studioId,
     listLaunchProfileMembers_launchProfileId,
+    listLaunchProfileMembers_studioId,
     listLaunchProfileMembersResponse_nextToken,
     listLaunchProfileMembersResponse_members,
     listLaunchProfileMembersResponse_httpStatus,
@@ -280,8 +282,8 @@ module Amazonka.Nimble.Lens
     -- ** ListStudios
     listStudios_nextToken,
     listStudiosResponse_nextToken,
-    listStudiosResponse_studios,
     listStudiosResponse_httpStatus,
+    listStudiosResponse_studios,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -290,24 +292,38 @@ module Amazonka.Nimble.Lens
 
     -- ** PutLaunchProfileMembers
     putLaunchProfileMembers_clientToken,
-    putLaunchProfileMembers_studioId,
-    putLaunchProfileMembers_members,
-    putLaunchProfileMembers_launchProfileId,
     putLaunchProfileMembers_identityStoreId,
+    putLaunchProfileMembers_launchProfileId,
+    putLaunchProfileMembers_members,
+    putLaunchProfileMembers_studioId,
     putLaunchProfileMembersResponse_httpStatus,
 
     -- ** PutStudioMembers
     putStudioMembers_clientToken,
-    putStudioMembers_studioId,
-    putStudioMembers_members,
     putStudioMembers_identityStoreId,
+    putStudioMembers_members,
+    putStudioMembers_studioId,
     putStudioMembersResponse_httpStatus,
+
+    -- ** StartStreamingSession
+    startStreamingSession_clientToken,
+    startStreamingSession_sessionId,
+    startStreamingSession_studioId,
+    startStreamingSessionResponse_session,
+    startStreamingSessionResponse_httpStatus,
 
     -- ** StartStudioSSOConfigurationRepair
     startStudioSSOConfigurationRepair_clientToken,
     startStudioSSOConfigurationRepair_studioId,
-    startStudioSSOConfigurationRepairResponse_studio,
     startStudioSSOConfigurationRepairResponse_httpStatus,
+    startStudioSSOConfigurationRepairResponse_studio,
+
+    -- ** StopStreamingSession
+    stopStreamingSession_clientToken,
+    stopStreamingSession_sessionId,
+    stopStreamingSession_studioId,
+    stopStreamingSessionResponse_session,
+    stopStreamingSessionResponse_httpStatus,
 
     -- ** TagResource
     tagResource_tags,
@@ -315,8 +331,8 @@ module Amazonka.Nimble.Lens
     tagResourceResponse_httpStatus,
 
     -- ** UntagResource
-    untagResource_tagKeys,
     untagResource_resourceArn,
+    untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
     -- ** UpdateLaunchProfile
@@ -326,17 +342,17 @@ module Amazonka.Nimble.Lens
     updateLaunchProfile_description,
     updateLaunchProfile_streamConfiguration,
     updateLaunchProfile_launchProfileProtocolVersions,
-    updateLaunchProfile_studioId,
     updateLaunchProfile_launchProfileId,
+    updateLaunchProfile_studioId,
     updateLaunchProfileResponse_launchProfile,
     updateLaunchProfileResponse_httpStatus,
 
     -- ** UpdateLaunchProfileMember
     updateLaunchProfileMember_clientToken,
-    updateLaunchProfileMember_studioId,
+    updateLaunchProfileMember_launchProfileId,
     updateLaunchProfileMember_persona,
     updateLaunchProfileMember_principalId,
-    updateLaunchProfileMember_launchProfileId,
+    updateLaunchProfileMember_studioId,
     updateLaunchProfileMemberResponse_member,
     updateLaunchProfileMemberResponse_httpStatus,
 
@@ -344,8 +360,8 @@ module Amazonka.Nimble.Lens
     updateStreamingImage_name,
     updateStreamingImage_clientToken,
     updateStreamingImage_description,
-    updateStreamingImage_studioId,
     updateStreamingImage_streamingImageId,
+    updateStreamingImage_studioId,
     updateStreamingImageResponse_streamingImage,
     updateStreamingImageResponse_httpStatus,
 
@@ -355,8 +371,8 @@ module Amazonka.Nimble.Lens
     updateStudio_displayName,
     updateStudio_userRoleArn,
     updateStudio_studioId,
-    updateStudioResponse_studio,
     updateStudioResponse_httpStatus,
+    updateStudioResponse_studio,
 
     -- ** UpdateStudioComponent
     updateStudioComponent_scriptParameters,
@@ -366,10 +382,12 @@ module Amazonka.Nimble.Lens
     updateStudioComponent_initializationScripts,
     updateStudioComponent_configuration,
     updateStudioComponent_description,
+    updateStudioComponent_secureInitializationRoleArn,
     updateStudioComponent_subtype,
+    updateStudioComponent_runtimeRoleArn,
     updateStudioComponent_ec2SecurityGroupIds,
-    updateStudioComponent_studioId,
     updateStudioComponent_studioComponentId,
+    updateStudioComponent_studioId,
     updateStudioComponentResponse_studioComponent,
     updateStudioComponentResponse_httpStatus,
 
@@ -413,6 +431,7 @@ module Amazonka.Nimble.Lens
     launchProfile_state,
     launchProfile_description,
     launchProfile_streamConfiguration,
+    launchProfile_validationResults,
     launchProfile_launchProfileProtocolVersions,
     launchProfile_statusCode,
     launchProfile_createdBy,
@@ -441,13 +460,16 @@ module Amazonka.Nimble.Lens
     launchProfileInitializationActiveDirectory_studioComponentName,
 
     -- ** LaunchProfileInitializationScript
+    launchProfileInitializationScript_secureInitializationRoleArn,
     launchProfileInitializationScript_studioComponentId,
+    launchProfileInitializationScript_runtimeRoleArn,
     launchProfileInitializationScript_studioComponentName,
     launchProfileInitializationScript_script,
 
     -- ** LaunchProfileMembership
     launchProfileMembership_principalId,
     launchProfileMembership_persona,
+    launchProfileMembership_sid,
     launchProfileMembership_identityStoreId,
 
     -- ** LicenseServiceConfiguration
@@ -473,16 +495,24 @@ module Amazonka.Nimble.Lens
     sharedFileSystemConfiguration_endpoint,
 
     -- ** StreamConfiguration
+    streamConfiguration_maxStoppedSessionLengthInMinutes,
     streamConfiguration_maxSessionLengthInMinutes,
-    streamConfiguration_streamingImageIds,
-    streamConfiguration_ec2InstanceTypes,
+    streamConfiguration_sessionStorage,
     streamConfiguration_clipboardMode,
+    streamConfiguration_ec2InstanceTypes,
+    streamConfiguration_streamingImageIds,
 
     -- ** StreamConfigurationCreate
+    streamConfigurationCreate_maxStoppedSessionLengthInMinutes,
     streamConfigurationCreate_maxSessionLengthInMinutes,
+    streamConfigurationCreate_sessionStorage,
     streamConfigurationCreate_clipboardMode,
-    streamConfigurationCreate_streamingImageIds,
     streamConfigurationCreate_ec2InstanceTypes,
+    streamConfigurationCreate_streamingImageIds,
+
+    -- ** StreamConfigurationSessionStorage
+    streamConfigurationSessionStorage_root,
+    streamConfigurationSessionStorage_mode,
 
     -- ** StreamingImage
     streamingImage_tags,
@@ -507,18 +537,27 @@ module Amazonka.Nimble.Lens
     streamingSession_tags,
     streamingSession_launchProfileId,
     streamingSession_streamingImageId,
+    streamingSession_stopAt,
     streamingSession_updatedBy,
     streamingSession_ec2InstanceType,
     streamingSession_terminateAt,
+    streamingSession_stoppedBy,
     streamingSession_arn,
     streamingSession_state,
+    streamingSession_startedBy,
+    streamingSession_startedAt,
     streamingSession_sessionId,
+    streamingSession_stoppedAt,
     streamingSession_statusCode,
     streamingSession_createdBy,
     streamingSession_statusMessage,
     streamingSession_ownedBy,
     streamingSession_createdAt,
     streamingSession_updatedAt,
+
+    -- ** StreamingSessionStorageRoot
+    streamingSessionStorageRoot_windows,
+    streamingSessionStorageRoot_linux,
 
     -- ** StreamingSessionStream
     streamingSessionStream_state,
@@ -559,8 +598,10 @@ module Amazonka.Nimble.Lens
     studioComponent_arn,
     studioComponent_state,
     studioComponent_description,
+    studioComponent_secureInitializationRoleArn,
     studioComponent_studioComponentId,
     studioComponent_subtype,
+    studioComponent_runtimeRoleArn,
     studioComponent_statusCode,
     studioComponent_createdBy,
     studioComponent_statusMessage,
@@ -598,7 +639,14 @@ module Amazonka.Nimble.Lens
     -- ** StudioMembership
     studioMembership_principalId,
     studioMembership_persona,
+    studioMembership_sid,
     studioMembership_identityStoreId,
+
+    -- ** ValidationResult
+    validationResult_state,
+    validationResult_statusCode,
+    validationResult_statusMessage,
+    validationResult_type,
   )
 where
 
@@ -639,7 +687,9 @@ import Amazonka.Nimble.ListStudios
 import Amazonka.Nimble.ListTagsForResource
 import Amazonka.Nimble.PutLaunchProfileMembers
 import Amazonka.Nimble.PutStudioMembers
+import Amazonka.Nimble.StartStreamingSession
 import Amazonka.Nimble.StartStudioSSOConfigurationRepair
+import Amazonka.Nimble.StopStreamingSession
 import Amazonka.Nimble.TagResource
 import Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
 import Amazonka.Nimble.Types.ActiveDirectoryConfiguration
@@ -658,9 +708,11 @@ import Amazonka.Nimble.Types.ScriptParameterKeyValue
 import Amazonka.Nimble.Types.SharedFileSystemConfiguration
 import Amazonka.Nimble.Types.StreamConfiguration
 import Amazonka.Nimble.Types.StreamConfigurationCreate
+import Amazonka.Nimble.Types.StreamConfigurationSessionStorage
 import Amazonka.Nimble.Types.StreamingImage
 import Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration
 import Amazonka.Nimble.Types.StreamingSession
+import Amazonka.Nimble.Types.StreamingSessionStorageRoot
 import Amazonka.Nimble.Types.StreamingSessionStream
 import Amazonka.Nimble.Types.Studio
 import Amazonka.Nimble.Types.StudioComponent
@@ -669,6 +721,7 @@ import Amazonka.Nimble.Types.StudioComponentInitializationScript
 import Amazonka.Nimble.Types.StudioComponentSummary
 import Amazonka.Nimble.Types.StudioEncryptionConfiguration
 import Amazonka.Nimble.Types.StudioMembership
+import Amazonka.Nimble.Types.ValidationResult
 import Amazonka.Nimble.UntagResource
 import Amazonka.Nimble.UpdateLaunchProfile
 import Amazonka.Nimble.UpdateLaunchProfileMember

@@ -35,7 +35,6 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- |
 newtype LaunchProfileState = LaunchProfileState'
   { fromLaunchProfileState ::
       Core.Text

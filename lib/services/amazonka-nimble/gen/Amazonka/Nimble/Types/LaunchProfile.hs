@@ -24,9 +24,15 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Nimble.Types.LaunchProfileState
 import Amazonka.Nimble.Types.LaunchProfileStatusCode
 import Amazonka.Nimble.Types.StreamConfiguration
+import Amazonka.Nimble.Types.ValidationResult
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | A launch profile controls your artist workforce’s access to studio
+-- components, like compute farms, shared file systems, managed file
+-- systems, and license server configurations, as well as instance types
+-- and Amazon Machine Images (AMIs).
+--
+-- >  <p>Studio administrators create launch profiles in the Nimble Studio console. Artists can use their launch profiles to launch an instance from the Nimble Studio portal. Each user’s launch profile defines how they can launch a streaming session. By default, studio admins can use all launch profiles.</p>
 --
 -- /See:/ 'newLaunchProfile' smart constructor.
 data LaunchProfile = LaunchProfile'
@@ -41,7 +47,7 @@ data LaunchProfile = LaunchProfile'
     -- used with this launch profile.
     studioComponentIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | A friendly name for the launch profile.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The user ID of the user that most recently updated the resource.
     updatedBy :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the resource.
@@ -49,9 +55,11 @@ data LaunchProfile = LaunchProfile'
     -- | The current state.
     state :: Prelude.Maybe LaunchProfileState,
     -- | A human-readable description of the launch profile.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A configuration for a streaming session.
     streamConfiguration :: Prelude.Maybe StreamConfiguration,
+    -- | The list of the latest validation results.
+    validationResults :: Prelude.Maybe [ValidationResult],
     -- | The version number of the protocol that is used by the launch profile.
     -- The only valid version is \"2021-03-31\".
     launchProfileProtocolVersions :: Prelude.Maybe [Prelude.Text],
@@ -66,7 +74,7 @@ data LaunchProfile = LaunchProfile'
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
     updatedAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchProfile' with all optional fields omitted.
@@ -98,6 +106,8 @@ data LaunchProfile = LaunchProfile'
 --
 -- 'streamConfiguration', 'launchProfile_streamConfiguration' - A configuration for a streaming session.
 --
+-- 'validationResults', 'launchProfile_validationResults' - The list of the latest validation results.
+--
 -- 'launchProfileProtocolVersions', 'launchProfile_launchProfileProtocolVersions' - The version number of the protocol that is used by the launch profile.
 -- The only valid version is \"2021-03-31\".
 --
@@ -124,6 +134,7 @@ newLaunchProfile =
       state = Prelude.Nothing,
       description = Prelude.Nothing,
       streamConfiguration = Prelude.Nothing,
+      validationResults = Prelude.Nothing,
       launchProfileProtocolVersions = Prelude.Nothing,
       statusCode = Prelude.Nothing,
       createdBy = Prelude.Nothing,
@@ -152,7 +163,7 @@ launchProfile_studioComponentIds = Lens.lens (\LaunchProfile' {studioComponentId
 
 -- | A friendly name for the launch profile.
 launchProfile_name :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.Text)
-launchProfile_name = Lens.lens (\LaunchProfile' {name} -> name) (\s@LaunchProfile' {} a -> s {name = a} :: LaunchProfile)
+launchProfile_name = Lens.lens (\LaunchProfile' {name} -> name) (\s@LaunchProfile' {} a -> s {name = a} :: LaunchProfile) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The user ID of the user that most recently updated the resource.
 launchProfile_updatedBy :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.Text)
@@ -168,11 +179,15 @@ launchProfile_state = Lens.lens (\LaunchProfile' {state} -> state) (\s@LaunchPro
 
 -- | A human-readable description of the launch profile.
 launchProfile_description :: Lens.Lens' LaunchProfile (Prelude.Maybe Prelude.Text)
-launchProfile_description = Lens.lens (\LaunchProfile' {description} -> description) (\s@LaunchProfile' {} a -> s {description = a} :: LaunchProfile)
+launchProfile_description = Lens.lens (\LaunchProfile' {description} -> description) (\s@LaunchProfile' {} a -> s {description = a} :: LaunchProfile) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A configuration for a streaming session.
 launchProfile_streamConfiguration :: Lens.Lens' LaunchProfile (Prelude.Maybe StreamConfiguration)
 launchProfile_streamConfiguration = Lens.lens (\LaunchProfile' {streamConfiguration} -> streamConfiguration) (\s@LaunchProfile' {} a -> s {streamConfiguration = a} :: LaunchProfile)
+
+-- | The list of the latest validation results.
+launchProfile_validationResults :: Lens.Lens' LaunchProfile (Prelude.Maybe [ValidationResult])
+launchProfile_validationResults = Lens.lens (\LaunchProfile' {validationResults} -> validationResults) (\s@LaunchProfile' {} a -> s {validationResults = a} :: LaunchProfile) Prelude.. Lens.mapping Lens.coerced
 
 -- | The version number of the protocol that is used by the launch profile.
 -- The only valid version is \"2021-03-31\".
@@ -215,6 +230,9 @@ instance Core.FromJSON LaunchProfile where
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "streamConfiguration")
+            Prelude.<*> ( x Core..:? "validationResults"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> ( x Core..:? "launchProfileProtocolVersions"
                             Core..!= Prelude.mempty
                         )
@@ -237,6 +255,7 @@ instance Prelude.Hashable LaunchProfile where
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` streamConfiguration
+      `Prelude.hashWithSalt` validationResults
       `Prelude.hashWithSalt` launchProfileProtocolVersions
       `Prelude.hashWithSalt` statusCode
       `Prelude.hashWithSalt` createdBy
@@ -256,6 +275,7 @@ instance Prelude.NFData LaunchProfile where
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf streamConfiguration
+      `Prelude.seq` Prelude.rnf validationResults
       `Prelude.seq` Prelude.rnf launchProfileProtocolVersions
       `Prelude.seq` Prelude.rnf statusCode
       `Prelude.seq` Prelude.rnf createdBy

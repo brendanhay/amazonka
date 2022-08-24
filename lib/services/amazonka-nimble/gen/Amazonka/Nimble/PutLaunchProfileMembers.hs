@@ -28,10 +28,10 @@ module Amazonka.Nimble.PutLaunchProfileMembers
 
     -- * Request Lenses
     putLaunchProfileMembers_clientToken,
-    putLaunchProfileMembers_studioId,
-    putLaunchProfileMembers_members,
-    putLaunchProfileMembers_launchProfileId,
     putLaunchProfileMembers_identityStoreId,
+    putLaunchProfileMembers_launchProfileId,
+    putLaunchProfileMembers_members,
+    putLaunchProfileMembers_studioId,
 
     -- * Destructuring the Response
     PutLaunchProfileMembersResponse (..),
@@ -49,27 +49,21 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | Information about a launch profile membership.
---
--- /See:/ 'newPutLaunchProfileMembers' smart constructor.
+-- | /See:/ 'newPutLaunchProfileMembers' smart constructor.
 data PutLaunchProfileMembers = PutLaunchProfileMembers'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The studio ID.
-    studioId :: Prelude.Text,
+    -- | The ID of the identity store.
+    identityStoreId :: Prelude.Text,
+    -- | The Launch Profile ID.
+    launchProfileId :: Prelude.Text,
     -- | A list of members.
     members :: Prelude.NonEmpty NewLaunchProfileMember,
-    -- | The launch profile ID.
-    launchProfileId :: Prelude.Text,
-    -- | The ID of the identity store.
-    identityStoreId :: Prelude.Text
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -81,72 +75,64 @@ data PutLaunchProfileMembers = PutLaunchProfileMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'putLaunchProfileMembers_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'putLaunchProfileMembers_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
--- 'studioId', 'putLaunchProfileMembers_studioId' - The studio ID.
+-- 'identityStoreId', 'putLaunchProfileMembers_identityStoreId' - The ID of the identity store.
+--
+-- 'launchProfileId', 'putLaunchProfileMembers_launchProfileId' - The Launch Profile ID.
 --
 -- 'members', 'putLaunchProfileMembers_members' - A list of members.
 --
--- 'launchProfileId', 'putLaunchProfileMembers_launchProfileId' - The launch profile ID.
---
--- 'identityStoreId', 'putLaunchProfileMembers_identityStoreId' - The ID of the identity store.
+-- 'studioId', 'putLaunchProfileMembers_studioId' - The studio ID.
 newPutLaunchProfileMembers ::
-  -- | 'studioId'
+  -- | 'identityStoreId'
+  Prelude.Text ->
+  -- | 'launchProfileId'
   Prelude.Text ->
   -- | 'members'
   Prelude.NonEmpty NewLaunchProfileMember ->
-  -- | 'launchProfileId'
-  Prelude.Text ->
-  -- | 'identityStoreId'
+  -- | 'studioId'
   Prelude.Text ->
   PutLaunchProfileMembers
 newPutLaunchProfileMembers
-  pStudioId_
-  pMembers_
+  pIdentityStoreId_
   pLaunchProfileId_
-  pIdentityStoreId_ =
+  pMembers_
+  pStudioId_ =
     PutLaunchProfileMembers'
       { clientToken =
           Prelude.Nothing,
-        studioId = pStudioId_,
-        members = Lens.coerced Lens.# pMembers_,
+        identityStoreId = pIdentityStoreId_,
         launchProfileId = pLaunchProfileId_,
-        identityStoreId = pIdentityStoreId_
+        members = Lens.coerced Lens.# pMembers_,
+        studioId = pStudioId_
       }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 putLaunchProfileMembers_clientToken :: Lens.Lens' PutLaunchProfileMembers (Prelude.Maybe Prelude.Text)
 putLaunchProfileMembers_clientToken = Lens.lens (\PutLaunchProfileMembers' {clientToken} -> clientToken) (\s@PutLaunchProfileMembers' {} a -> s {clientToken = a} :: PutLaunchProfileMembers)
 
--- | The studio ID.
-putLaunchProfileMembers_studioId :: Lens.Lens' PutLaunchProfileMembers Prelude.Text
-putLaunchProfileMembers_studioId = Lens.lens (\PutLaunchProfileMembers' {studioId} -> studioId) (\s@PutLaunchProfileMembers' {} a -> s {studioId = a} :: PutLaunchProfileMembers)
+-- | The ID of the identity store.
+putLaunchProfileMembers_identityStoreId :: Lens.Lens' PutLaunchProfileMembers Prelude.Text
+putLaunchProfileMembers_identityStoreId = Lens.lens (\PutLaunchProfileMembers' {identityStoreId} -> identityStoreId) (\s@PutLaunchProfileMembers' {} a -> s {identityStoreId = a} :: PutLaunchProfileMembers)
+
+-- | The Launch Profile ID.
+putLaunchProfileMembers_launchProfileId :: Lens.Lens' PutLaunchProfileMembers Prelude.Text
+putLaunchProfileMembers_launchProfileId = Lens.lens (\PutLaunchProfileMembers' {launchProfileId} -> launchProfileId) (\s@PutLaunchProfileMembers' {} a -> s {launchProfileId = a} :: PutLaunchProfileMembers)
 
 -- | A list of members.
 putLaunchProfileMembers_members :: Lens.Lens' PutLaunchProfileMembers (Prelude.NonEmpty NewLaunchProfileMember)
 putLaunchProfileMembers_members = Lens.lens (\PutLaunchProfileMembers' {members} -> members) (\s@PutLaunchProfileMembers' {} a -> s {members = a} :: PutLaunchProfileMembers) Prelude.. Lens.coerced
 
--- | The launch profile ID.
-putLaunchProfileMembers_launchProfileId :: Lens.Lens' PutLaunchProfileMembers Prelude.Text
-putLaunchProfileMembers_launchProfileId = Lens.lens (\PutLaunchProfileMembers' {launchProfileId} -> launchProfileId) (\s@PutLaunchProfileMembers' {} a -> s {launchProfileId = a} :: PutLaunchProfileMembers)
-
--- | The ID of the identity store.
-putLaunchProfileMembers_identityStoreId :: Lens.Lens' PutLaunchProfileMembers Prelude.Text
-putLaunchProfileMembers_identityStoreId = Lens.lens (\PutLaunchProfileMembers' {identityStoreId} -> identityStoreId) (\s@PutLaunchProfileMembers' {} a -> s {identityStoreId = a} :: PutLaunchProfileMembers)
+-- | The studio ID.
+putLaunchProfileMembers_studioId :: Lens.Lens' PutLaunchProfileMembers Prelude.Text
+putLaunchProfileMembers_studioId = Lens.lens (\PutLaunchProfileMembers' {studioId} -> studioId) (\s@PutLaunchProfileMembers' {} a -> s {studioId = a} :: PutLaunchProfileMembers)
 
 instance Core.AWSRequest PutLaunchProfileMembers where
   type
@@ -163,18 +149,18 @@ instance Core.AWSRequest PutLaunchProfileMembers where
 instance Prelude.Hashable PutLaunchProfileMembers where
   hashWithSalt _salt PutLaunchProfileMembers' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` members
-      `Prelude.hashWithSalt` launchProfileId
       `Prelude.hashWithSalt` identityStoreId
+      `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` members
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData PutLaunchProfileMembers where
   rnf PutLaunchProfileMembers' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf members
-      `Prelude.seq` Prelude.rnf launchProfileId
       `Prelude.seq` Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf members
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders PutLaunchProfileMembers where
   toHeaders PutLaunchProfileMembers' {..} =
@@ -188,9 +174,9 @@ instance Core.ToJSON PutLaunchProfileMembers where
   toJSON PutLaunchProfileMembers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("members" Core..= members),
-            Prelude.Just
-              ("identityStoreId" Core..= identityStoreId)
+          [ Prelude.Just
+              ("identityStoreId" Core..= identityStoreId),
+            Prelude.Just ("members" Core..= members)
           ]
       )
 

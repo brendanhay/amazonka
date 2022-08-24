@@ -28,8 +28,8 @@ module Amazonka.Nimble.DeleteLaunchProfile
 
     -- * Request Lenses
     deleteLaunchProfile_clientToken,
-    deleteLaunchProfile_studioId,
     deleteLaunchProfile_launchProfileId,
+    deleteLaunchProfile_studioId,
 
     -- * Destructuring the Response
     DeleteLaunchProfileResponse (..),
@@ -50,19 +50,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteLaunchProfile' smart constructor.
 data DeleteLaunchProfile = DeleteLaunchProfile'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Launch Profile ID.
+    launchProfileId :: Prelude.Text,
     -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The launch profile ID.
-    launchProfileId :: Prelude.Text
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,49 +70,41 @@ data DeleteLaunchProfile = DeleteLaunchProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'deleteLaunchProfile_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'deleteLaunchProfile_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
+--
+-- 'launchProfileId', 'deleteLaunchProfile_launchProfileId' - The Launch Profile ID.
 --
 -- 'studioId', 'deleteLaunchProfile_studioId' - The studio ID.
---
--- 'launchProfileId', 'deleteLaunchProfile_launchProfileId' - The launch profile ID.
 newDeleteLaunchProfile ::
-  -- | 'studioId'
-  Prelude.Text ->
   -- | 'launchProfileId'
   Prelude.Text ->
+  -- | 'studioId'
+  Prelude.Text ->
   DeleteLaunchProfile
-newDeleteLaunchProfile pStudioId_ pLaunchProfileId_ =
+newDeleteLaunchProfile pLaunchProfileId_ pStudioId_ =
   DeleteLaunchProfile'
     { clientToken = Prelude.Nothing,
-      studioId = pStudioId_,
-      launchProfileId = pLaunchProfileId_
+      launchProfileId = pLaunchProfileId_,
+      studioId = pStudioId_
     }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 deleteLaunchProfile_clientToken :: Lens.Lens' DeleteLaunchProfile (Prelude.Maybe Prelude.Text)
 deleteLaunchProfile_clientToken = Lens.lens (\DeleteLaunchProfile' {clientToken} -> clientToken) (\s@DeleteLaunchProfile' {} a -> s {clientToken = a} :: DeleteLaunchProfile)
+
+-- | The Launch Profile ID.
+deleteLaunchProfile_launchProfileId :: Lens.Lens' DeleteLaunchProfile Prelude.Text
+deleteLaunchProfile_launchProfileId = Lens.lens (\DeleteLaunchProfile' {launchProfileId} -> launchProfileId) (\s@DeleteLaunchProfile' {} a -> s {launchProfileId = a} :: DeleteLaunchProfile)
 
 -- | The studio ID.
 deleteLaunchProfile_studioId :: Lens.Lens' DeleteLaunchProfile Prelude.Text
 deleteLaunchProfile_studioId = Lens.lens (\DeleteLaunchProfile' {studioId} -> studioId) (\s@DeleteLaunchProfile' {} a -> s {studioId = a} :: DeleteLaunchProfile)
-
--- | The launch profile ID.
-deleteLaunchProfile_launchProfileId :: Lens.Lens' DeleteLaunchProfile Prelude.Text
-deleteLaunchProfile_launchProfileId = Lens.lens (\DeleteLaunchProfile' {launchProfileId} -> launchProfileId) (\s@DeleteLaunchProfile' {} a -> s {launchProfileId = a} :: DeleteLaunchProfile)
 
 instance Core.AWSRequest DeleteLaunchProfile where
   type
@@ -134,14 +122,14 @@ instance Core.AWSRequest DeleteLaunchProfile where
 instance Prelude.Hashable DeleteLaunchProfile where
   hashWithSalt _salt DeleteLaunchProfile' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` launchProfileId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData DeleteLaunchProfile where
   rnf DeleteLaunchProfile' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf launchProfileId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders DeleteLaunchProfile where
   toHeaders DeleteLaunchProfile' {..} =
@@ -170,7 +158,7 @@ data DeleteLaunchProfileResponse = DeleteLaunchProfileResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteLaunchProfileResponse' with all optional fields omitted.

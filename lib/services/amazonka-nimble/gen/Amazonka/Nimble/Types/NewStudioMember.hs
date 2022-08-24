@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Nimble.Types.StudioPersona
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | A new studio user\'s membership.
 --
 -- /See:/ 'newNewStudioMember' smart constructor.
 data NewStudioMember = NewStudioMember'

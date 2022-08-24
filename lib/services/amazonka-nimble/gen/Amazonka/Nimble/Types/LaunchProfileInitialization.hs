@@ -26,14 +26,18 @@ import Amazonka.Nimble.Types.LaunchProfileInitializationScript
 import Amazonka.Nimble.Types.LaunchProfilePlatform
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | A Launch Profile Initialization contains information required for a
+-- workstation or server to connect to a launch profile.
+--
+-- This includes scripts, endpoints, security groups, subnets, and other
+-- configuration.
 --
 -- /See:/ 'newLaunchProfileInitialization' smart constructor.
 data LaunchProfileInitialization = LaunchProfileInitialization'
   { -- | The launch profile ID.
     launchProfileId :: Prelude.Maybe Prelude.Text,
     -- | The name for the launch profile.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The platform of the launch platform, either WINDOWS or LINUX.
     platform :: Prelude.Maybe LaunchProfilePlatform,
     -- | The user initializtion scripts.
@@ -50,7 +54,7 @@ data LaunchProfileInitialization = LaunchProfileInitialization'
     -- | The system initializtion scripts.
     systemInitializationScripts :: Prelude.Maybe [LaunchProfileInitializationScript]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchProfileInitialization' with all optional fields omitted.
@@ -100,7 +104,7 @@ launchProfileInitialization_launchProfileId = Lens.lens (\LaunchProfileInitializ
 
 -- | The name for the launch profile.
 launchProfileInitialization_name :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe Prelude.Text)
-launchProfileInitialization_name = Lens.lens (\LaunchProfileInitialization' {name} -> name) (\s@LaunchProfileInitialization' {} a -> s {name = a} :: LaunchProfileInitialization)
+launchProfileInitialization_name = Lens.lens (\LaunchProfileInitialization' {name} -> name) (\s@LaunchProfileInitialization' {} a -> s {name = a} :: LaunchProfileInitialization) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The platform of the launch platform, either WINDOWS or LINUX.
 launchProfileInitialization_platform :: Lens.Lens' LaunchProfileInitialization (Prelude.Maybe LaunchProfilePlatform)

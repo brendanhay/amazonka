@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the streaming image resources in a studio.
+-- Lists the streaming sessions in a studio.
 --
 -- This operation returns paginated results.
 module Amazonka.Nimble.ListStreamingSessions
@@ -55,14 +55,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStreamingSessions' smart constructor.
 data ListStreamingSessions = ListStreamingSessions'
-  { -- | The token for the next set of results, or null if there are no more
-    -- results.
+  { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of session IDs.
+    -- | Filters the request to only the provided session IDs.
     sessionIds :: Prelude.Maybe Prelude.Text,
-    -- | The user ID of the user that created the streaming session.
+    -- | Filters the request to streaming sessions created by the given user.
     createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The user ID of the user that owns the streaming session.
+    -- | Filters the request to streaming session owned by the given user
     ownedBy :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -77,14 +76,13 @@ data ListStreamingSessions = ListStreamingSessions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStreamingSessions_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'nextToken', 'listStreamingSessions_nextToken' - The token to request the next page of results.
 --
--- 'sessionIds', 'listStreamingSessions_sessionIds' - A collection of session IDs.
+-- 'sessionIds', 'listStreamingSessions_sessionIds' - Filters the request to only the provided session IDs.
 --
--- 'createdBy', 'listStreamingSessions_createdBy' - The user ID of the user that created the streaming session.
+-- 'createdBy', 'listStreamingSessions_createdBy' - Filters the request to streaming sessions created by the given user.
 --
--- 'ownedBy', 'listStreamingSessions_ownedBy' - The user ID of the user that owns the streaming session.
+-- 'ownedBy', 'listStreamingSessions_ownedBy' - Filters the request to streaming session owned by the given user
 --
 -- 'studioId', 'listStreamingSessions_studioId' - The studio ID.
 newListStreamingSessions ::
@@ -100,20 +98,19 @@ newListStreamingSessions pStudioId_ =
       studioId = pStudioId_
     }
 
--- | The token for the next set of results, or null if there are no more
--- results.
+-- | The token to request the next page of results.
 listStreamingSessions_nextToken :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
 listStreamingSessions_nextToken = Lens.lens (\ListStreamingSessions' {nextToken} -> nextToken) (\s@ListStreamingSessions' {} a -> s {nextToken = a} :: ListStreamingSessions)
 
--- | A collection of session IDs.
+-- | Filters the request to only the provided session IDs.
 listStreamingSessions_sessionIds :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
 listStreamingSessions_sessionIds = Lens.lens (\ListStreamingSessions' {sessionIds} -> sessionIds) (\s@ListStreamingSessions' {} a -> s {sessionIds = a} :: ListStreamingSessions)
 
--- | The user ID of the user that created the streaming session.
+-- | Filters the request to streaming sessions created by the given user.
 listStreamingSessions_createdBy :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
 listStreamingSessions_createdBy = Lens.lens (\ListStreamingSessions' {createdBy} -> createdBy) (\s@ListStreamingSessions' {} a -> s {createdBy = a} :: ListStreamingSessions)
 
--- | The user ID of the user that owns the streaming session.
+-- | Filters the request to streaming session owned by the given user
 listStreamingSessions_ownedBy :: Lens.Lens' ListStreamingSessions (Prelude.Maybe Prelude.Text)
 listStreamingSessions_ownedBy = Lens.lens (\ListStreamingSessions' {ownedBy} -> ownedBy) (\s@ListStreamingSessions' {} a -> s {ownedBy = a} :: ListStreamingSessions)
 

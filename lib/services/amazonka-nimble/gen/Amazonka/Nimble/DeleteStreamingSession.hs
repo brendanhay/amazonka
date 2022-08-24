@@ -34,8 +34,8 @@ module Amazonka.Nimble.DeleteStreamingSession
 
     -- * Request Lenses
     deleteStreamingSession_clientToken,
-    deleteStreamingSession_studioId,
     deleteStreamingSession_sessionId,
+    deleteStreamingSession_studioId,
 
     -- * Destructuring the Response
     DeleteStreamingSessionResponse (..),
@@ -56,19 +56,15 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteStreamingSession' smart constructor.
 data DeleteStreamingSession = DeleteStreamingSession'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The streaming session ID.
+    sessionId :: Prelude.Text,
     -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The session ID.
-    sessionId :: Prelude.Text
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,50 +76,42 @@ data DeleteStreamingSession = DeleteStreamingSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'deleteStreamingSession_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'deleteStreamingSession_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
+--
+-- 'sessionId', 'deleteStreamingSession_sessionId' - The streaming session ID.
 --
 -- 'studioId', 'deleteStreamingSession_studioId' - The studio ID.
---
--- 'sessionId', 'deleteStreamingSession_sessionId' - The session ID.
 newDeleteStreamingSession ::
-  -- | 'studioId'
-  Prelude.Text ->
   -- | 'sessionId'
   Prelude.Text ->
+  -- | 'studioId'
+  Prelude.Text ->
   DeleteStreamingSession
-newDeleteStreamingSession pStudioId_ pSessionId_ =
+newDeleteStreamingSession pSessionId_ pStudioId_ =
   DeleteStreamingSession'
     { clientToken =
         Prelude.Nothing,
-      studioId = pStudioId_,
-      sessionId = pSessionId_
+      sessionId = pSessionId_,
+      studioId = pStudioId_
     }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 deleteStreamingSession_clientToken :: Lens.Lens' DeleteStreamingSession (Prelude.Maybe Prelude.Text)
 deleteStreamingSession_clientToken = Lens.lens (\DeleteStreamingSession' {clientToken} -> clientToken) (\s@DeleteStreamingSession' {} a -> s {clientToken = a} :: DeleteStreamingSession)
+
+-- | The streaming session ID.
+deleteStreamingSession_sessionId :: Lens.Lens' DeleteStreamingSession Prelude.Text
+deleteStreamingSession_sessionId = Lens.lens (\DeleteStreamingSession' {sessionId} -> sessionId) (\s@DeleteStreamingSession' {} a -> s {sessionId = a} :: DeleteStreamingSession)
 
 -- | The studio ID.
 deleteStreamingSession_studioId :: Lens.Lens' DeleteStreamingSession Prelude.Text
 deleteStreamingSession_studioId = Lens.lens (\DeleteStreamingSession' {studioId} -> studioId) (\s@DeleteStreamingSession' {} a -> s {studioId = a} :: DeleteStreamingSession)
-
--- | The session ID.
-deleteStreamingSession_sessionId :: Lens.Lens' DeleteStreamingSession Prelude.Text
-deleteStreamingSession_sessionId = Lens.lens (\DeleteStreamingSession' {sessionId} -> sessionId) (\s@DeleteStreamingSession' {} a -> s {sessionId = a} :: DeleteStreamingSession)
 
 instance Core.AWSRequest DeleteStreamingSession where
   type
@@ -141,14 +129,14 @@ instance Core.AWSRequest DeleteStreamingSession where
 instance Prelude.Hashable DeleteStreamingSession where
   hashWithSalt _salt DeleteStreamingSession' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` studioId
       `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData DeleteStreamingSession where
   rnf DeleteStreamingSession' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioId
       `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders DeleteStreamingSession where
   toHeaders DeleteStreamingSession' {..} =

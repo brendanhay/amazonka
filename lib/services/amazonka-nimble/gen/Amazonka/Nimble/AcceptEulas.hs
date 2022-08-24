@@ -48,22 +48,16 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | A collection of EULA acceptances.
---
--- /See:/ 'newAcceptEulas' smart constructor.
+-- | /See:/ 'newAcceptEulas' smart constructor.
 data AcceptEulas = AcceptEulas'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The EULA ID.
     eulaIds :: Prelude.Maybe [Prelude.Text],
-    -- | The studio ID.
+    -- | A collection of EULA IDs.
     studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,18 +70,14 @@ data AcceptEulas = AcceptEulas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'acceptEulas_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'acceptEulas_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
 -- 'eulaIds', 'acceptEulas_eulaIds' - The EULA ID.
 --
--- 'studioId', 'acceptEulas_studioId' - The studio ID.
+-- 'studioId', 'acceptEulas_studioId' - A collection of EULA IDs.
 newAcceptEulas ::
   -- | 'studioId'
   Prelude.Text ->
@@ -99,14 +89,10 @@ newAcceptEulas pStudioId_ =
       studioId = pStudioId_
     }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 acceptEulas_clientToken :: Lens.Lens' AcceptEulas (Prelude.Maybe Prelude.Text)
 acceptEulas_clientToken = Lens.lens (\AcceptEulas' {clientToken} -> clientToken) (\s@AcceptEulas' {} a -> s {clientToken = a} :: AcceptEulas)
 
@@ -114,7 +100,7 @@ acceptEulas_clientToken = Lens.lens (\AcceptEulas' {clientToken} -> clientToken)
 acceptEulas_eulaIds :: Lens.Lens' AcceptEulas (Prelude.Maybe [Prelude.Text])
 acceptEulas_eulaIds = Lens.lens (\AcceptEulas' {eulaIds} -> eulaIds) (\s@AcceptEulas' {} a -> s {eulaIds = a} :: AcceptEulas) Prelude.. Lens.mapping Lens.coerced
 
--- | The studio ID.
+-- | A collection of EULA IDs.
 acceptEulas_studioId :: Lens.Lens' AcceptEulas Prelude.Text
 acceptEulas_studioId = Lens.lens (\AcceptEulas' {studioId} -> studioId) (\s@AcceptEulas' {} a -> s {studioId = a} :: AcceptEulas)
 

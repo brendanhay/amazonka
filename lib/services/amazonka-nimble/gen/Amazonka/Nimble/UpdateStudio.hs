@@ -41,8 +41,8 @@ module Amazonka.Nimble.UpdateStudio
     newUpdateStudioResponse,
 
     -- * Response Lenses
-    updateStudioResponse_studio,
     updateStudioResponse_httpStatus,
+    updateStudioResponse_studio,
   )
 where
 
@@ -53,31 +53,25 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | The studio ID.
---
--- /See:/ 'newUpdateStudio' smart constructor.
+-- | /See:/ 'newUpdateStudio' smart constructor.
 data UpdateStudio = UpdateStudio'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that Studio Admins will assume when logging in to the
     -- Nimble Studio portal.
     adminRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for the studio.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The IAM role that Studio Users will assume when logging in to the Nimble
     -- Studio portal.
     userRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStudio' with all optional fields omitted.
@@ -87,14 +81,10 @@ data UpdateStudio = UpdateStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'updateStudio_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'updateStudio_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
 -- 'adminRoleArn', 'updateStudio_adminRoleArn' - The IAM role that Studio Admins will assume when logging in to the
 -- Nimble Studio portal.
@@ -118,14 +108,10 @@ newUpdateStudio pStudioId_ =
       studioId = pStudioId_
     }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 updateStudio_clientToken :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
 updateStudio_clientToken = Lens.lens (\UpdateStudio' {clientToken} -> clientToken) (\s@UpdateStudio' {} a -> s {clientToken = a} :: UpdateStudio)
 
@@ -136,7 +122,7 @@ updateStudio_adminRoleArn = Lens.lens (\UpdateStudio' {adminRoleArn} -> adminRol
 
 -- | A friendly name for the studio.
 updateStudio_displayName :: Lens.Lens' UpdateStudio (Prelude.Maybe Prelude.Text)
-updateStudio_displayName = Lens.lens (\UpdateStudio' {displayName} -> displayName) (\s@UpdateStudio' {} a -> s {displayName = a} :: UpdateStudio)
+updateStudio_displayName = Lens.lens (\UpdateStudio' {displayName} -> displayName) (\s@UpdateStudio' {} a -> s {displayName = a} :: UpdateStudio) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The IAM role that Studio Users will assume when logging in to the Nimble
 -- Studio portal.
@@ -154,8 +140,8 @@ instance Core.AWSRequest UpdateStudio where
     Response.receiveJSON
       ( \s h x ->
           UpdateStudioResponse'
-            Prelude.<$> (x Core..?> "studio")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "studio")
       )
 
 instance Prelude.Hashable UpdateStudio where
@@ -202,12 +188,12 @@ instance Core.ToQuery UpdateStudio where
 
 -- | /See:/ 'newUpdateStudioResponse' smart constructor.
 data UpdateStudioResponse = UpdateStudioResponse'
-  { -- | Information about a studio.
-    studio :: Prelude.Maybe Studio,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about a studio.
+    studio :: Studio
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateStudioResponse' with all optional fields omitted.
@@ -217,28 +203,30 @@ data UpdateStudioResponse = UpdateStudioResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studio', 'updateStudioResponse_studio' - Information about a studio.
---
 -- 'httpStatus', 'updateStudioResponse_httpStatus' - The response's http status code.
+--
+-- 'studio', 'updateStudioResponse_studio' - Information about a studio.
 newUpdateStudioResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'studio'
+  Studio ->
   UpdateStudioResponse
-newUpdateStudioResponse pHttpStatus_ =
+newUpdateStudioResponse pHttpStatus_ pStudio_ =
   UpdateStudioResponse'
-    { studio = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+    { httpStatus = pHttpStatus_,
+      studio = pStudio_
     }
-
--- | Information about a studio.
-updateStudioResponse_studio :: Lens.Lens' UpdateStudioResponse (Prelude.Maybe Studio)
-updateStudioResponse_studio = Lens.lens (\UpdateStudioResponse' {studio} -> studio) (\s@UpdateStudioResponse' {} a -> s {studio = a} :: UpdateStudioResponse)
 
 -- | The response's http status code.
 updateStudioResponse_httpStatus :: Lens.Lens' UpdateStudioResponse Prelude.Int
 updateStudioResponse_httpStatus = Lens.lens (\UpdateStudioResponse' {httpStatus} -> httpStatus) (\s@UpdateStudioResponse' {} a -> s {httpStatus = a} :: UpdateStudioResponse)
 
+-- | Information about a studio.
+updateStudioResponse_studio :: Lens.Lens' UpdateStudioResponse Studio
+updateStudioResponse_studio = Lens.lens (\UpdateStudioResponse' {studio} -> studio) (\s@UpdateStudioResponse' {} a -> s {studio = a} :: UpdateStudioResponse)
+
 instance Prelude.NFData UpdateStudioResponse where
   rnf UpdateStudioResponse' {..} =
-    Prelude.rnf studio
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf studio

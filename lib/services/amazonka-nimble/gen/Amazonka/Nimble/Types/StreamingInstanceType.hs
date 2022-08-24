@@ -33,7 +33,6 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- |
 newtype StreamingInstanceType = StreamingInstanceType'
   { fromStreamingInstanceType ::
       Core.Text

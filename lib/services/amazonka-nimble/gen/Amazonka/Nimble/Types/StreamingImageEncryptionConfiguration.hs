@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Nimble.Types.StreamingImageEncryptionConfigurationKeyType
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | Specifies how a streaming image is encrypted.
 --
 -- /See:/ 'newStreamingImageEncryptionConfiguration' smart constructor.
 data StreamingImageEncryptionConfiguration = StreamingImageEncryptionConfiguration'

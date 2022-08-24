@@ -31,7 +31,6 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- |
 newtype StudioComponentSubtype = StudioComponentSubtype'
   { fromStudioComponentSubtype ::
       Core.Text

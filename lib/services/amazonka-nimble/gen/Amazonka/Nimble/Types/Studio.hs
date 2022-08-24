@@ -26,7 +26,26 @@ import Amazonka.Nimble.Types.StudioState
 import Amazonka.Nimble.Types.StudioStatusCode
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | Represents a studio resource.
+--
+-- A studio is the core resource used with Nimble Studio. You must create a
+-- studio first, before any other resource type can be created. All other
+-- resources you create and manage in Nimble Studio are contained within a
+-- studio.
+--
+-- When creating a studio, you must provides two IAM roles for use with the
+-- Nimble Studio portal. These roles are assumed by your users when they
+-- log in to the Nimble Studio portal via Amazon Web Services SSO and your
+-- identity source.
+--
+-- The user role must have the AmazonNimbleStudio-StudioUser managed policy
+-- attached for the portal to function properly.
+--
+-- The admin role must have the AmazonNimbleStudio-StudioAdmin managed
+-- policy attached for the portal to function properly.
+--
+-- Your studio roles must trust the identity.nimble.amazonaws.com service
+-- principal to function properly.
 --
 -- /See:/ 'newStudio' smart constructor.
 data Studio = Studio'
@@ -41,7 +60,7 @@ data Studio = Studio'
     studioName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services SSO application client ID used to integrate with
     -- Amazon Web Services SSO to enable Amazon Web Services SSO users to log
-    -- in to Nimble portal.
+    -- in to Nimble Studio portal.
     ssoClientId :: Prelude.Maybe Prelude.Text,
     -- | The IAM role that studio admins assume when logging in to the Nimble
     -- Studio portal.
@@ -50,7 +69,7 @@ data Studio = Studio'
     -- uniquely identifies it. ARNs are unique across all Regions.
     arn :: Prelude.Maybe Prelude.Text,
     -- | A friendly name for the studio.
-    displayName :: Prelude.Maybe Prelude.Text,
+    displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The current state of the studio resource.
     state :: Prelude.Maybe StudioState,
     -- | Configuration of the encryption method that is used for the studio.
@@ -71,7 +90,7 @@ data Studio = Studio'
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
     updatedAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'Studio' with all optional fields omitted.
@@ -92,7 +111,7 @@ data Studio = Studio'
 --
 -- 'ssoClientId', 'studio_ssoClientId' - The Amazon Web Services SSO application client ID used to integrate with
 -- Amazon Web Services SSO to enable Amazon Web Services SSO users to log
--- in to Nimble portal.
+-- in to Nimble Studio portal.
 --
 -- 'adminRoleArn', 'studio_adminRoleArn' - The IAM role that studio admins assume when logging in to the Nimble
 -- Studio portal.
@@ -159,7 +178,7 @@ studio_studioName = Lens.lens (\Studio' {studioName} -> studioName) (\s@Studio' 
 
 -- | The Amazon Web Services SSO application client ID used to integrate with
 -- Amazon Web Services SSO to enable Amazon Web Services SSO users to log
--- in to Nimble portal.
+-- in to Nimble Studio portal.
 studio_ssoClientId :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
 studio_ssoClientId = Lens.lens (\Studio' {ssoClientId} -> ssoClientId) (\s@Studio' {} a -> s {ssoClientId = a} :: Studio)
 
@@ -175,7 +194,7 @@ studio_arn = Lens.lens (\Studio' {arn} -> arn) (\s@Studio' {} a -> s {arn = a} :
 
 -- | A friendly name for the studio.
 studio_displayName :: Lens.Lens' Studio (Prelude.Maybe Prelude.Text)
-studio_displayName = Lens.lens (\Studio' {displayName} -> displayName) (\s@Studio' {} a -> s {displayName = a} :: Studio)
+studio_displayName = Lens.lens (\Studio' {displayName} -> displayName) (\s@Studio' {} a -> s {displayName = a} :: Studio) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The current state of the studio resource.
 studio_state :: Lens.Lens' Studio (Prelude.Maybe StudioState)

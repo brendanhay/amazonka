@@ -44,7 +44,7 @@ data StudioComponentConfiguration = StudioComponentConfiguration'
     -- with a studio resource.
     sharedFileSystemConfiguration :: Prelude.Maybe SharedFileSystemConfiguration
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StudioComponentConfiguration' with all optional fields omitted.

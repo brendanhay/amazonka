@@ -25,18 +25,18 @@ import Amazonka.Nimble.Types.StudioComponentSubtype
 import Amazonka.Nimble.Types.StudioComponentType
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The studio component\'s summary.
 --
 -- /See:/ 'newStudioComponentSummary' smart constructor.
 data StudioComponentSummary = StudioComponentSummary'
   { -- | The name for the studio component.
-    name :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The type of the studio component.
     type' :: Prelude.Maybe StudioComponentType,
     -- | The user ID of the user that most recently updated the resource.
     updatedBy :: Prelude.Maybe Prelude.Text,
     -- | The description.
-    description :: Prelude.Maybe Prelude.Text,
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The unique identifier for a studio component resource.
     studioComponentId :: Prelude.Maybe Prelude.Text,
     -- | The specific subtype of a studio component.
@@ -48,7 +48,7 @@ data StudioComponentSummary = StudioComponentSummary'
     -- | The Unix epoch timestamp in seconds for when the resource was updated.
     updatedAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StudioComponentSummary' with all optional fields omitted.
@@ -92,7 +92,7 @@ newStudioComponentSummary =
 
 -- | The name for the studio component.
 studioComponentSummary_name :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.Text)
-studioComponentSummary_name = Lens.lens (\StudioComponentSummary' {name} -> name) (\s@StudioComponentSummary' {} a -> s {name = a} :: StudioComponentSummary)
+studioComponentSummary_name = Lens.lens (\StudioComponentSummary' {name} -> name) (\s@StudioComponentSummary' {} a -> s {name = a} :: StudioComponentSummary) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The type of the studio component.
 studioComponentSummary_type :: Lens.Lens' StudioComponentSummary (Prelude.Maybe StudioComponentType)
@@ -104,7 +104,7 @@ studioComponentSummary_updatedBy = Lens.lens (\StudioComponentSummary' {updatedB
 
 -- | The description.
 studioComponentSummary_description :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.Text)
-studioComponentSummary_description = Lens.lens (\StudioComponentSummary' {description} -> description) (\s@StudioComponentSummary' {} a -> s {description = a} :: StudioComponentSummary)
+studioComponentSummary_description = Lens.lens (\StudioComponentSummary' {description} -> description) (\s@StudioComponentSummary' {} a -> s {description = a} :: StudioComponentSummary) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The unique identifier for a studio component resource.
 studioComponentSummary_studioComponentId :: Lens.Lens' StudioComponentSummary (Prelude.Maybe Prelude.Text)

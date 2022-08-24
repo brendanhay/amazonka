@@ -33,12 +33,12 @@ data ActiveDirectoryConfiguration = ActiveDirectoryConfiguration'
     -- to access using this studio component.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | A collection of custom attributes for an Active Directory computer.
-    computerAttributes :: Prelude.Maybe [ActiveDirectoryComputerAttribute],
+    computerAttributes :: Prelude.Maybe (Core.Sensitive [ActiveDirectoryComputerAttribute]),
     -- | The distinguished name (DN) and organizational unit (OU) of an Active
     -- Directory computer.
     organizationalUnitDistinguishedName :: Prelude.Maybe Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ActiveDirectoryConfiguration' with all optional fields omitted.
@@ -73,7 +73,7 @@ activeDirectoryConfiguration_directoryId = Lens.lens (\ActiveDirectoryConfigurat
 
 -- | A collection of custom attributes for an Active Directory computer.
 activeDirectoryConfiguration_computerAttributes :: Lens.Lens' ActiveDirectoryConfiguration (Prelude.Maybe [ActiveDirectoryComputerAttribute])
-activeDirectoryConfiguration_computerAttributes = Lens.lens (\ActiveDirectoryConfiguration' {computerAttributes} -> computerAttributes) (\s@ActiveDirectoryConfiguration' {} a -> s {computerAttributes = a} :: ActiveDirectoryConfiguration) Prelude.. Lens.mapping Lens.coerced
+activeDirectoryConfiguration_computerAttributes = Lens.lens (\ActiveDirectoryConfiguration' {computerAttributes} -> computerAttributes) (\s@ActiveDirectoryConfiguration' {} a -> s {computerAttributes = a} :: ActiveDirectoryConfiguration) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The distinguished name (DN) and organizational unit (OU) of an Active
 -- Directory computer.

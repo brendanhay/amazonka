@@ -28,9 +28,9 @@ module Amazonka.Nimble.PutStudioMembers
 
     -- * Request Lenses
     putStudioMembers_clientToken,
-    putStudioMembers_studioId,
-    putStudioMembers_members,
     putStudioMembers_identityStoreId,
+    putStudioMembers_members,
+    putStudioMembers_studioId,
 
     -- * Destructuring the Response
     PutStudioMembersResponse (..),
@@ -48,25 +48,19 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | A launch profile membership collection.
---
--- /See:/ 'newPutStudioMembers' smart constructor.
+-- | /See:/ 'newPutStudioMembers' smart constructor.
 data PutStudioMembers = PutStudioMembers'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The studio ID.
-    studioId :: Prelude.Text,
+    -- | The ID of the identity store.
+    identityStoreId :: Prelude.Text,
     -- | A list of members.
     members :: Prelude.NonEmpty NewStudioMember,
-    -- | The ID of the identity store.
-    identityStoreId :: Prelude.Text
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -78,61 +72,53 @@ data PutStudioMembers = PutStudioMembers'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'putStudioMembers_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'putStudioMembers_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
--- 'studioId', 'putStudioMembers_studioId' - The studio ID.
+-- 'identityStoreId', 'putStudioMembers_identityStoreId' - The ID of the identity store.
 --
 -- 'members', 'putStudioMembers_members' - A list of members.
 --
--- 'identityStoreId', 'putStudioMembers_identityStoreId' - The ID of the identity store.
+-- 'studioId', 'putStudioMembers_studioId' - The studio ID.
 newPutStudioMembers ::
-  -- | 'studioId'
+  -- | 'identityStoreId'
   Prelude.Text ->
   -- | 'members'
   Prelude.NonEmpty NewStudioMember ->
-  -- | 'identityStoreId'
+  -- | 'studioId'
   Prelude.Text ->
   PutStudioMembers
 newPutStudioMembers
-  pStudioId_
+  pIdentityStoreId_
   pMembers_
-  pIdentityStoreId_ =
+  pStudioId_ =
     PutStudioMembers'
       { clientToken = Prelude.Nothing,
-        studioId = pStudioId_,
+        identityStoreId = pIdentityStoreId_,
         members = Lens.coerced Lens.# pMembers_,
-        identityStoreId = pIdentityStoreId_
+        studioId = pStudioId_
       }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 putStudioMembers_clientToken :: Lens.Lens' PutStudioMembers (Prelude.Maybe Prelude.Text)
 putStudioMembers_clientToken = Lens.lens (\PutStudioMembers' {clientToken} -> clientToken) (\s@PutStudioMembers' {} a -> s {clientToken = a} :: PutStudioMembers)
 
--- | The studio ID.
-putStudioMembers_studioId :: Lens.Lens' PutStudioMembers Prelude.Text
-putStudioMembers_studioId = Lens.lens (\PutStudioMembers' {studioId} -> studioId) (\s@PutStudioMembers' {} a -> s {studioId = a} :: PutStudioMembers)
+-- | The ID of the identity store.
+putStudioMembers_identityStoreId :: Lens.Lens' PutStudioMembers Prelude.Text
+putStudioMembers_identityStoreId = Lens.lens (\PutStudioMembers' {identityStoreId} -> identityStoreId) (\s@PutStudioMembers' {} a -> s {identityStoreId = a} :: PutStudioMembers)
 
 -- | A list of members.
 putStudioMembers_members :: Lens.Lens' PutStudioMembers (Prelude.NonEmpty NewStudioMember)
 putStudioMembers_members = Lens.lens (\PutStudioMembers' {members} -> members) (\s@PutStudioMembers' {} a -> s {members = a} :: PutStudioMembers) Prelude.. Lens.coerced
 
--- | The ID of the identity store.
-putStudioMembers_identityStoreId :: Lens.Lens' PutStudioMembers Prelude.Text
-putStudioMembers_identityStoreId = Lens.lens (\PutStudioMembers' {identityStoreId} -> identityStoreId) (\s@PutStudioMembers' {} a -> s {identityStoreId = a} :: PutStudioMembers)
+-- | The studio ID.
+putStudioMembers_studioId :: Lens.Lens' PutStudioMembers Prelude.Text
+putStudioMembers_studioId = Lens.lens (\PutStudioMembers' {studioId} -> studioId) (\s@PutStudioMembers' {} a -> s {studioId = a} :: PutStudioMembers)
 
 instance Core.AWSRequest PutStudioMembers where
   type
@@ -149,16 +135,16 @@ instance Core.AWSRequest PutStudioMembers where
 instance Prelude.Hashable PutStudioMembers where
   hashWithSalt _salt PutStudioMembers' {..} =
     _salt `Prelude.hashWithSalt` clientToken
-      `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` members
       `Prelude.hashWithSalt` identityStoreId
+      `Prelude.hashWithSalt` members
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData PutStudioMembers where
   rnf PutStudioMembers' {..} =
     Prelude.rnf clientToken
-      `Prelude.seq` Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf members
       `Prelude.seq` Prelude.rnf identityStoreId
+      `Prelude.seq` Prelude.rnf members
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders PutStudioMembers where
   toHeaders PutStudioMembers' {..} =
@@ -172,9 +158,9 @@ instance Core.ToJSON PutStudioMembers where
   toJSON PutStudioMembers' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("members" Core..= members),
-            Prelude.Just
-              ("identityStoreId" Core..= identityStoreId)
+          [ Prelude.Just
+              ("identityStoreId" Core..= identityStoreId),
+            Prelude.Just ("members" Core..= members)
           ]
       )
 

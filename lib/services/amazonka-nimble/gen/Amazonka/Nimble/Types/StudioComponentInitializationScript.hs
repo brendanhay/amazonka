@@ -37,9 +37,9 @@ data StudioComponentInitializationScript = StudioComponentInitializationScript'
     -- | The method to use when running the initialization script.
     runContext :: Prelude.Maybe StudioComponentInitializationScriptRunContext,
     -- | The initialization script.
-    script :: Prelude.Maybe Prelude.Text
+    script :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StudioComponentInitializationScript' with all optional fields omitted.
@@ -84,7 +84,7 @@ studioComponentInitializationScript_runContext = Lens.lens (\StudioComponentInit
 
 -- | The initialization script.
 studioComponentInitializationScript_script :: Lens.Lens' StudioComponentInitializationScript (Prelude.Maybe Prelude.Text)
-studioComponentInitializationScript_script = Lens.lens (\StudioComponentInitializationScript' {script} -> script) (\s@StudioComponentInitializationScript' {} a -> s {script = a} :: StudioComponentInitializationScript)
+studioComponentInitializationScript_script = Lens.lens (\StudioComponentInitializationScript' {script} -> script) (\s@StudioComponentInitializationScript' {} a -> s {script = a} :: StudioComponentInitializationScript) Prelude.. Lens.mapping Core._Sensitive
 
 instance
   Core.FromJSON

@@ -24,7 +24,8 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | The Launch Profile Initialization Active Directory contains information
+-- required for the launch profile to connect to the Active Directory.
 --
 -- /See:/ 'newLaunchProfileInitializationActiveDirectory' smart constructor.
 data LaunchProfileInitializationActiveDirectory = LaunchProfileInitializationActiveDirectory'
@@ -34,7 +35,7 @@ data LaunchProfileInitializationActiveDirectory = LaunchProfileInitializationAct
     -- | The directory name.
     directoryName :: Prelude.Maybe Prelude.Text,
     -- | A collection of custom attributes for an Active Directory computer.
-    computerAttributes :: Prelude.Maybe [ActiveDirectoryComputerAttribute],
+    computerAttributes :: Prelude.Maybe (Core.Sensitive [ActiveDirectoryComputerAttribute]),
     -- | The unique identifier for a studio component resource.
     studioComponentId :: Prelude.Maybe Prelude.Text,
     -- | The name for the organizational unit distinguished name.
@@ -42,9 +43,9 @@ data LaunchProfileInitializationActiveDirectory = LaunchProfileInitializationAct
     -- | The DNS IP address.
     dnsIpAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The name for the studio component.
-    studioComponentName :: Prelude.Maybe Prelude.Text
+    studioComponentName :: Prelude.Maybe (Core.Sensitive Prelude.Text)
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'LaunchProfileInitializationActiveDirectory' with all optional fields omitted.
@@ -98,7 +99,7 @@ launchProfileInitializationActiveDirectory_directoryName = Lens.lens (\LaunchPro
 
 -- | A collection of custom attributes for an Active Directory computer.
 launchProfileInitializationActiveDirectory_computerAttributes :: Lens.Lens' LaunchProfileInitializationActiveDirectory (Prelude.Maybe [ActiveDirectoryComputerAttribute])
-launchProfileInitializationActiveDirectory_computerAttributes = Lens.lens (\LaunchProfileInitializationActiveDirectory' {computerAttributes} -> computerAttributes) (\s@LaunchProfileInitializationActiveDirectory' {} a -> s {computerAttributes = a} :: LaunchProfileInitializationActiveDirectory) Prelude.. Lens.mapping Lens.coerced
+launchProfileInitializationActiveDirectory_computerAttributes = Lens.lens (\LaunchProfileInitializationActiveDirectory' {computerAttributes} -> computerAttributes) (\s@LaunchProfileInitializationActiveDirectory' {} a -> s {computerAttributes = a} :: LaunchProfileInitializationActiveDirectory) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The unique identifier for a studio component resource.
 launchProfileInitializationActiveDirectory_studioComponentId :: Lens.Lens' LaunchProfileInitializationActiveDirectory (Prelude.Maybe Prelude.Text)
@@ -114,7 +115,7 @@ launchProfileInitializationActiveDirectory_dnsIpAddresses = Lens.lens (\LaunchPr
 
 -- | The name for the studio component.
 launchProfileInitializationActiveDirectory_studioComponentName :: Lens.Lens' LaunchProfileInitializationActiveDirectory (Prelude.Maybe Prelude.Text)
-launchProfileInitializationActiveDirectory_studioComponentName = Lens.lens (\LaunchProfileInitializationActiveDirectory' {studioComponentName} -> studioComponentName) (\s@LaunchProfileInitializationActiveDirectory' {} a -> s {studioComponentName = a} :: LaunchProfileInitializationActiveDirectory)
+launchProfileInitializationActiveDirectory_studioComponentName = Lens.lens (\LaunchProfileInitializationActiveDirectory' {studioComponentName} -> studioComponentName) (\s@LaunchProfileInitializationActiveDirectory' {} a -> s {studioComponentName = a} :: LaunchProfileInitializationActiveDirectory) Prelude.. Lens.mapping Core._Sensitive
 
 instance
   Core.FromJSON

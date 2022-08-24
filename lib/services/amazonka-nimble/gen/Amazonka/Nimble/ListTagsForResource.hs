@@ -54,7 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
-  { -- | The ARN of the target resource for tagging operations.
+  { -- | The Amazon Resource Name (ARN) of the resource for which you want to
+    -- list tags.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +68,8 @@ data ListTagsForResource = ListTagsForResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The ARN of the target resource for tagging operations.
+-- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the resource for which you want to
+-- list tags.
 newListTagsForResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -75,7 +77,8 @@ newListTagsForResource ::
 newListTagsForResource pResourceArn_ =
   ListTagsForResource' {resourceArn = pResourceArn_}
 
--- | The ARN of the target resource for tagging operations.
+-- | The Amazon Resource Name (ARN) of the resource for which you want to
+-- list tags.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
 

@@ -20,6 +20,7 @@
 module Amazonka.Nimble.Types.StreamingImageStatusCode
   ( StreamingImageStatusCode
       ( ..,
+        StreamingImageStatusCode_ACCESS_DENIED,
         StreamingImageStatusCode_INTERNAL_ERROR,
         StreamingImageStatusCode_STREAMING_IMAGE_CREATE_IN_PROGRESS,
         StreamingImageStatusCode_STREAMING_IMAGE_DELETED,
@@ -62,6 +63,9 @@ newtype StreamingImageStatusCode = StreamingImageStatusCode'
       Core.ToXML
     )
 
+pattern StreamingImageStatusCode_ACCESS_DENIED :: StreamingImageStatusCode
+pattern StreamingImageStatusCode_ACCESS_DENIED = StreamingImageStatusCode' "ACCESS_DENIED"
+
 pattern StreamingImageStatusCode_INTERNAL_ERROR :: StreamingImageStatusCode
 pattern StreamingImageStatusCode_INTERNAL_ERROR = StreamingImageStatusCode' "INTERNAL_ERROR"
 
@@ -81,6 +85,7 @@ pattern StreamingImageStatusCode_STREAMING_IMAGE_UPDATE_IN_PROGRESS :: Streaming
 pattern StreamingImageStatusCode_STREAMING_IMAGE_UPDATE_IN_PROGRESS = StreamingImageStatusCode' "STREAMING_IMAGE_UPDATE_IN_PROGRESS"
 
 {-# COMPLETE
+  StreamingImageStatusCode_ACCESS_DENIED,
   StreamingImageStatusCode_INTERNAL_ERROR,
   StreamingImageStatusCode_STREAMING_IMAGE_CREATE_IN_PROGRESS,
   StreamingImageStatusCode_STREAMING_IMAGE_DELETED,

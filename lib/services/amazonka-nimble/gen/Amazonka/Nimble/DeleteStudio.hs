@@ -35,8 +35,8 @@ module Amazonka.Nimble.DeleteStudio
     newDeleteStudioResponse,
 
     -- * Response Lenses
-    deleteStudioResponse_studio,
     deleteStudioResponse_httpStatus,
+    deleteStudioResponse_studio,
   )
 where
 
@@ -49,14 +49,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteStudio' smart constructor.
 data DeleteStudio = DeleteStudio'
-  { -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+  { -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -71,14 +67,10 @@ data DeleteStudio = DeleteStudio'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'deleteStudio_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'deleteStudio_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
 -- 'studioId', 'deleteStudio_studioId' - The studio ID.
 newDeleteStudio ::
@@ -91,14 +83,10 @@ newDeleteStudio pStudioId_ =
       studioId = pStudioId_
     }
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 deleteStudio_clientToken :: Lens.Lens' DeleteStudio (Prelude.Maybe Prelude.Text)
 deleteStudio_clientToken = Lens.lens (\DeleteStudio' {clientToken} -> clientToken) (\s@DeleteStudio' {} a -> s {clientToken = a} :: DeleteStudio)
 
@@ -113,8 +101,8 @@ instance Core.AWSRequest DeleteStudio where
     Response.receiveJSON
       ( \s h x ->
           DeleteStudioResponse'
-            Prelude.<$> (x Core..?> "studio")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "studio")
       )
 
 instance Prelude.Hashable DeleteStudio where
@@ -145,12 +133,12 @@ instance Core.ToQuery DeleteStudio where
 
 -- | /See:/ 'newDeleteStudioResponse' smart constructor.
 data DeleteStudioResponse = DeleteStudioResponse'
-  { -- | Information about a studio.
-    studio :: Prelude.Maybe Studio,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about a studio.
+    studio :: Studio
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DeleteStudioResponse' with all optional fields omitted.
@@ -160,28 +148,30 @@ data DeleteStudioResponse = DeleteStudioResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studio', 'deleteStudioResponse_studio' - Information about a studio.
---
 -- 'httpStatus', 'deleteStudioResponse_httpStatus' - The response's http status code.
+--
+-- 'studio', 'deleteStudioResponse_studio' - Information about a studio.
 newDeleteStudioResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'studio'
+  Studio ->
   DeleteStudioResponse
-newDeleteStudioResponse pHttpStatus_ =
+newDeleteStudioResponse pHttpStatus_ pStudio_ =
   DeleteStudioResponse'
-    { studio = Prelude.Nothing,
-      httpStatus = pHttpStatus_
+    { httpStatus = pHttpStatus_,
+      studio = pStudio_
     }
-
--- | Information about a studio.
-deleteStudioResponse_studio :: Lens.Lens' DeleteStudioResponse (Prelude.Maybe Studio)
-deleteStudioResponse_studio = Lens.lens (\DeleteStudioResponse' {studio} -> studio) (\s@DeleteStudioResponse' {} a -> s {studio = a} :: DeleteStudioResponse)
 
 -- | The response's http status code.
 deleteStudioResponse_httpStatus :: Lens.Lens' DeleteStudioResponse Prelude.Int
 deleteStudioResponse_httpStatus = Lens.lens (\DeleteStudioResponse' {httpStatus} -> httpStatus) (\s@DeleteStudioResponse' {} a -> s {httpStatus = a} :: DeleteStudioResponse)
 
+-- | Information about a studio.
+deleteStudioResponse_studio :: Lens.Lens' DeleteStudioResponse Studio
+deleteStudioResponse_studio = Lens.lens (\DeleteStudioResponse' {studio} -> studio) (\s@DeleteStudioResponse' {} a -> s {studio = a} :: DeleteStudioResponse)
+
 instance Prelude.NFData DeleteStudioResponse where
   rnf DeleteStudioResponse' {..} =
-    Prelude.rnf studio
-      `Prelude.seq` Prelude.rnf httpStatus
+    Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf studio

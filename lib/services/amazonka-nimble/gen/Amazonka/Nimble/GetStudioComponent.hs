@@ -27,8 +27,8 @@ module Amazonka.Nimble.GetStudioComponent
     newGetStudioComponent,
 
     -- * Request Lenses
-    getStudioComponent_studioId,
     getStudioComponent_studioComponentId,
+    getStudioComponent_studioId,
 
     -- * Destructuring the Response
     GetStudioComponentResponse (..),
@@ -49,10 +49,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetStudioComponent' smart constructor.
 data GetStudioComponent = GetStudioComponent'
-  { -- | The studio ID.
-    studioId :: Prelude.Text,
-    -- | The studio component ID.
-    studioComponentId :: Prelude.Text
+  { -- | The studio component ID.
+    studioComponentId :: Prelude.Text,
+    -- | The studio ID.
+    studioId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,28 +64,29 @@ data GetStudioComponent = GetStudioComponent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'studioId', 'getStudioComponent_studioId' - The studio ID.
---
 -- 'studioComponentId', 'getStudioComponent_studioComponentId' - The studio component ID.
+--
+-- 'studioId', 'getStudioComponent_studioId' - The studio ID.
 newGetStudioComponent ::
-  -- | 'studioId'
-  Prelude.Text ->
   -- | 'studioComponentId'
   Prelude.Text ->
+  -- | 'studioId'
+  Prelude.Text ->
   GetStudioComponent
-newGetStudioComponent pStudioId_ pStudioComponentId_ =
+newGetStudioComponent pStudioComponentId_ pStudioId_ =
   GetStudioComponent'
-    { studioId = pStudioId_,
-      studioComponentId = pStudioComponentId_
+    { studioComponentId =
+        pStudioComponentId_,
+      studioId = pStudioId_
     }
-
--- | The studio ID.
-getStudioComponent_studioId :: Lens.Lens' GetStudioComponent Prelude.Text
-getStudioComponent_studioId = Lens.lens (\GetStudioComponent' {studioId} -> studioId) (\s@GetStudioComponent' {} a -> s {studioId = a} :: GetStudioComponent)
 
 -- | The studio component ID.
 getStudioComponent_studioComponentId :: Lens.Lens' GetStudioComponent Prelude.Text
 getStudioComponent_studioComponentId = Lens.lens (\GetStudioComponent' {studioComponentId} -> studioComponentId) (\s@GetStudioComponent' {} a -> s {studioComponentId = a} :: GetStudioComponent)
+
+-- | The studio ID.
+getStudioComponent_studioId :: Lens.Lens' GetStudioComponent Prelude.Text
+getStudioComponent_studioId = Lens.lens (\GetStudioComponent' {studioId} -> studioId) (\s@GetStudioComponent' {} a -> s {studioId = a} :: GetStudioComponent)
 
 instance Core.AWSRequest GetStudioComponent where
   type
@@ -102,13 +103,13 @@ instance Core.AWSRequest GetStudioComponent where
 
 instance Prelude.Hashable GetStudioComponent where
   hashWithSalt _salt GetStudioComponent' {..} =
-    _salt `Prelude.hashWithSalt` studioId
-      `Prelude.hashWithSalt` studioComponentId
+    _salt `Prelude.hashWithSalt` studioComponentId
+      `Prelude.hashWithSalt` studioId
 
 instance Prelude.NFData GetStudioComponent where
   rnf GetStudioComponent' {..} =
-    Prelude.rnf studioId
-      `Prelude.seq` Prelude.rnf studioComponentId
+    Prelude.rnf studioComponentId
+      `Prelude.seq` Prelude.rnf studioId
 
 instance Core.ToHeaders GetStudioComponent where
   toHeaders =
@@ -140,7 +141,7 @@ data GetStudioComponentResponse = GetStudioComponentResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetStudioComponentResponse' with all optional fields omitted.

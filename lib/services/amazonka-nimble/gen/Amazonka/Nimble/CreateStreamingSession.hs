@@ -55,9 +55,7 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | A collection of streaming sessions.
---
--- /See:/ 'newCreateStreamingSession' smart constructor.
+-- | /See:/ 'newCreateStreamingSession' smart constructor.
 data CreateStreamingSession = CreateStreamingSession'
   { -- | A collection of labels, in the form of key:value pairs, that apply to
     -- this resource.
@@ -66,18 +64,16 @@ data CreateStreamingSession = CreateStreamingSession'
     launchProfileId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the streaming image.
     streamingImageId :: Prelude.Maybe Prelude.Text,
-    -- | To make an idempotent API request using one of these actions, specify a
-    -- client token in the request. You should not reuse the same client token
-    -- for other API requests. If you retry a request that completed
-    -- successfully using the same client token and the same parameters, the
-    -- retry succeeds without performing any further actions. If you retry a
-    -- successful request using the same client token, but one or more of the
-    -- parameters are different, the retry fails with a ValidationException
-    -- error.
+    -- | Unique, case-sensitive identifier that you provide to ensure the
+    -- idempotency of the request. If you don’t specify a client token, the AWS
+    -- SDK automatically generates a client token and uses it for the request
+    -- to ensure idempotency.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The EC2 Instance type used for the streaming session.
     ec2InstanceType :: Prelude.Maybe StreamingInstanceType,
-    -- | The user ID of the user that owns the streaming session.
+    -- | The user ID of the user that owns the streaming session. The user that
+    -- owns the session will be logging into the session and interacting with
+    -- the virtual workstation.
     ownedBy :: Prelude.Maybe Prelude.Text,
     -- | The studio ID.
     studioId :: Prelude.Text
@@ -99,18 +95,16 @@ data CreateStreamingSession = CreateStreamingSession'
 --
 -- 'streamingImageId', 'createStreamingSession_streamingImageId' - The ID of the streaming image.
 --
--- 'clientToken', 'createStreamingSession_clientToken' - To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- 'clientToken', 'createStreamingSession_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 --
 -- 'ec2InstanceType', 'createStreamingSession_ec2InstanceType' - The EC2 Instance type used for the streaming session.
 --
--- 'ownedBy', 'createStreamingSession_ownedBy' - The user ID of the user that owns the streaming session.
+-- 'ownedBy', 'createStreamingSession_ownedBy' - The user ID of the user that owns the streaming session. The user that
+-- owns the session will be logging into the session and interacting with
+-- the virtual workstation.
 --
 -- 'studioId', 'createStreamingSession_studioId' - The studio ID.
 newCreateStreamingSession ::
@@ -141,14 +135,10 @@ createStreamingSession_launchProfileId = Lens.lens (\CreateStreamingSession' {la
 createStreamingSession_streamingImageId :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
 createStreamingSession_streamingImageId = Lens.lens (\CreateStreamingSession' {streamingImageId} -> streamingImageId) (\s@CreateStreamingSession' {} a -> s {streamingImageId = a} :: CreateStreamingSession)
 
--- | To make an idempotent API request using one of these actions, specify a
--- client token in the request. You should not reuse the same client token
--- for other API requests. If you retry a request that completed
--- successfully using the same client token and the same parameters, the
--- retry succeeds without performing any further actions. If you retry a
--- successful request using the same client token, but one or more of the
--- parameters are different, the retry fails with a ValidationException
--- error.
+-- | Unique, case-sensitive identifier that you provide to ensure the
+-- idempotency of the request. If you don’t specify a client token, the AWS
+-- SDK automatically generates a client token and uses it for the request
+-- to ensure idempotency.
 createStreamingSession_clientToken :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
 createStreamingSession_clientToken = Lens.lens (\CreateStreamingSession' {clientToken} -> clientToken) (\s@CreateStreamingSession' {} a -> s {clientToken = a} :: CreateStreamingSession)
 
@@ -156,7 +146,9 @@ createStreamingSession_clientToken = Lens.lens (\CreateStreamingSession' {client
 createStreamingSession_ec2InstanceType :: Lens.Lens' CreateStreamingSession (Prelude.Maybe StreamingInstanceType)
 createStreamingSession_ec2InstanceType = Lens.lens (\CreateStreamingSession' {ec2InstanceType} -> ec2InstanceType) (\s@CreateStreamingSession' {} a -> s {ec2InstanceType = a} :: CreateStreamingSession)
 
--- | The user ID of the user that owns the streaming session.
+-- | The user ID of the user that owns the streaming session. The user that
+-- owns the session will be logging into the session and interacting with
+-- the virtual workstation.
 createStreamingSession_ownedBy :: Lens.Lens' CreateStreamingSession (Prelude.Maybe Prelude.Text)
 createStreamingSession_ownedBy = Lens.lens (\CreateStreamingSession' {ownedBy} -> ownedBy) (\s@CreateStreamingSession' {} a -> s {ownedBy = a} :: CreateStreamingSession)
 

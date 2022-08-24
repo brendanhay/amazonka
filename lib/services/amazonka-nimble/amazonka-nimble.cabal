@@ -82,7 +82,9 @@ library
     Amazonka.Nimble.ListTagsForResource
     Amazonka.Nimble.PutLaunchProfileMembers
     Amazonka.Nimble.PutStudioMembers
+    Amazonka.Nimble.StartStreamingSession
     Amazonka.Nimble.StartStudioSSOConfigurationRepair
+    Amazonka.Nimble.StopStreamingSession
     Amazonka.Nimble.TagResource
     Amazonka.Nimble.Types
     Amazonka.Nimble.Types.ActiveDirectoryComputerAttribute
@@ -99,6 +101,9 @@ library
     Amazonka.Nimble.Types.LaunchProfilePlatform
     Amazonka.Nimble.Types.LaunchProfileState
     Amazonka.Nimble.Types.LaunchProfileStatusCode
+    Amazonka.Nimble.Types.LaunchProfileValidationState
+    Amazonka.Nimble.Types.LaunchProfileValidationStatusCode
+    Amazonka.Nimble.Types.LaunchProfileValidationType
     Amazonka.Nimble.Types.LicenseServiceConfiguration
     Amazonka.Nimble.Types.NewLaunchProfileMember
     Amazonka.Nimble.Types.NewStudioMember
@@ -106,6 +111,7 @@ library
     Amazonka.Nimble.Types.SharedFileSystemConfiguration
     Amazonka.Nimble.Types.StreamConfiguration
     Amazonka.Nimble.Types.StreamConfigurationCreate
+    Amazonka.Nimble.Types.StreamConfigurationSessionStorage
     Amazonka.Nimble.Types.StreamingClipboardMode
     Amazonka.Nimble.Types.StreamingImage
     Amazonka.Nimble.Types.StreamingImageEncryptionConfiguration
@@ -116,6 +122,8 @@ library
     Amazonka.Nimble.Types.StreamingSession
     Amazonka.Nimble.Types.StreamingSessionState
     Amazonka.Nimble.Types.StreamingSessionStatusCode
+    Amazonka.Nimble.Types.StreamingSessionStorageMode
+    Amazonka.Nimble.Types.StreamingSessionStorageRoot
     Amazonka.Nimble.Types.StreamingSessionStream
     Amazonka.Nimble.Types.StreamingSessionStreamState
     Amazonka.Nimble.Types.StreamingSessionStreamStatusCode
@@ -135,6 +143,7 @@ library
     Amazonka.Nimble.Types.StudioPersona
     Amazonka.Nimble.Types.StudioState
     Amazonka.Nimble.Types.StudioStatusCode
+    Amazonka.Nimble.Types.ValidationResult
     Amazonka.Nimble.UntagResource
     Amazonka.Nimble.UpdateLaunchProfile
     Amazonka.Nimble.UpdateLaunchProfileMember

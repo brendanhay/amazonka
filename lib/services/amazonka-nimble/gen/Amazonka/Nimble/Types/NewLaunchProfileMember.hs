@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Nimble.Types.LaunchProfilePersona
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | A new member that is added to a launch profile.
 --
 -- /See:/ 'newNewLaunchProfileMember' smart constructor.
 data NewLaunchProfileMember = NewLaunchProfileMember'

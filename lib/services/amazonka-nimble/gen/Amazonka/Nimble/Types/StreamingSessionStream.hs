@@ -25,7 +25,10 @@ import Amazonka.Nimble.Types.StreamingSessionStreamState
 import Amazonka.Nimble.Types.StreamingSessionStreamStatusCode
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | A stream is an active connection to a streaming session, enabling a
+-- studio user to control the streaming session using a compatible client.
+-- Streaming session streams are compatible with the NICE DCV web client,
+-- included in the Nimble Studio portal, or the NICE DCV desktop client.
 --
 -- /See:/ 'newStreamingSessionStream' smart constructor.
 data StreamingSessionStream = StreamingSessionStream'
@@ -34,19 +37,21 @@ data StreamingSessionStream = StreamingSessionStream'
     -- | The stream ID.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The URL to connect to this stream using the DCV client.
-    url :: Prelude.Maybe Prelude.Text,
+    url :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The Unix epoch timestamp in seconds for when the resource expires.
     expiresAt :: Prelude.Maybe Core.POSIX,
     -- | The streaming session stream status code.
     statusCode :: Prelude.Maybe StreamingSessionStreamStatusCode,
     -- | The user ID of the user that created the streaming session stream.
     createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The user ID of the user that owns the streaming session.
+    -- | The user ID of the user that owns the streaming session. The user that
+    -- owns the session will be logging into the session and interacting with
+    -- the virtual workstation.
     ownedBy :: Prelude.Maybe Prelude.Text,
     -- | The Unix epoch timestamp in seconds for when the resource was created.
     createdAt :: Prelude.Maybe Core.POSIX
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StreamingSessionStream' with all optional fields omitted.
@@ -68,7 +73,9 @@ data StreamingSessionStream = StreamingSessionStream'
 --
 -- 'createdBy', 'streamingSessionStream_createdBy' - The user ID of the user that created the streaming session stream.
 --
--- 'ownedBy', 'streamingSessionStream_ownedBy' - The user ID of the user that owns the streaming session.
+-- 'ownedBy', 'streamingSessionStream_ownedBy' - The user ID of the user that owns the streaming session. The user that
+-- owns the session will be logging into the session and interacting with
+-- the virtual workstation.
 --
 -- 'createdAt', 'streamingSessionStream_createdAt' - The Unix epoch timestamp in seconds for when the resource was created.
 newStreamingSessionStream ::
@@ -95,7 +102,7 @@ streamingSessionStream_streamId = Lens.lens (\StreamingSessionStream' {streamId}
 
 -- | The URL to connect to this stream using the DCV client.
 streamingSessionStream_url :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
-streamingSessionStream_url = Lens.lens (\StreamingSessionStream' {url} -> url) (\s@StreamingSessionStream' {} a -> s {url = a} :: StreamingSessionStream)
+streamingSessionStream_url = Lens.lens (\StreamingSessionStream' {url} -> url) (\s@StreamingSessionStream' {} a -> s {url = a} :: StreamingSessionStream) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The Unix epoch timestamp in seconds for when the resource expires.
 streamingSessionStream_expiresAt :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.UTCTime)
@@ -109,7 +116,9 @@ streamingSessionStream_statusCode = Lens.lens (\StreamingSessionStream' {statusC
 streamingSessionStream_createdBy :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
 streamingSessionStream_createdBy = Lens.lens (\StreamingSessionStream' {createdBy} -> createdBy) (\s@StreamingSessionStream' {} a -> s {createdBy = a} :: StreamingSessionStream)
 
--- | The user ID of the user that owns the streaming session.
+-- | The user ID of the user that owns the streaming session. The user that
+-- owns the session will be logging into the session and interacting with
+-- the virtual workstation.
 streamingSessionStream_ownedBy :: Lens.Lens' StreamingSessionStream (Prelude.Maybe Prelude.Text)
 streamingSessionStream_ownedBy = Lens.lens (\StreamingSessionStream' {ownedBy} -> ownedBy) (\s@StreamingSessionStream' {} a -> s {ownedBy = a} :: StreamingSessionStream)
 

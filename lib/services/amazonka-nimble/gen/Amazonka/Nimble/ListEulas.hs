@@ -52,10 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEulas' smart constructor.
 data ListEulas = ListEulas'
-  { -- | The token for the next set of results, or null if there are no more
-    -- results.
+  { -- | The token to request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A collection of EULA IDs.
+    -- | The list of EULA IDs that should be returned
     eulaIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,10 +67,9 @@ data ListEulas = ListEulas'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEulas_nextToken' - The token for the next set of results, or null if there are no more
--- results.
+-- 'nextToken', 'listEulas_nextToken' - The token to request the next page of results.
 --
--- 'eulaIds', 'listEulas_eulaIds' - A collection of EULA IDs.
+-- 'eulaIds', 'listEulas_eulaIds' - The list of EULA IDs that should be returned
 newListEulas ::
   ListEulas
 newListEulas =
@@ -80,12 +78,11 @@ newListEulas =
       eulaIds = Prelude.Nothing
     }
 
--- | The token for the next set of results, or null if there are no more
--- results.
+-- | The token to request the next page of results.
 listEulas_nextToken :: Lens.Lens' ListEulas (Prelude.Maybe Prelude.Text)
 listEulas_nextToken = Lens.lens (\ListEulas' {nextToken} -> nextToken) (\s@ListEulas' {} a -> s {nextToken = a} :: ListEulas)
 
--- | A collection of EULA IDs.
+-- | The list of EULA IDs that should be returned
 listEulas_eulaIds :: Lens.Lens' ListEulas (Prelude.Maybe [Prelude.Text])
 listEulas_eulaIds = Lens.lens (\ListEulas' {eulaIds} -> eulaIds) (\s@ListEulas' {} a -> s {eulaIds = a} :: ListEulas) Prelude.. Lens.mapping Lens.coerced
 

@@ -22,8 +22,8 @@
 --
 -- Archives specific Source Servers by setting the SourceServer.isArchived
 -- property to true for specified SourceServers by ID. This command only
--- works for SourceServers with a lifecycle.state which equals DISCONNECTED
--- or CUTOVER.
+-- works for SourceServers with a lifecycle. state which equals
+-- DISCONNECTED or CUTOVER.
 module Amazonka.MGN.MarkAsArchived
   ( -- * Creating a Request
     MarkAsArchived (..),
@@ -38,7 +38,9 @@ module Amazonka.MGN.MarkAsArchived
 
     -- * Response Lenses
     sourceServer_tags,
+    sourceServer_vcenterClientID,
     sourceServer_lifeCycle,
+    sourceServer_replicationType,
     sourceServer_launchedInstance,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,

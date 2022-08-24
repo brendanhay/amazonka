@@ -23,6 +23,7 @@ module Amazonka.MGN.Types.LifeCycleState
         LifeCycleState_CUTOVER,
         LifeCycleState_CUTTING_OVER,
         LifeCycleState_DISCONNECTED,
+        LifeCycleState_DISCOVERED,
         LifeCycleState_NOT_READY,
         LifeCycleState_READY_FOR_CUTOVER,
         LifeCycleState_READY_FOR_TEST,
@@ -72,6 +73,9 @@ pattern LifeCycleState_CUTTING_OVER = LifeCycleState' "CUTTING_OVER"
 pattern LifeCycleState_DISCONNECTED :: LifeCycleState
 pattern LifeCycleState_DISCONNECTED = LifeCycleState' "DISCONNECTED"
 
+pattern LifeCycleState_DISCOVERED :: LifeCycleState
+pattern LifeCycleState_DISCOVERED = LifeCycleState' "DISCOVERED"
+
 pattern LifeCycleState_NOT_READY :: LifeCycleState
 pattern LifeCycleState_NOT_READY = LifeCycleState' "NOT_READY"
 
@@ -91,6 +95,7 @@ pattern LifeCycleState_TESTING = LifeCycleState' "TESTING"
   LifeCycleState_CUTOVER,
   LifeCycleState_CUTTING_OVER,
   LifeCycleState_DISCONNECTED,
+  LifeCycleState_DISCOVERED,
   LifeCycleState_NOT_READY,
   LifeCycleState_READY_FOR_CUTOVER,
   LifeCycleState_READY_FOR_TEST,

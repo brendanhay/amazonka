@@ -30,11 +30,17 @@ import Test.Tasty
 --         [ requestChangeServerLifeCycleState $
 --             newChangeServerLifeCycleState
 --
+--         , requestCreateLaunchConfigurationTemplate $
+--             newCreateLaunchConfigurationTemplate
+--
 --         , requestCreateReplicationConfigurationTemplate $
 --             newCreateReplicationConfigurationTemplate
 --
 --         , requestDeleteJob $
 --             newDeleteJob
+--
+--         , requestDeleteLaunchConfigurationTemplate $
+--             newDeleteLaunchConfigurationTemplate
 --
 --         , requestDeleteReplicationConfigurationTemplate $
 --             newDeleteReplicationConfigurationTemplate
@@ -42,17 +48,26 @@ import Test.Tasty
 --         , requestDeleteSourceServer $
 --             newDeleteSourceServer
 --
+--         , requestDeleteVcenterClient $
+--             newDeleteVcenterClient
+--
 --         , requestDescribeJobLogItems $
 --             newDescribeJobLogItems
 --
 --         , requestDescribeJobs $
 --             newDescribeJobs
 --
+--         , requestDescribeLaunchConfigurationTemplates $
+--             newDescribeLaunchConfigurationTemplates
+--
 --         , requestDescribeReplicationConfigurationTemplates $
 --             newDescribeReplicationConfigurationTemplates
 --
 --         , requestDescribeSourceServers $
 --             newDescribeSourceServers
+--
+--         , requestDescribeVcenterClients $
+--             newDescribeVcenterClients
 --
 --         , requestDisconnectFromService $
 --             newDisconnectFromService
@@ -81,6 +96,9 @@ import Test.Tasty
 --         , requestStartCutover $
 --             newStartCutover
 --
+--         , requestStartReplication $
+--             newStartReplication
+--
 --         , requestStartTest $
 --             newStartTest
 --
@@ -96,11 +114,17 @@ import Test.Tasty
 --         , requestUpdateLaunchConfiguration $
 --             newUpdateLaunchConfiguration
 --
+--         , requestUpdateLaunchConfigurationTemplate $
+--             newUpdateLaunchConfigurationTemplate
+--
 --         , requestUpdateReplicationConfiguration $
 --             newUpdateReplicationConfiguration
 --
 --         , requestUpdateReplicationConfigurationTemplate $
 --             newUpdateReplicationConfigurationTemplate
+--
+--         , requestUpdateSourceServerReplicationType $
+--             newUpdateSourceServerReplicationType
 --
 --           ]
 
@@ -108,11 +132,17 @@ import Test.Tasty
 --         [ responseChangeServerLifeCycleState $
 --             newSourceServer
 --
+--         , responseCreateLaunchConfigurationTemplate $
+--             newLaunchConfigurationTemplate
+--
 --         , responseCreateReplicationConfigurationTemplate $
 --             newReplicationConfigurationTemplate
 --
 --         , responseDeleteJob $
 --             newDeleteJobResponse
+--
+--         , responseDeleteLaunchConfigurationTemplate $
+--             newDeleteLaunchConfigurationTemplateResponse
 --
 --         , responseDeleteReplicationConfigurationTemplate $
 --             newDeleteReplicationConfigurationTemplateResponse
@@ -120,17 +150,26 @@ import Test.Tasty
 --         , responseDeleteSourceServer $
 --             newDeleteSourceServerResponse
 --
+--         , responseDeleteVcenterClient $
+--             newDeleteVcenterClientResponse
+--
 --         , responseDescribeJobLogItems $
 --             newDescribeJobLogItemsResponse
 --
 --         , responseDescribeJobs $
 --             newDescribeJobsResponse
 --
+--         , responseDescribeLaunchConfigurationTemplates $
+--             newDescribeLaunchConfigurationTemplatesResponse
+--
 --         , responseDescribeReplicationConfigurationTemplates $
 --             newDescribeReplicationConfigurationTemplatesResponse
 --
 --         , responseDescribeSourceServers $
 --             newDescribeSourceServersResponse
+--
+--         , responseDescribeVcenterClients $
+--             newDescribeVcenterClientsResponse
 --
 --         , responseDisconnectFromService $
 --             newSourceServer
@@ -159,6 +198,9 @@ import Test.Tasty
 --         , responseStartCutover $
 --             newStartCutoverResponse
 --
+--         , responseStartReplication $
+--             newSourceServer
+--
 --         , responseStartTest $
 --             newStartTestResponse
 --
@@ -174,11 +216,17 @@ import Test.Tasty
 --         , responseUpdateLaunchConfiguration $
 --             newLaunchConfiguration
 --
+--         , responseUpdateLaunchConfigurationTemplate $
+--             newLaunchConfigurationTemplate
+--
 --         , responseUpdateReplicationConfiguration $
 --             newReplicationConfiguration
 --
 --         , responseUpdateReplicationConfigurationTemplate $
 --             newReplicationConfigurationTemplate
+--
+--         , responseUpdateSourceServerReplicationType $
+--             newSourceServer
 --
 --           ]
 --     ]
@@ -190,6 +238,12 @@ requestChangeServerLifeCycleState =
   req
     "ChangeServerLifeCycleState"
     "fixture/ChangeServerLifeCycleState.yaml"
+
+requestCreateLaunchConfigurationTemplate :: CreateLaunchConfigurationTemplate -> TestTree
+requestCreateLaunchConfigurationTemplate =
+  req
+    "CreateLaunchConfigurationTemplate"
+    "fixture/CreateLaunchConfigurationTemplate.yaml"
 
 requestCreateReplicationConfigurationTemplate :: CreateReplicationConfigurationTemplate -> TestTree
 requestCreateReplicationConfigurationTemplate =
@@ -203,6 +257,12 @@ requestDeleteJob =
     "DeleteJob"
     "fixture/DeleteJob.yaml"
 
+requestDeleteLaunchConfigurationTemplate :: DeleteLaunchConfigurationTemplate -> TestTree
+requestDeleteLaunchConfigurationTemplate =
+  req
+    "DeleteLaunchConfigurationTemplate"
+    "fixture/DeleteLaunchConfigurationTemplate.yaml"
+
 requestDeleteReplicationConfigurationTemplate :: DeleteReplicationConfigurationTemplate -> TestTree
 requestDeleteReplicationConfigurationTemplate =
   req
@@ -214,6 +274,12 @@ requestDeleteSourceServer =
   req
     "DeleteSourceServer"
     "fixture/DeleteSourceServer.yaml"
+
+requestDeleteVcenterClient :: DeleteVcenterClient -> TestTree
+requestDeleteVcenterClient =
+  req
+    "DeleteVcenterClient"
+    "fixture/DeleteVcenterClient.yaml"
 
 requestDescribeJobLogItems :: DescribeJobLogItems -> TestTree
 requestDescribeJobLogItems =
@@ -227,6 +293,12 @@ requestDescribeJobs =
     "DescribeJobs"
     "fixture/DescribeJobs.yaml"
 
+requestDescribeLaunchConfigurationTemplates :: DescribeLaunchConfigurationTemplates -> TestTree
+requestDescribeLaunchConfigurationTemplates =
+  req
+    "DescribeLaunchConfigurationTemplates"
+    "fixture/DescribeLaunchConfigurationTemplates.yaml"
+
 requestDescribeReplicationConfigurationTemplates :: DescribeReplicationConfigurationTemplates -> TestTree
 requestDescribeReplicationConfigurationTemplates =
   req
@@ -238,6 +310,12 @@ requestDescribeSourceServers =
   req
     "DescribeSourceServers"
     "fixture/DescribeSourceServers.yaml"
+
+requestDescribeVcenterClients :: DescribeVcenterClients -> TestTree
+requestDescribeVcenterClients =
+  req
+    "DescribeVcenterClients"
+    "fixture/DescribeVcenterClients.yaml"
 
 requestDisconnectFromService :: DisconnectFromService -> TestTree
 requestDisconnectFromService =
@@ -293,6 +371,12 @@ requestStartCutover =
     "StartCutover"
     "fixture/StartCutover.yaml"
 
+requestStartReplication :: StartReplication -> TestTree
+requestStartReplication =
+  req
+    "StartReplication"
+    "fixture/StartReplication.yaml"
+
 requestStartTest :: StartTest -> TestTree
 requestStartTest =
   req
@@ -323,6 +407,12 @@ requestUpdateLaunchConfiguration =
     "UpdateLaunchConfiguration"
     "fixture/UpdateLaunchConfiguration.yaml"
 
+requestUpdateLaunchConfigurationTemplate :: UpdateLaunchConfigurationTemplate -> TestTree
+requestUpdateLaunchConfigurationTemplate =
+  req
+    "UpdateLaunchConfigurationTemplate"
+    "fixture/UpdateLaunchConfigurationTemplate.yaml"
+
 requestUpdateReplicationConfiguration :: UpdateReplicationConfiguration -> TestTree
 requestUpdateReplicationConfiguration =
   req
@@ -335,6 +425,12 @@ requestUpdateReplicationConfigurationTemplate =
     "UpdateReplicationConfigurationTemplate"
     "fixture/UpdateReplicationConfigurationTemplate.yaml"
 
+requestUpdateSourceServerReplicationType :: UpdateSourceServerReplicationType -> TestTree
+requestUpdateSourceServerReplicationType =
+  req
+    "UpdateSourceServerReplicationType"
+    "fixture/UpdateSourceServerReplicationType.yaml"
+
 -- Responses
 
 responseChangeServerLifeCycleState :: SourceServer -> TestTree
@@ -344,6 +440,14 @@ responseChangeServerLifeCycleState =
     "fixture/ChangeServerLifeCycleStateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ChangeServerLifeCycleState)
+
+responseCreateLaunchConfigurationTemplate :: LaunchConfigurationTemplate -> TestTree
+responseCreateLaunchConfigurationTemplate =
+  res
+    "CreateLaunchConfigurationTemplateResponse"
+    "fixture/CreateLaunchConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateLaunchConfigurationTemplate)
 
 responseCreateReplicationConfigurationTemplate :: ReplicationConfigurationTemplate -> TestTree
 responseCreateReplicationConfigurationTemplate =
@@ -361,6 +465,14 @@ responseDeleteJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteJob)
 
+responseDeleteLaunchConfigurationTemplate :: DeleteLaunchConfigurationTemplateResponse -> TestTree
+responseDeleteLaunchConfigurationTemplate =
+  res
+    "DeleteLaunchConfigurationTemplateResponse"
+    "fixture/DeleteLaunchConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteLaunchConfigurationTemplate)
+
 responseDeleteReplicationConfigurationTemplate :: DeleteReplicationConfigurationTemplateResponse -> TestTree
 responseDeleteReplicationConfigurationTemplate =
   res
@@ -376,6 +488,14 @@ responseDeleteSourceServer =
     "fixture/DeleteSourceServerResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteSourceServer)
+
+responseDeleteVcenterClient :: DeleteVcenterClientResponse -> TestTree
+responseDeleteVcenterClient =
+  res
+    "DeleteVcenterClientResponse"
+    "fixture/DeleteVcenterClientResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteVcenterClient)
 
 responseDescribeJobLogItems :: DescribeJobLogItemsResponse -> TestTree
 responseDescribeJobLogItems =
@@ -393,6 +513,14 @@ responseDescribeJobs =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeJobs)
 
+responseDescribeLaunchConfigurationTemplates :: DescribeLaunchConfigurationTemplatesResponse -> TestTree
+responseDescribeLaunchConfigurationTemplates =
+  res
+    "DescribeLaunchConfigurationTemplatesResponse"
+    "fixture/DescribeLaunchConfigurationTemplatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeLaunchConfigurationTemplates)
+
 responseDescribeReplicationConfigurationTemplates :: DescribeReplicationConfigurationTemplatesResponse -> TestTree
 responseDescribeReplicationConfigurationTemplates =
   res
@@ -408,6 +536,14 @@ responseDescribeSourceServers =
     "fixture/DescribeSourceServersResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSourceServers)
+
+responseDescribeVcenterClients :: DescribeVcenterClientsResponse -> TestTree
+responseDescribeVcenterClients =
+  res
+    "DescribeVcenterClientsResponse"
+    "fixture/DescribeVcenterClientsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeVcenterClients)
 
 responseDisconnectFromService :: SourceServer -> TestTree
 responseDisconnectFromService =
@@ -481,6 +617,14 @@ responseStartCutover =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartCutover)
 
+responseStartReplication :: SourceServer -> TestTree
+responseStartReplication =
+  res
+    "StartReplicationResponse"
+    "fixture/StartReplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartReplication)
+
 responseStartTest :: StartTestResponse -> TestTree
 responseStartTest =
   res
@@ -521,6 +665,14 @@ responseUpdateLaunchConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateLaunchConfiguration)
 
+responseUpdateLaunchConfigurationTemplate :: LaunchConfigurationTemplate -> TestTree
+responseUpdateLaunchConfigurationTemplate =
+  res
+    "UpdateLaunchConfigurationTemplateResponse"
+    "fixture/UpdateLaunchConfigurationTemplateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateLaunchConfigurationTemplate)
+
 responseUpdateReplicationConfiguration :: ReplicationConfiguration -> TestTree
 responseUpdateReplicationConfiguration =
   res
@@ -536,3 +688,11 @@ responseUpdateReplicationConfigurationTemplate =
     "fixture/UpdateReplicationConfigurationTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateReplicationConfigurationTemplate)
+
+responseUpdateSourceServerReplicationType :: SourceServer -> TestTree
+responseUpdateSourceServerReplicationType =
+  res
+    "UpdateSourceServerReplicationTypeResponse"
+    "fixture/UpdateSourceServerReplicationTypeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateSourceServerReplicationType)

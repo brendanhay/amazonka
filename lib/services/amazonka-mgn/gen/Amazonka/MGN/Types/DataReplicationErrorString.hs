@@ -31,9 +31,11 @@ module Amazonka.MGN.Types.DataReplicationErrorString
         DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER,
         DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT,
         DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER,
+        DataReplicationErrorString_LAST_SNAPSHOT_JOB_FAILED,
         DataReplicationErrorString_NOT_CONVERGING,
         DataReplicationErrorString_SNAPSHOTS_FAILURE,
-        DataReplicationErrorString_UNSTABLE_NETWORK
+        DataReplicationErrorString_UNSTABLE_NETWORK,
+        DataReplicationErrorString_UNSUPPORTED_VM_CONFIGURATION
       ),
   )
 where
@@ -102,6 +104,9 @@ pattern DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT 
 pattern DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER :: DataReplicationErrorString
 pattern DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER = DataReplicationErrorString' "FAILED_TO_START_DATA_TRANSFER"
 
+pattern DataReplicationErrorString_LAST_SNAPSHOT_JOB_FAILED :: DataReplicationErrorString
+pattern DataReplicationErrorString_LAST_SNAPSHOT_JOB_FAILED = DataReplicationErrorString' "LAST_SNAPSHOT_JOB_FAILED"
+
 pattern DataReplicationErrorString_NOT_CONVERGING :: DataReplicationErrorString
 pattern DataReplicationErrorString_NOT_CONVERGING = DataReplicationErrorString' "NOT_CONVERGING"
 
@@ -110,6 +115,9 @@ pattern DataReplicationErrorString_SNAPSHOTS_FAILURE = DataReplicationErrorStrin
 
 pattern DataReplicationErrorString_UNSTABLE_NETWORK :: DataReplicationErrorString
 pattern DataReplicationErrorString_UNSTABLE_NETWORK = DataReplicationErrorString' "UNSTABLE_NETWORK"
+
+pattern DataReplicationErrorString_UNSUPPORTED_VM_CONFIGURATION :: DataReplicationErrorString
+pattern DataReplicationErrorString_UNSUPPORTED_VM_CONFIGURATION = DataReplicationErrorString' "UNSUPPORTED_VM_CONFIGURATION"
 
 {-# COMPLETE
   DataReplicationErrorString_AGENT_NOT_SEEN,
@@ -123,8 +131,10 @@ pattern DataReplicationErrorString_UNSTABLE_NETWORK = DataReplicationErrorString
   DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER,
   DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT,
   DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER,
+  DataReplicationErrorString_LAST_SNAPSHOT_JOB_FAILED,
   DataReplicationErrorString_NOT_CONVERGING,
   DataReplicationErrorString_SNAPSHOTS_FAILURE,
   DataReplicationErrorString_UNSTABLE_NETWORK,
+  DataReplicationErrorString_UNSUPPORTED_VM_CONFIGURATION,
   DataReplicationErrorString'
   #-}

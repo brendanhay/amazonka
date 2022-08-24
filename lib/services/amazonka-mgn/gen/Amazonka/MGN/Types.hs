@@ -20,10 +20,14 @@ module Amazonka.MGN.Types
     _UninitializedAccountException,
     _AccessDeniedException,
     _InternalServerException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
     _ConflictException,
     _ThrottlingException,
     _ValidationException,
+
+    -- * BootMode
+    BootMode (..),
 
     -- * ChangeServerLifeCycleStateSourceServerLifecycleState
     ChangeServerLifeCycleStateSourceServerLifecycleState (..),
@@ -64,6 +68,12 @@ module Amazonka.MGN.Types
     -- * LifeCycleState
     LifeCycleState (..),
 
+    -- * PostLaunchActionExecutionStatus
+    PostLaunchActionExecutionStatus (..),
+
+    -- * PostLaunchActionsDeploymentType
+    PostLaunchActionsDeploymentType (..),
+
     -- * ReplicationConfigurationDataPlaneRouting
     ReplicationConfigurationDataPlaneRouting (..),
 
@@ -75,6 +85,15 @@ module Amazonka.MGN.Types
 
     -- * ReplicationConfigurationReplicatedDiskStagingDiskType
     ReplicationConfigurationReplicatedDiskStagingDiskType (..),
+
+    -- * ReplicationType
+    ReplicationType (..),
+
+    -- * SsmDocumentType
+    SsmDocumentType (..),
+
+    -- * SsmParameterStoreParameterType
+    SsmParameterStoreParameterType (..),
 
     -- * TargetInstanceTypeRightSizingMethod
     TargetInstanceTypeRightSizingMethod (..),
@@ -103,6 +122,7 @@ module Amazonka.MGN.Types
     dataReplicationInfo_lagDuration,
     dataReplicationInfo_dataReplicationInitiation,
     dataReplicationInfo_replicatedDisks,
+    dataReplicationInfo_lastSnapshotDateTime,
     dataReplicationInfo_dataReplicationState,
     dataReplicationInfo_etaDateTime,
 
@@ -138,8 +158,10 @@ module Amazonka.MGN.Types
     -- * DescribeSourceServersRequestFilters
     DescribeSourceServersRequestFilters (..),
     newDescribeSourceServersRequestFilters,
+    describeSourceServersRequestFilters_lifeCycleStates,
     describeSourceServersRequestFilters_isArchived,
     describeSourceServersRequestFilters_sourceServerIDs,
+    describeSourceServersRequestFilters_replicationTypes,
 
     -- * Disk
     Disk (..),
@@ -154,6 +176,7 @@ module Amazonka.MGN.Types
     identificationHints_fqdn,
     identificationHints_hostname,
     identificationHints_vmWareUuid,
+    identificationHints_vmPath,
 
     -- * Job
     Job (..),
@@ -183,6 +206,15 @@ module Amazonka.MGN.Types
     jobLogEventData_conversionServerID,
     jobLogEventData_sourceServerID,
 
+    -- * JobPostLaunchActionsLaunchStatus
+    JobPostLaunchActionsLaunchStatus (..),
+    newJobPostLaunchActionsLaunchStatus,
+    jobPostLaunchActionsLaunchStatus_executionID,
+    jobPostLaunchActionsLaunchStatus_ssmDocument,
+    jobPostLaunchActionsLaunchStatus_ssmDocumentType,
+    jobPostLaunchActionsLaunchStatus_executionStatus,
+    jobPostLaunchActionsLaunchStatus_failureReason,
+
     -- * LaunchConfiguration
     LaunchConfiguration (..),
     newLaunchConfiguration,
@@ -190,10 +222,20 @@ module Amazonka.MGN.Types
     launchConfiguration_targetInstanceTypeRightSizingMethod,
     launchConfiguration_copyTags,
     launchConfiguration_launchDisposition,
+    launchConfiguration_postLaunchActions,
     launchConfiguration_ec2LaunchTemplateID,
+    launchConfiguration_bootMode,
     launchConfiguration_sourceServerID,
     launchConfiguration_licensing,
     launchConfiguration_copyPrivateIp,
+
+    -- * LaunchConfigurationTemplate
+    LaunchConfigurationTemplate (..),
+    newLaunchConfigurationTemplate,
+    launchConfigurationTemplate_tags,
+    launchConfigurationTemplate_arn,
+    launchConfigurationTemplate_postLaunchActions,
+    launchConfigurationTemplate_launchConfigurationTemplateID,
 
     -- * LaunchedInstance
     LaunchedInstance (..),
@@ -280,7 +322,24 @@ module Amazonka.MGN.Types
     ParticipatingServer (..),
     newParticipatingServer,
     participatingServer_launchStatus,
+    participatingServer_launchedEc2InstanceID,
+    participatingServer_postLaunchActionsStatus,
     participatingServer_sourceServerID,
+
+    -- * PostLaunchActions
+    PostLaunchActions (..),
+    newPostLaunchActions,
+    postLaunchActions_ssmDocuments,
+    postLaunchActions_deployment,
+    postLaunchActions_s3OutputKeyPrefix,
+    postLaunchActions_s3LogBucket,
+    postLaunchActions_cloudWatchLogGroupName,
+
+    -- * PostLaunchActionsStatus
+    PostLaunchActionsStatus (..),
+    newPostLaunchActionsStatus,
+    postLaunchActionsStatus_ssmAgentDiscoveryDatetime,
+    postLaunchActionsStatus_postLaunchActionsLaunchStatusList,
 
     -- * ReplicationConfiguration
     ReplicationConfiguration (..),
@@ -307,6 +366,7 @@ module Amazonka.MGN.Types
     replicationConfigurationReplicatedDisk_isBootDisk,
     replicationConfigurationReplicatedDisk_deviceName,
     replicationConfigurationReplicatedDisk_stagingDiskType,
+    replicationConfigurationReplicatedDisk_throughput,
     replicationConfigurationReplicatedDisk_iops,
 
     -- * ReplicationConfigurationTemplate
@@ -344,18 +404,48 @@ module Amazonka.MGN.Types
     SourceServer (..),
     newSourceServer,
     sourceServer_tags,
+    sourceServer_vcenterClientID,
     sourceServer_lifeCycle,
+    sourceServer_replicationType,
     sourceServer_launchedInstance,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
     sourceServer_isArchived,
     sourceServer_sourceServerID,
     sourceServer_sourceProperties,
+
+    -- * SsmDocument
+    SsmDocument (..),
+    newSsmDocument,
+    ssmDocument_timeoutSeconds,
+    ssmDocument_mustSucceedForCutover,
+    ssmDocument_parameters,
+    ssmDocument_actionName,
+    ssmDocument_ssmDocumentName,
+
+    -- * SsmParameterStoreParameter
+    SsmParameterStoreParameter (..),
+    newSsmParameterStoreParameter,
+    ssmParameterStoreParameter_parameterName,
+    ssmParameterStoreParameter_parameterType,
+
+    -- * VcenterClient
+    VcenterClient (..),
+    newVcenterClient,
+    vcenterClient_tags,
+    vcenterClient_vcenterClientID,
+    vcenterClient_sourceServerTags,
+    vcenterClient_lastSeenDatetime,
+    vcenterClient_arn,
+    vcenterClient_hostname,
+    vcenterClient_vcenterUUID,
+    vcenterClient_datacenterName,
   )
 where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MGN.Types.BootMode
 import Amazonka.MGN.Types.CPU
 import Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
 import Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState
@@ -378,9 +468,11 @@ import Amazonka.MGN.Types.Job
 import Amazonka.MGN.Types.JobLog
 import Amazonka.MGN.Types.JobLogEvent
 import Amazonka.MGN.Types.JobLogEventData
+import Amazonka.MGN.Types.JobPostLaunchActionsLaunchStatus
 import Amazonka.MGN.Types.JobStatus
 import Amazonka.MGN.Types.JobType
 import Amazonka.MGN.Types.LaunchConfiguration
+import Amazonka.MGN.Types.LaunchConfigurationTemplate
 import Amazonka.MGN.Types.LaunchDisposition
 import Amazonka.MGN.Types.LaunchStatus
 import Amazonka.MGN.Types.LaunchedInstance
@@ -398,6 +490,10 @@ import Amazonka.MGN.Types.LifeCycleState
 import Amazonka.MGN.Types.NetworkInterface
 import Amazonka.MGN.Types.OS
 import Amazonka.MGN.Types.ParticipatingServer
+import Amazonka.MGN.Types.PostLaunchActionExecutionStatus
+import Amazonka.MGN.Types.PostLaunchActions
+import Amazonka.MGN.Types.PostLaunchActionsDeploymentType
+import Amazonka.MGN.Types.PostLaunchActionsStatus
 import Amazonka.MGN.Types.ReplicationConfiguration
 import Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting
 import Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
@@ -405,9 +501,15 @@ import Amazonka.MGN.Types.ReplicationConfigurationEbsEncryption
 import Amazonka.MGN.Types.ReplicationConfigurationReplicatedDisk
 import Amazonka.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
 import Amazonka.MGN.Types.ReplicationConfigurationTemplate
+import Amazonka.MGN.Types.ReplicationType
 import Amazonka.MGN.Types.SourceProperties
 import Amazonka.MGN.Types.SourceServer
+import Amazonka.MGN.Types.SsmDocument
+import Amazonka.MGN.Types.SsmDocumentType
+import Amazonka.MGN.Types.SsmParameterStoreParameter
+import Amazonka.MGN.Types.SsmParameterStoreParameterType
 import Amazonka.MGN.Types.TargetInstanceTypeRightSizingMethod
+import Amazonka.MGN.Types.VcenterClient
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
 
@@ -481,7 +583,7 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Unitialized account exception.
+-- | Uninitialized account exception.
 _UninitializedAccountException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UninitializedAccountException =
   Core._MatchServiceError
@@ -505,6 +607,15 @@ _InternalServerException =
     defaultService
     "InternalServerException"
     Prelude.. Core.hasStatus 500
+
+-- | The request could not be completed because its exceeded the service
+-- quota.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
 
 -- | Resource not found exception.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

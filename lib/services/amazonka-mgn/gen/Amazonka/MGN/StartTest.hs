@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lauches a Test Instance for specific Source Servers. This command starts
--- a LAUNCH job whose initiatedBy property is StartTest and changes the
--- SourceServer.lifeCycle.state property to TESTING.
+-- Launches a Test Instance for specific Source Servers. This command
+-- starts a LAUNCH job whose initiatedBy property is StartTest and changes
+-- the SourceServer.lifeCycle.state property to TESTING.
 module Amazonka.MGN.StartTest
   ( -- * Creating a Request
     StartTest (..),

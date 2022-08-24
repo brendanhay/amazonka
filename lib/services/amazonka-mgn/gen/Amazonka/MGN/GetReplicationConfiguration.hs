@@ -61,7 +61,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetReplicationConfiguration' smart constructor.
 data GetReplicationConfiguration = GetReplicationConfiguration'
-  { -- | Request to get Replication Configuaration by Source Server ID.
+  { -- | Request to get Replication Configuration by Source Server ID.
     sourceServerID :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,7 +74,7 @@ data GetReplicationConfiguration = GetReplicationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceServerID', 'getReplicationConfiguration_sourceServerID' - Request to get Replication Configuaration by Source Server ID.
+-- 'sourceServerID', 'getReplicationConfiguration_sourceServerID' - Request to get Replication Configuration by Source Server ID.
 newGetReplicationConfiguration ::
   -- | 'sourceServerID'
   Prelude.Text ->
@@ -85,7 +85,7 @@ newGetReplicationConfiguration pSourceServerID_ =
         pSourceServerID_
     }
 
--- | Request to get Replication Configuaration by Source Server ID.
+-- | Request to get Replication Configuration by Source Server ID.
 getReplicationConfiguration_sourceServerID :: Lens.Lens' GetReplicationConfiguration Prelude.Text
 getReplicationConfiguration_sourceServerID = Lens.lens (\GetReplicationConfiguration' {sourceServerID} -> sourceServerID) (\s@GetReplicationConfiguration' {} a -> s {sourceServerID = a} :: GetReplicationConfiguration)
 

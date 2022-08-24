@@ -45,14 +45,19 @@ library
   exposed-modules:
     Amazonka.MGN
     Amazonka.MGN.ChangeServerLifeCycleState
+    Amazonka.MGN.CreateLaunchConfigurationTemplate
     Amazonka.MGN.CreateReplicationConfigurationTemplate
     Amazonka.MGN.DeleteJob
+    Amazonka.MGN.DeleteLaunchConfigurationTemplate
     Amazonka.MGN.DeleteReplicationConfigurationTemplate
     Amazonka.MGN.DeleteSourceServer
+    Amazonka.MGN.DeleteVcenterClient
     Amazonka.MGN.DescribeJobLogItems
     Amazonka.MGN.DescribeJobs
+    Amazonka.MGN.DescribeLaunchConfigurationTemplates
     Amazonka.MGN.DescribeReplicationConfigurationTemplates
     Amazonka.MGN.DescribeSourceServers
+    Amazonka.MGN.DescribeVcenterClients
     Amazonka.MGN.DisconnectFromService
     Amazonka.MGN.FinalizeCutover
     Amazonka.MGN.GetLaunchConfiguration
@@ -63,10 +68,12 @@ library
     Amazonka.MGN.MarkAsArchived
     Amazonka.MGN.RetryDataReplication
     Amazonka.MGN.StartCutover
+    Amazonka.MGN.StartReplication
     Amazonka.MGN.StartTest
     Amazonka.MGN.TagResource
     Amazonka.MGN.TerminateTargetInstances
     Amazonka.MGN.Types
+    Amazonka.MGN.Types.BootMode
     Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycle
     Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState
     Amazonka.MGN.Types.CPU
@@ -89,9 +96,11 @@ library
     Amazonka.MGN.Types.JobLog
     Amazonka.MGN.Types.JobLogEvent
     Amazonka.MGN.Types.JobLogEventData
+    Amazonka.MGN.Types.JobPostLaunchActionsLaunchStatus
     Amazonka.MGN.Types.JobStatus
     Amazonka.MGN.Types.JobType
     Amazonka.MGN.Types.LaunchConfiguration
+    Amazonka.MGN.Types.LaunchConfigurationTemplate
     Amazonka.MGN.Types.LaunchDisposition
     Amazonka.MGN.Types.LaunchedInstance
     Amazonka.MGN.Types.LaunchStatus
@@ -109,6 +118,10 @@ library
     Amazonka.MGN.Types.NetworkInterface
     Amazonka.MGN.Types.OS
     Amazonka.MGN.Types.ParticipatingServer
+    Amazonka.MGN.Types.PostLaunchActionExecutionStatus
+    Amazonka.MGN.Types.PostLaunchActions
+    Amazonka.MGN.Types.PostLaunchActionsDeploymentType
+    Amazonka.MGN.Types.PostLaunchActionsStatus
     Amazonka.MGN.Types.ReplicationConfiguration
     Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting
     Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
@@ -116,13 +129,21 @@ library
     Amazonka.MGN.Types.ReplicationConfigurationReplicatedDisk
     Amazonka.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
     Amazonka.MGN.Types.ReplicationConfigurationTemplate
+    Amazonka.MGN.Types.ReplicationType
     Amazonka.MGN.Types.SourceProperties
     Amazonka.MGN.Types.SourceServer
+    Amazonka.MGN.Types.SsmDocument
+    Amazonka.MGN.Types.SsmDocumentType
+    Amazonka.MGN.Types.SsmParameterStoreParameter
+    Amazonka.MGN.Types.SsmParameterStoreParameterType
     Amazonka.MGN.Types.TargetInstanceTypeRightSizingMethod
+    Amazonka.MGN.Types.VcenterClient
     Amazonka.MGN.UntagResource
     Amazonka.MGN.UpdateLaunchConfiguration
+    Amazonka.MGN.UpdateLaunchConfigurationTemplate
     Amazonka.MGN.UpdateReplicationConfiguration
     Amazonka.MGN.UpdateReplicationConfigurationTemplate
+    Amazonka.MGN.UpdateSourceServerReplicationType
     Amazonka.MGN.Waiters
 
   build-depends:

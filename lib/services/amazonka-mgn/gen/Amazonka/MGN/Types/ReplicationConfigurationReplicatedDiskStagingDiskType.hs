@@ -22,7 +22,9 @@ module Amazonka.MGN.Types.ReplicationConfigurationReplicatedDiskStagingDiskType
       ( ..,
         ReplicationConfigurationReplicatedDiskStagingDiskType_AUTO,
         ReplicationConfigurationReplicatedDiskStagingDiskType_GP2,
+        ReplicationConfigurationReplicatedDiskStagingDiskType_GP3,
         ReplicationConfigurationReplicatedDiskStagingDiskType_IO1,
+        ReplicationConfigurationReplicatedDiskStagingDiskType_IO2,
         ReplicationConfigurationReplicatedDiskStagingDiskType_SC1,
         ReplicationConfigurationReplicatedDiskStagingDiskType_ST1,
         ReplicationConfigurationReplicatedDiskStagingDiskType_STANDARD
@@ -67,8 +69,14 @@ pattern ReplicationConfigurationReplicatedDiskStagingDiskType_AUTO = Replication
 pattern ReplicationConfigurationReplicatedDiskStagingDiskType_GP2 :: ReplicationConfigurationReplicatedDiskStagingDiskType
 pattern ReplicationConfigurationReplicatedDiskStagingDiskType_GP2 = ReplicationConfigurationReplicatedDiskStagingDiskType' "GP2"
 
+pattern ReplicationConfigurationReplicatedDiskStagingDiskType_GP3 :: ReplicationConfigurationReplicatedDiskStagingDiskType
+pattern ReplicationConfigurationReplicatedDiskStagingDiskType_GP3 = ReplicationConfigurationReplicatedDiskStagingDiskType' "GP3"
+
 pattern ReplicationConfigurationReplicatedDiskStagingDiskType_IO1 :: ReplicationConfigurationReplicatedDiskStagingDiskType
 pattern ReplicationConfigurationReplicatedDiskStagingDiskType_IO1 = ReplicationConfigurationReplicatedDiskStagingDiskType' "IO1"
+
+pattern ReplicationConfigurationReplicatedDiskStagingDiskType_IO2 :: ReplicationConfigurationReplicatedDiskStagingDiskType
+pattern ReplicationConfigurationReplicatedDiskStagingDiskType_IO2 = ReplicationConfigurationReplicatedDiskStagingDiskType' "IO2"
 
 pattern ReplicationConfigurationReplicatedDiskStagingDiskType_SC1 :: ReplicationConfigurationReplicatedDiskStagingDiskType
 pattern ReplicationConfigurationReplicatedDiskStagingDiskType_SC1 = ReplicationConfigurationReplicatedDiskStagingDiskType' "SC1"
@@ -82,7 +90,9 @@ pattern ReplicationConfigurationReplicatedDiskStagingDiskType_STANDARD = Replica
 {-# COMPLETE
   ReplicationConfigurationReplicatedDiskStagingDiskType_AUTO,
   ReplicationConfigurationReplicatedDiskStagingDiskType_GP2,
+  ReplicationConfigurationReplicatedDiskStagingDiskType_GP3,
   ReplicationConfigurationReplicatedDiskStagingDiskType_IO1,
+  ReplicationConfigurationReplicatedDiskStagingDiskType_IO2,
   ReplicationConfigurationReplicatedDiskStagingDiskType_SC1,
   ReplicationConfigurationReplicatedDiskStagingDiskType_ST1,
   ReplicationConfigurationReplicatedDiskStagingDiskType_STANDARD,

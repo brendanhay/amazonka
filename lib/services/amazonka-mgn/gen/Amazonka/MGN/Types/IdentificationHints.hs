@@ -34,7 +34,9 @@ data IdentificationHints = IdentificationHints'
     -- | Hostname identification hint.
     hostname :: Prelude.Maybe Prelude.Text,
     -- | vmWare UUID identification hint.
-    vmWareUuid :: Prelude.Maybe Prelude.Text
+    vmWareUuid :: Prelude.Maybe Prelude.Text,
+    -- | vCenter VM path identification hint.
+    vmPath :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,6 +55,8 @@ data IdentificationHints = IdentificationHints'
 -- 'hostname', 'identificationHints_hostname' - Hostname identification hint.
 --
 -- 'vmWareUuid', 'identificationHints_vmWareUuid' - vmWare UUID identification hint.
+--
+-- 'vmPath', 'identificationHints_vmPath' - vCenter VM path identification hint.
 newIdentificationHints ::
   IdentificationHints
 newIdentificationHints =
@@ -61,7 +65,8 @@ newIdentificationHints =
         Prelude.Nothing,
       fqdn = Prelude.Nothing,
       hostname = Prelude.Nothing,
-      vmWareUuid = Prelude.Nothing
+      vmWareUuid = Prelude.Nothing,
+      vmPath = Prelude.Nothing
     }
 
 -- | AWS Instance ID identification hint.
@@ -80,6 +85,10 @@ identificationHints_hostname = Lens.lens (\IdentificationHints' {hostname} -> ho
 identificationHints_vmWareUuid :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
 identificationHints_vmWareUuid = Lens.lens (\IdentificationHints' {vmWareUuid} -> vmWareUuid) (\s@IdentificationHints' {} a -> s {vmWareUuid = a} :: IdentificationHints)
 
+-- | vCenter VM path identification hint.
+identificationHints_vmPath :: Lens.Lens' IdentificationHints (Prelude.Maybe Prelude.Text)
+identificationHints_vmPath = Lens.lens (\IdentificationHints' {vmPath} -> vmPath) (\s@IdentificationHints' {} a -> s {vmPath = a} :: IdentificationHints)
+
 instance Core.FromJSON IdentificationHints where
   parseJSON =
     Core.withObject
@@ -90,6 +99,7 @@ instance Core.FromJSON IdentificationHints where
             Prelude.<*> (x Core..:? "fqdn")
             Prelude.<*> (x Core..:? "hostname")
             Prelude.<*> (x Core..:? "vmWareUuid")
+            Prelude.<*> (x Core..:? "vmPath")
       )
 
 instance Prelude.Hashable IdentificationHints where
@@ -98,6 +108,7 @@ instance Prelude.Hashable IdentificationHints where
       `Prelude.hashWithSalt` fqdn
       `Prelude.hashWithSalt` hostname
       `Prelude.hashWithSalt` vmWareUuid
+      `Prelude.hashWithSalt` vmPath
 
 instance Prelude.NFData IdentificationHints where
   rnf IdentificationHints' {..} =
@@ -105,3 +116,4 @@ instance Prelude.NFData IdentificationHints where
       `Prelude.seq` Prelude.rnf fqdn
       `Prelude.seq` Prelude.rnf hostname
       `Prelude.seq` Prelude.rnf vmWareUuid
+      `Prelude.seq` Prelude.rnf vmPath

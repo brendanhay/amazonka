@@ -21,6 +21,7 @@ module Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType
   ( ReplicationConfigurationDefaultLargeStagingDiskType
       ( ..,
         ReplicationConfigurationDefaultLargeStagingDiskType_GP2,
+        ReplicationConfigurationDefaultLargeStagingDiskType_GP3,
         ReplicationConfigurationDefaultLargeStagingDiskType_ST1
       ),
   )
@@ -60,11 +61,15 @@ newtype ReplicationConfigurationDefaultLargeStagingDiskType = ReplicationConfigu
 pattern ReplicationConfigurationDefaultLargeStagingDiskType_GP2 :: ReplicationConfigurationDefaultLargeStagingDiskType
 pattern ReplicationConfigurationDefaultLargeStagingDiskType_GP2 = ReplicationConfigurationDefaultLargeStagingDiskType' "GP2"
 
+pattern ReplicationConfigurationDefaultLargeStagingDiskType_GP3 :: ReplicationConfigurationDefaultLargeStagingDiskType
+pattern ReplicationConfigurationDefaultLargeStagingDiskType_GP3 = ReplicationConfigurationDefaultLargeStagingDiskType' "GP3"
+
 pattern ReplicationConfigurationDefaultLargeStagingDiskType_ST1 :: ReplicationConfigurationDefaultLargeStagingDiskType
 pattern ReplicationConfigurationDefaultLargeStagingDiskType_ST1 = ReplicationConfigurationDefaultLargeStagingDiskType' "ST1"
 
 {-# COMPLETE
   ReplicationConfigurationDefaultLargeStagingDiskType_GP2,
+  ReplicationConfigurationDefaultLargeStagingDiskType_GP3,
   ReplicationConfigurationDefaultLargeStagingDiskType_ST1,
   ReplicationConfigurationDefaultLargeStagingDiskType'
   #-}

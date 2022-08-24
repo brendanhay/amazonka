@@ -24,15 +24,15 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.MGN.Types.FirstBoot
 import qualified Amazonka.Prelude as Prelude
 
--- | Configure launced instance.
+-- | Launched instance.
 --
 -- /See:/ 'newLaunchedInstance' smart constructor.
 data LaunchedInstance = LaunchedInstance'
-  { -- | Configure launced instance EC2 ID.
+  { -- | Launched instance EC2 ID.
     ec2InstanceID :: Prelude.Maybe Prelude.Text,
-    -- | Configure launced instance Job ID.
+    -- | Launched instance Job ID.
     jobID :: Prelude.Maybe Prelude.Text,
-    -- | Configure launced instance first boot.
+    -- | Launched instance first boot.
     firstBoot :: Prelude.Maybe FirstBoot
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +45,11 @@ data LaunchedInstance = LaunchedInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ec2InstanceID', 'launchedInstance_ec2InstanceID' - Configure launced instance EC2 ID.
+-- 'ec2InstanceID', 'launchedInstance_ec2InstanceID' - Launched instance EC2 ID.
 --
--- 'jobID', 'launchedInstance_jobID' - Configure launced instance Job ID.
+-- 'jobID', 'launchedInstance_jobID' - Launched instance Job ID.
 --
--- 'firstBoot', 'launchedInstance_firstBoot' - Configure launced instance first boot.
+-- 'firstBoot', 'launchedInstance_firstBoot' - Launched instance first boot.
 newLaunchedInstance ::
   LaunchedInstance
 newLaunchedInstance =
@@ -59,15 +59,15 @@ newLaunchedInstance =
       firstBoot = Prelude.Nothing
     }
 
--- | Configure launced instance EC2 ID.
+-- | Launched instance EC2 ID.
 launchedInstance_ec2InstanceID :: Lens.Lens' LaunchedInstance (Prelude.Maybe Prelude.Text)
 launchedInstance_ec2InstanceID = Lens.lens (\LaunchedInstance' {ec2InstanceID} -> ec2InstanceID) (\s@LaunchedInstance' {} a -> s {ec2InstanceID = a} :: LaunchedInstance)
 
--- | Configure launced instance Job ID.
+-- | Launched instance Job ID.
 launchedInstance_jobID :: Lens.Lens' LaunchedInstance (Prelude.Maybe Prelude.Text)
 launchedInstance_jobID = Lens.lens (\LaunchedInstance' {jobID} -> jobID) (\s@LaunchedInstance' {} a -> s {jobID = a} :: LaunchedInstance)
 
--- | Configure launced instance first boot.
+-- | Launched instance first boot.
 launchedInstance_firstBoot :: Lens.Lens' LaunchedInstance (Prelude.Maybe FirstBoot)
 launchedInstance_firstBoot = Lens.lens (\LaunchedInstance' {firstBoot} -> firstBoot) (\s@LaunchedInstance' {} a -> s {firstBoot = a} :: LaunchedInstance)
 

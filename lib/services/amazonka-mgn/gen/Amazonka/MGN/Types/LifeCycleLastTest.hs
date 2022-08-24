@@ -32,7 +32,7 @@ import qualified Amazonka.Prelude as Prelude
 data LifeCycleLastTest = LifeCycleLastTest'
   { -- | Lifecycle last Test reverted.
     reverted :: Prelude.Maybe LifeCycleLastTestReverted,
-    -- | Lifecycle last Test finlized.
+    -- | Lifecycle last Test finalized.
     finalized :: Prelude.Maybe LifeCycleLastTestFinalized,
     -- | Lifecycle last Test initiated.
     initiated :: Prelude.Maybe LifeCycleLastTestInitiated
@@ -49,7 +49,7 @@ data LifeCycleLastTest = LifeCycleLastTest'
 --
 -- 'reverted', 'lifeCycleLastTest_reverted' - Lifecycle last Test reverted.
 --
--- 'finalized', 'lifeCycleLastTest_finalized' - Lifecycle last Test finlized.
+-- 'finalized', 'lifeCycleLastTest_finalized' - Lifecycle last Test finalized.
 --
 -- 'initiated', 'lifeCycleLastTest_initiated' - Lifecycle last Test initiated.
 newLifeCycleLastTest ::
@@ -65,7 +65,7 @@ newLifeCycleLastTest =
 lifeCycleLastTest_reverted :: Lens.Lens' LifeCycleLastTest (Prelude.Maybe LifeCycleLastTestReverted)
 lifeCycleLastTest_reverted = Lens.lens (\LifeCycleLastTest' {reverted} -> reverted) (\s@LifeCycleLastTest' {} a -> s {reverted = a} :: LifeCycleLastTest)
 
--- | Lifecycle last Test finlized.
+-- | Lifecycle last Test finalized.
 lifeCycleLastTest_finalized :: Lens.Lens' LifeCycleLastTest (Prelude.Maybe LifeCycleLastTestFinalized)
 lifeCycleLastTest_finalized = Lens.lens (\LifeCycleLastTest' {finalized} -> finalized) (\s@LifeCycleLastTest' {} a -> s {finalized = a} :: LifeCycleLastTest)
 

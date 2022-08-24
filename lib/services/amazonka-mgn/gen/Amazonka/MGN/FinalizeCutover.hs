@@ -27,10 +27,10 @@
 -- The AWS Replication Agent will receive a command to uninstall itself
 -- (within 10 minutes). The following properties of the SourceServer will
 -- be changed immediately: dataReplicationInfo.dataReplicationState will be
--- to DISCONNECTED; The SourceServer.lifeCycle.state will be changed to
--- CUTOVER; The totalStorageBytes property fo each of
+-- changed to DISCONNECTED; The SourceServer.lifeCycle.state will be
+-- changed to CUTOVER; The totalStorageBytes property fo each of
 -- dataReplicationInfo.replicatedDisks will be set to zero;
--- dataReplicationInfo.lagDuration and dataReplicationInfo.lagDurationwill
+-- dataReplicationInfo.lagDuration and dataReplicationInfo.lagDuration will
 -- be nullified.
 module Amazonka.MGN.FinalizeCutover
   ( -- * Creating a Request
@@ -46,7 +46,9 @@ module Amazonka.MGN.FinalizeCutover
 
     -- * Response Lenses
     sourceServer_tags,
+    sourceServer_vcenterClientID,
     sourceServer_lifeCycle,
+    sourceServer_replicationType,
     sourceServer_launchedInstance,
     sourceServer_arn,
     sourceServer_dataReplicationInfo,
@@ -65,7 +67,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newFinalizeCutover' smart constructor.
 data FinalizeCutover = FinalizeCutover'
-  { -- | Request to finalize Cutover by Soure Server ID.
+  { -- | Request to finalize Cutover by Source Server ID.
     sourceServerID :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +80,7 @@ data FinalizeCutover = FinalizeCutover'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sourceServerID', 'finalizeCutover_sourceServerID' - Request to finalize Cutover by Soure Server ID.
+-- 'sourceServerID', 'finalizeCutover_sourceServerID' - Request to finalize Cutover by Source Server ID.
 newFinalizeCutover ::
   -- | 'sourceServerID'
   Prelude.Text ->
@@ -86,7 +88,7 @@ newFinalizeCutover ::
 newFinalizeCutover pSourceServerID_ =
   FinalizeCutover' {sourceServerID = pSourceServerID_}
 
--- | Request to finalize Cutover by Soure Server ID.
+-- | Request to finalize Cutover by Source Server ID.
 finalizeCutover_sourceServerID :: Lens.Lens' FinalizeCutover Prelude.Text
 finalizeCutover_sourceServerID = Lens.lens (\FinalizeCutover' {sourceServerID} -> sourceServerID) (\s@FinalizeCutover' {} a -> s {sourceServerID = a} :: FinalizeCutover)
 

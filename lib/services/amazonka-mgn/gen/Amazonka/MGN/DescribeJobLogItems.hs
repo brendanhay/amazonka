@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves detailed Job log with paging.
+-- Retrieves detailed job log items with paging.
 --
 -- This operation returns paginated results.
 module Amazonka.MGN.DescribeJobLogItems

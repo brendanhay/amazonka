@@ -27,7 +27,9 @@ module Amazonka.MGN.Types.DataReplicationState
         DataReplicationState_INITIAL_SYNC,
         DataReplicationState_INITIATING,
         DataReplicationState_PAUSED,
+        DataReplicationState_PENDING_SNAPSHOT_SHIPPING,
         DataReplicationState_RESCAN,
+        DataReplicationState_SHIPPING_SNAPSHOT,
         DataReplicationState_STALLED,
         DataReplicationState_STOPPED
       ),
@@ -86,8 +88,14 @@ pattern DataReplicationState_INITIATING = DataReplicationState' "INITIATING"
 pattern DataReplicationState_PAUSED :: DataReplicationState
 pattern DataReplicationState_PAUSED = DataReplicationState' "PAUSED"
 
+pattern DataReplicationState_PENDING_SNAPSHOT_SHIPPING :: DataReplicationState
+pattern DataReplicationState_PENDING_SNAPSHOT_SHIPPING = DataReplicationState' "PENDING_SNAPSHOT_SHIPPING"
+
 pattern DataReplicationState_RESCAN :: DataReplicationState
 pattern DataReplicationState_RESCAN = DataReplicationState' "RESCAN"
+
+pattern DataReplicationState_SHIPPING_SNAPSHOT :: DataReplicationState
+pattern DataReplicationState_SHIPPING_SNAPSHOT = DataReplicationState' "SHIPPING_SNAPSHOT"
 
 pattern DataReplicationState_STALLED :: DataReplicationState
 pattern DataReplicationState_STALLED = DataReplicationState' "STALLED"
@@ -103,7 +111,9 @@ pattern DataReplicationState_STOPPED = DataReplicationState' "STOPPED"
   DataReplicationState_INITIAL_SYNC,
   DataReplicationState_INITIATING,
   DataReplicationState_PAUSED,
+  DataReplicationState_PENDING_SNAPSHOT_SHIPPING,
   DataReplicationState_RESCAN,
+  DataReplicationState_SHIPPING_SNAPSHOT,
   DataReplicationState_STALLED,
   DataReplicationState_STOPPED,
   DataReplicationState'

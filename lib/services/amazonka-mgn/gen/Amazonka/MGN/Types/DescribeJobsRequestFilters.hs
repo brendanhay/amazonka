@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newDescribeJobsRequestFilters' smart constructor.
 data DescribeJobsRequestFilters = DescribeJobsRequestFilters'
-  { -- | Request to describe Job log by last date.
+  { -- | Request to describe job log items by last date.
     toDate :: Prelude.Maybe Prelude.Text,
     -- | Request to describe Job log filters by date.
     fromDate :: Prelude.Maybe Prelude.Text,
@@ -44,7 +44,7 @@ data DescribeJobsRequestFilters = DescribeJobsRequestFilters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'toDate', 'describeJobsRequestFilters_toDate' - Request to describe Job log by last date.
+-- 'toDate', 'describeJobsRequestFilters_toDate' - Request to describe job log items by last date.
 --
 -- 'fromDate', 'describeJobsRequestFilters_fromDate' - Request to describe Job log filters by date.
 --
@@ -59,7 +59,7 @@ newDescribeJobsRequestFilters =
       jobIDs = Prelude.Nothing
     }
 
--- | Request to describe Job log by last date.
+-- | Request to describe job log items by last date.
 describeJobsRequestFilters_toDate :: Lens.Lens' DescribeJobsRequestFilters (Prelude.Maybe Prelude.Text)
 describeJobsRequestFilters_toDate = Lens.lens (\DescribeJobsRequestFilters' {toDate} -> toDate) (\s@DescribeJobsRequestFilters' {} a -> s {toDate = a} :: DescribeJobsRequestFilters)
 

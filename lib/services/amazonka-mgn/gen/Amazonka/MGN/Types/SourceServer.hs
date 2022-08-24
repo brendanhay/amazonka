@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.MGN.Types.DataReplicationInfo
 import Amazonka.MGN.Types.LaunchedInstance
 import Amazonka.MGN.Types.LifeCycle
+import Amazonka.MGN.Types.ReplicationType
 import Amazonka.MGN.Types.SourceProperties
 import qualified Amazonka.Prelude as Prelude
 
@@ -31,8 +32,12 @@ import qualified Amazonka.Prelude as Prelude
 data SourceServer = SourceServer'
   { -- | Source server Tags.
     tags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
+    -- | Source server vCenter client id.
+    vcenterClientID :: Prelude.Maybe Prelude.Text,
     -- | Source server lifecycle state.
     lifeCycle :: Prelude.Maybe LifeCycle,
+    -- | Source server replication type.
+    replicationType :: Prelude.Maybe ReplicationType,
     -- | Source server launched instance.
     launchedInstance :: Prelude.Maybe LaunchedInstance,
     -- | Source server ARN.
@@ -58,7 +63,11 @@ data SourceServer = SourceServer'
 --
 -- 'tags', 'sourceServer_tags' - Source server Tags.
 --
+-- 'vcenterClientID', 'sourceServer_vcenterClientID' - Source server vCenter client id.
+--
 -- 'lifeCycle', 'sourceServer_lifeCycle' - Source server lifecycle state.
+--
+-- 'replicationType', 'sourceServer_replicationType' - Source server replication type.
 --
 -- 'launchedInstance', 'sourceServer_launchedInstance' - Source server launched instance.
 --
@@ -76,7 +85,9 @@ newSourceServer ::
 newSourceServer =
   SourceServer'
     { tags = Prelude.Nothing,
+      vcenterClientID = Prelude.Nothing,
       lifeCycle = Prelude.Nothing,
+      replicationType = Prelude.Nothing,
       launchedInstance = Prelude.Nothing,
       arn = Prelude.Nothing,
       dataReplicationInfo = Prelude.Nothing,
@@ -89,9 +100,17 @@ newSourceServer =
 sourceServer_tags :: Lens.Lens' SourceServer (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 sourceServer_tags = Lens.lens (\SourceServer' {tags} -> tags) (\s@SourceServer' {} a -> s {tags = a} :: SourceServer) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
+-- | Source server vCenter client id.
+sourceServer_vcenterClientID :: Lens.Lens' SourceServer (Prelude.Maybe Prelude.Text)
+sourceServer_vcenterClientID = Lens.lens (\SourceServer' {vcenterClientID} -> vcenterClientID) (\s@SourceServer' {} a -> s {vcenterClientID = a} :: SourceServer)
+
 -- | Source server lifecycle state.
 sourceServer_lifeCycle :: Lens.Lens' SourceServer (Prelude.Maybe LifeCycle)
 sourceServer_lifeCycle = Lens.lens (\SourceServer' {lifeCycle} -> lifeCycle) (\s@SourceServer' {} a -> s {lifeCycle = a} :: SourceServer)
+
+-- | Source server replication type.
+sourceServer_replicationType :: Lens.Lens' SourceServer (Prelude.Maybe ReplicationType)
+sourceServer_replicationType = Lens.lens (\SourceServer' {replicationType} -> replicationType) (\s@SourceServer' {} a -> s {replicationType = a} :: SourceServer)
 
 -- | Source server launched instance.
 sourceServer_launchedInstance :: Lens.Lens' SourceServer (Prelude.Maybe LaunchedInstance)
@@ -124,7 +143,9 @@ instance Core.FromJSON SourceServer where
       ( \x ->
           SourceServer'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "vcenterClientID")
             Prelude.<*> (x Core..:? "lifeCycle")
+            Prelude.<*> (x Core..:? "replicationType")
             Prelude.<*> (x Core..:? "launchedInstance")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "dataReplicationInfo")
@@ -136,7 +157,9 @@ instance Core.FromJSON SourceServer where
 instance Prelude.Hashable SourceServer where
   hashWithSalt _salt SourceServer' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` vcenterClientID
       `Prelude.hashWithSalt` lifeCycle
+      `Prelude.hashWithSalt` replicationType
       `Prelude.hashWithSalt` launchedInstance
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` dataReplicationInfo
@@ -147,7 +170,9 @@ instance Prelude.Hashable SourceServer where
 instance Prelude.NFData SourceServer where
   rnf SourceServer' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf vcenterClientID
       `Prelude.seq` Prelude.rnf lifeCycle
+      `Prelude.seq` Prelude.rnf replicationType
       `Prelude.seq` Prelude.rnf launchedInstance
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf dataReplicationInfo

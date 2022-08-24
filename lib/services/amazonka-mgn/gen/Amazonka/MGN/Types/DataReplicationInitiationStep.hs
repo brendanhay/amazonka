@@ -25,7 +25,7 @@ import Amazonka.MGN.Types.DataReplicationInitiationStepName
 import Amazonka.MGN.Types.DataReplicationInitiationStepStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Data replication intiation step.
+-- | Data replication initiation step.
 --
 -- /See:/ 'newDataReplicationInitiationStep' smart constructor.
 data DataReplicationInitiationStep = DataReplicationInitiationStep'

@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Lifecycle last Test finlized.
+-- | Lifecycle last Test finalized.
 --
 -- /See:/ 'newLifeCycleLastTestFinalized' smart constructor.
 data LifeCycleLastTestFinalized = LifeCycleLastTestFinalized'

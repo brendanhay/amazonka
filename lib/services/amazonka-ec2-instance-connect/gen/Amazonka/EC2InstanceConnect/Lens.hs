@@ -15,10 +15,10 @@ module Amazonka.EC2InstanceConnect.Lens
   ( -- * Operations
 
     -- ** SendSSHPublicKey
+    sendSSHPublicKey_availabilityZone,
     sendSSHPublicKey_instanceId,
     sendSSHPublicKey_instanceOSUser,
     sendSSHPublicKey_sSHPublicKey,
-    sendSSHPublicKey_availabilityZone,
     sendSSHPublicKeyResponse_requestId,
     sendSSHPublicKeyResponse_success,
     sendSSHPublicKeyResponse_httpStatus,

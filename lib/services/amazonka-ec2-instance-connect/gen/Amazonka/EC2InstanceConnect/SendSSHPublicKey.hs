@@ -31,10 +31,10 @@ module Amazonka.EC2InstanceConnect.SendSSHPublicKey
     newSendSSHPublicKey,
 
     -- * Request Lenses
+    sendSSHPublicKey_availabilityZone,
     sendSSHPublicKey_instanceId,
     sendSSHPublicKey_instanceOSUser,
     sendSSHPublicKey_sSHPublicKey,
-    sendSSHPublicKey_availabilityZone,
 
     -- * Destructuring the Response
     SendSSHPublicKeyResponse (..),
@@ -56,16 +56,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSendSSHPublicKey' smart constructor.
 data SendSSHPublicKey = SendSSHPublicKey'
-  { -- | The ID of the EC2 instance.
+  { -- | The Availability Zone in which the EC2 instance was launched.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the EC2 instance.
     instanceId :: Prelude.Text,
     -- | The OS user on the EC2 instance for whom the key can be used to
     -- authenticate.
     instanceOSUser :: Prelude.Text,
     -- | The public key material. To use the public key, you must have the
     -- matching private key.
-    sSHPublicKey :: Prelude.Text,
-    -- | The Availability Zone in which the EC2 instance was launched.
-    availabilityZone :: Prelude.Text
+    sSHPublicKey :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +77,8 @@ data SendSSHPublicKey = SendSSHPublicKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'availabilityZone', 'sendSSHPublicKey_availabilityZone' - The Availability Zone in which the EC2 instance was launched.
+--
 -- 'instanceId', 'sendSSHPublicKey_instanceId' - The ID of the EC2 instance.
 --
 -- 'instanceOSUser', 'sendSSHPublicKey_instanceOSUser' - The OS user on the EC2 instance for whom the key can be used to
@@ -84,8 +86,6 @@ data SendSSHPublicKey = SendSSHPublicKey'
 --
 -- 'sSHPublicKey', 'sendSSHPublicKey_sSHPublicKey' - The public key material. To use the public key, you must have the
 -- matching private key.
---
--- 'availabilityZone', 'sendSSHPublicKey_availabilityZone' - The Availability Zone in which the EC2 instance was launched.
 newSendSSHPublicKey ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -93,20 +93,22 @@ newSendSSHPublicKey ::
   Prelude.Text ->
   -- | 'sSHPublicKey'
   Prelude.Text ->
-  -- | 'availabilityZone'
-  Prelude.Text ->
   SendSSHPublicKey
 newSendSSHPublicKey
   pInstanceId_
   pInstanceOSUser_
-  pSSHPublicKey_
-  pAvailabilityZone_ =
+  pSSHPublicKey_ =
     SendSSHPublicKey'
-      { instanceId = pInstanceId_,
+      { availabilityZone =
+          Prelude.Nothing,
+        instanceId = pInstanceId_,
         instanceOSUser = pInstanceOSUser_,
-        sSHPublicKey = pSSHPublicKey_,
-        availabilityZone = pAvailabilityZone_
+        sSHPublicKey = pSSHPublicKey_
       }
+
+-- | The Availability Zone in which the EC2 instance was launched.
+sendSSHPublicKey_availabilityZone :: Lens.Lens' SendSSHPublicKey (Prelude.Maybe Prelude.Text)
+sendSSHPublicKey_availabilityZone = Lens.lens (\SendSSHPublicKey' {availabilityZone} -> availabilityZone) (\s@SendSSHPublicKey' {} a -> s {availabilityZone = a} :: SendSSHPublicKey)
 
 -- | The ID of the EC2 instance.
 sendSSHPublicKey_instanceId :: Lens.Lens' SendSSHPublicKey Prelude.Text
@@ -121,10 +123,6 @@ sendSSHPublicKey_instanceOSUser = Lens.lens (\SendSSHPublicKey' {instanceOSUser}
 -- matching private key.
 sendSSHPublicKey_sSHPublicKey :: Lens.Lens' SendSSHPublicKey Prelude.Text
 sendSSHPublicKey_sSHPublicKey = Lens.lens (\SendSSHPublicKey' {sSHPublicKey} -> sSHPublicKey) (\s@SendSSHPublicKey' {} a -> s {sSHPublicKey = a} :: SendSSHPublicKey)
-
--- | The Availability Zone in which the EC2 instance was launched.
-sendSSHPublicKey_availabilityZone :: Lens.Lens' SendSSHPublicKey Prelude.Text
-sendSSHPublicKey_availabilityZone = Lens.lens (\SendSSHPublicKey' {availabilityZone} -> availabilityZone) (\s@SendSSHPublicKey' {} a -> s {availabilityZone = a} :: SendSSHPublicKey)
 
 instance Core.AWSRequest SendSSHPublicKey where
   type
@@ -142,17 +140,17 @@ instance Core.AWSRequest SendSSHPublicKey where
 
 instance Prelude.Hashable SendSSHPublicKey where
   hashWithSalt _salt SendSSHPublicKey' {..} =
-    _salt `Prelude.hashWithSalt` instanceId
+    _salt `Prelude.hashWithSalt` availabilityZone
+      `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` instanceOSUser
       `Prelude.hashWithSalt` sSHPublicKey
-      `Prelude.hashWithSalt` availabilityZone
 
 instance Prelude.NFData SendSSHPublicKey where
   rnf SendSSHPublicKey' {..} =
-    Prelude.rnf instanceId
+    Prelude.rnf availabilityZone
+      `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf instanceOSUser
       `Prelude.seq` Prelude.rnf sSHPublicKey
-      `Prelude.seq` Prelude.rnf availabilityZone
 
 instance Core.ToHeaders SendSSHPublicKey where
   toHeaders =
@@ -173,12 +171,12 @@ instance Core.ToJSON SendSSHPublicKey where
   toJSON SendSSHPublicKey' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("InstanceId" Core..= instanceId),
+          [ ("AvailabilityZone" Core..=)
+              Prelude.<$> availabilityZone,
+            Prelude.Just ("InstanceId" Core..= instanceId),
             Prelude.Just
               ("InstanceOSUser" Core..= instanceOSUser),
-            Prelude.Just ("SSHPublicKey" Core..= sSHPublicKey),
-            Prelude.Just
-              ("AvailabilityZone" Core..= availabilityZone)
+            Prelude.Just ("SSHPublicKey" Core..= sSHPublicKey)
           ]
       )
 

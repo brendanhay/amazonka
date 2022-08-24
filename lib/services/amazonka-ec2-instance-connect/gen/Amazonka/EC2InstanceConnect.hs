@@ -24,6 +24,9 @@ module Amazonka.EC2InstanceConnect
     -- ** SerialConsoleSessionUnavailableException
     _SerialConsoleSessionUnavailableException,
 
+    -- ** EC2InstanceStateInvalidException
+    _EC2InstanceStateInvalidException,
+
     -- ** AuthException
     _AuthException,
 
@@ -35,6 +38,9 @@ module Amazonka.EC2InstanceConnect
 
     -- ** EC2InstanceTypeInvalidException
     _EC2InstanceTypeInvalidException,
+
+    -- ** EC2InstanceUnavailableException
+    _EC2InstanceUnavailableException,
 
     -- ** ThrottlingException
     _ThrottlingException,

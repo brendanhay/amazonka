@@ -91,6 +91,7 @@ library
     Amazonka.MediaConvert.Types.AccelerationStatus
     Amazonka.MediaConvert.Types.AfdSignaling
     Amazonka.MediaConvert.Types.AiffSettings
+    Amazonka.MediaConvert.Types.AllowedRenditionSize
     Amazonka.MediaConvert.Types.AlphaBehavior
     Amazonka.MediaConvert.Types.AncillaryConvert608To708
     Amazonka.MediaConvert.Types.AncillarySourceSettings
@@ -102,6 +103,7 @@ library
     Amazonka.MediaConvert.Types.AudioCodecSettings
     Amazonka.MediaConvert.Types.AudioDefaultSelection
     Amazonka.MediaConvert.Types.AudioDescription
+    Amazonka.MediaConvert.Types.AudioDurationCorrection
     Amazonka.MediaConvert.Types.AudioLanguageCodeControl
     Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm
     Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl
@@ -112,9 +114,11 @@ library
     Amazonka.MediaConvert.Types.AudioSelectorGroup
     Amazonka.MediaConvert.Types.AudioSelectorType
     Amazonka.MediaConvert.Types.AudioTypeControl
+    Amazonka.MediaConvert.Types.AutomatedAbrRule
     Amazonka.MediaConvert.Types.AutomatedAbrSettings
     Amazonka.MediaConvert.Types.AutomatedEncodingSettings
     Amazonka.MediaConvert.Types.Av1AdaptiveQuantization
+    Amazonka.MediaConvert.Types.Av1BitDepth
     Amazonka.MediaConvert.Types.Av1FramerateControl
     Amazonka.MediaConvert.Types.Av1FramerateConversionAlgorithm
     Amazonka.MediaConvert.Types.Av1QvbrSettings
@@ -178,9 +182,11 @@ library
     Amazonka.MediaConvert.Types.CmfcAudioTrackType
     Amazonka.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
     Amazonka.MediaConvert.Types.CmfcIFrameOnlyManifest
+    Amazonka.MediaConvert.Types.CmfcKlvMetadata
     Amazonka.MediaConvert.Types.CmfcScte35Esam
     Amazonka.MediaConvert.Types.CmfcScte35Source
     Amazonka.MediaConvert.Types.CmfcSettings
+    Amazonka.MediaConvert.Types.CmfcTimedMetadata
     Amazonka.MediaConvert.Types.ColorCorrector
     Amazonka.MediaConvert.Types.ColorMetadata
     Amazonka.MediaConvert.Types.ColorSpace
@@ -214,6 +220,7 @@ library
     Amazonka.MediaConvert.Types.DolbyVision
     Amazonka.MediaConvert.Types.DolbyVisionLevel6Metadata
     Amazonka.MediaConvert.Types.DolbyVisionLevel6Mode
+    Amazonka.MediaConvert.Types.DolbyVisionMapping
     Amazonka.MediaConvert.Types.DolbyVisionProfile
     Amazonka.MediaConvert.Types.DropFrameTimecode
     Amazonka.MediaConvert.Types.DvbddsHandling
@@ -262,6 +269,7 @@ library
     Amazonka.MediaConvert.Types.EmbeddedDestinationSettings
     Amazonka.MediaConvert.Types.EmbeddedSourceSettings
     Amazonka.MediaConvert.Types.EmbeddedTerminateCaptions
+    Amazonka.MediaConvert.Types.EmbeddedTimecodeOverride
     Amazonka.MediaConvert.Types.Endpoint
     Amazonka.MediaConvert.Types.EsamManifestConfirmConditionNotification
     Amazonka.MediaConvert.Types.EsamSettings
@@ -274,6 +282,7 @@ library
     Amazonka.MediaConvert.Types.FileSourceSettings
     Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits
     Amazonka.MediaConvert.Types.FontScript
+    Amazonka.MediaConvert.Types.ForceIncludeRenditionSize
     Amazonka.MediaConvert.Types.FrameCaptureSettings
     Amazonka.MediaConvert.Types.H264AdaptiveQuantization
     Amazonka.MediaConvert.Types.H264CodecLevel
@@ -337,6 +346,7 @@ library
     Amazonka.MediaConvert.Types.HlsAudioTrackType
     Amazonka.MediaConvert.Types.HlsCaptionLanguageMapping
     Amazonka.MediaConvert.Types.HlsCaptionLanguageSetting
+    Amazonka.MediaConvert.Types.HlsCaptionSegmentLengthControl
     Amazonka.MediaConvert.Types.HlsClientCache
     Amazonka.MediaConvert.Types.HlsCodecSpecification
     Amazonka.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
@@ -365,6 +375,7 @@ library
     Amazonka.MediaConvert.Types.HopDestination
     Amazonka.MediaConvert.Types.Id3Insertion
     Amazonka.MediaConvert.Types.ImageInserter
+    Amazonka.MediaConvert.Types.ImscAccessibilitySubs
     Amazonka.MediaConvert.Types.ImscDestinationSettings
     Amazonka.MediaConvert.Types.ImscStylePassthrough
     Amazonka.MediaConvert.Types.Input
@@ -380,6 +391,7 @@ library
     Amazonka.MediaConvert.Types.InputScanType
     Amazonka.MediaConvert.Types.InputTemplate
     Amazonka.MediaConvert.Types.InputTimecodeSource
+    Amazonka.MediaConvert.Types.InputVideoGenerator
     Amazonka.MediaConvert.Types.InsertableImage
     Amazonka.MediaConvert.Types.Job
     Amazonka.MediaConvert.Types.JobMessages
@@ -399,6 +411,7 @@ library
     Amazonka.MediaConvert.Types.M2tsEbpPlacement
     Amazonka.MediaConvert.Types.M2tsEsRateInPes
     Amazonka.MediaConvert.Types.M2tsForceTsVideoEbpOrder
+    Amazonka.MediaConvert.Types.M2tsKlvMetadata
     Amazonka.MediaConvert.Types.M2tsNielsenId3
     Amazonka.MediaConvert.Types.M2tsPcrControl
     Amazonka.MediaConvert.Types.M2tsRateMode
@@ -413,6 +426,8 @@ library
     Amazonka.MediaConvert.Types.M3u8PcrControl
     Amazonka.MediaConvert.Types.M3u8Scte35Source
     Amazonka.MediaConvert.Types.M3u8Settings
+    Amazonka.MediaConvert.Types.MinBottomRenditionSize
+    Amazonka.MediaConvert.Types.MinTopRenditionSize
     Amazonka.MediaConvert.Types.MotionImageInserter
     Amazonka.MediaConvert.Types.MotionImageInsertionFramerate
     Amazonka.MediaConvert.Types.MotionImageInsertionMode
@@ -434,9 +449,11 @@ library
     Amazonka.MediaConvert.Types.MpdAccessibilityCaptionHints
     Amazonka.MediaConvert.Types.MpdAudioDuration
     Amazonka.MediaConvert.Types.MpdCaptionContainerType
+    Amazonka.MediaConvert.Types.MpdKlvMetadata
     Amazonka.MediaConvert.Types.MpdScte35Esam
     Amazonka.MediaConvert.Types.MpdScte35Source
     Amazonka.MediaConvert.Types.MpdSettings
+    Amazonka.MediaConvert.Types.MpdTimedMetadata
     Amazonka.MediaConvert.Types.Mpeg2AdaptiveQuantization
     Amazonka.MediaConvert.Types.Mpeg2CodecLevel
     Amazonka.MediaConvert.Types.Mpeg2CodecProfile
@@ -475,6 +492,7 @@ library
     Amazonka.MediaConvert.Types.NielsenSourceWatermarkStatusType
     Amazonka.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType
     Amazonka.MediaConvert.Types.NoiseFilterPostTemporalSharpening
+    Amazonka.MediaConvert.Types.NoiseFilterPostTemporalSharpeningStrength
     Amazonka.MediaConvert.Types.NoiseReducer
     Amazonka.MediaConvert.Types.NoiseReducerFilter
     Amazonka.MediaConvert.Types.NoiseReducerFilterSettings
@@ -491,6 +509,7 @@ library
     Amazonka.MediaConvert.Types.OutputGroupType
     Amazonka.MediaConvert.Types.OutputSdt
     Amazonka.MediaConvert.Types.OutputSettings
+    Amazonka.MediaConvert.Types.PadVideo
     Amazonka.MediaConvert.Types.PartnerWatermarking
     Amazonka.MediaConvert.Types.Policy
     Amazonka.MediaConvert.Types.Preset
@@ -514,11 +533,13 @@ library
     Amazonka.MediaConvert.Types.Rectangle
     Amazonka.MediaConvert.Types.RemixSettings
     Amazonka.MediaConvert.Types.RenewalType
+    Amazonka.MediaConvert.Types.RequiredFlag
     Amazonka.MediaConvert.Types.ReservationPlan
     Amazonka.MediaConvert.Types.ReservationPlanSettings
     Amazonka.MediaConvert.Types.ReservationPlanStatus
     Amazonka.MediaConvert.Types.ResourceTags
     Amazonka.MediaConvert.Types.RespondToAfd
+    Amazonka.MediaConvert.Types.RuleType
     Amazonka.MediaConvert.Types.S3DestinationAccessControl
     Amazonka.MediaConvert.Types.S3DestinationSettings
     Amazonka.MediaConvert.Types.S3EncryptionSettings
@@ -581,6 +602,7 @@ library
     Amazonka.MediaConvert.Types.WatermarkingStrength
     Amazonka.MediaConvert.Types.WavFormat
     Amazonka.MediaConvert.Types.WavSettings
+    Amazonka.MediaConvert.Types.WebvttAccessibilitySubs
     Amazonka.MediaConvert.Types.WebvttDestinationSettings
     Amazonka.MediaConvert.Types.WebvttHlsSourceSettings
     Amazonka.MediaConvert.Types.WebvttStylePassthrough

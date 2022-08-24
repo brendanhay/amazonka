@@ -32,6 +32,7 @@ import Amazonka.MediaConvert.Types.M2tsEbpAudioInterval
 import Amazonka.MediaConvert.Types.M2tsEbpPlacement
 import Amazonka.MediaConvert.Types.M2tsEsRateInPes
 import Amazonka.MediaConvert.Types.M2tsForceTsVideoEbpOrder
+import Amazonka.MediaConvert.Types.M2tsKlvMetadata
 import Amazonka.MediaConvert.Types.M2tsNielsenId3
 import Amazonka.MediaConvert.Types.M2tsPcrControl
 import Amazonka.MediaConvert.Types.M2tsRateMode
@@ -123,6 +124,12 @@ data M2tsSettings = M2tsSettings'
     -- Setting to 0 lets the muxer automatically determine the appropriate
     -- bitrate. Other common values are 3750000, 7500000, and 15000000.
     bitrate :: Prelude.Maybe Prelude.Natural,
+    -- | To include key-length-value metadata in this output: Set KLV metadata
+    -- insertion to Passthrough. MediaConvert reads KLV metadata present in
+    -- your input and passes it through to the output transport stream. To
+    -- exclude this KLV metadata: Set KLV metadata insertion to None or leave
+    -- blank.
+    klvMetadata :: Prelude.Maybe M2tsKlvMetadata,
     -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
     patInterval :: Prelude.Maybe Prelude.Natural,
@@ -130,8 +137,8 @@ data M2tsSettings = M2tsSettings'
     esRateInPes :: Prelude.Maybe M2tsEsRateInPes,
     -- | Selects between the DVB and ATSC buffer models for Dolby Digital audio.
     audioBufferModel :: Prelude.Maybe M2tsAudioBufferModel,
-    -- | Specify the packet identifier (PID) for timed metadata in this output.
-    -- Default is 502.
+    -- | Packet Identifier (PID) of the ID3 metadata stream in the transport
+    -- stream.
     timedMetadataPid :: Prelude.Maybe Prelude.Natural,
     -- | When set to CBR, inserts null packets into transport stream to fill
     -- specified bitrate. When set to VBR, the bitrate setting acts as the
@@ -316,6 +323,12 @@ data M2tsSettings = M2tsSettings'
 -- Setting to 0 lets the muxer automatically determine the appropriate
 -- bitrate. Other common values are 3750000, 7500000, and 15000000.
 --
+-- 'klvMetadata', 'm2tsSettings_klvMetadata' - To include key-length-value metadata in this output: Set KLV metadata
+-- insertion to Passthrough. MediaConvert reads KLV metadata present in
+-- your input and passes it through to the output transport stream. To
+-- exclude this KLV metadata: Set KLV metadata insertion to None or leave
+-- blank.
+--
 -- 'patInterval', 'm2tsSettings_patInterval' - The number of milliseconds between instances of this table in the output
 -- transport stream.
 --
@@ -323,8 +336,8 @@ data M2tsSettings = M2tsSettings'
 --
 -- 'audioBufferModel', 'm2tsSettings_audioBufferModel' - Selects between the DVB and ATSC buffer models for Dolby Digital audio.
 --
--- 'timedMetadataPid', 'm2tsSettings_timedMetadataPid' - Specify the packet identifier (PID) for timed metadata in this output.
--- Default is 502.
+-- 'timedMetadataPid', 'm2tsSettings_timedMetadataPid' - Packet Identifier (PID) of the ID3 metadata stream in the transport
+-- stream.
 --
 -- 'rateMode', 'm2tsSettings_rateMode' - When set to CBR, inserts null packets into transport stream to fill
 -- specified bitrate. When set to VBR, the bitrate setting acts as the
@@ -444,6 +457,7 @@ newM2tsSettings =
       dvbTdtSettings = Prelude.Nothing,
       dvbNitSettings = Prelude.Nothing,
       bitrate = Prelude.Nothing,
+      klvMetadata = Prelude.Nothing,
       patInterval = Prelude.Nothing,
       esRateInPes = Prelude.Nothing,
       audioBufferModel = Prelude.Nothing,
@@ -563,6 +577,14 @@ m2tsSettings_dvbNitSettings = Lens.lens (\M2tsSettings' {dvbNitSettings} -> dvbN
 m2tsSettings_bitrate :: Lens.Lens' M2tsSettings (Prelude.Maybe Prelude.Natural)
 m2tsSettings_bitrate = Lens.lens (\M2tsSettings' {bitrate} -> bitrate) (\s@M2tsSettings' {} a -> s {bitrate = a} :: M2tsSettings)
 
+-- | To include key-length-value metadata in this output: Set KLV metadata
+-- insertion to Passthrough. MediaConvert reads KLV metadata present in
+-- your input and passes it through to the output transport stream. To
+-- exclude this KLV metadata: Set KLV metadata insertion to None or leave
+-- blank.
+m2tsSettings_klvMetadata :: Lens.Lens' M2tsSettings (Prelude.Maybe M2tsKlvMetadata)
+m2tsSettings_klvMetadata = Lens.lens (\M2tsSettings' {klvMetadata} -> klvMetadata) (\s@M2tsSettings' {} a -> s {klvMetadata = a} :: M2tsSettings)
+
 -- | The number of milliseconds between instances of this table in the output
 -- transport stream.
 m2tsSettings_patInterval :: Lens.Lens' M2tsSettings (Prelude.Maybe Prelude.Natural)
@@ -576,8 +598,8 @@ m2tsSettings_esRateInPes = Lens.lens (\M2tsSettings' {esRateInPes} -> esRateInPe
 m2tsSettings_audioBufferModel :: Lens.Lens' M2tsSettings (Prelude.Maybe M2tsAudioBufferModel)
 m2tsSettings_audioBufferModel = Lens.lens (\M2tsSettings' {audioBufferModel} -> audioBufferModel) (\s@M2tsSettings' {} a -> s {audioBufferModel = a} :: M2tsSettings)
 
--- | Specify the packet identifier (PID) for timed metadata in this output.
--- Default is 502.
+-- | Packet Identifier (PID) of the ID3 metadata stream in the transport
+-- stream.
 m2tsSettings_timedMetadataPid :: Lens.Lens' M2tsSettings (Prelude.Maybe Prelude.Natural)
 m2tsSettings_timedMetadataPid = Lens.lens (\M2tsSettings' {timedMetadataPid} -> timedMetadataPid) (\s@M2tsSettings' {} a -> s {timedMetadataPid = a} :: M2tsSettings)
 
@@ -748,6 +770,7 @@ instance Core.FromJSON M2tsSettings where
             Prelude.<*> (x Core..:? "dvbTdtSettings")
             Prelude.<*> (x Core..:? "dvbNitSettings")
             Prelude.<*> (x Core..:? "bitrate")
+            Prelude.<*> (x Core..:? "klvMetadata")
             Prelude.<*> (x Core..:? "patInterval")
             Prelude.<*> (x Core..:? "esRateInPes")
             Prelude.<*> (x Core..:? "audioBufferModel")
@@ -790,6 +813,7 @@ instance Prelude.Hashable M2tsSettings where
       `Prelude.hashWithSalt` dvbTdtSettings
       `Prelude.hashWithSalt` dvbNitSettings
       `Prelude.hashWithSalt` bitrate
+      `Prelude.hashWithSalt` klvMetadata
       `Prelude.hashWithSalt` patInterval
       `Prelude.hashWithSalt` esRateInPes
       `Prelude.hashWithSalt` audioBufferModel
@@ -831,6 +855,7 @@ instance Prelude.NFData M2tsSettings where
       `Prelude.seq` Prelude.rnf dvbTdtSettings
       `Prelude.seq` Prelude.rnf dvbNitSettings
       `Prelude.seq` Prelude.rnf bitrate
+      `Prelude.seq` Prelude.rnf klvMetadata
       `Prelude.seq` Prelude.rnf patInterval
       `Prelude.seq` Prelude.rnf esRateInPes
       `Prelude.seq` Prelude.rnf audioBufferModel
@@ -838,7 +863,8 @@ instance Prelude.NFData M2tsSettings where
       `Prelude.seq` Prelude.rnf rateMode
       `Prelude.seq` Prelude.rnf scte35Esam
       `Prelude.seq` Prelude.rnf dvbSdtSettings
-      `Prelude.seq` Prelude.rnf forceTsVideoEbpOrder
+      `Prelude.seq` Prelude.rnf
+        forceTsVideoEbpOrder
       `Prelude.seq` Prelude.rnf bufferModel
       `Prelude.seq` Prelude.rnf
         audioFramesPerPes
@@ -896,6 +922,7 @@ instance Core.ToJSON M2tsSettings where
             ("dvbNitSettings" Core..=)
               Prelude.<$> dvbNitSettings,
             ("bitrate" Core..=) Prelude.<$> bitrate,
+            ("klvMetadata" Core..=) Prelude.<$> klvMetadata,
             ("patInterval" Core..=) Prelude.<$> patInterval,
             ("esRateInPes" Core..=) Prelude.<$> esRateInPes,
             ("audioBufferModel" Core..=)

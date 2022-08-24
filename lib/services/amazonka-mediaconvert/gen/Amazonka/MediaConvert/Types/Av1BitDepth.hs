@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaConvert.Types.DolbyVisionProfile
+-- Module      : Amazonka.MediaConvert.Types.Av1BitDepth
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaConvert.Types.DolbyVisionProfile
-  ( DolbyVisionProfile
+module Amazonka.MediaConvert.Types.Av1BitDepth
+  ( Av1BitDepth
       ( ..,
-        DolbyVisionProfile_PROFILE_5,
-        DolbyVisionProfile_PROFILE_8_1
+        Av1BitDepth_BIT_10,
+        Av1BitDepth_BIT_8
       ),
   )
 where
@@ -29,13 +29,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Required when you enable Dolby Vision. Use Profile 5 to include
--- frame-interleaved Dolby Vision metadata in your output. Your input must
--- include Dolby Vision metadata or an HDR10 YUV color space. Use Profile
--- 8.1 to include frame-interleaved Dolby Vision metadata and HDR10
--- metadata in your output. Your input must include Dolby Vision metadata.
-newtype DolbyVisionProfile = DolbyVisionProfile'
-  { fromDolbyVisionProfile ::
+-- | Specify the Bit depth (Av1BitDepth). You can choose 8-bit (BIT_8) or
+-- 10-bit (BIT_10).
+newtype Av1BitDepth = Av1BitDepth'
+  { fromAv1BitDepth ::
       Core.Text
   }
   deriving stock
@@ -62,14 +59,14 @@ newtype DolbyVisionProfile = DolbyVisionProfile'
       Core.ToXML
     )
 
-pattern DolbyVisionProfile_PROFILE_5 :: DolbyVisionProfile
-pattern DolbyVisionProfile_PROFILE_5 = DolbyVisionProfile' "PROFILE_5"
+pattern Av1BitDepth_BIT_10 :: Av1BitDepth
+pattern Av1BitDepth_BIT_10 = Av1BitDepth' "BIT_10"
 
-pattern DolbyVisionProfile_PROFILE_8_1 :: DolbyVisionProfile
-pattern DolbyVisionProfile_PROFILE_8_1 = DolbyVisionProfile' "PROFILE_8_1"
+pattern Av1BitDepth_BIT_8 :: Av1BitDepth
+pattern Av1BitDepth_BIT_8 = Av1BitDepth' "BIT_8"
 
 {-# COMPLETE
-  DolbyVisionProfile_PROFILE_5,
-  DolbyVisionProfile_PROFILE_8_1,
-  DolbyVisionProfile'
+  Av1BitDepth_BIT_10,
+  Av1BitDepth_BIT_8,
+  Av1BitDepth'
   #-}

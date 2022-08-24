@@ -117,8 +117,7 @@ data BurninDestinationSettings = BurninDestinationSettings'
     -- | Specify the color of the rectangle behind the captions. Leave background
     -- color (BackgroundColor) blank and set Style passthrough
     -- (StylePassthrough) to enabled to use the background color data from your
-    -- input captions, if present. Within your job settings, all of your
-    -- DVB-Sub settings must be identical.
+    -- input captions, if present.
     backgroundColor :: Prelude.Maybe BurninSubtitleBackgroundColor,
     -- | Specify the opacity of the burned-in captions. 255 is opaque; 0 is
     -- transparent.
@@ -253,8 +252,7 @@ data BurninDestinationSettings = BurninDestinationSettings'
 -- 'backgroundColor', 'burninDestinationSettings_backgroundColor' - Specify the color of the rectangle behind the captions. Leave background
 -- color (BackgroundColor) blank and set Style passthrough
 -- (StylePassthrough) to enabled to use the background color data from your
--- input captions, if present. Within your job settings, all of your
--- DVB-Sub settings must be identical.
+-- input captions, if present.
 --
 -- 'fontOpacity', 'burninDestinationSettings_fontOpacity' - Specify the opacity of the burned-in captions. 255 is opaque; 0 is
 -- transparent.
@@ -429,8 +427,7 @@ burninDestinationSettings_stylePassthrough = Lens.lens (\BurninDestinationSettin
 -- | Specify the color of the rectangle behind the captions. Leave background
 -- color (BackgroundColor) blank and set Style passthrough
 -- (StylePassthrough) to enabled to use the background color data from your
--- input captions, if present. Within your job settings, all of your
--- DVB-Sub settings must be identical.
+-- input captions, if present.
 burninDestinationSettings_backgroundColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleBackgroundColor)
 burninDestinationSettings_backgroundColor = Lens.lens (\BurninDestinationSettings' {backgroundColor} -> backgroundColor) (\s@BurninDestinationSettings' {} a -> s {backgroundColor = a} :: BurninDestinationSettings)
 

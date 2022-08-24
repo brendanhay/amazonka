@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaConvert.Types.DolbyVisionProfile
+-- Module      : Amazonka.MediaConvert.Types.RequiredFlag
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaConvert.Types.DolbyVisionProfile
-  ( DolbyVisionProfile
+module Amazonka.MediaConvert.Types.RequiredFlag
+  ( RequiredFlag
       ( ..,
-        DolbyVisionProfile_PROFILE_5,
-        DolbyVisionProfile_PROFILE_8_1
+        RequiredFlag_DISABLED,
+        RequiredFlag_ENABLED
       ),
   )
 where
@@ -29,13 +29,9 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Required when you enable Dolby Vision. Use Profile 5 to include
--- frame-interleaved Dolby Vision metadata in your output. Your input must
--- include Dolby Vision metadata or an HDR10 YUV color space. Use Profile
--- 8.1 to include frame-interleaved Dolby Vision metadata and HDR10
--- metadata in your output. Your input must include Dolby Vision metadata.
-newtype DolbyVisionProfile = DolbyVisionProfile'
-  { fromDolbyVisionProfile ::
+-- | Set to ENABLED to force a rendition to be included.
+newtype RequiredFlag = RequiredFlag'
+  { fromRequiredFlag ::
       Core.Text
   }
   deriving stock
@@ -62,14 +58,14 @@ newtype DolbyVisionProfile = DolbyVisionProfile'
       Core.ToXML
     )
 
-pattern DolbyVisionProfile_PROFILE_5 :: DolbyVisionProfile
-pattern DolbyVisionProfile_PROFILE_5 = DolbyVisionProfile' "PROFILE_5"
+pattern RequiredFlag_DISABLED :: RequiredFlag
+pattern RequiredFlag_DISABLED = RequiredFlag' "DISABLED"
 
-pattern DolbyVisionProfile_PROFILE_8_1 :: DolbyVisionProfile
-pattern DolbyVisionProfile_PROFILE_8_1 = DolbyVisionProfile' "PROFILE_8_1"
+pattern RequiredFlag_ENABLED :: RequiredFlag
+pattern RequiredFlag_ENABLED = RequiredFlag' "ENABLED"
 
 {-# COMPLETE
-  DolbyVisionProfile_PROFILE_5,
-  DolbyVisionProfile_PROFILE_8_1,
-  DolbyVisionProfile'
+  RequiredFlag_DISABLED,
+  RequiredFlag_ENABLED,
+  RequiredFlag'
   #-}

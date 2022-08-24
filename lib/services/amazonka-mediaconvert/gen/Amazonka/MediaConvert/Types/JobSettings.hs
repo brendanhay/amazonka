@@ -79,10 +79,9 @@ data JobSettings = JobSettings'
     -- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,
     -- CmafGroupSettings
     outputGroups :: Prelude.Maybe [OutputGroup],
-    -- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3
-    -- tags in any HLS outputs. To include timed metadata, you must enable it
-    -- here, enable it in each output container, and specify tags and timecodes
-    -- in ID3 insertion (Id3Insertion) objects.
+    -- | Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
+    -- that you specify. In each output that you want to include this metadata,
+    -- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
     timedMetadataInsertion :: Prelude.Maybe TimedMetadataInsertion,
     -- | If your source content has EIA-608 Line 21 Data Services, enable this
     -- feature to specify what MediaConvert does with the Extended Data
@@ -159,10 +158,9 @@ data JobSettings = JobSettings'
 -- MS_SMOOTH_GROUP_SETTINGS, MsSmoothGroupSettings * CMAF_GROUP_SETTINGS,
 -- CmafGroupSettings
 --
--- 'timedMetadataInsertion', 'jobSettings_timedMetadataInsertion' - Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3
--- tags in any HLS outputs. To include timed metadata, you must enable it
--- here, enable it in each output container, and specify tags and timecodes
--- in ID3 insertion (Id3Insertion) objects.
+-- 'timedMetadataInsertion', 'jobSettings_timedMetadataInsertion' - Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
+-- that you specify. In each output that you want to include this metadata,
+-- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
 --
 -- 'extendedDataServices', 'jobSettings_extendedDataServices' - If your source content has EIA-608 Line 21 Data Services, enable this
 -- feature to specify what MediaConvert does with the Extended Data
@@ -257,10 +255,9 @@ jobSettings_nielsenConfiguration = Lens.lens (\JobSettings' {nielsenConfiguratio
 jobSettings_outputGroups :: Lens.Lens' JobSettings (Prelude.Maybe [OutputGroup])
 jobSettings_outputGroups = Lens.lens (\JobSettings' {outputGroups} -> outputGroups) (\s@JobSettings' {} a -> s {outputGroups = a} :: JobSettings) Prelude.. Lens.mapping Lens.coerced
 
--- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3
--- tags in any HLS outputs. To include timed metadata, you must enable it
--- here, enable it in each output container, and specify tags and timecodes
--- in ID3 insertion (Id3Insertion) objects.
+-- | Insert user-defined custom ID3 metadata (id3) at timecodes (timecode)
+-- that you specify. In each output that you want to include this metadata,
+-- you must set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH).
 jobSettings_timedMetadataInsertion :: Lens.Lens' JobSettings (Prelude.Maybe TimedMetadataInsertion)
 jobSettings_timedMetadataInsertion = Lens.lens (\JobSettings' {timedMetadataInsertion} -> timedMetadataInsertion) (\s@JobSettings' {} a -> s {timedMetadataInsertion = a} :: JobSettings)
 

@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaConvert.Types.DolbyVisionProfile
+-- Module      : Amazonka.MediaConvert.Types.PadVideo
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaConvert.Types.DolbyVisionProfile
-  ( DolbyVisionProfile
+module Amazonka.MediaConvert.Types.PadVideo
+  ( PadVideo
       ( ..,
-        DolbyVisionProfile_PROFILE_5,
-        DolbyVisionProfile_PROFILE_8_1
+        PadVideo_BLACK,
+        PadVideo_DISABLED
       ),
   )
 where
@@ -29,13 +29,16 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Required when you enable Dolby Vision. Use Profile 5 to include
--- frame-interleaved Dolby Vision metadata in your output. Your input must
--- include Dolby Vision metadata or an HDR10 YUV color space. Use Profile
--- 8.1 to include frame-interleaved Dolby Vision metadata and HDR10
--- metadata in your output. Your input must include Dolby Vision metadata.
-newtype DolbyVisionProfile = DolbyVisionProfile'
-  { fromDolbyVisionProfile ::
+-- | Use this setting if your input has video and audio durations that don\'t
+-- align, and your output or player has strict alignment requirements.
+-- Examples: Input audio track has a delayed start. Input video track ends
+-- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
+-- MediaConvert generates black video frames so that output video and audio
+-- durations match. Black video frames are added at the beginning or end,
+-- depending on your input. To keep the default behavior and not generate
+-- black video, set Pad video to Disabled (DISABLED) or leave blank.
+newtype PadVideo = PadVideo'
+  { fromPadVideo ::
       Core.Text
   }
   deriving stock
@@ -62,14 +65,14 @@ newtype DolbyVisionProfile = DolbyVisionProfile'
       Core.ToXML
     )
 
-pattern DolbyVisionProfile_PROFILE_5 :: DolbyVisionProfile
-pattern DolbyVisionProfile_PROFILE_5 = DolbyVisionProfile' "PROFILE_5"
+pattern PadVideo_BLACK :: PadVideo
+pattern PadVideo_BLACK = PadVideo' "BLACK"
 
-pattern DolbyVisionProfile_PROFILE_8_1 :: DolbyVisionProfile
-pattern DolbyVisionProfile_PROFILE_8_1 = DolbyVisionProfile' "PROFILE_8_1"
+pattern PadVideo_DISABLED :: PadVideo
+pattern PadVideo_DISABLED = PadVideo' "DISABLED"
 
 {-# COMPLETE
-  DolbyVisionProfile_PROFILE_5,
-  DolbyVisionProfile_PROFILE_8_1,
-  DolbyVisionProfile'
+  PadVideo_BLACK,
+  PadVideo_DISABLED,
+  PadVideo'
   #-}

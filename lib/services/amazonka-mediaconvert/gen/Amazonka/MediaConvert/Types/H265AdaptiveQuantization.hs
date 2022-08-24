@@ -20,6 +20,7 @@
 module Amazonka.MediaConvert.Types.H265AdaptiveQuantization
   ( H265AdaptiveQuantization
       ( ..,
+        H265AdaptiveQuantization_AUTO,
         H265AdaptiveQuantization_HIGH,
         H265AdaptiveQuantization_HIGHER,
         H265AdaptiveQuantization_LOW,
@@ -33,11 +34,17 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Specify the strength of any adaptive quantization filters that you
--- enable. The value that you choose here applies to the following
--- settings: Flicker adaptive quantization (flickerAdaptiveQuantization),
--- Spatial adaptive quantization (spatialAdaptiveQuantization), and
--- Temporal adaptive quantization (temporalAdaptiveQuantization).
+-- | When you set Adaptive Quantization (H265AdaptiveQuantization) to Auto
+-- (AUTO), or leave blank, MediaConvert automatically applies quantization
+-- to improve the video quality of your output. Set Adaptive Quantization
+-- to Low (LOW), Medium (MEDIUM), High (HIGH), Higher (HIGHER), or Max
+-- (MAX) to manually control the strength of the quantization filter. When
+-- you do, you can specify a value for Spatial Adaptive Quantization
+-- (H265SpatialAdaptiveQuantization), Temporal Adaptive Quantization
+-- (H265TemporalAdaptiveQuantization), and Flicker Adaptive Quantization
+-- (H265FlickerAdaptiveQuantization), to further control the quantization
+-- filter. Set Adaptive Quantization to Off (OFF) to apply no quantization
+-- to your output.
 newtype H265AdaptiveQuantization = H265AdaptiveQuantization'
   { fromH265AdaptiveQuantization ::
       Core.Text
@@ -66,6 +73,9 @@ newtype H265AdaptiveQuantization = H265AdaptiveQuantization'
       Core.ToXML
     )
 
+pattern H265AdaptiveQuantization_AUTO :: H265AdaptiveQuantization
+pattern H265AdaptiveQuantization_AUTO = H265AdaptiveQuantization' "AUTO"
+
 pattern H265AdaptiveQuantization_HIGH :: H265AdaptiveQuantization
 pattern H265AdaptiveQuantization_HIGH = H265AdaptiveQuantization' "HIGH"
 
@@ -85,6 +95,7 @@ pattern H265AdaptiveQuantization_OFF :: H265AdaptiveQuantization
 pattern H265AdaptiveQuantization_OFF = H265AdaptiveQuantization' "OFF"
 
 {-# COMPLETE
+  H265AdaptiveQuantization_AUTO,
   H265AdaptiveQuantization_HIGH,
   H265AdaptiveQuantization_HIGHER,
   H265AdaptiveQuantization_LOW,

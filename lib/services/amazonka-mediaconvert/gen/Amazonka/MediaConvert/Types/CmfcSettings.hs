@@ -25,8 +25,10 @@ import Amazonka.MediaConvert.Types.CmfcAudioDuration
 import Amazonka.MediaConvert.Types.CmfcAudioTrackType
 import Amazonka.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
 import Amazonka.MediaConvert.Types.CmfcIFrameOnlyManifest
+import Amazonka.MediaConvert.Types.CmfcKlvMetadata
 import Amazonka.MediaConvert.Types.CmfcScte35Esam
 import Amazonka.MediaConvert.Types.CmfcScte35Source
+import Amazonka.MediaConvert.Types.CmfcTimedMetadata
 import qualified Amazonka.Prelude as Prelude
 
 -- | These settings relate to the fragmented MP4 container for the segments
@@ -76,6 +78,19 @@ data CmfcSettings = CmfcSettings'
     -- there is more than one variant in your output group, you must explicitly
     -- choose a value for this setting.
     audioTrackType :: Prelude.Maybe CmfcAudioTrackType,
+    -- | To include ID3 metadata in this output: Set ID3 metadata (timedMetadata)
+    -- to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3
+    -- metadata inserter (timedMetadataInsertion). MediaConvert writes each
+    -- instance of ID3 metadata in a separate Event Message (eMSG) box. To
+    -- exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave
+    -- blank.
+    timedMetadata :: Prelude.Maybe CmfcTimedMetadata,
+    -- | To include key-length-value metadata in this output: Set KLV metadata
+    -- insertion to Passthrough. MediaConvert reads KLV metadata present in
+    -- your input and writes each instance to a separate event message box in
+    -- the output, according to MISB ST1910.1. To exclude this KLV metadata:
+    -- Set KLV metadata insertion to None or leave blank.
+    klvMetadata :: Prelude.Maybe CmfcKlvMetadata,
     -- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child
     -- manifest that lists only the I-frames for this rendition, in addition to
     -- your regular manifest for this rendition. You might use this manifest as
@@ -88,7 +103,7 @@ data CmfcSettings = CmfcSettings'
     -- rendition. Use a comma-separated list. For example, say you want to
     -- include the audio rendition groups that have the audio group IDs
     -- \"audio_aac_1\" and \"audio_dolby\". Then you would specify this value:
-    -- \"audio_aac_1, audio_dolby\". Related setting: The rendition groups that
+    -- \"audio_aac_1,audio_dolby\". Related setting: The rendition groups that
     -- you include in your comma-separated list should all match values that
     -- you specify in the setting Audio group ID (AudioGroupId) for audio
     -- renditions in the same output group as this video rendition. Default
@@ -177,6 +192,19 @@ data CmfcSettings = CmfcSettings'
 -- there is more than one variant in your output group, you must explicitly
 -- choose a value for this setting.
 --
+-- 'timedMetadata', 'cmfcSettings_timedMetadata' - To include ID3 metadata in this output: Set ID3 metadata (timedMetadata)
+-- to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3
+-- metadata inserter (timedMetadataInsertion). MediaConvert writes each
+-- instance of ID3 metadata in a separate Event Message (eMSG) box. To
+-- exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave
+-- blank.
+--
+-- 'klvMetadata', 'cmfcSettings_klvMetadata' - To include key-length-value metadata in this output: Set KLV metadata
+-- insertion to Passthrough. MediaConvert reads KLV metadata present in
+-- your input and writes each instance to a separate event message box in
+-- the output, according to MISB ST1910.1. To exclude this KLV metadata:
+-- Set KLV metadata insertion to None or leave blank.
+--
 -- 'iFrameOnlyManifest', 'cmfcSettings_iFrameOnlyManifest' - Choose Include (INCLUDE) to have MediaConvert generate an HLS child
 -- manifest that lists only the I-frames for this rendition, in addition to
 -- your regular manifest for this rendition. You might use this manifest as
@@ -189,7 +217,7 @@ data CmfcSettings = CmfcSettings'
 -- rendition. Use a comma-separated list. For example, say you want to
 -- include the audio rendition groups that have the audio group IDs
 -- \"audio_aac_1\" and \"audio_dolby\". Then you would specify this value:
--- \"audio_aac_1, audio_dolby\". Related setting: The rendition groups that
+-- \"audio_aac_1,audio_dolby\". Related setting: The rendition groups that
 -- you include in your comma-separated list should all match values that
 -- you specify in the setting Audio group ID (AudioGroupId) for audio
 -- renditions in the same output group as this video rendition. Default
@@ -232,6 +260,8 @@ newCmfcSettings =
         Prelude.Nothing,
       audioDuration = Prelude.Nothing,
       audioTrackType = Prelude.Nothing,
+      timedMetadata = Prelude.Nothing,
+      klvMetadata = Prelude.Nothing,
       iFrameOnlyManifest = Prelude.Nothing,
       audioRenditionSets = Prelude.Nothing,
       scte35Esam = Prelude.Nothing,
@@ -287,6 +317,23 @@ cmfcSettings_audioDuration = Lens.lens (\CmfcSettings' {audioDuration} -> audioD
 cmfcSettings_audioTrackType :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcAudioTrackType)
 cmfcSettings_audioTrackType = Lens.lens (\CmfcSettings' {audioTrackType} -> audioTrackType) (\s@CmfcSettings' {} a -> s {audioTrackType = a} :: CmfcSettings)
 
+-- | To include ID3 metadata in this output: Set ID3 metadata (timedMetadata)
+-- to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3
+-- metadata inserter (timedMetadataInsertion). MediaConvert writes each
+-- instance of ID3 metadata in a separate Event Message (eMSG) box. To
+-- exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave
+-- blank.
+cmfcSettings_timedMetadata :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcTimedMetadata)
+cmfcSettings_timedMetadata = Lens.lens (\CmfcSettings' {timedMetadata} -> timedMetadata) (\s@CmfcSettings' {} a -> s {timedMetadata = a} :: CmfcSettings)
+
+-- | To include key-length-value metadata in this output: Set KLV metadata
+-- insertion to Passthrough. MediaConvert reads KLV metadata present in
+-- your input and writes each instance to a separate event message box in
+-- the output, according to MISB ST1910.1. To exclude this KLV metadata:
+-- Set KLV metadata insertion to None or leave blank.
+cmfcSettings_klvMetadata :: Lens.Lens' CmfcSettings (Prelude.Maybe CmfcKlvMetadata)
+cmfcSettings_klvMetadata = Lens.lens (\CmfcSettings' {klvMetadata} -> klvMetadata) (\s@CmfcSettings' {} a -> s {klvMetadata = a} :: CmfcSettings)
+
 -- | Choose Include (INCLUDE) to have MediaConvert generate an HLS child
 -- manifest that lists only the I-frames for this rendition, in addition to
 -- your regular manifest for this rendition. You might use this manifest as
@@ -301,7 +348,7 @@ cmfcSettings_iFrameOnlyManifest = Lens.lens (\CmfcSettings' {iFrameOnlyManifest}
 -- rendition. Use a comma-separated list. For example, say you want to
 -- include the audio rendition groups that have the audio group IDs
 -- \"audio_aac_1\" and \"audio_dolby\". Then you would specify this value:
--- \"audio_aac_1, audio_dolby\". Related setting: The rendition groups that
+-- \"audio_aac_1,audio_dolby\". Related setting: The rendition groups that
 -- you include in your comma-separated list should all match values that
 -- you specify in the setting Audio group ID (AudioGroupId) for audio
 -- renditions in the same output group as this video rendition. Default
@@ -354,6 +401,8 @@ instance Core.FromJSON CmfcSettings where
             Prelude.<$> (x Core..:? "descriptiveVideoServiceFlag")
             Prelude.<*> (x Core..:? "audioDuration")
             Prelude.<*> (x Core..:? "audioTrackType")
+            Prelude.<*> (x Core..:? "timedMetadata")
+            Prelude.<*> (x Core..:? "klvMetadata")
             Prelude.<*> (x Core..:? "iFrameOnlyManifest")
             Prelude.<*> (x Core..:? "audioRenditionSets")
             Prelude.<*> (x Core..:? "scte35Esam")
@@ -367,6 +416,8 @@ instance Prelude.Hashable CmfcSettings where
       `Prelude.hashWithSalt` descriptiveVideoServiceFlag
       `Prelude.hashWithSalt` audioDuration
       `Prelude.hashWithSalt` audioTrackType
+      `Prelude.hashWithSalt` timedMetadata
+      `Prelude.hashWithSalt` klvMetadata
       `Prelude.hashWithSalt` iFrameOnlyManifest
       `Prelude.hashWithSalt` audioRenditionSets
       `Prelude.hashWithSalt` scte35Esam
@@ -378,6 +429,8 @@ instance Prelude.NFData CmfcSettings where
     Prelude.rnf descriptiveVideoServiceFlag
       `Prelude.seq` Prelude.rnf audioDuration
       `Prelude.seq` Prelude.rnf audioTrackType
+      `Prelude.seq` Prelude.rnf timedMetadata
+      `Prelude.seq` Prelude.rnf klvMetadata
       `Prelude.seq` Prelude.rnf iFrameOnlyManifest
       `Prelude.seq` Prelude.rnf audioRenditionSets
       `Prelude.seq` Prelude.rnf scte35Esam
@@ -393,6 +446,8 @@ instance Core.ToJSON CmfcSettings where
             ("audioDuration" Core..=) Prelude.<$> audioDuration,
             ("audioTrackType" Core..=)
               Prelude.<$> audioTrackType,
+            ("timedMetadata" Core..=) Prelude.<$> timedMetadata,
+            ("klvMetadata" Core..=) Prelude.<$> klvMetadata,
             ("iFrameOnlyManifest" Core..=)
               Prelude.<$> iFrameOnlyManifest,
             ("audioRenditionSets" Core..=)

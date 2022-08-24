@@ -31,7 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newId3Insertion' smart constructor.
 data Id3Insertion = Id3Insertion'
-  { -- | Use ID3 tag (Id3) to provide a tag value in base64-encode format.
+  { -- | Use ID3 tag (Id3) to provide a fully formed ID3 tag in base64-encode
+    -- format.
     id3 :: Prelude.Maybe Prelude.Text,
     -- | Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
     timecode :: Prelude.Maybe Prelude.Text
@@ -46,7 +47,8 @@ data Id3Insertion = Id3Insertion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id3', 'id3Insertion_id3' - Use ID3 tag (Id3) to provide a tag value in base64-encode format.
+-- 'id3', 'id3Insertion_id3' - Use ID3 tag (Id3) to provide a fully formed ID3 tag in base64-encode
+-- format.
 --
 -- 'timecode', 'id3Insertion_timecode' - Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
 newId3Insertion ::
@@ -57,7 +59,8 @@ newId3Insertion =
       timecode = Prelude.Nothing
     }
 
--- | Use ID3 tag (Id3) to provide a tag value in base64-encode format.
+-- | Use ID3 tag (Id3) to provide a fully formed ID3 tag in base64-encode
+-- format.
 id3Insertion_id3 :: Lens.Lens' Id3Insertion (Prelude.Maybe Prelude.Text)
 id3Insertion_id3 = Lens.lens (\Id3Insertion' {id3} -> id3) (\s@Id3Insertion' {} a -> s {id3 = a} :: Id3Insertion)
 

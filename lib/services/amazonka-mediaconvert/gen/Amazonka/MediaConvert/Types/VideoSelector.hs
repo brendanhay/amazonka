@@ -24,9 +24,11 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.MediaConvert.Types.AlphaBehavior
 import Amazonka.MediaConvert.Types.ColorSpace
 import Amazonka.MediaConvert.Types.ColorSpaceUsage
+import Amazonka.MediaConvert.Types.EmbeddedTimecodeOverride
 import Amazonka.MediaConvert.Types.Hdr10Metadata
 import Amazonka.MediaConvert.Types.InputRotate
 import Amazonka.MediaConvert.Types.InputSampleRange
+import Amazonka.MediaConvert.Types.PadVideo
 import qualified Amazonka.Prelude as Prelude
 
 -- | Input video selectors contain the video settings for the input. Each of
@@ -59,6 +61,15 @@ data VideoSelector = VideoSelector'
     -- information about MediaConvert HDR jobs, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
     colorSpace :: Prelude.Maybe ColorSpace,
+    -- | Use this setting if your input has video and audio durations that don\'t
+    -- align, and your output or player has strict alignment requirements.
+    -- Examples: Input audio track has a delayed start. Input video track ends
+    -- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
+    -- MediaConvert generates black video frames so that output video and audio
+    -- durations match. Black video frames are added at the beginning or end,
+    -- depending on your input. To keep the default behavior and not generate
+    -- black video, set Pad video to Disabled (DISABLED) or leave blank.
+    padVideo :: Prelude.Maybe PadVideo,
     -- | There are two sources for color metadata, the input file and the job
     -- input settings Color space (ColorSpace) and HDR master display
     -- information settings(Hdr10Metadata). The Color space usage setting
@@ -70,6 +81,13 @@ data VideoSelector = VideoSelector'
     -- file, the service defaults to using values you specify in the input
     -- settings.
     colorSpaceUsage :: Prelude.Maybe ColorSpaceUsage,
+    -- | Set Embedded timecode override (embeddedTimecodeOverride) to Use MDPM
+    -- (USE_MDPM) when your AVCHD input contains timecode tag data in the
+    -- Modified Digital Video Pack Metadata (MDPM). When you do, we recommend
+    -- you also set Timecode source (inputTimecodeSource) to Embedded
+    -- (EMBEDDED). Leave Embedded timecode override blank, or set to None
+    -- (NONE), when your input does not contain MDPM timecode.
+    embeddedTimecodeOverride :: Prelude.Maybe EmbeddedTimecodeOverride,
     -- | If the sample range metadata in your input video is accurate, or if you
     -- don\'t know about sample range, keep the default value, Follow (FOLLOW),
     -- for this setting. When you do, the service automatically detects your
@@ -144,6 +162,15 @@ data VideoSelector = VideoSelector'
 -- information about MediaConvert HDR jobs, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
 --
+-- 'padVideo', 'videoSelector_padVideo' - Use this setting if your input has video and audio durations that don\'t
+-- align, and your output or player has strict alignment requirements.
+-- Examples: Input audio track has a delayed start. Input video track ends
+-- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
+-- MediaConvert generates black video frames so that output video and audio
+-- durations match. Black video frames are added at the beginning or end,
+-- depending on your input. To keep the default behavior and not generate
+-- black video, set Pad video to Disabled (DISABLED) or leave blank.
+--
 -- 'colorSpaceUsage', 'videoSelector_colorSpaceUsage' - There are two sources for color metadata, the input file and the job
 -- input settings Color space (ColorSpace) and HDR master display
 -- information settings(Hdr10Metadata). The Color space usage setting
@@ -154,6 +181,13 @@ data VideoSelector = VideoSelector'
 -- source when it is present. If there\'s no color metadata in your input
 -- file, the service defaults to using values you specify in the input
 -- settings.
+--
+-- 'embeddedTimecodeOverride', 'videoSelector_embeddedTimecodeOverride' - Set Embedded timecode override (embeddedTimecodeOverride) to Use MDPM
+-- (USE_MDPM) when your AVCHD input contains timecode tag data in the
+-- Modified Digital Video Pack Metadata (MDPM). When you do, we recommend
+-- you also set Timecode source (inputTimecodeSource) to Embedded
+-- (EMBEDDED). Leave Embedded timecode override blank, or set to None
+-- (NONE), when your input does not contain MDPM timecode.
 --
 -- 'sampleRange', 'videoSelector_sampleRange' - If the sample range metadata in your input video is accurate, or if you
 -- don\'t know about sample range, keep the default value, Follow (FOLLOW),
@@ -199,7 +233,9 @@ newVideoSelector =
     { alphaBehavior = Prelude.Nothing,
       pid = Prelude.Nothing,
       colorSpace = Prelude.Nothing,
+      padVideo = Prelude.Nothing,
       colorSpaceUsage = Prelude.Nothing,
+      embeddedTimecodeOverride = Prelude.Nothing,
       sampleRange = Prelude.Nothing,
       programNumber = Prelude.Nothing,
       hdr10Metadata = Prelude.Nothing,
@@ -237,6 +273,17 @@ videoSelector_pid = Lens.lens (\VideoSelector' {pid} -> pid) (\s@VideoSelector' 
 videoSelector_colorSpace :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpace)
 videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace) (\s@VideoSelector' {} a -> s {colorSpace = a} :: VideoSelector)
 
+-- | Use this setting if your input has video and audio durations that don\'t
+-- align, and your output or player has strict alignment requirements.
+-- Examples: Input audio track has a delayed start. Input video track ends
+-- before audio ends. When you set Pad video (padVideo) to Black (BLACK),
+-- MediaConvert generates black video frames so that output video and audio
+-- durations match. Black video frames are added at the beginning or end,
+-- depending on your input. To keep the default behavior and not generate
+-- black video, set Pad video to Disabled (DISABLED) or leave blank.
+videoSelector_padVideo :: Lens.Lens' VideoSelector (Prelude.Maybe PadVideo)
+videoSelector_padVideo = Lens.lens (\VideoSelector' {padVideo} -> padVideo) (\s@VideoSelector' {} a -> s {padVideo = a} :: VideoSelector)
+
 -- | There are two sources for color metadata, the input file and the job
 -- input settings Color space (ColorSpace) and HDR master display
 -- information settings(Hdr10Metadata). The Color space usage setting
@@ -249,6 +296,15 @@ videoSelector_colorSpace = Lens.lens (\VideoSelector' {colorSpace} -> colorSpace
 -- settings.
 videoSelector_colorSpaceUsage :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpaceUsage)
 videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> colorSpaceUsage) (\s@VideoSelector' {} a -> s {colorSpaceUsage = a} :: VideoSelector)
+
+-- | Set Embedded timecode override (embeddedTimecodeOverride) to Use MDPM
+-- (USE_MDPM) when your AVCHD input contains timecode tag data in the
+-- Modified Digital Video Pack Metadata (MDPM). When you do, we recommend
+-- you also set Timecode source (inputTimecodeSource) to Embedded
+-- (EMBEDDED). Leave Embedded timecode override blank, or set to None
+-- (NONE), when your input does not contain MDPM timecode.
+videoSelector_embeddedTimecodeOverride :: Lens.Lens' VideoSelector (Prelude.Maybe EmbeddedTimecodeOverride)
+videoSelector_embeddedTimecodeOverride = Lens.lens (\VideoSelector' {embeddedTimecodeOverride} -> embeddedTimecodeOverride) (\s@VideoSelector' {} a -> s {embeddedTimecodeOverride = a} :: VideoSelector)
 
 -- | If the sample range metadata in your input video is accurate, or if you
 -- don\'t know about sample range, keep the default value, Follow (FOLLOW),
@@ -305,7 +361,9 @@ instance Core.FromJSON VideoSelector where
             Prelude.<$> (x Core..:? "alphaBehavior")
             Prelude.<*> (x Core..:? "pid")
             Prelude.<*> (x Core..:? "colorSpace")
+            Prelude.<*> (x Core..:? "padVideo")
             Prelude.<*> (x Core..:? "colorSpaceUsage")
+            Prelude.<*> (x Core..:? "embeddedTimecodeOverride")
             Prelude.<*> (x Core..:? "sampleRange")
             Prelude.<*> (x Core..:? "programNumber")
             Prelude.<*> (x Core..:? "hdr10Metadata")
@@ -317,7 +375,9 @@ instance Prelude.Hashable VideoSelector where
     _salt `Prelude.hashWithSalt` alphaBehavior
       `Prelude.hashWithSalt` pid
       `Prelude.hashWithSalt` colorSpace
+      `Prelude.hashWithSalt` padVideo
       `Prelude.hashWithSalt` colorSpaceUsage
+      `Prelude.hashWithSalt` embeddedTimecodeOverride
       `Prelude.hashWithSalt` sampleRange
       `Prelude.hashWithSalt` programNumber
       `Prelude.hashWithSalt` hdr10Metadata
@@ -328,7 +388,9 @@ instance Prelude.NFData VideoSelector where
     Prelude.rnf alphaBehavior
       `Prelude.seq` Prelude.rnf pid
       `Prelude.seq` Prelude.rnf colorSpace
+      `Prelude.seq` Prelude.rnf padVideo
       `Prelude.seq` Prelude.rnf colorSpaceUsage
+      `Prelude.seq` Prelude.rnf embeddedTimecodeOverride
       `Prelude.seq` Prelude.rnf sampleRange
       `Prelude.seq` Prelude.rnf programNumber
       `Prelude.seq` Prelude.rnf hdr10Metadata
@@ -341,8 +403,11 @@ instance Core.ToJSON VideoSelector where
           [ ("alphaBehavior" Core..=) Prelude.<$> alphaBehavior,
             ("pid" Core..=) Prelude.<$> pid,
             ("colorSpace" Core..=) Prelude.<$> colorSpace,
+            ("padVideo" Core..=) Prelude.<$> padVideo,
             ("colorSpaceUsage" Core..=)
               Prelude.<$> colorSpaceUsage,
+            ("embeddedTimecodeOverride" Core..=)
+              Prelude.<$> embeddedTimecodeOverride,
             ("sampleRange" Core..=) Prelude.<$> sampleRange,
             ("programNumber" Core..=) Prelude.<$> programNumber,
             ("hdr10Metadata" Core..=) Prelude.<$> hdr10Metadata,

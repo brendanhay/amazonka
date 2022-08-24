@@ -285,6 +285,9 @@ module Amazonka.MediaConvert
     -- ** AudioDefaultSelection
     AudioDefaultSelection (..),
 
+    -- ** AudioDurationCorrection
+    AudioDurationCorrection (..),
+
     -- ** AudioLanguageCodeControl
     AudioLanguageCodeControl (..),
 
@@ -308,6 +311,9 @@ module Amazonka.MediaConvert
 
     -- ** Av1AdaptiveQuantization
     Av1AdaptiveQuantization (..),
+
+    -- ** Av1BitDepth
+    Av1BitDepth (..),
 
     -- ** Av1FramerateControl
     Av1FramerateControl (..),
@@ -447,11 +453,17 @@ module Amazonka.MediaConvert
     -- ** CmfcIFrameOnlyManifest
     CmfcIFrameOnlyManifest (..),
 
+    -- ** CmfcKlvMetadata
+    CmfcKlvMetadata (..),
+
     -- ** CmfcScte35Esam
     CmfcScte35Esam (..),
 
     -- ** CmfcScte35Source
     CmfcScte35Source (..),
+
+    -- ** CmfcTimedMetadata
+    CmfcTimedMetadata (..),
 
     -- ** ColorMetadata
     ColorMetadata (..),
@@ -521,6 +533,9 @@ module Amazonka.MediaConvert
 
     -- ** DolbyVisionLevel6Mode
     DolbyVisionLevel6Mode (..),
+
+    -- ** DolbyVisionMapping
+    DolbyVisionMapping (..),
 
     -- ** DolbyVisionProfile
     DolbyVisionProfile (..),
@@ -638,6 +653,9 @@ module Amazonka.MediaConvert
 
     -- ** EmbeddedTerminateCaptions
     EmbeddedTerminateCaptions (..),
+
+    -- ** EmbeddedTimecodeOverride
+    EmbeddedTimecodeOverride (..),
 
     -- ** F4vMoovPlacement
     F4vMoovPlacement (..),
@@ -813,6 +831,9 @@ module Amazonka.MediaConvert
     -- ** HlsCaptionLanguageSetting
     HlsCaptionLanguageSetting (..),
 
+    -- ** HlsCaptionSegmentLengthControl
+    HlsCaptionSegmentLengthControl (..),
+
     -- ** HlsClientCache
     HlsClientCache (..),
 
@@ -872,6 +893,9 @@ module Amazonka.MediaConvert
 
     -- ** HlsTimedMetadataId3Frame
     HlsTimedMetadataId3Frame (..),
+
+    -- ** ImscAccessibilitySubs
+    ImscAccessibilitySubs (..),
 
     -- ** ImscStylePassthrough
     ImscStylePassthrough (..),
@@ -938,6 +962,9 @@ module Amazonka.MediaConvert
 
     -- ** M2tsForceTsVideoEbpOrder
     M2tsForceTsVideoEbpOrder (..),
+
+    -- ** M2tsKlvMetadata
+    M2tsKlvMetadata (..),
 
     -- ** M2tsNielsenId3
     M2tsNielsenId3 (..),
@@ -1014,11 +1041,17 @@ module Amazonka.MediaConvert
     -- ** MpdCaptionContainerType
     MpdCaptionContainerType (..),
 
+    -- ** MpdKlvMetadata
+    MpdKlvMetadata (..),
+
     -- ** MpdScte35Esam
     MpdScte35Esam (..),
 
     -- ** MpdScte35Source
     MpdScte35Source (..),
+
+    -- ** MpdTimedMetadata
+    MpdTimedMetadata (..),
 
     -- ** Mpeg2AdaptiveQuantization
     Mpeg2AdaptiveQuantization (..),
@@ -1107,6 +1140,9 @@ module Amazonka.MediaConvert
     -- ** NoiseFilterPostTemporalSharpening
     NoiseFilterPostTemporalSharpening (..),
 
+    -- ** NoiseFilterPostTemporalSharpeningStrength
+    NoiseFilterPostTemporalSharpeningStrength (..),
+
     -- ** NoiseReducerFilter
     NoiseReducerFilter (..),
 
@@ -1118,6 +1154,9 @@ module Amazonka.MediaConvert
 
     -- ** OutputSdt
     OutputSdt (..),
+
+    -- ** PadVideo
+    PadVideo (..),
 
     -- ** PresetListBy
     PresetListBy (..),
@@ -1161,11 +1200,17 @@ module Amazonka.MediaConvert
     -- ** RenewalType
     RenewalType (..),
 
+    -- ** RequiredFlag
+    RequiredFlag (..),
+
     -- ** ReservationPlanStatus
     ReservationPlanStatus (..),
 
     -- ** RespondToAfd
     RespondToAfd (..),
+
+    -- ** RuleType
+    RuleType (..),
 
     -- ** S3ObjectCannedAcl
     S3ObjectCannedAcl (..),
@@ -1275,6 +1320,9 @@ module Amazonka.MediaConvert
     -- ** WavFormat
     WavFormat (..),
 
+    -- ** WebvttAccessibilitySubs
+    WebvttAccessibilitySubs (..),
+
     -- ** WebvttStylePassthrough
     WebvttStylePassthrough (..),
 
@@ -1354,6 +1402,10 @@ module Amazonka.MediaConvert
     AiffSettings (AiffSettings'),
     newAiffSettings,
 
+    -- ** AllowedRenditionSize
+    AllowedRenditionSize (AllowedRenditionSize'),
+    newAllowedRenditionSize,
+
     -- ** AncillarySourceSettings
     AncillarySourceSettings (AncillarySourceSettings'),
     newAncillarySourceSettings,
@@ -1381,6 +1433,10 @@ module Amazonka.MediaConvert
     -- ** AudioSelectorGroup
     AudioSelectorGroup (AudioSelectorGroup'),
     newAudioSelectorGroup,
+
+    -- ** AutomatedAbrRule
+    AutomatedAbrRule (AutomatedAbrRule'),
+    newAutomatedAbrRule,
 
     -- ** AutomatedAbrSettings
     AutomatedAbrSettings (AutomatedAbrSettings'),
@@ -1570,6 +1626,10 @@ module Amazonka.MediaConvert
     FileSourceSettings (FileSourceSettings'),
     newFileSourceSettings,
 
+    -- ** ForceIncludeRenditionSize
+    ForceIncludeRenditionSize (ForceIncludeRenditionSize'),
+    newForceIncludeRenditionSize,
+
     -- ** FrameCaptureSettings
     FrameCaptureSettings (FrameCaptureSettings'),
     newFrameCaptureSettings,
@@ -1658,6 +1718,10 @@ module Amazonka.MediaConvert
     InputTemplate (InputTemplate'),
     newInputTemplate,
 
+    -- ** InputVideoGenerator
+    InputVideoGenerator (InputVideoGenerator'),
+    newInputVideoGenerator,
+
     -- ** InsertableImage
     InsertableImage (InsertableImage'),
     newInsertableImage,
@@ -1697,6 +1761,14 @@ module Amazonka.MediaConvert
     -- ** M3u8Settings
     M3u8Settings (M3u8Settings'),
     newM3u8Settings,
+
+    -- ** MinBottomRenditionSize
+    MinBottomRenditionSize (MinBottomRenditionSize'),
+    newMinBottomRenditionSize,
+
+    -- ** MinTopRenditionSize
+    MinTopRenditionSize (MinTopRenditionSize'),
+    newMinTopRenditionSize,
 
     -- ** MotionImageInserter
     MotionImageInserter (MotionImageInserter'),

@@ -173,10 +173,12 @@ data Mpeg2Settings = Mpeg2Settings'
     -- | Percentage of the buffer that should initially be filled (HRD buffer
     -- model).
     hrdBufferInitialFillPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | Frequency of closed GOPs. In streaming applications, it is recommended
-    -- that this be set to 1 so a decoder joining mid-stream will receive an
-    -- IDR frame as quickly as possible. Setting this value to 0 will break
-    -- output segmenting.
+    -- | Specify the relative frequency of open to closed GOPs in this output.
+    -- For example, if you want to allow four open GOPs and then require a
+    -- closed GOP, set this value to 5. When you create a streaming output, we
+    -- recommend that you keep the default value, 1, so that players starting
+    -- mid-stream receive an IDR frame as quickly as possible. Don\'t set this
+    -- value to 0; that would break output segmenting.
     gopClosedCadence :: Prelude.Maybe Prelude.Natural,
     -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
     -- per second (fps). Enable slow PAL to create a 25 fps output. When you
@@ -251,13 +253,19 @@ data Mpeg2Settings = Mpeg2Settings'
     -- settings: Spatial adaptive quantization (spatialAdaptiveQuantization),
     -- and Temporal adaptive quantization (temporalAdaptiveQuantization).
     adaptiveQuantization :: Prelude.Maybe Mpeg2AdaptiveQuantization,
-    -- | Enforces separation between repeated (cadence) I-frames and I-frames
-    -- inserted by Scene Change Detection. If a scene change I-frame is within
-    -- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
-    -- stretched to the scene change I-frame. GOP stretch requires enabling
-    -- lookahead as well as setting I-interval. The normal cadence resumes for
-    -- the next GOP. This setting is only used when Scene Change Detect is
-    -- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+    -- | Use this setting only when you also enable Scene change detection
+    -- (SceneChangeDetect). This setting determines how the encoder manages the
+    -- spacing between I-frames that it inserts as part of the I-frame cadence
+    -- and the I-frames that it inserts for Scene change detection. When you
+    -- specify a value for this setting, the encoder determines whether to skip
+    -- a cadence-driven I-frame by the value you set. For example, if you set
+    -- Min I interval (minIInterval) to 5 and a cadence-driven I-frame would
+    -- fall within 5 frames of a scene-change I-frame, then the encoder skips
+    -- the cadence-driven I-frame. In this way, one GOP is shrunk slightly and
+    -- one GOP is stretched slightly. When the cadence-driven I-frames are
+    -- farther from the scene-change I-frame than the value you set, then the
+    -- encoder leaves all I-frames in place and the GOPs surrounding the scene
+    -- change are smaller than the usual cadence GOPs.
     minIInterval :: Prelude.Maybe Prelude.Natural,
     -- | Specify the interval between keyframes, in seconds or frames, for this
     -- output. Default: 12 Related settings: When you specify the GOP size in
@@ -419,10 +427,12 @@ data Mpeg2Settings = Mpeg2Settings'
 -- 'hrdBufferInitialFillPercentage', 'mpeg2Settings_hrdBufferInitialFillPercentage' - Percentage of the buffer that should initially be filled (HRD buffer
 -- model).
 --
--- 'gopClosedCadence', 'mpeg2Settings_gopClosedCadence' - Frequency of closed GOPs. In streaming applications, it is recommended
--- that this be set to 1 so a decoder joining mid-stream will receive an
--- IDR frame as quickly as possible. Setting this value to 0 will break
--- output segmenting.
+-- 'gopClosedCadence', 'mpeg2Settings_gopClosedCadence' - Specify the relative frequency of open to closed GOPs in this output.
+-- For example, if you want to allow four open GOPs and then require a
+-- closed GOP, set this value to 5. When you create a streaming output, we
+-- recommend that you keep the default value, 1, so that players starting
+-- mid-stream receive an IDR frame as quickly as possible. Don\'t set this
+-- value to 0; that would break output segmenting.
 --
 -- 'slowPal', 'mpeg2Settings_slowPal' - Ignore this setting unless your input frame rate is 23.976 or 24 frames
 -- per second (fps). Enable slow PAL to create a 25 fps output. When you
@@ -497,13 +507,19 @@ data Mpeg2Settings = Mpeg2Settings'
 -- settings: Spatial adaptive quantization (spatialAdaptiveQuantization),
 -- and Temporal adaptive quantization (temporalAdaptiveQuantization).
 --
--- 'minIInterval', 'mpeg2Settings_minIInterval' - Enforces separation between repeated (cadence) I-frames and I-frames
--- inserted by Scene Change Detection. If a scene change I-frame is within
--- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
--- stretched to the scene change I-frame. GOP stretch requires enabling
--- lookahead as well as setting I-interval. The normal cadence resumes for
--- the next GOP. This setting is only used when Scene Change Detect is
--- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+-- 'minIInterval', 'mpeg2Settings_minIInterval' - Use this setting only when you also enable Scene change detection
+-- (SceneChangeDetect). This setting determines how the encoder manages the
+-- spacing between I-frames that it inserts as part of the I-frame cadence
+-- and the I-frames that it inserts for Scene change detection. When you
+-- specify a value for this setting, the encoder determines whether to skip
+-- a cadence-driven I-frame by the value you set. For example, if you set
+-- Min I interval (minIInterval) to 5 and a cadence-driven I-frame would
+-- fall within 5 frames of a scene-change I-frame, then the encoder skips
+-- the cadence-driven I-frame. In this way, one GOP is shrunk slightly and
+-- one GOP is stretched slightly. When the cadence-driven I-frames are
+-- farther from the scene-change I-frame than the value you set, then the
+-- encoder leaves all I-frames in place and the GOPs surrounding the scene
+-- change are smaller than the usual cadence GOPs.
 --
 -- 'gopSize', 'mpeg2Settings_gopSize' - Specify the interval between keyframes, in seconds or frames, for this
 -- output. Default: 12 Related settings: When you specify the GOP size in
@@ -728,10 +744,12 @@ mpeg2Settings_temporalAdaptiveQuantization = Lens.lens (\Mpeg2Settings' {tempora
 mpeg2Settings_hrdBufferInitialFillPercentage :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
 mpeg2Settings_hrdBufferInitialFillPercentage = Lens.lens (\Mpeg2Settings' {hrdBufferInitialFillPercentage} -> hrdBufferInitialFillPercentage) (\s@Mpeg2Settings' {} a -> s {hrdBufferInitialFillPercentage = a} :: Mpeg2Settings)
 
--- | Frequency of closed GOPs. In streaming applications, it is recommended
--- that this be set to 1 so a decoder joining mid-stream will receive an
--- IDR frame as quickly as possible. Setting this value to 0 will break
--- output segmenting.
+-- | Specify the relative frequency of open to closed GOPs in this output.
+-- For example, if you want to allow four open GOPs and then require a
+-- closed GOP, set this value to 5. When you create a streaming output, we
+-- recommend that you keep the default value, 1, so that players starting
+-- mid-stream receive an IDR frame as quickly as possible. Don\'t set this
+-- value to 0; that would break output segmenting.
 mpeg2Settings_gopClosedCadence :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
 mpeg2Settings_gopClosedCadence = Lens.lens (\Mpeg2Settings' {gopClosedCadence} -> gopClosedCadence) (\s@Mpeg2Settings' {} a -> s {gopClosedCadence = a} :: Mpeg2Settings)
 
@@ -828,13 +846,19 @@ mpeg2Settings_codecLevel = Lens.lens (\Mpeg2Settings' {codecLevel} -> codecLevel
 mpeg2Settings_adaptiveQuantization :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Mpeg2AdaptiveQuantization)
 mpeg2Settings_adaptiveQuantization = Lens.lens (\Mpeg2Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@Mpeg2Settings' {} a -> s {adaptiveQuantization = a} :: Mpeg2Settings)
 
--- | Enforces separation between repeated (cadence) I-frames and I-frames
--- inserted by Scene Change Detection. If a scene change I-frame is within
--- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
--- stretched to the scene change I-frame. GOP stretch requires enabling
--- lookahead as well as setting I-interval. The normal cadence resumes for
--- the next GOP. This setting is only used when Scene Change Detect is
--- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+-- | Use this setting only when you also enable Scene change detection
+-- (SceneChangeDetect). This setting determines how the encoder manages the
+-- spacing between I-frames that it inserts as part of the I-frame cadence
+-- and the I-frames that it inserts for Scene change detection. When you
+-- specify a value for this setting, the encoder determines whether to skip
+-- a cadence-driven I-frame by the value you set. For example, if you set
+-- Min I interval (minIInterval) to 5 and a cadence-driven I-frame would
+-- fall within 5 frames of a scene-change I-frame, then the encoder skips
+-- the cadence-driven I-frame. In this way, one GOP is shrunk slightly and
+-- one GOP is stretched slightly. When the cadence-driven I-frames are
+-- farther from the scene-change I-frame than the value you set, then the
+-- encoder leaves all I-frames in place and the GOPs surrounding the scene
+-- change are smaller than the usual cadence GOPs.
 mpeg2Settings_minIInterval :: Lens.Lens' Mpeg2Settings (Prelude.Maybe Prelude.Natural)
 mpeg2Settings_minIInterval = Lens.lens (\Mpeg2Settings' {minIInterval} -> minIInterval) (\s@Mpeg2Settings' {} a -> s {minIInterval = a} :: Mpeg2Settings)
 

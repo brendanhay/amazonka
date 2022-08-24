@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MediaConvert.Types.DolbyVisionProfile
+-- Module      : Amazonka.MediaConvert.Types.EmbeddedTimecodeOverride
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MediaConvert.Types.DolbyVisionProfile
-  ( DolbyVisionProfile
+module Amazonka.MediaConvert.Types.EmbeddedTimecodeOverride
+  ( EmbeddedTimecodeOverride
       ( ..,
-        DolbyVisionProfile_PROFILE_5,
-        DolbyVisionProfile_PROFILE_8_1
+        EmbeddedTimecodeOverride_NONE,
+        EmbeddedTimecodeOverride_USE_MDPM
       ),
   )
 where
@@ -29,13 +29,14 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Required when you enable Dolby Vision. Use Profile 5 to include
--- frame-interleaved Dolby Vision metadata in your output. Your input must
--- include Dolby Vision metadata or an HDR10 YUV color space. Use Profile
--- 8.1 to include frame-interleaved Dolby Vision metadata and HDR10
--- metadata in your output. Your input must include Dolby Vision metadata.
-newtype DolbyVisionProfile = DolbyVisionProfile'
-  { fromDolbyVisionProfile ::
+-- | Set Embedded timecode override (embeddedTimecodeOverride) to Use MDPM
+-- (USE_MDPM) when your AVCHD input contains timecode tag data in the
+-- Modified Digital Video Pack Metadata (MDPM). When you do, we recommend
+-- you also set Timecode source (inputTimecodeSource) to Embedded
+-- (EMBEDDED). Leave Embedded timecode override blank, or set to None
+-- (NONE), when your input does not contain MDPM timecode.
+newtype EmbeddedTimecodeOverride = EmbeddedTimecodeOverride'
+  { fromEmbeddedTimecodeOverride ::
       Core.Text
   }
   deriving stock
@@ -62,14 +63,14 @@ newtype DolbyVisionProfile = DolbyVisionProfile'
       Core.ToXML
     )
 
-pattern DolbyVisionProfile_PROFILE_5 :: DolbyVisionProfile
-pattern DolbyVisionProfile_PROFILE_5 = DolbyVisionProfile' "PROFILE_5"
+pattern EmbeddedTimecodeOverride_NONE :: EmbeddedTimecodeOverride
+pattern EmbeddedTimecodeOverride_NONE = EmbeddedTimecodeOverride' "NONE"
 
-pattern DolbyVisionProfile_PROFILE_8_1 :: DolbyVisionProfile
-pattern DolbyVisionProfile_PROFILE_8_1 = DolbyVisionProfile' "PROFILE_8_1"
+pattern EmbeddedTimecodeOverride_USE_MDPM :: EmbeddedTimecodeOverride
+pattern EmbeddedTimecodeOverride_USE_MDPM = EmbeddedTimecodeOverride' "USE_MDPM"
 
 {-# COMPLETE
-  DolbyVisionProfile_PROFILE_5,
-  DolbyVisionProfile_PROFILE_8_1,
-  DolbyVisionProfile'
+  EmbeddedTimecodeOverride_NONE,
+  EmbeddedTimecodeOverride_USE_MDPM,
+  EmbeddedTimecodeOverride'
   #-}

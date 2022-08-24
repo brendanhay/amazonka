@@ -60,13 +60,17 @@ data M3u8Settings = M3u8Settings'
     -- transport stream. When no value is given, the encoder will assign the
     -- same value as the Video PID.
     pcrPid :: Prelude.Maybe Prelude.Natural,
-    -- | Applies only to HLS outputs. Use this setting to specify whether the
-    -- service inserts the ID3 timed metadata from the input in this output.
+    -- | Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH) to include
+    -- ID3 metadata in this output. This includes ID3 metadata from the
+    -- following features: ID3 timestamp period (timedMetadataId3Period), and
+    -- Custom ID3 metadata inserter (timedMetadataInsertion). To exclude this
+    -- ID3 metadata in this output: set ID3 metadata to None (NONE) or leave
+    -- blank.
     timedMetadata :: Prelude.Maybe TimedMetadata,
     -- | The number of milliseconds between instances of this table in the output
     -- transport stream.
     patInterval :: Prelude.Maybe Prelude.Natural,
-    -- | Packet Identifier (PID) of the timed metadata stream in the transport
+    -- | Packet Identifier (PID) of the ID3 metadata stream in the transport
     -- stream.
     timedMetadataPid :: Prelude.Maybe Prelude.Natural,
     -- | The number of audio frames to insert for each PES packet.
@@ -150,13 +154,17 @@ data M3u8Settings = M3u8Settings'
 -- transport stream. When no value is given, the encoder will assign the
 -- same value as the Video PID.
 --
--- 'timedMetadata', 'm3u8Settings_timedMetadata' - Applies only to HLS outputs. Use this setting to specify whether the
--- service inserts the ID3 timed metadata from the input in this output.
+-- 'timedMetadata', 'm3u8Settings_timedMetadata' - Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH) to include
+-- ID3 metadata in this output. This includes ID3 metadata from the
+-- following features: ID3 timestamp period (timedMetadataId3Period), and
+-- Custom ID3 metadata inserter (timedMetadataInsertion). To exclude this
+-- ID3 metadata in this output: set ID3 metadata to None (NONE) or leave
+-- blank.
 --
 -- 'patInterval', 'm3u8Settings_patInterval' - The number of milliseconds between instances of this table in the output
 -- transport stream.
 --
--- 'timedMetadataPid', 'm3u8Settings_timedMetadataPid' - Packet Identifier (PID) of the timed metadata stream in the transport
+-- 'timedMetadataPid', 'm3u8Settings_timedMetadataPid' - Packet Identifier (PID) of the ID3 metadata stream in the transport
 -- stream.
 --
 -- 'audioFramesPerPes', 'm3u8Settings_audioFramesPerPes' - The number of audio frames to insert for each PES packet.
@@ -261,8 +269,12 @@ m3u8Settings_pcrControl = Lens.lens (\M3u8Settings' {pcrControl} -> pcrControl) 
 m3u8Settings_pcrPid :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
 m3u8Settings_pcrPid = Lens.lens (\M3u8Settings' {pcrPid} -> pcrPid) (\s@M3u8Settings' {} a -> s {pcrPid = a} :: M3u8Settings)
 
--- | Applies only to HLS outputs. Use this setting to specify whether the
--- service inserts the ID3 timed metadata from the input in this output.
+-- | Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH) to include
+-- ID3 metadata in this output. This includes ID3 metadata from the
+-- following features: ID3 timestamp period (timedMetadataId3Period), and
+-- Custom ID3 metadata inserter (timedMetadataInsertion). To exclude this
+-- ID3 metadata in this output: set ID3 metadata to None (NONE) or leave
+-- blank.
 m3u8Settings_timedMetadata :: Lens.Lens' M3u8Settings (Prelude.Maybe TimedMetadata)
 m3u8Settings_timedMetadata = Lens.lens (\M3u8Settings' {timedMetadata} -> timedMetadata) (\s@M3u8Settings' {} a -> s {timedMetadata = a} :: M3u8Settings)
 
@@ -271,7 +283,7 @@ m3u8Settings_timedMetadata = Lens.lens (\M3u8Settings' {timedMetadata} -> timedM
 m3u8Settings_patInterval :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
 m3u8Settings_patInterval = Lens.lens (\M3u8Settings' {patInterval} -> patInterval) (\s@M3u8Settings' {} a -> s {patInterval = a} :: M3u8Settings)
 
--- | Packet Identifier (PID) of the timed metadata stream in the transport
+-- | Packet Identifier (PID) of the ID3 metadata stream in the transport
 -- stream.
 m3u8Settings_timedMetadataPid :: Lens.Lens' M3u8Settings (Prelude.Maybe Prelude.Natural)
 m3u8Settings_timedMetadataPid = Lens.lens (\M3u8Settings' {timedMetadataPid} -> timedMetadataPid) (\s@M3u8Settings' {} a -> s {timedMetadataPid = a} :: M3u8Settings)

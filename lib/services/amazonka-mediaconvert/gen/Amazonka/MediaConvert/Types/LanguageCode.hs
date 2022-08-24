@@ -177,6 +177,7 @@ module Amazonka.MediaConvert.Types.LanguageCode
         LanguageCode_SQI,
         LanguageCode_SRB,
         LanguageCode_SRD,
+        LanguageCode_SRP,
         LanguageCode_SSW,
         LanguageCode_SUN,
         LanguageCode_SWA,
@@ -719,6 +720,9 @@ pattern LanguageCode_SRB = LanguageCode' "SRB"
 pattern LanguageCode_SRD :: LanguageCode
 pattern LanguageCode_SRD = LanguageCode' "SRD"
 
+pattern LanguageCode_SRP :: LanguageCode
+pattern LanguageCode_SRP = LanguageCode' "SRP"
+
 pattern LanguageCode_SSW :: LanguageCode
 pattern LanguageCode_SSW = LanguageCode' "SSW"
 
@@ -979,6 +983,7 @@ pattern LanguageCode_ZUL = LanguageCode' "ZUL"
   LanguageCode_SQI,
   LanguageCode_SRB,
   LanguageCode_SRD,
+  LanguageCode_SRP,
   LanguageCode_SSW,
   LanguageCode_SUN,
   LanguageCode_SWA,

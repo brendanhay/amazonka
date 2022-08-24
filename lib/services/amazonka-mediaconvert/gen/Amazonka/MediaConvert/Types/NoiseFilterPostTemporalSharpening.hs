@@ -30,13 +30,17 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Optional. When you set Noise reducer (noiseReducer) to Temporal
--- (TEMPORAL), you can use this setting to apply sharpening. The default
--- behavior, Auto (AUTO), allows the transcoder to determine whether to
--- apply filtering, depending on input type and quality. When you set Noise
--- reducer to Temporal, your output bandwidth is reduced. When Post
--- temporal sharpening is also enabled, that bandwidth reduction is
--- smaller.
+-- | When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), the
+-- bandwidth and sharpness of your output is reduced. You can optionally
+-- use Post temporal sharpening (postTemporalSharpening) to apply
+-- sharpening to the edges of your output. Note that Post temporal
+-- sharpening will also make the bandwidth reduction from the Noise reducer
+-- smaller. The default behavior, Auto (AUTO), allows the transcoder to
+-- determine whether to apply sharpening, depending on your input type and
+-- quality. When you set Post temporal sharpening to Enabled (ENABLED),
+-- specify how much sharpening is applied using Post temporal sharpening
+-- strength (postTemporalSharpeningStrength). Set Post temporal sharpening
+-- to Disabled (DISABLED) to not apply sharpening.
 newtype NoiseFilterPostTemporalSharpening = NoiseFilterPostTemporalSharpening'
   { fromNoiseFilterPostTemporalSharpening ::
       Core.Text

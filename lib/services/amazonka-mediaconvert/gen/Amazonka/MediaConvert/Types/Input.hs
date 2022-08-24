@@ -33,6 +33,7 @@ import Amazonka.MediaConvert.Types.InputFilterEnable
 import Amazonka.MediaConvert.Types.InputPsiControl
 import Amazonka.MediaConvert.Types.InputScanType
 import Amazonka.MediaConvert.Types.InputTimecodeSource
+import Amazonka.MediaConvert.Types.InputVideoGenerator
 import Amazonka.MediaConvert.Types.Rectangle
 import Amazonka.MediaConvert.Types.VideoSelector
 import qualified Amazonka.Prelude as Prelude
@@ -74,6 +75,17 @@ data Input = Input'
     -- Specified start (SPECIFIEDSTART). For more information about timecodes,
     -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
     timecodeStart :: Prelude.Maybe Prelude.Text,
+    -- | Use this setting only when your video source has Dolby Vision studio
+    -- mastering metadata that is carried in a separate XML file. Specify the
+    -- Amazon S3 location for the metadata XML file. MediaConvert uses this
+    -- file to provide global and frame-level metadata for Dolby Vision
+    -- preprocessing. When you specify a file here and your input also has
+    -- interleaved global and frame level metadata, MediaConvert ignores the
+    -- interleaved metadata and uses only the the metadata from this external
+    -- XML file. Note that your IAM service role must grant MediaConvert read
+    -- permissions to this file. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
+    dolbyVisionMetadataXml :: Prelude.Maybe Prelude.Text,
     -- | (InputClippings) contains sets of start and end times that together
     -- specify a portion of the input to be used in the outputs. If you provide
     -- only a start time, the clip will be the entire input from that point to
@@ -99,6 +111,13 @@ data Input = Input'
     -- information about timecodes, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
     timecodeSource :: Prelude.Maybe InputTimecodeSource,
+    -- | When you include Video generator, MediaConvert creates a video input
+    -- with black frames. Use this setting if you do not have a video input or
+    -- if you want to add black video frames before, or after, other inputs.
+    -- You can specify Video generator, or you can specify an Input file, but
+    -- you cannot specify both. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/video-generator.html
+    videoGenerator :: Prelude.Maybe InputVideoGenerator,
     -- | Use Program (programNumber) to select a specific program from within a
     -- multi-program transport stream. Note that Quad 4K is not currently
     -- supported. Default is the first program within the transport stream. If
@@ -209,6 +228,17 @@ data Input = Input'
 -- Specified start (SPECIFIEDSTART). For more information about timecodes,
 -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
 --
+-- 'dolbyVisionMetadataXml', 'input_dolbyVisionMetadataXml' - Use this setting only when your video source has Dolby Vision studio
+-- mastering metadata that is carried in a separate XML file. Specify the
+-- Amazon S3 location for the metadata XML file. MediaConvert uses this
+-- file to provide global and frame-level metadata for Dolby Vision
+-- preprocessing. When you specify a file here and your input also has
+-- interleaved global and frame level metadata, MediaConvert ignores the
+-- interleaved metadata and uses only the the metadata from this external
+-- XML file. Note that your IAM service role must grant MediaConvert read
+-- permissions to this file. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
+--
 -- 'inputClippings', 'input_inputClippings' - (InputClippings) contains sets of start and end times that together
 -- specify a portion of the input to be used in the outputs. If you provide
 -- only a start time, the clip will be the entire input from that point to
@@ -233,6 +263,13 @@ data Input = Input'
 -- Timecode source, the service will use Embedded by default. For more
 -- information about timecodes, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
+--
+-- 'videoGenerator', 'input_videoGenerator' - When you include Video generator, MediaConvert creates a video input
+-- with black frames. Use this setting if you do not have a video input or
+-- if you want to add black video frames before, or after, other inputs.
+-- You can specify Video generator, or you can specify an Input file, but
+-- you cannot specify both. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/video-generator.html
 --
 -- 'programNumber', 'input_programNumber' - Use Program (programNumber) to select a specific program from within a
 -- multi-program transport stream. Note that Quad 4K is not currently
@@ -314,9 +351,11 @@ newInput =
       audioSelectorGroups = Prelude.Nothing,
       filterStrength = Prelude.Nothing,
       timecodeStart = Prelude.Nothing,
+      dolbyVisionMetadataXml = Prelude.Nothing,
       inputClippings = Prelude.Nothing,
       audioSelectors = Prelude.Nothing,
       timecodeSource = Prelude.Nothing,
+      videoGenerator = Prelude.Nothing,
       programNumber = Prelude.Nothing,
       crop = Prelude.Nothing,
       supplementalImps = Prelude.Nothing,
@@ -370,6 +409,19 @@ input_filterStrength = Lens.lens (\Input' {filterStrength} -> filterStrength) (\
 input_timecodeStart :: Lens.Lens' Input (Prelude.Maybe Prelude.Text)
 input_timecodeStart = Lens.lens (\Input' {timecodeStart} -> timecodeStart) (\s@Input' {} a -> s {timecodeStart = a} :: Input)
 
+-- | Use this setting only when your video source has Dolby Vision studio
+-- mastering metadata that is carried in a separate XML file. Specify the
+-- Amazon S3 location for the metadata XML file. MediaConvert uses this
+-- file to provide global and frame-level metadata for Dolby Vision
+-- preprocessing. When you specify a file here and your input also has
+-- interleaved global and frame level metadata, MediaConvert ignores the
+-- interleaved metadata and uses only the the metadata from this external
+-- XML file. Note that your IAM service role must grant MediaConvert read
+-- permissions to this file. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/iam-role.html.
+input_dolbyVisionMetadataXml :: Lens.Lens' Input (Prelude.Maybe Prelude.Text)
+input_dolbyVisionMetadataXml = Lens.lens (\Input' {dolbyVisionMetadataXml} -> dolbyVisionMetadataXml) (\s@Input' {} a -> s {dolbyVisionMetadataXml = a} :: Input)
+
 -- | (InputClippings) contains sets of start and end times that together
 -- specify a portion of the input to be used in the outputs. If you provide
 -- only a start time, the clip will be the entire input from that point to
@@ -400,6 +452,15 @@ input_audioSelectors = Lens.lens (\Input' {audioSelectors} -> audioSelectors) (\
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
 input_timecodeSource :: Lens.Lens' Input (Prelude.Maybe InputTimecodeSource)
 input_timecodeSource = Lens.lens (\Input' {timecodeSource} -> timecodeSource) (\s@Input' {} a -> s {timecodeSource = a} :: Input)
+
+-- | When you include Video generator, MediaConvert creates a video input
+-- with black frames. Use this setting if you do not have a video input or
+-- if you want to add black video frames before, or after, other inputs.
+-- You can specify Video generator, or you can specify an Input file, but
+-- you cannot specify both. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/video-generator.html
+input_videoGenerator :: Lens.Lens' Input (Prelude.Maybe InputVideoGenerator)
+input_videoGenerator = Lens.lens (\Input' {videoGenerator} -> videoGenerator) (\s@Input' {} a -> s {videoGenerator = a} :: Input)
 
 -- | Use Program (programNumber) to select a specific program from within a
 -- multi-program transport stream. Note that Quad 4K is not currently
@@ -510,9 +571,11 @@ instance Core.FromJSON Input where
                         )
             Prelude.<*> (x Core..:? "filterStrength")
             Prelude.<*> (x Core..:? "timecodeStart")
+            Prelude.<*> (x Core..:? "dolbyVisionMetadataXml")
             Prelude.<*> (x Core..:? "inputClippings" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "timecodeSource")
+            Prelude.<*> (x Core..:? "videoGenerator")
             Prelude.<*> (x Core..:? "programNumber")
             Prelude.<*> (x Core..:? "crop")
             Prelude.<*> ( x Core..:? "supplementalImps"
@@ -536,9 +599,11 @@ instance Prelude.Hashable Input where
       `Prelude.hashWithSalt` audioSelectorGroups
       `Prelude.hashWithSalt` filterStrength
       `Prelude.hashWithSalt` timecodeStart
+      `Prelude.hashWithSalt` dolbyVisionMetadataXml
       `Prelude.hashWithSalt` inputClippings
       `Prelude.hashWithSalt` audioSelectors
       `Prelude.hashWithSalt` timecodeSource
+      `Prelude.hashWithSalt` videoGenerator
       `Prelude.hashWithSalt` programNumber
       `Prelude.hashWithSalt` crop
       `Prelude.hashWithSalt` supplementalImps
@@ -559,9 +624,11 @@ instance Prelude.NFData Input where
       `Prelude.seq` Prelude.rnf audioSelectorGroups
       `Prelude.seq` Prelude.rnf filterStrength
       `Prelude.seq` Prelude.rnf timecodeStart
+      `Prelude.seq` Prelude.rnf dolbyVisionMetadataXml
       `Prelude.seq` Prelude.rnf inputClippings
       `Prelude.seq` Prelude.rnf audioSelectors
       `Prelude.seq` Prelude.rnf timecodeSource
+      `Prelude.seq` Prelude.rnf videoGenerator
       `Prelude.seq` Prelude.rnf programNumber
       `Prelude.seq` Prelude.rnf crop
       `Prelude.seq` Prelude.rnf supplementalImps
@@ -587,12 +654,16 @@ instance Core.ToJSON Input where
             ("filterStrength" Core..=)
               Prelude.<$> filterStrength,
             ("timecodeStart" Core..=) Prelude.<$> timecodeStart,
+            ("dolbyVisionMetadataXml" Core..=)
+              Prelude.<$> dolbyVisionMetadataXml,
             ("inputClippings" Core..=)
               Prelude.<$> inputClippings,
             ("audioSelectors" Core..=)
               Prelude.<$> audioSelectors,
             ("timecodeSource" Core..=)
               Prelude.<$> timecodeSource,
+            ("videoGenerator" Core..=)
+              Prelude.<$> videoGenerator,
             ("programNumber" Core..=) Prelude.<$> programNumber,
             ("crop" Core..=) Prelude.<$> crop,
             ("supplementalImps" Core..=)

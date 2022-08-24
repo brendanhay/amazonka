@@ -96,6 +96,9 @@ module Amazonka.MediaConvert.Types
     -- * AudioDefaultSelection
     AudioDefaultSelection (..),
 
+    -- * AudioDurationCorrection
+    AudioDurationCorrection (..),
+
     -- * AudioLanguageCodeControl
     AudioLanguageCodeControl (..),
 
@@ -119,6 +122,9 @@ module Amazonka.MediaConvert.Types
 
     -- * Av1AdaptiveQuantization
     Av1AdaptiveQuantization (..),
+
+    -- * Av1BitDepth
+    Av1BitDepth (..),
 
     -- * Av1FramerateControl
     Av1FramerateControl (..),
@@ -258,11 +264,17 @@ module Amazonka.MediaConvert.Types
     -- * CmfcIFrameOnlyManifest
     CmfcIFrameOnlyManifest (..),
 
+    -- * CmfcKlvMetadata
+    CmfcKlvMetadata (..),
+
     -- * CmfcScte35Esam
     CmfcScte35Esam (..),
 
     -- * CmfcScte35Source
     CmfcScte35Source (..),
+
+    -- * CmfcTimedMetadata
+    CmfcTimedMetadata (..),
 
     -- * ColorMetadata
     ColorMetadata (..),
@@ -332,6 +344,9 @@ module Amazonka.MediaConvert.Types
 
     -- * DolbyVisionLevel6Mode
     DolbyVisionLevel6Mode (..),
+
+    -- * DolbyVisionMapping
+    DolbyVisionMapping (..),
 
     -- * DolbyVisionProfile
     DolbyVisionProfile (..),
@@ -449,6 +464,9 @@ module Amazonka.MediaConvert.Types
 
     -- * EmbeddedTerminateCaptions
     EmbeddedTerminateCaptions (..),
+
+    -- * EmbeddedTimecodeOverride
+    EmbeddedTimecodeOverride (..),
 
     -- * F4vMoovPlacement
     F4vMoovPlacement (..),
@@ -624,6 +642,9 @@ module Amazonka.MediaConvert.Types
     -- * HlsCaptionLanguageSetting
     HlsCaptionLanguageSetting (..),
 
+    -- * HlsCaptionSegmentLengthControl
+    HlsCaptionSegmentLengthControl (..),
+
     -- * HlsClientCache
     HlsClientCache (..),
 
@@ -683,6 +704,9 @@ module Amazonka.MediaConvert.Types
 
     -- * HlsTimedMetadataId3Frame
     HlsTimedMetadataId3Frame (..),
+
+    -- * ImscAccessibilitySubs
+    ImscAccessibilitySubs (..),
 
     -- * ImscStylePassthrough
     ImscStylePassthrough (..),
@@ -749,6 +773,9 @@ module Amazonka.MediaConvert.Types
 
     -- * M2tsForceTsVideoEbpOrder
     M2tsForceTsVideoEbpOrder (..),
+
+    -- * M2tsKlvMetadata
+    M2tsKlvMetadata (..),
 
     -- * M2tsNielsenId3
     M2tsNielsenId3 (..),
@@ -825,11 +852,17 @@ module Amazonka.MediaConvert.Types
     -- * MpdCaptionContainerType
     MpdCaptionContainerType (..),
 
+    -- * MpdKlvMetadata
+    MpdKlvMetadata (..),
+
     -- * MpdScte35Esam
     MpdScte35Esam (..),
 
     -- * MpdScte35Source
     MpdScte35Source (..),
+
+    -- * MpdTimedMetadata
+    MpdTimedMetadata (..),
 
     -- * Mpeg2AdaptiveQuantization
     Mpeg2AdaptiveQuantization (..),
@@ -918,6 +951,9 @@ module Amazonka.MediaConvert.Types
     -- * NoiseFilterPostTemporalSharpening
     NoiseFilterPostTemporalSharpening (..),
 
+    -- * NoiseFilterPostTemporalSharpeningStrength
+    NoiseFilterPostTemporalSharpeningStrength (..),
+
     -- * NoiseReducerFilter
     NoiseReducerFilter (..),
 
@@ -929,6 +965,9 @@ module Amazonka.MediaConvert.Types
 
     -- * OutputSdt
     OutputSdt (..),
+
+    -- * PadVideo
+    PadVideo (..),
 
     -- * PresetListBy
     PresetListBy (..),
@@ -972,11 +1011,17 @@ module Amazonka.MediaConvert.Types
     -- * RenewalType
     RenewalType (..),
 
+    -- * RequiredFlag
+    RequiredFlag (..),
+
     -- * ReservationPlanStatus
     ReservationPlanStatus (..),
 
     -- * RespondToAfd
     RespondToAfd (..),
+
+    -- * RuleType
+    RuleType (..),
 
     -- * S3ObjectCannedAcl
     S3ObjectCannedAcl (..),
@@ -1086,6 +1131,9 @@ module Amazonka.MediaConvert.Types
     -- * WavFormat
     WavFormat (..),
 
+    -- * WebvttAccessibilitySubs
+    WebvttAccessibilitySubs (..),
+
     -- * WebvttStylePassthrough
     WebvttStylePassthrough (..),
 
@@ -1188,6 +1236,13 @@ module Amazonka.MediaConvert.Types
     aiffSettings_channels,
     aiffSettings_sampleRate,
 
+    -- * AllowedRenditionSize
+    AllowedRenditionSize (..),
+    newAllowedRenditionSize,
+    allowedRenditionSize_required,
+    allowedRenditionSize_width,
+    allowedRenditionSize_height,
+
     -- * AncillarySourceSettings
     AncillarySourceSettings (..),
     newAncillarySourceSettings,
@@ -1244,6 +1299,7 @@ module Amazonka.MediaConvert.Types
     AudioSelector (..),
     newAudioSelector,
     audioSelector_externalAudioFileInput,
+    audioSelector_audioDurationCorrection,
     audioSelector_pids,
     audioSelector_hlsRenditionGroupSettings,
     audioSelector_customLanguageCode,
@@ -1260,10 +1316,20 @@ module Amazonka.MediaConvert.Types
     newAudioSelectorGroup,
     audioSelectorGroup_audioSelectorNames,
 
+    -- * AutomatedAbrRule
+    AutomatedAbrRule (..),
+    newAutomatedAbrRule,
+    automatedAbrRule_type,
+    automatedAbrRule_minTopRenditionSize,
+    automatedAbrRule_minBottomRenditionSize,
+    automatedAbrRule_forceIncludeRenditions,
+    automatedAbrRule_allowedRenditions,
+
     -- * AutomatedAbrSettings
     AutomatedAbrSettings (..),
     newAutomatedAbrSettings,
     automatedAbrSettings_minAbrBitrate,
+    automatedAbrSettings_rules,
     automatedAbrSettings_maxAbrBitrate,
     automatedAbrSettings_maxRenditions,
 
@@ -1282,6 +1348,7 @@ module Amazonka.MediaConvert.Types
     Av1Settings (..),
     newAv1Settings,
     av1Settings_framerateDenominator,
+    av1Settings_bitDepth,
     av1Settings_framerateControl,
     av1Settings_qvbrSettings,
     av1Settings_maxBitrate,
@@ -1464,6 +1531,8 @@ module Amazonka.MediaConvert.Types
     cmfcSettings_descriptiveVideoServiceFlag,
     cmfcSettings_audioDuration,
     cmfcSettings_audioTrackType,
+    cmfcSettings_timedMetadata,
+    cmfcSettings_klvMetadata,
     cmfcSettings_iFrameOnlyManifest,
     cmfcSettings_audioRenditionSets,
     cmfcSettings_scte35Esam,
@@ -1555,6 +1624,7 @@ module Amazonka.MediaConvert.Types
     newDolbyVision,
     dolbyVision_l6Metadata,
     dolbyVision_profile,
+    dolbyVision_mapping,
     dolbyVision_l6Mode,
 
     -- * DolbyVisionLevel6Metadata
@@ -1726,6 +1796,12 @@ module Amazonka.MediaConvert.Types
     fileSourceSettings_timeDeltaUnits,
     fileSourceSettings_sourceFile,
     fileSourceSettings_framerate,
+
+    -- * ForceIncludeRenditionSize
+    ForceIncludeRenditionSize (..),
+    newForceIncludeRenditionSize,
+    forceIncludeRenditionSize_width,
+    forceIncludeRenditionSize_height,
 
     -- * FrameCaptureSettings
     FrameCaptureSettings (..),
@@ -1906,6 +1982,7 @@ module Amazonka.MediaConvert.Types
     hlsGroupSettings_timedMetadataId3Frame,
     hlsGroupSettings_captionLanguageSetting,
     hlsGroupSettings_segmentControl,
+    hlsGroupSettings_captionSegmentLengthControl,
     hlsGroupSettings_encryption,
     hlsGroupSettings_imageBasedTrickPlay,
     hlsGroupSettings_clientCache,
@@ -1968,6 +2045,7 @@ module Amazonka.MediaConvert.Types
     ImscDestinationSettings (..),
     newImscDestinationSettings,
     imscDestinationSettings_stylePassthrough,
+    imscDestinationSettings_accessibility,
 
     -- * Input
     Input (..),
@@ -1978,9 +2056,11 @@ module Amazonka.MediaConvert.Types
     input_audioSelectorGroups,
     input_filterStrength,
     input_timecodeStart,
+    input_dolbyVisionMetadataXml,
     input_inputClippings,
     input_audioSelectors,
     input_timecodeSource,
+    input_videoGenerator,
     input_programNumber,
     input_crop,
     input_supplementalImps,
@@ -2016,6 +2096,7 @@ module Amazonka.MediaConvert.Types
     inputTemplate_audioSelectorGroups,
     inputTemplate_filterStrength,
     inputTemplate_timecodeStart,
+    inputTemplate_dolbyVisionMetadataXml,
     inputTemplate_inputClippings,
     inputTemplate_audioSelectors,
     inputTemplate_timecodeSource,
@@ -2027,6 +2108,11 @@ module Amazonka.MediaConvert.Types
     inputTemplate_position,
     inputTemplate_inputScanType,
     inputTemplate_videoSelector,
+
+    -- * InputVideoGenerator
+    InputVideoGenerator (..),
+    newInputVideoGenerator,
+    inputVideoGenerator_duration,
 
     -- * InsertableImage
     InsertableImage (..),
@@ -2163,6 +2249,7 @@ module Amazonka.MediaConvert.Types
     m2tsSettings_dvbTdtSettings,
     m2tsSettings_dvbNitSettings,
     m2tsSettings_bitrate,
+    m2tsSettings_klvMetadata,
     m2tsSettings_patInterval,
     m2tsSettings_esRateInPes,
     m2tsSettings_audioBufferModel,
@@ -2213,6 +2300,18 @@ module Amazonka.MediaConvert.Types
     m3u8Settings_pmtPid,
     m3u8Settings_nielsenId3,
     m3u8Settings_audioPids,
+
+    -- * MinBottomRenditionSize
+    MinBottomRenditionSize (..),
+    newMinBottomRenditionSize,
+    minBottomRenditionSize_width,
+    minBottomRenditionSize_height,
+
+    -- * MinTopRenditionSize
+    MinTopRenditionSize (..),
+    newMinTopRenditionSize,
+    minTopRenditionSize_width,
+    minTopRenditionSize_height,
 
     -- * MotionImageInserter
     MotionImageInserter (..),
@@ -2275,6 +2374,8 @@ module Amazonka.MediaConvert.Types
     MpdSettings (..),
     newMpdSettings,
     mpdSettings_audioDuration,
+    mpdSettings_timedMetadata,
+    mpdSettings_klvMetadata,
     mpdSettings_scte35Esam,
     mpdSettings_accessibilityCaptionHints,
     mpdSettings_captionContainerType,
@@ -2407,6 +2508,7 @@ module Amazonka.MediaConvert.Types
     noiseReducerTemporalFilterSettings_strength,
     noiseReducerTemporalFilterSettings_aggressiveMode,
     noiseReducerTemporalFilterSettings_postTemporalSharpening,
+    noiseReducerTemporalFilterSettings_postTemporalSharpeningStrength,
     noiseReducerTemporalFilterSettings_speed,
 
     -- * OpusSettings
@@ -2751,7 +2853,9 @@ module Amazonka.MediaConvert.Types
     videoSelector_alphaBehavior,
     videoSelector_pid,
     videoSelector_colorSpace,
+    videoSelector_padVideo,
     videoSelector_colorSpaceUsage,
+    videoSelector_embeddedTimecodeOverride,
     videoSelector_sampleRange,
     videoSelector_programNumber,
     videoSelector_hdr10Metadata,
@@ -2810,6 +2914,7 @@ module Amazonka.MediaConvert.Types
     WebvttDestinationSettings (..),
     newWebvttDestinationSettings,
     webvttDestinationSettings_stylePassthrough,
+    webvttDestinationSettings_accessibility,
 
     -- * WebvttHlsSourceSettings
     WebvttHlsSourceSettings (..),
@@ -2903,6 +3008,7 @@ import Amazonka.MediaConvert.Types.AccelerationSettings
 import Amazonka.MediaConvert.Types.AccelerationStatus
 import Amazonka.MediaConvert.Types.AfdSignaling
 import Amazonka.MediaConvert.Types.AiffSettings
+import Amazonka.MediaConvert.Types.AllowedRenditionSize
 import Amazonka.MediaConvert.Types.AlphaBehavior
 import Amazonka.MediaConvert.Types.AncillaryConvert608To708
 import Amazonka.MediaConvert.Types.AncillarySourceSettings
@@ -2914,6 +3020,7 @@ import Amazonka.MediaConvert.Types.AudioCodec
 import Amazonka.MediaConvert.Types.AudioCodecSettings
 import Amazonka.MediaConvert.Types.AudioDefaultSelection
 import Amazonka.MediaConvert.Types.AudioDescription
+import Amazonka.MediaConvert.Types.AudioDurationCorrection
 import Amazonka.MediaConvert.Types.AudioLanguageCodeControl
 import Amazonka.MediaConvert.Types.AudioNormalizationAlgorithm
 import Amazonka.MediaConvert.Types.AudioNormalizationAlgorithmControl
@@ -2924,9 +3031,11 @@ import Amazonka.MediaConvert.Types.AudioSelector
 import Amazonka.MediaConvert.Types.AudioSelectorGroup
 import Amazonka.MediaConvert.Types.AudioSelectorType
 import Amazonka.MediaConvert.Types.AudioTypeControl
+import Amazonka.MediaConvert.Types.AutomatedAbrRule
 import Amazonka.MediaConvert.Types.AutomatedAbrSettings
 import Amazonka.MediaConvert.Types.AutomatedEncodingSettings
 import Amazonka.MediaConvert.Types.Av1AdaptiveQuantization
+import Amazonka.MediaConvert.Types.Av1BitDepth
 import Amazonka.MediaConvert.Types.Av1FramerateControl
 import Amazonka.MediaConvert.Types.Av1FramerateConversionAlgorithm
 import Amazonka.MediaConvert.Types.Av1QvbrSettings
@@ -2990,9 +3099,11 @@ import Amazonka.MediaConvert.Types.CmfcAudioDuration
 import Amazonka.MediaConvert.Types.CmfcAudioTrackType
 import Amazonka.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
 import Amazonka.MediaConvert.Types.CmfcIFrameOnlyManifest
+import Amazonka.MediaConvert.Types.CmfcKlvMetadata
 import Amazonka.MediaConvert.Types.CmfcScte35Esam
 import Amazonka.MediaConvert.Types.CmfcScte35Source
 import Amazonka.MediaConvert.Types.CmfcSettings
+import Amazonka.MediaConvert.Types.CmfcTimedMetadata
 import Amazonka.MediaConvert.Types.ColorCorrector
 import Amazonka.MediaConvert.Types.ColorMetadata
 import Amazonka.MediaConvert.Types.ColorSpace
@@ -3026,6 +3137,7 @@ import Amazonka.MediaConvert.Types.DestinationSettings
 import Amazonka.MediaConvert.Types.DolbyVision
 import Amazonka.MediaConvert.Types.DolbyVisionLevel6Metadata
 import Amazonka.MediaConvert.Types.DolbyVisionLevel6Mode
+import Amazonka.MediaConvert.Types.DolbyVisionMapping
 import Amazonka.MediaConvert.Types.DolbyVisionProfile
 import Amazonka.MediaConvert.Types.DropFrameTimecode
 import Amazonka.MediaConvert.Types.DvbNitSettings
@@ -3074,6 +3186,7 @@ import Amazonka.MediaConvert.Types.EmbeddedConvert608To708
 import Amazonka.MediaConvert.Types.EmbeddedDestinationSettings
 import Amazonka.MediaConvert.Types.EmbeddedSourceSettings
 import Amazonka.MediaConvert.Types.EmbeddedTerminateCaptions
+import Amazonka.MediaConvert.Types.EmbeddedTimecodeOverride
 import Amazonka.MediaConvert.Types.Endpoint
 import Amazonka.MediaConvert.Types.EsamManifestConfirmConditionNotification
 import Amazonka.MediaConvert.Types.EsamSettings
@@ -3086,6 +3199,7 @@ import Amazonka.MediaConvert.Types.FileSourceConvert608To708
 import Amazonka.MediaConvert.Types.FileSourceSettings
 import Amazonka.MediaConvert.Types.FileSourceTimeDeltaUnits
 import Amazonka.MediaConvert.Types.FontScript
+import Amazonka.MediaConvert.Types.ForceIncludeRenditionSize
 import Amazonka.MediaConvert.Types.FrameCaptureSettings
 import Amazonka.MediaConvert.Types.H264AdaptiveQuantization
 import Amazonka.MediaConvert.Types.H264CodecLevel
@@ -3149,6 +3263,7 @@ import Amazonka.MediaConvert.Types.HlsAudioOnlyHeader
 import Amazonka.MediaConvert.Types.HlsAudioTrackType
 import Amazonka.MediaConvert.Types.HlsCaptionLanguageMapping
 import Amazonka.MediaConvert.Types.HlsCaptionLanguageSetting
+import Amazonka.MediaConvert.Types.HlsCaptionSegmentLengthControl
 import Amazonka.MediaConvert.Types.HlsClientCache
 import Amazonka.MediaConvert.Types.HlsCodecSpecification
 import Amazonka.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
@@ -3177,6 +3292,7 @@ import Amazonka.MediaConvert.Types.HlsTimedMetadataId3Frame
 import Amazonka.MediaConvert.Types.HopDestination
 import Amazonka.MediaConvert.Types.Id3Insertion
 import Amazonka.MediaConvert.Types.ImageInserter
+import Amazonka.MediaConvert.Types.ImscAccessibilitySubs
 import Amazonka.MediaConvert.Types.ImscDestinationSettings
 import Amazonka.MediaConvert.Types.ImscStylePassthrough
 import Amazonka.MediaConvert.Types.Input
@@ -3192,6 +3308,7 @@ import Amazonka.MediaConvert.Types.InputSampleRange
 import Amazonka.MediaConvert.Types.InputScanType
 import Amazonka.MediaConvert.Types.InputTemplate
 import Amazonka.MediaConvert.Types.InputTimecodeSource
+import Amazonka.MediaConvert.Types.InputVideoGenerator
 import Amazonka.MediaConvert.Types.InsertableImage
 import Amazonka.MediaConvert.Types.Job
 import Amazonka.MediaConvert.Types.JobMessages
@@ -3211,6 +3328,7 @@ import Amazonka.MediaConvert.Types.M2tsEbpAudioInterval
 import Amazonka.MediaConvert.Types.M2tsEbpPlacement
 import Amazonka.MediaConvert.Types.M2tsEsRateInPes
 import Amazonka.MediaConvert.Types.M2tsForceTsVideoEbpOrder
+import Amazonka.MediaConvert.Types.M2tsKlvMetadata
 import Amazonka.MediaConvert.Types.M2tsNielsenId3
 import Amazonka.MediaConvert.Types.M2tsPcrControl
 import Amazonka.MediaConvert.Types.M2tsRateMode
@@ -3225,6 +3343,8 @@ import Amazonka.MediaConvert.Types.M3u8NielsenId3
 import Amazonka.MediaConvert.Types.M3u8PcrControl
 import Amazonka.MediaConvert.Types.M3u8Scte35Source
 import Amazonka.MediaConvert.Types.M3u8Settings
+import Amazonka.MediaConvert.Types.MinBottomRenditionSize
+import Amazonka.MediaConvert.Types.MinTopRenditionSize
 import Amazonka.MediaConvert.Types.MotionImageInserter
 import Amazonka.MediaConvert.Types.MotionImageInsertionFramerate
 import Amazonka.MediaConvert.Types.MotionImageInsertionMode
@@ -3246,9 +3366,11 @@ import Amazonka.MediaConvert.Types.Mp4Settings
 import Amazonka.MediaConvert.Types.MpdAccessibilityCaptionHints
 import Amazonka.MediaConvert.Types.MpdAudioDuration
 import Amazonka.MediaConvert.Types.MpdCaptionContainerType
+import Amazonka.MediaConvert.Types.MpdKlvMetadata
 import Amazonka.MediaConvert.Types.MpdScte35Esam
 import Amazonka.MediaConvert.Types.MpdScte35Source
 import Amazonka.MediaConvert.Types.MpdSettings
+import Amazonka.MediaConvert.Types.MpdTimedMetadata
 import Amazonka.MediaConvert.Types.Mpeg2AdaptiveQuantization
 import Amazonka.MediaConvert.Types.Mpeg2CodecLevel
 import Amazonka.MediaConvert.Types.Mpeg2CodecProfile
@@ -3287,6 +3409,7 @@ import Amazonka.MediaConvert.Types.NielsenNonLinearWatermarkSettings
 import Amazonka.MediaConvert.Types.NielsenSourceWatermarkStatusType
 import Amazonka.MediaConvert.Types.NielsenUniqueTicPerAudioTrackType
 import Amazonka.MediaConvert.Types.NoiseFilterPostTemporalSharpening
+import Amazonka.MediaConvert.Types.NoiseFilterPostTemporalSharpeningStrength
 import Amazonka.MediaConvert.Types.NoiseReducer
 import Amazonka.MediaConvert.Types.NoiseReducerFilter
 import Amazonka.MediaConvert.Types.NoiseReducerFilterSettings
@@ -3303,6 +3426,7 @@ import Amazonka.MediaConvert.Types.OutputGroupSettings
 import Amazonka.MediaConvert.Types.OutputGroupType
 import Amazonka.MediaConvert.Types.OutputSdt
 import Amazonka.MediaConvert.Types.OutputSettings
+import Amazonka.MediaConvert.Types.PadVideo
 import Amazonka.MediaConvert.Types.PartnerWatermarking
 import Amazonka.MediaConvert.Types.Policy
 import Amazonka.MediaConvert.Types.Preset
@@ -3326,11 +3450,13 @@ import Amazonka.MediaConvert.Types.QueueTransition
 import Amazonka.MediaConvert.Types.Rectangle
 import Amazonka.MediaConvert.Types.RemixSettings
 import Amazonka.MediaConvert.Types.RenewalType
+import Amazonka.MediaConvert.Types.RequiredFlag
 import Amazonka.MediaConvert.Types.ReservationPlan
 import Amazonka.MediaConvert.Types.ReservationPlanSettings
 import Amazonka.MediaConvert.Types.ReservationPlanStatus
 import Amazonka.MediaConvert.Types.ResourceTags
 import Amazonka.MediaConvert.Types.RespondToAfd
+import Amazonka.MediaConvert.Types.RuleType
 import Amazonka.MediaConvert.Types.S3DestinationAccessControl
 import Amazonka.MediaConvert.Types.S3DestinationSettings
 import Amazonka.MediaConvert.Types.S3EncryptionSettings
@@ -3393,6 +3519,7 @@ import Amazonka.MediaConvert.Types.Vp9Settings
 import Amazonka.MediaConvert.Types.WatermarkingStrength
 import Amazonka.MediaConvert.Types.WavFormat
 import Amazonka.MediaConvert.Types.WavSettings
+import Amazonka.MediaConvert.Types.WebvttAccessibilitySubs
 import Amazonka.MediaConvert.Types.WebvttDestinationSettings
 import Amazonka.MediaConvert.Types.WebvttHlsSourceSettings
 import Amazonka.MediaConvert.Types.WebvttStylePassthrough

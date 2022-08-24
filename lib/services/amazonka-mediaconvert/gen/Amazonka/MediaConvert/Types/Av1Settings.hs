@@ -22,6 +22,7 @@ module Amazonka.MediaConvert.Types.Av1Settings where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.MediaConvert.Types.Av1AdaptiveQuantization
+import Amazonka.MediaConvert.Types.Av1BitDepth
 import Amazonka.MediaConvert.Types.Av1FramerateControl
 import Amazonka.MediaConvert.Types.Av1FramerateConversionAlgorithm
 import Amazonka.MediaConvert.Types.Av1QvbrSettings
@@ -42,6 +43,9 @@ data Av1Settings = Av1Settings'
     -- use frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
     framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the Bit depth (Av1BitDepth). You can choose 8-bit (BIT_8) or
+    -- 10-bit (BIT_10).
+    bitDepth :: Prelude.Maybe Av1BitDepth,
     -- | If you are using the console, use the Framerate setting to specify the
     -- frame rate for this output. If you want to keep the same frame rate as
     -- the input video, choose Follow source. If you want to do frame rate
@@ -141,6 +145,9 @@ data Av1Settings = Av1Settings'
 -- use frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
 --
+-- 'bitDepth', 'av1Settings_bitDepth' - Specify the Bit depth (Av1BitDepth). You can choose 8-bit (BIT_8) or
+-- 10-bit (BIT_10).
+--
 -- 'framerateControl', 'av1Settings_framerateControl' - If you are using the console, use the Framerate setting to specify the
 -- frame rate for this output. If you want to keep the same frame rate as
 -- the input video, choose Follow source. If you want to do frame rate
@@ -226,6 +233,7 @@ newAv1Settings =
   Av1Settings'
     { framerateDenominator =
         Prelude.Nothing,
+      bitDepth = Prelude.Nothing,
       framerateControl = Prelude.Nothing,
       qvbrSettings = Prelude.Nothing,
       maxBitrate = Prelude.Nothing,
@@ -249,6 +257,11 @@ newAv1Settings =
 -- Framerate. In this example, specify 23.976.
 av1Settings_framerateDenominator :: Lens.Lens' Av1Settings (Prelude.Maybe Prelude.Natural)
 av1Settings_framerateDenominator = Lens.lens (\Av1Settings' {framerateDenominator} -> framerateDenominator) (\s@Av1Settings' {} a -> s {framerateDenominator = a} :: Av1Settings)
+
+-- | Specify the Bit depth (Av1BitDepth). You can choose 8-bit (BIT_8) or
+-- 10-bit (BIT_10).
+av1Settings_bitDepth :: Lens.Lens' Av1Settings (Prelude.Maybe Av1BitDepth)
+av1Settings_bitDepth = Lens.lens (\Av1Settings' {bitDepth} -> bitDepth) (\s@Av1Settings' {} a -> s {bitDepth = a} :: Av1Settings)
 
 -- | If you are using the console, use the Framerate setting to specify the
 -- frame rate for this output. If you want to keep the same frame rate as
@@ -359,6 +372,7 @@ instance Core.FromJSON Av1Settings where
       ( \x ->
           Av1Settings'
             Prelude.<$> (x Core..:? "framerateDenominator")
+            Prelude.<*> (x Core..:? "bitDepth")
             Prelude.<*> (x Core..:? "framerateControl")
             Prelude.<*> (x Core..:? "qvbrSettings")
             Prelude.<*> (x Core..:? "maxBitrate")
@@ -375,6 +389,7 @@ instance Core.FromJSON Av1Settings where
 instance Prelude.Hashable Av1Settings where
   hashWithSalt _salt Av1Settings' {..} =
     _salt `Prelude.hashWithSalt` framerateDenominator
+      `Prelude.hashWithSalt` bitDepth
       `Prelude.hashWithSalt` framerateControl
       `Prelude.hashWithSalt` qvbrSettings
       `Prelude.hashWithSalt` maxBitrate
@@ -390,6 +405,7 @@ instance Prelude.Hashable Av1Settings where
 instance Prelude.NFData Av1Settings where
   rnf Av1Settings' {..} =
     Prelude.rnf framerateDenominator
+      `Prelude.seq` Prelude.rnf bitDepth
       `Prelude.seq` Prelude.rnf framerateControl
       `Prelude.seq` Prelude.rnf qvbrSettings
       `Prelude.seq` Prelude.rnf maxBitrate
@@ -408,6 +424,7 @@ instance Core.ToJSON Av1Settings where
       ( Prelude.catMaybes
           [ ("framerateDenominator" Core..=)
               Prelude.<$> framerateDenominator,
+            ("bitDepth" Core..=) Prelude.<$> bitDepth,
             ("framerateControl" Core..=)
               Prelude.<$> framerateControl,
             ("qvbrSettings" Core..=) Prelude.<$> qvbrSettings,

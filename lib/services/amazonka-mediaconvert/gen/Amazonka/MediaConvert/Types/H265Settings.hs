@@ -70,9 +70,17 @@ data H265Settings = H265Settings'
     -- frame rate output or only the I and P frames (lowest temporal layer) for
     -- a half frame rate output.
     temporalIds :: Prelude.Maybe H265TemporalIds,
-    -- | Indicates if the GOP Size in H265 is specified in frames or seconds. If
-    -- seconds the system will convert the GOP Size into a frame count at run
-    -- time.
+    -- | Specify how the transcoder determines GOP size for this output. We
+    -- recommend that you have the transcoder automatically choose this value
+    -- for you based on characteristics of your input video. To enable this
+    -- automatic behavior, choose Auto (AUTO) and and leave GOP size (GopSize)
+    -- blank. By default, if you don\'t specify GOP mode control
+    -- (GopSizeUnits), MediaConvert will use automatic behavior. If your output
+    -- group specifies HLS, DASH, or CMAF, set GOP mode control to Auto and
+    -- leave GOP size blank in each output in your output group. To explicitly
+    -- specify the GOP length, choose Specified, frames (FRAMES) or Specified,
+    -- seconds (SECONDS) and then provide the GOP length in the related setting
+    -- GOP size (GopSize).
     gopSizeUnits :: Prelude.Maybe H265GopSizeUnits,
     -- | This field applies only if the Streams > Advanced > Framerate
     -- (framerate) field is set to 29.970. This field works with the Streams >
@@ -220,10 +228,15 @@ data H265Settings = H265Settings'
     -- | Percentage of the buffer that should initially be filled (HRD buffer
     -- model).
     hrdBufferInitialFillPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | Frequency of closed GOPs. In streaming applications, it is recommended
-    -- that this be set to 1 so a decoder joining mid-stream will receive an
-    -- IDR frame as quickly as possible. Setting this value to 0 will break
-    -- output segmenting.
+    -- | Specify the relative frequency of open to closed GOPs in this output.
+    -- For example, if you want to allow four open GOPs and then require a
+    -- closed GOP, set this value to 5. We recommend that you have the
+    -- transcoder automatically choose this value for you based on
+    -- characteristics of your input video. To enable this automatic behavior,
+    -- keep the default value by leaving this setting out of your JSON job
+    -- specification. In the console, do this by keeping the default empty
+    -- value. If you do explicitly specify a value, for segmented outputs,
+    -- don\'t set this value to 0.
     gopClosedCadence :: Prelude.Maybe Prelude.Natural,
     -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
     -- per second (fps). Enable slow PAL to create a 25 fps output. When you
@@ -293,22 +306,46 @@ data H265Settings = H265Settings'
     gopBReference :: Prelude.Maybe H265GopBReference,
     -- | H.265 Level.
     codecLevel :: Prelude.Maybe H265CodecLevel,
-    -- | Specify the strength of any adaptive quantization filters that you
-    -- enable. The value that you choose here applies to the following
-    -- settings: Flicker adaptive quantization (flickerAdaptiveQuantization),
-    -- Spatial adaptive quantization (spatialAdaptiveQuantization), and
-    -- Temporal adaptive quantization (temporalAdaptiveQuantization).
+    -- | When you set Adaptive Quantization (H265AdaptiveQuantization) to Auto
+    -- (AUTO), or leave blank, MediaConvert automatically applies quantization
+    -- to improve the video quality of your output. Set Adaptive Quantization
+    -- to Low (LOW), Medium (MEDIUM), High (HIGH), Higher (HIGHER), or Max
+    -- (MAX) to manually control the strength of the quantization filter. When
+    -- you do, you can specify a value for Spatial Adaptive Quantization
+    -- (H265SpatialAdaptiveQuantization), Temporal Adaptive Quantization
+    -- (H265TemporalAdaptiveQuantization), and Flicker Adaptive Quantization
+    -- (H265FlickerAdaptiveQuantization), to further control the quantization
+    -- filter. Set Adaptive Quantization to Off (OFF) to apply no quantization
+    -- to your output.
     adaptiveQuantization :: Prelude.Maybe H265AdaptiveQuantization,
-    -- | Enforces separation between repeated (cadence) I-frames and I-frames
-    -- inserted by Scene Change Detection. If a scene change I-frame is within
-    -- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
-    -- stretched to the scene change I-frame. GOP stretch requires enabling
-    -- lookahead as well as setting I-interval. The normal cadence resumes for
-    -- the next GOP. This setting is only used when Scene Change Detect is
-    -- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+    -- | Use this setting only when you also enable Scene change detection
+    -- (SceneChangeDetect). This setting determines how the encoder manages the
+    -- spacing between I-frames that it inserts as part of the I-frame cadence
+    -- and the I-frames that it inserts for Scene change detection. We
+    -- recommend that you have the transcoder automatically choose this value
+    -- for you based on characteristics of your input video. To enable this
+    -- automatic behavior, keep the default value by leaving this setting out
+    -- of your JSON job specification. In the console, do this by keeping the
+    -- default empty value. When you explicitly specify a value for this
+    -- setting, the encoder determines whether to skip a cadence-driven I-frame
+    -- by the value you set. For example, if you set Min I interval
+    -- (minIInterval) to 5 and a cadence-driven I-frame would fall within 5
+    -- frames of a scene-change I-frame, then the encoder skips the
+    -- cadence-driven I-frame. In this way, one GOP is shrunk slightly and one
+    -- GOP is stretched slightly. When the cadence-driven I-frames are farther
+    -- from the scene-change I-frame than the value you set, then the encoder
+    -- leaves all I-frames in place and the GOPs surrounding the scene change
+    -- are smaller than the usual cadence GOPs.
     minIInterval :: Prelude.Maybe Prelude.Natural,
-    -- | GOP Length (keyframe interval) in frames or seconds. Must be greater
-    -- than zero.
+    -- | Use this setting only when you set GOP mode control (GopSizeUnits) to
+    -- Specified, frames (FRAMES) or Specified, seconds (SECONDS). Specify the
+    -- GOP length using a whole number of frames or a decimal value of seconds.
+    -- MediaConvert will interpret this value as frames or seconds depending on
+    -- the value you choose for GOP mode control (GopSizeUnits). If you want to
+    -- allow MediaConvert to automatically determine GOP size, leave GOP size
+    -- blank and set GOP mode control to Auto (AUTO). If your output group
+    -- specifies HLS, DASH, or CMAF, leave GOP size blank and set GOP mode
+    -- control to Auto in each output in your output group.
     gopSize :: Prelude.Maybe Prelude.Double,
     -- | Keep the default value, Enabled (ENABLED), to adjust quantization within
     -- each frame based on spatial variation of content complexity. When you
@@ -355,9 +392,17 @@ data H265Settings = H265Settings'
 -- frame rate output or only the I and P frames (lowest temporal layer) for
 -- a half frame rate output.
 --
--- 'gopSizeUnits', 'h265Settings_gopSizeUnits' - Indicates if the GOP Size in H265 is specified in frames or seconds. If
--- seconds the system will convert the GOP Size into a frame count at run
--- time.
+-- 'gopSizeUnits', 'h265Settings_gopSizeUnits' - Specify how the transcoder determines GOP size for this output. We
+-- recommend that you have the transcoder automatically choose this value
+-- for you based on characteristics of your input video. To enable this
+-- automatic behavior, choose Auto (AUTO) and and leave GOP size (GopSize)
+-- blank. By default, if you don\'t specify GOP mode control
+-- (GopSizeUnits), MediaConvert will use automatic behavior. If your output
+-- group specifies HLS, DASH, or CMAF, set GOP mode control to Auto and
+-- leave GOP size blank in each output in your output group. To explicitly
+-- specify the GOP length, choose Specified, frames (FRAMES) or Specified,
+-- seconds (SECONDS) and then provide the GOP length in the related setting
+-- GOP size (GopSize).
 --
 -- 'telecine', 'h265Settings_telecine' - This field applies only if the Streams > Advanced > Framerate
 -- (framerate) field is set to 29.970. This field works with the Streams >
@@ -505,10 +550,15 @@ data H265Settings = H265Settings'
 -- 'hrdBufferInitialFillPercentage', 'h265Settings_hrdBufferInitialFillPercentage' - Percentage of the buffer that should initially be filled (HRD buffer
 -- model).
 --
--- 'gopClosedCadence', 'h265Settings_gopClosedCadence' - Frequency of closed GOPs. In streaming applications, it is recommended
--- that this be set to 1 so a decoder joining mid-stream will receive an
--- IDR frame as quickly as possible. Setting this value to 0 will break
--- output segmenting.
+-- 'gopClosedCadence', 'h265Settings_gopClosedCadence' - Specify the relative frequency of open to closed GOPs in this output.
+-- For example, if you want to allow four open GOPs and then require a
+-- closed GOP, set this value to 5. We recommend that you have the
+-- transcoder automatically choose this value for you based on
+-- characteristics of your input video. To enable this automatic behavior,
+-- keep the default value by leaving this setting out of your JSON job
+-- specification. In the console, do this by keeping the default empty
+-- value. If you do explicitly specify a value, for segmented outputs,
+-- don\'t set this value to 0.
 --
 -- 'slowPal', 'h265Settings_slowPal' - Ignore this setting unless your input frame rate is 23.976 or 24 frames
 -- per second (fps). Enable slow PAL to create a 25 fps output. When you
@@ -578,22 +628,46 @@ data H265Settings = H265Settings'
 --
 -- 'codecLevel', 'h265Settings_codecLevel' - H.265 Level.
 --
--- 'adaptiveQuantization', 'h265Settings_adaptiveQuantization' - Specify the strength of any adaptive quantization filters that you
--- enable. The value that you choose here applies to the following
--- settings: Flicker adaptive quantization (flickerAdaptiveQuantization),
--- Spatial adaptive quantization (spatialAdaptiveQuantization), and
--- Temporal adaptive quantization (temporalAdaptiveQuantization).
+-- 'adaptiveQuantization', 'h265Settings_adaptiveQuantization' - When you set Adaptive Quantization (H265AdaptiveQuantization) to Auto
+-- (AUTO), or leave blank, MediaConvert automatically applies quantization
+-- to improve the video quality of your output. Set Adaptive Quantization
+-- to Low (LOW), Medium (MEDIUM), High (HIGH), Higher (HIGHER), or Max
+-- (MAX) to manually control the strength of the quantization filter. When
+-- you do, you can specify a value for Spatial Adaptive Quantization
+-- (H265SpatialAdaptiveQuantization), Temporal Adaptive Quantization
+-- (H265TemporalAdaptiveQuantization), and Flicker Adaptive Quantization
+-- (H265FlickerAdaptiveQuantization), to further control the quantization
+-- filter. Set Adaptive Quantization to Off (OFF) to apply no quantization
+-- to your output.
 --
--- 'minIInterval', 'h265Settings_minIInterval' - Enforces separation between repeated (cadence) I-frames and I-frames
--- inserted by Scene Change Detection. If a scene change I-frame is within
--- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
--- stretched to the scene change I-frame. GOP stretch requires enabling
--- lookahead as well as setting I-interval. The normal cadence resumes for
--- the next GOP. This setting is only used when Scene Change Detect is
--- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+-- 'minIInterval', 'h265Settings_minIInterval' - Use this setting only when you also enable Scene change detection
+-- (SceneChangeDetect). This setting determines how the encoder manages the
+-- spacing between I-frames that it inserts as part of the I-frame cadence
+-- and the I-frames that it inserts for Scene change detection. We
+-- recommend that you have the transcoder automatically choose this value
+-- for you based on characteristics of your input video. To enable this
+-- automatic behavior, keep the default value by leaving this setting out
+-- of your JSON job specification. In the console, do this by keeping the
+-- default empty value. When you explicitly specify a value for this
+-- setting, the encoder determines whether to skip a cadence-driven I-frame
+-- by the value you set. For example, if you set Min I interval
+-- (minIInterval) to 5 and a cadence-driven I-frame would fall within 5
+-- frames of a scene-change I-frame, then the encoder skips the
+-- cadence-driven I-frame. In this way, one GOP is shrunk slightly and one
+-- GOP is stretched slightly. When the cadence-driven I-frames are farther
+-- from the scene-change I-frame than the value you set, then the encoder
+-- leaves all I-frames in place and the GOPs surrounding the scene change
+-- are smaller than the usual cadence GOPs.
 --
--- 'gopSize', 'h265Settings_gopSize' - GOP Length (keyframe interval) in frames or seconds. Must be greater
--- than zero.
+-- 'gopSize', 'h265Settings_gopSize' - Use this setting only when you set GOP mode control (GopSizeUnits) to
+-- Specified, frames (FRAMES) or Specified, seconds (SECONDS). Specify the
+-- GOP length using a whole number of frames or a decimal value of seconds.
+-- MediaConvert will interpret this value as frames or seconds depending on
+-- the value you choose for GOP mode control (GopSizeUnits). If you want to
+-- allow MediaConvert to automatically determine GOP size, leave GOP size
+-- blank and set GOP mode control to Auto (AUTO). If your output group
+-- specifies HLS, DASH, or CMAF, leave GOP size blank and set GOP mode
+-- control to Auto in each output in your output group.
 --
 -- 'spatialAdaptiveQuantization', 'h265Settings_spatialAdaptiveQuantization' - Keep the default value, Enabled (ENABLED), to adjust quantization within
 -- each frame based on spatial variation of content complexity. When you
@@ -679,9 +753,17 @@ h265Settings_parNumerator = Lens.lens (\H265Settings' {parNumerator} -> parNumer
 h265Settings_temporalIds :: Lens.Lens' H265Settings (Prelude.Maybe H265TemporalIds)
 h265Settings_temporalIds = Lens.lens (\H265Settings' {temporalIds} -> temporalIds) (\s@H265Settings' {} a -> s {temporalIds = a} :: H265Settings)
 
--- | Indicates if the GOP Size in H265 is specified in frames or seconds. If
--- seconds the system will convert the GOP Size into a frame count at run
--- time.
+-- | Specify how the transcoder determines GOP size for this output. We
+-- recommend that you have the transcoder automatically choose this value
+-- for you based on characteristics of your input video. To enable this
+-- automatic behavior, choose Auto (AUTO) and and leave GOP size (GopSize)
+-- blank. By default, if you don\'t specify GOP mode control
+-- (GopSizeUnits), MediaConvert will use automatic behavior. If your output
+-- group specifies HLS, DASH, or CMAF, set GOP mode control to Auto and
+-- leave GOP size blank in each output in your output group. To explicitly
+-- specify the GOP length, choose Specified, frames (FRAMES) or Specified,
+-- seconds (SECONDS) and then provide the GOP length in the related setting
+-- GOP size (GopSize).
 h265Settings_gopSizeUnits :: Lens.Lens' H265Settings (Prelude.Maybe H265GopSizeUnits)
 h265Settings_gopSizeUnits = Lens.lens (\H265Settings' {gopSizeUnits} -> gopSizeUnits) (\s@H265Settings' {} a -> s {gopSizeUnits = a} :: H265Settings)
 
@@ -875,10 +957,15 @@ h265Settings_temporalAdaptiveQuantization = Lens.lens (\H265Settings' {temporalA
 h265Settings_hrdBufferInitialFillPercentage :: Lens.Lens' H265Settings (Prelude.Maybe Prelude.Natural)
 h265Settings_hrdBufferInitialFillPercentage = Lens.lens (\H265Settings' {hrdBufferInitialFillPercentage} -> hrdBufferInitialFillPercentage) (\s@H265Settings' {} a -> s {hrdBufferInitialFillPercentage = a} :: H265Settings)
 
--- | Frequency of closed GOPs. In streaming applications, it is recommended
--- that this be set to 1 so a decoder joining mid-stream will receive an
--- IDR frame as quickly as possible. Setting this value to 0 will break
--- output segmenting.
+-- | Specify the relative frequency of open to closed GOPs in this output.
+-- For example, if you want to allow four open GOPs and then require a
+-- closed GOP, set this value to 5. We recommend that you have the
+-- transcoder automatically choose this value for you based on
+-- characteristics of your input video. To enable this automatic behavior,
+-- keep the default value by leaving this setting out of your JSON job
+-- specification. In the console, do this by keeping the default empty
+-- value. If you do explicitly specify a value, for segmented outputs,
+-- don\'t set this value to 0.
 h265Settings_gopClosedCadence :: Lens.Lens' H265Settings (Prelude.Maybe Prelude.Natural)
 h265Settings_gopClosedCadence = Lens.lens (\H265Settings' {gopClosedCadence} -> gopClosedCadence) (\s@H265Settings' {} a -> s {gopClosedCadence = a} :: H265Settings)
 
@@ -970,26 +1057,50 @@ h265Settings_gopBReference = Lens.lens (\H265Settings' {gopBReference} -> gopBRe
 h265Settings_codecLevel :: Lens.Lens' H265Settings (Prelude.Maybe H265CodecLevel)
 h265Settings_codecLevel = Lens.lens (\H265Settings' {codecLevel} -> codecLevel) (\s@H265Settings' {} a -> s {codecLevel = a} :: H265Settings)
 
--- | Specify the strength of any adaptive quantization filters that you
--- enable. The value that you choose here applies to the following
--- settings: Flicker adaptive quantization (flickerAdaptiveQuantization),
--- Spatial adaptive quantization (spatialAdaptiveQuantization), and
--- Temporal adaptive quantization (temporalAdaptiveQuantization).
+-- | When you set Adaptive Quantization (H265AdaptiveQuantization) to Auto
+-- (AUTO), or leave blank, MediaConvert automatically applies quantization
+-- to improve the video quality of your output. Set Adaptive Quantization
+-- to Low (LOW), Medium (MEDIUM), High (HIGH), Higher (HIGHER), or Max
+-- (MAX) to manually control the strength of the quantization filter. When
+-- you do, you can specify a value for Spatial Adaptive Quantization
+-- (H265SpatialAdaptiveQuantization), Temporal Adaptive Quantization
+-- (H265TemporalAdaptiveQuantization), and Flicker Adaptive Quantization
+-- (H265FlickerAdaptiveQuantization), to further control the quantization
+-- filter. Set Adaptive Quantization to Off (OFF) to apply no quantization
+-- to your output.
 h265Settings_adaptiveQuantization :: Lens.Lens' H265Settings (Prelude.Maybe H265AdaptiveQuantization)
 h265Settings_adaptiveQuantization = Lens.lens (\H265Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@H265Settings' {} a -> s {adaptiveQuantization = a} :: H265Settings)
 
--- | Enforces separation between repeated (cadence) I-frames and I-frames
--- inserted by Scene Change Detection. If a scene change I-frame is within
--- I-interval frames of a cadence I-frame, the GOP is shrunk and\/or
--- stretched to the scene change I-frame. GOP stretch requires enabling
--- lookahead as well as setting I-interval. The normal cadence resumes for
--- the next GOP. This setting is only used when Scene Change Detect is
--- enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
+-- | Use this setting only when you also enable Scene change detection
+-- (SceneChangeDetect). This setting determines how the encoder manages the
+-- spacing between I-frames that it inserts as part of the I-frame cadence
+-- and the I-frames that it inserts for Scene change detection. We
+-- recommend that you have the transcoder automatically choose this value
+-- for you based on characteristics of your input video. To enable this
+-- automatic behavior, keep the default value by leaving this setting out
+-- of your JSON job specification. In the console, do this by keeping the
+-- default empty value. When you explicitly specify a value for this
+-- setting, the encoder determines whether to skip a cadence-driven I-frame
+-- by the value you set. For example, if you set Min I interval
+-- (minIInterval) to 5 and a cadence-driven I-frame would fall within 5
+-- frames of a scene-change I-frame, then the encoder skips the
+-- cadence-driven I-frame. In this way, one GOP is shrunk slightly and one
+-- GOP is stretched slightly. When the cadence-driven I-frames are farther
+-- from the scene-change I-frame than the value you set, then the encoder
+-- leaves all I-frames in place and the GOPs surrounding the scene change
+-- are smaller than the usual cadence GOPs.
 h265Settings_minIInterval :: Lens.Lens' H265Settings (Prelude.Maybe Prelude.Natural)
 h265Settings_minIInterval = Lens.lens (\H265Settings' {minIInterval} -> minIInterval) (\s@H265Settings' {} a -> s {minIInterval = a} :: H265Settings)
 
--- | GOP Length (keyframe interval) in frames or seconds. Must be greater
--- than zero.
+-- | Use this setting only when you set GOP mode control (GopSizeUnits) to
+-- Specified, frames (FRAMES) or Specified, seconds (SECONDS). Specify the
+-- GOP length using a whole number of frames or a decimal value of seconds.
+-- MediaConvert will interpret this value as frames or seconds depending on
+-- the value you choose for GOP mode control (GopSizeUnits). If you want to
+-- allow MediaConvert to automatically determine GOP size, leave GOP size
+-- blank and set GOP mode control to Auto (AUTO). If your output group
+-- specifies HLS, DASH, or CMAF, leave GOP size blank and set GOP mode
+-- control to Auto in each output in your output group.
 h265Settings_gopSize :: Lens.Lens' H265Settings (Prelude.Maybe Prelude.Double)
 h265Settings_gopSize = Lens.lens (\H265Settings' {gopSize} -> gopSize) (\s@H265Settings' {} a -> s {gopSize = a} :: H265Settings)
 

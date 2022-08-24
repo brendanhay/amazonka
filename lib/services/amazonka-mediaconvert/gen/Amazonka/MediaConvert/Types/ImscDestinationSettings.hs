@@ -21,6 +21,7 @@ module Amazonka.MediaConvert.Types.ImscDestinationSettings where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConvert.Types.ImscAccessibilitySubs
 import Amazonka.MediaConvert.Types.ImscStylePassthrough
 import qualified Amazonka.Prelude as Prelude
 
@@ -38,7 +39,17 @@ data ImscDestinationSettings = ImscDestinationSettings'
     -- position information from the captions source in the output. This option
     -- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
     -- Disable this setting for simplified output captions.
-    stylePassthrough :: Prelude.Maybe ImscStylePassthrough
+    stylePassthrough :: Prelude.Maybe ImscStylePassthrough,
+    -- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
+    -- track is intended to provide accessibility for people who are deaf or
+    -- hard of hearing. When you enable this feature, MediaConvert adds the
+    -- following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for
+    -- this track:
+    -- CHARACTERISTICS=\"public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound\"
+    -- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
+    -- captions track is not intended to provide such accessibility.
+    -- MediaConvert will not add the above attributes.
+    accessibility :: Prelude.Maybe ImscAccessibilitySubs
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,12 +65,23 @@ data ImscDestinationSettings = ImscDestinationSettings'
 -- position information from the captions source in the output. This option
 -- is available only when your input captions are IMSC, SMPTE-TT, or TTML.
 -- Disable this setting for simplified output captions.
+--
+-- 'accessibility', 'imscDestinationSettings_accessibility' - Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
+-- track is intended to provide accessibility for people who are deaf or
+-- hard of hearing. When you enable this feature, MediaConvert adds the
+-- following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for
+-- this track:
+-- CHARACTERISTICS=\"public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound\"
+-- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
+-- captions track is not intended to provide such accessibility.
+-- MediaConvert will not add the above attributes.
 newImscDestinationSettings ::
   ImscDestinationSettings
 newImscDestinationSettings =
   ImscDestinationSettings'
     { stylePassthrough =
-        Prelude.Nothing
+        Prelude.Nothing,
+      accessibility = Prelude.Nothing
     }
 
 -- | Keep this setting enabled to have MediaConvert use the font style and
@@ -69,6 +91,18 @@ newImscDestinationSettings =
 imscDestinationSettings_stylePassthrough :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscStylePassthrough)
 imscDestinationSettings_stylePassthrough = Lens.lens (\ImscDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@ImscDestinationSettings' {} a -> s {stylePassthrough = a} :: ImscDestinationSettings)
 
+-- | Set Accessibility subtitles to Enabled if the ISMC or WebVTT captions
+-- track is intended to provide accessibility for people who are deaf or
+-- hard of hearing. When you enable this feature, MediaConvert adds the
+-- following attributes under EXT-X-MEDIA in the HLS or CMAF manifest for
+-- this track:
+-- CHARACTERISTICS=\"public.accessibility.describes-spoken-dialog,public.accessibility.describes-music-and-sound\"
+-- and AUTOSELECT=\"YES\". Keep the default value, Disabled, if the
+-- captions track is not intended to provide such accessibility.
+-- MediaConvert will not add the above attributes.
+imscDestinationSettings_accessibility :: Lens.Lens' ImscDestinationSettings (Prelude.Maybe ImscAccessibilitySubs)
+imscDestinationSettings_accessibility = Lens.lens (\ImscDestinationSettings' {accessibility} -> accessibility) (\s@ImscDestinationSettings' {} a -> s {accessibility = a} :: ImscDestinationSettings)
+
 instance Core.FromJSON ImscDestinationSettings where
   parseJSON =
     Core.withObject
@@ -76,21 +110,25 @@ instance Core.FromJSON ImscDestinationSettings where
       ( \x ->
           ImscDestinationSettings'
             Prelude.<$> (x Core..:? "stylePassthrough")
+            Prelude.<*> (x Core..:? "accessibility")
       )
 
 instance Prelude.Hashable ImscDestinationSettings where
   hashWithSalt _salt ImscDestinationSettings' {..} =
     _salt `Prelude.hashWithSalt` stylePassthrough
+      `Prelude.hashWithSalt` accessibility
 
 instance Prelude.NFData ImscDestinationSettings where
   rnf ImscDestinationSettings' {..} =
     Prelude.rnf stylePassthrough
+      `Prelude.seq` Prelude.rnf accessibility
 
 instance Core.ToJSON ImscDestinationSettings where
   toJSON ImscDestinationSettings' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("stylePassthrough" Core..=)
-              Prelude.<$> stylePassthrough
+              Prelude.<$> stylePassthrough,
+            ("accessibility" Core..=) Prelude.<$> accessibility
           ]
       )

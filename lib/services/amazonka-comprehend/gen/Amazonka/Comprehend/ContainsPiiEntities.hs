@@ -55,7 +55,8 @@ data ContainsPiiEntities = ContainsPiiEntities'
     -- document in real-time, returning personally identifiable information
     -- (PII) entity labels.
     text :: Prelude.Text,
-    -- | The language of the input documents.
+    -- | The language of the input documents. Currently, English is the only
+    -- valid language.
     languageCode :: LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +73,8 @@ data ContainsPiiEntities = ContainsPiiEntities'
 -- document in real-time, returning personally identifiable information
 -- (PII) entity labels.
 --
--- 'languageCode', 'containsPiiEntities_languageCode' - The language of the input documents.
+-- 'languageCode', 'containsPiiEntities_languageCode' - The language of the input documents. Currently, English is the only
+-- valid language.
 newContainsPiiEntities ::
   -- | 'text'
   Prelude.Text ->
@@ -91,7 +93,8 @@ newContainsPiiEntities pText_ pLanguageCode_ =
 containsPiiEntities_text :: Lens.Lens' ContainsPiiEntities Prelude.Text
 containsPiiEntities_text = Lens.lens (\ContainsPiiEntities' {text} -> text) (\s@ContainsPiiEntities' {} a -> s {text = a} :: ContainsPiiEntities)
 
--- | The language of the input documents.
+-- | The language of the input documents. Currently, English is the only
+-- valid language.
 containsPiiEntities_languageCode :: Lens.Lens' ContainsPiiEntities LanguageCode
 containsPiiEntities_languageCode = Lens.lens (\ContainsPiiEntities' {languageCode} -> languageCode) (\s@ContainsPiiEntities' {} a -> s {languageCode = a} :: ContainsPiiEntities)
 

@@ -67,6 +67,9 @@ data DetectEntities = DetectEntities'
     -- If you specify an endpoint, Amazon Comprehend uses the language of your
     -- custom model, and it ignores any language code that you provide in your
     -- request.
+    --
+    -- For information about endpoints, see
+    -- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
     endpointArn :: Prelude.Maybe Prelude.Text,
     -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
     -- UTF-8 encoded characters.
@@ -99,6 +102,9 @@ data DetectEntities = DetectEntities'
 -- custom model, and it ignores any language code that you provide in your
 -- request.
 --
+-- For information about endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
+--
 -- 'text', 'detectEntities_text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
 -- UTF-8 encoded characters.
 newDetectEntities ::
@@ -130,6 +136,9 @@ detectEntities_languageCode = Lens.lens (\DetectEntities' {languageCode} -> lang
 -- If you specify an endpoint, Amazon Comprehend uses the language of your
 -- custom model, and it ignores any language code that you provide in your
 -- request.
+--
+-- For information about endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 detectEntities_endpointArn :: Lens.Lens' DetectEntities (Prelude.Maybe Prelude.Text)
 detectEntities_endpointArn = Lens.lens (\DetectEntities' {endpointArn} -> endpointArn) (\s@DetectEntities' {} a -> s {endpointArn = a} :: DetectEntities)
 

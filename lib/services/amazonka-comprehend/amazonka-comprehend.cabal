@@ -57,6 +57,7 @@ library
     Amazonka.Comprehend.DeleteDocumentClassifier
     Amazonka.Comprehend.DeleteEndpoint
     Amazonka.Comprehend.DeleteEntityRecognizer
+    Amazonka.Comprehend.DeleteResourcePolicy
     Amazonka.Comprehend.DescribeDocumentClassificationJob
     Amazonka.Comprehend.DescribeDocumentClassifier
     Amazonka.Comprehend.DescribeDominantLanguageDetectionJob
@@ -66,7 +67,9 @@ library
     Amazonka.Comprehend.DescribeEventsDetectionJob
     Amazonka.Comprehend.DescribeKeyPhrasesDetectionJob
     Amazonka.Comprehend.DescribePiiEntitiesDetectionJob
+    Amazonka.Comprehend.DescribeResourcePolicy
     Amazonka.Comprehend.DescribeSentimentDetectionJob
+    Amazonka.Comprehend.DescribeTargetedSentimentDetectionJob
     Amazonka.Comprehend.DescribeTopicsDetectionJob
     Amazonka.Comprehend.DetectDominantLanguage
     Amazonka.Comprehend.DetectEntities
@@ -74,6 +77,7 @@ library
     Amazonka.Comprehend.DetectPiiEntities
     Amazonka.Comprehend.DetectSentiment
     Amazonka.Comprehend.DetectSyntax
+    Amazonka.Comprehend.ImportModel
     Amazonka.Comprehend.Lens
     Amazonka.Comprehend.ListDocumentClassificationJobs
     Amazonka.Comprehend.ListDocumentClassifiers
@@ -88,7 +92,9 @@ library
     Amazonka.Comprehend.ListPiiEntitiesDetectionJobs
     Amazonka.Comprehend.ListSentimentDetectionJobs
     Amazonka.Comprehend.ListTagsForResource
+    Amazonka.Comprehend.ListTargetedSentimentDetectionJobs
     Amazonka.Comprehend.ListTopicsDetectionJobs
+    Amazonka.Comprehend.PutResourcePolicy
     Amazonka.Comprehend.StartDocumentClassificationJob
     Amazonka.Comprehend.StartDominantLanguageDetectionJob
     Amazonka.Comprehend.StartEntitiesDetectionJob
@@ -96,6 +102,7 @@ library
     Amazonka.Comprehend.StartKeyPhrasesDetectionJob
     Amazonka.Comprehend.StartPiiEntitiesDetectionJob
     Amazonka.Comprehend.StartSentimentDetectionJob
+    Amazonka.Comprehend.StartTargetedSentimentDetectionJob
     Amazonka.Comprehend.StartTopicsDetectionJob
     Amazonka.Comprehend.StopDominantLanguageDetectionJob
     Amazonka.Comprehend.StopEntitiesDetectionJob
@@ -103,6 +110,7 @@ library
     Amazonka.Comprehend.StopKeyPhrasesDetectionJob
     Amazonka.Comprehend.StopPiiEntitiesDetectionJob
     Amazonka.Comprehend.StopSentimentDetectionJob
+    Amazonka.Comprehend.StopTargetedSentimentDetectionJob
     Amazonka.Comprehend.StopTrainingDocumentClassifier
     Amazonka.Comprehend.StopTrainingEntityRecognizer
     Amazonka.Comprehend.TagResource
@@ -185,6 +193,8 @@ library
     Amazonka.Comprehend.Types.SyntaxLanguageCode
     Amazonka.Comprehend.Types.SyntaxToken
     Amazonka.Comprehend.Types.Tag
+    Amazonka.Comprehend.Types.TargetedSentimentDetectionJobFilter
+    Amazonka.Comprehend.Types.TargetedSentimentDetectionJobProperties
     Amazonka.Comprehend.Types.TopicsDetectionJobFilter
     Amazonka.Comprehend.Types.TopicsDetectionJobProperties
     Amazonka.Comprehend.Types.VpcConfig

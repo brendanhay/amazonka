@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a model-specific endpoint for synchronous inference for a
--- previously trained custom model
+-- previously trained custom model For information about endpoints, see
+-- <https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html Managing endpoints>.
 module Amazonka.Comprehend.CreateEndpoint
   ( -- * Creating a Request
     CreateEndpoint (..),

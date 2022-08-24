@@ -55,7 +55,7 @@ data BatchDetectSyntax = BatchDetectSyntax'
   { -- | A list containing the text of the input documents. The list can contain
     -- a maximum of 25 documents. Each document must contain fewer that 5,000
     -- bytes of UTF-8 encoded characters.
-    textList :: Core.Sensitive [Core.Sensitive Prelude.Text],
+    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the
     -- following languages supported by Amazon Comprehend: German (\"de\"),
     -- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
@@ -81,19 +81,23 @@ data BatchDetectSyntax = BatchDetectSyntax'
 -- English (\"en\"), Spanish (\"es\"), French (\"fr\"), Italian (\"it\"),
 -- or Portuguese (\"pt\"). All documents must be in the same language.
 newBatchDetectSyntax ::
+  -- | 'textList'
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'languageCode'
   SyntaxLanguageCode ->
   BatchDetectSyntax
-newBatchDetectSyntax pLanguageCode_ =
+newBatchDetectSyntax pTextList_ pLanguageCode_ =
   BatchDetectSyntax'
-    { textList = Prelude.mempty,
+    { textList =
+        Core._Sensitive Prelude.. Lens.coerced
+          Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
 
 -- | A list containing the text of the input documents. The list can contain
 -- a maximum of 25 documents. Each document must contain fewer that 5,000
 -- bytes of UTF-8 encoded characters.
-batchDetectSyntax_textList :: Lens.Lens' BatchDetectSyntax [Prelude.Text]
+batchDetectSyntax_textList :: Lens.Lens' BatchDetectSyntax (Prelude.NonEmpty Prelude.Text)
 batchDetectSyntax_textList = Lens.lens (\BatchDetectSyntax' {textList} -> textList) (\s@BatchDetectSyntax' {} a -> s {textList = a} :: BatchDetectSyntax) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the

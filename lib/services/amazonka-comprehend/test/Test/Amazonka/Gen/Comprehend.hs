@@ -66,6 +66,9 @@ import Test.Tasty
 --         , requestDeleteEntityRecognizer $
 --             newDeleteEntityRecognizer
 --
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
 --         , requestDescribeDocumentClassificationJob $
 --             newDescribeDocumentClassificationJob
 --
@@ -93,8 +96,14 @@ import Test.Tasty
 --         , requestDescribePiiEntitiesDetectionJob $
 --             newDescribePiiEntitiesDetectionJob
 --
+--         , requestDescribeResourcePolicy $
+--             newDescribeResourcePolicy
+--
 --         , requestDescribeSentimentDetectionJob $
 --             newDescribeSentimentDetectionJob
+--
+--         , requestDescribeTargetedSentimentDetectionJob $
+--             newDescribeTargetedSentimentDetectionJob
 --
 --         , requestDescribeTopicsDetectionJob $
 --             newDescribeTopicsDetectionJob
@@ -116,6 +125,9 @@ import Test.Tasty
 --
 --         , requestDetectSyntax $
 --             newDetectSyntax
+--
+--         , requestImportModel $
+--             newImportModel
 --
 --         , requestListDocumentClassificationJobs $
 --             newListDocumentClassificationJobs
@@ -156,8 +168,14 @@ import Test.Tasty
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
+--         , requestListTargetedSentimentDetectionJobs $
+--             newListTargetedSentimentDetectionJobs
+--
 --         , requestListTopicsDetectionJobs $
 --             newListTopicsDetectionJobs
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
 --
 --         , requestStartDocumentClassificationJob $
 --             newStartDocumentClassificationJob
@@ -180,6 +198,9 @@ import Test.Tasty
 --         , requestStartSentimentDetectionJob $
 --             newStartSentimentDetectionJob
 --
+--         , requestStartTargetedSentimentDetectionJob $
+--             newStartTargetedSentimentDetectionJob
+--
 --         , requestStartTopicsDetectionJob $
 --             newStartTopicsDetectionJob
 --
@@ -200,6 +221,9 @@ import Test.Tasty
 --
 --         , requestStopSentimentDetectionJob $
 --             newStopSentimentDetectionJob
+--
+--         , requestStopTargetedSentimentDetectionJob $
+--             newStopTargetedSentimentDetectionJob
 --
 --         , requestStopTrainingDocumentClassifier $
 --             newStopTrainingDocumentClassifier
@@ -258,6 +282,9 @@ import Test.Tasty
 --         , responseDeleteEntityRecognizer $
 --             newDeleteEntityRecognizerResponse
 --
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
+--
 --         , responseDescribeDocumentClassificationJob $
 --             newDescribeDocumentClassificationJobResponse
 --
@@ -285,8 +312,14 @@ import Test.Tasty
 --         , responseDescribePiiEntitiesDetectionJob $
 --             newDescribePiiEntitiesDetectionJobResponse
 --
+--         , responseDescribeResourcePolicy $
+--             newDescribeResourcePolicyResponse
+--
 --         , responseDescribeSentimentDetectionJob $
 --             newDescribeSentimentDetectionJobResponse
+--
+--         , responseDescribeTargetedSentimentDetectionJob $
+--             newDescribeTargetedSentimentDetectionJobResponse
 --
 --         , responseDescribeTopicsDetectionJob $
 --             newDescribeTopicsDetectionJobResponse
@@ -308,6 +341,9 @@ import Test.Tasty
 --
 --         , responseDetectSyntax $
 --             newDetectSyntaxResponse
+--
+--         , responseImportModel $
+--             newImportModelResponse
 --
 --         , responseListDocumentClassificationJobs $
 --             newListDocumentClassificationJobsResponse
@@ -348,8 +384,14 @@ import Test.Tasty
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
+--         , responseListTargetedSentimentDetectionJobs $
+--             newListTargetedSentimentDetectionJobsResponse
+--
 --         , responseListTopicsDetectionJobs $
 --             newListTopicsDetectionJobsResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
 --
 --         , responseStartDocumentClassificationJob $
 --             newStartDocumentClassificationJobResponse
@@ -372,6 +414,9 @@ import Test.Tasty
 --         , responseStartSentimentDetectionJob $
 --             newStartSentimentDetectionJobResponse
 --
+--         , responseStartTargetedSentimentDetectionJob $
+--             newStartTargetedSentimentDetectionJobResponse
+--
 --         , responseStartTopicsDetectionJob $
 --             newStartTopicsDetectionJobResponse
 --
@@ -392,6 +437,9 @@ import Test.Tasty
 --
 --         , responseStopSentimentDetectionJob $
 --             newStopSentimentDetectionJobResponse
+--
+--         , responseStopTargetedSentimentDetectionJob $
+--             newStopTargetedSentimentDetectionJobResponse
 --
 --         , responseStopTrainingDocumentClassifier $
 --             newStopTrainingDocumentClassifierResponse
@@ -491,6 +539,12 @@ requestDeleteEntityRecognizer =
     "DeleteEntityRecognizer"
     "fixture/DeleteEntityRecognizer.yaml"
 
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
 requestDescribeDocumentClassificationJob :: DescribeDocumentClassificationJob -> TestTree
 requestDescribeDocumentClassificationJob =
   req
@@ -545,11 +599,23 @@ requestDescribePiiEntitiesDetectionJob =
     "DescribePiiEntitiesDetectionJob"
     "fixture/DescribePiiEntitiesDetectionJob.yaml"
 
+requestDescribeResourcePolicy :: DescribeResourcePolicy -> TestTree
+requestDescribeResourcePolicy =
+  req
+    "DescribeResourcePolicy"
+    "fixture/DescribeResourcePolicy.yaml"
+
 requestDescribeSentimentDetectionJob :: DescribeSentimentDetectionJob -> TestTree
 requestDescribeSentimentDetectionJob =
   req
     "DescribeSentimentDetectionJob"
     "fixture/DescribeSentimentDetectionJob.yaml"
+
+requestDescribeTargetedSentimentDetectionJob :: DescribeTargetedSentimentDetectionJob -> TestTree
+requestDescribeTargetedSentimentDetectionJob =
+  req
+    "DescribeTargetedSentimentDetectionJob"
+    "fixture/DescribeTargetedSentimentDetectionJob.yaml"
 
 requestDescribeTopicsDetectionJob :: DescribeTopicsDetectionJob -> TestTree
 requestDescribeTopicsDetectionJob =
@@ -592,6 +658,12 @@ requestDetectSyntax =
   req
     "DetectSyntax"
     "fixture/DetectSyntax.yaml"
+
+requestImportModel :: ImportModel -> TestTree
+requestImportModel =
+  req
+    "ImportModel"
+    "fixture/ImportModel.yaml"
 
 requestListDocumentClassificationJobs :: ListDocumentClassificationJobs -> TestTree
 requestListDocumentClassificationJobs =
@@ -671,11 +743,23 @@ requestListTagsForResource =
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
+requestListTargetedSentimentDetectionJobs :: ListTargetedSentimentDetectionJobs -> TestTree
+requestListTargetedSentimentDetectionJobs =
+  req
+    "ListTargetedSentimentDetectionJobs"
+    "fixture/ListTargetedSentimentDetectionJobs.yaml"
+
 requestListTopicsDetectionJobs :: ListTopicsDetectionJobs -> TestTree
 requestListTopicsDetectionJobs =
   req
     "ListTopicsDetectionJobs"
     "fixture/ListTopicsDetectionJobs.yaml"
+
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
 
 requestStartDocumentClassificationJob :: StartDocumentClassificationJob -> TestTree
 requestStartDocumentClassificationJob =
@@ -719,6 +803,12 @@ requestStartSentimentDetectionJob =
     "StartSentimentDetectionJob"
     "fixture/StartSentimentDetectionJob.yaml"
 
+requestStartTargetedSentimentDetectionJob :: StartTargetedSentimentDetectionJob -> TestTree
+requestStartTargetedSentimentDetectionJob =
+  req
+    "StartTargetedSentimentDetectionJob"
+    "fixture/StartTargetedSentimentDetectionJob.yaml"
+
 requestStartTopicsDetectionJob :: StartTopicsDetectionJob -> TestTree
 requestStartTopicsDetectionJob =
   req
@@ -760,6 +850,12 @@ requestStopSentimentDetectionJob =
   req
     "StopSentimentDetectionJob"
     "fixture/StopSentimentDetectionJob.yaml"
+
+requestStopTargetedSentimentDetectionJob :: StopTargetedSentimentDetectionJob -> TestTree
+requestStopTargetedSentimentDetectionJob =
+  req
+    "StopTargetedSentimentDetectionJob"
+    "fixture/StopTargetedSentimentDetectionJob.yaml"
 
 requestStopTrainingDocumentClassifier :: StopTrainingDocumentClassifier -> TestTree
 requestStopTrainingDocumentClassifier =
@@ -897,6 +993,14 @@ responseDeleteEntityRecognizer =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteEntityRecognizer)
 
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteResourcePolicy)
+
 responseDescribeDocumentClassificationJob :: DescribeDocumentClassificationJobResponse -> TestTree
 responseDescribeDocumentClassificationJob =
   res
@@ -969,6 +1073,14 @@ responseDescribePiiEntitiesDetectionJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribePiiEntitiesDetectionJob)
 
+responseDescribeResourcePolicy :: DescribeResourcePolicyResponse -> TestTree
+responseDescribeResourcePolicy =
+  res
+    "DescribeResourcePolicyResponse"
+    "fixture/DescribeResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeResourcePolicy)
+
 responseDescribeSentimentDetectionJob :: DescribeSentimentDetectionJobResponse -> TestTree
 responseDescribeSentimentDetectionJob =
   res
@@ -976,6 +1088,14 @@ responseDescribeSentimentDetectionJob =
     "fixture/DescribeSentimentDetectionJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSentimentDetectionJob)
+
+responseDescribeTargetedSentimentDetectionJob :: DescribeTargetedSentimentDetectionJobResponse -> TestTree
+responseDescribeTargetedSentimentDetectionJob =
+  res
+    "DescribeTargetedSentimentDetectionJobResponse"
+    "fixture/DescribeTargetedSentimentDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTargetedSentimentDetectionJob)
 
 responseDescribeTopicsDetectionJob :: DescribeTopicsDetectionJobResponse -> TestTree
 responseDescribeTopicsDetectionJob =
@@ -1032,6 +1152,14 @@ responseDetectSyntax =
     "fixture/DetectSyntaxResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DetectSyntax)
+
+responseImportModel :: ImportModelResponse -> TestTree
+responseImportModel =
+  res
+    "ImportModelResponse"
+    "fixture/ImportModelResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportModel)
 
 responseListDocumentClassificationJobs :: ListDocumentClassificationJobsResponse -> TestTree
 responseListDocumentClassificationJobs =
@@ -1137,6 +1265,14 @@ responseListTagsForResource =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
 
+responseListTargetedSentimentDetectionJobs :: ListTargetedSentimentDetectionJobsResponse -> TestTree
+responseListTargetedSentimentDetectionJobs =
+  res
+    "ListTargetedSentimentDetectionJobsResponse"
+    "fixture/ListTargetedSentimentDetectionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTargetedSentimentDetectionJobs)
+
 responseListTopicsDetectionJobs :: ListTopicsDetectionJobsResponse -> TestTree
 responseListTopicsDetectionJobs =
   res
@@ -1144,6 +1280,14 @@ responseListTopicsDetectionJobs =
     "fixture/ListTopicsDetectionJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTopicsDetectionJobs)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutResourcePolicy)
 
 responseStartDocumentClassificationJob :: StartDocumentClassificationJobResponse -> TestTree
 responseStartDocumentClassificationJob =
@@ -1201,6 +1345,14 @@ responseStartSentimentDetectionJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartSentimentDetectionJob)
 
+responseStartTargetedSentimentDetectionJob :: StartTargetedSentimentDetectionJobResponse -> TestTree
+responseStartTargetedSentimentDetectionJob =
+  res
+    "StartTargetedSentimentDetectionJobResponse"
+    "fixture/StartTargetedSentimentDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartTargetedSentimentDetectionJob)
+
 responseStartTopicsDetectionJob :: StartTopicsDetectionJobResponse -> TestTree
 responseStartTopicsDetectionJob =
   res
@@ -1256,6 +1408,14 @@ responseStopSentimentDetectionJob =
     "fixture/StopSentimentDetectionJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopSentimentDetectionJob)
+
+responseStopTargetedSentimentDetectionJob :: StopTargetedSentimentDetectionJobResponse -> TestTree
+responseStopTargetedSentimentDetectionJob =
+  res
+    "StopTargetedSentimentDetectionJobResponse"
+    "fixture/StopTargetedSentimentDetectionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopTargetedSentimentDetectionJob)
 
 responseStopTrainingDocumentClassifier :: StopTrainingDocumentClassifierResponse -> TestTree
 responseStopTrainingDocumentClassifier =

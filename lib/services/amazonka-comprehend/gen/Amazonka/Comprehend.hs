@@ -154,6 +154,12 @@ module Amazonka.Comprehend
     DeleteEntityRecognizerResponse (DeleteEntityRecognizerResponse'),
     newDeleteEntityRecognizerResponse,
 
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
+
     -- ** DescribeDocumentClassificationJob
     DescribeDocumentClassificationJob (DescribeDocumentClassificationJob'),
     newDescribeDocumentClassificationJob,
@@ -208,11 +214,23 @@ module Amazonka.Comprehend
     DescribePiiEntitiesDetectionJobResponse (DescribePiiEntitiesDetectionJobResponse'),
     newDescribePiiEntitiesDetectionJobResponse,
 
+    -- ** DescribeResourcePolicy
+    DescribeResourcePolicy (DescribeResourcePolicy'),
+    newDescribeResourcePolicy,
+    DescribeResourcePolicyResponse (DescribeResourcePolicyResponse'),
+    newDescribeResourcePolicyResponse,
+
     -- ** DescribeSentimentDetectionJob
     DescribeSentimentDetectionJob (DescribeSentimentDetectionJob'),
     newDescribeSentimentDetectionJob,
     DescribeSentimentDetectionJobResponse (DescribeSentimentDetectionJobResponse'),
     newDescribeSentimentDetectionJobResponse,
+
+    -- ** DescribeTargetedSentimentDetectionJob
+    DescribeTargetedSentimentDetectionJob (DescribeTargetedSentimentDetectionJob'),
+    newDescribeTargetedSentimentDetectionJob,
+    DescribeTargetedSentimentDetectionJobResponse (DescribeTargetedSentimentDetectionJobResponse'),
+    newDescribeTargetedSentimentDetectionJobResponse,
 
     -- ** DescribeTopicsDetectionJob
     DescribeTopicsDetectionJob (DescribeTopicsDetectionJob'),
@@ -255,6 +273,12 @@ module Amazonka.Comprehend
     newDetectSyntax,
     DetectSyntaxResponse (DetectSyntaxResponse'),
     newDetectSyntaxResponse,
+
+    -- ** ImportModel
+    ImportModel (ImportModel'),
+    newImportModel,
+    ImportModelResponse (ImportModelResponse'),
+    newImportModelResponse,
 
     -- ** ListDocumentClassificationJobs (Paginated)
     ListDocumentClassificationJobs (ListDocumentClassificationJobs'),
@@ -334,11 +358,23 @@ module Amazonka.Comprehend
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** ListTargetedSentimentDetectionJobs
+    ListTargetedSentimentDetectionJobs (ListTargetedSentimentDetectionJobs'),
+    newListTargetedSentimentDetectionJobs,
+    ListTargetedSentimentDetectionJobsResponse (ListTargetedSentimentDetectionJobsResponse'),
+    newListTargetedSentimentDetectionJobsResponse,
+
     -- ** ListTopicsDetectionJobs (Paginated)
     ListTopicsDetectionJobs (ListTopicsDetectionJobs'),
     newListTopicsDetectionJobs,
     ListTopicsDetectionJobsResponse (ListTopicsDetectionJobsResponse'),
     newListTopicsDetectionJobsResponse,
+
+    -- ** PutResourcePolicy
+    PutResourcePolicy (PutResourcePolicy'),
+    newPutResourcePolicy,
+    PutResourcePolicyResponse (PutResourcePolicyResponse'),
+    newPutResourcePolicyResponse,
 
     -- ** StartDocumentClassificationJob
     StartDocumentClassificationJob (StartDocumentClassificationJob'),
@@ -382,6 +418,12 @@ module Amazonka.Comprehend
     StartSentimentDetectionJobResponse (StartSentimentDetectionJobResponse'),
     newStartSentimentDetectionJobResponse,
 
+    -- ** StartTargetedSentimentDetectionJob
+    StartTargetedSentimentDetectionJob (StartTargetedSentimentDetectionJob'),
+    newStartTargetedSentimentDetectionJob,
+    StartTargetedSentimentDetectionJobResponse (StartTargetedSentimentDetectionJobResponse'),
+    newStartTargetedSentimentDetectionJobResponse,
+
     -- ** StartTopicsDetectionJob
     StartTopicsDetectionJob (StartTopicsDetectionJob'),
     newStartTopicsDetectionJob,
@@ -423,6 +465,12 @@ module Amazonka.Comprehend
     newStopSentimentDetectionJob,
     StopSentimentDetectionJobResponse (StopSentimentDetectionJobResponse'),
     newStopSentimentDetectionJobResponse,
+
+    -- ** StopTargetedSentimentDetectionJob
+    StopTargetedSentimentDetectionJob (StopTargetedSentimentDetectionJob'),
+    newStopTargetedSentimentDetectionJob,
+    StopTargetedSentimentDetectionJobResponse (StopTargetedSentimentDetectionJobResponse'),
+    newStopTargetedSentimentDetectionJobResponse,
 
     -- ** StopTrainingDocumentClassifier
     StopTrainingDocumentClassifier (StopTrainingDocumentClassifier'),
@@ -748,6 +796,14 @@ module Amazonka.Comprehend
     Tag (Tag'),
     newTag,
 
+    -- ** TargetedSentimentDetectionJobFilter
+    TargetedSentimentDetectionJobFilter (TargetedSentimentDetectionJobFilter'),
+    newTargetedSentimentDetectionJobFilter,
+
+    -- ** TargetedSentimentDetectionJobProperties
+    TargetedSentimentDetectionJobProperties (TargetedSentimentDetectionJobProperties'),
+    newTargetedSentimentDetectionJobProperties,
+
     -- ** TopicsDetectionJobFilter
     TopicsDetectionJobFilter (TopicsDetectionJobFilter'),
     newTopicsDetectionJobFilter,
@@ -775,6 +831,7 @@ import Amazonka.Comprehend.CreateEntityRecognizer
 import Amazonka.Comprehend.DeleteDocumentClassifier
 import Amazonka.Comprehend.DeleteEndpoint
 import Amazonka.Comprehend.DeleteEntityRecognizer
+import Amazonka.Comprehend.DeleteResourcePolicy
 import Amazonka.Comprehend.DescribeDocumentClassificationJob
 import Amazonka.Comprehend.DescribeDocumentClassifier
 import Amazonka.Comprehend.DescribeDominantLanguageDetectionJob
@@ -784,7 +841,9 @@ import Amazonka.Comprehend.DescribeEntityRecognizer
 import Amazonka.Comprehend.DescribeEventsDetectionJob
 import Amazonka.Comprehend.DescribeKeyPhrasesDetectionJob
 import Amazonka.Comprehend.DescribePiiEntitiesDetectionJob
+import Amazonka.Comprehend.DescribeResourcePolicy
 import Amazonka.Comprehend.DescribeSentimentDetectionJob
+import Amazonka.Comprehend.DescribeTargetedSentimentDetectionJob
 import Amazonka.Comprehend.DescribeTopicsDetectionJob
 import Amazonka.Comprehend.DetectDominantLanguage
 import Amazonka.Comprehend.DetectEntities
@@ -792,6 +851,7 @@ import Amazonka.Comprehend.DetectKeyPhrases
 import Amazonka.Comprehend.DetectPiiEntities
 import Amazonka.Comprehend.DetectSentiment
 import Amazonka.Comprehend.DetectSyntax
+import Amazonka.Comprehend.ImportModel
 import Amazonka.Comprehend.Lens
 import Amazonka.Comprehend.ListDocumentClassificationJobs
 import Amazonka.Comprehend.ListDocumentClassifierSummaries
@@ -806,7 +866,9 @@ import Amazonka.Comprehend.ListKeyPhrasesDetectionJobs
 import Amazonka.Comprehend.ListPiiEntitiesDetectionJobs
 import Amazonka.Comprehend.ListSentimentDetectionJobs
 import Amazonka.Comprehend.ListTagsForResource
+import Amazonka.Comprehend.ListTargetedSentimentDetectionJobs
 import Amazonka.Comprehend.ListTopicsDetectionJobs
+import Amazonka.Comprehend.PutResourcePolicy
 import Amazonka.Comprehend.StartDocumentClassificationJob
 import Amazonka.Comprehend.StartDominantLanguageDetectionJob
 import Amazonka.Comprehend.StartEntitiesDetectionJob
@@ -814,6 +876,7 @@ import Amazonka.Comprehend.StartEventsDetectionJob
 import Amazonka.Comprehend.StartKeyPhrasesDetectionJob
 import Amazonka.Comprehend.StartPiiEntitiesDetectionJob
 import Amazonka.Comprehend.StartSentimentDetectionJob
+import Amazonka.Comprehend.StartTargetedSentimentDetectionJob
 import Amazonka.Comprehend.StartTopicsDetectionJob
 import Amazonka.Comprehend.StopDominantLanguageDetectionJob
 import Amazonka.Comprehend.StopEntitiesDetectionJob
@@ -821,6 +884,7 @@ import Amazonka.Comprehend.StopEventsDetectionJob
 import Amazonka.Comprehend.StopKeyPhrasesDetectionJob
 import Amazonka.Comprehend.StopPiiEntitiesDetectionJob
 import Amazonka.Comprehend.StopSentimentDetectionJob
+import Amazonka.Comprehend.StopTargetedSentimentDetectionJob
 import Amazonka.Comprehend.StopTrainingDocumentClassifier
 import Amazonka.Comprehend.StopTrainingEntityRecognizer
 import Amazonka.Comprehend.TagResource

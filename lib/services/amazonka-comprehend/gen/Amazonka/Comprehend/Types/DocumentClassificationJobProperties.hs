@@ -42,7 +42,7 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
     -- | Configuration parameters for a private Virtual Private Cloud (VPC)
     -- containing the resources you are using for your document classification
     -- job. For more information, see
-    -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+    -- <https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The name that you assigned to the document classification job.
     jobName :: Prelude.Maybe Prelude.Text,
@@ -103,7 +103,7 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
 -- 'vpcConfig', 'documentClassificationJobProperties_vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your document classification
 -- job. For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+-- <https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 --
 -- 'jobName', 'documentClassificationJobProperties_jobName' - The name that you assigned to the document classification job.
 --
@@ -179,7 +179,7 @@ documentClassificationJobProperties_jobStatus = Lens.lens (\DocumentClassificati
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your document classification
 -- job. For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
+-- <https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 documentClassificationJobProperties_vpcConfig :: Lens.Lens' DocumentClassificationJobProperties (Prelude.Maybe VpcConfig)
 documentClassificationJobProperties_vpcConfig = Lens.lens (\DocumentClassificationJobProperties' {vpcConfig} -> vpcConfig) (\s@DocumentClassificationJobProperties' {} a -> s {vpcConfig = a} :: DocumentClassificationJobProperties)
 

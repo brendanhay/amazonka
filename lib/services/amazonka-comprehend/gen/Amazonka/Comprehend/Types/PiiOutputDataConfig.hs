@@ -34,6 +34,10 @@ data PiiOutputDataConfig = PiiOutputDataConfig'
     -- | When you use the @PiiOutputDataConfig@ object with asynchronous
     -- operations, you specify the Amazon S3 location where you want to write
     -- the output data.
+    --
+    -- For a PII entity detection job, the output file is plain text, not a
+    -- compressed archive. The output file name is the same as the input file,
+    -- with @.out@ appended at the end.
     s3Uri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,6 +56,10 @@ data PiiOutputDataConfig = PiiOutputDataConfig'
 -- 's3Uri', 'piiOutputDataConfig_s3Uri' - When you use the @PiiOutputDataConfig@ object with asynchronous
 -- operations, you specify the Amazon S3 location where you want to write
 -- the output data.
+--
+-- For a PII entity detection job, the output file is plain text, not a
+-- compressed archive. The output file name is the same as the input file,
+-- with @.out@ appended at the end.
 newPiiOutputDataConfig ::
   -- | 's3Uri'
   Prelude.Text ->
@@ -70,6 +78,10 @@ piiOutputDataConfig_kmsKeyId = Lens.lens (\PiiOutputDataConfig' {kmsKeyId} -> km
 -- | When you use the @PiiOutputDataConfig@ object with asynchronous
 -- operations, you specify the Amazon S3 location where you want to write
 -- the output data.
+--
+-- For a PII entity detection job, the output file is plain text, not a
+-- compressed archive. The output file name is the same as the input file,
+-- with @.out@ appended at the end.
 piiOutputDataConfig_s3Uri :: Lens.Lens' PiiOutputDataConfig Prelude.Text
 piiOutputDataConfig_s3Uri = Lens.lens (\PiiOutputDataConfig' {s3Uri} -> s3Uri) (\s@PiiOutputDataConfig' {} a -> s {s3Uri = a} :: PiiOutputDataConfig)
 

@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newBatchDetectKeyPhrases' smart constructor.
 data BatchDetectKeyPhrases = BatchDetectKeyPhrases'
   { -- | A list containing the text of the input documents. The list can contain
-    -- a maximum of 25 documents. Each document must contain fewer that 5,000
+    -- a maximum of 25 documents. Each document must contain fewer than 5,000
     -- bytes of UTF-8 encoded characters.
-    textList :: Core.Sensitive [Core.Sensitive Prelude.Text],
+    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text)),
     -- | The language of the input documents. You can specify any of the primary
     -- languages supported by Amazon Comprehend. All documents must be in the
     -- same language.
@@ -70,26 +70,30 @@ data BatchDetectKeyPhrases = BatchDetectKeyPhrases'
 -- for backwards compatibility:
 --
 -- 'textList', 'batchDetectKeyPhrases_textList' - A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer that 5,000
+-- a maximum of 25 documents. Each document must contain fewer than 5,000
 -- bytes of UTF-8 encoded characters.
 --
 -- 'languageCode', 'batchDetectKeyPhrases_languageCode' - The language of the input documents. You can specify any of the primary
 -- languages supported by Amazon Comprehend. All documents must be in the
 -- same language.
 newBatchDetectKeyPhrases ::
+  -- | 'textList'
+  Prelude.NonEmpty Prelude.Text ->
   -- | 'languageCode'
   LanguageCode ->
   BatchDetectKeyPhrases
-newBatchDetectKeyPhrases pLanguageCode_ =
+newBatchDetectKeyPhrases pTextList_ pLanguageCode_ =
   BatchDetectKeyPhrases'
-    { textList = Prelude.mempty,
+    { textList =
+        Core._Sensitive Prelude.. Lens.coerced
+          Lens.# pTextList_,
       languageCode = pLanguageCode_
     }
 
 -- | A list containing the text of the input documents. The list can contain
--- a maximum of 25 documents. Each document must contain fewer that 5,000
+-- a maximum of 25 documents. Each document must contain fewer than 5,000
 -- bytes of UTF-8 encoded characters.
-batchDetectKeyPhrases_textList :: Lens.Lens' BatchDetectKeyPhrases [Prelude.Text]
+batchDetectKeyPhrases_textList :: Lens.Lens' BatchDetectKeyPhrases (Prelude.NonEmpty Prelude.Text)
 batchDetectKeyPhrases_textList = Lens.lens (\BatchDetectKeyPhrases' {textList} -> textList) (\s@BatchDetectKeyPhrases' {} a -> s {textList = a} :: BatchDetectKeyPhrases) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 -- | The language of the input documents. You can specify any of the primary

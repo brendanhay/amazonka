@@ -86,7 +86,8 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
     -- (IAM) role that grants Amazon Comprehend read access to your input data.
     dataAccessRoleArn :: Prelude.Text,
-    -- | The language of the input documents.
+    -- | The language of the input documents. Currently, English is the only
+    -- valid language.
     languageCode :: LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -126,7 +127,8 @@ data StartPiiEntitiesDetectionJob = StartPiiEntitiesDetectionJob'
 -- 'dataAccessRoleArn', 'startPiiEntitiesDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
 -- (IAM) role that grants Amazon Comprehend read access to your input data.
 --
--- 'languageCode', 'startPiiEntitiesDetectionJob_languageCode' - The language of the input documents.
+-- 'languageCode', 'startPiiEntitiesDetectionJob_languageCode' - The language of the input documents. Currently, English is the only
+-- valid language.
 newStartPiiEntitiesDetectionJob ::
   -- | 'inputDataConfig'
   InputDataConfig ->
@@ -201,7 +203,8 @@ startPiiEntitiesDetectionJob_mode = Lens.lens (\StartPiiEntitiesDetectionJob' {m
 startPiiEntitiesDetectionJob_dataAccessRoleArn :: Lens.Lens' StartPiiEntitiesDetectionJob Prelude.Text
 startPiiEntitiesDetectionJob_dataAccessRoleArn = Lens.lens (\StartPiiEntitiesDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartPiiEntitiesDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartPiiEntitiesDetectionJob)
 
--- | The language of the input documents.
+-- | The language of the input documents. Currently, English is the only
+-- valid language.
 startPiiEntitiesDetectionJob_languageCode :: Lens.Lens' StartPiiEntitiesDetectionJob LanguageCode
 startPiiEntitiesDetectionJob_languageCode = Lens.lens (\StartPiiEntitiesDetectionJob' {languageCode} -> languageCode) (\s@StartPiiEntitiesDetectionJob' {} a -> s {languageCode = a} :: StartPiiEntitiesDetectionJob)
 

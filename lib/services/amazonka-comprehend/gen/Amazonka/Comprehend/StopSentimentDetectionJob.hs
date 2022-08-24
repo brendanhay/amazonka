@@ -22,7 +22,7 @@
 --
 -- Stops a sentiment detection job in progress.
 --
--- If the job state is @IN_PROGRESS@ the job is marked for termination and
+-- If the job state is @IN_PROGRESS@, the job is marked for termination and
 -- put into the @STOP_REQUESTED@ state. If the job completes before it can
 -- be stopped, it is put into the @COMPLETED@ state; otherwise the job is
 -- be stopped and put into the @STOPPED@ state.

@@ -29,8 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 data EntityRecognizerEvaluationMetrics = EntityRecognizerEvaluationMetrics'
   { -- | A measure of how accurate the recognizer results are for the test data.
     -- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
-    -- the harmonic average of the two scores. The highest score is 1, and the
-    -- worst score is 0.
+    -- the harmonic average of the two scores. For plain text entity recognizer
+    -- models, the range is 0 to 100, where 100 is the best score. For
+    -- PDF\/Word entity recognizer models, the range is 0 to 1, where 1 is the
+    -- best score.
     f1Score :: Prelude.Maybe Prelude.Double,
     -- | A measure of how complete the recognizer results are for the test data.
     -- High recall means that the recognizer returned most of the relevant
@@ -53,8 +55,10 @@ data EntityRecognizerEvaluationMetrics = EntityRecognizerEvaluationMetrics'
 --
 -- 'f1Score', 'entityRecognizerEvaluationMetrics_f1Score' - A measure of how accurate the recognizer results are for the test data.
 -- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
--- the harmonic average of the two scores. The highest score is 1, and the
--- worst score is 0.
+-- the harmonic average of the two scores. For plain text entity recognizer
+-- models, the range is 0 to 100, where 100 is the best score. For
+-- PDF\/Word entity recognizer models, the range is 0 to 1, where 1 is the
+-- best score.
 --
 -- 'recall', 'entityRecognizerEvaluationMetrics_recall' - A measure of how complete the recognizer results are for the test data.
 -- High recall means that the recognizer returned most of the relevant
@@ -75,8 +79,10 @@ newEntityRecognizerEvaluationMetrics =
 
 -- | A measure of how accurate the recognizer results are for the test data.
 -- It is derived from the @Precision@ and @Recall@ values. The @F1Score@ is
--- the harmonic average of the two scores. The highest score is 1, and the
--- worst score is 0.
+-- the harmonic average of the two scores. For plain text entity recognizer
+-- models, the range is 0 to 100, where 100 is the best score. For
+-- PDF\/Word entity recognizer models, the range is 0 to 1, where 1 is the
+-- best score.
 entityRecognizerEvaluationMetrics_f1Score :: Lens.Lens' EntityRecognizerEvaluationMetrics (Prelude.Maybe Prelude.Double)
 entityRecognizerEvaluationMetrics_f1Score = Lens.lens (\EntityRecognizerEvaluationMetrics' {f1Score} -> f1Score) (\s@EntityRecognizerEvaluationMetrics' {} a -> s {f1Score = a} :: EntityRecognizerEvaluationMetrics)
 

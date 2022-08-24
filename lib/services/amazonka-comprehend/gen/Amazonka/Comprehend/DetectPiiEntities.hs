@@ -53,7 +53,8 @@ data DetectPiiEntities = DetectPiiEntities'
   { -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
     -- UTF-8 encoded characters.
     text :: Prelude.Text,
-    -- | The language of the input documents.
+    -- | The language of the input documents. Currently, English is the only
+    -- valid language.
     languageCode :: LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,7 +70,8 @@ data DetectPiiEntities = DetectPiiEntities'
 -- 'text', 'detectPiiEntities_text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of
 -- UTF-8 encoded characters.
 --
--- 'languageCode', 'detectPiiEntities_languageCode' - The language of the input documents.
+-- 'languageCode', 'detectPiiEntities_languageCode' - The language of the input documents. Currently, English is the only
+-- valid language.
 newDetectPiiEntities ::
   -- | 'text'
   Prelude.Text ->
@@ -87,7 +89,8 @@ newDetectPiiEntities pText_ pLanguageCode_ =
 detectPiiEntities_text :: Lens.Lens' DetectPiiEntities Prelude.Text
 detectPiiEntities_text = Lens.lens (\DetectPiiEntities' {text} -> text) (\s@DetectPiiEntities' {} a -> s {text = a} :: DetectPiiEntities)
 
--- | The language of the input documents.
+-- | The language of the input documents. Currently, English is the only
+-- valid language.
 detectPiiEntities_languageCode :: Lens.Lens' DetectPiiEntities LanguageCode
 detectPiiEntities_languageCode = Lens.lens (\DetectPiiEntities' {languageCode} -> languageCode) (\s@DetectPiiEntities' {} a -> s {languageCode = a} :: DetectPiiEntities)
 

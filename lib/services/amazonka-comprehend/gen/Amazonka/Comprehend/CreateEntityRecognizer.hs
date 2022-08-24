@@ -30,6 +30,7 @@ module Amazonka.Comprehend.CreateEntityRecognizer
 
     -- * Request Lenses
     createEntityRecognizer_tags,
+    createEntityRecognizer_modelPolicy,
     createEntityRecognizer_modelKmsKeyId,
     createEntityRecognizer_clientRequestToken,
     createEntityRecognizer_vpcConfig,
@@ -64,6 +65,23 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
     -- Comprehend. For example, a tag with \"Sales\" as the key might be added
     -- to a resource to indicate its use by the sales department.
     tags :: Prelude.Maybe [Tag],
+    -- | The JSON resource-based policy to attach to your custom entity
+    -- recognizer model. You can use this policy to allow another AWS account
+    -- to import your custom model.
+    --
+    -- Provide your JSON as a UTF-8 encoded string without line breaks. To
+    -- provide valid JSON for your policy, enclose the attribute names and
+    -- values in double quotes. If the JSON body is also enclosed in double
+    -- quotes, then you must escape the double quotes that are inside the
+    -- policy:
+    --
+    -- @\"{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}\"@
+    --
+    -- To avoid escaping quotes, you can use single quotes to enclose the
+    -- policy and double quotes to enclose the JSON names and values:
+    --
+    -- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
+    modelPolicy :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
     -- of the following formats
@@ -128,6 +146,23 @@ data CreateEntityRecognizer = CreateEntityRecognizer'
 -- a key-value pair that adds as a metadata to a resource used by Amazon
 -- Comprehend. For example, a tag with \"Sales\" as the key might be added
 -- to a resource to indicate its use by the sales department.
+--
+-- 'modelPolicy', 'createEntityRecognizer_modelPolicy' - The JSON resource-based policy to attach to your custom entity
+-- recognizer model. You can use this policy to allow another AWS account
+-- to import your custom model.
+--
+-- Provide your JSON as a UTF-8 encoded string without line breaks. To
+-- provide valid JSON for your policy, enclose the attribute names and
+-- values in double quotes. If the JSON body is also enclosed in double
+-- quotes, then you must escape the double quotes that are inside the
+-- policy:
+--
+-- @\"{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}\"@
+--
+-- To avoid escaping quotes, you can use single quotes to enclose the
+-- policy and double quotes to enclose the JSON names and values:
+--
+-- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
 --
 -- 'modelKmsKeyId', 'createEntityRecognizer_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
@@ -194,6 +229,7 @@ newCreateEntityRecognizer
   pLanguageCode_ =
     CreateEntityRecognizer'
       { tags = Prelude.Nothing,
+        modelPolicy = Prelude.Nothing,
         modelKmsKeyId = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
         vpcConfig = Prelude.Nothing,
@@ -211,6 +247,25 @@ newCreateEntityRecognizer
 -- to a resource to indicate its use by the sales department.
 createEntityRecognizer_tags :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe [Tag])
 createEntityRecognizer_tags = Lens.lens (\CreateEntityRecognizer' {tags} -> tags) (\s@CreateEntityRecognizer' {} a -> s {tags = a} :: CreateEntityRecognizer) Prelude.. Lens.mapping Lens.coerced
+
+-- | The JSON resource-based policy to attach to your custom entity
+-- recognizer model. You can use this policy to allow another AWS account
+-- to import your custom model.
+--
+-- Provide your JSON as a UTF-8 encoded string without line breaks. To
+-- provide valid JSON for your policy, enclose the attribute names and
+-- values in double quotes. If the JSON body is also enclosed in double
+-- quotes, then you must escape the double quotes that are inside the
+-- policy:
+--
+-- @\"{\\\"attribute\\\": \\\"value\\\", \\\"attribute\\\": [\\\"value\\\"]}\"@
+--
+-- To avoid escaping quotes, you can use single quotes to enclose the
+-- policy and double quotes to enclose the JSON names and values:
+--
+-- @\'{\"attribute\": \"value\", \"attribute\": [\"value\"]}\'@
+createEntityRecognizer_modelPolicy :: Lens.Lens' CreateEntityRecognizer (Prelude.Maybe Prelude.Text)
+createEntityRecognizer_modelPolicy = Lens.lens (\CreateEntityRecognizer' {modelPolicy} -> modelPolicy) (\s@CreateEntityRecognizer' {} a -> s {modelPolicy = a} :: CreateEntityRecognizer)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
@@ -295,6 +350,7 @@ instance Core.AWSRequest CreateEntityRecognizer where
 instance Prelude.Hashable CreateEntityRecognizer where
   hashWithSalt _salt CreateEntityRecognizer' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` modelPolicy
       `Prelude.hashWithSalt` modelKmsKeyId
       `Prelude.hashWithSalt` clientRequestToken
       `Prelude.hashWithSalt` vpcConfig
@@ -308,6 +364,7 @@ instance Prelude.Hashable CreateEntityRecognizer where
 instance Prelude.NFData CreateEntityRecognizer where
   rnf CreateEntityRecognizer' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf modelPolicy
       `Prelude.seq` Prelude.rnf modelKmsKeyId
       `Prelude.seq` Prelude.rnf clientRequestToken
       `Prelude.seq` Prelude.rnf vpcConfig
@@ -338,6 +395,7 @@ instance Core.ToJSON CreateEntityRecognizer where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ModelPolicy" Core..=) Prelude.<$> modelPolicy,
             ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,

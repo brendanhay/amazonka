@@ -64,6 +64,7 @@ module Amazonka.Comprehend.Lens
     -- ** CreateDocumentClassifier
     createDocumentClassifier_tags,
     createDocumentClassifier_outputDataConfig,
+    createDocumentClassifier_modelPolicy,
     createDocumentClassifier_modelKmsKeyId,
     createDocumentClassifier_clientRequestToken,
     createDocumentClassifier_vpcConfig,
@@ -89,6 +90,7 @@ module Amazonka.Comprehend.Lens
 
     -- ** CreateEntityRecognizer
     createEntityRecognizer_tags,
+    createEntityRecognizer_modelPolicy,
     createEntityRecognizer_modelKmsKeyId,
     createEntityRecognizer_clientRequestToken,
     createEntityRecognizer_vpcConfig,
@@ -112,6 +114,11 @@ module Amazonka.Comprehend.Lens
     -- ** DeleteEntityRecognizer
     deleteEntityRecognizer_entityRecognizerArn,
     deleteEntityRecognizerResponse_httpStatus,
+
+    -- ** DeleteResourcePolicy
+    deleteResourcePolicy_policyRevisionId,
+    deleteResourcePolicy_resourceArn,
+    deleteResourcePolicyResponse_httpStatus,
 
     -- ** DescribeDocumentClassificationJob
     describeDocumentClassificationJob_jobId,
@@ -158,10 +165,23 @@ module Amazonka.Comprehend.Lens
     describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties,
     describePiiEntitiesDetectionJobResponse_httpStatus,
 
+    -- ** DescribeResourcePolicy
+    describeResourcePolicy_resourceArn,
+    describeResourcePolicyResponse_lastModifiedTime,
+    describeResourcePolicyResponse_policyRevisionId,
+    describeResourcePolicyResponse_resourcePolicy,
+    describeResourcePolicyResponse_creationTime,
+    describeResourcePolicyResponse_httpStatus,
+
     -- ** DescribeSentimentDetectionJob
     describeSentimentDetectionJob_jobId,
     describeSentimentDetectionJobResponse_sentimentDetectionJobProperties,
     describeSentimentDetectionJobResponse_httpStatus,
+
+    -- ** DescribeTargetedSentimentDetectionJob
+    describeTargetedSentimentDetectionJob_jobId,
+    describeTargetedSentimentDetectionJobResponse_targetedSentimentDetectionJobProperties,
+    describeTargetedSentimentDetectionJobResponse_httpStatus,
 
     -- ** DescribeTopicsDetectionJob
     describeTopicsDetectionJob_jobId,
@@ -204,6 +224,16 @@ module Amazonka.Comprehend.Lens
     detectSyntax_languageCode,
     detectSyntaxResponse_syntaxTokens,
     detectSyntaxResponse_httpStatus,
+
+    -- ** ImportModel
+    importModel_tags,
+    importModel_modelKmsKeyId,
+    importModel_dataAccessRoleArn,
+    importModel_versionName,
+    importModel_modelName,
+    importModel_sourceModelArn,
+    importModelResponse_modelArn,
+    importModelResponse_httpStatus,
 
     -- ** ListDocumentClassificationJobs
     listDocumentClassificationJobs_nextToken,
@@ -305,6 +335,14 @@ module Amazonka.Comprehend.Lens
     listTagsForResourceResponse_resourceArn,
     listTagsForResourceResponse_httpStatus,
 
+    -- ** ListTargetedSentimentDetectionJobs
+    listTargetedSentimentDetectionJobs_nextToken,
+    listTargetedSentimentDetectionJobs_filter,
+    listTargetedSentimentDetectionJobs_maxResults,
+    listTargetedSentimentDetectionJobsResponse_nextToken,
+    listTargetedSentimentDetectionJobsResponse_targetedSentimentDetectionJobPropertiesList,
+    listTargetedSentimentDetectionJobsResponse_httpStatus,
+
     -- ** ListTopicsDetectionJobs
     listTopicsDetectionJobs_nextToken,
     listTopicsDetectionJobs_filter,
@@ -312,6 +350,13 @@ module Amazonka.Comprehend.Lens
     listTopicsDetectionJobsResponse_nextToken,
     listTopicsDetectionJobsResponse_topicsDetectionJobPropertiesList,
     listTopicsDetectionJobsResponse_httpStatus,
+
+    -- ** PutResourcePolicy
+    putResourcePolicy_policyRevisionId,
+    putResourcePolicy_resourceArn,
+    putResourcePolicy_resourcePolicy,
+    putResourcePolicyResponse_policyRevisionId,
+    putResourcePolicyResponse_httpStatus,
 
     -- ** StartDocumentClassificationJob
     startDocumentClassificationJob_tags,
@@ -417,6 +462,21 @@ module Amazonka.Comprehend.Lens
     startSentimentDetectionJobResponse_jobArn,
     startSentimentDetectionJobResponse_httpStatus,
 
+    -- ** StartTargetedSentimentDetectionJob
+    startTargetedSentimentDetectionJob_tags,
+    startTargetedSentimentDetectionJob_clientRequestToken,
+    startTargetedSentimentDetectionJob_vpcConfig,
+    startTargetedSentimentDetectionJob_jobName,
+    startTargetedSentimentDetectionJob_volumeKmsKeyId,
+    startTargetedSentimentDetectionJob_inputDataConfig,
+    startTargetedSentimentDetectionJob_outputDataConfig,
+    startTargetedSentimentDetectionJob_dataAccessRoleArn,
+    startTargetedSentimentDetectionJob_languageCode,
+    startTargetedSentimentDetectionJobResponse_jobStatus,
+    startTargetedSentimentDetectionJobResponse_jobId,
+    startTargetedSentimentDetectionJobResponse_jobArn,
+    startTargetedSentimentDetectionJobResponse_httpStatus,
+
     -- ** StartTopicsDetectionJob
     startTopicsDetectionJob_tags,
     startTopicsDetectionJob_clientRequestToken,
@@ -467,6 +527,12 @@ module Amazonka.Comprehend.Lens
     stopSentimentDetectionJobResponse_jobStatus,
     stopSentimentDetectionJobResponse_jobId,
     stopSentimentDetectionJobResponse_httpStatus,
+
+    -- ** StopTargetedSentimentDetectionJob
+    stopTargetedSentimentDetectionJob_jobId,
+    stopTargetedSentimentDetectionJobResponse_jobStatus,
+    stopTargetedSentimentDetectionJobResponse_jobId,
+    stopTargetedSentimentDetectionJobResponse_httpStatus,
 
     -- ** StopTrainingDocumentClassifier
     stopTrainingDocumentClassifier_documentClassifierArn,
@@ -602,6 +668,7 @@ module Amazonka.Comprehend.Lens
     documentClassifierProperties_versionName,
     documentClassifierProperties_mode,
     documentClassifierProperties_documentClassifierArn,
+    documentClassifierProperties_sourceModelArn,
     documentClassifierProperties_inputDataConfig,
     documentClassifierProperties_trainingEndTime,
     documentClassifierProperties_classifierMetadata,
@@ -754,6 +821,7 @@ module Amazonka.Comprehend.Lens
     entityRecognizerProperties_endTime,
     entityRecognizerProperties_languageCode,
     entityRecognizerProperties_versionName,
+    entityRecognizerProperties_sourceModelArn,
     entityRecognizerProperties_inputDataConfig,
     entityRecognizerProperties_trainingEndTime,
 
@@ -906,6 +974,27 @@ module Amazonka.Comprehend.Lens
     tag_value,
     tag_key,
 
+    -- ** TargetedSentimentDetectionJobFilter
+    targetedSentimentDetectionJobFilter_jobStatus,
+    targetedSentimentDetectionJobFilter_jobName,
+    targetedSentimentDetectionJobFilter_submitTimeBefore,
+    targetedSentimentDetectionJobFilter_submitTimeAfter,
+
+    -- ** TargetedSentimentDetectionJobProperties
+    targetedSentimentDetectionJobProperties_outputDataConfig,
+    targetedSentimentDetectionJobProperties_message,
+    targetedSentimentDetectionJobProperties_jobStatus,
+    targetedSentimentDetectionJobProperties_vpcConfig,
+    targetedSentimentDetectionJobProperties_jobName,
+    targetedSentimentDetectionJobProperties_submitTime,
+    targetedSentimentDetectionJobProperties_jobId,
+    targetedSentimentDetectionJobProperties_volumeKmsKeyId,
+    targetedSentimentDetectionJobProperties_dataAccessRoleArn,
+    targetedSentimentDetectionJobProperties_endTime,
+    targetedSentimentDetectionJobProperties_languageCode,
+    targetedSentimentDetectionJobProperties_jobArn,
+    targetedSentimentDetectionJobProperties_inputDataConfig,
+
     -- ** TopicsDetectionJobFilter
     topicsDetectionJobFilter_jobStatus,
     topicsDetectionJobFilter_jobName,
@@ -946,6 +1035,7 @@ import Amazonka.Comprehend.CreateEntityRecognizer
 import Amazonka.Comprehend.DeleteDocumentClassifier
 import Amazonka.Comprehend.DeleteEndpoint
 import Amazonka.Comprehend.DeleteEntityRecognizer
+import Amazonka.Comprehend.DeleteResourcePolicy
 import Amazonka.Comprehend.DescribeDocumentClassificationJob
 import Amazonka.Comprehend.DescribeDocumentClassifier
 import Amazonka.Comprehend.DescribeDominantLanguageDetectionJob
@@ -955,7 +1045,9 @@ import Amazonka.Comprehend.DescribeEntityRecognizer
 import Amazonka.Comprehend.DescribeEventsDetectionJob
 import Amazonka.Comprehend.DescribeKeyPhrasesDetectionJob
 import Amazonka.Comprehend.DescribePiiEntitiesDetectionJob
+import Amazonka.Comprehend.DescribeResourcePolicy
 import Amazonka.Comprehend.DescribeSentimentDetectionJob
+import Amazonka.Comprehend.DescribeTargetedSentimentDetectionJob
 import Amazonka.Comprehend.DescribeTopicsDetectionJob
 import Amazonka.Comprehend.DetectDominantLanguage
 import Amazonka.Comprehend.DetectEntities
@@ -963,6 +1055,7 @@ import Amazonka.Comprehend.DetectKeyPhrases
 import Amazonka.Comprehend.DetectPiiEntities
 import Amazonka.Comprehend.DetectSentiment
 import Amazonka.Comprehend.DetectSyntax
+import Amazonka.Comprehend.ImportModel
 import Amazonka.Comprehend.ListDocumentClassificationJobs
 import Amazonka.Comprehend.ListDocumentClassifierSummaries
 import Amazonka.Comprehend.ListDocumentClassifiers
@@ -976,7 +1069,9 @@ import Amazonka.Comprehend.ListKeyPhrasesDetectionJobs
 import Amazonka.Comprehend.ListPiiEntitiesDetectionJobs
 import Amazonka.Comprehend.ListSentimentDetectionJobs
 import Amazonka.Comprehend.ListTagsForResource
+import Amazonka.Comprehend.ListTargetedSentimentDetectionJobs
 import Amazonka.Comprehend.ListTopicsDetectionJobs
+import Amazonka.Comprehend.PutResourcePolicy
 import Amazonka.Comprehend.StartDocumentClassificationJob
 import Amazonka.Comprehend.StartDominantLanguageDetectionJob
 import Amazonka.Comprehend.StartEntitiesDetectionJob
@@ -984,6 +1079,7 @@ import Amazonka.Comprehend.StartEventsDetectionJob
 import Amazonka.Comprehend.StartKeyPhrasesDetectionJob
 import Amazonka.Comprehend.StartPiiEntitiesDetectionJob
 import Amazonka.Comprehend.StartSentimentDetectionJob
+import Amazonka.Comprehend.StartTargetedSentimentDetectionJob
 import Amazonka.Comprehend.StartTopicsDetectionJob
 import Amazonka.Comprehend.StopDominantLanguageDetectionJob
 import Amazonka.Comprehend.StopEntitiesDetectionJob
@@ -991,6 +1087,7 @@ import Amazonka.Comprehend.StopEventsDetectionJob
 import Amazonka.Comprehend.StopKeyPhrasesDetectionJob
 import Amazonka.Comprehend.StopPiiEntitiesDetectionJob
 import Amazonka.Comprehend.StopSentimentDetectionJob
+import Amazonka.Comprehend.StopTargetedSentimentDetectionJob
 import Amazonka.Comprehend.StopTrainingDocumentClassifier
 import Amazonka.Comprehend.StopTrainingEntityRecognizer
 import Amazonka.Comprehend.TagResource
@@ -1052,6 +1149,8 @@ import Amazonka.Comprehend.Types.SentimentDetectionJobProperties
 import Amazonka.Comprehend.Types.SentimentScore
 import Amazonka.Comprehend.Types.SyntaxToken
 import Amazonka.Comprehend.Types.Tag
+import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobFilter
+import Amazonka.Comprehend.Types.TargetedSentimentDetectionJobProperties
 import Amazonka.Comprehend.Types.TopicsDetectionJobFilter
 import Amazonka.Comprehend.Types.TopicsDetectionJobProperties
 import Amazonka.Comprehend.Types.VpcConfig

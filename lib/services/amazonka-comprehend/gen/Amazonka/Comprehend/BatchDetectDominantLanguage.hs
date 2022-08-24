@@ -56,7 +56,7 @@ data BatchDetectDominantLanguage = BatchDetectDominantLanguage'
     -- a maximum of 25 documents. Each document should contain at least 20
     -- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
     -- characters.
-    textList :: Core.Sensitive [Core.Sensitive Prelude.Text]
+    textList :: Core.Sensitive (Prelude.NonEmpty (Core.Sensitive Prelude.Text))
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -73,18 +73,21 @@ data BatchDetectDominantLanguage = BatchDetectDominantLanguage'
 -- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
 -- characters.
 newBatchDetectDominantLanguage ::
+  -- | 'textList'
+  Prelude.NonEmpty Prelude.Text ->
   BatchDetectDominantLanguage
-newBatchDetectDominantLanguage =
+newBatchDetectDominantLanguage pTextList_ =
   BatchDetectDominantLanguage'
     { textList =
-        Prelude.mempty
+        Core._Sensitive Prelude.. Lens.coerced
+          Lens.# pTextList_
     }
 
 -- | A list containing the text of the input documents. The list can contain
 -- a maximum of 25 documents. Each document should contain at least 20
 -- characters and must contain fewer than 5,000 bytes of UTF-8 encoded
 -- characters.
-batchDetectDominantLanguage_textList :: Lens.Lens' BatchDetectDominantLanguage [Prelude.Text]
+batchDetectDominantLanguage_textList :: Lens.Lens' BatchDetectDominantLanguage (Prelude.NonEmpty Prelude.Text)
 batchDetectDominantLanguage_textList = Lens.lens (\BatchDetectDominantLanguage' {textList} -> textList) (\s@BatchDetectDominantLanguage' {} a -> s {textList = a} :: BatchDetectDominantLanguage) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
 instance Core.AWSRequest BatchDetectDominantLanguage where

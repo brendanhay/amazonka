@@ -23,8 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides configuration parameters for the output of topic detection
--- jobs.
+-- | Provides configuration parameters for the output of inference jobs.
 --
 -- /See:/ 'newOutputDataConfig' smart constructor.
 data OutputDataConfig = OutputDataConfig'
@@ -52,6 +51,10 @@ data OutputDataConfig = OutputDataConfig'
     -- file in a directory specific to the job. The @S3Uri@ field contains the
     -- location of the output file, called @output.tar.gz@. It is a compressed
     -- archive that contains the ouput of the operation.
+    --
+    -- For a PII entity detection job, the output file is plain text, not a
+    -- compressed archive. The output file name is the same as the input file,
+    -- with @.out@ appended at the end.
     s3Uri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,6 +91,10 @@ data OutputDataConfig = OutputDataConfig'
 -- file in a directory specific to the job. The @S3Uri@ field contains the
 -- location of the output file, called @output.tar.gz@. It is a compressed
 -- archive that contains the ouput of the operation.
+--
+-- For a PII entity detection job, the output file is plain text, not a
+-- compressed archive. The output file name is the same as the input file,
+-- with @.out@ appended at the end.
 newOutputDataConfig ::
   -- | 's3Uri'
   Prelude.Text ->
@@ -124,6 +131,10 @@ outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId
 -- file in a directory specific to the job. The @S3Uri@ field contains the
 -- location of the output file, called @output.tar.gz@. It is a compressed
 -- archive that contains the ouput of the operation.
+--
+-- For a PII entity detection job, the output file is plain text, not a
+-- compressed archive. The output file name is the same as the input file,
+-- with @.out@ appended at the end.
 outputDataConfig_s3Uri :: Lens.Lens' OutputDataConfig Prelude.Text
 outputDataConfig_s3Uri = Lens.lens (\OutputDataConfig' {s3Uri} -> s3Uri) (\s@OutputDataConfig' {} a -> s {s3Uri = a} :: OutputDataConfig)
 

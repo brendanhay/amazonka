@@ -24,15 +24,15 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.Macie.Types.S3Resource
 import qualified Amazonka.Prelude as Prelude
 
--- | Includes details about the failed S3 resources.
+-- | (Discontinued) Includes details about the failed S3 resources.
 --
 -- /See:/ 'newFailedS3Resource' smart constructor.
 data FailedS3Resource = FailedS3Resource'
-  { -- | The failed S3 resources.
+  { -- | (Discontinued) The failed S3 resources.
     failedItem :: Prelude.Maybe S3Resource,
-    -- | The error message of a failed item.
+    -- | (Discontinued) The error message of a failed item.
     errorMessage :: Prelude.Maybe Prelude.Text,
-    -- | The status code of a failed item.
+    -- | (Discontinued) The status code of a failed item.
     errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,11 +45,11 @@ data FailedS3Resource = FailedS3Resource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failedItem', 'failedS3Resource_failedItem' - The failed S3 resources.
+-- 'failedItem', 'failedS3Resource_failedItem' - (Discontinued) The failed S3 resources.
 --
--- 'errorMessage', 'failedS3Resource_errorMessage' - The error message of a failed item.
+-- 'errorMessage', 'failedS3Resource_errorMessage' - (Discontinued) The error message of a failed item.
 --
--- 'errorCode', 'failedS3Resource_errorCode' - The status code of a failed item.
+-- 'errorCode', 'failedS3Resource_errorCode' - (Discontinued) The status code of a failed item.
 newFailedS3Resource ::
   FailedS3Resource
 newFailedS3Resource =
@@ -59,15 +59,15 @@ newFailedS3Resource =
       errorCode = Prelude.Nothing
     }
 
--- | The failed S3 resources.
+-- | (Discontinued) The failed S3 resources.
 failedS3Resource_failedItem :: Lens.Lens' FailedS3Resource (Prelude.Maybe S3Resource)
 failedS3Resource_failedItem = Lens.lens (\FailedS3Resource' {failedItem} -> failedItem) (\s@FailedS3Resource' {} a -> s {failedItem = a} :: FailedS3Resource)
 
--- | The error message of a failed item.
+-- | (Discontinued) The error message of a failed item.
 failedS3Resource_errorMessage :: Lens.Lens' FailedS3Resource (Prelude.Maybe Prelude.Text)
 failedS3Resource_errorMessage = Lens.lens (\FailedS3Resource' {errorMessage} -> errorMessage) (\s@FailedS3Resource' {} a -> s {errorMessage = a} :: FailedS3Resource)
 
--- | The status code of a failed item.
+-- | (Discontinued) The status code of a failed item.
 failedS3Resource_errorCode :: Lens.Lens' FailedS3Resource (Prelude.Maybe Prelude.Text)
 failedS3Resource_errorCode = Lens.lens (\FailedS3Resource' {errorCode} -> errorCode) (\s@FailedS3Resource' {} a -> s {errorCode = a} :: FailedS3Resource)
 

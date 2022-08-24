@@ -25,19 +25,19 @@ import Amazonka.Macie.Types.S3ContinuousClassificationType
 import Amazonka.Macie.Types.S3OneTimeClassificationType
 import qualified Amazonka.Prelude as Prelude
 
--- | The classification type that Amazon Macie Classic applies to the
--- associated S3 resources. At least one of the classification types
--- (oneTime or continuous) must be specified.
+-- | (Discontinued) The classification type that Amazon Macie Classic applies
+-- to the associated S3 resources. At least one of the classification types
+-- (@oneTime@ or @continuous@) must be specified.
 --
 -- /See:/ 'newClassificationTypeUpdate' smart constructor.
 data ClassificationTypeUpdate = ClassificationTypeUpdate'
-  { -- | A one-time classification of all of the existing objects in a specified
-    -- S3 bucket.
+  { -- | (Discontinued) A one-time classification of all of the existing objects
+    -- in a specified S3 bucket.
     oneTime :: Prelude.Maybe S3OneTimeClassificationType,
-    -- | A continuous classification of the objects that are added to a specified
-    -- S3 bucket. Amazon Macie Classic begins performing continuous
-    -- classification after a bucket is successfully associated with Macie
-    -- Classic.
+    -- | (Discontinued) A continuous classification of the objects that are added
+    -- to a specified S3 bucket. Amazon Macie Classic begins performing
+    -- continuous classification after a bucket is successfully associated with
+    -- Macie Classic.
     continuous :: Prelude.Maybe S3ContinuousClassificationType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,13 +50,13 @@ data ClassificationTypeUpdate = ClassificationTypeUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'oneTime', 'classificationTypeUpdate_oneTime' - A one-time classification of all of the existing objects in a specified
--- S3 bucket.
+-- 'oneTime', 'classificationTypeUpdate_oneTime' - (Discontinued) A one-time classification of all of the existing objects
+-- in a specified S3 bucket.
 --
--- 'continuous', 'classificationTypeUpdate_continuous' - A continuous classification of the objects that are added to a specified
--- S3 bucket. Amazon Macie Classic begins performing continuous
--- classification after a bucket is successfully associated with Macie
--- Classic.
+-- 'continuous', 'classificationTypeUpdate_continuous' - (Discontinued) A continuous classification of the objects that are added
+-- to a specified S3 bucket. Amazon Macie Classic begins performing
+-- continuous classification after a bucket is successfully associated with
+-- Macie Classic.
 newClassificationTypeUpdate ::
   ClassificationTypeUpdate
 newClassificationTypeUpdate =
@@ -66,15 +66,15 @@ newClassificationTypeUpdate =
       continuous = Prelude.Nothing
     }
 
--- | A one-time classification of all of the existing objects in a specified
--- S3 bucket.
+-- | (Discontinued) A one-time classification of all of the existing objects
+-- in a specified S3 bucket.
 classificationTypeUpdate_oneTime :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3OneTimeClassificationType)
 classificationTypeUpdate_oneTime = Lens.lens (\ClassificationTypeUpdate' {oneTime} -> oneTime) (\s@ClassificationTypeUpdate' {} a -> s {oneTime = a} :: ClassificationTypeUpdate)
 
--- | A continuous classification of the objects that are added to a specified
--- S3 bucket. Amazon Macie Classic begins performing continuous
--- classification after a bucket is successfully associated with Macie
--- Classic.
+-- | (Discontinued) A continuous classification of the objects that are added
+-- to a specified S3 bucket. Amazon Macie Classic begins performing
+-- continuous classification after a bucket is successfully associated with
+-- Macie Classic.
 classificationTypeUpdate_continuous :: Lens.Lens' ClassificationTypeUpdate (Prelude.Maybe S3ContinuousClassificationType)
 classificationTypeUpdate_continuous = Lens.lens (\ClassificationTypeUpdate' {continuous} -> continuous) (\s@ClassificationTypeUpdate' {} a -> s {continuous = a} :: ClassificationTypeUpdate)
 

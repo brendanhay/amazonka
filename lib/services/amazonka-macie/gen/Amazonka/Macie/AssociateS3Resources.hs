@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates specified S3 resources with Amazon Macie Classic for
--- monitoring and data classification. If memberAccountId isn\'t specified,
--- the action associates specified S3 resources with Macie Classic for the
--- current Macie Classic administrator account. If memberAccountId is
--- specified, the action associates specified S3 resources with Macie
--- Classic for the specified member account.
+-- (Discontinued) Associates specified S3 resources with Amazon Macie
+-- Classic for monitoring and data classification. If @memberAccountId@
+-- isn\'t specified, the action associates specified S3 resources with
+-- Macie Classic for the current Macie Classic administrator account. If
+-- @memberAccountId@ is specified, the action associates specified S3
+-- resources with Macie Classic for the specified member account.
 module Amazonka.Macie.AssociateS3Resources
   ( -- * Creating a Request
     AssociateS3Resources (..),
@@ -54,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateS3Resources' smart constructor.
 data AssociateS3Resources = AssociateS3Resources'
-  { -- | The ID of the Amazon Macie Classic member account whose resources you
-    -- want to associate with Macie Classic.
+  { -- | (Discontinued) The ID of the Amazon Macie Classic member account whose
+    -- resources you want to associate with Macie Classic.
     memberAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The S3 resources that you want to associate with Amazon Macie Classic
-    -- for monitoring and data classification.
+    -- | (Discontinued) The S3 resources that you want to associate with Amazon
+    -- Macie Classic for monitoring and data classification.
     s3Resources :: [S3ResourceClassification]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,11 +71,11 @@ data AssociateS3Resources = AssociateS3Resources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberAccountId', 'associateS3Resources_memberAccountId' - The ID of the Amazon Macie Classic member account whose resources you
--- want to associate with Macie Classic.
+-- 'memberAccountId', 'associateS3Resources_memberAccountId' - (Discontinued) The ID of the Amazon Macie Classic member account whose
+-- resources you want to associate with Macie Classic.
 --
--- 's3Resources', 'associateS3Resources_s3Resources' - The S3 resources that you want to associate with Amazon Macie Classic
--- for monitoring and data classification.
+-- 's3Resources', 'associateS3Resources_s3Resources' - (Discontinued) The S3 resources that you want to associate with Amazon
+-- Macie Classic for monitoring and data classification.
 newAssociateS3Resources ::
   AssociateS3Resources
 newAssociateS3Resources =
@@ -85,13 +85,13 @@ newAssociateS3Resources =
       s3Resources = Prelude.mempty
     }
 
--- | The ID of the Amazon Macie Classic member account whose resources you
--- want to associate with Macie Classic.
+-- | (Discontinued) The ID of the Amazon Macie Classic member account whose
+-- resources you want to associate with Macie Classic.
 associateS3Resources_memberAccountId :: Lens.Lens' AssociateS3Resources (Prelude.Maybe Prelude.Text)
 associateS3Resources_memberAccountId = Lens.lens (\AssociateS3Resources' {memberAccountId} -> memberAccountId) (\s@AssociateS3Resources' {} a -> s {memberAccountId = a} :: AssociateS3Resources)
 
--- | The S3 resources that you want to associate with Amazon Macie Classic
--- for monitoring and data classification.
+-- | (Discontinued) The S3 resources that you want to associate with Amazon
+-- Macie Classic for monitoring and data classification.
 associateS3Resources_s3Resources :: Lens.Lens' AssociateS3Resources [S3ResourceClassification]
 associateS3Resources_s3Resources = Lens.lens (\AssociateS3Resources' {s3Resources} -> s3Resources) (\s@AssociateS3Resources' {} a -> s {s3Resources = a} :: AssociateS3Resources) Prelude.. Lens.coerced
 
@@ -153,8 +153,9 @@ instance Core.ToQuery AssociateS3Resources where
 
 -- | /See:/ 'newAssociateS3ResourcesResponse' smart constructor.
 data AssociateS3ResourcesResponse = AssociateS3ResourcesResponse'
-  { -- | S3 resources that couldn\'t be associated with Amazon Macie Classic. An
-    -- error code and an error message are provided for each failed item.
+  { -- | (Discontinued) S3 resources that couldn\'t be associated with Amazon
+    -- Macie Classic. An error code and an error message are provided for each
+    -- failed item.
     failedS3Resources :: Prelude.Maybe [FailedS3Resource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -169,8 +170,9 @@ data AssociateS3ResourcesResponse = AssociateS3ResourcesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'failedS3Resources', 'associateS3ResourcesResponse_failedS3Resources' - S3 resources that couldn\'t be associated with Amazon Macie Classic. An
--- error code and an error message are provided for each failed item.
+-- 'failedS3Resources', 'associateS3ResourcesResponse_failedS3Resources' - (Discontinued) S3 resources that couldn\'t be associated with Amazon
+-- Macie Classic. An error code and an error message are provided for each
+-- failed item.
 --
 -- 'httpStatus', 'associateS3ResourcesResponse_httpStatus' - The response's http status code.
 newAssociateS3ResourcesResponse ::
@@ -184,8 +186,9 @@ newAssociateS3ResourcesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | S3 resources that couldn\'t be associated with Amazon Macie Classic. An
--- error code and an error message are provided for each failed item.
+-- | (Discontinued) S3 resources that couldn\'t be associated with Amazon
+-- Macie Classic. An error code and an error message are provided for each
+-- failed item.
 associateS3ResourcesResponse_failedS3Resources :: Lens.Lens' AssociateS3ResourcesResponse (Prelude.Maybe [FailedS3Resource])
 associateS3ResourcesResponse_failedS3Resources = Lens.lens (\AssociateS3ResourcesResponse' {failedS3Resources} -> failedS3Resources) (\s@AssociateS3ResourcesResponse' {} a -> s {failedS3Resources = a} :: AssociateS3ResourcesResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -158,31 +158,32 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The request was rejected because an invalid or out-of-range value was
--- supplied for an input parameter.
+-- | (Discontinued) The request was rejected because an invalid or
+-- out-of-range value was supplied for an input parameter.
 _InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
 
--- | You do not have required permissions to access the requested resource.
+-- | (Discontinued) You do not have required permissions to access the
+-- requested resource.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
--- | The request was rejected because it attempted to create resources beyond
--- the current AWS account limits. The error code describes the limit
--- exceeded.
+-- | (Discontinued) The request was rejected because it attempted to create
+-- resources beyond the current Amazon Web Services account quotas. The
+-- error code describes the quota exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
--- | Internal server error.
+-- | (Discontinued) Internal server error.
 _InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalException =
   Core._MatchServiceError

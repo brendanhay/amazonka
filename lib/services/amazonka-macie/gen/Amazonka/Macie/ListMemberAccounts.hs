@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all Amazon Macie Classic member accounts for the current Macie
--- Classic administrator account.
+-- (Discontinued) Lists all Amazon Macie Classic member accounts for the
+-- current Macie Classic administrator account.
 --
 -- This operation returns paginated results.
 module Amazonka.Macie.ListMemberAccounts
@@ -53,13 +53,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListMemberAccounts' smart constructor.
 data ListMemberAccounts = ListMemberAccounts'
-  { -- | Use this parameter when paginating results. Set the value of this
-    -- parameter to null on your first call to the ListMemberAccounts action.
-    -- Subsequent calls to the action fill nextToken in the request with the
-    -- value of nextToken from the previous response to continue listing data.
+  { -- | (Discontinued) Use this parameter when paginating results. Set the value
+    -- of this parameter to null on your first call to the @ListMemberAccounts@
+    -- action. Subsequent calls to the action fill @nextToken@ in the request
+    -- with the value of @nextToken@ from the previous response to continue
+    -- listing data.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Use this parameter to indicate the maximum number of items that you want
-    -- in the response. The default value is 250.
+    -- | (Discontinued) Use this parameter to indicate the maximum number of
+    -- items that you want in the response. The default value is 250.
     maxResults :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,13 +73,14 @@ data ListMemberAccounts = ListMemberAccounts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMemberAccounts_nextToken' - Use this parameter when paginating results. Set the value of this
--- parameter to null on your first call to the ListMemberAccounts action.
--- Subsequent calls to the action fill nextToken in the request with the
--- value of nextToken from the previous response to continue listing data.
+-- 'nextToken', 'listMemberAccounts_nextToken' - (Discontinued) Use this parameter when paginating results. Set the value
+-- of this parameter to null on your first call to the @ListMemberAccounts@
+-- action. Subsequent calls to the action fill @nextToken@ in the request
+-- with the value of @nextToken@ from the previous response to continue
+-- listing data.
 --
--- 'maxResults', 'listMemberAccounts_maxResults' - Use this parameter to indicate the maximum number of items that you want
--- in the response. The default value is 250.
+-- 'maxResults', 'listMemberAccounts_maxResults' - (Discontinued) Use this parameter to indicate the maximum number of
+-- items that you want in the response. The default value is 250.
 newListMemberAccounts ::
   ListMemberAccounts
 newListMemberAccounts =
@@ -87,15 +89,16 @@ newListMemberAccounts =
       maxResults = Prelude.Nothing
     }
 
--- | Use this parameter when paginating results. Set the value of this
--- parameter to null on your first call to the ListMemberAccounts action.
--- Subsequent calls to the action fill nextToken in the request with the
--- value of nextToken from the previous response to continue listing data.
+-- | (Discontinued) Use this parameter when paginating results. Set the value
+-- of this parameter to null on your first call to the @ListMemberAccounts@
+-- action. Subsequent calls to the action fill @nextToken@ in the request
+-- with the value of @nextToken@ from the previous response to continue
+-- listing data.
 listMemberAccounts_nextToken :: Lens.Lens' ListMemberAccounts (Prelude.Maybe Prelude.Text)
 listMemberAccounts_nextToken = Lens.lens (\ListMemberAccounts' {nextToken} -> nextToken) (\s@ListMemberAccounts' {} a -> s {nextToken = a} :: ListMemberAccounts)
 
--- | Use this parameter to indicate the maximum number of items that you want
--- in the response. The default value is 250.
+-- | (Discontinued) Use this parameter to indicate the maximum number of
+-- items that you want in the response. The default value is 250.
 listMemberAccounts_maxResults :: Lens.Lens' ListMemberAccounts (Prelude.Maybe Prelude.Int)
 listMemberAccounts_maxResults = Lens.lens (\ListMemberAccounts' {maxResults} -> maxResults) (\s@ListMemberAccounts' {} a -> s {maxResults = a} :: ListMemberAccounts)
 
@@ -177,14 +180,14 @@ instance Core.ToQuery ListMemberAccounts where
 
 -- | /See:/ 'newListMemberAccountsResponse' smart constructor.
 data ListMemberAccountsResponse = ListMemberAccountsResponse'
-  { -- | When a response is generated, if there is more data to be listed, this
-    -- parameter is present in the response and contains the value to use for
-    -- the nextToken parameter in a subsequent pagination request. If there is
-    -- no more data to be listed, this parameter is set to null.
+  { -- | (Discontinued) When a response is generated, if there is more data to be
+    -- listed, this parameter is present in the response and contains the value
+    -- to use for the @nextToken@ parameter in a subsequent pagination request.
+    -- If there is no more data to be listed, this parameter is set to null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of the Amazon Macie Classic member accounts returned by the
-    -- action. The current Macie Classic administrator account is also included
-    -- in this list.
+    -- | (Discontinued) A list of the Amazon Macie Classic member accounts
+    -- returned by the action. The current Macie Classic administrator account
+    -- is also included in this list.
     memberAccounts :: Prelude.Maybe [MemberAccount],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -199,14 +202,14 @@ data ListMemberAccountsResponse = ListMemberAccountsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listMemberAccountsResponse_nextToken' - When a response is generated, if there is more data to be listed, this
--- parameter is present in the response and contains the value to use for
--- the nextToken parameter in a subsequent pagination request. If there is
--- no more data to be listed, this parameter is set to null.
+-- 'nextToken', 'listMemberAccountsResponse_nextToken' - (Discontinued) When a response is generated, if there is more data to be
+-- listed, this parameter is present in the response and contains the value
+-- to use for the @nextToken@ parameter in a subsequent pagination request.
+-- If there is no more data to be listed, this parameter is set to null.
 --
--- 'memberAccounts', 'listMemberAccountsResponse_memberAccounts' - A list of the Amazon Macie Classic member accounts returned by the
--- action. The current Macie Classic administrator account is also included
--- in this list.
+-- 'memberAccounts', 'listMemberAccountsResponse_memberAccounts' - (Discontinued) A list of the Amazon Macie Classic member accounts
+-- returned by the action. The current Macie Classic administrator account
+-- is also included in this list.
 --
 -- 'httpStatus', 'listMemberAccountsResponse_httpStatus' - The response's http status code.
 newListMemberAccountsResponse ::
@@ -221,16 +224,16 @@ newListMemberAccountsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | When a response is generated, if there is more data to be listed, this
--- parameter is present in the response and contains the value to use for
--- the nextToken parameter in a subsequent pagination request. If there is
--- no more data to be listed, this parameter is set to null.
+-- | (Discontinued) When a response is generated, if there is more data to be
+-- listed, this parameter is present in the response and contains the value
+-- to use for the @nextToken@ parameter in a subsequent pagination request.
+-- If there is no more data to be listed, this parameter is set to null.
 listMemberAccountsResponse_nextToken :: Lens.Lens' ListMemberAccountsResponse (Prelude.Maybe Prelude.Text)
 listMemberAccountsResponse_nextToken = Lens.lens (\ListMemberAccountsResponse' {nextToken} -> nextToken) (\s@ListMemberAccountsResponse' {} a -> s {nextToken = a} :: ListMemberAccountsResponse)
 
--- | A list of the Amazon Macie Classic member accounts returned by the
--- action. The current Macie Classic administrator account is also included
--- in this list.
+-- | (Discontinued) A list of the Amazon Macie Classic member accounts
+-- returned by the action. The current Macie Classic administrator account
+-- is also included in this list.
 listMemberAccountsResponse_memberAccounts :: Lens.Lens' ListMemberAccountsResponse (Prelude.Maybe [MemberAccount])
 listMemberAccountsResponse_memberAccounts = Lens.lens (\ListMemberAccountsResponse' {memberAccounts} -> memberAccounts) (\s@ListMemberAccountsResponse' {} a -> s {memberAccounts = a} :: ListMemberAccountsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -23,11 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about the Amazon Macie Classic member account.
+-- | (Discontinued) Contains information about the Amazon Macie Classic
+-- member account.
 --
 -- /See:/ 'newMemberAccount' smart constructor.
 data MemberAccount = MemberAccount'
-  { -- | The AWS account ID of the Amazon Macie Classic member account.
+  { -- | (Discontinued) The Amazon Web Services account ID of the Amazon Macie
+    -- Classic member account.
     accountId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,13 +42,15 @@ data MemberAccount = MemberAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'memberAccount_accountId' - The AWS account ID of the Amazon Macie Classic member account.
+-- 'accountId', 'memberAccount_accountId' - (Discontinued) The Amazon Web Services account ID of the Amazon Macie
+-- Classic member account.
 newMemberAccount ::
   MemberAccount
 newMemberAccount =
   MemberAccount' {accountId = Prelude.Nothing}
 
--- | The AWS account ID of the Amazon Macie Classic member account.
+-- | (Discontinued) The Amazon Web Services account ID of the Amazon Macie
+-- Classic member account.
 memberAccount_accountId :: Lens.Lens' MemberAccount (Prelude.Maybe Prelude.Text)
 memberAccount_accountId = Lens.lens (\MemberAccount' {accountId} -> accountId) (\s@MemberAccount' {} a -> s {accountId = a} :: MemberAccount)
 

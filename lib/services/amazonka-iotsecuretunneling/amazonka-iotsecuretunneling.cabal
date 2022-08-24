@@ -50,8 +50,10 @@ library
     Amazonka.IoTSecureTunneling.ListTagsForResource
     Amazonka.IoTSecureTunneling.ListTunnels
     Amazonka.IoTSecureTunneling.OpenTunnel
+    Amazonka.IoTSecureTunneling.RotateTunnelAccessToken
     Amazonka.IoTSecureTunneling.TagResource
     Amazonka.IoTSecureTunneling.Types
+    Amazonka.IoTSecureTunneling.Types.ClientMode
     Amazonka.IoTSecureTunneling.Types.ConnectionState
     Amazonka.IoTSecureTunneling.Types.ConnectionStatus
     Amazonka.IoTSecureTunneling.Types.DestinationConfig

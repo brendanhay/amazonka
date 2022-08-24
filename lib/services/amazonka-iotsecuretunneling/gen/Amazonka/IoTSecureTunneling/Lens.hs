@@ -48,6 +48,15 @@ module Amazonka.IoTSecureTunneling.Lens
     openTunnelResponse_tunnelArn,
     openTunnelResponse_httpStatus,
 
+    -- ** RotateTunnelAccessToken
+    rotateTunnelAccessToken_destinationConfig,
+    rotateTunnelAccessToken_tunnelId,
+    rotateTunnelAccessToken_clientMode,
+    rotateTunnelAccessTokenResponse_sourceAccessToken,
+    rotateTunnelAccessTokenResponse_destinationAccessToken,
+    rotateTunnelAccessTokenResponse_tunnelArn,
+    rotateTunnelAccessTokenResponse_httpStatus,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
@@ -103,6 +112,7 @@ import Amazonka.IoTSecureTunneling.DescribeTunnel
 import Amazonka.IoTSecureTunneling.ListTagsForResource
 import Amazonka.IoTSecureTunneling.ListTunnels
 import Amazonka.IoTSecureTunneling.OpenTunnel
+import Amazonka.IoTSecureTunneling.RotateTunnelAccessToken
 import Amazonka.IoTSecureTunneling.TagResource
 import Amazonka.IoTSecureTunneling.Types.ConnectionState
 import Amazonka.IoTSecureTunneling.Types.DestinationConfig

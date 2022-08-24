@@ -20,8 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all tunnels for an AWS account. Tunnels are listed by creation time
--- in descending order, newer tunnels will be listed before older tunnels.
+-- List all tunnels for an Amazon Web Services account. Tunnels are listed
+-- by creation time in descending order, newer tunnels will be listed
+-- before older tunnels.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListTunnels>
+-- action.
 module Amazonka.IoTSecureTunneling.ListTunnels
   ( -- * Creating a Request
     ListTunnels (..),
@@ -52,7 +57,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListTunnels' smart constructor.
 data ListTunnels = ListTunnels'
-  { -- | A token to retrieve the next set of results.
+  { -- | To retrieve the next set of results, the nextToken value from a previous
+    -- response; otherwise null to receive the first set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the IoT thing associated with the destination device.
     thingName :: Prelude.Maybe Prelude.Text,
@@ -69,7 +75,8 @@ data ListTunnels = ListTunnels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTunnels_nextToken' - A token to retrieve the next set of results.
+-- 'nextToken', 'listTunnels_nextToken' - To retrieve the next set of results, the nextToken value from a previous
+-- response; otherwise null to receive the first set of results.
 --
 -- 'thingName', 'listTunnels_thingName' - The name of the IoT thing associated with the destination device.
 --
@@ -83,7 +90,8 @@ newListTunnels =
       maxResults = Prelude.Nothing
     }
 
--- | A token to retrieve the next set of results.
+-- | To retrieve the next set of results, the nextToken value from a previous
+-- response; otherwise null to receive the first set of results.
 listTunnels_nextToken :: Lens.Lens' ListTunnels (Prelude.Maybe Prelude.Text)
 listTunnels_nextToken = Lens.lens (\ListTunnels' {nextToken} -> nextToken) (\s@ListTunnels' {} a -> s {nextToken = a} :: ListTunnels)
 
@@ -154,9 +162,10 @@ instance Core.ToQuery ListTunnels where
 
 -- | /See:/ 'newListTunnelsResponse' smart constructor.
 data ListTunnelsResponse = ListTunnelsResponse'
-  { -- | A token to used to retrieve the next set of results.
+  { -- | The token to use to get the next set of results, or null if there are no
+    -- additional results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A short description of the tunnels in an AWS account.
+    -- | A short description of the tunnels in an Amazon Web Services account.
     tunnelSummaries :: Prelude.Maybe [TunnelSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -171,9 +180,10 @@ data ListTunnelsResponse = ListTunnelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTunnelsResponse_nextToken' - A token to used to retrieve the next set of results.
+-- 'nextToken', 'listTunnelsResponse_nextToken' - The token to use to get the next set of results, or null if there are no
+-- additional results.
 --
--- 'tunnelSummaries', 'listTunnelsResponse_tunnelSummaries' - A short description of the tunnels in an AWS account.
+-- 'tunnelSummaries', 'listTunnelsResponse_tunnelSummaries' - A short description of the tunnels in an Amazon Web Services account.
 --
 -- 'httpStatus', 'listTunnelsResponse_httpStatus' - The response's http status code.
 newListTunnelsResponse ::
@@ -187,11 +197,12 @@ newListTunnelsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A token to used to retrieve the next set of results.
+-- | The token to use to get the next set of results, or null if there are no
+-- additional results.
 listTunnelsResponse_nextToken :: Lens.Lens' ListTunnelsResponse (Prelude.Maybe Prelude.Text)
 listTunnelsResponse_nextToken = Lens.lens (\ListTunnelsResponse' {nextToken} -> nextToken) (\s@ListTunnelsResponse' {} a -> s {nextToken = a} :: ListTunnelsResponse)
 
--- | A short description of the tunnels in an AWS account.
+-- | A short description of the tunnels in an Amazon Web Services account.
 listTunnelsResponse_tunnelSummaries :: Lens.Lens' ListTunnelsResponse (Prelude.Maybe [TunnelSummary])
 listTunnelsResponse_tunnelSummaries = Lens.lens (\ListTunnelsResponse' {tunnelSummaries} -> tunnelSummaries) (\s@ListTunnelsResponse' {} a -> s {tunnelSummaries = a} :: ListTunnelsResponse) Prelude.. Lens.mapping Lens.coerced
 

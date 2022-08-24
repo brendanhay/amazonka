@@ -23,6 +23,10 @@
 -- Closes a tunnel identified by the unique tunnel id. When a @CloseTunnel@
 -- request is received, we close the WebSocket connections between the
 -- client and proxy server so no data can be transmitted.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CloseTunnel>
+-- action.
 module Amazonka.IoTSecureTunneling.CloseTunnel
   ( -- * Creating a Request
     CloseTunnel (..),
@@ -50,7 +54,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCloseTunnel' smart constructor.
 data CloseTunnel = CloseTunnel'
-  { -- | When set to true, AWS IoT Secure Tunneling deletes the tunnel data
+  { -- | When set to true, IoT Secure Tunneling deletes the tunnel data
     -- immediately.
     delete' :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the tunnel to close.
@@ -66,7 +70,7 @@ data CloseTunnel = CloseTunnel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'delete'', 'closeTunnel_delete' - When set to true, AWS IoT Secure Tunneling deletes the tunnel data
+-- 'delete'', 'closeTunnel_delete' - When set to true, IoT Secure Tunneling deletes the tunnel data
 -- immediately.
 --
 -- 'tunnelId', 'closeTunnel_tunnelId' - The ID of the tunnel to close.
@@ -80,7 +84,7 @@ newCloseTunnel pTunnelId_ =
       tunnelId = pTunnelId_
     }
 
--- | When set to true, AWS IoT Secure Tunneling deletes the tunnel data
+-- | When set to true, IoT Secure Tunneling deletes the tunnel data
 -- immediately.
 closeTunnel_delete :: Lens.Lens' CloseTunnel (Prelude.Maybe Prelude.Bool)
 closeTunnel_delete = Lens.lens (\CloseTunnel' {delete'} -> delete') (\s@CloseTunnel' {} a -> s {delete' = a} :: CloseTunnel)

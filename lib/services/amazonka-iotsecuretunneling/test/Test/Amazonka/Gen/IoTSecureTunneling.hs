@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestOpenTunnel $
 --             newOpenTunnel
 --
+--         , requestRotateTunnelAccessToken $
+--             newRotateTunnelAccessToken
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -65,6 +68,9 @@ import Test.Tasty
 --
 --         , responseOpenTunnel $
 --             newOpenTunnelResponse
+--
+--         , responseRotateTunnelAccessToken $
+--             newRotateTunnelAccessTokenResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -106,6 +112,12 @@ requestOpenTunnel =
   req
     "OpenTunnel"
     "fixture/OpenTunnel.yaml"
+
+requestRotateTunnelAccessToken :: RotateTunnelAccessToken -> TestTree
+requestRotateTunnelAccessToken =
+  req
+    "RotateTunnelAccessToken"
+    "fixture/RotateTunnelAccessToken.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -160,6 +172,14 @@ responseOpenTunnel =
     "fixture/OpenTunnelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy OpenTunnel)
+
+responseRotateTunnelAccessToken :: RotateTunnelAccessTokenResponse -> TestTree
+responseRotateTunnelAccessToken =
+  res
+    "RotateTunnelAccessTokenResponse"
+    "fixture/RotateTunnelAccessTokenResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RotateTunnelAccessToken)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

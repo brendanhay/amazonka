@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a tunnel identified by the unique tunnel id.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DescribeTunnel>
+-- action.
 module Amazonka.IoTSecureTunneling.DescribeTunnel
   ( -- * Creating a Request
     DescribeTunnel (..),

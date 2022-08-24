@@ -22,6 +22,7 @@ module Amazonka.LookoutMetrics.Types.Alert where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.LookoutMetrics.Types.Action
+import Amazonka.LookoutMetrics.Types.AlertFilters
 import Amazonka.LookoutMetrics.Types.AlertStatus
 import Amazonka.LookoutMetrics.Types.AlertType
 import qualified Amazonka.Prelude as Prelude
@@ -49,7 +50,10 @@ data Alert = Alert'
     -- | The status of the alert.
     alertStatus :: Prelude.Maybe AlertStatus,
     -- | The type of the alert.
-    alertType :: Prelude.Maybe AlertType
+    alertType :: Prelude.Maybe AlertType,
+    -- | The configuration of the alert filters, containing MetricList and
+    -- DimensionFilter.
+    alertFilters :: Prelude.Maybe AlertFilters
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,6 +84,9 @@ data Alert = Alert'
 -- 'alertStatus', 'alert_alertStatus' - The status of the alert.
 --
 -- 'alertType', 'alert_alertType' - The type of the alert.
+--
+-- 'alertFilters', 'alert_alertFilters' - The configuration of the alert filters, containing MetricList and
+-- DimensionFilter.
 newAlert ::
   Alert
 newAlert =
@@ -93,7 +100,8 @@ newAlert =
       alertName = Prelude.Nothing,
       alertArn = Prelude.Nothing,
       alertStatus = Prelude.Nothing,
-      alertType = Prelude.Nothing
+      alertType = Prelude.Nothing,
+      alertFilters = Prelude.Nothing
     }
 
 -- | The time at which the alert was last modified.
@@ -136,6 +144,11 @@ alert_alertStatus = Lens.lens (\Alert' {alertStatus} -> alertStatus) (\s@Alert' 
 alert_alertType :: Lens.Lens' Alert (Prelude.Maybe AlertType)
 alert_alertType = Lens.lens (\Alert' {alertType} -> alertType) (\s@Alert' {} a -> s {alertType = a} :: Alert)
 
+-- | The configuration of the alert filters, containing MetricList and
+-- DimensionFilter.
+alert_alertFilters :: Lens.Lens' Alert (Prelude.Maybe AlertFilters)
+alert_alertFilters = Lens.lens (\Alert' {alertFilters} -> alertFilters) (\s@Alert' {} a -> s {alertFilters = a} :: Alert)
+
 instance Core.FromJSON Alert where
   parseJSON =
     Core.withObject
@@ -152,6 +165,7 @@ instance Core.FromJSON Alert where
             Prelude.<*> (x Core..:? "AlertArn")
             Prelude.<*> (x Core..:? "AlertStatus")
             Prelude.<*> (x Core..:? "AlertType")
+            Prelude.<*> (x Core..:? "AlertFilters")
       )
 
 instance Prelude.Hashable Alert where
@@ -166,6 +180,7 @@ instance Prelude.Hashable Alert where
       `Prelude.hashWithSalt` alertArn
       `Prelude.hashWithSalt` alertStatus
       `Prelude.hashWithSalt` alertType
+      `Prelude.hashWithSalt` alertFilters
 
 instance Prelude.NFData Alert where
   rnf Alert' {..} =
@@ -179,3 +194,4 @@ instance Prelude.NFData Alert where
       `Prelude.seq` Prelude.rnf alertArn
       `Prelude.seq` Prelude.rnf alertStatus
       `Prelude.seq` Prelude.rnf alertType
+      `Prelude.seq` Prelude.rnf alertFilters

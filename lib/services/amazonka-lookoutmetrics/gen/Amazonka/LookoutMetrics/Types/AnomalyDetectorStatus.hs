@@ -25,6 +25,8 @@ module Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus
         AnomalyDetectorStatus_BACK_TEST_ACTIVATING,
         AnomalyDetectorStatus_BACK_TEST_ACTIVE,
         AnomalyDetectorStatus_BACK_TEST_COMPLETE,
+        AnomalyDetectorStatus_DEACTIVATED,
+        AnomalyDetectorStatus_DEACTIVATING,
         AnomalyDetectorStatus_DELETING,
         AnomalyDetectorStatus_FAILED,
         AnomalyDetectorStatus_INACTIVE,
@@ -79,6 +81,12 @@ pattern AnomalyDetectorStatus_BACK_TEST_ACTIVE = AnomalyDetectorStatus' "BACK_TE
 pattern AnomalyDetectorStatus_BACK_TEST_COMPLETE :: AnomalyDetectorStatus
 pattern AnomalyDetectorStatus_BACK_TEST_COMPLETE = AnomalyDetectorStatus' "BACK_TEST_COMPLETE"
 
+pattern AnomalyDetectorStatus_DEACTIVATED :: AnomalyDetectorStatus
+pattern AnomalyDetectorStatus_DEACTIVATED = AnomalyDetectorStatus' "DEACTIVATED"
+
+pattern AnomalyDetectorStatus_DEACTIVATING :: AnomalyDetectorStatus
+pattern AnomalyDetectorStatus_DEACTIVATING = AnomalyDetectorStatus' "DEACTIVATING"
+
 pattern AnomalyDetectorStatus_DELETING :: AnomalyDetectorStatus
 pattern AnomalyDetectorStatus_DELETING = AnomalyDetectorStatus' "DELETING"
 
@@ -97,6 +105,8 @@ pattern AnomalyDetectorStatus_LEARNING = AnomalyDetectorStatus' "LEARNING"
   AnomalyDetectorStatus_BACK_TEST_ACTIVATING,
   AnomalyDetectorStatus_BACK_TEST_ACTIVE,
   AnomalyDetectorStatus_BACK_TEST_COMPLETE,
+  AnomalyDetectorStatus_DEACTIVATED,
+  AnomalyDetectorStatus_DEACTIVATING,
   AnomalyDetectorStatus_DELETING,
   AnomalyDetectorStatus_FAILED,
   AnomalyDetectorStatus_INACTIVE,

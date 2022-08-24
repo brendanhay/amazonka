@@ -161,7 +161,9 @@ data DescribeMetricSetResponse = DescribeMetricSetResponse'
     metricSetName :: Prelude.Maybe Prelude.Text,
     -- | The time zone in which the dataset\'s data was recorded.
     timezone :: Prelude.Maybe Prelude.Text,
-    -- | The offset in seconds. Only supported for S3 and Redshift datasources.
+    -- | After an interval ends, the amount of seconds that the detector waits
+    -- before importing data. Offset is only supported for S3, Redshift, Athena
+    -- and datasources.
     offset :: Prelude.Maybe Prelude.Natural,
     -- | Contains information about the dataset\'s source data.
     metricSource :: Prelude.Maybe MetricSource,
@@ -201,7 +203,9 @@ data DescribeMetricSetResponse = DescribeMetricSetResponse'
 --
 -- 'timezone', 'describeMetricSetResponse_timezone' - The time zone in which the dataset\'s data was recorded.
 --
--- 'offset', 'describeMetricSetResponse_offset' - The offset in seconds. Only supported for S3 and Redshift datasources.
+-- 'offset', 'describeMetricSetResponse_offset' - After an interval ends, the amount of seconds that the detector waits
+-- before importing data. Offset is only supported for S3, Redshift, Athena
+-- and datasources.
 --
 -- 'metricSource', 'describeMetricSetResponse_metricSource' - Contains information about the dataset\'s source data.
 --
@@ -264,7 +268,9 @@ describeMetricSetResponse_metricSetName = Lens.lens (\DescribeMetricSetResponse'
 describeMetricSetResponse_timezone :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Text)
 describeMetricSetResponse_timezone = Lens.lens (\DescribeMetricSetResponse' {timezone} -> timezone) (\s@DescribeMetricSetResponse' {} a -> s {timezone = a} :: DescribeMetricSetResponse)
 
--- | The offset in seconds. Only supported for S3 and Redshift datasources.
+-- | After an interval ends, the amount of seconds that the detector waits
+-- before importing data. Offset is only supported for S3, Redshift, Athena
+-- and datasources.
 describeMetricSetResponse_offset :: Lens.Lens' DescribeMetricSetResponse (Prelude.Maybe Prelude.Natural)
 describeMetricSetResponse_offset = Lens.lens (\DescribeMetricSetResponse' {offset} -> offset) (\s@DescribeMetricSetResponse' {} a -> s {offset = a} :: DescribeMetricSetResponse)
 

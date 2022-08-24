@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestCreateMetricSet $
 --             newCreateMetricSet
 --
+--         , requestDeactivateAnomalyDetector $
+--             newDeactivateAnomalyDetector
+--
 --         , requestDeleteAlert $
 --             newDeleteAlert
 --
@@ -60,8 +63,14 @@ import Test.Tasty
 --         , requestDescribeMetricSet $
 --             newDescribeMetricSet
 --
+--         , requestDetectMetricSetConfig $
+--             newDetectMetricSetConfig
+--
 --         , requestGetAnomalyGroup $
 --             newGetAnomalyGroup
+--
+--         , requestGetDataQualityMetrics $
+--             newGetDataQualityMetrics
 --
 --         , requestGetFeedback $
 --             newGetFeedback
@@ -74,6 +83,9 @@ import Test.Tasty
 --
 --         , requestListAnomalyDetectors $
 --             newListAnomalyDetectors
+--
+--         , requestListAnomalyGroupRelatedMetrics $
+--             newListAnomalyGroupRelatedMetrics
 --
 --         , requestListAnomalyGroupSummaries $
 --             newListAnomalyGroupSummaries
@@ -95,6 +107,9 @@ import Test.Tasty
 --
 --         , requestUntagResource $
 --             newUntagResource
+--
+--         , requestUpdateAlert $
+--             newUpdateAlert
 --
 --         , requestUpdateAnomalyDetector $
 --             newUpdateAnomalyDetector
@@ -120,6 +135,9 @@ import Test.Tasty
 --         , responseCreateMetricSet $
 --             newCreateMetricSetResponse
 --
+--         , responseDeactivateAnomalyDetector $
+--             newDeactivateAnomalyDetectorResponse
+--
 --         , responseDeleteAlert $
 --             newDeleteAlertResponse
 --
@@ -138,8 +156,14 @@ import Test.Tasty
 --         , responseDescribeMetricSet $
 --             newDescribeMetricSetResponse
 --
+--         , responseDetectMetricSetConfig $
+--             newDetectMetricSetConfigResponse
+--
 --         , responseGetAnomalyGroup $
 --             newGetAnomalyGroupResponse
+--
+--         , responseGetDataQualityMetrics $
+--             newGetDataQualityMetricsResponse
 --
 --         , responseGetFeedback $
 --             newGetFeedbackResponse
@@ -152,6 +176,9 @@ import Test.Tasty
 --
 --         , responseListAnomalyDetectors $
 --             newListAnomalyDetectorsResponse
+--
+--         , responseListAnomalyGroupRelatedMetrics $
+--             newListAnomalyGroupRelatedMetricsResponse
 --
 --         , responseListAnomalyGroupSummaries $
 --             newListAnomalyGroupSummariesResponse
@@ -173,6 +200,9 @@ import Test.Tasty
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseUpdateAlert $
+--             newUpdateAlertResponse
 --
 --         , responseUpdateAnomalyDetector $
 --             newUpdateAnomalyDetectorResponse
@@ -215,6 +245,12 @@ requestCreateMetricSet =
     "CreateMetricSet"
     "fixture/CreateMetricSet.yaml"
 
+requestDeactivateAnomalyDetector :: DeactivateAnomalyDetector -> TestTree
+requestDeactivateAnomalyDetector =
+  req
+    "DeactivateAnomalyDetector"
+    "fixture/DeactivateAnomalyDetector.yaml"
+
 requestDeleteAlert :: DeleteAlert -> TestTree
 requestDeleteAlert =
   req
@@ -251,11 +287,23 @@ requestDescribeMetricSet =
     "DescribeMetricSet"
     "fixture/DescribeMetricSet.yaml"
 
+requestDetectMetricSetConfig :: DetectMetricSetConfig -> TestTree
+requestDetectMetricSetConfig =
+  req
+    "DetectMetricSetConfig"
+    "fixture/DetectMetricSetConfig.yaml"
+
 requestGetAnomalyGroup :: GetAnomalyGroup -> TestTree
 requestGetAnomalyGroup =
   req
     "GetAnomalyGroup"
     "fixture/GetAnomalyGroup.yaml"
+
+requestGetDataQualityMetrics :: GetDataQualityMetrics -> TestTree
+requestGetDataQualityMetrics =
+  req
+    "GetDataQualityMetrics"
+    "fixture/GetDataQualityMetrics.yaml"
 
 requestGetFeedback :: GetFeedback -> TestTree
 requestGetFeedback =
@@ -280,6 +328,12 @@ requestListAnomalyDetectors =
   req
     "ListAnomalyDetectors"
     "fixture/ListAnomalyDetectors.yaml"
+
+requestListAnomalyGroupRelatedMetrics :: ListAnomalyGroupRelatedMetrics -> TestTree
+requestListAnomalyGroupRelatedMetrics =
+  req
+    "ListAnomalyGroupRelatedMetrics"
+    "fixture/ListAnomalyGroupRelatedMetrics.yaml"
 
 requestListAnomalyGroupSummaries :: ListAnomalyGroupSummaries -> TestTree
 requestListAnomalyGroupSummaries =
@@ -322,6 +376,12 @@ requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestUpdateAlert :: UpdateAlert -> TestTree
+requestUpdateAlert =
+  req
+    "UpdateAlert"
+    "fixture/UpdateAlert.yaml"
 
 requestUpdateAnomalyDetector :: UpdateAnomalyDetector -> TestTree
 requestUpdateAnomalyDetector =
@@ -377,6 +437,14 @@ responseCreateMetricSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateMetricSet)
 
+responseDeactivateAnomalyDetector :: DeactivateAnomalyDetectorResponse -> TestTree
+responseDeactivateAnomalyDetector =
+  res
+    "DeactivateAnomalyDetectorResponse"
+    "fixture/DeactivateAnomalyDetectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeactivateAnomalyDetector)
+
 responseDeleteAlert :: DeleteAlertResponse -> TestTree
 responseDeleteAlert =
   res
@@ -425,6 +493,14 @@ responseDescribeMetricSet =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeMetricSet)
 
+responseDetectMetricSetConfig :: DetectMetricSetConfigResponse -> TestTree
+responseDetectMetricSetConfig =
+  res
+    "DetectMetricSetConfigResponse"
+    "fixture/DetectMetricSetConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DetectMetricSetConfig)
+
 responseGetAnomalyGroup :: GetAnomalyGroupResponse -> TestTree
 responseGetAnomalyGroup =
   res
@@ -432,6 +508,14 @@ responseGetAnomalyGroup =
     "fixture/GetAnomalyGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetAnomalyGroup)
+
+responseGetDataQualityMetrics :: GetDataQualityMetricsResponse -> TestTree
+responseGetDataQualityMetrics =
+  res
+    "GetDataQualityMetricsResponse"
+    "fixture/GetDataQualityMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetDataQualityMetrics)
 
 responseGetFeedback :: GetFeedbackResponse -> TestTree
 responseGetFeedback =
@@ -464,6 +548,14 @@ responseListAnomalyDetectors =
     "fixture/ListAnomalyDetectorsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAnomalyDetectors)
+
+responseListAnomalyGroupRelatedMetrics :: ListAnomalyGroupRelatedMetricsResponse -> TestTree
+responseListAnomalyGroupRelatedMetrics =
+  res
+    "ListAnomalyGroupRelatedMetricsResponse"
+    "fixture/ListAnomalyGroupRelatedMetricsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAnomalyGroupRelatedMetrics)
 
 responseListAnomalyGroupSummaries :: ListAnomalyGroupSummariesResponse -> TestTree
 responseListAnomalyGroupSummaries =
@@ -520,6 +612,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
+responseUpdateAlert :: UpdateAlertResponse -> TestTree
+responseUpdateAlert =
+  res
+    "UpdateAlertResponse"
+    "fixture/UpdateAlertResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAlert)
 
 responseUpdateAnomalyDetector :: UpdateAnomalyDetectorResponse -> TestTree
 responseUpdateAnomalyDetector =

@@ -25,8 +25,9 @@ module Amazonka.LookoutMetrics.Lens
     -- ** CreateAlert
     createAlert_tags,
     createAlert_alertDescription,
-    createAlert_alertName,
     createAlert_alertSensitivityThreshold,
+    createAlert_alertFilters,
+    createAlert_alertName,
     createAlert_anomalyDetectorArn,
     createAlert_action,
     createAlertResponse_alertArn,
@@ -56,6 +57,10 @@ module Amazonka.LookoutMetrics.Lens
     createMetricSetResponse_metricSetArn,
     createMetricSetResponse_httpStatus,
 
+    -- ** DeactivateAnomalyDetector
+    deactivateAnomalyDetector_anomalyDetectorArn,
+    deactivateAnomalyDetectorResponse_httpStatus,
+
     -- ** DeleteAlert
     deleteAlert_alertArn,
     deleteAlertResponse_httpStatus,
@@ -82,6 +87,7 @@ module Amazonka.LookoutMetrics.Lens
     describeAnomalyDetector_anomalyDetectorArn,
     describeAnomalyDetectorResponse_lastModificationTime,
     describeAnomalyDetectorResponse_anomalyDetectorArn,
+    describeAnomalyDetectorResponse_failureType,
     describeAnomalyDetectorResponse_status,
     describeAnomalyDetectorResponse_kmsKeyArn,
     describeAnomalyDetectorResponse_anomalyDetectorName,
@@ -108,11 +114,23 @@ module Amazonka.LookoutMetrics.Lens
     describeMetricSetResponse_metricList,
     describeMetricSetResponse_httpStatus,
 
+    -- ** DetectMetricSetConfig
+    detectMetricSetConfig_anomalyDetectorArn,
+    detectMetricSetConfig_autoDetectionMetricSource,
+    detectMetricSetConfigResponse_detectedMetricSetConfig,
+    detectMetricSetConfigResponse_httpStatus,
+
     -- ** GetAnomalyGroup
     getAnomalyGroup_anomalyGroupId,
     getAnomalyGroup_anomalyDetectorArn,
     getAnomalyGroupResponse_anomalyGroup,
     getAnomalyGroupResponse_httpStatus,
+
+    -- ** GetDataQualityMetrics
+    getDataQualityMetrics_metricSetArn,
+    getDataQualityMetrics_anomalyDetectorArn,
+    getDataQualityMetricsResponse_anomalyDetectorDataQualityMetricList,
+    getDataQualityMetricsResponse_httpStatus,
 
     -- ** GetFeedback
     getFeedback_nextToken,
@@ -143,6 +161,16 @@ module Amazonka.LookoutMetrics.Lens
     listAnomalyDetectorsResponse_nextToken,
     listAnomalyDetectorsResponse_anomalyDetectorSummaryList,
     listAnomalyDetectorsResponse_httpStatus,
+
+    -- ** ListAnomalyGroupRelatedMetrics
+    listAnomalyGroupRelatedMetrics_nextToken,
+    listAnomalyGroupRelatedMetrics_maxResults,
+    listAnomalyGroupRelatedMetrics_relationshipTypeFilter,
+    listAnomalyGroupRelatedMetrics_anomalyDetectorArn,
+    listAnomalyGroupRelatedMetrics_anomalyGroupId,
+    listAnomalyGroupRelatedMetricsResponse_nextToken,
+    listAnomalyGroupRelatedMetricsResponse_interMetricImpactList,
+    listAnomalyGroupRelatedMetricsResponse_httpStatus,
 
     -- ** ListAnomalyGroupSummaries
     listAnomalyGroupSummaries_nextToken,
@@ -195,6 +223,15 @@ module Amazonka.LookoutMetrics.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
+    -- ** UpdateAlert
+    updateAlert_alertDescription,
+    updateAlert_alertSensitivityThreshold,
+    updateAlert_action,
+    updateAlert_alertFilters,
+    updateAlert_alertArn,
+    updateAlertResponse_alertArn,
+    updateAlertResponse_httpStatus,
+
     -- ** UpdateAnomalyDetector
     updateAnomalyDetector_kmsKeyArn,
     updateAnomalyDetector_anomalyDetectorDescription,
@@ -232,6 +269,11 @@ module Amazonka.LookoutMetrics.Lens
     alert_alertArn,
     alert_alertStatus,
     alert_alertType,
+    alert_alertFilters,
+
+    -- ** AlertFilters
+    alertFilters_dimensionFilterList,
+    alertFilters_metricList,
 
     -- ** AlertSummary
     alertSummary_lastModificationTime,
@@ -249,6 +291,10 @@ module Amazonka.LookoutMetrics.Lens
 
     -- ** AnomalyDetectorConfigSummary
     anomalyDetectorConfigSummary_anomalyDetectorFrequency,
+
+    -- ** AnomalyDetectorDataQualityMetric
+    anomalyDetectorDataQualityMetric_startTimestamp,
+    anomalyDetectorDataQualityMetric_metricSetDataQualityMetricList,
 
     -- ** AnomalyDetectorSummary
     anomalyDetectorSummary_lastModificationTime,
@@ -292,8 +338,36 @@ module Amazonka.LookoutMetrics.Lens
     appFlowConfig_roleArn,
     appFlowConfig_flowName,
 
+    -- ** AthenaSourceConfig
+    athenaSourceConfig_tableName,
+    athenaSourceConfig_roleArn,
+    athenaSourceConfig_dataCatalog,
+    athenaSourceConfig_databaseName,
+    athenaSourceConfig_backTestConfiguration,
+    athenaSourceConfig_s3ResultsPath,
+    athenaSourceConfig_workGroupName,
+
+    -- ** AttributeValue
+    attributeValue_ss,
+    attributeValue_ns,
+    attributeValue_b,
+    attributeValue_s,
+    attributeValue_bs,
+    attributeValue_n,
+
+    -- ** AutoDetectionMetricSource
+    autoDetectionMetricSource_s3SourceConfig,
+
+    -- ** AutoDetectionS3SourceConfig
+    autoDetectionS3SourceConfig_templatedPathList,
+    autoDetectionS3SourceConfig_historicalDataPathList,
+
+    -- ** BackTestConfiguration
+    backTestConfiguration_runBackTestMode,
+
     -- ** CloudWatchConfig
     cloudWatchConfig_roleArn,
+    cloudWatchConfig_backTestConfiguration,
 
     -- ** ContributionMatrix
     contributionMatrix_dimensionContributionList,
@@ -306,9 +380,51 @@ module Amazonka.LookoutMetrics.Lens
     csvFormatDescriptor_fileCompression,
     csvFormatDescriptor_charset,
 
+    -- ** DataQualityMetric
+    dataQualityMetric_metricValue,
+    dataQualityMetric_relatedColumnName,
+    dataQualityMetric_metricType,
+    dataQualityMetric_metricDescription,
+
+    -- ** DetectedCsvFormatDescriptor
+    detectedCsvFormatDescriptor_quoteSymbol,
+    detectedCsvFormatDescriptor_containsHeader,
+    detectedCsvFormatDescriptor_delimiter,
+    detectedCsvFormatDescriptor_headerList,
+    detectedCsvFormatDescriptor_fileCompression,
+    detectedCsvFormatDescriptor_charset,
+
+    -- ** DetectedField
+    detectedField_message,
+    detectedField_confidence,
+    detectedField_value,
+
+    -- ** DetectedFileFormatDescriptor
+    detectedFileFormatDescriptor_jsonFormatDescriptor,
+    detectedFileFormatDescriptor_csvFormatDescriptor,
+
+    -- ** DetectedJsonFormatDescriptor
+    detectedJsonFormatDescriptor_fileCompression,
+    detectedJsonFormatDescriptor_charset,
+
+    -- ** DetectedMetricSetConfig
+    detectedMetricSetConfig_offset,
+    detectedMetricSetConfig_metricSource,
+    detectedMetricSetConfig_metricSetFrequency,
+
+    -- ** DetectedMetricSource
+    detectedMetricSource_s3SourceConfig,
+
+    -- ** DetectedS3SourceConfig
+    detectedS3SourceConfig_fileFormatDescriptor,
+
     -- ** DimensionContribution
     dimensionContribution_dimensionName,
     dimensionContribution_dimensionValueContributionList,
+
+    -- ** DimensionFilter
+    dimensionFilter_dimensionValueList,
+    dimensionFilter_dimensionName,
 
     -- ** DimensionNameValue
     dimensionNameValue_dimensionName,
@@ -326,6 +442,12 @@ module Amazonka.LookoutMetrics.Lens
     -- ** FileFormatDescriptor
     fileFormatDescriptor_jsonFormatDescriptor,
     fileFormatDescriptor_csvFormatDescriptor,
+
+    -- ** InterMetricImpactDetails
+    interMetricImpactDetails_anomalyGroupId,
+    interMetricImpactDetails_relationshipType,
+    interMetricImpactDetails_metricName,
+    interMetricImpactDetails_contributionPercentage,
 
     -- ** ItemizedMetricStats
     itemizedMetricStats_occurrenceCount,
@@ -349,6 +471,10 @@ module Amazonka.LookoutMetrics.Lens
     metricLevelImpact_numTimeSeries,
     metricLevelImpact_metricName,
 
+    -- ** MetricSetDataQualityMetric
+    metricSetDataQualityMetric_dataQualityMetricList,
+    metricSetDataQualityMetric_metricSetArn,
+
     -- ** MetricSetSummary
     metricSetSummary_lastModificationTime,
     metricSetSummary_tags,
@@ -362,36 +488,38 @@ module Amazonka.LookoutMetrics.Lens
     metricSource_s3SourceConfig,
     metricSource_cloudWatchConfig,
     metricSource_appFlowConfig,
+    metricSource_athenaSourceConfig,
     metricSource_rDSSourceConfig,
     metricSource_redshiftSourceConfig,
 
     -- ** RDSSourceConfig
+    rDSSourceConfig_vpcConfiguration,
+    rDSSourceConfig_tableName,
+    rDSSourceConfig_roleArn,
     rDSSourceConfig_dbInstanceIdentifier,
+    rDSSourceConfig_databaseName,
     rDSSourceConfig_databaseHost,
     rDSSourceConfig_databasePort,
     rDSSourceConfig_secretManagerArn,
-    rDSSourceConfig_databaseName,
-    rDSSourceConfig_tableName,
-    rDSSourceConfig_roleArn,
-    rDSSourceConfig_vpcConfiguration,
 
     -- ** RedshiftSourceConfig
+    redshiftSourceConfig_vpcConfiguration,
+    redshiftSourceConfig_tableName,
     redshiftSourceConfig_clusterIdentifier,
+    redshiftSourceConfig_roleArn,
+    redshiftSourceConfig_databaseName,
     redshiftSourceConfig_databaseHost,
     redshiftSourceConfig_databasePort,
     redshiftSourceConfig_secretManagerArn,
-    redshiftSourceConfig_databaseName,
-    redshiftSourceConfig_tableName,
-    redshiftSourceConfig_roleArn,
-    redshiftSourceConfig_vpcConfiguration,
 
     -- ** S3SourceConfig
+    s3SourceConfig_roleArn,
     s3SourceConfig_fileFormatDescriptor,
     s3SourceConfig_templatedPathList,
     s3SourceConfig_historicalDataPathList,
-    s3SourceConfig_roleArn,
 
     -- ** SNSConfiguration
+    sNSConfiguration_snsFormat,
     sNSConfiguration_roleArn,
     sNSConfiguration_snsTopicArn,
 
@@ -425,17 +553,21 @@ import Amazonka.LookoutMetrics.BackTestAnomalyDetector
 import Amazonka.LookoutMetrics.CreateAlert
 import Amazonka.LookoutMetrics.CreateAnomalyDetector
 import Amazonka.LookoutMetrics.CreateMetricSet
+import Amazonka.LookoutMetrics.DeactivateAnomalyDetector
 import Amazonka.LookoutMetrics.DeleteAlert
 import Amazonka.LookoutMetrics.DeleteAnomalyDetector
 import Amazonka.LookoutMetrics.DescribeAlert
 import Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
 import Amazonka.LookoutMetrics.DescribeAnomalyDetector
 import Amazonka.LookoutMetrics.DescribeMetricSet
+import Amazonka.LookoutMetrics.DetectMetricSetConfig
 import Amazonka.LookoutMetrics.GetAnomalyGroup
+import Amazonka.LookoutMetrics.GetDataQualityMetrics
 import Amazonka.LookoutMetrics.GetFeedback
 import Amazonka.LookoutMetrics.GetSampleData
 import Amazonka.LookoutMetrics.ListAlerts
 import Amazonka.LookoutMetrics.ListAnomalyDetectors
+import Amazonka.LookoutMetrics.ListAnomalyGroupRelatedMetrics
 import Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
 import Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries
 import Amazonka.LookoutMetrics.ListMetricSets
@@ -444,9 +576,11 @@ import Amazonka.LookoutMetrics.PutFeedback
 import Amazonka.LookoutMetrics.TagResource
 import Amazonka.LookoutMetrics.Types.Action
 import Amazonka.LookoutMetrics.Types.Alert
+import Amazonka.LookoutMetrics.Types.AlertFilters
 import Amazonka.LookoutMetrics.Types.AlertSummary
 import Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig
 import Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary
+import Amazonka.LookoutMetrics.Types.AnomalyDetectorDataQualityMetric
 import Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary
 import Amazonka.LookoutMetrics.Types.AnomalyGroup
 import Amazonka.LookoutMetrics.Types.AnomalyGroupStatistics
@@ -454,19 +588,35 @@ import Amazonka.LookoutMetrics.Types.AnomalyGroupSummary
 import Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries
 import Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
 import Amazonka.LookoutMetrics.Types.AppFlowConfig
+import Amazonka.LookoutMetrics.Types.AthenaSourceConfig
+import Amazonka.LookoutMetrics.Types.AttributeValue
+import Amazonka.LookoutMetrics.Types.AutoDetectionMetricSource
+import Amazonka.LookoutMetrics.Types.AutoDetectionS3SourceConfig
+import Amazonka.LookoutMetrics.Types.BackTestConfiguration
 import Amazonka.LookoutMetrics.Types.CloudWatchConfig
 import Amazonka.LookoutMetrics.Types.ContributionMatrix
 import Amazonka.LookoutMetrics.Types.CsvFormatDescriptor
+import Amazonka.LookoutMetrics.Types.DataQualityMetric
+import Amazonka.LookoutMetrics.Types.DetectedCsvFormatDescriptor
+import Amazonka.LookoutMetrics.Types.DetectedField
+import Amazonka.LookoutMetrics.Types.DetectedFileFormatDescriptor
+import Amazonka.LookoutMetrics.Types.DetectedJsonFormatDescriptor
+import Amazonka.LookoutMetrics.Types.DetectedMetricSetConfig
+import Amazonka.LookoutMetrics.Types.DetectedMetricSource
+import Amazonka.LookoutMetrics.Types.DetectedS3SourceConfig
 import Amazonka.LookoutMetrics.Types.DimensionContribution
+import Amazonka.LookoutMetrics.Types.DimensionFilter
 import Amazonka.LookoutMetrics.Types.DimensionNameValue
 import Amazonka.LookoutMetrics.Types.DimensionValueContribution
 import Amazonka.LookoutMetrics.Types.ExecutionStatus
 import Amazonka.LookoutMetrics.Types.FileFormatDescriptor
+import Amazonka.LookoutMetrics.Types.InterMetricImpactDetails
 import Amazonka.LookoutMetrics.Types.ItemizedMetricStats
 import Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
 import Amazonka.LookoutMetrics.Types.LambdaConfiguration
 import Amazonka.LookoutMetrics.Types.Metric
 import Amazonka.LookoutMetrics.Types.MetricLevelImpact
+import Amazonka.LookoutMetrics.Types.MetricSetDataQualityMetric
 import Amazonka.LookoutMetrics.Types.MetricSetSummary
 import Amazonka.LookoutMetrics.Types.MetricSource
 import Amazonka.LookoutMetrics.Types.RDSSourceConfig
@@ -479,5 +629,6 @@ import Amazonka.LookoutMetrics.Types.TimeSeriesFeedback
 import Amazonka.LookoutMetrics.Types.TimestampColumn
 import Amazonka.LookoutMetrics.Types.VpcConfiguration
 import Amazonka.LookoutMetrics.UntagResource
+import Amazonka.LookoutMetrics.UpdateAlert
 import Amazonka.LookoutMetrics.UpdateAnomalyDetector
 import Amazonka.LookoutMetrics.UpdateMetricSet

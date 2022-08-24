@@ -29,9 +29,9 @@ import qualified Amazonka.Prelude as Prelude
 data AppFlowConfig = AppFlowConfig'
   { -- | An IAM role that gives Amazon Lookout for Metrics permission to access
     -- the flow.
-    roleArn :: Prelude.Text,
+    roleArn :: Prelude.Maybe Prelude.Text,
     -- | name of the flow.
-    flowName :: Prelude.Text
+    flowName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -48,24 +48,20 @@ data AppFlowConfig = AppFlowConfig'
 --
 -- 'flowName', 'appFlowConfig_flowName' - name of the flow.
 newAppFlowConfig ::
-  -- | 'roleArn'
-  Prelude.Text ->
-  -- | 'flowName'
-  Prelude.Text ->
   AppFlowConfig
-newAppFlowConfig pRoleArn_ pFlowName_ =
+newAppFlowConfig =
   AppFlowConfig'
-    { roleArn = pRoleArn_,
-      flowName = pFlowName_
+    { roleArn = Prelude.Nothing,
+      flowName = Prelude.Nothing
     }
 
 -- | An IAM role that gives Amazon Lookout for Metrics permission to access
 -- the flow.
-appFlowConfig_roleArn :: Lens.Lens' AppFlowConfig Prelude.Text
+appFlowConfig_roleArn :: Lens.Lens' AppFlowConfig (Prelude.Maybe Prelude.Text)
 appFlowConfig_roleArn = Lens.lens (\AppFlowConfig' {roleArn} -> roleArn) (\s@AppFlowConfig' {} a -> s {roleArn = a} :: AppFlowConfig)
 
 -- | name of the flow.
-appFlowConfig_flowName :: Lens.Lens' AppFlowConfig Prelude.Text
+appFlowConfig_flowName :: Lens.Lens' AppFlowConfig (Prelude.Maybe Prelude.Text)
 appFlowConfig_flowName = Lens.lens (\AppFlowConfig' {flowName} -> flowName) (\s@AppFlowConfig' {} a -> s {flowName = a} :: AppFlowConfig)
 
 instance Core.FromJSON AppFlowConfig where
@@ -74,8 +70,8 @@ instance Core.FromJSON AppFlowConfig where
       "AppFlowConfig"
       ( \x ->
           AppFlowConfig'
-            Prelude.<$> (x Core..: "RoleArn")
-            Prelude.<*> (x Core..: "FlowName")
+            Prelude.<$> (x Core..:? "RoleArn")
+            Prelude.<*> (x Core..:? "FlowName")
       )
 
 instance Prelude.Hashable AppFlowConfig where
@@ -92,7 +88,7 @@ instance Core.ToJSON AppFlowConfig where
   toJSON AppFlowConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just ("FlowName" Core..= flowName)
+          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("FlowName" Core..=) Prelude.<$> flowName
           ]
       )

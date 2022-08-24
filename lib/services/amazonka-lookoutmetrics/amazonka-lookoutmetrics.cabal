@@ -49,18 +49,22 @@ library
     Amazonka.LookoutMetrics.CreateAlert
     Amazonka.LookoutMetrics.CreateAnomalyDetector
     Amazonka.LookoutMetrics.CreateMetricSet
+    Amazonka.LookoutMetrics.DeactivateAnomalyDetector
     Amazonka.LookoutMetrics.DeleteAlert
     Amazonka.LookoutMetrics.DeleteAnomalyDetector
     Amazonka.LookoutMetrics.DescribeAlert
     Amazonka.LookoutMetrics.DescribeAnomalyDetectionExecutions
     Amazonka.LookoutMetrics.DescribeAnomalyDetector
     Amazonka.LookoutMetrics.DescribeMetricSet
+    Amazonka.LookoutMetrics.DetectMetricSetConfig
     Amazonka.LookoutMetrics.GetAnomalyGroup
+    Amazonka.LookoutMetrics.GetDataQualityMetrics
     Amazonka.LookoutMetrics.GetFeedback
     Amazonka.LookoutMetrics.GetSampleData
     Amazonka.LookoutMetrics.Lens
     Amazonka.LookoutMetrics.ListAlerts
     Amazonka.LookoutMetrics.ListAnomalyDetectors
+    Amazonka.LookoutMetrics.ListAnomalyGroupRelatedMetrics
     Amazonka.LookoutMetrics.ListAnomalyGroupSummaries
     Amazonka.LookoutMetrics.ListAnomalyGroupTimeSeries
     Amazonka.LookoutMetrics.ListMetricSets
@@ -71,12 +75,15 @@ library
     Amazonka.LookoutMetrics.Types.Action
     Amazonka.LookoutMetrics.Types.AggregationFunction
     Amazonka.LookoutMetrics.Types.Alert
+    Amazonka.LookoutMetrics.Types.AlertFilters
     Amazonka.LookoutMetrics.Types.AlertStatus
     Amazonka.LookoutMetrics.Types.AlertSummary
     Amazonka.LookoutMetrics.Types.AlertType
     Amazonka.LookoutMetrics.Types.AnomalyDetectionTaskStatus
     Amazonka.LookoutMetrics.Types.AnomalyDetectorConfig
     Amazonka.LookoutMetrics.Types.AnomalyDetectorConfigSummary
+    Amazonka.LookoutMetrics.Types.AnomalyDetectorDataQualityMetric
+    Amazonka.LookoutMetrics.Types.AnomalyDetectorFailureType
     Amazonka.LookoutMetrics.Types.AnomalyDetectorStatus
     Amazonka.LookoutMetrics.Types.AnomalyDetectorSummary
     Amazonka.LookoutMetrics.Types.AnomalyGroup
@@ -85,34 +92,55 @@ library
     Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeries
     Amazonka.LookoutMetrics.Types.AnomalyGroupTimeSeriesFeedback
     Amazonka.LookoutMetrics.Types.AppFlowConfig
+    Amazonka.LookoutMetrics.Types.AthenaSourceConfig
+    Amazonka.LookoutMetrics.Types.AttributeValue
+    Amazonka.LookoutMetrics.Types.AutoDetectionMetricSource
+    Amazonka.LookoutMetrics.Types.AutoDetectionS3SourceConfig
+    Amazonka.LookoutMetrics.Types.BackTestConfiguration
     Amazonka.LookoutMetrics.Types.CloudWatchConfig
+    Amazonka.LookoutMetrics.Types.Confidence
     Amazonka.LookoutMetrics.Types.ContributionMatrix
     Amazonka.LookoutMetrics.Types.CSVFileCompression
     Amazonka.LookoutMetrics.Types.CsvFormatDescriptor
+    Amazonka.LookoutMetrics.Types.DataQualityMetric
+    Amazonka.LookoutMetrics.Types.DataQualityMetricType
+    Amazonka.LookoutMetrics.Types.DetectedCsvFormatDescriptor
+    Amazonka.LookoutMetrics.Types.DetectedField
+    Amazonka.LookoutMetrics.Types.DetectedFileFormatDescriptor
+    Amazonka.LookoutMetrics.Types.DetectedJsonFormatDescriptor
+    Amazonka.LookoutMetrics.Types.DetectedMetricSetConfig
+    Amazonka.LookoutMetrics.Types.DetectedMetricSource
+    Amazonka.LookoutMetrics.Types.DetectedS3SourceConfig
     Amazonka.LookoutMetrics.Types.DimensionContribution
+    Amazonka.LookoutMetrics.Types.DimensionFilter
     Amazonka.LookoutMetrics.Types.DimensionNameValue
     Amazonka.LookoutMetrics.Types.DimensionValueContribution
     Amazonka.LookoutMetrics.Types.ExecutionStatus
     Amazonka.LookoutMetrics.Types.FileFormatDescriptor
     Amazonka.LookoutMetrics.Types.Frequency
+    Amazonka.LookoutMetrics.Types.InterMetricImpactDetails
     Amazonka.LookoutMetrics.Types.ItemizedMetricStats
     Amazonka.LookoutMetrics.Types.JsonFileCompression
     Amazonka.LookoutMetrics.Types.JsonFormatDescriptor
     Amazonka.LookoutMetrics.Types.LambdaConfiguration
     Amazonka.LookoutMetrics.Types.Metric
     Amazonka.LookoutMetrics.Types.MetricLevelImpact
+    Amazonka.LookoutMetrics.Types.MetricSetDataQualityMetric
     Amazonka.LookoutMetrics.Types.MetricSetSummary
     Amazonka.LookoutMetrics.Types.MetricSource
     Amazonka.LookoutMetrics.Types.RDSSourceConfig
     Amazonka.LookoutMetrics.Types.RedshiftSourceConfig
+    Amazonka.LookoutMetrics.Types.RelationshipType
     Amazonka.LookoutMetrics.Types.S3SourceConfig
     Amazonka.LookoutMetrics.Types.SampleDataS3SourceConfig
     Amazonka.LookoutMetrics.Types.SNSConfiguration
+    Amazonka.LookoutMetrics.Types.SnsFormat
     Amazonka.LookoutMetrics.Types.TimeSeries
     Amazonka.LookoutMetrics.Types.TimeSeriesFeedback
     Amazonka.LookoutMetrics.Types.TimestampColumn
     Amazonka.LookoutMetrics.Types.VpcConfiguration
     Amazonka.LookoutMetrics.UntagResource
+    Amazonka.LookoutMetrics.UpdateAlert
     Amazonka.LookoutMetrics.UpdateAnomalyDetector
     Amazonka.LookoutMetrics.UpdateMetricSet
     Amazonka.LookoutMetrics.Waiters

@@ -60,8 +60,8 @@ data UpdateMetricSet = UpdateMetricSet'
     -- | The dataset\'s description.
     metricSetDescription :: Prelude.Maybe Prelude.Text,
     -- | After an interval ends, the amount of seconds that the detector waits
-    -- before importing data. Offset is only supported for S3 and Redshift
-    -- datasources.
+    -- before importing data. Offset is only supported for S3, Redshift, Athena
+    -- and datasources.
     offset :: Prelude.Maybe Prelude.Natural,
     metricSource :: Prelude.Maybe MetricSource,
     -- | The dimension list.
@@ -88,8 +88,8 @@ data UpdateMetricSet = UpdateMetricSet'
 -- 'metricSetDescription', 'updateMetricSet_metricSetDescription' - The dataset\'s description.
 --
 -- 'offset', 'updateMetricSet_offset' - After an interval ends, the amount of seconds that the detector waits
--- before importing data. Offset is only supported for S3 and Redshift
--- datasources.
+-- before importing data. Offset is only supported for S3, Redshift, Athena
+-- and datasources.
 --
 -- 'metricSource', 'updateMetricSet_metricSource' - Undocumented member.
 --
@@ -125,8 +125,8 @@ updateMetricSet_metricSetDescription :: Lens.Lens' UpdateMetricSet (Prelude.Mayb
 updateMetricSet_metricSetDescription = Lens.lens (\UpdateMetricSet' {metricSetDescription} -> metricSetDescription) (\s@UpdateMetricSet' {} a -> s {metricSetDescription = a} :: UpdateMetricSet)
 
 -- | After an interval ends, the amount of seconds that the detector waits
--- before importing data. Offset is only supported for S3 and Redshift
--- datasources.
+-- before importing data. Offset is only supported for S3, Redshift, Athena
+-- and datasources.
 updateMetricSet_offset :: Lens.Lens' UpdateMetricSet (Prelude.Maybe Prelude.Natural)
 updateMetricSet_offset = Lens.lens (\UpdateMetricSet' {offset} -> offset) (\s@UpdateMetricSet' {} a -> s {offset = a} :: UpdateMetricSet)
 

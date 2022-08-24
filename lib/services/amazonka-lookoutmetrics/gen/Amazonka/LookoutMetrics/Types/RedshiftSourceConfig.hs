@@ -28,24 +28,24 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRedshiftSourceConfig' smart constructor.
 data RedshiftSourceConfig = RedshiftSourceConfig'
-  { -- | A string identifying the Redshift cluster.
-    clusterIdentifier :: Prelude.Text,
-    -- | The name of the database host.
-    databaseHost :: Prelude.Text,
-    -- | The port number where the database can be accessed.
-    databasePort :: Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-    secretManagerArn :: Prelude.Text,
-    -- | The Redshift database name.
-    databaseName :: Prelude.Text,
+  { -- | Contains information about the Amazon Virtual Private Cloud (VPC)
+    -- configuration.
+    vpcConfiguration :: Prelude.Maybe VpcConfiguration,
     -- | The table name of the Redshift database.
-    tableName :: Prelude.Text,
+    tableName :: Prelude.Maybe Prelude.Text,
+    -- | A string identifying the Redshift cluster.
+    clusterIdentifier :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the role providing access to the
     -- database.
-    roleArn :: Prelude.Text,
-    -- | Contains information about the Amazon Virtual Private Cloud (VPC)
-    -- configuration.
-    vpcConfiguration :: VpcConfiguration
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Redshift database name.
+    databaseName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database host.
+    databaseHost :: Prelude.Maybe Prelude.Text,
+    -- | The port number where the database can be accessed.
+    databasePort :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+    secretManagerArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -57,95 +57,71 @@ data RedshiftSourceConfig = RedshiftSourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcConfiguration', 'redshiftSourceConfig_vpcConfiguration' - Contains information about the Amazon Virtual Private Cloud (VPC)
+-- configuration.
+--
+-- 'tableName', 'redshiftSourceConfig_tableName' - The table name of the Redshift database.
+--
 -- 'clusterIdentifier', 'redshiftSourceConfig_clusterIdentifier' - A string identifying the Redshift cluster.
+--
+-- 'roleArn', 'redshiftSourceConfig_roleArn' - The Amazon Resource Name (ARN) of the role providing access to the
+-- database.
+--
+-- 'databaseName', 'redshiftSourceConfig_databaseName' - The Redshift database name.
 --
 -- 'databaseHost', 'redshiftSourceConfig_databaseHost' - The name of the database host.
 --
 -- 'databasePort', 'redshiftSourceConfig_databasePort' - The port number where the database can be accessed.
 --
 -- 'secretManagerArn', 'redshiftSourceConfig_secretManagerArn' - The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
---
--- 'databaseName', 'redshiftSourceConfig_databaseName' - The Redshift database name.
---
--- 'tableName', 'redshiftSourceConfig_tableName' - The table name of the Redshift database.
---
--- 'roleArn', 'redshiftSourceConfig_roleArn' - The Amazon Resource Name (ARN) of the role providing access to the
--- database.
---
--- 'vpcConfiguration', 'redshiftSourceConfig_vpcConfiguration' - Contains information about the Amazon Virtual Private Cloud (VPC)
--- configuration.
 newRedshiftSourceConfig ::
-  -- | 'clusterIdentifier'
-  Prelude.Text ->
-  -- | 'databaseHost'
-  Prelude.Text ->
-  -- | 'databasePort'
-  Prelude.Natural ->
-  -- | 'secretManagerArn'
-  Prelude.Text ->
-  -- | 'databaseName'
-  Prelude.Text ->
-  -- | 'tableName'
-  Prelude.Text ->
-  -- | 'roleArn'
-  Prelude.Text ->
-  -- | 'vpcConfiguration'
-  VpcConfiguration ->
   RedshiftSourceConfig
-newRedshiftSourceConfig
-  pClusterIdentifier_
-  pDatabaseHost_
-  pDatabasePort_
-  pSecretManagerArn_
-  pDatabaseName_
-  pTableName_
-  pRoleArn_
-  pVpcConfiguration_ =
-    RedshiftSourceConfig'
-      { clusterIdentifier =
-          pClusterIdentifier_,
-        databaseHost = pDatabaseHost_,
-        databasePort = pDatabasePort_,
-        secretManagerArn = pSecretManagerArn_,
-        databaseName = pDatabaseName_,
-        tableName = pTableName_,
-        roleArn = pRoleArn_,
-        vpcConfiguration = pVpcConfiguration_
-      }
-
--- | A string identifying the Redshift cluster.
-redshiftSourceConfig_clusterIdentifier :: Lens.Lens' RedshiftSourceConfig Prelude.Text
-redshiftSourceConfig_clusterIdentifier = Lens.lens (\RedshiftSourceConfig' {clusterIdentifier} -> clusterIdentifier) (\s@RedshiftSourceConfig' {} a -> s {clusterIdentifier = a} :: RedshiftSourceConfig)
-
--- | The name of the database host.
-redshiftSourceConfig_databaseHost :: Lens.Lens' RedshiftSourceConfig Prelude.Text
-redshiftSourceConfig_databaseHost = Lens.lens (\RedshiftSourceConfig' {databaseHost} -> databaseHost) (\s@RedshiftSourceConfig' {} a -> s {databaseHost = a} :: RedshiftSourceConfig)
-
--- | The port number where the database can be accessed.
-redshiftSourceConfig_databasePort :: Lens.Lens' RedshiftSourceConfig Prelude.Natural
-redshiftSourceConfig_databasePort = Lens.lens (\RedshiftSourceConfig' {databasePort} -> databasePort) (\s@RedshiftSourceConfig' {} a -> s {databasePort = a} :: RedshiftSourceConfig)
-
--- | The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
-redshiftSourceConfig_secretManagerArn :: Lens.Lens' RedshiftSourceConfig Prelude.Text
-redshiftSourceConfig_secretManagerArn = Lens.lens (\RedshiftSourceConfig' {secretManagerArn} -> secretManagerArn) (\s@RedshiftSourceConfig' {} a -> s {secretManagerArn = a} :: RedshiftSourceConfig)
-
--- | The Redshift database name.
-redshiftSourceConfig_databaseName :: Lens.Lens' RedshiftSourceConfig Prelude.Text
-redshiftSourceConfig_databaseName = Lens.lens (\RedshiftSourceConfig' {databaseName} -> databaseName) (\s@RedshiftSourceConfig' {} a -> s {databaseName = a} :: RedshiftSourceConfig)
-
--- | The table name of the Redshift database.
-redshiftSourceConfig_tableName :: Lens.Lens' RedshiftSourceConfig Prelude.Text
-redshiftSourceConfig_tableName = Lens.lens (\RedshiftSourceConfig' {tableName} -> tableName) (\s@RedshiftSourceConfig' {} a -> s {tableName = a} :: RedshiftSourceConfig)
-
--- | The Amazon Resource Name (ARN) of the role providing access to the
--- database.
-redshiftSourceConfig_roleArn :: Lens.Lens' RedshiftSourceConfig Prelude.Text
-redshiftSourceConfig_roleArn = Lens.lens (\RedshiftSourceConfig' {roleArn} -> roleArn) (\s@RedshiftSourceConfig' {} a -> s {roleArn = a} :: RedshiftSourceConfig)
+newRedshiftSourceConfig =
+  RedshiftSourceConfig'
+    { vpcConfiguration =
+        Prelude.Nothing,
+      tableName = Prelude.Nothing,
+      clusterIdentifier = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      databaseName = Prelude.Nothing,
+      databaseHost = Prelude.Nothing,
+      databasePort = Prelude.Nothing,
+      secretManagerArn = Prelude.Nothing
+    }
 
 -- | Contains information about the Amazon Virtual Private Cloud (VPC)
 -- configuration.
-redshiftSourceConfig_vpcConfiguration :: Lens.Lens' RedshiftSourceConfig VpcConfiguration
+redshiftSourceConfig_vpcConfiguration :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe VpcConfiguration)
 redshiftSourceConfig_vpcConfiguration = Lens.lens (\RedshiftSourceConfig' {vpcConfiguration} -> vpcConfiguration) (\s@RedshiftSourceConfig' {} a -> s {vpcConfiguration = a} :: RedshiftSourceConfig)
+
+-- | The table name of the Redshift database.
+redshiftSourceConfig_tableName :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe Prelude.Text)
+redshiftSourceConfig_tableName = Lens.lens (\RedshiftSourceConfig' {tableName} -> tableName) (\s@RedshiftSourceConfig' {} a -> s {tableName = a} :: RedshiftSourceConfig)
+
+-- | A string identifying the Redshift cluster.
+redshiftSourceConfig_clusterIdentifier :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe Prelude.Text)
+redshiftSourceConfig_clusterIdentifier = Lens.lens (\RedshiftSourceConfig' {clusterIdentifier} -> clusterIdentifier) (\s@RedshiftSourceConfig' {} a -> s {clusterIdentifier = a} :: RedshiftSourceConfig)
+
+-- | The Amazon Resource Name (ARN) of the role providing access to the
+-- database.
+redshiftSourceConfig_roleArn :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe Prelude.Text)
+redshiftSourceConfig_roleArn = Lens.lens (\RedshiftSourceConfig' {roleArn} -> roleArn) (\s@RedshiftSourceConfig' {} a -> s {roleArn = a} :: RedshiftSourceConfig)
+
+-- | The Redshift database name.
+redshiftSourceConfig_databaseName :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe Prelude.Text)
+redshiftSourceConfig_databaseName = Lens.lens (\RedshiftSourceConfig' {databaseName} -> databaseName) (\s@RedshiftSourceConfig' {} a -> s {databaseName = a} :: RedshiftSourceConfig)
+
+-- | The name of the database host.
+redshiftSourceConfig_databaseHost :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe Prelude.Text)
+redshiftSourceConfig_databaseHost = Lens.lens (\RedshiftSourceConfig' {databaseHost} -> databaseHost) (\s@RedshiftSourceConfig' {} a -> s {databaseHost = a} :: RedshiftSourceConfig)
+
+-- | The port number where the database can be accessed.
+redshiftSourceConfig_databasePort :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe Prelude.Natural)
+redshiftSourceConfig_databasePort = Lens.lens (\RedshiftSourceConfig' {databasePort} -> databasePort) (\s@RedshiftSourceConfig' {} a -> s {databasePort = a} :: RedshiftSourceConfig)
+
+-- | The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
+redshiftSourceConfig_secretManagerArn :: Lens.Lens' RedshiftSourceConfig (Prelude.Maybe Prelude.Text)
+redshiftSourceConfig_secretManagerArn = Lens.lens (\RedshiftSourceConfig' {secretManagerArn} -> secretManagerArn) (\s@RedshiftSourceConfig' {} a -> s {secretManagerArn = a} :: RedshiftSourceConfig)
 
 instance Core.FromJSON RedshiftSourceConfig where
   parseJSON =
@@ -153,52 +129,52 @@ instance Core.FromJSON RedshiftSourceConfig where
       "RedshiftSourceConfig"
       ( \x ->
           RedshiftSourceConfig'
-            Prelude.<$> (x Core..: "ClusterIdentifier")
-            Prelude.<*> (x Core..: "DatabaseHost")
-            Prelude.<*> (x Core..: "DatabasePort")
-            Prelude.<*> (x Core..: "SecretManagerArn")
-            Prelude.<*> (x Core..: "DatabaseName")
-            Prelude.<*> (x Core..: "TableName")
-            Prelude.<*> (x Core..: "RoleArn")
-            Prelude.<*> (x Core..: "VpcConfiguration")
+            Prelude.<$> (x Core..:? "VpcConfiguration")
+            Prelude.<*> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "ClusterIdentifier")
+            Prelude.<*> (x Core..:? "RoleArn")
+            Prelude.<*> (x Core..:? "DatabaseName")
+            Prelude.<*> (x Core..:? "DatabaseHost")
+            Prelude.<*> (x Core..:? "DatabasePort")
+            Prelude.<*> (x Core..:? "SecretManagerArn")
       )
 
 instance Prelude.Hashable RedshiftSourceConfig where
   hashWithSalt _salt RedshiftSourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` clusterIdentifier
+    _salt `Prelude.hashWithSalt` vpcConfiguration
+      `Prelude.hashWithSalt` tableName
+      `Prelude.hashWithSalt` clusterIdentifier
+      `Prelude.hashWithSalt` roleArn
+      `Prelude.hashWithSalt` databaseName
       `Prelude.hashWithSalt` databaseHost
       `Prelude.hashWithSalt` databasePort
       `Prelude.hashWithSalt` secretManagerArn
-      `Prelude.hashWithSalt` databaseName
-      `Prelude.hashWithSalt` tableName
-      `Prelude.hashWithSalt` roleArn
-      `Prelude.hashWithSalt` vpcConfiguration
 
 instance Prelude.NFData RedshiftSourceConfig where
   rnf RedshiftSourceConfig' {..} =
-    Prelude.rnf clusterIdentifier
+    Prelude.rnf vpcConfiguration
+      `Prelude.seq` Prelude.rnf tableName
+      `Prelude.seq` Prelude.rnf clusterIdentifier
+      `Prelude.seq` Prelude.rnf roleArn
+      `Prelude.seq` Prelude.rnf databaseName
       `Prelude.seq` Prelude.rnf databaseHost
       `Prelude.seq` Prelude.rnf databasePort
       `Prelude.seq` Prelude.rnf secretManagerArn
-      `Prelude.seq` Prelude.rnf databaseName
-      `Prelude.seq` Prelude.rnf tableName
-      `Prelude.seq` Prelude.rnf roleArn
-      `Prelude.seq` Prelude.rnf vpcConfiguration
 
 instance Core.ToJSON RedshiftSourceConfig where
   toJSON RedshiftSourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ClusterIdentifier" Core..= clusterIdentifier),
-            Prelude.Just ("DatabaseHost" Core..= databaseHost),
-            Prelude.Just ("DatabasePort" Core..= databasePort),
-            Prelude.Just
-              ("SecretManagerArn" Core..= secretManagerArn),
-            Prelude.Just ("DatabaseName" Core..= databaseName),
-            Prelude.Just ("TableName" Core..= tableName),
-            Prelude.Just ("RoleArn" Core..= roleArn),
-            Prelude.Just
-              ("VpcConfiguration" Core..= vpcConfiguration)
+          [ ("VpcConfiguration" Core..=)
+              Prelude.<$> vpcConfiguration,
+            ("TableName" Core..=) Prelude.<$> tableName,
+            ("ClusterIdentifier" Core..=)
+              Prelude.<$> clusterIdentifier,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("DatabaseName" Core..=) Prelude.<$> databaseName,
+            ("DatabaseHost" Core..=) Prelude.<$> databaseHost,
+            ("DatabasePort" Core..=) Prelude.<$> databasePort,
+            ("SecretManagerArn" Core..=)
+              Prelude.<$> secretManagerArn
           ]
       )

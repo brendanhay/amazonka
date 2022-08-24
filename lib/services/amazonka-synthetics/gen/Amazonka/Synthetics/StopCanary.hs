@@ -21,10 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops the canary to prevent all future runs. If the canary is currently
--- running, Synthetics stops waiting for the current run of the specified
--- canary to complete. The run that is in progress completes on its own,
--- publishes metrics, and uploads artifacts, but it is not recorded in
--- Synthetics as a completed run.
+-- running,the run that is in progress completes on its own, publishes
+-- metrics, and uploads artifacts, but it is not recorded in Synthetics as
+-- a completed run.
 --
 -- You can use @StartCanary@ to start it running again with the canary’s
 -- current schedule at any point in the future.
@@ -56,7 +55,7 @@ import Amazonka.Synthetics.Types
 data StopCanary = StopCanary'
   { -- | The name of the canary that you want to stop. To find the names of your
     -- canaries, use
-    -- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html DescribeCanaries>.
+    -- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html ListCanaries>.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +70,7 @@ data StopCanary = StopCanary'
 --
 -- 'name', 'stopCanary_name' - The name of the canary that you want to stop. To find the names of your
 -- canaries, use
--- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html DescribeCanaries>.
+-- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html ListCanaries>.
 newStopCanary ::
   -- | 'name'
   Prelude.Text ->
@@ -80,7 +79,7 @@ newStopCanary pName_ = StopCanary' {name = pName_}
 
 -- | The name of the canary that you want to stop. To find the names of your
 -- canaries, use
--- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html DescribeCanaries>.
+-- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html ListCanaries>.
 stopCanary_name :: Lens.Lens' StopCanary Prelude.Text
 stopCanary_name = Lens.lens (\StopCanary' {name} -> name) (\s@StopCanary' {} a -> s {name = a} :: StopCanary)
 

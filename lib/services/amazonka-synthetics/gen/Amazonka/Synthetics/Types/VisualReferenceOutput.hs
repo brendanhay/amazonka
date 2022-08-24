@@ -34,9 +34,8 @@ import Amazonka.Synthetics.Types.BaseScreenshot
 --
 -- /See:/ 'newVisualReferenceOutput' smart constructor.
 data VisualReferenceOutput = VisualReferenceOutput'
-  { -- | The ID of the canary run that produced the screenshots that are used as
-    -- the baseline for visual monitoring comparisons during future runs of
-    -- this canary.
+  { -- | The ID of the canary run that produced the baseline screenshots that are
+    -- used for visual monitoring comparisons by this canary.
     baseCanaryRunId :: Prelude.Maybe Prelude.Text,
     -- | An array of screenshots that are used as the baseline for comparisons
     -- during visual monitoring.
@@ -52,9 +51,8 @@ data VisualReferenceOutput = VisualReferenceOutput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'baseCanaryRunId', 'visualReferenceOutput_baseCanaryRunId' - The ID of the canary run that produced the screenshots that are used as
--- the baseline for visual monitoring comparisons during future runs of
--- this canary.
+-- 'baseCanaryRunId', 'visualReferenceOutput_baseCanaryRunId' - The ID of the canary run that produced the baseline screenshots that are
+-- used for visual monitoring comparisons by this canary.
 --
 -- 'baseScreenshots', 'visualReferenceOutput_baseScreenshots' - An array of screenshots that are used as the baseline for comparisons
 -- during visual monitoring.
@@ -67,9 +65,8 @@ newVisualReferenceOutput =
       baseScreenshots = Prelude.Nothing
     }
 
--- | The ID of the canary run that produced the screenshots that are used as
--- the baseline for visual monitoring comparisons during future runs of
--- this canary.
+-- | The ID of the canary run that produced the baseline screenshots that are
+-- used for visual monitoring comparisons by this canary.
 visualReferenceOutput_baseCanaryRunId :: Lens.Lens' VisualReferenceOutput (Prelude.Maybe Prelude.Text)
 visualReferenceOutput_baseCanaryRunId = Lens.lens (\VisualReferenceOutput' {baseCanaryRunId} -> baseCanaryRunId) (\s@VisualReferenceOutput' {} a -> s {baseCanaryRunId = a} :: VisualReferenceOutput)
 

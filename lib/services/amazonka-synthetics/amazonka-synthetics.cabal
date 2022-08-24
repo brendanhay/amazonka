@@ -44,14 +44,22 @@ library
 
   exposed-modules:
     Amazonka.Synthetics
+    Amazonka.Synthetics.AssociateResource
     Amazonka.Synthetics.CreateCanary
+    Amazonka.Synthetics.CreateGroup
     Amazonka.Synthetics.DeleteCanary
+    Amazonka.Synthetics.DeleteGroup
     Amazonka.Synthetics.DescribeCanaries
     Amazonka.Synthetics.DescribeCanariesLastRun
     Amazonka.Synthetics.DescribeRuntimeVersions
+    Amazonka.Synthetics.DisassociateResource
     Amazonka.Synthetics.GetCanary
     Amazonka.Synthetics.GetCanaryRuns
+    Amazonka.Synthetics.GetGroup
     Amazonka.Synthetics.Lens
+    Amazonka.Synthetics.ListAssociatedGroups
+    Amazonka.Synthetics.ListGroupResources
+    Amazonka.Synthetics.ListGroups
     Amazonka.Synthetics.ListTagsForResource
     Amazonka.Synthetics.StartCanary
     Amazonka.Synthetics.StopCanary
@@ -78,6 +86,8 @@ library
     Amazonka.Synthetics.Types.CanaryStatus
     Amazonka.Synthetics.Types.CanaryTimeline
     Amazonka.Synthetics.Types.EncryptionMode
+    Amazonka.Synthetics.Types.Group
+    Amazonka.Synthetics.Types.GroupSummary
     Amazonka.Synthetics.Types.RuntimeVersion
     Amazonka.Synthetics.Types.S3EncryptionConfig
     Amazonka.Synthetics.Types.VisualReferenceInput

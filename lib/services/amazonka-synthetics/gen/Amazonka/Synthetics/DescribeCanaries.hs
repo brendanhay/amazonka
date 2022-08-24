@@ -23,10 +23,16 @@
 -- This operation returns a list of the canaries in your account, along
 -- with full details about each canary.
 --
--- This operation does not have resource-level authorization, so if a user
--- is able to use @DescribeCanaries@, the user can see all of the canaries
--- in the account. A deny policy can only be used to restrict access to all
--- canaries. It cannot be used on specific resources.
+-- This operation supports resource-level authorization using an IAM policy
+-- and the @Names@ parameter. If you specify the @Names@ parameter, the
+-- operation is successful only if you have authorization to view all the
+-- canaries that you specify in your request. If you do not have permission
+-- to view any of the canaries, the request fails with a 403 response.
+--
+-- You are required to use the @Names@ parameter if you are logged on to a
+-- user or role that has an IAM policy that restricts which canaries that
+-- you are allowed to view. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
 module Amazonka.Synthetics.DescribeCanaries
   ( -- * Creating a Request
     DescribeCanaries (..),
@@ -34,6 +40,7 @@ module Amazonka.Synthetics.DescribeCanaries
 
     -- * Request Lenses
     describeCanaries_nextToken,
+    describeCanaries_names,
     describeCanaries_maxResults,
 
     -- * Destructuring the Response
@@ -60,6 +67,19 @@ data DescribeCanaries = DescribeCanaries'
     -- this token in a subsequent operation to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to return only canaries that match the names that you
+    -- specify here. You can specify as many as five canary names.
+    --
+    -- If you specify this parameter, the operation is successful only if you
+    -- have authorization to view all the canaries that you specify in your
+    -- request. If you do not have permission to view any of the canaries, the
+    -- request fails with a 403 response.
+    --
+    -- You are required to use this parameter if you are logged on to a user or
+    -- role that has an IAM policy that restricts which canaries that you are
+    -- allowed to view. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
+    names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specify this parameter to limit how many canaries are returned each time
     -- you use the @DescribeCanaries@ operation. If you omit this parameter,
     -- the default of 100 is used.
@@ -79,6 +99,19 @@ data DescribeCanaries = DescribeCanaries'
 -- this token in a subsequent operation to retrieve the next set of
 -- results.
 --
+-- 'names', 'describeCanaries_names' - Use this parameter to return only canaries that match the names that you
+-- specify here. You can specify as many as five canary names.
+--
+-- If you specify this parameter, the operation is successful only if you
+-- have authorization to view all the canaries that you specify in your
+-- request. If you do not have permission to view any of the canaries, the
+-- request fails with a 403 response.
+--
+-- You are required to use this parameter if you are logged on to a user or
+-- role that has an IAM policy that restricts which canaries that you are
+-- allowed to view. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
+--
 -- 'maxResults', 'describeCanaries_maxResults' - Specify this parameter to limit how many canaries are returned each time
 -- you use the @DescribeCanaries@ operation. If you omit this parameter,
 -- the default of 100 is used.
@@ -87,6 +120,7 @@ newDescribeCanaries ::
 newDescribeCanaries =
   DescribeCanaries'
     { nextToken = Prelude.Nothing,
+      names = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
@@ -95,6 +129,21 @@ newDescribeCanaries =
 -- results.
 describeCanaries_nextToken :: Lens.Lens' DescribeCanaries (Prelude.Maybe Prelude.Text)
 describeCanaries_nextToken = Lens.lens (\DescribeCanaries' {nextToken} -> nextToken) (\s@DescribeCanaries' {} a -> s {nextToken = a} :: DescribeCanaries)
+
+-- | Use this parameter to return only canaries that match the names that you
+-- specify here. You can specify as many as five canary names.
+--
+-- If you specify this parameter, the operation is successful only if you
+-- have authorization to view all the canaries that you specify in your
+-- request. If you do not have permission to view any of the canaries, the
+-- request fails with a 403 response.
+--
+-- You are required to use this parameter if you are logged on to a user or
+-- role that has an IAM policy that restricts which canaries that you are
+-- allowed to view. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
+describeCanaries_names :: Lens.Lens' DescribeCanaries (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeCanaries_names = Lens.lens (\DescribeCanaries' {names} -> names) (\s@DescribeCanaries' {} a -> s {names = a} :: DescribeCanaries) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify this parameter to limit how many canaries are returned each time
 -- you use the @DescribeCanaries@ operation. If you omit this parameter,
@@ -119,11 +168,13 @@ instance Core.AWSRequest DescribeCanaries where
 instance Prelude.Hashable DescribeCanaries where
   hashWithSalt _salt DescribeCanaries' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeCanaries where
   rnf DescribeCanaries' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf names
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeCanaries where
@@ -142,6 +193,7 @@ instance Core.ToJSON DescribeCanaries where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Names" Core..=) Prelude.<$> names,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

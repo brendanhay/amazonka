@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from the specified canary.
+-- Removes one or more tags from the specified resource.
 module Amazonka.Synthetics.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -48,10 +48,13 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The ARN of the canary that you\'re removing tags from.
+  { -- | The ARN of the canary or group that you\'re removing tags from.
     --
     -- The ARN format of a canary is
     -- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+    --
+    -- The ARN format of a group is
+    -- @arn:aws:synthetics:Region:account-id:group:group-name @
     resourceArn :: Prelude.Text,
     -- | The list of tag keys to remove from the resource.
     tagKeys :: Prelude.NonEmpty Prelude.Text
@@ -66,10 +69,13 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The ARN of the canary that you\'re removing tags from.
+-- 'resourceArn', 'untagResource_resourceArn' - The ARN of the canary or group that you\'re removing tags from.
 --
 -- The ARN format of a canary is
 -- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+--
+-- The ARN format of a group is
+-- @arn:aws:synthetics:Region:account-id:group:group-name @
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The list of tag keys to remove from the resource.
 newUntagResource ::
@@ -84,10 +90,13 @@ newUntagResource pResourceArn_ pTagKeys_ =
       tagKeys = Lens.coerced Lens.# pTagKeys_
     }
 
--- | The ARN of the canary that you\'re removing tags from.
+-- | The ARN of the canary or group that you\'re removing tags from.
 --
 -- The ARN format of a canary is
 -- @arn:aws:synthetics:Region:account-id:canary:canary-name @.
+--
+-- The ARN format of a group is
+-- @arn:aws:synthetics:Region:account-id:group:group-name @
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 

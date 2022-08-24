@@ -22,12 +22,12 @@
 --
 -- Permanently deletes the specified canary.
 --
--- When you delete a canary, resources used and created by the canary are
--- not automatically deleted. After you delete a canary that you do not
--- intend to use again, you should also delete the following:
+-- If you specify @DeleteLambda@ to @true@, CloudWatch Synthetics also
+-- deletes the Lambda functions and layers that are used by the canary.
 --
--- -   The Lambda functions and layers used by this canary. These have the
---     prefix @cwsyn-MyCanaryName @.
+-- Other resources used and created by the canary are not automatically
+-- deleted. After you delete a canary that you do not intend to use again,
+-- you should also delete the following:
 --
 -- -   The CloudWatch alarms created for this canary. These alarms have a
 --     name of @Synthetics-SharpDrop-Alarm-MyCanaryName @.
@@ -52,6 +52,7 @@ module Amazonka.Synthetics.DeleteCanary
     newDeleteCanary,
 
     -- * Request Lenses
+    deleteCanary_deleteLambda,
     deleteCanary_name,
 
     -- * Destructuring the Response
@@ -72,7 +73,12 @@ import Amazonka.Synthetics.Types
 
 -- | /See:/ 'newDeleteCanary' smart constructor.
 data DeleteCanary = DeleteCanary'
-  { -- | The name of the canary that you want to delete. To find the names of
+  { -- | Specifies whether to also delete the Lambda functions and layers used by
+    -- this canary. The default is false.
+    --
+    -- Type: Boolean
+    deleteLambda :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the canary that you want to delete. To find the names of
     -- your canaries, use
     -- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html DescribeCanaries>.
     name :: Prelude.Text
@@ -87,6 +93,11 @@ data DeleteCanary = DeleteCanary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'deleteLambda', 'deleteCanary_deleteLambda' - Specifies whether to also delete the Lambda functions and layers used by
+-- this canary. The default is false.
+--
+-- Type: Boolean
+--
 -- 'name', 'deleteCanary_name' - The name of the canary that you want to delete. To find the names of
 -- your canaries, use
 -- <https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html DescribeCanaries>.
@@ -94,7 +105,18 @@ newDeleteCanary ::
   -- | 'name'
   Prelude.Text ->
   DeleteCanary
-newDeleteCanary pName_ = DeleteCanary' {name = pName_}
+newDeleteCanary pName_ =
+  DeleteCanary'
+    { deleteLambda = Prelude.Nothing,
+      name = pName_
+    }
+
+-- | Specifies whether to also delete the Lambda functions and layers used by
+-- this canary. The default is false.
+--
+-- Type: Boolean
+deleteCanary_deleteLambda :: Lens.Lens' DeleteCanary (Prelude.Maybe Prelude.Bool)
+deleteCanary_deleteLambda = Lens.lens (\DeleteCanary' {deleteLambda} -> deleteLambda) (\s@DeleteCanary' {} a -> s {deleteLambda = a} :: DeleteCanary)
 
 -- | The name of the canary that you want to delete. To find the names of
 -- your canaries, use
@@ -114,10 +136,13 @@ instance Core.AWSRequest DeleteCanary where
 
 instance Prelude.Hashable DeleteCanary where
   hashWithSalt _salt DeleteCanary' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` deleteLambda
+      `Prelude.hashWithSalt` name
 
 instance Prelude.NFData DeleteCanary where
-  rnf DeleteCanary' {..} = Prelude.rnf name
+  rnf DeleteCanary' {..} =
+    Prelude.rnf deleteLambda
+      `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders DeleteCanary where
   toHeaders =
@@ -135,7 +160,9 @@ instance Core.ToPath DeleteCanary where
     Prelude.mconcat ["/canary/", Core.toBS name]
 
 instance Core.ToQuery DeleteCanary where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery DeleteCanary' {..} =
+    Prelude.mconcat
+      ["deleteLambda" Core.=: deleteLambda]
 
 -- | /See:/ 'newDeleteCanaryResponse' smart constructor.
 data DeleteCanaryResponse = DeleteCanaryResponse'

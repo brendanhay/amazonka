@@ -54,6 +54,9 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
     -- specify any Lambda reserved environment variables as the keys for your
     -- environment variables. For more information about reserved keys, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime Runtime environment variables>.
+    --
+    -- The environment variables keys and values are not encrypted. Do not
+    -- store sensitive information in this field.
     environmentVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The maximum amount of memory available to the canary while it is
     -- running, in MB. This value must be a multiple of 64.
@@ -96,6 +99,9 @@ data CanaryRunConfigInput = CanaryRunConfigInput'
 -- specify any Lambda reserved environment variables as the keys for your
 -- environment variables. For more information about reserved keys, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime Runtime environment variables>.
+--
+-- The environment variables keys and values are not encrypted. Do not
+-- store sensitive information in this field.
 --
 -- 'memoryInMB', 'canaryRunConfigInput_memoryInMB' - The maximum amount of memory available to the canary while it is
 -- running, in MB. This value must be a multiple of 64.
@@ -141,6 +147,9 @@ canaryRunConfigInput_timeoutInSeconds = Lens.lens (\CanaryRunConfigInput' {timeo
 -- specify any Lambda reserved environment variables as the keys for your
 -- environment variables. For more information about reserved keys, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime Runtime environment variables>.
+--
+-- The environment variables keys and values are not encrypted. Do not
+-- store sensitive information in this field.
 canaryRunConfigInput_environmentVariables :: Lens.Lens' CanaryRunConfigInput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 canaryRunConfigInput_environmentVariables = Lens.lens (\CanaryRunConfigInput' {environmentVariables} -> environmentVariables) (\s@CanaryRunConfigInput' {} a -> s {environmentVariables = a} :: CanaryRunConfigInput) Prelude.. Lens.mapping Lens.coerced
 

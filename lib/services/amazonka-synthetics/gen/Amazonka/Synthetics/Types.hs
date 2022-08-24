@@ -18,9 +18,15 @@ module Amazonka.Synthetics.Types
 
     -- * Errors
     _InternalServerException,
+    _NotFoundException,
+    _ServiceQuotaExceededException,
     _ResourceNotFoundException,
     _ConflictException,
+    _BadRequestException,
     _ValidationException,
+    _RequestEntityTooLargeException,
+    _TooManyRequestsException,
+    _InternalFailureException,
 
     -- * CanaryRunState
     CanaryRunState (..),
@@ -159,6 +165,23 @@ module Amazonka.Synthetics.Types
     canaryTimeline_lastModified,
     canaryTimeline_lastStopped,
 
+    -- * Group
+    Group (..),
+    newGroup,
+    group_tags,
+    group_name,
+    group_createdTime,
+    group_arn,
+    group_id,
+    group_lastModifiedTime,
+
+    -- * GroupSummary
+    GroupSummary (..),
+    newGroupSummary,
+    groupSummary_name,
+    groupSummary_arn,
+    groupSummary_id,
+
     -- * RuntimeVersion
     RuntimeVersion (..),
     newRuntimeVersion,
@@ -225,6 +248,8 @@ import Amazonka.Synthetics.Types.CanaryStateReasonCode
 import Amazonka.Synthetics.Types.CanaryStatus
 import Amazonka.Synthetics.Types.CanaryTimeline
 import Amazonka.Synthetics.Types.EncryptionMode
+import Amazonka.Synthetics.Types.Group
+import Amazonka.Synthetics.Types.GroupSummary
 import Amazonka.Synthetics.Types.RuntimeVersion
 import Amazonka.Synthetics.Types.S3EncryptionConfig
 import Amazonka.Synthetics.Types.VisualReferenceInput
@@ -311,6 +336,22 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
+-- | The specified resource was not found.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The request exceeded a service quota value.
+_ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceQuotaExceededException =
+  Core._MatchServiceError
+    defaultService
+    "ServiceQuotaExceededException"
+    Prelude.. Core.hasStatus 402
+
 -- | One of the specified resources was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
@@ -327,6 +368,14 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
+-- | The request was not valid.
+_BadRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError
+    defaultService
+    "BadRequestException"
+    Prelude.. Core.hasStatus 400
+
 -- | A parameter could not be validated.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
@@ -334,3 +383,27 @@ _ValidationException =
     defaultService
     "ValidationException"
     Prelude.. Core.hasStatus 400
+
+-- | One of the input resources is larger than is allowed.
+_RequestEntityTooLargeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestEntityTooLargeException =
+  Core._MatchServiceError
+    defaultService
+    "RequestEntityTooLargeException"
+    Prelude.. Core.hasStatus 413
+
+-- | There were too many simultaneous requests. Try the operation again.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Core.hasStatus 429
+
+-- | An internal failure occurred. Try the operation again.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    defaultService
+    "InternalFailureException"
+    Prelude.. Core.hasStatus 500

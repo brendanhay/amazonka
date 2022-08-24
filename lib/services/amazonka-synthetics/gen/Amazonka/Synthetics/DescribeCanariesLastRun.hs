@@ -22,6 +22,17 @@
 --
 -- Use this operation to see information from the most recent run of each
 -- canary that you have created.
+--
+-- This operation supports resource-level authorization using an IAM policy
+-- and the @Names@ parameter. If you specify the @Names@ parameter, the
+-- operation is successful only if you have authorization to view all the
+-- canaries that you specify in your request. If you do not have permission
+-- to view any of the canaries, the request fails with a 403 response.
+--
+-- You are required to use the @Names@ parameter if you are logged on to a
+-- user or role that has an IAM policy that restricts which canaries that
+-- you are allowed to view. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
 module Amazonka.Synthetics.DescribeCanariesLastRun
   ( -- * Creating a Request
     DescribeCanariesLastRun (..),
@@ -29,6 +40,7 @@ module Amazonka.Synthetics.DescribeCanariesLastRun
 
     -- * Request Lenses
     describeCanariesLastRun_nextToken,
+    describeCanariesLastRun_names,
     describeCanariesLastRun_maxResults,
 
     -- * Destructuring the Response
@@ -52,9 +64,22 @@ import Amazonka.Synthetics.Types
 -- | /See:/ 'newDescribeCanariesLastRun' smart constructor.
 data DescribeCanariesLastRun = DescribeCanariesLastRun'
   { -- | A token that indicates that there is more data available. You can use
-    -- this token in a subsequent @DescribeCanaries@ operation to retrieve the
-    -- next set of results.
+    -- this token in a subsequent @DescribeCanariesLastRun@ operation to
+    -- retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Use this parameter to return only canaries that match the names that you
+    -- specify here. You can specify as many as five canary names.
+    --
+    -- If you specify this parameter, the operation is successful only if you
+    -- have authorization to view all the canaries that you specify in your
+    -- request. If you do not have permission to view any of the canaries, the
+    -- request fails with a 403 response.
+    --
+    -- You are required to use the @Names@ parameter if you are logged on to a
+    -- user or role that has an IAM policy that restricts which canaries that
+    -- you are allowed to view. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
+    names :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specify this parameter to limit how many runs are returned each time you
     -- use the @DescribeLastRun@ operation. If you omit this parameter, the
     -- default of 100 is used.
@@ -71,8 +96,21 @@ data DescribeCanariesLastRun = DescribeCanariesLastRun'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'describeCanariesLastRun_nextToken' - A token that indicates that there is more data available. You can use
--- this token in a subsequent @DescribeCanaries@ operation to retrieve the
--- next set of results.
+-- this token in a subsequent @DescribeCanariesLastRun@ operation to
+-- retrieve the next set of results.
+--
+-- 'names', 'describeCanariesLastRun_names' - Use this parameter to return only canaries that match the names that you
+-- specify here. You can specify as many as five canary names.
+--
+-- If you specify this parameter, the operation is successful only if you
+-- have authorization to view all the canaries that you specify in your
+-- request. If you do not have permission to view any of the canaries, the
+-- request fails with a 403 response.
+--
+-- You are required to use the @Names@ parameter if you are logged on to a
+-- user or role that has an IAM policy that restricts which canaries that
+-- you are allowed to view. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
 --
 -- 'maxResults', 'describeCanariesLastRun_maxResults' - Specify this parameter to limit how many runs are returned each time you
 -- use the @DescribeLastRun@ operation. If you omit this parameter, the
@@ -83,14 +121,30 @@ newDescribeCanariesLastRun =
   DescribeCanariesLastRun'
     { nextToken =
         Prelude.Nothing,
+      names = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
 -- | A token that indicates that there is more data available. You can use
--- this token in a subsequent @DescribeCanaries@ operation to retrieve the
--- next set of results.
+-- this token in a subsequent @DescribeCanariesLastRun@ operation to
+-- retrieve the next set of results.
 describeCanariesLastRun_nextToken :: Lens.Lens' DescribeCanariesLastRun (Prelude.Maybe Prelude.Text)
 describeCanariesLastRun_nextToken = Lens.lens (\DescribeCanariesLastRun' {nextToken} -> nextToken) (\s@DescribeCanariesLastRun' {} a -> s {nextToken = a} :: DescribeCanariesLastRun)
+
+-- | Use this parameter to return only canaries that match the names that you
+-- specify here. You can specify as many as five canary names.
+--
+-- If you specify this parameter, the operation is successful only if you
+-- have authorization to view all the canaries that you specify in your
+-- request. If you do not have permission to view any of the canaries, the
+-- request fails with a 403 response.
+--
+-- You are required to use the @Names@ parameter if you are logged on to a
+-- user or role that has an IAM policy that restricts which canaries that
+-- you are allowed to view. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Restricted.html Limiting a user to viewing specific canaries>.
+describeCanariesLastRun_names :: Lens.Lens' DescribeCanariesLastRun (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeCanariesLastRun_names = Lens.lens (\DescribeCanariesLastRun' {names} -> names) (\s@DescribeCanariesLastRun' {} a -> s {names = a} :: DescribeCanariesLastRun) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specify this parameter to limit how many runs are returned each time you
 -- use the @DescribeLastRun@ operation. If you omit this parameter, the
@@ -117,11 +171,13 @@ instance Core.AWSRequest DescribeCanariesLastRun where
 instance Prelude.Hashable DescribeCanariesLastRun where
   hashWithSalt _salt DescribeCanariesLastRun' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` names
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData DescribeCanariesLastRun where
   rnf DescribeCanariesLastRun' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf names
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders DescribeCanariesLastRun where
@@ -140,6 +196,7 @@ instance Core.ToJSON DescribeCanariesLastRun where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Names" Core..=) Prelude.<$> names,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]
       )

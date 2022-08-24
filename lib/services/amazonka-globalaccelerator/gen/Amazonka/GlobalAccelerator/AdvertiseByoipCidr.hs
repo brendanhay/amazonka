@@ -21,16 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Advertises an IPv4 address range that is provisioned for use with your
--- AWS resources through bring your own IP addresses (BYOIP). It can take a
--- few minutes before traffic to the specified addresses starts routing to
--- AWS because of propagation delays.
+-- Amazon Web Services resources through bring your own IP addresses
+-- (BYOIP). It can take a few minutes before traffic to the specified
+-- addresses starts routing to Amazon Web Services because of propagation
+-- delays.
 --
 -- To stop advertising the BYOIP address range, use
 -- <https://docs.aws.amazon.com/global-accelerator/latest/api/WithdrawByoipCidr.html WithdrawByoipCidr>.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring Your Own IP Addresses (BYOIP)>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
+-- in the /Global Accelerator Developer Guide/.
 module Amazonka.GlobalAccelerator.AdvertiseByoipCidr
   ( -- * Creating a Request
     AdvertiseByoipCidr (..),

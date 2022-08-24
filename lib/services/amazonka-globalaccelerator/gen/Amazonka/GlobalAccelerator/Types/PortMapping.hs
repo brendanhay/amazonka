@@ -28,9 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Returns the ports and associated IP addresses and ports of Amazon EC2
 -- instances in your virtual private cloud (VPC) subnets. Custom routing is
--- a port mapping protocol in AWS Global Accelerator that statically
--- associates port ranges with VPC subnets, which allows Global Accelerator
--- to route to specific instances and ports within one or more subnets.
+-- a port mapping protocol in Global Accelerator that statically associates
+-- port ranges with VPC subnets, which allows Global Accelerator to route
+-- to specific instances and ports within one or more subnets.
 --
 -- /See:/ 'newPortMapping' smart constructor.
 data PortMapping = PortMapping'

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the custom routing accelerators for an AWS account.
+-- List the custom routing accelerators for an Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Amazonka.GlobalAccelerator.ListCustomRoutingAccelerators

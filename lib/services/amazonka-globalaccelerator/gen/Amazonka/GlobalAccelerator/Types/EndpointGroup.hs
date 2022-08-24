@@ -26,8 +26,8 @@ import Amazonka.GlobalAccelerator.Types.PortOverride
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A complex type for the endpoint group. An AWS Region can have only one
--- endpoint group for a specific listener.
+-- | A complex type for the endpoint group. An Amazon Web Services Region can
+-- have only one endpoint group for a specific listener.
 --
 -- /See:/ 'newEndpointGroup' smart constructor.
 data EndpointGroup = EndpointGroup'
@@ -35,10 +35,10 @@ data EndpointGroup = EndpointGroup'
     -- endpoints that are part of this endpoint group. The default value is
     -- TCP.
     healthCheckProtocol :: Prelude.Maybe HealthCheckProtocol,
-    -- | The AWS Region where the endpoint group is located.
+    -- | The Amazon Web Services Region where the endpoint group is located.
     endpointGroupRegion :: Prelude.Maybe Prelude.Text,
     -- | Allows you to override the destination ports used to route traffic to an
-    -- endpoint. Using a port override lets you to map a list of external
+    -- endpoint. Using a port override lets you map a list of external
     -- destination ports (that your users send traffic to) to a list of
     -- internal destination ports that you want an application endpoint to
     -- receive traffic on.
@@ -52,8 +52,9 @@ data EndpointGroup = EndpointGroup'
     healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The list of endpoint objects.
     endpointDescriptions :: Prelude.Maybe [EndpointDescription],
-    -- | The percentage of traffic to send to an AWS Region. Additional traffic
-    -- is distributed to other endpoint groups for this listener.
+    -- | The percentage of traffic to send to an Amazon Web Services Region.
+    -- Additional traffic is distributed to other endpoint groups for this
+    -- listener.
     --
     -- Use this action to increase (dial up) or decrease (dial down) traffic to
     -- a specific Region. The percentage is applied to the traffic that would
@@ -89,10 +90,10 @@ data EndpointGroup = EndpointGroup'
 -- endpoints that are part of this endpoint group. The default value is
 -- TCP.
 --
--- 'endpointGroupRegion', 'endpointGroup_endpointGroupRegion' - The AWS Region where the endpoint group is located.
+-- 'endpointGroupRegion', 'endpointGroup_endpointGroupRegion' - The Amazon Web Services Region where the endpoint group is located.
 --
 -- 'portOverrides', 'endpointGroup_portOverrides' - Allows you to override the destination ports used to route traffic to an
--- endpoint. Using a port override lets you to map a list of external
+-- endpoint. Using a port override lets you map a list of external
 -- destination ports (that your users send traffic to) to a list of
 -- internal destination ports that you want an application endpoint to
 -- receive traffic on.
@@ -106,8 +107,9 @@ data EndpointGroup = EndpointGroup'
 --
 -- 'endpointDescriptions', 'endpointGroup_endpointDescriptions' - The list of endpoint objects.
 --
--- 'trafficDialPercentage', 'endpointGroup_trafficDialPercentage' - The percentage of traffic to send to an AWS Region. Additional traffic
--- is distributed to other endpoint groups for this listener.
+-- 'trafficDialPercentage', 'endpointGroup_trafficDialPercentage' - The percentage of traffic to send to an Amazon Web Services Region.
+-- Additional traffic is distributed to other endpoint groups for this
+-- listener.
 --
 -- Use this action to increase (dial up) or decrease (dial down) traffic to
 -- a specific Region. The percentage is applied to the traffic that would
@@ -150,12 +152,12 @@ newEndpointGroup =
 endpointGroup_healthCheckProtocol :: Lens.Lens' EndpointGroup (Prelude.Maybe HealthCheckProtocol)
 endpointGroup_healthCheckProtocol = Lens.lens (\EndpointGroup' {healthCheckProtocol} -> healthCheckProtocol) (\s@EndpointGroup' {} a -> s {healthCheckProtocol = a} :: EndpointGroup)
 
--- | The AWS Region where the endpoint group is located.
+-- | The Amazon Web Services Region where the endpoint group is located.
 endpointGroup_endpointGroupRegion :: Lens.Lens' EndpointGroup (Prelude.Maybe Prelude.Text)
 endpointGroup_endpointGroupRegion = Lens.lens (\EndpointGroup' {endpointGroupRegion} -> endpointGroupRegion) (\s@EndpointGroup' {} a -> s {endpointGroupRegion = a} :: EndpointGroup)
 
 -- | Allows you to override the destination ports used to route traffic to an
--- endpoint. Using a port override lets you to map a list of external
+-- endpoint. Using a port override lets you map a list of external
 -- destination ports (that your users send traffic to) to a list of
 -- internal destination ports that you want an application endpoint to
 -- receive traffic on.
@@ -177,8 +179,9 @@ endpointGroup_healthCheckIntervalSeconds = Lens.lens (\EndpointGroup' {healthChe
 endpointGroup_endpointDescriptions :: Lens.Lens' EndpointGroup (Prelude.Maybe [EndpointDescription])
 endpointGroup_endpointDescriptions = Lens.lens (\EndpointGroup' {endpointDescriptions} -> endpointDescriptions) (\s@EndpointGroup' {} a -> s {endpointDescriptions = a} :: EndpointGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The percentage of traffic to send to an AWS Region. Additional traffic
--- is distributed to other endpoint groups for this listener.
+-- | The percentage of traffic to send to an Amazon Web Services Region.
+-- Additional traffic is distributed to other endpoint groups for this
+-- listener.
 --
 -- Use this action to increase (dial up) or decrease (dial down) traffic to
 -- a specific Region. The percentage is applied to the traffic that would

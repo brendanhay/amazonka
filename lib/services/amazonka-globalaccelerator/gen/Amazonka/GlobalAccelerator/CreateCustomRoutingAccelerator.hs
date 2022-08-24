@@ -33,8 +33,9 @@
 -- operation.
 --
 -- Global Accelerator is a global service that supports endpoints in
--- multiple AWS Regions but you must specify the US West (Oregon) Region to
--- create or update accelerators.
+-- multiple Amazon Web Services Regions but you must specify the US West
+-- (Oregon) Region to create, update, or otherwise work with accelerators.
+-- That is, for example, specify @--region us-west-2@ on AWS CLI commands.
 module Amazonka.GlobalAccelerator.CreateCustomRoutingAccelerator
   ( -- * Creating a Request
     CreateCustomRoutingAccelerator (..),
@@ -70,8 +71,8 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
   { -- | Create tags for an accelerator.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in AWS Global Accelerator>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+    -- in the /Global Accelerator Developer Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | Indicates whether an accelerator is enabled. The value is true or false.
     -- The default value is true.
@@ -79,25 +80,32 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
     -- If the value is set to true, an accelerator cannot be deleted. If set to
     -- false, the accelerator can be deleted.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The value for the address type must be IPv4.
+    -- | The IP address type that an accelerator supports. For a custom routing
+    -- accelerator, the value must be IPV4.
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | Optionally, if you\'ve added your own IP address pool to Global
-    -- Accelerator (BYOIP), you can choose IP addresses from your own pool to
-    -- use for the accelerator\'s static IP addresses when you create an
-    -- accelerator. You can specify one or two addresses, separated by a space.
-    -- Do not include the \/32 suffix.
+    -- Accelerator (BYOIP), you can choose an IPv4 address from your own pool
+    -- to use for the accelerator\'s static IPv4 address when you create an
+    -- accelerator.
     --
-    -- Only one IP address from each of your IP address ranges can be used for
-    -- each accelerator. If you specify only one IP address from your IP
-    -- address range, Global Accelerator assigns a second static IP address for
-    -- the accelerator from the AWS IP address pool.
+    -- After you bring an address range to Amazon Web Services, it appears in
+    -- your account as an address pool. When you create an accelerator, you can
+    -- assign one IPv4 address from your range to it. Global Accelerator
+    -- assigns you a second static IPv4 address from an Amazon IP address
+    -- range. If you bring two IPv4 address ranges to Amazon Web Services, you
+    -- can assign one IPv4 address from each range to your accelerator. This
+    -- restriction is because Global Accelerator assigns each address range to
+    -- a different network zone, for high availability.
+    --
+    -- You can specify one or two addresses, separated by a space. Do not
+    -- include the \/32 suffix.
     --
     -- Note that you can\'t update IP addresses for an existing accelerator. To
     -- change them, you must create a new accelerator with the new addresses.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- in the /Global Accelerator Developer Guide/.
     ipAddresses :: Prelude.Maybe [Prelude.Text],
     -- | The name of a custom routing accelerator. The name can have a maximum of
     -- 64 characters, must contain only alphanumeric characters or hyphens (-),
@@ -120,8 +128,8 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
 -- 'tags', 'createCustomRoutingAccelerator_tags' - Create tags for an accelerator.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in AWS Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- 'enabled', 'createCustomRoutingAccelerator_enabled' - Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -129,25 +137,32 @@ data CreateCustomRoutingAccelerator = CreateCustomRoutingAccelerator'
 -- If the value is set to true, an accelerator cannot be deleted. If set to
 -- false, the accelerator can be deleted.
 --
--- 'ipAddressType', 'createCustomRoutingAccelerator_ipAddressType' - The value for the address type must be IPv4.
+-- 'ipAddressType', 'createCustomRoutingAccelerator_ipAddressType' - The IP address type that an accelerator supports. For a custom routing
+-- accelerator, the value must be IPV4.
 --
 -- 'ipAddresses', 'createCustomRoutingAccelerator_ipAddresses' - Optionally, if you\'ve added your own IP address pool to Global
--- Accelerator (BYOIP), you can choose IP addresses from your own pool to
--- use for the accelerator\'s static IP addresses when you create an
--- accelerator. You can specify one or two addresses, separated by a space.
--- Do not include the \/32 suffix.
+-- Accelerator (BYOIP), you can choose an IPv4 address from your own pool
+-- to use for the accelerator\'s static IPv4 address when you create an
+-- accelerator.
 --
--- Only one IP address from each of your IP address ranges can be used for
--- each accelerator. If you specify only one IP address from your IP
--- address range, Global Accelerator assigns a second static IP address for
--- the accelerator from the AWS IP address pool.
+-- After you bring an address range to Amazon Web Services, it appears in
+-- your account as an address pool. When you create an accelerator, you can
+-- assign one IPv4 address from your range to it. Global Accelerator
+-- assigns you a second static IPv4 address from an Amazon IP address
+-- range. If you bring two IPv4 address ranges to Amazon Web Services, you
+-- can assign one IPv4 address from each range to your accelerator. This
+-- restriction is because Global Accelerator assigns each address range to
+-- a different network zone, for high availability.
+--
+-- You can specify one or two addresses, separated by a space. Do not
+-- include the \/32 suffix.
 --
 -- Note that you can\'t update IP addresses for an existing accelerator. To
 -- change them, you must create a new accelerator with the new addresses.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
--- in the /AWS Global Accelerator Developer Guide/.
+-- in the /Global Accelerator Developer Guide/.
 --
 -- 'name', 'createCustomRoutingAccelerator_name' - The name of a custom routing accelerator. The name can have a maximum of
 -- 64 characters, must contain only alphanumeric characters or hyphens (-),
@@ -177,8 +192,8 @@ newCreateCustomRoutingAccelerator
 -- | Create tags for an accelerator.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in AWS Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html Tagging in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
 createCustomRoutingAccelerator_tags :: Lens.Lens' CreateCustomRoutingAccelerator (Prelude.Maybe [Tag])
 createCustomRoutingAccelerator_tags = Lens.lens (\CreateCustomRoutingAccelerator' {tags} -> tags) (\s@CreateCustomRoutingAccelerator' {} a -> s {tags = a} :: CreateCustomRoutingAccelerator) Prelude.. Lens.mapping Lens.coerced
 
@@ -190,27 +205,34 @@ createCustomRoutingAccelerator_tags = Lens.lens (\CreateCustomRoutingAccelerator
 createCustomRoutingAccelerator_enabled :: Lens.Lens' CreateCustomRoutingAccelerator (Prelude.Maybe Prelude.Bool)
 createCustomRoutingAccelerator_enabled = Lens.lens (\CreateCustomRoutingAccelerator' {enabled} -> enabled) (\s@CreateCustomRoutingAccelerator' {} a -> s {enabled = a} :: CreateCustomRoutingAccelerator)
 
--- | The value for the address type must be IPv4.
+-- | The IP address type that an accelerator supports. For a custom routing
+-- accelerator, the value must be IPV4.
 createCustomRoutingAccelerator_ipAddressType :: Lens.Lens' CreateCustomRoutingAccelerator (Prelude.Maybe IpAddressType)
 createCustomRoutingAccelerator_ipAddressType = Lens.lens (\CreateCustomRoutingAccelerator' {ipAddressType} -> ipAddressType) (\s@CreateCustomRoutingAccelerator' {} a -> s {ipAddressType = a} :: CreateCustomRoutingAccelerator)
 
 -- | Optionally, if you\'ve added your own IP address pool to Global
--- Accelerator (BYOIP), you can choose IP addresses from your own pool to
--- use for the accelerator\'s static IP addresses when you create an
--- accelerator. You can specify one or two addresses, separated by a space.
--- Do not include the \/32 suffix.
+-- Accelerator (BYOIP), you can choose an IPv4 address from your own pool
+-- to use for the accelerator\'s static IPv4 address when you create an
+-- accelerator.
 --
--- Only one IP address from each of your IP address ranges can be used for
--- each accelerator. If you specify only one IP address from your IP
--- address range, Global Accelerator assigns a second static IP address for
--- the accelerator from the AWS IP address pool.
+-- After you bring an address range to Amazon Web Services, it appears in
+-- your account as an address pool. When you create an accelerator, you can
+-- assign one IPv4 address from your range to it. Global Accelerator
+-- assigns you a second static IPv4 address from an Amazon IP address
+-- range. If you bring two IPv4 address ranges to Amazon Web Services, you
+-- can assign one IPv4 address from each range to your accelerator. This
+-- restriction is because Global Accelerator assigns each address range to
+-- a different network zone, for high availability.
+--
+-- You can specify one or two addresses, separated by a space. Do not
+-- include the \/32 suffix.
 --
 -- Note that you can\'t update IP addresses for an existing accelerator. To
 -- change them, you must create a new accelerator with the new addresses.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
--- in the /AWS Global Accelerator Developer Guide/.
+-- in the /Global Accelerator Developer Guide/.
 createCustomRoutingAccelerator_ipAddresses :: Lens.Lens' CreateCustomRoutingAccelerator (Prelude.Maybe [Prelude.Text])
 createCustomRoutingAccelerator_ipAddresses = Lens.lens (\CreateCustomRoutingAccelerator' {ipAddresses} -> ipAddresses) (\s@CreateCustomRoutingAccelerator' {} a -> s {ipAddresses = a} :: CreateCustomRoutingAccelerator) Prelude.. Lens.mapping Lens.coerced
 

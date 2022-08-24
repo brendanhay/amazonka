@@ -332,6 +332,8 @@ module Amazonka.GlobalAccelerator.Lens
     accelerator_status,
     accelerator_enabled,
     accelerator_lastModifiedTime,
+    accelerator_dualStackDnsName,
+    accelerator_events,
     accelerator_dnsName,
     accelerator_ipAddressType,
 
@@ -339,6 +341,10 @@ module Amazonka.GlobalAccelerator.Lens
     acceleratorAttributes_flowLogsEnabled,
     acceleratorAttributes_flowLogsS3Bucket,
     acceleratorAttributes_flowLogsS3Prefix,
+
+    -- ** AcceleratorEvent
+    acceleratorEvent_message,
+    acceleratorEvent_timestamp,
 
     -- ** ByoipCidr
     byoipCidr_cidr,
@@ -431,6 +437,7 @@ module Amazonka.GlobalAccelerator.Lens
 
     -- ** IpSet
     ipSet_ipFamily,
+    ipSet_ipAddressFamily,
     ipSet_ipAddresses,
 
     -- ** Listener
@@ -505,6 +512,7 @@ import Amazonka.GlobalAccelerator.RemoveCustomRoutingEndpoints
 import Amazonka.GlobalAccelerator.TagResource
 import Amazonka.GlobalAccelerator.Types.Accelerator
 import Amazonka.GlobalAccelerator.Types.AcceleratorAttributes
+import Amazonka.GlobalAccelerator.Types.AcceleratorEvent
 import Amazonka.GlobalAccelerator.Types.ByoipCidr
 import Amazonka.GlobalAccelerator.Types.ByoipCidrEvent
 import Amazonka.GlobalAccelerator.Types.CidrAuthorizationContext

@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateCustomRoutingAccelerator' smart constructor.
 data UpdateCustomRoutingAccelerator = UpdateCustomRoutingAccelerator'
-  { -- | The name of the accelerator. The name can have a maximum of 32
-    -- characters, must contain only alphanumeric characters or hyphens (-),
-    -- and must not begin or end with a hyphen.
+  { -- | The name of the accelerator. The name can have a maximum of 64
+    -- characters, must contain only alphanumeric characters, periods (.), or
+    -- hyphens (-), and must not begin or end with a hyphen or period.
     name :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether an accelerator is enabled. The value is true or false.
     -- The default value is true.
@@ -61,7 +61,8 @@ data UpdateCustomRoutingAccelerator = UpdateCustomRoutingAccelerator'
     -- If the value is set to true, the accelerator cannot be deleted. If set
     -- to false, the accelerator can be deleted.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The value for the address type must be IPv4.
+    -- | The IP address type that an accelerator supports. For a custom routing
+    -- accelerator, the value must be IPV4.
     ipAddressType :: Prelude.Maybe IpAddressType,
     -- | The Amazon Resource Name (ARN) of the accelerator to update.
     acceleratorArn :: Prelude.Text
@@ -76,9 +77,9 @@ data UpdateCustomRoutingAccelerator = UpdateCustomRoutingAccelerator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateCustomRoutingAccelerator_name' - The name of the accelerator. The name can have a maximum of 32
--- characters, must contain only alphanumeric characters or hyphens (-),
--- and must not begin or end with a hyphen.
+-- 'name', 'updateCustomRoutingAccelerator_name' - The name of the accelerator. The name can have a maximum of 64
+-- characters, must contain only alphanumeric characters, periods (.), or
+-- hyphens (-), and must not begin or end with a hyphen or period.
 --
 -- 'enabled', 'updateCustomRoutingAccelerator_enabled' - Indicates whether an accelerator is enabled. The value is true or false.
 -- The default value is true.
@@ -86,7 +87,8 @@ data UpdateCustomRoutingAccelerator = UpdateCustomRoutingAccelerator'
 -- If the value is set to true, the accelerator cannot be deleted. If set
 -- to false, the accelerator can be deleted.
 --
--- 'ipAddressType', 'updateCustomRoutingAccelerator_ipAddressType' - The value for the address type must be IPv4.
+-- 'ipAddressType', 'updateCustomRoutingAccelerator_ipAddressType' - The IP address type that an accelerator supports. For a custom routing
+-- accelerator, the value must be IPV4.
 --
 -- 'acceleratorArn', 'updateCustomRoutingAccelerator_acceleratorArn' - The Amazon Resource Name (ARN) of the accelerator to update.
 newUpdateCustomRoutingAccelerator ::
@@ -102,9 +104,9 @@ newUpdateCustomRoutingAccelerator pAcceleratorArn_ =
       acceleratorArn = pAcceleratorArn_
     }
 
--- | The name of the accelerator. The name can have a maximum of 32
--- characters, must contain only alphanumeric characters or hyphens (-),
--- and must not begin or end with a hyphen.
+-- | The name of the accelerator. The name can have a maximum of 64
+-- characters, must contain only alphanumeric characters, periods (.), or
+-- hyphens (-), and must not begin or end with a hyphen or period.
 updateCustomRoutingAccelerator_name :: Lens.Lens' UpdateCustomRoutingAccelerator (Prelude.Maybe Prelude.Text)
 updateCustomRoutingAccelerator_name = Lens.lens (\UpdateCustomRoutingAccelerator' {name} -> name) (\s@UpdateCustomRoutingAccelerator' {} a -> s {name = a} :: UpdateCustomRoutingAccelerator)
 
@@ -116,7 +118,8 @@ updateCustomRoutingAccelerator_name = Lens.lens (\UpdateCustomRoutingAccelerator
 updateCustomRoutingAccelerator_enabled :: Lens.Lens' UpdateCustomRoutingAccelerator (Prelude.Maybe Prelude.Bool)
 updateCustomRoutingAccelerator_enabled = Lens.lens (\UpdateCustomRoutingAccelerator' {enabled} -> enabled) (\s@UpdateCustomRoutingAccelerator' {} a -> s {enabled = a} :: UpdateCustomRoutingAccelerator)
 
--- | The value for the address type must be IPv4.
+-- | The IP address type that an accelerator supports. For a custom routing
+-- accelerator, the value must be IPV4.
 updateCustomRoutingAccelerator_ipAddressType :: Lens.Lens' UpdateCustomRoutingAccelerator (Prelude.Maybe IpAddressType)
 updateCustomRoutingAccelerator_ipAddressType = Lens.lens (\UpdateCustomRoutingAccelerator' {ipAddressType} -> ipAddressType) (\s@UpdateCustomRoutingAccelerator' {} a -> s {ipAddressType = a} :: UpdateCustomRoutingAccelerator)
 

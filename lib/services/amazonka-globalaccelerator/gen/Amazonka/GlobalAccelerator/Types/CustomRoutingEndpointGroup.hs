@@ -26,11 +26,12 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type for the endpoint group for a custom routing accelerator.
--- An AWS Region can have only one endpoint group for a specific listener.
+-- An Amazon Web Services Region can have only one endpoint group for a
+-- specific listener.
 --
 -- /See:/ 'newCustomRoutingEndpointGroup' smart constructor.
 data CustomRoutingEndpointGroup = CustomRoutingEndpointGroup'
-  { -- | The AWS Region where the endpoint group is located.
+  { -- | The Amazon Web Services Region where the endpoint group is located.
     endpointGroupRegion :: Prelude.Maybe Prelude.Text,
     -- | For a custom routing accelerator, describes the endpoints (virtual
     -- private cloud subnets) in an endpoint group to accept client traffic on.
@@ -52,7 +53,7 @@ data CustomRoutingEndpointGroup = CustomRoutingEndpointGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointGroupRegion', 'customRoutingEndpointGroup_endpointGroupRegion' - The AWS Region where the endpoint group is located.
+-- 'endpointGroupRegion', 'customRoutingEndpointGroup_endpointGroupRegion' - The Amazon Web Services Region where the endpoint group is located.
 --
 -- 'endpointDescriptions', 'customRoutingEndpointGroup_endpointDescriptions' - For a custom routing accelerator, describes the endpoints (virtual
 -- private cloud subnets) in an endpoint group to accept client traffic on.
@@ -73,7 +74,7 @@ newCustomRoutingEndpointGroup =
       endpointGroupArn = Prelude.Nothing
     }
 
--- | The AWS Region where the endpoint group is located.
+-- | The Amazon Web Services Region where the endpoint group is located.
 customRoutingEndpointGroup_endpointGroupRegion :: Lens.Lens' CustomRoutingEndpointGroup (Prelude.Maybe Prelude.Text)
 customRoutingEndpointGroup_endpointGroupRegion = Lens.lens (\CustomRoutingEndpointGroup' {endpointGroupRegion} -> endpointGroupRegion) (\s@CustomRoutingEndpointGroup' {} a -> s {endpointGroupRegion = a} :: CustomRoutingEndpointGroup)
 

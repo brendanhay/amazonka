@@ -36,8 +36,8 @@
 -- have permissions in place to avoid inadvertently deleting accelerators.
 -- You can use IAM policies with Global Accelerator to limit the users who
 -- have permissions to delete an accelerator. For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html Authentication and Access Control>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/auth-and-access-control.html Identity and access management>
+-- in the /Global Accelerator Developer Guide/.
 module Amazonka.GlobalAccelerator.DeleteCustomRoutingAccelerator
   ( -- * Creating a Request
     DeleteCustomRoutingAccelerator (..),

@@ -40,26 +40,30 @@ data EndpointDescription = EndpointDescription'
     -- | Returns a null result.
     healthReason :: Prelude.Maybe Prelude.Text,
     -- | The weight associated with the endpoint. When you add weights to
-    -- endpoints, you configure AWS Global Accelerator to route traffic based
-    -- on proportions that you specify. For example, you might specify endpoint
+    -- endpoints, you configure Global Accelerator to route traffic based on
+    -- proportions that you specify. For example, you might specify endpoint
     -- weights of 4, 5, 5, and 6 (sum=20). The result is that 4\/20 of your
     -- traffic, on average, is routed to the first endpoint, 5\/20 is routed
     -- both to the second and third endpoints, and 6\/20 is routed to the last
     -- endpoint. For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html Endpoint Weights>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html Endpoint weights>
+    -- in the /Global Accelerator Developer Guide/.
     weight :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether client IP address preservation is enabled for an
-    -- Application Load Balancer endpoint. The value is true or false. The
-    -- default value is true for new accelerators.
+    -- endpoint. The value is true or false. The default value is true for new
+    -- accelerators.
     --
     -- If the value is set to true, the client\'s IP address is preserved in
     -- the @X-Forwarded-For@ request header as traffic travels to applications
-    -- on the Application Load Balancer endpoint fronted by the accelerator.
+    -- on the endpoint fronted by the accelerator.
+    --
+    -- Client IP address preservation is supported, in specific Amazon Web
+    -- Services Regions, for endpoints that are Application Load Balancers and
+    -- Amazon EC2 instances.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html Viewing Client IP Addresses in AWS Global Accelerator>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve client IP addresses in Global Accelerator>
+    -- in the /Global Accelerator Developer Guide/.
     clientIPPreservationEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The health status of the endpoint.
     healthState :: Prelude.Maybe HealthState
@@ -85,26 +89,30 @@ data EndpointDescription = EndpointDescription'
 -- 'healthReason', 'endpointDescription_healthReason' - Returns a null result.
 --
 -- 'weight', 'endpointDescription_weight' - The weight associated with the endpoint. When you add weights to
--- endpoints, you configure AWS Global Accelerator to route traffic based
--- on proportions that you specify. For example, you might specify endpoint
+-- endpoints, you configure Global Accelerator to route traffic based on
+-- proportions that you specify. For example, you might specify endpoint
 -- weights of 4, 5, 5, and 6 (sum=20). The result is that 4\/20 of your
 -- traffic, on average, is routed to the first endpoint, 5\/20 is routed
 -- both to the second and third endpoints, and 6\/20 is routed to the last
 -- endpoint. For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html Endpoint Weights>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html Endpoint weights>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- 'clientIPPreservationEnabled', 'endpointDescription_clientIPPreservationEnabled' - Indicates whether client IP address preservation is enabled for an
--- Application Load Balancer endpoint. The value is true or false. The
--- default value is true for new accelerators.
+-- endpoint. The value is true or false. The default value is true for new
+-- accelerators.
 --
 -- If the value is set to true, the client\'s IP address is preserved in
 -- the @X-Forwarded-For@ request header as traffic travels to applications
--- on the Application Load Balancer endpoint fronted by the accelerator.
+-- on the endpoint fronted by the accelerator.
+--
+-- Client IP address preservation is supported, in specific Amazon Web
+-- Services Regions, for endpoints that are Application Load Balancers and
+-- Amazon EC2 instances.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html Viewing Client IP Addresses in AWS Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve client IP addresses in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- 'healthState', 'endpointDescription_healthState' - The health status of the endpoint.
 newEndpointDescription ::
@@ -133,28 +141,32 @@ endpointDescription_healthReason :: Lens.Lens' EndpointDescription (Prelude.Mayb
 endpointDescription_healthReason = Lens.lens (\EndpointDescription' {healthReason} -> healthReason) (\s@EndpointDescription' {} a -> s {healthReason = a} :: EndpointDescription)
 
 -- | The weight associated with the endpoint. When you add weights to
--- endpoints, you configure AWS Global Accelerator to route traffic based
--- on proportions that you specify. For example, you might specify endpoint
+-- endpoints, you configure Global Accelerator to route traffic based on
+-- proportions that you specify. For example, you might specify endpoint
 -- weights of 4, 5, 5, and 6 (sum=20). The result is that 4\/20 of your
 -- traffic, on average, is routed to the first endpoint, 5\/20 is routed
 -- both to the second and third endpoints, and 6\/20 is routed to the last
 -- endpoint. For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html Endpoint Weights>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html Endpoint weights>
+-- in the /Global Accelerator Developer Guide/.
 endpointDescription_weight :: Lens.Lens' EndpointDescription (Prelude.Maybe Prelude.Natural)
 endpointDescription_weight = Lens.lens (\EndpointDescription' {weight} -> weight) (\s@EndpointDescription' {} a -> s {weight = a} :: EndpointDescription)
 
 -- | Indicates whether client IP address preservation is enabled for an
--- Application Load Balancer endpoint. The value is true or false. The
--- default value is true for new accelerators.
+-- endpoint. The value is true or false. The default value is true for new
+-- accelerators.
 --
 -- If the value is set to true, the client\'s IP address is preserved in
 -- the @X-Forwarded-For@ request header as traffic travels to applications
--- on the Application Load Balancer endpoint fronted by the accelerator.
+-- on the endpoint fronted by the accelerator.
+--
+-- Client IP address preservation is supported, in specific Amazon Web
+-- Services Regions, for endpoints that are Application Load Balancers and
+-- Amazon EC2 instances.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/introduction-how-it-works-client-ip.html Viewing Client IP Addresses in AWS Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html Preserve client IP addresses in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
 endpointDescription_clientIPPreservationEnabled :: Lens.Lens' EndpointDescription (Prelude.Maybe Prelude.Bool)
 endpointDescription_clientIPPreservationEnabled = Lens.lens (\EndpointDescription' {clientIPPreservationEnabled} -> clientIPPreservationEnabled) (\s@EndpointDescription' {} a -> s {clientIPPreservationEnabled = a} :: EndpointDescription)
 

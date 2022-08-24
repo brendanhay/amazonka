@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create an endpoint group for the specified listener. An endpoint group
--- is a collection of endpoints in one AWS Region. A resource must be valid
--- and active when you add it as an endpoint.
+-- is a collection of endpoints in one Amazon Web Services Region. A
+-- resource must be valid and active when you add it as an endpoint.
 module Amazonka.GlobalAccelerator.CreateEndpointGroup
   ( -- * Creating a Request
     CreateEndpointGroup (..),
@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateEndpointGroup' smart constructor.
 data CreateEndpointGroup = CreateEndpointGroup'
-  { -- | The protocol that AWS Global Accelerator uses to check the health of
+  { -- | The protocol that Global Accelerator uses to check the health of
     -- endpoints that are part of this endpoint group. The default value is
     -- TCP.
     healthCheckProtocol :: Prelude.Maybe HealthCheckProtocol,
@@ -71,8 +71,8 @@ data CreateEndpointGroup = CreateEndpointGroup'
     -- respectively, on the endpoints.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Overriding listener ports>
+    -- in the /Global Accelerator Developer Guide/.
     portOverrides :: Prelude.Maybe [PortOverride],
     -- | If the protocol is HTTP\/S, then this specifies the path that is the
     -- destination for health check targets. The default value is slash (\/).
@@ -82,8 +82,9 @@ data CreateEndpointGroup = CreateEndpointGroup'
     healthCheckIntervalSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The list of endpoint objects.
     endpointConfigurations :: Prelude.Maybe [EndpointConfiguration],
-    -- | The percentage of traffic to send to an AWS Region. Additional traffic
-    -- is distributed to other endpoint groups for this listener.
+    -- | The percentage of traffic to send to an Amazon Web Services Region.
+    -- Additional traffic is distributed to other endpoint groups for this
+    -- listener.
     --
     -- Use this action to increase (dial up) or decrease (dial down) traffic to
     -- a specific Region. The percentage is applied to the traffic that would
@@ -95,16 +96,15 @@ data CreateEndpointGroup = CreateEndpointGroup'
     -- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
     -- healthy. The default value is 3.
     thresholdCount :: Prelude.Maybe Prelude.Natural,
-    -- | The port that AWS Global Accelerator uses to check the health of
-    -- endpoints that are part of this endpoint group. The default port is the
-    -- listener port that this endpoint group is associated with. If listener
-    -- port is a list of ports, Global Accelerator uses the first port in the
-    -- list.
+    -- | The port that Global Accelerator uses to check the health of endpoints
+    -- that are part of this endpoint group. The default port is the listener
+    -- port that this endpoint group is associated with. If listener port is a
+    -- list of ports, Global Accelerator uses the first port in the list.
     healthCheckPort :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the listener.
     listenerArn :: Prelude.Text,
-    -- | The AWS Region where the endpoint group is located. A listener can have
-    -- only one endpoint group in a specific Region.
+    -- | The Amazon Web Services Region where the endpoint group is located. A
+    -- listener can have only one endpoint group in a specific Region.
     endpointGroupRegion :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency—that is, the uniqueness—of the request.
@@ -120,7 +120,7 @@ data CreateEndpointGroup = CreateEndpointGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'healthCheckProtocol', 'createEndpointGroup_healthCheckProtocol' - The protocol that AWS Global Accelerator uses to check the health of
+-- 'healthCheckProtocol', 'createEndpointGroup_healthCheckProtocol' - The protocol that Global Accelerator uses to check the health of
 -- endpoints that are part of this endpoint group. The default value is
 -- TCP.
 --
@@ -131,8 +131,8 @@ data CreateEndpointGroup = CreateEndpointGroup'
 -- respectively, on the endpoints.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Overriding listener ports>
+-- in the /Global Accelerator Developer Guide/.
 --
 -- 'healthCheckPath', 'createEndpointGroup_healthCheckPath' - If the protocol is HTTP\/S, then this specifies the path that is the
 -- destination for health check targets. The default value is slash (\/).
@@ -142,8 +142,9 @@ data CreateEndpointGroup = CreateEndpointGroup'
 --
 -- 'endpointConfigurations', 'createEndpointGroup_endpointConfigurations' - The list of endpoint objects.
 --
--- 'trafficDialPercentage', 'createEndpointGroup_trafficDialPercentage' - The percentage of traffic to send to an AWS Region. Additional traffic
--- is distributed to other endpoint groups for this listener.
+-- 'trafficDialPercentage', 'createEndpointGroup_trafficDialPercentage' - The percentage of traffic to send to an Amazon Web Services Region.
+-- Additional traffic is distributed to other endpoint groups for this
+-- listener.
 --
 -- Use this action to increase (dial up) or decrease (dial down) traffic to
 -- a specific Region. The percentage is applied to the traffic that would
@@ -155,16 +156,15 @@ data CreateEndpointGroup = CreateEndpointGroup'
 -- healthy endpoint to unhealthy, or to set an unhealthy endpoint to
 -- healthy. The default value is 3.
 --
--- 'healthCheckPort', 'createEndpointGroup_healthCheckPort' - The port that AWS Global Accelerator uses to check the health of
--- endpoints that are part of this endpoint group. The default port is the
--- listener port that this endpoint group is associated with. If listener
--- port is a list of ports, Global Accelerator uses the first port in the
--- list.
+-- 'healthCheckPort', 'createEndpointGroup_healthCheckPort' - The port that Global Accelerator uses to check the health of endpoints
+-- that are part of this endpoint group. The default port is the listener
+-- port that this endpoint group is associated with. If listener port is a
+-- list of ports, Global Accelerator uses the first port in the list.
 --
 -- 'listenerArn', 'createEndpointGroup_listenerArn' - The Amazon Resource Name (ARN) of the listener.
 --
--- 'endpointGroupRegion', 'createEndpointGroup_endpointGroupRegion' - The AWS Region where the endpoint group is located. A listener can have
--- only one endpoint group in a specific Region.
+-- 'endpointGroupRegion', 'createEndpointGroup_endpointGroupRegion' - The Amazon Web Services Region where the endpoint group is located. A
+-- listener can have only one endpoint group in a specific Region.
 --
 -- 'idempotencyToken', 'createEndpointGroup_idempotencyToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency—that is, the uniqueness—of the request.
@@ -195,7 +195,7 @@ newCreateEndpointGroup
         idempotencyToken = pIdempotencyToken_
       }
 
--- | The protocol that AWS Global Accelerator uses to check the health of
+-- | The protocol that Global Accelerator uses to check the health of
 -- endpoints that are part of this endpoint group. The default value is
 -- TCP.
 createEndpointGroup_healthCheckProtocol :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe HealthCheckProtocol)
@@ -208,8 +208,8 @@ createEndpointGroup_healthCheckProtocol = Lens.lens (\CreateEndpointGroup' {heal
 -- respectively, on the endpoints.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Overriding listener ports>
+-- in the /Global Accelerator Developer Guide/.
 createEndpointGroup_portOverrides :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe [PortOverride])
 createEndpointGroup_portOverrides = Lens.lens (\CreateEndpointGroup' {portOverrides} -> portOverrides) (\s@CreateEndpointGroup' {} a -> s {portOverrides = a} :: CreateEndpointGroup) Prelude.. Lens.mapping Lens.coerced
 
@@ -227,8 +227,9 @@ createEndpointGroup_healthCheckIntervalSeconds = Lens.lens (\CreateEndpointGroup
 createEndpointGroup_endpointConfigurations :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe [EndpointConfiguration])
 createEndpointGroup_endpointConfigurations = Lens.lens (\CreateEndpointGroup' {endpointConfigurations} -> endpointConfigurations) (\s@CreateEndpointGroup' {} a -> s {endpointConfigurations = a} :: CreateEndpointGroup) Prelude.. Lens.mapping Lens.coerced
 
--- | The percentage of traffic to send to an AWS Region. Additional traffic
--- is distributed to other endpoint groups for this listener.
+-- | The percentage of traffic to send to an Amazon Web Services Region.
+-- Additional traffic is distributed to other endpoint groups for this
+-- listener.
 --
 -- Use this action to increase (dial up) or decrease (dial down) traffic to
 -- a specific Region. The percentage is applied to the traffic that would
@@ -244,11 +245,10 @@ createEndpointGroup_trafficDialPercentage = Lens.lens (\CreateEndpointGroup' {tr
 createEndpointGroup_thresholdCount :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Natural)
 createEndpointGroup_thresholdCount = Lens.lens (\CreateEndpointGroup' {thresholdCount} -> thresholdCount) (\s@CreateEndpointGroup' {} a -> s {thresholdCount = a} :: CreateEndpointGroup)
 
--- | The port that AWS Global Accelerator uses to check the health of
--- endpoints that are part of this endpoint group. The default port is the
--- listener port that this endpoint group is associated with. If listener
--- port is a list of ports, Global Accelerator uses the first port in the
--- list.
+-- | The port that Global Accelerator uses to check the health of endpoints
+-- that are part of this endpoint group. The default port is the listener
+-- port that this endpoint group is associated with. If listener port is a
+-- list of ports, Global Accelerator uses the first port in the list.
 createEndpointGroup_healthCheckPort :: Lens.Lens' CreateEndpointGroup (Prelude.Maybe Prelude.Natural)
 createEndpointGroup_healthCheckPort = Lens.lens (\CreateEndpointGroup' {healthCheckPort} -> healthCheckPort) (\s@CreateEndpointGroup' {} a -> s {healthCheckPort = a} :: CreateEndpointGroup)
 
@@ -256,8 +256,8 @@ createEndpointGroup_healthCheckPort = Lens.lens (\CreateEndpointGroup' {healthCh
 createEndpointGroup_listenerArn :: Lens.Lens' CreateEndpointGroup Prelude.Text
 createEndpointGroup_listenerArn = Lens.lens (\CreateEndpointGroup' {listenerArn} -> listenerArn) (\s@CreateEndpointGroup' {} a -> s {listenerArn = a} :: CreateEndpointGroup)
 
--- | The AWS Region where the endpoint group is located. A listener can have
--- only one endpoint group in a specific Region.
+-- | The Amazon Web Services Region where the endpoint group is located. A
+-- listener can have only one endpoint group in a specific Region.
 createEndpointGroup_endpointGroupRegion :: Lens.Lens' CreateEndpointGroup Prelude.Text
 createEndpointGroup_endpointGroupRegion = Lens.lens (\CreateEndpointGroup' {endpointGroupRegion} -> endpointGroupRegion) (\s@CreateEndpointGroup' {} a -> s {endpointGroupRegion = a} :: CreateEndpointGroup)
 

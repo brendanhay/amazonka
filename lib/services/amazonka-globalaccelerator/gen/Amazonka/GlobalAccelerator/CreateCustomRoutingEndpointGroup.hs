@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create an endpoint group for the specified listener for a custom routing
--- accelerator. An endpoint group is a collection of endpoints in one AWS
--- Region.
+-- accelerator. An endpoint group is a collection of endpoints in one
+-- Amazon Web Services Region.
 module Amazonka.GlobalAccelerator.CreateCustomRoutingEndpointGroup
   ( -- * Creating a Request
     CreateCustomRoutingEndpointGroup (..),
@@ -56,8 +56,8 @@ data CreateCustomRoutingEndpointGroup = CreateCustomRoutingEndpointGroup'
   { -- | The Amazon Resource Name (ARN) of the listener for a custom routing
     -- endpoint.
     listenerArn :: Prelude.Text,
-    -- | The AWS Region where the endpoint group is located. A listener can have
-    -- only one endpoint group in a specific Region.
+    -- | The Amazon Web Services Region where the endpoint group is located. A
+    -- listener can have only one endpoint group in a specific Region.
     endpointGroupRegion :: Prelude.Text,
     -- | Sets the port range and protocol for all endpoints (virtual private
     -- cloud subnets) in a custom routing endpoint group to accept client
@@ -80,8 +80,8 @@ data CreateCustomRoutingEndpointGroup = CreateCustomRoutingEndpointGroup'
 -- 'listenerArn', 'createCustomRoutingEndpointGroup_listenerArn' - The Amazon Resource Name (ARN) of the listener for a custom routing
 -- endpoint.
 --
--- 'endpointGroupRegion', 'createCustomRoutingEndpointGroup_endpointGroupRegion' - The AWS Region where the endpoint group is located. A listener can have
--- only one endpoint group in a specific Region.
+-- 'endpointGroupRegion', 'createCustomRoutingEndpointGroup_endpointGroupRegion' - The Amazon Web Services Region where the endpoint group is located. A
+-- listener can have only one endpoint group in a specific Region.
 --
 -- 'destinationConfigurations', 'createCustomRoutingEndpointGroup_destinationConfigurations' - Sets the port range and protocol for all endpoints (virtual private
 -- cloud subnets) in a custom routing endpoint group to accept client
@@ -120,8 +120,8 @@ newCreateCustomRoutingEndpointGroup
 createCustomRoutingEndpointGroup_listenerArn :: Lens.Lens' CreateCustomRoutingEndpointGroup Prelude.Text
 createCustomRoutingEndpointGroup_listenerArn = Lens.lens (\CreateCustomRoutingEndpointGroup' {listenerArn} -> listenerArn) (\s@CreateCustomRoutingEndpointGroup' {} a -> s {listenerArn = a} :: CreateCustomRoutingEndpointGroup)
 
--- | The AWS Region where the endpoint group is located. A listener can have
--- only one endpoint group in a specific Region.
+-- | The Amazon Web Services Region where the endpoint group is located. A
+-- listener can have only one endpoint group in a specific Region.
 createCustomRoutingEndpointGroup_endpointGroupRegion :: Lens.Lens' CreateCustomRoutingEndpointGroup Prelude.Text
 createCustomRoutingEndpointGroup_endpointGroupRegion = Lens.lens (\CreateCustomRoutingEndpointGroup' {endpointGroupRegion} -> endpointGroupRegion) (\s@CreateCustomRoutingEndpointGroup' {} a -> s {endpointGroupRegion = a} :: CreateCustomRoutingEndpointGroup)
 

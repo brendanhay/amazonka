@@ -25,11 +25,11 @@
 -- if you specify different address ranges each time.
 --
 -- It can take a few minutes before traffic to the specified addresses
--- stops routing to AWS because of propagation delays.
+-- stops routing to Amazon Web Services because of propagation delays.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring Your Own IP Addresses (BYOIP)>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html Bring your own IP addresses (BYOIP)>
+-- in the /Global Accelerator Developer Guide/.
 module Amazonka.GlobalAccelerator.WithdrawByoipCidr
   ( -- * Creating a Request
     WithdrawByoipCidr (..),

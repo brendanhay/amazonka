@@ -20,6 +20,7 @@
 module Amazonka.GlobalAccelerator.Types.Accelerator where
 
 import qualified Amazonka.Core as Core
+import Amazonka.GlobalAccelerator.Types.AcceleratorEvent
 import Amazonka.GlobalAccelerator.Types.AcceleratorStatus
 import Amazonka.GlobalAccelerator.Types.IpAddressType
 import Amazonka.GlobalAccelerator.Types.IpSet
@@ -54,18 +55,43 @@ data Accelerator = Accelerator'
     -- | The date and time that the accelerator was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The Domain Name System (DNS) name that Global Accelerator creates that
-    -- points to your accelerator\'s static IP addresses.
+    -- points to a dual-stack accelerator\'s four static IP addresses: two IPv4
+    -- addresses and two IPv6 addresses.
     --
-    -- The naming convention for the DNS name is the following: A lowercase
-    -- letter a, followed by a 16-bit random hex string, followed by
-    -- .awsglobalaccelerator.com. For example:
+    -- The naming convention for the dual-stack DNS name is the following: A
+    -- lowercase letter a, followed by a 16-bit random hex string, followed by
+    -- .dualstack.awsglobalaccelerator.com. For example:
+    -- a1234567890abcdef.dualstack.awsglobalaccelerator.com.
+    --
+    -- Note: Global Accelerator also assigns a default DNS name, DnsName, to
+    -- your accelerator that points just to the static IPv4 addresses.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
+    -- in the /Global Accelerator Developer Guide/.
+    dualStackDnsName :: Prelude.Maybe Prelude.Text,
+    -- | A history of changes that you make to an accelerator in Global
+    -- Accelerator.
+    events :: Prelude.Maybe [AcceleratorEvent],
+    -- | The Domain Name System (DNS) name that Global Accelerator creates that
+    -- points to an accelerator\'s static IPv4 addresses.
+    --
+    -- The naming convention for the DNS name for an accelerator is the
+    -- following: A lowercase letter a, followed by a 16-bit random hex string,
+    -- followed by .awsglobalaccelerator.com. For example:
     -- a1234567890abcdef.awsglobalaccelerator.com.
     --
+    -- If you have a dual-stack accelerator, you also have a second DNS name,
+    -- DualStackDnsName, that points to both the A record and the AAAA record
+    -- for all four static addresses for the accelerator (two IPv4 addresses
+    -- and two IPv6 addresses).
+    --
     -- For more information about the default DNS name, see
-    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
-    -- in the /AWS Global Accelerator Developer Guide/.
+    -- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+    -- in the /Global Accelerator Developer Guide/.
     dnsName :: Prelude.Maybe Prelude.Text,
-    -- | The value for the address type must be IPv4.
+    -- | The IP address type that an accelerator supports. For a standard
+    -- accelerator, the value can be IPV4 or DUAL_STACK.
     ipAddressType :: Prelude.Maybe IpAddressType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,19 +124,44 @@ data Accelerator = Accelerator'
 --
 -- 'lastModifiedTime', 'accelerator_lastModifiedTime' - The date and time that the accelerator was last modified.
 --
--- 'dnsName', 'accelerator_dnsName' - The Domain Name System (DNS) name that Global Accelerator creates that
--- points to your accelerator\'s static IP addresses.
+-- 'dualStackDnsName', 'accelerator_dualStackDnsName' - The Domain Name System (DNS) name that Global Accelerator creates that
+-- points to a dual-stack accelerator\'s four static IP addresses: two IPv4
+-- addresses and two IPv6 addresses.
 --
--- The naming convention for the DNS name is the following: A lowercase
--- letter a, followed by a 16-bit random hex string, followed by
--- .awsglobalaccelerator.com. For example:
+-- The naming convention for the dual-stack DNS name is the following: A
+-- lowercase letter a, followed by a 16-bit random hex string, followed by
+-- .dualstack.awsglobalaccelerator.com. For example:
+-- a1234567890abcdef.dualstack.awsglobalaccelerator.com.
+--
+-- Note: Global Accelerator also assigns a default DNS name, DnsName, to
+-- your accelerator that points just to the static IPv4 addresses.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
+--
+-- 'events', 'accelerator_events' - A history of changes that you make to an accelerator in Global
+-- Accelerator.
+--
+-- 'dnsName', 'accelerator_dnsName' - The Domain Name System (DNS) name that Global Accelerator creates that
+-- points to an accelerator\'s static IPv4 addresses.
+--
+-- The naming convention for the DNS name for an accelerator is the
+-- following: A lowercase letter a, followed by a 16-bit random hex string,
+-- followed by .awsglobalaccelerator.com. For example:
 -- a1234567890abcdef.awsglobalaccelerator.com.
 --
--- For more information about the default DNS name, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- If you have a dual-stack accelerator, you also have a second DNS name,
+-- DualStackDnsName, that points to both the A record and the AAAA record
+-- for all four static addresses for the accelerator (two IPv4 addresses
+-- and two IPv6 addresses).
 --
--- 'ipAddressType', 'accelerator_ipAddressType' - The value for the address type must be IPv4.
+-- For more information about the default DNS name, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
+--
+-- 'ipAddressType', 'accelerator_ipAddressType' - The IP address type that an accelerator supports. For a standard
+-- accelerator, the value can be IPV4 or DUAL_STACK.
 newAccelerator ::
   Accelerator
 newAccelerator =
@@ -122,6 +173,8 @@ newAccelerator =
       status = Prelude.Nothing,
       enabled = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      dualStackDnsName = Prelude.Nothing,
+      events = Prelude.Nothing,
       dnsName = Prelude.Nothing,
       ipAddressType = Prelude.Nothing
     }
@@ -161,20 +214,49 @@ accelerator_lastModifiedTime :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.UT
 accelerator_lastModifiedTime = Lens.lens (\Accelerator' {lastModifiedTime} -> lastModifiedTime) (\s@Accelerator' {} a -> s {lastModifiedTime = a} :: Accelerator) Prelude.. Lens.mapping Core._Time
 
 -- | The Domain Name System (DNS) name that Global Accelerator creates that
--- points to your accelerator\'s static IP addresses.
+-- points to a dual-stack accelerator\'s four static IP addresses: two IPv4
+-- addresses and two IPv6 addresses.
 --
--- The naming convention for the DNS name is the following: A lowercase
--- letter a, followed by a 16-bit random hex string, followed by
--- .awsglobalaccelerator.com. For example:
+-- The naming convention for the dual-stack DNS name is the following: A
+-- lowercase letter a, followed by a 16-bit random hex string, followed by
+-- .dualstack.awsglobalaccelerator.com. For example:
+-- a1234567890abcdef.dualstack.awsglobalaccelerator.com.
+--
+-- Note: Global Accelerator also assigns a default DNS name, DnsName, to
+-- your accelerator that points just to the static IPv4 addresses.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
+accelerator_dualStackDnsName :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Text)
+accelerator_dualStackDnsName = Lens.lens (\Accelerator' {dualStackDnsName} -> dualStackDnsName) (\s@Accelerator' {} a -> s {dualStackDnsName = a} :: Accelerator)
+
+-- | A history of changes that you make to an accelerator in Global
+-- Accelerator.
+accelerator_events :: Lens.Lens' Accelerator (Prelude.Maybe [AcceleratorEvent])
+accelerator_events = Lens.lens (\Accelerator' {events} -> events) (\s@Accelerator' {} a -> s {events = a} :: Accelerator) Prelude.. Lens.mapping Lens.coerced
+
+-- | The Domain Name System (DNS) name that Global Accelerator creates that
+-- points to an accelerator\'s static IPv4 addresses.
+--
+-- The naming convention for the DNS name for an accelerator is the
+-- following: A lowercase letter a, followed by a 16-bit random hex string,
+-- followed by .awsglobalaccelerator.com. For example:
 -- a1234567890abcdef.awsglobalaccelerator.com.
 --
+-- If you have a dual-stack accelerator, you also have a second DNS name,
+-- DualStackDnsName, that points to both the A record and the AAAA record
+-- for all four static addresses for the accelerator (two IPv4 addresses
+-- and two IPv6 addresses).
+--
 -- For more information about the default DNS name, see
--- <https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing Support for DNS Addressing in Global Accelerator>
--- in the /AWS Global Accelerator Developer Guide/.
+-- <https://docs.aws.amazon.com/global-accelerator/latest/dg/dns-addressing-custom-domains.dns-addressing.html Support for DNS Addressing in Global Accelerator>
+-- in the /Global Accelerator Developer Guide/.
 accelerator_dnsName :: Lens.Lens' Accelerator (Prelude.Maybe Prelude.Text)
 accelerator_dnsName = Lens.lens (\Accelerator' {dnsName} -> dnsName) (\s@Accelerator' {} a -> s {dnsName = a} :: Accelerator)
 
--- | The value for the address type must be IPv4.
+-- | The IP address type that an accelerator supports. For a standard
+-- accelerator, the value can be IPV4 or DUAL_STACK.
 accelerator_ipAddressType :: Lens.Lens' Accelerator (Prelude.Maybe IpAddressType)
 accelerator_ipAddressType = Lens.lens (\Accelerator' {ipAddressType} -> ipAddressType) (\s@Accelerator' {} a -> s {ipAddressType = a} :: Accelerator)
 
@@ -191,6 +273,8 @@ instance Core.FromJSON Accelerator where
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Enabled")
             Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "DualStackDnsName")
+            Prelude.<*> (x Core..:? "Events" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DnsName")
             Prelude.<*> (x Core..:? "IpAddressType")
       )
@@ -204,6 +288,8 @@ instance Prelude.Hashable Accelerator where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` dualStackDnsName
+      `Prelude.hashWithSalt` events
       `Prelude.hashWithSalt` dnsName
       `Prelude.hashWithSalt` ipAddressType
 
@@ -216,5 +302,7 @@ instance Prelude.NFData Accelerator where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf dualStackDnsName
+      `Prelude.seq` Prelude.rnf events
       `Prelude.seq` Prelude.rnf dnsName
       `Prelude.seq` Prelude.rnf ipAddressType

@@ -86,6 +86,7 @@ library
     Amazonka.GlobalAccelerator.Types
     Amazonka.GlobalAccelerator.Types.Accelerator
     Amazonka.GlobalAccelerator.Types.AcceleratorAttributes
+    Amazonka.GlobalAccelerator.Types.AcceleratorEvent
     Amazonka.GlobalAccelerator.Types.AcceleratorStatus
     Amazonka.GlobalAccelerator.Types.ByoipCidr
     Amazonka.GlobalAccelerator.Types.ByoipCidrEvent
@@ -109,6 +110,7 @@ library
     Amazonka.GlobalAccelerator.Types.EndpointGroup
     Amazonka.GlobalAccelerator.Types.HealthCheckProtocol
     Amazonka.GlobalAccelerator.Types.HealthState
+    Amazonka.GlobalAccelerator.Types.IpAddressFamily
     Amazonka.GlobalAccelerator.Types.IpAddressType
     Amazonka.GlobalAccelerator.Types.IpSet
     Amazonka.GlobalAccelerator.Types.Listener

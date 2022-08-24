@@ -24,17 +24,17 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A complex type that contains a @Message@ and a @Timestamp@ value for
--- changes that you make in the status an IP address range that you bring
--- to AWS Global Accelerator through bring your own IP address (BYOIP).
+-- changes that you make in the status of an IP address range that you
+-- bring to Global Accelerator through bring your own IP address (BYOIP).
 --
 -- /See:/ 'newByoipCidrEvent' smart constructor.
 data ByoipCidrEvent = ByoipCidrEvent'
   { -- | A string that contains an @Event@ message describing changes that you
-    -- make in the status of an IP address range that you bring to AWS Global
+    -- make in the status of an IP address range that you bring to Global
     -- Accelerator through bring your own IP address (BYOIP).
     message :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp when you make a status change for an IP address range that
-    -- you bring to AWS Global Accelerator through bring your own IP address
+    -- | A timestamp for when you make a status change for an IP address range
+    -- that you bring to Global Accelerator through bring your own IP address
     -- (BYOIP).
     timestamp :: Prelude.Maybe Core.POSIX
   }
@@ -49,11 +49,11 @@ data ByoipCidrEvent = ByoipCidrEvent'
 -- for backwards compatibility:
 --
 -- 'message', 'byoipCidrEvent_message' - A string that contains an @Event@ message describing changes that you
--- make in the status of an IP address range that you bring to AWS Global
+-- make in the status of an IP address range that you bring to Global
 -- Accelerator through bring your own IP address (BYOIP).
 --
--- 'timestamp', 'byoipCidrEvent_timestamp' - A timestamp when you make a status change for an IP address range that
--- you bring to AWS Global Accelerator through bring your own IP address
+-- 'timestamp', 'byoipCidrEvent_timestamp' - A timestamp for when you make a status change for an IP address range
+-- that you bring to Global Accelerator through bring your own IP address
 -- (BYOIP).
 newByoipCidrEvent ::
   ByoipCidrEvent
@@ -64,13 +64,13 @@ newByoipCidrEvent =
     }
 
 -- | A string that contains an @Event@ message describing changes that you
--- make in the status of an IP address range that you bring to AWS Global
+-- make in the status of an IP address range that you bring to Global
 -- Accelerator through bring your own IP address (BYOIP).
 byoipCidrEvent_message :: Lens.Lens' ByoipCidrEvent (Prelude.Maybe Prelude.Text)
 byoipCidrEvent_message = Lens.lens (\ByoipCidrEvent' {message} -> message) (\s@ByoipCidrEvent' {} a -> s {message = a} :: ByoipCidrEvent)
 
--- | A timestamp when you make a status change for an IP address range that
--- you bring to AWS Global Accelerator through bring your own IP address
+-- | A timestamp for when you make a status change for an IP address range
+-- that you bring to Global Accelerator through bring your own IP address
 -- (BYOIP).
 byoipCidrEvent_timestamp :: Lens.Lens' ByoipCidrEvent (Prelude.Maybe Prelude.UTCTime)
 byoipCidrEvent_timestamp = Lens.lens (\ByoipCidrEvent' {timestamp} -> timestamp) (\s@ByoipCidrEvent' {} a -> s {timestamp = a} :: ByoipCidrEvent) Prelude.. Lens.mapping Core._Time

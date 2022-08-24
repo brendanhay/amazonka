@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.GlobalAccelerator.Types.IpAddressType
+-- Module      : Amazonka.GlobalAccelerator.Types.IpAddressFamily
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.GlobalAccelerator.Types.IpAddressType
-  ( IpAddressType
+module Amazonka.GlobalAccelerator.Types.IpAddressFamily
+  ( IpAddressFamily
       ( ..,
-        IpAddressType_DUAL_STACK,
-        IpAddressType_IPV4
+        IpAddressFamily_IPv4,
+        IpAddressFamily_IPv6
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype IpAddressType = IpAddressType'
-  { fromIpAddressType ::
+newtype IpAddressFamily = IpAddressFamily'
+  { fromIpAddressFamily ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype IpAddressType = IpAddressType'
       Core.ToXML
     )
 
-pattern IpAddressType_DUAL_STACK :: IpAddressType
-pattern IpAddressType_DUAL_STACK = IpAddressType' "DUAL_STACK"
+pattern IpAddressFamily_IPv4 :: IpAddressFamily
+pattern IpAddressFamily_IPv4 = IpAddressFamily' "IPv4"
 
-pattern IpAddressType_IPV4 :: IpAddressType
-pattern IpAddressType_IPV4 = IpAddressType' "IPV4"
+pattern IpAddressFamily_IPv6 :: IpAddressFamily
+pattern IpAddressFamily_IPv6 = IpAddressFamily' "IPv6"
 
 {-# COMPLETE
-  IpAddressType_DUAL_STACK,
-  IpAddressType_IPV4,
-  IpAddressType'
+  IpAddressFamily_IPv4,
+  IpAddressFamily_IPv6,
+  IpAddressFamily'
   #-}

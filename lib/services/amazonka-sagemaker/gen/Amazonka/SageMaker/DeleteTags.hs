@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified tags from an Amazon SageMaker resource.
+-- Deletes the specified tags from an SageMaker resource.
 --
 -- To list a resource\'s tags, use the @ListTags@ API.
 --

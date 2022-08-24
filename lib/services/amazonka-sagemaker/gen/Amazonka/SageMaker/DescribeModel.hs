@@ -155,7 +155,7 @@ data DescribeModelResponse = DescribeModelResponse'
     inferenceExecutionConfig :: Prelude.Maybe InferenceExecutionConfig,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Name of the Amazon SageMaker model.
+    -- | Name of the SageMaker model.
     modelName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that you specified for
     -- the model.
@@ -193,7 +193,7 @@ data DescribeModelResponse = DescribeModelResponse'
 --
 -- 'httpStatus', 'describeModelResponse_httpStatus' - The response's http status code.
 --
--- 'modelName', 'describeModelResponse_modelName' - Name of the Amazon SageMaker model.
+-- 'modelName', 'describeModelResponse_modelName' - Name of the SageMaker model.
 --
 -- 'executionRoleArn', 'describeModelResponse_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role that you specified for
 -- the model.
@@ -262,7 +262,7 @@ describeModelResponse_inferenceExecutionConfig = Lens.lens (\DescribeModelRespon
 describeModelResponse_httpStatus :: Lens.Lens' DescribeModelResponse Prelude.Int
 describeModelResponse_httpStatus = Lens.lens (\DescribeModelResponse' {httpStatus} -> httpStatus) (\s@DescribeModelResponse' {} a -> s {httpStatus = a} :: DescribeModelResponse)
 
--- | Name of the Amazon SageMaker model.
+-- | Name of the SageMaker model.
 describeModelResponse_modelName :: Lens.Lens' DescribeModelResponse Prelude.Text
 describeModelResponse_modelName = Lens.lens (\DescribeModelResponse' {modelName} -> modelName) (\s@DescribeModelResponse' {} a -> s {modelName = a} :: DescribeModelResponse)
 

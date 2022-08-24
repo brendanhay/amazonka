@@ -37,6 +37,7 @@ module Amazonka.SageMaker.DescribePipelineExecution
     describePipelineExecutionResponse_pipelineArn,
     describePipelineExecutionResponse_pipelineExperimentConfig,
     describePipelineExecutionResponse_lastModifiedTime,
+    describePipelineExecutionResponse_parallelismConfiguration,
     describePipelineExecutionResponse_pipelineExecutionDescription,
     describePipelineExecutionResponse_creationTime,
     describePipelineExecutionResponse_lastModifiedBy,
@@ -98,6 +99,7 @@ instance Core.AWSRequest DescribePipelineExecution where
             Prelude.<$> (x Core..?> "PipelineArn")
             Prelude.<*> (x Core..?> "PipelineExperimentConfig")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "ParallelismConfiguration")
             Prelude.<*> (x Core..?> "PipelineExecutionDescription")
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "LastModifiedBy")
@@ -156,6 +158,8 @@ data DescribePipelineExecutionResponse = DescribePipelineExecutionResponse'
     pipelineExperimentConfig :: Prelude.Maybe PipelineExperimentConfig,
     -- | The time when the pipeline execution was modified last.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The parallelism configuration applied to the pipeline.
+    parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The description of the pipeline execution.
     pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline execution was created.
@@ -189,6 +193,8 @@ data DescribePipelineExecutionResponse = DescribePipelineExecutionResponse'
 --
 -- 'lastModifiedTime', 'describePipelineExecutionResponse_lastModifiedTime' - The time when the pipeline execution was modified last.
 --
+-- 'parallelismConfiguration', 'describePipelineExecutionResponse_parallelismConfiguration' - The parallelism configuration applied to the pipeline.
+--
 -- 'pipelineExecutionDescription', 'describePipelineExecutionResponse_pipelineExecutionDescription' - The description of the pipeline execution.
 --
 -- 'creationTime', 'describePipelineExecutionResponse_creationTime' - The time when the pipeline execution was created.
@@ -217,6 +223,8 @@ newDescribePipelineExecutionResponse pHttpStatus_ =
       pipelineExperimentConfig =
         Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      parallelismConfiguration =
+        Prelude.Nothing,
       pipelineExecutionDescription =
         Prelude.Nothing,
       creationTime = Prelude.Nothing,
@@ -242,6 +250,10 @@ describePipelineExecutionResponse_pipelineExperimentConfig = Lens.lens (\Describ
 -- | The time when the pipeline execution was modified last.
 describePipelineExecutionResponse_lastModifiedTime :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe Prelude.UTCTime)
 describePipelineExecutionResponse_lastModifiedTime = Lens.lens (\DescribePipelineExecutionResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribePipelineExecutionResponse' {} a -> s {lastModifiedTime = a} :: DescribePipelineExecutionResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The parallelism configuration applied to the pipeline.
+describePipelineExecutionResponse_parallelismConfiguration :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe ParallelismConfiguration)
+describePipelineExecutionResponse_parallelismConfiguration = Lens.lens (\DescribePipelineExecutionResponse' {parallelismConfiguration} -> parallelismConfiguration) (\s@DescribePipelineExecutionResponse' {} a -> s {parallelismConfiguration = a} :: DescribePipelineExecutionResponse)
 
 -- | The description of the pipeline execution.
 describePipelineExecutionResponse_pipelineExecutionDescription :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
@@ -287,6 +299,7 @@ instance
     Prelude.rnf pipelineArn
       `Prelude.seq` Prelude.rnf pipelineExperimentConfig
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf parallelismConfiguration
       `Prelude.seq` Prelude.rnf pipelineExecutionDescription
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModifiedBy

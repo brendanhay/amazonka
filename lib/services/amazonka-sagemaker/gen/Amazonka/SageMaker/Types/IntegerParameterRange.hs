@@ -35,8 +35,8 @@ data IntegerParameterRange = IntegerParameterRange'
     -- One of the following values:
     --
     -- [Auto]
-    --     Amazon SageMaker hyperparameter tuning chooses the best scale for
-    --     the hyperparameter.
+    --     SageMaker hyperparameter tuning chooses the best scale for the
+    --     hyperparameter.
     --
     -- [Linear]
     --     Hyperparameter tuning searches the values in the hyperparameter
@@ -72,8 +72,8 @@ data IntegerParameterRange = IntegerParameterRange'
 -- One of the following values:
 --
 -- [Auto]
---     Amazon SageMaker hyperparameter tuning chooses the best scale for
---     the hyperparameter.
+--     SageMaker hyperparameter tuning chooses the best scale for the
+--     hyperparameter.
 --
 -- [Linear]
 --     Hyperparameter tuning searches the values in the hyperparameter
@@ -114,8 +114,8 @@ newIntegerParameterRange pName_ pMinValue_ pMaxValue_ =
 -- One of the following values:
 --
 -- [Auto]
---     Amazon SageMaker hyperparameter tuning chooses the best scale for
---     the hyperparameter.
+--     SageMaker hyperparameter tuning chooses the best scale for the
+--     hyperparameter.
 --
 -- [Linear]
 --     Hyperparameter tuning searches the values in the hyperparameter

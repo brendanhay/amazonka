@@ -58,8 +58,10 @@ data TransformOutput = TransformOutput'
     -- in the /Amazon Simple Storage Service Developer Guide./
     --
     -- The KMS key policy must grant permission to the IAM role that you
-    -- specify in your CreateModel request. For more information, see
-    -- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+    -- specify in your
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html CreateModel>
+    -- request. For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
     -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 path where you want Amazon SageMaker to store the results
@@ -122,8 +124,10 @@ data TransformOutput = TransformOutput'
 -- in the /Amazon Simple Storage Service Developer Guide./
 --
 -- The KMS key policy must grant permission to the IAM role that you
--- specify in your CreateModel request. For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+-- specify in your
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html CreateModel>
+-- request. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 's3OutputPath', 'transformOutput_s3OutputPath' - The Amazon S3 path where you want Amazon SageMaker to store the results
@@ -190,8 +194,10 @@ transformOutput_accept = Lens.lens (\TransformOutput' {accept} -> accept) (\s@Tr
 -- in the /Amazon Simple Storage Service Developer Guide./
 --
 -- The KMS key policy must grant permission to the IAM role that you
--- specify in your CreateModel request. For more information, see
--- <http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+-- specify in your
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html CreateModel>
+-- request. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
 -- in the /Amazon Web Services Key Management Service Developer Guide/.
 transformOutput_kmsKeyId :: Lens.Lens' TransformOutput (Prelude.Maybe Prelude.Text)
 transformOutput_kmsKeyId = Lens.lens (\TransformOutput' {kmsKeyId} -> kmsKeyId) (\s@TransformOutput' {} a -> s {kmsKeyId = a} :: TransformOutput)

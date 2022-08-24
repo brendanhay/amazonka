@@ -40,6 +40,7 @@ module Amazonka.SageMaker.DescribePipeline
     describePipelineResponse_pipelineDefinition,
     describePipelineResponse_pipelineDescription,
     describePipelineResponse_lastModifiedTime,
+    describePipelineResponse_parallelismConfiguration,
     describePipelineResponse_pipelineName,
     describePipelineResponse_lastRunTime,
     describePipelineResponse_creationTime,
@@ -99,6 +100,7 @@ instance Core.AWSRequest DescribePipeline where
             Prelude.<*> (x Core..?> "PipelineDefinition")
             Prelude.<*> (x Core..?> "PipelineDescription")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "ParallelismConfiguration")
             Prelude.<*> (x Core..?> "PipelineName")
             Prelude.<*> (x Core..?> "LastRunTime")
             Prelude.<*> (x Core..?> "CreationTime")
@@ -155,6 +157,8 @@ data DescribePipelineResponse = DescribePipelineResponse'
     pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | Lists the parallelism configuration applied to the pipeline.
+    parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The name of the pipeline.
     pipelineName :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last run.
@@ -190,6 +194,8 @@ data DescribePipelineResponse = DescribePipelineResponse'
 --
 -- 'lastModifiedTime', 'describePipelineResponse_lastModifiedTime' - The time when the pipeline was last modified.
 --
+-- 'parallelismConfiguration', 'describePipelineResponse_parallelismConfiguration' - Lists the parallelism configuration applied to the pipeline.
+--
 -- 'pipelineName', 'describePipelineResponse_pipelineName' - The name of the pipeline.
 --
 -- 'lastRunTime', 'describePipelineResponse_lastRunTime' - The time when the pipeline was last run.
@@ -216,6 +222,7 @@ newDescribePipelineResponse pHttpStatus_ =
       pipelineDefinition = Prelude.Nothing,
       pipelineDescription = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      parallelismConfiguration = Prelude.Nothing,
       pipelineName = Prelude.Nothing,
       lastRunTime = Prelude.Nothing,
       creationTime = Prelude.Nothing,
@@ -248,6 +255,10 @@ describePipelineResponse_pipelineDescription = Lens.lens (\DescribePipelineRespo
 -- | The time when the pipeline was last modified.
 describePipelineResponse_lastModifiedTime :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.UTCTime)
 describePipelineResponse_lastModifiedTime = Lens.lens (\DescribePipelineResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribePipelineResponse' {} a -> s {lastModifiedTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Lists the parallelism configuration applied to the pipeline.
+describePipelineResponse_parallelismConfiguration :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe ParallelismConfiguration)
+describePipelineResponse_parallelismConfiguration = Lens.lens (\DescribePipelineResponse' {parallelismConfiguration} -> parallelismConfiguration) (\s@DescribePipelineResponse' {} a -> s {parallelismConfiguration = a} :: DescribePipelineResponse)
 
 -- | The name of the pipeline.
 describePipelineResponse_pipelineName :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.Text)
@@ -285,6 +296,7 @@ instance Prelude.NFData DescribePipelineResponse where
       `Prelude.seq` Prelude.rnf pipelineDefinition
       `Prelude.seq` Prelude.rnf pipelineDescription
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf parallelismConfiguration
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf lastRunTime
       `Prelude.seq` Prelude.rnf creationTime

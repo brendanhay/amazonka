@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or overwrites one or more tags for the specified Amazon SageMaker
+-- Adds or overwrites one or more tags for the specified SageMaker
 -- resource. You can add tags to notebook instances, training jobs,
 -- hyperparameter tuning jobs, batch transform jobs, models, labeling jobs,
 -- work teams, endpoint configurations, and endpoints.
@@ -171,7 +171,7 @@ instance Core.ToQuery AddTags where
 
 -- | /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
-  { -- | A list of tags associated with the Amazon SageMaker resource.
+  { -- | A list of tags associated with the SageMaker resource.
     tags :: Prelude.Maybe [Tag],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -186,7 +186,7 @@ data AddTagsResponse = AddTagsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'addTagsResponse_tags' - A list of tags associated with the Amazon SageMaker resource.
+-- 'tags', 'addTagsResponse_tags' - A list of tags associated with the SageMaker resource.
 --
 -- 'httpStatus', 'addTagsResponse_httpStatus' - The response's http status code.
 newAddTagsResponse ::
@@ -199,7 +199,7 @@ newAddTagsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A list of tags associated with the Amazon SageMaker resource.
+-- | A list of tags associated with the SageMaker resource.
 addTagsResponse_tags :: Lens.Lens' AddTagsResponse (Prelude.Maybe [Tag])
 addTagsResponse_tags = Lens.lens (\AddTagsResponse' {tags} -> tags) (\s@AddTagsResponse' {} a -> s {tags = a} :: AddTagsResponse) Prelude.. Lens.mapping Lens.coerced
 

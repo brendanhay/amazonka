@@ -22,9 +22,9 @@
 --
 -- Launches an ML compute instance with the latest version of the libraries
 -- and attaches your ML storage volume. After configuring the notebook
--- instance, Amazon SageMaker sets the notebook instance status to
--- @InService@. A notebook instance\'s status must be @InService@ before
--- you can connect to your Jupyter notebook.
+-- instance, SageMaker sets the notebook instance status to @InService@. A
+-- notebook instance\'s status must be @InService@ before you can connect
+-- to your Jupyter notebook.
 module Amazonka.SageMaker.StartNotebookInstance
   ( -- * Creating a Request
     StartNotebookInstance (..),

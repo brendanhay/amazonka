@@ -28,9 +28,11 @@ module Amazonka.SageMaker.Types.AutoMLJobSecondaryStatus
         AutoMLJobSecondaryStatus_Failed,
         AutoMLJobSecondaryStatus_FeatureEngineering,
         AutoMLJobSecondaryStatus_GeneratingExplainabilityReport,
+        AutoMLJobSecondaryStatus_GeneratingModelInsightsReport,
         AutoMLJobSecondaryStatus_MaxAutoMLJobRuntimeReached,
         AutoMLJobSecondaryStatus_MaxCandidatesReached,
         AutoMLJobSecondaryStatus_ModelDeploymentError,
+        AutoMLJobSecondaryStatus_ModelInsightsError,
         AutoMLJobSecondaryStatus_ModelTuning,
         AutoMLJobSecondaryStatus_Starting,
         AutoMLJobSecondaryStatus_Stopped,
@@ -94,6 +96,9 @@ pattern AutoMLJobSecondaryStatus_FeatureEngineering = AutoMLJobSecondaryStatus' 
 pattern AutoMLJobSecondaryStatus_GeneratingExplainabilityReport :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_GeneratingExplainabilityReport = AutoMLJobSecondaryStatus' "GeneratingExplainabilityReport"
 
+pattern AutoMLJobSecondaryStatus_GeneratingModelInsightsReport :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatus_GeneratingModelInsightsReport = AutoMLJobSecondaryStatus' "GeneratingModelInsightsReport"
+
 pattern AutoMLJobSecondaryStatus_MaxAutoMLJobRuntimeReached :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_MaxAutoMLJobRuntimeReached = AutoMLJobSecondaryStatus' "MaxAutoMLJobRuntimeReached"
 
@@ -102,6 +107,9 @@ pattern AutoMLJobSecondaryStatus_MaxCandidatesReached = AutoMLJobSecondaryStatus
 
 pattern AutoMLJobSecondaryStatus_ModelDeploymentError :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_ModelDeploymentError = AutoMLJobSecondaryStatus' "ModelDeploymentError"
+
+pattern AutoMLJobSecondaryStatus_ModelInsightsError :: AutoMLJobSecondaryStatus
+pattern AutoMLJobSecondaryStatus_ModelInsightsError = AutoMLJobSecondaryStatus' "ModelInsightsError"
 
 pattern AutoMLJobSecondaryStatus_ModelTuning :: AutoMLJobSecondaryStatus
 pattern AutoMLJobSecondaryStatus_ModelTuning = AutoMLJobSecondaryStatus' "ModelTuning"
@@ -124,9 +132,11 @@ pattern AutoMLJobSecondaryStatus_Stopping = AutoMLJobSecondaryStatus' "Stopping"
   AutoMLJobSecondaryStatus_Failed,
   AutoMLJobSecondaryStatus_FeatureEngineering,
   AutoMLJobSecondaryStatus_GeneratingExplainabilityReport,
+  AutoMLJobSecondaryStatus_GeneratingModelInsightsReport,
   AutoMLJobSecondaryStatus_MaxAutoMLJobRuntimeReached,
   AutoMLJobSecondaryStatus_MaxCandidatesReached,
   AutoMLJobSecondaryStatus_ModelDeploymentError,
+  AutoMLJobSecondaryStatus_ModelInsightsError,
   AutoMLJobSecondaryStatus_ModelTuning,
   AutoMLJobSecondaryStatus_Starting,
   AutoMLJobSecondaryStatus_Stopped,

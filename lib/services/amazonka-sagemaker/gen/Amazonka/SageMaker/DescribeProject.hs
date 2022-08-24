@@ -35,7 +35,9 @@ module Amazonka.SageMaker.DescribeProject
 
     -- * Response Lenses
     describeProjectResponse_serviceCatalogProvisionedProductDetails,
+    describeProjectResponse_lastModifiedTime,
     describeProjectResponse_projectDescription,
+    describeProjectResponse_lastModifiedBy,
     describeProjectResponse_createdBy,
     describeProjectResponse_httpStatus,
     describeProjectResponse_projectArn,
@@ -93,7 +95,9 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<$> ( x
                             Core..?> "ServiceCatalogProvisionedProductDetails"
                         )
+            Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "ProjectDescription")
+            Prelude.<*> (x Core..?> "LastModifiedBy")
             Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ProjectArn")
@@ -141,8 +145,11 @@ instance Core.ToQuery DescribeProject where
 data DescribeProjectResponse = DescribeProjectResponse'
   { -- | Information about a provisioned service catalog product.
     serviceCatalogProvisionedProductDetails :: Prelude.Maybe ServiceCatalogProvisionedProductDetails,
+    -- | The timestamp when project was last modified.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The description of the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
+    lastModifiedBy :: Prelude.Maybe UserContext,
     createdBy :: Prelude.Maybe UserContext,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -173,7 +180,11 @@ data DescribeProjectResponse = DescribeProjectResponse'
 --
 -- 'serviceCatalogProvisionedProductDetails', 'describeProjectResponse_serviceCatalogProvisionedProductDetails' - Information about a provisioned service catalog product.
 --
+-- 'lastModifiedTime', 'describeProjectResponse_lastModifiedTime' - The timestamp when project was last modified.
+--
 -- 'projectDescription', 'describeProjectResponse_projectDescription' - The description of the project.
+--
+-- 'lastModifiedBy', 'describeProjectResponse_lastModifiedBy' - Undocumented member.
 --
 -- 'createdBy', 'describeProjectResponse_createdBy' - Undocumented member.
 --
@@ -219,7 +230,9 @@ newDescribeProjectResponse
     DescribeProjectResponse'
       { serviceCatalogProvisionedProductDetails =
           Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
         projectDescription = Prelude.Nothing,
+        lastModifiedBy = Prelude.Nothing,
         createdBy = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         projectArn = pProjectArn_,
@@ -235,9 +248,17 @@ newDescribeProjectResponse
 describeProjectResponse_serviceCatalogProvisionedProductDetails :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe ServiceCatalogProvisionedProductDetails)
 describeProjectResponse_serviceCatalogProvisionedProductDetails = Lens.lens (\DescribeProjectResponse' {serviceCatalogProvisionedProductDetails} -> serviceCatalogProvisionedProductDetails) (\s@DescribeProjectResponse' {} a -> s {serviceCatalogProvisionedProductDetails = a} :: DescribeProjectResponse)
 
+-- | The timestamp when project was last modified.
+describeProjectResponse_lastModifiedTime :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.UTCTime)
+describeProjectResponse_lastModifiedTime = Lens.lens (\DescribeProjectResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeProjectResponse' {} a -> s {lastModifiedTime = a} :: DescribeProjectResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The description of the project.
 describeProjectResponse_projectDescription :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe Prelude.Text)
 describeProjectResponse_projectDescription = Lens.lens (\DescribeProjectResponse' {projectDescription} -> projectDescription) (\s@DescribeProjectResponse' {} a -> s {projectDescription = a} :: DescribeProjectResponse)
+
+-- | Undocumented member.
+describeProjectResponse_lastModifiedBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
+describeProjectResponse_lastModifiedBy = Lens.lens (\DescribeProjectResponse' {lastModifiedBy} -> lastModifiedBy) (\s@DescribeProjectResponse' {} a -> s {lastModifiedBy = a} :: DescribeProjectResponse)
 
 -- | Undocumented member.
 describeProjectResponse_createdBy :: Lens.Lens' DescribeProjectResponse (Prelude.Maybe UserContext)
@@ -276,7 +297,9 @@ describeProjectResponse_creationTime = Lens.lens (\DescribeProjectResponse' {cre
 instance Prelude.NFData DescribeProjectResponse where
   rnf DescribeProjectResponse' {..} =
     Prelude.rnf serviceCatalogProvisionedProductDetails
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf projectDescription
+      `Prelude.seq` Prelude.rnf lastModifiedBy
       `Prelude.seq` Prelude.rnf createdBy
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf projectArn

@@ -48,10 +48,9 @@ data HumanTaskConfig = HumanTaskConfig'
     -- -   If you choose the Amazon Mechanical Turk workforce, the maximum is
     --     12 hours (43,200 seconds). The default is 6 hours (21,600 seconds).
     --
-    -- -   If you choose a private or vendor workforce, the default value is 10
-    --     days (864,000 seconds). For most users, the maximum is also 10 days.
-    --     If you want to change this limit, contact Amazon Web Services
-    --     Support.
+    -- -   If you choose a private or vendor workforce, the default value is 30
+    --     days (2592,000 seconds) for non-AL mode. For most users, the maximum
+    --     is also 30 days.
     taskAvailabilityLifetimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the work team assigned to complete the
     -- tasks.
@@ -731,8 +730,8 @@ data HumanTaskConfig = HumanTaskConfig'
     --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html 3D point cloud>
     --     and
     --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
-    --     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
-    --     to change these limits, contact Amazon Web Services Support.
+    --     labeling jobs, the maximum is 30 days (2952,000 seconds) for non-AL
+    --     mode. For most users, the maximum is also 30 days.
     taskTimeLimitInSeconds :: Prelude.Natural,
     -- | Configures how labels are consolidated across human workers.
     annotationConsolidationConfig :: AnnotationConsolidationConfig
@@ -765,10 +764,9 @@ data HumanTaskConfig = HumanTaskConfig'
 -- -   If you choose the Amazon Mechanical Turk workforce, the maximum is
 --     12 hours (43,200 seconds). The default is 6 hours (21,600 seconds).
 --
--- -   If you choose a private or vendor workforce, the default value is 10
---     days (864,000 seconds). For most users, the maximum is also 10 days.
---     If you want to change this limit, contact Amazon Web Services
---     Support.
+-- -   If you choose a private or vendor workforce, the default value is 30
+--     days (2592,000 seconds) for non-AL mode. For most users, the maximum
+--     is also 30 days.
 --
 -- 'workteamArn', 'humanTaskConfig_workteamArn' - The Amazon Resource Name (ARN) of the work team assigned to complete the
 -- tasks.
@@ -1448,8 +1446,8 @@ data HumanTaskConfig = HumanTaskConfig'
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html 3D point cloud>
 --     and
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
---     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
---     to change these limits, contact Amazon Web Services Support.
+--     labeling jobs, the maximum is 30 days (2952,000 seconds) for non-AL
+--     mode. For most users, the maximum is also 30 days.
 --
 -- 'annotationConsolidationConfig', 'humanTaskConfig_annotationConsolidationConfig' - Configures how labels are consolidated across human workers.
 newHumanTaskConfig ::
@@ -1521,10 +1519,9 @@ humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> ta
 -- -   If you choose the Amazon Mechanical Turk workforce, the maximum is
 --     12 hours (43,200 seconds). The default is 6 hours (21,600 seconds).
 --
--- -   If you choose a private or vendor workforce, the default value is 10
---     days (864,000 seconds). For most users, the maximum is also 10 days.
---     If you want to change this limit, contact Amazon Web Services
---     Support.
+-- -   If you choose a private or vendor workforce, the default value is 30
+--     days (2592,000 seconds) for non-AL mode. For most users, the maximum
+--     is also 30 days.
 humanTaskConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
 humanTaskConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanTaskConfig' {taskAvailabilityLifetimeInSeconds} -> taskAvailabilityLifetimeInSeconds) (\s@HumanTaskConfig' {} a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanTaskConfig)
 
@@ -2218,8 +2215,8 @@ humanTaskConfig_numberOfHumanWorkersPerDataObject = Lens.lens (\HumanTaskConfig'
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html 3D point cloud>
 --     and
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
---     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
---     to change these limits, contact Amazon Web Services Support.
+--     labeling jobs, the maximum is 30 days (2952,000 seconds) for non-AL
+--     mode. For most users, the maximum is also 30 days.
 humanTaskConfig_taskTimeLimitInSeconds :: Lens.Lens' HumanTaskConfig Prelude.Natural
 humanTaskConfig_taskTimeLimitInSeconds = Lens.lens (\HumanTaskConfig' {taskTimeLimitInSeconds} -> taskTimeLimitInSeconds) (\s@HumanTaskConfig' {} a -> s {taskTimeLimitInSeconds = a} :: HumanTaskConfig)
 

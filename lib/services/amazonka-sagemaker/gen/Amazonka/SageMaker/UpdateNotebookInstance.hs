@@ -31,6 +31,7 @@ module Amazonka.SageMaker.UpdateNotebookInstance
     -- * Request Lenses
     updateNotebookInstance_roleArn,
     updateNotebookInstance_disassociateLifecycleConfig,
+    updateNotebookInstance_instanceMetadataServiceConfiguration,
     updateNotebookInstance_acceleratorTypes,
     updateNotebookInstance_disassociateAdditionalCodeRepositories,
     updateNotebookInstance_disassociateDefaultCodeRepository,
@@ -61,12 +62,12 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdateNotebookInstance' smart constructor.
 data UpdateNotebookInstance = UpdateNotebookInstance'
-  { -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
-    -- assume to access the notebook instance. For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles>.
+  { -- | The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume
+    -- to access the notebook instance. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html SageMaker Roles>.
     --
-    -- To be able to pass this role to Amazon SageMaker, the caller of this API
-    -- must have the @iam:PassRole@ permission.
+    -- To be able to pass this role to SageMaker, the caller of this API must
+    -- have the @iam:PassRole@ permission.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Set to @true@ to remove the notebook instance lifecycle configuration
     -- currently associated with the notebook instance. This operation is
@@ -74,6 +75,8 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
     -- associated with the notebook instance when you call this method, it does
     -- not throw an error.
     disassociateLifecycleConfig :: Prelude.Maybe Prelude.Bool,
+    -- | Information on the IMDS configuration of the notebook instance
+    instanceMetadataServiceConfiguration :: Prelude.Maybe InstanceMetadataServiceConfiguration,
     -- | A list of the Elastic Inference (EI) instance types to associate with
     -- this notebook instance. Currently only one EI instance type can be
     -- associated with a notebook instance. For more information, see
@@ -103,15 +106,15 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
     -- or in any other Git repository. These repositories are cloned at the
     -- same level as the default repository of your notebook instance. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
     additionalCodeRepositories :: Prelude.Maybe [Prelude.Text],
     -- | The size, in GB, of the ML storage volume to attach to the notebook
     -- instance. The default value is 5 GB. ML storage volumes are encrypted,
-    -- so Amazon SageMaker can\'t determine the amount of available free space
-    -- on the volume. Because of this, you can increase the volume size when
-    -- you update a notebook instance, but you can\'t decrease the volume size.
-    -- If you want to decrease the size of the ML storage volume in use, create
-    -- a new notebook instance with the desired size.
+    -- so SageMaker can\'t determine the amount of available free space on the
+    -- volume. Because of this, you can increase the volume size when you
+    -- update a notebook instance, but you can\'t decrease the volume size. If
+    -- you want to decrease the size of the ML storage volume in use, create a
+    -- new notebook instance with the desired size.
     volumeSizeInGB :: Prelude.Maybe Prelude.Natural,
     -- | The name of a lifecycle configuration to associate with the notebook
     -- instance. For information about lifestyle configurations, see
@@ -124,7 +127,7 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
     -- or in any other Git repository. When you open a notebook instance, it
     -- opens in the directory that contains this repository. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
     defaultCodeRepository :: Prelude.Maybe Prelude.Text,
     -- | Whether root access is enabled or disabled for users of the notebook
     -- instance. The default value is @Enabled@.
@@ -146,18 +149,20 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateNotebookInstance_roleArn' - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
--- assume to access the notebook instance. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles>.
+-- 'roleArn', 'updateNotebookInstance_roleArn' - The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume
+-- to access the notebook instance. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html SageMaker Roles>.
 --
--- To be able to pass this role to Amazon SageMaker, the caller of this API
--- must have the @iam:PassRole@ permission.
+-- To be able to pass this role to SageMaker, the caller of this API must
+-- have the @iam:PassRole@ permission.
 --
 -- 'disassociateLifecycleConfig', 'updateNotebookInstance_disassociateLifecycleConfig' - Set to @true@ to remove the notebook instance lifecycle configuration
 -- currently associated with the notebook instance. This operation is
 -- idempotent. If you specify a lifecycle configuration that is not
 -- associated with the notebook instance when you call this method, it does
 -- not throw an error.
+--
+-- 'instanceMetadataServiceConfiguration', 'updateNotebookInstance_instanceMetadataServiceConfiguration' - Information on the IMDS configuration of the notebook instance
 --
 -- 'acceleratorTypes', 'updateNotebookInstance_acceleratorTypes' - A list of the Elastic Inference (EI) instance types to associate with
 -- this notebook instance. Currently only one EI instance type can be
@@ -188,15 +193,15 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 --
 -- 'volumeSizeInGB', 'updateNotebookInstance_volumeSizeInGB' - The size, in GB, of the ML storage volume to attach to the notebook
 -- instance. The default value is 5 GB. ML storage volumes are encrypted,
--- so Amazon SageMaker can\'t determine the amount of available free space
--- on the volume. Because of this, you can increase the volume size when
--- you update a notebook instance, but you can\'t decrease the volume size.
--- If you want to decrease the size of the ML storage volume in use, create
--- a new notebook instance with the desired size.
+-- so SageMaker can\'t determine the amount of available free space on the
+-- volume. Because of this, you can increase the volume size when you
+-- update a notebook instance, but you can\'t decrease the volume size. If
+-- you want to decrease the size of the ML storage volume in use, create a
+-- new notebook instance with the desired size.
 --
 -- 'lifecycleConfigName', 'updateNotebookInstance_lifecycleConfigName' - The name of a lifecycle configuration to associate with the notebook
 -- instance. For information about lifestyle configurations, see
@@ -209,7 +214,7 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 --
 -- 'rootAccess', 'updateNotebookInstance_rootAccess' - Whether root access is enabled or disabled for users of the notebook
 -- instance. The default value is @Enabled@.
@@ -227,6 +232,8 @@ newUpdateNotebookInstance pNotebookInstanceName_ =
   UpdateNotebookInstance'
     { roleArn = Prelude.Nothing,
       disassociateLifecycleConfig = Prelude.Nothing,
+      instanceMetadataServiceConfiguration =
+        Prelude.Nothing,
       acceleratorTypes = Prelude.Nothing,
       disassociateAdditionalCodeRepositories =
         Prelude.Nothing,
@@ -241,12 +248,12 @@ newUpdateNotebookInstance pNotebookInstanceName_ =
       notebookInstanceName = pNotebookInstanceName_
     }
 
--- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
--- assume to access the notebook instance. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles>.
+-- | The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume
+-- to access the notebook instance. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html SageMaker Roles>.
 --
--- To be able to pass this role to Amazon SageMaker, the caller of this API
--- must have the @iam:PassRole@ permission.
+-- To be able to pass this role to SageMaker, the caller of this API must
+-- have the @iam:PassRole@ permission.
 updateNotebookInstance_roleArn :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe Prelude.Text)
 updateNotebookInstance_roleArn = Lens.lens (\UpdateNotebookInstance' {roleArn} -> roleArn) (\s@UpdateNotebookInstance' {} a -> s {roleArn = a} :: UpdateNotebookInstance)
 
@@ -257,6 +264,10 @@ updateNotebookInstance_roleArn = Lens.lens (\UpdateNotebookInstance' {roleArn} -
 -- not throw an error.
 updateNotebookInstance_disassociateLifecycleConfig :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe Prelude.Bool)
 updateNotebookInstance_disassociateLifecycleConfig = Lens.lens (\UpdateNotebookInstance' {disassociateLifecycleConfig} -> disassociateLifecycleConfig) (\s@UpdateNotebookInstance' {} a -> s {disassociateLifecycleConfig = a} :: UpdateNotebookInstance)
+
+-- | Information on the IMDS configuration of the notebook instance
+updateNotebookInstance_instanceMetadataServiceConfiguration :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe InstanceMetadataServiceConfiguration)
+updateNotebookInstance_instanceMetadataServiceConfiguration = Lens.lens (\UpdateNotebookInstance' {instanceMetadataServiceConfiguration} -> instanceMetadataServiceConfiguration) (\s@UpdateNotebookInstance' {} a -> s {instanceMetadataServiceConfiguration = a} :: UpdateNotebookInstance)
 
 -- | A list of the Elastic Inference (EI) instance types to associate with
 -- this notebook instance. Currently only one EI instance type can be
@@ -297,17 +308,17 @@ updateNotebookInstance_disassociateAcceleratorTypes = Lens.lens (\UpdateNotebook
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 updateNotebookInstance_additionalCodeRepositories :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe [Prelude.Text])
 updateNotebookInstance_additionalCodeRepositories = Lens.lens (\UpdateNotebookInstance' {additionalCodeRepositories} -> additionalCodeRepositories) (\s@UpdateNotebookInstance' {} a -> s {additionalCodeRepositories = a} :: UpdateNotebookInstance) Prelude.. Lens.mapping Lens.coerced
 
 -- | The size, in GB, of the ML storage volume to attach to the notebook
 -- instance. The default value is 5 GB. ML storage volumes are encrypted,
--- so Amazon SageMaker can\'t determine the amount of available free space
--- on the volume. Because of this, you can increase the volume size when
--- you update a notebook instance, but you can\'t decrease the volume size.
--- If you want to decrease the size of the ML storage volume in use, create
--- a new notebook instance with the desired size.
+-- so SageMaker can\'t determine the amount of available free space on the
+-- volume. Because of this, you can increase the volume size when you
+-- update a notebook instance, but you can\'t decrease the volume size. If
+-- you want to decrease the size of the ML storage volume in use, create a
+-- new notebook instance with the desired size.
 updateNotebookInstance_volumeSizeInGB :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe Prelude.Natural)
 updateNotebookInstance_volumeSizeInGB = Lens.lens (\UpdateNotebookInstance' {volumeSizeInGB} -> volumeSizeInGB) (\s@UpdateNotebookInstance' {} a -> s {volumeSizeInGB = a} :: UpdateNotebookInstance)
 
@@ -324,7 +335,7 @@ updateNotebookInstance_lifecycleConfigName = Lens.lens (\UpdateNotebookInstance'
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 updateNotebookInstance_defaultCodeRepository :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe Prelude.Text)
 updateNotebookInstance_defaultCodeRepository = Lens.lens (\UpdateNotebookInstance' {defaultCodeRepository} -> defaultCodeRepository) (\s@UpdateNotebookInstance' {} a -> s {defaultCodeRepository = a} :: UpdateNotebookInstance)
 
@@ -357,6 +368,7 @@ instance Prelude.Hashable UpdateNotebookInstance where
   hashWithSalt _salt UpdateNotebookInstance' {..} =
     _salt `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` disassociateLifecycleConfig
+      `Prelude.hashWithSalt` instanceMetadataServiceConfiguration
       `Prelude.hashWithSalt` acceleratorTypes
       `Prelude.hashWithSalt` disassociateAdditionalCodeRepositories
       `Prelude.hashWithSalt` disassociateDefaultCodeRepository
@@ -373,6 +385,7 @@ instance Prelude.NFData UpdateNotebookInstance where
   rnf UpdateNotebookInstance' {..} =
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf disassociateLifecycleConfig
+      `Prelude.seq` Prelude.rnf instanceMetadataServiceConfiguration
       `Prelude.seq` Prelude.rnf acceleratorTypes
       `Prelude.seq` Prelude.rnf disassociateAdditionalCodeRepositories
       `Prelude.seq` Prelude.rnf disassociateDefaultCodeRepository
@@ -407,6 +420,8 @@ instance Core.ToJSON UpdateNotebookInstance where
           [ ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("DisassociateLifecycleConfig" Core..=)
               Prelude.<$> disassociateLifecycleConfig,
+            ("InstanceMetadataServiceConfiguration" Core..=)
+              Prelude.<$> instanceMetadataServiceConfiguration,
             ("AcceleratorTypes" Core..=)
               Prelude.<$> acceleratorTypes,
             ("DisassociateAdditionalCodeRepositories" Core..=)

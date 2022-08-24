@@ -30,8 +30,8 @@ import Amazonka.SageMaker.Types.AsyncInferenceNotificationConfig
 -- /See:/ 'newAsyncInferenceOutputConfig' smart constructor.
 data AsyncInferenceOutputConfig = AsyncInferenceOutputConfig'
   { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
-    -- key that Amazon SageMaker uses to encrypt the asynchronous inference
-    -- output in Amazon S3.
+    -- key that SageMaker uses to encrypt the asynchronous inference output in
+    -- Amazon S3.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the configuration for notifications of inference results for
     -- asynchronous inference.
@@ -50,8 +50,8 @@ data AsyncInferenceOutputConfig = AsyncInferenceOutputConfig'
 -- for backwards compatibility:
 --
 -- 'kmsKeyId', 'asyncInferenceOutputConfig_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
--- key that Amazon SageMaker uses to encrypt the asynchronous inference
--- output in Amazon S3.
+-- key that SageMaker uses to encrypt the asynchronous inference output in
+-- Amazon S3.
 --
 -- 'notificationConfig', 'asyncInferenceOutputConfig_notificationConfig' - Specifies the configuration for notifications of inference results for
 -- asynchronous inference.
@@ -70,8 +70,8 @@ newAsyncInferenceOutputConfig pS3OutputPath_ =
     }
 
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
--- key that Amazon SageMaker uses to encrypt the asynchronous inference
--- output in Amazon S3.
+-- key that SageMaker uses to encrypt the asynchronous inference output in
+-- Amazon S3.
 asyncInferenceOutputConfig_kmsKeyId :: Lens.Lens' AsyncInferenceOutputConfig (Prelude.Maybe Prelude.Text)
 asyncInferenceOutputConfig_kmsKeyId = Lens.lens (\AsyncInferenceOutputConfig' {kmsKeyId} -> kmsKeyId) (\s@AsyncInferenceOutputConfig' {} a -> s {kmsKeyId = a} :: AsyncInferenceOutputConfig)
 

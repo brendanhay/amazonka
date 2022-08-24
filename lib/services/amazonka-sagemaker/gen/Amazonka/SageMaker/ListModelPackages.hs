@@ -83,12 +83,13 @@ data ListModelPackages = ListModelPackages'
     sortBy :: Prelude.Maybe ModelPackageSortBy,
     -- | The maximum number of model packages to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A filter that returns onlyl the model packages of the specified type.
+    -- | A filter that returns only the model packages of the specified type.
     -- This can be one of the following values.
     --
-    -- -   @VERSIONED@ - List only versioned models.
+    -- -   @UNVERSIONED@ - List only unversioined models. This is the default
+    --     value if no @ModelPackageType@ is specified.
     --
-    -- -   @UNVERSIONED@ - List only unversioined models.
+    -- -   @VERSIONED@ - List only versioned models.
     --
     -- -   @BOTH@ - List both versioned and unversioned models.
     modelPackageType :: Prelude.Maybe ModelPackageType,
@@ -129,12 +130,13 @@ data ListModelPackages = ListModelPackages'
 --
 -- 'maxResults', 'listModelPackages_maxResults' - The maximum number of model packages to return in the response.
 --
--- 'modelPackageType', 'listModelPackages_modelPackageType' - A filter that returns onlyl the model packages of the specified type.
+-- 'modelPackageType', 'listModelPackages_modelPackageType' - A filter that returns only the model packages of the specified type.
 -- This can be one of the following values.
 --
--- -   @VERSIONED@ - List only versioned models.
+-- -   @UNVERSIONED@ - List only unversioined models. This is the default
+--     value if no @ModelPackageType@ is specified.
 --
--- -   @UNVERSIONED@ - List only unversioined models.
+-- -   @VERSIONED@ - List only versioned models.
 --
 -- -   @BOTH@ - List both versioned and unversioned models.
 --
@@ -196,12 +198,13 @@ listModelPackages_sortBy = Lens.lens (\ListModelPackages' {sortBy} -> sortBy) (\
 listModelPackages_maxResults :: Lens.Lens' ListModelPackages (Prelude.Maybe Prelude.Natural)
 listModelPackages_maxResults = Lens.lens (\ListModelPackages' {maxResults} -> maxResults) (\s@ListModelPackages' {} a -> s {maxResults = a} :: ListModelPackages)
 
--- | A filter that returns onlyl the model packages of the specified type.
+-- | A filter that returns only the model packages of the specified type.
 -- This can be one of the following values.
 --
--- -   @VERSIONED@ - List only versioned models.
+-- -   @UNVERSIONED@ - List only unversioined models. This is the default
+--     value if no @ModelPackageType@ is specified.
 --
--- -   @UNVERSIONED@ - List only unversioined models.
+-- -   @VERSIONED@ - List only versioned models.
 --
 -- -   @BOTH@ - List both versioned and unversioned models.
 listModelPackages_modelPackageType :: Lens.Lens' ListModelPackages (Prelude.Maybe ModelPackageType)
@@ -320,9 +323,8 @@ instance Core.ToQuery ListModelPackages where
 
 -- | /See:/ 'newListModelPackagesResponse' smart constructor.
 data ListModelPackagesResponse = ListModelPackagesResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To
-    -- retrieve the next set of model packages, use it in the subsequent
-    -- request.
+  { -- | If the response is truncated, SageMaker returns this token. To retrieve
+    -- the next set of model packages, use it in the subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -340,9 +342,8 @@ data ListModelPackagesResponse = ListModelPackagesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listModelPackagesResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of model packages, use it in the subsequent
--- request.
+-- 'nextToken', 'listModelPackagesResponse_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of model packages, use it in the subsequent request.
 --
 -- 'httpStatus', 'listModelPackagesResponse_httpStatus' - The response's http status code.
 --
@@ -360,9 +361,8 @@ newListModelPackagesResponse pHttpStatus_ =
       modelPackageSummaryList = Prelude.mempty
     }
 
--- | If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of model packages, use it in the subsequent
--- request.
+-- | If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of model packages, use it in the subsequent request.
 listModelPackagesResponse_nextToken :: Lens.Lens' ListModelPackagesResponse (Prelude.Maybe Prelude.Text)
 listModelPackagesResponse_nextToken = Lens.lens (\ListModelPackagesResponse' {nextToken} -> nextToken) (\s@ListModelPackagesResponse' {} a -> s {nextToken = a} :: ListModelPackagesResponse)
 

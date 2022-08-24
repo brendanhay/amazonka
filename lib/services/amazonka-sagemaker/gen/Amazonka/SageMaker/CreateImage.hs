@@ -22,7 +22,7 @@
 --
 -- Creates a custom SageMaker image. A SageMaker image is a set of image
 -- versions. Each image version represents a container image stored in
--- Amazon Container Registry (ECR). For more information, see
+-- Amazon Elastic Container Registry (ECR). For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/studio-byoi.html Bring your own SageMaker image>.
 module Amazonka.SageMaker.CreateImage
   ( -- * Creating a Request

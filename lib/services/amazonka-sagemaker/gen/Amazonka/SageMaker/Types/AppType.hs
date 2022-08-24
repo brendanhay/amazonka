@@ -22,6 +22,8 @@ module Amazonka.SageMaker.Types.AppType
       ( ..,
         AppType_JupyterServer,
         AppType_KernelGateway,
+        AppType_RSessionGateway,
+        AppType_RStudioServerPro,
         AppType_TensorBoard
       ),
   )
@@ -61,12 +63,20 @@ pattern AppType_JupyterServer = AppType' "JupyterServer"
 pattern AppType_KernelGateway :: AppType
 pattern AppType_KernelGateway = AppType' "KernelGateway"
 
+pattern AppType_RSessionGateway :: AppType
+pattern AppType_RSessionGateway = AppType' "RSessionGateway"
+
+pattern AppType_RStudioServerPro :: AppType
+pattern AppType_RStudioServerPro = AppType' "RStudioServerPro"
+
 pattern AppType_TensorBoard :: AppType
 pattern AppType_TensorBoard = AppType' "TensorBoard"
 
 {-# COMPLETE
   AppType_JupyterServer,
   AppType_KernelGateway,
+  AppType_RSessionGateway,
+  AppType_RStudioServerPro,
   AppType_TensorBoard,
   AppType'
   #-}

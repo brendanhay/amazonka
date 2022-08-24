@@ -32,16 +32,15 @@ data S3DataSource = S3DataSource'
   { -- | A list of one or more attribute names to use that are found in a
     -- specified augmented manifest file.
     attributeNames :: Prelude.Maybe [Prelude.Text],
-    -- | If you want Amazon SageMaker to replicate the entire dataset on each ML
-    -- compute instance that is launched for model training, specify
-    -- @FullyReplicated@.
+    -- | If you want SageMaker to replicate the entire dataset on each ML compute
+    -- instance that is launched for model training, specify @FullyReplicated@.
     --
-    -- If you want Amazon SageMaker to replicate a subset of data on each ML
-    -- compute instance that is launched for model training, specify
-    -- @ShardedByS3Key@. If there are /n/ ML compute instances launched for a
-    -- training job, each instance gets approximately 1\//n/ of the number of
-    -- S3 objects. In this case, model training on each machine uses only the
-    -- subset of training data.
+    -- If you want SageMaker to replicate a subset of data on each ML compute
+    -- instance that is launched for model training, specify @ShardedByS3Key@.
+    -- If there are /n/ ML compute instances launched for a training job, each
+    -- instance gets approximately 1\//n/ of the number of S3 objects. In this
+    -- case, model training on each machine uses only the subset of training
+    -- data.
     --
     -- Don\'t choose more ML compute instances for training than available S3
     -- objects. If you do, some nodes won\'t get any data and you will pay for
@@ -53,13 +52,16 @@ data S3DataSource = S3DataSource'
     -- copying training data to the ML storage volume (when @TrainingInputMode@
     -- is set to @File@), this copies 1\//n/ of the number of objects.
     s3DataDistributionType :: Prelude.Maybe S3DataDistribution,
-    -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
+    -- | A list of names of instance groups that get data from the S3 data
+    -- source.
+    instanceGroupNames :: Prelude.Maybe [Prelude.Text],
+    -- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
     -- SageMaker uses all objects that match the specified key name prefix for
     -- model training.
     --
     -- If you choose @ManifestFile@, @S3Uri@ identifies an object that is a
-    -- manifest file containing a list of object keys that you want Amazon
-    -- SageMaker to use for model training.
+    -- manifest file containing a list of object keys that you want SageMaker
+    -- to use for model training.
     --
     -- If you choose @AugmentedManifestFile@, S3Uri identifies an object that
     -- is an augmented manifest file in JSON lines format. This file contains
@@ -109,8 +111,8 @@ data S3DataSource = S3DataSource'
     --
     --     The complete set of @S3Uri@ in this manifest is the input data for
     --     the channel for this data source. The object that each @S3Uri@
-    --     points to must be readable by the IAM role that Amazon SageMaker
-    --     uses to perform tasks on your behalf.
+    --     points to must be readable by the IAM role that SageMaker uses to
+    --     perform tasks on your behalf.
     s3Uri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -126,16 +128,15 @@ data S3DataSource = S3DataSource'
 -- 'attributeNames', 's3DataSource_attributeNames' - A list of one or more attribute names to use that are found in a
 -- specified augmented manifest file.
 --
--- 's3DataDistributionType', 's3DataSource_s3DataDistributionType' - If you want Amazon SageMaker to replicate the entire dataset on each ML
--- compute instance that is launched for model training, specify
--- @FullyReplicated@.
+-- 's3DataDistributionType', 's3DataSource_s3DataDistributionType' - If you want SageMaker to replicate the entire dataset on each ML compute
+-- instance that is launched for model training, specify @FullyReplicated@.
 --
--- If you want Amazon SageMaker to replicate a subset of data on each ML
--- compute instance that is launched for model training, specify
--- @ShardedByS3Key@. If there are /n/ ML compute instances launched for a
--- training job, each instance gets approximately 1\//n/ of the number of
--- S3 objects. In this case, model training on each machine uses only the
--- subset of training data.
+-- If you want SageMaker to replicate a subset of data on each ML compute
+-- instance that is launched for model training, specify @ShardedByS3Key@.
+-- If there are /n/ ML compute instances launched for a training job, each
+-- instance gets approximately 1\//n/ of the number of S3 objects. In this
+-- case, model training on each machine uses only the subset of training
+-- data.
 --
 -- Don\'t choose more ML compute instances for training than available S3
 -- objects. If you do, some nodes won\'t get any data and you will pay for
@@ -147,13 +148,16 @@ data S3DataSource = S3DataSource'
 -- copying training data to the ML storage volume (when @TrainingInputMode@
 -- is set to @File@), this copies 1\//n/ of the number of objects.
 --
--- 's3DataType', 's3DataSource_s3DataType' - If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
+-- 'instanceGroupNames', 's3DataSource_instanceGroupNames' - A list of names of instance groups that get data from the S3 data
+-- source.
+--
+-- 's3DataType', 's3DataSource_s3DataType' - If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
 -- SageMaker uses all objects that match the specified key name prefix for
 -- model training.
 --
 -- If you choose @ManifestFile@, @S3Uri@ identifies an object that is a
--- manifest file containing a list of object keys that you want Amazon
--- SageMaker to use for model training.
+-- manifest file containing a list of object keys that you want SageMaker
+-- to use for model training.
 --
 -- If you choose @AugmentedManifestFile@, S3Uri identifies an object that
 -- is an augmented manifest file in JSON lines format. This file contains
@@ -203,8 +207,8 @@ data S3DataSource = S3DataSource'
 --
 --     The complete set of @S3Uri@ in this manifest is the input data for
 --     the channel for this data source. The object that each @S3Uri@
---     points to must be readable by the IAM role that Amazon SageMaker
---     uses to perform tasks on your behalf.
+--     points to must be readable by the IAM role that SageMaker uses to
+--     perform tasks on your behalf.
 newS3DataSource ::
   -- | 's3DataType'
   S3DataType ->
@@ -215,6 +219,7 @@ newS3DataSource pS3DataType_ pS3Uri_ =
   S3DataSource'
     { attributeNames = Prelude.Nothing,
       s3DataDistributionType = Prelude.Nothing,
+      instanceGroupNames = Prelude.Nothing,
       s3DataType = pS3DataType_,
       s3Uri = pS3Uri_
     }
@@ -224,16 +229,15 @@ newS3DataSource pS3DataType_ pS3Uri_ =
 s3DataSource_attributeNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
 s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attributeNames) (\s@S3DataSource' {} a -> s {attributeNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens.coerced
 
--- | If you want Amazon SageMaker to replicate the entire dataset on each ML
--- compute instance that is launched for model training, specify
--- @FullyReplicated@.
+-- | If you want SageMaker to replicate the entire dataset on each ML compute
+-- instance that is launched for model training, specify @FullyReplicated@.
 --
--- If you want Amazon SageMaker to replicate a subset of data on each ML
--- compute instance that is launched for model training, specify
--- @ShardedByS3Key@. If there are /n/ ML compute instances launched for a
--- training job, each instance gets approximately 1\//n/ of the number of
--- S3 objects. In this case, model training on each machine uses only the
--- subset of training data.
+-- If you want SageMaker to replicate a subset of data on each ML compute
+-- instance that is launched for model training, specify @ShardedByS3Key@.
+-- If there are /n/ ML compute instances launched for a training job, each
+-- instance gets approximately 1\//n/ of the number of S3 objects. In this
+-- case, model training on each machine uses only the subset of training
+-- data.
 --
 -- Don\'t choose more ML compute instances for training than available S3
 -- objects. If you do, some nodes won\'t get any data and you will pay for
@@ -247,13 +251,18 @@ s3DataSource_attributeNames = Lens.lens (\S3DataSource' {attributeNames} -> attr
 s3DataSource_s3DataDistributionType :: Lens.Lens' S3DataSource (Prelude.Maybe S3DataDistribution)
 s3DataSource_s3DataDistributionType = Lens.lens (\S3DataSource' {s3DataDistributionType} -> s3DataDistributionType) (\s@S3DataSource' {} a -> s {s3DataDistributionType = a} :: S3DataSource)
 
--- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon
+-- | A list of names of instance groups that get data from the S3 data
+-- source.
+s3DataSource_instanceGroupNames :: Lens.Lens' S3DataSource (Prelude.Maybe [Prelude.Text])
+s3DataSource_instanceGroupNames = Lens.lens (\S3DataSource' {instanceGroupNames} -> instanceGroupNames) (\s@S3DataSource' {} a -> s {instanceGroupNames = a} :: S3DataSource) Prelude.. Lens.mapping Lens.coerced
+
+-- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix.
 -- SageMaker uses all objects that match the specified key name prefix for
 -- model training.
 --
 -- If you choose @ManifestFile@, @S3Uri@ identifies an object that is a
--- manifest file containing a list of object keys that you want Amazon
--- SageMaker to use for model training.
+-- manifest file containing a list of object keys that you want SageMaker
+-- to use for model training.
 --
 -- If you choose @AugmentedManifestFile@, S3Uri identifies an object that
 -- is an augmented manifest file in JSON lines format. This file contains
@@ -305,8 +314,8 @@ s3DataSource_s3DataType = Lens.lens (\S3DataSource' {s3DataType} -> s3DataType) 
 --
 --     The complete set of @S3Uri@ in this manifest is the input data for
 --     the channel for this data source. The object that each @S3Uri@
---     points to must be readable by the IAM role that Amazon SageMaker
---     uses to perform tasks on your behalf.
+--     points to must be readable by the IAM role that SageMaker uses to
+--     perform tasks on your behalf.
 s3DataSource_s3Uri :: Lens.Lens' S3DataSource Prelude.Text
 s3DataSource_s3Uri = Lens.lens (\S3DataSource' {s3Uri} -> s3Uri) (\s@S3DataSource' {} a -> s {s3Uri = a} :: S3DataSource)
 
@@ -318,6 +327,9 @@ instance Core.FromJSON S3DataSource where
           S3DataSource'
             Prelude.<$> (x Core..:? "AttributeNames" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "S3DataDistributionType")
+            Prelude.<*> ( x Core..:? "InstanceGroupNames"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..: "S3DataType")
             Prelude.<*> (x Core..: "S3Uri")
       )
@@ -326,6 +338,7 @@ instance Prelude.Hashable S3DataSource where
   hashWithSalt _salt S3DataSource' {..} =
     _salt `Prelude.hashWithSalt` attributeNames
       `Prelude.hashWithSalt` s3DataDistributionType
+      `Prelude.hashWithSalt` instanceGroupNames
       `Prelude.hashWithSalt` s3DataType
       `Prelude.hashWithSalt` s3Uri
 
@@ -333,6 +346,7 @@ instance Prelude.NFData S3DataSource where
   rnf S3DataSource' {..} =
     Prelude.rnf attributeNames
       `Prelude.seq` Prelude.rnf s3DataDistributionType
+      `Prelude.seq` Prelude.rnf instanceGroupNames
       `Prelude.seq` Prelude.rnf s3DataType
       `Prelude.seq` Prelude.rnf s3Uri
 
@@ -344,6 +358,8 @@ instance Core.ToJSON S3DataSource where
               Prelude.<$> attributeNames,
             ("S3DataDistributionType" Core..=)
               Prelude.<$> s3DataDistributionType,
+            ("InstanceGroupNames" Core..=)
+              Prelude.<$> instanceGroupNames,
             Prelude.Just ("S3DataType" Core..= s3DataType),
             Prelude.Just ("S3Uri" Core..= s3Uri)
           ]

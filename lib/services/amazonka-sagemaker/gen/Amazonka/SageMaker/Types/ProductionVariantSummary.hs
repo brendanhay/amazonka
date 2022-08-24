@@ -23,6 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.DeployedImage
+import Amazonka.SageMaker.Types.ProductionVariantServerlessConfig
+import Amazonka.SageMaker.Types.ProductionVariantStatus
 
 -- | Describes weight and capacities for a production variant associated with
 -- an endpoint. If you sent a request to the
@@ -31,9 +33,16 @@ import Amazonka.SageMaker.Types.DeployedImage
 --
 -- /See:/ 'newProductionVariantSummary' smart constructor.
 data ProductionVariantSummary = ProductionVariantSummary'
-  { -- | The requested weight, as specified in the
+  { -- | The serverless configuration requested for the endpoint update.
+    desiredServerlessConfig :: Prelude.Maybe ProductionVariantServerlessConfig,
+    -- | The requested weight, as specified in the
     -- @UpdateEndpointWeightsAndCapacities@ request.
     desiredWeight :: Prelude.Maybe Prelude.Double,
+    -- | The serverless configuration for the endpoint.
+    currentServerlessConfig :: Prelude.Maybe ProductionVariantServerlessConfig,
+    -- | The endpoint variant status which describes the current deployment stage
+    -- status or operational status.
+    variantStatus :: Prelude.Maybe [ProductionVariantStatus],
     -- | The number of instances requested in the
     -- @UpdateEndpointWeightsAndCapacities@ request.
     desiredInstanceCount :: Prelude.Maybe Prelude.Natural,
@@ -58,8 +67,15 @@ data ProductionVariantSummary = ProductionVariantSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'desiredServerlessConfig', 'productionVariantSummary_desiredServerlessConfig' - The serverless configuration requested for the endpoint update.
+--
 -- 'desiredWeight', 'productionVariantSummary_desiredWeight' - The requested weight, as specified in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
+--
+-- 'currentServerlessConfig', 'productionVariantSummary_currentServerlessConfig' - The serverless configuration for the endpoint.
+--
+-- 'variantStatus', 'productionVariantSummary_variantStatus' - The endpoint variant status which describes the current deployment stage
+-- status or operational status.
 --
 -- 'desiredInstanceCount', 'productionVariantSummary_desiredInstanceCount' - The number of instances requested in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
@@ -79,8 +95,11 @@ newProductionVariantSummary ::
   ProductionVariantSummary
 newProductionVariantSummary pVariantName_ =
   ProductionVariantSummary'
-    { desiredWeight =
+    { desiredServerlessConfig =
         Prelude.Nothing,
+      desiredWeight = Prelude.Nothing,
+      currentServerlessConfig = Prelude.Nothing,
+      variantStatus = Prelude.Nothing,
       desiredInstanceCount = Prelude.Nothing,
       currentWeight = Prelude.Nothing,
       deployedImages = Prelude.Nothing,
@@ -88,10 +107,23 @@ newProductionVariantSummary pVariantName_ =
       variantName = pVariantName_
     }
 
+-- | The serverless configuration requested for the endpoint update.
+productionVariantSummary_desiredServerlessConfig :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe ProductionVariantServerlessConfig)
+productionVariantSummary_desiredServerlessConfig = Lens.lens (\ProductionVariantSummary' {desiredServerlessConfig} -> desiredServerlessConfig) (\s@ProductionVariantSummary' {} a -> s {desiredServerlessConfig = a} :: ProductionVariantSummary)
+
 -- | The requested weight, as specified in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
 productionVariantSummary_desiredWeight :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe Prelude.Double)
 productionVariantSummary_desiredWeight = Lens.lens (\ProductionVariantSummary' {desiredWeight} -> desiredWeight) (\s@ProductionVariantSummary' {} a -> s {desiredWeight = a} :: ProductionVariantSummary)
+
+-- | The serverless configuration for the endpoint.
+productionVariantSummary_currentServerlessConfig :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe ProductionVariantServerlessConfig)
+productionVariantSummary_currentServerlessConfig = Lens.lens (\ProductionVariantSummary' {currentServerlessConfig} -> currentServerlessConfig) (\s@ProductionVariantSummary' {} a -> s {currentServerlessConfig = a} :: ProductionVariantSummary)
+
+-- | The endpoint variant status which describes the current deployment stage
+-- status or operational status.
+productionVariantSummary_variantStatus :: Lens.Lens' ProductionVariantSummary (Prelude.Maybe [ProductionVariantStatus])
+productionVariantSummary_variantStatus = Lens.lens (\ProductionVariantSummary' {variantStatus} -> variantStatus) (\s@ProductionVariantSummary' {} a -> s {variantStatus = a} :: ProductionVariantSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The number of instances requested in the
 -- @UpdateEndpointWeightsAndCapacities@ request.
@@ -122,7 +154,10 @@ instance Core.FromJSON ProductionVariantSummary where
       "ProductionVariantSummary"
       ( \x ->
           ProductionVariantSummary'
-            Prelude.<$> (x Core..:? "DesiredWeight")
+            Prelude.<$> (x Core..:? "DesiredServerlessConfig")
+            Prelude.<*> (x Core..:? "DesiredWeight")
+            Prelude.<*> (x Core..:? "CurrentServerlessConfig")
+            Prelude.<*> (x Core..:? "VariantStatus" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "DesiredInstanceCount")
             Prelude.<*> (x Core..:? "CurrentWeight")
             Prelude.<*> (x Core..:? "DeployedImages" Core..!= Prelude.mempty)
@@ -132,7 +167,11 @@ instance Core.FromJSON ProductionVariantSummary where
 
 instance Prelude.Hashable ProductionVariantSummary where
   hashWithSalt _salt ProductionVariantSummary' {..} =
-    _salt `Prelude.hashWithSalt` desiredWeight
+    _salt
+      `Prelude.hashWithSalt` desiredServerlessConfig
+      `Prelude.hashWithSalt` desiredWeight
+      `Prelude.hashWithSalt` currentServerlessConfig
+      `Prelude.hashWithSalt` variantStatus
       `Prelude.hashWithSalt` desiredInstanceCount
       `Prelude.hashWithSalt` currentWeight
       `Prelude.hashWithSalt` deployedImages
@@ -141,7 +180,10 @@ instance Prelude.Hashable ProductionVariantSummary where
 
 instance Prelude.NFData ProductionVariantSummary where
   rnf ProductionVariantSummary' {..} =
-    Prelude.rnf desiredWeight
+    Prelude.rnf desiredServerlessConfig
+      `Prelude.seq` Prelude.rnf desiredWeight
+      `Prelude.seq` Prelude.rnf currentServerlessConfig
+      `Prelude.seq` Prelude.rnf variantStatus
       `Prelude.seq` Prelude.rnf desiredInstanceCount
       `Prelude.seq` Prelude.rnf currentWeight
       `Prelude.seq` Prelude.rnf deployedImages

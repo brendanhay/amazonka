@@ -35,6 +35,12 @@ data ResourceSpec = ResourceSpec'
     -- | The ARN of the image version created on the instance.
     sageMakerImageVersionArn :: Prelude.Maybe Prelude.Text,
     -- | The instance type that the image version runs on.
+    --
+    -- __JupyterServer apps__ only support the @system@ value.
+    --
+    -- For __KernelGateway apps__, the @system@ value is translated to
+    -- @ml.t3.medium@. KernelGateway apps also support all other values for
+    -- available instance types.
     instanceType :: Prelude.Maybe AppInstanceType,
     -- | The ARN of the SageMaker image that the image version belongs to.
     sageMakerImageArn :: Prelude.Maybe Prelude.Text
@@ -55,6 +61,12 @@ data ResourceSpec = ResourceSpec'
 -- 'sageMakerImageVersionArn', 'resourceSpec_sageMakerImageVersionArn' - The ARN of the image version created on the instance.
 --
 -- 'instanceType', 'resourceSpec_instanceType' - The instance type that the image version runs on.
+--
+-- __JupyterServer apps__ only support the @system@ value.
+--
+-- For __KernelGateway apps__, the @system@ value is translated to
+-- @ml.t3.medium@. KernelGateway apps also support all other values for
+-- available instance types.
 --
 -- 'sageMakerImageArn', 'resourceSpec_sageMakerImageArn' - The ARN of the SageMaker image that the image version belongs to.
 newResourceSpec ::
@@ -77,6 +89,12 @@ resourceSpec_sageMakerImageVersionArn :: Lens.Lens' ResourceSpec (Prelude.Maybe 
 resourceSpec_sageMakerImageVersionArn = Lens.lens (\ResourceSpec' {sageMakerImageVersionArn} -> sageMakerImageVersionArn) (\s@ResourceSpec' {} a -> s {sageMakerImageVersionArn = a} :: ResourceSpec)
 
 -- | The instance type that the image version runs on.
+--
+-- __JupyterServer apps__ only support the @system@ value.
+--
+-- For __KernelGateway apps__, the @system@ value is translated to
+-- @ml.t3.medium@. KernelGateway apps also support all other values for
+-- available instance types.
 resourceSpec_instanceType :: Lens.Lens' ResourceSpec (Prelude.Maybe AppInstanceType)
 resourceSpec_instanceType = Lens.lens (\ResourceSpec' {instanceType} -> instanceType) (\s@ResourceSpec' {} a -> s {instanceType = a} :: ResourceSpec)
 

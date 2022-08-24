@@ -30,7 +30,7 @@ import Amazonka.SageMaker.Types.ContentClassifier
 -- /See:/ 'newLabelingJobDataAttributes' smart constructor.
 data LabelingJobDataAttributes = LabelingJobDataAttributes'
   { -- | Declares that your content is free of personally identifiable
-    -- information or adult content. Amazon SageMaker may restrict the Amazon
+    -- information or adult content. SageMaker may restrict the Amazon
     -- Mechanical Turk workers that can view your task based on this
     -- information.
     contentClassifiers :: Prelude.Maybe [ContentClassifier]
@@ -46,7 +46,7 @@ data LabelingJobDataAttributes = LabelingJobDataAttributes'
 -- for backwards compatibility:
 --
 -- 'contentClassifiers', 'labelingJobDataAttributes_contentClassifiers' - Declares that your content is free of personally identifiable
--- information or adult content. Amazon SageMaker may restrict the Amazon
+-- information or adult content. SageMaker may restrict the Amazon
 -- Mechanical Turk workers that can view your task based on this
 -- information.
 newLabelingJobDataAttributes ::
@@ -58,7 +58,7 @@ newLabelingJobDataAttributes =
     }
 
 -- | Declares that your content is free of personally identifiable
--- information or adult content. Amazon SageMaker may restrict the Amazon
+-- information or adult content. SageMaker may restrict the Amazon
 -- Mechanical Turk workers that can view your task based on this
 -- information.
 labelingJobDataAttributes_contentClassifiers :: Lens.Lens' LabelingJobDataAttributes (Prelude.Maybe [ContentClassifier])

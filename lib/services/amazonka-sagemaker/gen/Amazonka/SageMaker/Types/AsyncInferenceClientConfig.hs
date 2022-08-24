@@ -23,14 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Configures the behavior of the client used by Amazon SageMaker to
--- interact with the model container during asynchronous inference.
+-- | Configures the behavior of the client used by SageMaker to interact with
+-- the model container during asynchronous inference.
 --
 -- /See:/ 'newAsyncInferenceClientConfig' smart constructor.
 data AsyncInferenceClientConfig = AsyncInferenceClientConfig'
   { -- | The maximum number of concurrent requests sent by the SageMaker client
-    -- to the model container. If no value is provided, Amazon SageMaker will
-    -- choose an optimal value for you.
+    -- to the model container. If no value is provided, SageMaker chooses an
+    -- optimal value.
     maxConcurrentInvocationsPerInstance :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,8 +44,8 @@ data AsyncInferenceClientConfig = AsyncInferenceClientConfig'
 -- for backwards compatibility:
 --
 -- 'maxConcurrentInvocationsPerInstance', 'asyncInferenceClientConfig_maxConcurrentInvocationsPerInstance' - The maximum number of concurrent requests sent by the SageMaker client
--- to the model container. If no value is provided, Amazon SageMaker will
--- choose an optimal value for you.
+-- to the model container. If no value is provided, SageMaker chooses an
+-- optimal value.
 newAsyncInferenceClientConfig ::
   AsyncInferenceClientConfig
 newAsyncInferenceClientConfig =
@@ -55,8 +55,8 @@ newAsyncInferenceClientConfig =
     }
 
 -- | The maximum number of concurrent requests sent by the SageMaker client
--- to the model container. If no value is provided, Amazon SageMaker will
--- choose an optimal value for you.
+-- to the model container. If no value is provided, SageMaker chooses an
+-- optimal value.
 asyncInferenceClientConfig_maxConcurrentInvocationsPerInstance :: Lens.Lens' AsyncInferenceClientConfig (Prelude.Maybe Prelude.Natural)
 asyncInferenceClientConfig_maxConcurrentInvocationsPerInstance = Lens.lens (\AsyncInferenceClientConfig' {maxConcurrentInvocationsPerInstance} -> maxConcurrentInvocationsPerInstance) (\s@AsyncInferenceClientConfig' {} a -> s {maxConcurrentInvocationsPerInstance = a} :: AsyncInferenceClientConfig)
 

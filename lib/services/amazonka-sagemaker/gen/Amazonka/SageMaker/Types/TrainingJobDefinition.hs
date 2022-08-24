@@ -38,18 +38,18 @@ data TrainingJobDefinition = TrainingJobDefinition'
     -- | An array of @Channel@ objects, each of which specifies an input source.
     inputDataConfig :: Prelude.NonEmpty Channel,
     -- | the path to the S3 bucket where you want to store model artifacts.
-    -- Amazon SageMaker creates subfolders for the artifacts.
+    -- SageMaker creates subfolders for the artifacts.
     outputDataConfig :: OutputDataConfig,
     -- | The resources, including the ML compute instances and ML storage
     -- volumes, to use for model training.
     resourceConfig :: ResourceConfig,
     -- | Specifies a limit to how long a model training job can run. It also
     -- specifies how long a managed Spot training job has to complete. When the
-    -- job reaches the time limit, Amazon SageMaker ends the training job. Use
-    -- this API to cap model training costs.
+    -- job reaches the time limit, SageMaker ends the training job. Use this
+    -- API to cap model training costs.
     --
-    -- To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal,
-    -- which delays job termination for 120 seconds. Algorithms can use this
+    -- To stop a job, SageMaker sends the algorithm the SIGTERM signal, which
+    -- delays job termination for 120 seconds. Algorithms can use this
     -- 120-second window to save the model artifacts.
     stoppingCondition :: StoppingCondition
   }
@@ -70,18 +70,18 @@ data TrainingJobDefinition = TrainingJobDefinition'
 -- 'inputDataConfig', 'trainingJobDefinition_inputDataConfig' - An array of @Channel@ objects, each of which specifies an input source.
 --
 -- 'outputDataConfig', 'trainingJobDefinition_outputDataConfig' - the path to the S3 bucket where you want to store model artifacts.
--- Amazon SageMaker creates subfolders for the artifacts.
+-- SageMaker creates subfolders for the artifacts.
 --
 -- 'resourceConfig', 'trainingJobDefinition_resourceConfig' - The resources, including the ML compute instances and ML storage
 -- volumes, to use for model training.
 --
 -- 'stoppingCondition', 'trainingJobDefinition_stoppingCondition' - Specifies a limit to how long a model training job can run. It also
 -- specifies how long a managed Spot training job has to complete. When the
--- job reaches the time limit, Amazon SageMaker ends the training job. Use
--- this API to cap model training costs.
+-- job reaches the time limit, SageMaker ends the training job. Use this
+-- API to cap model training costs.
 --
--- To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal,
--- which delays job termination for 120 seconds. Algorithms can use this
+-- To stop a job, SageMaker sends the algorithm the SIGTERM signal, which
+-- delays job termination for 120 seconds. Algorithms can use this
 -- 120-second window to save the model artifacts.
 newTrainingJobDefinition ::
   -- | 'trainingInputMode'
@@ -125,7 +125,7 @@ trainingJobDefinition_inputDataConfig :: Lens.Lens' TrainingJobDefinition (Prelu
 trainingJobDefinition_inputDataConfig = Lens.lens (\TrainingJobDefinition' {inputDataConfig} -> inputDataConfig) (\s@TrainingJobDefinition' {} a -> s {inputDataConfig = a} :: TrainingJobDefinition) Prelude.. Lens.coerced
 
 -- | the path to the S3 bucket where you want to store model artifacts.
--- Amazon SageMaker creates subfolders for the artifacts.
+-- SageMaker creates subfolders for the artifacts.
 trainingJobDefinition_outputDataConfig :: Lens.Lens' TrainingJobDefinition OutputDataConfig
 trainingJobDefinition_outputDataConfig = Lens.lens (\TrainingJobDefinition' {outputDataConfig} -> outputDataConfig) (\s@TrainingJobDefinition' {} a -> s {outputDataConfig = a} :: TrainingJobDefinition)
 
@@ -136,11 +136,11 @@ trainingJobDefinition_resourceConfig = Lens.lens (\TrainingJobDefinition' {resou
 
 -- | Specifies a limit to how long a model training job can run. It also
 -- specifies how long a managed Spot training job has to complete. When the
--- job reaches the time limit, Amazon SageMaker ends the training job. Use
--- this API to cap model training costs.
+-- job reaches the time limit, SageMaker ends the training job. Use this
+-- API to cap model training costs.
 --
--- To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal,
--- which delays job termination for 120 seconds. Algorithms can use this
+-- To stop a job, SageMaker sends the algorithm the SIGTERM signal, which
+-- delays job termination for 120 seconds. Algorithms can use this
 -- 120-second window to save the model artifacts.
 trainingJobDefinition_stoppingCondition :: Lens.Lens' TrainingJobDefinition StoppingCondition
 trainingJobDefinition_stoppingCondition = Lens.lens (\TrainingJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@TrainingJobDefinition' {} a -> s {stoppingCondition = a} :: TrainingJobDefinition)

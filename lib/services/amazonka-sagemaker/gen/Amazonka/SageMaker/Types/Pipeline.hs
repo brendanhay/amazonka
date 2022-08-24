@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.Pipeline where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.ParallelismConfiguration
 import Amazonka.SageMaker.Types.PipelineStatus
 import Amazonka.SageMaker.Types.Tag
 import Amazonka.SageMaker.Types.UserContext
@@ -42,6 +43,8 @@ data Pipeline = Pipeline'
     pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The time that the pipeline was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The parallelism configuration applied to the pipeline.
+    parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The name of the pipeline.
     pipelineName :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last run.
@@ -75,6 +78,8 @@ data Pipeline = Pipeline'
 --
 -- 'lastModifiedTime', 'pipeline_lastModifiedTime' - The time that the pipeline was last modified.
 --
+-- 'parallelismConfiguration', 'pipeline_parallelismConfiguration' - The parallelism configuration applied to the pipeline.
+--
 -- 'pipelineName', 'pipeline_pipelineName' - The name of the pipeline.
 --
 -- 'lastRunTime', 'pipeline_lastRunTime' - The time when the pipeline was last run.
@@ -96,6 +101,7 @@ newPipeline =
       pipelineDisplayName = Prelude.Nothing,
       pipelineDescription = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      parallelismConfiguration = Prelude.Nothing,
       pipelineName = Prelude.Nothing,
       lastRunTime = Prelude.Nothing,
       creationTime = Prelude.Nothing,
@@ -127,6 +133,10 @@ pipeline_pipelineDescription = Lens.lens (\Pipeline' {pipelineDescription} -> pi
 -- | The time that the pipeline was last modified.
 pipeline_lastModifiedTime :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.UTCTime)
 pipeline_lastModifiedTime = Lens.lens (\Pipeline' {lastModifiedTime} -> lastModifiedTime) (\s@Pipeline' {} a -> s {lastModifiedTime = a} :: Pipeline) Prelude.. Lens.mapping Core._Time
+
+-- | The parallelism configuration applied to the pipeline.
+pipeline_parallelismConfiguration :: Lens.Lens' Pipeline (Prelude.Maybe ParallelismConfiguration)
+pipeline_parallelismConfiguration = Lens.lens (\Pipeline' {parallelismConfiguration} -> parallelismConfiguration) (\s@Pipeline' {} a -> s {parallelismConfiguration = a} :: Pipeline)
 
 -- | The name of the pipeline.
 pipeline_pipelineName :: Lens.Lens' Pipeline (Prelude.Maybe Prelude.Text)
@@ -164,6 +174,7 @@ instance Core.FromJSON Pipeline where
             Prelude.<*> (x Core..:? "PipelineDisplayName")
             Prelude.<*> (x Core..:? "PipelineDescription")
             Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "ParallelismConfiguration")
             Prelude.<*> (x Core..:? "PipelineName")
             Prelude.<*> (x Core..:? "LastRunTime")
             Prelude.<*> (x Core..:? "CreationTime")
@@ -180,6 +191,7 @@ instance Prelude.Hashable Pipeline where
       `Prelude.hashWithSalt` pipelineDisplayName
       `Prelude.hashWithSalt` pipelineDescription
       `Prelude.hashWithSalt` lastModifiedTime
+      `Prelude.hashWithSalt` parallelismConfiguration
       `Prelude.hashWithSalt` pipelineName
       `Prelude.hashWithSalt` lastRunTime
       `Prelude.hashWithSalt` creationTime
@@ -195,6 +207,7 @@ instance Prelude.NFData Pipeline where
       `Prelude.seq` Prelude.rnf pipelineDisplayName
       `Prelude.seq` Prelude.rnf pipelineDescription
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf parallelismConfiguration
       `Prelude.seq` Prelude.rnf pipelineName
       `Prelude.seq` Prelude.rnf lastRunTime
       `Prelude.seq` Prelude.rnf creationTime

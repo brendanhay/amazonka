@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.LabelingJobResourceConfig where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.VpcConfig
 
 -- | Configure encryption on the storage volume attached to the ML compute
 -- instance used to run automated data labeling model training and
@@ -29,7 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLabelingJobResourceConfig' smart constructor.
 data LabelingJobResourceConfig = LabelingJobResourceConfig'
-  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+  { vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
     -- key that Amazon SageMaker uses to encrypt data on the storage volume
     -- attached to the ML compute instance(s) that run the training and
     -- inference jobs used for automated data labeling.
@@ -63,6 +65,8 @@ data LabelingJobResourceConfig = LabelingJobResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcConfig', 'labelingJobResourceConfig_vpcConfig' - Undocumented member.
+--
 -- 'volumeKmsKeyId', 'labelingJobResourceConfig_volumeKmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt data on the storage volume
 -- attached to the ML compute instance(s) that run the training and
@@ -89,9 +93,14 @@ newLabelingJobResourceConfig ::
   LabelingJobResourceConfig
 newLabelingJobResourceConfig =
   LabelingJobResourceConfig'
-    { volumeKmsKeyId =
-        Prelude.Nothing
+    { vpcConfig =
+        Prelude.Nothing,
+      volumeKmsKeyId = Prelude.Nothing
     }
+
+-- | Undocumented member.
+labelingJobResourceConfig_vpcConfig :: Lens.Lens' LabelingJobResourceConfig (Prelude.Maybe VpcConfig)
+labelingJobResourceConfig_vpcConfig = Lens.lens (\LabelingJobResourceConfig' {vpcConfig} -> vpcConfig) (\s@LabelingJobResourceConfig' {} a -> s {vpcConfig = a} :: LabelingJobResourceConfig)
 
 -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
 -- key that Amazon SageMaker uses to encrypt data on the storage volume
@@ -124,22 +133,26 @@ instance Core.FromJSON LabelingJobResourceConfig where
       "LabelingJobResourceConfig"
       ( \x ->
           LabelingJobResourceConfig'
-            Prelude.<$> (x Core..:? "VolumeKmsKeyId")
+            Prelude.<$> (x Core..:? "VpcConfig")
+            Prelude.<*> (x Core..:? "VolumeKmsKeyId")
       )
 
 instance Prelude.Hashable LabelingJobResourceConfig where
   hashWithSalt _salt LabelingJobResourceConfig' {..} =
-    _salt `Prelude.hashWithSalt` volumeKmsKeyId
+    _salt `Prelude.hashWithSalt` vpcConfig
+      `Prelude.hashWithSalt` volumeKmsKeyId
 
 instance Prelude.NFData LabelingJobResourceConfig where
   rnf LabelingJobResourceConfig' {..} =
-    Prelude.rnf volumeKmsKeyId
+    Prelude.rnf vpcConfig
+      `Prelude.seq` Prelude.rnf volumeKmsKeyId
 
 instance Core.ToJSON LabelingJobResourceConfig where
   toJSON LabelingJobResourceConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VolumeKmsKeyId" Core..=)
+          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId
           ]
       )

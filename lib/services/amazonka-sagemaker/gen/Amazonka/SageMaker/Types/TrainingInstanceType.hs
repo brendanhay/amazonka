@@ -40,6 +40,14 @@ module Amazonka.SageMaker.Types.TrainingInstanceType
         TrainingInstanceType_Ml_g4dn_4xlarge,
         TrainingInstanceType_Ml_g4dn_8xlarge,
         TrainingInstanceType_Ml_g4dn_xlarge,
+        TrainingInstanceType_Ml_g5_12xlarge,
+        TrainingInstanceType_Ml_g5_16xlarge,
+        TrainingInstanceType_Ml_g5_24xlarge,
+        TrainingInstanceType_Ml_g5_2xlarge,
+        TrainingInstanceType_Ml_g5_48xlarge,
+        TrainingInstanceType_Ml_g5_4xlarge,
+        TrainingInstanceType_Ml_g5_8xlarge,
+        TrainingInstanceType_Ml_g5_xlarge,
         TrainingInstanceType_Ml_m4_10xlarge,
         TrainingInstanceType_Ml_m4_16xlarge,
         TrainingInstanceType_Ml_m4_2xlarge,
@@ -154,6 +162,30 @@ pattern TrainingInstanceType_Ml_g4dn_8xlarge = TrainingInstanceType' "ml.g4dn.8x
 pattern TrainingInstanceType_Ml_g4dn_xlarge :: TrainingInstanceType
 pattern TrainingInstanceType_Ml_g4dn_xlarge = TrainingInstanceType' "ml.g4dn.xlarge"
 
+pattern TrainingInstanceType_Ml_g5_12xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_g5_12xlarge = TrainingInstanceType' "ml.g5.12xlarge"
+
+pattern TrainingInstanceType_Ml_g5_16xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_g5_16xlarge = TrainingInstanceType' "ml.g5.16xlarge"
+
+pattern TrainingInstanceType_Ml_g5_24xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_g5_24xlarge = TrainingInstanceType' "ml.g5.24xlarge"
+
+pattern TrainingInstanceType_Ml_g5_2xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_g5_2xlarge = TrainingInstanceType' "ml.g5.2xlarge"
+
+pattern TrainingInstanceType_Ml_g5_48xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_g5_48xlarge = TrainingInstanceType' "ml.g5.48xlarge"
+
+pattern TrainingInstanceType_Ml_g5_4xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_g5_4xlarge = TrainingInstanceType' "ml.g5.4xlarge"
+
+pattern TrainingInstanceType_Ml_g5_8xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_g5_8xlarge = TrainingInstanceType' "ml.g5.8xlarge"
+
+pattern TrainingInstanceType_Ml_g5_xlarge :: TrainingInstanceType
+pattern TrainingInstanceType_Ml_g5_xlarge = TrainingInstanceType' "ml.g5.xlarge"
+
 pattern TrainingInstanceType_Ml_m4_10xlarge :: TrainingInstanceType
 pattern TrainingInstanceType_Ml_m4_10xlarge = TrainingInstanceType' "ml.m4.10xlarge"
 
@@ -232,6 +264,14 @@ pattern TrainingInstanceType_Ml_p4d_24xlarge = TrainingInstanceType' "ml.p4d.24x
   TrainingInstanceType_Ml_g4dn_4xlarge,
   TrainingInstanceType_Ml_g4dn_8xlarge,
   TrainingInstanceType_Ml_g4dn_xlarge,
+  TrainingInstanceType_Ml_g5_12xlarge,
+  TrainingInstanceType_Ml_g5_16xlarge,
+  TrainingInstanceType_Ml_g5_24xlarge,
+  TrainingInstanceType_Ml_g5_2xlarge,
+  TrainingInstanceType_Ml_g5_48xlarge,
+  TrainingInstanceType_Ml_g5_4xlarge,
+  TrainingInstanceType_Ml_g5_8xlarge,
+  TrainingInstanceType_Ml_g5_xlarge,
   TrainingInstanceType_Ml_m4_10xlarge,
   TrainingInstanceType_Ml_m4_16xlarge,
   TrainingInstanceType_Ml_m4_2xlarge,

@@ -41,6 +41,7 @@ module Amazonka.SageMaker.DescribeArtifact
     describeArtifactResponse_artifactArn,
     describeArtifactResponse_lastModifiedTime,
     describeArtifactResponse_source,
+    describeArtifactResponse_lineageGroupArn,
     describeArtifactResponse_creationTime,
     describeArtifactResponse_lastModifiedBy,
     describeArtifactResponse_createdBy,
@@ -98,6 +99,7 @@ instance Core.AWSRequest DescribeArtifact where
             Prelude.<*> (x Core..?> "ArtifactArn")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "Source")
+            Prelude.<*> (x Core..?> "LineageGroupArn")
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "LastModifiedBy")
             Prelude.<*> (x Core..?> "CreatedBy")
@@ -152,6 +154,8 @@ data DescribeArtifactResponse = DescribeArtifactResponse'
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The source of the artifact.
     source :: Prelude.Maybe ArtifactSource,
+    -- | The Amazon Resource Name (ARN) of the lineage group.
+    lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | When the artifact was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     lastModifiedBy :: Prelude.Maybe UserContext,
@@ -183,6 +187,8 @@ data DescribeArtifactResponse = DescribeArtifactResponse'
 --
 -- 'source', 'describeArtifactResponse_source' - The source of the artifact.
 --
+-- 'lineageGroupArn', 'describeArtifactResponse_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group.
+--
 -- 'creationTime', 'describeArtifactResponse_creationTime' - When the artifact was created.
 --
 -- 'lastModifiedBy', 'describeArtifactResponse_lastModifiedBy' - Undocumented member.
@@ -204,6 +210,7 @@ newDescribeArtifactResponse pHttpStatus_ =
       artifactArn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       source = Prelude.Nothing,
+      lineageGroupArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
       createdBy = Prelude.Nothing,
@@ -238,6 +245,10 @@ describeArtifactResponse_lastModifiedTime = Lens.lens (\DescribeArtifactResponse
 describeArtifactResponse_source :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe ArtifactSource)
 describeArtifactResponse_source = Lens.lens (\DescribeArtifactResponse' {source} -> source) (\s@DescribeArtifactResponse' {} a -> s {source = a} :: DescribeArtifactResponse)
 
+-- | The Amazon Resource Name (ARN) of the lineage group.
+describeArtifactResponse_lineageGroupArn :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.Text)
+describeArtifactResponse_lineageGroupArn = Lens.lens (\DescribeArtifactResponse' {lineageGroupArn} -> lineageGroupArn) (\s@DescribeArtifactResponse' {} a -> s {lineageGroupArn = a} :: DescribeArtifactResponse)
+
 -- | When the artifact was created.
 describeArtifactResponse_creationTime :: Lens.Lens' DescribeArtifactResponse (Prelude.Maybe Prelude.UTCTime)
 describeArtifactResponse_creationTime = Lens.lens (\DescribeArtifactResponse' {creationTime} -> creationTime) (\s@DescribeArtifactResponse' {} a -> s {creationTime = a} :: DescribeArtifactResponse) Prelude.. Lens.mapping Core._Time
@@ -263,6 +274,7 @@ instance Prelude.NFData DescribeArtifactResponse where
       `Prelude.seq` Prelude.rnf artifactArn
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf source
+      `Prelude.seq` Prelude.rnf lineageGroupArn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf lastModifiedBy
       `Prelude.seq` Prelude.rnf createdBy

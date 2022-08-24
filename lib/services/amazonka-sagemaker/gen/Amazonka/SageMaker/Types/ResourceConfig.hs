@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.ResourceConfig where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMaker.Types.InstanceGroup
 import Amazonka.SageMaker.Types.TrainingInstanceType
 
 -- | Describes the resources, including ML compute instances and ML storage
@@ -29,9 +30,9 @@ import Amazonka.SageMaker.Types.TrainingInstanceType
 --
 -- /See:/ 'newResourceConfig' smart constructor.
 data ResourceConfig = ResourceConfig'
-  { -- | The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt
-    -- data on the storage volume attached to the ML compute instance(s) that
-    -- run the training job.
+  { -- | The Amazon Web Services KMS key that SageMaker uses to encrypt data on
+    -- the storage volume attached to the ML compute instance(s) that run the
+    -- training job.
     --
     -- Certain Nitro-based instances include local storage, dependent on the
     -- instance type. Local storage volumes are encrypted using a hardware
@@ -55,10 +56,12 @@ data ResourceConfig = ResourceConfig'
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The ML compute instance type.
-    instanceType :: TrainingInstanceType,
+    instanceType :: Prelude.Maybe TrainingInstanceType,
     -- | The number of ML compute instances to use. For distributed training,
     -- provide a value greater than 1.
-    instanceCount :: Prelude.Natural,
+    instanceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The configuration of a heterogeneous cluster in JSON format.
+    instanceGroups :: Prelude.Maybe [InstanceGroup],
     -- | The size of the ML storage volume that you want to provision.
     --
     -- ML storage volumes store model artifacts and incremental states.
@@ -68,14 +71,14 @@ data ResourceConfig = ResourceConfig'
     --
     -- You must specify sufficient ML storage for your scenario.
     --
-    -- Amazon SageMaker supports only the General Purpose SSD (gp2) ML storage
-    -- volume type.
+    -- SageMaker supports only the General Purpose SSD (gp2) ML storage volume
+    -- type.
     --
     -- Certain Nitro-based instances include local storage with a fixed total
     -- size, dependent on the instance type. When using these instances for
-    -- training, Amazon SageMaker mounts the local instance storage instead of
-    -- Amazon EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater
-    -- than the total size of the local instance storage.
+    -- training, SageMaker mounts the local instance storage instead of Amazon
+    -- EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater than the
+    -- total size of the local instance storage.
     --
     -- For a list of instance types that support local instance storage,
     -- including the total size per instance type, see
@@ -92,9 +95,9 @@ data ResourceConfig = ResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeKmsKeyId', 'resourceConfig_volumeKmsKeyId' - The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt
--- data on the storage volume attached to the ML compute instance(s) that
--- run the training job.
+-- 'volumeKmsKeyId', 'resourceConfig_volumeKmsKeyId' - The Amazon Web Services KMS key that SageMaker uses to encrypt data on
+-- the storage volume attached to the ML compute instance(s) that run the
+-- training job.
 --
 -- Certain Nitro-based instances include local storage, dependent on the
 -- instance type. Local storage volumes are encrypted using a hardware
@@ -122,6 +125,8 @@ data ResourceConfig = ResourceConfig'
 -- 'instanceCount', 'resourceConfig_instanceCount' - The number of ML compute instances to use. For distributed training,
 -- provide a value greater than 1.
 --
+-- 'instanceGroups', 'resourceConfig_instanceGroups' - The configuration of a heterogeneous cluster in JSON format.
+--
 -- 'volumeSizeInGB', 'resourceConfig_volumeSizeInGB' - The size of the ML storage volume that you want to provision.
 --
 -- ML storage volumes store model artifacts and incremental states.
@@ -131,40 +136,34 @@ data ResourceConfig = ResourceConfig'
 --
 -- You must specify sufficient ML storage for your scenario.
 --
--- Amazon SageMaker supports only the General Purpose SSD (gp2) ML storage
--- volume type.
+-- SageMaker supports only the General Purpose SSD (gp2) ML storage volume
+-- type.
 --
 -- Certain Nitro-based instances include local storage with a fixed total
 -- size, dependent on the instance type. When using these instances for
--- training, Amazon SageMaker mounts the local instance storage instead of
--- Amazon EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater
--- than the total size of the local instance storage.
+-- training, SageMaker mounts the local instance storage instead of Amazon
+-- EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater than the
+-- total size of the local instance storage.
 --
 -- For a list of instance types that support local instance storage,
 -- including the total size per instance type, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
 newResourceConfig ::
-  -- | 'instanceType'
-  TrainingInstanceType ->
-  -- | 'instanceCount'
-  Prelude.Natural ->
   -- | 'volumeSizeInGB'
   Prelude.Natural ->
   ResourceConfig
-newResourceConfig
-  pInstanceType_
-  pInstanceCount_
-  pVolumeSizeInGB_ =
-    ResourceConfig'
-      { volumeKmsKeyId = Prelude.Nothing,
-        instanceType = pInstanceType_,
-        instanceCount = pInstanceCount_,
-        volumeSizeInGB = pVolumeSizeInGB_
-      }
+newResourceConfig pVolumeSizeInGB_ =
+  ResourceConfig'
+    { volumeKmsKeyId = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
+      instanceCount = Prelude.Nothing,
+      instanceGroups = Prelude.Nothing,
+      volumeSizeInGB = pVolumeSizeInGB_
+    }
 
--- | The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt
--- data on the storage volume attached to the ML compute instance(s) that
--- run the training job.
+-- | The Amazon Web Services KMS key that SageMaker uses to encrypt data on
+-- the storage volume attached to the ML compute instance(s) that run the
+-- training job.
 --
 -- Certain Nitro-based instances include local storage, dependent on the
 -- instance type. Local storage volumes are encrypted using a hardware
@@ -190,13 +189,17 @@ resourceConfig_volumeKmsKeyId :: Lens.Lens' ResourceConfig (Prelude.Maybe Prelud
 resourceConfig_volumeKmsKeyId = Lens.lens (\ResourceConfig' {volumeKmsKeyId} -> volumeKmsKeyId) (\s@ResourceConfig' {} a -> s {volumeKmsKeyId = a} :: ResourceConfig)
 
 -- | The ML compute instance type.
-resourceConfig_instanceType :: Lens.Lens' ResourceConfig TrainingInstanceType
+resourceConfig_instanceType :: Lens.Lens' ResourceConfig (Prelude.Maybe TrainingInstanceType)
 resourceConfig_instanceType = Lens.lens (\ResourceConfig' {instanceType} -> instanceType) (\s@ResourceConfig' {} a -> s {instanceType = a} :: ResourceConfig)
 
 -- | The number of ML compute instances to use. For distributed training,
 -- provide a value greater than 1.
-resourceConfig_instanceCount :: Lens.Lens' ResourceConfig Prelude.Natural
+resourceConfig_instanceCount :: Lens.Lens' ResourceConfig (Prelude.Maybe Prelude.Natural)
 resourceConfig_instanceCount = Lens.lens (\ResourceConfig' {instanceCount} -> instanceCount) (\s@ResourceConfig' {} a -> s {instanceCount = a} :: ResourceConfig)
+
+-- | The configuration of a heterogeneous cluster in JSON format.
+resourceConfig_instanceGroups :: Lens.Lens' ResourceConfig (Prelude.Maybe [InstanceGroup])
+resourceConfig_instanceGroups = Lens.lens (\ResourceConfig' {instanceGroups} -> instanceGroups) (\s@ResourceConfig' {} a -> s {instanceGroups = a} :: ResourceConfig) Prelude.. Lens.mapping Lens.coerced
 
 -- | The size of the ML storage volume that you want to provision.
 --
@@ -207,14 +210,14 @@ resourceConfig_instanceCount = Lens.lens (\ResourceConfig' {instanceCount} -> in
 --
 -- You must specify sufficient ML storage for your scenario.
 --
--- Amazon SageMaker supports only the General Purpose SSD (gp2) ML storage
--- volume type.
+-- SageMaker supports only the General Purpose SSD (gp2) ML storage volume
+-- type.
 --
 -- Certain Nitro-based instances include local storage with a fixed total
 -- size, dependent on the instance type. When using these instances for
--- training, Amazon SageMaker mounts the local instance storage instead of
--- Amazon EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater
--- than the total size of the local instance storage.
+-- training, SageMaker mounts the local instance storage instead of Amazon
+-- EBS gp2 storage. You can\'t request a @VolumeSizeInGB@ greater than the
+-- total size of the local instance storage.
 --
 -- For a list of instance types that support local instance storage,
 -- including the total size per instance type, see
@@ -229,8 +232,9 @@ instance Core.FromJSON ResourceConfig where
       ( \x ->
           ResourceConfig'
             Prelude.<$> (x Core..:? "VolumeKmsKeyId")
-            Prelude.<*> (x Core..: "InstanceType")
-            Prelude.<*> (x Core..: "InstanceCount")
+            Prelude.<*> (x Core..:? "InstanceType")
+            Prelude.<*> (x Core..:? "InstanceCount")
+            Prelude.<*> (x Core..:? "InstanceGroups" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "VolumeSizeInGB")
       )
 
@@ -239,6 +243,7 @@ instance Prelude.Hashable ResourceConfig where
     _salt `Prelude.hashWithSalt` volumeKmsKeyId
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` instanceCount
+      `Prelude.hashWithSalt` instanceGroups
       `Prelude.hashWithSalt` volumeSizeInGB
 
 instance Prelude.NFData ResourceConfig where
@@ -246,6 +251,7 @@ instance Prelude.NFData ResourceConfig where
     Prelude.rnf volumeKmsKeyId
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf instanceCount
+      `Prelude.seq` Prelude.rnf instanceGroups
       `Prelude.seq` Prelude.rnf volumeSizeInGB
 
 instance Core.ToJSON ResourceConfig where
@@ -254,8 +260,10 @@ instance Core.ToJSON ResourceConfig where
       ( Prelude.catMaybes
           [ ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
-            Prelude.Just ("InstanceType" Core..= instanceType),
-            Prelude.Just ("InstanceCount" Core..= instanceCount),
+            ("InstanceType" Core..=) Prelude.<$> instanceType,
+            ("InstanceCount" Core..=) Prelude.<$> instanceCount,
+            ("InstanceGroups" Core..=)
+              Prelude.<$> instanceGroups,
             Prelude.Just
               ("VolumeSizeInGB" Core..= volumeSizeInGB)
           ]

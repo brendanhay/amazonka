@@ -37,6 +37,7 @@ module Amazonka.SageMaker.DescribeNotebookInstance
     describeNotebookInstanceResponse_roleArn,
     describeNotebookInstanceResponse_notebookInstanceLifecycleConfigName,
     describeNotebookInstanceResponse_notebookInstanceStatus,
+    describeNotebookInstanceResponse_instanceMetadataServiceConfiguration,
     describeNotebookInstanceResponse_subnetId,
     describeNotebookInstanceResponse_acceleratorTypes,
     describeNotebookInstanceResponse_url,
@@ -108,6 +109,7 @@ instance Core.AWSRequest DescribeNotebookInstance where
             Prelude.<$> (x Core..?> "RoleArn")
             Prelude.<*> (x Core..?> "NotebookInstanceLifecycleConfigName")
             Prelude.<*> (x Core..?> "NotebookInstanceStatus")
+            Prelude.<*> (x Core..?> "InstanceMetadataServiceConfiguration")
             Prelude.<*> (x Core..?> "SubnetId")
             Prelude.<*> ( x Core..?> "AcceleratorTypes"
                             Core..!@ Prelude.mempty
@@ -185,6 +187,8 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
     notebookInstanceLifecycleConfigName :: Prelude.Maybe Prelude.Text,
     -- | The status of the notebook instance.
     notebookInstanceStatus :: Prelude.Maybe NotebookInstanceStatus,
+    -- | Information on the IMDS configuration of the notebook instance
+    instanceMetadataServiceConfiguration :: Prelude.Maybe InstanceMetadataServiceConfiguration,
     -- | The ID of the VPC subnet.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | A list of the Elastic Inference (EI) instance types associated with this
@@ -200,16 +204,16 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
     -- | A timestamp. Use this parameter to retrieve the time when the notebook
     -- instance was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | Describes whether Amazon SageMaker provides internet access to the
-    -- notebook instance. If this value is set to /Disabled/, the notebook
-    -- instance does not have internet access, and cannot connect to Amazon
-    -- SageMaker training and endpoint services.
+    -- | Describes whether SageMaker provides internet access to the notebook
+    -- instance. If this value is set to /Disabled/, the notebook instance does
+    -- not have internet access, and cannot connect to SageMaker training and
+    -- endpoint services.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
     directInternetAccess :: Prelude.Maybe DirectInternetAccess,
-    -- | The network interface IDs that Amazon SageMaker created at the time of
-    -- creating the instance.
+    -- | The network interface IDs that SageMaker created at the time of creating
+    -- the instance.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the VPC security groups.
     securityGroups :: Prelude.Maybe [Prelude.Text],
@@ -222,17 +226,17 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
     -- or in any other Git repository. These repositories are cloned at the
     -- same level as the default repository of your notebook instance. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
     additionalCodeRepositories :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
-    -- when storing it on the ML storage volume attached to the instance.
+    -- | The Amazon Web Services KMS key ID SageMaker uses to encrypt data when
+    -- storing it on the ML storage volume attached to the instance.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A timestamp. Use this parameter to return the time when the notebook
     -- instance was created
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The platform identifier of the notebook instance runtime environment.
     platformIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon SageMaker notebook instance.
+    -- | The name of the SageMaker notebook instance.
     notebookInstanceName :: Prelude.Maybe Prelude.Text,
     -- | The size, in GB, of the ML storage volume attached to the notebook
     -- instance.
@@ -246,7 +250,7 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
     -- or in any other Git repository. When you open a notebook instance, it
     -- opens in the directory that contains this repository. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
     defaultCodeRepository :: Prelude.Maybe Prelude.Text,
     -- | Whether root access is enabled or disabled for users of the notebook
     -- instance.
@@ -279,6 +283,8 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
 --
 -- 'notebookInstanceStatus', 'describeNotebookInstanceResponse_notebookInstanceStatus' - The status of the notebook instance.
 --
+-- 'instanceMetadataServiceConfiguration', 'describeNotebookInstanceResponse_instanceMetadataServiceConfiguration' - Information on the IMDS configuration of the notebook instance
+--
 -- 'subnetId', 'describeNotebookInstanceResponse_subnetId' - The ID of the VPC subnet.
 --
 -- 'acceleratorTypes', 'describeNotebookInstanceResponse_acceleratorTypes' - A list of the Elastic Inference (EI) instance types associated with this
@@ -294,16 +300,16 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
 -- 'lastModifiedTime', 'describeNotebookInstanceResponse_lastModifiedTime' - A timestamp. Use this parameter to retrieve the time when the notebook
 -- instance was last modified.
 --
--- 'directInternetAccess', 'describeNotebookInstanceResponse_directInternetAccess' - Describes whether Amazon SageMaker provides internet access to the
--- notebook instance. If this value is set to /Disabled/, the notebook
--- instance does not have internet access, and cannot connect to Amazon
--- SageMaker training and endpoint services.
+-- 'directInternetAccess', 'describeNotebookInstanceResponse_directInternetAccess' - Describes whether SageMaker provides internet access to the notebook
+-- instance. If this value is set to /Disabled/, the notebook instance does
+-- not have internet access, and cannot connect to SageMaker training and
+-- endpoint services.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
 --
--- 'networkInterfaceId', 'describeNotebookInstanceResponse_networkInterfaceId' - The network interface IDs that Amazon SageMaker created at the time of
--- creating the instance.
+-- 'networkInterfaceId', 'describeNotebookInstanceResponse_networkInterfaceId' - The network interface IDs that SageMaker created at the time of creating
+-- the instance.
 --
 -- 'securityGroups', 'describeNotebookInstanceResponse_securityGroups' - The IDs of the VPC security groups.
 --
@@ -316,17 +322,17 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 --
--- 'kmsKeyId', 'describeNotebookInstanceResponse_kmsKeyId' - The Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
--- when storing it on the ML storage volume attached to the instance.
+-- 'kmsKeyId', 'describeNotebookInstanceResponse_kmsKeyId' - The Amazon Web Services KMS key ID SageMaker uses to encrypt data when
+-- storing it on the ML storage volume attached to the instance.
 --
 -- 'creationTime', 'describeNotebookInstanceResponse_creationTime' - A timestamp. Use this parameter to return the time when the notebook
 -- instance was created
 --
 -- 'platformIdentifier', 'describeNotebookInstanceResponse_platformIdentifier' - The platform identifier of the notebook instance runtime environment.
 --
--- 'notebookInstanceName', 'describeNotebookInstanceResponse_notebookInstanceName' - The name of the Amazon SageMaker notebook instance.
+-- 'notebookInstanceName', 'describeNotebookInstanceResponse_notebookInstanceName' - The name of the SageMaker notebook instance.
 --
 -- 'volumeSizeInGB', 'describeNotebookInstanceResponse_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the notebook
 -- instance.
@@ -340,7 +346,7 @@ data DescribeNotebookInstanceResponse = DescribeNotebookInstanceResponse'
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 --
 -- 'rootAccess', 'describeNotebookInstanceResponse_rootAccess' - Whether root access is enabled or disabled for users of the notebook
 -- instance.
@@ -362,6 +368,8 @@ newDescribeNotebookInstanceResponse pHttpStatus_ =
       notebookInstanceLifecycleConfigName =
         Prelude.Nothing,
       notebookInstanceStatus = Prelude.Nothing,
+      instanceMetadataServiceConfiguration =
+        Prelude.Nothing,
       subnetId = Prelude.Nothing,
       acceleratorTypes = Prelude.Nothing,
       url = Prelude.Nothing,
@@ -400,6 +408,10 @@ describeNotebookInstanceResponse_notebookInstanceLifecycleConfigName = Lens.lens
 describeNotebookInstanceResponse_notebookInstanceStatus :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe NotebookInstanceStatus)
 describeNotebookInstanceResponse_notebookInstanceStatus = Lens.lens (\DescribeNotebookInstanceResponse' {notebookInstanceStatus} -> notebookInstanceStatus) (\s@DescribeNotebookInstanceResponse' {} a -> s {notebookInstanceStatus = a} :: DescribeNotebookInstanceResponse)
 
+-- | Information on the IMDS configuration of the notebook instance
+describeNotebookInstanceResponse_instanceMetadataServiceConfiguration :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe InstanceMetadataServiceConfiguration)
+describeNotebookInstanceResponse_instanceMetadataServiceConfiguration = Lens.lens (\DescribeNotebookInstanceResponse' {instanceMetadataServiceConfiguration} -> instanceMetadataServiceConfiguration) (\s@DescribeNotebookInstanceResponse' {} a -> s {instanceMetadataServiceConfiguration = a} :: DescribeNotebookInstanceResponse)
+
 -- | The ID of the VPC subnet.
 describeNotebookInstanceResponse_subnetId :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.Text)
 describeNotebookInstanceResponse_subnetId = Lens.lens (\DescribeNotebookInstanceResponse' {subnetId} -> subnetId) (\s@DescribeNotebookInstanceResponse' {} a -> s {subnetId = a} :: DescribeNotebookInstanceResponse)
@@ -425,18 +437,18 @@ describeNotebookInstanceResponse_instanceType = Lens.lens (\DescribeNotebookInst
 describeNotebookInstanceResponse_lastModifiedTime :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.UTCTime)
 describeNotebookInstanceResponse_lastModifiedTime = Lens.lens (\DescribeNotebookInstanceResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeNotebookInstanceResponse' {} a -> s {lastModifiedTime = a} :: DescribeNotebookInstanceResponse) Prelude.. Lens.mapping Core._Time
 
--- | Describes whether Amazon SageMaker provides internet access to the
--- notebook instance. If this value is set to /Disabled/, the notebook
--- instance does not have internet access, and cannot connect to Amazon
--- SageMaker training and endpoint services.
+-- | Describes whether SageMaker provides internet access to the notebook
+-- instance. If this value is set to /Disabled/, the notebook instance does
+-- not have internet access, and cannot connect to SageMaker training and
+-- endpoint services.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default>.
 describeNotebookInstanceResponse_directInternetAccess :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe DirectInternetAccess)
 describeNotebookInstanceResponse_directInternetAccess = Lens.lens (\DescribeNotebookInstanceResponse' {directInternetAccess} -> directInternetAccess) (\s@DescribeNotebookInstanceResponse' {} a -> s {directInternetAccess = a} :: DescribeNotebookInstanceResponse)
 
--- | The network interface IDs that Amazon SageMaker created at the time of
--- creating the instance.
+-- | The network interface IDs that SageMaker created at the time of creating
+-- the instance.
 describeNotebookInstanceResponse_networkInterfaceId :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.Text)
 describeNotebookInstanceResponse_networkInterfaceId = Lens.lens (\DescribeNotebookInstanceResponse' {networkInterfaceId} -> networkInterfaceId) (\s@DescribeNotebookInstanceResponse' {} a -> s {networkInterfaceId = a} :: DescribeNotebookInstanceResponse)
 
@@ -455,12 +467,12 @@ describeNotebookInstanceResponse_notebookInstanceArn = Lens.lens (\DescribeNoteb
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 describeNotebookInstanceResponse_additionalCodeRepositories :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe [Prelude.Text])
 describeNotebookInstanceResponse_additionalCodeRepositories = Lens.lens (\DescribeNotebookInstanceResponse' {additionalCodeRepositories} -> additionalCodeRepositories) (\s@DescribeNotebookInstanceResponse' {} a -> s {additionalCodeRepositories = a} :: DescribeNotebookInstanceResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
--- when storing it on the ML storage volume attached to the instance.
+-- | The Amazon Web Services KMS key ID SageMaker uses to encrypt data when
+-- storing it on the ML storage volume attached to the instance.
 describeNotebookInstanceResponse_kmsKeyId :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.Text)
 describeNotebookInstanceResponse_kmsKeyId = Lens.lens (\DescribeNotebookInstanceResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeNotebookInstanceResponse' {} a -> s {kmsKeyId = a} :: DescribeNotebookInstanceResponse)
 
@@ -473,7 +485,7 @@ describeNotebookInstanceResponse_creationTime = Lens.lens (\DescribeNotebookInst
 describeNotebookInstanceResponse_platformIdentifier :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.Text)
 describeNotebookInstanceResponse_platformIdentifier = Lens.lens (\DescribeNotebookInstanceResponse' {platformIdentifier} -> platformIdentifier) (\s@DescribeNotebookInstanceResponse' {} a -> s {platformIdentifier = a} :: DescribeNotebookInstanceResponse)
 
--- | The name of the Amazon SageMaker notebook instance.
+-- | The name of the SageMaker notebook instance.
 describeNotebookInstanceResponse_notebookInstanceName :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.Text)
 describeNotebookInstanceResponse_notebookInstanceName = Lens.lens (\DescribeNotebookInstanceResponse' {notebookInstanceName} -> notebookInstanceName) (\s@DescribeNotebookInstanceResponse' {} a -> s {notebookInstanceName = a} :: DescribeNotebookInstanceResponse)
 
@@ -493,7 +505,7 @@ describeNotebookInstanceResponse_failureReason = Lens.lens (\DescribeNotebookIns
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 describeNotebookInstanceResponse_defaultCodeRepository :: Lens.Lens' DescribeNotebookInstanceResponse (Prelude.Maybe Prelude.Text)
 describeNotebookInstanceResponse_defaultCodeRepository = Lens.lens (\DescribeNotebookInstanceResponse' {defaultCodeRepository} -> defaultCodeRepository) (\s@DescribeNotebookInstanceResponse' {} a -> s {defaultCodeRepository = a} :: DescribeNotebookInstanceResponse)
 
@@ -519,6 +531,7 @@ instance
     Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf notebookInstanceLifecycleConfigName
       `Prelude.seq` Prelude.rnf notebookInstanceStatus
+      `Prelude.seq` Prelude.rnf instanceMetadataServiceConfiguration
       `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf acceleratorTypes
       `Prelude.seq` Prelude.rnf url

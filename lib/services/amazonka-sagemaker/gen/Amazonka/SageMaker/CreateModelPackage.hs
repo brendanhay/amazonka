@@ -20,11 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a model package that you can use to create Amazon SageMaker
--- models or list on Amazon Web Services Marketplace, or a versioned model
--- that is part of a model group. Buyers can subscribe to model packages
--- listed on Amazon Web Services Marketplace to create models in Amazon
--- SageMaker.
+-- Creates a model package that you can use to create SageMaker models or
+-- list on Amazon Web Services Marketplace, or a versioned model that is
+-- part of a model group. Buyers can subscribe to model packages listed on
+-- Amazon Web Services Marketplace to create models in SageMaker.
 --
 -- To create a model package by specifying a Docker container that contains
 -- your inference code and the Amazon S3 location of your model artifacts,
@@ -50,12 +49,18 @@ module Amazonka.SageMaker.CreateModelPackage
     createModelPackage_sourceAlgorithmSpecification,
     createModelPackage_clientToken,
     createModelPackage_validationSpecification,
+    createModelPackage_samplePayloadUrl,
+    createModelPackage_task,
     createModelPackage_certifyForMarketplace,
     createModelPackage_inferenceSpecification,
     createModelPackage_modelApprovalStatus,
     createModelPackage_metadataProperties,
+    createModelPackage_domain,
     createModelPackage_modelPackageDescription,
+    createModelPackage_driftCheckBaselines,
     createModelPackage_modelMetrics,
+    createModelPackage_additionalInferenceSpecifications,
+    createModelPackage_customerMetadataProperties,
     createModelPackage_modelPackageName,
 
     -- * Destructuring the Response
@@ -82,7 +87,8 @@ data CreateModelPackage = CreateModelPackage'
     -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
     -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
-    -- | The name of the model group that this model version belongs to.
+    -- | The name or Amazon Resource Name (ARN) of the model package group that
+    -- this model version belongs to.
     --
     -- This parameter is required for versioned models, and does not apply to
     -- unversioned models.
@@ -91,9 +97,22 @@ data CreateModelPackage = CreateModelPackage'
     sourceAlgorithmSpecification :: Prelude.Maybe SourceAlgorithmSpecification,
     -- | A unique token that guarantees that the call to this API is idempotent.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies configurations for one or more transform jobs that Amazon
-    -- SageMaker runs to test the model package.
+    -- | Specifies configurations for one or more transform jobs that SageMaker
+    -- runs to test the model package.
     validationSpecification :: Prelude.Maybe ModelPackageValidationSpecification,
+    -- | The Amazon Simple Storage Service (Amazon S3) path where the sample
+    -- payload are stored. This path must point to a single gzip compressed tar
+    -- archive (.tar.gz suffix).
+    samplePayloadUrl :: Prelude.Maybe Prelude.Text,
+    -- | The machine learning task your model package accomplishes. Common
+    -- machine learning tasks include object detection and image
+    -- classification. The following tasks are supported by Inference
+    -- Recommender: @\"IMAGE_CLASSIFICATION\"@ | @\"OBJECT_DETECTION\"@ |
+    -- @\"TEXT_GENERATION\"@ |@\"IMAGE_SEGMENTATION\"@ | @\"FILL_MASK\"@ |
+    -- @\"CLASSIFICATION\"@ | @\"REGRESSION\"@ | @\"OTHER\"@.
+    --
+    -- Specify \"OTHER\" if none of the tasks listed fit your use case.
+    task :: Prelude.Maybe Prelude.Text,
     -- | Whether to certify the model package for listing on Amazon Web Services
     -- Marketplace.
     --
@@ -121,10 +140,27 @@ data CreateModelPackage = CreateModelPackage'
     -- @Approved@ to deploy the model.
     modelApprovalStatus :: Prelude.Maybe ModelApprovalStatus,
     metadataProperties :: Prelude.Maybe MetadataProperties,
+    -- | The machine learning domain of your model package and its components.
+    -- Common machine learning domains include computer vision and natural
+    -- language processing.
+    domain :: Prelude.Maybe Prelude.Text,
     -- | A description of the model package.
     modelPackageDescription :: Prelude.Maybe Prelude.Text,
+    -- | Represents the drift check baselines that can be used when the model
+    -- monitor is set using the model package. For more information, see the
+    -- topic on
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection Drift Detection against Previous Baselines in SageMaker Pipelines>
+    -- in the /Amazon SageMaker Developer Guide/.
+    driftCheckBaselines :: Prelude.Maybe DriftCheckBaselines,
     -- | A structure that contains model metrics reports.
     modelMetrics :: Prelude.Maybe ModelMetrics,
+    -- | An array of additional Inference Specification objects. Each additional
+    -- Inference Specification specifies artifacts based on this model package
+    -- that can be used on inference endpoints. Generally used with SageMaker
+    -- Neo to store the compiled artifacts.
+    additionalInferenceSpecifications :: Prelude.Maybe (Prelude.NonEmpty AdditionalInferenceSpecificationDefinition),
+    -- | The metadata properties associated with the model package versions.
+    customerMetadataProperties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the model package. The name must have 1 to 63 characters.
     -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
     --
@@ -147,7 +183,8 @@ data CreateModelPackage = CreateModelPackage'
 -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
 -- in the /Amazon Web Services General Reference Guide/.
 --
--- 'modelPackageGroupName', 'createModelPackage_modelPackageGroupName' - The name of the model group that this model version belongs to.
+-- 'modelPackageGroupName', 'createModelPackage_modelPackageGroupName' - The name or Amazon Resource Name (ARN) of the model package group that
+-- this model version belongs to.
 --
 -- This parameter is required for versioned models, and does not apply to
 -- unversioned models.
@@ -156,8 +193,21 @@ data CreateModelPackage = CreateModelPackage'
 --
 -- 'clientToken', 'createModelPackage_clientToken' - A unique token that guarantees that the call to this API is idempotent.
 --
--- 'validationSpecification', 'createModelPackage_validationSpecification' - Specifies configurations for one or more transform jobs that Amazon
--- SageMaker runs to test the model package.
+-- 'validationSpecification', 'createModelPackage_validationSpecification' - Specifies configurations for one or more transform jobs that SageMaker
+-- runs to test the model package.
+--
+-- 'samplePayloadUrl', 'createModelPackage_samplePayloadUrl' - The Amazon Simple Storage Service (Amazon S3) path where the sample
+-- payload are stored. This path must point to a single gzip compressed tar
+-- archive (.tar.gz suffix).
+--
+-- 'task', 'createModelPackage_task' - The machine learning task your model package accomplishes. Common
+-- machine learning tasks include object detection and image
+-- classification. The following tasks are supported by Inference
+-- Recommender: @\"IMAGE_CLASSIFICATION\"@ | @\"OBJECT_DETECTION\"@ |
+-- @\"TEXT_GENERATION\"@ |@\"IMAGE_SEGMENTATION\"@ | @\"FILL_MASK\"@ |
+-- @\"CLASSIFICATION\"@ | @\"REGRESSION\"@ | @\"OTHER\"@.
+--
+-- Specify \"OTHER\" if none of the tasks listed fit your use case.
 --
 -- 'certifyForMarketplace', 'createModelPackage_certifyForMarketplace' - Whether to certify the model package for listing on Amazon Web Services
 -- Marketplace.
@@ -187,9 +237,26 @@ data CreateModelPackage = CreateModelPackage'
 --
 -- 'metadataProperties', 'createModelPackage_metadataProperties' - Undocumented member.
 --
+-- 'domain', 'createModelPackage_domain' - The machine learning domain of your model package and its components.
+-- Common machine learning domains include computer vision and natural
+-- language processing.
+--
 -- 'modelPackageDescription', 'createModelPackage_modelPackageDescription' - A description of the model package.
 --
+-- 'driftCheckBaselines', 'createModelPackage_driftCheckBaselines' - Represents the drift check baselines that can be used when the model
+-- monitor is set using the model package. For more information, see the
+-- topic on
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection Drift Detection against Previous Baselines in SageMaker Pipelines>
+-- in the /Amazon SageMaker Developer Guide/.
+--
 -- 'modelMetrics', 'createModelPackage_modelMetrics' - A structure that contains model metrics reports.
+--
+-- 'additionalInferenceSpecifications', 'createModelPackage_additionalInferenceSpecifications' - An array of additional Inference Specification objects. Each additional
+-- Inference Specification specifies artifacts based on this model package
+-- that can be used on inference endpoints. Generally used with SageMaker
+-- Neo to store the compiled artifacts.
+--
+-- 'customerMetadataProperties', 'createModelPackage_customerMetadataProperties' - The metadata properties associated with the model package versions.
 --
 -- 'modelPackageName', 'createModelPackage_modelPackageName' - The name of the model package. The name must have 1 to 63 characters.
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
@@ -205,12 +272,18 @@ newCreateModelPackage =
       sourceAlgorithmSpecification = Prelude.Nothing,
       clientToken = Prelude.Nothing,
       validationSpecification = Prelude.Nothing,
+      samplePayloadUrl = Prelude.Nothing,
+      task = Prelude.Nothing,
       certifyForMarketplace = Prelude.Nothing,
       inferenceSpecification = Prelude.Nothing,
       modelApprovalStatus = Prelude.Nothing,
       metadataProperties = Prelude.Nothing,
+      domain = Prelude.Nothing,
       modelPackageDescription = Prelude.Nothing,
+      driftCheckBaselines = Prelude.Nothing,
       modelMetrics = Prelude.Nothing,
+      additionalInferenceSpecifications = Prelude.Nothing,
+      customerMetadataProperties = Prelude.Nothing,
       modelPackageName = Prelude.Nothing
     }
 
@@ -221,7 +294,8 @@ newCreateModelPackage =
 createModelPackage_tags :: Lens.Lens' CreateModelPackage (Prelude.Maybe [Tag])
 createModelPackage_tags = Lens.lens (\CreateModelPackage' {tags} -> tags) (\s@CreateModelPackage' {} a -> s {tags = a} :: CreateModelPackage) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the model group that this model version belongs to.
+-- | The name or Amazon Resource Name (ARN) of the model package group that
+-- this model version belongs to.
 --
 -- This parameter is required for versioned models, and does not apply to
 -- unversioned models.
@@ -236,10 +310,27 @@ createModelPackage_sourceAlgorithmSpecification = Lens.lens (\CreateModelPackage
 createModelPackage_clientToken :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_clientToken = Lens.lens (\CreateModelPackage' {clientToken} -> clientToken) (\s@CreateModelPackage' {} a -> s {clientToken = a} :: CreateModelPackage)
 
--- | Specifies configurations for one or more transform jobs that Amazon
--- SageMaker runs to test the model package.
+-- | Specifies configurations for one or more transform jobs that SageMaker
+-- runs to test the model package.
 createModelPackage_validationSpecification :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelPackageValidationSpecification)
 createModelPackage_validationSpecification = Lens.lens (\CreateModelPackage' {validationSpecification} -> validationSpecification) (\s@CreateModelPackage' {} a -> s {validationSpecification = a} :: CreateModelPackage)
+
+-- | The Amazon Simple Storage Service (Amazon S3) path where the sample
+-- payload are stored. This path must point to a single gzip compressed tar
+-- archive (.tar.gz suffix).
+createModelPackage_samplePayloadUrl :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
+createModelPackage_samplePayloadUrl = Lens.lens (\CreateModelPackage' {samplePayloadUrl} -> samplePayloadUrl) (\s@CreateModelPackage' {} a -> s {samplePayloadUrl = a} :: CreateModelPackage)
+
+-- | The machine learning task your model package accomplishes. Common
+-- machine learning tasks include object detection and image
+-- classification. The following tasks are supported by Inference
+-- Recommender: @\"IMAGE_CLASSIFICATION\"@ | @\"OBJECT_DETECTION\"@ |
+-- @\"TEXT_GENERATION\"@ |@\"IMAGE_SEGMENTATION\"@ | @\"FILL_MASK\"@ |
+-- @\"CLASSIFICATION\"@ | @\"REGRESSION\"@ | @\"OTHER\"@.
+--
+-- Specify \"OTHER\" if none of the tasks listed fit your use case.
+createModelPackage_task :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
+createModelPackage_task = Lens.lens (\CreateModelPackage' {task} -> task) (\s@CreateModelPackage' {} a -> s {task = a} :: CreateModelPackage)
 
 -- | Whether to certify the model package for listing on Amazon Web Services
 -- Marketplace.
@@ -277,13 +368,38 @@ createModelPackage_modelApprovalStatus = Lens.lens (\CreateModelPackage' {modelA
 createModelPackage_metadataProperties :: Lens.Lens' CreateModelPackage (Prelude.Maybe MetadataProperties)
 createModelPackage_metadataProperties = Lens.lens (\CreateModelPackage' {metadataProperties} -> metadataProperties) (\s@CreateModelPackage' {} a -> s {metadataProperties = a} :: CreateModelPackage)
 
+-- | The machine learning domain of your model package and its components.
+-- Common machine learning domains include computer vision and natural
+-- language processing.
+createModelPackage_domain :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
+createModelPackage_domain = Lens.lens (\CreateModelPackage' {domain} -> domain) (\s@CreateModelPackage' {} a -> s {domain = a} :: CreateModelPackage)
+
 -- | A description of the model package.
 createModelPackage_modelPackageDescription :: Lens.Lens' CreateModelPackage (Prelude.Maybe Prelude.Text)
 createModelPackage_modelPackageDescription = Lens.lens (\CreateModelPackage' {modelPackageDescription} -> modelPackageDescription) (\s@CreateModelPackage' {} a -> s {modelPackageDescription = a} :: CreateModelPackage)
 
+-- | Represents the drift check baselines that can be used when the model
+-- monitor is set using the model package. For more information, see the
+-- topic on
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-quality-clarify-baseline-lifecycle.html#pipelines-quality-clarify-baseline-drift-detection Drift Detection against Previous Baselines in SageMaker Pipelines>
+-- in the /Amazon SageMaker Developer Guide/.
+createModelPackage_driftCheckBaselines :: Lens.Lens' CreateModelPackage (Prelude.Maybe DriftCheckBaselines)
+createModelPackage_driftCheckBaselines = Lens.lens (\CreateModelPackage' {driftCheckBaselines} -> driftCheckBaselines) (\s@CreateModelPackage' {} a -> s {driftCheckBaselines = a} :: CreateModelPackage)
+
 -- | A structure that contains model metrics reports.
 createModelPackage_modelMetrics :: Lens.Lens' CreateModelPackage (Prelude.Maybe ModelMetrics)
 createModelPackage_modelMetrics = Lens.lens (\CreateModelPackage' {modelMetrics} -> modelMetrics) (\s@CreateModelPackage' {} a -> s {modelMetrics = a} :: CreateModelPackage)
+
+-- | An array of additional Inference Specification objects. Each additional
+-- Inference Specification specifies artifacts based on this model package
+-- that can be used on inference endpoints. Generally used with SageMaker
+-- Neo to store the compiled artifacts.
+createModelPackage_additionalInferenceSpecifications :: Lens.Lens' CreateModelPackage (Prelude.Maybe (Prelude.NonEmpty AdditionalInferenceSpecificationDefinition))
+createModelPackage_additionalInferenceSpecifications = Lens.lens (\CreateModelPackage' {additionalInferenceSpecifications} -> additionalInferenceSpecifications) (\s@CreateModelPackage' {} a -> s {additionalInferenceSpecifications = a} :: CreateModelPackage) Prelude.. Lens.mapping Lens.coerced
+
+-- | The metadata properties associated with the model package versions.
+createModelPackage_customerMetadataProperties :: Lens.Lens' CreateModelPackage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createModelPackage_customerMetadataProperties = Lens.lens (\CreateModelPackage' {customerMetadataProperties} -> customerMetadataProperties) (\s@CreateModelPackage' {} a -> s {customerMetadataProperties = a} :: CreateModelPackage) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name of the model package. The name must have 1 to 63 characters.
 -- Valid characters are a-z, A-Z, 0-9, and - (hyphen).
@@ -313,12 +429,18 @@ instance Prelude.Hashable CreateModelPackage where
       `Prelude.hashWithSalt` sourceAlgorithmSpecification
       `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` validationSpecification
+      `Prelude.hashWithSalt` samplePayloadUrl
+      `Prelude.hashWithSalt` task
       `Prelude.hashWithSalt` certifyForMarketplace
       `Prelude.hashWithSalt` inferenceSpecification
       `Prelude.hashWithSalt` modelApprovalStatus
       `Prelude.hashWithSalt` metadataProperties
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` modelPackageDescription
+      `Prelude.hashWithSalt` driftCheckBaselines
       `Prelude.hashWithSalt` modelMetrics
+      `Prelude.hashWithSalt` additionalInferenceSpecifications
+      `Prelude.hashWithSalt` customerMetadataProperties
       `Prelude.hashWithSalt` modelPackageName
 
 instance Prelude.NFData CreateModelPackage where
@@ -328,12 +450,20 @@ instance Prelude.NFData CreateModelPackage where
       `Prelude.seq` Prelude.rnf sourceAlgorithmSpecification
       `Prelude.seq` Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf validationSpecification
+      `Prelude.seq` Prelude.rnf samplePayloadUrl
+      `Prelude.seq` Prelude.rnf task
       `Prelude.seq` Prelude.rnf certifyForMarketplace
       `Prelude.seq` Prelude.rnf inferenceSpecification
       `Prelude.seq` Prelude.rnf modelApprovalStatus
       `Prelude.seq` Prelude.rnf metadataProperties
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf modelPackageDescription
+      `Prelude.seq` Prelude.rnf driftCheckBaselines
       `Prelude.seq` Prelude.rnf modelMetrics
+      `Prelude.seq` Prelude.rnf
+        additionalInferenceSpecifications
+      `Prelude.seq` Prelude.rnf
+        customerMetadataProperties
       `Prelude.seq` Prelude.rnf modelPackageName
 
 instance Core.ToHeaders CreateModelPackage where
@@ -363,6 +493,9 @@ instance Core.ToJSON CreateModelPackage where
             ("ClientToken" Core..=) Prelude.<$> clientToken,
             ("ValidationSpecification" Core..=)
               Prelude.<$> validationSpecification,
+            ("SamplePayloadUrl" Core..=)
+              Prelude.<$> samplePayloadUrl,
+            ("Task" Core..=) Prelude.<$> task,
             ("CertifyForMarketplace" Core..=)
               Prelude.<$> certifyForMarketplace,
             ("InferenceSpecification" Core..=)
@@ -371,9 +504,16 @@ instance Core.ToJSON CreateModelPackage where
               Prelude.<$> modelApprovalStatus,
             ("MetadataProperties" Core..=)
               Prelude.<$> metadataProperties,
+            ("Domain" Core..=) Prelude.<$> domain,
             ("ModelPackageDescription" Core..=)
               Prelude.<$> modelPackageDescription,
+            ("DriftCheckBaselines" Core..=)
+              Prelude.<$> driftCheckBaselines,
             ("ModelMetrics" Core..=) Prelude.<$> modelMetrics,
+            ("AdditionalInferenceSpecifications" Core..=)
+              Prelude.<$> additionalInferenceSpecifications,
+            ("CustomerMetadataProperties" Core..=)
+              Prelude.<$> customerMetadataProperties,
             ("ModelPackageName" Core..=)
               Prelude.<$> modelPackageName
           ]

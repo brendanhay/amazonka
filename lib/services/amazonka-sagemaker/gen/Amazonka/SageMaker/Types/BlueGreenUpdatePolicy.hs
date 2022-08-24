@@ -24,12 +24,25 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.TrafficRoutingConfig
 
--- | Currently, the @BlueGreenUpdatePolicy@ API is not supported.
+-- | Update policy for a blue\/green deployment. If this update policy is
+-- specified, SageMaker creates a new fleet during the deployment while
+-- maintaining the old fleet. SageMaker flips traffic to the new fleet
+-- according to the specified traffic routing configuration. Only one
+-- update policy should be used in the deployment configuration. If no
+-- update policy is specified, SageMaker uses a blue\/green deployment
+-- strategy with all at once traffic shifting by default.
 --
 -- /See:/ 'newBlueGreenUpdatePolicy' smart constructor.
 data BlueGreenUpdatePolicy = BlueGreenUpdatePolicy'
-  { terminationWaitInSeconds :: Prelude.Maybe Prelude.Natural,
+  { -- | Additional waiting time in seconds after the completion of an endpoint
+    -- deployment before terminating the old endpoint fleet. Default is 0.
+    terminationWaitInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Maximum execution timeout for the deployment. Note that the timeout
+    -- value should be larger than the total waiting time specified in
+    -- @TerminationWaitInSeconds@ and @WaitIntervalInSeconds@.
     maximumExecutionTimeoutInSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | Defines the traffic routing strategy to shift traffic from the old fleet
+    -- to the new fleet during an endpoint deployment.
     trafficRoutingConfiguration :: TrafficRoutingConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,11 +55,15 @@ data BlueGreenUpdatePolicy = BlueGreenUpdatePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'terminationWaitInSeconds', 'blueGreenUpdatePolicy_terminationWaitInSeconds' -
+-- 'terminationWaitInSeconds', 'blueGreenUpdatePolicy_terminationWaitInSeconds' - Additional waiting time in seconds after the completion of an endpoint
+-- deployment before terminating the old endpoint fleet. Default is 0.
 --
--- 'maximumExecutionTimeoutInSeconds', 'blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds' -
+-- 'maximumExecutionTimeoutInSeconds', 'blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds' - Maximum execution timeout for the deployment. Note that the timeout
+-- value should be larger than the total waiting time specified in
+-- @TerminationWaitInSeconds@ and @WaitIntervalInSeconds@.
 --
--- 'trafficRoutingConfiguration', 'blueGreenUpdatePolicy_trafficRoutingConfiguration' -
+-- 'trafficRoutingConfiguration', 'blueGreenUpdatePolicy_trafficRoutingConfiguration' - Defines the traffic routing strategy to shift traffic from the old fleet
+-- to the new fleet during an endpoint deployment.
 newBlueGreenUpdatePolicy ::
   -- | 'trafficRoutingConfiguration'
   TrafficRoutingConfig ->
@@ -61,15 +78,19 @@ newBlueGreenUpdatePolicy
           pTrafficRoutingConfiguration_
       }
 
--- |
+-- | Additional waiting time in seconds after the completion of an endpoint
+-- deployment before terminating the old endpoint fleet. Default is 0.
 blueGreenUpdatePolicy_terminationWaitInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Prelude.Maybe Prelude.Natural)
 blueGreenUpdatePolicy_terminationWaitInSeconds = Lens.lens (\BlueGreenUpdatePolicy' {terminationWaitInSeconds} -> terminationWaitInSeconds) (\s@BlueGreenUpdatePolicy' {} a -> s {terminationWaitInSeconds = a} :: BlueGreenUpdatePolicy)
 
--- |
+-- | Maximum execution timeout for the deployment. Note that the timeout
+-- value should be larger than the total waiting time specified in
+-- @TerminationWaitInSeconds@ and @WaitIntervalInSeconds@.
 blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds :: Lens.Lens' BlueGreenUpdatePolicy (Prelude.Maybe Prelude.Natural)
 blueGreenUpdatePolicy_maximumExecutionTimeoutInSeconds = Lens.lens (\BlueGreenUpdatePolicy' {maximumExecutionTimeoutInSeconds} -> maximumExecutionTimeoutInSeconds) (\s@BlueGreenUpdatePolicy' {} a -> s {maximumExecutionTimeoutInSeconds = a} :: BlueGreenUpdatePolicy)
 
--- |
+-- | Defines the traffic routing strategy to shift traffic from the old fleet
+-- to the new fleet during an endpoint deployment.
 blueGreenUpdatePolicy_trafficRoutingConfiguration :: Lens.Lens' BlueGreenUpdatePolicy TrafficRoutingConfig
 blueGreenUpdatePolicy_trafficRoutingConfiguration = Lens.lens (\BlueGreenUpdatePolicy' {trafficRoutingConfiguration} -> trafficRoutingConfiguration) (\s@BlueGreenUpdatePolicy' {} a -> s {trafficRoutingConfiguration = a} :: BlueGreenUpdatePolicy)
 

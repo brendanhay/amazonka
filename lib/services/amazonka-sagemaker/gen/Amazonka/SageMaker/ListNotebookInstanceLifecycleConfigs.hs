@@ -315,9 +315,8 @@ instance
 
 -- | /See:/ 'newListNotebookInstanceLifecycleConfigsResponse' smart constructor.
 data ListNotebookInstanceLifecycleConfigsResponse = ListNotebookInstanceLifecycleConfigsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To
-    -- get the next set of lifecycle configurations, use it in the next
-    -- request.
+  { -- | If the response is truncated, SageMaker returns this token. To get the
+    -- next set of lifecycle configurations, use it in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @NotebookInstanceLifecycleConfiguration@ objects, each
     -- listing a lifecycle configuration.
@@ -335,9 +334,8 @@ data ListNotebookInstanceLifecycleConfigsResponse = ListNotebookInstanceLifecycl
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listNotebookInstanceLifecycleConfigsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
--- get the next set of lifecycle configurations, use it in the next
--- request.
+-- 'nextToken', 'listNotebookInstanceLifecycleConfigsResponse_nextToken' - If the response is truncated, SageMaker returns this token. To get the
+-- next set of lifecycle configurations, use it in the next request.
 --
 -- 'notebookInstanceLifecycleConfigs', 'listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs' - An array of @NotebookInstanceLifecycleConfiguration@ objects, each
 -- listing a lifecycle configuration.
@@ -357,9 +355,8 @@ newListNotebookInstanceLifecycleConfigsResponse
         httpStatus = pHttpStatus_
       }
 
--- | If the response is truncated, Amazon SageMaker returns this token. To
--- get the next set of lifecycle configurations, use it in the next
--- request.
+-- | If the response is truncated, SageMaker returns this token. To get the
+-- next set of lifecycle configurations, use it in the next request.
 listNotebookInstanceLifecycleConfigsResponse_nextToken :: Lens.Lens' ListNotebookInstanceLifecycleConfigsResponse (Prelude.Maybe Prelude.Text)
 listNotebookInstanceLifecycleConfigsResponse_nextToken = Lens.lens (\ListNotebookInstanceLifecycleConfigsResponse' {nextToken} -> nextToken) (\s@ListNotebookInstanceLifecycleConfigsResponse' {} a -> s {nextToken = a} :: ListNotebookInstanceLifecycleConfigsResponse)
 

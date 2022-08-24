@@ -24,16 +24,16 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.ModelPackageValidationProfile
 
--- | Specifies batch transform jobs that Amazon SageMaker runs to validate
--- your model package.
+-- | Specifies batch transform jobs that SageMaker runs to validate your
+-- model package.
 --
 -- /See:/ 'newModelPackageValidationSpecification' smart constructor.
 data ModelPackageValidationSpecification = ModelPackageValidationSpecification'
   { -- | The IAM roles to be used for the validation of the model package.
     validationRole :: Prelude.Text,
     -- | An array of @ModelPackageValidationProfile@ objects, each of which
-    -- specifies a batch transform job that Amazon SageMaker runs to validate
-    -- your model package.
+    -- specifies a batch transform job that SageMaker runs to validate your
+    -- model package.
     validationProfiles :: Prelude.NonEmpty ModelPackageValidationProfile
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,8 +49,8 @@ data ModelPackageValidationSpecification = ModelPackageValidationSpecification'
 -- 'validationRole', 'modelPackageValidationSpecification_validationRole' - The IAM roles to be used for the validation of the model package.
 --
 -- 'validationProfiles', 'modelPackageValidationSpecification_validationProfiles' - An array of @ModelPackageValidationProfile@ objects, each of which
--- specifies a batch transform job that Amazon SageMaker runs to validate
--- your model package.
+-- specifies a batch transform job that SageMaker runs to validate your
+-- model package.
 newModelPackageValidationSpecification ::
   -- | 'validationRole'
   Prelude.Text ->
@@ -73,8 +73,8 @@ modelPackageValidationSpecification_validationRole :: Lens.Lens' ModelPackageVal
 modelPackageValidationSpecification_validationRole = Lens.lens (\ModelPackageValidationSpecification' {validationRole} -> validationRole) (\s@ModelPackageValidationSpecification' {} a -> s {validationRole = a} :: ModelPackageValidationSpecification)
 
 -- | An array of @ModelPackageValidationProfile@ objects, each of which
--- specifies a batch transform job that Amazon SageMaker runs to validate
--- your model package.
+-- specifies a batch transform job that SageMaker runs to validate your
+-- model package.
 modelPackageValidationSpecification_validationProfiles :: Lens.Lens' ModelPackageValidationSpecification (Prelude.NonEmpty ModelPackageValidationProfile)
 modelPackageValidationSpecification_validationProfiles = Lens.lens (\ModelPackageValidationSpecification' {validationProfiles} -> validationProfiles) (\s@ModelPackageValidationSpecification' {} a -> s {validationProfiles = a} :: ModelPackageValidationSpecification) Prelude.. Lens.coerced
 

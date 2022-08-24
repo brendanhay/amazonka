@@ -30,8 +30,8 @@ import Amazonka.SageMaker.Types.AsyncInferenceOutputConfig
 --
 -- /See:/ 'newAsyncInferenceConfig' smart constructor.
 data AsyncInferenceConfig = AsyncInferenceConfig'
-  { -- | Configures the behavior of the client used by Amazon SageMaker to
-    -- interact with the model container during asynchronous inference.
+  { -- | Configures the behavior of the client used by SageMaker to interact with
+    -- the model container during asynchronous inference.
     clientConfig :: Prelude.Maybe AsyncInferenceClientConfig,
     -- | Specifies the configuration for asynchronous inference invocation
     -- outputs.
@@ -47,8 +47,8 @@ data AsyncInferenceConfig = AsyncInferenceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientConfig', 'asyncInferenceConfig_clientConfig' - Configures the behavior of the client used by Amazon SageMaker to
--- interact with the model container during asynchronous inference.
+-- 'clientConfig', 'asyncInferenceConfig_clientConfig' - Configures the behavior of the client used by SageMaker to interact with
+-- the model container during asynchronous inference.
 --
 -- 'outputConfig', 'asyncInferenceConfig_outputConfig' - Specifies the configuration for asynchronous inference invocation
 -- outputs.
@@ -63,8 +63,8 @@ newAsyncInferenceConfig pOutputConfig_ =
       outputConfig = pOutputConfig_
     }
 
--- | Configures the behavior of the client used by Amazon SageMaker to
--- interact with the model container during asynchronous inference.
+-- | Configures the behavior of the client used by SageMaker to interact with
+-- the model container during asynchronous inference.
 asyncInferenceConfig_clientConfig :: Lens.Lens' AsyncInferenceConfig (Prelude.Maybe AsyncInferenceClientConfig)
 asyncInferenceConfig_clientConfig = Lens.lens (\AsyncInferenceConfig' {clientConfig} -> clientConfig) (\s@AsyncInferenceConfig' {} a -> s {clientConfig = a} :: AsyncInferenceConfig)
 

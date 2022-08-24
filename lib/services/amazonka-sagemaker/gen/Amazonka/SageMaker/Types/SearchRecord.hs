@@ -25,6 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.Endpoint
 import Amazonka.SageMaker.Types.Experiment
 import Amazonka.SageMaker.Types.FeatureGroup
+import Amazonka.SageMaker.Types.FeatureMetadata
 import Amazonka.SageMaker.Types.ModelPackage
 import Amazonka.SageMaker.Types.ModelPackageGroup
 import Amazonka.SageMaker.Types.Pipeline
@@ -48,6 +49,8 @@ data SearchRecord = SearchRecord'
     -- | The properties of an experiment.
     experiment :: Prelude.Maybe Experiment,
     endpoint :: Prelude.Maybe Endpoint,
+    -- | The feature metadata used to search through the features.
+    featureMetadata :: Prelude.Maybe FeatureMetadata,
     -- | The properties of a trial.
     trial :: Prelude.Maybe Trial,
     modelPackage :: Prelude.Maybe ModelPackage,
@@ -77,6 +80,8 @@ data SearchRecord = SearchRecord'
 --
 -- 'endpoint', 'searchRecord_endpoint' - Undocumented member.
 --
+-- 'featureMetadata', 'searchRecord_featureMetadata' - The feature metadata used to search through the features.
+--
 -- 'trial', 'searchRecord_trial' - The properties of a trial.
 --
 -- 'modelPackage', 'searchRecord_modelPackage' - Undocumented member.
@@ -96,6 +101,7 @@ newSearchRecord =
       trialComponent = Prelude.Nothing,
       experiment = Prelude.Nothing,
       endpoint = Prelude.Nothing,
+      featureMetadata = Prelude.Nothing,
       trial = Prelude.Nothing,
       modelPackage = Prelude.Nothing,
       pipeline = Prelude.Nothing,
@@ -126,6 +132,10 @@ searchRecord_experiment = Lens.lens (\SearchRecord' {experiment} -> experiment) 
 -- | Undocumented member.
 searchRecord_endpoint :: Lens.Lens' SearchRecord (Prelude.Maybe Endpoint)
 searchRecord_endpoint = Lens.lens (\SearchRecord' {endpoint} -> endpoint) (\s@SearchRecord' {} a -> s {endpoint = a} :: SearchRecord)
+
+-- | The feature metadata used to search through the features.
+searchRecord_featureMetadata :: Lens.Lens' SearchRecord (Prelude.Maybe FeatureMetadata)
+searchRecord_featureMetadata = Lens.lens (\SearchRecord' {featureMetadata} -> featureMetadata) (\s@SearchRecord' {} a -> s {featureMetadata = a} :: SearchRecord)
 
 -- | The properties of a trial.
 searchRecord_trial :: Lens.Lens' SearchRecord (Prelude.Maybe Trial)
@@ -159,6 +169,7 @@ instance Core.FromJSON SearchRecord where
             Prelude.<*> (x Core..:? "TrialComponent")
             Prelude.<*> (x Core..:? "Experiment")
             Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<*> (x Core..:? "FeatureMetadata")
             Prelude.<*> (x Core..:? "Trial")
             Prelude.<*> (x Core..:? "ModelPackage")
             Prelude.<*> (x Core..:? "Pipeline")
@@ -174,6 +185,7 @@ instance Prelude.Hashable SearchRecord where
       `Prelude.hashWithSalt` trialComponent
       `Prelude.hashWithSalt` experiment
       `Prelude.hashWithSalt` endpoint
+      `Prelude.hashWithSalt` featureMetadata
       `Prelude.hashWithSalt` trial
       `Prelude.hashWithSalt` modelPackage
       `Prelude.hashWithSalt` pipeline
@@ -188,6 +200,7 @@ instance Prelude.NFData SearchRecord where
       `Prelude.seq` Prelude.rnf trialComponent
       `Prelude.seq` Prelude.rnf experiment
       `Prelude.seq` Prelude.rnf endpoint
+      `Prelude.seq` Prelude.rnf featureMetadata
       `Prelude.seq` Prelude.rnf trial
       `Prelude.seq` Prelude.rnf modelPackage
       `Prelude.seq` Prelude.rnf pipeline

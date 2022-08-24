@@ -25,6 +25,8 @@
 -- to update your OpenID Connect (OIDC) Identity Provider (IdP) workforce
 -- configuration.
 --
+-- The worker portal is now supported in VPC and public internet.
+--
 -- Use @SourceIpConfig@ to restrict worker access to tasks to a specific
 -- range of IP addresses. You specify allowed IP addresses by creating a
 -- list of up to ten
@@ -33,6 +35,12 @@
 -- you specify a range of IP addresses, workers who attempt to access tasks
 -- using any IP address outside the specified range are denied and get a
 -- @Not Found@ error message on the worker portal.
+--
+-- To restrict access to all the workers in public internet, add the
+-- @SourceIpConfig@ CIDR value as \"0.0.0.0\/0\".
+--
+-- Amazon SageMaker does not support Source Ip restriction for worker
+-- portals in VPC.
 --
 -- Use @OidcConfig@ to update the configuration of a workforce created
 -- using your own OIDC IdP.
@@ -53,6 +61,7 @@ module Amazonka.SageMaker.UpdateWorkforce
 
     -- * Request Lenses
     updateWorkforce_sourceIpConfig,
+    updateWorkforce_workforceVpcConfig,
     updateWorkforce_oidcConfig,
     updateWorkforce_workforceName,
 
@@ -81,6 +90,8 @@ data UpdateWorkforce = UpdateWorkforce'
     --
     -- Maximum: Ten CIDR values
     sourceIpConfig :: Prelude.Maybe SourceIpConfig,
+    -- | Use this parameter to update your VPC configuration for a workforce.
+    workforceVpcConfig :: Prelude.Maybe WorkforceVpcConfigRequest,
     -- | Use this parameter to update your OIDC Identity Provider (IdP)
     -- configuration for a workforce made using your own IdP.
     oidcConfig :: Prelude.Maybe OidcConfig,
@@ -104,6 +115,8 @@ data UpdateWorkforce = UpdateWorkforce'
 --
 -- Maximum: Ten CIDR values
 --
+-- 'workforceVpcConfig', 'updateWorkforce_workforceVpcConfig' - Use this parameter to update your VPC configuration for a workforce.
+--
 -- 'oidcConfig', 'updateWorkforce_oidcConfig' - Use this parameter to update your OIDC Identity Provider (IdP)
 -- configuration for a workforce made using your own IdP.
 --
@@ -116,6 +129,7 @@ newUpdateWorkforce ::
 newUpdateWorkforce pWorkforceName_ =
   UpdateWorkforce'
     { sourceIpConfig = Prelude.Nothing,
+      workforceVpcConfig = Prelude.Nothing,
       oidcConfig = Prelude.Nothing,
       workforceName = pWorkforceName_
     }
@@ -127,6 +141,10 @@ newUpdateWorkforce pWorkforceName_ =
 -- Maximum: Ten CIDR values
 updateWorkforce_sourceIpConfig :: Lens.Lens' UpdateWorkforce (Prelude.Maybe SourceIpConfig)
 updateWorkforce_sourceIpConfig = Lens.lens (\UpdateWorkforce' {sourceIpConfig} -> sourceIpConfig) (\s@UpdateWorkforce' {} a -> s {sourceIpConfig = a} :: UpdateWorkforce)
+
+-- | Use this parameter to update your VPC configuration for a workforce.
+updateWorkforce_workforceVpcConfig :: Lens.Lens' UpdateWorkforce (Prelude.Maybe WorkforceVpcConfigRequest)
+updateWorkforce_workforceVpcConfig = Lens.lens (\UpdateWorkforce' {workforceVpcConfig} -> workforceVpcConfig) (\s@UpdateWorkforce' {} a -> s {workforceVpcConfig = a} :: UpdateWorkforce)
 
 -- | Use this parameter to update your OIDC Identity Provider (IdP)
 -- configuration for a workforce made using your own IdP.
@@ -154,12 +172,14 @@ instance Core.AWSRequest UpdateWorkforce where
 instance Prelude.Hashable UpdateWorkforce where
   hashWithSalt _salt UpdateWorkforce' {..} =
     _salt `Prelude.hashWithSalt` sourceIpConfig
+      `Prelude.hashWithSalt` workforceVpcConfig
       `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` workforceName
 
 instance Prelude.NFData UpdateWorkforce where
   rnf UpdateWorkforce' {..} =
     Prelude.rnf sourceIpConfig
+      `Prelude.seq` Prelude.rnf workforceVpcConfig
       `Prelude.seq` Prelude.rnf oidcConfig
       `Prelude.seq` Prelude.rnf workforceName
 
@@ -182,6 +202,8 @@ instance Core.ToJSON UpdateWorkforce where
       ( Prelude.catMaybes
           [ ("SourceIpConfig" Core..=)
               Prelude.<$> sourceIpConfig,
+            ("WorkforceVpcConfig" Core..=)
+              Prelude.<$> workforceVpcConfig,
             ("OidcConfig" Core..=) Prelude.<$> oidcConfig,
             Prelude.Just
               ("WorkforceName" Core..= workforceName)

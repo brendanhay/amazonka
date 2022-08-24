@@ -27,10 +27,12 @@ module Amazonka.SageMaker.UpdatePipeline
     newUpdatePipeline,
 
     -- * Request Lenses
+    updatePipeline_pipelineDefinitionS3Location,
     updatePipeline_roleArn,
     updatePipeline_pipelineDisplayName,
     updatePipeline_pipelineDefinition,
     updatePipeline_pipelineDescription,
+    updatePipeline_parallelismConfiguration,
     updatePipeline_pipelineName,
 
     -- * Destructuring the Response
@@ -52,7 +54,11 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
-  { -- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
+  { -- | The location of the pipeline definition stored in Amazon S3. If
+    -- specified, SageMaker will retrieve the pipeline definition from this
+    -- location.
+    pipelineDefinitionS3Location :: Prelude.Maybe PipelineDefinitionS3Location,
+    -- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The display name of the pipeline.
     pipelineDisplayName :: Prelude.Maybe Prelude.Text,
@@ -60,6 +66,8 @@ data UpdatePipeline = UpdatePipeline'
     pipelineDefinition :: Prelude.Maybe Prelude.Text,
     -- | The description of the pipeline.
     pipelineDescription :: Prelude.Maybe Prelude.Text,
+    -- | If specified, it applies to all executions of this pipeline by default.
+    parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
     -- | The name of the pipeline to update.
     pipelineName :: Prelude.Text
   }
@@ -73,6 +81,10 @@ data UpdatePipeline = UpdatePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'pipelineDefinitionS3Location', 'updatePipeline_pipelineDefinitionS3Location' - The location of the pipeline definition stored in Amazon S3. If
+-- specified, SageMaker will retrieve the pipeline definition from this
+-- location.
+--
 -- 'roleArn', 'updatePipeline_roleArn' - The Amazon Resource Name (ARN) that the pipeline uses to execute.
 --
 -- 'pipelineDisplayName', 'updatePipeline_pipelineDisplayName' - The display name of the pipeline.
@@ -81,6 +93,8 @@ data UpdatePipeline = UpdatePipeline'
 --
 -- 'pipelineDescription', 'updatePipeline_pipelineDescription' - The description of the pipeline.
 --
+-- 'parallelismConfiguration', 'updatePipeline_parallelismConfiguration' - If specified, it applies to all executions of this pipeline by default.
+--
 -- 'pipelineName', 'updatePipeline_pipelineName' - The name of the pipeline to update.
 newUpdatePipeline ::
   -- | 'pipelineName'
@@ -88,12 +102,21 @@ newUpdatePipeline ::
   UpdatePipeline
 newUpdatePipeline pPipelineName_ =
   UpdatePipeline'
-    { roleArn = Prelude.Nothing,
+    { pipelineDefinitionS3Location =
+        Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       pipelineDisplayName = Prelude.Nothing,
       pipelineDefinition = Prelude.Nothing,
       pipelineDescription = Prelude.Nothing,
+      parallelismConfiguration = Prelude.Nothing,
       pipelineName = pPipelineName_
     }
+
+-- | The location of the pipeline definition stored in Amazon S3. If
+-- specified, SageMaker will retrieve the pipeline definition from this
+-- location.
+updatePipeline_pipelineDefinitionS3Location :: Lens.Lens' UpdatePipeline (Prelude.Maybe PipelineDefinitionS3Location)
+updatePipeline_pipelineDefinitionS3Location = Lens.lens (\UpdatePipeline' {pipelineDefinitionS3Location} -> pipelineDefinitionS3Location) (\s@UpdatePipeline' {} a -> s {pipelineDefinitionS3Location = a} :: UpdatePipeline)
 
 -- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
 updatePipeline_roleArn :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
@@ -110,6 +133,10 @@ updatePipeline_pipelineDefinition = Lens.lens (\UpdatePipeline' {pipelineDefinit
 -- | The description of the pipeline.
 updatePipeline_pipelineDescription :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
 updatePipeline_pipelineDescription = Lens.lens (\UpdatePipeline' {pipelineDescription} -> pipelineDescription) (\s@UpdatePipeline' {} a -> s {pipelineDescription = a} :: UpdatePipeline)
+
+-- | If specified, it applies to all executions of this pipeline by default.
+updatePipeline_parallelismConfiguration :: Lens.Lens' UpdatePipeline (Prelude.Maybe ParallelismConfiguration)
+updatePipeline_parallelismConfiguration = Lens.lens (\UpdatePipeline' {parallelismConfiguration} -> parallelismConfiguration) (\s@UpdatePipeline' {} a -> s {parallelismConfiguration = a} :: UpdatePipeline)
 
 -- | The name of the pipeline to update.
 updatePipeline_pipelineName :: Lens.Lens' UpdatePipeline Prelude.Text
@@ -130,18 +157,23 @@ instance Core.AWSRequest UpdatePipeline where
 
 instance Prelude.Hashable UpdatePipeline where
   hashWithSalt _salt UpdatePipeline' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt
+      `Prelude.hashWithSalt` pipelineDefinitionS3Location
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` pipelineDisplayName
       `Prelude.hashWithSalt` pipelineDefinition
       `Prelude.hashWithSalt` pipelineDescription
+      `Prelude.hashWithSalt` parallelismConfiguration
       `Prelude.hashWithSalt` pipelineName
 
 instance Prelude.NFData UpdatePipeline where
   rnf UpdatePipeline' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf pipelineDefinitionS3Location
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf pipelineDisplayName
       `Prelude.seq` Prelude.rnf pipelineDefinition
       `Prelude.seq` Prelude.rnf pipelineDescription
+      `Prelude.seq` Prelude.rnf parallelismConfiguration
       `Prelude.seq` Prelude.rnf pipelineName
 
 instance Core.ToHeaders UpdatePipeline where
@@ -161,13 +193,17 @@ instance Core.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+          [ ("PipelineDefinitionS3Location" Core..=)
+              Prelude.<$> pipelineDefinitionS3Location,
+            ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("PipelineDisplayName" Core..=)
               Prelude.<$> pipelineDisplayName,
             ("PipelineDefinition" Core..=)
               Prelude.<$> pipelineDefinition,
             ("PipelineDescription" Core..=)
               Prelude.<$> pipelineDescription,
+            ("ParallelismConfiguration" Core..=)
+              Prelude.<$> parallelismConfiguration,
             Prelude.Just ("PipelineName" Core..= pipelineName)
           ]
       )

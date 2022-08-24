@@ -247,8 +247,8 @@ instance Core.ToQuery ListAlgorithms where
 
 -- | /See:/ 'newListAlgorithmsResponse' smart constructor.
 data ListAlgorithmsResponse = ListAlgorithmsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To
-    -- retrieve the next set of algorithms, use it in the subsequent request.
+  { -- | If the response is truncated, SageMaker returns this token. To retrieve
+    -- the next set of algorithms, use it in the subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -266,8 +266,8 @@ data ListAlgorithmsResponse = ListAlgorithmsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAlgorithmsResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of algorithms, use it in the subsequent request.
+-- 'nextToken', 'listAlgorithmsResponse_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of algorithms, use it in the subsequent request.
 --
 -- 'httpStatus', 'listAlgorithmsResponse_httpStatus' - The response's http status code.
 --
@@ -285,8 +285,8 @@ newListAlgorithmsResponse pHttpStatus_ =
       algorithmSummaryList = Prelude.mempty
     }
 
--- | If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of algorithms, use it in the subsequent request.
+-- | If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of algorithms, use it in the subsequent request.
 listAlgorithmsResponse_nextToken :: Lens.Lens' ListAlgorithmsResponse (Prelude.Maybe Prelude.Text)
 listAlgorithmsResponse_nextToken = Lens.lens (\ListAlgorithmsResponse' {nextToken} -> nextToken) (\s@ListAlgorithmsResponse' {} a -> s {nextToken = a} :: ListAlgorithmsResponse)
 

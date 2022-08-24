@@ -34,8 +34,8 @@ data ContinuousParameterRange = ContinuousParameterRange'
     -- One of the following values:
     --
     -- [Auto]
-    --     Amazon SageMaker hyperparameter tuning chooses the best scale for
-    --     the hyperparameter.
+    --     SageMaker hyperparameter tuning chooses the best scale for the
+    --     hyperparameter.
     --
     -- [Linear]
     --     Hyperparameter tuning searches the values in the hyperparameter
@@ -81,8 +81,8 @@ data ContinuousParameterRange = ContinuousParameterRange'
 -- One of the following values:
 --
 -- [Auto]
---     Amazon SageMaker hyperparameter tuning chooses the best scale for
---     the hyperparameter.
+--     SageMaker hyperparameter tuning chooses the best scale for the
+--     hyperparameter.
 --
 -- [Linear]
 --     Hyperparameter tuning searches the values in the hyperparameter
@@ -136,8 +136,8 @@ newContinuousParameterRange
 -- One of the following values:
 --
 -- [Auto]
---     Amazon SageMaker hyperparameter tuning chooses the best scale for
---     the hyperparameter.
+--     SageMaker hyperparameter tuning chooses the best scale for the
+--     hyperparameter.
 --
 -- [Linear]
 --     Hyperparameter tuning searches the values in the hyperparameter

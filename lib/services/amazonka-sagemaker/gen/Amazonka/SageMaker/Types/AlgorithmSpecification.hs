@@ -27,7 +27,7 @@ import Amazonka.SageMaker.Types.TrainingInputMode
 
 -- | Specifies the training algorithm to use in a CreateTrainingJob request.
 --
--- For more information about algorithms provided by Amazon SageMaker, see
+-- For more information about algorithms provided by SageMaker, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html Algorithms>.
 -- For information about using your own algorithms, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
@@ -36,30 +36,50 @@ import Amazonka.SageMaker.Types.TrainingInputMode
 data AlgorithmSpecification = AlgorithmSpecification'
   { -- | The name of the algorithm resource to use for the training job. This
     -- must be an algorithm resource that you created or subscribe to on Amazon
-    -- Web Services Marketplace. If you specify a value for this parameter, you
-    -- can\'t specify a value for @TrainingImage@.
+    -- Web Services Marketplace.
+    --
+    -- You must specify either the algorithm name to the @AlgorithmName@
+    -- parameter or the image URI of the algorithm container to the
+    -- @TrainingImage@ parameter.
+    --
+    -- Note that the @AlgorithmName@ parameter is mutually exclusive with the
+    -- @TrainingImage@ parameter. If you specify a value for the
+    -- @AlgorithmName@ parameter, you can\'t specify a value for
+    -- @TrainingImage@, and vice versa.
+    --
+    -- If you specify values for both parameters, the training job might break;
+    -- if you don\'t specify any value for both parameters, the training job
+    -- might raise a @null@ error.
     algorithmName :: Prelude.Maybe Prelude.Text,
     -- | A list of metric definition objects. Each object specifies the metric
-    -- name and regular expressions used to parse algorithm logs. Amazon
-    -- SageMaker publishes each metric to Amazon CloudWatch.
+    -- name and regular expressions used to parse algorithm logs. SageMaker
+    -- publishes each metric to Amazon CloudWatch.
     metricDefinitions :: Prelude.Maybe [MetricDefinition],
     -- | The registry path of the Docker image that contains the training
-    -- algorithm. For information about docker registry paths for built-in
-    -- algorithms, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
-    -- Amazon SageMaker supports both @registry\/repository[:tag]@ and
-    -- @registry\/repository[\@digest]@ image path formats. For more
-    -- information, see
+    -- algorithm. For information about docker registry paths for SageMaker
+    -- built-in algorithms, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Docker Registry Paths and Example Code>
+    -- in the /Amazon SageMaker developer guide/. SageMaker supports both
+    -- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
+    -- path formats. For more information about using your custom training
+    -- container, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
+    --
+    -- You must specify either the algorithm name to the @AlgorithmName@
+    -- parameter or the image URI of the algorithm container to the
+    -- @TrainingImage@ parameter.
+    --
+    -- For more information, see the note in the @AlgorithmName@ parameter
+    -- description.
     trainingImage :: Prelude.Maybe Prelude.Text,
     -- | To generate and save time-series metrics during training, set to @true@.
     -- The default is @false@ and time-series metrics aren\'t generated except
     -- in the following cases:
     --
-    -- -   You use one of the Amazon SageMaker built-in algorithms
+    -- -   You use one of the SageMaker built-in algorithms
     --
     -- -   You use one of the following
-    --     <https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html Prebuilt Amazon SageMaker Docker Images>:
+    --     <https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html Prebuilt SageMaker Docker Images>:
     --
     --     -   Tensorflow (version >= 1.15)
     --
@@ -83,30 +103,50 @@ data AlgorithmSpecification = AlgorithmSpecification'
 --
 -- 'algorithmName', 'algorithmSpecification_algorithmName' - The name of the algorithm resource to use for the training job. This
 -- must be an algorithm resource that you created or subscribe to on Amazon
--- Web Services Marketplace. If you specify a value for this parameter, you
--- can\'t specify a value for @TrainingImage@.
+-- Web Services Marketplace.
+--
+-- You must specify either the algorithm name to the @AlgorithmName@
+-- parameter or the image URI of the algorithm container to the
+-- @TrainingImage@ parameter.
+--
+-- Note that the @AlgorithmName@ parameter is mutually exclusive with the
+-- @TrainingImage@ parameter. If you specify a value for the
+-- @AlgorithmName@ parameter, you can\'t specify a value for
+-- @TrainingImage@, and vice versa.
+--
+-- If you specify values for both parameters, the training job might break;
+-- if you don\'t specify any value for both parameters, the training job
+-- might raise a @null@ error.
 --
 -- 'metricDefinitions', 'algorithmSpecification_metricDefinitions' - A list of metric definition objects. Each object specifies the metric
--- name and regular expressions used to parse algorithm logs. Amazon
--- SageMaker publishes each metric to Amazon CloudWatch.
+-- name and regular expressions used to parse algorithm logs. SageMaker
+-- publishes each metric to Amazon CloudWatch.
 --
 -- 'trainingImage', 'algorithmSpecification_trainingImage' - The registry path of the Docker image that contains the training
--- algorithm. For information about docker registry paths for built-in
--- algorithms, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
--- Amazon SageMaker supports both @registry\/repository[:tag]@ and
--- @registry\/repository[\@digest]@ image path formats. For more
--- information, see
+-- algorithm. For information about docker registry paths for SageMaker
+-- built-in algorithms, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Docker Registry Paths and Example Code>
+-- in the /Amazon SageMaker developer guide/. SageMaker supports both
+-- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
+-- path formats. For more information about using your custom training
+-- container, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
+--
+-- You must specify either the algorithm name to the @AlgorithmName@
+-- parameter or the image URI of the algorithm container to the
+-- @TrainingImage@ parameter.
+--
+-- For more information, see the note in the @AlgorithmName@ parameter
+-- description.
 --
 -- 'enableSageMakerMetricsTimeSeries', 'algorithmSpecification_enableSageMakerMetricsTimeSeries' - To generate and save time-series metrics during training, set to @true@.
 -- The default is @false@ and time-series metrics aren\'t generated except
 -- in the following cases:
 --
--- -   You use one of the Amazon SageMaker built-in algorithms
+-- -   You use one of the SageMaker built-in algorithms
 --
 -- -   You use one of the following
---     <https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html Prebuilt Amazon SageMaker Docker Images>:
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html Prebuilt SageMaker Docker Images>:
 --
 --     -   Tensorflow (version >= 1.15)
 --
@@ -133,25 +173,45 @@ newAlgorithmSpecification pTrainingInputMode_ =
 
 -- | The name of the algorithm resource to use for the training job. This
 -- must be an algorithm resource that you created or subscribe to on Amazon
--- Web Services Marketplace. If you specify a value for this parameter, you
--- can\'t specify a value for @TrainingImage@.
+-- Web Services Marketplace.
+--
+-- You must specify either the algorithm name to the @AlgorithmName@
+-- parameter or the image URI of the algorithm container to the
+-- @TrainingImage@ parameter.
+--
+-- Note that the @AlgorithmName@ parameter is mutually exclusive with the
+-- @TrainingImage@ parameter. If you specify a value for the
+-- @AlgorithmName@ parameter, you can\'t specify a value for
+-- @TrainingImage@, and vice versa.
+--
+-- If you specify values for both parameters, the training job might break;
+-- if you don\'t specify any value for both parameters, the training job
+-- might raise a @null@ error.
 algorithmSpecification_algorithmName :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Text)
 algorithmSpecification_algorithmName = Lens.lens (\AlgorithmSpecification' {algorithmName} -> algorithmName) (\s@AlgorithmSpecification' {} a -> s {algorithmName = a} :: AlgorithmSpecification)
 
 -- | A list of metric definition objects. Each object specifies the metric
--- name and regular expressions used to parse algorithm logs. Amazon
--- SageMaker publishes each metric to Amazon CloudWatch.
+-- name and regular expressions used to parse algorithm logs. SageMaker
+-- publishes each metric to Amazon CloudWatch.
 algorithmSpecification_metricDefinitions :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe [MetricDefinition])
 algorithmSpecification_metricDefinitions = Lens.lens (\AlgorithmSpecification' {metricDefinitions} -> metricDefinitions) (\s@AlgorithmSpecification' {} a -> s {metricDefinitions = a} :: AlgorithmSpecification) Prelude.. Lens.mapping Lens.coerced
 
 -- | The registry path of the Docker image that contains the training
--- algorithm. For information about docker registry paths for built-in
--- algorithms, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Algorithms Provided by Amazon SageMaker: Common Parameters>.
--- Amazon SageMaker supports both @registry\/repository[:tag]@ and
--- @registry\/repository[\@digest]@ image path formats. For more
--- information, see
+-- algorithm. For information about docker registry paths for SageMaker
+-- built-in algorithms, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html Docker Registry Paths and Example Code>
+-- in the /Amazon SageMaker developer guide/. SageMaker supports both
+-- @registry\/repository[:tag]@ and @registry\/repository[\@digest]@ image
+-- path formats. For more information about using your custom training
+-- container, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html Using Your Own Algorithms with Amazon SageMaker>.
+--
+-- You must specify either the algorithm name to the @AlgorithmName@
+-- parameter or the image URI of the algorithm container to the
+-- @TrainingImage@ parameter.
+--
+-- For more information, see the note in the @AlgorithmName@ parameter
+-- description.
 algorithmSpecification_trainingImage :: Lens.Lens' AlgorithmSpecification (Prelude.Maybe Prelude.Text)
 algorithmSpecification_trainingImage = Lens.lens (\AlgorithmSpecification' {trainingImage} -> trainingImage) (\s@AlgorithmSpecification' {} a -> s {trainingImage = a} :: AlgorithmSpecification)
 
@@ -159,10 +219,10 @@ algorithmSpecification_trainingImage = Lens.lens (\AlgorithmSpecification' {trai
 -- The default is @false@ and time-series metrics aren\'t generated except
 -- in the following cases:
 --
--- -   You use one of the Amazon SageMaker built-in algorithms
+-- -   You use one of the SageMaker built-in algorithms
 --
 -- -   You use one of the following
---     <https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html Prebuilt Amazon SageMaker Docker Images>:
+--     <https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html Prebuilt SageMaker Docker Images>:
 --
 --     -   Tensorflow (version >= 1.15)
 --

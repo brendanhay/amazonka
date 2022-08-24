@@ -66,6 +66,8 @@ data TrialComponent = TrialComponent'
     -- component is associated with and the experiment the trial is part of. A
     -- component might not have any parents.
     parents :: Prelude.Maybe [Parent],
+    -- | The Amazon Resource Name (ARN) of the lineage group resource.
+    lineageGroupArn :: Prelude.Maybe Prelude.Text,
     -- | When the component was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The input artifacts of the component.
@@ -119,6 +121,8 @@ data TrialComponent = TrialComponent'
 -- component is associated with and the experiment the trial is part of. A
 -- component might not have any parents.
 --
+-- 'lineageGroupArn', 'trialComponent_lineageGroupArn' - The Amazon Resource Name (ARN) of the lineage group resource.
+--
 -- 'creationTime', 'trialComponent_creationTime' - When the component was created.
 --
 -- 'inputArtifacts', 'trialComponent_inputArtifacts' - The input artifacts of the component.
@@ -147,6 +151,7 @@ newTrialComponent =
       lastModifiedTime = Prelude.Nothing,
       source = Prelude.Nothing,
       parents = Prelude.Nothing,
+      lineageGroupArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
@@ -212,6 +217,10 @@ trialComponent_source = Lens.lens (\TrialComponent' {source} -> source) (\s@Tria
 trialComponent_parents :: Lens.Lens' TrialComponent (Prelude.Maybe [Parent])
 trialComponent_parents = Lens.lens (\TrialComponent' {parents} -> parents) (\s@TrialComponent' {} a -> s {parents = a} :: TrialComponent) Prelude.. Lens.mapping Lens.coerced
 
+-- | The Amazon Resource Name (ARN) of the lineage group resource.
+trialComponent_lineageGroupArn :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.Text)
+trialComponent_lineageGroupArn = Lens.lens (\TrialComponent' {lineageGroupArn} -> lineageGroupArn) (\s@TrialComponent' {} a -> s {lineageGroupArn = a} :: TrialComponent)
+
 -- | When the component was created.
 trialComponent_creationTime :: Lens.Lens' TrialComponent (Prelude.Maybe Prelude.UTCTime)
 trialComponent_creationTime = Lens.lens (\TrialComponent' {creationTime} -> creationTime) (\s@TrialComponent' {} a -> s {creationTime = a} :: TrialComponent) Prelude.. Lens.mapping Core._Time
@@ -257,6 +266,7 @@ instance Core.FromJSON TrialComponent where
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "Parents" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LineageGroupArn")
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "InputArtifacts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LastModifiedBy")
@@ -280,6 +290,7 @@ instance Prelude.Hashable TrialComponent where
       `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` parents
+      `Prelude.hashWithSalt` lineageGroupArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` inputArtifacts
       `Prelude.hashWithSalt` lastModifiedBy
@@ -302,6 +313,7 @@ instance Prelude.NFData TrialComponent where
       `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf parents
+      `Prelude.seq` Prelude.rnf lineageGroupArn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf inputArtifacts
       `Prelude.seq` Prelude.rnf lastModifiedBy

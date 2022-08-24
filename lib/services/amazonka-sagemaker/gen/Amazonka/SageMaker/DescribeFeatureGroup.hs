@@ -41,6 +41,9 @@ module Amazonka.SageMaker.DescribeFeatureGroup
     describeFeatureGroupResponse_description,
     describeFeatureGroupResponse_offlineStoreStatus,
     describeFeatureGroupResponse_onlineStoreConfig,
+    describeFeatureGroupResponse_lastModifiedTime,
+    describeFeatureGroupResponse_onlineStoreTotalSizeBytes,
+    describeFeatureGroupResponse_lastUpdateStatus,
     describeFeatureGroupResponse_featureGroupStatus,
     describeFeatureGroupResponse_offlineStoreConfig,
     describeFeatureGroupResponse_failureReason,
@@ -116,6 +119,9 @@ instance Core.AWSRequest DescribeFeatureGroup where
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (x Core..?> "OfflineStoreStatus")
             Prelude.<*> (x Core..?> "OnlineStoreConfig")
+            Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "OnlineStoreTotalSizeBytes")
+            Prelude.<*> (x Core..?> "LastUpdateStatus")
             Prelude.<*> (x Core..?> "FeatureGroupStatus")
             Prelude.<*> (x Core..?> "OfflineStoreConfig")
             Prelude.<*> (x Core..?> "FailureReason")
@@ -182,6 +188,13 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
     offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
     -- | The configuration for the @OnlineStore@.
     onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
+    -- | A timestamp indicating when the feature group was last updated.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The size of the @OnlineStore@ in bytes.
+    onlineStoreTotalSizeBytes :: Prelude.Maybe Prelude.Integer,
+    -- | A value indicating whether the update made to the feature group was
+    -- successful.
+    lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
     -- | The status of the feature group.
     featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
     -- | The configuration of the @OfflineStore@, inducing the S3 location of the
@@ -239,6 +252,13 @@ data DescribeFeatureGroupResponse = DescribeFeatureGroupResponse'
 -- the @OfflineStore@ has failed. Returns either: @Active@ or @Blocked@
 --
 -- 'onlineStoreConfig', 'describeFeatureGroupResponse_onlineStoreConfig' - The configuration for the @OnlineStore@.
+--
+-- 'lastModifiedTime', 'describeFeatureGroupResponse_lastModifiedTime' - A timestamp indicating when the feature group was last updated.
+--
+-- 'onlineStoreTotalSizeBytes', 'describeFeatureGroupResponse_onlineStoreTotalSizeBytes' - The size of the @OnlineStore@ in bytes.
+--
+-- 'lastUpdateStatus', 'describeFeatureGroupResponse_lastUpdateStatus' - A value indicating whether the update made to the feature group was
+-- successful.
 --
 -- 'featureGroupStatus', 'describeFeatureGroupResponse_featureGroupStatus' - The status of the feature group.
 --
@@ -309,6 +329,9 @@ newDescribeFeatureGroupResponse
         description = Prelude.Nothing,
         offlineStoreStatus = Prelude.Nothing,
         onlineStoreConfig = Prelude.Nothing,
+        lastModifiedTime = Prelude.Nothing,
+        onlineStoreTotalSizeBytes = Prelude.Nothing,
+        lastUpdateStatus = Prelude.Nothing,
         featureGroupStatus = Prelude.Nothing,
         offlineStoreConfig = Prelude.Nothing,
         failureReason = Prelude.Nothing,
@@ -342,6 +365,19 @@ describeFeatureGroupResponse_offlineStoreStatus = Lens.lens (\DescribeFeatureGro
 -- | The configuration for the @OnlineStore@.
 describeFeatureGroupResponse_onlineStoreConfig :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe OnlineStoreConfig)
 describeFeatureGroupResponse_onlineStoreConfig = Lens.lens (\DescribeFeatureGroupResponse' {onlineStoreConfig} -> onlineStoreConfig) (\s@DescribeFeatureGroupResponse' {} a -> s {onlineStoreConfig = a} :: DescribeFeatureGroupResponse)
+
+-- | A timestamp indicating when the feature group was last updated.
+describeFeatureGroupResponse_lastModifiedTime :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.UTCTime)
+describeFeatureGroupResponse_lastModifiedTime = Lens.lens (\DescribeFeatureGroupResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeFeatureGroupResponse' {} a -> s {lastModifiedTime = a} :: DescribeFeatureGroupResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The size of the @OnlineStore@ in bytes.
+describeFeatureGroupResponse_onlineStoreTotalSizeBytes :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe Prelude.Integer)
+describeFeatureGroupResponse_onlineStoreTotalSizeBytes = Lens.lens (\DescribeFeatureGroupResponse' {onlineStoreTotalSizeBytes} -> onlineStoreTotalSizeBytes) (\s@DescribeFeatureGroupResponse' {} a -> s {onlineStoreTotalSizeBytes = a} :: DescribeFeatureGroupResponse)
+
+-- | A value indicating whether the update made to the feature group was
+-- successful.
+describeFeatureGroupResponse_lastUpdateStatus :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe LastUpdateStatus)
+describeFeatureGroupResponse_lastUpdateStatus = Lens.lens (\DescribeFeatureGroupResponse' {lastUpdateStatus} -> lastUpdateStatus) (\s@DescribeFeatureGroupResponse' {} a -> s {lastUpdateStatus = a} :: DescribeFeatureGroupResponse)
 
 -- | The status of the feature group.
 describeFeatureGroupResponse_featureGroupStatus :: Lens.Lens' DescribeFeatureGroupResponse (Prelude.Maybe FeatureGroupStatus)
@@ -408,6 +444,9 @@ instance Prelude.NFData DescribeFeatureGroupResponse where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf offlineStoreStatus
       `Prelude.seq` Prelude.rnf onlineStoreConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf onlineStoreTotalSizeBytes
+      `Prelude.seq` Prelude.rnf lastUpdateStatus
       `Prelude.seq` Prelude.rnf featureGroupStatus
       `Prelude.seq` Prelude.rnf offlineStoreConfig
       `Prelude.seq` Prelude.rnf failureReason

@@ -27,6 +27,7 @@ module Amazonka.SageMaker.UpdatePipelineExecution
     newUpdatePipelineExecution,
 
     -- * Request Lenses
+    updatePipelineExecution_parallelismConfiguration,
     updatePipelineExecution_pipelineExecutionDescription,
     updatePipelineExecution_pipelineExecutionDisplayName,
     updatePipelineExecution_pipelineExecutionArn,
@@ -50,7 +51,10 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newUpdatePipelineExecution' smart constructor.
 data UpdatePipelineExecution = UpdatePipelineExecution'
-  { -- | The description of the pipeline execution.
+  { -- | This configuration, if specified, overrides the parallelism
+    -- configuration of the parent pipeline for this specific run.
+    parallelismConfiguration :: Prelude.Maybe ParallelismConfiguration,
+    -- | The description of the pipeline execution.
     pipelineExecutionDescription :: Prelude.Maybe Prelude.Text,
     -- | The display name of the pipeline execution.
     pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
@@ -67,6 +71,9 @@ data UpdatePipelineExecution = UpdatePipelineExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'parallelismConfiguration', 'updatePipelineExecution_parallelismConfiguration' - This configuration, if specified, overrides the parallelism
+-- configuration of the parent pipeline for this specific run.
+--
 -- 'pipelineExecutionDescription', 'updatePipelineExecution_pipelineExecutionDescription' - The description of the pipeline execution.
 --
 -- 'pipelineExecutionDisplayName', 'updatePipelineExecution_pipelineExecutionDisplayName' - The display name of the pipeline execution.
@@ -78,11 +85,17 @@ newUpdatePipelineExecution ::
   UpdatePipelineExecution
 newUpdatePipelineExecution pPipelineExecutionArn_ =
   UpdatePipelineExecution'
-    { pipelineExecutionDescription =
+    { parallelismConfiguration =
         Prelude.Nothing,
+      pipelineExecutionDescription = Prelude.Nothing,
       pipelineExecutionDisplayName = Prelude.Nothing,
       pipelineExecutionArn = pPipelineExecutionArn_
     }
+
+-- | This configuration, if specified, overrides the parallelism
+-- configuration of the parent pipeline for this specific run.
+updatePipelineExecution_parallelismConfiguration :: Lens.Lens' UpdatePipelineExecution (Prelude.Maybe ParallelismConfiguration)
+updatePipelineExecution_parallelismConfiguration = Lens.lens (\UpdatePipelineExecution' {parallelismConfiguration} -> parallelismConfiguration) (\s@UpdatePipelineExecution' {} a -> s {parallelismConfiguration = a} :: UpdatePipelineExecution)
 
 -- | The description of the pipeline execution.
 updatePipelineExecution_pipelineExecutionDescription :: Lens.Lens' UpdatePipelineExecution (Prelude.Maybe Prelude.Text)
@@ -112,13 +125,15 @@ instance Core.AWSRequest UpdatePipelineExecution where
 instance Prelude.Hashable UpdatePipelineExecution where
   hashWithSalt _salt UpdatePipelineExecution' {..} =
     _salt
+      `Prelude.hashWithSalt` parallelismConfiguration
       `Prelude.hashWithSalt` pipelineExecutionDescription
       `Prelude.hashWithSalt` pipelineExecutionDisplayName
       `Prelude.hashWithSalt` pipelineExecutionArn
 
 instance Prelude.NFData UpdatePipelineExecution where
   rnf UpdatePipelineExecution' {..} =
-    Prelude.rnf pipelineExecutionDescription
+    Prelude.rnf parallelismConfiguration
+      `Prelude.seq` Prelude.rnf pipelineExecutionDescription
       `Prelude.seq` Prelude.rnf pipelineExecutionDisplayName
       `Prelude.seq` Prelude.rnf pipelineExecutionArn
 
@@ -141,7 +156,9 @@ instance Core.ToJSON UpdatePipelineExecution where
   toJSON UpdatePipelineExecution' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PipelineExecutionDescription" Core..=)
+          [ ("ParallelismConfiguration" Core..=)
+              Prelude.<$> parallelismConfiguration,
+            ("PipelineExecutionDescription" Core..=)
               Prelude.<$> pipelineExecutionDescription,
             ("PipelineExecutionDisplayName" Core..=)
               Prelude.<$> pipelineExecutionDisplayName,

@@ -30,9 +30,9 @@ import Amazonka.SageMaker.Types.SecondaryStatus
 -- through. A training job can be in one of several states, for example,
 -- starting, downloading, training, or uploading. Within each state, there
 -- are a number of intermediate states. For example, within the starting
--- state, Amazon SageMaker could be starting the training job or launching
--- the ML instances. These transitional states are referred to as the
--- job\'s secondary status.
+-- state, SageMaker could be starting the training job or launching the ML
+-- instances. These transitional states are referred to as the job\'s
+-- secondary status.
 --
 -- /See:/ 'newSecondaryStatusTransition' smart constructor.
 data SecondaryStatusTransition = SecondaryStatusTransition'
@@ -42,8 +42,8 @@ data SecondaryStatusTransition = SecondaryStatusTransition'
     endTime :: Prelude.Maybe Core.POSIX,
     -- | A detailed description of the progress within a secondary status.
     --
-    -- Amazon SageMaker provides secondary statuses and status messages that
-    -- apply to each of them:
+    -- SageMaker provides secondary statuses and status messages that apply to
+    -- each of them:
     --
     -- [Starting]
     --     -   Starting the training job.
@@ -138,8 +138,8 @@ data SecondaryStatusTransition = SecondaryStatusTransition'
 --
 -- 'statusMessage', 'secondaryStatusTransition_statusMessage' - A detailed description of the progress within a secondary status.
 --
--- Amazon SageMaker provides secondary statuses and status messages that
--- apply to each of them:
+-- SageMaker provides secondary statuses and status messages that apply to
+-- each of them:
 --
 -- [Starting]
 --     -   Starting the training job.
@@ -239,8 +239,8 @@ secondaryStatusTransition_endTime = Lens.lens (\SecondaryStatusTransition' {endT
 
 -- | A detailed description of the progress within a secondary status.
 --
--- Amazon SageMaker provides secondary statuses and status messages that
--- apply to each of them:
+-- SageMaker provides secondary statuses and status messages that apply to
+-- each of them:
 --
 -- [Starting]
 --     -   Starting the training job.

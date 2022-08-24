@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the user who created or modified an experiment, trial,
--- trial component, or project.
+-- trial component, lineage group, or project.
 --
 -- /See:/ 'newUserContext' smart constructor.
 data UserContext = UserContext'

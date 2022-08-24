@@ -50,6 +50,7 @@ module Amazonka.SageMaker.CreateWorkforce
     createWorkforce_tags,
     createWorkforce_cognitoConfig,
     createWorkforce_sourceIpConfig,
+    createWorkforce_workforceVpcConfig,
     createWorkforce_oidcConfig,
     createWorkforce_workforceName,
 
@@ -83,6 +84,8 @@ data CreateWorkforce = CreateWorkforce'
     -- Do not use @OidcConfig@ if you specify values for @CognitoConfig@.
     cognitoConfig :: Prelude.Maybe CognitoConfig,
     sourceIpConfig :: Prelude.Maybe SourceIpConfig,
+    -- | Use this parameter to configure a workforce using VPC.
+    workforceVpcConfig :: Prelude.Maybe WorkforceVpcConfigRequest,
     -- | Use this parameter to configure a private workforce using your own OIDC
     -- Identity Provider.
     --
@@ -113,6 +116,8 @@ data CreateWorkforce = CreateWorkforce'
 --
 -- 'sourceIpConfig', 'createWorkforce_sourceIpConfig' - Undocumented member.
 --
+-- 'workforceVpcConfig', 'createWorkforce_workforceVpcConfig' - Use this parameter to configure a workforce using VPC.
+--
 -- 'oidcConfig', 'createWorkforce_oidcConfig' - Use this parameter to configure a private workforce using your own OIDC
 -- Identity Provider.
 --
@@ -128,6 +133,7 @@ newCreateWorkforce pWorkforceName_ =
     { tags = Prelude.Nothing,
       cognitoConfig = Prelude.Nothing,
       sourceIpConfig = Prelude.Nothing,
+      workforceVpcConfig = Prelude.Nothing,
       oidcConfig = Prelude.Nothing,
       workforceName = pWorkforceName_
     }
@@ -149,6 +155,10 @@ createWorkforce_cognitoConfig = Lens.lens (\CreateWorkforce' {cognitoConfig} -> 
 -- | Undocumented member.
 createWorkforce_sourceIpConfig :: Lens.Lens' CreateWorkforce (Prelude.Maybe SourceIpConfig)
 createWorkforce_sourceIpConfig = Lens.lens (\CreateWorkforce' {sourceIpConfig} -> sourceIpConfig) (\s@CreateWorkforce' {} a -> s {sourceIpConfig = a} :: CreateWorkforce)
+
+-- | Use this parameter to configure a workforce using VPC.
+createWorkforce_workforceVpcConfig :: Lens.Lens' CreateWorkforce (Prelude.Maybe WorkforceVpcConfigRequest)
+createWorkforce_workforceVpcConfig = Lens.lens (\CreateWorkforce' {workforceVpcConfig} -> workforceVpcConfig) (\s@CreateWorkforce' {} a -> s {workforceVpcConfig = a} :: CreateWorkforce)
 
 -- | Use this parameter to configure a private workforce using your own OIDC
 -- Identity Provider.
@@ -179,6 +189,7 @@ instance Prelude.Hashable CreateWorkforce where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` cognitoConfig
       `Prelude.hashWithSalt` sourceIpConfig
+      `Prelude.hashWithSalt` workforceVpcConfig
       `Prelude.hashWithSalt` oidcConfig
       `Prelude.hashWithSalt` workforceName
 
@@ -187,6 +198,7 @@ instance Prelude.NFData CreateWorkforce where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf cognitoConfig
       `Prelude.seq` Prelude.rnf sourceIpConfig
+      `Prelude.seq` Prelude.rnf workforceVpcConfig
       `Prelude.seq` Prelude.rnf oidcConfig
       `Prelude.seq` Prelude.rnf workforceName
 
@@ -211,6 +223,8 @@ instance Core.ToJSON CreateWorkforce where
             ("CognitoConfig" Core..=) Prelude.<$> cognitoConfig,
             ("SourceIpConfig" Core..=)
               Prelude.<$> sourceIpConfig,
+            ("WorkforceVpcConfig" Core..=)
+              Prelude.<$> workforceVpcConfig,
             ("OidcConfig" Core..=) Prelude.<$> oidcConfig,
             Prelude.Just
               ("WorkforceName" Core..= workforceName)

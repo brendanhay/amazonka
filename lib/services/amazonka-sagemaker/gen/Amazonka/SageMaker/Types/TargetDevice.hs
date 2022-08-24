@@ -21,6 +21,7 @@ module Amazonka.SageMaker.Types.TargetDevice
   ( TargetDevice
       ( ..,
         TargetDevice_Aisage,
+        TargetDevice_Amba_cv2,
         TargetDevice_Amba_cv22,
         TargetDevice_Amba_cv25,
         TargetDevice_Coreml,
@@ -88,6 +89,9 @@ newtype TargetDevice = TargetDevice'
 
 pattern TargetDevice_Aisage :: TargetDevice
 pattern TargetDevice_Aisage = TargetDevice' "aisage"
+
+pattern TargetDevice_Amba_cv2 :: TargetDevice
+pattern TargetDevice_Amba_cv2 = TargetDevice' "amba_cv2"
 
 pattern TargetDevice_Amba_cv22 :: TargetDevice
 pattern TargetDevice_Amba_cv22 = TargetDevice' "amba_cv22"
@@ -181,6 +185,7 @@ pattern TargetDevice_X86_win64 = TargetDevice' "x86_win64"
 
 {-# COMPLETE
   TargetDevice_Aisage,
+  TargetDevice_Amba_cv2,
   TargetDevice_Amba_cv22,
   TargetDevice_Amba_cv25,
   TargetDevice_Coreml,

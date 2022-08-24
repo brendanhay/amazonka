@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.InstanceType
 import Amazonka.SageMaker.Types.NotebookInstanceStatus
 
--- | Provides summary information for an Amazon SageMaker notebook instance.
+-- | Provides summary information for an SageMaker notebook instance.
 --
 -- /See:/ 'newNotebookInstanceSummary' smart constructor.
 data NotebookInstanceSummary = NotebookInstanceSummary'
@@ -37,7 +37,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
     notebookInstanceLifecycleConfigName :: Prelude.Maybe Prelude.Text,
     -- | The status of the notebook instance.
     notebookInstanceStatus :: Prelude.Maybe NotebookInstanceStatus,
-    -- | The URL that you use to connect to the Jupyter instance running in your
+    -- | The URL that you use to connect to the Jupyter notebook running in your
     -- notebook instance.
     url :: Prelude.Maybe Prelude.Text,
     -- | The type of ML compute instance that the notebook instance is running
@@ -52,7 +52,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
     -- or in any other Git repository. These repositories are cloned at the
     -- same level as the default repository of your notebook instance. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
     additionalCodeRepositories :: Prelude.Maybe [Prelude.Text],
     -- | A timestamp that shows when the notebook instance was created.
     creationTime :: Prelude.Maybe Core.POSIX,
@@ -63,7 +63,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
     -- or in any other Git repository. When you open a notebook instance, it
     -- opens in the directory that contains this repository. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
     defaultCodeRepository :: Prelude.Maybe Prelude.Text,
     -- | The name of the notebook instance that you want a summary for.
     notebookInstanceName :: Prelude.Text,
@@ -88,7 +88,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
 --
 -- 'notebookInstanceStatus', 'notebookInstanceSummary_notebookInstanceStatus' - The status of the notebook instance.
 --
--- 'url', 'notebookInstanceSummary_url' - The URL that you use to connect to the Jupyter instance running in your
+-- 'url', 'notebookInstanceSummary_url' - The URL that you use to connect to the Jupyter notebook running in your
 -- notebook instance.
 --
 -- 'instanceType', 'notebookInstanceSummary_instanceType' - The type of ML compute instance that the notebook instance is running
@@ -103,7 +103,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 --
 -- 'creationTime', 'notebookInstanceSummary_creationTime' - A timestamp that shows when the notebook instance was created.
 --
@@ -114,7 +114,7 @@ data NotebookInstanceSummary = NotebookInstanceSummary'
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 --
 -- 'notebookInstanceName', 'notebookInstanceSummary_notebookInstanceName' - The name of the notebook instance that you want a summary for.
 --
@@ -154,7 +154,7 @@ notebookInstanceSummary_notebookInstanceLifecycleConfigName = Lens.lens (\Notebo
 notebookInstanceSummary_notebookInstanceStatus :: Lens.Lens' NotebookInstanceSummary (Prelude.Maybe NotebookInstanceStatus)
 notebookInstanceSummary_notebookInstanceStatus = Lens.lens (\NotebookInstanceSummary' {notebookInstanceStatus} -> notebookInstanceStatus) (\s@NotebookInstanceSummary' {} a -> s {notebookInstanceStatus = a} :: NotebookInstanceSummary)
 
--- | The URL that you use to connect to the Jupyter instance running in your
+-- | The URL that you use to connect to the Jupyter notebook running in your
 -- notebook instance.
 notebookInstanceSummary_url :: Lens.Lens' NotebookInstanceSummary (Prelude.Maybe Prelude.Text)
 notebookInstanceSummary_url = Lens.lens (\NotebookInstanceSummary' {url} -> url) (\s@NotebookInstanceSummary' {} a -> s {url = a} :: NotebookInstanceSummary)
@@ -175,7 +175,7 @@ notebookInstanceSummary_lastModifiedTime = Lens.lens (\NotebookInstanceSummary' 
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 notebookInstanceSummary_additionalCodeRepositories :: Lens.Lens' NotebookInstanceSummary (Prelude.Maybe [Prelude.Text])
 notebookInstanceSummary_additionalCodeRepositories = Lens.lens (\NotebookInstanceSummary' {additionalCodeRepositories} -> additionalCodeRepositories) (\s@NotebookInstanceSummary' {} a -> s {additionalCodeRepositories = a} :: NotebookInstanceSummary) Prelude.. Lens.mapping Lens.coerced
 
@@ -190,7 +190,7 @@ notebookInstanceSummary_creationTime = Lens.lens (\NotebookInstanceSummary' {cre
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with SageMaker Notebook Instances>.
 notebookInstanceSummary_defaultCodeRepository :: Lens.Lens' NotebookInstanceSummary (Prelude.Maybe Prelude.Text)
 notebookInstanceSummary_defaultCodeRepository = Lens.lens (\NotebookInstanceSummary' {defaultCodeRepository} -> defaultCodeRepository) (\s@NotebookInstanceSummary' {} a -> s {defaultCodeRepository = a} :: NotebookInstanceSummary)
 

@@ -25,6 +25,7 @@ module Amazonka.SageMaker.Types.ResourceType
         ResourceType_ExperimentTrial,
         ResourceType_ExperimentTrialComponent,
         ResourceType_FeatureGroup,
+        ResourceType_FeatureMetadata,
         ResourceType_ModelPackage,
         ResourceType_ModelPackageGroup,
         ResourceType_Pipeline,
@@ -81,6 +82,9 @@ pattern ResourceType_ExperimentTrialComponent = ResourceType' "ExperimentTrialCo
 pattern ResourceType_FeatureGroup :: ResourceType
 pattern ResourceType_FeatureGroup = ResourceType' "FeatureGroup"
 
+pattern ResourceType_FeatureMetadata :: ResourceType
+pattern ResourceType_FeatureMetadata = ResourceType' "FeatureMetadata"
+
 pattern ResourceType_ModelPackage :: ResourceType
 pattern ResourceType_ModelPackage = ResourceType' "ModelPackage"
 
@@ -105,6 +109,7 @@ pattern ResourceType_TrainingJob = ResourceType' "TrainingJob"
   ResourceType_ExperimentTrial,
   ResourceType_ExperimentTrialComponent,
   ResourceType_FeatureGroup,
+  ResourceType_FeatureMetadata,
   ResourceType_ModelPackage,
   ResourceType_ModelPackageGroup,
   ResourceType_Pipeline,

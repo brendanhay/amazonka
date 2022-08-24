@@ -320,8 +320,8 @@ instance Core.ToQuery CreateHyperParameterTuningJob where
 data CreateHyperParameterTuningJobResponse = CreateHyperParameterTuningJobResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker
-    -- assigns an ARN to a hyperparameter tuning job when you create it.
+    -- | The Amazon Resource Name (ARN) of the tuning job. SageMaker assigns an
+    -- ARN to a hyperparameter tuning job when you create it.
     hyperParameterTuningJobArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -336,8 +336,8 @@ data CreateHyperParameterTuningJobResponse = CreateHyperParameterTuningJobRespon
 --
 -- 'httpStatus', 'createHyperParameterTuningJobResponse_httpStatus' - The response's http status code.
 --
--- 'hyperParameterTuningJobArn', 'createHyperParameterTuningJobResponse_hyperParameterTuningJobArn' - The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker
--- assigns an ARN to a hyperparameter tuning job when you create it.
+-- 'hyperParameterTuningJobArn', 'createHyperParameterTuningJobResponse_hyperParameterTuningJobArn' - The Amazon Resource Name (ARN) of the tuning job. SageMaker assigns an
+-- ARN to a hyperparameter tuning job when you create it.
 newCreateHyperParameterTuningJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -358,8 +358,8 @@ newCreateHyperParameterTuningJobResponse
 createHyperParameterTuningJobResponse_httpStatus :: Lens.Lens' CreateHyperParameterTuningJobResponse Prelude.Int
 createHyperParameterTuningJobResponse_httpStatus = Lens.lens (\CreateHyperParameterTuningJobResponse' {httpStatus} -> httpStatus) (\s@CreateHyperParameterTuningJobResponse' {} a -> s {httpStatus = a} :: CreateHyperParameterTuningJobResponse)
 
--- | The Amazon Resource Name (ARN) of the tuning job. Amazon SageMaker
--- assigns an ARN to a hyperparameter tuning job when you create it.
+-- | The Amazon Resource Name (ARN) of the tuning job. SageMaker assigns an
+-- ARN to a hyperparameter tuning job when you create it.
 createHyperParameterTuningJobResponse_hyperParameterTuningJobArn :: Lens.Lens' CreateHyperParameterTuningJobResponse Prelude.Text
 createHyperParameterTuningJobResponse_hyperParameterTuningJobArn = Lens.lens (\CreateHyperParameterTuningJobResponse' {hyperParameterTuningJobArn} -> hyperParameterTuningJobArn) (\s@CreateHyperParameterTuningJobResponse' {} a -> s {hyperParameterTuningJobArn = a} :: CreateHyperParameterTuningJobResponse)
 

@@ -31,9 +31,18 @@ import Amazonka.SageMaker.Types.ResourceSpec
 data KernelGatewayAppSettings = KernelGatewayAppSettings'
   { -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
     -- to the the user profile or domain.
+    --
+    -- To remove a Lifecycle Config, you must set @LifecycleConfigArns@ to an
+    -- empty list.
     lifecycleConfigArns :: Prelude.Maybe [Prelude.Text],
     -- | The default instance type and the Amazon Resource Name (ARN) of the
     -- default SageMaker image used by the KernelGateway app.
+    --
+    -- The Amazon SageMaker Studio UI does not use the default instance type
+    -- value set here. The default instance type set here is used when Apps are
+    -- created using the Amazon Web Services Command Line Interface or Amazon
+    -- Web Services CloudFormation and the instance type parameter value is not
+    -- passed.
     defaultResourceSpec :: Prelude.Maybe ResourceSpec,
     -- | A list of custom SageMaker images that are configured to run as a
     -- KernelGateway app.
@@ -52,8 +61,17 @@ data KernelGatewayAppSettings = KernelGatewayAppSettings'
 -- 'lifecycleConfigArns', 'kernelGatewayAppSettings_lifecycleConfigArns' - The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
 -- to the the user profile or domain.
 --
+-- To remove a Lifecycle Config, you must set @LifecycleConfigArns@ to an
+-- empty list.
+--
 -- 'defaultResourceSpec', 'kernelGatewayAppSettings_defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the KernelGateway app.
+--
+-- The Amazon SageMaker Studio UI does not use the default instance type
+-- value set here. The default instance type set here is used when Apps are
+-- created using the Amazon Web Services Command Line Interface or Amazon
+-- Web Services CloudFormation and the instance type parameter value is not
+-- passed.
 --
 -- 'customImages', 'kernelGatewayAppSettings_customImages' - A list of custom SageMaker images that are configured to run as a
 -- KernelGateway app.
@@ -69,11 +87,20 @@ newKernelGatewayAppSettings =
 
 -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
 -- to the the user profile or domain.
+--
+-- To remove a Lifecycle Config, you must set @LifecycleConfigArns@ to an
+-- empty list.
 kernelGatewayAppSettings_lifecycleConfigArns :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe [Prelude.Text])
 kernelGatewayAppSettings_lifecycleConfigArns = Lens.lens (\KernelGatewayAppSettings' {lifecycleConfigArns} -> lifecycleConfigArns) (\s@KernelGatewayAppSettings' {} a -> s {lifecycleConfigArns = a} :: KernelGatewayAppSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the KernelGateway app.
+--
+-- The Amazon SageMaker Studio UI does not use the default instance type
+-- value set here. The default instance type set here is used when Apps are
+-- created using the Amazon Web Services Command Line Interface or Amazon
+-- Web Services CloudFormation and the instance type parameter value is not
+-- passed.
 kernelGatewayAppSettings_defaultResourceSpec :: Lens.Lens' KernelGatewayAppSettings (Prelude.Maybe ResourceSpec)
 kernelGatewayAppSettings_defaultResourceSpec = Lens.lens (\KernelGatewayAppSettings' {defaultResourceSpec} -> defaultResourceSpec) (\s@KernelGatewayAppSettings' {} a -> s {defaultResourceSpec = a} :: KernelGatewayAppSettings)
 

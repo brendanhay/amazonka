@@ -41,6 +41,8 @@ data DeviceSummary = DeviceSummary'
     registrationTime :: Prelude.Maybe Core.POSIX,
     -- | The last heartbeat received from the device.
     latestHeartbeat :: Prelude.Maybe Core.POSIX,
+    -- | Edge Manager agent version.
+    agentVersion :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the device.
     deviceName :: Prelude.Text,
     -- | Amazon Resource Name (ARN) of the device.
@@ -69,6 +71,8 @@ data DeviceSummary = DeviceSummary'
 --
 -- 'latestHeartbeat', 'deviceSummary_latestHeartbeat' - The last heartbeat received from the device.
 --
+-- 'agentVersion', 'deviceSummary_agentVersion' - Edge Manager agent version.
+--
 -- 'deviceName', 'deviceSummary_deviceName' - The unique identifier of the device.
 --
 -- 'deviceArn', 'deviceSummary_deviceArn' - Amazon Resource Name (ARN) of the device.
@@ -86,6 +90,7 @@ newDeviceSummary pDeviceName_ pDeviceArn_ =
       description = Prelude.Nothing,
       registrationTime = Prelude.Nothing,
       latestHeartbeat = Prelude.Nothing,
+      agentVersion = Prelude.Nothing,
       deviceName = pDeviceName_,
       deviceArn = pDeviceArn_
     }
@@ -115,6 +120,10 @@ deviceSummary_registrationTime = Lens.lens (\DeviceSummary' {registrationTime} -
 deviceSummary_latestHeartbeat :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.UTCTime)
 deviceSummary_latestHeartbeat = Lens.lens (\DeviceSummary' {latestHeartbeat} -> latestHeartbeat) (\s@DeviceSummary' {} a -> s {latestHeartbeat = a} :: DeviceSummary) Prelude.. Lens.mapping Core._Time
 
+-- | Edge Manager agent version.
+deviceSummary_agentVersion :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
+deviceSummary_agentVersion = Lens.lens (\DeviceSummary' {agentVersion} -> agentVersion) (\s@DeviceSummary' {} a -> s {agentVersion = a} :: DeviceSummary)
+
 -- | The unique identifier of the device.
 deviceSummary_deviceName :: Lens.Lens' DeviceSummary Prelude.Text
 deviceSummary_deviceName = Lens.lens (\DeviceSummary' {deviceName} -> deviceName) (\s@DeviceSummary' {} a -> s {deviceName = a} :: DeviceSummary)
@@ -135,6 +144,7 @@ instance Core.FromJSON DeviceSummary where
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "RegistrationTime")
             Prelude.<*> (x Core..:? "LatestHeartbeat")
+            Prelude.<*> (x Core..:? "AgentVersion")
             Prelude.<*> (x Core..: "DeviceName")
             Prelude.<*> (x Core..: "DeviceArn")
       )
@@ -147,6 +157,7 @@ instance Prelude.Hashable DeviceSummary where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` registrationTime
       `Prelude.hashWithSalt` latestHeartbeat
+      `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` deviceName
       `Prelude.hashWithSalt` deviceArn
 
@@ -158,5 +169,6 @@ instance Prelude.NFData DeviceSummary where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf registrationTime
       `Prelude.seq` Prelude.rnf latestHeartbeat
+      `Prelude.seq` Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf deviceName
       `Prelude.seq` Prelude.rnf deviceArn

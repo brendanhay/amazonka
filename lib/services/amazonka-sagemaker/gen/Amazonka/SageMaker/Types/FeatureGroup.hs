@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SageMaker.Types.FeatureDefinition
 import Amazonka.SageMaker.Types.FeatureGroupStatus
+import Amazonka.SageMaker.Types.LastUpdateStatus
 import Amazonka.SageMaker.Types.OfflineStoreConfig
 import Amazonka.SageMaker.Types.OfflineStoreStatus
 import Amazonka.SageMaker.Types.OnlineStoreConfig
@@ -49,8 +50,13 @@ data FeatureGroup = FeatureGroup'
     description :: Prelude.Maybe Prelude.Text,
     offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
     onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
+    -- | A timestamp indicating the last time you updated the feature group.
+    lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the @FeatureGroup@.
     featureGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A value that indicates whether the feature group was updated
+    -- successfully.
+    lastUpdateStatus :: Prelude.Maybe LastUpdateStatus,
     -- | The time a @FeatureGroup@ was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | A @FeatureGroup@ status.
@@ -104,7 +110,12 @@ data FeatureGroup = FeatureGroup'
 --
 -- 'onlineStoreConfig', 'featureGroup_onlineStoreConfig' - Undocumented member.
 --
+-- 'lastModifiedTime', 'featureGroup_lastModifiedTime' - A timestamp indicating the last time you updated the feature group.
+--
 -- 'featureGroupName', 'featureGroup_featureGroupName' - The name of the @FeatureGroup@.
+--
+-- 'lastUpdateStatus', 'featureGroup_lastUpdateStatus' - A value that indicates whether the feature group was updated
+-- successfully.
 --
 -- 'creationTime', 'featureGroup_creationTime' - The time a @FeatureGroup@ was created.
 --
@@ -144,7 +155,9 @@ newFeatureGroup =
       description = Prelude.Nothing,
       offlineStoreStatus = Prelude.Nothing,
       onlineStoreConfig = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
       featureGroupName = Prelude.Nothing,
+      lastUpdateStatus = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       featureGroupStatus = Prelude.Nothing,
       offlineStoreConfig = Prelude.Nothing,
@@ -180,9 +193,18 @@ featureGroup_offlineStoreStatus = Lens.lens (\FeatureGroup' {offlineStoreStatus}
 featureGroup_onlineStoreConfig :: Lens.Lens' FeatureGroup (Prelude.Maybe OnlineStoreConfig)
 featureGroup_onlineStoreConfig = Lens.lens (\FeatureGroup' {onlineStoreConfig} -> onlineStoreConfig) (\s@FeatureGroup' {} a -> s {onlineStoreConfig = a} :: FeatureGroup)
 
+-- | A timestamp indicating the last time you updated the feature group.
+featureGroup_lastModifiedTime :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.UTCTime)
+featureGroup_lastModifiedTime = Lens.lens (\FeatureGroup' {lastModifiedTime} -> lastModifiedTime) (\s@FeatureGroup' {} a -> s {lastModifiedTime = a} :: FeatureGroup) Prelude.. Lens.mapping Core._Time
+
 -- | The name of the @FeatureGroup@.
 featureGroup_featureGroupName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
 featureGroup_featureGroupName = Lens.lens (\FeatureGroup' {featureGroupName} -> featureGroupName) (\s@FeatureGroup' {} a -> s {featureGroupName = a} :: FeatureGroup)
+
+-- | A value that indicates whether the feature group was updated
+-- successfully.
+featureGroup_lastUpdateStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe LastUpdateStatus)
+featureGroup_lastUpdateStatus = Lens.lens (\FeatureGroup' {lastUpdateStatus} -> lastUpdateStatus) (\s@FeatureGroup' {} a -> s {lastUpdateStatus = a} :: FeatureGroup)
 
 -- | The time a @FeatureGroup@ was created.
 featureGroup_creationTime :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.UTCTime)
@@ -239,7 +261,9 @@ instance Core.FromJSON FeatureGroup where
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "OfflineStoreStatus")
             Prelude.<*> (x Core..:? "OnlineStoreConfig")
+            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "FeatureGroupName")
+            Prelude.<*> (x Core..:? "LastUpdateStatus")
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "FeatureGroupStatus")
             Prelude.<*> (x Core..:? "OfflineStoreConfig")
@@ -257,7 +281,9 @@ instance Prelude.Hashable FeatureGroup where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` offlineStoreStatus
       `Prelude.hashWithSalt` onlineStoreConfig
+      `Prelude.hashWithSalt` lastModifiedTime
       `Prelude.hashWithSalt` featureGroupName
+      `Prelude.hashWithSalt` lastUpdateStatus
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` featureGroupStatus
       `Prelude.hashWithSalt` offlineStoreConfig
@@ -274,7 +300,9 @@ instance Prelude.NFData FeatureGroup where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf offlineStoreStatus
       `Prelude.seq` Prelude.rnf onlineStoreConfig
+      `Prelude.seq` Prelude.rnf lastModifiedTime
       `Prelude.seq` Prelude.rnf featureGroupName
+      `Prelude.seq` Prelude.rnf lastUpdateStatus
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf featureGroupStatus
       `Prelude.seq` Prelude.rnf offlineStoreConfig

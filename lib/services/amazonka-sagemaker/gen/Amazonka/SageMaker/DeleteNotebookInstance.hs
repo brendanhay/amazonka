@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an Amazon SageMaker notebook instance. Before you can delete a
--- notebook instance, you must call the @StopNotebookInstance@ API.
+-- Deletes an SageMaker notebook instance. Before you can delete a notebook
+-- instance, you must call the @StopNotebookInstance@ API.
 --
--- When you delete a notebook instance, you lose all of your data. Amazon
+-- When you delete a notebook instance, you lose all of your data.
 -- SageMaker removes the ML compute instance, and deletes the ML storage
 -- volume and the network interface associated with the notebook instance.
 module Amazonka.SageMaker.DeleteNotebookInstance
@@ -49,7 +49,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newDeleteNotebookInstance' smart constructor.
 data DeleteNotebookInstance = DeleteNotebookInstance'
-  { -- | The name of the Amazon SageMaker notebook instance to delete.
+  { -- | The name of the SageMaker notebook instance to delete.
     notebookInstanceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data DeleteNotebookInstance = DeleteNotebookInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notebookInstanceName', 'deleteNotebookInstance_notebookInstanceName' - The name of the Amazon SageMaker notebook instance to delete.
+-- 'notebookInstanceName', 'deleteNotebookInstance_notebookInstanceName' - The name of the SageMaker notebook instance to delete.
 newDeleteNotebookInstance ::
   -- | 'notebookInstanceName'
   Prelude.Text ->
@@ -73,7 +73,7 @@ newDeleteNotebookInstance pNotebookInstanceName_ =
         pNotebookInstanceName_
     }
 
--- | The name of the Amazon SageMaker notebook instance to delete.
+-- | The name of the SageMaker notebook instance to delete.
 deleteNotebookInstance_notebookInstanceName :: Lens.Lens' DeleteNotebookInstance Prelude.Text
 deleteNotebookInstance_notebookInstanceName = Lens.lens (\DeleteNotebookInstance' {notebookInstanceName} -> notebookInstanceName) (\s@DeleteNotebookInstance' {} a -> s {notebookInstanceName = a} :: DeleteNotebookInstance)
 

@@ -35,6 +35,7 @@ module Amazonka.SageMaker.DescribeEndpoint
 
     -- * Response Lenses
     describeEndpointResponse_asyncInferenceConfig,
+    describeEndpointResponse_pendingDeploymentSummary,
     describeEndpointResponse_dataCaptureConfig,
     describeEndpointResponse_lastDeploymentConfig,
     describeEndpointResponse_productionVariants,
@@ -93,6 +94,7 @@ instance Core.AWSRequest DescribeEndpoint where
       ( \s h x ->
           DescribeEndpointResponse'
             Prelude.<$> (x Core..?> "AsyncInferenceConfig")
+            Prelude.<*> (x Core..?> "PendingDeploymentSummary")
             Prelude.<*> (x Core..?> "DataCaptureConfig")
             Prelude.<*> (x Core..?> "LastDeploymentConfig")
             Prelude.<*> (x Core..?> "ProductionVariants")
@@ -145,6 +147,10 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
     -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
     -- API.
     asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
+    -- | Returns the summary of an in-progress deployment. This field is only
+    -- returned when the endpoint is creating or updating with a new endpoint
+    -- configuration.
+    pendingDeploymentSummary :: Prelude.Maybe PendingDeploymentSummary,
     dataCaptureConfig :: Prelude.Maybe DataCaptureConfigSummary,
     -- | The most recent deployment configuration for the endpoint.
     lastDeploymentConfig :: Prelude.Maybe DeploymentConfig,
@@ -212,6 +218,10 @@ data DescribeEndpointResponse = DescribeEndpointResponse'
 -- 'asyncInferenceConfig', 'describeEndpointResponse_asyncInferenceConfig' - Returns the description of an endpoint configuration created using the
 -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
 -- API.
+--
+-- 'pendingDeploymentSummary', 'describeEndpointResponse_pendingDeploymentSummary' - Returns the summary of an in-progress deployment. This field is only
+-- returned when the endpoint is creating or updating with a new endpoint
+-- configuration.
 --
 -- 'dataCaptureConfig', 'describeEndpointResponse_dataCaptureConfig' - Undocumented member.
 --
@@ -293,6 +303,7 @@ newDescribeEndpointResponse
     DescribeEndpointResponse'
       { asyncInferenceConfig =
           Prelude.Nothing,
+        pendingDeploymentSummary = Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
         lastDeploymentConfig = Prelude.Nothing,
         productionVariants = Prelude.Nothing,
@@ -312,6 +323,12 @@ newDescribeEndpointResponse
 -- API.
 describeEndpointResponse_asyncInferenceConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe AsyncInferenceConfig)
 describeEndpointResponse_asyncInferenceConfig = Lens.lens (\DescribeEndpointResponse' {asyncInferenceConfig} -> asyncInferenceConfig) (\s@DescribeEndpointResponse' {} a -> s {asyncInferenceConfig = a} :: DescribeEndpointResponse)
+
+-- | Returns the summary of an in-progress deployment. This field is only
+-- returned when the endpoint is creating or updating with a new endpoint
+-- configuration.
+describeEndpointResponse_pendingDeploymentSummary :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe PendingDeploymentSummary)
+describeEndpointResponse_pendingDeploymentSummary = Lens.lens (\DescribeEndpointResponse' {pendingDeploymentSummary} -> pendingDeploymentSummary) (\s@DescribeEndpointResponse' {} a -> s {pendingDeploymentSummary = a} :: DescribeEndpointResponse)
 
 -- | Undocumented member.
 describeEndpointResponse_dataCaptureConfig :: Lens.Lens' DescribeEndpointResponse (Prelude.Maybe DataCaptureConfigSummary)
@@ -392,6 +409,7 @@ describeEndpointResponse_lastModifiedTime = Lens.lens (\DescribeEndpointResponse
 instance Prelude.NFData DescribeEndpointResponse where
   rnf DescribeEndpointResponse' {..} =
     Prelude.rnf asyncInferenceConfig
+      `Prelude.seq` Prelude.rnf pendingDeploymentSummary
       `Prelude.seq` Prelude.rnf dataCaptureConfig
       `Prelude.seq` Prelude.rnf lastDeploymentConfig
       `Prelude.seq` Prelude.rnf productionVariants

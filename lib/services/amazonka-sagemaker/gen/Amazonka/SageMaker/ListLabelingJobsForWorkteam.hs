@@ -270,9 +270,8 @@ instance Core.ToQuery ListLabelingJobsForWorkteam where
 
 -- | /See:/ 'newListLabelingJobsForWorkteamResponse' smart constructor.
 data ListLabelingJobsForWorkteamResponse = ListLabelingJobsForWorkteamResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To
-    -- retrieve the next set of labeling jobs, use it in the subsequent
-    -- request.
+  { -- | If the response is truncated, SageMaker returns this token. To retrieve
+    -- the next set of labeling jobs, use it in the subsequent request.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -290,9 +289,8 @@ data ListLabelingJobsForWorkteamResponse = ListLabelingJobsForWorkteamResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLabelingJobsForWorkteamResponse_nextToken' - If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of labeling jobs, use it in the subsequent
--- request.
+-- 'nextToken', 'listLabelingJobsForWorkteamResponse_nextToken' - If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of labeling jobs, use it in the subsequent request.
 --
 -- 'httpStatus', 'listLabelingJobsForWorkteamResponse_httpStatus' - The response's http status code.
 --
@@ -311,9 +309,8 @@ newListLabelingJobsForWorkteamResponse pHttpStatus_ =
         Prelude.mempty
     }
 
--- | If the response is truncated, Amazon SageMaker returns this token. To
--- retrieve the next set of labeling jobs, use it in the subsequent
--- request.
+-- | If the response is truncated, SageMaker returns this token. To retrieve
+-- the next set of labeling jobs, use it in the subsequent request.
 listLabelingJobsForWorkteamResponse_nextToken :: Lens.Lens' ListLabelingJobsForWorkteamResponse (Prelude.Maybe Prelude.Text)
 listLabelingJobsForWorkteamResponse_nextToken = Lens.lens (\ListLabelingJobsForWorkteamResponse' {nextToken} -> nextToken) (\s@ListLabelingJobsForWorkteamResponse' {} a -> s {nextToken = a} :: ListLabelingJobsForWorkteamResponse)
 

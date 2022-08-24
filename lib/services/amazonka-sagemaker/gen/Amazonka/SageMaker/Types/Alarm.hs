@@ -23,11 +23,12 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | This API is not supported.
+-- | An Amazon CloudWatch alarm configured to monitor metrics on an endpoint.
 --
 -- /See:/ 'newAlarm' smart constructor.
 data Alarm = Alarm'
-  { alarmName :: Prelude.Maybe Prelude.Text
+  { -- | The name of a CloudWatch alarm in your account.
+    alarmName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -39,12 +40,12 @@ data Alarm = Alarm'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarmName', 'alarm_alarmName' -
+-- 'alarmName', 'alarm_alarmName' - The name of a CloudWatch alarm in your account.
 newAlarm ::
   Alarm
 newAlarm = Alarm' {alarmName = Prelude.Nothing}
 
--- |
+-- | The name of a CloudWatch alarm in your account.
 alarm_alarmName :: Lens.Lens' Alarm (Prelude.Maybe Prelude.Text)
 alarm_alarmName = Lens.lens (\Alarm' {alarmName} -> alarmName) (\s@Alarm' {} a -> s {alarmName = a} :: Alarm)
 

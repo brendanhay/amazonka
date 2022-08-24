@@ -20,24 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an endpoint configuration that Amazon SageMaker hosting services
--- uses to deploy models. In the configuration, you identify one or more
--- models, created using the @CreateModel@ API, to deploy and the resources
--- that you want Amazon SageMaker to provision. Then you call the
--- CreateEndpoint API.
+-- Creates an endpoint configuration that SageMaker hosting services uses
+-- to deploy models. In the configuration, you identify one or more models,
+-- created using the @CreateModel@ API, to deploy and the resources that
+-- you want SageMaker to provision. Then you call the CreateEndpoint API.
 --
--- Use this API if you want to use Amazon SageMaker hosting services to
--- deploy models into production.
+-- Use this API if you want to use SageMaker hosting services to deploy
+-- models into production.
 --
 -- In the request, you define a @ProductionVariant@, for each model that
 -- you want to deploy. Each @ProductionVariant@ parameter also describes
--- the resources that you want Amazon SageMaker to provision. This includes
--- the number and type of ML compute instances to deploy.
+-- the resources that you want SageMaker to provision. This includes the
+-- number and type of ML compute instances to deploy.
 --
 -- If you are hosting multiple models, you also assign a @VariantWeight@ to
 -- specify how much traffic you want to allocate to each model. For
 -- example, suppose that you want to host two models, A and B, and you
--- assign traffic weight 2 for model A and 1 for model B. Amazon SageMaker
+-- assign traffic weight 2 for model A and 1 for model B. SageMaker
 -- distributes two-thirds of the traffic to Model A, and one-third to model
 -- B.
 --
@@ -93,13 +92,12 @@ data CreateEndpointConfig = CreateEndpointConfig'
     -- | Specifies configuration for how an endpoint performs asynchronous
     -- inference. This is a required field in order for your Endpoint to be
     -- invoked using
-    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpointAsync>
-    -- .
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html InvokeEndpointAsync>.
     asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
     dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
     -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
-    -- Service key that Amazon SageMaker uses to encrypt data on the storage
-    -- volume attached to the ML compute instance that hosts the endpoint.
+    -- Service key that SageMaker uses to encrypt data on the storage volume
+    -- attached to the ML compute instance that hosts the endpoint.
     --
     -- The KmsKeyId can be any of the following formats:
     --
@@ -159,14 +157,13 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- 'asyncInferenceConfig', 'createEndpointConfig_asyncInferenceConfig' - Specifies configuration for how an endpoint performs asynchronous
 -- inference. This is a required field in order for your Endpoint to be
 -- invoked using
--- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpointAsync>
--- .
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html InvokeEndpointAsync>.
 --
 -- 'dataCaptureConfig', 'createEndpointConfig_dataCaptureConfig' - Undocumented member.
 --
 -- 'kmsKeyId', 'createEndpointConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
--- Service key that Amazon SageMaker uses to encrypt data on the storage
--- volume attached to the ML compute instance that hosts the endpoint.
+-- Service key that SageMaker uses to encrypt data on the storage volume
+-- attached to the ML compute instance that hosts the endpoint.
 --
 -- The KmsKeyId can be any of the following formats:
 --
@@ -235,8 +232,7 @@ createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\
 -- | Specifies configuration for how an endpoint performs asynchronous
 -- inference. This is a required field in order for your Endpoint to be
 -- invoked using
--- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpointAsync>
--- .
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html InvokeEndpointAsync>.
 createEndpointConfig_asyncInferenceConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe AsyncInferenceConfig)
 createEndpointConfig_asyncInferenceConfig = Lens.lens (\CreateEndpointConfig' {asyncInferenceConfig} -> asyncInferenceConfig) (\s@CreateEndpointConfig' {} a -> s {asyncInferenceConfig = a} :: CreateEndpointConfig)
 
@@ -245,8 +241,8 @@ createEndpointConfig_dataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Prelu
 createEndpointConfig_dataCaptureConfig = Lens.lens (\CreateEndpointConfig' {dataCaptureConfig} -> dataCaptureConfig) (\s@CreateEndpointConfig' {} a -> s {dataCaptureConfig = a} :: CreateEndpointConfig)
 
 -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
--- Service key that Amazon SageMaker uses to encrypt data on the storage
--- volume attached to the ML compute instance that hosts the endpoint.
+-- Service key that SageMaker uses to encrypt data on the storage volume
+-- attached to the ML compute instance that hosts the endpoint.
 --
 -- The KmsKeyId can be any of the following formats:
 --

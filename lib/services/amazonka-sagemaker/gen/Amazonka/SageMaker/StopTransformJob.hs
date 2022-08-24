@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a transform job.
+-- Stops a batch transform job.
 --
 -- When Amazon SageMaker receives a @StopTransformJob@ request, the status
 -- of the job changes to @Stopping@. After Amazon SageMaker stops the job,
--- the status is set to @Stopped@. When you stop a transform job before it
--- is completed, Amazon SageMaker doesn\'t store the job\'s output in
--- Amazon S3.
+-- the status is set to @Stopped@. When you stop a batch transform job
+-- before it is completed, Amazon SageMaker doesn\'t store the job\'s
+-- output in Amazon S3.
 module Amazonka.SageMaker.StopTransformJob
   ( -- * Creating a Request
     StopTransformJob (..),
@@ -50,7 +50,7 @@ import Amazonka.SageMaker.Types
 
 -- | /See:/ 'newStopTransformJob' smart constructor.
 data StopTransformJob = StopTransformJob'
-  { -- | The name of the transform job to stop.
+  { -- | The name of the batch transform job to stop.
     transformJobName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data StopTransformJob = StopTransformJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transformJobName', 'stopTransformJob_transformJobName' - The name of the transform job to stop.
+-- 'transformJobName', 'stopTransformJob_transformJobName' - The name of the batch transform job to stop.
 newStopTransformJob ::
   -- | 'transformJobName'
   Prelude.Text ->
@@ -74,7 +74,7 @@ newStopTransformJob pTransformJobName_ =
         pTransformJobName_
     }
 
--- | The name of the transform job to stop.
+-- | The name of the batch transform job to stop.
 stopTransformJob_transformJobName :: Lens.Lens' StopTransformJob Prelude.Text
 stopTransformJob_transformJobName = Lens.lens (\StopTransformJob' {transformJobName} -> transformJobName) (\s@StopTransformJob' {} a -> s {transformJobName = a} :: StopTransformJob)
 

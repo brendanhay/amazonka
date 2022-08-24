@@ -33,9 +33,11 @@ import Amazonka.SageMaker.Types.IntegerParameterRange
 -- best performance as measured by the objective metric of the
 -- hyperparameter tuning job.
 --
--- You can specify a maximum of 20 hyperparameters that a hyperparameter
--- tuning job can search over. Every possible value of a categorical
--- parameter range counts against this limit.
+-- The maximum number of items specified for @Array Members@ refers to the
+-- maximum number of hyperparameters for each range and also the maximum
+-- for the hyperparameter tuning job itself. That is, the sum of the number
+-- of hyperparameters for all the ranges can\'t exceed the maximum number
+-- specified.
 --
 -- /See:/ 'newParameterRanges' smart constructor.
 data ParameterRanges = ParameterRanges'

@@ -23,12 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- |
+-- | Details about the metrics source.
 --
 -- /See:/ 'newMetricsSource' smart constructor.
 data MetricsSource = MetricsSource'
-  { contentDigest :: Prelude.Maybe Prelude.Text,
+  { -- | The hash key used for the metrics source.
+    contentDigest :: Prelude.Maybe Prelude.Text,
+    -- | The metric source content type.
     contentType :: Prelude.Text,
+    -- | The S3 URI for the metrics source.
     s3Uri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,11 +44,11 @@ data MetricsSource = MetricsSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contentDigest', 'metricsSource_contentDigest' -
+-- 'contentDigest', 'metricsSource_contentDigest' - The hash key used for the metrics source.
 --
--- 'contentType', 'metricsSource_contentType' -
+-- 'contentType', 'metricsSource_contentType' - The metric source content type.
 --
--- 's3Uri', 'metricsSource_s3Uri' -
+-- 's3Uri', 'metricsSource_s3Uri' - The S3 URI for the metrics source.
 newMetricsSource ::
   -- | 'contentType'
   Prelude.Text ->
@@ -59,15 +62,15 @@ newMetricsSource pContentType_ pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- |
+-- | The hash key used for the metrics source.
 metricsSource_contentDigest :: Lens.Lens' MetricsSource (Prelude.Maybe Prelude.Text)
 metricsSource_contentDigest = Lens.lens (\MetricsSource' {contentDigest} -> contentDigest) (\s@MetricsSource' {} a -> s {contentDigest = a} :: MetricsSource)
 
--- |
+-- | The metric source content type.
 metricsSource_contentType :: Lens.Lens' MetricsSource Prelude.Text
 metricsSource_contentType = Lens.lens (\MetricsSource' {contentType} -> contentType) (\s@MetricsSource' {} a -> s {contentType = a} :: MetricsSource)
 
--- |
+-- | The S3 URI for the metrics source.
 metricsSource_s3Uri :: Lens.Lens' MetricsSource Prelude.Text
 metricsSource_s3Uri = Lens.lens (\MetricsSource' {s3Uri} -> s3Uri) (\s@MetricsSource' {} a -> s {s3Uri = a} :: MetricsSource)
 

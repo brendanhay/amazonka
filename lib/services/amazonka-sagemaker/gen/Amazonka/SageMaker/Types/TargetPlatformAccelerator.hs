@@ -22,6 +22,7 @@ module Amazonka.SageMaker.Types.TargetPlatformAccelerator
       ( ..,
         TargetPlatformAccelerator_INTEL_GRAPHICS,
         TargetPlatformAccelerator_MALI,
+        TargetPlatformAccelerator_NNA,
         TargetPlatformAccelerator_NVIDIA
       ),
   )
@@ -64,12 +65,16 @@ pattern TargetPlatformAccelerator_INTEL_GRAPHICS = TargetPlatformAccelerator' "I
 pattern TargetPlatformAccelerator_MALI :: TargetPlatformAccelerator
 pattern TargetPlatformAccelerator_MALI = TargetPlatformAccelerator' "MALI"
 
+pattern TargetPlatformAccelerator_NNA :: TargetPlatformAccelerator
+pattern TargetPlatformAccelerator_NNA = TargetPlatformAccelerator' "NNA"
+
 pattern TargetPlatformAccelerator_NVIDIA :: TargetPlatformAccelerator
 pattern TargetPlatformAccelerator_NVIDIA = TargetPlatformAccelerator' "NVIDIA"
 
 {-# COMPLETE
   TargetPlatformAccelerator_INTEL_GRAPHICS,
   TargetPlatformAccelerator_MALI,
+  TargetPlatformAccelerator_NNA,
   TargetPlatformAccelerator_NVIDIA,
   TargetPlatformAccelerator'
   #-}

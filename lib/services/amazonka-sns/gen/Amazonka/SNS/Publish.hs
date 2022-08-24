@@ -28,19 +28,19 @@
 -- each endpoint that is subscribed to the topic. The format of the message
 -- depends on the notification protocol for each subscribed endpoint.
 --
--- When a @messageId@ is returned, the message has been saved and Amazon
--- SNS will attempt to deliver it shortly.
+-- When a @messageId@ is returned, the message is saved and Amazon SNS
+-- immediately delivers it to subscribers.
 --
--- To use the @Publish@ action for sending a message to a mobile endpoint,
--- such as an app on a Kindle device or mobile phone, you must specify the
--- EndpointArn for the TargetArn parameter. The EndpointArn is returned
--- when making a call with the @CreatePlatformEndpoint@ action.
+-- To use the @Publish@ action for publishing a message to a mobile
+-- endpoint, such as an app on a Kindle device or mobile phone, you must
+-- specify the EndpointArn for the TargetArn parameter. The EndpointArn is
+-- returned when making a call with the @CreatePlatformEndpoint@ action.
 --
 -- For more information about formatting messages, see
 -- <https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html Send Custom Platform-Specific Payloads in Messages to Mobile Devices>.
 --
--- You can publish messages only to topics and endpoints in the same
--- Region.
+-- You can publish messages only to topics and endpoints in the same Amazon
+-- Web Services Region.
 module Amazonka.SNS.Publish
   ( -- * Creating a Request
     Publish (..),
@@ -81,7 +81,7 @@ import Amazonka.SNS.Types
 data Publish = Publish'
   { -- | This parameter applies only to FIFO (first-in-first-out) topics. The
     -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
-    -- (a-z, A-Z, 0-9) and punctuation
+    -- @(a-z, A-Z, 0-9)@ and punctuation
     -- @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
     --
     -- Every message must have a unique @MessageDeduplicationId@, which is a
@@ -95,8 +95,9 @@ data Publish = Publish'
     -- @MessageDeduplicationId@ overrides the generated one.
     messageDeduplicationId :: Prelude.Maybe Prelude.Text,
     -- | This parameter applies only to FIFO (first-in-first-out) topics. The
-    -- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
-    -- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+    -- @MessageGroupId@ can contain up to 128 alphanumeric characters
+    -- @(a-z, A-Z, 0-9)@ and punctuation
+    -- @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
     --
     -- The @MessageGroupId@ is a tag that specifies that a message belongs to a
     -- specific message group. Messages that belong to the same message group
@@ -210,7 +211,7 @@ data Publish = Publish'
 --
 -- 'messageDeduplicationId', 'publish_messageDeduplicationId' - This parameter applies only to FIFO (first-in-first-out) topics. The
 -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
--- (a-z, A-Z, 0-9) and punctuation
+-- @(a-z, A-Z, 0-9)@ and punctuation
 -- @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
 --
 -- Every message must have a unique @MessageDeduplicationId@, which is a
@@ -224,8 +225,9 @@ data Publish = Publish'
 -- @MessageDeduplicationId@ overrides the generated one.
 --
 -- 'messageGroupId', 'publish_messageGroupId' - This parameter applies only to FIFO (first-in-first-out) topics. The
--- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
--- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+-- @MessageGroupId@ can contain up to 128 alphanumeric characters
+-- @(a-z, A-Z, 0-9)@ and punctuation
+-- @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
 --
 -- The @MessageGroupId@ is a tag that specifies that a message belongs to a
 -- specific message group. Messages that belong to the same message group
@@ -344,7 +346,7 @@ newPublish pMessage_ =
 
 -- | This parameter applies only to FIFO (first-in-first-out) topics. The
 -- @MessageDeduplicationId@ can contain up to 128 alphanumeric characters
--- (a-z, A-Z, 0-9) and punctuation
+-- @(a-z, A-Z, 0-9)@ and punctuation
 -- @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
 --
 -- Every message must have a unique @MessageDeduplicationId@, which is a
@@ -360,8 +362,9 @@ publish_messageDeduplicationId :: Lens.Lens' Publish (Prelude.Maybe Prelude.Text
 publish_messageDeduplicationId = Lens.lens (\Publish' {messageDeduplicationId} -> messageDeduplicationId) (\s@Publish' {} a -> s {messageDeduplicationId = a} :: Publish)
 
 -- | This parameter applies only to FIFO (first-in-first-out) topics. The
--- @MessageGroupId@ can contain up to 128 alphanumeric characters (a-z,
--- A-Z, 0-9) and punctuation @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
+-- @MessageGroupId@ can contain up to 128 alphanumeric characters
+-- @(a-z, A-Z, 0-9)@ and punctuation
+-- @(!\"#$%&\'()*+,-.\/:;\<=>?\@[\\]^_\`{|}~)@.
 --
 -- The @MessageGroupId@ is a tag that specifies that a message belongs to a
 -- specific message group. Messages that belong to the same message group

@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the calling account\'s dedicated origination numbers and their
--- metadata. For more information about origination numbers, see
+-- Lists the calling Amazon Web Services account\'s dedicated origination
+-- numbers and their metadata. For more information about origination
+-- numbers, see
 -- <https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html Origination numbers>
 -- in the /Amazon SNS Developer Guide/.
 --

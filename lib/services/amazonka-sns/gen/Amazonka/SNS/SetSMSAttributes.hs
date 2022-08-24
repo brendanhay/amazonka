@@ -59,8 +59,8 @@ import Amazonka.SNS.Types
 --
 -- /See:/ 'newSetSMSAttributes' smart constructor.
 data SetSMSAttributes = SetSMSAttributes'
-  { -- | The default settings for sending SMS messages from your account. You can
-    -- set values for the following attribute names:
+  { -- | The default settings for sending SMS messages from your Amazon Web
+    -- Services account. You can set values for the following attribute names:
     --
     -- @MonthlySpendLimit@ – The maximum amount in USD that you are willing to
     -- spend each month to send SMS messages. When Amazon SNS determines that
@@ -111,7 +111,7 @@ data SetSMSAttributes = SetSMSAttributes'
     -- daily SMS usage reports from Amazon SNS. Each day, Amazon SNS will
     -- deliver a usage report as a CSV file to the bucket. The report includes
     -- the following information for each SMS message that was successfully
-    -- delivered by your account:
+    -- delivered by your Amazon Web Services account:
     --
     -- -   Time that the message was published (in UTC)
     --
@@ -149,8 +149,8 @@ data SetSMSAttributes = SetSMSAttributes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'attributes', 'setSMSAttributes_attributes' - The default settings for sending SMS messages from your account. You can
--- set values for the following attribute names:
+-- 'attributes', 'setSMSAttributes_attributes' - The default settings for sending SMS messages from your Amazon Web
+-- Services account. You can set values for the following attribute names:
 --
 -- @MonthlySpendLimit@ – The maximum amount in USD that you are willing to
 -- spend each month to send SMS messages. When Amazon SNS determines that
@@ -201,7 +201,7 @@ data SetSMSAttributes = SetSMSAttributes'
 -- daily SMS usage reports from Amazon SNS. Each day, Amazon SNS will
 -- deliver a usage report as a CSV file to the bucket. The report includes
 -- the following information for each SMS message that was successfully
--- delivered by your account:
+-- delivered by your Amazon Web Services account:
 --
 -- -   Time that the message was published (in UTC)
 --
@@ -232,8 +232,8 @@ newSetSMSAttributes ::
 newSetSMSAttributes =
   SetSMSAttributes' {attributes = Prelude.mempty}
 
--- | The default settings for sending SMS messages from your account. You can
--- set values for the following attribute names:
+-- | The default settings for sending SMS messages from your Amazon Web
+-- Services account. You can set values for the following attribute names:
 --
 -- @MonthlySpendLimit@ – The maximum amount in USD that you are willing to
 -- spend each month to send SMS messages. When Amazon SNS determines that
@@ -284,7 +284,7 @@ newSetSMSAttributes =
 -- daily SMS usage reports from Amazon SNS. Each day, Amazon SNS will
 -- deliver a usage report as a CSV file to the bucket. The report includes
 -- the following information for each SMS message that was successfully
--- delivered by your account:
+-- delivered by your Amazon Web Services account:
 --
 -- -   Time that the message was published (in UTC)
 --

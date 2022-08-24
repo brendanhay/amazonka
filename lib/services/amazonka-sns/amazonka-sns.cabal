@@ -73,6 +73,7 @@ library
     Amazonka.SNS.ListTopics
     Amazonka.SNS.OptInPhoneNumber
     Amazonka.SNS.Publish
+    Amazonka.SNS.PublishBatch
     Amazonka.SNS.RemovePermission
     Amazonka.SNS.SetEndpointAttributes
     Amazonka.SNS.SetPlatformApplicationAttributes
@@ -82,12 +83,15 @@ library
     Amazonka.SNS.Subscribe
     Amazonka.SNS.TagResource
     Amazonka.SNS.Types
+    Amazonka.SNS.Types.BatchResultErrorEntry
     Amazonka.SNS.Types.Endpoint
     Amazonka.SNS.Types.LanguageCodeString
     Amazonka.SNS.Types.MessageAttributeValue
     Amazonka.SNS.Types.NumberCapability
     Amazonka.SNS.Types.PhoneNumberInformation
     Amazonka.SNS.Types.PlatformApplication
+    Amazonka.SNS.Types.PublishBatchRequestEntry
+    Amazonka.SNS.Types.PublishBatchResultEntry
     Amazonka.SNS.Types.RouteType
     Amazonka.SNS.Types.SMSSandboxPhoneNumber
     Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus

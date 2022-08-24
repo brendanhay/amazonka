@@ -140,7 +140,8 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
     --     in the /Amazon SNS Developer Guide/.
     --
-    -- -   @Owner@ – The account ID of the subscription\'s owner.
+    -- -   @Owner@ – The Amazon Web Services account ID of the subscription\'s
+    --     owner.
     --
     -- -   @PendingConfirmation@ – @true@ if the subscription hasn\'t been
     --     confirmed. To confirm a pending subscription, call the
@@ -208,7 +209,8 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
 --     in the /Amazon SNS Developer Guide/.
 --
--- -   @Owner@ – The account ID of the subscription\'s owner.
+-- -   @Owner@ – The Amazon Web Services account ID of the subscription\'s
+--     owner.
 --
 -- -   @PendingConfirmation@ – @true@ if the subscription hasn\'t been
 --     confirmed. To confirm a pending subscription, call the
@@ -275,7 +277,8 @@ newGetSubscriptionAttributesResponse pHttpStatus_ =
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
 --     in the /Amazon SNS Developer Guide/.
 --
--- -   @Owner@ – The account ID of the subscription\'s owner.
+-- -   @Owner@ – The Amazon Web Services account ID of the subscription\'s
+--     owner.
 --
 -- -   @PendingConfirmation@ – @true@ if the subscription hasn\'t been
 --     confirmed. To confirm a pending subscription, call the

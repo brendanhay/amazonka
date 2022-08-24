@@ -17,6 +17,8 @@ module Amazonka.SNS.Types
     defaultService,
 
     -- * Errors
+    _BatchEntryIdsNotDistinctException,
+    _EmptyBatchRequestException,
     _PlatformApplicationDisabledException,
     _InternalErrorException,
     _NotFoundException,
@@ -26,10 +28,13 @@ module Amazonka.SNS.Types
     _TopicLimitExceededException,
     _KMSAccessDeniedException,
     _ConcurrentAccessException,
+    _InvalidBatchEntryIdException,
+    _BatchRequestTooLongException,
     _SubscriptionLimitExceededException,
     _InvalidSecurityException,
     _AuthorizationErrorException,
     _KMSDisabledException,
+    _TooManyEntriesInBatchRequestException,
     _FilterPolicyLimitExceededException,
     _TagLimitExceededException,
     _KMSInvalidStateException,
@@ -56,6 +61,14 @@ module Amazonka.SNS.Types
 
     -- * SMSSandboxPhoneNumberVerificationStatus
     SMSSandboxPhoneNumberVerificationStatus (..),
+
+    -- * BatchResultErrorEntry
+    BatchResultErrorEntry (..),
+    newBatchResultErrorEntry,
+    batchResultErrorEntry_message,
+    batchResultErrorEntry_id,
+    batchResultErrorEntry_code,
+    batchResultErrorEntry_senderFault,
 
     -- * Endpoint
     Endpoint (..),
@@ -85,6 +98,24 @@ module Amazonka.SNS.Types
     newPlatformApplication,
     platformApplication_platformApplicationArn,
     platformApplication_attributes,
+
+    -- * PublishBatchRequestEntry
+    PublishBatchRequestEntry (..),
+    newPublishBatchRequestEntry,
+    publishBatchRequestEntry_messageDeduplicationId,
+    publishBatchRequestEntry_messageGroupId,
+    publishBatchRequestEntry_messageAttributes,
+    publishBatchRequestEntry_messageStructure,
+    publishBatchRequestEntry_subject,
+    publishBatchRequestEntry_id,
+    publishBatchRequestEntry_message,
+
+    -- * PublishBatchResultEntry
+    PublishBatchResultEntry (..),
+    newPublishBatchResultEntry,
+    publishBatchResultEntry_messageId,
+    publishBatchResultEntry_id,
+    publishBatchResultEntry_sequenceNumber,
 
     -- * SMSSandboxPhoneNumber
     SMSSandboxPhoneNumber (..),
@@ -117,12 +148,15 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SNS.Types.BatchResultErrorEntry
 import Amazonka.SNS.Types.Endpoint
 import Amazonka.SNS.Types.LanguageCodeString
 import Amazonka.SNS.Types.MessageAttributeValue
 import Amazonka.SNS.Types.NumberCapability
 import Amazonka.SNS.Types.PhoneNumberInformation
 import Amazonka.SNS.Types.PlatformApplication
+import Amazonka.SNS.Types.PublishBatchRequestEntry
+import Amazonka.SNS.Types.PublishBatchResultEntry
 import Amazonka.SNS.Types.RouteType
 import Amazonka.SNS.Types.SMSSandboxPhoneNumber
 import Amazonka.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
@@ -201,6 +235,22 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | Two or more batch entries in the request have the same @Id@.
+_BatchEntryIdsNotDistinctException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchEntryIdsNotDistinctException =
+  Core._MatchServiceError
+    defaultService
+    "BatchEntryIdsNotDistinct"
+    Prelude.. Core.hasStatus 400
+
+-- | The batch request doesn\'t contain any entries.
+_EmptyBatchRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EmptyBatchRequestException =
+  Core._MatchServiceError
+    defaultService
+    "EmptyBatchRequest"
+    Prelude.. Core.hasStatus 400
+
 -- | Exception error indicating platform application disabled.
 _PlatformApplicationDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PlatformApplicationDisabledException =
@@ -231,8 +281,8 @@ _UserErrorException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the specified phone number opted out of receiving SMS
--- messages from your account. You can\'t send SMS messages to phone
--- numbers that opt out.
+-- messages from your Amazon Web Services account. You can\'t send SMS
+-- messages to phone numbers that opt out.
 _OptedOutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OptedOutException =
   Core._MatchServiceError defaultService "OptedOut"
@@ -274,6 +324,24 @@ _ConcurrentAccessException =
     "ConcurrentAccess"
     Prelude.. Core.hasStatus 400
 
+-- | The @Id@ of a batch entry in a batch request doesn\'t abide by the
+-- specification.
+_InvalidBatchEntryIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidBatchEntryIdException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidBatchEntryId"
+    Prelude.. Core.hasStatus 400
+
+-- | The length of all the batch messages put together is more than the
+-- limit.
+_BatchRequestTooLongException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BatchRequestTooLongException =
+  Core._MatchServiceError
+    defaultService
+    "BatchRequestTooLong"
+    Prelude.. Core.hasStatus 400
+
 -- | Indicates that the customer already owns the maximum allowed number of
 -- subscriptions.
 _SubscriptionLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -310,9 +378,17 @@ _KMSDisabledException =
     "KMSDisabled"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that the number of filter polices in your account exceeds the
--- limit. To add more filter polices, submit an SNS Limit Increase case in
--- the Amazon Web Services Support Center.
+-- | The batch request contains more entries than permissible.
+_TooManyEntriesInBatchRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyEntriesInBatchRequestException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyEntriesInBatchRequest"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that the number of filter polices in your Amazon Web Services
+-- account exceeds the limit. To add more filter polices, submit an Amazon
+-- SNS Limit Increase case in the Amazon Web Services Support Center.
 _FilterPolicyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FilterPolicyLimitExceededException =
   Core._MatchServiceError
@@ -380,7 +456,7 @@ _EndpointDisabledException =
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the rate at which requests have been submitted for this
--- action exceeds the limit for your account.
+-- action exceeds the limit for your Amazon Web Services account.
 _ThrottledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottledException =
   Core._MatchServiceError defaultService "Throttled"

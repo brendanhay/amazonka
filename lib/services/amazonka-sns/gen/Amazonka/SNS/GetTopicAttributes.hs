@@ -128,7 +128,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     -- -   @DisplayName@ – The human-readable name used in the @From@ field for
     --     notifications to @email@ and @email-json@ endpoints.
     --
-    -- -   @Owner@ – The account ID of the topic\'s owner.
+    -- -   @Owner@ – The Amazon Web Services account ID of the topic\'s owner.
     --
     -- -   @Policy@ – The JSON serialization of the topic\'s access control
     --     policy.
@@ -204,7 +204,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 -- -   @DisplayName@ – The human-readable name used in the @From@ field for
 --     notifications to @email@ and @email-json@ endpoints.
 --
--- -   @Owner@ – The account ID of the topic\'s owner.
+-- -   @Owner@ – The Amazon Web Services account ID of the topic\'s owner.
 --
 -- -   @Policy@ – The JSON serialization of the topic\'s access control
 --     policy.
@@ -279,7 +279,7 @@ newGetTopicAttributesResponse pHttpStatus_ =
 -- -   @DisplayName@ – The human-readable name used in the @From@ field for
 --     notifications to @email@ and @email-json@ endpoints.
 --
--- -   @Owner@ – The account ID of the topic\'s owner.
+-- -   @Owner@ – The Amazon Web Services account ID of the topic\'s owner.
 --
 -- -   @Policy@ – The JSON serialization of the topic\'s access control
 --     policy.

@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestGetHLSStreamingSessionURL $
 --             newGetHLSStreamingSessionURL
 --
+--         , requestGetImages $
+--             newGetImages
+--
 --         , requestGetMediaForFragmentList $
 --             newGetMediaForFragmentList
 --
@@ -53,6 +56,9 @@ import Test.Tasty
 --
 --         , responseGetHLSStreamingSessionURL $
 --             newGetHLSStreamingSessionURLResponse
+--
+--         , responseGetImages $
+--             newGetImagesResponse
 --
 --         , responseGetMediaForFragmentList $
 --             newGetMediaForFragmentListResponse
@@ -83,6 +89,12 @@ requestGetHLSStreamingSessionURL =
     "GetHLSStreamingSessionURL"
     "fixture/GetHLSStreamingSessionURL.yaml"
 
+requestGetImages :: GetImages -> TestTree
+requestGetImages =
+  req
+    "GetImages"
+    "fixture/GetImages.yaml"
+
 requestGetMediaForFragmentList :: GetMediaForFragmentList -> TestTree
 requestGetMediaForFragmentList =
   req
@@ -112,6 +124,14 @@ responseGetHLSStreamingSessionURL =
     "fixture/GetHLSStreamingSessionURLResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetHLSStreamingSessionURL)
+
+responseGetImages :: GetImagesResponse -> TestTree
+responseGetImages =
+  res
+    "GetImagesResponse"
+    "fixture/GetImagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetImages)
 
 responseListFragments :: ListFragmentsResponse -> TestTree
 responseListFragments =

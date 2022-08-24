@@ -45,6 +45,12 @@ module Amazonka.KinesisVideoArchivedMedia.Types
     -- * DASHPlaybackMode
     DASHPlaybackMode (..),
 
+    -- * Format
+    Format (..),
+
+    -- * FormatConfigKey
+    FormatConfigKey (..),
+
     -- * FragmentSelectorType
     FragmentSelectorType (..),
 
@@ -59,6 +65,12 @@ module Amazonka.KinesisVideoArchivedMedia.Types
 
     -- * HLSPlaybackMode
     HLSPlaybackMode (..),
+
+    -- * ImageError
+    ImageError (..),
+
+    -- * ImageSelectorType
+    ImageSelectorType (..),
 
     -- * ClipFragmentSelector
     ClipFragmentSelector (..),
@@ -111,6 +123,13 @@ module Amazonka.KinesisVideoArchivedMedia.Types
     hLSTimestampRange_endTimestamp,
     hLSTimestampRange_startTimestamp,
 
+    -- * Image
+    Image (..),
+    newImage,
+    image_timeStamp,
+    image_error,
+    image_imageContent,
+
     -- * TimestampRange
     TimestampRange (..),
     newTimestampRange,
@@ -130,6 +149,8 @@ import Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
 import Amazonka.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
 import Amazonka.KinesisVideoArchivedMedia.Types.DASHTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.Format
+import Amazonka.KinesisVideoArchivedMedia.Types.FormatConfigKey
 import Amazonka.KinesisVideoArchivedMedia.Types.Fragment
 import Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelector
 import Amazonka.KinesisVideoArchivedMedia.Types.FragmentSelectorType
@@ -139,6 +160,9 @@ import Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
 import Amazonka.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
 import Amazonka.KinesisVideoArchivedMedia.Types.HLSTimestampRange
+import Amazonka.KinesisVideoArchivedMedia.Types.Image
+import Amazonka.KinesisVideoArchivedMedia.Types.ImageError
+import Amazonka.KinesisVideoArchivedMedia.Types.ImageSelectorType
 import Amazonka.KinesisVideoArchivedMedia.Types.TimestampRange
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude

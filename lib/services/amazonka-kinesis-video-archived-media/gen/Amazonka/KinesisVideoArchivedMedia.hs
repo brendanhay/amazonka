@@ -68,6 +68,12 @@ module Amazonka.KinesisVideoArchivedMedia
     GetHLSStreamingSessionURLResponse (GetHLSStreamingSessionURLResponse'),
     newGetHLSStreamingSessionURLResponse,
 
+    -- ** GetImages (Paginated)
+    GetImages (GetImages'),
+    newGetImages,
+    GetImagesResponse (GetImagesResponse'),
+    newGetImagesResponse,
+
     -- ** GetMediaForFragmentList
     GetMediaForFragmentList (GetMediaForFragmentList'),
     newGetMediaForFragmentList,
@@ -100,6 +106,12 @@ module Amazonka.KinesisVideoArchivedMedia
     -- ** DASHPlaybackMode
     DASHPlaybackMode (..),
 
+    -- ** Format
+    Format (..),
+
+    -- ** FormatConfigKey
+    FormatConfigKey (..),
+
     -- ** FragmentSelectorType
     FragmentSelectorType (..),
 
@@ -114,6 +126,12 @@ module Amazonka.KinesisVideoArchivedMedia
 
     -- ** HLSPlaybackMode
     HLSPlaybackMode (..),
+
+    -- ** ImageError
+    ImageError (..),
+
+    -- ** ImageSelectorType
+    ImageSelectorType (..),
 
     -- ** ClipFragmentSelector
     ClipFragmentSelector (ClipFragmentSelector'),
@@ -147,6 +165,10 @@ module Amazonka.KinesisVideoArchivedMedia
     HLSTimestampRange (HLSTimestampRange'),
     newHLSTimestampRange,
 
+    -- ** Image
+    Image (Image'),
+    newImage,
+
     -- ** TimestampRange
     TimestampRange (TimestampRange'),
     newTimestampRange,
@@ -156,6 +178,7 @@ where
 import Amazonka.KinesisVideoArchivedMedia.GetClip
 import Amazonka.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
 import Amazonka.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+import Amazonka.KinesisVideoArchivedMedia.GetImages
 import Amazonka.KinesisVideoArchivedMedia.GetMediaForFragmentList
 import Amazonka.KinesisVideoArchivedMedia.Lens
 import Amazonka.KinesisVideoArchivedMedia.ListFragments

@@ -20,44 +20,90 @@ module Amazonka.FinSpaceData.Types
     _AccessDeniedException,
     _InternalServerException,
     _ResourceNotFoundException,
+    _LimitExceededException,
+    _ConflictException,
     _ThrottlingException,
     _ValidationException,
+
+    -- * ApiAccess
+    ApiAccess (..),
+
+    -- * ApplicationPermission
+    ApplicationPermission (..),
 
     -- * ChangeType
     ChangeType (..),
 
-    -- * ChangesetStatus
-    ChangesetStatus (..),
+    -- * ColumnDataType
+    ColumnDataType (..),
+
+    -- * DataViewStatus
+    DataViewStatus (..),
+
+    -- * DatasetKind
+    DatasetKind (..),
+
+    -- * DatasetStatus
+    DatasetStatus (..),
 
     -- * ErrorCategory
     ErrorCategory (..),
 
-    -- * FormatType
-    FormatType (..),
+    -- * ExportFileFormat
+    ExportFileFormat (..),
+
+    -- * IngestionStatus
+    IngestionStatus (..),
 
     -- * LocationType
     LocationType (..),
 
-    -- * SourceType
-    SourceType (..),
+    -- * PermissionGroupMembershipStatus
+    PermissionGroupMembershipStatus (..),
 
-    -- * ChangesetInfo
-    ChangesetInfo (..),
-    newChangesetInfo,
-    changesetInfo_sourceParams,
-    changesetInfo_updatedByChangesetId,
-    changesetInfo_changeType,
-    changesetInfo_createTimestamp,
-    changesetInfo_changesetArn,
-    changesetInfo_formatParams,
-    changesetInfo_formatType,
-    changesetInfo_status,
-    changesetInfo_sourceType,
-    changesetInfo_id,
-    changesetInfo_changesetLabels,
-    changesetInfo_updatesChangesetId,
-    changesetInfo_datasetId,
-    changesetInfo_errorInfo,
+    -- * UserStatus
+    UserStatus (..),
+
+    -- * UserType
+    UserType (..),
+
+    -- * AwsCredentials
+    AwsCredentials (..),
+    newAwsCredentials,
+    awsCredentials_expiration,
+    awsCredentials_sessionToken,
+    awsCredentials_secretAccessKey,
+    awsCredentials_accessKeyId,
+
+    -- * ChangesetErrorInfo
+    ChangesetErrorInfo (..),
+    newChangesetErrorInfo,
+    changesetErrorInfo_errorCategory,
+    changesetErrorInfo_errorMessage,
+
+    -- * ChangesetSummary
+    ChangesetSummary (..),
+    newChangesetSummary,
+    changesetSummary_sourceParams,
+    changesetSummary_updatedByChangesetId,
+    changesetSummary_changeType,
+    changesetSummary_changesetId,
+    changesetSummary_changesetArn,
+    changesetSummary_formatParams,
+    changesetSummary_activeUntilTimestamp,
+    changesetSummary_status,
+    changesetSummary_updatesChangesetId,
+    changesetSummary_datasetId,
+    changesetSummary_activeFromTimestamp,
+    changesetSummary_createTime,
+    changesetSummary_errorInfo,
+
+    -- * ColumnDefinition
+    ColumnDefinition (..),
+    newColumnDefinition,
+    columnDefinition_columnName,
+    columnDefinition_columnDescription,
+    columnDefinition_dataType,
 
     -- * Credentials
     Credentials (..),
@@ -66,24 +112,168 @@ module Amazonka.FinSpaceData.Types
     credentials_secretAccessKey,
     credentials_accessKeyId,
 
-    -- * ErrorInfo
-    ErrorInfo (..),
-    newErrorInfo,
-    errorInfo_errorCategory,
-    errorInfo_errorMessage,
+    -- * DataViewDestinationTypeParams
+    DataViewDestinationTypeParams (..),
+    newDataViewDestinationTypeParams,
+    dataViewDestinationTypeParams_s3DestinationExportFileFormat,
+    dataViewDestinationTypeParams_s3DestinationExportFileFormatOptions,
+    dataViewDestinationTypeParams_destinationType,
+
+    -- * DataViewErrorInfo
+    DataViewErrorInfo (..),
+    newDataViewErrorInfo,
+    dataViewErrorInfo_errorCategory,
+    dataViewErrorInfo_errorMessage,
+
+    -- * DataViewSummary
+    DataViewSummary (..),
+    newDataViewSummary,
+    dataViewSummary_sortColumns,
+    dataViewSummary_autoUpdate,
+    dataViewSummary_status,
+    dataViewSummary_lastModifiedTime,
+    dataViewSummary_dataViewArn,
+    dataViewSummary_dataViewId,
+    dataViewSummary_partitionColumns,
+    dataViewSummary_datasetId,
+    dataViewSummary_asOfTimestamp,
+    dataViewSummary_createTime,
+    dataViewSummary_errorInfo,
+    dataViewSummary_destinationTypeProperties,
+
+    -- * Dataset
+    Dataset (..),
+    newDataset,
+    dataset_alias,
+    dataset_datasetDescription,
+    dataset_datasetTitle,
+    dataset_kind,
+    dataset_datasetArn,
+    dataset_lastModifiedTime,
+    dataset_datasetId,
+    dataset_createTime,
+    dataset_schemaDefinition,
+    dataset_ownerInfo,
+
+    -- * DatasetOwnerInfo
+    DatasetOwnerInfo (..),
+    newDatasetOwnerInfo,
+    datasetOwnerInfo_name,
+    datasetOwnerInfo_email,
+    datasetOwnerInfo_phoneNumber,
+
+    -- * PermissionGroup
+    PermissionGroup (..),
+    newPermissionGroup,
+    permissionGroup_name,
+    permissionGroup_description,
+    permissionGroup_lastModifiedTime,
+    permissionGroup_applicationPermissions,
+    permissionGroup_permissionGroupId,
+    permissionGroup_membershipStatus,
+    permissionGroup_createTime,
+
+    -- * PermissionGroupByUser
+    PermissionGroupByUser (..),
+    newPermissionGroupByUser,
+    permissionGroupByUser_name,
+    permissionGroupByUser_permissionGroupId,
+    permissionGroupByUser_membershipStatus,
+
+    -- * PermissionGroupParams
+    PermissionGroupParams (..),
+    newPermissionGroupParams,
+    permissionGroupParams_datasetPermissions,
+    permissionGroupParams_permissionGroupId,
+
+    -- * ResourcePermission
+    ResourcePermission (..),
+    newResourcePermission,
+    resourcePermission_permission,
+
+    -- * S3Location
+    S3Location (..),
+    newS3Location,
+    s3Location_bucket,
+    s3Location_key,
+
+    -- * SchemaDefinition
+    SchemaDefinition (..),
+    newSchemaDefinition,
+    schemaDefinition_columns,
+    schemaDefinition_primaryKeyColumns,
+
+    -- * SchemaUnion
+    SchemaUnion (..),
+    newSchemaUnion,
+    schemaUnion_tabularSchemaConfig,
+
+    -- * User
+    User (..),
+    newUser,
+    user_type,
+    user_firstName,
+    user_status,
+    user_lastDisabledTime,
+    user_lastLoginTime,
+    user_lastName,
+    user_lastModifiedTime,
+    user_apiAccess,
+    user_userId,
+    user_lastEnabledTime,
+    user_emailAddress,
+    user_createTime,
+    user_apiAccessPrincipalArn,
+
+    -- * UserByPermissionGroup
+    UserByPermissionGroup (..),
+    newUserByPermissionGroup,
+    userByPermissionGroup_type,
+    userByPermissionGroup_firstName,
+    userByPermissionGroup_status,
+    userByPermissionGroup_lastName,
+    userByPermissionGroup_apiAccess,
+    userByPermissionGroup_userId,
+    userByPermissionGroup_membershipStatus,
+    userByPermissionGroup_emailAddress,
+    userByPermissionGroup_apiAccessPrincipalArn,
   )
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.FinSpaceData.Types.ApiAccess
+import Amazonka.FinSpaceData.Types.ApplicationPermission
+import Amazonka.FinSpaceData.Types.AwsCredentials
 import Amazonka.FinSpaceData.Types.ChangeType
-import Amazonka.FinSpaceData.Types.ChangesetInfo
-import Amazonka.FinSpaceData.Types.ChangesetStatus
+import Amazonka.FinSpaceData.Types.ChangesetErrorInfo
+import Amazonka.FinSpaceData.Types.ChangesetSummary
+import Amazonka.FinSpaceData.Types.ColumnDataType
+import Amazonka.FinSpaceData.Types.ColumnDefinition
 import Amazonka.FinSpaceData.Types.Credentials
+import Amazonka.FinSpaceData.Types.DataViewDestinationTypeParams
+import Amazonka.FinSpaceData.Types.DataViewErrorInfo
+import Amazonka.FinSpaceData.Types.DataViewStatus
+import Amazonka.FinSpaceData.Types.DataViewSummary
+import Amazonka.FinSpaceData.Types.Dataset
+import Amazonka.FinSpaceData.Types.DatasetKind
+import Amazonka.FinSpaceData.Types.DatasetOwnerInfo
+import Amazonka.FinSpaceData.Types.DatasetStatus
 import Amazonka.FinSpaceData.Types.ErrorCategory
-import Amazonka.FinSpaceData.Types.ErrorInfo
-import Amazonka.FinSpaceData.Types.FormatType
+import Amazonka.FinSpaceData.Types.ExportFileFormat
+import Amazonka.FinSpaceData.Types.IngestionStatus
 import Amazonka.FinSpaceData.Types.LocationType
-import Amazonka.FinSpaceData.Types.SourceType
+import Amazonka.FinSpaceData.Types.PermissionGroup
+import Amazonka.FinSpaceData.Types.PermissionGroupByUser
+import Amazonka.FinSpaceData.Types.PermissionGroupMembershipStatus
+import Amazonka.FinSpaceData.Types.PermissionGroupParams
+import Amazonka.FinSpaceData.Types.ResourcePermission
+import Amazonka.FinSpaceData.Types.S3Location
+import Amazonka.FinSpaceData.Types.SchemaDefinition
+import Amazonka.FinSpaceData.Types.SchemaUnion
+import Amazonka.FinSpaceData.Types.User
+import Amazonka.FinSpaceData.Types.UserByPermissionGroup
+import Amazonka.FinSpaceData.Types.UserStatus
+import Amazonka.FinSpaceData.Types.UserType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
@@ -183,6 +373,22 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | A limit has exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 400
+
+-- | The request conflicts with an existing resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Core.hasStatus 409
 
 -- | The request was denied due to request throttling.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

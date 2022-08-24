@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- A temporary Amazon S3 location to copy your files from a source location
--- to stage or use as a scratch space in Habanero notebook.
+-- A temporary Amazon S3 location, where you can copy your files from a
+-- source location to stage or use as a scratch space in FinSpace notebook.
 module Amazonka.FinSpaceData.GetWorkingLocation
   ( -- * Creating a Request
     GetWorkingLocation (..),
@@ -53,12 +53,12 @@ import qualified Amazonka.Response as Response
 data GetWorkingLocation = GetWorkingLocation'
   { -- | Specify the type of the working location.
     --
-    -- -   @SAGEMAKER@ - Use the Amazon S3 location as a temporary location to
+    -- -   @SAGEMAKER@ – Use the Amazon S3 location as a temporary location to
     --     store data content when working with FinSpace Notebooks that run on
     --     SageMaker studio.
     --
-    -- -   @INGESTION@ - Use the Amazon S3 location as a staging location to
-    --     copy your data content and then use the location with the changeset
+    -- -   @INGESTION@ – Use the Amazon S3 location as a staging location to
+    --     copy your data content and then use the location with the Changeset
     --     creation operation.
     locationType :: Prelude.Maybe LocationType
   }
@@ -74,12 +74,12 @@ data GetWorkingLocation = GetWorkingLocation'
 --
 -- 'locationType', 'getWorkingLocation_locationType' - Specify the type of the working location.
 --
--- -   @SAGEMAKER@ - Use the Amazon S3 location as a temporary location to
+-- -   @SAGEMAKER@ – Use the Amazon S3 location as a temporary location to
 --     store data content when working with FinSpace Notebooks that run on
 --     SageMaker studio.
 --
--- -   @INGESTION@ - Use the Amazon S3 location as a staging location to
---     copy your data content and then use the location with the changeset
+-- -   @INGESTION@ – Use the Amazon S3 location as a staging location to
+--     copy your data content and then use the location with the Changeset
 --     creation operation.
 newGetWorkingLocation ::
   GetWorkingLocation
@@ -88,12 +88,12 @@ newGetWorkingLocation =
 
 -- | Specify the type of the working location.
 --
--- -   @SAGEMAKER@ - Use the Amazon S3 location as a temporary location to
+-- -   @SAGEMAKER@ – Use the Amazon S3 location as a temporary location to
 --     store data content when working with FinSpace Notebooks that run on
 --     SageMaker studio.
 --
--- -   @INGESTION@ - Use the Amazon S3 location as a staging location to
---     copy your data content and then use the location with the changeset
+-- -   @INGESTION@ – Use the Amazon S3 location as a staging location to
+--     copy your data content and then use the location with the Changeset
 --     creation operation.
 getWorkingLocation_locationType :: Lens.Lens' GetWorkingLocation (Prelude.Maybe LocationType)
 getWorkingLocation_locationType = Lens.lens (\GetWorkingLocation' {locationType} -> locationType) (\s@GetWorkingLocation' {} a -> s {locationType = a} :: GetWorkingLocation)

@@ -11,19 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.FinSpaceData.Types.FormatType
+-- Module      : Amazonka.FinSpaceData.Types.DatasetKind
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.FinSpaceData.Types.FormatType
-  ( FormatType
+module Amazonka.FinSpaceData.Types.DatasetKind
+  ( DatasetKind
       ( ..,
-        FormatType_CSV,
-        FormatType_JSON,
-        FormatType_PARQUET,
-        FormatType_XML
+        DatasetKind_NON_TABULAR,
+        DatasetKind_TABULAR
       ),
   )
 where
@@ -31,8 +29,9 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype FormatType = FormatType'
-  { fromFormatType ::
+-- | Dataset Kind
+newtype DatasetKind = DatasetKind'
+  { fromDatasetKind ::
       Core.Text
   }
   deriving stock
@@ -59,22 +58,14 @@ newtype FormatType = FormatType'
       Core.ToXML
     )
 
-pattern FormatType_CSV :: FormatType
-pattern FormatType_CSV = FormatType' "CSV"
+pattern DatasetKind_NON_TABULAR :: DatasetKind
+pattern DatasetKind_NON_TABULAR = DatasetKind' "NON_TABULAR"
 
-pattern FormatType_JSON :: FormatType
-pattern FormatType_JSON = FormatType' "JSON"
-
-pattern FormatType_PARQUET :: FormatType
-pattern FormatType_PARQUET = FormatType' "PARQUET"
-
-pattern FormatType_XML :: FormatType
-pattern FormatType_XML = FormatType' "XML"
+pattern DatasetKind_TABULAR :: DatasetKind
+pattern DatasetKind_TABULAR = DatasetKind' "TABULAR"
 
 {-# COMPLETE
-  FormatType_CSV,
-  FormatType_JSON,
-  FormatType_PARQUET,
-  FormatType_XML,
-  FormatType'
+  DatasetKind_NON_TABULAR,
+  DatasetKind_TABULAR,
+  DatasetKind'
   #-}

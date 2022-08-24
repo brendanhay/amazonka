@@ -44,20 +44,72 @@ library
 
   exposed-modules:
     Amazonka.FinSpaceData
+    Amazonka.FinSpaceData.AssociateUserToPermissionGroup
     Amazonka.FinSpaceData.CreateChangeset
+    Amazonka.FinSpaceData.CreateDataset
+    Amazonka.FinSpaceData.CreateDataView
+    Amazonka.FinSpaceData.CreatePermissionGroup
+    Amazonka.FinSpaceData.CreateUser
+    Amazonka.FinSpaceData.DeleteDataset
+    Amazonka.FinSpaceData.DeletePermissionGroup
+    Amazonka.FinSpaceData.DisableUser
+    Amazonka.FinSpaceData.DisassociateUserFromPermissionGroup
+    Amazonka.FinSpaceData.EnableUser
+    Amazonka.FinSpaceData.GetChangeset
+    Amazonka.FinSpaceData.GetDataset
+    Amazonka.FinSpaceData.GetDataView
+    Amazonka.FinSpaceData.GetExternalDataViewAccessDetails
+    Amazonka.FinSpaceData.GetPermissionGroup
     Amazonka.FinSpaceData.GetProgrammaticAccessCredentials
+    Amazonka.FinSpaceData.GetUser
     Amazonka.FinSpaceData.GetWorkingLocation
     Amazonka.FinSpaceData.Lens
+    Amazonka.FinSpaceData.ListChangesets
+    Amazonka.FinSpaceData.ListDatasets
+    Amazonka.FinSpaceData.ListDataViews
+    Amazonka.FinSpaceData.ListPermissionGroups
+    Amazonka.FinSpaceData.ListPermissionGroupsByUser
+    Amazonka.FinSpaceData.ListUsers
+    Amazonka.FinSpaceData.ListUsersByPermissionGroup
+    Amazonka.FinSpaceData.ResetUserPassword
     Amazonka.FinSpaceData.Types
-    Amazonka.FinSpaceData.Types.ChangesetInfo
-    Amazonka.FinSpaceData.Types.ChangesetStatus
+    Amazonka.FinSpaceData.Types.ApiAccess
+    Amazonka.FinSpaceData.Types.ApplicationPermission
+    Amazonka.FinSpaceData.Types.AwsCredentials
+    Amazonka.FinSpaceData.Types.ChangesetErrorInfo
+    Amazonka.FinSpaceData.Types.ChangesetSummary
     Amazonka.FinSpaceData.Types.ChangeType
+    Amazonka.FinSpaceData.Types.ColumnDataType
+    Amazonka.FinSpaceData.Types.ColumnDefinition
     Amazonka.FinSpaceData.Types.Credentials
+    Amazonka.FinSpaceData.Types.Dataset
+    Amazonka.FinSpaceData.Types.DatasetKind
+    Amazonka.FinSpaceData.Types.DatasetOwnerInfo
+    Amazonka.FinSpaceData.Types.DatasetStatus
+    Amazonka.FinSpaceData.Types.DataViewDestinationTypeParams
+    Amazonka.FinSpaceData.Types.DataViewErrorInfo
+    Amazonka.FinSpaceData.Types.DataViewStatus
+    Amazonka.FinSpaceData.Types.DataViewSummary
     Amazonka.FinSpaceData.Types.ErrorCategory
-    Amazonka.FinSpaceData.Types.ErrorInfo
-    Amazonka.FinSpaceData.Types.FormatType
+    Amazonka.FinSpaceData.Types.ExportFileFormat
+    Amazonka.FinSpaceData.Types.IngestionStatus
     Amazonka.FinSpaceData.Types.LocationType
-    Amazonka.FinSpaceData.Types.SourceType
+    Amazonka.FinSpaceData.Types.PermissionGroup
+    Amazonka.FinSpaceData.Types.PermissionGroupByUser
+    Amazonka.FinSpaceData.Types.PermissionGroupMembershipStatus
+    Amazonka.FinSpaceData.Types.PermissionGroupParams
+    Amazonka.FinSpaceData.Types.ResourcePermission
+    Amazonka.FinSpaceData.Types.S3Location
+    Amazonka.FinSpaceData.Types.SchemaDefinition
+    Amazonka.FinSpaceData.Types.SchemaUnion
+    Amazonka.FinSpaceData.Types.User
+    Amazonka.FinSpaceData.Types.UserByPermissionGroup
+    Amazonka.FinSpaceData.Types.UserStatus
+    Amazonka.FinSpaceData.Types.UserType
+    Amazonka.FinSpaceData.UpdateChangeset
+    Amazonka.FinSpaceData.UpdateDataset
+    Amazonka.FinSpaceData.UpdatePermissionGroup
+    Amazonka.FinSpaceData.UpdateUser
     Amazonka.FinSpaceData.Waiters
 
   build-depends:

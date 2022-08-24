@@ -30,6 +30,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
+-- | Indicates how the given change will be applied to the dataset.
 newtype ChangeType = ChangeType'
   { fromChangeType ::
       Core.Text

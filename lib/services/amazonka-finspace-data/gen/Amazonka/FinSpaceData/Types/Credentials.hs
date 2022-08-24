@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Set short term API credentials.
+-- | Short term API credentials.
 --
 -- /See:/ 'newCredentials' smart constructor.
 data Credentials = Credentials'

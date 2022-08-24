@@ -11,16 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.FinSpaceData.Types.SourceType
+-- Module      : Amazonka.FinSpaceData.Types.UserStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.FinSpaceData.Types.SourceType
-  ( SourceType
+module Amazonka.FinSpaceData.Types.UserStatus
+  ( UserStatus
       ( ..,
-        SourceType_S3
+        UserStatus_CREATING,
+        UserStatus_DISABLED,
+        UserStatus_ENABLED
       ),
   )
 where
@@ -28,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype SourceType = SourceType'
-  { fromSourceType ::
+newtype UserStatus = UserStatus'
+  { fromUserStatus ::
       Core.Text
   }
   deriving stock
@@ -56,10 +58,18 @@ newtype SourceType = SourceType'
       Core.ToXML
     )
 
-pattern SourceType_S3 :: SourceType
-pattern SourceType_S3 = SourceType' "S3"
+pattern UserStatus_CREATING :: UserStatus
+pattern UserStatus_CREATING = UserStatus' "CREATING"
+
+pattern UserStatus_DISABLED :: UserStatus
+pattern UserStatus_DISABLED = UserStatus' "DISABLED"
+
+pattern UserStatus_ENABLED :: UserStatus
+pattern UserStatus_ENABLED = UserStatus' "ENABLED"
 
 {-# COMPLETE
-  SourceType_S3,
-  SourceType'
+  UserStatus_CREATING,
+  UserStatus_DISABLED,
+  UserStatus_ENABLED,
+  UserStatus'
   #-}

@@ -11,20 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.FinSpaceData.Types.ChangesetStatus
+-- Module      : Amazonka.FinSpaceData.Types.ApiAccess
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.FinSpaceData.Types.ChangesetStatus
-  ( ChangesetStatus
+module Amazonka.FinSpaceData.Types.ApiAccess
+  ( ApiAccess
       ( ..,
-        ChangesetStatus_FAILED,
-        ChangesetStatus_PENDING,
-        ChangesetStatus_RUNNING,
-        ChangesetStatus_STOP_REQUESTED,
-        ChangesetStatus_SUCCESS
+        ApiAccess_DISABLED,
+        ApiAccess_ENABLED
       ),
   )
 where
@@ -32,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ChangesetStatus = ChangesetStatus'
-  { fromChangesetStatus ::
+newtype ApiAccess = ApiAccess'
+  { fromApiAccess ::
       Core.Text
   }
   deriving stock
@@ -60,26 +57,14 @@ newtype ChangesetStatus = ChangesetStatus'
       Core.ToXML
     )
 
-pattern ChangesetStatus_FAILED :: ChangesetStatus
-pattern ChangesetStatus_FAILED = ChangesetStatus' "FAILED"
+pattern ApiAccess_DISABLED :: ApiAccess
+pattern ApiAccess_DISABLED = ApiAccess' "DISABLED"
 
-pattern ChangesetStatus_PENDING :: ChangesetStatus
-pattern ChangesetStatus_PENDING = ChangesetStatus' "PENDING"
-
-pattern ChangesetStatus_RUNNING :: ChangesetStatus
-pattern ChangesetStatus_RUNNING = ChangesetStatus' "RUNNING"
-
-pattern ChangesetStatus_STOP_REQUESTED :: ChangesetStatus
-pattern ChangesetStatus_STOP_REQUESTED = ChangesetStatus' "STOP_REQUESTED"
-
-pattern ChangesetStatus_SUCCESS :: ChangesetStatus
-pattern ChangesetStatus_SUCCESS = ChangesetStatus' "SUCCESS"
+pattern ApiAccess_ENABLED :: ApiAccess
+pattern ApiAccess_ENABLED = ApiAccess' "ENABLED"
 
 {-# COMPLETE
-  ChangesetStatus_FAILED,
-  ChangesetStatus_PENDING,
-  ChangesetStatus_RUNNING,
-  ChangesetStatus_STOP_REQUESTED,
-  ChangesetStatus_SUCCESS,
-  ChangesetStatus'
+  ApiAccess_DISABLED,
+  ApiAccess_ENABLED,
+  ApiAccess'
   #-}

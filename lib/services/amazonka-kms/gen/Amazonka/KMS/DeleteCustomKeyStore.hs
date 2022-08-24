@@ -25,7 +25,7 @@
 -- This operation does not delete the CloudHSM cluster that is associated
 -- with the custom key store, or affect any users or keys in the cluster.
 --
--- The custom key store that you delete cannot contain any KMS
+-- The custom key store that you delete cannot contain any
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys KMS keys>.
 -- Before deleting the key store, verify that you will never need to use
 -- any of the KMS keys in the key store for any
@@ -51,7 +51,7 @@
 -- If the operation succeeds, it returns a JSON object with no properties.
 --
 -- This operation is part of the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store feature>
 -- feature in KMS, which combines the convenience and extensive integration
 -- of KMS with the isolation and control of a single-tenant key store.
 --

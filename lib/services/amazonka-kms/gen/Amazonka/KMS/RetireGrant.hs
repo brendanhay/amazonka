@@ -28,14 +28,14 @@
 --
 -- This operation can be called by the /retiring principal/ for a grant, by
 -- the /grantee principal/ if the grant allows the @RetireGrant@ operation,
--- and by the Amazon Web Services account (root user) in which the grant is
--- created. It can also be called by principals to whom permission for
--- retiring a grant is delegated. For details, see
+-- and by the Amazon Web Services account in which the grant is created. It
+-- can also be called by principals to whom permission for retiring a grant
+-- is delegated. For details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete Retiring and revoking grants>
 -- in the /Key Management Service Developer Guide/.
 --
 -- For detailed information about grants, including grant terminology, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Using grants>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants in KMS>
 -- in the //Key Management Service Developer Guide// . For examples of
 -- working with grants in several programming languages, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html Programming grants>.

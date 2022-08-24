@@ -93,6 +93,9 @@ import Test.Tasty
 --         , requestGenerateDataKeyWithoutPlaintext $
 --             newGenerateDataKeyWithoutPlaintext
 --
+--         , requestGenerateMac $
+--             newGenerateMac
+--
 --         , requestGenerateRandom $
 --             newGenerateRandom
 --
@@ -171,6 +174,9 @@ import Test.Tasty
 --         , requestVerify $
 --             newVerify
 --
+--         , requestVerifyMac $
+--             newVerifyMac
+--
 --           ]
 
 --     , testGroup "response"
@@ -239,6 +245,9 @@ import Test.Tasty
 --
 --         , responseGenerateDataKeyWithoutPlaintext $
 --             newGenerateDataKeyWithoutPlaintextResponse
+--
+--         , responseGenerateMac $
+--             newGenerateMacResponse
 --
 --         , responseGenerateRandom $
 --             newGenerateRandomResponse
@@ -317,6 +326,9 @@ import Test.Tasty
 --
 --         , responseVerify $
 --             newVerifyResponse
+--
+--         , responseVerifyMac $
+--             newVerifyMacResponse
 --
 --           ]
 --     ]
@@ -454,6 +466,12 @@ requestGenerateDataKeyWithoutPlaintext =
   req
     "GenerateDataKeyWithoutPlaintext"
     "fixture/GenerateDataKeyWithoutPlaintext.yaml"
+
+requestGenerateMac :: GenerateMac -> TestTree
+requestGenerateMac =
+  req
+    "GenerateMac"
+    "fixture/GenerateMac.yaml"
 
 requestGenerateRandom :: GenerateRandom -> TestTree
 requestGenerateRandom =
@@ -610,6 +628,12 @@ requestVerify =
   req
     "Verify"
     "fixture/Verify.yaml"
+
+requestVerifyMac :: VerifyMac -> TestTree
+requestVerifyMac =
+  req
+    "VerifyMac"
+    "fixture/VerifyMac.yaml"
 
 -- Responses
 
@@ -788,6 +812,14 @@ responseGenerateDataKeyWithoutPlaintext =
     "fixture/GenerateDataKeyWithoutPlaintextResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GenerateDataKeyWithoutPlaintext)
+
+responseGenerateMac :: GenerateMacResponse -> TestTree
+responseGenerateMac =
+  res
+    "GenerateMacResponse"
+    "fixture/GenerateMacResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GenerateMac)
 
 responseGenerateRandom :: GenerateRandomResponse -> TestTree
 responseGenerateRandom =
@@ -996,3 +1028,11 @@ responseVerify =
     "fixture/VerifyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy Verify)
+
+responseVerifyMac :: VerifyMacResponse -> TestTree
+responseVerifyMac =
+  res
+    "VerifyMacResponse"
+    "fixture/VerifyMacResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy VerifyMac)

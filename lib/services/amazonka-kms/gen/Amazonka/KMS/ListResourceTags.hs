@@ -44,6 +44,8 @@
 -- -   TagResource
 --
 -- -   UntagResource
+--
+-- This operation returns paginated results.
 module Amazonka.KMS.ListResourceTags
   ( -- * Creating a Request
     ListResourceTags (..),
@@ -186,6 +188,28 @@ listResourceTags_limit = Lens.lens (\ListResourceTags' {limit} -> limit) (\s@Lis
 listResourceTags_keyId :: Lens.Lens' ListResourceTags Prelude.Text
 listResourceTags_keyId = Lens.lens (\ListResourceTags' {keyId} -> keyId) (\s@ListResourceTags' {} a -> s {keyId = a} :: ListResourceTags)
 
+instance Core.AWSPager ListResourceTags where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listResourceTagsResponse_truncated
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listResourceTagsResponse_nextMarker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listResourceTags_marker
+          Lens..~ rs
+          Lens.^? listResourceTagsResponse_nextMarker
+            Prelude.. Lens._Just
+
 instance Core.AWSRequest ListResourceTags where
   type
     AWSResponse ListResourceTags =
@@ -250,7 +274,7 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
     --
     -- Tagging or untagging a KMS key can allow or deny permission to the KMS
     -- key. For details, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
     -- in the /Key Management Service Developer Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | A flag that indicates whether there are more items in the list. When
@@ -280,7 +304,7 @@ data ListResourceTagsResponse = ListResourceTagsResponse'
 --
 -- Tagging or untagging a KMS key can allow or deny permission to the KMS
 -- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'truncated', 'listResourceTagsResponse_truncated' - A flag that indicates whether there are more items in the list. When
@@ -310,7 +334,7 @@ newListResourceTagsResponse pHttpStatus_ =
 --
 -- Tagging or untagging a KMS key can allow or deny permission to the KMS
 -- key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
 -- in the /Key Management Service Developer Guide/.
 listResourceTagsResponse_tags :: Lens.Lens' ListResourceTagsResponse (Prelude.Maybe [Tag])
 listResourceTagsResponse_tags = Lens.lens (\ListResourceTagsResponse' {tags} -> tags) (\s@ListResourceTagsResponse' {} a -> s {tags = a} :: ListResourceTagsResponse) Prelude.. Lens.mapping Lens.coerced

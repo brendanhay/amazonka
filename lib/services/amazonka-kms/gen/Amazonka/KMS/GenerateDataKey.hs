@@ -20,21 +20,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a unique symmetric data key for client-side encryption. This
+-- Returns a unique symmetric data key for use outside of KMS. This
 -- operation returns a plaintext copy of the data key and a copy that is
--- encrypted under a KMS key that you specify. You can use the plaintext
--- key to encrypt your data outside of KMS and store the encrypted data key
--- with the encrypted data.
+-- encrypted under a symmetric encryption KMS key that you specify. The
+-- bytes in the plaintext key are random; they are not related to the
+-- caller or the KMS key. You can use the plaintext key to encrypt your
+-- data outside of KMS and store the encrypted data key with the encrypted
+-- data.
 --
--- @GenerateDataKey@ returns a unique data key for each request. The bytes
--- in the plaintext key are not related to the caller or the KMS key.
+-- To generate a data key, specify the symmetric encryption KMS key that
+-- will be used to encrypt the data key. You cannot use an asymmetric KMS
+-- key to encrypt data keys. To get the type of your KMS key, use the
+-- DescribeKey operation.
 --
--- To generate a data key, specify the symmetric KMS key that will be used
--- to encrypt the data key. You cannot use an asymmetric KMS key to
--- generate data keys. To get the type of your KMS key, use the DescribeKey
--- operation. You must also specify the length of the data key. Use either
--- the @KeySpec@ or @NumberOfBytes@ parameters (but not both). For 128-bit
--- and 256-bit data keys, use the @KeySpec@ parameter.
+-- You must also specify the length of the data key. Use either the
+-- @KeySpec@ or @NumberOfBytes@ parameters (but not both). For 128-bit and
+-- 256-bit data keys, use the @KeySpec@ parameter.
+--
+-- To generate an SM4 data key (China Regions only), specify a @KeySpec@
+-- value of @AES_128@ or @NumberOfBytes@ value of @128@. The symmetric
+-- encryption key used in China Regions to encrypt your data key is an SM4
+-- encryption key.
 --
 -- To get only an encrypted copy of the data key, use
 -- GenerateDataKeyWithoutPlaintext. To generate an asymmetric data key
@@ -42,8 +48,8 @@
 -- operation. To get a cryptographically secure random byte string, use
 -- GenerateRandom.
 --
--- You can use the optional encryption context to add additional security
--- to the encryption operation. If you specify an @EncryptionContext@, you
+-- You can use an optional encryption context to add additional security to
+-- the encryption operation. If you specify an @EncryptionContext@, you
 -- must specify the same encryption context (a case-sensitive exact match)
 -- when decrypting the encrypted data key. Otherwise, the request to
 -- decrypt fails with an @InvalidCiphertextException@. For more
@@ -60,7 +66,7 @@
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- __How to use your data key__
@@ -174,17 +180,21 @@ data GenerateDataKey = GenerateDataKey'
     -- data key.
     --
     -- An /encryption context/ is a collection of non-secret key-value pairs
-    -- that represents additional authenticated data. When you use an
-    -- encryption context to encrypt data, you must specify the same (an exact
+    -- that represent additional authenticated data. When you use an encryption
+    -- context to encrypt data, you must specify the same (an exact
     -- case-sensitive match) encryption context to decrypt the data. An
-    -- encryption context is optional when encrypting with a symmetric KMS key,
-    -- but it is highly recommended.
+    -- encryption context is supported only on operations with symmetric
+    -- encryption KMS keys. On operations with symmetric encryption KMS keys,
+    -- an encryption context is optional, but it is strongly recommended.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
     -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Identifies the symmetric KMS key that encrypts the data key.
+    -- | Specifies the symmetric encryption KMS key that encrypts the data key.
+    -- You cannot specify an asymmetric KMS key or a KMS key in a custom key
+    -- store. To get the type and origin of your KMS key, use the DescribeKey
+    -- operation.
     --
     -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
     -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -244,17 +254,21 @@ data GenerateDataKey = GenerateDataKey'
 -- data key.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'keyId', 'generateDataKey_keyId' - Identifies the symmetric KMS key that encrypts the data key.
+-- 'keyId', 'generateDataKey_keyId' - Specifies the symmetric encryption KMS key that encrypts the data key.
+-- You cannot specify an asymmetric KMS key or a KMS key in a custom key
+-- store. To get the type and origin of your KMS key, use the DescribeKey
+-- operation.
 --
 -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
 -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -321,19 +335,23 @@ generateDataKey_numberOfBytes = Lens.lens (\GenerateDataKey' {numberOfBytes} -> 
 -- data key.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the /Key Management Service Developer Guide/.
 generateDataKey_encryptionContext :: Lens.Lens' GenerateDataKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 generateDataKey_encryptionContext = Lens.lens (\GenerateDataKey' {encryptionContext} -> encryptionContext) (\s@GenerateDataKey' {} a -> s {encryptionContext = a} :: GenerateDataKey) Prelude.. Lens.mapping Lens.coerced
 
--- | Identifies the symmetric KMS key that encrypts the data key.
+-- | Specifies the symmetric encryption KMS key that encrypts the data key.
+-- You cannot specify an asymmetric KMS key or a KMS key in a custom key
+-- store. To get the type and origin of your KMS key, use the DescribeKey
+-- operation.
 --
 -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
 -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS

@@ -27,7 +27,7 @@
 --
 -- Adding, deleting, or updating an alias can allow or deny permission to
 -- the KMS key. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html ABAC in KMS>
 -- in the /Key Management Service Developer Guide/.
 --
 -- The current and new KMS key must be the same type (both symmetric or
@@ -49,7 +49,7 @@
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a KMS
@@ -103,7 +103,7 @@ import qualified Amazonka.Response as Response
 data UpdateAlias = UpdateAlias'
   { -- | Identifies the alias that is changing its KMS key. This value must begin
     -- with @alias\/@ followed by the alias name, such as
-    -- @alias\/ExampleAlias@. You cannot use UpdateAlias to change the alias
+    -- @alias\/ExampleAlias@. You cannot use @UpdateAlias@ to change the alias
     -- name.
     aliasName :: Prelude.Text,
     -- | Identifies the
@@ -145,7 +145,7 @@ data UpdateAlias = UpdateAlias'
 --
 -- 'aliasName', 'updateAlias_aliasName' - Identifies the alias that is changing its KMS key. This value must begin
 -- with @alias\/@ followed by the alias name, such as
--- @alias\/ExampleAlias@. You cannot use UpdateAlias to change the alias
+-- @alias\/ExampleAlias@. You cannot use @UpdateAlias@ to change the alias
 -- name.
 --
 -- 'targetKeyId', 'updateAlias_targetKeyId' - Identifies the
@@ -187,7 +187,7 @@ newUpdateAlias pAliasName_ pTargetKeyId_ =
 
 -- | Identifies the alias that is changing its KMS key. This value must begin
 -- with @alias\/@ followed by the alias name, such as
--- @alias\/ExampleAlias@. You cannot use UpdateAlias to change the alias
+-- @alias\/ExampleAlias@. You cannot use @UpdateAlias@ to change the alias
 -- name.
 updateAlias_aliasName :: Lens.Lens' UpdateAlias Prelude.Text
 updateAlias_aliasName = Lens.lens (\UpdateAlias' {aliasName} -> aliasName) (\s@UpdateAlias' {} a -> s {aliasName = a} :: UpdateAlias)

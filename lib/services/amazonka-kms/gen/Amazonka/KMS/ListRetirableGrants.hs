@@ -30,7 +30,7 @@
 -- grant, use the RetireGrant operation.
 --
 -- For detailed information about grants, including grant terminology, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Using grants>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants in KMS>
 -- in the //Key Management Service Developer Guide// . For examples of
 -- working with grants in several programming languages, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html Programming grants>.
@@ -54,6 +54,8 @@
 -- -   RetireGrant
 --
 -- -   RevokeGrant
+--
+-- This operation returns paginated results.
 module Amazonka.KMS.ListRetirableGrants
   ( -- * Creating a Request
     ListRetirableGrants (..),
@@ -182,6 +184,25 @@ listRetirableGrants_limit = Lens.lens (\ListRetirableGrants' {limit} -> limit) (
 -- Reference/.
 listRetirableGrants_retiringPrincipal :: Lens.Lens' ListRetirableGrants Prelude.Text
 listRetirableGrants_retiringPrincipal = Lens.lens (\ListRetirableGrants' {retiringPrincipal} -> retiringPrincipal) (\s@ListRetirableGrants' {} a -> s {retiringPrincipal = a} :: ListRetirableGrants)
+
+instance Core.AWSPager ListRetirableGrants where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listGrantsResponse_truncated Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? listGrantsResponse_nextMarker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listRetirableGrants_marker
+          Lens..~ rs
+          Lens.^? listGrantsResponse_nextMarker Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRetirableGrants where
   type

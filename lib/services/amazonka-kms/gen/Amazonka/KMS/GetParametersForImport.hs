@@ -20,22 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the items you need to import key material into a symmetric,
--- customer managed KMS key. For more information about importing key
--- material into KMS, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
+-- Returns the items you need to import key material into a symmetric
+-- encryption KMS key. For more information about importing key material
+-- into KMS, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing key material>
 -- in the /Key Management Service Developer Guide/.
 --
 -- This operation returns a public key and an import token. Use the public
 -- key to encrypt the symmetric key material. Store the import token to
 -- send with a subsequent ImportKeyMaterial request.
 --
--- You must specify the key ID of the symmetric KMS key into which you will
--- import key material. This KMS key\'s @Origin@ must be @EXTERNAL@. You
--- must also specify the wrapping algorithm and type of wrapping key
--- (public key) that you will use to encrypt the key material. You cannot
--- perform this operation on an asymmetric KMS key or on any KMS key in a
--- different Amazon Web Services account.
+-- You must specify the key ID of the symmetric encryption KMS key into
+-- which you will import key material. This KMS key\'s @Origin@ must be
+-- @EXTERNAL@. You must also specify the wrapping algorithm and type of
+-- wrapping key (public key) that you will use to encrypt the key material.
+-- You cannot perform this operation on an asymmetric KMS key, an HMAC KMS
+-- key, or on any KMS key in a different Amazon Web Services account.
 --
 -- To import key material, you must use the public key and import token
 -- from the same response. These items are valid for 24 hours. The
@@ -46,7 +46,7 @@
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a KMS
@@ -93,8 +93,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetParametersForImport' smart constructor.
 data GetParametersForImport = GetParametersForImport'
-  { -- | The identifier of the symmetric KMS key into which you will import key
-    -- material. The @Origin@ of the KMS key must be @EXTERNAL@.
+  { -- | The identifier of the symmetric encryption KMS key into which you will
+    -- import key material. The @Origin@ of the KMS key must be @EXTERNAL@.
     --
     -- Specify the key ID or key ARN of the KMS key.
     --
@@ -127,8 +127,8 @@ data GetParametersForImport = GetParametersForImport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'getParametersForImport_keyId' - The identifier of the symmetric KMS key into which you will import key
--- material. The @Origin@ of the KMS key must be @EXTERNAL@.
+-- 'keyId', 'getParametersForImport_keyId' - The identifier of the symmetric encryption KMS key into which you will
+-- import key material. The @Origin@ of the KMS key must be @EXTERNAL@.
 --
 -- Specify the key ID or key ARN of the KMS key.
 --
@@ -167,8 +167,8 @@ newGetParametersForImport
         wrappingKeySpec = pWrappingKeySpec_
       }
 
--- | The identifier of the symmetric KMS key into which you will import key
--- material. The @Origin@ of the KMS key must be @EXTERNAL@.
+-- | The identifier of the symmetric encryption KMS key into which you will
+-- import key material. The @Origin@ of the KMS key must be @EXTERNAL@.
 --
 -- Specify the key ID or key ARN of the KMS key.
 --

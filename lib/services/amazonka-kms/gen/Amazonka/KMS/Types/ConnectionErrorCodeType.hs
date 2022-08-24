@@ -22,6 +22,7 @@ module Amazonka.KMS.Types.ConnectionErrorCodeType
       ( ..,
         ConnectionErrorCodeType_CLUSTER_NOT_FOUND,
         ConnectionErrorCodeType_INSUFFICIENT_CLOUDHSM_HSMS,
+        ConnectionErrorCodeType_INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET,
         ConnectionErrorCodeType_INTERNAL_ERROR,
         ConnectionErrorCodeType_INVALID_CREDENTIALS,
         ConnectionErrorCodeType_NETWORK_ERRORS,
@@ -70,6 +71,9 @@ pattern ConnectionErrorCodeType_CLUSTER_NOT_FOUND = ConnectionErrorCodeType' "CL
 pattern ConnectionErrorCodeType_INSUFFICIENT_CLOUDHSM_HSMS :: ConnectionErrorCodeType
 pattern ConnectionErrorCodeType_INSUFFICIENT_CLOUDHSM_HSMS = ConnectionErrorCodeType' "INSUFFICIENT_CLOUDHSM_HSMS"
 
+pattern ConnectionErrorCodeType_INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET :: ConnectionErrorCodeType
+pattern ConnectionErrorCodeType_INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET = ConnectionErrorCodeType' "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET"
+
 pattern ConnectionErrorCodeType_INTERNAL_ERROR :: ConnectionErrorCodeType
 pattern ConnectionErrorCodeType_INTERNAL_ERROR = ConnectionErrorCodeType' "INTERNAL_ERROR"
 
@@ -94,6 +98,7 @@ pattern ConnectionErrorCodeType_USER_NOT_FOUND = ConnectionErrorCodeType' "USER_
 {-# COMPLETE
   ConnectionErrorCodeType_CLUSTER_NOT_FOUND,
   ConnectionErrorCodeType_INSUFFICIENT_CLOUDHSM_HSMS,
+  ConnectionErrorCodeType_INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET,
   ConnectionErrorCodeType_INTERNAL_ERROR,
   ConnectionErrorCodeType_INVALID_CREDENTIALS,
   ConnectionErrorCodeType_NETWORK_ERRORS,

@@ -31,9 +31,9 @@
 -- of a ciphertext.
 --
 -- The @ReEncrypt@ operation can decrypt ciphertext that was encrypted by
--- using an KMS KMS key in an KMS operation, such as Encrypt or
--- GenerateDataKey. It can also decrypt ciphertext that was encrypted by
--- using the public key of an
+-- using a KMS key in an KMS operation, such as Encrypt or GenerateDataKey.
+-- It can also decrypt ciphertext that was encrypted by using the public
+-- key of an
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks asymmetric KMS key>
 -- outside of KMS. However, it cannot decrypt ciphertext produced by other
 -- libraries, such as the
@@ -52,25 +52,24 @@
 --     algorithm that was used. This information is required to decrypt the
 --     data.
 --
--- -   If your ciphertext was encrypted under a symmetric KMS key, the
---     @SourceKeyId@ parameter is optional. KMS can get this information
---     from metadata that it adds to the symmetric ciphertext blob. This
---     feature adds durability to your implementation by ensuring that
---     authorized users can decrypt ciphertext decades after it was
---     encrypted, even if they\'ve lost track of the key ID. However,
---     specifying the source KMS key is always recommended as a best
---     practice. When you use the @SourceKeyId@ parameter to specify a KMS
---     key, KMS uses only the KMS key you specify. If the ciphertext was
---     encrypted under a different KMS key, the @ReEncrypt@ operation
+-- -   If your ciphertext was encrypted under a symmetric encryption KMS
+--     key, the @SourceKeyId@ parameter is optional. KMS can get this
+--     information from metadata that it adds to the symmetric ciphertext
+--     blob. This feature adds durability to your implementation by
+--     ensuring that authorized users can decrypt ciphertext decades after
+--     it was encrypted, even if they\'ve lost track of the key ID.
+--     However, specifying the source KMS key is always recommended as a
+--     best practice. When you use the @SourceKeyId@ parameter to specify a
+--     KMS key, KMS uses only the KMS key you specify. If the ciphertext
+--     was encrypted under a different KMS key, the @ReEncrypt@ operation
 --     fails. This practice ensures that you use the KMS key that you
 --     intend.
 --
 -- -   To reencrypt the data, you must use the @DestinationKeyId@ parameter
 --     specify the KMS key that re-encrypts the data after it is decrypted.
---     You can select a symmetric or asymmetric KMS key. If the destination
---     KMS key is an asymmetric KMS key, you must also provide the
---     encryption algorithm. The algorithm that you choose must be
---     compatible with the KMS key.
+--     If the destination KMS key is an asymmetric KMS key, you must also
+--     provide the encryption algorithm. The algorithm that you choose must
+--     be compatible with the KMS key.
 --
 --     When you use an asymmetric KMS key to encrypt or reencrypt data, be
 --     sure to record the KMS key and encryption algorithm that you choose.
@@ -80,14 +79,15 @@
 --     fails.
 --
 --     You are not required to supply the key ID and encryption algorithm
---     when you decrypt with symmetric KMS keys because KMS stores this
---     information in the ciphertext blob. KMS cannot store metadata in
---     ciphertext generated with asymmetric keys. The standard format for
---     asymmetric key ciphertext does not include configurable fields.
+--     when you decrypt with symmetric encryption KMS keys because KMS
+--     stores this information in the ciphertext blob. KMS cannot store
+--     metadata in ciphertext generated with asymmetric keys. The standard
+--     format for asymmetric key ciphertext does not include configurable
+--     fields.
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: Yes. The source KMS key and destination KMS key
@@ -159,14 +159,17 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newReEncrypt' smart constructor.
 data ReEncrypt = ReEncrypt'
   { -- | Specifies the KMS key that KMS will use to decrypt the ciphertext before
-    -- it is re-encrypted. Enter a key ID of the KMS key that was used to
-    -- encrypt the ciphertext.
+    -- it is re-encrypted.
+    --
+    -- Enter a key ID of the KMS key that was used to encrypt the ciphertext.
+    -- If you identify a different KMS key, the @ReEncrypt@ operation throws an
+    -- @IncorrectKeyException@.
     --
     -- This parameter is required only when the ciphertext was encrypted under
-    -- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the
-    -- KMS key from metadata that it adds to the symmetric ciphertext blob.
-    -- However, it is always recommended as a best practice. This practice
-    -- ensures that you use the KMS key that you intend.
+    -- an asymmetric KMS key. If you used a symmetric encryption KMS key, KMS
+    -- can get the KMS key from metadata that it adds to the symmetric
+    -- ciphertext blob. However, it is always recommended as a best practice.
+    -- This practice ensures that you use the KMS key that you intend.
     --
     -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
     -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -189,8 +192,8 @@ data ReEncrypt = ReEncrypt'
     sourceKeyId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the encryption algorithm that KMS will use to decrypt the
     -- ciphertext before it is reencrypted. The default value,
-    -- @SYMMETRIC_DEFAULT@, represents the algorithm used for symmetric KMS
-    -- keys.
+    -- @SYMMETRIC_DEFAULT@, represents the algorithm used for symmetric
+    -- encryption KMS keys.
     --
     -- Specify the same algorithm that was used to encrypt the ciphertext. If
     -- you specify a different algorithm, the decrypt attempt fails.
@@ -211,23 +214,25 @@ data ReEncrypt = ReEncrypt'
     -- | Specifies that encryption context to use when the reencrypting the data.
     --
     -- A destination encryption context is valid only when the destination KMS
-    -- key is a symmetric KMS key. The standard ciphertext format for
-    -- asymmetric KMS keys does not include fields for metadata.
+    -- key is a symmetric encryption KMS key. The standard ciphertext format
+    -- for asymmetric KMS keys does not include fields for metadata.
     --
     -- An /encryption context/ is a collection of non-secret key-value pairs
-    -- that represents additional authenticated data. When you use an
-    -- encryption context to encrypt data, you must specify the same (an exact
+    -- that represent additional authenticated data. When you use an encryption
+    -- context to encrypt data, you must specify the same (an exact
     -- case-sensitive match) encryption context to decrypt the data. An
-    -- encryption context is optional when encrypting with a symmetric KMS key,
-    -- but it is highly recommended.
+    -- encryption context is supported only on operations with symmetric
+    -- encryption KMS keys. On operations with symmetric encryption KMS keys,
+    -- an encryption context is optional, but it is strongly recommended.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
     -- in the /Key Management Service Developer Guide/.
     destinationEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Specifies the encryption algorithm that KMS will use to reecrypt the
     -- data after it has decrypted it. The default value, @SYMMETRIC_DEFAULT@,
-    -- represents the encryption algorithm used for symmetric KMS keys.
+    -- represents the encryption algorithm used for symmetric encryption KMS
+    -- keys.
     --
     -- This parameter is required only when the destination KMS key is an
     -- asymmetric KMS key.
@@ -236,22 +241,23 @@ data ReEncrypt = ReEncrypt'
     -- the same encryption context that was used to encrypt the ciphertext.
     --
     -- An /encryption context/ is a collection of non-secret key-value pairs
-    -- that represents additional authenticated data. When you use an
-    -- encryption context to encrypt data, you must specify the same (an exact
+    -- that represent additional authenticated data. When you use an encryption
+    -- context to encrypt data, you must specify the same (an exact
     -- case-sensitive match) encryption context to decrypt the data. An
-    -- encryption context is optional when encrypting with a symmetric KMS key,
-    -- but it is highly recommended.
+    -- encryption context is supported only on operations with symmetric
+    -- encryption KMS keys. On operations with symmetric encryption KMS keys,
+    -- an encryption context is optional, but it is strongly recommended.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
     -- in the /Key Management Service Developer Guide/.
     sourceEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Ciphertext of the data to reencrypt.
     ciphertextBlob :: Core.Base64,
     -- | A unique identifier for the KMS key that is used to reencrypt the data.
-    -- Specify a symmetric or asymmetric KMS key with a @KeyUsage@ value of
-    -- @ENCRYPT_DECRYPT@. To find the @KeyUsage@ value of a KMS key, use the
-    -- DescribeKey operation.
+    -- Specify a symmetric encryption KMS key or an asymmetric KMS key with a
+    -- @KeyUsage@ value of @ENCRYPT_DECRYPT@. To find the @KeyUsage@ value of a
+    -- KMS key, use the DescribeKey operation.
     --
     -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
     -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -284,14 +290,17 @@ data ReEncrypt = ReEncrypt'
 -- for backwards compatibility:
 --
 -- 'sourceKeyId', 'reEncrypt_sourceKeyId' - Specifies the KMS key that KMS will use to decrypt the ciphertext before
--- it is re-encrypted. Enter a key ID of the KMS key that was used to
--- encrypt the ciphertext.
+-- it is re-encrypted.
+--
+-- Enter a key ID of the KMS key that was used to encrypt the ciphertext.
+-- If you identify a different KMS key, the @ReEncrypt@ operation throws an
+-- @IncorrectKeyException@.
 --
 -- This parameter is required only when the ciphertext was encrypted under
--- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the
--- KMS key from metadata that it adds to the symmetric ciphertext blob.
--- However, it is always recommended as a best practice. This practice
--- ensures that you use the KMS key that you intend.
+-- an asymmetric KMS key. If you used a symmetric encryption KMS key, KMS
+-- can get the KMS key from metadata that it adds to the symmetric
+-- ciphertext blob. However, it is always recommended as a best practice.
+-- This practice ensures that you use the KMS key that you intend.
 --
 -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
 -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -314,8 +323,8 @@ data ReEncrypt = ReEncrypt'
 --
 -- 'sourceEncryptionAlgorithm', 'reEncrypt_sourceEncryptionAlgorithm' - Specifies the encryption algorithm that KMS will use to decrypt the
 -- ciphertext before it is reencrypted. The default value,
--- @SYMMETRIC_DEFAULT@, represents the algorithm used for symmetric KMS
--- keys.
+-- @SYMMETRIC_DEFAULT@, represents the algorithm used for symmetric
+-- encryption KMS keys.
 --
 -- Specify the same algorithm that was used to encrypt the ciphertext. If
 -- you specify a different algorithm, the decrypt attempt fails.
@@ -336,23 +345,25 @@ data ReEncrypt = ReEncrypt'
 -- 'destinationEncryptionContext', 'reEncrypt_destinationEncryptionContext' - Specifies that encryption context to use when the reencrypting the data.
 --
 -- A destination encryption context is valid only when the destination KMS
--- key is a symmetric KMS key. The standard ciphertext format for
--- asymmetric KMS keys does not include fields for metadata.
+-- key is a symmetric encryption KMS key. The standard ciphertext format
+-- for asymmetric KMS keys does not include fields for metadata.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'destinationEncryptionAlgorithm', 'reEncrypt_destinationEncryptionAlgorithm' - Specifies the encryption algorithm that KMS will use to reecrypt the
 -- data after it has decrypted it. The default value, @SYMMETRIC_DEFAULT@,
--- represents the encryption algorithm used for symmetric KMS keys.
+-- represents the encryption algorithm used for symmetric encryption KMS
+-- keys.
 --
 -- This parameter is required only when the destination KMS key is an
 -- asymmetric KMS key.
@@ -361,14 +372,15 @@ data ReEncrypt = ReEncrypt'
 -- the same encryption context that was used to encrypt the ciphertext.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'ciphertextBlob', 'reEncrypt_ciphertextBlob' - Ciphertext of the data to reencrypt.--
@@ -378,9 +390,9 @@ data ReEncrypt = ReEncrypt'
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'destinationKeyId', 'reEncrypt_destinationKeyId' - A unique identifier for the KMS key that is used to reencrypt the data.
--- Specify a symmetric or asymmetric KMS key with a @KeyUsage@ value of
--- @ENCRYPT_DECRYPT@. To find the @KeyUsage@ value of a KMS key, use the
--- DescribeKey operation.
+-- Specify a symmetric encryption KMS key or an asymmetric KMS key with a
+-- @KeyUsage@ value of @ENCRYPT_DECRYPT@. To find the @KeyUsage@ value of a
+-- KMS key, use the DescribeKey operation.
 --
 -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
 -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -420,14 +432,17 @@ newReEncrypt pCiphertextBlob_ pDestinationKeyId_ =
     }
 
 -- | Specifies the KMS key that KMS will use to decrypt the ciphertext before
--- it is re-encrypted. Enter a key ID of the KMS key that was used to
--- encrypt the ciphertext.
+-- it is re-encrypted.
+--
+-- Enter a key ID of the KMS key that was used to encrypt the ciphertext.
+-- If you identify a different KMS key, the @ReEncrypt@ operation throws an
+-- @IncorrectKeyException@.
 --
 -- This parameter is required only when the ciphertext was encrypted under
--- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the
--- KMS key from metadata that it adds to the symmetric ciphertext blob.
--- However, it is always recommended as a best practice. This practice
--- ensures that you use the KMS key that you intend.
+-- an asymmetric KMS key. If you used a symmetric encryption KMS key, KMS
+-- can get the KMS key from metadata that it adds to the symmetric
+-- ciphertext blob. However, it is always recommended as a best practice.
+-- This practice ensures that you use the KMS key that you intend.
 --
 -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
 -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -452,8 +467,8 @@ reEncrypt_sourceKeyId = Lens.lens (\ReEncrypt' {sourceKeyId} -> sourceKeyId) (\s
 
 -- | Specifies the encryption algorithm that KMS will use to decrypt the
 -- ciphertext before it is reencrypted. The default value,
--- @SYMMETRIC_DEFAULT@, represents the algorithm used for symmetric KMS
--- keys.
+-- @SYMMETRIC_DEFAULT@, represents the algorithm used for symmetric
+-- encryption KMS keys.
 --
 -- Specify the same algorithm that was used to encrypt the ciphertext. If
 -- you specify a different algorithm, the decrypt attempt fails.
@@ -478,25 +493,27 @@ reEncrypt_grantTokens = Lens.lens (\ReEncrypt' {grantTokens} -> grantTokens) (\s
 -- | Specifies that encryption context to use when the reencrypting the data.
 --
 -- A destination encryption context is valid only when the destination KMS
--- key is a symmetric KMS key. The standard ciphertext format for
--- asymmetric KMS keys does not include fields for metadata.
+-- key is a symmetric encryption KMS key. The standard ciphertext format
+-- for asymmetric KMS keys does not include fields for metadata.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the /Key Management Service Developer Guide/.
 reEncrypt_destinationEncryptionContext :: Lens.Lens' ReEncrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 reEncrypt_destinationEncryptionContext = Lens.lens (\ReEncrypt' {destinationEncryptionContext} -> destinationEncryptionContext) (\s@ReEncrypt' {} a -> s {destinationEncryptionContext = a} :: ReEncrypt) Prelude.. Lens.mapping Lens.coerced
 
 -- | Specifies the encryption algorithm that KMS will use to reecrypt the
 -- data after it has decrypted it. The default value, @SYMMETRIC_DEFAULT@,
--- represents the encryption algorithm used for symmetric KMS keys.
+-- represents the encryption algorithm used for symmetric encryption KMS
+-- keys.
 --
 -- This parameter is required only when the destination KMS key is an
 -- asymmetric KMS key.
@@ -507,14 +524,15 @@ reEncrypt_destinationEncryptionAlgorithm = Lens.lens (\ReEncrypt' {destinationEn
 -- the same encryption context that was used to encrypt the ciphertext.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the /Key Management Service Developer Guide/.
 reEncrypt_sourceEncryptionContext :: Lens.Lens' ReEncrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 reEncrypt_sourceEncryptionContext = Lens.lens (\ReEncrypt' {sourceEncryptionContext} -> sourceEncryptionContext) (\s@ReEncrypt' {} a -> s {sourceEncryptionContext = a} :: ReEncrypt) Prelude.. Lens.mapping Lens.coerced
@@ -528,9 +546,9 @@ reEncrypt_ciphertextBlob :: Lens.Lens' ReEncrypt Prelude.ByteString
 reEncrypt_ciphertextBlob = Lens.lens (\ReEncrypt' {ciphertextBlob} -> ciphertextBlob) (\s@ReEncrypt' {} a -> s {ciphertextBlob = a} :: ReEncrypt) Prelude.. Core._Base64
 
 -- | A unique identifier for the KMS key that is used to reencrypt the data.
--- Specify a symmetric or asymmetric KMS key with a @KeyUsage@ value of
--- @ENCRYPT_DECRYPT@. To find the @KeyUsage@ value of a KMS key, use the
--- DescribeKey operation.
+-- Specify a symmetric encryption KMS key or an asymmetric KMS key with a
+-- @KeyUsage@ value of @ENCRYPT_DECRYPT@. To find the @KeyUsage@ value of a
+-- KMS key, use the DescribeKey operation.
 --
 -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
 -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS

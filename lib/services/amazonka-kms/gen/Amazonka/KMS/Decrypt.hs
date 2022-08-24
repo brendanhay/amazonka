@@ -34,14 +34,14 @@
 -- -   GenerateDataKeyPairWithoutPlaintext
 --
 -- You can use this operation to decrypt ciphertext that was encrypted
--- under a symmetric or asymmetric KMS key. When the KMS key is asymmetric,
--- you must specify the KMS key and the encryption algorithm that was used
--- to encrypt the ciphertext. For information about symmetric and
--- asymmetric KMS keys, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric KMS keys>
+-- under a symmetric encryption KMS key or an asymmetric encryption KMS
+-- key. When the KMS key is asymmetric, you must specify the KMS key and
+-- the encryption algorithm that was used to encrypt the ciphertext. For
+-- information about asymmetric KMS keys, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Asymmetric KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
--- The Decrypt operation also decrypts ciphertext that was encrypted
+-- The @Decrypt@ operation also decrypts ciphertext that was encrypted
 -- outside of KMS by the public key in an KMS asymmetric KMS key. However,
 -- it cannot decrypt ciphertext produced by other libraries, such as the
 -- <https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/ Amazon Web Services Encryption SDK>
@@ -50,16 +50,17 @@
 -- These libraries return a ciphertext format that is incompatible with
 -- KMS.
 --
--- If the ciphertext was encrypted under a symmetric KMS key, the @KeyId@
--- parameter is optional. KMS can get this information from metadata that
--- it adds to the symmetric ciphertext blob. This feature adds durability
--- to your implementation by ensuring that authorized users can decrypt
--- ciphertext decades after it was encrypted, even if they\'ve lost track
--- of the key ID. However, specifying the KMS key is always recommended as
--- a best practice. When you use the @KeyId@ parameter to specify a KMS
--- key, KMS only uses the KMS key you specify. If the ciphertext was
--- encrypted under a different KMS key, the @Decrypt@ operation fails. This
--- practice ensures that you use the KMS key that you intend.
+-- If the ciphertext was encrypted under a symmetric encryption KMS key,
+-- the @KeyId@ parameter is optional. KMS can get this information from
+-- metadata that it adds to the symmetric ciphertext blob. This feature
+-- adds durability to your implementation by ensuring that authorized users
+-- can decrypt ciphertext decades after it was encrypted, even if they\'ve
+-- lost track of the key ID. However, specifying the KMS key is always
+-- recommended as a best practice. When you use the @KeyId@ parameter to
+-- specify a KMS key, KMS only uses the KMS key you specify. If the
+-- ciphertext was encrypted under a different KMS key, the @Decrypt@
+-- operation fails. This practice ensures that you use the KMS key that you
+-- intend.
 --
 -- Whenever possible, use key policies to give users permission to call the
 -- @Decrypt@ operation on a particular KMS key, instead of using IAM
@@ -81,7 +82,7 @@
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: Yes. To perform this operation with a KMS key in
@@ -141,8 +142,8 @@ data Decrypt = Decrypt'
     --
     -- This parameter is required only when the ciphertext was encrypted under
     -- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
-    -- represents the only supported algorithm that is valid for symmetric KMS
-    -- keys.
+    -- represents the only supported algorithm that is valid for symmetric
+    -- encryption KMS keys.
     encryptionAlgorithm :: Prelude.Maybe EncryptionAlgorithmSpec,
     -- | A list of grant tokens.
     --
@@ -154,14 +155,17 @@ data Decrypt = Decrypt'
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
     -- in the /Key Management Service Developer Guide/.
     grantTokens :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a
-    -- key ID of the KMS key that was used to encrypt the ciphertext.
+    -- | Specifies the KMS key that KMS uses to decrypt the ciphertext.
+    --
+    -- Enter a key ID of the KMS key that was used to encrypt the ciphertext.
+    -- If you identify a different KMS key, the @Decrypt@ operation throws an
+    -- @IncorrectKeyException@.
     --
     -- This parameter is required only when the ciphertext was encrypted under
-    -- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the
-    -- KMS key from metadata that it adds to the symmetric ciphertext blob.
-    -- However, it is always recommended as a best practice. This practice
-    -- ensures that you use the KMS key that you intend.
+    -- an asymmetric KMS key. If you used a symmetric encryption KMS key, KMS
+    -- can get the KMS key from metadata that it adds to the symmetric
+    -- ciphertext blob. However, it is always recommended as a best practice.
+    -- This practice ensures that you use the KMS key that you intend.
     --
     -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
     -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -185,18 +189,20 @@ data Decrypt = Decrypt'
     -- | Specifies the encryption context to use when decrypting the data. An
     -- encryption context is valid only for
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
-    -- with a symmetric KMS key. The standard asymmetric encryption algorithms
-    -- that KMS uses do not support an encryption context.
+    -- with a symmetric encryption KMS key. The standard asymmetric encryption
+    -- algorithms and HMAC algorithms that KMS uses do not support an
+    -- encryption context.
     --
     -- An /encryption context/ is a collection of non-secret key-value pairs
-    -- that represents additional authenticated data. When you use an
-    -- encryption context to encrypt data, you must specify the same (an exact
+    -- that represent additional authenticated data. When you use an encryption
+    -- context to encrypt data, you must specify the same (an exact
     -- case-sensitive match) encryption context to decrypt the data. An
-    -- encryption context is optional when encrypting with a symmetric KMS key,
-    -- but it is highly recommended.
+    -- encryption context is supported only on operations with symmetric
+    -- encryption KMS keys. On operations with symmetric encryption KMS keys,
+    -- an encryption context is optional, but it is strongly recommended.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
     -- in the /Key Management Service Developer Guide/.
     encryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Ciphertext to be decrypted. The blob includes metadata.
@@ -219,8 +225,8 @@ data Decrypt = Decrypt'
 --
 -- This parameter is required only when the ciphertext was encrypted under
 -- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
--- represents the only supported algorithm that is valid for symmetric KMS
--- keys.
+-- represents the only supported algorithm that is valid for symmetric
+-- encryption KMS keys.
 --
 -- 'grantTokens', 'decrypt_grantTokens' - A list of grant tokens.
 --
@@ -232,14 +238,17 @@ data Decrypt = Decrypt'
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token>
 -- in the /Key Management Service Developer Guide/.
 --
--- 'keyId', 'decrypt_keyId' - Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a
--- key ID of the KMS key that was used to encrypt the ciphertext.
+-- 'keyId', 'decrypt_keyId' - Specifies the KMS key that KMS uses to decrypt the ciphertext.
+--
+-- Enter a key ID of the KMS key that was used to encrypt the ciphertext.
+-- If you identify a different KMS key, the @Decrypt@ operation throws an
+-- @IncorrectKeyException@.
 --
 -- This parameter is required only when the ciphertext was encrypted under
--- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the
--- KMS key from metadata that it adds to the symmetric ciphertext blob.
--- However, it is always recommended as a best practice. This practice
--- ensures that you use the KMS key that you intend.
+-- an asymmetric KMS key. If you used a symmetric encryption KMS key, KMS
+-- can get the KMS key from metadata that it adds to the symmetric
+-- ciphertext blob. However, it is always recommended as a best practice.
+-- This practice ensures that you use the KMS key that you intend.
 --
 -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
 -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -263,18 +272,20 @@ data Decrypt = Decrypt'
 -- 'encryptionContext', 'decrypt_encryptionContext' - Specifies the encryption context to use when decrypting the data. An
 -- encryption context is valid only for
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
--- with a symmetric KMS key. The standard asymmetric encryption algorithms
--- that KMS uses do not support an encryption context.
+-- with a symmetric encryption KMS key. The standard asymmetric encryption
+-- algorithms and HMAC algorithms that KMS uses do not support an
+-- encryption context.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the /Key Management Service Developer Guide/.
 --
 -- 'ciphertextBlob', 'decrypt_ciphertextBlob' - Ciphertext to be decrypted. The blob includes metadata.--
@@ -303,8 +314,8 @@ newDecrypt pCiphertextBlob_ =
 --
 -- This parameter is required only when the ciphertext was encrypted under
 -- an asymmetric KMS key. The default value, @SYMMETRIC_DEFAULT@,
--- represents the only supported algorithm that is valid for symmetric KMS
--- keys.
+-- represents the only supported algorithm that is valid for symmetric
+-- encryption KMS keys.
 decrypt_encryptionAlgorithm :: Lens.Lens' Decrypt (Prelude.Maybe EncryptionAlgorithmSpec)
 decrypt_encryptionAlgorithm = Lens.lens (\Decrypt' {encryptionAlgorithm} -> encryptionAlgorithm) (\s@Decrypt' {} a -> s {encryptionAlgorithm = a} :: Decrypt)
 
@@ -320,14 +331,17 @@ decrypt_encryptionAlgorithm = Lens.lens (\Decrypt' {encryptionAlgorithm} -> encr
 decrypt_grantTokens :: Lens.Lens' Decrypt (Prelude.Maybe [Prelude.Text])
 decrypt_grantTokens = Lens.lens (\Decrypt' {grantTokens} -> grantTokens) (\s@Decrypt' {} a -> s {grantTokens = a} :: Decrypt) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies the KMS key that KMS uses to decrypt the ciphertext. Enter a
--- key ID of the KMS key that was used to encrypt the ciphertext.
+-- | Specifies the KMS key that KMS uses to decrypt the ciphertext.
+--
+-- Enter a key ID of the KMS key that was used to encrypt the ciphertext.
+-- If you identify a different KMS key, the @Decrypt@ operation throws an
+-- @IncorrectKeyException@.
 --
 -- This parameter is required only when the ciphertext was encrypted under
--- an asymmetric KMS key. If you used a symmetric KMS key, KMS can get the
--- KMS key from metadata that it adds to the symmetric ciphertext blob.
--- However, it is always recommended as a best practice. This practice
--- ensures that you use the KMS key that you intend.
+-- an asymmetric KMS key. If you used a symmetric encryption KMS key, KMS
+-- can get the KMS key from metadata that it adds to the symmetric
+-- ciphertext blob. However, it is always recommended as a best practice.
+-- This practice ensures that you use the KMS key that you intend.
 --
 -- To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN.
 -- When using an alias name, prefix it with @\"alias\/\"@. To specify a KMS
@@ -353,18 +367,20 @@ decrypt_keyId = Lens.lens (\Decrypt' {keyId} -> keyId) (\s@Decrypt' {} a -> s {k
 -- | Specifies the encryption context to use when decrypting the data. An
 -- encryption context is valid only for
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>
--- with a symmetric KMS key. The standard asymmetric encryption algorithms
--- that KMS uses do not support an encryption context.
+-- with a symmetric encryption KMS key. The standard asymmetric encryption
+-- algorithms and HMAC algorithms that KMS uses do not support an
+-- encryption context.
 --
 -- An /encryption context/ is a collection of non-secret key-value pairs
--- that represents additional authenticated data. When you use an
--- encryption context to encrypt data, you must specify the same (an exact
+-- that represent additional authenticated data. When you use an encryption
+-- context to encrypt data, you must specify the same (an exact
 -- case-sensitive match) encryption context to decrypt the data. An
--- encryption context is optional when encrypting with a symmetric KMS key,
--- but it is highly recommended.
+-- encryption context is supported only on operations with symmetric
+-- encryption KMS keys. On operations with symmetric encryption KMS keys,
+-- an encryption context is optional, but it is strongly recommended.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption Context>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context Encryption context>
 -- in the /Key Management Service Developer Guide/.
 decrypt_encryptionContext :: Lens.Lens' Decrypt (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 decrypt_encryptionContext = Lens.lens (\Decrypt' {encryptionContext} -> encryptionContext) (\s@Decrypt' {} a -> s {encryptionContext = a} :: Decrypt) Prelude.. Lens.mapping Lens.coerced

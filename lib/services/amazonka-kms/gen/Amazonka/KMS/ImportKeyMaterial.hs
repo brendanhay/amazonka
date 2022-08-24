@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports key material into an existing symmetric KMS KMS key that was
--- created without key material. After you successfully import key material
--- into a KMS key, you can
+-- Imports key material into an existing symmetric encryption KMS key that
+-- was created without key material. After you successfully import key
+-- material into a KMS key, you can
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material reimport the same key material>
 -- into that KMS key, but you cannot import different key material.
 --
--- You cannot perform this operation on an asymmetric KMS key or on any KMS
--- key in a different Amazon Web Services account. For more information
--- about creating KMS keys with no key material and then importing key
--- material, see
+-- You cannot perform this operation on an asymmetric KMS key, an HMAC KMS
+-- key, or on any KMS key in a different Amazon Web Services account. For
+-- more information about creating KMS keys with no key material and then
+-- importing key material, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
 -- in the /Key Management Service Developer Guide/.
 --
@@ -74,7 +74,7 @@
 --
 -- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key states of KMS keys>
 -- in the /Key Management Service Developer Guide/.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a KMS
@@ -130,10 +130,13 @@ data ImportKeyMaterial = ImportKeyMaterial'
     -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
     -- required.
     validTo :: Prelude.Maybe Core.POSIX,
-    -- | The identifier of the symmetric KMS key that receives the imported key
-    -- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
-    -- same KMS key specified in the @KeyID@ parameter of the corresponding
-    -- GetParametersForImport request.
+    -- | The identifier of the symmetric encryption KMS key that receives the
+    -- imported key material. This must be the same KMS key specified in the
+    -- @KeyID@ parameter of the corresponding GetParametersForImport request.
+    -- The @Origin@ of the KMS key must be @EXTERNAL@. You cannot perform this
+    -- operation on an asymmetric KMS key, an HMAC KMS key, a KMS key in a
+    -- custom key store, or on a KMS key in a different Amazon Web Services
+    -- account
     --
     -- Specify the key ID or key ARN of the KMS key.
     --
@@ -178,10 +181,13 @@ data ImportKeyMaterial = ImportKeyMaterial'
 -- parameter is set to @KEY_MATERIAL_DOES_NOT_EXPIRE@. Otherwise it is
 -- required.
 --
--- 'keyId', 'importKeyMaterial_keyId' - The identifier of the symmetric KMS key that receives the imported key
--- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
--- same KMS key specified in the @KeyID@ parameter of the corresponding
--- GetParametersForImport request.
+-- 'keyId', 'importKeyMaterial_keyId' - The identifier of the symmetric encryption KMS key that receives the
+-- imported key material. This must be the same KMS key specified in the
+-- @KeyID@ parameter of the corresponding GetParametersForImport request.
+-- The @Origin@ of the KMS key must be @EXTERNAL@. You cannot perform this
+-- operation on an asymmetric KMS key, an HMAC KMS key, a KMS key in a
+-- custom key store, or on a KMS key in a different Amazon Web Services
+-- account
 --
 -- Specify the key ID or key ARN of the KMS key.
 --
@@ -248,10 +254,13 @@ importKeyMaterial_expirationModel = Lens.lens (\ImportKeyMaterial' {expirationMo
 importKeyMaterial_validTo :: Lens.Lens' ImportKeyMaterial (Prelude.Maybe Prelude.UTCTime)
 importKeyMaterial_validTo = Lens.lens (\ImportKeyMaterial' {validTo} -> validTo) (\s@ImportKeyMaterial' {} a -> s {validTo = a} :: ImportKeyMaterial) Prelude.. Lens.mapping Core._Time
 
--- | The identifier of the symmetric KMS key that receives the imported key
--- material. The KMS key\'s @Origin@ must be @EXTERNAL@. This must be the
--- same KMS key specified in the @KeyID@ parameter of the corresponding
--- GetParametersForImport request.
+-- | The identifier of the symmetric encryption KMS key that receives the
+-- imported key material. This must be the same KMS key specified in the
+-- @KeyID@ parameter of the corresponding GetParametersForImport request.
+-- The @Origin@ of the KMS key must be @EXTERNAL@. You cannot perform this
+-- operation on an asymmetric KMS key, an HMAC KMS key, a KMS key in a
+-- custom key store, or on a KMS key in a different Amazon Web Services
+-- account
 --
 -- Specify the key ID or key ARN of the KMS key.
 --

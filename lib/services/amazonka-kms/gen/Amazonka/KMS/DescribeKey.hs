@@ -29,14 +29,13 @@
 -- This detailed information includes the key ARN, creation date (and
 -- deletion date, if applicable), the key state, and the origin and
 -- expiration date (if any) of the key material. It includes fields, like
--- @KeySpec@, that help you distinguish symmetric from asymmetric KMS keys.
--- It also provides information that is particularly important to
--- asymmetric keys, such as the key usage (encryption or signing) and the
--- encryption algorithms or signing algorithms that the KMS key supports.
--- For KMS keys in custom key stores, it includes information about the
--- custom key store, such as the key store ID and the CloudHSM cluster ID.
--- For multi-Region keys, it displays the primary key and all related
--- replica keys.
+-- @KeySpec@, that help you distinguish different types of KMS keys. It
+-- also displays the key usage (encryption, signing, or generating and
+-- verifying MACs) and the algorithms that the KMS key supports. For KMS
+-- keys in custom key stores, it includes information about the custom key
+-- store, such as the key store ID and the CloudHSM cluster ID. For
+-- multi-Region keys, it displays the primary key and all related replica
+-- keys.
 --
 -- @DescribeKey@ does not return the following information:
 --
@@ -47,19 +46,18 @@
 --     this information, use GetKeyRotationStatus. Also, some key states
 --     prevent a KMS key from being automatically rotated. For details, see
 --     <https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works How Automatic Key Rotation Works>
---     in /Key Management Service Developer Guide/.
+--     in the /Key Management Service Developer Guide/.
 --
 -- -   Tags on the KMS key. To get this information, use ListResourceTags.
 --
 -- -   Key policies and grants on the KMS key. To get this information, use
 --     GetKeyPolicy and ListGrants.
 --
--- If you call the @DescribeKey@ operation on a /predefined Amazon Web
--- Services alias/, that is, an Amazon Web Services alias with no key ID,
--- KMS creates an
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed key>.
--- Then, it associates the alias with the new KMS key, and returns the
--- @KeyId@ and @Arn@ of the new KMS key in the response.
+-- In general, @DescribeKey@ is a non-mutating operation. It returns data
+-- about KMS keys, but doesn\'t change them. However, Amazon Web Services
+-- services use @DescribeKey@ to create
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk Amazon Web Services managed keys>
+-- from a /predefined Amazon Web Services alias/ with no key ID.
 --
 -- __Cross-account use__: Yes. To perform this operation with a KMS key in
 -- a different Amazon Web Services account, specify the key ARN or alias

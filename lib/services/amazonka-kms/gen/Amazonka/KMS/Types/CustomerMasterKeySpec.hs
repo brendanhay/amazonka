@@ -24,9 +24,14 @@ module Amazonka.KMS.Types.CustomerMasterKeySpec
         CustomerMasterKeySpec_ECC_NIST_P384,
         CustomerMasterKeySpec_ECC_NIST_P521,
         CustomerMasterKeySpec_ECC_SECG_P256K1,
+        CustomerMasterKeySpec_HMAC_224,
+        CustomerMasterKeySpec_HMAC_256,
+        CustomerMasterKeySpec_HMAC_384,
+        CustomerMasterKeySpec_HMAC_512,
         CustomerMasterKeySpec_RSA_2048,
         CustomerMasterKeySpec_RSA_3072,
         CustomerMasterKeySpec_RSA_4096,
+        CustomerMasterKeySpec_SM2,
         CustomerMasterKeySpec_SYMMETRIC_DEFAULT
       ),
   )
@@ -75,6 +80,18 @@ pattern CustomerMasterKeySpec_ECC_NIST_P521 = CustomerMasterKeySpec' "ECC_NIST_P
 pattern CustomerMasterKeySpec_ECC_SECG_P256K1 :: CustomerMasterKeySpec
 pattern CustomerMasterKeySpec_ECC_SECG_P256K1 = CustomerMasterKeySpec' "ECC_SECG_P256K1"
 
+pattern CustomerMasterKeySpec_HMAC_224 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpec_HMAC_224 = CustomerMasterKeySpec' "HMAC_224"
+
+pattern CustomerMasterKeySpec_HMAC_256 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpec_HMAC_256 = CustomerMasterKeySpec' "HMAC_256"
+
+pattern CustomerMasterKeySpec_HMAC_384 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpec_HMAC_384 = CustomerMasterKeySpec' "HMAC_384"
+
+pattern CustomerMasterKeySpec_HMAC_512 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpec_HMAC_512 = CustomerMasterKeySpec' "HMAC_512"
+
 pattern CustomerMasterKeySpec_RSA_2048 :: CustomerMasterKeySpec
 pattern CustomerMasterKeySpec_RSA_2048 = CustomerMasterKeySpec' "RSA_2048"
 
@@ -84,6 +101,9 @@ pattern CustomerMasterKeySpec_RSA_3072 = CustomerMasterKeySpec' "RSA_3072"
 pattern CustomerMasterKeySpec_RSA_4096 :: CustomerMasterKeySpec
 pattern CustomerMasterKeySpec_RSA_4096 = CustomerMasterKeySpec' "RSA_4096"
 
+pattern CustomerMasterKeySpec_SM2 :: CustomerMasterKeySpec
+pattern CustomerMasterKeySpec_SM2 = CustomerMasterKeySpec' "SM2"
+
 pattern CustomerMasterKeySpec_SYMMETRIC_DEFAULT :: CustomerMasterKeySpec
 pattern CustomerMasterKeySpec_SYMMETRIC_DEFAULT = CustomerMasterKeySpec' "SYMMETRIC_DEFAULT"
 
@@ -92,9 +112,14 @@ pattern CustomerMasterKeySpec_SYMMETRIC_DEFAULT = CustomerMasterKeySpec' "SYMMET
   CustomerMasterKeySpec_ECC_NIST_P384,
   CustomerMasterKeySpec_ECC_NIST_P521,
   CustomerMasterKeySpec_ECC_SECG_P256K1,
+  CustomerMasterKeySpec_HMAC_224,
+  CustomerMasterKeySpec_HMAC_256,
+  CustomerMasterKeySpec_HMAC_384,
+  CustomerMasterKeySpec_HMAC_512,
   CustomerMasterKeySpec_RSA_2048,
   CustomerMasterKeySpec_RSA_3072,
   CustomerMasterKeySpec_RSA_4096,
+  CustomerMasterKeySpec_SM2,
   CustomerMasterKeySpec_SYMMETRIC_DEFAULT,
   CustomerMasterKeySpec'
   #-}

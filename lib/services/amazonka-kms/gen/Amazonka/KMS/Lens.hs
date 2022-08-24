@@ -28,10 +28,10 @@ module Amazonka.KMS.Lens
     createAlias_targetKeyId,
 
     -- ** CreateCustomKeyStore
-    createCustomKeyStore_customKeyStoreName,
+    createCustomKeyStore_keyStorePassword,
     createCustomKeyStore_cloudHsmClusterId,
     createCustomKeyStore_trustAnchorCertificate,
-    createCustomKeyStore_keyStorePassword,
+    createCustomKeyStore_customKeyStoreName,
     createCustomKeyStoreResponse_customKeyStoreId,
     createCustomKeyStoreResponse_httpStatus,
 
@@ -168,6 +168,16 @@ module Amazonka.KMS.Lens
     generateDataKeyWithoutPlaintextResponse_ciphertextBlob,
     generateDataKeyWithoutPlaintextResponse_keyId,
     generateDataKeyWithoutPlaintextResponse_httpStatus,
+
+    -- ** GenerateMac
+    generateMac_grantTokens,
+    generateMac_message,
+    generateMac_keyId,
+    generateMac_macAlgorithm,
+    generateMacResponse_macAlgorithm,
+    generateMacResponse_mac,
+    generateMacResponse_keyId,
+    generateMacResponse_httpStatus,
 
     -- ** GenerateRandom
     generateRandom_customKeyStoreId,
@@ -371,6 +381,17 @@ module Amazonka.KMS.Lens
     verifyResponse_keyId,
     verifyResponse_httpStatus,
 
+    -- ** VerifyMac
+    verifyMac_grantTokens,
+    verifyMac_message,
+    verifyMac_keyId,
+    verifyMac_macAlgorithm,
+    verifyMac_mac,
+    verifyMacResponse_macAlgorithm,
+    verifyMacResponse_macValid,
+    verifyMacResponse_keyId,
+    verifyMacResponse_httpStatus,
+
     -- * Types
 
     -- ** AliasListEntry
@@ -428,6 +449,7 @@ module Amazonka.KMS.Lens
     keyMetadata_keyState,
     keyMetadata_deletionDate,
     keyMetadata_origin,
+    keyMetadata_macAlgorithms,
     keyMetadata_signingAlgorithms,
     keyMetadata_validTo,
     keyMetadata_keyId,
@@ -474,6 +496,7 @@ import Amazonka.KMS.GenerateDataKey
 import Amazonka.KMS.GenerateDataKeyPair
 import Amazonka.KMS.GenerateDataKeyPairWithoutPlaintext
 import Amazonka.KMS.GenerateDataKeyWithoutPlaintext
+import Amazonka.KMS.GenerateMac
 import Amazonka.KMS.GenerateRandom
 import Amazonka.KMS.GetKeyPolicy
 import Amazonka.KMS.GetKeyRotationStatus
@@ -510,3 +533,4 @@ import Amazonka.KMS.UpdateCustomKeyStore
 import Amazonka.KMS.UpdateKeyDescription
 import Amazonka.KMS.UpdatePrimaryRegion
 import Amazonka.KMS.Verify
+import Amazonka.KMS.VerifyMac

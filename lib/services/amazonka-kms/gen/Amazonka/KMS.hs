@@ -36,11 +36,20 @@
 -- We recommend that you use the Amazon Web Services SDKs to make
 -- programmatic API calls to KMS.
 --
--- Clients must support TLS (Transport Layer Security) 1.0. We recommend
--- TLS 1.2. Clients must also support cipher suites with Perfect Forward
--- Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve
--- Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java 7 and
--- later support these modes.
+-- If you need to use FIPS 140-2 validated cryptographic modules when
+-- communicating with Amazon Web Services, use the FIPS endpoint in your
+-- preferred Amazon Web Services Region. For more information about the
+-- available FIPS endpoints, see
+-- <https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region Service endpoints>
+-- in the Key Management Service topic of the /Amazon Web Services General
+-- Reference/.
+--
+-- All KMS API calls must be signed and be transmitted using Transport
+-- Layer Security (TLS). KMS recommends you always use the latest supported
+-- TLS version. Clients must also support cipher suites with Perfect
+-- Forward Secrecy (PFS) such as Ephemeral Diffie-Hellman (DHE) or Elliptic
+-- Curve Ephemeral Diffie-Hellman (ECDHE). Most modern systems such as Java
+-- 7 and later support these modes.
 --
 -- __Signing Requests__
 --
@@ -133,6 +142,9 @@ module Amazonka.KMS
 
     -- ** InvalidMarkerException
     _InvalidMarkerException,
+
+    -- ** KMSInvalidMacException
+    _KMSInvalidMacException,
 
     -- ** CloudHsmClusterNotRelatedException
     _CloudHsmClusterNotRelatedException,
@@ -269,7 +281,7 @@ module Amazonka.KMS
     DeleteImportedKeyMaterialResponse (DeleteImportedKeyMaterialResponse'),
     newDeleteImportedKeyMaterialResponse,
 
-    -- ** DescribeCustomKeyStores
+    -- ** DescribeCustomKeyStores (Paginated)
     DescribeCustomKeyStores (DescribeCustomKeyStores'),
     newDescribeCustomKeyStores,
     DescribeCustomKeyStoresResponse (DescribeCustomKeyStoresResponse'),
@@ -341,6 +353,12 @@ module Amazonka.KMS
     GenerateDataKeyWithoutPlaintextResponse (GenerateDataKeyWithoutPlaintextResponse'),
     newGenerateDataKeyWithoutPlaintextResponse,
 
+    -- ** GenerateMac
+    GenerateMac (GenerateMac'),
+    newGenerateMac,
+    GenerateMacResponse (GenerateMacResponse'),
+    newGenerateMacResponse,
+
     -- ** GenerateRandom
     GenerateRandom (GenerateRandom'),
     newGenerateRandom,
@@ -401,13 +419,13 @@ module Amazonka.KMS
     ListKeysResponse (ListKeysResponse'),
     newListKeysResponse,
 
-    -- ** ListResourceTags
+    -- ** ListResourceTags (Paginated)
     ListResourceTags (ListResourceTags'),
     newListResourceTags,
     ListResourceTagsResponse (ListResourceTagsResponse'),
     newListResourceTagsResponse,
 
-    -- ** ListRetirableGrants
+    -- ** ListRetirableGrants (Paginated)
     ListRetirableGrants (ListRetirableGrants'),
     newListRetirableGrants,
     ListGrantsResponse (ListGrantsResponse'),
@@ -497,6 +515,12 @@ module Amazonka.KMS
     VerifyResponse (VerifyResponse'),
     newVerifyResponse,
 
+    -- ** VerifyMac
+    VerifyMac (VerifyMac'),
+    newVerifyMac,
+    VerifyMacResponse (VerifyMacResponse'),
+    newVerifyMacResponse,
+
     -- * Types
 
     -- ** AlgorithmSpec
@@ -537,6 +561,9 @@ module Amazonka.KMS
 
     -- ** KeyUsageType
     KeyUsageType (..),
+
+    -- ** MacAlgorithmSpec
+    MacAlgorithmSpec (..),
 
     -- ** MessageType
     MessageType (..),
@@ -617,6 +644,7 @@ import Amazonka.KMS.GenerateDataKey
 import Amazonka.KMS.GenerateDataKeyPair
 import Amazonka.KMS.GenerateDataKeyPairWithoutPlaintext
 import Amazonka.KMS.GenerateDataKeyWithoutPlaintext
+import Amazonka.KMS.GenerateMac
 import Amazonka.KMS.GenerateRandom
 import Amazonka.KMS.GetKeyPolicy
 import Amazonka.KMS.GetKeyRotationStatus
@@ -645,6 +673,7 @@ import Amazonka.KMS.UpdateCustomKeyStore
 import Amazonka.KMS.UpdateKeyDescription
 import Amazonka.KMS.UpdatePrimaryRegion
 import Amazonka.KMS.Verify
+import Amazonka.KMS.VerifyMac
 import Amazonka.KMS.Waiters
 
 -- $errors

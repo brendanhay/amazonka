@@ -11,18 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.KMS.Types.KeyUsageType
+-- Module      : Amazonka.KMS.Types.MacAlgorithmSpec
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.KMS.Types.KeyUsageType
-  ( KeyUsageType
+module Amazonka.KMS.Types.MacAlgorithmSpec
+  ( MacAlgorithmSpec
       ( ..,
-        KeyUsageType_ENCRYPT_DECRYPT,
-        KeyUsageType_GENERATE_VERIFY_MAC,
-        KeyUsageType_SIGN_VERIFY
+        MacAlgorithmSpec_HMAC_SHA_224,
+        MacAlgorithmSpec_HMAC_SHA_256,
+        MacAlgorithmSpec_HMAC_SHA_384,
+        MacAlgorithmSpec_HMAC_SHA_512
       ),
   )
 where
@@ -30,8 +31,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype KeyUsageType = KeyUsageType'
-  { fromKeyUsageType ::
+newtype MacAlgorithmSpec = MacAlgorithmSpec'
+  { fromMacAlgorithmSpec ::
       Core.Text
   }
   deriving stock
@@ -58,18 +59,22 @@ newtype KeyUsageType = KeyUsageType'
       Core.ToXML
     )
 
-pattern KeyUsageType_ENCRYPT_DECRYPT :: KeyUsageType
-pattern KeyUsageType_ENCRYPT_DECRYPT = KeyUsageType' "ENCRYPT_DECRYPT"
+pattern MacAlgorithmSpec_HMAC_SHA_224 :: MacAlgorithmSpec
+pattern MacAlgorithmSpec_HMAC_SHA_224 = MacAlgorithmSpec' "HMAC_SHA_224"
 
-pattern KeyUsageType_GENERATE_VERIFY_MAC :: KeyUsageType
-pattern KeyUsageType_GENERATE_VERIFY_MAC = KeyUsageType' "GENERATE_VERIFY_MAC"
+pattern MacAlgorithmSpec_HMAC_SHA_256 :: MacAlgorithmSpec
+pattern MacAlgorithmSpec_HMAC_SHA_256 = MacAlgorithmSpec' "HMAC_SHA_256"
 
-pattern KeyUsageType_SIGN_VERIFY :: KeyUsageType
-pattern KeyUsageType_SIGN_VERIFY = KeyUsageType' "SIGN_VERIFY"
+pattern MacAlgorithmSpec_HMAC_SHA_384 :: MacAlgorithmSpec
+pattern MacAlgorithmSpec_HMAC_SHA_384 = MacAlgorithmSpec' "HMAC_SHA_384"
+
+pattern MacAlgorithmSpec_HMAC_SHA_512 :: MacAlgorithmSpec
+pattern MacAlgorithmSpec_HMAC_SHA_512 = MacAlgorithmSpec' "HMAC_SHA_512"
 
 {-# COMPLETE
-  KeyUsageType_ENCRYPT_DECRYPT,
-  KeyUsageType_GENERATE_VERIFY_MAC,
-  KeyUsageType_SIGN_VERIFY,
-  KeyUsageType'
+  MacAlgorithmSpec_HMAC_SHA_224,
+  MacAlgorithmSpec_HMAC_SHA_256,
+  MacAlgorithmSpec_HMAC_SHA_384,
+  MacAlgorithmSpec_HMAC_SHA_512,
+  MacAlgorithmSpec'
   #-}

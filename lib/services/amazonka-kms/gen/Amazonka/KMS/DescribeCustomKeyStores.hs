@@ -25,7 +25,7 @@
 -- in the account and Region.
 --
 -- This operation is part of the
--- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store feature>
 -- feature in KMS, which combines the convenience and extensive integration
 -- of KMS with the isolation and control of a single-tenant key store.
 --
@@ -70,6 +70,8 @@
 -- -   DisconnectCustomKeyStore
 --
 -- -   UpdateCustomKeyStore
+--
+-- This operation returns paginated results.
 module Amazonka.KMS.DescribeCustomKeyStores
   ( -- * Creating a Request
     DescribeCustomKeyStores (..),
@@ -201,6 +203,28 @@ describeCustomKeyStores_limit = Lens.lens (\DescribeCustomKeyStores' {limit} -> 
 -- @CustomKeyStoreName@ parameter, but not both.
 describeCustomKeyStores_customKeyStoreName :: Lens.Lens' DescribeCustomKeyStores (Prelude.Maybe Prelude.Text)
 describeCustomKeyStores_customKeyStoreName = Lens.lens (\DescribeCustomKeyStores' {customKeyStoreName} -> customKeyStoreName) (\s@DescribeCustomKeyStores' {} a -> s {customKeyStoreName = a} :: DescribeCustomKeyStores)
+
+instance Core.AWSPager DescribeCustomKeyStores where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeCustomKeyStoresResponse_truncated
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.isNothing
+        ( rs
+            Lens.^? describeCustomKeyStoresResponse_nextMarker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeCustomKeyStores_marker
+          Lens..~ rs
+          Lens.^? describeCustomKeyStoresResponse_nextMarker
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest DescribeCustomKeyStores where
   type

@@ -44,51 +44,8 @@ library
 
   exposed-modules:
     Amazonka.WorkLink
-    Amazonka.WorkLink.AssociateDomain
-    Amazonka.WorkLink.AssociateWebsiteAuthorizationProvider
-    Amazonka.WorkLink.AssociateWebsiteCertificateAuthority
-    Amazonka.WorkLink.CreateFleet
-    Amazonka.WorkLink.DeleteFleet
-    Amazonka.WorkLink.DescribeAuditStreamConfiguration
-    Amazonka.WorkLink.DescribeCompanyNetworkConfiguration
-    Amazonka.WorkLink.DescribeDevice
-    Amazonka.WorkLink.DescribeDevicePolicyConfiguration
-    Amazonka.WorkLink.DescribeDomain
-    Amazonka.WorkLink.DescribeFleetMetadata
-    Amazonka.WorkLink.DescribeIdentityProviderConfiguration
-    Amazonka.WorkLink.DescribeWebsiteCertificateAuthority
-    Amazonka.WorkLink.DisassociateDomain
-    Amazonka.WorkLink.DisassociateWebsiteAuthorizationProvider
-    Amazonka.WorkLink.DisassociateWebsiteCertificateAuthority
     Amazonka.WorkLink.Lens
-    Amazonka.WorkLink.ListDevices
-    Amazonka.WorkLink.ListDomains
-    Amazonka.WorkLink.ListFleets
-    Amazonka.WorkLink.ListTagsForResource
-    Amazonka.WorkLink.ListWebsiteAuthorizationProviders
-    Amazonka.WorkLink.ListWebsiteCertificateAuthorities
-    Amazonka.WorkLink.RestoreDomainAccess
-    Amazonka.WorkLink.RevokeDomainAccess
-    Amazonka.WorkLink.SignOutUser
-    Amazonka.WorkLink.TagResource
     Amazonka.WorkLink.Types
-    Amazonka.WorkLink.Types.AuthorizationProviderType
-    Amazonka.WorkLink.Types.DeviceStatus
-    Amazonka.WorkLink.Types.DeviceSummary
-    Amazonka.WorkLink.Types.DomainStatus
-    Amazonka.WorkLink.Types.DomainSummary
-    Amazonka.WorkLink.Types.FleetStatus
-    Amazonka.WorkLink.Types.FleetSummary
-    Amazonka.WorkLink.Types.IdentityProviderType
-    Amazonka.WorkLink.Types.WebsiteAuthorizationProviderSummary
-    Amazonka.WorkLink.Types.WebsiteCaSummary
-    Amazonka.WorkLink.UntagResource
-    Amazonka.WorkLink.UpdateAuditStreamConfiguration
-    Amazonka.WorkLink.UpdateCompanyNetworkConfiguration
-    Amazonka.WorkLink.UpdateDevicePolicyConfiguration
-    Amazonka.WorkLink.UpdateDomainMetadata
-    Amazonka.WorkLink.UpdateFleetMetadata
-    Amazonka.WorkLink.UpdateIdentityProviderConfiguration
     Amazonka.WorkLink.Waiters
 
   build-depends:

@@ -69,7 +69,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStackSets' smart constructor.
 data ListStackSets = ListStackSets'
-  { -- | If the previous paginated request didn\'t return all of the remaining
+  { -- | If the previous paginated request didn\'t return all the remaining
     -- results, the response object\'s @NextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call @ListStackSets@ again
     -- and assign that token to the request object\'s @NextToken@ parameter. If
@@ -112,7 +112,7 @@ data ListStackSets = ListStackSets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStackSets_nextToken' - If the previous paginated request didn\'t return all of the remaining
+-- 'nextToken', 'listStackSets_nextToken' - If the previous paginated request didn\'t return all the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call @ListStackSets@ again
 -- and assign that token to the request object\'s @NextToken@ parameter. If
@@ -153,7 +153,7 @@ newListStackSets =
       maxResults = Prelude.Nothing
     }
 
--- | If the previous paginated request didn\'t return all of the remaining
+-- | If the previous paginated request didn\'t return all the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call @ListStackSets@ again
 -- and assign that token to the request object\'s @NextToken@ parameter. If

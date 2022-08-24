@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newStackInstanceComprehensiveStatus' smart constructor.
 data StackInstanceComprehensiveStatus = StackInstanceComprehensiveStatus'
   { -- | -   @CANCELLED@: The operation in the specified account and Region has
-    --     been cancelled. This is either because a user has stopped the stack
+    --     been canceled. This is either because a user has stopped the stack
     --     set operation, or because the failure tolerance of the stack set
     --     operation has been exceeded.
     --
@@ -66,7 +66,7 @@ data StackInstanceComprehensiveStatus = StackInstanceComprehensiveStatus'
 -- for backwards compatibility:
 --
 -- 'detailedStatus', 'stackInstanceComprehensiveStatus_detailedStatus' - -   @CANCELLED@: The operation in the specified account and Region has
---     been cancelled. This is either because a user has stopped the stack
+--     been canceled. This is either because a user has stopped the stack
 --     set operation, or because the failure tolerance of the stack set
 --     operation has been exceeded.
 --
@@ -99,7 +99,7 @@ newStackInstanceComprehensiveStatus =
     }
 
 -- | -   @CANCELLED@: The operation in the specified account and Region has
---     been cancelled. This is either because a user has stopped the stack
+--     been canceled. This is either because a user has stopped the stack
 --     set operation, or because the failure tolerance of the stack set
 --     operation has been exceeded.
 --

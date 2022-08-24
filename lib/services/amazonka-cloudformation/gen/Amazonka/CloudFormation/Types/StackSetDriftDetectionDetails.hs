@@ -29,13 +29,13 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For stack sets, contains information about the last /completed/ drift
 -- operation performed on the stack set. Information about drift operations
--- in-progress is not included.
+-- in-progress isn\'t included.
 --
 -- For stack set operations, includes information about drift operations
 -- currently being performed on the stack set.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting unmanaged changes in stack sets>
 -- in the /CloudFormation User Guide/.
 --
 -- /See:/ 'newStackSetDriftDetectionDetails' smart constructor.
@@ -49,7 +49,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
     -- | The number of stack instances that have drifted from the expected
     -- template and parameter configuration of the stack set. A stack instance
     -- is considered to have drifted if one or more of the resources in the
-    -- associated stack do not match their expected configuration.
+    -- associated stack don\'t match their expected configuration.
     driftedStackInstancesCount :: Prelude.Maybe Prelude.Natural,
     -- | The status of the stack set drift detection operation.
     --
@@ -65,7 +65,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
     -- -   @IN_PROGRESS@: The drift detection operation is currently being
     --     performed.
     --
-    -- -   @STOPPED@: The user has cancelled the drift detection operation.
+    -- -   @STOPPED@: The user has canceled the drift detection operation.
     driftDetectionStatus :: Prelude.Maybe StackSetDriftDetectionStatus,
     -- | Status of the stack set\'s actual configuration compared to its expected
     -- template and parameter configuration. A stack set is considered to have
@@ -77,7 +77,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
     --     configuration. A stack instance is considered to have drifted if one
     --     or more of the resources in the associated stack have drifted.
     --
-    -- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
+    -- -   @NOT_CHECKED@: CloudFormation hasn\'t checked the stack set for
     --     drift.
     --
     -- -   @IN_SYNC@: All of the stack instances belonging to the stack set
@@ -100,7 +100,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
     inSyncStackInstancesCount :: Prelude.Maybe Prelude.Natural,
     -- | Most recent time when CloudFormation performed a drift detection
     -- operation on the stack set. This value will be @NULL@ for any stack set
-    -- on which drift detection has not yet been performed.
+    -- on which drift detection hasn\'t yet been performed.
     lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -122,7 +122,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
 -- 'driftedStackInstancesCount', 'stackSetDriftDetectionDetails_driftedStackInstancesCount' - The number of stack instances that have drifted from the expected
 -- template and parameter configuration of the stack set. A stack instance
 -- is considered to have drifted if one or more of the resources in the
--- associated stack do not match their expected configuration.
+-- associated stack don\'t match their expected configuration.
 --
 -- 'driftDetectionStatus', 'stackSetDriftDetectionDetails_driftDetectionStatus' - The status of the stack set drift detection operation.
 --
@@ -138,7 +138,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
 -- -   @IN_PROGRESS@: The drift detection operation is currently being
 --     performed.
 --
--- -   @STOPPED@: The user has cancelled the drift detection operation.
+-- -   @STOPPED@: The user has canceled the drift detection operation.
 --
 -- 'driftStatus', 'stackSetDriftDetectionDetails_driftStatus' - Status of the stack set\'s actual configuration compared to its expected
 -- template and parameter configuration. A stack set is considered to have
@@ -150,7 +150,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
 --     configuration. A stack instance is considered to have drifted if one
 --     or more of the resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked the stack set for
 --     drift.
 --
 -- -   @IN_SYNC@: All of the stack instances belonging to the stack set
@@ -173,7 +173,7 @@ data StackSetDriftDetectionDetails = StackSetDriftDetectionDetails'
 --
 -- 'lastDriftCheckTimestamp', 'stackSetDriftDetectionDetails_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
 -- operation on the stack set. This value will be @NULL@ for any stack set
--- on which drift detection has not yet been performed.
+-- on which drift detection hasn\'t yet been performed.
 newStackSetDriftDetectionDetails ::
   StackSetDriftDetectionDetails
 newStackSetDriftDetectionDetails =
@@ -202,7 +202,7 @@ stackSetDriftDetectionDetails_failedStackInstancesCount = Lens.lens (\StackSetDr
 -- | The number of stack instances that have drifted from the expected
 -- template and parameter configuration of the stack set. A stack instance
 -- is considered to have drifted if one or more of the resources in the
--- associated stack do not match their expected configuration.
+-- associated stack don\'t match their expected configuration.
 stackSetDriftDetectionDetails_driftedStackInstancesCount :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.Natural)
 stackSetDriftDetectionDetails_driftedStackInstancesCount = Lens.lens (\StackSetDriftDetectionDetails' {driftedStackInstancesCount} -> driftedStackInstancesCount) (\s@StackSetDriftDetectionDetails' {} a -> s {driftedStackInstancesCount = a} :: StackSetDriftDetectionDetails)
 
@@ -220,7 +220,7 @@ stackSetDriftDetectionDetails_driftedStackInstancesCount = Lens.lens (\StackSetD
 -- -   @IN_PROGRESS@: The drift detection operation is currently being
 --     performed.
 --
--- -   @STOPPED@: The user has cancelled the drift detection operation.
+-- -   @STOPPED@: The user has canceled the drift detection operation.
 stackSetDriftDetectionDetails_driftDetectionStatus :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe StackSetDriftDetectionStatus)
 stackSetDriftDetectionDetails_driftDetectionStatus = Lens.lens (\StackSetDriftDetectionDetails' {driftDetectionStatus} -> driftDetectionStatus) (\s@StackSetDriftDetectionDetails' {} a -> s {driftDetectionStatus = a} :: StackSetDriftDetectionDetails)
 
@@ -234,7 +234,7 @@ stackSetDriftDetectionDetails_driftDetectionStatus = Lens.lens (\StackSetDriftDe
 --     configuration. A stack instance is considered to have drifted if one
 --     or more of the resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked the stack set for
 --     drift.
 --
 -- -   @IN_SYNC@: All of the stack instances belonging to the stack set
@@ -263,7 +263,7 @@ stackSetDriftDetectionDetails_inSyncStackInstancesCount = Lens.lens (\StackSetDr
 
 -- | Most recent time when CloudFormation performed a drift detection
 -- operation on the stack set. This value will be @NULL@ for any stack set
--- on which drift detection has not yet been performed.
+-- on which drift detection hasn\'t yet been performed.
 stackSetDriftDetectionDetails_lastDriftCheckTimestamp :: Lens.Lens' StackSetDriftDetectionDetails (Prelude.Maybe Prelude.UTCTime)
 stackSetDriftDetectionDetails_lastDriftCheckTimestamp = Lens.lens (\StackSetDriftDetectionDetails' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetDriftDetectionDetails' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetDriftDetectionDetails) Prelude.. Lens.mapping Core._Time
 

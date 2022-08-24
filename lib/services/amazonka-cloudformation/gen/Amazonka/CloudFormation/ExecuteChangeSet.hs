@@ -33,7 +33,7 @@
 -- the policy during the update. You can\'t specify a temporary stack
 -- policy that overrides the current policy.
 --
--- To create a change set for the entire stack hierachy,
+-- To create a change set for the entire stack hierarchy,
 -- @IncludeNestedStacks@ must have been set to @True@.
 module Amazonka.CloudFormation.ExecuteChangeSet
   ( -- * Creating a Request
@@ -77,11 +77,12 @@ data ExecuteChangeSet = ExecuteChangeSet'
     --
     -- Default: @True@
     disableRollback :: Prelude.Maybe Prelude.Bool,
-    -- | If you specified the name of a change set, specify the stack name or ID
-    -- (ARN) that is associated with the change set you want to execute.
+    -- | If you specified the name of a change set, specify the stack name or
+    -- Amazon Resource Name (ARN) that\'s associated with the change set you
+    -- want to execute.
     stackName :: Prelude.Maybe Prelude.Text,
-    -- | The name or ARN of the change set that you want use to update the
-    -- specified stack.
+    -- | The name or Amazon Resource Name (ARN) of the change set that you want
+    -- use to update the specified stack.
     changeSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -105,11 +106,12 @@ data ExecuteChangeSet = ExecuteChangeSet'
 --
 -- Default: @True@
 --
--- 'stackName', 'executeChangeSet_stackName' - If you specified the name of a change set, specify the stack name or ID
--- (ARN) that is associated with the change set you want to execute.
+-- 'stackName', 'executeChangeSet_stackName' - If you specified the name of a change set, specify the stack name or
+-- Amazon Resource Name (ARN) that\'s associated with the change set you
+-- want to execute.
 --
--- 'changeSetName', 'executeChangeSet_changeSetName' - The name or ARN of the change set that you want use to update the
--- specified stack.
+-- 'changeSetName', 'executeChangeSet_changeSetName' - The name or Amazon Resource Name (ARN) of the change set that you want
+-- use to update the specified stack.
 newExecuteChangeSet ::
   -- | 'changeSetName'
   Prelude.Text ->
@@ -138,13 +140,14 @@ executeChangeSet_clientRequestToken = Lens.lens (\ExecuteChangeSet' {clientReque
 executeChangeSet_disableRollback :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Bool)
 executeChangeSet_disableRollback = Lens.lens (\ExecuteChangeSet' {disableRollback} -> disableRollback) (\s@ExecuteChangeSet' {} a -> s {disableRollback = a} :: ExecuteChangeSet)
 
--- | If you specified the name of a change set, specify the stack name or ID
--- (ARN) that is associated with the change set you want to execute.
+-- | If you specified the name of a change set, specify the stack name or
+-- Amazon Resource Name (ARN) that\'s associated with the change set you
+-- want to execute.
 executeChangeSet_stackName :: Lens.Lens' ExecuteChangeSet (Prelude.Maybe Prelude.Text)
 executeChangeSet_stackName = Lens.lens (\ExecuteChangeSet' {stackName} -> stackName) (\s@ExecuteChangeSet' {} a -> s {stackName = a} :: ExecuteChangeSet)
 
--- | The name or ARN of the change set that you want use to update the
--- specified stack.
+-- | The name or Amazon Resource Name (ARN) of the change set that you want
+-- use to update the specified stack.
 executeChangeSet_changeSetName :: Lens.Lens' ExecuteChangeSet Prelude.Text
 executeChangeSet_changeSetName = Lens.lens (\ExecuteChangeSet' {changeSetName} -> changeSetName) (\s@ExecuteChangeSet' {} a -> s {changeSetName = a} :: ExecuteChangeSet)
 

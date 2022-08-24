@@ -35,9 +35,11 @@ data RollbackTrigger = RollbackTrigger'
     -- If a specified trigger is missing, the entire stack operation fails and
     -- is rolled back.
     arn :: Prelude.Text,
-    -- | The resource type of the rollback trigger. Currently,
+    -- | The resource type of the rollback trigger. Specify either
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html AWS::CloudWatch::Alarm>
-    -- is the only supported resource type.
+    -- or
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html AWS::CloudWatch::CompositeAlarm>
+    -- resource types.
     type' :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,9 +57,11 @@ data RollbackTrigger = RollbackTrigger'
 -- If a specified trigger is missing, the entire stack operation fails and
 -- is rolled back.
 --
--- 'type'', 'rollbackTrigger_type' - The resource type of the rollback trigger. Currently,
+-- 'type'', 'rollbackTrigger_type' - The resource type of the rollback trigger. Specify either
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html AWS::CloudWatch::Alarm>
--- is the only supported resource type.
+-- or
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html AWS::CloudWatch::CompositeAlarm>
+-- resource types.
 newRollbackTrigger ::
   -- | 'arn'
   Prelude.Text ->
@@ -74,9 +78,11 @@ newRollbackTrigger pArn_ pType_ =
 rollbackTrigger_arn :: Lens.Lens' RollbackTrigger Prelude.Text
 rollbackTrigger_arn = Lens.lens (\RollbackTrigger' {arn} -> arn) (\s@RollbackTrigger' {} a -> s {arn = a} :: RollbackTrigger)
 
--- | The resource type of the rollback trigger. Currently,
+-- | The resource type of the rollback trigger. Specify either
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html AWS::CloudWatch::Alarm>
--- is the only supported resource type.
+-- or
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html AWS::CloudWatch::CompositeAlarm>
+-- resource types.
 rollbackTrigger_type :: Lens.Lens' RollbackTrigger Prelude.Text
 rollbackTrigger_type = Lens.lens (\RollbackTrigger' {type'} -> type') (\s@RollbackTrigger' {} a -> s {type' = a} :: RollbackTrigger)
 

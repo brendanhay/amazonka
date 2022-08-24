@@ -96,7 +96,8 @@ data DescribeType = DescribeType'
     publicVersionNumber :: Prelude.Maybe Prelude.Text,
     -- | The publisher ID of the extension publisher.
     --
-    -- Extensions provided by Amazon are not assigned a publisher ID.
+    -- Extensions provided by Amazon Web Services are not assigned a publisher
+    -- ID.
     publisherId :: Prelude.Maybe Prelude.Text,
     -- | The name of the extension.
     --
@@ -133,7 +134,8 @@ data DescribeType = DescribeType'
 --
 -- 'publisherId', 'describeType_publisherId' - The publisher ID of the extension publisher.
 --
--- Extensions provided by Amazon are not assigned a publisher ID.
+-- Extensions provided by Amazon Web Services are not assigned a publisher
+-- ID.
 --
 -- 'typeName', 'describeType_typeName' - The name of the extension.
 --
@@ -176,7 +178,8 @@ describeType_publicVersionNumber = Lens.lens (\DescribeType' {publicVersionNumbe
 
 -- | The publisher ID of the extension publisher.
 --
--- Extensions provided by Amazon are not assigned a publisher ID.
+-- Extensions provided by Amazon Web Services are not assigned a publisher
+-- ID.
 describeType_publisherId :: Lens.Lens' DescribeType (Prelude.Maybe Prelude.Text)
 describeType_publisherId = Lens.lens (\DescribeType' {publisherId} -> publisherId) (\s@DescribeType' {} a -> s {publisherId = a} :: DescribeType)
 
@@ -279,11 +282,11 @@ instance Core.ToQuery DescribeType where
 -- | /See:/ 'newDescribeTypeResponse' smart constructor.
 data DescribeTypeResponse = DescribeTypeResponse'
   { -- | The description of the test status. To return the extension test status
-    -- of a specifc extension version, you must specify @VersionId@.
+    -- of a specific extension version, you must specify @VersionId@.
     --
     -- This applies only to registered private extension versions.
-    -- CloudFormation does not return this information for public extensions,
-    -- whether or not they are activated in your account.
+    -- CloudFormation doesn\'t return this information for public extensions,
+    -- whether they are activated in your account.
     typeTestsStatusDescription :: Prelude.Maybe Prelude.Text,
     -- | The deprecation status of the extension version.
     --
@@ -301,17 +304,17 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- | Whether the specified extension version is set as the default version.
     --
     -- This applies only to private extensions you have registered in your
-    -- account, and extensions published by Amazon. For public third-party
-    -- extensions, whether or not they are activated in your account,
+    -- account, and extensions published by Amazon Web Services. For public
+    -- third-party extensions, whether they are activated in your account,
     -- CloudFormation returns @null@.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the default version of the extension. The default version is
-    -- used when the extension version is not specified.
+    -- used when the extension version isn\'t specified.
     --
     -- This applies only to private extensions you have registered in your
-    -- account. For public extensions, both those provided by Amazon and
-    -- published by third parties, CloudFormation returns @null@. For more
-    -- information, see
+    -- account. For public extensions, both those provided by Amazon Web
+    -- Services and published by third parties, CloudFormation returns @null@.
+    -- For more information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
     --
     -- To set the default version of an extension, use
@@ -343,8 +346,8 @@ data DescribeTypeResponse = DescribeTypeResponse'
     --     account in which it is registered. CloudFormation marks any
     --     extensions you register as @PRIVATE@.
     --
-    -- -   @PUBLIC@: The extension is publically visible and usable within any
-    --     Amazon account.
+    -- -   @PUBLIC@: The extension is publicly visible and usable within any
+    --     Amazon Web Services account.
     visibility :: Prelude.Maybe Visibility,
     -- | Whether CloudFormation automatically updates the extension in this
     -- account and region when a new /minor/ version is published by the
@@ -367,8 +370,8 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- | The publisher ID of the extension publisher.
     --
     -- This applies only to public third-party extensions. For private
-    -- registered extensions, and extensions provided by Amazon, CloudFormation
-    -- returns @null@.
+    -- registered extensions, and extensions provided by Amazon Web Services,
+    -- CloudFormation returns @null@.
     publisherId :: Prelude.Maybe Prelude.Text,
     -- | The name of the extension.
     --
@@ -410,12 +413,12 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
     --     process updates to the type during stack update operations.
     --
-    -- -   @IMMUTABLE@: The resource type does not include an update handler,
-    --     so the type cannot be updated and must instead be replaced during
+    -- -   @IMMUTABLE@: The resource type doesn\'t include an update handler,
+    --     so the type can\'t be updated and must instead be replaced during
     --     stack update operations.
     --
-    -- -   @NON_PROVISIONABLE@: The resource type does not include all of the
-    --     following handlers, and therefore cannot actually be provisioned.
+    -- -   @NON_PROVISIONABLE@: The resource type doesn\'t include all the
+    --     following handlers, and therefore can\'t actually be provisioned.
     --
     --     -   create
     --
@@ -425,17 +428,17 @@ data DescribeTypeResponse = DescribeTypeResponse'
     provisioningType :: Prelude.Maybe ProvisioningType,
     -- | The latest version of a public extension /that is available/ for use.
     --
-    -- This only applies if you specify a public extension, and you do not
+    -- This only applies if you specify a public extension, and you don\'t
     -- specify a version. For all other requests, CloudFormation returns
     -- @null@.
     latestPublicVersion :: Prelude.Maybe Prelude.Text,
     -- | The schema that defines the extension.
     --
-    -- For more information on extension schemas, see
+    -- For more information about extension schemas, see
     -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema>
     -- in the /CloudFormation CLI User Guide/.
     schema :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not the extension is activated in the account and region.
+    -- | Whether the extension is activated in the account and region.
     --
     -- This only applies to public third-party extensions. For all other
     -- extensions, CloudFormation returns @null@.
@@ -454,12 +457,12 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- extension with the appropriate credentials.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The contract test status of the registered extension version. To return
-    -- the extension test status of a specifc extension version, you must
+    -- the extension test status of a specific extension version, you must
     -- specify @VersionId@.
     --
     -- This applies only to registered private extension versions.
-    -- CloudFormation does not return this information for public extensions,
-    -- whether or not they are activated in your account.
+    -- CloudFormation doesn\'t return this information for public extensions,
+    -- whether they are activated in your account.
     --
     -- -   @PASSED@: The extension has passed all its contract tests.
     --
@@ -473,7 +476,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
     -- -   @IN_PROGRESS@: Contract tests are currently being performed on the
     --     extension.
     --
-    -- -   @NOT_TESTED@: Contract tests have not been performed on the
+    -- -   @NOT_TESTED@: Contract tests haven\'t been performed on the
     --     extension.
     typeTestsStatus :: Prelude.Maybe TypeTestsStatus,
     -- | For public extensions that have been activated for this account and
@@ -483,8 +486,9 @@ data DescribeTypeResponse = DescribeTypeResponse'
     sourceUrl :: Prelude.Maybe Prelude.Text,
     -- | Contains logging configuration information for private extensions. This
     -- applies only to private extensions you have registered in your account.
-    -- For public extensions, both those provided by Amazon and published by
-    -- third parties, CloudFormation returns @null@. For more information, see
+    -- For public extensions, both those provided by Amazon Web Services and
+    -- published by third parties, CloudFormation returns @null@. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
     loggingConfig :: Prelude.Maybe LoggingConfig,
     -- | The response's http status code.
@@ -501,11 +505,11 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- for backwards compatibility:
 --
 -- 'typeTestsStatusDescription', 'describeTypeResponse_typeTestsStatusDescription' - The description of the test status. To return the extension test status
--- of a specifc extension version, you must specify @VersionId@.
+-- of a specific extension version, you must specify @VersionId@.
 --
 -- This applies only to registered private extension versions.
--- CloudFormation does not return this information for public extensions,
--- whether or not they are activated in your account.
+-- CloudFormation doesn\'t return this information for public extensions,
+-- whether they are activated in your account.
 --
 -- 'deprecatedStatus', 'describeTypeResponse_deprecatedStatus' - The deprecation status of the extension version.
 --
@@ -523,17 +527,17 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- 'isDefaultVersion', 'describeTypeResponse_isDefaultVersion' - Whether the specified extension version is set as the default version.
 --
 -- This applies only to private extensions you have registered in your
--- account, and extensions published by Amazon. For public third-party
--- extensions, whether or not they are activated in your account,
+-- account, and extensions published by Amazon Web Services. For public
+-- third-party extensions, whether they are activated in your account,
 -- CloudFormation returns @null@.
 --
 -- 'defaultVersionId', 'describeTypeResponse_defaultVersionId' - The ID of the default version of the extension. The default version is
--- used when the extension version is not specified.
+-- used when the extension version isn\'t specified.
 --
 -- This applies only to private extensions you have registered in your
--- account. For public extensions, both those provided by Amazon and
--- published by third parties, CloudFormation returns @null@. For more
--- information, see
+-- account. For public extensions, both those provided by Amazon Web
+-- Services and published by third parties, CloudFormation returns @null@.
+-- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- To set the default version of an extension, use
@@ -565,8 +569,8 @@ data DescribeTypeResponse = DescribeTypeResponse'
 --     account in which it is registered. CloudFormation marks any
 --     extensions you register as @PRIVATE@.
 --
--- -   @PUBLIC@: The extension is publically visible and usable within any
---     Amazon account.
+-- -   @PUBLIC@: The extension is publicly visible and usable within any
+--     Amazon Web Services account.
 --
 -- 'autoUpdate', 'describeTypeResponse_autoUpdate' - Whether CloudFormation automatically updates the extension in this
 -- account and region when a new /minor/ version is published by the
@@ -589,8 +593,8 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- 'publisherId', 'describeTypeResponse_publisherId' - The publisher ID of the extension publisher.
 --
 -- This applies only to public third-party extensions. For private
--- registered extensions, and extensions provided by Amazon, CloudFormation
--- returns @null@.
+-- registered extensions, and extensions provided by Amazon Web Services,
+-- CloudFormation returns @null@.
 --
 -- 'typeName', 'describeTypeResponse_typeName' - The name of the extension.
 --
@@ -632,12 +636,12 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
 --     process updates to the type during stack update operations.
 --
--- -   @IMMUTABLE@: The resource type does not include an update handler,
---     so the type cannot be updated and must instead be replaced during
+-- -   @IMMUTABLE@: The resource type doesn\'t include an update handler,
+--     so the type can\'t be updated and must instead be replaced during
 --     stack update operations.
 --
--- -   @NON_PROVISIONABLE@: The resource type does not include all of the
---     following handlers, and therefore cannot actually be provisioned.
+-- -   @NON_PROVISIONABLE@: The resource type doesn\'t include all the
+--     following handlers, and therefore can\'t actually be provisioned.
 --
 --     -   create
 --
@@ -647,17 +651,17 @@ data DescribeTypeResponse = DescribeTypeResponse'
 --
 -- 'latestPublicVersion', 'describeTypeResponse_latestPublicVersion' - The latest version of a public extension /that is available/ for use.
 --
--- This only applies if you specify a public extension, and you do not
+-- This only applies if you specify a public extension, and you don\'t
 -- specify a version. For all other requests, CloudFormation returns
 -- @null@.
 --
 -- 'schema', 'describeTypeResponse_schema' - The schema that defines the extension.
 --
--- For more information on extension schemas, see
+-- For more information about extension schemas, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema>
 -- in the /CloudFormation CLI User Guide/.
 --
--- 'isActivated', 'describeTypeResponse_isActivated' - Whether or not the extension is activated in the account and region.
+-- 'isActivated', 'describeTypeResponse_isActivated' - Whether the extension is activated in the account and region.
 --
 -- This only applies to public third-party extensions. For all other
 -- extensions, CloudFormation returns @null@.
@@ -676,12 +680,12 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- extension with the appropriate credentials.
 --
 -- 'typeTestsStatus', 'describeTypeResponse_typeTestsStatus' - The contract test status of the registered extension version. To return
--- the extension test status of a specifc extension version, you must
+-- the extension test status of a specific extension version, you must
 -- specify @VersionId@.
 --
 -- This applies only to registered private extension versions.
--- CloudFormation does not return this information for public extensions,
--- whether or not they are activated in your account.
+-- CloudFormation doesn\'t return this information for public extensions,
+-- whether they are activated in your account.
 --
 -- -   @PASSED@: The extension has passed all its contract tests.
 --
@@ -695,7 +699,7 @@ data DescribeTypeResponse = DescribeTypeResponse'
 -- -   @IN_PROGRESS@: Contract tests are currently being performed on the
 --     extension.
 --
--- -   @NOT_TESTED@: Contract tests have not been performed on the
+-- -   @NOT_TESTED@: Contract tests haven\'t been performed on the
 --     extension.
 --
 -- 'originalTypeArn', 'describeTypeResponse_originalTypeArn' - For public extensions that have been activated for this account and
@@ -705,8 +709,9 @@ data DescribeTypeResponse = DescribeTypeResponse'
 --
 -- 'loggingConfig', 'describeTypeResponse_loggingConfig' - Contains logging configuration information for private extensions. This
 -- applies only to private extensions you have registered in your account.
--- For public extensions, both those provided by Amazon and published by
--- third parties, CloudFormation returns @null@. For more information, see
+-- For public extensions, both those provided by Amazon Web Services and
+-- published by third parties, CloudFormation returns @null@. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- 'httpStatus', 'describeTypeResponse_httpStatus' - The response's http status code.
@@ -748,11 +753,11 @@ newDescribeTypeResponse pHttpStatus_ =
     }
 
 -- | The description of the test status. To return the extension test status
--- of a specifc extension version, you must specify @VersionId@.
+-- of a specific extension version, you must specify @VersionId@.
 --
 -- This applies only to registered private extension versions.
--- CloudFormation does not return this information for public extensions,
--- whether or not they are activated in your account.
+-- CloudFormation doesn\'t return this information for public extensions,
+-- whether they are activated in your account.
 describeTypeResponse_typeTestsStatusDescription :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_typeTestsStatusDescription = Lens.lens (\DescribeTypeResponse' {typeTestsStatusDescription} -> typeTestsStatusDescription) (\s@DescribeTypeResponse' {} a -> s {typeTestsStatusDescription = a} :: DescribeTypeResponse)
 
@@ -774,19 +779,19 @@ describeTypeResponse_deprecatedStatus = Lens.lens (\DescribeTypeResponse' {depre
 -- | Whether the specified extension version is set as the default version.
 --
 -- This applies only to private extensions you have registered in your
--- account, and extensions published by Amazon. For public third-party
--- extensions, whether or not they are activated in your account,
+-- account, and extensions published by Amazon Web Services. For public
+-- third-party extensions, whether they are activated in your account,
 -- CloudFormation returns @null@.
 describeTypeResponse_isDefaultVersion :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Bool)
 describeTypeResponse_isDefaultVersion = Lens.lens (\DescribeTypeResponse' {isDefaultVersion} -> isDefaultVersion) (\s@DescribeTypeResponse' {} a -> s {isDefaultVersion = a} :: DescribeTypeResponse)
 
 -- | The ID of the default version of the extension. The default version is
--- used when the extension version is not specified.
+-- used when the extension version isn\'t specified.
 --
 -- This applies only to private extensions you have registered in your
--- account. For public extensions, both those provided by Amazon and
--- published by third parties, CloudFormation returns @null@. For more
--- information, see
+-- account. For public extensions, both those provided by Amazon Web
+-- Services and published by third parties, CloudFormation returns @null@.
+-- For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 --
 -- To set the default version of an extension, use
@@ -828,8 +833,8 @@ describeTypeResponse_configurationSchema = Lens.lens (\DescribeTypeResponse' {co
 --     account in which it is registered. CloudFormation marks any
 --     extensions you register as @PRIVATE@.
 --
--- -   @PUBLIC@: The extension is publically visible and usable within any
---     Amazon account.
+-- -   @PUBLIC@: The extension is publicly visible and usable within any
+--     Amazon Web Services account.
 describeTypeResponse_visibility :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Visibility)
 describeTypeResponse_visibility = Lens.lens (\DescribeTypeResponse' {visibility} -> visibility) (\s@DescribeTypeResponse' {} a -> s {visibility = a} :: DescribeTypeResponse)
 
@@ -862,8 +867,8 @@ describeTypeResponse_publicVersionNumber = Lens.lens (\DescribeTypeResponse' {pu
 -- | The publisher ID of the extension publisher.
 --
 -- This applies only to public third-party extensions. For private
--- registered extensions, and extensions provided by Amazon, CloudFormation
--- returns @null@.
+-- registered extensions, and extensions provided by Amazon Web Services,
+-- CloudFormation returns @null@.
 describeTypeResponse_publisherId :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_publisherId = Lens.lens (\DescribeTypeResponse' {publisherId} -> publisherId) (\s@DescribeTypeResponse' {} a -> s {publisherId = a} :: DescribeTypeResponse)
 
@@ -915,12 +920,12 @@ describeTypeResponse_originalTypeName = Lens.lens (\DescribeTypeResponse' {origi
 -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
 --     process updates to the type during stack update operations.
 --
--- -   @IMMUTABLE@: The resource type does not include an update handler,
---     so the type cannot be updated and must instead be replaced during
+-- -   @IMMUTABLE@: The resource type doesn\'t include an update handler,
+--     so the type can\'t be updated and must instead be replaced during
 --     stack update operations.
 --
--- -   @NON_PROVISIONABLE@: The resource type does not include all of the
---     following handlers, and therefore cannot actually be provisioned.
+-- -   @NON_PROVISIONABLE@: The resource type doesn\'t include all the
+--     following handlers, and therefore can\'t actually be provisioned.
 --
 --     -   create
 --
@@ -932,7 +937,7 @@ describeTypeResponse_provisioningType = Lens.lens (\DescribeTypeResponse' {provi
 
 -- | The latest version of a public extension /that is available/ for use.
 --
--- This only applies if you specify a public extension, and you do not
+-- This only applies if you specify a public extension, and you don\'t
 -- specify a version. For all other requests, CloudFormation returns
 -- @null@.
 describeTypeResponse_latestPublicVersion :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
@@ -940,13 +945,13 @@ describeTypeResponse_latestPublicVersion = Lens.lens (\DescribeTypeResponse' {la
 
 -- | The schema that defines the extension.
 --
--- For more information on extension schemas, see
+-- For more information about extension schemas, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html Resource Provider Schema>
 -- in the /CloudFormation CLI User Guide/.
 describeTypeResponse_schema :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe Prelude.Text)
 describeTypeResponse_schema = Lens.lens (\DescribeTypeResponse' {schema} -> schema) (\s@DescribeTypeResponse' {} a -> s {schema = a} :: DescribeTypeResponse)
 
--- | Whether or not the extension is activated in the account and region.
+-- | Whether the extension is activated in the account and region.
 --
 -- This only applies to public third-party extensions. For all other
 -- extensions, CloudFormation returns @null@.
@@ -969,12 +974,12 @@ describeTypeResponse_executionRoleArn :: Lens.Lens' DescribeTypeResponse (Prelud
 describeTypeResponse_executionRoleArn = Lens.lens (\DescribeTypeResponse' {executionRoleArn} -> executionRoleArn) (\s@DescribeTypeResponse' {} a -> s {executionRoleArn = a} :: DescribeTypeResponse)
 
 -- | The contract test status of the registered extension version. To return
--- the extension test status of a specifc extension version, you must
+-- the extension test status of a specific extension version, you must
 -- specify @VersionId@.
 --
 -- This applies only to registered private extension versions.
--- CloudFormation does not return this information for public extensions,
--- whether or not they are activated in your account.
+-- CloudFormation doesn\'t return this information for public extensions,
+-- whether they are activated in your account.
 --
 -- -   @PASSED@: The extension has passed all its contract tests.
 --
@@ -988,7 +993,7 @@ describeTypeResponse_executionRoleArn = Lens.lens (\DescribeTypeResponse' {execu
 -- -   @IN_PROGRESS@: Contract tests are currently being performed on the
 --     extension.
 --
--- -   @NOT_TESTED@: Contract tests have not been performed on the
+-- -   @NOT_TESTED@: Contract tests haven\'t been performed on the
 --     extension.
 describeTypeResponse_typeTestsStatus :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe TypeTestsStatus)
 describeTypeResponse_typeTestsStatus = Lens.lens (\DescribeTypeResponse' {typeTestsStatus} -> typeTestsStatus) (\s@DescribeTypeResponse' {} a -> s {typeTestsStatus = a} :: DescribeTypeResponse)
@@ -1004,8 +1009,9 @@ describeTypeResponse_sourceUrl = Lens.lens (\DescribeTypeResponse' {sourceUrl} -
 
 -- | Contains logging configuration information for private extensions. This
 -- applies only to private extensions you have registered in your account.
--- For public extensions, both those provided by Amazon and published by
--- third parties, CloudFormation returns @null@. For more information, see
+-- For public extensions, both those provided by Amazon Web Services and
+-- published by third parties, CloudFormation returns @null@. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html RegisterType>.
 describeTypeResponse_loggingConfig :: Lens.Lens' DescribeTypeResponse (Prelude.Maybe LoggingConfig)
 describeTypeResponse_loggingConfig = Lens.lens (\DescribeTypeResponse' {loggingConfig} -> loggingConfig) (\s@DescribeTypeResponse' {} a -> s {loggingConfig = a} :: DescribeTypeResponse)

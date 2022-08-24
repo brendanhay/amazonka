@@ -42,7 +42,7 @@ data PropertyDifference = PropertyDifference'
     actualValue :: Prelude.Text,
     -- | The type of property difference.
     --
-    -- -   @ADD@: A value has been added to a resource property that is an
+    -- -   @ADD@: A value has been added to a resource property that\'s an
     --     array or list data type.
     --
     -- -   @REMOVE@: The property has been removed from the current resource
@@ -72,7 +72,7 @@ data PropertyDifference = PropertyDifference'
 --
 -- 'differenceType', 'propertyDifference_differenceType' - The type of property difference.
 --
--- -   @ADD@: A value has been added to a resource property that is an
+-- -   @ADD@: A value has been added to a resource property that\'s an
 --     array or list data type.
 --
 -- -   @REMOVE@: The property has been removed from the current resource
@@ -118,7 +118,7 @@ propertyDifference_actualValue = Lens.lens (\PropertyDifference' {actualValue} -
 
 -- | The type of property difference.
 --
--- -   @ADD@: A value has been added to a resource property that is an
+-- -   @ADD@: A value has been added to a resource property that\'s an
 --     array or list data type.
 --
 -- -   @REMOVE@: The property has been removed from the current resource

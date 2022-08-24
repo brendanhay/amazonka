@@ -35,6 +35,7 @@ module Amazonka.CloudFormation.CreateStackSet
     createStackSet_description,
     createStackSet_autoDeployment,
     createStackSet_capabilities,
+    createStackSet_managedExecution,
     createStackSet_executionRoleName,
     createStackSet_administrationRoleARN,
     createStackSet_permissionModel,
@@ -72,7 +73,7 @@ data CreateStackSet = CreateStackSet'
     -- @access denied@ error, and the stack set is not created.
     tags :: Prelude.Maybe [Tag],
     -- | The stack ID you are importing into a new stack set. Specify the Amazon
-    -- Resource Number (ARN) of the stack.
+    -- Resource Name (ARN) of the stack.
     stackId :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for this @CreateStackSet@ request. Specify this
     -- token if you plan to retry requests so that CloudFormation knows that
@@ -173,7 +174,7 @@ data CreateStackSet = CreateStackSet'
     --     you must acknowledge this capability. For more information, see
     --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
     --
-    --     Stack sets with service-managed permissions do not currently support
+    --     Stack sets with service-managed permissions don\'t currently support
     --     the use of macros in templates. (This includes the
     --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html AWS::Include>
     --     and
@@ -183,6 +184,9 @@ data CreateStackSet = CreateStackSet'
     --     permissions, if you reference a macro in your template the stack set
     --     operation will fail.
     capabilities :: Prelude.Maybe [Capability],
+    -- | Describes whether StackSets performs non-conflicting operations
+    -- concurrently and queues conflicting operations.
+    managedExecution :: Prelude.Maybe ManagedExecution,
     -- | The name of the IAM execution role to use to create the stack set. If
     -- you do not specify an execution role, CloudFormation uses the
     -- @AWSCloudFormationStackSetExecutionRole@ role for the stack set
@@ -192,7 +196,7 @@ data CreateStackSet = CreateStackSet'
     -- control which stack resources users and groups can include in their
     -- stack sets.
     executionRoleName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the IAM role to use to create this
+    -- | The Amazon Resource Name (ARN) of the IAM role to use to create this
     -- stack set.
     --
     -- Specify an IAM role only if you are using customized administrator roles
@@ -255,7 +259,7 @@ data CreateStackSet = CreateStackSet'
 -- @access denied@ error, and the stack set is not created.
 --
 -- 'stackId', 'createStackSet_stackId' - The stack ID you are importing into a new stack set. Specify the Amazon
--- Resource Number (ARN) of the stack.
+-- Resource Name (ARN) of the stack.
 --
 -- 'clientRequestToken', 'createStackSet_clientRequestToken' - A unique identifier for this @CreateStackSet@ request. Specify this
 -- token if you plan to retry requests so that CloudFormation knows that
@@ -356,7 +360,7 @@ data CreateStackSet = CreateStackSet'
 --     you must acknowledge this capability. For more information, see
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
 --
---     Stack sets with service-managed permissions do not currently support
+--     Stack sets with service-managed permissions don\'t currently support
 --     the use of macros in templates. (This includes the
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html AWS::Include>
 --     and
@@ -365,6 +369,9 @@ data CreateStackSet = CreateStackSet'
 --     specify this capability for a stack set with service-managed
 --     permissions, if you reference a macro in your template the stack set
 --     operation will fail.
+--
+-- 'managedExecution', 'createStackSet_managedExecution' - Describes whether StackSets performs non-conflicting operations
+-- concurrently and queues conflicting operations.
 --
 -- 'executionRoleName', 'createStackSet_executionRoleName' - The name of the IAM execution role to use to create the stack set. If
 -- you do not specify an execution role, CloudFormation uses the
@@ -375,7 +382,7 @@ data CreateStackSet = CreateStackSet'
 -- control which stack resources users and groups can include in their
 -- stack sets.
 --
--- 'administrationRoleARN', 'createStackSet_administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role to use to create this
+-- 'administrationRoleARN', 'createStackSet_administrationRoleARN' - The Amazon Resource Name (ARN) of the IAM role to use to create this
 -- stack set.
 --
 -- Specify an IAM role only if you are using customized administrator roles
@@ -429,6 +436,7 @@ newCreateStackSet pStackSetName_ =
       description = Prelude.Nothing,
       autoDeployment = Prelude.Nothing,
       capabilities = Prelude.Nothing,
+      managedExecution = Prelude.Nothing,
       executionRoleName = Prelude.Nothing,
       administrationRoleARN = Prelude.Nothing,
       permissionModel = Prelude.Nothing,
@@ -450,7 +458,7 @@ createStackSet_tags :: Lens.Lens' CreateStackSet (Prelude.Maybe [Tag])
 createStackSet_tags = Lens.lens (\CreateStackSet' {tags} -> tags) (\s@CreateStackSet' {} a -> s {tags = a} :: CreateStackSet) Prelude.. Lens.mapping Lens.coerced
 
 -- | The stack ID you are importing into a new stack set. Specify the Amazon
--- Resource Number (ARN) of the stack.
+-- Resource Name (ARN) of the stack.
 createStackSet_stackId :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_stackId = Lens.lens (\CreateStackSet' {stackId} -> stackId) (\s@CreateStackSet' {} a -> s {stackId = a} :: CreateStackSet)
 
@@ -563,7 +571,7 @@ createStackSet_autoDeployment = Lens.lens (\CreateStackSet' {autoDeployment} -> 
 --     you must acknowledge this capability. For more information, see
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
 --
---     Stack sets with service-managed permissions do not currently support
+--     Stack sets with service-managed permissions don\'t currently support
 --     the use of macros in templates. (This includes the
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html AWS::Include>
 --     and
@@ -574,6 +582,11 @@ createStackSet_autoDeployment = Lens.lens (\CreateStackSet' {autoDeployment} -> 
 --     operation will fail.
 createStackSet_capabilities :: Lens.Lens' CreateStackSet (Prelude.Maybe [Capability])
 createStackSet_capabilities = Lens.lens (\CreateStackSet' {capabilities} -> capabilities) (\s@CreateStackSet' {} a -> s {capabilities = a} :: CreateStackSet) Prelude.. Lens.mapping Lens.coerced
+
+-- | Describes whether StackSets performs non-conflicting operations
+-- concurrently and queues conflicting operations.
+createStackSet_managedExecution :: Lens.Lens' CreateStackSet (Prelude.Maybe ManagedExecution)
+createStackSet_managedExecution = Lens.lens (\CreateStackSet' {managedExecution} -> managedExecution) (\s@CreateStackSet' {} a -> s {managedExecution = a} :: CreateStackSet)
 
 -- | The name of the IAM execution role to use to create the stack set. If
 -- you do not specify an execution role, CloudFormation uses the
@@ -586,7 +599,7 @@ createStackSet_capabilities = Lens.lens (\CreateStackSet' {capabilities} -> capa
 createStackSet_executionRoleName :: Lens.Lens' CreateStackSet (Prelude.Maybe Prelude.Text)
 createStackSet_executionRoleName = Lens.lens (\CreateStackSet' {executionRoleName} -> executionRoleName) (\s@CreateStackSet' {} a -> s {executionRoleName = a} :: CreateStackSet)
 
--- | The Amazon Resource Number (ARN) of the IAM role to use to create this
+-- | The Amazon Resource Name (ARN) of the IAM role to use to create this
 -- stack set.
 --
 -- Specify an IAM role only if you are using customized administrator roles
@@ -661,6 +674,7 @@ instance Prelude.Hashable CreateStackSet where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` autoDeployment
       `Prelude.hashWithSalt` capabilities
+      `Prelude.hashWithSalt` managedExecution
       `Prelude.hashWithSalt` executionRoleName
       `Prelude.hashWithSalt` administrationRoleARN
       `Prelude.hashWithSalt` permissionModel
@@ -678,6 +692,7 @@ instance Prelude.NFData CreateStackSet where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf autoDeployment
       `Prelude.seq` Prelude.rnf capabilities
+      `Prelude.seq` Prelude.rnf managedExecution
       `Prelude.seq` Prelude.rnf executionRoleName
       `Prelude.seq` Prelude.rnf administrationRoleARN
       `Prelude.seq` Prelude.rnf permissionModel
@@ -710,6 +725,7 @@ instance Core.ToQuery CreateStackSet where
         "Capabilities"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> capabilities),
+        "ManagedExecution" Core.=: managedExecution,
         "ExecutionRoleName" Core.=: executionRoleName,
         "AdministrationRoleARN"
           Core.=: administrationRoleARN,

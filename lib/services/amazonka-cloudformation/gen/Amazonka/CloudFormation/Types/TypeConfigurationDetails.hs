@@ -48,7 +48,7 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
     -- | A JSON string specifying the configuration data for the extension, in
     -- this account and region.
     --
-    -- If a configuration has not been set for a specified extension,
+    -- If a configuration hasn\'t been set for a specified extension,
     -- CloudFormation returns @{}@.
     configuration :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the configuration data, in this
@@ -56,12 +56,12 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the extension.
     typeName :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not this configuration data is the default configuration for
-    -- the extension.
+    -- | Whether this configuration data is the default configuration for the
+    -- extension.
     isDefaultConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | When the configuration data was last updated for this extension.
     --
-    -- If a configuration has not been set for a specified extension,
+    -- If a configuration hasn\'t been set for a specified extension,
     -- CloudFormation returns @null@.
     lastUpdated :: Prelude.Maybe Core.ISO8601
   }
@@ -91,7 +91,7 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
 -- 'configuration', 'typeConfigurationDetails_configuration' - A JSON string specifying the configuration data for the extension, in
 -- this account and region.
 --
--- If a configuration has not been set for a specified extension,
+-- If a configuration hasn\'t been set for a specified extension,
 -- CloudFormation returns @{}@.
 --
 -- 'arn', 'typeConfigurationDetails_arn' - The Amazon Resource Name (ARN) for the configuration data, in this
@@ -99,12 +99,12 @@ data TypeConfigurationDetails = TypeConfigurationDetails'
 --
 -- 'typeName', 'typeConfigurationDetails_typeName' - The name of the extension.
 --
--- 'isDefaultConfiguration', 'typeConfigurationDetails_isDefaultConfiguration' - Whether or not this configuration data is the default configuration for
--- the extension.
+-- 'isDefaultConfiguration', 'typeConfigurationDetails_isDefaultConfiguration' - Whether this configuration data is the default configuration for the
+-- extension.
 --
 -- 'lastUpdated', 'typeConfigurationDetails_lastUpdated' - When the configuration data was last updated for this extension.
 --
--- If a configuration has not been set for a specified extension,
+-- If a configuration hasn\'t been set for a specified extension,
 -- CloudFormation returns @null@.
 newTypeConfigurationDetails ::
   TypeConfigurationDetails
@@ -139,7 +139,7 @@ typeConfigurationDetails_typeArn = Lens.lens (\TypeConfigurationDetails' {typeAr
 -- | A JSON string specifying the configuration data for the extension, in
 -- this account and region.
 --
--- If a configuration has not been set for a specified extension,
+-- If a configuration hasn\'t been set for a specified extension,
 -- CloudFormation returns @{}@.
 typeConfigurationDetails_configuration :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
 typeConfigurationDetails_configuration = Lens.lens (\TypeConfigurationDetails' {configuration} -> configuration) (\s@TypeConfigurationDetails' {} a -> s {configuration = a} :: TypeConfigurationDetails)
@@ -153,14 +153,14 @@ typeConfigurationDetails_arn = Lens.lens (\TypeConfigurationDetails' {arn} -> ar
 typeConfigurationDetails_typeName :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Text)
 typeConfigurationDetails_typeName = Lens.lens (\TypeConfigurationDetails' {typeName} -> typeName) (\s@TypeConfigurationDetails' {} a -> s {typeName = a} :: TypeConfigurationDetails)
 
--- | Whether or not this configuration data is the default configuration for
--- the extension.
+-- | Whether this configuration data is the default configuration for the
+-- extension.
 typeConfigurationDetails_isDefaultConfiguration :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.Bool)
 typeConfigurationDetails_isDefaultConfiguration = Lens.lens (\TypeConfigurationDetails' {isDefaultConfiguration} -> isDefaultConfiguration) (\s@TypeConfigurationDetails' {} a -> s {isDefaultConfiguration = a} :: TypeConfigurationDetails)
 
 -- | When the configuration data was last updated for this extension.
 --
--- If a configuration has not been set for a specified extension,
+-- If a configuration hasn\'t been set for a specified extension,
 -- CloudFormation returns @null@.
 typeConfigurationDetails_lastUpdated :: Lens.Lens' TypeConfigurationDetails (Prelude.Maybe Prelude.UTCTime)
 typeConfigurationDetails_lastUpdated = Lens.lens (\TypeConfigurationDetails' {lastUpdated} -> lastUpdated) (\s@TypeConfigurationDetails' {} a -> s {lastUpdated = a} :: TypeConfigurationDetails) Prelude.. Lens.mapping Core._Time

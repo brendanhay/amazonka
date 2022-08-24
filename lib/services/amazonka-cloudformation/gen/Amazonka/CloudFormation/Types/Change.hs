@@ -33,6 +33,9 @@ data Change = Change'
   { -- | The type of entity that CloudFormation changes. Currently, the only
     -- entity type is @Resource@.
     type' :: Prelude.Maybe ChangeType,
+    -- | Is either @null@, if no hooks invoke for the resource, or contains the
+    -- number of hooks that will invoke for the resource.
+    hookInvocationCount :: Prelude.Maybe Prelude.Natural,
     -- | A @ResourceChange@ structure that describes the resource and action that
     -- CloudFormation will perform.
     resourceChange :: Prelude.Maybe ResourceChange
@@ -50,6 +53,9 @@ data Change = Change'
 -- 'type'', 'change_type' - The type of entity that CloudFormation changes. Currently, the only
 -- entity type is @Resource@.
 --
+-- 'hookInvocationCount', 'change_hookInvocationCount' - Is either @null@, if no hooks invoke for the resource, or contains the
+-- number of hooks that will invoke for the resource.
+--
 -- 'resourceChange', 'change_resourceChange' - A @ResourceChange@ structure that describes the resource and action that
 -- CloudFormation will perform.
 newChange ::
@@ -57,6 +63,7 @@ newChange ::
 newChange =
   Change'
     { type' = Prelude.Nothing,
+      hookInvocationCount = Prelude.Nothing,
       resourceChange = Prelude.Nothing
     }
 
@@ -64,6 +71,11 @@ newChange =
 -- entity type is @Resource@.
 change_type :: Lens.Lens' Change (Prelude.Maybe ChangeType)
 change_type = Lens.lens (\Change' {type'} -> type') (\s@Change' {} a -> s {type' = a} :: Change)
+
+-- | Is either @null@, if no hooks invoke for the resource, or contains the
+-- number of hooks that will invoke for the resource.
+change_hookInvocationCount :: Lens.Lens' Change (Prelude.Maybe Prelude.Natural)
+change_hookInvocationCount = Lens.lens (\Change' {hookInvocationCount} -> hookInvocationCount) (\s@Change' {} a -> s {hookInvocationCount = a} :: Change)
 
 -- | A @ResourceChange@ structure that describes the resource and action that
 -- CloudFormation will perform.
@@ -74,14 +86,17 @@ instance Core.FromXML Change where
   parseXML x =
     Change'
       Prelude.<$> (x Core..@? "Type")
+      Prelude.<*> (x Core..@? "HookInvocationCount")
       Prelude.<*> (x Core..@? "ResourceChange")
 
 instance Prelude.Hashable Change where
   hashWithSalt _salt Change' {..} =
     _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` hookInvocationCount
       `Prelude.hashWithSalt` resourceChange
 
 instance Prelude.NFData Change where
   rnf Change' {..} =
     Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf hookInvocationCount
       `Prelude.seq` Prelude.rnf resourceChange

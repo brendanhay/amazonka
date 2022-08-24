@@ -22,11 +22,11 @@
 --
 -- Returns information about a CloudFormation extension publisher.
 --
--- If you do not supply a @PublisherId@, and you have registered as an
+-- If you don\'t supply a @PublisherId@, and you have registered as an
 -- extension publisher, @DescribePublisher@ returns information about your
 -- own publisher account.
 --
--- For more information on registering as a publisher, see:
+-- For more information about registering as a publisher, see:
 --
 -- -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html RegisterPublisher>
 --
@@ -64,7 +64,7 @@ import qualified Amazonka.Response as Response
 data DescribePublisher = DescribePublisher'
   { -- | The ID of the extension publisher.
     --
-    -- If you do not supply a @PublisherId@, and you have registered as an
+    -- If you don\'t supply a @PublisherId@, and you have registered as an
     -- extension publisher, @DescribePublisher@ returns information about your
     -- own publisher account.
     publisherId :: Prelude.Maybe Prelude.Text
@@ -81,7 +81,7 @@ data DescribePublisher = DescribePublisher'
 --
 -- 'publisherId', 'describePublisher_publisherId' - The ID of the extension publisher.
 --
--- If you do not supply a @PublisherId@, and you have registered as an
+-- If you don\'t supply a @PublisherId@, and you have registered as an
 -- extension publisher, @DescribePublisher@ returns information about your
 -- own publisher account.
 newDescribePublisher ::
@@ -91,7 +91,7 @@ newDescribePublisher =
 
 -- | The ID of the extension publisher.
 --
--- If you do not supply a @PublisherId@, and you have registered as an
+-- If you don\'t supply a @PublisherId@, and you have registered as an
 -- extension publisher, @DescribePublisher@ returns information about your
 -- own publisher account.
 describePublisher_publisherId :: Lens.Lens' DescribePublisher (Prelude.Maybe Prelude.Text)

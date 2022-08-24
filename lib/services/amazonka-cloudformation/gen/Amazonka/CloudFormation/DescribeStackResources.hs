@@ -72,7 +72,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newDescribeStackResources' smart constructor.
 data DescribeStackResources = DescribeStackResources'
   { -- | The name or the unique stack ID that is associated with the stack, which
-    -- are not always interchangeable:
+    -- aren\'t always interchangeable:
     --
     -- -   Running stacks: You can specify either the stack\'s name or its
     --     unique stack ID.
@@ -81,7 +81,7 @@ data DescribeStackResources = DescribeStackResources'
     --
     -- Default: There is no default value.
     --
-    -- Required: Conditional. If you do not specify @StackName@, you must
+    -- Required: Conditional. If you don\'t specify @StackName@, you must
     -- specify @PhysicalResourceId@.
     stackName :: Prelude.Maybe Prelude.Text,
     -- | The logical name of the resource as specified in the template.
@@ -96,7 +96,7 @@ data DescribeStackResources = DescribeStackResources'
     -- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the
     -- instance belongs to and what other resources are part of the stack.
     --
-    -- Required: Conditional. If you do not specify @PhysicalResourceId@, you
+    -- Required: Conditional. If you don\'t specify @PhysicalResourceId@, you
     -- must specify @StackName@.
     --
     -- Default: There is no default value.
@@ -113,7 +113,7 @@ data DescribeStackResources = DescribeStackResources'
 -- for backwards compatibility:
 --
 -- 'stackName', 'describeStackResources_stackName' - The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.
@@ -122,7 +122,7 @@ data DescribeStackResources = DescribeStackResources'
 --
 -- Default: There is no default value.
 --
--- Required: Conditional. If you do not specify @StackName@, you must
+-- Required: Conditional. If you don\'t specify @StackName@, you must
 -- specify @PhysicalResourceId@.
 --
 -- 'logicalResourceId', 'describeStackResources_logicalResourceId' - The logical name of the resource as specified in the template.
@@ -137,7 +137,7 @@ data DescribeStackResources = DescribeStackResources'
 -- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the
 -- instance belongs to and what other resources are part of the stack.
 --
--- Required: Conditional. If you do not specify @PhysicalResourceId@, you
+-- Required: Conditional. If you don\'t specify @PhysicalResourceId@, you
 -- must specify @StackName@.
 --
 -- Default: There is no default value.
@@ -152,7 +152,7 @@ newDescribeStackResources =
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.
@@ -161,7 +161,7 @@ newDescribeStackResources =
 --
 -- Default: There is no default value.
 --
--- Required: Conditional. If you do not specify @StackName@, you must
+-- Required: Conditional. If you don\'t specify @StackName@, you must
 -- specify @PhysicalResourceId@.
 describeStackResources_stackName :: Lens.Lens' DescribeStackResources (Prelude.Maybe Prelude.Text)
 describeStackResources_stackName = Lens.lens (\DescribeStackResources' {stackName} -> stackName) (\s@DescribeStackResources' {} a -> s {stackName = a} :: DescribeStackResources)
@@ -180,7 +180,7 @@ describeStackResources_logicalResourceId = Lens.lens (\DescribeStackResources' {
 -- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the
 -- instance belongs to and what other resources are part of the stack.
 --
--- Required: Conditional. If you do not specify @PhysicalResourceId@, you
+-- Required: Conditional. If you don\'t specify @PhysicalResourceId@, you
 -- must specify @StackName@.
 --
 -- Default: There is no default value.

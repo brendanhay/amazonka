@@ -30,9 +30,9 @@
 -- active version, deregistering that version results in the extension
 -- itself being deregistered and marked as deprecated in the registry.
 --
--- You cannot deregister the default version of an extension if there are
+-- You can\'t deregister the default version of an extension if there are
 -- other active version of that extension. If you do deregister the default
--- version of an extension, the textensionype itself is deregistered as
+-- version of an extension, the extension type itself is deregistered as
 -- well and marked as deprecated.
 --
 -- To view the deprecation status of an extension or extension version, use

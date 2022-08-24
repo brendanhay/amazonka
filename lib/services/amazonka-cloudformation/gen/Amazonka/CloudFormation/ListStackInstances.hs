@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListStackInstances' smart constructor.
 data ListStackInstances = ListStackInstances'
-  { -- | If the previous request didn\'t return all of the remaining results, the
+  { -- | If the previous request didn\'t return all the remaining results, the
     -- response\'s @NextToken@ parameter value is set to a token. To retrieve
     -- the next set of results, call @ListStackInstances@ again and assign that
     -- token to the request object\'s @NextToken@ parameter. If there are no
@@ -110,7 +110,7 @@ data ListStackInstances = ListStackInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStackInstances_nextToken' - If the previous request didn\'t return all of the remaining results, the
+-- 'nextToken', 'listStackInstances_nextToken' - If the previous request didn\'t return all the remaining results, the
 -- response\'s @NextToken@ parameter value is set to a token. To retrieve
 -- the next set of results, call @ListStackInstances@ again and assign that
 -- token to the request object\'s @NextToken@ parameter. If there are no
@@ -163,7 +163,7 @@ newListStackInstances pStackSetName_ =
       stackSetName = pStackSetName_
     }
 
--- | If the previous request didn\'t return all of the remaining results, the
+-- | If the previous request didn\'t return all the remaining results, the
 -- response\'s @NextToken@ parameter value is set to a token. To retrieve
 -- the next set of results, call @ListStackInstances@ again and assign that
 -- token to the request object\'s @NextToken@ parameter. If there are no
@@ -301,8 +301,8 @@ instance Core.ToQuery ListStackInstances where
 
 -- | /See:/ 'newListStackInstancesResponse' smart constructor.
 data ListStackInstancesResponse = ListStackInstancesResponse'
-  { -- | If the request doesn\'t return all of the remaining results, @NextToken@
-    -- is set to a token. To retrieve the next set of results, call
+  { -- | If the request doesn\'t return all the remaining results, @NextToken@ is
+    -- set to a token. To retrieve the next set of results, call
     -- @ListStackInstances@ again and assign that token to the request
     -- object\'s @NextToken@ parameter. If the request returns all results,
     -- @NextToken@ is set to @null@.
@@ -323,8 +323,8 @@ data ListStackInstancesResponse = ListStackInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listStackInstancesResponse_nextToken' - If the request doesn\'t return all of the remaining results, @NextToken@
--- is set to a token. To retrieve the next set of results, call
+-- 'nextToken', 'listStackInstancesResponse_nextToken' - If the request doesn\'t return all the remaining results, @NextToken@ is
+-- set to a token. To retrieve the next set of results, call
 -- @ListStackInstances@ again and assign that token to the request
 -- object\'s @NextToken@ parameter. If the request returns all results,
 -- @NextToken@ is set to @null@.
@@ -345,8 +345,8 @@ newListStackInstancesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If the request doesn\'t return all of the remaining results, @NextToken@
--- is set to a token. To retrieve the next set of results, call
+-- | If the request doesn\'t return all the remaining results, @NextToken@ is
+-- set to a token. To retrieve the next set of results, call
 -- @ListStackInstances@ again and assign that token to the request
 -- object\'s @NextToken@ parameter. If the request returns all results,
 -- @NextToken@ is set to @null@.

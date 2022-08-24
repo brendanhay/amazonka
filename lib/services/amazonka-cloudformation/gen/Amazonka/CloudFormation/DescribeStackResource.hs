@@ -54,8 +54,8 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newDescribeStackResource' smart constructor.
 data DescribeStackResource = DescribeStackResource'
-  { -- | The name or the unique stack ID that is associated with the stack, which
-    -- are not always interchangeable:
+  { -- | The name or the unique stack ID that\'s associated with the stack, which
+    -- aren\'t always interchangeable:
     --
     -- -   Running stacks: You can specify either the stack\'s name or its
     --     unique stack ID.
@@ -79,8 +79,8 @@ data DescribeStackResource = DescribeStackResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackName', 'describeStackResource_stackName' - The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- 'stackName', 'describeStackResource_stackName' - The name or the unique stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.
@@ -106,8 +106,8 @@ newDescribeStackResource
         logicalResourceId = pLogicalResourceId_
       }
 
--- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- | The name or the unique stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.

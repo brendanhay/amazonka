@@ -33,8 +33,7 @@ data TypeVersionSummary = TypeVersionSummary'
     --
     -- This applies only to private extensions you have registered in your
     -- account, and extensions published by Amazon. For public third-party
-    -- extensions, whether or not they are activated in your account,
-    -- CloudFormation returns @null@.
+    -- extensions, CloudFormation returns @null@.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The kind of extension.
     type' :: Prelude.Maybe RegistryType,
@@ -49,7 +48,7 @@ data TypeVersionSummary = TypeVersionSummary'
     -- @null@.
     --
     -- How you specified @AutoUpdate@ when enabling the extension affects
-    -- whether CloudFormation automatically updates the extention in this
+    -- whether CloudFormation automatically updates the extension in this
     -- account and region when a new version is released. For more information,
     -- see
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
@@ -61,7 +60,7 @@ data TypeVersionSummary = TypeVersionSummary'
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID of a specific version of the extension. The version ID is the
     -- value at the end of the Amazon Resource Name (ARN) assigned to the
-    -- extension version when it is registered.
+    -- extension version when it\'s registered.
     versionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,8 +77,7 @@ data TypeVersionSummary = TypeVersionSummary'
 --
 -- This applies only to private extensions you have registered in your
 -- account, and extensions published by Amazon. For public third-party
--- extensions, whether or not they are activated in your account,
--- CloudFormation returns @null@.
+-- extensions, CloudFormation returns @null@.
 --
 -- 'type'', 'typeVersionSummary_type' - The kind of extension.
 --
@@ -94,7 +92,7 @@ data TypeVersionSummary = TypeVersionSummary'
 -- @null@.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
--- whether CloudFormation automatically updates the extention in this
+-- whether CloudFormation automatically updates the extension in this
 -- account and region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
@@ -106,7 +104,7 @@ data TypeVersionSummary = TypeVersionSummary'
 --
 -- 'versionId', 'typeVersionSummary_versionId' - The ID of a specific version of the extension. The version ID is the
 -- value at the end of the Amazon Resource Name (ARN) assigned to the
--- extension version when it is registered.
+-- extension version when it\'s registered.
 newTypeVersionSummary ::
   TypeVersionSummary
 newTypeVersionSummary =
@@ -126,8 +124,7 @@ newTypeVersionSummary =
 --
 -- This applies only to private extensions you have registered in your
 -- account, and extensions published by Amazon. For public third-party
--- extensions, whether or not they are activated in your account,
--- CloudFormation returns @null@.
+-- extensions, CloudFormation returns @null@.
 typeVersionSummary_isDefaultVersion :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Bool)
 typeVersionSummary_isDefaultVersion = Lens.lens (\TypeVersionSummary' {isDefaultVersion} -> isDefaultVersion) (\s@TypeVersionSummary' {} a -> s {isDefaultVersion = a} :: TypeVersionSummary)
 
@@ -150,7 +147,7 @@ typeVersionSummary_timeCreated = Lens.lens (\TypeVersionSummary' {timeCreated} -
 -- @null@.
 --
 -- How you specified @AutoUpdate@ when enabling the extension affects
--- whether CloudFormation automatically updates the extention in this
+-- whether CloudFormation automatically updates the extension in this
 -- account and region when a new version is released. For more information,
 -- see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html#registry-public-enable-auto Setting CloudFormation to automatically use new versions of extensions>
@@ -168,7 +165,7 @@ typeVersionSummary_description = Lens.lens (\TypeVersionSummary' {description} -
 
 -- | The ID of a specific version of the extension. The version ID is the
 -- value at the end of the Amazon Resource Name (ARN) assigned to the
--- extension version when it is registered.
+-- extension version when it\'s registered.
 typeVersionSummary_versionId :: Lens.Lens' TypeVersionSummary (Prelude.Maybe Prelude.Text)
 typeVersionSummary_versionId = Lens.lens (\TypeVersionSummary' {versionId} -> versionId) (\s@TypeVersionSummary' {} a -> s {versionId = a} :: TypeVersionSummary)
 

@@ -64,8 +64,8 @@ data DescribeStackEvents = DescribeStackEvents'
   { -- | A string that identifies the next page of events that you want to
     -- retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or the unique stack ID that is associated with the stack, which
-    -- are not always interchangeable:
+    -- | The name or the unique stack ID that\'s associated with the stack, which
+    -- aren\'t always interchangeable:
     --
     -- -   Running stacks: You can specify either the stack\'s name or its
     --     unique stack ID.
@@ -88,8 +88,8 @@ data DescribeStackEvents = DescribeStackEvents'
 -- 'nextToken', 'describeStackEvents_nextToken' - A string that identifies the next page of events that you want to
 -- retrieve.
 --
--- 'stackName', 'describeStackEvents_stackName' - The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- 'stackName', 'describeStackEvents_stackName' - The name or the unique stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.
@@ -110,8 +110,8 @@ newDescribeStackEvents =
 describeStackEvents_nextToken :: Lens.Lens' DescribeStackEvents (Prelude.Maybe Prelude.Text)
 describeStackEvents_nextToken = Lens.lens (\DescribeStackEvents' {nextToken} -> nextToken) (\s@DescribeStackEvents' {} a -> s {nextToken = a} :: DescribeStackEvents)
 
--- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- | The name or the unique stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.

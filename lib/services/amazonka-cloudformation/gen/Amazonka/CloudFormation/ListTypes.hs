@@ -69,7 +69,7 @@ data ListTypes = ListTypes'
     -- -   @DEPRECATED@: The extension has been deregistered and can no longer
     --     be used in CloudFormation operations.
     deprecatedStatus :: Prelude.Maybe DeprecatedStatus,
-    -- | If the previous paginated request didn\'t return all of the remaining
+    -- | If the previous paginated request didn\'t return all the remaining
     -- results, the response object\'s @NextToken@ parameter value is set to a
     -- token. To retrieve the next set of results, call this action again and
     -- assign that token to the request object\'s @NextToken@ parameter. If
@@ -80,8 +80,10 @@ data ListTypes = ListTypes'
     type' :: Prelude.Maybe RegistryType,
     -- | Filter criteria to use in determining which extensions to return.
     --
-    -- If you specify a filter, CloudFormation ignores any specified
-    -- @Visibility@ value when returning the list of types.
+    -- Filters must be compatible with @Visibility@ to return valid results.
+    -- For example, specifying @AWS_TYPES@ for @Category@ and @PRIVATE@ for
+    -- @Visibility@ returns an empty list of types, but specifying @PUBLIC@ for
+    -- @Visibility@ returns the desired list.
     filters :: Prelude.Maybe TypeFilters,
     -- | The scope at which the extensions are visible and usable in
     -- CloudFormation operations.
@@ -98,8 +100,9 @@ data ListTypes = ListTypes'
     --         region.
     --
     -- -   @PUBLIC@: Extensions that are publicly visible and available to be
-    --     activated within any Amazon account. This includes extensions from
-    --     Amazon, as well as third-party publishers.
+    --     activated within any Amazon Web Services account. This includes
+    --     extensions from Amazon Web Services, in addition to third-party
+    --     publishers.
     --
     -- The default is @PRIVATE@.
     visibility :: Prelude.Maybe Visibility,
@@ -117,12 +120,12 @@ data ListTypes = ListTypes'
     -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
     --     process updates to the type during stack update operations.
     --
-    -- -   @IMMUTABLE@: The resource type does not include an update handler,
-    --     so the type cannot be updated and must instead be replaced during
+    -- -   @IMMUTABLE@: The resource type doesn\'t include an update handler,
+    --     so the type can\'t be updated and must instead be replaced during
     --     stack update operations.
     --
-    -- -   @NON_PROVISIONABLE@: The resource type does not include create,
-    --     read, and delete handlers, and therefore cannot actually be
+    -- -   @NON_PROVISIONABLE@: The resource type doesn\'t include create,
+    --     read, and delete handlers, and therefore can\'t actually be
     --     provisioned.
     --
     -- The default is @FULLY_MUTABLE@.
@@ -149,7 +152,7 @@ data ListTypes = ListTypes'
 -- -   @DEPRECATED@: The extension has been deregistered and can no longer
 --     be used in CloudFormation operations.
 --
--- 'nextToken', 'listTypes_nextToken' - If the previous paginated request didn\'t return all of the remaining
+-- 'nextToken', 'listTypes_nextToken' - If the previous paginated request didn\'t return all the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call this action again and
 -- assign that token to the request object\'s @NextToken@ parameter. If
@@ -160,8 +163,10 @@ data ListTypes = ListTypes'
 --
 -- 'filters', 'listTypes_filters' - Filter criteria to use in determining which extensions to return.
 --
--- If you specify a filter, CloudFormation ignores any specified
--- @Visibility@ value when returning the list of types.
+-- Filters must be compatible with @Visibility@ to return valid results.
+-- For example, specifying @AWS_TYPES@ for @Category@ and @PRIVATE@ for
+-- @Visibility@ returns an empty list of types, but specifying @PUBLIC@ for
+-- @Visibility@ returns the desired list.
 --
 -- 'visibility', 'listTypes_visibility' - The scope at which the extensions are visible and usable in
 -- CloudFormation operations.
@@ -178,8 +183,9 @@ data ListTypes = ListTypes'
 --         region.
 --
 -- -   @PUBLIC@: Extensions that are publicly visible and available to be
---     activated within any Amazon account. This includes extensions from
---     Amazon, as well as third-party publishers.
+--     activated within any Amazon Web Services account. This includes
+--     extensions from Amazon Web Services, in addition to third-party
+--     publishers.
 --
 -- The default is @PRIVATE@.
 --
@@ -197,12 +203,12 @@ data ListTypes = ListTypes'
 -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
 --     process updates to the type during stack update operations.
 --
--- -   @IMMUTABLE@: The resource type does not include an update handler,
---     so the type cannot be updated and must instead be replaced during
+-- -   @IMMUTABLE@: The resource type doesn\'t include an update handler,
+--     so the type can\'t be updated and must instead be replaced during
 --     stack update operations.
 --
--- -   @NON_PROVISIONABLE@: The resource type does not include create,
---     read, and delete handlers, and therefore cannot actually be
+-- -   @NON_PROVISIONABLE@: The resource type doesn\'t include create,
+--     read, and delete handlers, and therefore can\'t actually be
 --     provisioned.
 --
 -- The default is @FULLY_MUTABLE@.
@@ -232,7 +238,7 @@ newListTypes =
 listTypes_deprecatedStatus :: Lens.Lens' ListTypes (Prelude.Maybe DeprecatedStatus)
 listTypes_deprecatedStatus = Lens.lens (\ListTypes' {deprecatedStatus} -> deprecatedStatus) (\s@ListTypes' {} a -> s {deprecatedStatus = a} :: ListTypes)
 
--- | If the previous paginated request didn\'t return all of the remaining
+-- | If the previous paginated request didn\'t return all the remaining
 -- results, the response object\'s @NextToken@ parameter value is set to a
 -- token. To retrieve the next set of results, call this action again and
 -- assign that token to the request object\'s @NextToken@ parameter. If
@@ -247,8 +253,10 @@ listTypes_type = Lens.lens (\ListTypes' {type'} -> type') (\s@ListTypes' {} a ->
 
 -- | Filter criteria to use in determining which extensions to return.
 --
--- If you specify a filter, CloudFormation ignores any specified
--- @Visibility@ value when returning the list of types.
+-- Filters must be compatible with @Visibility@ to return valid results.
+-- For example, specifying @AWS_TYPES@ for @Category@ and @PRIVATE@ for
+-- @Visibility@ returns an empty list of types, but specifying @PUBLIC@ for
+-- @Visibility@ returns the desired list.
 listTypes_filters :: Lens.Lens' ListTypes (Prelude.Maybe TypeFilters)
 listTypes_filters = Lens.lens (\ListTypes' {filters} -> filters) (\s@ListTypes' {} a -> s {filters = a} :: ListTypes)
 
@@ -267,8 +275,9 @@ listTypes_filters = Lens.lens (\ListTypes' {filters} -> filters) (\s@ListTypes' 
 --         region.
 --
 -- -   @PUBLIC@: Extensions that are publicly visible and available to be
---     activated within any Amazon account. This includes extensions from
---     Amazon, as well as third-party publishers.
+--     activated within any Amazon Web Services account. This includes
+--     extensions from Amazon Web Services, in addition to third-party
+--     publishers.
 --
 -- The default is @PRIVATE@.
 listTypes_visibility :: Lens.Lens' ListTypes (Prelude.Maybe Visibility)
@@ -290,12 +299,12 @@ listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@Li
 -- -   @FULLY_MUTABLE@: The resource type includes an update handler to
 --     process updates to the type during stack update operations.
 --
--- -   @IMMUTABLE@: The resource type does not include an update handler,
---     so the type cannot be updated and must instead be replaced during
+-- -   @IMMUTABLE@: The resource type doesn\'t include an update handler,
+--     so the type can\'t be updated and must instead be replaced during
 --     stack update operations.
 --
--- -   @NON_PROVISIONABLE@: The resource type does not include create,
---     read, and delete handlers, and therefore cannot actually be
+-- -   @NON_PROVISIONABLE@: The resource type doesn\'t include create,
+--     read, and delete handlers, and therefore can\'t actually be
 --     provisioned.
 --
 -- The default is @FULLY_MUTABLE@.
@@ -380,8 +389,8 @@ instance Core.ToQuery ListTypes where
 
 -- | /See:/ 'newListTypesResponse' smart constructor.
 data ListTypesResponse = ListTypesResponse'
-  { -- | If the request doesn\'t return all of the remaining results, @NextToken@
-    -- is set to a token. To retrieve the next set of results, call this action
+  { -- | If the request doesn\'t return all the remaining results, @NextToken@ is
+    -- set to a token. To retrieve the next set of results, call this action
     -- again and assign that token to the request object\'s @NextToken@
     -- parameter. If the request returns all results, @NextToken@ is set to
     -- @null@.
@@ -402,8 +411,8 @@ data ListTypesResponse = ListTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTypesResponse_nextToken' - If the request doesn\'t return all of the remaining results, @NextToken@
--- is set to a token. To retrieve the next set of results, call this action
+-- 'nextToken', 'listTypesResponse_nextToken' - If the request doesn\'t return all the remaining results, @NextToken@ is
+-- set to a token. To retrieve the next set of results, call this action
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If the request returns all results, @NextToken@ is set to
 -- @null@.
@@ -423,8 +432,8 @@ newListTypesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | If the request doesn\'t return all of the remaining results, @NextToken@
--- is set to a token. To retrieve the next set of results, call this action
+-- | If the request doesn\'t return all the remaining results, @NextToken@ is
+-- set to a token. To retrieve the next set of results, call this action
 -- again and assign that token to the request object\'s @NextToken@
 -- parameter. If the request returns all results, @NextToken@ is set to
 -- @null@.

@@ -35,6 +35,8 @@ data StackSetOperationSummary = StackSetOperationSummary'
     -- stack set operation was successful, or even attempted, in each account
     -- or Region.
     endTimestamp :: Prelude.Maybe Core.ISO8601,
+    -- | The status of the operation in details.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the stack set operation.
     operationId :: Prelude.Maybe Prelude.Text,
     -- | The overall status of the operation.
@@ -56,7 +58,7 @@ data StackSetOperationSummary = StackSetOperationSummary'
     --
     -- -   @RUNNING@: The operation is currently being performed.
     --
-    -- -   @STOPPED@: The user has cancelled the operation.
+    -- -   @STOPPED@: The user has canceled the operation.
     --
     -- -   @STOPPING@: The operation is in the process of stopping, at user
     --     request.
@@ -75,7 +77,7 @@ data StackSetOperationSummary = StackSetOperationSummary'
     -- | The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
     -- delete operations affect only the specified stack instances that are
     -- associated with the specified stack set. Update operations affect both
-    -- the stack set itself as well as /all/ associated stack set instances.
+    -- the stack set itself and /all/ associated stack set instances.
     action :: Prelude.Maybe StackSetOperationAction
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,6 +94,8 @@ data StackSetOperationSummary = StackSetOperationSummary'
 -- Regions specified. Note that this doesn\'t necessarily mean that the
 -- stack set operation was successful, or even attempted, in each account
 -- or Region.
+--
+-- 'statusReason', 'stackSetOperationSummary_statusReason' - The status of the operation in details.
 --
 -- 'operationId', 'stackSetOperationSummary_operationId' - The unique ID of the stack set operation.
 --
@@ -114,7 +118,7 @@ data StackSetOperationSummary = StackSetOperationSummary'
 --
 -- -   @RUNNING@: The operation is currently being performed.
 --
--- -   @STOPPED@: The user has cancelled the operation.
+-- -   @STOPPED@: The user has canceled the operation.
 --
 -- -   @STOPPING@: The operation is in the process of stopping, at user
 --     request.
@@ -133,13 +137,14 @@ data StackSetOperationSummary = StackSetOperationSummary'
 -- 'action', 'stackSetOperationSummary_action' - The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
 -- delete operations affect only the specified stack instances that are
 -- associated with the specified stack set. Update operations affect both
--- the stack set itself as well as /all/ associated stack set instances.
+-- the stack set itself and /all/ associated stack set instances.
 newStackSetOperationSummary ::
   StackSetOperationSummary
 newStackSetOperationSummary =
   StackSetOperationSummary'
     { endTimestamp =
         Prelude.Nothing,
+      statusReason = Prelude.Nothing,
       operationId = Prelude.Nothing,
       status = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
@@ -152,6 +157,10 @@ newStackSetOperationSummary =
 -- or Region.
 stackSetOperationSummary_endTimestamp :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.UTCTime)
 stackSetOperationSummary_endTimestamp = Lens.lens (\StackSetOperationSummary' {endTimestamp} -> endTimestamp) (\s@StackSetOperationSummary' {} a -> s {endTimestamp = a} :: StackSetOperationSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The status of the operation in details.
+stackSetOperationSummary_statusReason :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.Text)
+stackSetOperationSummary_statusReason = Lens.lens (\StackSetOperationSummary' {statusReason} -> statusReason) (\s@StackSetOperationSummary' {} a -> s {statusReason = a} :: StackSetOperationSummary)
 
 -- | The unique ID of the stack set operation.
 stackSetOperationSummary_operationId :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe Prelude.Text)
@@ -176,7 +185,7 @@ stackSetOperationSummary_operationId = Lens.lens (\StackSetOperationSummary' {op
 --
 -- -   @RUNNING@: The operation is currently being performed.
 --
--- -   @STOPPED@: The user has cancelled the operation.
+-- -   @STOPPED@: The user has canceled the operation.
 --
 -- -   @STOPPING@: The operation is in the process of stopping, at user
 --     request.
@@ -199,7 +208,7 @@ stackSetOperationSummary_creationTimestamp = Lens.lens (\StackSetOperationSummar
 -- | The type of operation: @CREATE@, @UPDATE@, or @DELETE@. Create and
 -- delete operations affect only the specified stack instances that are
 -- associated with the specified stack set. Update operations affect both
--- the stack set itself as well as /all/ associated stack set instances.
+-- the stack set itself and /all/ associated stack set instances.
 stackSetOperationSummary_action :: Lens.Lens' StackSetOperationSummary (Prelude.Maybe StackSetOperationAction)
 stackSetOperationSummary_action = Lens.lens (\StackSetOperationSummary' {action} -> action) (\s@StackSetOperationSummary' {} a -> s {action = a} :: StackSetOperationSummary)
 
@@ -207,6 +216,7 @@ instance Core.FromXML StackSetOperationSummary where
   parseXML x =
     StackSetOperationSummary'
       Prelude.<$> (x Core..@? "EndTimestamp")
+      Prelude.<*> (x Core..@? "StatusReason")
       Prelude.<*> (x Core..@? "OperationId")
       Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "CreationTimestamp")
@@ -215,6 +225,7 @@ instance Core.FromXML StackSetOperationSummary where
 instance Prelude.Hashable StackSetOperationSummary where
   hashWithSalt _salt StackSetOperationSummary' {..} =
     _salt `Prelude.hashWithSalt` endTimestamp
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` operationId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` creationTimestamp
@@ -223,6 +234,7 @@ instance Prelude.Hashable StackSetOperationSummary where
 instance Prelude.NFData StackSetOperationSummary where
   rnf StackSetOperationSummary' {..} =
     Prelude.rnf endTimestamp
+      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf operationId
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf creationTimestamp

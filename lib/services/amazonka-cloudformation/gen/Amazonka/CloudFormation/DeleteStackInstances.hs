@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes stack instances for the specified accounts, in the specified
--- Regions.
+-- Amazon Web Services Regions.
 module Amazonka.CloudFormation.DeleteStackInstances
   ( -- * Creating a Request
     DeleteStackInstances (..),
@@ -101,7 +101,8 @@ data DeleteStackInstances = DeleteStackInstances'
     -- | The name or unique ID of the stack set that you want to delete stack
     -- instances for.
     stackSetName :: Prelude.Text,
-    -- | The Regions where you want to delete stack set instances.
+    -- | The Amazon Web Services Regions where you want to delete stack set
+    -- instances.
     regions :: [Prelude.Text],
     -- | Removes the stack instances from the specified stack set, but doesn\'t
     -- delete the stacks. You can\'t reassociate a retained stack or add an
@@ -166,7 +167,8 @@ data DeleteStackInstances = DeleteStackInstances'
 -- 'stackSetName', 'deleteStackInstances_stackSetName' - The name or unique ID of the stack set that you want to delete stack
 -- instances for.
 --
--- 'regions', 'deleteStackInstances_regions' - The Regions where you want to delete stack set instances.
+-- 'regions', 'deleteStackInstances_regions' - The Amazon Web Services Regions where you want to delete stack set
+-- instances.
 --
 -- 'retainStacks', 'deleteStackInstances_retainStacks' - Removes the stack instances from the specified stack set, but doesn\'t
 -- delete the stacks. You can\'t reassociate a retained stack or add an
@@ -250,7 +252,8 @@ deleteStackInstances_deploymentTargets = Lens.lens (\DeleteStackInstances' {depl
 deleteStackInstances_stackSetName :: Lens.Lens' DeleteStackInstances Prelude.Text
 deleteStackInstances_stackSetName = Lens.lens (\DeleteStackInstances' {stackSetName} -> stackSetName) (\s@DeleteStackInstances' {} a -> s {stackSetName = a} :: DeleteStackInstances)
 
--- | The Regions where you want to delete stack set instances.
+-- | The Amazon Web Services Regions where you want to delete stack set
+-- instances.
 deleteStackInstances_regions :: Lens.Lens' DeleteStackInstances [Prelude.Text]
 deleteStackInstances_regions = Lens.lens (\DeleteStackInstances' {regions} -> regions) (\s@DeleteStackInstances' {} a -> s {regions = a} :: DeleteStackInstances) Prelude.. Lens.coerced
 

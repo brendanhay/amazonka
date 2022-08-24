@@ -27,16 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 -- | The user-specified preferences for how CloudFormation performs a stack
 -- set operation.
 --
--- For more information on maximum concurrent accounts and failure
+-- For more information about maximum concurrent accounts and failure
 -- tolerance, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
 --
 -- /See:/ 'newStackSetOperationPreferences' smart constructor.
 data StackSetOperationPreferences = StackSetOperationPreferences'
   { -- | The maximum number of accounts in which to perform this operation at one
-    -- time. This is dependent on the value of @FailureToleranceCount@.
-    -- @MaxConcurrentCount@ is at most one more than the
-    -- @FailureToleranceCount@.
+    -- time. This is dependent on the value of
+    -- @FailureToleranceCount@.@MaxConcurrentCount@ is at most one more than
+    -- the @FailureToleranceCount@.
     --
     -- Note that this setting lets you specify the /maximum/ for operations.
     -- For large deployments, under certain circumstances the actual number of
@@ -105,9 +105,9 @@ data StackSetOperationPreferences = StackSetOperationPreferences'
 -- for backwards compatibility:
 --
 -- 'maxConcurrentCount', 'stackSetOperationPreferences_maxConcurrentCount' - The maximum number of accounts in which to perform this operation at one
--- time. This is dependent on the value of @FailureToleranceCount@.
--- @MaxConcurrentCount@ is at most one more than the
--- @FailureToleranceCount@.
+-- time. This is dependent on the value of
+-- @FailureToleranceCount@.@MaxConcurrentCount@ is at most one more than
+-- the @FailureToleranceCount@.
 --
 -- Note that this setting lets you specify the /maximum/ for operations.
 -- For large deployments, under certain circumstances the actual number of
@@ -177,9 +177,9 @@ newStackSetOperationPreferences =
     }
 
 -- | The maximum number of accounts in which to perform this operation at one
--- time. This is dependent on the value of @FailureToleranceCount@.
--- @MaxConcurrentCount@ is at most one more than the
--- @FailureToleranceCount@.
+-- time. This is dependent on the value of
+-- @FailureToleranceCount@.@MaxConcurrentCount@ is at most one more than
+-- the @FailureToleranceCount@.
 --
 -- Note that this setting lets you specify the /maximum/ for operations.
 -- For large deployments, under certain circumstances the actual number of

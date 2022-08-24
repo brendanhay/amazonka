@@ -30,7 +30,7 @@
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration Configuring extensions at the account level>
 -- in the /CloudFormation User Guide/.
 --
--- It is strongly recommended that you use dynamic references to restrict
+-- It\'s strongly recommended that you use dynamic references to restrict
 -- sensitive configuration definitions, such as third-party credentials.
 -- For more details on dynamic references, see
 -- <https://docs.aws.amazon.com/ Using dynamic references to specify template values>

@@ -20,6 +20,7 @@
 module Amazonka.CloudFormation.Types.ThirdPartyType
   ( ThirdPartyType
       ( ..,
+        ThirdPartyType_HOOK,
         ThirdPartyType_MODULE,
         ThirdPartyType_RESOURCE
       ),
@@ -57,6 +58,9 @@ newtype ThirdPartyType = ThirdPartyType'
       Core.ToXML
     )
 
+pattern ThirdPartyType_HOOK :: ThirdPartyType
+pattern ThirdPartyType_HOOK = ThirdPartyType' "HOOK"
+
 pattern ThirdPartyType_MODULE :: ThirdPartyType
 pattern ThirdPartyType_MODULE = ThirdPartyType' "MODULE"
 
@@ -64,6 +68,7 @@ pattern ThirdPartyType_RESOURCE :: ThirdPartyType
 pattern ThirdPartyType_RESOURCE = ThirdPartyType' "RESOURCE"
 
 {-# COMPLETE
+  ThirdPartyType_HOOK,
   ThirdPartyType_MODULE,
   ThirdPartyType_RESOURCE,
   ThirdPartyType'

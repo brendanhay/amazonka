@@ -44,7 +44,7 @@
 -- execute the change set by using the ExecuteChangeSet action.
 -- CloudFormation doesn\'t make changes until you execute the change set.
 --
--- To create a change set for the entire stack hierachy, set
+-- To create a change set for the entire stack hierarchy, set
 -- @IncludeNestedStacks@ to @True@.
 module Amazonka.CloudFormation.CreateChangeSet
   ( -- * Creating a Request
@@ -106,9 +106,9 @@ data CreateChangeSet = CreateChangeSet'
     -- (IAM) role that CloudFormation assumes when executing the change set.
     -- CloudFormation uses the role\'s credentials to make calls on your
     -- behalf. CloudFormation uses this role for all future operations on the
-    -- stack. As long as users have permission to operate on the stack,
+    -- stack. Provided that users have permission to operate on the stack,
     -- CloudFormation uses this role even if the users don\'t have permission
-    -- to pass it. Ensure that the role grants least privilege.
+    -- to pass it. Ensure that the role grants least permission.
     --
     -- If you don\'t specify a value, CloudFormation uses the role that was
     -- previously associated with the stack. If no role is available,
@@ -119,7 +119,7 @@ data CreateChangeSet = CreateChangeSet'
     -- (Amazon SNS) topics that CloudFormation associates with the stack. To
     -- remove all associated notification topics, specify an empty list.
     notificationARNs :: Prelude.Maybe [Prelude.Text],
-    -- | Whether to reuse the template that is associated with the stack to
+    -- | Whether to reuse the template that\'s associated with the stack to
     -- create the change set.
     usePreviousTemplate :: Prelude.Maybe Prelude.Bool,
     -- | A structure that contains the body of the revised template, with a
@@ -138,7 +138,7 @@ data CreateChangeSet = CreateChangeSet'
     -- grants permissions to all resource types. Identity and Access Management
     -- (IAM) uses this parameter for condition keys in IAM policies for
     -- CloudFormation. For more information, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling access with Identity and Access Management>
     -- in the CloudFormation User Guide.
     resourceTypes :: Prelude.Maybe [Prelude.Text],
     -- | The type of change set operation. To create a change set for a new
@@ -187,8 +187,8 @@ data CreateChangeSet = CreateChangeSet'
     --     -   If you don\'t specify either of these capabilities,
     --         CloudFormation returns an @InsufficientCapabilities@ error.
     --
-    --     If your stack template contains these resources, we recommend that
-    --     you review all permissions associated with them and edit their
+    --     If your stack template contains these resources, we suggest that you
+    --     review all permissions associated with them and edit their
     --     permissions if necessary.
     --
     --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>
@@ -206,7 +206,7 @@ data CreateChangeSet = CreateChangeSet'
     --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>
     --
     --     For more information, see
-    --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
+    --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM resources in CloudFormation templates>.
     --
     -- -   @CAPABILITY_AUTO_EXPAND@
     --
@@ -225,7 +225,7 @@ data CreateChangeSet = CreateChangeSet'
     --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html AWS::Serverless>
     --     transforms, which are macros hosted by CloudFormation.
     --
-    --     This capacity does not apply to creating change sets, and specifying
+    --     This capacity doesn\'t apply to creating change sets, and specifying
     --     it when creating change sets has no effect.
     --
     --     If you want to create a stack from a stack template that contains
@@ -233,17 +233,18 @@ data CreateChangeSet = CreateChangeSet'
     --     directly from the template using the CreateStack or UpdateStack
     --     action, and specifying this capability.
     --
-    --     For more information on macros, see
-    --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
+    --     For more information about macros, see
+    --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation macros to perform custom processing on templates>.
     capabilities :: Prelude.Maybe [Capability],
     -- | The rollback triggers for CloudFormation to monitor during stack
     -- creation and updating operations, and for the specified monitoring
     -- period afterwards.
     rollbackConfiguration :: Prelude.Maybe RollbackConfiguration,
     -- | The location of the file that contains the revised template. The URL
-    -- must point to a template (max size: 460,800 bytes) that is located in an
-    -- S3 bucket or a Systems Manager document. CloudFormation generates the
-    -- change set by comparing this template with the stack that you specified.
+    -- must point to a template (max size: 460,800 bytes) that\'s located in an
+    -- Amazon S3 bucket or a Systems Manager document. CloudFormation generates
+    -- the change set by comparing this template with the stack that you
+    -- specified.
     --
     -- Conditional: You must specify only @TemplateBody@ or @TemplateURL@.
     templateURL :: Prelude.Maybe Prelude.Text,
@@ -259,8 +260,8 @@ data CreateChangeSet = CreateChangeSet'
     -- sets that are associated with the specified stack.
     --
     -- A change set name can contain only alphanumeric, case sensitive
-    -- characters and hyphens. It must start with an alphabetic character and
-    -- cannot exceed 128 characters.
+    -- characters, and hyphens. It must start with an alphabetical character
+    -- and can\'t exceed 128 characters.
     changeSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -287,9 +288,9 @@ data CreateChangeSet = CreateChangeSet'
 -- (IAM) role that CloudFormation assumes when executing the change set.
 -- CloudFormation uses the role\'s credentials to make calls on your
 -- behalf. CloudFormation uses this role for all future operations on the
--- stack. As long as users have permission to operate on the stack,
+-- stack. Provided that users have permission to operate on the stack,
 -- CloudFormation uses this role even if the users don\'t have permission
--- to pass it. Ensure that the role grants least privilege.
+-- to pass it. Ensure that the role grants least permission.
 --
 -- If you don\'t specify a value, CloudFormation uses the role that was
 -- previously associated with the stack. If no role is available,
@@ -300,7 +301,7 @@ data CreateChangeSet = CreateChangeSet'
 -- (Amazon SNS) topics that CloudFormation associates with the stack. To
 -- remove all associated notification topics, specify an empty list.
 --
--- 'usePreviousTemplate', 'createChangeSet_usePreviousTemplate' - Whether to reuse the template that is associated with the stack to
+-- 'usePreviousTemplate', 'createChangeSet_usePreviousTemplate' - Whether to reuse the template that\'s associated with the stack to
 -- create the change set.
 --
 -- 'templateBody', 'createChangeSet_templateBody' - A structure that contains the body of the revised template, with a
@@ -319,7 +320,7 @@ data CreateChangeSet = CreateChangeSet'
 -- grants permissions to all resource types. Identity and Access Management
 -- (IAM) uses this parameter for condition keys in IAM policies for
 -- CloudFormation. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling access with Identity and Access Management>
 -- in the CloudFormation User Guide.
 --
 -- 'changeSetType', 'createChangeSet_changeSetType' - The type of change set operation. To create a change set for a new
@@ -368,8 +369,8 @@ data CreateChangeSet = CreateChangeSet'
 --     -   If you don\'t specify either of these capabilities,
 --         CloudFormation returns an @InsufficientCapabilities@ error.
 --
---     If your stack template contains these resources, we recommend that
---     you review all permissions associated with them and edit their
+--     If your stack template contains these resources, we suggest that you
+--     review all permissions associated with them and edit their
 --     permissions if necessary.
 --
 --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>
@@ -387,7 +388,7 @@ data CreateChangeSet = CreateChangeSet'
 --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>
 --
 --     For more information, see
---     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
+--     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM resources in CloudFormation templates>.
 --
 -- -   @CAPABILITY_AUTO_EXPAND@
 --
@@ -406,7 +407,7 @@ data CreateChangeSet = CreateChangeSet'
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html AWS::Serverless>
 --     transforms, which are macros hosted by CloudFormation.
 --
---     This capacity does not apply to creating change sets, and specifying
+--     This capacity doesn\'t apply to creating change sets, and specifying
 --     it when creating change sets has no effect.
 --
 --     If you want to create a stack from a stack template that contains
@@ -414,17 +415,18 @@ data CreateChangeSet = CreateChangeSet'
 --     directly from the template using the CreateStack or UpdateStack
 --     action, and specifying this capability.
 --
---     For more information on macros, see
---     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
+--     For more information about macros, see
+--     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation macros to perform custom processing on templates>.
 --
 -- 'rollbackConfiguration', 'createChangeSet_rollbackConfiguration' - The rollback triggers for CloudFormation to monitor during stack
 -- creation and updating operations, and for the specified monitoring
 -- period afterwards.
 --
 -- 'templateURL', 'createChangeSet_templateURL' - The location of the file that contains the revised template. The URL
--- must point to a template (max size: 460,800 bytes) that is located in an
--- S3 bucket or a Systems Manager document. CloudFormation generates the
--- change set by comparing this template with the stack that you specified.
+-- must point to a template (max size: 460,800 bytes) that\'s located in an
+-- Amazon S3 bucket or a Systems Manager document. CloudFormation generates
+-- the change set by comparing this template with the stack that you
+-- specified.
 --
 -- Conditional: You must specify only @TemplateBody@ or @TemplateURL@.
 --
@@ -440,8 +442,8 @@ data CreateChangeSet = CreateChangeSet'
 -- sets that are associated with the specified stack.
 --
 -- A change set name can contain only alphanumeric, case sensitive
--- characters and hyphens. It must start with an alphabetic character and
--- cannot exceed 128 characters.
+-- characters, and hyphens. It must start with an alphabetical character
+-- and can\'t exceed 128 characters.
 newCreateChangeSet ::
   -- | 'stackName'
   Prelude.Text ->
@@ -487,9 +489,9 @@ createChangeSet_clientToken = Lens.lens (\CreateChangeSet' {clientToken} -> clie
 -- (IAM) role that CloudFormation assumes when executing the change set.
 -- CloudFormation uses the role\'s credentials to make calls on your
 -- behalf. CloudFormation uses this role for all future operations on the
--- stack. As long as users have permission to operate on the stack,
+-- stack. Provided that users have permission to operate on the stack,
 -- CloudFormation uses this role even if the users don\'t have permission
--- to pass it. Ensure that the role grants least privilege.
+-- to pass it. Ensure that the role grants least permission.
 --
 -- If you don\'t specify a value, CloudFormation uses the role that was
 -- previously associated with the stack. If no role is available,
@@ -504,7 +506,7 @@ createChangeSet_roleARN = Lens.lens (\CreateChangeSet' {roleARN} -> roleARN) (\s
 createChangeSet_notificationARNs :: Lens.Lens' CreateChangeSet (Prelude.Maybe [Prelude.Text])
 createChangeSet_notificationARNs = Lens.lens (\CreateChangeSet' {notificationARNs} -> notificationARNs) (\s@CreateChangeSet' {} a -> s {notificationARNs = a} :: CreateChangeSet) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether to reuse the template that is associated with the stack to
+-- | Whether to reuse the template that\'s associated with the stack to
 -- create the change set.
 createChangeSet_usePreviousTemplate :: Lens.Lens' CreateChangeSet (Prelude.Maybe Prelude.Bool)
 createChangeSet_usePreviousTemplate = Lens.lens (\CreateChangeSet' {usePreviousTemplate} -> usePreviousTemplate) (\s@CreateChangeSet' {} a -> s {usePreviousTemplate = a} :: CreateChangeSet)
@@ -527,7 +529,7 @@ createChangeSet_templateBody = Lens.lens (\CreateChangeSet' {templateBody} -> te
 -- grants permissions to all resource types. Identity and Access Management
 -- (IAM) uses this parameter for condition keys in IAM policies for
 -- CloudFormation. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling Access with Identity and Access Management>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html Controlling access with Identity and Access Management>
 -- in the CloudFormation User Guide.
 createChangeSet_resourceTypes :: Lens.Lens' CreateChangeSet (Prelude.Maybe [Prelude.Text])
 createChangeSet_resourceTypes = Lens.lens (\CreateChangeSet' {resourceTypes} -> resourceTypes) (\s@CreateChangeSet' {} a -> s {resourceTypes = a} :: CreateChangeSet) Prelude.. Lens.mapping Lens.coerced
@@ -586,8 +588,8 @@ createChangeSet_includeNestedStacks = Lens.lens (\CreateChangeSet' {includeNeste
 --     -   If you don\'t specify either of these capabilities,
 --         CloudFormation returns an @InsufficientCapabilities@ error.
 --
---     If your stack template contains these resources, we recommend that
---     you review all permissions associated with them and edit their
+--     If your stack template contains these resources, we suggest that you
+--     review all permissions associated with them and edit their
 --     permissions if necessary.
 --
 --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html AWS::IAM::AccessKey>
@@ -605,7 +607,7 @@ createChangeSet_includeNestedStacks = Lens.lens (\CreateChangeSet' {includeNeste
 --     -   <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html AWS::IAM::UserToGroupAddition>
 --
 --     For more information, see
---     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
+--     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM resources in CloudFormation templates>.
 --
 -- -   @CAPABILITY_AUTO_EXPAND@
 --
@@ -624,7 +626,7 @@ createChangeSet_includeNestedStacks = Lens.lens (\CreateChangeSet' {includeNeste
 --     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html AWS::Serverless>
 --     transforms, which are macros hosted by CloudFormation.
 --
---     This capacity does not apply to creating change sets, and specifying
+--     This capacity doesn\'t apply to creating change sets, and specifying
 --     it when creating change sets has no effect.
 --
 --     If you want to create a stack from a stack template that contains
@@ -632,8 +634,8 @@ createChangeSet_includeNestedStacks = Lens.lens (\CreateChangeSet' {includeNeste
 --     directly from the template using the CreateStack or UpdateStack
 --     action, and specifying this capability.
 --
---     For more information on macros, see
---     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation Macros to Perform Custom Processing on Templates>.
+--     For more information about macros, see
+--     <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html Using CloudFormation macros to perform custom processing on templates>.
 createChangeSet_capabilities :: Lens.Lens' CreateChangeSet (Prelude.Maybe [Capability])
 createChangeSet_capabilities = Lens.lens (\CreateChangeSet' {capabilities} -> capabilities) (\s@CreateChangeSet' {} a -> s {capabilities = a} :: CreateChangeSet) Prelude.. Lens.mapping Lens.coerced
 
@@ -644,9 +646,10 @@ createChangeSet_rollbackConfiguration :: Lens.Lens' CreateChangeSet (Prelude.May
 createChangeSet_rollbackConfiguration = Lens.lens (\CreateChangeSet' {rollbackConfiguration} -> rollbackConfiguration) (\s@CreateChangeSet' {} a -> s {rollbackConfiguration = a} :: CreateChangeSet)
 
 -- | The location of the file that contains the revised template. The URL
--- must point to a template (max size: 460,800 bytes) that is located in an
--- S3 bucket or a Systems Manager document. CloudFormation generates the
--- change set by comparing this template with the stack that you specified.
+-- must point to a template (max size: 460,800 bytes) that\'s located in an
+-- Amazon S3 bucket or a Systems Manager document. CloudFormation generates
+-- the change set by comparing this template with the stack that you
+-- specified.
 --
 -- Conditional: You must specify only @TemplateBody@ or @TemplateURL@.
 createChangeSet_templateURL :: Lens.Lens' CreateChangeSet (Prelude.Maybe Prelude.Text)
@@ -668,8 +671,8 @@ createChangeSet_stackName = Lens.lens (\CreateChangeSet' {stackName} -> stackNam
 -- sets that are associated with the specified stack.
 --
 -- A change set name can contain only alphanumeric, case sensitive
--- characters and hyphens. It must start with an alphabetic character and
--- cannot exceed 128 characters.
+-- characters, and hyphens. It must start with an alphabetical character
+-- and can\'t exceed 128 characters.
 createChangeSet_changeSetName :: Lens.Lens' CreateChangeSet Prelude.Text
 createChangeSet_changeSetName = Lens.lens (\CreateChangeSet' {changeSetName} -> changeSetName) (\s@CreateChangeSet' {} a -> s {changeSetName = a} :: CreateChangeSet)
 

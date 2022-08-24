@@ -22,7 +22,7 @@
 --
 -- Publishes the specified extension to the CloudFormation registry as a
 -- public extension in this region. Public extensions are available for use
--- by all CloudFormation users. For more information on publishing
+-- by all CloudFormation users. For more information about publishing
 -- extensions, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html Publishing extensions to make them available for public use>
 -- in the /CloudFormation CLI User Guide/.
@@ -64,7 +64,7 @@ data PublishType = PublishType'
     --
     -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
     type' :: Prelude.Maybe ThirdPartyType,
-    -- | The Amazon Resource Number (ARN) of the extension.
+    -- | The Amazon Resource Name (ARN) of the extension.
     --
     -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
     arn :: Prelude.Maybe Prelude.Text,
@@ -78,11 +78,12 @@ data PublishType = PublishType'
     -- For more information, see
     -- <https://semver.org/ Semantic Versioning 2.0.0>.
     --
-    -- If you do not specify a version number, CloudFormation increments the
+    -- If you don\'t specify a version number, CloudFormation increments the
     -- version number by one minor version release.
     --
-    -- The first time you publish a type, CloudFormation sets the version
-    -- number to @1.0.0@, regardless of the value you specify.
+    -- You cannot specify a version number the first time you publish a type.
+    -- CloudFormation automatically sets the first version number to be
+    -- @1.0.0@.
     publicVersionNumber :: Prelude.Maybe Prelude.Text,
     -- | The name of the extension.
     --
@@ -103,7 +104,7 @@ data PublishType = PublishType'
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
 --
--- 'arn', 'publishType_arn' - The Amazon Resource Number (ARN) of the extension.
+-- 'arn', 'publishType_arn' - The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
 --
@@ -117,11 +118,12 @@ data PublishType = PublishType'
 -- For more information, see
 -- <https://semver.org/ Semantic Versioning 2.0.0>.
 --
--- If you do not specify a version number, CloudFormation increments the
+-- If you don\'t specify a version number, CloudFormation increments the
 -- version number by one minor version release.
 --
--- The first time you publish a type, CloudFormation sets the version
--- number to @1.0.0@, regardless of the value you specify.
+-- You cannot specify a version number the first time you publish a type.
+-- CloudFormation automatically sets the first version number to be
+-- @1.0.0@.
 --
 -- 'typeName', 'publishType_typeName' - The name of the extension.
 --
@@ -142,7 +144,7 @@ newPublishType =
 publishType_type :: Lens.Lens' PublishType (Prelude.Maybe ThirdPartyType)
 publishType_type = Lens.lens (\PublishType' {type'} -> type') (\s@PublishType' {} a -> s {type' = a} :: PublishType)
 
--- | The Amazon Resource Number (ARN) of the extension.
+-- | The Amazon Resource Name (ARN) of the extension.
 --
 -- Conditional: You must specify @Arn@, or @TypeName@ and @Type@.
 publishType_arn :: Lens.Lens' PublishType (Prelude.Maybe Prelude.Text)
@@ -158,11 +160,12 @@ publishType_arn = Lens.lens (\PublishType' {arn} -> arn) (\s@PublishType' {} a -
 -- For more information, see
 -- <https://semver.org/ Semantic Versioning 2.0.0>.
 --
--- If you do not specify a version number, CloudFormation increments the
+-- If you don\'t specify a version number, CloudFormation increments the
 -- version number by one minor version release.
 --
--- The first time you publish a type, CloudFormation sets the version
--- number to @1.0.0@, regardless of the value you specify.
+-- You cannot specify a version number the first time you publish a type.
+-- CloudFormation automatically sets the first version number to be
+-- @1.0.0@.
 publishType_publicVersionNumber :: Lens.Lens' PublishType (Prelude.Maybe Prelude.Text)
 publishType_publicVersionNumber = Lens.lens (\PublishType' {publicVersionNumber} -> publicVersionNumber) (\s@PublishType' {} a -> s {publicVersionNumber = a} :: PublishType)
 
@@ -219,7 +222,7 @@ instance Core.ToQuery PublishType where
 
 -- | /See:/ 'newPublishTypeResponse' smart constructor.
 data PublishTypeResponse = PublishTypeResponse'
-  { -- | The Amazon Resource Number (ARN) assigned to the public extension upon
+  { -- | The Amazon Resource Name (ARN) assigned to the public extension upon
     -- publication.
     publicTypeArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -235,7 +238,7 @@ data PublishTypeResponse = PublishTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'publicTypeArn', 'publishTypeResponse_publicTypeArn' - The Amazon Resource Number (ARN) assigned to the public extension upon
+-- 'publicTypeArn', 'publishTypeResponse_publicTypeArn' - The Amazon Resource Name (ARN) assigned to the public extension upon
 -- publication.
 --
 -- 'httpStatus', 'publishTypeResponse_httpStatus' - The response's http status code.
@@ -250,7 +253,7 @@ newPublishTypeResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Number (ARN) assigned to the public extension upon
+-- | The Amazon Resource Name (ARN) assigned to the public extension upon
 -- publication.
 publishTypeResponse_publicTypeArn :: Lens.Lens' PublishTypeResponse (Prelude.Maybe Prelude.Text)
 publishTypeResponse_publicTypeArn = Lens.lens (\PublishTypeResponse' {publicTypeArn} -> publicTypeArn) (\s@PublishTypeResponse' {} a -> s {publicTypeArn = a} :: PublishTypeResponse)

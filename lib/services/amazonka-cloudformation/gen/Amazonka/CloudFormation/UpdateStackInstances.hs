@@ -21,15 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the parameter values for stack instances for the specified
--- accounts, within the specified Regions. A stack instance refers to a
--- stack in a specific account and Region.
+-- accounts, within the specified Amazon Web Services Regions. A stack
+-- instance refers to a stack in a specific account and Region.
 --
--- You can only update stack instances in Regions and accounts where they
--- already exist; to create additional stack instances, use
+-- You can only update stack instances in Amazon Web Services Regions and
+-- accounts where they already exist; to create additional stack instances,
+-- use
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CreateStackInstances.html CreateStackInstances>.
 --
 -- During stack set updates, any parameters overridden for a stack instance
--- are not updated, but retain their overridden value.
+-- aren\'t updated, but retain their overridden value.
 --
 -- You can only update the parameter /values/ that are specified in the
 -- stack set; to add or delete a parameter itself, use
@@ -99,26 +100,26 @@ data UpdateStackInstances = UpdateStackInstances'
     -- specified stack instances.
     --
     -- Any overridden parameter values will be applied to all stack instances
-    -- in the specified accounts and Regions. When specifying parameters and
-    -- their values, be aware of how CloudFormation sets parameter values
-    -- during stack instance update operations:
+    -- in the specified accounts and Amazon Web Services Regions. When
+    -- specifying parameters and their values, be aware of how CloudFormation
+    -- sets parameter values during stack instance update operations:
     --
     -- -   To override the current value for a parameter, include the parameter
     --     and specify its value.
     --
     -- -   To leave an overridden parameter set to its present value, include
-    --     the parameter and specify @UsePreviousValue@ as @true@. (You cannot
+    --     the parameter and specify @UsePreviousValue@ as @true@. (You can\'t
     --     specify both a value and set @UsePreviousValue@ to @true@.)
     --
     -- -   To set an overridden parameter back to the value specified in the
-    --     stack set, specify a parameter list but do not include the parameter
+    --     stack set, specify a parameter list but don\'t include the parameter
     --     in the list.
     --
-    -- -   To leave all parameters set to their present values, do not specify
+    -- -   To leave all parameters set to their present values, don\'t specify
     --     this property at all.
     --
     -- During stack set updates, any parameter values overridden for a stack
-    -- instance are not updated, but retain their overridden value.
+    -- instance aren\'t updated, but retain their overridden value.
     --
     -- You can only override the parameter /values/ that are specified in the
     -- stack set; to add or delete a parameter itself, use @UpdateStackSet@ to
@@ -144,7 +145,7 @@ data UpdateStackInstances = UpdateStackInstances'
     -- | [Self-managed permissions] The names of one or more Amazon Web Services
     -- accounts for which you want to update parameter values for stack
     -- instances. The overridden parameter values will be applied to all stack
-    -- instances in the specified accounts and Regions.
+    -- instances in the specified accounts and Amazon Web Services Regions.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
     accounts :: Prelude.Maybe [Prelude.Text],
@@ -160,9 +161,10 @@ data UpdateStackInstances = UpdateStackInstances'
     -- | The name or unique ID of the stack set associated with the stack
     -- instances.
     stackSetName :: Prelude.Text,
-    -- | The names of one or more Regions in which you want to update parameter
-    -- values for stack instances. The overridden parameter values will be
-    -- applied to all stack instances in the specified accounts and Regions.
+    -- | The names of one or more Amazon Web Services Regions in which you want
+    -- to update parameter values for stack instances. The overridden parameter
+    -- values will be applied to all stack instances in the specified accounts
+    -- and Amazon Web Services Regions.
     regions :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -198,26 +200,26 @@ data UpdateStackInstances = UpdateStackInstances'
 -- specified stack instances.
 --
 -- Any overridden parameter values will be applied to all stack instances
--- in the specified accounts and Regions. When specifying parameters and
--- their values, be aware of how CloudFormation sets parameter values
--- during stack instance update operations:
+-- in the specified accounts and Amazon Web Services Regions. When
+-- specifying parameters and their values, be aware of how CloudFormation
+-- sets parameter values during stack instance update operations:
 --
 -- -   To override the current value for a parameter, include the parameter
 --     and specify its value.
 --
 -- -   To leave an overridden parameter set to its present value, include
---     the parameter and specify @UsePreviousValue@ as @true@. (You cannot
+--     the parameter and specify @UsePreviousValue@ as @true@. (You can\'t
 --     specify both a value and set @UsePreviousValue@ to @true@.)
 --
 -- -   To set an overridden parameter back to the value specified in the
---     stack set, specify a parameter list but do not include the parameter
+--     stack set, specify a parameter list but don\'t include the parameter
 --     in the list.
 --
--- -   To leave all parameters set to their present values, do not specify
+-- -   To leave all parameters set to their present values, don\'t specify
 --     this property at all.
 --
 -- During stack set updates, any parameter values overridden for a stack
--- instance are not updated, but retain their overridden value.
+-- instance aren\'t updated, but retain their overridden value.
 --
 -- You can only override the parameter /values/ that are specified in the
 -- stack set; to add or delete a parameter itself, use @UpdateStackSet@ to
@@ -243,7 +245,7 @@ data UpdateStackInstances = UpdateStackInstances'
 -- 'accounts', 'updateStackInstances_accounts' - [Self-managed permissions] The names of one or more Amazon Web Services
 -- accounts for which you want to update parameter values for stack
 -- instances. The overridden parameter values will be applied to all stack
--- instances in the specified accounts and Regions.
+-- instances in the specified accounts and Amazon Web Services Regions.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
@@ -259,9 +261,10 @@ data UpdateStackInstances = UpdateStackInstances'
 -- 'stackSetName', 'updateStackInstances_stackSetName' - The name or unique ID of the stack set associated with the stack
 -- instances.
 --
--- 'regions', 'updateStackInstances_regions' - The names of one or more Regions in which you want to update parameter
--- values for stack instances. The overridden parameter values will be
--- applied to all stack instances in the specified accounts and Regions.
+-- 'regions', 'updateStackInstances_regions' - The names of one or more Amazon Web Services Regions in which you want
+-- to update parameter values for stack instances. The overridden parameter
+-- values will be applied to all stack instances in the specified accounts
+-- and Amazon Web Services Regions.
 newUpdateStackInstances ::
   -- | 'stackSetName'
   Prelude.Text ->
@@ -306,26 +309,26 @@ updateStackInstances_callAs = Lens.lens (\UpdateStackInstances' {callAs} -> call
 -- specified stack instances.
 --
 -- Any overridden parameter values will be applied to all stack instances
--- in the specified accounts and Regions. When specifying parameters and
--- their values, be aware of how CloudFormation sets parameter values
--- during stack instance update operations:
+-- in the specified accounts and Amazon Web Services Regions. When
+-- specifying parameters and their values, be aware of how CloudFormation
+-- sets parameter values during stack instance update operations:
 --
 -- -   To override the current value for a parameter, include the parameter
 --     and specify its value.
 --
 -- -   To leave an overridden parameter set to its present value, include
---     the parameter and specify @UsePreviousValue@ as @true@. (You cannot
+--     the parameter and specify @UsePreviousValue@ as @true@. (You can\'t
 --     specify both a value and set @UsePreviousValue@ to @true@.)
 --
 -- -   To set an overridden parameter back to the value specified in the
---     stack set, specify a parameter list but do not include the parameter
+--     stack set, specify a parameter list but don\'t include the parameter
 --     in the list.
 --
--- -   To leave all parameters set to their present values, do not specify
+-- -   To leave all parameters set to their present values, don\'t specify
 --     this property at all.
 --
 -- During stack set updates, any parameter values overridden for a stack
--- instance are not updated, but retain their overridden value.
+-- instance aren\'t updated, but retain their overridden value.
 --
 -- You can only override the parameter /values/ that are specified in the
 -- stack set; to add or delete a parameter itself, use @UpdateStackSet@ to
@@ -355,7 +358,7 @@ updateStackInstances_operationId = Lens.lens (\UpdateStackInstances' {operationI
 -- | [Self-managed permissions] The names of one or more Amazon Web Services
 -- accounts for which you want to update parameter values for stack
 -- instances. The overridden parameter values will be applied to all stack
--- instances in the specified accounts and Regions.
+-- instances in the specified accounts and Amazon Web Services Regions.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 updateStackInstances_accounts :: Lens.Lens' UpdateStackInstances (Prelude.Maybe [Prelude.Text])
@@ -377,9 +380,10 @@ updateStackInstances_deploymentTargets = Lens.lens (\UpdateStackInstances' {depl
 updateStackInstances_stackSetName :: Lens.Lens' UpdateStackInstances Prelude.Text
 updateStackInstances_stackSetName = Lens.lens (\UpdateStackInstances' {stackSetName} -> stackSetName) (\s@UpdateStackInstances' {} a -> s {stackSetName = a} :: UpdateStackInstances)
 
--- | The names of one or more Regions in which you want to update parameter
--- values for stack instances. The overridden parameter values will be
--- applied to all stack instances in the specified accounts and Regions.
+-- | The names of one or more Amazon Web Services Regions in which you want
+-- to update parameter values for stack instances. The overridden parameter
+-- values will be applied to all stack instances in the specified accounts
+-- and Amazon Web Services Regions.
 updateStackInstances_regions :: Lens.Lens' UpdateStackInstances [Prelude.Text]
 updateStackInstances_regions = Lens.lens (\UpdateStackInstances' {regions} -> regions) (\s@UpdateStackInstances' {} a -> s {regions = a} :: UpdateStackInstances) Prelude.. Lens.coerced
 

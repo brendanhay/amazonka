@@ -23,7 +23,7 @@
 -- Returns the description for the specified stack; if no stack name was
 -- specified, then it returns the description for all the stacks created.
 --
--- If the stack does not exist, an @ValidationError@ is returned.
+-- If the stack doesn\'t exist, an @ValidationError@ is returned.
 --
 -- This operation returns paginated results.
 module Amazonka.CloudFormation.DescribeStacks
@@ -60,8 +60,8 @@ data DescribeStacks = DescribeStacks'
   { -- | A string that identifies the next page of stacks that you want to
     -- retrieve.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or the unique stack ID that is associated with the stack, which
-    -- are not always interchangeable:
+    -- | The name or the unique stack ID that\'s associated with the stack, which
+    -- aren\'t always interchangeable:
     --
     -- -   Running stacks: You can specify either the stack\'s name or its
     --     unique stack ID.
@@ -84,8 +84,8 @@ data DescribeStacks = DescribeStacks'
 -- 'nextToken', 'describeStacks_nextToken' - A string that identifies the next page of stacks that you want to
 -- retrieve.
 --
--- 'stackName', 'describeStacks_stackName' - The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- 'stackName', 'describeStacks_stackName' - The name or the unique stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.
@@ -106,8 +106,8 @@ newDescribeStacks =
 describeStacks_nextToken :: Lens.Lens' DescribeStacks (Prelude.Maybe Prelude.Text)
 describeStacks_nextToken = Lens.lens (\DescribeStacks' {nextToken} -> nextToken) (\s@DescribeStacks' {} a -> s {nextToken = a} :: DescribeStacks)
 
--- | The name or the unique stack ID that is associated with the stack, which
--- are not always interchangeable:
+-- | The name or the unique stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable:
 --
 -- -   Running stacks: You can specify either the stack\'s name or its
 --     unique stack ID.

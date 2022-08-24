@@ -43,7 +43,7 @@ data StackInstanceSummary = StackInstanceSummary'
     --     stack instance is considered to have drifted if one or more of the
     --     resources in the associated stack have drifted.
     --
-    -- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+    -- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack instance
     --     differs from its expected stack set configuration.
     --
     -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
@@ -91,7 +91,7 @@ data StackInstanceSummary = StackInstanceSummary'
     organizationalUnitId :: Prelude.Maybe Prelude.Text,
     -- | Most recent time when CloudFormation performed a drift detection
     -- operation on the stack instance. This value will be @NULL@ for any stack
-    -- instance on which drift detection has not yet been performed.
+    -- instance on which drift detection hasn\'t yet been performed.
     lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -117,7 +117,7 @@ data StackInstanceSummary = StackInstanceSummary'
 --     stack instance is considered to have drifted if one or more of the
 --     resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack instance
 --     differs from its expected stack set configuration.
 --
 -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
@@ -165,7 +165,7 @@ data StackInstanceSummary = StackInstanceSummary'
 --
 -- 'lastDriftCheckTimestamp', 'stackInstanceSummary_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
 -- operation on the stack instance. This value will be @NULL@ for any stack
--- instance on which drift detection has not yet been performed.
+-- instance on which drift detection hasn\'t yet been performed.
 newStackInstanceSummary ::
   StackInstanceSummary
 newStackInstanceSummary =
@@ -199,7 +199,7 @@ stackInstanceSummary_stackInstanceStatus = Lens.lens (\StackInstanceSummary' {st
 --     stack instance is considered to have drifted if one or more of the
 --     resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked if the stack instance
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked if the stack instance
 --     differs from its expected stack set configuration.
 --
 -- -   @IN_SYNC@: The stack instance\'s actual configuration matches its
@@ -261,7 +261,7 @@ stackInstanceSummary_organizationalUnitId = Lens.lens (\StackInstanceSummary' {o
 
 -- | Most recent time when CloudFormation performed a drift detection
 -- operation on the stack instance. This value will be @NULL@ for any stack
--- instance on which drift detection has not yet been performed.
+-- instance on which drift detection hasn\'t yet been performed.
 stackInstanceSummary_lastDriftCheckTimestamp :: Lens.Lens' StackInstanceSummary (Prelude.Maybe Prelude.UTCTime)
 stackInstanceSummary_lastDriftCheckTimestamp = Lens.lens (\StackInstanceSummary' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackInstanceSummary' {} a -> s {lastDriftCheckTimestamp = a} :: StackInstanceSummary) Prelude.. Lens.mapping Core._Time
 

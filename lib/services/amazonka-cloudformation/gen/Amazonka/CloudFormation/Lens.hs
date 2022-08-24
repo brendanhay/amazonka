@@ -110,6 +110,7 @@ module Amazonka.CloudFormation.Lens
     createStackSet_description,
     createStackSet_autoDeployment,
     createStackSet_capabilities,
+    createStackSet_managedExecution,
     createStackSet_executionRoleName,
     createStackSet_administrationRoleARN,
     createStackSet_permissionModel,
@@ -190,6 +191,20 @@ module Amazonka.CloudFormation.Lens
     describeChangeSetResponse_parameters,
     describeChangeSetResponse_httpStatus,
     describeChangeSetResponse_status,
+
+    -- ** DescribeChangeSetHooks
+    describeChangeSetHooks_nextToken,
+    describeChangeSetHooks_stackName,
+    describeChangeSetHooks_logicalResourceId,
+    describeChangeSetHooks_changeSetName,
+    describeChangeSetHooksResponse_stackId,
+    describeChangeSetHooksResponse_nextToken,
+    describeChangeSetHooksResponse_changeSetId,
+    describeChangeSetHooksResponse_changeSetName,
+    describeChangeSetHooksResponse_hooks,
+    describeChangeSetHooksResponse_status,
+    describeChangeSetHooksResponse_stackName,
+    describeChangeSetHooksResponse_httpStatus,
 
     -- ** DescribePublisher
     describePublisher_publisherId,
@@ -379,8 +394,10 @@ module Amazonka.CloudFormation.Lens
     importStacksToStackSet_operationPreferences,
     importStacksToStackSet_callAs,
     importStacksToStackSet_operationId,
-    importStacksToStackSet_stackSetName,
+    importStacksToStackSet_stackIdsUrl,
+    importStacksToStackSet_organizationalUnitIds,
     importStacksToStackSet_stackIds,
+    importStacksToStackSet_stackSetName,
     importStacksToStackSetResponse_operationId,
     importStacksToStackSetResponse_httpStatus,
 
@@ -621,6 +638,7 @@ module Amazonka.CloudFormation.Lens
     updateStackSet_autoDeployment,
     updateStackSet_accounts,
     updateStackSet_capabilities,
+    updateStackSet_managedExecution,
     updateStackSet_executionRoleName,
     updateStackSet_administrationRoleARN,
     updateStackSet_deploymentTargets,
@@ -668,7 +686,25 @@ module Amazonka.CloudFormation.Lens
 
     -- ** Change
     change_type,
+    change_hookInvocationCount,
     change_resourceChange,
+
+    -- ** ChangeSetHook
+    changeSetHook_typeConfigurationVersionId,
+    changeSetHook_invocationPoint,
+    changeSetHook_failureMode,
+    changeSetHook_typeName,
+    changeSetHook_typeVersionId,
+    changeSetHook_targetDetails,
+
+    -- ** ChangeSetHookResourceTargetDetails
+    changeSetHookResourceTargetDetails_resourceType,
+    changeSetHookResourceTargetDetails_resourceAction,
+    changeSetHookResourceTargetDetails_logicalResourceId,
+
+    -- ** ChangeSetHookTargetDetails
+    changeSetHookTargetDetails_targetType,
+    changeSetHookTargetDetails_resourceTargetDetails,
 
     -- ** ChangeSetSummary
     changeSetSummary_stackId,
@@ -685,6 +721,7 @@ module Amazonka.CloudFormation.Lens
     changeSetSummary_executionStatus,
 
     -- ** DeploymentTargets
+    deploymentTargets_accountFilterType,
     deploymentTargets_organizationalUnitIds,
     deploymentTargets_accounts,
     deploymentTargets_accountsUrl,
@@ -697,6 +734,9 @@ module Amazonka.CloudFormation.Lens
     -- ** LoggingConfig
     loggingConfig_logRoleArn,
     loggingConfig_logGroupName,
+
+    -- ** ManagedExecution
+    managedExecution_active,
 
     -- ** ModuleInfo
     moduleInfo_typeHierarchy,
@@ -815,9 +855,14 @@ module Amazonka.CloudFormation.Lens
 
     -- ** StackEvent
     stackEvent_resourceType,
+    stackEvent_hookInvocationPoint,
     stackEvent_clientRequestToken,
     stackEvent_resourceStatusReason,
+    stackEvent_hookFailureMode,
+    stackEvent_hookStatus,
+    stackEvent_hookStatusReason,
     stackEvent_logicalResourceId,
+    stackEvent_hookType,
     stackEvent_resourceProperties,
     stackEvent_physicalResourceId,
     stackEvent_resourceStatus,
@@ -927,6 +972,7 @@ module Amazonka.CloudFormation.Lens
     stackSet_autoDeployment,
     stackSet_organizationalUnitIds,
     stackSet_capabilities,
+    stackSet_managedExecution,
     stackSet_executionRoleName,
     stackSet_administrationRoleARN,
     stackSet_permissionModel,
@@ -947,6 +993,7 @@ module Amazonka.CloudFormation.Lens
     stackSetOperation_endTimestamp,
     stackSetOperation_operationPreferences,
     stackSetOperation_stackSetId,
+    stackSetOperation_statusReason,
     stackSetOperation_operationId,
     stackSetOperation_status,
     stackSetOperation_creationTimestamp,
@@ -975,6 +1022,7 @@ module Amazonka.CloudFormation.Lens
 
     -- ** StackSetOperationSummary
     stackSetOperationSummary_endTimestamp,
+    stackSetOperationSummary_statusReason,
     stackSetOperationSummary_operationId,
     stackSetOperationSummary_status,
     stackSetOperationSummary_creationTimestamp,
@@ -987,6 +1035,7 @@ module Amazonka.CloudFormation.Lens
     stackSetSummary_status,
     stackSetSummary_description,
     stackSetSummary_autoDeployment,
+    stackSetSummary_managedExecution,
     stackSetSummary_permissionModel,
     stackSetSummary_lastDriftCheckTimestamp,
 
@@ -1077,6 +1126,7 @@ import Amazonka.CloudFormation.DeleteStackSet
 import Amazonka.CloudFormation.DeregisterType
 import Amazonka.CloudFormation.DescribeAccountLimits
 import Amazonka.CloudFormation.DescribeChangeSet
+import Amazonka.CloudFormation.DescribeChangeSetHooks
 import Amazonka.CloudFormation.DescribePublisher
 import Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
 import Amazonka.CloudFormation.DescribeStackEvents
@@ -1126,10 +1176,14 @@ import Amazonka.CloudFormation.Types.AccountLimit
 import Amazonka.CloudFormation.Types.AutoDeployment
 import Amazonka.CloudFormation.Types.BatchDescribeTypeConfigurationsError
 import Amazonka.CloudFormation.Types.Change
+import Amazonka.CloudFormation.Types.ChangeSetHook
+import Amazonka.CloudFormation.Types.ChangeSetHookResourceTargetDetails
+import Amazonka.CloudFormation.Types.ChangeSetHookTargetDetails
 import Amazonka.CloudFormation.Types.ChangeSetSummary
 import Amazonka.CloudFormation.Types.DeploymentTargets
 import Amazonka.CloudFormation.Types.Export
 import Amazonka.CloudFormation.Types.LoggingConfig
+import Amazonka.CloudFormation.Types.ManagedExecution
 import Amazonka.CloudFormation.Types.ModuleInfo
 import Amazonka.CloudFormation.Types.Output
 import Amazonka.CloudFormation.Types.Parameter

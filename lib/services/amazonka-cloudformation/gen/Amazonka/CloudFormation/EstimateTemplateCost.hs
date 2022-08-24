@@ -63,7 +63,7 @@ data EstimateTemplateCost = EstimateTemplateCost'
     -- passed, only @TemplateBody@ is used.
     templateBody :: Prelude.Maybe Prelude.Text,
     -- | Location of file containing the template body. The URL must point to a
-    -- template that is located in an Amazon S3 bucket or a Systems Manager
+    -- template that\'s located in an Amazon S3 bucket or a Systems Manager
     -- document. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
     -- in the CloudFormation User Guide.
@@ -93,7 +93,7 @@ data EstimateTemplateCost = EstimateTemplateCost'
 -- passed, only @TemplateBody@ is used.
 --
 -- 'templateURL', 'estimateTemplateCost_templateURL' - Location of file containing the template body. The URL must point to a
--- template that is located in an Amazon S3 bucket or a Systems Manager
+-- template that\'s located in an Amazon S3 bucket or a Systems Manager
 -- document. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the CloudFormation User Guide.
@@ -123,7 +123,7 @@ estimateTemplateCost_templateBody :: Lens.Lens' EstimateTemplateCost (Prelude.Ma
 estimateTemplateCost_templateBody = Lens.lens (\EstimateTemplateCost' {templateBody} -> templateBody) (\s@EstimateTemplateCost' {} a -> s {templateBody = a} :: EstimateTemplateCost)
 
 -- | Location of file containing the template body. The URL must point to a
--- template that is located in an Amazon S3 bucket or a Systems Manager
+-- template that\'s located in an Amazon S3 bucket or a Systems Manager
 -- document. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the CloudFormation User Guide.

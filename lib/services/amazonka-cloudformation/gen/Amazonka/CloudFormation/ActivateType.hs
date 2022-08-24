@@ -80,7 +80,7 @@ data ActivateType = ActivateType'
     -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
     -- and @PublisherId@.
     type' :: Prelude.Maybe ThirdPartyType,
-    -- | The Amazon Resource Number (ARN) of the public extension.
+    -- | The Amazon Resource Name (ARN) of the public extension.
     --
     -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
     -- and @PublisherId@.
@@ -147,7 +147,7 @@ data ActivateType = ActivateType'
 -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
 -- and @PublisherId@.
 --
--- 'publicTypeArn', 'activateType_publicTypeArn' - The Amazon Resource Number (ARN) of the public extension.
+-- 'publicTypeArn', 'activateType_publicTypeArn' - The Amazon Resource Name (ARN) of the public extension.
 --
 -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
 -- and @PublisherId@.
@@ -223,7 +223,7 @@ activateType_majorVersion = Lens.lens (\ActivateType' {majorVersion} -> majorVer
 activateType_type :: Lens.Lens' ActivateType (Prelude.Maybe ThirdPartyType)
 activateType_type = Lens.lens (\ActivateType' {type'} -> type') (\s@ActivateType' {} a -> s {type' = a} :: ActivateType)
 
--- | The Amazon Resource Number (ARN) of the public extension.
+-- | The Amazon Resource Name (ARN) of the public extension.
 --
 -- Conditional: You must specify @PublicTypeArn@, or @TypeName@, @Type@,
 -- and @PublisherId@.
@@ -349,7 +349,7 @@ instance Core.ToQuery ActivateType where
 
 -- | /See:/ 'newActivateTypeResponse' smart constructor.
 data ActivateTypeResponse = ActivateTypeResponse'
-  { -- | The Amazon Resource Number (ARN) of the activated extension, in this
+  { -- | The Amazon Resource Name (ARN) of the activated extension, in this
     -- account and region.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -365,7 +365,7 @@ data ActivateTypeResponse = ActivateTypeResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'activateTypeResponse_arn' - The Amazon Resource Number (ARN) of the activated extension, in this
+-- 'arn', 'activateTypeResponse_arn' - The Amazon Resource Name (ARN) of the activated extension, in this
 -- account and region.
 --
 -- 'httpStatus', 'activateTypeResponse_httpStatus' - The response's http status code.
@@ -379,7 +379,7 @@ newActivateTypeResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Number (ARN) of the activated extension, in this
+-- | The Amazon Resource Name (ARN) of the activated extension, in this
 -- account and region.
 activateTypeResponse_arn :: Lens.Lens' ActivateTypeResponse (Prelude.Maybe Prelude.Text)
 activateTypeResponse_arn = Lens.lens (\ActivateTypeResponse' {arn} -> arn) (\s@ActivateTypeResponse' {} a -> s {arn = a} :: ActivateTypeResponse)

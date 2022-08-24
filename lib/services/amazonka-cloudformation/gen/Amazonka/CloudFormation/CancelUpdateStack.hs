@@ -24,7 +24,7 @@
 -- successfully, the stack rolls back the update and reverts to the
 -- previous stack configuration.
 --
--- You can cancel only stacks that are in the UPDATE_IN_PROGRESS state.
+-- You can cancel only stacks that are in the @UPDATE_IN_PROGRESS@ state.
 module Amazonka.CloudFormation.CancelUpdateStack
   ( -- * Creating a Request
     CancelUpdateStack (..),
@@ -57,7 +57,7 @@ data CancelUpdateStack = CancelUpdateStack'
     -- name. You might retry @CancelUpdateStack@ requests to ensure that
     -- CloudFormation successfully received them.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The name or the unique stack ID that is associated with the stack.
+    -- | The name or the unique stack ID that\'s associated with the stack.
     stackName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +76,7 @@ data CancelUpdateStack = CancelUpdateStack'
 -- name. You might retry @CancelUpdateStack@ requests to ensure that
 -- CloudFormation successfully received them.
 --
--- 'stackName', 'cancelUpdateStack_stackName' - The name or the unique stack ID that is associated with the stack.
+-- 'stackName', 'cancelUpdateStack_stackName' - The name or the unique stack ID that\'s associated with the stack.
 newCancelUpdateStack ::
   -- | 'stackName'
   Prelude.Text ->
@@ -96,7 +96,7 @@ newCancelUpdateStack pStackName_ =
 cancelUpdateStack_clientRequestToken :: Lens.Lens' CancelUpdateStack (Prelude.Maybe Prelude.Text)
 cancelUpdateStack_clientRequestToken = Lens.lens (\CancelUpdateStack' {clientRequestToken} -> clientRequestToken) (\s@CancelUpdateStack' {} a -> s {clientRequestToken = a} :: CancelUpdateStack)
 
--- | The name or the unique stack ID that is associated with the stack.
+-- | The name or the unique stack ID that\'s associated with the stack.
 cancelUpdateStack_stackName :: Lens.Lens' CancelUpdateStack Prelude.Text
 cancelUpdateStack_stackName = Lens.lens (\CancelUpdateStack' {stackName} -> stackName) (\s@CancelUpdateStack' {} a -> s {stackName = a} :: CancelUpdateStack)
 

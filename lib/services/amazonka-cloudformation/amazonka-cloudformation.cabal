@@ -60,6 +60,7 @@ library
     Amazonka.CloudFormation.DeregisterType
     Amazonka.CloudFormation.DescribeAccountLimits
     Amazonka.CloudFormation.DescribeChangeSet
+    Amazonka.CloudFormation.DescribeChangeSetHooks
     Amazonka.CloudFormation.DescribePublisher
     Amazonka.CloudFormation.DescribeStackDriftDetectionStatus
     Amazonka.CloudFormation.DescribeStackEvents
@@ -106,6 +107,7 @@ library
     Amazonka.CloudFormation.StopStackSetOperation
     Amazonka.CloudFormation.TestType
     Amazonka.CloudFormation.Types
+    Amazonka.CloudFormation.Types.AccountFilterType
     Amazonka.CloudFormation.Types.AccountGateResult
     Amazonka.CloudFormation.Types.AccountGateStatus
     Amazonka.CloudFormation.Types.AccountLimit
@@ -116,6 +118,10 @@ library
     Amazonka.CloudFormation.Types.Category
     Amazonka.CloudFormation.Types.Change
     Amazonka.CloudFormation.Types.ChangeAction
+    Amazonka.CloudFormation.Types.ChangeSetHook
+    Amazonka.CloudFormation.Types.ChangeSetHookResourceTargetDetails
+    Amazonka.CloudFormation.Types.ChangeSetHooksStatus
+    Amazonka.CloudFormation.Types.ChangeSetHookTargetDetails
     Amazonka.CloudFormation.Types.ChangeSetStatus
     Amazonka.CloudFormation.Types.ChangeSetSummary
     Amazonka.CloudFormation.Types.ChangeSetType
@@ -128,8 +134,13 @@ library
     Amazonka.CloudFormation.Types.ExecutionStatus
     Amazonka.CloudFormation.Types.Export
     Amazonka.CloudFormation.Types.HandlerErrorCode
+    Amazonka.CloudFormation.Types.HookFailureMode
+    Amazonka.CloudFormation.Types.HookInvocationPoint
+    Amazonka.CloudFormation.Types.HookStatus
+    Amazonka.CloudFormation.Types.HookTargetType
     Amazonka.CloudFormation.Types.IdentityProvider
     Amazonka.CloudFormation.Types.LoggingConfig
+    Amazonka.CloudFormation.Types.ManagedExecution
     Amazonka.CloudFormation.Types.ModuleInfo
     Amazonka.CloudFormation.Types.OnFailure
     Amazonka.CloudFormation.Types.OperationStatus

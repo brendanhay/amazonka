@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 --
 -- /See:/ 'newGetStackPolicy' smart constructor.
 data GetStackPolicy = GetStackPolicy'
-  { -- | The name or unique stack ID that is associated with the stack whose
+  { -- | The name or unique stack ID that\'s associated with the stack whose
     -- policy you want to get.
     stackName :: Prelude.Text
   }
@@ -65,7 +65,7 @@ data GetStackPolicy = GetStackPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stackName', 'getStackPolicy_stackName' - The name or unique stack ID that is associated with the stack whose
+-- 'stackName', 'getStackPolicy_stackName' - The name or unique stack ID that\'s associated with the stack whose
 -- policy you want to get.
 newGetStackPolicy ::
   -- | 'stackName'
@@ -74,7 +74,7 @@ newGetStackPolicy ::
 newGetStackPolicy pStackName_ =
   GetStackPolicy' {stackName = pStackName_}
 
--- | The name or unique stack ID that is associated with the stack whose
+-- | The name or unique stack ID that\'s associated with the stack whose
 -- policy you want to get.
 getStackPolicy_stackName :: Lens.Lens' GetStackPolicy Prelude.Text
 getStackPolicy_stackName = Lens.lens (\GetStackPolicy' {stackName} -> stackName) (\s@GetStackPolicy' {} a -> s {stackName = a} :: GetStackPolicy)

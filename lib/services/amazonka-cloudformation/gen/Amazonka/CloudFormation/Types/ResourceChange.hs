@@ -64,7 +64,7 @@ data ResourceChange = ResourceChange'
     -- | The action that CloudFormation takes on the resource, such as @Add@
     -- (adds a new resource), @Modify@ (changes a resource), @Remove@ (deletes
     -- a resource), @Import@ (imports a resource), or @Dynamic@ (exact action
-    -- for the resource cannot be determined).
+    -- for the resource can\'t be determined).
     action :: Prelude.Maybe ChangeAction,
     -- | Contains information about the module from which the resource was
     -- created, if the resource was created from a module included in the stack
@@ -115,7 +115,7 @@ data ResourceChange = ResourceChange'
 -- 'action', 'resourceChange_action' - The action that CloudFormation takes on the resource, such as @Add@
 -- (adds a new resource), @Modify@ (changes a resource), @Remove@ (deletes
 -- a resource), @Import@ (imports a resource), or @Dynamic@ (exact action
--- for the resource cannot be determined).
+-- for the resource can\'t be determined).
 --
 -- 'moduleInfo', 'resourceChange_moduleInfo' - Contains information about the module from which the resource was
 -- created, if the resource was created from a module included in the stack
@@ -181,7 +181,7 @@ resourceChange_scope = Lens.lens (\ResourceChange' {scope} -> scope) (\s@Resourc
 -- | The action that CloudFormation takes on the resource, such as @Add@
 -- (adds a new resource), @Modify@ (changes a resource), @Remove@ (deletes
 -- a resource), @Import@ (imports a resource), or @Dynamic@ (exact action
--- for the resource cannot be determined).
+-- for the resource can\'t be determined).
 resourceChange_action :: Lens.Lens' ResourceChange (Prelude.Maybe ChangeAction)
 resourceChange_action = Lens.lens (\ResourceChange' {action} -> action) (\s@ResourceChange' {} a -> s {action = a} :: ResourceChange)
 

@@ -42,6 +42,8 @@ data StackSetOperation = StackSetOperation'
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
     -- | The ID of the stack set.
     stackSetId :: Prelude.Maybe Prelude.Text,
+    -- | The status of the operation in details.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of a stack set operation.
     operationId :: Prelude.Maybe Prelude.Text,
     -- | The status of the operation.
@@ -63,7 +65,7 @@ data StackSetOperation = StackSetOperation'
     --
     -- -   @RUNNING@: The operation is currently being performed.
     --
-    -- -   @STOPPED@: The user has cancelled the operation.
+    -- -   @STOPPED@: The user has canceled the operation.
     --
     -- -   @STOPPING@: The operation is in the process of stopping, at user
     --     request.
@@ -82,7 +84,7 @@ data StackSetOperation = StackSetOperation'
     -- | The type of stack set operation: @CREATE@, @UPDATE@, or @DELETE@. Create
     -- and delete operations affect only the specified stack set instances that
     -- are associated with the specified stack set. Update operations affect
-    -- both the stack set itself, as well as /all/ associated stack set
+    -- both the stack set itself, in addition to /all/ associated stack set
     -- instances.
     action :: Prelude.Maybe StackSetOperationAction,
     -- | The name of the IAM execution role used to create or update the stack
@@ -91,7 +93,7 @@ data StackSetOperation = StackSetOperation'
     -- Use customized execution roles to control which stack resources users
     -- and groups can include in their stack sets.
     executionRoleName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Number (ARN) of the IAM role used to perform this
+    -- | The Amazon Resource Name (ARN) of the IAM role used to perform this
     -- stack set operation.
     --
     -- Use customized administrator roles to control which users or groups can
@@ -105,14 +107,14 @@ data StackSetOperation = StackSetOperation'
     deploymentTargets :: Prelude.Maybe DeploymentTargets,
     -- | For stack set operations of action type @DELETE@, specifies whether to
     -- remove the stack instances from the specified stack set, but doesn\'t
-    -- delete the stacks. You can\'t reassociate a retained stack, or add an
+    -- delete the stacks. You can\'t re-associate a retained stack, or add an
     -- existing, saved stack to a new stack set.
     retainStacks :: Prelude.Maybe Prelude.Bool,
     -- | Detailed information about the drift status of the stack set. This
     -- includes information about drift operations currently being performed on
     -- the stack set.
     --
-    -- this information will only be present for stack set operations whose
+    -- This information will only be present for stack set operations whose
     -- @Action@ type is @DETECT_DRIFT@.
     --
     -- For more information, see
@@ -140,6 +142,8 @@ data StackSetOperation = StackSetOperation'
 --
 -- 'stackSetId', 'stackSetOperation_stackSetId' - The ID of the stack set.
 --
+-- 'statusReason', 'stackSetOperation_statusReason' - The status of the operation in details.
+--
 -- 'operationId', 'stackSetOperation_operationId' - The unique ID of a stack set operation.
 --
 -- 'status', 'stackSetOperation_status' - The status of the operation.
@@ -161,7 +165,7 @@ data StackSetOperation = StackSetOperation'
 --
 -- -   @RUNNING@: The operation is currently being performed.
 --
--- -   @STOPPED@: The user has cancelled the operation.
+-- -   @STOPPED@: The user has canceled the operation.
 --
 -- -   @STOPPING@: The operation is in the process of stopping, at user
 --     request.
@@ -180,7 +184,7 @@ data StackSetOperation = StackSetOperation'
 -- 'action', 'stackSetOperation_action' - The type of stack set operation: @CREATE@, @UPDATE@, or @DELETE@. Create
 -- and delete operations affect only the specified stack set instances that
 -- are associated with the specified stack set. Update operations affect
--- both the stack set itself, as well as /all/ associated stack set
+-- both the stack set itself, in addition to /all/ associated stack set
 -- instances.
 --
 -- 'executionRoleName', 'stackSetOperation_executionRoleName' - The name of the IAM execution role used to create or update the stack
@@ -189,7 +193,7 @@ data StackSetOperation = StackSetOperation'
 -- Use customized execution roles to control which stack resources users
 -- and groups can include in their stack sets.
 --
--- 'administrationRoleARN', 'stackSetOperation_administrationRoleARN' - The Amazon Resource Number (ARN) of the IAM role used to perform this
+-- 'administrationRoleARN', 'stackSetOperation_administrationRoleARN' - The Amazon Resource Name (ARN) of the IAM role used to perform this
 -- stack set operation.
 --
 -- Use customized administrator roles to control which users or groups can
@@ -203,14 +207,14 @@ data StackSetOperation = StackSetOperation'
 --
 -- 'retainStacks', 'stackSetOperation_retainStacks' - For stack set operations of action type @DELETE@, specifies whether to
 -- remove the stack instances from the specified stack set, but doesn\'t
--- delete the stacks. You can\'t reassociate a retained stack, or add an
+-- delete the stacks. You can\'t re-associate a retained stack, or add an
 -- existing, saved stack to a new stack set.
 --
 -- 'stackSetDriftDetectionDetails', 'stackSetOperation_stackSetDriftDetectionDetails' - Detailed information about the drift status of the stack set. This
 -- includes information about drift operations currently being performed on
 -- the stack set.
 --
--- this information will only be present for stack set operations whose
+-- This information will only be present for stack set operations whose
 -- @Action@ type is @DETECT_DRIFT@.
 --
 -- For more information, see
@@ -223,6 +227,7 @@ newStackSetOperation =
     { endTimestamp = Prelude.Nothing,
       operationPreferences = Prelude.Nothing,
       stackSetId = Prelude.Nothing,
+      statusReason = Prelude.Nothing,
       operationId = Prelude.Nothing,
       status = Prelude.Nothing,
       creationTimestamp = Prelude.Nothing,
@@ -250,6 +255,10 @@ stackSetOperation_operationPreferences = Lens.lens (\StackSetOperation' {operati
 stackSetOperation_stackSetId :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_stackSetId = Lens.lens (\StackSetOperation' {stackSetId} -> stackSetId) (\s@StackSetOperation' {} a -> s {stackSetId = a} :: StackSetOperation)
 
+-- | The status of the operation in details.
+stackSetOperation_statusReason :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
+stackSetOperation_statusReason = Lens.lens (\StackSetOperation' {statusReason} -> statusReason) (\s@StackSetOperation' {} a -> s {statusReason = a} :: StackSetOperation)
+
 -- | The unique ID of a stack set operation.
 stackSetOperation_operationId :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_operationId = Lens.lens (\StackSetOperation' {operationId} -> operationId) (\s@StackSetOperation' {} a -> s {operationId = a} :: StackSetOperation)
@@ -273,7 +282,7 @@ stackSetOperation_operationId = Lens.lens (\StackSetOperation' {operationId} -> 
 --
 -- -   @RUNNING@: The operation is currently being performed.
 --
--- -   @STOPPED@: The user has cancelled the operation.
+-- -   @STOPPED@: The user has canceled the operation.
 --
 -- -   @STOPPING@: The operation is in the process of stopping, at user
 --     request.
@@ -296,7 +305,7 @@ stackSetOperation_creationTimestamp = Lens.lens (\StackSetOperation' {creationTi
 -- | The type of stack set operation: @CREATE@, @UPDATE@, or @DELETE@. Create
 -- and delete operations affect only the specified stack set instances that
 -- are associated with the specified stack set. Update operations affect
--- both the stack set itself, as well as /all/ associated stack set
+-- both the stack set itself, in addition to /all/ associated stack set
 -- instances.
 stackSetOperation_action :: Lens.Lens' StackSetOperation (Prelude.Maybe StackSetOperationAction)
 stackSetOperation_action = Lens.lens (\StackSetOperation' {action} -> action) (\s@StackSetOperation' {} a -> s {action = a} :: StackSetOperation)
@@ -309,7 +318,7 @@ stackSetOperation_action = Lens.lens (\StackSetOperation' {action} -> action) (\
 stackSetOperation_executionRoleName :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Text)
 stackSetOperation_executionRoleName = Lens.lens (\StackSetOperation' {executionRoleName} -> executionRoleName) (\s@StackSetOperation' {} a -> s {executionRoleName = a} :: StackSetOperation)
 
--- | The Amazon Resource Number (ARN) of the IAM role used to perform this
+-- | The Amazon Resource Name (ARN) of the IAM role used to perform this
 -- stack set operation.
 --
 -- Use customized administrator roles to control which users or groups can
@@ -327,7 +336,7 @@ stackSetOperation_deploymentTargets = Lens.lens (\StackSetOperation' {deployment
 
 -- | For stack set operations of action type @DELETE@, specifies whether to
 -- remove the stack instances from the specified stack set, but doesn\'t
--- delete the stacks. You can\'t reassociate a retained stack, or add an
+-- delete the stacks. You can\'t re-associate a retained stack, or add an
 -- existing, saved stack to a new stack set.
 stackSetOperation_retainStacks :: Lens.Lens' StackSetOperation (Prelude.Maybe Prelude.Bool)
 stackSetOperation_retainStacks = Lens.lens (\StackSetOperation' {retainStacks} -> retainStacks) (\s@StackSetOperation' {} a -> s {retainStacks = a} :: StackSetOperation)
@@ -336,7 +345,7 @@ stackSetOperation_retainStacks = Lens.lens (\StackSetOperation' {retainStacks} -
 -- includes information about drift operations currently being performed on
 -- the stack set.
 --
--- this information will only be present for stack set operations whose
+-- This information will only be present for stack set operations whose
 -- @Action@ type is @DETECT_DRIFT@.
 --
 -- For more information, see
@@ -351,6 +360,7 @@ instance Core.FromXML StackSetOperation where
       Prelude.<$> (x Core..@? "EndTimestamp")
       Prelude.<*> (x Core..@? "OperationPreferences")
       Prelude.<*> (x Core..@? "StackSetId")
+      Prelude.<*> (x Core..@? "StatusReason")
       Prelude.<*> (x Core..@? "OperationId")
       Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "CreationTimestamp")
@@ -366,6 +376,7 @@ instance Prelude.Hashable StackSetOperation where
     _salt `Prelude.hashWithSalt` endTimestamp
       `Prelude.hashWithSalt` operationPreferences
       `Prelude.hashWithSalt` stackSetId
+      `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` operationId
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` creationTimestamp
@@ -381,6 +392,7 @@ instance Prelude.NFData StackSetOperation where
     Prelude.rnf endTimestamp
       `Prelude.seq` Prelude.rnf operationPreferences
       `Prelude.seq` Prelude.rnf stackSetId
+      `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf operationId
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf creationTimestamp

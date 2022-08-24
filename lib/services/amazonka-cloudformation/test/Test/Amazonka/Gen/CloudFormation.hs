@@ -75,6 +75,9 @@ import Test.Tasty
 --         , requestDescribeChangeSet $
 --             newDescribeChangeSet
 --
+--         , requestDescribeChangeSetHooks $
+--             newDescribeChangeSetHooks
+--
 --         , requestDescribePublisher $
 --             newDescribePublisher
 --
@@ -272,6 +275,9 @@ import Test.Tasty
 --
 --         , responseDescribeChangeSet $
 --             newDescribeChangeSetResponse
+--
+--         , responseDescribeChangeSetHooks $
+--             newDescribeChangeSetHooksResponse
 --
 --         , responseDescribePublisher $
 --             newDescribePublisherResponse
@@ -520,6 +526,12 @@ requestDescribeChangeSet =
   req
     "DescribeChangeSet"
     "fixture/DescribeChangeSet.yaml"
+
+requestDescribeChangeSetHooks :: DescribeChangeSetHooks -> TestTree
+requestDescribeChangeSetHooks =
+  req
+    "DescribeChangeSetHooks"
+    "fixture/DescribeChangeSetHooks.yaml"
 
 requestDescribePublisher :: DescribePublisher -> TestTree
 requestDescribePublisher =
@@ -944,6 +956,14 @@ responseDescribeChangeSet =
     "fixture/DescribeChangeSetResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeChangeSet)
+
+responseDescribeChangeSetHooks :: DescribeChangeSetHooksResponse -> TestTree
+responseDescribeChangeSetHooks =
+  res
+    "DescribeChangeSetHooksResponse"
+    "fixture/DescribeChangeSetHooksResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeChangeSetHooks)
 
 responseDescribePublisher :: DescribePublisherResponse -> TestTree
 responseDescribePublisher =

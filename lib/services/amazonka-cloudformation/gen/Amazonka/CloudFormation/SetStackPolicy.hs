@@ -49,14 +49,14 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newSetStackPolicy' smart constructor.
 data SetStackPolicy = SetStackPolicy'
   { -- | Structure containing the stack policy body. For more information, go to
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent updates to stack resources>
     -- in the CloudFormation User Guide. You can specify either the
     -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
     stackPolicyBody :: Prelude.Maybe Prelude.Text,
     -- | Location of a file containing the stack policy. The URL must point to a
-    -- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
-    -- as the stack. You can specify either the @StackPolicyBody@ or the
-    -- @StackPolicyURL@ parameter, but not both.
+    -- policy (maximum size: 16 KB) located in an Amazon S3 bucket in the same
+    -- Amazon Web Services Region as the stack. You can specify either the
+    -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
     stackPolicyURL :: Prelude.Maybe Prelude.Text,
     -- | The name or unique stack ID that you want to associate a policy with.
     stackName :: Prelude.Text
@@ -72,14 +72,14 @@ data SetStackPolicy = SetStackPolicy'
 -- for backwards compatibility:
 --
 -- 'stackPolicyBody', 'setStackPolicy_stackPolicyBody' - Structure containing the stack policy body. For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent updates to stack resources>
 -- in the CloudFormation User Guide. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
 -- 'stackPolicyURL', 'setStackPolicy_stackPolicyURL' - Location of a file containing the stack policy. The URL must point to a
--- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
--- as the stack. You can specify either the @StackPolicyBody@ or the
--- @StackPolicyURL@ parameter, but not both.
+-- policy (maximum size: 16 KB) located in an Amazon S3 bucket in the same
+-- Amazon Web Services Region as the stack. You can specify either the
+-- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 --
 -- 'stackName', 'setStackPolicy_stackName' - The name or unique stack ID that you want to associate a policy with.
 newSetStackPolicy ::
@@ -94,16 +94,16 @@ newSetStackPolicy pStackName_ =
     }
 
 -- | Structure containing the stack policy body. For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent updates to stack resources>
 -- in the CloudFormation User Guide. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 setStackPolicy_stackPolicyBody :: Lens.Lens' SetStackPolicy (Prelude.Maybe Prelude.Text)
 setStackPolicy_stackPolicyBody = Lens.lens (\SetStackPolicy' {stackPolicyBody} -> stackPolicyBody) (\s@SetStackPolicy' {} a -> s {stackPolicyBody = a} :: SetStackPolicy)
 
 -- | Location of a file containing the stack policy. The URL must point to a
--- policy (maximum size: 16 KB) located in an S3 bucket in the same Region
--- as the stack. You can specify either the @StackPolicyBody@ or the
--- @StackPolicyURL@ parameter, but not both.
+-- policy (maximum size: 16 KB) located in an Amazon S3 bucket in the same
+-- Amazon Web Services Region as the stack. You can specify either the
+-- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
 setStackPolicy_stackPolicyURL :: Lens.Lens' SetStackPolicy (Prelude.Maybe Prelude.Text)
 setStackPolicy_stackPolicyURL = Lens.lens (\SetStackPolicy' {stackPolicyURL} -> stackPolicyURL) (\s@SetStackPolicy' {} a -> s {stackPolicyURL = a} :: SetStackPolicy)
 

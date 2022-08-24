@@ -56,7 +56,7 @@ data ChangeSetSummary = ChangeSetSummary'
     -- | The start time when the change set was created, in UTC.
     creationTime :: Prelude.Maybe Core.ISO8601,
     -- | If the change set execution status is @AVAILABLE@, you can execute the
-    -- change set. If you can’t execute the change set, the status indicates
+    -- change set. If you can\'t execute the change set, the status indicates
     -- why. For example, a change set might be in an @UNAVAILABLE@ state
     -- because CloudFormation is still creating it or in an @OBSOLETE@ state
     -- because the stack was already updated.
@@ -98,7 +98,7 @@ data ChangeSetSummary = ChangeSetSummary'
 -- 'creationTime', 'changeSetSummary_creationTime' - The start time when the change set was created, in UTC.
 --
 -- 'executionStatus', 'changeSetSummary_executionStatus' - If the change set execution status is @AVAILABLE@, you can execute the
--- change set. If you can’t execute the change set, the status indicates
+-- change set. If you can\'t execute the change set, the status indicates
 -- why. For example, a change set might be in an @UNAVAILABLE@ state
 -- because CloudFormation is still creating it or in an @OBSOLETE@ state
 -- because the stack was already updated.
@@ -168,7 +168,7 @@ changeSetSummary_creationTime :: Lens.Lens' ChangeSetSummary (Prelude.Maybe Prel
 changeSetSummary_creationTime = Lens.lens (\ChangeSetSummary' {creationTime} -> creationTime) (\s@ChangeSetSummary' {} a -> s {creationTime = a} :: ChangeSetSummary) Prelude.. Lens.mapping Core._Time
 
 -- | If the change set execution status is @AVAILABLE@, you can execute the
--- change set. If you can’t execute the change set, the status indicates
+-- change set. If you can\'t execute the change set, the status indicates
 -- why. For example, a change set might be in an @UNAVAILABLE@ state
 -- because CloudFormation is still creating it or in an @OBSOLETE@ state
 -- because the stack was already updated.

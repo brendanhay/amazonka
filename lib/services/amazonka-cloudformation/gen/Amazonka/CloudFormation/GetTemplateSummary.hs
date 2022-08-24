@@ -31,7 +31,7 @@
 --
 -- For deleted stacks, @GetTemplateSummary@ returns the template
 -- information for up to 90 days after the stack has been deleted. If the
--- template does not exist, a @ValidationError@ is returned.
+-- template doesn\'t exist, a @ValidationError@ is returned.
 module Amazonka.CloudFormation.GetTemplateSummary
   ( -- * Creating a Request
     GetTemplateSummary (..),
@@ -98,25 +98,25 @@ data GetTemplateSummary = GetTemplateSummary'
     -- | Structure containing the template body with a minimum length of 1 byte
     -- and a maximum length of 51,200 bytes. For more information about
     -- templates, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template anatomy>
     -- in the CloudFormation User Guide.
     --
     -- Conditional: You must specify only one of the following parameters:
     -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
     templateBody :: Prelude.Maybe Prelude.Text,
-    -- | The name or the stack ID that is associated with the stack, which are
-    -- not always interchangeable. For running stacks, you can specify either
-    -- the stack\'s name or its unique stack ID. For deleted stack, you must
-    -- specify the unique stack ID.
+    -- | The name or the stack ID that\'s associated with the stack, which
+    -- aren\'t always interchangeable. For running stacks, you can specify
+    -- either the stack\'s name or its unique stack ID. For deleted stack, you
+    -- must specify the unique stack ID.
     --
     -- Conditional: You must specify only one of the following parameters:
     -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
     stackName :: Prelude.Maybe Prelude.Text,
     -- | Location of file containing the template body. The URL must point to a
-    -- template (max size: 460,800 bytes) that is located in an Amazon S3
+    -- template (max size: 460,800 bytes) that\'s located in an Amazon S3
     -- bucket or a Systems Manager document. For more information about
     -- templates, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template anatomy>
     -- in the CloudFormation User Guide.
     --
     -- Conditional: You must specify only one of the following parameters:
@@ -158,25 +158,25 @@ data GetTemplateSummary = GetTemplateSummary'
 -- 'templateBody', 'getTemplateSummary_templateBody' - Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information about
 -- templates, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template anatomy>
 -- in the CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
 --
--- 'stackName', 'getTemplateSummary_stackName' - The name or the stack ID that is associated with the stack, which are
--- not always interchangeable. For running stacks, you can specify either
--- the stack\'s name or its unique stack ID. For deleted stack, you must
--- specify the unique stack ID.
+-- 'stackName', 'getTemplateSummary_stackName' - The name or the stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable. For running stacks, you can specify
+-- either the stack\'s name or its unique stack ID. For deleted stack, you
+-- must specify the unique stack ID.
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
 --
 -- 'templateURL', 'getTemplateSummary_templateURL' - Location of file containing the template body. The URL must point to a
--- template (max size: 460,800 bytes) that is located in an Amazon S3
+-- template (max size: 460,800 bytes) that\'s located in an Amazon S3
 -- bucket or a Systems Manager document. For more information about
 -- templates, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template anatomy>
 -- in the CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
@@ -221,7 +221,7 @@ getTemplateSummary_callAs = Lens.lens (\GetTemplateSummary' {callAs} -> callAs) 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information about
 -- templates, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template anatomy>
 -- in the CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
@@ -229,10 +229,10 @@ getTemplateSummary_callAs = Lens.lens (\GetTemplateSummary' {callAs} -> callAs) 
 getTemplateSummary_templateBody :: Lens.Lens' GetTemplateSummary (Prelude.Maybe Prelude.Text)
 getTemplateSummary_templateBody = Lens.lens (\GetTemplateSummary' {templateBody} -> templateBody) (\s@GetTemplateSummary' {} a -> s {templateBody = a} :: GetTemplateSummary)
 
--- | The name or the stack ID that is associated with the stack, which are
--- not always interchangeable. For running stacks, you can specify either
--- the stack\'s name or its unique stack ID. For deleted stack, you must
--- specify the unique stack ID.
+-- | The name or the stack ID that\'s associated with the stack, which
+-- aren\'t always interchangeable. For running stacks, you can specify
+-- either the stack\'s name or its unique stack ID. For deleted stack, you
+-- must specify the unique stack ID.
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @StackSetName@, @TemplateBody@, or @TemplateURL@.
@@ -240,10 +240,10 @@ getTemplateSummary_stackName :: Lens.Lens' GetTemplateSummary (Prelude.Maybe Pre
 getTemplateSummary_stackName = Lens.lens (\GetTemplateSummary' {stackName} -> stackName) (\s@GetTemplateSummary' {} a -> s {stackName = a} :: GetTemplateSummary)
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 460,800 bytes) that is located in an Amazon S3
+-- template (max size: 460,800 bytes) that\'s located in an Amazon S3
 -- bucket or a Systems Manager document. For more information about
 -- templates, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template anatomy>
 -- in the CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
@@ -328,7 +328,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
   { -- | The list of resources that generated the values in the @Capabilities@
     -- response element.
     capabilitiesReason :: Prelude.Maybe Prelude.Text,
-    -- | The value that is defined for the @Metadata@ property of the template.
+    -- | The value that\'s defined for the @Metadata@ property of the template.
     metadata :: Prelude.Maybe Prelude.Text,
     -- | A list of all the template resource types that are defined in the
     -- template, such as @AWS::EC2::Instance@, @AWS::Dynamo::Table@, and
@@ -340,7 +340,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     -- @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@
     -- resource.
     resourceIdentifierSummaries :: Prelude.Maybe [ResourceIdentifierSummary],
-    -- | The value that is defined in the @Description@ property of the template.
+    -- | The value that\'s defined in the @Description@ property of the template.
     description :: Prelude.Maybe Prelude.Text,
     -- | The capabilities found within the template. If your template contains
     -- IAM resources, you must specify the @CAPABILITY_IAM@ or
@@ -375,7 +375,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 -- 'capabilitiesReason', 'getTemplateSummaryResponse_capabilitiesReason' - The list of resources that generated the values in the @Capabilities@
 -- response element.
 --
--- 'metadata', 'getTemplateSummaryResponse_metadata' - The value that is defined for the @Metadata@ property of the template.
+-- 'metadata', 'getTemplateSummaryResponse_metadata' - The value that\'s defined for the @Metadata@ property of the template.
 --
 -- 'resourceTypes', 'getTemplateSummaryResponse_resourceTypes' - A list of all the template resource types that are defined in the
 -- template, such as @AWS::EC2::Instance@, @AWS::Dynamo::Table@, and
@@ -387,7 +387,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 -- @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@
 -- resource.
 --
--- 'description', 'getTemplateSummaryResponse_description' - The value that is defined in the @Description@ property of the template.
+-- 'description', 'getTemplateSummaryResponse_description' - The value that\'s defined in the @Description@ property of the template.
 --
 -- 'capabilities', 'getTemplateSummaryResponse_capabilities' - The capabilities found within the template. If your template contains
 -- IAM resources, you must specify the @CAPABILITY_IAM@ or
@@ -431,7 +431,7 @@ newGetTemplateSummaryResponse pHttpStatus_ =
 getTemplateSummaryResponse_capabilitiesReason :: Lens.Lens' GetTemplateSummaryResponse (Prelude.Maybe Prelude.Text)
 getTemplateSummaryResponse_capabilitiesReason = Lens.lens (\GetTemplateSummaryResponse' {capabilitiesReason} -> capabilitiesReason) (\s@GetTemplateSummaryResponse' {} a -> s {capabilitiesReason = a} :: GetTemplateSummaryResponse)
 
--- | The value that is defined for the @Metadata@ property of the template.
+-- | The value that\'s defined for the @Metadata@ property of the template.
 getTemplateSummaryResponse_metadata :: Lens.Lens' GetTemplateSummaryResponse (Prelude.Maybe Prelude.Text)
 getTemplateSummaryResponse_metadata = Lens.lens (\GetTemplateSummaryResponse' {metadata} -> metadata) (\s@GetTemplateSummaryResponse' {} a -> s {metadata = a} :: GetTemplateSummaryResponse)
 
@@ -449,7 +449,7 @@ getTemplateSummaryResponse_resourceTypes = Lens.lens (\GetTemplateSummaryRespons
 getTemplateSummaryResponse_resourceIdentifierSummaries :: Lens.Lens' GetTemplateSummaryResponse (Prelude.Maybe [ResourceIdentifierSummary])
 getTemplateSummaryResponse_resourceIdentifierSummaries = Lens.lens (\GetTemplateSummaryResponse' {resourceIdentifierSummaries} -> resourceIdentifierSummaries) (\s@GetTemplateSummaryResponse' {} a -> s {resourceIdentifierSummaries = a} :: GetTemplateSummaryResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The value that is defined in the @Description@ property of the template.
+-- | The value that\'s defined in the @Description@ property of the template.
 getTemplateSummaryResponse_description :: Lens.Lens' GetTemplateSummaryResponse (Prelude.Maybe Prelude.Text)
 getTemplateSummaryResponse_description = Lens.lens (\GetTemplateSummaryResponse' {description} -> description) (\s@GetTemplateSummaryResponse' {} a -> s {description = a} :: GetTemplateSummaryResponse)
 

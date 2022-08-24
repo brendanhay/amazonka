@@ -20,6 +20,7 @@
 module Amazonka.CloudFormation.Types.StackSetSummary where
 
 import Amazonka.CloudFormation.Types.AutoDeployment
+import Amazonka.CloudFormation.Types.ManagedExecution
 import Amazonka.CloudFormation.Types.PermissionModels
 import Amazonka.CloudFormation.Types.StackDriftStatus
 import Amazonka.CloudFormation.Types.StackSetStatus
@@ -44,11 +45,11 @@ data StackSetSummary = StackSetSummary'
     --     configuration. A stack instance is considered to have drifted if one
     --     or more of the resources in the associated stack have drifted.
     --
-    -- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
+    -- -   @NOT_CHECKED@: CloudFormation hasn\'t checked the stack set for
     --     drift.
     --
-    -- -   @IN_SYNC@: All of the stack instances belonging to the stack set
-    --     stack match from the expected template and parameter configuration.
+    -- -   @IN_SYNC@: All the stack instances belonging to the stack set stack
+    --     match from the expected template and parameter configuration.
     --
     -- -   @UNKNOWN@: This value is reserved for future use.
     driftStatus :: Prelude.Maybe StackDriftStatus,
@@ -63,6 +64,9 @@ data StackSetSummary = StackSetSummary'
     -- deploys to Organizations accounts that are added to a target
     -- organizational unit (OU).
     autoDeployment :: Prelude.Maybe AutoDeployment,
+    -- | Describes whether StackSets performs non-conflicting operations
+    -- concurrently and queues conflicting operations.
+    managedExecution :: Prelude.Maybe ManagedExecution,
     -- | Describes how the IAM roles required for stack set operations are
     -- created.
     --
@@ -78,7 +82,7 @@ data StackSetSummary = StackSetSummary'
     permissionModel :: Prelude.Maybe PermissionModels,
     -- | Most recent time when CloudFormation performed a drift detection
     -- operation on the stack set. This value will be @NULL@ for any stack set
-    -- on which drift detection has not yet been performed.
+    -- on which drift detection hasn\'t yet been performed.
     lastDriftCheckTimestamp :: Prelude.Maybe Core.ISO8601
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -103,11 +107,11 @@ data StackSetSummary = StackSetSummary'
 --     configuration. A stack instance is considered to have drifted if one
 --     or more of the resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked the stack set for
 --     drift.
 --
--- -   @IN_SYNC@: All of the stack instances belonging to the stack set
---     stack match from the expected template and parameter configuration.
+-- -   @IN_SYNC@: All the stack instances belonging to the stack set stack
+--     match from the expected template and parameter configuration.
 --
 -- -   @UNKNOWN@: This value is reserved for future use.
 --
@@ -121,6 +125,9 @@ data StackSetSummary = StackSetSummary'
 -- 'autoDeployment', 'stackSetSummary_autoDeployment' - [Service-managed permissions] Describes whether StackSets automatically
 -- deploys to Organizations accounts that are added to a target
 -- organizational unit (OU).
+--
+-- 'managedExecution', 'stackSetSummary_managedExecution' - Describes whether StackSets performs non-conflicting operations
+-- concurrently and queues conflicting operations.
 --
 -- 'permissionModel', 'stackSetSummary_permissionModel' - Describes how the IAM roles required for stack set operations are
 -- created.
@@ -137,7 +144,7 @@ data StackSetSummary = StackSetSummary'
 --
 -- 'lastDriftCheckTimestamp', 'stackSetSummary_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection
 -- operation on the stack set. This value will be @NULL@ for any stack set
--- on which drift detection has not yet been performed.
+-- on which drift detection hasn\'t yet been performed.
 newStackSetSummary ::
   StackSetSummary
 newStackSetSummary =
@@ -148,6 +155,7 @@ newStackSetSummary =
       status = Prelude.Nothing,
       description = Prelude.Nothing,
       autoDeployment = Prelude.Nothing,
+      managedExecution = Prelude.Nothing,
       permissionModel = Prelude.Nothing,
       lastDriftCheckTimestamp = Prelude.Nothing
     }
@@ -166,11 +174,11 @@ stackSetSummary_stackSetName = Lens.lens (\StackSetSummary' {stackSetName} -> st
 --     configuration. A stack instance is considered to have drifted if one
 --     or more of the resources in the associated stack have drifted.
 --
--- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for
+-- -   @NOT_CHECKED@: CloudFormation hasn\'t checked the stack set for
 --     drift.
 --
--- -   @IN_SYNC@: All of the stack instances belonging to the stack set
---     stack match from the expected template and parameter configuration.
+-- -   @IN_SYNC@: All the stack instances belonging to the stack set stack
+--     match from the expected template and parameter configuration.
 --
 -- -   @UNKNOWN@: This value is reserved for future use.
 stackSetSummary_driftStatus :: Lens.Lens' StackSetSummary (Prelude.Maybe StackDriftStatus)
@@ -195,6 +203,11 @@ stackSetSummary_description = Lens.lens (\StackSetSummary' {description} -> desc
 stackSetSummary_autoDeployment :: Lens.Lens' StackSetSummary (Prelude.Maybe AutoDeployment)
 stackSetSummary_autoDeployment = Lens.lens (\StackSetSummary' {autoDeployment} -> autoDeployment) (\s@StackSetSummary' {} a -> s {autoDeployment = a} :: StackSetSummary)
 
+-- | Describes whether StackSets performs non-conflicting operations
+-- concurrently and queues conflicting operations.
+stackSetSummary_managedExecution :: Lens.Lens' StackSetSummary (Prelude.Maybe ManagedExecution)
+stackSetSummary_managedExecution = Lens.lens (\StackSetSummary' {managedExecution} -> managedExecution) (\s@StackSetSummary' {} a -> s {managedExecution = a} :: StackSetSummary)
+
 -- | Describes how the IAM roles required for stack set operations are
 -- created.
 --
@@ -212,7 +225,7 @@ stackSetSummary_permissionModel = Lens.lens (\StackSetSummary' {permissionModel}
 
 -- | Most recent time when CloudFormation performed a drift detection
 -- operation on the stack set. This value will be @NULL@ for any stack set
--- on which drift detection has not yet been performed.
+-- on which drift detection hasn\'t yet been performed.
 stackSetSummary_lastDriftCheckTimestamp :: Lens.Lens' StackSetSummary (Prelude.Maybe Prelude.UTCTime)
 stackSetSummary_lastDriftCheckTimestamp = Lens.lens (\StackSetSummary' {lastDriftCheckTimestamp} -> lastDriftCheckTimestamp) (\s@StackSetSummary' {} a -> s {lastDriftCheckTimestamp = a} :: StackSetSummary) Prelude.. Lens.mapping Core._Time
 
@@ -225,6 +238,7 @@ instance Core.FromXML StackSetSummary where
       Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "AutoDeployment")
+      Prelude.<*> (x Core..@? "ManagedExecution")
       Prelude.<*> (x Core..@? "PermissionModel")
       Prelude.<*> (x Core..@? "LastDriftCheckTimestamp")
 
@@ -236,6 +250,7 @@ instance Prelude.Hashable StackSetSummary where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` autoDeployment
+      `Prelude.hashWithSalt` managedExecution
       `Prelude.hashWithSalt` permissionModel
       `Prelude.hashWithSalt` lastDriftCheckTimestamp
 
@@ -247,5 +262,6 @@ instance Prelude.NFData StackSetSummary where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf autoDeployment
+      `Prelude.seq` Prelude.rnf managedExecution
       `Prelude.seq` Prelude.rnf permissionModel
       `Prelude.seq` Prelude.rnf lastDriftCheckTimestamp

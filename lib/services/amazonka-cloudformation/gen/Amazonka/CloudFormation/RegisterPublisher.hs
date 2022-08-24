@@ -25,7 +25,7 @@
 -- CloudFormation users. This publisher ID applies to your account in all
 -- Amazon Web Services Regions.
 --
--- For information on requirements for registering as a public extension
+-- For information about requirements for registering as a public extension
 -- publisher, see
 -- <https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-prereqs Registering your account to publish CloudFormation extensions>
 -- in the /CloudFormation CLI User Guide/.

@@ -19,8 +19,10 @@ module Amazonka.SageMakerRuntime.Types
     -- * Errors
     _ModelError,
     _ServiceUnavailable,
+    _ModelNotReadyException,
     _ValidationError,
     _InternalFailure,
+    _InternalDependencyException,
   )
 where
 
@@ -116,6 +118,16 @@ _ServiceUnavailable =
     "ServiceUnavailable"
     Prelude.. Core.hasStatus 503
 
+-- | Either a serverless endpoint variant\'s resources are still being
+-- provisioned, or a multi-model endpoint is still downloading or loading
+-- the target model. Wait and try your request again.
+_ModelNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ModelNotReadyException =
+  Core._MatchServiceError
+    defaultService
+    "ModelNotReadyException"
+    Prelude.. Core.hasStatus 429
+
 -- | Inspect your request and try again.
 _ValidationError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationError =
@@ -131,3 +143,12 @@ _InternalFailure =
     defaultService
     "InternalFailure"
     Prelude.. Core.hasStatus 500
+
+-- | Your request caused an exception with an internal dependency. Contact
+-- customer support.
+_InternalDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalDependencyException =
+  Core._MatchServiceError
+    defaultService
+    "InternalDependencyException"
+    Prelude.. Core.hasStatus 530

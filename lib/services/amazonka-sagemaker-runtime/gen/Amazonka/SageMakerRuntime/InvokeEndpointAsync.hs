@@ -35,9 +35,9 @@
 -- on the behavior of headers outside those enumerated in the request
 -- syntax.
 --
--- Calls to @InvokeEndpointAsync@ are authenticated by using AWS Signature
--- Version 4. For information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html Authenticating Requests (AWS Signature Version 4)>
+-- Calls to @InvokeEndpointAsync@ are authenticated by using Amazon Web
+-- Services Signature Version 4. For information, see
+-- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html Authenticating Requests (Amazon Web Services Signature Version 4)>
 -- in the /Amazon S3 API Reference/.
 module Amazonka.SageMakerRuntime.InvokeEndpointAsync
   ( -- * Creating a Request
@@ -91,8 +91,8 @@ data InvokeEndpointAsync = InvokeEndpointAsync'
     -- represents the trace ID, your model can prepend the custom attribute
     -- with @Trace ID@: in your post-processing function.
     --
-    -- This feature is currently supported in the AWS SDKs but not in the
-    -- Amazon SageMaker Python SDK.
+    -- This feature is currently supported in the Amazon Web Services SDKs but
+    -- not in the Amazon SageMaker Python SDK.
     customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Maximum age in seconds a request can be in the queue before it is marked
     -- as expired.
@@ -138,8 +138,8 @@ data InvokeEndpointAsync = InvokeEndpointAsync'
 -- represents the trace ID, your model can prepend the custom attribute
 -- with @Trace ID@: in your post-processing function.
 --
--- This feature is currently supported in the AWS SDKs but not in the
--- Amazon SageMaker Python SDK.
+-- This feature is currently supported in the Amazon Web Services SDKs but
+-- not in the Amazon SageMaker Python SDK.
 --
 -- 'requestTTLSeconds', 'invokeEndpointAsync_requestTTLSeconds' - Maximum age in seconds a request can be in the queue before it is marked
 -- as expired.
@@ -192,8 +192,8 @@ invokeEndpointAsync_accept = Lens.lens (\InvokeEndpointAsync' {accept} -> accept
 -- represents the trace ID, your model can prepend the custom attribute
 -- with @Trace ID@: in your post-processing function.
 --
--- This feature is currently supported in the AWS SDKs but not in the
--- Amazon SageMaker Python SDK.
+-- This feature is currently supported in the Amazon Web Services SDKs but
+-- not in the Amazon SageMaker Python SDK.
 invokeEndpointAsync_customAttributes :: Lens.Lens' InvokeEndpointAsync (Prelude.Maybe Prelude.Text)
 invokeEndpointAsync_customAttributes = Lens.lens (\InvokeEndpointAsync' {customAttributes} -> customAttributes) (\s@InvokeEndpointAsync' {} a -> s {customAttributes = a} :: InvokeEndpointAsync) Prelude.. Lens.mapping Core._Sensitive
 

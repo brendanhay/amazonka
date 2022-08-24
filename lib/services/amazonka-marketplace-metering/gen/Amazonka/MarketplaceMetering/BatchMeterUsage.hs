@@ -20,23 +20,36 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- BatchMeterUsage is called from a SaaS application listed on the AWS
+-- @BatchMeterUsage@ is called from a SaaS application listed on AWS
 -- Marketplace to post metering records for a set of customers.
 --
 -- For identical requests, the API is idempotent; requests can be retried
 -- with the same records or a subset of the input records.
 --
--- Every request to BatchMeterUsage is for one product. If you need to
+-- Every request to @BatchMeterUsage@ is for one product. If you need to
 -- meter usage for multiple products, you must make multiple calls to
--- BatchMeterUsage.
+-- @BatchMeterUsage@.
 --
--- BatchMeterUsage can process up to 25 UsageRecords at a time.
+-- Usage records are expected to be submitted as quickly as possible after
+-- the event that is being recorded, and are not accepted more than 6 hours
+-- after the event.
 --
--- A UsageRecord can optionally include multiple usage allocations, to
--- provide customers with usagedata split into buckets by tags that you
+-- @BatchMeterUsage@ can process up to 25 @UsageRecords@ at a time.
+--
+-- A @UsageRecord@ can optionally include multiple usage allocations, to
+-- provide customers with usage data split into buckets by tags that you
 -- define (or allow the customer to define).
 --
--- BatchMeterUsage requests must be less than 1MB in size.
+-- @BatchMeterUsage@ returns a list of @UsageRecordResult@ objects, showing
+-- the result for each @UsageRecord@, as well as a list of
+-- @UnprocessedRecords@, indicating errors in the service side that you
+-- should retry.
+--
+-- @BatchMeterUsage@ requests must be less than 1MB in size.
+--
+-- For an example of using @BatchMeterUsage@, see
+-- <https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-example BatchMeterUsage code example>
+-- in the /AWS Marketplace Seller Guide/.
 module Amazonka.MarketplaceMetering.BatchMeterUsage
   ( -- * Creating a Request
     BatchMeterUsage (..),
@@ -64,13 +77,13 @@ import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | A BatchMeterUsageRequest contains UsageRecords, which indicate
+-- | A @BatchMeterUsageRequest@ contains @UsageRecords@, which indicate
 -- quantities of usage within your application.
 --
 -- /See:/ 'newBatchMeterUsage' smart constructor.
 data BatchMeterUsage = BatchMeterUsage'
-  { -- | The set of UsageRecords to submit. BatchMeterUsage accepts up to 25
-    -- UsageRecords at a time.
+  { -- | The set of @UsageRecords@ to submit. @BatchMeterUsage@ accepts up to 25
+    -- @UsageRecords@ at a time.
     usageRecords :: [UsageRecord],
     -- | Product code is used to uniquely identify a product in AWS Marketplace.
     -- The product code should be the same as the one used during the
@@ -87,8 +100,8 @@ data BatchMeterUsage = BatchMeterUsage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'usageRecords', 'batchMeterUsage_usageRecords' - The set of UsageRecords to submit. BatchMeterUsage accepts up to 25
--- UsageRecords at a time.
+-- 'usageRecords', 'batchMeterUsage_usageRecords' - The set of @UsageRecords@ to submit. @BatchMeterUsage@ accepts up to 25
+-- @UsageRecords@ at a time.
 --
 -- 'productCode', 'batchMeterUsage_productCode' - Product code is used to uniquely identify a product in AWS Marketplace.
 -- The product code should be the same as the one used during the
@@ -103,8 +116,8 @@ newBatchMeterUsage pProductCode_ =
       productCode = pProductCode_
     }
 
--- | The set of UsageRecords to submit. BatchMeterUsage accepts up to 25
--- UsageRecords at a time.
+-- | The set of @UsageRecords@ to submit. @BatchMeterUsage@ accepts up to 25
+-- @UsageRecords@ at a time.
 batchMeterUsage_usageRecords :: Lens.Lens' BatchMeterUsage [UsageRecord]
 batchMeterUsage_usageRecords = Lens.lens (\BatchMeterUsage' {usageRecords} -> usageRecords) (\s@BatchMeterUsage' {} a -> s {usageRecords = a} :: BatchMeterUsage) Prelude.. Lens.coerced
 
@@ -170,18 +183,19 @@ instance Core.ToPath BatchMeterUsage where
 instance Core.ToQuery BatchMeterUsage where
   toQuery = Prelude.const Prelude.mempty
 
--- | Contains the UsageRecords processed by BatchMeterUsage and any records
--- that have failed due to transient error.
+-- | Contains the @UsageRecords@ processed by @BatchMeterUsage@ and any
+-- records that have failed due to transient error.
 --
 -- /See:/ 'newBatchMeterUsageResponse' smart constructor.
 data BatchMeterUsageResponse = BatchMeterUsageResponse'
-  { -- | Contains all UsageRecords that were not processed by BatchMeterUsage.
-    -- This is a list of UsageRecords. You can retry the failed request by
-    -- making another BatchMeterUsage call with this list as input in the
-    -- BatchMeterUsageRequest.
+  { -- | Contains all @UsageRecords@ that were not processed by
+    -- @BatchMeterUsage@. This is a list of @UsageRecords@. You can retry the
+    -- failed request by making another @BatchMeterUsage@ call with this list
+    -- as input in the @BatchMeterUsageRequest@.
     unprocessedRecords :: Prelude.Maybe [UsageRecord],
-    -- | Contains all UsageRecords processed by BatchMeterUsage. These records
-    -- were either honored by AWS Marketplace Metering Service or were invalid.
+    -- | Contains all @UsageRecords@ processed by @BatchMeterUsage@. These
+    -- records were either honored by AWS Marketplace Metering Service or were
+    -- invalid. Invalid records should be fixed before being resubmitted.
     results :: Prelude.Maybe [UsageRecordResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -196,13 +210,14 @@ data BatchMeterUsageResponse = BatchMeterUsageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unprocessedRecords', 'batchMeterUsageResponse_unprocessedRecords' - Contains all UsageRecords that were not processed by BatchMeterUsage.
--- This is a list of UsageRecords. You can retry the failed request by
--- making another BatchMeterUsage call with this list as input in the
--- BatchMeterUsageRequest.
+-- 'unprocessedRecords', 'batchMeterUsageResponse_unprocessedRecords' - Contains all @UsageRecords@ that were not processed by
+-- @BatchMeterUsage@. This is a list of @UsageRecords@. You can retry the
+-- failed request by making another @BatchMeterUsage@ call with this list
+-- as input in the @BatchMeterUsageRequest@.
 --
--- 'results', 'batchMeterUsageResponse_results' - Contains all UsageRecords processed by BatchMeterUsage. These records
--- were either honored by AWS Marketplace Metering Service or were invalid.
+-- 'results', 'batchMeterUsageResponse_results' - Contains all @UsageRecords@ processed by @BatchMeterUsage@. These
+-- records were either honored by AWS Marketplace Metering Service or were
+-- invalid. Invalid records should be fixed before being resubmitted.
 --
 -- 'httpStatus', 'batchMeterUsageResponse_httpStatus' - The response's http status code.
 newBatchMeterUsageResponse ::
@@ -217,15 +232,16 @@ newBatchMeterUsageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Contains all UsageRecords that were not processed by BatchMeterUsage.
--- This is a list of UsageRecords. You can retry the failed request by
--- making another BatchMeterUsage call with this list as input in the
--- BatchMeterUsageRequest.
+-- | Contains all @UsageRecords@ that were not processed by
+-- @BatchMeterUsage@. This is a list of @UsageRecords@. You can retry the
+-- failed request by making another @BatchMeterUsage@ call with this list
+-- as input in the @BatchMeterUsageRequest@.
 batchMeterUsageResponse_unprocessedRecords :: Lens.Lens' BatchMeterUsageResponse (Prelude.Maybe [UsageRecord])
 batchMeterUsageResponse_unprocessedRecords = Lens.lens (\BatchMeterUsageResponse' {unprocessedRecords} -> unprocessedRecords) (\s@BatchMeterUsageResponse' {} a -> s {unprocessedRecords = a} :: BatchMeterUsageResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Contains all UsageRecords processed by BatchMeterUsage. These records
--- were either honored by AWS Marketplace Metering Service or were invalid.
+-- | Contains all @UsageRecords@ processed by @BatchMeterUsage@. These
+-- records were either honored by AWS Marketplace Metering Service or were
+-- invalid. Invalid records should be fixed before being resubmitted.
 batchMeterUsageResponse_results :: Lens.Lens' BatchMeterUsageResponse (Prelude.Maybe [UsageRecordResult])
 batchMeterUsageResponse_results = Lens.lens (\BatchMeterUsageResponse' {results} -> results) (\s@BatchMeterUsageResponse' {} a -> s {results = a} :: BatchMeterUsageResponse) Prelude.. Lens.mapping Lens.coerced
 

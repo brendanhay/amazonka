@@ -43,6 +43,7 @@ module Amazonka.MarketplaceMetering.Lens
     resolveCustomer_registrationToken,
     resolveCustomerResponse_customerIdentifier,
     resolveCustomerResponse_productCode,
+    resolveCustomerResponse_customerAWSAccountId,
     resolveCustomerResponse_httpStatus,
 
     -- * Types

@@ -181,7 +181,7 @@ _DisabledApiException =
     defaultService
     "DisabledApiException"
 
--- | You have metered usage for a CustomerIdentifier that does not exist.
+-- | You have metered usage for a @CustomerIdentifier@ that does not exist.
 _InvalidCustomerIdentifierException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidCustomerIdentifierException =
   Core._MatchServiceError
@@ -225,24 +225,29 @@ _InvalidUsageAllocationsException =
     defaultService
     "InvalidUsageAllocationsException"
 
--- | The timestamp value passed in the meterUsage() is out of allowed range.
+-- | The @timestamp@ value passed in the @UsageRecord@ is out of allowed
+-- range.
+--
+-- For @BatchMeterUsage@, if any of the records are outside of the allowed
+-- range, the entire batch is not processed. You must remove invalid
+-- records and try again.
 _TimestampOutOfBoundsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TimestampOutOfBoundsException =
   Core._MatchServiceError
     defaultService
     "TimestampOutOfBoundsException"
 
--- | RegisterUsage must be called in the same AWS Region the ECS task was
+-- | @RegisterUsage@ must be called in the same AWS Region the ECS task was
 -- launched in. This prevents a container from hardcoding a Region (e.g.
--- withRegion(“us-east-1”) when calling RegisterUsage.
+-- withRegion(“us-east-1”) when calling @RegisterUsage@.
 _InvalidRegionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidRegionException =
   Core._MatchServiceError
     defaultService
     "InvalidRegionException"
 
--- | The usage dimension does not match one of the UsageDimensions associated
--- with products.
+-- | The usage dimension does not match one of the @UsageDimensions@
+-- associated with products.
 _InvalidUsageDimensionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidUsageDimensionException =
   Core._MatchServiceError
@@ -271,8 +276,8 @@ _InvalidTagException =
     "InvalidTagException"
 
 -- | A metering record has already been emitted by the same EC2 instance, ECS
--- task, or EKS pod for the given {usageDimension, timestamp} with a
--- different usageQuantity.
+-- task, or EKS pod for the given {@usageDimension@, @timestamp@} with a
+-- different @usageQuantity@.
 _DuplicateRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicateRequestException =
   Core._MatchServiceError

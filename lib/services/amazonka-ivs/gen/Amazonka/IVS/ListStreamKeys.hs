@@ -56,7 +56,7 @@ data ListStreamKeys = ListStreamKeys'
   { -- | The first stream key to retrieve. This is used for pagination; see the
     -- @nextToken@ response field.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of streamKeys to return. Default: 50.
+    -- | Maximum number of streamKeys to return. Default: 1.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Channel ARN used to filter the list.
     channelArn :: Prelude.Text
@@ -74,7 +74,7 @@ data ListStreamKeys = ListStreamKeys'
 -- 'nextToken', 'listStreamKeys_nextToken' - The first stream key to retrieve. This is used for pagination; see the
 -- @nextToken@ response field.
 --
--- 'maxResults', 'listStreamKeys_maxResults' - Maximum number of streamKeys to return. Default: 50.
+-- 'maxResults', 'listStreamKeys_maxResults' - Maximum number of streamKeys to return. Default: 1.
 --
 -- 'channelArn', 'listStreamKeys_channelArn' - Channel ARN used to filter the list.
 newListStreamKeys ::
@@ -93,7 +93,7 @@ newListStreamKeys pChannelArn_ =
 listStreamKeys_nextToken :: Lens.Lens' ListStreamKeys (Prelude.Maybe Prelude.Text)
 listStreamKeys_nextToken = Lens.lens (\ListStreamKeys' {nextToken} -> nextToken) (\s@ListStreamKeys' {} a -> s {nextToken = a} :: ListStreamKeys)
 
--- | Maximum number of streamKeys to return. Default: 50.
+-- | Maximum number of streamKeys to return. Default: 1.
 listStreamKeys_maxResults :: Lens.Lens' ListStreamKeys (Prelude.Maybe Prelude.Natural)
 listStreamKeys_maxResults = Lens.lens (\ListStreamKeys' {maxResults} -> maxResults) (\s@ListStreamKeys' {} a -> s {maxResults = a} :: ListStreamKeys)
 

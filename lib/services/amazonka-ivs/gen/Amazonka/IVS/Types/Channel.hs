@@ -29,7 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newChannel' smart constructor.
 data Channel = Channel'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- for more information, including restrictions that apply to tags and
+    -- \"Tag naming limits and requirements\"; Amazon IVS has no
+    -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Channel name.
     name :: Prelude.Maybe Prelude.Text,
@@ -77,7 +81,11 @@ data Channel = Channel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'channel_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'tags', 'channel_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 --
 -- 'name', 'channel_name' - Channel name.
 --
@@ -128,7 +136,11 @@ newChannel =
       recordingConfigurationArn = Prelude.Nothing
     }
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
 

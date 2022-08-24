@@ -57,7 +57,8 @@ data ListRecordingConfigurations = ListRecordingConfigurations'
   { -- | The first recording configuration to retrieve. This is used for
     -- pagination; see the @nextToken@ response field.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of recording configurations to return. Default: 50.
+    -- | Maximum number of recording configurations to return. Default: your
+    -- service quota or 100, whichever is smaller.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +74,8 @@ data ListRecordingConfigurations = ListRecordingConfigurations'
 -- 'nextToken', 'listRecordingConfigurations_nextToken' - The first recording configuration to retrieve. This is used for
 -- pagination; see the @nextToken@ response field.
 --
--- 'maxResults', 'listRecordingConfigurations_maxResults' - Maximum number of recording configurations to return. Default: 50.
+-- 'maxResults', 'listRecordingConfigurations_maxResults' - Maximum number of recording configurations to return. Default: your
+-- service quota or 100, whichever is smaller.
 newListRecordingConfigurations ::
   ListRecordingConfigurations
 newListRecordingConfigurations =
@@ -88,7 +90,8 @@ newListRecordingConfigurations =
 listRecordingConfigurations_nextToken :: Lens.Lens' ListRecordingConfigurations (Prelude.Maybe Prelude.Text)
 listRecordingConfigurations_nextToken = Lens.lens (\ListRecordingConfigurations' {nextToken} -> nextToken) (\s@ListRecordingConfigurations' {} a -> s {nextToken = a} :: ListRecordingConfigurations)
 
--- | Maximum number of recording configurations to return. Default: 50.
+-- | Maximum number of recording configurations to return. Default: your
+-- service quota or 100, whichever is smaller.
 listRecordingConfigurations_maxResults :: Lens.Lens' ListRecordingConfigurations (Prelude.Maybe Prelude.Natural)
 listRecordingConfigurations_maxResults = Lens.lens (\ListRecordingConfigurations' {maxResults} -> maxResults) (\s@ListRecordingConfigurations' {} a -> s {maxResults = a} :: ListRecordingConfigurations)
 

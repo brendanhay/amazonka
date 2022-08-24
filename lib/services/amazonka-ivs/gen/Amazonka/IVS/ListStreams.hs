@@ -31,6 +31,7 @@ module Amazonka.IVS.ListStreams
 
     -- * Request Lenses
     listStreams_nextToken,
+    listStreams_filterBy,
     listStreams_maxResults,
 
     -- * Destructuring the Response
@@ -56,7 +57,9 @@ data ListStreams = ListStreams'
   { -- | The first stream to retrieve. This is used for pagination; see the
     -- @nextToken@ response field.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Maximum number of streams to return. Default: 50.
+    -- | Filters the stream list to match the specified criterion.
+    filterBy :: Prelude.Maybe StreamFilters,
+    -- | Maximum number of streams to return. Default: 100.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,12 +75,15 @@ data ListStreams = ListStreams'
 -- 'nextToken', 'listStreams_nextToken' - The first stream to retrieve. This is used for pagination; see the
 -- @nextToken@ response field.
 --
--- 'maxResults', 'listStreams_maxResults' - Maximum number of streams to return. Default: 50.
+-- 'filterBy', 'listStreams_filterBy' - Filters the stream list to match the specified criterion.
+--
+-- 'maxResults', 'listStreams_maxResults' - Maximum number of streams to return. Default: 100.
 newListStreams ::
   ListStreams
 newListStreams =
   ListStreams'
     { nextToken = Prelude.Nothing,
+      filterBy = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
@@ -86,7 +92,11 @@ newListStreams =
 listStreams_nextToken :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Text)
 listStreams_nextToken = Lens.lens (\ListStreams' {nextToken} -> nextToken) (\s@ListStreams' {} a -> s {nextToken = a} :: ListStreams)
 
--- | Maximum number of streams to return. Default: 50.
+-- | Filters the stream list to match the specified criterion.
+listStreams_filterBy :: Lens.Lens' ListStreams (Prelude.Maybe StreamFilters)
+listStreams_filterBy = Lens.lens (\ListStreams' {filterBy} -> filterBy) (\s@ListStreams' {} a -> s {filterBy = a} :: ListStreams)
+
+-- | Maximum number of streams to return. Default: 100.
 listStreams_maxResults :: Lens.Lens' ListStreams (Prelude.Maybe Prelude.Natural)
 listStreams_maxResults = Lens.lens (\ListStreams' {maxResults} -> maxResults) (\s@ListStreams' {} a -> s {maxResults = a} :: ListStreams)
 
@@ -121,11 +131,13 @@ instance Core.AWSRequest ListStreams where
 instance Prelude.Hashable ListStreams where
   hashWithSalt _salt ListStreams' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` filterBy
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListStreams where
   rnf ListStreams' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf filterBy
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListStreams where
@@ -144,6 +156,7 @@ instance Core.ToJSON ListStreams where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("filterBy" Core..=) Prelude.<$> filterBy,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

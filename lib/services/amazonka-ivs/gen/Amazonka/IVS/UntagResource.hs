@@ -48,9 +48,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | ARN of the resource for which tags are to be removed.
+  { -- | ARN of the resource for which tags are to be removed. The ARN must be
+    -- URL-encoded.
     resourceArn :: Prelude.Text,
-    -- | Array of tags to be removed.
+    -- | Array of tags to be removed. See
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- for more information, including restrictions that apply to tags and
+    -- \"Tag naming limits and requirements\"; Amazon IVS has no
+    -- service-specific constraints beyond what is documented there.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +68,14 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - ARN of the resource for which tags are to be removed.
+-- 'resourceArn', 'untagResource_resourceArn' - ARN of the resource for which tags are to be removed. The ARN must be
+-- URL-encoded.
 --
--- 'tagKeys', 'untagResource_tagKeys' - Array of tags to be removed.
+-- 'tagKeys', 'untagResource_tagKeys' - Array of tags to be removed. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -76,11 +86,16 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | ARN of the resource for which tags are to be removed.
+-- | ARN of the resource for which tags are to be removed. The ARN must be
+-- URL-encoded.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | Array of tags to be removed.
+-- | Array of tags to be removed. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 

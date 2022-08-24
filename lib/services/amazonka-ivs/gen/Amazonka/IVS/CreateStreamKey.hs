@@ -56,7 +56,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateStreamKey' smart constructor.
 data CreateStreamKey = CreateStreamKey'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- for more information, including restrictions that apply to tags and
+    -- \"Tag naming limits and requirements\"; Amazon IVS has no
+    -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | ARN of the channel for which to create the stream key.
     channelArn :: Prelude.Text
@@ -71,7 +75,11 @@ data CreateStreamKey = CreateStreamKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createStreamKey_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'tags', 'createStreamKey_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 --
 -- 'channelArn', 'createStreamKey_channelArn' - ARN of the channel for which to create the stream key.
 newCreateStreamKey ::
@@ -84,7 +92,11 @@ newCreateStreamKey pChannelArn_ =
       channelArn = pChannelArn_
     }
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 createStreamKey_tags :: Lens.Lens' CreateStreamKey (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createStreamKey_tags = Lens.lens (\CreateStreamKey' {tags} -> tags) (\s@CreateStreamKey' {} a -> s {tags = a} :: CreateStreamKey) Prelude.. Lens.mapping Lens.coerced
 

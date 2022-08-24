@@ -27,7 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPlaybackKeyPairSummary' smart constructor.
 data PlaybackKeyPairSummary = PlaybackKeyPairSummary'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- for more information, including restrictions that apply to tags and
+    -- \"Tag naming limits and requirements\"; Amazon IVS has no
+    -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Playback-key-pair name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
@@ -44,7 +48,11 @@ data PlaybackKeyPairSummary = PlaybackKeyPairSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'playbackKeyPairSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'tags', 'playbackKeyPairSummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 --
 -- 'name', 'playbackKeyPairSummary_name' - Playback-key-pair name. The value does not need to be unique.
 --
@@ -58,7 +66,11 @@ newPlaybackKeyPairSummary =
       arn = Prelude.Nothing
     }
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 playbackKeyPairSummary_tags :: Lens.Lens' PlaybackKeyPairSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 playbackKeyPairSummary_tags = Lens.lens (\PlaybackKeyPairSummary' {tags} -> tags) (\s@PlaybackKeyPairSummary' {} a -> s {tags = a} :: PlaybackKeyPairSummary) Prelude.. Lens.mapping Lens.coerced
 

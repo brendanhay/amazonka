@@ -58,6 +58,7 @@ library
     Amazonka.IVS.GetRecordingConfiguration
     Amazonka.IVS.GetStream
     Amazonka.IVS.GetStreamKey
+    Amazonka.IVS.GetStreamSession
     Amazonka.IVS.ImportPlaybackKeyPair
     Amazonka.IVS.Lens
     Amazonka.IVS.ListChannels
@@ -65,29 +66,39 @@ library
     Amazonka.IVS.ListRecordingConfigurations
     Amazonka.IVS.ListStreamKeys
     Amazonka.IVS.ListStreams
+    Amazonka.IVS.ListStreamSessions
     Amazonka.IVS.ListTagsForResource
     Amazonka.IVS.PutMetadata
     Amazonka.IVS.StopStream
     Amazonka.IVS.TagResource
     Amazonka.IVS.Types
+    Amazonka.IVS.Types.AudioConfiguration
     Amazonka.IVS.Types.BatchError
     Amazonka.IVS.Types.Channel
     Amazonka.IVS.Types.ChannelLatencyMode
     Amazonka.IVS.Types.ChannelSummary
     Amazonka.IVS.Types.ChannelType
     Amazonka.IVS.Types.DestinationConfiguration
+    Amazonka.IVS.Types.IngestConfiguration
     Amazonka.IVS.Types.PlaybackKeyPair
     Amazonka.IVS.Types.PlaybackKeyPairSummary
     Amazonka.IVS.Types.RecordingConfiguration
     Amazonka.IVS.Types.RecordingConfigurationState
     Amazonka.IVS.Types.RecordingConfigurationSummary
+    Amazonka.IVS.Types.RecordingMode
     Amazonka.IVS.Types.S3DestinationConfiguration
     Amazonka.IVS.Types.Stream
+    Amazonka.IVS.Types.StreamEvent
+    Amazonka.IVS.Types.StreamFilters
     Amazonka.IVS.Types.StreamHealth
     Amazonka.IVS.Types.StreamKey
     Amazonka.IVS.Types.StreamKeySummary
+    Amazonka.IVS.Types.StreamSession
+    Amazonka.IVS.Types.StreamSessionSummary
     Amazonka.IVS.Types.StreamState
     Amazonka.IVS.Types.StreamSummary
+    Amazonka.IVS.Types.ThumbnailConfiguration
+    Amazonka.IVS.Types.VideoConfiguration
     Amazonka.IVS.UntagResource
     Amazonka.IVS.UpdateChannel
     Amazonka.IVS.Waiters

@@ -42,6 +42,7 @@ module Amazonka.IVS.CreateRecordingConfiguration
     -- * Request Lenses
     createRecordingConfiguration_tags,
     createRecordingConfiguration_name,
+    createRecordingConfiguration_thumbnailConfiguration,
     createRecordingConfiguration_destinationConfiguration,
 
     -- * Destructuring the Response
@@ -63,10 +64,18 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateRecordingConfiguration' smart constructor.
 data CreateRecordingConfiguration = CreateRecordingConfiguration'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- for more information, including restrictions that apply to tags and
+    -- \"Tag naming limits and requirements\"; Amazon IVS has no
+    -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Recording-configuration name. The value does not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A complex type that allows you to enable\/disable the recording of
+    -- thumbnails for a live session and modify the interval at which
+    -- thumbnails are generated for the live session.
+    thumbnailConfiguration :: Prelude.Maybe ThumbnailConfiguration,
     -- | A complex type that contains a destination configuration for where
     -- recorded video will be stored.
     destinationConfiguration :: DestinationConfiguration
@@ -81,9 +90,17 @@ data CreateRecordingConfiguration = CreateRecordingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createRecordingConfiguration_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'tags', 'createRecordingConfiguration_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 --
 -- 'name', 'createRecordingConfiguration_name' - Recording-configuration name. The value does not need to be unique.
+--
+-- 'thumbnailConfiguration', 'createRecordingConfiguration_thumbnailConfiguration' - A complex type that allows you to enable\/disable the recording of
+-- thumbnails for a live session and modify the interval at which
+-- thumbnails are generated for the live session.
 --
 -- 'destinationConfiguration', 'createRecordingConfiguration_destinationConfiguration' - A complex type that contains a destination configuration for where
 -- recorded video will be stored.
@@ -97,17 +114,28 @@ newCreateRecordingConfiguration
       { tags =
           Prelude.Nothing,
         name = Prelude.Nothing,
+        thumbnailConfiguration = Prelude.Nothing,
         destinationConfiguration =
           pDestinationConfiguration_
       }
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 createRecordingConfiguration_tags :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createRecordingConfiguration_tags = Lens.lens (\CreateRecordingConfiguration' {tags} -> tags) (\s@CreateRecordingConfiguration' {} a -> s {tags = a} :: CreateRecordingConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Recording-configuration name. The value does not need to be unique.
 createRecordingConfiguration_name :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe Prelude.Text)
 createRecordingConfiguration_name = Lens.lens (\CreateRecordingConfiguration' {name} -> name) (\s@CreateRecordingConfiguration' {} a -> s {name = a} :: CreateRecordingConfiguration)
+
+-- | A complex type that allows you to enable\/disable the recording of
+-- thumbnails for a live session and modify the interval at which
+-- thumbnails are generated for the live session.
+createRecordingConfiguration_thumbnailConfiguration :: Lens.Lens' CreateRecordingConfiguration (Prelude.Maybe ThumbnailConfiguration)
+createRecordingConfiguration_thumbnailConfiguration = Lens.lens (\CreateRecordingConfiguration' {thumbnailConfiguration} -> thumbnailConfiguration) (\s@CreateRecordingConfiguration' {} a -> s {thumbnailConfiguration = a} :: CreateRecordingConfiguration)
 
 -- | A complex type that contains a destination configuration for where
 -- recorded video will be stored.
@@ -134,12 +162,14 @@ instance
   hashWithSalt _salt CreateRecordingConfiguration' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` thumbnailConfiguration
       `Prelude.hashWithSalt` destinationConfiguration
 
 instance Prelude.NFData CreateRecordingConfiguration where
   rnf CreateRecordingConfiguration' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf thumbnailConfiguration
       `Prelude.seq` Prelude.rnf destinationConfiguration
 
 instance Core.ToHeaders CreateRecordingConfiguration where
@@ -159,6 +189,8 @@ instance Core.ToJSON CreateRecordingConfiguration where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("name" Core..=) Prelude.<$> name,
+            ("thumbnailConfiguration" Core..=)
+              Prelude.<$> thumbnailConfiguration,
             Prelude.Just
               ( "destinationConfiguration"
                   Core..= destinationConfiguration

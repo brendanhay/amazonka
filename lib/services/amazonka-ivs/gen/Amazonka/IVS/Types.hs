@@ -37,11 +37,22 @@ module Amazonka.IVS.Types
     -- * RecordingConfigurationState
     RecordingConfigurationState (..),
 
+    -- * RecordingMode
+    RecordingMode (..),
+
     -- * StreamHealth
     StreamHealth (..),
 
     -- * StreamState
     StreamState (..),
+
+    -- * AudioConfiguration
+    AudioConfiguration (..),
+    newAudioConfiguration,
+    audioConfiguration_targetBitrate,
+    audioConfiguration_channels,
+    audioConfiguration_sampleRate,
+    audioConfiguration_codec,
 
     -- * BatchError
     BatchError (..),
@@ -78,6 +89,12 @@ module Amazonka.IVS.Types
     newDestinationConfiguration,
     destinationConfiguration_s3,
 
+    -- * IngestConfiguration
+    IngestConfiguration (..),
+    newIngestConfiguration,
+    ingestConfiguration_audio,
+    ingestConfiguration_video,
+
     -- * PlaybackKeyPair
     PlaybackKeyPair (..),
     newPlaybackKeyPair,
@@ -98,6 +115,7 @@ module Amazonka.IVS.Types
     newRecordingConfiguration,
     recordingConfiguration_tags,
     recordingConfiguration_name,
+    recordingConfiguration_thumbnailConfiguration,
     recordingConfiguration_arn,
     recordingConfiguration_destinationConfiguration,
     recordingConfiguration_state,
@@ -122,9 +140,22 @@ module Amazonka.IVS.Types
     stream_viewerCount,
     stream_channelArn,
     stream_state,
+    stream_streamId,
     stream_playbackUrl,
     stream_health,
     stream_startTime,
+
+    -- * StreamEvent
+    StreamEvent (..),
+    newStreamEvent,
+    streamEvent_name,
+    streamEvent_type,
+    streamEvent_eventTime,
+
+    -- * StreamFilters
+    StreamFilters (..),
+    newStreamFilters,
+    streamFilters_health,
 
     -- * StreamKey
     StreamKey (..),
@@ -141,36 +172,83 @@ module Amazonka.IVS.Types
     streamKeySummary_arn,
     streamKeySummary_channelArn,
 
+    -- * StreamSession
+    StreamSession (..),
+    newStreamSession,
+    streamSession_ingestConfiguration,
+    streamSession_channel,
+    streamSession_streamId,
+    streamSession_endTime,
+    streamSession_recordingConfiguration,
+    streamSession_startTime,
+    streamSession_truncatedEvents,
+
+    -- * StreamSessionSummary
+    StreamSessionSummary (..),
+    newStreamSessionSummary,
+    streamSessionSummary_streamId,
+    streamSessionSummary_endTime,
+    streamSessionSummary_hasErrorEvent,
+    streamSessionSummary_startTime,
+
     -- * StreamSummary
     StreamSummary (..),
     newStreamSummary,
     streamSummary_viewerCount,
     streamSummary_channelArn,
     streamSummary_state,
+    streamSummary_streamId,
     streamSummary_health,
     streamSummary_startTime,
+
+    -- * ThumbnailConfiguration
+    ThumbnailConfiguration (..),
+    newThumbnailConfiguration,
+    thumbnailConfiguration_recordingMode,
+    thumbnailConfiguration_targetIntervalSeconds,
+
+    -- * VideoConfiguration
+    VideoConfiguration (..),
+    newVideoConfiguration,
+    videoConfiguration_targetFramerate,
+    videoConfiguration_encoder,
+    videoConfiguration_targetBitrate,
+    videoConfiguration_avcProfile,
+    videoConfiguration_avcLevel,
+    videoConfiguration_videoHeight,
+    videoConfiguration_codec,
+    videoConfiguration_videoWidth,
   )
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.IVS.Types.AudioConfiguration
 import Amazonka.IVS.Types.BatchError
 import Amazonka.IVS.Types.Channel
 import Amazonka.IVS.Types.ChannelLatencyMode
 import Amazonka.IVS.Types.ChannelSummary
 import Amazonka.IVS.Types.ChannelType
 import Amazonka.IVS.Types.DestinationConfiguration
+import Amazonka.IVS.Types.IngestConfiguration
 import Amazonka.IVS.Types.PlaybackKeyPair
 import Amazonka.IVS.Types.PlaybackKeyPairSummary
 import Amazonka.IVS.Types.RecordingConfiguration
 import Amazonka.IVS.Types.RecordingConfigurationState
 import Amazonka.IVS.Types.RecordingConfigurationSummary
+import Amazonka.IVS.Types.RecordingMode
 import Amazonka.IVS.Types.S3DestinationConfiguration
 import Amazonka.IVS.Types.Stream
+import Amazonka.IVS.Types.StreamEvent
+import Amazonka.IVS.Types.StreamFilters
 import Amazonka.IVS.Types.StreamHealth
 import Amazonka.IVS.Types.StreamKey
 import Amazonka.IVS.Types.StreamKeySummary
+import Amazonka.IVS.Types.StreamSession
+import Amazonka.IVS.Types.StreamSessionSummary
 import Amazonka.IVS.Types.StreamState
 import Amazonka.IVS.Types.StreamSummary
+import Amazonka.IVS.Types.ThumbnailConfiguration
+import Amazonka.IVS.Types.VideoConfiguration
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign

@@ -27,7 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newStreamKeySummary' smart constructor.
 data StreamKeySummary = StreamKeySummary'
-  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+  { -- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+    -- for more information, including restrictions that apply to tags and
+    -- \"Tag naming limits and requirements\"; Amazon IVS has no
+    -- service-specific constraints beyond what is documented there.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Stream-key ARN.
     arn :: Prelude.Maybe Prelude.Text,
@@ -44,7 +48,11 @@ data StreamKeySummary = StreamKeySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'streamKeySummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- 'tags', 'streamKeySummary_tags' - Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 --
 -- 'arn', 'streamKeySummary_arn' - Stream-key ARN.
 --
@@ -58,7 +66,11 @@ newStreamKeySummary =
       channelArn = Prelude.Nothing
     }
 
--- | Array of 1-50 maps, each of the form @string:string (key:value)@.
+-- | Array of 1-50 maps, each of the form @string:string (key:value)@. See
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>
+-- for more information, including restrictions that apply to tags and
+-- \"Tag naming limits and requirements\"; Amazon IVS has no
+-- service-specific constraints beyond what is documented there.
 streamKeySummary_tags :: Lens.Lens' StreamKeySummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 streamKeySummary_tags = Lens.lens (\StreamKeySummary' {tags} -> tags) (\s@StreamKeySummary' {} a -> s {tags = a} :: StreamKeySummary) Prelude.. Lens.mapping Lens.coerced
 

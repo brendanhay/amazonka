@@ -39,13 +39,16 @@ data Stream = Stream'
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The stream’s state.
     state :: Prelude.Maybe StreamState,
+    -- | Unique identifier for a live or previously live stream in the specified
+    -- channel.
+    streamId :: Prelude.Maybe Prelude.Text,
     -- | URL of the master playlist, required by the video player to play the HLS
     -- stream.
     playbackUrl :: Prelude.Maybe Prelude.Text,
     -- | The stream’s health.
     health :: Prelude.Maybe StreamHealth,
-    -- | Time of the stream’s start. This is an ISO 8601 timestamp returned as a
-    -- string.
+    -- | Time of the stream’s start. This is an ISO 8601 timestamp; /note that
+    -- this is returned as a string/.
     startTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,13 +71,16 @@ data Stream = Stream'
 --
 -- 'state', 'stream_state' - The stream’s state.
 --
+-- 'streamId', 'stream_streamId' - Unique identifier for a live or previously live stream in the specified
+-- channel.
+--
 -- 'playbackUrl', 'stream_playbackUrl' - URL of the master playlist, required by the video player to play the HLS
 -- stream.
 --
 -- 'health', 'stream_health' - The stream’s health.
 --
--- 'startTime', 'stream_startTime' - Time of the stream’s start. This is an ISO 8601 timestamp returned as a
--- string.
+-- 'startTime', 'stream_startTime' - Time of the stream’s start. This is an ISO 8601 timestamp; /note that
+-- this is returned as a string/.
 newStream ::
   Stream
 newStream =
@@ -82,6 +88,7 @@ newStream =
     { viewerCount = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       state = Prelude.Nothing,
+      streamId = Prelude.Nothing,
       playbackUrl = Prelude.Nothing,
       health = Prelude.Nothing,
       startTime = Prelude.Nothing
@@ -103,6 +110,11 @@ stream_channelArn = Lens.lens (\Stream' {channelArn} -> channelArn) (\s@Stream' 
 stream_state :: Lens.Lens' Stream (Prelude.Maybe StreamState)
 stream_state = Lens.lens (\Stream' {state} -> state) (\s@Stream' {} a -> s {state = a} :: Stream)
 
+-- | Unique identifier for a live or previously live stream in the specified
+-- channel.
+stream_streamId :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
+stream_streamId = Lens.lens (\Stream' {streamId} -> streamId) (\s@Stream' {} a -> s {streamId = a} :: Stream)
+
 -- | URL of the master playlist, required by the video player to play the HLS
 -- stream.
 stream_playbackUrl :: Lens.Lens' Stream (Prelude.Maybe Prelude.Text)
@@ -112,8 +124,8 @@ stream_playbackUrl = Lens.lens (\Stream' {playbackUrl} -> playbackUrl) (\s@Strea
 stream_health :: Lens.Lens' Stream (Prelude.Maybe StreamHealth)
 stream_health = Lens.lens (\Stream' {health} -> health) (\s@Stream' {} a -> s {health = a} :: Stream)
 
--- | Time of the stream’s start. This is an ISO 8601 timestamp returned as a
--- string.
+-- | Time of the stream’s start. This is an ISO 8601 timestamp; /note that
+-- this is returned as a string/.
 stream_startTime :: Lens.Lens' Stream (Prelude.Maybe Prelude.UTCTime)
 stream_startTime = Lens.lens (\Stream' {startTime} -> startTime) (\s@Stream' {} a -> s {startTime = a} :: Stream) Prelude.. Lens.mapping Core._Time
 
@@ -126,6 +138,7 @@ instance Core.FromJSON Stream where
             Prelude.<$> (x Core..:? "viewerCount")
             Prelude.<*> (x Core..:? "channelArn")
             Prelude.<*> (x Core..:? "state")
+            Prelude.<*> (x Core..:? "streamId")
             Prelude.<*> (x Core..:? "playbackUrl")
             Prelude.<*> (x Core..:? "health")
             Prelude.<*> (x Core..:? "startTime")
@@ -136,6 +149,7 @@ instance Prelude.Hashable Stream where
     _salt `Prelude.hashWithSalt` viewerCount
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` state
+      `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` playbackUrl
       `Prelude.hashWithSalt` health
       `Prelude.hashWithSalt` startTime
@@ -145,6 +159,7 @@ instance Prelude.NFData Stream where
     Prelude.rnf viewerCount
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf state
+      `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf playbackUrl
       `Prelude.seq` Prelude.rnf health
       `Prelude.seq` Prelude.rnf startTime

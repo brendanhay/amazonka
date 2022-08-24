@@ -69,6 +69,9 @@ import Test.Tasty
 --         , requestGetStreamKey $
 --             newGetStreamKey
 --
+--         , requestGetStreamSession $
+--             newGetStreamSession
+--
 --         , requestImportPlaybackKeyPair $
 --             newImportPlaybackKeyPair
 --
@@ -83,6 +86,9 @@ import Test.Tasty
 --
 --         , requestListStreamKeys $
 --             newListStreamKeys
+--
+--         , requestListStreamSessions $
+--             newListStreamSessions
 --
 --         , requestListStreams $
 --             newListStreams
@@ -150,6 +156,9 @@ import Test.Tasty
 --         , responseGetStreamKey $
 --             newGetStreamKeyResponse
 --
+--         , responseGetStreamSession $
+--             newGetStreamSessionResponse
+--
 --         , responseImportPlaybackKeyPair $
 --             newImportPlaybackKeyPairResponse
 --
@@ -164,6 +173,9 @@ import Test.Tasty
 --
 --         , responseListStreamKeys $
 --             newListStreamKeysResponse
+--
+--         , responseListStreamSessions $
+--             newListStreamSessionsResponse
 --
 --         , responseListStreams $
 --             newListStreamsResponse
@@ -275,6 +287,12 @@ requestGetStreamKey =
     "GetStreamKey"
     "fixture/GetStreamKey.yaml"
 
+requestGetStreamSession :: GetStreamSession -> TestTree
+requestGetStreamSession =
+  req
+    "GetStreamSession"
+    "fixture/GetStreamSession.yaml"
+
 requestImportPlaybackKeyPair :: ImportPlaybackKeyPair -> TestTree
 requestImportPlaybackKeyPair =
   req
@@ -304,6 +322,12 @@ requestListStreamKeys =
   req
     "ListStreamKeys"
     "fixture/ListStreamKeys.yaml"
+
+requestListStreamSessions :: ListStreamSessions -> TestTree
+requestListStreamSessions =
+  req
+    "ListStreamSessions"
+    "fixture/ListStreamSessions.yaml"
 
 requestListStreams :: ListStreams -> TestTree
 requestListStreams =
@@ -461,6 +485,14 @@ responseGetStreamKey =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetStreamKey)
 
+responseGetStreamSession :: GetStreamSessionResponse -> TestTree
+responseGetStreamSession =
+  res
+    "GetStreamSessionResponse"
+    "fixture/GetStreamSessionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetStreamSession)
+
 responseImportPlaybackKeyPair :: ImportPlaybackKeyPairResponse -> TestTree
 responseImportPlaybackKeyPair =
   res
@@ -500,6 +532,14 @@ responseListStreamKeys =
     "fixture/ListStreamKeysResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListStreamKeys)
+
+responseListStreamSessions :: ListStreamSessionsResponse -> TestTree
+responseListStreamSessions =
+  res
+    "ListStreamSessionsResponse"
+    "fixture/ListStreamSessionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListStreamSessions)
 
 responseListStreams :: ListStreamsResponse -> TestTree
 responseListStreams =

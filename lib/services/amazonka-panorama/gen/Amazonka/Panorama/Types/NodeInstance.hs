@@ -38,10 +38,10 @@ data NodeInstance = NodeInstance'
     packageVersion :: Prelude.Maybe Prelude.Text,
     -- | The instance\'s name.
     nodeName :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s ID.
-    nodeInstanceId :: Prelude.Text,
     -- | The instance\'s current status.
-    currentStatus :: NodeInstanceStatus
+    currentStatus :: NodeInstanceStatus,
+    -- | The instance\'s ID.
+    nodeInstanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,24 +63,24 @@ data NodeInstance = NodeInstance'
 --
 -- 'nodeName', 'nodeInstance_nodeName' - The instance\'s name.
 --
--- 'nodeInstanceId', 'nodeInstance_nodeInstanceId' - The instance\'s ID.
---
 -- 'currentStatus', 'nodeInstance_currentStatus' - The instance\'s current status.
+--
+-- 'nodeInstanceId', 'nodeInstance_nodeInstanceId' - The instance\'s ID.
 newNodeInstance ::
-  -- | 'nodeInstanceId'
-  Prelude.Text ->
   -- | 'currentStatus'
   NodeInstanceStatus ->
+  -- | 'nodeInstanceId'
+  Prelude.Text ->
   NodeInstance
-newNodeInstance pNodeInstanceId_ pCurrentStatus_ =
+newNodeInstance pCurrentStatus_ pNodeInstanceId_ =
   NodeInstance'
     { nodeId = Prelude.Nothing,
       packageName = Prelude.Nothing,
       packagePatchVersion = Prelude.Nothing,
       packageVersion = Prelude.Nothing,
       nodeName = Prelude.Nothing,
-      nodeInstanceId = pNodeInstanceId_,
-      currentStatus = pCurrentStatus_
+      currentStatus = pCurrentStatus_,
+      nodeInstanceId = pNodeInstanceId_
     }
 
 -- | The node\'s ID.
@@ -103,13 +103,13 @@ nodeInstance_packageVersion = Lens.lens (\NodeInstance' {packageVersion} -> pack
 nodeInstance_nodeName :: Lens.Lens' NodeInstance (Prelude.Maybe Prelude.Text)
 nodeInstance_nodeName = Lens.lens (\NodeInstance' {nodeName} -> nodeName) (\s@NodeInstance' {} a -> s {nodeName = a} :: NodeInstance)
 
--- | The instance\'s ID.
-nodeInstance_nodeInstanceId :: Lens.Lens' NodeInstance Prelude.Text
-nodeInstance_nodeInstanceId = Lens.lens (\NodeInstance' {nodeInstanceId} -> nodeInstanceId) (\s@NodeInstance' {} a -> s {nodeInstanceId = a} :: NodeInstance)
-
 -- | The instance\'s current status.
 nodeInstance_currentStatus :: Lens.Lens' NodeInstance NodeInstanceStatus
 nodeInstance_currentStatus = Lens.lens (\NodeInstance' {currentStatus} -> currentStatus) (\s@NodeInstance' {} a -> s {currentStatus = a} :: NodeInstance)
+
+-- | The instance\'s ID.
+nodeInstance_nodeInstanceId :: Lens.Lens' NodeInstance Prelude.Text
+nodeInstance_nodeInstanceId = Lens.lens (\NodeInstance' {nodeInstanceId} -> nodeInstanceId) (\s@NodeInstance' {} a -> s {nodeInstanceId = a} :: NodeInstance)
 
 instance Core.FromJSON NodeInstance where
   parseJSON =
@@ -122,8 +122,8 @@ instance Core.FromJSON NodeInstance where
             Prelude.<*> (x Core..:? "PackagePatchVersion")
             Prelude.<*> (x Core..:? "PackageVersion")
             Prelude.<*> (x Core..:? "NodeName")
-            Prelude.<*> (x Core..: "NodeInstanceId")
             Prelude.<*> (x Core..: "CurrentStatus")
+            Prelude.<*> (x Core..: "NodeInstanceId")
       )
 
 instance Prelude.Hashable NodeInstance where
@@ -133,8 +133,8 @@ instance Prelude.Hashable NodeInstance where
       `Prelude.hashWithSalt` packagePatchVersion
       `Prelude.hashWithSalt` packageVersion
       `Prelude.hashWithSalt` nodeName
-      `Prelude.hashWithSalt` nodeInstanceId
       `Prelude.hashWithSalt` currentStatus
+      `Prelude.hashWithSalt` nodeInstanceId
 
 instance Prelude.NFData NodeInstance where
   rnf NodeInstance' {..} =
@@ -143,5 +143,5 @@ instance Prelude.NFData NodeInstance where
       `Prelude.seq` Prelude.rnf packagePatchVersion
       `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf nodeName
-      `Prelude.seq` Prelude.rnf nodeInstanceId
       `Prelude.seq` Prelude.rnf currentStatus
+      `Prelude.seq` Prelude.rnf nodeInstanceId

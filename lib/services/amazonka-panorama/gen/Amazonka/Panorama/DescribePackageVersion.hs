@@ -42,11 +42,11 @@ module Amazonka.Panorama.DescribePackageVersion
     describePackageVersionResponse_registeredTime,
     describePackageVersionResponse_ownerAccount,
     describePackageVersionResponse_httpStatus,
+    describePackageVersionResponse_isLatestPatch,
     describePackageVersionResponse_packageId,
     describePackageVersionResponse_packageName,
     describePackageVersionResponse_packageVersion,
     describePackageVersionResponse_patchVersion,
-    describePackageVersionResponse_isLatestPatch,
     describePackageVersionResponse_status,
   )
 where
@@ -133,11 +133,11 @@ instance Core.AWSRequest DescribePackageVersion where
             Prelude.<*> (x Core..?> "RegisteredTime")
             Prelude.<*> (x Core..?> "OwnerAccount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "IsLatestPatch")
             Prelude.<*> (x Core..:> "PackageId")
             Prelude.<*> (x Core..:> "PackageName")
             Prelude.<*> (x Core..:> "PackageVersion")
             Prelude.<*> (x Core..:> "PatchVersion")
-            Prelude.<*> (x Core..:> "IsLatestPatch")
             Prelude.<*> (x Core..:> "Status")
       )
 
@@ -194,6 +194,8 @@ data DescribePackageVersionResponse = DescribePackageVersionResponse'
     ownerAccount :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | Whether the version is the latest available.
+    isLatestPatch :: Prelude.Bool,
     -- | The version\'s ID.
     packageId :: Prelude.Text,
     -- | The version\'s name.
@@ -202,8 +204,6 @@ data DescribePackageVersionResponse = DescribePackageVersionResponse'
     packageVersion :: Prelude.Text,
     -- | The version\'s patch version.
     patchVersion :: Prelude.Text,
-    -- | Whether the version is the latest available.
-    isLatestPatch :: Prelude.Bool,
     -- | The version\'s status.
     status :: PackageVersionStatus
   }
@@ -227,6 +227,8 @@ data DescribePackageVersionResponse = DescribePackageVersionResponse'
 --
 -- 'httpStatus', 'describePackageVersionResponse_httpStatus' - The response's http status code.
 --
+-- 'isLatestPatch', 'describePackageVersionResponse_isLatestPatch' - Whether the version is the latest available.
+--
 -- 'packageId', 'describePackageVersionResponse_packageId' - The version\'s ID.
 --
 -- 'packageName', 'describePackageVersionResponse_packageName' - The version\'s name.
@@ -235,12 +237,12 @@ data DescribePackageVersionResponse = DescribePackageVersionResponse'
 --
 -- 'patchVersion', 'describePackageVersionResponse_patchVersion' - The version\'s patch version.
 --
--- 'isLatestPatch', 'describePackageVersionResponse_isLatestPatch' - Whether the version is the latest available.
---
 -- 'status', 'describePackageVersionResponse_status' - The version\'s status.
 newDescribePackageVersionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'isLatestPatch'
+  Prelude.Bool ->
   -- | 'packageId'
   Prelude.Text ->
   -- | 'packageName'
@@ -249,18 +251,16 @@ newDescribePackageVersionResponse ::
   Prelude.Text ->
   -- | 'patchVersion'
   Prelude.Text ->
-  -- | 'isLatestPatch'
-  Prelude.Bool ->
   -- | 'status'
   PackageVersionStatus ->
   DescribePackageVersionResponse
 newDescribePackageVersionResponse
   pHttpStatus_
+  pIsLatestPatch_
   pPackageId_
   pPackageName_
   pPackageVersion_
   pPatchVersion_
-  pIsLatestPatch_
   pStatus_ =
     DescribePackageVersionResponse'
       { statusDescription =
@@ -269,11 +269,11 @@ newDescribePackageVersionResponse
         registeredTime = Prelude.Nothing,
         ownerAccount = Prelude.Nothing,
         httpStatus = pHttpStatus_,
+        isLatestPatch = pIsLatestPatch_,
         packageId = pPackageId_,
         packageName = pPackageName_,
         packageVersion = pPackageVersion_,
         patchVersion = pPatchVersion_,
-        isLatestPatch = pIsLatestPatch_,
         status = pStatus_
       }
 
@@ -297,6 +297,10 @@ describePackageVersionResponse_ownerAccount = Lens.lens (\DescribePackageVersion
 describePackageVersionResponse_httpStatus :: Lens.Lens' DescribePackageVersionResponse Prelude.Int
 describePackageVersionResponse_httpStatus = Lens.lens (\DescribePackageVersionResponse' {httpStatus} -> httpStatus) (\s@DescribePackageVersionResponse' {} a -> s {httpStatus = a} :: DescribePackageVersionResponse)
 
+-- | Whether the version is the latest available.
+describePackageVersionResponse_isLatestPatch :: Lens.Lens' DescribePackageVersionResponse Prelude.Bool
+describePackageVersionResponse_isLatestPatch = Lens.lens (\DescribePackageVersionResponse' {isLatestPatch} -> isLatestPatch) (\s@DescribePackageVersionResponse' {} a -> s {isLatestPatch = a} :: DescribePackageVersionResponse)
+
 -- | The version\'s ID.
 describePackageVersionResponse_packageId :: Lens.Lens' DescribePackageVersionResponse Prelude.Text
 describePackageVersionResponse_packageId = Lens.lens (\DescribePackageVersionResponse' {packageId} -> packageId) (\s@DescribePackageVersionResponse' {} a -> s {packageId = a} :: DescribePackageVersionResponse)
@@ -313,10 +317,6 @@ describePackageVersionResponse_packageVersion = Lens.lens (\DescribePackageVersi
 describePackageVersionResponse_patchVersion :: Lens.Lens' DescribePackageVersionResponse Prelude.Text
 describePackageVersionResponse_patchVersion = Lens.lens (\DescribePackageVersionResponse' {patchVersion} -> patchVersion) (\s@DescribePackageVersionResponse' {} a -> s {patchVersion = a} :: DescribePackageVersionResponse)
 
--- | Whether the version is the latest available.
-describePackageVersionResponse_isLatestPatch :: Lens.Lens' DescribePackageVersionResponse Prelude.Bool
-describePackageVersionResponse_isLatestPatch = Lens.lens (\DescribePackageVersionResponse' {isLatestPatch} -> isLatestPatch) (\s@DescribePackageVersionResponse' {} a -> s {isLatestPatch = a} :: DescribePackageVersionResponse)
-
 -- | The version\'s status.
 describePackageVersionResponse_status :: Lens.Lens' DescribePackageVersionResponse PackageVersionStatus
 describePackageVersionResponse_status = Lens.lens (\DescribePackageVersionResponse' {status} -> status) (\s@DescribePackageVersionResponse' {} a -> s {status = a} :: DescribePackageVersionResponse)
@@ -331,9 +331,9 @@ instance
       `Prelude.seq` Prelude.rnf registeredTime
       `Prelude.seq` Prelude.rnf ownerAccount
       `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf isLatestPatch
       `Prelude.seq` Prelude.rnf packageId
       `Prelude.seq` Prelude.rnf packageName
       `Prelude.seq` Prelude.rnf packageVersion
       `Prelude.seq` Prelude.rnf patchVersion
-      `Prelude.seq` Prelude.rnf isLatestPatch
       `Prelude.seq` Prelude.rnf status

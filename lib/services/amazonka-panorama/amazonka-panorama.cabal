@@ -77,11 +77,13 @@ library
     Amazonka.Panorama.RemoveApplicationInstance
     Amazonka.Panorama.TagResource
     Amazonka.Panorama.Types
+    Amazonka.Panorama.Types.AlternateSoftwareMetadata
     Amazonka.Panorama.Types.ApplicationInstance
     Amazonka.Panorama.Types.ApplicationInstanceHealthStatus
     Amazonka.Panorama.Types.ApplicationInstanceStatus
     Amazonka.Panorama.Types.ConnectionType
     Amazonka.Panorama.Types.Device
+    Amazonka.Panorama.Types.DeviceBrand
     Amazonka.Panorama.Types.DeviceConnectionStatus
     Amazonka.Panorama.Types.DeviceJob
     Amazonka.Panorama.Types.DeviceJobConfig
@@ -107,6 +109,8 @@ library
     Amazonka.Panorama.Types.NodeInstanceStatus
     Amazonka.Panorama.Types.NodeInterface
     Amazonka.Panorama.Types.NodeOutputPort
+    Amazonka.Panorama.Types.NtpPayload
+    Amazonka.Panorama.Types.NtpStatus
     Amazonka.Panorama.Types.OTAJobConfig
     Amazonka.Panorama.Types.OutPutS3Location
     Amazonka.Panorama.Types.PackageImportJob

@@ -33,8 +33,8 @@ module Amazonka.Panorama.CreateApplicationInstance
     createApplicationInstance_manifestOverridesPayload,
     createApplicationInstance_description,
     createApplicationInstance_runtimeRoleArn,
-    createApplicationInstance_manifestPayload,
     createApplicationInstance_defaultRuntimeContextDevice,
+    createApplicationInstance_manifestPayload,
 
     -- * Destructuring the Response
     CreateApplicationInstanceResponse (..),
@@ -67,10 +67,10 @@ data CreateApplicationInstance = CreateApplicationInstance'
     description :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a runtime role for the application instance.
     runtimeRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The application\'s manifest document.
-    manifestPayload :: ManifestPayload,
     -- | A device\'s ID.
-    defaultRuntimeContextDevice :: Prelude.Text
+    defaultRuntimeContextDevice :: Prelude.Text,
+    -- | The application\'s manifest document.
+    manifestPayload :: ManifestPayload
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -94,18 +94,18 @@ data CreateApplicationInstance = CreateApplicationInstance'
 --
 -- 'runtimeRoleArn', 'createApplicationInstance_runtimeRoleArn' - The ARN of a runtime role for the application instance.
 --
--- 'manifestPayload', 'createApplicationInstance_manifestPayload' - The application\'s manifest document.
---
 -- 'defaultRuntimeContextDevice', 'createApplicationInstance_defaultRuntimeContextDevice' - A device\'s ID.
+--
+-- 'manifestPayload', 'createApplicationInstance_manifestPayload' - The application\'s manifest document.
 newCreateApplicationInstance ::
-  -- | 'manifestPayload'
-  ManifestPayload ->
   -- | 'defaultRuntimeContextDevice'
   Prelude.Text ->
+  -- | 'manifestPayload'
+  ManifestPayload ->
   CreateApplicationInstance
 newCreateApplicationInstance
-  pManifestPayload_
-  pDefaultRuntimeContextDevice_ =
+  pDefaultRuntimeContextDevice_
+  pManifestPayload_ =
     CreateApplicationInstance'
       { tags = Prelude.Nothing,
         name = Prelude.Nothing,
@@ -113,9 +113,9 @@ newCreateApplicationInstance
         manifestOverridesPayload = Prelude.Nothing,
         description = Prelude.Nothing,
         runtimeRoleArn = Prelude.Nothing,
-        manifestPayload = pManifestPayload_,
         defaultRuntimeContextDevice =
-          pDefaultRuntimeContextDevice_
+          pDefaultRuntimeContextDevice_,
+        manifestPayload = pManifestPayload_
       }
 
 -- | Tags for the application instance.
@@ -142,13 +142,13 @@ createApplicationInstance_description = Lens.lens (\CreateApplicationInstance' {
 createApplicationInstance_runtimeRoleArn :: Lens.Lens' CreateApplicationInstance (Prelude.Maybe Prelude.Text)
 createApplicationInstance_runtimeRoleArn = Lens.lens (\CreateApplicationInstance' {runtimeRoleArn} -> runtimeRoleArn) (\s@CreateApplicationInstance' {} a -> s {runtimeRoleArn = a} :: CreateApplicationInstance)
 
--- | The application\'s manifest document.
-createApplicationInstance_manifestPayload :: Lens.Lens' CreateApplicationInstance ManifestPayload
-createApplicationInstance_manifestPayload = Lens.lens (\CreateApplicationInstance' {manifestPayload} -> manifestPayload) (\s@CreateApplicationInstance' {} a -> s {manifestPayload = a} :: CreateApplicationInstance)
-
 -- | A device\'s ID.
 createApplicationInstance_defaultRuntimeContextDevice :: Lens.Lens' CreateApplicationInstance Prelude.Text
 createApplicationInstance_defaultRuntimeContextDevice = Lens.lens (\CreateApplicationInstance' {defaultRuntimeContextDevice} -> defaultRuntimeContextDevice) (\s@CreateApplicationInstance' {} a -> s {defaultRuntimeContextDevice = a} :: CreateApplicationInstance)
+
+-- | The application\'s manifest document.
+createApplicationInstance_manifestPayload :: Lens.Lens' CreateApplicationInstance ManifestPayload
+createApplicationInstance_manifestPayload = Lens.lens (\CreateApplicationInstance' {manifestPayload} -> manifestPayload) (\s@CreateApplicationInstance' {} a -> s {manifestPayload = a} :: CreateApplicationInstance)
 
 instance Core.AWSRequest CreateApplicationInstance where
   type
@@ -171,8 +171,8 @@ instance Prelude.Hashable CreateApplicationInstance where
       `Prelude.hashWithSalt` manifestOverridesPayload
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` runtimeRoleArn
-      `Prelude.hashWithSalt` manifestPayload
       `Prelude.hashWithSalt` defaultRuntimeContextDevice
+      `Prelude.hashWithSalt` manifestPayload
 
 instance Prelude.NFData CreateApplicationInstance where
   rnf CreateApplicationInstance' {..} =
@@ -182,8 +182,8 @@ instance Prelude.NFData CreateApplicationInstance where
       `Prelude.seq` Prelude.rnf manifestOverridesPayload
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf runtimeRoleArn
-      `Prelude.seq` Prelude.rnf manifestPayload
       `Prelude.seq` Prelude.rnf defaultRuntimeContextDevice
+      `Prelude.seq` Prelude.rnf manifestPayload
 
 instance Core.ToHeaders CreateApplicationInstance where
   toHeaders =
@@ -210,11 +210,11 @@ instance Core.ToJSON CreateApplicationInstance where
             ("RuntimeRoleArn" Core..=)
               Prelude.<$> runtimeRoleArn,
             Prelude.Just
-              ("ManifestPayload" Core..= manifestPayload),
-            Prelude.Just
               ( "DefaultRuntimeContextDevice"
                   Core..= defaultRuntimeContextDevice
-              )
+              ),
+            Prelude.Just
+              ("ManifestPayload" Core..= manifestPayload)
           ]
       )
 

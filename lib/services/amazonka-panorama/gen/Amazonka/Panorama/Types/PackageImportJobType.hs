@@ -20,6 +20,7 @@
 module Amazonka.Panorama.Types.PackageImportJobType
   ( PackageImportJobType
       ( ..,
+        PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION,
         PackageImportJobType_NODE_PACKAGE_VERSION
       ),
   )
@@ -56,10 +57,14 @@ newtype PackageImportJobType = PackageImportJobType'
       Core.ToXML
     )
 
+pattern PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION :: PackageImportJobType
+pattern PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION = PackageImportJobType' "MARKETPLACE_NODE_PACKAGE_VERSION"
+
 pattern PackageImportJobType_NODE_PACKAGE_VERSION :: PackageImportJobType
 pattern PackageImportJobType_NODE_PACKAGE_VERSION = PackageImportJobType' "NODE_PACKAGE_VERSION"
 
 {-# COMPLETE
+  PackageImportJobType_MARKETPLACE_NODE_PACKAGE_VERSION,
   PackageImportJobType_NODE_PACKAGE_VERSION,
   PackageImportJobType'
   #-}

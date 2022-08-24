@@ -21,6 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a package.
+--
+-- To delete a package, you need permission to call @s3:DeleteObject@ in
+-- addition to permissions for the AWS Panorama API.
 module Amazonka.Panorama.DeletePackage
   ( -- * Creating a Request
     DeletePackage (..),

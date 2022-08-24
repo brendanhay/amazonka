@@ -21,8 +21,8 @@ module Amazonka.Panorama.Lens
     createApplicationInstance_manifestOverridesPayload,
     createApplicationInstance_description,
     createApplicationInstance_runtimeRoleArn,
-    createApplicationInstance_manifestPayload,
     createApplicationInstance_defaultRuntimeContextDevice,
+    createApplicationInstance_manifestPayload,
     createApplicationInstanceResponse_httpStatus,
     createApplicationInstanceResponse_applicationInstanceId,
 
@@ -36,11 +36,11 @@ module Amazonka.Panorama.Lens
     -- ** CreateNodeFromTemplateJob
     createNodeFromTemplateJob_nodeDescription,
     createNodeFromTemplateJob_jobTags,
-    createNodeFromTemplateJob_templateType,
+    createNodeFromTemplateJob_nodeName,
     createNodeFromTemplateJob_outputPackageName,
     createNodeFromTemplateJob_outputPackageVersion,
-    createNodeFromTemplateJob_nodeName,
     createNodeFromTemplateJob_templateParameters,
+    createNodeFromTemplateJob_templateType,
     createNodeFromTemplateJobResponse_httpStatus,
     createNodeFromTemplateJobResponse_jobId,
 
@@ -54,10 +54,10 @@ module Amazonka.Panorama.Lens
 
     -- ** CreatePackageImportJob
     createPackageImportJob_jobTags,
-    createPackageImportJob_jobType,
-    createPackageImportJob_inputConfig,
-    createPackageImportJob_outputConfig,
     createPackageImportJob_clientToken,
+    createPackageImportJob_inputConfig,
+    createPackageImportJob_jobType,
+    createPackageImportJob_outputConfig,
     createPackageImportJobResponse_httpStatus,
     createPackageImportJobResponse_jobId,
 
@@ -120,12 +120,15 @@ module Amazonka.Panorama.Lens
     describeDeviceResponse_latestSoftware,
     describeDeviceResponse_provisioningStatus,
     describeDeviceResponse_deviceId,
+    describeDeviceResponse_alternateSoftwares,
     describeDeviceResponse_networkingConfiguration,
     describeDeviceResponse_arn,
     describeDeviceResponse_description,
+    describeDeviceResponse_brand,
     describeDeviceResponse_deviceConnectionStatus,
     describeDeviceResponse_serialNumber,
     describeDeviceResponse_currentSoftware,
+    describeDeviceResponse_latestAlternateSoftware,
     describeDeviceResponse_httpStatus,
 
     -- ** DescribeDeviceJob
@@ -146,45 +149,45 @@ module Amazonka.Panorama.Lens
     describeNodeResponse_assetName,
     describeNodeResponse_packageArn,
     describeNodeResponse_httpStatus,
-    describeNodeResponse_nodeId,
-    describeNodeResponse_name,
     describeNodeResponse_category,
+    describeNodeResponse_createdTime,
+    describeNodeResponse_description,
+    describeNodeResponse_lastUpdatedTime,
+    describeNodeResponse_name,
+    describeNodeResponse_nodeId,
+    describeNodeResponse_nodeInterface,
     describeNodeResponse_ownerAccount,
-    describeNodeResponse_packageName,
     describeNodeResponse_packageId,
+    describeNodeResponse_packageName,
     describeNodeResponse_packageVersion,
     describeNodeResponse_patchVersion,
-    describeNodeResponse_nodeInterface,
-    describeNodeResponse_description,
-    describeNodeResponse_createdTime,
-    describeNodeResponse_lastUpdatedTime,
 
     -- ** DescribeNodeFromTemplateJob
     describeNodeFromTemplateJob_jobId,
     describeNodeFromTemplateJobResponse_nodeDescription,
     describeNodeFromTemplateJobResponse_jobTags,
     describeNodeFromTemplateJobResponse_httpStatus,
-    describeNodeFromTemplateJobResponse_jobId,
-    describeNodeFromTemplateJobResponse_status,
-    describeNodeFromTemplateJobResponse_statusMessage,
     describeNodeFromTemplateJobResponse_createdTime,
+    describeNodeFromTemplateJobResponse_jobId,
     describeNodeFromTemplateJobResponse_lastUpdatedTime,
+    describeNodeFromTemplateJobResponse_nodeName,
     describeNodeFromTemplateJobResponse_outputPackageName,
     describeNodeFromTemplateJobResponse_outputPackageVersion,
-    describeNodeFromTemplateJobResponse_nodeName,
-    describeNodeFromTemplateJobResponse_templateType,
+    describeNodeFromTemplateJobResponse_status,
+    describeNodeFromTemplateJobResponse_statusMessage,
     describeNodeFromTemplateJobResponse_templateParameters,
+    describeNodeFromTemplateJobResponse_templateType,
 
     -- ** DescribePackage
     describePackage_packageId,
     describePackageResponse_writeAccessPrincipalArns,
     describePackageResponse_readAccessPrincipalArns,
     describePackageResponse_httpStatus,
+    describePackageResponse_arn,
+    describePackageResponse_createdTime,
     describePackageResponse_packageId,
     describePackageResponse_packageName,
-    describePackageResponse_arn,
     describePackageResponse_storageLocation,
-    describePackageResponse_createdTime,
     describePackageResponse_tags,
 
     -- ** DescribePackageImportJob
@@ -192,13 +195,13 @@ module Amazonka.Panorama.Lens
     describePackageImportJobResponse_clientToken,
     describePackageImportJobResponse_jobTags,
     describePackageImportJobResponse_httpStatus,
+    describePackageImportJobResponse_createdTime,
+    describePackageImportJobResponse_inputConfig,
     describePackageImportJobResponse_jobId,
     describePackageImportJobResponse_jobType,
-    describePackageImportJobResponse_inputConfig,
-    describePackageImportJobResponse_outputConfig,
-    describePackageImportJobResponse_output,
-    describePackageImportJobResponse_createdTime,
     describePackageImportJobResponse_lastUpdatedTime,
+    describePackageImportJobResponse_output,
+    describePackageImportJobResponse_outputConfig,
     describePackageImportJobResponse_status,
     describePackageImportJobResponse_statusMessage,
 
@@ -212,11 +215,11 @@ module Amazonka.Panorama.Lens
     describePackageVersionResponse_registeredTime,
     describePackageVersionResponse_ownerAccount,
     describePackageVersionResponse_httpStatus,
+    describePackageVersionResponse_isLatestPatch,
     describePackageVersionResponse_packageId,
     describePackageVersionResponse_packageName,
     describePackageVersionResponse_packageVersion,
     describePackageVersionResponse_patchVersion,
-    describePackageVersionResponse_isLatestPatch,
     describePackageVersionResponse_status,
 
     -- ** ListApplicationInstanceDependencies
@@ -339,6 +342,9 @@ module Amazonka.Panorama.Lens
 
     -- * Types
 
+    -- ** AlternateSoftwareMetadata
+    alternateSoftwareMetadata_version,
+
     -- ** ApplicationInstance
     applicationInstance_tags,
     applicationInstance_statusDescription,
@@ -359,6 +365,7 @@ module Amazonka.Panorama.Lens
     device_provisioningStatus,
     device_deviceId,
     device_lastUpdatedTime,
+    device_brand,
 
     -- ** DeviceJob
     deviceJob_createdTime,
@@ -394,9 +401,12 @@ module Amazonka.Panorama.Lens
 
     -- ** NetworkPayload
     networkPayload_ethernet0,
+    networkPayload_ntp,
     networkPayload_ethernet1,
 
     -- ** NetworkStatus
+    networkStatus_ntpStatus,
+    networkStatus_lastUpdatedTime,
     networkStatus_ethernet0Status,
     networkStatus_ethernet1Status,
 
@@ -404,14 +414,14 @@ module Amazonka.Panorama.Lens
     node_packageArn,
     node_description,
     node_ownerAccount,
-    node_nodeId,
-    node_name,
     node_category,
-    node_packageName,
+    node_createdTime,
+    node_name,
+    node_nodeId,
     node_packageId,
+    node_packageName,
     node_packageVersion,
     node_patchVersion,
-    node_createdTime,
 
     -- ** NodeFromTemplateJob
     nodeFromTemplateJob_templateType,
@@ -434,8 +444,8 @@ module Amazonka.Panorama.Lens
     nodeInstance_packagePatchVersion,
     nodeInstance_packageVersion,
     nodeInstance_nodeName,
-    nodeInstance_nodeInstanceId,
     nodeInstance_currentStatus,
+    nodeInstance_nodeInstanceId,
 
     -- ** NodeInterface
     nodeInterface_inputs,
@@ -445,6 +455,14 @@ module Amazonka.Panorama.Lens
     nodeOutputPort_name,
     nodeOutputPort_type,
     nodeOutputPort_description,
+
+    -- ** NtpPayload
+    ntpPayload_ntpServers,
+
+    -- ** NtpStatus
+    ntpStatus_ntpServerName,
+    ntpStatus_connectionStatus,
+    ntpStatus_ipAddress,
 
     -- ** OTAJobConfig
     oTAJobConfig_imageVersion,
@@ -465,10 +483,10 @@ module Amazonka.Panorama.Lens
     packageImportJobInputConfig_packageVersionInputConfig,
 
     -- ** PackageImportJobOutput
+    packageImportJobOutput_outputS3Location,
     packageImportJobOutput_packageId,
     packageImportJobOutput_packageVersion,
     packageImportJobOutput_patchVersion,
-    packageImportJobOutput_outputS3Location,
 
     -- ** PackageImportJobOutputConfig
     packageImportJobOutputConfig_packageVersionOutputConfig,
@@ -499,17 +517,17 @@ module Amazonka.Panorama.Lens
     s3Location_objectKey,
 
     -- ** StaticIpConnectionInfo
+    staticIpConnectionInfo_defaultGateway,
+    staticIpConnectionInfo_dns,
     staticIpConnectionInfo_ipAddress,
     staticIpConnectionInfo_mask,
-    staticIpConnectionInfo_dns,
-    staticIpConnectionInfo_defaultGateway,
 
     -- ** StorageLocation
-    storageLocation_bucket,
-    storageLocation_repoPrefixLocation,
-    storageLocation_generatedPrefixLocation,
     storageLocation_binaryPrefixLocation,
+    storageLocation_bucket,
+    storageLocation_generatedPrefixLocation,
     storageLocation_manifestPrefixLocation,
+    storageLocation_repoPrefixLocation,
   )
 where
 
@@ -544,6 +562,7 @@ import Amazonka.Panorama.ProvisionDevice
 import Amazonka.Panorama.RegisterPackageVersion
 import Amazonka.Panorama.RemoveApplicationInstance
 import Amazonka.Panorama.TagResource
+import Amazonka.Panorama.Types.AlternateSoftwareMetadata
 import Amazonka.Panorama.Types.ApplicationInstance
 import Amazonka.Panorama.Types.Device
 import Amazonka.Panorama.Types.DeviceJob
@@ -562,6 +581,8 @@ import Amazonka.Panorama.Types.NodeInputPort
 import Amazonka.Panorama.Types.NodeInstance
 import Amazonka.Panorama.Types.NodeInterface
 import Amazonka.Panorama.Types.NodeOutputPort
+import Amazonka.Panorama.Types.NtpPayload
+import Amazonka.Panorama.Types.NtpStatus
 import Amazonka.Panorama.Types.OTAJobConfig
 import Amazonka.Panorama.Types.OutPutS3Location
 import Amazonka.Panorama.Types.PackageImportJob

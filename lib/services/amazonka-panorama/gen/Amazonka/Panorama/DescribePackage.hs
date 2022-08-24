@@ -37,11 +37,11 @@ module Amazonka.Panorama.DescribePackage
     describePackageResponse_writeAccessPrincipalArns,
     describePackageResponse_readAccessPrincipalArns,
     describePackageResponse_httpStatus,
+    describePackageResponse_arn,
+    describePackageResponse_createdTime,
     describePackageResponse_packageId,
     describePackageResponse_packageName,
-    describePackageResponse_arn,
     describePackageResponse_storageLocation,
-    describePackageResponse_createdTime,
     describePackageResponse_tags,
   )
 where
@@ -96,11 +96,11 @@ instance Core.AWSRequest DescribePackage where
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "Arn")
+            Prelude.<*> (x Core..:> "CreatedTime")
             Prelude.<*> (x Core..:> "PackageId")
             Prelude.<*> (x Core..:> "PackageName")
-            Prelude.<*> (x Core..:> "Arn")
             Prelude.<*> (x Core..:> "StorageLocation")
-            Prelude.<*> (x Core..:> "CreatedTime")
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
       )
 
@@ -138,16 +138,16 @@ data DescribePackageResponse = DescribePackageResponse'
     readAccessPrincipalArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
+    -- | The package\'s ARN.
+    arn :: Prelude.Text,
+    -- | When the package was created.
+    createdTime :: Core.POSIX,
     -- | The package\'s ID.
     packageId :: Prelude.Text,
     -- | The package\'s name.
     packageName :: Prelude.Text,
-    -- | The package\'s ARN.
-    arn :: Prelude.Text,
     -- | The package\'s storage location.
     storageLocation :: StorageLocation,
-    -- | When the package was created.
-    createdTime :: Core.POSIX,
     -- | The package\'s tags.
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
@@ -167,48 +167,48 @@ data DescribePackageResponse = DescribePackageResponse'
 --
 -- 'httpStatus', 'describePackageResponse_httpStatus' - The response's http status code.
 --
+-- 'arn', 'describePackageResponse_arn' - The package\'s ARN.
+--
+-- 'createdTime', 'describePackageResponse_createdTime' - When the package was created.
+--
 -- 'packageId', 'describePackageResponse_packageId' - The package\'s ID.
 --
 -- 'packageName', 'describePackageResponse_packageName' - The package\'s name.
 --
--- 'arn', 'describePackageResponse_arn' - The package\'s ARN.
---
 -- 'storageLocation', 'describePackageResponse_storageLocation' - The package\'s storage location.
---
--- 'createdTime', 'describePackageResponse_createdTime' - When the package was created.
 --
 -- 'tags', 'describePackageResponse_tags' - The package\'s tags.
 newDescribePackageResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'arn'
+  Prelude.Text ->
+  -- | 'createdTime'
+  Prelude.UTCTime ->
   -- | 'packageId'
   Prelude.Text ->
   -- | 'packageName'
   Prelude.Text ->
-  -- | 'arn'
-  Prelude.Text ->
   -- | 'storageLocation'
   StorageLocation ->
-  -- | 'createdTime'
-  Prelude.UTCTime ->
   DescribePackageResponse
 newDescribePackageResponse
   pHttpStatus_
+  pArn_
+  pCreatedTime_
   pPackageId_
   pPackageName_
-  pArn_
-  pStorageLocation_
-  pCreatedTime_ =
+  pStorageLocation_ =
     DescribePackageResponse'
       { writeAccessPrincipalArns =
           Prelude.Nothing,
         readAccessPrincipalArns = Prelude.Nothing,
         httpStatus = pHttpStatus_,
+        arn = pArn_,
+        createdTime = Core._Time Lens.# pCreatedTime_,
         packageId = pPackageId_,
         packageName = pPackageName_,
-        arn = pArn_,
         storageLocation = pStorageLocation_,
-        createdTime = Core._Time Lens.# pCreatedTime_,
         tags = Prelude.mempty
       }
 
@@ -224,6 +224,14 @@ describePackageResponse_readAccessPrincipalArns = Lens.lens (\DescribePackageRes
 describePackageResponse_httpStatus :: Lens.Lens' DescribePackageResponse Prelude.Int
 describePackageResponse_httpStatus = Lens.lens (\DescribePackageResponse' {httpStatus} -> httpStatus) (\s@DescribePackageResponse' {} a -> s {httpStatus = a} :: DescribePackageResponse)
 
+-- | The package\'s ARN.
+describePackageResponse_arn :: Lens.Lens' DescribePackageResponse Prelude.Text
+describePackageResponse_arn = Lens.lens (\DescribePackageResponse' {arn} -> arn) (\s@DescribePackageResponse' {} a -> s {arn = a} :: DescribePackageResponse)
+
+-- | When the package was created.
+describePackageResponse_createdTime :: Lens.Lens' DescribePackageResponse Prelude.UTCTime
+describePackageResponse_createdTime = Lens.lens (\DescribePackageResponse' {createdTime} -> createdTime) (\s@DescribePackageResponse' {} a -> s {createdTime = a} :: DescribePackageResponse) Prelude.. Core._Time
+
 -- | The package\'s ID.
 describePackageResponse_packageId :: Lens.Lens' DescribePackageResponse Prelude.Text
 describePackageResponse_packageId = Lens.lens (\DescribePackageResponse' {packageId} -> packageId) (\s@DescribePackageResponse' {} a -> s {packageId = a} :: DescribePackageResponse)
@@ -232,17 +240,9 @@ describePackageResponse_packageId = Lens.lens (\DescribePackageResponse' {packag
 describePackageResponse_packageName :: Lens.Lens' DescribePackageResponse Prelude.Text
 describePackageResponse_packageName = Lens.lens (\DescribePackageResponse' {packageName} -> packageName) (\s@DescribePackageResponse' {} a -> s {packageName = a} :: DescribePackageResponse)
 
--- | The package\'s ARN.
-describePackageResponse_arn :: Lens.Lens' DescribePackageResponse Prelude.Text
-describePackageResponse_arn = Lens.lens (\DescribePackageResponse' {arn} -> arn) (\s@DescribePackageResponse' {} a -> s {arn = a} :: DescribePackageResponse)
-
 -- | The package\'s storage location.
 describePackageResponse_storageLocation :: Lens.Lens' DescribePackageResponse StorageLocation
 describePackageResponse_storageLocation = Lens.lens (\DescribePackageResponse' {storageLocation} -> storageLocation) (\s@DescribePackageResponse' {} a -> s {storageLocation = a} :: DescribePackageResponse)
-
--- | When the package was created.
-describePackageResponse_createdTime :: Lens.Lens' DescribePackageResponse Prelude.UTCTime
-describePackageResponse_createdTime = Lens.lens (\DescribePackageResponse' {createdTime} -> createdTime) (\s@DescribePackageResponse' {} a -> s {createdTime = a} :: DescribePackageResponse) Prelude.. Core._Time
 
 -- | The package\'s tags.
 describePackageResponse_tags :: Lens.Lens' DescribePackageResponse (Prelude.HashMap Prelude.Text Prelude.Text)
@@ -253,9 +253,9 @@ instance Prelude.NFData DescribePackageResponse where
     Prelude.rnf writeAccessPrincipalArns
       `Prelude.seq` Prelude.rnf readAccessPrincipalArns
       `Prelude.seq` Prelude.rnf httpStatus
+      `Prelude.seq` Prelude.rnf arn
+      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf packageId
       `Prelude.seq` Prelude.rnf packageName
-      `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf storageLocation
-      `Prelude.seq` Prelude.rnf createdTime
       `Prelude.seq` Prelude.rnf tags

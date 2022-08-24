@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.Panorama.Types.NetworkConnectionStatus
+-- Module      : Amazonka.Panorama.Types.DeviceBrand
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.Panorama.Types.NetworkConnectionStatus
-  ( NetworkConnectionStatus
+module Amazonka.Panorama.Types.DeviceBrand
+  ( DeviceBrand
       ( ..,
-        NetworkConnectionStatus_CONNECTED,
-        NetworkConnectionStatus_CONNECTING,
-        NetworkConnectionStatus_NOT_CONNECTED
+        DeviceBrand_AWS_PANORAMA,
+        DeviceBrand_LENOVO
       ),
   )
 where
@@ -30,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype NetworkConnectionStatus = NetworkConnectionStatus'
-  { fromNetworkConnectionStatus ::
+newtype DeviceBrand = DeviceBrand'
+  { fromDeviceBrand ::
       Core.Text
   }
   deriving stock
@@ -58,18 +57,14 @@ newtype NetworkConnectionStatus = NetworkConnectionStatus'
       Core.ToXML
     )
 
-pattern NetworkConnectionStatus_CONNECTED :: NetworkConnectionStatus
-pattern NetworkConnectionStatus_CONNECTED = NetworkConnectionStatus' "CONNECTED"
+pattern DeviceBrand_AWS_PANORAMA :: DeviceBrand
+pattern DeviceBrand_AWS_PANORAMA = DeviceBrand' "AWS_PANORAMA"
 
-pattern NetworkConnectionStatus_CONNECTING :: NetworkConnectionStatus
-pattern NetworkConnectionStatus_CONNECTING = NetworkConnectionStatus' "CONNECTING"
-
-pattern NetworkConnectionStatus_NOT_CONNECTED :: NetworkConnectionStatus
-pattern NetworkConnectionStatus_NOT_CONNECTED = NetworkConnectionStatus' "NOT_CONNECTED"
+pattern DeviceBrand_LENOVO :: DeviceBrand
+pattern DeviceBrand_LENOVO = DeviceBrand' "LENOVO"
 
 {-# COMPLETE
-  NetworkConnectionStatus_CONNECTED,
-  NetworkConnectionStatus_CONNECTING,
-  NetworkConnectionStatus_NOT_CONNECTED,
-  NetworkConnectionStatus'
+  DeviceBrand_AWS_PANORAMA,
+  DeviceBrand_LENOVO,
+  DeviceBrand'
   #-}

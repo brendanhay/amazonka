@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newDescribeDBClusterSnapshots' smart constructor.
 data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
   { -- | True to include shared manual DB cluster snapshots from other Amazon
-    -- accounts that this AWS account has been given permission to copy or
+    -- accounts that this Amazon account has been given permission to copy or
     -- restore, and otherwise false. The default is @false@.
     --
     -- You can give an Amazon account permission to restore a manual DB cluster
@@ -118,7 +118,7 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
     --     automatically taken by Amazon Neptune for my Amazon account.
     --
     -- -   @manual@ - Return all DB cluster snapshots that have been taken by
-    --     my AWS account.
+    --     my Amazon account.
     --
     -- -   @shared@ - Return all manual DB cluster snapshots that have been
     --     shared to my Amazon account.
@@ -150,7 +150,7 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 -- for backwards compatibility:
 --
 -- 'includeShared', 'describeDBClusterSnapshots_includeShared' - True to include shared manual DB cluster snapshots from other Amazon
--- accounts that this AWS account has been given permission to copy or
+-- accounts that this Amazon account has been given permission to copy or
 -- restore, and otherwise false. The default is @false@.
 --
 -- You can give an Amazon account permission to restore a manual DB cluster
@@ -208,7 +208,7 @@ data DescribeDBClusterSnapshots = DescribeDBClusterSnapshots'
 --     automatically taken by Amazon Neptune for my Amazon account.
 --
 -- -   @manual@ - Return all DB cluster snapshots that have been taken by
---     my AWS account.
+--     my Amazon account.
 --
 -- -   @shared@ - Return all manual DB cluster snapshots that have been
 --     shared to my Amazon account.
@@ -243,7 +243,7 @@ newDescribeDBClusterSnapshots =
     }
 
 -- | True to include shared manual DB cluster snapshots from other Amazon
--- accounts that this AWS account has been given permission to copy or
+-- accounts that this Amazon account has been given permission to copy or
 -- restore, and otherwise false. The default is @false@.
 --
 -- You can give an Amazon account permission to restore a manual DB cluster
@@ -315,7 +315,7 @@ describeDBClusterSnapshots_includePublic = Lens.lens (\DescribeDBClusterSnapshot
 --     automatically taken by Amazon Neptune for my Amazon account.
 --
 -- -   @manual@ - Return all DB cluster snapshots that have been taken by
---     my AWS account.
+--     my Amazon account.
 --
 -- -   @shared@ - Return all manual DB cluster snapshots that have been
 --     shared to my Amazon account.

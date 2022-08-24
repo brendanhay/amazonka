@@ -33,7 +33,7 @@ data DBClusterRole = DBClusterRole'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the feature associated with the Amazon Identity and Access
     -- Management (IAM) role. For the list of supported feature names, see
-    -- DBEngineVersion.
+    -- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
     featureName :: Prelude.Maybe Prelude.Text,
     -- | Describes the state of association between the IAM role and the DB
     -- cluster. The Status property returns one of the following values:
@@ -64,7 +64,7 @@ data DBClusterRole = DBClusterRole'
 --
 -- 'featureName', 'dbClusterRole_featureName' - The name of the feature associated with the Amazon Identity and Access
 -- Management (IAM) role. For the list of supported feature names, see
--- DBEngineVersion.
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
 --
 -- 'status', 'dbClusterRole_status' - Describes the state of association between the IAM role and the DB
 -- cluster. The Status property returns one of the following values:
@@ -94,7 +94,7 @@ dbClusterRole_roleArn = Lens.lens (\DBClusterRole' {roleArn} -> roleArn) (\s@DBC
 
 -- | The name of the feature associated with the Amazon Identity and Access
 -- Management (IAM) role. For the list of supported feature names, see
--- DBEngineVersion.
+-- <https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions DescribeDBEngineVersions>.
 dbClusterRole_featureName :: Lens.Lens' DBClusterRole (Prelude.Maybe Prelude.Text)
 dbClusterRole_featureName = Lens.lens (\DBClusterRole' {featureName} -> featureName) (\s@DBClusterRole' {} a -> s {featureName = a} :: DBClusterRole)
 

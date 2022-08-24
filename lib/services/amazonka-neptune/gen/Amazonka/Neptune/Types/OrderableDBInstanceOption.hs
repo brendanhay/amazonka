@@ -64,6 +64,9 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     engine :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether a DB instance can have a Read Replica.
     readReplicaCapable :: Prelude.Maybe Prelude.Bool,
+    -- | A value that indicates whether you can use Neptune global databases with
+    -- a specific combination of other DB engine attributes.
+    supportsGlobalDatabases :: Prelude.Maybe Prelude.Bool,
     -- | Maximum provisioned IOPS per GiB for a DB instance.
     maxIopsPerGib :: Prelude.Maybe Prelude.Double,
     -- | The engine version of a DB instance.
@@ -116,6 +119,9 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
 --
 -- 'readReplicaCapable', 'orderableDBInstanceOption_readReplicaCapable' - Indicates whether a DB instance can have a Read Replica.
 --
+-- 'supportsGlobalDatabases', 'orderableDBInstanceOption_supportsGlobalDatabases' - A value that indicates whether you can use Neptune global databases with
+-- a specific combination of other DB engine attributes.
+--
 -- 'maxIopsPerGib', 'orderableDBInstanceOption_maxIopsPerGib' - Maximum provisioned IOPS per GiB for a DB instance.
 --
 -- 'engineVersion', 'orderableDBInstanceOption_engineVersion' - The engine version of a DB instance.
@@ -145,6 +151,7 @@ newOrderableDBInstanceOption =
       supportsEnhancedMonitoring = Prelude.Nothing,
       engine = Prelude.Nothing,
       readReplicaCapable = Prelude.Nothing,
+      supportsGlobalDatabases = Prelude.Nothing,
       maxIopsPerGib = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       minIopsPerGib = Prelude.Nothing,
@@ -216,6 +223,11 @@ orderableDBInstanceOption_engine = Lens.lens (\OrderableDBInstanceOption' {engin
 orderableDBInstanceOption_readReplicaCapable :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
 orderableDBInstanceOption_readReplicaCapable = Lens.lens (\OrderableDBInstanceOption' {readReplicaCapable} -> readReplicaCapable) (\s@OrderableDBInstanceOption' {} a -> s {readReplicaCapable = a} :: OrderableDBInstanceOption)
 
+-- | A value that indicates whether you can use Neptune global databases with
+-- a specific combination of other DB engine attributes.
+orderableDBInstanceOption_supportsGlobalDatabases :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Bool)
+orderableDBInstanceOption_supportsGlobalDatabases = Lens.lens (\OrderableDBInstanceOption' {supportsGlobalDatabases} -> supportsGlobalDatabases) (\s@OrderableDBInstanceOption' {} a -> s {supportsGlobalDatabases = a} :: OrderableDBInstanceOption)
+
 -- | Maximum provisioned IOPS per GiB for a DB instance.
 orderableDBInstanceOption_maxIopsPerGib :: Lens.Lens' OrderableDBInstanceOption (Prelude.Maybe Prelude.Double)
 orderableDBInstanceOption_maxIopsPerGib = Lens.lens (\OrderableDBInstanceOption' {maxIopsPerGib} -> maxIopsPerGib) (\s@OrderableDBInstanceOption' {} a -> s {maxIopsPerGib = a} :: OrderableDBInstanceOption)
@@ -254,6 +266,7 @@ instance Core.FromXML OrderableDBInstanceOption where
       Prelude.<*> (x Core..@? "SupportsEnhancedMonitoring")
       Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "ReadReplicaCapable")
+      Prelude.<*> (x Core..@? "SupportsGlobalDatabases")
       Prelude.<*> (x Core..@? "MaxIopsPerGib")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "MinIopsPerGib")
@@ -278,6 +291,7 @@ instance Prelude.Hashable OrderableDBInstanceOption where
       `Prelude.hashWithSalt` supportsEnhancedMonitoring
       `Prelude.hashWithSalt` engine
       `Prelude.hashWithSalt` readReplicaCapable
+      `Prelude.hashWithSalt` supportsGlobalDatabases
       `Prelude.hashWithSalt` maxIopsPerGib
       `Prelude.hashWithSalt` engineVersion
       `Prelude.hashWithSalt` minIopsPerGib
@@ -302,6 +316,7 @@ instance Prelude.NFData OrderableDBInstanceOption where
       `Prelude.seq` Prelude.rnf supportsEnhancedMonitoring
       `Prelude.seq` Prelude.rnf engine
       `Prelude.seq` Prelude.rnf readReplicaCapable
+      `Prelude.seq` Prelude.rnf supportsGlobalDatabases
       `Prelude.seq` Prelude.rnf maxIopsPerGib
       `Prelude.seq` Prelude.rnf engineVersion
       `Prelude.seq` Prelude.rnf minIopsPerGib

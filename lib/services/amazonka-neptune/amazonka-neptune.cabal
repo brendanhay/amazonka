@@ -59,6 +59,7 @@ library
     Amazonka.Neptune.CreateDBParameterGroup
     Amazonka.Neptune.CreateDBSubnetGroup
     Amazonka.Neptune.CreateEventSubscription
+    Amazonka.Neptune.CreateGlobalCluster
     Amazonka.Neptune.DeleteDBCluster
     Amazonka.Neptune.DeleteDBClusterEndpoint
     Amazonka.Neptune.DeleteDBClusterParameterGroup
@@ -67,6 +68,7 @@ library
     Amazonka.Neptune.DeleteDBParameterGroup
     Amazonka.Neptune.DeleteDBSubnetGroup
     Amazonka.Neptune.DeleteEventSubscription
+    Amazonka.Neptune.DeleteGlobalCluster
     Amazonka.Neptune.DescribeDBClusterEndpoints
     Amazonka.Neptune.DescribeDBClusterParameterGroups
     Amazonka.Neptune.DescribeDBClusterParameters
@@ -83,10 +85,12 @@ library
     Amazonka.Neptune.DescribeEventCategories
     Amazonka.Neptune.DescribeEvents
     Amazonka.Neptune.DescribeEventSubscriptions
+    Amazonka.Neptune.DescribeGlobalClusters
     Amazonka.Neptune.DescribeOrderableDBInstanceOptions
     Amazonka.Neptune.DescribePendingMaintenanceActions
     Amazonka.Neptune.DescribeValidDBInstanceModifications
     Amazonka.Neptune.FailoverDBCluster
+    Amazonka.Neptune.FailoverGlobalCluster
     Amazonka.Neptune.Lens
     Amazonka.Neptune.ListTagsForResource
     Amazonka.Neptune.ModifyDBCluster
@@ -97,8 +101,10 @@ library
     Amazonka.Neptune.ModifyDBParameterGroup
     Amazonka.Neptune.ModifyDBSubnetGroup
     Amazonka.Neptune.ModifyEventSubscription
+    Amazonka.Neptune.ModifyGlobalCluster
     Amazonka.Neptune.PromoteReadReplicaDBCluster
     Amazonka.Neptune.RebootDBInstance
+    Amazonka.Neptune.RemoveFromGlobalCluster
     Amazonka.Neptune.RemoveRoleFromDBCluster
     Amazonka.Neptune.RemoveSourceIdentifierFromSubscription
     Amazonka.Neptune.RemoveTagsFromResource
@@ -139,6 +145,8 @@ library
     Amazonka.Neptune.Types.EventCategoriesMap
     Amazonka.Neptune.Types.EventSubscription
     Amazonka.Neptune.Types.Filter
+    Amazonka.Neptune.Types.GlobalCluster
+    Amazonka.Neptune.Types.GlobalClusterMember
     Amazonka.Neptune.Types.OptionGroupMembership
     Amazonka.Neptune.Types.OrderableDBInstanceOption
     Amazonka.Neptune.Types.Parameter

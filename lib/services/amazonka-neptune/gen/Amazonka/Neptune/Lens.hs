@@ -81,6 +81,7 @@ module Amazonka.Neptune.Lens
     createDBCluster_replicationSourceIdentifier,
     createDBCluster_storageEncrypted,
     createDBCluster_kmsKeyId,
+    createDBCluster_globalClusterIdentifier,
     createDBCluster_deletionProtection,
     createDBCluster_preferredMaintenanceWindow,
     createDBCluster_dbClusterParameterGroupName,
@@ -199,6 +200,16 @@ module Amazonka.Neptune.Lens
     createEventSubscriptionResponse_eventSubscription,
     createEventSubscriptionResponse_httpStatus,
 
+    -- ** CreateGlobalCluster
+    createGlobalCluster_sourceDBClusterIdentifier,
+    createGlobalCluster_storageEncrypted,
+    createGlobalCluster_engine,
+    createGlobalCluster_deletionProtection,
+    createGlobalCluster_engineVersion,
+    createGlobalCluster_globalClusterIdentifier,
+    createGlobalClusterResponse_globalCluster,
+    createGlobalClusterResponse_httpStatus,
+
     -- ** DeleteDBCluster
     deleteDBCluster_finalDBSnapshotIdentifier,
     deleteDBCluster_skipFinalSnapshot,
@@ -245,6 +256,11 @@ module Amazonka.Neptune.Lens
     deleteEventSubscription_subscriptionName,
     deleteEventSubscriptionResponse_eventSubscription,
     deleteEventSubscriptionResponse_httpStatus,
+
+    -- ** DeleteGlobalCluster
+    deleteGlobalCluster_globalClusterIdentifier,
+    deleteGlobalClusterResponse_globalCluster,
+    deleteGlobalClusterResponse_httpStatus,
 
     -- ** DescribeDBClusterEndpoints
     describeDBClusterEndpoints_marker,
@@ -398,6 +414,14 @@ module Amazonka.Neptune.Lens
     describeEventsResponse_events,
     describeEventsResponse_httpStatus,
 
+    -- ** DescribeGlobalClusters
+    describeGlobalClusters_marker,
+    describeGlobalClusters_maxRecords,
+    describeGlobalClusters_globalClusterIdentifier,
+    describeGlobalClustersResponse_marker,
+    describeGlobalClustersResponse_globalClusters,
+    describeGlobalClustersResponse_httpStatus,
+
     -- ** DescribeOrderableDBInstanceOptions
     describeOrderableDBInstanceOptions_dbInstanceClass,
     describeOrderableDBInstanceOptions_marker,
@@ -431,6 +455,12 @@ module Amazonka.Neptune.Lens
     failoverDBClusterResponse_dbCluster,
     failoverDBClusterResponse_httpStatus,
 
+    -- ** FailoverGlobalCluster
+    failoverGlobalCluster_globalClusterIdentifier,
+    failoverGlobalCluster_targetDbClusterIdentifier,
+    failoverGlobalClusterResponse_globalCluster,
+    failoverGlobalClusterResponse_httpStatus,
+
     -- ** ListTagsForResource
     listTagsForResource_filters,
     listTagsForResource_resourceName,
@@ -444,7 +474,9 @@ module Amazonka.Neptune.Lens
     modifyDBCluster_preferredBackupWindow,
     modifyDBCluster_backupRetentionPeriod,
     modifyDBCluster_copyTagsToSnapshot,
+    modifyDBCluster_dbInstanceParameterGroupName,
     modifyDBCluster_applyImmediately,
+    modifyDBCluster_allowMajorVersionUpgrade,
     modifyDBCluster_optionGroupName,
     modifyDBCluster_enableIAMDatabaseAuthentication,
     modifyDBCluster_masterUserPassword,
@@ -549,6 +581,15 @@ module Amazonka.Neptune.Lens
     modifyEventSubscriptionResponse_eventSubscription,
     modifyEventSubscriptionResponse_httpStatus,
 
+    -- ** ModifyGlobalCluster
+    modifyGlobalCluster_allowMajorVersionUpgrade,
+    modifyGlobalCluster_deletionProtection,
+    modifyGlobalCluster_newGlobalClusterIdentifier,
+    modifyGlobalCluster_engineVersion,
+    modifyGlobalCluster_globalClusterIdentifier,
+    modifyGlobalClusterResponse_globalCluster,
+    modifyGlobalClusterResponse_httpStatus,
+
     -- ** PromoteReadReplicaDBCluster
     promoteReadReplicaDBCluster_dbClusterIdentifier,
     promoteReadReplicaDBClusterResponse_dbCluster,
@@ -559,6 +600,12 @@ module Amazonka.Neptune.Lens
     rebootDBInstance_dbInstanceIdentifier,
     rebootDBInstanceResponse_dbInstance,
     rebootDBInstanceResponse_httpStatus,
+
+    -- ** RemoveFromGlobalCluster
+    removeFromGlobalCluster_globalClusterIdentifier,
+    removeFromGlobalCluster_dbClusterIdentifier,
+    removeFromGlobalClusterResponse_globalCluster,
+    removeFromGlobalClusterResponse_httpStatus,
 
     -- ** RemoveRoleFromDBCluster
     removeRoleFromDBCluster_featureName,
@@ -769,6 +816,7 @@ module Amazonka.Neptune.Lens
     dbEngineVersion_engine,
     dbEngineVersion_dbParameterGroupFamily,
     dbEngineVersion_supportedTimezones,
+    dbEngineVersion_supportsGlobalDatabases,
     dbEngineVersion_engineVersion,
     dbEngineVersion_dbEngineDescription,
 
@@ -906,6 +954,22 @@ module Amazonka.Neptune.Lens
     filter_name,
     filter_values,
 
+    -- ** GlobalCluster
+    globalCluster_globalClusterMembers,
+    globalCluster_status,
+    globalCluster_globalClusterArn,
+    globalCluster_storageEncrypted,
+    globalCluster_globalClusterIdentifier,
+    globalCluster_engine,
+    globalCluster_deletionProtection,
+    globalCluster_globalClusterResourceId,
+    globalCluster_engineVersion,
+
+    -- ** GlobalClusterMember
+    globalClusterMember_dbClusterArn,
+    globalClusterMember_isWriter,
+    globalClusterMember_readers,
+
     -- ** OptionGroupMembership
     optionGroupMembership_optionGroupName,
     optionGroupMembership_status,
@@ -927,6 +991,7 @@ module Amazonka.Neptune.Lens
     orderableDBInstanceOption_supportsEnhancedMonitoring,
     orderableDBInstanceOption_engine,
     orderableDBInstanceOption_readReplicaCapable,
+    orderableDBInstanceOption_supportsGlobalDatabases,
     orderableDBInstanceOption_maxIopsPerGib,
     orderableDBInstanceOption_engineVersion,
     orderableDBInstanceOption_minIopsPerGib,
@@ -997,6 +1062,7 @@ module Amazonka.Neptune.Lens
     upgradeTarget_autoUpgrade,
     upgradeTarget_description,
     upgradeTarget_engine,
+    upgradeTarget_supportsGlobalDatabases,
     upgradeTarget_engineVersion,
     upgradeTarget_isMajorVersionUpgrade,
 
@@ -1030,6 +1096,7 @@ import Amazonka.Neptune.CreateDBInstance
 import Amazonka.Neptune.CreateDBParameterGroup
 import Amazonka.Neptune.CreateDBSubnetGroup
 import Amazonka.Neptune.CreateEventSubscription
+import Amazonka.Neptune.CreateGlobalCluster
 import Amazonka.Neptune.DeleteDBCluster
 import Amazonka.Neptune.DeleteDBClusterEndpoint
 import Amazonka.Neptune.DeleteDBClusterParameterGroup
@@ -1038,6 +1105,7 @@ import Amazonka.Neptune.DeleteDBInstance
 import Amazonka.Neptune.DeleteDBParameterGroup
 import Amazonka.Neptune.DeleteDBSubnetGroup
 import Amazonka.Neptune.DeleteEventSubscription
+import Amazonka.Neptune.DeleteGlobalCluster
 import Amazonka.Neptune.DescribeDBClusterEndpoints
 import Amazonka.Neptune.DescribeDBClusterParameterGroups
 import Amazonka.Neptune.DescribeDBClusterParameters
@@ -1054,10 +1122,12 @@ import Amazonka.Neptune.DescribeEngineDefaultParameters
 import Amazonka.Neptune.DescribeEventCategories
 import Amazonka.Neptune.DescribeEventSubscriptions
 import Amazonka.Neptune.DescribeEvents
+import Amazonka.Neptune.DescribeGlobalClusters
 import Amazonka.Neptune.DescribeOrderableDBInstanceOptions
 import Amazonka.Neptune.DescribePendingMaintenanceActions
 import Amazonka.Neptune.DescribeValidDBInstanceModifications
 import Amazonka.Neptune.FailoverDBCluster
+import Amazonka.Neptune.FailoverGlobalCluster
 import Amazonka.Neptune.ListTagsForResource
 import Amazonka.Neptune.ModifyDBCluster
 import Amazonka.Neptune.ModifyDBClusterEndpoint
@@ -1067,8 +1137,10 @@ import Amazonka.Neptune.ModifyDBInstance
 import Amazonka.Neptune.ModifyDBParameterGroup
 import Amazonka.Neptune.ModifyDBSubnetGroup
 import Amazonka.Neptune.ModifyEventSubscription
+import Amazonka.Neptune.ModifyGlobalCluster
 import Amazonka.Neptune.PromoteReadReplicaDBCluster
 import Amazonka.Neptune.RebootDBInstance
+import Amazonka.Neptune.RemoveFromGlobalCluster
 import Amazonka.Neptune.RemoveRoleFromDBCluster
 import Amazonka.Neptune.RemoveSourceIdentifierFromSubscription
 import Amazonka.Neptune.RemoveTagsFromResource
@@ -1107,6 +1179,8 @@ import Amazonka.Neptune.Types.Event
 import Amazonka.Neptune.Types.EventCategoriesMap
 import Amazonka.Neptune.Types.EventSubscription
 import Amazonka.Neptune.Types.Filter
+import Amazonka.Neptune.Types.GlobalCluster
+import Amazonka.Neptune.Types.GlobalClusterMember
 import Amazonka.Neptune.Types.OptionGroupMembership
 import Amazonka.Neptune.Types.OrderableDBInstanceOption
 import Amazonka.Neptune.Types.Parameter

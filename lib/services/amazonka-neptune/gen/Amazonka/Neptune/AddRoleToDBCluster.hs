@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Associates an Identity and Access Management (IAM) role from an Neptune
+-- Associates an Identity and Access Management (IAM) role with an Neptune
 -- DB cluster.
 module Amazonka.Neptune.AddRoleToDBCluster
   ( -- * Creating a Request
@@ -49,7 +49,7 @@ import qualified Amazonka.Response as Response
 data AddRoleToDBCluster = AddRoleToDBCluster'
   { -- | The name of the feature for the Neptune DB cluster that the IAM role is
     -- to be associated with. For the list of supported feature names, see
-    -- DBEngineVersion.
+    -- <neptune/latest/userguide/api-other-apis.html#DBEngineVersion DBEngineVersion>.
     featureName :: Prelude.Maybe Prelude.Text,
     -- | The name of the DB cluster to associate the IAM role with.
     dbClusterIdentifier :: Prelude.Text,
@@ -70,7 +70,7 @@ data AddRoleToDBCluster = AddRoleToDBCluster'
 --
 -- 'featureName', 'addRoleToDBCluster_featureName' - The name of the feature for the Neptune DB cluster that the IAM role is
 -- to be associated with. For the list of supported feature names, see
--- DBEngineVersion.
+-- <neptune/latest/userguide/api-other-apis.html#DBEngineVersion DBEngineVersion>.
 --
 -- 'dbClusterIdentifier', 'addRoleToDBCluster_dbClusterIdentifier' - The name of the DB cluster to associate the IAM role with.
 --
@@ -92,7 +92,7 @@ newAddRoleToDBCluster pDBClusterIdentifier_ pRoleArn_ =
 
 -- | The name of the feature for the Neptune DB cluster that the IAM role is
 -- to be associated with. For the list of supported feature names, see
--- DBEngineVersion.
+-- <neptune/latest/userguide/api-other-apis.html#DBEngineVersion DBEngineVersion>.
 addRoleToDBCluster_featureName :: Lens.Lens' AddRoleToDBCluster (Prelude.Maybe Prelude.Text)
 addRoleToDBCluster_featureName = Lens.lens (\AddRoleToDBCluster' {featureName} -> featureName) (\s@AddRoleToDBCluster' {} a -> s {featureName = a} :: AddRoleToDBCluster)
 

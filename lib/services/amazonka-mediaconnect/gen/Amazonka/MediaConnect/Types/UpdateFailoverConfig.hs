@@ -26,7 +26,7 @@ import Amazonka.MediaConnect.Types.SourcePriority
 import Amazonka.MediaConnect.Types.State
 import qualified Amazonka.Prelude as Prelude
 
--- | The settings for source failover
+-- | The settings for source failover.
 --
 -- /See:/ 'newUpdateFailoverConfig' smart constructor.
 data UpdateFailoverConfig = UpdateFailoverConfig'

@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newSetSourceRequest' smart constructor.
 data SetSourceRequest = SetSourceRequest'
   { -- | The maximum latency in milliseconds. This parameter applies only to
-    -- RIST-based and Zixi-based streams.
+    -- RIST-based, Zixi-based, and Fujitsu-based streams.
     maxLatency :: Prelude.Maybe Prelude.Int,
     -- | The name of the source.
     name :: Prelude.Maybe Prelude.Text,
@@ -52,12 +52,18 @@ data SetSourceRequest = SetSourceRequest'
     -- | The stream ID that you want to use for this transport. This parameter
     -- applies only to Zixi-based streams.
     streamId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address that the flow communicates with to initiate connection
+    -- with the sender.
+    senderIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The type of encryption that is used on the content ingested from this
     -- source.
     decryption :: Prelude.Maybe Encryption,
     -- | A description for the source. This value is not used or seen outside of
     -- the current AWS Elemental MediaConnect account.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The port that the flow uses to send outbound requests to initiate
+    -- connection with the sender.
+    senderControlPort :: Prelude.Maybe Prelude.Int,
     -- | The protocol that is used by the source.
     protocol :: Prelude.Maybe Protocol,
     -- | The port that the flow will be listening on for incoming content.
@@ -84,7 +90,7 @@ data SetSourceRequest = SetSourceRequest'
 -- for backwards compatibility:
 --
 -- 'maxLatency', 'setSourceRequest_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
--- RIST-based and Zixi-based streams.
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 --
 -- 'name', 'setSourceRequest_name' - The name of the source.
 --
@@ -105,11 +111,17 @@ data SetSourceRequest = SetSourceRequest'
 -- 'streamId', 'setSourceRequest_streamId' - The stream ID that you want to use for this transport. This parameter
 -- applies only to Zixi-based streams.
 --
+-- 'senderIpAddress', 'setSourceRequest_senderIpAddress' - The IP address that the flow communicates with to initiate connection
+-- with the sender.
+--
 -- 'decryption', 'setSourceRequest_decryption' - The type of encryption that is used on the content ingested from this
 -- source.
 --
 -- 'description', 'setSourceRequest_description' - A description for the source. This value is not used or seen outside of
 -- the current AWS Elemental MediaConnect account.
+--
+-- 'senderControlPort', 'setSourceRequest_senderControlPort' - The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
 --
 -- 'protocol', 'setSourceRequest_protocol' - The protocol that is used by the source.
 --
@@ -136,8 +148,10 @@ newSetSourceRequest =
       maxSyncBuffer = Prelude.Nothing,
       maxBitrate = Prelude.Nothing,
       streamId = Prelude.Nothing,
+      senderIpAddress = Prelude.Nothing,
       decryption = Prelude.Nothing,
       description = Prelude.Nothing,
+      senderControlPort = Prelude.Nothing,
       protocol = Prelude.Nothing,
       ingestPort = Prelude.Nothing,
       whitelistCidr = Prelude.Nothing,
@@ -145,7 +159,7 @@ newSetSourceRequest =
     }
 
 -- | The maximum latency in milliseconds. This parameter applies only to
--- RIST-based and Zixi-based streams.
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 setSourceRequest_maxLatency :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Int)
 setSourceRequest_maxLatency = Lens.lens (\SetSourceRequest' {maxLatency} -> maxLatency) (\s@SetSourceRequest' {} a -> s {maxLatency = a} :: SetSourceRequest)
 
@@ -182,6 +196,11 @@ setSourceRequest_maxBitrate = Lens.lens (\SetSourceRequest' {maxBitrate} -> maxB
 setSourceRequest_streamId :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Text)
 setSourceRequest_streamId = Lens.lens (\SetSourceRequest' {streamId} -> streamId) (\s@SetSourceRequest' {} a -> s {streamId = a} :: SetSourceRequest)
 
+-- | The IP address that the flow communicates with to initiate connection
+-- with the sender.
+setSourceRequest_senderIpAddress :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Text)
+setSourceRequest_senderIpAddress = Lens.lens (\SetSourceRequest' {senderIpAddress} -> senderIpAddress) (\s@SetSourceRequest' {} a -> s {senderIpAddress = a} :: SetSourceRequest)
+
 -- | The type of encryption that is used on the content ingested from this
 -- source.
 setSourceRequest_decryption :: Lens.Lens' SetSourceRequest (Prelude.Maybe Encryption)
@@ -191,6 +210,11 @@ setSourceRequest_decryption = Lens.lens (\SetSourceRequest' {decryption} -> decr
 -- the current AWS Elemental MediaConnect account.
 setSourceRequest_description :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Text)
 setSourceRequest_description = Lens.lens (\SetSourceRequest' {description} -> description) (\s@SetSourceRequest' {} a -> s {description = a} :: SetSourceRequest)
+
+-- | The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
+setSourceRequest_senderControlPort :: Lens.Lens' SetSourceRequest (Prelude.Maybe Prelude.Int)
+setSourceRequest_senderControlPort = Lens.lens (\SetSourceRequest' {senderControlPort} -> senderControlPort) (\s@SetSourceRequest' {} a -> s {senderControlPort = a} :: SetSourceRequest)
 
 -- | The protocol that is used by the source.
 setSourceRequest_protocol :: Lens.Lens' SetSourceRequest (Prelude.Maybe Protocol)
@@ -224,8 +248,10 @@ instance Prelude.Hashable SetSourceRequest where
       `Prelude.hashWithSalt` maxSyncBuffer
       `Prelude.hashWithSalt` maxBitrate
       `Prelude.hashWithSalt` streamId
+      `Prelude.hashWithSalt` senderIpAddress
       `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` protocol
       `Prelude.hashWithSalt` ingestPort
       `Prelude.hashWithSalt` whitelistCidr
@@ -241,8 +267,10 @@ instance Prelude.NFData SetSourceRequest where
       `Prelude.seq` Prelude.rnf maxSyncBuffer
       `Prelude.seq` Prelude.rnf maxBitrate
       `Prelude.seq` Prelude.rnf streamId
+      `Prelude.seq` Prelude.rnf senderIpAddress
       `Prelude.seq` Prelude.rnf decryption
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf protocol
       `Prelude.seq` Prelude.rnf ingestPort
       `Prelude.seq` Prelude.rnf whitelistCidr
@@ -263,8 +291,12 @@ instance Core.ToJSON SetSourceRequest where
             ("maxSyncBuffer" Core..=) Prelude.<$> maxSyncBuffer,
             ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
             ("streamId" Core..=) Prelude.<$> streamId,
+            ("senderIpAddress" Core..=)
+              Prelude.<$> senderIpAddress,
             ("decryption" Core..=) Prelude.<$> decryption,
             ("description" Core..=) Prelude.<$> description,
+            ("senderControlPort" Core..=)
+              Prelude.<$> senderControlPort,
             ("protocol" Core..=) Prelude.<$> protocol,
             ("ingestPort" Core..=) Prelude.<$> ingestPort,
             ("whitelistCidr" Core..=) Prelude.<$> whitelistCidr,

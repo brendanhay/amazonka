@@ -21,6 +21,7 @@ module Amazonka.MediaConnect.Types.ListedFlow where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MediaConnect.Types.Maintenance
 import Amazonka.MediaConnect.Types.SourceType
 import Amazonka.MediaConnect.Types.Status
 import qualified Amazonka.Prelude as Prelude
@@ -30,7 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newListedFlow' smart constructor.
 data ListedFlow = ListedFlow'
-  { -- | The current status of the flow.
+  { maintenance :: Prelude.Maybe Maintenance,
+    -- | The current status of the flow.
     status :: Status,
     -- | A description of the flow.
     description :: Prelude.Text,
@@ -55,6 +57,8 @@ data ListedFlow = ListedFlow'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'maintenance', 'listedFlow_maintenance' - Undocumented member.
 --
 -- 'status', 'listedFlow_status' - The current status of the flow.
 --
@@ -92,13 +96,18 @@ newListedFlow
   pFlowArn_
   pName_ =
     ListedFlow'
-      { status = pStatus_,
+      { maintenance = Prelude.Nothing,
+        status = pStatus_,
         description = pDescription_,
         sourceType = pSourceType_,
         availabilityZone = pAvailabilityZone_,
         flowArn = pFlowArn_,
         name = pName_
       }
+
+-- | Undocumented member.
+listedFlow_maintenance :: Lens.Lens' ListedFlow (Prelude.Maybe Maintenance)
+listedFlow_maintenance = Lens.lens (\ListedFlow' {maintenance} -> maintenance) (\s@ListedFlow' {} a -> s {maintenance = a} :: ListedFlow)
 
 -- | The current status of the flow.
 listedFlow_status :: Lens.Lens' ListedFlow Status
@@ -133,7 +142,8 @@ instance Core.FromJSON ListedFlow where
       "ListedFlow"
       ( \x ->
           ListedFlow'
-            Prelude.<$> (x Core..: "status")
+            Prelude.<$> (x Core..:? "maintenance")
+            Prelude.<*> (x Core..: "status")
             Prelude.<*> (x Core..: "description")
             Prelude.<*> (x Core..: "sourceType")
             Prelude.<*> (x Core..: "availabilityZone")
@@ -143,7 +153,8 @@ instance Core.FromJSON ListedFlow where
 
 instance Prelude.Hashable ListedFlow where
   hashWithSalt _salt ListedFlow' {..} =
-    _salt `Prelude.hashWithSalt` status
+    _salt `Prelude.hashWithSalt` maintenance
+      `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sourceType
       `Prelude.hashWithSalt` availabilityZone
@@ -152,7 +163,8 @@ instance Prelude.Hashable ListedFlow where
 
 instance Prelude.NFData ListedFlow where
   rnf ListedFlow' {..} =
-    Prelude.rnf status
+    Prelude.rnf maintenance
+      `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf sourceType
       `Prelude.seq` Prelude.rnf availabilityZone

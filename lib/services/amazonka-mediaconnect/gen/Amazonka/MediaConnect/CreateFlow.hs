@@ -29,6 +29,7 @@ module Amazonka.MediaConnect.CreateFlow
 
     -- * Request Lenses
     createFlow_sources,
+    createFlow_maintenance,
     createFlow_vpcInterfaces,
     createFlow_entitlements,
     createFlow_availabilityZone,
@@ -61,6 +62,7 @@ import qualified Amazonka.Response as Response
 -- /See:/ 'newCreateFlow' smart constructor.
 data CreateFlow = CreateFlow'
   { sources :: Prelude.Maybe [SetSourceRequest],
+    maintenance :: Prelude.Maybe AddMaintenance,
     -- | The VPC interfaces you want on the flow.
     vpcInterfaces :: Prelude.Maybe [VpcInterfaceRequest],
     -- | The entitlements that you want to grant on a flow.
@@ -90,6 +92,8 @@ data CreateFlow = CreateFlow'
 --
 -- 'sources', 'createFlow_sources' - Undocumented member.
 --
+-- 'maintenance', 'createFlow_maintenance' - Undocumented member.
+--
 -- 'vpcInterfaces', 'createFlow_vpcInterfaces' - The VPC interfaces you want on the flow.
 --
 -- 'entitlements', 'createFlow_entitlements' - The entitlements that you want to grant on a flow.
@@ -114,6 +118,7 @@ newCreateFlow ::
 newCreateFlow pName_ =
   CreateFlow'
     { sources = Prelude.Nothing,
+      maintenance = Prelude.Nothing,
       vpcInterfaces = Prelude.Nothing,
       entitlements = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
@@ -127,6 +132,10 @@ newCreateFlow pName_ =
 -- | Undocumented member.
 createFlow_sources :: Lens.Lens' CreateFlow (Prelude.Maybe [SetSourceRequest])
 createFlow_sources = Lens.lens (\CreateFlow' {sources} -> sources) (\s@CreateFlow' {} a -> s {sources = a} :: CreateFlow) Prelude.. Lens.mapping Lens.coerced
+
+-- | Undocumented member.
+createFlow_maintenance :: Lens.Lens' CreateFlow (Prelude.Maybe AddMaintenance)
+createFlow_maintenance = Lens.lens (\CreateFlow' {maintenance} -> maintenance) (\s@CreateFlow' {} a -> s {maintenance = a} :: CreateFlow)
 
 -- | The VPC interfaces you want on the flow.
 createFlow_vpcInterfaces :: Lens.Lens' CreateFlow (Prelude.Maybe [VpcInterfaceRequest])
@@ -176,6 +185,7 @@ instance Core.AWSRequest CreateFlow where
 instance Prelude.Hashable CreateFlow where
   hashWithSalt _salt CreateFlow' {..} =
     _salt `Prelude.hashWithSalt` sources
+      `Prelude.hashWithSalt` maintenance
       `Prelude.hashWithSalt` vpcInterfaces
       `Prelude.hashWithSalt` entitlements
       `Prelude.hashWithSalt` availabilityZone
@@ -188,6 +198,7 @@ instance Prelude.Hashable CreateFlow where
 instance Prelude.NFData CreateFlow where
   rnf CreateFlow' {..} =
     Prelude.rnf sources
+      `Prelude.seq` Prelude.rnf maintenance
       `Prelude.seq` Prelude.rnf vpcInterfaces
       `Prelude.seq` Prelude.rnf entitlements
       `Prelude.seq` Prelude.rnf availabilityZone
@@ -213,6 +224,7 @@ instance Core.ToJSON CreateFlow where
     Core.object
       ( Prelude.catMaybes
           [ ("sources" Core..=) Prelude.<$> sources,
+            ("maintenance" Core..=) Prelude.<$> maintenance,
             ("vpcInterfaces" Core..=) Prelude.<$> vpcInterfaces,
             ("entitlements" Core..=) Prelude.<$> entitlements,
             ("availabilityZone" Core..=)

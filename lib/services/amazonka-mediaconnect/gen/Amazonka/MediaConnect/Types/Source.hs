@@ -41,6 +41,9 @@ data Source = Source'
     entitlementArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the VPC interface that is used for this source.
     vpcInterfaceName :: Prelude.Maybe Prelude.Text,
+    -- | The IP address that the flow communicates with to initiate connection
+    -- with the sender.
+    senderIpAddress :: Prelude.Maybe Prelude.Text,
     -- | The type of encryption that is used on the content ingested from this
     -- source.
     decryption :: Prelude.Maybe Encryption,
@@ -49,6 +52,9 @@ data Source = Source'
     description :: Prelude.Maybe Prelude.Text,
     -- | Attributes related to the transport stream that are used in the source.
     transport :: Prelude.Maybe Transport,
+    -- | The port that the flow uses to send outbound requests to initiate
+    -- connection with the sender.
+    senderControlPort :: Prelude.Maybe Prelude.Int,
     -- | Percentage from 0-100 of the data transfer cost to be billed to the
     -- subscriber.
     dataTransferSubscriberFeePercent :: Prelude.Maybe Prelude.Int,
@@ -84,6 +90,9 @@ data Source = Source'
 --
 -- 'vpcInterfaceName', 'source_vpcInterfaceName' - The name of the VPC interface that is used for this source.
 --
+-- 'senderIpAddress', 'source_senderIpAddress' - The IP address that the flow communicates with to initiate connection
+-- with the sender.
+--
 -- 'decryption', 'source_decryption' - The type of encryption that is used on the content ingested from this
 -- source.
 --
@@ -91,6 +100,9 @@ data Source = Source'
 -- the current AWS Elemental MediaConnect account.
 --
 -- 'transport', 'source_transport' - Attributes related to the transport stream that are used in the source.
+--
+-- 'senderControlPort', 'source_senderControlPort' - The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
 --
 -- 'dataTransferSubscriberFeePercent', 'source_dataTransferSubscriberFeePercent' - Percentage from 0-100 of the data transfer cost to be billed to the
 -- subscriber.
@@ -117,9 +129,11 @@ newSource pSourceArn_ pName_ =
       ingestIp = Prelude.Nothing,
       entitlementArn = Prelude.Nothing,
       vpcInterfaceName = Prelude.Nothing,
+      senderIpAddress = Prelude.Nothing,
       decryption = Prelude.Nothing,
       description = Prelude.Nothing,
       transport = Prelude.Nothing,
+      senderControlPort = Prelude.Nothing,
       dataTransferSubscriberFeePercent = Prelude.Nothing,
       ingestPort = Prelude.Nothing,
       whitelistCidr = Prelude.Nothing,
@@ -146,6 +160,11 @@ source_entitlementArn = Lens.lens (\Source' {entitlementArn} -> entitlementArn) 
 source_vpcInterfaceName :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
 source_vpcInterfaceName = Lens.lens (\Source' {vpcInterfaceName} -> vpcInterfaceName) (\s@Source' {} a -> s {vpcInterfaceName = a} :: Source)
 
+-- | The IP address that the flow communicates with to initiate connection
+-- with the sender.
+source_senderIpAddress :: Lens.Lens' Source (Prelude.Maybe Prelude.Text)
+source_senderIpAddress = Lens.lens (\Source' {senderIpAddress} -> senderIpAddress) (\s@Source' {} a -> s {senderIpAddress = a} :: Source)
+
 -- | The type of encryption that is used on the content ingested from this
 -- source.
 source_decryption :: Lens.Lens' Source (Prelude.Maybe Encryption)
@@ -159,6 +178,11 @@ source_description = Lens.lens (\Source' {description} -> description) (\s@Sourc
 -- | Attributes related to the transport stream that are used in the source.
 source_transport :: Lens.Lens' Source (Prelude.Maybe Transport)
 source_transport = Lens.lens (\Source' {transport} -> transport) (\s@Source' {} a -> s {transport = a} :: Source)
+
+-- | The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
+source_senderControlPort :: Lens.Lens' Source (Prelude.Maybe Prelude.Int)
+source_senderControlPort = Lens.lens (\Source' {senderControlPort} -> senderControlPort) (\s@Source' {} a -> s {senderControlPort = a} :: Source)
 
 -- | Percentage from 0-100 of the data transfer cost to be billed to the
 -- subscriber.
@@ -195,9 +219,11 @@ instance Core.FromJSON Source where
             Prelude.<*> (x Core..:? "ingestIp")
             Prelude.<*> (x Core..:? "entitlementArn")
             Prelude.<*> (x Core..:? "vpcInterfaceName")
+            Prelude.<*> (x Core..:? "senderIpAddress")
             Prelude.<*> (x Core..:? "decryption")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "transport")
+            Prelude.<*> (x Core..:? "senderControlPort")
             Prelude.<*> (x Core..:? "dataTransferSubscriberFeePercent")
             Prelude.<*> (x Core..:? "ingestPort")
             Prelude.<*> (x Core..:? "whitelistCidr")
@@ -212,9 +238,11 @@ instance Prelude.Hashable Source where
       `Prelude.hashWithSalt` ingestIp
       `Prelude.hashWithSalt` entitlementArn
       `Prelude.hashWithSalt` vpcInterfaceName
+      `Prelude.hashWithSalt` senderIpAddress
       `Prelude.hashWithSalt` decryption
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` transport
+      `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` dataTransferSubscriberFeePercent
       `Prelude.hashWithSalt` ingestPort
       `Prelude.hashWithSalt` whitelistCidr
@@ -227,9 +255,11 @@ instance Prelude.NFData Source where
       `Prelude.seq` Prelude.rnf ingestIp
       `Prelude.seq` Prelude.rnf entitlementArn
       `Prelude.seq` Prelude.rnf vpcInterfaceName
+      `Prelude.seq` Prelude.rnf senderIpAddress
       `Prelude.seq` Prelude.rnf decryption
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf transport
+      `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf dataTransferSubscriberFeePercent
       `Prelude.seq` Prelude.rnf ingestPort
       `Prelude.seq` Prelude.rnf whitelistCidr

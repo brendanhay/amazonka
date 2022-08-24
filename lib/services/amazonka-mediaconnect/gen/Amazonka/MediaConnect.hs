@@ -267,6 +267,9 @@ module Amazonka.MediaConnect
     -- ** KeyType
     KeyType (..),
 
+    -- ** MaintenanceDay
+    MaintenanceDay (..),
+
     -- ** MediaStreamType
     MediaStreamType (..),
 
@@ -302,6 +305,10 @@ module Amazonka.MediaConnect
 
     -- ** Tcs
     Tcs (..),
+
+    -- ** AddMaintenance
+    AddMaintenance (AddMaintenance'),
+    newAddMaintenance,
 
     -- ** AddMediaStreamRequest
     AddMediaStreamRequest (AddMediaStreamRequest'),
@@ -379,6 +386,10 @@ module Amazonka.MediaConnect
     ListedFlow (ListedFlow'),
     newListedFlow,
 
+    -- ** Maintenance
+    Maintenance (Maintenance'),
+    newMaintenance,
+
     -- ** MediaStream
     MediaStream (MediaStream'),
     newMediaStream,
@@ -450,6 +461,10 @@ module Amazonka.MediaConnect
     -- ** UpdateFailoverConfig
     UpdateFailoverConfig (UpdateFailoverConfig'),
     newUpdateFailoverConfig,
+
+    -- ** UpdateMaintenance
+    UpdateMaintenance (UpdateMaintenance'),
+    newUpdateMaintenance,
 
     -- ** VpcInterface
     VpcInterface (VpcInterface'),

@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTransport' smart constructor.
 data Transport = Transport'
   { -- | The maximum latency in milliseconds. This parameter applies only to
-    -- RIST-based and Zixi-based streams.
+    -- RIST-based, Zixi-based, and Fujitsu-based streams.
     maxLatency :: Prelude.Maybe Prelude.Int,
     -- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
     -- streams.
@@ -49,6 +49,12 @@ data Transport = Transport'
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The remote ID for the Zixi-pull stream.
     remoteId :: Prelude.Maybe Prelude.Text,
+    -- | The IP address that the flow communicates with to initiate connection
+    -- with the sender.
+    senderIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The port that the flow uses to send outbound requests to initiate
+    -- connection with the sender.
+    senderControlPort :: Prelude.Maybe Prelude.Int,
     -- | The minimum latency in milliseconds for SRT-based streams. In streams
     -- that use the SRT protocol, this value that you set on your MediaConnect
     -- source or output represents the minimal potential latency of that
@@ -69,7 +75,7 @@ data Transport = Transport'
 -- for backwards compatibility:
 --
 -- 'maxLatency', 'transport_maxLatency' - The maximum latency in milliseconds. This parameter applies only to
--- RIST-based and Zixi-based streams.
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 --
 -- 'smoothingLatency', 'transport_smoothingLatency' - The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC
 -- streams.
@@ -87,6 +93,12 @@ data Transport = Transport'
 -- applies only to Zixi-based streams.
 --
 -- 'remoteId', 'transport_remoteId' - The remote ID for the Zixi-pull stream.
+--
+-- 'senderIpAddress', 'transport_senderIpAddress' - The IP address that the flow communicates with to initiate connection
+-- with the sender.
+--
+-- 'senderControlPort', 'transport_senderControlPort' - The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
 --
 -- 'minLatency', 'transport_minLatency' - The minimum latency in milliseconds for SRT-based streams. In streams
 -- that use the SRT protocol, this value that you set on your MediaConnect
@@ -108,12 +120,14 @@ newTransport pProtocol_ =
       cidrAllowList = Prelude.Nothing,
       streamId = Prelude.Nothing,
       remoteId = Prelude.Nothing,
+      senderIpAddress = Prelude.Nothing,
+      senderControlPort = Prelude.Nothing,
       minLatency = Prelude.Nothing,
       protocol = pProtocol_
     }
 
 -- | The maximum latency in milliseconds. This parameter applies only to
--- RIST-based and Zixi-based streams.
+-- RIST-based, Zixi-based, and Fujitsu-based streams.
 transport_maxLatency :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
 transport_maxLatency = Lens.lens (\Transport' {maxLatency} -> maxLatency) (\s@Transport' {} a -> s {maxLatency = a} :: Transport)
 
@@ -146,6 +160,16 @@ transport_streamId = Lens.lens (\Transport' {streamId} -> streamId) (\s@Transpor
 transport_remoteId :: Lens.Lens' Transport (Prelude.Maybe Prelude.Text)
 transport_remoteId = Lens.lens (\Transport' {remoteId} -> remoteId) (\s@Transport' {} a -> s {remoteId = a} :: Transport)
 
+-- | The IP address that the flow communicates with to initiate connection
+-- with the sender.
+transport_senderIpAddress :: Lens.Lens' Transport (Prelude.Maybe Prelude.Text)
+transport_senderIpAddress = Lens.lens (\Transport' {senderIpAddress} -> senderIpAddress) (\s@Transport' {} a -> s {senderIpAddress = a} :: Transport)
+
+-- | The port that the flow uses to send outbound requests to initiate
+-- connection with the sender.
+transport_senderControlPort :: Lens.Lens' Transport (Prelude.Maybe Prelude.Int)
+transport_senderControlPort = Lens.lens (\Transport' {senderControlPort} -> senderControlPort) (\s@Transport' {} a -> s {senderControlPort = a} :: Transport)
+
 -- | The minimum latency in milliseconds for SRT-based streams. In streams
 -- that use the SRT protocol, this value that you set on your MediaConnect
 -- source or output represents the minimal potential latency of that
@@ -171,6 +195,8 @@ instance Core.FromJSON Transport where
             Prelude.<*> (x Core..:? "cidrAllowList" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "streamId")
             Prelude.<*> (x Core..:? "remoteId")
+            Prelude.<*> (x Core..:? "senderIpAddress")
+            Prelude.<*> (x Core..:? "senderControlPort")
             Prelude.<*> (x Core..:? "minLatency")
             Prelude.<*> (x Core..: "protocol")
       )
@@ -184,6 +210,8 @@ instance Prelude.Hashable Transport where
       `Prelude.hashWithSalt` cidrAllowList
       `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` remoteId
+      `Prelude.hashWithSalt` senderIpAddress
+      `Prelude.hashWithSalt` senderControlPort
       `Prelude.hashWithSalt` minLatency
       `Prelude.hashWithSalt` protocol
 
@@ -196,5 +224,7 @@ instance Prelude.NFData Transport where
       `Prelude.seq` Prelude.rnf cidrAllowList
       `Prelude.seq` Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf remoteId
+      `Prelude.seq` Prelude.rnf senderIpAddress
+      `Prelude.seq` Prelude.rnf senderControlPort
       `Prelude.seq` Prelude.rnf minLatency
       `Prelude.seq` Prelude.rnf protocol

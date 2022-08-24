@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.KinesisVideo.Types.ChannelType
+-- Module      : Amazonka.KinesisVideo.Types.ConfigurationStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.KinesisVideo.Types.ChannelType
-  ( ChannelType
+module Amazonka.KinesisVideo.Types.ConfigurationStatus
+  ( ConfigurationStatus
       ( ..,
-        ChannelType_FULL_MESH,
-        ChannelType_SINGLE_MASTER
+        ConfigurationStatus_DISABLED,
+        ConfigurationStatus_ENABLED
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ChannelType = ChannelType'
-  { fromChannelType ::
+newtype ConfigurationStatus = ConfigurationStatus'
+  { fromConfigurationStatus ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype ChannelType = ChannelType'
       Core.ToXML
     )
 
-pattern ChannelType_FULL_MESH :: ChannelType
-pattern ChannelType_FULL_MESH = ChannelType' "FULL_MESH"
+pattern ConfigurationStatus_DISABLED :: ConfigurationStatus
+pattern ConfigurationStatus_DISABLED = ConfigurationStatus' "DISABLED"
 
-pattern ChannelType_SINGLE_MASTER :: ChannelType
-pattern ChannelType_SINGLE_MASTER = ChannelType' "SINGLE_MASTER"
+pattern ConfigurationStatus_ENABLED :: ConfigurationStatus
+pattern ConfigurationStatus_ENABLED = ConfigurationStatus' "ENABLED"
 
 {-# COMPLETE
-  ChannelType_FULL_MESH,
-  ChannelType_SINGLE_MASTER,
-  ChannelType'
+  ConfigurationStatus_DISABLED,
+  ConfigurationStatus_ENABLED,
+  ConfigurationStatus'
   #-}

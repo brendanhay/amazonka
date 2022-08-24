@@ -86,8 +86,8 @@ data CreateStream = CreateStream'
     -- This parameter is optional; the default value is @null@ (or empty in
     -- JSON).
     mediaType :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS Key Management Service (AWS KMS) key that you want
-    -- Kinesis Video Streams to use to encrypt stream data.
+    -- | The ID of the Key Management Service (KMS) key that you want Kinesis
+    -- Video Streams to use to encrypt stream data.
     --
     -- If no key ID is specified, the default, Kinesis Video-managed key
     -- (@aws\/kinesisvideo@) is used.
@@ -145,8 +145,8 @@ data CreateStream = CreateStream'
 -- This parameter is optional; the default value is @null@ (or empty in
 -- JSON).
 --
--- 'kmsKeyId', 'createStream_kmsKeyId' - The ID of the AWS Key Management Service (AWS KMS) key that you want
--- Kinesis Video Streams to use to encrypt stream data.
+-- 'kmsKeyId', 'createStream_kmsKeyId' - The ID of the Key Management Service (KMS) key that you want Kinesis
+-- Video Streams to use to encrypt stream data.
 --
 -- If no key ID is specified, the default, Kinesis Video-managed key
 -- (@aws\/kinesisvideo@) is used.
@@ -212,8 +212,8 @@ createStream_deviceName = Lens.lens (\CreateStream' {deviceName} -> deviceName) 
 createStream_mediaType :: Lens.Lens' CreateStream (Prelude.Maybe Prelude.Text)
 createStream_mediaType = Lens.lens (\CreateStream' {mediaType} -> mediaType) (\s@CreateStream' {} a -> s {mediaType = a} :: CreateStream)
 
--- | The ID of the AWS Key Management Service (AWS KMS) key that you want
--- Kinesis Video Streams to use to encrypt stream data.
+-- | The ID of the Key Management Service (KMS) key that you want Kinesis
+-- Video Streams to use to encrypt stream data.
 --
 -- If no key ID is specified, the default, Kinesis Video-managed key
 -- (@aws\/kinesisvideo@) is used.

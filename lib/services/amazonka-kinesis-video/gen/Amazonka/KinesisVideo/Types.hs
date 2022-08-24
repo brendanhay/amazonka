@@ -19,6 +19,7 @@ module Amazonka.KinesisVideo.Types
     -- * Errors
     _InvalidArgumentException,
     _ClientLimitExceededException,
+    _NoDataRetentionException,
     _AccessDeniedException,
     _InvalidDeviceException,
     _TagsPerResourceExceededLimitException,
@@ -46,6 +47,18 @@ module Amazonka.KinesisVideo.Types
     -- * ComparisonOperator
     ComparisonOperator (..),
 
+    -- * ConfigurationStatus
+    ConfigurationStatus (..),
+
+    -- * Format
+    Format (..),
+
+    -- * FormatConfigKey
+    FormatConfigKey (..),
+
+    -- * ImageSelectorType
+    ImageSelectorType (..),
+
     -- * StreamStatus
     StreamStatus (..),
 
@@ -68,6 +81,35 @@ module Amazonka.KinesisVideo.Types
     newChannelNameCondition,
     channelNameCondition_comparisonValue,
     channelNameCondition_comparisonOperator,
+
+    -- * ImageGenerationConfiguration
+    ImageGenerationConfiguration (..),
+    newImageGenerationConfiguration,
+    imageGenerationConfiguration_formatConfig,
+    imageGenerationConfiguration_heightPixels,
+    imageGenerationConfiguration_widthPixels,
+    imageGenerationConfiguration_status,
+    imageGenerationConfiguration_imageSelectorType,
+    imageGenerationConfiguration_destinationConfig,
+    imageGenerationConfiguration_samplingInterval,
+    imageGenerationConfiguration_format,
+
+    -- * ImageGenerationDestinationConfig
+    ImageGenerationDestinationConfig (..),
+    newImageGenerationDestinationConfig,
+    imageGenerationDestinationConfig_uri,
+    imageGenerationDestinationConfig_destinationRegion,
+
+    -- * NotificationConfiguration
+    NotificationConfiguration (..),
+    newNotificationConfiguration,
+    notificationConfiguration_status,
+    notificationConfiguration_destinationConfig,
+
+    -- * NotificationDestinationConfig
+    NotificationDestinationConfig (..),
+    newNotificationDestinationConfig,
+    notificationDestinationConfig_uri,
 
     -- * ResourceEndpointListItem
     ResourceEndpointListItem (..),
@@ -121,6 +163,14 @@ import Amazonka.KinesisVideo.Types.ChannelProtocol
 import Amazonka.KinesisVideo.Types.ChannelRole
 import Amazonka.KinesisVideo.Types.ChannelType
 import Amazonka.KinesisVideo.Types.ComparisonOperator
+import Amazonka.KinesisVideo.Types.ConfigurationStatus
+import Amazonka.KinesisVideo.Types.Format
+import Amazonka.KinesisVideo.Types.FormatConfigKey
+import Amazonka.KinesisVideo.Types.ImageGenerationConfiguration
+import Amazonka.KinesisVideo.Types.ImageGenerationDestinationConfig
+import Amazonka.KinesisVideo.Types.ImageSelectorType
+import Amazonka.KinesisVideo.Types.NotificationConfiguration
+import Amazonka.KinesisVideo.Types.NotificationDestinationConfig
 import Amazonka.KinesisVideo.Types.ResourceEndpointListItem
 import Amazonka.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
 import Amazonka.KinesisVideo.Types.SingleMasterConfiguration
@@ -221,6 +271,14 @@ _ClientLimitExceededException =
     "ClientLimitExceededException"
     Prelude.. Core.hasStatus 400
 
+-- | The Stream data retention in hours is equal to zero.
+_NoDataRetentionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NoDataRetentionException =
+  Core._MatchServiceError
+    defaultService
+    "NoDataRetentionException"
+    Prelude.. Core.hasStatus 400
+
 -- | You do not have required permissions to perform this operation.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
@@ -238,7 +296,7 @@ _InvalidDeviceException =
     Prelude.. Core.hasStatus 400
 
 -- | You have exceeded the limit of tags that you can associate with the
--- resource. Kinesis video streams support up to 50 tags.
+-- resource. A Kinesis video stream can support up to 50 tags.
 _TagsPerResourceExceededLimitException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TagsPerResourceExceededLimitException =
   Core._MatchServiceError
@@ -262,7 +320,15 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The signaling channel is currently not available for this operation.
+-- | The resource is currently not available for this operation. New
+-- resources cannot be created with the same name as existing resources.
+-- Also, resources cannot be updated or deleted unless they are in an
+-- @ACTIVE@ state.
+--
+-- If this exception is returned, do not use it to determine whether the
+-- requested resource already exists. Instead, it is recommended you use
+-- the resource-specific describe API, for example, @DescribeStream@ for
+-- video streams.
 _ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
@@ -290,7 +356,7 @@ _VersionMismatchException =
     Prelude.. Core.hasStatus 400
 
 -- | You have reached the maximum limit of active signaling channels for this
--- AWS account in this region.
+-- Amazon Web Services account in this region.
 _AccountChannelLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccountChannelLimitExceededException =
   Core._MatchServiceError

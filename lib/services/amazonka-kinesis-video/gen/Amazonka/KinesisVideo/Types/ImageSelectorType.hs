@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.KinesisVideo.Types.ChannelType
+-- Module      : Amazonka.KinesisVideo.Types.ImageSelectorType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.KinesisVideo.Types.ChannelType
-  ( ChannelType
+module Amazonka.KinesisVideo.Types.ImageSelectorType
+  ( ImageSelectorType
       ( ..,
-        ChannelType_FULL_MESH,
-        ChannelType_SINGLE_MASTER
+        ImageSelectorType_PRODUCER_TIMESTAMP,
+        ImageSelectorType_SERVER_TIMESTAMP
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ChannelType = ChannelType'
-  { fromChannelType ::
+newtype ImageSelectorType = ImageSelectorType'
+  { fromImageSelectorType ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype ChannelType = ChannelType'
       Core.ToXML
     )
 
-pattern ChannelType_FULL_MESH :: ChannelType
-pattern ChannelType_FULL_MESH = ChannelType' "FULL_MESH"
+pattern ImageSelectorType_PRODUCER_TIMESTAMP :: ImageSelectorType
+pattern ImageSelectorType_PRODUCER_TIMESTAMP = ImageSelectorType' "PRODUCER_TIMESTAMP"
 
-pattern ChannelType_SINGLE_MASTER :: ChannelType
-pattern ChannelType_SINGLE_MASTER = ChannelType' "SINGLE_MASTER"
+pattern ImageSelectorType_SERVER_TIMESTAMP :: ImageSelectorType
+pattern ImageSelectorType_SERVER_TIMESTAMP = ImageSelectorType' "SERVER_TIMESTAMP"
 
 {-# COMPLETE
-  ChannelType_FULL_MESH,
-  ChannelType_SINGLE_MASTER,
-  ChannelType'
+  ImageSelectorType_PRODUCER_TIMESTAMP,
+  ImageSelectorType_SERVER_TIMESTAMP,
+  ImageSelectorType'
   #-}

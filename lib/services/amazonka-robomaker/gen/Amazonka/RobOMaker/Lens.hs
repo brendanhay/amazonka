@@ -25,10 +25,6 @@ module Amazonka.RobOMaker.Lens
     batchDescribeSimulationJobResponse_jobs,
     batchDescribeSimulationJobResponse_httpStatus,
 
-    -- ** CancelDeploymentJob
-    cancelDeploymentJob_job,
-    cancelDeploymentJobResponse_httpStatus,
-
     -- ** CancelSimulationJob
     cancelSimulationJob_job,
     cancelSimulationJobResponse_httpStatus,
@@ -44,45 +40,6 @@ module Amazonka.RobOMaker.Lens
     -- ** CancelWorldGenerationJob
     cancelWorldGenerationJob_job,
     cancelWorldGenerationJobResponse_httpStatus,
-
-    -- ** CreateDeploymentJob
-    createDeploymentJob_tags,
-    createDeploymentJob_deploymentConfig,
-    createDeploymentJob_clientRequestToken,
-    createDeploymentJob_fleet,
-    createDeploymentJob_deploymentApplicationConfigs,
-    createDeploymentJobResponse_tags,
-    createDeploymentJobResponse_deploymentApplicationConfigs,
-    createDeploymentJobResponse_failureCode,
-    createDeploymentJobResponse_fleet,
-    createDeploymentJobResponse_arn,
-    createDeploymentJobResponse_status,
-    createDeploymentJobResponse_deploymentConfig,
-    createDeploymentJobResponse_createdAt,
-    createDeploymentJobResponse_failureReason,
-    createDeploymentJobResponse_httpStatus,
-
-    -- ** CreateFleet
-    createFleet_tags,
-    createFleet_name,
-    createFleetResponse_tags,
-    createFleetResponse_name,
-    createFleetResponse_arn,
-    createFleetResponse_createdAt,
-    createFleetResponse_httpStatus,
-
-    -- ** CreateRobot
-    createRobot_tags,
-    createRobot_name,
-    createRobot_architecture,
-    createRobot_greengrassGroupId,
-    createRobotResponse_tags,
-    createRobotResponse_name,
-    createRobotResponse_arn,
-    createRobotResponse_greengrassGroupId,
-    createRobotResponse_architecture,
-    createRobotResponse_createdAt,
-    createRobotResponse_httpStatus,
 
     -- ** CreateRobotApplication
     createRobotApplication_tags,
@@ -233,14 +190,6 @@ module Amazonka.RobOMaker.Lens
     createWorldTemplateResponse_createdAt,
     createWorldTemplateResponse_httpStatus,
 
-    -- ** DeleteFleet
-    deleteFleet_fleet,
-    deleteFleetResponse_httpStatus,
-
-    -- ** DeleteRobot
-    deleteRobot_robot,
-    deleteRobotResponse_httpStatus,
-
     -- ** DeleteRobotApplication
     deleteRobotApplication_applicationVersion,
     deleteRobotApplication_application,
@@ -254,53 +203,6 @@ module Amazonka.RobOMaker.Lens
     -- ** DeleteWorldTemplate
     deleteWorldTemplate_template,
     deleteWorldTemplateResponse_httpStatus,
-
-    -- ** DeregisterRobot
-    deregisterRobot_fleet,
-    deregisterRobot_robot,
-    deregisterRobotResponse_fleet,
-    deregisterRobotResponse_robot,
-    deregisterRobotResponse_httpStatus,
-
-    -- ** DescribeDeploymentJob
-    describeDeploymentJob_job,
-    describeDeploymentJobResponse_tags,
-    describeDeploymentJobResponse_deploymentApplicationConfigs,
-    describeDeploymentJobResponse_failureCode,
-    describeDeploymentJobResponse_fleet,
-    describeDeploymentJobResponse_arn,
-    describeDeploymentJobResponse_status,
-    describeDeploymentJobResponse_robotDeploymentSummary,
-    describeDeploymentJobResponse_deploymentConfig,
-    describeDeploymentJobResponse_createdAt,
-    describeDeploymentJobResponse_failureReason,
-    describeDeploymentJobResponse_httpStatus,
-
-    -- ** DescribeFleet
-    describeFleet_fleet,
-    describeFleetResponse_tags,
-    describeFleetResponse_name,
-    describeFleetResponse_arn,
-    describeFleetResponse_lastDeploymentJob,
-    describeFleetResponse_lastDeploymentStatus,
-    describeFleetResponse_lastDeploymentTime,
-    describeFleetResponse_robots,
-    describeFleetResponse_createdAt,
-    describeFleetResponse_httpStatus,
-
-    -- ** DescribeRobot
-    describeRobot_robot,
-    describeRobotResponse_tags,
-    describeRobotResponse_name,
-    describeRobotResponse_arn,
-    describeRobotResponse_status,
-    describeRobotResponse_lastDeploymentJob,
-    describeRobotResponse_fleetArn,
-    describeRobotResponse_greengrassGroupId,
-    describeRobotResponse_lastDeploymentTime,
-    describeRobotResponse_architecture,
-    describeRobotResponse_createdAt,
-    describeRobotResponse_httpStatus,
 
     -- ** DescribeRobotApplication
     describeRobotApplication_applicationVersion,
@@ -431,22 +333,6 @@ module Amazonka.RobOMaker.Lens
     getWorldTemplateBodyResponse_templateBody,
     getWorldTemplateBodyResponse_httpStatus,
 
-    -- ** ListDeploymentJobs
-    listDeploymentJobs_nextToken,
-    listDeploymentJobs_filters,
-    listDeploymentJobs_maxResults,
-    listDeploymentJobsResponse_deploymentJobs,
-    listDeploymentJobsResponse_nextToken,
-    listDeploymentJobsResponse_httpStatus,
-
-    -- ** ListFleets
-    listFleets_nextToken,
-    listFleets_filters,
-    listFleets_maxResults,
-    listFleetsResponse_nextToken,
-    listFleetsResponse_fleetDetails,
-    listFleetsResponse_httpStatus,
-
     -- ** ListRobotApplications
     listRobotApplications_nextToken,
     listRobotApplications_filters,
@@ -455,14 +341,6 @@ module Amazonka.RobOMaker.Lens
     listRobotApplicationsResponse_nextToken,
     listRobotApplicationsResponse_robotApplicationSummaries,
     listRobotApplicationsResponse_httpStatus,
-
-    -- ** ListRobots
-    listRobots_nextToken,
-    listRobots_filters,
-    listRobots_maxResults,
-    listRobotsResponse_nextToken,
-    listRobotsResponse_robots,
-    listRobotsResponse_httpStatus,
 
     -- ** ListSimulationApplications
     listSimulationApplications_nextToken,
@@ -525,13 +403,6 @@ module Amazonka.RobOMaker.Lens
     listWorldsResponse_worldSummaries,
     listWorldsResponse_httpStatus,
 
-    -- ** RegisterRobot
-    registerRobot_fleet,
-    registerRobot_robot,
-    registerRobotResponse_fleet,
-    registerRobotResponse_robot,
-    registerRobotResponse_httpStatus,
-
     -- ** RestartSimulationJob
     restartSimulationJob_job,
     restartSimulationJobResponse_httpStatus,
@@ -553,19 +424,6 @@ module Amazonka.RobOMaker.Lens
     startSimulationJobBatchResponse_createdAt,
     startSimulationJobBatchResponse_failureReason,
     startSimulationJobBatchResponse_httpStatus,
-
-    -- ** SyncDeploymentJob
-    syncDeploymentJob_clientRequestToken,
-    syncDeploymentJob_fleet,
-    syncDeploymentJobResponse_deploymentApplicationConfigs,
-    syncDeploymentJobResponse_failureCode,
-    syncDeploymentJobResponse_fleet,
-    syncDeploymentJobResponse_arn,
-    syncDeploymentJobResponse_status,
-    syncDeploymentJobResponse_deploymentConfig,
-    syncDeploymentJobResponse_createdAt,
-    syncDeploymentJobResponse_failureReason,
-    syncDeploymentJobResponse_httpStatus,
 
     -- ** TagResource
     tagResource_resourceArn,
@@ -654,34 +512,6 @@ module Amazonka.RobOMaker.Lens
     dataSourceConfig_s3Bucket,
     dataSourceConfig_s3Keys,
 
-    -- ** DeploymentApplicationConfig
-    deploymentApplicationConfig_application,
-    deploymentApplicationConfig_applicationVersion,
-    deploymentApplicationConfig_launchConfig,
-
-    -- ** DeploymentConfig
-    deploymentConfig_robotDeploymentTimeoutInSeconds,
-    deploymentConfig_downloadConditionFile,
-    deploymentConfig_concurrentDeploymentPercentage,
-    deploymentConfig_failureThresholdPercentage,
-
-    -- ** DeploymentJob
-    deploymentJob_deploymentApplicationConfigs,
-    deploymentJob_failureCode,
-    deploymentJob_fleet,
-    deploymentJob_arn,
-    deploymentJob_status,
-    deploymentJob_deploymentConfig,
-    deploymentJob_createdAt,
-    deploymentJob_failureReason,
-
-    -- ** DeploymentLaunchConfig
-    deploymentLaunchConfig_postLaunchFile,
-    deploymentLaunchConfig_preLaunchFile,
-    deploymentLaunchConfig_environmentVariables,
-    deploymentLaunchConfig_packageName,
-    deploymentLaunchConfig_launchFile,
-
     -- ** Environment
     environment_uri,
 
@@ -703,14 +533,6 @@ module Amazonka.RobOMaker.Lens
     finishedWorldsSummary_failureSummary,
     finishedWorldsSummary_succeededWorlds,
     finishedWorldsSummary_finishedCount,
-
-    -- ** Fleet
-    fleet_name,
-    fleet_arn,
-    fleet_lastDeploymentJob,
-    fleet_lastDeploymentStatus,
-    fleet_lastDeploymentTime,
-    fleet_createdAt,
 
     -- ** LaunchConfig
     launchConfig_packageName,
@@ -740,26 +562,9 @@ module Amazonka.RobOMaker.Lens
     portMapping_jobPort,
     portMapping_applicationPort,
 
-    -- ** ProgressDetail
-    progressDetail_targetResource,
-    progressDetail_estimatedTimeRemainingSeconds,
-    progressDetail_currentProgress,
-    progressDetail_percentDone,
-
     -- ** RenderingEngine
     renderingEngine_name,
     renderingEngine_version,
-
-    -- ** Robot
-    robot_name,
-    robot_arn,
-    robot_status,
-    robot_lastDeploymentJob,
-    robot_fleetArn,
-    robot_greenGrassGroupId,
-    robot_lastDeploymentTime,
-    robot_architecture,
-    robot_createdAt,
 
     -- ** RobotApplicationConfig
     robotApplicationConfig_tools,
@@ -777,15 +582,6 @@ module Amazonka.RobOMaker.Lens
     robotApplicationSummary_robotSoftwareSuite,
     robotApplicationSummary_version,
 
-    -- ** RobotDeployment
-    robotDeployment_deploymentFinishTime,
-    robotDeployment_failureCode,
-    robotDeployment_arn,
-    robotDeployment_progressDetail,
-    robotDeployment_status,
-    robotDeployment_deploymentStartTime,
-    robotDeployment_failureReason,
-
     -- ** RobotSoftwareSuite
     robotSoftwareSuite_name,
     robotSoftwareSuite_version,
@@ -793,11 +589,6 @@ module Amazonka.RobOMaker.Lens
     -- ** S3KeyOutput
     s3KeyOutput_s3Key,
     s3KeyOutput_etag,
-
-    -- ** S3Object
-    s3Object_etag,
-    s3Object_bucket,
-    s3Object_key,
 
     -- ** SimulationApplicationConfig
     simulationApplicationConfig_worldConfigs,
@@ -931,6 +722,7 @@ module Amazonka.RobOMaker.Lens
 
     -- ** WorldExportJobSummary
     worldExportJobSummary_arn,
+    worldExportJobSummary_outputLocation,
     worldExportJobSummary_status,
     worldExportJobSummary_worlds,
     worldExportJobSummary_createdAt,
@@ -959,14 +751,10 @@ where
 
 import Amazonka.RobOMaker.BatchDeleteWorlds
 import Amazonka.RobOMaker.BatchDescribeSimulationJob
-import Amazonka.RobOMaker.CancelDeploymentJob
 import Amazonka.RobOMaker.CancelSimulationJob
 import Amazonka.RobOMaker.CancelSimulationJobBatch
 import Amazonka.RobOMaker.CancelWorldExportJob
 import Amazonka.RobOMaker.CancelWorldGenerationJob
-import Amazonka.RobOMaker.CreateDeploymentJob
-import Amazonka.RobOMaker.CreateFleet
-import Amazonka.RobOMaker.CreateRobot
 import Amazonka.RobOMaker.CreateRobotApplication
 import Amazonka.RobOMaker.CreateRobotApplicationVersion
 import Amazonka.RobOMaker.CreateSimulationApplication
@@ -975,15 +763,9 @@ import Amazonka.RobOMaker.CreateSimulationJob
 import Amazonka.RobOMaker.CreateWorldExportJob
 import Amazonka.RobOMaker.CreateWorldGenerationJob
 import Amazonka.RobOMaker.CreateWorldTemplate
-import Amazonka.RobOMaker.DeleteFleet
-import Amazonka.RobOMaker.DeleteRobot
 import Amazonka.RobOMaker.DeleteRobotApplication
 import Amazonka.RobOMaker.DeleteSimulationApplication
 import Amazonka.RobOMaker.DeleteWorldTemplate
-import Amazonka.RobOMaker.DeregisterRobot
-import Amazonka.RobOMaker.DescribeDeploymentJob
-import Amazonka.RobOMaker.DescribeFleet
-import Amazonka.RobOMaker.DescribeRobot
 import Amazonka.RobOMaker.DescribeRobotApplication
 import Amazonka.RobOMaker.DescribeSimulationApplication
 import Amazonka.RobOMaker.DescribeSimulationJob
@@ -993,10 +775,7 @@ import Amazonka.RobOMaker.DescribeWorldExportJob
 import Amazonka.RobOMaker.DescribeWorldGenerationJob
 import Amazonka.RobOMaker.DescribeWorldTemplate
 import Amazonka.RobOMaker.GetWorldTemplateBody
-import Amazonka.RobOMaker.ListDeploymentJobs
-import Amazonka.RobOMaker.ListFleets
 import Amazonka.RobOMaker.ListRobotApplications
-import Amazonka.RobOMaker.ListRobots
 import Amazonka.RobOMaker.ListSimulationApplications
 import Amazonka.RobOMaker.ListSimulationJobBatches
 import Amazonka.RobOMaker.ListSimulationJobs
@@ -1005,41 +784,30 @@ import Amazonka.RobOMaker.ListWorldExportJobs
 import Amazonka.RobOMaker.ListWorldGenerationJobs
 import Amazonka.RobOMaker.ListWorldTemplates
 import Amazonka.RobOMaker.ListWorlds
-import Amazonka.RobOMaker.RegisterRobot
 import Amazonka.RobOMaker.RestartSimulationJob
 import Amazonka.RobOMaker.StartSimulationJobBatch
-import Amazonka.RobOMaker.SyncDeploymentJob
 import Amazonka.RobOMaker.TagResource
 import Amazonka.RobOMaker.Types.BatchPolicy
 import Amazonka.RobOMaker.Types.Compute
 import Amazonka.RobOMaker.Types.ComputeResponse
 import Amazonka.RobOMaker.Types.DataSource
 import Amazonka.RobOMaker.Types.DataSourceConfig
-import Amazonka.RobOMaker.Types.DeploymentApplicationConfig
-import Amazonka.RobOMaker.Types.DeploymentConfig
-import Amazonka.RobOMaker.Types.DeploymentJob
-import Amazonka.RobOMaker.Types.DeploymentLaunchConfig
 import Amazonka.RobOMaker.Types.Environment
 import Amazonka.RobOMaker.Types.FailedCreateSimulationJobRequest
 import Amazonka.RobOMaker.Types.FailureSummary
 import Amazonka.RobOMaker.Types.Filter
 import Amazonka.RobOMaker.Types.FinishedWorldsSummary
-import Amazonka.RobOMaker.Types.Fleet
 import Amazonka.RobOMaker.Types.LaunchConfig
 import Amazonka.RobOMaker.Types.LoggingConfig
 import Amazonka.RobOMaker.Types.NetworkInterface
 import Amazonka.RobOMaker.Types.OutputLocation
 import Amazonka.RobOMaker.Types.PortForwardingConfig
 import Amazonka.RobOMaker.Types.PortMapping
-import Amazonka.RobOMaker.Types.ProgressDetail
 import Amazonka.RobOMaker.Types.RenderingEngine
-import Amazonka.RobOMaker.Types.Robot
 import Amazonka.RobOMaker.Types.RobotApplicationConfig
 import Amazonka.RobOMaker.Types.RobotApplicationSummary
-import Amazonka.RobOMaker.Types.RobotDeployment
 import Amazonka.RobOMaker.Types.RobotSoftwareSuite
 import Amazonka.RobOMaker.Types.S3KeyOutput
-import Amazonka.RobOMaker.Types.S3Object
 import Amazonka.RobOMaker.Types.SimulationApplicationConfig
 import Amazonka.RobOMaker.Types.SimulationApplicationSummary
 import Amazonka.RobOMaker.Types.SimulationJob

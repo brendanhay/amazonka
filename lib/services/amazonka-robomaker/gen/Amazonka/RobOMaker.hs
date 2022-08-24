@@ -65,12 +65,6 @@ module Amazonka.RobOMaker
     BatchDescribeSimulationJobResponse (BatchDescribeSimulationJobResponse'),
     newBatchDescribeSimulationJobResponse,
 
-    -- ** CancelDeploymentJob
-    CancelDeploymentJob (CancelDeploymentJob'),
-    newCancelDeploymentJob,
-    CancelDeploymentJobResponse (CancelDeploymentJobResponse'),
-    newCancelDeploymentJobResponse,
-
     -- ** CancelSimulationJob
     CancelSimulationJob (CancelSimulationJob'),
     newCancelSimulationJob,
@@ -94,24 +88,6 @@ module Amazonka.RobOMaker
     newCancelWorldGenerationJob,
     CancelWorldGenerationJobResponse (CancelWorldGenerationJobResponse'),
     newCancelWorldGenerationJobResponse,
-
-    -- ** CreateDeploymentJob
-    CreateDeploymentJob (CreateDeploymentJob'),
-    newCreateDeploymentJob,
-    CreateDeploymentJobResponse (CreateDeploymentJobResponse'),
-    newCreateDeploymentJobResponse,
-
-    -- ** CreateFleet
-    CreateFleet (CreateFleet'),
-    newCreateFleet,
-    CreateFleetResponse (CreateFleetResponse'),
-    newCreateFleetResponse,
-
-    -- ** CreateRobot
-    CreateRobot (CreateRobot'),
-    newCreateRobot,
-    CreateRobotResponse (CreateRobotResponse'),
-    newCreateRobotResponse,
 
     -- ** CreateRobotApplication
     CreateRobotApplication (CreateRobotApplication'),
@@ -161,18 +137,6 @@ module Amazonka.RobOMaker
     CreateWorldTemplateResponse (CreateWorldTemplateResponse'),
     newCreateWorldTemplateResponse,
 
-    -- ** DeleteFleet
-    DeleteFleet (DeleteFleet'),
-    newDeleteFleet,
-    DeleteFleetResponse (DeleteFleetResponse'),
-    newDeleteFleetResponse,
-
-    -- ** DeleteRobot
-    DeleteRobot (DeleteRobot'),
-    newDeleteRobot,
-    DeleteRobotResponse (DeleteRobotResponse'),
-    newDeleteRobotResponse,
-
     -- ** DeleteRobotApplication
     DeleteRobotApplication (DeleteRobotApplication'),
     newDeleteRobotApplication,
@@ -190,30 +154,6 @@ module Amazonka.RobOMaker
     newDeleteWorldTemplate,
     DeleteWorldTemplateResponse (DeleteWorldTemplateResponse'),
     newDeleteWorldTemplateResponse,
-
-    -- ** DeregisterRobot
-    DeregisterRobot (DeregisterRobot'),
-    newDeregisterRobot,
-    DeregisterRobotResponse (DeregisterRobotResponse'),
-    newDeregisterRobotResponse,
-
-    -- ** DescribeDeploymentJob
-    DescribeDeploymentJob (DescribeDeploymentJob'),
-    newDescribeDeploymentJob,
-    DescribeDeploymentJobResponse (DescribeDeploymentJobResponse'),
-    newDescribeDeploymentJobResponse,
-
-    -- ** DescribeFleet
-    DescribeFleet (DescribeFleet'),
-    newDescribeFleet,
-    DescribeFleetResponse (DescribeFleetResponse'),
-    newDescribeFleetResponse,
-
-    -- ** DescribeRobot
-    DescribeRobot (DescribeRobot'),
-    newDescribeRobot,
-    DescribeRobotResponse (DescribeRobotResponse'),
-    newDescribeRobotResponse,
 
     -- ** DescribeRobotApplication
     DescribeRobotApplication (DescribeRobotApplication'),
@@ -269,29 +209,11 @@ module Amazonka.RobOMaker
     GetWorldTemplateBodyResponse (GetWorldTemplateBodyResponse'),
     newGetWorldTemplateBodyResponse,
 
-    -- ** ListDeploymentJobs (Paginated)
-    ListDeploymentJobs (ListDeploymentJobs'),
-    newListDeploymentJobs,
-    ListDeploymentJobsResponse (ListDeploymentJobsResponse'),
-    newListDeploymentJobsResponse,
-
-    -- ** ListFleets (Paginated)
-    ListFleets (ListFleets'),
-    newListFleets,
-    ListFleetsResponse (ListFleetsResponse'),
-    newListFleetsResponse,
-
     -- ** ListRobotApplications (Paginated)
     ListRobotApplications (ListRobotApplications'),
     newListRobotApplications,
     ListRobotApplicationsResponse (ListRobotApplicationsResponse'),
     newListRobotApplicationsResponse,
-
-    -- ** ListRobots (Paginated)
-    ListRobots (ListRobots'),
-    newListRobots,
-    ListRobotsResponse (ListRobotsResponse'),
-    newListRobotsResponse,
 
     -- ** ListSimulationApplications (Paginated)
     ListSimulationApplications (ListSimulationApplications'),
@@ -341,12 +263,6 @@ module Amazonka.RobOMaker
     ListWorldsResponse (ListWorldsResponse'),
     newListWorldsResponse,
 
-    -- ** RegisterRobot
-    RegisterRobot (RegisterRobot'),
-    newRegisterRobot,
-    RegisterRobotResponse (RegisterRobotResponse'),
-    newRegisterRobotResponse,
-
     -- ** RestartSimulationJob
     RestartSimulationJob (RestartSimulationJob'),
     newRestartSimulationJob,
@@ -358,12 +274,6 @@ module Amazonka.RobOMaker
     newStartSimulationJobBatch,
     StartSimulationJobBatchResponse (StartSimulationJobBatchResponse'),
     newStartSimulationJobBatchResponse,
-
-    -- ** SyncDeploymentJob
-    SyncDeploymentJob (SyncDeploymentJob'),
-    newSyncDeploymentJob,
-    SyncDeploymentJobResponse (SyncDeploymentJobResponse'),
-    newSyncDeploymentJobResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -406,12 +316,6 @@ module Amazonka.RobOMaker
     -- ** DataSourceType
     DataSourceType (..),
 
-    -- ** DeploymentJobErrorCode
-    DeploymentJobErrorCode (..),
-
-    -- ** DeploymentStatus
-    DeploymentStatus (..),
-
     -- ** ExitBehavior
     ExitBehavior (..),
 
@@ -421,17 +325,11 @@ module Amazonka.RobOMaker
     -- ** RenderingEngineType
     RenderingEngineType (..),
 
-    -- ** RobotDeploymentStep
-    RobotDeploymentStep (..),
-
     -- ** RobotSoftwareSuiteType
     RobotSoftwareSuiteType (..),
 
     -- ** RobotSoftwareSuiteVersionType
     RobotSoftwareSuiteVersionType (..),
-
-    -- ** RobotStatus
-    RobotStatus (..),
 
     -- ** SimulationJobBatchErrorCode
     SimulationJobBatchErrorCode (..),
@@ -483,22 +381,6 @@ module Amazonka.RobOMaker
     DataSourceConfig (DataSourceConfig'),
     newDataSourceConfig,
 
-    -- ** DeploymentApplicationConfig
-    DeploymentApplicationConfig (DeploymentApplicationConfig'),
-    newDeploymentApplicationConfig,
-
-    -- ** DeploymentConfig
-    DeploymentConfig (DeploymentConfig'),
-    newDeploymentConfig,
-
-    -- ** DeploymentJob
-    DeploymentJob (DeploymentJob'),
-    newDeploymentJob,
-
-    -- ** DeploymentLaunchConfig
-    DeploymentLaunchConfig (DeploymentLaunchConfig'),
-    newDeploymentLaunchConfig,
-
     -- ** Environment
     Environment (Environment'),
     newEnvironment,
@@ -518,10 +400,6 @@ module Amazonka.RobOMaker
     -- ** FinishedWorldsSummary
     FinishedWorldsSummary (FinishedWorldsSummary'),
     newFinishedWorldsSummary,
-
-    -- ** Fleet
-    Fleet (Fleet'),
-    newFleet,
 
     -- ** LaunchConfig
     LaunchConfig (LaunchConfig'),
@@ -547,17 +425,9 @@ module Amazonka.RobOMaker
     PortMapping (PortMapping'),
     newPortMapping,
 
-    -- ** ProgressDetail
-    ProgressDetail (ProgressDetail'),
-    newProgressDetail,
-
     -- ** RenderingEngine
     RenderingEngine (RenderingEngine'),
     newRenderingEngine,
-
-    -- ** Robot
-    Robot (Robot'),
-    newRobot,
 
     -- ** RobotApplicationConfig
     RobotApplicationConfig (RobotApplicationConfig'),
@@ -567,10 +437,6 @@ module Amazonka.RobOMaker
     RobotApplicationSummary (RobotApplicationSummary'),
     newRobotApplicationSummary,
 
-    -- ** RobotDeployment
-    RobotDeployment (RobotDeployment'),
-    newRobotDeployment,
-
     -- ** RobotSoftwareSuite
     RobotSoftwareSuite (RobotSoftwareSuite'),
     newRobotSoftwareSuite,
@@ -578,10 +444,6 @@ module Amazonka.RobOMaker
     -- ** S3KeyOutput
     S3KeyOutput (S3KeyOutput'),
     newS3KeyOutput,
-
-    -- ** S3Object
-    S3Object (S3Object'),
-    newS3Object,
 
     -- ** SimulationApplicationConfig
     SimulationApplicationConfig (SimulationApplicationConfig'),
@@ -671,14 +533,10 @@ where
 
 import Amazonka.RobOMaker.BatchDeleteWorlds
 import Amazonka.RobOMaker.BatchDescribeSimulationJob
-import Amazonka.RobOMaker.CancelDeploymentJob
 import Amazonka.RobOMaker.CancelSimulationJob
 import Amazonka.RobOMaker.CancelSimulationJobBatch
 import Amazonka.RobOMaker.CancelWorldExportJob
 import Amazonka.RobOMaker.CancelWorldGenerationJob
-import Amazonka.RobOMaker.CreateDeploymentJob
-import Amazonka.RobOMaker.CreateFleet
-import Amazonka.RobOMaker.CreateRobot
 import Amazonka.RobOMaker.CreateRobotApplication
 import Amazonka.RobOMaker.CreateRobotApplicationVersion
 import Amazonka.RobOMaker.CreateSimulationApplication
@@ -687,15 +545,9 @@ import Amazonka.RobOMaker.CreateSimulationJob
 import Amazonka.RobOMaker.CreateWorldExportJob
 import Amazonka.RobOMaker.CreateWorldGenerationJob
 import Amazonka.RobOMaker.CreateWorldTemplate
-import Amazonka.RobOMaker.DeleteFleet
-import Amazonka.RobOMaker.DeleteRobot
 import Amazonka.RobOMaker.DeleteRobotApplication
 import Amazonka.RobOMaker.DeleteSimulationApplication
 import Amazonka.RobOMaker.DeleteWorldTemplate
-import Amazonka.RobOMaker.DeregisterRobot
-import Amazonka.RobOMaker.DescribeDeploymentJob
-import Amazonka.RobOMaker.DescribeFleet
-import Amazonka.RobOMaker.DescribeRobot
 import Amazonka.RobOMaker.DescribeRobotApplication
 import Amazonka.RobOMaker.DescribeSimulationApplication
 import Amazonka.RobOMaker.DescribeSimulationJob
@@ -706,10 +558,7 @@ import Amazonka.RobOMaker.DescribeWorldGenerationJob
 import Amazonka.RobOMaker.DescribeWorldTemplate
 import Amazonka.RobOMaker.GetWorldTemplateBody
 import Amazonka.RobOMaker.Lens
-import Amazonka.RobOMaker.ListDeploymentJobs
-import Amazonka.RobOMaker.ListFleets
 import Amazonka.RobOMaker.ListRobotApplications
-import Amazonka.RobOMaker.ListRobots
 import Amazonka.RobOMaker.ListSimulationApplications
 import Amazonka.RobOMaker.ListSimulationJobBatches
 import Amazonka.RobOMaker.ListSimulationJobs
@@ -718,10 +567,8 @@ import Amazonka.RobOMaker.ListWorldExportJobs
 import Amazonka.RobOMaker.ListWorldGenerationJobs
 import Amazonka.RobOMaker.ListWorldTemplates
 import Amazonka.RobOMaker.ListWorlds
-import Amazonka.RobOMaker.RegisterRobot
 import Amazonka.RobOMaker.RestartSimulationJob
 import Amazonka.RobOMaker.StartSimulationJobBatch
-import Amazonka.RobOMaker.SyncDeploymentJob
 import Amazonka.RobOMaker.TagResource
 import Amazonka.RobOMaker.Types
 import Amazonka.RobOMaker.UntagResource

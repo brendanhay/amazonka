@@ -36,12 +36,6 @@ module Amazonka.RobOMaker.Types
     -- * DataSourceType
     DataSourceType (..),
 
-    -- * DeploymentJobErrorCode
-    DeploymentJobErrorCode (..),
-
-    -- * DeploymentStatus
-    DeploymentStatus (..),
-
     -- * ExitBehavior
     ExitBehavior (..),
 
@@ -51,17 +45,11 @@ module Amazonka.RobOMaker.Types
     -- * RenderingEngineType
     RenderingEngineType (..),
 
-    -- * RobotDeploymentStep
-    RobotDeploymentStep (..),
-
     -- * RobotSoftwareSuiteType
     RobotSoftwareSuiteType (..),
 
     -- * RobotSoftwareSuiteVersionType
     RobotSoftwareSuiteVersionType (..),
-
-    -- * RobotStatus
-    RobotStatus (..),
 
     -- * SimulationJobBatchErrorCode
     SimulationJobBatchErrorCode (..),
@@ -131,42 +119,6 @@ module Amazonka.RobOMaker.Types
     dataSourceConfig_s3Bucket,
     dataSourceConfig_s3Keys,
 
-    -- * DeploymentApplicationConfig
-    DeploymentApplicationConfig (..),
-    newDeploymentApplicationConfig,
-    deploymentApplicationConfig_application,
-    deploymentApplicationConfig_applicationVersion,
-    deploymentApplicationConfig_launchConfig,
-
-    -- * DeploymentConfig
-    DeploymentConfig (..),
-    newDeploymentConfig,
-    deploymentConfig_robotDeploymentTimeoutInSeconds,
-    deploymentConfig_downloadConditionFile,
-    deploymentConfig_concurrentDeploymentPercentage,
-    deploymentConfig_failureThresholdPercentage,
-
-    -- * DeploymentJob
-    DeploymentJob (..),
-    newDeploymentJob,
-    deploymentJob_deploymentApplicationConfigs,
-    deploymentJob_failureCode,
-    deploymentJob_fleet,
-    deploymentJob_arn,
-    deploymentJob_status,
-    deploymentJob_deploymentConfig,
-    deploymentJob_createdAt,
-    deploymentJob_failureReason,
-
-    -- * DeploymentLaunchConfig
-    DeploymentLaunchConfig (..),
-    newDeploymentLaunchConfig,
-    deploymentLaunchConfig_postLaunchFile,
-    deploymentLaunchConfig_preLaunchFile,
-    deploymentLaunchConfig_environmentVariables,
-    deploymentLaunchConfig_packageName,
-    deploymentLaunchConfig_launchFile,
-
     -- * Environment
     Environment (..),
     newEnvironment,
@@ -198,16 +150,6 @@ module Amazonka.RobOMaker.Types
     finishedWorldsSummary_failureSummary,
     finishedWorldsSummary_succeededWorlds,
     finishedWorldsSummary_finishedCount,
-
-    -- * Fleet
-    Fleet (..),
-    newFleet,
-    fleet_name,
-    fleet_arn,
-    fleet_lastDeploymentJob,
-    fleet_lastDeploymentStatus,
-    fleet_lastDeploymentTime,
-    fleet_createdAt,
 
     -- * LaunchConfig
     LaunchConfig (..),
@@ -249,32 +191,11 @@ module Amazonka.RobOMaker.Types
     portMapping_jobPort,
     portMapping_applicationPort,
 
-    -- * ProgressDetail
-    ProgressDetail (..),
-    newProgressDetail,
-    progressDetail_targetResource,
-    progressDetail_estimatedTimeRemainingSeconds,
-    progressDetail_currentProgress,
-    progressDetail_percentDone,
-
     -- * RenderingEngine
     RenderingEngine (..),
     newRenderingEngine,
     renderingEngine_name,
     renderingEngine_version,
-
-    -- * Robot
-    Robot (..),
-    newRobot,
-    robot_name,
-    robot_arn,
-    robot_status,
-    robot_lastDeploymentJob,
-    robot_fleetArn,
-    robot_greenGrassGroupId,
-    robot_lastDeploymentTime,
-    robot_architecture,
-    robot_createdAt,
 
     -- * RobotApplicationConfig
     RobotApplicationConfig (..),
@@ -296,17 +217,6 @@ module Amazonka.RobOMaker.Types
     robotApplicationSummary_robotSoftwareSuite,
     robotApplicationSummary_version,
 
-    -- * RobotDeployment
-    RobotDeployment (..),
-    newRobotDeployment,
-    robotDeployment_deploymentFinishTime,
-    robotDeployment_failureCode,
-    robotDeployment_arn,
-    robotDeployment_progressDetail,
-    robotDeployment_status,
-    robotDeployment_deploymentStartTime,
-    robotDeployment_failureReason,
-
     -- * RobotSoftwareSuite
     RobotSoftwareSuite (..),
     newRobotSoftwareSuite,
@@ -318,13 +228,6 @@ module Amazonka.RobOMaker.Types
     newS3KeyOutput,
     s3KeyOutput_s3Key,
     s3KeyOutput_etag,
-
-    -- * S3Object
-    S3Object (..),
-    newS3Object,
-    s3Object_etag,
-    s3Object_bucket,
-    s3Object_key,
 
     -- * SimulationApplicationConfig
     SimulationApplicationConfig (..),
@@ -494,6 +397,7 @@ module Amazonka.RobOMaker.Types
     WorldExportJobSummary (..),
     newWorldExportJobSummary,
     worldExportJobSummary_arn,
+    worldExportJobSummary_outputLocation,
     worldExportJobSummary_status,
     worldExportJobSummary_worlds,
     worldExportJobSummary_createdAt,
@@ -537,12 +441,6 @@ import Amazonka.RobOMaker.Types.ComputeType
 import Amazonka.RobOMaker.Types.DataSource
 import Amazonka.RobOMaker.Types.DataSourceConfig
 import Amazonka.RobOMaker.Types.DataSourceType
-import Amazonka.RobOMaker.Types.DeploymentApplicationConfig
-import Amazonka.RobOMaker.Types.DeploymentConfig
-import Amazonka.RobOMaker.Types.DeploymentJob
-import Amazonka.RobOMaker.Types.DeploymentJobErrorCode
-import Amazonka.RobOMaker.Types.DeploymentLaunchConfig
-import Amazonka.RobOMaker.Types.DeploymentStatus
 import Amazonka.RobOMaker.Types.Environment
 import Amazonka.RobOMaker.Types.ExitBehavior
 import Amazonka.RobOMaker.Types.FailedCreateSimulationJobRequest
@@ -550,27 +448,20 @@ import Amazonka.RobOMaker.Types.FailureBehavior
 import Amazonka.RobOMaker.Types.FailureSummary
 import Amazonka.RobOMaker.Types.Filter
 import Amazonka.RobOMaker.Types.FinishedWorldsSummary
-import Amazonka.RobOMaker.Types.Fleet
 import Amazonka.RobOMaker.Types.LaunchConfig
 import Amazonka.RobOMaker.Types.LoggingConfig
 import Amazonka.RobOMaker.Types.NetworkInterface
 import Amazonka.RobOMaker.Types.OutputLocation
 import Amazonka.RobOMaker.Types.PortForwardingConfig
 import Amazonka.RobOMaker.Types.PortMapping
-import Amazonka.RobOMaker.Types.ProgressDetail
 import Amazonka.RobOMaker.Types.RenderingEngine
 import Amazonka.RobOMaker.Types.RenderingEngineType
-import Amazonka.RobOMaker.Types.Robot
 import Amazonka.RobOMaker.Types.RobotApplicationConfig
 import Amazonka.RobOMaker.Types.RobotApplicationSummary
-import Amazonka.RobOMaker.Types.RobotDeployment
-import Amazonka.RobOMaker.Types.RobotDeploymentStep
 import Amazonka.RobOMaker.Types.RobotSoftwareSuite
 import Amazonka.RobOMaker.Types.RobotSoftwareSuiteType
 import Amazonka.RobOMaker.Types.RobotSoftwareSuiteVersionType
-import Amazonka.RobOMaker.Types.RobotStatus
 import Amazonka.RobOMaker.Types.S3KeyOutput
-import Amazonka.RobOMaker.Types.S3Object
 import Amazonka.RobOMaker.Types.SimulationApplicationConfig
 import Amazonka.RobOMaker.Types.SimulationApplicationSummary
 import Amazonka.RobOMaker.Types.SimulationJob

@@ -28,7 +28,9 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newLoggingConfig' smart constructor.
 data LoggingConfig = LoggingConfig'
   { -- | A boolean indicating whether to record all ROS topics.
-    recordAllRosTopics :: Prelude.Bool
+    --
+    -- This API is no longer supported and will throw an error if used.
+    recordAllRosTopics :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -41,18 +43,20 @@ data LoggingConfig = LoggingConfig'
 -- for backwards compatibility:
 --
 -- 'recordAllRosTopics', 'loggingConfig_recordAllRosTopics' - A boolean indicating whether to record all ROS topics.
+--
+-- This API is no longer supported and will throw an error if used.
 newLoggingConfig ::
-  -- | 'recordAllRosTopics'
-  Prelude.Bool ->
   LoggingConfig
-newLoggingConfig pRecordAllRosTopics_ =
+newLoggingConfig =
   LoggingConfig'
     { recordAllRosTopics =
-        pRecordAllRosTopics_
+        Prelude.Nothing
     }
 
 -- | A boolean indicating whether to record all ROS topics.
-loggingConfig_recordAllRosTopics :: Lens.Lens' LoggingConfig Prelude.Bool
+--
+-- This API is no longer supported and will throw an error if used.
+loggingConfig_recordAllRosTopics :: Lens.Lens' LoggingConfig (Prelude.Maybe Prelude.Bool)
 loggingConfig_recordAllRosTopics = Lens.lens (\LoggingConfig' {recordAllRosTopics} -> recordAllRosTopics) (\s@LoggingConfig' {} a -> s {recordAllRosTopics = a} :: LoggingConfig)
 
 instance Core.FromJSON LoggingConfig where
@@ -61,7 +65,7 @@ instance Core.FromJSON LoggingConfig where
       "LoggingConfig"
       ( \x ->
           LoggingConfig'
-            Prelude.<$> (x Core..: "recordAllRosTopics")
+            Prelude.<$> (x Core..:? "recordAllRosTopics")
       )
 
 instance Prelude.Hashable LoggingConfig where
@@ -76,7 +80,7 @@ instance Core.ToJSON LoggingConfig where
   toJSON LoggingConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("recordAllRosTopics" Core..= recordAllRosTopics)
+          [ ("recordAllRosTopics" Core..=)
+              Prelude.<$> recordAllRosTopics
           ]
       )

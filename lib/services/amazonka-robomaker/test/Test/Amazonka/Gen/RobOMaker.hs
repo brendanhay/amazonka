@@ -33,9 +33,6 @@ import Test.Tasty
 --         , requestBatchDescribeSimulationJob $
 --             newBatchDescribeSimulationJob
 --
---         , requestCancelDeploymentJob $
---             newCancelDeploymentJob
---
 --         , requestCancelSimulationJob $
 --             newCancelSimulationJob
 --
@@ -47,15 +44,6 @@ import Test.Tasty
 --
 --         , requestCancelWorldGenerationJob $
 --             newCancelWorldGenerationJob
---
---         , requestCreateDeploymentJob $
---             newCreateDeploymentJob
---
---         , requestCreateFleet $
---             newCreateFleet
---
---         , requestCreateRobot $
---             newCreateRobot
 --
 --         , requestCreateRobotApplication $
 --             newCreateRobotApplication
@@ -81,12 +69,6 @@ import Test.Tasty
 --         , requestCreateWorldTemplate $
 --             newCreateWorldTemplate
 --
---         , requestDeleteFleet $
---             newDeleteFleet
---
---         , requestDeleteRobot $
---             newDeleteRobot
---
 --         , requestDeleteRobotApplication $
 --             newDeleteRobotApplication
 --
@@ -95,18 +77,6 @@ import Test.Tasty
 --
 --         , requestDeleteWorldTemplate $
 --             newDeleteWorldTemplate
---
---         , requestDeregisterRobot $
---             newDeregisterRobot
---
---         , requestDescribeDeploymentJob $
---             newDescribeDeploymentJob
---
---         , requestDescribeFleet $
---             newDescribeFleet
---
---         , requestDescribeRobot $
---             newDescribeRobot
 --
 --         , requestDescribeRobotApplication $
 --             newDescribeRobotApplication
@@ -135,17 +105,8 @@ import Test.Tasty
 --         , requestGetWorldTemplateBody $
 --             newGetWorldTemplateBody
 --
---         , requestListDeploymentJobs $
---             newListDeploymentJobs
---
---         , requestListFleets $
---             newListFleets
---
 --         , requestListRobotApplications $
 --             newListRobotApplications
---
---         , requestListRobots $
---             newListRobots
 --
 --         , requestListSimulationApplications $
 --             newListSimulationApplications
@@ -171,17 +132,11 @@ import Test.Tasty
 --         , requestListWorlds $
 --             newListWorlds
 --
---         , requestRegisterRobot $
---             newRegisterRobot
---
 --         , requestRestartSimulationJob $
 --             newRestartSimulationJob
 --
 --         , requestStartSimulationJobBatch $
 --             newStartSimulationJobBatch
---
---         , requestSyncDeploymentJob $
---             newSyncDeploymentJob
 --
 --         , requestTagResource $
 --             newTagResource
@@ -207,9 +162,6 @@ import Test.Tasty
 --         , responseBatchDescribeSimulationJob $
 --             newBatchDescribeSimulationJobResponse
 --
---         , responseCancelDeploymentJob $
---             newCancelDeploymentJobResponse
---
 --         , responseCancelSimulationJob $
 --             newCancelSimulationJobResponse
 --
@@ -221,15 +173,6 @@ import Test.Tasty
 --
 --         , responseCancelWorldGenerationJob $
 --             newCancelWorldGenerationJobResponse
---
---         , responseCreateDeploymentJob $
---             newCreateDeploymentJobResponse
---
---         , responseCreateFleet $
---             newCreateFleetResponse
---
---         , responseCreateRobot $
---             newCreateRobotResponse
 --
 --         , responseCreateRobotApplication $
 --             newCreateRobotApplicationResponse
@@ -255,12 +198,6 @@ import Test.Tasty
 --         , responseCreateWorldTemplate $
 --             newCreateWorldTemplateResponse
 --
---         , responseDeleteFleet $
---             newDeleteFleetResponse
---
---         , responseDeleteRobot $
---             newDeleteRobotResponse
---
 --         , responseDeleteRobotApplication $
 --             newDeleteRobotApplicationResponse
 --
@@ -269,18 +206,6 @@ import Test.Tasty
 --
 --         , responseDeleteWorldTemplate $
 --             newDeleteWorldTemplateResponse
---
---         , responseDeregisterRobot $
---             newDeregisterRobotResponse
---
---         , responseDescribeDeploymentJob $
---             newDescribeDeploymentJobResponse
---
---         , responseDescribeFleet $
---             newDescribeFleetResponse
---
---         , responseDescribeRobot $
---             newDescribeRobotResponse
 --
 --         , responseDescribeRobotApplication $
 --             newDescribeRobotApplicationResponse
@@ -309,17 +234,8 @@ import Test.Tasty
 --         , responseGetWorldTemplateBody $
 --             newGetWorldTemplateBodyResponse
 --
---         , responseListDeploymentJobs $
---             newListDeploymentJobsResponse
---
---         , responseListFleets $
---             newListFleetsResponse
---
 --         , responseListRobotApplications $
 --             newListRobotApplicationsResponse
---
---         , responseListRobots $
---             newListRobotsResponse
 --
 --         , responseListSimulationApplications $
 --             newListSimulationApplicationsResponse
@@ -345,17 +261,11 @@ import Test.Tasty
 --         , responseListWorlds $
 --             newListWorldsResponse
 --
---         , responseRegisterRobot $
---             newRegisterRobotResponse
---
 --         , responseRestartSimulationJob $
 --             newRestartSimulationJobResponse
 --
 --         , responseStartSimulationJobBatch $
 --             newStartSimulationJobBatchResponse
---
---         , responseSyncDeploymentJob $
---             newSyncDeploymentJobResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
@@ -389,12 +299,6 @@ requestBatchDescribeSimulationJob =
     "BatchDescribeSimulationJob"
     "fixture/BatchDescribeSimulationJob.yaml"
 
-requestCancelDeploymentJob :: CancelDeploymentJob -> TestTree
-requestCancelDeploymentJob =
-  req
-    "CancelDeploymentJob"
-    "fixture/CancelDeploymentJob.yaml"
-
 requestCancelSimulationJob :: CancelSimulationJob -> TestTree
 requestCancelSimulationJob =
   req
@@ -418,24 +322,6 @@ requestCancelWorldGenerationJob =
   req
     "CancelWorldGenerationJob"
     "fixture/CancelWorldGenerationJob.yaml"
-
-requestCreateDeploymentJob :: CreateDeploymentJob -> TestTree
-requestCreateDeploymentJob =
-  req
-    "CreateDeploymentJob"
-    "fixture/CreateDeploymentJob.yaml"
-
-requestCreateFleet :: CreateFleet -> TestTree
-requestCreateFleet =
-  req
-    "CreateFleet"
-    "fixture/CreateFleet.yaml"
-
-requestCreateRobot :: CreateRobot -> TestTree
-requestCreateRobot =
-  req
-    "CreateRobot"
-    "fixture/CreateRobot.yaml"
 
 requestCreateRobotApplication :: CreateRobotApplication -> TestTree
 requestCreateRobotApplication =
@@ -485,18 +371,6 @@ requestCreateWorldTemplate =
     "CreateWorldTemplate"
     "fixture/CreateWorldTemplate.yaml"
 
-requestDeleteFleet :: DeleteFleet -> TestTree
-requestDeleteFleet =
-  req
-    "DeleteFleet"
-    "fixture/DeleteFleet.yaml"
-
-requestDeleteRobot :: DeleteRobot -> TestTree
-requestDeleteRobot =
-  req
-    "DeleteRobot"
-    "fixture/DeleteRobot.yaml"
-
 requestDeleteRobotApplication :: DeleteRobotApplication -> TestTree
 requestDeleteRobotApplication =
   req
@@ -514,30 +388,6 @@ requestDeleteWorldTemplate =
   req
     "DeleteWorldTemplate"
     "fixture/DeleteWorldTemplate.yaml"
-
-requestDeregisterRobot :: DeregisterRobot -> TestTree
-requestDeregisterRobot =
-  req
-    "DeregisterRobot"
-    "fixture/DeregisterRobot.yaml"
-
-requestDescribeDeploymentJob :: DescribeDeploymentJob -> TestTree
-requestDescribeDeploymentJob =
-  req
-    "DescribeDeploymentJob"
-    "fixture/DescribeDeploymentJob.yaml"
-
-requestDescribeFleet :: DescribeFleet -> TestTree
-requestDescribeFleet =
-  req
-    "DescribeFleet"
-    "fixture/DescribeFleet.yaml"
-
-requestDescribeRobot :: DescribeRobot -> TestTree
-requestDescribeRobot =
-  req
-    "DescribeRobot"
-    "fixture/DescribeRobot.yaml"
 
 requestDescribeRobotApplication :: DescribeRobotApplication -> TestTree
 requestDescribeRobotApplication =
@@ -593,29 +443,11 @@ requestGetWorldTemplateBody =
     "GetWorldTemplateBody"
     "fixture/GetWorldTemplateBody.yaml"
 
-requestListDeploymentJobs :: ListDeploymentJobs -> TestTree
-requestListDeploymentJobs =
-  req
-    "ListDeploymentJobs"
-    "fixture/ListDeploymentJobs.yaml"
-
-requestListFleets :: ListFleets -> TestTree
-requestListFleets =
-  req
-    "ListFleets"
-    "fixture/ListFleets.yaml"
-
 requestListRobotApplications :: ListRobotApplications -> TestTree
 requestListRobotApplications =
   req
     "ListRobotApplications"
     "fixture/ListRobotApplications.yaml"
-
-requestListRobots :: ListRobots -> TestTree
-requestListRobots =
-  req
-    "ListRobots"
-    "fixture/ListRobots.yaml"
 
 requestListSimulationApplications :: ListSimulationApplications -> TestTree
 requestListSimulationApplications =
@@ -665,12 +497,6 @@ requestListWorlds =
     "ListWorlds"
     "fixture/ListWorlds.yaml"
 
-requestRegisterRobot :: RegisterRobot -> TestTree
-requestRegisterRobot =
-  req
-    "RegisterRobot"
-    "fixture/RegisterRobot.yaml"
-
 requestRestartSimulationJob :: RestartSimulationJob -> TestTree
 requestRestartSimulationJob =
   req
@@ -682,12 +508,6 @@ requestStartSimulationJobBatch =
   req
     "StartSimulationJobBatch"
     "fixture/StartSimulationJobBatch.yaml"
-
-requestSyncDeploymentJob :: SyncDeploymentJob -> TestTree
-requestSyncDeploymentJob =
-  req
-    "SyncDeploymentJob"
-    "fixture/SyncDeploymentJob.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -737,14 +557,6 @@ responseBatchDescribeSimulationJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy BatchDescribeSimulationJob)
 
-responseCancelDeploymentJob :: CancelDeploymentJobResponse -> TestTree
-responseCancelDeploymentJob =
-  res
-    "CancelDeploymentJobResponse"
-    "fixture/CancelDeploymentJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CancelDeploymentJob)
-
 responseCancelSimulationJob :: CancelSimulationJobResponse -> TestTree
 responseCancelSimulationJob =
   res
@@ -776,30 +588,6 @@ responseCancelWorldGenerationJob =
     "fixture/CancelWorldGenerationJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelWorldGenerationJob)
-
-responseCreateDeploymentJob :: CreateDeploymentJobResponse -> TestTree
-responseCreateDeploymentJob =
-  res
-    "CreateDeploymentJobResponse"
-    "fixture/CreateDeploymentJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateDeploymentJob)
-
-responseCreateFleet :: CreateFleetResponse -> TestTree
-responseCreateFleet =
-  res
-    "CreateFleetResponse"
-    "fixture/CreateFleetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateFleet)
-
-responseCreateRobot :: CreateRobotResponse -> TestTree
-responseCreateRobot =
-  res
-    "CreateRobotResponse"
-    "fixture/CreateRobotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy CreateRobot)
 
 responseCreateRobotApplication :: CreateRobotApplicationResponse -> TestTree
 responseCreateRobotApplication =
@@ -865,22 +653,6 @@ responseCreateWorldTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateWorldTemplate)
 
-responseDeleteFleet :: DeleteFleetResponse -> TestTree
-responseDeleteFleet =
-  res
-    "DeleteFleetResponse"
-    "fixture/DeleteFleetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteFleet)
-
-responseDeleteRobot :: DeleteRobotResponse -> TestTree
-responseDeleteRobot =
-  res
-    "DeleteRobotResponse"
-    "fixture/DeleteRobotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeleteRobot)
-
 responseDeleteRobotApplication :: DeleteRobotApplicationResponse -> TestTree
 responseDeleteRobotApplication =
   res
@@ -904,38 +676,6 @@ responseDeleteWorldTemplate =
     "fixture/DeleteWorldTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteWorldTemplate)
-
-responseDeregisterRobot :: DeregisterRobotResponse -> TestTree
-responseDeregisterRobot =
-  res
-    "DeregisterRobotResponse"
-    "fixture/DeregisterRobotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DeregisterRobot)
-
-responseDescribeDeploymentJob :: DescribeDeploymentJobResponse -> TestTree
-responseDescribeDeploymentJob =
-  res
-    "DescribeDeploymentJobResponse"
-    "fixture/DescribeDeploymentJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeDeploymentJob)
-
-responseDescribeFleet :: DescribeFleetResponse -> TestTree
-responseDescribeFleet =
-  res
-    "DescribeFleetResponse"
-    "fixture/DescribeFleetResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeFleet)
-
-responseDescribeRobot :: DescribeRobotResponse -> TestTree
-responseDescribeRobot =
-  res
-    "DescribeRobotResponse"
-    "fixture/DescribeRobotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy DescribeRobot)
 
 responseDescribeRobotApplication :: DescribeRobotApplicationResponse -> TestTree
 responseDescribeRobotApplication =
@@ -1009,22 +749,6 @@ responseGetWorldTemplateBody =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetWorldTemplateBody)
 
-responseListDeploymentJobs :: ListDeploymentJobsResponse -> TestTree
-responseListDeploymentJobs =
-  res
-    "ListDeploymentJobsResponse"
-    "fixture/ListDeploymentJobsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListDeploymentJobs)
-
-responseListFleets :: ListFleetsResponse -> TestTree
-responseListFleets =
-  res
-    "ListFleetsResponse"
-    "fixture/ListFleetsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListFleets)
-
 responseListRobotApplications :: ListRobotApplicationsResponse -> TestTree
 responseListRobotApplications =
   res
@@ -1032,14 +756,6 @@ responseListRobotApplications =
     "fixture/ListRobotApplicationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRobotApplications)
-
-responseListRobots :: ListRobotsResponse -> TestTree
-responseListRobots =
-  res
-    "ListRobotsResponse"
-    "fixture/ListRobotsResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy ListRobots)
 
 responseListSimulationApplications :: ListSimulationApplicationsResponse -> TestTree
 responseListSimulationApplications =
@@ -1105,14 +821,6 @@ responseListWorlds =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListWorlds)
 
-responseRegisterRobot :: RegisterRobotResponse -> TestTree
-responseRegisterRobot =
-  res
-    "RegisterRobotResponse"
-    "fixture/RegisterRobotResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy RegisterRobot)
-
 responseRestartSimulationJob :: RestartSimulationJobResponse -> TestTree
 responseRestartSimulationJob =
   res
@@ -1128,14 +836,6 @@ responseStartSimulationJobBatch =
     "fixture/StartSimulationJobBatchResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartSimulationJobBatch)
-
-responseSyncDeploymentJob :: SyncDeploymentJobResponse -> TestTree
-responseSyncDeploymentJob =
-  res
-    "SyncDeploymentJobResponse"
-    "fixture/SyncDeploymentJobResponse.proto"
-    defaultService
-    (Proxy.Proxy :: Proxy.Proxy SyncDeploymentJob)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =

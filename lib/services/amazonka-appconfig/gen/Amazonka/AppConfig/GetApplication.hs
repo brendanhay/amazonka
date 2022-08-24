@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve information about an application.
+-- Retrieves information about an application.
 module Amazonka.AppConfig.GetApplication
   ( -- * Creating a Request
     GetApplication (..),

@@ -24,6 +24,7 @@ module Amazonka.AppConfig.Lens
 
     -- ** CreateConfigurationProfile
     createConfigurationProfile_tags,
+    createConfigurationProfile_type,
     createConfigurationProfile_retrievalRoleArn,
     createConfigurationProfile_description,
     createConfigurationProfile_validators,
@@ -31,6 +32,7 @@ module Amazonka.AppConfig.Lens
     createConfigurationProfile_name,
     createConfigurationProfile_locationUri,
     configurationProfile_name,
+    configurationProfile_type,
     configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
@@ -43,10 +45,10 @@ module Amazonka.AppConfig.Lens
     createDeploymentStrategy_growthType,
     createDeploymentStrategy_description,
     createDeploymentStrategy_finalBakeTimeInMinutes,
+    createDeploymentStrategy_replicateTo,
     createDeploymentStrategy_name,
     createDeploymentStrategy_deploymentDurationInMinutes,
     createDeploymentStrategy_growthFactor,
-    createDeploymentStrategy_replicateTo,
     deploymentStrategy_name,
     deploymentStrategy_growthType,
     deploymentStrategy_deploymentDurationInMinutes,
@@ -68,6 +70,34 @@ module Amazonka.AppConfig.Lens
     environment_id,
     environment_description,
     environment_applicationId,
+
+    -- ** CreateExtension
+    createExtension_tags,
+    createExtension_latestVersionNumber,
+    createExtension_description,
+    createExtension_parameters,
+    createExtension_name,
+    createExtension_actions,
+    extension_name,
+    extension_arn,
+    extension_id,
+    extension_description,
+    extension_versionNumber,
+    extension_actions,
+    extension_parameters,
+
+    -- ** CreateExtensionAssociation
+    createExtensionAssociation_tags,
+    createExtensionAssociation_extensionVersionNumber,
+    createExtensionAssociation_parameters,
+    createExtensionAssociation_extensionIdentifier,
+    createExtensionAssociation_resourceIdentifier,
+    extensionAssociation_extensionVersionNumber,
+    extensionAssociation_arn,
+    extensionAssociation_id,
+    extensionAssociation_resourceArn,
+    extensionAssociation_extensionArn,
+    extensionAssociation_parameters,
 
     -- ** CreateHostedConfigurationVersion
     createHostedConfigurationVersion_latestVersionNumber,
@@ -97,6 +127,13 @@ module Amazonka.AppConfig.Lens
     deleteEnvironment_applicationId,
     deleteEnvironment_environmentId,
 
+    -- ** DeleteExtension
+    deleteExtension_versionNumber,
+    deleteExtension_extensionIdentifier,
+
+    -- ** DeleteExtensionAssociation
+    deleteExtensionAssociation_extensionAssociationId,
+
     -- ** DeleteHostedConfigurationVersion
     deleteHostedConfigurationVersion_applicationId,
     deleteHostedConfigurationVersion_configurationProfileId,
@@ -108,21 +145,11 @@ module Amazonka.AppConfig.Lens
     application_id,
     application_description,
 
-    -- ** GetConfiguration
-    getConfiguration_clientConfigurationVersion,
-    getConfiguration_application,
-    getConfiguration_environment,
-    getConfiguration_configuration,
-    getConfiguration_clientId,
-    getConfigurationResponse_configurationVersion,
-    getConfigurationResponse_content,
-    getConfigurationResponse_contentType,
-    getConfigurationResponse_httpStatus,
-
     -- ** GetConfigurationProfile
     getConfigurationProfile_applicationId,
     getConfigurationProfile_configurationProfileId,
     configurationProfile_name,
+    configurationProfile_type,
     configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
@@ -144,6 +171,7 @@ module Amazonka.AppConfig.Lens
     deployment_startedAt,
     deployment_configurationName,
     deployment_growthFactor,
+    deployment_appliedExtensions,
     deployment_eventLog,
     deployment_configurationVersion,
     deployment_environmentId,
@@ -174,6 +202,26 @@ module Amazonka.AppConfig.Lens
     environment_description,
     environment_applicationId,
 
+    -- ** GetExtension
+    getExtension_versionNumber,
+    getExtension_extensionIdentifier,
+    extension_name,
+    extension_arn,
+    extension_id,
+    extension_description,
+    extension_versionNumber,
+    extension_actions,
+    extension_parameters,
+
+    -- ** GetExtensionAssociation
+    getExtensionAssociation_extensionAssociationId,
+    extensionAssociation_extensionVersionNumber,
+    extensionAssociation_arn,
+    extensionAssociation_id,
+    extensionAssociation_resourceArn,
+    extensionAssociation_extensionArn,
+    extensionAssociation_parameters,
+
     -- ** GetHostedConfigurationVersion
     getHostedConfigurationVersion_applicationId,
     getHostedConfigurationVersion_configurationProfileId,
@@ -194,6 +242,7 @@ module Amazonka.AppConfig.Lens
 
     -- ** ListConfigurationProfiles
     listConfigurationProfiles_nextToken,
+    listConfigurationProfiles_type,
     listConfigurationProfiles_maxResults,
     listConfigurationProfiles_applicationId,
     listConfigurationProfilesResponse_items,
@@ -223,6 +272,24 @@ module Amazonka.AppConfig.Lens
     listEnvironmentsResponse_items,
     listEnvironmentsResponse_nextToken,
     listEnvironmentsResponse_httpStatus,
+
+    -- ** ListExtensionAssociations
+    listExtensionAssociations_extensionVersionNumber,
+    listExtensionAssociations_nextToken,
+    listExtensionAssociations_resourceIdentifier,
+    listExtensionAssociations_maxResults,
+    listExtensionAssociations_extensionIdentifier,
+    listExtensionAssociationsResponse_items,
+    listExtensionAssociationsResponse_nextToken,
+    listExtensionAssociationsResponse_httpStatus,
+
+    -- ** ListExtensions
+    listExtensions_name,
+    listExtensions_nextToken,
+    listExtensions_maxResults,
+    listExtensionsResponse_items,
+    listExtensionsResponse_nextToken,
+    listExtensionsResponse_httpStatus,
 
     -- ** ListHostedConfigurationVersions
     listHostedConfigurationVersions_nextToken,
@@ -256,6 +323,7 @@ module Amazonka.AppConfig.Lens
     deployment_startedAt,
     deployment_configurationName,
     deployment_growthFactor,
+    deployment_appliedExtensions,
     deployment_eventLog,
     deployment_configurationVersion,
     deployment_environmentId,
@@ -279,6 +347,7 @@ module Amazonka.AppConfig.Lens
     deployment_startedAt,
     deployment_configurationName,
     deployment_growthFactor,
+    deployment_appliedExtensions,
     deployment_eventLog,
     deployment_configurationVersion,
     deployment_environmentId,
@@ -312,6 +381,7 @@ module Amazonka.AppConfig.Lens
     updateConfigurationProfile_applicationId,
     updateConfigurationProfile_configurationProfileId,
     configurationProfile_name,
+    configurationProfile_type,
     configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
@@ -348,6 +418,30 @@ module Amazonka.AppConfig.Lens
     environment_description,
     environment_applicationId,
 
+    -- ** UpdateExtension
+    updateExtension_description,
+    updateExtension_versionNumber,
+    updateExtension_actions,
+    updateExtension_parameters,
+    updateExtension_extensionIdentifier,
+    extension_name,
+    extension_arn,
+    extension_id,
+    extension_description,
+    extension_versionNumber,
+    extension_actions,
+    extension_parameters,
+
+    -- ** UpdateExtensionAssociation
+    updateExtensionAssociation_parameters,
+    updateExtensionAssociation_extensionAssociationId,
+    extensionAssociation_extensionVersionNumber,
+    extensionAssociation_arn,
+    extensionAssociation_id,
+    extensionAssociation_resourceArn,
+    extensionAssociation_extensionArn,
+    extensionAssociation_parameters,
+
     -- ** ValidateConfiguration
     validateConfiguration_applicationId,
     validateConfiguration_configurationProfileId,
@@ -355,13 +449,35 @@ module Amazonka.AppConfig.Lens
 
     -- * Types
 
+    -- ** Action
+    action_name,
+    action_roleArn,
+    action_uri,
+    action_description,
+
+    -- ** ActionInvocation
+    actionInvocation_actionName,
+    actionInvocation_roleArn,
+    actionInvocation_invocationId,
+    actionInvocation_errorMessage,
+    actionInvocation_uri,
+    actionInvocation_errorCode,
+    actionInvocation_extensionIdentifier,
+
     -- ** Application
     application_name,
     application_id,
     application_description,
 
+    -- ** AppliedExtension
+    appliedExtension_extensionAssociationId,
+    appliedExtension_versionNumber,
+    appliedExtension_extensionId,
+    appliedExtension_parameters,
+
     -- ** ConfigurationProfile
     configurationProfile_name,
+    configurationProfile_type,
     configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
@@ -371,6 +487,7 @@ module Amazonka.AppConfig.Lens
 
     -- ** ConfigurationProfileSummary
     configurationProfileSummary_name,
+    configurationProfileSummary_type,
     configurationProfileSummary_validatorTypes,
     configurationProfileSummary_id,
     configurationProfileSummary_locationUri,
@@ -387,6 +504,7 @@ module Amazonka.AppConfig.Lens
     deployment_startedAt,
     deployment_configurationName,
     deployment_growthFactor,
+    deployment_appliedExtensions,
     deployment_eventLog,
     deployment_configurationVersion,
     deployment_environmentId,
@@ -399,6 +517,7 @@ module Amazonka.AppConfig.Lens
     -- ** DeploymentEvent
     deploymentEvent_eventType,
     deploymentEvent_occurredAt,
+    deploymentEvent_actionInvocations,
     deploymentEvent_description,
     deploymentEvent_triggeredBy,
 
@@ -433,6 +552,35 @@ module Amazonka.AppConfig.Lens
     environment_description,
     environment_applicationId,
 
+    -- ** Extension
+    extension_name,
+    extension_arn,
+    extension_id,
+    extension_description,
+    extension_versionNumber,
+    extension_actions,
+    extension_parameters,
+
+    -- ** ExtensionAssociation
+    extensionAssociation_extensionVersionNumber,
+    extensionAssociation_arn,
+    extensionAssociation_id,
+    extensionAssociation_resourceArn,
+    extensionAssociation_extensionArn,
+    extensionAssociation_parameters,
+
+    -- ** ExtensionAssociationSummary
+    extensionAssociationSummary_id,
+    extensionAssociationSummary_resourceArn,
+    extensionAssociationSummary_extensionArn,
+
+    -- ** ExtensionSummary
+    extensionSummary_name,
+    extensionSummary_arn,
+    extensionSummary_id,
+    extensionSummary_description,
+    extensionSummary_versionNumber,
+
     -- ** HostedConfigurationVersion
     hostedConfigurationVersion_description,
     hostedConfigurationVersion_versionNumber,
@@ -452,6 +600,10 @@ module Amazonka.AppConfig.Lens
     monitor_alarmRoleArn,
     monitor_alarmArn,
 
+    -- ** Parameter
+    parameter_required,
+    parameter_description,
+
     -- ** Validator
     validator_type,
     validator_content,
@@ -462,30 +614,40 @@ import Amazonka.AppConfig.CreateApplication
 import Amazonka.AppConfig.CreateConfigurationProfile
 import Amazonka.AppConfig.CreateDeploymentStrategy
 import Amazonka.AppConfig.CreateEnvironment
+import Amazonka.AppConfig.CreateExtension
+import Amazonka.AppConfig.CreateExtensionAssociation
 import Amazonka.AppConfig.CreateHostedConfigurationVersion
 import Amazonka.AppConfig.DeleteApplication
 import Amazonka.AppConfig.DeleteConfigurationProfile
 import Amazonka.AppConfig.DeleteDeploymentStrategy
 import Amazonka.AppConfig.DeleteEnvironment
+import Amazonka.AppConfig.DeleteExtension
+import Amazonka.AppConfig.DeleteExtensionAssociation
 import Amazonka.AppConfig.DeleteHostedConfigurationVersion
 import Amazonka.AppConfig.GetApplication
-import Amazonka.AppConfig.GetConfiguration
 import Amazonka.AppConfig.GetConfigurationProfile
 import Amazonka.AppConfig.GetDeployment
 import Amazonka.AppConfig.GetDeploymentStrategy
 import Amazonka.AppConfig.GetEnvironment
+import Amazonka.AppConfig.GetExtension
+import Amazonka.AppConfig.GetExtensionAssociation
 import Amazonka.AppConfig.GetHostedConfigurationVersion
 import Amazonka.AppConfig.ListApplications
 import Amazonka.AppConfig.ListConfigurationProfiles
 import Amazonka.AppConfig.ListDeploymentStrategies
 import Amazonka.AppConfig.ListDeployments
 import Amazonka.AppConfig.ListEnvironments
+import Amazonka.AppConfig.ListExtensionAssociations
+import Amazonka.AppConfig.ListExtensions
 import Amazonka.AppConfig.ListHostedConfigurationVersions
 import Amazonka.AppConfig.ListTagsForResource
 import Amazonka.AppConfig.StartDeployment
 import Amazonka.AppConfig.StopDeployment
 import Amazonka.AppConfig.TagResource
+import Amazonka.AppConfig.Types.Action
+import Amazonka.AppConfig.Types.ActionInvocation
 import Amazonka.AppConfig.Types.Application
+import Amazonka.AppConfig.Types.AppliedExtension
 import Amazonka.AppConfig.Types.ConfigurationProfile
 import Amazonka.AppConfig.Types.ConfigurationProfileSummary
 import Amazonka.AppConfig.Types.Deployment
@@ -493,13 +655,20 @@ import Amazonka.AppConfig.Types.DeploymentEvent
 import Amazonka.AppConfig.Types.DeploymentStrategy
 import Amazonka.AppConfig.Types.DeploymentSummary
 import Amazonka.AppConfig.Types.Environment
+import Amazonka.AppConfig.Types.Extension
+import Amazonka.AppConfig.Types.ExtensionAssociation
+import Amazonka.AppConfig.Types.ExtensionAssociationSummary
+import Amazonka.AppConfig.Types.ExtensionSummary
 import Amazonka.AppConfig.Types.HostedConfigurationVersion
 import Amazonka.AppConfig.Types.HostedConfigurationVersionSummary
 import Amazonka.AppConfig.Types.Monitor
+import Amazonka.AppConfig.Types.Parameter
 import Amazonka.AppConfig.Types.Validator
 import Amazonka.AppConfig.UntagResource
 import Amazonka.AppConfig.UpdateApplication
 import Amazonka.AppConfig.UpdateConfigurationProfile
 import Amazonka.AppConfig.UpdateDeploymentStrategy
 import Amazonka.AppConfig.UpdateEnvironment
+import Amazonka.AppConfig.UpdateExtension
+import Amazonka.AppConfig.UpdateExtensionAssociation
 import Amazonka.AppConfig.ValidateConfiguration

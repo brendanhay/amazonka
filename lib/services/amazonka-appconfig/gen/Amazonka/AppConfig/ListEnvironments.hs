@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the environments for an application.
+-- Lists the environments for an application.
 module Amazonka.AppConfig.ListEnvironments
   ( -- * Creating a Request
     ListEnvironments (..),

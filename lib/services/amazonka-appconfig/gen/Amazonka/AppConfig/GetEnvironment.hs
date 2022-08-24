@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve information about an environment. An environment is a logical
+-- Retrieves information about an environment. An environment is a
 -- deployment group of AppConfig applications, such as applications in a
 -- @Production@ environment or in an @EU_Region@ environment. Each
 -- configuration deployment targets an environment. You can enable one or
@@ -60,7 +60,7 @@ import qualified Amazonka.Response as Response
 data GetEnvironment = GetEnvironment'
   { -- | The ID of the application that includes the environment you want to get.
     applicationId :: Prelude.Text,
-    -- | The ID of the environment you wnat to get.
+    -- | The ID of the environment that you want to get.
     environmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +75,7 @@ data GetEnvironment = GetEnvironment'
 --
 -- 'applicationId', 'getEnvironment_applicationId' - The ID of the application that includes the environment you want to get.
 --
--- 'environmentId', 'getEnvironment_environmentId' - The ID of the environment you wnat to get.
+-- 'environmentId', 'getEnvironment_environmentId' - The ID of the environment that you want to get.
 newGetEnvironment ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -92,7 +92,7 @@ newGetEnvironment pApplicationId_ pEnvironmentId_ =
 getEnvironment_applicationId :: Lens.Lens' GetEnvironment Prelude.Text
 getEnvironment_applicationId = Lens.lens (\GetEnvironment' {applicationId} -> applicationId) (\s@GetEnvironment' {} a -> s {applicationId = a} :: GetEnvironment)
 
--- | The ID of the environment you wnat to get.
+-- | The ID of the environment that you want to get.
 getEnvironment_environmentId :: Lens.Lens' GetEnvironment Prelude.Text
 getEnvironment_environmentId = Lens.lens (\GetEnvironment' {environmentId} -> environmentId) (\s@GetEnvironment' {} a -> s {environmentId = a} :: GetEnvironment)
 

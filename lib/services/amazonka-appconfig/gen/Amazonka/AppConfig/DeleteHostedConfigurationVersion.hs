@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a version of a configuration from the AppConfig configuration
--- store.
+-- Deletes a version of a configuration from the AppConfig hosted
+-- configuration store.
 module Amazonka.AppConfig.DeleteHostedConfigurationVersion
   ( -- * Creating a Request
     DeleteHostedConfigurationVersion (..),

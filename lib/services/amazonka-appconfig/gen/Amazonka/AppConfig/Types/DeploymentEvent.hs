@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AppConfig.Types.DeploymentEvent where
 
+import Amazonka.AppConfig.Types.ActionInvocation
 import Amazonka.AppConfig.Types.DeploymentEventType
 import Amazonka.AppConfig.Types.TriggeredBy
 import qualified Amazonka.Core as Core
@@ -31,19 +32,20 @@ import qualified Amazonka.Prelude as Prelude
 data DeploymentEvent = DeploymentEvent'
   { -- | The type of deployment event. Deployment event types include the start,
     -- stop, or completion of a deployment; a percentage update; the start or
-    -- stop of a bake period; the start or completion of a rollback.
+    -- stop of a bake period; and the start or completion of a rollback.
     eventType :: Prelude.Maybe DeploymentEventType,
     -- | The date and time the event occurred.
     occurredAt :: Prelude.Maybe Core.POSIX,
+    -- | The list of extensions that were invoked as part of the deployment.
+    actionInvocations :: Prelude.Maybe [ActionInvocation],
     -- | A description of the deployment event. Descriptions include, but are not
-    -- limited to, the user account or the CloudWatch alarm ARN that initiated
-    -- a rollback, the percentage of hosts that received the deployment, or in
-    -- the case of an internal error, a recommendation to attempt a new
-    -- deployment.
+    -- limited to, the user account or the Amazon CloudWatch alarm ARN that
+    -- initiated a rollback, the percentage of hosts that received the
+    -- deployment, or in the case of an internal error, a recommendation to
+    -- attempt a new deployment.
     description :: Prelude.Maybe Prelude.Text,
     -- | The entity that triggered the deployment event. Events can be triggered
-    -- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
-    -- error.
+    -- by a user, AppConfig, an Amazon CloudWatch alarm, or an internal error.
     triggeredBy :: Prelude.Maybe TriggeredBy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,32 +60,34 @@ data DeploymentEvent = DeploymentEvent'
 --
 -- 'eventType', 'deploymentEvent_eventType' - The type of deployment event. Deployment event types include the start,
 -- stop, or completion of a deployment; a percentage update; the start or
--- stop of a bake period; the start or completion of a rollback.
+-- stop of a bake period; and the start or completion of a rollback.
 --
 -- 'occurredAt', 'deploymentEvent_occurredAt' - The date and time the event occurred.
 --
+-- 'actionInvocations', 'deploymentEvent_actionInvocations' - The list of extensions that were invoked as part of the deployment.
+--
 -- 'description', 'deploymentEvent_description' - A description of the deployment event. Descriptions include, but are not
--- limited to, the user account or the CloudWatch alarm ARN that initiated
--- a rollback, the percentage of hosts that received the deployment, or in
--- the case of an internal error, a recommendation to attempt a new
--- deployment.
+-- limited to, the user account or the Amazon CloudWatch alarm ARN that
+-- initiated a rollback, the percentage of hosts that received the
+-- deployment, or in the case of an internal error, a recommendation to
+-- attempt a new deployment.
 --
 -- 'triggeredBy', 'deploymentEvent_triggeredBy' - The entity that triggered the deployment event. Events can be triggered
--- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
--- error.
+-- by a user, AppConfig, an Amazon CloudWatch alarm, or an internal error.
 newDeploymentEvent ::
   DeploymentEvent
 newDeploymentEvent =
   DeploymentEvent'
     { eventType = Prelude.Nothing,
       occurredAt = Prelude.Nothing,
+      actionInvocations = Prelude.Nothing,
       description = Prelude.Nothing,
       triggeredBy = Prelude.Nothing
     }
 
 -- | The type of deployment event. Deployment event types include the start,
 -- stop, or completion of a deployment; a percentage update; the start or
--- stop of a bake period; the start or completion of a rollback.
+-- stop of a bake period; and the start or completion of a rollback.
 deploymentEvent_eventType :: Lens.Lens' DeploymentEvent (Prelude.Maybe DeploymentEventType)
 deploymentEvent_eventType = Lens.lens (\DeploymentEvent' {eventType} -> eventType) (\s@DeploymentEvent' {} a -> s {eventType = a} :: DeploymentEvent)
 
@@ -91,17 +95,20 @@ deploymentEvent_eventType = Lens.lens (\DeploymentEvent' {eventType} -> eventTyp
 deploymentEvent_occurredAt :: Lens.Lens' DeploymentEvent (Prelude.Maybe Prelude.UTCTime)
 deploymentEvent_occurredAt = Lens.lens (\DeploymentEvent' {occurredAt} -> occurredAt) (\s@DeploymentEvent' {} a -> s {occurredAt = a} :: DeploymentEvent) Prelude.. Lens.mapping Core._Time
 
+-- | The list of extensions that were invoked as part of the deployment.
+deploymentEvent_actionInvocations :: Lens.Lens' DeploymentEvent (Prelude.Maybe [ActionInvocation])
+deploymentEvent_actionInvocations = Lens.lens (\DeploymentEvent' {actionInvocations} -> actionInvocations) (\s@DeploymentEvent' {} a -> s {actionInvocations = a} :: DeploymentEvent) Prelude.. Lens.mapping Lens.coerced
+
 -- | A description of the deployment event. Descriptions include, but are not
--- limited to, the user account or the CloudWatch alarm ARN that initiated
--- a rollback, the percentage of hosts that received the deployment, or in
--- the case of an internal error, a recommendation to attempt a new
--- deployment.
+-- limited to, the user account or the Amazon CloudWatch alarm ARN that
+-- initiated a rollback, the percentage of hosts that received the
+-- deployment, or in the case of an internal error, a recommendation to
+-- attempt a new deployment.
 deploymentEvent_description :: Lens.Lens' DeploymentEvent (Prelude.Maybe Prelude.Text)
 deploymentEvent_description = Lens.lens (\DeploymentEvent' {description} -> description) (\s@DeploymentEvent' {} a -> s {description = a} :: DeploymentEvent)
 
 -- | The entity that triggered the deployment event. Events can be triggered
--- by a user, AWS AppConfig, an Amazon CloudWatch alarm, or an internal
--- error.
+-- by a user, AppConfig, an Amazon CloudWatch alarm, or an internal error.
 deploymentEvent_triggeredBy :: Lens.Lens' DeploymentEvent (Prelude.Maybe TriggeredBy)
 deploymentEvent_triggeredBy = Lens.lens (\DeploymentEvent' {triggeredBy} -> triggeredBy) (\s@DeploymentEvent' {} a -> s {triggeredBy = a} :: DeploymentEvent)
 
@@ -113,6 +120,9 @@ instance Core.FromJSON DeploymentEvent where
           DeploymentEvent'
             Prelude.<$> (x Core..:? "EventType")
             Prelude.<*> (x Core..:? "OccurredAt")
+            Prelude.<*> ( x Core..:? "ActionInvocations"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "TriggeredBy")
       )
@@ -121,6 +131,7 @@ instance Prelude.Hashable DeploymentEvent where
   hashWithSalt _salt DeploymentEvent' {..} =
     _salt `Prelude.hashWithSalt` eventType
       `Prelude.hashWithSalt` occurredAt
+      `Prelude.hashWithSalt` actionInvocations
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` triggeredBy
 
@@ -128,5 +139,6 @@ instance Prelude.NFData DeploymentEvent where
   rnf DeploymentEvent' {..} =
     Prelude.rnf eventType
       `Prelude.seq` Prelude.rnf occurredAt
+      `Prelude.seq` Prelude.rnf actionInvocations
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf triggeredBy

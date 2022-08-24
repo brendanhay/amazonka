@@ -30,6 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 data ConfigurationProfileSummary = ConfigurationProfileSummary'
   { -- | The name of the configuration profile.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The type of configurations contained in the profile. AppConfig supports
+    -- @feature flags@ and @freeform@ configurations. We recommend you create
+    -- feature flag configurations to enable or disable new features and
+    -- freeform configurations to distribute configurations to an application.
+    -- When calling this API, enter one of the following values for @Type@:
+    --
+    -- @AWS.AppConfig.FeatureFlags@
+    --
+    -- @AWS.Freeform@
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The types of validators in the configuration profile.
     validatorTypes :: Prelude.Maybe [ValidatorType],
     -- | The ID of the configuration profile.
@@ -51,6 +61,16 @@ data ConfigurationProfileSummary = ConfigurationProfileSummary'
 --
 -- 'name', 'configurationProfileSummary_name' - The name of the configuration profile.
 --
+-- 'type'', 'configurationProfileSummary_type' - The type of configurations contained in the profile. AppConfig supports
+-- @feature flags@ and @freeform@ configurations. We recommend you create
+-- feature flag configurations to enable or disable new features and
+-- freeform configurations to distribute configurations to an application.
+-- When calling this API, enter one of the following values for @Type@:
+--
+-- @AWS.AppConfig.FeatureFlags@
+--
+-- @AWS.Freeform@
+--
 -- 'validatorTypes', 'configurationProfileSummary_validatorTypes' - The types of validators in the configuration profile.
 --
 -- 'id', 'configurationProfileSummary_id' - The ID of the configuration profile.
@@ -64,6 +84,7 @@ newConfigurationProfileSummary =
   ConfigurationProfileSummary'
     { name =
         Prelude.Nothing,
+      type' = Prelude.Nothing,
       validatorTypes = Prelude.Nothing,
       id = Prelude.Nothing,
       locationUri = Prelude.Nothing,
@@ -73,6 +94,18 @@ newConfigurationProfileSummary =
 -- | The name of the configuration profile.
 configurationProfileSummary_name :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
 configurationProfileSummary_name = Lens.lens (\ConfigurationProfileSummary' {name} -> name) (\s@ConfigurationProfileSummary' {} a -> s {name = a} :: ConfigurationProfileSummary)
+
+-- | The type of configurations contained in the profile. AppConfig supports
+-- @feature flags@ and @freeform@ configurations. We recommend you create
+-- feature flag configurations to enable or disable new features and
+-- freeform configurations to distribute configurations to an application.
+-- When calling this API, enter one of the following values for @Type@:
+--
+-- @AWS.AppConfig.FeatureFlags@
+--
+-- @AWS.Freeform@
+configurationProfileSummary_type :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe Prelude.Text)
+configurationProfileSummary_type = Lens.lens (\ConfigurationProfileSummary' {type'} -> type') (\s@ConfigurationProfileSummary' {} a -> s {type' = a} :: ConfigurationProfileSummary)
 
 -- | The types of validators in the configuration profile.
 configurationProfileSummary_validatorTypes :: Lens.Lens' ConfigurationProfileSummary (Prelude.Maybe [ValidatorType])
@@ -97,6 +130,7 @@ instance Core.FromJSON ConfigurationProfileSummary where
       ( \x ->
           ConfigurationProfileSummary'
             Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "ValidatorTypes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "LocationUri")
@@ -106,6 +140,7 @@ instance Core.FromJSON ConfigurationProfileSummary where
 instance Prelude.Hashable ConfigurationProfileSummary where
   hashWithSalt _salt ConfigurationProfileSummary' {..} =
     _salt `Prelude.hashWithSalt` name
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` validatorTypes
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` locationUri
@@ -114,6 +149,7 @@ instance Prelude.Hashable ConfigurationProfileSummary where
 instance Prelude.NFData ConfigurationProfileSummary where
   rnf ConfigurationProfileSummary' {..} =
     Prelude.rnf name
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf validatorTypes
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf locationUri

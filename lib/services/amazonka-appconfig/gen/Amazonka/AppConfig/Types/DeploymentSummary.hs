@@ -37,9 +37,9 @@ data DeploymentSummary = DeploymentSummary'
     deploymentDurationInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The sequence number of the deployment.
     deploymentNumber :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time AppConfig monitors for alarms before considering the
-    -- deployment to be complete and no longer eligible for automatic roll
-    -- back.
+    -- | The amount of time that AppConfig monitors for alarms before considering
+    -- the deployment to be complete and no longer eligible for automatic
+    -- rollback.
     finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | Time the deployment started.
     startedAt :: Prelude.Maybe Core.POSIX,
@@ -73,9 +73,9 @@ data DeploymentSummary = DeploymentSummary'
 --
 -- 'deploymentNumber', 'deploymentSummary_deploymentNumber' - The sequence number of the deployment.
 --
--- 'finalBakeTimeInMinutes', 'deploymentSummary_finalBakeTimeInMinutes' - The amount of time AppConfig monitors for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
+-- 'finalBakeTimeInMinutes', 'deploymentSummary_finalBakeTimeInMinutes' - The amount of time that AppConfig monitors for alarms before considering
+-- the deployment to be complete and no longer eligible for automatic
+-- rollback.
 --
 -- 'startedAt', 'deploymentSummary_startedAt' - Time the deployment started.
 --
@@ -122,9 +122,9 @@ deploymentSummary_deploymentDurationInMinutes = Lens.lens (\DeploymentSummary' {
 deploymentSummary_deploymentNumber :: Lens.Lens' DeploymentSummary (Prelude.Maybe Prelude.Int)
 deploymentSummary_deploymentNumber = Lens.lens (\DeploymentSummary' {deploymentNumber} -> deploymentNumber) (\s@DeploymentSummary' {} a -> s {deploymentNumber = a} :: DeploymentSummary)
 
--- | The amount of time AppConfig monitors for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
+-- | The amount of time that AppConfig monitors for alarms before considering
+-- the deployment to be complete and no longer eligible for automatic
+-- rollback.
 deploymentSummary_finalBakeTimeInMinutes :: Lens.Lens' DeploymentSummary (Prelude.Maybe Prelude.Natural)
 deploymentSummary_finalBakeTimeInMinutes = Lens.lens (\DeploymentSummary' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@DeploymentSummary' {} a -> s {finalBakeTimeInMinutes = a} :: DeploymentSummary)
 

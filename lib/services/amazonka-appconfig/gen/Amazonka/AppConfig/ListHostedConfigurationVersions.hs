@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- View a list of configurations stored in the AppConfig configuration
--- store by version.
+-- Lists configurations stored in the AppConfig hosted configuration store
+-- by version.
 module Amazonka.AppConfig.ListHostedConfigurationVersions
   ( -- * Creating a Request
     ListHostedConfigurationVersions (..),

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieve information about a configuration profile.
+-- Retrieves information about a configuration profile.
 module Amazonka.AppConfig.GetConfigurationProfile
   ( -- * Creating a Request
     GetConfigurationProfile (..),
@@ -36,6 +36,7 @@ module Amazonka.AppConfig.GetConfigurationProfile
 
     -- * Response Lenses
     configurationProfile_name,
+    configurationProfile_type,
     configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
@@ -57,7 +58,7 @@ data GetConfigurationProfile = GetConfigurationProfile'
   { -- | The ID of the application that includes the configuration profile you
     -- want to get.
     applicationId :: Prelude.Text,
-    -- | The ID of the configuration profile you want to get.
+    -- | The ID of the configuration profile that you want to get.
     configurationProfileId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +74,7 @@ data GetConfigurationProfile = GetConfigurationProfile'
 -- 'applicationId', 'getConfigurationProfile_applicationId' - The ID of the application that includes the configuration profile you
 -- want to get.
 --
--- 'configurationProfileId', 'getConfigurationProfile_configurationProfileId' - The ID of the configuration profile you want to get.
+-- 'configurationProfileId', 'getConfigurationProfile_configurationProfileId' - The ID of the configuration profile that you want to get.
 newGetConfigurationProfile ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -94,7 +95,7 @@ newGetConfigurationProfile
 getConfigurationProfile_applicationId :: Lens.Lens' GetConfigurationProfile Prelude.Text
 getConfigurationProfile_applicationId = Lens.lens (\GetConfigurationProfile' {applicationId} -> applicationId) (\s@GetConfigurationProfile' {} a -> s {applicationId = a} :: GetConfigurationProfile)
 
--- | The ID of the configuration profile you want to get.
+-- | The ID of the configuration profile that you want to get.
 getConfigurationProfile_configurationProfileId :: Lens.Lens' GetConfigurationProfile Prelude.Text
 getConfigurationProfile_configurationProfileId = Lens.lens (\GetConfigurationProfile' {configurationProfileId} -> configurationProfileId) (\s@GetConfigurationProfile' {} a -> s {configurationProfileId = a} :: GetConfigurationProfile)
 

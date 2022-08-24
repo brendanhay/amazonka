@@ -27,10 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newMonitor' smart constructor.
 data Monitor = Monitor'
-  { -- | ARN of an IAM role for AppConfig to monitor @AlarmArn@.
+  { -- | ARN of an Identity and Access Management (IAM) role for AppConfig to
+    -- monitor @AlarmArn@.
     alarmRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | ARN of the Amazon CloudWatch alarm.
-    alarmArn :: Prelude.Maybe Prelude.Text
+    -- | Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+    alarmArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,23 +43,27 @@ data Monitor = Monitor'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'alarmRoleArn', 'monitor_alarmRoleArn' - ARN of an IAM role for AppConfig to monitor @AlarmArn@.
+-- 'alarmRoleArn', 'monitor_alarmRoleArn' - ARN of an Identity and Access Management (IAM) role for AppConfig to
+-- monitor @AlarmArn@.
 --
--- 'alarmArn', 'monitor_alarmArn' - ARN of the Amazon CloudWatch alarm.
+-- 'alarmArn', 'monitor_alarmArn' - Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
 newMonitor ::
+  -- | 'alarmArn'
+  Prelude.Text ->
   Monitor
-newMonitor =
+newMonitor pAlarmArn_ =
   Monitor'
     { alarmRoleArn = Prelude.Nothing,
-      alarmArn = Prelude.Nothing
+      alarmArn = pAlarmArn_
     }
 
--- | ARN of an IAM role for AppConfig to monitor @AlarmArn@.
+-- | ARN of an Identity and Access Management (IAM) role for AppConfig to
+-- monitor @AlarmArn@.
 monitor_alarmRoleArn :: Lens.Lens' Monitor (Prelude.Maybe Prelude.Text)
 monitor_alarmRoleArn = Lens.lens (\Monitor' {alarmRoleArn} -> alarmRoleArn) (\s@Monitor' {} a -> s {alarmRoleArn = a} :: Monitor)
 
--- | ARN of the Amazon CloudWatch alarm.
-monitor_alarmArn :: Lens.Lens' Monitor (Prelude.Maybe Prelude.Text)
+-- | Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.
+monitor_alarmArn :: Lens.Lens' Monitor Prelude.Text
 monitor_alarmArn = Lens.lens (\Monitor' {alarmArn} -> alarmArn) (\s@Monitor' {} a -> s {alarmArn = a} :: Monitor)
 
 instance Core.FromJSON Monitor where
@@ -68,7 +73,7 @@ instance Core.FromJSON Monitor where
       ( \x ->
           Monitor'
             Prelude.<$> (x Core..:? "AlarmRoleArn")
-            Prelude.<*> (x Core..:? "AlarmArn")
+            Prelude.<*> (x Core..: "AlarmArn")
       )
 
 instance Prelude.Hashable Monitor where
@@ -86,6 +91,6 @@ instance Core.ToJSON Monitor where
     Core.object
       ( Prelude.catMaybes
           [ ("AlarmRoleArn" Core..=) Prelude.<$> alarmRoleArn,
-            ("AlarmArn" Core..=) Prelude.<$> alarmArn
+            Prelude.Just ("AlarmArn" Core..= alarmArn)
           ]
       )

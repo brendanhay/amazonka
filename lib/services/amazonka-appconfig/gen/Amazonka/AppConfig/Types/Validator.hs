@@ -25,18 +25,18 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A validator provides a syntactic or semantic check to ensure the
--- configuration you want to deploy functions as intended. To validate your
--- application configuration data, you provide a schema or a Lambda
--- function that runs against the configuration. The configuration
--- deployment or update can only proceed when the configuration data is
--- valid.
+-- configuration that you want to deploy functions as intended. To validate
+-- your application configuration data, you provide a schema or an Amazon
+-- Web Services Lambda function that runs against the configuration. The
+-- configuration deployment or update can only proceed when the
+-- configuration data is valid.
 --
 -- /See:/ 'newValidator' smart constructor.
 data Validator = Validator'
   { -- | AppConfig supports validators of type @JSON_SCHEMA@ and @LAMBDA@
     type' :: ValidatorType,
     -- | Either the JSON Schema content or the Amazon Resource Name (ARN) of an
-    -- AWS Lambda function.
+    -- Lambda function.
     content :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -52,7 +52,7 @@ data Validator = Validator'
 -- 'type'', 'validator_type' - AppConfig supports validators of type @JSON_SCHEMA@ and @LAMBDA@
 --
 -- 'content', 'validator_content' - Either the JSON Schema content or the Amazon Resource Name (ARN) of an
--- AWS Lambda function.
+-- Lambda function.
 newValidator ::
   -- | 'type''
   ValidatorType ->
@@ -70,7 +70,7 @@ validator_type :: Lens.Lens' Validator ValidatorType
 validator_type = Lens.lens (\Validator' {type'} -> type') (\s@Validator' {} a -> s {type' = a} :: Validator)
 
 -- | Either the JSON Schema content or the Amazon Resource Name (ARN) of an
--- AWS Lambda function.
+-- Lambda function.
 validator_content :: Lens.Lens' Validator Prelude.Text
 validator_content = Lens.lens (\Validator' {content} -> content) (\s@Validator' {} a -> s {content = a} :: Validator) Prelude.. Core._Sensitive
 

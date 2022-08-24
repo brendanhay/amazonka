@@ -40,6 +40,7 @@ module Amazonka.AppConfig.UpdateConfigurationProfile
 
     -- * Response Lenses
     configurationProfile_name,
+    configurationProfile_type,
     configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
@@ -61,7 +62,7 @@ data UpdateConfigurationProfile = UpdateConfigurationProfile'
   { -- | The name of the configuration profile.
     name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of an IAM role with permission to access the configuration at
-    -- the specified LocationUri.
+    -- the specified @LocationUri@.
     retrievalRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A description of the configuration profile.
     description :: Prelude.Maybe Prelude.Text,
@@ -85,7 +86,7 @@ data UpdateConfigurationProfile = UpdateConfigurationProfile'
 -- 'name', 'updateConfigurationProfile_name' - The name of the configuration profile.
 --
 -- 'retrievalRoleArn', 'updateConfigurationProfile_retrievalRoleArn' - The ARN of an IAM role with permission to access the configuration at
--- the specified LocationUri.
+-- the specified @LocationUri@.
 --
 -- 'description', 'updateConfigurationProfile_description' - A description of the configuration profile.
 --
@@ -118,7 +119,7 @@ updateConfigurationProfile_name :: Lens.Lens' UpdateConfigurationProfile (Prelud
 updateConfigurationProfile_name = Lens.lens (\UpdateConfigurationProfile' {name} -> name) (\s@UpdateConfigurationProfile' {} a -> s {name = a} :: UpdateConfigurationProfile)
 
 -- | The ARN of an IAM role with permission to access the configuration at
--- the specified LocationUri.
+-- the specified @LocationUri@.
 updateConfigurationProfile_retrievalRoleArn :: Lens.Lens' UpdateConfigurationProfile (Prelude.Maybe Prelude.Text)
 updateConfigurationProfile_retrievalRoleArn = Lens.lens (\UpdateConfigurationProfile' {retrievalRoleArn} -> retrievalRoleArn) (\s@UpdateConfigurationProfile' {} a -> s {retrievalRoleArn = a} :: UpdateConfigurationProfile)
 

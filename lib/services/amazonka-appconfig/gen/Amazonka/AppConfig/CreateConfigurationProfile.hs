@@ -20,22 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Information that enables AppConfig to access the configuration source.
--- Valid configuration sources include Systems Manager (SSM) documents, SSM
--- Parameter Store parameters, and Amazon S3 objects. A configuration
--- profile includes the following information.
+-- Creates a configuration profile, which is information that enables
+-- AppConfig to access the configuration source. Valid configuration
+-- sources include the AppConfig hosted configuration store, Amazon Web
+-- Services Systems Manager (SSM) documents, SSM Parameter Store
+-- parameters, Amazon S3 objects, or any
+-- <http://docs.aws.amazon.com/codepipeline/latest/userguide/integrations-action-type.html#integrations-source integration source action>
+-- supported by CodePipeline. A configuration profile includes the
+-- following information:
 --
--- -   The Uri location of the configuration data.
+-- -   The URI location of the configuration data.
 --
--- -   The AWS Identity and Access Management (IAM) role that provides
---     access to the configuration data.
+-- -   The Identity and Access Management (IAM) role that provides access
+--     to the configuration data.
 --
 -- -   A validator for the configuration data. Available validators include
---     either a JSON Schema or an AWS Lambda function.
+--     either a JSON Schema or an Amazon Web Services Lambda function.
 --
 -- For more information, see
--- <http://docs.aws.amazon.com/systems-manager/latest/userguide/appconfig-creating-configuration-and-profile.html Create a Configuration and a Configuration Profile>
--- in the /AWS AppConfig User Guide/.
+-- <http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile.html Create a Configuration and a Configuration Profile>
+-- in the /AppConfig User Guide/.
 module Amazonka.AppConfig.CreateConfigurationProfile
   ( -- * Creating a Request
     CreateConfigurationProfile (..),
@@ -43,6 +47,7 @@ module Amazonka.AppConfig.CreateConfigurationProfile
 
     -- * Request Lenses
     createConfigurationProfile_tags,
+    createConfigurationProfile_type,
     createConfigurationProfile_retrievalRoleArn,
     createConfigurationProfile_description,
     createConfigurationProfile_validators,
@@ -56,6 +61,7 @@ module Amazonka.AppConfig.CreateConfigurationProfile
 
     -- * Response Lenses
     configurationProfile_name,
+    configurationProfile_type,
     configurationProfile_retrievalRoleArn,
     configurationProfile_id,
     configurationProfile_description,
@@ -78,8 +84,22 @@ data CreateConfigurationProfile = CreateConfigurationProfile'
     -- categorize your AppConfig resources. Each tag consists of a key and an
     -- optional value, both of which you define.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The type of configurations contained in the profile. AppConfig supports
+    -- @feature flags@ and @freeform@ configurations. We recommend you create
+    -- feature flag configurations to enable or disable new features and
+    -- freeform configurations to distribute configurations to an application.
+    -- When calling this API, enter one of the following values for @Type@:
+    --
+    -- @AWS.AppConfig.FeatureFlags@
+    --
+    -- @AWS.Freeform@
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The ARN of an IAM role with permission to access the configuration at
-    -- the specified LocationUri.
+    -- the specified @LocationUri@.
+    --
+    -- A retrieval role ARN is not required for configurations stored in the
+    -- AppConfig hosted configuration store. It is required for all other
+    -- sources that store your configuration.
     retrievalRoleArn :: Prelude.Maybe Prelude.Text,
     -- | A description of the configuration profile.
     description :: Prelude.Maybe Prelude.Text,
@@ -89,15 +109,17 @@ data CreateConfigurationProfile = CreateConfigurationProfile'
     applicationId :: Prelude.Text,
     -- | A name for the configuration profile.
     name :: Prelude.Text,
-    -- | A URI to locate the configuration. You can specify a Systems Manager
-    -- (SSM) document, an SSM Parameter Store parameter, or an Amazon S3
-    -- object. For an SSM document, specify either the document name in the
-    -- format @ssm-document:\/\/\<Document_name>@ or the Amazon Resource Name
-    -- (ARN). For a parameter, specify either the parameter name in the format
+    -- | A URI to locate the configuration. You can specify the AppConfig hosted
+    -- configuration store, Systems Manager (SSM) document, an SSM Parameter
+    -- Store parameter, or an Amazon S3 object. For the hosted configuration
+    -- store and for feature flags, specify @hosted@. For an SSM document,
+    -- specify either the document name in the format
+    -- @ssm-document:\/\/\<Document_name>@ or the Amazon Resource Name (ARN).
+    -- For a parameter, specify either the parameter name in the format
     -- @ssm-parameter:\/\/\<Parameter_name>@ or the ARN. For an Amazon S3
     -- object, specify the URI in the following format:
     -- @s3:\/\/\<bucket>\/\<objectKey> @. Here is an example:
-    -- s3:\/\/my-bucket\/my-app\/us-east-1\/my-config.json
+    -- @s3:\/\/my-bucket\/my-app\/us-east-1\/my-config.json@
     locationUri :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -114,8 +136,22 @@ data CreateConfigurationProfile = CreateConfigurationProfile'
 -- categorize your AppConfig resources. Each tag consists of a key and an
 -- optional value, both of which you define.
 --
+-- 'type'', 'createConfigurationProfile_type' - The type of configurations contained in the profile. AppConfig supports
+-- @feature flags@ and @freeform@ configurations. We recommend you create
+-- feature flag configurations to enable or disable new features and
+-- freeform configurations to distribute configurations to an application.
+-- When calling this API, enter one of the following values for @Type@:
+--
+-- @AWS.AppConfig.FeatureFlags@
+--
+-- @AWS.Freeform@
+--
 -- 'retrievalRoleArn', 'createConfigurationProfile_retrievalRoleArn' - The ARN of an IAM role with permission to access the configuration at
--- the specified LocationUri.
+-- the specified @LocationUri@.
+--
+-- A retrieval role ARN is not required for configurations stored in the
+-- AppConfig hosted configuration store. It is required for all other
+-- sources that store your configuration.
 --
 -- 'description', 'createConfigurationProfile_description' - A description of the configuration profile.
 --
@@ -125,15 +161,17 @@ data CreateConfigurationProfile = CreateConfigurationProfile'
 --
 -- 'name', 'createConfigurationProfile_name' - A name for the configuration profile.
 --
--- 'locationUri', 'createConfigurationProfile_locationUri' - A URI to locate the configuration. You can specify a Systems Manager
--- (SSM) document, an SSM Parameter Store parameter, or an Amazon S3
--- object. For an SSM document, specify either the document name in the
--- format @ssm-document:\/\/\<Document_name>@ or the Amazon Resource Name
--- (ARN). For a parameter, specify either the parameter name in the format
+-- 'locationUri', 'createConfigurationProfile_locationUri' - A URI to locate the configuration. You can specify the AppConfig hosted
+-- configuration store, Systems Manager (SSM) document, an SSM Parameter
+-- Store parameter, or an Amazon S3 object. For the hosted configuration
+-- store and for feature flags, specify @hosted@. For an SSM document,
+-- specify either the document name in the format
+-- @ssm-document:\/\/\<Document_name>@ or the Amazon Resource Name (ARN).
+-- For a parameter, specify either the parameter name in the format
 -- @ssm-parameter:\/\/\<Parameter_name>@ or the ARN. For an Amazon S3
 -- object, specify the URI in the following format:
 -- @s3:\/\/\<bucket>\/\<objectKey> @. Here is an example:
--- s3:\/\/my-bucket\/my-app\/us-east-1\/my-config.json
+-- @s3:\/\/my-bucket\/my-app\/us-east-1\/my-config.json@
 newCreateConfigurationProfile ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -148,6 +186,7 @@ newCreateConfigurationProfile
   pLocationUri_ =
     CreateConfigurationProfile'
       { tags = Prelude.Nothing,
+        type' = Prelude.Nothing,
         retrievalRoleArn = Prelude.Nothing,
         description = Prelude.Nothing,
         validators = Prelude.Nothing,
@@ -162,8 +201,24 @@ newCreateConfigurationProfile
 createConfigurationProfile_tags :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createConfigurationProfile_tags = Lens.lens (\CreateConfigurationProfile' {tags} -> tags) (\s@CreateConfigurationProfile' {} a -> s {tags = a} :: CreateConfigurationProfile) Prelude.. Lens.mapping Lens.coerced
 
+-- | The type of configurations contained in the profile. AppConfig supports
+-- @feature flags@ and @freeform@ configurations. We recommend you create
+-- feature flag configurations to enable or disable new features and
+-- freeform configurations to distribute configurations to an application.
+-- When calling this API, enter one of the following values for @Type@:
+--
+-- @AWS.AppConfig.FeatureFlags@
+--
+-- @AWS.Freeform@
+createConfigurationProfile_type :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe Prelude.Text)
+createConfigurationProfile_type = Lens.lens (\CreateConfigurationProfile' {type'} -> type') (\s@CreateConfigurationProfile' {} a -> s {type' = a} :: CreateConfigurationProfile)
+
 -- | The ARN of an IAM role with permission to access the configuration at
--- the specified LocationUri.
+-- the specified @LocationUri@.
+--
+-- A retrieval role ARN is not required for configurations stored in the
+-- AppConfig hosted configuration store. It is required for all other
+-- sources that store your configuration.
 createConfigurationProfile_retrievalRoleArn :: Lens.Lens' CreateConfigurationProfile (Prelude.Maybe Prelude.Text)
 createConfigurationProfile_retrievalRoleArn = Lens.lens (\CreateConfigurationProfile' {retrievalRoleArn} -> retrievalRoleArn) (\s@CreateConfigurationProfile' {} a -> s {retrievalRoleArn = a} :: CreateConfigurationProfile)
 
@@ -183,15 +238,17 @@ createConfigurationProfile_applicationId = Lens.lens (\CreateConfigurationProfil
 createConfigurationProfile_name :: Lens.Lens' CreateConfigurationProfile Prelude.Text
 createConfigurationProfile_name = Lens.lens (\CreateConfigurationProfile' {name} -> name) (\s@CreateConfigurationProfile' {} a -> s {name = a} :: CreateConfigurationProfile)
 
--- | A URI to locate the configuration. You can specify a Systems Manager
--- (SSM) document, an SSM Parameter Store parameter, or an Amazon S3
--- object. For an SSM document, specify either the document name in the
--- format @ssm-document:\/\/\<Document_name>@ or the Amazon Resource Name
--- (ARN). For a parameter, specify either the parameter name in the format
+-- | A URI to locate the configuration. You can specify the AppConfig hosted
+-- configuration store, Systems Manager (SSM) document, an SSM Parameter
+-- Store parameter, or an Amazon S3 object. For the hosted configuration
+-- store and for feature flags, specify @hosted@. For an SSM document,
+-- specify either the document name in the format
+-- @ssm-document:\/\/\<Document_name>@ or the Amazon Resource Name (ARN).
+-- For a parameter, specify either the parameter name in the format
 -- @ssm-parameter:\/\/\<Parameter_name>@ or the ARN. For an Amazon S3
 -- object, specify the URI in the following format:
 -- @s3:\/\/\<bucket>\/\<objectKey> @. Here is an example:
--- s3:\/\/my-bucket\/my-app\/us-east-1\/my-config.json
+-- @s3:\/\/my-bucket\/my-app\/us-east-1\/my-config.json@
 createConfigurationProfile_locationUri :: Lens.Lens' CreateConfigurationProfile Prelude.Text
 createConfigurationProfile_locationUri = Lens.lens (\CreateConfigurationProfile' {locationUri} -> locationUri) (\s@CreateConfigurationProfile' {} a -> s {locationUri = a} :: CreateConfigurationProfile)
 
@@ -207,6 +264,7 @@ instance Core.AWSRequest CreateConfigurationProfile where
 instance Prelude.Hashable CreateConfigurationProfile where
   hashWithSalt _salt CreateConfigurationProfile' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` retrievalRoleArn
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` validators
@@ -217,6 +275,7 @@ instance Prelude.Hashable CreateConfigurationProfile where
 instance Prelude.NFData CreateConfigurationProfile where
   rnf CreateConfigurationProfile' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf retrievalRoleArn
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf validators
@@ -240,6 +299,7 @@ instance Core.ToJSON CreateConfigurationProfile where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Type" Core..=) Prelude.<$> type',
             ("RetrievalRoleArn" Core..=)
               Prelude.<$> retrievalRoleArn,
             ("Description" Core..=) Prelude.<$> description,

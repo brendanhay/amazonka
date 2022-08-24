@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List deployment strategies.
+-- Lists deployment strategies.
 module Amazonka.AppConfig.ListDeploymentStrategies
   ( -- * Creating a Request
     ListDeploymentStrategies (..),

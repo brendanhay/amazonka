@@ -28,6 +28,7 @@ module Amazonka.AppConfig.ListConfigurationProfiles
 
     -- * Request Lenses
     listConfigurationProfiles_nextToken,
+    listConfigurationProfiles_type,
     listConfigurationProfiles_maxResults,
     listConfigurationProfiles_applicationId,
 
@@ -54,6 +55,10 @@ data ListConfigurationProfiles = ListConfigurationProfiles'
   { -- | A token to start the list. Use this token to get the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A filter based on the type of configurations that the configuration
+    -- profile contains. A configuration can be a feature flag or a freeform
+    -- configuration.
+    type' :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
@@ -74,6 +79,10 @@ data ListConfigurationProfiles = ListConfigurationProfiles'
 -- 'nextToken', 'listConfigurationProfiles_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
 --
+-- 'type'', 'listConfigurationProfiles_type' - A filter based on the type of configurations that the configuration
+-- profile contains. A configuration can be a feature flag or a freeform
+-- configuration.
+--
 -- 'maxResults', 'listConfigurationProfiles_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
@@ -87,6 +96,7 @@ newListConfigurationProfiles pApplicationId_ =
   ListConfigurationProfiles'
     { nextToken =
         Prelude.Nothing,
+      type' = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       applicationId = pApplicationId_
     }
@@ -95,6 +105,12 @@ newListConfigurationProfiles pApplicationId_ =
 -- results.
 listConfigurationProfiles_nextToken :: Lens.Lens' ListConfigurationProfiles (Prelude.Maybe Prelude.Text)
 listConfigurationProfiles_nextToken = Lens.lens (\ListConfigurationProfiles' {nextToken} -> nextToken) (\s@ListConfigurationProfiles' {} a -> s {nextToken = a} :: ListConfigurationProfiles)
+
+-- | A filter based on the type of configurations that the configuration
+-- profile contains. A configuration can be a feature flag or a freeform
+-- configuration.
+listConfigurationProfiles_type :: Lens.Lens' ListConfigurationProfiles (Prelude.Maybe Prelude.Text)
+listConfigurationProfiles_type = Lens.lens (\ListConfigurationProfiles' {type'} -> type') (\s@ListConfigurationProfiles' {} a -> s {type' = a} :: ListConfigurationProfiles)
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -123,12 +139,14 @@ instance Core.AWSRequest ListConfigurationProfiles where
 instance Prelude.Hashable ListConfigurationProfiles where
   hashWithSalt _salt ListConfigurationProfiles' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` applicationId
 
 instance Prelude.NFData ListConfigurationProfiles where
   rnf ListConfigurationProfiles' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf applicationId
 
@@ -155,6 +173,7 @@ instance Core.ToQuery ListConfigurationProfiles where
   toQuery ListConfigurationProfiles' {..} =
     Prelude.mconcat
       [ "next_token" Core.=: nextToken,
+        "type" Core.=: type',
         "max_results" Core.=: maxResults
       ]
 

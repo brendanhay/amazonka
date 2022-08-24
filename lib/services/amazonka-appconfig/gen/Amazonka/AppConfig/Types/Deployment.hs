@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Amazonka.AppConfig.Types.Deployment where
 
+import Amazonka.AppConfig.Types.AppliedExtension
 import Amazonka.AppConfig.Types.DeploymentEvent
 import Amazonka.AppConfig.Types.DeploymentState
 import Amazonka.AppConfig.Types.GrowthType
@@ -40,9 +41,9 @@ data Deployment = Deployment'
     deploymentNumber :: Prelude.Maybe Prelude.Int,
     -- | The description of the deployment.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The amount of time AppConfig monitored for alarms before considering the
-    -- deployment to be complete and no longer eligible for automatic roll
-    -- back.
+    -- | The amount of time that AppConfig monitored for alarms before
+    -- considering the deployment to be complete and no longer eligible for
+    -- automatic rollback.
     finalBakeTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The time the deployment started.
     startedAt :: Prelude.Maybe Core.POSIX,
@@ -51,6 +52,10 @@ data Deployment = Deployment'
     -- | The percentage of targets to receive a deployed configuration during
     -- each interval.
     growthFactor :: Prelude.Maybe Prelude.Double,
+    -- | A list of extensions that were processed as part of the deployment. The
+    -- extensions that were previously associated to the configuration profile,
+    -- environment, or the application when @StartDeployment@ was called.
+    appliedExtensions :: Prelude.Maybe [AppliedExtension],
     -- | A list containing all events related to a deployment. The most recent
     -- events are displayed first.
     eventLog :: Prelude.Maybe [DeploymentEvent],
@@ -91,9 +96,9 @@ data Deployment = Deployment'
 --
 -- 'description', 'deployment_description' - The description of the deployment.
 --
--- 'finalBakeTimeInMinutes', 'deployment_finalBakeTimeInMinutes' - The amount of time AppConfig monitored for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
+-- 'finalBakeTimeInMinutes', 'deployment_finalBakeTimeInMinutes' - The amount of time that AppConfig monitored for alarms before
+-- considering the deployment to be complete and no longer eligible for
+-- automatic rollback.
 --
 -- 'startedAt', 'deployment_startedAt' - The time the deployment started.
 --
@@ -101,6 +106,10 @@ data Deployment = Deployment'
 --
 -- 'growthFactor', 'deployment_growthFactor' - The percentage of targets to receive a deployed configuration during
 -- each interval.
+--
+-- 'appliedExtensions', 'deployment_appliedExtensions' - A list of extensions that were processed as part of the deployment. The
+-- extensions that were previously associated to the configuration profile,
+-- environment, or the application when @StartDeployment@ was called.
 --
 -- 'eventLog', 'deployment_eventLog' - A list containing all events related to a deployment. The most recent
 -- events are displayed first.
@@ -132,6 +141,7 @@ newDeployment =
       startedAt = Prelude.Nothing,
       configurationName = Prelude.Nothing,
       growthFactor = Prelude.Nothing,
+      appliedExtensions = Prelude.Nothing,
       eventLog = Prelude.Nothing,
       configurationVersion = Prelude.Nothing,
       environmentId = Prelude.Nothing,
@@ -166,9 +176,9 @@ deployment_deploymentNumber = Lens.lens (\Deployment' {deploymentNumber} -> depl
 deployment_description :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Text)
 deployment_description = Lens.lens (\Deployment' {description} -> description) (\s@Deployment' {} a -> s {description = a} :: Deployment)
 
--- | The amount of time AppConfig monitored for alarms before considering the
--- deployment to be complete and no longer eligible for automatic roll
--- back.
+-- | The amount of time that AppConfig monitored for alarms before
+-- considering the deployment to be complete and no longer eligible for
+-- automatic rollback.
 deployment_finalBakeTimeInMinutes :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Natural)
 deployment_finalBakeTimeInMinutes = Lens.lens (\Deployment' {finalBakeTimeInMinutes} -> finalBakeTimeInMinutes) (\s@Deployment' {} a -> s {finalBakeTimeInMinutes = a} :: Deployment)
 
@@ -184,6 +194,12 @@ deployment_configurationName = Lens.lens (\Deployment' {configurationName} -> co
 -- each interval.
 deployment_growthFactor :: Lens.Lens' Deployment (Prelude.Maybe Prelude.Double)
 deployment_growthFactor = Lens.lens (\Deployment' {growthFactor} -> growthFactor) (\s@Deployment' {} a -> s {growthFactor = a} :: Deployment)
+
+-- | A list of extensions that were processed as part of the deployment. The
+-- extensions that were previously associated to the configuration profile,
+-- environment, or the application when @StartDeployment@ was called.
+deployment_appliedExtensions :: Lens.Lens' Deployment (Prelude.Maybe [AppliedExtension])
+deployment_appliedExtensions = Lens.lens (\Deployment' {appliedExtensions} -> appliedExtensions) (\s@Deployment' {} a -> s {appliedExtensions = a} :: Deployment) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list containing all events related to a deployment. The most recent
 -- events are displayed first.
@@ -234,6 +250,9 @@ instance Core.FromJSON Deployment where
             Prelude.<*> (x Core..:? "StartedAt")
             Prelude.<*> (x Core..:? "ConfigurationName")
             Prelude.<*> (x Core..:? "GrowthFactor")
+            Prelude.<*> ( x Core..:? "AppliedExtensions"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "EventLog" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ConfigurationVersion")
             Prelude.<*> (x Core..:? "EnvironmentId")
@@ -256,6 +275,7 @@ instance Prelude.Hashable Deployment where
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` configurationName
       `Prelude.hashWithSalt` growthFactor
+      `Prelude.hashWithSalt` appliedExtensions
       `Prelude.hashWithSalt` eventLog
       `Prelude.hashWithSalt` configurationVersion
       `Prelude.hashWithSalt` environmentId
@@ -277,6 +297,7 @@ instance Prelude.NFData Deployment where
       `Prelude.seq` Prelude.rnf startedAt
       `Prelude.seq` Prelude.rnf configurationName
       `Prelude.seq` Prelude.rnf growthFactor
+      `Prelude.seq` Prelude.rnf appliedExtensions
       `Prelude.seq` Prelude.rnf eventLog
       `Prelude.seq` Prelude.rnf configurationVersion
       `Prelude.seq` Prelude.rnf environmentId
@@ -284,4 +305,5 @@ instance Prelude.NFData Deployment where
       `Prelude.seq` Prelude.rnf configurationLocationUri
       `Prelude.seq` Prelude.rnf applicationId
       `Prelude.seq` Prelude.rnf completedAt
-      `Prelude.seq` Prelude.rnf configurationProfileId
+      `Prelude.seq` Prelude.rnf
+        configurationProfileId

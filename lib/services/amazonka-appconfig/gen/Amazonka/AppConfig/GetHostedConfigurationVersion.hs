@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get information about a specific configuration version.
+-- Retrieves information about a specific configuration version.
 module Amazonka.AppConfig.GetHostedConfigurationVersion
   ( -- * Creating a Request
     GetHostedConfigurationVersion (..),

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete an environment. Deleting an environment does not delete a
+-- Deletes an environment. Deleting an environment does not delete a
 -- configuration from a host.
 module Amazonka.AppConfig.DeleteEnvironment
   ( -- * Creating a Request
@@ -46,9 +46,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteEnvironment' smart constructor.
 data DeleteEnvironment = DeleteEnvironment'
-  { -- | The application ID that includes the environment you want to delete.
+  { -- | The application ID that includes the environment that you want to
+    -- delete.
     applicationId :: Prelude.Text,
-    -- | The ID of the environment you want to delete.
+    -- | The ID of the environment that you want to delete.
     environmentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,9 +62,10 @@ data DeleteEnvironment = DeleteEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'applicationId', 'deleteEnvironment_applicationId' - The application ID that includes the environment you want to delete.
+-- 'applicationId', 'deleteEnvironment_applicationId' - The application ID that includes the environment that you want to
+-- delete.
 --
--- 'environmentId', 'deleteEnvironment_environmentId' - The ID of the environment you want to delete.
+-- 'environmentId', 'deleteEnvironment_environmentId' - The ID of the environment that you want to delete.
 newDeleteEnvironment ::
   -- | 'applicationId'
   Prelude.Text ->
@@ -76,11 +78,12 @@ newDeleteEnvironment pApplicationId_ pEnvironmentId_ =
       environmentId = pEnvironmentId_
     }
 
--- | The application ID that includes the environment you want to delete.
+-- | The application ID that includes the environment that you want to
+-- delete.
 deleteEnvironment_applicationId :: Lens.Lens' DeleteEnvironment Prelude.Text
 deleteEnvironment_applicationId = Lens.lens (\DeleteEnvironment' {applicationId} -> applicationId) (\s@DeleteEnvironment' {} a -> s {applicationId = a} :: DeleteEnvironment)
 
--- | The ID of the environment you want to delete.
+-- | The ID of the environment that you want to delete.
 deleteEnvironment_environmentId :: Lens.Lens' DeleteEnvironment Prelude.Text
 deleteEnvironment_environmentId = Lens.lens (\DeleteEnvironment' {environmentId} -> environmentId) (\s@DeleteEnvironment' {} a -> s {environmentId = a} :: DeleteEnvironment)
 

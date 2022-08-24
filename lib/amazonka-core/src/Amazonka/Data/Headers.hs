@@ -20,6 +20,7 @@ import qualified Data.ByteString as BS
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as HashMap
+import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
 import Network.HTTP.Types (Header, HeaderName, ResponseHeaders)
 import qualified Network.HTTP.Types as HTTP
@@ -73,6 +74,11 @@ instance ToHeader ByteString where
 
 instance ToText a => ToHeader (Maybe a) where
   toHeader k = maybe [] (toHeader k . toText)
+
+instance ToText a => ToHeader [a] where
+  toHeader k vs = case vs of
+    [] -> []
+    _ -> toHeader k . Text.intercalate "," $ map toText vs
 
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
   toHeader p = map (bimap k v) . HashMap.toList

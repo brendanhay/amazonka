@@ -14,7 +14,7 @@ exports_files(glob(["**/*.json"]))
 """,
     strip_prefix = "botocore-{version}/botocore/data",
     url = "https://github.com/boto/botocore/archive/{version}.tar.gz",
-    version = "f759d4eb138a5b969c23f586c6238d9e7c20cba0",
+    version = "ccb5ef9ac0dcb3fd8b9223dabdc7d7f857294bb7",
 )
 
 #

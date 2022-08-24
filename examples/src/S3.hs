@@ -134,5 +134,22 @@ tagBucket r bkt xs = do
     forM_ ts $ \t ->
       say $ "Found Tag: " <> kv t
 
+getObjectAttributes ::
+  Region ->
+  BucketName ->
+  ObjectKey ->
+  IO GetObjectAttributesResponse
+getObjectAttributes r b k = do
+  lgr <- newLogger Trace stdout
+  env <- newEnv discover <&> set #envLogger lgr . within r
+  let req =
+        newGetObjectAttributes b k
+          & #objectAttributes
+            .~ [ ObjectAttributes_ETag,
+                 ObjectAttributes_ObjectParts,
+                 ObjectAttributes_StorageClass
+               ]
+  runResourceT $ send env req
+
 say :: MonadIO m => Text -> m ()
 say = liftIO . Text.putStrLn

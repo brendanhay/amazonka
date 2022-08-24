@@ -282,7 +282,7 @@ import Data.Monoid (Dual (..), Endo (..))
 -- configuration when sending 'PutItem', 'Query' and all other operations.
 --
 -- You can modify a specific 'Service''s default configuration by using
--- 'configure' or 'reconfigure'. To modify all configurations simultaneously, see 'override'.
+-- 'configure'. To modify all configurations simultaneously, see 'override'.
 --
 -- An example of how you might alter default configuration using these mechanisms
 -- is demonstrated below. Firstly, the default 'dynamoDB' service is configured to
@@ -290,7 +290,7 @@ import Data.Monoid (Dual (..), Endo (..))
 --
 --
 -- > import qualified Amazonka as AWS
--- > import qualified Amazonka.DynamoDB as Dynamo
+-- > import qualified Amazonka.DynamoDB as DynamoDB
 -- >
 -- > let dynamo :: AWS.Service
 -- >     dynamo = AWS.setEndpoint False "localhost" 8000 DynamoDB.defaultService

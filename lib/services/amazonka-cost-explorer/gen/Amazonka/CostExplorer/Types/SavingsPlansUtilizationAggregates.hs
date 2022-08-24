@@ -33,9 +33,10 @@ data SavingsPlansUtilizationAggregates = SavingsPlansUtilizationAggregates'
   { -- | The total amortized commitment for a Savings Plans. This includes the
     -- sum of the upfront and recurring Savings Plans fees.
     amortizedCommitment :: Prelude.Maybe SavingsPlansAmortizedCommitment,
-    -- | The amount saved by using existing Savings Plans. Savings returns both
-    -- net savings from Savings Plans, as well as the @onDemandCostEquivalent@
-    -- of the Savings Plans when considering the utilization rate.
+    -- | The amount that\'s saved by using existing Savings Plans. Savings
+    -- returns both net savings from Savings Plans and also the
+    -- @onDemandCostEquivalent@ of the Savings Plans when considering the
+    -- utilization rate.
     savings :: Prelude.Maybe SavingsPlansSavings,
     -- | A ratio of your effectiveness of using existing Savings Plans to apply
     -- to workloads that are Savings Plans eligible.
@@ -54,9 +55,10 @@ data SavingsPlansUtilizationAggregates = SavingsPlansUtilizationAggregates'
 -- 'amortizedCommitment', 'savingsPlansUtilizationAggregates_amortizedCommitment' - The total amortized commitment for a Savings Plans. This includes the
 -- sum of the upfront and recurring Savings Plans fees.
 --
--- 'savings', 'savingsPlansUtilizationAggregates_savings' - The amount saved by using existing Savings Plans. Savings returns both
--- net savings from Savings Plans, as well as the @onDemandCostEquivalent@
--- of the Savings Plans when considering the utilization rate.
+-- 'savings', 'savingsPlansUtilizationAggregates_savings' - The amount that\'s saved by using existing Savings Plans. Savings
+-- returns both net savings from Savings Plans and also the
+-- @onDemandCostEquivalent@ of the Savings Plans when considering the
+-- utilization rate.
 --
 -- 'utilization', 'savingsPlansUtilizationAggregates_utilization' - A ratio of your effectiveness of using existing Savings Plans to apply
 -- to workloads that are Savings Plans eligible.
@@ -77,9 +79,10 @@ newSavingsPlansUtilizationAggregates pUtilization_ =
 savingsPlansUtilizationAggregates_amortizedCommitment :: Lens.Lens' SavingsPlansUtilizationAggregates (Prelude.Maybe SavingsPlansAmortizedCommitment)
 savingsPlansUtilizationAggregates_amortizedCommitment = Lens.lens (\SavingsPlansUtilizationAggregates' {amortizedCommitment} -> amortizedCommitment) (\s@SavingsPlansUtilizationAggregates' {} a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationAggregates)
 
--- | The amount saved by using existing Savings Plans. Savings returns both
--- net savings from Savings Plans, as well as the @onDemandCostEquivalent@
--- of the Savings Plans when considering the utilization rate.
+-- | The amount that\'s saved by using existing Savings Plans. Savings
+-- returns both net savings from Savings Plans and also the
+-- @onDemandCostEquivalent@ of the Savings Plans when considering the
+-- utilization rate.
 savingsPlansUtilizationAggregates_savings :: Lens.Lens' SavingsPlansUtilizationAggregates (Prelude.Maybe SavingsPlansSavings)
 savingsPlansUtilizationAggregates_savings = Lens.lens (\SavingsPlansUtilizationAggregates' {savings} -> savings) (\s@SavingsPlansUtilizationAggregates' {} a -> s {savings = a} :: SavingsPlansUtilizationAggregates)
 

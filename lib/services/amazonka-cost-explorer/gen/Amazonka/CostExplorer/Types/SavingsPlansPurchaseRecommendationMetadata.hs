@@ -31,7 +31,7 @@ data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommenda
     recommendationId :: Prelude.Maybe Prelude.Text,
     -- | Additional metadata that might be applicable to the recommendation.
     additionalMetadata :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp showing when the recommendations were generated.
+    -- | The timestamp that shows when the recommendations were generated.
     generationTimestamp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +48,7 @@ data SavingsPlansPurchaseRecommendationMetadata = SavingsPlansPurchaseRecommenda
 --
 -- 'additionalMetadata', 'savingsPlansPurchaseRecommendationMetadata_additionalMetadata' - Additional metadata that might be applicable to the recommendation.
 --
--- 'generationTimestamp', 'savingsPlansPurchaseRecommendationMetadata_generationTimestamp' - The timestamp showing when the recommendations were generated.
+-- 'generationTimestamp', 'savingsPlansPurchaseRecommendationMetadata_generationTimestamp' - The timestamp that shows when the recommendations were generated.
 newSavingsPlansPurchaseRecommendationMetadata ::
   SavingsPlansPurchaseRecommendationMetadata
 newSavingsPlansPurchaseRecommendationMetadata =
@@ -69,7 +69,7 @@ savingsPlansPurchaseRecommendationMetadata_recommendationId = Lens.lens (\Saving
 savingsPlansPurchaseRecommendationMetadata_additionalMetadata :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationMetadata_additionalMetadata = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {additionalMetadata} -> additionalMetadata) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {additionalMetadata = a} :: SavingsPlansPurchaseRecommendationMetadata)
 
--- | The timestamp showing when the recommendations were generated.
+-- | The timestamp that shows when the recommendations were generated.
 savingsPlansPurchaseRecommendationMetadata_generationTimestamp :: Lens.Lens' SavingsPlansPurchaseRecommendationMetadata (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationMetadata_generationTimestamp = Lens.lens (\SavingsPlansPurchaseRecommendationMetadata' {generationTimestamp} -> generationTimestamp) (\s@SavingsPlansPurchaseRecommendationMetadata' {} a -> s {generationTimestamp = a} :: SavingsPlansPurchaseRecommendationMetadata)
 

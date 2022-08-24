@@ -136,8 +136,7 @@ instance Core.ToQuery DeleteCostCategoryDefinition where
 -- | /See:/ 'newDeleteCostCategoryDefinitionResponse' smart constructor.
 data DeleteCostCategoryDefinitionResponse = DeleteCostCategoryDefinitionResponse'
   { -- | The effective end date of the Cost Category as a result of deleting it.
-    -- No costs after this date will be categorized by the deleted Cost
-    -- Category.
+    -- No costs after this date is categorized by the deleted Cost Category.
     effectiveEnd :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for your Cost Category.
     costCategoryArn :: Prelude.Maybe Prelude.Text,
@@ -155,8 +154,7 @@ data DeleteCostCategoryDefinitionResponse = DeleteCostCategoryDefinitionResponse
 -- for backwards compatibility:
 --
 -- 'effectiveEnd', 'deleteCostCategoryDefinitionResponse_effectiveEnd' - The effective end date of the Cost Category as a result of deleting it.
--- No costs after this date will be categorized by the deleted Cost
--- Category.
+-- No costs after this date is categorized by the deleted Cost Category.
 --
 -- 'costCategoryArn', 'deleteCostCategoryDefinitionResponse_costCategoryArn' - The unique identifier for your Cost Category.
 --
@@ -174,8 +172,7 @@ newDeleteCostCategoryDefinitionResponse pHttpStatus_ =
     }
 
 -- | The effective end date of the Cost Category as a result of deleting it.
--- No costs after this date will be categorized by the deleted Cost
--- Category.
+-- No costs after this date is categorized by the deleted Cost Category.
 deleteCostCategoryDefinitionResponse_effectiveEnd :: Lens.Lens' DeleteCostCategoryDefinitionResponse (Prelude.Maybe Prelude.Text)
 deleteCostCategoryDefinitionResponse_effectiveEnd = Lens.lens (\DeleteCostCategoryDefinitionResponse' {effectiveEnd} -> effectiveEnd) (\s@DeleteCostCategoryDefinitionResponse' {} a -> s {effectiveEnd = a} :: DeleteCostCategoryDefinitionResponse)
 

@@ -23,15 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The combination of Amazon Web Services service, linked account, Region,
--- and usage type where a cost anomaly is observed.
+-- | The combination of Amazon Web Service, linked account, Region, and usage
+-- type where a cost anomaly is observed.
 --
 -- /See:/ 'newRootCause' smart constructor.
 data RootCause = RootCause'
   { -- | The @UsageType@ value that\'s associated with the cost anomaly.
     usageType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Web Services service name that\'s associated with the cost
-    -- anomaly.
+    -- | The Amazon Web Service name that\'s associated with the cost anomaly.
     service :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Region that\'s associated with the cost anomaly.
     region :: Prelude.Maybe Prelude.Text,
@@ -50,8 +49,7 @@ data RootCause = RootCause'
 --
 -- 'usageType', 'rootCause_usageType' - The @UsageType@ value that\'s associated with the cost anomaly.
 --
--- 'service', 'rootCause_service' - The Amazon Web Services service name that\'s associated with the cost
--- anomaly.
+-- 'service', 'rootCause_service' - The Amazon Web Service name that\'s associated with the cost anomaly.
 --
 -- 'region', 'rootCause_region' - The Amazon Web Services Region that\'s associated with the cost anomaly.
 --
@@ -70,8 +68,7 @@ newRootCause =
 rootCause_usageType :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
 rootCause_usageType = Lens.lens (\RootCause' {usageType} -> usageType) (\s@RootCause' {} a -> s {usageType = a} :: RootCause)
 
--- | The Amazon Web Services service name that\'s associated with the cost
--- anomaly.
+-- | The Amazon Web Service name that\'s associated with the cost anomaly.
 rootCause_service :: Lens.Lens' RootCause (Prelude.Maybe Prelude.Text)
 rootCause_service = Lens.lens (\RootCause' {service} -> service) (\s@RootCause' {} a -> s {service = a} :: RootCause)
 

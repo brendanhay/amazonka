@@ -24,11 +24,11 @@ import Amazonka.CostExplorer.Types.EC2ResourceDetails
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Details on the resource.
+-- | Details for the resource.
 --
 -- /See:/ 'newResourceDetails' smart constructor.
 data ResourceDetails = ResourceDetails'
-  { -- | Details on the Amazon EC2 resource.
+  { -- | Details for the Amazon EC2 resource.
     eC2ResourceDetails :: Prelude.Maybe EC2ResourceDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data ResourceDetails = ResourceDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eC2ResourceDetails', 'resourceDetails_eC2ResourceDetails' - Details on the Amazon EC2 resource.
+-- 'eC2ResourceDetails', 'resourceDetails_eC2ResourceDetails' - Details for the Amazon EC2 resource.
 newResourceDetails ::
   ResourceDetails
 newResourceDetails =
@@ -50,7 +50,7 @@ newResourceDetails =
         Prelude.Nothing
     }
 
--- | Details on the Amazon EC2 resource.
+-- | Details for the Amazon EC2 resource.
 resourceDetails_eC2ResourceDetails :: Lens.Lens' ResourceDetails (Prelude.Maybe EC2ResourceDetails)
 resourceDetails_eC2ResourceDetails = Lens.lens (\ResourceDetails' {eC2ResourceDetails} -> eC2ResourceDetails) (\s@ResourceDetails' {} a -> s {eC2ResourceDetails = a} :: ResourceDetails)
 

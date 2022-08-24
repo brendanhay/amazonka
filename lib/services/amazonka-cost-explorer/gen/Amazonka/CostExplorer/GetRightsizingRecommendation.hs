@@ -24,8 +24,8 @@
 -- underutilized Amazon EC2 instances.
 --
 -- Recommendations are generated to either downsize or terminate instances,
--- along with providing savings detail and metrics. For details on
--- calculation and function, see
+-- along with providing savings detail and metrics. For more information
+-- about calculation and function, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html Optimizing Your Cost with Rightsizing Recommendations>
 -- in the /Billing and Cost Management User Guide/.
 module Amazonka.CostExplorer.GetRightsizingRecommendation
@@ -66,11 +66,12 @@ data GetRightsizingRecommendation = GetRightsizingRecommendation'
   { -- | The pagination token that indicates the next set of results that you
     -- want to retrieve.
     nextPageToken :: Prelude.Maybe Prelude.Text,
-    -- | Enables you to customize recommendations across two attributes. You can
-    -- choose to view recommendations for instances within the same instance
-    -- families or across different instance families. You can also choose to
-    -- view your estimated savings associated with recommendations with
-    -- consideration of existing Savings Plans or RI benefits, or neither.
+    -- | You can use Configuration to customize recommendations across two
+    -- attributes. You can choose to view recommendations for instances within
+    -- the same instance families or across different instance families. You
+    -- can also choose to view your estimated savings that are associated with
+    -- recommendations with consideration of existing Savings Plans or RI
+    -- benefits, or neither.
     configuration :: Prelude.Maybe RightsizingRecommendationConfiguration,
     filter' :: Prelude.Maybe Expression,
     -- | The number of recommendations that you want returned in a single
@@ -93,11 +94,12 @@ data GetRightsizingRecommendation = GetRightsizingRecommendation'
 -- 'nextPageToken', 'getRightsizingRecommendation_nextPageToken' - The pagination token that indicates the next set of results that you
 -- want to retrieve.
 --
--- 'configuration', 'getRightsizingRecommendation_configuration' - Enables you to customize recommendations across two attributes. You can
--- choose to view recommendations for instances within the same instance
--- families or across different instance families. You can also choose to
--- view your estimated savings associated with recommendations with
--- consideration of existing Savings Plans or RI benefits, or neither.
+-- 'configuration', 'getRightsizingRecommendation_configuration' - You can use Configuration to customize recommendations across two
+-- attributes. You can choose to view recommendations for instances within
+-- the same instance families or across different instance families. You
+-- can also choose to view your estimated savings that are associated with
+-- recommendations with consideration of existing Savings Plans or RI
+-- benefits, or neither.
 --
 -- 'filter'', 'getRightsizingRecommendation_filter' - Undocumented member.
 --
@@ -125,11 +127,12 @@ newGetRightsizingRecommendation pService_ =
 getRightsizingRecommendation_nextPageToken :: Lens.Lens' GetRightsizingRecommendation (Prelude.Maybe Prelude.Text)
 getRightsizingRecommendation_nextPageToken = Lens.lens (\GetRightsizingRecommendation' {nextPageToken} -> nextPageToken) (\s@GetRightsizingRecommendation' {} a -> s {nextPageToken = a} :: GetRightsizingRecommendation)
 
--- | Enables you to customize recommendations across two attributes. You can
--- choose to view recommendations for instances within the same instance
--- families or across different instance families. You can also choose to
--- view your estimated savings associated with recommendations with
--- consideration of existing Savings Plans or RI benefits, or neither.
+-- | You can use Configuration to customize recommendations across two
+-- attributes. You can choose to view recommendations for instances within
+-- the same instance families or across different instance families. You
+-- can also choose to view your estimated savings that are associated with
+-- recommendations with consideration of existing Savings Plans or RI
+-- benefits, or neither.
 getRightsizingRecommendation_configuration :: Lens.Lens' GetRightsizingRecommendation (Prelude.Maybe RightsizingRecommendationConfiguration)
 getRightsizingRecommendation_configuration = Lens.lens (\GetRightsizingRecommendation' {configuration} -> configuration) (\s@GetRightsizingRecommendation' {} a -> s {configuration = a} :: GetRightsizingRecommendation)
 
@@ -224,11 +227,12 @@ data GetRightsizingRecommendationResponse = GetRightsizingRecommendationResponse
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Information regarding this specific recommendation set.
     metadata :: Prelude.Maybe RightsizingRecommendationMetadata,
-    -- | Enables you to customize recommendations across two attributes. You can
-    -- choose to view recommendations for instances within the same instance
-    -- families or across different instance families. You can also choose to
-    -- view your estimated savings associated with recommendations with
-    -- consideration of existing Savings Plans or RI benefits, or neither.
+    -- | You can use Configuration to customize recommendations across two
+    -- attributes. You can choose to view recommendations for instances within
+    -- the same instance families or across different instance families. You
+    -- can also choose to view your estimated savings that are associated with
+    -- recommendations with consideration of existing Savings Plans or RI
+    -- benefits, or neither.
     configuration :: Prelude.Maybe RightsizingRecommendationConfiguration,
     -- | Summary of this recommendation set.
     summary :: Prelude.Maybe RightsizingRecommendationSummary,
@@ -251,11 +255,12 @@ data GetRightsizingRecommendationResponse = GetRightsizingRecommendationResponse
 --
 -- 'metadata', 'getRightsizingRecommendationResponse_metadata' - Information regarding this specific recommendation set.
 --
--- 'configuration', 'getRightsizingRecommendationResponse_configuration' - Enables you to customize recommendations across two attributes. You can
--- choose to view recommendations for instances within the same instance
--- families or across different instance families. You can also choose to
--- view your estimated savings associated with recommendations with
--- consideration of existing Savings Plans or RI benefits, or neither.
+-- 'configuration', 'getRightsizingRecommendationResponse_configuration' - You can use Configuration to customize recommendations across two
+-- attributes. You can choose to view recommendations for instances within
+-- the same instance families or across different instance families. You
+-- can also choose to view your estimated savings that are associated with
+-- recommendations with consideration of existing Savings Plans or RI
+-- benefits, or neither.
 --
 -- 'summary', 'getRightsizingRecommendationResponse_summary' - Summary of this recommendation set.
 --
@@ -286,11 +291,12 @@ getRightsizingRecommendationResponse_nextPageToken = Lens.lens (\GetRightsizingR
 getRightsizingRecommendationResponse_metadata :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe RightsizingRecommendationMetadata)
 getRightsizingRecommendationResponse_metadata = Lens.lens (\GetRightsizingRecommendationResponse' {metadata} -> metadata) (\s@GetRightsizingRecommendationResponse' {} a -> s {metadata = a} :: GetRightsizingRecommendationResponse)
 
--- | Enables you to customize recommendations across two attributes. You can
--- choose to view recommendations for instances within the same instance
--- families or across different instance families. You can also choose to
--- view your estimated savings associated with recommendations with
--- consideration of existing Savings Plans or RI benefits, or neither.
+-- | You can use Configuration to customize recommendations across two
+-- attributes. You can choose to view recommendations for instances within
+-- the same instance families or across different instance families. You
+-- can also choose to view your estimated savings that are associated with
+-- recommendations with consideration of existing Savings Plans or RI
+-- benefits, or neither.
 getRightsizingRecommendationResponse_configuration :: Lens.Lens' GetRightsizingRecommendationResponse (Prelude.Maybe RightsizingRecommendationConfiguration)
 getRightsizingRecommendationResponse_configuration = Lens.lens (\GetRightsizingRecommendationResponse' {configuration} -> configuration) (\s@GetRightsizingRecommendationResponse' {} a -> s {configuration = a} :: GetRightsizingRecommendationResponse)
 

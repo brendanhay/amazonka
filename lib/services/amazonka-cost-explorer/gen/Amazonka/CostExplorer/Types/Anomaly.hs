@@ -32,8 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newAnomaly' smart constructor.
 data Anomaly = Anomaly'
-  { -- | The dimension for the anomaly (for example, an Amazon Web Services
-    -- service in a service monitor).
+  { -- | The dimension for the anomaly (for example, an Amazon Web Service in a
+    -- service monitor).
     dimensionValue :: Prelude.Maybe Prelude.Text,
     -- | The last day the anomaly is detected.
     anomalyEndDate :: Prelude.Maybe Prelude.Text,
@@ -63,8 +63,8 @@ data Anomaly = Anomaly'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dimensionValue', 'anomaly_dimensionValue' - The dimension for the anomaly (for example, an Amazon Web Services
--- service in a service monitor).
+-- 'dimensionValue', 'anomaly_dimensionValue' - The dimension for the anomaly (for example, an Amazon Web Service in a
+-- service monitor).
 --
 -- 'anomalyEndDate', 'anomaly_anomalyEndDate' - The last day the anomaly is detected.
 --
@@ -109,8 +109,8 @@ newAnomaly
         monitorArn = pMonitorArn_
       }
 
--- | The dimension for the anomaly (for example, an Amazon Web Services
--- service in a service monitor).
+-- | The dimension for the anomaly (for example, an Amazon Web Service in a
+-- service monitor).
 anomaly_dimensionValue :: Lens.Lens' Anomaly (Prelude.Maybe Prelude.Text)
 anomaly_dimensionValue = Lens.lens (\Anomaly' {dimensionValue} -> dimensionValue) (\s@Anomaly' {} a -> s {dimensionValue = a} :: Anomaly)
 

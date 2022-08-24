@@ -76,11 +76,38 @@ data GetDimensionValues = GetDimensionValues'
     --
     -- -   AZ - The Availability Zone. An example is @us-east-1a@.
     --
+    -- -   BILLING_ENTITY - The Amazon Web Services seller that your account is
+    --     with. Possible values are the following:
+    --
+    --     - Amazon Web Services(Amazon Web Services): The entity that sells
+    --     Amazon Web Services.
+    --
+    --     - AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian
+    --     entity that\'s an acting reseller for Amazon Web Services in India.
+    --
+    --     - Amazon Web Services Marketplace: The entity that supports the sale
+    --     of solutions that are built on Amazon Web Services by third-party
+    --     software providers.
+    --
+    -- -   CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are
+    --     Windows or Linux.
+    --
+    -- -   DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service
+    --     deployments. Valid values are @SingleAZ@ and @MultiAZ@.
+    --
     -- -   DATABASE_ENGINE - The Amazon Relational Database Service database.
     --     Examples are Aurora or MySQL.
     --
     -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
     --     @m4.xlarge@.
+    --
+    -- -   INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit
+    --     different use cases. Examples are @Compute Optimized@ (for example,
+    --     @C4@, @C5@, @C6g@, and @C7g@), @Memory Optimization@ (for example,
+    --     @R4@, @R5n@, @R5b@, and @R6g@).
+    --
+    -- -   INVOICING_ENTITY - The name of the entity that issues the Amazon Web
+    --     Services invoice.
     --
     -- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
     --     Amazon Web Services services, such as Amazon Web Services.
@@ -98,11 +125,22 @@ data GetDimensionValues = GetDimensionValues'
     -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
     --     Linux.
     --
-    -- -   PURCHASE_TYPE - The reservation type of the purchase to which this
-    --     usage is related. Examples include On-Demand Instances and Standard
+    -- -   PURCHASE_TYPE - The reservation type of the purchase that this usage
+    --     is related to. Examples include On-Demand Instances and Standard
     --     Reserved Instances.
     --
+    -- -   RESERVATION_ID - The unique identifier for an Amazon Web Services
+    --     Reservation Instance.
+    --
+    -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.
+    --
+    -- -   SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or
+    --     Compute).
+    --
     -- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
+    --
+    -- -   TENANCY - The tenancy of a resource. Examples are shared or
+    --     dedicated.
     --
     -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
     --     The response for the @GetDimensionValues@ operation includes a unit
@@ -114,8 +152,8 @@ data GetDimensionValues = GetDimensionValues'
     --
     -- -   REGION - The Amazon Web Services Region.
     --
-    -- -   RECORD_TYPE - The different types of charges such as RI fees, usage
-    --     costs, tax refunds, and credits.
+    -- -   RECORD_TYPE - The different types of charges such as Reserved
+    --     Instance (RI) fees, usage costs, tax refunds, and credits.
     --
     -- -   RESOURCE_ID - The unique identifier of the resource. ResourceId is
     --     an opt-in feature only available for last 14 days for EC2-Compute
@@ -158,7 +196,7 @@ data GetDimensionValues = GetDimensionValues'
     --
     -- -   SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)
     --
-    -- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
+    -- -   PAYMENT_OPTION - The payment option for the given Savings Plans (for
     --     example, All Upfront)
     --
     -- -   REGION - The Amazon Web Services Region.
@@ -169,9 +207,9 @@ data GetDimensionValues = GetDimensionValues'
     --     the full name of the member account. The value field contains the
     --     Amazon Web Services ID of the member account.
     --
-    -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
+    -- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.
     context :: Prelude.Maybe Context,
-    -- | The value by which you want to sort the data.
+    -- | The value that you want to sort the data by.
     --
     -- The key represents cost and usage metrics. The following values are
     -- supported:
@@ -190,18 +228,19 @@ data GetDimensionValues = GetDimensionValues'
     --
     -- -   @NormalizedUsageAmount@
     --
-    -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+    -- The supported values for the @SortOrder@ key are @ASCENDING@ or
+    -- @DESCENDING@.
     --
     -- When you specify a @SortBy@ paramater, the context must be
     -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
-    -- @SearchString@ are not supported.
+    -- @SearchString@ aren\'t supported.
     sortBy :: Prelude.Maybe [SortDefinition],
     -- | The value that you want to search the filter values for.
     searchString :: Prelude.Maybe Prelude.Text,
     filter' :: Prelude.Maybe Expression,
     -- | This field is only used when SortBy is provided in the request. The
-    -- maximum number of objects that to be returned for this request. If
-    -- MaxResults is not specified with SortBy, the request will return 1000
+    -- maximum number of objects that are returned for this request. If
+    -- MaxResults isn\'t specified with SortBy, the request returns 1000
     -- results as the default value for this parameter.
     --
     -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
@@ -242,11 +281,38 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- -   AZ - The Availability Zone. An example is @us-east-1a@.
 --
+-- -   BILLING_ENTITY - The Amazon Web Services seller that your account is
+--     with. Possible values are the following:
+--
+--     - Amazon Web Services(Amazon Web Services): The entity that sells
+--     Amazon Web Services.
+--
+--     - AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian
+--     entity that\'s an acting reseller for Amazon Web Services in India.
+--
+--     - Amazon Web Services Marketplace: The entity that supports the sale
+--     of solutions that are built on Amazon Web Services by third-party
+--     software providers.
+--
+-- -   CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are
+--     Windows or Linux.
+--
+-- -   DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service
+--     deployments. Valid values are @SingleAZ@ and @MultiAZ@.
+--
 -- -   DATABASE_ENGINE - The Amazon Relational Database Service database.
 --     Examples are Aurora or MySQL.
 --
 -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
 --     @m4.xlarge@.
+--
+-- -   INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit
+--     different use cases. Examples are @Compute Optimized@ (for example,
+--     @C4@, @C5@, @C6g@, and @C7g@), @Memory Optimization@ (for example,
+--     @R4@, @R5n@, @R5b@, and @R6g@).
+--
+-- -   INVOICING_ENTITY - The name of the entity that issues the Amazon Web
+--     Services invoice.
 --
 -- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
 --     Amazon Web Services services, such as Amazon Web Services.
@@ -264,11 +330,22 @@ data GetDimensionValues = GetDimensionValues'
 -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
 --     Linux.
 --
--- -   PURCHASE_TYPE - The reservation type of the purchase to which this
---     usage is related. Examples include On-Demand Instances and Standard
+-- -   PURCHASE_TYPE - The reservation type of the purchase that this usage
+--     is related to. Examples include On-Demand Instances and Standard
 --     Reserved Instances.
 --
+-- -   RESERVATION_ID - The unique identifier for an Amazon Web Services
+--     Reservation Instance.
+--
+-- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.
+--
+-- -   SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or
+--     Compute).
+--
 -- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
+--
+-- -   TENANCY - The tenancy of a resource. Examples are shared or
+--     dedicated.
 --
 -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
 --     The response for the @GetDimensionValues@ operation includes a unit
@@ -280,8 +357,8 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- -   REGION - The Amazon Web Services Region.
 --
--- -   RECORD_TYPE - The different types of charges such as RI fees, usage
---     costs, tax refunds, and credits.
+-- -   RECORD_TYPE - The different types of charges such as Reserved
+--     Instance (RI) fees, usage costs, tax refunds, and credits.
 --
 -- -   RESOURCE_ID - The unique identifier of the resource. ResourceId is
 --     an opt-in feature only available for last 14 days for EC2-Compute
@@ -324,7 +401,7 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- -   SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)
 --
--- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
+-- -   PAYMENT_OPTION - The payment option for the given Savings Plans (for
 --     example, All Upfront)
 --
 -- -   REGION - The Amazon Web Services Region.
@@ -335,9 +412,9 @@ data GetDimensionValues = GetDimensionValues'
 --     the full name of the member account. The value field contains the
 --     Amazon Web Services ID of the member account.
 --
--- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
+-- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.
 --
--- 'sortBy', 'getDimensionValues_sortBy' - The value by which you want to sort the data.
+-- 'sortBy', 'getDimensionValues_sortBy' - The value that you want to sort the data by.
 --
 -- The key represents cost and usage metrics. The following values are
 -- supported:
@@ -356,19 +433,20 @@ data GetDimensionValues = GetDimensionValues'
 --
 -- -   @NormalizedUsageAmount@
 --
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+-- The supported values for the @SortOrder@ key are @ASCENDING@ or
+-- @DESCENDING@.
 --
 -- When you specify a @SortBy@ paramater, the context must be
 -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
--- @SearchString@ are not supported.
+-- @SearchString@ aren\'t supported.
 --
 -- 'searchString', 'getDimensionValues_searchString' - The value that you want to search the filter values for.
 --
 -- 'filter'', 'getDimensionValues_filter' - Undocumented member.
 --
 -- 'maxResults', 'getDimensionValues_maxResults' - This field is only used when SortBy is provided in the request. The
--- maximum number of objects that to be returned for this request. If
--- MaxResults is not specified with SortBy, the request will return 1000
+-- maximum number of objects that are returned for this request. If
+-- MaxResults isn\'t specified with SortBy, the request returns 1000
 -- results as the default value for this parameter.
 --
 -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.
@@ -418,11 +496,38 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 --
 -- -   AZ - The Availability Zone. An example is @us-east-1a@.
 --
+-- -   BILLING_ENTITY - The Amazon Web Services seller that your account is
+--     with. Possible values are the following:
+--
+--     - Amazon Web Services(Amazon Web Services): The entity that sells
+--     Amazon Web Services.
+--
+--     - AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian
+--     entity that\'s an acting reseller for Amazon Web Services in India.
+--
+--     - Amazon Web Services Marketplace: The entity that supports the sale
+--     of solutions that are built on Amazon Web Services by third-party
+--     software providers.
+--
+-- -   CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are
+--     Windows or Linux.
+--
+-- -   DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service
+--     deployments. Valid values are @SingleAZ@ and @MultiAZ@.
+--
 -- -   DATABASE_ENGINE - The Amazon Relational Database Service database.
 --     Examples are Aurora or MySQL.
 --
 -- -   INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
 --     @m4.xlarge@.
+--
+-- -   INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit
+--     different use cases. Examples are @Compute Optimized@ (for example,
+--     @C4@, @C5@, @C6g@, and @C7g@), @Memory Optimization@ (for example,
+--     @R4@, @R5n@, @R5b@, and @R6g@).
+--
+-- -   INVOICING_ENTITY - The name of the entity that issues the Amazon Web
+--     Services invoice.
 --
 -- -   LEGAL_ENTITY_NAME - The name of the organization that sells you
 --     Amazon Web Services services, such as Amazon Web Services.
@@ -440,11 +545,22 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 -- -   PLATFORM - The Amazon EC2 operating system. Examples are Windows or
 --     Linux.
 --
--- -   PURCHASE_TYPE - The reservation type of the purchase to which this
---     usage is related. Examples include On-Demand Instances and Standard
+-- -   PURCHASE_TYPE - The reservation type of the purchase that this usage
+--     is related to. Examples include On-Demand Instances and Standard
 --     Reserved Instances.
 --
+-- -   RESERVATION_ID - The unique identifier for an Amazon Web Services
+--     Reservation Instance.
+--
+-- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.
+--
+-- -   SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or
+--     Compute).
+--
 -- -   SERVICE - The Amazon Web Services service such as Amazon DynamoDB.
+--
+-- -   TENANCY - The tenancy of a resource. Examples are shared or
+--     dedicated.
 --
 -- -   USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes.
 --     The response for the @GetDimensionValues@ operation includes a unit
@@ -456,8 +572,8 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 --
 -- -   REGION - The Amazon Web Services Region.
 --
--- -   RECORD_TYPE - The different types of charges such as RI fees, usage
---     costs, tax refunds, and credits.
+-- -   RECORD_TYPE - The different types of charges such as Reserved
+--     Instance (RI) fees, usage costs, tax refunds, and credits.
 --
 -- -   RESOURCE_ID - The unique identifier of the resource. ResourceId is
 --     an opt-in feature only available for last 14 days for EC2-Compute
@@ -500,7 +616,7 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 --
 -- -   SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)
 --
--- -   PAYMENT_OPTION - Payment option for the given Savings Plans (for
+-- -   PAYMENT_OPTION - The payment option for the given Savings Plans (for
 --     example, All Upfront)
 --
 -- -   REGION - The Amazon Web Services Region.
@@ -511,11 +627,11 @@ getDimensionValues_nextPageToken = Lens.lens (\GetDimensionValues' {nextPageToke
 --     the full name of the member account. The value field contains the
 --     Amazon Web Services ID of the member account.
 --
--- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan
+-- -   SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.
 getDimensionValues_context :: Lens.Lens' GetDimensionValues (Prelude.Maybe Context)
 getDimensionValues_context = Lens.lens (\GetDimensionValues' {context} -> context) (\s@GetDimensionValues' {} a -> s {context = a} :: GetDimensionValues)
 
--- | The value by which you want to sort the data.
+-- | The value that you want to sort the data by.
 --
 -- The key represents cost and usage metrics. The following values are
 -- supported:
@@ -534,11 +650,12 @@ getDimensionValues_context = Lens.lens (\GetDimensionValues' {context} -> contex
 --
 -- -   @NormalizedUsageAmount@
 --
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+-- The supported values for the @SortOrder@ key are @ASCENDING@ or
+-- @DESCENDING@.
 --
 -- When you specify a @SortBy@ paramater, the context must be
 -- @COST_AND_USAGE@. Further, when using @SortBy@, @NextPageToken@ and
--- @SearchString@ are not supported.
+-- @SearchString@ aren\'t supported.
 getDimensionValues_sortBy :: Lens.Lens' GetDimensionValues (Prelude.Maybe [SortDefinition])
 getDimensionValues_sortBy = Lens.lens (\GetDimensionValues' {sortBy} -> sortBy) (\s@GetDimensionValues' {} a -> s {sortBy = a} :: GetDimensionValues) Prelude.. Lens.mapping Lens.coerced
 
@@ -551,8 +668,8 @@ getDimensionValues_filter :: Lens.Lens' GetDimensionValues (Prelude.Maybe Expres
 getDimensionValues_filter = Lens.lens (\GetDimensionValues' {filter'} -> filter') (\s@GetDimensionValues' {} a -> s {filter' = a} :: GetDimensionValues)
 
 -- | This field is only used when SortBy is provided in the request. The
--- maximum number of objects that to be returned for this request. If
--- MaxResults is not specified with SortBy, the request will return 1000
+-- maximum number of objects that are returned for this request. If
+-- MaxResults isn\'t specified with SortBy, the request returns 1000
 -- results as the default value for this parameter.
 --
 -- For @GetDimensionValues@, MaxResults has an upper limit of 1000.

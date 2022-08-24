@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSavingsPlansCoverageData' smart constructor.
 data SavingsPlansCoverageData = SavingsPlansCoverageData'
-  { -- | The amount of your Amazon Web Services usage that is covered by a
+  { -- | The amount of your Amazon Web Services usage that\'s covered by a
     -- Savings Plans.
     spendCoveredBySavingsPlans :: Prelude.Maybe Prelude.Text,
     -- | The percentage of your existing Savings Plans covered usage, divided by
@@ -51,7 +51,7 @@ data SavingsPlansCoverageData = SavingsPlansCoverageData'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'spendCoveredBySavingsPlans', 'savingsPlansCoverageData_spendCoveredBySavingsPlans' - The amount of your Amazon Web Services usage that is covered by a
+-- 'spendCoveredBySavingsPlans', 'savingsPlansCoverageData_spendCoveredBySavingsPlans' - The amount of your Amazon Web Services usage that\'s covered by a
 -- Savings Plans.
 --
 -- 'coveragePercentage', 'savingsPlansCoverageData_coveragePercentage' - The percentage of your existing Savings Plans covered usage, divided by
@@ -73,7 +73,7 @@ newSavingsPlansCoverageData =
       onDemandCost = Prelude.Nothing
     }
 
--- | The amount of your Amazon Web Services usage that is covered by a
+-- | The amount of your Amazon Web Services usage that\'s covered by a
 -- Savings Plans.
 savingsPlansCoverageData_spendCoveredBySavingsPlans :: Lens.Lens' SavingsPlansCoverageData (Prelude.Maybe Prelude.Text)
 savingsPlansCoverageData_spendCoveredBySavingsPlans = Lens.lens (\SavingsPlansCoverageData' {spendCoveredBySavingsPlans} -> spendCoveredBySavingsPlans) (\s@SavingsPlansCoverageData' {} a -> s {spendCoveredBySavingsPlans = a} :: SavingsPlansCoverageData)

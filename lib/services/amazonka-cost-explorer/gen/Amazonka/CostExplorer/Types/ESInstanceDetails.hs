@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Details about the Amazon ES instances that Amazon Web Services
--- recommends that you purchase.
+-- | Details about the Amazon OpenSearch Service instances that Amazon Web
+-- Services recommends that you purchase.
 --
 -- /See:/ 'newESInstanceDetails' smart constructor.
 data ESInstanceDetails = ESInstanceDetails'

@@ -88,7 +88,7 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
     -- | The measurement that you want your Savings Plans coverage reported in.
     -- The only valid value is @SpendCoveredBySavingsPlans@.
     metrics :: Prelude.Maybe [Prelude.Text],
-    -- | The value by which you want to sort the data.
+    -- | The value that you want to sort the data by.
     --
     -- The following values are supported for @Key@:
     --
@@ -106,7 +106,7 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
     --
     -- -   @Service@
     --
-    -- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+    -- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
     sortBy :: Prelude.Maybe SortDefinition,
     -- | Filters Savings Plans coverage data by dimensions. You can filter data
     -- for Savings Plans usage with the following dimensions:
@@ -162,7 +162,7 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
 -- 'metrics', 'getSavingsPlansCoverage_metrics' - The measurement that you want your Savings Plans coverage reported in.
 -- The only valid value is @SpendCoveredBySavingsPlans@.
 --
--- 'sortBy', 'getSavingsPlansCoverage_sortBy' - The value by which you want to sort the data.
+-- 'sortBy', 'getSavingsPlansCoverage_sortBy' - The value that you want to sort the data by.
 --
 -- The following values are supported for @Key@:
 --
@@ -180,7 +180,7 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
 --
 -- -   @Service@
 --
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+-- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 --
 -- 'filter'', 'getSavingsPlansCoverage_filter' - Filters Savings Plans coverage data by dimensions. You can filter data
 -- for Savings Plans usage with the following dimensions:
@@ -249,7 +249,7 @@ getSavingsPlansCoverage_groupBy = Lens.lens (\GetSavingsPlansCoverage' {groupBy}
 getSavingsPlansCoverage_metrics :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe [Prelude.Text])
 getSavingsPlansCoverage_metrics = Lens.lens (\GetSavingsPlansCoverage' {metrics} -> metrics) (\s@GetSavingsPlansCoverage' {} a -> s {metrics = a} :: GetSavingsPlansCoverage) Prelude.. Lens.mapping Lens.coerced
 
--- | The value by which you want to sort the data.
+-- | The value that you want to sort the data by.
 --
 -- The following values are supported for @Key@:
 --
@@ -267,7 +267,7 @@ getSavingsPlansCoverage_metrics = Lens.lens (\GetSavingsPlansCoverage' {metrics}
 --
 -- -   @Service@
 --
--- Supported values for @SortOrder@ are @ASCENDING@ or @DESCENDING@.
+-- The supported values for @SortOrder@ are @ASCENDING@ and @DESCENDING@.
 getSavingsPlansCoverage_sortBy :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe SortDefinition)
 getSavingsPlansCoverage_sortBy = Lens.lens (\GetSavingsPlansCoverage' {sortBy} -> sortBy) (\s@GetSavingsPlansCoverage' {} a -> s {sortBy = a} :: GetSavingsPlansCoverage)
 

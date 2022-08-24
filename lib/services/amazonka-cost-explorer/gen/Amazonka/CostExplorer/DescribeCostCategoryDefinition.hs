@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the name, ARN, rules, definition, and effective dates of a Cost
--- Category that\'s defined in the account.
+-- Returns the name, Amazon Resource Name (ARN), rules, definition, and
+-- effective dates of a Cost Category that\'s defined in the account.
 --
--- You have the option to use @EffectiveOn@ to return a Cost Category that
--- is active on a specific date. If there is no @EffectiveOn@ specified,
--- you’ll see a Cost Category that is effective on the current date. If
--- Cost Category is still effective, @EffectiveEnd@ is omitted in the
--- response.
+-- You have the option to use @EffectiveOn@ to return a Cost Category
+-- that\'s active on a specific date. If there\'s no @EffectiveOn@
+-- specified, you see a Cost Category that\'s effective on the current
+-- date. If Cost Category is still effective, @EffectiveEnd@ is omitted in
+-- the response.
 module Amazonka.CostExplorer.DescribeCostCategoryDefinition
   ( -- * Creating a Request
     DescribeCostCategoryDefinition (..),

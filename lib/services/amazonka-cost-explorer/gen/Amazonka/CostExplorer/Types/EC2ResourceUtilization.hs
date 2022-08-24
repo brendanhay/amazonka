@@ -26,7 +26,7 @@ import Amazonka.CostExplorer.Types.NetworkResourceUtilization
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Utilization metrics of the instance.
+-- | Utilization metrics for the instance.
 --
 -- /See:/ 'newEC2ResourceUtilization' smart constructor.
 data EC2ResourceUtilization = EC2ResourceUtilization'

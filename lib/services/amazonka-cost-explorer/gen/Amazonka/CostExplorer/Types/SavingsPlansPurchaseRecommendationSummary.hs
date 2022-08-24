@@ -39,9 +39,9 @@ data SavingsPlansPurchaseRecommendationSummary = SavingsPlansPurchaseRecommendat
     estimatedMonthlySavingsAmount :: Prelude.Maybe Prelude.Text,
     -- | The recommended Savings Plans cost on a daily (24 hourly) basis.
     dailyCommitmentToPurchase :: Prelude.Maybe Prelude.Text,
-    -- | The estimated On-Demand costs you would expect with no additional
-    -- commitment. It\'s based on your usage of the selected time period and
-    -- the Savings Plans you own.
+    -- | The estimated On-Demand costs you expect with no additional commitment.
+    -- It\'s based on your usage of the selected time period and the Savings
+    -- Plans you own.
     estimatedOnDemandCostWithCurrentCommitment :: Prelude.Maybe Prelude.Text,
     -- | The estimated total cost of the usage after purchasing the recommended
     -- Savings Plans. This is a sum of the cost of Savings Plans during this
@@ -85,9 +85,9 @@ data SavingsPlansPurchaseRecommendationSummary = SavingsPlansPurchaseRecommendat
 --
 -- 'dailyCommitmentToPurchase', 'savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase' - The recommended Savings Plans cost on a daily (24 hourly) basis.
 --
--- 'estimatedOnDemandCostWithCurrentCommitment', 'savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you would expect with no additional
--- commitment. It\'s based on your usage of the selected time period and
--- the Savings Plans you own.
+-- 'estimatedOnDemandCostWithCurrentCommitment', 'savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment' - The estimated On-Demand costs you expect with no additional commitment.
+-- It\'s based on your usage of the selected time period and the Savings
+-- Plans you own.
 --
 -- 'estimatedTotalCost', 'savingsPlansPurchaseRecommendationSummary_estimatedTotalCost' - The estimated total cost of the usage after purchasing the recommended
 -- Savings Plans. This is a sum of the cost of Savings Plans during this
@@ -153,9 +153,9 @@ savingsPlansPurchaseRecommendationSummary_estimatedMonthlySavingsAmount = Lens.l
 savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationSummary_dailyCommitmentToPurchase = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {dailyCommitmentToPurchase} -> dailyCommitmentToPurchase) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {dailyCommitmentToPurchase = a} :: SavingsPlansPurchaseRecommendationSummary)
 
--- | The estimated On-Demand costs you would expect with no additional
--- commitment. It\'s based on your usage of the selected time period and
--- the Savings Plans you own.
+-- | The estimated On-Demand costs you expect with no additional commitment.
+-- It\'s based on your usage of the selected time period and the Savings
+-- Plans you own.
 savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment :: Lens.Lens' SavingsPlansPurchaseRecommendationSummary (Prelude.Maybe Prelude.Text)
 savingsPlansPurchaseRecommendationSummary_estimatedOnDemandCostWithCurrentCommitment = Lens.lens (\SavingsPlansPurchaseRecommendationSummary' {estimatedOnDemandCostWithCurrentCommitment} -> estimatedOnDemandCostWithCurrentCommitment) (\s@SavingsPlansPurchaseRecommendationSummary' {} a -> s {estimatedOnDemandCostWithCurrentCommitment = a} :: SavingsPlansPurchaseRecommendationSummary)
 

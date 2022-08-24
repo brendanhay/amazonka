@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the name, ARN, @NumberOfRules@ and effective dates of all Cost
--- Categories defined in the account. You have the option to use
--- @EffectiveOn@ to return a list of Cost Categories that were active on a
--- specific date. If there is no @EffectiveOn@ specified, you’ll see Cost
--- Categories that are effective on the current date. If Cost Category is
--- still effective, @EffectiveEnd@ is omitted in the response.
--- @ListCostCategoryDefinitions@ supports pagination. The request can have
--- a @MaxResults@ range up to 100.
+-- Returns the name, Amazon Resource Name (ARN), @NumberOfRules@ and
+-- effective dates of all Cost Categories defined in the account. You have
+-- the option to use @EffectiveOn@ to return a list of Cost Categories that
+-- were active on a specific date. If there is no @EffectiveOn@ specified,
+-- you’ll see Cost Categories that are effective on the current date. If
+-- Cost Category is still effective, @EffectiveEnd@ is omitted in the
+-- response. @ListCostCategoryDefinitions@ supports pagination. The request
+-- can have a @MaxResults@ range up to 100.
 module Amazonka.CostExplorer.ListCostCategoryDefinitions
   ( -- * Creating a Request
     ListCostCategoryDefinitions (..),
@@ -173,8 +173,8 @@ data ListCostCategoryDefinitionsResponse = ListCostCategoryDefinitionsResponse'
     -- provides the token when the response from a previous call has more
     -- results than the maximum page size.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A reference to a Cost Category containing enough information to identify
-    -- the Cost Category.
+    -- | A reference to a Cost Category that contains enough information to
+    -- identify the Cost Category.
     costCategoryReferences :: Prelude.Maybe [CostCategoryReference],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -193,8 +193,8 @@ data ListCostCategoryDefinitionsResponse = ListCostCategoryDefinitionsResponse'
 -- provides the token when the response from a previous call has more
 -- results than the maximum page size.
 --
--- 'costCategoryReferences', 'listCostCategoryDefinitionsResponse_costCategoryReferences' - A reference to a Cost Category containing enough information to identify
--- the Cost Category.
+-- 'costCategoryReferences', 'listCostCategoryDefinitionsResponse_costCategoryReferences' - A reference to a Cost Category that contains enough information to
+-- identify the Cost Category.
 --
 -- 'httpStatus', 'listCostCategoryDefinitionsResponse_httpStatus' - The response's http status code.
 newListCostCategoryDefinitionsResponse ::
@@ -216,8 +216,8 @@ newListCostCategoryDefinitionsResponse pHttpStatus_ =
 listCostCategoryDefinitionsResponse_nextToken :: Lens.Lens' ListCostCategoryDefinitionsResponse (Prelude.Maybe Prelude.Text)
 listCostCategoryDefinitionsResponse_nextToken = Lens.lens (\ListCostCategoryDefinitionsResponse' {nextToken} -> nextToken) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {nextToken = a} :: ListCostCategoryDefinitionsResponse)
 
--- | A reference to a Cost Category containing enough information to identify
--- the Cost Category.
+-- | A reference to a Cost Category that contains enough information to
+-- identify the Cost Category.
 listCostCategoryDefinitionsResponse_costCategoryReferences :: Lens.Lens' ListCostCategoryDefinitionsResponse (Prelude.Maybe [CostCategoryReference])
 listCostCategoryDefinitionsResponse_costCategoryReferences = Lens.lens (\ListCostCategoryDefinitionsResponse' {costCategoryReferences} -> costCategoryReferences) (\s@ListCostCategoryDefinitionsResponse' {} a -> s {costCategoryReferences = a} :: ListCostCategoryDefinitionsResponse) Prelude.. Lens.mapping Lens.coerced
 

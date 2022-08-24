@@ -45,8 +45,8 @@ data InstanceDetails = InstanceDetails'
     -- | The Amazon Redshift instances that Amazon Web Services recommends that
     -- you purchase.
     redshiftInstanceDetails :: Prelude.Maybe RedshiftInstanceDetails,
-    -- | The Amazon ES instances that Amazon Web Services recommends that you
-    -- purchase.
+    -- | The Amazon OpenSearch Service instances that Amazon Web Services
+    -- recommends that you purchase.
     eSInstanceDetails :: Prelude.Maybe ESInstanceDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,8 +71,8 @@ data InstanceDetails = InstanceDetails'
 -- 'redshiftInstanceDetails', 'instanceDetails_redshiftInstanceDetails' - The Amazon Redshift instances that Amazon Web Services recommends that
 -- you purchase.
 --
--- 'eSInstanceDetails', 'instanceDetails_eSInstanceDetails' - The Amazon ES instances that Amazon Web Services recommends that you
--- purchase.
+-- 'eSInstanceDetails', 'instanceDetails_eSInstanceDetails' - The Amazon OpenSearch Service instances that Amazon Web Services
+-- recommends that you purchase.
 newInstanceDetails ::
   InstanceDetails
 newInstanceDetails =
@@ -105,8 +105,8 @@ instanceDetails_rDSInstanceDetails = Lens.lens (\InstanceDetails' {rDSInstanceDe
 instanceDetails_redshiftInstanceDetails :: Lens.Lens' InstanceDetails (Prelude.Maybe RedshiftInstanceDetails)
 instanceDetails_redshiftInstanceDetails = Lens.lens (\InstanceDetails' {redshiftInstanceDetails} -> redshiftInstanceDetails) (\s@InstanceDetails' {} a -> s {redshiftInstanceDetails = a} :: InstanceDetails)
 
--- | The Amazon ES instances that Amazon Web Services recommends that you
--- purchase.
+-- | The Amazon OpenSearch Service instances that Amazon Web Services
+-- recommends that you purchase.
 instanceDetails_eSInstanceDetails :: Lens.Lens' InstanceDetails (Prelude.Maybe ESInstanceDetails)
 instanceDetails_eSInstanceDetails = Lens.lens (\InstanceDetails' {eSInstanceDetails} -> eSInstanceDetails) (\s@InstanceDetails' {} a -> s {eSInstanceDetails = a} :: InstanceDetails)
 

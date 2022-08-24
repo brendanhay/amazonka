@@ -39,6 +39,9 @@ module Amazonka.CostExplorer
     -- ** UnknownSubscriptionException
     _UnknownSubscriptionException,
 
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
     -- ** ServiceQuotaExceededException
     _ServiceQuotaExceededException,
 
@@ -219,17 +222,41 @@ module Amazonka.CostExplorer
     GetUsageForecastResponse (GetUsageForecastResponse'),
     newGetUsageForecastResponse,
 
+    -- ** ListCostAllocationTags
+    ListCostAllocationTags (ListCostAllocationTags'),
+    newListCostAllocationTags,
+    ListCostAllocationTagsResponse (ListCostAllocationTagsResponse'),
+    newListCostAllocationTagsResponse,
+
     -- ** ListCostCategoryDefinitions
     ListCostCategoryDefinitions (ListCostCategoryDefinitions'),
     newListCostCategoryDefinitions,
     ListCostCategoryDefinitionsResponse (ListCostCategoryDefinitionsResponse'),
     newListCostCategoryDefinitionsResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** ProvideAnomalyFeedback
     ProvideAnomalyFeedback (ProvideAnomalyFeedback'),
     newProvideAnomalyFeedback,
     ProvideAnomalyFeedbackResponse (ProvideAnomalyFeedbackResponse'),
     newProvideAnomalyFeedbackResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** UpdateAnomalyMonitor
     UpdateAnomalyMonitor (UpdateAnomalyMonitor'),
@@ -242,6 +269,12 @@ module Amazonka.CostExplorer
     newUpdateAnomalySubscription,
     UpdateAnomalySubscriptionResponse (UpdateAnomalySubscriptionResponse'),
     newUpdateAnomalySubscriptionResponse,
+
+    -- ** UpdateCostAllocationTagsStatus
+    UpdateCostAllocationTagsStatus (UpdateCostAllocationTagsStatus'),
+    newUpdateCostAllocationTagsStatus,
+    UpdateCostAllocationTagsStatusResponse (UpdateCostAllocationTagsStatusResponse'),
+    newUpdateCostAllocationTagsStatusResponse,
 
     -- ** UpdateCostCategoryDefinition
     UpdateCostCategoryDefinition (UpdateCostCategoryDefinition'),
@@ -262,6 +295,12 @@ module Amazonka.CostExplorer
 
     -- ** Context
     Context (..),
+
+    -- ** CostAllocationTagStatus
+    CostAllocationTagStatus (..),
+
+    -- ** CostAllocationTagType
+    CostAllocationTagType (..),
 
     -- ** CostCategoryInheritedValueDimensionName
     CostCategoryInheritedValueDimensionName (..),
@@ -366,6 +405,14 @@ module Amazonka.CostExplorer
     -- ** AnomalySubscription
     AnomalySubscription (AnomalySubscription'),
     newAnomalySubscription,
+
+    -- ** CostAllocationTag
+    CostAllocationTag (CostAllocationTag'),
+    newCostAllocationTag,
+
+    -- ** CostAllocationTagStatusEntry
+    CostAllocationTagStatusEntry (CostAllocationTagStatusEntry'),
+    newCostAllocationTagStatusEntry,
 
     -- ** CostCategory
     CostCategory (CostCategory'),
@@ -543,6 +590,10 @@ module Amazonka.CostExplorer
     ResourceDetails (ResourceDetails'),
     newResourceDetails,
 
+    -- ** ResourceTag
+    ResourceTag (ResourceTag'),
+    newResourceTag,
+
     -- ** ResourceUtilization
     ResourceUtilization (ResourceUtilization'),
     newResourceUtilization,
@@ -651,6 +702,10 @@ module Amazonka.CostExplorer
     TotalImpactFilter (TotalImpactFilter'),
     newTotalImpactFilter,
 
+    -- ** UpdateCostAllocationTagsStatusError
+    UpdateCostAllocationTagsStatusError (UpdateCostAllocationTagsStatusError'),
+    newUpdateCostAllocationTagsStatusError,
+
     -- ** UtilizationByTime
     UtilizationByTime (UtilizationByTime'),
     newUtilizationByTime,
@@ -683,11 +738,16 @@ import Amazonka.CostExplorer.GetSavingsPlansUtilizationDetails
 import Amazonka.CostExplorer.GetTags
 import Amazonka.CostExplorer.GetUsageForecast
 import Amazonka.CostExplorer.Lens
+import Amazonka.CostExplorer.ListCostAllocationTags
 import Amazonka.CostExplorer.ListCostCategoryDefinitions
+import Amazonka.CostExplorer.ListTagsForResource
 import Amazonka.CostExplorer.ProvideAnomalyFeedback
+import Amazonka.CostExplorer.TagResource
 import Amazonka.CostExplorer.Types
+import Amazonka.CostExplorer.UntagResource
 import Amazonka.CostExplorer.UpdateAnomalyMonitor
 import Amazonka.CostExplorer.UpdateAnomalySubscription
+import Amazonka.CostExplorer.UpdateCostAllocationTagsStatus
 import Amazonka.CostExplorer.UpdateCostCategoryDefinition
 import Amazonka.CostExplorer.Waiters
 

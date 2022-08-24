@@ -286,6 +286,9 @@ module Amazonka.AccessAnalyzer
     -- ** ValidatePolicyFindingType
     ValidatePolicyFindingType (..),
 
+    -- ** ValidatePolicyResourceType
+    ValidatePolicyResourceType (..),
+
     -- ** AccessPreview
     AccessPreview (AccessPreview'),
     newAccessPreview,

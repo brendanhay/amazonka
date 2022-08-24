@@ -195,6 +195,7 @@ module Amazonka.AccessAnalyzer.Lens
     validatePolicy_nextToken,
     validatePolicy_locale,
     validatePolicy_maxResults,
+    validatePolicy_validatePolicyResourceType,
     validatePolicy_policyDocument,
     validatePolicy_policyType,
     validatePolicyResponse_nextToken,

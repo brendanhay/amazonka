@@ -35,11 +35,11 @@ import qualified Amazonka.Prelude as Prelude
 -- not specify the policy, the access preview assumes a secret without a
 -- policy. To propose deletion of an existing policy, you can specify an
 -- empty string. If the proposed configuration is for a new secret and you
--- do not specify the KMS key ID, the access preview uses the default CMK
--- of the Amazon Web Services account. If you specify an empty string for
--- the KMS key ID, the access preview uses the default CMK of the Amazon
--- Web Services account. For more information about secret policy limits,
--- see
+-- do not specify the KMS key ID, the access preview uses the Amazon Web
+-- Services managed key @aws\/secretsmanager@. If you specify an empty
+-- string for the KMS key ID, the access preview uses the Amazon Web
+-- Services managed key of the Amazon Web Services account. For more
+-- information about secret policy limits, see
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html Quotas for Secrets Manager.>.
 --
 -- /See:/ 'newSecretsManagerSecretConfiguration' smart constructor.
@@ -47,7 +47,7 @@ data SecretsManagerSecretConfiguration = SecretsManagerSecretConfiguration'
   { -- | The proposed resource policy defining who can access or manage the
     -- secret.
     secretPolicy :: Prelude.Maybe Prelude.Text,
-    -- | The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
+    -- | The proposed ARN, key ID, or alias of the KMS key.
     kmsKeyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data SecretsManagerSecretConfiguration = SecretsManagerSecretConfiguration'
 -- 'secretPolicy', 'secretsManagerSecretConfiguration_secretPolicy' - The proposed resource policy defining who can access or manage the
 -- secret.
 --
--- 'kmsKeyId', 'secretsManagerSecretConfiguration_kmsKeyId' - The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
+-- 'kmsKeyId', 'secretsManagerSecretConfiguration_kmsKeyId' - The proposed ARN, key ID, or alias of the KMS key.
 newSecretsManagerSecretConfiguration ::
   SecretsManagerSecretConfiguration
 newSecretsManagerSecretConfiguration =
@@ -78,7 +78,7 @@ newSecretsManagerSecretConfiguration =
 secretsManagerSecretConfiguration_secretPolicy :: Lens.Lens' SecretsManagerSecretConfiguration (Prelude.Maybe Prelude.Text)
 secretsManagerSecretConfiguration_secretPolicy = Lens.lens (\SecretsManagerSecretConfiguration' {secretPolicy} -> secretPolicy) (\s@SecretsManagerSecretConfiguration' {} a -> s {secretPolicy = a} :: SecretsManagerSecretConfiguration)
 
--- | The proposed ARN, key ID, or alias of the KMS customer master key (CMK).
+-- | The proposed ARN, key ID, or alias of the KMS key.
 secretsManagerSecretConfiguration_kmsKeyId :: Lens.Lens' SecretsManagerSecretConfiguration (Prelude.Maybe Prelude.Text)
 secretsManagerSecretConfiguration_kmsKeyId = Lens.lens (\SecretsManagerSecretConfiguration' {kmsKeyId} -> kmsKeyId) (\s@SecretsManagerSecretConfiguration' {} a -> s {kmsKeyId = a} :: SecretsManagerSecretConfiguration)
 

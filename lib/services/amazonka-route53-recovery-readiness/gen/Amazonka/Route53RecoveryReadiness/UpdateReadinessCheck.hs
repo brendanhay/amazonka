@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an exisiting Readiness Check.
+-- Updates a readiness check.
 module Amazonka.Route53RecoveryReadiness.UpdateReadinessCheck
   ( -- * Creating a Request
     UpdateReadinessCheck (..),
@@ -50,13 +50,13 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 import Amazonka.Route53RecoveryReadiness.Types
 
--- | The new Readiness Check values
+-- | Name of a readiness check to describe.
 --
 -- /See:/ 'newUpdateReadinessCheck' smart constructor.
 data UpdateReadinessCheck = UpdateReadinessCheck'
-  { -- | The ReadinessCheck to update
+  { -- | Name of a readiness check.
     readinessCheckName :: Prelude.Text,
-    -- | The name of the ResourceSet to check
+    -- | The name of the resource set to be checked.
     resourceSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,9 +69,9 @@ data UpdateReadinessCheck = UpdateReadinessCheck'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'readinessCheckName', 'updateReadinessCheck_readinessCheckName' - The ReadinessCheck to update
+-- 'readinessCheckName', 'updateReadinessCheck_readinessCheckName' - Name of a readiness check.
 --
--- 'resourceSetName', 'updateReadinessCheck_resourceSetName' - The name of the ResourceSet to check
+-- 'resourceSetName', 'updateReadinessCheck_resourceSetName' - The name of the resource set to be checked.
 newUpdateReadinessCheck ::
   -- | 'readinessCheckName'
   Prelude.Text ->
@@ -87,11 +87,11 @@ newUpdateReadinessCheck
         resourceSetName = pResourceSetName_
       }
 
--- | The ReadinessCheck to update
+-- | Name of a readiness check.
 updateReadinessCheck_readinessCheckName :: Lens.Lens' UpdateReadinessCheck Prelude.Text
 updateReadinessCheck_readinessCheckName = Lens.lens (\UpdateReadinessCheck' {readinessCheckName} -> readinessCheckName) (\s@UpdateReadinessCheck' {} a -> s {readinessCheckName = a} :: UpdateReadinessCheck)
 
--- | The name of the ResourceSet to check
+-- | The name of the resource set to be checked.
 updateReadinessCheck_resourceSetName :: Lens.Lens' UpdateReadinessCheck Prelude.Text
 updateReadinessCheck_resourceSetName = Lens.lens (\UpdateReadinessCheck' {resourceSetName} -> resourceSetName) (\s@UpdateReadinessCheck' {} a -> s {resourceSetName = a} :: UpdateReadinessCheck)
 
@@ -152,11 +152,11 @@ instance Core.ToQuery UpdateReadinessCheck where
 -- | /See:/ 'newUpdateReadinessCheckResponse' smart constructor.
 data UpdateReadinessCheckResponse = UpdateReadinessCheckResponse'
   { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Name of the ResourceSet to be checked
+    -- | Name of the resource set to be checked.
     resourceSet :: Prelude.Maybe Prelude.Text,
-    -- | Name for a ReadinessCheck
+    -- | Name of a readiness check.
     readinessCheckName :: Prelude.Maybe Prelude.Text,
-    -- | Arn associated with ReadinessCheck
+    -- | The Amazon Resource Name (ARN) associated with a readiness check.
     readinessCheckArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,11 +173,11 @@ data UpdateReadinessCheckResponse = UpdateReadinessCheckResponse'
 --
 -- 'tags', 'updateReadinessCheckResponse_tags' - Undocumented member.
 --
--- 'resourceSet', 'updateReadinessCheckResponse_resourceSet' - Name of the ResourceSet to be checked
+-- 'resourceSet', 'updateReadinessCheckResponse_resourceSet' - Name of the resource set to be checked.
 --
--- 'readinessCheckName', 'updateReadinessCheckResponse_readinessCheckName' - Name for a ReadinessCheck
+-- 'readinessCheckName', 'updateReadinessCheckResponse_readinessCheckName' - Name of a readiness check.
 --
--- 'readinessCheckArn', 'updateReadinessCheckResponse_readinessCheckArn' - Arn associated with ReadinessCheck
+-- 'readinessCheckArn', 'updateReadinessCheckResponse_readinessCheckArn' - The Amazon Resource Name (ARN) associated with a readiness check.
 --
 -- 'httpStatus', 'updateReadinessCheckResponse_httpStatus' - The response's http status code.
 newUpdateReadinessCheckResponse ::
@@ -198,15 +198,15 @@ newUpdateReadinessCheckResponse pHttpStatus_ =
 updateReadinessCheckResponse_tags :: Lens.Lens' UpdateReadinessCheckResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateReadinessCheckResponse_tags = Lens.lens (\UpdateReadinessCheckResponse' {tags} -> tags) (\s@UpdateReadinessCheckResponse' {} a -> s {tags = a} :: UpdateReadinessCheckResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Name of the ResourceSet to be checked
+-- | Name of the resource set to be checked.
 updateReadinessCheckResponse_resourceSet :: Lens.Lens' UpdateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
 updateReadinessCheckResponse_resourceSet = Lens.lens (\UpdateReadinessCheckResponse' {resourceSet} -> resourceSet) (\s@UpdateReadinessCheckResponse' {} a -> s {resourceSet = a} :: UpdateReadinessCheckResponse)
 
--- | Name for a ReadinessCheck
+-- | Name of a readiness check.
 updateReadinessCheckResponse_readinessCheckName :: Lens.Lens' UpdateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
 updateReadinessCheckResponse_readinessCheckName = Lens.lens (\UpdateReadinessCheckResponse' {readinessCheckName} -> readinessCheckName) (\s@UpdateReadinessCheckResponse' {} a -> s {readinessCheckName = a} :: UpdateReadinessCheckResponse)
 
--- | Arn associated with ReadinessCheck
+-- | The Amazon Resource Name (ARN) associated with a readiness check.
 updateReadinessCheckResponse_readinessCheckArn :: Lens.Lens' UpdateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
 updateReadinessCheckResponse_readinessCheckArn = Lens.lens (\UpdateReadinessCheckResponse' {readinessCheckArn} -> readinessCheckArn) (\s@UpdateReadinessCheckResponse' {} a -> s {readinessCheckArn = a} :: UpdateReadinessCheckResponse)
 

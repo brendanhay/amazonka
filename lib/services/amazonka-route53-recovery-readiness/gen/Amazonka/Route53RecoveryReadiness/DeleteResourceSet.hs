@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing Resource Set.
+-- Deletes a resource set.
 module Amazonka.Route53RecoveryReadiness.DeleteResourceSet
   ( -- * Creating a Request
     DeleteResourceSet (..),
@@ -44,7 +44,7 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newDeleteResourceSet' smart constructor.
 data DeleteResourceSet = DeleteResourceSet'
-  { -- | The ResourceSet to delete
+  { -- | Name of a resource set.
     resourceSetName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +57,7 @@ data DeleteResourceSet = DeleteResourceSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceSetName', 'deleteResourceSet_resourceSetName' - The ResourceSet to delete
+-- 'resourceSetName', 'deleteResourceSet_resourceSetName' - Name of a resource set.
 newDeleteResourceSet ::
   -- | 'resourceSetName'
   Prelude.Text ->
@@ -68,7 +68,7 @@ newDeleteResourceSet pResourceSetName_ =
         pResourceSetName_
     }
 
--- | The ResourceSet to delete
+-- | Name of a resource set.
 deleteResourceSet_resourceSetName :: Lens.Lens' DeleteResourceSet Prelude.Text
 deleteResourceSet_resourceSetName = Lens.lens (\DeleteResourceSet' {resourceSetName} -> resourceSetName) (\s@DeleteResourceSet' {} a -> s {resourceSetName = a} :: DeleteResourceSet)
 

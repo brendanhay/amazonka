@@ -31,7 +31,7 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The readiness of an entire ReadinessCheck or an individual resource ARN.
+-- | The readiness status.
 newtype Readiness = Readiness'
   { fromReadiness ::
       Core.Text

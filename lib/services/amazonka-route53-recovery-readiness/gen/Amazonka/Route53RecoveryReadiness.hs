@@ -11,7 +11,7 @@
 --
 -- Derived from API version @2019-12-02@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Route53 Recovery Readiness
+-- Recovery readiness
 module Amazonka.Route53RecoveryReadiness
   ( -- * Service Configuration
     defaultService,

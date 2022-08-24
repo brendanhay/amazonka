@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a Recovery Group.
+-- Gets details about a recovery group, including a list of the cells that
+-- are included in it.
 module Amazonka.Route53RecoveryReadiness.GetRecoveryGroup
   ( -- * Creating a Request
     GetRecoveryGroup (..),
@@ -51,7 +52,7 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newGetRecoveryGroup' smart constructor.
 data GetRecoveryGroup = GetRecoveryGroup'
-  { -- | The RecoveryGroup to get
+  { -- | The name of a recovery group.
     recoveryGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +65,7 @@ data GetRecoveryGroup = GetRecoveryGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recoveryGroupName', 'getRecoveryGroup_recoveryGroupName' - The RecoveryGroup to get
+-- 'recoveryGroupName', 'getRecoveryGroup_recoveryGroupName' - The name of a recovery group.
 newGetRecoveryGroup ::
   -- | 'recoveryGroupName'
   Prelude.Text ->
@@ -75,7 +76,7 @@ newGetRecoveryGroup pRecoveryGroupName_ =
         pRecoveryGroupName_
     }
 
--- | The RecoveryGroup to get
+-- | The name of a recovery group.
 getRecoveryGroup_recoveryGroupName :: Lens.Lens' GetRecoveryGroup Prelude.Text
 getRecoveryGroup_recoveryGroupName = Lens.lens (\GetRecoveryGroup' {recoveryGroupName} -> recoveryGroupName) (\s@GetRecoveryGroup' {} a -> s {recoveryGroupName = a} :: GetRecoveryGroup)
 
@@ -124,12 +125,13 @@ instance Core.ToQuery GetRecoveryGroup where
 
 -- | /See:/ 'newGetRecoveryGroupResponse' smart constructor.
 data GetRecoveryGroupResponse = GetRecoveryGroupResponse'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The arn for the RecoveryGroup
+  { -- | The tags associated with the recovery group.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) for the recovery group.
     recoveryGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the RecoveryGroup
+    -- | The name of the recovery group.
     recoveryGroupName :: Prelude.Maybe Prelude.Text,
-    -- | A list of Cell arns
+    -- | A list of a cell\'s Amazon Resource Names (ARNs).
     cells :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -144,13 +146,13 @@ data GetRecoveryGroupResponse = GetRecoveryGroupResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'getRecoveryGroupResponse_tags' - Undocumented member.
+-- 'tags', 'getRecoveryGroupResponse_tags' - The tags associated with the recovery group.
 --
--- 'recoveryGroupArn', 'getRecoveryGroupResponse_recoveryGroupArn' - The arn for the RecoveryGroup
+-- 'recoveryGroupArn', 'getRecoveryGroupResponse_recoveryGroupArn' - The Amazon Resource Name (ARN) for the recovery group.
 --
--- 'recoveryGroupName', 'getRecoveryGroupResponse_recoveryGroupName' - The name of the RecoveryGroup
+-- 'recoveryGroupName', 'getRecoveryGroupResponse_recoveryGroupName' - The name of the recovery group.
 --
--- 'cells', 'getRecoveryGroupResponse_cells' - A list of Cell arns
+-- 'cells', 'getRecoveryGroupResponse_cells' - A list of a cell\'s Amazon Resource Names (ARNs).
 --
 -- 'httpStatus', 'getRecoveryGroupResponse_httpStatus' - The response's http status code.
 newGetRecoveryGroupResponse ::
@@ -166,19 +168,19 @@ newGetRecoveryGroupResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The tags associated with the recovery group.
 getRecoveryGroupResponse_tags :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getRecoveryGroupResponse_tags = Lens.lens (\GetRecoveryGroupResponse' {tags} -> tags) (\s@GetRecoveryGroupResponse' {} a -> s {tags = a} :: GetRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The arn for the RecoveryGroup
+-- | The Amazon Resource Name (ARN) for the recovery group.
 getRecoveryGroupResponse_recoveryGroupArn :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
 getRecoveryGroupResponse_recoveryGroupArn = Lens.lens (\GetRecoveryGroupResponse' {recoveryGroupArn} -> recoveryGroupArn) (\s@GetRecoveryGroupResponse' {} a -> s {recoveryGroupArn = a} :: GetRecoveryGroupResponse)
 
--- | The name of the RecoveryGroup
+-- | The name of the recovery group.
 getRecoveryGroupResponse_recoveryGroupName :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe Prelude.Text)
 getRecoveryGroupResponse_recoveryGroupName = Lens.lens (\GetRecoveryGroupResponse' {recoveryGroupName} -> recoveryGroupName) (\s@GetRecoveryGroupResponse' {} a -> s {recoveryGroupName = a} :: GetRecoveryGroupResponse)
 
--- | A list of Cell arns
+-- | A list of a cell\'s Amazon Resource Names (ARNs).
 getRecoveryGroupResponse_cells :: Lens.Lens' GetRecoveryGroupResponse (Prelude.Maybe [Prelude.Text])
 getRecoveryGroupResponse_cells = Lens.lens (\GetRecoveryGroupResponse' {cells} -> cells) (\s@GetRecoveryGroupResponse' {} a -> s {cells = a} :: GetRecoveryGroupResponse) Prelude.. Lens.mapping Lens.coerced
 

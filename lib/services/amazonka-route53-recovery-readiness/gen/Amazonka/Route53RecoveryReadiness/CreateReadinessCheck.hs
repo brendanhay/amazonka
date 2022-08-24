@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Readiness Check.
+-- Creates a readiness check in an account. A readiness check monitors a
+-- resource set in your application, such as a set of Amazon Aurora
+-- instances, that Application Recovery Controller is auditing recovery
+-- readiness for. The audits run once every minute on every resource
+-- that\'s associated with a readiness check.
 module Amazonka.Route53RecoveryReadiness.CreateReadinessCheck
   ( -- * Creating a Request
     CreateReadinessCheck (..),
@@ -51,14 +55,12 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 import Amazonka.Route53RecoveryReadiness.Types
 
--- | The ReadinessCheck to create
---
--- /See:/ 'newCreateReadinessCheck' smart constructor.
+-- | /See:/ 'newCreateReadinessCheck' smart constructor.
 data CreateReadinessCheck = CreateReadinessCheck'
   { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the ResourceSet to check
+    -- | The name of the resource set to check.
     resourceSetName :: Prelude.Text,
-    -- | The name of the ReadinessCheck to create
+    -- | The name of the readiness check to create.
     readinessCheckName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,9 +75,9 @@ data CreateReadinessCheck = CreateReadinessCheck'
 --
 -- 'tags', 'createReadinessCheck_tags' - Undocumented member.
 --
--- 'resourceSetName', 'createReadinessCheck_resourceSetName' - The name of the ResourceSet to check
+-- 'resourceSetName', 'createReadinessCheck_resourceSetName' - The name of the resource set to check.
 --
--- 'readinessCheckName', 'createReadinessCheck_readinessCheckName' - The name of the ReadinessCheck to create
+-- 'readinessCheckName', 'createReadinessCheck_readinessCheckName' - The name of the readiness check to create.
 newCreateReadinessCheck ::
   -- | 'resourceSetName'
   Prelude.Text ->
@@ -95,11 +97,11 @@ newCreateReadinessCheck
 createReadinessCheck_tags :: Lens.Lens' CreateReadinessCheck (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createReadinessCheck_tags = Lens.lens (\CreateReadinessCheck' {tags} -> tags) (\s@CreateReadinessCheck' {} a -> s {tags = a} :: CreateReadinessCheck) Prelude.. Lens.mapping Lens.coerced
 
--- | The name of the ResourceSet to check
+-- | The name of the resource set to check.
 createReadinessCheck_resourceSetName :: Lens.Lens' CreateReadinessCheck Prelude.Text
 createReadinessCheck_resourceSetName = Lens.lens (\CreateReadinessCheck' {resourceSetName} -> resourceSetName) (\s@CreateReadinessCheck' {} a -> s {resourceSetName = a} :: CreateReadinessCheck)
 
--- | The name of the ReadinessCheck to create
+-- | The name of the readiness check to create.
 createReadinessCheck_readinessCheckName :: Lens.Lens' CreateReadinessCheck Prelude.Text
 createReadinessCheck_readinessCheckName = Lens.lens (\CreateReadinessCheck' {readinessCheckName} -> readinessCheckName) (\s@CreateReadinessCheck' {} a -> s {readinessCheckName = a} :: CreateReadinessCheck)
 
@@ -163,11 +165,11 @@ instance Core.ToQuery CreateReadinessCheck where
 -- | /See:/ 'newCreateReadinessCheckResponse' smart constructor.
 data CreateReadinessCheckResponse = CreateReadinessCheckResponse'
   { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Name of the ResourceSet to be checked
+    -- | Name of the resource set to be checked.
     resourceSet :: Prelude.Maybe Prelude.Text,
-    -- | Name for a ReadinessCheck
+    -- | Name of a readiness check.
     readinessCheckName :: Prelude.Maybe Prelude.Text,
-    -- | Arn associated with ReadinessCheck
+    -- | The Amazon Resource Name (ARN) associated with a readiness check.
     readinessCheckArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -184,11 +186,11 @@ data CreateReadinessCheckResponse = CreateReadinessCheckResponse'
 --
 -- 'tags', 'createReadinessCheckResponse_tags' - Undocumented member.
 --
--- 'resourceSet', 'createReadinessCheckResponse_resourceSet' - Name of the ResourceSet to be checked
+-- 'resourceSet', 'createReadinessCheckResponse_resourceSet' - Name of the resource set to be checked.
 --
--- 'readinessCheckName', 'createReadinessCheckResponse_readinessCheckName' - Name for a ReadinessCheck
+-- 'readinessCheckName', 'createReadinessCheckResponse_readinessCheckName' - Name of a readiness check.
 --
--- 'readinessCheckArn', 'createReadinessCheckResponse_readinessCheckArn' - Arn associated with ReadinessCheck
+-- 'readinessCheckArn', 'createReadinessCheckResponse_readinessCheckArn' - The Amazon Resource Name (ARN) associated with a readiness check.
 --
 -- 'httpStatus', 'createReadinessCheckResponse_httpStatus' - The response's http status code.
 newCreateReadinessCheckResponse ::
@@ -209,15 +211,15 @@ newCreateReadinessCheckResponse pHttpStatus_ =
 createReadinessCheckResponse_tags :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createReadinessCheckResponse_tags = Lens.lens (\CreateReadinessCheckResponse' {tags} -> tags) (\s@CreateReadinessCheckResponse' {} a -> s {tags = a} :: CreateReadinessCheckResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | Name of the ResourceSet to be checked
+-- | Name of the resource set to be checked.
 createReadinessCheckResponse_resourceSet :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
 createReadinessCheckResponse_resourceSet = Lens.lens (\CreateReadinessCheckResponse' {resourceSet} -> resourceSet) (\s@CreateReadinessCheckResponse' {} a -> s {resourceSet = a} :: CreateReadinessCheckResponse)
 
--- | Name for a ReadinessCheck
+-- | Name of a readiness check.
 createReadinessCheckResponse_readinessCheckName :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
 createReadinessCheckResponse_readinessCheckName = Lens.lens (\CreateReadinessCheckResponse' {readinessCheckName} -> readinessCheckName) (\s@CreateReadinessCheckResponse' {} a -> s {readinessCheckName = a} :: CreateReadinessCheckResponse)
 
--- | Arn associated with ReadinessCheck
+-- | The Amazon Resource Name (ARN) associated with a readiness check.
 createReadinessCheckResponse_readinessCheckArn :: Lens.Lens' CreateReadinessCheckResponse (Prelude.Maybe Prelude.Text)
 createReadinessCheckResponse_readinessCheckArn = Lens.lens (\CreateReadinessCheckResponse' {readinessCheckArn} -> readinessCheckArn) (\s@CreateReadinessCheckResponse' {} a -> s {readinessCheckArn = a} :: CreateReadinessCheckResponse)
 

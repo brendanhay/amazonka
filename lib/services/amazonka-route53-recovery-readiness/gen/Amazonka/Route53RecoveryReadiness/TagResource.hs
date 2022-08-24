@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tags to the specified resource. You can specify one or more tags to
--- add.
+-- Adds a tag to a resource.
 module Amazonka.Route53RecoveryReadiness.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -49,8 +48,7 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) for the resource. You can get this from
-    -- the response to any request to the resource.
+  { -- | The Amazon Resource Name (ARN) for a resource.
     resourceArn :: Prelude.Text,
     tags :: Prelude.HashMap Prelude.Text Prelude.Text
   }
@@ -64,10 +62,9 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) for the resource. You can get this from
--- the response to any request to the resource.
+-- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) for a resource.
 --
--- 'tags', 'tagResource_tags' - Undocumented member.
+-- 'tags', 'tagResource_tags' -
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -78,12 +75,11 @@ newTagResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) for the resource. You can get this from
--- the response to any request to the resource.
+-- | The Amazon Resource Name (ARN) for a resource.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
--- | Undocumented member.
+-- |
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens.coerced
 

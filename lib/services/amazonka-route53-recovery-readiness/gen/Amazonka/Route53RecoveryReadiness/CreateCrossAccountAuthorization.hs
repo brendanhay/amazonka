@@ -20,7 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new cross account readiness authorization.
+-- Creates a cross-account readiness authorization. This lets you authorize
+-- another account to work with Route 53 Application Recovery Controller,
+-- for example, to check the readiness status of resources in a separate
+-- account.
 module Amazonka.Route53RecoveryReadiness.CreateCrossAccountAuthorization
   ( -- * Creating a Request
     CreateCrossAccountAuthorization (..),
@@ -46,11 +49,9 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 import Amazonka.Route53RecoveryReadiness.Types
 
--- | The cross account authorization
---
--- /See:/ 'newCreateCrossAccountAuthorization' smart constructor.
+-- | /See:/ 'newCreateCrossAccountAuthorization' smart constructor.
 data CreateCrossAccountAuthorization = CreateCrossAccountAuthorization'
-  { -- | The cross account authorization
+  { -- | The cross-account authorization.
     crossAccountAuthorization :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +64,7 @@ data CreateCrossAccountAuthorization = CreateCrossAccountAuthorization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'crossAccountAuthorization', 'createCrossAccountAuthorization_crossAccountAuthorization' - The cross account authorization
+-- 'crossAccountAuthorization', 'createCrossAccountAuthorization_crossAccountAuthorization' - The cross-account authorization.
 newCreateCrossAccountAuthorization ::
   -- | 'crossAccountAuthorization'
   Prelude.Text ->
@@ -75,7 +76,7 @@ newCreateCrossAccountAuthorization
           pCrossAccountAuthorization_
       }
 
--- | The cross account authorization
+-- | The cross-account authorization.
 createCrossAccountAuthorization_crossAccountAuthorization :: Lens.Lens' CreateCrossAccountAuthorization Prelude.Text
 createCrossAccountAuthorization_crossAccountAuthorization = Lens.lens (\CreateCrossAccountAuthorization' {crossAccountAuthorization} -> crossAccountAuthorization) (\s@CreateCrossAccountAuthorization' {} a -> s {crossAccountAuthorization = a} :: CreateCrossAccountAuthorization)
 
@@ -145,7 +146,7 @@ instance Core.ToQuery CreateCrossAccountAuthorization where
 
 -- | /See:/ 'newCreateCrossAccountAuthorizationResponse' smart constructor.
 data CreateCrossAccountAuthorizationResponse = CreateCrossAccountAuthorizationResponse'
-  { -- | The cross account authorization
+  { -- | The cross-account authorization.
     crossAccountAuthorization :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -160,7 +161,7 @@ data CreateCrossAccountAuthorizationResponse = CreateCrossAccountAuthorizationRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'crossAccountAuthorization', 'createCrossAccountAuthorizationResponse_crossAccountAuthorization' - The cross account authorization
+-- 'crossAccountAuthorization', 'createCrossAccountAuthorizationResponse_crossAccountAuthorization' - The cross-account authorization.
 --
 -- 'httpStatus', 'createCrossAccountAuthorizationResponse_httpStatus' - The response's http status code.
 newCreateCrossAccountAuthorizationResponse ::
@@ -175,7 +176,7 @@ newCreateCrossAccountAuthorizationResponse
         httpStatus = pHttpStatus_
       }
 
--- | The cross account authorization
+-- | The cross-account authorization.
 createCrossAccountAuthorizationResponse_crossAccountAuthorization :: Lens.Lens' CreateCrossAccountAuthorizationResponse (Prelude.Maybe Prelude.Text)
 createCrossAccountAuthorizationResponse_crossAccountAuthorization = Lens.lens (\CreateCrossAccountAuthorizationResponse' {crossAccountAuthorization} -> crossAccountAuthorization) (\s@CreateCrossAccountAuthorizationResponse' {} a -> s {crossAccountAuthorization = a} :: CreateCrossAccountAuthorizationResponse)
 

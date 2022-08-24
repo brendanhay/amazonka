@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a collection of Recovery Groups.
+-- Lists the recovery groups in an account.
 --
 -- This operation returns paginated results.
 module Amazonka.Route53RecoveryReadiness.ListRecoveryGroups
@@ -52,9 +52,9 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListRecoveryGroups' smart constructor.
 data ListRecoveryGroups = ListRecoveryGroups'
-  { -- | A token used to resume pagination from the end of a previous request.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
+    -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +67,9 @@ data ListRecoveryGroups = ListRecoveryGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecoveryGroups_nextToken' - A token used to resume pagination from the end of a previous request.
+-- 'nextToken', 'listRecoveryGroups_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'maxResults', 'listRecoveryGroups_maxResults' - Upper bound on number of records to return.
+-- 'maxResults', 'listRecoveryGroups_maxResults' - The number of objects that you want to return with this call.
 newListRecoveryGroups ::
   ListRecoveryGroups
 newListRecoveryGroups =
@@ -78,11 +78,11 @@ newListRecoveryGroups =
       maxResults = Prelude.Nothing
     }
 
--- | A token used to resume pagination from the end of a previous request.
+-- | The token that identifies which batch of results you want to see.
 listRecoveryGroups_nextToken :: Lens.Lens' ListRecoveryGroups (Prelude.Maybe Prelude.Text)
 listRecoveryGroups_nextToken = Lens.lens (\ListRecoveryGroups' {nextToken} -> nextToken) (\s@ListRecoveryGroups' {} a -> s {nextToken = a} :: ListRecoveryGroups)
 
--- | Upper bound on number of records to return.
+-- | The number of objects that you want to return with this call.
 listRecoveryGroups_maxResults :: Lens.Lens' ListRecoveryGroups (Prelude.Maybe Prelude.Natural)
 listRecoveryGroups_maxResults = Lens.lens (\ListRecoveryGroups' {maxResults} -> maxResults) (\s@ListRecoveryGroups' {} a -> s {maxResults = a} :: ListRecoveryGroups)
 
@@ -155,10 +155,9 @@ instance Core.ToQuery ListRecoveryGroups where
 
 -- | /See:/ 'newListRecoveryGroupsResponse' smart constructor.
 data ListRecoveryGroupsResponse = ListRecoveryGroupsResponse'
-  { -- | A token that can be used to resume pagination from the end of the
-    -- collection.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of RecoveryGroups
+    -- | A list of recovery groups.
     recoveryGroups :: Prelude.Maybe [RecoveryGroupOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,10 +172,9 @@ data ListRecoveryGroupsResponse = ListRecoveryGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listRecoveryGroupsResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'nextToken', 'listRecoveryGroupsResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'recoveryGroups', 'listRecoveryGroupsResponse_recoveryGroups' - A list of RecoveryGroups
+-- 'recoveryGroups', 'listRecoveryGroupsResponse_recoveryGroups' - A list of recovery groups.
 --
 -- 'httpStatus', 'listRecoveryGroupsResponse_httpStatus' - The response's http status code.
 newListRecoveryGroupsResponse ::
@@ -191,12 +189,11 @@ newListRecoveryGroupsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A token that can be used to resume pagination from the end of the
--- collection.
+-- | The token that identifies which batch of results you want to see.
 listRecoveryGroupsResponse_nextToken :: Lens.Lens' ListRecoveryGroupsResponse (Prelude.Maybe Prelude.Text)
 listRecoveryGroupsResponse_nextToken = Lens.lens (\ListRecoveryGroupsResponse' {nextToken} -> nextToken) (\s@ListRecoveryGroupsResponse' {} a -> s {nextToken = a} :: ListRecoveryGroupsResponse)
 
--- | A list of RecoveryGroups
+-- | A list of recovery groups.
 listRecoveryGroupsResponse_recoveryGroups :: Lens.Lens' ListRecoveryGroupsResponse (Prelude.Maybe [RecoveryGroupOutput])
 listRecoveryGroupsResponse_recoveryGroups = Lens.lens (\ListRecoveryGroupsResponse' {recoveryGroups} -> recoveryGroups) (\s@ListRecoveryGroupsResponse' {} a -> s {recoveryGroups = a} :: ListRecoveryGroupsResponse) Prelude.. Lens.mapping Lens.coerced
 

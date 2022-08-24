@@ -24,18 +24,19 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.Readiness
 
--- | Result with status for an individual resource.
+-- | The result of a successful Resource request, with status for an
+-- individual resource.
 --
 -- /See:/ 'newResourceResult' smart constructor.
 data ResourceResult = ResourceResult'
-  { -- | The ARN of the resource
+  { -- | The Amazon Resource Name (ARN) of the resource.
     resourceArn :: Prelude.Maybe Prelude.Text,
-    -- | The component id of the resource
+    -- | The component id of the resource.
     componentId :: Prelude.Maybe Prelude.Text,
-    -- | The readiness of the resource.
+    -- | The readiness of a resource.
     readiness :: Readiness,
-    -- | The time the resource was last checked for readiness, in ISO-8601
-    -- format, UTC.
+    -- | The time (UTC) that the resource was last checked for readiness, in
+    -- ISO-8601 format.
     lastCheckedTimestamp :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,14 +49,14 @@ data ResourceResult = ResourceResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'resourceResult_resourceArn' - The ARN of the resource
+-- 'resourceArn', 'resourceResult_resourceArn' - The Amazon Resource Name (ARN) of the resource.
 --
--- 'componentId', 'resourceResult_componentId' - The component id of the resource
+-- 'componentId', 'resourceResult_componentId' - The component id of the resource.
 --
--- 'readiness', 'resourceResult_readiness' - The readiness of the resource.
+-- 'readiness', 'resourceResult_readiness' - The readiness of a resource.
 --
--- 'lastCheckedTimestamp', 'resourceResult_lastCheckedTimestamp' - The time the resource was last checked for readiness, in ISO-8601
--- format, UTC.
+-- 'lastCheckedTimestamp', 'resourceResult_lastCheckedTimestamp' - The time (UTC) that the resource was last checked for readiness, in
+-- ISO-8601 format.
 newResourceResult ::
   -- | 'readiness'
   Readiness ->
@@ -71,20 +72,20 @@ newResourceResult pReadiness_ pLastCheckedTimestamp_ =
         Core._Time Lens.# pLastCheckedTimestamp_
     }
 
--- | The ARN of the resource
+-- | The Amazon Resource Name (ARN) of the resource.
 resourceResult_resourceArn :: Lens.Lens' ResourceResult (Prelude.Maybe Prelude.Text)
 resourceResult_resourceArn = Lens.lens (\ResourceResult' {resourceArn} -> resourceArn) (\s@ResourceResult' {} a -> s {resourceArn = a} :: ResourceResult)
 
--- | The component id of the resource
+-- | The component id of the resource.
 resourceResult_componentId :: Lens.Lens' ResourceResult (Prelude.Maybe Prelude.Text)
 resourceResult_componentId = Lens.lens (\ResourceResult' {componentId} -> componentId) (\s@ResourceResult' {} a -> s {componentId = a} :: ResourceResult)
 
--- | The readiness of the resource.
+-- | The readiness of a resource.
 resourceResult_readiness :: Lens.Lens' ResourceResult Readiness
 resourceResult_readiness = Lens.lens (\ResourceResult' {readiness} -> readiness) (\s@ResourceResult' {} a -> s {readiness = a} :: ResourceResult)
 
--- | The time the resource was last checked for readiness, in ISO-8601
--- format, UTC.
+-- | The time (UTC) that the resource was last checked for readiness, in
+-- ISO-8601 format.
 resourceResult_lastCheckedTimestamp :: Lens.Lens' ResourceResult Prelude.UTCTime
 resourceResult_lastCheckedTimestamp = Lens.lens (\ResourceResult' {lastCheckedTimestamp} -> lastCheckedTimestamp) (\s@ResourceResult' {} a -> s {lastCheckedTimestamp = a} :: ResourceResult) Prelude.. Core._Time
 

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a collection of recommendations to improve resilliance and
--- readiness check quality for a Recovery Group.
+-- Gets recommendations about architecture designs for improving resiliency
+-- for an application, based on a recovery group.
 module Amazonka.Route53RecoveryReadiness.GetArchitectureRecommendations
   ( -- * Creating a Request
     GetArchitectureRecommendations (..),
@@ -53,12 +53,11 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newGetArchitectureRecommendations' smart constructor.
 data GetArchitectureRecommendations = GetArchitectureRecommendations'
-  { -- | A token that can be used to resume pagination from the end of the
-    -- collection.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
+    -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Name of RecoveryGroup (top level resource) to be analyzed.
+    -- | The name of a recovery group.
     recoveryGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,12 +70,11 @@ data GetArchitectureRecommendations = GetArchitectureRecommendations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getArchitectureRecommendations_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'nextToken', 'getArchitectureRecommendations_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'maxResults', 'getArchitectureRecommendations_maxResults' - Upper bound on number of records to return.
+-- 'maxResults', 'getArchitectureRecommendations_maxResults' - The number of objects that you want to return with this call.
 --
--- 'recoveryGroupName', 'getArchitectureRecommendations_recoveryGroupName' - Name of RecoveryGroup (top level resource) to be analyzed.
+-- 'recoveryGroupName', 'getArchitectureRecommendations_recoveryGroupName' - The name of a recovery group.
 newGetArchitectureRecommendations ::
   -- | 'recoveryGroupName'
   Prelude.Text ->
@@ -89,16 +87,15 @@ newGetArchitectureRecommendations pRecoveryGroupName_ =
       recoveryGroupName = pRecoveryGroupName_
     }
 
--- | A token that can be used to resume pagination from the end of the
--- collection.
+-- | The token that identifies which batch of results you want to see.
 getArchitectureRecommendations_nextToken :: Lens.Lens' GetArchitectureRecommendations (Prelude.Maybe Prelude.Text)
 getArchitectureRecommendations_nextToken = Lens.lens (\GetArchitectureRecommendations' {nextToken} -> nextToken) (\s@GetArchitectureRecommendations' {} a -> s {nextToken = a} :: GetArchitectureRecommendations)
 
--- | Upper bound on number of records to return.
+-- | The number of objects that you want to return with this call.
 getArchitectureRecommendations_maxResults :: Lens.Lens' GetArchitectureRecommendations (Prelude.Maybe Prelude.Natural)
 getArchitectureRecommendations_maxResults = Lens.lens (\GetArchitectureRecommendations' {maxResults} -> maxResults) (\s@GetArchitectureRecommendations' {} a -> s {maxResults = a} :: GetArchitectureRecommendations)
 
--- | Name of RecoveryGroup (top level resource) to be analyzed.
+-- | The name of a recovery group.
 getArchitectureRecommendations_recoveryGroupName :: Lens.Lens' GetArchitectureRecommendations Prelude.Text
 getArchitectureRecommendations_recoveryGroupName = Lens.lens (\GetArchitectureRecommendations' {recoveryGroupName} -> recoveryGroupName) (\s@GetArchitectureRecommendations' {} a -> s {recoveryGroupName = a} :: GetArchitectureRecommendations)
 
@@ -173,13 +170,12 @@ instance Core.ToQuery GetArchitectureRecommendations where
 
 -- | /See:/ 'newGetArchitectureRecommendationsResponse' smart constructor.
 data GetArchitectureRecommendationsResponse = GetArchitectureRecommendationsResponse'
-  { -- | A token that can be used to resume pagination from the end of the
-    -- collection
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of recommendations for the customer\'s application
+    -- | A list of the recommendations for the customer\'s application.
     recommendations :: Prelude.Maybe [Recommendation],
-    -- | The time a Recovery Group was last assessed for recommendations in UTC
-    -- ISO-8601 format.
+    -- | The time that a recovery group was last assessed for recommendations, in
+    -- UTC ISO-8601 format.
     lastAuditTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -194,13 +190,12 @@ data GetArchitectureRecommendationsResponse = GetArchitectureRecommendationsResp
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getArchitectureRecommendationsResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection
+-- 'nextToken', 'getArchitectureRecommendationsResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'recommendations', 'getArchitectureRecommendationsResponse_recommendations' - A list of recommendations for the customer\'s application
+-- 'recommendations', 'getArchitectureRecommendationsResponse_recommendations' - A list of the recommendations for the customer\'s application.
 --
--- 'lastAuditTimestamp', 'getArchitectureRecommendationsResponse_lastAuditTimestamp' - The time a Recovery Group was last assessed for recommendations in UTC
--- ISO-8601 format.
+-- 'lastAuditTimestamp', 'getArchitectureRecommendationsResponse_lastAuditTimestamp' - The time that a recovery group was last assessed for recommendations, in
+-- UTC ISO-8601 format.
 --
 -- 'httpStatus', 'getArchitectureRecommendationsResponse_httpStatus' - The response's http status code.
 newGetArchitectureRecommendationsResponse ::
@@ -218,17 +213,16 @@ newGetArchitectureRecommendationsResponse
         httpStatus = pHttpStatus_
       }
 
--- | A token that can be used to resume pagination from the end of the
--- collection
+-- | The token that identifies which batch of results you want to see.
 getArchitectureRecommendationsResponse_nextToken :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe Prelude.Text)
 getArchitectureRecommendationsResponse_nextToken = Lens.lens (\GetArchitectureRecommendationsResponse' {nextToken} -> nextToken) (\s@GetArchitectureRecommendationsResponse' {} a -> s {nextToken = a} :: GetArchitectureRecommendationsResponse)
 
--- | A list of recommendations for the customer\'s application
+-- | A list of the recommendations for the customer\'s application.
 getArchitectureRecommendationsResponse_recommendations :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe [Recommendation])
 getArchitectureRecommendationsResponse_recommendations = Lens.lens (\GetArchitectureRecommendationsResponse' {recommendations} -> recommendations) (\s@GetArchitectureRecommendationsResponse' {} a -> s {recommendations = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The time a Recovery Group was last assessed for recommendations in UTC
--- ISO-8601 format.
+-- | The time that a recovery group was last assessed for recommendations, in
+-- UTC ISO-8601 format.
 getArchitectureRecommendationsResponse_lastAuditTimestamp :: Lens.Lens' GetArchitectureRecommendationsResponse (Prelude.Maybe Prelude.UTCTime)
 getArchitectureRecommendationsResponse_lastAuditTimestamp = Lens.lens (\GetArchitectureRecommendationsResponse' {lastAuditTimestamp} -> lastAuditTimestamp) (\s@GetArchitectureRecommendationsResponse' {} a -> s {lastAuditTimestamp = a} :: GetArchitectureRecommendationsResponse) Prelude.. Lens.mapping Core._Time
 

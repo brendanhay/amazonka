@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing Cell.
+-- Delete a cell. When successful, the response code is 204, with no
+-- response body.
 module Amazonka.Route53RecoveryReadiness.DeleteCell
   ( -- * Creating a Request
     DeleteCell (..),
@@ -44,7 +45,7 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newDeleteCell' smart constructor.
 data DeleteCell = DeleteCell'
-  { -- | The Cell to delete
+  { -- | The name of the cell.
     cellName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +58,7 @@ data DeleteCell = DeleteCell'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cellName', 'deleteCell_cellName' - The Cell to delete
+-- 'cellName', 'deleteCell_cellName' - The name of the cell.
 newDeleteCell ::
   -- | 'cellName'
   Prelude.Text ->
@@ -65,7 +66,7 @@ newDeleteCell ::
 newDeleteCell pCellName_ =
   DeleteCell' {cellName = pCellName_}
 
--- | The Cell to delete
+-- | The name of the cell.
 deleteCell_cellName :: Lens.Lens' DeleteCell Prelude.Text
 deleteCell_cellName = Lens.lens (\DeleteCell' {cellName} -> cellName) (\s@DeleteCell' {} a -> s {cellName = a} :: DeleteCell)
 

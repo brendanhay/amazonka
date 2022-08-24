@@ -25,11 +25,12 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryReadiness.Types.Message
 import Amazonka.Route53RecoveryReadiness.Types.Readiness
 
--- | Result with status for an individual rule..
+-- | The result of a successful Rule request, with status for an individual
+-- rule.
 --
 -- /See:/ 'newRuleResult' smart constructor.
 data RuleResult = RuleResult'
-  { -- | Details about the resource\'s readiness
+  { -- | Details about the resource\'s readiness.
     messages :: [Message],
     -- | The readiness at rule level.
     readiness :: Readiness,
@@ -49,7 +50,7 @@ data RuleResult = RuleResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'messages', 'ruleResult_messages' - Details about the resource\'s readiness
+-- 'messages', 'ruleResult_messages' - Details about the resource\'s readiness.
 --
 -- 'readiness', 'ruleResult_readiness' - The readiness at rule level.
 --
@@ -77,7 +78,7 @@ newRuleResult
           Core._Time Lens.# pLastCheckedTimestamp_
       }
 
--- | Details about the resource\'s readiness
+-- | Details about the resource\'s readiness.
 ruleResult_messages :: Lens.Lens' RuleResult [Message]
 ruleResult_messages = Lens.lens (\RuleResult' {messages} -> messages) (\s@RuleResult' {} a -> s {messages = a} :: RuleResult) Prelude.. Lens.coerced
 

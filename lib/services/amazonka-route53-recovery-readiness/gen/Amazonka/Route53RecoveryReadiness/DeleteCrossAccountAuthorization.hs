@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete cross account readiness authorization
+-- Deletes cross account readiness authorization.
 module Amazonka.Route53RecoveryReadiness.DeleteCrossAccountAuthorization
   ( -- * Creating a Request
     DeleteCrossAccountAuthorization (..),
@@ -47,7 +47,7 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newDeleteCrossAccountAuthorization' smart constructor.
 data DeleteCrossAccountAuthorization = DeleteCrossAccountAuthorization'
-  { -- | The cross account authorization
+  { -- | The cross-account authorization.
     crossAccountAuthorization :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data DeleteCrossAccountAuthorization = DeleteCrossAccountAuthorization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'crossAccountAuthorization', 'deleteCrossAccountAuthorization_crossAccountAuthorization' - The cross account authorization
+-- 'crossAccountAuthorization', 'deleteCrossAccountAuthorization_crossAccountAuthorization' - The cross-account authorization.
 newDeleteCrossAccountAuthorization ::
   -- | 'crossAccountAuthorization'
   Prelude.Text ->
@@ -72,7 +72,7 @@ newDeleteCrossAccountAuthorization
           pCrossAccountAuthorization_
       }
 
--- | The cross account authorization
+-- | The cross-account authorization.
 deleteCrossAccountAuthorization_crossAccountAuthorization :: Lens.Lens' DeleteCrossAccountAuthorization Prelude.Text
 deleteCrossAccountAuthorization_crossAccountAuthorization = Lens.lens (\DeleteCrossAccountAuthorization' {crossAccountAuthorization} -> crossAccountAuthorization) (\s@DeleteCrossAccountAuthorization' {} a -> s {crossAccountAuthorization = a} :: DeleteCrossAccountAuthorization)
 

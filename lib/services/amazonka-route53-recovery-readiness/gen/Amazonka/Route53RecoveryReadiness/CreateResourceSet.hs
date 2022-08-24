@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new Resource Set.
+-- Creates a resource set. A resource set is a set of resources of one type
+-- that span multiple cells. You can associate a resource set with a
+-- readiness check to monitor the resources for failover readiness.
 module Amazonka.Route53RecoveryReadiness.CreateResourceSet
   ( -- * Creating a Request
     CreateResourceSet (..),
@@ -53,16 +55,26 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 import Amazonka.Route53RecoveryReadiness.Types
 
--- | The ResourceSet to create
---
--- /See:/ 'newCreateResourceSet' smart constructor.
+-- | /See:/ 'newCreateResourceSet' smart constructor.
 data CreateResourceSet = CreateResourceSet'
-  { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | AWS Resource type of the resources in the ResourceSet
+  { -- | A tag to associate with the parameters for a resource set.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The resource type of the resources in the resource set. Enter one of the
+    -- following values for resource type:
+    --
+    -- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+    -- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+    -- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+    -- AWS::ElasticLoadBalancing::LoadBalancer,
+    -- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+    -- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+    -- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+    -- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+    -- AWS::Route53RecoveryReadiness::DNSTargetResource
     resourceSetType :: Prelude.Text,
-    -- | The name of the ResourceSet to create
+    -- | The name of the resource set to create.
     resourceSetName :: Prelude.Text,
-    -- | A list of Resource objects
+    -- | A list of resource objects in the resource set.
     resources :: [Resource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,13 +87,24 @@ data CreateResourceSet = CreateResourceSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createResourceSet_tags' - Undocumented member.
+-- 'tags', 'createResourceSet_tags' - A tag to associate with the parameters for a resource set.
 --
--- 'resourceSetType', 'createResourceSet_resourceSetType' - AWS Resource type of the resources in the ResourceSet
+-- 'resourceSetType', 'createResourceSet_resourceSetType' - The resource type of the resources in the resource set. Enter one of the
+-- following values for resource type:
 --
--- 'resourceSetName', 'createResourceSet_resourceSetName' - The name of the ResourceSet to create
+-- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+-- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+-- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+-- AWS::ElasticLoadBalancing::LoadBalancer,
+-- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+-- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+-- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+-- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+-- AWS::Route53RecoveryReadiness::DNSTargetResource
 --
--- 'resources', 'createResourceSet_resources' - A list of Resource objects
+-- 'resourceSetName', 'createResourceSet_resourceSetName' - The name of the resource set to create.
+--
+-- 'resources', 'createResourceSet_resources' - A list of resource objects in the resource set.
 newCreateResourceSet ::
   -- | 'resourceSetType'
   Prelude.Text ->
@@ -98,19 +121,30 @@ newCreateResourceSet
         resources = Prelude.mempty
       }
 
--- | Undocumented member.
+-- | A tag to associate with the parameters for a resource set.
 createResourceSet_tags :: Lens.Lens' CreateResourceSet (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createResourceSet_tags = Lens.lens (\CreateResourceSet' {tags} -> tags) (\s@CreateResourceSet' {} a -> s {tags = a} :: CreateResourceSet) Prelude.. Lens.mapping Lens.coerced
 
--- | AWS Resource type of the resources in the ResourceSet
+-- | The resource type of the resources in the resource set. Enter one of the
+-- following values for resource type:
+--
+-- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+-- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+-- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+-- AWS::ElasticLoadBalancing::LoadBalancer,
+-- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+-- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+-- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+-- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+-- AWS::Route53RecoveryReadiness::DNSTargetResource
 createResourceSet_resourceSetType :: Lens.Lens' CreateResourceSet Prelude.Text
 createResourceSet_resourceSetType = Lens.lens (\CreateResourceSet' {resourceSetType} -> resourceSetType) (\s@CreateResourceSet' {} a -> s {resourceSetType = a} :: CreateResourceSet)
 
--- | The name of the ResourceSet to create
+-- | The name of the resource set to create.
 createResourceSet_resourceSetName :: Lens.Lens' CreateResourceSet Prelude.Text
 createResourceSet_resourceSetName = Lens.lens (\CreateResourceSet' {resourceSetName} -> resourceSetName) (\s@CreateResourceSet' {} a -> s {resourceSetName = a} :: CreateResourceSet)
 
--- | A list of Resource objects
+-- | A list of resource objects in the resource set.
 createResourceSet_resources :: Lens.Lens' CreateResourceSet [Resource]
 createResourceSet_resources = Lens.lens (\CreateResourceSet' {resources} -> resources) (\s@CreateResourceSet' {} a -> s {resources = a} :: CreateResourceSet) Prelude.. Lens.coerced
 
@@ -178,13 +212,24 @@ instance Core.ToQuery CreateResourceSet where
 -- | /See:/ 'newCreateResourceSetResponse' smart constructor.
 data CreateResourceSetResponse = CreateResourceSetResponse'
   { tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | AWS Resource Type of the resources in the ResourceSet
+    -- | The resource type of the resources in the resource set. Enter one of the
+    -- following values for resource type:
+    --
+    -- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+    -- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+    -- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+    -- AWS::ElasticLoadBalancing::LoadBalancer,
+    -- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+    -- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+    -- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+    -- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+    -- AWS::Route53RecoveryReadiness::DNSTargetResource
     resourceSetType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the ResourceSet
+    -- | The name of the resource set.
     resourceSetName :: Prelude.Maybe Prelude.Text,
-    -- | A list of Resource objects
+    -- | A list of resource objects.
     resources :: Prelude.Maybe [Resource],
-    -- | The arn for the ResourceSet
+    -- | The Amazon Resource Name (ARN) for the resource set.
     resourceSetArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -201,13 +246,24 @@ data CreateResourceSetResponse = CreateResourceSetResponse'
 --
 -- 'tags', 'createResourceSetResponse_tags' - Undocumented member.
 --
--- 'resourceSetType', 'createResourceSetResponse_resourceSetType' - AWS Resource Type of the resources in the ResourceSet
+-- 'resourceSetType', 'createResourceSetResponse_resourceSetType' - The resource type of the resources in the resource set. Enter one of the
+-- following values for resource type:
 --
--- 'resourceSetName', 'createResourceSetResponse_resourceSetName' - The name of the ResourceSet
+-- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+-- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+-- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+-- AWS::ElasticLoadBalancing::LoadBalancer,
+-- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+-- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+-- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+-- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+-- AWS::Route53RecoveryReadiness::DNSTargetResource
 --
--- 'resources', 'createResourceSetResponse_resources' - A list of Resource objects
+-- 'resourceSetName', 'createResourceSetResponse_resourceSetName' - The name of the resource set.
 --
--- 'resourceSetArn', 'createResourceSetResponse_resourceSetArn' - The arn for the ResourceSet
+-- 'resources', 'createResourceSetResponse_resources' - A list of resource objects.
+--
+-- 'resourceSetArn', 'createResourceSetResponse_resourceSetArn' - The Amazon Resource Name (ARN) for the resource set.
 --
 -- 'httpStatus', 'createResourceSetResponse_httpStatus' - The response's http status code.
 newCreateResourceSetResponse ::
@@ -228,19 +284,30 @@ newCreateResourceSetResponse pHttpStatus_ =
 createResourceSetResponse_tags :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createResourceSetResponse_tags = Lens.lens (\CreateResourceSetResponse' {tags} -> tags) (\s@CreateResourceSetResponse' {} a -> s {tags = a} :: CreateResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | AWS Resource Type of the resources in the ResourceSet
+-- | The resource type of the resources in the resource set. Enter one of the
+-- following values for resource type:
+--
+-- AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage,
+-- AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm,
+-- AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume,
+-- AWS::ElasticLoadBalancing::LoadBalancer,
+-- AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function,
+-- AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck,
+-- AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC,
+-- AWS::EC2::VPNConnection, AWS::EC2::VPNGateway,
+-- AWS::Route53RecoveryReadiness::DNSTargetResource
 createResourceSetResponse_resourceSetType :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe Prelude.Text)
 createResourceSetResponse_resourceSetType = Lens.lens (\CreateResourceSetResponse' {resourceSetType} -> resourceSetType) (\s@CreateResourceSetResponse' {} a -> s {resourceSetType = a} :: CreateResourceSetResponse)
 
--- | The name of the ResourceSet
+-- | The name of the resource set.
 createResourceSetResponse_resourceSetName :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe Prelude.Text)
 createResourceSetResponse_resourceSetName = Lens.lens (\CreateResourceSetResponse' {resourceSetName} -> resourceSetName) (\s@CreateResourceSetResponse' {} a -> s {resourceSetName = a} :: CreateResourceSetResponse)
 
--- | A list of Resource objects
+-- | A list of resource objects.
 createResourceSetResponse_resources :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe [Resource])
 createResourceSetResponse_resources = Lens.lens (\CreateResourceSetResponse' {resources} -> resources) (\s@CreateResourceSetResponse' {} a -> s {resources = a} :: CreateResourceSetResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The arn for the ResourceSet
+-- | The Amazon Resource Name (ARN) for the resource set.
 createResourceSetResponse_resourceSetArn :: Lens.Lens' CreateResourceSetResponse (Prelude.Maybe Prelude.Text)
 createResourceSetResponse_resourceSetArn = Lens.lens (\CreateResourceSetResponse' {resourceSetArn} -> resourceSetArn) (\s@CreateResourceSetResponse' {} a -> s {resourceSetArn = a} :: CreateResourceSetResponse)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a collection of Readiness Checks.
+-- Lists the readiness checks for an account.
 --
 -- This operation returns paginated results.
 module Amazonka.Route53RecoveryReadiness.ListReadinessChecks
@@ -52,9 +52,9 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListReadinessChecks' smart constructor.
 data ListReadinessChecks = ListReadinessChecks'
-  { -- | A token used to resume pagination from the end of a previous request.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
+    -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +67,9 @@ data ListReadinessChecks = ListReadinessChecks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReadinessChecks_nextToken' - A token used to resume pagination from the end of a previous request.
+-- 'nextToken', 'listReadinessChecks_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'maxResults', 'listReadinessChecks_maxResults' - Upper bound on number of records to return.
+-- 'maxResults', 'listReadinessChecks_maxResults' - The number of objects that you want to return with this call.
 newListReadinessChecks ::
   ListReadinessChecks
 newListReadinessChecks =
@@ -78,11 +78,11 @@ newListReadinessChecks =
       maxResults = Prelude.Nothing
     }
 
--- | A token used to resume pagination from the end of a previous request.
+-- | The token that identifies which batch of results you want to see.
 listReadinessChecks_nextToken :: Lens.Lens' ListReadinessChecks (Prelude.Maybe Prelude.Text)
 listReadinessChecks_nextToken = Lens.lens (\ListReadinessChecks' {nextToken} -> nextToken) (\s@ListReadinessChecks' {} a -> s {nextToken = a} :: ListReadinessChecks)
 
--- | Upper bound on number of records to return.
+-- | The number of objects that you want to return with this call.
 listReadinessChecks_maxResults :: Lens.Lens' ListReadinessChecks (Prelude.Maybe Prelude.Natural)
 listReadinessChecks_maxResults = Lens.lens (\ListReadinessChecks' {maxResults} -> maxResults) (\s@ListReadinessChecks' {} a -> s {maxResults = a} :: ListReadinessChecks)
 
@@ -157,10 +157,9 @@ instance Core.ToQuery ListReadinessChecks where
 
 -- | /See:/ 'newListReadinessChecksResponse' smart constructor.
 data ListReadinessChecksResponse = ListReadinessChecksResponse'
-  { -- | A token that can be used to resume pagination from the end of the
-    -- collection.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of ReadinessCheck associated with the account
+    -- | A list of readiness checks associated with the account.
     readinessChecks :: Prelude.Maybe [ReadinessCheckOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -175,10 +174,9 @@ data ListReadinessChecksResponse = ListReadinessChecksResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listReadinessChecksResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'nextToken', 'listReadinessChecksResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'readinessChecks', 'listReadinessChecksResponse_readinessChecks' - A list of ReadinessCheck associated with the account
+-- 'readinessChecks', 'listReadinessChecksResponse_readinessChecks' - A list of readiness checks associated with the account.
 --
 -- 'httpStatus', 'listReadinessChecksResponse_httpStatus' - The response's http status code.
 newListReadinessChecksResponse ::
@@ -193,12 +191,11 @@ newListReadinessChecksResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A token that can be used to resume pagination from the end of the
--- collection.
+-- | The token that identifies which batch of results you want to see.
 listReadinessChecksResponse_nextToken :: Lens.Lens' ListReadinessChecksResponse (Prelude.Maybe Prelude.Text)
 listReadinessChecksResponse_nextToken = Lens.lens (\ListReadinessChecksResponse' {nextToken} -> nextToken) (\s@ListReadinessChecksResponse' {} a -> s {nextToken = a} :: ListReadinessChecksResponse)
 
--- | A list of ReadinessCheck associated with the account
+-- | A list of readiness checks associated with the account.
 listReadinessChecksResponse_readinessChecks :: Lens.Lens' ListReadinessChecksResponse (Prelude.Maybe [ReadinessCheckOutput])
 listReadinessChecksResponse_readinessChecks = Lens.lens (\ListReadinessChecksResponse' {readinessChecks} -> readinessChecks) (\s@ListReadinessChecksResponse' {} a -> s {readinessChecks = a} :: ListReadinessChecksResponse) Prelude.. Lens.mapping Lens.coerced
 

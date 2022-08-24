@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a collection of Cells.
+-- Lists the cells for an account.
 --
 -- This operation returns paginated results.
 module Amazonka.Route53RecoveryReadiness.ListCells
@@ -52,9 +52,9 @@ import Amazonka.Route53RecoveryReadiness.Types
 
 -- | /See:/ 'newListCells' smart constructor.
 data ListCells = ListCells'
-  { -- | A token used to resume pagination from the end of a previous request.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Upper bound on number of records to return.
+    -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +67,9 @@ data ListCells = ListCells'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCells_nextToken' - A token used to resume pagination from the end of a previous request.
+-- 'nextToken', 'listCells_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'maxResults', 'listCells_maxResults' - Upper bound on number of records to return.
+-- 'maxResults', 'listCells_maxResults' - The number of objects that you want to return with this call.
 newListCells ::
   ListCells
 newListCells =
@@ -78,11 +78,11 @@ newListCells =
       maxResults = Prelude.Nothing
     }
 
--- | A token used to resume pagination from the end of a previous request.
+-- | The token that identifies which batch of results you want to see.
 listCells_nextToken :: Lens.Lens' ListCells (Prelude.Maybe Prelude.Text)
 listCells_nextToken = Lens.lens (\ListCells' {nextToken} -> nextToken) (\s@ListCells' {} a -> s {nextToken = a} :: ListCells)
 
--- | Upper bound on number of records to return.
+-- | The number of objects that you want to return with this call.
 listCells_maxResults :: Lens.Lens' ListCells (Prelude.Maybe Prelude.Natural)
 listCells_maxResults = Lens.lens (\ListCells' {maxResults} -> maxResults) (\s@ListCells' {} a -> s {maxResults = a} :: ListCells)
 
@@ -150,10 +150,9 @@ instance Core.ToQuery ListCells where
 
 -- | /See:/ 'newListCellsResponse' smart constructor.
 data ListCellsResponse = ListCellsResponse'
-  { -- | A token that can be used to resume pagination from the end of the
-    -- collection.
+  { -- | The token that identifies which batch of results you want to see.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of Cells
+    -- | A list of cells.
     cells :: Prelude.Maybe [CellOutput],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -168,10 +167,9 @@ data ListCellsResponse = ListCellsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCellsResponse_nextToken' - A token that can be used to resume pagination from the end of the
--- collection.
+-- 'nextToken', 'listCellsResponse_nextToken' - The token that identifies which batch of results you want to see.
 --
--- 'cells', 'listCellsResponse_cells' - A list of Cells
+-- 'cells', 'listCellsResponse_cells' - A list of cells.
 --
 -- 'httpStatus', 'listCellsResponse_httpStatus' - The response's http status code.
 newListCellsResponse ::
@@ -185,12 +183,11 @@ newListCellsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A token that can be used to resume pagination from the end of the
--- collection.
+-- | The token that identifies which batch of results you want to see.
 listCellsResponse_nextToken :: Lens.Lens' ListCellsResponse (Prelude.Maybe Prelude.Text)
 listCellsResponse_nextToken = Lens.lens (\ListCellsResponse' {nextToken} -> nextToken) (\s@ListCellsResponse' {} a -> s {nextToken = a} :: ListCellsResponse)
 
--- | A list of Cells
+-- | A list of cells.
 listCellsResponse_cells :: Lens.Lens' ListCellsResponse (Prelude.Maybe [CellOutput])
 listCellsResponse_cells = Lens.lens (\ListCellsResponse' {cells} -> cells) (\s@ListCellsResponse' {} a -> s {cells = a} :: ListCellsResponse) Prelude.. Lens.mapping Lens.coerced
 

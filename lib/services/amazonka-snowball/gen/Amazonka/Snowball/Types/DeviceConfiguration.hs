@@ -28,8 +28,7 @@ import Amazonka.Snowball.Types.SnowconeDeviceConfiguration
 --
 -- /See:/ 'newDeviceConfiguration' smart constructor.
 data DeviceConfiguration = DeviceConfiguration'
-  { -- | Returns information about the device configuration for an AWS Snowcone
-    -- job.
+  { -- | Returns information about the device configuration for an Snowcone job.
     snowconeDeviceConfiguration :: Prelude.Maybe SnowconeDeviceConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +41,7 @@ data DeviceConfiguration = DeviceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snowconeDeviceConfiguration', 'deviceConfiguration_snowconeDeviceConfiguration' - Returns information about the device configuration for an AWS Snowcone
--- job.
+-- 'snowconeDeviceConfiguration', 'deviceConfiguration_snowconeDeviceConfiguration' - Returns information about the device configuration for an Snowcone job.
 newDeviceConfiguration ::
   DeviceConfiguration
 newDeviceConfiguration =
@@ -52,8 +50,7 @@ newDeviceConfiguration =
         Prelude.Nothing
     }
 
--- | Returns information about the device configuration for an AWS Snowcone
--- job.
+-- | Returns information about the device configuration for an Snowcone job.
 deviceConfiguration_snowconeDeviceConfiguration :: Lens.Lens' DeviceConfiguration (Prelude.Maybe SnowconeDeviceConfiguration)
 deviceConfiguration_snowconeDeviceConfiguration = Lens.lens (\DeviceConfiguration' {snowconeDeviceConfiguration} -> snowconeDeviceConfiguration) (\s@DeviceConfiguration' {} a -> s {snowconeDeviceConfiguration = a} :: DeviceConfiguration)
 

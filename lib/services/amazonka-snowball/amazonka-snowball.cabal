@@ -104,6 +104,7 @@ library
     Amazonka.Snowball.Types.StorageUnit
     Amazonka.Snowball.Types.TargetOnDeviceService
     Amazonka.Snowball.Types.TaxDocuments
+    Amazonka.Snowball.Types.TGWOnDeviceServiceConfiguration
     Amazonka.Snowball.Types.TransferOption
     Amazonka.Snowball.Types.WirelessConnection
     Amazonka.Snowball.UpdateCluster

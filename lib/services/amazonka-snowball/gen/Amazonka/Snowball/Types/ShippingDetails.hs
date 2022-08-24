@@ -52,7 +52,7 @@ data ShippingDetails = ShippingDetails'
     --     shipping and two-day shipping.
     shippingOption :: Prelude.Maybe ShippingOption,
     -- | The @Status@ and @TrackingNumber@ values for a Snow device being
-    -- returned to AWS for a particular job.
+    -- returned to Amazon Web Services for a particular job.
     inboundShipment :: Prelude.Maybe Shipment
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data ShippingDetails = ShippingDetails'
 --     shipping and two-day shipping.
 --
 -- 'inboundShipment', 'shippingDetails_inboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being
--- returned to AWS for a particular job.
+-- returned to Amazon Web Services for a particular job.
 newShippingDetails ::
   ShippingDetails
 newShippingDetails =
@@ -124,7 +124,7 @@ shippingDetails_shippingOption :: Lens.Lens' ShippingDetails (Prelude.Maybe Ship
 shippingDetails_shippingOption = Lens.lens (\ShippingDetails' {shippingOption} -> shippingOption) (\s@ShippingDetails' {} a -> s {shippingOption = a} :: ShippingDetails)
 
 -- | The @Status@ and @TrackingNumber@ values for a Snow device being
--- returned to AWS for a particular job.
+-- returned to Amazon Web Services for a particular job.
 shippingDetails_inboundShipment :: Lens.Lens' ShippingDetails (Prelude.Maybe Shipment)
 shippingDetails_inboundShipment = Lens.lens (\ShippingDetails' {inboundShipment} -> inboundShipment) (\s@ShippingDetails' {} a -> s {inboundShipment = a} :: ShippingDetails)
 

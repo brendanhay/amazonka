@@ -104,6 +104,7 @@ module Amazonka.Snowball.Lens
     -- ** DescribeReturnShippingLabel
     describeReturnShippingLabel_jobId,
     describeReturnShippingLabelResponse_status,
+    describeReturnShippingLabelResponse_returnShippingLabelURI,
     describeReturnShippingLabelResponse_expirationDate,
     describeReturnShippingLabelResponse_httpStatus,
 
@@ -337,6 +338,7 @@ module Amazonka.Snowball.Lens
 
     -- ** OnDeviceServiceConfiguration
     onDeviceServiceConfiguration_nFSOnDeviceService,
+    onDeviceServiceConfiguration_tGWOnDeviceService,
 
     -- ** S3Resource
     s3Resource_targetOnDeviceServices,
@@ -354,6 +356,10 @@ module Amazonka.Snowball.Lens
 
     -- ** SnowconeDeviceConfiguration
     snowconeDeviceConfiguration_wirelessConnection,
+
+    -- ** TGWOnDeviceServiceConfiguration
+    tGWOnDeviceServiceConfiguration_storageUnit,
+    tGWOnDeviceServiceConfiguration_storageLimit,
 
     -- ** TargetOnDeviceService
     targetOnDeviceService_transferOption,
@@ -411,6 +417,7 @@ import Amazonka.Snowball.Types.S3Resource
 import Amazonka.Snowball.Types.Shipment
 import Amazonka.Snowball.Types.ShippingDetails
 import Amazonka.Snowball.Types.SnowconeDeviceConfiguration
+import Amazonka.Snowball.Types.TGWOnDeviceServiceConfiguration
 import Amazonka.Snowball.Types.TargetOnDeviceService
 import Amazonka.Snowball.Types.TaxDocuments
 import Amazonka.Snowball.Types.WirelessConnection

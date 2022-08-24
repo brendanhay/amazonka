@@ -27,7 +27,8 @@ import Amazonka.Snowball.Types.TransferOption
 
 -- | An object that represents the service or services on the Snow Family
 -- device that your transferred data will be exported from or imported
--- into. AWS Snow Family supports Amazon S3 and NFS (Network File System).
+-- into. Amazon Web Services Snow Family supports Amazon S3 and NFS
+-- (Network File System).
 --
 -- /See:/ 'newTargetOnDeviceService' smart constructor.
 data TargetOnDeviceService = TargetOnDeviceService'

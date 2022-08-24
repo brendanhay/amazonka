@@ -44,8 +44,8 @@ data Notification = Notification'
     -- <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic>
     -- Amazon SNS API action.
     --
-    -- You can subscribe email addresses to an Amazon SNS topic through the AWS
-    -- Management Console, or by using the
+    -- You can subscribe email addresses to an Amazon SNS topic through the
+    -- Amazon Web Services Management Console, or by using the
     -- <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe>
     -- Amazon Simple Notification Service (Amazon SNS) API action.
     snsTopicARN :: Prelude.Maybe Prelude.Text,
@@ -69,8 +69,8 @@ data Notification = Notification'
 -- <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic>
 -- Amazon SNS API action.
 --
--- You can subscribe email addresses to an Amazon SNS topic through the AWS
--- Management Console, or by using the
+-- You can subscribe email addresses to an Amazon SNS topic through the
+-- Amazon Web Services Management Console, or by using the
 -- <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe>
 -- Amazon Simple Notification Service (Amazon SNS) API action.
 --
@@ -93,8 +93,8 @@ notification_jobStatesToNotify = Lens.lens (\Notification' {jobStatesToNotify} -
 -- <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic>
 -- Amazon SNS API action.
 --
--- You can subscribe email addresses to an Amazon SNS topic through the AWS
--- Management Console, or by using the
+-- You can subscribe email addresses to an Amazon SNS topic through the
+-- Amazon Web Services Management Console, or by using the
 -- <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe>
 -- Amazon Simple Notification Service (Amazon SNS) API action.
 notification_snsTopicARN :: Lens.Lens' Notification (Prelude.Maybe Prelude.Text)

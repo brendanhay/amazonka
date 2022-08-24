@@ -61,8 +61,8 @@ import Amazonka.Snowball.Types
 data UpdateJob = UpdateJob'
   { -- | The new role Amazon Resource Name (ARN) that you want to associate with
     -- this job. To create a role ARN, use the
-    -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>AWS
-    -- Identity and Access Management (IAM) API action.
+    -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>Identity
+    -- and Access Management (IAM) API action.
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | The updated ID for the forwarding address for a job. This field is not
     -- supported in most regions.
@@ -87,8 +87,9 @@ data UpdateJob = UpdateJob'
     -- | The updated shipping option value of this job\'s ShippingDetails object.
     shippingOption :: Prelude.Maybe ShippingOption,
     -- | Specifies the service or services on the Snow Family device that your
-    -- transferred data will be exported from or imported into. AWS Snow Family
-    -- supports Amazon S3 and NFS (Network File System).
+    -- transferred data will be exported from or imported into. Amazon Web
+    -- Services Snow Family supports Amazon S3 and NFS (Network File System)
+    -- and the Amazon Web Services Storage Gateway service Tape Gateway type.
     onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
     -- | The job ID of the job that you want to update, for example
     -- @JID123e4567-e89b-12d3-a456-426655440000@.
@@ -106,8 +107,8 @@ data UpdateJob = UpdateJob'
 --
 -- 'roleARN', 'updateJob_roleARN' - The new role Amazon Resource Name (ARN) that you want to associate with
 -- this job. To create a role ARN, use the
--- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>AWS
--- Identity and Access Management (IAM) API action.
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>Identity
+-- and Access Management (IAM) API action.
 --
 -- 'forwardingAddressId', 'updateJob_forwardingAddressId' - The updated ID for the forwarding address for a job. This field is not
 -- supported in most regions.
@@ -132,8 +133,9 @@ data UpdateJob = UpdateJob'
 -- 'shippingOption', 'updateJob_shippingOption' - The updated shipping option value of this job\'s ShippingDetails object.
 --
 -- 'onDeviceServiceConfiguration', 'updateJob_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family supports Amazon S3 and NFS (Network File System)
+-- and the Amazon Web Services Storage Gateway service Tape Gateway type.
 --
 -- 'jobId', 'updateJob_jobId' - The job ID of the job that you want to update, for example
 -- @JID123e4567-e89b-12d3-a456-426655440000@.
@@ -157,8 +159,8 @@ newUpdateJob pJobId_ =
 
 -- | The new role Amazon Resource Name (ARN) that you want to associate with
 -- this job. To create a role ARN, use the
--- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>AWS
--- Identity and Access Management (IAM) API action.
+-- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>Identity
+-- and Access Management (IAM) API action.
 updateJob_roleARN :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
 updateJob_roleARN = Lens.lens (\UpdateJob' {roleARN} -> roleARN) (\s@UpdateJob' {} a -> s {roleARN = a} :: UpdateJob)
 
@@ -199,8 +201,9 @@ updateJob_shippingOption :: Lens.Lens' UpdateJob (Prelude.Maybe ShippingOption)
 updateJob_shippingOption = Lens.lens (\UpdateJob' {shippingOption} -> shippingOption) (\s@UpdateJob' {} a -> s {shippingOption = a} :: UpdateJob)
 
 -- | Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family supports Amazon S3 and NFS (Network File System)
+-- and the Amazon Web Services Storage Gateway service Tape Gateway type.
 updateJob_onDeviceServiceConfiguration :: Lens.Lens' UpdateJob (Prelude.Maybe OnDeviceServiceConfiguration)
 updateJob_onDeviceServiceConfiguration = Lens.lens (\UpdateJob' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@UpdateJob' {} a -> s {onDeviceServiceConfiguration = a} :: UpdateJob)
 

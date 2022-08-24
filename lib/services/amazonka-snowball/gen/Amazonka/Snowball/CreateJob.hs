@@ -21,22 +21,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a job to import or export data between Amazon S3 and your
--- on-premises data center. Your AWS account must have the right trust
--- policies and permissions in place to create a job for a Snow device. If
--- you\'re creating a job for a node in a cluster, you only need to provide
--- the @clusterId@ value; the other job attributes are inherited from the
--- cluster.
+-- on-premises data center. Your Amazon Web Services account must have the
+-- right trust policies and permissions in place to create a job for a Snow
+-- device. If you\'re creating a job for a node in a cluster, you only need
+-- to provide the @clusterId@ value; the other job attributes are inherited
+-- from the cluster.
 --
 -- Only the Snowball; Edge device type is supported when ordering clustered
 -- jobs.
 --
 -- The device capacity is optional.
 --
--- Availability of device types differ by AWS Region. For more information
--- about Region availability, see
--- <https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4 AWS Regional Services>.
+-- Availability of device types differ by Amazon Web Services Region. For
+-- more information about Region availability, see
+-- <https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/?p=ngi&loc=4 Amazon Web Services Regional Services>.
 --
--- __AWS Snow Family device types and their capacities.__
+-- __Snow Family Devices and their capacities.__
 --
 -- -   Snow Family device type: __SNC1_SSD__
 --
@@ -82,7 +82,7 @@
 --     -   Description: Original Snowball device
 --
 --         This device is only available in the Ningxia, Beijing, and
---         Singapore AWS Regions.
+--         Singapore Amazon Web Services Region
 --
 -- -   Device type: __STANDARD__
 --
@@ -91,7 +91,7 @@
 --     -   Description: Original Snowball device
 --
 --         This device is only available in the Ningxia, Beijing, and
---         Singapore AWS Regions.
+--         Singapore Amazon Web Services Region.
 module Amazonka.Snowball.CreateJob
   ( -- * Creating a Request
     CreateJob (..),
@@ -138,9 +138,9 @@ data CreateJob = CreateJob'
   { -- | The @RoleARN@ that you want to associate with this job. @RoleArn@s are
     -- created using the
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
-    -- AWS Identity and Access Management (IAM) API action.
+    -- Identity and Access Management (IAM) API action.
     roleARN :: Prelude.Maybe Prelude.Text,
-    -- | Defines the device configuration for an AWS Snowcone job.
+    -- | Defines the device configuration for an Snowcone job.
     --
     -- For more information, see
     -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
@@ -157,7 +157,7 @@ data CreateJob = CreateJob'
     -- | The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@s
     -- are created using the
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
-    -- AWS Key Management Service (KMS) API action.
+    -- Key Management Service (KMS) API action.
     kmsKeyARN :: Prelude.Maybe Prelude.Text,
     -- | The ID of the long-term pricing type for the device.
     longTermPricingId :: Prelude.Maybe Prelude.Text,
@@ -174,7 +174,7 @@ data CreateJob = CreateJob'
     -- you need to provide only this @clusterId@ value. The other job
     -- attributes are inherited from the cluster.
     clusterId :: Prelude.Maybe Prelude.Text,
-    -- | The tax documents required in your AWS Region.
+    -- | The tax documents required in your Amazon Web Services Region.
     taxDocuments :: Prelude.Maybe TaxDocuments,
     -- | Defines the Amazon S3 buckets associated with this job.
     --
@@ -200,13 +200,13 @@ data CreateJob = CreateJob'
     snowballCapacityPreference :: Prelude.Maybe SnowballCapacity,
     -- | The ID for the address that you want the Snow device shipped to.
     addressId :: Prelude.Maybe Prelude.Text,
-    -- | The type of AWS Snow Family device to use for this job.
+    -- | The type of Snow Family Devices to use for this job.
     --
-    -- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
-    -- device type.
+    -- For cluster jobs, Amazon Web Services Snow Family currently supports
+    -- only the @EDGE@ device type.
     --
-    -- The type of AWS Snow device to use for this job. Currently, the only
-    -- supported device type for cluster jobs is @EDGE@.
+    -- The type of Amazon Web Services Snow device to use for this job.
+    -- Currently, the only supported device type for cluster jobs is @EDGE@.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html Snowball Edge Device Options>
@@ -238,8 +238,9 @@ data CreateJob = CreateJob'
     -- -   In the US, you have access to one-day shipping and two-day shipping.
     shippingOption :: Prelude.Maybe ShippingOption,
     -- | Specifies the service or services on the Snow Family device that your
-    -- transferred data will be exported from or imported into. AWS Snow Family
-    -- supports Amazon S3 and NFS (Network File System).
+    -- transferred data will be exported from or imported into. Amazon Web
+    -- Services Snow Family supports Amazon S3 and NFS (Network File System)
+    -- and the Amazon Web Services Storage Gateway service Tape Gateway type.
     onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -255,9 +256,9 @@ data CreateJob = CreateJob'
 -- 'roleARN', 'createJob_roleARN' - The @RoleARN@ that you want to associate with this job. @RoleArn@s are
 -- created using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- AWS Identity and Access Management (IAM) API action.
+-- Identity and Access Management (IAM) API action.
 --
--- 'deviceConfiguration', 'createJob_deviceConfiguration' - Defines the device configuration for an AWS Snowcone job.
+-- 'deviceConfiguration', 'createJob_deviceConfiguration' - Defines the device configuration for an Snowcone job.
 --
 -- For more information, see
 -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
@@ -274,7 +275,7 @@ data CreateJob = CreateJob'
 -- 'kmsKeyARN', 'createJob_kmsKeyARN' - The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@s
 -- are created using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- AWS Key Management Service (KMS) API action.
+-- Key Management Service (KMS) API action.
 --
 -- 'longTermPricingId', 'createJob_longTermPricingId' - The ID of the long-term pricing type for the device.
 --
@@ -291,7 +292,7 @@ data CreateJob = CreateJob'
 -- you need to provide only this @clusterId@ value. The other job
 -- attributes are inherited from the cluster.
 --
--- 'taxDocuments', 'createJob_taxDocuments' - The tax documents required in your AWS Region.
+-- 'taxDocuments', 'createJob_taxDocuments' - The tax documents required in your Amazon Web Services Region.
 --
 -- 'resources', 'createJob_resources' - Defines the Amazon S3 buckets associated with this job.
 --
@@ -317,13 +318,13 @@ data CreateJob = CreateJob'
 --
 -- 'addressId', 'createJob_addressId' - The ID for the address that you want the Snow device shipped to.
 --
--- 'snowballType', 'createJob_snowballType' - The type of AWS Snow Family device to use for this job.
+-- 'snowballType', 'createJob_snowballType' - The type of Snow Family Devices to use for this job.
 --
--- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
--- device type.
+-- For cluster jobs, Amazon Web Services Snow Family currently supports
+-- only the @EDGE@ device type.
 --
--- The type of AWS Snow device to use for this job. Currently, the only
--- supported device type for cluster jobs is @EDGE@.
+-- The type of Amazon Web Services Snow device to use for this job.
+-- Currently, the only supported device type for cluster jobs is @EDGE@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html Snowball Edge Device Options>
@@ -355,8 +356,9 @@ data CreateJob = CreateJob'
 -- -   In the US, you have access to one-day shipping and two-day shipping.
 --
 -- 'onDeviceServiceConfiguration', 'createJob_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family supports Amazon S3 and NFS (Network File System)
+-- and the Amazon Web Services Storage Gateway service Tape Gateway type.
 newCreateJob ::
   CreateJob
 newCreateJob =
@@ -383,11 +385,11 @@ newCreateJob =
 -- | The @RoleARN@ that you want to associate with this job. @RoleArn@s are
 -- created using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- AWS Identity and Access Management (IAM) API action.
+-- Identity and Access Management (IAM) API action.
 createJob_roleARN :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_roleARN = Lens.lens (\CreateJob' {roleARN} -> roleARN) (\s@CreateJob' {} a -> s {roleARN = a} :: CreateJob)
 
--- | Defines the device configuration for an AWS Snowcone job.
+-- | Defines the device configuration for an Snowcone job.
 --
 -- For more information, see
 -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
@@ -410,7 +412,7 @@ createJob_description = Lens.lens (\CreateJob' {description} -> description) (\s
 -- | The @KmsKeyARN@ that you want to associate with this job. @KmsKeyARN@s
 -- are created using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- AWS Key Management Service (KMS) API action.
+-- Key Management Service (KMS) API action.
 createJob_kmsKeyARN :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_kmsKeyARN = Lens.lens (\CreateJob' {kmsKeyARN} -> kmsKeyARN) (\s@CreateJob' {} a -> s {kmsKeyARN = a} :: CreateJob)
 
@@ -437,7 +439,7 @@ createJob_remoteManagement = Lens.lens (\CreateJob' {remoteManagement} -> remote
 createJob_clusterId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_clusterId = Lens.lens (\CreateJob' {clusterId} -> clusterId) (\s@CreateJob' {} a -> s {clusterId = a} :: CreateJob)
 
--- | The tax documents required in your AWS Region.
+-- | The tax documents required in your Amazon Web Services Region.
 createJob_taxDocuments :: Lens.Lens' CreateJob (Prelude.Maybe TaxDocuments)
 createJob_taxDocuments = Lens.lens (\CreateJob' {taxDocuments} -> taxDocuments) (\s@CreateJob' {} a -> s {taxDocuments = a} :: CreateJob)
 
@@ -471,13 +473,13 @@ createJob_snowballCapacityPreference = Lens.lens (\CreateJob' {snowballCapacityP
 createJob_addressId :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_addressId = Lens.lens (\CreateJob' {addressId} -> addressId) (\s@CreateJob' {} a -> s {addressId = a} :: CreateJob)
 
--- | The type of AWS Snow Family device to use for this job.
+-- | The type of Snow Family Devices to use for this job.
 --
--- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
--- device type.
+-- For cluster jobs, Amazon Web Services Snow Family currently supports
+-- only the @EDGE@ device type.
 --
--- The type of AWS Snow device to use for this job. Currently, the only
--- supported device type for cluster jobs is @EDGE@.
+-- The type of Amazon Web Services Snow device to use for this job.
+-- Currently, the only supported device type for cluster jobs is @EDGE@.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html Snowball Edge Device Options>
@@ -515,8 +517,9 @@ createJob_shippingOption :: Lens.Lens' CreateJob (Prelude.Maybe ShippingOption)
 createJob_shippingOption = Lens.lens (\CreateJob' {shippingOption} -> shippingOption) (\s@CreateJob' {} a -> s {shippingOption = a} :: CreateJob)
 
 -- | Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family supports Amazon S3 and NFS (Network File System)
+-- and the Amazon Web Services Storage Gateway service Tape Gateway type.
 createJob_onDeviceServiceConfiguration :: Lens.Lens' CreateJob (Prelude.Maybe OnDeviceServiceConfiguration)
 createJob_onDeviceServiceConfiguration = Lens.lens (\CreateJob' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@CreateJob' {} a -> s {onDeviceServiceConfiguration = a} :: CreateJob)
 

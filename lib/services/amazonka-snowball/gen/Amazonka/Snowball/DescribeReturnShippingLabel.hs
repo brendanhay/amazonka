@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Information on the shipping label of a Snow device that is being
--- returned to AWS.
+-- returned to Amazon Web Services.
 module Amazonka.Snowball.DescribeReturnShippingLabel
   ( -- * Creating a Request
     DescribeReturnShippingLabel (..),
@@ -36,6 +36,7 @@ module Amazonka.Snowball.DescribeReturnShippingLabel
 
     -- * Response Lenses
     describeReturnShippingLabelResponse_status,
+    describeReturnShippingLabelResponse_returnShippingLabelURI,
     describeReturnShippingLabelResponse_expirationDate,
     describeReturnShippingLabelResponse_httpStatus,
   )
@@ -88,6 +89,7 @@ instance Core.AWSRequest DescribeReturnShippingLabel where
       ( \s h x ->
           DescribeReturnShippingLabelResponse'
             Prelude.<$> (x Core..?> "Status")
+            Prelude.<*> (x Core..?> "ReturnShippingLabelURI")
             Prelude.<*> (x Core..?> "ExpirationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -131,8 +133,10 @@ instance Core.ToQuery DescribeReturnShippingLabel where
 -- | /See:/ 'newDescribeReturnShippingLabelResponse' smart constructor.
 data DescribeReturnShippingLabelResponse = DescribeReturnShippingLabelResponse'
   { -- | The status information of the task on a Snow device that is being
-    -- returned to AWS.
+    -- returned to Amazon Web Services.
     status :: Prelude.Maybe ShippingLabelStatus,
+    -- | The pre-signed Amazon S3 URI used to download the return shipping label.
+    returnShippingLabelURI :: Prelude.Maybe Prelude.Text,
     -- | The expiration date of the current return shipping label.
     expirationDate :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
@@ -149,7 +153,9 @@ data DescribeReturnShippingLabelResponse = DescribeReturnShippingLabelResponse'
 -- for backwards compatibility:
 --
 -- 'status', 'describeReturnShippingLabelResponse_status' - The status information of the task on a Snow device that is being
--- returned to AWS.
+-- returned to Amazon Web Services.
+--
+-- 'returnShippingLabelURI', 'describeReturnShippingLabelResponse_returnShippingLabelURI' - The pre-signed Amazon S3 URI used to download the return shipping label.
 --
 -- 'expirationDate', 'describeReturnShippingLabelResponse_expirationDate' - The expiration date of the current return shipping label.
 --
@@ -162,14 +168,20 @@ newDescribeReturnShippingLabelResponse pHttpStatus_ =
   DescribeReturnShippingLabelResponse'
     { status =
         Prelude.Nothing,
+      returnShippingLabelURI =
+        Prelude.Nothing,
       expirationDate = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
 -- | The status information of the task on a Snow device that is being
--- returned to AWS.
+-- returned to Amazon Web Services.
 describeReturnShippingLabelResponse_status :: Lens.Lens' DescribeReturnShippingLabelResponse (Prelude.Maybe ShippingLabelStatus)
 describeReturnShippingLabelResponse_status = Lens.lens (\DescribeReturnShippingLabelResponse' {status} -> status) (\s@DescribeReturnShippingLabelResponse' {} a -> s {status = a} :: DescribeReturnShippingLabelResponse)
+
+-- | The pre-signed Amazon S3 URI used to download the return shipping label.
+describeReturnShippingLabelResponse_returnShippingLabelURI :: Lens.Lens' DescribeReturnShippingLabelResponse (Prelude.Maybe Prelude.Text)
+describeReturnShippingLabelResponse_returnShippingLabelURI = Lens.lens (\DescribeReturnShippingLabelResponse' {returnShippingLabelURI} -> returnShippingLabelURI) (\s@DescribeReturnShippingLabelResponse' {} a -> s {returnShippingLabelURI = a} :: DescribeReturnShippingLabelResponse)
 
 -- | The expiration date of the current return shipping label.
 describeReturnShippingLabelResponse_expirationDate :: Lens.Lens' DescribeReturnShippingLabelResponse (Prelude.Maybe Prelude.UTCTime)
@@ -185,5 +197,6 @@ instance
   where
   rnf DescribeReturnShippingLabelResponse' {..} =
     Prelude.rnf status
+      `Prelude.seq` Prelude.rnf returnShippingLabelURI
       `Prelude.seq` Prelude.rnf expirationDate
       `Prelude.seq` Prelude.rnf httpStatus

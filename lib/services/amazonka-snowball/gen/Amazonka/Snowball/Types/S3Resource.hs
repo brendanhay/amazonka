@@ -35,8 +35,8 @@ import Amazonka.Snowball.Types.TargetOnDeviceService
 -- /See:/ 'newS3Resource' smart constructor.
 data S3Resource = S3Resource'
   { -- | Specifies the service or services on the Snow Family device that your
-    -- transferred data will be exported from or imported into. AWS Snow Family
-    -- supports Amazon S3 and NFS (Network File System).
+    -- transferred data will be exported from or imported into. Amazon Web
+    -- Services Snow Family supports Amazon S3 and NFS (Network File System).
     targetOnDeviceServices :: Prelude.Maybe [TargetOnDeviceService],
     -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
     bucketArn :: Prelude.Maybe Prelude.Text,
@@ -57,8 +57,8 @@ data S3Resource = S3Resource'
 -- for backwards compatibility:
 --
 -- 'targetOnDeviceServices', 's3Resource_targetOnDeviceServices' - Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family supports Amazon S3 and NFS (Network File System).
 --
 -- 'bucketArn', 's3Resource_bucketArn' - The Amazon Resource Name (ARN) of an Amazon S3 bucket.
 --
@@ -77,8 +77,8 @@ newS3Resource =
     }
 
 -- | Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family supports Amazon S3 and NFS (Network File System).
 s3Resource_targetOnDeviceServices :: Lens.Lens' S3Resource (Prelude.Maybe [TargetOnDeviceService])
 s3Resource_targetOnDeviceServices = Lens.lens (\S3Resource' {targetOnDeviceServices} -> targetOnDeviceServices) (\s@S3Resource' {} a -> s {targetOnDeviceServices = a} :: S3Resource) Prelude.. Lens.mapping Lens.coerced
 

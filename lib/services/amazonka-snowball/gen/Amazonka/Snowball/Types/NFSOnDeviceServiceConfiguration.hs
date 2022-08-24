@@ -24,8 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.StorageUnit
 
--- | An object that represents metadata and configuration settings for NFS
--- service on an AWS Snow Family device.
+-- | An object that represents the metadata and configuration settings for
+-- the NFS (Network File System) service on an Amazon Web Services Snow
+-- Family device.
 --
 -- /See:/ 'newNFSOnDeviceServiceConfiguration' smart constructor.
 data NFSOnDeviceServiceConfiguration = NFSOnDeviceServiceConfiguration'
@@ -33,7 +34,7 @@ data NFSOnDeviceServiceConfiguration = NFSOnDeviceServiceConfiguration'
     --
     -- Valid values: TB.
     storageUnit :: Prelude.Maybe StorageUnit,
-    -- | The maximum NFS storage for one Snowball Family device.
+    -- | The maximum NFS storage for one Snow Family device.
     storageLimit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -50,7 +51,7 @@ data NFSOnDeviceServiceConfiguration = NFSOnDeviceServiceConfiguration'
 --
 -- Valid values: TB.
 --
--- 'storageLimit', 'nFSOnDeviceServiceConfiguration_storageLimit' - The maximum NFS storage for one Snowball Family device.
+-- 'storageLimit', 'nFSOnDeviceServiceConfiguration_storageLimit' - The maximum NFS storage for one Snow Family device.
 newNFSOnDeviceServiceConfiguration ::
   NFSOnDeviceServiceConfiguration
 newNFSOnDeviceServiceConfiguration =
@@ -66,7 +67,7 @@ newNFSOnDeviceServiceConfiguration =
 nFSOnDeviceServiceConfiguration_storageUnit :: Lens.Lens' NFSOnDeviceServiceConfiguration (Prelude.Maybe StorageUnit)
 nFSOnDeviceServiceConfiguration_storageUnit = Lens.lens (\NFSOnDeviceServiceConfiguration' {storageUnit} -> storageUnit) (\s@NFSOnDeviceServiceConfiguration' {} a -> s {storageUnit = a} :: NFSOnDeviceServiceConfiguration)
 
--- | The maximum NFS storage for one Snowball Family device.
+-- | The maximum NFS storage for one Snow Family device.
 nFSOnDeviceServiceConfiguration_storageLimit :: Lens.Lens' NFSOnDeviceServiceConfiguration (Prelude.Maybe Prelude.Natural)
 nFSOnDeviceServiceConfiguration_storageLimit = Lens.lens (\NFSOnDeviceServiceConfiguration' {storageLimit} -> storageLimit) (\s@NFSOnDeviceServiceConfiguration' {} a -> s {storageLimit = a} :: NFSOnDeviceServiceConfiguration)
 

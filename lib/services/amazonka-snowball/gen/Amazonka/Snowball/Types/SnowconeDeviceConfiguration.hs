@@ -24,11 +24,11 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.WirelessConnection
 
--- | Specifies the device configuration for an AWS Snowcone job.
+-- | Specifies the device configuration for an Snowcone job.
 --
 -- /See:/ 'newSnowconeDeviceConfiguration' smart constructor.
 data SnowconeDeviceConfiguration = SnowconeDeviceConfiguration'
-  { -- | Configures the wireless connection for the AWS Snowcone device.
+  { -- | Configures the wireless connection for the Snowcone device.
     wirelessConnection :: Prelude.Maybe WirelessConnection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data SnowconeDeviceConfiguration = SnowconeDeviceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'wirelessConnection', 'snowconeDeviceConfiguration_wirelessConnection' - Configures the wireless connection for the AWS Snowcone device.
+-- 'wirelessConnection', 'snowconeDeviceConfiguration_wirelessConnection' - Configures the wireless connection for the Snowcone device.
 newSnowconeDeviceConfiguration ::
   SnowconeDeviceConfiguration
 newSnowconeDeviceConfiguration =
@@ -50,7 +50,7 @@ newSnowconeDeviceConfiguration =
         Prelude.Nothing
     }
 
--- | Configures the wireless connection for the AWS Snowcone device.
+-- | Configures the wireless connection for the Snowcone device.
 snowconeDeviceConfiguration_wirelessConnection :: Lens.Lens' SnowconeDeviceConfiguration (Prelude.Maybe WirelessConnection)
 snowconeDeviceConfiguration_wirelessConnection = Lens.lens (\SnowconeDeviceConfiguration' {wirelessConnection} -> wirelessConnection) (\s@SnowconeDeviceConfiguration' {} a -> s {wirelessConnection = a} :: SnowconeDeviceConfiguration)
 

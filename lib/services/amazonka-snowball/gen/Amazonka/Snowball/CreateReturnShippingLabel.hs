@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a shipping label that will be used to return the Snow device to
--- AWS.
+-- Amazon Web Services.
 module Amazonka.Snowball.CreateReturnShippingLabel
   ( -- * Creating a Request
     CreateReturnShippingLabel (..),
@@ -51,9 +51,9 @@ import Amazonka.Snowball.Types
 -- | /See:/ 'newCreateReturnShippingLabel' smart constructor.
 data CreateReturnShippingLabel = CreateReturnShippingLabel'
   { -- | The shipping speed for a particular job. This speed doesn\'t dictate how
-    -- soon the device is returned to AWS. This speed represents how quickly it
-    -- moves to its destination while in transit. Regional shipping speeds are
-    -- as follows:
+    -- soon the device is returned to Amazon Web Services. This speed
+    -- represents how quickly it moves to its destination while in transit.
+    -- Regional shipping speeds are as follows:
     shippingOption :: Prelude.Maybe ShippingOption,
     -- | The ID for a job that you want to create the return shipping label for;
     -- for example, @JID123e4567-e89b-12d3-a456-426655440000@.
@@ -70,9 +70,9 @@ data CreateReturnShippingLabel = CreateReturnShippingLabel'
 -- for backwards compatibility:
 --
 -- 'shippingOption', 'createReturnShippingLabel_shippingOption' - The shipping speed for a particular job. This speed doesn\'t dictate how
--- soon the device is returned to AWS. This speed represents how quickly it
--- moves to its destination while in transit. Regional shipping speeds are
--- as follows:
+-- soon the device is returned to Amazon Web Services. This speed
+-- represents how quickly it moves to its destination while in transit.
+-- Regional shipping speeds are as follows:
 --
 -- 'jobId', 'createReturnShippingLabel_jobId' - The ID for a job that you want to create the return shipping label for;
 -- for example, @JID123e4567-e89b-12d3-a456-426655440000@.
@@ -88,9 +88,9 @@ newCreateReturnShippingLabel pJobId_ =
     }
 
 -- | The shipping speed for a particular job. This speed doesn\'t dictate how
--- soon the device is returned to AWS. This speed represents how quickly it
--- moves to its destination while in transit. Regional shipping speeds are
--- as follows:
+-- soon the device is returned to Amazon Web Services. This speed
+-- represents how quickly it moves to its destination while in transit.
+-- Regional shipping speeds are as follows:
 createReturnShippingLabel_shippingOption :: Lens.Lens' CreateReturnShippingLabel (Prelude.Maybe ShippingOption)
 createReturnShippingLabel_shippingOption = Lens.lens (\CreateReturnShippingLabel' {shippingOption} -> shippingOption) (\s@CreateReturnShippingLabel' {} a -> s {shippingOption = a} :: CreateReturnShippingLabel)
 
@@ -156,7 +156,7 @@ instance Core.ToQuery CreateReturnShippingLabel where
 -- | /See:/ 'newCreateReturnShippingLabelResponse' smart constructor.
 data CreateReturnShippingLabelResponse = CreateReturnShippingLabelResponse'
   { -- | The status information of the task on a Snow device that is being
-    -- returned to AWS.
+    -- returned to Amazon Web Services.
     status :: Prelude.Maybe ShippingLabelStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -172,7 +172,7 @@ data CreateReturnShippingLabelResponse = CreateReturnShippingLabelResponse'
 -- for backwards compatibility:
 --
 -- 'status', 'createReturnShippingLabelResponse_status' - The status information of the task on a Snow device that is being
--- returned to AWS.
+-- returned to Amazon Web Services.
 --
 -- 'httpStatus', 'createReturnShippingLabelResponse_httpStatus' - The response's http status code.
 newCreateReturnShippingLabelResponse ::
@@ -187,7 +187,7 @@ newCreateReturnShippingLabelResponse pHttpStatus_ =
     }
 
 -- | The status information of the task on a Snow device that is being
--- returned to AWS.
+-- returned to Amazon Web Services.
 createReturnShippingLabelResponse_status :: Lens.Lens' CreateReturnShippingLabelResponse (Prelude.Maybe ShippingLabelStatus)
 createReturnShippingLabelResponse_status = Lens.lens (\CreateReturnShippingLabelResponse' {status} -> status) (\s@CreateReturnShippingLabelResponse' {} a -> s {status = a} :: CreateReturnShippingLabelResponse)
 

@@ -25,7 +25,7 @@
 --
 -- The default service limit for the number of Snow devices that you can
 -- have at one time is 1. If you want to increase your service limit,
--- contact AWS Support.
+-- contact Amazon Web Services Support.
 module Amazonka.Snowball.GetSnowballUsage
   ( -- * Creating a Request
     GetSnowballUsage (..),

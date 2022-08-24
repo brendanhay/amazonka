@@ -71,7 +71,7 @@ data CreateCluster = CreateCluster'
     -- | The @KmsKeyARN@ value that you want to associate with this cluster.
     -- @KmsKeyARN@ values are created by using the
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
-    -- API action in AWS Key Management Service (AWS KMS).
+    -- API action in Key Management Service (KMS).
     kmsKeyARN :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Simple Notification Service (Amazon SNS) notification
     -- settings for this cluster.
@@ -82,11 +82,12 @@ data CreateCluster = CreateCluster'
     -- when the device arrives at your location. Otherwise, you need to use the
     -- Snowball Client to manage the device.
     remoteManagement :: Prelude.Maybe RemoteManagement,
-    -- | The tax documents required in your AWS Region.
+    -- | The tax documents required in your Amazon Web Services Region.
     taxDocuments :: Prelude.Maybe TaxDocuments,
     -- | Specifies the service or services on the Snow Family device that your
-    -- transferred data will be exported from or imported into. AWS Snow Family
-    -- supports Amazon S3 and NFS (Network File System).
+    -- transferred data will be exported from or imported into. Amazon Web
+    -- Services Snow Family device clusters support Amazon S3 and NFS (Network
+    -- File System).
     onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
     -- | The type of job for this cluster. Currently, the only job type supported
     -- for clusters is @LOCAL_USE@.
@@ -98,20 +99,20 @@ data CreateCluster = CreateCluster'
     -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
     jobType :: JobType,
     -- | The resources associated with the cluster job. These resources include
-    -- Amazon S3 buckets and optional AWS Lambda functions written in the
-    -- Python language.
+    -- Amazon S3 buckets and optional Lambda functions written in the Python
+    -- language.
     resources :: JobResource,
     -- | The ID for the address that you want the cluster shipped to.
     addressId :: Prelude.Text,
     -- | The @RoleARN@ that you want to associate with this cluster. @RoleArn@
     -- values are created by using the
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
-    -- API action in AWS Identity and Access Management (IAM).
+    -- API action in Identity and Access Management (IAM).
     roleARN :: Prelude.Text,
-    -- | The type of AWS Snow Family device to use for this cluster.
+    -- | The type of Snow Family Devices to use for this cluster.
     --
-    -- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
-    -- device type.
+    -- For cluster jobs, Amazon Web Services Snow Family currently supports
+    -- only the @EDGE@ device type.
     --
     -- For more information, see
     -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
@@ -169,7 +170,7 @@ data CreateCluster = CreateCluster'
 -- 'kmsKeyARN', 'createCluster_kmsKeyARN' - The @KmsKeyARN@ value that you want to associate with this cluster.
 -- @KmsKeyARN@ values are created by using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- API action in AWS Key Management Service (AWS KMS).
+-- API action in Key Management Service (KMS).
 --
 -- 'notification', 'createCluster_notification' - The Amazon Simple Notification Service (Amazon SNS) notification
 -- settings for this cluster.
@@ -180,11 +181,12 @@ data CreateCluster = CreateCluster'
 -- when the device arrives at your location. Otherwise, you need to use the
 -- Snowball Client to manage the device.
 --
--- 'taxDocuments', 'createCluster_taxDocuments' - The tax documents required in your AWS Region.
+-- 'taxDocuments', 'createCluster_taxDocuments' - The tax documents required in your Amazon Web Services Region.
 --
 -- 'onDeviceServiceConfiguration', 'createCluster_onDeviceServiceConfiguration' - Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family device clusters support Amazon S3 and NFS (Network
+-- File System).
 --
 -- 'jobType', 'createCluster_jobType' - The type of job for this cluster. Currently, the only job type supported
 -- for clusters is @LOCAL_USE@.
@@ -196,20 +198,20 @@ data CreateCluster = CreateCluster'
 -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
 --
 -- 'resources', 'createCluster_resources' - The resources associated with the cluster job. These resources include
--- Amazon S3 buckets and optional AWS Lambda functions written in the
--- Python language.
+-- Amazon S3 buckets and optional Lambda functions written in the Python
+-- language.
 --
 -- 'addressId', 'createCluster_addressId' - The ID for the address that you want the cluster shipped to.
 --
 -- 'roleARN', 'createCluster_roleARN' - The @RoleARN@ that you want to associate with this cluster. @RoleArn@
 -- values are created by using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- API action in AWS Identity and Access Management (IAM).
+-- API action in Identity and Access Management (IAM).
 --
--- 'snowballType', 'createCluster_snowballType' - The type of AWS Snow Family device to use for this cluster.
+-- 'snowballType', 'createCluster_snowballType' - The type of Snow Family Devices to use for this cluster.
 --
--- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
--- device type.
+-- For cluster jobs, Amazon Web Services Snow Family currently supports
+-- only the @EDGE@ device type.
 --
 -- For more information, see
 -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
@@ -297,7 +299,7 @@ createCluster_description = Lens.lens (\CreateCluster' {description} -> descript
 -- | The @KmsKeyARN@ value that you want to associate with this cluster.
 -- @KmsKeyARN@ values are created by using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
--- API action in AWS Key Management Service (AWS KMS).
+-- API action in Key Management Service (KMS).
 createCluster_kmsKeyARN :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_kmsKeyARN = Lens.lens (\CreateCluster' {kmsKeyARN} -> kmsKeyARN) (\s@CreateCluster' {} a -> s {kmsKeyARN = a} :: CreateCluster)
 
@@ -314,13 +316,14 @@ createCluster_notification = Lens.lens (\CreateCluster' {notification} -> notifi
 createCluster_remoteManagement :: Lens.Lens' CreateCluster (Prelude.Maybe RemoteManagement)
 createCluster_remoteManagement = Lens.lens (\CreateCluster' {remoteManagement} -> remoteManagement) (\s@CreateCluster' {} a -> s {remoteManagement = a} :: CreateCluster)
 
--- | The tax documents required in your AWS Region.
+-- | The tax documents required in your Amazon Web Services Region.
 createCluster_taxDocuments :: Lens.Lens' CreateCluster (Prelude.Maybe TaxDocuments)
 createCluster_taxDocuments = Lens.lens (\CreateCluster' {taxDocuments} -> taxDocuments) (\s@CreateCluster' {} a -> s {taxDocuments = a} :: CreateCluster)
 
 -- | Specifies the service or services on the Snow Family device that your
--- transferred data will be exported from or imported into. AWS Snow Family
--- supports Amazon S3 and NFS (Network File System).
+-- transferred data will be exported from or imported into. Amazon Web
+-- Services Snow Family device clusters support Amazon S3 and NFS (Network
+-- File System).
 createCluster_onDeviceServiceConfiguration :: Lens.Lens' CreateCluster (Prelude.Maybe OnDeviceServiceConfiguration)
 createCluster_onDeviceServiceConfiguration = Lens.lens (\CreateCluster' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@CreateCluster' {} a -> s {onDeviceServiceConfiguration = a} :: CreateCluster)
 
@@ -336,8 +339,8 @@ createCluster_jobType :: Lens.Lens' CreateCluster JobType
 createCluster_jobType = Lens.lens (\CreateCluster' {jobType} -> jobType) (\s@CreateCluster' {} a -> s {jobType = a} :: CreateCluster)
 
 -- | The resources associated with the cluster job. These resources include
--- Amazon S3 buckets and optional AWS Lambda functions written in the
--- Python language.
+-- Amazon S3 buckets and optional Lambda functions written in the Python
+-- language.
 createCluster_resources :: Lens.Lens' CreateCluster JobResource
 createCluster_resources = Lens.lens (\CreateCluster' {resources} -> resources) (\s@CreateCluster' {} a -> s {resources = a} :: CreateCluster)
 
@@ -348,14 +351,14 @@ createCluster_addressId = Lens.lens (\CreateCluster' {addressId} -> addressId) (
 -- | The @RoleARN@ that you want to associate with this cluster. @RoleArn@
 -- values are created by using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
--- API action in AWS Identity and Access Management (IAM).
+-- API action in Identity and Access Management (IAM).
 createCluster_roleARN :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_roleARN = Lens.lens (\CreateCluster' {roleARN} -> roleARN) (\s@CreateCluster' {} a -> s {roleARN = a} :: CreateCluster)
 
--- | The type of AWS Snow Family device to use for this cluster.
+-- | The type of Snow Family Devices to use for this cluster.
 --
--- For cluster jobs, AWS Snow Family currently supports only the @EDGE@
--- device type.
+-- For cluster jobs, Amazon Web Services Snow Family currently supports
+-- only the @EDGE@ device type.
 --
 -- For more information, see
 -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"

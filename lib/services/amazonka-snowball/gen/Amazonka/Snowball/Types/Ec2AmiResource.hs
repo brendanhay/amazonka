@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | A JSON-formatted object that contains the IDs for an Amazon Machine
 -- Image (AMI), including the Amazon EC2 AMI ID and the Snow device AMI ID.
 -- Each AMI has these two IDs to simplify identifying the AMI in both the
--- AWS Cloud and on the device.
+-- Amazon Web Services Cloud and on the device.
 --
 -- /See:/ 'newEc2AmiResource' smart constructor.
 data Ec2AmiResource = Ec2AmiResource'

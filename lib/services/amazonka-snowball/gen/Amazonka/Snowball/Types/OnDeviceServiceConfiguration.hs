@@ -23,14 +23,19 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Snowball.Types.NFSOnDeviceServiceConfiguration
+import Amazonka.Snowball.Types.TGWOnDeviceServiceConfiguration
 
--- | An object that represents metadata and configuration settings for
--- services on an AWS Snow Family device.
+-- | An object that represents the metadata and configuration settings for
+-- services on an Amazon Web Services Snow Family device.
 --
 -- /See:/ 'newOnDeviceServiceConfiguration' smart constructor.
 data OnDeviceServiceConfiguration = OnDeviceServiceConfiguration'
-  { -- | Represents the NFS service on a Snow Family device.
-    nFSOnDeviceService :: Prelude.Maybe NFSOnDeviceServiceConfiguration
+  { -- | Represents the NFS (Network File System) service on a Snow Family
+    -- device.
+    nFSOnDeviceService :: Prelude.Maybe NFSOnDeviceServiceConfiguration,
+    -- | Represents the Storage Gateway service Tape Gateway type on a Snow
+    -- Family device.
+    tGWOnDeviceService :: Prelude.Maybe TGWOnDeviceServiceConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,18 +47,29 @@ data OnDeviceServiceConfiguration = OnDeviceServiceConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nFSOnDeviceService', 'onDeviceServiceConfiguration_nFSOnDeviceService' - Represents the NFS service on a Snow Family device.
+-- 'nFSOnDeviceService', 'onDeviceServiceConfiguration_nFSOnDeviceService' - Represents the NFS (Network File System) service on a Snow Family
+-- device.
+--
+-- 'tGWOnDeviceService', 'onDeviceServiceConfiguration_tGWOnDeviceService' - Represents the Storage Gateway service Tape Gateway type on a Snow
+-- Family device.
 newOnDeviceServiceConfiguration ::
   OnDeviceServiceConfiguration
 newOnDeviceServiceConfiguration =
   OnDeviceServiceConfiguration'
     { nFSOnDeviceService =
-        Prelude.Nothing
+        Prelude.Nothing,
+      tGWOnDeviceService = Prelude.Nothing
     }
 
--- | Represents the NFS service on a Snow Family device.
+-- | Represents the NFS (Network File System) service on a Snow Family
+-- device.
 onDeviceServiceConfiguration_nFSOnDeviceService :: Lens.Lens' OnDeviceServiceConfiguration (Prelude.Maybe NFSOnDeviceServiceConfiguration)
 onDeviceServiceConfiguration_nFSOnDeviceService = Lens.lens (\OnDeviceServiceConfiguration' {nFSOnDeviceService} -> nFSOnDeviceService) (\s@OnDeviceServiceConfiguration' {} a -> s {nFSOnDeviceService = a} :: OnDeviceServiceConfiguration)
+
+-- | Represents the Storage Gateway service Tape Gateway type on a Snow
+-- Family device.
+onDeviceServiceConfiguration_tGWOnDeviceService :: Lens.Lens' OnDeviceServiceConfiguration (Prelude.Maybe TGWOnDeviceServiceConfiguration)
+onDeviceServiceConfiguration_tGWOnDeviceService = Lens.lens (\OnDeviceServiceConfiguration' {tGWOnDeviceService} -> tGWOnDeviceService) (\s@OnDeviceServiceConfiguration' {} a -> s {tGWOnDeviceService = a} :: OnDeviceServiceConfiguration)
 
 instance Core.FromJSON OnDeviceServiceConfiguration where
   parseJSON =
@@ -62,6 +78,7 @@ instance Core.FromJSON OnDeviceServiceConfiguration where
       ( \x ->
           OnDeviceServiceConfiguration'
             Prelude.<$> (x Core..:? "NFSOnDeviceService")
+            Prelude.<*> (x Core..:? "TGWOnDeviceService")
       )
 
 instance
@@ -70,16 +87,20 @@ instance
   where
   hashWithSalt _salt OnDeviceServiceConfiguration' {..} =
     _salt `Prelude.hashWithSalt` nFSOnDeviceService
+      `Prelude.hashWithSalt` tGWOnDeviceService
 
 instance Prelude.NFData OnDeviceServiceConfiguration where
   rnf OnDeviceServiceConfiguration' {..} =
     Prelude.rnf nFSOnDeviceService
+      `Prelude.seq` Prelude.rnf tGWOnDeviceService
 
 instance Core.ToJSON OnDeviceServiceConfiguration where
   toJSON OnDeviceServiceConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("NFSOnDeviceService" Core..=)
-              Prelude.<$> nFSOnDeviceService
+              Prelude.<$> nFSOnDeviceService,
+            ("TGWOnDeviceService" Core..=)
+              Prelude.<$> tGWOnDeviceService
           ]
       )

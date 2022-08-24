@@ -50,7 +50,7 @@ data ServerLaunchConfiguration = ServerLaunchConfiguration'
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | The ID of the server with which the launch configuration is associated.
     server :: Prelude.Maybe Server,
-    -- | The logical ID of the server in the AWS CloudFormation template.
+    -- | The logical ID of the server in the CloudFormation template.
     logicalId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the subnet the server should be launched into.
     subnet :: Prelude.Maybe Prelude.Text,
@@ -87,7 +87,7 @@ data ServerLaunchConfiguration = ServerLaunchConfiguration'
 --
 -- 'server', 'serverLaunchConfiguration_server' - The ID of the server with which the launch configuration is associated.
 --
--- 'logicalId', 'serverLaunchConfiguration_logicalId' - The logical ID of the server in the AWS CloudFormation template.
+-- 'logicalId', 'serverLaunchConfiguration_logicalId' - The logical ID of the server in the CloudFormation template.
 --
 -- 'subnet', 'serverLaunchConfiguration_subnet' - The ID of the subnet the server should be launched into.
 --
@@ -148,7 +148,7 @@ serverLaunchConfiguration_instanceType = Lens.lens (\ServerLaunchConfiguration' 
 serverLaunchConfiguration_server :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Server)
 serverLaunchConfiguration_server = Lens.lens (\ServerLaunchConfiguration' {server} -> server) (\s@ServerLaunchConfiguration' {} a -> s {server = a} :: ServerLaunchConfiguration)
 
--- | The logical ID of the server in the AWS CloudFormation template.
+-- | The logical ID of the server in the CloudFormation template.
 serverLaunchConfiguration_logicalId :: Lens.Lens' ServerLaunchConfiguration (Prelude.Maybe Prelude.Text)
 serverLaunchConfiguration_logicalId = Lens.lens (\ServerLaunchConfiguration' {logicalId} -> logicalId) (\s@ServerLaunchConfiguration' {} a -> s {logicalId = a} :: ServerLaunchConfiguration)
 

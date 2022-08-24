@@ -131,7 +131,7 @@ instance Core.ToQuery GetAppLaunchConfiguration where
 
 -- | /See:/ 'newGetAppLaunchConfigurationResponse' smart constructor.
 data GetAppLaunchConfigurationResponse = GetAppLaunchConfigurationResponse'
-  { -- | The name of the service role in the customer\'s account that AWS
+  { -- | The name of the service role in the customer\'s account that
     -- CloudFormation uses to launch the application.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | The launch configurations for server groups in this application.
@@ -154,7 +154,7 @@ data GetAppLaunchConfigurationResponse = GetAppLaunchConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleName', 'getAppLaunchConfigurationResponse_roleName' - The name of the service role in the customer\'s account that AWS
+-- 'roleName', 'getAppLaunchConfigurationResponse_roleName' - The name of the service role in the customer\'s account that
 -- CloudFormation uses to launch the application.
 --
 -- 'serverGroupLaunchConfigurations', 'getAppLaunchConfigurationResponse_serverGroupLaunchConfigurations' - The launch configurations for server groups in this application.
@@ -180,7 +180,7 @@ newGetAppLaunchConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the service role in the customer\'s account that AWS
+-- | The name of the service role in the customer\'s account that
 -- CloudFormation uses to launch the application.
 getAppLaunchConfigurationResponse_roleName :: Lens.Lens' GetAppLaunchConfigurationResponse (Prelude.Maybe Prelude.Text)
 getAppLaunchConfigurationResponse_roleName = Lens.lens (\GetAppLaunchConfigurationResponse' {roleName} -> roleName) (\s@GetAppLaunchConfigurationResponse' {} a -> s {roleName = a} :: GetAppLaunchConfigurationResponse)

@@ -39,7 +39,8 @@ data AppSummary = AppSummary'
     replicationConfigurationStatus :: Prelude.Maybe AppReplicationConfigurationStatus,
     -- | The name of the application.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The name of the service role in the customer\'s account used by AWS SMS.
+    -- | The name of the service role in the customer\'s account used by Server
+    -- Migration Service.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | A message related to the replication status of the application.
     replicationStatusMessage :: Prelude.Maybe Prelude.Text,
@@ -88,7 +89,8 @@ data AppSummary = AppSummary'
 --
 -- 'name', 'appSummary_name' - The name of the application.
 --
--- 'roleName', 'appSummary_roleName' - The name of the service role in the customer\'s account used by AWS SMS.
+-- 'roleName', 'appSummary_roleName' - The name of the service role in the customer\'s account used by Server
+-- Migration Service.
 --
 -- 'replicationStatusMessage', 'appSummary_replicationStatusMessage' - A message related to the replication status of the application.
 --
@@ -156,7 +158,8 @@ appSummary_replicationConfigurationStatus = Lens.lens (\AppSummary' {replication
 appSummary_name :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_name = Lens.lens (\AppSummary' {name} -> name) (\s@AppSummary' {} a -> s {name = a} :: AppSummary)
 
--- | The name of the service role in the customer\'s account used by AWS SMS.
+-- | The name of the service role in the customer\'s account used by Server
+-- Migration Service.
 appSummary_roleName :: Lens.Lens' AppSummary (Prelude.Maybe Prelude.Text)
 appSummary_roleName = Lens.lens (\AppSummary' {roleName} -> roleName) (\s@AppSummary' {} a -> s {roleName = a} :: AppSummary)
 

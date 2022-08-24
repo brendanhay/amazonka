@@ -55,7 +55,7 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newUpdateReplicationJob' smart constructor.
 data UpdateReplicationJob = UpdateReplicationJob'
-  { -- | The name of the IAM role to be used by AWS SMS.
+  { -- | The name of the IAM role to be used by Server Migration Service.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | The license type to be used for the AMI created by a successful
     -- replication run.
@@ -99,7 +99,7 @@ data UpdateReplicationJob = UpdateReplicationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleName', 'updateReplicationJob_roleName' - The name of the IAM role to be used by AWS SMS.
+-- 'roleName', 'updateReplicationJob_roleName' - The name of the IAM role to be used by Server Migration Service.
 --
 -- 'licenseType', 'updateReplicationJob_licenseType' - The license type to be used for the AMI created by a successful
 -- replication run.
@@ -148,7 +148,7 @@ newUpdateReplicationJob pReplicationJobId_ =
       replicationJobId = pReplicationJobId_
     }
 
--- | The name of the IAM role to be used by AWS SMS.
+-- | The name of the IAM role to be used by Server Migration Service.
 updateReplicationJob_roleName :: Lens.Lens' UpdateReplicationJob (Prelude.Maybe Prelude.Text)
 updateReplicationJob_roleName = Lens.lens (\UpdateReplicationJob' {roleName} -> roleName) (\s@UpdateReplicationJob' {} a -> s {roleName = a} :: UpdateReplicationJob)
 

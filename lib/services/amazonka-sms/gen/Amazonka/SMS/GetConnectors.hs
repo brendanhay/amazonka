@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the connectors registered with the AWS SMS.
+-- Describes the connectors registered with the Server Migration Service.
 --
 -- This operation returns paginated results.
 module Amazonka.SMS.GetConnectors

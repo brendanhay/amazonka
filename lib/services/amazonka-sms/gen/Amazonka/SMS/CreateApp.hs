@@ -64,7 +64,7 @@ data CreateApp = CreateApp'
     -- idempotency of application creation.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The name of the service role in the customer\'s account to be used by
-    -- AWS SMS.
+    -- Server Migration Service.
     roleName :: Prelude.Maybe Prelude.Text,
     -- | The description of the new application
     description :: Prelude.Maybe Prelude.Text,
@@ -89,7 +89,7 @@ data CreateApp = CreateApp'
 -- idempotency of application creation.
 --
 -- 'roleName', 'createApp_roleName' - The name of the service role in the customer\'s account to be used by
--- AWS SMS.
+-- Server Migration Service.
 --
 -- 'description', 'createApp_description' - The description of the new application
 --
@@ -120,7 +120,7 @@ createApp_clientToken :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
 createApp_clientToken = Lens.lens (\CreateApp' {clientToken} -> clientToken) (\s@CreateApp' {} a -> s {clientToken = a} :: CreateApp)
 
 -- | The name of the service role in the customer\'s account to be used by
--- AWS SMS.
+-- Server Migration Service.
 createApp_roleName :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
 createApp_roleName = Lens.lens (\CreateApp' {roleName} -> roleName) (\s@CreateApp' {} a -> s {roleName = a} :: CreateApp)
 

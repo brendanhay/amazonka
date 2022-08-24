@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates an AWS CloudFormation template based on the current launch
+-- Generates an CloudFormation template based on the current launch
 -- configuration and writes it to an Amazon S3 object in the customer’s
 -- Amazon S3 bucket.
 module Amazonka.SMS.GenerateTemplate
@@ -51,10 +51,9 @@ import Amazonka.SMS.Types
 
 -- | /See:/ 'newGenerateTemplate' smart constructor.
 data GenerateTemplate = GenerateTemplate'
-  { -- | The format for generating the AWS CloudFormation template.
+  { -- | The format for generating the CloudFormation template.
     templateFormat :: Prelude.Maybe OutputFormat,
-    -- | The ID of the application associated with the AWS CloudFormation
-    -- template.
+    -- | The ID of the application associated with the CloudFormation template.
     appId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,10 +66,9 @@ data GenerateTemplate = GenerateTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateFormat', 'generateTemplate_templateFormat' - The format for generating the AWS CloudFormation template.
+-- 'templateFormat', 'generateTemplate_templateFormat' - The format for generating the CloudFormation template.
 --
--- 'appId', 'generateTemplate_appId' - The ID of the application associated with the AWS CloudFormation
--- template.
+-- 'appId', 'generateTemplate_appId' - The ID of the application associated with the CloudFormation template.
 newGenerateTemplate ::
   GenerateTemplate
 newGenerateTemplate =
@@ -79,12 +77,11 @@ newGenerateTemplate =
       appId = Prelude.Nothing
     }
 
--- | The format for generating the AWS CloudFormation template.
+-- | The format for generating the CloudFormation template.
 generateTemplate_templateFormat :: Lens.Lens' GenerateTemplate (Prelude.Maybe OutputFormat)
 generateTemplate_templateFormat = Lens.lens (\GenerateTemplate' {templateFormat} -> templateFormat) (\s@GenerateTemplate' {} a -> s {templateFormat = a} :: GenerateTemplate)
 
--- | The ID of the application associated with the AWS CloudFormation
--- template.
+-- | The ID of the application associated with the CloudFormation template.
 generateTemplate_appId :: Lens.Lens' GenerateTemplate (Prelude.Maybe Prelude.Text)
 generateTemplate_appId = Lens.lens (\GenerateTemplate' {appId} -> appId) (\s@GenerateTemplate' {} a -> s {appId = a} :: GenerateTemplate)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Launches the specified application as a stack in AWS CloudFormation.
+-- Launches the specified application as a stack in CloudFormation.
 module Amazonka.SMS.LaunchApp
   ( -- * Creating a Request
     LaunchApp (..),

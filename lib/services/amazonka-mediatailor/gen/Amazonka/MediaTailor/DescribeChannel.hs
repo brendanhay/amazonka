@@ -39,6 +39,7 @@ module Amazonka.MediaTailor.DescribeChannel
     describeChannelResponse_fillerSlate,
     describeChannelResponse_arn,
     describeChannelResponse_lastModifiedTime,
+    describeChannelResponse_tier,
     describeChannelResponse_outputs,
     describeChannelResponse_creationTime,
     describeChannelResponse_playbackMode,
@@ -95,6 +96,7 @@ instance Core.AWSRequest DescribeChannel where
             Prelude.<*> (x Core..?> "FillerSlate")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "Tier")
             Prelude.<*> (x Core..?> "Outputs" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "PlaybackMode")
@@ -141,6 +143,8 @@ data DescribeChannelResponse = DescribeChannelResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The channel\'s tier.
+    tier :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: Prelude.Maybe [ResponseOutputItem],
     -- | The timestamp of when the channel was created.
@@ -173,6 +177,8 @@ data DescribeChannelResponse = DescribeChannelResponse'
 --
 -- 'lastModifiedTime', 'describeChannelResponse_lastModifiedTime' - The timestamp of when the channel was last modified.
 --
+-- 'tier', 'describeChannelResponse_tier' - The channel\'s tier.
+--
 -- 'outputs', 'describeChannelResponse_outputs' - The channel\'s output properties.
 --
 -- 'creationTime', 'describeChannelResponse_creationTime' - The timestamp of when the channel was created.
@@ -193,6 +199,7 @@ newDescribeChannelResponse pHttpStatus_ =
       fillerSlate = Prelude.Nothing,
       arn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      tier = Prelude.Nothing,
       outputs = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       playbackMode = Prelude.Nothing,
@@ -221,6 +228,10 @@ describeChannelResponse_arn = Lens.lens (\DescribeChannelResponse' {arn} -> arn)
 describeChannelResponse_lastModifiedTime :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.UTCTime)
 describeChannelResponse_lastModifiedTime = Lens.lens (\DescribeChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeChannelResponse' {} a -> s {lastModifiedTime = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The channel\'s tier.
+describeChannelResponse_tier :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe Prelude.Text)
+describeChannelResponse_tier = Lens.lens (\DescribeChannelResponse' {tier} -> tier) (\s@DescribeChannelResponse' {} a -> s {tier = a} :: DescribeChannelResponse)
+
 -- | The channel\'s output properties.
 describeChannelResponse_outputs :: Lens.Lens' DescribeChannelResponse (Prelude.Maybe [ResponseOutputItem])
 describeChannelResponse_outputs = Lens.lens (\DescribeChannelResponse' {outputs} -> outputs) (\s@DescribeChannelResponse' {} a -> s {outputs = a} :: DescribeChannelResponse) Prelude.. Lens.mapping Lens.coerced
@@ -248,6 +259,7 @@ instance Prelude.NFData DescribeChannelResponse where
       `Prelude.seq` Prelude.rnf fillerSlate
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf playbackMode

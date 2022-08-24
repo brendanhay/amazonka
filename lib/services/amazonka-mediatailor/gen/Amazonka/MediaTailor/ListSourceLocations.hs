@@ -161,7 +161,7 @@ instance Core.ToQuery ListSourceLocations where
 
 -- | /See:/ 'newListSourceLocationsResponse' smart constructor.
 data ListSourceLocationsResponse = ListSourceLocationsResponse'
-  { -- | An array of source locations.
+  { -- | A list of source locations.
     items :: Prelude.Maybe [SourceLocation],
     -- | Pagination token from the list request. Use the token to fetch the next
     -- page of results.
@@ -179,7 +179,7 @@ data ListSourceLocationsResponse = ListSourceLocationsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'listSourceLocationsResponse_items' - An array of source locations.
+-- 'items', 'listSourceLocationsResponse_items' - A list of source locations.
 --
 -- 'nextToken', 'listSourceLocationsResponse_nextToken' - Pagination token from the list request. Use the token to fetch the next
 -- page of results.
@@ -197,7 +197,7 @@ newListSourceLocationsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An array of source locations.
+-- | A list of source locations.
 listSourceLocationsResponse_items :: Lens.Lens' ListSourceLocationsResponse (Prelude.Maybe [SourceLocation])
 listSourceLocationsResponse_items = Lens.lens (\ListSourceLocationsResponse' {items} -> items) (\s@ListSourceLocationsResponse' {} a -> s {items = a} :: ListSourceLocationsResponse) Prelude.. Lens.mapping Lens.coerced
 

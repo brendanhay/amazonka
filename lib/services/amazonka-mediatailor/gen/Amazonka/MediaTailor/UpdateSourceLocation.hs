@@ -27,6 +27,7 @@ module Amazonka.MediaTailor.UpdateSourceLocation
     newUpdateSourceLocation,
 
     -- * Request Lenses
+    updateSourceLocation_segmentDeliveryConfigurations,
     updateSourceLocation_accessConfiguration,
     updateSourceLocation_defaultSegmentDeliveryConfiguration,
     updateSourceLocation_sourceLocationName,
@@ -38,6 +39,7 @@ module Amazonka.MediaTailor.UpdateSourceLocation
 
     -- * Response Lenses
     updateSourceLocationResponse_tags,
+    updateSourceLocationResponse_segmentDeliveryConfigurations,
     updateSourceLocationResponse_arn,
     updateSourceLocationResponse_accessConfiguration,
     updateSourceLocationResponse_defaultSegmentDeliveryConfiguration,
@@ -58,7 +60,10 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateSourceLocation' smart constructor.
 data UpdateSourceLocation = UpdateSourceLocation'
-  { -- | Access configuration parameters. Configures the type of authentication
+  { -- | A list of the segment delivery configurations associated with this
+    -- resource.
+    segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
+    -- | Access configuration parameters. Configures the type of authentication
     -- used to access content from your source location.
     accessConfiguration :: Prelude.Maybe AccessConfiguration,
     -- | The optional configuration for the host server that serves segments.
@@ -78,6 +83,9 @@ data UpdateSourceLocation = UpdateSourceLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'segmentDeliveryConfigurations', 'updateSourceLocation_segmentDeliveryConfigurations' - A list of the segment delivery configurations associated with this
+-- resource.
+--
 -- 'accessConfiguration', 'updateSourceLocation_accessConfiguration' - Access configuration parameters. Configures the type of authentication
 -- used to access content from your source location.
 --
@@ -96,13 +104,19 @@ newUpdateSourceLocation
   pSourceLocationName_
   pHttpConfiguration_ =
     UpdateSourceLocation'
-      { accessConfiguration =
+      { segmentDeliveryConfigurations =
           Prelude.Nothing,
+        accessConfiguration = Prelude.Nothing,
         defaultSegmentDeliveryConfiguration =
           Prelude.Nothing,
         sourceLocationName = pSourceLocationName_,
         httpConfiguration = pHttpConfiguration_
       }
+
+-- | A list of the segment delivery configurations associated with this
+-- resource.
+updateSourceLocation_segmentDeliveryConfigurations :: Lens.Lens' UpdateSourceLocation (Prelude.Maybe [SegmentDeliveryConfiguration])
+updateSourceLocation_segmentDeliveryConfigurations = Lens.lens (\UpdateSourceLocation' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@UpdateSourceLocation' {} a -> s {segmentDeliveryConfigurations = a} :: UpdateSourceLocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | Access configuration parameters. Configures the type of authentication
 -- used to access content from your source location.
@@ -131,6 +145,9 @@ instance Core.AWSRequest UpdateSourceLocation where
       ( \s h x ->
           UpdateSourceLocationResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "SegmentDeliveryConfigurations"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "AccessConfiguration")
             Prelude.<*> (x Core..?> "DefaultSegmentDeliveryConfiguration")
@@ -143,14 +160,17 @@ instance Core.AWSRequest UpdateSourceLocation where
 
 instance Prelude.Hashable UpdateSourceLocation where
   hashWithSalt _salt UpdateSourceLocation' {..} =
-    _salt `Prelude.hashWithSalt` accessConfiguration
+    _salt
+      `Prelude.hashWithSalt` segmentDeliveryConfigurations
+      `Prelude.hashWithSalt` accessConfiguration
       `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
       `Prelude.hashWithSalt` sourceLocationName
       `Prelude.hashWithSalt` httpConfiguration
 
 instance Prelude.NFData UpdateSourceLocation where
   rnf UpdateSourceLocation' {..} =
-    Prelude.rnf accessConfiguration
+    Prelude.rnf segmentDeliveryConfigurations
+      `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
       `Prelude.seq` Prelude.rnf sourceLocationName
       `Prelude.seq` Prelude.rnf httpConfiguration
@@ -170,7 +190,9 @@ instance Core.ToJSON UpdateSourceLocation where
   toJSON UpdateSourceLocation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccessConfiguration" Core..=)
+          [ ("SegmentDeliveryConfigurations" Core..=)
+              Prelude.<$> segmentDeliveryConfigurations,
+            ("AccessConfiguration" Core..=)
               Prelude.<$> accessConfiguration,
             ("DefaultSegmentDeliveryConfiguration" Core..=)
               Prelude.<$> defaultSegmentDeliveryConfiguration,
@@ -191,6 +213,9 @@ instance Core.ToQuery UpdateSourceLocation where
 data UpdateSourceLocationResponse = UpdateSourceLocationResponse'
   { -- | The tags assigned to the source location.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of the segment delivery configurations associated with this
+    -- resource.
+    segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
     -- | The ARN of the source location.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The access configuration for the source location.
@@ -220,6 +245,9 @@ data UpdateSourceLocationResponse = UpdateSourceLocationResponse'
 --
 -- 'tags', 'updateSourceLocationResponse_tags' - The tags assigned to the source location.
 --
+-- 'segmentDeliveryConfigurations', 'updateSourceLocationResponse_segmentDeliveryConfigurations' - A list of the segment delivery configurations associated with this
+-- resource.
+--
 -- 'arn', 'updateSourceLocationResponse_arn' - The ARN of the source location.
 --
 -- 'accessConfiguration', 'updateSourceLocationResponse_accessConfiguration' - The access configuration for the source location.
@@ -243,6 +271,8 @@ newUpdateSourceLocationResponse pHttpStatus_ =
   UpdateSourceLocationResponse'
     { tags =
         Prelude.Nothing,
+      segmentDeliveryConfigurations =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
       accessConfiguration = Prelude.Nothing,
       defaultSegmentDeliveryConfiguration =
@@ -257,6 +287,11 @@ newUpdateSourceLocationResponse pHttpStatus_ =
 -- | The tags assigned to the source location.
 updateSourceLocationResponse_tags :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateSourceLocationResponse_tags = Lens.lens (\UpdateSourceLocationResponse' {tags} -> tags) (\s@UpdateSourceLocationResponse' {} a -> s {tags = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the segment delivery configurations associated with this
+-- resource.
+updateSourceLocationResponse_segmentDeliveryConfigurations :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe [SegmentDeliveryConfiguration])
+updateSourceLocationResponse_segmentDeliveryConfigurations = Lens.lens (\UpdateSourceLocationResponse' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@UpdateSourceLocationResponse' {} a -> s {segmentDeliveryConfigurations = a} :: UpdateSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the source location.
 updateSourceLocationResponse_arn :: Lens.Lens' UpdateSourceLocationResponse (Prelude.Maybe Prelude.Text)
@@ -293,6 +328,7 @@ updateSourceLocationResponse_httpStatus = Lens.lens (\UpdateSourceLocationRespon
 instance Prelude.NFData UpdateSourceLocationResponse where
   rnf UpdateSourceLocationResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration

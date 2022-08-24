@@ -171,7 +171,7 @@ instance Core.ToQuery ListAlerts where
 
 -- | /See:/ 'newListAlertsResponse' smart constructor.
 data ListAlertsResponse = ListAlertsResponse'
-  { -- | An array of alerts that are associated with this resource.
+  { -- | A list of alerts that are associated with this resource.
     items :: Prelude.Maybe [Alert],
     -- | Pagination token from the list request. Use the token to fetch the next
     -- page of results.
@@ -189,7 +189,7 @@ data ListAlertsResponse = ListAlertsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'listAlertsResponse_items' - An array of alerts that are associated with this resource.
+-- 'items', 'listAlertsResponse_items' - A list of alerts that are associated with this resource.
 --
 -- 'nextToken', 'listAlertsResponse_nextToken' - Pagination token from the list request. Use the token to fetch the next
 -- page of results.
@@ -206,7 +206,7 @@ newListAlertsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An array of alerts that are associated with this resource.
+-- | A list of alerts that are associated with this resource.
 listAlertsResponse_items :: Lens.Lens' ListAlertsResponse (Prelude.Maybe [Alert])
 listAlertsResponse_items = Lens.lens (\ListAlertsResponse' {items} -> items) (\s@ListAlertsResponse' {} a -> s {items = a} :: ListAlertsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -193,7 +193,7 @@ instance Core.ToQuery GetChannelSchedule where
 
 -- | /See:/ 'newGetChannelScheduleResponse' smart constructor.
 data GetChannelScheduleResponse = GetChannelScheduleResponse'
-  { -- | An array of schedule entries for the channel.
+  { -- | A list of schedule entries for the channel.
     items :: Prelude.Maybe [ScheduleEntry],
     -- | Pagination token from the GET list request. Use the token to fetch the
     -- next page of results.
@@ -211,7 +211,7 @@ data GetChannelScheduleResponse = GetChannelScheduleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'getChannelScheduleResponse_items' - An array of schedule entries for the channel.
+-- 'items', 'getChannelScheduleResponse_items' - A list of schedule entries for the channel.
 --
 -- 'nextToken', 'getChannelScheduleResponse_nextToken' - Pagination token from the GET list request. Use the token to fetch the
 -- next page of results.
@@ -229,7 +229,7 @@ newGetChannelScheduleResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An array of schedule entries for the channel.
+-- | A list of schedule entries for the channel.
 getChannelScheduleResponse_items :: Lens.Lens' GetChannelScheduleResponse (Prelude.Maybe [ScheduleEntry])
 getChannelScheduleResponse_items = Lens.lens (\GetChannelScheduleResponse' {items} -> items) (\s@GetChannelScheduleResponse' {} a -> s {items = a} :: GetChannelScheduleResponse) Prelude.. Lens.mapping Lens.coerced
 

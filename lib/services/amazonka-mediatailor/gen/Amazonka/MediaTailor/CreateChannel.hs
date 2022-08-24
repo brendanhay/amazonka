@@ -29,6 +29,7 @@ module Amazonka.MediaTailor.CreateChannel
     -- * Request Lenses
     createChannel_tags,
     createChannel_fillerSlate,
+    createChannel_tier,
     createChannel_channelName,
     createChannel_outputs,
     createChannel_playbackMode,
@@ -43,6 +44,7 @@ module Amazonka.MediaTailor.CreateChannel
     createChannelResponse_fillerSlate,
     createChannelResponse_arn,
     createChannelResponse_lastModifiedTime,
+    createChannelResponse_tier,
     createChannelResponse_outputs,
     createChannelResponse_creationTime,
     createChannelResponse_playbackMode,
@@ -63,8 +65,12 @@ data CreateChannel = CreateChannel'
   { -- | The tags to assign to the channel.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The slate used to fill gaps between programs in the schedule. You must
-    -- configure filler slate if your channel uses a LINEAR PlaybackMode.
+    -- configure filler slate if your channel uses the LINEAR PlaybackMode.
+    -- MediaTailor doesn\'t support filler slate for channels using the LOOP
+    -- PlaybackMode.
     fillerSlate :: Prelude.Maybe SlateSource,
+    -- | The tier of the channel.
+    tier :: Prelude.Maybe Tier,
     -- | The identifier for the channel you are working on.
     channelName :: Prelude.Text,
     -- | The channel\'s output properties.
@@ -92,7 +98,11 @@ data CreateChannel = CreateChannel'
 -- 'tags', 'createChannel_tags' - The tags to assign to the channel.
 --
 -- 'fillerSlate', 'createChannel_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
--- configure filler slate if your channel uses a LINEAR PlaybackMode.
+-- configure filler slate if your channel uses the LINEAR PlaybackMode.
+-- MediaTailor doesn\'t support filler slate for channels using the LOOP
+-- PlaybackMode.
+--
+-- 'tier', 'createChannel_tier' - The tier of the channel.
 --
 -- 'channelName', 'createChannel_channelName' - The identifier for the channel you are working on.
 --
@@ -116,6 +126,7 @@ newCreateChannel pChannelName_ pPlaybackMode_ =
   CreateChannel'
     { tags = Prelude.Nothing,
       fillerSlate = Prelude.Nothing,
+      tier = Prelude.Nothing,
       channelName = pChannelName_,
       outputs = Prelude.mempty,
       playbackMode = pPlaybackMode_
@@ -126,9 +137,15 @@ createChannel_tags :: Lens.Lens' CreateChannel (Prelude.Maybe (Prelude.HashMap P
 createChannel_tags = Lens.lens (\CreateChannel' {tags} -> tags) (\s@CreateChannel' {} a -> s {tags = a} :: CreateChannel) Prelude.. Lens.mapping Lens.coerced
 
 -- | The slate used to fill gaps between programs in the schedule. You must
--- configure filler slate if your channel uses a LINEAR PlaybackMode.
+-- configure filler slate if your channel uses the LINEAR PlaybackMode.
+-- MediaTailor doesn\'t support filler slate for channels using the LOOP
+-- PlaybackMode.
 createChannel_fillerSlate :: Lens.Lens' CreateChannel (Prelude.Maybe SlateSource)
 createChannel_fillerSlate = Lens.lens (\CreateChannel' {fillerSlate} -> fillerSlate) (\s@CreateChannel' {} a -> s {fillerSlate = a} :: CreateChannel)
+
+-- | The tier of the channel.
+createChannel_tier :: Lens.Lens' CreateChannel (Prelude.Maybe Tier)
+createChannel_tier = Lens.lens (\CreateChannel' {tier} -> tier) (\s@CreateChannel' {} a -> s {tier = a} :: CreateChannel)
 
 -- | The identifier for the channel you are working on.
 createChannel_channelName :: Lens.Lens' CreateChannel Prelude.Text
@@ -163,6 +180,7 @@ instance Core.AWSRequest CreateChannel where
             Prelude.<*> (x Core..?> "FillerSlate")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "Tier")
             Prelude.<*> (x Core..?> "Outputs" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "PlaybackMode")
@@ -174,6 +192,7 @@ instance Prelude.Hashable CreateChannel where
   hashWithSalt _salt CreateChannel' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fillerSlate
+      `Prelude.hashWithSalt` tier
       `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` playbackMode
@@ -182,6 +201,7 @@ instance Prelude.NFData CreateChannel where
   rnf CreateChannel' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fillerSlate
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf playbackMode
@@ -203,6 +223,7 @@ instance Core.ToJSON CreateChannel where
       ( Prelude.catMaybes
           [ ("tags" Core..=) Prelude.<$> tags,
             ("FillerSlate" Core..=) Prelude.<$> fillerSlate,
+            ("Tier" Core..=) Prelude.<$> tier,
             Prelude.Just ("Outputs" Core..= outputs),
             Prelude.Just ("PlaybackMode" Core..= playbackMode)
           ]
@@ -229,6 +250,8 @@ data CreateChannelResponse = CreateChannelResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The channel\'s tier.
+    tier :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: Prelude.Maybe [ResponseOutputItem],
     -- | The timestamp of when the channel was created.
@@ -261,6 +284,8 @@ data CreateChannelResponse = CreateChannelResponse'
 --
 -- 'lastModifiedTime', 'createChannelResponse_lastModifiedTime' - The timestamp of when the channel was last modified.
 --
+-- 'tier', 'createChannelResponse_tier' - The channel\'s tier.
+--
 -- 'outputs', 'createChannelResponse_outputs' - The channel\'s output properties.
 --
 -- 'creationTime', 'createChannelResponse_creationTime' - The timestamp of when the channel was created.
@@ -281,6 +306,7 @@ newCreateChannelResponse pHttpStatus_ =
       fillerSlate = Prelude.Nothing,
       arn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      tier = Prelude.Nothing,
       outputs = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       playbackMode = Prelude.Nothing,
@@ -309,6 +335,10 @@ createChannelResponse_arn = Lens.lens (\CreateChannelResponse' {arn} -> arn) (\s
 createChannelResponse_lastModifiedTime :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.UTCTime)
 createChannelResponse_lastModifiedTime = Lens.lens (\CreateChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@CreateChannelResponse' {} a -> s {lastModifiedTime = a} :: CreateChannelResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The channel\'s tier.
+createChannelResponse_tier :: Lens.Lens' CreateChannelResponse (Prelude.Maybe Prelude.Text)
+createChannelResponse_tier = Lens.lens (\CreateChannelResponse' {tier} -> tier) (\s@CreateChannelResponse' {} a -> s {tier = a} :: CreateChannelResponse)
+
 -- | The channel\'s output properties.
 createChannelResponse_outputs :: Lens.Lens' CreateChannelResponse (Prelude.Maybe [ResponseOutputItem])
 createChannelResponse_outputs = Lens.lens (\CreateChannelResponse' {outputs} -> outputs) (\s@CreateChannelResponse' {} a -> s {outputs = a} :: CreateChannelResponse) Prelude.. Lens.mapping Lens.coerced
@@ -336,6 +366,7 @@ instance Prelude.NFData CreateChannelResponse where
       `Prelude.seq` Prelude.rnf fillerSlate
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf playbackMode

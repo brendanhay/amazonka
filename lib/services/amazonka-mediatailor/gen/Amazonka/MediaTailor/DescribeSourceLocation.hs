@@ -35,6 +35,7 @@ module Amazonka.MediaTailor.DescribeSourceLocation
 
     -- * Response Lenses
     describeSourceLocationResponse_tags,
+    describeSourceLocationResponse_segmentDeliveryConfigurations,
     describeSourceLocationResponse_arn,
     describeSourceLocationResponse_accessConfiguration,
     describeSourceLocationResponse_defaultSegmentDeliveryConfiguration,
@@ -93,6 +94,9 @@ instance Core.AWSRequest DescribeSourceLocation where
       ( \s h x ->
           DescribeSourceLocationResponse'
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "SegmentDeliveryConfigurations"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "AccessConfiguration")
             Prelude.<*> (x Core..?> "DefaultSegmentDeliveryConfiguration")
@@ -134,6 +138,9 @@ instance Core.ToQuery DescribeSourceLocation where
 data DescribeSourceLocationResponse = DescribeSourceLocationResponse'
   { -- | The tags assigned to the source location.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of the segment delivery configurations associated with this
+    -- resource.
+    segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
     -- | The ARN of the source location.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The access configuration for the source location.
@@ -163,6 +170,9 @@ data DescribeSourceLocationResponse = DescribeSourceLocationResponse'
 --
 -- 'tags', 'describeSourceLocationResponse_tags' - The tags assigned to the source location.
 --
+-- 'segmentDeliveryConfigurations', 'describeSourceLocationResponse_segmentDeliveryConfigurations' - A list of the segment delivery configurations associated with this
+-- resource.
+--
 -- 'arn', 'describeSourceLocationResponse_arn' - The ARN of the source location.
 --
 -- 'accessConfiguration', 'describeSourceLocationResponse_accessConfiguration' - The access configuration for the source location.
@@ -186,6 +196,8 @@ newDescribeSourceLocationResponse pHttpStatus_ =
   DescribeSourceLocationResponse'
     { tags =
         Prelude.Nothing,
+      segmentDeliveryConfigurations =
+        Prelude.Nothing,
       arn = Prelude.Nothing,
       accessConfiguration = Prelude.Nothing,
       defaultSegmentDeliveryConfiguration =
@@ -200,6 +212,11 @@ newDescribeSourceLocationResponse pHttpStatus_ =
 -- | The tags assigned to the source location.
 describeSourceLocationResponse_tags :: Lens.Lens' DescribeSourceLocationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeSourceLocationResponse_tags = Lens.lens (\DescribeSourceLocationResponse' {tags} -> tags) (\s@DescribeSourceLocationResponse' {} a -> s {tags = a} :: DescribeSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A list of the segment delivery configurations associated with this
+-- resource.
+describeSourceLocationResponse_segmentDeliveryConfigurations :: Lens.Lens' DescribeSourceLocationResponse (Prelude.Maybe [SegmentDeliveryConfiguration])
+describeSourceLocationResponse_segmentDeliveryConfigurations = Lens.lens (\DescribeSourceLocationResponse' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@DescribeSourceLocationResponse' {} a -> s {segmentDeliveryConfigurations = a} :: DescribeSourceLocationResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The ARN of the source location.
 describeSourceLocationResponse_arn :: Lens.Lens' DescribeSourceLocationResponse (Prelude.Maybe Prelude.Text)
@@ -239,6 +256,7 @@ instance
   where
   rnf DescribeSourceLocationResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration

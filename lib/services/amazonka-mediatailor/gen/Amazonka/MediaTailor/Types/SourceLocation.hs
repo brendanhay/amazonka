@@ -24,6 +24,7 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.MediaTailor.Types.AccessConfiguration
 import Amazonka.MediaTailor.Types.DefaultSegmentDeliveryConfiguration
 import Amazonka.MediaTailor.Types.HttpConfiguration
+import Amazonka.MediaTailor.Types.SegmentDeliveryConfiguration
 import qualified Amazonka.Prelude as Prelude
 
 -- | This response includes only the \"type\" : \"object\" property.
@@ -32,6 +33,8 @@ import qualified Amazonka.Prelude as Prelude
 data SourceLocation = SourceLocation'
   { -- | The tags assigned to the source location.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The segment delivery configurations for the source location.
+    segmentDeliveryConfigurations :: Prelude.Maybe [SegmentDeliveryConfiguration],
     -- | The access configuration for the source location.
     accessConfiguration :: Prelude.Maybe AccessConfiguration,
     -- | The default segment delivery configuration.
@@ -58,6 +61,8 @@ data SourceLocation = SourceLocation'
 -- for backwards compatibility:
 --
 -- 'tags', 'sourceLocation_tags' - The tags assigned to the source location.
+--
+-- 'segmentDeliveryConfigurations', 'sourceLocation_segmentDeliveryConfigurations' - The segment delivery configurations for the source location.
 --
 -- 'accessConfiguration', 'sourceLocation_accessConfiguration' - The access configuration for the source location.
 --
@@ -86,6 +91,7 @@ newSourceLocation
   pArn_ =
     SourceLocation'
       { tags = Prelude.Nothing,
+        segmentDeliveryConfigurations = Prelude.Nothing,
         accessConfiguration = Prelude.Nothing,
         defaultSegmentDeliveryConfiguration =
           Prelude.Nothing,
@@ -99,6 +105,10 @@ newSourceLocation
 -- | The tags assigned to the source location.
 sourceLocation_tags :: Lens.Lens' SourceLocation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 sourceLocation_tags = Lens.lens (\SourceLocation' {tags} -> tags) (\s@SourceLocation' {} a -> s {tags = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
+
+-- | The segment delivery configurations for the source location.
+sourceLocation_segmentDeliveryConfigurations :: Lens.Lens' SourceLocation (Prelude.Maybe [SegmentDeliveryConfiguration])
+sourceLocation_segmentDeliveryConfigurations = Lens.lens (\SourceLocation' {segmentDeliveryConfigurations} -> segmentDeliveryConfigurations) (\s@SourceLocation' {} a -> s {segmentDeliveryConfigurations = a} :: SourceLocation) Prelude.. Lens.mapping Lens.coerced
 
 -- | The access configuration for the source location.
 sourceLocation_accessConfiguration :: Lens.Lens' SourceLocation (Prelude.Maybe AccessConfiguration)
@@ -135,6 +145,9 @@ instance Core.FromJSON SourceLocation where
       ( \x ->
           SourceLocation'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "SegmentDeliveryConfigurations"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "AccessConfiguration")
             Prelude.<*> (x Core..:? "DefaultSegmentDeliveryConfiguration")
             Prelude.<*> (x Core..:? "LastModifiedTime")
@@ -147,6 +160,7 @@ instance Core.FromJSON SourceLocation where
 instance Prelude.Hashable SourceLocation where
   hashWithSalt _salt SourceLocation' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` segmentDeliveryConfigurations
       `Prelude.hashWithSalt` accessConfiguration
       `Prelude.hashWithSalt` defaultSegmentDeliveryConfiguration
       `Prelude.hashWithSalt` lastModifiedTime
@@ -158,6 +172,7 @@ instance Prelude.Hashable SourceLocation where
 instance Prelude.NFData SourceLocation where
   rnf SourceLocation' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf segmentDeliveryConfigurations
       `Prelude.seq` Prelude.rnf accessConfiguration
       `Prelude.seq` Prelude.rnf defaultSegmentDeliveryConfiguration
       `Prelude.seq` Prelude.rnf lastModifiedTime

@@ -51,6 +51,12 @@ module Amazonka.MediaTailor
     CreateChannelResponse (CreateChannelResponse'),
     newCreateChannelResponse,
 
+    -- ** CreateLiveSource
+    CreateLiveSource (CreateLiveSource'),
+    newCreateLiveSource,
+    CreateLiveSourceResponse (CreateLiveSourceResponse'),
+    newCreateLiveSourceResponse,
+
     -- ** CreatePrefetchSchedule
     CreatePrefetchSchedule (CreatePrefetchSchedule'),
     newCreatePrefetchSchedule,
@@ -87,6 +93,12 @@ module Amazonka.MediaTailor
     DeleteChannelPolicyResponse (DeleteChannelPolicyResponse'),
     newDeleteChannelPolicyResponse,
 
+    -- ** DeleteLiveSource
+    DeleteLiveSource (DeleteLiveSource'),
+    newDeleteLiveSource,
+    DeleteLiveSourceResponse (DeleteLiveSourceResponse'),
+    newDeleteLiveSourceResponse,
+
     -- ** DeletePlaybackConfiguration
     DeletePlaybackConfiguration (DeletePlaybackConfiguration'),
     newDeletePlaybackConfiguration,
@@ -122,6 +134,12 @@ module Amazonka.MediaTailor
     newDescribeChannel,
     DescribeChannelResponse (DescribeChannelResponse'),
     newDescribeChannelResponse,
+
+    -- ** DescribeLiveSource
+    DescribeLiveSource (DescribeLiveSource'),
+    newDescribeLiveSource,
+    DescribeLiveSourceResponse (DescribeLiveSourceResponse'),
+    newDescribeLiveSourceResponse,
 
     -- ** DescribeProgram
     DescribeProgram (DescribeProgram'),
@@ -176,6 +194,12 @@ module Amazonka.MediaTailor
     newListChannels,
     ListChannelsResponse (ListChannelsResponse'),
     newListChannelsResponse,
+
+    -- ** ListLiveSources (Paginated)
+    ListLiveSources (ListLiveSources'),
+    newListLiveSources,
+    ListLiveSourcesResponse (ListLiveSourcesResponse'),
+    newListLiveSourcesResponse,
 
     -- ** ListPlaybackConfigurations (Paginated)
     ListPlaybackConfigurations (ListPlaybackConfigurations'),
@@ -249,6 +273,12 @@ module Amazonka.MediaTailor
     UpdateChannelResponse (UpdateChannelResponse'),
     newUpdateChannelResponse,
 
+    -- ** UpdateLiveSource
+    UpdateLiveSource (UpdateLiveSource'),
+    newUpdateLiveSource,
+    UpdateLiveSourceResponse (UpdateLiveSourceResponse'),
+    newUpdateLiveSourceResponse,
+
     -- ** UpdateSourceLocation
     UpdateSourceLocation (UpdateSourceLocation'),
     newUpdateSourceLocation,
@@ -289,6 +319,9 @@ module Amazonka.MediaTailor
 
     -- ** ScheduleEntryType
     ScheduleEntryType (..),
+
+    -- ** Tier
+    Tier (..),
 
     -- ** Type
     Type (..),
@@ -365,6 +398,10 @@ module Amazonka.MediaTailor
     LivePreRollConfiguration (LivePreRollConfiguration'),
     newLivePreRollConfiguration,
 
+    -- ** LiveSource
+    LiveSource (LiveSource'),
+    newLiveSource,
+
     -- ** LogConfiguration
     LogConfiguration (LogConfiguration'),
     newLogConfiguration,
@@ -413,6 +450,10 @@ module Amazonka.MediaTailor
     SecretsManagerAccessTokenConfiguration (SecretsManagerAccessTokenConfiguration'),
     newSecretsManagerAccessTokenConfiguration,
 
+    -- ** SegmentDeliveryConfiguration
+    SegmentDeliveryConfiguration (SegmentDeliveryConfiguration'),
+    newSegmentDeliveryConfiguration,
+
     -- ** SlateSource
     SlateSource (SlateSource'),
     newSlateSource,
@@ -437,18 +478,21 @@ where
 
 import Amazonka.MediaTailor.ConfigureLogsForPlaybackConfiguration
 import Amazonka.MediaTailor.CreateChannel
+import Amazonka.MediaTailor.CreateLiveSource
 import Amazonka.MediaTailor.CreatePrefetchSchedule
 import Amazonka.MediaTailor.CreateProgram
 import Amazonka.MediaTailor.CreateSourceLocation
 import Amazonka.MediaTailor.CreateVodSource
 import Amazonka.MediaTailor.DeleteChannel
 import Amazonka.MediaTailor.DeleteChannelPolicy
+import Amazonka.MediaTailor.DeleteLiveSource
 import Amazonka.MediaTailor.DeletePlaybackConfiguration
 import Amazonka.MediaTailor.DeletePrefetchSchedule
 import Amazonka.MediaTailor.DeleteProgram
 import Amazonka.MediaTailor.DeleteSourceLocation
 import Amazonka.MediaTailor.DeleteVodSource
 import Amazonka.MediaTailor.DescribeChannel
+import Amazonka.MediaTailor.DescribeLiveSource
 import Amazonka.MediaTailor.DescribeProgram
 import Amazonka.MediaTailor.DescribeSourceLocation
 import Amazonka.MediaTailor.DescribeVodSource
@@ -459,6 +503,7 @@ import Amazonka.MediaTailor.GetPrefetchSchedule
 import Amazonka.MediaTailor.Lens
 import Amazonka.MediaTailor.ListAlerts
 import Amazonka.MediaTailor.ListChannels
+import Amazonka.MediaTailor.ListLiveSources
 import Amazonka.MediaTailor.ListPlaybackConfigurations
 import Amazonka.MediaTailor.ListPrefetchSchedules
 import Amazonka.MediaTailor.ListSourceLocations
@@ -472,6 +517,7 @@ import Amazonka.MediaTailor.TagResource
 import Amazonka.MediaTailor.Types
 import Amazonka.MediaTailor.UntagResource
 import Amazonka.MediaTailor.UpdateChannel
+import Amazonka.MediaTailor.UpdateLiveSource
 import Amazonka.MediaTailor.UpdateSourceLocation
 import Amazonka.MediaTailor.UpdateVodSource
 import Amazonka.MediaTailor.Waiters

@@ -31,9 +31,10 @@ import qualified Amazonka.Prelude as Prelude
 data Channel = Channel'
   { -- | The tags to assign to the channel.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Contains information about the slate used to fill gaps between programs
-    -- in the schedule. You must configure FillerSlate if your channel uses an
-    -- LINEAR PlaybackMode.
+    -- | The slate used to fill gaps between programs in the schedule. You must
+    -- configure filler slate if your channel uses the LINEAR PlaybackMode.
+    -- MediaTailor doesn\'t support filler slate for channels using the LOOP
+    -- PlaybackMode.
     fillerSlate :: Prelude.Maybe SlateSource,
     -- | The timestamp of when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
@@ -43,6 +44,9 @@ data Channel = Channel'
     channelState :: Prelude.Text,
     -- | The name of the channel.
     channelName :: Prelude.Text,
+    -- | The tier for this channel. STANDARD tier channels can contain live
+    -- programs.
+    tier :: Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: [ResponseOutputItem],
     -- | The ARN of the channel.
@@ -68,9 +72,10 @@ data Channel = Channel'
 --
 -- 'tags', 'channel_tags' - The tags to assign to the channel.
 --
--- 'fillerSlate', 'channel_fillerSlate' - Contains information about the slate used to fill gaps between programs
--- in the schedule. You must configure FillerSlate if your channel uses an
--- LINEAR PlaybackMode.
+-- 'fillerSlate', 'channel_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
+-- configure filler slate if your channel uses the LINEAR PlaybackMode.
+-- MediaTailor doesn\'t support filler slate for channels using the LOOP
+-- PlaybackMode.
 --
 -- 'lastModifiedTime', 'channel_lastModifiedTime' - The timestamp of when the channel was last modified.
 --
@@ -79,6 +84,9 @@ data Channel = Channel'
 -- 'channelState', 'channel_channelState' - Returns the state whether the channel is running or not.
 --
 -- 'channelName', 'channel_channelName' - The name of the channel.
+--
+-- 'tier', 'channel_tier' - The tier for this channel. STANDARD tier channels can contain live
+-- programs.
 --
 -- 'outputs', 'channel_outputs' - The channel\'s output properties.
 --
@@ -96,6 +104,8 @@ newChannel ::
   Prelude.Text ->
   -- | 'channelName'
   Prelude.Text ->
+  -- | 'tier'
+  Prelude.Text ->
   -- | 'arn'
   Prelude.Text ->
   -- | 'playbackMode'
@@ -104,6 +114,7 @@ newChannel ::
 newChannel
   pChannelState_
   pChannelName_
+  pTier_
   pArn_
   pPlaybackMode_ =
     Channel'
@@ -113,6 +124,7 @@ newChannel
         creationTime = Prelude.Nothing,
         channelState = pChannelState_,
         channelName = pChannelName_,
+        tier = pTier_,
         outputs = Prelude.mempty,
         arn = pArn_,
         playbackMode = pPlaybackMode_
@@ -122,9 +134,10 @@ newChannel
 channel_tags :: Lens.Lens' Channel (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 channel_tags = Lens.lens (\Channel' {tags} -> tags) (\s@Channel' {} a -> s {tags = a} :: Channel) Prelude.. Lens.mapping Lens.coerced
 
--- | Contains information about the slate used to fill gaps between programs
--- in the schedule. You must configure FillerSlate if your channel uses an
--- LINEAR PlaybackMode.
+-- | The slate used to fill gaps between programs in the schedule. You must
+-- configure filler slate if your channel uses the LINEAR PlaybackMode.
+-- MediaTailor doesn\'t support filler slate for channels using the LOOP
+-- PlaybackMode.
 channel_fillerSlate :: Lens.Lens' Channel (Prelude.Maybe SlateSource)
 channel_fillerSlate = Lens.lens (\Channel' {fillerSlate} -> fillerSlate) (\s@Channel' {} a -> s {fillerSlate = a} :: Channel)
 
@@ -143,6 +156,11 @@ channel_channelState = Lens.lens (\Channel' {channelState} -> channelState) (\s@
 -- | The name of the channel.
 channel_channelName :: Lens.Lens' Channel Prelude.Text
 channel_channelName = Lens.lens (\Channel' {channelName} -> channelName) (\s@Channel' {} a -> s {channelName = a} :: Channel)
+
+-- | The tier for this channel. STANDARD tier channels can contain live
+-- programs.
+channel_tier :: Lens.Lens' Channel Prelude.Text
+channel_tier = Lens.lens (\Channel' {tier} -> tier) (\s@Channel' {} a -> s {tier = a} :: Channel)
 
 -- | The channel\'s output properties.
 channel_outputs :: Lens.Lens' Channel [ResponseOutputItem]
@@ -174,6 +192,7 @@ instance Core.FromJSON Channel where
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..: "ChannelState")
             Prelude.<*> (x Core..: "ChannelName")
+            Prelude.<*> (x Core..: "Tier")
             Prelude.<*> (x Core..:? "Outputs" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..: "Arn")
             Prelude.<*> (x Core..: "PlaybackMode")
@@ -187,6 +206,7 @@ instance Prelude.Hashable Channel where
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` channelState
       `Prelude.hashWithSalt` channelName
+      `Prelude.hashWithSalt` tier
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` arn
       `Prelude.hashWithSalt` playbackMode
@@ -199,6 +219,7 @@ instance Prelude.NFData Channel where
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf channelState
       `Prelude.seq` Prelude.rnf channelName
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf playbackMode

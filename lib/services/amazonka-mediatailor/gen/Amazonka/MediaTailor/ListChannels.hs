@@ -156,7 +156,7 @@ instance Core.ToQuery ListChannels where
 
 -- | /See:/ 'newListChannelsResponse' smart constructor.
 data ListChannelsResponse = ListChannelsResponse'
-  { -- | An array of channels that are associated with this account.
+  { -- | A list of channels that are associated with this account.
     items :: Prelude.Maybe [Channel],
     -- | Pagination token returned by the list request when results exceed the
     -- maximum allowed. Use the token to fetch the next page of results.
@@ -174,7 +174,7 @@ data ListChannelsResponse = ListChannelsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'listChannelsResponse_items' - An array of channels that are associated with this account.
+-- 'items', 'listChannelsResponse_items' - A list of channels that are associated with this account.
 --
 -- 'nextToken', 'listChannelsResponse_nextToken' - Pagination token returned by the list request when results exceed the
 -- maximum allowed. Use the token to fetch the next page of results.
@@ -191,7 +191,7 @@ newListChannelsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An array of channels that are associated with this account.
+-- | A list of channels that are associated with this account.
 listChannelsResponse_items :: Lens.Lens' ListChannelsResponse (Prelude.Maybe [Channel])
 listChannelsResponse_items = Lens.lens (\ListChannelsResponse' {items} -> items) (\s@ListChannelsResponse' {} a -> s {items = a} :: ListChannelsResponse) Prelude.. Lens.mapping Lens.coerced
 

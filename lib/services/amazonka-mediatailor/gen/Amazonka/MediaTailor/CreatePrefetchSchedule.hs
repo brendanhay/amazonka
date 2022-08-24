@@ -31,8 +31,8 @@ module Amazonka.MediaTailor.CreatePrefetchSchedule
     createPrefetchSchedule_streamId,
     createPrefetchSchedule_name,
     createPrefetchSchedule_playbackConfigurationName,
-    createPrefetchSchedule_consumption,
     createPrefetchSchedule_retrieval,
+    createPrefetchSchedule_consumption,
 
     -- * Destructuring the Response
     CreatePrefetchScheduleResponse (..),
@@ -69,16 +69,16 @@ data CreatePrefetchSchedule = CreatePrefetchSchedule'
     name :: Prelude.Text,
     -- | The name of the playback configuration.
     playbackConfigurationName :: Prelude.Text,
+    -- | The configuration settings for retrieval of prefetched ads from the ad
+    -- decision server. Only one set of prefetched ads will be retrieved and
+    -- subsequently consumed for each ad break.
+    retrieval :: PrefetchRetrieval,
     -- | The configuration settings for MediaTailor\'s /consumption/ of the
     -- prefetched ads from the ad decision server. Each consumption
     -- configuration contains an end time and an optional start time that
     -- define the /consumption window/. Prefetch schedules automatically expire
     -- no earlier than seven days after the end time.
-    consumption :: PrefetchConsumption,
-    -- | The configuration settings for retrieval of prefetched ads from the ad
-    -- decision server. Only one set of prefetched ads will be retrieved and
-    -- subsequently consumed for each ad break.
-    retrieval :: PrefetchRetrieval
+    consumption :: PrefetchConsumption
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -101,37 +101,37 @@ data CreatePrefetchSchedule = CreatePrefetchSchedule'
 --
 -- 'playbackConfigurationName', 'createPrefetchSchedule_playbackConfigurationName' - The name of the playback configuration.
 --
+-- 'retrieval', 'createPrefetchSchedule_retrieval' - The configuration settings for retrieval of prefetched ads from the ad
+-- decision server. Only one set of prefetched ads will be retrieved and
+-- subsequently consumed for each ad break.
+--
 -- 'consumption', 'createPrefetchSchedule_consumption' - The configuration settings for MediaTailor\'s /consumption/ of the
 -- prefetched ads from the ad decision server. Each consumption
 -- configuration contains an end time and an optional start time that
 -- define the /consumption window/. Prefetch schedules automatically expire
 -- no earlier than seven days after the end time.
---
--- 'retrieval', 'createPrefetchSchedule_retrieval' - The configuration settings for retrieval of prefetched ads from the ad
--- decision server. Only one set of prefetched ads will be retrieved and
--- subsequently consumed for each ad break.
 newCreatePrefetchSchedule ::
   -- | 'name'
   Prelude.Text ->
   -- | 'playbackConfigurationName'
   Prelude.Text ->
-  -- | 'consumption'
-  PrefetchConsumption ->
   -- | 'retrieval'
   PrefetchRetrieval ->
+  -- | 'consumption'
+  PrefetchConsumption ->
   CreatePrefetchSchedule
 newCreatePrefetchSchedule
   pName_
   pPlaybackConfigurationName_
-  pConsumption_
-  pRetrieval_ =
+  pRetrieval_
+  pConsumption_ =
     CreatePrefetchSchedule'
       { streamId = Prelude.Nothing,
         name = pName_,
         playbackConfigurationName =
           pPlaybackConfigurationName_,
-        consumption = pConsumption_,
-        retrieval = pRetrieval_
+        retrieval = pRetrieval_,
+        consumption = pConsumption_
       }
 
 -- | An optional stream identifier that MediaTailor uses to prefetch ads for
@@ -151,6 +151,12 @@ createPrefetchSchedule_name = Lens.lens (\CreatePrefetchSchedule' {name} -> name
 createPrefetchSchedule_playbackConfigurationName :: Lens.Lens' CreatePrefetchSchedule Prelude.Text
 createPrefetchSchedule_playbackConfigurationName = Lens.lens (\CreatePrefetchSchedule' {playbackConfigurationName} -> playbackConfigurationName) (\s@CreatePrefetchSchedule' {} a -> s {playbackConfigurationName = a} :: CreatePrefetchSchedule)
 
+-- | The configuration settings for retrieval of prefetched ads from the ad
+-- decision server. Only one set of prefetched ads will be retrieved and
+-- subsequently consumed for each ad break.
+createPrefetchSchedule_retrieval :: Lens.Lens' CreatePrefetchSchedule PrefetchRetrieval
+createPrefetchSchedule_retrieval = Lens.lens (\CreatePrefetchSchedule' {retrieval} -> retrieval) (\s@CreatePrefetchSchedule' {} a -> s {retrieval = a} :: CreatePrefetchSchedule)
+
 -- | The configuration settings for MediaTailor\'s /consumption/ of the
 -- prefetched ads from the ad decision server. Each consumption
 -- configuration contains an end time and an optional start time that
@@ -158,12 +164,6 @@ createPrefetchSchedule_playbackConfigurationName = Lens.lens (\CreatePrefetchSch
 -- no earlier than seven days after the end time.
 createPrefetchSchedule_consumption :: Lens.Lens' CreatePrefetchSchedule PrefetchConsumption
 createPrefetchSchedule_consumption = Lens.lens (\CreatePrefetchSchedule' {consumption} -> consumption) (\s@CreatePrefetchSchedule' {} a -> s {consumption = a} :: CreatePrefetchSchedule)
-
--- | The configuration settings for retrieval of prefetched ads from the ad
--- decision server. Only one set of prefetched ads will be retrieved and
--- subsequently consumed for each ad break.
-createPrefetchSchedule_retrieval :: Lens.Lens' CreatePrefetchSchedule PrefetchRetrieval
-createPrefetchSchedule_retrieval = Lens.lens (\CreatePrefetchSchedule' {retrieval} -> retrieval) (\s@CreatePrefetchSchedule' {} a -> s {retrieval = a} :: CreatePrefetchSchedule)
 
 instance Core.AWSRequest CreatePrefetchSchedule where
   type
@@ -188,16 +188,16 @@ instance Prelude.Hashable CreatePrefetchSchedule where
     _salt `Prelude.hashWithSalt` streamId
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` playbackConfigurationName
-      `Prelude.hashWithSalt` consumption
       `Prelude.hashWithSalt` retrieval
+      `Prelude.hashWithSalt` consumption
 
 instance Prelude.NFData CreatePrefetchSchedule where
   rnf CreatePrefetchSchedule' {..} =
     Prelude.rnf streamId
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf playbackConfigurationName
-      `Prelude.seq` Prelude.rnf consumption
       `Prelude.seq` Prelude.rnf retrieval
+      `Prelude.seq` Prelude.rnf consumption
 
 instance Core.ToHeaders CreatePrefetchSchedule where
   toHeaders =
@@ -215,8 +215,8 @@ instance Core.ToJSON CreatePrefetchSchedule where
     Core.object
       ( Prelude.catMaybes
           [ ("StreamId" Core..=) Prelude.<$> streamId,
-            Prelude.Just ("Consumption" Core..= consumption),
-            Prelude.Just ("Retrieval" Core..= retrieval)
+            Prelude.Just ("Retrieval" Core..= retrieval),
+            Prelude.Just ("Consumption" Core..= consumption)
           ]
       )
 

@@ -27,6 +27,7 @@ module Amazonka.MediaTailor.UpdateChannel
     newUpdateChannel,
 
     -- * Request Lenses
+    updateChannel_fillerSlate,
     updateChannel_channelName,
     updateChannel_outputs,
 
@@ -40,6 +41,7 @@ module Amazonka.MediaTailor.UpdateChannel
     updateChannelResponse_fillerSlate,
     updateChannelResponse_arn,
     updateChannelResponse_lastModifiedTime,
+    updateChannelResponse_tier,
     updateChannelResponse_outputs,
     updateChannelResponse_creationTime,
     updateChannelResponse_playbackMode,
@@ -57,7 +59,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateChannel' smart constructor.
 data UpdateChannel = UpdateChannel'
-  { -- | The identifier for the channel you are working on.
+  { -- | The slate used to fill gaps between programs in the schedule. You must
+    -- configure filler slate if your channel uses the LINEAR PlaybackMode.
+    -- MediaTailor doesn\'t support filler slate for channels using the LOOP
+    -- PlaybackMode.
+    fillerSlate :: Prelude.Maybe SlateSource,
+    -- | The identifier for the channel you are working on.
     channelName :: Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: [RequestOutputItem]
@@ -72,6 +79,11 @@ data UpdateChannel = UpdateChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'fillerSlate', 'updateChannel_fillerSlate' - The slate used to fill gaps between programs in the schedule. You must
+-- configure filler slate if your channel uses the LINEAR PlaybackMode.
+-- MediaTailor doesn\'t support filler slate for channels using the LOOP
+-- PlaybackMode.
+--
 -- 'channelName', 'updateChannel_channelName' - The identifier for the channel you are working on.
 --
 -- 'outputs', 'updateChannel_outputs' - The channel\'s output properties.
@@ -81,9 +93,17 @@ newUpdateChannel ::
   UpdateChannel
 newUpdateChannel pChannelName_ =
   UpdateChannel'
-    { channelName = pChannelName_,
+    { fillerSlate = Prelude.Nothing,
+      channelName = pChannelName_,
       outputs = Prelude.mempty
     }
+
+-- | The slate used to fill gaps between programs in the schedule. You must
+-- configure filler slate if your channel uses the LINEAR PlaybackMode.
+-- MediaTailor doesn\'t support filler slate for channels using the LOOP
+-- PlaybackMode.
+updateChannel_fillerSlate :: Lens.Lens' UpdateChannel (Prelude.Maybe SlateSource)
+updateChannel_fillerSlate = Lens.lens (\UpdateChannel' {fillerSlate} -> fillerSlate) (\s@UpdateChannel' {} a -> s {fillerSlate = a} :: UpdateChannel)
 
 -- | The identifier for the channel you are working on.
 updateChannel_channelName :: Lens.Lens' UpdateChannel Prelude.Text
@@ -107,6 +127,7 @@ instance Core.AWSRequest UpdateChannel where
             Prelude.<*> (x Core..?> "FillerSlate")
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "Tier")
             Prelude.<*> (x Core..?> "Outputs" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "PlaybackMode")
@@ -116,12 +137,14 @@ instance Core.AWSRequest UpdateChannel where
 
 instance Prelude.Hashable UpdateChannel where
   hashWithSalt _salt UpdateChannel' {..} =
-    _salt `Prelude.hashWithSalt` channelName
+    _salt `Prelude.hashWithSalt` fillerSlate
+      `Prelude.hashWithSalt` channelName
       `Prelude.hashWithSalt` outputs
 
 instance Prelude.NFData UpdateChannel where
   rnf UpdateChannel' {..} =
-    Prelude.rnf channelName
+    Prelude.rnf fillerSlate
+      `Prelude.seq` Prelude.rnf channelName
       `Prelude.seq` Prelude.rnf outputs
 
 instance Core.ToHeaders UpdateChannel where
@@ -139,7 +162,9 @@ instance Core.ToJSON UpdateChannel where
   toJSON UpdateChannel' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Outputs" Core..= outputs)]
+          [ ("FillerSlate" Core..=) Prelude.<$> fillerSlate,
+            Prelude.Just ("Outputs" Core..= outputs)
+          ]
       )
 
 instance Core.ToPath UpdateChannel where
@@ -163,6 +188,8 @@ data UpdateChannelResponse = UpdateChannelResponse'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the channel was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The channel\'s tier.
+    tier :: Prelude.Maybe Prelude.Text,
     -- | The channel\'s output properties.
     outputs :: Prelude.Maybe [ResponseOutputItem],
     -- | The timestamp of when the channel was created.
@@ -195,6 +222,8 @@ data UpdateChannelResponse = UpdateChannelResponse'
 --
 -- 'lastModifiedTime', 'updateChannelResponse_lastModifiedTime' - The timestamp of when the channel was last modified.
 --
+-- 'tier', 'updateChannelResponse_tier' - The channel\'s tier.
+--
 -- 'outputs', 'updateChannelResponse_outputs' - The channel\'s output properties.
 --
 -- 'creationTime', 'updateChannelResponse_creationTime' - The timestamp of when the channel was created.
@@ -215,6 +244,7 @@ newUpdateChannelResponse pHttpStatus_ =
       fillerSlate = Prelude.Nothing,
       arn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
+      tier = Prelude.Nothing,
       outputs = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       playbackMode = Prelude.Nothing,
@@ -243,6 +273,10 @@ updateChannelResponse_arn = Lens.lens (\UpdateChannelResponse' {arn} -> arn) (\s
 updateChannelResponse_lastModifiedTime :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.UTCTime)
 updateChannelResponse_lastModifiedTime = Lens.lens (\UpdateChannelResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateChannelResponse' {} a -> s {lastModifiedTime = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The channel\'s tier.
+updateChannelResponse_tier :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe Prelude.Text)
+updateChannelResponse_tier = Lens.lens (\UpdateChannelResponse' {tier} -> tier) (\s@UpdateChannelResponse' {} a -> s {tier = a} :: UpdateChannelResponse)
+
 -- | The channel\'s output properties.
 updateChannelResponse_outputs :: Lens.Lens' UpdateChannelResponse (Prelude.Maybe [ResponseOutputItem])
 updateChannelResponse_outputs = Lens.lens (\UpdateChannelResponse' {outputs} -> outputs) (\s@UpdateChannelResponse' {} a -> s {outputs = a} :: UpdateChannelResponse) Prelude.. Lens.mapping Lens.coerced
@@ -270,6 +304,7 @@ instance Prelude.NFData UpdateChannelResponse where
       `Prelude.seq` Prelude.rnf fillerSlate
       `Prelude.seq` Prelude.rnf arn
       `Prelude.seq` Prelude.rnf lastModifiedTime
+      `Prelude.seq` Prelude.rnf tier
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf playbackMode

@@ -46,6 +46,9 @@ module Amazonka.MediaTailor.Types
     -- * ScheduleEntryType
     ScheduleEntryType (..),
 
+    -- * Tier
+    Tier (..),
+
     -- * Type
     Type (..),
 
@@ -110,6 +113,7 @@ module Amazonka.MediaTailor.Types
     channel_creationTime,
     channel_channelState,
     channel_channelName,
+    channel_tier,
     channel_outputs,
     channel_arn,
     channel_playbackMode,
@@ -167,6 +171,17 @@ module Amazonka.MediaTailor.Types
     newLivePreRollConfiguration,
     livePreRollConfiguration_adDecisionServerUrl,
     livePreRollConfiguration_maxDurationSeconds,
+
+    -- * LiveSource
+    LiveSource (..),
+    newLiveSource,
+    liveSource_tags,
+    liveSource_lastModifiedTime,
+    liveSource_creationTime,
+    liveSource_sourceLocationName,
+    liveSource_liveSourceName,
+    liveSource_httpPackageConfigurations,
+    liveSource_arn,
 
     -- * LogConfiguration
     LogConfiguration (..),
@@ -259,12 +274,13 @@ module Amazonka.MediaTailor.Types
     ScheduleEntry (..),
     newScheduleEntry,
     scheduleEntry_approximateStartTime,
+    scheduleEntry_liveSourceName,
+    scheduleEntry_vodSourceName,
     scheduleEntry_approximateDurationSeconds,
     scheduleEntry_scheduleEntryType,
     scheduleEntry_scheduleAdBreaks,
-    scheduleEntry_vodSourceName,
-    scheduleEntry_channelName,
     scheduleEntry_sourceLocationName,
+    scheduleEntry_channelName,
     scheduleEntry_arn,
     scheduleEntry_programName,
 
@@ -274,6 +290,12 @@ module Amazonka.MediaTailor.Types
     secretsManagerAccessTokenConfiguration_headerName,
     secretsManagerAccessTokenConfiguration_secretArn,
     secretsManagerAccessTokenConfiguration_secretStringKey,
+
+    -- * SegmentDeliveryConfiguration
+    SegmentDeliveryConfiguration (..),
+    newSegmentDeliveryConfiguration,
+    segmentDeliveryConfiguration_baseUrl,
+    segmentDeliveryConfiguration_name,
 
     -- * SlateSource
     SlateSource (..),
@@ -285,6 +307,7 @@ module Amazonka.MediaTailor.Types
     SourceLocation (..),
     newSourceLocation,
     sourceLocation_tags,
+    sourceLocation_segmentDeliveryConfigurations,
     sourceLocation_accessConfiguration,
     sourceLocation_defaultSegmentDeliveryConfiguration,
     sourceLocation_lastModifiedTime,
@@ -306,6 +329,7 @@ module Amazonka.MediaTailor.Types
     newTransition,
     transition_relativeProgram,
     transition_scheduledStartTimeMillis,
+    transition_durationMillis,
     transition_type,
     transition_relativePosition,
 
@@ -344,6 +368,7 @@ import Amazonka.MediaTailor.Types.HlsPlaylistSettings
 import Amazonka.MediaTailor.Types.HttpConfiguration
 import Amazonka.MediaTailor.Types.HttpPackageConfiguration
 import Amazonka.MediaTailor.Types.LivePreRollConfiguration
+import Amazonka.MediaTailor.Types.LiveSource
 import Amazonka.MediaTailor.Types.LogConfiguration
 import Amazonka.MediaTailor.Types.ManifestProcessingRules
 import Amazonka.MediaTailor.Types.MessageType
@@ -363,9 +388,11 @@ import Amazonka.MediaTailor.Types.ScheduleConfiguration
 import Amazonka.MediaTailor.Types.ScheduleEntry
 import Amazonka.MediaTailor.Types.ScheduleEntryType
 import Amazonka.MediaTailor.Types.SecretsManagerAccessTokenConfiguration
+import Amazonka.MediaTailor.Types.SegmentDeliveryConfiguration
 import Amazonka.MediaTailor.Types.SlateSource
 import Amazonka.MediaTailor.Types.SourceLocation
 import Amazonka.MediaTailor.Types.SpliceInsertMessage
+import Amazonka.MediaTailor.Types.Tier
 import Amazonka.MediaTailor.Types.Transition
 import Amazonka.MediaTailor.Types.Type
 import Amazonka.MediaTailor.Types.VodSource

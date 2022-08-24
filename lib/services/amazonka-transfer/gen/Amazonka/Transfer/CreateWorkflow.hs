@@ -73,18 +73,18 @@ data CreateWorkflow = CreateWorkflow'
     -- The @TYPE@ specifies which of the following actions is being taken for
     -- this step.
     --
-    -- -   /Copy/: copy the file to another location
+    -- -   /COPY/: Copy the file to another location.
     --
-    -- -   /Custom/: custom step with a lambda target
+    -- -   /CUSTOM/: Perform a custom step with an Lambda function target.
     --
-    -- -   /Delete/: delete the file
+    -- -   /DELETE/: Delete the file.
     --
-    -- -   /Tag/: add a tag to the file
+    -- -   /TAG/: Add a tag to the file.
     --
     -- Currently, copying and tagging are supported only on S3.
     --
     -- For file location, you specify either the S3 bucket and key, or the EFS
-    -- filesystem ID and path.
+    -- file system ID and path.
     steps :: [WorkflowStep]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -115,18 +115,18 @@ data CreateWorkflow = CreateWorkflow'
 -- The @TYPE@ specifies which of the following actions is being taken for
 -- this step.
 --
--- -   /Copy/: copy the file to another location
+-- -   /COPY/: Copy the file to another location.
 --
--- -   /Custom/: custom step with a lambda target
+-- -   /CUSTOM/: Perform a custom step with an Lambda function target.
 --
--- -   /Delete/: delete the file
+-- -   /DELETE/: Delete the file.
 --
--- -   /Tag/: add a tag to the file
+-- -   /TAG/: Add a tag to the file.
 --
 -- Currently, copying and tagging are supported only on S3.
 --
 -- For file location, you specify either the S3 bucket and key, or the EFS
--- filesystem ID and path.
+-- file system ID and path.
 newCreateWorkflow ::
   CreateWorkflow
 newCreateWorkflow =
@@ -161,18 +161,18 @@ createWorkflow_onExceptionSteps = Lens.lens (\CreateWorkflow' {onExceptionSteps}
 -- The @TYPE@ specifies which of the following actions is being taken for
 -- this step.
 --
--- -   /Copy/: copy the file to another location
+-- -   /COPY/: Copy the file to another location.
 --
--- -   /Custom/: custom step with a lambda target
+-- -   /CUSTOM/: Perform a custom step with an Lambda function target.
 --
--- -   /Delete/: delete the file
+-- -   /DELETE/: Delete the file.
 --
--- -   /Tag/: add a tag to the file
+-- -   /TAG/: Add a tag to the file.
 --
 -- Currently, copying and tagging are supported only on S3.
 --
 -- For file location, you specify either the S3 bucket and key, or the EFS
--- filesystem ID and path.
+-- file system ID and path.
 createWorkflow_steps :: Lens.Lens' CreateWorkflow [WorkflowStep]
 createWorkflow_steps = Lens.lens (\CreateWorkflow' {steps} -> steps) (\s@CreateWorkflow' {} a -> s {steps = a} :: CreateWorkflow) Prelude.. Lens.coerced
 

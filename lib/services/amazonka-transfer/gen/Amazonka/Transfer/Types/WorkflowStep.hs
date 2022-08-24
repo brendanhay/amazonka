@@ -34,13 +34,13 @@ import Amazonka.Transfer.Types.WorkflowStepType
 data WorkflowStep = WorkflowStep'
   { -- | Currently, the following step types are supported.
     --
-    -- -   /Copy/: copy the file to another location
+    -- -   /COPY/: Copy the file to another location.
     --
-    -- -   /Custom/: custom step with a lambda target
+    -- -   /CUSTOM/: Perform a custom step with an Lambda function target.
     --
-    -- -   /Delete/: delete the file
+    -- -   /DELETE/: Delete the file.
     --
-    -- -   /Tag/: add a tag to the file
+    -- -   /TAG/: Add a tag to the file.
     type' :: Prelude.Maybe WorkflowStepType,
     -- | Details for a step that creates one or more tags.
     --
@@ -76,13 +76,13 @@ data WorkflowStep = WorkflowStep'
 --
 -- 'type'', 'workflowStep_type' - Currently, the following step types are supported.
 --
--- -   /Copy/: copy the file to another location
+-- -   /COPY/: Copy the file to another location.
 --
--- -   /Custom/: custom step with a lambda target
+-- -   /CUSTOM/: Perform a custom step with an Lambda function target.
 --
--- -   /Delete/: delete the file
+-- -   /DELETE/: Delete the file.
 --
--- -   /Tag/: add a tag to the file
+-- -   /TAG/: Add a tag to the file.
 --
 -- 'tagStepDetails', 'workflowStep_tagStepDetails' - Details for a step that creates one or more tags.
 --
@@ -117,13 +117,13 @@ newWorkflowStep =
 
 -- | Currently, the following step types are supported.
 --
--- -   /Copy/: copy the file to another location
+-- -   /COPY/: Copy the file to another location.
 --
--- -   /Custom/: custom step with a lambda target
+-- -   /CUSTOM/: Perform a custom step with an Lambda function target.
 --
--- -   /Delete/: delete the file
+-- -   /DELETE/: Delete the file.
 --
--- -   /Tag/: add a tag to the file
+-- -   /TAG/: Add a tag to the file.
 workflowStep_type :: Lens.Lens' WorkflowStep (Prelude.Maybe WorkflowStepType)
 workflowStep_type = Lens.lens (\WorkflowStep' {type'} -> type') (\s@WorkflowStep' {} a -> s {type' = a} :: WorkflowStep)
 

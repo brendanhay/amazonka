@@ -20,7 +20,14 @@
 module Amazonka.Transfer.Types.ExecutionErrorType
   ( ExecutionErrorType
       ( ..,
-        ExecutionErrorType_PERMISSION_DENIED
+        ExecutionErrorType_ALREADY_EXISTS,
+        ExecutionErrorType_BAD_REQUEST,
+        ExecutionErrorType_CUSTOM_STEP_FAILED,
+        ExecutionErrorType_INTERNAL_SERVER_ERROR,
+        ExecutionErrorType_NOT_FOUND,
+        ExecutionErrorType_PERMISSION_DENIED,
+        ExecutionErrorType_THROTTLED,
+        ExecutionErrorType_TIMEOUT
       ),
   )
 where
@@ -56,10 +63,38 @@ newtype ExecutionErrorType = ExecutionErrorType'
       Core.ToXML
     )
 
+pattern ExecutionErrorType_ALREADY_EXISTS :: ExecutionErrorType
+pattern ExecutionErrorType_ALREADY_EXISTS = ExecutionErrorType' "ALREADY_EXISTS"
+
+pattern ExecutionErrorType_BAD_REQUEST :: ExecutionErrorType
+pattern ExecutionErrorType_BAD_REQUEST = ExecutionErrorType' "BAD_REQUEST"
+
+pattern ExecutionErrorType_CUSTOM_STEP_FAILED :: ExecutionErrorType
+pattern ExecutionErrorType_CUSTOM_STEP_FAILED = ExecutionErrorType' "CUSTOM_STEP_FAILED"
+
+pattern ExecutionErrorType_INTERNAL_SERVER_ERROR :: ExecutionErrorType
+pattern ExecutionErrorType_INTERNAL_SERVER_ERROR = ExecutionErrorType' "INTERNAL_SERVER_ERROR"
+
+pattern ExecutionErrorType_NOT_FOUND :: ExecutionErrorType
+pattern ExecutionErrorType_NOT_FOUND = ExecutionErrorType' "NOT_FOUND"
+
 pattern ExecutionErrorType_PERMISSION_DENIED :: ExecutionErrorType
 pattern ExecutionErrorType_PERMISSION_DENIED = ExecutionErrorType' "PERMISSION_DENIED"
 
+pattern ExecutionErrorType_THROTTLED :: ExecutionErrorType
+pattern ExecutionErrorType_THROTTLED = ExecutionErrorType' "THROTTLED"
+
+pattern ExecutionErrorType_TIMEOUT :: ExecutionErrorType
+pattern ExecutionErrorType_TIMEOUT = ExecutionErrorType' "TIMEOUT"
+
 {-# COMPLETE
+  ExecutionErrorType_ALREADY_EXISTS,
+  ExecutionErrorType_BAD_REQUEST,
+  ExecutionErrorType_CUSTOM_STEP_FAILED,
+  ExecutionErrorType_INTERNAL_SERVER_ERROR,
+  ExecutionErrorType_NOT_FOUND,
   ExecutionErrorType_PERMISSION_DENIED,
+  ExecutionErrorType_THROTTLED,
+  ExecutionErrorType_TIMEOUT,
   ExecutionErrorType'
   #-}

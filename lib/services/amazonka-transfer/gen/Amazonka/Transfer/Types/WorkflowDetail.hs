@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies the workflow ID for the workflow to assign and the execution
--- role used for executing the workflow.
+-- role that\'s used for executing the workflow.
 --
 -- /See:/ 'newWorkflowDetail' smart constructor.
 data WorkflowDetail = WorkflowDetail'

@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all executions for the specified workflow.
+--
+-- This operation returns paginated results.
 module Amazonka.Transfer.ListExecutions
   ( -- * Creating a Request
     ListExecutions (..),
@@ -57,14 +59,14 @@ data ListExecutions = ListExecutions'
     -- continue listing additional executions.
     --
     -- This is useful for pagination, for instance. If you have 100 executions
-    -- for a workflow, you might only want to list first 10. If so, callthe API
-    -- by specifing the @max-results@:
+    -- for a workflow, you might only want to list first 10. If so, call the
+    -- API by specifying the @max-results@:
     --
     -- @aws transfer list-executions --max-results 10@
     --
     -- This returns details for the first 10 executions, as well as the pointer
     -- (@NextToken@) to the eleventh execution. You can now call the API again,
-    -- suppling the @NextToken@ value you received:
+    -- supplying the @NextToken@ value you received:
     --
     -- @aws transfer list-executions --max-results 10 --next-token $somePointerReturnedFromPreviousListResult@
     --
@@ -72,7 +74,7 @@ data ListExecutions = ListExecutions'
     -- can then repeat the call until the details for all 100 executions have
     -- been returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the aximum number of executions to return.
+    -- | Specifies the maximum number of executions to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for the workflow.
     workflowId :: Prelude.Text
@@ -92,14 +94,14 @@ data ListExecutions = ListExecutions'
 -- continue listing additional executions.
 --
 -- This is useful for pagination, for instance. If you have 100 executions
--- for a workflow, you might only want to list first 10. If so, callthe API
--- by specifing the @max-results@:
+-- for a workflow, you might only want to list first 10. If so, call the
+-- API by specifying the @max-results@:
 --
 -- @aws transfer list-executions --max-results 10@
 --
 -- This returns details for the first 10 executions, as well as the pointer
 -- (@NextToken@) to the eleventh execution. You can now call the API again,
--- suppling the @NextToken@ value you received:
+-- supplying the @NextToken@ value you received:
 --
 -- @aws transfer list-executions --max-results 10 --next-token $somePointerReturnedFromPreviousListResult@
 --
@@ -107,7 +109,7 @@ data ListExecutions = ListExecutions'
 -- can then repeat the call until the details for all 100 executions have
 -- been returned.
 --
--- 'maxResults', 'listExecutions_maxResults' - Specifies the aximum number of executions to return.
+-- 'maxResults', 'listExecutions_maxResults' - Specifies the maximum number of executions to return.
 --
 -- 'workflowId', 'listExecutions_workflowId' - A unique identifier for the workflow.
 newListExecutions ::
@@ -126,14 +128,14 @@ newListExecutions pWorkflowId_ =
 -- continue listing additional executions.
 --
 -- This is useful for pagination, for instance. If you have 100 executions
--- for a workflow, you might only want to list first 10. If so, callthe API
--- by specifing the @max-results@:
+-- for a workflow, you might only want to list first 10. If so, call the
+-- API by specifying the @max-results@:
 --
 -- @aws transfer list-executions --max-results 10@
 --
 -- This returns details for the first 10 executions, as well as the pointer
 -- (@NextToken@) to the eleventh execution. You can now call the API again,
--- suppling the @NextToken@ value you received:
+-- supplying the @NextToken@ value you received:
 --
 -- @aws transfer list-executions --max-results 10 --next-token $somePointerReturnedFromPreviousListResult@
 --
@@ -143,13 +145,31 @@ newListExecutions pWorkflowId_ =
 listExecutions_nextToken :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Text)
 listExecutions_nextToken = Lens.lens (\ListExecutions' {nextToken} -> nextToken) (\s@ListExecutions' {} a -> s {nextToken = a} :: ListExecutions)
 
--- | Specifies the aximum number of executions to return.
+-- | Specifies the maximum number of executions to return.
 listExecutions_maxResults :: Lens.Lens' ListExecutions (Prelude.Maybe Prelude.Natural)
 listExecutions_maxResults = Lens.lens (\ListExecutions' {maxResults} -> maxResults) (\s@ListExecutions' {} a -> s {maxResults = a} :: ListExecutions)
 
 -- | A unique identifier for the workflow.
 listExecutions_workflowId :: Lens.Lens' ListExecutions Prelude.Text
 listExecutions_workflowId = Lens.lens (\ListExecutions' {workflowId} -> workflowId) (\s@ListExecutions' {} a -> s {workflowId = a} :: ListExecutions)
+
+instance Core.AWSPager ListExecutions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listExecutionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        (rs Lens.^. listExecutionsResponse_executions) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listExecutions_nextToken
+          Lens..~ rs
+          Lens.^? listExecutionsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListExecutions where
   type

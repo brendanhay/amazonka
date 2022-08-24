@@ -31,6 +31,7 @@ module Amazonka.Transfer.UpdateServer
     newUpdateServer,
 
     -- * Request Lenses
+    updateServer_preAuthenticationLoginBanner,
     updateServer_protocolDetails,
     updateServer_identityProviderDetails,
     updateServer_securityPolicyName,
@@ -39,6 +40,7 @@ module Amazonka.Transfer.UpdateServer
     updateServer_protocols,
     updateServer_endpointType,
     updateServer_loggingRole,
+    updateServer_postAuthenticationLoginBanner,
     updateServer_workflowDetails,
     updateServer_hostKey,
     updateServer_serverId,
@@ -62,11 +64,34 @@ import Amazonka.Transfer.Types
 
 -- | /See:/ 'newUpdateServer' smart constructor.
 data UpdateServer = UpdateServer'
-  { -- | The protocol settings that are configured for your server.
+  { -- | Specifies a string to display when users connect to a server. This
+    -- string is displayed before the user authenticates. For example, the
+    -- following banner displays details about using the system:
     --
-    -- Use the @PassiveIp@ parameter to indicate passive mode (for FTP and FTPS
-    -- protocols). Enter a single dotted-quad IPv4 address, such as the
-    -- external IP address of a firewall, router, or load balancer.
+    -- @This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.@
+    preAuthenticationLoginBanner :: Prelude.Maybe Prelude.Text,
+    -- | The protocol settings that are configured for your server.
+    --
+    -- -   To indicate passive mode (for FTP and FTPS protocols), use the
+    --     @PassiveIp@ parameter. Enter a single dotted-quad IPv4 address, such
+    --     as the external IP address of a firewall, router, or load balancer.
+    --
+    -- -   To ignore the error that is generated when the client attempts to
+    --     use the @SETSTAT@ command on a file that you are uploading to an
+    --     Amazon S3 bucket, use the @SetStatOption@ parameter. To have the
+    --     Transfer Family server ignore the @SETSTAT@ command and upload files
+    --     without needing to make any changes to your SFTP client, set the
+    --     value to @ENABLE_NO_OP@. If you set the @SetStatOption@ parameter to
+    --     @ENABLE_NO_OP@, Transfer Family generates a log entry to Amazon
+    --     CloudWatch Logs, so that you can determine when the client is making
+    --     a @SETSTAT@ call.
+    --
+    -- -   To determine whether your Transfer Family server resumes recent,
+    --     negotiated sessions through a unique session ID, use the
+    --     @TlsSessionResumptionMode@ parameter.
+    --
+    -- -   @As2Transports@ indicates the transport method for the AS2 messages.
+    --     Currently, only HTTP is supported.
     protocolDetails :: Prelude.Maybe ProtocolDetails,
     -- | An array containing all of the information required to call a
     -- customer\'s authentication API method.
@@ -76,10 +101,10 @@ data UpdateServer = UpdateServer'
     securityPolicyName :: Prelude.Maybe Prelude.Text,
     -- | The virtual private cloud (VPC) endpoint settings that are configured
     -- for your server. When you host your endpoint within your VPC, you can
-    -- make it accessible only to resources within your VPC, or you can attach
-    -- Elastic IP addresses and make it accessible to clients over the
-    -- internet. Your VPC\'s default security groups are automatically assigned
-    -- to your endpoint.
+    -- make your endpoint accessible only to resources within your VPC, or you
+    -- can attach Elastic IP addresses and make your endpoint accessible to
+    -- clients over the internet. Your VPC\'s default security groups are
+    -- automatically assigned to your endpoint.
     endpointDetails :: Prelude.Maybe EndpointDetails,
     -- | The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate
     -- Manager (ACM) certificate. Required when @Protocols@ is set to @FTPS@.
@@ -163,24 +188,55 @@ data UpdateServer = UpdateServer'
     -- IP address. This is not possible with @EndpointType@ set to
     -- @VPC_ENDPOINT@.
     endpointType :: Prelude.Maybe EndpointType,
-    -- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
-    -- Identity and Access Management (IAM) role that allows a server to turn
-    -- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
-    -- set, user activity can be viewed in your CloudWatch logs.
+    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+    -- (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+    -- Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+    -- your CloudWatch logs.
     loggingRole :: Prelude.Maybe Prelude.Text,
+    -- | Specifies a string to display when users connect to a server. This
+    -- string is displayed after the user authenticates.
+    --
+    -- The SFTP protocol does not support post-authentication display banners.
+    postAuthenticationLoginBanner :: Prelude.Maybe Prelude.Text,
     -- | Specifies the workflow ID for the workflow to assign and the execution
-    -- role used for executing the workflow.
+    -- role that\'s used for executing the workflow.
+    --
+    -- To remove an associated workflow from a server, you can provide an empty
+    -- @OnUpload@ object, as in the following example.
+    --
+    -- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
     workflowDetails :: Prelude.Maybe WorkflowDetails,
-    -- | The RSA private key as generated by
-    -- @ssh-keygen -N \"\" -m PEM -f my-new-server-key@.
+    -- | The RSA, ECDSA, or ED25519 private key to use for your server.
+    --
+    -- Use the following command to generate an RSA 2048 bit key with no
+    -- passphrase:
+    --
+    -- @ssh-keygen -t rsa -b 2048 -N \"\" -m PEM -f my-new-server-key@.
+    --
+    -- Use a minimum value of 2048 for the @-b@ option. You can create a
+    -- stronger key by using 3072 or 4096.
+    --
+    -- Use the following command to generate an ECDSA 256 bit key with no
+    -- passphrase:
+    --
+    -- @ssh-keygen -t ecdsa -b 256 -N \"\" -m PEM -f my-new-server-key@.
+    --
+    -- Valid values for the @-b@ option for ECDSA are 256, 384, and 521.
+    --
+    -- Use the following command to generate an ED25519 key with no passphrase:
+    --
+    -- @ssh-keygen -t ed25519 -N \"\" -f my-new-server-key@.
+    --
+    -- For all of these commands, you can replace /my-new-server-key/ with a
+    -- string of your choice.
     --
     -- If you aren\'t planning to migrate existing users from an existing
-    -- server to a new server, don\'t update the host key. Accidentally
-    -- changing a server\'s host key can be disruptive.
+    -- SFTP-enabled server to a new server, don\'t update the host key.
+    -- Accidentally changing a server\'s host key can be disruptive.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
-    -- in the /Amazon Web ServicesTransfer Family User Guide/.
+    -- in the /Transfer Family User Guide/.
     hostKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A system-assigned unique identifier for a server instance that the user
     -- account is assigned to.
@@ -196,11 +252,34 @@ data UpdateServer = UpdateServer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'preAuthenticationLoginBanner', 'updateServer_preAuthenticationLoginBanner' - Specifies a string to display when users connect to a server. This
+-- string is displayed before the user authenticates. For example, the
+-- following banner displays details about using the system:
+--
+-- @This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.@
+--
 -- 'protocolDetails', 'updateServer_protocolDetails' - The protocol settings that are configured for your server.
 --
--- Use the @PassiveIp@ parameter to indicate passive mode (for FTP and FTPS
--- protocols). Enter a single dotted-quad IPv4 address, such as the
--- external IP address of a firewall, router, or load balancer.
+-- -   To indicate passive mode (for FTP and FTPS protocols), use the
+--     @PassiveIp@ parameter. Enter a single dotted-quad IPv4 address, such
+--     as the external IP address of a firewall, router, or load balancer.
+--
+-- -   To ignore the error that is generated when the client attempts to
+--     use the @SETSTAT@ command on a file that you are uploading to an
+--     Amazon S3 bucket, use the @SetStatOption@ parameter. To have the
+--     Transfer Family server ignore the @SETSTAT@ command and upload files
+--     without needing to make any changes to your SFTP client, set the
+--     value to @ENABLE_NO_OP@. If you set the @SetStatOption@ parameter to
+--     @ENABLE_NO_OP@, Transfer Family generates a log entry to Amazon
+--     CloudWatch Logs, so that you can determine when the client is making
+--     a @SETSTAT@ call.
+--
+-- -   To determine whether your Transfer Family server resumes recent,
+--     negotiated sessions through a unique session ID, use the
+--     @TlsSessionResumptionMode@ parameter.
+--
+-- -   @As2Transports@ indicates the transport method for the AS2 messages.
+--     Currently, only HTTP is supported.
 --
 -- 'identityProviderDetails', 'updateServer_identityProviderDetails' - An array containing all of the information required to call a
 -- customer\'s authentication API method.
@@ -210,10 +289,10 @@ data UpdateServer = UpdateServer'
 --
 -- 'endpointDetails', 'updateServer_endpointDetails' - The virtual private cloud (VPC) endpoint settings that are configured
 -- for your server. When you host your endpoint within your VPC, you can
--- make it accessible only to resources within your VPC, or you can attach
--- Elastic IP addresses and make it accessible to clients over the
--- internet. Your VPC\'s default security groups are automatically assigned
--- to your endpoint.
+-- make your endpoint accessible only to resources within your VPC, or you
+-- can attach Elastic IP addresses and make your endpoint accessible to
+-- clients over the internet. Your VPC\'s default security groups are
+-- automatically assigned to your endpoint.
 --
 -- 'certificate', 'updateServer_certificate' - The Amazon Resource Name (ARN) of the Amazon Web ServicesCertificate
 -- Manager (ACM) certificate. Required when @Protocols@ is set to @FTPS@.
@@ -297,24 +376,55 @@ data UpdateServer = UpdateServer'
 -- IP address. This is not possible with @EndpointType@ set to
 -- @VPC_ENDPOINT@.
 --
--- 'loggingRole', 'updateServer_loggingRole' - Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
--- Identity and Access Management (IAM) role that allows a server to turn
--- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
--- set, user activity can be viewed in your CloudWatch logs.
+-- 'loggingRole', 'updateServer_loggingRole' - The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+-- Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+-- your CloudWatch logs.
+--
+-- 'postAuthenticationLoginBanner', 'updateServer_postAuthenticationLoginBanner' - Specifies a string to display when users connect to a server. This
+-- string is displayed after the user authenticates.
+--
+-- The SFTP protocol does not support post-authentication display banners.
 --
 -- 'workflowDetails', 'updateServer_workflowDetails' - Specifies the workflow ID for the workflow to assign and the execution
--- role used for executing the workflow.
+-- role that\'s used for executing the workflow.
 --
--- 'hostKey', 'updateServer_hostKey' - The RSA private key as generated by
--- @ssh-keygen -N \"\" -m PEM -f my-new-server-key@.
+-- To remove an associated workflow from a server, you can provide an empty
+-- @OnUpload@ object, as in the following example.
+--
+-- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
+--
+-- 'hostKey', 'updateServer_hostKey' - The RSA, ECDSA, or ED25519 private key to use for your server.
+--
+-- Use the following command to generate an RSA 2048 bit key with no
+-- passphrase:
+--
+-- @ssh-keygen -t rsa -b 2048 -N \"\" -m PEM -f my-new-server-key@.
+--
+-- Use a minimum value of 2048 for the @-b@ option. You can create a
+-- stronger key by using 3072 or 4096.
+--
+-- Use the following command to generate an ECDSA 256 bit key with no
+-- passphrase:
+--
+-- @ssh-keygen -t ecdsa -b 256 -N \"\" -m PEM -f my-new-server-key@.
+--
+-- Valid values for the @-b@ option for ECDSA are 256, 384, and 521.
+--
+-- Use the following command to generate an ED25519 key with no passphrase:
+--
+-- @ssh-keygen -t ed25519 -N \"\" -f my-new-server-key@.
+--
+-- For all of these commands, you can replace /my-new-server-key/ with a
+-- string of your choice.
 --
 -- If you aren\'t planning to migrate existing users from an existing
--- server to a new server, don\'t update the host key. Accidentally
--- changing a server\'s host key can be disruptive.
+-- SFTP-enabled server to a new server, don\'t update the host key.
+-- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
--- in the /Amazon Web ServicesTransfer Family User Guide/.
+-- in the /Transfer Family User Guide/.
 --
 -- 'serverId', 'updateServer_serverId' - A system-assigned unique identifier for a server instance that the user
 -- account is assigned to.
@@ -324,7 +434,9 @@ newUpdateServer ::
   UpdateServer
 newUpdateServer pServerId_ =
   UpdateServer'
-    { protocolDetails = Prelude.Nothing,
+    { preAuthenticationLoginBanner =
+        Prelude.Nothing,
+      protocolDetails = Prelude.Nothing,
       identityProviderDetails = Prelude.Nothing,
       securityPolicyName = Prelude.Nothing,
       endpointDetails = Prelude.Nothing,
@@ -332,16 +444,42 @@ newUpdateServer pServerId_ =
       protocols = Prelude.Nothing,
       endpointType = Prelude.Nothing,
       loggingRole = Prelude.Nothing,
+      postAuthenticationLoginBanner = Prelude.Nothing,
       workflowDetails = Prelude.Nothing,
       hostKey = Prelude.Nothing,
       serverId = pServerId_
     }
 
+-- | Specifies a string to display when users connect to a server. This
+-- string is displayed before the user authenticates. For example, the
+-- following banner displays details about using the system:
+--
+-- @This system is for the use of authorized users only. Individuals using this computer system without authority, or in excess of their authority, are subject to having all of their activities on this system monitored and recorded by system personnel.@
+updateServer_preAuthenticationLoginBanner :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
+updateServer_preAuthenticationLoginBanner = Lens.lens (\UpdateServer' {preAuthenticationLoginBanner} -> preAuthenticationLoginBanner) (\s@UpdateServer' {} a -> s {preAuthenticationLoginBanner = a} :: UpdateServer)
+
 -- | The protocol settings that are configured for your server.
 --
--- Use the @PassiveIp@ parameter to indicate passive mode (for FTP and FTPS
--- protocols). Enter a single dotted-quad IPv4 address, such as the
--- external IP address of a firewall, router, or load balancer.
+-- -   To indicate passive mode (for FTP and FTPS protocols), use the
+--     @PassiveIp@ parameter. Enter a single dotted-quad IPv4 address, such
+--     as the external IP address of a firewall, router, or load balancer.
+--
+-- -   To ignore the error that is generated when the client attempts to
+--     use the @SETSTAT@ command on a file that you are uploading to an
+--     Amazon S3 bucket, use the @SetStatOption@ parameter. To have the
+--     Transfer Family server ignore the @SETSTAT@ command and upload files
+--     without needing to make any changes to your SFTP client, set the
+--     value to @ENABLE_NO_OP@. If you set the @SetStatOption@ parameter to
+--     @ENABLE_NO_OP@, Transfer Family generates a log entry to Amazon
+--     CloudWatch Logs, so that you can determine when the client is making
+--     a @SETSTAT@ call.
+--
+-- -   To determine whether your Transfer Family server resumes recent,
+--     negotiated sessions through a unique session ID, use the
+--     @TlsSessionResumptionMode@ parameter.
+--
+-- -   @As2Transports@ indicates the transport method for the AS2 messages.
+--     Currently, only HTTP is supported.
 updateServer_protocolDetails :: Lens.Lens' UpdateServer (Prelude.Maybe ProtocolDetails)
 updateServer_protocolDetails = Lens.lens (\UpdateServer' {protocolDetails} -> protocolDetails) (\s@UpdateServer' {} a -> s {protocolDetails = a} :: UpdateServer)
 
@@ -357,10 +495,10 @@ updateServer_securityPolicyName = Lens.lens (\UpdateServer' {securityPolicyName}
 
 -- | The virtual private cloud (VPC) endpoint settings that are configured
 -- for your server. When you host your endpoint within your VPC, you can
--- make it accessible only to resources within your VPC, or you can attach
--- Elastic IP addresses and make it accessible to clients over the
--- internet. Your VPC\'s default security groups are automatically assigned
--- to your endpoint.
+-- make your endpoint accessible only to resources within your VPC, or you
+-- can attach Elastic IP addresses and make your endpoint accessible to
+-- clients over the internet. Your VPC\'s default security groups are
+-- automatically assigned to your endpoint.
 updateServer_endpointDetails :: Lens.Lens' UpdateServer (Prelude.Maybe EndpointDetails)
 updateServer_endpointDetails = Lens.lens (\UpdateServer' {endpointDetails} -> endpointDetails) (\s@UpdateServer' {} a -> s {endpointDetails = a} :: UpdateServer)
 
@@ -452,28 +590,61 @@ updateServer_protocols = Lens.lens (\UpdateServer' {protocols} -> protocols) (\s
 updateServer_endpointType :: Lens.Lens' UpdateServer (Prelude.Maybe EndpointType)
 updateServer_endpointType = Lens.lens (\UpdateServer' {endpointType} -> endpointType) (\s@UpdateServer' {} a -> s {endpointType = a} :: UpdateServer)
 
--- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services
--- Identity and Access Management (IAM) role that allows a server to turn
--- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When
--- set, user activity can be viewed in your CloudWatch logs.
+-- | The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that allows a server to turn on Amazon CloudWatch logging for
+-- Amazon S3 or Amazon EFSevents. When set, you can view user activity in
+-- your CloudWatch logs.
 updateServer_loggingRole :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
 updateServer_loggingRole = Lens.lens (\UpdateServer' {loggingRole} -> loggingRole) (\s@UpdateServer' {} a -> s {loggingRole = a} :: UpdateServer)
 
+-- | Specifies a string to display when users connect to a server. This
+-- string is displayed after the user authenticates.
+--
+-- The SFTP protocol does not support post-authentication display banners.
+updateServer_postAuthenticationLoginBanner :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
+updateServer_postAuthenticationLoginBanner = Lens.lens (\UpdateServer' {postAuthenticationLoginBanner} -> postAuthenticationLoginBanner) (\s@UpdateServer' {} a -> s {postAuthenticationLoginBanner = a} :: UpdateServer)
+
 -- | Specifies the workflow ID for the workflow to assign and the execution
--- role used for executing the workflow.
+-- role that\'s used for executing the workflow.
+--
+-- To remove an associated workflow from a server, you can provide an empty
+-- @OnUpload@ object, as in the following example.
+--
+-- @aws transfer update-server --server-id s-01234567890abcdef --workflow-details \'{\"OnUpload\":[]}\'@
 updateServer_workflowDetails :: Lens.Lens' UpdateServer (Prelude.Maybe WorkflowDetails)
 updateServer_workflowDetails = Lens.lens (\UpdateServer' {workflowDetails} -> workflowDetails) (\s@UpdateServer' {} a -> s {workflowDetails = a} :: UpdateServer)
 
--- | The RSA private key as generated by
--- @ssh-keygen -N \"\" -m PEM -f my-new-server-key@.
+-- | The RSA, ECDSA, or ED25519 private key to use for your server.
+--
+-- Use the following command to generate an RSA 2048 bit key with no
+-- passphrase:
+--
+-- @ssh-keygen -t rsa -b 2048 -N \"\" -m PEM -f my-new-server-key@.
+--
+-- Use a minimum value of 2048 for the @-b@ option. You can create a
+-- stronger key by using 3072 or 4096.
+--
+-- Use the following command to generate an ECDSA 256 bit key with no
+-- passphrase:
+--
+-- @ssh-keygen -t ecdsa -b 256 -N \"\" -m PEM -f my-new-server-key@.
+--
+-- Valid values for the @-b@ option for ECDSA are 256, 384, and 521.
+--
+-- Use the following command to generate an ED25519 key with no passphrase:
+--
+-- @ssh-keygen -t ed25519 -N \"\" -f my-new-server-key@.
+--
+-- For all of these commands, you can replace /my-new-server-key/ with a
+-- string of your choice.
 --
 -- If you aren\'t planning to migrate existing users from an existing
--- server to a new server, don\'t update the host key. Accidentally
--- changing a server\'s host key can be disruptive.
+-- SFTP-enabled server to a new server, don\'t update the host key.
+-- Accidentally changing a server\'s host key can be disruptive.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/transfer/latest/userguide/edit-server-config.html#configuring-servers-change-host-key Change the host key for your SFTP-enabled server>
--- in the /Amazon Web ServicesTransfer Family User Guide/.
+-- in the /Transfer Family User Guide/.
 updateServer_hostKey :: Lens.Lens' UpdateServer (Prelude.Maybe Prelude.Text)
 updateServer_hostKey = Lens.lens (\UpdateServer' {hostKey} -> hostKey) (\s@UpdateServer' {} a -> s {hostKey = a} :: UpdateServer) Prelude.. Lens.mapping Core._Sensitive
 
@@ -495,7 +666,9 @@ instance Core.AWSRequest UpdateServer where
 
 instance Prelude.Hashable UpdateServer where
   hashWithSalt _salt UpdateServer' {..} =
-    _salt `Prelude.hashWithSalt` protocolDetails
+    _salt
+      `Prelude.hashWithSalt` preAuthenticationLoginBanner
+      `Prelude.hashWithSalt` protocolDetails
       `Prelude.hashWithSalt` identityProviderDetails
       `Prelude.hashWithSalt` securityPolicyName
       `Prelude.hashWithSalt` endpointDetails
@@ -503,13 +676,15 @@ instance Prelude.Hashable UpdateServer where
       `Prelude.hashWithSalt` protocols
       `Prelude.hashWithSalt` endpointType
       `Prelude.hashWithSalt` loggingRole
+      `Prelude.hashWithSalt` postAuthenticationLoginBanner
       `Prelude.hashWithSalt` workflowDetails
       `Prelude.hashWithSalt` hostKey
       `Prelude.hashWithSalt` serverId
 
 instance Prelude.NFData UpdateServer where
   rnf UpdateServer' {..} =
-    Prelude.rnf protocolDetails
+    Prelude.rnf preAuthenticationLoginBanner
+      `Prelude.seq` Prelude.rnf protocolDetails
       `Prelude.seq` Prelude.rnf identityProviderDetails
       `Prelude.seq` Prelude.rnf securityPolicyName
       `Prelude.seq` Prelude.rnf endpointDetails
@@ -517,6 +692,7 @@ instance Prelude.NFData UpdateServer where
       `Prelude.seq` Prelude.rnf protocols
       `Prelude.seq` Prelude.rnf endpointType
       `Prelude.seq` Prelude.rnf loggingRole
+      `Prelude.seq` Prelude.rnf postAuthenticationLoginBanner
       `Prelude.seq` Prelude.rnf workflowDetails
       `Prelude.seq` Prelude.rnf hostKey
       `Prelude.seq` Prelude.rnf serverId
@@ -540,7 +716,9 @@ instance Core.ToJSON UpdateServer where
   toJSON UpdateServer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ProtocolDetails" Core..=)
+          [ ("PreAuthenticationLoginBanner" Core..=)
+              Prelude.<$> preAuthenticationLoginBanner,
+            ("ProtocolDetails" Core..=)
               Prelude.<$> protocolDetails,
             ("IdentityProviderDetails" Core..=)
               Prelude.<$> identityProviderDetails,
@@ -552,6 +730,8 @@ instance Core.ToJSON UpdateServer where
             ("Protocols" Core..=) Prelude.<$> protocols,
             ("EndpointType" Core..=) Prelude.<$> endpointType,
             ("LoggingRole" Core..=) Prelude.<$> loggingRole,
+            ("PostAuthenticationLoginBanner" Core..=)
+              Prelude.<$> postAuthenticationLoginBanner,
             ("WorkflowDetails" Core..=)
               Prelude.<$> workflowDetails,
             ("HostKey" Core..=) Prelude.<$> hostKey,

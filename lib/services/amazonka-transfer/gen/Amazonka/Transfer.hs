@@ -11,19 +11,17 @@
 --
 -- Derived from API version @2018-11-05@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon Web Services Transfer Family is a fully managed service that
--- enables the transfer of files over the File Transfer Protocol (FTP),
--- File Transfer Protocol over SSL (FTPS), or Secure Shell (SSH) File
--- Transfer Protocol (SFTP) directly into and out of Amazon Simple Storage
--- Service (Amazon S3). Amazon Web Services helps you seamlessly migrate
--- your file transfer workflows to Amazon Web Services Transfer Family by
--- integrating with existing authentication systems, and providing DNS
--- routing with Amazon Route 53 so nothing changes for your customers and
--- partners, or their applications. With your data in Amazon S3, you can
--- use it with Amazon Web Services services for processing, analytics,
--- machine learning, and archiving. Getting started with Amazon Web
--- Services Transfer Family is easy since there is no infrastructure to buy
--- and set up.
+-- Transfer Family is a fully managed service that enables the transfer of
+-- files over the File Transfer Protocol (FTP), File Transfer Protocol over
+-- SSL (FTPS), or Secure Shell (SSH) File Transfer Protocol (SFTP) directly
+-- into and out of Amazon Simple Storage Service (Amazon S3). Amazon Web
+-- Services helps you seamlessly migrate your file transfer workflows to
+-- Transfer Family by integrating with existing authentication systems, and
+-- providing DNS routing with Amazon Route 53 so nothing changes for your
+-- customers and partners, or their applications. With your data in Amazon
+-- S3, you can use it with Amazon Web Services for processing, analytics,
+-- machine learning, and archiving. Getting started with Transfer Family is
+-- easy since there is no infrastructure to buy and set up.
 module Amazonka.Transfer
   ( -- * Service Configuration
     defaultService,
@@ -61,6 +59,12 @@ module Amazonka.Transfer
     -- * Waiters
     -- $waiters
 
+    -- ** ServerOnline
+    newServerOnline,
+
+    -- ** ServerOffline
+    newServerOffline,
+
     -- * Operations
     -- $operations
 
@@ -69,6 +73,24 @@ module Amazonka.Transfer
     newCreateAccess,
     CreateAccessResponse (CreateAccessResponse'),
     newCreateAccessResponse,
+
+    -- ** CreateAgreement
+    CreateAgreement (CreateAgreement'),
+    newCreateAgreement,
+    CreateAgreementResponse (CreateAgreementResponse'),
+    newCreateAgreementResponse,
+
+    -- ** CreateConnector
+    CreateConnector (CreateConnector'),
+    newCreateConnector,
+    CreateConnectorResponse (CreateConnectorResponse'),
+    newCreateConnectorResponse,
+
+    -- ** CreateProfile
+    CreateProfile (CreateProfile'),
+    newCreateProfile,
+    CreateProfileResponse (CreateProfileResponse'),
+    newCreateProfileResponse,
 
     -- ** CreateServer
     CreateServer (CreateServer'),
@@ -93,6 +115,30 @@ module Amazonka.Transfer
     newDeleteAccess,
     DeleteAccessResponse (DeleteAccessResponse'),
     newDeleteAccessResponse,
+
+    -- ** DeleteAgreement
+    DeleteAgreement (DeleteAgreement'),
+    newDeleteAgreement,
+    DeleteAgreementResponse (DeleteAgreementResponse'),
+    newDeleteAgreementResponse,
+
+    -- ** DeleteCertificate
+    DeleteCertificate (DeleteCertificate'),
+    newDeleteCertificate,
+    DeleteCertificateResponse (DeleteCertificateResponse'),
+    newDeleteCertificateResponse,
+
+    -- ** DeleteConnector
+    DeleteConnector (DeleteConnector'),
+    newDeleteConnector,
+    DeleteConnectorResponse (DeleteConnectorResponse'),
+    newDeleteConnectorResponse,
+
+    -- ** DeleteProfile
+    DeleteProfile (DeleteProfile'),
+    newDeleteProfile,
+    DeleteProfileResponse (DeleteProfileResponse'),
+    newDeleteProfileResponse,
 
     -- ** DeleteServer
     DeleteServer (DeleteServer'),
@@ -124,11 +170,35 @@ module Amazonka.Transfer
     DescribeAccessResponse (DescribeAccessResponse'),
     newDescribeAccessResponse,
 
+    -- ** DescribeAgreement
+    DescribeAgreement (DescribeAgreement'),
+    newDescribeAgreement,
+    DescribeAgreementResponse (DescribeAgreementResponse'),
+    newDescribeAgreementResponse,
+
+    -- ** DescribeCertificate
+    DescribeCertificate (DescribeCertificate'),
+    newDescribeCertificate,
+    DescribeCertificateResponse (DescribeCertificateResponse'),
+    newDescribeCertificateResponse,
+
+    -- ** DescribeConnector
+    DescribeConnector (DescribeConnector'),
+    newDescribeConnector,
+    DescribeConnectorResponse (DescribeConnectorResponse'),
+    newDescribeConnectorResponse,
+
     -- ** DescribeExecution
     DescribeExecution (DescribeExecution'),
     newDescribeExecution,
     DescribeExecutionResponse (DescribeExecutionResponse'),
     newDescribeExecutionResponse,
+
+    -- ** DescribeProfile
+    DescribeProfile (DescribeProfile'),
+    newDescribeProfile,
+    DescribeProfileResponse (DescribeProfileResponse'),
+    newDescribeProfileResponse,
 
     -- ** DescribeSecurityPolicy
     DescribeSecurityPolicy (DescribeSecurityPolicy'),
@@ -154,25 +224,55 @@ module Amazonka.Transfer
     DescribeWorkflowResponse (DescribeWorkflowResponse'),
     newDescribeWorkflowResponse,
 
+    -- ** ImportCertificate
+    ImportCertificate (ImportCertificate'),
+    newImportCertificate,
+    ImportCertificateResponse (ImportCertificateResponse'),
+    newImportCertificateResponse,
+
     -- ** ImportSshPublicKey
     ImportSshPublicKey (ImportSshPublicKey'),
     newImportSshPublicKey,
     ImportSshPublicKeyResponse (ImportSshPublicKeyResponse'),
     newImportSshPublicKeyResponse,
 
-    -- ** ListAccesses
+    -- ** ListAccesses (Paginated)
     ListAccesses (ListAccesses'),
     newListAccesses,
     ListAccessesResponse (ListAccessesResponse'),
     newListAccessesResponse,
 
-    -- ** ListExecutions
+    -- ** ListAgreements (Paginated)
+    ListAgreements (ListAgreements'),
+    newListAgreements,
+    ListAgreementsResponse (ListAgreementsResponse'),
+    newListAgreementsResponse,
+
+    -- ** ListCertificates (Paginated)
+    ListCertificates (ListCertificates'),
+    newListCertificates,
+    ListCertificatesResponse (ListCertificatesResponse'),
+    newListCertificatesResponse,
+
+    -- ** ListConnectors (Paginated)
+    ListConnectors (ListConnectors'),
+    newListConnectors,
+    ListConnectorsResponse (ListConnectorsResponse'),
+    newListConnectorsResponse,
+
+    -- ** ListExecutions (Paginated)
     ListExecutions (ListExecutions'),
     newListExecutions,
     ListExecutionsResponse (ListExecutionsResponse'),
     newListExecutionsResponse,
 
-    -- ** ListSecurityPolicies
+    -- ** ListProfiles (Paginated)
+    ListProfiles (ListProfiles'),
+    newListProfiles,
+    ListProfilesResponse (ListProfilesResponse'),
+    newListProfilesResponse,
+
+    -- ** ListSecurityPolicies (Paginated)
     ListSecurityPolicies (ListSecurityPolicies'),
     newListSecurityPolicies,
     ListSecurityPoliciesResponse (ListSecurityPoliciesResponse'),
@@ -184,19 +284,19 @@ module Amazonka.Transfer
     ListServersResponse (ListServersResponse'),
     newListServersResponse,
 
-    -- ** ListTagsForResource
+    -- ** ListTagsForResource (Paginated)
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
-    -- ** ListUsers
+    -- ** ListUsers (Paginated)
     ListUsers (ListUsers'),
     newListUsers,
     ListUsersResponse (ListUsersResponse'),
     newListUsersResponse,
 
-    -- ** ListWorkflows
+    -- ** ListWorkflows (Paginated)
     ListWorkflows (ListWorkflows'),
     newListWorkflows,
     ListWorkflowsResponse (ListWorkflowsResponse'),
@@ -207,6 +307,12 @@ module Amazonka.Transfer
     newSendWorkflowStepState,
     SendWorkflowStepStateResponse (SendWorkflowStepStateResponse'),
     newSendWorkflowStepStateResponse,
+
+    -- ** StartFileTransfer
+    StartFileTransfer (StartFileTransfer'),
+    newStartFileTransfer,
+    StartFileTransferResponse (StartFileTransferResponse'),
+    newStartFileTransferResponse,
 
     -- ** StartServer
     StartServer (StartServer'),
@@ -244,6 +350,30 @@ module Amazonka.Transfer
     UpdateAccessResponse (UpdateAccessResponse'),
     newUpdateAccessResponse,
 
+    -- ** UpdateAgreement
+    UpdateAgreement (UpdateAgreement'),
+    newUpdateAgreement,
+    UpdateAgreementResponse (UpdateAgreementResponse'),
+    newUpdateAgreementResponse,
+
+    -- ** UpdateCertificate
+    UpdateCertificate (UpdateCertificate'),
+    newUpdateCertificate,
+    UpdateCertificateResponse (UpdateCertificateResponse'),
+    newUpdateCertificateResponse,
+
+    -- ** UpdateConnector
+    UpdateConnector (UpdateConnector'),
+    newUpdateConnector,
+    UpdateConnectorResponse (UpdateConnectorResponse'),
+    newUpdateConnectorResponse,
+
+    -- ** UpdateProfile
+    UpdateProfile (UpdateProfile'),
+    newUpdateProfile,
+    UpdateProfileResponse (UpdateProfileResponse'),
+    newUpdateProfileResponse,
+
     -- ** UpdateServer
     UpdateServer (UpdateServer'),
     newUpdateServer,
@@ -258,11 +388,32 @@ module Amazonka.Transfer
 
     -- * Types
 
+    -- ** AgreementStatusType
+    AgreementStatusType (..),
+
+    -- ** As2Transport
+    As2Transport (..),
+
+    -- ** CertificateStatusType
+    CertificateStatusType (..),
+
+    -- ** CertificateType
+    CertificateType (..),
+
+    -- ** CertificateUsageType
+    CertificateUsageType (..),
+
+    -- ** CompressionEnum
+    CompressionEnum (..),
+
     -- ** CustomStepStatus
     CustomStepStatus (..),
 
     -- ** Domain
     Domain (..),
+
+    -- ** EncryptionAlg
+    EncryptionAlg (..),
 
     -- ** EndpointType
     EndpointType (..),
@@ -279,17 +430,39 @@ module Amazonka.Transfer
     -- ** IdentityProviderType
     IdentityProviderType (..),
 
+    -- ** MdnResponse
+    MdnResponse (..),
+
+    -- ** MdnSigningAlg
+    MdnSigningAlg (..),
+
     -- ** OverwriteExisting
     OverwriteExisting (..),
+
+    -- ** ProfileType
+    ProfileType (..),
 
     -- ** Protocol
     Protocol (..),
 
+    -- ** SetStatOption
+    SetStatOption (..),
+
+    -- ** SigningAlg
+    SigningAlg (..),
+
     -- ** State
     State (..),
 
+    -- ** TlsSessionResumptionMode
+    TlsSessionResumptionMode (..),
+
     -- ** WorkflowStepType
     WorkflowStepType (..),
+
+    -- ** As2ConnectorConfig
+    As2ConnectorConfig (As2ConnectorConfig'),
+    newAs2ConnectorConfig,
 
     -- ** CopyStepDetails
     CopyStepDetails (CopyStepDetails'),
@@ -307,9 +480,25 @@ module Amazonka.Transfer
     DescribedAccess (DescribedAccess'),
     newDescribedAccess,
 
+    -- ** DescribedAgreement
+    DescribedAgreement (DescribedAgreement'),
+    newDescribedAgreement,
+
+    -- ** DescribedCertificate
+    DescribedCertificate (DescribedCertificate'),
+    newDescribedCertificate,
+
+    -- ** DescribedConnector
+    DescribedConnector (DescribedConnector'),
+    newDescribedConnector,
+
     -- ** DescribedExecution
     DescribedExecution (DescribedExecution'),
     newDescribedExecution,
+
+    -- ** DescribedProfile
+    DescribedProfile (DescribedProfile'),
+    newDescribedProfile,
 
     -- ** DescribedSecurityPolicy
     DescribedSecurityPolicy (DescribedSecurityPolicy'),
@@ -367,9 +556,25 @@ module Amazonka.Transfer
     ListedAccess (ListedAccess'),
     newListedAccess,
 
+    -- ** ListedAgreement
+    ListedAgreement (ListedAgreement'),
+    newListedAgreement,
+
+    -- ** ListedCertificate
+    ListedCertificate (ListedCertificate'),
+    newListedCertificate,
+
+    -- ** ListedConnector
+    ListedConnector (ListedConnector'),
+    newListedConnector,
+
     -- ** ListedExecution
     ListedExecution (ListedExecution'),
     newListedExecution,
+
+    -- ** ListedProfile
+    ListedProfile (ListedProfile'),
+    newListedProfile,
 
     -- ** ListedServer
     ListedServer (ListedServer'),
@@ -442,30 +647,47 @@ module Amazonka.Transfer
 where
 
 import Amazonka.Transfer.CreateAccess
+import Amazonka.Transfer.CreateAgreement
+import Amazonka.Transfer.CreateConnector
+import Amazonka.Transfer.CreateProfile
 import Amazonka.Transfer.CreateServer
 import Amazonka.Transfer.CreateUser
 import Amazonka.Transfer.CreateWorkflow
 import Amazonka.Transfer.DeleteAccess
+import Amazonka.Transfer.DeleteAgreement
+import Amazonka.Transfer.DeleteCertificate
+import Amazonka.Transfer.DeleteConnector
+import Amazonka.Transfer.DeleteProfile
 import Amazonka.Transfer.DeleteServer
 import Amazonka.Transfer.DeleteSshPublicKey
 import Amazonka.Transfer.DeleteUser
 import Amazonka.Transfer.DeleteWorkflow
 import Amazonka.Transfer.DescribeAccess
+import Amazonka.Transfer.DescribeAgreement
+import Amazonka.Transfer.DescribeCertificate
+import Amazonka.Transfer.DescribeConnector
 import Amazonka.Transfer.DescribeExecution
+import Amazonka.Transfer.DescribeProfile
 import Amazonka.Transfer.DescribeSecurityPolicy
 import Amazonka.Transfer.DescribeServer
 import Amazonka.Transfer.DescribeUser
 import Amazonka.Transfer.DescribeWorkflow
+import Amazonka.Transfer.ImportCertificate
 import Amazonka.Transfer.ImportSshPublicKey
 import Amazonka.Transfer.Lens
 import Amazonka.Transfer.ListAccesses
+import Amazonka.Transfer.ListAgreements
+import Amazonka.Transfer.ListCertificates
+import Amazonka.Transfer.ListConnectors
 import Amazonka.Transfer.ListExecutions
+import Amazonka.Transfer.ListProfiles
 import Amazonka.Transfer.ListSecurityPolicies
 import Amazonka.Transfer.ListServers
 import Amazonka.Transfer.ListTagsForResource
 import Amazonka.Transfer.ListUsers
 import Amazonka.Transfer.ListWorkflows
 import Amazonka.Transfer.SendWorkflowStepState
+import Amazonka.Transfer.StartFileTransfer
 import Amazonka.Transfer.StartServer
 import Amazonka.Transfer.StopServer
 import Amazonka.Transfer.TagResource
@@ -473,6 +695,10 @@ import Amazonka.Transfer.TestIdentityProvider
 import Amazonka.Transfer.Types
 import Amazonka.Transfer.UntagResource
 import Amazonka.Transfer.UpdateAccess
+import Amazonka.Transfer.UpdateAgreement
+import Amazonka.Transfer.UpdateCertificate
+import Amazonka.Transfer.UpdateConnector
+import Amazonka.Transfer.UpdateProfile
 import Amazonka.Transfer.UpdateServer
 import Amazonka.Transfer.UpdateUser
 import Amazonka.Transfer.Waiters

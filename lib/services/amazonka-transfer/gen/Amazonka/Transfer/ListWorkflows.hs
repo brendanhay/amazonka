@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists all of your workflows.
+--
+-- This operation returns paginated results.
 module Amazonka.Transfer.ListWorkflows
   ( -- * Creating a Request
     ListWorkflows (..),
@@ -89,6 +91,23 @@ listWorkflows_nextToken = Lens.lens (\ListWorkflows' {nextToken} -> nextToken) (
 -- | Specifies the maximum number of workflows to return.
 listWorkflows_maxResults :: Lens.Lens' ListWorkflows (Prelude.Maybe Prelude.Natural)
 listWorkflows_maxResults = Lens.lens (\ListWorkflows' {maxResults} -> maxResults) (\s@ListWorkflows' {} a -> s {maxResults = a} :: ListWorkflows)
+
+instance Core.AWSPager ListWorkflows where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listWorkflowsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        (rs Lens.^. listWorkflowsResponse_workflows) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listWorkflows_nextToken
+          Lens..~ rs
+          Lens.^? listWorkflowsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListWorkflows where
   type

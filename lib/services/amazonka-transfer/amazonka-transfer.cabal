@@ -45,47 +45,76 @@ library
   exposed-modules:
     Amazonka.Transfer
     Amazonka.Transfer.CreateAccess
+    Amazonka.Transfer.CreateAgreement
+    Amazonka.Transfer.CreateConnector
+    Amazonka.Transfer.CreateProfile
     Amazonka.Transfer.CreateServer
     Amazonka.Transfer.CreateUser
     Amazonka.Transfer.CreateWorkflow
     Amazonka.Transfer.DeleteAccess
+    Amazonka.Transfer.DeleteAgreement
+    Amazonka.Transfer.DeleteCertificate
+    Amazonka.Transfer.DeleteConnector
+    Amazonka.Transfer.DeleteProfile
     Amazonka.Transfer.DeleteServer
     Amazonka.Transfer.DeleteSshPublicKey
     Amazonka.Transfer.DeleteUser
     Amazonka.Transfer.DeleteWorkflow
     Amazonka.Transfer.DescribeAccess
+    Amazonka.Transfer.DescribeAgreement
+    Amazonka.Transfer.DescribeCertificate
+    Amazonka.Transfer.DescribeConnector
     Amazonka.Transfer.DescribeExecution
+    Amazonka.Transfer.DescribeProfile
     Amazonka.Transfer.DescribeSecurityPolicy
     Amazonka.Transfer.DescribeServer
     Amazonka.Transfer.DescribeUser
     Amazonka.Transfer.DescribeWorkflow
+    Amazonka.Transfer.ImportCertificate
     Amazonka.Transfer.ImportSshPublicKey
     Amazonka.Transfer.Lens
     Amazonka.Transfer.ListAccesses
+    Amazonka.Transfer.ListAgreements
+    Amazonka.Transfer.ListCertificates
+    Amazonka.Transfer.ListConnectors
     Amazonka.Transfer.ListExecutions
+    Amazonka.Transfer.ListProfiles
     Amazonka.Transfer.ListSecurityPolicies
     Amazonka.Transfer.ListServers
     Amazonka.Transfer.ListTagsForResource
     Amazonka.Transfer.ListUsers
     Amazonka.Transfer.ListWorkflows
     Amazonka.Transfer.SendWorkflowStepState
+    Amazonka.Transfer.StartFileTransfer
     Amazonka.Transfer.StartServer
     Amazonka.Transfer.StopServer
     Amazonka.Transfer.TagResource
     Amazonka.Transfer.TestIdentityProvider
     Amazonka.Transfer.Types
+    Amazonka.Transfer.Types.AgreementStatusType
+    Amazonka.Transfer.Types.As2ConnectorConfig
+    Amazonka.Transfer.Types.As2Transport
+    Amazonka.Transfer.Types.CertificateStatusType
+    Amazonka.Transfer.Types.CertificateType
+    Amazonka.Transfer.Types.CertificateUsageType
+    Amazonka.Transfer.Types.CompressionEnum
     Amazonka.Transfer.Types.CopyStepDetails
     Amazonka.Transfer.Types.CustomStepDetails
     Amazonka.Transfer.Types.CustomStepStatus
     Amazonka.Transfer.Types.DeleteStepDetails
     Amazonka.Transfer.Types.DescribedAccess
+    Amazonka.Transfer.Types.DescribedAgreement
+    Amazonka.Transfer.Types.DescribedCertificate
+    Amazonka.Transfer.Types.DescribedConnector
     Amazonka.Transfer.Types.DescribedExecution
+    Amazonka.Transfer.Types.DescribedProfile
     Amazonka.Transfer.Types.DescribedSecurityPolicy
     Amazonka.Transfer.Types.DescribedServer
     Amazonka.Transfer.Types.DescribedUser
     Amazonka.Transfer.Types.DescribedWorkflow
     Amazonka.Transfer.Types.Domain
     Amazonka.Transfer.Types.EfsFileLocation
+    Amazonka.Transfer.Types.EncryptionAlg
     Amazonka.Transfer.Types.EndpointDetails
     Amazonka.Transfer.Types.EndpointType
     Amazonka.Transfer.Types.ExecutionError
@@ -100,23 +129,33 @@ library
     Amazonka.Transfer.Types.IdentityProviderType
     Amazonka.Transfer.Types.InputFileLocation
     Amazonka.Transfer.Types.ListedAccess
+    Amazonka.Transfer.Types.ListedAgreement
+    Amazonka.Transfer.Types.ListedCertificate
+    Amazonka.Transfer.Types.ListedConnector
     Amazonka.Transfer.Types.ListedExecution
+    Amazonka.Transfer.Types.ListedProfile
     Amazonka.Transfer.Types.ListedServer
     Amazonka.Transfer.Types.ListedUser
     Amazonka.Transfer.Types.ListedWorkflow
     Amazonka.Transfer.Types.LoggingConfiguration
+    Amazonka.Transfer.Types.MdnResponse
+    Amazonka.Transfer.Types.MdnSigningAlg
     Amazonka.Transfer.Types.OverwriteExisting
     Amazonka.Transfer.Types.PosixProfile
+    Amazonka.Transfer.Types.ProfileType
     Amazonka.Transfer.Types.Protocol
     Amazonka.Transfer.Types.ProtocolDetails
     Amazonka.Transfer.Types.S3FileLocation
     Amazonka.Transfer.Types.S3InputFileLocation
     Amazonka.Transfer.Types.S3Tag
     Amazonka.Transfer.Types.ServiceMetadata
+    Amazonka.Transfer.Types.SetStatOption
+    Amazonka.Transfer.Types.SigningAlg
     Amazonka.Transfer.Types.SshPublicKey
     Amazonka.Transfer.Types.State
     Amazonka.Transfer.Types.Tag
     Amazonka.Transfer.Types.TagStepDetails
+    Amazonka.Transfer.Types.TlsSessionResumptionMode
     Amazonka.Transfer.Types.UserDetails
     Amazonka.Transfer.Types.WorkflowDetail
     Amazonka.Transfer.Types.WorkflowDetails
@@ -124,6 +163,10 @@ library
     Amazonka.Transfer.Types.WorkflowStepType
     Amazonka.Transfer.UntagResource
     Amazonka.Transfer.UpdateAccess
+    Amazonka.Transfer.UpdateAgreement
+    Amazonka.Transfer.UpdateCertificate
+    Amazonka.Transfer.UpdateConnector
+    Amazonka.Transfer.UpdateProfile
     Amazonka.Transfer.UpdateServer
     Amazonka.Transfer.UpdateUser
     Amazonka.Transfer.Waiters

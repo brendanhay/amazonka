@@ -22,6 +22,8 @@
 --
 -- Lists the security policies that are attached to your file transfer
 -- protocol-enabled servers.
+--
+-- This operation returns paginated results.
 module Amazonka.Transfer.ListSecurityPolicies
   ( -- * Creating a Request
     ListSecurityPolicies (..),
@@ -96,6 +98,27 @@ listSecurityPolicies_nextToken = Lens.lens (\ListSecurityPolicies' {nextToken} -
 -- @ListSecurityPolicies@ query.
 listSecurityPolicies_maxResults :: Lens.Lens' ListSecurityPolicies (Prelude.Maybe Prelude.Natural)
 listSecurityPolicies_maxResults = Lens.lens (\ListSecurityPolicies' {maxResults} -> maxResults) (\s@ListSecurityPolicies' {} a -> s {maxResults = a} :: ListSecurityPolicies)
+
+instance Core.AWSPager ListSecurityPolicies where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listSecurityPoliciesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^. listSecurityPoliciesResponse_securityPolicyNames
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listSecurityPolicies_nextToken
+          Lens..~ rs
+          Lens.^? listSecurityPoliciesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListSecurityPolicies where
   type

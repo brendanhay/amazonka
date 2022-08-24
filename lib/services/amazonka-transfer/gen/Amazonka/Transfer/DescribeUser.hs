@@ -58,8 +58,8 @@ data DescribeUser = DescribeUser'
     -- assigned.
     serverId :: Prelude.Text,
     -- | The name of the user assigned to one or more servers. User names are
-    -- part of the sign-in credentials to use the Amazon Web Services Transfer
-    -- Family service and perform file transfer tasks.
+    -- part of the sign-in credentials to use the Transfer Family service and
+    -- perform file transfer tasks.
     userName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,8 +76,8 @@ data DescribeUser = DescribeUser'
 -- assigned.
 --
 -- 'userName', 'describeUser_userName' - The name of the user assigned to one or more servers. User names are
--- part of the sign-in credentials to use the Amazon Web Services Transfer
--- Family service and perform file transfer tasks.
+-- part of the sign-in credentials to use the Transfer Family service and
+-- perform file transfer tasks.
 newDescribeUser ::
   -- | 'serverId'
   Prelude.Text ->
@@ -96,8 +96,8 @@ describeUser_serverId :: Lens.Lens' DescribeUser Prelude.Text
 describeUser_serverId = Lens.lens (\DescribeUser' {serverId} -> serverId) (\s@DescribeUser' {} a -> s {serverId = a} :: DescribeUser)
 
 -- | The name of the user assigned to one or more servers. User names are
--- part of the sign-in credentials to use the Amazon Web Services Transfer
--- Family service and perform file transfer tasks.
+-- part of the sign-in credentials to use the Transfer Family service and
+-- perform file transfer tasks.
 describeUser_userName :: Lens.Lens' DescribeUser Prelude.Text
 describeUser_userName = Lens.lens (\DescribeUser' {userName} -> userName) (\s@DescribeUser' {} a -> s {userName = a} :: DescribeUser)
 

@@ -22,6 +22,8 @@
 --
 -- Lists all of the tags associated with the Amazon Resource Name (ARN)
 -- that you specify. The resource can be a user, server, or role.
+--
+-- This operation returns paginated results.
 module Amazonka.Transfer.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -115,6 +117,28 @@ listTagsForResource_maxResults = Lens.lens (\ListTagsForResource' {maxResults} -
 -- resource, such as a server, user, or role.
 listTagsForResource_arn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_arn = Lens.lens (\ListTagsForResource' {arn} -> arn) (\s@ListTagsForResource' {} a -> s {arn = a} :: ListTagsForResource)
+
+instance Core.AWSPager ListTagsForResource where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listTagsForResourceResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listTagsForResourceResponse_tags Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listTagsForResource_nextToken
+          Lens..~ rs
+          Lens.^? listTagsForResourceResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTagsForResource where
   type

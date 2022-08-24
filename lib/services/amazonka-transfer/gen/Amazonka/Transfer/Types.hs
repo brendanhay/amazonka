@@ -27,11 +27,32 @@ module Amazonka.Transfer.Types
     _ResourceExistsException,
     _InvalidRequestException,
 
+    -- * AgreementStatusType
+    AgreementStatusType (..),
+
+    -- * As2Transport
+    As2Transport (..),
+
+    -- * CertificateStatusType
+    CertificateStatusType (..),
+
+    -- * CertificateType
+    CertificateType (..),
+
+    -- * CertificateUsageType
+    CertificateUsageType (..),
+
+    -- * CompressionEnum
+    CompressionEnum (..),
+
     -- * CustomStepStatus
     CustomStepStatus (..),
 
     -- * Domain
     Domain (..),
+
+    -- * EncryptionAlg
+    EncryptionAlg (..),
 
     -- * EndpointType
     EndpointType (..),
@@ -48,23 +69,54 @@ module Amazonka.Transfer.Types
     -- * IdentityProviderType
     IdentityProviderType (..),
 
+    -- * MdnResponse
+    MdnResponse (..),
+
+    -- * MdnSigningAlg
+    MdnSigningAlg (..),
+
     -- * OverwriteExisting
     OverwriteExisting (..),
+
+    -- * ProfileType
+    ProfileType (..),
 
     -- * Protocol
     Protocol (..),
 
+    -- * SetStatOption
+    SetStatOption (..),
+
+    -- * SigningAlg
+    SigningAlg (..),
+
     -- * State
     State (..),
 
+    -- * TlsSessionResumptionMode
+    TlsSessionResumptionMode (..),
+
     -- * WorkflowStepType
     WorkflowStepType (..),
+
+    -- * As2ConnectorConfig
+    As2ConnectorConfig (..),
+    newAs2ConnectorConfig,
+    as2ConnectorConfig_encryptionAlgorithm,
+    as2ConnectorConfig_compression,
+    as2ConnectorConfig_mdnSigningAlgorithm,
+    as2ConnectorConfig_localProfileId,
+    as2ConnectorConfig_mdnResponse,
+    as2ConnectorConfig_messageSubject,
+    as2ConnectorConfig_signingAlgorithm,
+    as2ConnectorConfig_partnerProfileId,
 
     -- * CopyStepDetails
     CopyStepDetails (..),
     newCopyStepDetails,
     copyStepDetails_name,
     copyStepDetails_overwriteExisting,
+    copyStepDetails_sourceFileLocation,
     copyStepDetails_destinationFileLocation,
 
     -- * CustomStepDetails
@@ -73,11 +125,13 @@ module Amazonka.Transfer.Types
     customStepDetails_name,
     customStepDetails_timeoutSeconds,
     customStepDetails_target,
+    customStepDetails_sourceFileLocation,
 
     -- * DeleteStepDetails
     DeleteStepDetails (..),
     newDeleteStepDetails,
     deleteStepDetails_name,
+    deleteStepDetails_sourceFileLocation,
 
     -- * DescribedAccess
     DescribedAccess (..),
@@ -90,6 +144,49 @@ module Amazonka.Transfer.Types
     describedAccess_homeDirectoryType,
     describedAccess_homeDirectoryMappings,
 
+    -- * DescribedAgreement
+    DescribedAgreement (..),
+    newDescribedAgreement,
+    describedAgreement_tags,
+    describedAgreement_accessRole,
+    describedAgreement_status,
+    describedAgreement_baseDirectory,
+    describedAgreement_description,
+    describedAgreement_localProfileId,
+    describedAgreement_agreementId,
+    describedAgreement_serverId,
+    describedAgreement_partnerProfileId,
+    describedAgreement_arn,
+
+    -- * DescribedCertificate
+    DescribedCertificate (..),
+    newDescribedCertificate,
+    describedCertificate_tags,
+    describedCertificate_usage,
+    describedCertificate_notBeforeDate,
+    describedCertificate_type,
+    describedCertificate_notAfterDate,
+    describedCertificate_serial,
+    describedCertificate_certificate,
+    describedCertificate_status,
+    describedCertificate_description,
+    describedCertificate_certificateId,
+    describedCertificate_activeDate,
+    describedCertificate_certificateChain,
+    describedCertificate_inactiveDate,
+    describedCertificate_arn,
+
+    -- * DescribedConnector
+    DescribedConnector (..),
+    newDescribedConnector,
+    describedConnector_tags,
+    describedConnector_connectorId,
+    describedConnector_accessRole,
+    describedConnector_url,
+    describedConnector_as2Config,
+    describedConnector_loggingRole,
+    describedConnector_arn,
+
     -- * DescribedExecution
     DescribedExecution (..),
     newDescribedExecution,
@@ -101,6 +198,16 @@ module Amazonka.Transfer.Types
     describedExecution_executionId,
     describedExecution_results,
     describedExecution_loggingConfiguration,
+
+    -- * DescribedProfile
+    DescribedProfile (..),
+    newDescribedProfile,
+    describedProfile_tags,
+    describedProfile_profileId,
+    describedProfile_certificateIds,
+    describedProfile_as2Id,
+    describedProfile_profileType,
+    describedProfile_arn,
 
     -- * DescribedSecurityPolicy
     DescribedSecurityPolicy (..),
@@ -117,6 +224,7 @@ module Amazonka.Transfer.Types
     newDescribedServer,
     describedServer_tags,
     describedServer_userCount,
+    describedServer_preAuthenticationLoginBanner,
     describedServer_protocolDetails,
     describedServer_identityProviderDetails,
     describedServer_domain,
@@ -130,6 +238,7 @@ module Amazonka.Transfer.Types
     describedServer_hostKeyFingerprint,
     describedServer_loggingRole,
     describedServer_serverId,
+    describedServer_postAuthenticationLoginBanner,
     describedServer_workflowDetails,
     describedServer_arn,
 
@@ -209,6 +318,7 @@ module Amazonka.Transfer.Types
     identityProviderDetails_directoryId,
     identityProviderDetails_url,
     identityProviderDetails_invocationRole,
+    identityProviderDetails_function,
 
     -- * InputFileLocation
     InputFileLocation (..),
@@ -224,6 +334,36 @@ module Amazonka.Transfer.Types
     listedAccess_role,
     listedAccess_homeDirectoryType,
 
+    -- * ListedAgreement
+    ListedAgreement (..),
+    newListedAgreement,
+    listedAgreement_arn,
+    listedAgreement_status,
+    listedAgreement_description,
+    listedAgreement_localProfileId,
+    listedAgreement_agreementId,
+    listedAgreement_serverId,
+    listedAgreement_partnerProfileId,
+
+    -- * ListedCertificate
+    ListedCertificate (..),
+    newListedCertificate,
+    listedCertificate_usage,
+    listedCertificate_type,
+    listedCertificate_arn,
+    listedCertificate_status,
+    listedCertificate_description,
+    listedCertificate_certificateId,
+    listedCertificate_activeDate,
+    listedCertificate_inactiveDate,
+
+    -- * ListedConnector
+    ListedConnector (..),
+    newListedConnector,
+    listedConnector_connectorId,
+    listedConnector_arn,
+    listedConnector_url,
+
     -- * ListedExecution
     ListedExecution (..),
     newListedExecution,
@@ -231,6 +371,14 @@ module Amazonka.Transfer.Types
     listedExecution_initialFileLocation,
     listedExecution_status,
     listedExecution_executionId,
+
+    -- * ListedProfile
+    ListedProfile (..),
+    newListedProfile,
+    listedProfile_profileId,
+    listedProfile_as2Id,
+    listedProfile_arn,
+    listedProfile_profileType,
 
     -- * ListedServer
     ListedServer (..),
@@ -277,7 +425,10 @@ module Amazonka.Transfer.Types
     -- * ProtocolDetails
     ProtocolDetails (..),
     newProtocolDetails,
+    protocolDetails_as2Transports,
     protocolDetails_passiveIp,
+    protocolDetails_tlsSessionResumptionMode,
+    protocolDetails_setStatOption,
 
     -- * S3FileLocation
     S3FileLocation (..),
@@ -322,6 +473,7 @@ module Amazonka.Transfer.Types
     newTagStepDetails,
     tagStepDetails_tags,
     tagStepDetails_name,
+    tagStepDetails_sourceFileLocation,
 
     -- * UserDetails
     UserDetails (..),
@@ -356,18 +508,30 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import qualified Amazonka.Sign.V4 as Sign
+import Amazonka.Transfer.Types.AgreementStatusType
+import Amazonka.Transfer.Types.As2ConnectorConfig
+import Amazonka.Transfer.Types.As2Transport
+import Amazonka.Transfer.Types.CertificateStatusType
+import Amazonka.Transfer.Types.CertificateType
+import Amazonka.Transfer.Types.CertificateUsageType
+import Amazonka.Transfer.Types.CompressionEnum
 import Amazonka.Transfer.Types.CopyStepDetails
 import Amazonka.Transfer.Types.CustomStepDetails
 import Amazonka.Transfer.Types.CustomStepStatus
 import Amazonka.Transfer.Types.DeleteStepDetails
 import Amazonka.Transfer.Types.DescribedAccess
+import Amazonka.Transfer.Types.DescribedAgreement
+import Amazonka.Transfer.Types.DescribedCertificate
+import Amazonka.Transfer.Types.DescribedConnector
 import Amazonka.Transfer.Types.DescribedExecution
+import Amazonka.Transfer.Types.DescribedProfile
 import Amazonka.Transfer.Types.DescribedSecurityPolicy
 import Amazonka.Transfer.Types.DescribedServer
 import Amazonka.Transfer.Types.DescribedUser
 import Amazonka.Transfer.Types.DescribedWorkflow
 import Amazonka.Transfer.Types.Domain
 import Amazonka.Transfer.Types.EfsFileLocation
+import Amazonka.Transfer.Types.EncryptionAlg
 import Amazonka.Transfer.Types.EndpointDetails
 import Amazonka.Transfer.Types.EndpointType
 import Amazonka.Transfer.Types.ExecutionError
@@ -382,23 +546,33 @@ import Amazonka.Transfer.Types.IdentityProviderDetails
 import Amazonka.Transfer.Types.IdentityProviderType
 import Amazonka.Transfer.Types.InputFileLocation
 import Amazonka.Transfer.Types.ListedAccess
+import Amazonka.Transfer.Types.ListedAgreement
+import Amazonka.Transfer.Types.ListedCertificate
+import Amazonka.Transfer.Types.ListedConnector
 import Amazonka.Transfer.Types.ListedExecution
+import Amazonka.Transfer.Types.ListedProfile
 import Amazonka.Transfer.Types.ListedServer
 import Amazonka.Transfer.Types.ListedUser
 import Amazonka.Transfer.Types.ListedWorkflow
 import Amazonka.Transfer.Types.LoggingConfiguration
+import Amazonka.Transfer.Types.MdnResponse
+import Amazonka.Transfer.Types.MdnSigningAlg
 import Amazonka.Transfer.Types.OverwriteExisting
 import Amazonka.Transfer.Types.PosixProfile
+import Amazonka.Transfer.Types.ProfileType
 import Amazonka.Transfer.Types.Protocol
 import Amazonka.Transfer.Types.ProtocolDetails
 import Amazonka.Transfer.Types.S3FileLocation
 import Amazonka.Transfer.Types.S3InputFileLocation
 import Amazonka.Transfer.Types.S3Tag
 import Amazonka.Transfer.Types.ServiceMetadata
+import Amazonka.Transfer.Types.SetStatOption
+import Amazonka.Transfer.Types.SigningAlg
 import Amazonka.Transfer.Types.SshPublicKey
 import Amazonka.Transfer.Types.State
 import Amazonka.Transfer.Types.Tag
 import Amazonka.Transfer.Types.TagStepDetails
+import Amazonka.Transfer.Types.TlsSessionResumptionMode
 import Amazonka.Transfer.Types.UserDetails
 import Amazonka.Transfer.Types.WorkflowDetail
 import Amazonka.Transfer.Types.WorkflowDetails
@@ -523,8 +697,6 @@ _ConflictException =
     "ConflictException"
 
 -- | The request was denied due to request throttling.
---
--- HTTP Status Code: 400
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError

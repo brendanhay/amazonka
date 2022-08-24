@@ -25,7 +25,7 @@
 -- file transfer jobs. Information tied to your server, such as server and
 -- user properties, are not affected by stopping your server.
 --
--- Stopping the server will not reduce or impact your file transfer
+-- Stopping the server does not reduce or impact your file transfer
 -- protocol endpoint billing; you must delete the server to stop being
 -- billed.
 --

@@ -30,7 +30,8 @@ import Amazonka.Transfer.Types.ServiceMetadata
 --
 -- /See:/ 'newListedExecution' smart constructor.
 data ListedExecution = ListedExecution'
-  { -- | A container object for the session details associated with a workflow.
+  { -- | A container object for the session details that are associated with a
+    -- workflow.
     serviceMetadata :: Prelude.Maybe ServiceMetadata,
     -- | A structure that describes the Amazon S3 or EFS file location. This is
     -- the file location when the execution begins: if the file is being
@@ -52,7 +53,8 @@ data ListedExecution = ListedExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceMetadata', 'listedExecution_serviceMetadata' - A container object for the session details associated with a workflow.
+-- 'serviceMetadata', 'listedExecution_serviceMetadata' - A container object for the session details that are associated with a
+-- workflow.
 --
 -- 'initialFileLocation', 'listedExecution_initialFileLocation' - A structure that describes the Amazon S3 or EFS file location. This is
 -- the file location when the execution begins: if the file is being
@@ -72,7 +74,8 @@ newListedExecution =
       executionId = Prelude.Nothing
     }
 
--- | A container object for the session details associated with a workflow.
+-- | A container object for the session details that are associated with a
+-- workflow.
 listedExecution_serviceMetadata :: Lens.Lens' ListedExecution (Prelude.Maybe ServiceMetadata)
 listedExecution_serviceMetadata = Lens.lens (\ListedExecution' {serviceMetadata} -> serviceMetadata) (\s@ListedExecution' {} a -> s {serviceMetadata = a} :: ListedExecution)
 

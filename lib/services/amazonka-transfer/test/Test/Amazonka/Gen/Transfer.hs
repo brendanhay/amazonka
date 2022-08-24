@@ -30,6 +30,15 @@ import Test.Tasty
 --         [ requestCreateAccess $
 --             newCreateAccess
 --
+--         , requestCreateAgreement $
+--             newCreateAgreement
+--
+--         , requestCreateConnector $
+--             newCreateConnector
+--
+--         , requestCreateProfile $
+--             newCreateProfile
+--
 --         , requestCreateServer $
 --             newCreateServer
 --
@@ -41,6 +50,18 @@ import Test.Tasty
 --
 --         , requestDeleteAccess $
 --             newDeleteAccess
+--
+--         , requestDeleteAgreement $
+--             newDeleteAgreement
+--
+--         , requestDeleteCertificate $
+--             newDeleteCertificate
+--
+--         , requestDeleteConnector $
+--             newDeleteConnector
+--
+--         , requestDeleteProfile $
+--             newDeleteProfile
 --
 --         , requestDeleteServer $
 --             newDeleteServer
@@ -57,8 +78,20 @@ import Test.Tasty
 --         , requestDescribeAccess $
 --             newDescribeAccess
 --
+--         , requestDescribeAgreement $
+--             newDescribeAgreement
+--
+--         , requestDescribeCertificate $
+--             newDescribeCertificate
+--
+--         , requestDescribeConnector $
+--             newDescribeConnector
+--
 --         , requestDescribeExecution $
 --             newDescribeExecution
+--
+--         , requestDescribeProfile $
+--             newDescribeProfile
 --
 --         , requestDescribeSecurityPolicy $
 --             newDescribeSecurityPolicy
@@ -72,14 +105,29 @@ import Test.Tasty
 --         , requestDescribeWorkflow $
 --             newDescribeWorkflow
 --
+--         , requestImportCertificate $
+--             newImportCertificate
+--
 --         , requestImportSshPublicKey $
 --             newImportSshPublicKey
 --
 --         , requestListAccesses $
 --             newListAccesses
 --
+--         , requestListAgreements $
+--             newListAgreements
+--
+--         , requestListCertificates $
+--             newListCertificates
+--
+--         , requestListConnectors $
+--             newListConnectors
+--
 --         , requestListExecutions $
 --             newListExecutions
+--
+--         , requestListProfiles $
+--             newListProfiles
 --
 --         , requestListSecurityPolicies $
 --             newListSecurityPolicies
@@ -99,6 +147,9 @@ import Test.Tasty
 --         , requestSendWorkflowStepState $
 --             newSendWorkflowStepState
 --
+--         , requestStartFileTransfer $
+--             newStartFileTransfer
+--
 --         , requestStartServer $
 --             newStartServer
 --
@@ -117,6 +168,18 @@ import Test.Tasty
 --         , requestUpdateAccess $
 --             newUpdateAccess
 --
+--         , requestUpdateAgreement $
+--             newUpdateAgreement
+--
+--         , requestUpdateCertificate $
+--             newUpdateCertificate
+--
+--         , requestUpdateConnector $
+--             newUpdateConnector
+--
+--         , requestUpdateProfile $
+--             newUpdateProfile
+--
 --         , requestUpdateServer $
 --             newUpdateServer
 --
@@ -129,6 +192,15 @@ import Test.Tasty
 --         [ responseCreateAccess $
 --             newCreateAccessResponse
 --
+--         , responseCreateAgreement $
+--             newCreateAgreementResponse
+--
+--         , responseCreateConnector $
+--             newCreateConnectorResponse
+--
+--         , responseCreateProfile $
+--             newCreateProfileResponse
+--
 --         , responseCreateServer $
 --             newCreateServerResponse
 --
@@ -140,6 +212,18 @@ import Test.Tasty
 --
 --         , responseDeleteAccess $
 --             newDeleteAccessResponse
+--
+--         , responseDeleteAgreement $
+--             newDeleteAgreementResponse
+--
+--         , responseDeleteCertificate $
+--             newDeleteCertificateResponse
+--
+--         , responseDeleteConnector $
+--             newDeleteConnectorResponse
+--
+--         , responseDeleteProfile $
+--             newDeleteProfileResponse
 --
 --         , responseDeleteServer $
 --             newDeleteServerResponse
@@ -156,8 +240,20 @@ import Test.Tasty
 --         , responseDescribeAccess $
 --             newDescribeAccessResponse
 --
+--         , responseDescribeAgreement $
+--             newDescribeAgreementResponse
+--
+--         , responseDescribeCertificate $
+--             newDescribeCertificateResponse
+--
+--         , responseDescribeConnector $
+--             newDescribeConnectorResponse
+--
 --         , responseDescribeExecution $
 --             newDescribeExecutionResponse
+--
+--         , responseDescribeProfile $
+--             newDescribeProfileResponse
 --
 --         , responseDescribeSecurityPolicy $
 --             newDescribeSecurityPolicyResponse
@@ -171,14 +267,29 @@ import Test.Tasty
 --         , responseDescribeWorkflow $
 --             newDescribeWorkflowResponse
 --
+--         , responseImportCertificate $
+--             newImportCertificateResponse
+--
 --         , responseImportSshPublicKey $
 --             newImportSshPublicKeyResponse
 --
 --         , responseListAccesses $
 --             newListAccessesResponse
 --
+--         , responseListAgreements $
+--             newListAgreementsResponse
+--
+--         , responseListCertificates $
+--             newListCertificatesResponse
+--
+--         , responseListConnectors $
+--             newListConnectorsResponse
+--
 --         , responseListExecutions $
 --             newListExecutionsResponse
+--
+--         , responseListProfiles $
+--             newListProfilesResponse
 --
 --         , responseListSecurityPolicies $
 --             newListSecurityPoliciesResponse
@@ -198,6 +309,9 @@ import Test.Tasty
 --         , responseSendWorkflowStepState $
 --             newSendWorkflowStepStateResponse
 --
+--         , responseStartFileTransfer $
+--             newStartFileTransferResponse
+--
 --         , responseStartServer $
 --             newStartServerResponse
 --
@@ -216,6 +330,18 @@ import Test.Tasty
 --         , responseUpdateAccess $
 --             newUpdateAccessResponse
 --
+--         , responseUpdateAgreement $
+--             newUpdateAgreementResponse
+--
+--         , responseUpdateCertificate $
+--             newUpdateCertificateResponse
+--
+--         , responseUpdateConnector $
+--             newUpdateConnectorResponse
+--
+--         , responseUpdateProfile $
+--             newUpdateProfileResponse
+--
 --         , responseUpdateServer $
 --             newUpdateServerResponse
 --
@@ -232,6 +358,24 @@ requestCreateAccess =
   req
     "CreateAccess"
     "fixture/CreateAccess.yaml"
+
+requestCreateAgreement :: CreateAgreement -> TestTree
+requestCreateAgreement =
+  req
+    "CreateAgreement"
+    "fixture/CreateAgreement.yaml"
+
+requestCreateConnector :: CreateConnector -> TestTree
+requestCreateConnector =
+  req
+    "CreateConnector"
+    "fixture/CreateConnector.yaml"
+
+requestCreateProfile :: CreateProfile -> TestTree
+requestCreateProfile =
+  req
+    "CreateProfile"
+    "fixture/CreateProfile.yaml"
 
 requestCreateServer :: CreateServer -> TestTree
 requestCreateServer =
@@ -256,6 +400,30 @@ requestDeleteAccess =
   req
     "DeleteAccess"
     "fixture/DeleteAccess.yaml"
+
+requestDeleteAgreement :: DeleteAgreement -> TestTree
+requestDeleteAgreement =
+  req
+    "DeleteAgreement"
+    "fixture/DeleteAgreement.yaml"
+
+requestDeleteCertificate :: DeleteCertificate -> TestTree
+requestDeleteCertificate =
+  req
+    "DeleteCertificate"
+    "fixture/DeleteCertificate.yaml"
+
+requestDeleteConnector :: DeleteConnector -> TestTree
+requestDeleteConnector =
+  req
+    "DeleteConnector"
+    "fixture/DeleteConnector.yaml"
+
+requestDeleteProfile :: DeleteProfile -> TestTree
+requestDeleteProfile =
+  req
+    "DeleteProfile"
+    "fixture/DeleteProfile.yaml"
 
 requestDeleteServer :: DeleteServer -> TestTree
 requestDeleteServer =
@@ -287,11 +455,35 @@ requestDescribeAccess =
     "DescribeAccess"
     "fixture/DescribeAccess.yaml"
 
+requestDescribeAgreement :: DescribeAgreement -> TestTree
+requestDescribeAgreement =
+  req
+    "DescribeAgreement"
+    "fixture/DescribeAgreement.yaml"
+
+requestDescribeCertificate :: DescribeCertificate -> TestTree
+requestDescribeCertificate =
+  req
+    "DescribeCertificate"
+    "fixture/DescribeCertificate.yaml"
+
+requestDescribeConnector :: DescribeConnector -> TestTree
+requestDescribeConnector =
+  req
+    "DescribeConnector"
+    "fixture/DescribeConnector.yaml"
+
 requestDescribeExecution :: DescribeExecution -> TestTree
 requestDescribeExecution =
   req
     "DescribeExecution"
     "fixture/DescribeExecution.yaml"
+
+requestDescribeProfile :: DescribeProfile -> TestTree
+requestDescribeProfile =
+  req
+    "DescribeProfile"
+    "fixture/DescribeProfile.yaml"
 
 requestDescribeSecurityPolicy :: DescribeSecurityPolicy -> TestTree
 requestDescribeSecurityPolicy =
@@ -317,6 +509,12 @@ requestDescribeWorkflow =
     "DescribeWorkflow"
     "fixture/DescribeWorkflow.yaml"
 
+requestImportCertificate :: ImportCertificate -> TestTree
+requestImportCertificate =
+  req
+    "ImportCertificate"
+    "fixture/ImportCertificate.yaml"
+
 requestImportSshPublicKey :: ImportSshPublicKey -> TestTree
 requestImportSshPublicKey =
   req
@@ -329,11 +527,35 @@ requestListAccesses =
     "ListAccesses"
     "fixture/ListAccesses.yaml"
 
+requestListAgreements :: ListAgreements -> TestTree
+requestListAgreements =
+  req
+    "ListAgreements"
+    "fixture/ListAgreements.yaml"
+
+requestListCertificates :: ListCertificates -> TestTree
+requestListCertificates =
+  req
+    "ListCertificates"
+    "fixture/ListCertificates.yaml"
+
+requestListConnectors :: ListConnectors -> TestTree
+requestListConnectors =
+  req
+    "ListConnectors"
+    "fixture/ListConnectors.yaml"
+
 requestListExecutions :: ListExecutions -> TestTree
 requestListExecutions =
   req
     "ListExecutions"
     "fixture/ListExecutions.yaml"
+
+requestListProfiles :: ListProfiles -> TestTree
+requestListProfiles =
+  req
+    "ListProfiles"
+    "fixture/ListProfiles.yaml"
 
 requestListSecurityPolicies :: ListSecurityPolicies -> TestTree
 requestListSecurityPolicies =
@@ -371,6 +593,12 @@ requestSendWorkflowStepState =
     "SendWorkflowStepState"
     "fixture/SendWorkflowStepState.yaml"
 
+requestStartFileTransfer :: StartFileTransfer -> TestTree
+requestStartFileTransfer =
+  req
+    "StartFileTransfer"
+    "fixture/StartFileTransfer.yaml"
+
 requestStartServer :: StartServer -> TestTree
 requestStartServer =
   req
@@ -407,6 +635,30 @@ requestUpdateAccess =
     "UpdateAccess"
     "fixture/UpdateAccess.yaml"
 
+requestUpdateAgreement :: UpdateAgreement -> TestTree
+requestUpdateAgreement =
+  req
+    "UpdateAgreement"
+    "fixture/UpdateAgreement.yaml"
+
+requestUpdateCertificate :: UpdateCertificate -> TestTree
+requestUpdateCertificate =
+  req
+    "UpdateCertificate"
+    "fixture/UpdateCertificate.yaml"
+
+requestUpdateConnector :: UpdateConnector -> TestTree
+requestUpdateConnector =
+  req
+    "UpdateConnector"
+    "fixture/UpdateConnector.yaml"
+
+requestUpdateProfile :: UpdateProfile -> TestTree
+requestUpdateProfile =
+  req
+    "UpdateProfile"
+    "fixture/UpdateProfile.yaml"
+
 requestUpdateServer :: UpdateServer -> TestTree
 requestUpdateServer =
   req
@@ -428,6 +680,30 @@ responseCreateAccess =
     "fixture/CreateAccessResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAccess)
+
+responseCreateAgreement :: CreateAgreementResponse -> TestTree
+responseCreateAgreement =
+  res
+    "CreateAgreementResponse"
+    "fixture/CreateAgreementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAgreement)
+
+responseCreateConnector :: CreateConnectorResponse -> TestTree
+responseCreateConnector =
+  res
+    "CreateConnectorResponse"
+    "fixture/CreateConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateConnector)
+
+responseCreateProfile :: CreateProfileResponse -> TestTree
+responseCreateProfile =
+  res
+    "CreateProfileResponse"
+    "fixture/CreateProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateProfile)
 
 responseCreateServer :: CreateServerResponse -> TestTree
 responseCreateServer =
@@ -460,6 +736,38 @@ responseDeleteAccess =
     "fixture/DeleteAccessResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteAccess)
+
+responseDeleteAgreement :: DeleteAgreementResponse -> TestTree
+responseDeleteAgreement =
+  res
+    "DeleteAgreementResponse"
+    "fixture/DeleteAgreementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteAgreement)
+
+responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
+responseDeleteCertificate =
+  res
+    "DeleteCertificateResponse"
+    "fixture/DeleteCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteCertificate)
+
+responseDeleteConnector :: DeleteConnectorResponse -> TestTree
+responseDeleteConnector =
+  res
+    "DeleteConnectorResponse"
+    "fixture/DeleteConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteConnector)
+
+responseDeleteProfile :: DeleteProfileResponse -> TestTree
+responseDeleteProfile =
+  res
+    "DeleteProfileResponse"
+    "fixture/DeleteProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteProfile)
 
 responseDeleteServer :: DeleteServerResponse -> TestTree
 responseDeleteServer =
@@ -501,6 +809,30 @@ responseDescribeAccess =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAccess)
 
+responseDescribeAgreement :: DescribeAgreementResponse -> TestTree
+responseDescribeAgreement =
+  res
+    "DescribeAgreementResponse"
+    "fixture/DescribeAgreementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAgreement)
+
+responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
+responseDescribeCertificate =
+  res
+    "DescribeCertificateResponse"
+    "fixture/DescribeCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeCertificate)
+
+responseDescribeConnector :: DescribeConnectorResponse -> TestTree
+responseDescribeConnector =
+  res
+    "DescribeConnectorResponse"
+    "fixture/DescribeConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeConnector)
+
 responseDescribeExecution :: DescribeExecutionResponse -> TestTree
 responseDescribeExecution =
   res
@@ -508,6 +840,14 @@ responseDescribeExecution =
     "fixture/DescribeExecutionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeExecution)
+
+responseDescribeProfile :: DescribeProfileResponse -> TestTree
+responseDescribeProfile =
+  res
+    "DescribeProfileResponse"
+    "fixture/DescribeProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeProfile)
 
 responseDescribeSecurityPolicy :: DescribeSecurityPolicyResponse -> TestTree
 responseDescribeSecurityPolicy =
@@ -541,6 +881,14 @@ responseDescribeWorkflow =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeWorkflow)
 
+responseImportCertificate :: ImportCertificateResponse -> TestTree
+responseImportCertificate =
+  res
+    "ImportCertificateResponse"
+    "fixture/ImportCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportCertificate)
+
 responseImportSshPublicKey :: ImportSshPublicKeyResponse -> TestTree
 responseImportSshPublicKey =
   res
@@ -557,6 +905,30 @@ responseListAccesses =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAccesses)
 
+responseListAgreements :: ListAgreementsResponse -> TestTree
+responseListAgreements =
+  res
+    "ListAgreementsResponse"
+    "fixture/ListAgreementsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAgreements)
+
+responseListCertificates :: ListCertificatesResponse -> TestTree
+responseListCertificates =
+  res
+    "ListCertificatesResponse"
+    "fixture/ListCertificatesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListCertificates)
+
+responseListConnectors :: ListConnectorsResponse -> TestTree
+responseListConnectors =
+  res
+    "ListConnectorsResponse"
+    "fixture/ListConnectorsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListConnectors)
+
 responseListExecutions :: ListExecutionsResponse -> TestTree
 responseListExecutions =
   res
@@ -564,6 +936,14 @@ responseListExecutions =
     "fixture/ListExecutionsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListExecutions)
+
+responseListProfiles :: ListProfilesResponse -> TestTree
+responseListProfiles =
+  res
+    "ListProfilesResponse"
+    "fixture/ListProfilesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListProfiles)
 
 responseListSecurityPolicies :: ListSecurityPoliciesResponse -> TestTree
 responseListSecurityPolicies =
@@ -613,6 +993,14 @@ responseSendWorkflowStepState =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SendWorkflowStepState)
 
+responseStartFileTransfer :: StartFileTransferResponse -> TestTree
+responseStartFileTransfer =
+  res
+    "StartFileTransferResponse"
+    "fixture/StartFileTransferResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartFileTransfer)
+
 responseStartServer :: StartServerResponse -> TestTree
 responseStartServer =
   res
@@ -660,6 +1048,38 @@ responseUpdateAccess =
     "fixture/UpdateAccessResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateAccess)
+
+responseUpdateAgreement :: UpdateAgreementResponse -> TestTree
+responseUpdateAgreement =
+  res
+    "UpdateAgreementResponse"
+    "fixture/UpdateAgreementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateAgreement)
+
+responseUpdateCertificate :: UpdateCertificateResponse -> TestTree
+responseUpdateCertificate =
+  res
+    "UpdateCertificateResponse"
+    "fixture/UpdateCertificateResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateCertificate)
+
+responseUpdateConnector :: UpdateConnectorResponse -> TestTree
+responseUpdateConnector =
+  res
+    "UpdateConnectorResponse"
+    "fixture/UpdateConnectorResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateConnector)
+
+responseUpdateProfile :: UpdateProfileResponse -> TestTree
+responseUpdateProfile =
+  res
+    "UpdateProfileResponse"
+    "fixture/UpdateProfileResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateProfile)
 
 responseUpdateServer :: UpdateServerResponse -> TestTree
 responseUpdateServer =

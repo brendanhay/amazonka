@@ -62,19 +62,18 @@ data UpdateAccess = UpdateAccess'
     --
     -- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
     homeDirectory :: Prelude.Maybe Prelude.Text,
-    -- | A session policy for your user so that you can use the same IAM role
-    -- across multiple users. This policy scopes down user access to portions
-    -- of their Amazon S3 bucket. Variables that you can use inside this policy
-    -- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
-    -- @${Transfer:HomeBucket}@.
+    -- | A session policy for your user so that you can use the same Identity and
+    -- Access Management (IAM) role across multiple users. This policy scopes
+    -- down a user\'s access to portions of their Amazon S3 bucket. Variables
+    -- that you can use inside this policy include @${Transfer:UserName}@,
+    -- @${Transfer:HomeDirectory}@, and @${Transfer:HomeBucket}@.
     --
-    -- This only applies when the domain of @ServerId@ is S3. EFS does not use
-    -- session policies.
+    -- This policy applies only when the domain of @ServerId@ is Amazon S3.
+    -- Amazon EFS does not use session policies.
     --
-    -- For session policies, Amazon Web Services Transfer Family stores the
-    -- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
-    -- policy. You save the policy as a JSON blob and pass it in the @Policy@
-    -- argument.
+    -- For session policies, Transfer Family stores the policy as a JSON blob,
+    -- instead of the Amazon Resource Name (ARN) of the policy. You save the
+    -- policy as a JSON blob and pass it in the @Policy@ argument.
     --
     -- For an example of a session policy, see
     -- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
@@ -84,30 +83,30 @@ data UpdateAccess = UpdateAccess'
     -- in the /Amazon Web ServicesSecurity Token Service API Reference/.
     policy :: Prelude.Maybe Prelude.Text,
     posixProfile :: Prelude.Maybe PosixProfile,
-    -- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls
-    -- your users\' access to your Amazon S3 bucket or EFS file system. The
-    -- policies attached to this role determine the level of access that you
-    -- want to provide your users when transferring files into and out of your
-    -- Amazon S3 bucket or EFS file system. The IAM role should also contain a
-    -- trust relationship that allows the server to access your resources when
-    -- servicing your users\' transfer requests.
+    -- | The Amazon Resource Name (ARN) of the Identity and Access Management
+    -- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+    -- Amazon EFS file system. The policies attached to this role determine the
+    -- level of access that you want to provide your users when transferring
+    -- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+    -- The IAM role should also contain a trust relationship that allows the
+    -- server to access your resources when servicing your users\' transfer
+    -- requests.
     role' :: Prelude.Maybe Prelude.Text,
-    -- | The type of landing directory (folder) you want your users\' home
-    -- directory to be when they log into the server. If you set it to @PATH@,
+    -- | The type of landing directory (folder) that you want your users\' home
+    -- directory to be when they log in to the server. If you set it to @PATH@,
     -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
     -- their file transfer protocol clients. If you set it @LOGICAL@, you need
     -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
-    -- make Amazon S3 or EFS paths visible to your users.
+    -- make Amazon S3 or Amazon EFS paths visible to your users.
     homeDirectoryType :: Prelude.Maybe HomeDirectoryType,
     -- | Logical directory mappings that specify what Amazon S3 or Amazon EFS
     -- paths and keys should be visible to your user and how you want to make
     -- them visible. You must specify the @Entry@ and @Target@ pair, where
     -- @Entry@ shows how the path is made visible and @Target@ is the actual
     -- Amazon S3 or Amazon EFS path. If you only specify a target, it is
-    -- displayed as is. You also must ensure that your Amazon Web Services
-    -- Identity and Access Management (IAM) role provides access to paths in
-    -- @Target@. This value can only be set when @HomeDirectoryType@ is set to
-    -- /LOGICAL/.
+    -- displayed as is. You also must ensure that your Identity and Access
+    -- Management (IAM) role provides access to paths in @Target@. This value
+    -- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
     --
     -- The following is an @Entry@ and @Target@ pair example.
     --
@@ -120,17 +119,7 @@ data UpdateAccess = UpdateAccess'
     --
     -- The following is an @Entry@ and @Target@ pair example for @chroot@.
     --
-    -- @[ { \"Entry:\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
-    --
-    -- If the target of a logical directory entry does not exist in Amazon S3
-    -- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3
-    -- API or EFS API to create 0 byte objects as place holders for your
-    -- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of
-    -- @s3@ or @efs@ so you can use the put-object operation. For example, you
-    -- use the following:
-    -- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.
-    -- Make sure that the end of the key name ends in a @\/@ for it to be
-    -- considered a folder.
+    -- @[ { \"Entry\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
     homeDirectoryMappings :: Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry),
     -- | A system-assigned unique identifier for a server instance. This is the
     -- specific server that you added your user to.
@@ -138,18 +127,17 @@ data UpdateAccess = UpdateAccess'
     -- | A unique identifier that is required to identify specific groups within
     -- your directory. The users of the group that you associate have access to
     -- your Amazon S3 or Amazon EFS resources over the enabled protocols using
-    -- Amazon Web Services Transfer Family. If you know the group name, you can
-    -- view the SID values by running the following command using Windows
-    -- PowerShell.
+    -- Transfer Family. If you know the group name, you can view the SID values
+    -- by running the following command using Windows PowerShell.
     --
     -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
     --
     -- In that command, replace /YourGroupName/ with the name of your Active
     -- Directory group.
     --
-    -- The regex used to validate this parameter is a string of characters
-    -- consisting of uppercase and lowercase alphanumeric characters with no
-    -- spaces. You can also include underscores or any of the following
+    -- The regular expression used to validate this parameter is a string of
+    -- characters consisting of uppercase and lowercase alphanumeric characters
+    -- with no spaces. You can also include underscores or any of the following
     -- characters: =,.\@:\/-
     externalId :: Prelude.Text
   }
@@ -168,19 +156,18 @@ data UpdateAccess = UpdateAccess'
 --
 -- A @HomeDirectory@ example is @\/bucket_name\/home\/mydirectory@.
 --
--- 'policy', 'updateAccess_policy' - A session policy for your user so that you can use the same IAM role
--- across multiple users. This policy scopes down user access to portions
--- of their Amazon S3 bucket. Variables that you can use inside this policy
--- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
--- @${Transfer:HomeBucket}@.
+-- 'policy', 'updateAccess_policy' - A session policy for your user so that you can use the same Identity and
+-- Access Management (IAM) role across multiple users. This policy scopes
+-- down a user\'s access to portions of their Amazon S3 bucket. Variables
+-- that you can use inside this policy include @${Transfer:UserName}@,
+-- @${Transfer:HomeDirectory}@, and @${Transfer:HomeBucket}@.
 --
--- This only applies when the domain of @ServerId@ is S3. EFS does not use
--- session policies.
+-- This policy applies only when the domain of @ServerId@ is Amazon S3.
+-- Amazon EFS does not use session policies.
 --
--- For session policies, Amazon Web Services Transfer Family stores the
--- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
--- policy. You save the policy as a JSON blob and pass it in the @Policy@
--- argument.
+-- For session policies, Transfer Family stores the policy as a JSON blob,
+-- instead of the Amazon Resource Name (ARN) of the policy. You save the
+-- policy as a JSON blob and pass it in the @Policy@ argument.
 --
 -- For an example of a session policy, see
 -- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
@@ -191,30 +178,30 @@ data UpdateAccess = UpdateAccess'
 --
 -- 'posixProfile', 'updateAccess_posixProfile' - Undocumented member.
 --
--- 'role'', 'updateAccess_role' - Specifies the Amazon Resource Name (ARN) of the IAM role that controls
--- your users\' access to your Amazon S3 bucket or EFS file system. The
--- policies attached to this role determine the level of access that you
--- want to provide your users when transferring files into and out of your
--- Amazon S3 bucket or EFS file system. The IAM role should also contain a
--- trust relationship that allows the server to access your resources when
--- servicing your users\' transfer requests.
+-- 'role'', 'updateAccess_role' - The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+-- Amazon EFS file system. The policies attached to this role determine the
+-- level of access that you want to provide your users when transferring
+-- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+-- The IAM role should also contain a trust relationship that allows the
+-- server to access your resources when servicing your users\' transfer
+-- requests.
 --
--- 'homeDirectoryType', 'updateAccess_homeDirectoryType' - The type of landing directory (folder) you want your users\' home
--- directory to be when they log into the server. If you set it to @PATH@,
+-- 'homeDirectoryType', 'updateAccess_homeDirectoryType' - The type of landing directory (folder) that you want your users\' home
+-- directory to be when they log in to the server. If you set it to @PATH@,
 -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
 -- their file transfer protocol clients. If you set it @LOGICAL@, you need
 -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or EFS paths visible to your users.
+-- make Amazon S3 or Amazon EFS paths visible to your users.
 --
 -- 'homeDirectoryMappings', 'updateAccess_homeDirectoryMappings' - Logical directory mappings that specify what Amazon S3 or Amazon EFS
 -- paths and keys should be visible to your user and how you want to make
 -- them visible. You must specify the @Entry@ and @Target@ pair, where
 -- @Entry@ shows how the path is made visible and @Target@ is the actual
 -- Amazon S3 or Amazon EFS path. If you only specify a target, it is
--- displayed as is. You also must ensure that your Amazon Web Services
--- Identity and Access Management (IAM) role provides access to paths in
--- @Target@. This value can only be set when @HomeDirectoryType@ is set to
--- /LOGICAL/.
+-- displayed as is. You also must ensure that your Identity and Access
+-- Management (IAM) role provides access to paths in @Target@. This value
+-- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
 --
 -- The following is an @Entry@ and @Target@ pair example.
 --
@@ -227,17 +214,7 @@ data UpdateAccess = UpdateAccess'
 --
 -- The following is an @Entry@ and @Target@ pair example for @chroot@.
 --
--- @[ { \"Entry:\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
---
--- If the target of a logical directory entry does not exist in Amazon S3
--- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3
--- API or EFS API to create 0 byte objects as place holders for your
--- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of
--- @s3@ or @efs@ so you can use the put-object operation. For example, you
--- use the following:
--- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.
--- Make sure that the end of the key name ends in a @\/@ for it to be
--- considered a folder.
+-- @[ { \"Entry\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
 --
 -- 'serverId', 'updateAccess_serverId' - A system-assigned unique identifier for a server instance. This is the
 -- specific server that you added your user to.
@@ -245,18 +222,17 @@ data UpdateAccess = UpdateAccess'
 -- 'externalId', 'updateAccess_externalId' - A unique identifier that is required to identify specific groups within
 -- your directory. The users of the group that you associate have access to
 -- your Amazon S3 or Amazon EFS resources over the enabled protocols using
--- Amazon Web Services Transfer Family. If you know the group name, you can
--- view the SID values by running the following command using Windows
--- PowerShell.
+-- Transfer Family. If you know the group name, you can view the SID values
+-- by running the following command using Windows PowerShell.
 --
 -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
 --
--- The regex used to validate this parameter is a string of characters
--- consisting of uppercase and lowercase alphanumeric characters with no
--- spaces. You can also include underscores or any of the following
+-- The regular expression used to validate this parameter is a string of
+-- characters consisting of uppercase and lowercase alphanumeric characters
+-- with no spaces. You can also include underscores or any of the following
 -- characters: =,.\@:\/-
 newUpdateAccess ::
   -- | 'serverId'
@@ -283,19 +259,18 @@ newUpdateAccess pServerId_ pExternalId_ =
 updateAccess_homeDirectory :: Lens.Lens' UpdateAccess (Prelude.Maybe Prelude.Text)
 updateAccess_homeDirectory = Lens.lens (\UpdateAccess' {homeDirectory} -> homeDirectory) (\s@UpdateAccess' {} a -> s {homeDirectory = a} :: UpdateAccess)
 
--- | A session policy for your user so that you can use the same IAM role
--- across multiple users. This policy scopes down user access to portions
--- of their Amazon S3 bucket. Variables that you can use inside this policy
--- include @${Transfer:UserName}@, @${Transfer:HomeDirectory}@, and
--- @${Transfer:HomeBucket}@.
+-- | A session policy for your user so that you can use the same Identity and
+-- Access Management (IAM) role across multiple users. This policy scopes
+-- down a user\'s access to portions of their Amazon S3 bucket. Variables
+-- that you can use inside this policy include @${Transfer:UserName}@,
+-- @${Transfer:HomeDirectory}@, and @${Transfer:HomeBucket}@.
 --
--- This only applies when the domain of @ServerId@ is S3. EFS does not use
--- session policies.
+-- This policy applies only when the domain of @ServerId@ is Amazon S3.
+-- Amazon EFS does not use session policies.
 --
--- For session policies, Amazon Web Services Transfer Family stores the
--- policy as a JSON blob, instead of the Amazon Resource Name (ARN) of the
--- policy. You save the policy as a JSON blob and pass it in the @Policy@
--- argument.
+-- For session policies, Transfer Family stores the policy as a JSON blob,
+-- instead of the Amazon Resource Name (ARN) of the policy. You save the
+-- policy as a JSON blob and pass it in the @Policy@ argument.
 --
 -- For an example of a session policy, see
 -- <https://docs.aws.amazon.com/transfer/latest/userguide/session-policy.html Example session policy>.
@@ -310,22 +285,23 @@ updateAccess_policy = Lens.lens (\UpdateAccess' {policy} -> policy) (\s@UpdateAc
 updateAccess_posixProfile :: Lens.Lens' UpdateAccess (Prelude.Maybe PosixProfile)
 updateAccess_posixProfile = Lens.lens (\UpdateAccess' {posixProfile} -> posixProfile) (\s@UpdateAccess' {} a -> s {posixProfile = a} :: UpdateAccess)
 
--- | Specifies the Amazon Resource Name (ARN) of the IAM role that controls
--- your users\' access to your Amazon S3 bucket or EFS file system. The
--- policies attached to this role determine the level of access that you
--- want to provide your users when transferring files into and out of your
--- Amazon S3 bucket or EFS file system. The IAM role should also contain a
--- trust relationship that allows the server to access your resources when
--- servicing your users\' transfer requests.
+-- | The Amazon Resource Name (ARN) of the Identity and Access Management
+-- (IAM) role that controls your users\' access to your Amazon S3 bucket or
+-- Amazon EFS file system. The policies attached to this role determine the
+-- level of access that you want to provide your users when transferring
+-- files into and out of your Amazon S3 bucket or Amazon EFS file system.
+-- The IAM role should also contain a trust relationship that allows the
+-- server to access your resources when servicing your users\' transfer
+-- requests.
 updateAccess_role :: Lens.Lens' UpdateAccess (Prelude.Maybe Prelude.Text)
 updateAccess_role = Lens.lens (\UpdateAccess' {role'} -> role') (\s@UpdateAccess' {} a -> s {role' = a} :: UpdateAccess)
 
--- | The type of landing directory (folder) you want your users\' home
--- directory to be when they log into the server. If you set it to @PATH@,
+-- | The type of landing directory (folder) that you want your users\' home
+-- directory to be when they log in to the server. If you set it to @PATH@,
 -- the user will see the absolute Amazon S3 bucket or EFS paths as is in
 -- their file transfer protocol clients. If you set it @LOGICAL@, you need
 -- to provide mappings in the @HomeDirectoryMappings@ for how you want to
--- make Amazon S3 or EFS paths visible to your users.
+-- make Amazon S3 or Amazon EFS paths visible to your users.
 updateAccess_homeDirectoryType :: Lens.Lens' UpdateAccess (Prelude.Maybe HomeDirectoryType)
 updateAccess_homeDirectoryType = Lens.lens (\UpdateAccess' {homeDirectoryType} -> homeDirectoryType) (\s@UpdateAccess' {} a -> s {homeDirectoryType = a} :: UpdateAccess)
 
@@ -334,10 +310,9 @@ updateAccess_homeDirectoryType = Lens.lens (\UpdateAccess' {homeDirectoryType} -
 -- them visible. You must specify the @Entry@ and @Target@ pair, where
 -- @Entry@ shows how the path is made visible and @Target@ is the actual
 -- Amazon S3 or Amazon EFS path. If you only specify a target, it is
--- displayed as is. You also must ensure that your Amazon Web Services
--- Identity and Access Management (IAM) role provides access to paths in
--- @Target@. This value can only be set when @HomeDirectoryType@ is set to
--- /LOGICAL/.
+-- displayed as is. You also must ensure that your Identity and Access
+-- Management (IAM) role provides access to paths in @Target@. This value
+-- can be set only when @HomeDirectoryType@ is set to /LOGICAL/.
 --
 -- The following is an @Entry@ and @Target@ pair example.
 --
@@ -350,17 +325,7 @@ updateAccess_homeDirectoryType = Lens.lens (\UpdateAccess' {homeDirectoryType} -
 --
 -- The following is an @Entry@ and @Target@ pair example for @chroot@.
 --
--- @[ { \"Entry:\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
---
--- If the target of a logical directory entry does not exist in Amazon S3
--- or EFS, the entry is ignored. As a workaround, you can use the Amazon S3
--- API or EFS API to create 0 byte objects as place holders for your
--- directory. If using the CLI, use the @s3api@ or @efsapi@ call instead of
--- @s3@ or @efs@ so you can use the put-object operation. For example, you
--- use the following:
--- @aws s3api put-object --bucket bucketname --key path\/to\/folder\/@.
--- Make sure that the end of the key name ends in a @\/@ for it to be
--- considered a folder.
+-- @[ { \"Entry\": \"\/\", \"Target\": \"\/bucket_name\/home\/mydirectory\" } ]@
 updateAccess_homeDirectoryMappings :: Lens.Lens' UpdateAccess (Prelude.Maybe (Prelude.NonEmpty HomeDirectoryMapEntry))
 updateAccess_homeDirectoryMappings = Lens.lens (\UpdateAccess' {homeDirectoryMappings} -> homeDirectoryMappings) (\s@UpdateAccess' {} a -> s {homeDirectoryMappings = a} :: UpdateAccess) Prelude.. Lens.mapping Lens.coerced
 
@@ -372,18 +337,17 @@ updateAccess_serverId = Lens.lens (\UpdateAccess' {serverId} -> serverId) (\s@Up
 -- | A unique identifier that is required to identify specific groups within
 -- your directory. The users of the group that you associate have access to
 -- your Amazon S3 or Amazon EFS resources over the enabled protocols using
--- Amazon Web Services Transfer Family. If you know the group name, you can
--- view the SID values by running the following command using Windows
--- PowerShell.
+-- Transfer Family. If you know the group name, you can view the SID values
+-- by running the following command using Windows PowerShell.
 --
 -- @Get-ADGroup -Filter {samAccountName -like \"YourGroupName*\"} -Properties * | Select SamAccountName,ObjectSid@
 --
 -- In that command, replace /YourGroupName/ with the name of your Active
 -- Directory group.
 --
--- The regex used to validate this parameter is a string of characters
--- consisting of uppercase and lowercase alphanumeric characters with no
--- spaces. You can also include underscores or any of the following
+-- The regular expression used to validate this parameter is a string of
+-- characters consisting of uppercase and lowercase alphanumeric characters
+-- with no spaces. You can also include underscores or any of the following
 -- characters: =,.\@:\/-
 updateAccess_externalId :: Lens.Lens' UpdateAccess Prelude.Text
 updateAccess_externalId = Lens.lens (\UpdateAccess' {externalId} -> externalId) (\s@UpdateAccess' {} a -> s {externalId = a} :: UpdateAccess)

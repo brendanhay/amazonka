@@ -22,6 +22,7 @@ module Amazonka.Transfer.Types.IdentityProviderType
       ( ..,
         IdentityProviderType_API_GATEWAY,
         IdentityProviderType_AWS_DIRECTORY_SERVICE,
+        IdentityProviderType_AWS_LAMBDA,
         IdentityProviderType_SERVICE_MANAGED
       ),
   )
@@ -71,12 +72,16 @@ pattern IdentityProviderType_API_GATEWAY = IdentityProviderType' "API_GATEWAY"
 pattern IdentityProviderType_AWS_DIRECTORY_SERVICE :: IdentityProviderType
 pattern IdentityProviderType_AWS_DIRECTORY_SERVICE = IdentityProviderType' "AWS_DIRECTORY_SERVICE"
 
+pattern IdentityProviderType_AWS_LAMBDA :: IdentityProviderType
+pattern IdentityProviderType_AWS_LAMBDA = IdentityProviderType' "AWS_LAMBDA"
+
 pattern IdentityProviderType_SERVICE_MANAGED :: IdentityProviderType
 pattern IdentityProviderType_SERVICE_MANAGED = IdentityProviderType' "SERVICE_MANAGED"
 
 {-# COMPLETE
   IdentityProviderType_API_GATEWAY,
   IdentityProviderType_AWS_DIRECTORY_SERVICE,
+  IdentityProviderType_AWS_LAMBDA,
   IdentityProviderType_SERVICE_MANAGED,
   IdentityProviderType'
   #-}

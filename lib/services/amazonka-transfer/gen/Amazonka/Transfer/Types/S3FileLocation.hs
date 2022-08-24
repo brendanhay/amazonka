@@ -23,13 +23,13 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies the details for the file location for the file being used in
--- the workflow. Only applicable if you are using S3 storage.
+-- | Specifies the details for the file location for the file that\'s being
+-- used in the workflow. Only applicable if you are using S3 storage.
 --
 -- /See:/ 'newS3FileLocation' smart constructor.
 data S3FileLocation = S3FileLocation'
-  { -- | The name assigned to the file when it was created in S3. You use the
-    -- object key to retrieve the object.
+  { -- | The name assigned to the file when it was created in Amazon S3. You use
+    -- the object key to retrieve the object.
     key :: Prelude.Maybe Prelude.Text,
     -- | Specifies the S3 bucket that contains the file being used.
     bucket :: Prelude.Maybe Prelude.Text,
@@ -49,8 +49,8 @@ data S3FileLocation = S3FileLocation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 's3FileLocation_key' - The name assigned to the file when it was created in S3. You use the
--- object key to retrieve the object.
+-- 'key', 's3FileLocation_key' - The name assigned to the file when it was created in Amazon S3. You use
+-- the object key to retrieve the object.
 --
 -- 'bucket', 's3FileLocation_bucket' - Specifies the S3 bucket that contains the file being used.
 --
@@ -68,8 +68,8 @@ newS3FileLocation =
       versionId = Prelude.Nothing
     }
 
--- | The name assigned to the file when it was created in S3. You use the
--- object key to retrieve the object.
+-- | The name assigned to the file when it was created in Amazon S3. You use
+-- the object key to retrieve the object.
 s3FileLocation_key :: Lens.Lens' S3FileLocation (Prelude.Maybe Prelude.Text)
 s3FileLocation_key = Lens.lens (\S3FileLocation' {key} -> key) (\s@S3FileLocation' {} a -> s {key = a} :: S3FileLocation)
 

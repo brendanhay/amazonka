@@ -36,6 +36,8 @@ data SshPublicKey = SshPublicKey'
     dateImported :: Core.POSIX,
     -- | Specifies the content of the SSH public key as specified by the
     -- @PublicKeyId@.
+    --
+    -- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
     sshPublicKeyBody :: Prelude.Text,
     -- | Specifies the @SshPublicKeyId@ parameter contains the identifier of the
     -- public key.
@@ -55,6 +57,8 @@ data SshPublicKey = SshPublicKey'
 --
 -- 'sshPublicKeyBody', 'sshPublicKey_sshPublicKeyBody' - Specifies the content of the SSH public key as specified by the
 -- @PublicKeyId@.
+--
+-- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 --
 -- 'sshPublicKeyId', 'sshPublicKey_sshPublicKeyId' - Specifies the @SshPublicKeyId@ parameter contains the identifier of the
 -- public key.
@@ -83,6 +87,8 @@ sshPublicKey_dateImported = Lens.lens (\SshPublicKey' {dateImported} -> dateImpo
 
 -- | Specifies the content of the SSH public key as specified by the
 -- @PublicKeyId@.
+--
+-- Transfer Family accepts RSA, ECDSA, and ED25519 keys.
 sshPublicKey_sshPublicKeyBody :: Lens.Lens' SshPublicKey Prelude.Text
 sshPublicKey_sshPublicKeyBody = Lens.lens (\SshPublicKey' {sshPublicKeyBody} -> sshPublicKeyBody) (\s@SshPublicKey' {} a -> s {sshPublicKeyBody = a} :: SshPublicKey)
 

@@ -35,16 +35,16 @@ data ExecutionStepResult = ExecutionStepResult'
     outputs :: Prelude.Maybe Prelude.Text,
     -- | One of the available step types.
     --
-    -- -   /Copy/: copy the file to another location
+    -- -   /COPY/: Copy the file to another location.
     --
-    -- -   /Custom/: custom step with a lambda target
+    -- -   /CUSTOM/: Perform a custom step with an Lambda function target.
     --
-    -- -   /Delete/: delete the file
+    -- -   /DELETE/: Delete the file.
     --
-    -- -   /Tag/: add a tag to the file
+    -- -   /TAG/: Add a tag to the file.
     stepType :: Prelude.Maybe WorkflowStepType,
     -- | Specifies the details for an error, if it occurred during execution of
-    -- the specified workfow step.
+    -- the specified workflow step.
     error :: Prelude.Maybe ExecutionError
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,16 +62,16 @@ data ExecutionStepResult = ExecutionStepResult'
 --
 -- 'stepType', 'executionStepResult_stepType' - One of the available step types.
 --
--- -   /Copy/: copy the file to another location
+-- -   /COPY/: Copy the file to another location.
 --
--- -   /Custom/: custom step with a lambda target
+-- -   /CUSTOM/: Perform a custom step with an Lambda function target.
 --
--- -   /Delete/: delete the file
+-- -   /DELETE/: Delete the file.
 --
--- -   /Tag/: add a tag to the file
+-- -   /TAG/: Add a tag to the file.
 --
 -- 'error', 'executionStepResult_error' - Specifies the details for an error, if it occurred during execution of
--- the specified workfow step.
+-- the specified workflow step.
 newExecutionStepResult ::
   ExecutionStepResult
 newExecutionStepResult =
@@ -88,18 +88,18 @@ executionStepResult_outputs = Lens.lens (\ExecutionStepResult' {outputs} -> outp
 
 -- | One of the available step types.
 --
--- -   /Copy/: copy the file to another location
+-- -   /COPY/: Copy the file to another location.
 --
--- -   /Custom/: custom step with a lambda target
+-- -   /CUSTOM/: Perform a custom step with an Lambda function target.
 --
--- -   /Delete/: delete the file
+-- -   /DELETE/: Delete the file.
 --
--- -   /Tag/: add a tag to the file
+-- -   /TAG/: Add a tag to the file.
 executionStepResult_stepType :: Lens.Lens' ExecutionStepResult (Prelude.Maybe WorkflowStepType)
 executionStepResult_stepType = Lens.lens (\ExecutionStepResult' {stepType} -> stepType) (\s@ExecutionStepResult' {} a -> s {stepType = a} :: ExecutionStepResult)
 
 -- | Specifies the details for an error, if it occurred during execution of
--- the specified workfow step.
+-- the specified workflow step.
 executionStepResult_error :: Lens.Lens' ExecutionStepResult (Prelude.Maybe ExecutionError)
 executionStepResult_error = Lens.lens (\ExecutionStepResult' {error} -> error) (\s@ExecutionStepResult' {} a -> s {error = a} :: ExecutionStepResult)
 

@@ -34,6 +34,20 @@ data CopyStepDetails = CopyStepDetails'
     -- | A flag that indicates whether or not to overwrite an existing file of
     -- the same name. The default is @FALSE@.
     overwriteExisting :: Prelude.Maybe OverwriteExisting,
+    -- | Specifies which file to use as input to the workflow step: either the
+    -- output from the previous step, or the originally uploaded file for the
+    -- workflow.
+    --
+    -- -   Enter @${previous.file}@ to use the previous file as the input. In
+    --     this case, this workflow step uses the output file from the previous
+    --     workflow step as input. This is the default value.
+    --
+    -- -   Enter @${original.file}@ to use the originally-uploaded file
+    --     location as input for this step.
+    sourceFileLocation :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the location for the file being copied. Only applicable for
+    -- Copy type workflow steps. Use @${Transfer:username}@ in this field to
+    -- parametrize the destination prefix by username.
     destinationFileLocation :: Prelude.Maybe InputFileLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,13 +65,27 @@ data CopyStepDetails = CopyStepDetails'
 -- 'overwriteExisting', 'copyStepDetails_overwriteExisting' - A flag that indicates whether or not to overwrite an existing file of
 -- the same name. The default is @FALSE@.
 --
--- 'destinationFileLocation', 'copyStepDetails_destinationFileLocation' - Undocumented member.
+-- 'sourceFileLocation', 'copyStepDetails_sourceFileLocation' - Specifies which file to use as input to the workflow step: either the
+-- output from the previous step, or the originally uploaded file for the
+-- workflow.
+--
+-- -   Enter @${previous.file}@ to use the previous file as the input. In
+--     this case, this workflow step uses the output file from the previous
+--     workflow step as input. This is the default value.
+--
+-- -   Enter @${original.file}@ to use the originally-uploaded file
+--     location as input for this step.
+--
+-- 'destinationFileLocation', 'copyStepDetails_destinationFileLocation' - Specifies the location for the file being copied. Only applicable for
+-- Copy type workflow steps. Use @${Transfer:username}@ in this field to
+-- parametrize the destination prefix by username.
 newCopyStepDetails ::
   CopyStepDetails
 newCopyStepDetails =
   CopyStepDetails'
     { name = Prelude.Nothing,
       overwriteExisting = Prelude.Nothing,
+      sourceFileLocation = Prelude.Nothing,
       destinationFileLocation = Prelude.Nothing
     }
 
@@ -70,7 +98,22 @@ copyStepDetails_name = Lens.lens (\CopyStepDetails' {name} -> name) (\s@CopyStep
 copyStepDetails_overwriteExisting :: Lens.Lens' CopyStepDetails (Prelude.Maybe OverwriteExisting)
 copyStepDetails_overwriteExisting = Lens.lens (\CopyStepDetails' {overwriteExisting} -> overwriteExisting) (\s@CopyStepDetails' {} a -> s {overwriteExisting = a} :: CopyStepDetails)
 
--- | Undocumented member.
+-- | Specifies which file to use as input to the workflow step: either the
+-- output from the previous step, or the originally uploaded file for the
+-- workflow.
+--
+-- -   Enter @${previous.file}@ to use the previous file as the input. In
+--     this case, this workflow step uses the output file from the previous
+--     workflow step as input. This is the default value.
+--
+-- -   Enter @${original.file}@ to use the originally-uploaded file
+--     location as input for this step.
+copyStepDetails_sourceFileLocation :: Lens.Lens' CopyStepDetails (Prelude.Maybe Prelude.Text)
+copyStepDetails_sourceFileLocation = Lens.lens (\CopyStepDetails' {sourceFileLocation} -> sourceFileLocation) (\s@CopyStepDetails' {} a -> s {sourceFileLocation = a} :: CopyStepDetails)
+
+-- | Specifies the location for the file being copied. Only applicable for
+-- Copy type workflow steps. Use @${Transfer:username}@ in this field to
+-- parametrize the destination prefix by username.
 copyStepDetails_destinationFileLocation :: Lens.Lens' CopyStepDetails (Prelude.Maybe InputFileLocation)
 copyStepDetails_destinationFileLocation = Lens.lens (\CopyStepDetails' {destinationFileLocation} -> destinationFileLocation) (\s@CopyStepDetails' {} a -> s {destinationFileLocation = a} :: CopyStepDetails)
 
@@ -82,6 +125,7 @@ instance Core.FromJSON CopyStepDetails where
           CopyStepDetails'
             Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "OverwriteExisting")
+            Prelude.<*> (x Core..:? "SourceFileLocation")
             Prelude.<*> (x Core..:? "DestinationFileLocation")
       )
 
@@ -89,12 +133,14 @@ instance Prelude.Hashable CopyStepDetails where
   hashWithSalt _salt CopyStepDetails' {..} =
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` overwriteExisting
+      `Prelude.hashWithSalt` sourceFileLocation
       `Prelude.hashWithSalt` destinationFileLocation
 
 instance Prelude.NFData CopyStepDetails where
   rnf CopyStepDetails' {..} =
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf overwriteExisting
+      `Prelude.seq` Prelude.rnf sourceFileLocation
       `Prelude.seq` Prelude.rnf destinationFileLocation
 
 instance Core.ToJSON CopyStepDetails where
@@ -104,6 +150,8 @@ instance Core.ToJSON CopyStepDetails where
           [ ("Name" Core..=) Prelude.<$> name,
             ("OverwriteExisting" Core..=)
               Prelude.<$> overwriteExisting,
+            ("SourceFileLocation" Core..=)
+              Prelude.<$> sourceFileLocation,
             ("DestinationFileLocation" Core..=)
               Prelude.<$> destinationFileLocation
           ]

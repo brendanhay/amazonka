@@ -25,7 +25,8 @@ import Amazonka.DLM.Types.PolicyDetails
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Detailed information about a lifecycle policy.
+-- | __[All policy types]__ Detailed information about a snapshot, AMI, or
+-- event-based lifecycle policy.
 --
 -- /See:/ 'newLifecyclePolicy' smart constructor.
 data LifecyclePolicy = LifecyclePolicy'

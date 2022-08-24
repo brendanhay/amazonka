@@ -143,6 +143,7 @@ module Amazonka.DLM.Lens
     lifecyclePolicySummary_description,
 
     -- ** Parameters
+    parameters_excludeDataVolumeTags,
     parameters_excludeBootVolume,
     parameters_noReboot,
 

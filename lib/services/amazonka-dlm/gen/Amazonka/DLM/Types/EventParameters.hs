@@ -24,7 +24,8 @@ import Amazonka.DLM.Types.EventTypeValues
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies an event that triggers an event-based policy.
+-- | __[Event-based policies only]__ Specifies an event that activates an
+-- event-based policy.
 --
 -- /See:/ 'newEventParameters' smart constructor.
 data EventParameters = EventParameters'

@@ -25,7 +25,8 @@ import Amazonka.DLM.Types.LocationValues
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies when to create snapshots of EBS volumes.
+-- | __[Snapshot and AMI policies only]__ Specifies when the policy should
+-- create snapshots or AMIs.
 --
 -- You must specify either a Cron expression or an interval, interval unit,
 -- and start time. You cannot specify both.
@@ -35,15 +36,15 @@ data CreateRule = CreateRule'
   { -- | The interval between snapshots. The supported values are 1, 2, 3, 4, 6,
     -- 8, 12, and 24.
     interval :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the destination for snapshots created by the policy. To create
-    -- snapshots in the same Region as the source resource, specify @CLOUD@. To
-    -- create snapshots on the same Outpost as the source resource, specify
-    -- @OUTPOST_LOCAL@. If you omit this parameter, @CLOUD@ is used by default.
+    -- | __[Snapshot policies only]__ Specifies the destination for snapshots
+    -- created by the policy. To create snapshots in the same Region as the
+    -- source resource, specify @CLOUD@. To create snapshots on the same
+    -- Outpost as the source resource, specify @OUTPOST_LOCAL@. If you omit
+    -- this parameter, @CLOUD@ is used by default.
     --
     -- If the policy targets resources in an Amazon Web Services Region, then
-    -- you must create snapshots in the same Region as the source resource.
-    --
-    -- If the policy targets resources on an Outpost, then you can create
+    -- you must create snapshots in the same Region as the source resource. If
+    -- the policy targets resources on an Outpost, then you can create
     -- snapshots on the same Outpost as the source resource, or in the Region
     -- of that Outpost.
     location :: Prelude.Maybe LocationValues,
@@ -74,15 +75,15 @@ data CreateRule = CreateRule'
 -- 'interval', 'createRule_interval' - The interval between snapshots. The supported values are 1, 2, 3, 4, 6,
 -- 8, 12, and 24.
 --
--- 'location', 'createRule_location' - Specifies the destination for snapshots created by the policy. To create
--- snapshots in the same Region as the source resource, specify @CLOUD@. To
--- create snapshots on the same Outpost as the source resource, specify
--- @OUTPOST_LOCAL@. If you omit this parameter, @CLOUD@ is used by default.
+-- 'location', 'createRule_location' - __[Snapshot policies only]__ Specifies the destination for snapshots
+-- created by the policy. To create snapshots in the same Region as the
+-- source resource, specify @CLOUD@. To create snapshots on the same
+-- Outpost as the source resource, specify @OUTPOST_LOCAL@. If you omit
+-- this parameter, @CLOUD@ is used by default.
 --
 -- If the policy targets resources in an Amazon Web Services Region, then
--- you must create snapshots in the same Region as the source resource.
---
--- If the policy targets resources on an Outpost, then you can create
+-- you must create snapshots in the same Region as the source resource. If
+-- the policy targets resources on an Outpost, then you can create
 -- snapshots on the same Outpost as the source resource, or in the Region
 -- of that Outpost.
 --
@@ -114,15 +115,15 @@ newCreateRule =
 createRule_interval :: Lens.Lens' CreateRule (Prelude.Maybe Prelude.Natural)
 createRule_interval = Lens.lens (\CreateRule' {interval} -> interval) (\s@CreateRule' {} a -> s {interval = a} :: CreateRule)
 
--- | Specifies the destination for snapshots created by the policy. To create
--- snapshots in the same Region as the source resource, specify @CLOUD@. To
--- create snapshots on the same Outpost as the source resource, specify
--- @OUTPOST_LOCAL@. If you omit this parameter, @CLOUD@ is used by default.
+-- | __[Snapshot policies only]__ Specifies the destination for snapshots
+-- created by the policy. To create snapshots in the same Region as the
+-- source resource, specify @CLOUD@. To create snapshots on the same
+-- Outpost as the source resource, specify @OUTPOST_LOCAL@. If you omit
+-- this parameter, @CLOUD@ is used by default.
 --
 -- If the policy targets resources in an Amazon Web Services Region, then
--- you must create snapshots in the same Region as the source resource.
---
--- If the policy targets resources on an Outpost, then you can create
+-- you must create snapshots in the same Region as the source resource. If
+-- the policy targets resources on an Outpost, then you can create
 -- snapshots on the same Outpost as the source resource, or in the Region
 -- of that Outpost.
 createRule_location :: Lens.Lens' CreateRule (Prelude.Maybe LocationValues)

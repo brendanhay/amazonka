@@ -36,6 +36,8 @@ data LifecyclePolicySummary = LifecyclePolicySummary'
     -- | The type of policy. @EBS_SNAPSHOT_MANAGEMENT@ indicates that the policy
     -- manages the lifecycle of Amazon EBS snapshots. @IMAGE_MANAGEMENT@
     -- indicates that the policy manages the lifecycle of EBS-backed AMIs.
+    -- @EVENT_BASED_POLICY@ indicates that the policy automates cross-account
+    -- snapshot copies for snapshots that are shared with your account.
     policyType :: Prelude.Maybe PolicyTypeValues,
     -- | The activation state of the lifecycle policy.
     state :: Prelude.Maybe GettablePolicyStateValues,
@@ -59,6 +61,8 @@ data LifecyclePolicySummary = LifecyclePolicySummary'
 -- 'policyType', 'lifecyclePolicySummary_policyType' - The type of policy. @EBS_SNAPSHOT_MANAGEMENT@ indicates that the policy
 -- manages the lifecycle of Amazon EBS snapshots. @IMAGE_MANAGEMENT@
 -- indicates that the policy manages the lifecycle of EBS-backed AMIs.
+-- @EVENT_BASED_POLICY@ indicates that the policy automates cross-account
+-- snapshot copies for snapshots that are shared with your account.
 --
 -- 'state', 'lifecyclePolicySummary_state' - The activation state of the lifecycle policy.
 --
@@ -85,6 +89,8 @@ lifecyclePolicySummary_policyId = Lens.lens (\LifecyclePolicySummary' {policyId}
 -- | The type of policy. @EBS_SNAPSHOT_MANAGEMENT@ indicates that the policy
 -- manages the lifecycle of Amazon EBS snapshots. @IMAGE_MANAGEMENT@
 -- indicates that the policy manages the lifecycle of EBS-backed AMIs.
+-- @EVENT_BASED_POLICY@ indicates that the policy automates cross-account
+-- snapshot copies for snapshots that are shared with your account.
 lifecyclePolicySummary_policyType :: Lens.Lens' LifecyclePolicySummary (Prelude.Maybe PolicyTypeValues)
 lifecyclePolicySummary_policyType = Lens.lens (\LifecyclePolicySummary' {policyType} -> policyType) (\s@LifecyclePolicySummary' {} a -> s {policyType = a} :: LifecyclePolicySummary)
 

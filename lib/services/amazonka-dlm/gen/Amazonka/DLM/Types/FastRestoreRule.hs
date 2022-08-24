@@ -24,7 +24,8 @@ import Amazonka.DLM.Types.RetentionIntervalUnitValues
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies a rule for enabling fast snapshot restore. You can enable fast
+-- | __[Snapshot policies only]__ Specifies a rule for enabling fast snapshot
+-- restore for snapshots created by snaspshot policies. You can enable fast
 -- snapshot restore based on either a count or a time interval.
 --
 -- /See:/ 'newFastRestoreRule' smart constructor.

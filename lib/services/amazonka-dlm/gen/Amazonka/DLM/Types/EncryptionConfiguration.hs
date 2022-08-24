@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies the encryption settings for shared snapshots that are copied
--- across Regions.
+-- | __[Event-based policies only]__ Specifies the encryption settings for
+-- cross-Region snapshot copies created by event-based policies.
 --
 -- /See:/ 'newEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'

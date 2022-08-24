@@ -24,8 +24,8 @@ import Amazonka.DLM.Types.RetentionIntervalUnitValues
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies a rule for sharing snapshots across Amazon Web Services
--- accounts.
+-- | __[Snapshot policies only]__ Specifies a rule for sharing snapshots
+-- across Amazon Web Services accounts.
 --
 -- /See:/ 'newShareRule' smart constructor.
 data ShareRule = ShareRule'

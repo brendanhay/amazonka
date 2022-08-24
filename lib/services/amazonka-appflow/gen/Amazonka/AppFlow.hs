@@ -57,6 +57,9 @@ module Amazonka.AppFlow
     -- ** UnsupportedOperationException
     _UnsupportedOperationException,
 
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
     -- ** InternalServerException
     _InternalServerException,
 
@@ -68,6 +71,9 @@ module Amazonka.AppFlow
 
     -- ** ConflictException
     _ConflictException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** ValidationException
     _ValidationException,
@@ -105,6 +111,12 @@ module Amazonka.AppFlow
     DeleteFlowResponse (DeleteFlowResponse'),
     newDeleteFlowResponse,
 
+    -- ** DescribeConnector
+    DescribeConnector (DescribeConnector'),
+    newDescribeConnector,
+    DescribeConnectorResponse (DescribeConnectorResponse'),
+    newDescribeConnectorResponse,
+
     -- ** DescribeConnectorEntity
     DescribeConnectorEntity (DescribeConnectorEntity'),
     newDescribeConnectorEntity,
@@ -141,6 +153,12 @@ module Amazonka.AppFlow
     ListConnectorEntitiesResponse (ListConnectorEntitiesResponse'),
     newListConnectorEntitiesResponse,
 
+    -- ** ListConnectors
+    ListConnectors (ListConnectors'),
+    newListConnectors,
+    ListConnectorsResponse (ListConnectorsResponse'),
+    newListConnectorsResponse,
+
     -- ** ListFlows
     ListFlows (ListFlows'),
     newListFlows,
@@ -152,6 +170,12 @@ module Amazonka.AppFlow
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** RegisterConnector
+    RegisterConnector (RegisterConnector'),
+    newRegisterConnector,
+    RegisterConnectorResponse (RegisterConnectorResponse'),
+    newRegisterConnectorResponse,
 
     -- ** StartFlow
     StartFlow (StartFlow'),
@@ -170,6 +194,12 @@ module Amazonka.AppFlow
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** UnregisterConnector
+    UnregisterConnector (UnregisterConnector'),
+    newUnregisterConnector,
+    UnregisterConnectorResponse (UnregisterConnectorResponse'),
+    newUnregisterConnectorResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -197,8 +227,14 @@ module Amazonka.AppFlow
     -- ** AmplitudeConnectorOperator
     AmplitudeConnectorOperator (..),
 
+    -- ** AuthenticationType
+    AuthenticationType (..),
+
     -- ** ConnectionMode
     ConnectionMode (..),
+
+    -- ** ConnectorProvisioningType
+    ConnectorProvisioningType (..),
 
     -- ** ConnectorType
     ConnectorType (..),
@@ -230,11 +266,20 @@ module Amazonka.AppFlow
     -- ** MarketoConnectorOperator
     MarketoConnectorOperator (..),
 
+    -- ** OAuth2CustomPropType
+    OAuth2CustomPropType (..),
+
+    -- ** OAuth2GrantType
+    OAuth2GrantType (..),
+
     -- ** Operator
     Operator (..),
 
     -- ** OperatorPropertiesKeys
     OperatorPropertiesKeys (..),
+
+    -- ** Operators
+    Operators (..),
 
     -- ** PrefixFormat
     PrefixFormat (..),
@@ -310,6 +355,18 @@ module Amazonka.AppFlow
     AmplitudeSourceProperties (AmplitudeSourceProperties'),
     newAmplitudeSourceProperties,
 
+    -- ** ApiKeyCredentials
+    ApiKeyCredentials (ApiKeyCredentials'),
+    newApiKeyCredentials,
+
+    -- ** AuthParameter
+    AuthParameter (AuthParameter'),
+    newAuthParameter,
+
+    -- ** AuthenticationConfig
+    AuthenticationConfig (AuthenticationConfig'),
+    newAuthenticationConfig,
+
     -- ** BasicAuthCredentials
     BasicAuthCredentials (BasicAuthCredentials'),
     newBasicAuthCredentials,
@@ -317,6 +374,10 @@ module Amazonka.AppFlow
     -- ** ConnectorConfiguration
     ConnectorConfiguration (ConnectorConfiguration'),
     newConnectorConfiguration,
+
+    -- ** ConnectorDetail
+    ConnectorDetail (ConnectorDetail'),
+    newConnectorDetail,
 
     -- ** ConnectorEntity
     ConnectorEntity (ConnectorEntity'),
@@ -353,6 +414,38 @@ module Amazonka.AppFlow
     -- ** ConnectorProfileProperties
     ConnectorProfileProperties (ConnectorProfileProperties'),
     newConnectorProfileProperties,
+
+    -- ** ConnectorProvisioningConfig
+    ConnectorProvisioningConfig (ConnectorProvisioningConfig'),
+    newConnectorProvisioningConfig,
+
+    -- ** ConnectorRuntimeSetting
+    ConnectorRuntimeSetting (ConnectorRuntimeSetting'),
+    newConnectorRuntimeSetting,
+
+    -- ** CustomAuthConfig
+    CustomAuthConfig (CustomAuthConfig'),
+    newCustomAuthConfig,
+
+    -- ** CustomAuthCredentials
+    CustomAuthCredentials (CustomAuthCredentials'),
+    newCustomAuthCredentials,
+
+    -- ** CustomConnectorDestinationProperties
+    CustomConnectorDestinationProperties (CustomConnectorDestinationProperties'),
+    newCustomConnectorDestinationProperties,
+
+    -- ** CustomConnectorProfileCredentials
+    CustomConnectorProfileCredentials (CustomConnectorProfileCredentials'),
+    newCustomConnectorProfileCredentials,
+
+    -- ** CustomConnectorProfileProperties
+    CustomConnectorProfileProperties (CustomConnectorProfileProperties'),
+    newCustomConnectorProfileProperties,
+
+    -- ** CustomConnectorSourceProperties
+    CustomConnectorSourceProperties (CustomConnectorSourceProperties'),
+    newCustomConnectorSourceProperties,
 
     -- ** CustomerProfilesDestinationProperties
     CustomerProfilesDestinationProperties (CustomerProfilesDestinationProperties'),
@@ -494,6 +587,10 @@ module Amazonka.AppFlow
     InforNexusSourceProperties (InforNexusSourceProperties'),
     newInforNexusSourceProperties,
 
+    -- ** LambdaConnectorProvisioningConfig
+    LambdaConnectorProvisioningConfig (LambdaConnectorProvisioningConfig'),
+    newLambdaConnectorProvisioningConfig,
+
     -- ** LookoutMetricsDestinationProperties
     LookoutMetricsDestinationProperties (LookoutMetricsDestinationProperties'),
     newLookoutMetricsDestinationProperties,
@@ -506,6 +603,10 @@ module Amazonka.AppFlow
     MarketoConnectorProfileProperties (MarketoConnectorProfileProperties'),
     newMarketoConnectorProfileProperties,
 
+    -- ** MarketoDestinationProperties
+    MarketoDestinationProperties (MarketoDestinationProperties'),
+    newMarketoDestinationProperties,
+
     -- ** MarketoMetadata
     MarketoMetadata (MarketoMetadata'),
     newMarketoMetadata,
@@ -513,6 +614,22 @@ module Amazonka.AppFlow
     -- ** MarketoSourceProperties
     MarketoSourceProperties (MarketoSourceProperties'),
     newMarketoSourceProperties,
+
+    -- ** OAuth2Credentials
+    OAuth2Credentials (OAuth2Credentials'),
+    newOAuth2Credentials,
+
+    -- ** OAuth2CustomParameter
+    OAuth2CustomParameter (OAuth2CustomParameter'),
+    newOAuth2CustomParameter,
+
+    -- ** OAuth2Defaults
+    OAuth2Defaults (OAuth2Defaults'),
+    newOAuth2Defaults,
+
+    -- ** OAuth2Properties
+    OAuth2Properties (OAuth2Properties'),
+    newOAuth2Properties,
 
     -- ** OAuthCredentials
     OAuthCredentials (OAuthCredentials'),
@@ -529,6 +646,10 @@ module Amazonka.AppFlow
     -- ** PrivateConnectionProvisioningState
     PrivateConnectionProvisioningState (PrivateConnectionProvisioningState'),
     newPrivateConnectionProvisioningState,
+
+    -- ** Range
+    Range (Range'),
+    newRange,
 
     -- ** RedshiftConnectorProfileCredentials
     RedshiftConnectorProfileCredentials (RedshiftConnectorProfileCredentials'),
@@ -573,6 +694,10 @@ module Amazonka.AppFlow
     -- ** SAPODataConnectorProfileProperties
     SAPODataConnectorProfileProperties (SAPODataConnectorProfileProperties'),
     newSAPODataConnectorProfileProperties,
+
+    -- ** SAPODataDestinationProperties
+    SAPODataDestinationProperties (SAPODataDestinationProperties'),
+    newSAPODataDestinationProperties,
 
     -- ** SAPODataMetadata
     SAPODataMetadata (SAPODataMetadata'),
@@ -682,6 +807,10 @@ module Amazonka.AppFlow
     SourceFlowConfig (SourceFlowConfig'),
     newSourceFlowConfig,
 
+    -- ** SuccessResponseHandlingConfig
+    SuccessResponseHandlingConfig (SuccessResponseHandlingConfig'),
+    newSuccessResponseHandlingConfig,
+
     -- ** SupportedFieldTypeDetails
     SupportedFieldTypeDetails (SupportedFieldTypeDetails'),
     newSupportedFieldTypeDetails,
@@ -768,6 +897,7 @@ import Amazonka.AppFlow.CreateConnectorProfile
 import Amazonka.AppFlow.CreateFlow
 import Amazonka.AppFlow.DeleteConnectorProfile
 import Amazonka.AppFlow.DeleteFlow
+import Amazonka.AppFlow.DescribeConnector
 import Amazonka.AppFlow.DescribeConnectorEntity
 import Amazonka.AppFlow.DescribeConnectorProfiles
 import Amazonka.AppFlow.DescribeConnectors
@@ -775,12 +905,15 @@ import Amazonka.AppFlow.DescribeFlow
 import Amazonka.AppFlow.DescribeFlowExecutionRecords
 import Amazonka.AppFlow.Lens
 import Amazonka.AppFlow.ListConnectorEntities
+import Amazonka.AppFlow.ListConnectors
 import Amazonka.AppFlow.ListFlows
 import Amazonka.AppFlow.ListTagsForResource
+import Amazonka.AppFlow.RegisterConnector
 import Amazonka.AppFlow.StartFlow
 import Amazonka.AppFlow.StopFlow
 import Amazonka.AppFlow.TagResource
 import Amazonka.AppFlow.Types
+import Amazonka.AppFlow.UnregisterConnector
 import Amazonka.AppFlow.UntagResource
 import Amazonka.AppFlow.UpdateConnectorProfile
 import Amazonka.AppFlow.UpdateFlow

@@ -25,6 +25,7 @@ import Amazonka.AppFlow.Types.DynatraceConnectorOperator
 import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorOperator
 import Amazonka.AppFlow.Types.InforNexusConnectorOperator
 import Amazonka.AppFlow.Types.MarketoConnectorOperator
+import Amazonka.AppFlow.Types.Operator
 import Amazonka.AppFlow.Types.S3ConnectorOperator
 import Amazonka.AppFlow.Types.SAPODataConnectorOperator
 import Amazonka.AppFlow.Types.SalesforceConnectorOperator
@@ -66,6 +67,8 @@ data ConnectorOperator = ConnectorOperator'
     serviceNow :: Prelude.Maybe ServiceNowConnectorOperator,
     -- | The operation to be performed on the provided Datadog source fields.
     datadog :: Prelude.Maybe DatadogConnectorOperator,
+    -- | Operators supported by the custom connector.
+    customConnector :: Prelude.Maybe Operator,
     -- | The operation to be performed on the provided Amplitude source fields.
     amplitude :: Prelude.Maybe AmplitudeConnectorOperator,
     -- | The operation to be performed on the provided Dynatrace source fields.
@@ -108,6 +111,8 @@ data ConnectorOperator = ConnectorOperator'
 --
 -- 'datadog', 'connectorOperator_datadog' - The operation to be performed on the provided Datadog source fields.
 --
+-- 'customConnector', 'connectorOperator_customConnector' - Operators supported by the custom connector.
+--
 -- 'amplitude', 'connectorOperator_amplitude' - The operation to be performed on the provided Amplitude source fields.
 --
 -- 'dynatrace', 'connectorOperator_dynatrace' - The operation to be performed on the provided Dynatrace source fields.
@@ -130,6 +135,7 @@ newConnectorOperator =
       inforNexus = Prelude.Nothing,
       serviceNow = Prelude.Nothing,
       datadog = Prelude.Nothing,
+      customConnector = Prelude.Nothing,
       amplitude = Prelude.Nothing,
       dynatrace = Prelude.Nothing,
       googleAnalytics = Prelude.Nothing
@@ -183,6 +189,10 @@ connectorOperator_serviceNow = Lens.lens (\ConnectorOperator' {serviceNow} -> se
 connectorOperator_datadog :: Lens.Lens' ConnectorOperator (Prelude.Maybe DatadogConnectorOperator)
 connectorOperator_datadog = Lens.lens (\ConnectorOperator' {datadog} -> datadog) (\s@ConnectorOperator' {} a -> s {datadog = a} :: ConnectorOperator)
 
+-- | Operators supported by the custom connector.
+connectorOperator_customConnector :: Lens.Lens' ConnectorOperator (Prelude.Maybe Operator)
+connectorOperator_customConnector = Lens.lens (\ConnectorOperator' {customConnector} -> customConnector) (\s@ConnectorOperator' {} a -> s {customConnector = a} :: ConnectorOperator)
+
 -- | The operation to be performed on the provided Amplitude source fields.
 connectorOperator_amplitude :: Lens.Lens' ConnectorOperator (Prelude.Maybe AmplitudeConnectorOperator)
 connectorOperator_amplitude = Lens.lens (\ConnectorOperator' {amplitude} -> amplitude) (\s@ConnectorOperator' {} a -> s {amplitude = a} :: ConnectorOperator)
@@ -214,6 +224,7 @@ instance Core.FromJSON ConnectorOperator where
             Prelude.<*> (x Core..:? "InforNexus")
             Prelude.<*> (x Core..:? "ServiceNow")
             Prelude.<*> (x Core..:? "Datadog")
+            Prelude.<*> (x Core..:? "CustomConnector")
             Prelude.<*> (x Core..:? "Amplitude")
             Prelude.<*> (x Core..:? "Dynatrace")
             Prelude.<*> (x Core..:? "GoogleAnalytics")
@@ -233,6 +244,7 @@ instance Prelude.Hashable ConnectorOperator where
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` serviceNow
       `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` dynatrace
       `Prelude.hashWithSalt` googleAnalytics
@@ -251,6 +263,7 @@ instance Prelude.NFData ConnectorOperator where
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf serviceNow
       `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf customConnector
       `Prelude.seq` Prelude.rnf amplitude
       `Prelude.seq` Prelude.rnf dynatrace
       `Prelude.seq` Prelude.rnf googleAnalytics
@@ -271,6 +284,8 @@ instance Core.ToJSON ConnectorOperator where
             ("InforNexus" Core..=) Prelude.<$> inforNexus,
             ("ServiceNow" Core..=) Prelude.<$> serviceNow,
             ("Datadog" Core..=) Prelude.<$> datadog,
+            ("CustomConnector" Core..=)
+              Prelude.<$> customConnector,
             ("Amplitude" Core..=) Prelude.<$> amplitude,
             ("Dynatrace" Core..=) Prelude.<$> dynatrace,
             ("GoogleAnalytics" Core..=)

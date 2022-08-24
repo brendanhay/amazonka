@@ -34,11 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 data FlowDefinition = FlowDefinition'
   { -- | The tags used to organize, track, or control access for your flow.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The label of the destination connector in the flow.
+    destinationConnectorLabel :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the flow was last updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The specified name of the flow. Spaces are not allowed. Use underscores
     -- (_) or hyphens (-) only.
     flowName :: Prelude.Maybe Prelude.Text,
+    -- | The label of the source connector in the flow.
+    sourceConnectorLabel :: Prelude.Maybe Prelude.Text,
     -- | A user-entered description of the flow.
     description :: Prelude.Maybe Prelude.Text,
     -- | Specifies the source connector type, such as Salesforce, Amazon S3,
@@ -75,10 +79,14 @@ data FlowDefinition = FlowDefinition'
 --
 -- 'tags', 'flowDefinition_tags' - The tags used to organize, track, or control access for your flow.
 --
+-- 'destinationConnectorLabel', 'flowDefinition_destinationConnectorLabel' - The label of the destination connector in the flow.
+--
 -- 'lastUpdatedAt', 'flowDefinition_lastUpdatedAt' - Specifies when the flow was last updated.
 --
 -- 'flowName', 'flowDefinition_flowName' - The specified name of the flow. Spaces are not allowed. Use underscores
 -- (_) or hyphens (-) only.
+--
+-- 'sourceConnectorLabel', 'flowDefinition_sourceConnectorLabel' - The label of the source connector in the flow.
 --
 -- 'description', 'flowDefinition_description' - A user-entered description of the flow.
 --
@@ -107,8 +115,10 @@ newFlowDefinition ::
 newFlowDefinition =
   FlowDefinition'
     { tags = Prelude.Nothing,
+      destinationConnectorLabel = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
       flowName = Prelude.Nothing,
+      sourceConnectorLabel = Prelude.Nothing,
       description = Prelude.Nothing,
       sourceConnectorType = Prelude.Nothing,
       lastRunExecutionDetails = Prelude.Nothing,
@@ -125,6 +135,10 @@ newFlowDefinition =
 flowDefinition_tags :: Lens.Lens' FlowDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 flowDefinition_tags = Lens.lens (\FlowDefinition' {tags} -> tags) (\s@FlowDefinition' {} a -> s {tags = a} :: FlowDefinition) Prelude.. Lens.mapping Lens.coerced
 
+-- | The label of the destination connector in the flow.
+flowDefinition_destinationConnectorLabel :: Lens.Lens' FlowDefinition (Prelude.Maybe Prelude.Text)
+flowDefinition_destinationConnectorLabel = Lens.lens (\FlowDefinition' {destinationConnectorLabel} -> destinationConnectorLabel) (\s@FlowDefinition' {} a -> s {destinationConnectorLabel = a} :: FlowDefinition)
+
 -- | Specifies when the flow was last updated.
 flowDefinition_lastUpdatedAt :: Lens.Lens' FlowDefinition (Prelude.Maybe Prelude.UTCTime)
 flowDefinition_lastUpdatedAt = Lens.lens (\FlowDefinition' {lastUpdatedAt} -> lastUpdatedAt) (\s@FlowDefinition' {} a -> s {lastUpdatedAt = a} :: FlowDefinition) Prelude.. Lens.mapping Core._Time
@@ -133,6 +147,10 @@ flowDefinition_lastUpdatedAt = Lens.lens (\FlowDefinition' {lastUpdatedAt} -> la
 -- (_) or hyphens (-) only.
 flowDefinition_flowName :: Lens.Lens' FlowDefinition (Prelude.Maybe Prelude.Text)
 flowDefinition_flowName = Lens.lens (\FlowDefinition' {flowName} -> flowName) (\s@FlowDefinition' {} a -> s {flowName = a} :: FlowDefinition)
+
+-- | The label of the source connector in the flow.
+flowDefinition_sourceConnectorLabel :: Lens.Lens' FlowDefinition (Prelude.Maybe Prelude.Text)
+flowDefinition_sourceConnectorLabel = Lens.lens (\FlowDefinition' {sourceConnectorLabel} -> sourceConnectorLabel) (\s@FlowDefinition' {} a -> s {sourceConnectorLabel = a} :: FlowDefinition)
 
 -- | A user-entered description of the flow.
 flowDefinition_description :: Lens.Lens' FlowDefinition (Prelude.Maybe Prelude.Text)
@@ -184,8 +202,10 @@ instance Core.FromJSON FlowDefinition where
       ( \x ->
           FlowDefinition'
             Prelude.<$> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "destinationConnectorLabel")
             Prelude.<*> (x Core..:? "lastUpdatedAt")
             Prelude.<*> (x Core..:? "flowName")
+            Prelude.<*> (x Core..:? "sourceConnectorLabel")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "sourceConnectorType")
             Prelude.<*> (x Core..:? "lastRunExecutionDetails")
@@ -201,8 +221,10 @@ instance Core.FromJSON FlowDefinition where
 instance Prelude.Hashable FlowDefinition where
   hashWithSalt _salt FlowDefinition' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` destinationConnectorLabel
       `Prelude.hashWithSalt` lastUpdatedAt
       `Prelude.hashWithSalt` flowName
+      `Prelude.hashWithSalt` sourceConnectorLabel
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` sourceConnectorType
       `Prelude.hashWithSalt` lastRunExecutionDetails
@@ -217,8 +239,10 @@ instance Prelude.Hashable FlowDefinition where
 instance Prelude.NFData FlowDefinition where
   rnf FlowDefinition' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf destinationConnectorLabel
       `Prelude.seq` Prelude.rnf lastUpdatedAt
       `Prelude.seq` Prelude.rnf flowName
+      `Prelude.seq` Prelude.rnf sourceConnectorLabel
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf sourceConnectorType
       `Prelude.seq` Prelude.rnf lastRunExecutionDetails

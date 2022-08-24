@@ -19,10 +19,12 @@ module Amazonka.AppFlow.Types
     -- * Errors
     _ConnectorAuthenticationException,
     _UnsupportedOperationException,
+    _AccessDeniedException,
     _InternalServerException,
     _ServiceQuotaExceededException,
     _ResourceNotFoundException,
     _ConflictException,
+    _ThrottlingException,
     _ValidationException,
     _ConnectorServerException,
 
@@ -32,8 +34,14 @@ module Amazonka.AppFlow.Types
     -- * AmplitudeConnectorOperator
     AmplitudeConnectorOperator (..),
 
+    -- * AuthenticationType
+    AuthenticationType (..),
+
     -- * ConnectionMode
     ConnectionMode (..),
+
+    -- * ConnectorProvisioningType
+    ConnectorProvisioningType (..),
 
     -- * ConnectorType
     ConnectorType (..),
@@ -65,11 +73,20 @@ module Amazonka.AppFlow.Types
     -- * MarketoConnectorOperator
     MarketoConnectorOperator (..),
 
+    -- * OAuth2CustomPropType
+    OAuth2CustomPropType (..),
+
+    -- * OAuth2GrantType
+    OAuth2GrantType (..),
+
     -- * Operator
     Operator (..),
 
     -- * OperatorPropertiesKeys
     OperatorPropertiesKeys (..),
+
+    -- * Operators
+    Operators (..),
 
     -- * PrefixFormat
     PrefixFormat (..),
@@ -149,6 +166,32 @@ module Amazonka.AppFlow.Types
     newAmplitudeSourceProperties,
     amplitudeSourceProperties_object,
 
+    -- * ApiKeyCredentials
+    ApiKeyCredentials (..),
+    newApiKeyCredentials,
+    apiKeyCredentials_apiSecretKey,
+    apiKeyCredentials_apiKey,
+
+    -- * AuthParameter
+    AuthParameter (..),
+    newAuthParameter,
+    authParameter_key,
+    authParameter_connectorSuppliedValues,
+    authParameter_label,
+    authParameter_description,
+    authParameter_isSensitiveField,
+    authParameter_isRequired,
+
+    -- * AuthenticationConfig
+    AuthenticationConfig (..),
+    newAuthenticationConfig,
+    authenticationConfig_customAuthConfigs,
+    authenticationConfig_isCustomAuthSupported,
+    authenticationConfig_isApiKeyAuthSupported,
+    authenticationConfig_isBasicAuthSupported,
+    authenticationConfig_isOAuth2Supported,
+    authenticationConfig_oAuth2Defaults,
+
     -- * BasicAuthCredentials
     BasicAuthCredentials (..),
     newBasicAuthCredentials,
@@ -158,14 +201,47 @@ module Amazonka.AppFlow.Types
     -- * ConnectorConfiguration
     ConnectorConfiguration (..),
     newConnectorConfiguration,
+    connectorConfiguration_connectorProvisioningType,
     connectorConfiguration_canUseAsSource,
+    connectorConfiguration_connectorDescription,
+    connectorConfiguration_registeredBy,
+    connectorConfiguration_supportedWriteOperations,
+    connectorConfiguration_logoURL,
     connectorConfiguration_isPrivateLinkEnabled,
+    connectorConfiguration_connectorVersion,
+    connectorConfiguration_connectorArn,
+    connectorConfiguration_connectorRuntimeSettings,
+    connectorConfiguration_connectorType,
     connectorConfiguration_canUseAsDestination,
+    connectorConfiguration_connectorProvisioningConfig,
+    connectorConfiguration_supportedOperators,
+    connectorConfiguration_connectorName,
+    connectorConfiguration_connectorModes,
     connectorConfiguration_supportedTriggerTypes,
+    connectorConfiguration_authenticationConfig,
     connectorConfiguration_isPrivateLinkEndpointUrlRequired,
+    connectorConfiguration_connectorLabel,
+    connectorConfiguration_supportedApiVersions,
     connectorConfiguration_supportedDestinationConnectors,
+    connectorConfiguration_connectorOwner,
     connectorConfiguration_connectorMetadata,
+    connectorConfiguration_registeredAt,
     connectorConfiguration_supportedSchedulingFrequencies,
+
+    -- * ConnectorDetail
+    ConnectorDetail (..),
+    newConnectorDetail,
+    connectorDetail_connectorProvisioningType,
+    connectorDetail_connectorDescription,
+    connectorDetail_registeredBy,
+    connectorDetail_connectorVersion,
+    connectorDetail_connectorType,
+    connectorDetail_connectorName,
+    connectorDetail_applicationType,
+    connectorDetail_connectorModes,
+    connectorDetail_connectorLabel,
+    connectorDetail_connectorOwner,
+    connectorDetail_registeredAt,
 
     -- * ConnectorEntity
     ConnectorEntity (..),
@@ -177,11 +253,16 @@ module Amazonka.AppFlow.Types
     -- * ConnectorEntityField
     ConnectorEntityField (..),
     newConnectorEntityField,
+    connectorEntityField_customProperties,
+    connectorEntityField_parentIdentifier,
     connectorEntityField_label,
+    connectorEntityField_defaultValue,
     connectorEntityField_description,
     connectorEntityField_destinationProperties,
     connectorEntityField_supportedFieldTypeDetails,
+    connectorEntityField_isPrimaryKey,
     connectorEntityField_sourceProperties,
+    connectorEntityField_isDeprecated,
     connectorEntityField_identifier,
 
     -- * ConnectorMetadata
@@ -230,6 +311,7 @@ module Amazonka.AppFlow.Types
     connectorOperator_inforNexus,
     connectorOperator_serviceNow,
     connectorOperator_datadog,
+    connectorOperator_customConnector,
     connectorOperator_amplitude,
     connectorOperator_dynatrace,
     connectorOperator_googleAnalytics,
@@ -245,6 +327,7 @@ module Amazonka.AppFlow.Types
     connectorProfile_privateConnectionProvisioningState,
     connectorProfile_connectorType,
     connectorProfile_connectorProfileArn,
+    connectorProfile_connectorLabel,
     connectorProfile_createdAt,
 
     -- * ConnectorProfileConfig
@@ -270,6 +353,7 @@ module Amazonka.AppFlow.Types
     connectorProfileCredentials_inforNexus,
     connectorProfileCredentials_serviceNow,
     connectorProfileCredentials_datadog,
+    connectorProfileCredentials_customConnector,
     connectorProfileCredentials_amplitude,
     connectorProfileCredentials_dynatrace,
     connectorProfileCredentials_googleAnalytics,
@@ -291,9 +375,68 @@ module Amazonka.AppFlow.Types
     connectorProfileProperties_inforNexus,
     connectorProfileProperties_serviceNow,
     connectorProfileProperties_datadog,
+    connectorProfileProperties_customConnector,
     connectorProfileProperties_amplitude,
     connectorProfileProperties_dynatrace,
     connectorProfileProperties_googleAnalytics,
+
+    -- * ConnectorProvisioningConfig
+    ConnectorProvisioningConfig (..),
+    newConnectorProvisioningConfig,
+    connectorProvisioningConfig_lambda,
+
+    -- * ConnectorRuntimeSetting
+    ConnectorRuntimeSetting (..),
+    newConnectorRuntimeSetting,
+    connectorRuntimeSetting_key,
+    connectorRuntimeSetting_label,
+    connectorRuntimeSetting_connectorSuppliedValueOptions,
+    connectorRuntimeSetting_description,
+    connectorRuntimeSetting_scope,
+    connectorRuntimeSetting_isRequired,
+    connectorRuntimeSetting_dataType,
+
+    -- * CustomAuthConfig
+    CustomAuthConfig (..),
+    newCustomAuthConfig,
+    customAuthConfig_authParameters,
+    customAuthConfig_customAuthenticationType,
+
+    -- * CustomAuthCredentials
+    CustomAuthCredentials (..),
+    newCustomAuthCredentials,
+    customAuthCredentials_credentialsMap,
+    customAuthCredentials_customAuthenticationType,
+
+    -- * CustomConnectorDestinationProperties
+    CustomConnectorDestinationProperties (..),
+    newCustomConnectorDestinationProperties,
+    customConnectorDestinationProperties_errorHandlingConfig,
+    customConnectorDestinationProperties_customProperties,
+    customConnectorDestinationProperties_idFieldNames,
+    customConnectorDestinationProperties_writeOperationType,
+    customConnectorDestinationProperties_entityName,
+
+    -- * CustomConnectorProfileCredentials
+    CustomConnectorProfileCredentials (..),
+    newCustomConnectorProfileCredentials,
+    customConnectorProfileCredentials_apiKey,
+    customConnectorProfileCredentials_oauth2,
+    customConnectorProfileCredentials_custom,
+    customConnectorProfileCredentials_basic,
+    customConnectorProfileCredentials_authenticationType,
+
+    -- * CustomConnectorProfileProperties
+    CustomConnectorProfileProperties (..),
+    newCustomConnectorProfileProperties,
+    customConnectorProfileProperties_profileProperties,
+    customConnectorProfileProperties_oAuth2Properties,
+
+    -- * CustomConnectorSourceProperties
+    CustomConnectorSourceProperties (..),
+    newCustomConnectorSourceProperties,
+    customConnectorSourceProperties_customProperties,
+    customConnectorSourceProperties_entityName,
 
     -- * CustomerProfilesDestinationProperties
     CustomerProfilesDestinationProperties (..),
@@ -333,9 +476,12 @@ module Amazonka.AppFlow.Types
     destinationConnectorProperties_honeycode,
     destinationConnectorProperties_salesforce,
     destinationConnectorProperties_snowflake,
+    destinationConnectorProperties_sAPOData,
+    destinationConnectorProperties_marketo,
     destinationConnectorProperties_redshift,
     destinationConnectorProperties_customerProfiles,
     destinationConnectorProperties_upsolver,
+    destinationConnectorProperties_customConnector,
     destinationConnectorProperties_eventBridge,
     destinationConnectorProperties_lookoutMetrics,
 
@@ -345,12 +491,14 @@ module Amazonka.AppFlow.Types
     destinationFieldProperties_isUpdatable,
     destinationFieldProperties_supportedWriteOperations,
     destinationFieldProperties_isNullable,
+    destinationFieldProperties_isDefaultedOnCreate,
     destinationFieldProperties_isUpsertable,
     destinationFieldProperties_isCreatable,
 
     -- * DestinationFlowConfig
     DestinationFlowConfig (..),
     newDestinationFlowConfig,
+    destinationFlowConfig_apiVersion,
     destinationFlowConfig_connectorProfileName,
     destinationFlowConfig_connectorType,
     destinationFlowConfig_destinationConnectorProperties,
@@ -426,7 +574,11 @@ module Amazonka.AppFlow.Types
     -- * FieldTypeDetails
     FieldTypeDetails (..),
     newFieldTypeDetails,
+    fieldTypeDetails_fieldValueRange,
+    fieldTypeDetails_fieldLengthRange,
     fieldTypeDetails_supportedValues,
+    fieldTypeDetails_valueRegexPattern,
+    fieldTypeDetails_supportedDateFormat,
     fieldTypeDetails_fieldType,
     fieldTypeDetails_filterOperators,
 
@@ -434,8 +586,10 @@ module Amazonka.AppFlow.Types
     FlowDefinition (..),
     newFlowDefinition,
     flowDefinition_tags,
+    flowDefinition_destinationConnectorLabel,
     flowDefinition_lastUpdatedAt,
     flowDefinition_flowName,
+    flowDefinition_sourceConnectorLabel,
     flowDefinition_description,
     flowDefinition_sourceConnectorType,
     flowDefinition_lastRunExecutionDetails,
@@ -519,6 +673,11 @@ module Amazonka.AppFlow.Types
     newInforNexusSourceProperties,
     inforNexusSourceProperties_object,
 
+    -- * LambdaConnectorProvisioningConfig
+    LambdaConnectorProvisioningConfig (..),
+    newLambdaConnectorProvisioningConfig,
+    lambdaConnectorProvisioningConfig_lambdaArn,
+
     -- * LookoutMetricsDestinationProperties
     LookoutMetricsDestinationProperties (..),
     newLookoutMetricsDestinationProperties,
@@ -536,6 +695,12 @@ module Amazonka.AppFlow.Types
     newMarketoConnectorProfileProperties,
     marketoConnectorProfileProperties_instanceUrl,
 
+    -- * MarketoDestinationProperties
+    MarketoDestinationProperties (..),
+    newMarketoDestinationProperties,
+    marketoDestinationProperties_errorHandlingConfig,
+    marketoDestinationProperties_object,
+
     -- * MarketoMetadata
     MarketoMetadata (..),
     newMarketoMetadata,
@@ -544,6 +709,42 @@ module Amazonka.AppFlow.Types
     MarketoSourceProperties (..),
     newMarketoSourceProperties,
     marketoSourceProperties_object,
+
+    -- * OAuth2Credentials
+    OAuth2Credentials (..),
+    newOAuth2Credentials,
+    oAuth2Credentials_accessToken,
+    oAuth2Credentials_clientSecret,
+    oAuth2Credentials_clientId,
+    oAuth2Credentials_oAuthRequest,
+    oAuth2Credentials_refreshToken,
+
+    -- * OAuth2CustomParameter
+    OAuth2CustomParameter (..),
+    newOAuth2CustomParameter,
+    oAuth2CustomParameter_key,
+    oAuth2CustomParameter_type,
+    oAuth2CustomParameter_connectorSuppliedValues,
+    oAuth2CustomParameter_label,
+    oAuth2CustomParameter_description,
+    oAuth2CustomParameter_isSensitiveField,
+    oAuth2CustomParameter_isRequired,
+
+    -- * OAuth2Defaults
+    OAuth2Defaults (..),
+    newOAuth2Defaults,
+    oAuth2Defaults_tokenUrls,
+    oAuth2Defaults_authCodeUrls,
+    oAuth2Defaults_oauth2CustomProperties,
+    oAuth2Defaults_oauth2GrantTypesSupported,
+    oAuth2Defaults_oauthScopes,
+
+    -- * OAuth2Properties
+    OAuth2Properties (..),
+    newOAuth2Properties,
+    oAuth2Properties_tokenUrlCustomProperties,
+    oAuth2Properties_tokenUrl,
+    oAuth2Properties_oAuth2GrantType,
 
     -- * OAuthCredentials
     OAuthCredentials (..),
@@ -573,6 +774,12 @@ module Amazonka.AppFlow.Types
     privateConnectionProvisioningState_status,
     privateConnectionProvisioningState_failureMessage,
     privateConnectionProvisioningState_failureCause,
+
+    -- * Range
+    Range (..),
+    newRange,
+    range_minimum,
+    range_maximum,
 
     -- * RedshiftConnectorProfileCredentials
     RedshiftConnectorProfileCredentials (..),
@@ -621,6 +828,7 @@ module Amazonka.AppFlow.Types
     newS3OutputFormatConfig,
     s3OutputFormatConfig_prefixConfig,
     s3OutputFormatConfig_aggregationConfig,
+    s3OutputFormatConfig_preserveSourceDataTyping,
     s3OutputFormatConfig_fileType,
 
     -- * S3SourceProperties
@@ -646,6 +854,15 @@ module Amazonka.AppFlow.Types
     sAPODataConnectorProfileProperties_applicationServicePath,
     sAPODataConnectorProfileProperties_portNumber,
     sAPODataConnectorProfileProperties_clientNumber,
+
+    -- * SAPODataDestinationProperties
+    SAPODataDestinationProperties (..),
+    newSAPODataDestinationProperties,
+    sAPODataDestinationProperties_errorHandlingConfig,
+    sAPODataDestinationProperties_successResponseHandlingConfig,
+    sAPODataDestinationProperties_idFieldNames,
+    sAPODataDestinationProperties_writeOperationType,
+    sAPODataDestinationProperties_objectPath,
 
     -- * SAPODataMetadata
     SAPODataMetadata (..),
@@ -695,6 +912,7 @@ module Amazonka.AppFlow.Types
     newScheduledTriggerProperties,
     scheduledTriggerProperties_scheduleEndTime,
     scheduledTriggerProperties_scheduleStartTime,
+    scheduledTriggerProperties_flowErrorDeactivationThreshold,
     scheduledTriggerProperties_timezone,
     scheduledTriggerProperties_scheduleOffset,
     scheduledTriggerProperties_firstExecutionFrom,
@@ -807,6 +1025,7 @@ module Amazonka.AppFlow.Types
     sourceConnectorProperties_inforNexus,
     sourceConnectorProperties_serviceNow,
     sourceConnectorProperties_datadog,
+    sourceConnectorProperties_customConnector,
     sourceConnectorProperties_amplitude,
     sourceConnectorProperties_dynatrace,
     sourceConnectorProperties_googleAnalytics,
@@ -815,15 +1034,23 @@ module Amazonka.AppFlow.Types
     SourceFieldProperties (..),
     newSourceFieldProperties,
     sourceFieldProperties_isRetrievable,
+    sourceFieldProperties_isTimestampFieldForIncrementalQueries,
     sourceFieldProperties_isQueryable,
 
     -- * SourceFlowConfig
     SourceFlowConfig (..),
     newSourceFlowConfig,
+    sourceFlowConfig_apiVersion,
     sourceFlowConfig_connectorProfileName,
     sourceFlowConfig_incrementalPullConfig,
     sourceFlowConfig_connectorType,
     sourceFlowConfig_sourceConnectorProperties,
+
+    -- * SuccessResponseHandlingConfig
+    SuccessResponseHandlingConfig (..),
+    newSuccessResponseHandlingConfig,
+    successResponseHandlingConfig_bucketPrefix,
+    successResponseHandlingConfig_bucketName,
 
     -- * SupportedFieldTypeDetails
     SupportedFieldTypeDetails (..),
@@ -950,9 +1177,14 @@ import Amazonka.AppFlow.Types.AmplitudeConnectorProfileCredentials
 import Amazonka.AppFlow.Types.AmplitudeConnectorProfileProperties
 import Amazonka.AppFlow.Types.AmplitudeMetadata
 import Amazonka.AppFlow.Types.AmplitudeSourceProperties
+import Amazonka.AppFlow.Types.ApiKeyCredentials
+import Amazonka.AppFlow.Types.AuthParameter
+import Amazonka.AppFlow.Types.AuthenticationConfig
+import Amazonka.AppFlow.Types.AuthenticationType
 import Amazonka.AppFlow.Types.BasicAuthCredentials
 import Amazonka.AppFlow.Types.ConnectionMode
 import Amazonka.AppFlow.Types.ConnectorConfiguration
+import Amazonka.AppFlow.Types.ConnectorDetail
 import Amazonka.AppFlow.Types.ConnectorEntity
 import Amazonka.AppFlow.Types.ConnectorEntityField
 import Amazonka.AppFlow.Types.ConnectorMetadata
@@ -962,7 +1194,16 @@ import Amazonka.AppFlow.Types.ConnectorProfile
 import Amazonka.AppFlow.Types.ConnectorProfileConfig
 import Amazonka.AppFlow.Types.ConnectorProfileCredentials
 import Amazonka.AppFlow.Types.ConnectorProfileProperties
+import Amazonka.AppFlow.Types.ConnectorProvisioningConfig
+import Amazonka.AppFlow.Types.ConnectorProvisioningType
+import Amazonka.AppFlow.Types.ConnectorRuntimeSetting
 import Amazonka.AppFlow.Types.ConnectorType
+import Amazonka.AppFlow.Types.CustomAuthConfig
+import Amazonka.AppFlow.Types.CustomAuthCredentials
+import Amazonka.AppFlow.Types.CustomConnectorDestinationProperties
+import Amazonka.AppFlow.Types.CustomConnectorProfileCredentials
+import Amazonka.AppFlow.Types.CustomConnectorProfileProperties
+import Amazonka.AppFlow.Types.CustomConnectorSourceProperties
 import Amazonka.AppFlow.Types.CustomerProfilesDestinationProperties
 import Amazonka.AppFlow.Types.CustomerProfilesMetadata
 import Amazonka.AppFlow.Types.DataPullMode
@@ -1006,22 +1247,32 @@ import Amazonka.AppFlow.Types.InforNexusConnectorProfileCredentials
 import Amazonka.AppFlow.Types.InforNexusConnectorProfileProperties
 import Amazonka.AppFlow.Types.InforNexusMetadata
 import Amazonka.AppFlow.Types.InforNexusSourceProperties
+import Amazonka.AppFlow.Types.LambdaConnectorProvisioningConfig
 import Amazonka.AppFlow.Types.LookoutMetricsDestinationProperties
 import Amazonka.AppFlow.Types.MarketoConnectorOperator
 import Amazonka.AppFlow.Types.MarketoConnectorProfileCredentials
 import Amazonka.AppFlow.Types.MarketoConnectorProfileProperties
+import Amazonka.AppFlow.Types.MarketoDestinationProperties
 import Amazonka.AppFlow.Types.MarketoMetadata
 import Amazonka.AppFlow.Types.MarketoSourceProperties
+import Amazonka.AppFlow.Types.OAuth2Credentials
+import Amazonka.AppFlow.Types.OAuth2CustomParameter
+import Amazonka.AppFlow.Types.OAuth2CustomPropType
+import Amazonka.AppFlow.Types.OAuth2Defaults
+import Amazonka.AppFlow.Types.OAuth2GrantType
+import Amazonka.AppFlow.Types.OAuth2Properties
 import Amazonka.AppFlow.Types.OAuthCredentials
 import Amazonka.AppFlow.Types.OAuthProperties
 import Amazonka.AppFlow.Types.Operator
 import Amazonka.AppFlow.Types.OperatorPropertiesKeys
+import Amazonka.AppFlow.Types.Operators
 import Amazonka.AppFlow.Types.PrefixConfig
 import Amazonka.AppFlow.Types.PrefixFormat
 import Amazonka.AppFlow.Types.PrefixType
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningFailureCause
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningState
 import Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus
+import Amazonka.AppFlow.Types.Range
 import Amazonka.AppFlow.Types.RedshiftConnectorProfileCredentials
 import Amazonka.AppFlow.Types.RedshiftConnectorProfileProperties
 import Amazonka.AppFlow.Types.RedshiftDestinationProperties
@@ -1036,6 +1287,7 @@ import Amazonka.AppFlow.Types.S3SourceProperties
 import Amazonka.AppFlow.Types.SAPODataConnectorOperator
 import Amazonka.AppFlow.Types.SAPODataConnectorProfileCredentials
 import Amazonka.AppFlow.Types.SAPODataConnectorProfileProperties
+import Amazonka.AppFlow.Types.SAPODataDestinationProperties
 import Amazonka.AppFlow.Types.SAPODataMetadata
 import Amazonka.AppFlow.Types.SAPODataSourceProperties
 import Amazonka.AppFlow.Types.SalesforceConnectorOperator
@@ -1068,6 +1320,7 @@ import Amazonka.AppFlow.Types.SnowflakeMetadata
 import Amazonka.AppFlow.Types.SourceConnectorProperties
 import Amazonka.AppFlow.Types.SourceFieldProperties
 import Amazonka.AppFlow.Types.SourceFlowConfig
+import Amazonka.AppFlow.Types.SuccessResponseHandlingConfig
 import Amazonka.AppFlow.Types.SupportedFieldTypeDetails
 import Amazonka.AppFlow.Types.Task
 import Amazonka.AppFlow.Types.TaskType
@@ -1185,6 +1438,14 @@ _UnsupportedOperationException =
     "UnsupportedOperationException"
     Prelude.. Core.hasStatus 400
 
+-- | AppFlow\/Requester has invalid or missing permissions.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
+
 -- | An internal service error occurred during the processing of your
 -- request. Try again later.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1221,6 +1482,15 @@ _ConflictException =
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
+
+-- | API calls have exceeded the maximum allowed API request rate per account
+-- and per Region.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
 
 -- | The request has invalid or missing parameters.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

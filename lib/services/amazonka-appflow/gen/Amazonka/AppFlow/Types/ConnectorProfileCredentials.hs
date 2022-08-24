@@ -20,6 +20,7 @@
 module Amazonka.AppFlow.Types.ConnectorProfileCredentials where
 
 import Amazonka.AppFlow.Types.AmplitudeConnectorProfileCredentials
+import Amazonka.AppFlow.Types.CustomConnectorProfileCredentials
 import Amazonka.AppFlow.Types.DatadogConnectorProfileCredentials
 import Amazonka.AppFlow.Types.DynatraceConnectorProfileCredentials
 import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileCredentials
@@ -71,6 +72,7 @@ data ConnectorProfileCredentials = ConnectorProfileCredentials'
     serviceNow :: Prelude.Maybe ServiceNowConnectorProfileCredentials,
     -- | The connector-specific credentials required when using Datadog.
     datadog :: Prelude.Maybe DatadogConnectorProfileCredentials,
+    customConnector :: Prelude.Maybe CustomConnectorProfileCredentials,
     -- | The connector-specific credentials required when using Amplitude.
     amplitude :: Prelude.Maybe AmplitudeConnectorProfileCredentials,
     -- | The connector-specific credentials required when using Dynatrace.
@@ -116,6 +118,8 @@ data ConnectorProfileCredentials = ConnectorProfileCredentials'
 --
 -- 'datadog', 'connectorProfileCredentials_datadog' - The connector-specific credentials required when using Datadog.
 --
+-- 'customConnector', 'connectorProfileCredentials_customConnector' - Undocumented member.
+--
 -- 'amplitude', 'connectorProfileCredentials_amplitude' - The connector-specific credentials required when using Amplitude.
 --
 -- 'dynatrace', 'connectorProfileCredentials_dynatrace' - The connector-specific credentials required when using Dynatrace.
@@ -140,6 +144,7 @@ newConnectorProfileCredentials =
       inforNexus = Prelude.Nothing,
       serviceNow = Prelude.Nothing,
       datadog = Prelude.Nothing,
+      customConnector = Prelude.Nothing,
       amplitude = Prelude.Nothing,
       dynatrace = Prelude.Nothing,
       googleAnalytics = Prelude.Nothing
@@ -201,6 +206,10 @@ connectorProfileCredentials_serviceNow = Lens.lens (\ConnectorProfileCredentials
 connectorProfileCredentials_datadog :: Lens.Lens' ConnectorProfileCredentials (Prelude.Maybe DatadogConnectorProfileCredentials)
 connectorProfileCredentials_datadog = Lens.lens (\ConnectorProfileCredentials' {datadog} -> datadog) (\s@ConnectorProfileCredentials' {} a -> s {datadog = a} :: ConnectorProfileCredentials)
 
+-- | Undocumented member.
+connectorProfileCredentials_customConnector :: Lens.Lens' ConnectorProfileCredentials (Prelude.Maybe CustomConnectorProfileCredentials)
+connectorProfileCredentials_customConnector = Lens.lens (\ConnectorProfileCredentials' {customConnector} -> customConnector) (\s@ConnectorProfileCredentials' {} a -> s {customConnector = a} :: ConnectorProfileCredentials)
+
 -- | The connector-specific credentials required when using Amplitude.
 connectorProfileCredentials_amplitude :: Lens.Lens' ConnectorProfileCredentials (Prelude.Maybe AmplitudeConnectorProfileCredentials)
 connectorProfileCredentials_amplitude = Lens.lens (\ConnectorProfileCredentials' {amplitude} -> amplitude) (\s@ConnectorProfileCredentials' {} a -> s {amplitude = a} :: ConnectorProfileCredentials)
@@ -229,6 +238,7 @@ instance Prelude.Hashable ConnectorProfileCredentials where
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` serviceNow
       `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` dynatrace
       `Prelude.hashWithSalt` googleAnalytics
@@ -249,6 +259,7 @@ instance Prelude.NFData ConnectorProfileCredentials where
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf serviceNow
       `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf customConnector
       `Prelude.seq` Prelude.rnf amplitude
       `Prelude.seq` Prelude.rnf dynatrace
       `Prelude.seq` Prelude.rnf googleAnalytics
@@ -271,6 +282,8 @@ instance Core.ToJSON ConnectorProfileCredentials where
             ("InforNexus" Core..=) Prelude.<$> inforNexus,
             ("ServiceNow" Core..=) Prelude.<$> serviceNow,
             ("Datadog" Core..=) Prelude.<$> datadog,
+            ("CustomConnector" Core..=)
+              Prelude.<$> customConnector,
             ("Amplitude" Core..=) Prelude.<$> amplitude,
             ("Dynatrace" Core..=) Prelude.<$> dynatrace,
             ("GoogleAnalytics" Core..=)

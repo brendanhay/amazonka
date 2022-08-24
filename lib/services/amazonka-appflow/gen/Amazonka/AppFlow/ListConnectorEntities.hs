@@ -30,6 +30,7 @@ module Amazonka.AppFlow.ListConnectorEntities
 
     -- * Request Lenses
     listConnectorEntities_entitiesPath,
+    listConnectorEntities_apiVersion,
     listConnectorEntities_connectorProfileName,
     listConnectorEntities_connectorType,
 
@@ -59,6 +60,8 @@ data ListConnectorEntities = ListConnectorEntities'
     -- at different roots, this initial request returns the list of roots.
     -- Otherwise, this request returns all entities supported by the provider.
     entitiesPath :: Prelude.Maybe Prelude.Text,
+    -- | The version of the API that\'s used by the connector.
+    apiVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of the connector profile. The name is unique for each
     -- @ConnectorProfile@ in the Amazon Web Services account, and is used to
     -- query the downstream connector.
@@ -83,6 +86,8 @@ data ListConnectorEntities = ListConnectorEntities'
 -- at different roots, this initial request returns the list of roots.
 -- Otherwise, this request returns all entities supported by the provider.
 --
+-- 'apiVersion', 'listConnectorEntities_apiVersion' - The version of the API that\'s used by the connector.
+--
 -- 'connectorProfileName', 'listConnectorEntities_connectorProfileName' - The name of the connector profile. The name is unique for each
 -- @ConnectorProfile@ in the Amazon Web Services account, and is used to
 -- query the downstream connector.
@@ -94,6 +99,7 @@ newListConnectorEntities =
   ListConnectorEntities'
     { entitiesPath =
         Prelude.Nothing,
+      apiVersion = Prelude.Nothing,
       connectorProfileName = Prelude.Nothing,
       connectorType = Prelude.Nothing
     }
@@ -106,6 +112,10 @@ newListConnectorEntities =
 -- Otherwise, this request returns all entities supported by the provider.
 listConnectorEntities_entitiesPath :: Lens.Lens' ListConnectorEntities (Prelude.Maybe Prelude.Text)
 listConnectorEntities_entitiesPath = Lens.lens (\ListConnectorEntities' {entitiesPath} -> entitiesPath) (\s@ListConnectorEntities' {} a -> s {entitiesPath = a} :: ListConnectorEntities)
+
+-- | The version of the API that\'s used by the connector.
+listConnectorEntities_apiVersion :: Lens.Lens' ListConnectorEntities (Prelude.Maybe Prelude.Text)
+listConnectorEntities_apiVersion = Lens.lens (\ListConnectorEntities' {apiVersion} -> apiVersion) (\s@ListConnectorEntities' {} a -> s {apiVersion = a} :: ListConnectorEntities)
 
 -- | The name of the connector profile. The name is unique for each
 -- @ConnectorProfile@ in the Amazon Web Services account, and is used to
@@ -135,12 +145,14 @@ instance Core.AWSRequest ListConnectorEntities where
 instance Prelude.Hashable ListConnectorEntities where
   hashWithSalt _salt ListConnectorEntities' {..} =
     _salt `Prelude.hashWithSalt` entitiesPath
+      `Prelude.hashWithSalt` apiVersion
       `Prelude.hashWithSalt` connectorProfileName
       `Prelude.hashWithSalt` connectorType
 
 instance Prelude.NFData ListConnectorEntities where
   rnf ListConnectorEntities' {..} =
     Prelude.rnf entitiesPath
+      `Prelude.seq` Prelude.rnf apiVersion
       `Prelude.seq` Prelude.rnf connectorProfileName
       `Prelude.seq` Prelude.rnf connectorType
 
@@ -160,6 +172,7 @@ instance Core.ToJSON ListConnectorEntities where
     Core.object
       ( Prelude.catMaybes
           [ ("entitiesPath" Core..=) Prelude.<$> entitiesPath,
+            ("apiVersion" Core..=) Prelude.<$> apiVersion,
             ("connectorProfileName" Core..=)
               Prelude.<$> connectorProfileName,
             ("connectorType" Core..=) Prelude.<$> connectorType

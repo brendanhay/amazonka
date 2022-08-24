@@ -20,6 +20,7 @@
 module Amazonka.AppFlow.Types.ConnectorProfileProperties where
 
 import Amazonka.AppFlow.Types.AmplitudeConnectorProfileProperties
+import Amazonka.AppFlow.Types.CustomConnectorProfileProperties
 import Amazonka.AppFlow.Types.DatadogConnectorProfileProperties
 import Amazonka.AppFlow.Types.DynatraceConnectorProfileProperties
 import Amazonka.AppFlow.Types.GoogleAnalyticsConnectorProfileProperties
@@ -71,6 +72,8 @@ data ConnectorProfileProperties = ConnectorProfileProperties'
     serviceNow :: Prelude.Maybe ServiceNowConnectorProfileProperties,
     -- | The connector-specific properties required by Datadog.
     datadog :: Prelude.Maybe DatadogConnectorProfileProperties,
+    -- | The properties required by the custom connector.
+    customConnector :: Prelude.Maybe CustomConnectorProfileProperties,
     -- | The connector-specific properties required by Amplitude.
     amplitude :: Prelude.Maybe AmplitudeConnectorProfileProperties,
     -- | The connector-specific properties required by Dynatrace.
@@ -116,6 +119,8 @@ data ConnectorProfileProperties = ConnectorProfileProperties'
 --
 -- 'datadog', 'connectorProfileProperties_datadog' - The connector-specific properties required by Datadog.
 --
+-- 'customConnector', 'connectorProfileProperties_customConnector' - The properties required by the custom connector.
+--
 -- 'amplitude', 'connectorProfileProperties_amplitude' - The connector-specific properties required by Amplitude.
 --
 -- 'dynatrace', 'connectorProfileProperties_dynatrace' - The connector-specific properties required by Dynatrace.
@@ -140,6 +145,7 @@ newConnectorProfileProperties =
       inforNexus = Prelude.Nothing,
       serviceNow = Prelude.Nothing,
       datadog = Prelude.Nothing,
+      customConnector = Prelude.Nothing,
       amplitude = Prelude.Nothing,
       dynatrace = Prelude.Nothing,
       googleAnalytics = Prelude.Nothing
@@ -201,6 +207,10 @@ connectorProfileProperties_serviceNow = Lens.lens (\ConnectorProfileProperties' 
 connectorProfileProperties_datadog :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe DatadogConnectorProfileProperties)
 connectorProfileProperties_datadog = Lens.lens (\ConnectorProfileProperties' {datadog} -> datadog) (\s@ConnectorProfileProperties' {} a -> s {datadog = a} :: ConnectorProfileProperties)
 
+-- | The properties required by the custom connector.
+connectorProfileProperties_customConnector :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe CustomConnectorProfileProperties)
+connectorProfileProperties_customConnector = Lens.lens (\ConnectorProfileProperties' {customConnector} -> customConnector) (\s@ConnectorProfileProperties' {} a -> s {customConnector = a} :: ConnectorProfileProperties)
+
 -- | The connector-specific properties required by Amplitude.
 connectorProfileProperties_amplitude :: Lens.Lens' ConnectorProfileProperties (Prelude.Maybe AmplitudeConnectorProfileProperties)
 connectorProfileProperties_amplitude = Lens.lens (\ConnectorProfileProperties' {amplitude} -> amplitude) (\s@ConnectorProfileProperties' {} a -> s {amplitude = a} :: ConnectorProfileProperties)
@@ -233,6 +243,7 @@ instance Core.FromJSON ConnectorProfileProperties where
             Prelude.<*> (x Core..:? "InforNexus")
             Prelude.<*> (x Core..:? "ServiceNow")
             Prelude.<*> (x Core..:? "Datadog")
+            Prelude.<*> (x Core..:? "CustomConnector")
             Prelude.<*> (x Core..:? "Amplitude")
             Prelude.<*> (x Core..:? "Dynatrace")
             Prelude.<*> (x Core..:? "GoogleAnalytics")
@@ -254,6 +265,7 @@ instance Prelude.Hashable ConnectorProfileProperties where
       `Prelude.hashWithSalt` inforNexus
       `Prelude.hashWithSalt` serviceNow
       `Prelude.hashWithSalt` datadog
+      `Prelude.hashWithSalt` customConnector
       `Prelude.hashWithSalt` amplitude
       `Prelude.hashWithSalt` dynatrace
       `Prelude.hashWithSalt` googleAnalytics
@@ -274,6 +286,7 @@ instance Prelude.NFData ConnectorProfileProperties where
       `Prelude.seq` Prelude.rnf inforNexus
       `Prelude.seq` Prelude.rnf serviceNow
       `Prelude.seq` Prelude.rnf datadog
+      `Prelude.seq` Prelude.rnf customConnector
       `Prelude.seq` Prelude.rnf amplitude
       `Prelude.seq` Prelude.rnf dynatrace
       `Prelude.seq` Prelude.rnf googleAnalytics
@@ -296,6 +309,8 @@ instance Core.ToJSON ConnectorProfileProperties where
             ("InforNexus" Core..=) Prelude.<$> inforNexus,
             ("ServiceNow" Core..=) Prelude.<$> serviceNow,
             ("Datadog" Core..=) Prelude.<$> datadog,
+            ("CustomConnector" Core..=)
+              Prelude.<$> customConnector,
             ("Amplitude" Core..=) Prelude.<$> amplitude,
             ("Dynatrace" Core..=) Prelude.<$> dynatrace,
             ("GoogleAnalytics" Core..=)

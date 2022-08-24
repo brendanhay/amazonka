@@ -53,6 +53,8 @@ data ConnectorProfile = ConnectorProfile'
     connectorType :: Prelude.Maybe ConnectorType,
     -- | The Amazon Resource Name (ARN) of the connector profile.
     connectorProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | The label for the connector profile being created.
+    connectorLabel :: Prelude.Maybe Prelude.Text,
     -- | Specifies when the connector profile was created.
     createdAt :: Prelude.Maybe Core.POSIX
   }
@@ -83,6 +85,8 @@ data ConnectorProfile = ConnectorProfile'
 --
 -- 'connectorProfileArn', 'connectorProfile_connectorProfileArn' - The Amazon Resource Name (ARN) of the connector profile.
 --
+-- 'connectorLabel', 'connectorProfile_connectorLabel' - The label for the connector profile being created.
+--
 -- 'createdAt', 'connectorProfile_createdAt' - Specifies when the connector profile was created.
 newConnectorProfile ::
   ConnectorProfile
@@ -96,6 +100,7 @@ newConnectorProfile =
       privateConnectionProvisioningState = Prelude.Nothing,
       connectorType = Prelude.Nothing,
       connectorProfileArn = Prelude.Nothing,
+      connectorLabel = Prelude.Nothing,
       createdAt = Prelude.Nothing
     }
 
@@ -132,6 +137,10 @@ connectorProfile_connectorType = Lens.lens (\ConnectorProfile' {connectorType} -
 connectorProfile_connectorProfileArn :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.Text)
 connectorProfile_connectorProfileArn = Lens.lens (\ConnectorProfile' {connectorProfileArn} -> connectorProfileArn) (\s@ConnectorProfile' {} a -> s {connectorProfileArn = a} :: ConnectorProfile)
 
+-- | The label for the connector profile being created.
+connectorProfile_connectorLabel :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.Text)
+connectorProfile_connectorLabel = Lens.lens (\ConnectorProfile' {connectorLabel} -> connectorLabel) (\s@ConnectorProfile' {} a -> s {connectorLabel = a} :: ConnectorProfile)
+
 -- | Specifies when the connector profile was created.
 connectorProfile_createdAt :: Lens.Lens' ConnectorProfile (Prelude.Maybe Prelude.UTCTime)
 connectorProfile_createdAt = Lens.lens (\ConnectorProfile' {createdAt} -> createdAt) (\s@ConnectorProfile' {} a -> s {createdAt = a} :: ConnectorProfile) Prelude.. Lens.mapping Core._Time
@@ -150,6 +159,7 @@ instance Core.FromJSON ConnectorProfile where
             Prelude.<*> (x Core..:? "privateConnectionProvisioningState")
             Prelude.<*> (x Core..:? "connectorType")
             Prelude.<*> (x Core..:? "connectorProfileArn")
+            Prelude.<*> (x Core..:? "connectorLabel")
             Prelude.<*> (x Core..:? "createdAt")
       )
 
@@ -163,6 +173,7 @@ instance Prelude.Hashable ConnectorProfile where
       `Prelude.hashWithSalt` privateConnectionProvisioningState
       `Prelude.hashWithSalt` connectorType
       `Prelude.hashWithSalt` connectorProfileArn
+      `Prelude.hashWithSalt` connectorLabel
       `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData ConnectorProfile where
@@ -175,4 +186,5 @@ instance Prelude.NFData ConnectorProfile where
       `Prelude.seq` Prelude.rnf privateConnectionProvisioningState
       `Prelude.seq` Prelude.rnf connectorType
       `Prelude.seq` Prelude.rnf connectorProfileArn
+      `Prelude.seq` Prelude.rnf connectorLabel
       `Prelude.seq` Prelude.rnf createdAt

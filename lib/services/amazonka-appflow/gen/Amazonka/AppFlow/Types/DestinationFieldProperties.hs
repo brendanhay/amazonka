@@ -38,6 +38,9 @@ data DestinationFieldProperties = DestinationFieldProperties'
     supportedWriteOperations :: Prelude.Maybe [WriteOperationType],
     -- | Specifies if the destination field can have a null value.
     isNullable :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies whether the field can use the default value during a Create
+    -- operation.
+    isDefaultedOnCreate :: Prelude.Maybe Prelude.Bool,
     -- | Specifies if the flow run can either insert new rows in the destination
     -- field if they do not already exist, or update them if they do.
     isUpsertable :: Prelude.Maybe Prelude.Bool,
@@ -63,6 +66,9 @@ data DestinationFieldProperties = DestinationFieldProperties'
 --
 -- 'isNullable', 'destinationFieldProperties_isNullable' - Specifies if the destination field can have a null value.
 --
+-- 'isDefaultedOnCreate', 'destinationFieldProperties_isDefaultedOnCreate' - Specifies whether the field can use the default value during a Create
+-- operation.
+--
 -- 'isUpsertable', 'destinationFieldProperties_isUpsertable' - Specifies if the flow run can either insert new rows in the destination
 -- field if they do not already exist, or update them if they do.
 --
@@ -75,6 +81,7 @@ newDestinationFieldProperties =
         Prelude.Nothing,
       supportedWriteOperations = Prelude.Nothing,
       isNullable = Prelude.Nothing,
+      isDefaultedOnCreate = Prelude.Nothing,
       isUpsertable = Prelude.Nothing,
       isCreatable = Prelude.Nothing
     }
@@ -93,6 +100,11 @@ destinationFieldProperties_supportedWriteOperations = Lens.lens (\DestinationFie
 -- | Specifies if the destination field can have a null value.
 destinationFieldProperties_isNullable :: Lens.Lens' DestinationFieldProperties (Prelude.Maybe Prelude.Bool)
 destinationFieldProperties_isNullable = Lens.lens (\DestinationFieldProperties' {isNullable} -> isNullable) (\s@DestinationFieldProperties' {} a -> s {isNullable = a} :: DestinationFieldProperties)
+
+-- | Specifies whether the field can use the default value during a Create
+-- operation.
+destinationFieldProperties_isDefaultedOnCreate :: Lens.Lens' DestinationFieldProperties (Prelude.Maybe Prelude.Bool)
+destinationFieldProperties_isDefaultedOnCreate = Lens.lens (\DestinationFieldProperties' {isDefaultedOnCreate} -> isDefaultedOnCreate) (\s@DestinationFieldProperties' {} a -> s {isDefaultedOnCreate = a} :: DestinationFieldProperties)
 
 -- | Specifies if the flow run can either insert new rows in the destination
 -- field if they do not already exist, or update them if they do.
@@ -114,6 +126,7 @@ instance Core.FromJSON DestinationFieldProperties where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "isNullable")
+            Prelude.<*> (x Core..:? "isDefaultedOnCreate")
             Prelude.<*> (x Core..:? "isUpsertable")
             Prelude.<*> (x Core..:? "isCreatable")
       )
@@ -123,6 +136,7 @@ instance Prelude.Hashable DestinationFieldProperties where
     _salt `Prelude.hashWithSalt` isUpdatable
       `Prelude.hashWithSalt` supportedWriteOperations
       `Prelude.hashWithSalt` isNullable
+      `Prelude.hashWithSalt` isDefaultedOnCreate
       `Prelude.hashWithSalt` isUpsertable
       `Prelude.hashWithSalt` isCreatable
 
@@ -131,5 +145,6 @@ instance Prelude.NFData DestinationFieldProperties where
     Prelude.rnf isUpdatable
       `Prelude.seq` Prelude.rnf supportedWriteOperations
       `Prelude.seq` Prelude.rnf isNullable
+      `Prelude.seq` Prelude.rnf isDefaultedOnCreate
       `Prelude.seq` Prelude.rnf isUpsertable
       `Prelude.seq` Prelude.rnf isCreatable

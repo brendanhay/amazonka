@@ -48,6 +48,7 @@ library
     Amazonka.AppFlow.CreateFlow
     Amazonka.AppFlow.DeleteConnectorProfile
     Amazonka.AppFlow.DeleteFlow
+    Amazonka.AppFlow.DescribeConnector
     Amazonka.AppFlow.DescribeConnectorEntity
     Amazonka.AppFlow.DescribeConnectorProfiles
     Amazonka.AppFlow.DescribeConnectors
@@ -55,8 +56,10 @@ library
     Amazonka.AppFlow.DescribeFlowExecutionRecords
     Amazonka.AppFlow.Lens
     Amazonka.AppFlow.ListConnectorEntities
+    Amazonka.AppFlow.ListConnectors
     Amazonka.AppFlow.ListFlows
     Amazonka.AppFlow.ListTagsForResource
+    Amazonka.AppFlow.RegisterConnector
     Amazonka.AppFlow.StartFlow
     Amazonka.AppFlow.StopFlow
     Amazonka.AppFlow.TagResource
@@ -68,9 +71,14 @@ library
     Amazonka.AppFlow.Types.AmplitudeConnectorProfileProperties
     Amazonka.AppFlow.Types.AmplitudeMetadata
     Amazonka.AppFlow.Types.AmplitudeSourceProperties
+    Amazonka.AppFlow.Types.ApiKeyCredentials
+    Amazonka.AppFlow.Types.AuthenticationConfig
+    Amazonka.AppFlow.Types.AuthenticationType
+    Amazonka.AppFlow.Types.AuthParameter
     Amazonka.AppFlow.Types.BasicAuthCredentials
     Amazonka.AppFlow.Types.ConnectionMode
     Amazonka.AppFlow.Types.ConnectorConfiguration
+    Amazonka.AppFlow.Types.ConnectorDetail
     Amazonka.AppFlow.Types.ConnectorEntity
     Amazonka.AppFlow.Types.ConnectorEntityField
     Amazonka.AppFlow.Types.ConnectorMetadata
@@ -80,7 +88,16 @@ library
     Amazonka.AppFlow.Types.ConnectorProfileConfig
     Amazonka.AppFlow.Types.ConnectorProfileCredentials
     Amazonka.AppFlow.Types.ConnectorProfileProperties
+    Amazonka.AppFlow.Types.ConnectorProvisioningConfig
+    Amazonka.AppFlow.Types.ConnectorProvisioningType
+    Amazonka.AppFlow.Types.ConnectorRuntimeSetting
     Amazonka.AppFlow.Types.ConnectorType
+    Amazonka.AppFlow.Types.CustomAuthConfig
+    Amazonka.AppFlow.Types.CustomAuthCredentials
+    Amazonka.AppFlow.Types.CustomConnectorDestinationProperties
+    Amazonka.AppFlow.Types.CustomConnectorProfileCredentials
+    Amazonka.AppFlow.Types.CustomConnectorProfileProperties
+    Amazonka.AppFlow.Types.CustomConnectorSourceProperties
     Amazonka.AppFlow.Types.CustomerProfilesDestinationProperties
     Amazonka.AppFlow.Types.CustomerProfilesMetadata
     Amazonka.AppFlow.Types.DatadogConnectorOperator
@@ -124,22 +141,32 @@ library
     Amazonka.AppFlow.Types.InforNexusConnectorProfileProperties
     Amazonka.AppFlow.Types.InforNexusMetadata
     Amazonka.AppFlow.Types.InforNexusSourceProperties
+    Amazonka.AppFlow.Types.LambdaConnectorProvisioningConfig
     Amazonka.AppFlow.Types.LookoutMetricsDestinationProperties
     Amazonka.AppFlow.Types.MarketoConnectorOperator
     Amazonka.AppFlow.Types.MarketoConnectorProfileCredentials
     Amazonka.AppFlow.Types.MarketoConnectorProfileProperties
+    Amazonka.AppFlow.Types.MarketoDestinationProperties
     Amazonka.AppFlow.Types.MarketoMetadata
     Amazonka.AppFlow.Types.MarketoSourceProperties
+    Amazonka.AppFlow.Types.OAuth2Credentials
+    Amazonka.AppFlow.Types.OAuth2CustomParameter
+    Amazonka.AppFlow.Types.OAuth2CustomPropType
+    Amazonka.AppFlow.Types.OAuth2Defaults
+    Amazonka.AppFlow.Types.OAuth2GrantType
+    Amazonka.AppFlow.Types.OAuth2Properties
     Amazonka.AppFlow.Types.OAuthCredentials
     Amazonka.AppFlow.Types.OAuthProperties
     Amazonka.AppFlow.Types.Operator
     Amazonka.AppFlow.Types.OperatorPropertiesKeys
+    Amazonka.AppFlow.Types.Operators
     Amazonka.AppFlow.Types.PrefixConfig
     Amazonka.AppFlow.Types.PrefixFormat
     Amazonka.AppFlow.Types.PrefixType
     Amazonka.AppFlow.Types.PrivateConnectionProvisioningFailureCause
     Amazonka.AppFlow.Types.PrivateConnectionProvisioningState
     Amazonka.AppFlow.Types.PrivateConnectionProvisioningStatus
+    Amazonka.AppFlow.Types.Range
     Amazonka.AppFlow.Types.RedshiftConnectorProfileCredentials
     Amazonka.AppFlow.Types.RedshiftConnectorProfileProperties
     Amazonka.AppFlow.Types.RedshiftDestinationProperties
@@ -160,6 +187,7 @@ library
     Amazonka.AppFlow.Types.SAPODataConnectorOperator
     Amazonka.AppFlow.Types.SAPODataConnectorProfileCredentials
     Amazonka.AppFlow.Types.SAPODataConnectorProfileProperties
+    Amazonka.AppFlow.Types.SAPODataDestinationProperties
     Amazonka.AppFlow.Types.SAPODataMetadata
     Amazonka.AppFlow.Types.SAPODataSourceProperties
     Amazonka.AppFlow.Types.ScheduledTriggerProperties
@@ -186,6 +214,7 @@ library
     Amazonka.AppFlow.Types.SourceConnectorProperties
     Amazonka.AppFlow.Types.SourceFieldProperties
     Amazonka.AppFlow.Types.SourceFlowConfig
+    Amazonka.AppFlow.Types.SuccessResponseHandlingConfig
     Amazonka.AppFlow.Types.SupportedFieldTypeDetails
     Amazonka.AppFlow.Types.Task
     Amazonka.AppFlow.Types.TaskType
@@ -212,6 +241,7 @@ library
     Amazonka.AppFlow.Types.ZendeskDestinationProperties
     Amazonka.AppFlow.Types.ZendeskMetadata
     Amazonka.AppFlow.Types.ZendeskSourceProperties
+    Amazonka.AppFlow.UnregisterConnector
     Amazonka.AppFlow.UntagResource
     Amazonka.AppFlow.UpdateConnectorProfile
     Amazonka.AppFlow.UpdateFlow

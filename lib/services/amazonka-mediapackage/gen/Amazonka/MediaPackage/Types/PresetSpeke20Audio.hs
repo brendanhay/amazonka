@@ -20,7 +20,11 @@
 module Amazonka.MediaPackage.Types.PresetSpeke20Audio
   ( PresetSpeke20Audio
       ( ..,
-        PresetSpeke20Audio_PRESET_AUDIO_1
+        PresetSpeke20Audio_PRESET_AUDIO_1,
+        PresetSpeke20Audio_PRESET_AUDIO_2,
+        PresetSpeke20Audio_PRESET_AUDIO_3,
+        PresetSpeke20Audio_SHARED,
+        PresetSpeke20Audio_UNENCRYPTED
       ),
   )
 where
@@ -59,7 +63,23 @@ newtype PresetSpeke20Audio = PresetSpeke20Audio'
 pattern PresetSpeke20Audio_PRESET_AUDIO_1 :: PresetSpeke20Audio
 pattern PresetSpeke20Audio_PRESET_AUDIO_1 = PresetSpeke20Audio' "PRESET-AUDIO-1"
 
+pattern PresetSpeke20Audio_PRESET_AUDIO_2 :: PresetSpeke20Audio
+pattern PresetSpeke20Audio_PRESET_AUDIO_2 = PresetSpeke20Audio' "PRESET-AUDIO-2"
+
+pattern PresetSpeke20Audio_PRESET_AUDIO_3 :: PresetSpeke20Audio
+pattern PresetSpeke20Audio_PRESET_AUDIO_3 = PresetSpeke20Audio' "PRESET-AUDIO-3"
+
+pattern PresetSpeke20Audio_SHARED :: PresetSpeke20Audio
+pattern PresetSpeke20Audio_SHARED = PresetSpeke20Audio' "SHARED"
+
+pattern PresetSpeke20Audio_UNENCRYPTED :: PresetSpeke20Audio
+pattern PresetSpeke20Audio_UNENCRYPTED = PresetSpeke20Audio' "UNENCRYPTED"
+
 {-# COMPLETE
   PresetSpeke20Audio_PRESET_AUDIO_1,
+  PresetSpeke20Audio_PRESET_AUDIO_2,
+  PresetSpeke20Audio_PRESET_AUDIO_3,
+  PresetSpeke20Audio_SHARED,
+  PresetSpeke20Audio_UNENCRYPTED,
   PresetSpeke20Audio'
   #-}

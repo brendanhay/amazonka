@@ -37,7 +37,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newDashPackage' smart constructor.
 data DashPackage = DashPackage'
   { -- | The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
-    -- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
+    -- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled. When set to
+    -- \"DVB-DASH_2014\", DVB-DASH 2014 compliant output is enabled.
     profile :: Prelude.Maybe Profile,
     adsOnDeliveryRestrictions :: Prelude.Maybe AdsOnDeliveryRestrictions,
     -- | Determines the type of SegmentTemplate included in the Media
@@ -51,6 +52,8 @@ data DashPackage = DashPackage'
     streamSelection :: Prelude.Maybe StreamSelection,
     -- | Duration (in seconds) to delay live content before presentation.
     suggestedPresentationDelaySeconds :: Prelude.Maybe Prelude.Int,
+    -- | When enabled, an I-Frame only stream will be included in the output.
+    includeIframeOnlyStream :: Prelude.Maybe Prelude.Bool,
     -- | Time window (in seconds) contained in each manifest.
     manifestWindowSeconds :: Prelude.Maybe Prelude.Int,
     -- | Minimum duration (in seconds) between potential changes to the Dynamic
@@ -82,7 +85,7 @@ data DashPackage = DashPackage'
     -- starting the presentation.
     minBufferTimeSeconds :: Prelude.Maybe Prelude.Int,
     -- | Specifies the value attribute of the UTCTiming field when utcTiming is
-    -- set to HTTP-ISO or HTTP-HEAD
+    -- set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
     utcTimingUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,7 +99,8 @@ data DashPackage = DashPackage'
 -- for backwards compatibility:
 --
 -- 'profile', 'dashPackage_profile' - The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
--- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
+-- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled. When set to
+-- \"DVB-DASH_2014\", DVB-DASH 2014 compliant output is enabled.
 --
 -- 'adsOnDeliveryRestrictions', 'dashPackage_adsOnDeliveryRestrictions' - Undocumented member.
 --
@@ -111,6 +115,8 @@ data DashPackage = DashPackage'
 -- 'streamSelection', 'dashPackage_streamSelection' - Undocumented member.
 --
 -- 'suggestedPresentationDelaySeconds', 'dashPackage_suggestedPresentationDelaySeconds' - Duration (in seconds) to delay live content before presentation.
+--
+-- 'includeIframeOnlyStream', 'dashPackage_includeIframeOnlyStream' - When enabled, an I-Frame only stream will be included in the output.
 --
 -- 'manifestWindowSeconds', 'dashPackage_manifestWindowSeconds' - Time window (in seconds) contained in each manifest.
 --
@@ -145,7 +151,7 @@ data DashPackage = DashPackage'
 -- starting the presentation.
 --
 -- 'utcTimingUri', 'dashPackage_utcTimingUri' - Specifies the value attribute of the UTCTiming field when utcTiming is
--- set to HTTP-ISO or HTTP-HEAD
+-- set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
 newDashPackage ::
   DashPackage
 newDashPackage =
@@ -155,6 +161,7 @@ newDashPackage =
       segmentTemplateFormat = Prelude.Nothing,
       streamSelection = Prelude.Nothing,
       suggestedPresentationDelaySeconds = Prelude.Nothing,
+      includeIframeOnlyStream = Prelude.Nothing,
       manifestWindowSeconds = Prelude.Nothing,
       minUpdatePeriodSeconds = Prelude.Nothing,
       adTriggers = Prelude.Nothing,
@@ -168,7 +175,8 @@ newDashPackage =
     }
 
 -- | The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set
--- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled.
+-- to \"HBBTV_1_5\", HbbTV 1.5 compliant output is enabled. When set to
+-- \"DVB-DASH_2014\", DVB-DASH 2014 compliant output is enabled.
 dashPackage_profile :: Lens.Lens' DashPackage (Prelude.Maybe Profile)
 dashPackage_profile = Lens.lens (\DashPackage' {profile} -> profile) (\s@DashPackage' {} a -> s {profile = a} :: DashPackage)
 
@@ -193,6 +201,10 @@ dashPackage_streamSelection = Lens.lens (\DashPackage' {streamSelection} -> stre
 -- | Duration (in seconds) to delay live content before presentation.
 dashPackage_suggestedPresentationDelaySeconds :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Int)
 dashPackage_suggestedPresentationDelaySeconds = Lens.lens (\DashPackage' {suggestedPresentationDelaySeconds} -> suggestedPresentationDelaySeconds) (\s@DashPackage' {} a -> s {suggestedPresentationDelaySeconds = a} :: DashPackage)
+
+-- | When enabled, an I-Frame only stream will be included in the output.
+dashPackage_includeIframeOnlyStream :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Bool)
+dashPackage_includeIframeOnlyStream = Lens.lens (\DashPackage' {includeIframeOnlyStream} -> includeIframeOnlyStream) (\s@DashPackage' {} a -> s {includeIframeOnlyStream = a} :: DashPackage)
 
 -- | Time window (in seconds) contained in each manifest.
 dashPackage_manifestWindowSeconds :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Int)
@@ -245,7 +257,7 @@ dashPackage_minBufferTimeSeconds :: Lens.Lens' DashPackage (Prelude.Maybe Prelud
 dashPackage_minBufferTimeSeconds = Lens.lens (\DashPackage' {minBufferTimeSeconds} -> minBufferTimeSeconds) (\s@DashPackage' {} a -> s {minBufferTimeSeconds = a} :: DashPackage)
 
 -- | Specifies the value attribute of the UTCTiming field when utcTiming is
--- set to HTTP-ISO or HTTP-HEAD
+-- set to HTTP-ISO, HTTP-HEAD or HTTP-XSDATE
 dashPackage_utcTimingUri :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Text)
 dashPackage_utcTimingUri = Lens.lens (\DashPackage' {utcTimingUri} -> utcTimingUri) (\s@DashPackage' {} a -> s {utcTimingUri = a} :: DashPackage)
 
@@ -260,6 +272,7 @@ instance Core.FromJSON DashPackage where
             Prelude.<*> (x Core..:? "segmentTemplateFormat")
             Prelude.<*> (x Core..:? "streamSelection")
             Prelude.<*> (x Core..:? "suggestedPresentationDelaySeconds")
+            Prelude.<*> (x Core..:? "includeIframeOnlyStream")
             Prelude.<*> (x Core..:? "manifestWindowSeconds")
             Prelude.<*> (x Core..:? "minUpdatePeriodSeconds")
             Prelude.<*> (x Core..:? "adTriggers" Core..!= Prelude.mempty)
@@ -279,6 +292,7 @@ instance Prelude.Hashable DashPackage where
       `Prelude.hashWithSalt` segmentTemplateFormat
       `Prelude.hashWithSalt` streamSelection
       `Prelude.hashWithSalt` suggestedPresentationDelaySeconds
+      `Prelude.hashWithSalt` includeIframeOnlyStream
       `Prelude.hashWithSalt` manifestWindowSeconds
       `Prelude.hashWithSalt` minUpdatePeriodSeconds
       `Prelude.hashWithSalt` adTriggers
@@ -297,6 +311,7 @@ instance Prelude.NFData DashPackage where
       `Prelude.seq` Prelude.rnf segmentTemplateFormat
       `Prelude.seq` Prelude.rnf streamSelection
       `Prelude.seq` Prelude.rnf suggestedPresentationDelaySeconds
+      `Prelude.seq` Prelude.rnf includeIframeOnlyStream
       `Prelude.seq` Prelude.rnf manifestWindowSeconds
       `Prelude.seq` Prelude.rnf minUpdatePeriodSeconds
       `Prelude.seq` Prelude.rnf adTriggers
@@ -321,6 +336,8 @@ instance Core.ToJSON DashPackage where
               Prelude.<$> streamSelection,
             ("suggestedPresentationDelaySeconds" Core..=)
               Prelude.<$> suggestedPresentationDelaySeconds,
+            ("includeIframeOnlyStream" Core..=)
+              Prelude.<$> includeIframeOnlyStream,
             ("manifestWindowSeconds" Core..=)
               Prelude.<$> manifestWindowSeconds,
             ("minUpdatePeriodSeconds" Core..=)

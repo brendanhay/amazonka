@@ -20,7 +20,16 @@
 module Amazonka.MediaPackage.Types.PresetSpeke20Video
   ( PresetSpeke20Video
       ( ..,
-        PresetSpeke20Video_PRESET_VIDEO_1
+        PresetSpeke20Video_PRESET_VIDEO_1,
+        PresetSpeke20Video_PRESET_VIDEO_2,
+        PresetSpeke20Video_PRESET_VIDEO_3,
+        PresetSpeke20Video_PRESET_VIDEO_4,
+        PresetSpeke20Video_PRESET_VIDEO_5,
+        PresetSpeke20Video_PRESET_VIDEO_6,
+        PresetSpeke20Video_PRESET_VIDEO_7,
+        PresetSpeke20Video_PRESET_VIDEO_8,
+        PresetSpeke20Video_SHARED,
+        PresetSpeke20Video_UNENCRYPTED
       ),
   )
 where
@@ -59,7 +68,43 @@ newtype PresetSpeke20Video = PresetSpeke20Video'
 pattern PresetSpeke20Video_PRESET_VIDEO_1 :: PresetSpeke20Video
 pattern PresetSpeke20Video_PRESET_VIDEO_1 = PresetSpeke20Video' "PRESET-VIDEO-1"
 
+pattern PresetSpeke20Video_PRESET_VIDEO_2 :: PresetSpeke20Video
+pattern PresetSpeke20Video_PRESET_VIDEO_2 = PresetSpeke20Video' "PRESET-VIDEO-2"
+
+pattern PresetSpeke20Video_PRESET_VIDEO_3 :: PresetSpeke20Video
+pattern PresetSpeke20Video_PRESET_VIDEO_3 = PresetSpeke20Video' "PRESET-VIDEO-3"
+
+pattern PresetSpeke20Video_PRESET_VIDEO_4 :: PresetSpeke20Video
+pattern PresetSpeke20Video_PRESET_VIDEO_4 = PresetSpeke20Video' "PRESET-VIDEO-4"
+
+pattern PresetSpeke20Video_PRESET_VIDEO_5 :: PresetSpeke20Video
+pattern PresetSpeke20Video_PRESET_VIDEO_5 = PresetSpeke20Video' "PRESET-VIDEO-5"
+
+pattern PresetSpeke20Video_PRESET_VIDEO_6 :: PresetSpeke20Video
+pattern PresetSpeke20Video_PRESET_VIDEO_6 = PresetSpeke20Video' "PRESET-VIDEO-6"
+
+pattern PresetSpeke20Video_PRESET_VIDEO_7 :: PresetSpeke20Video
+pattern PresetSpeke20Video_PRESET_VIDEO_7 = PresetSpeke20Video' "PRESET-VIDEO-7"
+
+pattern PresetSpeke20Video_PRESET_VIDEO_8 :: PresetSpeke20Video
+pattern PresetSpeke20Video_PRESET_VIDEO_8 = PresetSpeke20Video' "PRESET-VIDEO-8"
+
+pattern PresetSpeke20Video_SHARED :: PresetSpeke20Video
+pattern PresetSpeke20Video_SHARED = PresetSpeke20Video' "SHARED"
+
+pattern PresetSpeke20Video_UNENCRYPTED :: PresetSpeke20Video
+pattern PresetSpeke20Video_UNENCRYPTED = PresetSpeke20Video' "UNENCRYPTED"
+
 {-# COMPLETE
   PresetSpeke20Video_PRESET_VIDEO_1,
+  PresetSpeke20Video_PRESET_VIDEO_2,
+  PresetSpeke20Video_PRESET_VIDEO_3,
+  PresetSpeke20Video_PRESET_VIDEO_4,
+  PresetSpeke20Video_PRESET_VIDEO_5,
+  PresetSpeke20Video_PRESET_VIDEO_6,
+  PresetSpeke20Video_PRESET_VIDEO_7,
+  PresetSpeke20Video_PRESET_VIDEO_8,
+  PresetSpeke20Video_SHARED,
+  PresetSpeke20Video_UNENCRYPTED,
   PresetSpeke20Video'
   #-}

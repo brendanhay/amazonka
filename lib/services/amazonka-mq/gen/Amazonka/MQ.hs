@@ -205,6 +205,10 @@ module Amazonka.MQ
     -- ** SanitizationWarningReason
     SanitizationWarningReason (..),
 
+    -- ** ActionRequired
+    ActionRequired (ActionRequired'),
+    newActionRequired,
+
     -- ** AvailabilityZone
     AvailabilityZone (AvailabilityZone'),
     newAvailabilityZone,

@@ -26,6 +26,7 @@ haskell_library(
         "gen/Amazonka/MQ/ListUsers.hs",
         "gen/Amazonka/MQ/RebootBroker.hs",
         "gen/Amazonka/MQ/Types.hs",
+        "gen/Amazonka/MQ/Types/ActionRequired.hs",
         "gen/Amazonka/MQ/Types/AuthenticationStrategy.hs",
         "gen/Amazonka/MQ/Types/AvailabilityZone.hs",
         "gen/Amazonka/MQ/Types/BrokerEngineType.hs",

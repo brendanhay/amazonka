@@ -48,6 +48,12 @@ module Amazonka.MQ.Types
     -- * SanitizationWarningReason
     SanitizationWarningReason (..),
 
+    -- * ActionRequired
+    ActionRequired (..),
+    newActionRequired,
+    actionRequired_actionRequiredInfo,
+    actionRequired_actionRequiredCode,
+
     -- * AvailabilityZone
     AvailabilityZone (..),
     newAvailabilityZone,
@@ -222,6 +228,7 @@ where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.MQ.Types.ActionRequired
 import Amazonka.MQ.Types.AuthenticationStrategy
 import Amazonka.MQ.Types.AvailabilityZone
 import Amazonka.MQ.Types.BrokerEngineType

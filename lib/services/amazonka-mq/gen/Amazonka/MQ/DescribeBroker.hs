@@ -53,6 +53,7 @@ module Amazonka.MQ.DescribeBroker
     describeBrokerResponse_logs,
     describeBrokerResponse_pendingHostInstanceType,
     describeBrokerResponse_securityGroups,
+    describeBrokerResponse_actionsRequired,
     describeBrokerResponse_hostInstanceType,
     describeBrokerResponse_authenticationStrategy,
     describeBrokerResponse_maintenanceWindowStartTime,
@@ -132,6 +133,9 @@ instance Core.AWSRequest DescribeBroker where
             Prelude.<*> (x Core..?> "logs")
             Prelude.<*> (x Core..?> "pendingHostInstanceType")
             Prelude.<*> (x Core..?> "securityGroups" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "actionsRequired"
+                            Core..!@ Prelude.mempty
+                        )
             Prelude.<*> (x Core..?> "hostInstanceType")
             Prelude.<*> (x Core..?> "authenticationStrategy")
             Prelude.<*> (x Core..?> "maintenanceWindowStartTime")
@@ -225,6 +229,8 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
     -- | The list of rules (1 minimum, 125 maximum) that authorize connections to
     -- brokers.
     securityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | A list of actions required for a broker.
+    actionsRequired :: Prelude.Maybe [ActionRequired],
     -- | The broker\'s instance type.
     hostInstanceType :: Prelude.Maybe Prelude.Text,
     -- | The authentication strategy used to secure the broker. The default is
@@ -315,6 +321,8 @@ data DescribeBrokerResponse = DescribeBrokerResponse'
 -- 'securityGroups', 'describeBrokerResponse_securityGroups' - The list of rules (1 minimum, 125 maximum) that authorize connections to
 -- brokers.
 --
+-- 'actionsRequired', 'describeBrokerResponse_actionsRequired' - A list of actions required for a broker.
+--
 -- 'hostInstanceType', 'describeBrokerResponse_hostInstanceType' - The broker\'s instance type.
 --
 -- 'authenticationStrategy', 'describeBrokerResponse_authenticationStrategy' - The authentication strategy used to secure the broker. The default is
@@ -365,6 +373,7 @@ newDescribeBrokerResponse pHttpStatus_ =
       logs = Prelude.Nothing,
       pendingHostInstanceType = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
+      actionsRequired = Prelude.Nothing,
       hostInstanceType = Prelude.Nothing,
       authenticationStrategy = Prelude.Nothing,
       maintenanceWindowStartTime = Prelude.Nothing,
@@ -468,6 +477,10 @@ describeBrokerResponse_pendingHostInstanceType = Lens.lens (\DescribeBrokerRespo
 describeBrokerResponse_securityGroups :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [Prelude.Text])
 describeBrokerResponse_securityGroups = Lens.lens (\DescribeBrokerResponse' {securityGroups} -> securityGroups) (\s@DescribeBrokerResponse' {} a -> s {securityGroups = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | A list of actions required for a broker.
+describeBrokerResponse_actionsRequired :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe [ActionRequired])
+describeBrokerResponse_actionsRequired = Lens.lens (\DescribeBrokerResponse' {actionsRequired} -> actionsRequired) (\s@DescribeBrokerResponse' {} a -> s {actionsRequired = a} :: DescribeBrokerResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The broker\'s instance type.
 describeBrokerResponse_hostInstanceType :: Lens.Lens' DescribeBrokerResponse (Prelude.Maybe Prelude.Text)
 describeBrokerResponse_hostInstanceType = Lens.lens (\DescribeBrokerResponse' {hostInstanceType} -> hostInstanceType) (\s@DescribeBrokerResponse' {} a -> s {hostInstanceType = a} :: DescribeBrokerResponse)
@@ -536,6 +549,7 @@ instance Prelude.NFData DescribeBrokerResponse where
       `Prelude.seq` Prelude.rnf
         pendingHostInstanceType
       `Prelude.seq` Prelude.rnf securityGroups
+      `Prelude.seq` Prelude.rnf actionsRequired
       `Prelude.seq` Prelude.rnf hostInstanceType
       `Prelude.seq` Prelude.rnf
         authenticationStrategy

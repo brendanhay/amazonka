@@ -40,7 +40,7 @@
 --
 -- For a complete list of outputs for each asset type, see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#DescribeConfigurations Using the DescribeConfigurations Action>
--- in the /AWS Application Discovery Service User Guide/.
+-- in the /Amazon Web Services Application Discovery Service User Guide/.
 module Amazonka.Discovery.DescribeConfigurations
   ( -- * Creating a Request
     DescribeConfigurations (..),

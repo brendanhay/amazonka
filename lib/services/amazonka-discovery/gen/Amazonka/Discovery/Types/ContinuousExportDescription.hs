@@ -38,9 +38,9 @@ data ContinuousExportDescription = ContinuousExportDescription'
     -- can have the following values:
     --
     -- -   ACCESS_DENIED - You don’t have permission to start Data Exploration
-    --     in Amazon Athena. Contact your AWS administrator for help. For more
-    --     information, see
-    --     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up AWS Application Discovery Service>
+    --     in Amazon Athena. Contact your Amazon Web Services administrator for
+    --     help. For more information, see
+    --     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up Amazon Web Services Application Discovery Service>
     --     in the Application Discovery Service User Guide.
     --
     -- -   DELIVERY_STREAM_LIMIT_FAILURE - You reached the limit for Amazon
@@ -63,11 +63,43 @@ data ContinuousExportDescription = ContinuousExportDescription'
     --
     -- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state
     --     because of an internal failure. Try again later. If this problem
-    --     persists, contact AWS Support.
+    --     persists, contact Amazon Web Services Support.
+    --
+    -- -   LAKE_FORMATION_ACCESS_DENIED - You don\'t have sufficient lake
+    --     formation permissions to start continuous export. For more
+    --     information, see
+    --     <http://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html Upgrading Amazon Web Services Glue Data Permissions to the Amazon Web Services Lake Formation Model>
+    --     in the Amazon Web Services /Lake Formation Developer Guide/.
+    --
+    --     You can use one of the following two ways to resolve this issue.
+    --
+    --     1.  If you don’t want to use the Lake Formation permission model,
+    --         you can change the default Data Catalog settings to use only
+    --         Amazon Web Services Identity and Access Management (IAM) access
+    --         control for new databases. For more information, see
+    --         <https://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#setup-change-cat-settings Change Data Catalog Settings>
+    --         in the /Lake Formation Developer Guide/.
+    --
+    --     2.  You can give the service-linked IAM roles
+    --         AWSServiceRoleForApplicationDiscoveryServiceContinuousExport and
+    --         AWSApplicationDiscoveryServiceFirehose the required Lake
+    --         Formation permissions. For more information, see
+    --         <https://docs.aws.amazon.com/lake-formation/latest/dg/granting-database-permissions.html Granting Database Permissions>
+    --         in the /Lake Formation Developer Guide/.
+    --
+    --         1.  AWSServiceRoleForApplicationDiscoveryServiceContinuousExport
+    --             - Grant database creator permissions, which gives the role
+    --             database creation ability and implicit permissions for any
+    --             created tables. For more information, see
+    --             <https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html Implicit Lake Formation Permissions>
+    --             in the /Lake Formation Developer Guide/.
+    --
+    --         2.  AWSApplicationDiscoveryServiceFirehose - Grant describe
+    --             permissions for all tables in the database.
     --
     -- -   S3_BUCKET_LIMIT_FAILURE - You reached the limit for Amazon S3
-    --     buckets. Reduce the number of Amazon S3 buckets or request a limit
-    --     increase and try again. For more information, see
+    --     buckets. Reduce the number of S3 buckets or request a limit increase
+    --     and try again. For more information, see
     --     <http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
     --     in the Amazon Simple Storage Service Developer Guide.
     --
@@ -127,9 +159,9 @@ data ContinuousExportDescription = ContinuousExportDescription'
 -- can have the following values:
 --
 -- -   ACCESS_DENIED - You don’t have permission to start Data Exploration
---     in Amazon Athena. Contact your AWS administrator for help. For more
---     information, see
---     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up AWS Application Discovery Service>
+--     in Amazon Athena. Contact your Amazon Web Services administrator for
+--     help. For more information, see
+--     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up Amazon Web Services Application Discovery Service>
 --     in the Application Discovery Service User Guide.
 --
 -- -   DELIVERY_STREAM_LIMIT_FAILURE - You reached the limit for Amazon
@@ -152,11 +184,43 @@ data ContinuousExportDescription = ContinuousExportDescription'
 --
 -- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state
 --     because of an internal failure. Try again later. If this problem
---     persists, contact AWS Support.
+--     persists, contact Amazon Web Services Support.
+--
+-- -   LAKE_FORMATION_ACCESS_DENIED - You don\'t have sufficient lake
+--     formation permissions to start continuous export. For more
+--     information, see
+--     <http://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html Upgrading Amazon Web Services Glue Data Permissions to the Amazon Web Services Lake Formation Model>
+--     in the Amazon Web Services /Lake Formation Developer Guide/.
+--
+--     You can use one of the following two ways to resolve this issue.
+--
+--     1.  If you don’t want to use the Lake Formation permission model,
+--         you can change the default Data Catalog settings to use only
+--         Amazon Web Services Identity and Access Management (IAM) access
+--         control for new databases. For more information, see
+--         <https://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#setup-change-cat-settings Change Data Catalog Settings>
+--         in the /Lake Formation Developer Guide/.
+--
+--     2.  You can give the service-linked IAM roles
+--         AWSServiceRoleForApplicationDiscoveryServiceContinuousExport and
+--         AWSApplicationDiscoveryServiceFirehose the required Lake
+--         Formation permissions. For more information, see
+--         <https://docs.aws.amazon.com/lake-formation/latest/dg/granting-database-permissions.html Granting Database Permissions>
+--         in the /Lake Formation Developer Guide/.
+--
+--         1.  AWSServiceRoleForApplicationDiscoveryServiceContinuousExport
+--             - Grant database creator permissions, which gives the role
+--             database creation ability and implicit permissions for any
+--             created tables. For more information, see
+--             <https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html Implicit Lake Formation Permissions>
+--             in the /Lake Formation Developer Guide/.
+--
+--         2.  AWSApplicationDiscoveryServiceFirehose - Grant describe
+--             permissions for all tables in the database.
 --
 -- -   S3_BUCKET_LIMIT_FAILURE - You reached the limit for Amazon S3
---     buckets. Reduce the number of Amazon S3 buckets or request a limit
---     increase and try again. For more information, see
+--     buckets. Reduce the number of S3 buckets or request a limit increase
+--     and try again. For more information, see
 --     <http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
 --     in the Amazon Simple Storage Service Developer Guide.
 --
@@ -223,9 +287,9 @@ continuousExportDescription_stopTime = Lens.lens (\ContinuousExportDescription' 
 -- can have the following values:
 --
 -- -   ACCESS_DENIED - You don’t have permission to start Data Exploration
---     in Amazon Athena. Contact your AWS administrator for help. For more
---     information, see
---     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up AWS Application Discovery Service>
+--     in Amazon Athena. Contact your Amazon Web Services administrator for
+--     help. For more information, see
+--     <http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up Amazon Web Services Application Discovery Service>
 --     in the Application Discovery Service User Guide.
 --
 -- -   DELIVERY_STREAM_LIMIT_FAILURE - You reached the limit for Amazon
@@ -248,11 +312,43 @@ continuousExportDescription_stopTime = Lens.lens (\ContinuousExportDescription' 
 --
 -- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state
 --     because of an internal failure. Try again later. If this problem
---     persists, contact AWS Support.
+--     persists, contact Amazon Web Services Support.
+--
+-- -   LAKE_FORMATION_ACCESS_DENIED - You don\'t have sufficient lake
+--     formation permissions to start continuous export. For more
+--     information, see
+--     <http://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html Upgrading Amazon Web Services Glue Data Permissions to the Amazon Web Services Lake Formation Model>
+--     in the Amazon Web Services /Lake Formation Developer Guide/.
+--
+--     You can use one of the following two ways to resolve this issue.
+--
+--     1.  If you don’t want to use the Lake Formation permission model,
+--         you can change the default Data Catalog settings to use only
+--         Amazon Web Services Identity and Access Management (IAM) access
+--         control for new databases. For more information, see
+--         <https://docs.aws.amazon.com/lake-formation/latest/dg/getting-started-setup.html#setup-change-cat-settings Change Data Catalog Settings>
+--         in the /Lake Formation Developer Guide/.
+--
+--     2.  You can give the service-linked IAM roles
+--         AWSServiceRoleForApplicationDiscoveryServiceContinuousExport and
+--         AWSApplicationDiscoveryServiceFirehose the required Lake
+--         Formation permissions. For more information, see
+--         <https://docs.aws.amazon.com/lake-formation/latest/dg/granting-database-permissions.html Granting Database Permissions>
+--         in the /Lake Formation Developer Guide/.
+--
+--         1.  AWSServiceRoleForApplicationDiscoveryServiceContinuousExport
+--             - Grant database creator permissions, which gives the role
+--             database creation ability and implicit permissions for any
+--             created tables. For more information, see
+--             <https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html Implicit Lake Formation Permissions>
+--             in the /Lake Formation Developer Guide/.
+--
+--         2.  AWSApplicationDiscoveryServiceFirehose - Grant describe
+--             permissions for all tables in the database.
 --
 -- -   S3_BUCKET_LIMIT_FAILURE - You reached the limit for Amazon S3
---     buckets. Reduce the number of Amazon S3 buckets or request a limit
---     increase and try again. For more information, see
+--     buckets. Reduce the number of S3 buckets or request a limit increase
+--     and try again. For more information, see
 --     <http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations>
 --     in the Amazon Simple Storage Service Developer Guide.
 --

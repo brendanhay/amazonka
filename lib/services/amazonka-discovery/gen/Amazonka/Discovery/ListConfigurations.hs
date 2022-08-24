@@ -71,7 +71,7 @@ data ListConfigurations = ListConfigurations'
     -- For a complete list of filter options and guidance about using them with
     -- this action, see
     -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
-    -- in the /AWS Application Discovery Service User Guide/.
+    -- in the /Amazon Web Services Application Discovery Service User Guide/.
     filters :: Prelude.Maybe [Filter],
     -- | The total number of items to return. The maximum value is 100.
     maxResults :: Prelude.Maybe Prelude.Int,
@@ -79,7 +79,7 @@ data ListConfigurations = ListConfigurations'
     -- descending order. For a list of output characteristics for each filter,
     -- see
     -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
-    -- in the /AWS Application Discovery Service User Guide/.
+    -- in the /Amazon Web Services Application Discovery Service User Guide/.
     orderBy :: Prelude.Maybe [OrderByElement],
     -- | A valid configuration identified by Application Discovery Service.
     configurationType :: ConfigurationItemType
@@ -108,7 +108,7 @@ data ListConfigurations = ListConfigurations'
 -- For a complete list of filter options and guidance about using them with
 -- this action, see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
--- in the /AWS Application Discovery Service User Guide/.
+-- in the /Amazon Web Services Application Discovery Service User Guide/.
 --
 -- 'maxResults', 'listConfigurations_maxResults' - The total number of items to return. The maximum value is 100.
 --
@@ -116,7 +116,7 @@ data ListConfigurations = ListConfigurations'
 -- descending order. For a list of output characteristics for each filter,
 -- see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
--- in the /AWS Application Discovery Service User Guide/.
+-- in the /Amazon Web Services Application Discovery Service User Guide/.
 --
 -- 'configurationType', 'listConfigurations_configurationType' - A valid configuration identified by Application Discovery Service.
 newListConfigurations ::
@@ -148,7 +148,7 @@ listConfigurations_nextToken = Lens.lens (\ListConfigurations' {nextToken} -> ne
 -- For a complete list of filter options and guidance about using them with
 -- this action, see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
--- in the /AWS Application Discovery Service User Guide/.
+-- in the /Amazon Web Services Application Discovery Service User Guide/.
 listConfigurations_filters :: Lens.Lens' ListConfigurations (Prelude.Maybe [Filter])
 listConfigurations_filters = Lens.lens (\ListConfigurations' {filters} -> filters) (\s@ListConfigurations' {} a -> s {filters = a} :: ListConfigurations) Prelude.. Lens.mapping Lens.coerced
 
@@ -160,7 +160,7 @@ listConfigurations_maxResults = Lens.lens (\ListConfigurations' {maxResults} -> 
 -- descending order. For a list of output characteristics for each filter,
 -- see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html#ListConfigurations Using the ListConfigurations Action>
--- in the /AWS Application Discovery Service User Guide/.
+-- in the /Amazon Web Services Application Discovery Service User Guide/.
 listConfigurations_orderBy :: Lens.Lens' ListConfigurations (Prelude.Maybe [OrderByElement])
 listConfigurations_orderBy = Lens.lens (\ListConfigurations' {orderBy} -> orderBy) (\s@ListConfigurations' {} a -> s {orderBy = a} :: ListConfigurations) Prelude.. Lens.mapping Lens.coerced
 

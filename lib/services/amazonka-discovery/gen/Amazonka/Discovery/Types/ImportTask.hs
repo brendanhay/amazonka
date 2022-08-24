@@ -43,7 +43,7 @@ data ImportTask = ImportTask'
     -- automatically generated when the import task request was sent.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The unique ID for a specific import task. These IDs aren\'t globally
-    -- unique, but they are unique within an AWS account.
+    -- unique, but they are unique within an Amazon Web Services account.
     importTaskId :: Prelude.Maybe Prelude.Text,
     -- | The status of the import task. An import can have the status of
     -- @IMPORT_COMPLETE@ and still have some records fail to import from the
@@ -109,7 +109,7 @@ data ImportTask = ImportTask'
 -- automatically generated when the import task request was sent.
 --
 -- 'importTaskId', 'importTask_importTaskId' - The unique ID for a specific import task. These IDs aren\'t globally
--- unique, but they are unique within an AWS account.
+-- unique, but they are unique within an Amazon Web Services account.
 --
 -- 'status', 'importTask_status' - The status of the import task. An import can have the status of
 -- @IMPORT_COMPLETE@ and still have some records fail to import from the
@@ -188,7 +188,7 @@ importTask_clientRequestToken :: Lens.Lens' ImportTask (Prelude.Maybe Prelude.Te
 importTask_clientRequestToken = Lens.lens (\ImportTask' {clientRequestToken} -> clientRequestToken) (\s@ImportTask' {} a -> s {clientRequestToken = a} :: ImportTask)
 
 -- | The unique ID for a specific import task. These IDs aren\'t globally
--- unique, but they are unique within an AWS account.
+-- unique, but they are unique within an Amazon Web Services account.
 importTask_importTaskId :: Lens.Lens' ImportTask (Prelude.Maybe Prelude.Text)
 importTask_importTaskId = Lens.lens (\ImportTask' {importTaskId} -> importTaskId) (\s@ImportTask' {} a -> s {importTaskId = a} :: ImportTask)
 

@@ -123,6 +123,17 @@ module Amazonka.Discovery.Types
     customerAgentInfo_totalAgents,
     customerAgentInfo_unknownAgents,
 
+    -- * CustomerAgentlessCollectorInfo
+    CustomerAgentlessCollectorInfo (..),
+    newCustomerAgentlessCollectorInfo,
+    customerAgentlessCollectorInfo_activeAgentlessCollectors,
+    customerAgentlessCollectorInfo_healthyAgentlessCollectors,
+    customerAgentlessCollectorInfo_denyListedAgentlessCollectors,
+    customerAgentlessCollectorInfo_shutdownAgentlessCollectors,
+    customerAgentlessCollectorInfo_unhealthyAgentlessCollectors,
+    customerAgentlessCollectorInfo_totalAgentlessCollectors,
+    customerAgentlessCollectorInfo_unknownAgentlessCollectors,
+
     -- * CustomerConnectorInfo
     CustomerConnectorInfo (..),
     newCustomerConnectorInfo,
@@ -133,6 +144,17 @@ module Amazonka.Discovery.Types
     customerConnectorInfo_unhealthyConnectors,
     customerConnectorInfo_totalConnectors,
     customerConnectorInfo_unknownConnectors,
+
+    -- * CustomerMeCollectorInfo
+    CustomerMeCollectorInfo (..),
+    newCustomerMeCollectorInfo,
+    customerMeCollectorInfo_activeMeCollectors,
+    customerMeCollectorInfo_healthyMeCollectors,
+    customerMeCollectorInfo_denyListedMeCollectors,
+    customerMeCollectorInfo_shutdownMeCollectors,
+    customerMeCollectorInfo_unhealthyMeCollectors,
+    customerMeCollectorInfo_totalMeCollectors,
+    customerMeCollectorInfo_unknownMeCollectors,
 
     -- * ExportFilter
     ExportFilter (..),
@@ -224,7 +246,9 @@ import Amazonka.Discovery.Types.ConfigurationTag
 import Amazonka.Discovery.Types.ContinuousExportDescription
 import Amazonka.Discovery.Types.ContinuousExportStatus
 import Amazonka.Discovery.Types.CustomerAgentInfo
+import Amazonka.Discovery.Types.CustomerAgentlessCollectorInfo
 import Amazonka.Discovery.Types.CustomerConnectorInfo
+import Amazonka.Discovery.Types.CustomerMeCollectorInfo
 import Amazonka.Discovery.Types.DataSource
 import Amazonka.Discovery.Types.ExportDataFormat
 import Amazonka.Discovery.Types.ExportFilter
@@ -347,8 +371,8 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
 
--- | The AWS user account does not have permission to perform the action.
--- Check the IAM policy associated with this account.
+-- | The Amazon Web Services user account does not have permission to perform
+-- the action. Check the IAM policy associated with this account.
 _AuthorizationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AuthorizationErrorException =
   Core._MatchServiceError

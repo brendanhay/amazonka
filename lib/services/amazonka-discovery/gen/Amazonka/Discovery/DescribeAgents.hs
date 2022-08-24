@@ -72,7 +72,8 @@ data DescribeAgents = DescribeAgents'
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The agent or the Connector IDs for which you want information. If you
     -- specify no IDs, the system returns information about all
-    -- agents\/Connectors associated with your AWS user account.
+    -- agents\/Connectors associated with your Amazon Web Services user
+    -- account.
     agentIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,7 +102,8 @@ data DescribeAgents = DescribeAgents'
 --
 -- 'agentIds', 'describeAgents_agentIds' - The agent or the Connector IDs for which you want information. If you
 -- specify no IDs, the system returns information about all
--- agents\/Connectors associated with your AWS user account.
+-- agents\/Connectors associated with your Amazon Web Services user
+-- account.
 newDescribeAgents ::
   DescribeAgents
 newDescribeAgents =
@@ -134,7 +136,8 @@ describeAgents_maxResults = Lens.lens (\DescribeAgents' {maxResults} -> maxResul
 
 -- | The agent or the Connector IDs for which you want information. If you
 -- specify no IDs, the system returns information about all
--- agents\/Connectors associated with your AWS user account.
+-- agents\/Connectors associated with your Amazon Web Services user
+-- account.
 describeAgents_agentIds :: Lens.Lens' DescribeAgents (Prelude.Maybe [Prelude.Text])
 describeAgents_agentIds = Lens.lens (\DescribeAgents' {agentIds} -> agentIds) (\s@DescribeAgents' {} a -> s {agentIds = a} :: DescribeAgents) Prelude.. Lens.mapping Lens.coerced
 

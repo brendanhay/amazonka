@@ -25,6 +25,8 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Metadata that help you categorize IT assets.
 --
+-- Do not store sensitive information (like personal data) in tags.
+--
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
   { -- | The type of tag on which to filter.

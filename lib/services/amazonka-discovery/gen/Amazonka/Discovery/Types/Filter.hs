@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- For more information about filters, see
 -- <https://docs.aws.amazon.com/application-discovery/latest/userguide/discovery-api-queries.html Querying Discovered Configuration Items>
--- in the /AWS Application Discovery Service User Guide/.
+-- in the /Amazon Web Services Application Discovery Service User Guide/.
 --
 -- /See:/ 'newFilter' smart constructor.
 data Filter = Filter'

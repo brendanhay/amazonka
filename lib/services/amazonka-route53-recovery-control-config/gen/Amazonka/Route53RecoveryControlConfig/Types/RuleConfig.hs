@@ -26,7 +26,7 @@ import Amazonka.Route53RecoveryControlConfig.Types.RuleType
 
 -- | The rule configuration for an assertion rule. That is, the criteria that
 -- you set for specific assertion controls (routing controls) that specify
--- how many controls must be enabled after a transaction completes.
+-- how many control states must be ON after a transaction completes.
 --
 -- /See:/ 'newRuleConfig' smart constructor.
 data RuleConfig = RuleConfig'

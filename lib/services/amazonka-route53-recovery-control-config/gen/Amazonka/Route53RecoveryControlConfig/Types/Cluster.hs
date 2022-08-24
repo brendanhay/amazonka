@@ -25,10 +25,9 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.ClusterEndpoint
 import Amazonka.Route53RecoveryControlConfig.Types.Status
 
--- | A cluster is a set of five consensus-forming Regional endpoints that
--- represent the infrastructure that hosts your routing controls.
--- Typically, you host together on one cluster all of the routing controls
--- for your applications.
+-- | A set of five redundant Regional endpoints against which you can execute
+-- API calls to update or get the state of routing controls. You can host
+-- multiple control panels and routing controls on one cluster.
 --
 -- /See:/ 'newCluster' smart constructor.
 data Cluster = Cluster'
@@ -43,7 +42,7 @@ data Cluster = Cluster'
     -- set or retrieve a routing control state in the cluster.
     --
     -- To get or update the routing control state, see the Amazon Route 53
-    -- Application Recovery Controller Cluster (Data Plane) Actions.
+    -- Application Recovery Controller Routing Control Actions.
     clusterEndpoints :: Prelude.Maybe [ClusterEndpoint]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +66,7 @@ data Cluster = Cluster'
 -- set or retrieve a routing control state in the cluster.
 --
 -- To get or update the routing control state, see the Amazon Route 53
--- Application Recovery Controller Cluster (Data Plane) Actions.
+-- Application Recovery Controller Routing Control Actions.
 newCluster ::
   Cluster
 newCluster =
@@ -95,7 +94,7 @@ cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s
 -- set or retrieve a routing control state in the cluster.
 --
 -- To get or update the routing control state, see the Amazon Route 53
--- Application Recovery Controller Cluster (Data Plane) Actions.
+-- Application Recovery Controller Routing Control Actions.
 cluster_clusterEndpoints :: Lens.Lens' Cluster (Prelude.Maybe [ClusterEndpoint])
 cluster_clusterEndpoints = Lens.lens (\Cluster' {clusterEndpoints} -> clusterEndpoints) (\s@Cluster' {} a -> s {clusterEndpoints = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 

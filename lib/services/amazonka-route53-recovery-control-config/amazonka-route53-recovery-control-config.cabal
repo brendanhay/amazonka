@@ -62,6 +62,8 @@ library
     Amazonka.Route53RecoveryControlConfig.ListControlPanels
     Amazonka.Route53RecoveryControlConfig.ListRoutingControls
     Amazonka.Route53RecoveryControlConfig.ListSafetyRules
+    Amazonka.Route53RecoveryControlConfig.ListTagsForResource
+    Amazonka.Route53RecoveryControlConfig.TagResource
     Amazonka.Route53RecoveryControlConfig.Types
     Amazonka.Route53RecoveryControlConfig.Types.AssertionRule
     Amazonka.Route53RecoveryControlConfig.Types.AssertionRuleUpdate
@@ -77,6 +79,7 @@ library
     Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
     Amazonka.Route53RecoveryControlConfig.Types.RuleType
     Amazonka.Route53RecoveryControlConfig.Types.Status
+    Amazonka.Route53RecoveryControlConfig.UntagResource
     Amazonka.Route53RecoveryControlConfig.UpdateControlPanel
     Amazonka.Route53RecoveryControlConfig.UpdateRoutingControl
     Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule

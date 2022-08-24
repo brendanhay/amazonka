@@ -34,7 +34,7 @@ data ClusterEndpoint = ClusterEndpoint'
     -- when you want to set or retrieve a routing control state in the cluster.
     --
     -- To get or update the routing control state, see the Amazon Route 53
-    -- Application Recovery Controller Cluster (Data Plane) Actions.
+    -- Application Recovery Controller Routing Control Actions.
     endpoint :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,7 +53,7 @@ data ClusterEndpoint = ClusterEndpoint'
 -- when you want to set or retrieve a routing control state in the cluster.
 --
 -- To get or update the routing control state, see the Amazon Route 53
--- Application Recovery Controller Cluster (Data Plane) Actions.
+-- Application Recovery Controller Routing Control Actions.
 newClusterEndpoint ::
   ClusterEndpoint
 newClusterEndpoint =
@@ -70,7 +70,7 @@ clusterEndpoint_region = Lens.lens (\ClusterEndpoint' {region} -> region) (\s@Cl
 -- when you want to set or retrieve a routing control state in the cluster.
 --
 -- To get or update the routing control state, see the Amazon Route 53
--- Application Recovery Controller Cluster (Data Plane) Actions.
+-- Application Recovery Controller Routing Control Actions.
 clusterEndpoint_endpoint :: Lens.Lens' ClusterEndpoint (Prelude.Maybe Prelude.Text)
 clusterEndpoint_endpoint = Lens.lens (\ClusterEndpoint' {endpoint} -> endpoint) (\s@ClusterEndpoint' {} a -> s {endpoint = a} :: ClusterEndpoint)
 

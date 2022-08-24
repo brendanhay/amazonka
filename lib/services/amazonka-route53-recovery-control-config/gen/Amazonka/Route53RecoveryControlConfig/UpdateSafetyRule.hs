@@ -20,10 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update a safety rule (an assertion rule or gating rule) for the routing
--- controls in a control panel. You can only update the name and the
--- waiting period for a safety rule. To make other updates, delete the
--- safety rule and create a new safety rule.
+-- Update a safety rule (an assertion rule or gating rule). You can only
+-- update the name and the waiting period for a safety rule. To make other
+-- updates, delete the safety rule and create a new one.
 module Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule
   ( -- * Creating a Request
     UpdateSafetyRule (..),
@@ -51,9 +50,15 @@ import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 import Amazonka.Route53RecoveryControlConfig.Types
 
--- | /See:/ 'newUpdateSafetyRule' smart constructor.
+-- | A rule that you add to Application Recovery Controller to ensure that
+-- recovery actions don\'t accidentally impair your application\'s
+-- availability.
+--
+-- /See:/ 'newUpdateSafetyRule' smart constructor.
 data UpdateSafetyRule = UpdateSafetyRule'
-  { gatingRuleUpdate :: Prelude.Maybe GatingRuleUpdate,
+  { -- | The gating rule to update.
+    gatingRuleUpdate :: Prelude.Maybe GatingRuleUpdate,
+    -- | The assertion rule to update.
     assertionRuleUpdate :: Prelude.Maybe AssertionRuleUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,9 +71,9 @@ data UpdateSafetyRule = UpdateSafetyRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatingRuleUpdate', 'updateSafetyRule_gatingRuleUpdate' - Undocumented member.
+-- 'gatingRuleUpdate', 'updateSafetyRule_gatingRuleUpdate' - The gating rule to update.
 --
--- 'assertionRuleUpdate', 'updateSafetyRule_assertionRuleUpdate' - Undocumented member.
+-- 'assertionRuleUpdate', 'updateSafetyRule_assertionRuleUpdate' - The assertion rule to update.
 newUpdateSafetyRule ::
   UpdateSafetyRule
 newUpdateSafetyRule =
@@ -78,11 +83,11 @@ newUpdateSafetyRule =
       assertionRuleUpdate = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | The gating rule to update.
 updateSafetyRule_gatingRuleUpdate :: Lens.Lens' UpdateSafetyRule (Prelude.Maybe GatingRuleUpdate)
 updateSafetyRule_gatingRuleUpdate = Lens.lens (\UpdateSafetyRule' {gatingRuleUpdate} -> gatingRuleUpdate) (\s@UpdateSafetyRule' {} a -> s {gatingRuleUpdate = a} :: UpdateSafetyRule)
 
--- | Undocumented member.
+-- | The assertion rule to update.
 updateSafetyRule_assertionRuleUpdate :: Lens.Lens' UpdateSafetyRule (Prelude.Maybe AssertionRuleUpdate)
 updateSafetyRule_assertionRuleUpdate = Lens.lens (\UpdateSafetyRule' {assertionRuleUpdate} -> assertionRuleUpdate) (\s@UpdateSafetyRule' {} a -> s {assertionRuleUpdate = a} :: UpdateSafetyRule)
 
@@ -140,7 +145,9 @@ instance Core.ToQuery UpdateSafetyRule where
 
 -- | /See:/ 'newUpdateSafetyRuleResponse' smart constructor.
 data UpdateSafetyRuleResponse = UpdateSafetyRuleResponse'
-  { gatingRule :: Prelude.Maybe GatingRule,
+  { -- | The gating rule updated.
+    gatingRule :: Prelude.Maybe GatingRule,
+    -- | The assertion rule updated.
     assertionRule :: Prelude.Maybe AssertionRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -155,9 +162,9 @@ data UpdateSafetyRuleResponse = UpdateSafetyRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatingRule', 'updateSafetyRuleResponse_gatingRule' - Undocumented member.
+-- 'gatingRule', 'updateSafetyRuleResponse_gatingRule' - The gating rule updated.
 --
--- 'assertionRule', 'updateSafetyRuleResponse_assertionRule' - Undocumented member.
+-- 'assertionRule', 'updateSafetyRuleResponse_assertionRule' - The assertion rule updated.
 --
 -- 'httpStatus', 'updateSafetyRuleResponse_httpStatus' - The response's http status code.
 newUpdateSafetyRuleResponse ::
@@ -172,11 +179,11 @@ newUpdateSafetyRuleResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The gating rule updated.
 updateSafetyRuleResponse_gatingRule :: Lens.Lens' UpdateSafetyRuleResponse (Prelude.Maybe GatingRule)
 updateSafetyRuleResponse_gatingRule = Lens.lens (\UpdateSafetyRuleResponse' {gatingRule} -> gatingRule) (\s@UpdateSafetyRuleResponse' {} a -> s {gatingRule = a} :: UpdateSafetyRuleResponse)
 
--- | Undocumented member.
+-- | The assertion rule updated.
 updateSafetyRuleResponse_assertionRule :: Lens.Lens' UpdateSafetyRuleResponse (Prelude.Maybe AssertionRule)
 updateSafetyRuleResponse_assertionRule = Lens.lens (\UpdateSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@UpdateSafetyRuleResponse' {} a -> s {assertionRule = a} :: UpdateSafetyRuleResponse)
 

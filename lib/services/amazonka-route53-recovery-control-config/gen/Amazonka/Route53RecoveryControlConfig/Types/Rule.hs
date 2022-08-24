@@ -31,13 +31,23 @@ import Amazonka.Route53RecoveryControlConfig.Types.GatingRule
 data Rule = Rule'
   { -- | An assertion rule enforces that, when a routing control state is
     -- changed, the criteria set by the rule configuration is met. Otherwise,
-    -- the change to the routing control is not accepted.
+    -- the change to the routing control state is not accepted. For example,
+    -- the criteria might be that at least one routing control state is On
+    -- after the transation so that traffic continues to flow to at least one
+    -- cell for the application. This ensures that you avoid a fail-open
+    -- scenario.
     assertion :: Prelude.Maybe AssertionRule,
-    -- | A gating rule verifies that a set of gating controls evaluates as true,
-    -- based on a rule configuration that you specify. If the gating rule
-    -- evaluates to true, Amazon Route 53 Application Recovery Controller
-    -- allows a set of routing control state changes to run and complete
-    -- against the set of target controls.
+    -- | A gating rule verifies that a gating routing control or set of gating
+    -- rounting controls, evaluates as true, based on a rule configuration that
+    -- you specify, which allows a set of routing control state changes to
+    -- complete.
+    --
+    -- For example, if you specify one gating routing control and you set the
+    -- Type in the rule configuration to OR, that indicates that you must set
+    -- the gating routing control to On for the rule to evaluate as true; that
+    -- is, for the gating control \"switch\" to be \"On\". When you do that,
+    -- then you can update the routing control states for the target routing
+    -- controls that you specify in the gating rule.
     gating :: Prelude.Maybe GatingRule
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,13 +62,23 @@ data Rule = Rule'
 --
 -- 'assertion', 'rule_assertion' - An assertion rule enforces that, when a routing control state is
 -- changed, the criteria set by the rule configuration is met. Otherwise,
--- the change to the routing control is not accepted.
+-- the change to the routing control state is not accepted. For example,
+-- the criteria might be that at least one routing control state is On
+-- after the transation so that traffic continues to flow to at least one
+-- cell for the application. This ensures that you avoid a fail-open
+-- scenario.
 --
--- 'gating', 'rule_gating' - A gating rule verifies that a set of gating controls evaluates as true,
--- based on a rule configuration that you specify. If the gating rule
--- evaluates to true, Amazon Route 53 Application Recovery Controller
--- allows a set of routing control state changes to run and complete
--- against the set of target controls.
+-- 'gating', 'rule_gating' - A gating rule verifies that a gating routing control or set of gating
+-- rounting controls, evaluates as true, based on a rule configuration that
+-- you specify, which allows a set of routing control state changes to
+-- complete.
+--
+-- For example, if you specify one gating routing control and you set the
+-- Type in the rule configuration to OR, that indicates that you must set
+-- the gating routing control to On for the rule to evaluate as true; that
+-- is, for the gating control \"switch\" to be \"On\". When you do that,
+-- then you can update the routing control states for the target routing
+-- controls that you specify in the gating rule.
 newRule ::
   Rule
 newRule =
@@ -69,15 +89,25 @@ newRule =
 
 -- | An assertion rule enforces that, when a routing control state is
 -- changed, the criteria set by the rule configuration is met. Otherwise,
--- the change to the routing control is not accepted.
+-- the change to the routing control state is not accepted. For example,
+-- the criteria might be that at least one routing control state is On
+-- after the transation so that traffic continues to flow to at least one
+-- cell for the application. This ensures that you avoid a fail-open
+-- scenario.
 rule_assertion :: Lens.Lens' Rule (Prelude.Maybe AssertionRule)
 rule_assertion = Lens.lens (\Rule' {assertion} -> assertion) (\s@Rule' {} a -> s {assertion = a} :: Rule)
 
--- | A gating rule verifies that a set of gating controls evaluates as true,
--- based on a rule configuration that you specify. If the gating rule
--- evaluates to true, Amazon Route 53 Application Recovery Controller
--- allows a set of routing control state changes to run and complete
--- against the set of target controls.
+-- | A gating rule verifies that a gating routing control or set of gating
+-- rounting controls, evaluates as true, based on a rule configuration that
+-- you specify, which allows a set of routing control state changes to
+-- complete.
+--
+-- For example, if you specify one gating routing control and you set the
+-- Type in the rule configuration to OR, that indicates that you must set
+-- the gating routing control to On for the rule to evaluate as true; that
+-- is, for the gating control \"switch\" to be \"On\". When you do that,
+-- then you can update the routing control states for the target routing
+-- controls that you specify in the gating rule.
 rule_gating :: Lens.Lens' Rule (Prelude.Maybe GatingRule)
 rule_gating = Lens.lens (\Rule' {gating} -> gating) (\s@Rule' {} a -> s {gating = a} :: Rule)
 

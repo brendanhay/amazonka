@@ -167,6 +167,24 @@ module Amazonka.Route53RecoveryControlConfig
     ListSafetyRulesResponse (ListSafetyRulesResponse'),
     newListSafetyRulesResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
     -- ** UpdateControlPanel
     UpdateControlPanel (UpdateControlPanel'),
     newUpdateControlPanel,
@@ -261,7 +279,10 @@ import Amazonka.Route53RecoveryControlConfig.ListClusters
 import Amazonka.Route53RecoveryControlConfig.ListControlPanels
 import Amazonka.Route53RecoveryControlConfig.ListRoutingControls
 import Amazonka.Route53RecoveryControlConfig.ListSafetyRules
+import Amazonka.Route53RecoveryControlConfig.ListTagsForResource
+import Amazonka.Route53RecoveryControlConfig.TagResource
 import Amazonka.Route53RecoveryControlConfig.Types
+import Amazonka.Route53RecoveryControlConfig.UntagResource
 import Amazonka.Route53RecoveryControlConfig.UpdateControlPanel
 import Amazonka.Route53RecoveryControlConfig.UpdateRoutingControl
 import Amazonka.Route53RecoveryControlConfig.UpdateSafetyRule

@@ -25,46 +25,51 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryControlConfig.Types.RuleConfig
 import Amazonka.Route53RecoveryControlConfig.Types.Status
 
--- | A gating rule verifies that a set of gating controls evaluates as true,
--- based on a rule configuration that you specify. If the gating rule
--- evaluates to true, Amazon Route 53 Application Recovery Controller
--- allows a set of routing control state changes to run and complete
--- against the set of target controls.
+-- | A gating rule verifies that a gating routing control or set of gating
+-- rounting controls, evaluates as true, based on a rule configuration that
+-- you specify, which allows a set of routing control state changes to
+-- complete.
+--
+-- For example, if you specify one gating routing control and you set the
+-- Type in the rule configuration to OR, that indicates that you must set
+-- the gating routing control to On for the rule to evaluate as true; that
+-- is, for the gating control \"switch\" to be \"On\". When you do that,
+-- then you can update the routing control states for the target routing
+-- controls that you specify in the gating rule.
 --
 -- /See:/ 'newGatingRule' smart constructor.
 data GatingRule = GatingRule'
   { -- | The deployment status of a gating rule. Status can be one of the
     -- following: PENDING, DEPLOYED, PENDING_DELETION.
     status :: Status,
-    -- | Routing controls that can only be set or unset if the specified
-    -- RuleConfig evaluates to true for the specified GatingControls. For
-    -- example, say you have three gating controls, one for each of three
-    -- Amazon Web Services Regions. Now you specify ATLEAST 2 as your
-    -- RuleConfig. With these settings, you can only change (set or unset) the
-    -- routing controls that you have specified as TargetControls if that rule
-    -- evaluates to true.
-    --
-    -- In other words, your ability to change the routing controls that you
-    -- have specified as TargetControls is gated by the rule that you set for
-    -- the routing controls in GatingControls.
+    -- | An array of target routing control Amazon Resource Names (ARNs) for
+    -- which the states can only be updated if the rule configuration that you
+    -- specify evaluates to true for the gating routing control. As a simple
+    -- example, if you have a single gating control, it acts as an overall
+    -- \"on\/off\" switch for a set of target routing controls. You can use
+    -- this to manually override automated fail over, for example.
     targetControls :: [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of the control panel.
     controlPanelArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the gating rule.
     safetyRuleArn :: Prelude.Text,
-    -- | The gating controls for the gating rule. That is, routing controls that
-    -- are evaluated by the rule configuration that you specify.
+    -- | An array of gating routing control Amazon Resource Names (ARNs). For a
+    -- simple \"on\/off\" switch, specify the ARN for one routing control. The
+    -- gating routing controls are evaluated by the rule configuration that you
+    -- specify to determine if the target routing control states can be
+    -- changed.
     gatingControls :: [Prelude.Text],
-    -- | The criteria that you set for specific gating controls (routing
-    -- controls) that designates how many controls must be enabled to allow you
-    -- to change (set or unset) the target controls.
+    -- | The criteria that you set for gating routing controls that designates
+    -- how many of the routing control states must be ON to allow you to update
+    -- target routing control states.
     ruleConfig :: RuleConfig,
     -- | An evaluation period, in milliseconds (ms), during which any request
     -- against the target routing controls will fail. This helps prevent
     -- \"flapping\" of state. The wait period is 5000 ms by default, but you
     -- can choose a custom value.
     waitPeriodMs :: Prelude.Int,
-    -- | The name for the gating rule.
+    -- | The name for the gating rule. You can use any non-white space character
+    -- in the name.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,35 +85,34 @@ data GatingRule = GatingRule'
 -- 'status', 'gatingRule_status' - The deployment status of a gating rule. Status can be one of the
 -- following: PENDING, DEPLOYED, PENDING_DELETION.
 --
--- 'targetControls', 'gatingRule_targetControls' - Routing controls that can only be set or unset if the specified
--- RuleConfig evaluates to true for the specified GatingControls. For
--- example, say you have three gating controls, one for each of three
--- Amazon Web Services Regions. Now you specify ATLEAST 2 as your
--- RuleConfig. With these settings, you can only change (set or unset) the
--- routing controls that you have specified as TargetControls if that rule
--- evaluates to true.
---
--- In other words, your ability to change the routing controls that you
--- have specified as TargetControls is gated by the rule that you set for
--- the routing controls in GatingControls.
+-- 'targetControls', 'gatingRule_targetControls' - An array of target routing control Amazon Resource Names (ARNs) for
+-- which the states can only be updated if the rule configuration that you
+-- specify evaluates to true for the gating routing control. As a simple
+-- example, if you have a single gating control, it acts as an overall
+-- \"on\/off\" switch for a set of target routing controls. You can use
+-- this to manually override automated fail over, for example.
 --
 -- 'controlPanelArn', 'gatingRule_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel.
 --
 -- 'safetyRuleArn', 'gatingRule_safetyRuleArn' - The Amazon Resource Name (ARN) of the gating rule.
 --
--- 'gatingControls', 'gatingRule_gatingControls' - The gating controls for the gating rule. That is, routing controls that
--- are evaluated by the rule configuration that you specify.
+-- 'gatingControls', 'gatingRule_gatingControls' - An array of gating routing control Amazon Resource Names (ARNs). For a
+-- simple \"on\/off\" switch, specify the ARN for one routing control. The
+-- gating routing controls are evaluated by the rule configuration that you
+-- specify to determine if the target routing control states can be
+-- changed.
 --
--- 'ruleConfig', 'gatingRule_ruleConfig' - The criteria that you set for specific gating controls (routing
--- controls) that designates how many controls must be enabled to allow you
--- to change (set or unset) the target controls.
+-- 'ruleConfig', 'gatingRule_ruleConfig' - The criteria that you set for gating routing controls that designates
+-- how many of the routing control states must be ON to allow you to update
+-- target routing control states.
 --
 -- 'waitPeriodMs', 'gatingRule_waitPeriodMs' - An evaluation period, in milliseconds (ms), during which any request
 -- against the target routing controls will fail. This helps prevent
 -- \"flapping\" of state. The wait period is 5000 ms by default, but you
 -- can choose a custom value.
 --
--- 'name', 'gatingRule_name' - The name for the gating rule.
+-- 'name', 'gatingRule_name' - The name for the gating rule. You can use any non-white space character
+-- in the name.
 newGatingRule ::
   -- | 'status'
   Status ->
@@ -146,17 +150,12 @@ newGatingRule
 gatingRule_status :: Lens.Lens' GatingRule Status
 gatingRule_status = Lens.lens (\GatingRule' {status} -> status) (\s@GatingRule' {} a -> s {status = a} :: GatingRule)
 
--- | Routing controls that can only be set or unset if the specified
--- RuleConfig evaluates to true for the specified GatingControls. For
--- example, say you have three gating controls, one for each of three
--- Amazon Web Services Regions. Now you specify ATLEAST 2 as your
--- RuleConfig. With these settings, you can only change (set or unset) the
--- routing controls that you have specified as TargetControls if that rule
--- evaluates to true.
---
--- In other words, your ability to change the routing controls that you
--- have specified as TargetControls is gated by the rule that you set for
--- the routing controls in GatingControls.
+-- | An array of target routing control Amazon Resource Names (ARNs) for
+-- which the states can only be updated if the rule configuration that you
+-- specify evaluates to true for the gating routing control. As a simple
+-- example, if you have a single gating control, it acts as an overall
+-- \"on\/off\" switch for a set of target routing controls. You can use
+-- this to manually override automated fail over, for example.
 gatingRule_targetControls :: Lens.Lens' GatingRule [Prelude.Text]
 gatingRule_targetControls = Lens.lens (\GatingRule' {targetControls} -> targetControls) (\s@GatingRule' {} a -> s {targetControls = a} :: GatingRule) Prelude.. Lens.coerced
 
@@ -168,14 +167,17 @@ gatingRule_controlPanelArn = Lens.lens (\GatingRule' {controlPanelArn} -> contro
 gatingRule_safetyRuleArn :: Lens.Lens' GatingRule Prelude.Text
 gatingRule_safetyRuleArn = Lens.lens (\GatingRule' {safetyRuleArn} -> safetyRuleArn) (\s@GatingRule' {} a -> s {safetyRuleArn = a} :: GatingRule)
 
--- | The gating controls for the gating rule. That is, routing controls that
--- are evaluated by the rule configuration that you specify.
+-- | An array of gating routing control Amazon Resource Names (ARNs). For a
+-- simple \"on\/off\" switch, specify the ARN for one routing control. The
+-- gating routing controls are evaluated by the rule configuration that you
+-- specify to determine if the target routing control states can be
+-- changed.
 gatingRule_gatingControls :: Lens.Lens' GatingRule [Prelude.Text]
 gatingRule_gatingControls = Lens.lens (\GatingRule' {gatingControls} -> gatingControls) (\s@GatingRule' {} a -> s {gatingControls = a} :: GatingRule) Prelude.. Lens.coerced
 
--- | The criteria that you set for specific gating controls (routing
--- controls) that designates how many controls must be enabled to allow you
--- to change (set or unset) the target controls.
+-- | The criteria that you set for gating routing controls that designates
+-- how many of the routing control states must be ON to allow you to update
+-- target routing control states.
 gatingRule_ruleConfig :: Lens.Lens' GatingRule RuleConfig
 gatingRule_ruleConfig = Lens.lens (\GatingRule' {ruleConfig} -> ruleConfig) (\s@GatingRule' {} a -> s {ruleConfig = a} :: GatingRule)
 
@@ -186,7 +188,8 @@ gatingRule_ruleConfig = Lens.lens (\GatingRule' {ruleConfig} -> ruleConfig) (\s@
 gatingRule_waitPeriodMs :: Lens.Lens' GatingRule Prelude.Int
 gatingRule_waitPeriodMs = Lens.lens (\GatingRule' {waitPeriodMs} -> waitPeriodMs) (\s@GatingRule' {} a -> s {waitPeriodMs = a} :: GatingRule)
 
--- | The name for the gating rule.
+-- | The name for the gating rule. You can use any non-white space character
+-- in the name.
 gatingRule_name :: Lens.Lens' GatingRule Prelude.Text
 gatingRule_name = Lens.lens (\GatingRule' {name} -> name) (\s@GatingRule' {} a -> s {name = a} :: GatingRule)
 

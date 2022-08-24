@@ -36,11 +36,11 @@ data NewAssertionRule = NewAssertionRule'
     -- Amazon Web Services Regions.
     assertedControls :: [Prelude.Text],
     -- | The criteria that you set for specific assertion controls (routing
-    -- controls) that designate how many controls must be enabled as the result
-    -- of a transaction. For example, if you have three assertion controls, you
-    -- might specify atleast 2 for your rule configuration. This means that at
-    -- least two assertion controls must be enabled, so that at least two
-    -- Amazon Web Services Regions are enabled.
+    -- controls) that designate how many control states must be ON as the
+    -- result of a transaction. For example, if you have three assertion
+    -- controls, you might specify ATLEAST 2for your rule configuration. This
+    -- means that at least two assertion controls must be ON, so that at least
+    -- two Amazon Web Services Regions have traffic flowing to them.
     ruleConfig :: RuleConfig,
     -- | An evaluation period, in milliseconds (ms), during which any request
     -- against the target routing controls will fail. This helps prevent
@@ -69,11 +69,11 @@ data NewAssertionRule = NewAssertionRule'
 -- Amazon Web Services Regions.
 --
 -- 'ruleConfig', 'newAssertionRule_ruleConfig' - The criteria that you set for specific assertion controls (routing
--- controls) that designate how many controls must be enabled as the result
--- of a transaction. For example, if you have three assertion controls, you
--- might specify atleast 2 for your rule configuration. This means that at
--- least two assertion controls must be enabled, so that at least two
--- Amazon Web Services Regions are enabled.
+-- controls) that designate how many control states must be ON as the
+-- result of a transaction. For example, if you have three assertion
+-- controls, you might specify ATLEAST 2for your rule configuration. This
+-- means that at least two assertion controls must be ON, so that at least
+-- two Amazon Web Services Regions have traffic flowing to them.
 --
 -- 'waitPeriodMs', 'newAssertionRule_waitPeriodMs' - An evaluation period, in milliseconds (ms), during which any request
 -- against the target routing controls will fail. This helps prevent
@@ -118,11 +118,11 @@ newAssertionRule_assertedControls :: Lens.Lens' NewAssertionRule [Prelude.Text]
 newAssertionRule_assertedControls = Lens.lens (\NewAssertionRule' {assertedControls} -> assertedControls) (\s@NewAssertionRule' {} a -> s {assertedControls = a} :: NewAssertionRule) Prelude.. Lens.coerced
 
 -- | The criteria that you set for specific assertion controls (routing
--- controls) that designate how many controls must be enabled as the result
--- of a transaction. For example, if you have three assertion controls, you
--- might specify atleast 2 for your rule configuration. This means that at
--- least two assertion controls must be enabled, so that at least two
--- Amazon Web Services Regions are enabled.
+-- controls) that designate how many control states must be ON as the
+-- result of a transaction. For example, if you have three assertion
+-- controls, you might specify ATLEAST 2for your rule configuration. This
+-- means that at least two assertion controls must be ON, so that at least
+-- two Amazon Web Services Regions have traffic flowing to them.
 newAssertionRule_ruleConfig :: Lens.Lens' NewAssertionRule RuleConfig
 newAssertionRule_ruleConfig = Lens.lens (\NewAssertionRule' {ruleConfig} -> ruleConfig) (\s@NewAssertionRule' {} a -> s {ruleConfig = a} :: NewAssertionRule)
 

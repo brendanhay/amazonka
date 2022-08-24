@@ -78,6 +78,15 @@ import Test.Tasty
 --         , requestListSafetyRules $
 --             newListSafetyRules
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
 --         , requestUpdateControlPanel $
 --             newUpdateControlPanel
 --
@@ -140,6 +149,15 @@ import Test.Tasty
 --
 --         , responseListSafetyRules $
 --             newListSafetyRulesResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdateControlPanel $
 --             newUpdateControlPanelResponse
@@ -256,6 +274,24 @@ requestListSafetyRules =
   req
     "ListSafetyRules"
     "fixture/ListSafetyRules.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateControlPanel :: UpdateControlPanel -> TestTree
 requestUpdateControlPanel =
@@ -412,6 +448,30 @@ responseListSafetyRules =
     "fixture/ListSafetyRulesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSafetyRules)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
 
 responseUpdateControlPanel :: UpdateControlPanelResponse -> TestTree
 responseUpdateControlPanel =

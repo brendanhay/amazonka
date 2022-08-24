@@ -227,8 +227,7 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | 403 response - AccessDeniedException. You do not have sufficient access
--- to perform this action.
+-- | 403 response - You do not have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
@@ -245,7 +244,8 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | 402 response
+-- | 402 response - You attempted to create more resources than the service
+-- allows based on service quotas.
 _ServiceQuotaExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceQuotaExceededException =
   Core._MatchServiceError
@@ -253,8 +253,8 @@ _ServiceQuotaExceededException =
     "ServiceQuotaExceededException"
     Prelude.. Core.hasStatus 402
 
--- | 404 response - The query string contains a syntax error or resource not
--- found.
+-- | 404 response - MalformedQueryString. The query string contains a syntax
+-- error or resource not found..
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -262,7 +262,8 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | 409 response - ConflictException.
+-- | 409 response - ConflictException. You might be using a predefined
+-- variable.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
@@ -270,7 +271,7 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | 429 response - ThrottlingException.
+-- | 429 response - LimitExceededException or TooManyRequestsException.
 _ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ThrottlingException =
   Core._MatchServiceError
@@ -279,8 +280,8 @@ _ThrottlingException =
     Prelude.. Core.hasStatus 429
 
 -- | 400 response - Multiple causes. For example, you might have a malformed
--- query string and input parameter might be out of range, or you used
--- parameters together incorrectly.
+-- query string and input parameter might be out of range, or you might
+-- have used parameters together incorrectly.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError

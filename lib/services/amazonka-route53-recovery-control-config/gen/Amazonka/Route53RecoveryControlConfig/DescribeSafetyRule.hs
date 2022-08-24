@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the safety rules (that is, the assertion rules and gating
--- rules) for the routing controls in a control panel.
+-- Returns information about a safety rule.
 module Amazonka.Route53RecoveryControlConfig.DescribeSafetyRule
   ( -- * Creating a Request
     DescribeSafetyRule (..),
@@ -50,7 +49,7 @@ import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newDescribeSafetyRule' smart constructor.
 data DescribeSafetyRule = DescribeSafetyRule'
-  { -- | The request body that you include when you update a safety rule.
+  { -- | The ARN of the safety rule.
     safetyRuleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +62,7 @@ data DescribeSafetyRule = DescribeSafetyRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'safetyRuleArn', 'describeSafetyRule_safetyRuleArn' - The request body that you include when you update a safety rule.
+-- 'safetyRuleArn', 'describeSafetyRule_safetyRuleArn' - The ARN of the safety rule.
 newDescribeSafetyRule ::
   -- | 'safetyRuleArn'
   Prelude.Text ->
@@ -74,7 +73,7 @@ newDescribeSafetyRule pSafetyRuleArn_ =
         pSafetyRuleArn_
     }
 
--- | The request body that you include when you update a safety rule.
+-- | The ARN of the safety rule.
 describeSafetyRule_safetyRuleArn :: Lens.Lens' DescribeSafetyRule Prelude.Text
 describeSafetyRule_safetyRuleArn = Lens.lens (\DescribeSafetyRule' {safetyRuleArn} -> safetyRuleArn) (\s@DescribeSafetyRule' {} a -> s {safetyRuleArn = a} :: DescribeSafetyRule)
 
@@ -121,7 +120,9 @@ instance Core.ToQuery DescribeSafetyRule where
 
 -- | /See:/ 'newDescribeSafetyRuleResponse' smart constructor.
 data DescribeSafetyRuleResponse = DescribeSafetyRuleResponse'
-  { gatingRule :: Prelude.Maybe GatingRule,
+  { -- | The gating rule in the response.
+    gatingRule :: Prelude.Maybe GatingRule,
+    -- | The assertion rule in the response.
     assertionRule :: Prelude.Maybe AssertionRule,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -136,9 +137,9 @@ data DescribeSafetyRuleResponse = DescribeSafetyRuleResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatingRule', 'describeSafetyRuleResponse_gatingRule' - Undocumented member.
+-- 'gatingRule', 'describeSafetyRuleResponse_gatingRule' - The gating rule in the response.
 --
--- 'assertionRule', 'describeSafetyRuleResponse_assertionRule' - Undocumented member.
+-- 'assertionRule', 'describeSafetyRuleResponse_assertionRule' - The assertion rule in the response.
 --
 -- 'httpStatus', 'describeSafetyRuleResponse_httpStatus' - The response's http status code.
 newDescribeSafetyRuleResponse ::
@@ -153,11 +154,11 @@ newDescribeSafetyRuleResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The gating rule in the response.
 describeSafetyRuleResponse_gatingRule :: Lens.Lens' DescribeSafetyRuleResponse (Prelude.Maybe GatingRule)
 describeSafetyRuleResponse_gatingRule = Lens.lens (\DescribeSafetyRuleResponse' {gatingRule} -> gatingRule) (\s@DescribeSafetyRuleResponse' {} a -> s {gatingRule = a} :: DescribeSafetyRuleResponse)
 
--- | Undocumented member.
+-- | The assertion rule in the response.
 describeSafetyRuleResponse_assertionRule :: Lens.Lens' DescribeSafetyRuleResponse (Prelude.Maybe AssertionRule)
 describeSafetyRuleResponse_assertionRule = Lens.lens (\DescribeSafetyRuleResponse' {assertionRule} -> assertionRule) (\s@DescribeSafetyRuleResponse' {} a -> s {assertionRule = a} :: DescribeSafetyRuleResponse)
 

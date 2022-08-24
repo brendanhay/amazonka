@@ -49,7 +49,7 @@ import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newDeleteSafetyRule' smart constructor.
 data DeleteSafetyRule = DeleteSafetyRule'
-  { -- | The request body that you include when you update a safety rule.
+  { -- | The ARN of the safety rule.
     safetyRuleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +62,7 @@ data DeleteSafetyRule = DeleteSafetyRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'safetyRuleArn', 'deleteSafetyRule_safetyRuleArn' - The request body that you include when you update a safety rule.
+-- 'safetyRuleArn', 'deleteSafetyRule_safetyRuleArn' - The ARN of the safety rule.
 newDeleteSafetyRule ::
   -- | 'safetyRuleArn'
   Prelude.Text ->
@@ -70,7 +70,7 @@ newDeleteSafetyRule ::
 newDeleteSafetyRule pSafetyRuleArn_ =
   DeleteSafetyRule' {safetyRuleArn = pSafetyRuleArn_}
 
--- | The request body that you include when you update a safety rule.
+-- | The ARN of the safety rule.
 deleteSafetyRule_safetyRuleArn :: Lens.Lens' DeleteSafetyRule Prelude.Text
 deleteSafetyRule_safetyRuleArn = Lens.lens (\DeleteSafetyRule' {safetyRuleArn} -> safetyRuleArn) (\s@DeleteSafetyRule' {} a -> s {safetyRuleArn = a} :: DeleteSafetyRule)
 

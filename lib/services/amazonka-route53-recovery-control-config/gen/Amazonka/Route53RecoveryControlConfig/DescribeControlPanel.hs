@@ -48,8 +48,7 @@ import Amazonka.Route53RecoveryControlConfig.Types
 
 -- | /See:/ 'newDescribeControlPanel' smart constructor.
 data DescribeControlPanel = DescribeControlPanel'
-  { -- | The Amazon Resource Name (ARN) of the control panel that you\'re getting
-    -- details for.
+  { -- | The Amazon Resource Name (ARN) of the control panel.
     controlPanelArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +61,7 @@ data DescribeControlPanel = DescribeControlPanel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'controlPanelArn', 'describeControlPanel_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel that you\'re getting
--- details for.
+-- 'controlPanelArn', 'describeControlPanel_controlPanelArn' - The Amazon Resource Name (ARN) of the control panel.
 newDescribeControlPanel ::
   -- | 'controlPanelArn'
   Prelude.Text ->
@@ -74,8 +72,7 @@ newDescribeControlPanel pControlPanelArn_ =
         pControlPanelArn_
     }
 
--- | The Amazon Resource Name (ARN) of the control panel that you\'re getting
--- details for.
+-- | The Amazon Resource Name (ARN) of the control panel.
 describeControlPanel_controlPanelArn :: Lens.Lens' DescribeControlPanel Prelude.Text
 describeControlPanel_controlPanelArn = Lens.lens (\DescribeControlPanel' {controlPanelArn} -> controlPanelArn) (\s@DescribeControlPanel' {} a -> s {controlPanelArn = a} :: DescribeControlPanel)
 

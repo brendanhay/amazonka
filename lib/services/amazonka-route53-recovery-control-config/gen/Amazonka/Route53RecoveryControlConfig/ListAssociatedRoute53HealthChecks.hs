@@ -56,8 +56,7 @@ data ListAssociatedRoute53HealthChecks = ListAssociatedRoute53HealthChecks'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of objects that you want to return with this call.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The Amazon Resource Name (ARN) of the routing control that you\'re
-    -- getting details for.
+    -- | The Amazon Resource Name (ARN) of the routing control.
     routingControlArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,8 +73,7 @@ data ListAssociatedRoute53HealthChecks = ListAssociatedRoute53HealthChecks'
 --
 -- 'maxResults', 'listAssociatedRoute53HealthChecks_maxResults' - The number of objects that you want to return with this call.
 --
--- 'routingControlArn', 'listAssociatedRoute53HealthChecks_routingControlArn' - The Amazon Resource Name (ARN) of the routing control that you\'re
--- getting details for.
+-- 'routingControlArn', 'listAssociatedRoute53HealthChecks_routingControlArn' - The Amazon Resource Name (ARN) of the routing control.
 newListAssociatedRoute53HealthChecks ::
   -- | 'routingControlArn'
   Prelude.Text ->
@@ -97,8 +95,7 @@ listAssociatedRoute53HealthChecks_nextToken = Lens.lens (\ListAssociatedRoute53H
 listAssociatedRoute53HealthChecks_maxResults :: Lens.Lens' ListAssociatedRoute53HealthChecks (Prelude.Maybe Prelude.Natural)
 listAssociatedRoute53HealthChecks_maxResults = Lens.lens (\ListAssociatedRoute53HealthChecks' {maxResults} -> maxResults) (\s@ListAssociatedRoute53HealthChecks' {} a -> s {maxResults = a} :: ListAssociatedRoute53HealthChecks)
 
--- | The Amazon Resource Name (ARN) of the routing control that you\'re
--- getting details for.
+-- | The Amazon Resource Name (ARN) of the routing control.
 listAssociatedRoute53HealthChecks_routingControlArn :: Lens.Lens' ListAssociatedRoute53HealthChecks Prelude.Text
 listAssociatedRoute53HealthChecks_routingControlArn = Lens.lens (\ListAssociatedRoute53HealthChecks' {routingControlArn} -> routingControlArn) (\s@ListAssociatedRoute53HealthChecks' {} a -> s {routingControlArn = a} :: ListAssociatedRoute53HealthChecks)
 
@@ -176,7 +173,7 @@ instance
 
 -- | /See:/ 'newListAssociatedRoute53HealthChecksResponse' smart constructor.
 data ListAssociatedRoute53HealthChecksResponse = ListAssociatedRoute53HealthChecksResponse'
-  { -- | The token that identifies which batch of results you want to see.
+  { -- | Next token for listing health checks.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Identifiers for the health checks.
     healthCheckIds :: Prelude.Maybe [Prelude.Text],
@@ -193,7 +190,7 @@ data ListAssociatedRoute53HealthChecksResponse = ListAssociatedRoute53HealthChec
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listAssociatedRoute53HealthChecksResponse_nextToken' - The token that identifies which batch of results you want to see.
+-- 'nextToken', 'listAssociatedRoute53HealthChecksResponse_nextToken' - Next token for listing health checks.
 --
 -- 'healthCheckIds', 'listAssociatedRoute53HealthChecksResponse_healthCheckIds' - Identifiers for the health checks.
 --
@@ -211,7 +208,7 @@ newListAssociatedRoute53HealthChecksResponse
         httpStatus = pHttpStatus_
       }
 
--- | The token that identifies which batch of results you want to see.
+-- | Next token for listing health checks.
 listAssociatedRoute53HealthChecksResponse_nextToken :: Lens.Lens' ListAssociatedRoute53HealthChecksResponse (Prelude.Maybe Prelude.Text)
 listAssociatedRoute53HealthChecksResponse_nextToken = Lens.lens (\ListAssociatedRoute53HealthChecksResponse' {nextToken} -> nextToken) (\s@ListAssociatedRoute53HealthChecksResponse' {} a -> s {nextToken = a} :: ListAssociatedRoute53HealthChecksResponse)
 

@@ -28,8 +28,8 @@
 -- Amazon WorkSpaces requirements, use
 -- <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html DescribeWorkspaceImages>.
 --
--- -   Only Windows 10 WorkSpace images can be programmatically updated at
---     this time.
+-- -   Only Windows 10, Windows Sever 2016, and Windows Server 2019
+--     WorkSpace images can be programmatically updated at this time.
 --
 -- -   Microsoft Windows updates and other application updates are not
 --     included in the update process.

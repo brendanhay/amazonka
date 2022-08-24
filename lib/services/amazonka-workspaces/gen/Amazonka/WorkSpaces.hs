@@ -14,7 +14,29 @@
 -- Amazon WorkSpaces Service
 --
 -- Amazon WorkSpaces enables you to provision virtual, cloud-based
--- Microsoft Windows and Amazon Linux desktops for your users.
+-- Microsoft Windows or Amazon Linux desktops for your users, known as
+-- /WorkSpaces/. WorkSpaces eliminates the need to procure and deploy
+-- hardware or install complex software. You can quickly add or remove
+-- users as your needs change. Users can access their virtual desktops from
+-- multiple devices or web browsers.
+--
+-- This API Reference provides detailed information about the actions, data
+-- types, parameters, and errors of the WorkSpaces service. For more
+-- information about the supported Amazon Web Services Regions, endpoints,
+-- and service quotas of the Amazon WorkSpaces service, see
+-- <https://docs.aws.amazon.com/general/latest/gr/wsp.html WorkSpaces endpoints and quotas>
+-- in the /Amazon Web Services General Reference/.
+--
+-- You can also manage your WorkSpaces resources using the WorkSpaces
+-- console, Command Line Interface (CLI), and SDKs. For more information
+-- about administering WorkSpaces, see the
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/ Amazon WorkSpaces Administration Guide>.
+-- For more information about using the Amazon WorkSpaces client
+-- application or web browser to access provisioned WorkSpaces, see the
+-- <https://docs.aws.amazon.com/workspaces/latest/userguide/ Amazon WorkSpaces User Guide>.
+-- For more information about using the CLI to manage your WorkSpaces
+-- resources, see the
+-- <https://docs.aws.amazon.com/cli/latest/reference/workspaces/index.html WorkSpaces section of the CLI Reference>.
 module Amazonka.WorkSpaces
   ( -- * Service Configuration
     defaultService,
@@ -94,6 +116,12 @@ module Amazonka.WorkSpaces
     CopyWorkspaceImageResponse (CopyWorkspaceImageResponse'),
     newCopyWorkspaceImageResponse,
 
+    -- ** CreateConnectClientAddIn
+    CreateConnectClientAddIn (CreateConnectClientAddIn'),
+    newCreateConnectClientAddIn,
+    CreateConnectClientAddInResponse (CreateConnectClientAddInResponse'),
+    newCreateConnectClientAddInResponse,
+
     -- ** CreateConnectionAlias
     CreateConnectionAlias (CreateConnectionAlias'),
     newCreateConnectionAlias,
@@ -124,11 +152,29 @@ module Amazonka.WorkSpaces
     CreateWorkspaceBundleResponse (CreateWorkspaceBundleResponse'),
     newCreateWorkspaceBundleResponse,
 
+    -- ** CreateWorkspaceImage
+    CreateWorkspaceImage (CreateWorkspaceImage'),
+    newCreateWorkspaceImage,
+    CreateWorkspaceImageResponse (CreateWorkspaceImageResponse'),
+    newCreateWorkspaceImageResponse,
+
     -- ** CreateWorkspaces
     CreateWorkspaces (CreateWorkspaces'),
     newCreateWorkspaces,
     CreateWorkspacesResponse (CreateWorkspacesResponse'),
     newCreateWorkspacesResponse,
+
+    -- ** DeleteClientBranding
+    DeleteClientBranding (DeleteClientBranding'),
+    newDeleteClientBranding,
+    DeleteClientBrandingResponse (DeleteClientBrandingResponse'),
+    newDeleteClientBrandingResponse,
+
+    -- ** DeleteConnectClientAddIn
+    DeleteConnectClientAddIn (DeleteConnectClientAddIn'),
+    newDeleteConnectClientAddIn,
+    DeleteConnectClientAddInResponse (DeleteConnectClientAddInResponse'),
+    newDeleteConnectClientAddInResponse,
 
     -- ** DeleteConnectionAlias
     DeleteConnectionAlias (DeleteConnectionAlias'),
@@ -178,11 +224,23 @@ module Amazonka.WorkSpaces
     DescribeAccountModificationsResponse (DescribeAccountModificationsResponse'),
     newDescribeAccountModificationsResponse,
 
+    -- ** DescribeClientBranding
+    DescribeClientBranding (DescribeClientBranding'),
+    newDescribeClientBranding,
+    DescribeClientBrandingResponse (DescribeClientBrandingResponse'),
+    newDescribeClientBrandingResponse,
+
     -- ** DescribeClientProperties
     DescribeClientProperties (DescribeClientProperties'),
     newDescribeClientProperties,
     DescribeClientPropertiesResponse (DescribeClientPropertiesResponse'),
     newDescribeClientPropertiesResponse,
+
+    -- ** DescribeConnectClientAddIns
+    DescribeConnectClientAddIns (DescribeConnectClientAddIns'),
+    newDescribeConnectClientAddIns,
+    DescribeConnectClientAddInsResponse (DescribeConnectClientAddInsResponse'),
+    newDescribeConnectClientAddInsResponse,
 
     -- ** DescribeConnectionAliasPermissions
     DescribeConnectionAliasPermissions (DescribeConnectionAliasPermissions'),
@@ -262,6 +320,12 @@ module Amazonka.WorkSpaces
     DisassociateIpGroupsResponse (DisassociateIpGroupsResponse'),
     newDisassociateIpGroupsResponse,
 
+    -- ** ImportClientBranding
+    ImportClientBranding (ImportClientBranding'),
+    newImportClientBranding,
+    ImportClientBrandingResponse (ImportClientBrandingResponse'),
+    newImportClientBrandingResponse,
+
     -- ** ImportWorkspaceImage
     ImportWorkspaceImage (ImportWorkspaceImage'),
     newImportWorkspaceImage,
@@ -291,6 +355,12 @@ module Amazonka.WorkSpaces
     newModifyClientProperties,
     ModifyClientPropertiesResponse (ModifyClientPropertiesResponse'),
     newModifyClientPropertiesResponse,
+
+    -- ** ModifySamlProperties
+    ModifySamlProperties (ModifySamlProperties'),
+    newModifySamlProperties,
+    ModifySamlPropertiesResponse (ModifySamlPropertiesResponse'),
+    newModifySamlPropertiesResponse,
 
     -- ** ModifySelfservicePermissions
     ModifySelfservicePermissions (ModifySelfservicePermissions'),
@@ -370,6 +440,12 @@ module Amazonka.WorkSpaces
     TerminateWorkspacesResponse (TerminateWorkspacesResponse'),
     newTerminateWorkspacesResponse,
 
+    -- ** UpdateConnectClientAddIn
+    UpdateConnectClientAddIn (UpdateConnectClientAddIn'),
+    newUpdateConnectClientAddIn,
+    UpdateConnectClientAddInResponse (UpdateConnectClientAddInResponse'),
+    newUpdateConnectClientAddInResponse,
+
     -- ** UpdateConnectionAliasPermission
     UpdateConnectionAliasPermission (UpdateConnectionAliasPermission'),
     newUpdateConnectionAliasPermission,
@@ -405,6 +481,9 @@ module Amazonka.WorkSpaces
     -- ** AssociationStatus
     AssociationStatus (..),
 
+    -- ** ClientDeviceType
+    ClientDeviceType (..),
+
     -- ** Compute
     Compute (..),
 
@@ -423,6 +502,9 @@ module Amazonka.WorkSpaces
     -- ** DedicatedTenancySupportResultEnum
     DedicatedTenancySupportResultEnum (..),
 
+    -- ** DeletableSamlProperty
+    DeletableSamlProperty (..),
+
     -- ** ImageType
     ImageType (..),
 
@@ -440,6 +522,9 @@ module Amazonka.WorkSpaces
 
     -- ** RunningMode
     RunningMode (..),
+
+    -- ** SamlStatusEnum
+    SamlStatusEnum (..),
 
     -- ** TargetWorkspaceState
     TargetWorkspaceState (..),
@@ -481,6 +566,10 @@ module Amazonka.WorkSpaces
     ComputeType (ComputeType'),
     newComputeType,
 
+    -- ** ConnectClientAddIn
+    ConnectClientAddIn (ConnectClientAddIn'),
+    newConnectClientAddIn,
+
     -- ** ConnectionAlias
     ConnectionAlias (ConnectionAlias'),
     newConnectionAlias,
@@ -492,6 +581,14 @@ module Amazonka.WorkSpaces
     -- ** ConnectionAliasPermission
     ConnectionAliasPermission (ConnectionAliasPermission'),
     newConnectionAliasPermission,
+
+    -- ** DefaultClientBrandingAttributes
+    DefaultClientBrandingAttributes (DefaultClientBrandingAttributes'),
+    newDefaultClientBrandingAttributes,
+
+    -- ** DefaultImportClientBrandingAttributes
+    DefaultImportClientBrandingAttributes (DefaultImportClientBrandingAttributes'),
+    newDefaultImportClientBrandingAttributes,
 
     -- ** DefaultWorkspaceCreationProperties
     DefaultWorkspaceCreationProperties (DefaultWorkspaceCreationProperties'),
@@ -508,6 +605,14 @@ module Amazonka.WorkSpaces
     -- ** ImagePermission
     ImagePermission (ImagePermission'),
     newImagePermission,
+
+    -- ** IosClientBrandingAttributes
+    IosClientBrandingAttributes (IosClientBrandingAttributes'),
+    newIosClientBrandingAttributes,
+
+    -- ** IosImportClientBrandingAttributes
+    IosImportClientBrandingAttributes (IosImportClientBrandingAttributes'),
+    newIosImportClientBrandingAttributes,
 
     -- ** IpRuleItem
     IpRuleItem (IpRuleItem'),
@@ -532,6 +637,10 @@ module Amazonka.WorkSpaces
     -- ** RootStorage
     RootStorage (RootStorage'),
     newRootStorage,
+
+    -- ** SamlProperties
+    SamlProperties (SamlProperties'),
+    newSamlProperties,
 
     -- ** SelfservicePermissions
     SelfservicePermissions (SelfservicePermissions'),
@@ -611,12 +720,16 @@ import Amazonka.WorkSpaces.AssociateConnectionAlias
 import Amazonka.WorkSpaces.AssociateIpGroups
 import Amazonka.WorkSpaces.AuthorizeIpRules
 import Amazonka.WorkSpaces.CopyWorkspaceImage
+import Amazonka.WorkSpaces.CreateConnectClientAddIn
 import Amazonka.WorkSpaces.CreateConnectionAlias
 import Amazonka.WorkSpaces.CreateIpGroup
 import Amazonka.WorkSpaces.CreateTags
 import Amazonka.WorkSpaces.CreateUpdatedWorkspaceImage
 import Amazonka.WorkSpaces.CreateWorkspaceBundle
+import Amazonka.WorkSpaces.CreateWorkspaceImage
 import Amazonka.WorkSpaces.CreateWorkspaces
+import Amazonka.WorkSpaces.DeleteClientBranding
+import Amazonka.WorkSpaces.DeleteConnectClientAddIn
 import Amazonka.WorkSpaces.DeleteConnectionAlias
 import Amazonka.WorkSpaces.DeleteIpGroup
 import Amazonka.WorkSpaces.DeleteTags
@@ -625,7 +738,9 @@ import Amazonka.WorkSpaces.DeleteWorkspaceImage
 import Amazonka.WorkSpaces.DeregisterWorkspaceDirectory
 import Amazonka.WorkSpaces.DescribeAccount
 import Amazonka.WorkSpaces.DescribeAccountModifications
+import Amazonka.WorkSpaces.DescribeClientBranding
 import Amazonka.WorkSpaces.DescribeClientProperties
+import Amazonka.WorkSpaces.DescribeConnectClientAddIns
 import Amazonka.WorkSpaces.DescribeConnectionAliasPermissions
 import Amazonka.WorkSpaces.DescribeConnectionAliases
 import Amazonka.WorkSpaces.DescribeIpGroups
@@ -639,12 +754,14 @@ import Amazonka.WorkSpaces.DescribeWorkspaces
 import Amazonka.WorkSpaces.DescribeWorkspacesConnectionStatus
 import Amazonka.WorkSpaces.DisassociateConnectionAlias
 import Amazonka.WorkSpaces.DisassociateIpGroups
+import Amazonka.WorkSpaces.ImportClientBranding
 import Amazonka.WorkSpaces.ImportWorkspaceImage
 import Amazonka.WorkSpaces.Lens
 import Amazonka.WorkSpaces.ListAvailableManagementCidrRanges
 import Amazonka.WorkSpaces.MigrateWorkspace
 import Amazonka.WorkSpaces.ModifyAccount
 import Amazonka.WorkSpaces.ModifyClientProperties
+import Amazonka.WorkSpaces.ModifySamlProperties
 import Amazonka.WorkSpaces.ModifySelfservicePermissions
 import Amazonka.WorkSpaces.ModifyWorkspaceAccessProperties
 import Amazonka.WorkSpaces.ModifyWorkspaceCreationProperties
@@ -659,6 +776,7 @@ import Amazonka.WorkSpaces.StartWorkspaces
 import Amazonka.WorkSpaces.StopWorkspaces
 import Amazonka.WorkSpaces.TerminateWorkspaces
 import Amazonka.WorkSpaces.Types
+import Amazonka.WorkSpaces.UpdateConnectClientAddIn
 import Amazonka.WorkSpaces.UpdateConnectionAliasPermission
 import Amazonka.WorkSpaces.UpdateRulesOfIpGroup
 import Amazonka.WorkSpaces.UpdateWorkspaceBundle

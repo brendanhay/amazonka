@@ -39,6 +39,13 @@ module Amazonka.WorkSpaces.Lens
     copyWorkspaceImageResponse_imageId,
     copyWorkspaceImageResponse_httpStatus,
 
+    -- ** CreateConnectClientAddIn
+    createConnectClientAddIn_resourceId,
+    createConnectClientAddIn_name,
+    createConnectClientAddIn_url,
+    createConnectClientAddInResponse_addInId,
+    createConnectClientAddInResponse_httpStatus,
+
     -- ** CreateConnectionAlias
     createConnectionAlias_tags,
     createConnectionAlias_connectionString,
@@ -77,11 +84,36 @@ module Amazonka.WorkSpaces.Lens
     createWorkspaceBundleResponse_workspaceBundle,
     createWorkspaceBundleResponse_httpStatus,
 
+    -- ** CreateWorkspaceImage
+    createWorkspaceImage_tags,
+    createWorkspaceImage_name,
+    createWorkspaceImage_description,
+    createWorkspaceImage_workspaceId,
+    createWorkspaceImageResponse_operatingSystem,
+    createWorkspaceImageResponse_name,
+    createWorkspaceImageResponse_created,
+    createWorkspaceImageResponse_state,
+    createWorkspaceImageResponse_description,
+    createWorkspaceImageResponse_requiredTenancy,
+    createWorkspaceImageResponse_ownerAccountId,
+    createWorkspaceImageResponse_imageId,
+    createWorkspaceImageResponse_httpStatus,
+
     -- ** CreateWorkspaces
     createWorkspaces_workspaces,
     createWorkspacesResponse_failedRequests,
     createWorkspacesResponse_pendingRequests,
     createWorkspacesResponse_httpStatus,
+
+    -- ** DeleteClientBranding
+    deleteClientBranding_resourceId,
+    deleteClientBranding_platforms,
+    deleteClientBrandingResponse_httpStatus,
+
+    -- ** DeleteConnectClientAddIn
+    deleteConnectClientAddIn_addInId,
+    deleteConnectClientAddIn_resourceId,
+    deleteConnectClientAddInResponse_httpStatus,
 
     -- ** DeleteConnectionAlias
     deleteConnectionAlias_aliasId,
@@ -119,10 +151,28 @@ module Amazonka.WorkSpaces.Lens
     describeAccountModificationsResponse_accountModifications,
     describeAccountModificationsResponse_httpStatus,
 
+    -- ** DescribeClientBranding
+    describeClientBranding_resourceId,
+    describeClientBrandingResponse_deviceTypeAndroid,
+    describeClientBrandingResponse_deviceTypeLinux,
+    describeClientBrandingResponse_deviceTypeWeb,
+    describeClientBrandingResponse_deviceTypeOsx,
+    describeClientBrandingResponse_deviceTypeWindows,
+    describeClientBrandingResponse_deviceTypeIos,
+    describeClientBrandingResponse_httpStatus,
+
     -- ** DescribeClientProperties
     describeClientProperties_resourceIds,
     describeClientPropertiesResponse_clientPropertiesList,
     describeClientPropertiesResponse_httpStatus,
+
+    -- ** DescribeConnectClientAddIns
+    describeConnectClientAddIns_nextToken,
+    describeConnectClientAddIns_maxResults,
+    describeConnectClientAddIns_resourceId,
+    describeConnectClientAddInsResponse_nextToken,
+    describeConnectClientAddInsResponse_addIns,
+    describeConnectClientAddInsResponse_httpStatus,
 
     -- ** DescribeConnectionAliasPermissions
     describeConnectionAliasPermissions_nextToken,
@@ -222,6 +272,22 @@ module Amazonka.WorkSpaces.Lens
     disassociateIpGroups_groupIds,
     disassociateIpGroupsResponse_httpStatus,
 
+    -- ** ImportClientBranding
+    importClientBranding_deviceTypeAndroid,
+    importClientBranding_deviceTypeLinux,
+    importClientBranding_deviceTypeWeb,
+    importClientBranding_deviceTypeOsx,
+    importClientBranding_deviceTypeWindows,
+    importClientBranding_deviceTypeIos,
+    importClientBranding_resourceId,
+    importClientBrandingResponse_deviceTypeAndroid,
+    importClientBrandingResponse_deviceTypeLinux,
+    importClientBrandingResponse_deviceTypeWeb,
+    importClientBrandingResponse_deviceTypeOsx,
+    importClientBrandingResponse_deviceTypeWindows,
+    importClientBrandingResponse_deviceTypeIos,
+    importClientBrandingResponse_httpStatus,
+
     -- ** ImportWorkspaceImage
     importWorkspaceImage_tags,
     importWorkspaceImage_applications,
@@ -256,6 +322,12 @@ module Amazonka.WorkSpaces.Lens
     modifyClientProperties_resourceId,
     modifyClientProperties_clientProperties,
     modifyClientPropertiesResponse_httpStatus,
+
+    -- ** ModifySamlProperties
+    modifySamlProperties_samlProperties,
+    modifySamlProperties_propertiesToDelete,
+    modifySamlProperties_resourceId,
+    modifySamlPropertiesResponse_httpStatus,
 
     -- ** ModifySelfservicePermissions
     modifySelfservicePermissions_resourceId,
@@ -325,6 +397,13 @@ module Amazonka.WorkSpaces.Lens
     terminateWorkspacesResponse_failedRequests,
     terminateWorkspacesResponse_httpStatus,
 
+    -- ** UpdateConnectClientAddIn
+    updateConnectClientAddIn_name,
+    updateConnectClientAddIn_url,
+    updateConnectClientAddIn_addInId,
+    updateConnectClientAddIn_resourceId,
+    updateConnectClientAddInResponse_httpStatus,
+
     -- ** UpdateConnectionAliasPermission
     updateConnectionAliasPermission_aliasId,
     updateConnectionAliasPermission_connectionAliasPermission,
@@ -366,6 +445,12 @@ module Amazonka.WorkSpaces.Lens
     -- ** ComputeType
     computeType_name,
 
+    -- ** ConnectClientAddIn
+    connectClientAddIn_resourceId,
+    connectClientAddIn_name,
+    connectClientAddIn_addInId,
+    connectClientAddIn_url,
+
     -- ** ConnectionAlias
     connectionAlias_associations,
     connectionAlias_aliasId,
@@ -382,6 +467,20 @@ module Amazonka.WorkSpaces.Lens
     -- ** ConnectionAliasPermission
     connectionAliasPermission_sharedAccountId,
     connectionAliasPermission_allowAssociation,
+
+    -- ** DefaultClientBrandingAttributes
+    defaultClientBrandingAttributes_supportLink,
+    defaultClientBrandingAttributes_supportEmail,
+    defaultClientBrandingAttributes_logoUrl,
+    defaultClientBrandingAttributes_loginMessage,
+    defaultClientBrandingAttributes_forgotPasswordLink,
+
+    -- ** DefaultImportClientBrandingAttributes
+    defaultImportClientBrandingAttributes_supportLink,
+    defaultImportClientBrandingAttributes_supportEmail,
+    defaultImportClientBrandingAttributes_logo,
+    defaultImportClientBrandingAttributes_loginMessage,
+    defaultImportClientBrandingAttributes_forgotPasswordLink,
 
     -- ** DefaultWorkspaceCreationProperties
     defaultWorkspaceCreationProperties_userEnabledAsLocalAdministrator,
@@ -404,6 +503,24 @@ module Amazonka.WorkSpaces.Lens
     -- ** ImagePermission
     imagePermission_sharedAccountId,
 
+    -- ** IosClientBrandingAttributes
+    iosClientBrandingAttributes_supportLink,
+    iosClientBrandingAttributes_supportEmail,
+    iosClientBrandingAttributes_logo2xUrl,
+    iosClientBrandingAttributes_logoUrl,
+    iosClientBrandingAttributes_logo3xUrl,
+    iosClientBrandingAttributes_loginMessage,
+    iosClientBrandingAttributes_forgotPasswordLink,
+
+    -- ** IosImportClientBrandingAttributes
+    iosImportClientBrandingAttributes_supportLink,
+    iosImportClientBrandingAttributes_supportEmail,
+    iosImportClientBrandingAttributes_logo,
+    iosImportClientBrandingAttributes_logo3x,
+    iosImportClientBrandingAttributes_loginMessage,
+    iosImportClientBrandingAttributes_forgotPasswordLink,
+    iosImportClientBrandingAttributes_logo2x,
+
     -- ** IpRuleItem
     ipRuleItem_ipRule,
     ipRuleItem_ruleDesc,
@@ -423,6 +540,11 @@ module Amazonka.WorkSpaces.Lens
 
     -- ** RootStorage
     rootStorage_capacity,
+
+    -- ** SamlProperties
+    samlProperties_status,
+    samlProperties_relayStateParameterName,
+    samlProperties_userAccessUrl,
 
     -- ** SelfservicePermissions
     selfservicePermissions_increaseVolumeSize,
@@ -516,6 +638,7 @@ module Amazonka.WorkSpaces.Lens
     workspaceDirectory_directoryType,
     workspaceDirectory_state,
     workspaceDirectory_customerUserName,
+    workspaceDirectory_samlProperties,
     workspaceDirectory_dnsIpAddresses,
     workspaceDirectory_iamRoleId,
     workspaceDirectory_registrationCode,
@@ -567,12 +690,16 @@ import Amazonka.WorkSpaces.AssociateConnectionAlias
 import Amazonka.WorkSpaces.AssociateIpGroups
 import Amazonka.WorkSpaces.AuthorizeIpRules
 import Amazonka.WorkSpaces.CopyWorkspaceImage
+import Amazonka.WorkSpaces.CreateConnectClientAddIn
 import Amazonka.WorkSpaces.CreateConnectionAlias
 import Amazonka.WorkSpaces.CreateIpGroup
 import Amazonka.WorkSpaces.CreateTags
 import Amazonka.WorkSpaces.CreateUpdatedWorkspaceImage
 import Amazonka.WorkSpaces.CreateWorkspaceBundle
+import Amazonka.WorkSpaces.CreateWorkspaceImage
 import Amazonka.WorkSpaces.CreateWorkspaces
+import Amazonka.WorkSpaces.DeleteClientBranding
+import Amazonka.WorkSpaces.DeleteConnectClientAddIn
 import Amazonka.WorkSpaces.DeleteConnectionAlias
 import Amazonka.WorkSpaces.DeleteIpGroup
 import Amazonka.WorkSpaces.DeleteTags
@@ -581,7 +708,9 @@ import Amazonka.WorkSpaces.DeleteWorkspaceImage
 import Amazonka.WorkSpaces.DeregisterWorkspaceDirectory
 import Amazonka.WorkSpaces.DescribeAccount
 import Amazonka.WorkSpaces.DescribeAccountModifications
+import Amazonka.WorkSpaces.DescribeClientBranding
 import Amazonka.WorkSpaces.DescribeClientProperties
+import Amazonka.WorkSpaces.DescribeConnectClientAddIns
 import Amazonka.WorkSpaces.DescribeConnectionAliasPermissions
 import Amazonka.WorkSpaces.DescribeConnectionAliases
 import Amazonka.WorkSpaces.DescribeIpGroups
@@ -595,11 +724,13 @@ import Amazonka.WorkSpaces.DescribeWorkspaces
 import Amazonka.WorkSpaces.DescribeWorkspacesConnectionStatus
 import Amazonka.WorkSpaces.DisassociateConnectionAlias
 import Amazonka.WorkSpaces.DisassociateIpGroups
+import Amazonka.WorkSpaces.ImportClientBranding
 import Amazonka.WorkSpaces.ImportWorkspaceImage
 import Amazonka.WorkSpaces.ListAvailableManagementCidrRanges
 import Amazonka.WorkSpaces.MigrateWorkspace
 import Amazonka.WorkSpaces.ModifyAccount
 import Amazonka.WorkSpaces.ModifyClientProperties
+import Amazonka.WorkSpaces.ModifySamlProperties
 import Amazonka.WorkSpaces.ModifySelfservicePermissions
 import Amazonka.WorkSpaces.ModifyWorkspaceAccessProperties
 import Amazonka.WorkSpaces.ModifyWorkspaceCreationProperties
@@ -617,19 +748,25 @@ import Amazonka.WorkSpaces.Types.AccountModification
 import Amazonka.WorkSpaces.Types.ClientProperties
 import Amazonka.WorkSpaces.Types.ClientPropertiesResult
 import Amazonka.WorkSpaces.Types.ComputeType
+import Amazonka.WorkSpaces.Types.ConnectClientAddIn
 import Amazonka.WorkSpaces.Types.ConnectionAlias
 import Amazonka.WorkSpaces.Types.ConnectionAliasAssociation
 import Amazonka.WorkSpaces.Types.ConnectionAliasPermission
+import Amazonka.WorkSpaces.Types.DefaultClientBrandingAttributes
+import Amazonka.WorkSpaces.Types.DefaultImportClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
 import Amazonka.WorkSpaces.Types.FailedCreateWorkspaceRequest
 import Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest
 import Amazonka.WorkSpaces.Types.ImagePermission
+import Amazonka.WorkSpaces.Types.IosClientBrandingAttributes
+import Amazonka.WorkSpaces.Types.IosImportClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.IpRuleItem
 import Amazonka.WorkSpaces.Types.ModificationState
 import Amazonka.WorkSpaces.Types.OperatingSystem
 import Amazonka.WorkSpaces.Types.RebootRequest
 import Amazonka.WorkSpaces.Types.RebuildRequest
 import Amazonka.WorkSpaces.Types.RootStorage
+import Amazonka.WorkSpaces.Types.SamlProperties
 import Amazonka.WorkSpaces.Types.SelfservicePermissions
 import Amazonka.WorkSpaces.Types.Snapshot
 import Amazonka.WorkSpaces.Types.StartRequest
@@ -648,6 +785,7 @@ import Amazonka.WorkSpaces.Types.WorkspaceImage
 import Amazonka.WorkSpaces.Types.WorkspaceProperties
 import Amazonka.WorkSpaces.Types.WorkspaceRequest
 import Amazonka.WorkSpaces.Types.WorkspacesIpGroup
+import Amazonka.WorkSpaces.UpdateConnectClientAddIn
 import Amazonka.WorkSpaces.UpdateConnectionAliasPermission
 import Amazonka.WorkSpaces.UpdateRulesOfIpGroup
 import Amazonka.WorkSpaces.UpdateWorkspaceBundle

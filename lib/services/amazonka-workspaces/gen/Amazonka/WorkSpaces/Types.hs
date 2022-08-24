@@ -41,6 +41,9 @@ module Amazonka.WorkSpaces.Types
     -- * AssociationStatus
     AssociationStatus (..),
 
+    -- * ClientDeviceType
+    ClientDeviceType (..),
+
     -- * Compute
     Compute (..),
 
@@ -59,6 +62,9 @@ module Amazonka.WorkSpaces.Types
     -- * DedicatedTenancySupportResultEnum
     DedicatedTenancySupportResultEnum (..),
 
+    -- * DeletableSamlProperty
+    DeletableSamlProperty (..),
+
     -- * ImageType
     ImageType (..),
 
@@ -76,6 +82,9 @@ module Amazonka.WorkSpaces.Types
 
     -- * RunningMode
     RunningMode (..),
+
+    -- * SamlStatusEnum
+    SamlStatusEnum (..),
 
     -- * TargetWorkspaceState
     TargetWorkspaceState (..),
@@ -127,6 +136,14 @@ module Amazonka.WorkSpaces.Types
     newComputeType,
     computeType_name,
 
+    -- * ConnectClientAddIn
+    ConnectClientAddIn (..),
+    newConnectClientAddIn,
+    connectClientAddIn_resourceId,
+    connectClientAddIn_name,
+    connectClientAddIn_addInId,
+    connectClientAddIn_url,
+
     -- * ConnectionAlias
     ConnectionAlias (..),
     newConnectionAlias,
@@ -149,6 +166,24 @@ module Amazonka.WorkSpaces.Types
     newConnectionAliasPermission,
     connectionAliasPermission_sharedAccountId,
     connectionAliasPermission_allowAssociation,
+
+    -- * DefaultClientBrandingAttributes
+    DefaultClientBrandingAttributes (..),
+    newDefaultClientBrandingAttributes,
+    defaultClientBrandingAttributes_supportLink,
+    defaultClientBrandingAttributes_supportEmail,
+    defaultClientBrandingAttributes_logoUrl,
+    defaultClientBrandingAttributes_loginMessage,
+    defaultClientBrandingAttributes_forgotPasswordLink,
+
+    -- * DefaultImportClientBrandingAttributes
+    DefaultImportClientBrandingAttributes (..),
+    newDefaultImportClientBrandingAttributes,
+    defaultImportClientBrandingAttributes_supportLink,
+    defaultImportClientBrandingAttributes_supportEmail,
+    defaultImportClientBrandingAttributes_logo,
+    defaultImportClientBrandingAttributes_loginMessage,
+    defaultImportClientBrandingAttributes_forgotPasswordLink,
 
     -- * DefaultWorkspaceCreationProperties
     DefaultWorkspaceCreationProperties (..),
@@ -178,6 +213,28 @@ module Amazonka.WorkSpaces.Types
     ImagePermission (..),
     newImagePermission,
     imagePermission_sharedAccountId,
+
+    -- * IosClientBrandingAttributes
+    IosClientBrandingAttributes (..),
+    newIosClientBrandingAttributes,
+    iosClientBrandingAttributes_supportLink,
+    iosClientBrandingAttributes_supportEmail,
+    iosClientBrandingAttributes_logo2xUrl,
+    iosClientBrandingAttributes_logoUrl,
+    iosClientBrandingAttributes_logo3xUrl,
+    iosClientBrandingAttributes_loginMessage,
+    iosClientBrandingAttributes_forgotPasswordLink,
+
+    -- * IosImportClientBrandingAttributes
+    IosImportClientBrandingAttributes (..),
+    newIosImportClientBrandingAttributes,
+    iosImportClientBrandingAttributes_supportLink,
+    iosImportClientBrandingAttributes_supportEmail,
+    iosImportClientBrandingAttributes_logo,
+    iosImportClientBrandingAttributes_logo3x,
+    iosImportClientBrandingAttributes_loginMessage,
+    iosImportClientBrandingAttributes_forgotPasswordLink,
+    iosImportClientBrandingAttributes_logo2x,
 
     -- * IpRuleItem
     IpRuleItem (..),
@@ -210,6 +267,13 @@ module Amazonka.WorkSpaces.Types
     RootStorage (..),
     newRootStorage,
     rootStorage_capacity,
+
+    -- * SamlProperties
+    SamlProperties (..),
+    newSamlProperties,
+    samlProperties_status,
+    samlProperties_relayStateParameterName,
+    samlProperties_userAccessUrl,
 
     -- * SelfservicePermissions
     SelfservicePermissions (..),
@@ -331,6 +395,7 @@ module Amazonka.WorkSpaces.Types
     workspaceDirectory_directoryType,
     workspaceDirectory_state,
     workspaceDirectory_customerUserName,
+    workspaceDirectory_samlProperties,
     workspaceDirectory_dnsIpAddresses,
     workspaceDirectory_iamRoleId,
     workspaceDirectory_registrationCode,
@@ -394,10 +459,12 @@ import Amazonka.WorkSpaces.Types.AccessPropertyValue
 import Amazonka.WorkSpaces.Types.AccountModification
 import Amazonka.WorkSpaces.Types.Application
 import Amazonka.WorkSpaces.Types.AssociationStatus
+import Amazonka.WorkSpaces.Types.ClientDeviceType
 import Amazonka.WorkSpaces.Types.ClientProperties
 import Amazonka.WorkSpaces.Types.ClientPropertiesResult
 import Amazonka.WorkSpaces.Types.Compute
 import Amazonka.WorkSpaces.Types.ComputeType
+import Amazonka.WorkSpaces.Types.ConnectClientAddIn
 import Amazonka.WorkSpaces.Types.ConnectionAlias
 import Amazonka.WorkSpaces.Types.ConnectionAliasAssociation
 import Amazonka.WorkSpaces.Types.ConnectionAliasPermission
@@ -406,11 +473,16 @@ import Amazonka.WorkSpaces.Types.ConnectionState
 import Amazonka.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
 import Amazonka.WorkSpaces.Types.DedicatedTenancySupportEnum
 import Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum
+import Amazonka.WorkSpaces.Types.DefaultClientBrandingAttributes
+import Amazonka.WorkSpaces.Types.DefaultImportClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
+import Amazonka.WorkSpaces.Types.DeletableSamlProperty
 import Amazonka.WorkSpaces.Types.FailedCreateWorkspaceRequest
 import Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest
 import Amazonka.WorkSpaces.Types.ImagePermission
 import Amazonka.WorkSpaces.Types.ImageType
+import Amazonka.WorkSpaces.Types.IosClientBrandingAttributes
+import Amazonka.WorkSpaces.Types.IosImportClientBrandingAttributes
 import Amazonka.WorkSpaces.Types.IpRuleItem
 import Amazonka.WorkSpaces.Types.ModificationResourceEnum
 import Amazonka.WorkSpaces.Types.ModificationState
@@ -422,6 +494,8 @@ import Amazonka.WorkSpaces.Types.RebuildRequest
 import Amazonka.WorkSpaces.Types.ReconnectEnum
 import Amazonka.WorkSpaces.Types.RootStorage
 import Amazonka.WorkSpaces.Types.RunningMode
+import Amazonka.WorkSpaces.Types.SamlProperties
+import Amazonka.WorkSpaces.Types.SamlStatusEnum
 import Amazonka.WorkSpaces.Types.SelfservicePermissions
 import Amazonka.WorkSpaces.Types.Snapshot
 import Amazonka.WorkSpaces.Types.StartRequest

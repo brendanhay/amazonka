@@ -48,12 +48,16 @@ library
     Amazonka.WorkSpaces.AssociateIpGroups
     Amazonka.WorkSpaces.AuthorizeIpRules
     Amazonka.WorkSpaces.CopyWorkspaceImage
+    Amazonka.WorkSpaces.CreateConnectClientAddIn
     Amazonka.WorkSpaces.CreateConnectionAlias
     Amazonka.WorkSpaces.CreateIpGroup
     Amazonka.WorkSpaces.CreateTags
     Amazonka.WorkSpaces.CreateUpdatedWorkspaceImage
     Amazonka.WorkSpaces.CreateWorkspaceBundle
+    Amazonka.WorkSpaces.CreateWorkspaceImage
     Amazonka.WorkSpaces.CreateWorkspaces
+    Amazonka.WorkSpaces.DeleteClientBranding
+    Amazonka.WorkSpaces.DeleteConnectClientAddIn
     Amazonka.WorkSpaces.DeleteConnectionAlias
     Amazonka.WorkSpaces.DeleteIpGroup
     Amazonka.WorkSpaces.DeleteTags
@@ -62,7 +66,9 @@ library
     Amazonka.WorkSpaces.DeregisterWorkspaceDirectory
     Amazonka.WorkSpaces.DescribeAccount
     Amazonka.WorkSpaces.DescribeAccountModifications
+    Amazonka.WorkSpaces.DescribeClientBranding
     Amazonka.WorkSpaces.DescribeClientProperties
+    Amazonka.WorkSpaces.DescribeConnectClientAddIns
     Amazonka.WorkSpaces.DescribeConnectionAliases
     Amazonka.WorkSpaces.DescribeConnectionAliasPermissions
     Amazonka.WorkSpaces.DescribeIpGroups
@@ -76,12 +82,14 @@ library
     Amazonka.WorkSpaces.DescribeWorkspaceSnapshots
     Amazonka.WorkSpaces.DisassociateConnectionAlias
     Amazonka.WorkSpaces.DisassociateIpGroups
+    Amazonka.WorkSpaces.ImportClientBranding
     Amazonka.WorkSpaces.ImportWorkspaceImage
     Amazonka.WorkSpaces.Lens
     Amazonka.WorkSpaces.ListAvailableManagementCidrRanges
     Amazonka.WorkSpaces.MigrateWorkspace
     Amazonka.WorkSpaces.ModifyAccount
     Amazonka.WorkSpaces.ModifyClientProperties
+    Amazonka.WorkSpaces.ModifySamlProperties
     Amazonka.WorkSpaces.ModifySelfservicePermissions
     Amazonka.WorkSpaces.ModifyWorkspaceAccessProperties
     Amazonka.WorkSpaces.ModifyWorkspaceCreationProperties
@@ -100,10 +108,12 @@ library
     Amazonka.WorkSpaces.Types.AccountModification
     Amazonka.WorkSpaces.Types.Application
     Amazonka.WorkSpaces.Types.AssociationStatus
+    Amazonka.WorkSpaces.Types.ClientDeviceType
     Amazonka.WorkSpaces.Types.ClientProperties
     Amazonka.WorkSpaces.Types.ClientPropertiesResult
     Amazonka.WorkSpaces.Types.Compute
     Amazonka.WorkSpaces.Types.ComputeType
+    Amazonka.WorkSpaces.Types.ConnectClientAddIn
     Amazonka.WorkSpaces.Types.ConnectionAlias
     Amazonka.WorkSpaces.Types.ConnectionAliasAssociation
     Amazonka.WorkSpaces.Types.ConnectionAliasPermission
@@ -112,11 +122,16 @@ library
     Amazonka.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
     Amazonka.WorkSpaces.Types.DedicatedTenancySupportEnum
     Amazonka.WorkSpaces.Types.DedicatedTenancySupportResultEnum
+    Amazonka.WorkSpaces.Types.DefaultClientBrandingAttributes
+    Amazonka.WorkSpaces.Types.DefaultImportClientBrandingAttributes
     Amazonka.WorkSpaces.Types.DefaultWorkspaceCreationProperties
+    Amazonka.WorkSpaces.Types.DeletableSamlProperty
     Amazonka.WorkSpaces.Types.FailedCreateWorkspaceRequest
     Amazonka.WorkSpaces.Types.FailedWorkspaceChangeRequest
     Amazonka.WorkSpaces.Types.ImagePermission
     Amazonka.WorkSpaces.Types.ImageType
+    Amazonka.WorkSpaces.Types.IosClientBrandingAttributes
+    Amazonka.WorkSpaces.Types.IosImportClientBrandingAttributes
     Amazonka.WorkSpaces.Types.IpRuleItem
     Amazonka.WorkSpaces.Types.ModificationResourceEnum
     Amazonka.WorkSpaces.Types.ModificationState
@@ -128,6 +143,8 @@ library
     Amazonka.WorkSpaces.Types.ReconnectEnum
     Amazonka.WorkSpaces.Types.RootStorage
     Amazonka.WorkSpaces.Types.RunningMode
+    Amazonka.WorkSpaces.Types.SamlProperties
+    Amazonka.WorkSpaces.Types.SamlStatusEnum
     Amazonka.WorkSpaces.Types.SelfservicePermissions
     Amazonka.WorkSpaces.Types.Snapshot
     Amazonka.WorkSpaces.Types.StartRequest
@@ -154,6 +171,7 @@ library
     Amazonka.WorkSpaces.Types.WorkspaceRequest
     Amazonka.WorkSpaces.Types.WorkspacesIpGroup
     Amazonka.WorkSpaces.Types.WorkspaceState
+    Amazonka.WorkSpaces.UpdateConnectClientAddIn
     Amazonka.WorkSpaces.UpdateConnectionAliasPermission
     Amazonka.WorkSpaces.UpdateRulesOfIpGroup
     Amazonka.WorkSpaces.UpdateWorkspaceBundle

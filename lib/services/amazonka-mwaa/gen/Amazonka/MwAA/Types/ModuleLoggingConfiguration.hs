@@ -24,23 +24,21 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.MwAA.Types.LoggingLevel
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines the type of logs to send for the Apache Airflow log type (e.g.
--- @DagProcessingLogs@). Valid values: @CloudWatchLogGroupArn@, @Enabled@,
--- @LogLevel@.
+-- | Describes the Apache Airflow log details for the log type (e.g.
+-- @DagProcessingLogs@).
 --
 -- /See:/ 'newModuleLoggingConfiguration' smart constructor.
 data ModuleLoggingConfiguration = ModuleLoggingConfiguration'
-  { -- | Defines the Apache Airflow logs to send for the log type (e.g.
-    -- @DagProcessingLogs@) to CloudWatch Logs. Valid values: @CRITICAL@,
-    -- @ERROR@, @WARNING@, @INFO@.
+  { -- | The Apache Airflow log level for the log type (e.g.
+    -- @DagProcessingLogs@).
     logLevel :: Prelude.Maybe LoggingLevel,
     -- | The Amazon Resource Name (ARN) for the CloudWatch Logs group where the
     -- Apache Airflow log type (e.g. @DagProcessingLogs@) is published. For
     -- example,
     -- @arn:aws:logs:us-east-1:123456789012:log-group:airflow-MyMWAAEnvironment-MwaaEnvironment-DAGProcessing:*@.
     cloudWatchLogGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether to enable the Apache Airflow log type (e.g.
-    -- @DagProcessingLogs@) in CloudWatch Logs.
+    -- | Indicates whether the Apache Airflow log type (e.g. @DagProcessingLogs@)
+    -- is enabled.
     enabled :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -53,17 +51,16 @@ data ModuleLoggingConfiguration = ModuleLoggingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'logLevel', 'moduleLoggingConfiguration_logLevel' - Defines the Apache Airflow logs to send for the log type (e.g.
--- @DagProcessingLogs@) to CloudWatch Logs. Valid values: @CRITICAL@,
--- @ERROR@, @WARNING@, @INFO@.
+-- 'logLevel', 'moduleLoggingConfiguration_logLevel' - The Apache Airflow log level for the log type (e.g.
+-- @DagProcessingLogs@).
 --
 -- 'cloudWatchLogGroupArn', 'moduleLoggingConfiguration_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) for the CloudWatch Logs group where the
 -- Apache Airflow log type (e.g. @DagProcessingLogs@) is published. For
 -- example,
 -- @arn:aws:logs:us-east-1:123456789012:log-group:airflow-MyMWAAEnvironment-MwaaEnvironment-DAGProcessing:*@.
 --
--- 'enabled', 'moduleLoggingConfiguration_enabled' - Indicates whether to enable the Apache Airflow log type (e.g.
--- @DagProcessingLogs@) in CloudWatch Logs.
+-- 'enabled', 'moduleLoggingConfiguration_enabled' - Indicates whether the Apache Airflow log type (e.g. @DagProcessingLogs@)
+-- is enabled.
 newModuleLoggingConfiguration ::
   ModuleLoggingConfiguration
 newModuleLoggingConfiguration =
@@ -74,9 +71,8 @@ newModuleLoggingConfiguration =
       enabled = Prelude.Nothing
     }
 
--- | Defines the Apache Airflow logs to send for the log type (e.g.
--- @DagProcessingLogs@) to CloudWatch Logs. Valid values: @CRITICAL@,
--- @ERROR@, @WARNING@, @INFO@.
+-- | The Apache Airflow log level for the log type (e.g.
+-- @DagProcessingLogs@).
 moduleLoggingConfiguration_logLevel :: Lens.Lens' ModuleLoggingConfiguration (Prelude.Maybe LoggingLevel)
 moduleLoggingConfiguration_logLevel = Lens.lens (\ModuleLoggingConfiguration' {logLevel} -> logLevel) (\s@ModuleLoggingConfiguration' {} a -> s {logLevel = a} :: ModuleLoggingConfiguration)
 
@@ -87,8 +83,8 @@ moduleLoggingConfiguration_logLevel = Lens.lens (\ModuleLoggingConfiguration' {l
 moduleLoggingConfiguration_cloudWatchLogGroupArn :: Lens.Lens' ModuleLoggingConfiguration (Prelude.Maybe Prelude.Text)
 moduleLoggingConfiguration_cloudWatchLogGroupArn = Lens.lens (\ModuleLoggingConfiguration' {cloudWatchLogGroupArn} -> cloudWatchLogGroupArn) (\s@ModuleLoggingConfiguration' {} a -> s {cloudWatchLogGroupArn = a} :: ModuleLoggingConfiguration)
 
--- | Indicates whether to enable the Apache Airflow log type (e.g.
--- @DagProcessingLogs@) in CloudWatch Logs.
+-- | Indicates whether the Apache Airflow log type (e.g. @DagProcessingLogs@)
+-- is enabled.
 moduleLoggingConfiguration_enabled :: Lens.Lens' ModuleLoggingConfiguration (Prelude.Maybe Prelude.Bool)
 moduleLoggingConfiguration_enabled = Lens.lens (\ModuleLoggingConfiguration' {enabled} -> enabled) (\s@ModuleLoggingConfiguration' {} a -> s {enabled = a} :: ModuleLoggingConfiguration)
 

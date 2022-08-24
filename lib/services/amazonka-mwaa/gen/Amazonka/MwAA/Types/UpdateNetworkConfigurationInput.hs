@@ -23,15 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The VPC networking components used to secure and enable network traffic
--- between the AWS resources for your environment. To learn more, see
+-- | Defines the VPC networking components used to secure and enable network
+-- traffic between the Amazon Web Services resources for your environment.
+-- To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html About networking on Amazon MWAA>.
 --
 -- /See:/ 'newUpdateNetworkConfigurationInput' smart constructor.
 data UpdateNetworkConfigurationInput = UpdateNetworkConfigurationInput'
-  { -- | A list of 1 or more security group IDs. Accepts up to 5 security group
-    -- IDs. A security group must be attached to the same VPC as the subnets.
-    -- To learn more, see
+  { -- | A list of security group IDs. A security group must be attached to the
+    -- same VPC as the subnets. To learn more, see
     -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
     securityGroupIds :: Prelude.NonEmpty Prelude.Text
   }
@@ -45,9 +45,8 @@ data UpdateNetworkConfigurationInput = UpdateNetworkConfigurationInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'updateNetworkConfigurationInput_securityGroupIds' - A list of 1 or more security group IDs. Accepts up to 5 security group
--- IDs. A security group must be attached to the same VPC as the subnets.
--- To learn more, see
+-- 'securityGroupIds', 'updateNetworkConfigurationInput_securityGroupIds' - A list of security group IDs. A security group must be attached to the
+-- same VPC as the subnets. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
 newUpdateNetworkConfigurationInput ::
   -- | 'securityGroupIds'
@@ -59,9 +58,8 @@ newUpdateNetworkConfigurationInput pSecurityGroupIds_ =
         Lens.coerced Lens.# pSecurityGroupIds_
     }
 
--- | A list of 1 or more security group IDs. Accepts up to 5 security group
--- IDs. A security group must be attached to the same VPC as the subnets.
--- To learn more, see
+-- | A list of security group IDs. A security group must be attached to the
+-- same VPC as the subnets. To learn more, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/vpc-security.html Security in your VPC on Amazon MWAA>.
 updateNetworkConfigurationInput_securityGroupIds :: Lens.Lens' UpdateNetworkConfigurationInput (Prelude.NonEmpty Prelude.Text)
 updateNetworkConfigurationInput_securityGroupIds = Lens.lens (\UpdateNetworkConfigurationInput' {securityGroupIds} -> securityGroupIds) (\s@UpdateNetworkConfigurationInput' {} a -> s {securityGroupIds = a} :: UpdateNetworkConfigurationInput) Prelude.. Lens.coerced

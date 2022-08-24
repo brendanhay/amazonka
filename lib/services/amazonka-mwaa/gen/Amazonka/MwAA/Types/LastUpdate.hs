@@ -25,14 +25,16 @@ import Amazonka.MwAA.Types.UpdateError
 import Amazonka.MwAA.Types.UpdateStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | The status of the last update on the environment, and any errors that
--- were encountered.
+-- | Describes the status of the last update on the environment, and any
+-- errors that were encountered.
 --
 -- /See:/ 'newLastUpdate' smart constructor.
 data LastUpdate = LastUpdate'
-  { -- | The status of the last update on the environment. Valid values:
-    -- @SUCCESS@, @PENDING@, @FAILED@.
+  { -- | The status of the last update on the environment.
     status :: Prelude.Maybe UpdateStatus,
+    -- | The source of the last update to the environment. Includes internal
+    -- processes by Amazon MWAA, such as an environment maintenance update.
+    source :: Prelude.Maybe Prelude.Text,
     -- | The error that was encountered during the last update of the
     -- environment.
     error :: Prelude.Maybe UpdateError,
@@ -49,8 +51,10 @@ data LastUpdate = LastUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'lastUpdate_status' - The status of the last update on the environment. Valid values:
--- @SUCCESS@, @PENDING@, @FAILED@.
+-- 'status', 'lastUpdate_status' - The status of the last update on the environment.
+--
+-- 'source', 'lastUpdate_source' - The source of the last update to the environment. Includes internal
+-- processes by Amazon MWAA, such as an environment maintenance update.
 --
 -- 'error', 'lastUpdate_error' - The error that was encountered during the last update of the
 -- environment.
@@ -61,14 +65,19 @@ newLastUpdate ::
 newLastUpdate =
   LastUpdate'
     { status = Prelude.Nothing,
+      source = Prelude.Nothing,
       error = Prelude.Nothing,
       createdAt = Prelude.Nothing
     }
 
--- | The status of the last update on the environment. Valid values:
--- @SUCCESS@, @PENDING@, @FAILED@.
+-- | The status of the last update on the environment.
 lastUpdate_status :: Lens.Lens' LastUpdate (Prelude.Maybe UpdateStatus)
 lastUpdate_status = Lens.lens (\LastUpdate' {status} -> status) (\s@LastUpdate' {} a -> s {status = a} :: LastUpdate)
+
+-- | The source of the last update to the environment. Includes internal
+-- processes by Amazon MWAA, such as an environment maintenance update.
+lastUpdate_source :: Lens.Lens' LastUpdate (Prelude.Maybe Prelude.Text)
+lastUpdate_source = Lens.lens (\LastUpdate' {source} -> source) (\s@LastUpdate' {} a -> s {source = a} :: LastUpdate)
 
 -- | The error that was encountered during the last update of the
 -- environment.
@@ -86,6 +95,7 @@ instance Core.FromJSON LastUpdate where
       ( \x ->
           LastUpdate'
             Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "Error")
             Prelude.<*> (x Core..:? "CreatedAt")
       )
@@ -93,11 +103,13 @@ instance Core.FromJSON LastUpdate where
 instance Prelude.Hashable LastUpdate where
   hashWithSalt _salt LastUpdate' {..} =
     _salt `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` source
       `Prelude.hashWithSalt` error
       `Prelude.hashWithSalt` createdAt
 
 instance Prelude.NFData LastUpdate where
   rnf LastUpdate' {..} =
     Prelude.rnf status
+      `Prelude.seq` Prelude.rnf source
       `Prelude.seq` Prelude.rnf error
       `Prelude.seq` Prelude.rnf createdAt

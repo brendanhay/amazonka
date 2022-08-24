@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a CLI token to use Airflow CLI.
+-- Creates a CLI token for the Airflow CLI. To learn more, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/call-mwaa-apis-cli.html Creating an Apache Airflow CLI token>.
 module Amazonka.MwAA.CreateCliToken
   ( -- * Creating a Request
     CreateCliToken (..),
@@ -49,7 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCliToken' smart constructor.
 data CreateCliToken = CreateCliToken'
-  { -- | Create a CLI token request for a MWAA environment.
+  { -- | The name of the Amazon MWAA environment. For example,
+    -- @MyMWAAEnvironment@.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +64,8 @@ data CreateCliToken = CreateCliToken'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'createCliToken_name' - Create a CLI token request for a MWAA environment.
+-- 'name', 'createCliToken_name' - The name of the Amazon MWAA environment. For example,
+-- @MyMWAAEnvironment@.
 newCreateCliToken ::
   -- | 'name'
   Prelude.Text ->
@@ -70,7 +73,8 @@ newCreateCliToken ::
 newCreateCliToken pName_ =
   CreateCliToken' {name = pName_}
 
--- | Create a CLI token request for a MWAA environment.
+-- | The name of the Amazon MWAA environment. For example,
+-- @MyMWAAEnvironment@.
 createCliToken_name :: Lens.Lens' CreateCliToken Prelude.Text
 createCliToken_name = Lens.lens (\CreateCliToken' {name} -> name) (\s@CreateCliToken' {} a -> s {name = a} :: CreateCliToken)
 
@@ -118,10 +122,9 @@ instance Core.ToQuery CreateCliToken where
 
 -- | /See:/ 'newCreateCliTokenResponse' smart constructor.
 data CreateCliTokenResponse = CreateCliTokenResponse'
-  { -- | Create an Airflow CLI login token response for the provided webserver
-    -- hostname.
+  { -- | The Airflow web server hostname for the environment.
     webServerHostname :: Prelude.Maybe Prelude.Text,
-    -- | Create an Airflow CLI login token response for the provided JWT token.
+    -- | An Airflow CLI login token.
     cliToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -136,10 +139,9 @@ data CreateCliTokenResponse = CreateCliTokenResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'webServerHostname', 'createCliTokenResponse_webServerHostname' - Create an Airflow CLI login token response for the provided webserver
--- hostname.
+-- 'webServerHostname', 'createCliTokenResponse_webServerHostname' - The Airflow web server hostname for the environment.
 --
--- 'cliToken', 'createCliTokenResponse_cliToken' - Create an Airflow CLI login token response for the provided JWT token.
+-- 'cliToken', 'createCliTokenResponse_cliToken' - An Airflow CLI login token.
 --
 -- 'httpStatus', 'createCliTokenResponse_httpStatus' - The response's http status code.
 newCreateCliTokenResponse ::
@@ -154,12 +156,11 @@ newCreateCliTokenResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Create an Airflow CLI login token response for the provided webserver
--- hostname.
+-- | The Airflow web server hostname for the environment.
 createCliTokenResponse_webServerHostname :: Lens.Lens' CreateCliTokenResponse (Prelude.Maybe Prelude.Text)
 createCliTokenResponse_webServerHostname = Lens.lens (\CreateCliTokenResponse' {webServerHostname} -> webServerHostname) (\s@CreateCliTokenResponse' {} a -> s {webServerHostname = a} :: CreateCliTokenResponse)
 
--- | Create an Airflow CLI login token response for the provided JWT token.
+-- | An Airflow CLI login token.
 createCliTokenResponse_cliToken :: Lens.Lens' CreateCliTokenResponse (Prelude.Maybe Prelude.Text)
 createCliTokenResponse_cliToken = Lens.lens (\CreateCliTokenResponse' {cliToken} -> cliToken) (\s@CreateCliTokenResponse' {} a -> s {cliToken = a} :: CreateCliTokenResponse) Prelude.. Lens.mapping Core._Sensitive
 

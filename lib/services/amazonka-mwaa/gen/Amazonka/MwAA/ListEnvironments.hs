@@ -160,7 +160,7 @@ data ListEnvironmentsResponse = ListEnvironmentsResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | Returns the list of Amazon MWAA environments.
+    -- | Returns a list of Amazon MWAA environments.
     environments :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -177,7 +177,7 @@ data ListEnvironmentsResponse = ListEnvironmentsResponse'
 --
 -- 'httpStatus', 'listEnvironmentsResponse_httpStatus' - The response's http status code.
 --
--- 'environments', 'listEnvironmentsResponse_environments' - Returns the list of Amazon MWAA environments.
+-- 'environments', 'listEnvironmentsResponse_environments' - Returns a list of Amazon MWAA environments.
 newListEnvironmentsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -198,7 +198,7 @@ listEnvironmentsResponse_nextToken = Lens.lens (\ListEnvironmentsResponse' {next
 listEnvironmentsResponse_httpStatus :: Lens.Lens' ListEnvironmentsResponse Prelude.Int
 listEnvironmentsResponse_httpStatus = Lens.lens (\ListEnvironmentsResponse' {httpStatus} -> httpStatus) (\s@ListEnvironmentsResponse' {} a -> s {httpStatus = a} :: ListEnvironmentsResponse)
 
--- | Returns the list of Amazon MWAA environments.
+-- | Returns a list of Amazon MWAA environments.
 listEnvironmentsResponse_environments :: Lens.Lens' ListEnvironmentsResponse [Prelude.Text]
 listEnvironmentsResponse_environments = Lens.lens (\ListEnvironmentsResponse' {environments} -> environments) (\s@ListEnvironmentsResponse' {} a -> s {environments = a} :: ListEnvironmentsResponse) Prelude.. Lens.coerced
 

@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- An operation for publishing metrics from the customers to the Ops plane.
+-- __Internal only__. Publishes environment health metrics to Amazon
+-- CloudWatch.
 module Amazonka.MwAA.PublishMetrics
   ( -- * Creating a Request
     PublishMetrics (..),
@@ -48,10 +49,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newPublishMetrics' smart constructor.
 data PublishMetrics = PublishMetrics'
-  { -- | Publishes environment metric data to Amazon CloudWatch.
+  { -- | __Internal only__. The name of the environment.
     environmentName :: Prelude.Text,
-    -- | Publishes metric data points to Amazon CloudWatch. CloudWatch associates
-    -- the data points with the specified metrica.
+    -- | __Internal only__. Publishes metrics to Amazon CloudWatch. To learn more
+    -- about the metrics published to Amazon CloudWatch, see
+    -- <https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html Amazon MWAA performance metrics in Amazon CloudWatch>.
     metricData :: [MetricDatum]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,10 +66,11 @@ data PublishMetrics = PublishMetrics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentName', 'publishMetrics_environmentName' - Publishes environment metric data to Amazon CloudWatch.
+-- 'environmentName', 'publishMetrics_environmentName' - __Internal only__. The name of the environment.
 --
--- 'metricData', 'publishMetrics_metricData' - Publishes metric data points to Amazon CloudWatch. CloudWatch associates
--- the data points with the specified metrica.
+-- 'metricData', 'publishMetrics_metricData' - __Internal only__. Publishes metrics to Amazon CloudWatch. To learn more
+-- about the metrics published to Amazon CloudWatch, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html Amazon MWAA performance metrics in Amazon CloudWatch>.
 newPublishMetrics ::
   -- | 'environmentName'
   Prelude.Text ->
@@ -79,12 +82,13 @@ newPublishMetrics pEnvironmentName_ =
       metricData = Prelude.mempty
     }
 
--- | Publishes environment metric data to Amazon CloudWatch.
+-- | __Internal only__. The name of the environment.
 publishMetrics_environmentName :: Lens.Lens' PublishMetrics Prelude.Text
 publishMetrics_environmentName = Lens.lens (\PublishMetrics' {environmentName} -> environmentName) (\s@PublishMetrics' {} a -> s {environmentName = a} :: PublishMetrics)
 
--- | Publishes metric data points to Amazon CloudWatch. CloudWatch associates
--- the data points with the specified metrica.
+-- | __Internal only__. Publishes metrics to Amazon CloudWatch. To learn more
+-- about the metrics published to Amazon CloudWatch, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html Amazon MWAA performance metrics in Amazon CloudWatch>.
 publishMetrics_metricData :: Lens.Lens' PublishMetrics [MetricDatum]
 publishMetrics_metricData = Lens.lens (\PublishMetrics' {metricData} -> metricData) (\s@PublishMetrics' {} a -> s {metricData = a} :: PublishMetrics) Prelude.. Lens.coerced
 

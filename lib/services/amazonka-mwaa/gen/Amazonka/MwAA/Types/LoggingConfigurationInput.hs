@@ -24,16 +24,19 @@ import qualified Amazonka.Lens as Lens
 import Amazonka.MwAA.Types.ModuleLoggingConfigurationInput
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines the Apache Airflow logs to send to CloudWatch Logs:
--- @DagProcessingLogs@, @SchedulerLogs@, @TaskLogs@, @WebserverLogs@,
--- @WorkerLogs@.
+-- | Defines the Apache Airflow log types to send to CloudWatch Logs.
 --
 -- /See:/ 'newLoggingConfigurationInput' smart constructor.
 data LoggingConfigurationInput = LoggingConfigurationInput'
-  { dagProcessingLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
+  { -- | Publishes Airflow DAG processing logs to CloudWatch Logs.
+    dagProcessingLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
+    -- | Publishes Airflow task logs to CloudWatch Logs.
     taskLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
+    -- | Publishes Airflow worker logs to CloudWatch Logs.
     workerLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
+    -- | Publishes Airflow web server logs to CloudWatch Logs.
     webserverLogs :: Prelude.Maybe ModuleLoggingConfigurationInput,
+    -- | Publishes Airflow scheduler logs to CloudWatch Logs.
     schedulerLogs :: Prelude.Maybe ModuleLoggingConfigurationInput
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,15 +49,15 @@ data LoggingConfigurationInput = LoggingConfigurationInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dagProcessingLogs', 'loggingConfigurationInput_dagProcessingLogs' - Undocumented member.
+-- 'dagProcessingLogs', 'loggingConfigurationInput_dagProcessingLogs' - Publishes Airflow DAG processing logs to CloudWatch Logs.
 --
--- 'taskLogs', 'loggingConfigurationInput_taskLogs' - Undocumented member.
+-- 'taskLogs', 'loggingConfigurationInput_taskLogs' - Publishes Airflow task logs to CloudWatch Logs.
 --
--- 'workerLogs', 'loggingConfigurationInput_workerLogs' - Undocumented member.
+-- 'workerLogs', 'loggingConfigurationInput_workerLogs' - Publishes Airflow worker logs to CloudWatch Logs.
 --
--- 'webserverLogs', 'loggingConfigurationInput_webserverLogs' - Undocumented member.
+-- 'webserverLogs', 'loggingConfigurationInput_webserverLogs' - Publishes Airflow web server logs to CloudWatch Logs.
 --
--- 'schedulerLogs', 'loggingConfigurationInput_schedulerLogs' - Undocumented member.
+-- 'schedulerLogs', 'loggingConfigurationInput_schedulerLogs' - Publishes Airflow scheduler logs to CloudWatch Logs.
 newLoggingConfigurationInput ::
   LoggingConfigurationInput
 newLoggingConfigurationInput =
@@ -67,23 +70,23 @@ newLoggingConfigurationInput =
       schedulerLogs = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Publishes Airflow DAG processing logs to CloudWatch Logs.
 loggingConfigurationInput_dagProcessingLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
 loggingConfigurationInput_dagProcessingLogs = Lens.lens (\LoggingConfigurationInput' {dagProcessingLogs} -> dagProcessingLogs) (\s@LoggingConfigurationInput' {} a -> s {dagProcessingLogs = a} :: LoggingConfigurationInput)
 
--- | Undocumented member.
+-- | Publishes Airflow task logs to CloudWatch Logs.
 loggingConfigurationInput_taskLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
 loggingConfigurationInput_taskLogs = Lens.lens (\LoggingConfigurationInput' {taskLogs} -> taskLogs) (\s@LoggingConfigurationInput' {} a -> s {taskLogs = a} :: LoggingConfigurationInput)
 
--- | Undocumented member.
+-- | Publishes Airflow worker logs to CloudWatch Logs.
 loggingConfigurationInput_workerLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
 loggingConfigurationInput_workerLogs = Lens.lens (\LoggingConfigurationInput' {workerLogs} -> workerLogs) (\s@LoggingConfigurationInput' {} a -> s {workerLogs = a} :: LoggingConfigurationInput)
 
--- | Undocumented member.
+-- | Publishes Airflow web server logs to CloudWatch Logs.
 loggingConfigurationInput_webserverLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
 loggingConfigurationInput_webserverLogs = Lens.lens (\LoggingConfigurationInput' {webserverLogs} -> webserverLogs) (\s@LoggingConfigurationInput' {} a -> s {webserverLogs = a} :: LoggingConfigurationInput)
 
--- | Undocumented member.
+-- | Publishes Airflow scheduler logs to CloudWatch Logs.
 loggingConfigurationInput_schedulerLogs :: Lens.Lens' LoggingConfigurationInput (Prelude.Maybe ModuleLoggingConfigurationInput)
 loggingConfigurationInput_schedulerLogs = Lens.lens (\LoggingConfigurationInput' {schedulerLogs} -> schedulerLogs) (\s@LoggingConfigurationInput' {} a -> s {schedulerLogs = a} :: LoggingConfigurationInput)
 

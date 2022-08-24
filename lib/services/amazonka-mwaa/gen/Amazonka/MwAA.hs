@@ -16,6 +16,45 @@
 -- This section contains the Amazon Managed Workflows for Apache Airflow
 -- (MWAA) API reference documentation. For more information, see
 -- <https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html What Is Amazon MWAA?>.
+--
+-- __Endpoints__
+--
+-- -   @api.airflow.{region}.amazonaws.com@ - This endpoint is used for
+--     environment management.
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_CreateEnvironment.html CreateEnvironment>
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_DeleteEnvironment.html DeleteEnvironment>
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_GetEnvironment.html GetEnvironment>
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_ListEnvironments.html ListEnvironments>
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_ListTagsForResource.html ListTagsForResource>
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_TagResource.html TagResource>
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_UntagResource.html UntagResource>
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_UpdateEnvironment.html UpdateEnvironment>
+--
+-- -   @env.airflow.{region}.amazonaws.com@ - This endpoint is used to
+--     operate the Airflow environment.
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_CreateCliToken.html%20 CreateCliToken>
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html CreateWebLoginToken>
+--
+-- -   @ops.airflow.{region}.amazonaws.com@ - This endpoint is used to push
+--     environment metrics that track environment health.
+--
+--     -   <https://docs.aws.amazon.com/mwaa/latest/API/API_PublishMetrics.html%20 PublishMetrics>
+--
+-- __Regions__
+--
+-- For a list of regions that Amazon MWAA supports, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html#regions-mwaa Region availability>
+-- in the /Amazon MWAA User Guide/.
 module Amazonka.MwAA
   ( -- * Service Configuration
     defaultService,

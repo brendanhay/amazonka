@@ -26,20 +26,23 @@ import Amazonka.MwAA.Types.StatisticSet
 import Amazonka.MwAA.Types.Unit
 import qualified Amazonka.Prelude as Prelude
 
--- | Internal only API.
+-- | __Internal only__. Collects Apache Airflow metrics. To learn more about
+-- the metrics published to Amazon CloudWatch, see
+-- <https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html Amazon MWAA performance metrics in Amazon CloudWatch>.
 --
 -- /See:/ 'newMetricDatum' smart constructor.
 data MetricDatum = MetricDatum'
-  { -- | Internal only API.
+  { -- | __Internal only__. The statistical values for the metric.
     statisticValues :: Prelude.Maybe StatisticSet,
-    -- | Internal only API.
+    -- | __Internal only__. The dimensions associated with the metric.
     dimensions :: Prelude.Maybe [Dimension],
+    -- | __Internal only__. The unit used to store the metric.
     unit :: Prelude.Maybe Unit,
-    -- | Internal only API.
+    -- | __Internal only__. The value for the metric.
     value :: Prelude.Maybe Prelude.Double,
-    -- | Internal only API.
+    -- | __Internal only__. The name of the metric.
     metricName :: Prelude.Text,
-    -- | Internal only API.
+    -- | __Internal only__. The time the metric data was received.
     timestamp :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -52,17 +55,17 @@ data MetricDatum = MetricDatum'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'statisticValues', 'metricDatum_statisticValues' - Internal only API.
+-- 'statisticValues', 'metricDatum_statisticValues' - __Internal only__. The statistical values for the metric.
 --
--- 'dimensions', 'metricDatum_dimensions' - Internal only API.
+-- 'dimensions', 'metricDatum_dimensions' - __Internal only__. The dimensions associated with the metric.
 --
--- 'unit', 'metricDatum_unit' - Undocumented member.
+-- 'unit', 'metricDatum_unit' - __Internal only__. The unit used to store the metric.
 --
--- 'value', 'metricDatum_value' - Internal only API.
+-- 'value', 'metricDatum_value' - __Internal only__. The value for the metric.
 --
--- 'metricName', 'metricDatum_metricName' - Internal only API.
+-- 'metricName', 'metricDatum_metricName' - __Internal only__. The name of the metric.
 --
--- 'timestamp', 'metricDatum_timestamp' - Internal only API.
+-- 'timestamp', 'metricDatum_timestamp' - __Internal only__. The time the metric data was received.
 newMetricDatum ::
   -- | 'metricName'
   Prelude.Text ->
@@ -79,27 +82,27 @@ newMetricDatum pMetricName_ pTimestamp_ =
       timestamp = Core._Time Lens.# pTimestamp_
     }
 
--- | Internal only API.
+-- | __Internal only__. The statistical values for the metric.
 metricDatum_statisticValues :: Lens.Lens' MetricDatum (Prelude.Maybe StatisticSet)
 metricDatum_statisticValues = Lens.lens (\MetricDatum' {statisticValues} -> statisticValues) (\s@MetricDatum' {} a -> s {statisticValues = a} :: MetricDatum)
 
--- | Internal only API.
+-- | __Internal only__. The dimensions associated with the metric.
 metricDatum_dimensions :: Lens.Lens' MetricDatum (Prelude.Maybe [Dimension])
 metricDatum_dimensions = Lens.lens (\MetricDatum' {dimensions} -> dimensions) (\s@MetricDatum' {} a -> s {dimensions = a} :: MetricDatum) Prelude.. Lens.mapping Lens.coerced
 
--- | Undocumented member.
+-- | __Internal only__. The unit used to store the metric.
 metricDatum_unit :: Lens.Lens' MetricDatum (Prelude.Maybe Unit)
 metricDatum_unit = Lens.lens (\MetricDatum' {unit} -> unit) (\s@MetricDatum' {} a -> s {unit = a} :: MetricDatum)
 
--- | Internal only API.
+-- | __Internal only__. The value for the metric.
 metricDatum_value :: Lens.Lens' MetricDatum (Prelude.Maybe Prelude.Double)
 metricDatum_value = Lens.lens (\MetricDatum' {value} -> value) (\s@MetricDatum' {} a -> s {value = a} :: MetricDatum)
 
--- | Internal only API.
+-- | __Internal only__. The name of the metric.
 metricDatum_metricName :: Lens.Lens' MetricDatum Prelude.Text
 metricDatum_metricName = Lens.lens (\MetricDatum' {metricName} -> metricName) (\s@MetricDatum' {} a -> s {metricName = a} :: MetricDatum)
 
--- | Internal only API.
+-- | __Internal only__. The time the metric data was received.
 metricDatum_timestamp :: Lens.Lens' MetricDatum Prelude.UTCTime
 metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Core._Time
 

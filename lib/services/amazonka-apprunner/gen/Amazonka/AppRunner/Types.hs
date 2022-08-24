@@ -38,11 +38,17 @@ module Amazonka.AppRunner.Types
     -- * CustomDomainAssociationStatus
     CustomDomainAssociationStatus (..),
 
+    -- * EgressType
+    EgressType (..),
+
     -- * HealthCheckProtocol
     HealthCheckProtocol (..),
 
     -- * ImageRepositoryType
     ImageRepositoryType (..),
+
+    -- * ObservabilityConfigurationStatus
+    ObservabilityConfigurationStatus (..),
 
     -- * OperationStatus
     OperationStatus (..),
@@ -61,6 +67,12 @@ module Amazonka.AppRunner.Types
 
     -- * SourceCodeVersionType
     SourceCodeVersionType (..),
+
+    -- * TracingVendor
+    TracingVendor (..),
+
+    -- * VpcConnectorStatus
+    VpcConnectorStatus (..),
 
     -- * AuthenticationConfiguration
     AuthenticationConfiguration (..),
@@ -145,6 +157,12 @@ module Amazonka.AppRunner.Types
     customDomain_enableWWWSubdomain,
     customDomain_status,
 
+    -- * EgressConfiguration
+    EgressConfiguration (..),
+    newEgressConfiguration,
+    egressConfiguration_vpcConnectorArn,
+    egressConfiguration_egressType,
+
     -- * EncryptionConfiguration
     EncryptionConfiguration (..),
     newEncryptionConfiguration,
@@ -181,6 +199,30 @@ module Amazonka.AppRunner.Types
     instanceConfiguration_memory,
     instanceConfiguration_instanceRoleArn,
 
+    -- * NetworkConfiguration
+    NetworkConfiguration (..),
+    newNetworkConfiguration,
+    networkConfiguration_egressConfiguration,
+
+    -- * ObservabilityConfiguration
+    ObservabilityConfiguration (..),
+    newObservabilityConfiguration,
+    observabilityConfiguration_traceConfiguration,
+    observabilityConfiguration_observabilityConfigurationName,
+    observabilityConfiguration_observabilityConfigurationRevision,
+    observabilityConfiguration_status,
+    observabilityConfiguration_deletedAt,
+    observabilityConfiguration_latest,
+    observabilityConfiguration_observabilityConfigurationArn,
+    observabilityConfiguration_createdAt,
+
+    -- * ObservabilityConfigurationSummary
+    ObservabilityConfigurationSummary (..),
+    newObservabilityConfigurationSummary,
+    observabilityConfigurationSummary_observabilityConfigurationName,
+    observabilityConfigurationSummary_observabilityConfigurationRevision,
+    observabilityConfigurationSummary_observabilityConfigurationArn,
+
     -- * OperationSummary
     OperationSummary (..),
     newOperationSummary,
@@ -195,6 +237,7 @@ module Amazonka.AppRunner.Types
     -- * Service
     Service (..),
     newService,
+    service_observabilityConfiguration,
     service_deletedAt,
     service_encryptionConfiguration,
     service_healthCheckConfiguration,
@@ -208,6 +251,13 @@ module Amazonka.AppRunner.Types
     service_sourceConfiguration,
     service_instanceConfiguration,
     service_autoScalingConfigurationSummary,
+    service_networkConfiguration,
+
+    -- * ServiceObservabilityConfiguration
+    ServiceObservabilityConfiguration (..),
+    newServiceObservabilityConfiguration,
+    serviceObservabilityConfiguration_observabilityConfigurationArn,
+    serviceObservabilityConfiguration_observabilityEnabled,
 
     -- * ServiceSummary
     ServiceSummary (..),
@@ -239,6 +289,23 @@ module Amazonka.AppRunner.Types
     newTag,
     tag_key,
     tag_value,
+
+    -- * TraceConfiguration
+    TraceConfiguration (..),
+    newTraceConfiguration,
+    traceConfiguration_vendor,
+
+    -- * VpcConnector
+    VpcConnector (..),
+    newVpcConnector,
+    vpcConnector_vpcConnectorName,
+    vpcConnector_vpcConnectorRevision,
+    vpcConnector_subnets,
+    vpcConnector_status,
+    vpcConnector_deletedAt,
+    vpcConnector_vpcConnectorArn,
+    vpcConnector_securityGroups,
+    vpcConnector_createdAt,
   )
 where
 
@@ -257,6 +324,8 @@ import Amazonka.AppRunner.Types.ConnectionStatus
 import Amazonka.AppRunner.Types.ConnectionSummary
 import Amazonka.AppRunner.Types.CustomDomain
 import Amazonka.AppRunner.Types.CustomDomainAssociationStatus
+import Amazonka.AppRunner.Types.EgressConfiguration
+import Amazonka.AppRunner.Types.EgressType
 import Amazonka.AppRunner.Types.EncryptionConfiguration
 import Amazonka.AppRunner.Types.HealthCheckConfiguration
 import Amazonka.AppRunner.Types.HealthCheckProtocol
@@ -264,18 +333,27 @@ import Amazonka.AppRunner.Types.ImageConfiguration
 import Amazonka.AppRunner.Types.ImageRepository
 import Amazonka.AppRunner.Types.ImageRepositoryType
 import Amazonka.AppRunner.Types.InstanceConfiguration
+import Amazonka.AppRunner.Types.NetworkConfiguration
+import Amazonka.AppRunner.Types.ObservabilityConfiguration
+import Amazonka.AppRunner.Types.ObservabilityConfigurationStatus
+import Amazonka.AppRunner.Types.ObservabilityConfigurationSummary
 import Amazonka.AppRunner.Types.OperationStatus
 import Amazonka.AppRunner.Types.OperationSummary
 import Amazonka.AppRunner.Types.OperationType
 import Amazonka.AppRunner.Types.ProviderType
 import Amazonka.AppRunner.Types.Runtime
 import Amazonka.AppRunner.Types.Service
+import Amazonka.AppRunner.Types.ServiceObservabilityConfiguration
 import Amazonka.AppRunner.Types.ServiceStatus
 import Amazonka.AppRunner.Types.ServiceSummary
 import Amazonka.AppRunner.Types.SourceCodeVersion
 import Amazonka.AppRunner.Types.SourceCodeVersionType
 import Amazonka.AppRunner.Types.SourceConfiguration
 import Amazonka.AppRunner.Types.Tag
+import Amazonka.AppRunner.Types.TraceConfiguration
+import Amazonka.AppRunner.Types.TracingVendor
+import Amazonka.AppRunner.Types.VpcConnector
+import Amazonka.AppRunner.Types.VpcConnectorStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude

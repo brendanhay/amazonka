@@ -23,6 +23,8 @@ import Amazonka.AppRunner.Types.AutoScalingConfigurationSummary
 import Amazonka.AppRunner.Types.EncryptionConfiguration
 import Amazonka.AppRunner.Types.HealthCheckConfiguration
 import Amazonka.AppRunner.Types.InstanceConfiguration
+import Amazonka.AppRunner.Types.NetworkConfiguration
+import Amazonka.AppRunner.Types.ServiceObservabilityConfiguration
 import Amazonka.AppRunner.Types.ServiceStatus
 import Amazonka.AppRunner.Types.SourceConfiguration
 import qualified Amazonka.Core as Core
@@ -46,13 +48,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newService' smart constructor.
 data Service = Service'
-  { -- | The time when the App Runner service was deleted. It\'s in the Unix time
+  { -- | The observability configuration of this service.
+    observabilityConfiguration :: Prelude.Maybe ServiceObservabilityConfiguration,
+    -- | The time when the App Runner service was deleted. It\'s in the Unix time
     -- stamp format.
     deletedAt :: Prelude.Maybe Core.POSIX,
     -- | The encryption key that App Runner uses to encrypt the service logs and
     -- the copy of the source repository that App Runner maintains for the
     -- service. It can be either a customer-provided encryption key or an
-    -- Amazon Web Services managed CMK.
+    -- Amazon Web Services managed key.
     encryptionConfiguration :: Prelude.Maybe EncryptionConfiguration,
     -- | The settings for the health check that App Runner performs to monitor
     -- the health of this service.
@@ -95,7 +99,10 @@ data Service = Service'
     instanceConfiguration :: InstanceConfiguration,
     -- | Summary information for the App Runner automatic scaling configuration
     -- resource that\'s associated with this service.
-    autoScalingConfigurationSummary :: AutoScalingConfigurationSummary
+    autoScalingConfigurationSummary :: AutoScalingConfigurationSummary,
+    -- | Configuration settings related to network traffic of the web application
+    -- that this service runs.
+    networkConfiguration :: NetworkConfiguration
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -107,13 +114,15 @@ data Service = Service'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'observabilityConfiguration', 'service_observabilityConfiguration' - The observability configuration of this service.
+--
 -- 'deletedAt', 'service_deletedAt' - The time when the App Runner service was deleted. It\'s in the Unix time
 -- stamp format.
 --
 -- 'encryptionConfiguration', 'service_encryptionConfiguration' - The encryption key that App Runner uses to encrypt the service logs and
 -- the copy of the source repository that App Runner maintains for the
 -- service. It can be either a customer-provided encryption key or an
--- Amazon Web Services managed CMK.
+-- Amazon Web Services managed key.
 --
 -- 'healthCheckConfiguration', 'service_healthCheckConfiguration' - The settings for the health check that App Runner performs to monitor
 -- the health of this service.
@@ -156,6 +165,9 @@ data Service = Service'
 --
 -- 'autoScalingConfigurationSummary', 'service_autoScalingConfigurationSummary' - Summary information for the App Runner automatic scaling configuration
 -- resource that\'s associated with this service.
+--
+-- 'networkConfiguration', 'service_networkConfiguration' - Configuration settings related to network traffic of the web application
+-- that this service runs.
 newService ::
   -- | 'serviceName'
   Prelude.Text ->
@@ -177,6 +189,8 @@ newService ::
   InstanceConfiguration ->
   -- | 'autoScalingConfigurationSummary'
   AutoScalingConfigurationSummary ->
+  -- | 'networkConfiguration'
+  NetworkConfiguration ->
   Service
 newService
   pServiceName_
@@ -188,9 +202,12 @@ newService
   pStatus_
   pSourceConfiguration_
   pInstanceConfiguration_
-  pAutoScalingConfigurationSummary_ =
+  pAutoScalingConfigurationSummary_
+  pNetworkConfiguration_ =
     Service'
-      { deletedAt = Prelude.Nothing,
+      { observabilityConfiguration =
+          Prelude.Nothing,
+        deletedAt = Prelude.Nothing,
         encryptionConfiguration = Prelude.Nothing,
         healthCheckConfiguration = Prelude.Nothing,
         serviceName = pServiceName_,
@@ -203,8 +220,13 @@ newService
         sourceConfiguration = pSourceConfiguration_,
         instanceConfiguration = pInstanceConfiguration_,
         autoScalingConfigurationSummary =
-          pAutoScalingConfigurationSummary_
+          pAutoScalingConfigurationSummary_,
+        networkConfiguration = pNetworkConfiguration_
       }
+
+-- | The observability configuration of this service.
+service_observabilityConfiguration :: Lens.Lens' Service (Prelude.Maybe ServiceObservabilityConfiguration)
+service_observabilityConfiguration = Lens.lens (\Service' {observabilityConfiguration} -> observabilityConfiguration) (\s@Service' {} a -> s {observabilityConfiguration = a} :: Service)
 
 -- | The time when the App Runner service was deleted. It\'s in the Unix time
 -- stamp format.
@@ -214,7 +236,7 @@ service_deletedAt = Lens.lens (\Service' {deletedAt} -> deletedAt) (\s@Service' 
 -- | The encryption key that App Runner uses to encrypt the service logs and
 -- the copy of the source repository that App Runner maintains for the
 -- service. It can be either a customer-provided encryption key or an
--- Amazon Web Services managed CMK.
+-- Amazon Web Services managed key.
 service_encryptionConfiguration :: Lens.Lens' Service (Prelude.Maybe EncryptionConfiguration)
 service_encryptionConfiguration = Lens.lens (\Service' {encryptionConfiguration} -> encryptionConfiguration) (\s@Service' {} a -> s {encryptionConfiguration = a} :: Service)
 
@@ -282,13 +304,19 @@ service_instanceConfiguration = Lens.lens (\Service' {instanceConfiguration} -> 
 service_autoScalingConfigurationSummary :: Lens.Lens' Service AutoScalingConfigurationSummary
 service_autoScalingConfigurationSummary = Lens.lens (\Service' {autoScalingConfigurationSummary} -> autoScalingConfigurationSummary) (\s@Service' {} a -> s {autoScalingConfigurationSummary = a} :: Service)
 
+-- | Configuration settings related to network traffic of the web application
+-- that this service runs.
+service_networkConfiguration :: Lens.Lens' Service NetworkConfiguration
+service_networkConfiguration = Lens.lens (\Service' {networkConfiguration} -> networkConfiguration) (\s@Service' {} a -> s {networkConfiguration = a} :: Service)
+
 instance Core.FromJSON Service where
   parseJSON =
     Core.withObject
       "Service"
       ( \x ->
           Service'
-            Prelude.<$> (x Core..:? "DeletedAt")
+            Prelude.<$> (x Core..:? "ObservabilityConfiguration")
+            Prelude.<*> (x Core..:? "DeletedAt")
             Prelude.<*> (x Core..:? "EncryptionConfiguration")
             Prelude.<*> (x Core..:? "HealthCheckConfiguration")
             Prelude.<*> (x Core..: "ServiceName")
@@ -301,11 +329,14 @@ instance Core.FromJSON Service where
             Prelude.<*> (x Core..: "SourceConfiguration")
             Prelude.<*> (x Core..: "InstanceConfiguration")
             Prelude.<*> (x Core..: "AutoScalingConfigurationSummary")
+            Prelude.<*> (x Core..: "NetworkConfiguration")
       )
 
 instance Prelude.Hashable Service where
   hashWithSalt _salt Service' {..} =
-    _salt `Prelude.hashWithSalt` deletedAt
+    _salt
+      `Prelude.hashWithSalt` observabilityConfiguration
+      `Prelude.hashWithSalt` deletedAt
       `Prelude.hashWithSalt` encryptionConfiguration
       `Prelude.hashWithSalt` healthCheckConfiguration
       `Prelude.hashWithSalt` serviceName
@@ -318,10 +349,12 @@ instance Prelude.Hashable Service where
       `Prelude.hashWithSalt` sourceConfiguration
       `Prelude.hashWithSalt` instanceConfiguration
       `Prelude.hashWithSalt` autoScalingConfigurationSummary
+      `Prelude.hashWithSalt` networkConfiguration
 
 instance Prelude.NFData Service where
   rnf Service' {..} =
-    Prelude.rnf deletedAt
+    Prelude.rnf observabilityConfiguration
+      `Prelude.seq` Prelude.rnf deletedAt
       `Prelude.seq` Prelude.rnf encryptionConfiguration
       `Prelude.seq` Prelude.rnf healthCheckConfiguration
       `Prelude.seq` Prelude.rnf serviceName
@@ -333,4 +366,6 @@ instance Prelude.NFData Service where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf sourceConfiguration
       `Prelude.seq` Prelude.rnf instanceConfiguration
-      `Prelude.seq` Prelude.rnf autoScalingConfigurationSummary
+      `Prelude.seq` Prelude.rnf
+        autoScalingConfigurationSummary
+      `Prelude.seq` Prelude.rnf networkConfiguration

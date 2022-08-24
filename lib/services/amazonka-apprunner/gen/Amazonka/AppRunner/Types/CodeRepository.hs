@@ -31,6 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data CodeRepository = CodeRepository'
   { -- | Configuration for building and running the service from a source code
     -- repository.
+    --
+    -- @CodeConfiguration@ is required only for @CreateService@ request.
     codeConfiguration :: Prelude.Maybe CodeConfiguration,
     -- | The location of the repository that contains the source code.
     repositoryUrl :: Prelude.Text,
@@ -49,6 +51,8 @@ data CodeRepository = CodeRepository'
 --
 -- 'codeConfiguration', 'codeRepository_codeConfiguration' - Configuration for building and running the service from a source code
 -- repository.
+--
+-- @CodeConfiguration@ is required only for @CreateService@ request.
 --
 -- 'repositoryUrl', 'codeRepository_repositoryUrl' - The location of the repository that contains the source code.
 --
@@ -69,6 +73,8 @@ newCodeRepository pRepositoryUrl_ pSourceCodeVersion_ =
 
 -- | Configuration for building and running the service from a source code
 -- repository.
+--
+-- @CodeConfiguration@ is required only for @CreateService@ request.
 codeRepository_codeConfiguration :: Lens.Lens' CodeRepository (Prelude.Maybe CodeConfiguration)
 codeRepository_codeConfiguration = Lens.lens (\CodeRepository' {codeConfiguration} -> codeConfiguration) (\s@CodeRepository' {} a -> s {codeConfiguration = a} :: CodeRepository)
 

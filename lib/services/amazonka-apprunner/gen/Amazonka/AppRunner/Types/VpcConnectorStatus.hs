@@ -11,20 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.AppRunner.Types.Runtime
+-- Module      : Amazonka.AppRunner.Types.VpcConnectorStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AppRunner.Types.Runtime
-  ( Runtime
+module Amazonka.AppRunner.Types.VpcConnectorStatus
+  ( VpcConnectorStatus
       ( ..,
-        Runtime_CORRETTO_11,
-        Runtime_CORRETTO_8,
-        Runtime_NODEJS_12,
-        Runtime_NODEJS_14,
-        Runtime_PYTHON_3
+        VpcConnectorStatus_ACTIVE,
+        VpcConnectorStatus_INACTIVE
       ),
   )
 where
@@ -32,7 +29,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype Runtime = Runtime' {fromRuntime :: Core.Text}
+newtype VpcConnectorStatus = VpcConnectorStatus'
+  { fromVpcConnectorStatus ::
+      Core.Text
+  }
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -57,26 +57,14 @@ newtype Runtime = Runtime' {fromRuntime :: Core.Text}
       Core.ToXML
     )
 
-pattern Runtime_CORRETTO_11 :: Runtime
-pattern Runtime_CORRETTO_11 = Runtime' "CORRETTO_11"
+pattern VpcConnectorStatus_ACTIVE :: VpcConnectorStatus
+pattern VpcConnectorStatus_ACTIVE = VpcConnectorStatus' "ACTIVE"
 
-pattern Runtime_CORRETTO_8 :: Runtime
-pattern Runtime_CORRETTO_8 = Runtime' "CORRETTO_8"
-
-pattern Runtime_NODEJS_12 :: Runtime
-pattern Runtime_NODEJS_12 = Runtime' "NODEJS_12"
-
-pattern Runtime_NODEJS_14 :: Runtime
-pattern Runtime_NODEJS_14 = Runtime' "NODEJS_14"
-
-pattern Runtime_PYTHON_3 :: Runtime
-pattern Runtime_PYTHON_3 = Runtime' "PYTHON_3"
+pattern VpcConnectorStatus_INACTIVE :: VpcConnectorStatus
+pattern VpcConnectorStatus_INACTIVE = VpcConnectorStatus' "INACTIVE"
 
 {-# COMPLETE
-  Runtime_CORRETTO_11,
-  Runtime_CORRETTO_8,
-  Runtime_NODEJS_12,
-  Runtime_NODEJS_14,
-  Runtime_PYTHON_3,
-  Runtime'
+  VpcConnectorStatus_ACTIVE,
+  VpcConnectorStatus_INACTIVE,
+  VpcConnectorStatus'
   #-}

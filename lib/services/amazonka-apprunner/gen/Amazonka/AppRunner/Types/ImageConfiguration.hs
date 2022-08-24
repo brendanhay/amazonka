@@ -35,7 +35,7 @@ data ImageConfiguration = ImageConfiguration'
     -- | An optional command that App Runner runs to start the application in the
     -- source image. If specified, this command overrides the Docker image’s
     -- default start command.
-    startCommand :: Prelude.Maybe Prelude.Text,
+    startCommand :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Environment variables that are available to your running App Runner
     -- service. An array of key-value pairs. Keys with a prefix of
     -- @AWSAPPRUNNER@ are reserved for system use and aren\'t valid.
@@ -81,7 +81,7 @@ imageConfiguration_port = Lens.lens (\ImageConfiguration' {port} -> port) (\s@Im
 -- source image. If specified, this command overrides the Docker image’s
 -- default start command.
 imageConfiguration_startCommand :: Lens.Lens' ImageConfiguration (Prelude.Maybe Prelude.Text)
-imageConfiguration_startCommand = Lens.lens (\ImageConfiguration' {startCommand} -> startCommand) (\s@ImageConfiguration' {} a -> s {startCommand = a} :: ImageConfiguration)
+imageConfiguration_startCommand = Lens.lens (\ImageConfiguration' {startCommand} -> startCommand) (\s@ImageConfiguration' {} a -> s {startCommand = a} :: ImageConfiguration) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Environment variables that are available to your running App Runner
 -- service. An array of key-value pairs. Keys with a prefix of

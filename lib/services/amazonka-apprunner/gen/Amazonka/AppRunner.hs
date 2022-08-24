@@ -85,11 +85,23 @@ module Amazonka.AppRunner
     CreateConnectionResponse (CreateConnectionResponse'),
     newCreateConnectionResponse,
 
+    -- ** CreateObservabilityConfiguration
+    CreateObservabilityConfiguration (CreateObservabilityConfiguration'),
+    newCreateObservabilityConfiguration,
+    CreateObservabilityConfigurationResponse (CreateObservabilityConfigurationResponse'),
+    newCreateObservabilityConfigurationResponse,
+
     -- ** CreateService
     CreateService (CreateService'),
     newCreateService,
     CreateServiceResponse (CreateServiceResponse'),
     newCreateServiceResponse,
+
+    -- ** CreateVpcConnector
+    CreateVpcConnector (CreateVpcConnector'),
+    newCreateVpcConnector,
+    CreateVpcConnectorResponse (CreateVpcConnectorResponse'),
+    newCreateVpcConnectorResponse,
 
     -- ** DeleteAutoScalingConfiguration
     DeleteAutoScalingConfiguration (DeleteAutoScalingConfiguration'),
@@ -103,11 +115,23 @@ module Amazonka.AppRunner
     DeleteConnectionResponse (DeleteConnectionResponse'),
     newDeleteConnectionResponse,
 
+    -- ** DeleteObservabilityConfiguration
+    DeleteObservabilityConfiguration (DeleteObservabilityConfiguration'),
+    newDeleteObservabilityConfiguration,
+    DeleteObservabilityConfigurationResponse (DeleteObservabilityConfigurationResponse'),
+    newDeleteObservabilityConfigurationResponse,
+
     -- ** DeleteService
     DeleteService (DeleteService'),
     newDeleteService,
     DeleteServiceResponse (DeleteServiceResponse'),
     newDeleteServiceResponse,
+
+    -- ** DeleteVpcConnector
+    DeleteVpcConnector (DeleteVpcConnector'),
+    newDeleteVpcConnector,
+    DeleteVpcConnectorResponse (DeleteVpcConnectorResponse'),
+    newDeleteVpcConnectorResponse,
 
     -- ** DescribeAutoScalingConfiguration
     DescribeAutoScalingConfiguration (DescribeAutoScalingConfiguration'),
@@ -121,11 +145,23 @@ module Amazonka.AppRunner
     DescribeCustomDomainsResponse (DescribeCustomDomainsResponse'),
     newDescribeCustomDomainsResponse,
 
+    -- ** DescribeObservabilityConfiguration
+    DescribeObservabilityConfiguration (DescribeObservabilityConfiguration'),
+    newDescribeObservabilityConfiguration,
+    DescribeObservabilityConfigurationResponse (DescribeObservabilityConfigurationResponse'),
+    newDescribeObservabilityConfigurationResponse,
+
     -- ** DescribeService
     DescribeService (DescribeService'),
     newDescribeService,
     DescribeServiceResponse (DescribeServiceResponse'),
     newDescribeServiceResponse,
+
+    -- ** DescribeVpcConnector
+    DescribeVpcConnector (DescribeVpcConnector'),
+    newDescribeVpcConnector,
+    DescribeVpcConnectorResponse (DescribeVpcConnectorResponse'),
+    newDescribeVpcConnectorResponse,
 
     -- ** DisassociateCustomDomain
     DisassociateCustomDomain (DisassociateCustomDomain'),
@@ -145,6 +181,12 @@ module Amazonka.AppRunner
     ListConnectionsResponse (ListConnectionsResponse'),
     newListConnectionsResponse,
 
+    -- ** ListObservabilityConfigurations
+    ListObservabilityConfigurations (ListObservabilityConfigurations'),
+    newListObservabilityConfigurations,
+    ListObservabilityConfigurationsResponse (ListObservabilityConfigurationsResponse'),
+    newListObservabilityConfigurationsResponse,
+
     -- ** ListOperations
     ListOperations (ListOperations'),
     newListOperations,
@@ -162,6 +204,12 @@ module Amazonka.AppRunner
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
+
+    -- ** ListVpcConnectors
+    ListVpcConnectors (ListVpcConnectors'),
+    newListVpcConnectors,
+    ListVpcConnectorsResponse (ListVpcConnectorsResponse'),
+    newListVpcConnectorsResponse,
 
     -- ** PauseService
     PauseService (PauseService'),
@@ -216,11 +264,17 @@ module Amazonka.AppRunner
     -- ** CustomDomainAssociationStatus
     CustomDomainAssociationStatus (..),
 
+    -- ** EgressType
+    EgressType (..),
+
     -- ** HealthCheckProtocol
     HealthCheckProtocol (..),
 
     -- ** ImageRepositoryType
     ImageRepositoryType (..),
+
+    -- ** ObservabilityConfigurationStatus
+    ObservabilityConfigurationStatus (..),
 
     -- ** OperationStatus
     OperationStatus (..),
@@ -239,6 +293,12 @@ module Amazonka.AppRunner
 
     -- ** SourceCodeVersionType
     SourceCodeVersionType (..),
+
+    -- ** TracingVendor
+    TracingVendor (..),
+
+    -- ** VpcConnectorStatus
+    VpcConnectorStatus (..),
 
     -- ** AuthenticationConfiguration
     AuthenticationConfiguration (AuthenticationConfiguration'),
@@ -280,6 +340,10 @@ module Amazonka.AppRunner
     CustomDomain (CustomDomain'),
     newCustomDomain,
 
+    -- ** EgressConfiguration
+    EgressConfiguration (EgressConfiguration'),
+    newEgressConfiguration,
+
     -- ** EncryptionConfiguration
     EncryptionConfiguration (EncryptionConfiguration'),
     newEncryptionConfiguration,
@@ -300,6 +364,18 @@ module Amazonka.AppRunner
     InstanceConfiguration (InstanceConfiguration'),
     newInstanceConfiguration,
 
+    -- ** NetworkConfiguration
+    NetworkConfiguration (NetworkConfiguration'),
+    newNetworkConfiguration,
+
+    -- ** ObservabilityConfiguration
+    ObservabilityConfiguration (ObservabilityConfiguration'),
+    newObservabilityConfiguration,
+
+    -- ** ObservabilityConfigurationSummary
+    ObservabilityConfigurationSummary (ObservabilityConfigurationSummary'),
+    newObservabilityConfigurationSummary,
+
     -- ** OperationSummary
     OperationSummary (OperationSummary'),
     newOperationSummary,
@@ -307,6 +383,10 @@ module Amazonka.AppRunner
     -- ** Service
     Service (Service'),
     newService,
+
+    -- ** ServiceObservabilityConfiguration
+    ServiceObservabilityConfiguration (ServiceObservabilityConfiguration'),
+    newServiceObservabilityConfiguration,
 
     -- ** ServiceSummary
     ServiceSummary (ServiceSummary'),
@@ -323,26 +403,42 @@ module Amazonka.AppRunner
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** TraceConfiguration
+    TraceConfiguration (TraceConfiguration'),
+    newTraceConfiguration,
+
+    -- ** VpcConnector
+    VpcConnector (VpcConnector'),
+    newVpcConnector,
   )
 where
 
 import Amazonka.AppRunner.AssociateCustomDomain
 import Amazonka.AppRunner.CreateAutoScalingConfiguration
 import Amazonka.AppRunner.CreateConnection
+import Amazonka.AppRunner.CreateObservabilityConfiguration
 import Amazonka.AppRunner.CreateService
+import Amazonka.AppRunner.CreateVpcConnector
 import Amazonka.AppRunner.DeleteAutoScalingConfiguration
 import Amazonka.AppRunner.DeleteConnection
+import Amazonka.AppRunner.DeleteObservabilityConfiguration
 import Amazonka.AppRunner.DeleteService
+import Amazonka.AppRunner.DeleteVpcConnector
 import Amazonka.AppRunner.DescribeAutoScalingConfiguration
 import Amazonka.AppRunner.DescribeCustomDomains
+import Amazonka.AppRunner.DescribeObservabilityConfiguration
 import Amazonka.AppRunner.DescribeService
+import Amazonka.AppRunner.DescribeVpcConnector
 import Amazonka.AppRunner.DisassociateCustomDomain
 import Amazonka.AppRunner.Lens
 import Amazonka.AppRunner.ListAutoScalingConfigurations
 import Amazonka.AppRunner.ListConnections
+import Amazonka.AppRunner.ListObservabilityConfigurations
 import Amazonka.AppRunner.ListOperations
 import Amazonka.AppRunner.ListServices
 import Amazonka.AppRunner.ListTagsForResource
+import Amazonka.AppRunner.ListVpcConnectors
 import Amazonka.AppRunner.PauseService
 import Amazonka.AppRunner.ResumeService
 import Amazonka.AppRunner.StartDeployment

@@ -39,9 +39,18 @@ module Amazonka.AppRunner.Lens
     createConnectionResponse_httpStatus,
     createConnectionResponse_connection,
 
+    -- ** CreateObservabilityConfiguration
+    createObservabilityConfiguration_tags,
+    createObservabilityConfiguration_traceConfiguration,
+    createObservabilityConfiguration_observabilityConfigurationName,
+    createObservabilityConfigurationResponse_httpStatus,
+    createObservabilityConfigurationResponse_observabilityConfiguration,
+
     -- ** CreateService
     createService_tags,
     createService_instanceConfiguration,
+    createService_observabilityConfiguration,
+    createService_networkConfiguration,
     createService_encryptionConfiguration,
     createService_autoScalingConfigurationArn,
     createService_healthCheckConfiguration,
@@ -50,6 +59,14 @@ module Amazonka.AppRunner.Lens
     createServiceResponse_httpStatus,
     createServiceResponse_service,
     createServiceResponse_operationId,
+
+    -- ** CreateVpcConnector
+    createVpcConnector_tags,
+    createVpcConnector_securityGroups,
+    createVpcConnector_vpcConnectorName,
+    createVpcConnector_subnets,
+    createVpcConnectorResponse_httpStatus,
+    createVpcConnectorResponse_vpcConnector,
 
     -- ** DeleteAutoScalingConfiguration
     deleteAutoScalingConfiguration_autoScalingConfigurationArn,
@@ -61,11 +78,21 @@ module Amazonka.AppRunner.Lens
     deleteConnectionResponse_connection,
     deleteConnectionResponse_httpStatus,
 
+    -- ** DeleteObservabilityConfiguration
+    deleteObservabilityConfiguration_observabilityConfigurationArn,
+    deleteObservabilityConfigurationResponse_httpStatus,
+    deleteObservabilityConfigurationResponse_observabilityConfiguration,
+
     -- ** DeleteService
     deleteService_serviceArn,
     deleteServiceResponse_httpStatus,
     deleteServiceResponse_service,
     deleteServiceResponse_operationId,
+
+    -- ** DeleteVpcConnector
+    deleteVpcConnector_vpcConnectorArn,
+    deleteVpcConnectorResponse_httpStatus,
+    deleteVpcConnectorResponse_vpcConnector,
 
     -- ** DescribeAutoScalingConfiguration
     describeAutoScalingConfiguration_autoScalingConfigurationArn,
@@ -82,10 +109,20 @@ module Amazonka.AppRunner.Lens
     describeCustomDomainsResponse_serviceArn,
     describeCustomDomainsResponse_customDomains,
 
+    -- ** DescribeObservabilityConfiguration
+    describeObservabilityConfiguration_observabilityConfigurationArn,
+    describeObservabilityConfigurationResponse_httpStatus,
+    describeObservabilityConfigurationResponse_observabilityConfiguration,
+
     -- ** DescribeService
     describeService_serviceArn,
     describeServiceResponse_httpStatus,
     describeServiceResponse_service,
+
+    -- ** DescribeVpcConnector
+    describeVpcConnector_vpcConnectorArn,
+    describeVpcConnectorResponse_httpStatus,
+    describeVpcConnectorResponse_vpcConnector,
 
     -- ** DisassociateCustomDomain
     disassociateCustomDomain_serviceArn,
@@ -112,6 +149,15 @@ module Amazonka.AppRunner.Lens
     listConnectionsResponse_httpStatus,
     listConnectionsResponse_connectionSummaryList,
 
+    -- ** ListObservabilityConfigurations
+    listObservabilityConfigurations_nextToken,
+    listObservabilityConfigurations_observabilityConfigurationName,
+    listObservabilityConfigurations_latestOnly,
+    listObservabilityConfigurations_maxResults,
+    listObservabilityConfigurationsResponse_nextToken,
+    listObservabilityConfigurationsResponse_httpStatus,
+    listObservabilityConfigurationsResponse_observabilityConfigurationSummaryList,
+
     -- ** ListOperations
     listOperations_nextToken,
     listOperations_maxResults,
@@ -131,6 +177,13 @@ module Amazonka.AppRunner.Lens
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** ListVpcConnectors
+    listVpcConnectors_nextToken,
+    listVpcConnectors_maxResults,
+    listVpcConnectorsResponse_nextToken,
+    listVpcConnectorsResponse_httpStatus,
+    listVpcConnectorsResponse_vpcConnectors,
 
     -- ** PauseService
     pauseService_serviceArn,
@@ -162,6 +215,8 @@ module Amazonka.AppRunner.Lens
     -- ** UpdateService
     updateService_sourceConfiguration,
     updateService_instanceConfiguration,
+    updateService_observabilityConfiguration,
+    updateService_networkConfiguration,
     updateService_autoScalingConfigurationArn,
     updateService_healthCheckConfiguration,
     updateService_serviceArn,
@@ -234,6 +289,10 @@ module Amazonka.AppRunner.Lens
     customDomain_enableWWWSubdomain,
     customDomain_status,
 
+    -- ** EgressConfiguration
+    egressConfiguration_vpcConnectorArn,
+    egressConfiguration_egressType,
+
     -- ** EncryptionConfiguration
     encryptionConfiguration_kmsKey,
 
@@ -260,6 +319,24 @@ module Amazonka.AppRunner.Lens
     instanceConfiguration_memory,
     instanceConfiguration_instanceRoleArn,
 
+    -- ** NetworkConfiguration
+    networkConfiguration_egressConfiguration,
+
+    -- ** ObservabilityConfiguration
+    observabilityConfiguration_traceConfiguration,
+    observabilityConfiguration_observabilityConfigurationName,
+    observabilityConfiguration_observabilityConfigurationRevision,
+    observabilityConfiguration_status,
+    observabilityConfiguration_deletedAt,
+    observabilityConfiguration_latest,
+    observabilityConfiguration_observabilityConfigurationArn,
+    observabilityConfiguration_createdAt,
+
+    -- ** ObservabilityConfigurationSummary
+    observabilityConfigurationSummary_observabilityConfigurationName,
+    observabilityConfigurationSummary_observabilityConfigurationRevision,
+    observabilityConfigurationSummary_observabilityConfigurationArn,
+
     -- ** OperationSummary
     operationSummary_type,
     operationSummary_endedAt,
@@ -270,6 +347,7 @@ module Amazonka.AppRunner.Lens
     operationSummary_updatedAt,
 
     -- ** Service
+    service_observabilityConfiguration,
     service_deletedAt,
     service_encryptionConfiguration,
     service_healthCheckConfiguration,
@@ -283,6 +361,11 @@ module Amazonka.AppRunner.Lens
     service_sourceConfiguration,
     service_instanceConfiguration,
     service_autoScalingConfigurationSummary,
+    service_networkConfiguration,
+
+    -- ** ServiceObservabilityConfiguration
+    serviceObservabilityConfiguration_observabilityConfigurationArn,
+    serviceObservabilityConfiguration_observabilityEnabled,
 
     -- ** ServiceSummary
     serviceSummary_status,
@@ -306,25 +389,46 @@ module Amazonka.AppRunner.Lens
     -- ** Tag
     tag_key,
     tag_value,
+
+    -- ** TraceConfiguration
+    traceConfiguration_vendor,
+
+    -- ** VpcConnector
+    vpcConnector_vpcConnectorName,
+    vpcConnector_vpcConnectorRevision,
+    vpcConnector_subnets,
+    vpcConnector_status,
+    vpcConnector_deletedAt,
+    vpcConnector_vpcConnectorArn,
+    vpcConnector_securityGroups,
+    vpcConnector_createdAt,
   )
 where
 
 import Amazonka.AppRunner.AssociateCustomDomain
 import Amazonka.AppRunner.CreateAutoScalingConfiguration
 import Amazonka.AppRunner.CreateConnection
+import Amazonka.AppRunner.CreateObservabilityConfiguration
 import Amazonka.AppRunner.CreateService
+import Amazonka.AppRunner.CreateVpcConnector
 import Amazonka.AppRunner.DeleteAutoScalingConfiguration
 import Amazonka.AppRunner.DeleteConnection
+import Amazonka.AppRunner.DeleteObservabilityConfiguration
 import Amazonka.AppRunner.DeleteService
+import Amazonka.AppRunner.DeleteVpcConnector
 import Amazonka.AppRunner.DescribeAutoScalingConfiguration
 import Amazonka.AppRunner.DescribeCustomDomains
+import Amazonka.AppRunner.DescribeObservabilityConfiguration
 import Amazonka.AppRunner.DescribeService
+import Amazonka.AppRunner.DescribeVpcConnector
 import Amazonka.AppRunner.DisassociateCustomDomain
 import Amazonka.AppRunner.ListAutoScalingConfigurations
 import Amazonka.AppRunner.ListConnections
+import Amazonka.AppRunner.ListObservabilityConfigurations
 import Amazonka.AppRunner.ListOperations
 import Amazonka.AppRunner.ListServices
 import Amazonka.AppRunner.ListTagsForResource
+import Amazonka.AppRunner.ListVpcConnectors
 import Amazonka.AppRunner.PauseService
 import Amazonka.AppRunner.ResumeService
 import Amazonka.AppRunner.StartDeployment
@@ -339,16 +443,23 @@ import Amazonka.AppRunner.Types.CodeRepository
 import Amazonka.AppRunner.Types.Connection
 import Amazonka.AppRunner.Types.ConnectionSummary
 import Amazonka.AppRunner.Types.CustomDomain
+import Amazonka.AppRunner.Types.EgressConfiguration
 import Amazonka.AppRunner.Types.EncryptionConfiguration
 import Amazonka.AppRunner.Types.HealthCheckConfiguration
 import Amazonka.AppRunner.Types.ImageConfiguration
 import Amazonka.AppRunner.Types.ImageRepository
 import Amazonka.AppRunner.Types.InstanceConfiguration
+import Amazonka.AppRunner.Types.NetworkConfiguration
+import Amazonka.AppRunner.Types.ObservabilityConfiguration
+import Amazonka.AppRunner.Types.ObservabilityConfigurationSummary
 import Amazonka.AppRunner.Types.OperationSummary
 import Amazonka.AppRunner.Types.Service
+import Amazonka.AppRunner.Types.ServiceObservabilityConfiguration
 import Amazonka.AppRunner.Types.ServiceSummary
 import Amazonka.AppRunner.Types.SourceCodeVersion
 import Amazonka.AppRunner.Types.SourceConfiguration
 import Amazonka.AppRunner.Types.Tag
+import Amazonka.AppRunner.Types.TraceConfiguration
+import Amazonka.AppRunner.Types.VpcConnector
 import Amazonka.AppRunner.UntagResource
 import Amazonka.AppRunner.UpdateService

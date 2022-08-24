@@ -11,20 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.AppRunner.Types.Runtime
+-- Module      : Amazonka.AppRunner.Types.TracingVendor
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AppRunner.Types.Runtime
-  ( Runtime
+module Amazonka.AppRunner.Types.TracingVendor
+  ( TracingVendor
       ( ..,
-        Runtime_CORRETTO_11,
-        Runtime_CORRETTO_8,
-        Runtime_NODEJS_12,
-        Runtime_NODEJS_14,
-        Runtime_PYTHON_3
+        TracingVendor_AWSXRAY
       ),
   )
 where
@@ -32,7 +28,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype Runtime = Runtime' {fromRuntime :: Core.Text}
+newtype TracingVendor = TracingVendor'
+  { fromTracingVendor ::
+      Core.Text
+  }
   deriving stock
     ( Prelude.Show,
       Prelude.Read,
@@ -57,26 +56,10 @@ newtype Runtime = Runtime' {fromRuntime :: Core.Text}
       Core.ToXML
     )
 
-pattern Runtime_CORRETTO_11 :: Runtime
-pattern Runtime_CORRETTO_11 = Runtime' "CORRETTO_11"
-
-pattern Runtime_CORRETTO_8 :: Runtime
-pattern Runtime_CORRETTO_8 = Runtime' "CORRETTO_8"
-
-pattern Runtime_NODEJS_12 :: Runtime
-pattern Runtime_NODEJS_12 = Runtime' "NODEJS_12"
-
-pattern Runtime_NODEJS_14 :: Runtime
-pattern Runtime_NODEJS_14 = Runtime' "NODEJS_14"
-
-pattern Runtime_PYTHON_3 :: Runtime
-pattern Runtime_PYTHON_3 = Runtime' "PYTHON_3"
+pattern TracingVendor_AWSXRAY :: TracingVendor
+pattern TracingVendor_AWSXRAY = TracingVendor' "AWSXRAY"
 
 {-# COMPLETE
-  Runtime_CORRETTO_11,
-  Runtime_CORRETTO_8,
-  Runtime_NODEJS_12,
-  Runtime_NODEJS_14,
-  Runtime_PYTHON_3,
-  Runtime'
+  TracingVendor_AWSXRAY,
+  TracingVendor'
   #-}

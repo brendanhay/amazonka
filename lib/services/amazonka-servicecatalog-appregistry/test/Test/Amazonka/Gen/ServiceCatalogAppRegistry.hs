@@ -72,6 +72,9 @@ import Test.Tasty
 --         , requestListAttributeGroups $
 --             newListAttributeGroups
 --
+--         , requestListAttributeGroupsForApplication $
+--             newListAttributeGroupsForApplication
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
@@ -137,6 +140,9 @@ import Test.Tasty
 --
 --         , responseListAttributeGroups $
 --             newListAttributeGroupsResponse
+--
+--         , responseListAttributeGroupsForApplication $
+--             newListAttributeGroupsForApplicationResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -250,6 +256,12 @@ requestListAttributeGroups =
   req
     "ListAttributeGroups"
     "fixture/ListAttributeGroups.yaml"
+
+requestListAttributeGroupsForApplication :: ListAttributeGroupsForApplication -> TestTree
+requestListAttributeGroupsForApplication =
+  req
+    "ListAttributeGroupsForApplication"
+    "fixture/ListAttributeGroupsForApplication.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -408,6 +420,14 @@ responseListAttributeGroups =
     "fixture/ListAttributeGroupsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAttributeGroups)
+
+responseListAttributeGroupsForApplication :: ListAttributeGroupsForApplicationResponse -> TestTree
+responseListAttributeGroupsForApplication =
+  res
+    "ListAttributeGroupsForApplicationResponse"
+    "fixture/ListAttributeGroupsForApplicationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAttributeGroupsForApplication)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =

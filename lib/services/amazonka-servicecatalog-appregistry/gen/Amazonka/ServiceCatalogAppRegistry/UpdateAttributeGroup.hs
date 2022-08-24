@@ -51,8 +51,9 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newUpdateAttributeGroup' smart constructor.
 data UpdateAttributeGroup = UpdateAttributeGroup'
-  { -- | The new name of the attribute group. The name must be unique in the
-    -- region in which you are updating the attribute group.
+  { -- | Deprecated: The new name of the attribute group. The name must be unique
+    -- in the region in which you are updating the attribute group. Please do
+    -- not use this field as we have stopped supporting name updates.
     name :: Prelude.Maybe Prelude.Text,
     -- | The description of the attribute group that the user provides.
     description :: Prelude.Maybe Prelude.Text,
@@ -73,8 +74,9 @@ data UpdateAttributeGroup = UpdateAttributeGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateAttributeGroup_name' - The new name of the attribute group. The name must be unique in the
--- region in which you are updating the attribute group.
+-- 'name', 'updateAttributeGroup_name' - Deprecated: The new name of the attribute group. The name must be unique
+-- in the region in which you are updating the attribute group. Please do
+-- not use this field as we have stopped supporting name updates.
 --
 -- 'description', 'updateAttributeGroup_description' - The description of the attribute group that the user provides.
 --
@@ -95,8 +97,9 @@ newUpdateAttributeGroup pAttributeGroup_ =
       attributeGroup = pAttributeGroup_
     }
 
--- | The new name of the attribute group. The name must be unique in the
--- region in which you are updating the attribute group.
+-- | Deprecated: The new name of the attribute group. The name must be unique
+-- in the region in which you are updating the attribute group. Please do
+-- not use this field as we have stopped supporting name updates.
 updateAttributeGroup_name :: Lens.Lens' UpdateAttributeGroup (Prelude.Maybe Prelude.Text)
 updateAttributeGroup_name = Lens.lens (\UpdateAttributeGroup' {name} -> name) (\s@UpdateAttributeGroup' {} a -> s {name = a} :: UpdateAttributeGroup)
 

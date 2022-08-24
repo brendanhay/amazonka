@@ -50,8 +50,9 @@ import Amazonka.ServiceCatalogAppRegistry.Types
 
 -- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { -- | The new name of the application. The name must be unique in the region
-    -- in which you are updating the application.
+  { -- | Deprecated: The new name of the application. The name must be unique in
+    -- the region in which you are updating the application. Please do not use
+    -- this field as we have stopped supporting name updates.
     name :: Prelude.Maybe Prelude.Text,
     -- | The new description of the application.
     description :: Prelude.Maybe Prelude.Text,
@@ -68,8 +69,9 @@ data UpdateApplication = UpdateApplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateApplication_name' - The new name of the application. The name must be unique in the region
--- in which you are updating the application.
+-- 'name', 'updateApplication_name' - Deprecated: The new name of the application. The name must be unique in
+-- the region in which you are updating the application. Please do not use
+-- this field as we have stopped supporting name updates.
 --
 -- 'description', 'updateApplication_description' - The new description of the application.
 --
@@ -85,8 +87,9 @@ newUpdateApplication pApplication_ =
       application = pApplication_
     }
 
--- | The new name of the application. The name must be unique in the region
--- in which you are updating the application.
+-- | Deprecated: The new name of the application. The name must be unique in
+-- the region in which you are updating the application. Please do not use
+-- this field as we have stopped supporting name updates.
 updateApplication_name :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
 updateApplication_name = Lens.lens (\UpdateApplication' {name} -> name) (\s@UpdateApplication' {} a -> s {name = a} :: UpdateApplication)
 

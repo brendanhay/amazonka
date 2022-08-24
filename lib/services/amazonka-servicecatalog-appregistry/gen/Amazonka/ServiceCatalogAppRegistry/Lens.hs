@@ -133,6 +133,14 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     listAttributeGroupsResponse_attributeGroups,
     listAttributeGroupsResponse_httpStatus,
 
+    -- ** ListAttributeGroupsForApplication
+    listAttributeGroupsForApplication_nextToken,
+    listAttributeGroupsForApplication_maxResults,
+    listAttributeGroupsForApplication_application,
+    listAttributeGroupsForApplicationResponse_nextToken,
+    listAttributeGroupsForApplicationResponse_attributeGroupsDetails,
+    listAttributeGroupsForApplicationResponse_httpStatus,
+
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
     listTagsForResourceResponse_tags,
@@ -199,6 +207,11 @@ module Amazonka.ServiceCatalogAppRegistry.Lens
     attributeGroup_creationTime,
     attributeGroup_lastUpdateTime,
 
+    -- ** AttributeGroupDetails
+    attributeGroupDetails_name,
+    attributeGroupDetails_arn,
+    attributeGroupDetails_id,
+
     -- ** AttributeGroupSummary
     attributeGroupSummary_name,
     attributeGroupSummary_arn,
@@ -245,12 +258,14 @@ import Amazonka.ServiceCatalogAppRegistry.ListApplications
 import Amazonka.ServiceCatalogAppRegistry.ListAssociatedAttributeGroups
 import Amazonka.ServiceCatalogAppRegistry.ListAssociatedResources
 import Amazonka.ServiceCatalogAppRegistry.ListAttributeGroups
+import Amazonka.ServiceCatalogAppRegistry.ListAttributeGroupsForApplication
 import Amazonka.ServiceCatalogAppRegistry.ListTagsForResource
 import Amazonka.ServiceCatalogAppRegistry.SyncResource
 import Amazonka.ServiceCatalogAppRegistry.TagResource
 import Amazonka.ServiceCatalogAppRegistry.Types.Application
 import Amazonka.ServiceCatalogAppRegistry.Types.ApplicationSummary
 import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroup
+import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupDetails
 import Amazonka.ServiceCatalogAppRegistry.Types.AttributeGroupSummary
 import Amazonka.ServiceCatalogAppRegistry.Types.Integrations
 import Amazonka.ServiceCatalogAppRegistry.Types.Resource

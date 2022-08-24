@@ -21,35 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a JSON document that specifies a set of resources to assign to a
--- backup plan. Resources can be included by specifying patterns for a
--- @ListOfTags@ and selected @Resources@.
---
--- For example, consider the following patterns:
---
--- -   @Resources: \"arn:aws:ec2:region:account-id:volume\/volume-id\"@
---
--- -   @ConditionKey:\"department\"@
---
---     @ConditionValue:\"finance\"@
---
---     @ConditionType:\"StringEquals\"@
---
--- -   @ConditionKey:\"importance\"@
---
---     @ConditionValue:\"critical\"@
---
---     @ConditionType:\"StringEquals\"@
---
--- Using these patterns would back up all Amazon Elastic Block Store
--- (Amazon EBS) volumes that are tagged as @\"department=finance\"@,
--- @\"importance=critical\"@, in addition to an EBS volume with the
--- specified volume ID.
---
--- Resources and conditions are additive in that all resources that match
--- the pattern are selected. This shouldn\'t be confused with a logical
--- AND, where all conditions must match. The matching patterns are
--- logically put together using the OR operator. In other words, all
--- patterns that match are selected for backup.
+-- backup plan. For examples, see
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html#assigning-resources-json Assigning resources programmatically>.
 module Amazonka.Backup.CreateBackupSelection
   ( -- * Creating a Request
     CreateBackupSelection (..),
@@ -82,7 +55,11 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateBackupSelection' smart constructor.
 data CreateBackupSelection = CreateBackupSelection'
   { -- | A unique string that identifies the request and allows failed requests
-    -- to be retried without the risk of running the operation twice.
+    -- to be retried without the risk of running the operation twice. This
+    -- parameter is optional.
+    --
+    -- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+    -- characters.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | Uniquely identifies the backup plan to be associated with the selection
     -- of resources.
@@ -102,7 +79,11 @@ data CreateBackupSelection = CreateBackupSelection'
 -- for backwards compatibility:
 --
 -- 'creatorRequestId', 'createBackupSelection_creatorRequestId' - A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 --
 -- 'backupPlanId', 'createBackupSelection_backupPlanId' - Uniquely identifies the backup plan to be associated with the selection
 -- of resources.
@@ -126,7 +107,11 @@ newCreateBackupSelection
       }
 
 -- | A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 createBackupSelection_creatorRequestId :: Lens.Lens' CreateBackupSelection (Prelude.Maybe Prelude.Text)
 createBackupSelection_creatorRequestId = Lens.lens (\CreateBackupSelection' {creatorRequestId} -> creatorRequestId) (\s@CreateBackupSelection' {} a -> s {creatorRequestId = a} :: CreateBackupSelection)
 

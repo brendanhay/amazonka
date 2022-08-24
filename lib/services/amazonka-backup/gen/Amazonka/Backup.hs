@@ -270,43 +270,43 @@ module Amazonka.Backup
     GetSupportedResourceTypesResponse (GetSupportedResourceTypesResponse'),
     newGetSupportedResourceTypesResponse,
 
-    -- ** ListBackupJobs
+    -- ** ListBackupJobs (Paginated)
     ListBackupJobs (ListBackupJobs'),
     newListBackupJobs,
     ListBackupJobsResponse (ListBackupJobsResponse'),
     newListBackupJobsResponse,
 
-    -- ** ListBackupPlanTemplates
+    -- ** ListBackupPlanTemplates (Paginated)
     ListBackupPlanTemplates (ListBackupPlanTemplates'),
     newListBackupPlanTemplates,
     ListBackupPlanTemplatesResponse (ListBackupPlanTemplatesResponse'),
     newListBackupPlanTemplatesResponse,
 
-    -- ** ListBackupPlanVersions
+    -- ** ListBackupPlanVersions (Paginated)
     ListBackupPlanVersions (ListBackupPlanVersions'),
     newListBackupPlanVersions,
     ListBackupPlanVersionsResponse (ListBackupPlanVersionsResponse'),
     newListBackupPlanVersionsResponse,
 
-    -- ** ListBackupPlans
+    -- ** ListBackupPlans (Paginated)
     ListBackupPlans (ListBackupPlans'),
     newListBackupPlans,
     ListBackupPlansResponse (ListBackupPlansResponse'),
     newListBackupPlansResponse,
 
-    -- ** ListBackupSelections
+    -- ** ListBackupSelections (Paginated)
     ListBackupSelections (ListBackupSelections'),
     newListBackupSelections,
     ListBackupSelectionsResponse (ListBackupSelectionsResponse'),
     newListBackupSelectionsResponse,
 
-    -- ** ListBackupVaults
+    -- ** ListBackupVaults (Paginated)
     ListBackupVaults (ListBackupVaults'),
     newListBackupVaults,
     ListBackupVaultsResponse (ListBackupVaultsResponse'),
     newListBackupVaultsResponse,
 
-    -- ** ListCopyJobs
+    -- ** ListCopyJobs (Paginated)
     ListCopyJobs (ListCopyJobs'),
     newListCopyJobs,
     ListCopyJobsResponse (ListCopyJobsResponse'),
@@ -318,19 +318,19 @@ module Amazonka.Backup
     ListFrameworksResponse (ListFrameworksResponse'),
     newListFrameworksResponse,
 
-    -- ** ListProtectedResources
+    -- ** ListProtectedResources (Paginated)
     ListProtectedResources (ListProtectedResources'),
     newListProtectedResources,
     ListProtectedResourcesResponse (ListProtectedResourcesResponse'),
     newListProtectedResourcesResponse,
 
-    -- ** ListRecoveryPointsByBackupVault
+    -- ** ListRecoveryPointsByBackupVault (Paginated)
     ListRecoveryPointsByBackupVault (ListRecoveryPointsByBackupVault'),
     newListRecoveryPointsByBackupVault,
     ListRecoveryPointsByBackupVaultResponse (ListRecoveryPointsByBackupVaultResponse'),
     newListRecoveryPointsByBackupVaultResponse,
 
-    -- ** ListRecoveryPointsByResource
+    -- ** ListRecoveryPointsByResource (Paginated)
     ListRecoveryPointsByResource (ListRecoveryPointsByResource'),
     newListRecoveryPointsByResource,
     ListRecoveryPointsByResourceResponse (ListRecoveryPointsByResourceResponse'),
@@ -348,7 +348,7 @@ module Amazonka.Backup
     ListReportPlansResponse (ListReportPlansResponse'),
     newListReportPlansResponse,
 
-    -- ** ListRestoreJobs
+    -- ** ListRestoreJobs (Paginated)
     ListRestoreJobs (ListRestoreJobs'),
     newListRestoreJobs,
     ListRestoreJobsResponse (ListRestoreJobsResponse'),
@@ -530,6 +530,14 @@ module Amazonka.Backup
     -- ** Condition
     Condition (Condition'),
     newCondition,
+
+    -- ** ConditionParameter
+    ConditionParameter (ConditionParameter'),
+    newConditionParameter,
+
+    -- ** Conditions
+    Conditions (Conditions'),
+    newConditions,
 
     -- ** ControlInputParameter
     ControlInputParameter (ControlInputParameter'),

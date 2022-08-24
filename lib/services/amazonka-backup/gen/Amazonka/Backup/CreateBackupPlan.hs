@@ -67,6 +67,9 @@ data CreateBackupPlan = CreateBackupPlan'
     -- the risk of running the operation twice. If the request includes a
     -- @CreatorRequestId@ that matches an existing backup plan, that plan is
     -- returned. This parameter is optional.
+    --
+    -- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+    -- characters.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | Specifies the body of a backup plan. Includes a @BackupPlanName@ and one
     -- or more sets of @Rules@.
@@ -91,6 +94,9 @@ data CreateBackupPlan = CreateBackupPlan'
 -- @CreatorRequestId@ that matches an existing backup plan, that plan is
 -- returned. This parameter is optional.
 --
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
+--
 -- 'backupPlan', 'createBackupPlan_backupPlan' - Specifies the body of a backup plan. Includes a @BackupPlanName@ and one
 -- or more sets of @Rules@.
 newCreateBackupPlan ::
@@ -114,6 +120,9 @@ createBackupPlan_backupPlanTags = Lens.lens (\CreateBackupPlan' {backupPlanTags}
 -- the risk of running the operation twice. If the request includes a
 -- @CreatorRequestId@ that matches an existing backup plan, that plan is
 -- returned. This parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 createBackupPlan_creatorRequestId :: Lens.Lens' CreateBackupPlan (Prelude.Maybe Prelude.Text)
 createBackupPlan_creatorRequestId = Lens.lens (\CreateBackupPlan' {creatorRequestId} -> creatorRequestId) (\s@CreateBackupPlan' {} a -> s {creatorRequestId = a} :: CreateBackupPlan)
 

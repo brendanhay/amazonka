@@ -23,6 +23,8 @@
 -- Returns an array of resources successfully backed up by Backup,
 -- including the time the resource was saved, an Amazon Resource Name (ARN)
 -- of the resource, and a resource type.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListProtectedResources
   ( -- * Creating a Request
     ListProtectedResources (..),
@@ -95,6 +97,28 @@ listProtectedResources_nextToken = Lens.lens (\ListProtectedResources' {nextToke
 -- | The maximum number of items to be returned.
 listProtectedResources_maxResults :: Lens.Lens' ListProtectedResources (Prelude.Maybe Prelude.Natural)
 listProtectedResources_maxResults = Lens.lens (\ListProtectedResources' {maxResults} -> maxResults) (\s@ListProtectedResources' {} a -> s {maxResults = a} :: ListProtectedResources)
+
+instance Core.AWSPager ListProtectedResources where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listProtectedResourcesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listProtectedResourcesResponse_results
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listProtectedResources_nextToken
+          Lens..~ rs
+          Lens.^? listProtectedResourcesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProtectedResources where
   type

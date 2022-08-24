@@ -22,6 +22,8 @@
 --
 -- Returns an array containing metadata of the resources associated with
 -- the target backup plan.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListBackupSelections
   ( -- * Creating a Request
     ListBackupSelections (..),
@@ -105,6 +107,28 @@ listBackupSelections_maxResults = Lens.lens (\ListBackupSelections' {maxResults}
 -- | Uniquely identifies a backup plan.
 listBackupSelections_backupPlanId :: Lens.Lens' ListBackupSelections Prelude.Text
 listBackupSelections_backupPlanId = Lens.lens (\ListBackupSelections' {backupPlanId} -> backupPlanId) (\s@ListBackupSelections' {} a -> s {backupPlanId = a} :: ListBackupSelections)
+
+instance Core.AWSPager ListBackupSelections where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listBackupSelectionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listBackupSelectionsResponse_backupSelectionsList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listBackupSelections_nextToken
+          Lens..~ rs
+          Lens.^? listBackupSelectionsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupSelections where
   type

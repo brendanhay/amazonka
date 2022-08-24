@@ -50,7 +50,9 @@ data TagResource = TagResource'
     -- depends on the type of the tagged resource.
     resourceArn :: Prelude.Text,
     -- | Key-value pairs that are used to help organize your resources. You can
-    -- assign your own metadata to the resources you create.
+    -- assign your own metadata to the resources you create. For clarity, this
+    -- is the structure to assign tags:
+    -- @[{\"Key\":\"string\",\"Value\":\"string\"}]@.
     tags :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -67,7 +69,9 @@ data TagResource = TagResource'
 -- depends on the type of the tagged resource.
 --
 -- 'tags', 'tagResource_tags' - Key-value pairs that are used to help organize your resources. You can
--- assign your own metadata to the resources you create.
+-- assign your own metadata to the resources you create. For clarity, this
+-- is the structure to assign tags:
+-- @[{\"Key\":\"string\",\"Value\":\"string\"}]@.
 newTagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -84,7 +88,9 @@ tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 
 -- | Key-value pairs that are used to help organize your resources. You can
--- assign your own metadata to the resources you create.
+-- assign your own metadata to the resources you create. For clarity, this
+-- is the structure to assign tags:
+-- @[{\"Key\":\"string\",\"Value\":\"string\"}]@.
 tagResource_tags :: Lens.Lens' TagResource (Prelude.HashMap Prelude.Text Prelude.Text)
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 

@@ -142,8 +142,10 @@ module Amazonka.Backup.Types
     -- * BackupSelection
     BackupSelection (..),
     newBackupSelection,
+    backupSelection_conditions,
     backupSelection_resources,
     backupSelection_listOfTags,
+    backupSelection_notResources,
     backupSelection_selectionName,
     backupSelection_iamRoleArn,
 
@@ -183,6 +185,20 @@ module Amazonka.Backup.Types
     condition_conditionType,
     condition_conditionKey,
     condition_conditionValue,
+
+    -- * ConditionParameter
+    ConditionParameter (..),
+    newConditionParameter,
+    conditionParameter_conditionValue,
+    conditionParameter_conditionKey,
+
+    -- * Conditions
+    Conditions (..),
+    newConditions,
+    conditions_stringNotEquals,
+    conditions_stringNotLike,
+    conditions_stringEquals,
+    conditions_stringLike,
 
     -- * ControlInputParameter
     ControlInputParameter (..),
@@ -372,7 +388,9 @@ import Amazonka.Backup.Types.BackupVaultEvent
 import Amazonka.Backup.Types.BackupVaultListMember
 import Amazonka.Backup.Types.CalculatedLifecycle
 import Amazonka.Backup.Types.Condition
+import Amazonka.Backup.Types.ConditionParameter
 import Amazonka.Backup.Types.ConditionType
+import Amazonka.Backup.Types.Conditions
 import Amazonka.Backup.Types.ControlInputParameter
 import Amazonka.Backup.Types.ControlScope
 import Amazonka.Backup.Types.CopyAction

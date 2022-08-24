@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns metadata about your copy jobs.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListCopyJobs
   ( -- * Creating a Request
     ListCopyJobs (..),
@@ -30,7 +32,9 @@ module Amazonka.Backup.ListCopyJobs
     listCopyJobs_byAccountId,
     listCopyJobs_nextToken,
     listCopyJobs_byCreatedAfter,
+    listCopyJobs_byCompleteAfter,
     listCopyJobs_byDestinationVaultArn,
+    listCopyJobs_byCompleteBefore,
     listCopyJobs_byResourceType,
     listCopyJobs_byCreatedBefore,
     listCopyJobs_maxResults,
@@ -67,11 +71,21 @@ data ListCopyJobs = ListCopyJobs'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns only copy jobs that were created after the specified date.
     byCreatedAfter :: Prelude.Maybe Core.POSIX,
+    -- | Returns only copy jobs completed after a date expressed in Unix format
+    -- and Coordinated Universal Time (UTC).
+    byCompleteAfter :: Prelude.Maybe Core.POSIX,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a source backup
     -- vault to copy from; for example,
     -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
     byDestinationVaultArn :: Prelude.Maybe Prelude.Text,
+    -- | Returns only copy jobs completed before a date expressed in Unix format
+    -- and Coordinated Universal Time (UTC).
+    byCompleteBefore :: Prelude.Maybe Core.POSIX,
     -- | Returns only backup jobs for the specified resources:
+    --
+    -- -   @Aurora@ for Amazon Aurora
+    --
+    -- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
     --
     -- -   @DynamoDB@ for Amazon DynamoDB
     --
@@ -81,11 +95,17 @@ data ListCopyJobs = ListCopyJobs'
     --
     -- -   @EFS@ for Amazon Elastic File System
     --
+    -- -   @FSx@ for Amazon FSx
+    --
+    -- -   @Neptune@ for Amazon Neptune
+    --
     -- -   @RDS@ for Amazon Relational Database Service
     --
-    -- -   @Aurora@ for Amazon Aurora
-    --
     -- -   @Storage Gateway@ for Storage Gateway
+    --
+    -- -   @S3@ for Amazon S3
+    --
+    -- -   @VirtualMachine@ for virtual machines
     byResourceType :: Prelude.Maybe Prelude.Text,
     -- | Returns only copy jobs that were created before the specified date.
     byCreatedBefore :: Prelude.Maybe Core.POSIX,
@@ -117,11 +137,21 @@ data ListCopyJobs = ListCopyJobs'
 --
 -- 'byCreatedAfter', 'listCopyJobs_byCreatedAfter' - Returns only copy jobs that were created after the specified date.
 --
+-- 'byCompleteAfter', 'listCopyJobs_byCompleteAfter' - Returns only copy jobs completed after a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+--
 -- 'byDestinationVaultArn', 'listCopyJobs_byDestinationVaultArn' - An Amazon Resource Name (ARN) that uniquely identifies a source backup
 -- vault to copy from; for example,
 -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
 --
+-- 'byCompleteBefore', 'listCopyJobs_byCompleteBefore' - Returns only copy jobs completed before a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+--
 -- 'byResourceType', 'listCopyJobs_byResourceType' - Returns only backup jobs for the specified resources:
+--
+-- -   @Aurora@ for Amazon Aurora
+--
+-- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
 --
 -- -   @DynamoDB@ for Amazon DynamoDB
 --
@@ -131,11 +161,17 @@ data ListCopyJobs = ListCopyJobs'
 --
 -- -   @EFS@ for Amazon Elastic File System
 --
+-- -   @FSx@ for Amazon FSx
+--
+-- -   @Neptune@ for Amazon Neptune
+--
 -- -   @RDS@ for Amazon Relational Database Service
 --
--- -   @Aurora@ for Amazon Aurora
---
 -- -   @Storage Gateway@ for Storage Gateway
+--
+-- -   @S3@ for Amazon S3
+--
+-- -   @VirtualMachine@ for virtual machines
 --
 -- 'byCreatedBefore', 'listCopyJobs_byCreatedBefore' - Returns only copy jobs that were created before the specified date.
 --
@@ -152,7 +188,9 @@ newListCopyJobs =
     { byAccountId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       byCreatedAfter = Prelude.Nothing,
+      byCompleteAfter = Prelude.Nothing,
       byDestinationVaultArn = Prelude.Nothing,
+      byCompleteBefore = Prelude.Nothing,
       byResourceType = Prelude.Nothing,
       byCreatedBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -176,13 +214,27 @@ listCopyJobs_nextToken = Lens.lens (\ListCopyJobs' {nextToken} -> nextToken) (\s
 listCopyJobs_byCreatedAfter :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.UTCTime)
 listCopyJobs_byCreatedAfter = Lens.lens (\ListCopyJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListCopyJobs' {} a -> s {byCreatedAfter = a} :: ListCopyJobs) Prelude.. Lens.mapping Core._Time
 
+-- | Returns only copy jobs completed after a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+listCopyJobs_byCompleteAfter :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.UTCTime)
+listCopyJobs_byCompleteAfter = Lens.lens (\ListCopyJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListCopyJobs' {} a -> s {byCompleteAfter = a} :: ListCopyJobs) Prelude.. Lens.mapping Core._Time
+
 -- | An Amazon Resource Name (ARN) that uniquely identifies a source backup
 -- vault to copy from; for example,
 -- @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
 listCopyJobs_byDestinationVaultArn :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.Text)
 listCopyJobs_byDestinationVaultArn = Lens.lens (\ListCopyJobs' {byDestinationVaultArn} -> byDestinationVaultArn) (\s@ListCopyJobs' {} a -> s {byDestinationVaultArn = a} :: ListCopyJobs)
 
+-- | Returns only copy jobs completed before a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+listCopyJobs_byCompleteBefore :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.UTCTime)
+listCopyJobs_byCompleteBefore = Lens.lens (\ListCopyJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListCopyJobs' {} a -> s {byCompleteBefore = a} :: ListCopyJobs) Prelude.. Lens.mapping Core._Time
+
 -- | Returns only backup jobs for the specified resources:
+--
+-- -   @Aurora@ for Amazon Aurora
+--
+-- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
 --
 -- -   @DynamoDB@ for Amazon DynamoDB
 --
@@ -192,11 +244,17 @@ listCopyJobs_byDestinationVaultArn = Lens.lens (\ListCopyJobs' {byDestinationVau
 --
 -- -   @EFS@ for Amazon Elastic File System
 --
+-- -   @FSx@ for Amazon FSx
+--
+-- -   @Neptune@ for Amazon Neptune
+--
 -- -   @RDS@ for Amazon Relational Database Service
 --
--- -   @Aurora@ for Amazon Aurora
---
 -- -   @Storage Gateway@ for Storage Gateway
+--
+-- -   @S3@ for Amazon S3
+--
+-- -   @VirtualMachine@ for virtual machines
 listCopyJobs_byResourceType :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.Text)
 listCopyJobs_byResourceType = Lens.lens (\ListCopyJobs' {byResourceType} -> byResourceType) (\s@ListCopyJobs' {} a -> s {byResourceType = a} :: ListCopyJobs)
 
@@ -217,6 +275,25 @@ listCopyJobs_byState = Lens.lens (\ListCopyJobs' {byState} -> byState) (\s@ListC
 listCopyJobs_byResourceArn :: Lens.Lens' ListCopyJobs (Prelude.Maybe Prelude.Text)
 listCopyJobs_byResourceArn = Lens.lens (\ListCopyJobs' {byResourceArn} -> byResourceArn) (\s@ListCopyJobs' {} a -> s {byResourceArn = a} :: ListCopyJobs)
 
+instance Core.AWSPager ListCopyJobs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listCopyJobsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listCopyJobsResponse_copyJobs Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listCopyJobs_nextToken
+          Lens..~ rs
+          Lens.^? listCopyJobsResponse_nextToken Prelude.. Lens._Just
+
 instance Core.AWSRequest ListCopyJobs where
   type AWSResponse ListCopyJobs = ListCopyJobsResponse
   request = Request.get defaultService
@@ -234,7 +311,9 @@ instance Prelude.Hashable ListCopyJobs where
     _salt `Prelude.hashWithSalt` byAccountId
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` byCreatedAfter
+      `Prelude.hashWithSalt` byCompleteAfter
       `Prelude.hashWithSalt` byDestinationVaultArn
+      `Prelude.hashWithSalt` byCompleteBefore
       `Prelude.hashWithSalt` byResourceType
       `Prelude.hashWithSalt` byCreatedBefore
       `Prelude.hashWithSalt` maxResults
@@ -246,7 +325,9 @@ instance Prelude.NFData ListCopyJobs where
     Prelude.rnf byAccountId
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf byCreatedAfter
+      `Prelude.seq` Prelude.rnf byCompleteAfter
       `Prelude.seq` Prelude.rnf byDestinationVaultArn
+      `Prelude.seq` Prelude.rnf byCompleteBefore
       `Prelude.seq` Prelude.rnf byResourceType
       `Prelude.seq` Prelude.rnf byCreatedBefore
       `Prelude.seq` Prelude.rnf maxResults
@@ -273,7 +354,9 @@ instance Core.ToQuery ListCopyJobs where
       [ "accountId" Core.=: byAccountId,
         "nextToken" Core.=: nextToken,
         "createdAfter" Core.=: byCreatedAfter,
+        "completeAfter" Core.=: byCompleteAfter,
         "destinationVaultArn" Core.=: byDestinationVaultArn,
+        "completeBefore" Core.=: byCompleteBefore,
         "resourceType" Core.=: byResourceType,
         "createdBefore" Core.=: byCreatedBefore,
         "maxResults" Core.=: maxResults,

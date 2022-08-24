@@ -22,6 +22,8 @@
 --
 -- Returns metadata of your saved backup plan templates, including the
 -- template ID, name, and the creation and deletion dates.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListBackupPlanTemplates
   ( -- * Creating a Request
     ListBackupPlanTemplates (..),
@@ -94,6 +96,28 @@ listBackupPlanTemplates_nextToken = Lens.lens (\ListBackupPlanTemplates' {nextTo
 -- | The maximum number of items to be returned.
 listBackupPlanTemplates_maxResults :: Lens.Lens' ListBackupPlanTemplates (Prelude.Maybe Prelude.Natural)
 listBackupPlanTemplates_maxResults = Lens.lens (\ListBackupPlanTemplates' {maxResults} -> maxResults) (\s@ListBackupPlanTemplates' {} a -> s {maxResults = a} :: ListBackupPlanTemplates)
+
+instance Core.AWSPager ListBackupPlanTemplates where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listBackupPlanTemplatesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listBackupPlanTemplatesResponse_backupPlanTemplatesList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listBackupPlanTemplates_nextToken
+          Lens..~ rs
+          Lens.^? listBackupPlanTemplatesResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupPlanTemplates where
   type

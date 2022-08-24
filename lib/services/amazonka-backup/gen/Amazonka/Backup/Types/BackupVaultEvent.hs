@@ -34,7 +34,9 @@ module Amazonka.Backup.Types.BackupVaultEvent
         BackupVaultEvent_RESTORE_JOB_COMPLETED,
         BackupVaultEvent_RESTORE_JOB_FAILED,
         BackupVaultEvent_RESTORE_JOB_STARTED,
-        BackupVaultEvent_RESTORE_JOB_SUCCESSFUL
+        BackupVaultEvent_RESTORE_JOB_SUCCESSFUL,
+        BackupVaultEvent_S3_BACKUP_OBJECT_FAILED,
+        BackupVaultEvent_S3_RESTORE_OBJECT_FAILED
       ),
   )
 where
@@ -115,6 +117,12 @@ pattern BackupVaultEvent_RESTORE_JOB_STARTED = BackupVaultEvent' "RESTORE_JOB_ST
 pattern BackupVaultEvent_RESTORE_JOB_SUCCESSFUL :: BackupVaultEvent
 pattern BackupVaultEvent_RESTORE_JOB_SUCCESSFUL = BackupVaultEvent' "RESTORE_JOB_SUCCESSFUL"
 
+pattern BackupVaultEvent_S3_BACKUP_OBJECT_FAILED :: BackupVaultEvent
+pattern BackupVaultEvent_S3_BACKUP_OBJECT_FAILED = BackupVaultEvent' "S3_BACKUP_OBJECT_FAILED"
+
+pattern BackupVaultEvent_S3_RESTORE_OBJECT_FAILED :: BackupVaultEvent
+pattern BackupVaultEvent_S3_RESTORE_OBJECT_FAILED = BackupVaultEvent' "S3_RESTORE_OBJECT_FAILED"
+
 {-# COMPLETE
   BackupVaultEvent_BACKUP_JOB_COMPLETED,
   BackupVaultEvent_BACKUP_JOB_EXPIRED,
@@ -131,5 +139,7 @@ pattern BackupVaultEvent_RESTORE_JOB_SUCCESSFUL = BackupVaultEvent' "RESTORE_JOB
   BackupVaultEvent_RESTORE_JOB_FAILED,
   BackupVaultEvent_RESTORE_JOB_STARTED,
   BackupVaultEvent_RESTORE_JOB_SUCCESSFUL,
+  BackupVaultEvent_S3_BACKUP_OBJECT_FAILED,
+  BackupVaultEvent_S3_RESTORE_OBJECT_FAILED,
   BackupVaultEvent'
   #-}

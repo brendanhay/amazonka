@@ -33,6 +33,7 @@ module Amazonka.Backup.UpdateRegionSettings
     newUpdateRegionSettings,
 
     -- * Request Lenses
+    updateRegionSettings_resourceTypeManagementPreference,
     updateRegionSettings_resourceTypeOptInPreference,
 
     -- * Destructuring the Response
@@ -50,7 +51,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateRegionSettings' smart constructor.
 data UpdateRegionSettings = UpdateRegionSettings'
-  { -- | Updates the list of services along with the opt-in preferences for the
+  { -- | Enables or disables full Backup management of backups for a resource
+    -- type. To enable full Backup management for DynamoDB along with
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html Backup\'s advanced DynamoDB backup features>,
+    -- follow the procedure to
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli enable advanced DynamoDB backup programmatically>.
+    resourceTypeManagementPreference :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool),
+    -- | Updates the list of services along with the opt-in preferences for the
     -- Region.
     resourceTypeOptInPreference :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool)
   }
@@ -64,15 +71,30 @@ data UpdateRegionSettings = UpdateRegionSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'resourceTypeManagementPreference', 'updateRegionSettings_resourceTypeManagementPreference' - Enables or disables full Backup management of backups for a resource
+-- type. To enable full Backup management for DynamoDB along with
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html Backup\'s advanced DynamoDB backup features>,
+-- follow the procedure to
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli enable advanced DynamoDB backup programmatically>.
+--
 -- 'resourceTypeOptInPreference', 'updateRegionSettings_resourceTypeOptInPreference' - Updates the list of services along with the opt-in preferences for the
 -- Region.
 newUpdateRegionSettings ::
   UpdateRegionSettings
 newUpdateRegionSettings =
   UpdateRegionSettings'
-    { resourceTypeOptInPreference =
-        Prelude.Nothing
+    { resourceTypeManagementPreference =
+        Prelude.Nothing,
+      resourceTypeOptInPreference = Prelude.Nothing
     }
+
+-- | Enables or disables full Backup management of backups for a resource
+-- type. To enable full Backup management for DynamoDB along with
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html Backup\'s advanced DynamoDB backup features>,
+-- follow the procedure to
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli enable advanced DynamoDB backup programmatically>.
+updateRegionSettings_resourceTypeManagementPreference :: Lens.Lens' UpdateRegionSettings (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Bool))
+updateRegionSettings_resourceTypeManagementPreference = Lens.lens (\UpdateRegionSettings' {resourceTypeManagementPreference} -> resourceTypeManagementPreference) (\s@UpdateRegionSettings' {} a -> s {resourceTypeManagementPreference = a} :: UpdateRegionSettings) Prelude.. Lens.mapping Lens.coerced
 
 -- | Updates the list of services along with the opt-in preferences for the
 -- Region.
@@ -90,11 +112,13 @@ instance Core.AWSRequest UpdateRegionSettings where
 instance Prelude.Hashable UpdateRegionSettings where
   hashWithSalt _salt UpdateRegionSettings' {..} =
     _salt
+      `Prelude.hashWithSalt` resourceTypeManagementPreference
       `Prelude.hashWithSalt` resourceTypeOptInPreference
 
 instance Prelude.NFData UpdateRegionSettings where
   rnf UpdateRegionSettings' {..} =
-    Prelude.rnf resourceTypeOptInPreference
+    Prelude.rnf resourceTypeManagementPreference
+      `Prelude.seq` Prelude.rnf resourceTypeOptInPreference
 
 instance Core.ToHeaders UpdateRegionSettings where
   toHeaders =
@@ -111,7 +135,9 @@ instance Core.ToJSON UpdateRegionSettings where
   toJSON UpdateRegionSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceTypeOptInPreference" Core..=)
+          [ ("ResourceTypeManagementPreference" Core..=)
+              Prelude.<$> resourceTypeManagementPreference,
+            ("ResourceTypeOptInPreference" Core..=)
               Prelude.<$> resourceTypeOptInPreference
           ]
       )

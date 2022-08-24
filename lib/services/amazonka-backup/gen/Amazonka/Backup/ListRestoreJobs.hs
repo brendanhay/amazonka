@@ -22,6 +22,8 @@
 --
 -- Returns a list of jobs that Backup initiated to restore a saved
 -- resource, including details about the recovery process.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListRestoreJobs
   ( -- * Creating a Request
     ListRestoreJobs (..),
@@ -31,6 +33,8 @@ module Amazonka.Backup.ListRestoreJobs
     listRestoreJobs_byAccountId,
     listRestoreJobs_nextToken,
     listRestoreJobs_byCreatedAfter,
+    listRestoreJobs_byCompleteAfter,
+    listRestoreJobs_byCompleteBefore,
     listRestoreJobs_byCreatedBefore,
     listRestoreJobs_maxResults,
     listRestoreJobs_byStatus,
@@ -65,6 +69,12 @@ data ListRestoreJobs = ListRestoreJobs'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Returns only restore jobs that were created after the specified date.
     byCreatedAfter :: Prelude.Maybe Core.POSIX,
+    -- | Returns only copy jobs completed after a date expressed in Unix format
+    -- and Coordinated Universal Time (UTC).
+    byCompleteAfter :: Prelude.Maybe Core.POSIX,
+    -- | Returns only copy jobs completed before a date expressed in Unix format
+    -- and Coordinated Universal Time (UTC).
+    byCompleteBefore :: Prelude.Maybe Core.POSIX,
     -- | Returns only restore jobs that were created before the specified date.
     byCreatedBefore :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of items to be returned.
@@ -92,6 +102,12 @@ data ListRestoreJobs = ListRestoreJobs'
 --
 -- 'byCreatedAfter', 'listRestoreJobs_byCreatedAfter' - Returns only restore jobs that were created after the specified date.
 --
+-- 'byCompleteAfter', 'listRestoreJobs_byCompleteAfter' - Returns only copy jobs completed after a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+--
+-- 'byCompleteBefore', 'listRestoreJobs_byCompleteBefore' - Returns only copy jobs completed before a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+--
 -- 'byCreatedBefore', 'listRestoreJobs_byCreatedBefore' - Returns only restore jobs that were created before the specified date.
 --
 -- 'maxResults', 'listRestoreJobs_maxResults' - The maximum number of items to be returned.
@@ -104,6 +120,8 @@ newListRestoreJobs =
     { byAccountId = Prelude.Nothing,
       nextToken = Prelude.Nothing,
       byCreatedAfter = Prelude.Nothing,
+      byCompleteAfter = Prelude.Nothing,
+      byCompleteBefore = Prelude.Nothing,
       byCreatedBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       byStatus = Prelude.Nothing
@@ -125,6 +143,16 @@ listRestoreJobs_nextToken = Lens.lens (\ListRestoreJobs' {nextToken} -> nextToke
 listRestoreJobs_byCreatedAfter :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.UTCTime)
 listRestoreJobs_byCreatedAfter = Lens.lens (\ListRestoreJobs' {byCreatedAfter} -> byCreatedAfter) (\s@ListRestoreJobs' {} a -> s {byCreatedAfter = a} :: ListRestoreJobs) Prelude.. Lens.mapping Core._Time
 
+-- | Returns only copy jobs completed after a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+listRestoreJobs_byCompleteAfter :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.UTCTime)
+listRestoreJobs_byCompleteAfter = Lens.lens (\ListRestoreJobs' {byCompleteAfter} -> byCompleteAfter) (\s@ListRestoreJobs' {} a -> s {byCompleteAfter = a} :: ListRestoreJobs) Prelude.. Lens.mapping Core._Time
+
+-- | Returns only copy jobs completed before a date expressed in Unix format
+-- and Coordinated Universal Time (UTC).
+listRestoreJobs_byCompleteBefore :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.UTCTime)
+listRestoreJobs_byCompleteBefore = Lens.lens (\ListRestoreJobs' {byCompleteBefore} -> byCompleteBefore) (\s@ListRestoreJobs' {} a -> s {byCompleteBefore = a} :: ListRestoreJobs) Prelude.. Lens.mapping Core._Time
+
 -- | Returns only restore jobs that were created before the specified date.
 listRestoreJobs_byCreatedBefore :: Lens.Lens' ListRestoreJobs (Prelude.Maybe Prelude.UTCTime)
 listRestoreJobs_byCreatedBefore = Lens.lens (\ListRestoreJobs' {byCreatedBefore} -> byCreatedBefore) (\s@ListRestoreJobs' {} a -> s {byCreatedBefore = a} :: ListRestoreJobs) Prelude.. Lens.mapping Core._Time
@@ -136,6 +164,28 @@ listRestoreJobs_maxResults = Lens.lens (\ListRestoreJobs' {maxResults} -> maxRes
 -- | Returns only restore jobs associated with the specified job status.
 listRestoreJobs_byStatus :: Lens.Lens' ListRestoreJobs (Prelude.Maybe RestoreJobStatus)
 listRestoreJobs_byStatus = Lens.lens (\ListRestoreJobs' {byStatus} -> byStatus) (\s@ListRestoreJobs' {} a -> s {byStatus = a} :: ListRestoreJobs)
+
+instance Core.AWSPager ListRestoreJobs where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRestoreJobsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listRestoreJobsResponse_restoreJobs
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listRestoreJobs_nextToken
+          Lens..~ rs
+          Lens.^? listRestoreJobsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListRestoreJobs where
   type
@@ -156,6 +206,8 @@ instance Prelude.Hashable ListRestoreJobs where
     _salt `Prelude.hashWithSalt` byAccountId
       `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` byCreatedAfter
+      `Prelude.hashWithSalt` byCompleteAfter
+      `Prelude.hashWithSalt` byCompleteBefore
       `Prelude.hashWithSalt` byCreatedBefore
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` byStatus
@@ -165,6 +217,8 @@ instance Prelude.NFData ListRestoreJobs where
     Prelude.rnf byAccountId
       `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf byCreatedAfter
+      `Prelude.seq` Prelude.rnf byCompleteAfter
+      `Prelude.seq` Prelude.rnf byCompleteBefore
       `Prelude.seq` Prelude.rnf byCreatedBefore
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf byStatus
@@ -189,6 +243,8 @@ instance Core.ToQuery ListRestoreJobs where
       [ "accountId" Core.=: byAccountId,
         "nextToken" Core.=: nextToken,
         "createdAfter" Core.=: byCreatedAfter,
+        "completeAfter" Core.=: byCompleteAfter,
+        "completeBefore" Core.=: byCompleteBefore,
         "createdBefore" Core.=: byCreatedBefore,
         "maxResults" Core.=: maxResults,
         "status" Core.=: byStatus

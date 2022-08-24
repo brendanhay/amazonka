@@ -29,9 +29,9 @@ module Amazonka.Backup.StartRestoreJob
     -- * Request Lenses
     startRestoreJob_resourceType,
     startRestoreJob_idempotencyToken,
+    startRestoreJob_iamRoleArn,
     startRestoreJob_recoveryPointArn,
     startRestoreJob_metadata,
-    startRestoreJob_iamRoleArn,
 
     -- * Destructuring the Response
     StartRestoreJobResponse (..),
@@ -55,6 +55,10 @@ data StartRestoreJob = StartRestoreJob'
   { -- | Starts a job to restore a recovery point for one of the following
     -- resources:
     --
+    -- -   @Aurora@ for Amazon Aurora
+    --
+    -- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
+    --
     -- -   @DynamoDB@ for Amazon DynamoDB
     --
     -- -   @EBS@ for Amazon Elastic Block Store
@@ -63,17 +67,27 @@ data StartRestoreJob = StartRestoreJob'
     --
     -- -   @EFS@ for Amazon Elastic File System
     --
+    -- -   @FSx@ for Amazon FSx
+    --
+    -- -   @Neptune@ for Amazon Neptune
+    --
     -- -   @RDS@ for Amazon Relational Database Service
     --
-    -- -   @Aurora@ for Amazon Aurora
-    --
     -- -   @Storage Gateway@ for Storage Gateway
+    --
+    -- -   @S3@ for Amazon S3
+    --
+    -- -   @VirtualMachine@ for virtual machines
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | A customer-chosen string that you can use to distinguish between
     -- otherwise identical calls to @StartRestoreJob@. Retrying a successful
     -- request with the same idempotency token results in a success message
     -- with no action taken.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM role that Backup uses to
+    -- create the target recovery point; for example,
+    -- @arn:aws:iam::123456789012:role\/S3Access@.
+    iamRoleArn :: Prelude.Maybe Prelude.Text,
     -- | An ARN that uniquely identifies a recovery point; for example,
     -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
     recoveryPointArn :: Prelude.Text,
@@ -113,11 +127,7 @@ data StartRestoreJob = StartRestoreJob'
     --     is a file path. Use @ItemsToRestore@ to restore specific files or
     --     directories rather than the entire file system. This parameter is
     --     optional. For example, @\"itemsToRestore\":\"[\\\"\/my.test\\\"]\"@.
-    metadata :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the IAM role that Backup uses to
-    -- create the target recovery point; for example,
-    -- @arn:aws:iam::123456789012:role\/S3Access@.
-    iamRoleArn :: Prelude.Text
+    metadata :: Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -132,6 +142,10 @@ data StartRestoreJob = StartRestoreJob'
 -- 'resourceType', 'startRestoreJob_resourceType' - Starts a job to restore a recovery point for one of the following
 -- resources:
 --
+-- -   @Aurora@ for Amazon Aurora
+--
+-- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
+--
 -- -   @DynamoDB@ for Amazon DynamoDB
 --
 -- -   @EBS@ for Amazon Elastic Block Store
@@ -140,16 +154,26 @@ data StartRestoreJob = StartRestoreJob'
 --
 -- -   @EFS@ for Amazon Elastic File System
 --
+-- -   @FSx@ for Amazon FSx
+--
+-- -   @Neptune@ for Amazon Neptune
+--
 -- -   @RDS@ for Amazon Relational Database Service
 --
--- -   @Aurora@ for Amazon Aurora
---
 -- -   @Storage Gateway@ for Storage Gateway
+--
+-- -   @S3@ for Amazon S3
+--
+-- -   @VirtualMachine@ for virtual machines
 --
 -- 'idempotencyToken', 'startRestoreJob_idempotencyToken' - A customer-chosen string that you can use to distinguish between
 -- otherwise identical calls to @StartRestoreJob@. Retrying a successful
 -- request with the same idempotency token results in a success message
 -- with no action taken.
+--
+-- 'iamRoleArn', 'startRestoreJob_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role that Backup uses to
+-- create the target recovery point; for example,
+-- @arn:aws:iam::123456789012:role\/S3Access@.
 --
 -- 'recoveryPointArn', 'startRestoreJob_recoveryPointArn' - An ARN that uniquely identifies a recovery point; for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
@@ -190,27 +214,25 @@ data StartRestoreJob = StartRestoreJob'
 --     is a file path. Use @ItemsToRestore@ to restore specific files or
 --     directories rather than the entire file system. This parameter is
 --     optional. For example, @\"itemsToRestore\":\"[\\\"\/my.test\\\"]\"@.
---
--- 'iamRoleArn', 'startRestoreJob_iamRoleArn' - The Amazon Resource Name (ARN) of the IAM role that Backup uses to
--- create the target recovery point; for example,
--- @arn:aws:iam::123456789012:role\/S3Access@.
 newStartRestoreJob ::
   -- | 'recoveryPointArn'
   Prelude.Text ->
-  -- | 'iamRoleArn'
-  Prelude.Text ->
   StartRestoreJob
-newStartRestoreJob pRecoveryPointArn_ pIamRoleArn_ =
+newStartRestoreJob pRecoveryPointArn_ =
   StartRestoreJob'
     { resourceType = Prelude.Nothing,
       idempotencyToken = Prelude.Nothing,
+      iamRoleArn = Prelude.Nothing,
       recoveryPointArn = pRecoveryPointArn_,
-      metadata = Prelude.mempty,
-      iamRoleArn = pIamRoleArn_
+      metadata = Prelude.mempty
     }
 
 -- | Starts a job to restore a recovery point for one of the following
 -- resources:
+--
+-- -   @Aurora@ for Amazon Aurora
+--
+-- -   @DocumentDB@ for Amazon DocumentDB (with MongoDB compatibility)
 --
 -- -   @DynamoDB@ for Amazon DynamoDB
 --
@@ -220,11 +242,17 @@ newStartRestoreJob pRecoveryPointArn_ pIamRoleArn_ =
 --
 -- -   @EFS@ for Amazon Elastic File System
 --
+-- -   @FSx@ for Amazon FSx
+--
+-- -   @Neptune@ for Amazon Neptune
+--
 -- -   @RDS@ for Amazon Relational Database Service
 --
--- -   @Aurora@ for Amazon Aurora
---
 -- -   @Storage Gateway@ for Storage Gateway
+--
+-- -   @S3@ for Amazon S3
+--
+-- -   @VirtualMachine@ for virtual machines
 startRestoreJob_resourceType :: Lens.Lens' StartRestoreJob (Prelude.Maybe Prelude.Text)
 startRestoreJob_resourceType = Lens.lens (\StartRestoreJob' {resourceType} -> resourceType) (\s@StartRestoreJob' {} a -> s {resourceType = a} :: StartRestoreJob)
 
@@ -234,6 +262,12 @@ startRestoreJob_resourceType = Lens.lens (\StartRestoreJob' {resourceType} -> re
 -- with no action taken.
 startRestoreJob_idempotencyToken :: Lens.Lens' StartRestoreJob (Prelude.Maybe Prelude.Text)
 startRestoreJob_idempotencyToken = Lens.lens (\StartRestoreJob' {idempotencyToken} -> idempotencyToken) (\s@StartRestoreJob' {} a -> s {idempotencyToken = a} :: StartRestoreJob)
+
+-- | The Amazon Resource Name (ARN) of the IAM role that Backup uses to
+-- create the target recovery point; for example,
+-- @arn:aws:iam::123456789012:role\/S3Access@.
+startRestoreJob_iamRoleArn :: Lens.Lens' StartRestoreJob (Prelude.Maybe Prelude.Text)
+startRestoreJob_iamRoleArn = Lens.lens (\StartRestoreJob' {iamRoleArn} -> iamRoleArn) (\s@StartRestoreJob' {} a -> s {iamRoleArn = a} :: StartRestoreJob)
 
 -- | An ARN that uniquely identifies a recovery point; for example,
 -- @arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45@.
@@ -279,12 +313,6 @@ startRestoreJob_recoveryPointArn = Lens.lens (\StartRestoreJob' {recoveryPointAr
 startRestoreJob_metadata :: Lens.Lens' StartRestoreJob (Prelude.HashMap Prelude.Text Prelude.Text)
 startRestoreJob_metadata = Lens.lens (\StartRestoreJob' {metadata} -> metadata) (\s@StartRestoreJob' {} a -> s {metadata = a} :: StartRestoreJob) Prelude.. Core._Sensitive Prelude.. Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the IAM role that Backup uses to
--- create the target recovery point; for example,
--- @arn:aws:iam::123456789012:role\/S3Access@.
-startRestoreJob_iamRoleArn :: Lens.Lens' StartRestoreJob Prelude.Text
-startRestoreJob_iamRoleArn = Lens.lens (\StartRestoreJob' {iamRoleArn} -> iamRoleArn) (\s@StartRestoreJob' {} a -> s {iamRoleArn = a} :: StartRestoreJob)
-
 instance Core.AWSRequest StartRestoreJob where
   type
     AWSResponse StartRestoreJob =
@@ -302,17 +330,17 @@ instance Prelude.Hashable StartRestoreJob where
   hashWithSalt _salt StartRestoreJob' {..} =
     _salt `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` idempotencyToken
+      `Prelude.hashWithSalt` iamRoleArn
       `Prelude.hashWithSalt` recoveryPointArn
       `Prelude.hashWithSalt` metadata
-      `Prelude.hashWithSalt` iamRoleArn
 
 instance Prelude.NFData StartRestoreJob where
   rnf StartRestoreJob' {..} =
     Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf idempotencyToken
+      `Prelude.seq` Prelude.rnf iamRoleArn
       `Prelude.seq` Prelude.rnf recoveryPointArn
       `Prelude.seq` Prelude.rnf metadata
-      `Prelude.seq` Prelude.rnf iamRoleArn
 
 instance Core.ToHeaders StartRestoreJob where
   toHeaders =
@@ -332,10 +360,10 @@ instance Core.ToJSON StartRestoreJob where
           [ ("ResourceType" Core..=) Prelude.<$> resourceType,
             ("IdempotencyToken" Core..=)
               Prelude.<$> idempotencyToken,
+            ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
             Prelude.Just
               ("RecoveryPointArn" Core..= recoveryPointArn),
-            Prelude.Just ("Metadata" Core..= metadata),
-            Prelude.Just ("IamRoleArn" Core..= iamRoleArn)
+            Prelude.Just ("Metadata" Core..= metadata)
           ]
       )
 

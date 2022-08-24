@@ -23,7 +23,11 @@
 -- Returns a list of key-value pairs assigned to a target recovery point,
 -- backup plan, or backup vault.
 --
--- @ListTags@ are currently only supported with Amazon EFS backups.
+-- @ListTags@ only works for resource types that support full Backup
+-- management of their backups. Those resource types are listed in the
+-- \"Full Backup management\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table.
 module Amazonka.Backup.ListTags
   ( -- * Creating a Request
     ListTags (..),

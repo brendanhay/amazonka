@@ -114,6 +114,10 @@ data GetSupportedResourceTypesResponse = GetSupportedResourceTypesResponse'
     -- -   @RDS@ for Amazon Relational Database Service
     --
     -- -   @Storage Gateway@ for Storage Gateway
+    --
+    -- -   @DocDB@ for Amazon DocumentDB (with MongoDB compatibility)
+    --
+    -- -   @Neptune@ for Amazon Neptune
     resourceTypes :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -146,6 +150,10 @@ data GetSupportedResourceTypesResponse = GetSupportedResourceTypesResponse'
 --
 -- -   @Storage Gateway@ for Storage Gateway
 --
+-- -   @DocDB@ for Amazon DocumentDB (with MongoDB compatibility)
+--
+-- -   @Neptune@ for Amazon Neptune
+--
 -- 'httpStatus', 'getSupportedResourceTypesResponse_httpStatus' - The response's http status code.
 newGetSupportedResourceTypesResponse ::
   -- | 'httpStatus'
@@ -175,6 +183,10 @@ newGetSupportedResourceTypesResponse pHttpStatus_ =
 -- -   @RDS@ for Amazon Relational Database Service
 --
 -- -   @Storage Gateway@ for Storage Gateway
+--
+-- -   @DocDB@ for Amazon DocumentDB (with MongoDB compatibility)
+--
+-- -   @Neptune@ for Amazon Neptune
 getSupportedResourceTypesResponse_resourceTypes :: Lens.Lens' GetSupportedResourceTypesResponse (Prelude.Maybe [Prelude.Text])
 getSupportedResourceTypesResponse_resourceTypes = Lens.lens (\GetSupportedResourceTypesResponse' {resourceTypes} -> resourceTypes) (\s@GetSupportedResourceTypesResponse' {} a -> s {resourceTypes = a} :: GetSupportedResourceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 

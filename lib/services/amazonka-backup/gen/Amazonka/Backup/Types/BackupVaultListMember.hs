@@ -27,9 +27,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackupVaultListMember' smart constructor.
 data BackupVaultListMember = BackupVaultListMember'
-  { -- | The server-side encryption key that is used to protect your backups; for
-    -- example,
+  { -- | A server-side encryption key you can specify to encrypt your backups
+    -- from services that support full Backup management; for example,
     -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+    -- If you specify a key, you must specify its ARN, not its alias. If you do
+    -- not specify a key, Backup creates a KMS key for you by default.
+    --
+    -- To learn which Backup services support full Backup management and how
+    -- Backup handles encryption for backups from services that do not yet
+    -- support full Backup, see
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html Encryption for backups in Backup>
     encryptionKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The Backup Vault Lock setting that specifies the minimum retention
     -- period that the vault retains its recovery points. If this parameter is
@@ -70,7 +77,11 @@ data BackupVaultListMember = BackupVaultListMember'
     -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
     backupVaultArn :: Prelude.Maybe Prelude.Text,
     -- | A unique string that identifies the request and allows failed requests
-    -- to be retried without the risk of running the operation twice.
+    -- to be retried without the risk of running the operation twice. This
+    -- parameter is optional.
+    --
+    -- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+    -- characters.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The number of recovery points that are stored in a backup vault.
     numberOfRecoveryPoints :: Prelude.Maybe Prelude.Integer,
@@ -100,9 +111,16 @@ data BackupVaultListMember = BackupVaultListMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encryptionKeyArn', 'backupVaultListMember_encryptionKeyArn' - The server-side encryption key that is used to protect your backups; for
--- example,
+-- 'encryptionKeyArn', 'backupVaultListMember_encryptionKeyArn' - A server-side encryption key you can specify to encrypt your backups
+-- from services that support full Backup management; for example,
 -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+-- If you specify a key, you must specify its ARN, not its alias. If you do
+-- not specify a key, Backup creates a KMS key for you by default.
+--
+-- To learn which Backup services support full Backup management and how
+-- Backup handles encryption for backups from services that do not yet
+-- support full Backup, see
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html Encryption for backups in Backup>
 --
 -- 'minRetentionDays', 'backupVaultListMember_minRetentionDays' - The Backup Vault Lock setting that specifies the minimum retention
 -- period that the vault retains its recovery points. If this parameter is
@@ -143,7 +161,11 @@ data BackupVaultListMember = BackupVaultListMember'
 -- for example, @arn:aws:backup:us-east-1:123456789012:vault:aBackupVault@.
 --
 -- 'creatorRequestId', 'backupVaultListMember_creatorRequestId' - A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 --
 -- 'numberOfRecoveryPoints', 'backupVaultListMember_numberOfRecoveryPoints' - The number of recovery points that are stored in a backup vault.
 --
@@ -178,9 +200,16 @@ newBackupVaultListMember =
       lockDate = Prelude.Nothing
     }
 
--- | The server-side encryption key that is used to protect your backups; for
--- example,
+-- | A server-side encryption key you can specify to encrypt your backups
+-- from services that support full Backup management; for example,
 -- @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@.
+-- If you specify a key, you must specify its ARN, not its alias. If you do
+-- not specify a key, Backup creates a KMS key for you by default.
+--
+-- To learn which Backup services support full Backup management and how
+-- Backup handles encryption for backups from services that do not yet
+-- support full Backup, see
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html Encryption for backups in Backup>
 backupVaultListMember_encryptionKeyArn :: Lens.Lens' BackupVaultListMember (Prelude.Maybe Prelude.Text)
 backupVaultListMember_encryptionKeyArn = Lens.lens (\BackupVaultListMember' {encryptionKeyArn} -> encryptionKeyArn) (\s@BackupVaultListMember' {} a -> s {encryptionKeyArn = a} :: BackupVaultListMember)
 
@@ -233,7 +262,11 @@ backupVaultListMember_backupVaultArn :: Lens.Lens' BackupVaultListMember (Prelud
 backupVaultListMember_backupVaultArn = Lens.lens (\BackupVaultListMember' {backupVaultArn} -> backupVaultArn) (\s@BackupVaultListMember' {} a -> s {backupVaultArn = a} :: BackupVaultListMember)
 
 -- | A unique string that identifies the request and allows failed requests
--- to be retried without the risk of running the operation twice.
+-- to be retried without the risk of running the operation twice. This
+-- parameter is optional.
+--
+-- If used, this parameter must contain 1 to 50 alphanumeric or \'-_.\'
+-- characters.
 backupVaultListMember_creatorRequestId :: Lens.Lens' BackupVaultListMember (Prelude.Maybe Prelude.Text)
 backupVaultListMember_creatorRequestId = Lens.lens (\BackupVaultListMember' {creatorRequestId} -> creatorRequestId) (\s@BackupVaultListMember' {} a -> s {creatorRequestId = a} :: BackupVaultListMember)
 

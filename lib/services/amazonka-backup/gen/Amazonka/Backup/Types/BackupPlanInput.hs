@@ -35,7 +35,8 @@ data BackupPlanInput = BackupPlanInput'
     -- settings are only available for Windows Volume Shadow Copy Service (VSS)
     -- backup jobs.
     advancedBackupSettings :: Prelude.Maybe [AdvancedBackupSetting],
-    -- | The optional display name of a backup plan.
+    -- | The display name of a backup plan. Must contain 1 to 50 alphanumeric or
+    -- \'-_.\' characters.
     backupPlanName :: Prelude.Text,
     -- | An array of @BackupRule@ objects, each of which specifies a scheduled
     -- task that is used to back up a selection of resources.
@@ -55,7 +56,8 @@ data BackupPlanInput = BackupPlanInput'
 -- settings are only available for Windows Volume Shadow Copy Service (VSS)
 -- backup jobs.
 --
--- 'backupPlanName', 'backupPlanInput_backupPlanName' - The optional display name of a backup plan.
+-- 'backupPlanName', 'backupPlanInput_backupPlanName' - The display name of a backup plan. Must contain 1 to 50 alphanumeric or
+-- \'-_.\' characters.
 --
 -- 'rules', 'backupPlanInput_rules' - An array of @BackupRule@ objects, each of which specifies a scheduled
 -- task that is used to back up a selection of resources.
@@ -77,7 +79,8 @@ newBackupPlanInput pBackupPlanName_ =
 backupPlanInput_advancedBackupSettings :: Lens.Lens' BackupPlanInput (Prelude.Maybe [AdvancedBackupSetting])
 backupPlanInput_advancedBackupSettings = Lens.lens (\BackupPlanInput' {advancedBackupSettings} -> advancedBackupSettings) (\s@BackupPlanInput' {} a -> s {advancedBackupSettings = a} :: BackupPlanInput) Prelude.. Lens.mapping Lens.coerced
 
--- | The optional display name of a backup plan.
+-- | The display name of a backup plan. Must contain 1 to 50 alphanumeric or
+-- \'-_.\' characters.
 backupPlanInput_backupPlanName :: Lens.Lens' BackupPlanInput Prelude.Text
 backupPlanInput_backupPlanName = Lens.lens (\BackupPlanInput' {backupPlanName} -> backupPlanName) (\s@BackupPlanInput' {} a -> s {backupPlanName = a} :: BackupPlanInput)
 

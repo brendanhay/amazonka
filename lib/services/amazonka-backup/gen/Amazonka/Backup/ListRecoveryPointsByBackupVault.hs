@@ -22,6 +22,8 @@
 --
 -- Returns detailed information about the recovery points stored in a
 -- backup vault.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListRecoveryPointsByBackupVault
   ( -- * Creating a Request
     ListRecoveryPointsByBackupVault (..),
@@ -183,6 +185,31 @@ listRecoveryPointsByBackupVault_byResourceArn = Lens.lens (\ListRecoveryPointsBy
 -- creates the backup.
 listRecoveryPointsByBackupVault_backupVaultName :: Lens.Lens' ListRecoveryPointsByBackupVault Prelude.Text
 listRecoveryPointsByBackupVault_backupVaultName = Lens.lens (\ListRecoveryPointsByBackupVault' {backupVaultName} -> backupVaultName) (\s@ListRecoveryPointsByBackupVault' {} a -> s {backupVaultName = a} :: ListRecoveryPointsByBackupVault)
+
+instance
+  Core.AWSPager
+    ListRecoveryPointsByBackupVault
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listRecoveryPointsByBackupVaultResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listRecoveryPointsByBackupVaultResponse_recoveryPoints
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listRecoveryPointsByBackupVault_nextToken
+          Lens..~ rs
+          Lens.^? listRecoveryPointsByBackupVaultResponse_nextToken
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

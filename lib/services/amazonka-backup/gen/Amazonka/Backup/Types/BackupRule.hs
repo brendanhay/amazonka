@@ -37,12 +37,15 @@ data BackupRule = BackupRule'
     -- automatically according to the lifecycle that you define.
     --
     -- Backups transitioned to cold storage must be stored in cold storage for
-    -- a minimum of 90 days. Therefore, the “expire after days” setting must be
-    -- 90 days greater than the “transition to cold after days” setting. The
+    -- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+    -- greater than the “transition to cold after days” setting. The
     -- “transition to cold after days” setting cannot be changed after a backup
     -- has been transitioned to cold.
     --
-    -- Only Amazon EFS file system backups can be transitioned to cold storage.
+    -- Resource types that are able to be transitioned to cold storage are
+    -- listed in the \"Lifecycle to cold storage\" section of the
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+    -- table. Backup ignores this expression for other resource types.
     lifecycle :: Prelude.Maybe Lifecycle,
     -- | Uniquely identifies a rule that is used to schedule the backup of a
     -- selection of resources.
@@ -51,11 +54,13 @@ data BackupRule = BackupRule'
     -- operation.
     copyActions :: Prelude.Maybe [CopyAction],
     -- | A cron expression in UTC specifying when Backup initiates a backup job.
-    -- For more information about cron expressions, see
+    -- For more information about Amazon Web Services cron expressions, see
     -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules>
-    -- in the /Amazon CloudWatch Events User Guide./. Prior to specifying a
-    -- value for this parameter, we recommend testing your cron expression
-    -- using one of the many available cron generator and testing tools.
+    -- in the /Amazon CloudWatch Events User Guide./. Two examples of Amazon
+    -- Web Services cron expressions are @ 15 * ? * * *@ (take a backup every
+    -- hour at 15 minutes past the hour) and @0 12 * * ? *@ (take a backup
+    -- every day at 12 noon UTC). For a table of examples, click the preceding
+    -- link and scroll down the page.
     scheduleExpression :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether Backup creates continuous backups. True causes Backup
     -- to create continuous backups capable of point-in-time restore (PITR).
@@ -68,7 +73,8 @@ data BackupRule = BackupRule'
     -- | An array of key-value pair strings that are assigned to resources that
     -- are associated with this rule when restored from backup.
     recoveryPointTags :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text Prelude.Text)),
-    -- | An optional display name for a backup rule.
+    -- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
+    -- \'-_.\' characters.
     ruleName :: Prelude.Text,
     -- | The name of a logical container where backups are stored. Backup vaults
     -- are identified by names that are unique to the account used to create
@@ -94,12 +100,15 @@ data BackupRule = BackupRule'
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 --
 -- 'ruleId', 'backupRule_ruleId' - Uniquely identifies a rule that is used to schedule the backup of a
 -- selection of resources.
@@ -108,11 +117,13 @@ data BackupRule = BackupRule'
 -- operation.
 --
 -- 'scheduleExpression', 'backupRule_scheduleExpression' - A cron expression in UTC specifying when Backup initiates a backup job.
--- For more information about cron expressions, see
+-- For more information about Amazon Web Services cron expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules>
--- in the /Amazon CloudWatch Events User Guide./. Prior to specifying a
--- value for this parameter, we recommend testing your cron expression
--- using one of the many available cron generator and testing tools.
+-- in the /Amazon CloudWatch Events User Guide./. Two examples of Amazon
+-- Web Services cron expressions are @ 15 * ? * * *@ (take a backup every
+-- hour at 15 minutes past the hour) and @0 12 * * ? *@ (take a backup
+-- every day at 12 noon UTC). For a table of examples, click the preceding
+-- link and scroll down the page.
 --
 -- 'enableContinuousBackup', 'backupRule_enableContinuousBackup' - Specifies whether Backup creates continuous backups. True causes Backup
 -- to create continuous backups capable of point-in-time restore (PITR).
@@ -125,7 +136,8 @@ data BackupRule = BackupRule'
 -- 'recoveryPointTags', 'backupRule_recoveryPointTags' - An array of key-value pair strings that are assigned to resources that
 -- are associated with this rule when restored from backup.
 --
--- 'ruleName', 'backupRule_ruleName' - An optional display name for a backup rule.
+-- 'ruleName', 'backupRule_ruleName' - A display name for a backup rule. Must contain 1 to 50 alphanumeric or
+-- \'-_.\' characters.
 --
 -- 'targetBackupVaultName', 'backupRule_targetBackupVaultName' - The name of a logical container where backups are stored. Backup vaults
 -- are identified by names that are unique to the account used to create
@@ -161,12 +173,15 @@ backupRule_startWindowMinutes = Lens.lens (\BackupRule' {startWindowMinutes} -> 
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 backupRule_lifecycle :: Lens.Lens' BackupRule (Prelude.Maybe Lifecycle)
 backupRule_lifecycle = Lens.lens (\BackupRule' {lifecycle} -> lifecycle) (\s@BackupRule' {} a -> s {lifecycle = a} :: BackupRule)
 
@@ -181,11 +196,13 @@ backupRule_copyActions :: Lens.Lens' BackupRule (Prelude.Maybe [CopyAction])
 backupRule_copyActions = Lens.lens (\BackupRule' {copyActions} -> copyActions) (\s@BackupRule' {} a -> s {copyActions = a} :: BackupRule) Prelude.. Lens.mapping Lens.coerced
 
 -- | A cron expression in UTC specifying when Backup initiates a backup job.
--- For more information about cron expressions, see
+-- For more information about Amazon Web Services cron expressions, see
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules>
--- in the /Amazon CloudWatch Events User Guide./. Prior to specifying a
--- value for this parameter, we recommend testing your cron expression
--- using one of the many available cron generator and testing tools.
+-- in the /Amazon CloudWatch Events User Guide./. Two examples of Amazon
+-- Web Services cron expressions are @ 15 * ? * * *@ (take a backup every
+-- hour at 15 minutes past the hour) and @0 12 * * ? *@ (take a backup
+-- every day at 12 noon UTC). For a table of examples, click the preceding
+-- link and scroll down the page.
 backupRule_scheduleExpression :: Lens.Lens' BackupRule (Prelude.Maybe Prelude.Text)
 backupRule_scheduleExpression = Lens.lens (\BackupRule' {scheduleExpression} -> scheduleExpression) (\s@BackupRule' {} a -> s {scheduleExpression = a} :: BackupRule)
 
@@ -206,7 +223,8 @@ backupRule_completionWindowMinutes = Lens.lens (\BackupRule' {completionWindowMi
 backupRule_recoveryPointTags :: Lens.Lens' BackupRule (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 backupRule_recoveryPointTags = Lens.lens (\BackupRule' {recoveryPointTags} -> recoveryPointTags) (\s@BackupRule' {} a -> s {recoveryPointTags = a} :: BackupRule) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
--- | An optional display name for a backup rule.
+-- | A display name for a backup rule. Must contain 1 to 50 alphanumeric or
+-- \'-_.\' characters.
 backupRule_ruleName :: Lens.Lens' BackupRule Prelude.Text
 backupRule_ruleName = Lens.lens (\BackupRule' {ruleName} -> ruleName) (\s@BackupRule' {} a -> s {ruleName = a} :: BackupRule)
 

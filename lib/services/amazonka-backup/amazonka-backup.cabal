@@ -120,6 +120,8 @@ library
     Amazonka.Backup.Types.BackupVaultListMember
     Amazonka.Backup.Types.CalculatedLifecycle
     Amazonka.Backup.Types.Condition
+    Amazonka.Backup.Types.ConditionParameter
+    Amazonka.Backup.Types.Conditions
     Amazonka.Backup.Types.ConditionType
     Amazonka.Backup.Types.ControlInputParameter
     Amazonka.Backup.Types.ControlScope

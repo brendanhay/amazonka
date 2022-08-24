@@ -23,6 +23,8 @@
 -- Returns version metadata of your backup plans, including Amazon Resource
 -- Names (ARNs), backup plan IDs, creation and deletion dates, plan names,
 -- and version IDs.
+--
+-- This operation returns paginated results.
 module Amazonka.Backup.ListBackupPlanVersions
   ( -- * Creating a Request
     ListBackupPlanVersions (..),
@@ -107,6 +109,28 @@ listBackupPlanVersions_maxResults = Lens.lens (\ListBackupPlanVersions' {maxResu
 -- | Uniquely identifies a backup plan.
 listBackupPlanVersions_backupPlanId :: Lens.Lens' ListBackupPlanVersions Prelude.Text
 listBackupPlanVersions_backupPlanId = Lens.lens (\ListBackupPlanVersions' {backupPlanId} -> backupPlanId) (\s@ListBackupPlanVersions' {} a -> s {backupPlanId = a} :: ListBackupPlanVersions)
+
+instance Core.AWSPager ListBackupPlanVersions where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listBackupPlanVersionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listBackupPlanVersionsResponse_backupPlanVersionsList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listBackupPlanVersions_nextToken
+          Lens..~ rs
+          Lens.^? listBackupPlanVersionsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListBackupPlanVersions where
   type

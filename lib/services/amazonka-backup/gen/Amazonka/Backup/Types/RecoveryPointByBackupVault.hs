@@ -47,12 +47,15 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
     -- automatically according to the lifecycle that you define.
     --
     -- Backups transitioned to cold storage must be stored in cold storage for
-    -- a minimum of 90 days. Therefore, the “expire after days” setting must be
-    -- 90 days greater than the “transition to cold after days” setting. The
+    -- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+    -- greater than the “transition to cold after days” setting. The
     -- “transition to cold after days” setting cannot be changed after a backup
     -- has been transitioned to cold.
     --
-    -- Only Amazon EFS file system backups can be transitioned to cold storage.
+    -- Resource types that are able to be transitioned to cold storage are
+    -- listed in the \"Lifecycle to cold storage\" section of the
+    -- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+    -- table. Backup ignores this expression for other resource types.
     lifecycle :: Prelude.Maybe Lifecycle,
     -- | An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
     -- for example,
@@ -133,12 +136,15 @@ data RecoveryPointByBackupVault = RecoveryPointByBackupVault'
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 --
 -- 'recoveryPointArn', 'recoveryPointByBackupVault_recoveryPointArn' - An Amazon Resource Name (ARN) that uniquely identifies a recovery point;
 -- for example,
@@ -236,12 +242,15 @@ recoveryPointByBackupVault_resourceType = Lens.lens (\RecoveryPointByBackupVault
 -- automatically according to the lifecycle that you define.
 --
 -- Backups transitioned to cold storage must be stored in cold storage for
--- a minimum of 90 days. Therefore, the “expire after days” setting must be
--- 90 days greater than the “transition to cold after days” setting. The
+-- a minimum of 90 days. Therefore, the “retention” setting must be 90 days
+-- greater than the “transition to cold after days” setting. The
 -- “transition to cold after days” setting cannot be changed after a backup
 -- has been transitioned to cold.
 --
--- Only Amazon EFS file system backups can be transitioned to cold storage.
+-- Resource types that are able to be transitioned to cold storage are
+-- listed in the \"Lifecycle to cold storage\" section of the
+-- <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource Feature availability by resource>
+-- table. Backup ignores this expression for other resource types.
 recoveryPointByBackupVault_lifecycle :: Lens.Lens' RecoveryPointByBackupVault (Prelude.Maybe Lifecycle)
 recoveryPointByBackupVault_lifecycle = Lens.lens (\RecoveryPointByBackupVault' {lifecycle} -> lifecycle) (\s@RecoveryPointByBackupVault' {} a -> s {lifecycle = a} :: RecoveryPointByBackupVault)
 

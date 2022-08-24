@@ -52,7 +52,7 @@ data BatchRevokePermissions = BatchRevokePermissions'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 20 entries for resource permissions to be revoked by
     -- batch operation to the principal.
@@ -71,7 +71,7 @@ data BatchRevokePermissions = BatchRevokePermissions'
 -- 'catalogId', 'batchRevokePermissions_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
 -- 'entries', 'batchRevokePermissions_entries' - A list of up to 20 entries for resource permissions to be revoked by
 -- batch operation to the principal.
@@ -87,7 +87,7 @@ newBatchRevokePermissions =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 batchRevokePermissions_catalogId :: Lens.Lens' BatchRevokePermissions (Prelude.Maybe Prelude.Text)
 batchRevokePermissions_catalogId = Lens.lens (\BatchRevokePermissions' {catalogId} -> catalogId) (\s@BatchRevokePermissions' {} a -> s {catalogId = a} :: BatchRevokePermissions)
 
@@ -123,11 +123,7 @@ instance Core.ToHeaders BatchRevokePermissions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.BatchRevokePermissions" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -144,7 +140,7 @@ instance Core.ToJSON BatchRevokePermissions where
       )
 
 instance Core.ToPath BatchRevokePermissions where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/BatchRevokePermissions"
 
 instance Core.ToQuery BatchRevokePermissions where
   toQuery = Prelude.const Prelude.mempty

@@ -132,11 +132,7 @@ instance Core.ToHeaders ListResources where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.ListResources" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -155,7 +151,7 @@ instance Core.ToJSON ListResources where
       )
 
 instance Core.ToPath ListResources where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/ListResources"
 
 instance Core.ToQuery ListResources where
   toQuery = Prelude.const Prelude.mempty

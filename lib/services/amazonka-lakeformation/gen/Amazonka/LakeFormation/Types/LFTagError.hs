@@ -30,9 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLFTagError' smart constructor.
 data LFTagError = LFTagError'
-  { -- | The key-name of the tag.
+  { -- | The key-name of the LF-tag.
     lFTag :: Prelude.Maybe LFTagPair,
-    -- | An error that occurred with the attachment or detachment of the tag.
+    -- | An error that occurred with the attachment or detachment of the LF-tag.
     error :: Prelude.Maybe ErrorDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,9 +45,9 @@ data LFTagError = LFTagError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lFTag', 'lFTagError_lFTag' - The key-name of the tag.
+-- 'lFTag', 'lFTagError_lFTag' - The key-name of the LF-tag.
 --
--- 'error', 'lFTagError_error' - An error that occurred with the attachment or detachment of the tag.
+-- 'error', 'lFTagError_error' - An error that occurred with the attachment or detachment of the LF-tag.
 newLFTagError ::
   LFTagError
 newLFTagError =
@@ -56,11 +56,11 @@ newLFTagError =
       error = Prelude.Nothing
     }
 
--- | The key-name of the tag.
+-- | The key-name of the LF-tag.
 lFTagError_lFTag :: Lens.Lens' LFTagError (Prelude.Maybe LFTagPair)
 lFTagError_lFTag = Lens.lens (\LFTagError' {lFTag} -> lFTag) (\s@LFTagError' {} a -> s {lFTag = a} :: LFTagError)
 
--- | An error that occurred with the attachment or detachment of the tag.
+-- | An error that occurred with the attachment or detachment of the LF-tag.
 lFTagError_error :: Lens.Lens' LFTagError (Prelude.Maybe ErrorDetail)
 lFTagError_error = Lens.lens (\LFTagError' {error} -> error) (\s@LFTagError' {} a -> s {error = a} :: LFTagError)
 

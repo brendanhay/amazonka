@@ -58,10 +58,10 @@ data PutDataLakeSettings = PutDataLakeSettings'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | A structure representing a list of AWS Lake Formation principals
-    -- designated as data lake administrators.
+    -- | A structure representing a list of Lake Formation principals designated
+    -- as data lake administrators.
     dataLakeSettings :: DataLakeSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,10 +77,10 @@ data PutDataLakeSettings = PutDataLakeSettings'
 -- 'catalogId', 'putDataLakeSettings_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'dataLakeSettings', 'putDataLakeSettings_dataLakeSettings' - A structure representing a list of AWS Lake Formation principals
--- designated as data lake administrators.
+-- 'dataLakeSettings', 'putDataLakeSettings_dataLakeSettings' - A structure representing a list of Lake Formation principals designated
+-- as data lake administrators.
 newPutDataLakeSettings ::
   -- | 'dataLakeSettings'
   DataLakeSettings ->
@@ -94,12 +94,12 @@ newPutDataLakeSettings pDataLakeSettings_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 putDataLakeSettings_catalogId :: Lens.Lens' PutDataLakeSettings (Prelude.Maybe Prelude.Text)
 putDataLakeSettings_catalogId = Lens.lens (\PutDataLakeSettings' {catalogId} -> catalogId) (\s@PutDataLakeSettings' {} a -> s {catalogId = a} :: PutDataLakeSettings)
 
--- | A structure representing a list of AWS Lake Formation principals
--- designated as data lake administrators.
+-- | A structure representing a list of Lake Formation principals designated
+-- as data lake administrators.
 putDataLakeSettings_dataLakeSettings :: Lens.Lens' PutDataLakeSettings DataLakeSettings
 putDataLakeSettings_dataLakeSettings = Lens.lens (\PutDataLakeSettings' {dataLakeSettings} -> dataLakeSettings) (\s@PutDataLakeSettings' {} a -> s {dataLakeSettings = a} :: PutDataLakeSettings)
 
@@ -129,11 +129,7 @@ instance Core.ToHeaders PutDataLakeSettings where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.PutDataLakeSettings" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -151,7 +147,7 @@ instance Core.ToJSON PutDataLakeSettings where
       )
 
 instance Core.ToPath PutDataLakeSettings where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/PutDataLakeSettings"
 
 instance Core.ToQuery PutDataLakeSettings where
   toQuery = Prelude.const Prelude.mempty

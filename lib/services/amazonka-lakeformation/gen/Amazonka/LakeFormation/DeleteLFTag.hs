@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified tag key name. If the attribute key does not exist
--- or the tag does not exist, then the operation will not do anything. If
--- the attribute key exists, then the operation checks if any resources are
--- tagged with this attribute key, if yes, the API throws a 400 Exception
--- with the message \"Delete not allowed\" as the tag key is still attached
--- with resources. You can consider untagging resources with this tag key.
+-- Deletes the specified LF-tag given a key name. If the input parameter
+-- tag key was not found, then the operation will throw an exception. When
+-- you delete an LF-tag, the @LFTagPolicy@ attached to the LF-tag becomes
+-- invalid. If the deleted LF-tag was still assigned to any resource, the
+-- tag policy attach to the deleted LF-tag will no longer be applied to the
+-- resource.
 module Amazonka.LakeFormation.DeleteLFTag
   ( -- * Creating a Request
     DeleteLFTag (..),
@@ -56,9 +56,9 @@ data DeleteLFTag = DeleteLFTag'
   { -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
-    -- | The key-name for the tag to delete.
+    -- | The key-name for the LF-tag to delete.
     tagKey :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,9 +74,9 @@ data DeleteLFTag = DeleteLFTag'
 -- 'catalogId', 'deleteLFTag_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'tagKey', 'deleteLFTag_tagKey' - The key-name for the tag to delete.
+-- 'tagKey', 'deleteLFTag_tagKey' - The key-name for the LF-tag to delete.
 newDeleteLFTag ::
   -- | 'tagKey'
   Prelude.Text ->
@@ -90,11 +90,11 @@ newDeleteLFTag pTagKey_ =
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 deleteLFTag_catalogId :: Lens.Lens' DeleteLFTag (Prelude.Maybe Prelude.Text)
 deleteLFTag_catalogId = Lens.lens (\DeleteLFTag' {catalogId} -> catalogId) (\s@DeleteLFTag' {} a -> s {catalogId = a} :: DeleteLFTag)
 
--- | The key-name for the tag to delete.
+-- | The key-name for the LF-tag to delete.
 deleteLFTag_tagKey :: Lens.Lens' DeleteLFTag Prelude.Text
 deleteLFTag_tagKey = Lens.lens (\DeleteLFTag' {tagKey} -> tagKey) (\s@DeleteLFTag' {} a -> s {tagKey = a} :: DeleteLFTag)
 
@@ -122,11 +122,7 @@ instance Core.ToHeaders DeleteLFTag where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.DeleteLFTag" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -143,7 +139,7 @@ instance Core.ToJSON DeleteLFTag where
       )
 
 instance Core.ToPath DeleteLFTag where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/DeleteLFTag"
 
 instance Core.ToQuery DeleteLFTag where
   toQuery = Prelude.const Prelude.mempty

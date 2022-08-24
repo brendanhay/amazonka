@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure containing information about an AWS Lake Formation resource.
+-- | A structure containing information about an Lake Formation resource.
 --
 -- /See:/ 'newResourceInfo' smart constructor.
 data ResourceInfo = ResourceInfo'

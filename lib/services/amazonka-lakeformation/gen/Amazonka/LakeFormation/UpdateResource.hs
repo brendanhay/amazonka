@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the data access role used for vending access to the given
--- (registered) resource in AWS Lake Formation.
+-- (registered) resource in Lake Formation.
 module Amazonka.LakeFormation.UpdateResource
   ( -- * Creating a Request
     UpdateResource (..),
@@ -49,8 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateResource' smart constructor.
 data UpdateResource = UpdateResource'
-  { -- | The new role to use for the given resource registered in AWS Lake
-    -- Formation.
+  { -- | The new role to use for the given resource registered in Lake Formation.
     roleArn :: Prelude.Text,
     -- | The resource ARN.
     resourceArn :: Prelude.Text
@@ -65,8 +64,7 @@ data UpdateResource = UpdateResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'updateResource_roleArn' - The new role to use for the given resource registered in AWS Lake
--- Formation.
+-- 'roleArn', 'updateResource_roleArn' - The new role to use for the given resource registered in Lake Formation.
 --
 -- 'resourceArn', 'updateResource_resourceArn' - The resource ARN.
 newUpdateResource ::
@@ -81,8 +79,7 @@ newUpdateResource pRoleArn_ pResourceArn_ =
       resourceArn = pResourceArn_
     }
 
--- | The new role to use for the given resource registered in AWS Lake
--- Formation.
+-- | The new role to use for the given resource registered in Lake Formation.
 updateResource_roleArn :: Lens.Lens' UpdateResource Prelude.Text
 updateResource_roleArn = Lens.lens (\UpdateResource' {roleArn} -> roleArn) (\s@UpdateResource' {} a -> s {roleArn = a} :: UpdateResource)
 
@@ -116,11 +113,7 @@ instance Core.ToHeaders UpdateResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.UpdateResource" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -137,7 +130,7 @@ instance Core.ToJSON UpdateResource where
       )
 
 instance Core.ToPath UpdateResource where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/UpdateResource"
 
 instance Core.ToQuery UpdateResource where
   toQuery = Prelude.const Prelude.mempty

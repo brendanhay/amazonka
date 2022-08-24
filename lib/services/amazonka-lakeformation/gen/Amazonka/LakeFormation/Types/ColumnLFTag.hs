@@ -24,14 +24,14 @@ import Amazonka.LakeFormation.Types.LFTagPair
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure containing the name of a column resource and the tags
+-- | A structure containing the name of a column resource and the LF-tags
 -- attached to it.
 --
 -- /See:/ 'newColumnLFTag' smart constructor.
 data ColumnLFTag = ColumnLFTag'
   { -- | The name of a column resource.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The tags attached to a column resource.
+    -- | The LF-tags attached to a column resource.
     lFTags :: Prelude.Maybe (Prelude.NonEmpty LFTagPair)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +46,7 @@ data ColumnLFTag = ColumnLFTag'
 --
 -- 'name', 'columnLFTag_name' - The name of a column resource.
 --
--- 'lFTags', 'columnLFTag_lFTags' - The tags attached to a column resource.
+-- 'lFTags', 'columnLFTag_lFTags' - The LF-tags attached to a column resource.
 newColumnLFTag ::
   ColumnLFTag
 newColumnLFTag =
@@ -59,7 +59,7 @@ newColumnLFTag =
 columnLFTag_name :: Lens.Lens' ColumnLFTag (Prelude.Maybe Prelude.Text)
 columnLFTag_name = Lens.lens (\ColumnLFTag' {name} -> name) (\s@ColumnLFTag' {} a -> s {name = a} :: ColumnLFTag)
 
--- | The tags attached to a column resource.
+-- | The LF-tags attached to a column resource.
 columnLFTag_lFTags :: Lens.Lens' ColumnLFTag (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
 columnLFTag_lFTags = Lens.lens (\ColumnLFTag' {lFTags} -> lFTags) (\s@ColumnLFTag' {} a -> s {lFTags = a} :: ColumnLFTag) Prelude.. Lens.mapping Lens.coerced
 

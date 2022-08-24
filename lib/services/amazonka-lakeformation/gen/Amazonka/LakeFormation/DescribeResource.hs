@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the current data access role for the given resource registered
--- in AWS Lake Formation.
+-- in Lake Formation.
 module Amazonka.LakeFormation.DescribeResource
   ( -- * Creating a Request
     DescribeResource (..),
@@ -98,11 +98,7 @@ instance Core.ToHeaders DescribeResource where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.DescribeResource" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -117,14 +113,14 @@ instance Core.ToJSON DescribeResource where
       )
 
 instance Core.ToPath DescribeResource where
-  toPath = Prelude.const "/"
+  toPath = Prelude.const "/DescribeResource"
 
 instance Core.ToQuery DescribeResource where
   toQuery = Prelude.const Prelude.mempty
 
 -- | /See:/ 'newDescribeResourceResponse' smart constructor.
 data DescribeResourceResponse = DescribeResourceResponse'
-  { -- | A structure containing information about an AWS Lake Formation resource.
+  { -- | A structure containing information about an Lake Formation resource.
     resourceInfo :: Prelude.Maybe ResourceInfo,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -139,7 +135,7 @@ data DescribeResourceResponse = DescribeResourceResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceInfo', 'describeResourceResponse_resourceInfo' - A structure containing information about an AWS Lake Formation resource.
+-- 'resourceInfo', 'describeResourceResponse_resourceInfo' - A structure containing information about an Lake Formation resource.
 --
 -- 'httpStatus', 'describeResourceResponse_httpStatus' - The response's http status code.
 newDescribeResourceResponse ::
@@ -153,7 +149,7 @@ newDescribeResourceResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A structure containing information about an AWS Lake Formation resource.
+-- | A structure containing information about an Lake Formation resource.
 describeResourceResponse_resourceInfo :: Lens.Lens' DescribeResourceResponse (Prelude.Maybe ResourceInfo)
 describeResourceResponse_resourceInfo = Lens.lens (\DescribeResourceResponse' {resourceInfo} -> resourceInfo) (\s@DescribeResourceResponse' {} a -> s {resourceInfo = a} :: DescribeResourceResponse)
 

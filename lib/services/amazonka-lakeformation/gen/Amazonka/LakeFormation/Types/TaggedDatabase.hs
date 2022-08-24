@@ -25,13 +25,13 @@ import Amazonka.LakeFormation.Types.LFTagPair
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A structure describing a database resource with tags.
+-- | A structure describing a database resource with LF-tags.
 --
 -- /See:/ 'newTaggedDatabase' smart constructor.
 data TaggedDatabase = TaggedDatabase'
-  { -- | A list of tags attached to the database.
+  { -- | A list of LF-tags attached to the database.
     lFTags :: Prelude.Maybe (Prelude.NonEmpty LFTagPair),
-    -- | A database that has tags attached to it.
+    -- | A database that has LF-tags attached to it.
     database :: Prelude.Maybe DatabaseResource
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,9 +44,9 @@ data TaggedDatabase = TaggedDatabase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lFTags', 'taggedDatabase_lFTags' - A list of tags attached to the database.
+-- 'lFTags', 'taggedDatabase_lFTags' - A list of LF-tags attached to the database.
 --
--- 'database', 'taggedDatabase_database' - A database that has tags attached to it.
+-- 'database', 'taggedDatabase_database' - A database that has LF-tags attached to it.
 newTaggedDatabase ::
   TaggedDatabase
 newTaggedDatabase =
@@ -55,11 +55,11 @@ newTaggedDatabase =
       database = Prelude.Nothing
     }
 
--- | A list of tags attached to the database.
+-- | A list of LF-tags attached to the database.
 taggedDatabase_lFTags :: Lens.Lens' TaggedDatabase (Prelude.Maybe (Prelude.NonEmpty LFTagPair))
 taggedDatabase_lFTags = Lens.lens (\TaggedDatabase' {lFTags} -> lFTags) (\s@TaggedDatabase' {} a -> s {lFTags = a} :: TaggedDatabase) Prelude.. Lens.mapping Lens.coerced
 
--- | A database that has tags attached to it.
+-- | A database that has LF-tags attached to it.
 taggedDatabase_database :: Lens.Lens' TaggedDatabase (Prelude.Maybe DatabaseResource)
 taggedDatabase_database = Lens.lens (\TaggedDatabase' {database} -> database) (\s@TaggedDatabase' {} a -> s {database = a} :: TaggedDatabase)
 

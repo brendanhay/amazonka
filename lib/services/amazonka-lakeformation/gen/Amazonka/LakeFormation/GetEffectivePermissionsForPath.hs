@@ -63,7 +63,7 @@ data GetEffectivePermissionsForPath = GetEffectivePermissionsForPath'
     -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the resource for which you want to get
     -- permissions.
@@ -87,7 +87,7 @@ data GetEffectivePermissionsForPath = GetEffectivePermissionsForPath'
 -- 'catalogId', 'getEffectivePermissionsForPath_catalogId' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
 -- 'resourceArn', 'getEffectivePermissionsForPath_resourceArn' - The Amazon Resource Name (ARN) of the resource for which you want to get
 -- permissions.
@@ -116,7 +116,7 @@ getEffectivePermissionsForPath_maxResults = Lens.lens (\GetEffectivePermissionsF
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 getEffectivePermissionsForPath_catalogId :: Lens.Lens' GetEffectivePermissionsForPath (Prelude.Maybe Prelude.Text)
 getEffectivePermissionsForPath_catalogId = Lens.lens (\GetEffectivePermissionsForPath' {catalogId} -> catalogId) (\s@GetEffectivePermissionsForPath' {} a -> s {catalogId = a} :: GetEffectivePermissionsForPath)
 
@@ -171,11 +171,7 @@ instance
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Core.=# ( "AWSLakeFormation.GetEffectivePermissionsForPath" ::
-                          Prelude.ByteString
-                      ),
-            "Content-Type"
+          [ "Content-Type"
               Core.=# ( "application/x-amz-json-1.1" ::
                           Prelude.ByteString
                       )
@@ -194,7 +190,8 @@ instance Core.ToJSON GetEffectivePermissionsForPath where
       )
 
 instance Core.ToPath GetEffectivePermissionsForPath where
-  toPath = Prelude.const "/"
+  toPath =
+    Prelude.const "/GetEffectivePermissionsForPath"
 
 instance Core.ToQuery GetEffectivePermissionsForPath where
   toQuery = Prelude.const Prelude.mempty

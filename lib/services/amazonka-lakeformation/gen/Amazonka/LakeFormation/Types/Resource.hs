@@ -21,6 +21,7 @@ module Amazonka.LakeFormation.Types.Resource where
 
 import qualified Amazonka.Core as Core
 import Amazonka.LakeFormation.Types.CatalogResource
+import Amazonka.LakeFormation.Types.DataCellsFilterResource
 import Amazonka.LakeFormation.Types.DataLocationResource
 import Amazonka.LakeFormation.Types.DatabaseResource
 import Amazonka.LakeFormation.Types.LFTagKeyResource
@@ -41,12 +42,14 @@ data Resource = Resource'
     -- | The identifier for the Data Catalog. By default, the account ID. The
     -- Data Catalog is the persistent metadata store. It contains database
     -- definitions, table definitions, and other control information to manage
-    -- your AWS Lake Formation environment.
+    -- your Lake Formation environment.
     catalog :: Prelude.Maybe CatalogResource,
-    -- | The tag key and values attached to a resource.
+    -- | The LF-tag key and values attached to a resource.
     lFTag :: Prelude.Maybe LFTagKeyResource,
-    -- | A list of tag conditions that define a resource\'s tag policy.
+    -- | A list of LF-tag conditions that define a resource\'s LF-tag policy.
     lFTagPolicy :: Prelude.Maybe LFTagPolicyResource,
+    -- | A data cell filter.
+    dataCellsFilter :: Prelude.Maybe DataCellsFilterResource,
     -- | The database for the resource. Unique to the Data Catalog. A database is
     -- a set of associated table definitions organized into a logical group.
     -- You can Grant and Revoke database permissions to a principal.
@@ -76,11 +79,13 @@ data Resource = Resource'
 -- 'catalog', 'resource_catalog' - The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 --
--- 'lFTag', 'resource_lFTag' - The tag key and values attached to a resource.
+-- 'lFTag', 'resource_lFTag' - The LF-tag key and values attached to a resource.
 --
--- 'lFTagPolicy', 'resource_lFTagPolicy' - A list of tag conditions that define a resource\'s tag policy.
+-- 'lFTagPolicy', 'resource_lFTagPolicy' - A list of LF-tag conditions that define a resource\'s LF-tag policy.
+--
+-- 'dataCellsFilter', 'resource_dataCellsFilter' - A data cell filter.
 --
 -- 'database', 'resource_database' - The database for the resource. Unique to the Data Catalog. A database is
 -- a set of associated table definitions organized into a logical group.
@@ -100,6 +105,7 @@ newResource =
       catalog = Prelude.Nothing,
       lFTag = Prelude.Nothing,
       lFTagPolicy = Prelude.Nothing,
+      dataCellsFilter = Prelude.Nothing,
       database = Prelude.Nothing,
       dataLocation = Prelude.Nothing,
       table = Prelude.Nothing
@@ -114,17 +120,21 @@ resource_tableWithColumns = Lens.lens (\Resource' {tableWithColumns} -> tableWit
 -- | The identifier for the Data Catalog. By default, the account ID. The
 -- Data Catalog is the persistent metadata store. It contains database
 -- definitions, table definitions, and other control information to manage
--- your AWS Lake Formation environment.
+-- your Lake Formation environment.
 resource_catalog :: Lens.Lens' Resource (Prelude.Maybe CatalogResource)
 resource_catalog = Lens.lens (\Resource' {catalog} -> catalog) (\s@Resource' {} a -> s {catalog = a} :: Resource)
 
--- | The tag key and values attached to a resource.
+-- | The LF-tag key and values attached to a resource.
 resource_lFTag :: Lens.Lens' Resource (Prelude.Maybe LFTagKeyResource)
 resource_lFTag = Lens.lens (\Resource' {lFTag} -> lFTag) (\s@Resource' {} a -> s {lFTag = a} :: Resource)
 
--- | A list of tag conditions that define a resource\'s tag policy.
+-- | A list of LF-tag conditions that define a resource\'s LF-tag policy.
 resource_lFTagPolicy :: Lens.Lens' Resource (Prelude.Maybe LFTagPolicyResource)
 resource_lFTagPolicy = Lens.lens (\Resource' {lFTagPolicy} -> lFTagPolicy) (\s@Resource' {} a -> s {lFTagPolicy = a} :: Resource)
+
+-- | A data cell filter.
+resource_dataCellsFilter :: Lens.Lens' Resource (Prelude.Maybe DataCellsFilterResource)
+resource_dataCellsFilter = Lens.lens (\Resource' {dataCellsFilter} -> dataCellsFilter) (\s@Resource' {} a -> s {dataCellsFilter = a} :: Resource)
 
 -- | The database for the resource. Unique to the Data Catalog. A database is
 -- a set of associated table definitions organized into a logical group.
@@ -153,6 +163,7 @@ instance Core.FromJSON Resource where
             Prelude.<*> (x Core..:? "Catalog")
             Prelude.<*> (x Core..:? "LFTag")
             Prelude.<*> (x Core..:? "LFTagPolicy")
+            Prelude.<*> (x Core..:? "DataCellsFilter")
             Prelude.<*> (x Core..:? "Database")
             Prelude.<*> (x Core..:? "DataLocation")
             Prelude.<*> (x Core..:? "Table")
@@ -164,6 +175,7 @@ instance Prelude.Hashable Resource where
       `Prelude.hashWithSalt` catalog
       `Prelude.hashWithSalt` lFTag
       `Prelude.hashWithSalt` lFTagPolicy
+      `Prelude.hashWithSalt` dataCellsFilter
       `Prelude.hashWithSalt` database
       `Prelude.hashWithSalt` dataLocation
       `Prelude.hashWithSalt` table
@@ -174,6 +186,7 @@ instance Prelude.NFData Resource where
       `Prelude.seq` Prelude.rnf catalog
       `Prelude.seq` Prelude.rnf lFTag
       `Prelude.seq` Prelude.rnf lFTagPolicy
+      `Prelude.seq` Prelude.rnf dataCellsFilter
       `Prelude.seq` Prelude.rnf database
       `Prelude.seq` Prelude.rnf dataLocation
       `Prelude.seq` Prelude.rnf table
@@ -187,6 +200,8 @@ instance Core.ToJSON Resource where
             ("Catalog" Core..=) Prelude.<$> catalog,
             ("LFTag" Core..=) Prelude.<$> lFTag,
             ("LFTagPolicy" Core..=) Prelude.<$> lFTagPolicy,
+            ("DataCellsFilter" Core..=)
+              Prelude.<$> dataCellsFilter,
             ("Database" Core..=) Prelude.<$> database,
             ("DataLocation" Core..=) Prelude.<$> dataLocation,
             ("Table" Core..=) Prelude.<$> table

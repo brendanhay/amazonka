@@ -25,8 +25,8 @@ import Amazonka.Organizations.Types.AccountJoinedMethod
 import Amazonka.Organizations.Types.AccountStatus
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about an AWS account that is a member of an
--- organization.
+-- | Contains information about an Amazon Web Services account that is a
+-- member of an organization.
 --
 -- /See:/ 'newAccount' smart constructor.
 data Account = Account'
@@ -36,7 +36,7 @@ data Account = Account'
     -- validate this parameter is a string of any of the characters in the
     -- ASCII character range.
     name :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The email address associated with the AWS account.
+    -- | The email address associated with the Amazon Web Services account.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
     -- is a string of characters that represents a standard internet email
@@ -46,7 +46,7 @@ data Account = Account'
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
+    -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The status of the account in the organization.
     status :: Prelude.Maybe AccountStatus,
@@ -76,7 +76,7 @@ data Account = Account'
 -- validate this parameter is a string of any of the characters in the
 -- ASCII character range.
 --
--- 'email', 'account_email' - The email address associated with the AWS account.
+-- 'email', 'account_email' - The email address associated with the Amazon Web Services account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
 -- is a string of characters that represents a standard internet email
@@ -86,7 +86,7 @@ data Account = Account'
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 --
 -- 'status', 'account_status' - The status of the account in the organization.
 --
@@ -119,7 +119,7 @@ newAccount =
 account_name :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
 account_name = Lens.lens (\Account' {name} -> name) (\s@Account' {} a -> s {name = a} :: Account) Prelude.. Lens.mapping Core._Sensitive
 
--- | The email address associated with the AWS account.
+-- | The email address associated with the Amazon Web Services account.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for this parameter
 -- is a string of characters that represents a standard internet email
@@ -131,7 +131,7 @@ account_email = Lens.lens (\Account' {email} -> email) (\s@Account' {} a -> s {e
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 account_arn :: Lens.Lens' Account (Prelude.Maybe Prelude.Text)
 account_arn = Lens.lens (\Account' {arn} -> arn) (\s@Account' {} a -> s {arn = a} :: Account)
 

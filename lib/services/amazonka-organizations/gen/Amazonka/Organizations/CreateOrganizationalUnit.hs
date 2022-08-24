@@ -28,7 +28,7 @@
 --
 -- For more information about OUs, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html Managing Organizational Units>
--- in the /AWS Organizations User Guide./
+-- in the /Organizations User Guide./
 --
 -- If the request includes tags, then the requester must have the
 -- @organizations:TagResource@ permission.
@@ -68,8 +68,8 @@ data CreateOrganizationalUnit = CreateOrganizationalUnit'
     -- tag in the list, you must specify both a tag key and a value. You can
     -- set the value to an empty string, but you can\'t set it to @null@. For
     -- more information about tagging, see
-    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
-    -- in the AWS Organizations User Guide.
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+    -- in the Organizations User Guide.
     --
     -- If any one of the tags is invalid or if you exceed the allowed number of
     -- tags for an OU, then the entire request fails and the OU is not created.
@@ -105,8 +105,8 @@ data CreateOrganizationalUnit = CreateOrganizationalUnit'
 -- tag in the list, you must specify both a tag key and a value. You can
 -- set the value to an empty string, but you can\'t set it to @null@. For
 -- more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
--- in the AWS Organizations User Guide.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+-- in the Organizations User Guide.
 --
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for an OU, then the entire request fails and the OU is not created.
@@ -143,8 +143,8 @@ newCreateOrganizationalUnit pParentId_ pName_ =
 -- tag in the list, you must specify both a tag key and a value. You can
 -- set the value to an empty string, but you can\'t set it to @null@. For
 -- more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
--- in the AWS Organizations User Guide.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+-- in the Organizations User Guide.
 --
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for an OU, then the entire request fails and the OU is not created.

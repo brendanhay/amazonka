@@ -56,7 +56,7 @@ data PolicyTargetSummary = PolicyTargetSummary'
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
+    -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -96,7 +96,7 @@ data PolicyTargetSummary = PolicyTargetSummary'
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 newPolicyTargetSummary ::
   PolicyTargetSummary
 newPolicyTargetSummary =
@@ -140,7 +140,7 @@ policyTargetSummary_targetId = Lens.lens (\PolicyTargetSummary' {targetId} -> ta
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 policyTargetSummary_arn :: Lens.Lens' PolicyTargetSummary (Prelude.Maybe Prelude.Text)
 policyTargetSummary_arn = Lens.lens (\PolicyTargetSummary' {arn} -> arn) (\s@PolicyTargetSummary' {} a -> s {arn = a} :: PolicyTargetSummary)
 

@@ -31,7 +31,7 @@ data HandshakeResource = HandshakeResource'
   { -- | The type of information being passed, specifying how the value is to be
     -- interpreted by the other party:
     --
-    -- -   @ACCOUNT@ - Specifies an AWS account ID number.
+    -- -   @ACCOUNT@ - Specifies an Amazon Web Services account ID number.
     --
     -- -   @ORGANIZATION@ - Specifies an organization ID number.
     --
@@ -68,7 +68,7 @@ data HandshakeResource = HandshakeResource'
 -- 'type'', 'handshakeResource_type' - The type of information being passed, specifying how the value is to be
 -- interpreted by the other party:
 --
--- -   @ACCOUNT@ - Specifies an AWS account ID number.
+-- -   @ACCOUNT@ - Specifies an Amazon Web Services account ID number.
 --
 -- -   @ORGANIZATION@ - Specifies an organization ID number.
 --
@@ -102,7 +102,7 @@ newHandshakeResource =
 -- | The type of information being passed, specifying how the value is to be
 -- interpreted by the other party:
 --
--- -   @ACCOUNT@ - Specifies an AWS account ID number.
+-- -   @ACCOUNT@ - Specifies an Amazon Web Services account ID number.
 --
 -- -   @ORGANIZATION@ - Specifies an organization ID number.
 --

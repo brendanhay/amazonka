@@ -21,6 +21,7 @@ module Amazonka.Organizations.Types.AccountStatus
   ( AccountStatus
       ( ..,
         AccountStatus_ACTIVE,
+        AccountStatus_PENDING_CLOSURE,
         AccountStatus_SUSPENDED
       ),
   )
@@ -60,11 +61,15 @@ newtype AccountStatus = AccountStatus'
 pattern AccountStatus_ACTIVE :: AccountStatus
 pattern AccountStatus_ACTIVE = AccountStatus' "ACTIVE"
 
+pattern AccountStatus_PENDING_CLOSURE :: AccountStatus
+pattern AccountStatus_PENDING_CLOSURE = AccountStatus' "PENDING_CLOSURE"
+
 pattern AccountStatus_SUSPENDED :: AccountStatus
 pattern AccountStatus_SUSPENDED = AccountStatus' "SUSPENDED"
 
 {-# COMPLETE
   AccountStatus_ACTIVE,
+  AccountStatus_PENDING_CLOSURE,
   AccountStatus_SUSPENDED,
   AccountStatus'
   #-}

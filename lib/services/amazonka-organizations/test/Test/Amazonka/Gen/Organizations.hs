@@ -36,6 +36,9 @@ import Test.Tasty
 --         , requestCancelHandshake $
 --             newCancelHandshake
 --
+--         , requestCloseAccount $
+--             newCloseAccount
+--
 --         , requestCreateAccount $
 --             newCreateAccount
 --
@@ -191,6 +194,9 @@ import Test.Tasty
 --
 --         , responseCancelHandshake $
 --             newCancelHandshakeResponse
+--
+--         , responseCloseAccount $
+--             newCloseAccountResponse
 --
 --         , responseCreateAccount $
 --             newCreateAccountResponse
@@ -358,6 +364,12 @@ requestCancelHandshake =
   req
     "CancelHandshake"
     "fixture/CancelHandshake.yaml"
+
+requestCloseAccount :: CloseAccount -> TestTree
+requestCloseAccount =
+  req
+    "CloseAccount"
+    "fixture/CloseAccount.yaml"
 
 requestCreateAccount :: CreateAccount -> TestTree
 requestCreateAccount =
@@ -672,6 +684,14 @@ responseCancelHandshake =
     "fixture/CancelHandshakeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CancelHandshake)
+
+responseCloseAccount :: CloseAccountResponse -> TestTree
+responseCloseAccount =
+  res
+    "CloseAccountResponse"
+    "fixture/CloseAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CloseAccount)
 
 responseCreateAccount :: CreateAccountResponse -> TestTree
 responseCreateAccount =

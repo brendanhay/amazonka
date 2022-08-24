@@ -20,12 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves AWS Organizations-related information about the specified
--- account.
+-- Retrieves Organizations-related information about the specified account.
 --
 -- This operation can be called only from the organization\'s management
 -- account or by a member account that is a delegated administrator for an
--- AWS service.
+-- Amazon Web Services service.
 module Amazonka.Organizations.DescribeAccount
   ( -- * Creating a Request
     DescribeAccount (..),
@@ -53,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeAccount' smart constructor.
 data DescribeAccount = DescribeAccount'
-  { -- | The unique identifier (ID) of the AWS account that you want information
-    -- about. You can get the ID from the ListAccounts or ListAccountsForParent
-    -- operations.
+  { -- | The unique identifier (ID) of the Amazon Web Services account that you
+    -- want information about. You can get the ID from the ListAccounts or
+    -- ListAccountsForParent operations.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
@@ -71,9 +70,9 @@ data DescribeAccount = DescribeAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'describeAccount_accountId' - The unique identifier (ID) of the AWS account that you want information
--- about. You can get the ID from the ListAccounts or ListAccountsForParent
--- operations.
+-- 'accountId', 'describeAccount_accountId' - The unique identifier (ID) of the Amazon Web Services account that you
+-- want information about. You can get the ID from the ListAccounts or
+-- ListAccountsForParent operations.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
@@ -84,9 +83,9 @@ newDescribeAccount ::
 newDescribeAccount pAccountId_ =
   DescribeAccount' {accountId = pAccountId_}
 
--- | The unique identifier (ID) of the AWS account that you want information
--- about. You can get the ID from the ListAccounts or ListAccountsForParent
--- operations.
+-- | The unique identifier (ID) of the Amazon Web Services account that you
+-- want information about. You can get the ID from the ListAccounts or
+-- ListAccountsForParent operations.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.

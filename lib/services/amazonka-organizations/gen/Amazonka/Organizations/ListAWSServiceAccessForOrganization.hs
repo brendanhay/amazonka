@@ -20,20 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the AWS services that you enabled to integrate with
--- your organization. After a service on this list creates the resources
--- that it requires for the integration, it can perform operations on your
--- organization and its accounts.
+-- Returns a list of the Amazon Web Services services that you enabled to
+-- integrate with your organization. After a service on this list creates
+-- the resources that it requires for the integration, it can perform
+-- operations on your organization and its accounts.
 --
--- For more information about integrating other services with AWS
+-- For more information about integrating other services with
 -- Organizations, including the list of services that currently work with
 -- Organizations, see
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html Integrating AWS Organizations with Other AWS Services>
--- in the /AWS Organizations User Guide./
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html Integrating Organizations with Other Amazon Web Services Services>
+-- in the /Organizations User Guide./
 --
 -- This operation can be called only from the organization\'s management
 -- account or by a member account that is a delegated administrator for an
--- AWS service.
+-- Amazon Web Services service.
 --
 -- This operation returns paginated results.
 module Amazonka.Organizations.ListAWSServiceAccessForOrganization
@@ -254,7 +254,7 @@ data ListAWSServiceAccessForOrganizationResponse = ListAWSServiceAccessForOrgani
     -- | A list of the service principals for the services that are enabled to
     -- integrate with your organization. Each principal is a structure that
     -- includes the name and the date that it was enabled for integration with
-    -- AWS Organizations.
+    -- Organizations.
     enabledServicePrincipals :: Prelude.Maybe [EnabledServicePrincipal],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -278,7 +278,7 @@ data ListAWSServiceAccessForOrganizationResponse = ListAWSServiceAccessForOrgani
 -- 'enabledServicePrincipals', 'listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals' - A list of the service principals for the services that are enabled to
 -- integrate with your organization. Each principal is a structure that
 -- includes the name and the date that it was enabled for integration with
--- AWS Organizations.
+-- Organizations.
 --
 -- 'httpStatus', 'listAWSServiceAccessForOrganizationResponse_httpStatus' - The response's http status code.
 newListAWSServiceAccessForOrganizationResponse ::
@@ -306,7 +306,7 @@ listAWSServiceAccessForOrganizationResponse_nextToken = Lens.lens (\ListAWSServi
 -- | A list of the service principals for the services that are enabled to
 -- integrate with your organization. Each principal is a structure that
 -- includes the name and the date that it was enabled for integration with
--- AWS Organizations.
+-- Organizations.
 listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse (Prelude.Maybe [EnabledServicePrincipal])
 listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {enabledServicePrincipals} -> enabledServicePrincipals) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {enabledServicePrincipals = a} :: ListAWSServiceAccessForOrganizationResponse) Prelude.. Lens.mapping Lens.coerced
 

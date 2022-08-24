@@ -33,9 +33,9 @@ import qualified Amazonka.Prelude as Prelude
 -- account (the recipient) to join its organization, the two accounts
 -- exchange information as a series of handshake requests and responses.
 --
--- __Note:__ Handshakes that are @CANCELED@, @ACCEPTED@, or @DECLINED@ show
--- up in lists for only 30 days after entering that state After that they
--- are deleted.
+-- __Note:__ Handshakes that are @CANCELED@, @ACCEPTED@, @DECLINED@, or
+-- @EXPIRED@ show up in lists for only 30 days after entering that state
+-- After that they are deleted.
 --
 -- /See:/ 'newHandshake' smart constructor.
 data Handshake = Handshake'
@@ -43,7 +43,7 @@ data Handshake = Handshake'
     --
     -- For more information about ARNs in Organizations, see
     -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
-    -- in the /AWS Service Authorization Reference/.
+    -- in the /Amazon Web Services Service Authorization Reference/.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the handshake request was made.
     requestedTimestamp :: Prelude.Maybe Core.POSIX,
@@ -123,7 +123,7 @@ data Handshake = Handshake'
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 --
 -- 'requestedTimestamp', 'handshake_requestedTimestamp' - The date and time that the handshake request was made.
 --
@@ -205,7 +205,7 @@ newHandshake =
 --
 -- For more information about ARNs in Organizations, see
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsorganizations.html#awsorganizations-resources-for-iam-policies ARN Formats Supported by Organizations>
--- in the /AWS Service Authorization Reference/.
+-- in the /Amazon Web Services Service Authorization Reference/.
 handshake_arn :: Lens.Lens' Handshake (Prelude.Maybe Prelude.Text)
 handshake_arn = Lens.lens (\Handshake' {arn} -> arn) (\s@Handshake' {} a -> s {arn = a} :: Handshake)
 

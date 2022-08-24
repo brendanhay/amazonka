@@ -25,9 +25,9 @@
 -- operation returns a list of handshake structures. Each structure
 -- contains details and status about a handshake.
 --
--- Handshakes that are @ACCEPTED@, @DECLINED@, or @CANCELED@ appear in the
--- results of this API for only 30 days after changing to that state. After
--- that, they\'re deleted and no longer accessible.
+-- Handshakes that are @ACCEPTED@, @DECLINED@, @CANCELED@, or @EXPIRED@
+-- appear in the results of this API for only 30 days after changing to
+-- that state. After that, they\'re deleted and no longer accessible.
 --
 -- Always check the @NextToken@ response parameter for a @null@ value when
 -- calling a @List*@ operation. These operations can occasionally return an
@@ -37,7 +37,7 @@
 --
 -- This operation can be called only from the organization\'s management
 -- account or by a member account that is a delegated administrator for an
--- AWS service.
+-- Amazon Web Services service.
 --
 -- This operation returns paginated results.
 module Amazonka.Organizations.ListHandshakesForOrganization

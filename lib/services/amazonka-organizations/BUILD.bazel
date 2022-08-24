@@ -8,6 +8,7 @@ haskell_library(
         "gen/Amazonka/Organizations/AcceptHandshake.hs",
         "gen/Amazonka/Organizations/AttachPolicy.hs",
         "gen/Amazonka/Organizations/CancelHandshake.hs",
+        "gen/Amazonka/Organizations/CloseAccount.hs",
         "gen/Amazonka/Organizations/CreateAccount.hs",
         "gen/Amazonka/Organizations/CreateGovCloudAccount.hs",
         "gen/Amazonka/Organizations/CreateOrganization.hs",

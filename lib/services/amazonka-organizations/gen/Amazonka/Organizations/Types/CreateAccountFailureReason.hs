@@ -29,6 +29,7 @@ module Amazonka.Organizations.Types.CreateAccountFailureReason
         CreateAccountFailureReason_INVALID_ADDRESS,
         CreateAccountFailureReason_INVALID_EMAIL,
         CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION,
+        CreateAccountFailureReason_INVALID_PAYMENT_INSTRUMENT,
         CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION,
         CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT,
         CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION,
@@ -95,6 +96,9 @@ pattern CreateAccountFailureReason_INVALID_EMAIL = CreateAccountFailureReason' "
 pattern CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION :: CreateAccountFailureReason
 pattern CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION = CreateAccountFailureReason' "INVALID_IDENTITY_FOR_BUSINESS_VALIDATION"
 
+pattern CreateAccountFailureReason_INVALID_PAYMENT_INSTRUMENT :: CreateAccountFailureReason
+pattern CreateAccountFailureReason_INVALID_PAYMENT_INSTRUMENT = CreateAccountFailureReason' "INVALID_PAYMENT_INSTRUMENT"
+
 pattern CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION :: CreateAccountFailureReason
 pattern CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION = CreateAccountFailureReason' "MISSING_BUSINESS_VALIDATION"
 
@@ -117,6 +121,7 @@ pattern CreateAccountFailureReason_UNKNOWN_BUSINESS_VALIDATION = CreateAccountFa
   CreateAccountFailureReason_INVALID_ADDRESS,
   CreateAccountFailureReason_INVALID_EMAIL,
   CreateAccountFailureReason_INVALID_IDENTITY_FOR_BUSINESS_VALIDATION,
+  CreateAccountFailureReason_INVALID_PAYMENT_INSTRUMENT,
   CreateAccountFailureReason_MISSING_BUSINESS_VALIDATION,
   CreateAccountFailureReason_MISSING_PAYMENT_INSTRUMENT,
   CreateAccountFailureReason_PENDING_BUSINESS_VALIDATION,

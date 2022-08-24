@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a policy of a specified type that you can attach to a root, an
--- organizational unit (OU), or an individual AWS account.
+-- organizational unit (OU), or an individual Amazon Web Services account.
 --
 -- For more information about policies and their use, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html Managing Organization Policies>.
@@ -66,8 +66,8 @@ data CreatePolicy = CreatePolicy'
     -- each tag in the list, you must specify both a tag key and a value. You
     -- can set the value to an empty string, but you can\'t set it to @null@.
     -- For more information about tagging, see
-    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
-    -- in the AWS Organizations User Guide.
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+    -- in the Organizations User Guide.
     --
     -- If any one of the tags is invalid or if you exceed the allowed number of
     -- tags for a policy, then the entire request fails and the policy is not
@@ -111,8 +111,8 @@ data CreatePolicy = CreatePolicy'
 -- each tag in the list, you must specify both a tag key and a value. You
 -- can set the value to an empty string, but you can\'t set it to @null@.
 -- For more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
--- in the AWS Organizations User Guide.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+-- in the Organizations User Guide.
 --
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for a policy, then the entire request fails and the policy is not
@@ -163,8 +163,8 @@ newCreatePolicy pContent_ pDescription_ pName_ pType_ =
 -- each tag in the list, you must specify both a tag key and a value. You
 -- can set the value to an empty string, but you can\'t set it to @null@.
 -- For more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
--- in the AWS Organizations User Guide.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+-- in the Organizations User Guide.
 --
 -- If any one of the tags is invalid or if you exceed the allowed number of
 -- tags for a policy, then the entire request fails and the policy is not

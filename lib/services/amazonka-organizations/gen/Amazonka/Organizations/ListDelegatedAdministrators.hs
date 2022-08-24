@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the AWS accounts that are designated as delegated administrators
--- in this organization.
+-- Lists the Amazon Web Services accounts that are designated as delegated
+-- administrators in this organization.
 --
 -- This operation can be called only from the organization\'s management
 -- account or by a member account that is a delegated administrator for an
--- AWS service.
+-- Amazon Web Services service.
 --
 -- This operation returns paginated results.
 module Amazonka.Organizations.ListDelegatedAdministrators

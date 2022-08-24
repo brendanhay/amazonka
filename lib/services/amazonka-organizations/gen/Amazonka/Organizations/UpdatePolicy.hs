@@ -68,7 +68,7 @@ data UpdatePolicy = UpdatePolicy'
     -- formatted JSON that complies with the syntax for the policy\'s type. For
     -- more information, see
     -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
-    -- in the /AWS Organizations User Guide./
+    -- in the /Organizations User Guide./
     content :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier (ID) of the policy that you want to update.
     --
@@ -99,7 +99,7 @@ data UpdatePolicy = UpdatePolicy'
 -- formatted JSON that complies with the syntax for the policy\'s type. For
 -- more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
--- in the /AWS Organizations User Guide./
+-- in the /Organizations User Guide./
 --
 -- 'policyId', 'updatePolicy_policyId' - The unique identifier (ID) of the policy that you want to update.
 --
@@ -134,7 +134,7 @@ updatePolicy_description = Lens.lens (\UpdatePolicy' {description} -> descriptio
 -- formatted JSON that complies with the syntax for the policy\'s type. For
 -- more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
--- in the /AWS Organizations User Guide./
+-- in the /Organizations User Guide./
 updatePolicy_content :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
 updatePolicy_content = Lens.lens (\UpdatePolicy' {content} -> content) (\s@UpdatePolicy' {} a -> s {content = a} :: UpdatePolicy)
 

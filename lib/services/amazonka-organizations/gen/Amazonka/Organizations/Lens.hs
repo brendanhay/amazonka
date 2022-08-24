@@ -28,6 +28,9 @@ module Amazonka.Organizations.Lens
     cancelHandshakeResponse_handshake,
     cancelHandshakeResponse_httpStatus,
 
+    -- ** CloseAccount
+    closeAccount_accountId,
+
     -- ** CreateAccount
     createAccount_tags,
     createAccount_roleName,
@@ -441,6 +444,7 @@ where
 import Amazonka.Organizations.AcceptHandshake
 import Amazonka.Organizations.AttachPolicy
 import Amazonka.Organizations.CancelHandshake
+import Amazonka.Organizations.CloseAccount
 import Amazonka.Organizations.CreateAccount
 import Amazonka.Organizations.CreateGovCloudAccount
 import Amazonka.Organizations.CreateOrganization

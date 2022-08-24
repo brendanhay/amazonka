@@ -11,75 +11,76 @@
 --
 -- Derived from API version @2016-11-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Organizations is a web service that enables you to consolidate your
--- multiple AWS accounts into an /organization/ and centrally manage your
--- accounts and their resources.
+-- Organizations is a web service that enables you to consolidate your
+-- multiple Amazon Web Services accounts into an /organization/ and
+-- centrally manage your accounts and their resources.
 --
 -- This guide provides descriptions of the Organizations operations. For
 -- more information about using this service, see the
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html AWS Organizations User Guide>.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html Organizations User Guide>.
 --
--- __Support and feedback for AWS Organizations__
+-- __Support and feedback for Organizations__
 --
 -- We welcome your feedback. Send your comments to
 -- <mailto:feedback-awsorganizations@amazon.com feedback-awsorganizations\@amazon.com>
 -- or post your feedback and questions in the
--- <http://forums.aws.amazon.com/forum.jspa?forumID=219 AWS Organizations support forum>.
--- For more information about the AWS support forums, see
+-- <http://forums.aws.amazon.com/forum.jspa?forumID=219 Organizations support forum>.
+-- For more information about the Amazon Web Services support forums, see
 -- <http://forums.aws.amazon.com/help.jspa Forums Help>.
 --
--- __Endpoint to call When using the AWS CLI or the AWS SDK__
+-- __Endpoint to call When using the CLI or the Amazon Web Services SDK__
 --
 -- For the current release of Organizations, specify the @us-east-1@ region
--- for all AWS API and AWS CLI calls made from the commercial AWS Regions
--- outside of China. If calling from one of the AWS Regions in China, then
--- specify @cn-northwest-1@. You can do this in the AWS CLI by using these
--- parameters and commands:
+-- for all Amazon Web Services API and CLI calls made from the commercial
+-- Amazon Web Services Regions outside of China. If calling from one of the
+-- Amazon Web Services Regions in China, then specify @cn-northwest-1@. You
+-- can do this in the CLI by using these parameters and commands:
 --
 -- -   Use the following parameter with each command to specify both the
 --     endpoint and its region:
 --
 --     @--endpoint-url https:\/\/organizations.us-east-1.amazonaws.com@
---     /(from commercial AWS Regions outside of China)/
+--     /(from commercial Amazon Web Services Regions outside of China)/
 --
 --     or
 --
 --     @--endpoint-url https:\/\/organizations.cn-northwest-1.amazonaws.com.cn@
---     /(from AWS Regions in China)/
+--     /(from Amazon Web Services Regions in China)/
 --
 -- -   Use the default endpoint, but configure your default region with
 --     this command:
 --
---     @aws configure set default.region us-east-1@ /(from commercial AWS
---     Regions outside of China)/
+--     @aws configure set default.region us-east-1@ /(from commercial
+--     Amazon Web Services Regions outside of China)/
 --
 --     or
 --
---     @aws configure set default.region cn-northwest-1@ /(from AWS Regions
---     in China)/
+--     @aws configure set default.region cn-northwest-1@ /(from Amazon Web
+--     Services Regions in China)/
 --
 -- -   Use the following parameter with each command to specify the
 --     endpoint:
 --
---     @--region us-east-1@ /(from commercial AWS Regions outside of
---     China)/
+--     @--region us-east-1@ /(from commercial Amazon Web Services Regions
+--     outside of China)/
 --
 --     or
 --
---     @--region cn-northwest-1@ /(from AWS Regions in China)/
+--     @--region cn-northwest-1@ /(from Amazon Web Services Regions in
+--     China)/
 --
 -- __Recording API Requests__
 --
--- AWS Organizations supports AWS CloudTrail, a service that records AWS
--- API calls for your AWS account and delivers log files to an Amazon S3
--- bucket. By using information collected by AWS CloudTrail, you can
--- determine which requests the Organizations service received, who made
--- the request and when, and so on. For more about AWS Organizations and
--- its support for AWS CloudTrail, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_incident-response.html#orgs_cloudtrail-integration Logging AWS Organizations Events with AWS CloudTrail>
--- in the /AWS Organizations User Guide/. To learn more about AWS
--- CloudTrail, including how to turn it on and find your log files, see the
--- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html AWS CloudTrail User Guide>.
+-- Organizations supports CloudTrail, a service that records Amazon Web
+-- Services API calls for your Amazon Web Services account and delivers log
+-- files to an Amazon S3 bucket. By using information collected by
+-- CloudTrail, you can determine which requests the Organizations service
+-- received, who made the request and when, and so on. For more about
+-- Organizations and its support for CloudTrail, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_incident-response.html#orgs_cloudtrail-integration Logging Organizations Events with CloudTrail>
+-- in the /Organizations User Guide/. To learn more about CloudTrail,
+-- including how to turn it on and find your log files, see the
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html CloudTrail User Guide>.
 module Amazonka.Organizations
   ( -- * Service Configuration
     defaultService,
@@ -171,6 +172,9 @@ module Amazonka.Organizations
     -- ** DestinationParentNotFoundException
     _DestinationParentNotFoundException,
 
+    -- ** ConflictException
+    _ConflictException,
+
     -- ** DuplicatePolicyAttachmentException
     _DuplicatePolicyAttachmentException,
 
@@ -210,6 +214,9 @@ module Amazonka.Organizations
     -- ** AlreadyInOrganizationException
     _AlreadyInOrganizationException,
 
+    -- ** AccountAlreadyClosedException
+    _AccountAlreadyClosedException,
+
     -- ** EffectivePolicyNotFoundException
     _EffectivePolicyNotFoundException,
 
@@ -242,6 +249,12 @@ module Amazonka.Organizations
     newCancelHandshake,
     CancelHandshakeResponse (CancelHandshakeResponse'),
     newCancelHandshakeResponse,
+
+    -- ** CloseAccount
+    CloseAccount (CloseAccount'),
+    newCloseAccount,
+    CloseAccountResponse (CloseAccountResponse'),
+    newCloseAccountResponse,
 
     -- ** CreateAccount
     CreateAccount (CreateAccount'),
@@ -666,6 +679,7 @@ where
 import Amazonka.Organizations.AcceptHandshake
 import Amazonka.Organizations.AttachPolicy
 import Amazonka.Organizations.CancelHandshake
+import Amazonka.Organizations.CloseAccount
 import Amazonka.Organizations.CreateAccount
 import Amazonka.Organizations.CreateGovCloudAccount
 import Amazonka.Organizations.CreateOrganization

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS organization. The account whose user is calling the
--- @CreateOrganization@ operation automatically becomes the
+-- Creates an Amazon Web Services organization. The account whose user is
+-- calling the @CreateOrganization@ operation automatically becomes the
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account management account>
 -- of the new organization.
 --
@@ -70,17 +70,17 @@ data CreateOrganization = CreateOrganization'
     --     consolidated to and paid by the management account. For more
     --     information, see
     --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated billing>
-    --     in the /AWS Organizations User Guide./
+    --     in the /Organizations User Guide./
     --
     --     The consolidated billing feature subset isn\'t available for
-    --     organizations in the AWS GovCloud (US) Region.
+    --     organizations in the Amazon Web Services GovCloud (US) Region.
     --
     -- -   @ALL@: In addition to all the features supported by the consolidated
     --     billing feature set, the management account can also apply any
     --     policy type to any member account in the organization. For more
     --     information, see
     --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features>
-    --     in the /AWS Organizations User Guide./
+    --     in the /Organizations User Guide./
     featureSet :: Prelude.Maybe OrganizationFeatureSet
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -100,17 +100,17 @@ data CreateOrganization = CreateOrganization'
 --     consolidated to and paid by the management account. For more
 --     information, see
 --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated billing>
---     in the /AWS Organizations User Guide./
+--     in the /Organizations User Guide./
 --
 --     The consolidated billing feature subset isn\'t available for
---     organizations in the AWS GovCloud (US) Region.
+--     organizations in the Amazon Web Services GovCloud (US) Region.
 --
 -- -   @ALL@: In addition to all the features supported by the consolidated
 --     billing feature set, the management account can also apply any
 --     policy type to any member account in the organization. For more
 --     information, see
 --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features>
---     in the /AWS Organizations User Guide./
+--     in the /Organizations User Guide./
 newCreateOrganization ::
   CreateOrganization
 newCreateOrganization =
@@ -123,17 +123,17 @@ newCreateOrganization =
 --     consolidated to and paid by the management account. For more
 --     information, see
 --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only Consolidated billing>
---     in the /AWS Organizations User Guide./
+--     in the /Organizations User Guide./
 --
 --     The consolidated billing feature subset isn\'t available for
---     organizations in the AWS GovCloud (US) Region.
+--     organizations in the Amazon Web Services GovCloud (US) Region.
 --
 -- -   @ALL@: In addition to all the features supported by the consolidated
 --     billing feature set, the management account can also apply any
 --     policy type to any member account in the organization. For more
 --     information, see
 --     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all All features>
---     in the /AWS Organizations User Guide./
+--     in the /Organizations User Guide./
 createOrganization_featureSet :: Lens.Lens' CreateOrganization (Prelude.Maybe OrganizationFeatureSet)
 createOrganization_featureSet = Lens.lens (\CreateOrganization' {featureSet} -> featureSet) (\s@CreateOrganization' {} a -> s {featureSet = a} :: CreateOrganization)
 

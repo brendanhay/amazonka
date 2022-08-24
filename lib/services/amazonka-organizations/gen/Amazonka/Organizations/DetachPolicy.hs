@@ -24,8 +24,8 @@
 -- account.
 --
 -- If the policy being detached is a service control policy (SCP), the
--- changes to permissions for AWS Identity and Access Management (IAM)
--- users and roles in affected accounts are immediate.
+-- changes to permissions for Identity and Access Management (IAM) users
+-- and roles in affected accounts are immediate.
 --
 -- Every root, OU, and account must have at least one SCP attached. If you
 -- want to replace the default @FullAWSAccess@ policy with an SCP that

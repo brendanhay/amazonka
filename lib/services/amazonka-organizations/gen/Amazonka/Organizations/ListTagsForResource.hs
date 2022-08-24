@@ -22,9 +22,9 @@
 --
 -- Lists tags that are attached to the specified resource.
 --
--- You can attach tags to the following resources in AWS Organizations.
+-- You can attach tags to the following resources in Organizations.
 --
--- -   AWS account
+-- -   Amazon Web Services account
 --
 -- -   Organization root
 --
@@ -34,7 +34,7 @@
 --
 -- This operation can be called only from the organization\'s management
 -- account or by a member account that is a delegated administrator for an
--- AWS service.
+-- Amazon Web Services service.
 --
 -- This operation returns paginated results.
 module Amazonka.Organizations.ListTagsForResource
@@ -76,7 +76,7 @@ data ListTagsForResource = ListTagsForResource'
     --
     -- You can specify any of the following taggable resources.
     --
-    -- -   AWS account – specify the account ID number.
+    -- -   Amazon Web Services account – specify the account ID number.
     --
     -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
     --     looks similar to: @ou-1a2b-34uvwxyz @
@@ -108,7 +108,7 @@ data ListTagsForResource = ListTagsForResource'
 --
 -- You can specify any of the following taggable resources.
 --
--- -   AWS account – specify the account ID number.
+-- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
 --     looks similar to: @ou-1a2b-34uvwxyz @
@@ -140,7 +140,7 @@ listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> 
 --
 -- You can specify any of the following taggable resources.
 --
--- -   AWS account – specify the account ID number.
+-- -   Amazon Web Services account – specify the account ID number.
 --
 -- -   Organizational unit – specify the OU ID that begins with @ou-@ and
 --     looks similar to: @ou-1a2b-34uvwxyz @

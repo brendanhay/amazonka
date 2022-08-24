@@ -23,14 +23,14 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information about the AWS service for which the account is a
--- delegated administrator.
+-- | Contains information about the Amazon Web Services service for which the
+-- account is a delegated administrator.
 --
 -- /See:/ 'newDelegatedService' smart constructor.
 data DelegatedService = DelegatedService'
-  { -- | The name of an AWS service that can request an operation for the
-    -- specified service. This is typically in the form of a URL, such as:
-    -- @ servicename.amazonaws.com@.
+  { -- | The name of an Amazon Web Services service that can request an operation
+    -- for the specified service. This is typically in the form of a URL, such
+    -- as: @ servicename.amazonaws.com@.
     servicePrincipal :: Prelude.Maybe Prelude.Text,
     -- | The date that the account became a delegated administrator for this
     -- service.
@@ -46,9 +46,9 @@ data DelegatedService = DelegatedService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'servicePrincipal', 'delegatedService_servicePrincipal' - The name of an AWS service that can request an operation for the
--- specified service. This is typically in the form of a URL, such as:
--- @ servicename.amazonaws.com@.
+-- 'servicePrincipal', 'delegatedService_servicePrincipal' - The name of an Amazon Web Services service that can request an operation
+-- for the specified service. This is typically in the form of a URL, such
+-- as: @ servicename.amazonaws.com@.
 --
 -- 'delegationEnabledDate', 'delegatedService_delegationEnabledDate' - The date that the account became a delegated administrator for this
 -- service.
@@ -61,9 +61,9 @@ newDelegatedService =
       delegationEnabledDate = Prelude.Nothing
     }
 
--- | The name of an AWS service that can request an operation for the
--- specified service. This is typically in the form of a URL, such as:
--- @ servicename.amazonaws.com@.
+-- | The name of an Amazon Web Services service that can request an operation
+-- for the specified service. This is typically in the form of a URL, such
+-- as: @ servicename.amazonaws.com@.
 delegatedService_servicePrincipal :: Lens.Lens' DelegatedService (Prelude.Maybe Prelude.Text)
 delegatedService_servicePrincipal = Lens.lens (\DelegatedService' {servicePrincipal} -> servicePrincipal) (\s@DelegatedService' {} a -> s {servicePrincipal = a} :: DelegatedService)
 

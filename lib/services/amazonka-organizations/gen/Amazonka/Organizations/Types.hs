@@ -45,6 +45,7 @@ module Amazonka.Organizations.Types
     _AccountNotFoundException,
     _OrganizationalUnitNotFoundException,
     _DestinationParentNotFoundException,
+    _ConflictException,
     _DuplicatePolicyAttachmentException,
     _PolicyTypeAlreadyEnabledException,
     _AccountOwnerNotVerifiedException,
@@ -58,6 +59,7 @@ module Amazonka.Organizations.Types
     _AccountNotRegisteredException,
     _SourceParentNotFoundException,
     _AlreadyInOrganizationException,
+    _AccountAlreadyClosedException,
     _EffectivePolicyNotFoundException,
     _TooManyRequestsException,
     _ConstraintViolationException,
@@ -388,8 +390,8 @@ defaultService =
 -- enabled for this organization. For example, you can enable SCPs only
 -- after you enable all features in the organization. For more information,
 -- see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root Managing AWS Organizations Policies>in
--- the /AWS Organizations User Guide./
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root Managing Organizations Policies>in
+-- the /Organizations User Guide./
 _PolicyTypeNotAvailableForOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PolicyTypeNotAvailableForOrganizationException =
   Core._MatchServiceError
@@ -403,10 +405,10 @@ _DuplicateAccountException =
     defaultService
     "DuplicateAccountException"
 
--- | AWS Organizations couldn\'t perform the operation because your
--- organization hasn\'t finished initializing. This can take up to an hour.
--- Try again later. If after one hour you continue to receive this error,
--- contact <https://console.aws.amazon.com/support/home#/ AWS Support>.
+-- | Organizations couldn\'t perform the operation because your organization
+-- hasn\'t finished initializing. This can take up to an hour. Try again
+-- later. If after one hour you continue to receive this error, contact
+-- <https://console.aws.amazon.com/support/home#/ Amazon Web Services Support>.
 _FinalizingOrganizationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FinalizingOrganizationException =
   Core._MatchServiceError
@@ -431,8 +433,8 @@ _OrganizationalUnitNotEmptyException =
 -- -   DUPLICATE_TAG_KEY: Tag keys must be unique among the tags attached
 --     to the same entity.
 --
--- -   IMMUTABLE_POLICY: You specified a policy that is managed by AWS and
---     can\'t be modified.
+-- -   IMMUTABLE_POLICY: You specified a policy that is managed by Amazon
+--     Web Services and can\'t be modified.
 --
 -- -   INPUT_REQUIRED: You must include a value for all required
 --     parameters.
@@ -473,8 +475,8 @@ _OrganizationalUnitNotEmptyException =
 --
 -- -   INVALID_SYSTEM_TAGS_PARAMETER: You specified a tag key that is a
 --     system tag. You can’t add, edit, or delete system tag keys because
---     they\'re reserved for AWS use. System tags don’t count against your
---     tags per resource limit.
+--     they\'re reserved for Amazon Web Services use. System tags don’t
+--     count against your tags per resource limit.
 --
 -- -   MAX_FILTER_LIMIT_EXCEEDED: You can specify only one filter parameter
 --     for the operation.
@@ -505,7 +507,7 @@ _InvalidInputException =
     defaultService
     "InvalidInputException"
 
--- | This action isn\'t available in the current AWS Region.
+-- | This action isn\'t available in the current Amazon Web Services Region.
 _UnsupportedAPIEndpointException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedAPIEndpointException =
   Core._MatchServiceError
@@ -560,7 +562,7 @@ _AccessDeniedException =
 --     If you get this exception immediately after creating the
 --     organization, wait one hour and try again. If after an hour it
 --     continues to fail with this error, contact
---     <https://console.aws.amazon.com/support/home#/ AWS Support>.
+--     <https://docs.aws.amazon.com/support/home#/ Amazon Web Services Support>.
 --
 -- -   ALREADY_IN_AN_ORGANIZATION: The handshake request is invalid because
 --     the invited account is already a member of an organization.
@@ -606,8 +608,8 @@ _DuplicatePolicyException =
     defaultService
     "DuplicatePolicyException"
 
--- | We can\'t find an organizational unit (OU) or AWS account with the
--- @ChildId@ that you specified.
+-- | We can\'t find an organizational unit (OU) or Amazon Web Services
+-- account with the @ChildId@ that you specified.
 _ChildNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ChildNotFoundException =
   Core._MatchServiceError
@@ -654,7 +656,7 @@ _AWSOrganizationsNotInUseException =
 -- can\'t attach policies of the specified type to entities in a root until
 -- you enable that type in the root. For more information, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
--- in the /AWS Organizations User Guide./
+-- in the /Organizations User Guide./
 _PolicyTypeNotEnabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PolicyTypeNotEnabledException =
   Core._MatchServiceError
@@ -693,8 +695,8 @@ _PolicyNotAttachedException =
     defaultService
     "PolicyNotAttachedException"
 
--- | The specified account is already a delegated administrator for this AWS
--- service.
+-- | The specified account is already a delegated administrator for this
+-- Amazon Web Services service.
 _AccountAlreadyRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccountAlreadyRegisteredException =
   Core._MatchServiceError
@@ -716,9 +718,9 @@ _ParentNotFoundException =
     defaultService
     "ParentNotFoundException"
 
--- | We can\'t find an AWS account with the @AccountId@ that you specified,
--- or the account whose credentials you used to make this request isn\'t a
--- member of an organization.
+-- | We can\'t find an Amazon Web Services account with the @AccountId@ that
+-- you specified, or the account whose credentials you used to make this
+-- request isn\'t a member of an organization.
 _AccountNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccountNotFoundException =
   Core._MatchServiceError
@@ -740,6 +742,14 @@ _DestinationParentNotFoundException =
     defaultService
     "DestinationParentNotFoundException"
 
+-- | The request failed because it conflicts with the current state of the
+-- specified resource.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
+
 -- | The selected policy is already attached to the specified target.
 _DuplicatePolicyAttachmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _DuplicatePolicyAttachmentException =
@@ -757,8 +767,8 @@ _PolicyTypeAlreadyEnabledException =
 -- | You can\'t invite an existing account to your organization until you
 -- verify that you own the email address associated with the management
 -- account. For more information, see
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification Email Address Verification>
--- in the /AWS Organizations User Guide./
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification Email Address Verification>
+-- in the /Organizations User Guide./
 _AccountOwnerNotVerifiedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccountOwnerNotVerifiedException =
   Core._MatchServiceError
@@ -772,7 +782,7 @@ _HandshakeNotFoundException =
     defaultService
     "HandshakeNotFoundException"
 
--- | AWS Organizations can\'t complete your request because of an internal
+-- | Organizations can\'t complete your request because of an internal
 -- service error. Try again later.
 _ServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceException =
@@ -782,8 +792,8 @@ _ServiceException =
 
 -- | The operation that you attempted requires you to have the
 -- @iam:CreateServiceLinkedRole@ for @organizations.amazonaws.com@
--- permission so that AWS Organizations can create the required
--- service-linked role. You don\'t have that permission.
+-- permission so that Organizations can create the required service-linked
+-- role. You don\'t have that permission.
 _AccessDeniedForDependencyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedForDependencyException =
   Core._MatchServiceError
@@ -794,7 +804,7 @@ _AccessDeniedForDependencyException =
 -- specified policy type. For example, the syntax might be incorrect. For
 -- details about service control policy syntax, see
 -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
--- in the /AWS Organizations User Guide./
+-- in the /Organizations User Guide./
 _MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MalformedPolicyDocumentException =
   Core._MatchServiceError
@@ -827,8 +837,8 @@ _TargetNotFoundException =
     defaultService
     "TargetNotFoundException"
 
--- | The specified account is not a delegated administrator for this AWS
--- service.
+-- | The specified account is not a delegated administrator for this Amazon
+-- Web Services service.
 _AccountNotRegisteredException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccountNotRegisteredException =
   Core._MatchServiceError
@@ -851,6 +861,13 @@ _AlreadyInOrganizationException =
     defaultService
     "AlreadyInOrganizationException"
 
+-- | You attempted to close an account that is already closed.
+_AccountAlreadyClosedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccountAlreadyClosedException =
+  Core._MatchServiceError
+    defaultService
+    "AccountAlreadyClosedException"
+
 -- | If you ran this action on the management account, this policy type is
 -- not enabled. If you ran the action on a member account, the account
 -- doesn\'t have an effective policy of this type. Contact the
@@ -865,9 +882,9 @@ _EffectivePolicyNotFoundException =
 -- | You have sent too many requests in too short a period of time. The quota
 -- helps protect against denial-of-service attacks. Try again later.
 --
--- For information about quotas that affect AWS Organizations, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html Quotas for AWS Organizations>in
--- the /AWS Organizations User Guide./
+-- For information about quotas that affect Organizations, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html Quotas for Organizations>in
+-- the /Organizations User Guide./
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequestsException =
   Core._MatchServiceError
@@ -889,21 +906,13 @@ _TooManyRequestsException =
 --     management account. Instead, after you remove all member accounts,
 --     delete the organization itself.
 --
--- -   ACCOUNT_CANNOT_LEAVE_WITHOUT_EULA: You attempted to remove an
---     account from the organization that doesn\'t yet have enough
---     information to exist as a standalone account. This account requires
---     you to first agree to the AWS Customer Agreement. Follow the steps
---     at
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master Removing a member account from your organization>in
---     the /AWS Organizations User Guide./
---
 -- -   ACCOUNT_CANNOT_LEAVE_WITHOUT_PHONE_VERIFICATION: You attempted to
 --     remove an account from the organization that doesn\'t yet have
 --     enough information to exist as a standalone account. This account
 --     requires you to first complete phone verification. Follow the steps
 --     at
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master Removing a member account from your organization>
---     in the /AWS Organizations User Guide./
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master Removing a member account from your organization>
+--     in the /Organizations User Guide./
 --
 -- -   ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: You attempted to exceed the
 --     number of accounts that you can create in one day.
@@ -911,25 +920,32 @@ _TooManyRequestsException =
 -- -   ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on
 --     the number of accounts in an organization. If you need more
 --     accounts, contact
---     <https://console.aws.amazon.com/support/home#/ AWS Support> to
---     request an increase in your limit.
+--     <https://docs.aws.amazon.com/support/home#/ Amazon Web Services Support>
+--     to request an increase in your limit.
 --
 --     Or the number of invitations that you tried to send would cause you
 --     to exceed the limit of accounts in your organization. Send fewer
---     invitations or contact AWS Support to request an increase in the
---     number of accounts.
+--     invitations or contact Amazon Web Services Support to request an
+--     increase in the number of accounts.
 --
 --     Deleted and closed accounts still count toward your limit.
 --
 --     If you get this exception when running a command immediately after
 --     creating the organization, wait one hour and try again. After an
 --     hour, if the command continues to fail with this error, contact
---     <https://console.aws.amazon.com/support/home#/ AWS Support>.
+--     <https://docs.aws.amazon.com/support/home#/ Amazon Web Services Support>.
 --
 -- -   CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to
 --     register the management account of the organization as a delegated
---     administrator for an AWS service integrated with Organizations. You
---     can designate only a member account as a delegated administrator.
+--     administrator for an Amazon Web Services service integrated with
+--     Organizations. You can designate only a member account as a
+--     delegated administrator.
+--
+-- -   CANNOT_CLOSE_MANAGEMENT_ACCOUNT: You attempted to close the
+--     management account. To close the management account for the
+--     organization, you must first either remove or close all member
+--     accounts in the organization. Follow standard account closure
+--     process using root credentials.​
 --
 -- -   CANNOT_REMOVE_DELEGATED_ADMINISTRATOR_FROM_ORG: You attempted to
 --     remove an account that is registered as a delegated administrator
@@ -937,15 +953,21 @@ _TooManyRequestsException =
 --     operation, you must first deregister this account as a delegated
 --     administrator.
 --
+-- -   CLOSE_ACCOUNT_QUOTA_EXCEEDED: You have exceeded close account quota
+--     for the past 30 days.
+--
+-- -   CLOSE_ACCOUNT_REQUESTS_LIMIT_EXCEEDED: You attempted to exceed the
+--     number of accounts that you can close at a time. ​
+--
 -- -   CREATE_ORGANIZATION_IN_BILLING_MODE_UNSUPPORTED_REGION: To create an
 --     organization in the specified region, you must enable all features
 --     mode.
 --
 -- -   DELEGATED_ADMINISTRATOR_EXISTS_FOR_THIS_SERVICE: You attempted to
---     register an AWS account as a delegated administrator for an AWS
---     service that already has a delegated administrator. To complete this
---     operation, you must first deregister any existing delegated
---     administrators for this service.
+--     register an Amazon Web Services account as a delegated administrator
+--     for an Amazon Web Services service that already has a delegated
+--     administrator. To complete this operation, you must first deregister
+--     any existing delegated administrators for this service.
 --
 -- -   EMAIL_VERIFICATION_CODE_EXPIRED: The email verification code is only
 --     valid for a limited period of time. You must resubmit the request
@@ -953,6 +975,12 @@ _TooManyRequestsException =
 --
 -- -   HANDSHAKE_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
 --     handshakes that you can send in one day.
+--
+-- -   INVALID_PAYMENT_INSTRUMENT: You cannot remove an account because no
+--     supported payment method is associated with the account. Amazon Web
+--     Services does not support cards issued by financial institutions in
+--     Russia or Belarus. For more information, see
+--     <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-general.html Managing your Amazon Web Services payments>.
 --
 -- -   MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an
 --     account in this organization, you first must migrate the
@@ -962,27 +990,27 @@ _TooManyRequestsException =
 --     marketplace. All accounts in an organization must be associated with
 --     the same marketplace.
 --
--- -   MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the AWS
---     Regions in China. To create an organization, the master must have a
---     valid business license. For more information, contact customer
---     support.
+-- -   MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon
+--     Web Services \/> Regions in China. To create an organization, the
+--     master must have a valid business license. For more information,
+--     contact customer support.
 --
 -- -   MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you
 --     must first provide a valid contact address and phone number for the
 --     management account. Then try the operation again.
 --
 -- -   MASTER_ACCOUNT_NOT_GOVCLOUD_ENABLED: To complete this operation, the
---     management account must have an associated account in the AWS
---     GovCloud (US-West) Region. For more information, see
---     <http://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html AWS Organizations>
---     in the /AWS GovCloud User Guide./
+--     management account must have an associated account in the Amazon Web
+--     Services GovCloud (US-West) Region. For more information, see
+--     <https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html Organizations>
+--     in the /Amazon Web Services GovCloud User Guide./
 --
 -- -   MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an
 --     organization with this management account, you first must associate
 --     a valid payment instrument, such as a credit card, with the account.
 --     Follow the steps at
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided>
---     in the /AWS Organizations User Guide./
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided>
+--     in the /Organizations User Guide./
 --
 -- -   MAX_DELEGATED_ADMINISTRATORS_FOR_SERVICE_LIMIT_EXCEEDED: You
 --     attempted to register more delegated administrators than allowed for
@@ -999,8 +1027,8 @@ _TooManyRequestsException =
 --     operation with this member account, you first must associate a valid
 --     payment instrument, such as a credit card, with the account. Follow
 --     the steps at
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided>
---     in the /AWS Organizations User Guide./
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided>
+--     in the /Organizations User Guide./
 --
 -- -   MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to detach a
 --     policy from an entity that would cause the entity to have fewer than
@@ -1023,9 +1051,18 @@ _TooManyRequestsException =
 -- -   POLICY_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the number of
 --     policies that you can have in an organization.
 --
+-- -   SERVICE_ACCESS_NOT_ENABLED: You attempted to register a delegated
+--     administrator before you enabled service access. Call the
+--     @EnableAWSServiceAccess@ API first.
+--
 -- -   TAG_POLICY_VIOLATION: You attempted to create or update a resource
 --     with tags that are not compliant with the tag policy requirements
 --     for this account.
+--
+-- -   WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account,
+--     there is a waiting period before you can remove it from the
+--     organization. If you get an error that indicates that a wait period
+--     is required, try again in a few days.
 _ConstraintViolationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConstraintViolationException =
   Core._MatchServiceError

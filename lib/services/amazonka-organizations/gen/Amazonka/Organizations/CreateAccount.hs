@@ -20,73 +20,74 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS account that is automatically a member of the
--- organization whose credentials made the request. This is an asynchronous
--- request that AWS performs in the background. Because @CreateAccount@
--- operates asynchronously, it can return a successful completion message
--- even though account initialization might still be in progress. You might
--- need to wait a few minutes before you can successfully access the
--- account. To check the status of the request, do one of the following:
+-- Creates an Amazon Web Services account that is automatically a member of
+-- the organization whose credentials made the request. This is an
+-- asynchronous request that Amazon Web Services performs in the
+-- background. Because @CreateAccount@ operates asynchronously, it can
+-- return a successful completion message even though account
+-- initialization might still be in progress. You might need to wait a few
+-- minutes before you can successfully access the account. To check the
+-- status of the request, do one of the following:
 --
 -- -   Use the @Id@ member of the @CreateAccountStatus@ response element
 --     from this operation to provide as a parameter to the
 --     DescribeCreateAccountStatus operation.
 --
--- -   Check the AWS CloudTrail log for the @CreateAccountResult@ event.
---     For information on using AWS CloudTrail with AWS Organizations, see
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration Logging and monitoring in AWS Organizations>
---     in the /AWS Organizations User Guide./
+-- -   Check the CloudTrail log for the @CreateAccountResult@ event. For
+--     information on using CloudTrail with Organizations, see
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration Logging and monitoring in Organizations>
+--     in the /Organizations User Guide./
 --
 -- The user who calls the API to create an account must have the
 -- @organizations:CreateAccount@ permission. If you enabled all features in
--- the organization, AWS Organizations creates the required service-linked
--- role named @AWSServiceRoleForOrganizations@. For more information, see
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs AWS Organizations and Service-Linked Roles>
--- in the /AWS Organizations User Guide/.
+-- the organization, Organizations creates the required service-linked role
+-- named @AWSServiceRoleForOrganizations@. For more information, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_integrate_services-using_slrs Organizations and Service-Linked Roles>
+-- in the /Organizations User Guide/.
 --
 -- If the request includes tags, then the requester must have the
 -- @organizations:TagResource@ permission.
 --
--- AWS Organizations preconfigures the new member account with a role
--- (named @OrganizationAccountAccessRole@ by default) that grants users in
--- the management account administrator permissions in the new member
--- account. Principals in the management account can assume the role. AWS
--- Organizations clones the company name and address information for the
--- new account from the organization\'s management account.
+-- Organizations preconfigures the new member account with a role (named
+-- @OrganizationAccountAccessRole@ by default) that grants users in the
+-- management account administrator permissions in the new member account.
+-- Principals in the management account can assume the role. Organizations
+-- clones the company name and address information for the new account from
+-- the organization\'s management account.
 --
 -- This operation can be called only from the organization\'s management
 -- account.
 --
 -- For more information about creating accounts, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html Creating an AWS Account in Your Organization>
--- in the /AWS Organizations User Guide./
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html Creating an Amazon Web Services account in Your Organization>
+-- in the /Organizations User Guide./
 --
--- -   When you create an account in an organization using the AWS
+-- -   When you create an account in an organization using the
 --     Organizations console, API, or CLI commands, the information
 --     required for the account to operate as a standalone account, such as
 --     a payment method and signing the end user license agreement (EULA)
 --     is /not/ automatically collected. If you must remove an account from
 --     your organization later, you can do so only after you provide the
 --     missing information. Follow the steps at
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization as a member account>
---     in the /AWS Organizations User Guide/.
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization as a member account>
+--     in the /Organizations User Guide/.
 --
 -- -   If you get an exception that indicates that you exceeded your
 --     account limits for the organization, contact
---     <https://console.aws.amazon.com/support/home#/ AWS Support>.
+--     <https://console.aws.amazon.com/support/home#/ Amazon Web Services Support>.
 --
 -- -   If you get an exception that indicates that the operation failed
 --     because your organization is still initializing, wait one hour and
 --     then try again. If the error persists, contact
---     <https://console.aws.amazon.com/support/home#/ AWS Support>.
+--     <https://console.aws.amazon.com/support/home#/ Amazon Web Services Support>.
 --
 -- -   Using @CreateAccount@ to create multiple temporary accounts isn\'t
 --     recommended. You can only close an account from the Billing and Cost
---     Management Console, and you must be signed in as the root user. For
+--     Management console, and you must be signed in as the root user. For
 --     information on the requirements and process for closing an account,
 --     see
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html Closing an AWS Account>
---     in the /AWS Organizations User Guide/.
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html Closing an Amazon Web Services account>
+--     in the /Organizations User Guide/.
 --
 -- When you create a member account with this operation, you can choose
 -- whether to create the account with the __IAM User and Role Access to
@@ -131,18 +132,18 @@ data CreateAccount = CreateAccount'
     -- each tag in the list, you must specify both a tag key and a value. You
     -- can set the value to an empty string, but you can\'t set it to @null@.
     -- For more information about tagging, see
-    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
-    -- in the AWS Organizations User Guide.
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+    -- in the Organizations User Guide.
     --
-    -- If any one of the tags is invalid or if you exceed the allowed number of
-    -- tags for an account, then the entire request fails and the account is
-    -- not created.
+    -- If any one of the tags is invalid or if you exceed the maximum allowed
+    -- number of tags for an account, then the entire request fails and the
+    -- account is not created.
     tags :: Prelude.Maybe [Tag],
     -- | (Optional)
     --
-    -- The name of an IAM role that AWS Organizations automatically
-    -- preconfigures in the new member account. This role trusts the management
-    -- account, allowing users in the management account to assume the role, as
+    -- The name of an IAM role that Organizations automatically preconfigures
+    -- in the new member account. This role trusts the management account,
+    -- allowing users in the management account to assume the role, as
     -- permitted by the management account administrator. The role has
     -- administrator permissions in the new member account.
     --
@@ -153,10 +154,10 @@ data CreateAccount = CreateAccount'
     -- account, see the following links:
     --
     -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role Accessing and Administering the Member Accounts in Your Organization>
-    --     in the /AWS Organizations User Guide/
+    --     in the /Organizations User Guide/
     --
     -- -   Steps 2 and 3 in
-    --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across AWS Accounts Using IAM Roles>
+    --     <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across Amazon Web Services accounts Using IAM Roles>
     --     in the /IAM User Guide/
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
@@ -169,17 +170,42 @@ data CreateAccount = CreateAccount'
     -- @DENY@, only the root user of the new account can access account billing
     -- information. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     --
     -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
     -- IAM users and roles with the required permissions can access billing
     -- information for the new account.
     iamUserAccessToBilling :: Prelude.Maybe IAMUserAccessToBilling,
     -- | The email address of the owner to assign to the new member account. This
-    -- email address must not already be associated with another AWS account.
-    -- You must use a valid email address to complete account creation. You
-    -- can\'t access the root user of the account or remove an account that was
-    -- created with an invalid email address.
+    -- email address must not already be associated with another Amazon Web
+    -- Services account. You must use a valid email address to complete account
+    -- creation.
+    --
+    -- The rules for a valid email address:
+    --
+    -- -   The address must be a minimum of 6 and a maximum of 64 characters
+    --     long.
+    --
+    -- -   All characters must be 7-bit ASCII characters.
+    --
+    -- -   There must be one and only one \@ symbol, which separates the local
+    --     name from the domain name.
+    --
+    -- -   The local name can\'t contain any of the following characters:
+    --
+    --     whitespace, \" \' ( ) \< > [ ] : ; , \\ | % &
+    --
+    -- -   The local name can\'t begin with a dot (.)
+    --
+    -- -   The domain name can consist of only the characters
+    --     [a-z],[A-Z],[0-9], hyphen (-), or dot (.)
+    --
+    -- -   The domain name can\'t begin or end with a hyphen (-) or dot (.)
+    --
+    -- -   The domain name must contain at least one dot
+    --
+    -- You can\'t access the root user of the account or remove an account that
+    -- was created with an invalid email address.
     email :: Core.Sensitive Prelude.Text,
     -- | The friendly name of the member account.
     accountName :: Core.Sensitive Prelude.Text
@@ -198,18 +224,18 @@ data CreateAccount = CreateAccount'
 -- each tag in the list, you must specify both a tag key and a value. You
 -- can set the value to an empty string, but you can\'t set it to @null@.
 -- For more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
--- in the AWS Organizations User Guide.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+-- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an account, then the entire request fails and the account is
--- not created.
+-- If any one of the tags is invalid or if you exceed the maximum allowed
+-- number of tags for an account, then the entire request fails and the
+-- account is not created.
 --
 -- 'roleName', 'createAccount_roleName' - (Optional)
 --
--- The name of an IAM role that AWS Organizations automatically
--- preconfigures in the new member account. This role trusts the management
--- account, allowing users in the management account to assume the role, as
+-- The name of an IAM role that Organizations automatically preconfigures
+-- in the new member account. This role trusts the management account,
+-- allowing users in the management account to assume the role, as
 -- permitted by the management account administrator. The role has
 -- administrator permissions in the new member account.
 --
@@ -220,10 +246,10 @@ data CreateAccount = CreateAccount'
 -- account, see the following links:
 --
 -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role Accessing and Administering the Member Accounts in Your Organization>
---     in the /AWS Organizations User Guide/
+--     in the /Organizations User Guide/
 --
 -- -   Steps 2 and 3 in
---     <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across AWS Accounts Using IAM Roles>
+--     <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across Amazon Web Services accounts Using IAM Roles>
 --     in the /IAM User Guide/
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
@@ -236,17 +262,42 @@ data CreateAccount = CreateAccount'
 -- @DENY@, only the root user of the new account can access account billing
 -- information. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
 -- IAM users and roles with the required permissions can access billing
 -- information for the new account.
 --
 -- 'email', 'createAccount_email' - The email address of the owner to assign to the new member account. This
--- email address must not already be associated with another AWS account.
--- You must use a valid email address to complete account creation. You
--- can\'t access the root user of the account or remove an account that was
--- created with an invalid email address.
+-- email address must not already be associated with another Amazon Web
+-- Services account. You must use a valid email address to complete account
+-- creation.
+--
+-- The rules for a valid email address:
+--
+-- -   The address must be a minimum of 6 and a maximum of 64 characters
+--     long.
+--
+-- -   All characters must be 7-bit ASCII characters.
+--
+-- -   There must be one and only one \@ symbol, which separates the local
+--     name from the domain name.
+--
+-- -   The local name can\'t contain any of the following characters:
+--
+--     whitespace, \" \' ( ) \< > [ ] : ; , \\ | % &
+--
+-- -   The local name can\'t begin with a dot (.)
+--
+-- -   The domain name can consist of only the characters
+--     [a-z],[A-Z],[0-9], hyphen (-), or dot (.)
+--
+-- -   The domain name can\'t begin or end with a hyphen (-) or dot (.)
+--
+-- -   The domain name must contain at least one dot
+--
+-- You can\'t access the root user of the account or remove an account that
+-- was created with an invalid email address.
 --
 -- 'accountName', 'createAccount_accountName' - The friendly name of the member account.
 newCreateAccount ::
@@ -268,20 +319,20 @@ newCreateAccount pEmail_ pAccountName_ =
 -- each tag in the list, you must specify both a tag key and a value. You
 -- can set the value to an empty string, but you can\'t set it to @null@.
 -- For more information about tagging, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging AWS Organizations resources>
--- in the AWS Organizations User Guide.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html Tagging Organizations resources>
+-- in the Organizations User Guide.
 --
--- If any one of the tags is invalid or if you exceed the allowed number of
--- tags for an account, then the entire request fails and the account is
--- not created.
+-- If any one of the tags is invalid or if you exceed the maximum allowed
+-- number of tags for an account, then the entire request fails and the
+-- account is not created.
 createAccount_tags :: Lens.Lens' CreateAccount (Prelude.Maybe [Tag])
 createAccount_tags = Lens.lens (\CreateAccount' {tags} -> tags) (\s@CreateAccount' {} a -> s {tags = a} :: CreateAccount) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Optional)
 --
--- The name of an IAM role that AWS Organizations automatically
--- preconfigures in the new member account. This role trusts the management
--- account, allowing users in the management account to assume the role, as
+-- The name of an IAM role that Organizations automatically preconfigures
+-- in the new member account. This role trusts the management account,
+-- allowing users in the management account to assume the role, as
 -- permitted by the management account administrator. The role has
 -- administrator permissions in the new member account.
 --
@@ -292,10 +343,10 @@ createAccount_tags = Lens.lens (\CreateAccount' {tags} -> tags) (\s@CreateAccoun
 -- account, see the following links:
 --
 -- -   <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role Accessing and Administering the Member Accounts in Your Organization>
---     in the /AWS Organizations User Guide/
+--     in the /Organizations User Guide/
 --
 -- -   Steps 2 and 3 in
---     <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across AWS Accounts Using IAM Roles>
+--     <https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html Tutorial: Delegate Access Across Amazon Web Services accounts Using IAM Roles>
 --     in the /IAM User Guide/
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
@@ -310,7 +361,7 @@ createAccount_roleName = Lens.lens (\CreateAccount' {roleName} -> roleName) (\s@
 -- @DENY@, only the root user of the new account can access account billing
 -- information. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- If you don\'t specify this parameter, the value defaults to @ALLOW@, and
 -- IAM users and roles with the required permissions can access billing
@@ -319,10 +370,35 @@ createAccount_iamUserAccessToBilling :: Lens.Lens' CreateAccount (Prelude.Maybe 
 createAccount_iamUserAccessToBilling = Lens.lens (\CreateAccount' {iamUserAccessToBilling} -> iamUserAccessToBilling) (\s@CreateAccount' {} a -> s {iamUserAccessToBilling = a} :: CreateAccount)
 
 -- | The email address of the owner to assign to the new member account. This
--- email address must not already be associated with another AWS account.
--- You must use a valid email address to complete account creation. You
--- can\'t access the root user of the account or remove an account that was
--- created with an invalid email address.
+-- email address must not already be associated with another Amazon Web
+-- Services account. You must use a valid email address to complete account
+-- creation.
+--
+-- The rules for a valid email address:
+--
+-- -   The address must be a minimum of 6 and a maximum of 64 characters
+--     long.
+--
+-- -   All characters must be 7-bit ASCII characters.
+--
+-- -   There must be one and only one \@ symbol, which separates the local
+--     name from the domain name.
+--
+-- -   The local name can\'t contain any of the following characters:
+--
+--     whitespace, \" \' ( ) \< > [ ] : ; , \\ | % &
+--
+-- -   The local name can\'t begin with a dot (.)
+--
+-- -   The domain name can consist of only the characters
+--     [a-z],[A-Z],[0-9], hyphen (-), or dot (.)
+--
+-- -   The domain name can\'t begin or end with a hyphen (-) or dot (.)
+--
+-- -   The domain name must contain at least one dot
+--
+-- You can\'t access the root user of the account or remove an account that
+-- was created with an invalid email address.
 createAccount_email :: Lens.Lens' CreateAccount Prelude.Text
 createAccount_email = Lens.lens (\CreateAccount' {email} -> email) (\s@CreateAccount' {} a -> s {email = a} :: CreateAccount) Prelude.. Core._Sensitive
 
@@ -400,10 +476,10 @@ data CreateAccountResponse = CreateAccountResponse'
     -- first receive it because account creation is an asynchronous process.
     -- You can pass the returned @CreateAccountStatus@ ID as a parameter to
     -- DescribeCreateAccountStatus to get status about the progress of the
-    -- request at later times. You can also check the AWS CloudTrail log for
-    -- the @CreateAccountResult@ event. For more information, see
-    -- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
-    -- in the /AWS Organizations User Guide/.
+    -- request at later times. You can also check the CloudTrail log for the
+    -- @CreateAccountResult@ event. For more information, see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
+    -- in the /Organizations User Guide/.
     createAccountStatus :: Prelude.Maybe CreateAccountStatus,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -423,10 +499,10 @@ data CreateAccountResponse = CreateAccountResponse'
 -- first receive it because account creation is an asynchronous process.
 -- You can pass the returned @CreateAccountStatus@ ID as a parameter to
 -- DescribeCreateAccountStatus to get status about the progress of the
--- request at later times. You can also check the AWS CloudTrail log for
--- the @CreateAccountResult@ event. For more information, see
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
--- in the /AWS Organizations User Guide/.
+-- request at later times. You can also check the CloudTrail log for the
+-- @CreateAccountResult@ event. For more information, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
+-- in the /Organizations User Guide/.
 --
 -- 'httpStatus', 'createAccountResponse_httpStatus' - The response's http status code.
 newCreateAccountResponse ::
@@ -445,10 +521,10 @@ newCreateAccountResponse pHttpStatus_ =
 -- first receive it because account creation is an asynchronous process.
 -- You can pass the returned @CreateAccountStatus@ ID as a parameter to
 -- DescribeCreateAccountStatus to get status about the progress of the
--- request at later times. You can also check the AWS CloudTrail log for
--- the @CreateAccountResult@ event. For more information, see
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
--- in the /AWS Organizations User Guide/.
+-- request at later times. You can also check the CloudTrail log for the
+-- @CreateAccountResult@ event. For more information, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html Monitoring the Activity in Your Organization>
+-- in the /Organizations User Guide/.
 createAccountResponse_createAccountStatus :: Lens.Lens' CreateAccountResponse (Prelude.Maybe CreateAccountStatus)
 createAccountResponse_createAccountStatus = Lens.lens (\CreateAccountResponse' {createAccountStatus} -> createAccountStatus) (\s@CreateAccountResponse' {} a -> s {createAccountStatus = a} :: CreateAccountResponse)
 

@@ -28,7 +28,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- You can attach tags to any of the following organization resources.
 --
--- -   AWS account
+-- -   Amazon Web Services account
 --
 -- -   Organizational unit (OU)
 --

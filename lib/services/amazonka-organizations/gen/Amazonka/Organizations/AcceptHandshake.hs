@@ -32,21 +32,21 @@
 --     The user who calls the API for an invitation to join must have the
 --     @organizations:AcceptHandshake@ permission. If you enabled all
 --     features in the organization, the user must also have the
---     @iam:CreateServiceLinkedRole@ permission so that AWS Organizations
---     can create the required service-linked role named
+--     @iam:CreateServiceLinkedRole@ permission so that Organizations can
+--     create the required service-linked role named
 --     @AWSServiceRoleForOrganizations@. For more information, see
---     <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles AWS Organizations and Service-Linked Roles>
---     in the /AWS Organizations User Guide/.
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles Organizations and Service-Linked Roles>
+--     in the /Organizations User Guide/.
 --
 -- -   __Enable all features final confirmation__ handshake: only a
 --     principal from the management account.
 --
 --     For more information about invitations, see
---     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html Inviting an AWS Account to Join Your Organization>
---     in the /AWS Organizations User Guide./ For more information about
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html Inviting an Amazon Web Services account to join your organization>
+--     in the /Organizations User Guide./ For more information about
 --     requests to enable all features in the organization, see
---     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization>
---     in the /AWS Organizations User Guide./
+--     <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling all features in your organization>
+--     in the /Organizations User Guide./
 --
 -- After you accept a handshake, it continues to appear in the results of
 -- relevant APIs for only 30 days. After that, it\'s deleted.

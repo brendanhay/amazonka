@@ -20,29 +20,29 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables the integration of an AWS service (the service that is specified
--- by @ServicePrincipal@) with AWS Organizations. When you enable
--- integration, you allow the specified service to create a
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html service-linked role>
+-- Enables the integration of an Amazon Web Services service (the service
+-- that is specified by @ServicePrincipal@) with Organizations. When you
+-- enable integration, you allow the specified service to create a
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html service-linked role>
 -- in all the accounts in your organization. This allows the service to
 -- perform operations on your behalf in your organization and its accounts.
 --
--- We recommend that you enable integration between AWS Organizations and
--- the specified AWS service by using the console or commands that are
--- provided by the specified service. Doing so ensures that the service is
--- aware that it can create the resources that are required for the
--- integration. How the service creates those resources in the
+-- We recommend that you enable integration between Organizations and the
+-- specified Amazon Web Services service by using the console or commands
+-- that are provided by the specified service. Doing so ensures that the
+-- service is aware that it can create the resources that are required for
+-- the integration. How the service creates those resources in the
 -- organization\'s accounts depends on that service. For more information,
--- see the documentation for the other AWS service.
+-- see the documentation for the other Amazon Web Services service.
 --
--- For more information about enabling services to integrate with AWS
+-- For more information about enabling services to integrate with
 -- Organizations, see
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html Integrating AWS Organizations with Other AWS Services>
--- in the /AWS Organizations User Guide./
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html Integrating Organizations with Other Amazon Web Services Services>
+-- in the /Organizations User Guide./
 --
 -- This operation can be called only from the organization\'s management
 -- account and only if the organization has
--- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html enabled all features>.
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html enabled all features>.
 module Amazonka.Organizations.EnableAWSServiceAccess
   ( -- * Creating a Request
     EnableAWSServiceAccess (..),
@@ -66,9 +66,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newEnableAWSServiceAccess' smart constructor.
 data EnableAWSServiceAccess = EnableAWSServiceAccess'
-  { -- | The service principal name of the AWS service for which you want to
-    -- enable integration with your organization. This is typically in the form
-    -- of a URL, such as @ service-abbreviation.amazonaws.com@.
+  { -- | The service principal name of the Amazon Web Services service for which
+    -- you want to enable integration with your organization. This is typically
+    -- in the form of a URL, such as @ service-abbreviation.amazonaws.com@.
     servicePrincipal :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,9 +81,9 @@ data EnableAWSServiceAccess = EnableAWSServiceAccess'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'servicePrincipal', 'enableAWSServiceAccess_servicePrincipal' - The service principal name of the AWS service for which you want to
--- enable integration with your organization. This is typically in the form
--- of a URL, such as @ service-abbreviation.amazonaws.com@.
+-- 'servicePrincipal', 'enableAWSServiceAccess_servicePrincipal' - The service principal name of the Amazon Web Services service for which
+-- you want to enable integration with your organization. This is typically
+-- in the form of a URL, such as @ service-abbreviation.amazonaws.com@.
 newEnableAWSServiceAccess ::
   -- | 'servicePrincipal'
   Prelude.Text ->
@@ -94,9 +94,9 @@ newEnableAWSServiceAccess pServicePrincipal_ =
         pServicePrincipal_
     }
 
--- | The service principal name of the AWS service for which you want to
--- enable integration with your organization. This is typically in the form
--- of a URL, such as @ service-abbreviation.amazonaws.com@.
+-- | The service principal name of the Amazon Web Services service for which
+-- you want to enable integration with your organization. This is typically
+-- in the form of a URL, such as @ service-abbreviation.amazonaws.com@.
 enableAWSServiceAccess_servicePrincipal :: Lens.Lens' EnableAWSServiceAccess Prelude.Text
 enableAWSServiceAccess_servicePrincipal = Lens.lens (\EnableAWSServiceAccess' {servicePrincipal} -> servicePrincipal) (\s@EnableAWSServiceAccess' {} a -> s {servicePrincipal = a} :: EnableAWSServiceAccess)
 

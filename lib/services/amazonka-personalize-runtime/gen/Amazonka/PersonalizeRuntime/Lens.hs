@@ -27,11 +27,13 @@ module Amazonka.PersonalizeRuntime.Lens
 
     -- ** GetRecommendations
     getRecommendations_filterArn,
+    getRecommendations_recommenderArn,
     getRecommendations_numResults,
     getRecommendations_context,
     getRecommendations_userId,
     getRecommendations_itemId,
     getRecommendations_filterValues,
+    getRecommendations_promotions,
     getRecommendations_campaignArn,
     getRecommendationsResponse_recommendationId,
     getRecommendationsResponse_itemList,
@@ -41,10 +43,18 @@ module Amazonka.PersonalizeRuntime.Lens
 
     -- ** PredictedItem
     predictedItem_score,
+    predictedItem_promotionName,
     predictedItem_itemId,
+
+    -- ** Promotion
+    promotion_name,
+    promotion_percentPromotedItems,
+    promotion_filterArn,
+    promotion_filterValues,
   )
 where
 
 import Amazonka.PersonalizeRuntime.GetPersonalizedRanking
 import Amazonka.PersonalizeRuntime.GetRecommendations
 import Amazonka.PersonalizeRuntime.Types.PredictedItem
+import Amazonka.PersonalizeRuntime.Types.Promotion

@@ -46,6 +46,10 @@ module Amazonka.PersonalizeRuntime
     -- ** PredictedItem
     PredictedItem (PredictedItem'),
     newPredictedItem,
+
+    -- ** Promotion
+    Promotion (Promotion'),
+    newPromotion,
   )
 where
 

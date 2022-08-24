@@ -54,16 +54,22 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newGetSnapshotBlock' smart constructor.
 data GetSnapshotBlock = GetSnapshotBlock'
   { -- | The ID of the snapshot containing the block from which to get data.
+    --
+    -- If the specified snapshot is encrypted, you must have permission to use
+    -- the KMS key that was used to encrypt the snapshot. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html Using encryption>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
     snapshotId :: Prelude.Text,
-    -- | The block index of the block from which to get data.
-    --
-    -- Obtain the @BlockIndex@ by running the @ListChangedBlocks@ or
-    -- @ListSnapshotBlocks@ operations.
+    -- | The block index of the block in which to read the data. A block index is
+    -- a logical index in units of @512@ KiB blocks. To identify the block
+    -- index, divide the logical offset of the data in the logical volume by
+    -- the block size (logical offset of data\/@524288@). The logical offset of
+    -- the data must be @512@ KiB aligned.
     blockIndex :: Prelude.Natural,
-    -- | The block token of the block from which to get data.
-    --
-    -- Obtain the @BlockToken@ by running the @ListChangedBlocks@ or
-    -- @ListSnapshotBlocks@ operations.
+    -- | The block token of the block from which to get data. You can obtain the
+    -- @BlockToken@ by running the @ListChangedBlocks@ or @ListSnapshotBlocks@
+    -- operations.
     blockToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,15 +84,21 @@ data GetSnapshotBlock = GetSnapshotBlock'
 --
 -- 'snapshotId', 'getSnapshotBlock_snapshotId' - The ID of the snapshot containing the block from which to get data.
 --
--- 'blockIndex', 'getSnapshotBlock_blockIndex' - The block index of the block from which to get data.
+-- If the specified snapshot is encrypted, you must have permission to use
+-- the KMS key that was used to encrypt the snapshot. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html Using encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Obtain the @BlockIndex@ by running the @ListChangedBlocks@ or
--- @ListSnapshotBlocks@ operations.
+-- 'blockIndex', 'getSnapshotBlock_blockIndex' - The block index of the block in which to read the data. A block index is
+-- a logical index in units of @512@ KiB blocks. To identify the block
+-- index, divide the logical offset of the data in the logical volume by
+-- the block size (logical offset of data\/@524288@). The logical offset of
+-- the data must be @512@ KiB aligned.
 --
--- 'blockToken', 'getSnapshotBlock_blockToken' - The block token of the block from which to get data.
---
--- Obtain the @BlockToken@ by running the @ListChangedBlocks@ or
--- @ListSnapshotBlocks@ operations.
+-- 'blockToken', 'getSnapshotBlock_blockToken' - The block token of the block from which to get data. You can obtain the
+-- @BlockToken@ by running the @ListChangedBlocks@ or @ListSnapshotBlocks@
+-- operations.
 newGetSnapshotBlock ::
   -- | 'snapshotId'
   Prelude.Text ->
@@ -106,20 +118,26 @@ newGetSnapshotBlock
       }
 
 -- | The ID of the snapshot containing the block from which to get data.
+--
+-- If the specified snapshot is encrypted, you must have permission to use
+-- the KMS key that was used to encrypt the snapshot. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html Using encryption>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 getSnapshotBlock_snapshotId :: Lens.Lens' GetSnapshotBlock Prelude.Text
 getSnapshotBlock_snapshotId = Lens.lens (\GetSnapshotBlock' {snapshotId} -> snapshotId) (\s@GetSnapshotBlock' {} a -> s {snapshotId = a} :: GetSnapshotBlock)
 
--- | The block index of the block from which to get data.
---
--- Obtain the @BlockIndex@ by running the @ListChangedBlocks@ or
--- @ListSnapshotBlocks@ operations.
+-- | The block index of the block in which to read the data. A block index is
+-- a logical index in units of @512@ KiB blocks. To identify the block
+-- index, divide the logical offset of the data in the logical volume by
+-- the block size (logical offset of data\/@524288@). The logical offset of
+-- the data must be @512@ KiB aligned.
 getSnapshotBlock_blockIndex :: Lens.Lens' GetSnapshotBlock Prelude.Natural
 getSnapshotBlock_blockIndex = Lens.lens (\GetSnapshotBlock' {blockIndex} -> blockIndex) (\s@GetSnapshotBlock' {} a -> s {blockIndex = a} :: GetSnapshotBlock)
 
--- | The block token of the block from which to get data.
---
--- Obtain the @BlockToken@ by running the @ListChangedBlocks@ or
--- @ListSnapshotBlocks@ operations.
+-- | The block token of the block from which to get data. You can obtain the
+-- @BlockToken@ by running the @ListChangedBlocks@ or @ListSnapshotBlocks@
+-- operations.
 getSnapshotBlock_blockToken :: Lens.Lens' GetSnapshotBlock Prelude.Text
 getSnapshotBlock_blockToken = Lens.lens (\GetSnapshotBlock' {blockToken} -> blockToken) (\s@GetSnapshotBlock' {} a -> s {blockToken = a} :: GetSnapshotBlock)
 

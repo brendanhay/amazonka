@@ -188,8 +188,7 @@ instance Core.ToQuery GetBucketsAggregation where
 
 -- | /See:/ 'newGetBucketsAggregationResponse' smart constructor.
 data GetBucketsAggregationResponse = GetBucketsAggregationResponse'
-  { -- | The total number of documents that fit the query string criteria and
-    -- contain a value for the Aggregation field targeted in the request.
+  { -- | The total number of things that fit the query string criteria.
     totalCount :: Prelude.Maybe Prelude.Int,
     -- | The main part of the response with a list of buckets. Each bucket
     -- contains a @keyValue@ and a @count@.
@@ -212,8 +211,7 @@ data GetBucketsAggregationResponse = GetBucketsAggregationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalCount', 'getBucketsAggregationResponse_totalCount' - The total number of documents that fit the query string criteria and
--- contain a value for the Aggregation field targeted in the request.
+-- 'totalCount', 'getBucketsAggregationResponse_totalCount' - The total number of things that fit the query string criteria.
 --
 -- 'buckets', 'getBucketsAggregationResponse_buckets' - The main part of the response with a list of buckets. Each bucket
 -- contains a @keyValue@ and a @count@.
@@ -236,8 +234,7 @@ newGetBucketsAggregationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The total number of documents that fit the query string criteria and
--- contain a value for the Aggregation field targeted in the request.
+-- | The total number of things that fit the query string criteria.
 getBucketsAggregationResponse_totalCount :: Lens.Lens' GetBucketsAggregationResponse (Prelude.Maybe Prelude.Int)
 getBucketsAggregationResponse_totalCount = Lens.lens (\GetBucketsAggregationResponse' {totalCount} -> totalCount) (\s@GetBucketsAggregationResponse' {} a -> s {totalCount = a} :: GetBucketsAggregationResponse)
 

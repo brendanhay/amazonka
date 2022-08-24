@@ -29,9 +29,19 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCustomCodeSigning' smart constructor.
 data CustomCodeSigning = CustomCodeSigning'
-  { -- | The hash algorithm used to code sign the file.
+  { -- | The hash algorithm used to code sign the file. You can use a string as
+    -- the algorithm name if the target over-the-air (OTA) update devices are
+    -- able to verify the signature that was generated using the same signature
+    -- algorithm. For example, FreeRTOS uses @SHA256@ or @SHA1@, so you can
+    -- pass either of them based on which was used for generating the
+    -- signature.
     hashAlgorithm :: Prelude.Maybe Prelude.Text,
-    -- | The signature algorithm used to code sign the file.
+    -- | The signature algorithm used to code sign the file. You can use a string
+    -- as the algorithm name if the target over-the-air (OTA) update devices
+    -- are able to verify the signature that was generated using the same
+    -- signature algorithm. For example, FreeRTOS uses @ECDSA@ or @RSA@, so you
+    -- can pass either of them based on which was used for generating the
+    -- signature.
     signatureAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The certificate chain.
     certificateChain :: Prelude.Maybe CodeSigningCertificateChain,
@@ -48,9 +58,19 @@ data CustomCodeSigning = CustomCodeSigning'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'hashAlgorithm', 'customCodeSigning_hashAlgorithm' - The hash algorithm used to code sign the file.
+-- 'hashAlgorithm', 'customCodeSigning_hashAlgorithm' - The hash algorithm used to code sign the file. You can use a string as
+-- the algorithm name if the target over-the-air (OTA) update devices are
+-- able to verify the signature that was generated using the same signature
+-- algorithm. For example, FreeRTOS uses @SHA256@ or @SHA1@, so you can
+-- pass either of them based on which was used for generating the
+-- signature.
 --
--- 'signatureAlgorithm', 'customCodeSigning_signatureAlgorithm' - The signature algorithm used to code sign the file.
+-- 'signatureAlgorithm', 'customCodeSigning_signatureAlgorithm' - The signature algorithm used to code sign the file. You can use a string
+-- as the algorithm name if the target over-the-air (OTA) update devices
+-- are able to verify the signature that was generated using the same
+-- signature algorithm. For example, FreeRTOS uses @ECDSA@ or @RSA@, so you
+-- can pass either of them based on which was used for generating the
+-- signature.
 --
 -- 'certificateChain', 'customCodeSigning_certificateChain' - The certificate chain.
 --
@@ -65,11 +85,21 @@ newCustomCodeSigning =
       signature = Prelude.Nothing
     }
 
--- | The hash algorithm used to code sign the file.
+-- | The hash algorithm used to code sign the file. You can use a string as
+-- the algorithm name if the target over-the-air (OTA) update devices are
+-- able to verify the signature that was generated using the same signature
+-- algorithm. For example, FreeRTOS uses @SHA256@ or @SHA1@, so you can
+-- pass either of them based on which was used for generating the
+-- signature.
 customCodeSigning_hashAlgorithm :: Lens.Lens' CustomCodeSigning (Prelude.Maybe Prelude.Text)
 customCodeSigning_hashAlgorithm = Lens.lens (\CustomCodeSigning' {hashAlgorithm} -> hashAlgorithm) (\s@CustomCodeSigning' {} a -> s {hashAlgorithm = a} :: CustomCodeSigning)
 
--- | The signature algorithm used to code sign the file.
+-- | The signature algorithm used to code sign the file. You can use a string
+-- as the algorithm name if the target over-the-air (OTA) update devices
+-- are able to verify the signature that was generated using the same
+-- signature algorithm. For example, FreeRTOS uses @ECDSA@ or @RSA@, so you
+-- can pass either of them based on which was used for generating the
+-- signature.
 customCodeSigning_signatureAlgorithm :: Lens.Lens' CustomCodeSigning (Prelude.Maybe Prelude.Text)
 customCodeSigning_signatureAlgorithm = Lens.lens (\CustomCodeSigning' {signatureAlgorithm} -> signatureAlgorithm) (\s@CustomCodeSigning' {} a -> s {signatureAlgorithm = a} :: CustomCodeSigning)
 

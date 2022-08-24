@@ -25,6 +25,9 @@
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions RemoveThingFromBillingGroup>
 -- action.
+--
+-- This call is asynchronous. It might take several seconds for the
+-- detachment to propagate.
 module Amazonka.IoT.RemoveThingFromBillingGroup
   ( -- * Creating a Request
     RemoveThingFromBillingGroup (..),

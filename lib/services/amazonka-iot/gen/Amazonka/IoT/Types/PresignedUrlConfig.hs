@@ -30,6 +30,10 @@ data PresignedUrlConfig = PresignedUrlConfig'
   { -- | The ARN of an IAM role that grants grants permission to download files
     -- from the S3 bucket where the job data\/updates are stored. The role must
     -- also grant permission for IoT to download the files.
+    --
+    -- For information about addressing the confused deputy problem, see
+    -- <https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html cross-service confused deputy prevention>
+    -- in the /Amazon Web Services IoT Core developer guide/.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | How long (in seconds) pre-signed URLs are valid. Valid values are 60 -
     -- 3600, the default value is 3600 seconds. Pre-signed URLs are generated
@@ -50,6 +54,10 @@ data PresignedUrlConfig = PresignedUrlConfig'
 -- from the S3 bucket where the job data\/updates are stored. The role must
 -- also grant permission for IoT to download the files.
 --
+-- For information about addressing the confused deputy problem, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html cross-service confused deputy prevention>
+-- in the /Amazon Web Services IoT Core developer guide/.
+--
 -- 'expiresInSec', 'presignedUrlConfig_expiresInSec' - How long (in seconds) pre-signed URLs are valid. Valid values are 60 -
 -- 3600, the default value is 3600 seconds. Pre-signed URLs are generated
 -- when Jobs receives an MQTT request for the job document.
@@ -64,6 +72,10 @@ newPresignedUrlConfig =
 -- | The ARN of an IAM role that grants grants permission to download files
 -- from the S3 bucket where the job data\/updates are stored. The role must
 -- also grant permission for IoT to download the files.
+--
+-- For information about addressing the confused deputy problem, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html cross-service confused deputy prevention>
+-- in the /Amazon Web Services IoT Core developer guide/.
 presignedUrlConfig_roleArn :: Lens.Lens' PresignedUrlConfig (Prelude.Maybe Prelude.Text)
 presignedUrlConfig_roleArn = Lens.lens (\PresignedUrlConfig' {roleArn} -> roleArn) (\s@PresignedUrlConfig' {} a -> s {roleArn = a} :: PresignedUrlConfig)
 

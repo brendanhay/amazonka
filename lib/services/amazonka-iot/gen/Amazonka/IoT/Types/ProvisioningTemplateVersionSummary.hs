@@ -27,10 +27,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newProvisioningTemplateVersionSummary' smart constructor.
 data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
-  { -- | True if the fleet provisioning template version is the default version,
+  { -- | True if the provisioning template version is the default version,
     -- otherwise false.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
-    -- | The date when the fleet provisioning template version was created
+    -- | The date when the provisioning template version was created
     creationDate :: Prelude.Maybe Core.POSIX,
     -- | The ID of the fleet privisioning template version.
     versionId :: Prelude.Maybe Prelude.Int
@@ -45,10 +45,10 @@ data ProvisioningTemplateVersionSummary = ProvisioningTemplateVersionSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'isDefaultVersion', 'provisioningTemplateVersionSummary_isDefaultVersion' - True if the fleet provisioning template version is the default version,
+-- 'isDefaultVersion', 'provisioningTemplateVersionSummary_isDefaultVersion' - True if the provisioning template version is the default version,
 -- otherwise false.
 --
--- 'creationDate', 'provisioningTemplateVersionSummary_creationDate' - The date when the fleet provisioning template version was created
+-- 'creationDate', 'provisioningTemplateVersionSummary_creationDate' - The date when the provisioning template version was created
 --
 -- 'versionId', 'provisioningTemplateVersionSummary_versionId' - The ID of the fleet privisioning template version.
 newProvisioningTemplateVersionSummary ::
@@ -61,12 +61,12 @@ newProvisioningTemplateVersionSummary =
       versionId = Prelude.Nothing
     }
 
--- | True if the fleet provisioning template version is the default version,
+-- | True if the provisioning template version is the default version,
 -- otherwise false.
 provisioningTemplateVersionSummary_isDefaultVersion :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.Bool)
 provisioningTemplateVersionSummary_isDefaultVersion = Lens.lens (\ProvisioningTemplateVersionSummary' {isDefaultVersion} -> isDefaultVersion) (\s@ProvisioningTemplateVersionSummary' {} a -> s {isDefaultVersion = a} :: ProvisioningTemplateVersionSummary)
 
--- | The date when the fleet provisioning template version was created
+-- | The date when the provisioning template version was created
 provisioningTemplateVersionSummary_creationDate :: Lens.Lens' ProvisioningTemplateVersionSummary (Prelude.Maybe Prelude.UTCTime)
 provisioningTemplateVersionSummary_creationDate = Lens.lens (\ProvisioningTemplateVersionSummary' {creationDate} -> creationDate) (\s@ProvisioningTemplateVersionSummary' {} a -> s {creationDate = a} :: ProvisioningTemplateVersionSummary) Prelude.. Lens.mapping Core._Time
 

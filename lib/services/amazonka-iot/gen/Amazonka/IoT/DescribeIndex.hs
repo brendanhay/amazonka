@@ -131,6 +131,10 @@ data DescribeIndexResponse = DescribeIndexResponse'
     -- -   REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index
     --     contains registry data, shadow data, and thing connectivity status
     --     data.
+    --
+    -- -   MULTI_INDEXING_MODE - Your thing index contains multiple data
+    --     sources. For more information, see
+    --     <https://docs.aws.amazon.com/iot/latest/apireference/API_GetIndexingConfiguration.html GetIndexingConfiguration>.
     schema :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -163,6 +167,10 @@ data DescribeIndexResponse = DescribeIndexResponse'
 -- -   REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index
 --     contains registry data, shadow data, and thing connectivity status
 --     data.
+--
+-- -   MULTI_INDEXING_MODE - Your thing index contains multiple data
+--     sources. For more information, see
+--     <https://docs.aws.amazon.com/iot/latest/apireference/API_GetIndexingConfiguration.html GetIndexingConfiguration>.
 --
 -- 'httpStatus', 'describeIndexResponse_httpStatus' - The response's http status code.
 newDescribeIndexResponse ::
@@ -199,6 +207,10 @@ describeIndexResponse_indexStatus = Lens.lens (\DescribeIndexResponse' {indexSta
 -- -   REGISTRY_AND_SHADOW_AND_CONNECTIVITY_STATUS - Your thing index
 --     contains registry data, shadow data, and thing connectivity status
 --     data.
+--
+-- -   MULTI_INDEXING_MODE - Your thing index contains multiple data
+--     sources. For more information, see
+--     <https://docs.aws.amazon.com/iot/latest/apireference/API_GetIndexingConfiguration.html GetIndexingConfiguration>.
 describeIndexResponse_schema :: Lens.Lens' DescribeIndexResponse (Prelude.Maybe Prelude.Text)
 describeIndexResponse_schema = Lens.lens (\DescribeIndexResponse' {schema} -> schema) (\s@DescribeIndexResponse' {} a -> s {schema = a} :: DescribeIndexResponse)
 

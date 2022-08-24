@@ -46,6 +46,10 @@ data AuthorizerDescription = AuthorizerDescription'
     tokenSigningPublicKeys :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The authorizer ARN.
     authorizerArn :: Prelude.Maybe Prelude.Text,
+    -- | When @true@, the result from the authorizer’s Lambda function is cached
+    -- for the time specified in @refreshAfterInSeconds@. The cached result is
+    -- used while the device reuses the same HTTP connection.
+    enableCachingForHttp :: Prelude.Maybe Prelude.Bool,
     -- | The authorizer name.
     authorizerName :: Prelude.Maybe Prelude.Text
   }
@@ -77,6 +81,10 @@ data AuthorizerDescription = AuthorizerDescription'
 --
 -- 'authorizerArn', 'authorizerDescription_authorizerArn' - The authorizer ARN.
 --
+-- 'enableCachingForHttp', 'authorizerDescription_enableCachingForHttp' - When @true@, the result from the authorizer’s Lambda function is cached
+-- for the time specified in @refreshAfterInSeconds@. The cached result is
+-- used while the device reuses the same HTTP connection.
+--
 -- 'authorizerName', 'authorizerDescription_authorizerName' - The authorizer name.
 newAuthorizerDescription ::
   AuthorizerDescription
@@ -91,6 +99,7 @@ newAuthorizerDescription =
       signingDisabled = Prelude.Nothing,
       tokenSigningPublicKeys = Prelude.Nothing,
       authorizerArn = Prelude.Nothing,
+      enableCachingForHttp = Prelude.Nothing,
       authorizerName = Prelude.Nothing
     }
 
@@ -128,6 +137,12 @@ authorizerDescription_tokenSigningPublicKeys = Lens.lens (\AuthorizerDescription
 authorizerDescription_authorizerArn :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Text)
 authorizerDescription_authorizerArn = Lens.lens (\AuthorizerDescription' {authorizerArn} -> authorizerArn) (\s@AuthorizerDescription' {} a -> s {authorizerArn = a} :: AuthorizerDescription)
 
+-- | When @true@, the result from the authorizer’s Lambda function is cached
+-- for the time specified in @refreshAfterInSeconds@. The cached result is
+-- used while the device reuses the same HTTP connection.
+authorizerDescription_enableCachingForHttp :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Bool)
+authorizerDescription_enableCachingForHttp = Lens.lens (\AuthorizerDescription' {enableCachingForHttp} -> enableCachingForHttp) (\s@AuthorizerDescription' {} a -> s {enableCachingForHttp = a} :: AuthorizerDescription)
+
 -- | The authorizer name.
 authorizerDescription_authorizerName :: Lens.Lens' AuthorizerDescription (Prelude.Maybe Prelude.Text)
 authorizerDescription_authorizerName = Lens.lens (\AuthorizerDescription' {authorizerName} -> authorizerName) (\s@AuthorizerDescription' {} a -> s {authorizerName = a} :: AuthorizerDescription)
@@ -148,6 +163,7 @@ instance Core.FromJSON AuthorizerDescription where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "authorizerArn")
+            Prelude.<*> (x Core..:? "enableCachingForHttp")
             Prelude.<*> (x Core..:? "authorizerName")
       )
 
@@ -161,6 +177,7 @@ instance Prelude.Hashable AuthorizerDescription where
       `Prelude.hashWithSalt` signingDisabled
       `Prelude.hashWithSalt` tokenSigningPublicKeys
       `Prelude.hashWithSalt` authorizerArn
+      `Prelude.hashWithSalt` enableCachingForHttp
       `Prelude.hashWithSalt` authorizerName
 
 instance Prelude.NFData AuthorizerDescription where
@@ -173,4 +190,5 @@ instance Prelude.NFData AuthorizerDescription where
       `Prelude.seq` Prelude.rnf signingDisabled
       `Prelude.seq` Prelude.rnf tokenSigningPublicKeys
       `Prelude.seq` Prelude.rnf authorizerArn
+      `Prelude.seq` Prelude.rnf enableCachingForHttp
       `Prelude.seq` Prelude.rnf authorizerName

@@ -55,6 +55,9 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newAddThingToBillingGroup' smart constructor.
 data AddThingToBillingGroup = AddThingToBillingGroup'
   { -- | The name of the billing group.
+    --
+    -- This call is asynchronous. It might take several seconds for the
+    -- detachment to propagate.
     billingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the thing to be added to the billing group.
     thingName :: Prelude.Maybe Prelude.Text,
@@ -75,6 +78,9 @@ data AddThingToBillingGroup = AddThingToBillingGroup'
 --
 -- 'billingGroupName', 'addThingToBillingGroup_billingGroupName' - The name of the billing group.
 --
+-- This call is asynchronous. It might take several seconds for the
+-- detachment to propagate.
+--
 -- 'thingName', 'addThingToBillingGroup_thingName' - The name of the thing to be added to the billing group.
 --
 -- 'billingGroupArn', 'addThingToBillingGroup_billingGroupArn' - The ARN of the billing group.
@@ -92,6 +98,9 @@ newAddThingToBillingGroup =
     }
 
 -- | The name of the billing group.
+--
+-- This call is asynchronous. It might take several seconds for the
+-- detachment to propagate.
 addThingToBillingGroup_billingGroupName :: Lens.Lens' AddThingToBillingGroup (Prelude.Maybe Prelude.Text)
 addThingToBillingGroup_billingGroupName = Lens.lens (\AddThingToBillingGroup' {billingGroupName} -> billingGroupName) (\s@AddThingToBillingGroup' {} a -> s {billingGroupName = a} :: AddThingToBillingGroup)
 

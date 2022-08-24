@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- A list of fleet provisioning template versions.
+-- A list of provisioning template versions.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListProvisioningTemplateVersions>
@@ -61,7 +61,7 @@ data ListProvisioningTemplateVersions = ListProvisioningTemplateVersions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at one time.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the fleet provisioning template.
+    -- | The name of the provisioning template.
     templateName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data ListProvisioningTemplateVersions = ListProvisioningTemplateVersions'
 --
 -- 'maxResults', 'listProvisioningTemplateVersions_maxResults' - The maximum number of results to return at one time.
 --
--- 'templateName', 'listProvisioningTemplateVersions_templateName' - The name of the fleet provisioning template.
+-- 'templateName', 'listProvisioningTemplateVersions_templateName' - The name of the provisioning template.
 newListProvisioningTemplateVersions ::
   -- | 'templateName'
   Prelude.Text ->
@@ -99,7 +99,7 @@ listProvisioningTemplateVersions_nextToken = Lens.lens (\ListProvisioningTemplat
 listProvisioningTemplateVersions_maxResults :: Lens.Lens' ListProvisioningTemplateVersions (Prelude.Maybe Prelude.Natural)
 listProvisioningTemplateVersions_maxResults = Lens.lens (\ListProvisioningTemplateVersions' {maxResults} -> maxResults) (\s@ListProvisioningTemplateVersions' {} a -> s {maxResults = a} :: ListProvisioningTemplateVersions)
 
--- | The name of the fleet provisioning template.
+-- | The name of the provisioning template.
 listProvisioningTemplateVersions_templateName :: Lens.Lens' ListProvisioningTemplateVersions Prelude.Text
 listProvisioningTemplateVersions_templateName = Lens.lens (\ListProvisioningTemplateVersions' {templateName} -> templateName) (\s@ListProvisioningTemplateVersions' {} a -> s {templateName = a} :: ListProvisioningTemplateVersions)
 
@@ -193,7 +193,7 @@ instance
 data ListProvisioningTemplateVersionsResponse = ListProvisioningTemplateVersionsResponse'
   { -- | A token to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of fleet provisioning template versions.
+    -- | The list of provisioning template versions.
     versions :: Prelude.Maybe [ProvisioningTemplateVersionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -210,7 +210,7 @@ data ListProvisioningTemplateVersionsResponse = ListProvisioningTemplateVersions
 --
 -- 'nextToken', 'listProvisioningTemplateVersionsResponse_nextToken' - A token to retrieve the next set of results.
 --
--- 'versions', 'listProvisioningTemplateVersionsResponse_versions' - The list of fleet provisioning template versions.
+-- 'versions', 'listProvisioningTemplateVersionsResponse_versions' - The list of provisioning template versions.
 --
 -- 'httpStatus', 'listProvisioningTemplateVersionsResponse_httpStatus' - The response's http status code.
 newListProvisioningTemplateVersionsResponse ::
@@ -230,7 +230,7 @@ newListProvisioningTemplateVersionsResponse
 listProvisioningTemplateVersionsResponse_nextToken :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Prelude.Maybe Prelude.Text)
 listProvisioningTemplateVersionsResponse_nextToken = Lens.lens (\ListProvisioningTemplateVersionsResponse' {nextToken} -> nextToken) (\s@ListProvisioningTemplateVersionsResponse' {} a -> s {nextToken = a} :: ListProvisioningTemplateVersionsResponse)
 
--- | The list of fleet provisioning template versions.
+-- | The list of provisioning template versions.
 listProvisioningTemplateVersionsResponse_versions :: Lens.Lens' ListProvisioningTemplateVersionsResponse (Prelude.Maybe [ProvisioningTemplateVersionSummary])
 listProvisioningTemplateVersionsResponse_versions = Lens.lens (\ListProvisioningTemplateVersionsResponse' {versions} -> versions) (\s@ListProvisioningTemplateVersionsResponse' {} a -> s {versions = a} :: ListProvisioningTemplateVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 

@@ -27,7 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRegistrationConfig' smart constructor.
 data RegistrationConfig = RegistrationConfig'
-  { -- | The ARN of the role.
+  { -- | The name of the provisioning template.
+    templateName :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the role.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The template body.
     templateBody :: Prelude.Maybe Prelude.Text
@@ -42,6 +44,8 @@ data RegistrationConfig = RegistrationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'templateName', 'registrationConfig_templateName' - The name of the provisioning template.
+--
 -- 'roleArn', 'registrationConfig_roleArn' - The ARN of the role.
 --
 -- 'templateBody', 'registrationConfig_templateBody' - The template body.
@@ -49,9 +53,14 @@ newRegistrationConfig ::
   RegistrationConfig
 newRegistrationConfig =
   RegistrationConfig'
-    { roleArn = Prelude.Nothing,
+    { templateName = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
       templateBody = Prelude.Nothing
     }
+
+-- | The name of the provisioning template.
+registrationConfig_templateName :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
+registrationConfig_templateName = Lens.lens (\RegistrationConfig' {templateName} -> templateName) (\s@RegistrationConfig' {} a -> s {templateName = a} :: RegistrationConfig)
 
 -- | The ARN of the role.
 registrationConfig_roleArn :: Lens.Lens' RegistrationConfig (Prelude.Maybe Prelude.Text)
@@ -67,25 +76,29 @@ instance Core.FromJSON RegistrationConfig where
       "RegistrationConfig"
       ( \x ->
           RegistrationConfig'
-            Prelude.<$> (x Core..:? "roleArn")
+            Prelude.<$> (x Core..:? "templateName")
+            Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "templateBody")
       )
 
 instance Prelude.Hashable RegistrationConfig where
   hashWithSalt _salt RegistrationConfig' {..} =
-    _salt `Prelude.hashWithSalt` roleArn
+    _salt `Prelude.hashWithSalt` templateName
+      `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` templateBody
 
 instance Prelude.NFData RegistrationConfig where
   rnf RegistrationConfig' {..} =
-    Prelude.rnf roleArn
+    Prelude.rnf templateName
+      `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf templateBody
 
 instance Core.ToJSON RegistrationConfig where
   toJSON RegistrationConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("roleArn" Core..=) Prelude.<$> roleArn,
+          [ ("templateName" Core..=) Prelude.<$> templateName,
+            ("roleArn" Core..=) Prelude.<$> roleArn,
             ("templateBody" Core..=) Prelude.<$> templateBody
           ]
       )

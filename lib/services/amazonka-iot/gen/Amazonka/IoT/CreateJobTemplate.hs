@@ -38,6 +38,7 @@ module Amazonka.IoT.CreateJobTemplate
     createJobTemplate_presignedUrlConfig,
     createJobTemplate_document,
     createJobTemplate_jobArn,
+    createJobTemplate_jobExecutionsRetryConfig,
     createJobTemplate_timeoutConfig,
     createJobTemplate_jobTemplateId,
     createJobTemplate_description,
@@ -85,6 +86,8 @@ data CreateJobTemplate = CreateJobTemplate'
     document :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the job to use as the basis for the job template.
     jobArn :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to create the criteria to retry a job.
+    jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
     timeoutConfig :: Prelude.Maybe TimeoutConfig,
     -- | A unique identifier for the job template. We recommend using a UUID.
     -- Alpha-numeric characters, \"-\", and \"_\" are valid for use here.
@@ -128,6 +131,8 @@ data CreateJobTemplate = CreateJobTemplate'
 --
 -- 'jobArn', 'createJobTemplate_jobArn' - The ARN of the job to use as the basis for the job template.
 --
+-- 'jobExecutionsRetryConfig', 'createJobTemplate_jobExecutionsRetryConfig' - Allows you to create the criteria to retry a job.
+--
 -- 'timeoutConfig', 'createJobTemplate_timeoutConfig' - Undocumented member.
 --
 -- 'jobTemplateId', 'createJobTemplate_jobTemplateId' - A unique identifier for the job template. We recommend using a UUID.
@@ -149,6 +154,7 @@ newCreateJobTemplate pJobTemplateId_ pDescription_ =
       presignedUrlConfig = Prelude.Nothing,
       document = Prelude.Nothing,
       jobArn = Prelude.Nothing,
+      jobExecutionsRetryConfig = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
       jobTemplateId = pJobTemplateId_,
       description = pDescription_
@@ -194,6 +200,10 @@ createJobTemplate_document = Lens.lens (\CreateJobTemplate' {document} -> docume
 createJobTemplate_jobArn :: Lens.Lens' CreateJobTemplate (Prelude.Maybe Prelude.Text)
 createJobTemplate_jobArn = Lens.lens (\CreateJobTemplate' {jobArn} -> jobArn) (\s@CreateJobTemplate' {} a -> s {jobArn = a} :: CreateJobTemplate)
 
+-- | Allows you to create the criteria to retry a job.
+createJobTemplate_jobExecutionsRetryConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe JobExecutionsRetryConfig)
+createJobTemplate_jobExecutionsRetryConfig = Lens.lens (\CreateJobTemplate' {jobExecutionsRetryConfig} -> jobExecutionsRetryConfig) (\s@CreateJobTemplate' {} a -> s {jobExecutionsRetryConfig = a} :: CreateJobTemplate)
+
 -- | Undocumented member.
 createJobTemplate_timeoutConfig :: Lens.Lens' CreateJobTemplate (Prelude.Maybe TimeoutConfig)
 createJobTemplate_timeoutConfig = Lens.lens (\CreateJobTemplate' {timeoutConfig} -> timeoutConfig) (\s@CreateJobTemplate' {} a -> s {timeoutConfig = a} :: CreateJobTemplate)
@@ -230,6 +240,7 @@ instance Prelude.Hashable CreateJobTemplate where
       `Prelude.hashWithSalt` presignedUrlConfig
       `Prelude.hashWithSalt` document
       `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` jobExecutionsRetryConfig
       `Prelude.hashWithSalt` timeoutConfig
       `Prelude.hashWithSalt` jobTemplateId
       `Prelude.hashWithSalt` description
@@ -243,6 +254,7 @@ instance Prelude.NFData CreateJobTemplate where
       `Prelude.seq` Prelude.rnf presignedUrlConfig
       `Prelude.seq` Prelude.rnf document
       `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf jobExecutionsRetryConfig
       `Prelude.seq` Prelude.rnf timeoutConfig
       `Prelude.seq` Prelude.rnf jobTemplateId
       `Prelude.seq` Prelude.rnf description
@@ -264,6 +276,8 @@ instance Core.ToJSON CreateJobTemplate where
               Prelude.<$> presignedUrlConfig,
             ("document" Core..=) Prelude.<$> document,
             ("jobArn" Core..=) Prelude.<$> jobArn,
+            ("jobExecutionsRetryConfig" Core..=)
+              Prelude.<$> jobExecutionsRetryConfig,
             ("timeoutConfig" Core..=) Prelude.<$> timeoutConfig,
             Prelude.Just ("description" Core..= description)
           ]

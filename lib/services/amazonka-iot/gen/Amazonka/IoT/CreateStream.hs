@@ -70,8 +70,8 @@ data CreateStream = CreateStream'
     streamId :: Prelude.Text,
     -- | The files to stream.
     files :: Prelude.NonEmpty StreamFile,
-    -- | An IAM role that allows the IoT service principal assumes to access your
-    -- S3 files.
+    -- | An IAM role that allows the IoT service principal to access your S3
+    -- files.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,8 +92,8 @@ data CreateStream = CreateStream'
 --
 -- 'files', 'createStream_files' - The files to stream.
 --
--- 'roleArn', 'createStream_roleArn' - An IAM role that allows the IoT service principal assumes to access your
--- S3 files.
+-- 'roleArn', 'createStream_roleArn' - An IAM role that allows the IoT service principal to access your S3
+-- files.
 newCreateStream ::
   -- | 'streamId'
   Prelude.Text ->
@@ -127,8 +127,8 @@ createStream_streamId = Lens.lens (\CreateStream' {streamId} -> streamId) (\s@Cr
 createStream_files :: Lens.Lens' CreateStream (Prelude.NonEmpty StreamFile)
 createStream_files = Lens.lens (\CreateStream' {files} -> files) (\s@CreateStream' {} a -> s {files = a} :: CreateStream) Prelude.. Lens.coerced
 
--- | An IAM role that allows the IoT service principal assumes to access your
--- S3 files.
+-- | An IAM role that allows the IoT service principal to access your S3
+-- files.
 createStream_roleArn :: Lens.Lens' CreateStream Prelude.Text
 createStream_roleArn = Lens.lens (\CreateStream' {roleArn} -> roleArn) (\s@CreateStream' {} a -> s {roleArn = a} :: CreateStream)
 

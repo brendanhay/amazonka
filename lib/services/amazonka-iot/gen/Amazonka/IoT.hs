@@ -60,6 +60,9 @@ module Amazonka.IoT
     -- ** ConflictingResourceUpdateException
     _ConflictingResourceUpdateException,
 
+    -- ** InternalServerException
+    _InternalServerException,
+
     -- ** UnauthorizedException
     _UnauthorizedException,
 
@@ -714,6 +717,12 @@ module Amazonka.IoT
     DescribeJobTemplateResponse (DescribeJobTemplateResponse'),
     newDescribeJobTemplateResponse,
 
+    -- ** DescribeManagedJobTemplate
+    DescribeManagedJobTemplate (DescribeManagedJobTemplate'),
+    newDescribeManagedJobTemplate,
+    DescribeManagedJobTemplateResponse (DescribeManagedJobTemplateResponse'),
+    newDescribeManagedJobTemplateResponse,
+
     -- ** DescribeMitigationAction
     DescribeMitigationAction (DescribeMitigationAction'),
     newDescribeMitigationAction,
@@ -1043,6 +1052,18 @@ module Amazonka.IoT
     newListJobs,
     ListJobsResponse (ListJobsResponse'),
     newListJobsResponse,
+
+    -- ** ListManagedJobTemplates
+    ListManagedJobTemplates (ListManagedJobTemplates'),
+    newListManagedJobTemplates,
+    ListManagedJobTemplatesResponse (ListManagedJobTemplatesResponse'),
+    newListManagedJobTemplatesResponse,
+
+    -- ** ListMetricValues (Paginated)
+    ListMetricValues (ListMetricValues'),
+    newListMetricValues,
+    ListMetricValuesResponse (ListMetricValuesResponse'),
+    newListMetricValuesResponse,
 
     -- ** ListMitigationActions (Paginated)
     ListMitigationActions (ListMitigationActions'),
@@ -1610,6 +1631,9 @@ module Amazonka.IoT
     -- ** DeviceCertificateUpdateAction
     DeviceCertificateUpdateAction (..),
 
+    -- ** DeviceDefenderIndexingMode
+    DeviceDefenderIndexingMode (..),
+
     -- ** DimensionType
     DimensionType (..),
 
@@ -1664,6 +1688,9 @@ module Amazonka.IoT
     -- ** ModelStatus
     ModelStatus (..),
 
+    -- ** NamedShadowIndexingMode
+    NamedShadowIndexingMode (..),
+
     -- ** OTAUpdateStatus
     OTAUpdateStatus (..),
 
@@ -1679,6 +1706,9 @@ module Amazonka.IoT
     -- ** ResourceType
     ResourceType (..),
 
+    -- ** RetryableFailureType
+    RetryableFailureType (..),
+
     -- ** ServerCertificateStatus
     ServerCertificateStatus (..),
 
@@ -1690,6 +1720,9 @@ module Amazonka.IoT
 
     -- ** TaskStatus
     TaskStatus (..),
+
+    -- ** TemplateType
+    TemplateType (..),
 
     -- ** ThingConnectivityIndexingMode
     ThingConnectivityIndexingMode (..),
@@ -1945,6 +1978,10 @@ module Amazonka.IoT
     DetectMitigationActionsTaskTarget (DetectMitigationActionsTaskTarget'),
     newDetectMitigationActionsTaskTarget,
 
+    -- ** DocumentParameter
+    DocumentParameter (DocumentParameter'),
+    newDocumentParameter,
+
     -- ** DomainConfigurationSummary
     DomainConfigurationSummary (DomainConfigurationSummary'),
     newDomainConfigurationSummary,
@@ -2033,6 +2070,10 @@ module Amazonka.IoT
     ImplicitDeny (ImplicitDeny'),
     newImplicitDeny,
 
+    -- ** IndexingFilter
+    IndexingFilter (IndexingFilter'),
+    newIndexingFilter,
+
     -- ** IotAnalyticsAction
     IotAnalyticsAction (IotAnalyticsAction'),
     newIotAnalyticsAction,
@@ -2068,6 +2109,10 @@ module Amazonka.IoT
     -- ** JobExecutionSummaryForThing
     JobExecutionSummaryForThing (JobExecutionSummaryForThing'),
     newJobExecutionSummaryForThing,
+
+    -- ** JobExecutionsRetryConfig
+    JobExecutionsRetryConfig (JobExecutionsRetryConfig'),
+    newJobExecutionsRetryConfig,
 
     -- ** JobExecutionsRolloutConfig
     JobExecutionsRolloutConfig (JobExecutionsRolloutConfig'),
@@ -2116,6 +2161,14 @@ module Amazonka.IoT
     -- ** MachineLearningDetectionConfig
     MachineLearningDetectionConfig (MachineLearningDetectionConfig'),
     newMachineLearningDetectionConfig,
+
+    -- ** ManagedJobTemplateSummary
+    ManagedJobTemplateSummary (ManagedJobTemplateSummary'),
+    newManagedJobTemplateSummary,
+
+    -- ** MetricDatum
+    MetricDatum (MetricDatum'),
+    newMetricDatum,
 
     -- ** MetricDimension
     MetricDimension (MetricDimension'),
@@ -2236,6 +2289,10 @@ module Amazonka.IoT
     -- ** ResourceIdentifier
     ResourceIdentifier (ResourceIdentifier'),
     newResourceIdentifier,
+
+    -- ** RetryCriteria
+    RetryCriteria (RetryCriteria'),
+    newRetryCriteria,
 
     -- ** RoleAliasDescription
     RoleAliasDescription (RoleAliasDescription'),
@@ -2567,6 +2624,7 @@ import Amazonka.IoT.DescribeIndex
 import Amazonka.IoT.DescribeJob
 import Amazonka.IoT.DescribeJobExecution
 import Amazonka.IoT.DescribeJobTemplate
+import Amazonka.IoT.DescribeManagedJobTemplate
 import Amazonka.IoT.DescribeMitigationAction
 import Amazonka.IoT.DescribeProvisioningTemplate
 import Amazonka.IoT.DescribeProvisioningTemplateVersion
@@ -2623,6 +2681,8 @@ import Amazonka.IoT.ListJobExecutionsForJob
 import Amazonka.IoT.ListJobExecutionsForThing
 import Amazonka.IoT.ListJobTemplates
 import Amazonka.IoT.ListJobs
+import Amazonka.IoT.ListManagedJobTemplates
+import Amazonka.IoT.ListMetricValues
 import Amazonka.IoT.ListMitigationActions
 import Amazonka.IoT.ListOTAUpdates
 import Amazonka.IoT.ListOutgoingCertificates

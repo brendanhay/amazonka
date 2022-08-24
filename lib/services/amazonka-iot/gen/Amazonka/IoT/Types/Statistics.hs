@@ -23,8 +23,9 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A map of key-value pairs for all supported statistics. Currently, only
--- count is supported.
+-- | A map of key-value pairs for all supported statistics. For issues with
+-- missing or unexpected values for this API, consult
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/fleet-indexing-troubleshooting.html Fleet indexing troubleshooting guide>.
 --
 -- /See:/ 'newStatistics' smart constructor.
 data Statistics = Statistics'
@@ -34,7 +35,8 @@ data Statistics = Statistics'
     average :: Prelude.Maybe Prelude.Double,
     -- | The sum of the squares of the aggregated field values.
     sumOfSquares :: Prelude.Maybe Prelude.Double,
-    -- | The count of things that match the query.
+    -- | The count of things that match the query string criteria and contain a
+    -- valid aggregation field value.
     count :: Prelude.Maybe Prelude.Int,
     -- | The standard deviation of the aggregated field values.
     stdDeviation :: Prelude.Maybe Prelude.Double,
@@ -61,7 +63,8 @@ data Statistics = Statistics'
 --
 -- 'sumOfSquares', 'statistics_sumOfSquares' - The sum of the squares of the aggregated field values.
 --
--- 'count', 'statistics_count' - The count of things that match the query.
+-- 'count', 'statistics_count' - The count of things that match the query string criteria and contain a
+-- valid aggregation field value.
 --
 -- 'stdDeviation', 'statistics_stdDeviation' - The standard deviation of the aggregated field values.
 --
@@ -96,7 +99,8 @@ statistics_average = Lens.lens (\Statistics' {average} -> average) (\s@Statistic
 statistics_sumOfSquares :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Double)
 statistics_sumOfSquares = Lens.lens (\Statistics' {sumOfSquares} -> sumOfSquares) (\s@Statistics' {} a -> s {sumOfSquares = a} :: Statistics)
 
--- | The count of things that match the query.
+-- | The count of things that match the query string criteria and contain a
+-- valid aggregation field value.
 statistics_count :: Lens.Lens' Statistics (Prelude.Maybe Prelude.Int)
 statistics_count = Lens.lens (\Statistics' {count} -> count) (\s@Statistics' {} a -> s {count = a} :: Statistics)
 

@@ -32,7 +32,15 @@ data ThingDocument = ThingDocument'
     thingName :: Prelude.Maybe Prelude.Text,
     -- | The thing ID.
     thingId :: Prelude.Maybe Prelude.Text,
-    -- | The shadow.
+    -- | Contains Device Defender data.
+    --
+    -- For more information about Device Defender, see
+    -- <https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html Device Defender>.
+    deviceDefender :: Prelude.Maybe Prelude.Text,
+    -- | The unnamed shadow and named shadow.
+    --
+    -- For more information about shadows, see
+    -- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html IoT Device Shadow service.>
     shadow :: Prelude.Maybe Prelude.Text,
     -- | The thing type name.
     thingTypeName :: Prelude.Maybe Prelude.Text,
@@ -58,7 +66,15 @@ data ThingDocument = ThingDocument'
 --
 -- 'thingId', 'thingDocument_thingId' - The thing ID.
 --
--- 'shadow', 'thingDocument_shadow' - The shadow.
+-- 'deviceDefender', 'thingDocument_deviceDefender' - Contains Device Defender data.
+--
+-- For more information about Device Defender, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html Device Defender>.
+--
+-- 'shadow', 'thingDocument_shadow' - The unnamed shadow and named shadow.
+--
+-- For more information about shadows, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html IoT Device Shadow service.>
 --
 -- 'thingTypeName', 'thingDocument_thingTypeName' - The thing type name.
 --
@@ -74,6 +90,7 @@ newThingDocument =
   ThingDocument'
     { thingName = Prelude.Nothing,
       thingId = Prelude.Nothing,
+      deviceDefender = Prelude.Nothing,
       shadow = Prelude.Nothing,
       thingTypeName = Prelude.Nothing,
       thingGroupNames = Prelude.Nothing,
@@ -89,7 +106,17 @@ thingDocument_thingName = Lens.lens (\ThingDocument' {thingName} -> thingName) (
 thingDocument_thingId :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
 thingDocument_thingId = Lens.lens (\ThingDocument' {thingId} -> thingId) (\s@ThingDocument' {} a -> s {thingId = a} :: ThingDocument)
 
--- | The shadow.
+-- | Contains Device Defender data.
+--
+-- For more information about Device Defender, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/device-defender.html Device Defender>.
+thingDocument_deviceDefender :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
+thingDocument_deviceDefender = Lens.lens (\ThingDocument' {deviceDefender} -> deviceDefender) (\s@ThingDocument' {} a -> s {deviceDefender = a} :: ThingDocument)
+
+-- | The unnamed shadow and named shadow.
+--
+-- For more information about shadows, see
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html IoT Device Shadow service.>
 thingDocument_shadow :: Lens.Lens' ThingDocument (Prelude.Maybe Prelude.Text)
 thingDocument_shadow = Lens.lens (\ThingDocument' {shadow} -> shadow) (\s@ThingDocument' {} a -> s {shadow = a} :: ThingDocument)
 
@@ -118,6 +145,7 @@ instance Core.FromJSON ThingDocument where
           ThingDocument'
             Prelude.<$> (x Core..:? "thingName")
             Prelude.<*> (x Core..:? "thingId")
+            Prelude.<*> (x Core..:? "deviceDefender")
             Prelude.<*> (x Core..:? "shadow")
             Prelude.<*> (x Core..:? "thingTypeName")
             Prelude.<*> ( x Core..:? "thingGroupNames"
@@ -131,6 +159,7 @@ instance Prelude.Hashable ThingDocument where
   hashWithSalt _salt ThingDocument' {..} =
     _salt `Prelude.hashWithSalt` thingName
       `Prelude.hashWithSalt` thingId
+      `Prelude.hashWithSalt` deviceDefender
       `Prelude.hashWithSalt` shadow
       `Prelude.hashWithSalt` thingTypeName
       `Prelude.hashWithSalt` thingGroupNames
@@ -141,6 +170,7 @@ instance Prelude.NFData ThingDocument where
   rnf ThingDocument' {..} =
     Prelude.rnf thingName
       `Prelude.seq` Prelude.rnf thingId
+      `Prelude.seq` Prelude.rnf deviceDefender
       `Prelude.seq` Prelude.rnf shadow
       `Prelude.seq` Prelude.rnf thingTypeName
       `Prelude.seq` Prelude.rnf thingGroupNames

@@ -21,6 +21,7 @@ module Amazonka.IoT.Types.Job where
 
 import qualified Amazonka.Core as Core
 import Amazonka.IoT.Types.AbortConfig
+import Amazonka.IoT.Types.JobExecutionsRetryConfig
 import Amazonka.IoT.Types.JobExecutionsRolloutConfig
 import Amazonka.IoT.Types.JobProcessDetails
 import Amazonka.IoT.Types.JobStatus
@@ -40,6 +41,19 @@ data Job = Job'
     abortConfig :: Prelude.Maybe AbortConfig,
     -- | The time, in seconds since the epoch, when the job was last updated.
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
+    -- | A key-value map that pairs the patterns that need to be replaced in a
+    -- managed template job document schema. You can use the description of
+    -- each key as a guidance to specify the inputs during runtime when
+    -- creating a job.
+    --
+    -- @documentParameters@ can only be used when creating jobs from Amazon Web
+    -- Services managed templates. This parameter can\'t be used with custom
+    -- job templates or to create jobs from them.
+    documentParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Indicates whether a job is concurrent. Will be true when a job is
+    -- rolling out new job executions or canceling previously created
+    -- executions, otherwise false.
+    isConcurrent :: Prelude.Maybe Prelude.Bool,
     -- | The ARN of the job template used to create the job.
     jobTemplateArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the job will continue to run (CONTINUOUS), or will be
@@ -48,6 +62,10 @@ data Job = Job'
     -- change is detected in a target. For example, a job will run on a device
     -- when the thing representing the device is added to a target group, even
     -- after the job was completed by all things originally in the group.
+    --
+    -- We recommend that you use continuous jobs instead of snapshot jobs for
+    -- dynamic thing group targets. By using continuous jobs, devices that join
+    -- the group receive the job execution even after the job has been created.
     targetSelection :: Prelude.Maybe TargetSelection,
     -- | The unique identifier you assigned to this job when it was created.
     jobId :: Prelude.Maybe Prelude.Text,
@@ -80,6 +98,8 @@ data Job = Job'
     -- | An ARN identifying the job with format
     -- \"arn:aws:iot:region:account:job\/jobId\".
     jobArn :: Prelude.Maybe Prelude.Text,
+    -- | The configuration for the criteria to retry the job.
+    jobExecutionsRetryConfig :: Prelude.Maybe JobExecutionsRetryConfig,
     -- | Details about the job process.
     jobProcessDetails :: Prelude.Maybe JobProcessDetails,
     -- | The time, in seconds since the epoch, when the job was completed.
@@ -109,6 +129,19 @@ data Job = Job'
 --
 -- 'lastUpdatedAt', 'job_lastUpdatedAt' - The time, in seconds since the epoch, when the job was last updated.
 --
+-- 'documentParameters', 'job_documentParameters' - A key-value map that pairs the patterns that need to be replaced in a
+-- managed template job document schema. You can use the description of
+-- each key as a guidance to specify the inputs during runtime when
+-- creating a job.
+--
+-- @documentParameters@ can only be used when creating jobs from Amazon Web
+-- Services managed templates. This parameter can\'t be used with custom
+-- job templates or to create jobs from them.
+--
+-- 'isConcurrent', 'job_isConcurrent' - Indicates whether a job is concurrent. Will be true when a job is
+-- rolling out new job executions or canceling previously created
+-- executions, otherwise false.
+--
 -- 'jobTemplateArn', 'job_jobTemplateArn' - The ARN of the job template used to create the job.
 --
 -- 'targetSelection', 'job_targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be
@@ -117,6 +150,10 @@ data Job = Job'
 -- change is detected in a target. For example, a job will run on a device
 -- when the thing representing the device is added to a target group, even
 -- after the job was completed by all things originally in the group.
+--
+-- We recommend that you use continuous jobs instead of snapshot jobs for
+-- dynamic thing group targets. By using continuous jobs, devices that join
+-- the group receive the job execution even after the job has been created.
 --
 -- 'jobId', 'job_jobId' - The unique identifier you assigned to this job when it was created.
 --
@@ -149,6 +186,8 @@ data Job = Job'
 -- 'jobArn', 'job_jobArn' - An ARN identifying the job with format
 -- \"arn:aws:iot:region:account:job\/jobId\".
 --
+-- 'jobExecutionsRetryConfig', 'job_jobExecutionsRetryConfig' - The configuration for the criteria to retry the job.
+--
 -- 'jobProcessDetails', 'job_jobProcessDetails' - Details about the job process.
 --
 -- 'completedAt', 'job_completedAt' - The time, in seconds since the epoch, when the job was completed.
@@ -167,6 +206,8 @@ newJob =
     { jobExecutionsRolloutConfig = Prelude.Nothing,
       abortConfig = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing,
+      documentParameters = Prelude.Nothing,
+      isConcurrent = Prelude.Nothing,
       jobTemplateArn = Prelude.Nothing,
       targetSelection = Prelude.Nothing,
       jobId = Prelude.Nothing,
@@ -179,6 +220,7 @@ newJob =
       reasonCode = Prelude.Nothing,
       namespaceId = Prelude.Nothing,
       jobArn = Prelude.Nothing,
+      jobExecutionsRetryConfig = Prelude.Nothing,
       jobProcessDetails = Prelude.Nothing,
       completedAt = Prelude.Nothing,
       timeoutConfig = Prelude.Nothing,
@@ -197,6 +239,23 @@ job_abortConfig = Lens.lens (\Job' {abortConfig} -> abortConfig) (\s@Job' {} a -
 job_lastUpdatedAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
 job_lastUpdatedAt = Lens.lens (\Job' {lastUpdatedAt} -> lastUpdatedAt) (\s@Job' {} a -> s {lastUpdatedAt = a} :: Job) Prelude.. Lens.mapping Core._Time
 
+-- | A key-value map that pairs the patterns that need to be replaced in a
+-- managed template job document schema. You can use the description of
+-- each key as a guidance to specify the inputs during runtime when
+-- creating a job.
+--
+-- @documentParameters@ can only be used when creating jobs from Amazon Web
+-- Services managed templates. This parameter can\'t be used with custom
+-- job templates or to create jobs from them.
+job_documentParameters :: Lens.Lens' Job (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+job_documentParameters = Lens.lens (\Job' {documentParameters} -> documentParameters) (\s@Job' {} a -> s {documentParameters = a} :: Job) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether a job is concurrent. Will be true when a job is
+-- rolling out new job executions or canceling previously created
+-- executions, otherwise false.
+job_isConcurrent :: Lens.Lens' Job (Prelude.Maybe Prelude.Bool)
+job_isConcurrent = Lens.lens (\Job' {isConcurrent} -> isConcurrent) (\s@Job' {} a -> s {isConcurrent = a} :: Job)
+
 -- | The ARN of the job template used to create the job.
 job_jobTemplateArn :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_jobTemplateArn = Lens.lens (\Job' {jobTemplateArn} -> jobTemplateArn) (\s@Job' {} a -> s {jobTemplateArn = a} :: Job)
@@ -207,6 +266,10 @@ job_jobTemplateArn = Lens.lens (\Job' {jobTemplateArn} -> jobTemplateArn) (\s@Jo
 -- change is detected in a target. For example, a job will run on a device
 -- when the thing representing the device is added to a target group, even
 -- after the job was completed by all things originally in the group.
+--
+-- We recommend that you use continuous jobs instead of snapshot jobs for
+-- dynamic thing group targets. By using continuous jobs, devices that join
+-- the group receive the job execution even after the job has been created.
 job_targetSelection :: Lens.Lens' Job (Prelude.Maybe TargetSelection)
 job_targetSelection = Lens.lens (\Job' {targetSelection} -> targetSelection) (\s@Job' {} a -> s {targetSelection = a} :: Job)
 
@@ -261,6 +324,10 @@ job_namespaceId = Lens.lens (\Job' {namespaceId} -> namespaceId) (\s@Job' {} a -
 job_jobArn :: Lens.Lens' Job (Prelude.Maybe Prelude.Text)
 job_jobArn = Lens.lens (\Job' {jobArn} -> jobArn) (\s@Job' {} a -> s {jobArn = a} :: Job)
 
+-- | The configuration for the criteria to retry the job.
+job_jobExecutionsRetryConfig :: Lens.Lens' Job (Prelude.Maybe JobExecutionsRetryConfig)
+job_jobExecutionsRetryConfig = Lens.lens (\Job' {jobExecutionsRetryConfig} -> jobExecutionsRetryConfig) (\s@Job' {} a -> s {jobExecutionsRetryConfig = a} :: Job)
+
 -- | Details about the job process.
 job_jobProcessDetails :: Lens.Lens' Job (Prelude.Maybe JobProcessDetails)
 job_jobProcessDetails = Lens.lens (\Job' {jobProcessDetails} -> jobProcessDetails) (\s@Job' {} a -> s {jobProcessDetails = a} :: Job)
@@ -290,6 +357,10 @@ instance Core.FromJSON Job where
             Prelude.<$> (x Core..:? "jobExecutionsRolloutConfig")
             Prelude.<*> (x Core..:? "abortConfig")
             Prelude.<*> (x Core..:? "lastUpdatedAt")
+            Prelude.<*> ( x Core..:? "documentParameters"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "isConcurrent")
             Prelude.<*> (x Core..:? "jobTemplateArn")
             Prelude.<*> (x Core..:? "targetSelection")
             Prelude.<*> (x Core..:? "jobId")
@@ -302,6 +373,7 @@ instance Core.FromJSON Job where
             Prelude.<*> (x Core..:? "reasonCode")
             Prelude.<*> (x Core..:? "namespaceId")
             Prelude.<*> (x Core..:? "jobArn")
+            Prelude.<*> (x Core..:? "jobExecutionsRetryConfig")
             Prelude.<*> (x Core..:? "jobProcessDetails")
             Prelude.<*> (x Core..:? "completedAt")
             Prelude.<*> (x Core..:? "timeoutConfig")
@@ -314,6 +386,8 @@ instance Prelude.Hashable Job where
       `Prelude.hashWithSalt` jobExecutionsRolloutConfig
       `Prelude.hashWithSalt` abortConfig
       `Prelude.hashWithSalt` lastUpdatedAt
+      `Prelude.hashWithSalt` documentParameters
+      `Prelude.hashWithSalt` isConcurrent
       `Prelude.hashWithSalt` jobTemplateArn
       `Prelude.hashWithSalt` targetSelection
       `Prelude.hashWithSalt` jobId
@@ -326,6 +400,7 @@ instance Prelude.Hashable Job where
       `Prelude.hashWithSalt` reasonCode
       `Prelude.hashWithSalt` namespaceId
       `Prelude.hashWithSalt` jobArn
+      `Prelude.hashWithSalt` jobExecutionsRetryConfig
       `Prelude.hashWithSalt` jobProcessDetails
       `Prelude.hashWithSalt` completedAt
       `Prelude.hashWithSalt` timeoutConfig
@@ -336,6 +411,8 @@ instance Prelude.NFData Job where
     Prelude.rnf jobExecutionsRolloutConfig
       `Prelude.seq` Prelude.rnf abortConfig
       `Prelude.seq` Prelude.rnf lastUpdatedAt
+      `Prelude.seq` Prelude.rnf documentParameters
+      `Prelude.seq` Prelude.rnf isConcurrent
       `Prelude.seq` Prelude.rnf jobTemplateArn
       `Prelude.seq` Prelude.rnf targetSelection
       `Prelude.seq` Prelude.rnf jobId
@@ -348,6 +425,8 @@ instance Prelude.NFData Job where
       `Prelude.seq` Prelude.rnf reasonCode
       `Prelude.seq` Prelude.rnf namespaceId
       `Prelude.seq` Prelude.rnf jobArn
+      `Prelude.seq` Prelude.rnf
+        jobExecutionsRetryConfig
       `Prelude.seq` Prelude.rnf jobProcessDetails
       `Prelude.seq` Prelude.rnf completedAt
       `Prelude.seq` Prelude.rnf timeoutConfig

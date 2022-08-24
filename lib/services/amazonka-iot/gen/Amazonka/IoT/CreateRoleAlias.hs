@@ -68,6 +68,9 @@ data CreateRoleAlias = CreateRoleAlias'
     tags :: Prelude.Maybe [Tag],
     -- | How long (in seconds) the credentials will be valid. The default value
     -- is 3,600 seconds.
+    --
+    -- This value must be less than or equal to the maximum session duration of
+    -- the IAM role that the role alias references.
     credentialDurationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The role alias that points to a role ARN. This allows you to change the
     -- role without having to update the device.
@@ -97,6 +100,9 @@ data CreateRoleAlias = CreateRoleAlias'
 --
 -- 'credentialDurationSeconds', 'createRoleAlias_credentialDurationSeconds' - How long (in seconds) the credentials will be valid. The default value
 -- is 3,600 seconds.
+--
+-- This value must be less than or equal to the maximum session duration of
+-- the IAM role that the role alias references.
 --
 -- 'roleAlias', 'createRoleAlias_roleAlias' - The role alias that points to a role ARN. This allows you to change the
 -- role without having to update the device.
@@ -130,6 +136,9 @@ createRoleAlias_tags = Lens.lens (\CreateRoleAlias' {tags} -> tags) (\s@CreateRo
 
 -- | How long (in seconds) the credentials will be valid. The default value
 -- is 3,600 seconds.
+--
+-- This value must be less than or equal to the maximum session duration of
+-- the IAM role that the role alias references.
 createRoleAlias_credentialDurationSeconds :: Lens.Lens' CreateRoleAlias (Prelude.Maybe Prelude.Natural)
 createRoleAlias_credentialDurationSeconds = Lens.lens (\CreateRoleAlias' {credentialDurationSeconds} -> credentialDurationSeconds) (\s@CreateRoleAlias' {} a -> s {credentialDurationSeconds = a} :: CreateRoleAlias)
 

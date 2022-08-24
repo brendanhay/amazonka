@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the fleet provisioning templates in your Amazon Web Services
--- account.
+-- Lists the provisioning templates in your Amazon Web Services account.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListProvisioningTemplates>
@@ -155,7 +154,7 @@ instance Core.ToQuery ListProvisioningTemplates where
 data ListProvisioningTemplatesResponse = ListProvisioningTemplatesResponse'
   { -- | A token to retrieve the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of fleet provisioning templates
+    -- | A list of provisioning templates
     templates :: Prelude.Maybe [ProvisioningTemplateSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -172,7 +171,7 @@ data ListProvisioningTemplatesResponse = ListProvisioningTemplatesResponse'
 --
 -- 'nextToken', 'listProvisioningTemplatesResponse_nextToken' - A token to retrieve the next set of results.
 --
--- 'templates', 'listProvisioningTemplatesResponse_templates' - A list of fleet provisioning templates
+-- 'templates', 'listProvisioningTemplatesResponse_templates' - A list of provisioning templates
 --
 -- 'httpStatus', 'listProvisioningTemplatesResponse_httpStatus' - The response's http status code.
 newListProvisioningTemplatesResponse ::
@@ -191,7 +190,7 @@ newListProvisioningTemplatesResponse pHttpStatus_ =
 listProvisioningTemplatesResponse_nextToken :: Lens.Lens' ListProvisioningTemplatesResponse (Prelude.Maybe Prelude.Text)
 listProvisioningTemplatesResponse_nextToken = Lens.lens (\ListProvisioningTemplatesResponse' {nextToken} -> nextToken) (\s@ListProvisioningTemplatesResponse' {} a -> s {nextToken = a} :: ListProvisioningTemplatesResponse)
 
--- | A list of fleet provisioning templates
+-- | A list of provisioning templates
 listProvisioningTemplatesResponse_templates :: Lens.Lens' ListProvisioningTemplatesResponse (Prelude.Maybe [ProvisioningTemplateSummary])
 listProvisioningTemplatesResponse_templates = Lens.lens (\ListProvisioningTemplatesResponse' {templates} -> templates) (\s@ListProvisioningTemplatesResponse' {} a -> s {templates = a} :: ListProvisioningTemplatesResponse) Prelude.. Lens.mapping Lens.coerced
 

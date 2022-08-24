@@ -60,16 +60,20 @@ import qualified Amazonka.Response as Response
 data CreateCustomMetric = CreateCustomMetric'
   { -- | Metadata that can be used to manage the custom metric.
     tags :: Prelude.Maybe [Tag],
-    -- | Field represents a friendly name in the console for the custom metric;
-    -- it doesn\'t have to be unique. Don\'t use this name as the metric
-    -- identifier in the device metric report. Can be updated once defined.
+    -- | The friendly name in the console for the custom metric. This name
+    -- doesn\'t have to be unique. Don\'t use this name as the metric
+    -- identifier in the device metric report. You can update the friendly name
+    -- after you define it.
     displayName :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom metric. This will be used in the metric report
-    -- submitted from the device\/thing. Shouldn\'t begin with @aws:@. Cannot
-    -- be updated once defined.
+    -- submitted from the device\/thing. The name can\'t begin with @aws:@. You
+    -- can\'t change the name after you define it.
     metricName :: Prelude.Text,
-    -- | The type of the custom metric. Types include @string-list@,
-    -- @ip-address-list@, @number-list@, and @number@.
+    -- | The type of the custom metric.
+    --
+    -- The type @number@ only takes a single metric value as an input, but when
+    -- you submit the metrics value in the DeviceMetrics report, you must pass
+    -- it as an array with a single value.
     metricType :: CustomMetricType,
     -- | Each custom metric must have a unique client request token. If you try
     -- to create a new custom metric that already exists with a different
@@ -89,16 +93,20 @@ data CreateCustomMetric = CreateCustomMetric'
 --
 -- 'tags', 'createCustomMetric_tags' - Metadata that can be used to manage the custom metric.
 --
--- 'displayName', 'createCustomMetric_displayName' - Field represents a friendly name in the console for the custom metric;
--- it doesn\'t have to be unique. Don\'t use this name as the metric
--- identifier in the device metric report. Can be updated once defined.
+-- 'displayName', 'createCustomMetric_displayName' - The friendly name in the console for the custom metric. This name
+-- doesn\'t have to be unique. Don\'t use this name as the metric
+-- identifier in the device metric report. You can update the friendly name
+-- after you define it.
 --
 -- 'metricName', 'createCustomMetric_metricName' - The name of the custom metric. This will be used in the metric report
--- submitted from the device\/thing. Shouldn\'t begin with @aws:@. Cannot
--- be updated once defined.
+-- submitted from the device\/thing. The name can\'t begin with @aws:@. You
+-- can\'t change the name after you define it.
 --
--- 'metricType', 'createCustomMetric_metricType' - The type of the custom metric. Types include @string-list@,
--- @ip-address-list@, @number-list@, and @number@.
+-- 'metricType', 'createCustomMetric_metricType' - The type of the custom metric.
+--
+-- The type @number@ only takes a single metric value as an input, but when
+-- you submit the metrics value in the DeviceMetrics report, you must pass
+-- it as an array with a single value.
 --
 -- 'clientRequestToken', 'createCustomMetric_clientRequestToken' - Each custom metric must have a unique client request token. If you try
 -- to create a new custom metric that already exists with a different
@@ -128,20 +136,24 @@ newCreateCustomMetric
 createCustomMetric_tags :: Lens.Lens' CreateCustomMetric (Prelude.Maybe [Tag])
 createCustomMetric_tags = Lens.lens (\CreateCustomMetric' {tags} -> tags) (\s@CreateCustomMetric' {} a -> s {tags = a} :: CreateCustomMetric) Prelude.. Lens.mapping Lens.coerced
 
--- | Field represents a friendly name in the console for the custom metric;
--- it doesn\'t have to be unique. Don\'t use this name as the metric
--- identifier in the device metric report. Can be updated once defined.
+-- | The friendly name in the console for the custom metric. This name
+-- doesn\'t have to be unique. Don\'t use this name as the metric
+-- identifier in the device metric report. You can update the friendly name
+-- after you define it.
 createCustomMetric_displayName :: Lens.Lens' CreateCustomMetric (Prelude.Maybe Prelude.Text)
 createCustomMetric_displayName = Lens.lens (\CreateCustomMetric' {displayName} -> displayName) (\s@CreateCustomMetric' {} a -> s {displayName = a} :: CreateCustomMetric)
 
 -- | The name of the custom metric. This will be used in the metric report
--- submitted from the device\/thing. Shouldn\'t begin with @aws:@. Cannot
--- be updated once defined.
+-- submitted from the device\/thing. The name can\'t begin with @aws:@. You
+-- can\'t change the name after you define it.
 createCustomMetric_metricName :: Lens.Lens' CreateCustomMetric Prelude.Text
 createCustomMetric_metricName = Lens.lens (\CreateCustomMetric' {metricName} -> metricName) (\s@CreateCustomMetric' {} a -> s {metricName = a} :: CreateCustomMetric)
 
--- | The type of the custom metric. Types include @string-list@,
--- @ip-address-list@, @number-list@, and @number@.
+-- | The type of the custom metric.
+--
+-- The type @number@ only takes a single metric value as an input, but when
+-- you submit the metrics value in the DeviceMetrics report, you must pass
+-- it as an array with a single value.
 createCustomMetric_metricType :: Lens.Lens' CreateCustomMetric CustomMetricType
 createCustomMetric_metricType = Lens.lens (\CreateCustomMetric' {metricType} -> metricType) (\s@CreateCustomMetric' {} a -> s {metricType = a} :: CreateCustomMetric)
 
@@ -207,7 +219,7 @@ instance Core.ToQuery CreateCustomMetric where
 
 -- | /See:/ 'newCreateCustomMetricResponse' smart constructor.
 data CreateCustomMetricResponse = CreateCustomMetricResponse'
-  { -- | The Amazon Resource Number (ARN) of the custom metric, e.g.
+  { -- | The Amazon Resource Number (ARN) of the custom metric. For example,
     -- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
     metricArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the custom metric to be used in the metric report.
@@ -225,7 +237,7 @@ data CreateCustomMetricResponse = CreateCustomMetricResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'metricArn', 'createCustomMetricResponse_metricArn' - The Amazon Resource Number (ARN) of the custom metric, e.g.
+-- 'metricArn', 'createCustomMetricResponse_metricArn' - The Amazon Resource Number (ARN) of the custom metric. For example,
 -- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
 --
 -- 'metricName', 'createCustomMetricResponse_metricName' - The name of the custom metric to be used in the metric report.
@@ -243,7 +255,7 @@ newCreateCustomMetricResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Amazon Resource Number (ARN) of the custom metric, e.g.
+-- | The Amazon Resource Number (ARN) of the custom metric. For example,
 -- @arn:aws-partition:iot:region:accountId:custommetric\/metricName @
 createCustomMetricResponse_metricArn :: Lens.Lens' CreateCustomMetricResponse (Prelude.Maybe Prelude.Text)
 createCustomMetricResponse_metricArn = Lens.lens (\CreateCustomMetricResponse' {metricArn} -> metricArn) (\s@CreateCustomMetricResponse' {} a -> s {metricArn = a} :: CreateCustomMetricResponse)

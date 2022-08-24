@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a fleet provisioning template.
+-- Deletes a provisioning template.
 --
 -- Requires permission to access the
 -- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteProvisioningTemplate>

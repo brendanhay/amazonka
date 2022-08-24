@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Register a certificate that does not have a certificate authority (CA).
+-- For supported certificates, consult
+-- <https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms Certificate signing algorithms supported by IoT>.
 module Amazonka.IoT.RegisterCertificateWithoutCA
   ( -- * Creating a Request
     RegisterCertificateWithoutCA (..),

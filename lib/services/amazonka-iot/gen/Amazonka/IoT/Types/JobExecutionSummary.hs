@@ -40,7 +40,10 @@ data JobExecutionSummary = JobExecutionSummary'
     -- | The time, in seconds since the epoch, when the job execution started.
     startedAt :: Prelude.Maybe Core.POSIX,
     -- | The time, in seconds since the epoch, when the job execution was queued.
-    queuedAt :: Prelude.Maybe Core.POSIX
+    queuedAt :: Prelude.Maybe Core.POSIX,
+    -- | The number that indicates how many retry attempts have been completed
+    -- for this job on this device.
+    retryAttempt :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -64,6 +67,9 @@ data JobExecutionSummary = JobExecutionSummary'
 -- 'startedAt', 'jobExecutionSummary_startedAt' - The time, in seconds since the epoch, when the job execution started.
 --
 -- 'queuedAt', 'jobExecutionSummary_queuedAt' - The time, in seconds since the epoch, when the job execution was queued.
+--
+-- 'retryAttempt', 'jobExecutionSummary_retryAttempt' - The number that indicates how many retry attempts have been completed
+-- for this job on this device.
 newJobExecutionSummary ::
   JobExecutionSummary
 newJobExecutionSummary =
@@ -73,7 +79,8 @@ newJobExecutionSummary =
       lastUpdatedAt = Prelude.Nothing,
       status = Prelude.Nothing,
       startedAt = Prelude.Nothing,
-      queuedAt = Prelude.Nothing
+      queuedAt = Prelude.Nothing,
+      retryAttempt = Prelude.Nothing
     }
 
 -- | A string (consisting of the digits \"0\" through \"9\") which identifies
@@ -99,6 +106,11 @@ jobExecutionSummary_startedAt = Lens.lens (\JobExecutionSummary' {startedAt} -> 
 jobExecutionSummary_queuedAt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.UTCTime)
 jobExecutionSummary_queuedAt = Lens.lens (\JobExecutionSummary' {queuedAt} -> queuedAt) (\s@JobExecutionSummary' {} a -> s {queuedAt = a} :: JobExecutionSummary) Prelude.. Lens.mapping Core._Time
 
+-- | The number that indicates how many retry attempts have been completed
+-- for this job on this device.
+jobExecutionSummary_retryAttempt :: Lens.Lens' JobExecutionSummary (Prelude.Maybe Prelude.Int)
+jobExecutionSummary_retryAttempt = Lens.lens (\JobExecutionSummary' {retryAttempt} -> retryAttempt) (\s@JobExecutionSummary' {} a -> s {retryAttempt = a} :: JobExecutionSummary)
+
 instance Core.FromJSON JobExecutionSummary where
   parseJSON =
     Core.withObject
@@ -110,6 +122,7 @@ instance Core.FromJSON JobExecutionSummary where
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "startedAt")
             Prelude.<*> (x Core..:? "queuedAt")
+            Prelude.<*> (x Core..:? "retryAttempt")
       )
 
 instance Prelude.Hashable JobExecutionSummary where
@@ -119,6 +132,7 @@ instance Prelude.Hashable JobExecutionSummary where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` startedAt
       `Prelude.hashWithSalt` queuedAt
+      `Prelude.hashWithSalt` retryAttempt
 
 instance Prelude.NFData JobExecutionSummary where
   rnf JobExecutionSummary' {..} =
@@ -127,3 +141,4 @@ instance Prelude.NFData JobExecutionSummary where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf startedAt
       `Prelude.seq` Prelude.rnf queuedAt
+      `Prelude.seq` Prelude.rnf retryAttempt

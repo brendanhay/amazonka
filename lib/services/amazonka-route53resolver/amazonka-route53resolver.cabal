@@ -69,6 +69,7 @@ library
     Amazonka.Route53Resolver.GetFirewallRuleGroup
     Amazonka.Route53Resolver.GetFirewallRuleGroupAssociation
     Amazonka.Route53Resolver.GetFirewallRuleGroupPolicy
+    Amazonka.Route53Resolver.GetResolverConfig
     Amazonka.Route53Resolver.GetResolverDnssecConfig
     Amazonka.Route53Resolver.GetResolverEndpoint
     Amazonka.Route53Resolver.GetResolverQueryLogConfig
@@ -85,6 +86,7 @@ library
     Amazonka.Route53Resolver.ListFirewallRuleGroupAssociations
     Amazonka.Route53Resolver.ListFirewallRuleGroups
     Amazonka.Route53Resolver.ListFirewallRules
+    Amazonka.Route53Resolver.ListResolverConfigs
     Amazonka.Route53Resolver.ListResolverDnssecConfigs
     Amazonka.Route53Resolver.ListResolverEndpointIpAddresses
     Amazonka.Route53Resolver.ListResolverEndpoints
@@ -99,6 +101,7 @@ library
     Amazonka.Route53Resolver.TagResource
     Amazonka.Route53Resolver.Types
     Amazonka.Route53Resolver.Types.Action
+    Amazonka.Route53Resolver.Types.AutodefinedReverseFlag
     Amazonka.Route53Resolver.Types.BlockOverrideDnsType
     Amazonka.Route53Resolver.Types.BlockResponse
     Amazonka.Route53Resolver.Types.Filter
@@ -120,6 +123,8 @@ library
     Amazonka.Route53Resolver.Types.IpAddressStatus
     Amazonka.Route53Resolver.Types.IpAddressUpdate
     Amazonka.Route53Resolver.Types.MutationProtectionStatus
+    Amazonka.Route53Resolver.Types.ResolverAutodefinedReverseStatus
+    Amazonka.Route53Resolver.Types.ResolverConfig
     Amazonka.Route53Resolver.Types.ResolverDnssecConfig
     Amazonka.Route53Resolver.Types.ResolverDNSSECValidationStatus
     Amazonka.Route53Resolver.Types.ResolverEndpoint
@@ -146,6 +151,7 @@ library
     Amazonka.Route53Resolver.UpdateFirewallDomains
     Amazonka.Route53Resolver.UpdateFirewallRule
     Amazonka.Route53Resolver.UpdateFirewallRuleGroupAssociation
+    Amazonka.Route53Resolver.UpdateResolverConfig
     Amazonka.Route53Resolver.UpdateResolverDnssecConfig
     Amazonka.Route53Resolver.UpdateResolverEndpoint
     Amazonka.Route53Resolver.UpdateResolverRule

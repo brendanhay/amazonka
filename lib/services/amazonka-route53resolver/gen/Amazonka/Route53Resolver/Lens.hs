@@ -180,6 +180,11 @@ module Amazonka.Route53Resolver.Lens
     getFirewallRuleGroupPolicyResponse_firewallRuleGroupPolicy,
     getFirewallRuleGroupPolicyResponse_httpStatus,
 
+    -- ** GetResolverConfig
+    getResolverConfig_resourceId,
+    getResolverConfigResponse_resolverConfig,
+    getResolverConfigResponse_httpStatus,
+
     -- ** GetResolverDnssecConfig
     getResolverDnssecConfig_resourceId,
     getResolverDnssecConfigResponse_resolverDNSSECConfig,
@@ -279,6 +284,13 @@ module Amazonka.Route53Resolver.Lens
     listFirewallRulesResponse_nextToken,
     listFirewallRulesResponse_firewallRules,
     listFirewallRulesResponse_httpStatus,
+
+    -- ** ListResolverConfigs
+    listResolverConfigs_nextToken,
+    listResolverConfigs_maxResults,
+    listResolverConfigsResponse_nextToken,
+    listResolverConfigsResponse_resolverConfigs,
+    listResolverConfigsResponse_httpStatus,
 
     -- ** ListResolverDnssecConfigs
     listResolverDnssecConfigs_nextToken,
@@ -421,6 +433,12 @@ module Amazonka.Route53Resolver.Lens
     updateFirewallRuleGroupAssociationResponse_firewallRuleGroupAssociation,
     updateFirewallRuleGroupAssociationResponse_httpStatus,
 
+    -- ** UpdateResolverConfig
+    updateResolverConfig_resourceId,
+    updateResolverConfig_autodefinedReverseFlag,
+    updateResolverConfigResponse_resolverConfig,
+    updateResolverConfigResponse_httpStatus,
+
     -- ** UpdateResolverDnssecConfig
     updateResolverDnssecConfig_resourceId,
     updateResolverDnssecConfig_validation,
@@ -538,6 +556,12 @@ module Amazonka.Route53Resolver.Lens
     ipAddressUpdate_subnetId,
     ipAddressUpdate_ip,
 
+    -- ** ResolverConfig
+    resolverConfig_resourceId,
+    resolverConfig_ownerId,
+    resolverConfig_id,
+    resolverConfig_autodefinedReverse,
+
     -- ** ResolverDnssecConfig
     resolverDnssecConfig_resourceId,
     resolverDnssecConfig_ownerId,
@@ -643,6 +667,7 @@ import Amazonka.Route53Resolver.GetFirewallDomainList
 import Amazonka.Route53Resolver.GetFirewallRuleGroup
 import Amazonka.Route53Resolver.GetFirewallRuleGroupAssociation
 import Amazonka.Route53Resolver.GetFirewallRuleGroupPolicy
+import Amazonka.Route53Resolver.GetResolverConfig
 import Amazonka.Route53Resolver.GetResolverDnssecConfig
 import Amazonka.Route53Resolver.GetResolverEndpoint
 import Amazonka.Route53Resolver.GetResolverQueryLogConfig
@@ -658,6 +683,7 @@ import Amazonka.Route53Resolver.ListFirewallDomains
 import Amazonka.Route53Resolver.ListFirewallRuleGroupAssociations
 import Amazonka.Route53Resolver.ListFirewallRuleGroups
 import Amazonka.Route53Resolver.ListFirewallRules
+import Amazonka.Route53Resolver.ListResolverConfigs
 import Amazonka.Route53Resolver.ListResolverDnssecConfigs
 import Amazonka.Route53Resolver.ListResolverEndpointIpAddresses
 import Amazonka.Route53Resolver.ListResolverEndpoints
@@ -681,6 +707,7 @@ import Amazonka.Route53Resolver.Types.FirewallRuleGroupMetadata
 import Amazonka.Route53Resolver.Types.IpAddressRequest
 import Amazonka.Route53Resolver.Types.IpAddressResponse
 import Amazonka.Route53Resolver.Types.IpAddressUpdate
+import Amazonka.Route53Resolver.Types.ResolverConfig
 import Amazonka.Route53Resolver.Types.ResolverDnssecConfig
 import Amazonka.Route53Resolver.Types.ResolverEndpoint
 import Amazonka.Route53Resolver.Types.ResolverQueryLogConfig
@@ -695,6 +722,7 @@ import Amazonka.Route53Resolver.UpdateFirewallConfig
 import Amazonka.Route53Resolver.UpdateFirewallDomains
 import Amazonka.Route53Resolver.UpdateFirewallRule
 import Amazonka.Route53Resolver.UpdateFirewallRuleGroupAssociation
+import Amazonka.Route53Resolver.UpdateResolverConfig
 import Amazonka.Route53Resolver.UpdateResolverDnssecConfig
 import Amazonka.Route53Resolver.UpdateResolverEndpoint
 import Amazonka.Route53Resolver.UpdateResolverRule

@@ -39,6 +39,12 @@ module Amazonka.EMRContainers.Types
     -- * VirtualClusterState
     VirtualClusterState (..),
 
+    -- * Certificate
+    Certificate (..),
+    newCertificate,
+    certificate_certificateArn,
+    certificate_certificateData,
+
     -- * CloudWatchMonitoringConfiguration
     CloudWatchMonitoringConfiguration (..),
     newCloudWatchMonitoringConfiguration,
@@ -90,6 +96,7 @@ module Amazonka.EMRContainers.Types
     endpoint_id,
     endpoint_certificateArn,
     endpoint_configurationOverrides,
+    endpoint_certificateAuthority,
     endpoint_virtualClusterId,
     endpoint_executionRoleArn,
     endpoint_subnetIds,
@@ -154,6 +161,7 @@ module Amazonka.EMRContainers.Types
 where
 
 import qualified Amazonka.Core as Core
+import Amazonka.EMRContainers.Types.Certificate
 import Amazonka.EMRContainers.Types.CloudWatchMonitoringConfiguration
 import Amazonka.EMRContainers.Types.Configuration
 import Amazonka.EMRContainers.Types.ConfigurationOverrides

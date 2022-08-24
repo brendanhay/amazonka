@@ -23,6 +23,8 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Aditi,
         VoiceId_Amy,
         VoiceId_Aria,
+        VoiceId_Arlet,
+        VoiceId_Arthur,
         VoiceId_Astrid,
         VoiceId_Ayanda,
         VoiceId_Bianca,
@@ -34,6 +36,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Chantal,
         VoiceId_Conchita,
         VoiceId_Cristiano,
+        VoiceId_Daniel,
         VoiceId_Dora,
         VoiceId_Emma,
         VoiceId_Enrique,
@@ -43,6 +46,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Geraint,
         VoiceId_Giorgio,
         VoiceId_Gwyneth,
+        VoiceId_Hannah,
         VoiceId_Hans,
         VoiceId_Ines,
         VoiceId_Ivy,
@@ -51,11 +55,13 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Joanna,
         VoiceId_Joey,
         VoiceId_Justin,
+        VoiceId_Kajal,
         VoiceId_Karl,
         VoiceId_Kendra,
         VoiceId_Kevin,
         VoiceId_Kimberly,
         VoiceId_Lea,
+        VoiceId_Liam,
         VoiceId_Liv,
         VoiceId_Lotte,
         VoiceId_Lucia,
@@ -72,6 +78,7 @@ module Amazonka.Polly.Types.VoiceId
         VoiceId_Naja,
         VoiceId_Nicole,
         VoiceId_Olivia,
+        VoiceId_Pedro,
         VoiceId_Penelope,
         VoiceId_Raveena,
         VoiceId_Ricardo,
@@ -126,6 +133,12 @@ pattern VoiceId_Amy = VoiceId' "Amy"
 pattern VoiceId_Aria :: VoiceId
 pattern VoiceId_Aria = VoiceId' "Aria"
 
+pattern VoiceId_Arlet :: VoiceId
+pattern VoiceId_Arlet = VoiceId' "Arlet"
+
+pattern VoiceId_Arthur :: VoiceId
+pattern VoiceId_Arthur = VoiceId' "Arthur"
+
 pattern VoiceId_Astrid :: VoiceId
 pattern VoiceId_Astrid = VoiceId' "Astrid"
 
@@ -159,6 +172,9 @@ pattern VoiceId_Conchita = VoiceId' "Conchita"
 pattern VoiceId_Cristiano :: VoiceId
 pattern VoiceId_Cristiano = VoiceId' "Cristiano"
 
+pattern VoiceId_Daniel :: VoiceId
+pattern VoiceId_Daniel = VoiceId' "Daniel"
+
 pattern VoiceId_Dora :: VoiceId
 pattern VoiceId_Dora = VoiceId' "Dora"
 
@@ -186,6 +202,9 @@ pattern VoiceId_Giorgio = VoiceId' "Giorgio"
 pattern VoiceId_Gwyneth :: VoiceId
 pattern VoiceId_Gwyneth = VoiceId' "Gwyneth"
 
+pattern VoiceId_Hannah :: VoiceId
+pattern VoiceId_Hannah = VoiceId' "Hannah"
+
 pattern VoiceId_Hans :: VoiceId
 pattern VoiceId_Hans = VoiceId' "Hans"
 
@@ -210,6 +229,9 @@ pattern VoiceId_Joey = VoiceId' "Joey"
 pattern VoiceId_Justin :: VoiceId
 pattern VoiceId_Justin = VoiceId' "Justin"
 
+pattern VoiceId_Kajal :: VoiceId
+pattern VoiceId_Kajal = VoiceId' "Kajal"
+
 pattern VoiceId_Karl :: VoiceId
 pattern VoiceId_Karl = VoiceId' "Karl"
 
@@ -224,6 +246,9 @@ pattern VoiceId_Kimberly = VoiceId' "Kimberly"
 
 pattern VoiceId_Lea :: VoiceId
 pattern VoiceId_Lea = VoiceId' "Lea"
+
+pattern VoiceId_Liam :: VoiceId
+pattern VoiceId_Liam = VoiceId' "Liam"
 
 pattern VoiceId_Liv :: VoiceId
 pattern VoiceId_Liv = VoiceId' "Liv"
@@ -273,6 +298,9 @@ pattern VoiceId_Nicole = VoiceId' "Nicole"
 pattern VoiceId_Olivia :: VoiceId
 pattern VoiceId_Olivia = VoiceId' "Olivia"
 
+pattern VoiceId_Pedro :: VoiceId
+pattern VoiceId_Pedro = VoiceId' "Pedro"
+
 pattern VoiceId_Penelope :: VoiceId
 pattern VoiceId_Penelope = VoiceId' "Penelope"
 
@@ -316,6 +344,8 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Aditi,
   VoiceId_Amy,
   VoiceId_Aria,
+  VoiceId_Arlet,
+  VoiceId_Arthur,
   VoiceId_Astrid,
   VoiceId_Ayanda,
   VoiceId_Bianca,
@@ -327,6 +357,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Chantal,
   VoiceId_Conchita,
   VoiceId_Cristiano,
+  VoiceId_Daniel,
   VoiceId_Dora,
   VoiceId_Emma,
   VoiceId_Enrique,
@@ -336,6 +367,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Geraint,
   VoiceId_Giorgio,
   VoiceId_Gwyneth,
+  VoiceId_Hannah,
   VoiceId_Hans,
   VoiceId_Ines,
   VoiceId_Ivy,
@@ -344,11 +376,13 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Joanna,
   VoiceId_Joey,
   VoiceId_Justin,
+  VoiceId_Kajal,
   VoiceId_Karl,
   VoiceId_Kendra,
   VoiceId_Kevin,
   VoiceId_Kimberly,
   VoiceId_Lea,
+  VoiceId_Liam,
   VoiceId_Liv,
   VoiceId_Lotte,
   VoiceId_Lucia,
@@ -365,6 +399,7 @@ pattern VoiceId_Zhiyu = VoiceId' "Zhiyu"
   VoiceId_Naja,
   VoiceId_Nicole,
   VoiceId_Olivia,
+  VoiceId_Pedro,
   VoiceId_Penelope,
   VoiceId_Raveena,
   VoiceId_Ricardo,

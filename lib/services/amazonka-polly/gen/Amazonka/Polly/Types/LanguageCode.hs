@@ -21,9 +21,11 @@ module Amazonka.Polly.Types.LanguageCode
   ( LanguageCode
       ( ..,
         LanguageCode_Arb,
+        LanguageCode_Ca_ES,
         LanguageCode_Cmn_CN,
         LanguageCode_Cy_GB,
         LanguageCode_Da_DK,
+        LanguageCode_De_AT,
         LanguageCode_De_DE,
         LanguageCode_En_AU,
         LanguageCode_En_GB,
@@ -89,6 +91,9 @@ newtype LanguageCode = LanguageCode'
 pattern LanguageCode_Arb :: LanguageCode
 pattern LanguageCode_Arb = LanguageCode' "arb"
 
+pattern LanguageCode_Ca_ES :: LanguageCode
+pattern LanguageCode_Ca_ES = LanguageCode' "ca-ES"
+
 pattern LanguageCode_Cmn_CN :: LanguageCode
 pattern LanguageCode_Cmn_CN = LanguageCode' "cmn-CN"
 
@@ -97,6 +102,9 @@ pattern LanguageCode_Cy_GB = LanguageCode' "cy-GB"
 
 pattern LanguageCode_Da_DK :: LanguageCode
 pattern LanguageCode_Da_DK = LanguageCode' "da-DK"
+
+pattern LanguageCode_De_AT :: LanguageCode
+pattern LanguageCode_De_AT = LanguageCode' "de-AT"
 
 pattern LanguageCode_De_DE :: LanguageCode
 pattern LanguageCode_De_DE = LanguageCode' "de-DE"
@@ -181,9 +189,11 @@ pattern LanguageCode_Tr_TR = LanguageCode' "tr-TR"
 
 {-# COMPLETE
   LanguageCode_Arb,
+  LanguageCode_Ca_ES,
   LanguageCode_Cmn_CN,
   LanguageCode_Cy_GB,
   LanguageCode_Da_DK,
+  LanguageCode_De_AT,
   LanguageCode_De_DE,
   LanguageCode_En_AU,
   LanguageCode_En_GB,

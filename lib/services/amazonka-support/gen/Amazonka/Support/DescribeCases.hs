@@ -38,14 +38,14 @@
 -- Case data is available for 12 months after creation. If a case was
 -- created more than 12 months ago, a request might return an error.
 --
--- -   You must have a Business or Enterprise Support plan to use the AWS
---     Support API.
+-- -   You must have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan to use the Amazon Web Services Support API.
 --
--- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise Support plan, the
---     @SubscriptionRequiredException@ error message appears. For
+-- -   If you call the Amazon Web Services Support API from an account that
+--     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
---     <http://aws.amazon.com/premiumsupport/ AWS Support>.
+--     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
 --
 -- This operation returns paginated results.
 module Amazonka.Support.DescribeCases
@@ -92,7 +92,8 @@ data DescribeCases = DescribeCases'
     -- | Specifies whether to include resolved support cases in the
     -- @DescribeCases@ response. By default, resolved cases aren\'t included.
     includeResolvedCases :: Prelude.Maybe Prelude.Bool,
-    -- | The ID displayed for a case in the AWS Support Center user interface.
+    -- | The ID displayed for a case in the Amazon Web Services Support Center
+    -- user interface.
     displayId :: Prelude.Maybe Prelude.Text,
     -- | The start date for a filtered date search on support case
     -- communications. Case communications are available for 12 months after
@@ -106,10 +107,10 @@ data DescribeCases = DescribeCases'
     -- | The end date for a filtered date search on support case communications.
     -- Case communications are available for 12 months after creation.
     beforeTime :: Prelude.Maybe Prelude.Text,
-    -- | The ISO 639-1 code for the language in which AWS provides support. AWS
-    -- Support currently supports English (\"en\") and Japanese (\"ja\").
-    -- Language parameters must be passed explicitly for operations that take
-    -- them.
+    -- | The ISO 639-1 code for the language in which Amazon Web Services
+    -- provides support. Amazon Web Services Support currently supports English
+    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+    -- explicitly for operations that take them.
     language :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -130,7 +131,8 @@ data DescribeCases = DescribeCases'
 -- 'includeResolvedCases', 'describeCases_includeResolvedCases' - Specifies whether to include resolved support cases in the
 -- @DescribeCases@ response. By default, resolved cases aren\'t included.
 --
--- 'displayId', 'describeCases_displayId' - The ID displayed for a case in the AWS Support Center user interface.
+-- 'displayId', 'describeCases_displayId' - The ID displayed for a case in the Amazon Web Services Support Center
+-- user interface.
 --
 -- 'afterTime', 'describeCases_afterTime' - The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
@@ -144,10 +146,10 @@ data DescribeCases = DescribeCases'
 -- 'beforeTime', 'describeCases_beforeTime' - The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
 --
--- 'language', 'describeCases_language' - The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- 'language', 'describeCases_language' - The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 newDescribeCases ::
   DescribeCases
 newDescribeCases =
@@ -177,7 +179,8 @@ describeCases_caseIdList = Lens.lens (\DescribeCases' {caseIdList} -> caseIdList
 describeCases_includeResolvedCases :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Bool)
 describeCases_includeResolvedCases = Lens.lens (\DescribeCases' {includeResolvedCases} -> includeResolvedCases) (\s@DescribeCases' {} a -> s {includeResolvedCases = a} :: DescribeCases)
 
--- | The ID displayed for a case in the AWS Support Center user interface.
+-- | The ID displayed for a case in the Amazon Web Services Support Center
+-- user interface.
 describeCases_displayId :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Text)
 describeCases_displayId = Lens.lens (\DescribeCases' {displayId} -> displayId) (\s@DescribeCases' {} a -> s {displayId = a} :: DescribeCases)
 
@@ -201,10 +204,10 @@ describeCases_includeCommunications = Lens.lens (\DescribeCases' {includeCommuni
 describeCases_beforeTime :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Text)
 describeCases_beforeTime = Lens.lens (\DescribeCases' {beforeTime} -> beforeTime) (\s@DescribeCases' {} a -> s {beforeTime = a} :: DescribeCases)
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 describeCases_language :: Lens.Lens' DescribeCases (Prelude.Maybe Prelude.Text)
 describeCases_language = Lens.lens (\DescribeCases' {language} -> language) (\s@DescribeCases' {} a -> s {language = a} :: DescribeCases)
 

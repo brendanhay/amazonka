@@ -36,13 +36,13 @@ import Amazonka.Support.Types.RecentCaseCommunications
 --     Corresponds to the @CategoryCode@ values returned by a call to
 --     DescribeServices.
 --
--- -   __displayId__ - The identifier for the case on pages in the AWS
---     Support Center.
+-- -   __displayId__ - The identifier for the case on pages in the Amazon
+--     Web Services Support Center.
 --
--- -   __language__ - The ISO 639-1 code for the language in which AWS
---     provides support. AWS Support currently supports English (\"en\")
---     and Japanese (\"ja\"). Language parameters must be passed explicitly
---     for operations that take them.
+-- -   __language__ - The ISO 639-1 code for the language in which Amazon
+--     Web Services provides support. Amazon Web Services Support currently
+--     supports English (\"en\") and Japanese (\"ja\"). Language parameters
+--     must be passed explicitly for operations that take them.
 --
 -- -   __nextToken__ - A resumption point for pagination.
 --
@@ -50,8 +50,8 @@ import Amazonka.Support.Types.RecentCaseCommunications
 --     of these objects are @attachments@, @body@, @caseId@, @submittedBy@,
 --     and @timeCreated@.
 --
--- -   __serviceCode__ - The identifier for the AWS service that
---     corresponds to the service code defined in the call to
+-- -   __serviceCode__ - The identifier for the Amazon Web Services service
+--     that corresponds to the service code defined in the call to
 --     DescribeServices.
 --
 -- -   __severityCode__ - The severity code assigned to the case. Contains
@@ -59,8 +59,8 @@ import Amazonka.Support.Types.RecentCaseCommunications
 --     The possible values are: @low@, @normal@, @high@, @urgent@, and
 --     @critical@.
 --
--- -   __status__ - The status of the case in the AWS Support Center. Valid
---     values:
+-- -   __status__ - The status of the case in the Amazon Web Services
+--     Support Center. Valid values:
 --
 --     -   @opened@
 --
@@ -89,15 +89,16 @@ data CaseDetails = CaseDetails'
     -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Maybe Prelude.Text,
-    -- | The ID displayed for the case in the AWS Support Center. This is a
-    -- numeric string.
+    -- | The ID displayed for the case in the Amazon Web Services Support Center.
+    -- This is a numeric string.
     displayId :: Prelude.Maybe Prelude.Text,
-    -- | The time that the case was created in the AWS Support Center.
+    -- | The time that the case was created in the Amazon Web Services Support
+    -- Center.
     timeCreated :: Prelude.Maybe Prelude.Text,
     -- | The category of problem for the support case.
     categoryCode :: Prelude.Maybe Prelude.Text,
-    -- | The code for the AWS service. You can get a list of codes and the
-    -- corresponding service names by calling DescribeServices.
+    -- | The code for the Amazon Web Services service. You can get a list of
+    -- codes and the corresponding service names by calling DescribeServices.
     serviceCode :: Prelude.Maybe Prelude.Text,
     -- | The status of the case.
     --
@@ -117,17 +118,17 @@ data CaseDetails = CaseDetails'
     status :: Prelude.Maybe Prelude.Text,
     -- | The email address of the account that submitted the case.
     submittedBy :: Prelude.Maybe Prelude.Text,
-    -- | The five most recent communications between you and AWS Support Center,
-    -- including the IDs of any attachments to the communications. Also
-    -- includes a @nextToken@ that you can use to retrieve earlier
-    -- communications.
+    -- | The five most recent communications between you and Amazon Web Services
+    -- Support Center, including the IDs of any attachments to the
+    -- communications. Also includes a @nextToken@ that you can use to retrieve
+    -- earlier communications.
     recentCommunications :: Prelude.Maybe RecentCaseCommunications,
-    -- | The subject line for the case in the AWS Support Center.
+    -- | The subject line for the case in the Amazon Web Services Support Center.
     subject :: Prelude.Maybe Prelude.Text,
-    -- | The ISO 639-1 code for the language in which AWS provides support. AWS
-    -- Support currently supports English (\"en\") and Japanese (\"ja\").
-    -- Language parameters must be passed explicitly for operations that take
-    -- them.
+    -- | The ISO 639-1 code for the language in which Amazon Web Services
+    -- provides support. Amazon Web Services Support currently supports English
+    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+    -- explicitly for operations that take them.
     language :: Prelude.Maybe Prelude.Text,
     -- | The code for the severity level returned by the call to
     -- DescribeSeverityLevels.
@@ -149,15 +150,16 @@ data CaseDetails = CaseDetails'
 -- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
--- 'displayId', 'caseDetails_displayId' - The ID displayed for the case in the AWS Support Center. This is a
--- numeric string.
+-- 'displayId', 'caseDetails_displayId' - The ID displayed for the case in the Amazon Web Services Support Center.
+-- This is a numeric string.
 --
--- 'timeCreated', 'caseDetails_timeCreated' - The time that the case was created in the AWS Support Center.
+-- 'timeCreated', 'caseDetails_timeCreated' - The time that the case was created in the Amazon Web Services Support
+-- Center.
 --
 -- 'categoryCode', 'caseDetails_categoryCode' - The category of problem for the support case.
 --
--- 'serviceCode', 'caseDetails_serviceCode' - The code for the AWS service. You can get a list of codes and the
--- corresponding service names by calling DescribeServices.
+-- 'serviceCode', 'caseDetails_serviceCode' - The code for the Amazon Web Services service. You can get a list of
+-- codes and the corresponding service names by calling DescribeServices.
 --
 -- 'status', 'caseDetails_status' - The status of the case.
 --
@@ -177,17 +179,17 @@ data CaseDetails = CaseDetails'
 --
 -- 'submittedBy', 'caseDetails_submittedBy' - The email address of the account that submitted the case.
 --
--- 'recentCommunications', 'caseDetails_recentCommunications' - The five most recent communications between you and AWS Support Center,
--- including the IDs of any attachments to the communications. Also
--- includes a @nextToken@ that you can use to retrieve earlier
--- communications.
+-- 'recentCommunications', 'caseDetails_recentCommunications' - The five most recent communications between you and Amazon Web Services
+-- Support Center, including the IDs of any attachments to the
+-- communications. Also includes a @nextToken@ that you can use to retrieve
+-- earlier communications.
 --
--- 'subject', 'caseDetails_subject' - The subject line for the case in the AWS Support Center.
+-- 'subject', 'caseDetails_subject' - The subject line for the case in the Amazon Web Services Support Center.
 --
--- 'language', 'caseDetails_language' - The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- 'language', 'caseDetails_language' - The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 --
 -- 'severityCode', 'caseDetails_severityCode' - The code for the severity level returned by the call to
 -- DescribeSeverityLevels.
@@ -219,12 +221,13 @@ caseDetails_ccEmailAddresses = Lens.lens (\CaseDetails' {ccEmailAddresses} -> cc
 caseDetails_caseId :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_caseId = Lens.lens (\CaseDetails' {caseId} -> caseId) (\s@CaseDetails' {} a -> s {caseId = a} :: CaseDetails)
 
--- | The ID displayed for the case in the AWS Support Center. This is a
--- numeric string.
+-- | The ID displayed for the case in the Amazon Web Services Support Center.
+-- This is a numeric string.
 caseDetails_displayId :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_displayId = Lens.lens (\CaseDetails' {displayId} -> displayId) (\s@CaseDetails' {} a -> s {displayId = a} :: CaseDetails)
 
--- | The time that the case was created in the AWS Support Center.
+-- | The time that the case was created in the Amazon Web Services Support
+-- Center.
 caseDetails_timeCreated :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_timeCreated = Lens.lens (\CaseDetails' {timeCreated} -> timeCreated) (\s@CaseDetails' {} a -> s {timeCreated = a} :: CaseDetails)
 
@@ -232,8 +235,8 @@ caseDetails_timeCreated = Lens.lens (\CaseDetails' {timeCreated} -> timeCreated)
 caseDetails_categoryCode :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_categoryCode = Lens.lens (\CaseDetails' {categoryCode} -> categoryCode) (\s@CaseDetails' {} a -> s {categoryCode = a} :: CaseDetails)
 
--- | The code for the AWS service. You can get a list of codes and the
--- corresponding service names by calling DescribeServices.
+-- | The code for the Amazon Web Services service. You can get a list of
+-- codes and the corresponding service names by calling DescribeServices.
 caseDetails_serviceCode :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_serviceCode = Lens.lens (\CaseDetails' {serviceCode} -> serviceCode) (\s@CaseDetails' {} a -> s {serviceCode = a} :: CaseDetails)
 
@@ -259,21 +262,21 @@ caseDetails_status = Lens.lens (\CaseDetails' {status} -> status) (\s@CaseDetail
 caseDetails_submittedBy :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_submittedBy = Lens.lens (\CaseDetails' {submittedBy} -> submittedBy) (\s@CaseDetails' {} a -> s {submittedBy = a} :: CaseDetails)
 
--- | The five most recent communications between you and AWS Support Center,
--- including the IDs of any attachments to the communications. Also
--- includes a @nextToken@ that you can use to retrieve earlier
--- communications.
+-- | The five most recent communications between you and Amazon Web Services
+-- Support Center, including the IDs of any attachments to the
+-- communications. Also includes a @nextToken@ that you can use to retrieve
+-- earlier communications.
 caseDetails_recentCommunications :: Lens.Lens' CaseDetails (Prelude.Maybe RecentCaseCommunications)
 caseDetails_recentCommunications = Lens.lens (\CaseDetails' {recentCommunications} -> recentCommunications) (\s@CaseDetails' {} a -> s {recentCommunications = a} :: CaseDetails)
 
--- | The subject line for the case in the AWS Support Center.
+-- | The subject line for the case in the Amazon Web Services Support Center.
 caseDetails_subject :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_subject = Lens.lens (\CaseDetails' {subject} -> subject) (\s@CaseDetails' {} a -> s {subject = a} :: CaseDetails)
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 caseDetails_language :: Lens.Lens' CaseDetails (Prelude.Maybe Prelude.Text)
 caseDetails_language = Lens.lens (\CaseDetails' {language} -> language) (\s@CaseDetails' {} a -> s {language = a} :: CaseDetails)
 

@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- case. The available values depend on the support plan for the account.
 -- For more information, see
 -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
--- in the /AWS Support User Guide/.
+-- in the /Amazon Web Services Support User Guide/.
 --
 -- /See:/ 'newSeverityLevel' smart constructor.
 data SeverityLevel = SeverityLevel'
@@ -35,8 +35,8 @@ data SeverityLevel = SeverityLevel'
     -- code.
     --
     -- The values returned by the API are different from the values that appear
-    -- in the AWS Support Center. For example, the API uses the code @low@, but
-    -- the name appears as General guidance in Support Center.
+    -- in the Amazon Web Services Support Center. For example, the API uses the
+    -- code @low@, but the name appears as General guidance in Support Center.
     --
     -- The following are the API code names and how they appear in the console:
     --
@@ -52,7 +52,7 @@ data SeverityLevel = SeverityLevel'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
-    -- in the /AWS Support User Guide/.
+    -- in the /Amazon Web Services Support User Guide/.
     name :: Prelude.Maybe Prelude.Text,
     -- | The code for case severity level.
     --
@@ -73,8 +73,8 @@ data SeverityLevel = SeverityLevel'
 -- code.
 --
 -- The values returned by the API are different from the values that appear
--- in the AWS Support Center. For example, the API uses the code @low@, but
--- the name appears as General guidance in Support Center.
+-- in the Amazon Web Services Support Center. For example, the API uses the
+-- code @low@, but the name appears as General guidance in Support Center.
 --
 -- The following are the API code names and how they appear in the console:
 --
@@ -90,7 +90,7 @@ data SeverityLevel = SeverityLevel'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
--- in the /AWS Support User Guide/.
+-- in the /Amazon Web Services Support User Guide/.
 --
 -- 'code', 'severityLevel_code' - The code for case severity level.
 --
@@ -107,8 +107,8 @@ newSeverityLevel =
 -- code.
 --
 -- The values returned by the API are different from the values that appear
--- in the AWS Support Center. For example, the API uses the code @low@, but
--- the name appears as General guidance in Support Center.
+-- in the Amazon Web Services Support Center. For example, the API uses the
+-- code @low@, but the name appears as General guidance in Support Center.
 --
 -- The following are the API code names and how they appear in the console:
 --
@@ -124,7 +124,7 @@ newSeverityLevel =
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#choosing-severity Choosing a severity>
--- in the /AWS Support User Guide/.
+-- in the /Amazon Web Services Support User Guide/.
 severityLevel_name :: Lens.Lens' SeverityLevel (Prelude.Maybe Prelude.Text)
 severityLevel_name = Lens.lens (\SeverityLevel' {name} -> name) (\s@SeverityLevel' {} a -> s {name = a} :: SeverityLevel)
 

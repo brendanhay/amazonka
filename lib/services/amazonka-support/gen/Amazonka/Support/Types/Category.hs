@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | A JSON-formatted name\/value pair that represents the category name and
 -- category code of the problem, selected from the DescribeServices
--- response for each AWS service.
+-- response for each Amazon Web Services service.
 --
 -- /See:/ 'newCategory' smart constructor.
 data Category = Category'

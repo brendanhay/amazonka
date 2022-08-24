@@ -20,21 +20,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about all available AWS Trusted Advisor checks,
+-- Returns information about all available Trusted Advisor checks,
 -- including the name, ID, category, description, and metadata. You must
--- specify a language code. The AWS Support API currently supports English
--- (\"en\") and Japanese (\"ja\"). The response contains a
+-- specify a language code. The Amazon Web Services Support API currently
+-- supports English (\"en\") and Japanese (\"ja\"). The response contains a
 -- TrustedAdvisorCheckDescription object for each check. You must set the
--- AWS Region to us-east-1.
+-- Amazon Web Services Region to us-east-1.
 --
--- -   You must have a Business or Enterprise Support plan to use the AWS
---     Support API.
+-- -   You must have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan to use the Amazon Web Services Support API.
 --
--- -   If you call the AWS Support API from an account that does not have a
---     Business or Enterprise Support plan, the
---     @SubscriptionRequiredException@ error message appears. For
+-- -   If you call the Amazon Web Services Support API from an account that
+--     does not have a Business, Enterprise On-Ramp, or Enterprise Support
+--     plan, the @SubscriptionRequiredException@ error message appears. For
 --     information about changing your support plan, see
---     <http://aws.amazon.com/premiumsupport/ AWS Support>.
+--     <http://aws.amazon.com/premiumsupport/ Amazon Web Services Support>.
 --
 -- -   The names and descriptions for Trusted Advisor checks are subject to
 --     change. We recommend that you specify the check ID in your code to
@@ -66,10 +66,10 @@ import Amazonka.Support.Types
 
 -- | /See:/ 'newDescribeTrustedAdvisorChecks' smart constructor.
 data DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
-  { -- | The ISO 639-1 code for the language in which AWS provides support. AWS
-    -- Support currently supports English (\"en\") and Japanese (\"ja\").
-    -- Language parameters must be passed explicitly for operations that take
-    -- them.
+  { -- | The ISO 639-1 code for the language in which Amazon Web Services
+    -- provides support. Amazon Web Services Support currently supports English
+    -- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+    -- explicitly for operations that take them.
     language :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,10 +82,10 @@ data DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'language', 'describeTrustedAdvisorChecks_language' - The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- 'language', 'describeTrustedAdvisorChecks_language' - The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 newDescribeTrustedAdvisorChecks ::
   -- | 'language'
   Prelude.Text ->
@@ -96,10 +96,10 @@ newDescribeTrustedAdvisorChecks pLanguage_ =
         pLanguage_
     }
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English (\"en\") and Japanese (\"ja\").
--- Language parameters must be passed explicitly for operations that take
--- them.
+-- | The ISO 639-1 code for the language in which Amazon Web Services
+-- provides support. Amazon Web Services Support currently supports English
+-- (\"en\") and Japanese (\"ja\"). Language parameters must be passed
+-- explicitly for operations that take them.
 describeTrustedAdvisorChecks_language :: Lens.Lens' DescribeTrustedAdvisorChecks Prelude.Text
 describeTrustedAdvisorChecks_language = Lens.lens (\DescribeTrustedAdvisorChecks' {language} -> language) (\s@DescribeTrustedAdvisorChecks' {} a -> s {language = a} :: DescribeTrustedAdvisorChecks)
 

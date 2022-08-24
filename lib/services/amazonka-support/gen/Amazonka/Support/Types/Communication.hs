@@ -35,15 +35,16 @@ data Communication = Communication'
     -- alphanumeric string formatted as shown in this example:
     -- case-/12345678910-2013-c4c1d2bf33c5cf47/
     caseId :: Prelude.Maybe Prelude.Text,
-    -- | The text of the communication between the customer and AWS Support.
+    -- | The text of the communication between the customer and Amazon Web
+    -- Services Support.
     body :: Prelude.Maybe Prelude.Text,
     -- | The time the communication was created.
     timeCreated :: Prelude.Maybe Prelude.Text,
     -- | The identity of the account that submitted, or responded to, the support
     -- case. Customer entries include the role or IAM user as well as the email
     -- address. For example, \"AdminRole (Role) \<janedoe\@example.com>.
-    -- Entries from the AWS Support team display \"Amazon Web Services,\" and
-    -- don\'t show an email address.
+    -- Entries from the Amazon Web Services Support team display \"Amazon Web
+    -- Services,\" and don\'t show an email address.
     submittedBy :: Prelude.Maybe Prelude.Text,
     -- | Information about the attachments to the case communication.
     attachmentSet :: Prelude.Maybe [AttachmentDetails]
@@ -62,15 +63,16 @@ data Communication = Communication'
 -- alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
--- 'body', 'communication_body' - The text of the communication between the customer and AWS Support.
+-- 'body', 'communication_body' - The text of the communication between the customer and Amazon Web
+-- Services Support.
 --
 -- 'timeCreated', 'communication_timeCreated' - The time the communication was created.
 --
 -- 'submittedBy', 'communication_submittedBy' - The identity of the account that submitted, or responded to, the support
 -- case. Customer entries include the role or IAM user as well as the email
 -- address. For example, \"AdminRole (Role) \<janedoe\@example.com>.
--- Entries from the AWS Support team display \"Amazon Web Services,\" and
--- don\'t show an email address.
+-- Entries from the Amazon Web Services Support team display \"Amazon Web
+-- Services,\" and don\'t show an email address.
 --
 -- 'attachmentSet', 'communication_attachmentSet' - Information about the attachments to the case communication.
 newCommunication ::
@@ -90,7 +92,8 @@ newCommunication =
 communication_caseId :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
 communication_caseId = Lens.lens (\Communication' {caseId} -> caseId) (\s@Communication' {} a -> s {caseId = a} :: Communication)
 
--- | The text of the communication between the customer and AWS Support.
+-- | The text of the communication between the customer and Amazon Web
+-- Services Support.
 communication_body :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
 communication_body = Lens.lens (\Communication' {body} -> body) (\s@Communication' {} a -> s {body = a} :: Communication)
 
@@ -101,8 +104,8 @@ communication_timeCreated = Lens.lens (\Communication' {timeCreated} -> timeCrea
 -- | The identity of the account that submitted, or responded to, the support
 -- case. Customer entries include the role or IAM user as well as the email
 -- address. For example, \"AdminRole (Role) \<janedoe\@example.com>.
--- Entries from the AWS Support team display \"Amazon Web Services,\" and
--- don\'t show an email address.
+-- Entries from the Amazon Web Services Support team display \"Amazon Web
+-- Services,\" and don\'t show an email address.
 communication_submittedBy :: Lens.Lens' Communication (Prelude.Maybe Prelude.Text)
 communication_submittedBy = Lens.lens (\Communication' {submittedBy} -> submittedBy) (\s@Communication' {} a -> s {submittedBy = a} :: Communication)
 

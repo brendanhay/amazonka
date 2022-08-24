@@ -28,7 +28,9 @@ module Amazonka.Lambda.Lens
 
     -- ** AddPermission
     addPermission_sourceArn,
+    addPermission_functionUrlAuthType,
     addPermission_eventSourceToken,
+    addPermission_principalOrgID,
     addPermission_revisionId,
     addPermission_qualifier,
     addPermission_sourceAccount,
@@ -63,10 +65,13 @@ module Amazonka.Lambda.Lens
     createEventSourceMapping_maximumRecordAgeInSeconds,
     createEventSourceMapping_startingPosition,
     createEventSourceMapping_functionResponseTypes,
+    createEventSourceMapping_amazonManagedKafkaEventSourceConfig,
     createEventSourceMapping_parallelizationFactor,
     createEventSourceMapping_maximumBatchingWindowInSeconds,
     createEventSourceMapping_enabled,
+    createEventSourceMapping_filterCriteria,
     createEventSourceMapping_selfManagedEventSource,
+    createEventSourceMapping_selfManagedKafkaEventSourceConfig,
     createEventSourceMapping_destinationConfig,
     createEventSourceMapping_eventSourceArn,
     createEventSourceMapping_maximumRetryAttempts,
@@ -82,13 +87,16 @@ module Amazonka.Lambda.Lens
     eventSourceMappingConfiguration_functionArn,
     eventSourceMappingConfiguration_startingPosition,
     eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_parallelizationFactor,
     eventSourceMappingConfiguration_lastProcessingResult,
     eventSourceMappingConfiguration_state,
     eventSourceMappingConfiguration_uuid,
     eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_filterCriteria,
     eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_destinationConfig,
     eventSourceMappingConfiguration_eventSourceArn,
     eventSourceMappingConfiguration_maximumRetryAttempts,
@@ -106,6 +114,7 @@ module Amazonka.Lambda.Lens
     createFunction_tags,
     createFunction_fileSystemConfigs,
     createFunction_timeout,
+    createFunction_ephemeralStorage,
     createFunction_memorySize,
     createFunction_publish,
     createFunction_imageConfig,
@@ -129,6 +138,7 @@ module Amazonka.Lambda.Lens
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -156,6 +166,18 @@ module Amazonka.Lambda.Lens
     functionConfiguration_deadLetterConfig,
     functionConfiguration_codeSize,
 
+    -- ** CreateFunctionUrlConfig
+    createFunctionUrlConfig_cors,
+    createFunctionUrlConfig_qualifier,
+    createFunctionUrlConfig_functionName,
+    createFunctionUrlConfig_authType,
+    createFunctionUrlConfigResponse_cors,
+    createFunctionUrlConfigResponse_httpStatus,
+    createFunctionUrlConfigResponse_functionUrl,
+    createFunctionUrlConfigResponse_functionArn,
+    createFunctionUrlConfigResponse_authType,
+    createFunctionUrlConfigResponse_creationTime,
+
     -- ** DeleteAlias
     deleteAlias_functionName,
     deleteAlias_name,
@@ -170,13 +192,16 @@ module Amazonka.Lambda.Lens
     eventSourceMappingConfiguration_functionArn,
     eventSourceMappingConfiguration_startingPosition,
     eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_parallelizationFactor,
     eventSourceMappingConfiguration_lastProcessingResult,
     eventSourceMappingConfiguration_state,
     eventSourceMappingConfiguration_uuid,
     eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_filterCriteria,
     eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_destinationConfig,
     eventSourceMappingConfiguration_eventSourceArn,
     eventSourceMappingConfiguration_maximumRetryAttempts,
@@ -202,6 +227,10 @@ module Amazonka.Lambda.Lens
     -- ** DeleteFunctionEventInvokeConfig
     deleteFunctionEventInvokeConfig_qualifier,
     deleteFunctionEventInvokeConfig_functionName,
+
+    -- ** DeleteFunctionUrlConfig
+    deleteFunctionUrlConfig_qualifier,
+    deleteFunctionUrlConfig_functionName,
 
     -- ** DeleteLayerVersion
     deleteLayerVersion_layerName,
@@ -237,13 +266,16 @@ module Amazonka.Lambda.Lens
     eventSourceMappingConfiguration_functionArn,
     eventSourceMappingConfiguration_startingPosition,
     eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_parallelizationFactor,
     eventSourceMappingConfiguration_lastProcessingResult,
     eventSourceMappingConfiguration_state,
     eventSourceMappingConfiguration_uuid,
     eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_filterCriteria,
     eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_destinationConfig,
     eventSourceMappingConfiguration_eventSourceArn,
     eventSourceMappingConfiguration_maximumRetryAttempts,
@@ -285,6 +317,7 @@ module Amazonka.Lambda.Lens
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -320,6 +353,17 @@ module Amazonka.Lambda.Lens
     functionEventInvokeConfig_destinationConfig,
     functionEventInvokeConfig_maximumRetryAttempts,
     functionEventInvokeConfig_lastModified,
+
+    -- ** GetFunctionUrlConfig
+    getFunctionUrlConfig_qualifier,
+    getFunctionUrlConfig_functionName,
+    getFunctionUrlConfigResponse_cors,
+    getFunctionUrlConfigResponse_httpStatus,
+    getFunctionUrlConfigResponse_functionUrl,
+    getFunctionUrlConfigResponse_functionArn,
+    getFunctionUrlConfigResponse_authType,
+    getFunctionUrlConfigResponse_creationTime,
+    getFunctionUrlConfigResponse_lastModifiedTime,
 
     -- ** GetLayerVersion
     getLayerVersion_layerName,
@@ -417,6 +461,14 @@ module Amazonka.Lambda.Lens
     listFunctionEventInvokeConfigsResponse_nextMarker,
     listFunctionEventInvokeConfigsResponse_httpStatus,
 
+    -- ** ListFunctionUrlConfigs
+    listFunctionUrlConfigs_marker,
+    listFunctionUrlConfigs_maxItems,
+    listFunctionUrlConfigs_functionName,
+    listFunctionUrlConfigsResponse_nextMarker,
+    listFunctionUrlConfigsResponse_httpStatus,
+    listFunctionUrlConfigsResponse_functionUrlConfigs,
+
     -- ** ListFunctions
     listFunctions_marker,
     listFunctions_masterRegion,
@@ -503,6 +555,7 @@ module Amazonka.Lambda.Lens
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -615,6 +668,7 @@ module Amazonka.Lambda.Lens
     updateEventSourceMapping_functionName,
     updateEventSourceMapping_maximumBatchingWindowInSeconds,
     updateEventSourceMapping_enabled,
+    updateEventSourceMapping_filterCriteria,
     updateEventSourceMapping_destinationConfig,
     updateEventSourceMapping_maximumRetryAttempts,
     updateEventSourceMapping_batchSize,
@@ -626,13 +680,16 @@ module Amazonka.Lambda.Lens
     eventSourceMappingConfiguration_functionArn,
     eventSourceMappingConfiguration_startingPosition,
     eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_parallelizationFactor,
     eventSourceMappingConfiguration_lastProcessingResult,
     eventSourceMappingConfiguration_state,
     eventSourceMappingConfiguration_uuid,
     eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_filterCriteria,
     eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_destinationConfig,
     eventSourceMappingConfiguration_eventSourceArn,
     eventSourceMappingConfiguration_maximumRetryAttempts,
@@ -662,6 +719,7 @@ module Amazonka.Lambda.Lens
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -693,6 +751,7 @@ module Amazonka.Lambda.Lens
     updateFunctionConfiguration_tracingConfig,
     updateFunctionConfiguration_fileSystemConfigs,
     updateFunctionConfiguration_timeout,
+    updateFunctionConfiguration_ephemeralStorage,
     updateFunctionConfiguration_memorySize,
     updateFunctionConfiguration_imageConfig,
     updateFunctionConfiguration_environment,
@@ -712,6 +771,7 @@ module Amazonka.Lambda.Lens
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -751,6 +811,19 @@ module Amazonka.Lambda.Lens
     functionEventInvokeConfig_maximumRetryAttempts,
     functionEventInvokeConfig_lastModified,
 
+    -- ** UpdateFunctionUrlConfig
+    updateFunctionUrlConfig_cors,
+    updateFunctionUrlConfig_qualifier,
+    updateFunctionUrlConfig_authType,
+    updateFunctionUrlConfig_functionName,
+    updateFunctionUrlConfigResponse_cors,
+    updateFunctionUrlConfigResponse_httpStatus,
+    updateFunctionUrlConfigResponse_functionUrl,
+    updateFunctionUrlConfigResponse_functionArn,
+    updateFunctionUrlConfigResponse_authType,
+    updateFunctionUrlConfigResponse_creationTime,
+    updateFunctionUrlConfigResponse_lastModifiedTime,
+
     -- * Types
 
     -- ** AccountLimit
@@ -778,6 +851,9 @@ module Amazonka.Lambda.Lens
     -- ** AllowedPublishers
     allowedPublishers_signingProfileVersionArns,
 
+    -- ** AmazonManagedKafkaEventSourceConfig
+    amazonManagedKafkaEventSourceConfig_consumerGroupId,
+
     -- ** CodeSigningConfig
     codeSigningConfig_description,
     codeSigningConfig_codeSigningConfigId,
@@ -791,6 +867,14 @@ module Amazonka.Lambda.Lens
 
     -- ** Concurrency
     concurrency_reservedConcurrentExecutions,
+
+    -- ** Cors
+    cors_allowHeaders,
+    cors_exposeHeaders,
+    cors_allowCredentials,
+    cors_allowMethods,
+    cors_allowOrigins,
+    cors_maxAge,
 
     -- ** DeadLetterConfig
     deadLetterConfig_targetArn,
@@ -810,18 +894,24 @@ module Amazonka.Lambda.Lens
     environmentResponse_error,
     environmentResponse_variables,
 
+    -- ** EphemeralStorage
+    ephemeralStorage_size,
+
     -- ** EventSourceMappingConfiguration
     eventSourceMappingConfiguration_maximumRecordAgeInSeconds,
     eventSourceMappingConfiguration_functionArn,
     eventSourceMappingConfiguration_startingPosition,
     eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_parallelizationFactor,
     eventSourceMappingConfiguration_lastProcessingResult,
     eventSourceMappingConfiguration_state,
     eventSourceMappingConfiguration_uuid,
     eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_filterCriteria,
     eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_destinationConfig,
     eventSourceMappingConfiguration_eventSourceArn,
     eventSourceMappingConfiguration_maximumRetryAttempts,
@@ -837,6 +927,12 @@ module Amazonka.Lambda.Lens
     -- ** FileSystemConfig
     fileSystemConfig_arn,
     fileSystemConfig_localMountPath,
+
+    -- ** Filter
+    filter_pattern,
+
+    -- ** FilterCriteria
+    filterCriteria_filters,
 
     -- ** FunctionCode
     functionCode_s3Bucket,
@@ -858,6 +954,7 @@ module Amazonka.Lambda.Lens
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -891,6 +988,14 @@ module Amazonka.Lambda.Lens
     functionEventInvokeConfig_destinationConfig,
     functionEventInvokeConfig_maximumRetryAttempts,
     functionEventInvokeConfig_lastModified,
+
+    -- ** FunctionUrlConfig
+    functionUrlConfig_cors,
+    functionUrlConfig_functionUrl,
+    functionUrlConfig_functionArn,
+    functionUrlConfig_creationTime,
+    functionUrlConfig_lastModifiedTime,
+    functionUrlConfig_authType,
 
     -- ** GetLayerVersionResponse
     getLayerVersionResponse_compatibleArchitectures,
@@ -967,6 +1072,9 @@ module Amazonka.Lambda.Lens
     -- ** SelfManagedEventSource
     selfManagedEventSource_endpoints,
 
+    -- ** SelfManagedKafkaEventSourceConfig
+    selfManagedKafkaEventSourceConfig_consumerGroupId,
+
     -- ** SourceAccessConfiguration
     sourceAccessConfiguration_type,
     sourceAccessConfiguration_uri,
@@ -994,6 +1102,7 @@ import Amazonka.Lambda.CreateAlias
 import Amazonka.Lambda.CreateCodeSigningConfig
 import Amazonka.Lambda.CreateEventSourceMapping
 import Amazonka.Lambda.CreateFunction
+import Amazonka.Lambda.CreateFunctionUrlConfig
 import Amazonka.Lambda.DeleteAlias
 import Amazonka.Lambda.DeleteCodeSigningConfig
 import Amazonka.Lambda.DeleteEventSourceMapping
@@ -1001,6 +1110,7 @@ import Amazonka.Lambda.DeleteFunction
 import Amazonka.Lambda.DeleteFunctionCodeSigningConfig
 import Amazonka.Lambda.DeleteFunctionConcurrency
 import Amazonka.Lambda.DeleteFunctionEventInvokeConfig
+import Amazonka.Lambda.DeleteFunctionUrlConfig
 import Amazonka.Lambda.DeleteLayerVersion
 import Amazonka.Lambda.DeleteProvisionedConcurrencyConfig
 import Amazonka.Lambda.GetAccountSettings
@@ -1012,6 +1122,7 @@ import Amazonka.Lambda.GetFunctionCodeSigningConfig
 import Amazonka.Lambda.GetFunctionConcurrency
 import Amazonka.Lambda.GetFunctionConfiguration
 import Amazonka.Lambda.GetFunctionEventInvokeConfig
+import Amazonka.Lambda.GetFunctionUrlConfig
 import Amazonka.Lambda.GetLayerVersion
 import Amazonka.Lambda.GetLayerVersionByArn
 import Amazonka.Lambda.GetLayerVersionPolicy
@@ -1022,6 +1133,7 @@ import Amazonka.Lambda.ListAliases
 import Amazonka.Lambda.ListCodeSigningConfigs
 import Amazonka.Lambda.ListEventSourceMappings
 import Amazonka.Lambda.ListFunctionEventInvokeConfigs
+import Amazonka.Lambda.ListFunctionUrlConfigs
 import Amazonka.Lambda.ListFunctions
 import Amazonka.Lambda.ListFunctionsByCodeSigningConfig
 import Amazonka.Lambda.ListLayerVersions
@@ -1043,20 +1155,26 @@ import Amazonka.Lambda.Types.AccountUsage
 import Amazonka.Lambda.Types.AliasConfiguration
 import Amazonka.Lambda.Types.AliasRoutingConfiguration
 import Amazonka.Lambda.Types.AllowedPublishers
+import Amazonka.Lambda.Types.AmazonManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.CodeSigningConfig
 import Amazonka.Lambda.Types.CodeSigningPolicies
 import Amazonka.Lambda.Types.Concurrency
+import Amazonka.Lambda.Types.Cors
 import Amazonka.Lambda.Types.DeadLetterConfig
 import Amazonka.Lambda.Types.DestinationConfig
 import Amazonka.Lambda.Types.Environment
 import Amazonka.Lambda.Types.EnvironmentError
 import Amazonka.Lambda.Types.EnvironmentResponse
+import Amazonka.Lambda.Types.EphemeralStorage
 import Amazonka.Lambda.Types.EventSourceMappingConfiguration
 import Amazonka.Lambda.Types.FileSystemConfig
+import Amazonka.Lambda.Types.Filter
+import Amazonka.Lambda.Types.FilterCriteria
 import Amazonka.Lambda.Types.FunctionCode
 import Amazonka.Lambda.Types.FunctionCodeLocation
 import Amazonka.Lambda.Types.FunctionConfiguration
 import Amazonka.Lambda.Types.FunctionEventInvokeConfig
+import Amazonka.Lambda.Types.FunctionUrlConfig
 import Amazonka.Lambda.Types.GetLayerVersionResponse
 import Amazonka.Lambda.Types.ImageConfig
 import Amazonka.Lambda.Types.ImageConfigError
@@ -1070,6 +1188,7 @@ import Amazonka.Lambda.Types.OnFailure
 import Amazonka.Lambda.Types.OnSuccess
 import Amazonka.Lambda.Types.ProvisionedConcurrencyConfigListItem
 import Amazonka.Lambda.Types.SelfManagedEventSource
+import Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.SourceAccessConfiguration
 import Amazonka.Lambda.Types.TracingConfig
 import Amazonka.Lambda.Types.TracingConfigResponse
@@ -1082,3 +1201,4 @@ import Amazonka.Lambda.UpdateEventSourceMapping
 import Amazonka.Lambda.UpdateFunctionCode
 import Amazonka.Lambda.UpdateFunctionConfiguration
 import Amazonka.Lambda.UpdateFunctionEventInvokeConfig
+import Amazonka.Lambda.UpdateFunctionUrlConfig

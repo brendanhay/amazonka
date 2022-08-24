@@ -50,6 +50,7 @@ library
     Amazonka.Lambda.CreateCodeSigningConfig
     Amazonka.Lambda.CreateEventSourceMapping
     Amazonka.Lambda.CreateFunction
+    Amazonka.Lambda.CreateFunctionUrlConfig
     Amazonka.Lambda.DeleteAlias
     Amazonka.Lambda.DeleteCodeSigningConfig
     Amazonka.Lambda.DeleteEventSourceMapping
@@ -57,6 +58,7 @@ library
     Amazonka.Lambda.DeleteFunctionCodeSigningConfig
     Amazonka.Lambda.DeleteFunctionConcurrency
     Amazonka.Lambda.DeleteFunctionEventInvokeConfig
+    Amazonka.Lambda.DeleteFunctionUrlConfig
     Amazonka.Lambda.DeleteLayerVersion
     Amazonka.Lambda.DeleteProvisionedConcurrencyConfig
     Amazonka.Lambda.GetAccountSettings
@@ -68,6 +70,7 @@ library
     Amazonka.Lambda.GetFunctionConcurrency
     Amazonka.Lambda.GetFunctionConfiguration
     Amazonka.Lambda.GetFunctionEventInvokeConfig
+    Amazonka.Lambda.GetFunctionUrlConfig
     Amazonka.Lambda.GetLayerVersion
     Amazonka.Lambda.GetLayerVersionByArn
     Amazonka.Lambda.GetLayerVersionPolicy
@@ -81,6 +84,7 @@ library
     Amazonka.Lambda.ListFunctionEventInvokeConfigs
     Amazonka.Lambda.ListFunctions
     Amazonka.Lambda.ListFunctionsByCodeSigningConfig
+    Amazonka.Lambda.ListFunctionUrlConfigs
     Amazonka.Lambda.ListLayers
     Amazonka.Lambda.ListLayerVersions
     Amazonka.Lambda.ListProvisionedConcurrencyConfigs
@@ -101,25 +105,32 @@ library
     Amazonka.Lambda.Types.AliasConfiguration
     Amazonka.Lambda.Types.AliasRoutingConfiguration
     Amazonka.Lambda.Types.AllowedPublishers
+    Amazonka.Lambda.Types.AmazonManagedKafkaEventSourceConfig
     Amazonka.Lambda.Types.Architecture
     Amazonka.Lambda.Types.CodeSigningConfig
     Amazonka.Lambda.Types.CodeSigningPolicies
     Amazonka.Lambda.Types.CodeSigningPolicy
     Amazonka.Lambda.Types.Concurrency
+    Amazonka.Lambda.Types.Cors
     Amazonka.Lambda.Types.DeadLetterConfig
     Amazonka.Lambda.Types.DestinationConfig
     Amazonka.Lambda.Types.EndPointType
     Amazonka.Lambda.Types.Environment
     Amazonka.Lambda.Types.EnvironmentError
     Amazonka.Lambda.Types.EnvironmentResponse
+    Amazonka.Lambda.Types.EphemeralStorage
     Amazonka.Lambda.Types.EventSourceMappingConfiguration
     Amazonka.Lambda.Types.EventSourcePosition
     Amazonka.Lambda.Types.FileSystemConfig
+    Amazonka.Lambda.Types.Filter
+    Amazonka.Lambda.Types.FilterCriteria
     Amazonka.Lambda.Types.FunctionCode
     Amazonka.Lambda.Types.FunctionCodeLocation
     Amazonka.Lambda.Types.FunctionConfiguration
     Amazonka.Lambda.Types.FunctionEventInvokeConfig
     Amazonka.Lambda.Types.FunctionResponseType
+    Amazonka.Lambda.Types.FunctionUrlAuthType
+    Amazonka.Lambda.Types.FunctionUrlConfig
     Amazonka.Lambda.Types.FunctionVersion
     Amazonka.Lambda.Types.GetLayerVersionResponse
     Amazonka.Lambda.Types.ImageConfig
@@ -141,6 +152,7 @@ library
     Amazonka.Lambda.Types.ProvisionedConcurrencyStatusEnum
     Amazonka.Lambda.Types.Runtime
     Amazonka.Lambda.Types.SelfManagedEventSource
+    Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig
     Amazonka.Lambda.Types.SourceAccessConfiguration
     Amazonka.Lambda.Types.SourceAccessType
     Amazonka.Lambda.Types.State
@@ -157,6 +169,7 @@ library
     Amazonka.Lambda.UpdateFunctionCode
     Amazonka.Lambda.UpdateFunctionConfiguration
     Amazonka.Lambda.UpdateFunctionEventInvokeConfig
+    Amazonka.Lambda.UpdateFunctionUrlConfig
     Amazonka.Lambda.Waiters
 
   build-depends:

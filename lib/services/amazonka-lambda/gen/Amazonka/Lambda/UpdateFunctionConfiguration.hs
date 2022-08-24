@@ -48,6 +48,7 @@ module Amazonka.Lambda.UpdateFunctionConfiguration
     updateFunctionConfiguration_tracingConfig,
     updateFunctionConfiguration_fileSystemConfigs,
     updateFunctionConfiguration_timeout,
+    updateFunctionConfiguration_ephemeralStorage,
     updateFunctionConfiguration_memorySize,
     updateFunctionConfiguration_imageConfig,
     updateFunctionConfiguration_environment,
@@ -73,6 +74,7 @@ module Amazonka.Lambda.UpdateFunctionConfiguration
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -117,11 +119,14 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     tracingConfig :: Prelude.Maybe TracingConfig,
     -- | Connection settings for an Amazon EFS file system.
     fileSystemConfigs :: Prelude.Maybe [FileSystemConfig],
-    -- | The amount of time that Lambda allows a function to run before stopping
-    -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
-    -- For additional information, see
+    -- | The amount of time (in seconds) that Lambda allows a function to run
+    -- before stopping it. The default is 3 seconds. The maximum allowed value
+    -- is 900 seconds. For additional information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
     timeout :: Prelude.Maybe Prelude.Natural,
+    -- | The size of the function’s \/tmp directory in MB. The default value is
+    -- 512, but can be any whole number between 512 and 10240 MB.
+    ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The amount of
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
     -- at runtime. Increasing the function memory also increases its CPU
@@ -142,6 +147,7 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The identifier of the function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+    -- Runtime is required if the deployment package is a .zip file archive.
     runtime :: Prelude.Maybe Runtime,
     -- | A description of the function.
     description :: Prelude.Maybe Prelude.Text,
@@ -150,7 +156,8 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     -- not provided, Lambda uses a default service key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the method within your code that Lambda calls to execute
-    -- your function. The format includes the file name. It can also include
+    -- your function. Handler is required if the deployment package is a .zip
+    -- file archive. The format includes the file name. It can also include
     -- namespaces and other qualifiers, depending on the runtime. For more
     -- information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
@@ -202,10 +209,13 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 --
 -- 'fileSystemConfigs', 'updateFunctionConfiguration_fileSystemConfigs' - Connection settings for an Amazon EFS file system.
 --
--- 'timeout', 'updateFunctionConfiguration_timeout' - The amount of time that Lambda allows a function to run before stopping
--- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
--- For additional information, see
+-- 'timeout', 'updateFunctionConfiguration_timeout' - The amount of time (in seconds) that Lambda allows a function to run
+-- before stopping it. The default is 3 seconds. The maximum allowed value
+-- is 900 seconds. For additional information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
+--
+-- 'ephemeralStorage', 'updateFunctionConfiguration_ephemeralStorage' - The size of the function’s \/tmp directory in MB. The default value is
+-- 512, but can be any whole number between 512 and 10240 MB.
 --
 -- 'memorySize', 'updateFunctionConfiguration_memorySize' - The amount of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
@@ -227,6 +237,7 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 --
 -- 'runtime', 'updateFunctionConfiguration_runtime' - The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+-- Runtime is required if the deployment package is a .zip file archive.
 --
 -- 'description', 'updateFunctionConfiguration_description' - A description of the function.
 --
@@ -235,7 +246,8 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 -- not provided, Lambda uses a default service key.
 --
 -- 'handler', 'updateFunctionConfiguration_handler' - The name of the method within your code that Lambda calls to execute
--- your function. The format includes the file name. It can also include
+-- your function. Handler is required if the deployment package is a .zip
+-- file archive. The format includes the file name. It can also include
 -- namespaces and other qualifiers, depending on the runtime. For more
 -- information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
@@ -279,6 +291,7 @@ newUpdateFunctionConfiguration pFunctionName_ =
         Prelude.Nothing,
       fileSystemConfigs = Prelude.Nothing,
       timeout = Prelude.Nothing,
+      ephemeralStorage = Prelude.Nothing,
       memorySize = Prelude.Nothing,
       imageConfig = Prelude.Nothing,
       environment = Prelude.Nothing,
@@ -304,12 +317,17 @@ updateFunctionConfiguration_tracingConfig = Lens.lens (\UpdateFunctionConfigurat
 updateFunctionConfiguration_fileSystemConfigs :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe [FileSystemConfig])
 updateFunctionConfiguration_fileSystemConfigs = Lens.lens (\UpdateFunctionConfiguration' {fileSystemConfigs} -> fileSystemConfigs) (\s@UpdateFunctionConfiguration' {} a -> s {fileSystemConfigs = a} :: UpdateFunctionConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | The amount of time that Lambda allows a function to run before stopping
--- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
--- For additional information, see
+-- | The amount of time (in seconds) that Lambda allows a function to run
+-- before stopping it. The default is 3 seconds. The maximum allowed value
+-- is 900 seconds. For additional information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
 updateFunctionConfiguration_timeout :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Prelude.Natural)
 updateFunctionConfiguration_timeout = Lens.lens (\UpdateFunctionConfiguration' {timeout} -> timeout) (\s@UpdateFunctionConfiguration' {} a -> s {timeout = a} :: UpdateFunctionConfiguration)
+
+-- | The size of the function’s \/tmp directory in MB. The default value is
+-- 512, but can be any whole number between 512 and 10240 MB.
+updateFunctionConfiguration_ephemeralStorage :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe EphemeralStorage)
+updateFunctionConfiguration_ephemeralStorage = Lens.lens (\UpdateFunctionConfiguration' {ephemeralStorage} -> ephemeralStorage) (\s@UpdateFunctionConfiguration' {} a -> s {ephemeralStorage = a} :: UpdateFunctionConfiguration)
 
 -- | The amount of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
@@ -339,6 +357,7 @@ updateFunctionConfiguration_vpcConfig = Lens.lens (\UpdateFunctionConfiguration'
 
 -- | The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+-- Runtime is required if the deployment package is a .zip file archive.
 updateFunctionConfiguration_runtime :: Lens.Lens' UpdateFunctionConfiguration (Prelude.Maybe Runtime)
 updateFunctionConfiguration_runtime = Lens.lens (\UpdateFunctionConfiguration' {runtime} -> runtime) (\s@UpdateFunctionConfiguration' {} a -> s {runtime = a} :: UpdateFunctionConfiguration)
 
@@ -353,7 +372,8 @@ updateFunctionConfiguration_kmsKeyArn :: Lens.Lens' UpdateFunctionConfiguration 
 updateFunctionConfiguration_kmsKeyArn = Lens.lens (\UpdateFunctionConfiguration' {kmsKeyArn} -> kmsKeyArn) (\s@UpdateFunctionConfiguration' {} a -> s {kmsKeyArn = a} :: UpdateFunctionConfiguration)
 
 -- | The name of the method within your code that Lambda calls to execute
--- your function. The format includes the file name. It can also include
+-- your function. Handler is required if the deployment package is a .zip
+-- file archive. The format includes the file name. It can also include
 -- namespaces and other qualifiers, depending on the runtime. For more
 -- information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
@@ -414,6 +434,7 @@ instance Prelude.Hashable UpdateFunctionConfiguration where
     _salt `Prelude.hashWithSalt` tracingConfig
       `Prelude.hashWithSalt` fileSystemConfigs
       `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` memorySize
       `Prelude.hashWithSalt` imageConfig
       `Prelude.hashWithSalt` environment
@@ -433,6 +454,7 @@ instance Prelude.NFData UpdateFunctionConfiguration where
     Prelude.rnf tracingConfig
       `Prelude.seq` Prelude.rnf fileSystemConfigs
       `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf ephemeralStorage
       `Prelude.seq` Prelude.rnf memorySize
       `Prelude.seq` Prelude.rnf imageConfig
       `Prelude.seq` Prelude.rnf environment
@@ -458,6 +480,8 @@ instance Core.ToJSON UpdateFunctionConfiguration where
             ("FileSystemConfigs" Core..=)
               Prelude.<$> fileSystemConfigs,
             ("Timeout" Core..=) Prelude.<$> timeout,
+            ("EphemeralStorage" Core..=)
+              Prelude.<$> ephemeralStorage,
             ("MemorySize" Core..=) Prelude.<$> memorySize,
             ("ImageConfig" Core..=) Prelude.<$> imageConfig,
             ("Environment" Core..=) Prelude.<$> environment,

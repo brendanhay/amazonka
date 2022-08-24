@@ -45,6 +45,9 @@ import Test.Tasty
 --         , requestCreateFunction $
 --             newCreateFunction
 --
+--         , requestCreateFunctionUrlConfig $
+--             newCreateFunctionUrlConfig
+--
 --         , requestDeleteAlias $
 --             newDeleteAlias
 --
@@ -65,6 +68,9 @@ import Test.Tasty
 --
 --         , requestDeleteFunctionEventInvokeConfig $
 --             newDeleteFunctionEventInvokeConfig
+--
+--         , requestDeleteFunctionUrlConfig $
+--             newDeleteFunctionUrlConfig
 --
 --         , requestDeleteLayerVersion $
 --             newDeleteLayerVersion
@@ -99,6 +105,9 @@ import Test.Tasty
 --         , requestGetFunctionEventInvokeConfig $
 --             newGetFunctionEventInvokeConfig
 --
+--         , requestGetFunctionUrlConfig $
+--             newGetFunctionUrlConfig
+--
 --         , requestGetLayerVersion $
 --             newGetLayerVersion
 --
@@ -128,6 +137,9 @@ import Test.Tasty
 --
 --         , requestListFunctionEventInvokeConfigs $
 --             newListFunctionEventInvokeConfigs
+--
+--         , requestListFunctionUrlConfigs $
+--             newListFunctionUrlConfigs
 --
 --         , requestListFunctions $
 --             newListFunctions
@@ -198,6 +210,9 @@ import Test.Tasty
 --         , requestUpdateFunctionEventInvokeConfig $
 --             newUpdateFunctionEventInvokeConfig
 --
+--         , requestUpdateFunctionUrlConfig $
+--             newUpdateFunctionUrlConfig
+--
 --           ]
 
 --     , testGroup "response"
@@ -219,6 +234,9 @@ import Test.Tasty
 --         , responseCreateFunction $
 --             newFunctionConfiguration
 --
+--         , responseCreateFunctionUrlConfig $
+--             newCreateFunctionUrlConfigResponse
+--
 --         , responseDeleteAlias $
 --             newDeleteAliasResponse
 --
@@ -239,6 +257,9 @@ import Test.Tasty
 --
 --         , responseDeleteFunctionEventInvokeConfig $
 --             newDeleteFunctionEventInvokeConfigResponse
+--
+--         , responseDeleteFunctionUrlConfig $
+--             newDeleteFunctionUrlConfigResponse
 --
 --         , responseDeleteLayerVersion $
 --             newDeleteLayerVersionResponse
@@ -273,6 +294,9 @@ import Test.Tasty
 --         , responseGetFunctionEventInvokeConfig $
 --             newFunctionEventInvokeConfig
 --
+--         , responseGetFunctionUrlConfig $
+--             newGetFunctionUrlConfigResponse
+--
 --         , responseGetLayerVersion $
 --             newGetLayerVersionResponse
 --
@@ -302,6 +326,9 @@ import Test.Tasty
 --
 --         , responseListFunctionEventInvokeConfigs $
 --             newListFunctionEventInvokeConfigsResponse
+--
+--         , responseListFunctionUrlConfigs $
+--             newListFunctionUrlConfigsResponse
 --
 --         , responseListFunctions $
 --             newListFunctionsResponse
@@ -372,6 +399,9 @@ import Test.Tasty
 --         , responseUpdateFunctionEventInvokeConfig $
 --             newFunctionEventInvokeConfig
 --
+--         , responseUpdateFunctionUrlConfig $
+--             newUpdateFunctionUrlConfigResponse
+--
 --           ]
 --     ]
 
@@ -412,6 +442,12 @@ requestCreateFunction =
   req
     "CreateFunction"
     "fixture/CreateFunction.yaml"
+
+requestCreateFunctionUrlConfig :: CreateFunctionUrlConfig -> TestTree
+requestCreateFunctionUrlConfig =
+  req
+    "CreateFunctionUrlConfig"
+    "fixture/CreateFunctionUrlConfig.yaml"
 
 requestDeleteAlias :: DeleteAlias -> TestTree
 requestDeleteAlias =
@@ -454,6 +490,12 @@ requestDeleteFunctionEventInvokeConfig =
   req
     "DeleteFunctionEventInvokeConfig"
     "fixture/DeleteFunctionEventInvokeConfig.yaml"
+
+requestDeleteFunctionUrlConfig :: DeleteFunctionUrlConfig -> TestTree
+requestDeleteFunctionUrlConfig =
+  req
+    "DeleteFunctionUrlConfig"
+    "fixture/DeleteFunctionUrlConfig.yaml"
 
 requestDeleteLayerVersion :: DeleteLayerVersion -> TestTree
 requestDeleteLayerVersion =
@@ -521,6 +563,12 @@ requestGetFunctionEventInvokeConfig =
     "GetFunctionEventInvokeConfig"
     "fixture/GetFunctionEventInvokeConfig.yaml"
 
+requestGetFunctionUrlConfig :: GetFunctionUrlConfig -> TestTree
+requestGetFunctionUrlConfig =
+  req
+    "GetFunctionUrlConfig"
+    "fixture/GetFunctionUrlConfig.yaml"
+
 requestGetLayerVersion :: GetLayerVersion -> TestTree
 requestGetLayerVersion =
   req
@@ -580,6 +628,12 @@ requestListFunctionEventInvokeConfigs =
   req
     "ListFunctionEventInvokeConfigs"
     "fixture/ListFunctionEventInvokeConfigs.yaml"
+
+requestListFunctionUrlConfigs :: ListFunctionUrlConfigs -> TestTree
+requestListFunctionUrlConfigs =
+  req
+    "ListFunctionUrlConfigs"
+    "fixture/ListFunctionUrlConfigs.yaml"
 
 requestListFunctions :: ListFunctions -> TestTree
 requestListFunctions =
@@ -719,6 +773,12 @@ requestUpdateFunctionEventInvokeConfig =
     "UpdateFunctionEventInvokeConfig"
     "fixture/UpdateFunctionEventInvokeConfig.yaml"
 
+requestUpdateFunctionUrlConfig :: UpdateFunctionUrlConfig -> TestTree
+requestUpdateFunctionUrlConfig =
+  req
+    "UpdateFunctionUrlConfig"
+    "fixture/UpdateFunctionUrlConfig.yaml"
+
 -- Responses
 
 responseAddLayerVersionPermission :: AddLayerVersionPermissionResponse -> TestTree
@@ -768,6 +828,14 @@ responseCreateFunction =
     "fixture/CreateFunctionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFunction)
+
+responseCreateFunctionUrlConfig :: CreateFunctionUrlConfigResponse -> TestTree
+responseCreateFunctionUrlConfig =
+  res
+    "CreateFunctionUrlConfigResponse"
+    "fixture/CreateFunctionUrlConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateFunctionUrlConfig)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
 responseDeleteAlias =
@@ -824,6 +892,14 @@ responseDeleteFunctionEventInvokeConfig =
     "fixture/DeleteFunctionEventInvokeConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteFunctionEventInvokeConfig)
+
+responseDeleteFunctionUrlConfig :: DeleteFunctionUrlConfigResponse -> TestTree
+responseDeleteFunctionUrlConfig =
+  res
+    "DeleteFunctionUrlConfigResponse"
+    "fixture/DeleteFunctionUrlConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteFunctionUrlConfig)
 
 responseDeleteLayerVersion :: DeleteLayerVersionResponse -> TestTree
 responseDeleteLayerVersion =
@@ -913,6 +989,14 @@ responseGetFunctionEventInvokeConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetFunctionEventInvokeConfig)
 
+responseGetFunctionUrlConfig :: GetFunctionUrlConfigResponse -> TestTree
+responseGetFunctionUrlConfig =
+  res
+    "GetFunctionUrlConfigResponse"
+    "fixture/GetFunctionUrlConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetFunctionUrlConfig)
+
 responseGetLayerVersion :: GetLayerVersionResponse -> TestTree
 responseGetLayerVersion =
   res
@@ -992,6 +1076,14 @@ responseListFunctionEventInvokeConfigs =
     "fixture/ListFunctionEventInvokeConfigsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListFunctionEventInvokeConfigs)
+
+responseListFunctionUrlConfigs :: ListFunctionUrlConfigsResponse -> TestTree
+responseListFunctionUrlConfigs =
+  res
+    "ListFunctionUrlConfigsResponse"
+    "fixture/ListFunctionUrlConfigsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListFunctionUrlConfigs)
 
 responseListFunctions :: ListFunctionsResponse -> TestTree
 responseListFunctions =
@@ -1176,3 +1268,11 @@ responseUpdateFunctionEventInvokeConfig =
     "fixture/UpdateFunctionEventInvokeConfigResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateFunctionEventInvokeConfig)
+
+responseUpdateFunctionUrlConfig :: UpdateFunctionUrlConfigResponse -> TestTree
+responseUpdateFunctionUrlConfig =
+  res
+    "UpdateFunctionUrlConfigResponse"
+    "fixture/UpdateFunctionUrlConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateFunctionUrlConfig)

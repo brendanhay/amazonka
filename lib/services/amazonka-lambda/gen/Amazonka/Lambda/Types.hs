@@ -67,6 +67,9 @@ module Amazonka.Lambda.Types
     -- * FunctionResponseType
     FunctionResponseType (..),
 
+    -- * FunctionUrlAuthType
+    FunctionUrlAuthType (..),
+
     -- * FunctionVersion
     FunctionVersion (..),
 
@@ -138,6 +141,11 @@ module Amazonka.Lambda.Types
     newAllowedPublishers,
     allowedPublishers_signingProfileVersionArns,
 
+    -- * AmazonManagedKafkaEventSourceConfig
+    AmazonManagedKafkaEventSourceConfig (..),
+    newAmazonManagedKafkaEventSourceConfig,
+    amazonManagedKafkaEventSourceConfig_consumerGroupId,
+
     -- * CodeSigningConfig
     CodeSigningConfig (..),
     newCodeSigningConfig,
@@ -157,6 +165,16 @@ module Amazonka.Lambda.Types
     Concurrency (..),
     newConcurrency,
     concurrency_reservedConcurrentExecutions,
+
+    -- * Cors
+    Cors (..),
+    newCors,
+    cors_allowHeaders,
+    cors_exposeHeaders,
+    cors_allowCredentials,
+    cors_allowMethods,
+    cors_allowOrigins,
+    cors_maxAge,
 
     -- * DeadLetterConfig
     DeadLetterConfig (..),
@@ -186,6 +204,11 @@ module Amazonka.Lambda.Types
     environmentResponse_error,
     environmentResponse_variables,
 
+    -- * EphemeralStorage
+    EphemeralStorage (..),
+    newEphemeralStorage,
+    ephemeralStorage_size,
+
     -- * EventSourceMappingConfiguration
     EventSourceMappingConfiguration (..),
     newEventSourceMappingConfiguration,
@@ -193,13 +216,16 @@ module Amazonka.Lambda.Types
     eventSourceMappingConfiguration_functionArn,
     eventSourceMappingConfiguration_startingPosition,
     eventSourceMappingConfiguration_functionResponseTypes,
+    eventSourceMappingConfiguration_amazonManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_parallelizationFactor,
     eventSourceMappingConfiguration_lastProcessingResult,
     eventSourceMappingConfiguration_state,
     eventSourceMappingConfiguration_uuid,
     eventSourceMappingConfiguration_maximumBatchingWindowInSeconds,
     eventSourceMappingConfiguration_stateTransitionReason,
+    eventSourceMappingConfiguration_filterCriteria,
     eventSourceMappingConfiguration_selfManagedEventSource,
+    eventSourceMappingConfiguration_selfManagedKafkaEventSourceConfig,
     eventSourceMappingConfiguration_destinationConfig,
     eventSourceMappingConfiguration_eventSourceArn,
     eventSourceMappingConfiguration_maximumRetryAttempts,
@@ -217,6 +243,16 @@ module Amazonka.Lambda.Types
     newFileSystemConfig,
     fileSystemConfig_arn,
     fileSystemConfig_localMountPath,
+
+    -- * Filter
+    Filter (..),
+    newFilter,
+    filter_pattern,
+
+    -- * FilterCriteria
+    FilterCriteria (..),
+    newFilterCriteria,
+    filterCriteria_filters,
 
     -- * FunctionCode
     FunctionCode (..),
@@ -244,6 +280,7 @@ module Amazonka.Lambda.Types
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -279,6 +316,16 @@ module Amazonka.Lambda.Types
     functionEventInvokeConfig_destinationConfig,
     functionEventInvokeConfig_maximumRetryAttempts,
     functionEventInvokeConfig_lastModified,
+
+    -- * FunctionUrlConfig
+    FunctionUrlConfig (..),
+    newFunctionUrlConfig,
+    functionUrlConfig_cors,
+    functionUrlConfig_functionUrl,
+    functionUrlConfig_functionArn,
+    functionUrlConfig_creationTime,
+    functionUrlConfig_lastModifiedTime,
+    functionUrlConfig_authType,
 
     -- * GetLayerVersionResponse
     GetLayerVersionResponse (..),
@@ -381,6 +428,11 @@ module Amazonka.Lambda.Types
     newSelfManagedEventSource,
     selfManagedEventSource_endpoints,
 
+    -- * SelfManagedKafkaEventSourceConfig
+    SelfManagedKafkaEventSourceConfig (..),
+    newSelfManagedKafkaEventSourceConfig,
+    selfManagedKafkaEventSourceConfig_consumerGroupId,
+
     -- * SourceAccessConfiguration
     SourceAccessConfiguration (..),
     newSourceAccessConfiguration,
@@ -418,25 +470,32 @@ import Amazonka.Lambda.Types.AccountUsage
 import Amazonka.Lambda.Types.AliasConfiguration
 import Amazonka.Lambda.Types.AliasRoutingConfiguration
 import Amazonka.Lambda.Types.AllowedPublishers
+import Amazonka.Lambda.Types.AmazonManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.Architecture
 import Amazonka.Lambda.Types.CodeSigningConfig
 import Amazonka.Lambda.Types.CodeSigningPolicies
 import Amazonka.Lambda.Types.CodeSigningPolicy
 import Amazonka.Lambda.Types.Concurrency
+import Amazonka.Lambda.Types.Cors
 import Amazonka.Lambda.Types.DeadLetterConfig
 import Amazonka.Lambda.Types.DestinationConfig
 import Amazonka.Lambda.Types.EndPointType
 import Amazonka.Lambda.Types.Environment
 import Amazonka.Lambda.Types.EnvironmentError
 import Amazonka.Lambda.Types.EnvironmentResponse
+import Amazonka.Lambda.Types.EphemeralStorage
 import Amazonka.Lambda.Types.EventSourceMappingConfiguration
 import Amazonka.Lambda.Types.EventSourcePosition
 import Amazonka.Lambda.Types.FileSystemConfig
+import Amazonka.Lambda.Types.Filter
+import Amazonka.Lambda.Types.FilterCriteria
 import Amazonka.Lambda.Types.FunctionCode
 import Amazonka.Lambda.Types.FunctionCodeLocation
 import Amazonka.Lambda.Types.FunctionConfiguration
 import Amazonka.Lambda.Types.FunctionEventInvokeConfig
 import Amazonka.Lambda.Types.FunctionResponseType
+import Amazonka.Lambda.Types.FunctionUrlAuthType
+import Amazonka.Lambda.Types.FunctionUrlConfig
 import Amazonka.Lambda.Types.FunctionVersion
 import Amazonka.Lambda.Types.GetLayerVersionResponse
 import Amazonka.Lambda.Types.ImageConfig
@@ -458,6 +517,7 @@ import Amazonka.Lambda.Types.ProvisionedConcurrencyConfigListItem
 import Amazonka.Lambda.Types.ProvisionedConcurrencyStatusEnum
 import Amazonka.Lambda.Types.Runtime
 import Amazonka.Lambda.Types.SelfManagedEventSource
+import Amazonka.Lambda.Types.SelfManagedKafkaEventSourceConfig
 import Amazonka.Lambda.Types.SourceAccessConfiguration
 import Amazonka.Lambda.Types.SourceAccessType
 import Amazonka.Lambda.Types.State

@@ -56,6 +56,19 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
     --
     -- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
     --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
+    --     This property cannot be specified in an UpdateEventSourceMapping API
+    --     call.
+    --
+    -- -   @CLIENT_CERTIFICATE_TLS_AUTH@ - (Amazon MSK, self-managed Apache
+    --     Kafka) The Secrets Manager ARN of your secret key containing the
+    --     certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private
+    --     key password (optional) used for mutual TLS authentication of your
+    --     MSK\/Apache Kafka brokers.
+    --
+    -- -   @SERVER_ROOT_CA_CERTIFICATE@ - (Self-managed Apache Kafka) The
+    --     Secrets Manager ARN of your secret key containing the root CA
+    --     certificate (X.509 PEM) used for TLS encryption of your Apache Kafka
+    --     brokers.
     type' :: Prelude.Maybe SourceAccessType,
     -- | The value for your chosen configuration in @Type@. For example:
     -- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
@@ -98,6 +111,19 @@ data SourceAccessConfiguration = SourceAccessConfiguration'
 --
 -- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
 --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
+--     This property cannot be specified in an UpdateEventSourceMapping API
+--     call.
+--
+-- -   @CLIENT_CERTIFICATE_TLS_AUTH@ - (Amazon MSK, self-managed Apache
+--     Kafka) The Secrets Manager ARN of your secret key containing the
+--     certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private
+--     key password (optional) used for mutual TLS authentication of your
+--     MSK\/Apache Kafka brokers.
+--
+-- -   @SERVER_ROOT_CA_CERTIFICATE@ - (Self-managed Apache Kafka) The
+--     Secrets Manager ARN of your secret key containing the root CA
+--     certificate (X.509 PEM) used for TLS encryption of your Apache Kafka
+--     brokers.
 --
 -- 'uri', 'sourceAccessConfiguration_uri' - The value for your chosen configuration in @Type@. For example:
 -- @\"URI\": \"arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName\"@.
@@ -136,6 +162,19 @@ newSourceAccessConfiguration =
 --
 -- -   @VIRTUAL_HOST@ - (Amazon MQ) The name of the virtual host in your
 --     RabbitMQ broker. Lambda uses this RabbitMQ host as the event source.
+--     This property cannot be specified in an UpdateEventSourceMapping API
+--     call.
+--
+-- -   @CLIENT_CERTIFICATE_TLS_AUTH@ - (Amazon MSK, self-managed Apache
+--     Kafka) The Secrets Manager ARN of your secret key containing the
+--     certificate chain (X.509 PEM), private key (PKCS#8 PEM), and private
+--     key password (optional) used for mutual TLS authentication of your
+--     MSK\/Apache Kafka brokers.
+--
+-- -   @SERVER_ROOT_CA_CERTIFICATE@ - (Self-managed Apache Kafka) The
+--     Secrets Manager ARN of your secret key containing the root CA
+--     certificate (X.509 PEM) used for TLS encryption of your Apache Kafka
+--     brokers.
 sourceAccessConfiguration_type :: Lens.Lens' SourceAccessConfiguration (Prelude.Maybe SourceAccessType)
 sourceAccessConfiguration_type = Lens.lens (\SourceAccessConfiguration' {type'} -> type') (\s@SourceAccessConfiguration' {} a -> s {type' = a} :: SourceAccessConfiguration)
 

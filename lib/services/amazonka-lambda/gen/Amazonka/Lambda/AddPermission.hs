@@ -20,21 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Grants an Amazon Web Services service or another account permission to
--- use a function. You can apply the policy at the function level, or
--- specify a qualifier to restrict access to a single version or alias. If
--- you use a qualifier, the invoker must use the full Amazon Resource Name
--- (ARN) of that version or alias to invoke the function. Note: Lambda does
--- not support adding policies to version $LATEST.
+-- Grants an Amazon Web Services service, account, or organization
+-- permission to use a function. You can apply the policy at the function
+-- level, or specify a qualifier to restrict access to a single version or
+-- alias. If you use a qualifier, the invoker must use the full Amazon
+-- Resource Name (ARN) of that version or alias to invoke the function.
+-- Note: Lambda does not support adding policies to version $LATEST.
 --
 -- To grant permission to another account, specify the account ID as the
--- @Principal@. For Amazon Web Services services, the principal is a
--- domain-style identifier defined by the service, like @s3.amazonaws.com@
--- or @sns.amazonaws.com@. For Amazon Web Services services, you can also
--- specify the ARN of the associated resource as the @SourceArn@. If you
--- grant permission to a service principal without specifying the source,
--- other accounts could potentially configure resources in their account to
--- invoke your Lambda function.
+-- @Principal@. To grant permission to an organization defined in
+-- Organizations, specify the organization ID as the @PrincipalOrgID@. For
+-- Amazon Web Services services, the principal is a domain-style identifier
+-- defined by the service, like @s3.amazonaws.com@ or @sns.amazonaws.com@.
+-- For Amazon Web Services services, you can also specify the ARN of the
+-- associated resource as the @SourceArn@. If you grant permission to a
+-- service principal without specifying the source, other accounts could
+-- potentially configure resources in their account to invoke your Lambda
+-- function.
 --
 -- This action adds a statement to a resource-based permissions policy for
 -- the function. For more information about function policies, see
@@ -46,7 +48,9 @@ module Amazonka.Lambda.AddPermission
 
     -- * Request Lenses
     addPermission_sourceArn,
+    addPermission_functionUrlAuthType,
     addPermission_eventSourceToken,
+    addPermission_principalOrgID,
     addPermission_revisionId,
     addPermission_qualifier,
     addPermission_sourceAccount,
@@ -81,9 +85,19 @@ data AddPermission = AddPermission'
     -- Note that Lambda configures the comparison using the @StringLike@
     -- operator.
     sourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The type of authentication that your function URL uses. Set to @AWS_IAM@
+    -- if you want to restrict access to authenticated @IAM@ users only. Set to
+    -- @NONE@ if you want to bypass IAM authentication to create a public
+    -- endpoint. For more information, see
+    -- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
+    functionUrlAuthType :: Prelude.Maybe FunctionUrlAuthType,
     -- | For Alexa Smart Home functions, a token that must be supplied by the
     -- invoker.
     eventSourceToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifier for your organization in Organizations. Use this to grant
+    -- permissions to all the Amazon Web Services accounts under this
+    -- organization.
+    principalOrgID :: Prelude.Maybe Prelude.Text,
     -- | Only update the policy if the revision ID matches the ID that\'s
     -- specified. Use this option to avoid modifying a policy that has changed
     -- since you last read it.
@@ -140,8 +154,18 @@ data AddPermission = AddPermission'
 -- Note that Lambda configures the comparison using the @StringLike@
 -- operator.
 --
+-- 'functionUrlAuthType', 'addPermission_functionUrlAuthType' - The type of authentication that your function URL uses. Set to @AWS_IAM@
+-- if you want to restrict access to authenticated @IAM@ users only. Set to
+-- @NONE@ if you want to bypass IAM authentication to create a public
+-- endpoint. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
+--
 -- 'eventSourceToken', 'addPermission_eventSourceToken' - For Alexa Smart Home functions, a token that must be supplied by the
 -- invoker.
+--
+-- 'principalOrgID', 'addPermission_principalOrgID' - The identifier for your organization in Organizations. Use this to grant
+-- permissions to all the Amazon Web Services accounts under this
+-- organization.
 --
 -- 'revisionId', 'addPermission_revisionId' - Only update the policy if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying a policy that has changed
@@ -197,7 +221,9 @@ newAddPermission
   pPrincipal_ =
     AddPermission'
       { sourceArn = Prelude.Nothing,
+        functionUrlAuthType = Prelude.Nothing,
         eventSourceToken = Prelude.Nothing,
+        principalOrgID = Prelude.Nothing,
         revisionId = Prelude.Nothing,
         qualifier = Prelude.Nothing,
         sourceAccount = Prelude.Nothing,
@@ -216,10 +242,24 @@ newAddPermission
 addPermission_sourceArn :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_sourceArn = Lens.lens (\AddPermission' {sourceArn} -> sourceArn) (\s@AddPermission' {} a -> s {sourceArn = a} :: AddPermission)
 
+-- | The type of authentication that your function URL uses. Set to @AWS_IAM@
+-- if you want to restrict access to authenticated @IAM@ users only. Set to
+-- @NONE@ if you want to bypass IAM authentication to create a public
+-- endpoint. For more information, see
+-- <https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html Security and auth model for Lambda function URLs>.
+addPermission_functionUrlAuthType :: Lens.Lens' AddPermission (Prelude.Maybe FunctionUrlAuthType)
+addPermission_functionUrlAuthType = Lens.lens (\AddPermission' {functionUrlAuthType} -> functionUrlAuthType) (\s@AddPermission' {} a -> s {functionUrlAuthType = a} :: AddPermission)
+
 -- | For Alexa Smart Home functions, a token that must be supplied by the
 -- invoker.
 addPermission_eventSourceToken :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
 addPermission_eventSourceToken = Lens.lens (\AddPermission' {eventSourceToken} -> eventSourceToken) (\s@AddPermission' {} a -> s {eventSourceToken = a} :: AddPermission)
+
+-- | The identifier for your organization in Organizations. Use this to grant
+-- permissions to all the Amazon Web Services accounts under this
+-- organization.
+addPermission_principalOrgID :: Lens.Lens' AddPermission (Prelude.Maybe Prelude.Text)
+addPermission_principalOrgID = Lens.lens (\AddPermission' {principalOrgID} -> principalOrgID) (\s@AddPermission' {} a -> s {principalOrgID = a} :: AddPermission)
 
 -- | Only update the policy if the revision ID matches the ID that\'s
 -- specified. Use this option to avoid modifying a policy that has changed
@@ -289,7 +329,9 @@ instance Core.AWSRequest AddPermission where
 instance Prelude.Hashable AddPermission where
   hashWithSalt _salt AddPermission' {..} =
     _salt `Prelude.hashWithSalt` sourceArn
+      `Prelude.hashWithSalt` functionUrlAuthType
       `Prelude.hashWithSalt` eventSourceToken
+      `Prelude.hashWithSalt` principalOrgID
       `Prelude.hashWithSalt` revisionId
       `Prelude.hashWithSalt` qualifier
       `Prelude.hashWithSalt` sourceAccount
@@ -301,7 +343,9 @@ instance Prelude.Hashable AddPermission where
 instance Prelude.NFData AddPermission where
   rnf AddPermission' {..} =
     Prelude.rnf sourceArn
+      `Prelude.seq` Prelude.rnf functionUrlAuthType
       `Prelude.seq` Prelude.rnf eventSourceToken
+      `Prelude.seq` Prelude.rnf principalOrgID
       `Prelude.seq` Prelude.rnf revisionId
       `Prelude.seq` Prelude.rnf qualifier
       `Prelude.seq` Prelude.rnf sourceAccount
@@ -318,8 +362,12 @@ instance Core.ToJSON AddPermission where
     Core.object
       ( Prelude.catMaybes
           [ ("SourceArn" Core..=) Prelude.<$> sourceArn,
+            ("FunctionUrlAuthType" Core..=)
+              Prelude.<$> functionUrlAuthType,
             ("EventSourceToken" Core..=)
               Prelude.<$> eventSourceToken,
+            ("PrincipalOrgID" Core..=)
+              Prelude.<$> principalOrgID,
             ("RevisionId" Core..=) Prelude.<$> revisionId,
             ("SourceAccount" Core..=) Prelude.<$> sourceAccount,
             Prelude.Just ("StatementId" Core..= statementId),

@@ -94,6 +94,7 @@ module Amazonka.Lambda.CreateFunction
     createFunction_tags,
     createFunction_fileSystemConfigs,
     createFunction_timeout,
+    createFunction_ephemeralStorage,
     createFunction_memorySize,
     createFunction_publish,
     createFunction_imageConfig,
@@ -123,6 +124,7 @@ module Amazonka.Lambda.CreateFunction
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -171,11 +173,14 @@ data CreateFunction = CreateFunction'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Connection settings for an Amazon EFS file system.
     fileSystemConfigs :: Prelude.Maybe [FileSystemConfig],
-    -- | The amount of time that Lambda allows a function to run before stopping
-    -- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
-    -- For additional information, see
+    -- | The amount of time (in seconds) that Lambda allows a function to run
+    -- before stopping it. The default is 3 seconds. The maximum allowed value
+    -- is 900 seconds. For additional information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
     timeout :: Prelude.Maybe Prelude.Natural,
+    -- | The size of the function’s \/tmp directory in MB. The default value is
+    -- 512, but can be any whole number between 512 and 10240 MB.
+    ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The amount of
     -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
     -- at runtime. Increasing the function memory also increases its CPU
@@ -205,6 +210,7 @@ data CreateFunction = CreateFunction'
     codeSigningConfigArn :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the function\'s
     -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+    -- Runtime is required if the deployment package is a .zip file archive.
     runtime :: Prelude.Maybe Runtime,
     -- | A description of the function.
     description :: Prelude.Maybe Prelude.Text,
@@ -213,7 +219,8 @@ data CreateFunction = CreateFunction'
     -- not provided, Lambda uses a default service key.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the method within your code that Lambda calls to execute
-    -- your function. The format includes the file name. It can also include
+    -- your function. Handler is required if the deployment package is a .zip
+    -- file archive. The format includes the file name. It can also include
     -- namespaces and other qualifiers, depending on the runtime. For more
     -- information, see
     -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
@@ -227,8 +234,8 @@ data CreateFunction = CreateFunction'
     -- set @Zip@ for ZIP archive.
     packageType :: Prelude.Maybe PackageType,
     -- | The instruction set architecture that the function supports. Enter a
-    -- string array with one of the valid values. The default value is
-    -- @x86_64@.
+    -- string array with one of the valid values (arm64 or x86_64). The default
+    -- value is @x86_64@.
     architectures :: Prelude.Maybe (Prelude.NonEmpty Architecture),
     -- | A dead letter queue configuration that specifies the queue or topic
     -- where Lambda sends asynchronous events when they fail processing. For
@@ -274,10 +281,13 @@ data CreateFunction = CreateFunction'
 --
 -- 'fileSystemConfigs', 'createFunction_fileSystemConfigs' - Connection settings for an Amazon EFS file system.
 --
--- 'timeout', 'createFunction_timeout' - The amount of time that Lambda allows a function to run before stopping
--- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
--- For additional information, see
+-- 'timeout', 'createFunction_timeout' - The amount of time (in seconds) that Lambda allows a function to run
+-- before stopping it. The default is 3 seconds. The maximum allowed value
+-- is 900 seconds. For additional information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
+--
+-- 'ephemeralStorage', 'createFunction_ephemeralStorage' - The size of the function’s \/tmp directory in MB. The default value is
+-- 512, but can be any whole number between 512 and 10240 MB.
 --
 -- 'memorySize', 'createFunction_memorySize' - The amount of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
@@ -308,6 +318,7 @@ data CreateFunction = CreateFunction'
 --
 -- 'runtime', 'createFunction_runtime' - The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+-- Runtime is required if the deployment package is a .zip file archive.
 --
 -- 'description', 'createFunction_description' - A description of the function.
 --
@@ -316,7 +327,8 @@ data CreateFunction = CreateFunction'
 -- not provided, Lambda uses a default service key.
 --
 -- 'handler', 'createFunction_handler' - The name of the method within your code that Lambda calls to execute
--- your function. The format includes the file name. It can also include
+-- your function. Handler is required if the deployment package is a .zip
+-- file archive. The format includes the file name. It can also include
 -- namespaces and other qualifiers, depending on the runtime. For more
 -- information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
@@ -330,8 +342,8 @@ data CreateFunction = CreateFunction'
 -- set @Zip@ for ZIP archive.
 --
 -- 'architectures', 'createFunction_architectures' - The instruction set architecture that the function supports. Enter a
--- string array with one of the valid values. The default value is
--- @x86_64@.
+-- string array with one of the valid values (arm64 or x86_64). The default
+-- value is @x86_64@.
 --
 -- 'deadLetterConfig', 'createFunction_deadLetterConfig' - A dead letter queue configuration that specifies the queue or topic
 -- where Lambda sends asynchronous events when they fail processing. For
@@ -369,6 +381,7 @@ newCreateFunction pFunctionName_ pRole_ pCode_ =
       tags = Prelude.Nothing,
       fileSystemConfigs = Prelude.Nothing,
       timeout = Prelude.Nothing,
+      ephemeralStorage = Prelude.Nothing,
       memorySize = Prelude.Nothing,
       publish = Prelude.Nothing,
       imageConfig = Prelude.Nothing,
@@ -404,12 +417,17 @@ createFunction_tags = Lens.lens (\CreateFunction' {tags} -> tags) (\s@CreateFunc
 createFunction_fileSystemConfigs :: Lens.Lens' CreateFunction (Prelude.Maybe [FileSystemConfig])
 createFunction_fileSystemConfigs = Lens.lens (\CreateFunction' {fileSystemConfigs} -> fileSystemConfigs) (\s@CreateFunction' {} a -> s {fileSystemConfigs = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
 
--- | The amount of time that Lambda allows a function to run before stopping
--- it. The default is 3 seconds. The maximum allowed value is 900 seconds.
--- For additional information, see
+-- | The amount of time (in seconds) that Lambda allows a function to run
+-- before stopping it. The default is 3 seconds. The maximum allowed value
+-- is 900 seconds. For additional information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html Lambda execution environment>.
 createFunction_timeout :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Natural)
 createFunction_timeout = Lens.lens (\CreateFunction' {timeout} -> timeout) (\s@CreateFunction' {} a -> s {timeout = a} :: CreateFunction)
+
+-- | The size of the function’s \/tmp directory in MB. The default value is
+-- 512, but can be any whole number between 512 and 10240 MB.
+createFunction_ephemeralStorage :: Lens.Lens' CreateFunction (Prelude.Maybe EphemeralStorage)
+createFunction_ephemeralStorage = Lens.lens (\CreateFunction' {ephemeralStorage} -> ephemeralStorage) (\s@CreateFunction' {} a -> s {ephemeralStorage = a} :: CreateFunction)
 
 -- | The amount of
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html memory available to the function>
@@ -452,6 +470,7 @@ createFunction_codeSigningConfigArn = Lens.lens (\CreateFunction' {codeSigningCo
 
 -- | The identifier of the function\'s
 -- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html runtime>.
+-- Runtime is required if the deployment package is a .zip file archive.
 createFunction_runtime :: Lens.Lens' CreateFunction (Prelude.Maybe Runtime)
 createFunction_runtime = Lens.lens (\CreateFunction' {runtime} -> runtime) (\s@CreateFunction' {} a -> s {runtime = a} :: CreateFunction)
 
@@ -466,7 +485,8 @@ createFunction_kmsKeyArn :: Lens.Lens' CreateFunction (Prelude.Maybe Prelude.Tex
 createFunction_kmsKeyArn = Lens.lens (\CreateFunction' {kmsKeyArn} -> kmsKeyArn) (\s@CreateFunction' {} a -> s {kmsKeyArn = a} :: CreateFunction)
 
 -- | The name of the method within your code that Lambda calls to execute
--- your function. The format includes the file name. It can also include
+-- your function. Handler is required if the deployment package is a .zip
+-- file archive. The format includes the file name. It can also include
 -- namespaces and other qualifiers, depending on the runtime. For more
 -- information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html Programming Model>.
@@ -486,8 +506,8 @@ createFunction_packageType :: Lens.Lens' CreateFunction (Prelude.Maybe PackageTy
 createFunction_packageType = Lens.lens (\CreateFunction' {packageType} -> packageType) (\s@CreateFunction' {} a -> s {packageType = a} :: CreateFunction)
 
 -- | The instruction set architecture that the function supports. Enter a
--- string array with one of the valid values. The default value is
--- @x86_64@.
+-- string array with one of the valid values (arm64 or x86_64). The default
+-- value is @x86_64@.
 createFunction_architectures :: Lens.Lens' CreateFunction (Prelude.Maybe (Prelude.NonEmpty Architecture))
 createFunction_architectures = Lens.lens (\CreateFunction' {architectures} -> architectures) (\s@CreateFunction' {} a -> s {architectures = a} :: CreateFunction) Prelude.. Lens.mapping Lens.coerced
 
@@ -537,6 +557,7 @@ instance Prelude.Hashable CreateFunction where
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` fileSystemConfigs
       `Prelude.hashWithSalt` timeout
+      `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` memorySize
       `Prelude.hashWithSalt` publish
       `Prelude.hashWithSalt` imageConfig
@@ -561,6 +582,7 @@ instance Prelude.NFData CreateFunction where
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf fileSystemConfigs
       `Prelude.seq` Prelude.rnf timeout
+      `Prelude.seq` Prelude.rnf ephemeralStorage
       `Prelude.seq` Prelude.rnf memorySize
       `Prelude.seq` Prelude.rnf publish
       `Prelude.seq` Prelude.rnf imageConfig
@@ -591,6 +613,8 @@ instance Core.ToJSON CreateFunction where
             ("FileSystemConfigs" Core..=)
               Prelude.<$> fileSystemConfigs,
             ("Timeout" Core..=) Prelude.<$> timeout,
+            ("EphemeralStorage" Core..=)
+              Prelude.<$> ephemeralStorage,
             ("MemorySize" Core..=) Prelude.<$> memorySize,
             ("Publish" Core..=) Prelude.<$> publish,
             ("ImageConfig" Core..=) Prelude.<$> imageConfig,

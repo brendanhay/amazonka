@@ -21,8 +21,10 @@ module Amazonka.Lambda.Types.SourceAccessType
   ( SourceAccessType
       ( ..,
         SourceAccessType_BASIC_AUTH,
+        SourceAccessType_CLIENT_CERTIFICATE_TLS_AUTH,
         SourceAccessType_SASL_SCRAM_256_AUTH,
         SourceAccessType_SASL_SCRAM_512_AUTH,
+        SourceAccessType_SERVER_ROOT_CA_CERTIFICATE,
         SourceAccessType_VIRTUAL_HOST,
         SourceAccessType_VPC_SECURITY_GROUP,
         SourceAccessType_VPC_SUBNET
@@ -64,11 +66,17 @@ newtype SourceAccessType = SourceAccessType'
 pattern SourceAccessType_BASIC_AUTH :: SourceAccessType
 pattern SourceAccessType_BASIC_AUTH = SourceAccessType' "BASIC_AUTH"
 
+pattern SourceAccessType_CLIENT_CERTIFICATE_TLS_AUTH :: SourceAccessType
+pattern SourceAccessType_CLIENT_CERTIFICATE_TLS_AUTH = SourceAccessType' "CLIENT_CERTIFICATE_TLS_AUTH"
+
 pattern SourceAccessType_SASL_SCRAM_256_AUTH :: SourceAccessType
 pattern SourceAccessType_SASL_SCRAM_256_AUTH = SourceAccessType' "SASL_SCRAM_256_AUTH"
 
 pattern SourceAccessType_SASL_SCRAM_512_AUTH :: SourceAccessType
 pattern SourceAccessType_SASL_SCRAM_512_AUTH = SourceAccessType' "SASL_SCRAM_512_AUTH"
+
+pattern SourceAccessType_SERVER_ROOT_CA_CERTIFICATE :: SourceAccessType
+pattern SourceAccessType_SERVER_ROOT_CA_CERTIFICATE = SourceAccessType' "SERVER_ROOT_CA_CERTIFICATE"
 
 pattern SourceAccessType_VIRTUAL_HOST :: SourceAccessType
 pattern SourceAccessType_VIRTUAL_HOST = SourceAccessType' "VIRTUAL_HOST"
@@ -81,8 +89,10 @@ pattern SourceAccessType_VPC_SUBNET = SourceAccessType' "VPC_SUBNET"
 
 {-# COMPLETE
   SourceAccessType_BASIC_AUTH,
+  SourceAccessType_CLIENT_CERTIFICATE_TLS_AUTH,
   SourceAccessType_SASL_SCRAM_256_AUTH,
   SourceAccessType_SASL_SCRAM_512_AUTH,
+  SourceAccessType_SERVER_ROOT_CA_CERTIFICATE,
   SourceAccessType_VIRTUAL_HOST,
   SourceAccessType_VPC_SECURITY_GROUP,
   SourceAccessType_VPC_SUBNET,

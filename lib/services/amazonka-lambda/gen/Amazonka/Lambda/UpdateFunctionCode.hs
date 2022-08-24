@@ -25,6 +25,20 @@
 -- more information, see
 -- <https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html Configuring code signing>.
 --
+-- If the function\'s package type is @Image@, you must specify the code
+-- package in @ImageUri@ as the URI of a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html container image>
+-- in the Amazon ECR registry.
+--
+-- If the function\'s package type is @Zip@, you must specify the
+-- deployment package as a
+-- <https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip .zip file archive>.
+-- Enter the Amazon S3 bucket and key of the code .zip file location. You
+-- can also provide the function code inline using the @ZipFile@ field.
+--
+-- The code in the deployment package must be compatible with the target
+-- instruction set architecture of the function (@x86-64@ or @arm64@).
+--
 -- The function\'s code is locked when you publish a version. You can\'t
 -- modify the code of a published version, only the unpublished version.
 --
@@ -59,6 +73,7 @@ module Amazonka.Lambda.UpdateFunctionCode
     functionConfiguration_masterArn,
     functionConfiguration_functionArn,
     functionConfiguration_timeout,
+    functionConfiguration_ephemeralStorage,
     functionConfiguration_memorySize,
     functionConfiguration_codeSha256,
     functionConfiguration_environment,
@@ -99,17 +114,22 @@ import qualified Amazonka.Response as Response
 data UpdateFunctionCode = UpdateFunctionCode'
   { -- | An Amazon S3 bucket in the same Amazon Web Services Region as your
     -- function. The bucket can be in a different Amazon Web Services account.
+    -- Use only with a function defined with a .zip file archive deployment
+    -- package.
     s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | Set to true to publish a new version of the function after updating the
     -- code. This has the same effect as calling PublishVersion separately.
     publish :: Prelude.Maybe Prelude.Bool,
-    -- | URI of a container image in the Amazon ECR registry.
+    -- | URI of a container image in the Amazon ECR registry. Do not use for a
+    -- function defined with a .zip file archive.
     imageUri :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 key of the deployment package.
+    -- | The Amazon S3 key of the deployment package. Use only with a function
+    -- defined with a .zip file archive deployment package.
     s3Key :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded contents of the deployment package. Amazon Web
     -- Services SDK and Amazon Web Services CLI clients handle the encoding for
-    -- you.
+    -- you. Use only with a function defined with a .zip file archive
+    -- deployment package.
     zipFile :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | Set to true to validate the request parameters and access permissions
     -- without modifying the function code.
@@ -122,8 +142,8 @@ data UpdateFunctionCode = UpdateFunctionCode'
     -- use.
     s3ObjectVersion :: Prelude.Maybe Prelude.Text,
     -- | The instruction set architecture that the function supports. Enter a
-    -- string array with one of the valid values. The default value is
-    -- @x86_64@.
+    -- string array with one of the valid values (arm64 or x86_64). The default
+    -- value is @x86_64@.
     architectures :: Prelude.Maybe (Prelude.NonEmpty Architecture),
     -- | The name of the Lambda function.
     --
@@ -152,17 +172,22 @@ data UpdateFunctionCode = UpdateFunctionCode'
 --
 -- 's3Bucket', 'updateFunctionCode_s3Bucket' - An Amazon S3 bucket in the same Amazon Web Services Region as your
 -- function. The bucket can be in a different Amazon Web Services account.
+-- Use only with a function defined with a .zip file archive deployment
+-- package.
 --
 -- 'publish', 'updateFunctionCode_publish' - Set to true to publish a new version of the function after updating the
 -- code. This has the same effect as calling PublishVersion separately.
 --
--- 'imageUri', 'updateFunctionCode_imageUri' - URI of a container image in the Amazon ECR registry.
+-- 'imageUri', 'updateFunctionCode_imageUri' - URI of a container image in the Amazon ECR registry. Do not use for a
+-- function defined with a .zip file archive.
 --
--- 's3Key', 'updateFunctionCode_s3Key' - The Amazon S3 key of the deployment package.
+-- 's3Key', 'updateFunctionCode_s3Key' - The Amazon S3 key of the deployment package. Use only with a function
+-- defined with a .zip file archive deployment package.
 --
 -- 'zipFile', 'updateFunctionCode_zipFile' - The base64-encoded contents of the deployment package. Amazon Web
 -- Services SDK and Amazon Web Services CLI clients handle the encoding for
--- you.--
+-- you. Use only with a function defined with a .zip file archive
+-- deployment package.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -179,8 +204,8 @@ data UpdateFunctionCode = UpdateFunctionCode'
 -- use.
 --
 -- 'architectures', 'updateFunctionCode_architectures' - The instruction set architecture that the function supports. Enter a
--- string array with one of the valid values. The default value is
--- @x86_64@.
+-- string array with one of the valid values (arm64 or x86_64). The default
+-- value is @x86_64@.
 --
 -- 'functionName', 'updateFunctionCode_functionName' - The name of the Lambda function.
 --
@@ -215,6 +240,8 @@ newUpdateFunctionCode pFunctionName_ =
 
 -- | An Amazon S3 bucket in the same Amazon Web Services Region as your
 -- function. The bucket can be in a different Amazon Web Services account.
+-- Use only with a function defined with a .zip file archive deployment
+-- package.
 updateFunctionCode_s3Bucket :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_s3Bucket = Lens.lens (\UpdateFunctionCode' {s3Bucket} -> s3Bucket) (\s@UpdateFunctionCode' {} a -> s {s3Bucket = a} :: UpdateFunctionCode)
 
@@ -223,17 +250,20 @@ updateFunctionCode_s3Bucket = Lens.lens (\UpdateFunctionCode' {s3Bucket} -> s3Bu
 updateFunctionCode_publish :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Bool)
 updateFunctionCode_publish = Lens.lens (\UpdateFunctionCode' {publish} -> publish) (\s@UpdateFunctionCode' {} a -> s {publish = a} :: UpdateFunctionCode)
 
--- | URI of a container image in the Amazon ECR registry.
+-- | URI of a container image in the Amazon ECR registry. Do not use for a
+-- function defined with a .zip file archive.
 updateFunctionCode_imageUri :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_imageUri = Lens.lens (\UpdateFunctionCode' {imageUri} -> imageUri) (\s@UpdateFunctionCode' {} a -> s {imageUri = a} :: UpdateFunctionCode)
 
--- | The Amazon S3 key of the deployment package.
+-- | The Amazon S3 key of the deployment package. Use only with a function
+-- defined with a .zip file archive deployment package.
 updateFunctionCode_s3Key :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe Prelude.Text)
 updateFunctionCode_s3Key = Lens.lens (\UpdateFunctionCode' {s3Key} -> s3Key) (\s@UpdateFunctionCode' {} a -> s {s3Key = a} :: UpdateFunctionCode)
 
 -- | The base64-encoded contents of the deployment package. Amazon Web
 -- Services SDK and Amazon Web Services CLI clients handle the encoding for
--- you.--
+-- you. Use only with a function defined with a .zip file archive
+-- deployment package.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -258,8 +288,8 @@ updateFunctionCode_s3ObjectVersion :: Lens.Lens' UpdateFunctionCode (Prelude.May
 updateFunctionCode_s3ObjectVersion = Lens.lens (\UpdateFunctionCode' {s3ObjectVersion} -> s3ObjectVersion) (\s@UpdateFunctionCode' {} a -> s {s3ObjectVersion = a} :: UpdateFunctionCode)
 
 -- | The instruction set architecture that the function supports. Enter a
--- string array with one of the valid values. The default value is
--- @x86_64@.
+-- string array with one of the valid values (arm64 or x86_64). The default
+-- value is @x86_64@.
 updateFunctionCode_architectures :: Lens.Lens' UpdateFunctionCode (Prelude.Maybe (Prelude.NonEmpty Architecture))
 updateFunctionCode_architectures = Lens.lens (\UpdateFunctionCode' {architectures} -> architectures) (\s@UpdateFunctionCode' {} a -> s {architectures = a} :: UpdateFunctionCode) Prelude.. Lens.mapping Lens.coerced
 

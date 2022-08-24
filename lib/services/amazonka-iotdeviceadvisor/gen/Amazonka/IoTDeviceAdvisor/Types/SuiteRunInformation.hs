@@ -26,6 +26,10 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Information about the suite run.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions SuiteRunInformation>
+-- action.
+--
 -- /See:/ 'newSuiteRunInformation' smart constructor.
 data SuiteRunInformation = SuiteRunInformation'
   { -- | Number of test cases that failed in the suite run.
@@ -42,11 +46,11 @@ data SuiteRunInformation = SuiteRunInformation'
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
     -- | Number of test cases that passed in the suite run.
     passed :: Prelude.Maybe Prelude.Natural,
-    -- | Suite definition Id of the suite run.
+    -- | Suite definition ID of the suite run.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Date (in Unix epoch time) when the suite run was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | Suite run Id of the suite run.
+    -- | Suite run ID of the suite run.
     suiteRunId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,11 +77,11 @@ data SuiteRunInformation = SuiteRunInformation'
 --
 -- 'passed', 'suiteRunInformation_passed' - Number of test cases that passed in the suite run.
 --
--- 'suiteDefinitionId', 'suiteRunInformation_suiteDefinitionId' - Suite definition Id of the suite run.
+-- 'suiteDefinitionId', 'suiteRunInformation_suiteDefinitionId' - Suite definition ID of the suite run.
 --
 -- 'createdAt', 'suiteRunInformation_createdAt' - Date (in Unix epoch time) when the suite run was created.
 --
--- 'suiteRunId', 'suiteRunInformation_suiteRunId' - Suite run Id of the suite run.
+-- 'suiteRunId', 'suiteRunInformation_suiteRunId' - Suite run ID of the suite run.
 newSuiteRunInformation ::
   SuiteRunInformation
 newSuiteRunInformation =
@@ -122,7 +126,7 @@ suiteRunInformation_suiteDefinitionVersion = Lens.lens (\SuiteRunInformation' {s
 suiteRunInformation_passed :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.Natural)
 suiteRunInformation_passed = Lens.lens (\SuiteRunInformation' {passed} -> passed) (\s@SuiteRunInformation' {} a -> s {passed = a} :: SuiteRunInformation)
 
--- | Suite definition Id of the suite run.
+-- | Suite definition ID of the suite run.
 suiteRunInformation_suiteDefinitionId :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.Text)
 suiteRunInformation_suiteDefinitionId = Lens.lens (\SuiteRunInformation' {suiteDefinitionId} -> suiteDefinitionId) (\s@SuiteRunInformation' {} a -> s {suiteDefinitionId = a} :: SuiteRunInformation)
 
@@ -130,7 +134,7 @@ suiteRunInformation_suiteDefinitionId = Lens.lens (\SuiteRunInformation' {suiteD
 suiteRunInformation_createdAt :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.UTCTime)
 suiteRunInformation_createdAt = Lens.lens (\SuiteRunInformation' {createdAt} -> createdAt) (\s@SuiteRunInformation' {} a -> s {createdAt = a} :: SuiteRunInformation) Prelude.. Lens.mapping Core._Time
 
--- | Suite run Id of the suite run.
+-- | Suite run ID of the suite run.
 suiteRunInformation_suiteRunId :: Lens.Lens' SuiteRunInformation (Prelude.Maybe Prelude.Text)
 suiteRunInformation_suiteRunId = Lens.lens (\SuiteRunInformation' {suiteRunId} -> suiteRunId) (\s@SuiteRunInformation' {} a -> s {suiteRunId = a} :: SuiteRunInformation)
 

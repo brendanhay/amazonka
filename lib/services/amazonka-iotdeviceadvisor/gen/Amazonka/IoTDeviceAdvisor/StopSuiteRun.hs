@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops a Device Advisor test suite run that is currently running.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions StopSuiteRun>
+-- action.
 module Amazonka.IoTDeviceAdvisor.StopSuiteRun
   ( -- * Creating a Request
     StopSuiteRun (..),
@@ -48,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newStopSuiteRun' smart constructor.
 data StopSuiteRun = StopSuiteRun'
-  { -- | Suite definition Id of the test suite run to be stopped.
+  { -- | Suite definition ID of the test suite run to be stopped.
     suiteDefinitionId :: Prelude.Text,
-    -- | Suite run Id of the test suite run to be stopped.
+    -- | Suite run ID of the test suite run to be stopped.
     suiteRunId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,9 +67,9 @@ data StopSuiteRun = StopSuiteRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteDefinitionId', 'stopSuiteRun_suiteDefinitionId' - Suite definition Id of the test suite run to be stopped.
+-- 'suiteDefinitionId', 'stopSuiteRun_suiteDefinitionId' - Suite definition ID of the test suite run to be stopped.
 --
--- 'suiteRunId', 'stopSuiteRun_suiteRunId' - Suite run Id of the test suite run to be stopped.
+-- 'suiteRunId', 'stopSuiteRun_suiteRunId' - Suite run ID of the test suite run to be stopped.
 newStopSuiteRun ::
   -- | 'suiteDefinitionId'
   Prelude.Text ->
@@ -79,11 +83,11 @@ newStopSuiteRun pSuiteDefinitionId_ pSuiteRunId_ =
       suiteRunId = pSuiteRunId_
     }
 
--- | Suite definition Id of the test suite run to be stopped.
+-- | Suite definition ID of the test suite run to be stopped.
 stopSuiteRun_suiteDefinitionId :: Lens.Lens' StopSuiteRun Prelude.Text
 stopSuiteRun_suiteDefinitionId = Lens.lens (\StopSuiteRun' {suiteDefinitionId} -> suiteDefinitionId) (\s@StopSuiteRun' {} a -> s {suiteDefinitionId = a} :: StopSuiteRun)
 
--- | Suite run Id of the test suite run to be stopped.
+-- | Suite run ID of the test suite run to be stopped.
 stopSuiteRun_suiteRunId :: Lens.Lens' StopSuiteRun Prelude.Text
 stopSuiteRun_suiteRunId = Lens.lens (\StopSuiteRun' {suiteRunId} -> suiteRunId) (\s@StopSuiteRun' {} a -> s {suiteRunId = a} :: StopSuiteRun)
 

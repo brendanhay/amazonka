@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a Device Advisor test suite run.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetSuiteRun>
+-- action.
 module Amazonka.IoTDeviceAdvisor.GetSuiteRun
   ( -- * Creating a Request
     GetSuiteRun (..),
@@ -59,9 +63,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetSuiteRun' smart constructor.
 data GetSuiteRun = GetSuiteRun'
-  { -- | Suite definition Id for the test suite run.
+  { -- | Suite definition ID for the test suite run.
     suiteDefinitionId :: Prelude.Text,
-    -- | Suite run Id for the test suite run.
+    -- | Suite run ID for the test suite run.
     suiteRunId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,9 +78,9 @@ data GetSuiteRun = GetSuiteRun'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteDefinitionId', 'getSuiteRun_suiteDefinitionId' - Suite definition Id for the test suite run.
+-- 'suiteDefinitionId', 'getSuiteRun_suiteDefinitionId' - Suite definition ID for the test suite run.
 --
--- 'suiteRunId', 'getSuiteRun_suiteRunId' - Suite run Id for the test suite run.
+-- 'suiteRunId', 'getSuiteRun_suiteRunId' - Suite run ID for the test suite run.
 newGetSuiteRun ::
   -- | 'suiteDefinitionId'
   Prelude.Text ->
@@ -90,11 +94,11 @@ newGetSuiteRun pSuiteDefinitionId_ pSuiteRunId_ =
       suiteRunId = pSuiteRunId_
     }
 
--- | Suite definition Id for the test suite run.
+-- | Suite definition ID for the test suite run.
 getSuiteRun_suiteDefinitionId :: Lens.Lens' GetSuiteRun Prelude.Text
 getSuiteRun_suiteDefinitionId = Lens.lens (\GetSuiteRun' {suiteDefinitionId} -> suiteDefinitionId) (\s@GetSuiteRun' {} a -> s {suiteDefinitionId = a} :: GetSuiteRun)
 
--- | Suite run Id for the test suite run.
+-- | Suite run ID for the test suite run.
 getSuiteRun_suiteRunId :: Lens.Lens' GetSuiteRun Prelude.Text
 getSuiteRun_suiteRunId = Lens.lens (\GetSuiteRun' {suiteRunId} -> suiteRunId) (\s@GetSuiteRun' {} a -> s {suiteRunId = a} :: GetSuiteRun)
 
@@ -170,11 +174,11 @@ data GetSuiteRunResponse = GetSuiteRunResponse'
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
     -- | Test results for the test suite run.
     testResult :: Prelude.Maybe TestResult,
-    -- | Suite definition Id for the test suite run.
+    -- | Suite definition ID for the test suite run.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
-    -- | Date (in Unix epoch time) when the test suite run was started.
+    -- | Date (in Unix epoch time) when the test suite run started.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | Suite run Id for the test suite run.
+    -- | Suite run ID for the test suite run.
     suiteRunId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -205,11 +209,11 @@ data GetSuiteRunResponse = GetSuiteRunResponse'
 --
 -- 'testResult', 'getSuiteRunResponse_testResult' - Test results for the test suite run.
 --
--- 'suiteDefinitionId', 'getSuiteRunResponse_suiteDefinitionId' - Suite definition Id for the test suite run.
+-- 'suiteDefinitionId', 'getSuiteRunResponse_suiteDefinitionId' - Suite definition ID for the test suite run.
 --
--- 'startTime', 'getSuiteRunResponse_startTime' - Date (in Unix epoch time) when the test suite run was started.
+-- 'startTime', 'getSuiteRunResponse_startTime' - Date (in Unix epoch time) when the test suite run started.
 --
--- 'suiteRunId', 'getSuiteRunResponse_suiteRunId' - Suite run Id for the test suite run.
+-- 'suiteRunId', 'getSuiteRunResponse_suiteRunId' - Suite run ID for the test suite run.
 --
 -- 'httpStatus', 'getSuiteRunResponse_httpStatus' - The response's http status code.
 newGetSuiteRunResponse ::
@@ -264,15 +268,15 @@ getSuiteRunResponse_suiteDefinitionVersion = Lens.lens (\GetSuiteRunResponse' {s
 getSuiteRunResponse_testResult :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe TestResult)
 getSuiteRunResponse_testResult = Lens.lens (\GetSuiteRunResponse' {testResult} -> testResult) (\s@GetSuiteRunResponse' {} a -> s {testResult = a} :: GetSuiteRunResponse)
 
--- | Suite definition Id for the test suite run.
+-- | Suite definition ID for the test suite run.
 getSuiteRunResponse_suiteDefinitionId :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
 getSuiteRunResponse_suiteDefinitionId = Lens.lens (\GetSuiteRunResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@GetSuiteRunResponse' {} a -> s {suiteDefinitionId = a} :: GetSuiteRunResponse)
 
--- | Date (in Unix epoch time) when the test suite run was started.
+-- | Date (in Unix epoch time) when the test suite run started.
 getSuiteRunResponse_startTime :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.UTCTime)
 getSuiteRunResponse_startTime = Lens.lens (\GetSuiteRunResponse' {startTime} -> startTime) (\s@GetSuiteRunResponse' {} a -> s {startTime = a} :: GetSuiteRunResponse) Prelude.. Lens.mapping Core._Time
 
--- | Suite run Id for the test suite run.
+-- | Suite run ID for the test suite run.
 getSuiteRunResponse_suiteRunId :: Lens.Lens' GetSuiteRunResponse (Prelude.Maybe Prelude.Text)
 getSuiteRunResponse_suiteRunId = Lens.lens (\GetSuiteRunResponse' {suiteRunId} -> suiteRunId) (\s@GetSuiteRunResponse' {} a -> s {suiteRunId = a} :: GetSuiteRunResponse)
 

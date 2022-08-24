@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes a Device Advisor test suite.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteSuiteDefinition>
+-- action.
 module Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition
   ( -- * Creating a Request
     DeleteSuiteDefinition (..),
@@ -47,7 +51,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteSuiteDefinition' smart constructor.
 data DeleteSuiteDefinition = DeleteSuiteDefinition'
-  { -- | Suite definition Id of the test suite to be deleted.
+  { -- | Suite definition ID of the test suite to be deleted.
     suiteDefinitionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +64,7 @@ data DeleteSuiteDefinition = DeleteSuiteDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'suiteDefinitionId', 'deleteSuiteDefinition_suiteDefinitionId' - Suite definition Id of the test suite to be deleted.
+-- 'suiteDefinitionId', 'deleteSuiteDefinition_suiteDefinitionId' - Suite definition ID of the test suite to be deleted.
 newDeleteSuiteDefinition ::
   -- | 'suiteDefinitionId'
   Prelude.Text ->
@@ -71,7 +75,7 @@ newDeleteSuiteDefinition pSuiteDefinitionId_ =
         pSuiteDefinitionId_
     }
 
--- | Suite definition Id of the test suite to be deleted.
+-- | Suite definition ID of the test suite to be deleted.
 deleteSuiteDefinition_suiteDefinitionId :: Lens.Lens' DeleteSuiteDefinition Prelude.Text
 deleteSuiteDefinition_suiteDefinitionId = Lens.lens (\DeleteSuiteDefinition' {suiteDefinitionId} -> suiteDefinitionId) (\s@DeleteSuiteDefinition' {} a -> s {suiteDefinitionId = a} :: DeleteSuiteDefinition)
 

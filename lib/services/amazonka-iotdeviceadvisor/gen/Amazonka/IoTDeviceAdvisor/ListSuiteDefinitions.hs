@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the Device Advisor test suites you have created.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListSuiteDefinitions>
+-- action.
 module Amazonka.IoTDeviceAdvisor.ListSuiteDefinitions
   ( -- * Creating a Request
     ListSuiteDefinitions (..),

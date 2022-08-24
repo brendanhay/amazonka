@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds to and modifies existing tags of an IoT Device Advisor resource.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions TagResource>
+-- action.
 module Amazonka.IoTDeviceAdvisor.TagResource
   ( -- * Creating a Request
     TagResource (..),

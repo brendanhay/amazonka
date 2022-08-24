@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates a Device Advisor test suite.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions UpdateSuiteDefinition>
+-- action.
 module Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition
   ( -- * Creating a Request
     UpdateSuiteDefinition (..),
@@ -56,7 +60,7 @@ import qualified Amazonka.Response as Response
 data UpdateSuiteDefinition = UpdateSuiteDefinition'
   { -- | Updates a Device Advisor test suite with suite definition configuration.
     suiteDefinitionConfiguration :: Prelude.Maybe SuiteDefinitionConfiguration,
-    -- | Suite definition Id of the test suite to be updated.
+    -- | Suite definition ID of the test suite to be updated.
     suiteDefinitionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +75,7 @@ data UpdateSuiteDefinition = UpdateSuiteDefinition'
 --
 -- 'suiteDefinitionConfiguration', 'updateSuiteDefinition_suiteDefinitionConfiguration' - Updates a Device Advisor test suite with suite definition configuration.
 --
--- 'suiteDefinitionId', 'updateSuiteDefinition_suiteDefinitionId' - Suite definition Id of the test suite to be updated.
+-- 'suiteDefinitionId', 'updateSuiteDefinition_suiteDefinitionId' - Suite definition ID of the test suite to be updated.
 newUpdateSuiteDefinition ::
   -- | 'suiteDefinitionId'
   Prelude.Text ->
@@ -87,7 +91,7 @@ newUpdateSuiteDefinition pSuiteDefinitionId_ =
 updateSuiteDefinition_suiteDefinitionConfiguration :: Lens.Lens' UpdateSuiteDefinition (Prelude.Maybe SuiteDefinitionConfiguration)
 updateSuiteDefinition_suiteDefinitionConfiguration = Lens.lens (\UpdateSuiteDefinition' {suiteDefinitionConfiguration} -> suiteDefinitionConfiguration) (\s@UpdateSuiteDefinition' {} a -> s {suiteDefinitionConfiguration = a} :: UpdateSuiteDefinition)
 
--- | Suite definition Id of the test suite to be updated.
+-- | Suite definition ID of the test suite to be updated.
 updateSuiteDefinition_suiteDefinitionId :: Lens.Lens' UpdateSuiteDefinition Prelude.Text
 updateSuiteDefinition_suiteDefinitionId = Lens.lens (\UpdateSuiteDefinition' {suiteDefinitionId} -> suiteDefinitionId) (\s@UpdateSuiteDefinition' {} a -> s {suiteDefinitionId = a} :: UpdateSuiteDefinition)
 
@@ -154,11 +158,11 @@ data UpdateSuiteDefinitionResponse = UpdateSuiteDefinitionResponse'
     lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | Suite definition name of the updated test suite.
     suiteDefinitionName :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource name of the updated test suite.
+    -- | Amazon Resource Name (ARN) of the updated test suite.
     suiteDefinitionArn :: Prelude.Maybe Prelude.Text,
     -- | Suite definition version of the updated test suite.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
-    -- | Suite definition Id of the updated test suite.
+    -- | Suite definition ID of the updated test suite.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
     -- | Timestamp of when the test suite was created.
     createdAt :: Prelude.Maybe Core.POSIX,
@@ -179,11 +183,11 @@ data UpdateSuiteDefinitionResponse = UpdateSuiteDefinitionResponse'
 --
 -- 'suiteDefinitionName', 'updateSuiteDefinitionResponse_suiteDefinitionName' - Suite definition name of the updated test suite.
 --
--- 'suiteDefinitionArn', 'updateSuiteDefinitionResponse_suiteDefinitionArn' - Amazon Resource name of the updated test suite.
+-- 'suiteDefinitionArn', 'updateSuiteDefinitionResponse_suiteDefinitionArn' - Amazon Resource Name (ARN) of the updated test suite.
 --
 -- 'suiteDefinitionVersion', 'updateSuiteDefinitionResponse_suiteDefinitionVersion' - Suite definition version of the updated test suite.
 --
--- 'suiteDefinitionId', 'updateSuiteDefinitionResponse_suiteDefinitionId' - Suite definition Id of the updated test suite.
+-- 'suiteDefinitionId', 'updateSuiteDefinitionResponse_suiteDefinitionId' - Suite definition ID of the updated test suite.
 --
 -- 'createdAt', 'updateSuiteDefinitionResponse_createdAt' - Timestamp of when the test suite was created.
 --
@@ -212,7 +216,7 @@ updateSuiteDefinitionResponse_lastUpdatedAt = Lens.lens (\UpdateSuiteDefinitionR
 updateSuiteDefinitionResponse_suiteDefinitionName :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 updateSuiteDefinitionResponse_suiteDefinitionName = Lens.lens (\UpdateSuiteDefinitionResponse' {suiteDefinitionName} -> suiteDefinitionName) (\s@UpdateSuiteDefinitionResponse' {} a -> s {suiteDefinitionName = a} :: UpdateSuiteDefinitionResponse)
 
--- | Amazon Resource name of the updated test suite.
+-- | Amazon Resource Name (ARN) of the updated test suite.
 updateSuiteDefinitionResponse_suiteDefinitionArn :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 updateSuiteDefinitionResponse_suiteDefinitionArn = Lens.lens (\UpdateSuiteDefinitionResponse' {suiteDefinitionArn} -> suiteDefinitionArn) (\s@UpdateSuiteDefinitionResponse' {} a -> s {suiteDefinitionArn = a} :: UpdateSuiteDefinitionResponse)
 
@@ -220,7 +224,7 @@ updateSuiteDefinitionResponse_suiteDefinitionArn = Lens.lens (\UpdateSuiteDefini
 updateSuiteDefinitionResponse_suiteDefinitionVersion :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 updateSuiteDefinitionResponse_suiteDefinitionVersion = Lens.lens (\UpdateSuiteDefinitionResponse' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@UpdateSuiteDefinitionResponse' {} a -> s {suiteDefinitionVersion = a} :: UpdateSuiteDefinitionResponse)
 
--- | Suite definition Id of the updated test suite.
+-- | Suite definition ID of the updated test suite.
 updateSuiteDefinitionResponse_suiteDefinitionId :: Lens.Lens' UpdateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 updateSuiteDefinitionResponse_suiteDefinitionId = Lens.lens (\UpdateSuiteDefinitionResponse' {suiteDefinitionId} -> suiteDefinitionId) (\s@UpdateSuiteDefinitionResponse' {} a -> s {suiteDefinitionId = a} :: UpdateSuiteDefinitionResponse)
 

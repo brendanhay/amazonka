@@ -27,6 +27,12 @@ module Amazonka.IoTDeviceAdvisor.Lens
     deleteSuiteDefinition_suiteDefinitionId,
     deleteSuiteDefinitionResponse_httpStatus,
 
+    -- ** GetEndpoint
+    getEndpoint_thingArn,
+    getEndpoint_certificateArn,
+    getEndpointResponse_endpoint,
+    getEndpointResponse_httpStatus,
+
     -- ** GetSuiteDefinition
     getSuiteDefinition_suiteDefinitionVersion,
     getSuiteDefinition_suiteDefinitionId,
@@ -135,18 +141,23 @@ module Amazonka.IoTDeviceAdvisor.Lens
     suiteDefinitionConfiguration_devices,
     suiteDefinitionConfiguration_suiteDefinitionName,
     suiteDefinitionConfiguration_intendedForQualification,
+    suiteDefinitionConfiguration_protocol,
+    suiteDefinitionConfiguration_isLongDurationTest,
     suiteDefinitionConfiguration_devicePermissionRoleArn,
 
     -- ** SuiteDefinitionInformation
     suiteDefinitionInformation_suiteDefinitionName,
     suiteDefinitionInformation_defaultDevices,
     suiteDefinitionInformation_intendedForQualification,
+    suiteDefinitionInformation_protocol,
     suiteDefinitionInformation_suiteDefinitionId,
+    suiteDefinitionInformation_isLongDurationTest,
     suiteDefinitionInformation_createdAt,
 
     -- ** SuiteRunConfiguration
     suiteRunConfiguration_selectedTestList,
     suiteRunConfiguration_primaryDevice,
+    suiteRunConfiguration_parallelRun,
 
     -- ** SuiteRunInformation
     suiteRunInformation_failed,
@@ -170,6 +181,14 @@ module Amazonka.IoTDeviceAdvisor.Lens
     testCaseRun_warnings,
     testCaseRun_testCaseRunId,
     testCaseRun_startTime,
+    testCaseRun_testScenarios,
+
+    -- ** TestCaseScenario
+    testCaseScenario_status,
+    testCaseScenario_testCaseScenarioType,
+    testCaseScenario_failure,
+    testCaseScenario_systemMessage,
+    testCaseScenario_testCaseScenarioId,
 
     -- ** TestResult
     testResult_groups,
@@ -178,6 +197,7 @@ where
 
 import Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
 import Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition
+import Amazonka.IoTDeviceAdvisor.GetEndpoint
 import Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
 import Amazonka.IoTDeviceAdvisor.GetSuiteRun
 import Amazonka.IoTDeviceAdvisor.GetSuiteRunReport
@@ -194,6 +214,7 @@ import Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
 import Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration
 import Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseRun
+import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenario
 import Amazonka.IoTDeviceAdvisor.Types.TestResult
 import Amazonka.IoTDeviceAdvisor.UntagResource
 import Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition

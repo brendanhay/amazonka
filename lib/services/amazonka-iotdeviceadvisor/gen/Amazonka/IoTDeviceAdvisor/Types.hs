@@ -22,11 +22,20 @@ module Amazonka.IoTDeviceAdvisor.Types
     _ConflictException,
     _ValidationException,
 
+    -- * Protocol
+    Protocol (..),
+
     -- * Status
     Status (..),
 
     -- * SuiteRunStatus
     SuiteRunStatus (..),
+
+    -- * TestCaseScenarioStatus
+    TestCaseScenarioStatus (..),
+
+    -- * TestCaseScenarioType
+    TestCaseScenarioType (..),
 
     -- * DeviceUnderTest
     DeviceUnderTest (..),
@@ -48,6 +57,8 @@ module Amazonka.IoTDeviceAdvisor.Types
     suiteDefinitionConfiguration_devices,
     suiteDefinitionConfiguration_suiteDefinitionName,
     suiteDefinitionConfiguration_intendedForQualification,
+    suiteDefinitionConfiguration_protocol,
+    suiteDefinitionConfiguration_isLongDurationTest,
     suiteDefinitionConfiguration_devicePermissionRoleArn,
 
     -- * SuiteDefinitionInformation
@@ -56,7 +67,9 @@ module Amazonka.IoTDeviceAdvisor.Types
     suiteDefinitionInformation_suiteDefinitionName,
     suiteDefinitionInformation_defaultDevices,
     suiteDefinitionInformation_intendedForQualification,
+    suiteDefinitionInformation_protocol,
     suiteDefinitionInformation_suiteDefinitionId,
+    suiteDefinitionInformation_isLongDurationTest,
     suiteDefinitionInformation_createdAt,
 
     -- * SuiteRunConfiguration
@@ -64,6 +77,7 @@ module Amazonka.IoTDeviceAdvisor.Types
     newSuiteRunConfiguration,
     suiteRunConfiguration_selectedTestList,
     suiteRunConfiguration_primaryDevice,
+    suiteRunConfiguration_parallelRun,
 
     -- * SuiteRunInformation
     SuiteRunInformation (..),
@@ -91,6 +105,16 @@ module Amazonka.IoTDeviceAdvisor.Types
     testCaseRun_warnings,
     testCaseRun_testCaseRunId,
     testCaseRun_startTime,
+    testCaseRun_testScenarios,
+
+    -- * TestCaseScenario
+    TestCaseScenario (..),
+    newTestCaseScenario,
+    testCaseScenario_status,
+    testCaseScenario_testCaseScenarioType,
+    testCaseScenario_failure,
+    testCaseScenario_systemMessage,
+    testCaseScenario_testCaseScenarioId,
 
     -- * TestResult
     TestResult (..),
@@ -102,6 +126,7 @@ where
 import qualified Amazonka.Core as Core
 import Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
 import Amazonka.IoTDeviceAdvisor.Types.GroupResult
+import Amazonka.IoTDeviceAdvisor.Types.Protocol
 import Amazonka.IoTDeviceAdvisor.Types.Status
 import Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
 import Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
@@ -109,6 +134,9 @@ import Amazonka.IoTDeviceAdvisor.Types.SuiteRunConfiguration
 import Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation
 import Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus
 import Amazonka.IoTDeviceAdvisor.Types.TestCaseRun
+import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenario
+import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenarioStatus
+import Amazonka.IoTDeviceAdvisor.Types.TestCaseScenarioType
 import Amazonka.IoTDeviceAdvisor.Types.TestResult
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -186,7 +214,7 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | Sends Internal Failure Exception.
+-- | Sends an Internal Failure exception.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError
@@ -194,7 +222,7 @@ _InternalServerException =
     "InternalServerException"
     Prelude.. Core.hasStatus 500
 
--- | Sends Resource Not Found Exception.
+-- | Sends a Resource Not Found exception.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
@@ -202,7 +230,7 @@ _ResourceNotFoundException =
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | Sends Conflict Exception.
+-- | Sends a Conflict Exception.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
@@ -210,7 +238,7 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 400
 
--- | Sends invalid request exception.
+-- | Sends a validation exception.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError

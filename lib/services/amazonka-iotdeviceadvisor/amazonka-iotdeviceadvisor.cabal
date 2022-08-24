@@ -46,6 +46,7 @@ library
     Amazonka.IoTDeviceAdvisor
     Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
     Amazonka.IoTDeviceAdvisor.DeleteSuiteDefinition
+    Amazonka.IoTDeviceAdvisor.GetEndpoint
     Amazonka.IoTDeviceAdvisor.GetSuiteDefinition
     Amazonka.IoTDeviceAdvisor.GetSuiteRun
     Amazonka.IoTDeviceAdvisor.GetSuiteRunReport
@@ -59,6 +60,7 @@ library
     Amazonka.IoTDeviceAdvisor.Types
     Amazonka.IoTDeviceAdvisor.Types.DeviceUnderTest
     Amazonka.IoTDeviceAdvisor.Types.GroupResult
+    Amazonka.IoTDeviceAdvisor.Types.Protocol
     Amazonka.IoTDeviceAdvisor.Types.Status
     Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionConfiguration
     Amazonka.IoTDeviceAdvisor.Types.SuiteDefinitionInformation
@@ -66,6 +68,9 @@ library
     Amazonka.IoTDeviceAdvisor.Types.SuiteRunInformation
     Amazonka.IoTDeviceAdvisor.Types.SuiteRunStatus
     Amazonka.IoTDeviceAdvisor.Types.TestCaseRun
+    Amazonka.IoTDeviceAdvisor.Types.TestCaseScenario
+    Amazonka.IoTDeviceAdvisor.Types.TestCaseScenarioStatus
+    Amazonka.IoTDeviceAdvisor.Types.TestCaseScenarioType
     Amazonka.IoTDeviceAdvisor.Types.TestResult
     Amazonka.IoTDeviceAdvisor.UntagResource
     Amazonka.IoTDeviceAdvisor.UpdateSuiteDefinition

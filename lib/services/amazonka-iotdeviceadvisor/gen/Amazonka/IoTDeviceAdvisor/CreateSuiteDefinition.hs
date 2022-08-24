@@ -21,6 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a Device Advisor test suite.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions CreateSuiteDefinition>
+-- action.
 module Amazonka.IoTDeviceAdvisor.CreateSuiteDefinition
   ( -- * Creating a Request
     CreateSuiteDefinition (..),
@@ -143,7 +147,7 @@ instance Core.ToQuery CreateSuiteDefinition where
 data CreateSuiteDefinitionResponse = CreateSuiteDefinitionResponse'
   { -- | Creates a Device Advisor test suite with suite definition name.
     suiteDefinitionName :: Prelude.Maybe Prelude.Text,
-    -- | Creates a Device Advisor test suite with Amazon Resource name.
+    -- | Creates a Device Advisor test suite with Amazon Resource Name (ARN).
     suiteDefinitionArn :: Prelude.Maybe Prelude.Text,
     -- | Creates a Device Advisor test suite with suite UUID.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text,
@@ -165,7 +169,7 @@ data CreateSuiteDefinitionResponse = CreateSuiteDefinitionResponse'
 --
 -- 'suiteDefinitionName', 'createSuiteDefinitionResponse_suiteDefinitionName' - Creates a Device Advisor test suite with suite definition name.
 --
--- 'suiteDefinitionArn', 'createSuiteDefinitionResponse_suiteDefinitionArn' - Creates a Device Advisor test suite with Amazon Resource name.
+-- 'suiteDefinitionArn', 'createSuiteDefinitionResponse_suiteDefinitionArn' - Creates a Device Advisor test suite with Amazon Resource Name (ARN).
 --
 -- 'suiteDefinitionId', 'createSuiteDefinitionResponse_suiteDefinitionId' - Creates a Device Advisor test suite with suite UUID.
 --
@@ -191,7 +195,7 @@ newCreateSuiteDefinitionResponse pHttpStatus_ =
 createSuiteDefinitionResponse_suiteDefinitionName :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 createSuiteDefinitionResponse_suiteDefinitionName = Lens.lens (\CreateSuiteDefinitionResponse' {suiteDefinitionName} -> suiteDefinitionName) (\s@CreateSuiteDefinitionResponse' {} a -> s {suiteDefinitionName = a} :: CreateSuiteDefinitionResponse)
 
--- | Creates a Device Advisor test suite with Amazon Resource name.
+-- | Creates a Device Advisor test suite with Amazon Resource Name (ARN).
 createSuiteDefinitionResponse_suiteDefinitionArn :: Lens.Lens' CreateSuiteDefinitionResponse (Prelude.Maybe Prelude.Text)
 createSuiteDefinitionResponse_suiteDefinitionArn = Lens.lens (\CreateSuiteDefinitionResponse' {suiteDefinitionArn} -> suiteDefinitionArn) (\s@CreateSuiteDefinitionResponse' {} a -> s {suiteDefinitionArn = a} :: CreateSuiteDefinitionResponse)
 

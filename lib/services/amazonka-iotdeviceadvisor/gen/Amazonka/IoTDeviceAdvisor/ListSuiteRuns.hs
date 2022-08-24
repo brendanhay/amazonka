@@ -20,9 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the runs of the specified Device Advisor test suite. You can list
--- all runs of the test suite, or the runs of a specific version of the
--- test suite.
+-- Lists runs of the specified Device Advisor test suite. You can list all
+-- runs of the test suite, or the runs of a specific version of the test
+-- suite.
+--
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListSuiteRuns>
+-- action.
 module Amazonka.IoTDeviceAdvisor.ListSuiteRuns
   ( -- * Creating a Request
     ListSuiteRuns (..),
@@ -58,11 +62,11 @@ data ListSuiteRuns = ListSuiteRuns'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return at once.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Must be passed along with suiteDefinitionId. Lists the test suite runs
+    -- | Must be passed along with @suiteDefinitionId@. Lists the test suite runs
     -- of the specified test suite based on suite definition version.
     suiteDefinitionVersion :: Prelude.Maybe Prelude.Text,
     -- | Lists the test suite runs of the specified test suite based on suite
-    -- definition Id.
+    -- definition ID.
     suiteDefinitionId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,11 +83,11 @@ data ListSuiteRuns = ListSuiteRuns'
 --
 -- 'maxResults', 'listSuiteRuns_maxResults' - The maximum number of results to return at once.
 --
--- 'suiteDefinitionVersion', 'listSuiteRuns_suiteDefinitionVersion' - Must be passed along with suiteDefinitionId. Lists the test suite runs
+-- 'suiteDefinitionVersion', 'listSuiteRuns_suiteDefinitionVersion' - Must be passed along with @suiteDefinitionId@. Lists the test suite runs
 -- of the specified test suite based on suite definition version.
 --
 -- 'suiteDefinitionId', 'listSuiteRuns_suiteDefinitionId' - Lists the test suite runs of the specified test suite based on suite
--- definition Id.
+-- definition ID.
 newListSuiteRuns ::
   ListSuiteRuns
 newListSuiteRuns =
@@ -102,13 +106,13 @@ listSuiteRuns_nextToken = Lens.lens (\ListSuiteRuns' {nextToken} -> nextToken) (
 listSuiteRuns_maxResults :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Natural)
 listSuiteRuns_maxResults = Lens.lens (\ListSuiteRuns' {maxResults} -> maxResults) (\s@ListSuiteRuns' {} a -> s {maxResults = a} :: ListSuiteRuns)
 
--- | Must be passed along with suiteDefinitionId. Lists the test suite runs
+-- | Must be passed along with @suiteDefinitionId@. Lists the test suite runs
 -- of the specified test suite based on suite definition version.
 listSuiteRuns_suiteDefinitionVersion :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Text)
 listSuiteRuns_suiteDefinitionVersion = Lens.lens (\ListSuiteRuns' {suiteDefinitionVersion} -> suiteDefinitionVersion) (\s@ListSuiteRuns' {} a -> s {suiteDefinitionVersion = a} :: ListSuiteRuns)
 
 -- | Lists the test suite runs of the specified test suite based on suite
--- definition Id.
+-- definition ID.
 listSuiteRuns_suiteDefinitionId :: Lens.Lens' ListSuiteRuns (Prelude.Maybe Prelude.Text)
 listSuiteRuns_suiteDefinitionId = Lens.lens (\ListSuiteRuns' {suiteDefinitionId} -> suiteDefinitionId) (\s@ListSuiteRuns' {} a -> s {suiteDefinitionId = a} :: ListSuiteRuns)
 

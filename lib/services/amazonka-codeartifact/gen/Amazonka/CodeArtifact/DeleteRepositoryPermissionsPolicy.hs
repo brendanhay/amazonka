@@ -26,8 +26,8 @@
 -- might not be immediate.
 --
 -- Use @DeleteRepositoryPermissionsPolicy@ with caution. After a policy is
--- deleted, AWS users, roles, and accounts lose permissions to perform the
--- repository actions granted by the deleted policy.
+-- deleted, Amazon Web Services users, roles, and accounts lose permissions
+-- to perform the repository actions granted by the deleted policy.
 module Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
   ( -- * Creating a Request
     DeleteRepositoryPermissionsPolicy (..),
@@ -63,8 +63,8 @@ data DeleteRepositoryPermissionsPolicy = DeleteRepositoryPermissionsPolicy'
     -- accidentally overwriting your changes to the repository\'s resource
     -- policy.
     policyRevision :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository associated with the
     -- resource policy to be deleted.
@@ -88,8 +88,8 @@ data DeleteRepositoryPermissionsPolicy = DeleteRepositoryPermissionsPolicy'
 -- accidentally overwriting your changes to the repository\'s resource
 -- policy.
 --
--- 'domainOwner', 'deleteRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'deleteRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'deleteRepositoryPermissionsPolicy_domain' - The name of the domain that contains the repository associated with the
 -- resource policy to be deleted.
@@ -120,8 +120,8 @@ newDeleteRepositoryPermissionsPolicy
 deleteRepositoryPermissionsPolicy_policyRevision :: Lens.Lens' DeleteRepositoryPermissionsPolicy (Prelude.Maybe Prelude.Text)
 deleteRepositoryPermissionsPolicy_policyRevision = Lens.lens (\DeleteRepositoryPermissionsPolicy' {policyRevision} -> policyRevision) (\s@DeleteRepositoryPermissionsPolicy' {} a -> s {policyRevision = a} :: DeleteRepositoryPermissionsPolicy)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 deleteRepositoryPermissionsPolicy_domainOwner :: Lens.Lens' DeleteRepositoryPermissionsPolicy (Prelude.Maybe Prelude.Text)
 deleteRepositoryPermissionsPolicy_domainOwner = Lens.lens (\DeleteRepositoryPermissionsPolicy' {domainOwner} -> domainOwner) (\s@DeleteRepositoryPermissionsPolicy' {} a -> s {domainOwner = a} :: DeleteRepositoryPermissionsPolicy)
 

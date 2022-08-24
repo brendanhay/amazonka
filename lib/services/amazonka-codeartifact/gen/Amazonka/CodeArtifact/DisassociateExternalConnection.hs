@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDisassociateExternalConnection' smart constructor.
 data DisassociateExternalConnection = DisassociateExternalConnection'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository from which to remove
     -- the external repository.
@@ -73,8 +73,8 @@ data DisassociateExternalConnection = DisassociateExternalConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'disassociateExternalConnection_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'disassociateExternalConnection_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'disassociateExternalConnection_domain' - The name of the domain that contains the repository from which to remove
 -- the external repository.
@@ -103,8 +103,8 @@ newDisassociateExternalConnection
         externalConnection = pExternalConnection_
       }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 disassociateExternalConnection_domainOwner :: Lens.Lens' DisassociateExternalConnection (Prelude.Maybe Prelude.Text)
 disassociateExternalConnection_domainOwner = Lens.lens (\DisassociateExternalConnection' {domainOwner} -> domainOwner) (\s@DisassociateExternalConnection' {} a -> s {domainOwner = a} :: DisassociateExternalConnection)
 

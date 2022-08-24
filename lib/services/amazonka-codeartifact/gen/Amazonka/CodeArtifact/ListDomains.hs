@@ -22,9 +22,9 @@
 --
 -- Returns a list of
 -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html DomainSummary>
--- objects for all domains owned by the AWS account that makes this call.
--- Each returned @DomainSummary@ object contains information about a
--- domain.
+-- objects for all domains owned by the Amazon Web Services account that
+-- makes this call. Each returned @DomainSummary@ object contains
+-- information about a domain.
 --
 -- This operation returns paginated results.
 module Amazonka.CodeArtifact.ListDomains

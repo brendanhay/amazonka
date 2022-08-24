@@ -38,15 +38,15 @@ data PackageDependency = PackageDependency'
     -- package type. Example types are @compile@, @runtime@, and @test@ for
     -- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.
     dependencyType :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package that this package depends on. The package
+    -- component that specifies its namespace depends on its type. For example:
     --
     -- -   The namespace of a Maven package is its @groupId@.
     --
     -- -   The namespace of an npm package is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet packages do not contain a corresponding component,
+    --     packages of those formats do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,15 +70,15 @@ data PackageDependency = PackageDependency'
 -- package type. Example types are @compile@, @runtime@, and @test@ for
 -- Maven packages, and @dev@, @prod@, and @optional@ for npm packages.
 --
--- 'namespace', 'packageDependency_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'packageDependency_namespace' - The namespace of the package that this package depends on. The package
+-- component that specifies its namespace depends on its type. For example:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 newPackageDependency ::
   PackageDependency
 newPackageDependency =
@@ -106,15 +106,15 @@ packageDependency_versionRequirement = Lens.lens (\PackageDependency' {versionRe
 packageDependency_dependencyType :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
 packageDependency_dependencyType = Lens.lens (\PackageDependency' {dependencyType} -> dependencyType) (\s@PackageDependency' {} a -> s {dependencyType = a} :: PackageDependency)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package that this package depends on. The package
+-- component that specifies its namespace depends on its type. For example:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 packageDependency_namespace :: Lens.Lens' PackageDependency (Prelude.Maybe Prelude.Text)
 packageDependency_namespace = Lens.lens (\PackageDependency' {namespace} -> namespace) (\s@PackageDependency' {} a -> s {namespace = a} :: PackageDependency)
 

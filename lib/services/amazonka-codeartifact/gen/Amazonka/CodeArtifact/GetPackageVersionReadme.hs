@@ -65,18 +65,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetPackageVersionReadme' smart constructor.
 data GetPackageVersionReadme = GetPackageVersionReadme'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package version with the requested readme file. The
+    -- package version component that specifies its namespace depends on its
+    -- type. For example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
     -- package version with the requested readme file.
@@ -84,13 +86,7 @@ data GetPackageVersionReadme = GetPackageVersionReadme'
     -- | The repository that contains the package with the requested readme file.
     repository :: Prelude.Text,
     -- | A format that specifies the type of the package version with the
-    -- requested readme file. The valid values are:
-    --
-    -- -   @npm@
-    --
-    -- -   @pypi@
-    --
-    -- -   @maven@
+    -- requested readme file.
     format :: PackageFormat,
     -- | The name of the package version that contains the requested readme file.
     package :: Prelude.Text,
@@ -107,18 +103,20 @@ data GetPackageVersionReadme = GetPackageVersionReadme'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'getPackageVersionReadme_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'getPackageVersionReadme_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
--- 'namespace', 'getPackageVersionReadme_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'getPackageVersionReadme_namespace' - The namespace of the package version with the requested readme file. The
+-- package version component that specifies its namespace depends on its
+-- type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 --
 -- 'domain', 'getPackageVersionReadme_domain' - The name of the domain that contains the repository that contains the
 -- package version with the requested readme file.
@@ -126,13 +124,7 @@ data GetPackageVersionReadme = GetPackageVersionReadme'
 -- 'repository', 'getPackageVersionReadme_repository' - The repository that contains the package with the requested readme file.
 --
 -- 'format', 'getPackageVersionReadme_format' - A format that specifies the type of the package version with the
--- requested readme file. The valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- requested readme file.
 --
 -- 'package', 'getPackageVersionReadme_package' - The name of the package version that contains the requested readme file.
 --
@@ -166,20 +158,22 @@ newGetPackageVersionReadme
         packageVersion = pPackageVersion_
       }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 getPackageVersionReadme_domainOwner :: Lens.Lens' GetPackageVersionReadme (Prelude.Maybe Prelude.Text)
 getPackageVersionReadme_domainOwner = Lens.lens (\GetPackageVersionReadme' {domainOwner} -> domainOwner) (\s@GetPackageVersionReadme' {} a -> s {domainOwner = a} :: GetPackageVersionReadme)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package version with the requested readme file. The
+-- package version component that specifies its namespace depends on its
+-- type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 getPackageVersionReadme_namespace :: Lens.Lens' GetPackageVersionReadme (Prelude.Maybe Prelude.Text)
 getPackageVersionReadme_namespace = Lens.lens (\GetPackageVersionReadme' {namespace} -> namespace) (\s@GetPackageVersionReadme' {} a -> s {namespace = a} :: GetPackageVersionReadme)
 
@@ -193,13 +187,7 @@ getPackageVersionReadme_repository :: Lens.Lens' GetPackageVersionReadme Prelude
 getPackageVersionReadme_repository = Lens.lens (\GetPackageVersionReadme' {repository} -> repository) (\s@GetPackageVersionReadme' {} a -> s {repository = a} :: GetPackageVersionReadme)
 
 -- | A format that specifies the type of the package version with the
--- requested readme file. The valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- requested readme file.
 getPackageVersionReadme_format :: Lens.Lens' GetPackageVersionReadme PackageFormat
 getPackageVersionReadme_format = Lens.lens (\GetPackageVersionReadme' {format} -> format) (\s@GetPackageVersionReadme' {} a -> s {format = a} :: GetPackageVersionReadme)
 
@@ -279,28 +267,23 @@ instance Core.ToQuery GetPackageVersionReadme where
 data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
   { -- | The current revision associated with the package version.
     versionRevision :: Prelude.Maybe Prelude.Text,
-    -- | The format of the package with the requested readme file. Valid format
-    -- types are:
-    --
-    -- -   @npm@
-    --
-    -- -   @pypi@
-    --
-    -- -   @maven@
+    -- | The format of the package with the requested readme file.
     format :: Prelude.Maybe PackageFormat,
     -- | The text of the returned readme file.
     readme :: Prelude.Maybe Prelude.Text,
     -- | The name of the package that contains the returned readme file.
     package :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package version with the requested readme file. The
+    -- package version component that specifies its namespace depends on its
+    -- type. For example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The version of the package with the requested readme file.
     version :: Prelude.Maybe Prelude.Text,
@@ -319,28 +302,23 @@ data GetPackageVersionReadmeResponse = GetPackageVersionReadmeResponse'
 --
 -- 'versionRevision', 'getPackageVersionReadmeResponse_versionRevision' - The current revision associated with the package version.
 --
--- 'format', 'getPackageVersionReadmeResponse_format' - The format of the package with the requested readme file. Valid format
--- types are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- 'format', 'getPackageVersionReadmeResponse_format' - The format of the package with the requested readme file.
 --
 -- 'readme', 'getPackageVersionReadmeResponse_readme' - The text of the returned readme file.
 --
 -- 'package', 'getPackageVersionReadmeResponse_package' - The name of the package that contains the returned readme file.
 --
--- 'namespace', 'getPackageVersionReadmeResponse_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'getPackageVersionReadmeResponse_namespace' - The namespace of the package version with the requested readme file. The
+-- package version component that specifies its namespace depends on its
+-- type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 --
 -- 'version', 'getPackageVersionReadmeResponse_version' - The version of the package with the requested readme file.
 --
@@ -365,14 +343,7 @@ newGetPackageVersionReadmeResponse pHttpStatus_ =
 getPackageVersionReadmeResponse_versionRevision :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionReadmeResponse_versionRevision = Lens.lens (\GetPackageVersionReadmeResponse' {versionRevision} -> versionRevision) (\s@GetPackageVersionReadmeResponse' {} a -> s {versionRevision = a} :: GetPackageVersionReadmeResponse)
 
--- | The format of the package with the requested readme file. Valid format
--- types are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- | The format of the package with the requested readme file.
 getPackageVersionReadmeResponse_format :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe PackageFormat)
 getPackageVersionReadmeResponse_format = Lens.lens (\GetPackageVersionReadmeResponse' {format} -> format) (\s@GetPackageVersionReadmeResponse' {} a -> s {format = a} :: GetPackageVersionReadmeResponse)
 
@@ -384,15 +355,17 @@ getPackageVersionReadmeResponse_readme = Lens.lens (\GetPackageVersionReadmeResp
 getPackageVersionReadmeResponse_package :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionReadmeResponse_package = Lens.lens (\GetPackageVersionReadmeResponse' {package} -> package) (\s@GetPackageVersionReadmeResponse' {} a -> s {package = a} :: GetPackageVersionReadmeResponse)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package version with the requested readme file. The
+-- package version component that specifies its namespace depends on its
+-- type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 getPackageVersionReadmeResponse_namespace :: Lens.Lens' GetPackageVersionReadmeResponse (Prelude.Maybe Prelude.Text)
 getPackageVersionReadmeResponse_namespace = Lens.lens (\GetPackageVersionReadmeResponse' {namespace} -> namespace) (\s@GetPackageVersionReadmeResponse' {} a -> s {namespace = a} :: GetPackageVersionReadmeResponse)
 

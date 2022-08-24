@@ -25,18 +25,18 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The details of a repository stored in AWS CodeArtifact. A CodeArtifact
+-- | The details of a repository stored in CodeArtifact. A CodeArtifact
 -- repository contains a set of package versions, each of which maps to a
 -- set of assets. Repositories are polyglot—a single repository can contain
 -- packages of any supported type. Each repository exposes endpoints for
 -- fetching and publishing packages using tools like the @npm@ CLI, the
 -- Maven CLI (@mvn@), and @pip@. You can create up to 100 repositories per
--- AWS account.
+-- Amazon Web Services account.
 --
 -- /See:/ 'newRepositoryDescription' smart constructor.
 data RepositoryDescription = RepositoryDescription'
-  { -- | The 12-digit account number of the AWS account that manages the
-    -- repository.
+  { -- | The 12-digit account number of the Amazon Web Services account that
+    -- manages the repository.
     administratorAccount :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository.
     name :: Prelude.Maybe Prelude.Text,
@@ -44,8 +44,8 @@ data RepositoryDescription = RepositoryDescription'
     domainName :: Prelude.Maybe Prelude.Text,
     -- | A list of upstream repositories to associate with the repository. The
     -- order of the upstream repositories in the list determines their priority
-    -- order when AWS CodeArtifact looks for a requested package version. For
-    -- more information, see
+    -- order when CodeArtifact looks for a requested package version. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
     upstreams :: Prelude.Maybe [UpstreamRepositoryInfo],
     -- | The Amazon Resource Name (ARN) of the repository.
@@ -54,8 +54,9 @@ data RepositoryDescription = RepositoryDescription'
     description :: Prelude.Maybe Prelude.Text,
     -- | An array of external connections associated with the repository.
     externalConnections :: Prelude.Maybe [RepositoryExternalConnectionInfo],
-    -- | The 12-digit account number of the AWS account that owns the domain that
-    -- contains the repository. It does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain that contains the repository. It does not include dashes or
+    -- spaces.
     domainOwner :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,8 +69,8 @@ data RepositoryDescription = RepositoryDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'administratorAccount', 'repositoryDescription_administratorAccount' - The 12-digit account number of the AWS account that manages the
--- repository.
+-- 'administratorAccount', 'repositoryDescription_administratorAccount' - The 12-digit account number of the Amazon Web Services account that
+-- manages the repository.
 --
 -- 'name', 'repositoryDescription_name' - The name of the repository.
 --
@@ -77,8 +78,8 @@ data RepositoryDescription = RepositoryDescription'
 --
 -- 'upstreams', 'repositoryDescription_upstreams' - A list of upstream repositories to associate with the repository. The
 -- order of the upstream repositories in the list determines their priority
--- order when AWS CodeArtifact looks for a requested package version. For
--- more information, see
+-- order when CodeArtifact looks for a requested package version. For more
+-- information, see
 -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
 --
 -- 'arn', 'repositoryDescription_arn' - The Amazon Resource Name (ARN) of the repository.
@@ -87,8 +88,9 @@ data RepositoryDescription = RepositoryDescription'
 --
 -- 'externalConnections', 'repositoryDescription_externalConnections' - An array of external connections associated with the repository.
 --
--- 'domainOwner', 'repositoryDescription_domainOwner' - The 12-digit account number of the AWS account that owns the domain that
--- contains the repository. It does not include dashes or spaces.
+-- 'domainOwner', 'repositoryDescription_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain that contains the repository. It does not include dashes or
+-- spaces.
 newRepositoryDescription ::
   RepositoryDescription
 newRepositoryDescription =
@@ -104,8 +106,8 @@ newRepositoryDescription =
       domainOwner = Prelude.Nothing
     }
 
--- | The 12-digit account number of the AWS account that manages the
--- repository.
+-- | The 12-digit account number of the Amazon Web Services account that
+-- manages the repository.
 repositoryDescription_administratorAccount :: Lens.Lens' RepositoryDescription (Prelude.Maybe Prelude.Text)
 repositoryDescription_administratorAccount = Lens.lens (\RepositoryDescription' {administratorAccount} -> administratorAccount) (\s@RepositoryDescription' {} a -> s {administratorAccount = a} :: RepositoryDescription)
 
@@ -119,8 +121,8 @@ repositoryDescription_domainName = Lens.lens (\RepositoryDescription' {domainNam
 
 -- | A list of upstream repositories to associate with the repository. The
 -- order of the upstream repositories in the list determines their priority
--- order when AWS CodeArtifact looks for a requested package version. For
--- more information, see
+-- order when CodeArtifact looks for a requested package version. For more
+-- information, see
 -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
 repositoryDescription_upstreams :: Lens.Lens' RepositoryDescription (Prelude.Maybe [UpstreamRepositoryInfo])
 repositoryDescription_upstreams = Lens.lens (\RepositoryDescription' {upstreams} -> upstreams) (\s@RepositoryDescription' {} a -> s {upstreams = a} :: RepositoryDescription) Prelude.. Lens.mapping Lens.coerced
@@ -137,8 +139,9 @@ repositoryDescription_description = Lens.lens (\RepositoryDescription' {descript
 repositoryDescription_externalConnections :: Lens.Lens' RepositoryDescription (Prelude.Maybe [RepositoryExternalConnectionInfo])
 repositoryDescription_externalConnections = Lens.lens (\RepositoryDescription' {externalConnections} -> externalConnections) (\s@RepositoryDescription' {} a -> s {externalConnections = a} :: RepositoryDescription) Prelude.. Lens.mapping Lens.coerced
 
--- | The 12-digit account number of the AWS account that owns the domain that
--- contains the repository. It does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain that contains the repository. It does not include dashes or
+-- spaces.
 repositoryDescription_domainOwner :: Lens.Lens' RepositoryDescription (Prelude.Maybe Prelude.Text)
 repositoryDescription_domainOwner = Lens.lens (\RepositoryDescription' {domainOwner} -> domainOwner) (\s@RepositoryDescription' {} a -> s {domainOwner = a} :: RepositoryDescription)
 

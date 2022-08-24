@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeDomain' smart constructor.
 data DescribeDomain = DescribeDomain'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | A string that specifies the name of the requested domain.
     domain :: Prelude.Text
@@ -67,8 +67,8 @@ data DescribeDomain = DescribeDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'describeDomain_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'describeDomain_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'describeDomain_domain' - A string that specifies the name of the requested domain.
 newDescribeDomain ::
@@ -81,8 +81,8 @@ newDescribeDomain pDomain_ =
       domain = pDomain_
     }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 describeDomain_domainOwner :: Lens.Lens' DescribeDomain (Prelude.Maybe Prelude.Text)
 describeDomain_domainOwner = Lens.lens (\DescribeDomain' {domainOwner} -> domainOwner) (\s@DescribeDomain' {} a -> s {domainOwner = a} :: DescribeDomain)
 

@@ -57,6 +57,9 @@ import Test.Tasty
 --         , requestDescribeDomain $
 --             newDescribeDomain
 --
+--         , requestDescribePackage $
+--             newDescribePackage
+--
 --         , requestDescribePackageVersion $
 --             newDescribePackageVersion
 --
@@ -114,6 +117,9 @@ import Test.Tasty
 --         , requestPutDomainPermissionsPolicy $
 --             newPutDomainPermissionsPolicy
 --
+--         , requestPutPackageOriginConfiguration $
+--             newPutPackageOriginConfiguration
+--
 --         , requestPutRepositoryPermissionsPolicy $
 --             newPutRepositoryPermissionsPolicy
 --
@@ -161,6 +167,9 @@ import Test.Tasty
 --
 --         , responseDescribeDomain $
 --             newDescribeDomainResponse
+--
+--         , responseDescribePackage $
+--             newDescribePackageResponse
 --
 --         , responseDescribePackageVersion $
 --             newDescribePackageVersionResponse
@@ -218,6 +227,9 @@ import Test.Tasty
 --
 --         , responsePutDomainPermissionsPolicy $
 --             newPutDomainPermissionsPolicyResponse
+--
+--         , responsePutPackageOriginConfiguration $
+--             newPutPackageOriginConfigurationResponse
 --
 --         , responsePutRepositoryPermissionsPolicy $
 --             newPutRepositoryPermissionsPolicyResponse
@@ -298,6 +310,12 @@ requestDescribeDomain =
   req
     "DescribeDomain"
     "fixture/DescribeDomain.yaml"
+
+requestDescribePackage :: DescribePackage -> TestTree
+requestDescribePackage =
+  req
+    "DescribePackage"
+    "fixture/DescribePackage.yaml"
 
 requestDescribePackageVersion :: DescribePackageVersion -> TestTree
 requestDescribePackageVersion =
@@ -413,6 +431,12 @@ requestPutDomainPermissionsPolicy =
     "PutDomainPermissionsPolicy"
     "fixture/PutDomainPermissionsPolicy.yaml"
 
+requestPutPackageOriginConfiguration :: PutPackageOriginConfiguration -> TestTree
+requestPutPackageOriginConfiguration =
+  req
+    "PutPackageOriginConfiguration"
+    "fixture/PutPackageOriginConfiguration.yaml"
+
 requestPutRepositoryPermissionsPolicy :: PutRepositoryPermissionsPolicy -> TestTree
 requestPutRepositoryPermissionsPolicy =
   req
@@ -524,6 +548,14 @@ responseDescribeDomain =
     "fixture/DescribeDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDomain)
+
+responseDescribePackage :: DescribePackageResponse -> TestTree
+responseDescribePackage =
+  res
+    "DescribePackageResponse"
+    "fixture/DescribePackageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribePackage)
 
 responseDescribePackageVersion :: DescribePackageVersionResponse -> TestTree
 responseDescribePackageVersion =
@@ -668,6 +700,14 @@ responsePutDomainPermissionsPolicy =
     "fixture/PutDomainPermissionsPolicyResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy PutDomainPermissionsPolicy)
+
+responsePutPackageOriginConfiguration :: PutPackageOriginConfigurationResponse -> TestTree
+responsePutPackageOriginConfiguration =
+  res
+    "PutPackageOriginConfigurationResponse"
+    "fixture/PutPackageOriginConfigurationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy PutPackageOriginConfiguration)
 
 responsePutRepositoryPermissionsPolicy :: PutRepositoryPermissionsPolicyResponse -> TestTree
 responsePutRepositoryPermissionsPolicy =

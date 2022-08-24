@@ -57,14 +57,14 @@ data CreateRepository = CreateRepository'
     tags :: Prelude.Maybe [Tag],
     -- | A list of upstream repositories to associate with the repository. The
     -- order of the upstream repositories in the list determines their priority
-    -- order when AWS CodeArtifact looks for a requested package version. For
-    -- more information, see
+    -- order when CodeArtifact looks for a requested package version. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
     upstreams :: Prelude.Maybe [UpstreamRepository],
     -- | A description of the created repository.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the created repository.
     domain :: Prelude.Text,
@@ -85,14 +85,14 @@ data CreateRepository = CreateRepository'
 --
 -- 'upstreams', 'createRepository_upstreams' - A list of upstream repositories to associate with the repository. The
 -- order of the upstream repositories in the list determines their priority
--- order when AWS CodeArtifact looks for a requested package version. For
--- more information, see
+-- order when CodeArtifact looks for a requested package version. For more
+-- information, see
 -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
 --
 -- 'description', 'createRepository_description' - A description of the created repository.
 --
--- 'domainOwner', 'createRepository_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'createRepository_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'createRepository_domain' - The name of the domain that contains the created repository.
 --
@@ -119,8 +119,8 @@ createRepository_tags = Lens.lens (\CreateRepository' {tags} -> tags) (\s@Create
 
 -- | A list of upstream repositories to associate with the repository. The
 -- order of the upstream repositories in the list determines their priority
--- order when AWS CodeArtifact looks for a requested package version. For
--- more information, see
+-- order when CodeArtifact looks for a requested package version. For more
+-- information, see
 -- <https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html Working with upstream repositories>.
 createRepository_upstreams :: Lens.Lens' CreateRepository (Prelude.Maybe [UpstreamRepository])
 createRepository_upstreams = Lens.lens (\CreateRepository' {upstreams} -> upstreams) (\s@CreateRepository' {} a -> s {upstreams = a} :: CreateRepository) Prelude.. Lens.mapping Lens.coerced
@@ -129,8 +129,8 @@ createRepository_upstreams = Lens.lens (\CreateRepository' {upstreams} -> upstre
 createRepository_description :: Lens.Lens' CreateRepository (Prelude.Maybe Prelude.Text)
 createRepository_description = Lens.lens (\CreateRepository' {description} -> description) (\s@CreateRepository' {} a -> s {description = a} :: CreateRepository)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 createRepository_domainOwner :: Lens.Lens' CreateRepository (Prelude.Maybe Prelude.Text)
 createRepository_domainOwner = Lens.lens (\CreateRepository' {domainOwner} -> domainOwner) (\s@CreateRepository' {} a -> s {domainOwner = a} :: CreateRepository)
 

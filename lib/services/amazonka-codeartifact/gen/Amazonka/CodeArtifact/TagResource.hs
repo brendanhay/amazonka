@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds or updates tags for a resource in AWS CodeArtifact.
+-- Adds or updates tags for a resource in CodeArtifact.
 module Amazonka.CodeArtifact.TagResource
   ( -- * Creating a Request
     TagResource (..),

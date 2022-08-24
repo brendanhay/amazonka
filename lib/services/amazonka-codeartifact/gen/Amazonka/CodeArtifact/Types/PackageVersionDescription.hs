@@ -21,6 +21,7 @@ module Amazonka.CodeArtifact.Types.PackageVersionDescription where
 
 import Amazonka.CodeArtifact.Types.LicenseInfo
 import Amazonka.CodeArtifact.Types.PackageFormat
+import Amazonka.CodeArtifact.Types.PackageVersionOrigin
 import Amazonka.CodeArtifact.Types.PackageVersionStatus
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
@@ -37,14 +38,7 @@ data PackageVersionDescription = PackageVersionDescription'
     homePage :: Prelude.Maybe Prelude.Text,
     -- | The name of the requested package.
     packageName :: Prelude.Maybe Prelude.Text,
-    -- | The format of the package version. The valid package formats are:
-    --
-    -- -   @npm@: A Node Package Manager (npm) package.
-    --
-    -- -   @pypi@: A Python Package Index (PyPI) package.
-    --
-    -- -   @maven@: A Maven package that contains compiled code in a
-    --     distributable format, such as a JAR file.
+    -- | The format of the package version.
     format :: Prelude.Maybe PackageFormat,
     -- | The revision of the package version.
     revision :: Prelude.Maybe Prelude.Text,
@@ -57,32 +51,27 @@ data PackageVersionDescription = PackageVersionDescription'
     -- package. The information in and detail level of the summary depends on
     -- the package version\'s format.
     summary :: Prelude.Maybe Prelude.Text,
-    -- | A string that contains the status of the package version. It can be one
-    -- of the following:
-    --
-    -- -   @Published@
-    --
-    -- -   @Unfinished@
-    --
-    -- -   @Unlisted@
-    --
-    -- -   @Archived@
-    --
-    -- -   @Disposed@
+    -- | A string that contains the status of the package version.
     status :: Prelude.Maybe PackageVersionStatus,
     -- | The repository for the source code in the package version, or the source
     -- code used to build it.
     sourceCodeRepository :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package version. The package version component that
+    -- specifies its namespace depends on its type. For example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | A
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html PackageVersionOrigin>
+    -- object that contains information about how the package version was added
+    -- to the repository.
+    origin :: Prelude.Maybe PackageVersionOrigin,
     -- | The version of the package.
     version :: Prelude.Maybe Prelude.Text,
     -- | Information about licenses associated with the package version.
@@ -105,14 +94,7 @@ data PackageVersionDescription = PackageVersionDescription'
 --
 -- 'packageName', 'packageVersionDescription_packageName' - The name of the requested package.
 --
--- 'format', 'packageVersionDescription_format' - The format of the package version. The valid package formats are:
---
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
+-- 'format', 'packageVersionDescription_format' - The format of the package version.
 --
 -- 'revision', 'packageVersionDescription_revision' - The revision of the package version.
 --
@@ -125,31 +107,26 @@ data PackageVersionDescription = PackageVersionDescription'
 -- package. The information in and detail level of the summary depends on
 -- the package version\'s format.
 --
--- 'status', 'packageVersionDescription_status' - A string that contains the status of the package version. It can be one
--- of the following:
---
--- -   @Published@
---
--- -   @Unfinished@
---
--- -   @Unlisted@
---
--- -   @Archived@
---
--- -   @Disposed@
+-- 'status', 'packageVersionDescription_status' - A string that contains the status of the package version.
 --
 -- 'sourceCodeRepository', 'packageVersionDescription_sourceCodeRepository' - The repository for the source code in the package version, or the source
 -- code used to build it.
 --
--- 'namespace', 'packageVersionDescription_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'packageVersionDescription_namespace' - The namespace of the package version. The package version component that
+-- specifies its namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
+--
+-- 'origin', 'packageVersionDescription_origin' - A
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html PackageVersionOrigin>
+-- object that contains information about how the package version was added
+-- to the repository.
 --
 -- 'version', 'packageVersionDescription_version' - The version of the package.
 --
@@ -169,6 +146,7 @@ newPackageVersionDescription =
       status = Prelude.Nothing,
       sourceCodeRepository = Prelude.Nothing,
       namespace = Prelude.Nothing,
+      origin = Prelude.Nothing,
       version = Prelude.Nothing,
       licenses = Prelude.Nothing
     }
@@ -186,14 +164,7 @@ packageVersionDescription_homePage = Lens.lens (\PackageVersionDescription' {hom
 packageVersionDescription_packageName :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
 packageVersionDescription_packageName = Lens.lens (\PackageVersionDescription' {packageName} -> packageName) (\s@PackageVersionDescription' {} a -> s {packageName = a} :: PackageVersionDescription)
 
--- | The format of the package version. The valid package formats are:
---
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
+-- | The format of the package version.
 packageVersionDescription_format :: Lens.Lens' PackageVersionDescription (Prelude.Maybe PackageFormat)
 packageVersionDescription_format = Lens.lens (\PackageVersionDescription' {format} -> format) (\s@PackageVersionDescription' {} a -> s {format = a} :: PackageVersionDescription)
 
@@ -214,18 +185,7 @@ packageVersionDescription_displayName = Lens.lens (\PackageVersionDescription' {
 packageVersionDescription_summary :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
 packageVersionDescription_summary = Lens.lens (\PackageVersionDescription' {summary} -> summary) (\s@PackageVersionDescription' {} a -> s {summary = a} :: PackageVersionDescription)
 
--- | A string that contains the status of the package version. It can be one
--- of the following:
---
--- -   @Published@
---
--- -   @Unfinished@
---
--- -   @Unlisted@
---
--- -   @Archived@
---
--- -   @Disposed@
+-- | A string that contains the status of the package version.
 packageVersionDescription_status :: Lens.Lens' PackageVersionDescription (Prelude.Maybe PackageVersionStatus)
 packageVersionDescription_status = Lens.lens (\PackageVersionDescription' {status} -> status) (\s@PackageVersionDescription' {} a -> s {status = a} :: PackageVersionDescription)
 
@@ -234,17 +194,25 @@ packageVersionDescription_status = Lens.lens (\PackageVersionDescription' {statu
 packageVersionDescription_sourceCodeRepository :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
 packageVersionDescription_sourceCodeRepository = Lens.lens (\PackageVersionDescription' {sourceCodeRepository} -> sourceCodeRepository) (\s@PackageVersionDescription' {} a -> s {sourceCodeRepository = a} :: PackageVersionDescription)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package version. The package version component that
+-- specifies its namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 packageVersionDescription_namespace :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
 packageVersionDescription_namespace = Lens.lens (\PackageVersionDescription' {namespace} -> namespace) (\s@PackageVersionDescription' {} a -> s {namespace = a} :: PackageVersionDescription)
+
+-- | A
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html PackageVersionOrigin>
+-- object that contains information about how the package version was added
+-- to the repository.
+packageVersionDescription_origin :: Lens.Lens' PackageVersionDescription (Prelude.Maybe PackageVersionOrigin)
+packageVersionDescription_origin = Lens.lens (\PackageVersionDescription' {origin} -> origin) (\s@PackageVersionDescription' {} a -> s {origin = a} :: PackageVersionDescription)
 
 -- | The version of the package.
 packageVersionDescription_version :: Lens.Lens' PackageVersionDescription (Prelude.Maybe Prelude.Text)
@@ -270,6 +238,7 @@ instance Core.FromJSON PackageVersionDescription where
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "sourceCodeRepository")
             Prelude.<*> (x Core..:? "namespace")
+            Prelude.<*> (x Core..:? "origin")
             Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "licenses" Core..!= Prelude.mempty)
       )
@@ -286,6 +255,7 @@ instance Prelude.Hashable PackageVersionDescription where
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` sourceCodeRepository
       `Prelude.hashWithSalt` namespace
+      `Prelude.hashWithSalt` origin
       `Prelude.hashWithSalt` version
       `Prelude.hashWithSalt` licenses
 
@@ -301,5 +271,6 @@ instance Prelude.NFData PackageVersionDescription where
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf sourceCodeRepository
       `Prelude.seq` Prelude.rnf namespace
+      `Prelude.seq` Prelude.rnf origin
       `Prelude.seq` Prelude.rnf version
       `Prelude.seq` Prelude.rnf licenses

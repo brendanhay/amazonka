@@ -61,7 +61,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListRepositoriesInDomain' smart constructor.
 data ListRepositoriesInDomain = ListRepositoriesInDomain'
   { -- | Filter the list of repositories to only include those that are managed
-    -- by the AWS account ID.
+    -- by the Amazon Web Services account ID.
     administratorAccount :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results. Use the value returned in the
     -- previous response in the next request to retrieve the next set of
@@ -72,8 +72,8 @@ data ListRepositoriesInDomain = ListRepositoriesInDomain'
     repositoryPrefix :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the returned list of repositories.
     domain :: Prelude.Text
@@ -89,7 +89,7 @@ data ListRepositoriesInDomain = ListRepositoriesInDomain'
 -- for backwards compatibility:
 --
 -- 'administratorAccount', 'listRepositoriesInDomain_administratorAccount' - Filter the list of repositories to only include those that are managed
--- by the AWS account ID.
+-- by the Amazon Web Services account ID.
 --
 -- 'nextToken', 'listRepositoriesInDomain_nextToken' - The token for the next set of results. Use the value returned in the
 -- previous response in the next request to retrieve the next set of
@@ -100,8 +100,8 @@ data ListRepositoriesInDomain = ListRepositoriesInDomain'
 --
 -- 'maxResults', 'listRepositoriesInDomain_maxResults' - The maximum number of results to return per page.
 --
--- 'domainOwner', 'listRepositoriesInDomain_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'listRepositoriesInDomain_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'listRepositoriesInDomain_domain' - The name of the domain that contains the returned list of repositories.
 newListRepositoriesInDomain ::
@@ -120,7 +120,7 @@ newListRepositoriesInDomain pDomain_ =
     }
 
 -- | Filter the list of repositories to only include those that are managed
--- by the AWS account ID.
+-- by the Amazon Web Services account ID.
 listRepositoriesInDomain_administratorAccount :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
 listRepositoriesInDomain_administratorAccount = Lens.lens (\ListRepositoriesInDomain' {administratorAccount} -> administratorAccount) (\s@ListRepositoriesInDomain' {} a -> s {administratorAccount = a} :: ListRepositoriesInDomain)
 
@@ -139,8 +139,8 @@ listRepositoriesInDomain_repositoryPrefix = Lens.lens (\ListRepositoriesInDomain
 listRepositoriesInDomain_maxResults :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Natural)
 listRepositoriesInDomain_maxResults = Lens.lens (\ListRepositoriesInDomain' {maxResults} -> maxResults) (\s@ListRepositoriesInDomain' {} a -> s {maxResults = a} :: ListRepositoriesInDomain)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 listRepositoriesInDomain_domainOwner :: Lens.Lens' ListRepositoriesInDomain (Prelude.Maybe Prelude.Text)
 listRepositoriesInDomain_domainOwner = Lens.lens (\ListRepositoriesInDomain' {domainOwner} -> domainOwner) (\s@ListRepositoriesInDomain' {} a -> s {domainOwner = a} :: ListRepositoriesInDomain)
 

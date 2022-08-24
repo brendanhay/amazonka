@@ -63,8 +63,8 @@ data PutRepositoryPermissionsPolicy = PutRepositoryPermissionsPolicy'
     -- which prevents others from overwriting your changes to the repository\'s
     -- resource policy.
     policyRevision :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain containing the repository to set the resource
     -- policy on.
@@ -90,8 +90,8 @@ data PutRepositoryPermissionsPolicy = PutRepositoryPermissionsPolicy'
 -- which prevents others from overwriting your changes to the repository\'s
 -- resource policy.
 --
--- 'domainOwner', 'putRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'putRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'putRepositoryPermissionsPolicy_domain' - The name of the domain containing the repository to set the resource
 -- policy on.
@@ -128,8 +128,8 @@ newPutRepositoryPermissionsPolicy
 putRepositoryPermissionsPolicy_policyRevision :: Lens.Lens' PutRepositoryPermissionsPolicy (Prelude.Maybe Prelude.Text)
 putRepositoryPermissionsPolicy_policyRevision = Lens.lens (\PutRepositoryPermissionsPolicy' {policyRevision} -> policyRevision) (\s@PutRepositoryPermissionsPolicy' {} a -> s {policyRevision = a} :: PutRepositoryPermissionsPolicy)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 putRepositoryPermissionsPolicy_domainOwner :: Lens.Lens' PutRepositoryPermissionsPolicy (Prelude.Maybe Prelude.Text)
 putRepositoryPermissionsPolicy_domainOwner = Lens.lens (\PutRepositoryPermissionsPolicy' {domainOwner} -> domainOwner) (\s@PutRepositoryPermissionsPolicy' {} a -> s {domainOwner = a} :: PutRepositoryPermissionsPolicy)
 

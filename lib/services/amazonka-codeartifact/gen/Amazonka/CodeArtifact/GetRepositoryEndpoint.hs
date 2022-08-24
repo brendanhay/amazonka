@@ -23,11 +23,13 @@
 -- Returns the endpoint of a repository for a specific package format. A
 -- repository has one endpoint for each package format:
 --
+-- -   @maven@
+--
 -- -   @npm@
 --
--- -   @pypi@
+-- -   @nuget@
 --
--- -   @maven@
+-- -   @pypi@
 module Amazonka.CodeArtifact.GetRepositoryEndpoint
   ( -- * Creating a Request
     GetRepositoryEndpoint (..),
@@ -58,21 +60,16 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRepositoryEndpoint' smart constructor.
 data GetRepositoryEndpoint = GetRepositoryEndpoint'
-  { -- | The 12-digit account number of the AWS account that owns the domain that
-    -- contains the repository. It does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain that contains the repository. It does not include dashes or
+    -- spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository.
     domain :: Prelude.Text,
     -- | The name of the repository.
     repository :: Prelude.Text,
     -- | Returns which endpoint of a repository to return. A repository has one
-    -- endpoint for each package format:
-    --
-    -- -   @npm@
-    --
-    -- -   @pypi@
-    --
-    -- -   @maven@
+    -- endpoint for each package format.
     format :: PackageFormat
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,21 +82,16 @@ data GetRepositoryEndpoint = GetRepositoryEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'getRepositoryEndpoint_domainOwner' - The 12-digit account number of the AWS account that owns the domain that
--- contains the repository. It does not include dashes or spaces.
+-- 'domainOwner', 'getRepositoryEndpoint_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain that contains the repository. It does not include dashes or
+-- spaces.
 --
 -- 'domain', 'getRepositoryEndpoint_domain' - The name of the domain that contains the repository.
 --
 -- 'repository', 'getRepositoryEndpoint_repository' - The name of the repository.
 --
 -- 'format', 'getRepositoryEndpoint_format' - Returns which endpoint of a repository to return. A repository has one
--- endpoint for each package format:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- endpoint for each package format.
 newGetRepositoryEndpoint ::
   -- | 'domain'
   Prelude.Text ->
@@ -120,8 +112,9 @@ newGetRepositoryEndpoint
         format = pFormat_
       }
 
--- | The 12-digit account number of the AWS account that owns the domain that
--- contains the repository. It does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain that contains the repository. It does not include dashes or
+-- spaces.
 getRepositoryEndpoint_domainOwner :: Lens.Lens' GetRepositoryEndpoint (Prelude.Maybe Prelude.Text)
 getRepositoryEndpoint_domainOwner = Lens.lens (\GetRepositoryEndpoint' {domainOwner} -> domainOwner) (\s@GetRepositoryEndpoint' {} a -> s {domainOwner = a} :: GetRepositoryEndpoint)
 
@@ -134,13 +127,7 @@ getRepositoryEndpoint_repository :: Lens.Lens' GetRepositoryEndpoint Prelude.Tex
 getRepositoryEndpoint_repository = Lens.lens (\GetRepositoryEndpoint' {repository} -> repository) (\s@GetRepositoryEndpoint' {} a -> s {repository = a} :: GetRepositoryEndpoint)
 
 -- | Returns which endpoint of a repository to return. A repository has one
--- endpoint for each package format:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- endpoint for each package format.
 getRepositoryEndpoint_format :: Lens.Lens' GetRepositoryEndpoint PackageFormat
 getRepositoryEndpoint_format = Lens.lens (\GetRepositoryEndpoint' {format} -> format) (\s@GetRepositoryEndpoint' {} a -> s {format = a} :: GetRepositoryEndpoint)
 

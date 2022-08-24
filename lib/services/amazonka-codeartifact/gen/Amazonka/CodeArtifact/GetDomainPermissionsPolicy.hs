@@ -25,7 +25,7 @@
 -- The policy is a resource-based policy, not an identity-based policy. For
 -- more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html Identity-based policies and resource-based policies>
--- in the /AWS Identity and Access Management User Guide/.
+-- in the /IAM User Guide/.
 module Amazonka.CodeArtifact.GetDomainPermissionsPolicy
   ( -- * Creating a Request
     GetDomainPermissionsPolicy (..),
@@ -54,8 +54,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetDomainPermissionsPolicy' smart constructor.
 data GetDomainPermissionsPolicy = GetDomainPermissionsPolicy'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain to which the resource policy is attached.
     domain :: Prelude.Text
@@ -70,8 +70,8 @@ data GetDomainPermissionsPolicy = GetDomainPermissionsPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'getDomainPermissionsPolicy_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'getDomainPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'getDomainPermissionsPolicy_domain' - The name of the domain to which the resource policy is attached.
 newGetDomainPermissionsPolicy ::
@@ -85,8 +85,8 @@ newGetDomainPermissionsPolicy pDomain_ =
       domain = pDomain_
     }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 getDomainPermissionsPolicy_domainOwner :: Lens.Lens' GetDomainPermissionsPolicy (Prelude.Maybe Prelude.Text)
 getDomainPermissionsPolicy_domainOwner = Lens.lens (\GetDomainPermissionsPolicy' {domainOwner} -> domainOwner) (\s@GetDomainPermissionsPolicy' {} a -> s {domainOwner = a} :: GetDomainPermissionsPolicy)
 

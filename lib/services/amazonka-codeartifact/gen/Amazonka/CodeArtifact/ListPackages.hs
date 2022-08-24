@@ -32,6 +32,8 @@ module Amazonka.CodeArtifact.ListPackages
 
     -- * Request Lenses
     listPackages_nextToken,
+    listPackages_publish,
+    listPackages_upstream,
     listPackages_format,
     listPackages_maxResults,
     listPackages_domainOwner,
@@ -64,37 +66,42 @@ data ListPackages = ListPackages'
     -- previous response in the next request to retrieve the next set of
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The format of the packages. The valid package types are:
-    --
-    -- -   @npm@: A Node Package Manager (npm) package.
-    --
-    -- -   @pypi@: A Python Package Index (PyPI) package.
-    --
-    -- -   @maven@: A Maven package that contains compiled code in a
-    --     distributable format, such as a JAR file.
+    -- | The value of the @Publish@ package origin control restriction used to
+    -- filter requested packages. Only packages with the provided restriction
+    -- are returned. For more information, see
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+    publish :: Prelude.Maybe AllowPublish,
+    -- | The value of the @Upstream@ package origin control restriction used to
+    -- filter requested packages. Only packages with the provided restriction
+    -- are returned. For more information, see
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+    upstream :: Prelude.Maybe AllowUpstream,
+    -- | The format used to filter requested packages. Only packages from the
+    -- provided format will be returned.
     format :: Prelude.Maybe PackageFormat,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace used to filter requested packages. Only packages with the
+    -- provided namespace will be returned. The package component that
+    -- specifies its namespace depends on its type. For example:
     --
     -- -   The namespace of a Maven package is its @groupId@.
     --
     -- -   The namespace of an npm package is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet packages do not contain a corresponding component,
+    --     packages of those formats do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text,
-    -- | A prefix used to filter returned packages. Only packages with names that
-    -- start with @packagePrefix@ are returned.
+    -- | A prefix used to filter requested packages. Only packages with names
+    -- that start with @packagePrefix@ are returned.
     packagePrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository that contains the
-    -- requested list of packages.
+    -- requested packages.
     domain :: Prelude.Text,
-    -- | The name of the repository from which packages are to be listed.
+    -- | The name of the repository that contains the requested packages.
     repository :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,37 +118,42 @@ data ListPackages = ListPackages'
 -- previous response in the next request to retrieve the next set of
 -- results.
 --
--- 'format', 'listPackages_format' - The format of the packages. The valid package types are:
+-- 'publish', 'listPackages_publish' - The value of the @Publish@ package origin control restriction used to
+-- filter requested packages. Only packages with the provided restriction
+-- are returned. For more information, see
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
 --
--- -   @npm@: A Node Package Manager (npm) package.
+-- 'upstream', 'listPackages_upstream' - The value of the @Upstream@ package origin control restriction used to
+-- filter requested packages. Only packages with the provided restriction
+-- are returned. For more information, see
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
 --
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
+-- 'format', 'listPackages_format' - The format used to filter requested packages. Only packages from the
+-- provided format will be returned.
 --
 -- 'maxResults', 'listPackages_maxResults' - The maximum number of results to return per page.
 --
--- 'domainOwner', 'listPackages_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'listPackages_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
--- 'namespace', 'listPackages_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'listPackages_namespace' - The namespace used to filter requested packages. Only packages with the
+-- provided namespace will be returned. The package component that
+-- specifies its namespace depends on its type. For example:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 --
--- 'packagePrefix', 'listPackages_packagePrefix' - A prefix used to filter returned packages. Only packages with names that
--- start with @packagePrefix@ are returned.
+-- 'packagePrefix', 'listPackages_packagePrefix' - A prefix used to filter requested packages. Only packages with names
+-- that start with @packagePrefix@ are returned.
 --
 -- 'domain', 'listPackages_domain' - The name of the domain that contains the repository that contains the
--- requested list of packages.
+-- requested packages.
 --
--- 'repository', 'listPackages_repository' - The name of the repository from which packages are to be listed.
+-- 'repository', 'listPackages_repository' - The name of the repository that contains the requested packages.
 newListPackages ::
   -- | 'domain'
   Prelude.Text ->
@@ -151,6 +163,8 @@ newListPackages ::
 newListPackages pDomain_ pRepository_ =
   ListPackages'
     { nextToken = Prelude.Nothing,
+      publish = Prelude.Nothing,
+      upstream = Prelude.Nothing,
       format = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       domainOwner = Prelude.Nothing,
@@ -166,14 +180,22 @@ newListPackages pDomain_ pRepository_ =
 listPackages_nextToken :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
 listPackages_nextToken = Lens.lens (\ListPackages' {nextToken} -> nextToken) (\s@ListPackages' {} a -> s {nextToken = a} :: ListPackages)
 
--- | The format of the packages. The valid package types are:
---
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
+-- | The value of the @Publish@ package origin control restriction used to
+-- filter requested packages. Only packages with the provided restriction
+-- are returned. For more information, see
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+listPackages_publish :: Lens.Lens' ListPackages (Prelude.Maybe AllowPublish)
+listPackages_publish = Lens.lens (\ListPackages' {publish} -> publish) (\s@ListPackages' {} a -> s {publish = a} :: ListPackages)
+
+-- | The value of the @Upstream@ package origin control restriction used to
+-- filter requested packages. Only packages with the provided restriction
+-- are returned. For more information, see
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>.
+listPackages_upstream :: Lens.Lens' ListPackages (Prelude.Maybe AllowUpstream)
+listPackages_upstream = Lens.lens (\ListPackages' {upstream} -> upstream) (\s@ListPackages' {} a -> s {upstream = a} :: ListPackages)
+
+-- | The format used to filter requested packages. Only packages from the
+-- provided format will be returned.
 listPackages_format :: Lens.Lens' ListPackages (Prelude.Maybe PackageFormat)
 listPackages_format = Lens.lens (\ListPackages' {format} -> format) (\s@ListPackages' {} a -> s {format = a} :: ListPackages)
 
@@ -181,34 +203,35 @@ listPackages_format = Lens.lens (\ListPackages' {format} -> format) (\s@ListPack
 listPackages_maxResults :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Natural)
 listPackages_maxResults = Lens.lens (\ListPackages' {maxResults} -> maxResults) (\s@ListPackages' {} a -> s {maxResults = a} :: ListPackages)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 listPackages_domainOwner :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
 listPackages_domainOwner = Lens.lens (\ListPackages' {domainOwner} -> domainOwner) (\s@ListPackages' {} a -> s {domainOwner = a} :: ListPackages)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace used to filter requested packages. Only packages with the
+-- provided namespace will be returned. The package component that
+-- specifies its namespace depends on its type. For example:
 --
 -- -   The namespace of a Maven package is its @groupId@.
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 listPackages_namespace :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
 listPackages_namespace = Lens.lens (\ListPackages' {namespace} -> namespace) (\s@ListPackages' {} a -> s {namespace = a} :: ListPackages)
 
--- | A prefix used to filter returned packages. Only packages with names that
--- start with @packagePrefix@ are returned.
+-- | A prefix used to filter requested packages. Only packages with names
+-- that start with @packagePrefix@ are returned.
 listPackages_packagePrefix :: Lens.Lens' ListPackages (Prelude.Maybe Prelude.Text)
 listPackages_packagePrefix = Lens.lens (\ListPackages' {packagePrefix} -> packagePrefix) (\s@ListPackages' {} a -> s {packagePrefix = a} :: ListPackages)
 
 -- | The name of the domain that contains the repository that contains the
--- requested list of packages.
+-- requested packages.
 listPackages_domain :: Lens.Lens' ListPackages Prelude.Text
 listPackages_domain = Lens.lens (\ListPackages' {domain} -> domain) (\s@ListPackages' {} a -> s {domain = a} :: ListPackages)
 
--- | The name of the repository from which packages are to be listed.
+-- | The name of the repository that contains the requested packages.
 listPackages_repository :: Lens.Lens' ListPackages Prelude.Text
 listPackages_repository = Lens.lens (\ListPackages' {repository} -> repository) (\s@ListPackages' {} a -> s {repository = a} :: ListPackages)
 
@@ -246,6 +269,8 @@ instance Core.AWSRequest ListPackages where
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` publish
+      `Prelude.hashWithSalt` upstream
       `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` domainOwner
@@ -257,6 +282,8 @@ instance Prelude.Hashable ListPackages where
 instance Prelude.NFData ListPackages where
   rnf ListPackages' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf publish
+      `Prelude.seq` Prelude.rnf upstream
       `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf domainOwner
@@ -286,6 +313,8 @@ instance Core.ToQuery ListPackages where
   toQuery ListPackages' {..} =
     Prelude.mconcat
       [ "next-token" Core.=: nextToken,
+        "publish" Core.=: publish,
+        "upstream" Core.=: upstream,
         "format" Core.=: format,
         "max-results" Core.=: maxResults,
         "domain-owner" Core.=: domainOwner,

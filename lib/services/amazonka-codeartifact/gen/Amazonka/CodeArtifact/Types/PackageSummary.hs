@@ -20,6 +20,7 @@
 module Amazonka.CodeArtifact.Types.PackageSummary where
 
 import Amazonka.CodeArtifact.Types.PackageFormat
+import Amazonka.CodeArtifact.Types.PackageOriginConfiguration
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -30,16 +31,17 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newPackageSummary' smart constructor.
 data PackageSummary = PackageSummary'
-  { -- | The format of the package. Valid values are:
-    --
-    -- -   @npm@
-    --
-    -- -   @pypi@
-    --
-    -- -   @maven@
+  { -- | The format of the package.
     format :: Prelude.Maybe PackageFormat,
     -- | The name of the package.
     package :: Prelude.Maybe Prelude.Text,
+    -- | A
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
+    -- object that contains a
+    -- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>
+    -- object that contains information about the upstream and publish package
+    -- origin restrictions.
+    originConfiguration :: Prelude.Maybe PackageOriginConfiguration,
     -- | The namespace of the package. The package component that specifies its
     -- namespace depends on its type. For example:
     --
@@ -47,8 +49,8 @@ data PackageSummary = PackageSummary'
     --
     -- -   The namespace of an npm package is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet packages do not contain a corresponding component,
+    --     packages of those formats do not have a namespace.
     namespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,15 +63,16 @@ data PackageSummary = PackageSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'format', 'packageSummary_format' - The format of the package. Valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- 'format', 'packageSummary_format' - The format of the package.
 --
 -- 'package', 'packageSummary_package' - The name of the package.
+--
+-- 'originConfiguration', 'packageSummary_originConfiguration' - A
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
+-- object that contains a
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>
+-- object that contains information about the upstream and publish package
+-- origin restrictions.
 --
 -- 'namespace', 'packageSummary_namespace' - The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -78,30 +81,34 @@ data PackageSummary = PackageSummary'
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 newPackageSummary ::
   PackageSummary
 newPackageSummary =
   PackageSummary'
     { format = Prelude.Nothing,
       package = Prelude.Nothing,
+      originConfiguration = Prelude.Nothing,
       namespace = Prelude.Nothing
     }
 
--- | The format of the package. Valid values are:
---
--- -   @npm@
---
--- -   @pypi@
---
--- -   @maven@
+-- | The format of the package.
 packageSummary_format :: Lens.Lens' PackageSummary (Prelude.Maybe PackageFormat)
 packageSummary_format = Lens.lens (\PackageSummary' {format} -> format) (\s@PackageSummary' {} a -> s {format = a} :: PackageSummary)
 
 -- | The name of the package.
 packageSummary_package :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
 packageSummary_package = Lens.lens (\PackageSummary' {package} -> package) (\s@PackageSummary' {} a -> s {package = a} :: PackageSummary)
+
+-- | A
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html PackageOriginConfiguration>
+-- object that contains a
+-- <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html PackageOriginRestrictions>
+-- object that contains information about the upstream and publish package
+-- origin restrictions.
+packageSummary_originConfiguration :: Lens.Lens' PackageSummary (Prelude.Maybe PackageOriginConfiguration)
+packageSummary_originConfiguration = Lens.lens (\PackageSummary' {originConfiguration} -> originConfiguration) (\s@PackageSummary' {} a -> s {originConfiguration = a} :: PackageSummary)
 
 -- | The namespace of the package. The package component that specifies its
 -- namespace depends on its type. For example:
@@ -110,8 +117,8 @@ packageSummary_package = Lens.lens (\PackageSummary' {package} -> package) (\s@P
 --
 -- -   The namespace of an npm package is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet packages do not contain a corresponding component,
+--     packages of those formats do not have a namespace.
 packageSummary_namespace :: Lens.Lens' PackageSummary (Prelude.Maybe Prelude.Text)
 packageSummary_namespace = Lens.lens (\PackageSummary' {namespace} -> namespace) (\s@PackageSummary' {} a -> s {namespace = a} :: PackageSummary)
 
@@ -123,6 +130,7 @@ instance Core.FromJSON PackageSummary where
           PackageSummary'
             Prelude.<$> (x Core..:? "format")
             Prelude.<*> (x Core..:? "package")
+            Prelude.<*> (x Core..:? "originConfiguration")
             Prelude.<*> (x Core..:? "namespace")
       )
 
@@ -130,10 +138,12 @@ instance Prelude.Hashable PackageSummary where
   hashWithSalt _salt PackageSummary' {..} =
     _salt `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` package
+      `Prelude.hashWithSalt` originConfiguration
       `Prelude.hashWithSalt` namespace
 
 instance Prelude.NFData PackageSummary where
   rnf PackageSummary' {..} =
     Prelude.rnf format
       `Prelude.seq` Prelude.rnf package
+      `Prelude.seq` Prelude.rnf originConfiguration
       `Prelude.seq` Prelude.rnf namespace

@@ -11,16 +11,16 @@
 --
 -- Derived from API version @2018-09-22@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS CodeArtifact is a fully managed artifact repository compatible with
+-- CodeArtifact is a fully managed artifact repository compatible with
 -- language-native package managers and build tools such as npm, Apache
--- Maven, and pip. You can use CodeArtifact to share packages with
+-- Maven, pip, and dotnet. You can use CodeArtifact to share packages with
 -- development teams and pull packages. Packages can be pulled from both
 -- public and CodeArtifact repositories. You can also create an upstream
 -- relationship between a CodeArtifact repository and another repository,
 -- which effectively merges their contents from the point of view of a
 -- package manager client.
 --
--- __AWS CodeArtifact Components__
+-- __CodeArtifact Components__
 --
 -- Use the information in this guide to help you work with the following
 -- CodeArtifact components:
@@ -31,7 +31,8 @@
 --     polyglot, so a single repository can contain packages of any
 --     supported type. Each repository exposes endpoints for fetching and
 --     publishing packages using tools like the __@npm@__ CLI, the Maven
---     CLI ( __@mvn@__ ), and __@pip@__ .
+--     CLI ( __@mvn@__ ), Python CLIs ( __@pip@__ and @twine@), and NuGet
+--     CLIs (@nuget@ and @dotnet@).
 --
 -- -   __Domain__: Repositories are aggregated into a higher-level entity
 --     known as a /domain/. All package assets and metadata are stored in
@@ -39,7 +40,7 @@
 --     asset, such as a Maven JAR file, is stored once per domain, no
 --     matter how many repositories it\'s present in. All of the assets and
 --     metadata in a domain are encrypted with the same customer master key
---     (CMK) stored in AWS Key Management Service (AWS KMS).
+--     (CMK) stored in Key Management Service (KMS).
 --
 --     Each repository is a member of a single domain and can\'t be moved
 --     to a different domain.
@@ -58,8 +59,9 @@
 --     CodeArtifact supports
 --     <https://docs.aws.amazon.com/codeartifact/latest/ug/using-npm.html npm>,
 --     <https://docs.aws.amazon.com/codeartifact/latest/ug/using-python.html PyPI>,
+--     <https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven Maven>,
 --     and
---     <https://docs.aws.amazon.com/codeartifact/latest/ug/using-maven Maven>
+--     <https://docs.aws.amazon.com/codeartifact/latest/ug/using-nuget NuGet>
 --     package formats.
 --
 --     In CodeArtifact, a package consists of:
@@ -124,6 +126,10 @@
 -- -   @DescribeDomain@: Returns a @DomainDescription@ object that contains
 --     information about the requested domain.
 --
+-- -   @DescribePackage@: Returns a
+--     <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageDescription.html PackageDescription>
+--     object that contains details about a package.
+--
 -- -   @DescribePackageVersion@: Returns a
 --     <https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionDescription.html PackageVersionDescription>
 --     object that contains details about a package version.
@@ -157,11 +163,13 @@
 --     specific package format. A repository has one endpoint for each
 --     package format:
 --
+--     -   @maven@
+--
 --     -   @npm@
 --
---     -   @pypi@
+--     -   @nuget@
 --
---     -   @maven@
+--     -   @pypi@
 --
 -- -   @GetRepositoryPermissionsPolicy@: Returns the resource policy that
 --     is set on a repository.
@@ -180,14 +188,18 @@
 -- -   @ListPackageVersions@: Returns a list of package versions for a
 --     specified package in a repository.
 --
--- -   @ListRepositories@: Returns a list of repositories owned by the AWS
---     account that called this method.
+-- -   @ListRepositories@: Returns a list of repositories owned by the
+--     Amazon Web Services account that called this method.
 --
 -- -   @ListRepositoriesInDomain@: Returns a list of the repositories in a
 --     domain.
 --
 -- -   @PutDomainPermissionsPolicy@: Attaches a resource policy to a
 --     domain.
+--
+-- -   @PutPackageOriginConfiguration@: Sets the package origin
+--     configuration for a package, which determine how new versions of the
+--     package can be added to a specific repository.
 --
 -- -   @PutRepositoryPermissionsPolicy@: Sets the resource policy on a
 --     repository that specifies permissions to access it.
@@ -289,6 +301,12 @@ module Amazonka.CodeArtifact
     newDescribeDomain,
     DescribeDomainResponse (DescribeDomainResponse'),
     newDescribeDomainResponse,
+
+    -- ** DescribePackage
+    DescribePackage (DescribePackage'),
+    newDescribePackage,
+    DescribePackageResponse (DescribePackageResponse'),
+    newDescribePackageResponse,
 
     -- ** DescribePackageVersion
     DescribePackageVersion (DescribePackageVersion'),
@@ -404,6 +422,12 @@ module Amazonka.CodeArtifact
     PutDomainPermissionsPolicyResponse (PutDomainPermissionsPolicyResponse'),
     newPutDomainPermissionsPolicyResponse,
 
+    -- ** PutPackageOriginConfiguration
+    PutPackageOriginConfiguration (PutPackageOriginConfiguration'),
+    newPutPackageOriginConfiguration,
+    PutPackageOriginConfigurationResponse (PutPackageOriginConfigurationResponse'),
+    newPutPackageOriginConfigurationResponse,
+
     -- ** PutRepositoryPermissionsPolicy
     PutRepositoryPermissionsPolicy (PutRepositoryPermissionsPolicy'),
     newPutRepositoryPermissionsPolicy,
@@ -436,6 +460,12 @@ module Amazonka.CodeArtifact
 
     -- * Types
 
+    -- ** AllowPublish
+    AllowPublish (..),
+
+    -- ** AllowUpstream
+    AllowUpstream (..),
+
     -- ** DomainStatus
     DomainStatus (..),
 
@@ -451,6 +481,9 @@ module Amazonka.CodeArtifact
     -- ** PackageVersionErrorCode
     PackageVersionErrorCode (..),
 
+    -- ** PackageVersionOriginType
+    PackageVersionOriginType (..),
+
     -- ** PackageVersionSortType
     PackageVersionSortType (..),
 
@@ -465,6 +498,10 @@ module Amazonka.CodeArtifact
     DomainDescription (DomainDescription'),
     newDomainDescription,
 
+    -- ** DomainEntryPoint
+    DomainEntryPoint (DomainEntryPoint'),
+    newDomainEntryPoint,
+
     -- ** DomainSummary
     DomainSummary (DomainSummary'),
     newDomainSummary,
@@ -477,6 +514,18 @@ module Amazonka.CodeArtifact
     PackageDependency (PackageDependency'),
     newPackageDependency,
 
+    -- ** PackageDescription
+    PackageDescription (PackageDescription'),
+    newPackageDescription,
+
+    -- ** PackageOriginConfiguration
+    PackageOriginConfiguration (PackageOriginConfiguration'),
+    newPackageOriginConfiguration,
+
+    -- ** PackageOriginRestrictions
+    PackageOriginRestrictions (PackageOriginRestrictions'),
+    newPackageOriginRestrictions,
+
     -- ** PackageSummary
     PackageSummary (PackageSummary'),
     newPackageSummary,
@@ -488,6 +537,10 @@ module Amazonka.CodeArtifact
     -- ** PackageVersionError
     PackageVersionError (PackageVersionError'),
     newPackageVersionError,
+
+    -- ** PackageVersionOrigin
+    PackageVersionOrigin (PackageVersionOrigin'),
+    newPackageVersionOrigin,
 
     -- ** PackageVersionSummary
     PackageVersionSummary (PackageVersionSummary'),
@@ -537,6 +590,7 @@ import Amazonka.CodeArtifact.DeletePackageVersions
 import Amazonka.CodeArtifact.DeleteRepository
 import Amazonka.CodeArtifact.DeleteRepositoryPermissionsPolicy
 import Amazonka.CodeArtifact.DescribeDomain
+import Amazonka.CodeArtifact.DescribePackage
 import Amazonka.CodeArtifact.DescribePackageVersion
 import Amazonka.CodeArtifact.DescribeRepository
 import Amazonka.CodeArtifact.DisassociateExternalConnection
@@ -557,6 +611,7 @@ import Amazonka.CodeArtifact.ListRepositories
 import Amazonka.CodeArtifact.ListRepositoriesInDomain
 import Amazonka.CodeArtifact.ListTagsForResource
 import Amazonka.CodeArtifact.PutDomainPermissionsPolicy
+import Amazonka.CodeArtifact.PutPackageOriginConfiguration
 import Amazonka.CodeArtifact.PutRepositoryPermissionsPolicy
 import Amazonka.CodeArtifact.TagResource
 import Amazonka.CodeArtifact.Types

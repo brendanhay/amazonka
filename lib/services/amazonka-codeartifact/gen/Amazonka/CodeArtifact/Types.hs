@@ -25,6 +25,12 @@ module Amazonka.CodeArtifact.Types
     _ThrottlingException,
     _ValidationException,
 
+    -- * AllowPublish
+    AllowPublish (..),
+
+    -- * AllowUpstream
+    AllowUpstream (..),
+
     -- * DomainStatus
     DomainStatus (..),
 
@@ -39,6 +45,9 @@ module Amazonka.CodeArtifact.Types
 
     -- * PackageVersionErrorCode
     PackageVersionErrorCode (..),
+
+    -- * PackageVersionOriginType
+    PackageVersionOriginType (..),
 
     -- * PackageVersionSortType
     PackageVersionSortType (..),
@@ -66,6 +75,12 @@ module Amazonka.CodeArtifact.Types
     domainDescription_s3BucketArn,
     domainDescription_encryptionKey,
 
+    -- * DomainEntryPoint
+    DomainEntryPoint (..),
+    newDomainEntryPoint,
+    domainEntryPoint_repositoryName,
+    domainEntryPoint_externalConnectionName,
+
     -- * DomainSummary
     DomainSummary (..),
     newDomainSummary,
@@ -90,11 +105,31 @@ module Amazonka.CodeArtifact.Types
     packageDependency_dependencyType,
     packageDependency_namespace,
 
+    -- * PackageDescription
+    PackageDescription (..),
+    newPackageDescription,
+    packageDescription_name,
+    packageDescription_format,
+    packageDescription_originConfiguration,
+    packageDescription_namespace,
+
+    -- * PackageOriginConfiguration
+    PackageOriginConfiguration (..),
+    newPackageOriginConfiguration,
+    packageOriginConfiguration_restrictions,
+
+    -- * PackageOriginRestrictions
+    PackageOriginRestrictions (..),
+    newPackageOriginRestrictions,
+    packageOriginRestrictions_publish,
+    packageOriginRestrictions_upstream,
+
     -- * PackageSummary
     PackageSummary (..),
     newPackageSummary,
     packageSummary_format,
     packageSummary_package,
+    packageSummary_originConfiguration,
     packageSummary_namespace,
 
     -- * PackageVersionDescription
@@ -110,6 +145,7 @@ module Amazonka.CodeArtifact.Types
     packageVersionDescription_status,
     packageVersionDescription_sourceCodeRepository,
     packageVersionDescription_namespace,
+    packageVersionDescription_origin,
     packageVersionDescription_version,
     packageVersionDescription_licenses,
 
@@ -119,10 +155,17 @@ module Amazonka.CodeArtifact.Types
     packageVersionError_errorMessage,
     packageVersionError_errorCode,
 
+    -- * PackageVersionOrigin
+    PackageVersionOrigin (..),
+    newPackageVersionOrigin,
+    packageVersionOrigin_originType,
+    packageVersionOrigin_domainEntryPoint,
+
     -- * PackageVersionSummary
     PackageVersionSummary (..),
     newPackageVersionSummary,
     packageVersionSummary_revision,
+    packageVersionSummary_origin,
     packageVersionSummary_version,
     packageVersionSummary_status,
 
@@ -186,19 +229,27 @@ module Amazonka.CodeArtifact.Types
   )
 where
 
+import Amazonka.CodeArtifact.Types.AllowPublish
+import Amazonka.CodeArtifact.Types.AllowUpstream
 import Amazonka.CodeArtifact.Types.AssetSummary
 import Amazonka.CodeArtifact.Types.DomainDescription
+import Amazonka.CodeArtifact.Types.DomainEntryPoint
 import Amazonka.CodeArtifact.Types.DomainStatus
 import Amazonka.CodeArtifact.Types.DomainSummary
 import Amazonka.CodeArtifact.Types.ExternalConnectionStatus
 import Amazonka.CodeArtifact.Types.HashAlgorithm
 import Amazonka.CodeArtifact.Types.LicenseInfo
 import Amazonka.CodeArtifact.Types.PackageDependency
+import Amazonka.CodeArtifact.Types.PackageDescription
 import Amazonka.CodeArtifact.Types.PackageFormat
+import Amazonka.CodeArtifact.Types.PackageOriginConfiguration
+import Amazonka.CodeArtifact.Types.PackageOriginRestrictions
 import Amazonka.CodeArtifact.Types.PackageSummary
 import Amazonka.CodeArtifact.Types.PackageVersionDescription
 import Amazonka.CodeArtifact.Types.PackageVersionError
 import Amazonka.CodeArtifact.Types.PackageVersionErrorCode
+import Amazonka.CodeArtifact.Types.PackageVersionOrigin
+import Amazonka.CodeArtifact.Types.PackageVersionOriginType
 import Amazonka.CodeArtifact.Types.PackageVersionSortType
 import Amazonka.CodeArtifact.Types.PackageVersionStatus
 import Amazonka.CodeArtifact.Types.PackageVersionSummary
@@ -295,7 +346,7 @@ _AccessDeniedException =
     Prelude.. Core.hasStatus 403
 
 -- | The operation did not succeed because of an error that occurred inside
--- AWS CodeArtifact.
+-- CodeArtifact.
 _InternalServerException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerException =
   Core._MatchServiceError

@@ -40,19 +40,14 @@ data DomainDescription = DomainDescription'
     assetSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | The Amazon Resource Name (ARN) of the domain.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The current status of a domain. The valid values are
-    --
-    -- -   @Active@
-    --
-    -- -   @Deleted@
+    -- | The current status of a domain.
     status :: Prelude.Maybe DomainStatus,
-    -- | The AWS account ID that owns the domain.
+    -- | The Amazon Web Services account ID that owns the domain.
     owner :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to
     -- store package assets in the domain.
     s3BucketArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of an AWS Key Management Service (AWS KMS) key associated with a
-    -- domain.
+    -- | The ARN of an Key Management Service (KMS) key associated with a domain.
     encryptionKey :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,19 +70,14 @@ data DomainDescription = DomainDescription'
 --
 -- 'arn', 'domainDescription_arn' - The Amazon Resource Name (ARN) of the domain.
 --
--- 'status', 'domainDescription_status' - The current status of a domain. The valid values are
+-- 'status', 'domainDescription_status' - The current status of a domain.
 --
--- -   @Active@
---
--- -   @Deleted@
---
--- 'owner', 'domainDescription_owner' - The AWS account ID that owns the domain.
+-- 'owner', 'domainDescription_owner' - The Amazon Web Services account ID that owns the domain.
 --
 -- 's3BucketArn', 'domainDescription_s3BucketArn' - The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to
 -- store package assets in the domain.
 --
--- 'encryptionKey', 'domainDescription_encryptionKey' - The ARN of an AWS Key Management Service (AWS KMS) key associated with a
--- domain.
+-- 'encryptionKey', 'domainDescription_encryptionKey' - The ARN of an Key Management Service (KMS) key associated with a domain.
 newDomainDescription ::
   DomainDescription
 newDomainDescription =
@@ -123,15 +113,11 @@ domainDescription_assetSizeBytes = Lens.lens (\DomainDescription' {assetSizeByte
 domainDescription_arn :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
 domainDescription_arn = Lens.lens (\DomainDescription' {arn} -> arn) (\s@DomainDescription' {} a -> s {arn = a} :: DomainDescription)
 
--- | The current status of a domain. The valid values are
---
--- -   @Active@
---
--- -   @Deleted@
+-- | The current status of a domain.
 domainDescription_status :: Lens.Lens' DomainDescription (Prelude.Maybe DomainStatus)
 domainDescription_status = Lens.lens (\DomainDescription' {status} -> status) (\s@DomainDescription' {} a -> s {status = a} :: DomainDescription)
 
--- | The AWS account ID that owns the domain.
+-- | The Amazon Web Services account ID that owns the domain.
 domainDescription_owner :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
 domainDescription_owner = Lens.lens (\DomainDescription' {owner} -> owner) (\s@DomainDescription' {} a -> s {owner = a} :: DomainDescription)
 
@@ -140,8 +126,7 @@ domainDescription_owner = Lens.lens (\DomainDescription' {owner} -> owner) (\s@D
 domainDescription_s3BucketArn :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
 domainDescription_s3BucketArn = Lens.lens (\DomainDescription' {s3BucketArn} -> s3BucketArn) (\s@DomainDescription' {} a -> s {s3BucketArn = a} :: DomainDescription)
 
--- | The ARN of an AWS Key Management Service (AWS KMS) key associated with a
--- domain.
+-- | The ARN of an Key Management Service (KMS) key associated with a domain.
 domainDescription_encryptionKey :: Lens.Lens' DomainDescription (Prelude.Maybe Prelude.Text)
 domainDescription_encryptionKey = Lens.lens (\DomainDescription' {encryptionKey} -> encryptionKey) (\s@DomainDescription' {} a -> s {encryptionKey = a} :: DomainDescription)
 

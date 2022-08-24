@@ -55,8 +55,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAssociateExternalConnection' smart constructor.
 data AssociateExternalConnection = AssociateExternalConnection'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the repository.
     domain :: Prelude.Text,
@@ -88,8 +88,8 @@ data AssociateExternalConnection = AssociateExternalConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'associateExternalConnection_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'associateExternalConnection_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'associateExternalConnection_domain' - The name of the domain that contains the repository.
 --
@@ -129,8 +129,8 @@ newAssociateExternalConnection
         externalConnection = pExternalConnection_
       }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 associateExternalConnection_domainOwner :: Lens.Lens' AssociateExternalConnection (Prelude.Maybe Prelude.Text)
 associateExternalConnection_domainOwner = Lens.lens (\AssociateExternalConnection' {domainOwner} -> domainOwner) (\s@AssociateExternalConnection' {} a -> s {domainOwner = a} :: AssociateExternalConnection)
 

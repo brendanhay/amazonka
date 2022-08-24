@@ -82,41 +82,37 @@ data CopyPackageVersions = CopyPackageVersions'
     -- the @failedVersions@ field of the response with an @ALREADY_EXISTS@
     -- error code.
     allowOverwrite :: Prelude.Maybe Prelude.Bool,
-    -- | The versions of the package to copy.
+    -- | The versions of the package to be copied.
     --
     -- You must specify @versions@ or @versionRevisions@. You cannot specify
     -- both.
     versions :: Prelude.Maybe [Prelude.Text],
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the package. The package component that specifies its
-    -- namespace depends on its type. For example:
+    -- | The namespace of the package versions to be copied. The package version
+    -- component that specifies its namespace depends on its type. For example:
     --
-    -- -   The namespace of a Maven package is its @groupId@.
+    -- -   The namespace of a Maven package version is its @groupId@. The
+    --     namespace is required when copying Maven package versions.
     --
-    -- -   The namespace of an npm package is its @scope@.
+    -- -   The namespace of an npm package version is its @scope@.
     --
-    -- -   A Python package does not contain a corresponding component, so
-    --     Python packages do not have a namespace.
+    -- -   Python and NuGet package versions do not contain a corresponding
+    --     component, package versions of those formats do not have a
+    --     namespace.
     namespace :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that contains the source and destination
     -- repositories.
     domain :: Prelude.Text,
-    -- | The name of the repository that contains the package versions to copy.
+    -- | The name of the repository that contains the package versions to be
+    -- copied.
     sourceRepository :: Prelude.Text,
     -- | The name of the repository into which package versions are copied.
     destinationRepository :: Prelude.Text,
-    -- | The format of the package that is copied. The valid package types are:
-    --
-    -- -   @npm@: A Node Package Manager (npm) package.
-    --
-    -- -   @pypi@: A Python Package Index (PyPI) package.
-    --
-    -- -   @maven@: A Maven package that contains compiled code in a
-    --     distributable format, such as a JAR file.
+    -- | The format of the package versions to be copied.
     format :: PackageFormat,
-    -- | The name of the package that is copied.
+    -- | The name of the package that contains the versions to be copied.
     package :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -148,41 +144,37 @@ data CopyPackageVersions = CopyPackageVersions'
 -- the @failedVersions@ field of the response with an @ALREADY_EXISTS@
 -- error code.
 --
--- 'versions', 'copyPackageVersions_versions' - The versions of the package to copy.
+-- 'versions', 'copyPackageVersions_versions' - The versions of the package to be copied.
 --
 -- You must specify @versions@ or @versionRevisions@. You cannot specify
 -- both.
 --
--- 'domainOwner', 'copyPackageVersions_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'copyPackageVersions_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
--- 'namespace', 'copyPackageVersions_namespace' - The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- 'namespace', 'copyPackageVersions_namespace' - The namespace of the package versions to be copied. The package version
+-- component that specifies its namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@. The
+--     namespace is required when copying Maven package versions.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 --
 -- 'domain', 'copyPackageVersions_domain' - The name of the domain that contains the source and destination
 -- repositories.
 --
--- 'sourceRepository', 'copyPackageVersions_sourceRepository' - The name of the repository that contains the package versions to copy.
+-- 'sourceRepository', 'copyPackageVersions_sourceRepository' - The name of the repository that contains the package versions to be
+-- copied.
 --
 -- 'destinationRepository', 'copyPackageVersions_destinationRepository' - The name of the repository into which package versions are copied.
 --
--- 'format', 'copyPackageVersions_format' - The format of the package that is copied. The valid package types are:
+-- 'format', 'copyPackageVersions_format' - The format of the package versions to be copied.
 --
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
---
--- 'package', 'copyPackageVersions_package' - The name of the package that is copied.
+-- 'package', 'copyPackageVersions_package' - The name of the package that contains the versions to be copied.
 newCopyPackageVersions ::
   -- | 'domain'
   Prelude.Text ->
@@ -241,27 +233,29 @@ copyPackageVersions_versionRevisions = Lens.lens (\CopyPackageVersions' {version
 copyPackageVersions_allowOverwrite :: Lens.Lens' CopyPackageVersions (Prelude.Maybe Prelude.Bool)
 copyPackageVersions_allowOverwrite = Lens.lens (\CopyPackageVersions' {allowOverwrite} -> allowOverwrite) (\s@CopyPackageVersions' {} a -> s {allowOverwrite = a} :: CopyPackageVersions)
 
--- | The versions of the package to copy.
+-- | The versions of the package to be copied.
 --
 -- You must specify @versions@ or @versionRevisions@. You cannot specify
 -- both.
 copyPackageVersions_versions :: Lens.Lens' CopyPackageVersions (Prelude.Maybe [Prelude.Text])
 copyPackageVersions_versions = Lens.lens (\CopyPackageVersions' {versions} -> versions) (\s@CopyPackageVersions' {} a -> s {versions = a} :: CopyPackageVersions) Prelude.. Lens.mapping Lens.coerced
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 copyPackageVersions_domainOwner :: Lens.Lens' CopyPackageVersions (Prelude.Maybe Prelude.Text)
 copyPackageVersions_domainOwner = Lens.lens (\CopyPackageVersions' {domainOwner} -> domainOwner) (\s@CopyPackageVersions' {} a -> s {domainOwner = a} :: CopyPackageVersions)
 
--- | The namespace of the package. The package component that specifies its
--- namespace depends on its type. For example:
+-- | The namespace of the package versions to be copied. The package version
+-- component that specifies its namespace depends on its type. For example:
 --
--- -   The namespace of a Maven package is its @groupId@.
+-- -   The namespace of a Maven package version is its @groupId@. The
+--     namespace is required when copying Maven package versions.
 --
--- -   The namespace of an npm package is its @scope@.
+-- -   The namespace of an npm package version is its @scope@.
 --
--- -   A Python package does not contain a corresponding component, so
---     Python packages do not have a namespace.
+-- -   Python and NuGet package versions do not contain a corresponding
+--     component, package versions of those formats do not have a
+--     namespace.
 copyPackageVersions_namespace :: Lens.Lens' CopyPackageVersions (Prelude.Maybe Prelude.Text)
 copyPackageVersions_namespace = Lens.lens (\CopyPackageVersions' {namespace} -> namespace) (\s@CopyPackageVersions' {} a -> s {namespace = a} :: CopyPackageVersions)
 
@@ -270,7 +264,8 @@ copyPackageVersions_namespace = Lens.lens (\CopyPackageVersions' {namespace} -> 
 copyPackageVersions_domain :: Lens.Lens' CopyPackageVersions Prelude.Text
 copyPackageVersions_domain = Lens.lens (\CopyPackageVersions' {domain} -> domain) (\s@CopyPackageVersions' {} a -> s {domain = a} :: CopyPackageVersions)
 
--- | The name of the repository that contains the package versions to copy.
+-- | The name of the repository that contains the package versions to be
+-- copied.
 copyPackageVersions_sourceRepository :: Lens.Lens' CopyPackageVersions Prelude.Text
 copyPackageVersions_sourceRepository = Lens.lens (\CopyPackageVersions' {sourceRepository} -> sourceRepository) (\s@CopyPackageVersions' {} a -> s {sourceRepository = a} :: CopyPackageVersions)
 
@@ -278,18 +273,11 @@ copyPackageVersions_sourceRepository = Lens.lens (\CopyPackageVersions' {sourceR
 copyPackageVersions_destinationRepository :: Lens.Lens' CopyPackageVersions Prelude.Text
 copyPackageVersions_destinationRepository = Lens.lens (\CopyPackageVersions' {destinationRepository} -> destinationRepository) (\s@CopyPackageVersions' {} a -> s {destinationRepository = a} :: CopyPackageVersions)
 
--- | The format of the package that is copied. The valid package types are:
---
--- -   @npm@: A Node Package Manager (npm) package.
---
--- -   @pypi@: A Python Package Index (PyPI) package.
---
--- -   @maven@: A Maven package that contains compiled code in a
---     distributable format, such as a JAR file.
+-- | The format of the package versions to be copied.
 copyPackageVersions_format :: Lens.Lens' CopyPackageVersions PackageFormat
 copyPackageVersions_format = Lens.lens (\CopyPackageVersions' {format} -> format) (\s@CopyPackageVersions' {} a -> s {format = a} :: CopyPackageVersions)
 
--- | The name of the package that is copied.
+-- | The name of the package that contains the versions to be copied.
 copyPackageVersions_package :: Lens.Lens' CopyPackageVersions Prelude.Text
 copyPackageVersions_package = Lens.lens (\CopyPackageVersions' {package} -> package) (\s@CopyPackageVersions' {} a -> s {package = a} :: CopyPackageVersions)
 

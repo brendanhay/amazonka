@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRepositorySummary' smart constructor.
 data RepositorySummary = RepositorySummary'
-  { -- | The AWS account ID that manages the repository.
+  { -- | The Amazon Web Services account ID that manages the repository.
     administratorAccount :: Prelude.Maybe Prelude.Text,
     -- | The name of the repository.
     name :: Prelude.Maybe Prelude.Text,
@@ -40,8 +40,8 @@ data RepositorySummary = RepositorySummary'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The description of the repository.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,7 +54,7 @@ data RepositorySummary = RepositorySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'administratorAccount', 'repositorySummary_administratorAccount' - The AWS account ID that manages the repository.
+-- 'administratorAccount', 'repositorySummary_administratorAccount' - The Amazon Web Services account ID that manages the repository.
 --
 -- 'name', 'repositorySummary_name' - The name of the repository.
 --
@@ -64,8 +64,8 @@ data RepositorySummary = RepositorySummary'
 --
 -- 'description', 'repositorySummary_description' - The description of the repository.
 --
--- 'domainOwner', 'repositorySummary_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'repositorySummary_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 newRepositorySummary ::
   RepositorySummary
 newRepositorySummary =
@@ -79,7 +79,7 @@ newRepositorySummary =
       domainOwner = Prelude.Nothing
     }
 
--- | The AWS account ID that manages the repository.
+-- | The Amazon Web Services account ID that manages the repository.
 repositorySummary_administratorAccount :: Lens.Lens' RepositorySummary (Prelude.Maybe Prelude.Text)
 repositorySummary_administratorAccount = Lens.lens (\RepositorySummary' {administratorAccount} -> administratorAccount) (\s@RepositorySummary' {} a -> s {administratorAccount = a} :: RepositorySummary)
 
@@ -99,8 +99,8 @@ repositorySummary_arn = Lens.lens (\RepositorySummary' {arn} -> arn) (\s@Reposit
 repositorySummary_description :: Lens.Lens' RepositorySummary (Prelude.Maybe Prelude.Text)
 repositorySummary_description = Lens.lens (\RepositorySummary' {description} -> description) (\s@RepositorySummary' {} a -> s {description = a} :: RepositorySummary)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 repositorySummary_domainOwner :: Lens.Lens' RepositorySummary (Prelude.Maybe Prelude.Text)
 repositorySummary_domainOwner = Lens.lens (\RepositorySummary' {domainOwner} -> domainOwner) (\s@RepositorySummary' {} a -> s {domainOwner = a} :: RepositorySummary)
 

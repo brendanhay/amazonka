@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | A tag is a key-value pair that can be used to manage, search for, or
--- filter resources in AWS CodeArtifact.
+-- filter resources in CodeArtifact.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'

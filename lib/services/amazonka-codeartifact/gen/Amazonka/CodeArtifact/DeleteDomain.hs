@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteDomain' smart constructor.
 data DeleteDomain = DeleteDomain'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain to delete.
     domain :: Prelude.Text
@@ -67,8 +67,8 @@ data DeleteDomain = DeleteDomain'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'deleteDomain_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'deleteDomain_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'deleteDomain_domain' - The name of the domain to delete.
 newDeleteDomain ::
@@ -81,8 +81,8 @@ newDeleteDomain pDomain_ =
       domain = pDomain_
     }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 deleteDomain_domainOwner :: Lens.Lens' DeleteDomain (Prelude.Maybe Prelude.Text)
 deleteDomain_domainOwner = Lens.lens (\DeleteDomain' {domainOwner} -> domainOwner) (\s@DeleteDomain' {} a -> s {domainOwner = a} :: DeleteDomain)
 

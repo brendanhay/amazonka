@@ -24,7 +24,7 @@
 -- the domain. This API requires the @codeartifact:GetAuthorizationToken@
 -- and @sts:GetServiceBearerToken@ permissions. For more information about
 -- authorization tokens, see
--- <https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html AWS CodeArtifact authentication and tokens>.
+-- <https://docs.aws.amazon.com/codeartifact/latest/ug/tokens-authentication.html CodeArtifact authentication and tokens>.
 --
 -- CodeArtifact authorization tokens are valid for a period of 12 hours
 -- when created with the @login@ command. You can call @login@ periodically
@@ -80,8 +80,8 @@ data GetAuthorizationToken = GetAuthorizationToken'
     -- authorization token to the same expiration of the user\'s role\'s
     -- temporary credentials.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+    -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain that is in scope for the generated authorization
     -- token.
@@ -103,8 +103,8 @@ data GetAuthorizationToken = GetAuthorizationToken'
 -- authorization token to the same expiration of the user\'s role\'s
 -- temporary credentials.
 --
--- 'domainOwner', 'getAuthorizationToken_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'getAuthorizationToken_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'getAuthorizationToken_domain' - The name of the domain that is in scope for the generated authorization
 -- token.
@@ -128,8 +128,8 @@ newGetAuthorizationToken pDomain_ =
 getAuthorizationToken_durationSeconds :: Lens.Lens' GetAuthorizationToken (Prelude.Maybe Prelude.Natural)
 getAuthorizationToken_durationSeconds = Lens.lens (\GetAuthorizationToken' {durationSeconds} -> durationSeconds) (\s@GetAuthorizationToken' {} a -> s {durationSeconds = a} :: GetAuthorizationToken)
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 getAuthorizationToken_domainOwner :: Lens.Lens' GetAuthorizationToken (Prelude.Maybe Prelude.Text)
 getAuthorizationToken_domainOwner = Lens.lens (\GetAuthorizationToken' {domainOwner} -> domainOwner) (\s@GetAuthorizationToken' {} a -> s {domainOwner = a} :: GetAuthorizationToken)
 

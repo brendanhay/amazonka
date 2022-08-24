@@ -50,8 +50,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetRepositoryPermissionsPolicy' smart constructor.
 data GetRepositoryPermissionsPolicy = GetRepositoryPermissionsPolicy'
-  { -- | The 12-digit account number of the AWS account that owns the domain. It
-    -- does not include dashes or spaces.
+  { -- | The 12-digit account number of the Amazon Web Services account that owns
+    -- the domain. It does not include dashes or spaces.
     domainOwner :: Prelude.Maybe Prelude.Text,
     -- | The name of the domain containing the repository whose associated
     -- resource policy is to be retrieved.
@@ -70,8 +70,8 @@ data GetRepositoryPermissionsPolicy = GetRepositoryPermissionsPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainOwner', 'getRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- 'domainOwner', 'getRepositoryPermissionsPolicy_domainOwner' - The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 --
 -- 'domain', 'getRepositoryPermissionsPolicy_domain' - The name of the domain containing the repository whose associated
 -- resource policy is to be retrieved.
@@ -94,8 +94,8 @@ newGetRepositoryPermissionsPolicy
         repository = pRepository_
       }
 
--- | The 12-digit account number of the AWS account that owns the domain. It
--- does not include dashes or spaces.
+-- | The 12-digit account number of the Amazon Web Services account that owns
+-- the domain. It does not include dashes or spaces.
 getRepositoryPermissionsPolicy_domainOwner :: Lens.Lens' GetRepositoryPermissionsPolicy (Prelude.Maybe Prelude.Text)
 getRepositoryPermissionsPolicy_domainOwner = Lens.lens (\GetRepositoryPermissionsPolicy' {domainOwner} -> domainOwner) (\s@GetRepositoryPermissionsPolicy' {} a -> s {domainOwner = a} :: GetRepositoryPermissionsPolicy)
 

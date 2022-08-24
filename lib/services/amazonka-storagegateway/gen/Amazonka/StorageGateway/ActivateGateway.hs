@@ -91,7 +91,8 @@ data ActivateGateway = ActivateGateway'
     -- is critical to all later functions of the gateway and cannot be changed
     -- after activation. The default value is @CACHED@.
     --
-    -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@
+    -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @VTL_SNOW@ | @FILE_S3@ |
+    -- @FILE_FSX_SMB@
     gatewayType :: Prelude.Maybe Prelude.Text,
     -- | The value that indicates the type of medium changer to use for tape
     -- gateway. This field is optional.
@@ -161,7 +162,8 @@ data ActivateGateway = ActivateGateway'
 -- is critical to all later functions of the gateway and cannot be changed
 -- after activation. The default value is @CACHED@.
 --
--- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@
+-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @VTL_SNOW@ | @FILE_S3@ |
+-- @FILE_FSX_SMB@
 --
 -- 'mediumChangerType', 'activateGateway_mediumChangerType' - The value that indicates the type of medium changer to use for tape
 -- gateway. This field is optional.
@@ -247,7 +249,8 @@ activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@Activate
 -- is critical to all later functions of the gateway and cannot be changed
 -- after activation. The default value is @CACHED@.
 --
--- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@
+-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @VTL_SNOW@ | @FILE_S3@ |
+-- @FILE_FSX_SMB@
 activateGateway_gatewayType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
 activateGateway_gatewayType = Lens.lens (\ActivateGateway' {gatewayType} -> gatewayType) (\s@ActivateGateway' {} a -> s {gatewayType = a} :: ActivateGateway)
 

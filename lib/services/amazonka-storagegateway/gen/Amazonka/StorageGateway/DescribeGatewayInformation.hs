@@ -55,6 +55,7 @@ module Amazonka.StorageGateway.DescribeGatewayInformation
     describeGatewayInformationResponse_gatewayNetworkInterfaces,
     describeGatewayInformationResponse_supportedGatewayCapacities,
     describeGatewayInformationResponse_gatewayTimezone,
+    describeGatewayInformationResponse_hostEnvironmentId,
     describeGatewayInformationResponse_vPCEndpoint,
     describeGatewayInformationResponse_hostEnvironment,
     describeGatewayInformationResponse_httpStatus,
@@ -130,6 +131,7 @@ instance Core.AWSRequest DescribeGatewayInformation where
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "GatewayTimezone")
+            Prelude.<*> (x Core..?> "HostEnvironmentId")
             Prelude.<*> (x Core..?> "VPCEndpoint")
             Prelude.<*> (x Core..?> "HostEnvironment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -187,7 +189,9 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
     -- update this field is not returned in the response.
     nextUpdateAvailabilityDate :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
-    -- is used to monitor events in the gateway.
+    -- is used to monitor events in the gateway. This field only only exist and
+    -- returns once it have been chosen and set by the SGW service, based on
+    -- the OS version of the gateway VM
     cloudWatchLogGroupARN :: Prelude.Maybe Prelude.Text,
     -- | The name you configured for your gateway.
     gatewayName :: Prelude.Maybe Prelude.Text,
@@ -208,7 +212,9 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
     softwareUpdatesEndDate :: Prelude.Maybe Prelude.Text,
     -- | The date on which the last software update was applied to the gateway.
     -- If the gateway has never been updated, this field does not return a
-    -- value in the response.
+    -- value in the response. This only only exist and returns once it have
+    -- been chosen and set by the SGW service, based on the OS version of the
+    -- gateway VM
     lastSoftwareUpdate :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates the operating state of the gateway.
     gatewayState :: Prelude.Maybe Prelude.Text,
@@ -226,10 +232,15 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
     supportedGatewayCapacities :: Prelude.Maybe [GatewayCapacity],
     -- | A value that indicates the time zone configured for the gateway.
     gatewayTimezone :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the specific instance of the host platform
+    -- running the gateway. This value is only available for certain host
+    -- environments, and its format depends on the host environment type.
+    hostEnvironmentId :: Prelude.Maybe Prelude.Text,
     -- | The configuration settings for the virtual private cloud (VPC) endpoint
     -- for your gateway.
     vPCEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The type of hypervisor environment used by the host.
+    -- | The type of hardware or software platform on which the gateway is
+    -- running.
     hostEnvironment :: Prelude.Maybe HostEnvironment,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -256,7 +267,9 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
 -- update this field is not returned in the response.
 --
 -- 'cloudWatchLogGroupARN', 'describeGatewayInformationResponse_cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
--- is used to monitor events in the gateway.
+-- is used to monitor events in the gateway. This field only only exist and
+-- returns once it have been chosen and set by the SGW service, based on
+-- the OS version of the gateway VM
 --
 -- 'gatewayName', 'describeGatewayInformationResponse_gatewayName' - The name you configured for your gateway.
 --
@@ -278,7 +291,9 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
 --
 -- 'lastSoftwareUpdate', 'describeGatewayInformationResponse_lastSoftwareUpdate' - The date on which the last software update was applied to the gateway.
 -- If the gateway has never been updated, this field does not return a
--- value in the response.
+-- value in the response. This only only exist and returns once it have
+-- been chosen and set by the SGW service, based on the OS version of the
+-- gateway VM
 --
 -- 'gatewayState', 'describeGatewayInformationResponse_gatewayState' - A value that indicates the operating state of the gateway.
 --
@@ -296,10 +311,15 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
 --
 -- 'gatewayTimezone', 'describeGatewayInformationResponse_gatewayTimezone' - A value that indicates the time zone configured for the gateway.
 --
+-- 'hostEnvironmentId', 'describeGatewayInformationResponse_hostEnvironmentId' - A unique identifier for the specific instance of the host platform
+-- running the gateway. This value is only available for certain host
+-- environments, and its format depends on the host environment type.
+--
 -- 'vPCEndpoint', 'describeGatewayInformationResponse_vPCEndpoint' - The configuration settings for the virtual private cloud (VPC) endpoint
 -- for your gateway.
 --
--- 'hostEnvironment', 'describeGatewayInformationResponse_hostEnvironment' - The type of hypervisor environment used by the host.
+-- 'hostEnvironment', 'describeGatewayInformationResponse_hostEnvironment' - The type of hardware or software platform on which the gateway is
+-- running.
 --
 -- 'httpStatus', 'describeGatewayInformationResponse_httpStatus' - The response's http status code.
 newDescribeGatewayInformationResponse ::
@@ -331,6 +351,7 @@ newDescribeGatewayInformationResponse pHttpStatus_ =
       supportedGatewayCapacities =
         Prelude.Nothing,
       gatewayTimezone = Prelude.Nothing,
+      hostEnvironmentId = Prelude.Nothing,
       vPCEndpoint = Prelude.Nothing,
       hostEnvironment = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -354,7 +375,9 @@ describeGatewayInformationResponse_nextUpdateAvailabilityDate :: Lens.Lens' Desc
 describeGatewayInformationResponse_nextUpdateAvailabilityDate = Lens.lens (\DescribeGatewayInformationResponse' {nextUpdateAvailabilityDate} -> nextUpdateAvailabilityDate) (\s@DescribeGatewayInformationResponse' {} a -> s {nextUpdateAvailabilityDate = a} :: DescribeGatewayInformationResponse)
 
 -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
--- is used to monitor events in the gateway.
+-- is used to monitor events in the gateway. This field only only exist and
+-- returns once it have been chosen and set by the SGW service, based on
+-- the OS version of the gateway VM
 describeGatewayInformationResponse_cloudWatchLogGroupARN :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
 describeGatewayInformationResponse_cloudWatchLogGroupARN = Lens.lens (\DescribeGatewayInformationResponse' {cloudWatchLogGroupARN} -> cloudWatchLogGroupARN) (\s@DescribeGatewayInformationResponse' {} a -> s {cloudWatchLogGroupARN = a} :: DescribeGatewayInformationResponse)
 
@@ -392,7 +415,9 @@ describeGatewayInformationResponse_softwareUpdatesEndDate = Lens.lens (\Describe
 
 -- | The date on which the last software update was applied to the gateway.
 -- If the gateway has never been updated, this field does not return a
--- value in the response.
+-- value in the response. This only only exist and returns once it have
+-- been chosen and set by the SGW service, based on the OS version of the
+-- gateway VM
 describeGatewayInformationResponse_lastSoftwareUpdate :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
 describeGatewayInformationResponse_lastSoftwareUpdate = Lens.lens (\DescribeGatewayInformationResponse' {lastSoftwareUpdate} -> lastSoftwareUpdate) (\s@DescribeGatewayInformationResponse' {} a -> s {lastSoftwareUpdate = a} :: DescribeGatewayInformationResponse)
 
@@ -424,12 +449,19 @@ describeGatewayInformationResponse_supportedGatewayCapacities = Lens.lens (\Desc
 describeGatewayInformationResponse_gatewayTimezone :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
 describeGatewayInformationResponse_gatewayTimezone = Lens.lens (\DescribeGatewayInformationResponse' {gatewayTimezone} -> gatewayTimezone) (\s@DescribeGatewayInformationResponse' {} a -> s {gatewayTimezone = a} :: DescribeGatewayInformationResponse)
 
+-- | A unique identifier for the specific instance of the host platform
+-- running the gateway. This value is only available for certain host
+-- environments, and its format depends on the host environment type.
+describeGatewayInformationResponse_hostEnvironmentId :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
+describeGatewayInformationResponse_hostEnvironmentId = Lens.lens (\DescribeGatewayInformationResponse' {hostEnvironmentId} -> hostEnvironmentId) (\s@DescribeGatewayInformationResponse' {} a -> s {hostEnvironmentId = a} :: DescribeGatewayInformationResponse)
+
 -- | The configuration settings for the virtual private cloud (VPC) endpoint
 -- for your gateway.
 describeGatewayInformationResponse_vPCEndpoint :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe Prelude.Text)
 describeGatewayInformationResponse_vPCEndpoint = Lens.lens (\DescribeGatewayInformationResponse' {vPCEndpoint} -> vPCEndpoint) (\s@DescribeGatewayInformationResponse' {} a -> s {vPCEndpoint = a} :: DescribeGatewayInformationResponse)
 
--- | The type of hypervisor environment used by the host.
+-- | The type of hardware or software platform on which the gateway is
+-- running.
 describeGatewayInformationResponse_hostEnvironment :: Lens.Lens' DescribeGatewayInformationResponse (Prelude.Maybe HostEnvironment)
 describeGatewayInformationResponse_hostEnvironment = Lens.lens (\DescribeGatewayInformationResponse' {hostEnvironment} -> hostEnvironment) (\s@DescribeGatewayInformationResponse' {} a -> s {hostEnvironment = a} :: DescribeGatewayInformationResponse)
 
@@ -461,6 +493,7 @@ instance
       `Prelude.seq` Prelude.rnf
         supportedGatewayCapacities
       `Prelude.seq` Prelude.rnf gatewayTimezone
+      `Prelude.seq` Prelude.rnf hostEnvironmentId
       `Prelude.seq` Prelude.rnf vPCEndpoint
       `Prelude.seq` Prelude.rnf hostEnvironment
       `Prelude.seq` Prelude.rnf httpStatus

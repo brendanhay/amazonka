@@ -45,8 +45,6 @@ data AutomaticTapeCreationRule = AutomaticTapeCreationRule'
     -- associated with the pool. When you use your backup application to eject
     -- the tape, the tape is archived directly into the storage class (S3
     -- Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
-    --
-    -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Text,
     -- | The size, in bytes, of the virtual tape capacity.
     tapeSizeInBytes :: Prelude.Integer,
@@ -83,8 +81,6 @@ data AutomaticTapeCreationRule = AutomaticTapeCreationRule'
 -- associated with the pool. When you use your backup application to eject
 -- the tape, the tape is archived directly into the storage class (S3
 -- Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 --
 -- 'tapeSizeInBytes', 'automaticTapeCreationRule_tapeSizeInBytes' - The size, in bytes, of the virtual tape capacity.
 --
@@ -136,8 +132,6 @@ automaticTapeCreationRule_tapeBarcodePrefix = Lens.lens (\AutomaticTapeCreationR
 -- associated with the pool. When you use your backup application to eject
 -- the tape, the tape is archived directly into the storage class (S3
 -- Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 automaticTapeCreationRule_poolId :: Lens.Lens' AutomaticTapeCreationRule Prelude.Text
 automaticTapeCreationRule_poolId = Lens.lens (\AutomaticTapeCreationRule' {poolId} -> poolId) (\s@AutomaticTapeCreationRule' {} a -> s {poolId = a} :: AutomaticTapeCreationRule)
 

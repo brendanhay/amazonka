@@ -58,8 +58,6 @@ data TapeArchive = TapeArchive'
     -- | The ID of the pool that was used to archive the tape. The tapes in this
     -- pool are archived in the S3 storage class that is associated with the
     -- pool.
-    --
-    -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Maybe Prelude.Text,
     -- | The date the virtual tape was created.
     tapeCreatedDate :: Prelude.Maybe Core.POSIX,
@@ -112,8 +110,6 @@ data TapeArchive = TapeArchive'
 -- 'poolId', 'tapeArchive_poolId' - The ID of the pool that was used to archive the tape. The tapes in this
 -- pool are archived in the S3 storage class that is associated with the
 -- pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 --
 -- 'tapeCreatedDate', 'tapeArchive_tapeCreatedDate' - The date the virtual tape was created.
 --
@@ -191,8 +187,6 @@ tapeArchive_tapeSizeInBytes = Lens.lens (\TapeArchive' {tapeSizeInBytes} -> tape
 -- | The ID of the pool that was used to archive the tape. The tapes in this
 -- pool are archived in the S3 storage class that is associated with the
 -- pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 tapeArchive_poolId :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
 tapeArchive_poolId = Lens.lens (\TapeArchive' {poolId} -> poolId) (\s@TapeArchive' {} a -> s {poolId = a} :: TapeArchive)
 

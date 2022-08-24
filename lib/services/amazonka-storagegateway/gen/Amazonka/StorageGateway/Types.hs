@@ -180,6 +180,8 @@ module Amazonka.StorageGateway.Types
     gatewayInfo_gatewayOperationalState,
     gatewayInfo_gatewayId,
     gatewayInfo_ec2InstanceRegion,
+    gatewayInfo_hostEnvironmentId,
+    gatewayInfo_hostEnvironment,
 
     -- * NFSFileShareDefaults
     NFSFileShareDefaults (..),

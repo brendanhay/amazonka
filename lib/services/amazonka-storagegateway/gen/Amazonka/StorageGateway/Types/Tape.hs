@@ -59,8 +59,6 @@ data Tape = Tape'
     -- with the pool. When you use your backup application to eject the tape,
     -- the tape is archived directly into the storage class (S3 Glacier or S3
     -- Glacier Deep Archive) that corresponds to the pool.
-    --
-    -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Maybe Prelude.Text,
     -- | The date the virtual tape was created.
     tapeCreatedDate :: Prelude.Maybe Core.POSIX,
@@ -110,8 +108,6 @@ data Tape = Tape'
 -- with the pool. When you use your backup application to eject the tape,
 -- the tape is archived directly into the storage class (S3 Glacier or S3
 -- Glacier Deep Archive) that corresponds to the pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 --
 -- 'tapeCreatedDate', 'tape_tapeCreatedDate' - The date the virtual tape was created.
 --
@@ -188,8 +184,6 @@ tape_tapeSizeInBytes = Lens.lens (\Tape' {tapeSizeInBytes} -> tapeSizeInBytes) (
 -- with the pool. When you use your backup application to eject the tape,
 -- the tape is archived directly into the storage class (S3 Glacier or S3
 -- Glacier Deep Archive) that corresponds to the pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 tape_poolId :: Lens.Lens' Tape (Prelude.Maybe Prelude.Text)
 tape_poolId = Lens.lens (\Tape' {poolId} -> poolId) (\s@Tape' {} a -> s {poolId = a} :: Tape)
 

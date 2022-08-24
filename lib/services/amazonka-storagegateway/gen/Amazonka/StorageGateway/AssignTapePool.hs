@@ -25,8 +25,6 @@
 -- When you use your backup application to eject the tape, the tape is
 -- archived directly into the S3 storage class (S3 Glacier or S3 Glacier
 -- Deep Archive) that corresponds to the pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 module Amazonka.StorageGateway.AssignTapePool
   ( -- * Creating a Request
     AssignTapePool (..),
@@ -73,8 +71,6 @@ data AssignTapePool = AssignTapePool'
     -- with the pool. When you use your backup application to eject the tape,
     -- the tape is archived directly into the storage class (S3 Glacier or S3
     -- Glacier Deep Archive) that corresponds to the pool.
-    --
-    -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,8 +100,6 @@ data AssignTapePool = AssignTapePool'
 -- with the pool. When you use your backup application to eject the tape,
 -- the tape is archived directly into the storage class (S3 Glacier or S3
 -- Glacier Deep Archive) that corresponds to the pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 newAssignTapePool ::
   -- | 'tapeARN'
   Prelude.Text ->
@@ -141,8 +135,6 @@ assignTapePool_tapeARN = Lens.lens (\AssignTapePool' {tapeARN} -> tapeARN) (\s@A
 -- with the pool. When you use your backup application to eject the tape,
 -- the tape is archived directly into the storage class (S3 Glacier or S3
 -- Glacier Deep Archive) that corresponds to the pool.
---
--- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 assignTapePool_poolId :: Lens.Lens' AssignTapePool Prelude.Text
 assignTapePool_poolId = Lens.lens (\AssignTapePool' {poolId} -> poolId) (\s@AssignTapePool' {} a -> s {poolId = a} :: AssignTapePool)
 

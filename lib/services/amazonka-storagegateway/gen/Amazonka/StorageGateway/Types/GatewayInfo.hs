@@ -22,6 +22,7 @@ module Amazonka.StorageGateway.Types.GatewayInfo where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.StorageGateway.Types.HostEnvironment
 
 -- | Describes a gateway object.
 --
@@ -46,7 +47,14 @@ data GatewayInfo = GatewayInfo'
     -- as input for other operations.
     gatewayId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Web Services Region where the Amazon EC2 instance is located.
-    ec2InstanceRegion :: Prelude.Maybe Prelude.Text
+    ec2InstanceRegion :: Prelude.Maybe Prelude.Text,
+    -- | A unique identifier for the specific instance of the host platform
+    -- running the gateway. This value is only available for certain host
+    -- environments, and its format depends on the host environment type.
+    hostEnvironmentId :: Prelude.Maybe Prelude.Text,
+    -- | The type of hardware or software platform on which the gateway is
+    -- running.
+    hostEnvironment :: Prelude.Maybe HostEnvironment
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,6 +85,13 @@ data GatewayInfo = GatewayInfo'
 -- as input for other operations.
 --
 -- 'ec2InstanceRegion', 'gatewayInfo_ec2InstanceRegion' - The Amazon Web Services Region where the Amazon EC2 instance is located.
+--
+-- 'hostEnvironmentId', 'gatewayInfo_hostEnvironmentId' - A unique identifier for the specific instance of the host platform
+-- running the gateway. This value is only available for certain host
+-- environments, and its format depends on the host environment type.
+--
+-- 'hostEnvironment', 'gatewayInfo_hostEnvironment' - The type of hardware or software platform on which the gateway is
+-- running.
 newGatewayInfo ::
   GatewayInfo
 newGatewayInfo =
@@ -87,7 +102,9 @@ newGatewayInfo =
       gatewayARN = Prelude.Nothing,
       gatewayOperationalState = Prelude.Nothing,
       gatewayId = Prelude.Nothing,
-      ec2InstanceRegion = Prelude.Nothing
+      ec2InstanceRegion = Prelude.Nothing,
+      hostEnvironmentId = Prelude.Nothing,
+      hostEnvironment = Prelude.Nothing
     }
 
 -- | The ID of the Amazon EC2 instance that was used to launch the gateway.
@@ -124,6 +141,17 @@ gatewayInfo_gatewayId = Lens.lens (\GatewayInfo' {gatewayId} -> gatewayId) (\s@G
 gatewayInfo_ec2InstanceRegion :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
 gatewayInfo_ec2InstanceRegion = Lens.lens (\GatewayInfo' {ec2InstanceRegion} -> ec2InstanceRegion) (\s@GatewayInfo' {} a -> s {ec2InstanceRegion = a} :: GatewayInfo)
 
+-- | A unique identifier for the specific instance of the host platform
+-- running the gateway. This value is only available for certain host
+-- environments, and its format depends on the host environment type.
+gatewayInfo_hostEnvironmentId :: Lens.Lens' GatewayInfo (Prelude.Maybe Prelude.Text)
+gatewayInfo_hostEnvironmentId = Lens.lens (\GatewayInfo' {hostEnvironmentId} -> hostEnvironmentId) (\s@GatewayInfo' {} a -> s {hostEnvironmentId = a} :: GatewayInfo)
+
+-- | The type of hardware or software platform on which the gateway is
+-- running.
+gatewayInfo_hostEnvironment :: Lens.Lens' GatewayInfo (Prelude.Maybe HostEnvironment)
+gatewayInfo_hostEnvironment = Lens.lens (\GatewayInfo' {hostEnvironment} -> hostEnvironment) (\s@GatewayInfo' {} a -> s {hostEnvironment = a} :: GatewayInfo)
+
 instance Core.FromJSON GatewayInfo where
   parseJSON =
     Core.withObject
@@ -137,6 +165,8 @@ instance Core.FromJSON GatewayInfo where
             Prelude.<*> (x Core..:? "GatewayOperationalState")
             Prelude.<*> (x Core..:? "GatewayId")
             Prelude.<*> (x Core..:? "Ec2InstanceRegion")
+            Prelude.<*> (x Core..:? "HostEnvironmentId")
+            Prelude.<*> (x Core..:? "HostEnvironment")
       )
 
 instance Prelude.Hashable GatewayInfo where
@@ -148,6 +178,8 @@ instance Prelude.Hashable GatewayInfo where
       `Prelude.hashWithSalt` gatewayOperationalState
       `Prelude.hashWithSalt` gatewayId
       `Prelude.hashWithSalt` ec2InstanceRegion
+      `Prelude.hashWithSalt` hostEnvironmentId
+      `Prelude.hashWithSalt` hostEnvironment
 
 instance Prelude.NFData GatewayInfo where
   rnf GatewayInfo' {..} =
@@ -158,3 +190,5 @@ instance Prelude.NFData GatewayInfo where
       `Prelude.seq` Prelude.rnf gatewayOperationalState
       `Prelude.seq` Prelude.rnf gatewayId
       `Prelude.seq` Prelude.rnf ec2InstanceRegion
+      `Prelude.seq` Prelude.rnf hostEnvironmentId
+      `Prelude.seq` Prelude.rnf hostEnvironment

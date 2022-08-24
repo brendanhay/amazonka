@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sends you notification through CloudWatch Events when all files written
--- to your file share have been uploaded to Amazon S3.
+-- to your file share have been uploaded to S3. Amazon S3.
 --
 -- Storage Gateway can send a notification through Amazon CloudWatch Events
 -- when all files written to your file share up to that point in time have

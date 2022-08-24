@@ -612,6 +612,12 @@ module Amazonka.Pinpoint
     SendMessagesResponse (SendMessagesResponse'),
     newSendMessagesResponse,
 
+    -- ** SendOTPMessage
+    SendOTPMessage (SendOTPMessage'),
+    newSendOTPMessage,
+    SendOTPMessageResponse (SendOTPMessageResponse'),
+    newSendOTPMessageResponse,
+
     -- ** SendUsersMessages
     SendUsersMessages (SendUsersMessages'),
     newSendUsersMessages,
@@ -774,6 +780,12 @@ module Amazonka.Pinpoint
     UpdateVoiceTemplateResponse (UpdateVoiceTemplateResponse'),
     newUpdateVoiceTemplateResponse,
 
+    -- ** VerifyOTPMessage
+    VerifyOTPMessage (VerifyOTPMessage'),
+    newVerifyOTPMessage,
+    VerifyOTPMessageResponse (VerifyOTPMessageResponse'),
+    newVerifyOTPMessageResponse,
+
     -- * Types
 
     -- ** Action
@@ -793,6 +805,9 @@ module Amazonka.Pinpoint
 
     -- ** ChannelType
     ChannelType (..),
+
+    -- ** DayOfWeek
+    DayOfWeek (..),
 
     -- ** DefinitionFormat
     DefinitionFormat (..),
@@ -1014,6 +1029,14 @@ module Amazonka.Pinpoint
     -- ** ChannelsResponse
     ChannelsResponse (ChannelsResponse'),
     newChannelsResponse,
+
+    -- ** ClosedDays
+    ClosedDays (ClosedDays'),
+    newClosedDays,
+
+    -- ** ClosedDaysRule
+    ClosedDaysRule (ClosedDaysRule'),
+    newClosedDaysRule,
 
     -- ** Condition
     Condition (Condition'),
@@ -1375,6 +1398,14 @@ module Amazonka.Pinpoint
     NumberValidateResponse (NumberValidateResponse'),
     newNumberValidateResponse,
 
+    -- ** OpenHours
+    OpenHours (OpenHours'),
+    newOpenHours,
+
+    -- ** OpenHoursRule
+    OpenHoursRule (OpenHoursRule'),
+    newOpenHoursRule,
+
     -- ** OverrideButtonConfiguration
     OverrideButtonConfiguration (OverrideButtonConfiguration'),
     newOverrideButtonConfiguration,
@@ -1499,6 +1530,10 @@ module Amazonka.Pinpoint
     SegmentsResponse (SegmentsResponse'),
     newSegmentsResponse,
 
+    -- ** SendOTPMessageRequestParameters
+    SendOTPMessageRequestParameters (SendOTPMessageRequestParameters'),
+    newSendOTPMessageRequestParameters,
+
     -- ** SendUsersMessageRequest
     SendUsersMessageRequest (SendUsersMessageRequest'),
     newSendUsersMessageRequest,
@@ -1578,6 +1613,14 @@ module Amazonka.Pinpoint
     -- ** UpdateRecommenderConfiguration
     UpdateRecommenderConfiguration (UpdateRecommenderConfiguration'),
     newUpdateRecommenderConfiguration,
+
+    -- ** VerificationResponse
+    VerificationResponse (VerificationResponse'),
+    newVerificationResponse,
+
+    -- ** VerifyOTPMessageRequestParameters
+    VerifyOTPMessageRequestParameters (VerifyOTPMessageRequestParameters'),
+    newVerifyOTPMessageRequestParameters,
 
     -- ** VoiceChannelRequest
     VoiceChannelRequest (VoiceChannelRequest'),
@@ -1724,6 +1767,7 @@ import Amazonka.Pinpoint.PutEventStream
 import Amazonka.Pinpoint.PutEvents
 import Amazonka.Pinpoint.RemoveAttributes
 import Amazonka.Pinpoint.SendMessages
+import Amazonka.Pinpoint.SendOTPMessage
 import Amazonka.Pinpoint.SendUsersMessages
 import Amazonka.Pinpoint.TagResource
 import Amazonka.Pinpoint.Types
@@ -1752,6 +1796,7 @@ import Amazonka.Pinpoint.UpdateSmsTemplate
 import Amazonka.Pinpoint.UpdateTemplateActiveVersion
 import Amazonka.Pinpoint.UpdateVoiceChannel
 import Amazonka.Pinpoint.UpdateVoiceTemplate
+import Amazonka.Pinpoint.VerifyOTPMessage
 import Amazonka.Pinpoint.Waiters
 
 -- $errors

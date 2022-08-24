@@ -22,8 +22,11 @@ module Amazonka.Pinpoint.Types.WriteJourneyRequest where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.Pinpoint.Types.Activity
+import Amazonka.Pinpoint.Types.ClosedDays
+import Amazonka.Pinpoint.Types.JourneyChannelSettings
 import Amazonka.Pinpoint.Types.JourneyLimits
 import Amazonka.Pinpoint.Types.JourneySchedule
+import Amazonka.Pinpoint.Types.OpenHours
 import Amazonka.Pinpoint.Types.QuietTime
 import Amazonka.Pinpoint.Types.StartCondition
 import Amazonka.Pinpoint.Types.State
@@ -75,6 +78,9 @@ data WriteJourneyRequest = WriteJourneyRequest'
     -- participant\'s local time. To base the schedule on each participant\'s
     -- local time, set this value to true.
     localTime :: Prelude.Maybe Prelude.Bool,
+    -- | The time when journey allow to send messages. QuietTime should be
+    -- configured first and SendingSchedule should be set to true.
+    openHours :: Prelude.Maybe OpenHours,
     -- | The quiet time settings for the journey. Quiet time is a specific time
     -- range when a journey doesn\'t send messages to participants, if all the
     -- following conditions are met:
@@ -93,9 +99,18 @@ data WriteJourneyRequest = WriteJourneyRequest'
     -- If any of the preceding conditions isn\'t met, the participant will
     -- receive messages from the journey, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
+    -- | Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
+    -- This flag should be set to true in order to allow (OpenHours and
+    -- ClosedDays)
+    sendingSchedule :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether endpoints in quiet hours should enter a wait till the
     -- end of their quiet hours.
     waitForQuietTime :: Prelude.Maybe Prelude.Bool,
+    -- | The time when journey will stop sending messages. QuietTime should be
+    -- configured first and SendingSchedule should be set to true.
+    closedDays :: Prelude.Maybe ClosedDays,
+    -- | The channel-specific configurations for the journey.
+    journeyChannelSettings :: Prelude.Maybe JourneyChannelSettings,
     -- | The name of the journey. A journey name can contain a maximum of 150
     -- characters. The characters can be alphanumeric characters or symbols,
     -- such as underscores (_) or hyphens (-). A journey name can\'t contain
@@ -154,6 +169,9 @@ data WriteJourneyRequest = WriteJourneyRequest'
 -- participant\'s local time. To base the schedule on each participant\'s
 -- local time, set this value to true.
 --
+-- 'openHours', 'writeJourneyRequest_openHours' - The time when journey allow to send messages. QuietTime should be
+-- configured first and SendingSchedule should be set to true.
+--
 -- 'quietTime', 'writeJourneyRequest_quietTime' - The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
 -- following conditions are met:
@@ -172,8 +190,17 @@ data WriteJourneyRequest = WriteJourneyRequest'
 -- If any of the preceding conditions isn\'t met, the participant will
 -- receive messages from the journey, even if quiet time is enabled.
 --
+-- 'sendingSchedule', 'writeJourneyRequest_sendingSchedule' - Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
+-- This flag should be set to true in order to allow (OpenHours and
+-- ClosedDays)
+--
 -- 'waitForQuietTime', 'writeJourneyRequest_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
 -- end of their quiet hours.
+--
+-- 'closedDays', 'writeJourneyRequest_closedDays' - The time when journey will stop sending messages. QuietTime should be
+-- configured first and SendingSchedule should be set to true.
+--
+-- 'journeyChannelSettings', 'writeJourneyRequest_journeyChannelSettings' - The channel-specific configurations for the journey.
 --
 -- 'name', 'writeJourneyRequest_name' - The name of the journey. A journey name can contain a maximum of 150
 -- characters. The characters can be alphanumeric characters or symbols,
@@ -196,8 +223,12 @@ newWriteJourneyRequest pName_ =
       creationDate = Prelude.Nothing,
       refreshFrequency = Prelude.Nothing,
       localTime = Prelude.Nothing,
+      openHours = Prelude.Nothing,
       quietTime = Prelude.Nothing,
+      sendingSchedule = Prelude.Nothing,
       waitForQuietTime = Prelude.Nothing,
+      closedDays = Prelude.Nothing,
+      journeyChannelSettings = Prelude.Nothing,
       name = pName_
     }
 
@@ -265,6 +296,11 @@ writeJourneyRequest_refreshFrequency = Lens.lens (\WriteJourneyRequest' {refresh
 writeJourneyRequest_localTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
 writeJourneyRequest_localTime = Lens.lens (\WriteJourneyRequest' {localTime} -> localTime) (\s@WriteJourneyRequest' {} a -> s {localTime = a} :: WriteJourneyRequest)
 
+-- | The time when journey allow to send messages. QuietTime should be
+-- configured first and SendingSchedule should be set to true.
+writeJourneyRequest_openHours :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe OpenHours)
+writeJourneyRequest_openHours = Lens.lens (\WriteJourneyRequest' {openHours} -> openHours) (\s@WriteJourneyRequest' {} a -> s {openHours = a} :: WriteJourneyRequest)
+
 -- | The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
 -- following conditions are met:
@@ -285,10 +321,25 @@ writeJourneyRequest_localTime = Lens.lens (\WriteJourneyRequest' {localTime} -> 
 writeJourneyRequest_quietTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe QuietTime)
 writeJourneyRequest_quietTime = Lens.lens (\WriteJourneyRequest' {quietTime} -> quietTime) (\s@WriteJourneyRequest' {} a -> s {quietTime = a} :: WriteJourneyRequest)
 
+-- | Indicates if journey have Advance Quiet Time (OpenHours and ClosedDays).
+-- This flag should be set to true in order to allow (OpenHours and
+-- ClosedDays)
+writeJourneyRequest_sendingSchedule :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
+writeJourneyRequest_sendingSchedule = Lens.lens (\WriteJourneyRequest' {sendingSchedule} -> sendingSchedule) (\s@WriteJourneyRequest' {} a -> s {sendingSchedule = a} :: WriteJourneyRequest)
+
 -- | Specifies whether endpoints in quiet hours should enter a wait till the
 -- end of their quiet hours.
 writeJourneyRequest_waitForQuietTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
 writeJourneyRequest_waitForQuietTime = Lens.lens (\WriteJourneyRequest' {waitForQuietTime} -> waitForQuietTime) (\s@WriteJourneyRequest' {} a -> s {waitForQuietTime = a} :: WriteJourneyRequest)
+
+-- | The time when journey will stop sending messages. QuietTime should be
+-- configured first and SendingSchedule should be set to true.
+writeJourneyRequest_closedDays :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe ClosedDays)
+writeJourneyRequest_closedDays = Lens.lens (\WriteJourneyRequest' {closedDays} -> closedDays) (\s@WriteJourneyRequest' {} a -> s {closedDays = a} :: WriteJourneyRequest)
+
+-- | The channel-specific configurations for the journey.
+writeJourneyRequest_journeyChannelSettings :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe JourneyChannelSettings)
+writeJourneyRequest_journeyChannelSettings = Lens.lens (\WriteJourneyRequest' {journeyChannelSettings} -> journeyChannelSettings) (\s@WriteJourneyRequest' {} a -> s {journeyChannelSettings = a} :: WriteJourneyRequest)
 
 -- | The name of the journey. A journey name can contain a maximum of 150
 -- characters. The characters can be alphanumeric characters or symbols,
@@ -310,8 +361,12 @@ instance Prelude.Hashable WriteJourneyRequest where
       `Prelude.hashWithSalt` creationDate
       `Prelude.hashWithSalt` refreshFrequency
       `Prelude.hashWithSalt` localTime
+      `Prelude.hashWithSalt` openHours
       `Prelude.hashWithSalt` quietTime
+      `Prelude.hashWithSalt` sendingSchedule
       `Prelude.hashWithSalt` waitForQuietTime
+      `Prelude.hashWithSalt` closedDays
+      `Prelude.hashWithSalt` journeyChannelSettings
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData WriteJourneyRequest where
@@ -327,8 +382,12 @@ instance Prelude.NFData WriteJourneyRequest where
       `Prelude.seq` Prelude.rnf creationDate
       `Prelude.seq` Prelude.rnf refreshFrequency
       `Prelude.seq` Prelude.rnf localTime
+      `Prelude.seq` Prelude.rnf openHours
       `Prelude.seq` Prelude.rnf quietTime
+      `Prelude.seq` Prelude.rnf sendingSchedule
       `Prelude.seq` Prelude.rnf waitForQuietTime
+      `Prelude.seq` Prelude.rnf closedDays
+      `Prelude.seq` Prelude.rnf journeyChannelSettings
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToJSON WriteJourneyRequest where
@@ -350,9 +409,15 @@ instance Core.ToJSON WriteJourneyRequest where
             ("RefreshFrequency" Core..=)
               Prelude.<$> refreshFrequency,
             ("LocalTime" Core..=) Prelude.<$> localTime,
+            ("OpenHours" Core..=) Prelude.<$> openHours,
             ("QuietTime" Core..=) Prelude.<$> quietTime,
+            ("SendingSchedule" Core..=)
+              Prelude.<$> sendingSchedule,
             ("WaitForQuietTime" Core..=)
               Prelude.<$> waitForQuietTime,
+            ("ClosedDays" Core..=) Prelude.<$> closedDays,
+            ("JourneyChannelSettings" Core..=)
+              Prelude.<$> journeyChannelSettings,
             Prelude.Just ("Name" Core..= name)
           ]
       )

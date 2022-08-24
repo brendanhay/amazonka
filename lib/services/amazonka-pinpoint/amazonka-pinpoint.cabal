@@ -135,6 +135,7 @@ library
     Amazonka.Pinpoint.PutEventStream
     Amazonka.Pinpoint.RemoveAttributes
     Amazonka.Pinpoint.SendMessages
+    Amazonka.Pinpoint.SendOTPMessage
     Amazonka.Pinpoint.SendUsersMessages
     Amazonka.Pinpoint.TagResource
     Amazonka.Pinpoint.Types
@@ -185,6 +186,8 @@ library
     Amazonka.Pinpoint.Types.ChannelResponse
     Amazonka.Pinpoint.Types.ChannelsResponse
     Amazonka.Pinpoint.Types.ChannelType
+    Amazonka.Pinpoint.Types.ClosedDays
+    Amazonka.Pinpoint.Types.ClosedDaysRule
     Amazonka.Pinpoint.Types.Condition
     Amazonka.Pinpoint.Types.ConditionalSplitActivity
     Amazonka.Pinpoint.Types.ContactCenterActivity
@@ -193,6 +196,7 @@ library
     Amazonka.Pinpoint.Types.CreateTemplateMessageBody
     Amazonka.Pinpoint.Types.CustomDeliveryConfiguration
     Amazonka.Pinpoint.Types.CustomMessageActivity
+    Amazonka.Pinpoint.Types.DayOfWeek
     Amazonka.Pinpoint.Types.DefaultButtonConfiguration
     Amazonka.Pinpoint.Types.DefaultMessage
     Amazonka.Pinpoint.Types.DefaultPushNotificationMessage
@@ -287,6 +291,8 @@ library
     Amazonka.Pinpoint.Types.MultiConditionalSplitActivity
     Amazonka.Pinpoint.Types.NumberValidateRequest
     Amazonka.Pinpoint.Types.NumberValidateResponse
+    Amazonka.Pinpoint.Types.OpenHours
+    Amazonka.Pinpoint.Types.OpenHoursRule
     Amazonka.Pinpoint.Types.Operator
     Amazonka.Pinpoint.Types.OverrideButtonConfiguration
     Amazonka.Pinpoint.Types.PublicEndpoint
@@ -315,6 +321,7 @@ library
     Amazonka.Pinpoint.Types.SegmentResponse
     Amazonka.Pinpoint.Types.SegmentsResponse
     Amazonka.Pinpoint.Types.SegmentType
+    Amazonka.Pinpoint.Types.SendOTPMessageRequestParameters
     Amazonka.Pinpoint.Types.SendUsersMessageRequest
     Amazonka.Pinpoint.Types.SendUsersMessageResponse
     Amazonka.Pinpoint.Types.Session
@@ -345,6 +352,8 @@ library
     Amazonka.Pinpoint.Types.Type
     Amazonka.Pinpoint.Types.UpdateAttributesRequest
     Amazonka.Pinpoint.Types.UpdateRecommenderConfiguration
+    Amazonka.Pinpoint.Types.VerificationResponse
+    Amazonka.Pinpoint.Types.VerifyOTPMessageRequestParameters
     Amazonka.Pinpoint.Types.VoiceChannelRequest
     Amazonka.Pinpoint.Types.VoiceChannelResponse
     Amazonka.Pinpoint.Types.VoiceMessage
@@ -383,6 +392,7 @@ library
     Amazonka.Pinpoint.UpdateTemplateActiveVersion
     Amazonka.Pinpoint.UpdateVoiceChannel
     Amazonka.Pinpoint.UpdateVoiceTemplate
+    Amazonka.Pinpoint.VerifyOTPMessage
     Amazonka.Pinpoint.Waiters
 
   build-depends:

@@ -297,6 +297,9 @@ import Test.Tasty
 --         , requestSendMessages $
 --             newSendMessages
 --
+--         , requestSendOTPMessage $
+--             newSendOTPMessage
+--
 --         , requestSendUsersMessages $
 --             newSendUsersMessages
 --
@@ -377,6 +380,9 @@ import Test.Tasty
 --
 --         , requestUpdateVoiceTemplate $
 --             newUpdateVoiceTemplate
+--
+--         , requestVerifyOTPMessage $
+--             newVerifyOTPMessage
 --
 --           ]
 
@@ -651,6 +657,9 @@ import Test.Tasty
 --         , responseSendMessages $
 --             newSendMessagesResponse
 --
+--         , responseSendOTPMessage $
+--             newSendOTPMessageResponse
+--
 --         , responseSendUsersMessages $
 --             newSendUsersMessagesResponse
 --
@@ -731,6 +740,9 @@ import Test.Tasty
 --
 --         , responseUpdateVoiceTemplate $
 --             newUpdateVoiceTemplateResponse
+--
+--         , responseVerifyOTPMessage $
+--             newVerifyOTPMessageResponse
 --
 --           ]
 --     ]
@@ -1277,6 +1289,12 @@ requestSendMessages =
     "SendMessages"
     "fixture/SendMessages.yaml"
 
+requestSendOTPMessage :: SendOTPMessage -> TestTree
+requestSendOTPMessage =
+  req
+    "SendOTPMessage"
+    "fixture/SendOTPMessage.yaml"
+
 requestSendUsersMessages :: SendUsersMessages -> TestTree
 requestSendUsersMessages =
   req
@@ -1438,6 +1456,12 @@ requestUpdateVoiceTemplate =
   req
     "UpdateVoiceTemplate"
     "fixture/UpdateVoiceTemplate.yaml"
+
+requestVerifyOTPMessage :: VerifyOTPMessage -> TestTree
+requestVerifyOTPMessage =
+  req
+    "VerifyOTPMessage"
+    "fixture/VerifyOTPMessage.yaml"
 
 -- Responses
 
@@ -2161,6 +2185,14 @@ responseSendMessages =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SendMessages)
 
+responseSendOTPMessage :: SendOTPMessageResponse -> TestTree
+responseSendOTPMessage =
+  res
+    "SendOTPMessageResponse"
+    "fixture/SendOTPMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SendOTPMessage)
+
 responseSendUsersMessages :: SendUsersMessagesResponse -> TestTree
 responseSendUsersMessages =
   res
@@ -2376,3 +2408,11 @@ responseUpdateVoiceTemplate =
     "fixture/UpdateVoiceTemplateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateVoiceTemplate)
+
+responseVerifyOTPMessage :: VerifyOTPMessageResponse -> TestTree
+responseVerifyOTPMessage =
+  res
+    "VerifyOTPMessageResponse"
+    "fixture/VerifyOTPMessageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy VerifyOTPMessage)

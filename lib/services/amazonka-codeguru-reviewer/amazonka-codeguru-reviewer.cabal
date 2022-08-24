@@ -67,6 +67,7 @@ library
     Amazonka.CodeGuruReviewer.Types.CodeReviewSummary
     Amazonka.CodeGuruReviewer.Types.CodeReviewType
     Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType
+    Amazonka.CodeGuruReviewer.Types.ConfigFileState
     Amazonka.CodeGuruReviewer.Types.EncryptionOption
     Amazonka.CodeGuruReviewer.Types.EventInfo
     Amazonka.CodeGuruReviewer.Types.JobState

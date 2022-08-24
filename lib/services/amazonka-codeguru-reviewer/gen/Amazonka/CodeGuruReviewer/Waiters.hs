@@ -23,18 +23,27 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Polls 'Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation' every 10 seconds until a successful state is reached. An error is returned after 20 failed checks.
+-- | Polls 'Amazonka.CodeGuruReviewer.DescribeRepositoryAssociation' every 10 seconds until a successful state is reached. An error is returned after 30 failed checks.
 newRepositoryAssociationSucceeded :: Core.Wait DescribeRepositoryAssociation
 newRepositoryAssociationSucceeded =
   Core.Wait
     { Core._waitName =
         "RepositoryAssociationSucceeded",
-      Core._waitAttempts = 20,
+      Core._waitAttempts = 30,
       Core._waitDelay = 10,
       Core._waitAcceptors =
         [ Core.matchAll
             "Associated"
             Core.AcceptSuccess
+            ( describeRepositoryAssociationResponse_repositoryAssociation
+                Prelude.. Lens._Just
+                Prelude.. repositoryAssociation_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
             ( describeRepositoryAssociationResponse_repositoryAssociation
                 Prelude.. Lens._Just
                 Prelude.. repositoryAssociation_state
@@ -53,17 +62,26 @@ newRepositoryAssociationSucceeded =
         ]
     }
 
--- | Polls 'Amazonka.CodeGuruReviewer.DescribeCodeReview' every 10 seconds until a successful state is reached. An error is returned after 60 failed checks.
+-- | Polls 'Amazonka.CodeGuruReviewer.DescribeCodeReview' every 10 seconds until a successful state is reached. An error is returned after 180 failed checks.
 newCodeReviewCompleted :: Core.Wait DescribeCodeReview
 newCodeReviewCompleted =
   Core.Wait
     { Core._waitName = "CodeReviewCompleted",
-      Core._waitAttempts = 60,
+      Core._waitAttempts = 180,
       Core._waitDelay = 10,
       Core._waitAcceptors =
         [ Core.matchAll
             "Completed"
             Core.AcceptSuccess
+            ( describeCodeReviewResponse_codeReview
+                Prelude.. Lens._Just
+                Prelude.. codeReview_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "Failed"
+            Core.AcceptFailure
             ( describeCodeReviewResponse_codeReview
                 Prelude.. Lens._Just
                 Prelude.. codeReview_state

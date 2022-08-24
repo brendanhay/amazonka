@@ -28,6 +28,9 @@ module Amazonka.CodeGuruReviewer.Types
     -- * AnalysisType
     AnalysisType (..),
 
+    -- * ConfigFileState
+    ConfigFileState (..),
+
     -- * EncryptionOption
     EncryptionOption (..),
 
@@ -88,6 +91,7 @@ module Amazonka.CodeGuruReviewer.Types
     codeReview_owner,
     codeReview_metrics,
     codeReview_providerType,
+    codeReview_configFileState,
     codeReview_stateReason,
     codeReview_analysisTypes,
 
@@ -136,12 +140,14 @@ module Amazonka.CodeGuruReviewer.Types
     Metrics (..),
     newMetrics,
     metrics_findingsCount,
+    metrics_suppressedLinesOfCodeCount,
     metrics_meteredLinesOfCodeCount,
 
     -- * MetricsSummary
     MetricsSummary (..),
     newMetricsSummary,
     metricsSummary_findingsCount,
+    metricsSummary_suppressedLinesOfCodeCount,
     metricsSummary_meteredLinesOfCodeCount,
 
     -- * RecommendationFeedback
@@ -281,6 +287,7 @@ import Amazonka.CodeGuruReviewer.Types.CodeReview
 import Amazonka.CodeGuruReviewer.Types.CodeReviewSummary
 import Amazonka.CodeGuruReviewer.Types.CodeReviewType
 import Amazonka.CodeGuruReviewer.Types.CommitDiffSourceCodeType
+import Amazonka.CodeGuruReviewer.Types.ConfigFileState
 import Amazonka.CodeGuruReviewer.Types.EncryptionOption
 import Amazonka.CodeGuruReviewer.Types.EventInfo
 import Amazonka.CodeGuruReviewer.Types.JobState

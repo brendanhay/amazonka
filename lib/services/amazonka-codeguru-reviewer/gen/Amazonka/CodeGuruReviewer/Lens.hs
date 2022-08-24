@@ -143,6 +143,7 @@ module Amazonka.CodeGuruReviewer.Lens
     codeReview_owner,
     codeReview_metrics,
     codeReview_providerType,
+    codeReview_configFileState,
     codeReview_stateReason,
     codeReview_analysisTypes,
 
@@ -179,10 +180,12 @@ module Amazonka.CodeGuruReviewer.Lens
 
     -- ** Metrics
     metrics_findingsCount,
+    metrics_suppressedLinesOfCodeCount,
     metrics_meteredLinesOfCodeCount,
 
     -- ** MetricsSummary
     metricsSummary_findingsCount,
+    metricsSummary_suppressedLinesOfCodeCount,
     metricsSummary_meteredLinesOfCodeCount,
 
     -- ** RecommendationFeedback

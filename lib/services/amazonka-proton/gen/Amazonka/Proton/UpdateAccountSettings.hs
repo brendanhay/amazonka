@@ -20,13 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update the AWS Proton pipeline service account settings.
+-- Update the Proton service pipeline role or repository settings.
 module Amazonka.Proton.UpdateAccountSettings
   ( -- * Creating a Request
     UpdateAccountSettings (..),
     newUpdateAccountSettings,
 
     -- * Request Lenses
+    updateAccountSettings_pipelineProvisioningRepository,
     updateAccountSettings_pipelineServiceRoleArn,
 
     -- * Destructuring the Response
@@ -48,7 +49,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateAccountSettings' smart constructor.
 data UpdateAccountSettings = UpdateAccountSettings'
-  { -- | The Amazon Resource Name (ARN) of the AWS Proton pipeline service role.
+  { -- | A repository for pipeline provisioning. Specify it if you have
+    -- environments configured for self-managed provisioning with services that
+    -- include pipelines.
+    pipelineProvisioningRepository :: Prelude.Maybe RepositoryBranchInput,
+    -- | The Amazon Resource Name (ARN) of the service role you want to use for
+    -- provisioning pipelines. Assumed by Proton for Amazon Web
+    -- Services-managed provisioning, and by customer-owned automation for
+    -- self-managed provisioning.
     pipelineServiceRoleArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,16 +69,33 @@ data UpdateAccountSettings = UpdateAccountSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pipelineServiceRoleArn', 'updateAccountSettings_pipelineServiceRoleArn' - The Amazon Resource Name (ARN) of the AWS Proton pipeline service role.
+-- 'pipelineProvisioningRepository', 'updateAccountSettings_pipelineProvisioningRepository' - A repository for pipeline provisioning. Specify it if you have
+-- environments configured for self-managed provisioning with services that
+-- include pipelines.
+--
+-- 'pipelineServiceRoleArn', 'updateAccountSettings_pipelineServiceRoleArn' - The Amazon Resource Name (ARN) of the service role you want to use for
+-- provisioning pipelines. Assumed by Proton for Amazon Web
+-- Services-managed provisioning, and by customer-owned automation for
+-- self-managed provisioning.
 newUpdateAccountSettings ::
   UpdateAccountSettings
 newUpdateAccountSettings =
   UpdateAccountSettings'
-    { pipelineServiceRoleArn =
-        Prelude.Nothing
+    { pipelineProvisioningRepository =
+        Prelude.Nothing,
+      pipelineServiceRoleArn = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the AWS Proton pipeline service role.
+-- | A repository for pipeline provisioning. Specify it if you have
+-- environments configured for self-managed provisioning with services that
+-- include pipelines.
+updateAccountSettings_pipelineProvisioningRepository :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe RepositoryBranchInput)
+updateAccountSettings_pipelineProvisioningRepository = Lens.lens (\UpdateAccountSettings' {pipelineProvisioningRepository} -> pipelineProvisioningRepository) (\s@UpdateAccountSettings' {} a -> s {pipelineProvisioningRepository = a} :: UpdateAccountSettings)
+
+-- | The Amazon Resource Name (ARN) of the service role you want to use for
+-- provisioning pipelines. Assumed by Proton for Amazon Web
+-- Services-managed provisioning, and by customer-owned automation for
+-- self-managed provisioning.
 updateAccountSettings_pipelineServiceRoleArn :: Lens.Lens' UpdateAccountSettings (Prelude.Maybe Prelude.Text)
 updateAccountSettings_pipelineServiceRoleArn = Lens.lens (\UpdateAccountSettings' {pipelineServiceRoleArn} -> pipelineServiceRoleArn) (\s@UpdateAccountSettings' {} a -> s {pipelineServiceRoleArn = a} :: UpdateAccountSettings)
 
@@ -89,11 +114,14 @@ instance Core.AWSRequest UpdateAccountSettings where
 
 instance Prelude.Hashable UpdateAccountSettings where
   hashWithSalt _salt UpdateAccountSettings' {..} =
-    _salt `Prelude.hashWithSalt` pipelineServiceRoleArn
+    _salt
+      `Prelude.hashWithSalt` pipelineProvisioningRepository
+      `Prelude.hashWithSalt` pipelineServiceRoleArn
 
 instance Prelude.NFData UpdateAccountSettings where
   rnf UpdateAccountSettings' {..} =
-    Prelude.rnf pipelineServiceRoleArn
+    Prelude.rnf pipelineProvisioningRepository
+      `Prelude.seq` Prelude.rnf pipelineServiceRoleArn
 
 instance Core.ToHeaders UpdateAccountSettings where
   toHeaders =
@@ -114,7 +142,9 @@ instance Core.ToJSON UpdateAccountSettings where
   toJSON UpdateAccountSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("pipelineServiceRoleArn" Core..=)
+          [ ("pipelineProvisioningRepository" Core..=)
+              Prelude.<$> pipelineProvisioningRepository,
+            ("pipelineServiceRoleArn" Core..=)
               Prelude.<$> pipelineServiceRoleArn
           ]
       )
@@ -129,8 +159,8 @@ instance Core.ToQuery UpdateAccountSettings where
 data UpdateAccountSettingsResponse = UpdateAccountSettingsResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The AWS Proton pipeline service role detail data that\'s returned by AWS
-    -- Proton.
+    -- | The Proton pipeline service role and repository data shared across the
+    -- Amazon Web Services account.
     accountSettings :: AccountSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -145,8 +175,8 @@ data UpdateAccountSettingsResponse = UpdateAccountSettingsResponse'
 --
 -- 'httpStatus', 'updateAccountSettingsResponse_httpStatus' - The response's http status code.
 --
--- 'accountSettings', 'updateAccountSettingsResponse_accountSettings' - The AWS Proton pipeline service role detail data that\'s returned by AWS
--- Proton.
+-- 'accountSettings', 'updateAccountSettingsResponse_accountSettings' - The Proton pipeline service role and repository data shared across the
+-- Amazon Web Services account.
 newUpdateAccountSettingsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -166,8 +196,8 @@ newUpdateAccountSettingsResponse
 updateAccountSettingsResponse_httpStatus :: Lens.Lens' UpdateAccountSettingsResponse Prelude.Int
 updateAccountSettingsResponse_httpStatus = Lens.lens (\UpdateAccountSettingsResponse' {httpStatus} -> httpStatus) (\s@UpdateAccountSettingsResponse' {} a -> s {httpStatus = a} :: UpdateAccountSettingsResponse)
 
--- | The AWS Proton pipeline service role detail data that\'s returned by AWS
--- Proton.
+-- | The Proton pipeline service role and repository data shared across the
+-- Amazon Web Services account.
 updateAccountSettingsResponse_accountSettings :: Lens.Lens' UpdateAccountSettingsResponse AccountSettings
 updateAccountSettingsResponse_accountSettings = Lens.lens (\UpdateAccountSettingsResponse' {accountSettings} -> accountSettings) (\s@UpdateAccountSettingsResponse' {} a -> s {accountSettings = a} :: UpdateAccountSettingsResponse)
 

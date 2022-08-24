@@ -124,7 +124,7 @@ instance Core.ToQuery DeleteServiceTemplate where
 
 -- | /See:/ 'newDeleteServiceTemplateResponse' smart constructor.
 data DeleteServiceTemplateResponse = DeleteServiceTemplateResponse'
-  { -- | The service template detail data that\'s returned by AWS Proton.
+  { -- | The detailed data of the service template being deleted.
     serviceTemplate :: Prelude.Maybe ServiceTemplate,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -139,7 +139,7 @@ data DeleteServiceTemplateResponse = DeleteServiceTemplateResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceTemplate', 'deleteServiceTemplateResponse_serviceTemplate' - The service template detail data that\'s returned by AWS Proton.
+-- 'serviceTemplate', 'deleteServiceTemplateResponse_serviceTemplate' - The detailed data of the service template being deleted.
 --
 -- 'httpStatus', 'deleteServiceTemplateResponse_httpStatus' - The response's http status code.
 newDeleteServiceTemplateResponse ::
@@ -153,7 +153,7 @@ newDeleteServiceTemplateResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The service template detail data that\'s returned by AWS Proton.
+-- | The detailed data of the service template being deleted.
 deleteServiceTemplateResponse_serviceTemplate :: Lens.Lens' DeleteServiceTemplateResponse (Prelude.Maybe ServiceTemplate)
 deleteServiceTemplateResponse_serviceTemplate = Lens.lens (\DeleteServiceTemplateResponse' {serviceTemplate} -> serviceTemplate) (\s@DeleteServiceTemplateResponse' {} a -> s {serviceTemplate = a} :: DeleteServiceTemplateResponse)
 

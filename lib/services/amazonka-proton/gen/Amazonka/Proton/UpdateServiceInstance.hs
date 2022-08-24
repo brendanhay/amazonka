@@ -22,39 +22,15 @@
 --
 -- Update a service instance.
 --
--- There are four modes for updating a service instance as described in the
--- following. The @deploymentType@ field defines the mode.
+-- There are a few modes for updating a service instance. The
+-- @deploymentType@ field defines the mode.
 --
--- []
---     @NONE@
+-- You can\'t update a service instance while its deployment status, or the
+-- deployment status of a component attached to it, is @IN_PROGRESS@.
 --
---     In this mode, a deployment /doesn\'t/ occur. Only the requested
---     metadata parameters are updated.
---
--- []
---     @CURRENT_VERSION@
---
---     In this mode, the service instance is deployed and updated with the
---     new spec that you provide. Only requested parameters are updated.
---     /Don’t/ include minor or major version parameters when you use this
---     @deployment-type@.
---
--- []
---     @MINOR_VERSION@
---
---     In this mode, the service instance is deployed and updated with the
---     published, recommended (latest) minor version of the current major
---     version in use, by default. You can also specify a different minor
---     version of the current major version in use.
---
--- []
---     @MAJOR_VERSION@
---
---     In this mode, the service instance is deployed and updated with the
---     published, recommended (latest) major and minor version of the
---     current template, by default. You can also specify a different major
---     version that is higher than the major version in use and a minor
---     version (optional).
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+-- in the /Proton Administrator Guide/.
 module Amazonka.Proton.UpdateServiceInstance
   ( -- * Creating a Request
     UpdateServiceInstance (..),
@@ -93,10 +69,8 @@ data UpdateServiceInstance = UpdateServiceInstance'
     templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The formatted specification that defines the service instance update.
     spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The deployment type.
-    --
-    -- There are four modes for updating a service instance as described in the
-    -- following. The @deploymentType@ field defines the mode.
+    -- | The deployment type. It defines the mode for updating a service
+    -- instance, as follows:
     --
     -- []
     --     @NONE@
@@ -109,8 +83,8 @@ data UpdateServiceInstance = UpdateServiceInstance'
     --
     --     In this mode, the service instance is deployed and updated with the
     --     new spec that you provide. Only requested parameters are updated.
-    --     /Don’t/ include minor or major version parameters when you use this
-    --     @deployment-type@.
+    --     /Don’t/ include major or minor version parameters when you use this
+    --     deployment type.
     --
     -- []
     --     @MINOR_VERSION@
@@ -125,9 +99,9 @@ data UpdateServiceInstance = UpdateServiceInstance'
     --
     --     In this mode, the service instance is deployed and updated with the
     --     published, recommended (latest) major and minor version of the
-    --     current template, by default. You can also specify a different major
-    --     version that is higher than the major version in use and a minor
-    --     version (optional).
+    --     current template, by default. You can specify a different major
+    --     version that\'s higher than the major version in use and a minor
+    --     version.
     deploymentType :: DeploymentUpdateType,
     -- | The name of the service instance to update.
     name :: Prelude.Text,
@@ -150,10 +124,8 @@ data UpdateServiceInstance = UpdateServiceInstance'
 --
 -- 'spec', 'updateServiceInstance_spec' - The formatted specification that defines the service instance update.
 --
--- 'deploymentType', 'updateServiceInstance_deploymentType' - The deployment type.
---
--- There are four modes for updating a service instance as described in the
--- following. The @deploymentType@ field defines the mode.
+-- 'deploymentType', 'updateServiceInstance_deploymentType' - The deployment type. It defines the mode for updating a service
+-- instance, as follows:
 --
 -- []
 --     @NONE@
@@ -166,8 +138,8 @@ data UpdateServiceInstance = UpdateServiceInstance'
 --
 --     In this mode, the service instance is deployed and updated with the
 --     new spec that you provide. Only requested parameters are updated.
---     /Don’t/ include minor or major version parameters when you use this
---     @deployment-type@.
+--     /Don’t/ include major or minor version parameters when you use this
+--     deployment type.
 --
 -- []
 --     @MINOR_VERSION@
@@ -182,9 +154,9 @@ data UpdateServiceInstance = UpdateServiceInstance'
 --
 --     In this mode, the service instance is deployed and updated with the
 --     published, recommended (latest) major and minor version of the
---     current template, by default. You can also specify a different major
---     version that is higher than the major version in use and a minor
---     version (optional).
+--     current template, by default. You can specify a different major
+--     version that\'s higher than the major version in use and a minor
+--     version.
 --
 -- 'name', 'updateServiceInstance_name' - The name of the service instance to update.
 --
@@ -223,10 +195,8 @@ updateServiceInstance_templateMinorVersion = Lens.lens (\UpdateServiceInstance' 
 updateServiceInstance_spec :: Lens.Lens' UpdateServiceInstance (Prelude.Maybe Prelude.Text)
 updateServiceInstance_spec = Lens.lens (\UpdateServiceInstance' {spec} -> spec) (\s@UpdateServiceInstance' {} a -> s {spec = a} :: UpdateServiceInstance) Prelude.. Lens.mapping Core._Sensitive
 
--- | The deployment type.
---
--- There are four modes for updating a service instance as described in the
--- following. The @deploymentType@ field defines the mode.
+-- | The deployment type. It defines the mode for updating a service
+-- instance, as follows:
 --
 -- []
 --     @NONE@
@@ -239,8 +209,8 @@ updateServiceInstance_spec = Lens.lens (\UpdateServiceInstance' {spec} -> spec) 
 --
 --     In this mode, the service instance is deployed and updated with the
 --     new spec that you provide. Only requested parameters are updated.
---     /Don’t/ include minor or major version parameters when you use this
---     @deployment-type@.
+--     /Don’t/ include major or minor version parameters when you use this
+--     deployment type.
 --
 -- []
 --     @MINOR_VERSION@
@@ -255,9 +225,9 @@ updateServiceInstance_spec = Lens.lens (\UpdateServiceInstance' {spec} -> spec) 
 --
 --     In this mode, the service instance is deployed and updated with the
 --     published, recommended (latest) major and minor version of the
---     current template, by default. You can also specify a different major
---     version that is higher than the major version in use and a minor
---     version (optional).
+--     current template, by default. You can specify a different major
+--     version that\'s higher than the major version in use and a minor
+--     version.
 updateServiceInstance_deploymentType :: Lens.Lens' UpdateServiceInstance DeploymentUpdateType
 updateServiceInstance_deploymentType = Lens.lens (\UpdateServiceInstance' {deploymentType} -> deploymentType) (\s@UpdateServiceInstance' {} a -> s {deploymentType = a} :: UpdateServiceInstance)
 
@@ -341,7 +311,7 @@ instance Core.ToQuery UpdateServiceInstance where
 data UpdateServiceInstanceResponse = UpdateServiceInstanceResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service instance summary data returned by AWS Proton.
+    -- | The service instance summary data that\'s returned by Proton.
     serviceInstance :: ServiceInstance
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -356,7 +326,7 @@ data UpdateServiceInstanceResponse = UpdateServiceInstanceResponse'
 --
 -- 'httpStatus', 'updateServiceInstanceResponse_httpStatus' - The response's http status code.
 --
--- 'serviceInstance', 'updateServiceInstanceResponse_serviceInstance' - The service instance summary data returned by AWS Proton.
+-- 'serviceInstance', 'updateServiceInstanceResponse_serviceInstance' - The service instance summary data that\'s returned by Proton.
 newUpdateServiceInstanceResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -376,7 +346,7 @@ newUpdateServiceInstanceResponse
 updateServiceInstanceResponse_httpStatus :: Lens.Lens' UpdateServiceInstanceResponse Prelude.Int
 updateServiceInstanceResponse_httpStatus = Lens.lens (\UpdateServiceInstanceResponse' {httpStatus} -> httpStatus) (\s@UpdateServiceInstanceResponse' {} a -> s {httpStatus = a} :: UpdateServiceInstanceResponse)
 
--- | The service instance summary data returned by AWS Proton.
+-- | The service instance summary data that\'s returned by Proton.
 updateServiceInstanceResponse_serviceInstance :: Lens.Lens' UpdateServiceInstanceResponse ServiceInstance
 updateServiceInstanceResponse_serviceInstance = Lens.lens (\UpdateServiceInstanceResponse' {serviceInstance} -> serviceInstance) (\s@UpdateServiceInstanceResponse' {} a -> s {serviceInstance = a} :: UpdateServiceInstanceResponse)
 

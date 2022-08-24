@@ -45,48 +45,75 @@ library
   exposed-modules:
     Amazonka.Proton
     Amazonka.Proton.AcceptEnvironmentAccountConnection
+    Amazonka.Proton.CancelComponentDeployment
     Amazonka.Proton.CancelEnvironmentDeployment
     Amazonka.Proton.CancelServiceInstanceDeployment
     Amazonka.Proton.CancelServicePipelineDeployment
+    Amazonka.Proton.CreateComponent
     Amazonka.Proton.CreateEnvironment
     Amazonka.Proton.CreateEnvironmentAccountConnection
     Amazonka.Proton.CreateEnvironmentTemplate
     Amazonka.Proton.CreateEnvironmentTemplateVersion
+    Amazonka.Proton.CreateRepository
     Amazonka.Proton.CreateService
     Amazonka.Proton.CreateServiceTemplate
     Amazonka.Proton.CreateServiceTemplateVersion
+    Amazonka.Proton.CreateTemplateSyncConfig
+    Amazonka.Proton.DeleteComponent
     Amazonka.Proton.DeleteEnvironment
     Amazonka.Proton.DeleteEnvironmentAccountConnection
     Amazonka.Proton.DeleteEnvironmentTemplate
     Amazonka.Proton.DeleteEnvironmentTemplateVersion
+    Amazonka.Proton.DeleteRepository
     Amazonka.Proton.DeleteService
     Amazonka.Proton.DeleteServiceTemplate
     Amazonka.Proton.DeleteServiceTemplateVersion
+    Amazonka.Proton.DeleteTemplateSyncConfig
     Amazonka.Proton.GetAccountSettings
+    Amazonka.Proton.GetComponent
     Amazonka.Proton.GetEnvironment
     Amazonka.Proton.GetEnvironmentAccountConnection
     Amazonka.Proton.GetEnvironmentTemplate
     Amazonka.Proton.GetEnvironmentTemplateVersion
+    Amazonka.Proton.GetRepository
+    Amazonka.Proton.GetRepositorySyncStatus
     Amazonka.Proton.GetService
     Amazonka.Proton.GetServiceInstance
     Amazonka.Proton.GetServiceTemplate
     Amazonka.Proton.GetServiceTemplateVersion
+    Amazonka.Proton.GetTemplateSyncConfig
+    Amazonka.Proton.GetTemplateSyncStatus
     Amazonka.Proton.Lens
+    Amazonka.Proton.ListComponentOutputs
+    Amazonka.Proton.ListComponentProvisionedResources
+    Amazonka.Proton.ListComponents
     Amazonka.Proton.ListEnvironmentAccountConnections
+    Amazonka.Proton.ListEnvironmentOutputs
+    Amazonka.Proton.ListEnvironmentProvisionedResources
     Amazonka.Proton.ListEnvironments
     Amazonka.Proton.ListEnvironmentTemplates
     Amazonka.Proton.ListEnvironmentTemplateVersions
+    Amazonka.Proton.ListRepositories
+    Amazonka.Proton.ListRepositorySyncDefinitions
+    Amazonka.Proton.ListServiceInstanceOutputs
+    Amazonka.Proton.ListServiceInstanceProvisionedResources
     Amazonka.Proton.ListServiceInstances
+    Amazonka.Proton.ListServicePipelineOutputs
+    Amazonka.Proton.ListServicePipelineProvisionedResources
     Amazonka.Proton.ListServices
     Amazonka.Proton.ListServiceTemplates
     Amazonka.Proton.ListServiceTemplateVersions
     Amazonka.Proton.ListTagsForResource
+    Amazonka.Proton.NotifyResourceDeploymentStatusChange
     Amazonka.Proton.RejectEnvironmentAccountConnection
     Amazonka.Proton.TagResource
     Amazonka.Proton.Types
     Amazonka.Proton.Types.AccountSettings
     Amazonka.Proton.Types.CompatibleEnvironmentTemplate
     Amazonka.Proton.Types.CompatibleEnvironmentTemplateInput
+    Amazonka.Proton.Types.Component
+    Amazonka.Proton.Types.ComponentDeploymentUpdateType
+    Amazonka.Proton.Types.ComponentSummary
     Amazonka.Proton.Types.DeploymentStatus
     Amazonka.Proton.Types.DeploymentUpdateType
     Amazonka.Proton.Types.Environment
@@ -100,7 +127,24 @@ library
     Amazonka.Proton.Types.EnvironmentTemplateSummary
     Amazonka.Proton.Types.EnvironmentTemplateVersion
     Amazonka.Proton.Types.EnvironmentTemplateVersionSummary
+    Amazonka.Proton.Types.Output
+    Amazonka.Proton.Types.ProvisionedResource
+    Amazonka.Proton.Types.ProvisionedResourceEngine
     Amazonka.Proton.Types.Provisioning
+    Amazonka.Proton.Types.Repository
+    Amazonka.Proton.Types.RepositoryBranch
+    Amazonka.Proton.Types.RepositoryBranchInput
+    Amazonka.Proton.Types.RepositoryProvider
+    Amazonka.Proton.Types.RepositorySummary
+    Amazonka.Proton.Types.RepositorySyncAttempt
+    Amazonka.Proton.Types.RepositorySyncDefinition
+    Amazonka.Proton.Types.RepositorySyncEvent
+    Amazonka.Proton.Types.RepositorySyncStatus
+    Amazonka.Proton.Types.ResourceDeploymentStatus
+    Amazonka.Proton.Types.ResourceSyncAttempt
+    Amazonka.Proton.Types.ResourceSyncEvent
+    Amazonka.Proton.Types.ResourceSyncStatus
+    Amazonka.Proton.Types.Revision
     Amazonka.Proton.Types.S3ObjectSource
     Amazonka.Proton.Types.Service
     Amazonka.Proton.Types.ServiceInstance
@@ -110,13 +154,18 @@ library
     Amazonka.Proton.Types.ServiceSummary
     Amazonka.Proton.Types.ServiceTemplate
     Amazonka.Proton.Types.ServiceTemplateSummary
+    Amazonka.Proton.Types.ServiceTemplateSupportedComponentSourceType
     Amazonka.Proton.Types.ServiceTemplateVersion
     Amazonka.Proton.Types.ServiceTemplateVersionSummary
+    Amazonka.Proton.Types.SyncType
     Amazonka.Proton.Types.Tag
+    Amazonka.Proton.Types.TemplateSyncConfig
+    Amazonka.Proton.Types.TemplateType
     Amazonka.Proton.Types.TemplateVersionSourceInput
     Amazonka.Proton.Types.TemplateVersionStatus
     Amazonka.Proton.UntagResource
     Amazonka.Proton.UpdateAccountSettings
+    Amazonka.Proton.UpdateComponent
     Amazonka.Proton.UpdateEnvironment
     Amazonka.Proton.UpdateEnvironmentAccountConnection
     Amazonka.Proton.UpdateEnvironmentTemplate
@@ -126,6 +175,7 @@ library
     Amazonka.Proton.UpdateServicePipeline
     Amazonka.Proton.UpdateServiceTemplate
     Amazonka.Proton.UpdateServiceTemplateVersion
+    Amazonka.Proton.UpdateTemplateSyncConfig
     Amazonka.Proton.Waiters
 
   build-depends:

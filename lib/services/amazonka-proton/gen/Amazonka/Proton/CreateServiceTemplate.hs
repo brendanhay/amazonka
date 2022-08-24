@@ -21,14 +21,14 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create a service template. The administrator creates a service template
--- to define standardized infrastructure and an optional CICD service
--- pipeline. Developers, in turn, select the service template from AWS
--- Proton. If the selected service template includes a service pipeline
--- definition, they provide a link to their source code repository. AWS
--- Proton then deploys and manages the infrastructure defined by the
--- selected service template. For more information, see
+-- to define standardized infrastructure and an optional CI\/CD service
+-- pipeline. Developers, in turn, select the service template from Proton.
+-- If the selected service template includes a service pipeline definition,
+-- they provide a link to their source code repository. Proton then deploys
+-- and manages the infrastructure defined by the selected service template.
+-- For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/managing-svc-templates.html Service Templates>
--- in the /AWS Proton Administrator Guide/.
+-- in the /Proton Administrator Guide/.
 module Amazonka.Proton.CreateServiceTemplate
   ( -- * Creating a Request
     CreateServiceTemplate (..),
@@ -61,23 +61,25 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateServiceTemplate' smart constructor.
 data CreateServiceTemplate = CreateServiceTemplate'
-  { -- | Create tags for your service template. For more information, see /AWS
-    -- Proton resources and tagging/ in the
-    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+  { -- | An optional list of metadata items that you can associate with the
+    -- Proton service template. A tag is a key-value pair.
+    --
+    -- For more information, see /Proton resources and tagging/ in the
+    -- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
     -- or
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the service template as displayed in the developer
     -- interface.
     displayName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A description of the service template.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | AWS Proton includes a service pipeline for your service by default. When
-    -- included, this parameter indicates that an AWS Proton service pipeline
-    -- /won\'t/ be included for your service. Once specified, this parameter
-    -- /can\'t/ be changed. For more information, see
+    -- | By default, Proton provides a service pipeline for your service. When
+    -- this parameter is included, it indicates that an Proton service pipeline
+    -- /isn\'t/ provided for your service. After it\'s included, it /can\'t/ be
+    -- changed. For more information, see
     -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html Service template bundles>
-    -- in the /AWS Proton Administrator Guide/.
+    -- in the /Proton Administrator Guide/.
     pipelineProvisioning :: Prelude.Maybe Provisioning,
     -- | A customer provided encryption key that\'s used to encrypt data.
     encryptionKey :: Prelude.Maybe Prelude.Text,
@@ -94,23 +96,25 @@ data CreateServiceTemplate = CreateServiceTemplate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createServiceTemplate_tags' - Create tags for your service template. For more information, see /AWS
--- Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- 'tags', 'createServiceTemplate_tags' - An optional list of metadata items that you can associate with the
+-- Proton service template. A tag is a key-value pair.
+--
+-- For more information, see /Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
 -- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
 --
 -- 'displayName', 'createServiceTemplate_displayName' - The name of the service template as displayed in the developer
 -- interface.
 --
 -- 'description', 'createServiceTemplate_description' - A description of the service template.
 --
--- 'pipelineProvisioning', 'createServiceTemplate_pipelineProvisioning' - AWS Proton includes a service pipeline for your service by default. When
--- included, this parameter indicates that an AWS Proton service pipeline
--- /won\'t/ be included for your service. Once specified, this parameter
--- /can\'t/ be changed. For more information, see
+-- 'pipelineProvisioning', 'createServiceTemplate_pipelineProvisioning' - By default, Proton provides a service pipeline for your service. When
+-- this parameter is included, it indicates that an Proton service pipeline
+-- /isn\'t/ provided for your service. After it\'s included, it /can\'t/ be
+-- changed. For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html Service template bundles>
--- in the /AWS Proton Administrator Guide/.
+-- in the /Proton Administrator Guide/.
 --
 -- 'encryptionKey', 'createServiceTemplate_encryptionKey' - A customer provided encryption key that\'s used to encrypt data.
 --
@@ -129,11 +133,13 @@ newCreateServiceTemplate pName_ =
       name = pName_
     }
 
--- | Create tags for your service template. For more information, see /AWS
--- Proton resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- | An optional list of metadata items that you can associate with the
+-- Proton service template. A tag is a key-value pair.
+--
+-- For more information, see /Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
 -- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
 createServiceTemplate_tags :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe [Tag])
 createServiceTemplate_tags = Lens.lens (\CreateServiceTemplate' {tags} -> tags) (\s@CreateServiceTemplate' {} a -> s {tags = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Lens.coerced
 
@@ -146,12 +152,12 @@ createServiceTemplate_displayName = Lens.lens (\CreateServiceTemplate' {displayN
 createServiceTemplate_description :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Prelude.Text)
 createServiceTemplate_description = Lens.lens (\CreateServiceTemplate' {description} -> description) (\s@CreateServiceTemplate' {} a -> s {description = a} :: CreateServiceTemplate) Prelude.. Lens.mapping Core._Sensitive
 
--- | AWS Proton includes a service pipeline for your service by default. When
--- included, this parameter indicates that an AWS Proton service pipeline
--- /won\'t/ be included for your service. Once specified, this parameter
--- /can\'t/ be changed. For more information, see
+-- | By default, Proton provides a service pipeline for your service. When
+-- this parameter is included, it indicates that an Proton service pipeline
+-- /isn\'t/ provided for your service. After it\'s included, it /can\'t/ be
+-- changed. For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-template-bundles.html Service template bundles>
--- in the /AWS Proton Administrator Guide/.
+-- in the /Proton Administrator Guide/.
 createServiceTemplate_pipelineProvisioning :: Lens.Lens' CreateServiceTemplate (Prelude.Maybe Provisioning)
 createServiceTemplate_pipelineProvisioning = Lens.lens (\CreateServiceTemplate' {pipelineProvisioning} -> pipelineProvisioning) (\s@CreateServiceTemplate' {} a -> s {pipelineProvisioning = a} :: CreateServiceTemplate)
 
@@ -233,7 +239,7 @@ instance Core.ToQuery CreateServiceTemplate where
 data CreateServiceTemplateResponse = CreateServiceTemplateResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service template detail data that\'s returned by AWS Proton.
+    -- | The service template detail data that\'s returned by Proton.
     serviceTemplate :: ServiceTemplate
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -248,7 +254,7 @@ data CreateServiceTemplateResponse = CreateServiceTemplateResponse'
 --
 -- 'httpStatus', 'createServiceTemplateResponse_httpStatus' - The response's http status code.
 --
--- 'serviceTemplate', 'createServiceTemplateResponse_serviceTemplate' - The service template detail data that\'s returned by AWS Proton.
+-- 'serviceTemplate', 'createServiceTemplateResponse_serviceTemplate' - The service template detail data that\'s returned by Proton.
 newCreateServiceTemplateResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -268,7 +274,7 @@ newCreateServiceTemplateResponse
 createServiceTemplateResponse_httpStatus :: Lens.Lens' CreateServiceTemplateResponse Prelude.Int
 createServiceTemplateResponse_httpStatus = Lens.lens (\CreateServiceTemplateResponse' {httpStatus} -> httpStatus) (\s@CreateServiceTemplateResponse' {} a -> s {httpStatus = a} :: CreateServiceTemplateResponse)
 
--- | The service template detail data that\'s returned by AWS Proton.
+-- | The service template detail data that\'s returned by Proton.
 createServiceTemplateResponse_serviceTemplate :: Lens.Lens' CreateServiceTemplateResponse ServiceTemplate
 createServiceTemplateResponse_serviceTemplate = Lens.lens (\CreateServiceTemplateResponse' {serviceTemplate} -> serviceTemplate) (\s@CreateServiceTemplateResponse' {} a -> s {serviceTemplate = a} :: CreateServiceTemplateResponse)
 

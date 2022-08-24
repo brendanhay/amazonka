@@ -22,12 +22,12 @@
 --
 -- In a management account, an environment account connection request is
 -- accepted. When the environment account connection request is accepted,
--- AWS Proton can use the associated IAM role to provision environment
+-- Proton can use the associated IAM role to provision environment
 -- infrastructure resources in the associated environment account.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
--- in the /AWS Proton Administrator guide/.
+-- in the /Proton Administrator guide/.
 module Amazonka.Proton.AcceptEnvironmentAccountConnection
   ( -- * Creating a Request
     AcceptEnvironmentAccountConnection (..),
@@ -154,7 +154,7 @@ instance
 data AcceptEnvironmentAccountConnectionResponse = AcceptEnvironmentAccountConnectionResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment account connection data that\'s returned by AWS Proton.
+    -- | The environment account connection data that\'s returned by Proton.
     environmentAccountConnection :: EnvironmentAccountConnection
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -169,7 +169,7 @@ data AcceptEnvironmentAccountConnectionResponse = AcceptEnvironmentAccountConnec
 --
 -- 'httpStatus', 'acceptEnvironmentAccountConnectionResponse_httpStatus' - The response's http status code.
 --
--- 'environmentAccountConnection', 'acceptEnvironmentAccountConnectionResponse_environmentAccountConnection' - The environment account connection data that\'s returned by AWS Proton.
+-- 'environmentAccountConnection', 'acceptEnvironmentAccountConnectionResponse_environmentAccountConnection' - The environment account connection data that\'s returned by Proton.
 newAcceptEnvironmentAccountConnectionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -190,7 +190,7 @@ newAcceptEnvironmentAccountConnectionResponse
 acceptEnvironmentAccountConnectionResponse_httpStatus :: Lens.Lens' AcceptEnvironmentAccountConnectionResponse Prelude.Int
 acceptEnvironmentAccountConnectionResponse_httpStatus = Lens.lens (\AcceptEnvironmentAccountConnectionResponse' {httpStatus} -> httpStatus) (\s@AcceptEnvironmentAccountConnectionResponse' {} a -> s {httpStatus = a} :: AcceptEnvironmentAccountConnectionResponse)
 
--- | The environment account connection data that\'s returned by AWS Proton.
+-- | The environment account connection data that\'s returned by Proton.
 acceptEnvironmentAccountConnectionResponse_environmentAccountConnection :: Lens.Lens' AcceptEnvironmentAccountConnectionResponse EnvironmentAccountConnection
 acceptEnvironmentAccountConnectionResponse_environmentAccountConnection = Lens.lens (\AcceptEnvironmentAccountConnectionResponse' {environmentAccountConnection} -> environmentAccountConnection) (\s@AcceptEnvironmentAccountConnectionResponse' {} a -> s {environmentAccountConnection = a} :: AcceptEnvironmentAccountConnectionResponse)
 

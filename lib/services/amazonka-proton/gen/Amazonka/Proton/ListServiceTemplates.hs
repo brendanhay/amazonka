@@ -52,7 +52,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServiceTemplates' smart constructor.
 data ListServiceTemplates = ListServiceTemplates'
-  { -- | A token to indicate the location of the next service template in the
+  { -- | A token that indicates the location of the next service template in the
     -- array of service templates, after the list of service templates
     -- previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -69,7 +69,7 @@ data ListServiceTemplates = ListServiceTemplates'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listServiceTemplates_nextToken' - A token to indicate the location of the next service template in the
+-- 'nextToken', 'listServiceTemplates_nextToken' - A token that indicates the location of the next service template in the
 -- array of service templates, after the list of service templates
 -- previously requested.
 --
@@ -82,7 +82,7 @@ newListServiceTemplates =
       maxResults = Prelude.Nothing
     }
 
--- | A token to indicate the location of the next service template in the
+-- | A token that indicates the location of the next service template in the
 -- array of service templates, after the list of service templates
 -- previously requested.
 listServiceTemplates_nextToken :: Lens.Lens' ListServiceTemplates (Prelude.Maybe Prelude.Text)
@@ -167,7 +167,7 @@ instance Core.ToQuery ListServiceTemplates where
 
 -- | /See:/ 'newListServiceTemplatesResponse' smart constructor.
 data ListServiceTemplatesResponse = ListServiceTemplatesResponse'
-  { -- | A token to indicate the location of the next service template in the
+  { -- | A token that indicates the location of the next service template in the
     -- array of service templates, after the current requested list of service
     -- templates.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -186,7 +186,7 @@ data ListServiceTemplatesResponse = ListServiceTemplatesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listServiceTemplatesResponse_nextToken' - A token to indicate the location of the next service template in the
+-- 'nextToken', 'listServiceTemplatesResponse_nextToken' - A token that indicates the location of the next service template in the
 -- array of service templates, after the current requested list of service
 -- templates.
 --
@@ -205,7 +205,7 @@ newListServiceTemplatesResponse pHttpStatus_ =
       templates = Prelude.mempty
     }
 
--- | A token to indicate the location of the next service template in the
+-- | A token that indicates the location of the next service template in the
 -- array of service templates, after the current requested list of service
 -- templates.
 listServiceTemplatesResponse_nextToken :: Lens.Lens' ListServiceTemplatesResponse (Prelude.Maybe Prelude.Text)

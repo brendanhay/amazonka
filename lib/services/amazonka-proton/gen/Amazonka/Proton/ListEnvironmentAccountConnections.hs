@@ -24,7 +24,7 @@
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
--- in the /AWS Proton Administrator guide/.
+-- in the /Proton Administrator guide/.
 --
 -- This operation returns paginated results.
 module Amazonka.Proton.ListEnvironmentAccountConnections
@@ -59,7 +59,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListEnvironmentAccountConnections' smart constructor.
 data ListEnvironmentAccountConnections = ListEnvironmentAccountConnections'
-  { -- | A token to indicate the location of the next environment account
+  { -- | A token that indicates the location of the next environment account
     -- connection in the array of environment account connections, after the
     -- list of environment account connections that was previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -84,7 +84,7 @@ data ListEnvironmentAccountConnections = ListEnvironmentAccountConnections'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironmentAccountConnections_nextToken' - A token to indicate the location of the next environment account
+-- 'nextToken', 'listEnvironmentAccountConnections_nextToken' - A token that indicates the location of the next environment account
 -- connection in the array of environment account connections, after the
 -- list of environment account connections that was previously requested.
 --
@@ -111,7 +111,7 @@ newListEnvironmentAccountConnections pRequestedBy_ =
       requestedBy = pRequestedBy_
     }
 
--- | A token to indicate the location of the next environment account
+-- | A token that indicates the location of the next environment account
 -- connection in the array of environment account connections, after the
 -- list of environment account connections that was previously requested.
 listEnvironmentAccountConnections_nextToken :: Lens.Lens' ListEnvironmentAccountConnections (Prelude.Maybe Prelude.Text)
@@ -250,14 +250,14 @@ instance
 
 -- | /See:/ 'newListEnvironmentAccountConnectionsResponse' smart constructor.
 data ListEnvironmentAccountConnectionsResponse = ListEnvironmentAccountConnectionsResponse'
-  { -- | A token to indicate the location of the next environment account
+  { -- | A token that indicates the location of the next environment account
     -- connection in the array of environment account connections, after the
     -- current requested list of environment account connections.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | An array of environment account connections with details that\'s
-    -- returned by AWS Proton.
+    -- returned by Proton.
     environmentAccountConnections :: [EnvironmentAccountConnectionSummary]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -270,14 +270,14 @@ data ListEnvironmentAccountConnectionsResponse = ListEnvironmentAccountConnectio
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listEnvironmentAccountConnectionsResponse_nextToken' - A token to indicate the location of the next environment account
+-- 'nextToken', 'listEnvironmentAccountConnectionsResponse_nextToken' - A token that indicates the location of the next environment account
 -- connection in the array of environment account connections, after the
 -- current requested list of environment account connections.
 --
 -- 'httpStatus', 'listEnvironmentAccountConnectionsResponse_httpStatus' - The response's http status code.
 --
 -- 'environmentAccountConnections', 'listEnvironmentAccountConnectionsResponse_environmentAccountConnections' - An array of environment account connections with details that\'s
--- returned by AWS Proton.
+-- returned by Proton.
 newListEnvironmentAccountConnectionsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -292,7 +292,7 @@ newListEnvironmentAccountConnectionsResponse
           Prelude.mempty
       }
 
--- | A token to indicate the location of the next environment account
+-- | A token that indicates the location of the next environment account
 -- connection in the array of environment account connections, after the
 -- current requested list of environment account connections.
 listEnvironmentAccountConnectionsResponse_nextToken :: Lens.Lens' ListEnvironmentAccountConnectionsResponse (Prelude.Maybe Prelude.Text)
@@ -303,7 +303,7 @@ listEnvironmentAccountConnectionsResponse_httpStatus :: Lens.Lens' ListEnvironme
 listEnvironmentAccountConnectionsResponse_httpStatus = Lens.lens (\ListEnvironmentAccountConnectionsResponse' {httpStatus} -> httpStatus) (\s@ListEnvironmentAccountConnectionsResponse' {} a -> s {httpStatus = a} :: ListEnvironmentAccountConnectionsResponse)
 
 -- | An array of environment account connections with details that\'s
--- returned by AWS Proton.
+-- returned by Proton.
 listEnvironmentAccountConnectionsResponse_environmentAccountConnections :: Lens.Lens' ListEnvironmentAccountConnectionsResponse [EnvironmentAccountConnectionSummary]
 listEnvironmentAccountConnectionsResponse_environmentAccountConnections = Lens.lens (\ListEnvironmentAccountConnectionsResponse' {environmentAccountConnections} -> environmentAccountConnections) (\s@ListEnvironmentAccountConnectionsResponse' {} a -> s {environmentAccountConnections = a} :: ListEnvironmentAccountConnectionsResponse) Prelude.. Lens.coerced
 

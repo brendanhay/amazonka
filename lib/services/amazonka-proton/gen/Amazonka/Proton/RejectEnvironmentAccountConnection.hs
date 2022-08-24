@@ -23,15 +23,15 @@
 -- In a management account, reject an environment account connection from
 -- another environment account.
 --
--- After you reject an environment account connection request, you /won’t/
--- be able to accept or use the rejected environment account connection.
+-- After you reject an environment account connection request, you /can\'t/
+-- accept or use the rejected environment account connection.
 --
--- You /can’t/ reject an environment account connection that is connected
+-- You /can’t/ reject an environment account connection that\'s connected
 -- to an environment.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
--- in the /AWS Proton Administrator guide/.
+-- in the /Proton Administrator guide/.
 module Amazonka.Proton.RejectEnvironmentAccountConnection
   ( -- * Creating a Request
     RejectEnvironmentAccountConnection (..),
@@ -158,7 +158,7 @@ instance
 data RejectEnvironmentAccountConnectionResponse = RejectEnvironmentAccountConnectionResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment connection account detail data that\'s returned by AWS
+    -- | The environment connection account detail data that\'s returned by
     -- Proton.
     environmentAccountConnection :: EnvironmentAccountConnection
   }
@@ -174,7 +174,7 @@ data RejectEnvironmentAccountConnectionResponse = RejectEnvironmentAccountConnec
 --
 -- 'httpStatus', 'rejectEnvironmentAccountConnectionResponse_httpStatus' - The response's http status code.
 --
--- 'environmentAccountConnection', 'rejectEnvironmentAccountConnectionResponse_environmentAccountConnection' - The environment connection account detail data that\'s returned by AWS
+-- 'environmentAccountConnection', 'rejectEnvironmentAccountConnectionResponse_environmentAccountConnection' - The environment connection account detail data that\'s returned by
 -- Proton.
 newRejectEnvironmentAccountConnectionResponse ::
   -- | 'httpStatus'
@@ -196,7 +196,7 @@ newRejectEnvironmentAccountConnectionResponse
 rejectEnvironmentAccountConnectionResponse_httpStatus :: Lens.Lens' RejectEnvironmentAccountConnectionResponse Prelude.Int
 rejectEnvironmentAccountConnectionResponse_httpStatus = Lens.lens (\RejectEnvironmentAccountConnectionResponse' {httpStatus} -> httpStatus) (\s@RejectEnvironmentAccountConnectionResponse' {} a -> s {httpStatus = a} :: RejectEnvironmentAccountConnectionResponse)
 
--- | The environment connection account detail data that\'s returned by AWS
+-- | The environment connection account detail data that\'s returned by
 -- Proton.
 rejectEnvironmentAccountConnectionResponse_environmentAccountConnection :: Lens.Lens' RejectEnvironmentAccountConnectionResponse EnvironmentAccountConnection
 rejectEnvironmentAccountConnectionResponse_environmentAccountConnection = Lens.lens (\RejectEnvironmentAccountConnectionResponse' {environmentAccountConnection} -> environmentAccountConnection) (\s@RejectEnvironmentAccountConnectionResponse' {} a -> s {environmentAccountConnection = a} :: RejectEnvironmentAccountConnectionResponse)

@@ -30,7 +30,7 @@ import Amazonka.Proton.Types.TemplateVersionStatus
 data EnvironmentTemplateVersionSummary = EnvironmentTemplateVersionSummary'
   { -- | A description of the version of an environment template.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the recommended minor version of the environment template.
+    -- | The recommended minor version of the environment template.
     recommendedMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The status message of the version of an environment template.
     statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -41,14 +41,14 @@ data EnvironmentTemplateVersionSummary = EnvironmentTemplateVersionSummary'
     createdAt :: Core.POSIX,
     -- | The time when the version of an environment template was last modified.
     lastModifiedAt :: Core.POSIX,
-    -- | The ID of the latest major version that\'s associated with the version
-    -- of an environment template.
+    -- | The latest major version that\'s associated with the version of an
+    -- environment template.
     majorVersion :: Prelude.Text,
-    -- | The ID of the version of an environment template.
+    -- | The version of an environment template.
     minorVersion :: Prelude.Text,
     -- | The status of the version of an environment template.
     status :: TemplateVersionStatus,
-    -- | The name of the version of an environment template.
+    -- | The name of the environment template.
     templateName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -63,7 +63,7 @@ data EnvironmentTemplateVersionSummary = EnvironmentTemplateVersionSummary'
 --
 -- 'description', 'environmentTemplateVersionSummary_description' - A description of the version of an environment template.
 --
--- 'recommendedMinorVersion', 'environmentTemplateVersionSummary_recommendedMinorVersion' - The ID of the recommended minor version of the environment template.
+-- 'recommendedMinorVersion', 'environmentTemplateVersionSummary_recommendedMinorVersion' - The recommended minor version of the environment template.
 --
 -- 'statusMessage', 'environmentTemplateVersionSummary_statusMessage' - The status message of the version of an environment template.
 --
@@ -74,14 +74,14 @@ data EnvironmentTemplateVersionSummary = EnvironmentTemplateVersionSummary'
 --
 -- 'lastModifiedAt', 'environmentTemplateVersionSummary_lastModifiedAt' - The time when the version of an environment template was last modified.
 --
--- 'majorVersion', 'environmentTemplateVersionSummary_majorVersion' - The ID of the latest major version that\'s associated with the version
--- of an environment template.
+-- 'majorVersion', 'environmentTemplateVersionSummary_majorVersion' - The latest major version that\'s associated with the version of an
+-- environment template.
 --
--- 'minorVersion', 'environmentTemplateVersionSummary_minorVersion' - The ID of the version of an environment template.
+-- 'minorVersion', 'environmentTemplateVersionSummary_minorVersion' - The version of an environment template.
 --
 -- 'status', 'environmentTemplateVersionSummary_status' - The status of the version of an environment template.
 --
--- 'templateName', 'environmentTemplateVersionSummary_templateName' - The name of the version of an environment template.
+-- 'templateName', 'environmentTemplateVersionSummary_templateName' - The name of the environment template.
 newEnvironmentTemplateVersionSummary ::
   -- | 'arn'
   Prelude.Text ->
@@ -127,7 +127,7 @@ newEnvironmentTemplateVersionSummary
 environmentTemplateVersionSummary_description :: Lens.Lens' EnvironmentTemplateVersionSummary (Prelude.Maybe Prelude.Text)
 environmentTemplateVersionSummary_description = Lens.lens (\EnvironmentTemplateVersionSummary' {description} -> description) (\s@EnvironmentTemplateVersionSummary' {} a -> s {description = a} :: EnvironmentTemplateVersionSummary) Prelude.. Lens.mapping Core._Sensitive
 
--- | The ID of the recommended minor version of the environment template.
+-- | The recommended minor version of the environment template.
 environmentTemplateVersionSummary_recommendedMinorVersion :: Lens.Lens' EnvironmentTemplateVersionSummary (Prelude.Maybe Prelude.Text)
 environmentTemplateVersionSummary_recommendedMinorVersion = Lens.lens (\EnvironmentTemplateVersionSummary' {recommendedMinorVersion} -> recommendedMinorVersion) (\s@EnvironmentTemplateVersionSummary' {} a -> s {recommendedMinorVersion = a} :: EnvironmentTemplateVersionSummary)
 
@@ -148,12 +148,12 @@ environmentTemplateVersionSummary_createdAt = Lens.lens (\EnvironmentTemplateVer
 environmentTemplateVersionSummary_lastModifiedAt :: Lens.Lens' EnvironmentTemplateVersionSummary Prelude.UTCTime
 environmentTemplateVersionSummary_lastModifiedAt = Lens.lens (\EnvironmentTemplateVersionSummary' {lastModifiedAt} -> lastModifiedAt) (\s@EnvironmentTemplateVersionSummary' {} a -> s {lastModifiedAt = a} :: EnvironmentTemplateVersionSummary) Prelude.. Core._Time
 
--- | The ID of the latest major version that\'s associated with the version
--- of an environment template.
+-- | The latest major version that\'s associated with the version of an
+-- environment template.
 environmentTemplateVersionSummary_majorVersion :: Lens.Lens' EnvironmentTemplateVersionSummary Prelude.Text
 environmentTemplateVersionSummary_majorVersion = Lens.lens (\EnvironmentTemplateVersionSummary' {majorVersion} -> majorVersion) (\s@EnvironmentTemplateVersionSummary' {} a -> s {majorVersion = a} :: EnvironmentTemplateVersionSummary)
 
--- | The ID of the version of an environment template.
+-- | The version of an environment template.
 environmentTemplateVersionSummary_minorVersion :: Lens.Lens' EnvironmentTemplateVersionSummary Prelude.Text
 environmentTemplateVersionSummary_minorVersion = Lens.lens (\EnvironmentTemplateVersionSummary' {minorVersion} -> minorVersion) (\s@EnvironmentTemplateVersionSummary' {} a -> s {minorVersion = a} :: EnvironmentTemplateVersionSummary)
 
@@ -161,7 +161,7 @@ environmentTemplateVersionSummary_minorVersion = Lens.lens (\EnvironmentTemplate
 environmentTemplateVersionSummary_status :: Lens.Lens' EnvironmentTemplateVersionSummary TemplateVersionStatus
 environmentTemplateVersionSummary_status = Lens.lens (\EnvironmentTemplateVersionSummary' {status} -> status) (\s@EnvironmentTemplateVersionSummary' {} a -> s {status = a} :: EnvironmentTemplateVersionSummary)
 
--- | The name of the version of an environment template.
+-- | The name of the environment template.
 environmentTemplateVersionSummary_templateName :: Lens.Lens' EnvironmentTemplateVersionSummary Prelude.Text
 environmentTemplateVersionSummary_templateName = Lens.lens (\EnvironmentTemplateVersionSummary' {templateName} -> templateName) (\s@EnvironmentTemplateVersionSummary' {} a -> s {templateName = a} :: EnvironmentTemplateVersionSummary)
 

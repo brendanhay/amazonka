@@ -55,13 +55,13 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newListServiceTemplateVersions' smart constructor.
 data ListServiceTemplateVersions = ListServiceTemplateVersions'
   { -- | To view a list of minor of versions under a major version of a service
-    -- template, include @majorVersion@.
+    -- template, include @major Version@.
     --
     -- To view a list of major versions of a service template, /exclude/
-    -- @majorVersion@.
+    -- @major Version@.
     majorVersion :: Prelude.Maybe Prelude.Text,
-    -- | A token to indicate the location of the next major or minor version in
-    -- the array of major or minor versions of a service template, after the
+    -- | A token that indicates the location of the next major or minor version
+    -- in the array of major or minor versions of a service template, after the
     -- list of major or minor versions that was previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of major or minor versions of a service template to
@@ -81,13 +81,13 @@ data ListServiceTemplateVersions = ListServiceTemplateVersions'
 -- for backwards compatibility:
 --
 -- 'majorVersion', 'listServiceTemplateVersions_majorVersion' - To view a list of minor of versions under a major version of a service
--- template, include @majorVersion@.
+-- template, include @major Version@.
 --
 -- To view a list of major versions of a service template, /exclude/
--- @majorVersion@.
+-- @major Version@.
 --
--- 'nextToken', 'listServiceTemplateVersions_nextToken' - A token to indicate the location of the next major or minor version in
--- the array of major or minor versions of a service template, after the
+-- 'nextToken', 'listServiceTemplateVersions_nextToken' - A token that indicates the location of the next major or minor version
+-- in the array of major or minor versions of a service template, after the
 -- list of major or minor versions that was previously requested.
 --
 -- 'maxResults', 'listServiceTemplateVersions_maxResults' - The maximum number of major or minor versions of a service template to
@@ -108,15 +108,15 @@ newListServiceTemplateVersions pTemplateName_ =
     }
 
 -- | To view a list of minor of versions under a major version of a service
--- template, include @majorVersion@.
+-- template, include @major Version@.
 --
 -- To view a list of major versions of a service template, /exclude/
--- @majorVersion@.
+-- @major Version@.
 listServiceTemplateVersions_majorVersion :: Lens.Lens' ListServiceTemplateVersions (Prelude.Maybe Prelude.Text)
 listServiceTemplateVersions_majorVersion = Lens.lens (\ListServiceTemplateVersions' {majorVersion} -> majorVersion) (\s@ListServiceTemplateVersions' {} a -> s {majorVersion = a} :: ListServiceTemplateVersions)
 
--- | A token to indicate the location of the next major or minor version in
--- the array of major or minor versions of a service template, after the
+-- | A token that indicates the location of the next major or minor version
+-- in the array of major or minor versions of a service template, after the
 -- list of major or minor versions that was previously requested.
 listServiceTemplateVersions_nextToken :: Lens.Lens' ListServiceTemplateVersions (Prelude.Maybe Prelude.Text)
 listServiceTemplateVersions_nextToken = Lens.lens (\ListServiceTemplateVersions' {nextToken} -> nextToken) (\s@ListServiceTemplateVersions' {} a -> s {nextToken = a} :: ListServiceTemplateVersions)
@@ -215,9 +215,9 @@ instance Core.ToQuery ListServiceTemplateVersions where
 
 -- | /See:/ 'newListServiceTemplateVersionsResponse' smart constructor.
 data ListServiceTemplateVersionsResponse = ListServiceTemplateVersionsResponse'
-  { -- | A token to indicate the location of the next major or minor version in
-    -- the array of major or minor versions of a service template, after the
-    -- list of major or minor versions that was previously requested.
+  { -- | A token that indicates the location of the next major or minor version
+    -- in the array of major or minor versions of a service template, after the
+    -- current requested list of service major or minor versions.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -235,9 +235,9 @@ data ListServiceTemplateVersionsResponse = ListServiceTemplateVersionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listServiceTemplateVersionsResponse_nextToken' - A token to indicate the location of the next major or minor version in
--- the array of major or minor versions of a service template, after the
--- list of major or minor versions that was previously requested.
+-- 'nextToken', 'listServiceTemplateVersionsResponse_nextToken' - A token that indicates the location of the next major or minor version
+-- in the array of major or minor versions of a service template, after the
+-- current requested list of service major or minor versions.
 --
 -- 'httpStatus', 'listServiceTemplateVersionsResponse_httpStatus' - The response's http status code.
 --
@@ -255,9 +255,9 @@ newListServiceTemplateVersionsResponse pHttpStatus_ =
       templateVersions = Prelude.mempty
     }
 
--- | A token to indicate the location of the next major or minor version in
--- the array of major or minor versions of a service template, after the
--- list of major or minor versions that was previously requested.
+-- | A token that indicates the location of the next major or minor version
+-- in the array of major or minor versions of a service template, after the
+-- current requested list of service major or minor versions.
 listServiceTemplateVersionsResponse_nextToken :: Lens.Lens' ListServiceTemplateVersionsResponse (Prelude.Maybe Prelude.Text)
 listServiceTemplateVersionsResponse_nextToken = Lens.lens (\ListServiceTemplateVersionsResponse' {nextToken} -> nextToken) (\s@ListServiceTemplateVersionsResponse' {} a -> s {nextToken = a} :: ListServiceTemplateVersionsResponse)
 

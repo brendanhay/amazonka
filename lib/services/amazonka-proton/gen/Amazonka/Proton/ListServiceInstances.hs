@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List service instances with summaries of detail data.
+-- List service instances with summary data.
 --
 -- This operation returns paginated results.
 module Amazonka.Proton.ListServiceInstances
@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListServiceInstances' smart constructor.
 data ListServiceInstances = ListServiceInstances'
-  { -- | A token to indicate the location of the next service in the array of
+  { -- | A token that indicates the location of the next service in the array of
     -- service instances, after the list of service instances that was
     -- previously requested.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -72,7 +72,7 @@ data ListServiceInstances = ListServiceInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listServiceInstances_nextToken' - A token to indicate the location of the next service in the array of
+-- 'nextToken', 'listServiceInstances_nextToken' - A token that indicates the location of the next service in the array of
 -- service instances, after the list of service instances that was
 -- previously requested.
 --
@@ -88,7 +88,7 @@ newListServiceInstances =
       serviceName = Prelude.Nothing
     }
 
--- | A token to indicate the location of the next service in the array of
+-- | A token that indicates the location of the next service in the array of
 -- service instances, after the list of service instances that was
 -- previously requested.
 listServiceInstances_nextToken :: Lens.Lens' ListServiceInstances (Prelude.Maybe Prelude.Text)
@@ -184,13 +184,13 @@ instance Core.ToQuery ListServiceInstances where
 
 -- | /See:/ 'newListServiceInstancesResponse' smart constructor.
 data ListServiceInstancesResponse = ListServiceInstancesResponse'
-  { -- | A token to indicate the location of the next service instance in the
+  { -- | A token that indicates the location of the next service instance in the
     -- array of service instances, after the current requested list of service
     -- instances.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | An array of service instances with summaries of detail data.
+    -- | An array of service instances with summary data.
     serviceInstances :: [ServiceInstanceSummary]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -203,13 +203,13 @@ data ListServiceInstancesResponse = ListServiceInstancesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listServiceInstancesResponse_nextToken' - A token to indicate the location of the next service instance in the
+-- 'nextToken', 'listServiceInstancesResponse_nextToken' - A token that indicates the location of the next service instance in the
 -- array of service instances, after the current requested list of service
 -- instances.
 --
 -- 'httpStatus', 'listServiceInstancesResponse_httpStatus' - The response's http status code.
 --
--- 'serviceInstances', 'listServiceInstancesResponse_serviceInstances' - An array of service instances with summaries of detail data.
+-- 'serviceInstances', 'listServiceInstancesResponse_serviceInstances' - An array of service instances with summary data.
 newListServiceInstancesResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -222,7 +222,7 @@ newListServiceInstancesResponse pHttpStatus_ =
       serviceInstances = Prelude.mempty
     }
 
--- | A token to indicate the location of the next service instance in the
+-- | A token that indicates the location of the next service instance in the
 -- array of service instances, after the current requested list of service
 -- instances.
 listServiceInstancesResponse_nextToken :: Lens.Lens' ListServiceInstancesResponse (Prelude.Maybe Prelude.Text)
@@ -232,7 +232,7 @@ listServiceInstancesResponse_nextToken = Lens.lens (\ListServiceInstancesRespons
 listServiceInstancesResponse_httpStatus :: Lens.Lens' ListServiceInstancesResponse Prelude.Int
 listServiceInstancesResponse_httpStatus = Lens.lens (\ListServiceInstancesResponse' {httpStatus} -> httpStatus) (\s@ListServiceInstancesResponse' {} a -> s {httpStatus = a} :: ListServiceInstancesResponse)
 
--- | An array of service instances with summaries of detail data.
+-- | An array of service instances with summary data.
 listServiceInstancesResponse_serviceInstances :: Lens.Lens' ListServiceInstancesResponse [ServiceInstanceSummary]
 listServiceInstancesResponse_serviceInstances = Lens.lens (\ListServiceInstancesResponse' {serviceInstances} -> serviceInstances) (\s@ListServiceInstancesResponse' {} a -> s {serviceInstances = a} :: ListServiceInstancesResponse) Prelude.. Lens.coerced
 

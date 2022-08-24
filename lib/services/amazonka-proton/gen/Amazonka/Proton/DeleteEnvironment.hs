@@ -123,7 +123,7 @@ instance Core.ToQuery DeleteEnvironment where
 
 -- | /See:/ 'newDeleteEnvironmentResponse' smart constructor.
 data DeleteEnvironmentResponse = DeleteEnvironmentResponse'
-  { -- | The environment detail data that\'s returned by AWS Proton.
+  { -- | The detailed data of the environment being deleted.
     environment :: Prelude.Maybe Environment,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -138,7 +138,7 @@ data DeleteEnvironmentResponse = DeleteEnvironmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environment', 'deleteEnvironmentResponse_environment' - The environment detail data that\'s returned by AWS Proton.
+-- 'environment', 'deleteEnvironmentResponse_environment' - The detailed data of the environment being deleted.
 --
 -- 'httpStatus', 'deleteEnvironmentResponse_httpStatus' - The response's http status code.
 newDeleteEnvironmentResponse ::
@@ -152,7 +152,7 @@ newDeleteEnvironmentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The environment detail data that\'s returned by AWS Proton.
+-- | The detailed data of the environment being deleted.
 deleteEnvironmentResponse_environment :: Lens.Lens' DeleteEnvironmentResponse (Prelude.Maybe Environment)
 deleteEnvironmentResponse_environment = Lens.lens (\DeleteEnvironmentResponse' {environment} -> environment) (\s@DeleteEnvironmentResponse' {} a -> s {environment = a} :: DeleteEnvironmentResponse)
 

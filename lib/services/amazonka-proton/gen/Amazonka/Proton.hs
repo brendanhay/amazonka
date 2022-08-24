@@ -11,42 +11,42 @@
 --
 -- Derived from API version @2020-07-20@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- This is the AWS Proton Service API Reference. It provides descriptions,
+-- This is the Proton Service API Reference. It provides descriptions,
 -- syntax and usage examples for each of the
 -- <https://docs.aws.amazon.com/proton/latest/APIReference/API_Operations.html actions>
 -- and
 -- <https://docs.aws.amazon.com/proton/latest/APIReference/API_Types.html data types>
--- for the AWS Proton service.
+-- for the Proton service.
 --
 -- The documentation for each action shows the Query API request parameters
 -- and the XML response.
 --
--- Alternatively, you can use the AWS CLI to access an API. For more
--- information, see the
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html AWS Command Line Interface User Guide>.
+-- Alternatively, you can use the Amazon Web Services CLI to access an API.
+-- For more information, see the
+-- <https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html Amazon Web Services Command Line Interface User Guide>.
 --
--- The AWS Proton service is a two-pronged automation framework.
--- Administrators create service templates to provide standardized
--- infrastructure and deployment tooling for serverless and container based
--- applications. Developers, in turn, select from the available service
--- templates to automate their application or service deployments.
+-- The Proton service is a two-pronged automation framework. Administrators
+-- create service templates to provide standardized infrastructure and
+-- deployment tooling for serverless and container based applications.
+-- Developers, in turn, select from the available service templates to
+-- automate their application or service deployments.
 --
--- Because administrators define the infrastructure and tooling that AWS
--- Proton deploys and manages, they need permissions to use all of the
--- listed API operations.
+-- Because administrators define the infrastructure and tooling that Proton
+-- deploys and manages, they need permissions to use all of the listed API
+-- operations.
 --
--- When developers select a specific infrastructure and tooling set, AWS
--- Proton deploys their applications. To monitor their applications that
--- are running on AWS Proton, developers need permissions to the service
--- /create/, /list/, /update/ and /delete/ API operations and the service
--- instance /list/ and /update/ API operations.
+-- When developers select a specific infrastructure and tooling set, Proton
+-- deploys their applications. To monitor their applications that are
+-- running on Proton, developers need permissions to the service /create/,
+-- /list/, /update/ and /delete/ API operations and the service instance
+-- /list/ and /update/ API operations.
 --
--- To learn more about AWS Proton administration, see the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html AWS Proton Administrator Guide>.
+-- To learn more about Proton administration, see the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/Welcome.html Proton Administrator Guide>.
 --
 -- To learn more about deploying serverless and containerized applications
--- on AWS Proton, see the
--- <https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html AWS Proton User Guide>.
+-- on Proton, see the
+-- <https://docs.aws.amazon.com/proton/latest/userguide/Welcome.html Proton User Guide>.
 --
 -- __Ensuring Idempotency__
 --
@@ -73,8 +73,8 @@
 -- __Idempotent create APIs with a client token__
 --
 -- The API actions in this list support idempotency with the use of a
--- /client token/. The corresponding AWS CLI commands also support
--- idempotency using a client token. A client token is a unique,
+-- /client token/. The corresponding Amazon Web Services CLI commands also
+-- support idempotency using a client token. A client token is a unique,
 -- case-sensitive string of up to 64 ASCII characters. To make an
 -- idempotent API request using one of these actions, specify a client
 -- token in the request. We recommend that you /don\'t/ reuse the same
@@ -223,8 +223,14 @@ module Amazonka.Proton
     -- ** ServiceInstanceDeployed
     newServiceInstanceDeployed,
 
+    -- ** ComponentDeployed
+    newComponentDeployed,
+
     -- ** ServicePipelineDeployed
     newServicePipelineDeployed,
+
+    -- ** ComponentDeleted
+    newComponentDeleted,
 
     -- * Operations
     -- $operations
@@ -234,6 +240,12 @@ module Amazonka.Proton
     newAcceptEnvironmentAccountConnection,
     AcceptEnvironmentAccountConnectionResponse (AcceptEnvironmentAccountConnectionResponse'),
     newAcceptEnvironmentAccountConnectionResponse,
+
+    -- ** CancelComponentDeployment
+    CancelComponentDeployment (CancelComponentDeployment'),
+    newCancelComponentDeployment,
+    CancelComponentDeploymentResponse (CancelComponentDeploymentResponse'),
+    newCancelComponentDeploymentResponse,
 
     -- ** CancelEnvironmentDeployment
     CancelEnvironmentDeployment (CancelEnvironmentDeployment'),
@@ -252,6 +264,12 @@ module Amazonka.Proton
     newCancelServicePipelineDeployment,
     CancelServicePipelineDeploymentResponse (CancelServicePipelineDeploymentResponse'),
     newCancelServicePipelineDeploymentResponse,
+
+    -- ** CreateComponent
+    CreateComponent (CreateComponent'),
+    newCreateComponent,
+    CreateComponentResponse (CreateComponentResponse'),
+    newCreateComponentResponse,
 
     -- ** CreateEnvironment
     CreateEnvironment (CreateEnvironment'),
@@ -277,6 +295,12 @@ module Amazonka.Proton
     CreateEnvironmentTemplateVersionResponse (CreateEnvironmentTemplateVersionResponse'),
     newCreateEnvironmentTemplateVersionResponse,
 
+    -- ** CreateRepository
+    CreateRepository (CreateRepository'),
+    newCreateRepository,
+    CreateRepositoryResponse (CreateRepositoryResponse'),
+    newCreateRepositoryResponse,
+
     -- ** CreateService
     CreateService (CreateService'),
     newCreateService,
@@ -294,6 +318,18 @@ module Amazonka.Proton
     newCreateServiceTemplateVersion,
     CreateServiceTemplateVersionResponse (CreateServiceTemplateVersionResponse'),
     newCreateServiceTemplateVersionResponse,
+
+    -- ** CreateTemplateSyncConfig
+    CreateTemplateSyncConfig (CreateTemplateSyncConfig'),
+    newCreateTemplateSyncConfig,
+    CreateTemplateSyncConfigResponse (CreateTemplateSyncConfigResponse'),
+    newCreateTemplateSyncConfigResponse,
+
+    -- ** DeleteComponent
+    DeleteComponent (DeleteComponent'),
+    newDeleteComponent,
+    DeleteComponentResponse (DeleteComponentResponse'),
+    newDeleteComponentResponse,
 
     -- ** DeleteEnvironment
     DeleteEnvironment (DeleteEnvironment'),
@@ -319,6 +355,12 @@ module Amazonka.Proton
     DeleteEnvironmentTemplateVersionResponse (DeleteEnvironmentTemplateVersionResponse'),
     newDeleteEnvironmentTemplateVersionResponse,
 
+    -- ** DeleteRepository
+    DeleteRepository (DeleteRepository'),
+    newDeleteRepository,
+    DeleteRepositoryResponse (DeleteRepositoryResponse'),
+    newDeleteRepositoryResponse,
+
     -- ** DeleteService
     DeleteService (DeleteService'),
     newDeleteService,
@@ -337,11 +379,23 @@ module Amazonka.Proton
     DeleteServiceTemplateVersionResponse (DeleteServiceTemplateVersionResponse'),
     newDeleteServiceTemplateVersionResponse,
 
+    -- ** DeleteTemplateSyncConfig
+    DeleteTemplateSyncConfig (DeleteTemplateSyncConfig'),
+    newDeleteTemplateSyncConfig,
+    DeleteTemplateSyncConfigResponse (DeleteTemplateSyncConfigResponse'),
+    newDeleteTemplateSyncConfigResponse,
+
     -- ** GetAccountSettings
     GetAccountSettings (GetAccountSettings'),
     newGetAccountSettings,
     GetAccountSettingsResponse (GetAccountSettingsResponse'),
     newGetAccountSettingsResponse,
+
+    -- ** GetComponent
+    GetComponent (GetComponent'),
+    newGetComponent,
+    GetComponentResponse (GetComponentResponse'),
+    newGetComponentResponse,
 
     -- ** GetEnvironment
     GetEnvironment (GetEnvironment'),
@@ -367,6 +421,18 @@ module Amazonka.Proton
     GetEnvironmentTemplateVersionResponse (GetEnvironmentTemplateVersionResponse'),
     newGetEnvironmentTemplateVersionResponse,
 
+    -- ** GetRepository
+    GetRepository (GetRepository'),
+    newGetRepository,
+    GetRepositoryResponse (GetRepositoryResponse'),
+    newGetRepositoryResponse,
+
+    -- ** GetRepositorySyncStatus
+    GetRepositorySyncStatus (GetRepositorySyncStatus'),
+    newGetRepositorySyncStatus,
+    GetRepositorySyncStatusResponse (GetRepositorySyncStatusResponse'),
+    newGetRepositorySyncStatusResponse,
+
     -- ** GetService
     GetService (GetService'),
     newGetService,
@@ -391,11 +457,53 @@ module Amazonka.Proton
     GetServiceTemplateVersionResponse (GetServiceTemplateVersionResponse'),
     newGetServiceTemplateVersionResponse,
 
+    -- ** GetTemplateSyncConfig
+    GetTemplateSyncConfig (GetTemplateSyncConfig'),
+    newGetTemplateSyncConfig,
+    GetTemplateSyncConfigResponse (GetTemplateSyncConfigResponse'),
+    newGetTemplateSyncConfigResponse,
+
+    -- ** GetTemplateSyncStatus
+    GetTemplateSyncStatus (GetTemplateSyncStatus'),
+    newGetTemplateSyncStatus,
+    GetTemplateSyncStatusResponse (GetTemplateSyncStatusResponse'),
+    newGetTemplateSyncStatusResponse,
+
+    -- ** ListComponentOutputs (Paginated)
+    ListComponentOutputs (ListComponentOutputs'),
+    newListComponentOutputs,
+    ListComponentOutputsResponse (ListComponentOutputsResponse'),
+    newListComponentOutputsResponse,
+
+    -- ** ListComponentProvisionedResources (Paginated)
+    ListComponentProvisionedResources (ListComponentProvisionedResources'),
+    newListComponentProvisionedResources,
+    ListComponentProvisionedResourcesResponse (ListComponentProvisionedResourcesResponse'),
+    newListComponentProvisionedResourcesResponse,
+
+    -- ** ListComponents (Paginated)
+    ListComponents (ListComponents'),
+    newListComponents,
+    ListComponentsResponse (ListComponentsResponse'),
+    newListComponentsResponse,
+
     -- ** ListEnvironmentAccountConnections (Paginated)
     ListEnvironmentAccountConnections (ListEnvironmentAccountConnections'),
     newListEnvironmentAccountConnections,
     ListEnvironmentAccountConnectionsResponse (ListEnvironmentAccountConnectionsResponse'),
     newListEnvironmentAccountConnectionsResponse,
+
+    -- ** ListEnvironmentOutputs (Paginated)
+    ListEnvironmentOutputs (ListEnvironmentOutputs'),
+    newListEnvironmentOutputs,
+    ListEnvironmentOutputsResponse (ListEnvironmentOutputsResponse'),
+    newListEnvironmentOutputsResponse,
+
+    -- ** ListEnvironmentProvisionedResources (Paginated)
+    ListEnvironmentProvisionedResources (ListEnvironmentProvisionedResources'),
+    newListEnvironmentProvisionedResources,
+    ListEnvironmentProvisionedResourcesResponse (ListEnvironmentProvisionedResourcesResponse'),
+    newListEnvironmentProvisionedResourcesResponse,
 
     -- ** ListEnvironmentTemplateVersions (Paginated)
     ListEnvironmentTemplateVersions (ListEnvironmentTemplateVersions'),
@@ -415,11 +523,47 @@ module Amazonka.Proton
     ListEnvironmentsResponse (ListEnvironmentsResponse'),
     newListEnvironmentsResponse,
 
+    -- ** ListRepositories (Paginated)
+    ListRepositories (ListRepositories'),
+    newListRepositories,
+    ListRepositoriesResponse (ListRepositoriesResponse'),
+    newListRepositoriesResponse,
+
+    -- ** ListRepositorySyncDefinitions (Paginated)
+    ListRepositorySyncDefinitions (ListRepositorySyncDefinitions'),
+    newListRepositorySyncDefinitions,
+    ListRepositorySyncDefinitionsResponse (ListRepositorySyncDefinitionsResponse'),
+    newListRepositorySyncDefinitionsResponse,
+
+    -- ** ListServiceInstanceOutputs (Paginated)
+    ListServiceInstanceOutputs (ListServiceInstanceOutputs'),
+    newListServiceInstanceOutputs,
+    ListServiceInstanceOutputsResponse (ListServiceInstanceOutputsResponse'),
+    newListServiceInstanceOutputsResponse,
+
+    -- ** ListServiceInstanceProvisionedResources (Paginated)
+    ListServiceInstanceProvisionedResources (ListServiceInstanceProvisionedResources'),
+    newListServiceInstanceProvisionedResources,
+    ListServiceInstanceProvisionedResourcesResponse (ListServiceInstanceProvisionedResourcesResponse'),
+    newListServiceInstanceProvisionedResourcesResponse,
+
     -- ** ListServiceInstances (Paginated)
     ListServiceInstances (ListServiceInstances'),
     newListServiceInstances,
     ListServiceInstancesResponse (ListServiceInstancesResponse'),
     newListServiceInstancesResponse,
+
+    -- ** ListServicePipelineOutputs (Paginated)
+    ListServicePipelineOutputs (ListServicePipelineOutputs'),
+    newListServicePipelineOutputs,
+    ListServicePipelineOutputsResponse (ListServicePipelineOutputsResponse'),
+    newListServicePipelineOutputsResponse,
+
+    -- ** ListServicePipelineProvisionedResources (Paginated)
+    ListServicePipelineProvisionedResources (ListServicePipelineProvisionedResources'),
+    newListServicePipelineProvisionedResources,
+    ListServicePipelineProvisionedResourcesResponse (ListServicePipelineProvisionedResourcesResponse'),
+    newListServicePipelineProvisionedResourcesResponse,
 
     -- ** ListServiceTemplateVersions (Paginated)
     ListServiceTemplateVersions (ListServiceTemplateVersions'),
@@ -445,6 +589,12 @@ module Amazonka.Proton
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** NotifyResourceDeploymentStatusChange
+    NotifyResourceDeploymentStatusChange (NotifyResourceDeploymentStatusChange'),
+    newNotifyResourceDeploymentStatusChange,
+    NotifyResourceDeploymentStatusChangeResponse (NotifyResourceDeploymentStatusChangeResponse'),
+    newNotifyResourceDeploymentStatusChangeResponse,
+
     -- ** RejectEnvironmentAccountConnection
     RejectEnvironmentAccountConnection (RejectEnvironmentAccountConnection'),
     newRejectEnvironmentAccountConnection,
@@ -468,6 +618,12 @@ module Amazonka.Proton
     newUpdateAccountSettings,
     UpdateAccountSettingsResponse (UpdateAccountSettingsResponse'),
     newUpdateAccountSettingsResponse,
+
+    -- ** UpdateComponent
+    UpdateComponent (UpdateComponent'),
+    newUpdateComponent,
+    UpdateComponentResponse (UpdateComponentResponse'),
+    newUpdateComponentResponse,
 
     -- ** UpdateEnvironment
     UpdateEnvironment (UpdateEnvironment'),
@@ -523,7 +679,16 @@ module Amazonka.Proton
     UpdateServiceTemplateVersionResponse (UpdateServiceTemplateVersionResponse'),
     newUpdateServiceTemplateVersionResponse,
 
+    -- ** UpdateTemplateSyncConfig
+    UpdateTemplateSyncConfig (UpdateTemplateSyncConfig'),
+    newUpdateTemplateSyncConfig,
+    UpdateTemplateSyncConfigResponse (UpdateTemplateSyncConfigResponse'),
+    newUpdateTemplateSyncConfigResponse,
+
     -- * Types
+
+    -- ** ComponentDeploymentUpdateType
+    ComponentDeploymentUpdateType (..),
 
     -- ** DeploymentStatus
     DeploymentStatus (..),
@@ -537,11 +702,35 @@ module Amazonka.Proton
     -- ** EnvironmentAccountConnectionStatus
     EnvironmentAccountConnectionStatus (..),
 
+    -- ** ProvisionedResourceEngine
+    ProvisionedResourceEngine (..),
+
     -- ** Provisioning
     Provisioning (..),
 
+    -- ** RepositoryProvider
+    RepositoryProvider (..),
+
+    -- ** RepositorySyncStatus
+    RepositorySyncStatus (..),
+
+    -- ** ResourceDeploymentStatus
+    ResourceDeploymentStatus (..),
+
+    -- ** ResourceSyncStatus
+    ResourceSyncStatus (..),
+
     -- ** ServiceStatus
     ServiceStatus (..),
+
+    -- ** ServiceTemplateSupportedComponentSourceType
+    ServiceTemplateSupportedComponentSourceType (..),
+
+    -- ** SyncType
+    SyncType (..),
+
+    -- ** TemplateType
+    TemplateType (..),
 
     -- ** TemplateVersionStatus
     TemplateVersionStatus (..),
@@ -557,6 +746,14 @@ module Amazonka.Proton
     -- ** CompatibleEnvironmentTemplateInput
     CompatibleEnvironmentTemplateInput (CompatibleEnvironmentTemplateInput'),
     newCompatibleEnvironmentTemplateInput,
+
+    -- ** Component
+    Component (Component'),
+    newComponent,
+
+    -- ** ComponentSummary
+    ComponentSummary (ComponentSummary'),
+    newComponentSummary,
 
     -- ** Environment
     Environment (Environment'),
@@ -593,6 +790,54 @@ module Amazonka.Proton
     -- ** EnvironmentTemplateVersionSummary
     EnvironmentTemplateVersionSummary (EnvironmentTemplateVersionSummary'),
     newEnvironmentTemplateVersionSummary,
+
+    -- ** Output
+    Output (Output'),
+    newOutput,
+
+    -- ** ProvisionedResource
+    ProvisionedResource (ProvisionedResource'),
+    newProvisionedResource,
+
+    -- ** Repository
+    Repository (Repository'),
+    newRepository,
+
+    -- ** RepositoryBranch
+    RepositoryBranch (RepositoryBranch'),
+    newRepositoryBranch,
+
+    -- ** RepositoryBranchInput
+    RepositoryBranchInput (RepositoryBranchInput'),
+    newRepositoryBranchInput,
+
+    -- ** RepositorySummary
+    RepositorySummary (RepositorySummary'),
+    newRepositorySummary,
+
+    -- ** RepositorySyncAttempt
+    RepositorySyncAttempt (RepositorySyncAttempt'),
+    newRepositorySyncAttempt,
+
+    -- ** RepositorySyncDefinition
+    RepositorySyncDefinition (RepositorySyncDefinition'),
+    newRepositorySyncDefinition,
+
+    -- ** RepositorySyncEvent
+    RepositorySyncEvent (RepositorySyncEvent'),
+    newRepositorySyncEvent,
+
+    -- ** ResourceSyncAttempt
+    ResourceSyncAttempt (ResourceSyncAttempt'),
+    newResourceSyncAttempt,
+
+    -- ** ResourceSyncEvent
+    ResourceSyncEvent (ResourceSyncEvent'),
+    newResourceSyncEvent,
+
+    -- ** Revision
+    Revision (Revision'),
+    newRevision,
 
     -- ** S3ObjectSource
     S3ObjectSource (S3ObjectSource'),
@@ -638,6 +883,10 @@ module Amazonka.Proton
     Tag (Tag'),
     newTag,
 
+    -- ** TemplateSyncConfig
+    TemplateSyncConfig (TemplateSyncConfig'),
+    newTemplateSyncConfig,
+
     -- ** TemplateVersionSourceInput
     TemplateVersionSourceInput (TemplateVersionSourceInput'),
     newTemplateVersionSourceInput,
@@ -645,47 +894,72 @@ module Amazonka.Proton
 where
 
 import Amazonka.Proton.AcceptEnvironmentAccountConnection
+import Amazonka.Proton.CancelComponentDeployment
 import Amazonka.Proton.CancelEnvironmentDeployment
 import Amazonka.Proton.CancelServiceInstanceDeployment
 import Amazonka.Proton.CancelServicePipelineDeployment
+import Amazonka.Proton.CreateComponent
 import Amazonka.Proton.CreateEnvironment
 import Amazonka.Proton.CreateEnvironmentAccountConnection
 import Amazonka.Proton.CreateEnvironmentTemplate
 import Amazonka.Proton.CreateEnvironmentTemplateVersion
+import Amazonka.Proton.CreateRepository
 import Amazonka.Proton.CreateService
 import Amazonka.Proton.CreateServiceTemplate
 import Amazonka.Proton.CreateServiceTemplateVersion
+import Amazonka.Proton.CreateTemplateSyncConfig
+import Amazonka.Proton.DeleteComponent
 import Amazonka.Proton.DeleteEnvironment
 import Amazonka.Proton.DeleteEnvironmentAccountConnection
 import Amazonka.Proton.DeleteEnvironmentTemplate
 import Amazonka.Proton.DeleteEnvironmentTemplateVersion
+import Amazonka.Proton.DeleteRepository
 import Amazonka.Proton.DeleteService
 import Amazonka.Proton.DeleteServiceTemplate
 import Amazonka.Proton.DeleteServiceTemplateVersion
+import Amazonka.Proton.DeleteTemplateSyncConfig
 import Amazonka.Proton.GetAccountSettings
+import Amazonka.Proton.GetComponent
 import Amazonka.Proton.GetEnvironment
 import Amazonka.Proton.GetEnvironmentAccountConnection
 import Amazonka.Proton.GetEnvironmentTemplate
 import Amazonka.Proton.GetEnvironmentTemplateVersion
+import Amazonka.Proton.GetRepository
+import Amazonka.Proton.GetRepositorySyncStatus
 import Amazonka.Proton.GetService
 import Amazonka.Proton.GetServiceInstance
 import Amazonka.Proton.GetServiceTemplate
 import Amazonka.Proton.GetServiceTemplateVersion
+import Amazonka.Proton.GetTemplateSyncConfig
+import Amazonka.Proton.GetTemplateSyncStatus
 import Amazonka.Proton.Lens
+import Amazonka.Proton.ListComponentOutputs
+import Amazonka.Proton.ListComponentProvisionedResources
+import Amazonka.Proton.ListComponents
 import Amazonka.Proton.ListEnvironmentAccountConnections
+import Amazonka.Proton.ListEnvironmentOutputs
+import Amazonka.Proton.ListEnvironmentProvisionedResources
 import Amazonka.Proton.ListEnvironmentTemplateVersions
 import Amazonka.Proton.ListEnvironmentTemplates
 import Amazonka.Proton.ListEnvironments
+import Amazonka.Proton.ListRepositories
+import Amazonka.Proton.ListRepositorySyncDefinitions
+import Amazonka.Proton.ListServiceInstanceOutputs
+import Amazonka.Proton.ListServiceInstanceProvisionedResources
 import Amazonka.Proton.ListServiceInstances
+import Amazonka.Proton.ListServicePipelineOutputs
+import Amazonka.Proton.ListServicePipelineProvisionedResources
 import Amazonka.Proton.ListServiceTemplateVersions
 import Amazonka.Proton.ListServiceTemplates
 import Amazonka.Proton.ListServices
 import Amazonka.Proton.ListTagsForResource
+import Amazonka.Proton.NotifyResourceDeploymentStatusChange
 import Amazonka.Proton.RejectEnvironmentAccountConnection
 import Amazonka.Proton.TagResource
 import Amazonka.Proton.Types
 import Amazonka.Proton.UntagResource
 import Amazonka.Proton.UpdateAccountSettings
+import Amazonka.Proton.UpdateComponent
 import Amazonka.Proton.UpdateEnvironment
 import Amazonka.Proton.UpdateEnvironmentAccountConnection
 import Amazonka.Proton.UpdateEnvironmentTemplate
@@ -695,6 +969,7 @@ import Amazonka.Proton.UpdateServiceInstance
 import Amazonka.Proton.UpdateServicePipeline
 import Amazonka.Proton.UpdateServiceTemplate
 import Amazonka.Proton.UpdateServiceTemplateVersion
+import Amazonka.Proton.UpdateTemplateSyncConfig
 import Amazonka.Proton.Waiters
 
 -- $errors

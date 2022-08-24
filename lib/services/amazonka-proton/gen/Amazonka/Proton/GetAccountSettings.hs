@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get detail data for the AWS Proton pipeline service role.
+-- Get detail data for the Proton pipeline service role.
 module Amazonka.Proton.GetAccountSettings
   ( -- * Creating a Request
     GetAccountSettings (..),
@@ -103,8 +103,7 @@ instance Core.ToQuery GetAccountSettings where
 
 -- | /See:/ 'newGetAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
-  { -- | The AWS Proton pipeline service role detail data that\'s returned by AWS
-    -- Proton.
+  { -- | The Proton pipeline service role detail data that\'s returned by Proton.
     accountSettings :: Prelude.Maybe AccountSettings,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -119,8 +118,7 @@ data GetAccountSettingsResponse = GetAccountSettingsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountSettings', 'getAccountSettingsResponse_accountSettings' - The AWS Proton pipeline service role detail data that\'s returned by AWS
--- Proton.
+-- 'accountSettings', 'getAccountSettingsResponse_accountSettings' - The Proton pipeline service role detail data that\'s returned by Proton.
 --
 -- 'httpStatus', 'getAccountSettingsResponse_httpStatus' - The response's http status code.
 newGetAccountSettingsResponse ::
@@ -134,8 +132,7 @@ newGetAccountSettingsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The AWS Proton pipeline service role detail data that\'s returned by AWS
--- Proton.
+-- | The Proton pipeline service role detail data that\'s returned by Proton.
 getAccountSettingsResponse_accountSettings :: Lens.Lens' GetAccountSettingsResponse (Prelude.Maybe AccountSettings)
 getAccountSettingsResponse_accountSettings = Lens.lens (\GetAccountSettingsResponse' {accountSettings} -> accountSettings) (\s@GetAccountSettingsResponse' {} a -> s {accountSettings = a} :: GetAccountSettingsResponse)
 

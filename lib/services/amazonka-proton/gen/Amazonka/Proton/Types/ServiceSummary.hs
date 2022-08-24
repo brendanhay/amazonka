@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.ServiceStatus
 
--- | A summary of the service detail data.
+-- | Summary data of an Proton service resource.
 --
 -- /See:/ 'newServiceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'

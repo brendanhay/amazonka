@@ -57,7 +57,7 @@ data UpdateEnvironmentTemplateVersion = UpdateEnvironmentTemplateVersion'
     -- | A description of environment template version to update.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | To update a major version of an environment template, include
-    -- @majorVersion@.
+    -- @major Version@.
     majorVersion :: Prelude.Text,
     -- | To update a minor version of an environment template, include
     -- @minorVersion@.
@@ -80,7 +80,7 @@ data UpdateEnvironmentTemplateVersion = UpdateEnvironmentTemplateVersion'
 -- 'description', 'updateEnvironmentTemplateVersion_description' - A description of environment template version to update.
 --
 -- 'majorVersion', 'updateEnvironmentTemplateVersion_majorVersion' - To update a major version of an environment template, include
--- @majorVersion@.
+-- @major Version@.
 --
 -- 'minorVersion', 'updateEnvironmentTemplateVersion_minorVersion' - To update a minor version of an environment template, include
 -- @minorVersion@.
@@ -116,7 +116,7 @@ updateEnvironmentTemplateVersion_description :: Lens.Lens' UpdateEnvironmentTemp
 updateEnvironmentTemplateVersion_description = Lens.lens (\UpdateEnvironmentTemplateVersion' {description} -> description) (\s@UpdateEnvironmentTemplateVersion' {} a -> s {description = a} :: UpdateEnvironmentTemplateVersion) Prelude.. Lens.mapping Core._Sensitive
 
 -- | To update a major version of an environment template, include
--- @majorVersion@.
+-- @major Version@.
 updateEnvironmentTemplateVersion_majorVersion :: Lens.Lens' UpdateEnvironmentTemplateVersion Prelude.Text
 updateEnvironmentTemplateVersion_majorVersion = Lens.lens (\UpdateEnvironmentTemplateVersion' {majorVersion} -> majorVersion) (\s@UpdateEnvironmentTemplateVersion' {} a -> s {majorVersion = a} :: UpdateEnvironmentTemplateVersion)
 
@@ -212,8 +212,7 @@ instance
 data UpdateEnvironmentTemplateVersionResponse = UpdateEnvironmentTemplateVersionResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment template version detail data that\'s returned by AWS
-    -- Proton.
+    -- | The environment template version detail data that\'s returned by Proton.
     environmentTemplateVersion :: EnvironmentTemplateVersion
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -228,8 +227,7 @@ data UpdateEnvironmentTemplateVersionResponse = UpdateEnvironmentTemplateVersion
 --
 -- 'httpStatus', 'updateEnvironmentTemplateVersionResponse_httpStatus' - The response's http status code.
 --
--- 'environmentTemplateVersion', 'updateEnvironmentTemplateVersionResponse_environmentTemplateVersion' - The environment template version detail data that\'s returned by AWS
--- Proton.
+-- 'environmentTemplateVersion', 'updateEnvironmentTemplateVersionResponse_environmentTemplateVersion' - The environment template version detail data that\'s returned by Proton.
 newUpdateEnvironmentTemplateVersionResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -250,8 +248,7 @@ newUpdateEnvironmentTemplateVersionResponse
 updateEnvironmentTemplateVersionResponse_httpStatus :: Lens.Lens' UpdateEnvironmentTemplateVersionResponse Prelude.Int
 updateEnvironmentTemplateVersionResponse_httpStatus = Lens.lens (\UpdateEnvironmentTemplateVersionResponse' {httpStatus} -> httpStatus) (\s@UpdateEnvironmentTemplateVersionResponse' {} a -> s {httpStatus = a} :: UpdateEnvironmentTemplateVersionResponse)
 
--- | The environment template version detail data that\'s returned by AWS
--- Proton.
+-- | The environment template version detail data that\'s returned by Proton.
 updateEnvironmentTemplateVersionResponse_environmentTemplateVersion :: Lens.Lens' UpdateEnvironmentTemplateVersionResponse EnvironmentTemplateVersion
 updateEnvironmentTemplateVersionResponse_environmentTemplateVersion = Lens.lens (\UpdateEnvironmentTemplateVersionResponse' {environmentTemplateVersion} -> environmentTemplateVersion) (\s@UpdateEnvironmentTemplateVersionResponse' {} a -> s {environmentTemplateVersion = a} :: UpdateEnvironmentTemplateVersionResponse)
 

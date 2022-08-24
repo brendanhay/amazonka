@@ -23,7 +23,7 @@
 -- Attempts to cancel an environment deployment on an UpdateEnvironment
 -- action, if the deployment is @IN_PROGRESS@. For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-update.html Update an environment>
--- in the /AWS Proton Administrator guide/.
+-- in the /Proton Administrator guide/.
 --
 -- The following list includes potential cancellation scenarios.
 --
@@ -146,7 +146,7 @@ instance Core.ToQuery CancelEnvironmentDeployment where
 data CancelEnvironmentDeploymentResponse = CancelEnvironmentDeploymentResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment summary data that\'s returned by AWS Proton.
+    -- | The environment summary data that\'s returned by Proton.
     environment :: Environment
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -161,7 +161,7 @@ data CancelEnvironmentDeploymentResponse = CancelEnvironmentDeploymentResponse'
 --
 -- 'httpStatus', 'cancelEnvironmentDeploymentResponse_httpStatus' - The response's http status code.
 --
--- 'environment', 'cancelEnvironmentDeploymentResponse_environment' - The environment summary data that\'s returned by AWS Proton.
+-- 'environment', 'cancelEnvironmentDeploymentResponse_environment' - The environment summary data that\'s returned by Proton.
 newCancelEnvironmentDeploymentResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -181,7 +181,7 @@ newCancelEnvironmentDeploymentResponse
 cancelEnvironmentDeploymentResponse_httpStatus :: Lens.Lens' CancelEnvironmentDeploymentResponse Prelude.Int
 cancelEnvironmentDeploymentResponse_httpStatus = Lens.lens (\CancelEnvironmentDeploymentResponse' {httpStatus} -> httpStatus) (\s@CancelEnvironmentDeploymentResponse' {} a -> s {httpStatus = a} :: CancelEnvironmentDeploymentResponse)
 
--- | The environment summary data that\'s returned by AWS Proton.
+-- | The environment summary data that\'s returned by Proton.
 cancelEnvironmentDeploymentResponse_environment :: Lens.Lens' CancelEnvironmentDeploymentResponse Environment
 cancelEnvironmentDeploymentResponse_environment = Lens.lens (\CancelEnvironmentDeploymentResponse' {environment} -> environment) (\s@CancelEnvironmentDeploymentResponse' {} a -> s {environment = a} :: CancelEnvironmentDeploymentResponse)
 

@@ -25,23 +25,23 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Proton.Types.ServicePipeline
 import Amazonka.Proton.Types.ServiceStatus
 
--- | The service detail data.
+-- | Detailed data of an Proton service resource.
 --
 -- /See:/ 'newService' smart constructor.
 data Service = Service'
   { -- | The Amazon Resource Name (ARN) of the repository connection. For more
     -- information, see
     -- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up a repository connection>
-    -- in the /AWS Proton Administrator Guide/ and
-    -- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with AWS Proton>
-    -- in the /AWS Proton User Guide/.
+    -- in the /Proton Administrator Guide/ and
+    -- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+    -- in the /Proton User Guide/.
     repositoryConnectionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the code repository branch that holds the code that\'s
-    -- deployed in AWS Proton.
+    -- deployed in Proton.
     branchName :: Prelude.Maybe Prelude.Text,
-    -- | A description of a service.
+    -- | A description of the service.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the code repository.
+    -- | The ID of the source code repository.
     repositoryId :: Prelude.Maybe Prelude.Text,
     -- | A service status message.
     statusMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -75,16 +75,16 @@ data Service = Service'
 -- 'repositoryConnectionArn', 'service_repositoryConnectionArn' - The Amazon Resource Name (ARN) of the repository connection. For more
 -- information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up a repository connection>
--- in the /AWS Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with AWS Proton>
--- in the /AWS Proton User Guide/.
+-- in the /Proton Administrator Guide/ and
+-- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+-- in the /Proton User Guide/.
 --
 -- 'branchName', 'service_branchName' - The name of the code repository branch that holds the code that\'s
--- deployed in AWS Proton.
+-- deployed in Proton.
 --
--- 'description', 'service_description' - A description of a service.
+-- 'description', 'service_description' - A description of the service.
 --
--- 'repositoryId', 'service_repositoryId' - The ID of the code repository.
+-- 'repositoryId', 'service_repositoryId' - The ID of the source code repository.
 --
 -- 'statusMessage', 'service_statusMessage' - A service status message.
 --
@@ -146,22 +146,22 @@ newService
 -- | The Amazon Resource Name (ARN) of the repository connection. For more
 -- information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/setting-up-for-service.html#setting-up-vcontrol Set up a repository connection>
--- in the /AWS Proton Administrator Guide/ and
--- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with AWS Proton>
--- in the /AWS Proton User Guide/.
+-- in the /Proton Administrator Guide/ and
+-- <https://docs.aws.amazon.com/proton/latest/userguide/proton-setup.html#setup-repo-connection Setting up with Proton>
+-- in the /Proton User Guide/.
 service_repositoryConnectionArn :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
 service_repositoryConnectionArn = Lens.lens (\Service' {repositoryConnectionArn} -> repositoryConnectionArn) (\s@Service' {} a -> s {repositoryConnectionArn = a} :: Service)
 
 -- | The name of the code repository branch that holds the code that\'s
--- deployed in AWS Proton.
+-- deployed in Proton.
 service_branchName :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
 service_branchName = Lens.lens (\Service' {branchName} -> branchName) (\s@Service' {} a -> s {branchName = a} :: Service)
 
--- | A description of a service.
+-- | A description of the service.
 service_description :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
 service_description = Lens.lens (\Service' {description} -> description) (\s@Service' {} a -> s {description = a} :: Service) Prelude.. Lens.mapping Core._Sensitive
 
--- | The ID of the code repository.
+-- | The ID of the source code repository.
 service_repositoryId :: Lens.Lens' Service (Prelude.Maybe Prelude.Text)
 service_repositoryId = Lens.lens (\Service' {repositoryId} -> repositoryId) (\s@Service' {} a -> s {repositoryId = a} :: Service)
 

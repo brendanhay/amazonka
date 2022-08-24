@@ -20,11 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Remove a tag from a resource. For more information, see /AWS Proton
--- resources and tagging/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html AWS Proton Administrator Guide>
+-- Remove a customer tag from a resource. A tag is a key-value pair of
+-- metadata associated with an Proton resource.
+--
+-- For more information, see /Proton resources and tagging/ in the
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/resources.html Proton Administrator Guide>
 -- or
--- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html AWS Proton User Guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/resources.html Proton User Guide>.
 module Amazonka.Proton.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -52,11 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource that the tag is to be
-    -- removed from.
+  { -- | The Amazon Resource Name (ARN) of the resource to remove customer tags
+    -- from.
     resourceArn :: Prelude.Text,
-    -- | An array of tag keys indicating the resource tags to be removed from the
-    -- resource.
+    -- | A list of customer tag keys that indicate the customer tags to be
+    -- removed from the resource.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +71,11 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource that the tag is to be
--- removed from.
+-- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to remove customer tags
+-- from.
 --
--- 'tagKeys', 'untagResource_tagKeys' - An array of tag keys indicating the resource tags to be removed from the
--- resource.
+-- 'tagKeys', 'untagResource_tagKeys' - A list of customer tag keys that indicate the customer tags to be
+-- removed from the resource.
 newUntagResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -84,13 +86,13 @@ newUntagResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource that the tag is to be
--- removed from.
+-- | The Amazon Resource Name (ARN) of the resource to remove customer tags
+-- from.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 
--- | An array of tag keys indicating the resource tags to be removed from the
--- resource.
+-- | A list of customer tag keys that indicate the customer tags to be
+-- removed from the resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 

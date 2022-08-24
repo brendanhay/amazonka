@@ -23,24 +23,39 @@
 -- Update an environment.
 --
 -- If the environment is associated with an environment account connection,
--- /don\'t/ update or include the @protonServiceRoleArn@ parameter to
--- update or connect to an environment account connection.
+-- /don\'t/ update or include the @protonServiceRoleArn@ and
+-- @provisioningRepository@ parameter to update or connect to an
+-- environment account connection.
 --
--- You can only update to a new environment account connection if it was
--- created in the same environment account that the current environment
--- account connection was created in and is associated with the current
--- environment.
+-- You can only update to a new environment account connection if that
+-- connection was created in the same environment account that the current
+-- environment account connection was created in. The account connection
+-- must also be associated with the current environment.
 --
 -- If the environment /isn\'t/ associated with an environment account
 -- connection, /don\'t/ update or include the
--- @environmentAccountConnectionId@ parameter to update or connect to an
--- environment account connection.
+-- @environmentAccountConnectionId@ parameter. You /can\'t/ update or
+-- connect the environment to an environment account connection if it
+-- /isn\'t/ already associated with an environment connection.
 --
 -- You can update either the @environmentAccountConnectionId@ or
 -- @protonServiceRoleArn@ parameter and value. You can’t update both.
 --
--- There are four modes for updating an environment as described in the
--- following. The @deploymentType@ field defines the mode.
+-- If the environment was configured for Amazon Web Services-managed
+-- provisioning, omit the @provisioningRepository@ parameter.
+--
+-- If the environment was configured for self-managed provisioning, specify
+-- the @provisioningRepository@ parameter and omit the
+-- @protonServiceRoleArn@ and @environmentAccountConnectionId@ parameters.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-environments.html Environments>
+-- and
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-works-prov-methods.html Provisioning methods>
+-- in the /Proton Administrator Guide/.
+--
+-- There are four modes for updating an environment. The @deploymentType@
+-- field defines the mode.
 --
 -- []
 --     @NONE@
@@ -71,7 +86,7 @@
 --     published, recommended (latest) major and minor version of the
 --     current template, by default. You can also specify a different major
 --     version that\'s higher than the major version in use and a minor
---     version (optional).
+--     version.
 module Amazonka.Proton.UpdateEnvironment
   ( -- * Creating a Request
     UpdateEnvironment (..),
@@ -79,10 +94,12 @@ module Amazonka.Proton.UpdateEnvironment
 
     -- * Request Lenses
     updateEnvironment_templateMajorVersion,
+    updateEnvironment_provisioningRepository,
     updateEnvironment_description,
     updateEnvironment_templateMinorVersion,
     updateEnvironment_spec,
     updateEnvironment_protonServiceRoleArn,
+    updateEnvironment_componentRoleArn,
     updateEnvironment_environmentAccountConnectionId,
     updateEnvironment_deploymentType,
     updateEnvironment_name,
@@ -106,17 +123,31 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | The ID of the major version of the environment to update.
+  { -- | The major version of the environment to update.
     templateMajorVersion :: Prelude.Maybe Prelude.Text,
+    -- | The infrastructure repository that you use to host your rendered
+    -- infrastructure templates for self-managed provisioning.
+    provisioningRepository :: Prelude.Maybe RepositoryBranchInput,
     -- | A description of the environment update.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The ID of the minor version of the environment to update.
+    -- | The minor version of the environment to update.
     templateMinorVersion :: Prelude.Maybe Prelude.Text,
     -- | The formatted specification that defines the update.
     spec :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The Amazon Resource Name (ARN) of the AWS Proton service role that
-    -- allows AWS Proton to make API calls to other services your behalf.
+    -- | The Amazon Resource Name (ARN) of the Proton service role that allows
+    -- Proton to make API calls to other services your behalf.
     protonServiceRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
+    -- when provisioning directly defined components in this environment. It
+    -- determines the scope of infrastructure that a component can provision.
+    --
+    -- The environment must have a @componentRoleArn@ to allow directly defined
+    -- components to be associated with the environment.
+    --
+    -- For more information about components, see
+    -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+    -- in the /Proton Administrator Guide/.
+    componentRoleArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment account connection.
     --
     -- You can only update to a new environment account connection if it was
@@ -124,8 +155,8 @@ data UpdateEnvironment = UpdateEnvironment'
     -- account connection was created in and is associated with the current
     -- environment.
     environmentAccountConnectionId :: Prelude.Maybe Prelude.Text,
-    -- | There are four modes for updating an environment as described in the
-    -- following. The @deploymentType@ field defines the mode.
+    -- | There are four modes for updating an environment. The @deploymentType@
+    -- field defines the mode.
     --
     -- []
     --     @NONE@
@@ -138,7 +169,7 @@ data UpdateEnvironment = UpdateEnvironment'
     --
     --     In this mode, the environment is deployed and updated with the new
     --     spec that you provide. Only requested parameters are updated.
-    --     /Don’t/ include minor or major version parameters when you use this
+    --     /Don’t/ include major or minor version parameters when you use this
     --     @deployment-type@.
     --
     -- []
@@ -171,16 +202,30 @@ data UpdateEnvironment = UpdateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The ID of the major version of the environment to update.
+-- 'templateMajorVersion', 'updateEnvironment_templateMajorVersion' - The major version of the environment to update.
+--
+-- 'provisioningRepository', 'updateEnvironment_provisioningRepository' - The infrastructure repository that you use to host your rendered
+-- infrastructure templates for self-managed provisioning.
 --
 -- 'description', 'updateEnvironment_description' - A description of the environment update.
 --
--- 'templateMinorVersion', 'updateEnvironment_templateMinorVersion' - The ID of the minor version of the environment to update.
+-- 'templateMinorVersion', 'updateEnvironment_templateMinorVersion' - The minor version of the environment to update.
 --
 -- 'spec', 'updateEnvironment_spec' - The formatted specification that defines the update.
 --
--- 'protonServiceRoleArn', 'updateEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the AWS Proton service role that
--- allows AWS Proton to make API calls to other services your behalf.
+-- 'protonServiceRoleArn', 'updateEnvironment_protonServiceRoleArn' - The Amazon Resource Name (ARN) of the Proton service role that allows
+-- Proton to make API calls to other services your behalf.
+--
+-- 'componentRoleArn', 'updateEnvironment_componentRoleArn' - The Amazon Resource Name (ARN) of the IAM service role that Proton uses
+-- when provisioning directly defined components in this environment. It
+-- determines the scope of infrastructure that a component can provision.
+--
+-- The environment must have a @componentRoleArn@ to allow directly defined
+-- components to be associated with the environment.
+--
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+-- in the /Proton Administrator Guide/.
 --
 -- 'environmentAccountConnectionId', 'updateEnvironment_environmentAccountConnectionId' - The ID of the environment account connection.
 --
@@ -189,8 +234,8 @@ data UpdateEnvironment = UpdateEnvironment'
 -- account connection was created in and is associated with the current
 -- environment.
 --
--- 'deploymentType', 'updateEnvironment_deploymentType' - There are four modes for updating an environment as described in the
--- following. The @deploymentType@ field defines the mode.
+-- 'deploymentType', 'updateEnvironment_deploymentType' - There are four modes for updating an environment. The @deploymentType@
+-- field defines the mode.
 --
 -- []
 --     @NONE@
@@ -203,7 +248,7 @@ data UpdateEnvironment = UpdateEnvironment'
 --
 --     In this mode, the environment is deployed and updated with the new
 --     spec that you provide. Only requested parameters are updated.
---     /Don’t/ include minor or major version parameters when you use this
+--     /Don’t/ include major or minor version parameters when you use this
 --     @deployment-type@.
 --
 -- []
@@ -234,24 +279,31 @@ newUpdateEnvironment pDeploymentType_ pName_ =
   UpdateEnvironment'
     { templateMajorVersion =
         Prelude.Nothing,
+      provisioningRepository = Prelude.Nothing,
       description = Prelude.Nothing,
       templateMinorVersion = Prelude.Nothing,
       spec = Prelude.Nothing,
       protonServiceRoleArn = Prelude.Nothing,
+      componentRoleArn = Prelude.Nothing,
       environmentAccountConnectionId = Prelude.Nothing,
       deploymentType = pDeploymentType_,
       name = pName_
     }
 
--- | The ID of the major version of the environment to update.
+-- | The major version of the environment to update.
 updateEnvironment_templateMajorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_templateMajorVersion = Lens.lens (\UpdateEnvironment' {templateMajorVersion} -> templateMajorVersion) (\s@UpdateEnvironment' {} a -> s {templateMajorVersion = a} :: UpdateEnvironment)
+
+-- | The infrastructure repository that you use to host your rendered
+-- infrastructure templates for self-managed provisioning.
+updateEnvironment_provisioningRepository :: Lens.Lens' UpdateEnvironment (Prelude.Maybe RepositoryBranchInput)
+updateEnvironment_provisioningRepository = Lens.lens (\UpdateEnvironment' {provisioningRepository} -> provisioningRepository) (\s@UpdateEnvironment' {} a -> s {provisioningRepository = a} :: UpdateEnvironment)
 
 -- | A description of the environment update.
 updateEnvironment_description :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_description = Lens.lens (\UpdateEnvironment' {description} -> description) (\s@UpdateEnvironment' {} a -> s {description = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
 
--- | The ID of the minor version of the environment to update.
+-- | The minor version of the environment to update.
 updateEnvironment_templateMinorVersion :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_templateMinorVersion = Lens.lens (\UpdateEnvironment' {templateMinorVersion} -> templateMinorVersion) (\s@UpdateEnvironment' {} a -> s {templateMinorVersion = a} :: UpdateEnvironment)
 
@@ -259,10 +311,23 @@ updateEnvironment_templateMinorVersion = Lens.lens (\UpdateEnvironment' {templat
 updateEnvironment_spec :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_spec = Lens.lens (\UpdateEnvironment' {spec} -> spec) (\s@UpdateEnvironment' {} a -> s {spec = a} :: UpdateEnvironment) Prelude.. Lens.mapping Core._Sensitive
 
--- | The Amazon Resource Name (ARN) of the AWS Proton service role that
--- allows AWS Proton to make API calls to other services your behalf.
+-- | The Amazon Resource Name (ARN) of the Proton service role that allows
+-- Proton to make API calls to other services your behalf.
 updateEnvironment_protonServiceRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_protonServiceRoleArn = Lens.lens (\UpdateEnvironment' {protonServiceRoleArn} -> protonServiceRoleArn) (\s@UpdateEnvironment' {} a -> s {protonServiceRoleArn = a} :: UpdateEnvironment)
+
+-- | The Amazon Resource Name (ARN) of the IAM service role that Proton uses
+-- when provisioning directly defined components in this environment. It
+-- determines the scope of infrastructure that a component can provision.
+--
+-- The environment must have a @componentRoleArn@ to allow directly defined
+-- components to be associated with the environment.
+--
+-- For more information about components, see
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-components.html Proton components>
+-- in the /Proton Administrator Guide/.
+updateEnvironment_componentRoleArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_componentRoleArn = Lens.lens (\UpdateEnvironment' {componentRoleArn} -> componentRoleArn) (\s@UpdateEnvironment' {} a -> s {componentRoleArn = a} :: UpdateEnvironment)
 
 -- | The ID of the environment account connection.
 --
@@ -273,8 +338,8 @@ updateEnvironment_protonServiceRoleArn = Lens.lens (\UpdateEnvironment' {protonS
 updateEnvironment_environmentAccountConnectionId :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_environmentAccountConnectionId = Lens.lens (\UpdateEnvironment' {environmentAccountConnectionId} -> environmentAccountConnectionId) (\s@UpdateEnvironment' {} a -> s {environmentAccountConnectionId = a} :: UpdateEnvironment)
 
--- | There are four modes for updating an environment as described in the
--- following. The @deploymentType@ field defines the mode.
+-- | There are four modes for updating an environment. The @deploymentType@
+-- field defines the mode.
 --
 -- []
 --     @NONE@
@@ -287,7 +352,7 @@ updateEnvironment_environmentAccountConnectionId = Lens.lens (\UpdateEnvironment
 --
 --     In this mode, the environment is deployed and updated with the new
 --     spec that you provide. Only requested parameters are updated.
---     /Don’t/ include minor or major version parameters when you use this
+--     /Don’t/ include major or minor version parameters when you use this
 --     @deployment-type@.
 --
 -- []
@@ -329,10 +394,12 @@ instance Core.AWSRequest UpdateEnvironment where
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =
     _salt `Prelude.hashWithSalt` templateMajorVersion
+      `Prelude.hashWithSalt` provisioningRepository
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` templateMinorVersion
       `Prelude.hashWithSalt` spec
       `Prelude.hashWithSalt` protonServiceRoleArn
+      `Prelude.hashWithSalt` componentRoleArn
       `Prelude.hashWithSalt` environmentAccountConnectionId
       `Prelude.hashWithSalt` deploymentType
       `Prelude.hashWithSalt` name
@@ -340,10 +407,12 @@ instance Prelude.Hashable UpdateEnvironment where
 instance Prelude.NFData UpdateEnvironment where
   rnf UpdateEnvironment' {..} =
     Prelude.rnf templateMajorVersion
+      `Prelude.seq` Prelude.rnf provisioningRepository
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf templateMinorVersion
       `Prelude.seq` Prelude.rnf spec
       `Prelude.seq` Prelude.rnf protonServiceRoleArn
+      `Prelude.seq` Prelude.rnf componentRoleArn
       `Prelude.seq` Prelude.rnf environmentAccountConnectionId
       `Prelude.seq` Prelude.rnf deploymentType
       `Prelude.seq` Prelude.rnf name
@@ -369,12 +438,16 @@ instance Core.ToJSON UpdateEnvironment where
       ( Prelude.catMaybes
           [ ("templateMajorVersion" Core..=)
               Prelude.<$> templateMajorVersion,
+            ("provisioningRepository" Core..=)
+              Prelude.<$> provisioningRepository,
             ("description" Core..=) Prelude.<$> description,
             ("templateMinorVersion" Core..=)
               Prelude.<$> templateMinorVersion,
             ("spec" Core..=) Prelude.<$> spec,
             ("protonServiceRoleArn" Core..=)
               Prelude.<$> protonServiceRoleArn,
+            ("componentRoleArn" Core..=)
+              Prelude.<$> componentRoleArn,
             ("environmentAccountConnectionId" Core..=)
               Prelude.<$> environmentAccountConnectionId,
             Prelude.Just
@@ -393,7 +466,7 @@ instance Core.ToQuery UpdateEnvironment where
 data UpdateEnvironmentResponse = UpdateEnvironmentResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment detail data that\'s returned by AWS Proton.
+    -- | The environment detail data that\'s returned by Proton.
     environment :: Environment
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -408,7 +481,7 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse'
 --
 -- 'httpStatus', 'updateEnvironmentResponse_httpStatus' - The response's http status code.
 --
--- 'environment', 'updateEnvironmentResponse_environment' - The environment detail data that\'s returned by AWS Proton.
+-- 'environment', 'updateEnvironmentResponse_environment' - The environment detail data that\'s returned by Proton.
 newUpdateEnvironmentResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -428,7 +501,7 @@ newUpdateEnvironmentResponse
 updateEnvironmentResponse_httpStatus :: Lens.Lens' UpdateEnvironmentResponse Prelude.Int
 updateEnvironmentResponse_httpStatus = Lens.lens (\UpdateEnvironmentResponse' {httpStatus} -> httpStatus) (\s@UpdateEnvironmentResponse' {} a -> s {httpStatus = a} :: UpdateEnvironmentResponse)
 
--- | The environment detail data that\'s returned by AWS Proton.
+-- | The environment detail data that\'s returned by Proton.
 updateEnvironmentResponse_environment :: Lens.Lens' UpdateEnvironmentResponse Environment
 updateEnvironmentResponse_environment = Lens.lens (\UpdateEnvironmentResponse' {environment} -> environment) (\s@UpdateEnvironmentResponse' {} a -> s {environment = a} :: UpdateEnvironmentResponse)
 

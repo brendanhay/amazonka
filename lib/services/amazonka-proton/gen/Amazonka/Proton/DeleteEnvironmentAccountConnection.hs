@@ -23,15 +23,15 @@
 -- In an environment account, delete an environment account connection.
 --
 -- After you delete an environment account connection that’s in use by an
--- AWS Proton environment, AWS Proton /can’t/ manage the environment
--- infrastructure resources until a new environment account connection is
--- accepted for the environment account and associated environment. You\'re
--- responsible for cleaning up provisioned resources that remain without an
--- environment connection.
+-- Proton environment, Proton /can’t/ manage the environment infrastructure
+-- resources until a new environment account connection is accepted for the
+-- environment account and associated environment. You\'re responsible for
+-- cleaning up provisioned resources that remain without an environment
+-- connection.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-env-account-connections.html Environment account connections>
--- in the /AWS Proton Administrator guide/.
+-- in the /Proton Administrator guide/.
 module Amazonka.Proton.DeleteEnvironmentAccountConnection
   ( -- * Creating a Request
     DeleteEnvironmentAccountConnection (..),
@@ -156,8 +156,7 @@ instance
 
 -- | /See:/ 'newDeleteEnvironmentAccountConnectionResponse' smart constructor.
 data DeleteEnvironmentAccountConnectionResponse = DeleteEnvironmentAccountConnectionResponse'
-  { -- | The environment account connection detail data that\'s returned by AWS
-    -- Proton.
+  { -- | The detailed data of the environment account connection being deleted.
     environmentAccountConnection :: Prelude.Maybe EnvironmentAccountConnection,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -172,8 +171,7 @@ data DeleteEnvironmentAccountConnectionResponse = DeleteEnvironmentAccountConnec
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'environmentAccountConnection', 'deleteEnvironmentAccountConnectionResponse_environmentAccountConnection' - The environment account connection detail data that\'s returned by AWS
--- Proton.
+-- 'environmentAccountConnection', 'deleteEnvironmentAccountConnectionResponse_environmentAccountConnection' - The detailed data of the environment account connection being deleted.
 --
 -- 'httpStatus', 'deleteEnvironmentAccountConnectionResponse_httpStatus' - The response's http status code.
 newDeleteEnvironmentAccountConnectionResponse ::
@@ -188,8 +186,7 @@ newDeleteEnvironmentAccountConnectionResponse
         httpStatus = pHttpStatus_
       }
 
--- | The environment account connection detail data that\'s returned by AWS
--- Proton.
+-- | The detailed data of the environment account connection being deleted.
 deleteEnvironmentAccountConnectionResponse_environmentAccountConnection :: Lens.Lens' DeleteEnvironmentAccountConnectionResponse (Prelude.Maybe EnvironmentAccountConnection)
 deleteEnvironmentAccountConnectionResponse_environmentAccountConnection = Lens.lens (\DeleteEnvironmentAccountConnectionResponse' {environmentAccountConnection} -> environmentAccountConnection) (\s@DeleteEnvironmentAccountConnectionResponse' {} a -> s {environmentAccountConnection = a} :: DeleteEnvironmentAccountConnectionResponse)
 

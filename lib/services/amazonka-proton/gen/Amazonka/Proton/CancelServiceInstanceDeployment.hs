@@ -23,9 +23,9 @@
 -- Attempts to cancel a service instance deployment on an
 -- UpdateServiceInstance action, if the deployment is @IN_PROGRESS@. For
 -- more information, see /Update a service instance/ in the
--- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html AWS Proton Administrator guide>
+-- <https://docs.aws.amazon.com/proton/latest/adminguide/ag-svc-instance-update.html Proton Administrator guide>
 -- or the
--- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html AWS Proton User guide>.
+-- <https://docs.aws.amazon.com/proton/latest/userguide/ug-svc-instance-update.html Proton User guide>.
 --
 -- The following list includes potential cancellation scenarios.
 --
@@ -179,7 +179,7 @@ instance Core.ToQuery CancelServiceInstanceDeployment where
 data CancelServiceInstanceDeploymentResponse = CancelServiceInstanceDeploymentResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The service instance summary data that\'s returned by AWS Proton.
+    -- | The service instance summary data that\'s returned by Proton.
     serviceInstance :: ServiceInstance
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -194,7 +194,7 @@ data CancelServiceInstanceDeploymentResponse = CancelServiceInstanceDeploymentRe
 --
 -- 'httpStatus', 'cancelServiceInstanceDeploymentResponse_httpStatus' - The response's http status code.
 --
--- 'serviceInstance', 'cancelServiceInstanceDeploymentResponse_serviceInstance' - The service instance summary data that\'s returned by AWS Proton.
+-- 'serviceInstance', 'cancelServiceInstanceDeploymentResponse_serviceInstance' - The service instance summary data that\'s returned by Proton.
 newCancelServiceInstanceDeploymentResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -215,7 +215,7 @@ newCancelServiceInstanceDeploymentResponse
 cancelServiceInstanceDeploymentResponse_httpStatus :: Lens.Lens' CancelServiceInstanceDeploymentResponse Prelude.Int
 cancelServiceInstanceDeploymentResponse_httpStatus = Lens.lens (\CancelServiceInstanceDeploymentResponse' {httpStatus} -> httpStatus) (\s@CancelServiceInstanceDeploymentResponse' {} a -> s {httpStatus = a} :: CancelServiceInstanceDeploymentResponse)
 
--- | The service instance summary data that\'s returned by AWS Proton.
+-- | The service instance summary data that\'s returned by Proton.
 cancelServiceInstanceDeploymentResponse_serviceInstance :: Lens.Lens' CancelServiceInstanceDeploymentResponse ServiceInstance
 cancelServiceInstanceDeploymentResponse_serviceInstance = Lens.lens (\CancelServiceInstanceDeploymentResponse' {serviceInstance} -> serviceInstance) (\s@CancelServiceInstanceDeploymentResponse' {} a -> s {serviceInstance = a} :: CancelServiceInstanceDeploymentResponse)
 

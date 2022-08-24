@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get detail data for an environment.
+-- Get detailed data for an environment.
 module Amazonka.Proton.GetEnvironment
   ( -- * Creating a Request
     GetEnvironment (..),
@@ -48,7 +48,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newGetEnvironment' smart constructor.
 data GetEnvironment = GetEnvironment'
-  { -- | The name of the environment that you want to get the detail data for.
+  { -- | The name of the environment that you want to get the detailed data for.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,7 +61,7 @@ data GetEnvironment = GetEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'getEnvironment_name' - The name of the environment that you want to get the detail data for.
+-- 'name', 'getEnvironment_name' - The name of the environment that you want to get the detailed data for.
 newGetEnvironment ::
   -- | 'name'
   Prelude.Text ->
@@ -69,7 +69,7 @@ newGetEnvironment ::
 newGetEnvironment pName_ =
   GetEnvironment' {name = pName_}
 
--- | The name of the environment that you want to get the detail data for.
+-- | The name of the environment that you want to get the detailed data for.
 getEnvironment_name :: Lens.Lens' GetEnvironment Prelude.Text
 getEnvironment_name = Lens.lens (\GetEnvironment' {name} -> name) (\s@GetEnvironment' {} a -> s {name = a} :: GetEnvironment)
 
@@ -125,7 +125,7 @@ instance Core.ToQuery GetEnvironment where
 data GetEnvironmentResponse = GetEnvironmentResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The environment detail data that\'s returned by AWS Proton.
+    -- | The detailed data of the requested environment.
     environment :: Environment
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -140,7 +140,7 @@ data GetEnvironmentResponse = GetEnvironmentResponse'
 --
 -- 'httpStatus', 'getEnvironmentResponse_httpStatus' - The response's http status code.
 --
--- 'environment', 'getEnvironmentResponse_environment' - The environment detail data that\'s returned by AWS Proton.
+-- 'environment', 'getEnvironmentResponse_environment' - The detailed data of the requested environment.
 newGetEnvironmentResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -157,7 +157,7 @@ newGetEnvironmentResponse pHttpStatus_ pEnvironment_ =
 getEnvironmentResponse_httpStatus :: Lens.Lens' GetEnvironmentResponse Prelude.Int
 getEnvironmentResponse_httpStatus = Lens.lens (\GetEnvironmentResponse' {httpStatus} -> httpStatus) (\s@GetEnvironmentResponse' {} a -> s {httpStatus = a} :: GetEnvironmentResponse)
 
--- | The environment detail data that\'s returned by AWS Proton.
+-- | The detailed data of the requested environment.
 getEnvironmentResponse_environment :: Lens.Lens' GetEnvironmentResponse Environment
 getEnvironmentResponse_environment = Lens.lens (\GetEnvironmentResponse' {environment} -> environment) (\s@GetEnvironmentResponse' {} a -> s {environment = a} :: GetEnvironmentResponse)
 

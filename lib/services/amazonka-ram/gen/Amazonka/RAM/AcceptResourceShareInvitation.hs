@@ -21,7 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Accepts an invitation to a resource share from another Amazon Web
--- Services account.
+-- Services account. After you accept the invitation, the resources
+-- included in the resource share are available to interact with in the
+-- relevant Amazon Web Services Management Consoles and tools.
 module Amazonka.RAM.AcceptResourceShareInvitation
   ( -- * Creating a Request
     AcceptResourceShareInvitation (..),
@@ -51,10 +53,20 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newAcceptResourceShareInvitation' smart constructor.
 data AcceptResourceShareInvitation = AcceptResourceShareInvitation'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | Specifies a unique, case-sensitive identifier that you provide to ensure
+    -- the idempotency of the request. This lets you safely retry the request
+    -- without accidentally performing the same operation a second time.
+    -- Passing the same value to a later call to an operation requires that you
+    -- also pass the same value for all other parameters. We recommend that you
+    -- use a
+    -- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+    --
+    -- If you don\'t provide this value, then Amazon Web Services generates a
+    -- random one for you.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the invitation.
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the invitation that you want to accept.
     resourceShareInvitationArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,10 +79,20 @@ data AcceptResourceShareInvitation = AcceptResourceShareInvitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'acceptResourceShareInvitation_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'acceptResourceShareInvitation_clientToken' - Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
 --
--- 'resourceShareInvitationArn', 'acceptResourceShareInvitation_resourceShareInvitationArn' - The Amazon Resource Name (ARN) of the invitation.
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
+--
+-- 'resourceShareInvitationArn', 'acceptResourceShareInvitation_resourceShareInvitationArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the invitation that you want to accept.
 newAcceptResourceShareInvitation ::
   -- | 'resourceShareInvitationArn'
   Prelude.Text ->
@@ -84,12 +106,22 @@ newAcceptResourceShareInvitation
           pResourceShareInvitationArn_
       }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | Specifies a unique, case-sensitive identifier that you provide to ensure
+-- the idempotency of the request. This lets you safely retry the request
+-- without accidentally performing the same operation a second time.
+-- Passing the same value to a later call to an operation requires that you
+-- also pass the same value for all other parameters. We recommend that you
+-- use a
+-- <https://wikipedia.org/wiki/Universally_unique_identifier UUID type of value.>.
+--
+-- If you don\'t provide this value, then Amazon Web Services generates a
+-- random one for you.
 acceptResourceShareInvitation_clientToken :: Lens.Lens' AcceptResourceShareInvitation (Prelude.Maybe Prelude.Text)
 acceptResourceShareInvitation_clientToken = Lens.lens (\AcceptResourceShareInvitation' {clientToken} -> clientToken) (\s@AcceptResourceShareInvitation' {} a -> s {clientToken = a} :: AcceptResourceShareInvitation)
 
--- | The Amazon Resource Name (ARN) of the invitation.
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the invitation that you want to accept.
 acceptResourceShareInvitation_resourceShareInvitationArn :: Lens.Lens' AcceptResourceShareInvitation Prelude.Text
 acceptResourceShareInvitation_resourceShareInvitationArn = Lens.lens (\AcceptResourceShareInvitation' {resourceShareInvitationArn} -> resourceShareInvitationArn) (\s@AcceptResourceShareInvitation' {} a -> s {resourceShareInvitationArn = a} :: AcceptResourceShareInvitation)
 
@@ -155,10 +187,13 @@ instance Core.ToQuery AcceptResourceShareInvitation where
 
 -- | /See:/ 'newAcceptResourceShareInvitationResponse' smart constructor.
 data AcceptResourceShareInvitationResponse = AcceptResourceShareInvitationResponse'
-  { -- | A unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request.
+  { -- | The idempotency identifier associated with this request. If you want to
+    -- repeat the same operation in an idempotent manner then you must include
+    -- this value in the @clientToken@ request parameter of that later call.
+    -- All other parameters must also have the same values that you used in the
+    -- first call.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the invitation.
+    -- | An object that contains information about the specified invitation.
     resourceShareInvitation :: Prelude.Maybe ResourceShareInvitation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -173,10 +208,13 @@ data AcceptResourceShareInvitationResponse = AcceptResourceShareInvitationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'clientToken', 'acceptResourceShareInvitationResponse_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- 'clientToken', 'acceptResourceShareInvitationResponse_clientToken' - The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 --
--- 'resourceShareInvitation', 'acceptResourceShareInvitationResponse_resourceShareInvitation' - Information about the invitation.
+-- 'resourceShareInvitation', 'acceptResourceShareInvitationResponse_resourceShareInvitation' - An object that contains information about the specified invitation.
 --
 -- 'httpStatus', 'acceptResourceShareInvitationResponse_httpStatus' - The response's http status code.
 newAcceptResourceShareInvitationResponse ::
@@ -192,12 +230,15 @@ newAcceptResourceShareInvitationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request.
+-- | The idempotency identifier associated with this request. If you want to
+-- repeat the same operation in an idempotent manner then you must include
+-- this value in the @clientToken@ request parameter of that later call.
+-- All other parameters must also have the same values that you used in the
+-- first call.
 acceptResourceShareInvitationResponse_clientToken :: Lens.Lens' AcceptResourceShareInvitationResponse (Prelude.Maybe Prelude.Text)
 acceptResourceShareInvitationResponse_clientToken = Lens.lens (\AcceptResourceShareInvitationResponse' {clientToken} -> clientToken) (\s@AcceptResourceShareInvitationResponse' {} a -> s {clientToken = a} :: AcceptResourceShareInvitationResponse)
 
--- | Information about the invitation.
+-- | An object that contains information about the specified invitation.
 acceptResourceShareInvitationResponse_resourceShareInvitation :: Lens.Lens' AcceptResourceShareInvitationResponse (Prelude.Maybe ResourceShareInvitation)
 acceptResourceShareInvitationResponse_resourceShareInvitation = Lens.lens (\AcceptResourceShareInvitationResponse' {resourceShareInvitation} -> resourceShareInvitation) (\s@AcceptResourceShareInvitationResponse' {} a -> s {resourceShareInvitation = a} :: AcceptResourceShareInvitationResponse)
 

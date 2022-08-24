@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the RAM permissions.
+-- Retrieves a list of available RAM permissions that you can use for the
+-- supported resource types.
 module Amazonka.RAM.ListPermissions
   ( -- * Creating a Request
     ListPermissions (..),
@@ -51,15 +52,27 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListPermissions' smart constructor.
 data ListPermissions = ListPermissions'
-  { -- | Specifies the resource type for which to list permissions. For example,
-    -- to list only permissions that apply to EC2 subnets, specify
-    -- @ec2:Subnet@.
+  { -- | Specifies that you want to list permissions for only the specified
+    -- resource type. For example, to list only permissions that apply to EC2
+    -- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
+    -- operation to get the specific string required.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The token for the next page of results.
+    -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | Specifies the total number of results that you want included on each
+    -- page of the response. If you do not include this parameter, it defaults
+    -- to a value that is specific to the operation. If additional items exist
+    -- beyond the number you specify, the @NextToken@ response element is
+    -- returned with a value (not null). Include the specified value as the
+    -- @NextToken@ request parameter in the next call to the operation to get
+    -- the next part of the results. Note that the service might return fewer
+    -- results than the maximum even when there are more results available. You
+    -- should check @NextToken@ after every operation to ensure that you
+    -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,15 +85,27 @@ data ListPermissions = ListPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'listPermissions_resourceType' - Specifies the resource type for which to list permissions. For example,
--- to list only permissions that apply to EC2 subnets, specify
--- @ec2:Subnet@.
+-- 'resourceType', 'listPermissions_resourceType' - Specifies that you want to list permissions for only the specified
+-- resource type. For example, to list only permissions that apply to EC2
+-- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
+-- operation to get the specific string required.
 --
--- 'nextToken', 'listPermissions_nextToken' - The token for the next page of results.
+-- 'nextToken', 'listPermissions_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 --
--- 'maxResults', 'listPermissions_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'maxResults', 'listPermissions_maxResults' - Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 newListPermissions ::
   ListPermissions
 newListPermissions =
@@ -90,19 +115,31 @@ newListPermissions =
       maxResults = Prelude.Nothing
     }
 
--- | Specifies the resource type for which to list permissions. For example,
--- to list only permissions that apply to EC2 subnets, specify
--- @ec2:Subnet@.
+-- | Specifies that you want to list permissions for only the specified
+-- resource type. For example, to list only permissions that apply to EC2
+-- subnets, specify @ec2:Subnet@. You can use the ListResourceTypes
+-- operation to get the specific string required.
 listPermissions_resourceType :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
 listPermissions_resourceType = Lens.lens (\ListPermissions' {resourceType} -> resourceType) (\s@ListPermissions' {} a -> s {resourceType = a} :: ListPermissions)
 
--- | The token for the next page of results.
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 listPermissions_nextToken :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Text)
 listPermissions_nextToken = Lens.lens (\ListPermissions' {nextToken} -> nextToken) (\s@ListPermissions' {} a -> s {nextToken = a} :: ListPermissions)
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 listPermissions_maxResults :: Lens.Lens' ListPermissions (Prelude.Maybe Prelude.Natural)
 listPermissions_maxResults = Lens.lens (\ListPermissions' {maxResults} -> maxResults) (\s@ListPermissions' {} a -> s {maxResults = a} :: ListPermissions)
 
@@ -161,10 +198,14 @@ instance Core.ToQuery ListPermissions where
 
 -- | /See:/ 'newListPermissionsResponse' smart constructor.
 data ListPermissionsResponse = ListPermissionsResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | If present, this value indicates that more output is available than is
+    -- included in the current response. Use this value in the @NextToken@
+    -- request parameter in a subsequent call to the operation to get the next
+    -- part of the output. You should repeat this until the @NextToken@
+    -- response element comes back as @null@. This indicates that this is the
+    -- last page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the permissions.
+    -- | An array of objects with information about the permissions.
     permissions :: Prelude.Maybe [ResourceSharePermissionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -179,10 +220,14 @@ data ListPermissionsResponse = ListPermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPermissionsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'listPermissionsResponse_nextToken' - If present, this value indicates that more output is available than is
+-- included in the current response. Use this value in the @NextToken@
+-- request parameter in a subsequent call to the operation to get the next
+-- part of the output. You should repeat this until the @NextToken@
+-- response element comes back as @null@. This indicates that this is the
+-- last page of results.
 --
--- 'permissions', 'listPermissionsResponse_permissions' - Information about the permissions.
+-- 'permissions', 'listPermissionsResponse_permissions' - An array of objects with information about the permissions.
 --
 -- 'httpStatus', 'listPermissionsResponse_httpStatus' - The response's http status code.
 newListPermissionsResponse ::
@@ -197,12 +242,16 @@ newListPermissionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | If present, this value indicates that more output is available than is
+-- included in the current response. Use this value in the @NextToken@
+-- request parameter in a subsequent call to the operation to get the next
+-- part of the output. You should repeat this until the @NextToken@
+-- response element comes back as @null@. This indicates that this is the
+-- last page of results.
 listPermissionsResponse_nextToken :: Lens.Lens' ListPermissionsResponse (Prelude.Maybe Prelude.Text)
 listPermissionsResponse_nextToken = Lens.lens (\ListPermissionsResponse' {nextToken} -> nextToken) (\s@ListPermissionsResponse' {} a -> s {nextToken = a} :: ListPermissionsResponse)
 
--- | Information about the permissions.
+-- | An array of objects with information about the permissions.
 listPermissionsResponse_permissions :: Lens.Lens' ListPermissionsResponse (Prelude.Maybe [ResourceSharePermissionSummary])
 listPermissionsResponse_permissions = Lens.lens (\ListPermissionsResponse' {permissions} -> permissions) (\s@ListPermissionsResponse' {} a -> s {permissions = a} :: ListPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 

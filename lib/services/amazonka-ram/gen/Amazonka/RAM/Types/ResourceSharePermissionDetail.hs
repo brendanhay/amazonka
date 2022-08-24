@@ -27,27 +27,31 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newResourceSharePermissionDetail' smart constructor.
 data ResourceSharePermissionDetail = ResourceSharePermissionDetail'
-  { -- | The resource type to which the permission applies.
+  { -- | The resource type to which this permission applies.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the permission.
+    -- | The name of this permission.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the permission.
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of this RAM permission.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The permission\'s effect and actions in JSON format. The @effect@
-    -- indicates whether the actions are allowed or denied. The @actions@ list
-    -- the API actions to which the principal is granted or denied access.
+    -- indicates whether the specified actions are allowed or denied. The
+    -- @actions@ list the operations to which the principal is granted or
+    -- denied access.
     permission :: Prelude.Maybe Prelude.Text,
     -- | The date and time when the permission was last updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies whether the version of the permission is set to the default
-    -- version for this permission.
+    -- | Specifies whether the version of the permission represented in this
+    -- structure is the default version for this permission.
     defaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The date and time when the permission was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | Specifies whether the version of the permission is set to the default
-    -- version for this resource type.
+    -- | Specifies whether the version of the permission represented in this
+    -- structure is the default version for all resources of this resource
+    -- type.
     isResourceTypeDefault :: Prelude.Maybe Prelude.Bool,
-    -- | The identifier for the version of the permission.
+    -- | The version of the permission represented in this structure.
     version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,27 +64,31 @@ data ResourceSharePermissionDetail = ResourceSharePermissionDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'resourceSharePermissionDetail_resourceType' - The resource type to which the permission applies.
+-- 'resourceType', 'resourceSharePermissionDetail_resourceType' - The resource type to which this permission applies.
 --
--- 'name', 'resourceSharePermissionDetail_name' - The name of the permission.
+-- 'name', 'resourceSharePermissionDetail_name' - The name of this permission.
 --
--- 'arn', 'resourceSharePermissionDetail_arn' - The Amazon Resource Name (ARN) of the permission.
+-- 'arn', 'resourceSharePermissionDetail_arn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of this RAM permission.
 --
 -- 'permission', 'resourceSharePermissionDetail_permission' - The permission\'s effect and actions in JSON format. The @effect@
--- indicates whether the actions are allowed or denied. The @actions@ list
--- the API actions to which the principal is granted or denied access.
+-- indicates whether the specified actions are allowed or denied. The
+-- @actions@ list the operations to which the principal is granted or
+-- denied access.
 --
 -- 'lastUpdatedTime', 'resourceSharePermissionDetail_lastUpdatedTime' - The date and time when the permission was last updated.
 --
--- 'defaultVersion', 'resourceSharePermissionDetail_defaultVersion' - Specifies whether the version of the permission is set to the default
--- version for this permission.
+-- 'defaultVersion', 'resourceSharePermissionDetail_defaultVersion' - Specifies whether the version of the permission represented in this
+-- structure is the default version for this permission.
 --
 -- 'creationTime', 'resourceSharePermissionDetail_creationTime' - The date and time when the permission was created.
 --
--- 'isResourceTypeDefault', 'resourceSharePermissionDetail_isResourceTypeDefault' - Specifies whether the version of the permission is set to the default
--- version for this resource type.
+-- 'isResourceTypeDefault', 'resourceSharePermissionDetail_isResourceTypeDefault' - Specifies whether the version of the permission represented in this
+-- structure is the default version for all resources of this resource
+-- type.
 --
--- 'version', 'resourceSharePermissionDetail_version' - The identifier for the version of the permission.
+-- 'version', 'resourceSharePermissionDetail_version' - The version of the permission represented in this structure.
 newResourceSharePermissionDetail ::
   ResourceSharePermissionDetail
 newResourceSharePermissionDetail =
@@ -97,21 +105,24 @@ newResourceSharePermissionDetail =
       version = Prelude.Nothing
     }
 
--- | The resource type to which the permission applies.
+-- | The resource type to which this permission applies.
 resourceSharePermissionDetail_resourceType :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.Text)
 resourceSharePermissionDetail_resourceType = Lens.lens (\ResourceSharePermissionDetail' {resourceType} -> resourceType) (\s@ResourceSharePermissionDetail' {} a -> s {resourceType = a} :: ResourceSharePermissionDetail)
 
--- | The name of the permission.
+-- | The name of this permission.
 resourceSharePermissionDetail_name :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.Text)
 resourceSharePermissionDetail_name = Lens.lens (\ResourceSharePermissionDetail' {name} -> name) (\s@ResourceSharePermissionDetail' {} a -> s {name = a} :: ResourceSharePermissionDetail)
 
--- | The Amazon Resource Name (ARN) of the permission.
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of this RAM permission.
 resourceSharePermissionDetail_arn :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.Text)
 resourceSharePermissionDetail_arn = Lens.lens (\ResourceSharePermissionDetail' {arn} -> arn) (\s@ResourceSharePermissionDetail' {} a -> s {arn = a} :: ResourceSharePermissionDetail)
 
 -- | The permission\'s effect and actions in JSON format. The @effect@
--- indicates whether the actions are allowed or denied. The @actions@ list
--- the API actions to which the principal is granted or denied access.
+-- indicates whether the specified actions are allowed or denied. The
+-- @actions@ list the operations to which the principal is granted or
+-- denied access.
 resourceSharePermissionDetail_permission :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.Text)
 resourceSharePermissionDetail_permission = Lens.lens (\ResourceSharePermissionDetail' {permission} -> permission) (\s@ResourceSharePermissionDetail' {} a -> s {permission = a} :: ResourceSharePermissionDetail)
 
@@ -119,8 +130,8 @@ resourceSharePermissionDetail_permission = Lens.lens (\ResourceSharePermissionDe
 resourceSharePermissionDetail_lastUpdatedTime :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.UTCTime)
 resourceSharePermissionDetail_lastUpdatedTime = Lens.lens (\ResourceSharePermissionDetail' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceSharePermissionDetail' {} a -> s {lastUpdatedTime = a} :: ResourceSharePermissionDetail) Prelude.. Lens.mapping Core._Time
 
--- | Specifies whether the version of the permission is set to the default
--- version for this permission.
+-- | Specifies whether the version of the permission represented in this
+-- structure is the default version for this permission.
 resourceSharePermissionDetail_defaultVersion :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.Bool)
 resourceSharePermissionDetail_defaultVersion = Lens.lens (\ResourceSharePermissionDetail' {defaultVersion} -> defaultVersion) (\s@ResourceSharePermissionDetail' {} a -> s {defaultVersion = a} :: ResourceSharePermissionDetail)
 
@@ -128,12 +139,13 @@ resourceSharePermissionDetail_defaultVersion = Lens.lens (\ResourceSharePermissi
 resourceSharePermissionDetail_creationTime :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.UTCTime)
 resourceSharePermissionDetail_creationTime = Lens.lens (\ResourceSharePermissionDetail' {creationTime} -> creationTime) (\s@ResourceSharePermissionDetail' {} a -> s {creationTime = a} :: ResourceSharePermissionDetail) Prelude.. Lens.mapping Core._Time
 
--- | Specifies whether the version of the permission is set to the default
--- version for this resource type.
+-- | Specifies whether the version of the permission represented in this
+-- structure is the default version for all resources of this resource
+-- type.
 resourceSharePermissionDetail_isResourceTypeDefault :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.Bool)
 resourceSharePermissionDetail_isResourceTypeDefault = Lens.lens (\ResourceSharePermissionDetail' {isResourceTypeDefault} -> isResourceTypeDefault) (\s@ResourceSharePermissionDetail' {} a -> s {isResourceTypeDefault = a} :: ResourceSharePermissionDetail)
 
--- | The identifier for the version of the permission.
+-- | The version of the permission represented in this structure.
 resourceSharePermissionDetail_version :: Lens.Lens' ResourceSharePermissionDetail (Prelude.Maybe Prelude.Text)
 resourceSharePermissionDetail_version = Lens.lens (\ResourceSharePermissionDetail' {version} -> version) (\s@ResourceSharePermissionDetail' {} a -> s {version = a} :: ResourceSharePermissionDetail)
 

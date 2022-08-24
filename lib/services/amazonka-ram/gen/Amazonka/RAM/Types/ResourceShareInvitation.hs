@@ -25,17 +25,19 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceShareAssociation
 import Amazonka.RAM.Types.ResourceShareInvitationStatus
 
--- | Describes an invitation to join a resource share.
+-- | Describes an invitation for an Amazon Web Services account to join a
+-- resource share.
 --
 -- /See:/ 'newResourceShareInvitation' smart constructor.
 data ResourceShareInvitation = ResourceShareInvitation'
-  { -- | The Amazon Resource Name (ARN) of the resource share.
+  { -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share
     resourceShareArn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the invitation.
+    -- | The current status of the invitation.
     status :: Prelude.Maybe ResourceShareInvitationStatus,
     -- | To view the resources associated with a pending resource share
-    -- invitation, use
-    -- <https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html ListPendingInvitationResources>.
+    -- invitation, use ListPendingInvitationResources.
     resourceShareAssociations :: Prelude.Maybe [ResourceShareAssociation],
     -- | The date and time when the invitation was sent.
     invitationTimestamp :: Prelude.Maybe Core.POSIX,
@@ -43,10 +45,13 @@ data ResourceShareInvitation = ResourceShareInvitation'
     senderAccountId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account that received the invitation.
     receiverAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM user or IAM role that received
-    -- the invitation.
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the IAM user or role that received the invitation.
     receiverArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the invitation.
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the invitation.
     resourceShareInvitationArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the resource share.
     resourceShareName :: Prelude.Maybe Prelude.Text
@@ -61,13 +66,14 @@ data ResourceShareInvitation = ResourceShareInvitation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceShareArn', 'resourceShareInvitation_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+-- 'resourceShareArn', 'resourceShareInvitation_resourceShareArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share
 --
--- 'status', 'resourceShareInvitation_status' - The status of the invitation.
+-- 'status', 'resourceShareInvitation_status' - The current status of the invitation.
 --
 -- 'resourceShareAssociations', 'resourceShareInvitation_resourceShareAssociations' - To view the resources associated with a pending resource share
--- invitation, use
--- <https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html ListPendingInvitationResources>.
+-- invitation, use ListPendingInvitationResources.
 --
 -- 'invitationTimestamp', 'resourceShareInvitation_invitationTimestamp' - The date and time when the invitation was sent.
 --
@@ -75,10 +81,13 @@ data ResourceShareInvitation = ResourceShareInvitation'
 --
 -- 'receiverAccountId', 'resourceShareInvitation_receiverAccountId' - The ID of the Amazon Web Services account that received the invitation.
 --
--- 'receiverArn', 'resourceShareInvitation_receiverArn' - The Amazon Resource Name (ARN) of the IAM user or IAM role that received
--- the invitation.
+-- 'receiverArn', 'resourceShareInvitation_receiverArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the IAM user or role that received the invitation.
 --
--- 'resourceShareInvitationArn', 'resourceShareInvitation_resourceShareInvitationArn' - The Amazon Resource Name (ARN) of the invitation.
+-- 'resourceShareInvitationArn', 'resourceShareInvitation_resourceShareInvitationArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the invitation.
 --
 -- 'resourceShareName', 'resourceShareInvitation_resourceShareName' - The name of the resource share.
 newResourceShareInvitation ::
@@ -97,17 +106,18 @@ newResourceShareInvitation =
       resourceShareName = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share
 resourceShareInvitation_resourceShareArn :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
 resourceShareInvitation_resourceShareArn = Lens.lens (\ResourceShareInvitation' {resourceShareArn} -> resourceShareArn) (\s@ResourceShareInvitation' {} a -> s {resourceShareArn = a} :: ResourceShareInvitation)
 
--- | The status of the invitation.
+-- | The current status of the invitation.
 resourceShareInvitation_status :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe ResourceShareInvitationStatus)
 resourceShareInvitation_status = Lens.lens (\ResourceShareInvitation' {status} -> status) (\s@ResourceShareInvitation' {} a -> s {status = a} :: ResourceShareInvitation)
 
 -- | To view the resources associated with a pending resource share
--- invitation, use
--- <https://docs.aws.amazon.com/ram/latest/APIReference/API_ListPendingInvitationResources.html ListPendingInvitationResources>.
+-- invitation, use ListPendingInvitationResources.
 resourceShareInvitation_resourceShareAssociations :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe [ResourceShareAssociation])
 resourceShareInvitation_resourceShareAssociations = Lens.lens (\ResourceShareInvitation' {resourceShareAssociations} -> resourceShareAssociations) (\s@ResourceShareInvitation' {} a -> s {resourceShareAssociations = a} :: ResourceShareInvitation) Prelude.. Lens.mapping Lens.coerced
 
@@ -123,12 +133,15 @@ resourceShareInvitation_senderAccountId = Lens.lens (\ResourceShareInvitation' {
 resourceShareInvitation_receiverAccountId :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
 resourceShareInvitation_receiverAccountId = Lens.lens (\ResourceShareInvitation' {receiverAccountId} -> receiverAccountId) (\s@ResourceShareInvitation' {} a -> s {receiverAccountId = a} :: ResourceShareInvitation)
 
--- | The Amazon Resource Name (ARN) of the IAM user or IAM role that received
--- the invitation.
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the IAM user or role that received the invitation.
 resourceShareInvitation_receiverArn :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
 resourceShareInvitation_receiverArn = Lens.lens (\ResourceShareInvitation' {receiverArn} -> receiverArn) (\s@ResourceShareInvitation' {} a -> s {receiverArn = a} :: ResourceShareInvitation)
 
--- | The Amazon Resource Name (ARN) of the invitation.
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the invitation.
 resourceShareInvitation_resourceShareInvitationArn :: Lens.Lens' ResourceShareInvitation (Prelude.Maybe Prelude.Text)
 resourceShareInvitation_resourceShareInvitationArn = Lens.lens (\ResourceShareInvitation' {resourceShareInvitationArn} -> resourceShareInvitationArn) (\s@ResourceShareInvitation' {} a -> s {resourceShareInvitationArn = a} :: ResourceShareInvitation)
 

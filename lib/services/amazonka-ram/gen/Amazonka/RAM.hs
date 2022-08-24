@@ -14,11 +14,13 @@
 -- This is the /Resource Access Manager API Reference/. This documentation
 -- provides descriptions and syntax for each of the actions and data types
 -- in RAM. RAM is a service that helps you securely share your Amazon Web
--- Services resources across Amazon Web Services accounts and within your
--- organization or organizational units (OUs) in Organizations. For
--- supported resource types, you can also share resources with IAM roles
--- and IAM users. If you have multiple Amazon Web Services accounts, you
--- can use RAM to share those resources with other accounts.
+-- Services resources across Amazon Web Services accounts. If you have
+-- multiple Amazon Web Services accounts, you can use RAM to share those
+-- resources with other accounts. If you use Organizations to manage your
+-- accounts, then you share your resources with your organization or
+-- organizational units (OUs). For supported resource types, you can also
+-- share resources with individual Identity and Access Management (IAM)
+-- roles an users.
 --
 -- To learn more about RAM, see the following resources:
 --
@@ -70,6 +72,9 @@ module Amazonka.RAM
 
     -- ** MalformedArnException
     _MalformedArnException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** InvalidStateTransitionException
     _InvalidStateTransitionException,
@@ -185,6 +190,12 @@ module Amazonka.RAM
     ListPendingInvitationResourcesResponse (ListPendingInvitationResourcesResponse'),
     newListPendingInvitationResourcesResponse,
 
+    -- ** ListPermissionVersions
+    ListPermissionVersions (ListPermissionVersions'),
+    newListPermissionVersions,
+    ListPermissionVersionsResponse (ListPermissionVersionsResponse'),
+    newListPermissionVersionsResponse,
+
     -- ** ListPermissions
     ListPermissions (ListPermissions'),
     newListPermissions,
@@ -249,6 +260,12 @@ module Amazonka.RAM
 
     -- ** ResourceOwner
     ResourceOwner (..),
+
+    -- ** ResourceRegionScope
+    ResourceRegionScope (..),
+
+    -- ** ResourceRegionScopeFilter
+    ResourceRegionScopeFilter (..),
 
     -- ** ResourceShareAssociationStatus
     ResourceShareAssociationStatus (..),
@@ -325,6 +342,7 @@ import Amazonka.RAM.GetResourceShareInvitations
 import Amazonka.RAM.GetResourceShares
 import Amazonka.RAM.Lens
 import Amazonka.RAM.ListPendingInvitationResources
+import Amazonka.RAM.ListPermissionVersions
 import Amazonka.RAM.ListPermissions
 import Amazonka.RAM.ListPrincipals
 import Amazonka.RAM.ListResourceSharePermissions

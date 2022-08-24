@@ -22,16 +22,26 @@ module Amazonka.RAM.Types.ServiceNameAndResourceType where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.RAM.Types.ResourceRegionScope
 
--- | Information about the shareable resource types and the Amazon Web
--- Services services to which they belong.
+-- | Information about a shareable resource type and the Amazon Web Services
+-- service to which resources of that type belong.
 --
 -- /See:/ 'newServiceNameAndResourceType' smart constructor.
 data ServiceNameAndResourceType = ServiceNameAndResourceType'
-  { -- | The shareable resource types.
+  { -- | The type of the resource.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon Web Services services to which the resources
-    -- belong.
+    -- | Specifies the scope of visibility of resources of this type:
+    --
+    -- -   __REGIONAL__ – The resource can be accessed only by using requests
+    --     that target the Amazon Web Services Region in which the resource
+    --     exists.
+    --
+    -- -   __GLOBAL__ – The resource can be accessed from any Amazon Web
+    --     Services Region.
+    resourceRegionScope :: Prelude.Maybe ResourceRegionScope,
+    -- | The name of the Amazon Web Services service to which resources of this
+    -- type belong.
     serviceName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,25 +54,46 @@ data ServiceNameAndResourceType = ServiceNameAndResourceType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceType', 'serviceNameAndResourceType_resourceType' - The shareable resource types.
+-- 'resourceType', 'serviceNameAndResourceType_resourceType' - The type of the resource.
 --
--- 'serviceName', 'serviceNameAndResourceType_serviceName' - The name of the Amazon Web Services services to which the resources
--- belong.
+-- 'resourceRegionScope', 'serviceNameAndResourceType_resourceRegionScope' - Specifies the scope of visibility of resources of this type:
+--
+-- -   __REGIONAL__ – The resource can be accessed only by using requests
+--     that target the Amazon Web Services Region in which the resource
+--     exists.
+--
+-- -   __GLOBAL__ – The resource can be accessed from any Amazon Web
+--     Services Region.
+--
+-- 'serviceName', 'serviceNameAndResourceType_serviceName' - The name of the Amazon Web Services service to which resources of this
+-- type belong.
 newServiceNameAndResourceType ::
   ServiceNameAndResourceType
 newServiceNameAndResourceType =
   ServiceNameAndResourceType'
     { resourceType =
         Prelude.Nothing,
+      resourceRegionScope = Prelude.Nothing,
       serviceName = Prelude.Nothing
     }
 
--- | The shareable resource types.
+-- | The type of the resource.
 serviceNameAndResourceType_resourceType :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe Prelude.Text)
 serviceNameAndResourceType_resourceType = Lens.lens (\ServiceNameAndResourceType' {resourceType} -> resourceType) (\s@ServiceNameAndResourceType' {} a -> s {resourceType = a} :: ServiceNameAndResourceType)
 
--- | The name of the Amazon Web Services services to which the resources
--- belong.
+-- | Specifies the scope of visibility of resources of this type:
+--
+-- -   __REGIONAL__ – The resource can be accessed only by using requests
+--     that target the Amazon Web Services Region in which the resource
+--     exists.
+--
+-- -   __GLOBAL__ – The resource can be accessed from any Amazon Web
+--     Services Region.
+serviceNameAndResourceType_resourceRegionScope :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe ResourceRegionScope)
+serviceNameAndResourceType_resourceRegionScope = Lens.lens (\ServiceNameAndResourceType' {resourceRegionScope} -> resourceRegionScope) (\s@ServiceNameAndResourceType' {} a -> s {resourceRegionScope = a} :: ServiceNameAndResourceType)
+
+-- | The name of the Amazon Web Services service to which resources of this
+-- type belong.
 serviceNameAndResourceType_serviceName :: Lens.Lens' ServiceNameAndResourceType (Prelude.Maybe Prelude.Text)
 serviceNameAndResourceType_serviceName = Lens.lens (\ServiceNameAndResourceType' {serviceName} -> serviceName) (\s@ServiceNameAndResourceType' {} a -> s {serviceName = a} :: ServiceNameAndResourceType)
 
@@ -73,15 +104,18 @@ instance Core.FromJSON ServiceNameAndResourceType where
       ( \x ->
           ServiceNameAndResourceType'
             Prelude.<$> (x Core..:? "resourceType")
+            Prelude.<*> (x Core..:? "resourceRegionScope")
             Prelude.<*> (x Core..:? "serviceName")
       )
 
 instance Prelude.Hashable ServiceNameAndResourceType where
   hashWithSalt _salt ServiceNameAndResourceType' {..} =
     _salt `Prelude.hashWithSalt` resourceType
+      `Prelude.hashWithSalt` resourceRegionScope
       `Prelude.hashWithSalt` serviceName
 
 instance Prelude.NFData ServiceNameAndResourceType where
   rnf ServiceNameAndResourceType' {..} =
     Prelude.rnf resourceType
+      `Prelude.seq` Prelude.rnf resourceRegionScope
       `Prelude.seq` Prelude.rnf serviceName

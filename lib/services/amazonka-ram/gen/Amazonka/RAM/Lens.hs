@@ -131,11 +131,20 @@ module Amazonka.RAM.Lens
 
     -- ** ListPendingInvitationResources
     listPendingInvitationResources_nextToken,
+    listPendingInvitationResources_resourceRegionScope,
     listPendingInvitationResources_maxResults,
     listPendingInvitationResources_resourceShareInvitationArn,
     listPendingInvitationResourcesResponse_nextToken,
     listPendingInvitationResourcesResponse_resources,
     listPendingInvitationResourcesResponse_httpStatus,
+
+    -- ** ListPermissionVersions
+    listPermissionVersions_nextToken,
+    listPermissionVersions_maxResults,
+    listPermissionVersions_permissionArn,
+    listPermissionVersionsResponse_nextToken,
+    listPermissionVersionsResponse_permissions,
+    listPermissionVersionsResponse_httpStatus,
 
     -- ** ListPermissions
     listPermissions_resourceType,
@@ -167,6 +176,7 @@ module Amazonka.RAM.Lens
 
     -- ** ListResourceTypes
     listResourceTypes_nextToken,
+    listResourceTypes_resourceRegionScope,
     listResourceTypes_maxResults,
     listResourceTypesResponse_nextToken,
     listResourceTypesResponse_resourceTypes,
@@ -176,6 +186,7 @@ module Amazonka.RAM.Lens
     listResources_principal,
     listResources_resourceType,
     listResources_nextToken,
+    listResources_resourceRegionScope,
     listResources_maxResults,
     listResources_resourceShareArns,
     listResources_resourceArns,
@@ -226,6 +237,7 @@ module Amazonka.RAM.Lens
 
     -- ** Resource
     resource_type,
+    resource_resourceRegionScope,
     resource_arn,
     resource_resourceShareArn,
     resource_status,
@@ -292,6 +304,7 @@ module Amazonka.RAM.Lens
 
     -- ** ServiceNameAndResourceType
     serviceNameAndResourceType_resourceType,
+    serviceNameAndResourceType_resourceRegionScope,
     serviceNameAndResourceType_serviceName,
 
     -- ** Tag
@@ -318,6 +331,7 @@ import Amazonka.RAM.GetResourceShareAssociations
 import Amazonka.RAM.GetResourceShareInvitations
 import Amazonka.RAM.GetResourceShares
 import Amazonka.RAM.ListPendingInvitationResources
+import Amazonka.RAM.ListPermissionVersions
 import Amazonka.RAM.ListPermissions
 import Amazonka.RAM.ListPrincipals
 import Amazonka.RAM.ListResourceSharePermissions

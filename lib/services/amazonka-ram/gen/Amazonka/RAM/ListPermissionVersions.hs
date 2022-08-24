@@ -13,32 +13,32 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.RAM.ListResourceSharePermissions
+-- Module      : Amazonka.RAM.ListPermissionVersions
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the RAM permissions that are associated with a resource share.
-module Amazonka.RAM.ListResourceSharePermissions
+-- Lists the available versions of the specified RAM permission.
+module Amazonka.RAM.ListPermissionVersions
   ( -- * Creating a Request
-    ListResourceSharePermissions (..),
-    newListResourceSharePermissions,
+    ListPermissionVersions (..),
+    newListPermissionVersions,
 
     -- * Request Lenses
-    listResourceSharePermissions_nextToken,
-    listResourceSharePermissions_maxResults,
-    listResourceSharePermissions_resourceShareArn,
+    listPermissionVersions_nextToken,
+    listPermissionVersions_maxResults,
+    listPermissionVersions_permissionArn,
 
     -- * Destructuring the Response
-    ListResourceSharePermissionsResponse (..),
-    newListResourceSharePermissionsResponse,
+    ListPermissionVersionsResponse (..),
+    newListPermissionVersionsResponse,
 
     -- * Response Lenses
-    listResourceSharePermissionsResponse_nextToken,
-    listResourceSharePermissionsResponse_permissions,
-    listResourceSharePermissionsResponse_httpStatus,
+    listPermissionVersionsResponse_nextToken,
+    listPermissionVersionsResponse_permissions,
+    listPermissionVersionsResponse_httpStatus,
   )
 where
 
@@ -49,8 +49,8 @@ import Amazonka.RAM.Types
 import qualified Amazonka.Request as Request
 import qualified Amazonka.Response as Response
 
--- | /See:/ 'newListResourceSharePermissions' smart constructor.
-data ListResourceSharePermissions = ListResourceSharePermissions'
+-- | /See:/ 'newListPermissionVersions' smart constructor.
+data ListPermissionVersions = ListPermissionVersions'
   { -- | Specifies that you want to receive the next page of results. Valid only
     -- if you received a @NextToken@ response in the previous request. If you
     -- did, it indicates that more output is available. Set this parameter to
@@ -70,27 +70,28 @@ data ListResourceSharePermissions = ListResourceSharePermissions'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
-    -- of the resource share for which you want to retrieve the associated
-    -- permissions.
-    resourceShareArn :: Prelude.Text
+    -- of the RAM permission whose versions you want to list. You can use the
+    -- @permissionVersion@ parameter on the AssociateResourceSharePermission
+    -- operation to specify a non-default version to attach.
+    permissionArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'ListResourceSharePermissions' with all optional fields omitted.
+-- Create a value of 'ListPermissionVersions' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceSharePermissions_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- 'nextToken', 'listPermissionVersions_nextToken' - Specifies that you want to receive the next page of results. Valid only
 -- if you received a @NextToken@ response in the previous request. If you
 -- did, it indicates that more output is available. Set this parameter to
 -- the value provided by the previous call\'s @NextToken@ response to
 -- request the next page of results.
 --
--- 'maxResults', 'listResourceSharePermissions_maxResults' - Specifies the total number of results that you want included on each
+-- 'maxResults', 'listPermissionVersions_maxResults' - Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
 -- to a value that is specific to the operation. If additional items exist
 -- beyond the number you specify, the @NextToken@ response element is
@@ -101,20 +102,21 @@ data ListResourceSharePermissions = ListResourceSharePermissions'
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
 --
--- 'resourceShareArn', 'listResourceSharePermissions_resourceShareArn' - Specifies the
+-- 'permissionArn', 'listPermissionVersions_permissionArn' - Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of the resource share for which you want to retrieve the associated
--- permissions.
-newListResourceSharePermissions ::
-  -- | 'resourceShareArn'
+-- of the RAM permission whose versions you want to list. You can use the
+-- @permissionVersion@ parameter on the AssociateResourceSharePermission
+-- operation to specify a non-default version to attach.
+newListPermissionVersions ::
+  -- | 'permissionArn'
   Prelude.Text ->
-  ListResourceSharePermissions
-newListResourceSharePermissions pResourceShareArn_ =
-  ListResourceSharePermissions'
+  ListPermissionVersions
+newListPermissionVersions pPermissionArn_ =
+  ListPermissionVersions'
     { nextToken =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      resourceShareArn = pResourceShareArn_
+      permissionArn = pPermissionArn_
     }
 
 -- | Specifies that you want to receive the next page of results. Valid only
@@ -122,8 +124,8 @@ newListResourceSharePermissions pResourceShareArn_ =
 -- did, it indicates that more output is available. Set this parameter to
 -- the value provided by the previous call\'s @NextToken@ response to
 -- request the next page of results.
-listResourceSharePermissions_nextToken :: Lens.Lens' ListResourceSharePermissions (Prelude.Maybe Prelude.Text)
-listResourceSharePermissions_nextToken = Lens.lens (\ListResourceSharePermissions' {nextToken} -> nextToken) (\s@ListResourceSharePermissions' {} a -> s {nextToken = a} :: ListResourceSharePermissions)
+listPermissionVersions_nextToken :: Lens.Lens' ListPermissionVersions (Prelude.Maybe Prelude.Text)
+listPermissionVersions_nextToken = Lens.lens (\ListPermissionVersions' {nextToken} -> nextToken) (\s@ListPermissionVersions' {} a -> s {nextToken = a} :: ListPermissionVersions)
 
 -- | Specifies the total number of results that you want included on each
 -- page of the response. If you do not include this parameter, it defaults
@@ -135,46 +137,44 @@ listResourceSharePermissions_nextToken = Lens.lens (\ListResourceSharePermission
 -- results than the maximum even when there are more results available. You
 -- should check @NextToken@ after every operation to ensure that you
 -- receive all of the results.
-listResourceSharePermissions_maxResults :: Lens.Lens' ListResourceSharePermissions (Prelude.Maybe Prelude.Natural)
-listResourceSharePermissions_maxResults = Lens.lens (\ListResourceSharePermissions' {maxResults} -> maxResults) (\s@ListResourceSharePermissions' {} a -> s {maxResults = a} :: ListResourceSharePermissions)
+listPermissionVersions_maxResults :: Lens.Lens' ListPermissionVersions (Prelude.Maybe Prelude.Natural)
+listPermissionVersions_maxResults = Lens.lens (\ListPermissionVersions' {maxResults} -> maxResults) (\s@ListPermissionVersions' {} a -> s {maxResults = a} :: ListPermissionVersions)
 
 -- | Specifies the
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
--- of the resource share for which you want to retrieve the associated
--- permissions.
-listResourceSharePermissions_resourceShareArn :: Lens.Lens' ListResourceSharePermissions Prelude.Text
-listResourceSharePermissions_resourceShareArn = Lens.lens (\ListResourceSharePermissions' {resourceShareArn} -> resourceShareArn) (\s@ListResourceSharePermissions' {} a -> s {resourceShareArn = a} :: ListResourceSharePermissions)
+-- of the RAM permission whose versions you want to list. You can use the
+-- @permissionVersion@ parameter on the AssociateResourceSharePermission
+-- operation to specify a non-default version to attach.
+listPermissionVersions_permissionArn :: Lens.Lens' ListPermissionVersions Prelude.Text
+listPermissionVersions_permissionArn = Lens.lens (\ListPermissionVersions' {permissionArn} -> permissionArn) (\s@ListPermissionVersions' {} a -> s {permissionArn = a} :: ListPermissionVersions)
 
-instance Core.AWSRequest ListResourceSharePermissions where
+instance Core.AWSRequest ListPermissionVersions where
   type
-    AWSResponse ListResourceSharePermissions =
-      ListResourceSharePermissionsResponse
+    AWSResponse ListPermissionVersions =
+      ListPermissionVersionsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          ListResourceSharePermissionsResponse'
+          ListPermissionVersionsResponse'
             Prelude.<$> (x Core..?> "nextToken")
             Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance
-  Prelude.Hashable
-    ListResourceSharePermissions
-  where
-  hashWithSalt _salt ListResourceSharePermissions' {..} =
+instance Prelude.Hashable ListPermissionVersions where
+  hashWithSalt _salt ListPermissionVersions' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
-      `Prelude.hashWithSalt` resourceShareArn
+      `Prelude.hashWithSalt` permissionArn
 
-instance Prelude.NFData ListResourceSharePermissions where
-  rnf ListResourceSharePermissions' {..} =
+instance Prelude.NFData ListPermissionVersions where
+  rnf ListPermissionVersions' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
-      `Prelude.seq` Prelude.rnf resourceShareArn
+      `Prelude.seq` Prelude.rnf permissionArn
 
-instance Core.ToHeaders ListResourceSharePermissions where
+instance Core.ToHeaders ListPermissionVersions where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
@@ -185,26 +185,25 @@ instance Core.ToHeaders ListResourceSharePermissions where
           ]
       )
 
-instance Core.ToJSON ListResourceSharePermissions where
-  toJSON ListResourceSharePermissions' {..} =
+instance Core.ToJSON ListPermissionVersions where
+  toJSON ListPermissionVersions' {..} =
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             Prelude.Just
-              ("resourceShareArn" Core..= resourceShareArn)
+              ("permissionArn" Core..= permissionArn)
           ]
       )
 
-instance Core.ToPath ListResourceSharePermissions where
-  toPath =
-    Prelude.const "/listresourcesharepermissions"
+instance Core.ToPath ListPermissionVersions where
+  toPath = Prelude.const "/listpermissionversions"
 
-instance Core.ToQuery ListResourceSharePermissions where
+instance Core.ToQuery ListPermissionVersions where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newListResourceSharePermissionsResponse' smart constructor.
-data ListResourceSharePermissionsResponse = ListResourceSharePermissionsResponse'
+-- | /See:/ 'newListPermissionVersionsResponse' smart constructor.
+data ListPermissionVersionsResponse = ListPermissionVersionsResponse'
   { -- | If present, this value indicates that more output is available than is
     -- included in the current response. Use this value in the @NextToken@
     -- request parameter in a subsequent call to the operation to get the next
@@ -212,8 +211,8 @@ data ListResourceSharePermissionsResponse = ListResourceSharePermissionsResponse
     -- response element comes back as @null@. This indicates that this is the
     -- last page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of objects that describe the permissions associated with the
-    -- resource share.
+    -- | An array of objects that contain details for each of the available
+    -- versions.
     permissions :: Prelude.Maybe [ResourceSharePermissionSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -221,30 +220,30 @@ data ListResourceSharePermissionsResponse = ListResourceSharePermissionsResponse
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
--- Create a value of 'ListResourceSharePermissionsResponse' with all optional fields omitted.
+-- Create a value of 'ListPermissionVersionsResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceSharePermissionsResponse_nextToken' - If present, this value indicates that more output is available than is
+-- 'nextToken', 'listPermissionVersionsResponse_nextToken' - If present, this value indicates that more output is available than is
 -- included in the current response. Use this value in the @NextToken@
 -- request parameter in a subsequent call to the operation to get the next
 -- part of the output. You should repeat this until the @NextToken@
 -- response element comes back as @null@. This indicates that this is the
 -- last page of results.
 --
--- 'permissions', 'listResourceSharePermissionsResponse_permissions' - An array of objects that describe the permissions associated with the
--- resource share.
+-- 'permissions', 'listPermissionVersionsResponse_permissions' - An array of objects that contain details for each of the available
+-- versions.
 --
--- 'httpStatus', 'listResourceSharePermissionsResponse_httpStatus' - The response's http status code.
-newListResourceSharePermissionsResponse ::
+-- 'httpStatus', 'listPermissionVersionsResponse_httpStatus' - The response's http status code.
+newListPermissionVersionsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  ListResourceSharePermissionsResponse
-newListResourceSharePermissionsResponse pHttpStatus_ =
-  ListResourceSharePermissionsResponse'
+  ListPermissionVersionsResponse
+newListPermissionVersionsResponse pHttpStatus_ =
+  ListPermissionVersionsResponse'
     { nextToken =
         Prelude.Nothing,
       permissions = Prelude.Nothing,
@@ -257,23 +256,23 @@ newListResourceSharePermissionsResponse pHttpStatus_ =
 -- part of the output. You should repeat this until the @NextToken@
 -- response element comes back as @null@. This indicates that this is the
 -- last page of results.
-listResourceSharePermissionsResponse_nextToken :: Lens.Lens' ListResourceSharePermissionsResponse (Prelude.Maybe Prelude.Text)
-listResourceSharePermissionsResponse_nextToken = Lens.lens (\ListResourceSharePermissionsResponse' {nextToken} -> nextToken) (\s@ListResourceSharePermissionsResponse' {} a -> s {nextToken = a} :: ListResourceSharePermissionsResponse)
+listPermissionVersionsResponse_nextToken :: Lens.Lens' ListPermissionVersionsResponse (Prelude.Maybe Prelude.Text)
+listPermissionVersionsResponse_nextToken = Lens.lens (\ListPermissionVersionsResponse' {nextToken} -> nextToken) (\s@ListPermissionVersionsResponse' {} a -> s {nextToken = a} :: ListPermissionVersionsResponse)
 
--- | An array of objects that describe the permissions associated with the
--- resource share.
-listResourceSharePermissionsResponse_permissions :: Lens.Lens' ListResourceSharePermissionsResponse (Prelude.Maybe [ResourceSharePermissionSummary])
-listResourceSharePermissionsResponse_permissions = Lens.lens (\ListResourceSharePermissionsResponse' {permissions} -> permissions) (\s@ListResourceSharePermissionsResponse' {} a -> s {permissions = a} :: ListResourceSharePermissionsResponse) Prelude.. Lens.mapping Lens.coerced
+-- | An array of objects that contain details for each of the available
+-- versions.
+listPermissionVersionsResponse_permissions :: Lens.Lens' ListPermissionVersionsResponse (Prelude.Maybe [ResourceSharePermissionSummary])
+listPermissionVersionsResponse_permissions = Lens.lens (\ListPermissionVersionsResponse' {permissions} -> permissions) (\s@ListPermissionVersionsResponse' {} a -> s {permissions = a} :: ListPermissionVersionsResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The response's http status code.
-listResourceSharePermissionsResponse_httpStatus :: Lens.Lens' ListResourceSharePermissionsResponse Prelude.Int
-listResourceSharePermissionsResponse_httpStatus = Lens.lens (\ListResourceSharePermissionsResponse' {httpStatus} -> httpStatus) (\s@ListResourceSharePermissionsResponse' {} a -> s {httpStatus = a} :: ListResourceSharePermissionsResponse)
+listPermissionVersionsResponse_httpStatus :: Lens.Lens' ListPermissionVersionsResponse Prelude.Int
+listPermissionVersionsResponse_httpStatus = Lens.lens (\ListPermissionVersionsResponse' {httpStatus} -> httpStatus) (\s@ListPermissionVersionsResponse' {} a -> s {httpStatus = a} :: ListPermissionVersionsResponse)
 
 instance
   Prelude.NFData
-    ListResourceSharePermissionsResponse
+    ListPermissionVersionsResponse
   where
-  rnf ListResourceSharePermissionsResponse' {..} =
+  rnf ListPermissionVersionsResponse' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf httpStatus

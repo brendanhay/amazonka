@@ -25,7 +25,8 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.RAM.Types.ResourceShareAssociationStatus
 import Amazonka.RAM.Types.ResourceShareAssociationType
 
--- | Describes an association with a resource share.
+-- | Describes an association with a resource share and either a principal or
+-- a resource.
 --
 -- /See:/ 'newResourceShareAssociation' smart constructor.
 data ResourceShareAssociation = ResourceShareAssociation'
@@ -33,29 +34,37 @@ data ResourceShareAssociation = ResourceShareAssociation'
     -- Organizations as the Amazon Web Services account that owns the resource
     -- share.
     external :: Prelude.Maybe Prelude.Bool,
-    -- | The association type.
+    -- | The type of entity included in this association.
     associationType :: Prelude.Maybe ResourceShareAssociationType,
-    -- | The associated entity. For resource associations, this is the Amazon
-    -- Resource Name (ARN) of the resource. For principal associations, this is
-    -- one of the following:
+    -- | The associated entity. This can be either of the following:
     --
-    -- -   An Amazon Web Services account ID
+    -- -   For a resource association, this is the
+    --     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --     of the resource.
     --
-    -- -   An ARN of an organization in Organizations
+    -- -   For principal associations, this is one of the following:
     --
-    -- -   An ARN of an organizational unit (OU) in Organizations
+    --     -   The ID of an Amazon Web Services account
     --
-    -- -   An ARN of an IAM role
+    --     -   The
+    --         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    --         of an organization in Organizations
     --
-    -- -   An ARN of an IAM user
+    --     -   The ARN of an organizational unit (OU) in Organizations
+    --
+    --     -   The ARN of an IAM role
+    --
+    --     -   The ARN of an IAM user
     associatedEntity :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource share.
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share.
     resourceShareArn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the association.
+    -- | The current status of the association.
     status :: Prelude.Maybe ResourceShareAssociationStatus,
-    -- | The time when the association was last updated.
+    -- | The date and time when the association was last updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | The time when the association was created.
+    -- | The date and time when the association was created.
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | A message about the status of the association.
     statusMessage :: Prelude.Maybe Prelude.Text,
@@ -76,29 +85,37 @@ data ResourceShareAssociation = ResourceShareAssociation'
 -- Organizations as the Amazon Web Services account that owns the resource
 -- share.
 --
--- 'associationType', 'resourceShareAssociation_associationType' - The association type.
+-- 'associationType', 'resourceShareAssociation_associationType' - The type of entity included in this association.
 --
--- 'associatedEntity', 'resourceShareAssociation_associatedEntity' - The associated entity. For resource associations, this is the Amazon
--- Resource Name (ARN) of the resource. For principal associations, this is
--- one of the following:
+-- 'associatedEntity', 'resourceShareAssociation_associatedEntity' - The associated entity. This can be either of the following:
 --
--- -   An Amazon Web Services account ID
+-- -   For a resource association, this is the
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     of the resource.
 --
--- -   An ARN of an organization in Organizations
+-- -   For principal associations, this is one of the following:
 --
--- -   An ARN of an organizational unit (OU) in Organizations
+--     -   The ID of an Amazon Web Services account
 --
--- -   An ARN of an IAM role
+--     -   The
+--         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--         of an organization in Organizations
 --
--- -   An ARN of an IAM user
+--     -   The ARN of an organizational unit (OU) in Organizations
 --
--- 'resourceShareArn', 'resourceShareAssociation_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+--     -   The ARN of an IAM role
 --
--- 'status', 'resourceShareAssociation_status' - The status of the association.
+--     -   The ARN of an IAM user
 --
--- 'lastUpdatedTime', 'resourceShareAssociation_lastUpdatedTime' - The time when the association was last updated.
+-- 'resourceShareArn', 'resourceShareAssociation_resourceShareArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share.
 --
--- 'creationTime', 'resourceShareAssociation_creationTime' - The time when the association was created.
+-- 'status', 'resourceShareAssociation_status' - The current status of the association.
+--
+-- 'lastUpdatedTime', 'resourceShareAssociation_lastUpdatedTime' - The date and time when the association was last updated.
+--
+-- 'creationTime', 'resourceShareAssociation_creationTime' - The date and time when the association was created.
 --
 -- 'statusMessage', 'resourceShareAssociation_statusMessage' - A message about the status of the association.
 --
@@ -125,39 +142,47 @@ newResourceShareAssociation =
 resourceShareAssociation_external :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Bool)
 resourceShareAssociation_external = Lens.lens (\ResourceShareAssociation' {external} -> external) (\s@ResourceShareAssociation' {} a -> s {external = a} :: ResourceShareAssociation)
 
--- | The association type.
+-- | The type of entity included in this association.
 resourceShareAssociation_associationType :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe ResourceShareAssociationType)
 resourceShareAssociation_associationType = Lens.lens (\ResourceShareAssociation' {associationType} -> associationType) (\s@ResourceShareAssociation' {} a -> s {associationType = a} :: ResourceShareAssociation)
 
--- | The associated entity. For resource associations, this is the Amazon
--- Resource Name (ARN) of the resource. For principal associations, this is
--- one of the following:
+-- | The associated entity. This can be either of the following:
 --
--- -   An Amazon Web Services account ID
+-- -   For a resource association, this is the
+--     <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--     of the resource.
 --
--- -   An ARN of an organization in Organizations
+-- -   For principal associations, this is one of the following:
 --
--- -   An ARN of an organizational unit (OU) in Organizations
+--     -   The ID of an Amazon Web Services account
 --
--- -   An ARN of an IAM role
+--     -   The
+--         <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+--         of an organization in Organizations
 --
--- -   An ARN of an IAM user
+--     -   The ARN of an organizational unit (OU) in Organizations
+--
+--     -   The ARN of an IAM role
+--
+--     -   The ARN of an IAM user
 resourceShareAssociation_associatedEntity :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
 resourceShareAssociation_associatedEntity = Lens.lens (\ResourceShareAssociation' {associatedEntity} -> associatedEntity) (\s@ResourceShareAssociation' {} a -> s {associatedEntity = a} :: ResourceShareAssociation)
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share.
 resourceShareAssociation_resourceShareArn :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.Text)
 resourceShareAssociation_resourceShareArn = Lens.lens (\ResourceShareAssociation' {resourceShareArn} -> resourceShareArn) (\s@ResourceShareAssociation' {} a -> s {resourceShareArn = a} :: ResourceShareAssociation)
 
--- | The status of the association.
+-- | The current status of the association.
 resourceShareAssociation_status :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe ResourceShareAssociationStatus)
 resourceShareAssociation_status = Lens.lens (\ResourceShareAssociation' {status} -> status) (\s@ResourceShareAssociation' {} a -> s {status = a} :: ResourceShareAssociation)
 
--- | The time when the association was last updated.
+-- | The date and time when the association was last updated.
 resourceShareAssociation_lastUpdatedTime :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.UTCTime)
 resourceShareAssociation_lastUpdatedTime = Lens.lens (\ResourceShareAssociation' {lastUpdatedTime} -> lastUpdatedTime) (\s@ResourceShareAssociation' {} a -> s {lastUpdatedTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Core._Time
 
--- | The time when the association was created.
+-- | The date and time when the association was created.
 resourceShareAssociation_creationTime :: Lens.Lens' ResourceShareAssociation (Prelude.Maybe Prelude.UTCTime)
 resourceShareAssociation_creationTime = Lens.lens (\ResourceShareAssociation' {creationTime} -> creationTime) (\s@ResourceShareAssociation' {} a -> s {creationTime = a} :: ResourceShareAssociation) Prelude.. Lens.mapping Core._Time
 

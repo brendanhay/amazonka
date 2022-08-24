@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the shareable resource types supported by RAM.
+-- Lists the resource types that can be shared by RAM.
 module Amazonka.RAM.ListResourceTypes
   ( -- * Creating a Request
     ListResourceTypes (..),
@@ -28,6 +28,7 @@ module Amazonka.RAM.ListResourceTypes
 
     -- * Request Lenses
     listResourceTypes_nextToken,
+    listResourceTypes_resourceRegionScope,
     listResourceTypes_maxResults,
 
     -- * Destructuring the Response
@@ -50,11 +51,36 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newListResourceTypes' smart constructor.
 data ListResourceTypes = ListResourceTypes'
-  { -- | The token for the next page of results.
+  { -- | Specifies that you want to receive the next page of results. Valid only
+    -- if you received a @NextToken@ response in the previous request. If you
+    -- did, it indicates that more output is available. Set this parameter to
+    -- the value provided by the previous call\'s @NextToken@ response to
+    -- request the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return with a single call. To retrieve
-    -- the remaining results, make another call with the returned @nextToken@
-    -- value.
+    -- | Specifies that you want the results to include only resources that have
+    -- the specified scope.
+    --
+    -- -   @ALL@ – the results include both global and regional resources or
+    --     resource types.
+    --
+    -- -   @GLOBAL@ – the results include only global resources or resource
+    --     types.
+    --
+    -- -   @REGIONAL@ – the results include only regional resources or resource
+    --     types.
+    --
+    -- The default value is @ALL@.
+    resourceRegionScope :: Prelude.Maybe ResourceRegionScopeFilter,
+    -- | Specifies the total number of results that you want included on each
+    -- page of the response. If you do not include this parameter, it defaults
+    -- to a value that is specific to the operation. If additional items exist
+    -- beyond the number you specify, the @NextToken@ response element is
+    -- returned with a value (not null). Include the specified value as the
+    -- @NextToken@ request parameter in the next call to the operation to get
+    -- the next part of the results. Note that the service might return fewer
+    -- results than the maximum even when there are more results available. You
+    -- should check @NextToken@ after every operation to ensure that you
+    -- receive all of the results.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,26 +93,79 @@ data ListResourceTypes = ListResourceTypes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceTypes_nextToken' - The token for the next page of results.
+-- 'nextToken', 'listResourceTypes_nextToken' - Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 --
--- 'maxResults', 'listResourceTypes_maxResults' - The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- 'resourceRegionScope', 'listResourceTypes_resourceRegionScope' - Specifies that you want the results to include only resources that have
+-- the specified scope.
+--
+-- -   @ALL@ – the results include both global and regional resources or
+--     resource types.
+--
+-- -   @GLOBAL@ – the results include only global resources or resource
+--     types.
+--
+-- -   @REGIONAL@ – the results include only regional resources or resource
+--     types.
+--
+-- The default value is @ALL@.
+--
+-- 'maxResults', 'listResourceTypes_maxResults' - Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 newListResourceTypes ::
   ListResourceTypes
 newListResourceTypes =
   ListResourceTypes'
     { nextToken = Prelude.Nothing,
+      resourceRegionScope = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
--- | The token for the next page of results.
+-- | Specifies that you want to receive the next page of results. Valid only
+-- if you received a @NextToken@ response in the previous request. If you
+-- did, it indicates that more output is available. Set this parameter to
+-- the value provided by the previous call\'s @NextToken@ response to
+-- request the next page of results.
 listResourceTypes_nextToken :: Lens.Lens' ListResourceTypes (Prelude.Maybe Prelude.Text)
 listResourceTypes_nextToken = Lens.lens (\ListResourceTypes' {nextToken} -> nextToken) (\s@ListResourceTypes' {} a -> s {nextToken = a} :: ListResourceTypes)
 
--- | The maximum number of results to return with a single call. To retrieve
--- the remaining results, make another call with the returned @nextToken@
--- value.
+-- | Specifies that you want the results to include only resources that have
+-- the specified scope.
+--
+-- -   @ALL@ – the results include both global and regional resources or
+--     resource types.
+--
+-- -   @GLOBAL@ – the results include only global resources or resource
+--     types.
+--
+-- -   @REGIONAL@ – the results include only regional resources or resource
+--     types.
+--
+-- The default value is @ALL@.
+listResourceTypes_resourceRegionScope :: Lens.Lens' ListResourceTypes (Prelude.Maybe ResourceRegionScopeFilter)
+listResourceTypes_resourceRegionScope = Lens.lens (\ListResourceTypes' {resourceRegionScope} -> resourceRegionScope) (\s@ListResourceTypes' {} a -> s {resourceRegionScope = a} :: ListResourceTypes)
+
+-- | Specifies the total number of results that you want included on each
+-- page of the response. If you do not include this parameter, it defaults
+-- to a value that is specific to the operation. If additional items exist
+-- beyond the number you specify, the @NextToken@ response element is
+-- returned with a value (not null). Include the specified value as the
+-- @NextToken@ request parameter in the next call to the operation to get
+-- the next part of the results. Note that the service might return fewer
+-- results than the maximum even when there are more results available. You
+-- should check @NextToken@ after every operation to ensure that you
+-- receive all of the results.
 listResourceTypes_maxResults :: Lens.Lens' ListResourceTypes (Prelude.Maybe Prelude.Natural)
 listResourceTypes_maxResults = Lens.lens (\ListResourceTypes' {maxResults} -> maxResults) (\s@ListResourceTypes' {} a -> s {maxResults = a} :: ListResourceTypes)
 
@@ -107,11 +186,13 @@ instance Core.AWSRequest ListResourceTypes where
 instance Prelude.Hashable ListResourceTypes where
   hashWithSalt _salt ListResourceTypes' {..} =
     _salt `Prelude.hashWithSalt` nextToken
+      `Prelude.hashWithSalt` resourceRegionScope
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListResourceTypes where
   rnf ListResourceTypes' {..} =
     Prelude.rnf nextToken
+      `Prelude.seq` Prelude.rnf resourceRegionScope
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListResourceTypes where
@@ -130,6 +211,8 @@ instance Core.ToJSON ListResourceTypes where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("resourceRegionScope" Core..=)
+              Prelude.<$> resourceRegionScope,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )
@@ -142,10 +225,15 @@ instance Core.ToQuery ListResourceTypes where
 
 -- | /See:/ 'newListResourceTypesResponse' smart constructor.
 data ListResourceTypesResponse = ListResourceTypesResponse'
-  { -- | The token to use to retrieve the next page of results. This value is
-    -- @null@ when there are no more results to return.
+  { -- | If present, this value indicates that more output is available than is
+    -- included in the current response. Use this value in the @NextToken@
+    -- request parameter in a subsequent call to the operation to get the next
+    -- part of the output. You should repeat this until the @NextToken@
+    -- response element comes back as @null@. This indicates that this is the
+    -- last page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The shareable resource types supported by RAM.
+    -- | An array of objects that contain information about the resource types
+    -- that can be shared using RAM.
     resourceTypes :: Prelude.Maybe [ServiceNameAndResourceType],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -160,10 +248,15 @@ data ListResourceTypesResponse = ListResourceTypesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listResourceTypesResponse_nextToken' - The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'nextToken', 'listResourceTypesResponse_nextToken' - If present, this value indicates that more output is available than is
+-- included in the current response. Use this value in the @NextToken@
+-- request parameter in a subsequent call to the operation to get the next
+-- part of the output. You should repeat this until the @NextToken@
+-- response element comes back as @null@. This indicates that this is the
+-- last page of results.
 --
--- 'resourceTypes', 'listResourceTypesResponse_resourceTypes' - The shareable resource types supported by RAM.
+-- 'resourceTypes', 'listResourceTypesResponse_resourceTypes' - An array of objects that contain information about the resource types
+-- that can be shared using RAM.
 --
 -- 'httpStatus', 'listResourceTypesResponse_httpStatus' - The response's http status code.
 newListResourceTypesResponse ::
@@ -178,12 +271,17 @@ newListResourceTypesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- | If present, this value indicates that more output is available than is
+-- included in the current response. Use this value in the @NextToken@
+-- request parameter in a subsequent call to the operation to get the next
+-- part of the output. You should repeat this until the @NextToken@
+-- response element comes back as @null@. This indicates that this is the
+-- last page of results.
 listResourceTypesResponse_nextToken :: Lens.Lens' ListResourceTypesResponse (Prelude.Maybe Prelude.Text)
 listResourceTypesResponse_nextToken = Lens.lens (\ListResourceTypesResponse' {nextToken} -> nextToken) (\s@ListResourceTypesResponse' {} a -> s {nextToken = a} :: ListResourceTypesResponse)
 
--- | The shareable resource types supported by RAM.
+-- | An array of objects that contain information about the resource types
+-- that can be shared using RAM.
 listResourceTypesResponse_resourceTypes :: Lens.Lens' ListResourceTypesResponse (Prelude.Maybe [ServiceNameAndResourceType])
 listResourceTypesResponse_resourceTypes = Lens.lens (\ListResourceTypesResponse' {resourceTypes} -> resourceTypes) (\s@ListResourceTypesResponse' {} a -> s {resourceTypes = a} :: ListResourceTypesResponse) Prelude.. Lens.mapping Lens.coerced
 

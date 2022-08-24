@@ -60,6 +60,7 @@ library
     Amazonka.RAM.Lens
     Amazonka.RAM.ListPendingInvitationResources
     Amazonka.RAM.ListPermissions
+    Amazonka.RAM.ListPermissionVersions
     Amazonka.RAM.ListPrincipals
     Amazonka.RAM.ListResources
     Amazonka.RAM.ListResourceSharePermissions
@@ -71,6 +72,8 @@ library
     Amazonka.RAM.Types.Principal
     Amazonka.RAM.Types.Resource
     Amazonka.RAM.Types.ResourceOwner
+    Amazonka.RAM.Types.ResourceRegionScope
+    Amazonka.RAM.Types.ResourceRegionScopeFilter
     Amazonka.RAM.Types.ResourceShare
     Amazonka.RAM.Types.ResourceShareAssociation
     Amazonka.RAM.Types.ResourceShareAssociationStatus

@@ -31,13 +31,16 @@ data Principal = Principal'
     -- Organizations as the Amazon Web Services account that owns the resource
     -- share.
     external :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the resource share.
+    -- | The
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of a resource share the principal is associated with.
     resourceShareArn :: Prelude.Maybe Prelude.Text,
-    -- | The time when the association was last updated.
+    -- | The date and time when the association was last updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the principal.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The time when the principal was associated with the resource share.
+    -- | The date and time when the principal was associated with the resource
+    -- share.
     creationTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,13 +57,16 @@ data Principal = Principal'
 -- Organizations as the Amazon Web Services account that owns the resource
 -- share.
 --
--- 'resourceShareArn', 'principal_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+-- 'resourceShareArn', 'principal_resourceShareArn' - The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of a resource share the principal is associated with.
 --
--- 'lastUpdatedTime', 'principal_lastUpdatedTime' - The time when the association was last updated.
+-- 'lastUpdatedTime', 'principal_lastUpdatedTime' - The date and time when the association was last updated.
 --
 -- 'id', 'principal_id' - The ID of the principal.
 --
--- 'creationTime', 'principal_creationTime' - The time when the principal was associated with the resource share.
+-- 'creationTime', 'principal_creationTime' - The date and time when the principal was associated with the resource
+-- share.
 newPrincipal ::
   Principal
 newPrincipal =
@@ -78,11 +84,13 @@ newPrincipal =
 principal_external :: Lens.Lens' Principal (Prelude.Maybe Prelude.Bool)
 principal_external = Lens.lens (\Principal' {external} -> external) (\s@Principal' {} a -> s {external = a} :: Principal)
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | The
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of a resource share the principal is associated with.
 principal_resourceShareArn :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
 principal_resourceShareArn = Lens.lens (\Principal' {resourceShareArn} -> resourceShareArn) (\s@Principal' {} a -> s {resourceShareArn = a} :: Principal)
 
--- | The time when the association was last updated.
+-- | The date and time when the association was last updated.
 principal_lastUpdatedTime :: Lens.Lens' Principal (Prelude.Maybe Prelude.UTCTime)
 principal_lastUpdatedTime = Lens.lens (\Principal' {lastUpdatedTime} -> lastUpdatedTime) (\s@Principal' {} a -> s {lastUpdatedTime = a} :: Principal) Prelude.. Lens.mapping Core._Time
 
@@ -90,7 +98,8 @@ principal_lastUpdatedTime = Lens.lens (\Principal' {lastUpdatedTime} -> lastUpda
 principal_id :: Lens.Lens' Principal (Prelude.Maybe Prelude.Text)
 principal_id = Lens.lens (\Principal' {id} -> id) (\s@Principal' {} a -> s {id = a} :: Principal)
 
--- | The time when the principal was associated with the resource share.
+-- | The date and time when the principal was associated with the resource
+-- share.
 principal_creationTime :: Lens.Lens' Principal (Prelude.Maybe Prelude.UTCTime)
 principal_creationTime = Lens.lens (\Principal' {creationTime} -> creationTime) (\s@Principal' {} a -> s {creationTime = a} :: Principal) Prelude.. Lens.mapping Core._Time
 

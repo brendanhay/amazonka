@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified tags from the specified resource share that you
--- own.
+-- Removes the specified tag key and value pairs from the specified
+-- resource share.
 module Amazonka.RAM.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -49,9 +49,13 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource share.
+  { -- | Specifies the
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+    -- of the resource share that you want to remove tags from. The tags are
+    -- removed from the resource share, not the resources in the resource
+    -- share.
     resourceShareArn :: Prelude.Text,
-    -- | The tag keys of the tags to remove.
+    -- | Specifies a list of one or more tag keys that you want to remove.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,9 +68,13 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceShareArn', 'untagResource_resourceShareArn' - The Amazon Resource Name (ARN) of the resource share.
+-- 'resourceShareArn', 'untagResource_resourceShareArn' - Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share that you want to remove tags from. The tags are
+-- removed from the resource share, not the resources in the resource
+-- share.
 --
--- 'tagKeys', 'untagResource_tagKeys' - The tag keys of the tags to remove.
+-- 'tagKeys', 'untagResource_tagKeys' - Specifies a list of one or more tag keys that you want to remove.
 newUntagResource ::
   -- | 'resourceShareArn'
   Prelude.Text ->
@@ -78,11 +86,15 @@ newUntagResource pResourceShareArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | The Amazon Resource Name (ARN) of the resource share.
+-- | Specifies the
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resoure Name (ARN)>
+-- of the resource share that you want to remove tags from. The tags are
+-- removed from the resource share, not the resources in the resource
+-- share.
 untagResource_resourceShareArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceShareArn = Lens.lens (\UntagResource' {resourceShareArn} -> resourceShareArn) (\s@UntagResource' {} a -> s {resourceShareArn = a} :: UntagResource)
 
--- | The tag keys of the tags to remove.
+-- | Specifies a list of one or more tag keys that you want to remove.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens.coerced
 

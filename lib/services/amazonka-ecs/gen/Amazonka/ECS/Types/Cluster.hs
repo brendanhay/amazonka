@@ -29,17 +29,16 @@ import Amazonka.ECS.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A regional grouping of one or more container instances on which you can
--- run task requests. Each account receives a default cluster the first
--- time you use the Amazon ECS service, but you may also create other
--- clusters. Clusters may contain more than one instance type
--- simultaneously.
+-- | A regional grouping of one or more container instances where you can run
+-- task requests. Each account receives a default cluster the first time
+-- you use the Amazon ECS service, but you may also create other clusters.
+-- Clusters may contain more than one instance type simultaneously.
 --
 -- /See:/ 'newCluster' smart constructor.
 data Cluster = Cluster'
   { -- | The metadata that you apply to the cluster to help you categorize and
-    -- organize them. Each tag consists of a key and an optional value, both of
-    -- which you define.
+    -- organize them. Each tag consists of a key and an optional value. You
+    -- define both.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -66,18 +65,16 @@ data Cluster = Cluster'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN
-    -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
-    -- cluster, the Amazon Web Services account ID of the cluster owner, the
-    -- @cluster@ namespace, and then the cluster name. For example,
-    -- @arn:aws:ecs:region:012345678910:cluster\/test@.
+    -- | The Amazon Resource Name (ARN) that identifies the cluster. For more
+    -- information about the ARN format, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+    -- in the /Amazon ECS Developer Guide/.
     clusterArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the capacity providers associated with the cluster. The
-    -- following are the states that will be returned:
+    -- following are the states that are returned.
     --
     -- [UPDATE_IN_PROGRESS]
-    --     The available capacity providers for the cluster are updating. This
-    --     occurs when the Auto Scaling plan is provisioning or deprovisioning.
+    --     The available capacity providers for the cluster are updating.
     --
     -- [UPDATE_COMPLETE]
     --     The capacity providers have successfully updated.
@@ -86,7 +83,7 @@ data Cluster = Cluster'
     --     The capacity provider updates failed.
     attachmentsStatus :: Prelude.Maybe Prelude.Text,
     -- | Additional information about your clusters that are separated by launch
-    -- type, including:
+    -- type. They include the following:
     --
     -- -   runningEC2TasksCount
     --
@@ -112,29 +109,30 @@ data Cluster = Cluster'
     -- includes container instances in both @ACTIVE@ and @DRAINING@ status.
     registeredContainerInstancesCount :: Prelude.Maybe Prelude.Int,
     -- | The status of the cluster. The following are the possible states that
-    -- will be returned.
+    -- are returned.
     --
     -- [ACTIVE]
     --     The cluster is ready to accept tasks and if applicable you can
     --     register container instances with the cluster.
     --
     -- [PROVISIONING]
-    --     The cluster has capacity providers associated with it and the
-    --     resources needed for the capacity provider are being created.
+    --     The cluster has capacity providers that are associated with it and
+    --     the resources needed for the capacity provider are being created.
     --
     -- [DEPROVISIONING]
-    --     The cluster has capacity providers associated with it and the
-    --     resources needed for the capacity provider are being deleted.
+    --     The cluster has capacity providers that are associated with it and
+    --     the resources needed for the capacity provider are being deleted.
     --
     -- [FAILED]
-    --     The cluster has capacity providers associated with it and the
-    --     resources needed for the capacity provider have failed to create.
+    --     The cluster has capacity providers that are associated with it and
+    --     the resources needed for the capacity provider have failed to
+    --     create.
     --
     -- [INACTIVE]
     --     The cluster has been deleted. Clusters with an @INACTIVE@ status may
     --     remain discoverable in your account for a period of time. However,
-    --     this behavior is subject to change in the future, so you should not
-    --     rely on @INACTIVE@ clusters persisting.
+    --     this behavior is subject to change in the future. We don\'t
+    --     recommend that you rely on @INACTIVE@ clusters persisting.
     status :: Prelude.Maybe Prelude.Text,
     -- | The settings for the cluster. This parameter indicates whether
     -- CloudWatch Container Insights is enabled or disabled for a cluster.
@@ -142,8 +140,8 @@ data Cluster = Cluster'
     -- | The number of tasks in the cluster that are in the @RUNNING@ state.
     runningTasksCount :: Prelude.Maybe Prelude.Int,
     -- | The resources attached to a cluster. When using a capacity provider with
-    -- a cluster, the Auto Scaling plan that is created will be returned as a
-    -- cluster attachment.
+    -- a cluster, the capacity provider and associated resources are returned
+    -- as cluster attachments.
     attachments :: Prelude.Maybe [Attachment],
     -- | The capacity providers associated with the cluster.
     capacityProviders :: Prelude.Maybe [Prelude.Text],
@@ -168,8 +166,8 @@ data Cluster = Cluster'
 -- for backwards compatibility:
 --
 -- 'tags', 'cluster_tags' - The metadata that you apply to the cluster to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -196,18 +194,16 @@ data Cluster = Cluster'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name (ARN) that identifies the cluster. The ARN
--- contains the @arn:aws:ecs@ namespace, followed by the Region of the
--- cluster, the Amazon Web Services account ID of the cluster owner, the
--- @cluster@ namespace, and then the cluster name. For example,
--- @arn:aws:ecs:region:012345678910:cluster\/test@.
+-- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name (ARN) that identifies the cluster. For more
+-- information about the ARN format, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+-- in the /Amazon ECS Developer Guide/.
 --
 -- 'attachmentsStatus', 'cluster_attachmentsStatus' - The status of the capacity providers associated with the cluster. The
--- following are the states that will be returned:
+-- following are the states that are returned.
 --
 -- [UPDATE_IN_PROGRESS]
---     The available capacity providers for the cluster are updating. This
---     occurs when the Auto Scaling plan is provisioning or deprovisioning.
+--     The available capacity providers for the cluster are updating.
 --
 -- [UPDATE_COMPLETE]
 --     The capacity providers have successfully updated.
@@ -216,7 +212,7 @@ data Cluster = Cluster'
 --     The capacity provider updates failed.
 --
 -- 'statistics', 'cluster_statistics' - Additional information about your clusters that are separated by launch
--- type, including:
+-- type. They include the following:
 --
 -- -   runningEC2TasksCount
 --
@@ -242,29 +238,30 @@ data Cluster = Cluster'
 -- includes container instances in both @ACTIVE@ and @DRAINING@ status.
 --
 -- 'status', 'cluster_status' - The status of the cluster. The following are the possible states that
--- will be returned.
+-- are returned.
 --
 -- [ACTIVE]
 --     The cluster is ready to accept tasks and if applicable you can
 --     register container instances with the cluster.
 --
 -- [PROVISIONING]
---     The cluster has capacity providers associated with it and the
---     resources needed for the capacity provider are being created.
+--     The cluster has capacity providers that are associated with it and
+--     the resources needed for the capacity provider are being created.
 --
 -- [DEPROVISIONING]
---     The cluster has capacity providers associated with it and the
---     resources needed for the capacity provider are being deleted.
+--     The cluster has capacity providers that are associated with it and
+--     the resources needed for the capacity provider are being deleted.
 --
 -- [FAILED]
---     The cluster has capacity providers associated with it and the
---     resources needed for the capacity provider have failed to create.
+--     The cluster has capacity providers that are associated with it and
+--     the resources needed for the capacity provider have failed to
+--     create.
 --
 -- [INACTIVE]
 --     The cluster has been deleted. Clusters with an @INACTIVE@ status may
 --     remain discoverable in your account for a period of time. However,
---     this behavior is subject to change in the future, so you should not
---     rely on @INACTIVE@ clusters persisting.
+--     this behavior is subject to change in the future. We don\'t
+--     recommend that you rely on @INACTIVE@ clusters persisting.
 --
 -- 'settings', 'cluster_settings' - The settings for the cluster. This parameter indicates whether
 -- CloudWatch Container Insights is enabled or disabled for a cluster.
@@ -272,8 +269,8 @@ data Cluster = Cluster'
 -- 'runningTasksCount', 'cluster_runningTasksCount' - The number of tasks in the cluster that are in the @RUNNING@ state.
 --
 -- 'attachments', 'cluster_attachments' - The resources attached to a cluster. When using a capacity provider with
--- a cluster, the Auto Scaling plan that is created will be returned as a
--- cluster attachment.
+-- a cluster, the capacity provider and associated resources are returned
+-- as cluster attachments.
 --
 -- 'capacityProviders', 'cluster_capacityProviders' - The capacity providers associated with the cluster.
 --
@@ -307,8 +304,8 @@ newCluster =
     }
 
 -- | The metadata that you apply to the cluster to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -337,20 +334,18 @@ newCluster =
 cluster_tags :: Lens.Lens' Cluster (Prelude.Maybe [Tag])
 cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN
--- contains the @arn:aws:ecs@ namespace, followed by the Region of the
--- cluster, the Amazon Web Services account ID of the cluster owner, the
--- @cluster@ namespace, and then the cluster name. For example,
--- @arn:aws:ecs:region:012345678910:cluster\/test@.
+-- | The Amazon Resource Name (ARN) that identifies the cluster. For more
+-- information about the ARN format, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+-- in the /Amazon ECS Developer Guide/.
 cluster_clusterArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterArn = Lens.lens (\Cluster' {clusterArn} -> clusterArn) (\s@Cluster' {} a -> s {clusterArn = a} :: Cluster)
 
 -- | The status of the capacity providers associated with the cluster. The
--- following are the states that will be returned:
+-- following are the states that are returned.
 --
 -- [UPDATE_IN_PROGRESS]
---     The available capacity providers for the cluster are updating. This
---     occurs when the Auto Scaling plan is provisioning or deprovisioning.
+--     The available capacity providers for the cluster are updating.
 --
 -- [UPDATE_COMPLETE]
 --     The capacity providers have successfully updated.
@@ -361,7 +356,7 @@ cluster_attachmentsStatus :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_attachmentsStatus = Lens.lens (\Cluster' {attachmentsStatus} -> attachmentsStatus) (\s@Cluster' {} a -> s {attachmentsStatus = a} :: Cluster)
 
 -- | Additional information about your clusters that are separated by launch
--- type, including:
+-- type. They include the following:
 --
 -- -   runningEC2TasksCount
 --
@@ -395,29 +390,30 @@ cluster_registeredContainerInstancesCount :: Lens.Lens' Cluster (Prelude.Maybe P
 cluster_registeredContainerInstancesCount = Lens.lens (\Cluster' {registeredContainerInstancesCount} -> registeredContainerInstancesCount) (\s@Cluster' {} a -> s {registeredContainerInstancesCount = a} :: Cluster)
 
 -- | The status of the cluster. The following are the possible states that
--- will be returned.
+-- are returned.
 --
 -- [ACTIVE]
 --     The cluster is ready to accept tasks and if applicable you can
 --     register container instances with the cluster.
 --
 -- [PROVISIONING]
---     The cluster has capacity providers associated with it and the
---     resources needed for the capacity provider are being created.
+--     The cluster has capacity providers that are associated with it and
+--     the resources needed for the capacity provider are being created.
 --
 -- [DEPROVISIONING]
---     The cluster has capacity providers associated with it and the
---     resources needed for the capacity provider are being deleted.
+--     The cluster has capacity providers that are associated with it and
+--     the resources needed for the capacity provider are being deleted.
 --
 -- [FAILED]
---     The cluster has capacity providers associated with it and the
---     resources needed for the capacity provider have failed to create.
+--     The cluster has capacity providers that are associated with it and
+--     the resources needed for the capacity provider have failed to
+--     create.
 --
 -- [INACTIVE]
 --     The cluster has been deleted. Clusters with an @INACTIVE@ status may
 --     remain discoverable in your account for a period of time. However,
---     this behavior is subject to change in the future, so you should not
---     rely on @INACTIVE@ clusters persisting.
+--     this behavior is subject to change in the future. We don\'t
+--     recommend that you rely on @INACTIVE@ clusters persisting.
 cluster_status :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_status = Lens.lens (\Cluster' {status} -> status) (\s@Cluster' {} a -> s {status = a} :: Cluster)
 
@@ -431,8 +427,8 @@ cluster_runningTasksCount :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
 cluster_runningTasksCount = Lens.lens (\Cluster' {runningTasksCount} -> runningTasksCount) (\s@Cluster' {} a -> s {runningTasksCount = a} :: Cluster)
 
 -- | The resources attached to a cluster. When using a capacity provider with
--- a cluster, the Auto Scaling plan that is created will be returned as a
--- cluster attachment.
+-- a cluster, the capacity provider and associated resources are returned
+-- as cluster attachments.
 cluster_attachments :: Lens.Lens' Cluster (Prelude.Maybe [Attachment])
 cluster_attachments = Lens.lens (\Cluster' {attachments} -> attachments) (\s@Cluster' {} a -> s {attachments = a} :: Cluster) Prelude.. Lens.mapping Lens.coerced
 

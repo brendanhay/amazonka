@@ -72,13 +72,13 @@ data ListServices = ListServices'
     -- when filtering the @ListServices@ results. If you do not specify a
     -- cluster, the default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of service results returned by @ListServices@ in
+    -- | The maximum number of service results that @ListServices@ returned in
     -- paginated output. When this parameter is used, @ListServices@ only
     -- returns @maxResults@ results in a single page along with a @nextToken@
     -- response element. The remaining results of the initial request can be
     -- seen by sending another @ListServices@ request with the returned
     -- @nextToken@ value. This value can be between 1 and 100. If this
-    -- parameter is not used, then @ListServices@ returns up to 10 results and
+    -- parameter isn\'t used, then @ListServices@ returns up to 10 results and
     -- a @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Int,
     -- | The launch type to use when filtering the @ListServices@ results.
@@ -110,13 +110,13 @@ data ListServices = ListServices'
 -- when filtering the @ListServices@ results. If you do not specify a
 -- cluster, the default cluster is assumed.
 --
--- 'maxResults', 'listServices_maxResults' - The maximum number of service results returned by @ListServices@ in
+-- 'maxResults', 'listServices_maxResults' - The maximum number of service results that @ListServices@ returned in
 -- paginated output. When this parameter is used, @ListServices@ only
 -- returns @maxResults@ results in a single page along with a @nextToken@
 -- response element. The remaining results of the initial request can be
 -- seen by sending another @ListServices@ request with the returned
 -- @nextToken@ value. This value can be between 1 and 100. If this
--- parameter is not used, then @ListServices@ returns up to 10 results and
+-- parameter isn\'t used, then @ListServices@ returns up to 10 results and
 -- a @nextToken@ value if applicable.
 --
 -- 'launchType', 'listServices_launchType' - The launch type to use when filtering the @ListServices@ results.
@@ -153,13 +153,13 @@ listServices_schedulingStrategy = Lens.lens (\ListServices' {schedulingStrategy}
 listServices_cluster :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
 listServices_cluster = Lens.lens (\ListServices' {cluster} -> cluster) (\s@ListServices' {} a -> s {cluster = a} :: ListServices)
 
--- | The maximum number of service results returned by @ListServices@ in
+-- | The maximum number of service results that @ListServices@ returned in
 -- paginated output. When this parameter is used, @ListServices@ only
 -- returns @maxResults@ results in a single page along with a @nextToken@
 -- response element. The remaining results of the initial request can be
 -- seen by sending another @ListServices@ request with the returned
 -- @nextToken@ value. This value can be between 1 and 100. If this
--- parameter is not used, then @ListServices@ returns up to 10 results and
+-- parameter isn\'t used, then @ListServices@ returns up to 10 results and
 -- a @nextToken@ value if applicable.
 listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Int)
 listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
@@ -257,8 +257,8 @@ data ListServicesResponse = ListServicesResponse'
     -- value can be used to retrieve the next page of results. This value is
     -- @null@ when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of full ARN entries for each service associated with the
-    -- specified cluster.
+    -- | The list of full ARN entries for each service that\'s associated with
+    -- the specified cluster.
     serviceArns :: Prelude.Maybe [Prelude.Text],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -278,8 +278,8 @@ data ListServicesResponse = ListServicesResponse'
 -- value can be used to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
 --
--- 'serviceArns', 'listServicesResponse_serviceArns' - The list of full ARN entries for each service associated with the
--- specified cluster.
+-- 'serviceArns', 'listServicesResponse_serviceArns' - The list of full ARN entries for each service that\'s associated with
+-- the specified cluster.
 --
 -- 'httpStatus', 'listServicesResponse_httpStatus' - The response's http status code.
 newListServicesResponse ::
@@ -300,8 +300,8 @@ newListServicesResponse pHttpStatus_ =
 listServicesResponse_nextToken :: Lens.Lens' ListServicesResponse (Prelude.Maybe Prelude.Text)
 listServicesResponse_nextToken = Lens.lens (\ListServicesResponse' {nextToken} -> nextToken) (\s@ListServicesResponse' {} a -> s {nextToken = a} :: ListServicesResponse)
 
--- | The list of full ARN entries for each service associated with the
--- specified cluster.
+-- | The list of full ARN entries for each service that\'s associated with
+-- the specified cluster.
 listServicesResponse_serviceArns :: Lens.Lens' ListServicesResponse (Prelude.Maybe [Prelude.Text])
 listServicesResponse_serviceArns = Lens.lens (\ListServicesResponse' {serviceArns} -> serviceArns) (\s@ListServicesResponse' {} a -> s {serviceArns = a} :: ListServicesResponse) Prelude.. Lens.mapping Lens.coerced
 

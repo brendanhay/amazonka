@@ -47,8 +47,8 @@ data ContainerService = ContainerService'
     -- task has first started.
     healthCheckGracePeriodSeconds :: Prelude.Maybe Prelude.Int,
     -- | The metadata that you apply to the service to help you categorize and
-    -- organize them. Each tag consists of a key and an optional value, both of
-    -- which you define.
+    -- organize them. Each tag consists of a key and an optional value. You
+    -- define bot the key and value.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -80,11 +80,11 @@ data ContainerService = ContainerService'
     -- | Optional deployment parameters that control how many tasks run during
     -- the deployment and the ordering of stopping and starting tasks.
     deploymentConfiguration :: Prelude.Maybe DeploymentConfiguration,
-    -- | The ARN of the IAM role associated with the service that allows the
-    -- Amazon ECS container agent to register container instances with an
+    -- | The ARN of the IAM role that\'s associated with the service. It allows
+    -- the Amazon ECS container agent to register container instances with an
     -- Elastic Load Balancing load balancer.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The details of the service discovery registries to assign to this
+    -- | The details for the service discovery registries to assign to this
     -- service. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
     serviceRegistries :: Prelude.Maybe [ServiceRegistry],
@@ -92,7 +92,7 @@ data ContainerService = ContainerService'
     -- see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
     --
-    -- There are two service scheduler strategies available:
+    -- There are two service scheduler strategies available.
     --
     -- -   @REPLICA@-The replica scheduling strategy places and maintains the
     --     desired number of tasks across your cluster. By default, the service
@@ -101,13 +101,19 @@ data ContainerService = ContainerService'
     --     decisions.
     --
     -- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
-    --     each active container instance that meets all of the task placement
-    --     constraints that you specify in your cluster. The service scheduler
-    --     also evaluates the task placement constraints for running tasks and
-    --     will stop tasks that do not meet the placement constraints.
+    --     each active container instance. This task meets all of the task
+    --     placement constraints that you specify in your cluster. The service
+    --     scheduler also evaluates the task placement constraints for running
+    --     tasks. It stop tasks that don\'t meet the placement constraints.
     --
-    --     Fargate tasks do not support the @DAEMON@ scheduling strategy.
+    --     Fargate tasks don\'t support the @DAEMON@ scheduling strategy.
     schedulingStrategy :: Prelude.Maybe SchedulingStrategy,
+    -- | The operating system that your tasks in the service run on. A platform
+    -- family is specified only for tasks using the Fargate launch type.
+    --
+    -- All tasks that run as part of this service must use the same
+    -- @platformFamily@ value as the service (for example, @LINUX@).
+    platformFamily :: Prelude.Maybe Prelude.Text,
     -- | The placement strategy that determines how tasks for the service are
     -- placed.
     placementStrategy :: Prelude.Maybe [PlacementStrategy],
@@ -128,11 +134,11 @@ data ContainerService = ContainerService'
     desiredCount :: Prelude.Maybe Prelude.Int,
     -- | The number of tasks in the cluster that are in the @PENDING@ state.
     pendingCount :: Prelude.Maybe Prelude.Int,
-    -- | Whether or not the execute command functionality is enabled for the
+    -- | Determines whether the execute command functionality is enabled for the
     -- service. If @true@, the execute command functionality is enabled for all
     -- containers in tasks as part of the service.
     enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
-    -- | The capacity provider strategy the service is using. When using the
+    -- | The capacity provider strategy the service uses. When using the
     -- DescribeServices API, this field is omitted if the service was created
     -- using a launch type.
     capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
@@ -143,20 +149,21 @@ data ContainerService = ContainerService'
     -- as the desired number of tasks, how many tasks are running, and whether
     -- the task set serves production traffic.
     taskSets :: Prelude.Maybe [TaskSet],
-    -- | Specifies whether to propagate the tags from the task definition or the
-    -- service to the task. If no value is specified, the tags are not
+    -- | Determines whether to propagate the tags from the task definition or the
+    -- service to the task. If no value is specified, the tags aren\'t
     -- propagated.
     propagateTags :: Prelude.Maybe PropagateTags,
     -- | The deployment controller type the service is using. When using the
-    -- DescribeServices API, this field is omitted if the service is using the
+    -- DescribeServices API, this field is omitted if the service uses the
     -- @ECS@ deployment controller type.
     deploymentController :: Prelude.Maybe DeploymentController,
     -- | The event stream for your service. A maximum of 100 of the latest events
     -- are displayed.
     events :: Prelude.Maybe [ServiceEvent],
-    -- | A list of Elastic Load Balancing load balancer objects, containing the
-    -- load balancer name, the container name (as it appears in a container
-    -- definition), and the container port to access from the load balancer.
+    -- | A list of Elastic Load Balancing load balancer objects. It contains the
+    -- load balancer name, the container name, and the container port to access
+    -- from the load balancer. The container name is as it appears in a
+    -- container definition.
     loadBalancers :: Prelude.Maybe [LoadBalancer],
     -- | The launch type the service is using. When using the DescribeServices
     -- API, this field is omitted if the service was created using a capacity
@@ -164,33 +171,32 @@ data ContainerService = ContainerService'
     launchType :: Prelude.Maybe LaunchType,
     -- | The number of tasks in the cluster that are in the @RUNNING@ state.
     runningCount :: Prelude.Maybe Prelude.Int,
-    -- | The platform version on which to run your service. A platform version is
-    -- only specified for tasks hosted on Fargate. If one is not specified, the
-    -- @LATEST@ platform version is used by default. For more information, see
+    -- | The platform version to run your service on. A platform version is only
+    -- specified for tasks that are hosted on Fargate. If one isn\'t specified,
+    -- the @LATEST@ platform version is used. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     platformVersion :: Prelude.Maybe Prelude.Text,
     -- | The name of your service. Up to 255 letters (uppercase and lowercase),
     -- numbers, underscores, and hyphens are allowed. Service names must be
-    -- unique within a cluster, but you can have similarly named services in
-    -- multiple clusters within a Region or across multiple Regions.
+    -- unique within a cluster. However, you can have similarly named services
+    -- in multiple clusters within a Region or across multiple Regions.
     serviceName :: Prelude.Maybe Prelude.Text,
     -- | The current state of deployments for the service.
     deployments :: Prelude.Maybe [Deployment],
-    -- | Specifies whether to enable Amazon ECS managed tags for the tasks in the
+    -- | Determines whether to use Amazon ECS managed tags for the tasks in the
     -- service. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
     -- | The principal that created the service.
     createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The ARN that identifies the service. The ARN contains the @arn:aws:ecs@
-    -- namespace, followed by the Region of the service, the Amazon Web
-    -- Services account ID of the service owner, the @service@ namespace, and
-    -- then the service name. For example,
-    -- @arn:aws:ecs:region:012345678910:service\/my-service@.
+    -- | The ARN that identifies the service. For more information about the ARN
+    -- format, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+    -- in the /Amazon ECS Developer Guide/.
     serviceArn :: Prelude.Maybe Prelude.Text,
-    -- | The Unix timestamp for when the service was created.
+    -- | The Unix timestamp for the time when the service was created.
     createdAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -208,8 +214,8 @@ data ContainerService = ContainerService'
 -- task has first started.
 --
 -- 'tags', 'containerService_tags' - The metadata that you apply to the service to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define bot the key and value.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -241,11 +247,11 @@ data ContainerService = ContainerService'
 -- 'deploymentConfiguration', 'containerService_deploymentConfiguration' - Optional deployment parameters that control how many tasks run during
 -- the deployment and the ordering of stopping and starting tasks.
 --
--- 'roleArn', 'containerService_roleArn' - The ARN of the IAM role associated with the service that allows the
--- Amazon ECS container agent to register container instances with an
+-- 'roleArn', 'containerService_roleArn' - The ARN of the IAM role that\'s associated with the service. It allows
+-- the Amazon ECS container agent to register container instances with an
 -- Elastic Load Balancing load balancer.
 --
--- 'serviceRegistries', 'containerService_serviceRegistries' - The details of the service discovery registries to assign to this
+-- 'serviceRegistries', 'containerService_serviceRegistries' - The details for the service discovery registries to assign to this
 -- service. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
 --
@@ -253,7 +259,7 @@ data ContainerService = ContainerService'
 -- see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
 --
--- There are two service scheduler strategies available:
+-- There are two service scheduler strategies available.
 --
 -- -   @REPLICA@-The replica scheduling strategy places and maintains the
 --     desired number of tasks across your cluster. By default, the service
@@ -262,12 +268,18 @@ data ContainerService = ContainerService'
 --     decisions.
 --
 -- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
---     each active container instance that meets all of the task placement
---     constraints that you specify in your cluster. The service scheduler
---     also evaluates the task placement constraints for running tasks and
---     will stop tasks that do not meet the placement constraints.
+--     each active container instance. This task meets all of the task
+--     placement constraints that you specify in your cluster. The service
+--     scheduler also evaluates the task placement constraints for running
+--     tasks. It stop tasks that don\'t meet the placement constraints.
 --
---     Fargate tasks do not support the @DAEMON@ scheduling strategy.
+--     Fargate tasks don\'t support the @DAEMON@ scheduling strategy.
+--
+-- 'platformFamily', 'containerService_platformFamily' - The operating system that your tasks in the service run on. A platform
+-- family is specified only for tasks using the Fargate launch type.
+--
+-- All tasks that run as part of this service must use the same
+-- @platformFamily@ value as the service (for example, @LINUX@).
 --
 -- 'placementStrategy', 'containerService_placementStrategy' - The placement strategy that determines how tasks for the service are
 -- placed.
@@ -289,11 +301,11 @@ data ContainerService = ContainerService'
 --
 -- 'pendingCount', 'containerService_pendingCount' - The number of tasks in the cluster that are in the @PENDING@ state.
 --
--- 'enableExecuteCommand', 'containerService_enableExecuteCommand' - Whether or not the execute command functionality is enabled for the
+-- 'enableExecuteCommand', 'containerService_enableExecuteCommand' - Determines whether the execute command functionality is enabled for the
 -- service. If @true@, the execute command functionality is enabled for all
 -- containers in tasks as part of the service.
 --
--- 'capacityProviderStrategy', 'containerService_capacityProviderStrategy' - The capacity provider strategy the service is using. When using the
+-- 'capacityProviderStrategy', 'containerService_capacityProviderStrategy' - The capacity provider strategy the service uses. When using the
 -- DescribeServices API, this field is omitted if the service was created
 -- using a launch type.
 --
@@ -304,20 +316,21 @@ data ContainerService = ContainerService'
 -- as the desired number of tasks, how many tasks are running, and whether
 -- the task set serves production traffic.
 --
--- 'propagateTags', 'containerService_propagateTags' - Specifies whether to propagate the tags from the task definition or the
--- service to the task. If no value is specified, the tags are not
+-- 'propagateTags', 'containerService_propagateTags' - Determines whether to propagate the tags from the task definition or the
+-- service to the task. If no value is specified, the tags aren\'t
 -- propagated.
 --
 -- 'deploymentController', 'containerService_deploymentController' - The deployment controller type the service is using. When using the
--- DescribeServices API, this field is omitted if the service is using the
+-- DescribeServices API, this field is omitted if the service uses the
 -- @ECS@ deployment controller type.
 --
 -- 'events', 'containerService_events' - The event stream for your service. A maximum of 100 of the latest events
 -- are displayed.
 --
--- 'loadBalancers', 'containerService_loadBalancers' - A list of Elastic Load Balancing load balancer objects, containing the
--- load balancer name, the container name (as it appears in a container
--- definition), and the container port to access from the load balancer.
+-- 'loadBalancers', 'containerService_loadBalancers' - A list of Elastic Load Balancing load balancer objects. It contains the
+-- load balancer name, the container name, and the container port to access
+-- from the load balancer. The container name is as it appears in a
+-- container definition.
 --
 -- 'launchType', 'containerService_launchType' - The launch type the service is using. When using the DescribeServices
 -- API, this field is omitted if the service was created using a capacity
@@ -325,33 +338,32 @@ data ContainerService = ContainerService'
 --
 -- 'runningCount', 'containerService_runningCount' - The number of tasks in the cluster that are in the @RUNNING@ state.
 --
--- 'platformVersion', 'containerService_platformVersion' - The platform version on which to run your service. A platform version is
--- only specified for tasks hosted on Fargate. If one is not specified, the
--- @LATEST@ platform version is used by default. For more information, see
+-- 'platformVersion', 'containerService_platformVersion' - The platform version to run your service on. A platform version is only
+-- specified for tasks that are hosted on Fargate. If one isn\'t specified,
+-- the @LATEST@ platform version is used. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'serviceName', 'containerService_serviceName' - The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, underscores, and hyphens are allowed. Service names must be
--- unique within a cluster, but you can have similarly named services in
--- multiple clusters within a Region or across multiple Regions.
+-- unique within a cluster. However, you can have similarly named services
+-- in multiple clusters within a Region or across multiple Regions.
 --
 -- 'deployments', 'containerService_deployments' - The current state of deployments for the service.
 --
--- 'enableECSManagedTags', 'containerService_enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the tasks in the
+-- 'enableECSManagedTags', 'containerService_enableECSManagedTags' - Determines whether to use Amazon ECS managed tags for the tasks in the
 -- service. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'createdBy', 'containerService_createdBy' - The principal that created the service.
 --
--- 'serviceArn', 'containerService_serviceArn' - The ARN that identifies the service. The ARN contains the @arn:aws:ecs@
--- namespace, followed by the Region of the service, the Amazon Web
--- Services account ID of the service owner, the @service@ namespace, and
--- then the service name. For example,
--- @arn:aws:ecs:region:012345678910:service\/my-service@.
+-- 'serviceArn', 'containerService_serviceArn' - The ARN that identifies the service. For more information about the ARN
+-- format, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+-- in the /Amazon ECS Developer Guide/.
 --
--- 'createdAt', 'containerService_createdAt' - The Unix timestamp for when the service was created.
+-- 'createdAt', 'containerService_createdAt' - The Unix timestamp for the time when the service was created.
 newContainerService ::
   ContainerService
 newContainerService =
@@ -364,6 +376,7 @@ newContainerService =
       roleArn = Prelude.Nothing,
       serviceRegistries = Prelude.Nothing,
       schedulingStrategy = Prelude.Nothing,
+      platformFamily = Prelude.Nothing,
       placementStrategy = Prelude.Nothing,
       taskDefinition = Prelude.Nothing,
       networkConfiguration = Prelude.Nothing,
@@ -396,8 +409,8 @@ containerService_healthCheckGracePeriodSeconds :: Lens.Lens' ContainerService (P
 containerService_healthCheckGracePeriodSeconds = Lens.lens (\ContainerService' {healthCheckGracePeriodSeconds} -> healthCheckGracePeriodSeconds) (\s@ContainerService' {} a -> s {healthCheckGracePeriodSeconds = a} :: ContainerService)
 
 -- | The metadata that you apply to the service to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define bot the key and value.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -435,13 +448,13 @@ containerService_clusterArn = Lens.lens (\ContainerService' {clusterArn} -> clus
 containerService_deploymentConfiguration :: Lens.Lens' ContainerService (Prelude.Maybe DeploymentConfiguration)
 containerService_deploymentConfiguration = Lens.lens (\ContainerService' {deploymentConfiguration} -> deploymentConfiguration) (\s@ContainerService' {} a -> s {deploymentConfiguration = a} :: ContainerService)
 
--- | The ARN of the IAM role associated with the service that allows the
--- Amazon ECS container agent to register container instances with an
+-- | The ARN of the IAM role that\'s associated with the service. It allows
+-- the Amazon ECS container agent to register container instances with an
 -- Elastic Load Balancing load balancer.
 containerService_roleArn :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_roleArn = Lens.lens (\ContainerService' {roleArn} -> roleArn) (\s@ContainerService' {} a -> s {roleArn = a} :: ContainerService)
 
--- | The details of the service discovery registries to assign to this
+-- | The details for the service discovery registries to assign to this
 -- service. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
 containerService_serviceRegistries :: Lens.Lens' ContainerService (Prelude.Maybe [ServiceRegistry])
@@ -451,7 +464,7 @@ containerService_serviceRegistries = Lens.lens (\ContainerService' {serviceRegis
 -- see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html Services>.
 --
--- There are two service scheduler strategies available:
+-- There are two service scheduler strategies available.
 --
 -- -   @REPLICA@-The replica scheduling strategy places and maintains the
 --     desired number of tasks across your cluster. By default, the service
@@ -460,14 +473,22 @@ containerService_serviceRegistries = Lens.lens (\ContainerService' {serviceRegis
 --     decisions.
 --
 -- -   @DAEMON@-The daemon scheduling strategy deploys exactly one task on
---     each active container instance that meets all of the task placement
---     constraints that you specify in your cluster. The service scheduler
---     also evaluates the task placement constraints for running tasks and
---     will stop tasks that do not meet the placement constraints.
+--     each active container instance. This task meets all of the task
+--     placement constraints that you specify in your cluster. The service
+--     scheduler also evaluates the task placement constraints for running
+--     tasks. It stop tasks that don\'t meet the placement constraints.
 --
---     Fargate tasks do not support the @DAEMON@ scheduling strategy.
+--     Fargate tasks don\'t support the @DAEMON@ scheduling strategy.
 containerService_schedulingStrategy :: Lens.Lens' ContainerService (Prelude.Maybe SchedulingStrategy)
 containerService_schedulingStrategy = Lens.lens (\ContainerService' {schedulingStrategy} -> schedulingStrategy) (\s@ContainerService' {} a -> s {schedulingStrategy = a} :: ContainerService)
+
+-- | The operating system that your tasks in the service run on. A platform
+-- family is specified only for tasks using the Fargate launch type.
+--
+-- All tasks that run as part of this service must use the same
+-- @platformFamily@ value as the service (for example, @LINUX@).
+containerService_platformFamily :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
+containerService_platformFamily = Lens.lens (\ContainerService' {platformFamily} -> platformFamily) (\s@ContainerService' {} a -> s {platformFamily = a} :: ContainerService)
 
 -- | The placement strategy that determines how tasks for the service are
 -- placed.
@@ -501,13 +522,13 @@ containerService_desiredCount = Lens.lens (\ContainerService' {desiredCount} -> 
 containerService_pendingCount :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Int)
 containerService_pendingCount = Lens.lens (\ContainerService' {pendingCount} -> pendingCount) (\s@ContainerService' {} a -> s {pendingCount = a} :: ContainerService)
 
--- | Whether or not the execute command functionality is enabled for the
+-- | Determines whether the execute command functionality is enabled for the
 -- service. If @true@, the execute command functionality is enabled for all
 -- containers in tasks as part of the service.
 containerService_enableExecuteCommand :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Bool)
 containerService_enableExecuteCommand = Lens.lens (\ContainerService' {enableExecuteCommand} -> enableExecuteCommand) (\s@ContainerService' {} a -> s {enableExecuteCommand = a} :: ContainerService)
 
--- | The capacity provider strategy the service is using. When using the
+-- | The capacity provider strategy the service uses. When using the
 -- DescribeServices API, this field is omitted if the service was created
 -- using a launch type.
 containerService_capacityProviderStrategy :: Lens.Lens' ContainerService (Prelude.Maybe [CapacityProviderStrategyItem])
@@ -524,14 +545,14 @@ containerService_placementConstraints = Lens.lens (\ContainerService' {placement
 containerService_taskSets :: Lens.Lens' ContainerService (Prelude.Maybe [TaskSet])
 containerService_taskSets = Lens.lens (\ContainerService' {taskSets} -> taskSets) (\s@ContainerService' {} a -> s {taskSets = a} :: ContainerService) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether to propagate the tags from the task definition or the
--- service to the task. If no value is specified, the tags are not
+-- | Determines whether to propagate the tags from the task definition or the
+-- service to the task. If no value is specified, the tags aren\'t
 -- propagated.
 containerService_propagateTags :: Lens.Lens' ContainerService (Prelude.Maybe PropagateTags)
 containerService_propagateTags = Lens.lens (\ContainerService' {propagateTags} -> propagateTags) (\s@ContainerService' {} a -> s {propagateTags = a} :: ContainerService)
 
 -- | The deployment controller type the service is using. When using the
--- DescribeServices API, this field is omitted if the service is using the
+-- DescribeServices API, this field is omitted if the service uses the
 -- @ECS@ deployment controller type.
 containerService_deploymentController :: Lens.Lens' ContainerService (Prelude.Maybe DeploymentController)
 containerService_deploymentController = Lens.lens (\ContainerService' {deploymentController} -> deploymentController) (\s@ContainerService' {} a -> s {deploymentController = a} :: ContainerService)
@@ -541,9 +562,10 @@ containerService_deploymentController = Lens.lens (\ContainerService' {deploymen
 containerService_events :: Lens.Lens' ContainerService (Prelude.Maybe [ServiceEvent])
 containerService_events = Lens.lens (\ContainerService' {events} -> events) (\s@ContainerService' {} a -> s {events = a} :: ContainerService) Prelude.. Lens.mapping Lens.coerced
 
--- | A list of Elastic Load Balancing load balancer objects, containing the
--- load balancer name, the container name (as it appears in a container
--- definition), and the container port to access from the load balancer.
+-- | A list of Elastic Load Balancing load balancer objects. It contains the
+-- load balancer name, the container name, and the container port to access
+-- from the load balancer. The container name is as it appears in a
+-- container definition.
 containerService_loadBalancers :: Lens.Lens' ContainerService (Prelude.Maybe [LoadBalancer])
 containerService_loadBalancers = Lens.lens (\ContainerService' {loadBalancers} -> loadBalancers) (\s@ContainerService' {} a -> s {loadBalancers = a} :: ContainerService) Prelude.. Lens.mapping Lens.coerced
 
@@ -557,9 +579,9 @@ containerService_launchType = Lens.lens (\ContainerService' {launchType} -> laun
 containerService_runningCount :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Int)
 containerService_runningCount = Lens.lens (\ContainerService' {runningCount} -> runningCount) (\s@ContainerService' {} a -> s {runningCount = a} :: ContainerService)
 
--- | The platform version on which to run your service. A platform version is
--- only specified for tasks hosted on Fargate. If one is not specified, the
--- @LATEST@ platform version is used by default. For more information, see
+-- | The platform version to run your service on. A platform version is only
+-- specified for tasks that are hosted on Fargate. If one isn\'t specified,
+-- the @LATEST@ platform version is used. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 containerService_platformVersion :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
@@ -567,8 +589,8 @@ containerService_platformVersion = Lens.lens (\ContainerService' {platformVersio
 
 -- | The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, underscores, and hyphens are allowed. Service names must be
--- unique within a cluster, but you can have similarly named services in
--- multiple clusters within a Region or across multiple Regions.
+-- unique within a cluster. However, you can have similarly named services
+-- in multiple clusters within a Region or across multiple Regions.
 containerService_serviceName :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_serviceName = Lens.lens (\ContainerService' {serviceName} -> serviceName) (\s@ContainerService' {} a -> s {serviceName = a} :: ContainerService)
 
@@ -576,7 +598,7 @@ containerService_serviceName = Lens.lens (\ContainerService' {serviceName} -> se
 containerService_deployments :: Lens.Lens' ContainerService (Prelude.Maybe [Deployment])
 containerService_deployments = Lens.lens (\ContainerService' {deployments} -> deployments) (\s@ContainerService' {} a -> s {deployments = a} :: ContainerService) Prelude.. Lens.mapping Lens.coerced
 
--- | Specifies whether to enable Amazon ECS managed tags for the tasks in the
+-- | Determines whether to use Amazon ECS managed tags for the tasks in the
 -- service. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
@@ -587,15 +609,14 @@ containerService_enableECSManagedTags = Lens.lens (\ContainerService' {enableECS
 containerService_createdBy :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_createdBy = Lens.lens (\ContainerService' {createdBy} -> createdBy) (\s@ContainerService' {} a -> s {createdBy = a} :: ContainerService)
 
--- | The ARN that identifies the service. The ARN contains the @arn:aws:ecs@
--- namespace, followed by the Region of the service, the Amazon Web
--- Services account ID of the service owner, the @service@ namespace, and
--- then the service name. For example,
--- @arn:aws:ecs:region:012345678910:service\/my-service@.
+-- | The ARN that identifies the service. For more information about the ARN
+-- format, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+-- in the /Amazon ECS Developer Guide/.
 containerService_serviceArn :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.Text)
 containerService_serviceArn = Lens.lens (\ContainerService' {serviceArn} -> serviceArn) (\s@ContainerService' {} a -> s {serviceArn = a} :: ContainerService)
 
--- | The Unix timestamp for when the service was created.
+-- | The Unix timestamp for the time when the service was created.
 containerService_createdAt :: Lens.Lens' ContainerService (Prelude.Maybe Prelude.UTCTime)
 containerService_createdAt = Lens.lens (\ContainerService' {createdAt} -> createdAt) (\s@ContainerService' {} a -> s {createdAt = a} :: ContainerService) Prelude.. Lens.mapping Core._Time
 
@@ -614,6 +635,7 @@ instance Core.FromJSON ContainerService where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "schedulingStrategy")
+            Prelude.<*> (x Core..:? "platformFamily")
             Prelude.<*> ( x Core..:? "placementStrategy"
                             Core..!= Prelude.mempty
                         )
@@ -655,6 +677,7 @@ instance Prelude.Hashable ContainerService where
       `Prelude.hashWithSalt` roleArn
       `Prelude.hashWithSalt` serviceRegistries
       `Prelude.hashWithSalt` schedulingStrategy
+      `Prelude.hashWithSalt` platformFamily
       `Prelude.hashWithSalt` placementStrategy
       `Prelude.hashWithSalt` taskDefinition
       `Prelude.hashWithSalt` networkConfiguration
@@ -688,6 +711,7 @@ instance Prelude.NFData ContainerService where
       `Prelude.seq` Prelude.rnf roleArn
       `Prelude.seq` Prelude.rnf serviceRegistries
       `Prelude.seq` Prelude.rnf schedulingStrategy
+      `Prelude.seq` Prelude.rnf platformFamily
       `Prelude.seq` Prelude.rnf placementStrategy
       `Prelude.seq` Prelude.rnf taskDefinition
       `Prelude.seq` Prelude.rnf networkConfiguration
@@ -699,11 +723,13 @@ instance Prelude.NFData ContainerService where
       `Prelude.seq` Prelude.rnf placementConstraints
       `Prelude.seq` Prelude.rnf taskSets
       `Prelude.seq` Prelude.rnf propagateTags
-      `Prelude.seq` Prelude.rnf deploymentController
+      `Prelude.seq` Prelude.rnf
+        deploymentController
       `Prelude.seq` Prelude.rnf events
       `Prelude.seq` Prelude.rnf loadBalancers
       `Prelude.seq` Prelude.rnf launchType
-      `Prelude.seq` Prelude.rnf runningCount
+      `Prelude.seq` Prelude.rnf
+        runningCount
       `Prelude.seq` Prelude.rnf
         platformVersion
       `Prelude.seq` Prelude.rnf

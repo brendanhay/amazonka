@@ -62,7 +62,7 @@ import qualified Amazonka.Response as Response
 data RegisterContainerInstance = RegisterContainerInstance'
   { -- | The metadata that you apply to the container instance to help you
     -- categorize and organize them. Each tag consists of a key and an optional
-    -- value, both of which you define.
+    -- value. You define both.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -89,12 +89,12 @@ data RegisterContainerInstance = RegisterContainerInstance'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster with
-    -- which to register your container instance. If you do not specify a
-    -- cluster, the default cluster is assumed.
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster to
+    -- register your container instance with. If you do not specify a cluster,
+    -- the default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
     -- | The version information for the Amazon ECS container agent and Docker
-    -- daemon running on the container instance.
+    -- daemon that runs on the container instance.
     versionInfo :: Prelude.Maybe VersionInfo,
     -- | The instance identity document signature for the EC2 instance to
     -- register. This signature can be found by running the following command
@@ -128,7 +128,7 @@ data RegisterContainerInstance = RegisterContainerInstance'
 --
 -- 'tags', 'registerContainerInstance_tags' - The metadata that you apply to the container instance to help you
 -- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -155,12 +155,12 @@ data RegisterContainerInstance = RegisterContainerInstance'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'cluster', 'registerContainerInstance_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster with
--- which to register your container instance. If you do not specify a
--- cluster, the default cluster is assumed.
+-- 'cluster', 'registerContainerInstance_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to
+-- register your container instance with. If you do not specify a cluster,
+-- the default cluster is assumed.
 --
 -- 'versionInfo', 'registerContainerInstance_versionInfo' - The version information for the Amazon ECS container agent and Docker
--- daemon running on the container instance.
+-- daemon that runs on the container instance.
 --
 -- 'instanceIdentityDocumentSignature', 'registerContainerInstance_instanceIdentityDocumentSignature' - The instance identity document signature for the EC2 instance to
 -- register. This signature can be found by running the following command
@@ -198,7 +198,7 @@ newRegisterContainerInstance =
 
 -- | The metadata that you apply to the container instance to help you
 -- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -227,14 +227,14 @@ newRegisterContainerInstance =
 registerContainerInstance_tags :: Lens.Lens' RegisterContainerInstance (Prelude.Maybe [Tag])
 registerContainerInstance_tags = Lens.lens (\RegisterContainerInstance' {tags} -> tags) (\s@RegisterContainerInstance' {} a -> s {tags = a} :: RegisterContainerInstance) Prelude.. Lens.mapping Lens.coerced
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster with
--- which to register your container instance. If you do not specify a
--- cluster, the default cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster to
+-- register your container instance with. If you do not specify a cluster,
+-- the default cluster is assumed.
 registerContainerInstance_cluster :: Lens.Lens' RegisterContainerInstance (Prelude.Maybe Prelude.Text)
 registerContainerInstance_cluster = Lens.lens (\RegisterContainerInstance' {cluster} -> cluster) (\s@RegisterContainerInstance' {} a -> s {cluster = a} :: RegisterContainerInstance)
 
 -- | The version information for the Amazon ECS container agent and Docker
--- daemon running on the container instance.
+-- daemon that runs on the container instance.
 registerContainerInstance_versionInfo :: Lens.Lens' RegisterContainerInstance (Prelude.Maybe VersionInfo)
 registerContainerInstance_versionInfo = Lens.lens (\RegisterContainerInstance' {versionInfo} -> versionInfo) (\s@RegisterContainerInstance' {} a -> s {versionInfo = a} :: RegisterContainerInstance)
 

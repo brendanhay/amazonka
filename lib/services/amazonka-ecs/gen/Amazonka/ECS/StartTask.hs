@@ -95,9 +95,9 @@ data StartTask = StartTask'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster on
-    -- which to start your task. If you do not specify a cluster, the default
-    -- cluster is assumed.
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster where
+    -- to start your task. If you do not specify a cluster, the default cluster
+    -- is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
     -- | The VPC subnet and security group configuration for tasks that receive
     -- their own elastic network interface by using the @awsvpc@ networking
@@ -108,24 +108,24 @@ data StartTask = StartTask'
     -- a unique identifier for that job to your task with the @startedBy@
     -- parameter. You can then identify which tasks belong to that job by
     -- filtering the results of a ListTasks call with the @startedBy@ value. Up
-    -- to 36 letters (uppercase and lowercase), numbers, hyphens, and
-    -- underscores are allowed.
+    -- to 36 letters (uppercase and lowercase), numbers, hyphens (-), and
+    -- underscores (_) are allowed.
     --
-    -- If a task is started by an Amazon ECS service, then the @startedBy@
-    -- parameter contains the deployment ID of the service that starts it.
+    -- If a task is started by an Amazon ECS service, the @startedBy@ parameter
+    -- contains the deployment ID of the service that starts it.
     startedBy :: Prelude.Maybe Prelude.Text,
     -- | Whether or not the execute command functionality is enabled for the
     -- task. If @true@, this enables execute command functionality on all
     -- containers in the task.
     enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether to propagate the tags from the task definition or the
-    -- service to the task. If no value is specified, the tags are not
+    -- service to the task. If no value is specified, the tags aren\'t
     -- propagated.
     propagateTags :: Prelude.Maybe PropagateTags,
     -- | The reference ID to use for the task.
     referenceId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to enable Amazon ECS managed tags for the task. For
-    -- more information, see
+    -- | Specifies whether to use Amazon ECS managed tags for the task. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     enableECSManagedTags :: Prelude.Maybe Prelude.Bool,
@@ -134,8 +134,8 @@ data StartTask = StartTask'
     -- family:my-family-name).
     group' :: Prelude.Maybe Prelude.Text,
     -- | A list of container overrides in JSON format that specify the name of a
-    -- container in the specified task definition and the overrides it should
-    -- receive. You can override the default command for a container (that is
+    -- container in the specified task definition and the overrides it
+    -- receives. You can override the default command for a container (that\'s
     -- specified in the task definition or Docker image) with a @command@
     -- override. You can also override existing environment variables (that are
     -- specified in the task definition or Docker image) on a container or add
@@ -145,11 +145,11 @@ data StartTask = StartTask'
     -- includes the JSON formatting characters of the override structure.
     overrides :: Prelude.Maybe TaskOverride,
     -- | The container instance IDs or full ARN entries for the container
-    -- instances on which you would like to place your task. You can specify up
-    -- to 10 container instances.
+    -- instances where you would like to place your task. You can specify up to
+    -- 10 container instances.
     containerInstances :: [Prelude.Text],
     -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
-    -- definition to start. If a @revision@ is not specified, the latest
+    -- definition to start. If a @revision@ isn\'t specified, the latest
     -- @ACTIVE@ revision is used.
     taskDefinition :: Prelude.Text
   }
@@ -192,9 +192,9 @@ data StartTask = StartTask'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'cluster', 'startTask_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster on
--- which to start your task. If you do not specify a cluster, the default
--- cluster is assumed.
+-- 'cluster', 'startTask_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster where
+-- to start your task. If you do not specify a cluster, the default cluster
+-- is assumed.
 --
 -- 'networkConfiguration', 'startTask_networkConfiguration' - The VPC subnet and security group configuration for tasks that receive
 -- their own elastic network interface by using the @awsvpc@ networking
@@ -205,24 +205,24 @@ data StartTask = StartTask'
 -- a unique identifier for that job to your task with the @startedBy@
 -- parameter. You can then identify which tasks belong to that job by
 -- filtering the results of a ListTasks call with the @startedBy@ value. Up
--- to 36 letters (uppercase and lowercase), numbers, hyphens, and
--- underscores are allowed.
+-- to 36 letters (uppercase and lowercase), numbers, hyphens (-), and
+-- underscores (_) are allowed.
 --
--- If a task is started by an Amazon ECS service, then the @startedBy@
--- parameter contains the deployment ID of the service that starts it.
+-- If a task is started by an Amazon ECS service, the @startedBy@ parameter
+-- contains the deployment ID of the service that starts it.
 --
 -- 'enableExecuteCommand', 'startTask_enableExecuteCommand' - Whether or not the execute command functionality is enabled for the
 -- task. If @true@, this enables execute command functionality on all
 -- containers in the task.
 --
 -- 'propagateTags', 'startTask_propagateTags' - Specifies whether to propagate the tags from the task definition or the
--- service to the task. If no value is specified, the tags are not
+-- service to the task. If no value is specified, the tags aren\'t
 -- propagated.
 --
 -- 'referenceId', 'startTask_referenceId' - The reference ID to use for the task.
 --
--- 'enableECSManagedTags', 'startTask_enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the task. For
--- more information, see
+-- 'enableECSManagedTags', 'startTask_enableECSManagedTags' - Specifies whether to use Amazon ECS managed tags for the task. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
@@ -231,8 +231,8 @@ data StartTask = StartTask'
 -- family:my-family-name).
 --
 -- 'overrides', 'startTask_overrides' - A list of container overrides in JSON format that specify the name of a
--- container in the specified task definition and the overrides it should
--- receive. You can override the default command for a container (that is
+-- container in the specified task definition and the overrides it
+-- receives. You can override the default command for a container (that\'s
 -- specified in the task definition or Docker image) with a @command@
 -- override. You can also override existing environment variables (that are
 -- specified in the task definition or Docker image) on a container or add
@@ -242,11 +242,11 @@ data StartTask = StartTask'
 -- includes the JSON formatting characters of the override structure.
 --
 -- 'containerInstances', 'startTask_containerInstances' - The container instance IDs or full ARN entries for the container
--- instances on which you would like to place your task. You can specify up
--- to 10 container instances.
+-- instances where you would like to place your task. You can specify up to
+-- 10 container instances.
 --
 -- 'taskDefinition', 'startTask_taskDefinition' - The @family@ and @revision@ (@family:revision@) or full ARN of the task
--- definition to start. If a @revision@ is not specified, the latest
+-- definition to start. If a @revision@ isn\'t specified, the latest
 -- @ACTIVE@ revision is used.
 newStartTask ::
   -- | 'taskDefinition'
@@ -299,9 +299,9 @@ newStartTask pTaskDefinition_ =
 startTask_tags :: Lens.Lens' StartTask (Prelude.Maybe [Tag])
 startTask_tags = Lens.lens (\StartTask' {tags} -> tags) (\s@StartTask' {} a -> s {tags = a} :: StartTask) Prelude.. Lens.mapping Lens.coerced
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster on
--- which to start your task. If you do not specify a cluster, the default
--- cluster is assumed.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster where
+-- to start your task. If you do not specify a cluster, the default cluster
+-- is assumed.
 startTask_cluster :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
 startTask_cluster = Lens.lens (\StartTask' {cluster} -> cluster) (\s@StartTask' {} a -> s {cluster = a} :: StartTask)
 
@@ -316,11 +316,11 @@ startTask_networkConfiguration = Lens.lens (\StartTask' {networkConfiguration} -
 -- a unique identifier for that job to your task with the @startedBy@
 -- parameter. You can then identify which tasks belong to that job by
 -- filtering the results of a ListTasks call with the @startedBy@ value. Up
--- to 36 letters (uppercase and lowercase), numbers, hyphens, and
--- underscores are allowed.
+-- to 36 letters (uppercase and lowercase), numbers, hyphens (-), and
+-- underscores (_) are allowed.
 --
--- If a task is started by an Amazon ECS service, then the @startedBy@
--- parameter contains the deployment ID of the service that starts it.
+-- If a task is started by an Amazon ECS service, the @startedBy@ parameter
+-- contains the deployment ID of the service that starts it.
 startTask_startedBy :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
 startTask_startedBy = Lens.lens (\StartTask' {startedBy} -> startedBy) (\s@StartTask' {} a -> s {startedBy = a} :: StartTask)
 
@@ -331,7 +331,7 @@ startTask_enableExecuteCommand :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Bo
 startTask_enableExecuteCommand = Lens.lens (\StartTask' {enableExecuteCommand} -> enableExecuteCommand) (\s@StartTask' {} a -> s {enableExecuteCommand = a} :: StartTask)
 
 -- | Specifies whether to propagate the tags from the task definition or the
--- service to the task. If no value is specified, the tags are not
+-- service to the task. If no value is specified, the tags aren\'t
 -- propagated.
 startTask_propagateTags :: Lens.Lens' StartTask (Prelude.Maybe PropagateTags)
 startTask_propagateTags = Lens.lens (\StartTask' {propagateTags} -> propagateTags) (\s@StartTask' {} a -> s {propagateTags = a} :: StartTask)
@@ -340,8 +340,8 @@ startTask_propagateTags = Lens.lens (\StartTask' {propagateTags} -> propagateTag
 startTask_referenceId :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
 startTask_referenceId = Lens.lens (\StartTask' {referenceId} -> referenceId) (\s@StartTask' {} a -> s {referenceId = a} :: StartTask)
 
--- | Specifies whether to enable Amazon ECS managed tags for the task. For
--- more information, see
+-- | Specifies whether to use Amazon ECS managed tags for the task. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 startTask_enableECSManagedTags :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Bool)
@@ -354,8 +354,8 @@ startTask_group :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
 startTask_group = Lens.lens (\StartTask' {group'} -> group') (\s@StartTask' {} a -> s {group' = a} :: StartTask)
 
 -- | A list of container overrides in JSON format that specify the name of a
--- container in the specified task definition and the overrides it should
--- receive. You can override the default command for a container (that is
+-- container in the specified task definition and the overrides it
+-- receives. You can override the default command for a container (that\'s
 -- specified in the task definition or Docker image) with a @command@
 -- override. You can also override existing environment variables (that are
 -- specified in the task definition or Docker image) on a container or add
@@ -367,13 +367,13 @@ startTask_overrides :: Lens.Lens' StartTask (Prelude.Maybe TaskOverride)
 startTask_overrides = Lens.lens (\StartTask' {overrides} -> overrides) (\s@StartTask' {} a -> s {overrides = a} :: StartTask)
 
 -- | The container instance IDs or full ARN entries for the container
--- instances on which you would like to place your task. You can specify up
--- to 10 container instances.
+-- instances where you would like to place your task. You can specify up to
+-- 10 container instances.
 startTask_containerInstances :: Lens.Lens' StartTask [Prelude.Text]
 startTask_containerInstances = Lens.lens (\StartTask' {containerInstances} -> containerInstances) (\s@StartTask' {} a -> s {containerInstances = a} :: StartTask) Prelude.. Lens.coerced
 
 -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
--- definition to start. If a @revision@ is not specified, the latest
+-- definition to start. If a @revision@ isn\'t specified, the latest
 -- @ACTIVE@ revision is used.
 startTask_taskDefinition :: Lens.Lens' StartTask Prelude.Text
 startTask_taskDefinition = Lens.lens (\StartTask' {taskDefinition} -> taskDefinition) (\s@StartTask' {} a -> s {taskDefinition = a} :: StartTask)

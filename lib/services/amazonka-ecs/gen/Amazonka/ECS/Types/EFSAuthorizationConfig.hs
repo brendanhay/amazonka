@@ -28,12 +28,12 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newEFSAuthorizationConfig' smart constructor.
 data EFSAuthorizationConfig = EFSAuthorizationConfig'
-  { -- | Whether or not to use the Amazon ECS task IAM role defined in a task
+  { -- | Determines whether to use the Amazon ECS task IAM role defined in a task
     -- definition when mounting the Amazon EFS file system. If enabled, transit
     -- encryption must be enabled in the @EFSVolumeConfiguration@. If this
     -- parameter is omitted, the default value of @DISABLED@ is used. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS access points>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     iam :: Prelude.Maybe EFSAuthorizationConfigIAM,
     -- | The Amazon EFS access point ID to use. If an access point is specified,
@@ -41,7 +41,7 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
     -- either be omitted or set to @\/@ which will enforce the path set on the
     -- EFS access point. If an access point is used, transit encryption must be
     -- enabled in the @EFSVolumeConfiguration@. For more information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points>
+    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
     -- in the /Amazon Elastic File System User Guide/.
     accessPointId :: Prelude.Maybe Prelude.Text
   }
@@ -55,12 +55,12 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iam', 'eFSAuthorizationConfig_iam' - Whether or not to use the Amazon ECS task IAM role defined in a task
+-- 'iam', 'eFSAuthorizationConfig_iam' - Determines whether to use the Amazon ECS task IAM role defined in a task
 -- definition when mounting the Amazon EFS file system. If enabled, transit
 -- encryption must be enabled in the @EFSVolumeConfiguration@. If this
 -- parameter is omitted, the default value of @DISABLED@ is used. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS access points>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'accessPointId', 'eFSAuthorizationConfig_accessPointId' - The Amazon EFS access point ID to use. If an access point is specified,
@@ -68,7 +68,7 @@ data EFSAuthorizationConfig = EFSAuthorizationConfig'
 -- either be omitted or set to @\/@ which will enforce the path set on the
 -- EFS access point. If an access point is used, transit encryption must be
 -- enabled in the @EFSVolumeConfiguration@. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points>
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
 -- in the /Amazon Elastic File System User Guide/.
 newEFSAuthorizationConfig ::
   EFSAuthorizationConfig
@@ -78,12 +78,12 @@ newEFSAuthorizationConfig =
       accessPointId = Prelude.Nothing
     }
 
--- | Whether or not to use the Amazon ECS task IAM role defined in a task
+-- | Determines whether to use the Amazon ECS task IAM role defined in a task
 -- definition when mounting the Amazon EFS file system. If enabled, transit
 -- encryption must be enabled in the @EFSVolumeConfiguration@. If this
 -- parameter is omitted, the default value of @DISABLED@ is used. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS Access Points>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html#efs-volume-accesspoints Using Amazon EFS access points>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 eFSAuthorizationConfig_iam :: Lens.Lens' EFSAuthorizationConfig (Prelude.Maybe EFSAuthorizationConfigIAM)
 eFSAuthorizationConfig_iam = Lens.lens (\EFSAuthorizationConfig' {iam} -> iam) (\s@EFSAuthorizationConfig' {} a -> s {iam = a} :: EFSAuthorizationConfig)
@@ -93,7 +93,7 @@ eFSAuthorizationConfig_iam = Lens.lens (\EFSAuthorizationConfig' {iam} -> iam) (
 -- either be omitted or set to @\/@ which will enforce the path set on the
 -- EFS access point. If an access point is used, transit encryption must be
 -- enabled in the @EFSVolumeConfiguration@. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS Access Points>
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Working with Amazon EFS access points>
 -- in the /Amazon Elastic File System User Guide/.
 eFSAuthorizationConfig_accessPointId :: Lens.Lens' EFSAuthorizationConfig (Prelude.Maybe Prelude.Text)
 eFSAuthorizationConfig_accessPointId = Lens.lens (\EFSAuthorizationConfig' {accessPointId} -> accessPointId) (\s@EFSAuthorizationConfig' {} a -> s {accessPointId = a} :: EFSAuthorizationConfig)

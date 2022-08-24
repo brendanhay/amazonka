@@ -30,11 +30,11 @@ import qualified Amazonka.Prelude as Prelude
 data Setting = Setting'
   { -- | The Amazon ECS resource name.
     name :: Prelude.Maybe SettingName,
-    -- | The ARN of the principal, which can be an IAM user, IAM role, or the
-    -- root user. If this field is omitted, the authenticated user is assumed.
+    -- | The ARN of the principal. It can be an IAM user, IAM role, or the root
+    -- user. If this field is omitted, the authenticated user is assumed.
     principalArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether the account setting is enabled or disabled for the specified
-    -- resource.
+    -- | Determines whether the account setting is enabled or disabled for the
+    -- specified resource.
     value :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,11 +49,11 @@ data Setting = Setting'
 --
 -- 'name', 'setting_name' - The Amazon ECS resource name.
 --
--- 'principalArn', 'setting_principalArn' - The ARN of the principal, which can be an IAM user, IAM role, or the
--- root user. If this field is omitted, the authenticated user is assumed.
+-- 'principalArn', 'setting_principalArn' - The ARN of the principal. It can be an IAM user, IAM role, or the root
+-- user. If this field is omitted, the authenticated user is assumed.
 --
--- 'value', 'setting_value' - Whether the account setting is enabled or disabled for the specified
--- resource.
+-- 'value', 'setting_value' - Determines whether the account setting is enabled or disabled for the
+-- specified resource.
 newSetting ::
   Setting
 newSetting =
@@ -67,13 +67,13 @@ newSetting =
 setting_name :: Lens.Lens' Setting (Prelude.Maybe SettingName)
 setting_name = Lens.lens (\Setting' {name} -> name) (\s@Setting' {} a -> s {name = a} :: Setting)
 
--- | The ARN of the principal, which can be an IAM user, IAM role, or the
--- root user. If this field is omitted, the authenticated user is assumed.
+-- | The ARN of the principal. It can be an IAM user, IAM role, or the root
+-- user. If this field is omitted, the authenticated user is assumed.
 setting_principalArn :: Lens.Lens' Setting (Prelude.Maybe Prelude.Text)
 setting_principalArn = Lens.lens (\Setting' {principalArn} -> principalArn) (\s@Setting' {} a -> s {principalArn = a} :: Setting)
 
--- | Whether the account setting is enabled or disabled for the specified
--- resource.
+-- | Determines whether the account setting is enabled or disabled for the
+-- specified resource.
 setting_value :: Lens.Lens' Setting (Prelude.Maybe Prelude.Text)
 setting_value = Lens.lens (\Setting' {value} -> value) (\s@Setting' {} a -> s {value = a} :: Setting)
 

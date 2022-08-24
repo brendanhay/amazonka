@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 data UpdateCapacityProvider = UpdateCapacityProvider'
   { -- | The name of the capacity provider to update.
     name :: Prelude.Text,
-    -- | An object representing the parameters to update for the Auto Scaling
+    -- | An object that represent the parameters to update for the Auto Scaling
     -- group capacity provider.
     autoScalingGroupProvider :: AutoScalingGroupProviderUpdate
   }
@@ -67,7 +67,7 @@ data UpdateCapacityProvider = UpdateCapacityProvider'
 --
 -- 'name', 'updateCapacityProvider_name' - The name of the capacity provider to update.
 --
--- 'autoScalingGroupProvider', 'updateCapacityProvider_autoScalingGroupProvider' - An object representing the parameters to update for the Auto Scaling
+-- 'autoScalingGroupProvider', 'updateCapacityProvider_autoScalingGroupProvider' - An object that represent the parameters to update for the Auto Scaling
 -- group capacity provider.
 newUpdateCapacityProvider ::
   -- | 'name'
@@ -88,7 +88,7 @@ newUpdateCapacityProvider
 updateCapacityProvider_name :: Lens.Lens' UpdateCapacityProvider Prelude.Text
 updateCapacityProvider_name = Lens.lens (\UpdateCapacityProvider' {name} -> name) (\s@UpdateCapacityProvider' {} a -> s {name = a} :: UpdateCapacityProvider)
 
--- | An object representing the parameters to update for the Auto Scaling
+-- | An object that represent the parameters to update for the Auto Scaling
 -- group capacity provider.
 updateCapacityProvider_autoScalingGroupProvider :: Lens.Lens' UpdateCapacityProvider AutoScalingGroupProviderUpdate
 updateCapacityProvider_autoScalingGroupProvider = Lens.lens (\UpdateCapacityProvider' {autoScalingGroupProvider} -> autoScalingGroupProvider) (\s@UpdateCapacityProvider' {} a -> s {autoScalingGroupProvider = a} :: UpdateCapacityProvider)

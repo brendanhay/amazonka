@@ -54,7 +54,7 @@ data ContainerDefinition = ContainerDefinition'
     --
     -- This parameter is not supported for Windows containers.
     readonlyRootFilesystem :: Prelude.Maybe Prelude.Bool,
-    -- | The name of a container. If you are linking multiple containers together
+    -- | The name of a container. If you\'re linking multiple containers together
     -- in a task definition, the @name@ of one container can be entered in the
     -- @links@ of another container to connect the containers. Up to 255
     -- letters (uppercase and lowercase), numbers, underscores, and hyphens are
@@ -70,12 +70,12 @@ data ContainerDefinition = ContainerDefinition'
     -- container startup, for container shutdown it is reversed.
     --
     -- For tasks using the EC2 launch type, the container instances require at
-    -- least version 1.26.0 of the container agent to enable container
+    -- least version 1.26.0 of the container agent to turn on container
     -- dependencies. However, we recommend using the latest container agent
     -- version. For information about checking your agent version and updating
     -- to the latest version, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
-    -- in the /Amazon Elastic Container Service Developer Guide/. If you are
+    -- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
     -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
     -- version 1.26.0-1 of the @ecs-init@ package. If your container instances
     -- are launched from version @20190301@ or later, then they contain the
@@ -85,7 +85,11 @@ data ContainerDefinition = ContainerDefinition'
     -- in the /Amazon Elastic Container Service Developer Guide/.
     --
     -- For tasks using the Fargate launch type, the task or service requires
-    -- platform version @1.3.0@ or later.
+    -- the following platforms:
+    --
+    -- -   Linux platform version @1.3.0@ or later.
+    --
+    -- -   Windows platform version @1.0.0@ or later.
     dependsOn :: Prelude.Maybe [ContainerDependency],
     -- | A list of hostnames and IP address mappings to append to the
     -- @\/etc\/hosts@ file on the container. This parameter maps to
@@ -96,7 +100,7 @@ data ContainerDefinition = ContainerDefinition'
     -- @--add-host@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
-    -- This parameter is not supported for Windows containers or tasks that use
+    -- This parameter isn\'t supported for Windows containers or tasks that use
     -- the @awsvpc@ network mode.
     extraHosts :: Prelude.Maybe [HostEntry],
     -- | The container health check command and associated configuration
@@ -116,8 +120,8 @@ data ContainerDefinition = ContainerDefinition'
     -- @--env@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
-    -- We do not recommend using plaintext environment variables for sensitive
-    -- information, such as credential data.
+    -- We don\'t recommend that you use plaintext environment variables for
+    -- sensitive information, such as credential data.
     environment :: Prelude.Maybe [KeyValuePair],
     -- | The log configuration specification for the container.
     --
@@ -128,12 +132,13 @@ data ContainerDefinition = ContainerDefinition'
     -- @--log-driver@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     -- By default, containers use the same logging driver that the Docker
-    -- daemon uses. However the container may use a different logging driver
+    -- daemon uses. However the container can use a different logging driver
     -- than the Docker daemon by specifying a log driver with this parameter in
     -- the container definition. To use a different logging driver for a
     -- container, the log system must be configured properly on the container
     -- instance (or on a different log server for remote logging options). For
-    -- more information on the options for different supported log drivers, see
+    -- more information about the options for different supported log drivers,
+    -- see
     -- <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers>
     -- in the Docker documentation.
     --
@@ -163,24 +168,28 @@ data ContainerDefinition = ContainerDefinition'
     -- dependencies for a container. For example, you specify two containers in
     -- a task definition with containerA having a dependency on containerB
     -- reaching a @COMPLETE@, @SUCCESS@, or @HEALTHY@ status. If a
-    -- @startTimeout@ value is specified for containerB and it does not reach
-    -- the desired status within that time then containerA will give up and not
+    -- @startTimeout@ value is specified for containerB and it doesn\'t reach
+    -- the desired status within that time then containerA gives up and not
     -- start. This results in the task transitioning to a @STOPPED@ state.
     --
     -- When the @ECS_CONTAINER_START_TIMEOUT@ container agent configuration
-    -- variable is used, it is enforced indendently from this start timeout
+    -- variable is used, it\'s enforced independently from this start timeout
     -- value.
     --
-    -- For tasks using the Fargate launch type, this parameter requires that
-    -- the task or service uses platform version 1.3.0 or later.
+    -- For tasks using the Fargate launch type, the task or service requires
+    -- the following platforms:
+    --
+    -- -   Linux platform version @1.3.0@ or later.
+    --
+    -- -   Windows platform version @1.0.0@ or later.
     --
     -- For tasks using the EC2 launch type, your container instances require at
-    -- least version @1.26.0@ of the container agent to enable a container
-    -- start timeout value. However, we recommend using the latest container
-    -- agent version. For information about checking your agent version and
-    -- updating to the latest version, see
+    -- least version @1.26.0@ of the container agent to use a container start
+    -- timeout value. However, we recommend using the latest container agent
+    -- version. For information about checking your agent version and updating
+    -- to the latest version, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
-    -- in the /Amazon Elastic Container Service Developer Guide/. If you are
+    -- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
     -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
     -- version @1.26.0-1@ of the @ecs-init@ package. If your container
     -- instances are launched from version @20190301@ or later, then they
@@ -207,12 +216,16 @@ data ContainerDefinition = ContainerDefinition'
     -- container-level @memory@ and @memoryReservation@ value, @memory@ must be
     -- greater than @memoryReservation@. If you specify @memoryReservation@,
     -- then that value is subtracted from the available memory resources for
-    -- the container instance on which the container is placed. Otherwise, the
+    -- the container instance where the container is placed. Otherwise, the
     -- value of @memory@ is used.
     --
-    -- The Docker daemon reserves a minimum of 4 MiB of memory for a container,
-    -- so you should not specify fewer than 4 MiB of memory for your
+    -- The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory
+    -- for a container. So, don\'t specify less than 6 MiB of memory for your
     -- containers.
+    --
+    -- The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of
+    -- memory for a container. So, don\'t specify less than 4 MiB of memory for
+    -- your containers.
     memory :: Prelude.Maybe Prelude.Int,
     -- | The number of @cpu@ units reserved for the container. This parameter
     -- maps to @CpuShares@ in the
@@ -234,21 +247,21 @@ data ContainerDefinition = ContainerDefinition'
     -- Linux containers share unallocated CPU units with other containers on
     -- the container instance with the same ratio as their allocated amount.
     -- For example, if you run a single-container task on a single-core
-    -- instance type with 512 CPU units specified for that container, and that
-    -- is the only task running on the container instance, that container could
-    -- use the full 1,024 CPU unit share at any given time. However, if you
-    -- launched another copy of the same task on that container instance, each
-    -- task would be guaranteed a minimum of 512 CPU units when needed, and
-    -- each container could float to higher CPU usage if the other container
-    -- was not using it, but if both tasks were 100% active all of the time,
-    -- they would be limited to 512 CPU units.
+    -- instance type with 512 CPU units specified for that container, and
+    -- that\'s the only task running on the container instance, that container
+    -- could use the full 1,024 CPU unit share at any given time. However, if
+    -- you launched another copy of the same task on that container instance,
+    -- each task is guaranteed a minimum of 512 CPU units when needed.
+    -- Moreover, each container could float to higher CPU usage if the other
+    -- container was not using it. If both tasks were 100% active all of the
+    -- time, they would be limited to 512 CPU units.
     --
     -- On Linux container instances, the Docker daemon on the container
     -- instance uses the CPU value to calculate the relative CPU share ratios
     -- for running containers. For more information, see
     -- <https://docs.docker.com/engine/reference/run/#cpu-share-constraint CPU share constraint>
     -- in the Docker documentation. The minimum valid CPU share value that the
-    -- Linux kernel allows is 2. However, the CPU parameter is not required,
+    -- Linux kernel allows is 2. However, the CPU parameter isn\'t required,
     -- and you can use CPU values below 2 in your container definitions. For
     -- CPU values below 2 (including null), the behavior varies based on your
     -- Amazon ECS container agent version:
@@ -263,7 +276,7 @@ data ContainerDefinition = ContainerDefinition'
     --
     -- On Windows container instances, the CPU limit is enforced as an absolute
     -- limit, or a quota. Windows containers only have access to the specified
-    -- amount of CPU that is described in the task definition. A null or zero
+    -- amount of CPU that\'s described in the task definition. A null or zero
     -- CPU value is passed to Docker as @0@, which Windows interprets as 1% of
     -- one CPU.
     cpu :: Prelude.Maybe Prelude.Int,
@@ -275,9 +288,9 @@ data ContainerDefinition = ContainerDefinition'
     -- @--user@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
-    -- When running tasks using the @host@ network mode, you should not run
-    -- containers using the root user (UID 0). It is considered best practice
-    -- to use a non-root user.
+    -- When running tasks using the @host@ network mode, don\'t run containers
+    -- using the root user (UID 0). We recommend using a non-root user for
+    -- better security.
     --
     -- You can specify the @user@ using the following formats. If specifying a
     -- UID or GID, you must specify it as a positive integer.
@@ -307,8 +320,8 @@ data ContainerDefinition = ContainerDefinition'
     -- This parameter is not supported for Windows containers.
     dnsServers :: Prelude.Maybe [Prelude.Text],
     -- | A list of @ulimits@ to set in the container. If a ulimit value is
-    -- specified in a task definition, it will override the default values set
-    -- by Docker. This parameter maps to @Ulimits@ in the
+    -- specified in a task definition, it overrides the default values set by
+    -- Docker. This parameter maps to @Ulimits@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -348,8 +361,8 @@ data ContainerDefinition = ContainerDefinition'
     -- container definition. If you specify both, @memory@ must be greater than
     -- @memoryReservation@. If you specify @memoryReservation@, then that value
     -- is subtracted from the available memory resources for the container
-    -- instance on which the container is placed. Otherwise, the value of
-    -- @memory@ is used.
+    -- instance where the container is placed. Otherwise, the value of @memory@
+    -- is used.
     --
     -- For example, if your container normally uses 128 MiB of memory, but
     -- occasionally bursts to 256 MiB of memory for short periods of time, you
@@ -359,13 +372,13 @@ data ContainerDefinition = ContainerDefinition'
     -- instance, but also allow the container to consume more memory resources
     -- when needed.
     --
-    -- The Docker daemon reserves a minimum of 4 MiB of memory for a container,
-    -- so you should not specify fewer than 4 MiB of memory for your
-    -- containers.
+    -- The Docker daemon reserves a minimum of 4 MiB of memory for a container.
+    -- Therefore, we recommend that you specify fewer than 4 MiB of memory for
+    -- your containers.
     memoryReservation :: Prelude.Maybe Prelude.Int,
     -- | The private repository authentication credentials to use.
     repositoryCredentials :: Prelude.Maybe RepositoryCredentials,
-    -- | The command that is passed to the container. This parameter maps to
+    -- | The command that\'s passed to the container. This parameter maps to
     -- @Cmd@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
@@ -374,20 +387,19 @@ data ContainerDefinition = ContainerDefinition'
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     -- For more information, see
     -- <https://docs.docker.com/engine/reference/builder/#cmd>. If there are
-    -- multiple arguments, each argument should be a separated string in the
-    -- array.
+    -- multiple arguments, each argument is a separated string in the array.
     command :: Prelude.Maybe [Prelude.Text],
     -- | The list of port mappings for the container. Port mappings allow
     -- containers to access ports on the host container instance to send or
     -- receive traffic.
     --
-    -- For task definitions that use the @awsvpc@ network mode, you should only
-    -- specify the @containerPort@. The @hostPort@ can be left blank or it must
-    -- be the same value as the @containerPort@.
+    -- For task definitions that use the @awsvpc@ network mode, only specify
+    -- the @containerPort@. The @hostPort@ can be left blank or it must be the
+    -- same value as the @containerPort@.
     --
     -- Port mappings on Windows use the @NetNAT@ gateway address rather than
-    -- @localhost@. There is no loopback for port mappings on Windows, so you
-    -- cannot access a container\'s mapped port from the host itself.
+    -- @localhost@. There\'s no loopback for port mappings on Windows, so you
+    -- can\'t access a container\'s mapped port from the host itself.
     --
     -- This parameter maps to @PortBindings@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
@@ -414,7 +426,7 @@ data ContainerDefinition = ContainerDefinition'
     -- @--hostname@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
-    -- The @hostname@ parameter is not supported if you are using the @awsvpc@
+    -- The @hostname@ parameter is not supported if you\'re using the @awsvpc@
     -- network mode.
     hostname :: Prelude.Maybe Prelude.Text,
     -- | A list of files containing the environment variables to pass to a
@@ -422,17 +434,17 @@ data ContainerDefinition = ContainerDefinition'
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
     -- You can specify up to ten environment files. The file must have a @.env@
-    -- file extension. Each line in an environment file should contain an
-    -- environment variable in @VARIABLE=VALUE@ format. Lines beginning with
-    -- @#@ are treated as comments and are ignored. For more information on the
+    -- file extension. Each line in an environment file contains an environment
+    -- variable in @VARIABLE=VALUE@ format. Lines beginning with @#@ are
+    -- treated as comments and are ignored. For more information about the
     -- environment variable file syntax, see
     -- <https://docs.docker.com/compose/env-file/ Declare default environment variables in file>.
     --
     -- If there are environment variables specified using the @environment@
     -- parameter in a container definition, they take precedence over the
     -- variables contained within an environment file. If multiple environment
-    -- files are specified that contain the same variable, they are processed
-    -- from the top down. It is recommended to use unique variable names. For
+    -- files are specified that contain the same variable, they\'re processed
+    -- from the top down. We recommend that you use unique variable names. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html Specifying Environment Variables>
     -- in the /Amazon Elastic Container Service Developer Guide/.
@@ -496,23 +508,27 @@ data ContainerDefinition = ContainerDefinition'
     -- killed if it doesn\'t exit normally on its own.
     --
     -- For tasks using the Fargate launch type, the task or service requires
-    -- platform version 1.3.0 or later. The max stop timeout value is 120
-    -- seconds and if the parameter is not specified, the default value of 30
-    -- seconds is used.
+    -- the following platforms:
     --
-    -- For tasks using the EC2 launch type, if the @stopTimeout@ parameter is
-    -- not specified, the value set for the Amazon ECS container agent
-    -- configuration variable @ECS_CONTAINER_STOP_TIMEOUT@ is used by default.
-    -- If neither the @stopTimeout@ parameter or the
-    -- @ECS_CONTAINER_STOP_TIMEOUT@ agent configuration variable are set, then
-    -- the default values of 30 seconds for Linux containers and 30 seconds on
-    -- Windows containers are used. Your container instances require at least
-    -- version 1.26.0 of the container agent to enable a container stop timeout
-    -- value. However, we recommend using the latest container agent version.
-    -- For information about checking your agent version and updating to the
-    -- latest version, see
+    -- -   Linux platform version @1.3.0@ or later.
+    --
+    -- -   Windows platform version @1.0.0@ or later.
+    --
+    -- The max stop timeout value is 120 seconds and if the parameter is not
+    -- specified, the default value of 30 seconds is used.
+    --
+    -- For tasks that use the EC2 launch type, if the @stopTimeout@ parameter
+    -- isn\'t specified, the value set for the Amazon ECS container agent
+    -- configuration variable @ECS_CONTAINER_STOP_TIMEOUT@ is used. If neither
+    -- the @stopTimeout@ parameter or the @ECS_CONTAINER_STOP_TIMEOUT@ agent
+    -- configuration variable are set, then the default values of 30 seconds
+    -- for Linux containers and 30 seconds on Windows containers are used. Your
+    -- container instances require at least version 1.26.0 of the container
+    -- agent to use a container stop timeout value. However, we recommend using
+    -- the latest container agent version. For information about checking your
+    -- agent version and updating to the latest version, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
-    -- in the /Amazon Elastic Container Service Developer Guide/. If you are
+    -- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
     -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
     -- version 1.26.0-1 of the @ecs-init@ package. If your container instances
     -- are launched from version @20190301@ or later, then they contain the
@@ -521,12 +537,12 @@ data ContainerDefinition = ContainerDefinition'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized Linux AMI>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     stopTimeout :: Prelude.Maybe Prelude.Int,
-    -- | Early versions of the Amazon ECS container agent do not properly handle
+    -- | Early versions of the Amazon ECS container agent don\'t properly handle
     -- @entryPoint@ parameters. If you have problems using @entryPoint@, update
     -- your container agent or enter your commands and arguments as @command@
     -- array items instead.
     --
-    -- The entry point that is passed to the container. This parameter maps to
+    -- The entry point that\'s passed to the container. This parameter maps to
     -- @Entrypoint@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
@@ -568,12 +584,12 @@ data ContainerDefinition = ContainerDefinition'
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
     -- Windows containers can mount whole directories on the same drive as
-    -- @$env:ProgramData@. Windows containers cannot mount directories on a
-    -- different drive, and mount point cannot be across drives.
+    -- @$env:ProgramData@. Windows containers can\'t mount directories on a
+    -- different drive, and mount point can\'t be across drives.
     mountPoints :: Prelude.Maybe [MountPoint],
     -- | The image used to start a container. This string is passed directly to
-    -- the Docker daemon. Images in the Docker Hub registry are available by
-    -- default. Other repositories are specified with either
+    -- the Docker daemon. By default, images in the Docker Hub registry are
+    -- available. Other repositories are specified with either
     -- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
     -- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
     -- colons, periods, forward slashes, and number signs are allowed. This
@@ -586,7 +602,7 @@ data ContainerDefinition = ContainerDefinition'
     --
     -- -   When a new task starts, the Amazon ECS container agent pulls the
     --     latest version of the specified image and tag for the container to
-    --     use. However, subsequent updates to a repository image are not
+    --     use. However, subsequent updates to a repository image aren\'t
     --     propagated to already running tasks.
     --
     -- -   Images in Amazon ECR repositories can be specified by either using
@@ -606,7 +622,7 @@ data ContainerDefinition = ContainerDefinition'
     --     domain name (for example, @quay.io\/assemblyline\/ubuntu@).
     image :: Prelude.Maybe Prelude.Text,
     -- | A list of strings to provide custom labels for SELinux and AppArmor
-    -- multi-level security systems. This field is not valid for containers in
+    -- multi-level security systems. This field isn\'t valid for containers in
     -- tasks using the Fargate launch type.
     --
     -- With Windows containers, this parameter can be used to reference a
@@ -636,9 +652,9 @@ data ContainerDefinition = ContainerDefinition'
     -- Valid values: \"no-new-privileges\" | \"apparmor:PROFILE\" |
     -- \"label:value\" | \"credentialspec:CredentialSpecFilePath\"
     dockerSecurityOptions :: Prelude.Maybe [Prelude.Text],
-    -- | When this parameter is @true@, this allows you to deploy containerized
-    -- applications that require @stdin@ or a @tty@ to be allocated. This
-    -- parameter maps to @OpenStdin@ in the
+    -- | When this parameter is @true@, you can deploy containerized applications
+    -- that require @stdin@ or a @tty@ to be allocated. This parameter maps to
+    -- @OpenStdin@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -653,15 +669,15 @@ data ContainerDefinition = ContainerDefinition'
     -- | If the @essential@ parameter of a container is marked as @true@, and
     -- that container fails or stops for any reason, all other containers that
     -- are part of the task are stopped. If the @essential@ parameter of a
-    -- container is marked as @false@, then its failure does not affect the
-    -- rest of the containers in a task. If this parameter is omitted, a
-    -- container is assumed to be essential.
+    -- container is marked as @false@, its failure doesn\'t affect the rest of
+    -- the containers in a task. If this parameter is omitted, a container is
+    -- assumed to be essential.
     --
     -- All tasks must have at least one essential container. If you have an
-    -- application that is composed of multiple containers, you should group
-    -- containers that are used for a common purpose into components, and
-    -- separate the different components into multiple task definitions. For
-    -- more information, see
+    -- application that\'s composed of multiple containers, group containers
+    -- that are used for a common purpose into components, and separate the
+    -- different components into multiple task definitions. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html Application Architecture>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     essential :: Prelude.Maybe Prelude.Bool,
@@ -686,16 +702,16 @@ data ContainerDefinition = ContainerDefinition'
     -- @--sysctl@ option to
     -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
     --
-    -- It is not recommended that you specify network-related @systemControls@
+    -- We don\'t recommended that you specify network-related @systemControls@
     -- parameters for multiple containers in a single task that also uses
     -- either the @awsvpc@ or @host@ network modes. For tasks that use the
-    -- @awsvpc@ network mode, the container that is started last determines
+    -- @awsvpc@ network mode, the container that\'s started last determines
     -- which @systemControls@ parameters take effect. For tasks that use the
     -- @host@ network mode, it changes the container instance\'s namespaced
     -- kernel parameters as well as the containers.
     systemControls :: Prelude.Maybe [SystemControl],
-    -- | The working directory in which to run commands inside the container.
-    -- This parameter maps to @WorkingDir@ in the
+    -- | The working directory to run commands inside the container in. This
+    -- parameter maps to @WorkingDir@ in the
     -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
     -- section of the
     -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -723,7 +739,7 @@ data ContainerDefinition = ContainerDefinition'
 --
 -- This parameter is not supported for Windows containers.
 --
--- 'name', 'containerDefinition_name' - The name of a container. If you are linking multiple containers together
+-- 'name', 'containerDefinition_name' - The name of a container. If you\'re linking multiple containers together
 -- in a task definition, the @name@ of one container can be entered in the
 -- @links@ of another container to connect the containers. Up to 255
 -- letters (uppercase and lowercase), numbers, underscores, and hyphens are
@@ -739,12 +755,12 @@ data ContainerDefinition = ContainerDefinition'
 -- container startup, for container shutdown it is reversed.
 --
 -- For tasks using the EC2 launch type, the container instances require at
--- least version 1.26.0 of the container agent to enable container
+-- least version 1.26.0 of the container agent to turn on container
 -- dependencies. However, we recommend using the latest container agent
 -- version. For information about checking your agent version and updating
 -- to the latest version, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
--- in the /Amazon Elastic Container Service Developer Guide/. If you are
+-- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
 -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
 -- version 1.26.0-1 of the @ecs-init@ package. If your container instances
 -- are launched from version @20190301@ or later, then they contain the
@@ -754,7 +770,11 @@ data ContainerDefinition = ContainerDefinition'
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- For tasks using the Fargate launch type, the task or service requires
--- platform version @1.3.0@ or later.
+-- the following platforms:
+--
+-- -   Linux platform version @1.3.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 --
 -- 'extraHosts', 'containerDefinition_extraHosts' - A list of hostnames and IP address mappings to append to the
 -- @\/etc\/hosts@ file on the container. This parameter maps to
@@ -765,7 +785,7 @@ data ContainerDefinition = ContainerDefinition'
 -- @--add-host@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- This parameter is not supported for Windows containers or tasks that use
+-- This parameter isn\'t supported for Windows containers or tasks that use
 -- the @awsvpc@ network mode.
 --
 -- 'healthCheck', 'containerDefinition_healthCheck' - The container health check command and associated configuration
@@ -785,8 +805,8 @@ data ContainerDefinition = ContainerDefinition'
 -- @--env@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- We do not recommend using plaintext environment variables for sensitive
--- information, such as credential data.
+-- We don\'t recommend that you use plaintext environment variables for
+-- sensitive information, such as credential data.
 --
 -- 'logConfiguration', 'containerDefinition_logConfiguration' - The log configuration specification for the container.
 --
@@ -797,12 +817,13 @@ data ContainerDefinition = ContainerDefinition'
 -- @--log-driver@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 -- By default, containers use the same logging driver that the Docker
--- daemon uses. However the container may use a different logging driver
+-- daemon uses. However the container can use a different logging driver
 -- than the Docker daemon by specifying a log driver with this parameter in
 -- the container definition. To use a different logging driver for a
 -- container, the log system must be configured properly on the container
 -- instance (or on a different log server for remote logging options). For
--- more information on the options for different supported log drivers, see
+-- more information about the options for different supported log drivers,
+-- see
 -- <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers>
 -- in the Docker documentation.
 --
@@ -832,24 +853,28 @@ data ContainerDefinition = ContainerDefinition'
 -- dependencies for a container. For example, you specify two containers in
 -- a task definition with containerA having a dependency on containerB
 -- reaching a @COMPLETE@, @SUCCESS@, or @HEALTHY@ status. If a
--- @startTimeout@ value is specified for containerB and it does not reach
--- the desired status within that time then containerA will give up and not
+-- @startTimeout@ value is specified for containerB and it doesn\'t reach
+-- the desired status within that time then containerA gives up and not
 -- start. This results in the task transitioning to a @STOPPED@ state.
 --
 -- When the @ECS_CONTAINER_START_TIMEOUT@ container agent configuration
--- variable is used, it is enforced indendently from this start timeout
+-- variable is used, it\'s enforced independently from this start timeout
 -- value.
 --
--- For tasks using the Fargate launch type, this parameter requires that
--- the task or service uses platform version 1.3.0 or later.
+-- For tasks using the Fargate launch type, the task or service requires
+-- the following platforms:
+--
+-- -   Linux platform version @1.3.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 --
 -- For tasks using the EC2 launch type, your container instances require at
--- least version @1.26.0@ of the container agent to enable a container
--- start timeout value. However, we recommend using the latest container
--- agent version. For information about checking your agent version and
--- updating to the latest version, see
+-- least version @1.26.0@ of the container agent to use a container start
+-- timeout value. However, we recommend using the latest container agent
+-- version. For information about checking your agent version and updating
+-- to the latest version, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
--- in the /Amazon Elastic Container Service Developer Guide/. If you are
+-- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
 -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
 -- version @1.26.0-1@ of the @ecs-init@ package. If your container
 -- instances are launched from version @20190301@ or later, then they
@@ -876,12 +901,16 @@ data ContainerDefinition = ContainerDefinition'
 -- container-level @memory@ and @memoryReservation@ value, @memory@ must be
 -- greater than @memoryReservation@. If you specify @memoryReservation@,
 -- then that value is subtracted from the available memory resources for
--- the container instance on which the container is placed. Otherwise, the
+-- the container instance where the container is placed. Otherwise, the
 -- value of @memory@ is used.
 --
--- The Docker daemon reserves a minimum of 4 MiB of memory for a container,
--- so you should not specify fewer than 4 MiB of memory for your
+-- The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory
+-- for a container. So, don\'t specify less than 6 MiB of memory for your
 -- containers.
+--
+-- The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of
+-- memory for a container. So, don\'t specify less than 4 MiB of memory for
+-- your containers.
 --
 -- 'cpu', 'containerDefinition_cpu' - The number of @cpu@ units reserved for the container. This parameter
 -- maps to @CpuShares@ in the
@@ -903,21 +932,21 @@ data ContainerDefinition = ContainerDefinition'
 -- Linux containers share unallocated CPU units with other containers on
 -- the container instance with the same ratio as their allocated amount.
 -- For example, if you run a single-container task on a single-core
--- instance type with 512 CPU units specified for that container, and that
--- is the only task running on the container instance, that container could
--- use the full 1,024 CPU unit share at any given time. However, if you
--- launched another copy of the same task on that container instance, each
--- task would be guaranteed a minimum of 512 CPU units when needed, and
--- each container could float to higher CPU usage if the other container
--- was not using it, but if both tasks were 100% active all of the time,
--- they would be limited to 512 CPU units.
+-- instance type with 512 CPU units specified for that container, and
+-- that\'s the only task running on the container instance, that container
+-- could use the full 1,024 CPU unit share at any given time. However, if
+-- you launched another copy of the same task on that container instance,
+-- each task is guaranteed a minimum of 512 CPU units when needed.
+-- Moreover, each container could float to higher CPU usage if the other
+-- container was not using it. If both tasks were 100% active all of the
+-- time, they would be limited to 512 CPU units.
 --
 -- On Linux container instances, the Docker daemon on the container
 -- instance uses the CPU value to calculate the relative CPU share ratios
 -- for running containers. For more information, see
 -- <https://docs.docker.com/engine/reference/run/#cpu-share-constraint CPU share constraint>
 -- in the Docker documentation. The minimum valid CPU share value that the
--- Linux kernel allows is 2. However, the CPU parameter is not required,
+-- Linux kernel allows is 2. However, the CPU parameter isn\'t required,
 -- and you can use CPU values below 2 in your container definitions. For
 -- CPU values below 2 (including null), the behavior varies based on your
 -- Amazon ECS container agent version:
@@ -932,7 +961,7 @@ data ContainerDefinition = ContainerDefinition'
 --
 -- On Windows container instances, the CPU limit is enforced as an absolute
 -- limit, or a quota. Windows containers only have access to the specified
--- amount of CPU that is described in the task definition. A null or zero
+-- amount of CPU that\'s described in the task definition. A null or zero
 -- CPU value is passed to Docker as @0@, which Windows interprets as 1% of
 -- one CPU.
 --
@@ -944,9 +973,9 @@ data ContainerDefinition = ContainerDefinition'
 -- @--user@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- When running tasks using the @host@ network mode, you should not run
--- containers using the root user (UID 0). It is considered best practice
--- to use a non-root user.
+-- When running tasks using the @host@ network mode, don\'t run containers
+-- using the root user (UID 0). We recommend using a non-root user for
+-- better security.
 --
 -- You can specify the @user@ using the following formats. If specifying a
 -- UID or GID, you must specify it as a positive integer.
@@ -976,8 +1005,8 @@ data ContainerDefinition = ContainerDefinition'
 -- This parameter is not supported for Windows containers.
 --
 -- 'ulimits', 'containerDefinition_ulimits' - A list of @ulimits@ to set in the container. If a ulimit value is
--- specified in a task definition, it will override the default values set
--- by Docker. This parameter maps to @Ulimits@ in the
+-- specified in a task definition, it overrides the default values set by
+-- Docker. This parameter maps to @Ulimits@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -1017,8 +1046,8 @@ data ContainerDefinition = ContainerDefinition'
 -- container definition. If you specify both, @memory@ must be greater than
 -- @memoryReservation@. If you specify @memoryReservation@, then that value
 -- is subtracted from the available memory resources for the container
--- instance on which the container is placed. Otherwise, the value of
--- @memory@ is used.
+-- instance where the container is placed. Otherwise, the value of @memory@
+-- is used.
 --
 -- For example, if your container normally uses 128 MiB of memory, but
 -- occasionally bursts to 256 MiB of memory for short periods of time, you
@@ -1028,13 +1057,13 @@ data ContainerDefinition = ContainerDefinition'
 -- instance, but also allow the container to consume more memory resources
 -- when needed.
 --
--- The Docker daemon reserves a minimum of 4 MiB of memory for a container,
--- so you should not specify fewer than 4 MiB of memory for your
--- containers.
+-- The Docker daemon reserves a minimum of 4 MiB of memory for a container.
+-- Therefore, we recommend that you specify fewer than 4 MiB of memory for
+-- your containers.
 --
 -- 'repositoryCredentials', 'containerDefinition_repositoryCredentials' - The private repository authentication credentials to use.
 --
--- 'command', 'containerDefinition_command' - The command that is passed to the container. This parameter maps to
+-- 'command', 'containerDefinition_command' - The command that\'s passed to the container. This parameter maps to
 -- @Cmd@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
@@ -1043,20 +1072,19 @@ data ContainerDefinition = ContainerDefinition'
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 -- For more information, see
 -- <https://docs.docker.com/engine/reference/builder/#cmd>. If there are
--- multiple arguments, each argument should be a separated string in the
--- array.
+-- multiple arguments, each argument is a separated string in the array.
 --
 -- 'portMappings', 'containerDefinition_portMappings' - The list of port mappings for the container. Port mappings allow
 -- containers to access ports on the host container instance to send or
 -- receive traffic.
 --
--- For task definitions that use the @awsvpc@ network mode, you should only
--- specify the @containerPort@. The @hostPort@ can be left blank or it must
--- be the same value as the @containerPort@.
+-- For task definitions that use the @awsvpc@ network mode, only specify
+-- the @containerPort@. The @hostPort@ can be left blank or it must be the
+-- same value as the @containerPort@.
 --
 -- Port mappings on Windows use the @NetNAT@ gateway address rather than
--- @localhost@. There is no loopback for port mappings on Windows, so you
--- cannot access a container\'s mapped port from the host itself.
+-- @localhost@. There\'s no loopback for port mappings on Windows, so you
+-- can\'t access a container\'s mapped port from the host itself.
 --
 -- This parameter maps to @PortBindings@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
@@ -1083,7 +1111,7 @@ data ContainerDefinition = ContainerDefinition'
 -- @--hostname@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- The @hostname@ parameter is not supported if you are using the @awsvpc@
+-- The @hostname@ parameter is not supported if you\'re using the @awsvpc@
 -- network mode.
 --
 -- 'environmentFiles', 'containerDefinition_environmentFiles' - A list of files containing the environment variables to pass to a
@@ -1091,17 +1119,17 @@ data ContainerDefinition = ContainerDefinition'
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
 -- You can specify up to ten environment files. The file must have a @.env@
--- file extension. Each line in an environment file should contain an
--- environment variable in @VARIABLE=VALUE@ format. Lines beginning with
--- @#@ are treated as comments and are ignored. For more information on the
+-- file extension. Each line in an environment file contains an environment
+-- variable in @VARIABLE=VALUE@ format. Lines beginning with @#@ are
+-- treated as comments and are ignored. For more information about the
 -- environment variable file syntax, see
 -- <https://docs.docker.com/compose/env-file/ Declare default environment variables in file>.
 --
 -- If there are environment variables specified using the @environment@
 -- parameter in a container definition, they take precedence over the
 -- variables contained within an environment file. If multiple environment
--- files are specified that contain the same variable, they are processed
--- from the top down. It is recommended to use unique variable names. For
+-- files are specified that contain the same variable, they\'re processed
+-- from the top down. We recommend that you use unique variable names. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html Specifying Environment Variables>
 -- in the /Amazon Elastic Container Service Developer Guide/.
@@ -1165,23 +1193,27 @@ data ContainerDefinition = ContainerDefinition'
 -- killed if it doesn\'t exit normally on its own.
 --
 -- For tasks using the Fargate launch type, the task or service requires
--- platform version 1.3.0 or later. The max stop timeout value is 120
--- seconds and if the parameter is not specified, the default value of 30
--- seconds is used.
+-- the following platforms:
 --
--- For tasks using the EC2 launch type, if the @stopTimeout@ parameter is
--- not specified, the value set for the Amazon ECS container agent
--- configuration variable @ECS_CONTAINER_STOP_TIMEOUT@ is used by default.
--- If neither the @stopTimeout@ parameter or the
--- @ECS_CONTAINER_STOP_TIMEOUT@ agent configuration variable are set, then
--- the default values of 30 seconds for Linux containers and 30 seconds on
--- Windows containers are used. Your container instances require at least
--- version 1.26.0 of the container agent to enable a container stop timeout
--- value. However, we recommend using the latest container agent version.
--- For information about checking your agent version and updating to the
--- latest version, see
+-- -   Linux platform version @1.3.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
+--
+-- The max stop timeout value is 120 seconds and if the parameter is not
+-- specified, the default value of 30 seconds is used.
+--
+-- For tasks that use the EC2 launch type, if the @stopTimeout@ parameter
+-- isn\'t specified, the value set for the Amazon ECS container agent
+-- configuration variable @ECS_CONTAINER_STOP_TIMEOUT@ is used. If neither
+-- the @stopTimeout@ parameter or the @ECS_CONTAINER_STOP_TIMEOUT@ agent
+-- configuration variable are set, then the default values of 30 seconds
+-- for Linux containers and 30 seconds on Windows containers are used. Your
+-- container instances require at least version 1.26.0 of the container
+-- agent to use a container stop timeout value. However, we recommend using
+-- the latest container agent version. For information about checking your
+-- agent version and updating to the latest version, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
--- in the /Amazon Elastic Container Service Developer Guide/. If you are
+-- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
 -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
 -- version 1.26.0-1 of the @ecs-init@ package. If your container instances
 -- are launched from version @20190301@ or later, then they contain the
@@ -1190,12 +1222,12 @@ data ContainerDefinition = ContainerDefinition'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html Amazon ECS-optimized Linux AMI>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'entryPoint', 'containerDefinition_entryPoint' - Early versions of the Amazon ECS container agent do not properly handle
+-- 'entryPoint', 'containerDefinition_entryPoint' - Early versions of the Amazon ECS container agent don\'t properly handle
 -- @entryPoint@ parameters. If you have problems using @entryPoint@, update
 -- your container agent or enter your commands and arguments as @command@
 -- array items instead.
 --
--- The entry point that is passed to the container. This parameter maps to
+-- The entry point that\'s passed to the container. This parameter maps to
 -- @Entrypoint@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
@@ -1237,12 +1269,12 @@ data ContainerDefinition = ContainerDefinition'
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
 -- Windows containers can mount whole directories on the same drive as
--- @$env:ProgramData@. Windows containers cannot mount directories on a
--- different drive, and mount point cannot be across drives.
+-- @$env:ProgramData@. Windows containers can\'t mount directories on a
+-- different drive, and mount point can\'t be across drives.
 --
 -- 'image', 'containerDefinition_image' - The image used to start a container. This string is passed directly to
--- the Docker daemon. Images in the Docker Hub registry are available by
--- default. Other repositories are specified with either
+-- the Docker daemon. By default, images in the Docker Hub registry are
+-- available. Other repositories are specified with either
 -- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
 -- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
 -- colons, periods, forward slashes, and number signs are allowed. This
@@ -1255,7 +1287,7 @@ data ContainerDefinition = ContainerDefinition'
 --
 -- -   When a new task starts, the Amazon ECS container agent pulls the
 --     latest version of the specified image and tag for the container to
---     use. However, subsequent updates to a repository image are not
+--     use. However, subsequent updates to a repository image aren\'t
 --     propagated to already running tasks.
 --
 -- -   Images in Amazon ECR repositories can be specified by either using
@@ -1275,7 +1307,7 @@ data ContainerDefinition = ContainerDefinition'
 --     domain name (for example, @quay.io\/assemblyline\/ubuntu@).
 --
 -- 'dockerSecurityOptions', 'containerDefinition_dockerSecurityOptions' - A list of strings to provide custom labels for SELinux and AppArmor
--- multi-level security systems. This field is not valid for containers in
+-- multi-level security systems. This field isn\'t valid for containers in
 -- tasks using the Fargate launch type.
 --
 -- With Windows containers, this parameter can be used to reference a
@@ -1305,9 +1337,9 @@ data ContainerDefinition = ContainerDefinition'
 -- Valid values: \"no-new-privileges\" | \"apparmor:PROFILE\" |
 -- \"label:value\" | \"credentialspec:CredentialSpecFilePath\"
 --
--- 'interactive', 'containerDefinition_interactive' - When this parameter is @true@, this allows you to deploy containerized
--- applications that require @stdin@ or a @tty@ to be allocated. This
--- parameter maps to @OpenStdin@ in the
+-- 'interactive', 'containerDefinition_interactive' - When this parameter is @true@, you can deploy containerized applications
+-- that require @stdin@ or a @tty@ to be allocated. This parameter maps to
+-- @OpenStdin@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -1322,15 +1354,15 @@ data ContainerDefinition = ContainerDefinition'
 -- 'essential', 'containerDefinition_essential' - If the @essential@ parameter of a container is marked as @true@, and
 -- that container fails or stops for any reason, all other containers that
 -- are part of the task are stopped. If the @essential@ parameter of a
--- container is marked as @false@, then its failure does not affect the
--- rest of the containers in a task. If this parameter is omitted, a
--- container is assumed to be essential.
+-- container is marked as @false@, its failure doesn\'t affect the rest of
+-- the containers in a task. If this parameter is omitted, a container is
+-- assumed to be essential.
 --
 -- All tasks must have at least one essential container. If you have an
--- application that is composed of multiple containers, you should group
--- containers that are used for a common purpose into components, and
--- separate the different components into multiple task definitions. For
--- more information, see
+-- application that\'s composed of multiple containers, group containers
+-- that are used for a common purpose into components, and separate the
+-- different components into multiple task definitions. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html Application Architecture>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
@@ -1355,16 +1387,16 @@ data ContainerDefinition = ContainerDefinition'
 -- @--sysctl@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- It is not recommended that you specify network-related @systemControls@
+-- We don\'t recommended that you specify network-related @systemControls@
 -- parameters for multiple containers in a single task that also uses
 -- either the @awsvpc@ or @host@ network modes. For tasks that use the
--- @awsvpc@ network mode, the container that is started last determines
+-- @awsvpc@ network mode, the container that\'s started last determines
 -- which @systemControls@ parameters take effect. For tasks that use the
 -- @host@ network mode, it changes the container instance\'s namespaced
 -- kernel parameters as well as the containers.
 --
--- 'workingDirectory', 'containerDefinition_workingDirectory' - The working directory in which to run commands inside the container.
--- This parameter maps to @WorkingDir@ in the
+-- 'workingDirectory', 'containerDefinition_workingDirectory' - The working directory to run commands inside the container in. This
+-- parameter maps to @WorkingDir@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -1428,7 +1460,7 @@ newContainerDefinition =
 containerDefinition_readonlyRootFilesystem :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Bool)
 containerDefinition_readonlyRootFilesystem = Lens.lens (\ContainerDefinition' {readonlyRootFilesystem} -> readonlyRootFilesystem) (\s@ContainerDefinition' {} a -> s {readonlyRootFilesystem = a} :: ContainerDefinition)
 
--- | The name of a container. If you are linking multiple containers together
+-- | The name of a container. If you\'re linking multiple containers together
 -- in a task definition, the @name@ of one container can be entered in the
 -- @links@ of another container to connect the containers. Up to 255
 -- letters (uppercase and lowercase), numbers, underscores, and hyphens are
@@ -1446,12 +1478,12 @@ containerDefinition_name = Lens.lens (\ContainerDefinition' {name} -> name) (\s@
 -- container startup, for container shutdown it is reversed.
 --
 -- For tasks using the EC2 launch type, the container instances require at
--- least version 1.26.0 of the container agent to enable container
+-- least version 1.26.0 of the container agent to turn on container
 -- dependencies. However, we recommend using the latest container agent
 -- version. For information about checking your agent version and updating
 -- to the latest version, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
--- in the /Amazon Elastic Container Service Developer Guide/. If you are
+-- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
 -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
 -- version 1.26.0-1 of the @ecs-init@ package. If your container instances
 -- are launched from version @20190301@ or later, then they contain the
@@ -1461,7 +1493,11 @@ containerDefinition_name = Lens.lens (\ContainerDefinition' {name} -> name) (\s@
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- For tasks using the Fargate launch type, the task or service requires
--- platform version @1.3.0@ or later.
+-- the following platforms:
+--
+-- -   Linux platform version @1.3.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 containerDefinition_dependsOn :: Lens.Lens' ContainerDefinition (Prelude.Maybe [ContainerDependency])
 containerDefinition_dependsOn = Lens.lens (\ContainerDefinition' {dependsOn} -> dependsOn) (\s@ContainerDefinition' {} a -> s {dependsOn = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
@@ -1474,7 +1510,7 @@ containerDefinition_dependsOn = Lens.lens (\ContainerDefinition' {dependsOn} -> 
 -- @--add-host@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- This parameter is not supported for Windows containers or tasks that use
+-- This parameter isn\'t supported for Windows containers or tasks that use
 -- the @awsvpc@ network mode.
 containerDefinition_extraHosts :: Lens.Lens' ContainerDefinition (Prelude.Maybe [HostEntry])
 containerDefinition_extraHosts = Lens.lens (\ContainerDefinition' {extraHosts} -> extraHosts) (\s@ContainerDefinition' {} a -> s {extraHosts = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
@@ -1498,8 +1534,8 @@ containerDefinition_healthCheck = Lens.lens (\ContainerDefinition' {healthCheck}
 -- @--env@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- We do not recommend using plaintext environment variables for sensitive
--- information, such as credential data.
+-- We don\'t recommend that you use plaintext environment variables for
+-- sensitive information, such as credential data.
 containerDefinition_environment :: Lens.Lens' ContainerDefinition (Prelude.Maybe [KeyValuePair])
 containerDefinition_environment = Lens.lens (\ContainerDefinition' {environment} -> environment) (\s@ContainerDefinition' {} a -> s {environment = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
@@ -1512,12 +1548,13 @@ containerDefinition_environment = Lens.lens (\ContainerDefinition' {environment}
 -- @--log-driver@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 -- By default, containers use the same logging driver that the Docker
--- daemon uses. However the container may use a different logging driver
+-- daemon uses. However the container can use a different logging driver
 -- than the Docker daemon by specifying a log driver with this parameter in
 -- the container definition. To use a different logging driver for a
 -- container, the log system must be configured properly on the container
 -- instance (or on a different log server for remote logging options). For
--- more information on the options for different supported log drivers, see
+-- more information about the options for different supported log drivers,
+-- see
 -- <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers>
 -- in the Docker documentation.
 --
@@ -1551,24 +1588,28 @@ containerDefinition_resourceRequirements = Lens.lens (\ContainerDefinition' {res
 -- dependencies for a container. For example, you specify two containers in
 -- a task definition with containerA having a dependency on containerB
 -- reaching a @COMPLETE@, @SUCCESS@, or @HEALTHY@ status. If a
--- @startTimeout@ value is specified for containerB and it does not reach
--- the desired status within that time then containerA will give up and not
+-- @startTimeout@ value is specified for containerB and it doesn\'t reach
+-- the desired status within that time then containerA gives up and not
 -- start. This results in the task transitioning to a @STOPPED@ state.
 --
 -- When the @ECS_CONTAINER_START_TIMEOUT@ container agent configuration
--- variable is used, it is enforced indendently from this start timeout
+-- variable is used, it\'s enforced independently from this start timeout
 -- value.
 --
--- For tasks using the Fargate launch type, this parameter requires that
--- the task or service uses platform version 1.3.0 or later.
+-- For tasks using the Fargate launch type, the task or service requires
+-- the following platforms:
+--
+-- -   Linux platform version @1.3.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 --
 -- For tasks using the EC2 launch type, your container instances require at
--- least version @1.26.0@ of the container agent to enable a container
--- start timeout value. However, we recommend using the latest container
--- agent version. For information about checking your agent version and
--- updating to the latest version, see
+-- least version @1.26.0@ of the container agent to use a container start
+-- timeout value. However, we recommend using the latest container agent
+-- version. For information about checking your agent version and updating
+-- to the latest version, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
--- in the /Amazon Elastic Container Service Developer Guide/. If you are
+-- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
 -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
 -- version @1.26.0-1@ of the @ecs-init@ package. If your container
 -- instances are launched from version @20190301@ or later, then they
@@ -1597,12 +1638,16 @@ containerDefinition_startTimeout = Lens.lens (\ContainerDefinition' {startTimeou
 -- container-level @memory@ and @memoryReservation@ value, @memory@ must be
 -- greater than @memoryReservation@. If you specify @memoryReservation@,
 -- then that value is subtracted from the available memory resources for
--- the container instance on which the container is placed. Otherwise, the
+-- the container instance where the container is placed. Otherwise, the
 -- value of @memory@ is used.
 --
--- The Docker daemon reserves a minimum of 4 MiB of memory for a container,
--- so you should not specify fewer than 4 MiB of memory for your
+-- The Docker 20.10.0 or later daemon reserves a minimum of 6 MiB of memory
+-- for a container. So, don\'t specify less than 6 MiB of memory for your
 -- containers.
+--
+-- The Docker 19.03.13-ce or earlier daemon reserves a minimum of 4 MiB of
+-- memory for a container. So, don\'t specify less than 4 MiB of memory for
+-- your containers.
 containerDefinition_memory :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Int)
 containerDefinition_memory = Lens.lens (\ContainerDefinition' {memory} -> memory) (\s@ContainerDefinition' {} a -> s {memory = a} :: ContainerDefinition)
 
@@ -1626,21 +1671,21 @@ containerDefinition_memory = Lens.lens (\ContainerDefinition' {memory} -> memory
 -- Linux containers share unallocated CPU units with other containers on
 -- the container instance with the same ratio as their allocated amount.
 -- For example, if you run a single-container task on a single-core
--- instance type with 512 CPU units specified for that container, and that
--- is the only task running on the container instance, that container could
--- use the full 1,024 CPU unit share at any given time. However, if you
--- launched another copy of the same task on that container instance, each
--- task would be guaranteed a minimum of 512 CPU units when needed, and
--- each container could float to higher CPU usage if the other container
--- was not using it, but if both tasks were 100% active all of the time,
--- they would be limited to 512 CPU units.
+-- instance type with 512 CPU units specified for that container, and
+-- that\'s the only task running on the container instance, that container
+-- could use the full 1,024 CPU unit share at any given time. However, if
+-- you launched another copy of the same task on that container instance,
+-- each task is guaranteed a minimum of 512 CPU units when needed.
+-- Moreover, each container could float to higher CPU usage if the other
+-- container was not using it. If both tasks were 100% active all of the
+-- time, they would be limited to 512 CPU units.
 --
 -- On Linux container instances, the Docker daemon on the container
 -- instance uses the CPU value to calculate the relative CPU share ratios
 -- for running containers. For more information, see
 -- <https://docs.docker.com/engine/reference/run/#cpu-share-constraint CPU share constraint>
 -- in the Docker documentation. The minimum valid CPU share value that the
--- Linux kernel allows is 2. However, the CPU parameter is not required,
+-- Linux kernel allows is 2. However, the CPU parameter isn\'t required,
 -- and you can use CPU values below 2 in your container definitions. For
 -- CPU values below 2 (including null), the behavior varies based on your
 -- Amazon ECS container agent version:
@@ -1655,7 +1700,7 @@ containerDefinition_memory = Lens.lens (\ContainerDefinition' {memory} -> memory
 --
 -- On Windows container instances, the CPU limit is enforced as an absolute
 -- limit, or a quota. Windows containers only have access to the specified
--- amount of CPU that is described in the task definition. A null or zero
+-- amount of CPU that\'s described in the task definition. A null or zero
 -- CPU value is passed to Docker as @0@, which Windows interprets as 1% of
 -- one CPU.
 containerDefinition_cpu :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Int)
@@ -1669,9 +1714,9 @@ containerDefinition_cpu = Lens.lens (\ContainerDefinition' {cpu} -> cpu) (\s@Con
 -- @--user@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- When running tasks using the @host@ network mode, you should not run
--- containers using the root user (UID 0). It is considered best practice
--- to use a non-root user.
+-- When running tasks using the @host@ network mode, don\'t run containers
+-- using the root user (UID 0). We recommend using a non-root user for
+-- better security.
 --
 -- You can specify the @user@ using the following formats. If specifying a
 -- UID or GID, you must specify it as a positive integer.
@@ -1705,8 +1750,8 @@ containerDefinition_dnsServers :: Lens.Lens' ContainerDefinition (Prelude.Maybe 
 containerDefinition_dnsServers = Lens.lens (\ContainerDefinition' {dnsServers} -> dnsServers) (\s@ContainerDefinition' {} a -> s {dnsServers = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of @ulimits@ to set in the container. If a ulimit value is
--- specified in a task definition, it will override the default values set
--- by Docker. This parameter maps to @Ulimits@ in the
+-- specified in a task definition, it overrides the default values set by
+-- Docker. This parameter maps to @Ulimits@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -1748,8 +1793,8 @@ containerDefinition_ulimits = Lens.lens (\ContainerDefinition' {ulimits} -> ulim
 -- container definition. If you specify both, @memory@ must be greater than
 -- @memoryReservation@. If you specify @memoryReservation@, then that value
 -- is subtracted from the available memory resources for the container
--- instance on which the container is placed. Otherwise, the value of
--- @memory@ is used.
+-- instance where the container is placed. Otherwise, the value of @memory@
+-- is used.
 --
 -- For example, if your container normally uses 128 MiB of memory, but
 -- occasionally bursts to 256 MiB of memory for short periods of time, you
@@ -1759,9 +1804,9 @@ containerDefinition_ulimits = Lens.lens (\ContainerDefinition' {ulimits} -> ulim
 -- instance, but also allow the container to consume more memory resources
 -- when needed.
 --
--- The Docker daemon reserves a minimum of 4 MiB of memory for a container,
--- so you should not specify fewer than 4 MiB of memory for your
--- containers.
+-- The Docker daemon reserves a minimum of 4 MiB of memory for a container.
+-- Therefore, we recommend that you specify fewer than 4 MiB of memory for
+-- your containers.
 containerDefinition_memoryReservation :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Int)
 containerDefinition_memoryReservation = Lens.lens (\ContainerDefinition' {memoryReservation} -> memoryReservation) (\s@ContainerDefinition' {} a -> s {memoryReservation = a} :: ContainerDefinition)
 
@@ -1769,7 +1814,7 @@ containerDefinition_memoryReservation = Lens.lens (\ContainerDefinition' {memory
 containerDefinition_repositoryCredentials :: Lens.Lens' ContainerDefinition (Prelude.Maybe RepositoryCredentials)
 containerDefinition_repositoryCredentials = Lens.lens (\ContainerDefinition' {repositoryCredentials} -> repositoryCredentials) (\s@ContainerDefinition' {} a -> s {repositoryCredentials = a} :: ContainerDefinition)
 
--- | The command that is passed to the container. This parameter maps to
+-- | The command that\'s passed to the container. This parameter maps to
 -- @Cmd@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
@@ -1778,8 +1823,7 @@ containerDefinition_repositoryCredentials = Lens.lens (\ContainerDefinition' {re
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 -- For more information, see
 -- <https://docs.docker.com/engine/reference/builder/#cmd>. If there are
--- multiple arguments, each argument should be a separated string in the
--- array.
+-- multiple arguments, each argument is a separated string in the array.
 containerDefinition_command :: Lens.Lens' ContainerDefinition (Prelude.Maybe [Prelude.Text])
 containerDefinition_command = Lens.lens (\ContainerDefinition' {command} -> command) (\s@ContainerDefinition' {} a -> s {command = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
@@ -1787,13 +1831,13 @@ containerDefinition_command = Lens.lens (\ContainerDefinition' {command} -> comm
 -- containers to access ports on the host container instance to send or
 -- receive traffic.
 --
--- For task definitions that use the @awsvpc@ network mode, you should only
--- specify the @containerPort@. The @hostPort@ can be left blank or it must
--- be the same value as the @containerPort@.
+-- For task definitions that use the @awsvpc@ network mode, only specify
+-- the @containerPort@. The @hostPort@ can be left blank or it must be the
+-- same value as the @containerPort@.
 --
 -- Port mappings on Windows use the @NetNAT@ gateway address rather than
--- @localhost@. There is no loopback for port mappings on Windows, so you
--- cannot access a container\'s mapped port from the host itself.
+-- @localhost@. There\'s no loopback for port mappings on Windows, so you
+-- can\'t access a container\'s mapped port from the host itself.
 --
 -- This parameter maps to @PortBindings@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
@@ -1822,7 +1866,7 @@ containerDefinition_portMappings = Lens.lens (\ContainerDefinition' {portMapping
 -- @--hostname@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- The @hostname@ parameter is not supported if you are using the @awsvpc@
+-- The @hostname@ parameter is not supported if you\'re using the @awsvpc@
 -- network mode.
 containerDefinition_hostname :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Text)
 containerDefinition_hostname = Lens.lens (\ContainerDefinition' {hostname} -> hostname) (\s@ContainerDefinition' {} a -> s {hostname = a} :: ContainerDefinition)
@@ -1832,17 +1876,17 @@ containerDefinition_hostname = Lens.lens (\ContainerDefinition' {hostname} -> ho
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
 -- You can specify up to ten environment files. The file must have a @.env@
--- file extension. Each line in an environment file should contain an
--- environment variable in @VARIABLE=VALUE@ format. Lines beginning with
--- @#@ are treated as comments and are ignored. For more information on the
+-- file extension. Each line in an environment file contains an environment
+-- variable in @VARIABLE=VALUE@ format. Lines beginning with @#@ are
+-- treated as comments and are ignored. For more information about the
 -- environment variable file syntax, see
 -- <https://docs.docker.com/compose/env-file/ Declare default environment variables in file>.
 --
 -- If there are environment variables specified using the @environment@
 -- parameter in a container definition, they take precedence over the
 -- variables contained within an environment file. If multiple environment
--- files are specified that contain the same variable, they are processed
--- from the top down. It is recommended to use unique variable names. For
+-- files are specified that contain the same variable, they\'re processed
+-- from the top down. We recommend that you use unique variable names. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html Specifying Environment Variables>
 -- in the /Amazon Elastic Container Service Developer Guide/.
@@ -1920,23 +1964,27 @@ containerDefinition_privileged = Lens.lens (\ContainerDefinition' {privileged} -
 -- killed if it doesn\'t exit normally on its own.
 --
 -- For tasks using the Fargate launch type, the task or service requires
--- platform version 1.3.0 or later. The max stop timeout value is 120
--- seconds and if the parameter is not specified, the default value of 30
--- seconds is used.
+-- the following platforms:
 --
--- For tasks using the EC2 launch type, if the @stopTimeout@ parameter is
--- not specified, the value set for the Amazon ECS container agent
--- configuration variable @ECS_CONTAINER_STOP_TIMEOUT@ is used by default.
--- If neither the @stopTimeout@ parameter or the
--- @ECS_CONTAINER_STOP_TIMEOUT@ agent configuration variable are set, then
--- the default values of 30 seconds for Linux containers and 30 seconds on
--- Windows containers are used. Your container instances require at least
--- version 1.26.0 of the container agent to enable a container stop timeout
--- value. However, we recommend using the latest container agent version.
--- For information about checking your agent version and updating to the
--- latest version, see
+-- -   Linux platform version @1.3.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
+--
+-- The max stop timeout value is 120 seconds and if the parameter is not
+-- specified, the default value of 30 seconds is used.
+--
+-- For tasks that use the EC2 launch type, if the @stopTimeout@ parameter
+-- isn\'t specified, the value set for the Amazon ECS container agent
+-- configuration variable @ECS_CONTAINER_STOP_TIMEOUT@ is used. If neither
+-- the @stopTimeout@ parameter or the @ECS_CONTAINER_STOP_TIMEOUT@ agent
+-- configuration variable are set, then the default values of 30 seconds
+-- for Linux containers and 30 seconds on Windows containers are used. Your
+-- container instances require at least version 1.26.0 of the container
+-- agent to use a container stop timeout value. However, we recommend using
+-- the latest container agent version. For information about checking your
+-- agent version and updating to the latest version, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html Updating the Amazon ECS Container Agent>
--- in the /Amazon Elastic Container Service Developer Guide/. If you are
+-- in the /Amazon Elastic Container Service Developer Guide/. If you\'re
 -- using an Amazon ECS-optimized Linux AMI, your instance needs at least
 -- version 1.26.0-1 of the @ecs-init@ package. If your container instances
 -- are launched from version @20190301@ or later, then they contain the
@@ -1947,12 +1995,12 @@ containerDefinition_privileged = Lens.lens (\ContainerDefinition' {privileged} -
 containerDefinition_stopTimeout :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Int)
 containerDefinition_stopTimeout = Lens.lens (\ContainerDefinition' {stopTimeout} -> stopTimeout) (\s@ContainerDefinition' {} a -> s {stopTimeout = a} :: ContainerDefinition)
 
--- | Early versions of the Amazon ECS container agent do not properly handle
+-- | Early versions of the Amazon ECS container agent don\'t properly handle
 -- @entryPoint@ parameters. If you have problems using @entryPoint@, update
 -- your container agent or enter your commands and arguments as @command@
 -- array items instead.
 --
--- The entry point that is passed to the container. This parameter maps to
+-- The entry point that\'s passed to the container. This parameter maps to
 -- @Entrypoint@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
@@ -1998,14 +2046,14 @@ containerDefinition_links = Lens.lens (\ContainerDefinition' {links} -> links) (
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
 -- Windows containers can mount whole directories on the same drive as
--- @$env:ProgramData@. Windows containers cannot mount directories on a
--- different drive, and mount point cannot be across drives.
+-- @$env:ProgramData@. Windows containers can\'t mount directories on a
+-- different drive, and mount point can\'t be across drives.
 containerDefinition_mountPoints :: Lens.Lens' ContainerDefinition (Prelude.Maybe [MountPoint])
 containerDefinition_mountPoints = Lens.lens (\ContainerDefinition' {mountPoints} -> mountPoints) (\s@ContainerDefinition' {} a -> s {mountPoints = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | The image used to start a container. This string is passed directly to
--- the Docker daemon. Images in the Docker Hub registry are available by
--- default. Other repositories are specified with either
+-- the Docker daemon. By default, images in the Docker Hub registry are
+-- available. Other repositories are specified with either
 -- @ repository-url\/image:tag @ or @ repository-url\/image\@digest @. Up
 -- to 255 letters (uppercase and lowercase), numbers, hyphens, underscores,
 -- colons, periods, forward slashes, and number signs are allowed. This
@@ -2018,7 +2066,7 @@ containerDefinition_mountPoints = Lens.lens (\ContainerDefinition' {mountPoints}
 --
 -- -   When a new task starts, the Amazon ECS container agent pulls the
 --     latest version of the specified image and tag for the container to
---     use. However, subsequent updates to a repository image are not
+--     use. However, subsequent updates to a repository image aren\'t
 --     propagated to already running tasks.
 --
 -- -   Images in Amazon ECR repositories can be specified by either using
@@ -2040,7 +2088,7 @@ containerDefinition_image :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelu
 containerDefinition_image = Lens.lens (\ContainerDefinition' {image} -> image) (\s@ContainerDefinition' {} a -> s {image = a} :: ContainerDefinition)
 
 -- | A list of strings to provide custom labels for SELinux and AppArmor
--- multi-level security systems. This field is not valid for containers in
+-- multi-level security systems. This field isn\'t valid for containers in
 -- tasks using the Fargate launch type.
 --
 -- With Windows containers, this parameter can be used to reference a
@@ -2072,9 +2120,9 @@ containerDefinition_image = Lens.lens (\ContainerDefinition' {image} -> image) (
 containerDefinition_dockerSecurityOptions :: Lens.Lens' ContainerDefinition (Prelude.Maybe [Prelude.Text])
 containerDefinition_dockerSecurityOptions = Lens.lens (\ContainerDefinition' {dockerSecurityOptions} -> dockerSecurityOptions) (\s@ContainerDefinition' {} a -> s {dockerSecurityOptions = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | When this parameter is @true@, this allows you to deploy containerized
--- applications that require @stdin@ or a @tty@ to be allocated. This
--- parameter maps to @OpenStdin@ in the
+-- | When this parameter is @true@, you can deploy containerized applications
+-- that require @stdin@ or a @tty@ to be allocated. This parameter maps to
+-- @OpenStdin@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the
@@ -2093,15 +2141,15 @@ containerDefinition_linuxParameters = Lens.lens (\ContainerDefinition' {linuxPar
 -- | If the @essential@ parameter of a container is marked as @true@, and
 -- that container fails or stops for any reason, all other containers that
 -- are part of the task are stopped. If the @essential@ parameter of a
--- container is marked as @false@, then its failure does not affect the
--- rest of the containers in a task. If this parameter is omitted, a
--- container is assumed to be essential.
+-- container is marked as @false@, its failure doesn\'t affect the rest of
+-- the containers in a task. If this parameter is omitted, a container is
+-- assumed to be essential.
 --
 -- All tasks must have at least one essential container. If you have an
--- application that is composed of multiple containers, you should group
--- containers that are used for a common purpose into components, and
--- separate the different components into multiple task definitions. For
--- more information, see
+-- application that\'s composed of multiple containers, group containers
+-- that are used for a common purpose into components, and separate the
+-- different components into multiple task definitions. For more
+-- information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html Application Architecture>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 containerDefinition_essential :: Lens.Lens' ContainerDefinition (Prelude.Maybe Prelude.Bool)
@@ -2132,18 +2180,18 @@ containerDefinition_firelensConfiguration = Lens.lens (\ContainerDefinition' {fi
 -- @--sysctl@ option to
 -- <https://docs.docker.com/engine/reference/run/#security-configuration docker run>.
 --
--- It is not recommended that you specify network-related @systemControls@
+-- We don\'t recommended that you specify network-related @systemControls@
 -- parameters for multiple containers in a single task that also uses
 -- either the @awsvpc@ or @host@ network modes. For tasks that use the
--- @awsvpc@ network mode, the container that is started last determines
+-- @awsvpc@ network mode, the container that\'s started last determines
 -- which @systemControls@ parameters take effect. For tasks that use the
 -- @host@ network mode, it changes the container instance\'s namespaced
 -- kernel parameters as well as the containers.
 containerDefinition_systemControls :: Lens.Lens' ContainerDefinition (Prelude.Maybe [SystemControl])
 containerDefinition_systemControls = Lens.lens (\ContainerDefinition' {systemControls} -> systemControls) (\s@ContainerDefinition' {} a -> s {systemControls = a} :: ContainerDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | The working directory in which to run commands inside the container.
--- This parameter maps to @WorkingDir@ in the
+-- | The working directory to run commands inside the container in. This
+-- parameter maps to @WorkingDir@ in the
 -- <https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate Create a container>
 -- section of the
 -- <https://docs.docker.com/engine/api/v1.35/ Docker Remote API> and the

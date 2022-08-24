@@ -31,7 +31,8 @@ data Attachment = Attachment'
   { -- | The type of the attachment, such as @ElasticNetworkInterface@.
     type' :: Prelude.Maybe Prelude.Text,
     -- | The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
-    -- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, and @DELETED@.
+    -- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
+    -- @FAILED@.
     status :: Prelude.Maybe Prelude.Text,
     -- | Details of the attachment. For elastic network interfaces, this includes
     -- the network interface ID, the MAC address, the subnet ID, and the
@@ -53,7 +54,8 @@ data Attachment = Attachment'
 -- 'type'', 'attachment_type' - The type of the attachment, such as @ElasticNetworkInterface@.
 --
 -- 'status', 'attachment_status' - The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
--- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, and @DELETED@.
+-- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
+-- @FAILED@.
 --
 -- 'details', 'attachment_details' - Details of the attachment. For elastic network interfaces, this includes
 -- the network interface ID, the MAC address, the subnet ID, and the
@@ -75,7 +77,8 @@ attachment_type :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
 attachment_type = Lens.lens (\Attachment' {type'} -> type') (\s@Attachment' {} a -> s {type' = a} :: Attachment)
 
 -- | The status of the attachment. Valid values are @PRECREATED@, @CREATED@,
--- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, and @DELETED@.
+-- @ATTACHING@, @ATTACHED@, @DETACHING@, @DETACHED@, @DELETED@, and
+-- @FAILED@.
 attachment_status :: Lens.Lens' Attachment (Prelude.Maybe Prelude.Text)
 attachment_status = Lens.lens (\Attachment' {status} -> status) (\s@Attachment' {} a -> s {status = a} :: Attachment)
 

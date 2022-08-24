@@ -39,8 +39,8 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newTaskSet' smart constructor.
 data TaskSet = TaskSet'
   { -- | The metadata that you apply to the task set to help you categorize and
-    -- organize them. Each tag consists of a key and an optional value, both of
-    -- which you define.
+    -- organize them. Each tag consists of a key and an optional value. You
+    -- define both.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -70,32 +70,38 @@ data TaskSet = TaskSet'
     -- | The Amazon Resource Name (ARN) of the cluster that the service that
     -- hosts the task set exists in.
     clusterArn :: Prelude.Maybe Prelude.Text,
-    -- | The details of the service discovery registries to assign to this task
+    -- | The details for the service discovery registries to assign to this task
     -- set. For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
     serviceRegistries :: Prelude.Maybe [ServiceRegistry],
-    -- | The task definition the task set is using.
+    -- | The operating system that your tasks in the set are running on. A
+    -- platform family is specified only for tasks that use the Fargate launch
+    -- type.
+    --
+    -- All tasks in the set must have the same value.
+    platformFamily :: Prelude.Maybe Prelude.Text,
+    -- | The task definition that the task set is using.
     taskDefinition :: Prelude.Maybe Prelude.Text,
-    -- | The stability status, which indicates whether the task set has reached a
-    -- steady state. If the following conditions are met, the task set will be
-    -- in @STEADY_STATE@:
+    -- | The stability status. This indicates whether the task set has reached a
+    -- steady state. If the following conditions are met, the task set sre in
+    -- @STEADY_STATE@:
     --
     -- -   The task @runningCount@ is equal to the @computedDesiredCount@.
     --
     -- -   The @pendingCount@ is @0@.
     --
-    -- -   There are no tasks running on container instances in the @DRAINING@
-    --     status.
+    -- -   There are no tasks that are running on container instances in the
+    --     @DRAINING@ status.
     --
     -- -   All tasks are reporting a healthy status from the load balancers,
     --     service discovery, and container health checks.
     --
-    -- If any of those conditions are not met, the stability status returns
+    -- If any of those conditions aren\'t met, the stability status returns
     -- @STABILIZING@.
     stabilityStatus :: Prelude.Maybe StabilityStatus,
     -- | The external ID associated with the task set.
     --
-    -- If a task set is created by an CodeDeploy deployment, the @externalId@
+    -- If an CodeDeploy deployment created a task set, the @externalId@
     -- parameter contains the CodeDeploy deployment ID.
     --
     -- If a task set is created for an external deployment and is associated
@@ -104,16 +110,16 @@ data TaskSet = TaskSet'
     externalId :: Prelude.Maybe Prelude.Text,
     -- | The network configuration for the task set.
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The status of the task set. The following describes each state:
+    -- | The status of the task set. The following describes each state.
     --
     -- [PRIMARY]
     --     The task set is serving production traffic.
     --
     -- [ACTIVE]
-    --     The task set is not serving production traffic.
+    --     The task set isn\'t serving production traffic.
     --
     -- [DRAINING]
-    --     The tasks in the task set are being stopped and their corresponding
+    --     The tasks in the task set are being stopped, and their corresponding
     --     targets are being deregistered from their target group.
     status :: Prelude.Maybe Prelude.Text,
     -- | The ID of the task set.
@@ -123,17 +129,17 @@ data TaskSet = TaskSet'
     -- | The number of tasks in the task set that are in the @PENDING@ status
     -- during a deployment. A task in the @PENDING@ state is preparing to enter
     -- the @RUNNING@ state. A task set enters the @PENDING@ status when it
-    -- launches for the first time or when it is restarted after being in the
+    -- launches for the first time or when it\'s restarted after being in the
     -- @STOPPED@ state.
     pendingCount :: Prelude.Maybe Prelude.Int,
-    -- | The tag specified when a task set is started. If the task set is created
-    -- by an CodeDeploy deployment, the @startedBy@ parameter is @CODE_DEPLOY@.
-    -- For a task set created for an external deployment, the startedBy field
-    -- isn\'t used.
+    -- | The tag specified when a task set is started. If an CodeDeploy
+    -- deployment created the task set, the @startedBy@ parameter is
+    -- @CODE_DEPLOY@. If an external deployment created the task set, the
+    -- startedBy field isn\'t used.
     startedBy :: Prelude.Maybe Prelude.Text,
-    -- | The capacity provider strategy associated with the task set.
+    -- | The capacity provider strategy that are associated with the task set.
     capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
-    -- | Details on a load balancer that is used with a task set.
+    -- | Details on a load balancer that are used with a task set.
     loadBalancers :: Prelude.Maybe [LoadBalancer],
     -- | The launch type the tasks in the task set are using. For more
     -- information, see
@@ -144,7 +150,7 @@ data TaskSet = TaskSet'
     -- during a deployment. A task in the @RUNNING@ state is running and ready
     -- for use.
     runningCount :: Prelude.Maybe Prelude.Int,
-    -- | The Fargate platform version on which the tasks in the task set are
+    -- | The Fargate platform version where the tasks in the task set are
     -- running. A platform version is only specified for tasks run on Fargate.
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
@@ -155,16 +161,17 @@ data TaskSet = TaskSet'
     -- percentage. The result is always rounded up. For example, if the
     -- computed desired count is 1.2, it rounds up to 2 tasks.
     computedDesiredCount :: Prelude.Maybe Prelude.Int,
-    -- | The Unix timestamp for when the task set stability status was retrieved.
+    -- | The Unix timestamp for the time when the task set stability status was
+    -- retrieved.
     stabilityStatusAt :: Prelude.Maybe Core.POSIX,
-    -- | A floating-point percentage of the desired number of tasks to place and
+    -- | A floating-point percentage of your desired number of tasks to place and
     -- keep running in the task set.
     scale :: Prelude.Maybe Scale,
     -- | The Amazon Resource Name (ARN) of the service the task set exists in.
     serviceArn :: Prelude.Maybe Prelude.Text,
-    -- | The Unix timestamp for when the task set was created.
+    -- | The Unix timestamp for the time when the task set was created.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | The Unix timestamp for when the task set was last updated.
+    -- | The Unix timestamp for the time when the task set was last updated.
     updatedAt :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -178,8 +185,8 @@ data TaskSet = TaskSet'
 -- for backwards compatibility:
 --
 -- 'tags', 'taskSet_tags' - The metadata that you apply to the task set to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -209,32 +216,38 @@ data TaskSet = TaskSet'
 -- 'clusterArn', 'taskSet_clusterArn' - The Amazon Resource Name (ARN) of the cluster that the service that
 -- hosts the task set exists in.
 --
--- 'serviceRegistries', 'taskSet_serviceRegistries' - The details of the service discovery registries to assign to this task
+-- 'serviceRegistries', 'taskSet_serviceRegistries' - The details for the service discovery registries to assign to this task
 -- set. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
 --
--- 'taskDefinition', 'taskSet_taskDefinition' - The task definition the task set is using.
+-- 'platformFamily', 'taskSet_platformFamily' - The operating system that your tasks in the set are running on. A
+-- platform family is specified only for tasks that use the Fargate launch
+-- type.
 --
--- 'stabilityStatus', 'taskSet_stabilityStatus' - The stability status, which indicates whether the task set has reached a
--- steady state. If the following conditions are met, the task set will be
--- in @STEADY_STATE@:
+-- All tasks in the set must have the same value.
+--
+-- 'taskDefinition', 'taskSet_taskDefinition' - The task definition that the task set is using.
+--
+-- 'stabilityStatus', 'taskSet_stabilityStatus' - The stability status. This indicates whether the task set has reached a
+-- steady state. If the following conditions are met, the task set sre in
+-- @STEADY_STATE@:
 --
 -- -   The task @runningCount@ is equal to the @computedDesiredCount@.
 --
 -- -   The @pendingCount@ is @0@.
 --
--- -   There are no tasks running on container instances in the @DRAINING@
---     status.
+-- -   There are no tasks that are running on container instances in the
+--     @DRAINING@ status.
 --
 -- -   All tasks are reporting a healthy status from the load balancers,
 --     service discovery, and container health checks.
 --
--- If any of those conditions are not met, the stability status returns
+-- If any of those conditions aren\'t met, the stability status returns
 -- @STABILIZING@.
 --
 -- 'externalId', 'taskSet_externalId' - The external ID associated with the task set.
 --
--- If a task set is created by an CodeDeploy deployment, the @externalId@
+-- If an CodeDeploy deployment created a task set, the @externalId@
 -- parameter contains the CodeDeploy deployment ID.
 --
 -- If a task set is created for an external deployment and is associated
@@ -243,16 +256,16 @@ data TaskSet = TaskSet'
 --
 -- 'networkConfiguration', 'taskSet_networkConfiguration' - The network configuration for the task set.
 --
--- 'status', 'taskSet_status' - The status of the task set. The following describes each state:
+-- 'status', 'taskSet_status' - The status of the task set. The following describes each state.
 --
 -- [PRIMARY]
 --     The task set is serving production traffic.
 --
 -- [ACTIVE]
---     The task set is not serving production traffic.
+--     The task set isn\'t serving production traffic.
 --
 -- [DRAINING]
---     The tasks in the task set are being stopped and their corresponding
+--     The tasks in the task set are being stopped, and their corresponding
 --     targets are being deregistered from their target group.
 --
 -- 'id', 'taskSet_id' - The ID of the task set.
@@ -262,17 +275,17 @@ data TaskSet = TaskSet'
 -- 'pendingCount', 'taskSet_pendingCount' - The number of tasks in the task set that are in the @PENDING@ status
 -- during a deployment. A task in the @PENDING@ state is preparing to enter
 -- the @RUNNING@ state. A task set enters the @PENDING@ status when it
--- launches for the first time or when it is restarted after being in the
+-- launches for the first time or when it\'s restarted after being in the
 -- @STOPPED@ state.
 --
--- 'startedBy', 'taskSet_startedBy' - The tag specified when a task set is started. If the task set is created
--- by an CodeDeploy deployment, the @startedBy@ parameter is @CODE_DEPLOY@.
--- For a task set created for an external deployment, the startedBy field
--- isn\'t used.
+-- 'startedBy', 'taskSet_startedBy' - The tag specified when a task set is started. If an CodeDeploy
+-- deployment created the task set, the @startedBy@ parameter is
+-- @CODE_DEPLOY@. If an external deployment created the task set, the
+-- startedBy field isn\'t used.
 --
--- 'capacityProviderStrategy', 'taskSet_capacityProviderStrategy' - The capacity provider strategy associated with the task set.
+-- 'capacityProviderStrategy', 'taskSet_capacityProviderStrategy' - The capacity provider strategy that are associated with the task set.
 --
--- 'loadBalancers', 'taskSet_loadBalancers' - Details on a load balancer that is used with a task set.
+-- 'loadBalancers', 'taskSet_loadBalancers' - Details on a load balancer that are used with a task set.
 --
 -- 'launchType', 'taskSet_launchType' - The launch type the tasks in the task set are using. For more
 -- information, see
@@ -283,7 +296,7 @@ data TaskSet = TaskSet'
 -- during a deployment. A task in the @RUNNING@ state is running and ready
 -- for use.
 --
--- 'platformVersion', 'taskSet_platformVersion' - The Fargate platform version on which the tasks in the task set are
+-- 'platformVersion', 'taskSet_platformVersion' - The Fargate platform version where the tasks in the task set are
 -- running. A platform version is only specified for tasks run on Fargate.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
@@ -294,16 +307,17 @@ data TaskSet = TaskSet'
 -- percentage. The result is always rounded up. For example, if the
 -- computed desired count is 1.2, it rounds up to 2 tasks.
 --
--- 'stabilityStatusAt', 'taskSet_stabilityStatusAt' - The Unix timestamp for when the task set stability status was retrieved.
+-- 'stabilityStatusAt', 'taskSet_stabilityStatusAt' - The Unix timestamp for the time when the task set stability status was
+-- retrieved.
 --
--- 'scale', 'taskSet_scale' - A floating-point percentage of the desired number of tasks to place and
+-- 'scale', 'taskSet_scale' - A floating-point percentage of your desired number of tasks to place and
 -- keep running in the task set.
 --
 -- 'serviceArn', 'taskSet_serviceArn' - The Amazon Resource Name (ARN) of the service the task set exists in.
 --
--- 'createdAt', 'taskSet_createdAt' - The Unix timestamp for when the task set was created.
+-- 'createdAt', 'taskSet_createdAt' - The Unix timestamp for the time when the task set was created.
 --
--- 'updatedAt', 'taskSet_updatedAt' - The Unix timestamp for when the task set was last updated.
+-- 'updatedAt', 'taskSet_updatedAt' - The Unix timestamp for the time when the task set was last updated.
 newTaskSet ::
   TaskSet
 newTaskSet =
@@ -311,6 +325,7 @@ newTaskSet =
     { tags = Prelude.Nothing,
       clusterArn = Prelude.Nothing,
       serviceRegistries = Prelude.Nothing,
+      platformFamily = Prelude.Nothing,
       taskDefinition = Prelude.Nothing,
       stabilityStatus = Prelude.Nothing,
       externalId = Prelude.Nothing,
@@ -334,8 +349,8 @@ newTaskSet =
     }
 
 -- | The metadata that you apply to the task set to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -369,38 +384,46 @@ taskSet_tags = Lens.lens (\TaskSet' {tags} -> tags) (\s@TaskSet' {} a -> s {tags
 taskSet_clusterArn :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Text)
 taskSet_clusterArn = Lens.lens (\TaskSet' {clusterArn} -> clusterArn) (\s@TaskSet' {} a -> s {clusterArn = a} :: TaskSet)
 
--- | The details of the service discovery registries to assign to this task
+-- | The details for the service discovery registries to assign to this task
 -- set. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
 taskSet_serviceRegistries :: Lens.Lens' TaskSet (Prelude.Maybe [ServiceRegistry])
 taskSet_serviceRegistries = Lens.lens (\TaskSet' {serviceRegistries} -> serviceRegistries) (\s@TaskSet' {} a -> s {serviceRegistries = a} :: TaskSet) Prelude.. Lens.mapping Lens.coerced
 
--- | The task definition the task set is using.
+-- | The operating system that your tasks in the set are running on. A
+-- platform family is specified only for tasks that use the Fargate launch
+-- type.
+--
+-- All tasks in the set must have the same value.
+taskSet_platformFamily :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Text)
+taskSet_platformFamily = Lens.lens (\TaskSet' {platformFamily} -> platformFamily) (\s@TaskSet' {} a -> s {platformFamily = a} :: TaskSet)
+
+-- | The task definition that the task set is using.
 taskSet_taskDefinition :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Text)
 taskSet_taskDefinition = Lens.lens (\TaskSet' {taskDefinition} -> taskDefinition) (\s@TaskSet' {} a -> s {taskDefinition = a} :: TaskSet)
 
--- | The stability status, which indicates whether the task set has reached a
--- steady state. If the following conditions are met, the task set will be
--- in @STEADY_STATE@:
+-- | The stability status. This indicates whether the task set has reached a
+-- steady state. If the following conditions are met, the task set sre in
+-- @STEADY_STATE@:
 --
 -- -   The task @runningCount@ is equal to the @computedDesiredCount@.
 --
 -- -   The @pendingCount@ is @0@.
 --
--- -   There are no tasks running on container instances in the @DRAINING@
---     status.
+-- -   There are no tasks that are running on container instances in the
+--     @DRAINING@ status.
 --
 -- -   All tasks are reporting a healthy status from the load balancers,
 --     service discovery, and container health checks.
 --
--- If any of those conditions are not met, the stability status returns
+-- If any of those conditions aren\'t met, the stability status returns
 -- @STABILIZING@.
 taskSet_stabilityStatus :: Lens.Lens' TaskSet (Prelude.Maybe StabilityStatus)
 taskSet_stabilityStatus = Lens.lens (\TaskSet' {stabilityStatus} -> stabilityStatus) (\s@TaskSet' {} a -> s {stabilityStatus = a} :: TaskSet)
 
 -- | The external ID associated with the task set.
 --
--- If a task set is created by an CodeDeploy deployment, the @externalId@
+-- If an CodeDeploy deployment created a task set, the @externalId@
 -- parameter contains the CodeDeploy deployment ID.
 --
 -- If a task set is created for an external deployment and is associated
@@ -413,16 +436,16 @@ taskSet_externalId = Lens.lens (\TaskSet' {externalId} -> externalId) (\s@TaskSe
 taskSet_networkConfiguration :: Lens.Lens' TaskSet (Prelude.Maybe NetworkConfiguration)
 taskSet_networkConfiguration = Lens.lens (\TaskSet' {networkConfiguration} -> networkConfiguration) (\s@TaskSet' {} a -> s {networkConfiguration = a} :: TaskSet)
 
--- | The status of the task set. The following describes each state:
+-- | The status of the task set. The following describes each state.
 --
 -- [PRIMARY]
 --     The task set is serving production traffic.
 --
 -- [ACTIVE]
---     The task set is not serving production traffic.
+--     The task set isn\'t serving production traffic.
 --
 -- [DRAINING]
---     The tasks in the task set are being stopped and their corresponding
+--     The tasks in the task set are being stopped, and their corresponding
 --     targets are being deregistered from their target group.
 taskSet_status :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Text)
 taskSet_status = Lens.lens (\TaskSet' {status} -> status) (\s@TaskSet' {} a -> s {status = a} :: TaskSet)
@@ -438,23 +461,23 @@ taskSet_taskSetArn = Lens.lens (\TaskSet' {taskSetArn} -> taskSetArn) (\s@TaskSe
 -- | The number of tasks in the task set that are in the @PENDING@ status
 -- during a deployment. A task in the @PENDING@ state is preparing to enter
 -- the @RUNNING@ state. A task set enters the @PENDING@ status when it
--- launches for the first time or when it is restarted after being in the
+-- launches for the first time or when it\'s restarted after being in the
 -- @STOPPED@ state.
 taskSet_pendingCount :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Int)
 taskSet_pendingCount = Lens.lens (\TaskSet' {pendingCount} -> pendingCount) (\s@TaskSet' {} a -> s {pendingCount = a} :: TaskSet)
 
--- | The tag specified when a task set is started. If the task set is created
--- by an CodeDeploy deployment, the @startedBy@ parameter is @CODE_DEPLOY@.
--- For a task set created for an external deployment, the startedBy field
--- isn\'t used.
+-- | The tag specified when a task set is started. If an CodeDeploy
+-- deployment created the task set, the @startedBy@ parameter is
+-- @CODE_DEPLOY@. If an external deployment created the task set, the
+-- startedBy field isn\'t used.
 taskSet_startedBy :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Text)
 taskSet_startedBy = Lens.lens (\TaskSet' {startedBy} -> startedBy) (\s@TaskSet' {} a -> s {startedBy = a} :: TaskSet)
 
--- | The capacity provider strategy associated with the task set.
+-- | The capacity provider strategy that are associated with the task set.
 taskSet_capacityProviderStrategy :: Lens.Lens' TaskSet (Prelude.Maybe [CapacityProviderStrategyItem])
 taskSet_capacityProviderStrategy = Lens.lens (\TaskSet' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@TaskSet' {} a -> s {capacityProviderStrategy = a} :: TaskSet) Prelude.. Lens.mapping Lens.coerced
 
--- | Details on a load balancer that is used with a task set.
+-- | Details on a load balancer that are used with a task set.
 taskSet_loadBalancers :: Lens.Lens' TaskSet (Prelude.Maybe [LoadBalancer])
 taskSet_loadBalancers = Lens.lens (\TaskSet' {loadBalancers} -> loadBalancers) (\s@TaskSet' {} a -> s {loadBalancers = a} :: TaskSet) Prelude.. Lens.mapping Lens.coerced
 
@@ -471,7 +494,7 @@ taskSet_launchType = Lens.lens (\TaskSet' {launchType} -> launchType) (\s@TaskSe
 taskSet_runningCount :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Int)
 taskSet_runningCount = Lens.lens (\TaskSet' {runningCount} -> runningCount) (\s@TaskSet' {} a -> s {runningCount = a} :: TaskSet)
 
--- | The Fargate platform version on which the tasks in the task set are
+-- | The Fargate platform version where the tasks in the task set are
 -- running. A platform version is only specified for tasks run on Fargate.
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate platform versions>
@@ -486,11 +509,12 @@ taskSet_platformVersion = Lens.lens (\TaskSet' {platformVersion} -> platformVers
 taskSet_computedDesiredCount :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Int)
 taskSet_computedDesiredCount = Lens.lens (\TaskSet' {computedDesiredCount} -> computedDesiredCount) (\s@TaskSet' {} a -> s {computedDesiredCount = a} :: TaskSet)
 
--- | The Unix timestamp for when the task set stability status was retrieved.
+-- | The Unix timestamp for the time when the task set stability status was
+-- retrieved.
 taskSet_stabilityStatusAt :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.UTCTime)
 taskSet_stabilityStatusAt = Lens.lens (\TaskSet' {stabilityStatusAt} -> stabilityStatusAt) (\s@TaskSet' {} a -> s {stabilityStatusAt = a} :: TaskSet) Prelude.. Lens.mapping Core._Time
 
--- | A floating-point percentage of the desired number of tasks to place and
+-- | A floating-point percentage of your desired number of tasks to place and
 -- keep running in the task set.
 taskSet_scale :: Lens.Lens' TaskSet (Prelude.Maybe Scale)
 taskSet_scale = Lens.lens (\TaskSet' {scale} -> scale) (\s@TaskSet' {} a -> s {scale = a} :: TaskSet)
@@ -499,11 +523,11 @@ taskSet_scale = Lens.lens (\TaskSet' {scale} -> scale) (\s@TaskSet' {} a -> s {s
 taskSet_serviceArn :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.Text)
 taskSet_serviceArn = Lens.lens (\TaskSet' {serviceArn} -> serviceArn) (\s@TaskSet' {} a -> s {serviceArn = a} :: TaskSet)
 
--- | The Unix timestamp for when the task set was created.
+-- | The Unix timestamp for the time when the task set was created.
 taskSet_createdAt :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.UTCTime)
 taskSet_createdAt = Lens.lens (\TaskSet' {createdAt} -> createdAt) (\s@TaskSet' {} a -> s {createdAt = a} :: TaskSet) Prelude.. Lens.mapping Core._Time
 
--- | The Unix timestamp for when the task set was last updated.
+-- | The Unix timestamp for the time when the task set was last updated.
 taskSet_updatedAt :: Lens.Lens' TaskSet (Prelude.Maybe Prelude.UTCTime)
 taskSet_updatedAt = Lens.lens (\TaskSet' {updatedAt} -> updatedAt) (\s@TaskSet' {} a -> s {updatedAt = a} :: TaskSet) Prelude.. Lens.mapping Core._Time
 
@@ -518,6 +542,7 @@ instance Core.FromJSON TaskSet where
             Prelude.<*> ( x Core..:? "serviceRegistries"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "platformFamily")
             Prelude.<*> (x Core..:? "taskDefinition")
             Prelude.<*> (x Core..:? "stabilityStatus")
             Prelude.<*> (x Core..:? "externalId")
@@ -547,6 +572,7 @@ instance Prelude.Hashable TaskSet where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` clusterArn
       `Prelude.hashWithSalt` serviceRegistries
+      `Prelude.hashWithSalt` platformFamily
       `Prelude.hashWithSalt` taskDefinition
       `Prelude.hashWithSalt` stabilityStatus
       `Prelude.hashWithSalt` externalId
@@ -573,6 +599,7 @@ instance Prelude.NFData TaskSet where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf clusterArn
       `Prelude.seq` Prelude.rnf serviceRegistries
+      `Prelude.seq` Prelude.rnf platformFamily
       `Prelude.seq` Prelude.rnf taskDefinition
       `Prelude.seq` Prelude.rnf stabilityStatus
       `Prelude.seq` Prelude.rnf externalId

@@ -31,11 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newNetworkBinding' smart constructor.
 data NetworkBinding = NetworkBinding'
-  { -- | The port number on the container that is used with the network binding.
+  { -- | The port number on the container that\'s used with the network binding.
     containerPort :: Prelude.Maybe Prelude.Int,
     -- | The IP address that the container is bound to on the container instance.
     bindIP :: Prelude.Maybe Prelude.Text,
-    -- | The port number on the host that is used with the network binding.
+    -- | The port number on the host that\'s used with the network binding.
     hostPort :: Prelude.Maybe Prelude.Int,
     -- | The protocol used for the network binding.
     protocol :: Prelude.Maybe TransportProtocol
@@ -50,11 +50,11 @@ data NetworkBinding = NetworkBinding'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerPort', 'networkBinding_containerPort' - The port number on the container that is used with the network binding.
+-- 'containerPort', 'networkBinding_containerPort' - The port number on the container that\'s used with the network binding.
 --
 -- 'bindIP', 'networkBinding_bindIP' - The IP address that the container is bound to on the container instance.
 --
--- 'hostPort', 'networkBinding_hostPort' - The port number on the host that is used with the network binding.
+-- 'hostPort', 'networkBinding_hostPort' - The port number on the host that\'s used with the network binding.
 --
 -- 'protocol', 'networkBinding_protocol' - The protocol used for the network binding.
 newNetworkBinding ::
@@ -67,7 +67,7 @@ newNetworkBinding =
       protocol = Prelude.Nothing
     }
 
--- | The port number on the container that is used with the network binding.
+-- | The port number on the container that\'s used with the network binding.
 networkBinding_containerPort :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Int)
 networkBinding_containerPort = Lens.lens (\NetworkBinding' {containerPort} -> containerPort) (\s@NetworkBinding' {} a -> s {containerPort = a} :: NetworkBinding)
 
@@ -75,7 +75,7 @@ networkBinding_containerPort = Lens.lens (\NetworkBinding' {containerPort} -> co
 networkBinding_bindIP :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Text)
 networkBinding_bindIP = Lens.lens (\NetworkBinding' {bindIP} -> bindIP) (\s@NetworkBinding' {} a -> s {bindIP = a} :: NetworkBinding)
 
--- | The port number on the host that is used with the network binding.
+-- | The port number on the host that\'s used with the network binding.
 networkBinding_hostPort :: Lens.Lens' NetworkBinding (Prelude.Maybe Prelude.Int)
 networkBinding_hostPort = Lens.lens (\NetworkBinding' {hostPort} -> hostPort) (\s@NetworkBinding' {} a -> s {hostPort = a} :: NetworkBinding)
 

@@ -34,15 +34,15 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.docker.com/engine/reference/commandline/run/ docker run> .
 --
 -- By default, containers use the same logging driver that the Docker
--- daemon uses; however the container may use a different logging driver
+-- daemon uses. However, the container might use a different logging driver
 -- than the Docker daemon by specifying a log driver configuration in the
--- container definition. For more information on the options for different
--- supported log drivers, see
+-- container definition. For more information about the options for
+-- different supported log drivers, see
 -- <https://docs.docker.com/engine/admin/logging/overview/ Configure logging drivers>
 -- in the Docker documentation.
 --
--- The following should be noted when specifying a log configuration for
--- your containers:
+-- Understand the following when specifying a log configuration for your
+-- containers.
 --
 -- -   Amazon ECS currently supports a subset of the logging drivers
 --     available to the Docker daemon (shown in the valid values below).
@@ -52,24 +52,24 @@ import qualified Amazonka.Prelude as Prelude
 -- -   This parameter requires version 1.18 of the Docker Remote API or
 --     greater on your container instance.
 --
--- -   For tasks hosted on Amazon EC2 instances, the Amazon ECS container
---     agent must register the available logging drivers with the
+-- -   For tasks that are hosted on Amazon EC2 instances, the Amazon ECS
+--     container agent must register the available logging drivers with the
 --     @ECS_AVAILABLE_LOGGING_DRIVERS@ environment variable before
 --     containers placed on that instance can use these log configuration
 --     options. For more information, see
 --     <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html Amazon ECS container agent configuration>
 --     in the /Amazon Elastic Container Service Developer Guide/.
 --
--- -   For tasks on Fargate, because you do not have access to the
+-- -   For tasks that are on Fargate, because you don\'t have access to the
 --     underlying infrastructure your tasks are hosted on, any additional
---     software needed will have to be installed outside of the task. For
---     example, the Fluentd output aggregators or a remote host running
---     Logstash to send Gelf logs to.
+--     software needed must be installed outside of the task. For example,
+--     the Fluentd output aggregators or a remote host running Logstash to
+--     send Gelf logs to.
 --
 -- /See:/ 'newLogConfiguration' smart constructor.
 data LogConfiguration = LogConfiguration'
   { -- | The secrets to pass to the log configuration. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying sensitive data>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     secretOptions :: Prelude.Maybe [Secret],
     -- | The configuration options to send to the log driver. This parameter
@@ -96,12 +96,12 @@ data LogConfiguration = LogConfiguration'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom log routing>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     --
-    -- If you have a custom driver that is not listed, you can fork the Amazon
-    -- ECS container agent project that is
+    -- If you have a custom driver that isn\'t listed, you can fork the Amazon
+    -- ECS container agent project that\'s
     -- <https://github.com/aws/amazon-ecs-agent available on GitHub> and
     -- customize it to work with that driver. We encourage you to submit pull
     -- requests for changes that you would like to have included. However, we
-    -- do not currently provide support for running modified copies of this
+    -- don\'t currently provide support for running modified copies of this
     -- software.
     logDriver :: LogDriver
   }
@@ -116,7 +116,7 @@ data LogConfiguration = LogConfiguration'
 -- for backwards compatibility:
 --
 -- 'secretOptions', 'logConfiguration_secretOptions' - The secrets to pass to the log configuration. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying sensitive data>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'options', 'logConfiguration_options' - The configuration options to send to the log driver. This parameter
@@ -143,12 +143,12 @@ data LogConfiguration = LogConfiguration'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom log routing>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- If you have a custom driver that is not listed, you can fork the Amazon
--- ECS container agent project that is
+-- If you have a custom driver that isn\'t listed, you can fork the Amazon
+-- ECS container agent project that\'s
 -- <https://github.com/aws/amazon-ecs-agent available on GitHub> and
 -- customize it to work with that driver. We encourage you to submit pull
 -- requests for changes that you would like to have included. However, we
--- do not currently provide support for running modified copies of this
+-- don\'t currently provide support for running modified copies of this
 -- software.
 newLogConfiguration ::
   -- | 'logDriver'
@@ -162,7 +162,7 @@ newLogConfiguration pLogDriver_ =
     }
 
 -- | The secrets to pass to the log configuration. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying Sensitive Data>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html Specifying sensitive data>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 logConfiguration_secretOptions :: Lens.Lens' LogConfiguration (Prelude.Maybe [Secret])
 logConfiguration_secretOptions = Lens.lens (\LogConfiguration' {secretOptions} -> secretOptions) (\s@LogConfiguration' {} a -> s {secretOptions = a} :: LogConfiguration) Prelude.. Lens.mapping Lens.coerced
@@ -193,12 +193,12 @@ logConfiguration_options = Lens.lens (\LogConfiguration' {options} -> options) (
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html Custom log routing>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- If you have a custom driver that is not listed, you can fork the Amazon
--- ECS container agent project that is
+-- If you have a custom driver that isn\'t listed, you can fork the Amazon
+-- ECS container agent project that\'s
 -- <https://github.com/aws/amazon-ecs-agent available on GitHub> and
 -- customize it to work with that driver. We encourage you to submit pull
 -- requests for changes that you would like to have included. However, we
--- do not currently provide support for running modified copies of this
+-- don\'t currently provide support for running modified copies of this
 -- software.
 logConfiguration_logDriver :: Lens.Lens' LogConfiguration LogDriver
 logConfiguration_logDriver = Lens.lens (\LogConfiguration' {logDriver} -> logDriver) (\s@LogConfiguration' {} a -> s {logDriver = a} :: LogConfiguration)

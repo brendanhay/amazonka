@@ -50,13 +50,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteAccountSetting' smart constructor.
 data DeleteAccountSetting = DeleteAccountSetting'
-  { -- | The ARN of the principal, which can be an IAM user, IAM role, or the
-    -- root user. If you specify the root user, it disables the account setting
-    -- for all IAM users, IAM roles, and the root user of the account unless an
-    -- IAM user or role explicitly overrides these settings. If this field is
-    -- omitted, the setting is changed only for the authenticated user.
+  { -- | The Amazon Resource Name (ARN) of the principal. It can be an IAM user,
+    -- IAM role, or the root user. If you specify the root user, it disables
+    -- the account setting for all IAM users, IAM roles, and the root user of
+    -- the account unless an IAM user or role explicitly overrides these
+    -- settings. If this field is omitted, the setting is changed only for the
+    -- authenticated user.
     principalArn :: Prelude.Maybe Prelude.Text,
-    -- | The resource name for which to disable the account setting. If
+    -- | The resource name to disable the account setting for. If
     -- @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS
     -- services is affected. If @taskLongArnFormat@ is specified, the ARN and
     -- resource ID for your Amazon ECS tasks is affected. If
@@ -76,13 +77,14 @@ data DeleteAccountSetting = DeleteAccountSetting'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'principalArn', 'deleteAccountSetting_principalArn' - The ARN of the principal, which can be an IAM user, IAM role, or the
--- root user. If you specify the root user, it disables the account setting
--- for all IAM users, IAM roles, and the root user of the account unless an
--- IAM user or role explicitly overrides these settings. If this field is
--- omitted, the setting is changed only for the authenticated user.
+-- 'principalArn', 'deleteAccountSetting_principalArn' - The Amazon Resource Name (ARN) of the principal. It can be an IAM user,
+-- IAM role, or the root user. If you specify the root user, it disables
+-- the account setting for all IAM users, IAM roles, and the root user of
+-- the account unless an IAM user or role explicitly overrides these
+-- settings. If this field is omitted, the setting is changed only for the
+-- authenticated user.
 --
--- 'name', 'deleteAccountSetting_name' - The resource name for which to disable the account setting. If
+-- 'name', 'deleteAccountSetting_name' - The resource name to disable the account setting for. If
 -- @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS
 -- services is affected. If @taskLongArnFormat@ is specified, the ARN and
 -- resource ID for your Amazon ECS tasks is affected. If
@@ -101,15 +103,16 @@ newDeleteAccountSetting pName_ =
       name = pName_
     }
 
--- | The ARN of the principal, which can be an IAM user, IAM role, or the
--- root user. If you specify the root user, it disables the account setting
--- for all IAM users, IAM roles, and the root user of the account unless an
--- IAM user or role explicitly overrides these settings. If this field is
--- omitted, the setting is changed only for the authenticated user.
+-- | The Amazon Resource Name (ARN) of the principal. It can be an IAM user,
+-- IAM role, or the root user. If you specify the root user, it disables
+-- the account setting for all IAM users, IAM roles, and the root user of
+-- the account unless an IAM user or role explicitly overrides these
+-- settings. If this field is omitted, the setting is changed only for the
+-- authenticated user.
 deleteAccountSetting_principalArn :: Lens.Lens' DeleteAccountSetting (Prelude.Maybe Prelude.Text)
 deleteAccountSetting_principalArn = Lens.lens (\DeleteAccountSetting' {principalArn} -> principalArn) (\s@DeleteAccountSetting' {} a -> s {principalArn = a} :: DeleteAccountSetting)
 
--- | The resource name for which to disable the account setting. If
+-- | The resource name to disable the account setting for. If
 -- @serviceLongArnFormat@ is specified, the ARN for your Amazon ECS
 -- services is affected. If @taskLongArnFormat@ is specified, the ARN and
 -- resource ID for your Amazon ECS tasks is affected. If

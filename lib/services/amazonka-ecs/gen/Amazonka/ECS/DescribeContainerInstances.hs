@@ -60,7 +60,9 @@ data DescribeContainerInstances = DescribeContainerInstances'
     cluster :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether you want to see the resource tags for the container
     -- instance. If @TAGS@ is specified, the tags are included in the response.
-    -- If this field is omitted, tags are not included in the response.
+    -- If @CONTAINER_INSTANCE_HEALTH@ is specified, the container instance
+    -- health is included in the response. If this field is omitted, tags and
+    -- container instance health status aren\'t included in the response.
     include :: Prelude.Maybe [ContainerInstanceField],
     -- | A list of up to 100 container instance IDs or full Amazon Resource Name
     -- (ARN) entries.
@@ -84,7 +86,9 @@ data DescribeContainerInstances = DescribeContainerInstances'
 --
 -- 'include', 'describeContainerInstances_include' - Specifies whether you want to see the resource tags for the container
 -- instance. If @TAGS@ is specified, the tags are included in the response.
--- If this field is omitted, tags are not included in the response.
+-- If @CONTAINER_INSTANCE_HEALTH@ is specified, the container instance
+-- health is included in the response. If this field is omitted, tags and
+-- container instance health status aren\'t included in the response.
 --
 -- 'containerInstances', 'describeContainerInstances_containerInstances' - A list of up to 100 container instance IDs or full Amazon Resource Name
 -- (ARN) entries.
@@ -108,7 +112,9 @@ describeContainerInstances_cluster = Lens.lens (\DescribeContainerInstances' {cl
 
 -- | Specifies whether you want to see the resource tags for the container
 -- instance. If @TAGS@ is specified, the tags are included in the response.
--- If this field is omitted, tags are not included in the response.
+-- If @CONTAINER_INSTANCE_HEALTH@ is specified, the container instance
+-- health is included in the response. If this field is omitted, tags and
+-- container instance health status aren\'t included in the response.
 describeContainerInstances_include :: Lens.Lens' DescribeContainerInstances (Prelude.Maybe [ContainerInstanceField])
 describeContainerInstances_include = Lens.lens (\DescribeContainerInstances' {include} -> include) (\s@DescribeContainerInstances' {} a -> s {include = a} :: DescribeContainerInstances) Prelude.. Lens.mapping Lens.coerced
 

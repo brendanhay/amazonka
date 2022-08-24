@@ -25,10 +25,10 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | The Linux capabilities for the container that are added to or dropped
 -- from the default configuration provided by Docker. For more information
--- on the default capabilities and the non-default available capabilities,
--- see
+-- about the default capabilities and the non-default available
+-- capabilities, see
 -- <https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities Runtime privilege and Linux capabilities>
--- in the /Docker run reference/. For more detailed information on these
+-- in the /Docker run reference/. For more detailed information about these
 -- Linux capabilities, see the
 -- <http://man7.org/linux/man-pages/man7/capabilities.7.html capabilities(7)>
 -- Linux manual page.

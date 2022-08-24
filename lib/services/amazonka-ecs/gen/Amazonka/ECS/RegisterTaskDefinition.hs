@@ -31,7 +31,7 @@
 -- parameter. When you specify an IAM role for a task, its containers can
 -- then use the latest versions of the CLI or SDKs to make API requests to
 -- the Amazon Web Services services that are specified in the IAM policy
--- associated with the role. For more information, see
+-- that\'s associated with the role. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html IAM Roles for Tasks>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
@@ -53,6 +53,7 @@ module Amazonka.ECS.RegisterTaskDefinition
     -- * Request Lenses
     registerTaskDefinition_tags,
     registerTaskDefinition_ephemeralStorage,
+    registerTaskDefinition_runtimePlatform,
     registerTaskDefinition_proxyConfiguration,
     registerTaskDefinition_pidMode,
     registerTaskDefinition_memory,
@@ -90,7 +91,7 @@ import qualified Amazonka.Response as Response
 data RegisterTaskDefinition = RegisterTaskDefinition'
   { -- | The metadata that you apply to the task definition to help you
     -- categorize and organize them. Each tag consists of a key and an optional
-    -- value, both of which you define.
+    -- value. You define both of them.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -124,14 +125,24 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
     -- in the /Amazon ECS User Guide for Fargate/.
     --
-    -- This parameter is only supported for tasks hosted on Fargate using
-    -- platform version @1.4.0@ or later.
+    -- This parameter is only supported for tasks hosted on Fargate using the
+    -- following platform versions:
+    --
+    -- -   Linux platform version @1.4.0@ or later.
+    --
+    -- -   Windows platform version @1.0.0@ or later.
     ephemeralStorage :: Prelude.Maybe EphemeralStorage,
+    -- | The operating system that your tasks definitions run on. A platform
+    -- family is specified only for tasks using the Fargate launch type.
+    --
+    -- When you specify a task definition in a service, this value must match
+    -- the @runtimePlatform@ value of the service.
+    runtimePlatform :: Prelude.Maybe RuntimePlatform,
     -- | The configuration details for the App Mesh proxy.
     --
     -- For tasks hosted on Amazon EC2 instances, the container instances
     -- require at least version @1.26.0@ of the container agent and at least
-    -- version @1.26.0-1@ of the @ecs-init@ package to enable a proxy
+    -- version @1.26.0-1@ of the @ecs-init@ package to use a proxy
     -- configuration. If your container instances are launched from the Amazon
     -- ECS-optimized AMI version @20190301@ or later, then they contain the
     -- required versions of the container agent and @ecs-init@. For more
@@ -157,8 +168,8 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- Fargate.
     pidMode :: Prelude.Maybe PidMode,
     -- | The amount of memory (in MiB) used by the task. It can be expressed as
-    -- an integer using MiB, for example @1024@, or as a string using GB, for
-    -- example @1GB@ or @1 GB@, in a task definition. String values are
+    -- an integer using MiB (for example ,@1024@) or as a string using GB (for
+    -- example, @1GB@ or @1 GB@) in a task definition. String values are
     -- converted to an integer indicating the MiB when the task definition is
     -- registered.
     --
@@ -169,8 +180,11 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- If using the EC2 launch type, this field is optional.
     --
     -- If using the Fargate launch type, this field is required and you must
-    -- use one of the following values, which determines your range of
-    -- supported values for the @cpu@ parameter:
+    -- use one of the following values. This determines your range of supported
+    -- values for the @cpu@ parameter.
+    --
+    -- The CPU units cannot be less than 1 vCPU when you use Windows containers
+    -- on Fargate.
     --
     -- -   512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available @cpu@ values: 256
     --     (.25 vCPU)
@@ -188,8 +202,8 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     --     Available @cpu@ values: 4096 (4 vCPU)
     memory :: Prelude.Maybe Prelude.Text,
     -- | The number of CPU units used by the task. It can be expressed as an
-    -- integer using CPU units, for example @1024@, or as a string using vCPUs,
-    -- for example @1 vCPU@ or @1 vcpu@, in a task definition. String values
+    -- integer using CPU units (for example, @1024@) or as a string using vCPUs
+    -- (for example, @1 vCPU@ or @1 vcpu@) in a task definition. String values
     -- are converted to an integer indicating the CPU units when the task
     -- definition is registered.
     --
@@ -197,13 +211,16 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- We recommend specifying container-level resources for Windows
     -- containers.
     --
-    -- If you are using the EC2 launch type, this field is optional. Supported
+    -- If you\'re using the EC2 launch type, this field is optional. Supported
     -- values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units
     -- (@10@ vCPUs).
     --
-    -- If you are using the Fargate launch type, this field is required and you
+    -- If you\'re using the Fargate launch type, this field is required and you
     -- must use one of the following values, which determines your range of
     -- supported values for the @memory@ parameter:
+    --
+    -- The CPU units cannot be less than 1 vCPU when you use Windows containers
+    -- on Fargate.
     --
     -- -   256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1
     --     GB), 2048 (2 GB)
@@ -231,16 +248,16 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- task.
     inferenceAccelerators :: Prelude.Maybe [InferenceAccelerator],
     -- | A list of volume definitions in JSON format that containers in your task
-    -- may use.
+    -- might use.
     volumes :: Prelude.Maybe [Volume],
-    -- | The task launch type that Amazon ECS should validate the task definition
+    -- | The task launch type that Amazon ECS validates the task definition
     -- against. A client exception is returned if the task definition doesn\'t
     -- validate against the compatibilities specified. If no value is
     -- specified, the parameter is omitted from the response.
     requiresCompatibilities :: Prelude.Maybe [Compatibility],
     -- | An array of placement constraint objects to use for the task. You can
-    -- specify a maximum of 10 constraints per task (this limit includes
-    -- constraints in the task definition and those specified at runtime).
+    -- specify a maximum of 10 constraints for each task. This limit includes
+    -- constraints in the task definition and those specified at runtime.
     placementConstraints :: Prelude.Maybe [TaskDefinitionPlacementConstraint],
     -- | The Amazon Resource Name (ARN) of the task execution role that grants
     -- the Amazon ECS container agent permission to make Amazon Web Services
@@ -321,10 +338,10 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
     -- in the /Docker run reference/.
     networkMode :: Prelude.Maybe NetworkMode,
-    -- | You must specify a @family@ for a task definition, which allows you to
-    -- track multiple versions of the same task definition. The @family@ is
-    -- used as a name for your task definition. Up to 255 letters (uppercase
-    -- and lowercase), numbers, underscores, and hyphens are allowed.
+    -- | You must specify a @family@ for a task definition. You can use it track
+    -- multiple versions of the same task definition. The @family@ is used as a
+    -- name for your task definition. Up to 255 letters (uppercase and
+    -- lowercase), numbers, underscores, and hyphens are allowed.
     family :: Prelude.Text,
     -- | A list of container definitions in JSON format that describe the
     -- different containers that make up your task.
@@ -342,7 +359,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 --
 -- 'tags', 'registerTaskDefinition_tags' - The metadata that you apply to the task definition to help you
 -- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both of them.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -376,14 +393,24 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
 -- in the /Amazon ECS User Guide for Fargate/.
 --
--- This parameter is only supported for tasks hosted on Fargate using
--- platform version @1.4.0@ or later.
+-- This parameter is only supported for tasks hosted on Fargate using the
+-- following platform versions:
+--
+-- -   Linux platform version @1.4.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
+--
+-- 'runtimePlatform', 'registerTaskDefinition_runtimePlatform' - The operating system that your tasks definitions run on. A platform
+-- family is specified only for tasks using the Fargate launch type.
+--
+-- When you specify a task definition in a service, this value must match
+-- the @runtimePlatform@ value of the service.
 --
 -- 'proxyConfiguration', 'registerTaskDefinition_proxyConfiguration' - The configuration details for the App Mesh proxy.
 --
 -- For tasks hosted on Amazon EC2 instances, the container instances
 -- require at least version @1.26.0@ of the container agent and at least
--- version @1.26.0-1@ of the @ecs-init@ package to enable a proxy
+-- version @1.26.0-1@ of the @ecs-init@ package to use a proxy
 -- configuration. If your container instances are launched from the Amazon
 -- ECS-optimized AMI version @20190301@ or later, then they contain the
 -- required versions of the container agent and @ecs-init@. For more
@@ -409,8 +436,8 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- Fargate.
 --
 -- 'memory', 'registerTaskDefinition_memory' - The amount of memory (in MiB) used by the task. It can be expressed as
--- an integer using MiB, for example @1024@, or as a string using GB, for
--- example @1GB@ or @1 GB@, in a task definition. String values are
+-- an integer using MiB (for example ,@1024@) or as a string using GB (for
+-- example, @1GB@ or @1 GB@) in a task definition. String values are
 -- converted to an integer indicating the MiB when the task definition is
 -- registered.
 --
@@ -421,8 +448,11 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- If using the EC2 launch type, this field is optional.
 --
 -- If using the Fargate launch type, this field is required and you must
--- use one of the following values, which determines your range of
--- supported values for the @cpu@ parameter:
+-- use one of the following values. This determines your range of supported
+-- values for the @cpu@ parameter.
+--
+-- The CPU units cannot be less than 1 vCPU when you use Windows containers
+-- on Fargate.
 --
 -- -   512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available @cpu@ values: 256
 --     (.25 vCPU)
@@ -440,8 +470,8 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 --     Available @cpu@ values: 4096 (4 vCPU)
 --
 -- 'cpu', 'registerTaskDefinition_cpu' - The number of CPU units used by the task. It can be expressed as an
--- integer using CPU units, for example @1024@, or as a string using vCPUs,
--- for example @1 vCPU@ or @1 vcpu@, in a task definition. String values
+-- integer using CPU units (for example, @1024@) or as a string using vCPUs
+-- (for example, @1 vCPU@ or @1 vcpu@) in a task definition. String values
 -- are converted to an integer indicating the CPU units when the task
 -- definition is registered.
 --
@@ -449,13 +479,16 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- We recommend specifying container-level resources for Windows
 -- containers.
 --
--- If you are using the EC2 launch type, this field is optional. Supported
+-- If you\'re using the EC2 launch type, this field is optional. Supported
 -- values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units
 -- (@10@ vCPUs).
 --
--- If you are using the Fargate launch type, this field is required and you
+-- If you\'re using the Fargate launch type, this field is required and you
 -- must use one of the following values, which determines your range of
 -- supported values for the @memory@ parameter:
+--
+-- The CPU units cannot be less than 1 vCPU when you use Windows containers
+-- on Fargate.
 --
 -- -   256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1
 --     GB), 2048 (2 GB)
@@ -483,16 +516,16 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- task.
 --
 -- 'volumes', 'registerTaskDefinition_volumes' - A list of volume definitions in JSON format that containers in your task
--- may use.
+-- might use.
 --
--- 'requiresCompatibilities', 'registerTaskDefinition_requiresCompatibilities' - The task launch type that Amazon ECS should validate the task definition
+-- 'requiresCompatibilities', 'registerTaskDefinition_requiresCompatibilities' - The task launch type that Amazon ECS validates the task definition
 -- against. A client exception is returned if the task definition doesn\'t
 -- validate against the compatibilities specified. If no value is
 -- specified, the parameter is omitted from the response.
 --
 -- 'placementConstraints', 'registerTaskDefinition_placementConstraints' - An array of placement constraint objects to use for the task. You can
--- specify a maximum of 10 constraints per task (this limit includes
--- constraints in the task definition and those specified at runtime).
+-- specify a maximum of 10 constraints for each task. This limit includes
+-- constraints in the task definition and those specified at runtime.
 --
 -- 'executionRoleArn', 'registerTaskDefinition_executionRoleArn' - The Amazon Resource Name (ARN) of the task execution role that grants
 -- the Amazon ECS container agent permission to make Amazon Web Services
@@ -573,10 +606,10 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 -- <https://docs.docker.com/engine/reference/run/#network-settings Network settings>
 -- in the /Docker run reference/.
 --
--- 'family', 'registerTaskDefinition_family' - You must specify a @family@ for a task definition, which allows you to
--- track multiple versions of the same task definition. The @family@ is
--- used as a name for your task definition. Up to 255 letters (uppercase
--- and lowercase), numbers, underscores, and hyphens are allowed.
+-- 'family', 'registerTaskDefinition_family' - You must specify a @family@ for a task definition. You can use it track
+-- multiple versions of the same task definition. The @family@ is used as a
+-- name for your task definition. Up to 255 letters (uppercase and
+-- lowercase), numbers, underscores, and hyphens are allowed.
 --
 -- 'containerDefinitions', 'registerTaskDefinition_containerDefinitions' - A list of container definitions in JSON format that describe the
 -- different containers that make up your task.
@@ -588,6 +621,7 @@ newRegisterTaskDefinition pFamily_ =
   RegisterTaskDefinition'
     { tags = Prelude.Nothing,
       ephemeralStorage = Prelude.Nothing,
+      runtimePlatform = Prelude.Nothing,
       proxyConfiguration = Prelude.Nothing,
       pidMode = Prelude.Nothing,
       memory = Prelude.Nothing,
@@ -606,7 +640,7 @@ newRegisterTaskDefinition pFamily_ =
 
 -- | The metadata that you apply to the task definition to help you
 -- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both of them.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -642,16 +676,28 @@ registerTaskDefinition_tags = Lens.lens (\RegisterTaskDefinition' {tags} -> tags
 -- <https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html Fargate task storage>
 -- in the /Amazon ECS User Guide for Fargate/.
 --
--- This parameter is only supported for tasks hosted on Fargate using
--- platform version @1.4.0@ or later.
+-- This parameter is only supported for tasks hosted on Fargate using the
+-- following platform versions:
+--
+-- -   Linux platform version @1.4.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 registerTaskDefinition_ephemeralStorage :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe EphemeralStorage)
 registerTaskDefinition_ephemeralStorage = Lens.lens (\RegisterTaskDefinition' {ephemeralStorage} -> ephemeralStorage) (\s@RegisterTaskDefinition' {} a -> s {ephemeralStorage = a} :: RegisterTaskDefinition)
+
+-- | The operating system that your tasks definitions run on. A platform
+-- family is specified only for tasks using the Fargate launch type.
+--
+-- When you specify a task definition in a service, this value must match
+-- the @runtimePlatform@ value of the service.
+registerTaskDefinition_runtimePlatform :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe RuntimePlatform)
+registerTaskDefinition_runtimePlatform = Lens.lens (\RegisterTaskDefinition' {runtimePlatform} -> runtimePlatform) (\s@RegisterTaskDefinition' {} a -> s {runtimePlatform = a} :: RegisterTaskDefinition)
 
 -- | The configuration details for the App Mesh proxy.
 --
 -- For tasks hosted on Amazon EC2 instances, the container instances
 -- require at least version @1.26.0@ of the container agent and at least
--- version @1.26.0-1@ of the @ecs-init@ package to enable a proxy
+-- version @1.26.0-1@ of the @ecs-init@ package to use a proxy
 -- configuration. If your container instances are launched from the Amazon
 -- ECS-optimized AMI version @20190301@ or later, then they contain the
 -- required versions of the container agent and @ecs-init@. For more
@@ -681,8 +727,8 @@ registerTaskDefinition_pidMode :: Lens.Lens' RegisterTaskDefinition (Prelude.May
 registerTaskDefinition_pidMode = Lens.lens (\RegisterTaskDefinition' {pidMode} -> pidMode) (\s@RegisterTaskDefinition' {} a -> s {pidMode = a} :: RegisterTaskDefinition)
 
 -- | The amount of memory (in MiB) used by the task. It can be expressed as
--- an integer using MiB, for example @1024@, or as a string using GB, for
--- example @1GB@ or @1 GB@, in a task definition. String values are
+-- an integer using MiB (for example ,@1024@) or as a string using GB (for
+-- example, @1GB@ or @1 GB@) in a task definition. String values are
 -- converted to an integer indicating the MiB when the task definition is
 -- registered.
 --
@@ -693,8 +739,11 @@ registerTaskDefinition_pidMode = Lens.lens (\RegisterTaskDefinition' {pidMode} -
 -- If using the EC2 launch type, this field is optional.
 --
 -- If using the Fargate launch type, this field is required and you must
--- use one of the following values, which determines your range of
--- supported values for the @cpu@ parameter:
+-- use one of the following values. This determines your range of supported
+-- values for the @cpu@ parameter.
+--
+-- The CPU units cannot be less than 1 vCPU when you use Windows containers
+-- on Fargate.
 --
 -- -   512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available @cpu@ values: 256
 --     (.25 vCPU)
@@ -714,8 +763,8 @@ registerTaskDefinition_memory :: Lens.Lens' RegisterTaskDefinition (Prelude.Mayb
 registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> memory) (\s@RegisterTaskDefinition' {} a -> s {memory = a} :: RegisterTaskDefinition)
 
 -- | The number of CPU units used by the task. It can be expressed as an
--- integer using CPU units, for example @1024@, or as a string using vCPUs,
--- for example @1 vCPU@ or @1 vcpu@, in a task definition. String values
+-- integer using CPU units (for example, @1024@) or as a string using vCPUs
+-- (for example, @1 vCPU@ or @1 vcpu@) in a task definition. String values
 -- are converted to an integer indicating the CPU units when the task
 -- definition is registered.
 --
@@ -723,13 +772,16 @@ registerTaskDefinition_memory = Lens.lens (\RegisterTaskDefinition' {memory} -> 
 -- We recommend specifying container-level resources for Windows
 -- containers.
 --
--- If you are using the EC2 launch type, this field is optional. Supported
+-- If you\'re using the EC2 launch type, this field is optional. Supported
 -- values are between @128@ CPU units (@0.125@ vCPUs) and @10240@ CPU units
 -- (@10@ vCPUs).
 --
--- If you are using the Fargate launch type, this field is required and you
+-- If you\'re using the Fargate launch type, this field is required and you
 -- must use one of the following values, which determines your range of
 -- supported values for the @memory@ parameter:
+--
+-- The CPU units cannot be less than 1 vCPU when you use Windows containers
+-- on Fargate.
 --
 -- -   256 (.25 vCPU) - Available @memory@ values: 512 (0.5 GB), 1024 (1
 --     GB), 2048 (2 GB)
@@ -763,11 +815,11 @@ registerTaskDefinition_inferenceAccelerators :: Lens.Lens' RegisterTaskDefinitio
 registerTaskDefinition_inferenceAccelerators = Lens.lens (\RegisterTaskDefinition' {inferenceAccelerators} -> inferenceAccelerators) (\s@RegisterTaskDefinition' {} a -> s {inferenceAccelerators = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | A list of volume definitions in JSON format that containers in your task
--- may use.
+-- might use.
 registerTaskDefinition_volumes :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [Volume])
 registerTaskDefinition_volumes = Lens.lens (\RegisterTaskDefinition' {volumes} -> volumes) (\s@RegisterTaskDefinition' {} a -> s {volumes = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
--- | The task launch type that Amazon ECS should validate the task definition
+-- | The task launch type that Amazon ECS validates the task definition
 -- against. A client exception is returned if the task definition doesn\'t
 -- validate against the compatibilities specified. If no value is
 -- specified, the parameter is omitted from the response.
@@ -775,8 +827,8 @@ registerTaskDefinition_requiresCompatibilities :: Lens.Lens' RegisterTaskDefinit
 registerTaskDefinition_requiresCompatibilities = Lens.lens (\RegisterTaskDefinition' {requiresCompatibilities} -> requiresCompatibilities) (\s@RegisterTaskDefinition' {} a -> s {requiresCompatibilities = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
 -- | An array of placement constraint objects to use for the task. You can
--- specify a maximum of 10 constraints per task (this limit includes
--- constraints in the task definition and those specified at runtime).
+-- specify a maximum of 10 constraints for each task. This limit includes
+-- constraints in the task definition and those specified at runtime.
 registerTaskDefinition_placementConstraints :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe [TaskDefinitionPlacementConstraint])
 registerTaskDefinition_placementConstraints = Lens.lens (\RegisterTaskDefinition' {placementConstraints} -> placementConstraints) (\s@RegisterTaskDefinition' {} a -> s {placementConstraints = a} :: RegisterTaskDefinition) Prelude.. Lens.mapping Lens.coerced
 
@@ -865,10 +917,10 @@ registerTaskDefinition_ipcMode = Lens.lens (\RegisterTaskDefinition' {ipcMode} -
 registerTaskDefinition_networkMode :: Lens.Lens' RegisterTaskDefinition (Prelude.Maybe NetworkMode)
 registerTaskDefinition_networkMode = Lens.lens (\RegisterTaskDefinition' {networkMode} -> networkMode) (\s@RegisterTaskDefinition' {} a -> s {networkMode = a} :: RegisterTaskDefinition)
 
--- | You must specify a @family@ for a task definition, which allows you to
--- track multiple versions of the same task definition. The @family@ is
--- used as a name for your task definition. Up to 255 letters (uppercase
--- and lowercase), numbers, underscores, and hyphens are allowed.
+-- | You must specify a @family@ for a task definition. You can use it track
+-- multiple versions of the same task definition. The @family@ is used as a
+-- name for your task definition. Up to 255 letters (uppercase and
+-- lowercase), numbers, underscores, and hyphens are allowed.
 registerTaskDefinition_family :: Lens.Lens' RegisterTaskDefinition Prelude.Text
 registerTaskDefinition_family = Lens.lens (\RegisterTaskDefinition' {family} -> family) (\s@RegisterTaskDefinition' {} a -> s {family = a} :: RegisterTaskDefinition)
 
@@ -895,6 +947,7 @@ instance Prelude.Hashable RegisterTaskDefinition where
   hashWithSalt _salt RegisterTaskDefinition' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` runtimePlatform
       `Prelude.hashWithSalt` proxyConfiguration
       `Prelude.hashWithSalt` pidMode
       `Prelude.hashWithSalt` memory
@@ -914,6 +967,7 @@ instance Prelude.NFData RegisterTaskDefinition where
   rnf RegisterTaskDefinition' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf runtimePlatform
       `Prelude.seq` Prelude.rnf proxyConfiguration
       `Prelude.seq` Prelude.rnf pidMode
       `Prelude.seq` Prelude.rnf memory
@@ -951,6 +1005,8 @@ instance Core.ToJSON RegisterTaskDefinition where
           [ ("tags" Core..=) Prelude.<$> tags,
             ("ephemeralStorage" Core..=)
               Prelude.<$> ephemeralStorage,
+            ("runtimePlatform" Core..=)
+              Prelude.<$> runtimePlatform,
             ("proxyConfiguration" Core..=)
               Prelude.<$> proxyConfiguration,
             ("pidMode" Core..=) Prelude.<$> pidMode,

@@ -24,8 +24,8 @@ import Amazonka.ECS.Types.Scope
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | This parameter is specified when you are using Docker volumes. Docker
--- volumes are only supported when you are using the EC2 launch type.
+-- | This parameter is specified when you\'re using Docker volumes. Docker
+-- volumes are only supported when you\'re using the EC2 launch type.
 -- Windows containers only support the use of the @local@ driver. To use
 -- bind mounts, specify a @host@ instead.
 --
@@ -39,7 +39,7 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
     -- @xxopt@ option to
     -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
     driverOpts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | If this value is @true@, the Docker volume is created if it does not
+    -- | If this value is @true@, the Docker volume is created if it doesn\'t
     -- already exist.
     --
     -- This field is only used if the @scope@ is @shared@.
@@ -90,7 +90,7 @@ data DockerVolumeConfiguration = DockerVolumeConfiguration'
 -- @xxopt@ option to
 -- <https://docs.docker.com/engine/reference/commandline/volume_create/ docker volume create>.
 --
--- 'autoprovision', 'dockerVolumeConfiguration_autoprovision' - If this value is @true@, the Docker volume is created if it does not
+-- 'autoprovision', 'dockerVolumeConfiguration_autoprovision' - If this value is @true@, the Docker volume is created if it doesn\'t
 -- already exist.
 --
 -- This field is only used if the @scope@ is @shared@.
@@ -143,7 +143,7 @@ newDockerVolumeConfiguration =
 dockerVolumeConfiguration_driverOpts :: Lens.Lens' DockerVolumeConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 dockerVolumeConfiguration_driverOpts = Lens.lens (\DockerVolumeConfiguration' {driverOpts} -> driverOpts) (\s@DockerVolumeConfiguration' {} a -> s {driverOpts = a} :: DockerVolumeConfiguration) Prelude.. Lens.mapping Lens.coerced
 
--- | If this value is @true@, the Docker volume is created if it does not
+-- | If this value is @true@, the Docker volume is created if it doesn\'t
 -- already exist.
 --
 -- This field is only used if the @scope@ is @shared@.

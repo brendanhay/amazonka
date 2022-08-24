@@ -52,8 +52,8 @@ data UpdateClusterSettings = UpdateClusterSettings'
   { -- | The name of the cluster to modify the settings for.
     cluster :: Prelude.Text,
     -- | The setting to use by default for a cluster. This parameter is used to
-    -- enable CloudWatch Container Insights for a cluster. If this value is
-    -- specified, it will override the @containerInsights@ value set with
+    -- turn on CloudWatch Container Insights for a cluster. If this value is
+    -- specified, it overrides the @containerInsights@ value set with
     -- PutAccountSetting or PutAccountSettingDefault.
     settings :: [ClusterSetting]
   }
@@ -70,8 +70,8 @@ data UpdateClusterSettings = UpdateClusterSettings'
 -- 'cluster', 'updateClusterSettings_cluster' - The name of the cluster to modify the settings for.
 --
 -- 'settings', 'updateClusterSettings_settings' - The setting to use by default for a cluster. This parameter is used to
--- enable CloudWatch Container Insights for a cluster. If this value is
--- specified, it will override the @containerInsights@ value set with
+-- turn on CloudWatch Container Insights for a cluster. If this value is
+-- specified, it overrides the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
 newUpdateClusterSettings ::
   -- | 'cluster'
@@ -88,8 +88,8 @@ updateClusterSettings_cluster :: Lens.Lens' UpdateClusterSettings Prelude.Text
 updateClusterSettings_cluster = Lens.lens (\UpdateClusterSettings' {cluster} -> cluster) (\s@UpdateClusterSettings' {} a -> s {cluster = a} :: UpdateClusterSettings)
 
 -- | The setting to use by default for a cluster. This parameter is used to
--- enable CloudWatch Container Insights for a cluster. If this value is
--- specified, it will override the @containerInsights@ value set with
+-- turn on CloudWatch Container Insights for a cluster. If this value is
+-- specified, it overrides the @containerInsights@ value set with
 -- PutAccountSetting or PutAccountSettingDefault.
 updateClusterSettings_settings :: Lens.Lens' UpdateClusterSettings [ClusterSetting]
 updateClusterSettings_settings = Lens.lens (\UpdateClusterSettings' {settings} -> settings) (\s@UpdateClusterSettings' {} a -> s {settings = a} :: UpdateClusterSettings) Prelude.. Lens.coerced

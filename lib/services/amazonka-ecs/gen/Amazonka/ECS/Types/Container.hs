@@ -27,7 +27,7 @@ import Amazonka.ECS.Types.NetworkInterface
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A Docker container that is part of a task.
+-- | A Docker container that\'s part of a task.
 --
 -- /See:/ 'newContainer' smart constructor.
 data Container = Container'
@@ -35,15 +35,15 @@ data Container = Container'
     name :: Prelude.Maybe Prelude.Text,
     -- | The hard limit (in MiB) of memory set for the container.
     memory :: Prelude.Maybe Prelude.Text,
-    -- | The number of CPU units set for the container. The value will be @0@ if
-    -- no value was specified in the container definition when the task
-    -- definition was registered.
+    -- | The number of CPU units set for the container. The value is @0@ if no
+    -- value was specified in the container definition when the task definition
+    -- was registered.
     cpu :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the task.
     taskArn :: Prelude.Maybe Prelude.Text,
     -- | The soft limit (in MiB) of memory set for the container.
     memoryReservation :: Prelude.Maybe Prelude.Text,
-    -- | The health status of the container. If health checks are not configured
+    -- | The health status of the container. If health checks aren\'t configured
     -- for this container in its task definition, then it reports the health
     -- status as @UNKNOWN@.
     healthStatus :: Prelude.Maybe HealthStatus,
@@ -89,15 +89,15 @@ data Container = Container'
 --
 -- 'memory', 'container_memory' - The hard limit (in MiB) of memory set for the container.
 --
--- 'cpu', 'container_cpu' - The number of CPU units set for the container. The value will be @0@ if
--- no value was specified in the container definition when the task
--- definition was registered.
+-- 'cpu', 'container_cpu' - The number of CPU units set for the container. The value is @0@ if no
+-- value was specified in the container definition when the task definition
+-- was registered.
 --
 -- 'taskArn', 'container_taskArn' - The ARN of the task.
 --
 -- 'memoryReservation', 'container_memoryReservation' - The soft limit (in MiB) of memory set for the container.
 --
--- 'healthStatus', 'container_healthStatus' - The health status of the container. If health checks are not configured
+-- 'healthStatus', 'container_healthStatus' - The health status of the container. If health checks aren\'t configured
 -- for this container in its task definition, then it reports the health
 -- status as @UNKNOWN@.
 --
@@ -158,9 +158,9 @@ container_name = Lens.lens (\Container' {name} -> name) (\s@Container' {} a -> s
 container_memory :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_memory = Lens.lens (\Container' {memory} -> memory) (\s@Container' {} a -> s {memory = a} :: Container)
 
--- | The number of CPU units set for the container. The value will be @0@ if
--- no value was specified in the container definition when the task
--- definition was registered.
+-- | The number of CPU units set for the container. The value is @0@ if no
+-- value was specified in the container definition when the task definition
+-- was registered.
 container_cpu :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_cpu = Lens.lens (\Container' {cpu} -> cpu) (\s@Container' {} a -> s {cpu = a} :: Container)
 
@@ -172,7 +172,7 @@ container_taskArn = Lens.lens (\Container' {taskArn} -> taskArn) (\s@Container' 
 container_memoryReservation :: Lens.Lens' Container (Prelude.Maybe Prelude.Text)
 container_memoryReservation = Lens.lens (\Container' {memoryReservation} -> memoryReservation) (\s@Container' {} a -> s {memoryReservation = a} :: Container)
 
--- | The health status of the container. If health checks are not configured
+-- | The health status of the container. If health checks aren\'t configured
 -- for this container in its task definition, then it reports the health
 -- status as @UNKNOWN@.
 container_healthStatus :: Lens.Lens' Container (Prelude.Maybe HealthStatus)

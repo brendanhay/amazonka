@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Details on a Elastic Inference accelerator. For more information, see
+-- | Details on an Elastic Inference accelerator. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html Working with Amazon Elastic Inference on Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --

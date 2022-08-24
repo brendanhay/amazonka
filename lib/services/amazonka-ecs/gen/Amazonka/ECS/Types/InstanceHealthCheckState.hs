@@ -11,18 +11,19 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ECS.Types.PropagateTags
+-- Module      : Amazonka.ECS.Types.InstanceHealthCheckState
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ECS.Types.PropagateTags
-  ( PropagateTags
+module Amazonka.ECS.Types.InstanceHealthCheckState
+  ( InstanceHealthCheckState
       ( ..,
-        PropagateTags_NONE,
-        PropagateTags_SERVICE,
-        PropagateTags_TASK_DEFINITION
+        InstanceHealthCheckState_IMPAIRED,
+        InstanceHealthCheckState_INITIALIZING,
+        InstanceHealthCheckState_INSUFFICIENT_DATA,
+        InstanceHealthCheckState_OK
       ),
   )
 where
@@ -30,8 +31,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype PropagateTags = PropagateTags'
-  { fromPropagateTags ::
+newtype InstanceHealthCheckState = InstanceHealthCheckState'
+  { fromInstanceHealthCheckState ::
       Core.Text
   }
   deriving stock
@@ -58,18 +59,22 @@ newtype PropagateTags = PropagateTags'
       Core.ToXML
     )
 
-pattern PropagateTags_NONE :: PropagateTags
-pattern PropagateTags_NONE = PropagateTags' "NONE"
+pattern InstanceHealthCheckState_IMPAIRED :: InstanceHealthCheckState
+pattern InstanceHealthCheckState_IMPAIRED = InstanceHealthCheckState' "IMPAIRED"
 
-pattern PropagateTags_SERVICE :: PropagateTags
-pattern PropagateTags_SERVICE = PropagateTags' "SERVICE"
+pattern InstanceHealthCheckState_INITIALIZING :: InstanceHealthCheckState
+pattern InstanceHealthCheckState_INITIALIZING = InstanceHealthCheckState' "INITIALIZING"
 
-pattern PropagateTags_TASK_DEFINITION :: PropagateTags
-pattern PropagateTags_TASK_DEFINITION = PropagateTags' "TASK_DEFINITION"
+pattern InstanceHealthCheckState_INSUFFICIENT_DATA :: InstanceHealthCheckState
+pattern InstanceHealthCheckState_INSUFFICIENT_DATA = InstanceHealthCheckState' "INSUFFICIENT_DATA"
+
+pattern InstanceHealthCheckState_OK :: InstanceHealthCheckState
+pattern InstanceHealthCheckState_OK = InstanceHealthCheckState' "OK"
 
 {-# COMPLETE
-  PropagateTags_NONE,
-  PropagateTags_SERVICE,
-  PropagateTags_TASK_DEFINITION,
-  PropagateTags'
+  InstanceHealthCheckState_IMPAIRED,
+  InstanceHealthCheckState_INITIALIZING,
+  InstanceHealthCheckState_INSUFFICIENT_DATA,
+  InstanceHealthCheckState_OK,
+  InstanceHealthCheckState'
   #-}

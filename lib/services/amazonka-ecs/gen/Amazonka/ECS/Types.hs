@@ -48,6 +48,9 @@ module Amazonka.ECS.Types
     -- * AssignPublicIp
     AssignPublicIp (..),
 
+    -- * CPUArchitecture
+    CPUArchitecture (..),
+
     -- * CapacityProviderField
     CapacityProviderField (..),
 
@@ -108,6 +111,12 @@ module Amazonka.ECS.Types
     -- * HealthStatus
     HealthStatus (..),
 
+    -- * InstanceHealthCheckState
+    InstanceHealthCheckState (..),
+
+    -- * InstanceHealthCheckType
+    InstanceHealthCheckType (..),
+
     -- * IpcMode
     IpcMode (..),
 
@@ -128,6 +137,9 @@ module Amazonka.ECS.Types
 
     -- * NetworkMode
     NetworkMode (..),
+
+    -- * OSFamily
+    OSFamily (..),
 
     -- * PidMode
     PidMode (..),
@@ -372,6 +384,7 @@ module Amazonka.ECS.Types
     containerInstance_pendingTasksCount,
     containerInstance_versionInfo,
     containerInstance_agentUpdateStatus,
+    containerInstance_healthStatus,
     containerInstance_statusReason,
     containerInstance_status,
     containerInstance_agentConnected,
@@ -381,6 +394,12 @@ module Amazonka.ECS.Types
     containerInstance_attributes,
     containerInstance_registeredAt,
     containerInstance_version,
+
+    -- * ContainerInstanceHealthStatus
+    ContainerInstanceHealthStatus (..),
+    newContainerInstanceHealthStatus,
+    containerInstanceHealthStatus_details,
+    containerInstanceHealthStatus_overallStatus,
 
     -- * ContainerOverride
     ContainerOverride (..),
@@ -404,6 +423,7 @@ module Amazonka.ECS.Types
     containerService_roleArn,
     containerService_serviceRegistries,
     containerService_schedulingStrategy,
+    containerService_platformFamily,
     containerService_placementStrategy,
     containerService_taskDefinition,
     containerService_networkConfiguration,
@@ -442,6 +462,7 @@ module Amazonka.ECS.Types
     -- * Deployment
     Deployment (..),
     newDeployment,
+    deployment_platformFamily,
     deployment_taskDefinition,
     deployment_failedTasks,
     deployment_networkConfiguration,
@@ -592,6 +613,14 @@ module Amazonka.ECS.Types
     inferenceAcceleratorOverride_deviceName,
     inferenceAcceleratorOverride_deviceType,
 
+    -- * InstanceHealthCheckResult
+    InstanceHealthCheckResult (..),
+    newInstanceHealthCheckResult,
+    instanceHealthCheckResult_type,
+    instanceHealthCheckResult_status,
+    instanceHealthCheckResult_lastStatusChange,
+    instanceHealthCheckResult_lastUpdated,
+
     -- * KernelCapabilities
     KernelCapabilities (..),
     newKernelCapabilities,
@@ -735,6 +764,12 @@ module Amazonka.ECS.Types
     resourceRequirement_value,
     resourceRequirement_type,
 
+    -- * RuntimePlatform
+    RuntimePlatform (..),
+    newRuntimePlatform,
+    runtimePlatform_operatingSystemFamily,
+    runtimePlatform_cpuArchitecture,
+
     -- * Scale
     Scale (..),
     newScale,
@@ -797,6 +832,7 @@ module Amazonka.ECS.Types
     task_ephemeralStorage,
     task_executionStoppedAt,
     task_pullStoppedAt,
+    task_platformFamily,
     task_memory,
     task_cpu,
     task_taskArn,
@@ -831,6 +867,7 @@ module Amazonka.ECS.Types
     TaskDefinition (..),
     newTaskDefinition,
     taskDefinition_ephemeralStorage,
+    taskDefinition_runtimePlatform,
     taskDefinition_proxyConfiguration,
     taskDefinition_requiresAttributes,
     taskDefinition_pidMode,
@@ -877,6 +914,7 @@ module Amazonka.ECS.Types
     taskSet_tags,
     taskSet_clusterArn,
     taskSet_serviceRegistries,
+    taskSet_platformFamily,
     taskSet_taskDefinition,
     taskSet_stabilityStatus,
     taskSet_externalId,
@@ -945,6 +983,7 @@ import Amazonka.ECS.Types.Attribute
 import Amazonka.ECS.Types.AutoScalingGroupProvider
 import Amazonka.ECS.Types.AutoScalingGroupProviderUpdate
 import Amazonka.ECS.Types.AwsVpcConfiguration
+import Amazonka.ECS.Types.CPUArchitecture
 import Amazonka.ECS.Types.CapacityProvider
 import Amazonka.ECS.Types.CapacityProviderField
 import Amazonka.ECS.Types.CapacityProviderStatus
@@ -963,6 +1002,7 @@ import Amazonka.ECS.Types.ContainerDefinition
 import Amazonka.ECS.Types.ContainerDependency
 import Amazonka.ECS.Types.ContainerInstance
 import Amazonka.ECS.Types.ContainerInstanceField
+import Amazonka.ECS.Types.ContainerInstanceHealthStatus
 import Amazonka.ECS.Types.ContainerInstanceStatus
 import Amazonka.ECS.Types.ContainerOverride
 import Amazonka.ECS.Types.ContainerService
@@ -998,6 +1038,9 @@ import Amazonka.ECS.Types.HostEntry
 import Amazonka.ECS.Types.HostVolumeProperties
 import Amazonka.ECS.Types.InferenceAccelerator
 import Amazonka.ECS.Types.InferenceAcceleratorOverride
+import Amazonka.ECS.Types.InstanceHealthCheckResult
+import Amazonka.ECS.Types.InstanceHealthCheckState
+import Amazonka.ECS.Types.InstanceHealthCheckType
 import Amazonka.ECS.Types.IpcMode
 import Amazonka.ECS.Types.KernelCapabilities
 import Amazonka.ECS.Types.KeyValuePair
@@ -1017,6 +1060,7 @@ import Amazonka.ECS.Types.NetworkBinding
 import Amazonka.ECS.Types.NetworkConfiguration
 import Amazonka.ECS.Types.NetworkInterface
 import Amazonka.ECS.Types.NetworkMode
+import Amazonka.ECS.Types.OSFamily
 import Amazonka.ECS.Types.PidMode
 import Amazonka.ECS.Types.PlacementConstraint
 import Amazonka.ECS.Types.PlacementConstraintType
@@ -1032,6 +1076,7 @@ import Amazonka.ECS.Types.RepositoryCredentials
 import Amazonka.ECS.Types.Resource
 import Amazonka.ECS.Types.ResourceRequirement
 import Amazonka.ECS.Types.ResourceType
+import Amazonka.ECS.Types.RuntimePlatform
 import Amazonka.ECS.Types.Scale
 import Amazonka.ECS.Types.ScaleUnit
 import Amazonka.ECS.Types.SchedulingStrategy
@@ -1141,37 +1186,38 @@ defaultService =
         Prelude.Just "throughput_exceeded"
       | Prelude.otherwise = Prelude.Nothing
 
--- | These errors are usually caused by a client action, such as using an
--- action or resource on behalf of a user that doesn\'t have permissions to
--- use the action or resource, or specifying an identifier that is not
--- valid.
+-- | These errors are usually caused by a client action. This client action
+-- might be using an action or resource on behalf of a user that doesn\'t
+-- have permissions to use the action or resource,. Or, it might be
+-- specifying an identifier that isn\'t valid.
 _ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClientException =
   Core._MatchServiceError
     defaultService
     "ClientException"
 
--- | There is already a current Amazon ECS container agent update in progress
--- on the specified container instance. If the container agent becomes
--- disconnected while it is in a transitional stage, such as @PENDING@ or
--- @STAGING@, the update process can get stuck in that state. However, when
--- the agent reconnects, it resumes where it stopped previously.
+-- | There\'s already a current Amazon ECS container agent update in progress
+-- on the container instance that\'s specified. If the container agent
+-- becomes disconnected while it\'s in a transitional stage, such as
+-- @PENDING@ or @STAGING@, the update process can get stuck in that state.
+-- However, when the agent reconnects, it resumes where it stopped
+-- previously.
 _UpdateInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UpdateInProgressException =
   Core._MatchServiceError
     defaultService
     "UpdateInProgressException"
 
--- | The specified service could not be found. You can view your available
--- services with ListServices. Amazon ECS services are cluster-specific and
--- Region-specific.
+-- | The specified service wasn\'t found. You can view your available
+-- services with ListServices. Amazon ECS services are cluster specific and
+-- Region specific.
 _ServiceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ServiceNotFoundException"
 
--- | You cannot delete a cluster that has registered container instances.
+-- | You can\'t delete a cluster that has registered container instances.
 -- First, deregister the container instances before you can delete the
 -- cluster. For more information, see DeregisterContainerInstance.
 _ClusterContainsContainerInstancesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1180,55 +1226,55 @@ _ClusterContainsContainerInstancesException =
     defaultService
     "ClusterContainsContainerInstancesException"
 
--- | You do not have authorization to perform the requested action.
+-- | You don\'t have authorization to perform the requested action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessDeniedException =
   Core._MatchServiceError
     defaultService
     "AccessDeniedException"
 
--- | The specified cluster could not be found. You can view your available
--- clusters with ListClusters. Amazon ECS clusters are Region-specific.
+-- | The specified cluster wasn\'t found. You can view your available
+-- clusters with ListClusters. Amazon ECS clusters are Region specific.
 _ClusterNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterNotFoundException =
   Core._MatchServiceError
     defaultService
     "ClusterNotFoundException"
 
--- | Amazon ECS is unable to determine the current version of the Amazon ECS
--- container agent on the container instance and does not have enough
+-- | Amazon ECS can\'t determine the current version of the Amazon ECS
+-- container agent on the container instance and doesn\'t have enough
 -- information to proceed with an update. This could be because the agent
--- running on the container instance is an older or custom version that
--- does not use our version information.
+-- running on the container instance is a previous or custom version that
+-- doesn\'t use our version information.
 _MissingVersionException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingVersionException =
   Core._MatchServiceError
     defaultService
     "MissingVersionException"
 
--- | The specified resource could not be found.
+-- | The specified resource wasn\'t found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
 
--- | The specified resource is in-use and cannot be removed.
+-- | The specified resource is in-use and can\'t be removed.
 _ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
   Core._MatchServiceError
     defaultService
     "ResourceInUseException"
 
--- | The limit for the resource has been exceeded.
+-- | The limit for the resource was exceeded.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
 
--- | The specified task set could not be found. You can view your available
--- task sets with DescribeTaskSets. Task sets are specific to each cluster,
+-- | The specified task set wasn\'t found. You can view your available task
+-- sets with DescribeTaskSets. Task sets are specific to each cluster,
 -- service and Region.
 _TaskSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TaskSetNotFoundException =
@@ -1236,21 +1282,21 @@ _TaskSetNotFoundException =
     defaultService
     "TaskSetNotFoundException"
 
--- | You cannot delete a cluster that has active tasks.
+-- | You can\'t delete a cluster that has active tasks.
 _ClusterContainsTasksException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterContainsTasksException =
   Core._MatchServiceError
     defaultService
     "ClusterContainsTasksException"
 
--- | The specified task is not supported in this Region.
+-- | The specified task isn\'t supported in this Region.
 _UnsupportedFeatureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedFeatureException =
   Core._MatchServiceError
     defaultService
     "UnsupportedFeatureException"
 
--- | The specified target could not be found. You can view your available
+-- | The specified target wasn\'t found. You can view your available
 -- container instances with ListContainerInstances. Amazon ECS container
 -- instances are cluster-specific and Region-specific.
 _TargetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1259,22 +1305,33 @@ _TargetNotFoundException =
     defaultService
     "TargetNotFoundException"
 
--- | The specified platform version does not exist.
+-- | The specified platform version doesn\'t exist.
 _PlatformUnknownException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PlatformUnknownException =
   Core._MatchServiceError
     defaultService
     "PlatformUnknownException"
 
--- | The target container is not properly configured with the execute command
--- agent or the container is no longer active or running.
+-- | The execute command cannot run. This error can be caused by any of the
+-- following configuration issues:
+--
+-- -   Incorrect IAM permissions
+--
+-- -   The SSM agent is not installed or is not running
+--
+-- -   There is an interface Amazon VPC endpoint for Amazon ECS, but there
+--     is not one for for Systems Manager Session Manager
+--
+-- For information about how to troubleshoot the issues, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html Troubleshooting issues with ECS Exec>
+-- in the /Amazon Elastic Container Service Developer Guide/.
 _TargetNotConnectedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TargetNotConnectedException =
   Core._MatchServiceError
     defaultService
     "TargetNotConnectedException"
 
--- | The specified service is not active. You can\'t update a service that is
+-- | The specified service isn\'t active. You can\'t update a service that\'s
 -- inactive. If you have previously deleted a service, you can re-create it
 -- with CreateService.
 _ServiceNotActiveException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1283,16 +1340,17 @@ _ServiceNotActiveException =
     defaultService
     "ServiceNotActiveException"
 
--- | There is no update available for this Amazon ECS container agent. This
--- could be because the agent is already running the latest version, or it
--- is so old that there is no update path to the current version.
+-- | There\'s no update available for this Amazon ECS container agent. This
+-- might be because the agent is already running the latest version or
+-- because it\'s so old that there\'s no update path to the current
+-- version.
 _NoUpdateAvailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NoUpdateAvailableException =
   Core._MatchServiceError
     defaultService
     "NoUpdateAvailableException"
 
--- | Your Amazon Web Services account has been blocked. For more information,
+-- | Your Amazon Web Services account was blocked. For more information,
 -- contact <http://aws.amazon.com/contact-us/ Amazon Web Services Support>.
 _BlockedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _BlockedException =
@@ -1307,33 +1365,33 @@ _ServerException =
     defaultService
     "ServerException"
 
--- | The specified platform version does not satisfy the task definition\'s
--- required capabilities.
+-- | The specified platform version doesn\'t satisfy the required
+-- capabilities of the task definition.
 _PlatformTaskDefinitionIncompatibilityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PlatformTaskDefinitionIncompatibilityException =
   Core._MatchServiceError
     defaultService
     "PlatformTaskDefinitionIncompatibilityException"
 
--- | You can apply up to 10 custom attributes per resource. You can view the
--- attributes of a resource with ListAttributes. You can remove existing
--- attributes on a resource with DeleteAttributes.
+-- | You can apply up to 10 custom attributes for each resource. You can view
+-- the attributes of a resource with ListAttributes. You can remove
+-- existing attributes on a resource with DeleteAttributes.
 _AttributeLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AttributeLimitExceededException =
   Core._MatchServiceError
     defaultService
     "AttributeLimitExceededException"
 
--- | The specified parameter is invalid. Review the available parameters for
--- the API request.
+-- | The specified parameter isn\'t valid. Review the available parameters
+-- for the API request.
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
 
--- | You cannot delete a cluster that contains services. First, update the
--- service to reduce its desired task count to 0 and then delete the
+-- | You can\'t delete a cluster that contains services. First, update the
+-- service to reduce its desired task count to 0, and then delete the
 -- service. For more information, see UpdateService and DeleteService.
 _ClusterContainsServicesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterContainsServicesException =

@@ -23,7 +23,7 @@
 -- Deletes the specified capacity provider.
 --
 -- The @FARGATE@ and @FARGATE_SPOT@ capacity providers are reserved and
--- cannot be deleted. You can disassociate them from a cluster using either
+-- can\'t be deleted. You can disassociate them from a cluster using either
 -- the PutClusterCapacityProviders API or by deleting the cluster.
 --
 -- Prior to a capacity provider being deleted, the capacity provider must
@@ -33,7 +33,7 @@
 -- @forceNewDeployment@ option can be used to ensure that any tasks using
 -- the Amazon EC2 instance capacity provided by the capacity provider are
 -- transitioned to use the capacity from the remaining capacity providers.
--- Only capacity providers that are not associated with a cluster can be
+-- Only capacity providers that aren\'t associated with a cluster can be
 -- deleted. To remove a capacity provider from a cluster, you can either
 -- use PutClusterCapacityProviders or delete the cluster.
 module Amazonka.ECS.DeleteCapacityProvider

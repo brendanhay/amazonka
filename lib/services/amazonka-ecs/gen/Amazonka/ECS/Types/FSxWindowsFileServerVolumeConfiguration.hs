@@ -24,12 +24,12 @@ import Amazonka.ECS.Types.FSxWindowsFileServerAuthorizationConfig
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | This parameter is specified when you are using
+-- | This parameter is specified when you\'re using
 -- <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html Amazon FSx for Windows File Server>
 -- file system for task storage.
 --
 -- For more information and the input format, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html Amazon FSx for Windows File Server Volumes>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html Amazon FSx for Windows File Server volumes>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- /See:/ 'newFSxWindowsFileServerVolumeConfiguration' smart constructor.

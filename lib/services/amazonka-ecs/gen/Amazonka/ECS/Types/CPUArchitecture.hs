@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ECS.Types.ContainerInstanceField
+-- Module      : Amazonka.ECS.Types.CPUArchitecture
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ECS.Types.ContainerInstanceField
-  ( ContainerInstanceField
+module Amazonka.ECS.Types.CPUArchitecture
+  ( CPUArchitecture
       ( ..,
-        ContainerInstanceField_CONTAINER_INSTANCE_HEALTH,
-        ContainerInstanceField_TAGS
+        CPUArchitecture_ARM64,
+        CPUArchitecture_X86_64
       ),
   )
 where
@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ContainerInstanceField = ContainerInstanceField'
-  { fromContainerInstanceField ::
+newtype CPUArchitecture = CPUArchitecture'
+  { fromCPUArchitecture ::
       Core.Text
   }
   deriving stock
@@ -57,14 +57,14 @@ newtype ContainerInstanceField = ContainerInstanceField'
       Core.ToXML
     )
 
-pattern ContainerInstanceField_CONTAINER_INSTANCE_HEALTH :: ContainerInstanceField
-pattern ContainerInstanceField_CONTAINER_INSTANCE_HEALTH = ContainerInstanceField' "CONTAINER_INSTANCE_HEALTH"
+pattern CPUArchitecture_ARM64 :: CPUArchitecture
+pattern CPUArchitecture_ARM64 = CPUArchitecture' "ARM64"
 
-pattern ContainerInstanceField_TAGS :: ContainerInstanceField
-pattern ContainerInstanceField_TAGS = ContainerInstanceField' "TAGS"
+pattern CPUArchitecture_X86_64 :: CPUArchitecture
+pattern CPUArchitecture_X86_64 = CPUArchitecture' "X86_64"
 
 {-# COMPLETE
-  ContainerInstanceField_CONTAINER_INSTANCE_HEALTH,
-  ContainerInstanceField_TAGS,
-  ContainerInstanceField'
+  CPUArchitecture_ARM64,
+  CPUArchitecture_X86_64,
+  CPUArchitecture'
   #-}

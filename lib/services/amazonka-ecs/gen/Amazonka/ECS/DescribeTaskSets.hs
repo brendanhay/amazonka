@@ -60,7 +60,7 @@ data DescribeTaskSets = DescribeTaskSets'
     taskSets :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether to see the resource tags for the task set. If @TAGS@
     -- is specified, the tags are included in the response. If this field is
-    -- omitted, tags are not included in the response.
+    -- omitted, tags aren\'t included in the response.
     include :: Prelude.Maybe [TaskSetField],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the service that the task sets exist in.
@@ -83,7 +83,7 @@ data DescribeTaskSets = DescribeTaskSets'
 --
 -- 'include', 'describeTaskSets_include' - Specifies whether to see the resource tags for the task set. If @TAGS@
 -- is specified, the tags are included in the response. If this field is
--- omitted, tags are not included in the response.
+-- omitted, tags aren\'t included in the response.
 --
 -- 'cluster', 'describeTaskSets_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the service that the task sets exist in.
@@ -110,7 +110,7 @@ describeTaskSets_taskSets = Lens.lens (\DescribeTaskSets' {taskSets} -> taskSets
 
 -- | Specifies whether to see the resource tags for the task set. If @TAGS@
 -- is specified, the tags are included in the response. If this field is
--- omitted, tags are not included in the response.
+-- omitted, tags aren\'t included in the response.
 describeTaskSets_include :: Lens.Lens' DescribeTaskSets (Prelude.Maybe [TaskSetField])
 describeTaskSets_include = Lens.lens (\DescribeTaskSets' {include} -> include) (\s@DescribeTaskSets' {} a -> s {include = a} :: DescribeTaskSets) Prelude.. Lens.mapping Lens.coerced
 

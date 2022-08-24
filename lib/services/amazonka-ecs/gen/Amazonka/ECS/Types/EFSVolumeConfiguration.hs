@@ -25,9 +25,9 @@ import Amazonka.ECS.Types.EFSTransitEncryption
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | This parameter is specified when you are using an Amazon Elastic File
+-- | This parameter is specified when you\'re using an Amazon Elastic File
 -- System file system for task storage. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html Amazon EFS Volumes>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html Amazon EFS volumes>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- /See:/ 'newEFSVolumeConfiguration' smart constructor.
@@ -36,7 +36,7 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
     -- and the Amazon EFS server. If you do not specify a transit encryption
     -- port, it will use the port selection strategy that the Amazon EFS mount
     -- helper uses. For more information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper>
+    -- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
     -- in the /Amazon Elastic File System User Guide/.
     transitEncryptionPort :: Prelude.Maybe Prelude.Int,
     -- | The directory within the Amazon EFS file system to mount as the root
@@ -48,12 +48,12 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
     -- root directory parameter must either be omitted or set to @\/@ which
     -- will enforce the path set on the EFS access point.
     rootDirectory :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not to enable encryption for Amazon EFS data in transit
+    -- | Determines whether to use encryption for Amazon EFS data in transit
     -- between the Amazon ECS host and the Amazon EFS server. Transit
     -- encryption must be enabled if Amazon EFS IAM authorization is used. If
     -- this parameter is omitted, the default value of @DISABLED@ is used. For
     -- more information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting Data in Transit>
+    -- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting data in transit>
     -- in the /Amazon Elastic File System User Guide/.
     transitEncryption :: Prelude.Maybe EFSTransitEncryption,
     -- | The authorization configuration details for the Amazon EFS file system.
@@ -75,7 +75,7 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
 -- and the Amazon EFS server. If you do not specify a transit encryption
 -- port, it will use the port selection strategy that the Amazon EFS mount
 -- helper uses. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper>
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
 -- in the /Amazon Elastic File System User Guide/.
 --
 -- 'rootDirectory', 'eFSVolumeConfiguration_rootDirectory' - The directory within the Amazon EFS file system to mount as the root
@@ -87,12 +87,12 @@ data EFSVolumeConfiguration = EFSVolumeConfiguration'
 -- root directory parameter must either be omitted or set to @\/@ which
 -- will enforce the path set on the EFS access point.
 --
--- 'transitEncryption', 'eFSVolumeConfiguration_transitEncryption' - Whether or not to enable encryption for Amazon EFS data in transit
+-- 'transitEncryption', 'eFSVolumeConfiguration_transitEncryption' - Determines whether to use encryption for Amazon EFS data in transit
 -- between the Amazon ECS host and the Amazon EFS server. Transit
 -- encryption must be enabled if Amazon EFS IAM authorization is used. If
 -- this parameter is omitted, the default value of @DISABLED@ is used. For
 -- more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting Data in Transit>
+-- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting data in transit>
 -- in the /Amazon Elastic File System User Guide/.
 --
 -- 'authorizationConfig', 'eFSVolumeConfiguration_authorizationConfig' - The authorization configuration details for the Amazon EFS file system.
@@ -116,7 +116,7 @@ newEFSVolumeConfiguration pFileSystemId_ =
 -- and the Amazon EFS server. If you do not specify a transit encryption
 -- port, it will use the port selection strategy that the Amazon EFS mount
 -- helper uses. For more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS Mount Helper>
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-mount-helper.html EFS mount helper>
 -- in the /Amazon Elastic File System User Guide/.
 eFSVolumeConfiguration_transitEncryptionPort :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe Prelude.Int)
 eFSVolumeConfiguration_transitEncryptionPort = Lens.lens (\EFSVolumeConfiguration' {transitEncryptionPort} -> transitEncryptionPort) (\s@EFSVolumeConfiguration' {} a -> s {transitEncryptionPort = a} :: EFSVolumeConfiguration)
@@ -132,12 +132,12 @@ eFSVolumeConfiguration_transitEncryptionPort = Lens.lens (\EFSVolumeConfiguratio
 eFSVolumeConfiguration_rootDirectory :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe Prelude.Text)
 eFSVolumeConfiguration_rootDirectory = Lens.lens (\EFSVolumeConfiguration' {rootDirectory} -> rootDirectory) (\s@EFSVolumeConfiguration' {} a -> s {rootDirectory = a} :: EFSVolumeConfiguration)
 
--- | Whether or not to enable encryption for Amazon EFS data in transit
+-- | Determines whether to use encryption for Amazon EFS data in transit
 -- between the Amazon ECS host and the Amazon EFS server. Transit
 -- encryption must be enabled if Amazon EFS IAM authorization is used. If
 -- this parameter is omitted, the default value of @DISABLED@ is used. For
 -- more information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting Data in Transit>
+-- <https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html Encrypting data in transit>
 -- in the /Amazon Elastic File System User Guide/.
 eFSVolumeConfiguration_transitEncryption :: Lens.Lens' EFSVolumeConfiguration (Prelude.Maybe EFSTransitEncryption)
 eFSVolumeConfiguration_transitEncryption = Lens.lens (\EFSVolumeConfiguration' {transitEncryption} -> transitEncryption) (\s@EFSVolumeConfiguration' {} a -> s {transitEncryption = a} :: EFSVolumeConfiguration)

@@ -23,7 +23,7 @@
 -- Create a task set in the specified cluster and service. This is used
 -- when a service uses the @EXTERNAL@ deployment controller type. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS Deployment Types>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS deployment types>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 module Amazonka.ECS.CreateTaskSet
   ( -- * Creating a Request
@@ -65,9 +65,8 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateTaskSet' smart constructor.
 data CreateTaskSet = CreateTaskSet'
   { -- | The metadata that you apply to the task set to help you categorize and
-    -- organize them. Each tag consists of a key and an optional value, both of
-    -- which you define. When a service is deleted, the tags are deleted as
-    -- well.
+    -- organize them. Each tag consists of a key and an optional value. You
+    -- define both. When a service is deleted, the tags are deleted.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -94,12 +93,13 @@ data CreateTaskSet = CreateTaskSet'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | Unique, case-sensitive identifier that you provide to ensure the
-    -- idempotency of the request. Up to 32 ASCII characters are allowed.
+    -- | The identifier that you provide to ensure the idempotency of the
+    -- request. It\'s case sensitive and must be unique. It can be up to 32
+    -- ASCII characters are allowed.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The details of the service discovery registries to assign to this task
     -- set. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
     serviceRegistries :: Prelude.Maybe [ServiceRegistry],
     -- | An optional non-unique tag that identifies this task set in external
     -- systems. If the task set is associated with a service discovery
@@ -140,18 +140,17 @@ data CreateTaskSet = CreateTaskSet'
     -- task set. The supported load balancer types are either an Application
     -- Load Balancer or a Network Load Balancer.
     loadBalancers :: Prelude.Maybe [LoadBalancer],
-    -- | The launch type that new tasks in the task set will use. For more
+    -- | The launch type that new tasks in the task set uses. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     --
     -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
     -- must be omitted.
     launchType :: Prelude.Maybe LaunchType,
-    -- | The platform version that the tasks in the task set should use. A
-    -- platform version is specified only for tasks using the Fargate launch
-    -- type. If one isn\'t specified, the @LATEST@ platform version is used by
-    -- default.
+    -- | The platform version that the tasks in the task set uses. A platform
+    -- version is specified only for tasks using the Fargate launch type. If
+    -- one isn\'t specified, the @LATEST@ platform version is used.
     platformVersion :: Prelude.Maybe Prelude.Text,
     -- | A floating-point percentage of the desired number of tasks to place and
     -- keep running in the task set.
@@ -176,9 +175,8 @@ data CreateTaskSet = CreateTaskSet'
 -- for backwards compatibility:
 --
 -- 'tags', 'createTaskSet_tags' - The metadata that you apply to the task set to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define. When a service is deleted, the tags are deleted as
--- well.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both. When a service is deleted, the tags are deleted.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -205,12 +203,13 @@ data CreateTaskSet = CreateTaskSet'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'clientToken', 'createTaskSet_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. Up to 32 ASCII characters are allowed.
+-- 'clientToken', 'createTaskSet_clientToken' - The identifier that you provide to ensure the idempotency of the
+-- request. It\'s case sensitive and must be unique. It can be up to 32
+-- ASCII characters are allowed.
 --
 -- 'serviceRegistries', 'createTaskSet_serviceRegistries' - The details of the service discovery registries to assign to this task
 -- set. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
 --
 -- 'externalId', 'createTaskSet_externalId' - An optional non-unique tag that identifies this task set in external
 -- systems. If the task set is associated with a service discovery
@@ -251,18 +250,17 @@ data CreateTaskSet = CreateTaskSet'
 -- task set. The supported load balancer types are either an Application
 -- Load Balancer or a Network Load Balancer.
 --
--- 'launchType', 'createTaskSet_launchType' - The launch type that new tasks in the task set will use. For more
+-- 'launchType', 'createTaskSet_launchType' - The launch type that new tasks in the task set uses. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
 -- must be omitted.
 --
--- 'platformVersion', 'createTaskSet_platformVersion' - The platform version that the tasks in the task set should use. A
--- platform version is specified only for tasks using the Fargate launch
--- type. If one isn\'t specified, the @LATEST@ platform version is used by
--- default.
+-- 'platformVersion', 'createTaskSet_platformVersion' - The platform version that the tasks in the task set uses. A platform
+-- version is specified only for tasks using the Fargate launch type. If
+-- one isn\'t specified, the @LATEST@ platform version is used.
 --
 -- 'scale', 'createTaskSet_scale' - A floating-point percentage of the desired number of tasks to place and
 -- keep running in the task set.
@@ -300,9 +298,8 @@ newCreateTaskSet pService_ pCluster_ pTaskDefinition_ =
     }
 
 -- | The metadata that you apply to the task set to help you categorize and
--- organize them. Each tag consists of a key and an optional value, both of
--- which you define. When a service is deleted, the tags are deleted as
--- well.
+-- organize them. Each tag consists of a key and an optional value. You
+-- define both. When a service is deleted, the tags are deleted.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -331,14 +328,15 @@ newCreateTaskSet pService_ pCluster_ pTaskDefinition_ =
 createTaskSet_tags :: Lens.Lens' CreateTaskSet (Prelude.Maybe [Tag])
 createTaskSet_tags = Lens.lens (\CreateTaskSet' {tags} -> tags) (\s@CreateTaskSet' {} a -> s {tags = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens.coerced
 
--- | Unique, case-sensitive identifier that you provide to ensure the
--- idempotency of the request. Up to 32 ASCII characters are allowed.
+-- | The identifier that you provide to ensure the idempotency of the
+-- request. It\'s case sensitive and must be unique. It can be up to 32
+-- ASCII characters are allowed.
 createTaskSet_clientToken :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
 createTaskSet_clientToken = Lens.lens (\CreateTaskSet' {clientToken} -> clientToken) (\s@CreateTaskSet' {} a -> s {clientToken = a} :: CreateTaskSet)
 
 -- | The details of the service discovery registries to assign to this task
 -- set. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service Discovery>.
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html Service discovery>.
 createTaskSet_serviceRegistries :: Lens.Lens' CreateTaskSet (Prelude.Maybe [ServiceRegistry])
 createTaskSet_serviceRegistries = Lens.lens (\CreateTaskSet' {serviceRegistries} -> serviceRegistries) (\s@CreateTaskSet' {} a -> s {serviceRegistries = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens.coerced
 
@@ -389,9 +387,9 @@ createTaskSet_capacityProviderStrategy = Lens.lens (\CreateTaskSet' {capacityPro
 createTaskSet_loadBalancers :: Lens.Lens' CreateTaskSet (Prelude.Maybe [LoadBalancer])
 createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> loadBalancers) (\s@CreateTaskSet' {} a -> s {loadBalancers = a} :: CreateTaskSet) Prelude.. Lens.mapping Lens.coerced
 
--- | The launch type that new tasks in the task set will use. For more
+-- | The launch type that new tasks in the task set uses. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS Launch Types>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html Amazon ECS launch types>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- If a @launchType@ is specified, the @capacityProviderStrategy@ parameter
@@ -399,10 +397,9 @@ createTaskSet_loadBalancers = Lens.lens (\CreateTaskSet' {loadBalancers} -> load
 createTaskSet_launchType :: Lens.Lens' CreateTaskSet (Prelude.Maybe LaunchType)
 createTaskSet_launchType = Lens.lens (\CreateTaskSet' {launchType} -> launchType) (\s@CreateTaskSet' {} a -> s {launchType = a} :: CreateTaskSet)
 
--- | The platform version that the tasks in the task set should use. A
--- platform version is specified only for tasks using the Fargate launch
--- type. If one isn\'t specified, the @LATEST@ platform version is used by
--- default.
+-- | The platform version that the tasks in the task set uses. A platform
+-- version is specified only for tasks using the Fargate launch type. If
+-- one isn\'t specified, the @LATEST@ platform version is used.
 createTaskSet_platformVersion :: Lens.Lens' CreateTaskSet (Prelude.Maybe Prelude.Text)
 createTaskSet_platformVersion = Lens.lens (\CreateTaskSet' {platformVersion} -> platformVersion) (\s@CreateTaskSet' {} a -> s {platformVersion = a} :: CreateTaskSet)
 

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the Amazon ECS container agent on a specified container
--- instance. Updating the Amazon ECS container agent does not interrupt
+-- instance. Updating the Amazon ECS container agent doesn\'t interrupt
 -- running tasks or services on the container instance. The process for
 -- updating the agent differs depending on whether your container instance
 -- was launched with the Amazon ECS-optimized AMI or another operating
@@ -29,8 +29,8 @@
 --
 -- The @UpdateContainerAgent@ API isn\'t supported for container instances
 -- using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the
--- container agent, you can update the @ecs-init@ package which will update
--- the agent. For more information, see
+-- container agent, you can update the @ecs-init@ package. This updates the
+-- agent. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html Updating the Amazon ECS container agent>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
@@ -73,7 +73,7 @@ data UpdateContainerAgent = UpdateContainerAgent'
     -- the default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
     -- | The container instance ID or full ARN entries for the container instance
-    -- on which you would like to update the Amazon ECS container agent.
+    -- where you would like to update the Amazon ECS container agent.
     containerInstance :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,7 +91,7 @@ data UpdateContainerAgent = UpdateContainerAgent'
 -- the default cluster is assumed.
 --
 -- 'containerInstance', 'updateContainerAgent_containerInstance' - The container instance ID or full ARN entries for the container instance
--- on which you would like to update the Amazon ECS container agent.
+-- where you would like to update the Amazon ECS container agent.
 newUpdateContainerAgent ::
   -- | 'containerInstance'
   Prelude.Text ->
@@ -109,7 +109,7 @@ updateContainerAgent_cluster :: Lens.Lens' UpdateContainerAgent (Prelude.Maybe P
 updateContainerAgent_cluster = Lens.lens (\UpdateContainerAgent' {cluster} -> cluster) (\s@UpdateContainerAgent' {} a -> s {cluster = a} :: UpdateContainerAgent)
 
 -- | The container instance ID or full ARN entries for the container instance
--- on which you would like to update the Amazon ECS container agent.
+-- where you would like to update the Amazon ECS container agent.
 updateContainerAgent_containerInstance :: Lens.Lens' UpdateContainerAgent Prelude.Text
 updateContainerAgent_containerInstance = Lens.lens (\UpdateContainerAgent' {containerInstance} -> containerInstance) (\s@UpdateContainerAgent' {} a -> s {containerInstance = a} :: UpdateContainerAgent)
 
@@ -169,7 +169,7 @@ instance Core.ToQuery UpdateContainerAgent where
 
 -- | /See:/ 'newUpdateContainerAgentResponse' smart constructor.
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
-  { -- | The container instance for which the container agent was updated.
+  { -- | The container instance that the container agent was updated for.
     containerInstance :: Prelude.Maybe ContainerInstance,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -184,7 +184,7 @@ data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerInstance', 'updateContainerAgentResponse_containerInstance' - The container instance for which the container agent was updated.
+-- 'containerInstance', 'updateContainerAgentResponse_containerInstance' - The container instance that the container agent was updated for.
 --
 -- 'httpStatus', 'updateContainerAgentResponse_httpStatus' - The response's http status code.
 newUpdateContainerAgentResponse ::
@@ -198,7 +198,7 @@ newUpdateContainerAgentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The container instance for which the container agent was updated.
+-- | The container instance that the container agent was updated for.
 updateContainerAgentResponse_containerInstance :: Lens.Lens' UpdateContainerAgentResponse (Prelude.Maybe ContainerInstance)
 updateContainerAgentResponse_containerInstance = Lens.lens (\UpdateContainerAgentResponse' {containerInstance} -> containerInstance) (\s@UpdateContainerAgentResponse' {} a -> s {containerInstance = a} :: UpdateContainerAgentResponse)
 

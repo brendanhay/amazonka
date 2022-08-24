@@ -34,10 +34,10 @@ data ExecuteCommandLogConfiguration = ExecuteCommandLogConfiguration'
     --
     -- The S3 bucket must already be created.
     s3BucketName :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not to enable encryption on the CloudWatch logs. If not
-    -- specified, encryption will be disabled.
+    -- | Determines whether to use encryption on the S3 logs. If not specified,
+    -- encryption is not used.
     s3EncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | Whether or not to enable encryption on the CloudWatch logs. If not
+    -- | Determines whether to use encryption on the CloudWatch logs. If not
     -- specified, encryption will be disabled.
     cloudWatchEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the CloudWatch log group to send logs to.
@@ -61,10 +61,10 @@ data ExecuteCommandLogConfiguration = ExecuteCommandLogConfiguration'
 --
 -- The S3 bucket must already be created.
 --
--- 's3EncryptionEnabled', 'executeCommandLogConfiguration_s3EncryptionEnabled' - Whether or not to enable encryption on the CloudWatch logs. If not
--- specified, encryption will be disabled.
+-- 's3EncryptionEnabled', 'executeCommandLogConfiguration_s3EncryptionEnabled' - Determines whether to use encryption on the S3 logs. If not specified,
+-- encryption is not used.
 --
--- 'cloudWatchEncryptionEnabled', 'executeCommandLogConfiguration_cloudWatchEncryptionEnabled' - Whether or not to enable encryption on the CloudWatch logs. If not
+-- 'cloudWatchEncryptionEnabled', 'executeCommandLogConfiguration_cloudWatchEncryptionEnabled' - Determines whether to use encryption on the CloudWatch logs. If not
 -- specified, encryption will be disabled.
 --
 -- 'cloudWatchLogGroupName', 'executeCommandLogConfiguration_cloudWatchLogGroupName' - The name of the CloudWatch log group to send logs to.
@@ -93,12 +93,12 @@ executeCommandLogConfiguration_s3KeyPrefix = Lens.lens (\ExecuteCommandLogConfig
 executeCommandLogConfiguration_s3BucketName :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Text)
 executeCommandLogConfiguration_s3BucketName = Lens.lens (\ExecuteCommandLogConfiguration' {s3BucketName} -> s3BucketName) (\s@ExecuteCommandLogConfiguration' {} a -> s {s3BucketName = a} :: ExecuteCommandLogConfiguration)
 
--- | Whether or not to enable encryption on the CloudWatch logs. If not
--- specified, encryption will be disabled.
+-- | Determines whether to use encryption on the S3 logs. If not specified,
+-- encryption is not used.
 executeCommandLogConfiguration_s3EncryptionEnabled :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Bool)
 executeCommandLogConfiguration_s3EncryptionEnabled = Lens.lens (\ExecuteCommandLogConfiguration' {s3EncryptionEnabled} -> s3EncryptionEnabled) (\s@ExecuteCommandLogConfiguration' {} a -> s {s3EncryptionEnabled = a} :: ExecuteCommandLogConfiguration)
 
--- | Whether or not to enable encryption on the CloudWatch logs. If not
+-- | Determines whether to use encryption on the CloudWatch logs. If not
 -- specified, encryption will be disabled.
 executeCommandLogConfiguration_cloudWatchEncryptionEnabled :: Lens.Lens' ExecuteCommandLogConfiguration (Prelude.Maybe Prelude.Bool)
 executeCommandLogConfiguration_cloudWatchEncryptionEnabled = Lens.lens (\ExecuteCommandLogConfiguration' {cloudWatchEncryptionEnabled} -> cloudWatchEncryptionEnabled) (\s@ExecuteCommandLogConfiguration' {} a -> s {cloudWatchEncryptionEnabled = a} :: ExecuteCommandLogConfiguration)

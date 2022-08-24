@@ -26,7 +26,7 @@ import qualified Amazonka.Prelude as Prelude
 -- | The authorization configuration details for Amazon FSx for Windows File
 -- Server file system. See
 -- <https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_FSxWindowsFileServerVolumeConfiguration.html FSxWindowsFileServerVolumeConfiguration>
--- in the /Amazon Elastic Container Service API Reference/.
+-- in the /Amazon ECS API Reference/.
 --
 -- For more information and the input format, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/wfsx-volumes.html Amazon FSx for Windows File Server Volumes>
@@ -36,8 +36,8 @@ import qualified Amazonka.Prelude as Prelude
 data FSxWindowsFileServerAuthorizationConfig = FSxWindowsFileServerAuthorizationConfig'
   { -- | The authorization credential option to use. The authorization credential
     -- options can be provided using either the Amazon Resource Name (ARN) of
-    -- an Secrets Manager secret or SSM Parameter Store parameter. The ARNs
-    -- refer to the stored credentials.
+    -- an Secrets Manager secret or SSM Parameter Store parameter. The ARN
+    -- refers to the stored credentials.
     credentialsParameter :: Prelude.Text,
     -- | A fully qualified domain name hosted by an
     -- <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html Directory Service>
@@ -56,8 +56,8 @@ data FSxWindowsFileServerAuthorizationConfig = FSxWindowsFileServerAuthorization
 --
 -- 'credentialsParameter', 'fSxWindowsFileServerAuthorizationConfig_credentialsParameter' - The authorization credential option to use. The authorization credential
 -- options can be provided using either the Amazon Resource Name (ARN) of
--- an Secrets Manager secret or SSM Parameter Store parameter. The ARNs
--- refer to the stored credentials.
+-- an Secrets Manager secret or SSM Parameter Store parameter. The ARN
+-- refers to the stored credentials.
 --
 -- 'domain', 'fSxWindowsFileServerAuthorizationConfig_domain' - A fully qualified domain name hosted by an
 -- <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_microsoft_ad.html Directory Service>
@@ -79,8 +79,8 @@ newFSxWindowsFileServerAuthorizationConfig
 
 -- | The authorization credential option to use. The authorization credential
 -- options can be provided using either the Amazon Resource Name (ARN) of
--- an Secrets Manager secret or SSM Parameter Store parameter. The ARNs
--- refer to the stored credentials.
+-- an Secrets Manager secret or SSM Parameter Store parameter. The ARN
+-- refers to the stored credentials.
 fSxWindowsFileServerAuthorizationConfig_credentialsParameter :: Lens.Lens' FSxWindowsFileServerAuthorizationConfig Prelude.Text
 fSxWindowsFileServerAuthorizationConfig_credentialsParameter = Lens.lens (\FSxWindowsFileServerAuthorizationConfig' {credentialsParameter} -> credentialsParameter) (\s@FSxWindowsFileServerAuthorizationConfig' {} a -> s {credentialsParameter = a} :: FSxWindowsFileServerAuthorizationConfig)
 

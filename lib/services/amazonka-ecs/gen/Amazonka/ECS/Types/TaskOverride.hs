@@ -26,14 +26,18 @@ import Amazonka.ECS.Types.InferenceAcceleratorOverride
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The overrides associated with a task.
+-- | The overrides that are associated with a task.
 --
 -- /See:/ 'newTaskOverride' smart constructor.
 data TaskOverride = TaskOverride'
   { -- | The ephemeral storage setting override for the task.
     --
-    -- This parameter is only supported for tasks hosted on Fargate using
-    -- platform version @1.4.0@ or later.
+    -- This parameter is only supported for tasks hosted on Fargate that use
+    -- the following platform versions:
+    --
+    -- -   Linux platform version @1.4.0@ or later.
+    --
+    -- -   Windows platform version @1.0.0@ or later.
     ephemeralStorage :: Prelude.Maybe EphemeralStorage,
     -- | The memory override for the task.
     memory :: Prelude.Maybe Prelude.Text,
@@ -52,7 +56,7 @@ data TaskOverride = TaskOverride'
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     executionRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | One or more container overrides sent to a task.
+    -- | One or more container overrides that are sent to a task.
     containerOverrides :: Prelude.Maybe [ContainerOverride]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,8 +71,12 @@ data TaskOverride = TaskOverride'
 --
 -- 'ephemeralStorage', 'taskOverride_ephemeralStorage' - The ephemeral storage setting override for the task.
 --
--- This parameter is only supported for tasks hosted on Fargate using
--- platform version @1.4.0@ or later.
+-- This parameter is only supported for tasks hosted on Fargate that use
+-- the following platform versions:
+--
+-- -   Linux platform version @1.4.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 --
 -- 'memory', 'taskOverride_memory' - The memory override for the task.
 --
@@ -87,7 +95,7 @@ data TaskOverride = TaskOverride'
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html Amazon ECS task execution IAM role>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- 'containerOverrides', 'taskOverride_containerOverrides' - One or more container overrides sent to a task.
+-- 'containerOverrides', 'taskOverride_containerOverrides' - One or more container overrides that are sent to a task.
 newTaskOverride ::
   TaskOverride
 newTaskOverride =
@@ -103,8 +111,12 @@ newTaskOverride =
 
 -- | The ephemeral storage setting override for the task.
 --
--- This parameter is only supported for tasks hosted on Fargate using
--- platform version @1.4.0@ or later.
+-- This parameter is only supported for tasks hosted on Fargate that use
+-- the following platform versions:
+--
+-- -   Linux platform version @1.4.0@ or later.
+--
+-- -   Windows platform version @1.0.0@ or later.
 taskOverride_ephemeralStorage :: Lens.Lens' TaskOverride (Prelude.Maybe EphemeralStorage)
 taskOverride_ephemeralStorage = Lens.lens (\TaskOverride' {ephemeralStorage} -> ephemeralStorage) (\s@TaskOverride' {} a -> s {ephemeralStorage = a} :: TaskOverride)
 
@@ -135,7 +147,7 @@ taskOverride_inferenceAcceleratorOverrides = Lens.lens (\TaskOverride' {inferenc
 taskOverride_executionRoleArn :: Lens.Lens' TaskOverride (Prelude.Maybe Prelude.Text)
 taskOverride_executionRoleArn = Lens.lens (\TaskOverride' {executionRoleArn} -> executionRoleArn) (\s@TaskOverride' {} a -> s {executionRoleArn = a} :: TaskOverride)
 
--- | One or more container overrides sent to a task.
+-- | One or more container overrides that are sent to a task.
 taskOverride_containerOverrides :: Lens.Lens' TaskOverride (Prelude.Maybe [ContainerOverride])
 taskOverride_containerOverrides = Lens.lens (\TaskOverride' {containerOverrides} -> containerOverrides) (\s@TaskOverride' {} a -> s {containerOverrides = a} :: TaskOverride) Prelude.. Lens.mapping Lens.coerced
 

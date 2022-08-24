@@ -11,17 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.ECS.Types.ContainerInstanceField
+-- Module      : Amazonka.ECS.Types.InstanceHealthCheckType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.ECS.Types.ContainerInstanceField
-  ( ContainerInstanceField
+module Amazonka.ECS.Types.InstanceHealthCheckType
+  ( InstanceHealthCheckType
       ( ..,
-        ContainerInstanceField_CONTAINER_INSTANCE_HEALTH,
-        ContainerInstanceField_TAGS
+        InstanceHealthCheckType_CONTAINER_RUNTIME
       ),
   )
 where
@@ -29,8 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype ContainerInstanceField = ContainerInstanceField'
-  { fromContainerInstanceField ::
+newtype InstanceHealthCheckType = InstanceHealthCheckType'
+  { fromInstanceHealthCheckType ::
       Core.Text
   }
   deriving stock
@@ -57,14 +56,10 @@ newtype ContainerInstanceField = ContainerInstanceField'
       Core.ToXML
     )
 
-pattern ContainerInstanceField_CONTAINER_INSTANCE_HEALTH :: ContainerInstanceField
-pattern ContainerInstanceField_CONTAINER_INSTANCE_HEALTH = ContainerInstanceField' "CONTAINER_INSTANCE_HEALTH"
-
-pattern ContainerInstanceField_TAGS :: ContainerInstanceField
-pattern ContainerInstanceField_TAGS = ContainerInstanceField' "TAGS"
+pattern InstanceHealthCheckType_CONTAINER_RUNTIME :: InstanceHealthCheckType
+pattern InstanceHealthCheckType_CONTAINER_RUNTIME = InstanceHealthCheckType' "CONTAINER_RUNTIME"
 
 {-# COMPLETE
-  ContainerInstanceField_CONTAINER_INSTANCE_HEALTH,
-  ContainerInstanceField_TAGS,
-  ContainerInstanceField'
+  InstanceHealthCheckType_CONTAINER_RUNTIME,
+  InstanceHealthCheckType'
   #-}

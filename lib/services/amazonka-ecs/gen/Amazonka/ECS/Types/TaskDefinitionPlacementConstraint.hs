@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task placement constraints>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- Task placement constraints are not supported for tasks run on Fargate.
+-- Task placement constraints aren\'t supported for tasks run on Fargate.
 --
 -- /See:/ 'newTaskDefinitionPlacementConstraint' smart constructor.
 data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'

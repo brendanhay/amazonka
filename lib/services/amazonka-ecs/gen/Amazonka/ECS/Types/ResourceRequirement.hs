@@ -37,12 +37,12 @@ data ResourceRequirement = ResourceRequirement'
   { -- | The value for the specified resource type.
     --
     -- If the @GPU@ type is used, the value is the number of physical @GPUs@
-    -- the Amazon ECS container agent will reserve for the container. The
-    -- number of GPUs reserved for all containers in a task should not exceed
-    -- the number of available GPUs on the container instance the task is
+    -- the Amazon ECS container agent reserves for the container. The number of
+    -- GPUs that\'s reserved for all containers in a task can\'t exceed the
+    -- number of available GPUs on the container instance that the task is
     -- launched on.
     --
-    -- If the @InferenceAccelerator@ type is used, the @value@ should match the
+    -- If the @InferenceAccelerator@ type is used, the @value@ matches the
     -- @deviceName@ for an InferenceAccelerator specified in a task definition.
     value :: Prelude.Text,
     -- | The type of resource to assign to a container. The supported values are
@@ -62,12 +62,12 @@ data ResourceRequirement = ResourceRequirement'
 -- 'value', 'resourceRequirement_value' - The value for the specified resource type.
 --
 -- If the @GPU@ type is used, the value is the number of physical @GPUs@
--- the Amazon ECS container agent will reserve for the container. The
--- number of GPUs reserved for all containers in a task should not exceed
--- the number of available GPUs on the container instance the task is
+-- the Amazon ECS container agent reserves for the container. The number of
+-- GPUs that\'s reserved for all containers in a task can\'t exceed the
+-- number of available GPUs on the container instance that the task is
 -- launched on.
 --
--- If the @InferenceAccelerator@ type is used, the @value@ should match the
+-- If the @InferenceAccelerator@ type is used, the @value@ matches the
 -- @deviceName@ for an InferenceAccelerator specified in a task definition.
 --
 -- 'type'', 'resourceRequirement_type' - The type of resource to assign to a container. The supported values are
@@ -87,12 +87,12 @@ newResourceRequirement pValue_ pType_ =
 -- | The value for the specified resource type.
 --
 -- If the @GPU@ type is used, the value is the number of physical @GPUs@
--- the Amazon ECS container agent will reserve for the container. The
--- number of GPUs reserved for all containers in a task should not exceed
--- the number of available GPUs on the container instance the task is
+-- the Amazon ECS container agent reserves for the container. The number of
+-- GPUs that\'s reserved for all containers in a task can\'t exceed the
+-- number of available GPUs on the container instance that the task is
 -- launched on.
 --
--- If the @InferenceAccelerator@ type is used, the @value@ should match the
+-- If the @InferenceAccelerator@ type is used, the @value@ matches the
 -- @deviceName@ for an InferenceAccelerator specified in a task definition.
 resourceRequirement_value :: Lens.Lens' ResourceRequirement Prelude.Text
 resourceRequirement_value = Lens.lens (\ResourceRequirement' {value} -> value) (\s@ResourceRequirement' {} a -> s {value = a} :: ResourceRequirement)

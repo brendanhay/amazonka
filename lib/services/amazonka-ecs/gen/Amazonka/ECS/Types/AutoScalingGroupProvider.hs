@@ -34,10 +34,10 @@ data AutoScalingGroupProvider = AutoScalingGroupProvider'
     managedScaling :: Prelude.Maybe ManagedScaling,
     -- | The managed termination protection setting to use for the Auto Scaling
     -- group capacity provider. This determines whether the Auto Scaling group
-    -- has managed termination protection.
+    -- has managed termination protection. The default is disabled.
     --
     -- When using managed termination protection, managed scaling must also be
-    -- used otherwise managed termination protection will not work.
+    -- used otherwise managed termination protection doesn\'t work.
     --
     -- When managed termination protection is enabled, Amazon ECS prevents the
     -- Amazon EC2 instances in an Auto Scaling group that contain tasks from
@@ -48,7 +48,7 @@ data AutoScalingGroupProvider = AutoScalingGroupProvider'
     -- in the /Auto Scaling User Guide/.
     --
     -- When managed termination protection is disabled, your Amazon EC2
-    -- instances are not protected from termination when the Auto Scaling group
+    -- instances aren\'t protected from termination when the Auto Scaling group
     -- scales in.
     managedTerminationProtection :: Prelude.Maybe ManagedTerminationProtection,
     -- | The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
@@ -69,10 +69,10 @@ data AutoScalingGroupProvider = AutoScalingGroupProvider'
 --
 -- 'managedTerminationProtection', 'autoScalingGroupProvider_managedTerminationProtection' - The managed termination protection setting to use for the Auto Scaling
 -- group capacity provider. This determines whether the Auto Scaling group
--- has managed termination protection.
+-- has managed termination protection. The default is disabled.
 --
 -- When using managed termination protection, managed scaling must also be
--- used otherwise managed termination protection will not work.
+-- used otherwise managed termination protection doesn\'t work.
 --
 -- When managed termination protection is enabled, Amazon ECS prevents the
 -- Amazon EC2 instances in an Auto Scaling group that contain tasks from
@@ -83,7 +83,7 @@ data AutoScalingGroupProvider = AutoScalingGroupProvider'
 -- in the /Auto Scaling User Guide/.
 --
 -- When managed termination protection is disabled, your Amazon EC2
--- instances are not protected from termination when the Auto Scaling group
+-- instances aren\'t protected from termination when the Auto Scaling group
 -- scales in.
 --
 -- 'autoScalingGroupArn', 'autoScalingGroupProvider_autoScalingGroupArn' - The Amazon Resource Name (ARN) that identifies the Auto Scaling group.
@@ -106,10 +106,10 @@ autoScalingGroupProvider_managedScaling = Lens.lens (\AutoScalingGroupProvider' 
 
 -- | The managed termination protection setting to use for the Auto Scaling
 -- group capacity provider. This determines whether the Auto Scaling group
--- has managed termination protection.
+-- has managed termination protection. The default is disabled.
 --
 -- When using managed termination protection, managed scaling must also be
--- used otherwise managed termination protection will not work.
+-- used otherwise managed termination protection doesn\'t work.
 --
 -- When managed termination protection is enabled, Amazon ECS prevents the
 -- Amazon EC2 instances in an Auto Scaling group that contain tasks from
@@ -120,7 +120,7 @@ autoScalingGroupProvider_managedScaling = Lens.lens (\AutoScalingGroupProvider' 
 -- in the /Auto Scaling User Guide/.
 --
 -- When managed termination protection is disabled, your Amazon EC2
--- instances are not protected from termination when the Auto Scaling group
+-- instances aren\'t protected from termination when the Auto Scaling group
 -- scales in.
 autoScalingGroupProvider_managedTerminationProtection :: Lens.Lens' AutoScalingGroupProvider (Prelude.Maybe ManagedTerminationProtection)
 autoScalingGroupProvider_managedTerminationProtection = Lens.lens (\AutoScalingGroupProvider' {managedTerminationProtection} -> managedTerminationProtection) (\s@AutoScalingGroupProvider' {} a -> s {managedTerminationProtection = a} :: AutoScalingGroupProvider)

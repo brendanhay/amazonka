@@ -24,7 +24,7 @@ import Amazonka.ECS.Types.NetworkBinding
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object representing a change in state for a container.
+-- | An object that represents a change in state for a container.
 --
 -- /See:/ 'newContainerStateChange' smart constructor.
 data ContainerStateChange = ContainerStateChange'
@@ -34,7 +34,7 @@ data ContainerStateChange = ContainerStateChange'
     status :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Docker container.
     runtimeId :: Prelude.Maybe Prelude.Text,
-    -- | Any network bindings associated with the container.
+    -- | Any network bindings that are associated with the container.
     networkBindings :: Prelude.Maybe [NetworkBinding],
     -- | The reason for the state change.
     reason :: Prelude.Maybe Prelude.Text,
@@ -60,7 +60,7 @@ data ContainerStateChange = ContainerStateChange'
 --
 -- 'runtimeId', 'containerStateChange_runtimeId' - The ID of the Docker container.
 --
--- 'networkBindings', 'containerStateChange_networkBindings' - Any network bindings associated with the container.
+-- 'networkBindings', 'containerStateChange_networkBindings' - Any network bindings that are associated with the container.
 --
 -- 'reason', 'containerStateChange_reason' - The reason for the state change.
 --
@@ -94,7 +94,7 @@ containerStateChange_status = Lens.lens (\ContainerStateChange' {status} -> stat
 containerStateChange_runtimeId :: Lens.Lens' ContainerStateChange (Prelude.Maybe Prelude.Text)
 containerStateChange_runtimeId = Lens.lens (\ContainerStateChange' {runtimeId} -> runtimeId) (\s@ContainerStateChange' {} a -> s {runtimeId = a} :: ContainerStateChange)
 
--- | Any network bindings associated with the container.
+-- | Any network bindings that are associated with the container.
 containerStateChange_networkBindings :: Lens.Lens' ContainerStateChange (Prelude.Maybe [NetworkBinding])
 containerStateChange_networkBindings = Lens.lens (\ContainerStateChange' {networkBindings} -> networkBindings) (\s@ContainerStateChange' {} a -> s {networkBindings = a} :: ContainerStateChange) Prelude.. Lens.mapping Lens.coerced
 

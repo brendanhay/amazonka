@@ -21,6 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Runs a command remotely on a container within a task.
+--
+-- If you use a condition key in your IAM policy to refine the conditions
+-- for the policy statement, for example limit the actions to a specific
+-- cluster, you recevie an @AccessDeniedException@ when there is a mismatch
+-- between the condition key value and the corresponding parameter value.
 module Amazonka.ECS.ExecuteCommand
   ( -- * Creating a Request
     ExecuteCommand (..),
@@ -216,7 +221,7 @@ data ExecuteCommandResponse = ExecuteCommandResponse'
     session :: Prelude.Maybe Session,
     -- | The Amazon Resource Name (ARN) of the container.
     containerArn :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not the execute command session is running in interactive
+    -- | Determines whether the execute command session is running in interactive
     -- mode. Amazon ECS only supports initiating interactive sessions, so you
     -- must specify @true@ for this value.
     interactive :: Prelude.Maybe Prelude.Bool,
@@ -244,7 +249,7 @@ data ExecuteCommandResponse = ExecuteCommandResponse'
 --
 -- 'containerArn', 'executeCommandResponse_containerArn' - The Amazon Resource Name (ARN) of the container.
 --
--- 'interactive', 'executeCommandResponse_interactive' - Whether or not the execute command session is running in interactive
+-- 'interactive', 'executeCommandResponse_interactive' - Determines whether the execute command session is running in interactive
 -- mode. Amazon ECS only supports initiating interactive sessions, so you
 -- must specify @true@ for this value.
 --
@@ -286,7 +291,7 @@ executeCommandResponse_session = Lens.lens (\ExecuteCommandResponse' {session} -
 executeCommandResponse_containerArn :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Text)
 executeCommandResponse_containerArn = Lens.lens (\ExecuteCommandResponse' {containerArn} -> containerArn) (\s@ExecuteCommandResponse' {} a -> s {containerArn = a} :: ExecuteCommandResponse)
 
--- | Whether or not the execute command session is running in interactive
+-- | Determines whether the execute command session is running in interactive
 -- mode. Amazon ECS only supports initiating interactive sessions, so you
 -- must specify @true@ for this value.
 executeCommandResponse_interactive :: Lens.Lens' ExecuteCommandResponse (Prelude.Maybe Prelude.Bool)

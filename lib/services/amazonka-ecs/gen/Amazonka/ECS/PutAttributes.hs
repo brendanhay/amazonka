@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Create or update an attribute on an Amazon ECS resource. If the
--- attribute does not exist, it is created. If the attribute exists, its
+-- attribute doesn\'t exist, it\'s created. If the attribute exists, its
 -- value is replaced with the specified value. To delete an attribute, use
 -- DeleteAttributes. For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes Attributes>
@@ -59,8 +59,8 @@ data PutAttributes = PutAttributes'
     -- cluster, the default cluster is assumed.
     cluster :: Prelude.Maybe Prelude.Text,
     -- | The attributes to apply to your resource. You can specify up to 10
-    -- custom attributes per resource. You can specify up to 10 attributes in a
-    -- single call.
+    -- custom attributes for each resource. You can specify up to 10 attributes
+    -- in a single call.
     attributes :: [Attribute]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,8 +78,8 @@ data PutAttributes = PutAttributes'
 -- cluster, the default cluster is assumed.
 --
 -- 'attributes', 'putAttributes_attributes' - The attributes to apply to your resource. You can specify up to 10
--- custom attributes per resource. You can specify up to 10 attributes in a
--- single call.
+-- custom attributes for each resource. You can specify up to 10 attributes
+-- in a single call.
 newPutAttributes ::
   PutAttributes
 newPutAttributes =
@@ -95,8 +95,8 @@ putAttributes_cluster :: Lens.Lens' PutAttributes (Prelude.Maybe Prelude.Text)
 putAttributes_cluster = Lens.lens (\PutAttributes' {cluster} -> cluster) (\s@PutAttributes' {} a -> s {cluster = a} :: PutAttributes)
 
 -- | The attributes to apply to your resource. You can specify up to 10
--- custom attributes per resource. You can specify up to 10 attributes in a
--- single call.
+-- custom attributes for each resource. You can specify up to 10 attributes
+-- in a single call.
 putAttributes_attributes :: Lens.Lens' PutAttributes [Attribute]
 putAttributes_attributes = Lens.lens (\PutAttributes' {attributes} -> attributes) (\s@PutAttributes' {} a -> s {attributes = a} :: PutAttributes) Prelude.. Lens.coerced
 

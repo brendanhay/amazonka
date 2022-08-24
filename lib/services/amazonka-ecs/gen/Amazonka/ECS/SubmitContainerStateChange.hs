@@ -73,7 +73,7 @@ data SubmitContainerStateChange = SubmitContainerStateChange'
     networkBindings :: Prelude.Maybe [NetworkBinding],
     -- | The reason for the state change request.
     reason :: Prelude.Maybe Prelude.Text,
-    -- | The exit code returned for the state change request.
+    -- | The exit code that\'s returned for the state change request.
     exitCode :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,7 +101,7 @@ data SubmitContainerStateChange = SubmitContainerStateChange'
 --
 -- 'reason', 'submitContainerStateChange_reason' - The reason for the state change request.
 --
--- 'exitCode', 'submitContainerStateChange_exitCode' - The exit code returned for the state change request.
+-- 'exitCode', 'submitContainerStateChange_exitCode' - The exit code that\'s returned for the state change request.
 newSubmitContainerStateChange ::
   SubmitContainerStateChange
 newSubmitContainerStateChange =
@@ -146,7 +146,7 @@ submitContainerStateChange_networkBindings = Lens.lens (\SubmitContainerStateCha
 submitContainerStateChange_reason :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_reason = Lens.lens (\SubmitContainerStateChange' {reason} -> reason) (\s@SubmitContainerStateChange' {} a -> s {reason = a} :: SubmitContainerStateChange)
 
--- | The exit code returned for the state change request.
+-- | The exit code that\'s returned for the state change request.
 submitContainerStateChange_exitCode :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Int)
 submitContainerStateChange_exitCode = Lens.lens (\SubmitContainerStateChange' {exitCode} -> exitCode) (\s@SubmitContainerStateChange' {} a -> s {exitCode = a} :: SubmitContainerStateChange)
 

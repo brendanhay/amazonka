@@ -60,24 +60,24 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newSubmitTaskStateChange' smart constructor.
 data SubmitTaskStateChange = SubmitTaskStateChange'
-  { -- | The Unix timestamp for when the task execution stopped.
+  { -- | The Unix timestamp for the time when the task execution stopped.
     executionStoppedAt :: Prelude.Maybe Core.POSIX,
     -- | The task ID or full ARN of the task in the state change request.
     task :: Prelude.Maybe Prelude.Text,
-    -- | The Unix timestamp for when the container image pull completed.
+    -- | The Unix timestamp for the time when the container image pull completed.
     pullStoppedAt :: Prelude.Maybe Core.POSIX,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- hosts the task.
     cluster :: Prelude.Maybe Prelude.Text,
-    -- | Any containers associated with the state change request.
+    -- | Any containers that\'s associated with the state change request.
     containers :: Prelude.Maybe [ContainerStateChange],
-    -- | The Unix timestamp for when the container image pull began.
+    -- | The Unix timestamp for the time when the container image pull started.
     pullStartedAt :: Prelude.Maybe Core.POSIX,
     -- | The status of the state change request.
     status :: Prelude.Maybe Prelude.Text,
     -- | Any attachments associated with the state change request.
     attachments :: Prelude.Maybe [AttachmentStateChange],
-    -- | The details for the managed agent associated with the task.
+    -- | The details for the managed agent that\'s associated with the task.
     managedAgents :: Prelude.Maybe [ManagedAgentStateChange],
     -- | The reason for the state change request.
     reason :: Prelude.Maybe Prelude.Text
@@ -92,24 +92,24 @@ data SubmitTaskStateChange = SubmitTaskStateChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'executionStoppedAt', 'submitTaskStateChange_executionStoppedAt' - The Unix timestamp for when the task execution stopped.
+-- 'executionStoppedAt', 'submitTaskStateChange_executionStoppedAt' - The Unix timestamp for the time when the task execution stopped.
 --
 -- 'task', 'submitTaskStateChange_task' - The task ID or full ARN of the task in the state change request.
 --
--- 'pullStoppedAt', 'submitTaskStateChange_pullStoppedAt' - The Unix timestamp for when the container image pull completed.
+-- 'pullStoppedAt', 'submitTaskStateChange_pullStoppedAt' - The Unix timestamp for the time when the container image pull completed.
 --
 -- 'cluster', 'submitTaskStateChange_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task.
 --
--- 'containers', 'submitTaskStateChange_containers' - Any containers associated with the state change request.
+-- 'containers', 'submitTaskStateChange_containers' - Any containers that\'s associated with the state change request.
 --
--- 'pullStartedAt', 'submitTaskStateChange_pullStartedAt' - The Unix timestamp for when the container image pull began.
+-- 'pullStartedAt', 'submitTaskStateChange_pullStartedAt' - The Unix timestamp for the time when the container image pull started.
 --
 -- 'status', 'submitTaskStateChange_status' - The status of the state change request.
 --
 -- 'attachments', 'submitTaskStateChange_attachments' - Any attachments associated with the state change request.
 --
--- 'managedAgents', 'submitTaskStateChange_managedAgents' - The details for the managed agent associated with the task.
+-- 'managedAgents', 'submitTaskStateChange_managedAgents' - The details for the managed agent that\'s associated with the task.
 --
 -- 'reason', 'submitTaskStateChange_reason' - The reason for the state change request.
 newSubmitTaskStateChange ::
@@ -129,7 +129,7 @@ newSubmitTaskStateChange =
       reason = Prelude.Nothing
     }
 
--- | The Unix timestamp for when the task execution stopped.
+-- | The Unix timestamp for the time when the task execution stopped.
 submitTaskStateChange_executionStoppedAt :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.UTCTime)
 submitTaskStateChange_executionStoppedAt = Lens.lens (\SubmitTaskStateChange' {executionStoppedAt} -> executionStoppedAt) (\s@SubmitTaskStateChange' {} a -> s {executionStoppedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Core._Time
 
@@ -137,7 +137,7 @@ submitTaskStateChange_executionStoppedAt = Lens.lens (\SubmitTaskStateChange' {e
 submitTaskStateChange_task :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.Text)
 submitTaskStateChange_task = Lens.lens (\SubmitTaskStateChange' {task} -> task) (\s@SubmitTaskStateChange' {} a -> s {task = a} :: SubmitTaskStateChange)
 
--- | The Unix timestamp for when the container image pull completed.
+-- | The Unix timestamp for the time when the container image pull completed.
 submitTaskStateChange_pullStoppedAt :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.UTCTime)
 submitTaskStateChange_pullStoppedAt = Lens.lens (\SubmitTaskStateChange' {pullStoppedAt} -> pullStoppedAt) (\s@SubmitTaskStateChange' {} a -> s {pullStoppedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Core._Time
 
@@ -146,11 +146,11 @@ submitTaskStateChange_pullStoppedAt = Lens.lens (\SubmitTaskStateChange' {pullSt
 submitTaskStateChange_cluster :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.Text)
 submitTaskStateChange_cluster = Lens.lens (\SubmitTaskStateChange' {cluster} -> cluster) (\s@SubmitTaskStateChange' {} a -> s {cluster = a} :: SubmitTaskStateChange)
 
--- | Any containers associated with the state change request.
+-- | Any containers that\'s associated with the state change request.
 submitTaskStateChange_containers :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe [ContainerStateChange])
 submitTaskStateChange_containers = Lens.lens (\SubmitTaskStateChange' {containers} -> containers) (\s@SubmitTaskStateChange' {} a -> s {containers = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Lens.coerced
 
--- | The Unix timestamp for when the container image pull began.
+-- | The Unix timestamp for the time when the container image pull started.
 submitTaskStateChange_pullStartedAt :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe Prelude.UTCTime)
 submitTaskStateChange_pullStartedAt = Lens.lens (\SubmitTaskStateChange' {pullStartedAt} -> pullStartedAt) (\s@SubmitTaskStateChange' {} a -> s {pullStartedAt = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Core._Time
 
@@ -162,7 +162,7 @@ submitTaskStateChange_status = Lens.lens (\SubmitTaskStateChange' {status} -> st
 submitTaskStateChange_attachments :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe [AttachmentStateChange])
 submitTaskStateChange_attachments = Lens.lens (\SubmitTaskStateChange' {attachments} -> attachments) (\s@SubmitTaskStateChange' {} a -> s {attachments = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Lens.coerced
 
--- | The details for the managed agent associated with the task.
+-- | The details for the managed agent that\'s associated with the task.
 submitTaskStateChange_managedAgents :: Lens.Lens' SubmitTaskStateChange (Prelude.Maybe [ManagedAgentStateChange])
 submitTaskStateChange_managedAgents = Lens.lens (\SubmitTaskStateChange' {managedAgents} -> managedAgents) (\s@SubmitTaskStateChange' {} a -> s {managedAgents = a} :: SubmitTaskStateChange) Prelude.. Lens.mapping Lens.coerced
 

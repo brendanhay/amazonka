@@ -23,7 +23,7 @@
 -- Deletes a specified task set within a service. This is used when a
 -- service uses the @EXTERNAL@ deployment controller type. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS Deployment Types>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html Amazon ECS deployment types>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 module Amazonka.ECS.DeleteTaskSet
   ( -- * Creating a Request
@@ -55,11 +55,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteTaskSet' smart constructor.
 data DeleteTaskSet = DeleteTaskSet'
-  { -- | If @true@, this allows you to delete a task set even if it hasn\'t been
-    -- scaled down to zero.
+  { -- | If @true@, you can delete a task set even if it hasn\'t been scaled down
+    -- to zero.
     force :: Prelude.Maybe Prelude.Bool,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
-    -- hosts the service that the task set exists in to delete.
+    -- hosts the service that the task set found in to delete.
     cluster :: Prelude.Text,
     -- | The short name or full Amazon Resource Name (ARN) of the service that
     -- hosts the task set to delete.
@@ -78,11 +78,11 @@ data DeleteTaskSet = DeleteTaskSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'force', 'deleteTaskSet_force' - If @true@, this allows you to delete a task set even if it hasn\'t been
--- scaled down to zero.
+-- 'force', 'deleteTaskSet_force' - If @true@, you can delete a task set even if it hasn\'t been scaled down
+-- to zero.
 --
 -- 'cluster', 'deleteTaskSet_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the service that the task set exists in to delete.
+-- hosts the service that the task set found in to delete.
 --
 -- 'service', 'deleteTaskSet_service' - The short name or full Amazon Resource Name (ARN) of the service that
 -- hosts the task set to delete.
@@ -105,13 +105,13 @@ newDeleteTaskSet pCluster_ pService_ pTaskSet_ =
       taskSet = pTaskSet_
     }
 
--- | If @true@, this allows you to delete a task set even if it hasn\'t been
--- scaled down to zero.
+-- | If @true@, you can delete a task set even if it hasn\'t been scaled down
+-- to zero.
 deleteTaskSet_force :: Lens.Lens' DeleteTaskSet (Prelude.Maybe Prelude.Bool)
 deleteTaskSet_force = Lens.lens (\DeleteTaskSet' {force} -> force) (\s@DeleteTaskSet' {} a -> s {force = a} :: DeleteTaskSet)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
--- hosts the service that the task set exists in to delete.
+-- hosts the service that the task set found in to delete.
 deleteTaskSet_cluster :: Lens.Lens' DeleteTaskSet Prelude.Text
 deleteTaskSet_cluster = Lens.lens (\DeleteTaskSet' {cluster} -> cluster) (\s@DeleteTaskSet' {} a -> s {cluster = a} :: DeleteTaskSet)
 

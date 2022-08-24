@@ -23,20 +23,21 @@ import qualified Amazonka.Core as Core
 import Amazonka.ECS.Types.AgentUpdateStatus
 import Amazonka.ECS.Types.Attachment
 import Amazonka.ECS.Types.Attribute
+import Amazonka.ECS.Types.ContainerInstanceHealthStatus
 import Amazonka.ECS.Types.Resource
 import Amazonka.ECS.Types.Tag
 import Amazonka.ECS.Types.VersionInfo
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An EC2 instance that is running the Amazon ECS agent and has been
--- registered with a cluster.
+-- | An Amazon EC2 or External instance that\'s running the Amazon ECS agent
+-- and has been registered with a cluster.
 --
 -- /See:/ 'newContainerInstance' smart constructor.
 data ContainerInstance = ContainerInstance'
   { -- | The metadata that you apply to the container instance to help you
     -- categorize and organize them. Each tag consists of a key and an optional
-    -- value, both of which you define.
+    -- value. You define both.
     --
     -- The following basic restrictions apply to tags:
     --
@@ -63,19 +64,19 @@ data ContainerInstance = ContainerInstance'
     --     values with this prefix. Tags with this prefix do not count against
     --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
-    -- | The capacity provider associated with the container instance.
+    -- | The capacity provider that\'s associated with the container instance.
     capacityProviderName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the container instance. For Amazon EC2 instances, this value
     -- is the Amazon EC2 instance ID. For external instances, this value is the
     -- Amazon Web Services Systems Manager managed instance ID.
     ec2InstanceId :: Prelude.Maybe Prelude.Text,
     -- | For CPU and memory resource types, this parameter describes the
-    -- remaining CPU and memory that has not already been allocated to tasks
-    -- and is therefore available for new tasks. For port resource types, this
+    -- remaining CPU and memory that wasn\'t already allocated to tasks and is
+    -- therefore available for new tasks. For port resource types, this
     -- parameter describes the ports that were reserved by the Amazon ECS
     -- container agent (at instance registration time) and any task containers
     -- that have reserved port mappings on the host (with the @host@ or
-    -- @bridge@ network mode). Any port that is not specified here is available
+    -- @bridge@ network mode). Any port that\'s not specified here is available
     -- for new tasks.
     remainingResources :: Prelude.Maybe [Resource],
     -- | For CPU and memory resource types, this parameter describes the amount
@@ -92,9 +93,11 @@ data ContainerInstance = ContainerInstance'
     -- | The version information for the Amazon ECS container agent and Docker
     -- daemon running on the container instance.
     versionInfo :: Prelude.Maybe VersionInfo,
-    -- | The status of the most recent agent update. If an update has never been
+    -- | The status of the most recent agent update. If an update wasn\'t ever
     -- requested, this value is @NULL@.
     agentUpdateStatus :: Prelude.Maybe AgentUpdateStatus,
+    -- | An object representing the health status of the container instance.
+    healthStatus :: Prelude.Maybe ContainerInstanceHealthStatus,
     -- | The reason that the container instance reached its current status.
     statusReason :: Prelude.Maybe Prelude.Text,
     -- | The status of the container instance. The valid values are
@@ -113,39 +116,38 @@ data ContainerInstance = ContainerInstance'
     -- @INACTIVE@ status.
     --
     -- The @ACTIVE@ status indicates that the container instance can accept
-    -- tasks. The @DRAINING@ indicates that new tasks are not placed on the
+    -- tasks. The @DRAINING@ indicates that new tasks aren\'t placed on the
     -- container instance and any service tasks running on the container
     -- instance are removed if possible. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container Instance Draining>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container instance draining>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     status :: Prelude.Maybe Prelude.Text,
     -- | This parameter returns @true@ if the agent is connected to Amazon ECS.
-    -- Registered instances with an agent that may be unhealthy or stopped
-    -- return @false@. Only instances connected to an agent can accept
-    -- placement requests.
+    -- An instance with an agent that may be unhealthy or stopped return
+    -- @false@. Only instances connected to an agent can accept task placement
+    -- requests.
     agentConnected :: Prelude.Maybe Prelude.Bool,
     -- | The number of tasks on the container instance that are in the @RUNNING@
     -- status.
     runningTasksCount :: Prelude.Maybe Prelude.Int,
-    -- | The resources attached to a container instance, such as elastic network
-    -- interfaces.
+    -- | The resources attached to a container instance, such as an elastic
+    -- network interface.
     attachments :: Prelude.Maybe [Attachment],
-    -- | The Amazon Resource Name (ARN) of the container instance. The ARN
-    -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
-    -- container instance, the Amazon Web Services account ID of the container
-    -- instance owner, the @container-instance@ namespace, and then the
-    -- container instance ID. For example,
-    -- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
+    -- | The Amazon Resource Name (ARN) of the container instance. For more
+    -- information about the ARN format, see
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+    -- in the /Amazon ECS Developer Guide/.
     containerInstanceArn :: Prelude.Maybe Prelude.Text,
     -- | The attributes set for the container instance, either by the Amazon ECS
     -- container agent at instance registration or manually with the
     -- PutAttributes operation.
     attributes :: Prelude.Maybe [Attribute],
-    -- | The Unix timestamp for when the container instance was registered.
+    -- | The Unix timestamp for the time when the container instance was
+    -- registered.
     registeredAt :: Prelude.Maybe Core.POSIX,
     -- | The version counter for the container instance. Every time a container
     -- instance experiences a change that triggers a CloudWatch event, the
-    -- version counter is incremented. If you are replicating your Amazon ECS
+    -- version counter is incremented. If you\'re replicating your Amazon ECS
     -- container instance state with CloudWatch Events, you can compare the
     -- version of a container instance reported by the Amazon ECS APIs with the
     -- version reported in CloudWatch Events for the container instance (inside
@@ -165,7 +167,7 @@ data ContainerInstance = ContainerInstance'
 --
 -- 'tags', 'containerInstance_tags' - The metadata that you apply to the container instance to help you
 -- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -192,19 +194,19 @@ data ContainerInstance = ContainerInstance'
 --     values with this prefix. Tags with this prefix do not count against
 --     your tags per resource limit.
 --
--- 'capacityProviderName', 'containerInstance_capacityProviderName' - The capacity provider associated with the container instance.
+-- 'capacityProviderName', 'containerInstance_capacityProviderName' - The capacity provider that\'s associated with the container instance.
 --
 -- 'ec2InstanceId', 'containerInstance_ec2InstanceId' - The ID of the container instance. For Amazon EC2 instances, this value
 -- is the Amazon EC2 instance ID. For external instances, this value is the
 -- Amazon Web Services Systems Manager managed instance ID.
 --
 -- 'remainingResources', 'containerInstance_remainingResources' - For CPU and memory resource types, this parameter describes the
--- remaining CPU and memory that has not already been allocated to tasks
--- and is therefore available for new tasks. For port resource types, this
+-- remaining CPU and memory that wasn\'t already allocated to tasks and is
+-- therefore available for new tasks. For port resource types, this
 -- parameter describes the ports that were reserved by the Amazon ECS
 -- container agent (at instance registration time) and any task containers
 -- that have reserved port mappings on the host (with the @host@ or
--- @bridge@ network mode). Any port that is not specified here is available
+-- @bridge@ network mode). Any port that\'s not specified here is available
 -- for new tasks.
 --
 -- 'registeredResources', 'containerInstance_registeredResources' - For CPU and memory resource types, this parameter describes the amount
@@ -221,8 +223,10 @@ data ContainerInstance = ContainerInstance'
 -- 'versionInfo', 'containerInstance_versionInfo' - The version information for the Amazon ECS container agent and Docker
 -- daemon running on the container instance.
 --
--- 'agentUpdateStatus', 'containerInstance_agentUpdateStatus' - The status of the most recent agent update. If an update has never been
+-- 'agentUpdateStatus', 'containerInstance_agentUpdateStatus' - The status of the most recent agent update. If an update wasn\'t ever
 -- requested, this value is @NULL@.
+--
+-- 'healthStatus', 'containerInstance_healthStatus' - An object representing the health status of the container instance.
 --
 -- 'statusReason', 'containerInstance_statusReason' - The reason that the container instance reached its current status.
 --
@@ -242,39 +246,38 @@ data ContainerInstance = ContainerInstance'
 -- @INACTIVE@ status.
 --
 -- The @ACTIVE@ status indicates that the container instance can accept
--- tasks. The @DRAINING@ indicates that new tasks are not placed on the
+-- tasks. The @DRAINING@ indicates that new tasks aren\'t placed on the
 -- container instance and any service tasks running on the container
 -- instance are removed if possible. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container Instance Draining>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container instance draining>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'agentConnected', 'containerInstance_agentConnected' - This parameter returns @true@ if the agent is connected to Amazon ECS.
--- Registered instances with an agent that may be unhealthy or stopped
--- return @false@. Only instances connected to an agent can accept
--- placement requests.
+-- An instance with an agent that may be unhealthy or stopped return
+-- @false@. Only instances connected to an agent can accept task placement
+-- requests.
 --
 -- 'runningTasksCount', 'containerInstance_runningTasksCount' - The number of tasks on the container instance that are in the @RUNNING@
 -- status.
 --
--- 'attachments', 'containerInstance_attachments' - The resources attached to a container instance, such as elastic network
--- interfaces.
+-- 'attachments', 'containerInstance_attachments' - The resources attached to a container instance, such as an elastic
+-- network interface.
 --
--- 'containerInstanceArn', 'containerInstance_containerInstanceArn' - The Amazon Resource Name (ARN) of the container instance. The ARN
--- contains the @arn:aws:ecs@ namespace, followed by the Region of the
--- container instance, the Amazon Web Services account ID of the container
--- instance owner, the @container-instance@ namespace, and then the
--- container instance ID. For example,
--- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
+-- 'containerInstanceArn', 'containerInstance_containerInstanceArn' - The Amazon Resource Name (ARN) of the container instance. For more
+-- information about the ARN format, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+-- in the /Amazon ECS Developer Guide/.
 --
 -- 'attributes', 'containerInstance_attributes' - The attributes set for the container instance, either by the Amazon ECS
 -- container agent at instance registration or manually with the
 -- PutAttributes operation.
 --
--- 'registeredAt', 'containerInstance_registeredAt' - The Unix timestamp for when the container instance was registered.
+-- 'registeredAt', 'containerInstance_registeredAt' - The Unix timestamp for the time when the container instance was
+-- registered.
 --
 -- 'version', 'containerInstance_version' - The version counter for the container instance. Every time a container
 -- instance experiences a change that triggers a CloudWatch event, the
--- version counter is incremented. If you are replicating your Amazon ECS
+-- version counter is incremented. If you\'re replicating your Amazon ECS
 -- container instance state with CloudWatch Events, you can compare the
 -- version of a container instance reported by the Amazon ECS APIs with the
 -- version reported in CloudWatch Events for the container instance (inside
@@ -292,6 +295,7 @@ newContainerInstance =
       pendingTasksCount = Prelude.Nothing,
       versionInfo = Prelude.Nothing,
       agentUpdateStatus = Prelude.Nothing,
+      healthStatus = Prelude.Nothing,
       statusReason = Prelude.Nothing,
       status = Prelude.Nothing,
       agentConnected = Prelude.Nothing,
@@ -305,7 +309,7 @@ newContainerInstance =
 
 -- | The metadata that you apply to the container instance to help you
 -- categorize and organize them. Each tag consists of a key and an optional
--- value, both of which you define.
+-- value. You define both.
 --
 -- The following basic restrictions apply to tags:
 --
@@ -334,7 +338,7 @@ newContainerInstance =
 containerInstance_tags :: Lens.Lens' ContainerInstance (Prelude.Maybe [Tag])
 containerInstance_tags = Lens.lens (\ContainerInstance' {tags} -> tags) (\s@ContainerInstance' {} a -> s {tags = a} :: ContainerInstance) Prelude.. Lens.mapping Lens.coerced
 
--- | The capacity provider associated with the container instance.
+-- | The capacity provider that\'s associated with the container instance.
 containerInstance_capacityProviderName :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.Text)
 containerInstance_capacityProviderName = Lens.lens (\ContainerInstance' {capacityProviderName} -> capacityProviderName) (\s@ContainerInstance' {} a -> s {capacityProviderName = a} :: ContainerInstance)
 
@@ -345,12 +349,12 @@ containerInstance_ec2InstanceId :: Lens.Lens' ContainerInstance (Prelude.Maybe P
 containerInstance_ec2InstanceId = Lens.lens (\ContainerInstance' {ec2InstanceId} -> ec2InstanceId) (\s@ContainerInstance' {} a -> s {ec2InstanceId = a} :: ContainerInstance)
 
 -- | For CPU and memory resource types, this parameter describes the
--- remaining CPU and memory that has not already been allocated to tasks
--- and is therefore available for new tasks. For port resource types, this
+-- remaining CPU and memory that wasn\'t already allocated to tasks and is
+-- therefore available for new tasks. For port resource types, this
 -- parameter describes the ports that were reserved by the Amazon ECS
 -- container agent (at instance registration time) and any task containers
 -- that have reserved port mappings on the host (with the @host@ or
--- @bridge@ network mode). Any port that is not specified here is available
+-- @bridge@ network mode). Any port that\'s not specified here is available
 -- for new tasks.
 containerInstance_remainingResources :: Lens.Lens' ContainerInstance (Prelude.Maybe [Resource])
 containerInstance_remainingResources = Lens.lens (\ContainerInstance' {remainingResources} -> remainingResources) (\s@ContainerInstance' {} a -> s {remainingResources = a} :: ContainerInstance) Prelude.. Lens.mapping Lens.coerced
@@ -375,10 +379,14 @@ containerInstance_pendingTasksCount = Lens.lens (\ContainerInstance' {pendingTas
 containerInstance_versionInfo :: Lens.Lens' ContainerInstance (Prelude.Maybe VersionInfo)
 containerInstance_versionInfo = Lens.lens (\ContainerInstance' {versionInfo} -> versionInfo) (\s@ContainerInstance' {} a -> s {versionInfo = a} :: ContainerInstance)
 
--- | The status of the most recent agent update. If an update has never been
+-- | The status of the most recent agent update. If an update wasn\'t ever
 -- requested, this value is @NULL@.
 containerInstance_agentUpdateStatus :: Lens.Lens' ContainerInstance (Prelude.Maybe AgentUpdateStatus)
 containerInstance_agentUpdateStatus = Lens.lens (\ContainerInstance' {agentUpdateStatus} -> agentUpdateStatus) (\s@ContainerInstance' {} a -> s {agentUpdateStatus = a} :: ContainerInstance)
+
+-- | An object representing the health status of the container instance.
+containerInstance_healthStatus :: Lens.Lens' ContainerInstance (Prelude.Maybe ContainerInstanceHealthStatus)
+containerInstance_healthStatus = Lens.lens (\ContainerInstance' {healthStatus} -> healthStatus) (\s@ContainerInstance' {} a -> s {healthStatus = a} :: ContainerInstance)
 
 -- | The reason that the container instance reached its current status.
 containerInstance_statusReason :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.Text)
@@ -400,18 +408,18 @@ containerInstance_statusReason = Lens.lens (\ContainerInstance' {statusReason} -
 -- @INACTIVE@ status.
 --
 -- The @ACTIVE@ status indicates that the container instance can accept
--- tasks. The @DRAINING@ indicates that new tasks are not placed on the
+-- tasks. The @DRAINING@ indicates that new tasks aren\'t placed on the
 -- container instance and any service tasks running on the container
 -- instance are removed if possible. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container Instance Draining>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html Container instance draining>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 containerInstance_status :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.Text)
 containerInstance_status = Lens.lens (\ContainerInstance' {status} -> status) (\s@ContainerInstance' {} a -> s {status = a} :: ContainerInstance)
 
 -- | This parameter returns @true@ if the agent is connected to Amazon ECS.
--- Registered instances with an agent that may be unhealthy or stopped
--- return @false@. Only instances connected to an agent can accept
--- placement requests.
+-- An instance with an agent that may be unhealthy or stopped return
+-- @false@. Only instances connected to an agent can accept task placement
+-- requests.
 containerInstance_agentConnected :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.Bool)
 containerInstance_agentConnected = Lens.lens (\ContainerInstance' {agentConnected} -> agentConnected) (\s@ContainerInstance' {} a -> s {agentConnected = a} :: ContainerInstance)
 
@@ -420,17 +428,15 @@ containerInstance_agentConnected = Lens.lens (\ContainerInstance' {agentConnecte
 containerInstance_runningTasksCount :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.Int)
 containerInstance_runningTasksCount = Lens.lens (\ContainerInstance' {runningTasksCount} -> runningTasksCount) (\s@ContainerInstance' {} a -> s {runningTasksCount = a} :: ContainerInstance)
 
--- | The resources attached to a container instance, such as elastic network
--- interfaces.
+-- | The resources attached to a container instance, such as an elastic
+-- network interface.
 containerInstance_attachments :: Lens.Lens' ContainerInstance (Prelude.Maybe [Attachment])
 containerInstance_attachments = Lens.lens (\ContainerInstance' {attachments} -> attachments) (\s@ContainerInstance' {} a -> s {attachments = a} :: ContainerInstance) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) of the container instance. The ARN
--- contains the @arn:aws:ecs@ namespace, followed by the Region of the
--- container instance, the Amazon Web Services account ID of the container
--- instance owner, the @container-instance@ namespace, and then the
--- container instance ID. For example,
--- @arn:aws:ecs:region:aws_account_id:container-instance\/container_instance_ID@.
+-- | The Amazon Resource Name (ARN) of the container instance. For more
+-- information about the ARN format, see
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#ecs-resource-ids Amazon Resource Name (ARN)>
+-- in the /Amazon ECS Developer Guide/.
 containerInstance_containerInstanceArn :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.Text)
 containerInstance_containerInstanceArn = Lens.lens (\ContainerInstance' {containerInstanceArn} -> containerInstanceArn) (\s@ContainerInstance' {} a -> s {containerInstanceArn = a} :: ContainerInstance)
 
@@ -440,13 +446,14 @@ containerInstance_containerInstanceArn = Lens.lens (\ContainerInstance' {contain
 containerInstance_attributes :: Lens.Lens' ContainerInstance (Prelude.Maybe [Attribute])
 containerInstance_attributes = Lens.lens (\ContainerInstance' {attributes} -> attributes) (\s@ContainerInstance' {} a -> s {attributes = a} :: ContainerInstance) Prelude.. Lens.mapping Lens.coerced
 
--- | The Unix timestamp for when the container instance was registered.
+-- | The Unix timestamp for the time when the container instance was
+-- registered.
 containerInstance_registeredAt :: Lens.Lens' ContainerInstance (Prelude.Maybe Prelude.UTCTime)
 containerInstance_registeredAt = Lens.lens (\ContainerInstance' {registeredAt} -> registeredAt) (\s@ContainerInstance' {} a -> s {registeredAt = a} :: ContainerInstance) Prelude.. Lens.mapping Core._Time
 
 -- | The version counter for the container instance. Every time a container
 -- instance experiences a change that triggers a CloudWatch event, the
--- version counter is incremented. If you are replicating your Amazon ECS
+-- version counter is incremented. If you\'re replicating your Amazon ECS
 -- container instance state with CloudWatch Events, you can compare the
 -- version of a container instance reported by the Amazon ECS APIs with the
 -- version reported in CloudWatch Events for the container instance (inside
@@ -473,6 +480,7 @@ instance Core.FromJSON ContainerInstance where
             Prelude.<*> (x Core..:? "pendingTasksCount")
             Prelude.<*> (x Core..:? "versionInfo")
             Prelude.<*> (x Core..:? "agentUpdateStatus")
+            Prelude.<*> (x Core..:? "healthStatus")
             Prelude.<*> (x Core..:? "statusReason")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "agentConnected")
@@ -494,6 +502,7 @@ instance Prelude.Hashable ContainerInstance where
       `Prelude.hashWithSalt` pendingTasksCount
       `Prelude.hashWithSalt` versionInfo
       `Prelude.hashWithSalt` agentUpdateStatus
+      `Prelude.hashWithSalt` healthStatus
       `Prelude.hashWithSalt` statusReason
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` agentConnected
@@ -514,6 +523,7 @@ instance Prelude.NFData ContainerInstance where
       `Prelude.seq` Prelude.rnf pendingTasksCount
       `Prelude.seq` Prelude.rnf versionInfo
       `Prelude.seq` Prelude.rnf agentUpdateStatus
+      `Prelude.seq` Prelude.rnf healthStatus
       `Prelude.seq` Prelude.rnf statusReason
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf agentConnected

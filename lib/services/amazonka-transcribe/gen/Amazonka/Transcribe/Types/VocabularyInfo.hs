@@ -25,18 +25,32 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.LanguageCode
 import Amazonka.Transcribe.Types.VocabularyState
 
--- | Provides information about a custom vocabulary.
+-- | Provides information about a custom vocabulary, including the language
+-- of the vocabulary, when it was last modified, its name, and the
+-- processing state.
 --
 -- /See:/ 'newVocabularyInfo' smart constructor.
 data VocabularyInfo = VocabularyInfo'
-  { -- | The name of the vocabulary.
+  { -- | A unique name, chosen by you, for your custom vocabulary. This name is
+    -- case sensitive, cannot contain spaces, and must be unique within an
+    -- Amazon Web Services account.
     vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The processing state of the vocabulary. If the state is @READY@ you can
-    -- use the vocabulary in a @StartTranscriptionJob@ request.
+    -- | The processing state of your custom vocabulary. If the state is @READY@,
+    -- you can use the vocabulary in a @StartTranscriptionJob@ request.
     vocabularyState :: Prelude.Maybe VocabularyState,
-    -- | The date and time that the vocabulary was last modified.
+    -- | The date and time the specified vocabulary was last modified.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+    -- May 4, 2022.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The language code of the vocabulary entries.
+    -- | The language code used to create your custom vocabulary. Each vocabulary
+    -- must contain terms in only one language.
+    --
+    -- A custom vocabulary can only be used to transcribe files in the same
+    -- language as the vocabulary. For example, if you create a vocabulary
+    -- using US English (@en-US@), you can only apply this vocabulary to files
+    -- that contain English audio.
     languageCode :: Prelude.Maybe LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,14 +63,26 @@ data VocabularyInfo = VocabularyInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyName', 'vocabularyInfo_vocabularyName' - The name of the vocabulary.
+-- 'vocabularyName', 'vocabularyInfo_vocabularyName' - A unique name, chosen by you, for your custom vocabulary. This name is
+-- case sensitive, cannot contain spaces, and must be unique within an
+-- Amazon Web Services account.
 --
--- 'vocabularyState', 'vocabularyInfo_vocabularyState' - The processing state of the vocabulary. If the state is @READY@ you can
--- use the vocabulary in a @StartTranscriptionJob@ request.
+-- 'vocabularyState', 'vocabularyInfo_vocabularyState' - The processing state of your custom vocabulary. If the state is @READY@,
+-- you can use the vocabulary in a @StartTranscriptionJob@ request.
 --
--- 'lastModifiedTime', 'vocabularyInfo_lastModifiedTime' - The date and time that the vocabulary was last modified.
+-- 'lastModifiedTime', 'vocabularyInfo_lastModifiedTime' - The date and time the specified vocabulary was last modified.
 --
--- 'languageCode', 'vocabularyInfo_languageCode' - The language code of the vocabulary entries.
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
+--
+-- 'languageCode', 'vocabularyInfo_languageCode' - The language code used to create your custom vocabulary. Each vocabulary
+-- must contain terms in only one language.
+--
+-- A custom vocabulary can only be used to transcribe files in the same
+-- language as the vocabulary. For example, if you create a vocabulary
+-- using US English (@en-US@), you can only apply this vocabulary to files
+-- that contain English audio.
 newVocabularyInfo ::
   VocabularyInfo
 newVocabularyInfo =
@@ -67,20 +93,32 @@ newVocabularyInfo =
       languageCode = Prelude.Nothing
     }
 
--- | The name of the vocabulary.
+-- | A unique name, chosen by you, for your custom vocabulary. This name is
+-- case sensitive, cannot contain spaces, and must be unique within an
+-- Amazon Web Services account.
 vocabularyInfo_vocabularyName :: Lens.Lens' VocabularyInfo (Prelude.Maybe Prelude.Text)
 vocabularyInfo_vocabularyName = Lens.lens (\VocabularyInfo' {vocabularyName} -> vocabularyName) (\s@VocabularyInfo' {} a -> s {vocabularyName = a} :: VocabularyInfo)
 
--- | The processing state of the vocabulary. If the state is @READY@ you can
--- use the vocabulary in a @StartTranscriptionJob@ request.
+-- | The processing state of your custom vocabulary. If the state is @READY@,
+-- you can use the vocabulary in a @StartTranscriptionJob@ request.
 vocabularyInfo_vocabularyState :: Lens.Lens' VocabularyInfo (Prelude.Maybe VocabularyState)
 vocabularyInfo_vocabularyState = Lens.lens (\VocabularyInfo' {vocabularyState} -> vocabularyState) (\s@VocabularyInfo' {} a -> s {vocabularyState = a} :: VocabularyInfo)
 
--- | The date and time that the vocabulary was last modified.
+-- | The date and time the specified vocabulary was last modified.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
 vocabularyInfo_lastModifiedTime :: Lens.Lens' VocabularyInfo (Prelude.Maybe Prelude.UTCTime)
 vocabularyInfo_lastModifiedTime = Lens.lens (\VocabularyInfo' {lastModifiedTime} -> lastModifiedTime) (\s@VocabularyInfo' {} a -> s {lastModifiedTime = a} :: VocabularyInfo) Prelude.. Lens.mapping Core._Time
 
--- | The language code of the vocabulary entries.
+-- | The language code used to create your custom vocabulary. Each vocabulary
+-- must contain terms in only one language.
+--
+-- A custom vocabulary can only be used to transcribe files in the same
+-- language as the vocabulary. For example, if you create a vocabulary
+-- using US English (@en-US@), you can only apply this vocabulary to files
+-- that contain English audio.
 vocabularyInfo_languageCode :: Lens.Lens' VocabularyInfo (Prelude.Maybe LanguageCode)
 vocabularyInfo_languageCode = Lens.lens (\VocabularyInfo' {languageCode} -> languageCode) (\s@VocabularyInfo' {} a -> s {languageCode = a} :: VocabularyInfo)
 

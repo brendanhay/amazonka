@@ -20,8 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a previously submitted transcription job along with any other
--- generated results such as the transcription, models, and so on.
+-- Deletes a transcription job. To use this operation, specify the name of
+-- the job you want to delete using @TranscriptionJobName@. Job names are
+-- case sensitive.
 module Amazonka.Transcribe.DeleteTranscriptionJob
   ( -- * Creating a Request
     DeleteTranscriptionJob (..),
@@ -45,7 +46,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newDeleteTranscriptionJob' smart constructor.
 data DeleteTranscriptionJob = DeleteTranscriptionJob'
-  { -- | The name of the transcription job to be deleted.
+  { -- | The name of the transcription job you want to delete. Job names are case
+    -- sensitive.
     transcriptionJobName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,7 +60,8 @@ data DeleteTranscriptionJob = DeleteTranscriptionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'transcriptionJobName', 'deleteTranscriptionJob_transcriptionJobName' - The name of the transcription job to be deleted.
+-- 'transcriptionJobName', 'deleteTranscriptionJob_transcriptionJobName' - The name of the transcription job you want to delete. Job names are case
+-- sensitive.
 newDeleteTranscriptionJob ::
   -- | 'transcriptionJobName'
   Prelude.Text ->
@@ -69,7 +72,8 @@ newDeleteTranscriptionJob pTranscriptionJobName_ =
         pTranscriptionJobName_
     }
 
--- | The name of the transcription job to be deleted.
+-- | The name of the transcription job you want to delete. Job names are case
+-- sensitive.
 deleteTranscriptionJob_transcriptionJobName :: Lens.Lens' DeleteTranscriptionJob Prelude.Text
 deleteTranscriptionJob_transcriptionJobName = Lens.lens (\DeleteTranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@DeleteTranscriptionJob' {} a -> s {transcriptionJobName = a} :: DeleteTranscriptionJob)
 

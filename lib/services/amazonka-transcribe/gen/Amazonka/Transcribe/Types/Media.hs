@@ -23,22 +23,35 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the input media file in a transcription request.
+-- | Describes the Amazon S3 location of the media file you want to use in
+-- your request.
 --
 -- /See:/ 'newMedia' smart constructor.
 data Media = Media'
-  { -- | The S3 object location for your redacted output media file. This is only
-    -- supported for call analytics jobs.
+  { -- | The Amazon S3 location of the media file you want to redact. For
+    -- example:
+    --
+    -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
+    --
+    -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
+    --
+    -- Note that the Amazon S3 bucket that contains your input media must be
+    -- located in the same Amazon Web Services Region where you\'re making your
+    -- transcription request.
+    --
+    -- @RedactedMediaFileUri@ is only supported for Call Analytics
+    -- (@StartCallAnalyticsJob@) transcription requests.
     redactedMediaFileUri :: Prelude.Maybe Prelude.Text,
-    -- | The S3 object location of the input media file. The URI must be in the
-    -- same region as the API endpoint that you are calling. The general form
-    -- is:
+    -- | The Amazon S3 location of the media file you want to transcribe. For
+    -- example:
     --
-    -- For example:
+    -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
     --
-    -- For more information about S3 object names, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
-    -- in the /Amazon S3 Developer Guide/.
+    -- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
+    --
+    -- Note that the Amazon S3 bucket that contains your input media must be
+    -- located in the same Amazon Web Services Region where you\'re making your
+    -- transcription request.
     mediaFileUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,18 +64,30 @@ data Media = Media'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'redactedMediaFileUri', 'media_redactedMediaFileUri' - The S3 object location for your redacted output media file. This is only
--- supported for call analytics jobs.
+-- 'redactedMediaFileUri', 'media_redactedMediaFileUri' - The Amazon S3 location of the media file you want to redact. For
+-- example:
 --
--- 'mediaFileUri', 'media_mediaFileUri' - The S3 object location of the input media file. The URI must be in the
--- same region as the API endpoint that you are calling. The general form
--- is:
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
 --
--- For example:
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
 --
--- For more information about S3 object names, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
--- in the /Amazon S3 Developer Guide/.
+-- Note that the Amazon S3 bucket that contains your input media must be
+-- located in the same Amazon Web Services Region where you\'re making your
+-- transcription request.
+--
+-- @RedactedMediaFileUri@ is only supported for Call Analytics
+-- (@StartCallAnalyticsJob@) transcription requests.
+--
+-- 'mediaFileUri', 'media_mediaFileUri' - The Amazon S3 location of the media file you want to transcribe. For
+-- example:
+--
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
+--
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
+--
+-- Note that the Amazon S3 bucket that contains your input media must be
+-- located in the same Amazon Web Services Region where you\'re making your
+-- transcription request.
 newMedia ::
   Media
 newMedia =
@@ -71,20 +96,32 @@ newMedia =
       mediaFileUri = Prelude.Nothing
     }
 
--- | The S3 object location for your redacted output media file. This is only
--- supported for call analytics jobs.
+-- | The Amazon S3 location of the media file you want to redact. For
+-- example:
+--
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
+--
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
+--
+-- Note that the Amazon S3 bucket that contains your input media must be
+-- located in the same Amazon Web Services Region where you\'re making your
+-- transcription request.
+--
+-- @RedactedMediaFileUri@ is only supported for Call Analytics
+-- (@StartCallAnalyticsJob@) transcription requests.
 media_redactedMediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
 media_redactedMediaFileUri = Lens.lens (\Media' {redactedMediaFileUri} -> redactedMediaFileUri) (\s@Media' {} a -> s {redactedMediaFileUri = a} :: Media)
 
--- | The S3 object location of the input media file. The URI must be in the
--- same region as the API endpoint that you are calling. The general form
--- is:
+-- | The Amazon S3 location of the media file you want to transcribe. For
+-- example:
 --
--- For example:
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/my-media-file.flac@
 --
--- For more information about S3 object names, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
--- in the /Amazon S3 Developer Guide/.
+-- -   @s3:\/\/DOC-EXAMPLE-BUCKET\/media-files\/my-media-file.flac@
+--
+-- Note that the Amazon S3 bucket that contains your input media must be
+-- located in the same Amazon Web Services Region where you\'re making your
+-- transcription request.
 media_mediaFileUri :: Lens.Lens' Media (Prelude.Maybe Prelude.Text)
 media_mediaFileUri = Lens.lens (\Media' {mediaFileUri} -> mediaFileUri) (\s@Media' {} a -> s {mediaFileUri = a} :: Media)
 

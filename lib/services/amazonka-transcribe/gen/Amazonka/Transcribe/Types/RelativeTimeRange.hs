@@ -23,50 +23,39 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object that allows percentages to specify the proportion of the call
--- where you would like to apply a filter. For example, you can specify the
--- first half of the call. You can also specify the period of time between
--- halfway through to three-quarters of the way through the call. Because
--- the length of conversation can vary between calls, you can apply
--- relative time ranges across all calls.
+-- | A time range, in percentage, between two points in your media file.
+--
+-- You can use @StartPercentage@ and @EndPercentage@ to search a custom
+-- segment. For example, setting @StartPercentage@ to 10 and
+-- @EndPercentage@ to 50 only searches for your specified criteria in the
+-- audio contained between the 10 percent mark and the 50 percent mark of
+-- your media file.
+--
+-- You can use also @First@ to search from the start of the media file
+-- until the time you specify, or @Last@ to search from the time you
+-- specify until the end of the media file. For example, setting @First@ to
+-- 10 only searches for your specified criteria in the audio contained in
+-- the first 10 percent of the media file.
+--
+-- If you prefer to use milliseconds instead of percentage, see .
 --
 -- /See:/ 'newRelativeTimeRange' smart constructor.
 data RelativeTimeRange = RelativeTimeRange'
-  { -- | A range that takes the portion of the call from the time in milliseconds
-    -- set by the value that you\'ve specified to the end of the call. For
-    -- example, if you specify @120000@, the time range is set for the last
-    -- 120,000 milliseconds of the call.
+  { -- | The time, in percentage, from the value you specify until the end of
+    -- your media file in which Amazon Transcribe searches for your specified
+    -- criteria.
     last :: Prelude.Maybe Prelude.Natural,
-    -- | A value that indicates the percentage of the end of the time range. To
-    -- set a relative time range, you must specify a start percentage and an
-    -- end percentage. For example, if you specify the following values:
-    --
-    -- -   StartPercentage - 10
-    --
-    -- -   EndPercentage - 50
-    --
-    -- This looks at the time range starting from 10% of the way into the call
-    -- to 50% of the way through the call. For a call that lasts 100,000
-    -- milliseconds, this example range would apply from the 10,000 millisecond
-    -- mark to the 50,000 millisecond mark.
+    -- | The time, in percentage, when Amazon Transcribe stops searching for the
+    -- specified criteria in your media file. If you include @EndPercentage@ in
+    -- your request, you must also include @StartPercentage@.
     endPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | A value that indicates the percentage of the beginning of the time
-    -- range. To set a relative time range, you must specify a start percentage
-    -- and an end percentage. For example, if you specify the following values:
-    --
-    -- -   StartPercentage - 10
-    --
-    -- -   EndPercentage - 50
-    --
-    -- This looks at the time range starting from 10% of the way into the call
-    -- to 50% of the way through the call. For a call that lasts 100,000
-    -- milliseconds, this example range would apply from the 10,000 millisecond
-    -- mark to the 50,000 millisecond mark.
+    -- | The time, in percentage, when Amazon Transcribe starts searching for the
+    -- specified criteria in your media file. If you include @StartPercentage@
+    -- in your request, you must also include @EndPercentage@.
     startPercentage :: Prelude.Maybe Prelude.Natural,
-    -- | A range that takes the portion of the call up to the time in
-    -- milliseconds set by the value that you\'ve specified. For example, if
-    -- you specify @120000@, the time range is set for the first 120,000
-    -- milliseconds of the call.
+    -- | The time, in percentage, from the start of your media file until the
+    -- value you specify in which Amazon Transcribe searches for your specified
+    -- criteria.
     first :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,41 +68,21 @@ data RelativeTimeRange = RelativeTimeRange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'last', 'relativeTimeRange_last' - A range that takes the portion of the call from the time in milliseconds
--- set by the value that you\'ve specified to the end of the call. For
--- example, if you specify @120000@, the time range is set for the last
--- 120,000 milliseconds of the call.
+-- 'last', 'relativeTimeRange_last' - The time, in percentage, from the value you specify until the end of
+-- your media file in which Amazon Transcribe searches for your specified
+-- criteria.
 --
--- 'endPercentage', 'relativeTimeRange_endPercentage' - A value that indicates the percentage of the end of the time range. To
--- set a relative time range, you must specify a start percentage and an
--- end percentage. For example, if you specify the following values:
+-- 'endPercentage', 'relativeTimeRange_endPercentage' - The time, in percentage, when Amazon Transcribe stops searching for the
+-- specified criteria in your media file. If you include @EndPercentage@ in
+-- your request, you must also include @StartPercentage@.
 --
--- -   StartPercentage - 10
+-- 'startPercentage', 'relativeTimeRange_startPercentage' - The time, in percentage, when Amazon Transcribe starts searching for the
+-- specified criteria in your media file. If you include @StartPercentage@
+-- in your request, you must also include @EndPercentage@.
 --
--- -   EndPercentage - 50
---
--- This looks at the time range starting from 10% of the way into the call
--- to 50% of the way through the call. For a call that lasts 100,000
--- milliseconds, this example range would apply from the 10,000 millisecond
--- mark to the 50,000 millisecond mark.
---
--- 'startPercentage', 'relativeTimeRange_startPercentage' - A value that indicates the percentage of the beginning of the time
--- range. To set a relative time range, you must specify a start percentage
--- and an end percentage. For example, if you specify the following values:
---
--- -   StartPercentage - 10
---
--- -   EndPercentage - 50
---
--- This looks at the time range starting from 10% of the way into the call
--- to 50% of the way through the call. For a call that lasts 100,000
--- milliseconds, this example range would apply from the 10,000 millisecond
--- mark to the 50,000 millisecond mark.
---
--- 'first', 'relativeTimeRange_first' - A range that takes the portion of the call up to the time in
--- milliseconds set by the value that you\'ve specified. For example, if
--- you specify @120000@, the time range is set for the first 120,000
--- milliseconds of the call.
+-- 'first', 'relativeTimeRange_first' - The time, in percentage, from the start of your media file until the
+-- value you specify in which Amazon Transcribe searches for your specified
+-- criteria.
 newRelativeTimeRange ::
   RelativeTimeRange
 newRelativeTimeRange =
@@ -124,47 +93,27 @@ newRelativeTimeRange =
       first = Prelude.Nothing
     }
 
--- | A range that takes the portion of the call from the time in milliseconds
--- set by the value that you\'ve specified to the end of the call. For
--- example, if you specify @120000@, the time range is set for the last
--- 120,000 milliseconds of the call.
+-- | The time, in percentage, from the value you specify until the end of
+-- your media file in which Amazon Transcribe searches for your specified
+-- criteria.
 relativeTimeRange_last :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
 relativeTimeRange_last = Lens.lens (\RelativeTimeRange' {last} -> last) (\s@RelativeTimeRange' {} a -> s {last = a} :: RelativeTimeRange)
 
--- | A value that indicates the percentage of the end of the time range. To
--- set a relative time range, you must specify a start percentage and an
--- end percentage. For example, if you specify the following values:
---
--- -   StartPercentage - 10
---
--- -   EndPercentage - 50
---
--- This looks at the time range starting from 10% of the way into the call
--- to 50% of the way through the call. For a call that lasts 100,000
--- milliseconds, this example range would apply from the 10,000 millisecond
--- mark to the 50,000 millisecond mark.
+-- | The time, in percentage, when Amazon Transcribe stops searching for the
+-- specified criteria in your media file. If you include @EndPercentage@ in
+-- your request, you must also include @StartPercentage@.
 relativeTimeRange_endPercentage :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
 relativeTimeRange_endPercentage = Lens.lens (\RelativeTimeRange' {endPercentage} -> endPercentage) (\s@RelativeTimeRange' {} a -> s {endPercentage = a} :: RelativeTimeRange)
 
--- | A value that indicates the percentage of the beginning of the time
--- range. To set a relative time range, you must specify a start percentage
--- and an end percentage. For example, if you specify the following values:
---
--- -   StartPercentage - 10
---
--- -   EndPercentage - 50
---
--- This looks at the time range starting from 10% of the way into the call
--- to 50% of the way through the call. For a call that lasts 100,000
--- milliseconds, this example range would apply from the 10,000 millisecond
--- mark to the 50,000 millisecond mark.
+-- | The time, in percentage, when Amazon Transcribe starts searching for the
+-- specified criteria in your media file. If you include @StartPercentage@
+-- in your request, you must also include @EndPercentage@.
 relativeTimeRange_startPercentage :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
 relativeTimeRange_startPercentage = Lens.lens (\RelativeTimeRange' {startPercentage} -> startPercentage) (\s@RelativeTimeRange' {} a -> s {startPercentage = a} :: RelativeTimeRange)
 
--- | A range that takes the portion of the call up to the time in
--- milliseconds set by the value that you\'ve specified. For example, if
--- you specify @120000@, the time range is set for the first 120,000
--- milliseconds of the call.
+-- | The time, in percentage, from the start of your media file until the
+-- value you specify in which Amazon Transcribe searches for your specified
+-- criteria.
 relativeTimeRange_first :: Lens.Lens' RelativeTimeRange (Prelude.Maybe Prelude.Natural)
 relativeTimeRange_first = Lens.lens (\RelativeTimeRange' {first} -> first) (\s@RelativeTimeRange' {} a -> s {first = a} :: RelativeTimeRange)
 

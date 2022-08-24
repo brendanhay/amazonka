@@ -23,12 +23,24 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The object used to call your custom language model to your transcription
--- job.
+-- | Provides the name of the custom language model that was included in the
+-- specified transcription job.
+--
+-- Only use @ModelSettings@ with the @LanguageModelName@ sub-parameter if
+-- you\'re __not__ using automatic language identification (@@). If using
+-- @LanguageIdSettings@ in your request, this parameter contains a
+-- @LanguageModelName@ sub-parameter.
 --
 -- /See:/ 'newModelSettings' smart constructor.
 data ModelSettings = ModelSettings'
-  { -- | The name of your custom language model.
+  { -- | The name of the custom language model you want to use when processing
+    -- your transcription job. Note that language model names are case
+    -- sensitive.
+    --
+    -- The language of the specified language model must match the language
+    -- code you specify in your transcription request. If the languages don\'t
+    -- match, the language model isn\'t applied. There are no errors or
+    -- warnings associated with a language mismatch.
     languageModelName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,13 +53,27 @@ data ModelSettings = ModelSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'languageModelName', 'modelSettings_languageModelName' - The name of your custom language model.
+-- 'languageModelName', 'modelSettings_languageModelName' - The name of the custom language model you want to use when processing
+-- your transcription job. Note that language model names are case
+-- sensitive.
+--
+-- The language of the specified language model must match the language
+-- code you specify in your transcription request. If the languages don\'t
+-- match, the language model isn\'t applied. There are no errors or
+-- warnings associated with a language mismatch.
 newModelSettings ::
   ModelSettings
 newModelSettings =
   ModelSettings' {languageModelName = Prelude.Nothing}
 
--- | The name of your custom language model.
+-- | The name of the custom language model you want to use when processing
+-- your transcription job. Note that language model names are case
+-- sensitive.
+--
+-- The language of the specified language model must match the language
+-- code you specify in your transcription request. If the languages don\'t
+-- match, the language model isn\'t applied. There are no errors or
+-- warnings associated with a language mismatch.
 modelSettings_languageModelName :: Lens.Lens' ModelSettings (Prelude.Maybe Prelude.Text)
 modelSettings_languageModelName = Lens.lens (\ModelSettings' {languageModelName} -> languageModelName) (\s@ModelSettings' {} a -> s {languageModelName = a} :: ModelSettings)
 

@@ -24,16 +24,17 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.ParticipantRole
 
--- | For a call analytics job, an object that indicates the audio channel
--- that belongs to the agent and the audio channel that belongs to the
--- customer.
+-- | Allows you to specify which speaker is on which channel. For example, if
+-- your agent is the first participant to speak, you would set @ChannelId@
+-- to @0@ (to indicate the first channel) and @ParticipantRole@ to @AGENT@
+-- (to indicate that it\'s the agent speaking).
 --
 -- /See:/ 'newChannelDefinition' smart constructor.
 data ChannelDefinition = ChannelDefinition'
-  { -- | Indicates whether the person speaking on the audio channel is the agent
-    -- or customer.
+  { -- | Specify the speaker you want to define. Omitting this parameter is
+    -- equivalent to specifying both participants.
     participantRole :: Prelude.Maybe ParticipantRole,
-    -- | A value that indicates the audio channel.
+    -- | Specify the audio channel you want to define.
     channelId :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,10 +47,10 @@ data ChannelDefinition = ChannelDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'participantRole', 'channelDefinition_participantRole' - Indicates whether the person speaking on the audio channel is the agent
--- or customer.
+-- 'participantRole', 'channelDefinition_participantRole' - Specify the speaker you want to define. Omitting this parameter is
+-- equivalent to specifying both participants.
 --
--- 'channelId', 'channelDefinition_channelId' - A value that indicates the audio channel.
+-- 'channelId', 'channelDefinition_channelId' - Specify the audio channel you want to define.
 newChannelDefinition ::
   ChannelDefinition
 newChannelDefinition =
@@ -59,12 +60,12 @@ newChannelDefinition =
       channelId = Prelude.Nothing
     }
 
--- | Indicates whether the person speaking on the audio channel is the agent
--- or customer.
+-- | Specify the speaker you want to define. Omitting this parameter is
+-- equivalent to specifying both participants.
 channelDefinition_participantRole :: Lens.Lens' ChannelDefinition (Prelude.Maybe ParticipantRole)
 channelDefinition_participantRole = Lens.lens (\ChannelDefinition' {participantRole} -> participantRole) (\s@ChannelDefinition' {} a -> s {participantRole = a} :: ChannelDefinition)
 
--- | A value that indicates the audio channel.
+-- | Specify the audio channel you want to define.
 channelDefinition_channelId :: Lens.Lens' ChannelDefinition (Prelude.Maybe Prelude.Natural)
 channelDefinition_channelId = Lens.lens (\ChannelDefinition' {channelId} -> channelId) (\s@ChannelDefinition' {} a -> s {channelId = a} :: ChannelDefinition)
 

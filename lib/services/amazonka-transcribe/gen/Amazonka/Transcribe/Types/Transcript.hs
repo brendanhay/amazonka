@@ -23,25 +23,46 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Identifies the location of a transcription.
+-- | Provides you with the Amazon S3 URI you can use to access your
+-- transcript.
 --
 -- /See:/ 'newTranscript' smart constructor.
 data Transcript = Transcript'
-  { -- | The S3 object location of the redacted transcript.
+  { -- | The Amazon S3 location of your redacted transcript. You can use this URI
+    -- to access or download your transcript.
     --
-    -- Use this URI to access the redacted transcript. If you specified an S3
-    -- bucket in the @OutputBucketName@ field when you created the job, this is
-    -- the URI of that bucket. If you chose to store the transcript in Amazon
-    -- Transcribe, this is a shareable URL that provides secure access to that
-    -- location.
+    -- If you included @OutputBucketName@ in your transcription job request,
+    -- this is the URI of that bucket. If you also included @OutputKey@ in your
+    -- request, your output is located in the path you specified in your
+    -- request.
+    --
+    -- If you didn\'t include @OutputBucketName@ in your transcription job
+    -- request, your transcript is stored in a service-managed bucket, and
+    -- @RedactedTranscriptFileUri@ provides you with a temporary URI you can
+    -- use for secure access to your transcript.
+    --
+    -- Temporary URIs for service-managed Amazon S3 buckets are only valid for
+    -- 15 minutes. If you get an @AccesDenied@ error, you can get a new
+    -- temporary URI by running a @GetTranscriptionJob@ or
+    -- @ListTranscriptionJob@ request.
     redactedTranscriptFileUri :: Prelude.Maybe Prelude.Text,
-    -- | The S3 object location of the transcript.
+    -- | The Amazon S3 location of your transcript. You can use this URI to
+    -- access or download your transcript.
     --
-    -- Use this URI to access the transcript. If you specified an S3 bucket in
-    -- the @OutputBucketName@ field when you created the job, this is the URI
-    -- of that bucket. If you chose to store the transcript in Amazon
-    -- Transcribe, this is a shareable URL that provides secure access to that
-    -- location.
+    -- If you included @OutputBucketName@ in your transcription job request,
+    -- this is the URI of that bucket. If you also included @OutputKey@ in your
+    -- request, your output is located in the path you specified in your
+    -- request.
+    --
+    -- If you didn\'t include @OutputBucketName@ in your transcription job
+    -- request, your transcript is stored in a service-managed bucket, and
+    -- @TranscriptFileUri@ provides you with a temporary URI you can use for
+    -- secure access to your transcript.
+    --
+    -- Temporary URIs for service-managed Amazon S3 buckets are only valid for
+    -- 15 minutes. If you get an @AccesDenied@ error, you can get a new
+    -- temporary URI by running a @GetTranscriptionJob@ or
+    -- @ListTranscriptionJob@ request.
     transcriptFileUri :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,21 +75,41 @@ data Transcript = Transcript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'redactedTranscriptFileUri', 'transcript_redactedTranscriptFileUri' - The S3 object location of the redacted transcript.
+-- 'redactedTranscriptFileUri', 'transcript_redactedTranscriptFileUri' - The Amazon S3 location of your redacted transcript. You can use this URI
+-- to access or download your transcript.
 --
--- Use this URI to access the redacted transcript. If you specified an S3
--- bucket in the @OutputBucketName@ field when you created the job, this is
--- the URI of that bucket. If you chose to store the transcript in Amazon
--- Transcribe, this is a shareable URL that provides secure access to that
--- location.
+-- If you included @OutputBucketName@ in your transcription job request,
+-- this is the URI of that bucket. If you also included @OutputKey@ in your
+-- request, your output is located in the path you specified in your
+-- request.
 --
--- 'transcriptFileUri', 'transcript_transcriptFileUri' - The S3 object location of the transcript.
+-- If you didn\'t include @OutputBucketName@ in your transcription job
+-- request, your transcript is stored in a service-managed bucket, and
+-- @RedactedTranscriptFileUri@ provides you with a temporary URI you can
+-- use for secure access to your transcript.
 --
--- Use this URI to access the transcript. If you specified an S3 bucket in
--- the @OutputBucketName@ field when you created the job, this is the URI
--- of that bucket. If you chose to store the transcript in Amazon
--- Transcribe, this is a shareable URL that provides secure access to that
--- location.
+-- Temporary URIs for service-managed Amazon S3 buckets are only valid for
+-- 15 minutes. If you get an @AccesDenied@ error, you can get a new
+-- temporary URI by running a @GetTranscriptionJob@ or
+-- @ListTranscriptionJob@ request.
+--
+-- 'transcriptFileUri', 'transcript_transcriptFileUri' - The Amazon S3 location of your transcript. You can use this URI to
+-- access or download your transcript.
+--
+-- If you included @OutputBucketName@ in your transcription job request,
+-- this is the URI of that bucket. If you also included @OutputKey@ in your
+-- request, your output is located in the path you specified in your
+-- request.
+--
+-- If you didn\'t include @OutputBucketName@ in your transcription job
+-- request, your transcript is stored in a service-managed bucket, and
+-- @TranscriptFileUri@ provides you with a temporary URI you can use for
+-- secure access to your transcript.
+--
+-- Temporary URIs for service-managed Amazon S3 buckets are only valid for
+-- 15 minutes. If you get an @AccesDenied@ error, you can get a new
+-- temporary URI by running a @GetTranscriptionJob@ or
+-- @ListTranscriptionJob@ request.
 newTranscript ::
   Transcript
 newTranscript =
@@ -78,23 +119,43 @@ newTranscript =
       transcriptFileUri = Prelude.Nothing
     }
 
--- | The S3 object location of the redacted transcript.
+-- | The Amazon S3 location of your redacted transcript. You can use this URI
+-- to access or download your transcript.
 --
--- Use this URI to access the redacted transcript. If you specified an S3
--- bucket in the @OutputBucketName@ field when you created the job, this is
--- the URI of that bucket. If you chose to store the transcript in Amazon
--- Transcribe, this is a shareable URL that provides secure access to that
--- location.
+-- If you included @OutputBucketName@ in your transcription job request,
+-- this is the URI of that bucket. If you also included @OutputKey@ in your
+-- request, your output is located in the path you specified in your
+-- request.
+--
+-- If you didn\'t include @OutputBucketName@ in your transcription job
+-- request, your transcript is stored in a service-managed bucket, and
+-- @RedactedTranscriptFileUri@ provides you with a temporary URI you can
+-- use for secure access to your transcript.
+--
+-- Temporary URIs for service-managed Amazon S3 buckets are only valid for
+-- 15 minutes. If you get an @AccesDenied@ error, you can get a new
+-- temporary URI by running a @GetTranscriptionJob@ or
+-- @ListTranscriptionJob@ request.
 transcript_redactedTranscriptFileUri :: Lens.Lens' Transcript (Prelude.Maybe Prelude.Text)
 transcript_redactedTranscriptFileUri = Lens.lens (\Transcript' {redactedTranscriptFileUri} -> redactedTranscriptFileUri) (\s@Transcript' {} a -> s {redactedTranscriptFileUri = a} :: Transcript)
 
--- | The S3 object location of the transcript.
+-- | The Amazon S3 location of your transcript. You can use this URI to
+-- access or download your transcript.
 --
--- Use this URI to access the transcript. If you specified an S3 bucket in
--- the @OutputBucketName@ field when you created the job, this is the URI
--- of that bucket. If you chose to store the transcript in Amazon
--- Transcribe, this is a shareable URL that provides secure access to that
--- location.
+-- If you included @OutputBucketName@ in your transcription job request,
+-- this is the URI of that bucket. If you also included @OutputKey@ in your
+-- request, your output is located in the path you specified in your
+-- request.
+--
+-- If you didn\'t include @OutputBucketName@ in your transcription job
+-- request, your transcript is stored in a service-managed bucket, and
+-- @TranscriptFileUri@ provides you with a temporary URI you can use for
+-- secure access to your transcript.
+--
+-- Temporary URIs for service-managed Amazon S3 buckets are only valid for
+-- 15 minutes. If you get an @AccesDenied@ error, you can get a new
+-- temporary URI by running a @GetTranscriptionJob@ or
+-- @ListTranscriptionJob@ request.
 transcript_transcriptFileUri :: Lens.Lens' Transcript (Prelude.Maybe Prelude.Text)
 transcript_transcriptFileUri = Lens.lens (\Transcript' {transcriptFileUri} -> transcriptFileUri) (\s@Transcript' {} a -> s {transcriptFileUri = a} :: Transcript)
 

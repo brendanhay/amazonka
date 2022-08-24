@@ -23,20 +23,39 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The object that contains the Amazon S3 object location and access role
--- required to train and tune your custom language model.
+-- | Contains the Amazon S3 location of the training data you want to use to
+-- create a new custom language model, and permissions to access this
+-- location.
+--
+-- When using @InputDataConfig@, you must include these sub-parameters:
+-- @S3Uri@ and @DataAccessRoleArn@. You can optionally include
+-- @TuningDataS3Uri@.
 --
 -- /See:/ 'newInputDataConfig' smart constructor.
 data InputDataConfig = InputDataConfig'
-  { -- | The Amazon S3 prefix you specify to access the plain text files that you
-    -- use to tune your custom language model.
+  { -- | The Amazon S3 location (URI) of the text files you want to use to tune
+    -- your custom language model.
+    --
+    -- Here\'s an example URI path:
+    -- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-model-tuning-data\/@
     tuningDataS3Uri :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 prefix you specify to access the plain text files that you
-    -- use to train your custom language model.
+    -- | The Amazon S3 location (URI) of the text files you want to use to train
+    -- your custom language model.
+    --
+    -- Here\'s an example URI path:
+    -- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-model-training-data\/@
     s3Uri :: Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that uniquely identifies the permissions
-    -- you\'ve given Amazon Transcribe to access your Amazon S3 buckets
-    -- containing your media files or text data.
+    -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+    -- access the Amazon S3 bucket that contains your input files. If the role
+    -- you specify doesn’t have the appropriate permissions to access the
+    -- specified Amazon S3 location, your request fails.
+    --
+    -- IAM role ARNs have the format
+    -- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+    -- @arn:aws:iam::111122223333:role\/Admin@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
     dataAccessRoleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,15 +68,29 @@ data InputDataConfig = InputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tuningDataS3Uri', 'inputDataConfig_tuningDataS3Uri' - The Amazon S3 prefix you specify to access the plain text files that you
--- use to tune your custom language model.
+-- 'tuningDataS3Uri', 'inputDataConfig_tuningDataS3Uri' - The Amazon S3 location (URI) of the text files you want to use to tune
+-- your custom language model.
 --
--- 's3Uri', 'inputDataConfig_s3Uri' - The Amazon S3 prefix you specify to access the plain text files that you
--- use to train your custom language model.
+-- Here\'s an example URI path:
+-- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-model-tuning-data\/@
 --
--- 'dataAccessRoleArn', 'inputDataConfig_dataAccessRoleArn' - The Amazon Resource Name (ARN) that uniquely identifies the permissions
--- you\'ve given Amazon Transcribe to access your Amazon S3 buckets
--- containing your media files or text data.
+-- 's3Uri', 'inputDataConfig_s3Uri' - The Amazon S3 location (URI) of the text files you want to use to train
+-- your custom language model.
+--
+-- Here\'s an example URI path:
+-- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-model-training-data\/@
+--
+-- 'dataAccessRoleArn', 'inputDataConfig_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files. If the role
+-- you specify doesn’t have the appropriate permissions to access the
+-- specified Amazon S3 location, your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
 newInputDataConfig ::
   -- | 's3Uri'
   Prelude.Text ->
@@ -71,19 +104,33 @@ newInputDataConfig pS3Uri_ pDataAccessRoleArn_ =
       dataAccessRoleArn = pDataAccessRoleArn_
     }
 
--- | The Amazon S3 prefix you specify to access the plain text files that you
--- use to tune your custom language model.
+-- | The Amazon S3 location (URI) of the text files you want to use to tune
+-- your custom language model.
+--
+-- Here\'s an example URI path:
+-- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-model-tuning-data\/@
 inputDataConfig_tuningDataS3Uri :: Lens.Lens' InputDataConfig (Prelude.Maybe Prelude.Text)
 inputDataConfig_tuningDataS3Uri = Lens.lens (\InputDataConfig' {tuningDataS3Uri} -> tuningDataS3Uri) (\s@InputDataConfig' {} a -> s {tuningDataS3Uri = a} :: InputDataConfig)
 
--- | The Amazon S3 prefix you specify to access the plain text files that you
--- use to train your custom language model.
+-- | The Amazon S3 location (URI) of the text files you want to use to train
+-- your custom language model.
+--
+-- Here\'s an example URI path:
+-- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-model-training-data\/@
 inputDataConfig_s3Uri :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_s3Uri = Lens.lens (\InputDataConfig' {s3Uri} -> s3Uri) (\s@InputDataConfig' {} a -> s {s3Uri = a} :: InputDataConfig)
 
--- | The Amazon Resource Name (ARN) that uniquely identifies the permissions
--- you\'ve given Amazon Transcribe to access your Amazon S3 buckets
--- containing your media files or text data.
+-- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files. If the role
+-- you specify doesn’t have the appropriate permissions to access the
+-- specified Amazon S3 location, your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
 inputDataConfig_dataAccessRoleArn :: Lens.Lens' InputDataConfig Prelude.Text
 inputDataConfig_dataAccessRoleArn = Lens.lens (\InputDataConfig' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@InputDataConfig' {} a -> s {dataAccessRoleArn = a} :: InputDataConfig)
 

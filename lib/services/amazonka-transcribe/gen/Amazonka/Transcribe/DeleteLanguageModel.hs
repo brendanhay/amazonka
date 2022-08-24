@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a custom language model using its name.
+-- Deletes a custom language model. To use this operation, specify the name
+-- of the language model you want to delete using @ModelName@. Language
+-- model names are case sensitive.
 module Amazonka.Transcribe.DeleteLanguageModel
   ( -- * Creating a Request
     DeleteLanguageModel (..),
@@ -44,7 +46,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newDeleteLanguageModel' smart constructor.
 data DeleteLanguageModel = DeleteLanguageModel'
-  { -- | The name of the model you\'re choosing to delete.
+  { -- | The name of the custom language model you want to delete. Model names
+    -- are case sensitive.
     modelName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +60,8 @@ data DeleteLanguageModel = DeleteLanguageModel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'modelName', 'deleteLanguageModel_modelName' - The name of the model you\'re choosing to delete.
+-- 'modelName', 'deleteLanguageModel_modelName' - The name of the custom language model you want to delete. Model names
+-- are case sensitive.
 newDeleteLanguageModel ::
   -- | 'modelName'
   Prelude.Text ->
@@ -65,7 +69,8 @@ newDeleteLanguageModel ::
 newDeleteLanguageModel pModelName_ =
   DeleteLanguageModel' {modelName = pModelName_}
 
--- | The name of the model you\'re choosing to delete.
+-- | The name of the custom language model you want to delete. Model names
+-- are case sensitive.
 deleteLanguageModel_modelName :: Lens.Lens' DeleteLanguageModel Prelude.Text
 deleteLanguageModel_modelName = Lens.lens (\DeleteLanguageModel' {modelName} -> modelName) (\s@DeleteLanguageModel' {} a -> s {modelName = a} :: DeleteLanguageModel)
 

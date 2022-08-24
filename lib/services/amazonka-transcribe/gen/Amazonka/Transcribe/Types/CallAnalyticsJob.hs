@@ -30,88 +30,137 @@ import Amazonka.Transcribe.Types.Media
 import Amazonka.Transcribe.Types.MediaFormat
 import Amazonka.Transcribe.Types.Transcript
 
--- | Describes an asynchronous analytics job that was created with the
--- @StartAnalyticsJob@ operation.
+-- | Provides detailed information about a Call Analytics job.
+--
+-- To view the job\'s status, refer to @CallAnalyticsJobStatus@. If the
+-- status is @COMPLETED@, the job is finished. You can find your completed
+-- transcript at the URI specified in @TranscriptFileUri@. If the status is
+-- @FAILED@, @FailureReason@ provides details on why your transcription job
+-- failed.
+--
+-- If you enabled personally identifiable information (PII) redaction, the
+-- redacted transcript appears at the location specified in
+-- @RedactedTranscriptFileUri@.
+--
+-- If you chose to redact the audio in your media file, you can find your
+-- redacted media file at the location specified in the
+-- @RedactedMediaFileUri@ field of your response.
 --
 -- /See:/ 'newCallAnalyticsJob' smart constructor.
 data CallAnalyticsJob = CallAnalyticsJob'
   { transcript :: Prelude.Maybe Transcript,
-    -- | The format of the input audio file. Note: for call analytics jobs, only
-    -- the following media formats are supported: MP3, MP4, WAV, FLAC, OGG, and
-    -- WebM.
+    -- | The format of the input media file.
     mediaFormat :: Prelude.Maybe MediaFormat,
-    -- | The status of the analytics job.
+    -- | Provides the status of the specified Call Analytics job.
+    --
+    -- If the status is @COMPLETED@, the job is finished and you can find the
+    -- results at the location specified in @TranscriptFileUri@ (or
+    -- @RedactedTranscriptFileUri@, if you requested transcript redaction). If
+    -- the status is @FAILED@, @FailureReason@ provides details on why your
+    -- transcription job failed.
     callAnalyticsJobStatus :: Prelude.Maybe CallAnalyticsJobStatus,
-    -- | The Amazon Resource Number (ARN) that you use to get access to the
-    -- analytics job.
+    -- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+    -- access the Amazon S3 bucket that contains your input files. If the role
+    -- you specify doesn’t have the appropriate permissions to access the
+    -- specified Amazon S3 location, your request fails.
+    --
+    -- IAM role ARNs have the format
+    -- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+    -- @arn:aws:iam::111122223333:role\/Admin@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
     dataAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp that shows when the analytics job was completed.
+    -- | The date and time the specified Call Analytics job finished processing.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
+    -- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
     completionTime :: Prelude.Maybe Core.POSIX,
-    -- | Provides information about the settings used to run a transcription job.
+    -- | Allows additional optional settings in your request, including content
+    -- redaction; allows you to apply custom language models, vocabulary
+    -- filters, and custom vocabularies to your Call Analytics job.
     settings :: Prelude.Maybe CallAnalyticsJobSettings,
-    -- | The sample rate, in Hertz, of the audio.
+    -- | The sample rate, in Hertz, of the audio track in your input media file.
     mediaSampleRateHertz :: Prelude.Maybe Prelude.Natural,
-    -- | If you know the language spoken between the customer and the agent,
-    -- specify a language code for this field.
+    -- | The language code used to create your Call Analytics job. For a list of
+    -- supported languages and their associated language codes, refer to the
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+    -- table.
     --
-    -- If you don\'t know the language, you can leave this field blank, and
-    -- Amazon Transcribe will use machine learning to automatically identify
-    -- the language. To improve the accuracy of language identification, you
-    -- can provide an array containing the possible language codes for the
-    -- language spoken in your audio. Refer to
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features>
-    -- for additional information.
+    -- If you don\'t know the language spoken in your media file, you can omit
+    -- this field and let Amazon Transcribe automatically identify the language
+    -- of your media. To improve the accuracy of language identification, you
+    -- can include several language codes and Amazon Transcribe chooses the
+    -- closest match for your transcription.
     languageCode :: Prelude.Maybe LanguageCode,
-    -- | The name of the call analytics job.
+    -- | The name of the Call Analytics job. Job names are case sensitive and
+    -- must be unique within an Amazon Web Services account.
     callAnalyticsJobName :: Prelude.Maybe Prelude.Text,
-    -- | A timestamp that shows when the analytics job was created.
+    -- | The date and time the specified Call Analytics job request was made.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+    -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | A value between zero and one that Amazon Transcribe assigned to the
-    -- language that it identified in the source audio. This value appears only
-    -- when you don\'t provide a single language code. Larger values indicate
-    -- that Amazon Transcribe has higher confidence in the language that it
-    -- identified
+    -- | The confidence score associated with the language identified in your
+    -- media file.
+    --
+    -- Confidence scores are values between 0 and 1; a larger value indicates a
+    -- higher probability that the identified language correctly matches the
+    -- language spoken in your media.
     identifiedLanguageScore :: Prelude.Maybe Prelude.Double,
-    -- | A timestamp that shows when the analytics job started processing.
+    -- | The date and time the specified Call Analytics job began processing.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
+    -- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | If the @AnalyticsJobStatus@ is @FAILED@, this field contains information
-    -- about why the job failed.
+    -- | If @CallAnalyticsJobStatus@ is @FAILED@, @FailureReason@ contains
+    -- information about why the Call Analytics job request failed.
     --
-    -- The @FailureReason@ field can contain one of the following values:
+    -- The @FailureReason@ field contains one of the following values:
     --
-    -- -   @Unsupported media format@: The media format specified in the
-    --     @MediaFormat@ field of the request isn\'t valid. See the description
-    --     of the @MediaFormat@ field for a list of valid values.
+    -- -   @Unsupported media format@.
     --
-    -- -   @The media format provided does not match the detected media format@:
-    --     The media format of the audio file doesn\'t match the format
-    --     specified in the @MediaFormat@ field in the request. Check the media
-    --     format of your media file and make sure the two values match.
+    --     The media format specified in @MediaFormat@ isn\'t valid. Refer to
+    --     __MediaFormat__ for a list of supported formats.
     --
-    -- -   @Invalid sample rate for audio file@: The sample rate specified in
-    --     the @MediaSampleRateHertz@ of the request isn\'t valid. The sample
-    --     rate must be between 8,000 and 48,000 Hertz.
+    -- -   @The media format provided does not match the detected media format@.
     --
-    -- -   @The sample rate provided does not match the detected sample rate@:
-    --     The sample rate in the audio file doesn\'t match the sample rate
-    --     specified in the @MediaSampleRateHertz@ field in the request. Check
-    --     the sample rate of your media file and make sure that the two values
-    --     match.
+    --     The media format specified in @MediaFormat@ doesn\'t match the
+    --     format of the input file. Check the media format of your media file
+    --     and correct the specified value.
     --
-    -- -   @Invalid file size: file size too large@: The size of your audio
-    --     file is larger than what Amazon Transcribe Medical can process. For
-    --     more information, see /Guidelines and Quotas/ in the Amazon
-    --     Transcribe Medical Guide.
+    -- -   @Invalid sample rate for audio file@.
     --
-    -- -   @Invalid number of channels: number of channels too large@: Your
-    --     audio contains more channels than Amazon Transcribe Medical is
-    --     configured to process. To request additional channels, see Amazon
-    --     Transcribe Medical Endpoints and Quotas in the
-    --     <https://docs.aws.amazon.com/general/latest/gr/Welcome.html Amazon Web Services General Reference>.
+    --     The sample rate specified in @MediaSampleRateHertz@ isn\'t valid.
+    --     The sample rate must be between 8,000 and 48,000 Hertz.
+    --
+    -- -   @The sample rate provided does not match the detected sample rate@.
+    --
+    --     The sample rate specified in @MediaSampleRateHertz@ doesn\'t match
+    --     the sample rate detected in your input media file. Check the sample
+    --     rate of your media file and correct the specified value.
+    --
+    -- -   @Invalid file size: file size too large@.
+    --
+    --     The size of your media file is larger than what Amazon Transcribe
+    --     can process. For more information, refer to
+    --     <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and quotas>.
+    --
+    -- -   @Invalid number of channels: number of channels too large@.
+    --
+    --     Your audio contains more channels than Amazon Transcribe is able to
+    --     process. For more information, refer to
+    --     <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and quotas>.
     failureReason :: Prelude.Maybe Prelude.Text,
     media :: Prelude.Maybe Media,
-    -- | Shows numeric values to indicate the channel assigned to the agent\'s
-    -- audio and the channel assigned to the customer\'s audio.
+    -- | Allows you to specify which speaker is on which channel in your Call
+    -- Analytics job request. For example, if your agent is the first
+    -- participant to speak, you would set @ChannelId@ to @0@ (to indicate the
+    -- first channel) and @ParticipantRole@ to @AGENT@ (to indicate that it\'s
+    -- the agent speaking).
     channelDefinitions :: Prelude.Maybe (Prelude.NonEmpty ChannelDefinition)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -126,83 +175,119 @@ data CallAnalyticsJob = CallAnalyticsJob'
 --
 -- 'transcript', 'callAnalyticsJob_transcript' - Undocumented member.
 --
--- 'mediaFormat', 'callAnalyticsJob_mediaFormat' - The format of the input audio file. Note: for call analytics jobs, only
--- the following media formats are supported: MP3, MP4, WAV, FLAC, OGG, and
--- WebM.
+-- 'mediaFormat', 'callAnalyticsJob_mediaFormat' - The format of the input media file.
 --
--- 'callAnalyticsJobStatus', 'callAnalyticsJob_callAnalyticsJobStatus' - The status of the analytics job.
+-- 'callAnalyticsJobStatus', 'callAnalyticsJob_callAnalyticsJobStatus' - Provides the status of the specified Call Analytics job.
 --
--- 'dataAccessRoleArn', 'callAnalyticsJob_dataAccessRoleArn' - The Amazon Resource Number (ARN) that you use to get access to the
--- analytics job.
+-- If the status is @COMPLETED@, the job is finished and you can find the
+-- results at the location specified in @TranscriptFileUri@ (or
+-- @RedactedTranscriptFileUri@, if you requested transcript redaction). If
+-- the status is @FAILED@, @FailureReason@ provides details on why your
+-- transcription job failed.
 --
--- 'completionTime', 'callAnalyticsJob_completionTime' - A timestamp that shows when the analytics job was completed.
+-- 'dataAccessRoleArn', 'callAnalyticsJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files. If the role
+-- you specify doesn’t have the appropriate permissions to access the
+-- specified Amazon S3 location, your request fails.
 --
--- 'settings', 'callAnalyticsJob_settings' - Provides information about the settings used to run a transcription job.
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
 --
--- 'mediaSampleRateHertz', 'callAnalyticsJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the audio.
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
 --
--- 'languageCode', 'callAnalyticsJob_languageCode' - If you know the language spoken between the customer and the agent,
--- specify a language code for this field.
+-- 'completionTime', 'callAnalyticsJob_completionTime' - The date and time the specified Call Analytics job finished processing.
 --
--- If you don\'t know the language, you can leave this field blank, and
--- Amazon Transcribe will use machine learning to automatically identify
--- the language. To improve the accuracy of language identification, you
--- can provide an array containing the possible language codes for the
--- language spoken in your audio. Refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features>
--- for additional information.
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
+-- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
 --
--- 'callAnalyticsJobName', 'callAnalyticsJob_callAnalyticsJobName' - The name of the call analytics job.
+-- 'settings', 'callAnalyticsJob_settings' - Allows additional optional settings in your request, including content
+-- redaction; allows you to apply custom language models, vocabulary
+-- filters, and custom vocabularies to your Call Analytics job.
 --
--- 'creationTime', 'callAnalyticsJob_creationTime' - A timestamp that shows when the analytics job was created.
+-- 'mediaSampleRateHertz', 'callAnalyticsJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in your input media file.
 --
--- 'identifiedLanguageScore', 'callAnalyticsJob_identifiedLanguageScore' - A value between zero and one that Amazon Transcribe assigned to the
--- language that it identified in the source audio. This value appears only
--- when you don\'t provide a single language code. Larger values indicate
--- that Amazon Transcribe has higher confidence in the language that it
--- identified
+-- 'languageCode', 'callAnalyticsJob_languageCode' - The language code used to create your Call Analytics job. For a list of
+-- supported languages and their associated language codes, refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
 --
--- 'startTime', 'callAnalyticsJob_startTime' - A timestamp that shows when the analytics job started processing.
+-- If you don\'t know the language spoken in your media file, you can omit
+-- this field and let Amazon Transcribe automatically identify the language
+-- of your media. To improve the accuracy of language identification, you
+-- can include several language codes and Amazon Transcribe chooses the
+-- closest match for your transcription.
 --
--- 'failureReason', 'callAnalyticsJob_failureReason' - If the @AnalyticsJobStatus@ is @FAILED@, this field contains information
--- about why the job failed.
+-- 'callAnalyticsJobName', 'callAnalyticsJob_callAnalyticsJobName' - The name of the Call Analytics job. Job names are case sensitive and
+-- must be unique within an Amazon Web Services account.
 --
--- The @FailureReason@ field can contain one of the following values:
+-- 'creationTime', 'callAnalyticsJob_creationTime' - The date and time the specified Call Analytics job request was made.
 --
--- -   @Unsupported media format@: The media format specified in the
---     @MediaFormat@ field of the request isn\'t valid. See the description
---     of the @MediaFormat@ field for a list of valid values.
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 --
--- -   @The media format provided does not match the detected media format@:
---     The media format of the audio file doesn\'t match the format
---     specified in the @MediaFormat@ field in the request. Check the media
---     format of your media file and make sure the two values match.
+-- 'identifiedLanguageScore', 'callAnalyticsJob_identifiedLanguageScore' - The confidence score associated with the language identified in your
+-- media file.
 --
--- -   @Invalid sample rate for audio file@: The sample rate specified in
---     the @MediaSampleRateHertz@ of the request isn\'t valid. The sample
---     rate must be between 8,000 and 48,000 Hertz.
+-- Confidence scores are values between 0 and 1; a larger value indicates a
+-- higher probability that the identified language correctly matches the
+-- language spoken in your media.
 --
--- -   @The sample rate provided does not match the detected sample rate@:
---     The sample rate in the audio file doesn\'t match the sample rate
---     specified in the @MediaSampleRateHertz@ field in the request. Check
---     the sample rate of your media file and make sure that the two values
---     match.
+-- 'startTime', 'callAnalyticsJob_startTime' - The date and time the specified Call Analytics job began processing.
 --
--- -   @Invalid file size: file size too large@: The size of your audio
---     file is larger than what Amazon Transcribe Medical can process. For
---     more information, see /Guidelines and Quotas/ in the Amazon
---     Transcribe Medical Guide.
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 --
--- -   @Invalid number of channels: number of channels too large@: Your
---     audio contains more channels than Amazon Transcribe Medical is
---     configured to process. To request additional channels, see Amazon
---     Transcribe Medical Endpoints and Quotas in the
---     <https://docs.aws.amazon.com/general/latest/gr/Welcome.html Amazon Web Services General Reference>.
+-- 'failureReason', 'callAnalyticsJob_failureReason' - If @CallAnalyticsJobStatus@ is @FAILED@, @FailureReason@ contains
+-- information about why the Call Analytics job request failed.
+--
+-- The @FailureReason@ field contains one of the following values:
+--
+-- -   @Unsupported media format@.
+--
+--     The media format specified in @MediaFormat@ isn\'t valid. Refer to
+--     __MediaFormat__ for a list of supported formats.
+--
+-- -   @The media format provided does not match the detected media format@.
+--
+--     The media format specified in @MediaFormat@ doesn\'t match the
+--     format of the input file. Check the media format of your media file
+--     and correct the specified value.
+--
+-- -   @Invalid sample rate for audio file@.
+--
+--     The sample rate specified in @MediaSampleRateHertz@ isn\'t valid.
+--     The sample rate must be between 8,000 and 48,000 Hertz.
+--
+-- -   @The sample rate provided does not match the detected sample rate@.
+--
+--     The sample rate specified in @MediaSampleRateHertz@ doesn\'t match
+--     the sample rate detected in your input media file. Check the sample
+--     rate of your media file and correct the specified value.
+--
+-- -   @Invalid file size: file size too large@.
+--
+--     The size of your media file is larger than what Amazon Transcribe
+--     can process. For more information, refer to
+--     <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and quotas>.
+--
+-- -   @Invalid number of channels: number of channels too large@.
+--
+--     Your audio contains more channels than Amazon Transcribe is able to
+--     process. For more information, refer to
+--     <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and quotas>.
 --
 -- 'media', 'callAnalyticsJob_media' - Undocumented member.
 --
--- 'channelDefinitions', 'callAnalyticsJob_channelDefinitions' - Shows numeric values to indicate the channel assigned to the agent\'s
--- audio and the channel assigned to the customer\'s audio.
+-- 'channelDefinitions', 'callAnalyticsJob_channelDefinitions' - Allows you to specify which speaker is on which channel in your Call
+-- Analytics job request. For example, if your agent is the first
+-- participant to speak, you would set @ChannelId@ to @0@ (to indicate the
+-- first channel) and @ParticipantRole@ to @AGENT@ (to indicate that it\'s
+-- the agent speaking).
 newCallAnalyticsJob ::
   CallAnalyticsJob
 newCallAnalyticsJob =
@@ -228,100 +313,133 @@ newCallAnalyticsJob =
 callAnalyticsJob_transcript :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Transcript)
 callAnalyticsJob_transcript = Lens.lens (\CallAnalyticsJob' {transcript} -> transcript) (\s@CallAnalyticsJob' {} a -> s {transcript = a} :: CallAnalyticsJob)
 
--- | The format of the input audio file. Note: for call analytics jobs, only
--- the following media formats are supported: MP3, MP4, WAV, FLAC, OGG, and
--- WebM.
+-- | The format of the input media file.
 callAnalyticsJob_mediaFormat :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe MediaFormat)
 callAnalyticsJob_mediaFormat = Lens.lens (\CallAnalyticsJob' {mediaFormat} -> mediaFormat) (\s@CallAnalyticsJob' {} a -> s {mediaFormat = a} :: CallAnalyticsJob)
 
--- | The status of the analytics job.
+-- | Provides the status of the specified Call Analytics job.
+--
+-- If the status is @COMPLETED@, the job is finished and you can find the
+-- results at the location specified in @TranscriptFileUri@ (or
+-- @RedactedTranscriptFileUri@, if you requested transcript redaction). If
+-- the status is @FAILED@, @FailureReason@ provides details on why your
+-- transcription job failed.
 callAnalyticsJob_callAnalyticsJobStatus :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe CallAnalyticsJobStatus)
 callAnalyticsJob_callAnalyticsJobStatus = Lens.lens (\CallAnalyticsJob' {callAnalyticsJobStatus} -> callAnalyticsJobStatus) (\s@CallAnalyticsJob' {} a -> s {callAnalyticsJobStatus = a} :: CallAnalyticsJob)
 
--- | The Amazon Resource Number (ARN) that you use to get access to the
--- analytics job.
+-- | The Amazon Resource Name (ARN) of an IAM role that has permissions to
+-- access the Amazon S3 bucket that contains your input files. If the role
+-- you specify doesn’t have the appropriate permissions to access the
+-- specified Amazon S3 location, your request fails.
+--
+-- IAM role ARNs have the format
+-- @arn:partition:iam::account:role\/role-name-with-path@. For example:
+-- @arn:aws:iam::111122223333:role\/Admin@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns IAM ARNs>.
 callAnalyticsJob_dataAccessRoleArn :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Prelude.Text)
 callAnalyticsJob_dataAccessRoleArn = Lens.lens (\CallAnalyticsJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@CallAnalyticsJob' {} a -> s {dataAccessRoleArn = a} :: CallAnalyticsJob)
 
--- | A timestamp that shows when the analytics job was completed.
+-- | The date and time the specified Call Analytics job finished processing.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:33:13.922000-07:00@ represents a transcription
+-- job that started processing at 12:33 PM UTC-7 on May 4, 2022.
 callAnalyticsJob_completionTime :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Prelude.UTCTime)
 callAnalyticsJob_completionTime = Lens.lens (\CallAnalyticsJob' {completionTime} -> completionTime) (\s@CallAnalyticsJob' {} a -> s {completionTime = a} :: CallAnalyticsJob) Prelude.. Lens.mapping Core._Time
 
--- | Provides information about the settings used to run a transcription job.
+-- | Allows additional optional settings in your request, including content
+-- redaction; allows you to apply custom language models, vocabulary
+-- filters, and custom vocabularies to your Call Analytics job.
 callAnalyticsJob_settings :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe CallAnalyticsJobSettings)
 callAnalyticsJob_settings = Lens.lens (\CallAnalyticsJob' {settings} -> settings) (\s@CallAnalyticsJob' {} a -> s {settings = a} :: CallAnalyticsJob)
 
--- | The sample rate, in Hertz, of the audio.
+-- | The sample rate, in Hertz, of the audio track in your input media file.
 callAnalyticsJob_mediaSampleRateHertz :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Prelude.Natural)
 callAnalyticsJob_mediaSampleRateHertz = Lens.lens (\CallAnalyticsJob' {mediaSampleRateHertz} -> mediaSampleRateHertz) (\s@CallAnalyticsJob' {} a -> s {mediaSampleRateHertz = a} :: CallAnalyticsJob)
 
--- | If you know the language spoken between the customer and the agent,
--- specify a language code for this field.
+-- | The language code used to create your Call Analytics job. For a list of
+-- supported languages and their associated language codes, refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
 --
--- If you don\'t know the language, you can leave this field blank, and
--- Amazon Transcribe will use machine learning to automatically identify
--- the language. To improve the accuracy of language identification, you
--- can provide an array containing the possible language codes for the
--- language spoken in your audio. Refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features>
--- for additional information.
+-- If you don\'t know the language spoken in your media file, you can omit
+-- this field and let Amazon Transcribe automatically identify the language
+-- of your media. To improve the accuracy of language identification, you
+-- can include several language codes and Amazon Transcribe chooses the
+-- closest match for your transcription.
 callAnalyticsJob_languageCode :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe LanguageCode)
 callAnalyticsJob_languageCode = Lens.lens (\CallAnalyticsJob' {languageCode} -> languageCode) (\s@CallAnalyticsJob' {} a -> s {languageCode = a} :: CallAnalyticsJob)
 
--- | The name of the call analytics job.
+-- | The name of the Call Analytics job. Job names are case sensitive and
+-- must be unique within an Amazon Web Services account.
 callAnalyticsJob_callAnalyticsJobName :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Prelude.Text)
 callAnalyticsJob_callAnalyticsJobName = Lens.lens (\CallAnalyticsJob' {callAnalyticsJobName} -> callAnalyticsJobName) (\s@CallAnalyticsJob' {} a -> s {callAnalyticsJobName = a} :: CallAnalyticsJob)
 
--- | A timestamp that shows when the analytics job was created.
+-- | The date and time the specified Call Analytics job request was made.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 callAnalyticsJob_creationTime :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Prelude.UTCTime)
 callAnalyticsJob_creationTime = Lens.lens (\CallAnalyticsJob' {creationTime} -> creationTime) (\s@CallAnalyticsJob' {} a -> s {creationTime = a} :: CallAnalyticsJob) Prelude.. Lens.mapping Core._Time
 
--- | A value between zero and one that Amazon Transcribe assigned to the
--- language that it identified in the source audio. This value appears only
--- when you don\'t provide a single language code. Larger values indicate
--- that Amazon Transcribe has higher confidence in the language that it
--- identified
+-- | The confidence score associated with the language identified in your
+-- media file.
+--
+-- Confidence scores are values between 0 and 1; a larger value indicates a
+-- higher probability that the identified language correctly matches the
+-- language spoken in your media.
 callAnalyticsJob_identifiedLanguageScore :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Prelude.Double)
 callAnalyticsJob_identifiedLanguageScore = Lens.lens (\CallAnalyticsJob' {identifiedLanguageScore} -> identifiedLanguageScore) (\s@CallAnalyticsJob' {} a -> s {identifiedLanguageScore = a} :: CallAnalyticsJob)
 
--- | A timestamp that shows when the analytics job started processing.
+-- | The date and time the specified Call Analytics job began processing.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.789000-07:00@ represents a transcription
+-- job that started processing at 12:32 PM UTC-7 on May 4, 2022.
 callAnalyticsJob_startTime :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Prelude.UTCTime)
 callAnalyticsJob_startTime = Lens.lens (\CallAnalyticsJob' {startTime} -> startTime) (\s@CallAnalyticsJob' {} a -> s {startTime = a} :: CallAnalyticsJob) Prelude.. Lens.mapping Core._Time
 
--- | If the @AnalyticsJobStatus@ is @FAILED@, this field contains information
--- about why the job failed.
+-- | If @CallAnalyticsJobStatus@ is @FAILED@, @FailureReason@ contains
+-- information about why the Call Analytics job request failed.
 --
--- The @FailureReason@ field can contain one of the following values:
+-- The @FailureReason@ field contains one of the following values:
 --
--- -   @Unsupported media format@: The media format specified in the
---     @MediaFormat@ field of the request isn\'t valid. See the description
---     of the @MediaFormat@ field for a list of valid values.
+-- -   @Unsupported media format@.
 --
--- -   @The media format provided does not match the detected media format@:
---     The media format of the audio file doesn\'t match the format
---     specified in the @MediaFormat@ field in the request. Check the media
---     format of your media file and make sure the two values match.
+--     The media format specified in @MediaFormat@ isn\'t valid. Refer to
+--     __MediaFormat__ for a list of supported formats.
 --
--- -   @Invalid sample rate for audio file@: The sample rate specified in
---     the @MediaSampleRateHertz@ of the request isn\'t valid. The sample
---     rate must be between 8,000 and 48,000 Hertz.
+-- -   @The media format provided does not match the detected media format@.
 --
--- -   @The sample rate provided does not match the detected sample rate@:
---     The sample rate in the audio file doesn\'t match the sample rate
---     specified in the @MediaSampleRateHertz@ field in the request. Check
---     the sample rate of your media file and make sure that the two values
---     match.
+--     The media format specified in @MediaFormat@ doesn\'t match the
+--     format of the input file. Check the media format of your media file
+--     and correct the specified value.
 --
--- -   @Invalid file size: file size too large@: The size of your audio
---     file is larger than what Amazon Transcribe Medical can process. For
---     more information, see /Guidelines and Quotas/ in the Amazon
---     Transcribe Medical Guide.
+-- -   @Invalid sample rate for audio file@.
 --
--- -   @Invalid number of channels: number of channels too large@: Your
---     audio contains more channels than Amazon Transcribe Medical is
---     configured to process. To request additional channels, see Amazon
---     Transcribe Medical Endpoints and Quotas in the
---     <https://docs.aws.amazon.com/general/latest/gr/Welcome.html Amazon Web Services General Reference>.
+--     The sample rate specified in @MediaSampleRateHertz@ isn\'t valid.
+--     The sample rate must be between 8,000 and 48,000 Hertz.
+--
+-- -   @The sample rate provided does not match the detected sample rate@.
+--
+--     The sample rate specified in @MediaSampleRateHertz@ doesn\'t match
+--     the sample rate detected in your input media file. Check the sample
+--     rate of your media file and correct the specified value.
+--
+-- -   @Invalid file size: file size too large@.
+--
+--     The size of your media file is larger than what Amazon Transcribe
+--     can process. For more information, refer to
+--     <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and quotas>.
+--
+-- -   @Invalid number of channels: number of channels too large@.
+--
+--     Your audio contains more channels than Amazon Transcribe is able to
+--     process. For more information, refer to
+--     <https://docs.aws.amazon.com/transcribe/latest/dg/limits-guidelines.html#limits Guidelines and quotas>.
 callAnalyticsJob_failureReason :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Prelude.Text)
 callAnalyticsJob_failureReason = Lens.lens (\CallAnalyticsJob' {failureReason} -> failureReason) (\s@CallAnalyticsJob' {} a -> s {failureReason = a} :: CallAnalyticsJob)
 
@@ -329,8 +447,11 @@ callAnalyticsJob_failureReason = Lens.lens (\CallAnalyticsJob' {failureReason} -
 callAnalyticsJob_media :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe Media)
 callAnalyticsJob_media = Lens.lens (\CallAnalyticsJob' {media} -> media) (\s@CallAnalyticsJob' {} a -> s {media = a} :: CallAnalyticsJob)
 
--- | Shows numeric values to indicate the channel assigned to the agent\'s
--- audio and the channel assigned to the customer\'s audio.
+-- | Allows you to specify which speaker is on which channel in your Call
+-- Analytics job request. For example, if your agent is the first
+-- participant to speak, you would set @ChannelId@ to @0@ (to indicate the
+-- first channel) and @ParticipantRole@ to @AGENT@ (to indicate that it\'s
+-- the agent speaking).
 callAnalyticsJob_channelDefinitions :: Lens.Lens' CallAnalyticsJob (Prelude.Maybe (Prelude.NonEmpty ChannelDefinition))
 callAnalyticsJob_channelDefinitions = Lens.lens (\CallAnalyticsJob' {channelDefinitions} -> channelDefinitions) (\s@CallAnalyticsJob' {} a -> s {channelDefinitions = a} :: CallAnalyticsJob) Prelude.. Lens.mapping Lens.coerced
 

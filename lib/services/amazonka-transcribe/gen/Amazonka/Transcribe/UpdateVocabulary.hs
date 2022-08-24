@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing vocabulary with new values. The @UpdateVocabulary@
--- operation overwrites all of the existing information with the values
--- that you provide in the request.
+-- Updates an existing custom vocabulary with new values. This operation
+-- overwrites all existing information with your new values; you cannot
+-- append new terms onto an existing vocabulary.
 module Amazonka.Transcribe.UpdateVocabulary
   ( -- * Creating a Request
     UpdateVocabulary (..),
@@ -56,27 +56,47 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newUpdateVocabulary' smart constructor.
 data UpdateVocabulary = UpdateVocabulary'
-  { -- | An array of strings containing the vocabulary entries.
+  { -- | Use this parameter if you want to update your vocabulary by including
+    -- all desired terms, as comma-separated values, within your request. The
+    -- other option for updating your vocabulary is to save your entries in a
+    -- text file and upload them to an Amazon S3 bucket, then specify the
+    -- location of your file using the @VocabularyFileUri@ parameter.
+    --
+    -- Note that if you include @Phrases@ in your request, you cannot use
+    -- @VocabularyFileUri@; you must choose one or the other.
+    --
+    -- Each language has a character set that contains all allowed characters
+    -- for that specific language. If you use unsupported characters, your
+    -- vocabulary filter request fails. Refer to
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html Character Sets for Custom Vocabularies>
+    -- to get the character set for your language.
     phrases :: Prelude.Maybe [Prelude.Text],
-    -- | The S3 location of the text file that contains the definition of the
-    -- custom vocabulary. The URI must be in the same region as the API
-    -- endpoint that you are calling. The general form is
+    -- | The Amazon S3 location of the text file that contains your custom
+    -- vocabulary. The URI must be located in the same Amazon Web Services
+    -- Region as the resource you\'re calling.
     --
-    -- For example:
+    -- Here\'s an example URI path:
+    -- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-vocab-file.txt@
     --
-    -- For more information about S3 object names, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
-    -- in the /Amazon S3 Developer Guide/.
-    --
-    -- For more information about custom vocabularies, see
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+    -- Note that if you include @VocabularyFileUri@ in your request, you cannot
+    -- use the @Phrases@ flag; you must choose one or the other.
     vocabularyFileUri :: Prelude.Maybe Prelude.Text,
-    -- | The name of the vocabulary to update. The name is case sensitive. If you
-    -- try to update a vocabulary with the same name as a previous vocabulary
-    -- you will receive a @ConflictException@ error.
+    -- | The name of the custom vocabulary you want to update. Vocabulary names
+    -- are case sensitive.
     vocabularyName :: Prelude.Text,
-    -- | The language code of the vocabulary entries. For a list of languages and
-    -- their corresponding language codes, see transcribe-whatis.
+    -- | The language code that represents the language of the entries in the
+    -- custom vocabulary you want to update. Each vocabulary must contain terms
+    -- in only one language.
+    --
+    -- A custom vocabulary can only be used to transcribe files in the same
+    -- language as the vocabulary. For example, if you create a vocabulary
+    -- using US English (@en-US@), you can only apply this vocabulary to files
+    -- that contain English audio.
+    --
+    -- For a list of supported languages and their associated language codes,
+    -- refer to the
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+    -- table.
     languageCode :: LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -89,27 +109,47 @@ data UpdateVocabulary = UpdateVocabulary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'phrases', 'updateVocabulary_phrases' - An array of strings containing the vocabulary entries.
+-- 'phrases', 'updateVocabulary_phrases' - Use this parameter if you want to update your vocabulary by including
+-- all desired terms, as comma-separated values, within your request. The
+-- other option for updating your vocabulary is to save your entries in a
+-- text file and upload them to an Amazon S3 bucket, then specify the
+-- location of your file using the @VocabularyFileUri@ parameter.
 --
--- 'vocabularyFileUri', 'updateVocabulary_vocabularyFileUri' - The S3 location of the text file that contains the definition of the
--- custom vocabulary. The URI must be in the same region as the API
--- endpoint that you are calling. The general form is
+-- Note that if you include @Phrases@ in your request, you cannot use
+-- @VocabularyFileUri@; you must choose one or the other.
 --
--- For example:
+-- Each language has a character set that contains all allowed characters
+-- for that specific language. If you use unsupported characters, your
+-- vocabulary filter request fails. Refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html Character Sets for Custom Vocabularies>
+-- to get the character set for your language.
 --
--- For more information about S3 object names, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
--- in the /Amazon S3 Developer Guide/.
+-- 'vocabularyFileUri', 'updateVocabulary_vocabularyFileUri' - The Amazon S3 location of the text file that contains your custom
+-- vocabulary. The URI must be located in the same Amazon Web Services
+-- Region as the resource you\'re calling.
 --
--- For more information about custom vocabularies, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+-- Here\'s an example URI path:
+-- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-vocab-file.txt@
 --
--- 'vocabularyName', 'updateVocabulary_vocabularyName' - The name of the vocabulary to update. The name is case sensitive. If you
--- try to update a vocabulary with the same name as a previous vocabulary
--- you will receive a @ConflictException@ error.
+-- Note that if you include @VocabularyFileUri@ in your request, you cannot
+-- use the @Phrases@ flag; you must choose one or the other.
 --
--- 'languageCode', 'updateVocabulary_languageCode' - The language code of the vocabulary entries. For a list of languages and
--- their corresponding language codes, see transcribe-whatis.
+-- 'vocabularyName', 'updateVocabulary_vocabularyName' - The name of the custom vocabulary you want to update. Vocabulary names
+-- are case sensitive.
+--
+-- 'languageCode', 'updateVocabulary_languageCode' - The language code that represents the language of the entries in the
+-- custom vocabulary you want to update. Each vocabulary must contain terms
+-- in only one language.
+--
+-- A custom vocabulary can only be used to transcribe files in the same
+-- language as the vocabulary. For example, if you create a vocabulary
+-- using US English (@en-US@), you can only apply this vocabulary to files
+-- that contain English audio.
+--
+-- For a list of supported languages and their associated language codes,
+-- refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
 newUpdateVocabulary ::
   -- | 'vocabularyName'
   Prelude.Text ->
@@ -124,33 +164,53 @@ newUpdateVocabulary pVocabularyName_ pLanguageCode_ =
       languageCode = pLanguageCode_
     }
 
--- | An array of strings containing the vocabulary entries.
+-- | Use this parameter if you want to update your vocabulary by including
+-- all desired terms, as comma-separated values, within your request. The
+-- other option for updating your vocabulary is to save your entries in a
+-- text file and upload them to an Amazon S3 bucket, then specify the
+-- location of your file using the @VocabularyFileUri@ parameter.
+--
+-- Note that if you include @Phrases@ in your request, you cannot use
+-- @VocabularyFileUri@; you must choose one or the other.
+--
+-- Each language has a character set that contains all allowed characters
+-- for that specific language. If you use unsupported characters, your
+-- vocabulary filter request fails. Refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html Character Sets for Custom Vocabularies>
+-- to get the character set for your language.
 updateVocabulary_phrases :: Lens.Lens' UpdateVocabulary (Prelude.Maybe [Prelude.Text])
 updateVocabulary_phrases = Lens.lens (\UpdateVocabulary' {phrases} -> phrases) (\s@UpdateVocabulary' {} a -> s {phrases = a} :: UpdateVocabulary) Prelude.. Lens.mapping Lens.coerced
 
--- | The S3 location of the text file that contains the definition of the
--- custom vocabulary. The URI must be in the same region as the API
--- endpoint that you are calling. The general form is
+-- | The Amazon S3 location of the text file that contains your custom
+-- vocabulary. The URI must be located in the same Amazon Web Services
+-- Region as the resource you\'re calling.
 --
--- For example:
+-- Here\'s an example URI path:
+-- @s3:\/\/DOC-EXAMPLE-BUCKET\/my-vocab-file.txt@
 --
--- For more information about S3 object names, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys>
--- in the /Amazon S3 Developer Guide/.
---
--- For more information about custom vocabularies, see
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary Custom Vocabularies>.
+-- Note that if you include @VocabularyFileUri@ in your request, you cannot
+-- use the @Phrases@ flag; you must choose one or the other.
 updateVocabulary_vocabularyFileUri :: Lens.Lens' UpdateVocabulary (Prelude.Maybe Prelude.Text)
 updateVocabulary_vocabularyFileUri = Lens.lens (\UpdateVocabulary' {vocabularyFileUri} -> vocabularyFileUri) (\s@UpdateVocabulary' {} a -> s {vocabularyFileUri = a} :: UpdateVocabulary)
 
--- | The name of the vocabulary to update. The name is case sensitive. If you
--- try to update a vocabulary with the same name as a previous vocabulary
--- you will receive a @ConflictException@ error.
+-- | The name of the custom vocabulary you want to update. Vocabulary names
+-- are case sensitive.
 updateVocabulary_vocabularyName :: Lens.Lens' UpdateVocabulary Prelude.Text
 updateVocabulary_vocabularyName = Lens.lens (\UpdateVocabulary' {vocabularyName} -> vocabularyName) (\s@UpdateVocabulary' {} a -> s {vocabularyName = a} :: UpdateVocabulary)
 
--- | The language code of the vocabulary entries. For a list of languages and
--- their corresponding language codes, see transcribe-whatis.
+-- | The language code that represents the language of the entries in the
+-- custom vocabulary you want to update. Each vocabulary must contain terms
+-- in only one language.
+--
+-- A custom vocabulary can only be used to transcribe files in the same
+-- language as the vocabulary. For example, if you create a vocabulary
+-- using US English (@en-US@), you can only apply this vocabulary to files
+-- that contain English audio.
+--
+-- For a list of supported languages and their associated language codes,
+-- refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
 updateVocabulary_languageCode :: Lens.Lens' UpdateVocabulary LanguageCode
 updateVocabulary_languageCode = Lens.lens (\UpdateVocabulary' {languageCode} -> languageCode) (\s@UpdateVocabulary' {} a -> s {languageCode = a} :: UpdateVocabulary)
 
@@ -220,15 +280,18 @@ instance Core.ToQuery UpdateVocabulary where
 
 -- | /See:/ 'newUpdateVocabularyResponse' smart constructor.
 data UpdateVocabularyResponse = UpdateVocabularyResponse'
-  { -- | The name of the vocabulary that was updated.
+  { -- | The name of the updated custom vocabulary.
     vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The processing state of the vocabulary. When the @VocabularyState@ field
-    -- contains @READY@ the vocabulary is ready to be used in a
-    -- @StartTranscriptionJob@ request.
+    -- | The processing state of your custom vocabulary. If the state is @READY@,
+    -- you can use the vocabulary in a @StartTranscriptionJob@ request.
     vocabularyState :: Prelude.Maybe VocabularyState,
-    -- | The date and time that the vocabulary was updated.
+    -- | The date and time the specified vocabulary was last updated.
+    --
+    -- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+    -- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+    -- May 4, 2022.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The language code of the vocabulary entries.
+    -- | The language code you selected for your custom vocabulary.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -243,15 +306,18 @@ data UpdateVocabularyResponse = UpdateVocabularyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyName', 'updateVocabularyResponse_vocabularyName' - The name of the vocabulary that was updated.
+-- 'vocabularyName', 'updateVocabularyResponse_vocabularyName' - The name of the updated custom vocabulary.
 --
--- 'vocabularyState', 'updateVocabularyResponse_vocabularyState' - The processing state of the vocabulary. When the @VocabularyState@ field
--- contains @READY@ the vocabulary is ready to be used in a
--- @StartTranscriptionJob@ request.
+-- 'vocabularyState', 'updateVocabularyResponse_vocabularyState' - The processing state of your custom vocabulary. If the state is @READY@,
+-- you can use the vocabulary in a @StartTranscriptionJob@ request.
 --
--- 'lastModifiedTime', 'updateVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was updated.
+-- 'lastModifiedTime', 'updateVocabularyResponse_lastModifiedTime' - The date and time the specified vocabulary was last updated.
 --
--- 'languageCode', 'updateVocabularyResponse_languageCode' - The language code of the vocabulary entries.
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
+--
+-- 'languageCode', 'updateVocabularyResponse_languageCode' - The language code you selected for your custom vocabulary.
 --
 -- 'httpStatus', 'updateVocabularyResponse_httpStatus' - The response's http status code.
 newUpdateVocabularyResponse ::
@@ -268,21 +334,24 @@ newUpdateVocabularyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The name of the vocabulary that was updated.
+-- | The name of the updated custom vocabulary.
 updateVocabularyResponse_vocabularyName :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe Prelude.Text)
 updateVocabularyResponse_vocabularyName = Lens.lens (\UpdateVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@UpdateVocabularyResponse' {} a -> s {vocabularyName = a} :: UpdateVocabularyResponse)
 
--- | The processing state of the vocabulary. When the @VocabularyState@ field
--- contains @READY@ the vocabulary is ready to be used in a
--- @StartTranscriptionJob@ request.
+-- | The processing state of your custom vocabulary. If the state is @READY@,
+-- you can use the vocabulary in a @StartTranscriptionJob@ request.
 updateVocabularyResponse_vocabularyState :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe VocabularyState)
 updateVocabularyResponse_vocabularyState = Lens.lens (\UpdateVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@UpdateVocabularyResponse' {} a -> s {vocabularyState = a} :: UpdateVocabularyResponse)
 
--- | The date and time that the vocabulary was updated.
+-- | The date and time the specified vocabulary was last updated.
+--
+-- Timestamps are in the format @YYYY-MM-DD\'T\'HH:MM:SS.SSSSSS-UTC@. For
+-- example, @2022-05-04T12:32:58.761000-07:00@ represents 12:32 PM UTC-7 on
+-- May 4, 2022.
 updateVocabularyResponse_lastModifiedTime :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
 updateVocabularyResponse_lastModifiedTime = Lens.lens (\UpdateVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@UpdateVocabularyResponse' {} a -> s {lastModifiedTime = a} :: UpdateVocabularyResponse) Prelude.. Lens.mapping Core._Time
 
--- | The language code of the vocabulary entries.
+-- | The language code you selected for your custom vocabulary.
 updateVocabularyResponse_languageCode :: Lens.Lens' UpdateVocabularyResponse (Prelude.Maybe LanguageCode)
 updateVocabularyResponse_languageCode = Lens.lens (\UpdateVocabularyResponse' {languageCode} -> languageCode) (\s@UpdateVocabularyResponse' {} a -> s {languageCode = a} :: UpdateVocabularyResponse)
 

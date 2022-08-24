@@ -20,11 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a transcription job from Amazon Transcribe
--- Medical. To see the status of the job, check the
+-- Provides information about the specified medical transcription job.
+--
+-- To view the status of the specified medical transcription job, check the
 -- @TranscriptionJobStatus@ field. If the status is @COMPLETED@, the job is
--- finished. You find the results of the completed job in the
--- @TranscriptFileUri@ field.
+-- finished and you can find the results at the location specified in
+-- @TranscriptFileUri@. If the status is @FAILED@, @FailureReason@ provides
+-- details on why your transcription job failed.
+--
+-- To get a list of your medical transcription jobs, use the operation.
 module Amazonka.Transcribe.GetMedicalTranscriptionJob
   ( -- * Creating a Request
     GetMedicalTranscriptionJob (..),
@@ -52,7 +56,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newGetMedicalTranscriptionJob' smart constructor.
 data GetMedicalTranscriptionJob = GetMedicalTranscriptionJob'
-  { -- | The name of the medical transcription job.
+  { -- | The name of the medical transcription job you want information about.
+    -- Job names are case sensitive.
     medicalTranscriptionJobName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +70,8 @@ data GetMedicalTranscriptionJob = GetMedicalTranscriptionJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'medicalTranscriptionJobName', 'getMedicalTranscriptionJob_medicalTranscriptionJobName' - The name of the medical transcription job.
+-- 'medicalTranscriptionJobName', 'getMedicalTranscriptionJob_medicalTranscriptionJobName' - The name of the medical transcription job you want information about.
+-- Job names are case sensitive.
 newGetMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
   Prelude.Text ->
@@ -77,7 +83,8 @@ newGetMedicalTranscriptionJob
           pMedicalTranscriptionJobName_
       }
 
--- | The name of the medical transcription job.
+-- | The name of the medical transcription job you want information about.
+-- Job names are case sensitive.
 getMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' GetMedicalTranscriptionJob Prelude.Text
 getMedicalTranscriptionJob_medicalTranscriptionJobName = Lens.lens (\GetMedicalTranscriptionJob' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@GetMedicalTranscriptionJob' {} a -> s {medicalTranscriptionJobName = a} :: GetMedicalTranscriptionJob)
 
@@ -137,7 +144,8 @@ instance Core.ToQuery GetMedicalTranscriptionJob where
 
 -- | /See:/ 'newGetMedicalTranscriptionJobResponse' smart constructor.
 data GetMedicalTranscriptionJobResponse = GetMedicalTranscriptionJobResponse'
-  { -- | An object that contains the results of the medical transcription job.
+  { -- | Provides detailed information about the specified medical transcription
+    -- job, including job status and, if applicable, failure reason.
     medicalTranscriptionJob :: Prelude.Maybe MedicalTranscriptionJob,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -152,7 +160,8 @@ data GetMedicalTranscriptionJobResponse = GetMedicalTranscriptionJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'medicalTranscriptionJob', 'getMedicalTranscriptionJobResponse_medicalTranscriptionJob' - An object that contains the results of the medical transcription job.
+-- 'medicalTranscriptionJob', 'getMedicalTranscriptionJobResponse_medicalTranscriptionJob' - Provides detailed information about the specified medical transcription
+-- job, including job status and, if applicable, failure reason.
 --
 -- 'httpStatus', 'getMedicalTranscriptionJobResponse_httpStatus' - The response's http status code.
 newGetMedicalTranscriptionJobResponse ::
@@ -166,7 +175,8 @@ newGetMedicalTranscriptionJobResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An object that contains the results of the medical transcription job.
+-- | Provides detailed information about the specified medical transcription
+-- job, including job status and, if applicable, failure reason.
 getMedicalTranscriptionJobResponse_medicalTranscriptionJob :: Lens.Lens' GetMedicalTranscriptionJobResponse (Prelude.Maybe MedicalTranscriptionJob)
 getMedicalTranscriptionJobResponse_medicalTranscriptionJob = Lens.lens (\GetMedicalTranscriptionJobResponse' {medicalTranscriptionJob} -> medicalTranscriptionJob) (\s@GetMedicalTranscriptionJobResponse' {} a -> s {medicalTranscriptionJob = a} :: GetMedicalTranscriptionJobResponse)
 

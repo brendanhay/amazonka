@@ -24,40 +24,84 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Transcribe.Types.ContentRedaction
 import Amazonka.Transcribe.Types.LanguageCode
+import Amazonka.Transcribe.Types.LanguageIdSettings
 import Amazonka.Transcribe.Types.VocabularyFilterMethod
 
--- | Provides optional settings for the @CallAnalyticsJob@ operation.
+-- | Provides additional optional settings for your request, including
+-- content redaction, automatic language identification; allows you to
+-- apply custom language models, vocabulary filters, and custom
+-- vocabularies.
 --
 -- /See:/ 'newCallAnalyticsJobSettings' smart constructor.
 data CallAnalyticsJobSettings = CallAnalyticsJobSettings'
-  { -- | Set to mask to remove filtered text from the transcript and replace it
-    -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
-    -- remove filtered text from the transcript without using placeholder text.
-    -- Set to @tag@ to mark the word in the transcription output that matches
-    -- the vocabulary filter. When you set the filter method to @tag@, the
-    -- words matching your vocabulary filter are not masked or removed.
+  { -- | Specify how you want your vocabulary filter applied to your transcript.
+    --
+    -- To replace words with @***@, choose @mask@.
+    --
+    -- To delete words, choose @remove@.
+    --
+    -- To flag words without changing them, choose @tag@.
     vocabularyFilterMethod :: Prelude.Maybe VocabularyFilterMethod,
-    -- | The name of a vocabulary to use when processing the call analytics job.
+    -- | The name of the custom vocabulary you want to include in your Call
+    -- Analytics transcription request. Vocabulary names are case sensitive.
     vocabularyName :: Prelude.Maybe Prelude.Text,
-    -- | The structure used to describe a custom language model.
+    -- | The name of the custom language model you want to use when processing
+    -- your Call Analytics job. Note that language model names are case
+    -- sensitive.
+    --
+    -- The language of the specified language model must match the language
+    -- code you specify in your transcription request. If the languages don\'t
+    -- match, the language model isn\'t applied. There are no errors or
+    -- warnings associated with a language mismatch.
     languageModelName :: Prelude.Maybe Prelude.Text,
     contentRedaction :: Prelude.Maybe ContentRedaction,
-    -- | The name of the vocabulary filter to use when running a call analytics
-    -- job. The filter that you specify must have the same language code as the
-    -- analytics job.
-    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
-    -- | When you run a call analytics job, you can specify the language spoken
-    -- in the audio, or you can have Amazon Transcribe identify the language
-    -- for you.
+    -- | If using automatic language identification (@IdentifyLanguage@) in your
+    -- request and you want to apply a custom language model, a custom
+    -- vocabulary, or a custom vocabulary filter, include @LanguageIdSettings@
+    -- with the relevant sub-parameters (@VocabularyName@, @LanguageModelName@,
+    -- and @VocabularyFilterName@).
     --
-    -- To specify a language, specify an array with one language code. If you
-    -- don\'t know the language, you can leave this field blank and Amazon
-    -- Transcribe will use machine learning to identify the language for you.
-    -- To improve the ability of Amazon Transcribe to correctly identify the
-    -- language, you can provide an array of the languages that can be present
-    -- in the audio. Refer to
-    -- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features>
-    -- for additional information.
+    -- You can specify two or more language codes that represent the languages
+    -- you think may be present in your media; including more than five is not
+    -- recommended. Each language code you include can have an associated
+    -- custom language model, custom vocabulary, and custom vocabulary filter.
+    -- The languages you specify must match the languages of the specified
+    -- custom language models, custom vocabularies, and custom vocabulary
+    -- filters.
+    --
+    -- To include language options using @IdentifyLanguage@ __without__
+    -- including a custom language model, a custom vocabulary, or a custom
+    -- vocabulary filter, use @LanguageOptions@ instead of
+    -- @LanguageIdSettings@. Including language options can improve the
+    -- accuracy of automatic language identification.
+    --
+    -- If you want to include a custom language model with your request but
+    -- __do not__ want to use automatic language identification, use instead
+    -- the @@ parameter with the @LanguageModelName@ sub-parameter.
+    --
+    -- If you want to include a custom vocabulary or a custom vocabulary filter
+    -- (or both) with your request but __do not__ want to use automatic
+    -- language identification, use instead the @@ parameter with the
+    -- @VocabularyName@ or @VocabularyFilterName@ (or both) sub-parameter.
+    languageIdSettings :: Prelude.Maybe (Prelude.HashMap LanguageCode LanguageIdSettings),
+    -- | The name of the custom vocabulary filter you want to include in your
+    -- Call Analytics transcription request. Vocabulary filter names are case
+    -- sensitive.
+    --
+    -- Note that if you include @VocabularyFilterName@ in your request, you
+    -- must also include @VocabularyFilterMethod@.
+    vocabularyFilterName :: Prelude.Maybe Prelude.Text,
+    -- | You can specify two or more language codes that represent the languages
+    -- you think may be present in your media; including more than five is not
+    -- recommended. If you\'re unsure what languages are present, do not
+    -- include this parameter.
+    --
+    -- Including language options can improve the accuracy of language
+    -- identification.
+    --
+    -- For a list of languages supported with Call Analytics, refer to the
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+    -- table.
     languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,35 +114,75 @@ data CallAnalyticsJobSettings = CallAnalyticsJobSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyFilterMethod', 'callAnalyticsJobSettings_vocabularyFilterMethod' - Set to mask to remove filtered text from the transcript and replace it
--- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
--- remove filtered text from the transcript without using placeholder text.
--- Set to @tag@ to mark the word in the transcription output that matches
--- the vocabulary filter. When you set the filter method to @tag@, the
--- words matching your vocabulary filter are not masked or removed.
+-- 'vocabularyFilterMethod', 'callAnalyticsJobSettings_vocabularyFilterMethod' - Specify how you want your vocabulary filter applied to your transcript.
 --
--- 'vocabularyName', 'callAnalyticsJobSettings_vocabularyName' - The name of a vocabulary to use when processing the call analytics job.
+-- To replace words with @***@, choose @mask@.
 --
--- 'languageModelName', 'callAnalyticsJobSettings_languageModelName' - The structure used to describe a custom language model.
+-- To delete words, choose @remove@.
+--
+-- To flag words without changing them, choose @tag@.
+--
+-- 'vocabularyName', 'callAnalyticsJobSettings_vocabularyName' - The name of the custom vocabulary you want to include in your Call
+-- Analytics transcription request. Vocabulary names are case sensitive.
+--
+-- 'languageModelName', 'callAnalyticsJobSettings_languageModelName' - The name of the custom language model you want to use when processing
+-- your Call Analytics job. Note that language model names are case
+-- sensitive.
+--
+-- The language of the specified language model must match the language
+-- code you specify in your transcription request. If the languages don\'t
+-- match, the language model isn\'t applied. There are no errors or
+-- warnings associated with a language mismatch.
 --
 -- 'contentRedaction', 'callAnalyticsJobSettings_contentRedaction' - Undocumented member.
 --
--- 'vocabularyFilterName', 'callAnalyticsJobSettings_vocabularyFilterName' - The name of the vocabulary filter to use when running a call analytics
--- job. The filter that you specify must have the same language code as the
--- analytics job.
+-- 'languageIdSettings', 'callAnalyticsJobSettings_languageIdSettings' - If using automatic language identification (@IdentifyLanguage@) in your
+-- request and you want to apply a custom language model, a custom
+-- vocabulary, or a custom vocabulary filter, include @LanguageIdSettings@
+-- with the relevant sub-parameters (@VocabularyName@, @LanguageModelName@,
+-- and @VocabularyFilterName@).
 --
--- 'languageOptions', 'callAnalyticsJobSettings_languageOptions' - When you run a call analytics job, you can specify the language spoken
--- in the audio, or you can have Amazon Transcribe identify the language
--- for you.
+-- You can specify two or more language codes that represent the languages
+-- you think may be present in your media; including more than five is not
+-- recommended. Each language code you include can have an associated
+-- custom language model, custom vocabulary, and custom vocabulary filter.
+-- The languages you specify must match the languages of the specified
+-- custom language models, custom vocabularies, and custom vocabulary
+-- filters.
 --
--- To specify a language, specify an array with one language code. If you
--- don\'t know the language, you can leave this field blank and Amazon
--- Transcribe will use machine learning to identify the language for you.
--- To improve the ability of Amazon Transcribe to correctly identify the
--- language, you can provide an array of the languages that can be present
--- in the audio. Refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features>
--- for additional information.
+-- To include language options using @IdentifyLanguage@ __without__
+-- including a custom language model, a custom vocabulary, or a custom
+-- vocabulary filter, use @LanguageOptions@ instead of
+-- @LanguageIdSettings@. Including language options can improve the
+-- accuracy of automatic language identification.
+--
+-- If you want to include a custom language model with your request but
+-- __do not__ want to use automatic language identification, use instead
+-- the @@ parameter with the @LanguageModelName@ sub-parameter.
+--
+-- If you want to include a custom vocabulary or a custom vocabulary filter
+-- (or both) with your request but __do not__ want to use automatic
+-- language identification, use instead the @@ parameter with the
+-- @VocabularyName@ or @VocabularyFilterName@ (or both) sub-parameter.
+--
+-- 'vocabularyFilterName', 'callAnalyticsJobSettings_vocabularyFilterName' - The name of the custom vocabulary filter you want to include in your
+-- Call Analytics transcription request. Vocabulary filter names are case
+-- sensitive.
+--
+-- Note that if you include @VocabularyFilterName@ in your request, you
+-- must also include @VocabularyFilterMethod@.
+--
+-- 'languageOptions', 'callAnalyticsJobSettings_languageOptions' - You can specify two or more language codes that represent the languages
+-- you think may be present in your media; including more than five is not
+-- recommended. If you\'re unsure what languages are present, do not
+-- include this parameter.
+--
+-- Including language options can improve the accuracy of language
+-- identification.
+--
+-- For a list of languages supported with Call Analytics, refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
 newCallAnalyticsJobSettings ::
   CallAnalyticsJobSettings
 newCallAnalyticsJobSettings =
@@ -108,24 +192,34 @@ newCallAnalyticsJobSettings =
       vocabularyName = Prelude.Nothing,
       languageModelName = Prelude.Nothing,
       contentRedaction = Prelude.Nothing,
+      languageIdSettings = Prelude.Nothing,
       vocabularyFilterName = Prelude.Nothing,
       languageOptions = Prelude.Nothing
     }
 
--- | Set to mask to remove filtered text from the transcript and replace it
--- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
--- remove filtered text from the transcript without using placeholder text.
--- Set to @tag@ to mark the word in the transcription output that matches
--- the vocabulary filter. When you set the filter method to @tag@, the
--- words matching your vocabulary filter are not masked or removed.
+-- | Specify how you want your vocabulary filter applied to your transcript.
+--
+-- To replace words with @***@, choose @mask@.
+--
+-- To delete words, choose @remove@.
+--
+-- To flag words without changing them, choose @tag@.
 callAnalyticsJobSettings_vocabularyFilterMethod :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe VocabularyFilterMethod)
 callAnalyticsJobSettings_vocabularyFilterMethod = Lens.lens (\CallAnalyticsJobSettings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyFilterMethod = a} :: CallAnalyticsJobSettings)
 
--- | The name of a vocabulary to use when processing the call analytics job.
+-- | The name of the custom vocabulary you want to include in your Call
+-- Analytics transcription request. Vocabulary names are case sensitive.
 callAnalyticsJobSettings_vocabularyName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
 callAnalyticsJobSettings_vocabularyName = Lens.lens (\CallAnalyticsJobSettings' {vocabularyName} -> vocabularyName) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyName = a} :: CallAnalyticsJobSettings)
 
--- | The structure used to describe a custom language model.
+-- | The name of the custom language model you want to use when processing
+-- your Call Analytics job. Note that language model names are case
+-- sensitive.
+--
+-- The language of the specified language model must match the language
+-- code you specify in your transcription request. If the languages don\'t
+-- match, the language model isn\'t applied. There are no errors or
+-- warnings associated with a language mismatch.
 callAnalyticsJobSettings_languageModelName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
 callAnalyticsJobSettings_languageModelName = Lens.lens (\CallAnalyticsJobSettings' {languageModelName} -> languageModelName) (\s@CallAnalyticsJobSettings' {} a -> s {languageModelName = a} :: CallAnalyticsJobSettings)
 
@@ -133,24 +227,57 @@ callAnalyticsJobSettings_languageModelName = Lens.lens (\CallAnalyticsJobSetting
 callAnalyticsJobSettings_contentRedaction :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe ContentRedaction)
 callAnalyticsJobSettings_contentRedaction = Lens.lens (\CallAnalyticsJobSettings' {contentRedaction} -> contentRedaction) (\s@CallAnalyticsJobSettings' {} a -> s {contentRedaction = a} :: CallAnalyticsJobSettings)
 
--- | The name of the vocabulary filter to use when running a call analytics
--- job. The filter that you specify must have the same language code as the
--- analytics job.
+-- | If using automatic language identification (@IdentifyLanguage@) in your
+-- request and you want to apply a custom language model, a custom
+-- vocabulary, or a custom vocabulary filter, include @LanguageIdSettings@
+-- with the relevant sub-parameters (@VocabularyName@, @LanguageModelName@,
+-- and @VocabularyFilterName@).
+--
+-- You can specify two or more language codes that represent the languages
+-- you think may be present in your media; including more than five is not
+-- recommended. Each language code you include can have an associated
+-- custom language model, custom vocabulary, and custom vocabulary filter.
+-- The languages you specify must match the languages of the specified
+-- custom language models, custom vocabularies, and custom vocabulary
+-- filters.
+--
+-- To include language options using @IdentifyLanguage@ __without__
+-- including a custom language model, a custom vocabulary, or a custom
+-- vocabulary filter, use @LanguageOptions@ instead of
+-- @LanguageIdSettings@. Including language options can improve the
+-- accuracy of automatic language identification.
+--
+-- If you want to include a custom language model with your request but
+-- __do not__ want to use automatic language identification, use instead
+-- the @@ parameter with the @LanguageModelName@ sub-parameter.
+--
+-- If you want to include a custom vocabulary or a custom vocabulary filter
+-- (or both) with your request but __do not__ want to use automatic
+-- language identification, use instead the @@ parameter with the
+-- @VocabularyName@ or @VocabularyFilterName@ (or both) sub-parameter.
+callAnalyticsJobSettings_languageIdSettings :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe (Prelude.HashMap LanguageCode LanguageIdSettings))
+callAnalyticsJobSettings_languageIdSettings = Lens.lens (\CallAnalyticsJobSettings' {languageIdSettings} -> languageIdSettings) (\s@CallAnalyticsJobSettings' {} a -> s {languageIdSettings = a} :: CallAnalyticsJobSettings) Prelude.. Lens.mapping Lens.coerced
+
+-- | The name of the custom vocabulary filter you want to include in your
+-- Call Analytics transcription request. Vocabulary filter names are case
+-- sensitive.
+--
+-- Note that if you include @VocabularyFilterName@ in your request, you
+-- must also include @VocabularyFilterMethod@.
 callAnalyticsJobSettings_vocabularyFilterName :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe Prelude.Text)
 callAnalyticsJobSettings_vocabularyFilterName = Lens.lens (\CallAnalyticsJobSettings' {vocabularyFilterName} -> vocabularyFilterName) (\s@CallAnalyticsJobSettings' {} a -> s {vocabularyFilterName = a} :: CallAnalyticsJobSettings)
 
--- | When you run a call analytics job, you can specify the language spoken
--- in the audio, or you can have Amazon Transcribe identify the language
--- for you.
+-- | You can specify two or more language codes that represent the languages
+-- you think may be present in your media; including more than five is not
+-- recommended. If you\'re unsure what languages are present, do not
+-- include this parameter.
 --
--- To specify a language, specify an array with one language code. If you
--- don\'t know the language, you can leave this field blank and Amazon
--- Transcribe will use machine learning to identify the language for you.
--- To improve the ability of Amazon Transcribe to correctly identify the
--- language, you can provide an array of the languages that can be present
--- in the audio. Refer to
--- <https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html Supported languages and language-specific features>
--- for additional information.
+-- Including language options can improve the accuracy of language
+-- identification.
+--
+-- For a list of languages supported with Call Analytics, refer to the
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html Supported languages>
+-- table.
 callAnalyticsJobSettings_languageOptions :: Lens.Lens' CallAnalyticsJobSettings (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
 callAnalyticsJobSettings_languageOptions = Lens.lens (\CallAnalyticsJobSettings' {languageOptions} -> languageOptions) (\s@CallAnalyticsJobSettings' {} a -> s {languageOptions = a} :: CallAnalyticsJobSettings) Prelude.. Lens.mapping Lens.coerced
 
@@ -164,6 +291,9 @@ instance Core.FromJSON CallAnalyticsJobSettings where
             Prelude.<*> (x Core..:? "VocabularyName")
             Prelude.<*> (x Core..:? "LanguageModelName")
             Prelude.<*> (x Core..:? "ContentRedaction")
+            Prelude.<*> ( x Core..:? "LanguageIdSettings"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "VocabularyFilterName")
             Prelude.<*> (x Core..:? "LanguageOptions")
       )
@@ -174,6 +304,7 @@ instance Prelude.Hashable CallAnalyticsJobSettings where
       `Prelude.hashWithSalt` vocabularyName
       `Prelude.hashWithSalt` languageModelName
       `Prelude.hashWithSalt` contentRedaction
+      `Prelude.hashWithSalt` languageIdSettings
       `Prelude.hashWithSalt` vocabularyFilterName
       `Prelude.hashWithSalt` languageOptions
 
@@ -183,6 +314,7 @@ instance Prelude.NFData CallAnalyticsJobSettings where
       `Prelude.seq` Prelude.rnf vocabularyName
       `Prelude.seq` Prelude.rnf languageModelName
       `Prelude.seq` Prelude.rnf contentRedaction
+      `Prelude.seq` Prelude.rnf languageIdSettings
       `Prelude.seq` Prelude.rnf vocabularyFilterName
       `Prelude.seq` Prelude.rnf languageOptions
 
@@ -198,6 +330,8 @@ instance Core.ToJSON CallAnalyticsJobSettings where
               Prelude.<$> languageModelName,
             ("ContentRedaction" Core..=)
               Prelude.<$> contentRedaction,
+            ("LanguageIdSettings" Core..=)
+              Prelude.<$> languageIdSettings,
             ("VocabularyFilterName" Core..=)
               Prelude.<$> vocabularyFilterName,
             ("LanguageOptions" Core..=)

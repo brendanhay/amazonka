@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes a vocabulary filter.
+-- Deletes a vocabulary filter. To use this operation, specify the name of
+-- the vocabulary filter you want to delete using @VocabularyFilterName@.
+-- Vocabulary filter names are case sensitive.
 module Amazonka.Transcribe.DeleteVocabularyFilter
   ( -- * Creating a Request
     DeleteVocabularyFilter (..),
@@ -44,7 +46,8 @@ import Amazonka.Transcribe.Types
 
 -- | /See:/ 'newDeleteVocabularyFilter' smart constructor.
 data DeleteVocabularyFilter = DeleteVocabularyFilter'
-  { -- | The name of the vocabulary filter to remove.
+  { -- | The name of the custom vocabulary filter you want to delete. Vocabulary
+    -- filter names are case sensitive.
     vocabularyFilterName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,7 +60,8 @@ data DeleteVocabularyFilter = DeleteVocabularyFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyFilterName', 'deleteVocabularyFilter_vocabularyFilterName' - The name of the vocabulary filter to remove.
+-- 'vocabularyFilterName', 'deleteVocabularyFilter_vocabularyFilterName' - The name of the custom vocabulary filter you want to delete. Vocabulary
+-- filter names are case sensitive.
 newDeleteVocabularyFilter ::
   -- | 'vocabularyFilterName'
   Prelude.Text ->
@@ -68,7 +72,8 @@ newDeleteVocabularyFilter pVocabularyFilterName_ =
         pVocabularyFilterName_
     }
 
--- | The name of the vocabulary filter to remove.
+-- | The name of the custom vocabulary filter you want to delete. Vocabulary
+-- filter names are case sensitive.
 deleteVocabularyFilter_vocabularyFilterName :: Lens.Lens' DeleteVocabularyFilter Prelude.Text
 deleteVocabularyFilter_vocabularyFilterName = Lens.lens (\DeleteVocabularyFilter' {vocabularyFilterName} -> vocabularyFilterName) (\s@DeleteVocabularyFilter' {} a -> s {vocabularyFilterName = a} :: DeleteVocabularyFilter)
 

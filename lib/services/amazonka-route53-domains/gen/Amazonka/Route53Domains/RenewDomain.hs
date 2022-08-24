@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation renews a domain for the specified number of years. The
--- cost of renewing your domain is billed to your AWS account.
+-- cost of renewing your domain is billed to your Amazon Web Services
+-- account.
 --
 -- We recommend that you renew your domain several weeks before the
 -- expiration date. Some TLD registries delete domains before the

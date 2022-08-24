@@ -36,6 +36,7 @@ module Amazonka.Route53Domains.Types.ExtraParamName
         ExtraParamName_ES_IDENTIFICATION,
         ExtraParamName_ES_IDENTIFICATION_TYPE,
         ExtraParamName_ES_LEGAL_FORM,
+        ExtraParamName_EU_COUNTRY_OF_CITIZENSHIP,
         ExtraParamName_FI_BUSINESS_NUMBER,
         ExtraParamName_FI_ID_NUMBER,
         ExtraParamName_FI_NATIONALITY,
@@ -132,6 +133,9 @@ pattern ExtraParamName_ES_IDENTIFICATION_TYPE = ExtraParamName' "ES_IDENTIFICATI
 pattern ExtraParamName_ES_LEGAL_FORM :: ExtraParamName
 pattern ExtraParamName_ES_LEGAL_FORM = ExtraParamName' "ES_LEGAL_FORM"
 
+pattern ExtraParamName_EU_COUNTRY_OF_CITIZENSHIP :: ExtraParamName
+pattern ExtraParamName_EU_COUNTRY_OF_CITIZENSHIP = ExtraParamName' "EU_COUNTRY_OF_CITIZENSHIP"
+
 pattern ExtraParamName_FI_BUSINESS_NUMBER :: ExtraParamName
 pattern ExtraParamName_FI_BUSINESS_NUMBER = ExtraParamName' "FI_BUSINESS_NUMBER"
 
@@ -188,6 +192,7 @@ pattern ExtraParamName_VAT_NUMBER = ExtraParamName' "VAT_NUMBER"
   ExtraParamName_ES_IDENTIFICATION,
   ExtraParamName_ES_IDENTIFICATION_TYPE,
   ExtraParamName_ES_LEGAL_FORM,
+  ExtraParamName_EU_COUNTRY_OF_CITIZENSHIP,
   ExtraParamName_FI_BUSINESS_NUMBER,
   ExtraParamName_FI_ID_NUMBER,
   ExtraParamName_FI_NATIONALITY,

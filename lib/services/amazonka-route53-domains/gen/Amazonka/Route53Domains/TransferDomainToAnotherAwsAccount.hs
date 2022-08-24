@@ -20,12 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Transfers a domain from the current AWS account to another AWS account.
--- Note the following:
+-- Transfers a domain from the current Amazon Web Services account to
+-- another Amazon Web Services account. Note the following:
 --
--- -   The AWS account that you\'re transferring the domain to must accept
---     the transfer. If the other account doesn\'t accept the transfer
---     within 3 days, we cancel the transfer. See
+-- -   The Amazon Web Services account that you\'re transferring the domain
+--     to must accept the transfer. If the other account doesn\'t accept
+--     the transfer within 3 days, we cancel the transfer. See
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount>.
 --
 -- -   You can cancel the transfer before the other account accepts it. See
@@ -34,13 +34,13 @@
 -- -   The other account can reject the transfer. See
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RejectDomainTransferFromAnotherAwsAccount.html RejectDomainTransferFromAnotherAwsAccount>.
 --
--- When you transfer a domain from one AWS account to another, Route 53
--- doesn\'t transfer the hosted zone that is associated with the domain.
--- DNS resolution isn\'t affected if the domain and the hosted zone are
--- owned by separate accounts, so transferring the hosted zone is optional.
--- For information about transferring the hosted zone to another AWS
--- account, see
--- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html Migrating a Hosted Zone to a Different AWS Account>
+-- When you transfer a domain from one Amazon Web Services account to
+-- another, Route 53 doesn\'t transfer the hosted zone that is associated
+-- with the domain. DNS resolution isn\'t affected if the domain and the
+-- hosted zone are owned by separate accounts, so transferring the hosted
+-- zone is optional. For information about transferring the hosted zone to
+-- another Amazon Web Services account, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html Migrating a Hosted Zone to a Different Amazon Web Services Account>
 -- in the /Amazon Route 53 Developer Guide/.
 --
 -- Use either
@@ -83,11 +83,11 @@ import Amazonka.Route53Domains.Types
 --
 -- /See:/ 'newTransferDomainToAnotherAwsAccount' smart constructor.
 data TransferDomainToAnotherAwsAccount = TransferDomainToAnotherAwsAccount'
-  { -- | The name of the domain that you want to transfer from the current AWS
-    -- account to another account.
+  { -- | The name of the domain that you want to transfer from the current Amazon
+    -- Web Services account to another account.
     domainName :: Prelude.Text,
-    -- | The account ID of the AWS account that you want to transfer the domain
-    -- to, for example, @111122223333@.
+    -- | The account ID of the Amazon Web Services account that you want to
+    -- transfer the domain to, for example, @111122223333@.
     accountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -100,11 +100,11 @@ data TransferDomainToAnotherAwsAccount = TransferDomainToAnotherAwsAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'transferDomainToAnotherAwsAccount_domainName' - The name of the domain that you want to transfer from the current AWS
--- account to another account.
+-- 'domainName', 'transferDomainToAnotherAwsAccount_domainName' - The name of the domain that you want to transfer from the current Amazon
+-- Web Services account to another account.
 --
--- 'accountId', 'transferDomainToAnotherAwsAccount_accountId' - The account ID of the AWS account that you want to transfer the domain
--- to, for example, @111122223333@.
+-- 'accountId', 'transferDomainToAnotherAwsAccount_accountId' - The account ID of the Amazon Web Services account that you want to
+-- transfer the domain to, for example, @111122223333@.
 newTransferDomainToAnotherAwsAccount ::
   -- | 'domainName'
   Prelude.Text ->
@@ -120,13 +120,13 @@ newTransferDomainToAnotherAwsAccount
         accountId = pAccountId_
       }
 
--- | The name of the domain that you want to transfer from the current AWS
--- account to another account.
+-- | The name of the domain that you want to transfer from the current Amazon
+-- Web Services account to another account.
 transferDomainToAnotherAwsAccount_domainName :: Lens.Lens' TransferDomainToAnotherAwsAccount Prelude.Text
 transferDomainToAnotherAwsAccount_domainName = Lens.lens (\TransferDomainToAnotherAwsAccount' {domainName} -> domainName) (\s@TransferDomainToAnotherAwsAccount' {} a -> s {domainName = a} :: TransferDomainToAnotherAwsAccount)
 
--- | The account ID of the AWS account that you want to transfer the domain
--- to, for example, @111122223333@.
+-- | The account ID of the Amazon Web Services account that you want to
+-- transfer the domain to, for example, @111122223333@.
 transferDomainToAnotherAwsAccount_accountId :: Lens.Lens' TransferDomainToAnotherAwsAccount Prelude.Text
 transferDomainToAnotherAwsAccount_accountId = Lens.lens (\TransferDomainToAnotherAwsAccount' {accountId} -> accountId) (\s@TransferDomainToAnotherAwsAccount' {} a -> s {accountId = a} :: TransferDomainToAnotherAwsAccount)
 
@@ -212,8 +212,8 @@ instance
 --
 -- /See:/ 'newTransferDomainToAnotherAwsAccountResponse' smart constructor.
 data TransferDomainToAnotherAwsAccountResponse = TransferDomainToAnotherAwsAccountResponse'
-  { -- | To finish transferring a domain to another AWS account, the account that
-    -- the domain is being transferred to must submit an
+  { -- | To finish transferring a domain to another Amazon Web Services account,
+    -- the account that the domain is being transferred to must submit an
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount>
     -- request. The request must include the value of the @Password@ element
     -- that was returned in the @TransferDomainToAnotherAwsAccount@ response.
@@ -235,8 +235,8 @@ data TransferDomainToAnotherAwsAccountResponse = TransferDomainToAnotherAwsAccou
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'password', 'transferDomainToAnotherAwsAccountResponse_password' - To finish transferring a domain to another AWS account, the account that
--- the domain is being transferred to must submit an
+-- 'password', 'transferDomainToAnotherAwsAccountResponse_password' - To finish transferring a domain to another Amazon Web Services account,
+-- the account that the domain is being transferred to must submit an
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount>
 -- request. The request must include the value of the @Password@ element
 -- that was returned in the @TransferDomainToAnotherAwsAccount@ response.
@@ -259,8 +259,8 @@ newTransferDomainToAnotherAwsAccountResponse
         httpStatus = pHttpStatus_
       }
 
--- | To finish transferring a domain to another AWS account, the account that
--- the domain is being transferred to must submit an
+-- | To finish transferring a domain to another Amazon Web Services account,
+-- the account that the domain is being transferred to must submit an
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html AcceptDomainTransferFromAnotherAwsAccount>
 -- request. The request must include the value of the @Password@ element
 -- that was returned in the @TransferDomainToAnotherAwsAccount@ response.

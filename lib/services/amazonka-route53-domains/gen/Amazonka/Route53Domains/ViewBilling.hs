@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns all the domain-related billing records for the current AWS
--- account for a specified period
+-- Returns all the domain-related billing records for the current Amazon
+-- Web Services account for a specified period
 --
 -- This operation returns paginated results.
 module Amazonka.Route53Domains.ViewBilling
@@ -59,11 +59,11 @@ import Amazonka.Route53Domains.Types
 data ViewBilling = ViewBilling'
   { -- | For an initial request for a list of billing records, omit this element.
     -- If the number of billing records that are associated with the current
-    -- AWS account during the specified period is greater than the value that
-    -- you specified for @MaxItems@, you can use @Marker@ to return additional
-    -- billing records. Get the value of @NextPageMarker@ from the previous
-    -- response, and submit another request that includes the value of
-    -- @NextPageMarker@ in the @Marker@ element.
+    -- Amazon Web Services account during the specified period is greater than
+    -- the value that you specified for @MaxItems@, you can use @Marker@ to
+    -- return additional billing records. Get the value of @NextPageMarker@
+    -- from the previous response, and submit another request that includes the
+    -- value of @NextPageMarker@ in the @Marker@ element.
     --
     -- Constraints: The marker must match the value of @NextPageMarker@ that
     -- was returned in the previous response.
@@ -93,11 +93,11 @@ data ViewBilling = ViewBilling'
 --
 -- 'marker', 'viewBilling_marker' - For an initial request for a list of billing records, omit this element.
 -- If the number of billing records that are associated with the current
--- AWS account during the specified period is greater than the value that
--- you specified for @MaxItems@, you can use @Marker@ to return additional
--- billing records. Get the value of @NextPageMarker@ from the previous
--- response, and submit another request that includes the value of
--- @NextPageMarker@ in the @Marker@ element.
+-- Amazon Web Services account during the specified period is greater than
+-- the value that you specified for @MaxItems@, you can use @Marker@ to
+-- return additional billing records. Get the value of @NextPageMarker@
+-- from the previous response, and submit another request that includes the
+-- value of @NextPageMarker@ in the @Marker@ element.
 --
 -- Constraints: The marker must match the value of @NextPageMarker@ that
 -- was returned in the previous response.
@@ -125,11 +125,11 @@ newViewBilling =
 
 -- | For an initial request for a list of billing records, omit this element.
 -- If the number of billing records that are associated with the current
--- AWS account during the specified period is greater than the value that
--- you specified for @MaxItems@, you can use @Marker@ to return additional
--- billing records. Get the value of @NextPageMarker@ from the previous
--- response, and submit another request that includes the value of
--- @NextPageMarker@ in the @Marker@ element.
+-- Amazon Web Services account during the specified period is greater than
+-- the value that you specified for @MaxItems@, you can use @Marker@ to
+-- return additional billing records. Get the value of @NextPageMarker@
+-- from the previous response, and submit another request that includes the
+-- value of @NextPageMarker@ in the @Marker@ element.
 --
 -- Constraints: The marker must match the value of @NextPageMarker@ that
 -- was returned in the previous response.

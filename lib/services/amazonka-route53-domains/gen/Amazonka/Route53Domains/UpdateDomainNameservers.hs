@@ -69,13 +69,13 @@ import Amazonka.Route53Domains.Types
 -- /See:/ 'newUpdateDomainNameservers' smart constructor.
 data UpdateDomainNameservers = UpdateDomainNameservers'
   { -- | The authorization key for .fi domains
-    fIAuthKey :: Prelude.Maybe Prelude.Text,
+    fIAuthKey :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the domain that you want to change name servers for.
     domainName :: Prelude.Text,
     -- | A list of new name servers for the domain.
     nameservers :: [Nameserver]
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateDomainNameservers' with all optional fields omitted.
@@ -104,7 +104,7 @@ newUpdateDomainNameservers pDomainName_ =
 
 -- | The authorization key for .fi domains
 updateDomainNameservers_fIAuthKey :: Lens.Lens' UpdateDomainNameservers (Prelude.Maybe Prelude.Text)
-updateDomainNameservers_fIAuthKey = Lens.lens (\UpdateDomainNameservers' {fIAuthKey} -> fIAuthKey) (\s@UpdateDomainNameservers' {} a -> s {fIAuthKey = a} :: UpdateDomainNameservers)
+updateDomainNameservers_fIAuthKey = Lens.lens (\UpdateDomainNameservers' {fIAuthKey} -> fIAuthKey) (\s@UpdateDomainNameservers' {} a -> s {fIAuthKey = a} :: UpdateDomainNameservers) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the domain that you want to change name servers for.
 updateDomainNameservers_domainName :: Lens.Lens' UpdateDomainNameservers Prelude.Text

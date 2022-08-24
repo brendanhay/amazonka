@@ -20,9 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accepts the transfer of a domain from another AWS account to the current
--- AWS account. You initiate a transfer between AWS accounts using
+-- Accepts the transfer of a domain from another Amazon Web Services
+-- account to the currentAmazon Web Services account. You initiate a
+-- transfer between Amazon Web Services accounts using
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>.
+--
+-- If you use the CLI command at
+-- <https://docs.aws.amazon.com/cli/latest/reference/route53domains/accept-domain-transfer-from-another-aws-account.html accept-domain-transfer-from-another-aws-account>,
+-- use JSON format as input instead of text because otherwise CLI will
+-- throw an error from domain transfer input that includes single quotes.
 --
 -- Use either
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html ListOperations>
@@ -63,8 +69,8 @@ import Amazonka.Route53Domains.Types
 --
 -- /See:/ 'newAcceptDomainTransferFromAnotherAwsAccount' smart constructor.
 data AcceptDomainTransferFromAnotherAwsAccount = AcceptDomainTransferFromAnotherAwsAccount'
-  { -- | The name of the domain that was specified when another AWS account
-    -- submitted a
+  { -- | The name of the domain that was specified when another Amazon Web
+    -- Services account submitted a
     -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
     -- request.
     domainName :: Prelude.Text,
@@ -83,8 +89,8 @@ data AcceptDomainTransferFromAnotherAwsAccount = AcceptDomainTransferFromAnother
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainName', 'acceptDomainTransferFromAnotherAwsAccount_domainName' - The name of the domain that was specified when another AWS account
--- submitted a
+-- 'domainName', 'acceptDomainTransferFromAnotherAwsAccount_domainName' - The name of the domain that was specified when another Amazon Web
+-- Services account submitted a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
 -- request.
 --
@@ -106,8 +112,8 @@ newAcceptDomainTransferFromAnotherAwsAccount
         password = pPassword_
       }
 
--- | The name of the domain that was specified when another AWS account
--- submitted a
+-- | The name of the domain that was specified when another Amazon Web
+-- Services account submitted a
 -- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>
 -- request.
 acceptDomainTransferFromAnotherAwsAccount_domainName :: Lens.Lens' AcceptDomainTransferFromAnotherAwsAccount Prelude.Text

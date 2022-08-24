@@ -40,16 +40,19 @@
 --     contact information either for Amazon Registrar (for .com, .net, and
 --     .org domains) or for our registrar associate, Gandi (for all other
 --     TLDs). If you don\'t enable privacy protection, WHOIS queries return
---     the information that you entered for the registrant, admin, and tech
---     contacts.
+--     the information that you entered for the administrative, registrant,
+--     and technical contacts.
+--
+--     You must specify the same privacy setting for the administrative,
+--     registrant, and technical contacts.
 --
 -- -   If registration is successful, returns an operation ID that you can
 --     use to track the progress and completion of the action. If the
 --     request is not completed successfully, the domain registrant is
 --     notified by email.
 --
--- -   Charges your AWS account an amount based on the top-level domain.
---     For more information, see
+-- -   Charges your Amazon Web Services account an amount based on the
+--     top-level domain. For more information, see
 --     <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
 module Amazonka.Route53Domains.RegisterDomain
   ( -- * Creating a Request
@@ -104,6 +107,9 @@ data RegisterDomain = RegisterDomain'
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the registrant contact (the domain owner).
     --
+    -- You must specify the same privacy setting for the administrative,
+    -- registrant, and technical contacts.
+    --
     -- Default: @true@
     privacyProtectRegistrantContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -113,6 +119,9 @@ data RegisterDomain = RegisterDomain'
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the admin contact.
     --
+    -- You must specify the same privacy setting for the administrative,
+    -- registrant, and technical contacts.
+    --
     -- Default: @true@
     privacyProtectAdminContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -121,6 +130,9 @@ data RegisterDomain = RegisterDomain'
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the technical contact.
+    --
+    -- You must specify the same privacy setting for the administrative,
+    -- registrant, and technical contacts.
     --
     -- Default: @true@
     privacyProtectTechContact :: Prelude.Maybe Prelude.Bool,
@@ -195,6 +207,9 @@ data RegisterDomain = RegisterDomain'
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the registrant contact (the domain owner).
 --
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
 -- Default: @true@
 --
 -- 'privacyProtectAdminContact', 'registerDomain_privacyProtectAdminContact' - Whether you want to conceal contact information from WHOIS queries. If
@@ -204,6 +219,9 @@ data RegisterDomain = RegisterDomain'
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
 --
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
 -- Default: @true@
 --
 -- 'privacyProtectTechContact', 'registerDomain_privacyProtectTechContact' - Whether you want to conceal contact information from WHOIS queries. If
@@ -212,6 +230,9 @@ data RegisterDomain = RegisterDomain'
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the technical contact.
+--
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
 --
 -- Default: @true@
 --
@@ -310,6 +331,9 @@ registerDomain_idnLangCode = Lens.lens (\RegisterDomain' {idnLangCode} -> idnLan
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the registrant contact (the domain owner).
 --
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
 -- Default: @true@
 registerDomain_privacyProtectRegistrantContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
 registerDomain_privacyProtectRegistrantContact = Lens.lens (\RegisterDomain' {privacyProtectRegistrantContact} -> privacyProtectRegistrantContact) (\s@RegisterDomain' {} a -> s {privacyProtectRegistrantContact = a} :: RegisterDomain)
@@ -321,6 +345,9 @@ registerDomain_privacyProtectRegistrantContact = Lens.lens (\RegisterDomain' {pr
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
 --
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
 -- Default: @true@
 registerDomain_privacyProtectAdminContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)
 registerDomain_privacyProtectAdminContact = Lens.lens (\RegisterDomain' {privacyProtectAdminContact} -> privacyProtectAdminContact) (\s@RegisterDomain' {} a -> s {privacyProtectAdminContact = a} :: RegisterDomain)
@@ -331,6 +358,9 @@ registerDomain_privacyProtectAdminContact = Lens.lens (\RegisterDomain' {privacy
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the technical contact.
+--
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
 --
 -- Default: @true@
 registerDomain_privacyProtectTechContact :: Lens.Lens' RegisterDomain (Prelude.Maybe Prelude.Bool)

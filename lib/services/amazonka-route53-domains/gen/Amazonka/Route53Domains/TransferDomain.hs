@@ -34,8 +34,8 @@
 --     <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html Transferring Registration for a Domain to Amazon Route 53>
 --     in the /Amazon Route 53 Developer Guide/.
 --
--- -   For information about how to transfer a domain from one AWS account
---     to another, see
+-- -   For information about how to transfer a domain from one Amazon Web
+--     Services account to another, see
 --     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_TransferDomainToAnotherAwsAccount.html TransferDomainToAnotherAwsAccount>.
 --
 -- -   For information about how to transfer a domain to another domain
@@ -117,6 +117,9 @@ data TransferDomain = TransferDomain'
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the registrant contact (domain owner).
     --
+    -- You must specify the same privacy setting for the administrative,
+    -- registrant, and technical contacts.
+    --
     -- Default: @true@
     privacyProtectRegistrantContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -126,6 +129,9 @@ data TransferDomain = TransferDomain'
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the admin contact.
     --
+    -- You must specify the same privacy setting for the administrative,
+    -- registrant, and technical contacts.
+    --
     -- Default: @true@
     privacyProtectAdminContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -134,6 +140,9 @@ data TransferDomain = TransferDomain'
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
     -- entered for the technical contact.
+    --
+    -- You must specify the same privacy setting for the administrative,
+    -- registrant, and technical contacts.
     --
     -- Default: @true@
     privacyProtectTechContact :: Prelude.Maybe Prelude.Bool,
@@ -197,6 +206,9 @@ data TransferDomain = TransferDomain'
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the registrant contact (domain owner).
 --
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
 -- Default: @true@
 --
 -- 'privacyProtectAdminContact', 'transferDomain_privacyProtectAdminContact' - Whether you want to conceal contact information from WHOIS queries. If
@@ -206,6 +218,9 @@ data TransferDomain = TransferDomain'
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
 --
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
 -- Default: @true@
 --
 -- 'privacyProtectTechContact', 'transferDomain_privacyProtectTechContact' - Whether you want to conceal contact information from WHOIS queries. If
@@ -214,6 +229,9 @@ data TransferDomain = TransferDomain'
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the technical contact.
+--
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
 --
 -- Default: @true@
 --
@@ -305,6 +323,9 @@ transferDomain_idnLangCode = Lens.lens (\TransferDomain' {idnLangCode} -> idnLan
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the registrant contact (domain owner).
 --
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
 -- Default: @true@
 transferDomain_privacyProtectRegistrantContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
 transferDomain_privacyProtectRegistrantContact = Lens.lens (\TransferDomain' {privacyProtectRegistrantContact} -> privacyProtectRegistrantContact) (\s@TransferDomain' {} a -> s {privacyProtectRegistrantContact = a} :: TransferDomain)
@@ -316,6 +337,9 @@ transferDomain_privacyProtectRegistrantContact = Lens.lens (\TransferDomain' {pr
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
 --
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
+--
 -- Default: @true@
 transferDomain_privacyProtectAdminContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
 transferDomain_privacyProtectAdminContact = Lens.lens (\TransferDomain' {privacyProtectAdminContact} -> privacyProtectAdminContact) (\s@TransferDomain' {} a -> s {privacyProtectAdminContact = a} :: TransferDomain)
@@ -326,6 +350,9 @@ transferDomain_privacyProtectAdminContact = Lens.lens (\TransferDomain' {privacy
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the technical contact.
+--
+-- You must specify the same privacy setting for the administrative,
+-- registrant, and technical contacts.
 --
 -- Default: @true@
 transferDomain_privacyProtectTechContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)

@@ -24,6 +24,8 @@
 -- ID and that have ever been performed on domains that were registered by
 -- the current account.
 --
+-- This command runs only in the us-east-1 Region.
+--
 -- This operation returns paginated results.
 module Amazonka.Route53Domains.ListOperations
   ( -- * Creating a Request

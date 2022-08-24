@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.AmplifyBackend.Types.DeliveryMethod
+-- Module      : Amazonka.AmplifyBackend.Types.AuthenticatedElement
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AmplifyBackend.Types.DeliveryMethod
-  ( DeliveryMethod
+module Amazonka.AmplifyBackend.Types.AuthenticatedElement
+  ( AuthenticatedElement
       ( ..,
-        DeliveryMethod_EMAIL,
-        DeliveryMethod_SMS
+        AuthenticatedElement_CREATE_AND_UPDATE,
+        AuthenticatedElement_DELETE,
+        AuthenticatedElement_READ
       ),
   )
 where
@@ -29,9 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The type of verification message to send.
-newtype DeliveryMethod = DeliveryMethod'
-  { fromDeliveryMethod ::
+newtype AuthenticatedElement = AuthenticatedElement'
+  { fromAuthenticatedElement ::
       Core.Text
   }
   deriving stock
@@ -58,14 +58,18 @@ newtype DeliveryMethod = DeliveryMethod'
       Core.ToXML
     )
 
-pattern DeliveryMethod_EMAIL :: DeliveryMethod
-pattern DeliveryMethod_EMAIL = DeliveryMethod' "EMAIL"
+pattern AuthenticatedElement_CREATE_AND_UPDATE :: AuthenticatedElement
+pattern AuthenticatedElement_CREATE_AND_UPDATE = AuthenticatedElement' "CREATE_AND_UPDATE"
 
-pattern DeliveryMethod_SMS :: DeliveryMethod
-pattern DeliveryMethod_SMS = DeliveryMethod' "SMS"
+pattern AuthenticatedElement_DELETE :: AuthenticatedElement
+pattern AuthenticatedElement_DELETE = AuthenticatedElement' "DELETE"
+
+pattern AuthenticatedElement_READ :: AuthenticatedElement
+pattern AuthenticatedElement_READ = AuthenticatedElement' "READ"
 
 {-# COMPLETE
-  DeliveryMethod_EMAIL,
-  DeliveryMethod_SMS,
-  DeliveryMethod'
+  AuthenticatedElement_CREATE_AND_UPDATE,
+  AuthenticatedElement_DELETE,
+  AuthenticatedElement_READ,
+  AuthenticatedElement'
   #-}

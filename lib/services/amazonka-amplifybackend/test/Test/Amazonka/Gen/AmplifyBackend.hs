@@ -42,6 +42,9 @@ import Test.Tasty
 --         , requestCreateBackendConfig $
 --             newCreateBackendConfig
 --
+--         , requestCreateBackendStorage $
+--             newCreateBackendStorage
+--
 --         , requestCreateToken $
 --             newCreateToken
 --
@@ -53,6 +56,9 @@ import Test.Tasty
 --
 --         , requestDeleteBackendAuth $
 --             newDeleteBackendAuth
+--
+--         , requestDeleteBackendStorage $
+--             newDeleteBackendStorage
 --
 --         , requestDeleteToken $
 --             newDeleteToken
@@ -75,14 +81,23 @@ import Test.Tasty
 --         , requestGetBackendJob $
 --             newGetBackendJob
 --
+--         , requestGetBackendStorage $
+--             newGetBackendStorage
+--
 --         , requestGetToken $
 --             newGetToken
 --
 --         , requestImportBackendAuth $
 --             newImportBackendAuth
 --
+--         , requestImportBackendStorage $
+--             newImportBackendStorage
+--
 --         , requestListBackendJobs $
 --             newListBackendJobs
+--
+--         , requestListS3Buckets $
+--             newListS3Buckets
 --
 --         , requestRemoveAllBackends $
 --             newRemoveAllBackends
@@ -102,6 +117,9 @@ import Test.Tasty
 --         , requestUpdateBackendJob $
 --             newUpdateBackendJob
 --
+--         , requestUpdateBackendStorage $
+--             newUpdateBackendStorage
+--
 --           ]
 
 --     , testGroup "response"
@@ -120,6 +138,9 @@ import Test.Tasty
 --         , responseCreateBackendConfig $
 --             newCreateBackendConfigResponse
 --
+--         , responseCreateBackendStorage $
+--             newCreateBackendStorageResponse
+--
 --         , responseCreateToken $
 --             newCreateTokenResponse
 --
@@ -131,6 +152,9 @@ import Test.Tasty
 --
 --         , responseDeleteBackendAuth $
 --             newDeleteBackendAuthResponse
+--
+--         , responseDeleteBackendStorage $
+--             newDeleteBackendStorageResponse
 --
 --         , responseDeleteToken $
 --             newDeleteTokenResponse
@@ -153,14 +177,23 @@ import Test.Tasty
 --         , responseGetBackendJob $
 --             newGetBackendJobResponse
 --
+--         , responseGetBackendStorage $
+--             newGetBackendStorageResponse
+--
 --         , responseGetToken $
 --             newGetTokenResponse
 --
 --         , responseImportBackendAuth $
 --             newImportBackendAuthResponse
 --
+--         , responseImportBackendStorage $
+--             newImportBackendStorageResponse
+--
 --         , responseListBackendJobs $
 --             newListBackendJobsResponse
+--
+--         , responseListS3Buckets $
+--             newListS3BucketsResponse
 --
 --         , responseRemoveAllBackends $
 --             newRemoveAllBackendsResponse
@@ -179,6 +212,9 @@ import Test.Tasty
 --
 --         , responseUpdateBackendJob $
 --             newUpdateBackendJobResponse
+--
+--         , responseUpdateBackendStorage $
+--             newUpdateBackendStorageResponse
 --
 --           ]
 --     ]
@@ -215,6 +251,12 @@ requestCreateBackendConfig =
     "CreateBackendConfig"
     "fixture/CreateBackendConfig.yaml"
 
+requestCreateBackendStorage :: CreateBackendStorage -> TestTree
+requestCreateBackendStorage =
+  req
+    "CreateBackendStorage"
+    "fixture/CreateBackendStorage.yaml"
+
 requestCreateToken :: CreateToken -> TestTree
 requestCreateToken =
   req
@@ -238,6 +280,12 @@ requestDeleteBackendAuth =
   req
     "DeleteBackendAuth"
     "fixture/DeleteBackendAuth.yaml"
+
+requestDeleteBackendStorage :: DeleteBackendStorage -> TestTree
+requestDeleteBackendStorage =
+  req
+    "DeleteBackendStorage"
+    "fixture/DeleteBackendStorage.yaml"
 
 requestDeleteToken :: DeleteToken -> TestTree
 requestDeleteToken =
@@ -281,6 +329,12 @@ requestGetBackendJob =
     "GetBackendJob"
     "fixture/GetBackendJob.yaml"
 
+requestGetBackendStorage :: GetBackendStorage -> TestTree
+requestGetBackendStorage =
+  req
+    "GetBackendStorage"
+    "fixture/GetBackendStorage.yaml"
+
 requestGetToken :: GetToken -> TestTree
 requestGetToken =
   req
@@ -293,11 +347,23 @@ requestImportBackendAuth =
     "ImportBackendAuth"
     "fixture/ImportBackendAuth.yaml"
 
+requestImportBackendStorage :: ImportBackendStorage -> TestTree
+requestImportBackendStorage =
+  req
+    "ImportBackendStorage"
+    "fixture/ImportBackendStorage.yaml"
+
 requestListBackendJobs :: ListBackendJobs -> TestTree
 requestListBackendJobs =
   req
     "ListBackendJobs"
     "fixture/ListBackendJobs.yaml"
+
+requestListS3Buckets :: ListS3Buckets -> TestTree
+requestListS3Buckets =
+  req
+    "ListS3Buckets"
+    "fixture/ListS3Buckets.yaml"
 
 requestRemoveAllBackends :: RemoveAllBackends -> TestTree
 requestRemoveAllBackends =
@@ -334,6 +400,12 @@ requestUpdateBackendJob =
   req
     "UpdateBackendJob"
     "fixture/UpdateBackendJob.yaml"
+
+requestUpdateBackendStorage :: UpdateBackendStorage -> TestTree
+requestUpdateBackendStorage =
+  req
+    "UpdateBackendStorage"
+    "fixture/UpdateBackendStorage.yaml"
 
 -- Responses
 
@@ -377,6 +449,14 @@ responseCreateBackendConfig =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateBackendConfig)
 
+responseCreateBackendStorage :: CreateBackendStorageResponse -> TestTree
+responseCreateBackendStorage =
+  res
+    "CreateBackendStorageResponse"
+    "fixture/CreateBackendStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBackendStorage)
+
 responseCreateToken :: CreateTokenResponse -> TestTree
 responseCreateToken =
   res
@@ -408,6 +488,14 @@ responseDeleteBackendAuth =
     "fixture/DeleteBackendAuthResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteBackendAuth)
+
+responseDeleteBackendStorage :: DeleteBackendStorageResponse -> TestTree
+responseDeleteBackendStorage =
+  res
+    "DeleteBackendStorageResponse"
+    "fixture/DeleteBackendStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteBackendStorage)
 
 responseDeleteToken :: DeleteTokenResponse -> TestTree
 responseDeleteToken =
@@ -465,6 +553,14 @@ responseGetBackendJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetBackendJob)
 
+responseGetBackendStorage :: GetBackendStorageResponse -> TestTree
+responseGetBackendStorage =
+  res
+    "GetBackendStorageResponse"
+    "fixture/GetBackendStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetBackendStorage)
+
 responseGetToken :: GetTokenResponse -> TestTree
 responseGetToken =
   res
@@ -481,6 +577,14 @@ responseImportBackendAuth =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ImportBackendAuth)
 
+responseImportBackendStorage :: ImportBackendStorageResponse -> TestTree
+responseImportBackendStorage =
+  res
+    "ImportBackendStorageResponse"
+    "fixture/ImportBackendStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ImportBackendStorage)
+
 responseListBackendJobs :: ListBackendJobsResponse -> TestTree
 responseListBackendJobs =
   res
@@ -488,6 +592,14 @@ responseListBackendJobs =
     "fixture/ListBackendJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListBackendJobs)
+
+responseListS3Buckets :: ListS3BucketsResponse -> TestTree
+responseListS3Buckets =
+  res
+    "ListS3BucketsResponse"
+    "fixture/ListS3BucketsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListS3Buckets)
 
 responseRemoveAllBackends :: RemoveAllBackendsResponse -> TestTree
 responseRemoveAllBackends =
@@ -536,3 +648,11 @@ responseUpdateBackendJob =
     "fixture/UpdateBackendJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateBackendJob)
+
+responseUpdateBackendStorage :: UpdateBackendStorageResponse -> TestTree
+responseUpdateBackendStorage =
+  res
+    "UpdateBackendStorageResponse"
+    "fixture/UpdateBackendStorageResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateBackendStorage)

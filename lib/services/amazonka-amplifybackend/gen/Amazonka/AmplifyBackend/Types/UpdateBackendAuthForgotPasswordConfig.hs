@@ -26,19 +26,19 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the forgot password policy for authenticating into the Amplify
--- app.
+-- | __(DEPRECATED)__ Describes the forgot password policy for authenticating
+-- into the Amplify app.
 --
 -- /See:/ 'newUpdateBackendAuthForgotPasswordConfig' smart constructor.
 data UpdateBackendAuthForgotPasswordConfig = UpdateBackendAuthForgotPasswordConfig'
-  { -- | The configuration for the email sent when an app user forgets their
-    -- password.
-    emailSettings :: Prelude.Maybe EmailSettings,
-    -- | Describes which mode to use (either SMS or email) to deliver messages to
-    -- app users that want to recover their password.
-    deliveryMethod :: Prelude.Maybe DeliveryMethod,
-    -- | The configuration for the SMS message sent when an Amplify app user
+  { -- | __(DEPRECATED)__ The configuration for the email sent when an app user
     -- forgets their password.
+    emailSettings :: Prelude.Maybe EmailSettings,
+    -- | __(DEPRECATED)__ Describes which mode to use (either SMS or email) to
+    -- deliver messages to app users that want to recover their password.
+    deliveryMethod :: Prelude.Maybe DeliveryMethod,
+    -- | __(DEPRECATED)__ The configuration for the SMS message sent when an
+    -- Amplify app user forgets their password.
     smsSettings :: Prelude.Maybe SmsSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,14 +51,14 @@ data UpdateBackendAuthForgotPasswordConfig = UpdateBackendAuthForgotPasswordConf
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'emailSettings', 'updateBackendAuthForgotPasswordConfig_emailSettings' - The configuration for the email sent when an app user forgets their
--- password.
---
--- 'deliveryMethod', 'updateBackendAuthForgotPasswordConfig_deliveryMethod' - Describes which mode to use (either SMS or email) to deliver messages to
--- app users that want to recover their password.
---
--- 'smsSettings', 'updateBackendAuthForgotPasswordConfig_smsSettings' - The configuration for the SMS message sent when an Amplify app user
+-- 'emailSettings', 'updateBackendAuthForgotPasswordConfig_emailSettings' - __(DEPRECATED)__ The configuration for the email sent when an app user
 -- forgets their password.
+--
+-- 'deliveryMethod', 'updateBackendAuthForgotPasswordConfig_deliveryMethod' - __(DEPRECATED)__ Describes which mode to use (either SMS or email) to
+-- deliver messages to app users that want to recover their password.
+--
+-- 'smsSettings', 'updateBackendAuthForgotPasswordConfig_smsSettings' - __(DEPRECATED)__ The configuration for the SMS message sent when an
+-- Amplify app user forgets their password.
 newUpdateBackendAuthForgotPasswordConfig ::
   UpdateBackendAuthForgotPasswordConfig
 newUpdateBackendAuthForgotPasswordConfig =
@@ -69,18 +69,18 @@ newUpdateBackendAuthForgotPasswordConfig =
       smsSettings = Prelude.Nothing
     }
 
--- | The configuration for the email sent when an app user forgets their
--- password.
+-- | __(DEPRECATED)__ The configuration for the email sent when an app user
+-- forgets their password.
 updateBackendAuthForgotPasswordConfig_emailSettings :: Lens.Lens' UpdateBackendAuthForgotPasswordConfig (Prelude.Maybe EmailSettings)
 updateBackendAuthForgotPasswordConfig_emailSettings = Lens.lens (\UpdateBackendAuthForgotPasswordConfig' {emailSettings} -> emailSettings) (\s@UpdateBackendAuthForgotPasswordConfig' {} a -> s {emailSettings = a} :: UpdateBackendAuthForgotPasswordConfig)
 
--- | Describes which mode to use (either SMS or email) to deliver messages to
--- app users that want to recover their password.
+-- | __(DEPRECATED)__ Describes which mode to use (either SMS or email) to
+-- deliver messages to app users that want to recover their password.
 updateBackendAuthForgotPasswordConfig_deliveryMethod :: Lens.Lens' UpdateBackendAuthForgotPasswordConfig (Prelude.Maybe DeliveryMethod)
 updateBackendAuthForgotPasswordConfig_deliveryMethod = Lens.lens (\UpdateBackendAuthForgotPasswordConfig' {deliveryMethod} -> deliveryMethod) (\s@UpdateBackendAuthForgotPasswordConfig' {} a -> s {deliveryMethod = a} :: UpdateBackendAuthForgotPasswordConfig)
 
--- | The configuration for the SMS message sent when an Amplify app user
--- forgets their password.
+-- | __(DEPRECATED)__ The configuration for the SMS message sent when an
+-- Amplify app user forgets their password.
 updateBackendAuthForgotPasswordConfig_smsSettings :: Lens.Lens' UpdateBackendAuthForgotPasswordConfig (Prelude.Maybe SmsSettings)
 updateBackendAuthForgotPasswordConfig_smsSettings = Lens.lens (\UpdateBackendAuthForgotPasswordConfig' {smsSettings} -> smsSettings) (\s@UpdateBackendAuthForgotPasswordConfig' {} a -> s {smsSettings = a} :: UpdateBackendAuthForgotPasswordConfig)
 

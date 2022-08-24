@@ -11,17 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.AmplifyBackend.Types.DeliveryMethod
+-- Module      : Amazonka.AmplifyBackend.Types.ServiceName
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.AmplifyBackend.Types.DeliveryMethod
-  ( DeliveryMethod
+module Amazonka.AmplifyBackend.Types.ServiceName
+  ( ServiceName
       ( ..,
-        DeliveryMethod_EMAIL,
-        DeliveryMethod_SMS
+        ServiceName_S3
       ),
   )
 where
@@ -29,9 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The type of verification message to send.
-newtype DeliveryMethod = DeliveryMethod'
-  { fromDeliveryMethod ::
+newtype ServiceName = ServiceName'
+  { fromServiceName ::
       Core.Text
   }
   deriving stock
@@ -58,14 +56,10 @@ newtype DeliveryMethod = DeliveryMethod'
       Core.ToXML
     )
 
-pattern DeliveryMethod_EMAIL :: DeliveryMethod
-pattern DeliveryMethod_EMAIL = DeliveryMethod' "EMAIL"
-
-pattern DeliveryMethod_SMS :: DeliveryMethod
-pattern DeliveryMethod_SMS = DeliveryMethod' "SMS"
+pattern ServiceName_S3 :: ServiceName
+pattern ServiceName_S3 = ServiceName' "S3"
 
 {-# COMPLETE
-  DeliveryMethod_EMAIL,
-  DeliveryMethod_SMS,
-  DeliveryMethod'
+  ServiceName_S3,
+  ServiceName'
   #-}

@@ -67,6 +67,12 @@ module Amazonka.AmplifyBackend
     CreateBackendConfigResponse (CreateBackendConfigResponse'),
     newCreateBackendConfigResponse,
 
+    -- ** CreateBackendStorage
+    CreateBackendStorage (CreateBackendStorage'),
+    newCreateBackendStorage,
+    CreateBackendStorageResponse (CreateBackendStorageResponse'),
+    newCreateBackendStorageResponse,
+
     -- ** CreateToken
     CreateToken (CreateToken'),
     newCreateToken,
@@ -90,6 +96,12 @@ module Amazonka.AmplifyBackend
     newDeleteBackendAuth,
     DeleteBackendAuthResponse (DeleteBackendAuthResponse'),
     newDeleteBackendAuthResponse,
+
+    -- ** DeleteBackendStorage
+    DeleteBackendStorage (DeleteBackendStorage'),
+    newDeleteBackendStorage,
+    DeleteBackendStorageResponse (DeleteBackendStorageResponse'),
+    newDeleteBackendStorageResponse,
 
     -- ** DeleteToken
     DeleteToken (DeleteToken'),
@@ -133,6 +145,12 @@ module Amazonka.AmplifyBackend
     GetBackendJobResponse (GetBackendJobResponse'),
     newGetBackendJobResponse,
 
+    -- ** GetBackendStorage
+    GetBackendStorage (GetBackendStorage'),
+    newGetBackendStorage,
+    GetBackendStorageResponse (GetBackendStorageResponse'),
+    newGetBackendStorageResponse,
+
     -- ** GetToken
     GetToken (GetToken'),
     newGetToken,
@@ -145,11 +163,23 @@ module Amazonka.AmplifyBackend
     ImportBackendAuthResponse (ImportBackendAuthResponse'),
     newImportBackendAuthResponse,
 
+    -- ** ImportBackendStorage
+    ImportBackendStorage (ImportBackendStorage'),
+    newImportBackendStorage,
+    ImportBackendStorageResponse (ImportBackendStorageResponse'),
+    newImportBackendStorageResponse,
+
     -- ** ListBackendJobs (Paginated)
     ListBackendJobs (ListBackendJobs'),
     newListBackendJobs,
     ListBackendJobsResponse (ListBackendJobsResponse'),
     newListBackendJobsResponse,
+
+    -- ** ListS3Buckets
+    ListS3Buckets (ListS3Buckets'),
+    newListS3Buckets,
+    ListS3BucketsResponse (ListS3BucketsResponse'),
+    newListS3BucketsResponse,
 
     -- ** RemoveAllBackends
     RemoveAllBackends (RemoveAllBackends'),
@@ -187,6 +217,12 @@ module Amazonka.AmplifyBackend
     UpdateBackendJobResponse (UpdateBackendJobResponse'),
     newUpdateBackendJobResponse,
 
+    -- ** UpdateBackendStorage
+    UpdateBackendStorage (UpdateBackendStorage'),
+    newUpdateBackendStorage,
+    UpdateBackendStorageResponse (UpdateBackendStorageResponse'),
+    newUpdateBackendStorageResponse,
+
     -- * Types
 
     -- ** AdditionalConstraintsElement
@@ -194,6 +230,9 @@ module Amazonka.AmplifyBackend
 
     -- ** AuthResources
     AuthResources (..),
+
+    -- ** AuthenticatedElement
+    AuthenticatedElement (..),
 
     -- ** DeliveryMethod
     DeliveryMethod (..),
@@ -222,11 +261,17 @@ module Amazonka.AmplifyBackend
     -- ** Service
     Service (..),
 
+    -- ** ServiceName
+    ServiceName (..),
+
     -- ** SignInMethod
     SignInMethod (..),
 
     -- ** Status
     Status (..),
+
+    -- ** UnAuthenticatedElement
+    UnAuthenticatedElement (..),
 
     -- ** BackendAPIAppSyncAuthSettings
     BackendAPIAppSyncAuthSettings (BackendAPIAppSyncAuthSettings'),
@@ -256,6 +301,10 @@ module Amazonka.AmplifyBackend
     BackendJobRespObj (BackendJobRespObj'),
     newBackendJobRespObj,
 
+    -- ** BackendStoragePermissions
+    BackendStoragePermissions (BackendStoragePermissions'),
+    newBackendStoragePermissions,
+
     -- ** CreateBackendAuthForgotPasswordConfig
     CreateBackendAuthForgotPasswordConfig (CreateBackendAuthForgotPasswordConfig'),
     newCreateBackendAuthForgotPasswordConfig,
@@ -284,9 +333,21 @@ module Amazonka.AmplifyBackend
     CreateBackendAuthUserPoolConfig (CreateBackendAuthUserPoolConfig'),
     newCreateBackendAuthUserPoolConfig,
 
+    -- ** CreateBackendAuthVerificationMessageConfig
+    CreateBackendAuthVerificationMessageConfig (CreateBackendAuthVerificationMessageConfig'),
+    newCreateBackendAuthVerificationMessageConfig,
+
+    -- ** CreateBackendStorageResourceConfig
+    CreateBackendStorageResourceConfig (CreateBackendStorageResourceConfig'),
+    newCreateBackendStorageResourceConfig,
+
     -- ** EmailSettings
     EmailSettings (EmailSettings'),
     newEmailSettings,
+
+    -- ** GetBackendStorageResourceConfig
+    GetBackendStorageResourceConfig (GetBackendStorageResourceConfig'),
+    newGetBackendStorageResourceConfig,
 
     -- ** LoginAuthConfigReqObj
     LoginAuthConfigReqObj (LoginAuthConfigReqObj'),
@@ -295,6 +356,10 @@ module Amazonka.AmplifyBackend
     -- ** ResourceConfig
     ResourceConfig (ResourceConfig'),
     newResourceConfig,
+
+    -- ** S3BucketInfo
+    S3BucketInfo (S3BucketInfo'),
+    newS3BucketInfo,
 
     -- ** Settings
     Settings (Settings'),
@@ -335,6 +400,14 @@ module Amazonka.AmplifyBackend
     -- ** UpdateBackendAuthUserPoolConfig
     UpdateBackendAuthUserPoolConfig (UpdateBackendAuthUserPoolConfig'),
     newUpdateBackendAuthUserPoolConfig,
+
+    -- ** UpdateBackendAuthVerificationMessageConfig
+    UpdateBackendAuthVerificationMessageConfig (UpdateBackendAuthVerificationMessageConfig'),
+    newUpdateBackendAuthVerificationMessageConfig,
+
+    -- ** UpdateBackendStorageResourceConfig
+    UpdateBackendStorageResourceConfig (UpdateBackendStorageResourceConfig'),
+    newUpdateBackendStorageResourceConfig,
   )
 where
 
@@ -343,10 +416,12 @@ import Amazonka.AmplifyBackend.CreateBackend
 import Amazonka.AmplifyBackend.CreateBackendAPI
 import Amazonka.AmplifyBackend.CreateBackendAuth
 import Amazonka.AmplifyBackend.CreateBackendConfig
+import Amazonka.AmplifyBackend.CreateBackendStorage
 import Amazonka.AmplifyBackend.CreateToken
 import Amazonka.AmplifyBackend.DeleteBackend
 import Amazonka.AmplifyBackend.DeleteBackendAPI
 import Amazonka.AmplifyBackend.DeleteBackendAuth
+import Amazonka.AmplifyBackend.DeleteBackendStorage
 import Amazonka.AmplifyBackend.DeleteToken
 import Amazonka.AmplifyBackend.GenerateBackendAPIModels
 import Amazonka.AmplifyBackend.GetBackend
@@ -354,10 +429,13 @@ import Amazonka.AmplifyBackend.GetBackendAPI
 import Amazonka.AmplifyBackend.GetBackendAPIModels
 import Amazonka.AmplifyBackend.GetBackendAuth
 import Amazonka.AmplifyBackend.GetBackendJob
+import Amazonka.AmplifyBackend.GetBackendStorage
 import Amazonka.AmplifyBackend.GetToken
 import Amazonka.AmplifyBackend.ImportBackendAuth
+import Amazonka.AmplifyBackend.ImportBackendStorage
 import Amazonka.AmplifyBackend.Lens
 import Amazonka.AmplifyBackend.ListBackendJobs
+import Amazonka.AmplifyBackend.ListS3Buckets
 import Amazonka.AmplifyBackend.RemoveAllBackends
 import Amazonka.AmplifyBackend.RemoveBackendConfig
 import Amazonka.AmplifyBackend.Types
@@ -365,6 +443,7 @@ import Amazonka.AmplifyBackend.UpdateBackendAPI
 import Amazonka.AmplifyBackend.UpdateBackendAuth
 import Amazonka.AmplifyBackend.UpdateBackendConfig
 import Amazonka.AmplifyBackend.UpdateBackendJob
+import Amazonka.AmplifyBackend.UpdateBackendStorage
 import Amazonka.AmplifyBackend.Waiters
 
 -- $errors

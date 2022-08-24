@@ -49,10 +49,12 @@ library
     Amazonka.AmplifyBackend.CreateBackendAPI
     Amazonka.AmplifyBackend.CreateBackendAuth
     Amazonka.AmplifyBackend.CreateBackendConfig
+    Amazonka.AmplifyBackend.CreateBackendStorage
     Amazonka.AmplifyBackend.CreateToken
     Amazonka.AmplifyBackend.DeleteBackend
     Amazonka.AmplifyBackend.DeleteBackendAPI
     Amazonka.AmplifyBackend.DeleteBackendAuth
+    Amazonka.AmplifyBackend.DeleteBackendStorage
     Amazonka.AmplifyBackend.DeleteToken
     Amazonka.AmplifyBackend.GenerateBackendAPIModels
     Amazonka.AmplifyBackend.GetBackend
@@ -60,14 +62,18 @@ library
     Amazonka.AmplifyBackend.GetBackendAPIModels
     Amazonka.AmplifyBackend.GetBackendAuth
     Amazonka.AmplifyBackend.GetBackendJob
+    Amazonka.AmplifyBackend.GetBackendStorage
     Amazonka.AmplifyBackend.GetToken
     Amazonka.AmplifyBackend.ImportBackendAuth
+    Amazonka.AmplifyBackend.ImportBackendStorage
     Amazonka.AmplifyBackend.Lens
     Amazonka.AmplifyBackend.ListBackendJobs
+    Amazonka.AmplifyBackend.ListS3Buckets
     Amazonka.AmplifyBackend.RemoveAllBackends
     Amazonka.AmplifyBackend.RemoveBackendConfig
     Amazonka.AmplifyBackend.Types
     Amazonka.AmplifyBackend.Types.AdditionalConstraintsElement
+    Amazonka.AmplifyBackend.Types.AuthenticatedElement
     Amazonka.AmplifyBackend.Types.AuthResources
     Amazonka.AmplifyBackend.Types.BackendAPIAppSyncAuthSettings
     Amazonka.AmplifyBackend.Types.BackendAPIAuthType
@@ -76,6 +82,7 @@ library
     Amazonka.AmplifyBackend.Types.BackendAuthAppleProviderConfig
     Amazonka.AmplifyBackend.Types.BackendAuthSocialProviderConfig
     Amazonka.AmplifyBackend.Types.BackendJobRespObj
+    Amazonka.AmplifyBackend.Types.BackendStoragePermissions
     Amazonka.AmplifyBackend.Types.CreateBackendAuthForgotPasswordConfig
     Amazonka.AmplifyBackend.Types.CreateBackendAuthIdentityPoolConfig
     Amazonka.AmplifyBackend.Types.CreateBackendAuthMFAConfig
@@ -83,8 +90,11 @@ library
     Amazonka.AmplifyBackend.Types.CreateBackendAuthPasswordPolicyConfig
     Amazonka.AmplifyBackend.Types.CreateBackendAuthResourceConfig
     Amazonka.AmplifyBackend.Types.CreateBackendAuthUserPoolConfig
+    Amazonka.AmplifyBackend.Types.CreateBackendAuthVerificationMessageConfig
+    Amazonka.AmplifyBackend.Types.CreateBackendStorageResourceConfig
     Amazonka.AmplifyBackend.Types.DeliveryMethod
     Amazonka.AmplifyBackend.Types.EmailSettings
+    Amazonka.AmplifyBackend.Types.GetBackendStorageResourceConfig
     Amazonka.AmplifyBackend.Types.LoginAuthConfigReqObj
     Amazonka.AmplifyBackend.Types.MFAMode
     Amazonka.AmplifyBackend.Types.MfaTypesElement
@@ -94,12 +104,15 @@ library
     Amazonka.AmplifyBackend.Types.RequiredSignUpAttributesElement
     Amazonka.AmplifyBackend.Types.ResolutionStrategy
     Amazonka.AmplifyBackend.Types.ResourceConfig
+    Amazonka.AmplifyBackend.Types.S3BucketInfo
     Amazonka.AmplifyBackend.Types.Service
+    Amazonka.AmplifyBackend.Types.ServiceName
     Amazonka.AmplifyBackend.Types.Settings
     Amazonka.AmplifyBackend.Types.SignInMethod
     Amazonka.AmplifyBackend.Types.SmsSettings
     Amazonka.AmplifyBackend.Types.SocialProviderSettings
     Amazonka.AmplifyBackend.Types.Status
+    Amazonka.AmplifyBackend.Types.UnAuthenticatedElement
     Amazonka.AmplifyBackend.Types.UpdateBackendAuthForgotPasswordConfig
     Amazonka.AmplifyBackend.Types.UpdateBackendAuthIdentityPoolConfig
     Amazonka.AmplifyBackend.Types.UpdateBackendAuthMFAConfig
@@ -107,10 +120,13 @@ library
     Amazonka.AmplifyBackend.Types.UpdateBackendAuthPasswordPolicyConfig
     Amazonka.AmplifyBackend.Types.UpdateBackendAuthResourceConfig
     Amazonka.AmplifyBackend.Types.UpdateBackendAuthUserPoolConfig
+    Amazonka.AmplifyBackend.Types.UpdateBackendAuthVerificationMessageConfig
+    Amazonka.AmplifyBackend.Types.UpdateBackendStorageResourceConfig
     Amazonka.AmplifyBackend.UpdateBackendAPI
     Amazonka.AmplifyBackend.UpdateBackendAuth
     Amazonka.AmplifyBackend.UpdateBackendConfig
     Amazonka.AmplifyBackend.UpdateBackendJob
+    Amazonka.AmplifyBackend.UpdateBackendStorage
     Amazonka.AmplifyBackend.Waiters
 
   build-depends:

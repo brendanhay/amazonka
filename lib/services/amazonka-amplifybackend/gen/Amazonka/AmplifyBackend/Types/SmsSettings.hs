@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newSmsSettings' smart constructor.
 data SmsSettings = SmsSettings'
-  { -- | The body of the SMS message.
+  { -- | The contents of the SMS message.
     smsMessage :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,13 +40,13 @@ data SmsSettings = SmsSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'smsMessage', 'smsSettings_smsMessage' - The body of the SMS message.
+-- 'smsMessage', 'smsSettings_smsMessage' - The contents of the SMS message.
 newSmsSettings ::
   SmsSettings
 newSmsSettings =
   SmsSettings' {smsMessage = Prelude.Nothing}
 
--- | The body of the SMS message.
+-- | The contents of the SMS message.
 smsSettings_smsMessage :: Lens.Lens' SmsSettings (Prelude.Maybe Prelude.Text)
 smsSettings_smsMessage = Lens.lens (\SmsSettings' {smsMessage} -> smsMessage) (\s@SmsSettings' {} a -> s {smsMessage = a} :: SmsSettings)
 

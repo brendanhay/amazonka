@@ -62,7 +62,7 @@ import qualified Amazonka.Response as Response
 data CreateBackend = CreateBackend'
   { -- | The name of the resource.
     resourceName :: Prelude.Maybe Prelude.Text,
-    -- | The resource configuration for the create backend request.
+    -- | The resource configuration for creating a backend.
     resourceConfig :: Prelude.Maybe ResourceConfig,
     -- | The app ID.
     appId :: Prelude.Text,
@@ -83,7 +83,7 @@ data CreateBackend = CreateBackend'
 --
 -- 'resourceName', 'createBackend_resourceName' - The name of the resource.
 --
--- 'resourceConfig', 'createBackend_resourceConfig' - The resource configuration for the create backend request.
+-- 'resourceConfig', 'createBackend_resourceConfig' - The resource configuration for creating a backend.
 --
 -- 'appId', 'createBackend_appId' - The app ID.
 --
@@ -114,7 +114,7 @@ newCreateBackend
 createBackend_resourceName :: Lens.Lens' CreateBackend (Prelude.Maybe Prelude.Text)
 createBackend_resourceName = Lens.lens (\CreateBackend' {resourceName} -> resourceName) (\s@CreateBackend' {} a -> s {resourceName = a} :: CreateBackend)
 
--- | The resource configuration for the create backend request.
+-- | The resource configuration for creating a backend.
 createBackend_resourceConfig :: Lens.Lens' CreateBackend (Prelude.Maybe ResourceConfig)
 createBackend_resourceConfig = Lens.lens (\CreateBackend' {resourceConfig} -> resourceConfig) (\s@CreateBackend' {} a -> s {resourceConfig = a} :: CreateBackend)
 

@@ -31,10 +31,11 @@ module Amazonka.CustomerProfiles.PutIntegration
 
     -- * Request Lenses
     putIntegration_tags,
+    putIntegration_objectTypeNames,
     putIntegration_uri,
     putIntegration_flowDefinition,
-    putIntegration_domainName,
     putIntegration_objectTypeName,
+    putIntegration_domainName,
 
     -- * Destructuring the Response
     PutIntegrationResponse (..),
@@ -42,10 +43,12 @@ module Amazonka.CustomerProfiles.PutIntegration
 
     -- * Response Lenses
     putIntegrationResponse_tags,
+    putIntegrationResponse_objectTypeNames,
+    putIntegrationResponse_workflowId,
+    putIntegrationResponse_objectTypeName,
     putIntegrationResponse_httpStatus,
     putIntegrationResponse_domainName,
     putIntegrationResponse_uri,
-    putIntegrationResponse_objectTypeName,
     putIntegrationResponse_createdAt,
     putIntegrationResponse_lastUpdatedAt,
   )
@@ -62,15 +65,23 @@ import qualified Amazonka.Response as Response
 data PutIntegration = PutIntegration'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A map in which each key is an event type from an external application
+    -- such as Segment or Shopify, and each value is an @ObjectTypeName@
+    -- (template) used to ingest the event. It supports the following event
+    -- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+    -- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+    -- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+    -- @ShopifyUpdatedOrders@.
+    objectTypeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The URI of the S3 bucket or any other type of data source.
     uri :: Prelude.Maybe Prelude.Text,
     -- | The configuration that controls how Customer Profiles retrieves data
     -- from the source.
     flowDefinition :: Prelude.Maybe FlowDefinition,
-    -- | The unique name of the domain.
-    domainName :: Prelude.Text,
     -- | The name of the profile object type.
-    objectTypeName :: Prelude.Text
+    objectTypeName :: Prelude.Maybe Prelude.Text,
+    -- | The unique name of the domain.
+    domainName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,32 +95,49 @@ data PutIntegration = PutIntegration'
 --
 -- 'tags', 'putIntegration_tags' - The tags used to organize, track, or control access for this resource.
 --
+-- 'objectTypeNames', 'putIntegration_objectTypeNames' - A map in which each key is an event type from an external application
+-- such as Segment or Shopify, and each value is an @ObjectTypeName@
+-- (template) used to ingest the event. It supports the following event
+-- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+-- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+-- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+-- @ShopifyUpdatedOrders@.
+--
 -- 'uri', 'putIntegration_uri' - The URI of the S3 bucket or any other type of data source.
 --
 -- 'flowDefinition', 'putIntegration_flowDefinition' - The configuration that controls how Customer Profiles retrieves data
 -- from the source.
 --
--- 'domainName', 'putIntegration_domainName' - The unique name of the domain.
---
 -- 'objectTypeName', 'putIntegration_objectTypeName' - The name of the profile object type.
+--
+-- 'domainName', 'putIntegration_domainName' - The unique name of the domain.
 newPutIntegration ::
   -- | 'domainName'
   Prelude.Text ->
-  -- | 'objectTypeName'
-  Prelude.Text ->
   PutIntegration
-newPutIntegration pDomainName_ pObjectTypeName_ =
+newPutIntegration pDomainName_ =
   PutIntegration'
     { tags = Prelude.Nothing,
+      objectTypeNames = Prelude.Nothing,
       uri = Prelude.Nothing,
       flowDefinition = Prelude.Nothing,
-      domainName = pDomainName_,
-      objectTypeName = pObjectTypeName_
+      objectTypeName = Prelude.Nothing,
+      domainName = pDomainName_
     }
 
 -- | The tags used to organize, track, or control access for this resource.
 putIntegration_tags :: Lens.Lens' PutIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putIntegration_tags = Lens.lens (\PutIntegration' {tags} -> tags) (\s@PutIntegration' {} a -> s {tags = a} :: PutIntegration) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map in which each key is an event type from an external application
+-- such as Segment or Shopify, and each value is an @ObjectTypeName@
+-- (template) used to ingest the event. It supports the following event
+-- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+-- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+-- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+-- @ShopifyUpdatedOrders@.
+putIntegration_objectTypeNames :: Lens.Lens' PutIntegration (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putIntegration_objectTypeNames = Lens.lens (\PutIntegration' {objectTypeNames} -> objectTypeNames) (\s@PutIntegration' {} a -> s {objectTypeNames = a} :: PutIntegration) Prelude.. Lens.mapping Lens.coerced
 
 -- | The URI of the S3 bucket or any other type of data source.
 putIntegration_uri :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
@@ -120,13 +148,13 @@ putIntegration_uri = Lens.lens (\PutIntegration' {uri} -> uri) (\s@PutIntegratio
 putIntegration_flowDefinition :: Lens.Lens' PutIntegration (Prelude.Maybe FlowDefinition)
 putIntegration_flowDefinition = Lens.lens (\PutIntegration' {flowDefinition} -> flowDefinition) (\s@PutIntegration' {} a -> s {flowDefinition = a} :: PutIntegration)
 
+-- | The name of the profile object type.
+putIntegration_objectTypeName :: Lens.Lens' PutIntegration (Prelude.Maybe Prelude.Text)
+putIntegration_objectTypeName = Lens.lens (\PutIntegration' {objectTypeName} -> objectTypeName) (\s@PutIntegration' {} a -> s {objectTypeName = a} :: PutIntegration)
+
 -- | The unique name of the domain.
 putIntegration_domainName :: Lens.Lens' PutIntegration Prelude.Text
 putIntegration_domainName = Lens.lens (\PutIntegration' {domainName} -> domainName) (\s@PutIntegration' {} a -> s {domainName = a} :: PutIntegration)
-
--- | The name of the profile object type.
-putIntegration_objectTypeName :: Lens.Lens' PutIntegration Prelude.Text
-putIntegration_objectTypeName = Lens.lens (\PutIntegration' {objectTypeName} -> objectTypeName) (\s@PutIntegration' {} a -> s {objectTypeName = a} :: PutIntegration)
 
 instance Core.AWSRequest PutIntegration where
   type
@@ -138,10 +166,14 @@ instance Core.AWSRequest PutIntegration where
       ( \s h x ->
           PutIntegrationResponse'
             Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> ( x Core..?> "ObjectTypeNames"
+                            Core..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Core..?> "WorkflowId")
+            Prelude.<*> (x Core..?> "ObjectTypeName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DomainName")
             Prelude.<*> (x Core..:> "Uri")
-            Prelude.<*> (x Core..:> "ObjectTypeName")
             Prelude.<*> (x Core..:> "CreatedAt")
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
@@ -149,18 +181,20 @@ instance Core.AWSRequest PutIntegration where
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` objectTypeNames
       `Prelude.hashWithSalt` uri
       `Prelude.hashWithSalt` flowDefinition
-      `Prelude.hashWithSalt` domainName
       `Prelude.hashWithSalt` objectTypeName
+      `Prelude.hashWithSalt` domainName
 
 instance Prelude.NFData PutIntegration where
   rnf PutIntegration' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf objectTypeNames
       `Prelude.seq` Prelude.rnf uri
       `Prelude.seq` Prelude.rnf flowDefinition
-      `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf objectTypeName
+      `Prelude.seq` Prelude.rnf domainName
 
 instance Core.ToHeaders PutIntegration where
   toHeaders =
@@ -178,11 +212,13 @@ instance Core.ToJSON PutIntegration where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("ObjectTypeNames" Core..=)
+              Prelude.<$> objectTypeNames,
             ("Uri" Core..=) Prelude.<$> uri,
             ("FlowDefinition" Core..=)
               Prelude.<$> flowDefinition,
-            Prelude.Just
-              ("ObjectTypeName" Core..= objectTypeName)
+            ("ObjectTypeName" Core..=)
+              Prelude.<$> objectTypeName
           ]
       )
 
@@ -198,14 +234,24 @@ instance Core.ToQuery PutIntegration where
 data PutIntegrationResponse = PutIntegrationResponse'
   { -- | The tags used to organize, track, or control access for this resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A map in which each key is an event type from an external application
+    -- such as Segment or Shopify, and each value is an @ObjectTypeName@
+    -- (template) used to ingest the event. It supports the following event
+    -- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+    -- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+    -- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+    -- @ShopifyUpdatedOrders@.
+    objectTypeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Unique identifier for the workflow.
+    workflowId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the profile object type.
+    objectTypeName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The unique name of the domain.
     domainName :: Prelude.Text,
     -- | The URI of the S3 bucket or any other type of data source.
     uri :: Prelude.Text,
-    -- | The name of the profile object type.
-    objectTypeName :: Prelude.Text,
     -- | The timestamp of when the domain was created.
     createdAt :: Core.POSIX,
     -- | The timestamp of when the domain was most recently edited.
@@ -223,13 +269,23 @@ data PutIntegrationResponse = PutIntegrationResponse'
 --
 -- 'tags', 'putIntegrationResponse_tags' - The tags used to organize, track, or control access for this resource.
 --
+-- 'objectTypeNames', 'putIntegrationResponse_objectTypeNames' - A map in which each key is an event type from an external application
+-- such as Segment or Shopify, and each value is an @ObjectTypeName@
+-- (template) used to ingest the event. It supports the following event
+-- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+-- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+-- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+-- @ShopifyUpdatedOrders@.
+--
+-- 'workflowId', 'putIntegrationResponse_workflowId' - Unique identifier for the workflow.
+--
+-- 'objectTypeName', 'putIntegrationResponse_objectTypeName' - The name of the profile object type.
+--
 -- 'httpStatus', 'putIntegrationResponse_httpStatus' - The response's http status code.
 --
 -- 'domainName', 'putIntegrationResponse_domainName' - The unique name of the domain.
 --
 -- 'uri', 'putIntegrationResponse_uri' - The URI of the S3 bucket or any other type of data source.
---
--- 'objectTypeName', 'putIntegrationResponse_objectTypeName' - The name of the profile object type.
 --
 -- 'createdAt', 'putIntegrationResponse_createdAt' - The timestamp of when the domain was created.
 --
@@ -241,8 +297,6 @@ newPutIntegrationResponse ::
   Prelude.Text ->
   -- | 'uri'
   Prelude.Text ->
-  -- | 'objectTypeName'
-  Prelude.Text ->
   -- | 'createdAt'
   Prelude.UTCTime ->
   -- | 'lastUpdatedAt'
@@ -252,15 +306,16 @@ newPutIntegrationResponse
   pHttpStatus_
   pDomainName_
   pUri_
-  pObjectTypeName_
   pCreatedAt_
   pLastUpdatedAt_ =
     PutIntegrationResponse'
       { tags = Prelude.Nothing,
+        objectTypeNames = Prelude.Nothing,
+        workflowId = Prelude.Nothing,
+        objectTypeName = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         domainName = pDomainName_,
         uri = pUri_,
-        objectTypeName = pObjectTypeName_,
         createdAt = Core._Time Lens.# pCreatedAt_,
         lastUpdatedAt = Core._Time Lens.# pLastUpdatedAt_
       }
@@ -268,6 +323,24 @@ newPutIntegrationResponse
 -- | The tags used to organize, track, or control access for this resource.
 putIntegrationResponse_tags :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putIntegrationResponse_tags = Lens.lens (\PutIntegrationResponse' {tags} -> tags) (\s@PutIntegrationResponse' {} a -> s {tags = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | A map in which each key is an event type from an external application
+-- such as Segment or Shopify, and each value is an @ObjectTypeName@
+-- (template) used to ingest the event. It supports the following event
+-- types: @SegmentIdentify@, @ShopifyCreateCustomers@,
+-- @ShopifyUpdateCustomers@, @ShopifyCreateDraftOrders@,
+-- @ShopifyUpdateDraftOrders@, @ShopifyCreateOrders@, and
+-- @ShopifyUpdatedOrders@.
+putIntegrationResponse_objectTypeNames :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+putIntegrationResponse_objectTypeNames = Lens.lens (\PutIntegrationResponse' {objectTypeNames} -> objectTypeNames) (\s@PutIntegrationResponse' {} a -> s {objectTypeNames = a} :: PutIntegrationResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | Unique identifier for the workflow.
+putIntegrationResponse_workflowId :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Text)
+putIntegrationResponse_workflowId = Lens.lens (\PutIntegrationResponse' {workflowId} -> workflowId) (\s@PutIntegrationResponse' {} a -> s {workflowId = a} :: PutIntegrationResponse)
+
+-- | The name of the profile object type.
+putIntegrationResponse_objectTypeName :: Lens.Lens' PutIntegrationResponse (Prelude.Maybe Prelude.Text)
+putIntegrationResponse_objectTypeName = Lens.lens (\PutIntegrationResponse' {objectTypeName} -> objectTypeName) (\s@PutIntegrationResponse' {} a -> s {objectTypeName = a} :: PutIntegrationResponse)
 
 -- | The response's http status code.
 putIntegrationResponse_httpStatus :: Lens.Lens' PutIntegrationResponse Prelude.Int
@@ -281,10 +354,6 @@ putIntegrationResponse_domainName = Lens.lens (\PutIntegrationResponse' {domainN
 putIntegrationResponse_uri :: Lens.Lens' PutIntegrationResponse Prelude.Text
 putIntegrationResponse_uri = Lens.lens (\PutIntegrationResponse' {uri} -> uri) (\s@PutIntegrationResponse' {} a -> s {uri = a} :: PutIntegrationResponse)
 
--- | The name of the profile object type.
-putIntegrationResponse_objectTypeName :: Lens.Lens' PutIntegrationResponse Prelude.Text
-putIntegrationResponse_objectTypeName = Lens.lens (\PutIntegrationResponse' {objectTypeName} -> objectTypeName) (\s@PutIntegrationResponse' {} a -> s {objectTypeName = a} :: PutIntegrationResponse)
-
 -- | The timestamp of when the domain was created.
 putIntegrationResponse_createdAt :: Lens.Lens' PutIntegrationResponse Prelude.UTCTime
 putIntegrationResponse_createdAt = Lens.lens (\PutIntegrationResponse' {createdAt} -> createdAt) (\s@PutIntegrationResponse' {} a -> s {createdAt = a} :: PutIntegrationResponse) Prelude.. Core._Time
@@ -296,9 +365,11 @@ putIntegrationResponse_lastUpdatedAt = Lens.lens (\PutIntegrationResponse' {last
 instance Prelude.NFData PutIntegrationResponse where
   rnf PutIntegrationResponse' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf objectTypeNames
+      `Prelude.seq` Prelude.rnf workflowId
+      `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf domainName
       `Prelude.seq` Prelude.rnf uri
-      `Prelude.seq` Prelude.rnf objectTypeName
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf lastUpdatedAt

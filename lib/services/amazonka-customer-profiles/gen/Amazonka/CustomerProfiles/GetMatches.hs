@@ -20,8 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and subject to change.
---
 -- Before calling this API, use
 -- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_CreateDomain.html CreateDomain>
 -- or
@@ -31,9 +29,17 @@
 -- GetMatches returns potentially matching profiles, based on the results
 -- of the latest run of a machine learning process.
 --
--- Amazon Connect starts a batch process every Saturday at 12AM UTC to
--- identify matching profiles. The results are returned up to seven days
--- after the Saturday run.
+-- The process of matching duplicate profiles. If @Matching@ = @true@,
+-- Amazon Connect Customer Profiles starts a weekly batch process called
+-- Identity Resolution Job. If you do not specify a date and time for
+-- Identity Resolution Job to run, by default it runs every Saturday at
+-- 12AM UTC to detect duplicate profiles in your domains.
+--
+-- After the Identity Resolution Job completes, use the
+-- <https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetMatches.html GetMatches>
+-- API to return and review the results. Or, if you have configured
+-- @ExportingConfig@ in the @MatchingRequest@, you can download the results
+-- from S3.
 --
 -- Amazon Connect uses the following profile attributes to identify
 -- matches:
@@ -53,8 +59,6 @@
 -- -   BusinessEmailAddress
 --
 -- -   FullName
---
--- -   BusinessName
 --
 -- For example, two or more profiles—with spelling mistakes such as __John
 -- Doe__ and __Jhn Doe__, or different casing email addresses such as

@@ -24,6 +24,7 @@ module Amazonka.CustomerProfiles.Types.StandardIdentifier
         StandardIdentifier_CASE,
         StandardIdentifier_LOOKUP_ONLY,
         StandardIdentifier_NEW_ONLY,
+        StandardIdentifier_ORDER,
         StandardIdentifier_PROFILE,
         StandardIdentifier_SECONDARY,
         StandardIdentifier_UNIQUE
@@ -74,6 +75,9 @@ pattern StandardIdentifier_LOOKUP_ONLY = StandardIdentifier' "LOOKUP_ONLY"
 pattern StandardIdentifier_NEW_ONLY :: StandardIdentifier
 pattern StandardIdentifier_NEW_ONLY = StandardIdentifier' "NEW_ONLY"
 
+pattern StandardIdentifier_ORDER :: StandardIdentifier
+pattern StandardIdentifier_ORDER = StandardIdentifier' "ORDER"
+
 pattern StandardIdentifier_PROFILE :: StandardIdentifier
 pattern StandardIdentifier_PROFILE = StandardIdentifier' "PROFILE"
 
@@ -88,6 +92,7 @@ pattern StandardIdentifier_UNIQUE = StandardIdentifier' "UNIQUE"
   StandardIdentifier_CASE,
   StandardIdentifier_LOOKUP_ONLY,
   StandardIdentifier_NEW_ONLY,
+  StandardIdentifier_ORDER,
   StandardIdentifier_PROFILE,
   StandardIdentifier_SECONDARY,
   StandardIdentifier_UNIQUE,

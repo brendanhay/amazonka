@@ -31,6 +31,7 @@ module Amazonka.CustomerProfiles.PutProfileObjectType
     putProfileObjectType_fields,
     putProfileObjectType_templateId,
     putProfileObjectType_expirationDays,
+    putProfileObjectType_sourceLastUpdatedTimestampFormat,
     putProfileObjectType_keys,
     putProfileObjectType_encryptionKey,
     putProfileObjectType_allowProfileCreation,
@@ -48,6 +49,7 @@ module Amazonka.CustomerProfiles.PutProfileObjectType
     putProfileObjectTypeResponse_fields,
     putProfileObjectTypeResponse_templateId,
     putProfileObjectTypeResponse_expirationDays,
+    putProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat,
     putProfileObjectTypeResponse_keys,
     putProfileObjectTypeResponse_encryptionKey,
     putProfileObjectTypeResponse_createdAt,
@@ -71,10 +73,20 @@ data PutProfileObjectType = PutProfileObjectType'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A map of the name and ObjectType field.
     fields :: Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField),
-    -- | A unique identifier for the object template.
+    -- | A unique identifier for the object template. For some attributes in the
+    -- request, the service will use the default value from the object template
+    -- when TemplateId is present. If these attributes are present in the
+    -- request, the service may return a @BadRequestException@. These
+    -- attributes include: AllowProfileCreation,
+    -- SourceLastUpdatedTimestampFormat, Fields, and Keys. For example, if
+    -- AllowProfileCreation is set to true when TemplateId is set, the service
+    -- may return a @BadRequestException@.
     templateId :: Prelude.Maybe Prelude.Text,
     -- | The number of days until the data in the object expires.
     expirationDays :: Prelude.Maybe Prelude.Natural,
+    -- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+    -- up.
+    sourceLastUpdatedTimestampFormat :: Prelude.Maybe Prelude.Text,
     -- | A list of unique keys that can be used to map data to the profile.
     keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]),
     -- | The customer-provided key to encrypt the profile object that will be
@@ -108,9 +120,19 @@ data PutProfileObjectType = PutProfileObjectType'
 --
 -- 'fields', 'putProfileObjectType_fields' - A map of the name and ObjectType field.
 --
--- 'templateId', 'putProfileObjectType_templateId' - A unique identifier for the object template.
+-- 'templateId', 'putProfileObjectType_templateId' - A unique identifier for the object template. For some attributes in the
+-- request, the service will use the default value from the object template
+-- when TemplateId is present. If these attributes are present in the
+-- request, the service may return a @BadRequestException@. These
+-- attributes include: AllowProfileCreation,
+-- SourceLastUpdatedTimestampFormat, Fields, and Keys. For example, if
+-- AllowProfileCreation is set to true when TemplateId is set, the service
+-- may return a @BadRequestException@.
 --
 -- 'expirationDays', 'putProfileObjectType_expirationDays' - The number of days until the data in the object expires.
+--
+-- 'sourceLastUpdatedTimestampFormat', 'putProfileObjectType_sourceLastUpdatedTimestampFormat' - The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up.
 --
 -- 'keys', 'putProfileObjectType_keys' - A list of unique keys that can be used to map data to the profile.
 --
@@ -146,6 +168,7 @@ newPutProfileObjectType
         fields = Prelude.Nothing,
         templateId = Prelude.Nothing,
         expirationDays = Prelude.Nothing,
+        sourceLastUpdatedTimestampFormat = Prelude.Nothing,
         keys = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
         allowProfileCreation = Prelude.Nothing,
@@ -162,13 +185,25 @@ putProfileObjectType_tags = Lens.lens (\PutProfileObjectType' {tags} -> tags) (\
 putProfileObjectType_fields :: Lens.Lens' PutProfileObjectType (Prelude.Maybe (Prelude.HashMap Prelude.Text ObjectTypeField))
 putProfileObjectType_fields = Lens.lens (\PutProfileObjectType' {fields} -> fields) (\s@PutProfileObjectType' {} a -> s {fields = a} :: PutProfileObjectType) Prelude.. Lens.mapping Lens.coerced
 
--- | A unique identifier for the object template.
+-- | A unique identifier for the object template. For some attributes in the
+-- request, the service will use the default value from the object template
+-- when TemplateId is present. If these attributes are present in the
+-- request, the service may return a @BadRequestException@. These
+-- attributes include: AllowProfileCreation,
+-- SourceLastUpdatedTimestampFormat, Fields, and Keys. For example, if
+-- AllowProfileCreation is set to true when TemplateId is set, the service
+-- may return a @BadRequestException@.
 putProfileObjectType_templateId :: Lens.Lens' PutProfileObjectType (Prelude.Maybe Prelude.Text)
 putProfileObjectType_templateId = Lens.lens (\PutProfileObjectType' {templateId} -> templateId) (\s@PutProfileObjectType' {} a -> s {templateId = a} :: PutProfileObjectType)
 
 -- | The number of days until the data in the object expires.
 putProfileObjectType_expirationDays :: Lens.Lens' PutProfileObjectType (Prelude.Maybe Prelude.Natural)
 putProfileObjectType_expirationDays = Lens.lens (\PutProfileObjectType' {expirationDays} -> expirationDays) (\s@PutProfileObjectType' {} a -> s {expirationDays = a} :: PutProfileObjectType)
+
+-- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up.
+putProfileObjectType_sourceLastUpdatedTimestampFormat :: Lens.Lens' PutProfileObjectType (Prelude.Maybe Prelude.Text)
+putProfileObjectType_sourceLastUpdatedTimestampFormat = Lens.lens (\PutProfileObjectType' {sourceLastUpdatedTimestampFormat} -> sourceLastUpdatedTimestampFormat) (\s@PutProfileObjectType' {} a -> s {sourceLastUpdatedTimestampFormat = a} :: PutProfileObjectType)
 
 -- | A list of unique keys that can be used to map data to the profile.
 putProfileObjectType_keys :: Lens.Lens' PutProfileObjectType (Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]))
@@ -214,6 +249,7 @@ instance Core.AWSRequest PutProfileObjectType where
             Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "TemplateId")
             Prelude.<*> (x Core..?> "ExpirationDays")
+            Prelude.<*> (x Core..?> "SourceLastUpdatedTimestampFormat")
             Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "EncryptionKey")
             Prelude.<*> (x Core..?> "CreatedAt")
@@ -229,6 +265,7 @@ instance Prelude.Hashable PutProfileObjectType where
       `Prelude.hashWithSalt` fields
       `Prelude.hashWithSalt` templateId
       `Prelude.hashWithSalt` expirationDays
+      `Prelude.hashWithSalt` sourceLastUpdatedTimestampFormat
       `Prelude.hashWithSalt` keys
       `Prelude.hashWithSalt` encryptionKey
       `Prelude.hashWithSalt` allowProfileCreation
@@ -242,6 +279,7 @@ instance Prelude.NFData PutProfileObjectType where
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf expirationDays
+      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
       `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf allowProfileCreation
@@ -269,6 +307,8 @@ instance Core.ToJSON PutProfileObjectType where
             ("TemplateId" Core..=) Prelude.<$> templateId,
             ("ExpirationDays" Core..=)
               Prelude.<$> expirationDays,
+            ("SourceLastUpdatedTimestampFormat" Core..=)
+              Prelude.<$> sourceLastUpdatedTimestampFormat,
             ("Keys" Core..=) Prelude.<$> keys,
             ("EncryptionKey" Core..=) Prelude.<$> encryptionKey,
             ("AllowProfileCreation" Core..=)
@@ -301,6 +341,12 @@ data PutProfileObjectTypeResponse = PutProfileObjectTypeResponse'
     templateId :: Prelude.Maybe Prelude.Text,
     -- | The number of days until the data in the object expires.
     expirationDays :: Prelude.Maybe Prelude.Natural,
+    -- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+    -- up in fields that were parsed using
+    -- <https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html SimpleDateFormat>.
+    -- If you have @sourceLastUpdatedTimestamp@ in your field, you must set up
+    -- @sourceLastUpdatedTimestampFormat@.
+    sourceLastUpdatedTimestampFormat :: Prelude.Maybe Prelude.Text,
     -- | A list of unique keys that can be used to map data to the profile.
     keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]),
     -- | The customer-provided key to encrypt the profile object that will be
@@ -342,6 +388,12 @@ data PutProfileObjectTypeResponse = PutProfileObjectTypeResponse'
 --
 -- 'expirationDays', 'putProfileObjectTypeResponse_expirationDays' - The number of days until the data in the object expires.
 --
+-- 'sourceLastUpdatedTimestampFormat', 'putProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat' - The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up in fields that were parsed using
+-- <https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html SimpleDateFormat>.
+-- If you have @sourceLastUpdatedTimestamp@ in your field, you must set up
+-- @sourceLastUpdatedTimestampFormat@.
+--
 -- 'keys', 'putProfileObjectTypeResponse_keys' - A list of unique keys that can be used to map data to the profile.
 --
 -- 'encryptionKey', 'putProfileObjectTypeResponse_encryptionKey' - The customer-provided key to encrypt the profile object that will be
@@ -380,6 +432,8 @@ newPutProfileObjectTypeResponse
         fields = Prelude.Nothing,
         templateId = Prelude.Nothing,
         expirationDays = Prelude.Nothing,
+        sourceLastUpdatedTimestampFormat =
+          Prelude.Nothing,
         keys = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
         createdAt = Prelude.Nothing,
@@ -408,6 +462,14 @@ putProfileObjectTypeResponse_templateId = Lens.lens (\PutProfileObjectTypeRespon
 -- | The number of days until the data in the object expires.
 putProfileObjectTypeResponse_expirationDays :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.Natural)
 putProfileObjectTypeResponse_expirationDays = Lens.lens (\PutProfileObjectTypeResponse' {expirationDays} -> expirationDays) (\s@PutProfileObjectTypeResponse' {} a -> s {expirationDays = a} :: PutProfileObjectTypeResponse)
+
+-- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up in fields that were parsed using
+-- <https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html SimpleDateFormat>.
+-- If you have @sourceLastUpdatedTimestamp@ in your field, you must set up
+-- @sourceLastUpdatedTimestampFormat@.
+putProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
+putProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat = Lens.lens (\PutProfileObjectTypeResponse' {sourceLastUpdatedTimestampFormat} -> sourceLastUpdatedTimestampFormat) (\s@PutProfileObjectTypeResponse' {} a -> s {sourceLastUpdatedTimestampFormat = a} :: PutProfileObjectTypeResponse)
 
 -- | A list of unique keys that can be used to map data to the profile.
 putProfileObjectTypeResponse_keys :: Lens.Lens' PutProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]))
@@ -450,6 +512,7 @@ instance Prelude.NFData PutProfileObjectTypeResponse where
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf expirationDays
+      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
       `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf createdAt

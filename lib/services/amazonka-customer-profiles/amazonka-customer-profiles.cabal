@@ -46,6 +46,7 @@ library
     Amazonka.CustomerProfiles
     Amazonka.CustomerProfiles.AddProfileKey
     Amazonka.CustomerProfiles.CreateDomain
+    Amazonka.CustomerProfiles.CreateIntegrationWorkflow
     Amazonka.CustomerProfiles.CreateProfile
     Amazonka.CustomerProfiles.DeleteDomain
     Amazonka.CustomerProfiles.DeleteIntegration
@@ -53,19 +54,26 @@ library
     Amazonka.CustomerProfiles.DeleteProfileKey
     Amazonka.CustomerProfiles.DeleteProfileObject
     Amazonka.CustomerProfiles.DeleteProfileObjectType
+    Amazonka.CustomerProfiles.DeleteWorkflow
+    Amazonka.CustomerProfiles.GetAutoMergingPreview
     Amazonka.CustomerProfiles.GetDomain
+    Amazonka.CustomerProfiles.GetIdentityResolutionJob
     Amazonka.CustomerProfiles.GetIntegration
     Amazonka.CustomerProfiles.GetMatches
     Amazonka.CustomerProfiles.GetProfileObjectType
     Amazonka.CustomerProfiles.GetProfileObjectTypeTemplate
+    Amazonka.CustomerProfiles.GetWorkflow
+    Amazonka.CustomerProfiles.GetWorkflowSteps
     Amazonka.CustomerProfiles.Lens
     Amazonka.CustomerProfiles.ListAccountIntegrations
     Amazonka.CustomerProfiles.ListDomains
+    Amazonka.CustomerProfiles.ListIdentityResolutionJobs
     Amazonka.CustomerProfiles.ListIntegrations
     Amazonka.CustomerProfiles.ListProfileObjects
     Amazonka.CustomerProfiles.ListProfileObjectTypes
     Amazonka.CustomerProfiles.ListProfileObjectTypeTemplates
     Amazonka.CustomerProfiles.ListTagsForResource
+    Amazonka.CustomerProfiles.ListWorkflows
     Amazonka.CustomerProfiles.MergeProfiles
     Amazonka.CustomerProfiles.PutIntegration
     Amazonka.CustomerProfiles.PutProfileObject
@@ -74,19 +82,37 @@ library
     Amazonka.CustomerProfiles.TagResource
     Amazonka.CustomerProfiles.Types
     Amazonka.CustomerProfiles.Types.Address
+    Amazonka.CustomerProfiles.Types.AppflowIntegration
+    Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
+    Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowMetrics
+    Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowStep
+    Amazonka.CustomerProfiles.Types.AutoMerging
+    Amazonka.CustomerProfiles.Types.Batch
+    Amazonka.CustomerProfiles.Types.ConflictResolution
+    Amazonka.CustomerProfiles.Types.ConflictResolvingModel
     Amazonka.CustomerProfiles.Types.ConnectorOperator
+    Amazonka.CustomerProfiles.Types.Consolidation
     Amazonka.CustomerProfiles.Types.DataPullMode
     Amazonka.CustomerProfiles.Types.DomainStats
+    Amazonka.CustomerProfiles.Types.ExportingConfig
+    Amazonka.CustomerProfiles.Types.ExportingLocation
     Amazonka.CustomerProfiles.Types.FieldContentType
     Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
     Amazonka.CustomerProfiles.Types.FlowDefinition
     Amazonka.CustomerProfiles.Types.Gender
+    Amazonka.CustomerProfiles.Types.IdentityResolutionJob
+    Amazonka.CustomerProfiles.Types.IdentityResolutionJobStatus
     Amazonka.CustomerProfiles.Types.IncrementalPullConfig
+    Amazonka.CustomerProfiles.Types.IntegrationConfig
+    Amazonka.CustomerProfiles.Types.JobSchedule
+    Amazonka.CustomerProfiles.Types.JobScheduleDayOfTheWeek
+    Amazonka.CustomerProfiles.Types.JobStats
     Amazonka.CustomerProfiles.Types.ListDomainItem
     Amazonka.CustomerProfiles.Types.ListIntegrationItem
     Amazonka.CustomerProfiles.Types.ListProfileObjectsItem
     Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
     Amazonka.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
+    Amazonka.CustomerProfiles.Types.ListWorkflowsItem
     Amazonka.CustomerProfiles.Types.MarketoConnectorOperator
     Amazonka.CustomerProfiles.Types.MarketoSourceProperties
     Amazonka.CustomerProfiles.Types.MatchingRequest
@@ -99,6 +125,8 @@ library
     Amazonka.CustomerProfiles.Types.PartyType
     Amazonka.CustomerProfiles.Types.Profile
     Amazonka.CustomerProfiles.Types.S3ConnectorOperator
+    Amazonka.CustomerProfiles.Types.S3ExportingConfig
+    Amazonka.CustomerProfiles.Types.S3ExportingLocation
     Amazonka.CustomerProfiles.Types.S3SourceProperties
     Amazonka.CustomerProfiles.Types.SalesforceConnectorOperator
     Amazonka.CustomerProfiles.Types.SalesforceSourceProperties
@@ -109,12 +137,17 @@ library
     Amazonka.CustomerProfiles.Types.SourceConnectorType
     Amazonka.CustomerProfiles.Types.SourceFlowConfig
     Amazonka.CustomerProfiles.Types.StandardIdentifier
+    Amazonka.CustomerProfiles.Types.Status
     Amazonka.CustomerProfiles.Types.Task
     Amazonka.CustomerProfiles.Types.TaskType
     Amazonka.CustomerProfiles.Types.TriggerConfig
     Amazonka.CustomerProfiles.Types.TriggerProperties
     Amazonka.CustomerProfiles.Types.TriggerType
     Amazonka.CustomerProfiles.Types.UpdateAddress
+    Amazonka.CustomerProfiles.Types.WorkflowAttributes
+    Amazonka.CustomerProfiles.Types.WorkflowMetrics
+    Amazonka.CustomerProfiles.Types.WorkflowStepItem
+    Amazonka.CustomerProfiles.Types.WorkflowType
     Amazonka.CustomerProfiles.Types.ZendeskConnectorOperator
     Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
     Amazonka.CustomerProfiles.UntagResource

@@ -59,7 +59,7 @@ data ListProfileObjects = ListProfileObjects'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Applies a filter to the response to include profile objects with the
     -- specified index values. This filter is only supported for ObjectTypeName
-    -- _asset and _case.
+    -- _asset, _case and _order.
     objectFilter :: Prelude.Maybe ObjectFilter,
     -- | The maximum number of objects returned per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -84,7 +84,7 @@ data ListProfileObjects = ListProfileObjects'
 --
 -- 'objectFilter', 'listProfileObjects_objectFilter' - Applies a filter to the response to include profile objects with the
 -- specified index values. This filter is only supported for ObjectTypeName
--- _asset and _case.
+-- _asset, _case and _order.
 --
 -- 'maxResults', 'listProfileObjects_maxResults' - The maximum number of objects returned per page.
 --
@@ -120,7 +120,7 @@ listProfileObjects_nextToken = Lens.lens (\ListProfileObjects' {nextToken} -> ne
 
 -- | Applies a filter to the response to include profile objects with the
 -- specified index values. This filter is only supported for ObjectTypeName
--- _asset and _case.
+-- _asset, _case and _order.
 listProfileObjects_objectFilter :: Lens.Lens' ListProfileObjects (Prelude.Maybe ObjectFilter)
 listProfileObjects_objectFilter = Lens.lens (\ListProfileObjects' {objectFilter} -> objectFilter) (\s@ListProfileObjects' {} a -> s {objectFilter = a} :: ListProfileObjects)
 

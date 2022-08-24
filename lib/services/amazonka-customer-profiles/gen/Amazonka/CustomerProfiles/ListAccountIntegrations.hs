@@ -30,6 +30,7 @@ module Amazonka.CustomerProfiles.ListAccountIntegrations
     -- * Request Lenses
     listAccountIntegrations_nextToken,
     listAccountIntegrations_maxResults,
+    listAccountIntegrations_includeHidden,
     listAccountIntegrations_uri,
 
     -- * Destructuring the Response
@@ -56,6 +57,9 @@ data ListAccountIntegrations = ListAccountIntegrations'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of objects returned per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Boolean to indicate if hidden integration should be returned. Defaults
+    -- to @False@.
+    includeHidden :: Prelude.Maybe Prelude.Bool,
     -- | The URI of the S3 bucket or any other type of data source.
     uri :: Prelude.Text
   }
@@ -73,6 +77,9 @@ data ListAccountIntegrations = ListAccountIntegrations'
 --
 -- 'maxResults', 'listAccountIntegrations_maxResults' - The maximum number of objects returned per page.
 --
+-- 'includeHidden', 'listAccountIntegrations_includeHidden' - Boolean to indicate if hidden integration should be returned. Defaults
+-- to @False@.
+--
 -- 'uri', 'listAccountIntegrations_uri' - The URI of the S3 bucket or any other type of data source.
 newListAccountIntegrations ::
   -- | 'uri'
@@ -83,6 +90,7 @@ newListAccountIntegrations pUri_ =
     { nextToken =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      includeHidden = Prelude.Nothing,
       uri = pUri_
     }
 
@@ -93,6 +101,11 @@ listAccountIntegrations_nextToken = Lens.lens (\ListAccountIntegrations' {nextTo
 -- | The maximum number of objects returned per page.
 listAccountIntegrations_maxResults :: Lens.Lens' ListAccountIntegrations (Prelude.Maybe Prelude.Natural)
 listAccountIntegrations_maxResults = Lens.lens (\ListAccountIntegrations' {maxResults} -> maxResults) (\s@ListAccountIntegrations' {} a -> s {maxResults = a} :: ListAccountIntegrations)
+
+-- | Boolean to indicate if hidden integration should be returned. Defaults
+-- to @False@.
+listAccountIntegrations_includeHidden :: Lens.Lens' ListAccountIntegrations (Prelude.Maybe Prelude.Bool)
+listAccountIntegrations_includeHidden = Lens.lens (\ListAccountIntegrations' {includeHidden} -> includeHidden) (\s@ListAccountIntegrations' {} a -> s {includeHidden = a} :: ListAccountIntegrations)
 
 -- | The URI of the S3 bucket or any other type of data source.
 listAccountIntegrations_uri :: Lens.Lens' ListAccountIntegrations Prelude.Text
@@ -116,12 +129,14 @@ instance Prelude.Hashable ListAccountIntegrations where
   hashWithSalt _salt ListAccountIntegrations' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` maxResults
+      `Prelude.hashWithSalt` includeHidden
       `Prelude.hashWithSalt` uri
 
 instance Prelude.NFData ListAccountIntegrations where
   rnf ListAccountIntegrations' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf maxResults
+      `Prelude.seq` Prelude.rnf includeHidden
       `Prelude.seq` Prelude.rnf uri
 
 instance Core.ToHeaders ListAccountIntegrations where
@@ -149,7 +164,8 @@ instance Core.ToQuery ListAccountIntegrations where
   toQuery ListAccountIntegrations' {..} =
     Prelude.mconcat
       [ "next-token" Core.=: nextToken,
-        "max-results" Core.=: maxResults
+        "max-results" Core.=: maxResults,
+        "include-hidden" Core.=: includeHidden
       ]
 
 -- | /See:/ 'newListAccountIntegrationsResponse' smart constructor.

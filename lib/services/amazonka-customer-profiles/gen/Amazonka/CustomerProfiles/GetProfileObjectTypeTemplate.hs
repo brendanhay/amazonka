@@ -44,6 +44,7 @@ module Amazonka.CustomerProfiles.GetProfileObjectTypeTemplate
     getProfileObjectTypeTemplateResponse_fields,
     getProfileObjectTypeTemplateResponse_templateId,
     getProfileObjectTypeTemplateResponse_sourceObject,
+    getProfileObjectTypeTemplateResponse_sourceLastUpdatedTimestampFormat,
     getProfileObjectTypeTemplateResponse_keys,
     getProfileObjectTypeTemplateResponse_allowProfileCreation,
     getProfileObjectTypeTemplateResponse_httpStatus,
@@ -100,6 +101,7 @@ instance Core.AWSRequest GetProfileObjectTypeTemplate where
             Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "TemplateId")
             Prelude.<*> (x Core..?> "SourceObject")
+            Prelude.<*> (x Core..?> "SourceLastUpdatedTimestampFormat")
             Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "AllowProfileCreation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -145,6 +147,9 @@ data GetProfileObjectTypeTemplateResponse = GetProfileObjectTypeTemplateResponse
     templateId :: Prelude.Maybe Prelude.Text,
     -- | The source of the object template.
     sourceObject :: Prelude.Maybe Prelude.Text,
+    -- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+    -- up.
+    sourceLastUpdatedTimestampFormat :: Prelude.Maybe Prelude.Text,
     -- | A list of unique keys that can be used to map data to the profile.
     keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]),
     -- | Indicates whether a profile should be created when data is received if
@@ -175,6 +180,9 @@ data GetProfileObjectTypeTemplateResponse = GetProfileObjectTypeTemplateResponse
 --
 -- 'sourceObject', 'getProfileObjectTypeTemplateResponse_sourceObject' - The source of the object template.
 --
+-- 'sourceLastUpdatedTimestampFormat', 'getProfileObjectTypeTemplateResponse_sourceLastUpdatedTimestampFormat' - The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up.
+--
 -- 'keys', 'getProfileObjectTypeTemplateResponse_keys' - A list of unique keys that can be used to map data to the profile.
 --
 -- 'allowProfileCreation', 'getProfileObjectTypeTemplateResponse_allowProfileCreation' - Indicates whether a profile should be created when data is received if
@@ -196,6 +204,8 @@ newGetProfileObjectTypeTemplateResponse pHttpStatus_ =
       fields = Prelude.Nothing,
       templateId = Prelude.Nothing,
       sourceObject = Prelude.Nothing,
+      sourceLastUpdatedTimestampFormat =
+        Prelude.Nothing,
       keys = Prelude.Nothing,
       allowProfileCreation =
         Prelude.Nothing,
@@ -217,6 +227,11 @@ getProfileObjectTypeTemplateResponse_templateId = Lens.lens (\GetProfileObjectTy
 -- | The source of the object template.
 getProfileObjectTypeTemplateResponse_sourceObject :: Lens.Lens' GetProfileObjectTypeTemplateResponse (Prelude.Maybe Prelude.Text)
 getProfileObjectTypeTemplateResponse_sourceObject = Lens.lens (\GetProfileObjectTypeTemplateResponse' {sourceObject} -> sourceObject) (\s@GetProfileObjectTypeTemplateResponse' {} a -> s {sourceObject = a} :: GetProfileObjectTypeTemplateResponse)
+
+-- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up.
+getProfileObjectTypeTemplateResponse_sourceLastUpdatedTimestampFormat :: Lens.Lens' GetProfileObjectTypeTemplateResponse (Prelude.Maybe Prelude.Text)
+getProfileObjectTypeTemplateResponse_sourceLastUpdatedTimestampFormat = Lens.lens (\GetProfileObjectTypeTemplateResponse' {sourceLastUpdatedTimestampFormat} -> sourceLastUpdatedTimestampFormat) (\s@GetProfileObjectTypeTemplateResponse' {} a -> s {sourceLastUpdatedTimestampFormat = a} :: GetProfileObjectTypeTemplateResponse)
 
 -- | A list of unique keys that can be used to map data to the profile.
 getProfileObjectTypeTemplateResponse_keys :: Lens.Lens' GetProfileObjectTypeTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]))
@@ -244,6 +259,7 @@ instance
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf sourceObject
+      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
       `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf allowProfileCreation
       `Prelude.seq` Prelude.rnf httpStatus

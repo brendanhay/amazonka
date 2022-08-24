@@ -30,7 +30,16 @@ data MatchItem = MatchItem'
   { -- | The unique identifiers for this group of profiles that match.
     matchId :: Prelude.Maybe Prelude.Text,
     -- | A list of identifiers for profiles that match.
-    profileIds :: Prelude.Maybe [Prelude.Text]
+    profileIds :: Prelude.Maybe [Prelude.Text],
+    -- | A number between 0 and 1, where a higher score means higher similarity.
+    -- Examining match confidence scores lets you distinguish between groups of
+    -- similar records in which the system is highly confident (which you may
+    -- decide to merge), groups of similar records about which the system is
+    -- uncertain (which you may decide to have reviewed by a human), and groups
+    -- of similar records that the system deems to be unlikely (which you may
+    -- decide to reject). Given confidence scores vary as per the data input,
+    -- it should not be used an absolute measure of matching quality.
+    confidenceScore :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -45,12 +54,22 @@ data MatchItem = MatchItem'
 -- 'matchId', 'matchItem_matchId' - The unique identifiers for this group of profiles that match.
 --
 -- 'profileIds', 'matchItem_profileIds' - A list of identifiers for profiles that match.
+--
+-- 'confidenceScore', 'matchItem_confidenceScore' - A number between 0 and 1, where a higher score means higher similarity.
+-- Examining match confidence scores lets you distinguish between groups of
+-- similar records in which the system is highly confident (which you may
+-- decide to merge), groups of similar records about which the system is
+-- uncertain (which you may decide to have reviewed by a human), and groups
+-- of similar records that the system deems to be unlikely (which you may
+-- decide to reject). Given confidence scores vary as per the data input,
+-- it should not be used an absolute measure of matching quality.
 newMatchItem ::
   MatchItem
 newMatchItem =
   MatchItem'
     { matchId = Prelude.Nothing,
-      profileIds = Prelude.Nothing
+      profileIds = Prelude.Nothing,
+      confidenceScore = Prelude.Nothing
     }
 
 -- | The unique identifiers for this group of profiles that match.
@@ -61,6 +80,17 @@ matchItem_matchId = Lens.lens (\MatchItem' {matchId} -> matchId) (\s@MatchItem' 
 matchItem_profileIds :: Lens.Lens' MatchItem (Prelude.Maybe [Prelude.Text])
 matchItem_profileIds = Lens.lens (\MatchItem' {profileIds} -> profileIds) (\s@MatchItem' {} a -> s {profileIds = a} :: MatchItem) Prelude.. Lens.mapping Lens.coerced
 
+-- | A number between 0 and 1, where a higher score means higher similarity.
+-- Examining match confidence scores lets you distinguish between groups of
+-- similar records in which the system is highly confident (which you may
+-- decide to merge), groups of similar records about which the system is
+-- uncertain (which you may decide to have reviewed by a human), and groups
+-- of similar records that the system deems to be unlikely (which you may
+-- decide to reject). Given confidence scores vary as per the data input,
+-- it should not be used an absolute measure of matching quality.
+matchItem_confidenceScore :: Lens.Lens' MatchItem (Prelude.Maybe Prelude.Double)
+matchItem_confidenceScore = Lens.lens (\MatchItem' {confidenceScore} -> confidenceScore) (\s@MatchItem' {} a -> s {confidenceScore = a} :: MatchItem)
+
 instance Core.FromJSON MatchItem where
   parseJSON =
     Core.withObject
@@ -69,14 +99,17 @@ instance Core.FromJSON MatchItem where
           MatchItem'
             Prelude.<$> (x Core..:? "MatchId")
             Prelude.<*> (x Core..:? "ProfileIds" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ConfidenceScore")
       )
 
 instance Prelude.Hashable MatchItem where
   hashWithSalt _salt MatchItem' {..} =
     _salt `Prelude.hashWithSalt` matchId
       `Prelude.hashWithSalt` profileIds
+      `Prelude.hashWithSalt` confidenceScore
 
 instance Prelude.NFData MatchItem where
   rnf MatchItem' {..} =
     Prelude.rnf matchId
       `Prelude.seq` Prelude.rnf profileIds
+      `Prelude.seq` Prelude.rnf confidenceScore

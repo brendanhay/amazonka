@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestCreateDomain $
 --             newCreateDomain
 --
+--         , requestCreateIntegrationWorkflow $
+--             newCreateIntegrationWorkflow
+--
 --         , requestCreateProfile $
 --             newCreateProfile
 --
@@ -54,8 +57,17 @@ import Test.Tasty
 --         , requestDeleteProfileObjectType $
 --             newDeleteProfileObjectType
 --
+--         , requestDeleteWorkflow $
+--             newDeleteWorkflow
+--
+--         , requestGetAutoMergingPreview $
+--             newGetAutoMergingPreview
+--
 --         , requestGetDomain $
 --             newGetDomain
+--
+--         , requestGetIdentityResolutionJob $
+--             newGetIdentityResolutionJob
 --
 --         , requestGetIntegration $
 --             newGetIntegration
@@ -69,11 +81,20 @@ import Test.Tasty
 --         , requestGetProfileObjectTypeTemplate $
 --             newGetProfileObjectTypeTemplate
 --
+--         , requestGetWorkflow $
+--             newGetWorkflow
+--
+--         , requestGetWorkflowSteps $
+--             newGetWorkflowSteps
+--
 --         , requestListAccountIntegrations $
 --             newListAccountIntegrations
 --
 --         , requestListDomains $
 --             newListDomains
+--
+--         , requestListIdentityResolutionJobs $
+--             newListIdentityResolutionJobs
 --
 --         , requestListIntegrations $
 --             newListIntegrations
@@ -89,6 +110,9 @@ import Test.Tasty
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
+--
+--         , requestListWorkflows $
+--             newListWorkflows
 --
 --         , requestMergeProfiles $
 --             newMergeProfiles
@@ -126,6 +150,9 @@ import Test.Tasty
 --         , responseCreateDomain $
 --             newCreateDomainResponse
 --
+--         , responseCreateIntegrationWorkflow $
+--             newCreateIntegrationWorkflowResponse
+--
 --         , responseCreateProfile $
 --             newCreateProfileResponse
 --
@@ -147,8 +174,17 @@ import Test.Tasty
 --         , responseDeleteProfileObjectType $
 --             newDeleteProfileObjectTypeResponse
 --
+--         , responseDeleteWorkflow $
+--             newDeleteWorkflowResponse
+--
+--         , responseGetAutoMergingPreview $
+--             newGetAutoMergingPreviewResponse
+--
 --         , responseGetDomain $
 --             newGetDomainResponse
+--
+--         , responseGetIdentityResolutionJob $
+--             newGetIdentityResolutionJobResponse
 --
 --         , responseGetIntegration $
 --             newGetIntegrationResponse
@@ -162,11 +198,20 @@ import Test.Tasty
 --         , responseGetProfileObjectTypeTemplate $
 --             newGetProfileObjectTypeTemplateResponse
 --
+--         , responseGetWorkflow $
+--             newGetWorkflowResponse
+--
+--         , responseGetWorkflowSteps $
+--             newGetWorkflowStepsResponse
+--
 --         , responseListAccountIntegrations $
 --             newListAccountIntegrationsResponse
 --
 --         , responseListDomains $
 --             newListDomainsResponse
+--
+--         , responseListIdentityResolutionJobs $
+--             newListIdentityResolutionJobsResponse
 --
 --         , responseListIntegrations $
 --             newListIntegrationsResponse
@@ -182,6 +227,9 @@ import Test.Tasty
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
+--
+--         , responseListWorkflows $
+--             newListWorkflowsResponse
 --
 --         , responseMergeProfiles $
 --             newMergeProfilesResponse
@@ -227,6 +275,12 @@ requestCreateDomain =
     "CreateDomain"
     "fixture/CreateDomain.yaml"
 
+requestCreateIntegrationWorkflow :: CreateIntegrationWorkflow -> TestTree
+requestCreateIntegrationWorkflow =
+  req
+    "CreateIntegrationWorkflow"
+    "fixture/CreateIntegrationWorkflow.yaml"
+
 requestCreateProfile :: CreateProfile -> TestTree
 requestCreateProfile =
   req
@@ -269,11 +323,29 @@ requestDeleteProfileObjectType =
     "DeleteProfileObjectType"
     "fixture/DeleteProfileObjectType.yaml"
 
+requestDeleteWorkflow :: DeleteWorkflow -> TestTree
+requestDeleteWorkflow =
+  req
+    "DeleteWorkflow"
+    "fixture/DeleteWorkflow.yaml"
+
+requestGetAutoMergingPreview :: GetAutoMergingPreview -> TestTree
+requestGetAutoMergingPreview =
+  req
+    "GetAutoMergingPreview"
+    "fixture/GetAutoMergingPreview.yaml"
+
 requestGetDomain :: GetDomain -> TestTree
 requestGetDomain =
   req
     "GetDomain"
     "fixture/GetDomain.yaml"
+
+requestGetIdentityResolutionJob :: GetIdentityResolutionJob -> TestTree
+requestGetIdentityResolutionJob =
+  req
+    "GetIdentityResolutionJob"
+    "fixture/GetIdentityResolutionJob.yaml"
 
 requestGetIntegration :: GetIntegration -> TestTree
 requestGetIntegration =
@@ -299,6 +371,18 @@ requestGetProfileObjectTypeTemplate =
     "GetProfileObjectTypeTemplate"
     "fixture/GetProfileObjectTypeTemplate.yaml"
 
+requestGetWorkflow :: GetWorkflow -> TestTree
+requestGetWorkflow =
+  req
+    "GetWorkflow"
+    "fixture/GetWorkflow.yaml"
+
+requestGetWorkflowSteps :: GetWorkflowSteps -> TestTree
+requestGetWorkflowSteps =
+  req
+    "GetWorkflowSteps"
+    "fixture/GetWorkflowSteps.yaml"
+
 requestListAccountIntegrations :: ListAccountIntegrations -> TestTree
 requestListAccountIntegrations =
   req
@@ -310,6 +394,12 @@ requestListDomains =
   req
     "ListDomains"
     "fixture/ListDomains.yaml"
+
+requestListIdentityResolutionJobs :: ListIdentityResolutionJobs -> TestTree
+requestListIdentityResolutionJobs =
+  req
+    "ListIdentityResolutionJobs"
+    "fixture/ListIdentityResolutionJobs.yaml"
 
 requestListIntegrations :: ListIntegrations -> TestTree
 requestListIntegrations =
@@ -340,6 +430,12 @@ requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
+
+requestListWorkflows :: ListWorkflows -> TestTree
+requestListWorkflows =
+  req
+    "ListWorkflows"
+    "fixture/ListWorkflows.yaml"
 
 requestMergeProfiles :: MergeProfiles -> TestTree
 requestMergeProfiles =
@@ -413,6 +509,14 @@ responseCreateDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateDomain)
 
+responseCreateIntegrationWorkflow :: CreateIntegrationWorkflowResponse -> TestTree
+responseCreateIntegrationWorkflow =
+  res
+    "CreateIntegrationWorkflowResponse"
+    "fixture/CreateIntegrationWorkflowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateIntegrationWorkflow)
+
 responseCreateProfile :: CreateProfileResponse -> TestTree
 responseCreateProfile =
   res
@@ -469,6 +573,22 @@ responseDeleteProfileObjectType =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteProfileObjectType)
 
+responseDeleteWorkflow :: DeleteWorkflowResponse -> TestTree
+responseDeleteWorkflow =
+  res
+    "DeleteWorkflowResponse"
+    "fixture/DeleteWorkflowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteWorkflow)
+
+responseGetAutoMergingPreview :: GetAutoMergingPreviewResponse -> TestTree
+responseGetAutoMergingPreview =
+  res
+    "GetAutoMergingPreviewResponse"
+    "fixture/GetAutoMergingPreviewResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetAutoMergingPreview)
+
 responseGetDomain :: GetDomainResponse -> TestTree
 responseGetDomain =
   res
@@ -476,6 +596,14 @@ responseGetDomain =
     "fixture/GetDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetDomain)
+
+responseGetIdentityResolutionJob :: GetIdentityResolutionJobResponse -> TestTree
+responseGetIdentityResolutionJob =
+  res
+    "GetIdentityResolutionJobResponse"
+    "fixture/GetIdentityResolutionJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIdentityResolutionJob)
 
 responseGetIntegration :: GetIntegrationResponse -> TestTree
 responseGetIntegration =
@@ -509,6 +637,22 @@ responseGetProfileObjectTypeTemplate =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetProfileObjectTypeTemplate)
 
+responseGetWorkflow :: GetWorkflowResponse -> TestTree
+responseGetWorkflow =
+  res
+    "GetWorkflowResponse"
+    "fixture/GetWorkflowResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetWorkflow)
+
+responseGetWorkflowSteps :: GetWorkflowStepsResponse -> TestTree
+responseGetWorkflowSteps =
+  res
+    "GetWorkflowStepsResponse"
+    "fixture/GetWorkflowStepsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetWorkflowSteps)
+
 responseListAccountIntegrations :: ListAccountIntegrationsResponse -> TestTree
 responseListAccountIntegrations =
   res
@@ -524,6 +668,14 @@ responseListDomains =
     "fixture/ListDomainsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListDomains)
+
+responseListIdentityResolutionJobs :: ListIdentityResolutionJobsResponse -> TestTree
+responseListIdentityResolutionJobs =
+  res
+    "ListIdentityResolutionJobsResponse"
+    "fixture/ListIdentityResolutionJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListIdentityResolutionJobs)
 
 responseListIntegrations :: ListIntegrationsResponse -> TestTree
 responseListIntegrations =
@@ -564,6 +716,14 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseListWorkflows :: ListWorkflowsResponse -> TestTree
+responseListWorkflows =
+  res
+    "ListWorkflowsResponse"
+    "fixture/ListWorkflowsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListWorkflows)
 
 responseMergeProfiles :: MergeProfilesResponse -> TestTree
 responseMergeProfiles =

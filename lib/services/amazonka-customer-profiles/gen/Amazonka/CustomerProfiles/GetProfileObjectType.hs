@@ -40,6 +40,7 @@ module Amazonka.CustomerProfiles.GetProfileObjectType
     getProfileObjectTypeResponse_fields,
     getProfileObjectTypeResponse_templateId,
     getProfileObjectTypeResponse_expirationDays,
+    getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat,
     getProfileObjectTypeResponse_keys,
     getProfileObjectTypeResponse_encryptionKey,
     getProfileObjectTypeResponse_createdAt,
@@ -111,6 +112,7 @@ instance Core.AWSRequest GetProfileObjectType where
             Prelude.<*> (x Core..?> "Fields" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "TemplateId")
             Prelude.<*> (x Core..?> "ExpirationDays")
+            Prelude.<*> (x Core..?> "SourceLastUpdatedTimestampFormat")
             Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "EncryptionKey")
             Prelude.<*> (x Core..?> "CreatedAt")
@@ -165,6 +167,9 @@ data GetProfileObjectTypeResponse = GetProfileObjectTypeResponse'
     templateId :: Prelude.Maybe Prelude.Text,
     -- | The number of days until the data in the object expires.
     expirationDays :: Prelude.Maybe Prelude.Natural,
+    -- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+    -- up.
+    sourceLastUpdatedTimestampFormat :: Prelude.Maybe Prelude.Text,
     -- | A list of unique keys that can be used to map data to the profile.
     keys :: Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]),
     -- | The customer-provided key to encrypt the profile object that will be
@@ -206,6 +211,9 @@ data GetProfileObjectTypeResponse = GetProfileObjectTypeResponse'
 --
 -- 'expirationDays', 'getProfileObjectTypeResponse_expirationDays' - The number of days until the data in the object expires.
 --
+-- 'sourceLastUpdatedTimestampFormat', 'getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat' - The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up.
+--
 -- 'keys', 'getProfileObjectTypeResponse_keys' - A list of unique keys that can be used to map data to the profile.
 --
 -- 'encryptionKey', 'getProfileObjectTypeResponse_encryptionKey' - The customer-provided key to encrypt the profile object that will be
@@ -244,6 +252,8 @@ newGetProfileObjectTypeResponse
         fields = Prelude.Nothing,
         templateId = Prelude.Nothing,
         expirationDays = Prelude.Nothing,
+        sourceLastUpdatedTimestampFormat =
+          Prelude.Nothing,
         keys = Prelude.Nothing,
         encryptionKey = Prelude.Nothing,
         createdAt = Prelude.Nothing,
@@ -272,6 +282,11 @@ getProfileObjectTypeResponse_templateId = Lens.lens (\GetProfileObjectTypeRespon
 -- | The number of days until the data in the object expires.
 getProfileObjectTypeResponse_expirationDays :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Natural)
 getProfileObjectTypeResponse_expirationDays = Lens.lens (\GetProfileObjectTypeResponse' {expirationDays} -> expirationDays) (\s@GetProfileObjectTypeResponse' {} a -> s {expirationDays = a} :: GetProfileObjectTypeResponse)
+
+-- | The format of your @sourceLastUpdatedTimestamp@ that was previously set
+-- up.
+getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe Prelude.Text)
+getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat = Lens.lens (\GetProfileObjectTypeResponse' {sourceLastUpdatedTimestampFormat} -> sourceLastUpdatedTimestampFormat) (\s@GetProfileObjectTypeResponse' {} a -> s {sourceLastUpdatedTimestampFormat = a} :: GetProfileObjectTypeResponse)
 
 -- | A list of unique keys that can be used to map data to the profile.
 getProfileObjectTypeResponse_keys :: Lens.Lens' GetProfileObjectTypeResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [ObjectTypeKey]))
@@ -314,6 +329,7 @@ instance Prelude.NFData GetProfileObjectTypeResponse where
       `Prelude.seq` Prelude.rnf fields
       `Prelude.seq` Prelude.rnf templateId
       `Prelude.seq` Prelude.rnf expirationDays
+      `Prelude.seq` Prelude.rnf sourceLastUpdatedTimestampFormat
       `Prelude.seq` Prelude.rnf keys
       `Prelude.seq` Prelude.rnf encryptionKey
       `Prelude.seq` Prelude.rnf createdAt

@@ -40,6 +40,17 @@ module Amazonka.CustomerProfiles.Lens
     createDomainResponse_createdAt,
     createDomainResponse_lastUpdatedAt,
 
+    -- ** CreateIntegrationWorkflow
+    createIntegrationWorkflow_tags,
+    createIntegrationWorkflow_domainName,
+    createIntegrationWorkflow_workflowType,
+    createIntegrationWorkflow_integrationConfig,
+    createIntegrationWorkflow_objectTypeName,
+    createIntegrationWorkflow_roleArn,
+    createIntegrationWorkflowResponse_httpStatus,
+    createIntegrationWorkflowResponse_workflowId,
+    createIntegrationWorkflowResponse_message,
+
     -- ** CreateProfile
     createProfile_homePhoneNumber,
     createProfile_mailingAddress,
@@ -105,6 +116,22 @@ module Amazonka.CustomerProfiles.Lens
     deleteProfileObjectTypeResponse_httpStatus,
     deleteProfileObjectTypeResponse_message,
 
+    -- ** DeleteWorkflow
+    deleteWorkflow_domainName,
+    deleteWorkflow_workflowId,
+    deleteWorkflowResponse_httpStatus,
+
+    -- ** GetAutoMergingPreview
+    getAutoMergingPreview_minAllowedConfidenceScoreForMerging,
+    getAutoMergingPreview_domainName,
+    getAutoMergingPreview_consolidation,
+    getAutoMergingPreview_conflictResolution,
+    getAutoMergingPreviewResponse_numberOfProfilesInSample,
+    getAutoMergingPreviewResponse_numberOfMatchesInSample,
+    getAutoMergingPreviewResponse_numberOfProfilesWillBeMerged,
+    getAutoMergingPreviewResponse_httpStatus,
+    getAutoMergingPreviewResponse_domainName,
+
     -- ** GetDomain
     getDomain_domainName,
     getDomainResponse_tags,
@@ -118,14 +145,32 @@ module Amazonka.CustomerProfiles.Lens
     getDomainResponse_createdAt,
     getDomainResponse_lastUpdatedAt,
 
+    -- ** GetIdentityResolutionJob
+    getIdentityResolutionJob_domainName,
+    getIdentityResolutionJob_jobId,
+    getIdentityResolutionJobResponse_exportingLocation,
+    getIdentityResolutionJobResponse_jobStats,
+    getIdentityResolutionJobResponse_message,
+    getIdentityResolutionJobResponse_lastUpdatedAt,
+    getIdentityResolutionJobResponse_domainName,
+    getIdentityResolutionJobResponse_autoMerging,
+    getIdentityResolutionJobResponse_jobId,
+    getIdentityResolutionJobResponse_status,
+    getIdentityResolutionJobResponse_jobStartTime,
+    getIdentityResolutionJobResponse_jobEndTime,
+    getIdentityResolutionJobResponse_jobExpirationTime,
+    getIdentityResolutionJobResponse_httpStatus,
+
     -- ** GetIntegration
     getIntegration_domainName,
     getIntegration_uri,
     getIntegrationResponse_tags,
+    getIntegrationResponse_objectTypeNames,
+    getIntegrationResponse_workflowId,
+    getIntegrationResponse_objectTypeName,
     getIntegrationResponse_httpStatus,
     getIntegrationResponse_domainName,
     getIntegrationResponse_uri,
-    getIntegrationResponse_objectTypeName,
     getIntegrationResponse_createdAt,
     getIntegrationResponse_lastUpdatedAt,
 
@@ -147,6 +192,7 @@ module Amazonka.CustomerProfiles.Lens
     getProfileObjectTypeResponse_fields,
     getProfileObjectTypeResponse_templateId,
     getProfileObjectTypeResponse_expirationDays,
+    getProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat,
     getProfileObjectTypeResponse_keys,
     getProfileObjectTypeResponse_encryptionKey,
     getProfileObjectTypeResponse_createdAt,
@@ -161,13 +207,39 @@ module Amazonka.CustomerProfiles.Lens
     getProfileObjectTypeTemplateResponse_fields,
     getProfileObjectTypeTemplateResponse_templateId,
     getProfileObjectTypeTemplateResponse_sourceObject,
+    getProfileObjectTypeTemplateResponse_sourceLastUpdatedTimestampFormat,
     getProfileObjectTypeTemplateResponse_keys,
     getProfileObjectTypeTemplateResponse_allowProfileCreation,
     getProfileObjectTypeTemplateResponse_httpStatus,
 
+    -- ** GetWorkflow
+    getWorkflow_domainName,
+    getWorkflow_workflowId,
+    getWorkflowResponse_workflowId,
+    getWorkflowResponse_lastUpdatedAt,
+    getWorkflowResponse_status,
+    getWorkflowResponse_metrics,
+    getWorkflowResponse_workflowType,
+    getWorkflowResponse_startDate,
+    getWorkflowResponse_attributes,
+    getWorkflowResponse_errorDescription,
+    getWorkflowResponse_httpStatus,
+
+    -- ** GetWorkflowSteps
+    getWorkflowSteps_nextToken,
+    getWorkflowSteps_maxResults,
+    getWorkflowSteps_domainName,
+    getWorkflowSteps_workflowId,
+    getWorkflowStepsResponse_items,
+    getWorkflowStepsResponse_nextToken,
+    getWorkflowStepsResponse_workflowId,
+    getWorkflowStepsResponse_workflowType,
+    getWorkflowStepsResponse_httpStatus,
+
     -- ** ListAccountIntegrations
     listAccountIntegrations_nextToken,
     listAccountIntegrations_maxResults,
+    listAccountIntegrations_includeHidden,
     listAccountIntegrations_uri,
     listAccountIntegrationsResponse_items,
     listAccountIntegrationsResponse_nextToken,
@@ -180,9 +252,18 @@ module Amazonka.CustomerProfiles.Lens
     listDomainsResponse_nextToken,
     listDomainsResponse_httpStatus,
 
+    -- ** ListIdentityResolutionJobs
+    listIdentityResolutionJobs_nextToken,
+    listIdentityResolutionJobs_maxResults,
+    listIdentityResolutionJobs_domainName,
+    listIdentityResolutionJobsResponse_nextToken,
+    listIdentityResolutionJobsResponse_identityResolutionJobsList,
+    listIdentityResolutionJobsResponse_httpStatus,
+
     -- ** ListIntegrations
     listIntegrations_nextToken,
     listIntegrations_maxResults,
+    listIntegrations_includeHidden,
     listIntegrations_domainName,
     listIntegrationsResponse_items,
     listIntegrationsResponse_nextToken,
@@ -219,6 +300,18 @@ module Amazonka.CustomerProfiles.Lens
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
 
+    -- ** ListWorkflows
+    listWorkflows_nextToken,
+    listWorkflows_queryStartDate,
+    listWorkflows_queryEndDate,
+    listWorkflows_status,
+    listWorkflows_workflowType,
+    listWorkflows_maxResults,
+    listWorkflows_domainName,
+    listWorkflowsResponse_items,
+    listWorkflowsResponse_nextToken,
+    listWorkflowsResponse_httpStatus,
+
     -- ** MergeProfiles
     mergeProfiles_fieldSourceProfileIds,
     mergeProfiles_domainName,
@@ -229,15 +322,18 @@ module Amazonka.CustomerProfiles.Lens
 
     -- ** PutIntegration
     putIntegration_tags,
+    putIntegration_objectTypeNames,
     putIntegration_uri,
     putIntegration_flowDefinition,
-    putIntegration_domainName,
     putIntegration_objectTypeName,
+    putIntegration_domainName,
     putIntegrationResponse_tags,
+    putIntegrationResponse_objectTypeNames,
+    putIntegrationResponse_workflowId,
+    putIntegrationResponse_objectTypeName,
     putIntegrationResponse_httpStatus,
     putIntegrationResponse_domainName,
     putIntegrationResponse_uri,
-    putIntegrationResponse_objectTypeName,
     putIntegrationResponse_createdAt,
     putIntegrationResponse_lastUpdatedAt,
 
@@ -253,6 +349,7 @@ module Amazonka.CustomerProfiles.Lens
     putProfileObjectType_fields,
     putProfileObjectType_templateId,
     putProfileObjectType_expirationDays,
+    putProfileObjectType_sourceLastUpdatedTimestampFormat,
     putProfileObjectType_keys,
     putProfileObjectType_encryptionKey,
     putProfileObjectType_allowProfileCreation,
@@ -264,6 +361,7 @@ module Amazonka.CustomerProfiles.Lens
     putProfileObjectTypeResponse_fields,
     putProfileObjectTypeResponse_templateId,
     putProfileObjectTypeResponse_expirationDays,
+    putProfileObjectTypeResponse_sourceLastUpdatedTimestampFormat,
     putProfileObjectTypeResponse_keys,
     putProfileObjectTypeResponse_encryptionKey,
     putProfileObjectTypeResponse_createdAt,
@@ -350,6 +448,44 @@ module Amazonka.CustomerProfiles.Lens
     address_address4,
     address_address1,
 
+    -- ** AppflowIntegration
+    appflowIntegration_batches,
+    appflowIntegration_flowDefinition,
+
+    -- ** AppflowIntegrationWorkflowAttributes
+    appflowIntegrationWorkflowAttributes_roleArn,
+    appflowIntegrationWorkflowAttributes_sourceConnectorType,
+    appflowIntegrationWorkflowAttributes_connectorProfileName,
+
+    -- ** AppflowIntegrationWorkflowMetrics
+    appflowIntegrationWorkflowMetrics_recordsProcessed,
+    appflowIntegrationWorkflowMetrics_stepsCompleted,
+    appflowIntegrationWorkflowMetrics_totalSteps,
+
+    -- ** AppflowIntegrationWorkflowStep
+    appflowIntegrationWorkflowStep_flowName,
+    appflowIntegrationWorkflowStep_status,
+    appflowIntegrationWorkflowStep_executionMessage,
+    appflowIntegrationWorkflowStep_recordsProcessed,
+    appflowIntegrationWorkflowStep_batchRecordsStartTime,
+    appflowIntegrationWorkflowStep_batchRecordsEndTime,
+    appflowIntegrationWorkflowStep_createdAt,
+    appflowIntegrationWorkflowStep_lastUpdatedAt,
+
+    -- ** AutoMerging
+    autoMerging_consolidation,
+    autoMerging_conflictResolution,
+    autoMerging_minAllowedConfidenceScoreForMerging,
+    autoMerging_enabled,
+
+    -- ** Batch
+    batch_startTime,
+    batch_endTime,
+
+    -- ** ConflictResolution
+    conflictResolution_sourceName,
+    conflictResolution_conflictResolvingModel,
+
     -- ** ConnectorOperator
     connectorOperator_zendesk,
     connectorOperator_s3,
@@ -357,11 +493,20 @@ module Amazonka.CustomerProfiles.Lens
     connectorOperator_marketo,
     connectorOperator_serviceNow,
 
+    -- ** Consolidation
+    consolidation_matchingAttributesList,
+
     -- ** DomainStats
     domainStats_meteringProfileCount,
     domainStats_profileCount,
     domainStats_objectCount,
     domainStats_totalSize,
+
+    -- ** ExportingConfig
+    exportingConfig_s3Exporting,
+
+    -- ** ExportingLocation
+    exportingLocation_s3Exporting,
 
     -- ** FieldSourceProfileIds
     fieldSourceProfileIds_homePhoneNumber,
@@ -394,8 +539,30 @@ module Amazonka.CustomerProfiles.Lens
     flowDefinition_tasks,
     flowDefinition_triggerConfig,
 
+    -- ** IdentityResolutionJob
+    identityResolutionJob_exportingLocation,
+    identityResolutionJob_jobStats,
+    identityResolutionJob_message,
+    identityResolutionJob_domainName,
+    identityResolutionJob_jobId,
+    identityResolutionJob_status,
+    identityResolutionJob_jobStartTime,
+    identityResolutionJob_jobEndTime,
+
     -- ** IncrementalPullConfig
     incrementalPullConfig_datetimeTypeFieldName,
+
+    -- ** IntegrationConfig
+    integrationConfig_appflowIntegration,
+
+    -- ** JobSchedule
+    jobSchedule_dayOfTheWeek,
+    jobSchedule_time,
+
+    -- ** JobStats
+    jobStats_numberOfMergesDone,
+    jobStats_numberOfMatchesFound,
+    jobStats_numberOfProfilesReviewed,
 
     -- ** ListDomainItem
     listDomainItem_tags,
@@ -405,9 +572,11 @@ module Amazonka.CustomerProfiles.Lens
 
     -- ** ListIntegrationItem
     listIntegrationItem_tags,
+    listIntegrationItem_objectTypeNames,
+    listIntegrationItem_workflowId,
+    listIntegrationItem_objectTypeName,
     listIntegrationItem_domainName,
     listIntegrationItem_uri,
-    listIntegrationItem_objectTypeName,
     listIntegrationItem_createdAt,
     listIntegrationItem_lastUpdatedAt,
 
@@ -428,18 +597,33 @@ module Amazonka.CustomerProfiles.Lens
     listProfileObjectsItem_profileObjectUniqueKey,
     listProfileObjectsItem_objectTypeName,
 
+    -- ** ListWorkflowsItem
+    listWorkflowsItem_workflowType,
+    listWorkflowsItem_workflowId,
+    listWorkflowsItem_status,
+    listWorkflowsItem_statusDescription,
+    listWorkflowsItem_createdAt,
+    listWorkflowsItem_lastUpdatedAt,
+
     -- ** MarketoSourceProperties
     marketoSourceProperties_object,
 
     -- ** MatchItem
     matchItem_matchId,
     matchItem_profileIds,
+    matchItem_confidenceScore,
 
     -- ** MatchingRequest
+    matchingRequest_jobSchedule,
+    matchingRequest_autoMerging,
+    matchingRequest_exportingConfig,
     matchingRequest_enabled,
 
     -- ** MatchingResponse
+    matchingResponse_jobSchedule,
+    matchingResponse_autoMerging,
     matchingResponse_enabled,
+    matchingResponse_exportingConfig,
 
     -- ** ObjectFilter
     objectFilter_keyName,
@@ -477,6 +661,14 @@ module Amazonka.CustomerProfiles.Lens
     profile_additionalInformation,
     profile_emailAddress,
     profile_accountNumber,
+
+    -- ** S3ExportingConfig
+    s3ExportingConfig_s3KeyName,
+    s3ExportingConfig_s3BucketName,
+
+    -- ** S3ExportingLocation
+    s3ExportingLocation_s3BucketName,
+    s3ExportingLocation_s3KeyName,
 
     -- ** S3SourceProperties
     s3SourceProperties_bucketPrefix,
@@ -538,6 +730,15 @@ module Amazonka.CustomerProfiles.Lens
     updateAddress_address4,
     updateAddress_address1,
 
+    -- ** WorkflowAttributes
+    workflowAttributes_appflowIntegration,
+
+    -- ** WorkflowMetrics
+    workflowMetrics_appflowIntegration,
+
+    -- ** WorkflowStepItem
+    workflowStepItem_appflowIntegration,
+
     -- ** ZendeskSourceProperties
     zendeskSourceProperties_object,
   )
@@ -545,6 +746,7 @@ where
 
 import Amazonka.CustomerProfiles.AddProfileKey
 import Amazonka.CustomerProfiles.CreateDomain
+import Amazonka.CustomerProfiles.CreateIntegrationWorkflow
 import Amazonka.CustomerProfiles.CreateProfile
 import Amazonka.CustomerProfiles.DeleteDomain
 import Amazonka.CustomerProfiles.DeleteIntegration
@@ -552,18 +754,25 @@ import Amazonka.CustomerProfiles.DeleteProfile
 import Amazonka.CustomerProfiles.DeleteProfileKey
 import Amazonka.CustomerProfiles.DeleteProfileObject
 import Amazonka.CustomerProfiles.DeleteProfileObjectType
+import Amazonka.CustomerProfiles.DeleteWorkflow
+import Amazonka.CustomerProfiles.GetAutoMergingPreview
 import Amazonka.CustomerProfiles.GetDomain
+import Amazonka.CustomerProfiles.GetIdentityResolutionJob
 import Amazonka.CustomerProfiles.GetIntegration
 import Amazonka.CustomerProfiles.GetMatches
 import Amazonka.CustomerProfiles.GetProfileObjectType
 import Amazonka.CustomerProfiles.GetProfileObjectTypeTemplate
+import Amazonka.CustomerProfiles.GetWorkflow
+import Amazonka.CustomerProfiles.GetWorkflowSteps
 import Amazonka.CustomerProfiles.ListAccountIntegrations
 import Amazonka.CustomerProfiles.ListDomains
+import Amazonka.CustomerProfiles.ListIdentityResolutionJobs
 import Amazonka.CustomerProfiles.ListIntegrations
 import Amazonka.CustomerProfiles.ListProfileObjectTypeTemplates
 import Amazonka.CustomerProfiles.ListProfileObjectTypes
 import Amazonka.CustomerProfiles.ListProfileObjects
 import Amazonka.CustomerProfiles.ListTagsForResource
+import Amazonka.CustomerProfiles.ListWorkflows
 import Amazonka.CustomerProfiles.MergeProfiles
 import Amazonka.CustomerProfiles.PutIntegration
 import Amazonka.CustomerProfiles.PutProfileObject
@@ -571,16 +780,31 @@ import Amazonka.CustomerProfiles.PutProfileObjectType
 import Amazonka.CustomerProfiles.SearchProfiles
 import Amazonka.CustomerProfiles.TagResource
 import Amazonka.CustomerProfiles.Types.Address
+import Amazonka.CustomerProfiles.Types.AppflowIntegration
+import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowAttributes
+import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowMetrics
+import Amazonka.CustomerProfiles.Types.AppflowIntegrationWorkflowStep
+import Amazonka.CustomerProfiles.Types.AutoMerging
+import Amazonka.CustomerProfiles.Types.Batch
+import Amazonka.CustomerProfiles.Types.ConflictResolution
 import Amazonka.CustomerProfiles.Types.ConnectorOperator
+import Amazonka.CustomerProfiles.Types.Consolidation
 import Amazonka.CustomerProfiles.Types.DomainStats
+import Amazonka.CustomerProfiles.Types.ExportingConfig
+import Amazonka.CustomerProfiles.Types.ExportingLocation
 import Amazonka.CustomerProfiles.Types.FieldSourceProfileIds
 import Amazonka.CustomerProfiles.Types.FlowDefinition
+import Amazonka.CustomerProfiles.Types.IdentityResolutionJob
 import Amazonka.CustomerProfiles.Types.IncrementalPullConfig
+import Amazonka.CustomerProfiles.Types.IntegrationConfig
+import Amazonka.CustomerProfiles.Types.JobSchedule
+import Amazonka.CustomerProfiles.Types.JobStats
 import Amazonka.CustomerProfiles.Types.ListDomainItem
 import Amazonka.CustomerProfiles.Types.ListIntegrationItem
 import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeItem
 import Amazonka.CustomerProfiles.Types.ListProfileObjectTypeTemplateItem
 import Amazonka.CustomerProfiles.Types.ListProfileObjectsItem
+import Amazonka.CustomerProfiles.Types.ListWorkflowsItem
 import Amazonka.CustomerProfiles.Types.MarketoSourceProperties
 import Amazonka.CustomerProfiles.Types.MatchItem
 import Amazonka.CustomerProfiles.Types.MatchingRequest
@@ -589,6 +813,8 @@ import Amazonka.CustomerProfiles.Types.ObjectFilter
 import Amazonka.CustomerProfiles.Types.ObjectTypeField
 import Amazonka.CustomerProfiles.Types.ObjectTypeKey
 import Amazonka.CustomerProfiles.Types.Profile
+import Amazonka.CustomerProfiles.Types.S3ExportingConfig
+import Amazonka.CustomerProfiles.Types.S3ExportingLocation
 import Amazonka.CustomerProfiles.Types.S3SourceProperties
 import Amazonka.CustomerProfiles.Types.SalesforceSourceProperties
 import Amazonka.CustomerProfiles.Types.ScheduledTriggerProperties
@@ -599,6 +825,9 @@ import Amazonka.CustomerProfiles.Types.Task
 import Amazonka.CustomerProfiles.Types.TriggerConfig
 import Amazonka.CustomerProfiles.Types.TriggerProperties
 import Amazonka.CustomerProfiles.Types.UpdateAddress
+import Amazonka.CustomerProfiles.Types.WorkflowAttributes
+import Amazonka.CustomerProfiles.Types.WorkflowMetrics
+import Amazonka.CustomerProfiles.Types.WorkflowStepItem
 import Amazonka.CustomerProfiles.Types.ZendeskSourceProperties
 import Amazonka.CustomerProfiles.UntagResource
 import Amazonka.CustomerProfiles.UpdateDomain

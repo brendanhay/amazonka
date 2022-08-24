@@ -66,6 +66,9 @@ import Test.Tasty
 --         , requestDescribeDomainAutoTunes $
 --             newDescribeDomainAutoTunes
 --
+--         , requestDescribeDomainChangeProgress $
+--             newDescribeDomainChangeProgress
+--
 --         , requestDescribeElasticsearchDomain $
 --             newDescribeElasticsearchDomain
 --
@@ -188,6 +191,9 @@ import Test.Tasty
 --
 --         , responseDescribeDomainAutoTunes $
 --             newDescribeDomainAutoTunesResponse
+--
+--         , responseDescribeDomainChangeProgress $
+--             newDescribeDomainChangeProgressResponse
 --
 --         , responseDescribeElasticsearchDomain $
 --             newDescribeElasticsearchDomainResponse
@@ -352,6 +358,12 @@ requestDescribeDomainAutoTunes =
   req
     "DescribeDomainAutoTunes"
     "fixture/DescribeDomainAutoTunes.yaml"
+
+requestDescribeDomainChangeProgress :: DescribeDomainChangeProgress -> TestTree
+requestDescribeDomainChangeProgress =
+  req
+    "DescribeDomainChangeProgress"
+    "fixture/DescribeDomainChangeProgress.yaml"
 
 requestDescribeElasticsearchDomain :: DescribeElasticsearchDomain -> TestTree
 requestDescribeElasticsearchDomain =
@@ -620,6 +632,14 @@ responseDescribeDomainAutoTunes =
     "fixture/DescribeDomainAutoTunesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeDomainAutoTunes)
+
+responseDescribeDomainChangeProgress :: DescribeDomainChangeProgressResponse -> TestTree
+responseDescribeDomainChangeProgress =
+  res
+    "DescribeDomainChangeProgressResponse"
+    "fixture/DescribeDomainChangeProgressResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeDomainChangeProgress)
 
 responseDescribeElasticsearchDomain :: DescribeElasticsearchDomainResponse -> TestTree
 responseDescribeElasticsearchDomain =

@@ -149,6 +149,12 @@ module Amazonka.ElasticSearch
     DescribeDomainAutoTunesResponse (DescribeDomainAutoTunesResponse'),
     newDescribeDomainAutoTunesResponse,
 
+    -- ** DescribeDomainChangeProgress
+    DescribeDomainChangeProgress (DescribeDomainChangeProgress'),
+    newDescribeDomainChangeProgress,
+    DescribeDomainChangeProgressResponse (DescribeDomainChangeProgressResponse'),
+    newDescribeDomainChangeProgressResponse,
+
     -- ** DescribeElasticsearchDomain
     DescribeElasticsearchDomain (DescribeElasticsearchDomain'),
     newDescribeElasticsearchDomain,
@@ -352,6 +358,9 @@ module Amazonka.ElasticSearch
     -- ** OutboundCrossClusterSearchConnectionStatusCode
     OutboundCrossClusterSearchConnectionStatusCode (..),
 
+    -- ** OverallChangeStatus
+    OverallChangeStatus (..),
+
     -- ** PackageStatus
     PackageStatus (..),
 
@@ -441,6 +450,18 @@ module Amazonka.ElasticSearch
     AutoTuneStatus (AutoTuneStatus'),
     newAutoTuneStatus,
 
+    -- ** ChangeProgressDetails
+    ChangeProgressDetails (ChangeProgressDetails'),
+    newChangeProgressDetails,
+
+    -- ** ChangeProgressStage
+    ChangeProgressStage (ChangeProgressStage'),
+    newChangeProgressStage,
+
+    -- ** ChangeProgressStatusDetails
+    ChangeProgressStatusDetails (ChangeProgressStatusDetails'),
+    newChangeProgressStatusDetails,
+
     -- ** CognitoOptions
     CognitoOptions (CognitoOptions'),
     newCognitoOptions,
@@ -480,6 +501,10 @@ module Amazonka.ElasticSearch
     -- ** DomainPackageDetails
     DomainPackageDetails (DomainPackageDetails'),
     newDomainPackageDetails,
+
+    -- ** DryRunResults
+    DryRunResults (DryRunResults'),
+    newDryRunResults,
 
     -- ** Duration
     Duration (Duration'),
@@ -684,6 +709,7 @@ import Amazonka.ElasticSearch.DeleteInboundCrossClusterSearchConnection
 import Amazonka.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
 import Amazonka.ElasticSearch.DeletePackage
 import Amazonka.ElasticSearch.DescribeDomainAutoTunes
+import Amazonka.ElasticSearch.DescribeDomainChangeProgress
 import Amazonka.ElasticSearch.DescribeElasticsearchDomain
 import Amazonka.ElasticSearch.DescribeElasticsearchDomainConfig
 import Amazonka.ElasticSearch.DescribeElasticsearchDomains

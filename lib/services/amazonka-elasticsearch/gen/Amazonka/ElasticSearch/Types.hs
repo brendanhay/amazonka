@@ -68,6 +68,9 @@ module Amazonka.ElasticSearch.Types
     -- * OutboundCrossClusterSearchConnectionStatusCode
     OutboundCrossClusterSearchConnectionStatusCode (..),
 
+    -- * OverallChangeStatus
+    OverallChangeStatus (..),
+
     -- * PackageStatus
     PackageStatus (..),
 
@@ -124,13 +127,16 @@ module Amazonka.ElasticSearch.Types
     newAdvancedSecurityOptions,
     advancedSecurityOptions_internalUserDatabaseEnabled,
     advancedSecurityOptions_sAMLOptions,
+    advancedSecurityOptions_anonymousAuthEnabled,
     advancedSecurityOptions_enabled,
+    advancedSecurityOptions_anonymousAuthDisableDate,
 
     -- * AdvancedSecurityOptionsInput
     AdvancedSecurityOptionsInput (..),
     newAdvancedSecurityOptionsInput,
     advancedSecurityOptionsInput_internalUserDatabaseEnabled,
     advancedSecurityOptionsInput_sAMLOptions,
+    advancedSecurityOptionsInput_anonymousAuthEnabled,
     advancedSecurityOptionsInput_enabled,
     advancedSecurityOptionsInput_masterUserOptions,
 
@@ -192,6 +198,31 @@ module Amazonka.ElasticSearch.Types
     autoTuneStatus_creationDate,
     autoTuneStatus_updateDate,
     autoTuneStatus_state,
+
+    -- * ChangeProgressDetails
+    ChangeProgressDetails (..),
+    newChangeProgressDetails,
+    changeProgressDetails_message,
+    changeProgressDetails_changeId,
+
+    -- * ChangeProgressStage
+    ChangeProgressStage (..),
+    newChangeProgressStage,
+    changeProgressStage_name,
+    changeProgressStage_status,
+    changeProgressStage_description,
+    changeProgressStage_lastUpdated,
+
+    -- * ChangeProgressStatusDetails
+    ChangeProgressStatusDetails (..),
+    newChangeProgressStatusDetails,
+    changeProgressStatusDetails_totalNumberOfStages,
+    changeProgressStatusDetails_changeId,
+    changeProgressStatusDetails_pendingProperties,
+    changeProgressStatusDetails_status,
+    changeProgressStatusDetails_changeProgressStages,
+    changeProgressStatusDetails_completedProperties,
+    changeProgressStatusDetails_startTime,
 
     -- * CognitoOptions
     CognitoOptions (..),
@@ -265,6 +296,12 @@ module Amazonka.ElasticSearch.Types
     domainPackageDetails_packageVersion,
     domainPackageDetails_packageType,
 
+    -- * DryRunResults
+    DryRunResults (..),
+    newDryRunResults,
+    dryRunResults_message,
+    dryRunResults_deploymentType,
+
     -- * Duration
     Duration (..),
     newDuration,
@@ -276,6 +313,7 @@ module Amazonka.ElasticSearch.Types
     newEBSOptions,
     eBSOptions_volumeType,
     eBSOptions_volumeSize,
+    eBSOptions_throughput,
     eBSOptions_eBSEnabled,
     eBSOptions_iops,
 
@@ -312,6 +350,7 @@ module Amazonka.ElasticSearch.Types
     elasticsearchDomainConfig_nodeToNodeEncryptionOptions,
     elasticsearchDomainConfig_advancedOptions,
     elasticsearchDomainConfig_elasticsearchClusterConfig,
+    elasticsearchDomainConfig_changeProgressDetails,
     elasticsearchDomainConfig_advancedSecurityOptions,
     elasticsearchDomainConfig_cognitoOptions,
     elasticsearchDomainConfig_encryptionAtRestOptions,
@@ -329,6 +368,7 @@ module Amazonka.ElasticSearch.Types
     newElasticsearchDomainStatus,
     elasticsearchDomainStatus_nodeToNodeEncryptionOptions,
     elasticsearchDomainStatus_advancedOptions,
+    elasticsearchDomainStatus_changeProgressDetails,
     elasticsearchDomainStatus_deleted,
     elasticsearchDomainStatus_created,
     elasticsearchDomainStatus_advancedSecurityOptions,
@@ -666,6 +706,9 @@ import Amazonka.ElasticSearch.Types.AutoTuneOptionsStatus
 import Amazonka.ElasticSearch.Types.AutoTuneState
 import Amazonka.ElasticSearch.Types.AutoTuneStatus
 import Amazonka.ElasticSearch.Types.AutoTuneType
+import Amazonka.ElasticSearch.Types.ChangeProgressDetails
+import Amazonka.ElasticSearch.Types.ChangeProgressStage
+import Amazonka.ElasticSearch.Types.ChangeProgressStatusDetails
 import Amazonka.ElasticSearch.Types.CognitoOptions
 import Amazonka.ElasticSearch.Types.CognitoOptionsStatus
 import Amazonka.ElasticSearch.Types.ColdStorageOptions
@@ -679,6 +722,7 @@ import Amazonka.ElasticSearch.Types.DomainInfo
 import Amazonka.ElasticSearch.Types.DomainInformation
 import Amazonka.ElasticSearch.Types.DomainPackageDetails
 import Amazonka.ElasticSearch.Types.DomainPackageStatus
+import Amazonka.ElasticSearch.Types.DryRunResults
 import Amazonka.ElasticSearch.Types.Duration
 import Amazonka.ElasticSearch.Types.EBSOptions
 import Amazonka.ElasticSearch.Types.EBSOptionsStatus
@@ -711,6 +755,7 @@ import Amazonka.ElasticSearch.Types.OptionStatus
 import Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnection
 import Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus
 import Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
+import Amazonka.ElasticSearch.Types.OverallChangeStatus
 import Amazonka.ElasticSearch.Types.PackageDetails
 import Amazonka.ElasticSearch.Types.PackageSource
 import Amazonka.ElasticSearch.Types.PackageStatus

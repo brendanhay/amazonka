@@ -36,6 +36,9 @@ data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
     internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the SAML application configuration for the domain.
     sAMLOptions :: Prelude.Maybe SAMLOptionsInput,
+    -- | True if Anonymous auth is enabled. Anonymous auth can be enabled only
+    -- when AdvancedSecurity is enabled on existing domains.
+    anonymousAuthEnabled :: Prelude.Maybe Prelude.Bool,
     -- | True if advanced security is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
     -- | Credentials for the master user: username and password, ARN, or both.
@@ -55,6 +58,9 @@ data AdvancedSecurityOptionsInput = AdvancedSecurityOptionsInput'
 --
 -- 'sAMLOptions', 'advancedSecurityOptionsInput_sAMLOptions' - Specifies the SAML application configuration for the domain.
 --
+-- 'anonymousAuthEnabled', 'advancedSecurityOptionsInput_anonymousAuthEnabled' - True if Anonymous auth is enabled. Anonymous auth can be enabled only
+-- when AdvancedSecurity is enabled on existing domains.
+--
 -- 'enabled', 'advancedSecurityOptionsInput_enabled' - True if advanced security is enabled.
 --
 -- 'masterUserOptions', 'advancedSecurityOptionsInput_masterUserOptions' - Credentials for the master user: username and password, ARN, or both.
@@ -65,6 +71,7 @@ newAdvancedSecurityOptionsInput =
     { internalUserDatabaseEnabled =
         Prelude.Nothing,
       sAMLOptions = Prelude.Nothing,
+      anonymousAuthEnabled = Prelude.Nothing,
       enabled = Prelude.Nothing,
       masterUserOptions = Prelude.Nothing
     }
@@ -76,6 +83,11 @@ advancedSecurityOptionsInput_internalUserDatabaseEnabled = Lens.lens (\AdvancedS
 -- | Specifies the SAML application configuration for the domain.
 advancedSecurityOptionsInput_sAMLOptions :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe SAMLOptionsInput)
 advancedSecurityOptionsInput_sAMLOptions = Lens.lens (\AdvancedSecurityOptionsInput' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptionsInput' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptionsInput)
+
+-- | True if Anonymous auth is enabled. Anonymous auth can be enabled only
+-- when AdvancedSecurity is enabled on existing domains.
+advancedSecurityOptionsInput_anonymousAuthEnabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
+advancedSecurityOptionsInput_anonymousAuthEnabled = Lens.lens (\AdvancedSecurityOptionsInput' {anonymousAuthEnabled} -> anonymousAuthEnabled) (\s@AdvancedSecurityOptionsInput' {} a -> s {anonymousAuthEnabled = a} :: AdvancedSecurityOptionsInput)
 
 -- | True if advanced security is enabled.
 advancedSecurityOptionsInput_enabled :: Lens.Lens' AdvancedSecurityOptionsInput (Prelude.Maybe Prelude.Bool)
@@ -93,6 +105,7 @@ instance
     _salt
       `Prelude.hashWithSalt` internalUserDatabaseEnabled
       `Prelude.hashWithSalt` sAMLOptions
+      `Prelude.hashWithSalt` anonymousAuthEnabled
       `Prelude.hashWithSalt` enabled
       `Prelude.hashWithSalt` masterUserOptions
 
@@ -100,6 +113,7 @@ instance Prelude.NFData AdvancedSecurityOptionsInput where
   rnf AdvancedSecurityOptionsInput' {..} =
     Prelude.rnf internalUserDatabaseEnabled
       `Prelude.seq` Prelude.rnf sAMLOptions
+      `Prelude.seq` Prelude.rnf anonymousAuthEnabled
       `Prelude.seq` Prelude.rnf enabled
       `Prelude.seq` Prelude.rnf masterUserOptions
 
@@ -110,6 +124,8 @@ instance Core.ToJSON AdvancedSecurityOptionsInput where
           [ ("InternalUserDatabaseEnabled" Core..=)
               Prelude.<$> internalUserDatabaseEnabled,
             ("SAMLOptions" Core..=) Prelude.<$> sAMLOptions,
+            ("AnonymousAuthEnabled" Core..=)
+              Prelude.<$> anonymousAuthEnabled,
             ("Enabled" Core..=) Prelude.<$> enabled,
             ("MasterUserOptions" Core..=)
               Prelude.<$> masterUserOptions

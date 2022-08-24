@@ -24,6 +24,7 @@ import Amazonka.ElasticSearch.Types.AccessPoliciesStatus
 import Amazonka.ElasticSearch.Types.AdvancedOptionsStatus
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptionsStatus
 import Amazonka.ElasticSearch.Types.AutoTuneOptionsStatus
+import Amazonka.ElasticSearch.Types.ChangeProgressDetails
 import Amazonka.ElasticSearch.Types.CognitoOptionsStatus
 import Amazonka.ElasticSearch.Types.DomainEndpointOptionsStatus
 import Amazonka.ElasticSearch.Types.EBSOptionsStatus
@@ -50,6 +51,8 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
     advancedOptions :: Prelude.Maybe AdvancedOptionsStatus,
     -- | Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
     elasticsearchClusterConfig :: Prelude.Maybe ElasticsearchClusterConfigStatus,
+    -- | Specifies change details of the domain configuration change.
+    changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
     -- | Specifies @AdvancedSecurityOptions@ for the domain.
     advancedSecurityOptions :: Prelude.Maybe AdvancedSecurityOptionsStatus,
     -- | The @CognitoOptions@ for the specified domain. For more information, see
@@ -94,6 +97,8 @@ data ElasticsearchDomainConfig = ElasticsearchDomainConfig'
 --
 -- 'elasticsearchClusterConfig', 'elasticsearchDomainConfig_elasticsearchClusterConfig' - Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
 --
+-- 'changeProgressDetails', 'elasticsearchDomainConfig_changeProgressDetails' - Specifies change details of the domain configuration change.
+--
 -- 'advancedSecurityOptions', 'elasticsearchDomainConfig_advancedSecurityOptions' - Specifies @AdvancedSecurityOptions@ for the domain.
 --
 -- 'cognitoOptions', 'elasticsearchDomainConfig_cognitoOptions' - The @CognitoOptions@ for the specified domain. For more information, see
@@ -125,6 +130,7 @@ newElasticsearchDomainConfig =
         Prelude.Nothing,
       advancedOptions = Prelude.Nothing,
       elasticsearchClusterConfig = Prelude.Nothing,
+      changeProgressDetails = Prelude.Nothing,
       advancedSecurityOptions = Prelude.Nothing,
       cognitoOptions = Prelude.Nothing,
       encryptionAtRestOptions = Prelude.Nothing,
@@ -152,6 +158,10 @@ elasticsearchDomainConfig_advancedOptions = Lens.lens (\ElasticsearchDomainConfi
 -- | Specifies the @ElasticsearchClusterConfig@ for the Elasticsearch domain.
 elasticsearchDomainConfig_elasticsearchClusterConfig :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe ElasticsearchClusterConfigStatus)
 elasticsearchDomainConfig_elasticsearchClusterConfig = Lens.lens (\ElasticsearchDomainConfig' {elasticsearchClusterConfig} -> elasticsearchClusterConfig) (\s@ElasticsearchDomainConfig' {} a -> s {elasticsearchClusterConfig = a} :: ElasticsearchDomainConfig)
+
+-- | Specifies change details of the domain configuration change.
+elasticsearchDomainConfig_changeProgressDetails :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe ChangeProgressDetails)
+elasticsearchDomainConfig_changeProgressDetails = Lens.lens (\ElasticsearchDomainConfig' {changeProgressDetails} -> changeProgressDetails) (\s@ElasticsearchDomainConfig' {} a -> s {changeProgressDetails = a} :: ElasticsearchDomainConfig)
 
 -- | Specifies @AdvancedSecurityOptions@ for the domain.
 elasticsearchDomainConfig_advancedSecurityOptions :: Lens.Lens' ElasticsearchDomainConfig (Prelude.Maybe AdvancedSecurityOptionsStatus)
@@ -208,6 +218,7 @@ instance Core.FromJSON ElasticsearchDomainConfig where
             Prelude.<$> (x Core..:? "NodeToNodeEncryptionOptions")
             Prelude.<*> (x Core..:? "AdvancedOptions")
             Prelude.<*> (x Core..:? "ElasticsearchClusterConfig")
+            Prelude.<*> (x Core..:? "ChangeProgressDetails")
             Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
             Prelude.<*> (x Core..:? "CognitoOptions")
             Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
@@ -227,6 +238,7 @@ instance Prelude.Hashable ElasticsearchDomainConfig where
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
       `Prelude.hashWithSalt` advancedOptions
       `Prelude.hashWithSalt` elasticsearchClusterConfig
+      `Prelude.hashWithSalt` changeProgressDetails
       `Prelude.hashWithSalt` advancedSecurityOptions
       `Prelude.hashWithSalt` cognitoOptions
       `Prelude.hashWithSalt` encryptionAtRestOptions
@@ -244,6 +256,7 @@ instance Prelude.NFData ElasticsearchDomainConfig where
     Prelude.rnf nodeToNodeEncryptionOptions
       `Prelude.seq` Prelude.rnf advancedOptions
       `Prelude.seq` Prelude.rnf elasticsearchClusterConfig
+      `Prelude.seq` Prelude.rnf changeProgressDetails
       `Prelude.seq` Prelude.rnf advancedSecurityOptions
       `Prelude.seq` Prelude.rnf cognitoOptions
       `Prelude.seq` Prelude.rnf encryptionAtRestOptions

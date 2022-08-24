@@ -57,6 +57,7 @@ library
     Amazonka.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
     Amazonka.ElasticSearch.DeletePackage
     Amazonka.ElasticSearch.DescribeDomainAutoTunes
+    Amazonka.ElasticSearch.DescribeDomainChangeProgress
     Amazonka.ElasticSearch.DescribeElasticsearchDomain
     Amazonka.ElasticSearch.DescribeElasticsearchDomainConfig
     Amazonka.ElasticSearch.DescribeElasticsearchDomains
@@ -100,6 +101,9 @@ library
     Amazonka.ElasticSearch.Types.AutoTuneState
     Amazonka.ElasticSearch.Types.AutoTuneStatus
     Amazonka.ElasticSearch.Types.AutoTuneType
+    Amazonka.ElasticSearch.Types.ChangeProgressDetails
+    Amazonka.ElasticSearch.Types.ChangeProgressStage
+    Amazonka.ElasticSearch.Types.ChangeProgressStatusDetails
     Amazonka.ElasticSearch.Types.CognitoOptions
     Amazonka.ElasticSearch.Types.CognitoOptionsStatus
     Amazonka.ElasticSearch.Types.ColdStorageOptions
@@ -113,6 +117,7 @@ library
     Amazonka.ElasticSearch.Types.DomainInformation
     Amazonka.ElasticSearch.Types.DomainPackageDetails
     Amazonka.ElasticSearch.Types.DomainPackageStatus
+    Amazonka.ElasticSearch.Types.DryRunResults
     Amazonka.ElasticSearch.Types.Duration
     Amazonka.ElasticSearch.Types.EBSOptions
     Amazonka.ElasticSearch.Types.EBSOptionsStatus
@@ -145,6 +150,7 @@ library
     Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnection
     Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus
     Amazonka.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
+    Amazonka.ElasticSearch.Types.OverallChangeStatus
     Amazonka.ElasticSearch.Types.PackageDetails
     Amazonka.ElasticSearch.Types.PackageSource
     Amazonka.ElasticSearch.Types.PackageStatus

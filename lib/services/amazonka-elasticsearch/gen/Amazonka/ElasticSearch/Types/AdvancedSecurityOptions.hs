@@ -33,8 +33,14 @@ data AdvancedSecurityOptions = AdvancedSecurityOptions'
     internalUserDatabaseEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Describes the SAML application configured for a domain.
     sAMLOptions :: Prelude.Maybe SAMLOptionsOutput,
+    -- | True if Anonymous auth is enabled. Anonymous auth can be enabled only
+    -- when AdvancedSecurity is enabled on existing domains.
+    anonymousAuthEnabled :: Prelude.Maybe Prelude.Bool,
     -- | True if advanced security is enabled.
-    enabled :: Prelude.Maybe Prelude.Bool
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the Anonymous Auth Disable Date when Anonymous Auth is
+    -- enabled.
+    anonymousAuthDisableDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -50,7 +56,13 @@ data AdvancedSecurityOptions = AdvancedSecurityOptions'
 --
 -- 'sAMLOptions', 'advancedSecurityOptions_sAMLOptions' - Describes the SAML application configured for a domain.
 --
+-- 'anonymousAuthEnabled', 'advancedSecurityOptions_anonymousAuthEnabled' - True if Anonymous auth is enabled. Anonymous auth can be enabled only
+-- when AdvancedSecurity is enabled on existing domains.
+--
 -- 'enabled', 'advancedSecurityOptions_enabled' - True if advanced security is enabled.
+--
+-- 'anonymousAuthDisableDate', 'advancedSecurityOptions_anonymousAuthDisableDate' - Specifies the Anonymous Auth Disable Date when Anonymous Auth is
+-- enabled.
 newAdvancedSecurityOptions ::
   AdvancedSecurityOptions
 newAdvancedSecurityOptions =
@@ -58,7 +70,9 @@ newAdvancedSecurityOptions =
     { internalUserDatabaseEnabled =
         Prelude.Nothing,
       sAMLOptions = Prelude.Nothing,
-      enabled = Prelude.Nothing
+      anonymousAuthEnabled = Prelude.Nothing,
+      enabled = Prelude.Nothing,
+      anonymousAuthDisableDate = Prelude.Nothing
     }
 
 -- | True if the internal user database is enabled.
@@ -69,9 +83,19 @@ advancedSecurityOptions_internalUserDatabaseEnabled = Lens.lens (\AdvancedSecuri
 advancedSecurityOptions_sAMLOptions :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe SAMLOptionsOutput)
 advancedSecurityOptions_sAMLOptions = Lens.lens (\AdvancedSecurityOptions' {sAMLOptions} -> sAMLOptions) (\s@AdvancedSecurityOptions' {} a -> s {sAMLOptions = a} :: AdvancedSecurityOptions)
 
+-- | True if Anonymous auth is enabled. Anonymous auth can be enabled only
+-- when AdvancedSecurity is enabled on existing domains.
+advancedSecurityOptions_anonymousAuthEnabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
+advancedSecurityOptions_anonymousAuthEnabled = Lens.lens (\AdvancedSecurityOptions' {anonymousAuthEnabled} -> anonymousAuthEnabled) (\s@AdvancedSecurityOptions' {} a -> s {anonymousAuthEnabled = a} :: AdvancedSecurityOptions)
+
 -- | True if advanced security is enabled.
 advancedSecurityOptions_enabled :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.Bool)
 advancedSecurityOptions_enabled = Lens.lens (\AdvancedSecurityOptions' {enabled} -> enabled) (\s@AdvancedSecurityOptions' {} a -> s {enabled = a} :: AdvancedSecurityOptions)
+
+-- | Specifies the Anonymous Auth Disable Date when Anonymous Auth is
+-- enabled.
+advancedSecurityOptions_anonymousAuthDisableDate :: Lens.Lens' AdvancedSecurityOptions (Prelude.Maybe Prelude.UTCTime)
+advancedSecurityOptions_anonymousAuthDisableDate = Lens.lens (\AdvancedSecurityOptions' {anonymousAuthDisableDate} -> anonymousAuthDisableDate) (\s@AdvancedSecurityOptions' {} a -> s {anonymousAuthDisableDate = a} :: AdvancedSecurityOptions) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON AdvancedSecurityOptions where
   parseJSON =
@@ -81,7 +105,9 @@ instance Core.FromJSON AdvancedSecurityOptions where
           AdvancedSecurityOptions'
             Prelude.<$> (x Core..:? "InternalUserDatabaseEnabled")
             Prelude.<*> (x Core..:? "SAMLOptions")
+            Prelude.<*> (x Core..:? "AnonymousAuthEnabled")
             Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "AnonymousAuthDisableDate")
       )
 
 instance Prelude.Hashable AdvancedSecurityOptions where
@@ -89,10 +115,14 @@ instance Prelude.Hashable AdvancedSecurityOptions where
     _salt
       `Prelude.hashWithSalt` internalUserDatabaseEnabled
       `Prelude.hashWithSalt` sAMLOptions
+      `Prelude.hashWithSalt` anonymousAuthEnabled
       `Prelude.hashWithSalt` enabled
+      `Prelude.hashWithSalt` anonymousAuthDisableDate
 
 instance Prelude.NFData AdvancedSecurityOptions where
   rnf AdvancedSecurityOptions' {..} =
     Prelude.rnf internalUserDatabaseEnabled
       `Prelude.seq` Prelude.rnf sAMLOptions
+      `Prelude.seq` Prelude.rnf anonymousAuthEnabled
       `Prelude.seq` Prelude.rnf enabled
+      `Prelude.seq` Prelude.rnf anonymousAuthDisableDate

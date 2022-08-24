@@ -22,6 +22,7 @@ module Amazonka.ElasticSearch.Types.ElasticsearchDomainStatus where
 import qualified Amazonka.Core as Core
 import Amazonka.ElasticSearch.Types.AdvancedSecurityOptions
 import Amazonka.ElasticSearch.Types.AutoTuneOptionsOutput
+import Amazonka.ElasticSearch.Types.ChangeProgressDetails
 import Amazonka.ElasticSearch.Types.CognitoOptions
 import Amazonka.ElasticSearch.Types.DomainEndpointOptions
 import Amazonka.ElasticSearch.Types.EBSOptions
@@ -44,6 +45,8 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
     nodeToNodeEncryptionOptions :: Prelude.Maybe NodeToNodeEncryptionOptions,
     -- | Specifies the status of the @AdvancedOptions@
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies change details of the domain configuration change.
+    changeProgressDetails :: Prelude.Maybe ChangeProgressDetails,
     -- | The domain deletion status. @True@ if a delete request has been received
     -- for the domain but resource cleanup is still in progress. @False@ if the
     -- domain has not been deleted. Once domain deletion is complete, the
@@ -122,6 +125,8 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
 -- 'nodeToNodeEncryptionOptions', 'elasticsearchDomainStatus_nodeToNodeEncryptionOptions' - Specifies the status of the @NodeToNodeEncryptionOptions@.
 --
 -- 'advancedOptions', 'elasticsearchDomainStatus_advancedOptions' - Specifies the status of the @AdvancedOptions@
+--
+-- 'changeProgressDetails', 'elasticsearchDomainStatus_changeProgressDetails' - Specifies change details of the domain configuration change.
 --
 -- 'deleted', 'elasticsearchDomainStatus_deleted' - The domain deletion status. @True@ if a delete request has been received
 -- for the domain but resource cleanup is still in progress. @False@ if the
@@ -206,6 +211,7 @@ newElasticsearchDomainStatus
       { nodeToNodeEncryptionOptions =
           Prelude.Nothing,
         advancedOptions = Prelude.Nothing,
+        changeProgressDetails = Prelude.Nothing,
         deleted = Prelude.Nothing,
         created = Prelude.Nothing,
         advancedSecurityOptions = Prelude.Nothing,
@@ -238,6 +244,10 @@ elasticsearchDomainStatus_nodeToNodeEncryptionOptions = Lens.lens (\Elasticsearc
 -- | Specifies the status of the @AdvancedOptions@
 elasticsearchDomainStatus_advancedOptions :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 elasticsearchDomainStatus_advancedOptions = Lens.lens (\ElasticsearchDomainStatus' {advancedOptions} -> advancedOptions) (\s@ElasticsearchDomainStatus' {} a -> s {advancedOptions = a} :: ElasticsearchDomainStatus) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specifies change details of the domain configuration change.
+elasticsearchDomainStatus_changeProgressDetails :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe ChangeProgressDetails)
+elasticsearchDomainStatus_changeProgressDetails = Lens.lens (\ElasticsearchDomainStatus' {changeProgressDetails} -> changeProgressDetails) (\s@ElasticsearchDomainStatus' {} a -> s {changeProgressDetails = a} :: ElasticsearchDomainStatus)
 
 -- | The domain deletion status. @True@ if a delete request has been received
 -- for the domain but resource cleanup is still in progress. @False@ if the
@@ -358,6 +368,7 @@ instance Core.FromJSON ElasticsearchDomainStatus where
             Prelude.<*> ( x Core..:? "AdvancedOptions"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ChangeProgressDetails")
             Prelude.<*> (x Core..:? "Deleted")
             Prelude.<*> (x Core..:? "Created")
             Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
@@ -389,6 +400,7 @@ instance Prelude.Hashable ElasticsearchDomainStatus where
     _salt
       `Prelude.hashWithSalt` nodeToNodeEncryptionOptions
       `Prelude.hashWithSalt` advancedOptions
+      `Prelude.hashWithSalt` changeProgressDetails
       `Prelude.hashWithSalt` deleted
       `Prelude.hashWithSalt` created
       `Prelude.hashWithSalt` advancedSecurityOptions
@@ -416,6 +428,7 @@ instance Prelude.NFData ElasticsearchDomainStatus where
   rnf ElasticsearchDomainStatus' {..} =
     Prelude.rnf nodeToNodeEncryptionOptions
       `Prelude.seq` Prelude.rnf advancedOptions
+      `Prelude.seq` Prelude.rnf changeProgressDetails
       `Prelude.seq` Prelude.rnf deleted
       `Prelude.seq` Prelude.rnf created
       `Prelude.seq` Prelude.rnf advancedSecurityOptions
@@ -431,7 +444,8 @@ instance Prelude.NFData ElasticsearchDomainStatus where
       `Prelude.seq` Prelude.rnf autoTuneOptions
       `Prelude.seq` Prelude.rnf domainEndpointOptions
       `Prelude.seq` Prelude.rnf endpoint
-      `Prelude.seq` Prelude.rnf serviceSoftwareOptions
+      `Prelude.seq` Prelude.rnf
+        serviceSoftwareOptions
       `Prelude.seq` Prelude.rnf snapshotOptions
       `Prelude.seq` Prelude.rnf
         logPublishingOptions

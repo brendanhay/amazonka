@@ -50,6 +50,7 @@ module Amazonka.Forecast.DescribePredictorBacktestExportJob
     describePredictorBacktestExportJobResponse_lastModificationTime,
     describePredictorBacktestExportJobResponse_destination,
     describePredictorBacktestExportJobResponse_message,
+    describePredictorBacktestExportJobResponse_format,
     describePredictorBacktestExportJobResponse_status,
     describePredictorBacktestExportJobResponse_predictorArn,
     describePredictorBacktestExportJobResponse_predictorBacktestExportJobName,
@@ -112,6 +113,7 @@ instance
             Prelude.<$> (x Core..?> "LastModificationTime")
               Prelude.<*> (x Core..?> "Destination")
               Prelude.<*> (x Core..?> "Message")
+              Prelude.<*> (x Core..?> "Format")
               Prelude.<*> (x Core..?> "Status")
               Prelude.<*> (x Core..?> "PredictorArn")
               Prelude.<*> (x Core..?> "PredictorBacktestExportJobName")
@@ -200,6 +202,8 @@ data DescribePredictorBacktestExportJobResponse = DescribePredictorBacktestExpor
     -- | Information about any errors that may have occurred during the backtest
     -- export.
     message :: Prelude.Maybe Prelude.Text,
+    -- | The format of the exported data, CSV or PARQUET.
+    format :: Prelude.Maybe Prelude.Text,
     -- | The status of the predictor backtest export job. States include:
     --
     -- -   @ACTIVE@
@@ -249,6 +253,8 @@ data DescribePredictorBacktestExportJobResponse = DescribePredictorBacktestExpor
 -- 'message', 'describePredictorBacktestExportJobResponse_message' - Information about any errors that may have occurred during the backtest
 -- export.
 --
+-- 'format', 'describePredictorBacktestExportJobResponse_format' - The format of the exported data, CSV or PARQUET.
+--
 -- 'status', 'describePredictorBacktestExportJobResponse_status' - The status of the predictor backtest export job. States include:
 --
 -- -   @ACTIVE@
@@ -279,6 +285,7 @@ newDescribePredictorBacktestExportJobResponse
           Prelude.Nothing,
         destination = Prelude.Nothing,
         message = Prelude.Nothing,
+        format = Prelude.Nothing,
         status = Prelude.Nothing,
         predictorArn = Prelude.Nothing,
         predictorBacktestExportJobName =
@@ -312,6 +319,10 @@ describePredictorBacktestExportJobResponse_destination = Lens.lens (\DescribePre
 -- export.
 describePredictorBacktestExportJobResponse_message :: Lens.Lens' DescribePredictorBacktestExportJobResponse (Prelude.Maybe Prelude.Text)
 describePredictorBacktestExportJobResponse_message = Lens.lens (\DescribePredictorBacktestExportJobResponse' {message} -> message) (\s@DescribePredictorBacktestExportJobResponse' {} a -> s {message = a} :: DescribePredictorBacktestExportJobResponse)
+
+-- | The format of the exported data, CSV or PARQUET.
+describePredictorBacktestExportJobResponse_format :: Lens.Lens' DescribePredictorBacktestExportJobResponse (Prelude.Maybe Prelude.Text)
+describePredictorBacktestExportJobResponse_format = Lens.lens (\DescribePredictorBacktestExportJobResponse' {format} -> format) (\s@DescribePredictorBacktestExportJobResponse' {} a -> s {format = a} :: DescribePredictorBacktestExportJobResponse)
 
 -- | The status of the predictor backtest export job. States include:
 --
@@ -353,6 +364,7 @@ instance
     Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf predictorArn
       `Prelude.seq` Prelude.rnf predictorBacktestExportJobName

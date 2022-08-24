@@ -23,7 +23,10 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes a supplementary feature of a dataset group. This object is
+-- | This object belongs to the CreatePredictor operation. If you created
+-- your predictor with CreateAutoPredictor, see AdditionalDataset.
+--
+-- Describes a supplementary feature of a dataset group. This object is
 -- part of the InputDataConfig object. Forecast supports the Weather Index
 -- and Holidays built-in featurizations.
 --

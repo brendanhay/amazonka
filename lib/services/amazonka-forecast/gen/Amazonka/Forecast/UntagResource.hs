@@ -49,9 +49,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) that identifies the resource for which to
-    -- list the tags. Currently, the supported resources are Forecast dataset
-    -- groups, datasets, dataset import jobs, predictors, forecasts, and
-    -- forecast exports.
+    -- list the tags.
     resourceArn :: Prelude.Text,
     -- | The keys of the tags to be removed.
     tagKeys :: [Core.Sensitive Prelude.Text]
@@ -67,9 +65,7 @@ data UntagResource = UntagResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resources are Forecast dataset
--- groups, datasets, dataset import jobs, predictors, forecasts, and
--- forecast exports.
+-- list the tags.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to be removed.
 newUntagResource ::
@@ -83,9 +79,7 @@ newUntagResource pResourceArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resources are Forecast dataset
--- groups, datasets, dataset import jobs, predictors, forecasts, and
--- forecast exports.
+-- list the tags.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)
 

@@ -24,7 +24,10 @@ import Amazonka.Forecast.Types.SupplementaryFeature
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The data used to train a predictor. The data includes a dataset group
+-- | This object belongs to the CreatePredictor operation. If you created
+-- your predictor with CreateAutoPredictor, see DataConfig.
+--
+-- The data used to train a predictor. The data includes a dataset group
 -- and any supplementary features. You specify this object in the
 -- CreatePredictor request.
 --

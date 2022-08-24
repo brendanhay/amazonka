@@ -25,9 +25,10 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the dataset import job properties used in the
--- ListDatasetImportJobs operation. To get the complete set of properties,
--- call the DescribeDatasetImportJob operation, and provide the
--- @DatasetImportJobArn@.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html ListDatasetImportJobs>
+-- operation. To get the complete set of properties, call the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetImportJob.html DescribeDatasetImportJob>
+-- operation, and provide the @DatasetImportJobArn@.
 --
 -- /See:/ 'newDatasetImportJobSummary' smart constructor.
 data DatasetImportJobSummary = DatasetImportJobSummary'

@@ -25,16 +25,18 @@
 -- (Amazon S3) bucket and the Amazon Resource Name (ARN) of the dataset
 -- that you want to import the data to.
 --
--- You must specify a DataSource object that includes an AWS Identity and
--- Access Management (IAM) role that Amazon Forecast can assume to access
--- the data, as Amazon Forecast makes a copy of your data and processes it
--- in an internal AWS system. For more information, see
--- aws-forecast-iam-roles.
+-- You must specify a
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DataSource.html DataSource>
+-- object that includes an AWS Identity and Access Management (IAM) role
+-- that Amazon Forecast can assume to access the data, as Amazon Forecast
+-- makes a copy of your data and processes it in an internal AWS system.
+-- For more information, see
+-- <https://docs.aws.amazon.com/forecast/latest/dg/aws-forecast-iam-roles.html Set up permissions>.
 --
--- The training data must be in CSV format. The delimiter must be a comma
--- (,).
+-- The training data must be in CSV or Parquet format. The delimiter must
+-- be a comma (,).
 --
--- You can specify the path to a specific CSV file, the S3 bucket, or to a
+-- You can specify the path to a specific file, the S3 bucket, or to a
 -- folder in the S3 bucket. For the latter two cases, Amazon Forecast
 -- imports all files up to the limit of 10,000 files.
 --
@@ -45,7 +47,9 @@
 -- since the previous import.
 --
 -- To get a list of all your dataset import jobs, filtered by specified
--- criteria, use the ListDatasetImportJobs operation.
+-- criteria, use the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetImportJobs.html ListDatasetImportJobs>
+-- operation.
 module Amazonka.Forecast.CreateDatasetImportJob
   ( -- * Creating a Request
     CreateDatasetImportJob (..),
@@ -53,6 +57,7 @@ module Amazonka.Forecast.CreateDatasetImportJob
 
     -- * Request Lenses
     createDatasetImportJob_tags,
+    createDatasetImportJob_format,
     createDatasetImportJob_timeZone,
     createDatasetImportJob_useGeolocationForTimeZone,
     createDatasetImportJob_timestampFormat,
@@ -111,6 +116,9 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
     --     count against your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
+    -- | The format of the imported data, CSV or PARQUET. The default value is
+    -- CSV.
+    format :: Prelude.Maybe Prelude.Text,
     -- | A single time zone for every item in your dataset. This option is ideal
     -- for datasets with all timestamps within a single time zone, or if all
     -- timestamps are normalized to a single time zone.
@@ -162,7 +170,9 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
     -- If encryption is used, @DataSource@ must include an AWS Key Management
     -- Service (KMS) key and the IAM role must allow Amazon Forecast permission
     -- to access the key. The KMS key and IAM role must match those specified
-    -- in the @EncryptionConfig@ parameter of the CreateDataset operation.
+    -- in the @EncryptionConfig@ parameter of the
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html CreateDataset>
+    -- operation.
     dataSource :: DataSource
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -205,6 +215,9 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 --     then Forecast considers it to be a user tag and will count against
 --     the limit of 50 tags. Tags with only the key prefix of @aws@ do not
 --     count against your tags per resource limit.
+--
+-- 'format', 'createDatasetImportJob_format' - The format of the imported data, CSV or PARQUET. The default value is
+-- CSV.
 --
 -- 'timeZone', 'createDatasetImportJob_timeZone' - A single time zone for every item in your dataset. This option is ideal
 -- for datasets with all timestamps within a single time zone, or if all
@@ -257,7 +270,9 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 -- If encryption is used, @DataSource@ must include an AWS Key Management
 -- Service (KMS) key and the IAM role must allow Amazon Forecast permission
 -- to access the key. The KMS key and IAM role must match those specified
--- in the @EncryptionConfig@ parameter of the CreateDataset operation.
+-- in the @EncryptionConfig@ parameter of the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html CreateDataset>
+-- operation.
 newCreateDatasetImportJob ::
   -- | 'datasetImportJobName'
   Prelude.Text ->
@@ -272,6 +287,7 @@ newCreateDatasetImportJob
   pDataSource_ =
     CreateDatasetImportJob'
       { tags = Prelude.Nothing,
+        format = Prelude.Nothing,
         timeZone = Prelude.Nothing,
         useGeolocationForTimeZone = Prelude.Nothing,
         timestampFormat = Prelude.Nothing,
@@ -313,6 +329,11 @@ newCreateDatasetImportJob
 --     count against your tags per resource limit.
 createDatasetImportJob_tags :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe [Tag])
 createDatasetImportJob_tags = Lens.lens (\CreateDatasetImportJob' {tags} -> tags) (\s@CreateDatasetImportJob' {} a -> s {tags = a} :: CreateDatasetImportJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | The format of the imported data, CSV or PARQUET. The default value is
+-- CSV.
+createDatasetImportJob_format :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe Prelude.Text)
+createDatasetImportJob_format = Lens.lens (\CreateDatasetImportJob' {format} -> format) (\s@CreateDatasetImportJob' {} a -> s {format = a} :: CreateDatasetImportJob)
 
 -- | A single time zone for every item in your dataset. This option is ideal
 -- for datasets with all timestamps within a single time zone, or if all
@@ -377,7 +398,9 @@ createDatasetImportJob_datasetArn = Lens.lens (\CreateDatasetImportJob' {dataset
 -- If encryption is used, @DataSource@ must include an AWS Key Management
 -- Service (KMS) key and the IAM role must allow Amazon Forecast permission
 -- to access the key. The KMS key and IAM role must match those specified
--- in the @EncryptionConfig@ parameter of the CreateDataset operation.
+-- in the @EncryptionConfig@ parameter of the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html CreateDataset>
+-- operation.
 createDatasetImportJob_dataSource :: Lens.Lens' CreateDatasetImportJob DataSource
 createDatasetImportJob_dataSource = Lens.lens (\CreateDatasetImportJob' {dataSource} -> dataSource) (\s@CreateDatasetImportJob' {} a -> s {dataSource = a} :: CreateDatasetImportJob)
 
@@ -397,6 +420,7 @@ instance Core.AWSRequest CreateDatasetImportJob where
 instance Prelude.Hashable CreateDatasetImportJob where
   hashWithSalt _salt CreateDatasetImportJob' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` format
       `Prelude.hashWithSalt` timeZone
       `Prelude.hashWithSalt` useGeolocationForTimeZone
       `Prelude.hashWithSalt` timestampFormat
@@ -408,6 +432,7 @@ instance Prelude.Hashable CreateDatasetImportJob where
 instance Prelude.NFData CreateDatasetImportJob where
   rnf CreateDatasetImportJob' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf useGeolocationForTimeZone
       `Prelude.seq` Prelude.rnf timestampFormat
@@ -436,6 +461,7 @@ instance Core.ToJSON CreateDatasetImportJob where
     Core.object
       ( Prelude.catMaybes
           [ ("Tags" Core..=) Prelude.<$> tags,
+            ("Format" Core..=) Prelude.<$> format,
             ("TimeZone" Core..=) Prelude.<$> timeZone,
             ("UseGeolocationForTimeZone" Core..=)
               Prelude.<$> useGeolocationForTimeZone,

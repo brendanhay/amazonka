@@ -25,12 +25,17 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | An attribute of a schema, which defines a dataset field. A schema
--- attribute is required for every field in a dataset. The Schema object
--- contains an array of @SchemaAttribute@ objects.
+-- attribute is required for every field in a dataset. The
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_Schema.html Schema>
+-- object contains an array of @SchemaAttribute@ objects.
 --
 -- /See:/ 'newSchemaAttribute' smart constructor.
 data SchemaAttribute = SchemaAttribute'
   { -- | The data type of the field.
+    --
+    -- For a related time series dataset, other than date, item_id, and
+    -- forecast dimensions attributes, all attributes should be of numerical
+    -- type (integer\/float).
     attributeType :: Prelude.Maybe AttributeType,
     -- | The name of the dataset field.
     attributeName :: Prelude.Maybe Prelude.Text
@@ -47,6 +52,10 @@ data SchemaAttribute = SchemaAttribute'
 --
 -- 'attributeType', 'schemaAttribute_attributeType' - The data type of the field.
 --
+-- For a related time series dataset, other than date, item_id, and
+-- forecast dimensions attributes, all attributes should be of numerical
+-- type (integer\/float).
+--
 -- 'attributeName', 'schemaAttribute_attributeName' - The name of the dataset field.
 newSchemaAttribute ::
   SchemaAttribute
@@ -57,6 +66,10 @@ newSchemaAttribute =
     }
 
 -- | The data type of the field.
+--
+-- For a related time series dataset, other than date, item_id, and
+-- forecast dimensions attributes, all attributes should be of numerical
+-- type (integer\/float).
 schemaAttribute_attributeType :: Lens.Lens' SchemaAttribute (Prelude.Maybe AttributeType)
 schemaAttribute_attributeType = Lens.lens (\SchemaAttribute' {attributeType} -> attributeType) (\s@SchemaAttribute' {} a -> s {attributeType = a} :: SchemaAttribute)
 

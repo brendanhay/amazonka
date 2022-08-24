@@ -39,15 +39,20 @@
 --
 -- After creating a dataset, you import your training data into it and add
 -- the dataset to a dataset group. You use the dataset group to create a
--- predictor. For more information, see howitworks-datasets-groups.
+-- predictor. For more information, see
+-- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html Importing datasets>.
 --
--- To get a list of all your datasets, use the ListDatasets operation.
+-- To get a list of all your datasets, use the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasets.html ListDatasets>
+-- operation.
 --
 -- For example Forecast datasets, see the
 -- <https://github.com/aws-samples/amazon-forecast-samples Amazon Forecast Sample GitHub repository>.
 --
 -- The @Status@ of a dataset must be @ACTIVE@ before you can import
--- training data. Use the DescribeDataset operation to get the status.
+-- training data. Use the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDataset.html DescribeDataset>
+-- operation to get the status.
 module Amazonka.Forecast.CreateDataset
   ( -- * Creating a Request
     CreateDataset (..),
@@ -127,14 +132,16 @@ data CreateDataset = CreateDataset'
     datasetName :: Prelude.Text,
     -- | The domain associated with the dataset. When you add a dataset to a
     -- dataset group, this value and the value specified for the @Domain@
-    -- parameter of the CreateDatasetGroup operation must match.
+    -- parameter of the
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>
+    -- operation must match.
     --
     -- The @Domain@ and @DatasetType@ that you choose determine the fields that
     -- must be present in the training data that you import to the dataset. For
     -- example, if you choose the @RETAIL@ domain and @TARGET_TIME_SERIES@ as
     -- the @DatasetType@, Amazon Forecast requires @item_id@, @timestamp@, and
     -- @demand@ fields to be present in your data. For more information, see
-    -- howitworks-datasets-groups.
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html Importing datasets>.
     domain :: Domain,
     -- | The dataset type. Valid values depend on the chosen @Domain@.
     datasetType :: DatasetType,
@@ -142,7 +149,8 @@ data CreateDataset = CreateDataset'
     -- match the fields in your data. The dataset @Domain@ and @DatasetType@
     -- that you choose determine the minimum required fields in your training
     -- data. For information about the required fields for a specific dataset
-    -- domain and type, see howitworks-domains-ds-types.
+    -- domain and type, see
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html Dataset Domains and Dataset Types>.
     schema :: Schema
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -201,14 +209,16 @@ data CreateDataset = CreateDataset'
 --
 -- 'domain', 'createDataset_domain' - The domain associated with the dataset. When you add a dataset to a
 -- dataset group, this value and the value specified for the @Domain@
--- parameter of the CreateDatasetGroup operation must match.
+-- parameter of the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>
+-- operation must match.
 --
 -- The @Domain@ and @DatasetType@ that you choose determine the fields that
 -- must be present in the training data that you import to the dataset. For
 -- example, if you choose the @RETAIL@ domain and @TARGET_TIME_SERIES@ as
 -- the @DatasetType@, Amazon Forecast requires @item_id@, @timestamp@, and
 -- @demand@ fields to be present in your data. For more information, see
--- howitworks-datasets-groups.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html Importing datasets>.
 --
 -- 'datasetType', 'createDataset_datasetType' - The dataset type. Valid values depend on the chosen @Domain@.
 --
@@ -216,7 +226,8 @@ data CreateDataset = CreateDataset'
 -- match the fields in your data. The dataset @Domain@ and @DatasetType@
 -- that you choose determine the minimum required fields in your training
 -- data. For information about the required fields for a specific dataset
--- domain and type, see howitworks-domains-ds-types.
+-- domain and type, see
+-- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html Dataset Domains and Dataset Types>.
 newCreateDataset ::
   -- | 'datasetName'
   Prelude.Text ->
@@ -296,14 +307,16 @@ createDataset_datasetName = Lens.lens (\CreateDataset' {datasetName} -> datasetN
 
 -- | The domain associated with the dataset. When you add a dataset to a
 -- dataset group, this value and the value specified for the @Domain@
--- parameter of the CreateDatasetGroup operation must match.
+-- parameter of the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>
+-- operation must match.
 --
 -- The @Domain@ and @DatasetType@ that you choose determine the fields that
 -- must be present in the training data that you import to the dataset. For
 -- example, if you choose the @RETAIL@ domain and @TARGET_TIME_SERIES@ as
 -- the @DatasetType@, Amazon Forecast requires @item_id@, @timestamp@, and
 -- @demand@ fields to be present in your data. For more information, see
--- howitworks-datasets-groups.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html Importing datasets>.
 createDataset_domain :: Lens.Lens' CreateDataset Domain
 createDataset_domain = Lens.lens (\CreateDataset' {domain} -> domain) (\s@CreateDataset' {} a -> s {domain = a} :: CreateDataset)
 
@@ -315,7 +328,8 @@ createDataset_datasetType = Lens.lens (\CreateDataset' {datasetType} -> datasetT
 -- match the fields in your data. The dataset @Domain@ and @DatasetType@
 -- that you choose determine the minimum required fields in your training
 -- data. For information about the required fields for a specific dataset
--- domain and type, see howitworks-domains-ds-types.
+-- domain and type, see
+-- <https://docs.aws.amazon.com/forecast/latest/dg/howitworks-domains-ds-types.html Dataset Domains and Dataset Types>.
 createDataset_schema :: Lens.Lens' CreateDataset Schema
 createDataset_schema = Lens.lens (\CreateDataset' {schema} -> schema) (\s@CreateDataset' {} a -> s {schema = a} :: CreateDataset)
 

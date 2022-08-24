@@ -51,6 +51,7 @@ module Amazonka.Forecast.DescribeForecastExportJob
     describeForecastExportJobResponse_destination,
     describeForecastExportJobResponse_message,
     describeForecastExportJobResponse_forecastExportJobName,
+    describeForecastExportJobResponse_format,
     describeForecastExportJobResponse_forecastExportJobArn,
     describeForecastExportJobResponse_status,
     describeForecastExportJobResponse_forecastArn,
@@ -109,6 +110,7 @@ instance Core.AWSRequest DescribeForecastExportJob where
             Prelude.<*> (x Core..?> "Destination")
             Prelude.<*> (x Core..?> "Message")
             Prelude.<*> (x Core..?> "ForecastExportJobName")
+            Prelude.<*> (x Core..?> "Format")
             Prelude.<*> (x Core..?> "ForecastExportJobArn")
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "ForecastArn")
@@ -178,6 +180,8 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
     message :: Prelude.Maybe Prelude.Text,
     -- | The name of the forecast export job.
     forecastExportJobName :: Prelude.Maybe Prelude.Text,
+    -- | The format of the exported data, CSV or PARQUET.
+    format :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the forecast export job.
     forecastExportJobArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the forecast export job. States include:
@@ -230,6 +234,8 @@ data DescribeForecastExportJobResponse = DescribeForecastExportJobResponse'
 --
 -- 'forecastExportJobName', 'describeForecastExportJobResponse_forecastExportJobName' - The name of the forecast export job.
 --
+-- 'format', 'describeForecastExportJobResponse_format' - The format of the exported data, CSV or PARQUET.
+--
 -- 'forecastExportJobArn', 'describeForecastExportJobResponse_forecastExportJobArn' - The ARN of the forecast export job.
 --
 -- 'status', 'describeForecastExportJobResponse_status' - The status of the forecast export job. States include:
@@ -261,6 +267,7 @@ newDescribeForecastExportJobResponse pHttpStatus_ =
       destination = Prelude.Nothing,
       message = Prelude.Nothing,
       forecastExportJobName = Prelude.Nothing,
+      format = Prelude.Nothing,
       forecastExportJobArn = Prelude.Nothing,
       status = Prelude.Nothing,
       forecastArn = Prelude.Nothing,
@@ -295,6 +302,10 @@ describeForecastExportJobResponse_message = Lens.lens (\DescribeForecastExportJo
 -- | The name of the forecast export job.
 describeForecastExportJobResponse_forecastExportJobName :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
 describeForecastExportJobResponse_forecastExportJobName = Lens.lens (\DescribeForecastExportJobResponse' {forecastExportJobName} -> forecastExportJobName) (\s@DescribeForecastExportJobResponse' {} a -> s {forecastExportJobName = a} :: DescribeForecastExportJobResponse)
+
+-- | The format of the exported data, CSV or PARQUET.
+describeForecastExportJobResponse_format :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
+describeForecastExportJobResponse_format = Lens.lens (\DescribeForecastExportJobResponse' {format} -> format) (\s@DescribeForecastExportJobResponse' {} a -> s {format = a} :: DescribeForecastExportJobResponse)
 
 -- | The ARN of the forecast export job.
 describeForecastExportJobResponse_forecastExportJobArn :: Lens.Lens' DescribeForecastExportJobResponse (Prelude.Maybe Prelude.Text)
@@ -336,6 +347,7 @@ instance
       `Prelude.seq` Prelude.rnf destination
       `Prelude.seq` Prelude.rnf message
       `Prelude.seq` Prelude.rnf forecastExportJobName
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf forecastExportJobArn
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf forecastArn

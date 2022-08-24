@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes an Amazon Forecast dataset created using the CreateDataset
+-- Describes an Amazon Forecast dataset created using the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDataset.html CreateDataset>
 -- operation.
 --
 -- In addition to listing the parameters specified in the @CreateDataset@
@@ -154,8 +155,10 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
   { -- | When you create a dataset, @LastModificationTime@ is the same as
     -- @CreationTime@. While data is being imported to the dataset,
     -- @LastModificationTime@ is the current time of the @DescribeDataset@
-    -- call. After a CreateDatasetImportJob operation has finished,
-    -- @LastModificationTime@ is when the import job completed or failed.
+    -- call. After a
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+    -- operation has finished, @LastModificationTime@ is when the import job
+    -- completed or failed.
     lastModificationTime :: Prelude.Maybe Core.POSIX,
     -- | The AWS Key Management Service (KMS) key and the AWS Identity and Access
     -- Management (IAM) role that Amazon Forecast can assume to access the key.
@@ -177,9 +180,11 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
     -- -   @UPDATE_PENDING@, @UPDATE_IN_PROGRESS@, @UPDATE_FAILED@
     --
     -- The @UPDATE@ states apply while data is imported to the dataset from a
-    -- call to the CreateDatasetImportJob operation and reflect the status of
-    -- the dataset import job. For example, when the import job status is
-    -- @CREATE_IN_PROGRESS@, the status of the dataset is @UPDATE_IN_PROGRESS@.
+    -- call to the
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+    -- operation and reflect the status of the dataset import job. For example,
+    -- when the import job status is @CREATE_IN_PROGRESS@, the status of the
+    -- dataset is @UPDATE_IN_PROGRESS@.
     --
     -- The @Status@ of the dataset must be @ACTIVE@ before you can import
     -- training data.
@@ -214,8 +219,10 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 -- 'lastModificationTime', 'describeDatasetResponse_lastModificationTime' - When you create a dataset, @LastModificationTime@ is the same as
 -- @CreationTime@. While data is being imported to the dataset,
 -- @LastModificationTime@ is the current time of the @DescribeDataset@
--- call. After a CreateDatasetImportJob operation has finished,
--- @LastModificationTime@ is when the import job completed or failed.
+-- call. After a
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- operation has finished, @LastModificationTime@ is when the import job
+-- completed or failed.
 --
 -- 'encryptionConfig', 'describeDatasetResponse_encryptionConfig' - The AWS Key Management Service (KMS) key and the AWS Identity and Access
 -- Management (IAM) role that Amazon Forecast can assume to access the key.
@@ -237,9 +244,11 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 -- -   @UPDATE_PENDING@, @UPDATE_IN_PROGRESS@, @UPDATE_FAILED@
 --
 -- The @UPDATE@ states apply while data is imported to the dataset from a
--- call to the CreateDatasetImportJob operation and reflect the status of
--- the dataset import job. For example, when the import job status is
--- @CREATE_IN_PROGRESS@, the status of the dataset is @UPDATE_IN_PROGRESS@.
+-- call to the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- operation and reflect the status of the dataset import job. For example,
+-- when the import job status is @CREATE_IN_PROGRESS@, the status of the
+-- dataset is @UPDATE_IN_PROGRESS@.
 --
 -- The @Status@ of the dataset must be @ACTIVE@ before you can import
 -- training data.
@@ -282,8 +291,10 @@ newDescribeDatasetResponse pHttpStatus_ =
 -- | When you create a dataset, @LastModificationTime@ is the same as
 -- @CreationTime@. While data is being imported to the dataset,
 -- @LastModificationTime@ is the current time of the @DescribeDataset@
--- call. After a CreateDatasetImportJob operation has finished,
--- @LastModificationTime@ is when the import job completed or failed.
+-- call. After a
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- operation has finished, @LastModificationTime@ is when the import job
+-- completed or failed.
 describeDatasetResponse_lastModificationTime :: Lens.Lens' DescribeDatasetResponse (Prelude.Maybe Prelude.UTCTime)
 describeDatasetResponse_lastModificationTime = Lens.lens (\DescribeDatasetResponse' {lastModificationTime} -> lastModificationTime) (\s@DescribeDatasetResponse' {} a -> s {lastModificationTime = a} :: DescribeDatasetResponse) Prelude.. Lens.mapping Core._Time
 
@@ -315,9 +326,11 @@ describeDatasetResponse_datasetName = Lens.lens (\DescribeDatasetResponse' {data
 -- -   @UPDATE_PENDING@, @UPDATE_IN_PROGRESS@, @UPDATE_FAILED@
 --
 -- The @UPDATE@ states apply while data is imported to the dataset from a
--- call to the CreateDatasetImportJob operation and reflect the status of
--- the dataset import job. For example, when the import job status is
--- @CREATE_IN_PROGRESS@, the status of the dataset is @UPDATE_IN_PROGRESS@.
+-- call to the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- operation and reflect the status of the dataset import job. For example,
+-- when the import job status is @CREATE_IN_PROGRESS@, the status of the
+-- dataset is @UPDATE_IN_PROGRESS@.
 --
 -- The @Status@ of the dataset must be @ACTIVE@ before you can import
 -- training data.

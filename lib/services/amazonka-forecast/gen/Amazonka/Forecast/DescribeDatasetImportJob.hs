@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a dataset import job created using the CreateDatasetImportJob
+-- Describes a dataset import job created using the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
 -- operation.
 --
 -- In addition to listing the parameters provided in the
@@ -53,6 +54,7 @@ module Amazonka.Forecast.DescribeDatasetImportJob
     -- * Response Lenses
     describeDatasetImportJobResponse_lastModificationTime,
     describeDatasetImportJobResponse_message,
+    describeDatasetImportJobResponse_format,
     describeDatasetImportJobResponse_timeZone,
     describeDatasetImportJobResponse_fieldStatistics,
     describeDatasetImportJobResponse_status,
@@ -118,6 +120,7 @@ instance Core.AWSRequest DescribeDatasetImportJob where
           DescribeDatasetImportJobResponse'
             Prelude.<$> (x Core..?> "LastModificationTime")
             Prelude.<*> (x Core..?> "Message")
+            Prelude.<*> (x Core..?> "Format")
             Prelude.<*> (x Core..?> "TimeZone")
             Prelude.<*> ( x Core..?> "FieldStatistics"
                             Core..!@ Prelude.mempty
@@ -191,6 +194,8 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
     lastModificationTime :: Prelude.Maybe Core.POSIX,
     -- | If an error occurred, an informational message about the error.
     message :: Prelude.Maybe Prelude.Text,
+    -- | The format of the imported data, CSV or PARQUET.
+    format :: Prelude.Maybe Prelude.Text,
     -- | The single time zone applied to every item in the dataset
     timeZone :: Prelude.Maybe Prelude.Text,
     -- | Statistical information about each field in the input data.
@@ -274,6 +279,8 @@ data DescribeDatasetImportJobResponse = DescribeDatasetImportJobResponse'
 --
 -- 'message', 'describeDatasetImportJobResponse_message' - If an error occurred, an informational message about the error.
 --
+-- 'format', 'describeDatasetImportJobResponse_format' - The format of the imported data, CSV or PARQUET.
+--
 -- 'timeZone', 'describeDatasetImportJobResponse_timeZone' - The single time zone applied to every item in the dataset
 --
 -- 'fieldStatistics', 'describeDatasetImportJobResponse_fieldStatistics' - Statistical information about each field in the input data.
@@ -339,6 +346,7 @@ newDescribeDatasetImportJobResponse pHttpStatus_ =
     { lastModificationTime =
         Prelude.Nothing,
       message = Prelude.Nothing,
+      format = Prelude.Nothing,
       timeZone = Prelude.Nothing,
       fieldStatistics = Prelude.Nothing,
       status = Prelude.Nothing,
@@ -375,6 +383,10 @@ describeDatasetImportJobResponse_lastModificationTime = Lens.lens (\DescribeData
 -- | If an error occurred, an informational message about the error.
 describeDatasetImportJobResponse_message :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
 describeDatasetImportJobResponse_message = Lens.lens (\DescribeDatasetImportJobResponse' {message} -> message) (\s@DescribeDatasetImportJobResponse' {} a -> s {message = a} :: DescribeDatasetImportJobResponse)
+
+-- | The format of the imported data, CSV or PARQUET.
+describeDatasetImportJobResponse_format :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
+describeDatasetImportJobResponse_format = Lens.lens (\DescribeDatasetImportJobResponse' {format} -> format) (\s@DescribeDatasetImportJobResponse' {} a -> s {format = a} :: DescribeDatasetImportJobResponse)
 
 -- | The single time zone applied to every item in the dataset
 describeDatasetImportJobResponse_timeZone :: Lens.Lens' DescribeDatasetImportJobResponse (Prelude.Maybe Prelude.Text)
@@ -468,6 +480,7 @@ instance
   rnf DescribeDatasetImportJobResponse' {..} =
     Prelude.rnf lastModificationTime
       `Prelude.seq` Prelude.rnf message
+      `Prelude.seq` Prelude.rnf format
       `Prelude.seq` Prelude.rnf timeZone
       `Prelude.seq` Prelude.rnf fieldStatistics
       `Prelude.seq` Prelude.rnf status

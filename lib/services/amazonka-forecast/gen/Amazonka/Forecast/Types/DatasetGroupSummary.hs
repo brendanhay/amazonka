@@ -24,13 +24,16 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the dataset group properties used in the
--- ListDatasetGroups operation. To get the complete set of properties, call
--- the DescribeDatasetGroup operation, and provide the @DatasetGroupArn@.
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_ListDatasetGroups.html ListDatasetGroups>
+-- operation. To get the complete set of properties, call the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html DescribeDatasetGroup>
+-- operation, and provide the @DatasetGroupArn@.
 --
 -- /See:/ 'newDatasetGroupSummary' smart constructor.
 data DatasetGroupSummary = DatasetGroupSummary'
   { -- | When the dataset group was created or last updated from a call to the
-    -- UpdateDatasetGroup operation. While the dataset group is being updated,
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
+    -- operation. While the dataset group is being updated,
     -- @LastModificationTime@ is the current time of the @ListDatasetGroups@
     -- call.
     lastModificationTime :: Prelude.Maybe Core.POSIX,
@@ -52,7 +55,8 @@ data DatasetGroupSummary = DatasetGroupSummary'
 -- for backwards compatibility:
 --
 -- 'lastModificationTime', 'datasetGroupSummary_lastModificationTime' - When the dataset group was created or last updated from a call to the
--- UpdateDatasetGroup operation. While the dataset group is being updated,
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
+-- operation. While the dataset group is being updated,
 -- @LastModificationTime@ is the current time of the @ListDatasetGroups@
 -- call.
 --
@@ -73,7 +77,8 @@ newDatasetGroupSummary =
     }
 
 -- | When the dataset group was created or last updated from a call to the
--- UpdateDatasetGroup operation. While the dataset group is being updated,
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
+-- operation. While the dataset group is being updated,
 -- @LastModificationTime@ is the current time of the @ListDatasetGroups@
 -- call.
 datasetGroupSummary_lastModificationTime :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.UTCTime)

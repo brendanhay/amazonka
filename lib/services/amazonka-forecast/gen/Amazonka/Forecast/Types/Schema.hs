@@ -24,8 +24,7 @@ import Amazonka.Forecast.Types.SchemaAttribute
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Defines the fields of a dataset. You specify this object in the
--- CreateDataset request.
+-- | Defines the fields of a dataset.
 --
 -- /See:/ 'newSchema' smart constructor.
 data Schema = Schema'

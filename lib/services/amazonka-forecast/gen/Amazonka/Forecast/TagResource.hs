@@ -52,9 +52,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) that identifies the resource for which to
-    -- list the tags. Currently, the supported resources are Forecast dataset
-    -- groups, datasets, dataset import jobs, predictors, forecasts, and
-    -- forecast export jobs.
+    -- list the tags.
     resourceArn :: Prelude.Text,
     -- | The tags to add to the resource. A tag is an array of key-value pairs.
     --
@@ -97,9 +95,7 @@ data TagResource = TagResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resources are Forecast dataset
--- groups, datasets, dataset import jobs, predictors, forecasts, and
--- forecast export jobs.
+-- list the tags.
 --
 -- 'tags', 'tagResource_tags' - The tags to add to the resource. A tag is an array of key-value pairs.
 --
@@ -140,9 +136,7 @@ newTagResource pResourceArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the resource for which to
--- list the tags. Currently, the supported resources are Forecast dataset
--- groups, datasets, dataset import jobs, predictors, forecasts, and
--- forecast export jobs.
+-- list the tags.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 

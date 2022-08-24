@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a dataset group created using the CreateDatasetGroup
+-- Describes a dataset group created using the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>
 -- operation.
 --
 -- In addition to listing the parameters provided in the
@@ -155,7 +156,8 @@ instance Core.ToQuery DescribeDatasetGroup where
 -- | /See:/ 'newDescribeDatasetGroupResponse' smart constructor.
 data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
   { -- | When the dataset group was created or last updated from a call to the
-    -- UpdateDatasetGroup operation. While the dataset group is being updated,
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
+    -- operation. While the dataset group is being updated,
     -- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
     -- call.
     lastModificationTime :: Prelude.Maybe Core.POSIX,
@@ -173,7 +175,8 @@ data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
     --
     -- -   @UPDATE_PENDING@, @UPDATE_IN_PROGRESS@, @UPDATE_FAILED@
     --
-    -- The @UPDATE@ states apply when you call the UpdateDatasetGroup
+    -- The @UPDATE@ states apply when you call the
+    -- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
     -- operation.
     --
     -- The @Status@ of the dataset group must be @ACTIVE@ before you can use
@@ -200,7 +203,8 @@ data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
 -- for backwards compatibility:
 --
 -- 'lastModificationTime', 'describeDatasetGroupResponse_lastModificationTime' - When the dataset group was created or last updated from a call to the
--- UpdateDatasetGroup operation. While the dataset group is being updated,
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
+-- operation. While the dataset group is being updated,
 -- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
 -- call.
 --
@@ -218,7 +222,8 @@ data DescribeDatasetGroupResponse = DescribeDatasetGroupResponse'
 --
 -- -   @UPDATE_PENDING@, @UPDATE_IN_PROGRESS@, @UPDATE_FAILED@
 --
--- The @UPDATE@ states apply when you call the UpdateDatasetGroup
+-- The @UPDATE@ states apply when you call the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
 -- operation.
 --
 -- The @Status@ of the dataset group must be @ACTIVE@ before you can use
@@ -250,7 +255,8 @@ newDescribeDatasetGroupResponse pHttpStatus_ =
     }
 
 -- | When the dataset group was created or last updated from a call to the
--- UpdateDatasetGroup operation. While the dataset group is being updated,
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
+-- operation. While the dataset group is being updated,
 -- @LastModificationTime@ is the current time of the @DescribeDatasetGroup@
 -- call.
 describeDatasetGroupResponse_lastModificationTime :: Lens.Lens' DescribeDatasetGroupResponse (Prelude.Maybe Prelude.UTCTime)
@@ -274,7 +280,8 @@ describeDatasetGroupResponse_domain = Lens.lens (\DescribeDatasetGroupResponse' 
 --
 -- -   @UPDATE_PENDING@, @UPDATE_IN_PROGRESS@, @UPDATE_FAILED@
 --
--- The @UPDATE@ states apply when you call the UpdateDatasetGroup
+-- The @UPDATE@ states apply when you call the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html UpdateDatasetGroup>
 -- operation.
 --
 -- The @Status@ of the dataset group must be @ACTIVE@ before you can use

@@ -20,10 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a dataset group created using the CreateDatasetGroup operation.
--- You can only delete dataset groups that have a status of @ACTIVE@,
--- @CREATE_FAILED@, or @UPDATE_FAILED@. To get the status, use the
--- DescribeDatasetGroup operation.
+-- Deletes a dataset group created using the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>
+-- operation. You can only delete dataset groups that have a status of
+-- @ACTIVE@, @CREATE_FAILED@, or @UPDATE_FAILED@. To get the status, use
+-- the
+-- <https://docs.aws.amazon.com/forecast/latest/dg/API_DescribeDatasetGroup.html DescribeDatasetGroup>
+-- operation.
 --
 -- This operation deletes only the dataset group, not the datasets in the
 -- group.

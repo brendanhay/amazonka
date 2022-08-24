@@ -67,6 +67,8 @@ data ForecastSummary = ForecastSummary'
     -- | The Amazon Resource Name (ARN) of the dataset group that provided the
     -- data used to train the predictor.
     datasetGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether the Forecast was created from an AutoPredictor.
+    createdUsingAutoPredictor :: Prelude.Maybe Prelude.Bool,
     -- | The name of the forecast.
     forecastName :: Prelude.Maybe Prelude.Text
   }
@@ -117,6 +119,8 @@ data ForecastSummary = ForecastSummary'
 -- 'datasetGroupArn', 'forecastSummary_datasetGroupArn' - The Amazon Resource Name (ARN) of the dataset group that provided the
 -- data used to train the predictor.
 --
+-- 'createdUsingAutoPredictor', 'forecastSummary_createdUsingAutoPredictor' - Whether the Forecast was created from an AutoPredictor.
+--
 -- 'forecastName', 'forecastSummary_forecastName' - The name of the forecast.
 newForecastSummary ::
   ForecastSummary
@@ -130,6 +134,7 @@ newForecastSummary =
       forecastArn = Prelude.Nothing,
       creationTime = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
+      createdUsingAutoPredictor = Prelude.Nothing,
       forecastName = Prelude.Nothing
     }
 
@@ -184,6 +189,10 @@ forecastSummary_creationTime = Lens.lens (\ForecastSummary' {creationTime} -> cr
 forecastSummary_datasetGroupArn :: Lens.Lens' ForecastSummary (Prelude.Maybe Prelude.Text)
 forecastSummary_datasetGroupArn = Lens.lens (\ForecastSummary' {datasetGroupArn} -> datasetGroupArn) (\s@ForecastSummary' {} a -> s {datasetGroupArn = a} :: ForecastSummary)
 
+-- | Whether the Forecast was created from an AutoPredictor.
+forecastSummary_createdUsingAutoPredictor :: Lens.Lens' ForecastSummary (Prelude.Maybe Prelude.Bool)
+forecastSummary_createdUsingAutoPredictor = Lens.lens (\ForecastSummary' {createdUsingAutoPredictor} -> createdUsingAutoPredictor) (\s@ForecastSummary' {} a -> s {createdUsingAutoPredictor = a} :: ForecastSummary)
+
 -- | The name of the forecast.
 forecastSummary_forecastName :: Lens.Lens' ForecastSummary (Prelude.Maybe Prelude.Text)
 forecastSummary_forecastName = Lens.lens (\ForecastSummary' {forecastName} -> forecastName) (\s@ForecastSummary' {} a -> s {forecastName = a} :: ForecastSummary)
@@ -201,6 +210,7 @@ instance Core.FromJSON ForecastSummary where
             Prelude.<*> (x Core..:? "ForecastArn")
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "DatasetGroupArn")
+            Prelude.<*> (x Core..:? "CreatedUsingAutoPredictor")
             Prelude.<*> (x Core..:? "ForecastName")
       )
 
@@ -213,6 +223,7 @@ instance Prelude.Hashable ForecastSummary where
       `Prelude.hashWithSalt` forecastArn
       `Prelude.hashWithSalt` creationTime
       `Prelude.hashWithSalt` datasetGroupArn
+      `Prelude.hashWithSalt` createdUsingAutoPredictor
       `Prelude.hashWithSalt` forecastName
 
 instance Prelude.NFData ForecastSummary where
@@ -224,4 +235,5 @@ instance Prelude.NFData ForecastSummary where
       `Prelude.seq` Prelude.rnf forecastArn
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf datasetGroupArn
+      `Prelude.seq` Prelude.rnf createdUsingAutoPredictor
       `Prelude.seq` Prelude.rnf forecastName

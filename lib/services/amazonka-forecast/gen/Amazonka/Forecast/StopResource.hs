@@ -37,6 +37,10 @@
 -- -   Forecast Export Job
 --
 -- -   Predictor Backtest Export Job
+--
+-- -   Explainability Job
+--
+-- -   Explainability Export Job
 module Amazonka.Forecast.StopResource
   ( -- * Creating a Request
     StopResource (..),
@@ -62,8 +66,8 @@ import qualified Amazonka.Response as Response
 data StopResource = StopResource'
   { -- | The Amazon Resource Name (ARN) that identifies the resource to stop. The
     -- supported ARNs are @DatasetImportJobArn@, @PredictorArn@,
-    -- @PredictorBacktestExportJobArn@, @ForecastArn@, and
-    -- @ForecastExportJobArn@.
+    -- @PredictorBacktestExportJobArn@, @ForecastArn@, @ForecastExportJobArn@,
+    -- @ExplainabilityArn@, and @ExplainabilityExportArn@.
     resourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,8 +82,8 @@ data StopResource = StopResource'
 --
 -- 'resourceArn', 'stopResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource to stop. The
 -- supported ARNs are @DatasetImportJobArn@, @PredictorArn@,
--- @PredictorBacktestExportJobArn@, @ForecastArn@, and
--- @ForecastExportJobArn@.
+-- @PredictorBacktestExportJobArn@, @ForecastArn@, @ForecastExportJobArn@,
+-- @ExplainabilityArn@, and @ExplainabilityExportArn@.
 newStopResource ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -89,8 +93,8 @@ newStopResource pResourceArn_ =
 
 -- | The Amazon Resource Name (ARN) that identifies the resource to stop. The
 -- supported ARNs are @DatasetImportJobArn@, @PredictorArn@,
--- @PredictorBacktestExportJobArn@, @ForecastArn@, and
--- @ForecastExportJobArn@.
+-- @PredictorBacktestExportJobArn@, @ForecastArn@, @ForecastExportJobArn@,
+-- @ExplainabilityArn@, and @ExplainabilityExportArn@.
 stopResource_resourceArn :: Lens.Lens' StopResource Prelude.Text
 stopResource_resourceArn = Lens.lens (\StopResource' {resourceArn} -> resourceArn) (\s@StopResource' {} a -> s {resourceArn = a} :: StopResource)
 

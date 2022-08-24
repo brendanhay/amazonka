@@ -54,8 +54,7 @@ data FileSystemDescription = FileSystemDescription'
     -- | A Boolean value that, if true, indicates that the file system is
     -- encrypted.
     encrypted :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of an Key Management Service customer master key (CMK) that was
-    -- used to protect the encrypted file system.
+    -- | The ID of an KMS key used to protect the encrypted file system.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Displays the file system\'s throughput mode. For more information, see
     -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
@@ -132,8 +131,7 @@ data FileSystemDescription = FileSystemDescription'
 -- 'encrypted', 'fileSystemDescription_encrypted' - A Boolean value that, if true, indicates that the file system is
 -- encrypted.
 --
--- 'kmsKeyId', 'fileSystemDescription_kmsKeyId' - The ID of an Key Management Service customer master key (CMK) that was
--- used to protect the encrypted file system.
+-- 'kmsKeyId', 'fileSystemDescription_kmsKeyId' - The ID of an KMS key used to protect the encrypted file system.
 --
 -- 'throughputMode', 'fileSystemDescription_throughputMode' - Displays the file system\'s throughput mode. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
@@ -255,8 +253,7 @@ fileSystemDescription_availabilityZoneName = Lens.lens (\FileSystemDescription' 
 fileSystemDescription_encrypted :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Bool)
 fileSystemDescription_encrypted = Lens.lens (\FileSystemDescription' {encrypted} -> encrypted) (\s@FileSystemDescription' {} a -> s {encrypted = a} :: FileSystemDescription)
 
--- | The ID of an Key Management Service customer master key (CMK) that was
--- used to protect the encrypted file system.
+-- | The ID of an KMS key used to protect the encrypted file system.
 fileSystemDescription_kmsKeyId :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
 fileSystemDescription_kmsKeyId = Lens.lens (\FileSystemDescription' {kmsKeyId} -> kmsKeyId) (\s@FileSystemDescription' {} a -> s {kmsKeyId = a} :: FileSystemDescription)
 

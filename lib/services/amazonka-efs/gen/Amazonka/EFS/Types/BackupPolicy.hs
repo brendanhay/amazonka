@@ -38,7 +38,7 @@ data BackupPolicy = BackupPolicy'
     -- -   __@ENABLING@__ - EFS is turning on automatic backups for the file
     --     system.
     --
-    -- -   __@DISABLED@__ - automatic back ups are turned off for the file
+    -- -   __@DISABLED@__ - Automatic back ups are turned off for the file
     --     system.
     --
     -- -   __@DISABLING@__ - EFS is turning off automatic backups for the file
@@ -62,7 +62,7 @@ data BackupPolicy = BackupPolicy'
 -- -   __@ENABLING@__ - EFS is turning on automatic backups for the file
 --     system.
 --
--- -   __@DISABLED@__ - automatic back ups are turned off for the file
+-- -   __@DISABLED@__ - Automatic back ups are turned off for the file
 --     system.
 --
 -- -   __@DISABLING@__ - EFS is turning off automatic backups for the file
@@ -81,7 +81,7 @@ newBackupPolicy pStatus_ =
 -- -   __@ENABLING@__ - EFS is turning on automatic backups for the file
 --     system.
 --
--- -   __@DISABLED@__ - automatic back ups are turned off for the file
+-- -   __@DISABLED@__ - Automatic back ups are turned off for the file
 --     system.
 --
 -- -   __@DISABLING@__ - EFS is turning off automatic backups for the file

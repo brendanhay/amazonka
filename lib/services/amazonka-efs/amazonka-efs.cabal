@@ -47,10 +47,12 @@ library
     Amazonka.EFS.CreateAccessPoint
     Amazonka.EFS.CreateFileSystem
     Amazonka.EFS.CreateMountTarget
+    Amazonka.EFS.CreateReplicationConfiguration
     Amazonka.EFS.DeleteAccessPoint
     Amazonka.EFS.DeleteFileSystem
     Amazonka.EFS.DeleteFileSystemPolicy
     Amazonka.EFS.DeleteMountTarget
+    Amazonka.EFS.DeleteReplicationConfiguration
     Amazonka.EFS.DescribeAccessPoints
     Amazonka.EFS.DescribeAccountPreferences
     Amazonka.EFS.DescribeBackupPolicy
@@ -59,6 +61,7 @@ library
     Amazonka.EFS.DescribeLifecycleConfiguration
     Amazonka.EFS.DescribeMountTargets
     Amazonka.EFS.DescribeMountTargetSecurityGroups
+    Amazonka.EFS.DescribeReplicationConfigurations
     Amazonka.EFS.Lens
     Amazonka.EFS.ListTagsForResource
     Amazonka.EFS.ModifyMountTargetSecurityGroups
@@ -73,6 +76,8 @@ library
     Amazonka.EFS.Types.BackupPolicyDescription
     Amazonka.EFS.Types.BackupStatus
     Amazonka.EFS.Types.CreationInfo
+    Amazonka.EFS.Types.Destination
+    Amazonka.EFS.Types.DestinationToCreate
     Amazonka.EFS.Types.FileSystemDescription
     Amazonka.EFS.Types.FileSystemPolicyDescription
     Amazonka.EFS.Types.FileSystemSize
@@ -82,6 +87,8 @@ library
     Amazonka.EFS.Types.MountTargetDescription
     Amazonka.EFS.Types.PerformanceMode
     Amazonka.EFS.Types.PosixUser
+    Amazonka.EFS.Types.ReplicationConfigurationDescription
+    Amazonka.EFS.Types.ReplicationStatus
     Amazonka.EFS.Types.Resource
     Amazonka.EFS.Types.ResourceIdPreference
     Amazonka.EFS.Types.ResourceIdType

@@ -26,8 +26,8 @@
 -- the access point. The operating system user and group override any
 -- identity information provided by the NFS client. The file system path is
 -- exposed as the access point\'s root directory. Applications using the
--- access point can only access data in its own directory and below. To
--- learn more, see
+-- access point can only access data in the application\'s own directory
+-- and any subdirectories. To learn more, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Mounting a file system using EFS access points>.
 --
 -- This operation requires permissions for the
@@ -85,7 +85,7 @@ data CreateAccessPoint = CreateAccessPoint'
     -- access the root directory and below. If the @RootDirectory@ > @Path@
     -- specified does not exist, EFS creates it and applies the @CreationInfo@
     -- settings when a client connects to an access point. When specifying a
-    -- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@.
+    -- @RootDirectory@, you must provide the @Path@, and the @CreationInfo@.
     --
     -- Amazon EFS creates a root directory only if you have provided the
     -- CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you
@@ -123,7 +123,7 @@ data CreateAccessPoint = CreateAccessPoint'
 -- access the root directory and below. If the @RootDirectory@ > @Path@
 -- specified does not exist, EFS creates it and applies the @CreationInfo@
 -- settings when a client connects to an access point. When specifying a
--- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@.
+-- @RootDirectory@, you must provide the @Path@, and the @CreationInfo@.
 --
 -- Amazon EFS creates a root directory only if you have provided the
 -- CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you
@@ -168,7 +168,7 @@ createAccessPoint_posixUser = Lens.lens (\CreateAccessPoint' {posixUser} -> posi
 -- access the root directory and below. If the @RootDirectory@ > @Path@
 -- specified does not exist, EFS creates it and applies the @CreationInfo@
 -- settings when a client connects to an access point. When specifying a
--- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@.
+-- @RootDirectory@, you must provide the @Path@, and the @CreationInfo@.
 --
 -- Amazon EFS creates a root directory only if you have provided the
 -- CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you

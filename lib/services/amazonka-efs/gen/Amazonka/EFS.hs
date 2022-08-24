@@ -14,11 +14,11 @@
 -- Amazon Elastic File System
 --
 -- Amazon Elastic File System (Amazon EFS) provides simple, scalable file
--- storage for use with Amazon EC2 instances in the Amazon Web Services
--- Cloud. With Amazon EFS, storage capacity is elastic, growing and
--- shrinking automatically as you add and remove files, so your
--- applications have the storage they need, when they need it. For more
--- information, see the
+-- storage for use with Amazon EC2 Linux and Mac instances in the Amazon
+-- Web Services Cloud. With Amazon EFS, storage capacity is elastic,
+-- growing and shrinking automatically as you add and remove files, so that
+-- your applications have the storage they need, when they need it. For
+-- more information, see the
 -- <https://docs.aws.amazon.com/efs/latest/ug/api-reference.html Amazon Elastic File System API Reference>
 -- and the
 -- <https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html Amazon Elastic File System User Guide>.
@@ -37,6 +37,9 @@ module Amazonka.EFS
 
     -- ** AccessPointAlreadyExists
     _AccessPointAlreadyExists,
+
+    -- ** ReplicationNotFound
+    _ReplicationNotFound,
 
     -- ** IncorrectFileSystemLifeCycleState
     _IncorrectFileSystemLifeCycleState,
@@ -85,6 +88,9 @@ module Amazonka.EFS
 
     -- ** InternalServerError
     _InternalServerError,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** AvailabilityZonesMismatch
     _AvailabilityZonesMismatch,
@@ -137,6 +143,12 @@ module Amazonka.EFS
     MountTargetDescription (MountTargetDescription'),
     newMountTargetDescription,
 
+    -- ** CreateReplicationConfiguration
+    CreateReplicationConfiguration (CreateReplicationConfiguration'),
+    newCreateReplicationConfiguration,
+    ReplicationConfigurationDescription (ReplicationConfigurationDescription'),
+    newReplicationConfigurationDescription,
+
     -- ** DeleteAccessPoint
     DeleteAccessPoint (DeleteAccessPoint'),
     newDeleteAccessPoint,
@@ -160,6 +172,12 @@ module Amazonka.EFS
     newDeleteMountTarget,
     DeleteMountTargetResponse (DeleteMountTargetResponse'),
     newDeleteMountTargetResponse,
+
+    -- ** DeleteReplicationConfiguration
+    DeleteReplicationConfiguration (DeleteReplicationConfiguration'),
+    newDeleteReplicationConfiguration,
+    DeleteReplicationConfigurationResponse (DeleteReplicationConfigurationResponse'),
+    newDeleteReplicationConfigurationResponse,
 
     -- ** DescribeAccessPoints
     DescribeAccessPoints (DescribeAccessPoints'),
@@ -208,6 +226,12 @@ module Amazonka.EFS
     newDescribeMountTargets,
     DescribeMountTargetsResponse (DescribeMountTargetsResponse'),
     newDescribeMountTargetsResponse,
+
+    -- ** DescribeReplicationConfigurations
+    DescribeReplicationConfigurations (DescribeReplicationConfigurations'),
+    newDescribeReplicationConfigurations,
+    DescribeReplicationConfigurationsResponse (DescribeReplicationConfigurationsResponse'),
+    newDescribeReplicationConfigurationsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -274,6 +298,9 @@ module Amazonka.EFS
     -- ** PerformanceMode
     PerformanceMode (..),
 
+    -- ** ReplicationStatus
+    ReplicationStatus (..),
+
     -- ** Resource
     Resource (..),
 
@@ -305,6 +332,14 @@ module Amazonka.EFS
     CreationInfo (CreationInfo'),
     newCreationInfo,
 
+    -- ** Destination
+    Destination (Destination'),
+    newDestination,
+
+    -- ** DestinationToCreate
+    DestinationToCreate (DestinationToCreate'),
+    newDestinationToCreate,
+
     -- ** FileSystemDescription
     FileSystemDescription (FileSystemDescription'),
     newFileSystemDescription,
@@ -333,6 +368,10 @@ module Amazonka.EFS
     PosixUser (PosixUser'),
     newPosixUser,
 
+    -- ** ReplicationConfigurationDescription
+    ReplicationConfigurationDescription (ReplicationConfigurationDescription'),
+    newReplicationConfigurationDescription,
+
     -- ** ResourceIdPreference
     ResourceIdPreference (ResourceIdPreference'),
     newResourceIdPreference,
@@ -350,10 +389,12 @@ where
 import Amazonka.EFS.CreateAccessPoint
 import Amazonka.EFS.CreateFileSystem
 import Amazonka.EFS.CreateMountTarget
+import Amazonka.EFS.CreateReplicationConfiguration
 import Amazonka.EFS.DeleteAccessPoint
 import Amazonka.EFS.DeleteFileSystem
 import Amazonka.EFS.DeleteFileSystemPolicy
 import Amazonka.EFS.DeleteMountTarget
+import Amazonka.EFS.DeleteReplicationConfiguration
 import Amazonka.EFS.DescribeAccessPoints
 import Amazonka.EFS.DescribeAccountPreferences
 import Amazonka.EFS.DescribeBackupPolicy
@@ -362,6 +403,7 @@ import Amazonka.EFS.DescribeFileSystems
 import Amazonka.EFS.DescribeLifecycleConfiguration
 import Amazonka.EFS.DescribeMountTargetSecurityGroups
 import Amazonka.EFS.DescribeMountTargets
+import Amazonka.EFS.DescribeReplicationConfigurations
 import Amazonka.EFS.Lens
 import Amazonka.EFS.ListTagsForResource
 import Amazonka.EFS.ModifyMountTargetSecurityGroups

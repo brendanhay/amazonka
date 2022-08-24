@@ -20,6 +20,7 @@ module Amazonka.EFS.Types
     _SecurityGroupLimitExceeded,
     _NetworkInterfaceLimitExceeded,
     _AccessPointAlreadyExists,
+    _ReplicationNotFound,
     _IncorrectFileSystemLifeCycleState,
     _ThroughputLimitExceeded,
     _AccessPointNotFound,
@@ -36,6 +37,7 @@ module Amazonka.EFS.Types
     _AccessPointLimitExceeded,
     _UnsupportedAvailabilityZone,
     _InternalServerError,
+    _ThrottlingException,
     _AvailabilityZonesMismatch,
     _ValidationException,
     _InsufficientThroughputCapacity,
@@ -54,6 +56,9 @@ module Amazonka.EFS.Types
 
     -- * PerformanceMode
     PerformanceMode (..),
+
+    -- * ReplicationStatus
+    ReplicationStatus (..),
 
     -- * Resource
     Resource (..),
@@ -100,6 +105,21 @@ module Amazonka.EFS.Types
     creationInfo_ownerUid,
     creationInfo_ownerGid,
     creationInfo_permissions,
+
+    -- * Destination
+    Destination (..),
+    newDestination,
+    destination_lastReplicatedTimestamp,
+    destination_status,
+    destination_fileSystemId,
+    destination_region,
+
+    -- * DestinationToCreate
+    DestinationToCreate (..),
+    newDestinationToCreate,
+    destinationToCreate_availabilityZoneName,
+    destinationToCreate_region,
+    destinationToCreate_kmsKeyId,
 
     -- * FileSystemDescription
     FileSystemDescription (..),
@@ -168,6 +188,16 @@ module Amazonka.EFS.Types
     posixUser_uid,
     posixUser_gid,
 
+    -- * ReplicationConfigurationDescription
+    ReplicationConfigurationDescription (..),
+    newReplicationConfigurationDescription,
+    replicationConfigurationDescription_sourceFileSystemId,
+    replicationConfigurationDescription_sourceFileSystemRegion,
+    replicationConfigurationDescription_sourceFileSystemArn,
+    replicationConfigurationDescription_originalSourceFileSystemArn,
+    replicationConfigurationDescription_creationTime,
+    replicationConfigurationDescription_destinations,
+
     -- * ResourceIdPreference
     ResourceIdPreference (..),
     newResourceIdPreference,
@@ -194,6 +224,8 @@ import Amazonka.EFS.Types.BackupPolicy
 import Amazonka.EFS.Types.BackupPolicyDescription
 import Amazonka.EFS.Types.BackupStatus
 import Amazonka.EFS.Types.CreationInfo
+import Amazonka.EFS.Types.Destination
+import Amazonka.EFS.Types.DestinationToCreate
 import Amazonka.EFS.Types.FileSystemDescription
 import Amazonka.EFS.Types.FileSystemPolicyDescription
 import Amazonka.EFS.Types.FileSystemSize
@@ -203,6 +235,8 @@ import Amazonka.EFS.Types.LifecyclePolicy
 import Amazonka.EFS.Types.MountTargetDescription
 import Amazonka.EFS.Types.PerformanceMode
 import Amazonka.EFS.Types.PosixUser
+import Amazonka.EFS.Types.ReplicationConfigurationDescription
+import Amazonka.EFS.Types.ReplicationStatus
 import Amazonka.EFS.Types.Resource
 import Amazonka.EFS.Types.ResourceIdPreference
 import Amazonka.EFS.Types.ResourceIdType
@@ -295,12 +329,12 @@ _SecurityGroupLimitExceeded =
     Prelude.. Core.hasStatus 400
 
 -- | The calling account has reached the limit for elastic network interfaces
--- for the specific Amazon Web Services Region. The client should try to
--- delete some elastic network interfaces or get the account limit raised.
--- For more information, see
--- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits>
--- in the /Amazon VPC User Guide/ (see the Network interfaces per VPC entry
--- in the table).
+-- for the specific Amazon Web Services Region. Either delete some network
+-- interfaces or request that the account quota be raised. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Quotas>
+-- in the /Amazon VPC User Guide/ (see the __Network interfaces per
+-- Region__ entry in the __Network interfaces__ table).
 _NetworkInterfaceLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NetworkInterfaceLimitExceeded =
   Core._MatchServiceError
@@ -308,14 +342,23 @@ _NetworkInterfaceLimitExceeded =
     "NetworkInterfaceLimitExceeded"
     Prelude.. Core.hasStatus 409
 
--- | Returned if the access point you are trying to create already exists,
--- with the creation token you provided in the request.
+-- | Returned if the access point that you are trying to create already
+-- exists, with the creation token you provided in the request.
 _AccessPointAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessPointAlreadyExists =
   Core._MatchServiceError
     defaultService
     "AccessPointAlreadyExists"
     Prelude.. Core.hasStatus 409
+
+-- | Returned if the specified file system does not have a replication
+-- configuration.
+_ReplicationNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicationNotFound =
+  Core._MatchServiceError
+    defaultService
+    "ReplicationNotFound"
+    Prelude.. Core.hasStatus 404
 
 -- | Returned if the file system\'s lifecycle state is not \"available\".
 _IncorrectFileSystemLifeCycleState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -344,7 +387,7 @@ _AccessPointNotFound =
     "AccessPointNotFound"
     Prelude.. Core.hasStatus 404
 
--- | Returned if you don’t wait at least 24 hours before changing the
+-- | Returned if you don’t wait at least 24 hours before either changing the
 -- throughput mode, or decreasing the Provisioned Throughput value.
 _TooManyRequests :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyRequests =
@@ -388,7 +431,7 @@ _BadRequest =
     Prelude.. Core.hasStatus 400
 
 -- | Returned if one of the specified security groups doesn\'t exist in the
--- subnet\'s VPC.
+-- subnet\'s virtual private cloud (VPC).
 _SecurityGroupNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _SecurityGroupNotFound =
   Core._MatchServiceError
@@ -432,7 +475,9 @@ _SubnetNotFound =
     Prelude.. Core.hasStatus 400
 
 -- | Returned if the Amazon Web Services account has already created the
--- maximum number of access points allowed per file system.
+-- maximum number of access points allowed per file system. For more
+-- informaton, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/limits.html#limits-efs-resources-per-account-per-region>.
 _AccessPointLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessPointLimitExceeded =
   Core._MatchServiceError
@@ -457,9 +502,19 @@ _InternalServerError =
     "InternalServerError"
     Prelude.. Core.hasStatus 500
 
+-- | Returned when the @CreateAccessPoint@ API action is called too quickly
+-- and the number of Access Points in the account is nearing the limit of
+-- 120.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError
+    defaultService
+    "ThrottlingException"
+    Prelude.. Core.hasStatus 429
+
 -- | Returned if the Availability Zone that was specified for a mount target
 -- is different from the Availability Zone that was specified for One Zone
--- storage classes. For more information, see
+-- storage. For more information, see
 -- <https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html Regional and One Zone storage redundancy>.
 _AvailabilityZonesMismatch :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AvailabilityZonesMismatch =
@@ -481,8 +536,8 @@ _ValidationException =
 -- throughput. This value might be returned when you try to create a file
 -- system in provisioned throughput mode, when you attempt to increase the
 -- provisioned throughput of an existing file system, or when you attempt
--- to change an existing file system from bursting to provisioned
--- throughput mode. Try again later.
+-- to change an existing file system from Bursting Throughput to
+-- Provisioned Throughput mode. Try again later.
 _InsufficientThroughputCapacity :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InsufficientThroughputCapacity =
   Core._MatchServiceError
@@ -535,9 +590,9 @@ _FileSystemLimitExceeded =
     "FileSystemLimitExceeded"
     Prelude.. Core.hasStatus 403
 
--- | Returned if the @FileSystemPolicy@ is is malformed or contains an error
--- such as an invalid parameter value or a missing required parameter.
--- Returned in the case of a policy lockout safety check error.
+-- | Returned if the @FileSystemPolicy@ is malformed or contains an error
+-- such as a parameter value that is not valid or a missing required
+-- parameter. Returned in the case of a policy lockout safety check error.
 _InvalidPolicyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidPolicyException =
   Core._MatchServiceError

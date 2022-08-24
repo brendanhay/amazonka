@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the status of the Amazon Web Services Systems Manager document
--- (SSM document) associated with the specified instance.
+-- (SSM document) associated with the specified managed node.
 --
 -- @UpdateAssociationStatus@ is primarily used by the Amazon Web Services
 -- Systems Manager Agent (SSM Agent) to report status updates about your
@@ -58,7 +58,7 @@ import Amazonka.SSM.Types
 data UpdateAssociationStatus = UpdateAssociationStatus'
   { -- | The name of the SSM document.
     name :: Prelude.Text,
-    -- | The instance ID.
+    -- | The managed node ID.
     instanceId :: Prelude.Text,
     -- | The association status.
     associationStatus :: AssociationStatus
@@ -75,7 +75,7 @@ data UpdateAssociationStatus = UpdateAssociationStatus'
 --
 -- 'name', 'updateAssociationStatus_name' - The name of the SSM document.
 --
--- 'instanceId', 'updateAssociationStatus_instanceId' - The instance ID.
+-- 'instanceId', 'updateAssociationStatus_instanceId' - The managed node ID.
 --
 -- 'associationStatus', 'updateAssociationStatus_associationStatus' - The association status.
 newUpdateAssociationStatus ::
@@ -100,7 +100,7 @@ newUpdateAssociationStatus
 updateAssociationStatus_name :: Lens.Lens' UpdateAssociationStatus Prelude.Text
 updateAssociationStatus_name = Lens.lens (\UpdateAssociationStatus' {name} -> name) (\s@UpdateAssociationStatus' {} a -> s {name = a} :: UpdateAssociationStatus)
 
--- | The instance ID.
+-- | The managed node ID.
 updateAssociationStatus_instanceId :: Lens.Lens' UpdateAssociationStatus Prelude.Text
 updateAssociationStatus_instanceId = Lens.lens (\UpdateAssociationStatus' {instanceId} -> instanceId) (\s@UpdateAssociationStatus' {} a -> s {instanceId = a} :: UpdateAssociationStatus)
 
@@ -172,7 +172,7 @@ data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssociationStatusResponse' with all optional fields omitted.

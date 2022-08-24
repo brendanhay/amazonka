@@ -29,7 +29,7 @@ import Amazonka.SSM.Types.Target
 import Amazonka.SSM.Types.TargetLocation
 
 -- | Describes the association of a Amazon Web Services Systems Manager
--- document (SSM document) and an instance.
+-- document (SSM document) and a managed node.
 --
 -- /See:/ 'newCreateAssociationBatchRequestEntry' smart constructor.
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
@@ -43,9 +43,12 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- using rate controls. Automation is a capability of Amazon Web Services
     -- Systems Manager.
     automationTargetParameterName :: Prelude.Maybe Prelude.Text,
+    -- | A key-value mapping of document parameters to target resources. Both
+    -- Targets and TargetMaps can\'t be specified together.
+    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
     -- | An S3 bucket where you want to store the results of this request.
     outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
-    -- | The instances targeted by the request.
+    -- | The managed nodes targeted by the request.
     targets :: Prelude.Maybe [Target],
     -- | The names or Amazon Resource Names (ARNs) of the Change Calendar type
     -- documents your associations are gated under. The associations only run
@@ -54,9 +57,11 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     calendarNames :: Prelude.Maybe [Prelude.Text],
     -- | A cron expression that specifies a schedule when the association runs.
     scheduleExpression :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID.
+    -- | Number of days to wait after the scheduled day to run an association.
+    scheduleOffset :: Prelude.Maybe Prelude.Natural,
+    -- | The managed node ID.
     --
-    -- @InstanceId@ has been deprecated. To specify an instance ID for an
+    -- @InstanceId@ has been deprecated. To specify a managed node ID for an
     -- association, use the @Targets@ parameter. Requests that include the
     -- parameter @InstanceID@ with Systems Manager documents (SSM documents)
     -- that use schema version 2.0 or later will fail. In addition, if you use
@@ -70,11 +75,11 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- target set, for example 10%. The default value is 100%, which means all
     -- targets run the association at the same time.
     --
-    -- If a new instance starts and attempts to run an association while
+    -- If a new managed node starts and attempts to run an association while
     -- Systems Manager is running @MaxConcurrency@ associations, the
     -- association is allowed to run. During the next association interval, the
-    -- new instance will process its association within the limit specified for
-    -- @MaxConcurrency@.
+    -- new managed node will process its association within the limit specified
+    -- for @MaxConcurrency@.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | By default, when you create a new associations, the system runs it
     -- immediately after it is created and then according to the schedule you
@@ -88,7 +93,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- the target set, for example 10%. If you specify 3, for example, the
     -- system stops sending requests when the fourth error is received. If you
     -- specify 0, then the system stops sending requests after the first error
-    -- is returned. If you run an association on 50 instances and set
+    -- is returned. If you run an association on 50 managed nodes and set
     -- @MaxError@ to 10%, then the system stops sending the request when the
     -- sixth error is received.
     --
@@ -118,9 +123,9 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- | The document version.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | A description of the parameters for a document.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | The name of the SSM document that contains the configuration information
-    -- for the instance. You can specify Command or Automation runbooks.
+    -- for the managed node. You can specify Command or Automation runbooks.
     --
     -- You can specify Amazon Web Services-predefined documents, documents you
     -- created, or a document that is shared with you from another account.
@@ -140,7 +145,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     -- example, @AWS-ApplyPatchBaseline@ or @My-Document@.
     name :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'CreateAssociationBatchRequestEntry' with all optional fields omitted.
@@ -160,9 +165,12 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- using rate controls. Automation is a capability of Amazon Web Services
 -- Systems Manager.
 --
+-- 'targetMaps', 'createAssociationBatchRequestEntry_targetMaps' - A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+--
 -- 'outputLocation', 'createAssociationBatchRequestEntry_outputLocation' - An S3 bucket where you want to store the results of this request.
 --
--- 'targets', 'createAssociationBatchRequestEntry_targets' - The instances targeted by the request.
+-- 'targets', 'createAssociationBatchRequestEntry_targets' - The managed nodes targeted by the request.
 --
 -- 'calendarNames', 'createAssociationBatchRequestEntry_calendarNames' - The names or Amazon Resource Names (ARNs) of the Change Calendar type
 -- documents your associations are gated under. The associations only run
@@ -171,9 +179,11 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 --
 -- 'scheduleExpression', 'createAssociationBatchRequestEntry_scheduleExpression' - A cron expression that specifies a schedule when the association runs.
 --
--- 'instanceId', 'createAssociationBatchRequestEntry_instanceId' - The instance ID.
+-- 'scheduleOffset', 'createAssociationBatchRequestEntry_scheduleOffset' - Number of days to wait after the scheduled day to run an association.
 --
--- @InstanceId@ has been deprecated. To specify an instance ID for an
+-- 'instanceId', 'createAssociationBatchRequestEntry_instanceId' - The managed node ID.
+--
+-- @InstanceId@ has been deprecated. To specify a managed node ID for an
 -- association, use the @Targets@ parameter. Requests that include the
 -- parameter @InstanceID@ with Systems Manager documents (SSM documents)
 -- that use schema version 2.0 or later will fail. In addition, if you use
@@ -187,11 +197,11 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- target set, for example 10%. The default value is 100%, which means all
 -- targets run the association at the same time.
 --
--- If a new instance starts and attempts to run an association while
+-- If a new managed node starts and attempts to run an association while
 -- Systems Manager is running @MaxConcurrency@ associations, the
 -- association is allowed to run. During the next association interval, the
--- new instance will process its association within the limit specified for
--- @MaxConcurrency@.
+-- new managed node will process its association within the limit specified
+-- for @MaxConcurrency@.
 --
 -- 'applyOnlyAtCronInterval', 'createAssociationBatchRequestEntry_applyOnlyAtCronInterval' - By default, when you create a new associations, the system runs it
 -- immediately after it is created and then according to the schedule you
@@ -205,7 +215,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set
+-- is returned. If you run an association on 50 managed nodes and set
 -- @MaxError@ to 10%, then the system stops sending the request when the
 -- sixth error is received.
 --
@@ -237,7 +247,7 @@ data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
 -- 'parameters', 'createAssociationBatchRequestEntry_parameters' - A description of the parameters for a document.
 --
 -- 'name', 'createAssociationBatchRequestEntry_name' - The name of the SSM document that contains the configuration information
--- for the instance. You can specify Command or Automation runbooks.
+-- for the managed node. You can specify Command or Automation runbooks.
 --
 -- You can specify Amazon Web Services-predefined documents, documents you
 -- created, or a document that is shared with you from another account.
@@ -266,10 +276,12 @@ newCreateAssociationBatchRequestEntry pName_ =
       targetLocations = Prelude.Nothing,
       automationTargetParameterName =
         Prelude.Nothing,
+      targetMaps = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
       targets = Prelude.Nothing,
       calendarNames = Prelude.Nothing,
       scheduleExpression = Prelude.Nothing,
+      scheduleOffset = Prelude.Nothing,
       instanceId = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       applyOnlyAtCronInterval =
@@ -298,11 +310,16 @@ createAssociationBatchRequestEntry_targetLocations = Lens.lens (\CreateAssociati
 createAssociationBatchRequestEntry_automationTargetParameterName :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_automationTargetParameterName = Lens.lens (\CreateAssociationBatchRequestEntry' {automationTargetParameterName} -> automationTargetParameterName) (\s@CreateAssociationBatchRequestEntry' {} a -> s {automationTargetParameterName = a} :: CreateAssociationBatchRequestEntry)
 
+-- | A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+createAssociationBatchRequestEntry_targetMaps :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
+createAssociationBatchRequestEntry_targetMaps = Lens.lens (\CreateAssociationBatchRequestEntry' {targetMaps} -> targetMaps) (\s@CreateAssociationBatchRequestEntry' {} a -> s {targetMaps = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
+
 -- | An S3 bucket where you want to store the results of this request.
 createAssociationBatchRequestEntry_outputLocation :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe InstanceAssociationOutputLocation)
 createAssociationBatchRequestEntry_outputLocation = Lens.lens (\CreateAssociationBatchRequestEntry' {outputLocation} -> outputLocation) (\s@CreateAssociationBatchRequestEntry' {} a -> s {outputLocation = a} :: CreateAssociationBatchRequestEntry)
 
--- | The instances targeted by the request.
+-- | The managed nodes targeted by the request.
 createAssociationBatchRequestEntry_targets :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe [Target])
 createAssociationBatchRequestEntry_targets = Lens.lens (\CreateAssociationBatchRequestEntry' {targets} -> targets) (\s@CreateAssociationBatchRequestEntry' {} a -> s {targets = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
 
@@ -317,9 +334,13 @@ createAssociationBatchRequestEntry_calendarNames = Lens.lens (\CreateAssociation
 createAssociationBatchRequestEntry_scheduleExpression :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_scheduleExpression = Lens.lens (\CreateAssociationBatchRequestEntry' {scheduleExpression} -> scheduleExpression) (\s@CreateAssociationBatchRequestEntry' {} a -> s {scheduleExpression = a} :: CreateAssociationBatchRequestEntry)
 
--- | The instance ID.
+-- | Number of days to wait after the scheduled day to run an association.
+createAssociationBatchRequestEntry_scheduleOffset :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Natural)
+createAssociationBatchRequestEntry_scheduleOffset = Lens.lens (\CreateAssociationBatchRequestEntry' {scheduleOffset} -> scheduleOffset) (\s@CreateAssociationBatchRequestEntry' {} a -> s {scheduleOffset = a} :: CreateAssociationBatchRequestEntry)
+
+-- | The managed node ID.
 --
--- @InstanceId@ has been deprecated. To specify an instance ID for an
+-- @InstanceId@ has been deprecated. To specify a managed node ID for an
 -- association, use the @Targets@ parameter. Requests that include the
 -- parameter @InstanceID@ with Systems Manager documents (SSM documents)
 -- that use schema version 2.0 or later will fail. In addition, if you use
@@ -335,11 +356,11 @@ createAssociationBatchRequestEntry_instanceId = Lens.lens (\CreateAssociationBat
 -- target set, for example 10%. The default value is 100%, which means all
 -- targets run the association at the same time.
 --
--- If a new instance starts and attempts to run an association while
+-- If a new managed node starts and attempts to run an association while
 -- Systems Manager is running @MaxConcurrency@ associations, the
 -- association is allowed to run. During the next association interval, the
--- new instance will process its association within the limit specified for
--- @MaxConcurrency@.
+-- new managed node will process its association within the limit specified
+-- for @MaxConcurrency@.
 createAssociationBatchRequestEntry_maxConcurrency :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe Prelude.Text)
 createAssociationBatchRequestEntry_maxConcurrency = Lens.lens (\CreateAssociationBatchRequestEntry' {maxConcurrency} -> maxConcurrency) (\s@CreateAssociationBatchRequestEntry' {} a -> s {maxConcurrency = a} :: CreateAssociationBatchRequestEntry)
 
@@ -357,7 +378,7 @@ createAssociationBatchRequestEntry_applyOnlyAtCronInterval = Lens.lens (\CreateA
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set
+-- is returned. If you run an association on 50 managed nodes and set
 -- @MaxError@ to 10%, then the system stops sending the request when the
 -- sixth error is received.
 --
@@ -396,10 +417,10 @@ createAssociationBatchRequestEntry_documentVersion = Lens.lens (\CreateAssociati
 
 -- | A description of the parameters for a document.
 createAssociationBatchRequestEntry_parameters :: Lens.Lens' CreateAssociationBatchRequestEntry (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-createAssociationBatchRequestEntry_parameters = Lens.lens (\CreateAssociationBatchRequestEntry' {parameters} -> parameters) (\s@CreateAssociationBatchRequestEntry' {} a -> s {parameters = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping Lens.coerced
+createAssociationBatchRequestEntry_parameters = Lens.lens (\CreateAssociationBatchRequestEntry' {parameters} -> parameters) (\s@CreateAssociationBatchRequestEntry' {} a -> s {parameters = a} :: CreateAssociationBatchRequestEntry) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the SSM document that contains the configuration information
--- for the instance. You can specify Command or Automation runbooks.
+-- for the managed node. You can specify Command or Automation runbooks.
 --
 -- You can specify Amazon Web Services-predefined documents, documents you
 -- created, or a document that is shared with you from another account.
@@ -432,10 +453,12 @@ instance
             Prelude.<$> (x Core..:? "AssociationName")
             Prelude.<*> (x Core..:? "TargetLocations")
             Prelude.<*> (x Core..:? "AutomationTargetParameterName")
+            Prelude.<*> (x Core..:? "TargetMaps" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "OutputLocation")
             Prelude.<*> (x Core..:? "Targets" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "CalendarNames" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ScheduleExpression")
+            Prelude.<*> (x Core..:? "ScheduleOffset")
             Prelude.<*> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "MaxConcurrency")
             Prelude.<*> (x Core..:? "ApplyOnlyAtCronInterval")
@@ -457,10 +480,12 @@ instance
       _salt `Prelude.hashWithSalt` associationName
         `Prelude.hashWithSalt` targetLocations
         `Prelude.hashWithSalt` automationTargetParameterName
+        `Prelude.hashWithSalt` targetMaps
         `Prelude.hashWithSalt` outputLocation
         `Prelude.hashWithSalt` targets
         `Prelude.hashWithSalt` calendarNames
         `Prelude.hashWithSalt` scheduleExpression
+        `Prelude.hashWithSalt` scheduleOffset
         `Prelude.hashWithSalt` instanceId
         `Prelude.hashWithSalt` maxConcurrency
         `Prelude.hashWithSalt` applyOnlyAtCronInterval
@@ -479,10 +504,12 @@ instance
     Prelude.rnf associationName
       `Prelude.seq` Prelude.rnf targetLocations
       `Prelude.seq` Prelude.rnf automationTargetParameterName
+      `Prelude.seq` Prelude.rnf targetMaps
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf calendarNames
       `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf scheduleOffset
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
@@ -506,12 +533,15 @@ instance
               Prelude.<$> targetLocations,
             ("AutomationTargetParameterName" Core..=)
               Prelude.<$> automationTargetParameterName,
+            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
             ("OutputLocation" Core..=)
               Prelude.<$> outputLocation,
             ("Targets" Core..=) Prelude.<$> targets,
             ("CalendarNames" Core..=) Prelude.<$> calendarNames,
             ("ScheduleExpression" Core..=)
               Prelude.<$> scheduleExpression,
+            ("ScheduleOffset" Core..=)
+              Prelude.<$> scheduleOffset,
             ("InstanceId" Core..=) Prelude.<$> instanceId,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,

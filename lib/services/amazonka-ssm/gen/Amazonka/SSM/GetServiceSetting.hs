@@ -76,11 +76,13 @@ data GetServiceSetting = GetServiceSetting'
     --
     -- -   @\/ssm\/documents\/console\/public-sharing-permission@
     --
+    -- -   @\/ssm\/managed-instance\/activation-tier@
+    --
+    -- -   @\/ssm\/opsinsights\/opscenter@
+    --
     -- -   @\/ssm\/parameter-store\/default-parameter-tier@
     --
     -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
-    --
-    -- -   @\/ssm\/managed-instance\/activation-tier@
     settingId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,11 +104,13 @@ data GetServiceSetting = GetServiceSetting'
 --
 -- -   @\/ssm\/documents\/console\/public-sharing-permission@
 --
+-- -   @\/ssm\/managed-instance\/activation-tier@
+--
+-- -   @\/ssm\/opsinsights\/opscenter@
+--
 -- -   @\/ssm\/parameter-store\/default-parameter-tier@
 --
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
---
--- -   @\/ssm\/managed-instance\/activation-tier@
 newGetServiceSetting ::
   -- | 'settingId'
   Prelude.Text ->
@@ -123,11 +127,13 @@ newGetServiceSetting pSettingId_ =
 --
 -- -   @\/ssm\/documents\/console\/public-sharing-permission@
 --
+-- -   @\/ssm\/managed-instance\/activation-tier@
+--
+-- -   @\/ssm\/opsinsights\/opscenter@
+--
 -- -   @\/ssm\/parameter-store\/default-parameter-tier@
 --
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
---
--- -   @\/ssm\/managed-instance\/activation-tier@
 getServiceSetting_settingId :: Lens.Lens' GetServiceSetting Prelude.Text
 getServiceSetting_settingId = Lens.lens (\GetServiceSetting' {settingId} -> settingId) (\s@GetServiceSetting' {} a -> s {settingId = a} :: GetServiceSetting)
 

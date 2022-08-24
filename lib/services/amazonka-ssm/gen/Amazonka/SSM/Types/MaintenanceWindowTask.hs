@@ -58,8 +58,8 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
     taskArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window where the task is registered.
     windowId :: Prelude.Maybe Prelude.Text,
-    -- | The targets (either instances or tags). Instances are specified using
-    -- @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@. Tags are
+    -- | The targets (either managed nodes or tags). Managed nodes are specified
+    -- using @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@. Tags are
     -- specified using @Key=\<tag name>,Values=\<tag value>@.
     targets :: Prelude.Maybe [Target],
     -- | A description of the task.
@@ -69,9 +69,29 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
     -- scheduled in parallel.
     priority :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of targets this task can be run for, in parallel.
+    --
+    -- Although this element is listed as \"Required: No\", a value can be
+    -- omitted only when you are registering or updating a
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+    -- You must provide a value in all other cases.
+    --
+    -- For maintenance window tasks without a target specified, you can\'t
+    -- supply a value for this option. Instead, the system inserts a
+    -- placeholder value of @1@. This value doesn\'t affect the running of your
+    -- task.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of errors allowed before this task stops being
     -- scheduled.
+    --
+    -- Although this element is listed as \"Required: No\", a value can be
+    -- omitted only when you are registering or updating a
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+    -- You must provide a value in all other cases.
+    --
+    -- For maintenance window tasks without a target specified, you can\'t
+    -- supply a value for this option. Instead, the system inserts a
+    -- placeholder value of @1@. This value doesn\'t affect the running of your
+    -- task.
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | Information about an S3 bucket to write task-level logs to.
     --
@@ -123,8 +143,8 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
 --
 -- 'windowId', 'maintenanceWindowTask_windowId' - The ID of the maintenance window where the task is registered.
 --
--- 'targets', 'maintenanceWindowTask_targets' - The targets (either instances or tags). Instances are specified using
--- @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@. Tags are
+-- 'targets', 'maintenanceWindowTask_targets' - The targets (either managed nodes or tags). Managed nodes are specified
+-- using @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@. Tags are
 -- specified using @Key=\<tag name>,Values=\<tag value>@.
 --
 -- 'description', 'maintenanceWindowTask_description' - A description of the task.
@@ -135,8 +155,28 @@ data MaintenanceWindowTask = MaintenanceWindowTask'
 --
 -- 'maxConcurrency', 'maintenanceWindowTask_maxConcurrency' - The maximum number of targets this task can be run for, in parallel.
 --
+-- Although this element is listed as \"Required: No\", a value can be
+-- omitted only when you are registering or updating a
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+-- You must provide a value in all other cases.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value doesn\'t affect the running of your
+-- task.
+--
 -- 'maxErrors', 'maintenanceWindowTask_maxErrors' - The maximum number of errors allowed before this task stops being
 -- scheduled.
+--
+-- Although this element is listed as \"Required: No\", a value can be
+-- omitted only when you are registering or updating a
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+-- You must provide a value in all other cases.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value doesn\'t affect the running of your
+-- task.
 --
 -- 'loggingInfo', 'maintenanceWindowTask_loggingInfo' - Information about an S3 bucket to write task-level logs to.
 --
@@ -210,8 +250,8 @@ maintenanceWindowTask_taskArn = Lens.lens (\MaintenanceWindowTask' {taskArn} -> 
 maintenanceWindowTask_windowId :: Lens.Lens' MaintenanceWindowTask (Prelude.Maybe Prelude.Text)
 maintenanceWindowTask_windowId = Lens.lens (\MaintenanceWindowTask' {windowId} -> windowId) (\s@MaintenanceWindowTask' {} a -> s {windowId = a} :: MaintenanceWindowTask)
 
--- | The targets (either instances or tags). Instances are specified using
--- @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@. Tags are
+-- | The targets (either managed nodes or tags). Managed nodes are specified
+-- using @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@. Tags are
 -- specified using @Key=\<tag name>,Values=\<tag value>@.
 maintenanceWindowTask_targets :: Lens.Lens' MaintenanceWindowTask (Prelude.Maybe [Target])
 maintenanceWindowTask_targets = Lens.lens (\MaintenanceWindowTask' {targets} -> targets) (\s@MaintenanceWindowTask' {} a -> s {targets = a} :: MaintenanceWindowTask) Prelude.. Lens.mapping Lens.coerced
@@ -227,11 +267,31 @@ maintenanceWindowTask_priority :: Lens.Lens' MaintenanceWindowTask (Prelude.Mayb
 maintenanceWindowTask_priority = Lens.lens (\MaintenanceWindowTask' {priority} -> priority) (\s@MaintenanceWindowTask' {} a -> s {priority = a} :: MaintenanceWindowTask)
 
 -- | The maximum number of targets this task can be run for, in parallel.
+--
+-- Although this element is listed as \"Required: No\", a value can be
+-- omitted only when you are registering or updating a
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+-- You must provide a value in all other cases.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value doesn\'t affect the running of your
+-- task.
 maintenanceWindowTask_maxConcurrency :: Lens.Lens' MaintenanceWindowTask (Prelude.Maybe Prelude.Text)
 maintenanceWindowTask_maxConcurrency = Lens.lens (\MaintenanceWindowTask' {maxConcurrency} -> maxConcurrency) (\s@MaintenanceWindowTask' {} a -> s {maxConcurrency = a} :: MaintenanceWindowTask)
 
 -- | The maximum number of errors allowed before this task stops being
 -- scheduled.
+--
+-- Although this element is listed as \"Required: No\", a value can be
+-- omitted only when you are registering or updating a
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+-- You must provide a value in all other cases.
+--
+-- For maintenance window tasks without a target specified, you can\'t
+-- supply a value for this option. Instead, the system inserts a
+-- placeholder value of @1@. This value doesn\'t affect the running of your
+-- task.
 maintenanceWindowTask_maxErrors :: Lens.Lens' MaintenanceWindowTask (Prelude.Maybe Prelude.Text)
 maintenanceWindowTask_maxErrors = Lens.lens (\MaintenanceWindowTask' {maxErrors} -> maxErrors) (\s@MaintenanceWindowTask' {} a -> s {maxErrors = a} :: MaintenanceWindowTask)
 

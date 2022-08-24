@@ -45,7 +45,7 @@ data ParameterStringFilter = ParameterStringFilter'
     -- GetParametersByPath API operations. However, not all of the pattern
     -- values listed for @Key@ can be used with both operations.
     --
-    -- For @DescribeActions@, all of the listed patterns are valid except
+    -- For @DescribeParameters@, all of the listed patterns are valid except
     -- @Label@.
     --
     -- For @GetParametersByPath@, the following patterns listed for @Key@
@@ -84,7 +84,7 @@ data ParameterStringFilter = ParameterStringFilter'
 -- GetParametersByPath API operations. However, not all of the pattern
 -- values listed for @Key@ can be used with both operations.
 --
--- For @DescribeActions@, all of the listed patterns are valid except
+-- For @DescribeParameters@, all of the listed patterns are valid except
 -- @Label@.
 --
 -- For @GetParametersByPath@, the following patterns listed for @Key@
@@ -126,7 +126,7 @@ parameterStringFilter_values = Lens.lens (\ParameterStringFilter' {values} -> va
 -- GetParametersByPath API operations. However, not all of the pattern
 -- values listed for @Key@ can be used with both operations.
 --
--- For @DescribeActions@, all of the listed patterns are valid except
+-- For @DescribeParameters@, all of the listed patterns are valid except
 -- @Label@.
 --
 -- For @GetParametersByPath@, the following patterns listed for @Key@

@@ -24,9 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.InstanceInformationFilterKey
 
--- | Describes a filter for a specific list of instances. You can filter
--- instances information by using tags. You specify tags by using a
--- key-value mapping.
+-- | Describes a filter for a specific list of managed nodes. You can filter
+-- node information by using tags. You specify tags by using a key-value
+-- mapping.
 --
 -- Use this operation instead of the
 -- DescribeInstanceInformationRequest$InstanceInformationFilterList method.

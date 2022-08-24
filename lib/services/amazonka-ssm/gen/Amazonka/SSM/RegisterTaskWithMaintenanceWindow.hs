@@ -91,7 +91,7 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     -- | The parameters that the task should use during execution. Populate only
     -- the fields that match the task type. All other fields should be empty.
     taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
-    -- | The targets (either instances or maintenance window targets).
+    -- | The targets (either managed nodes or maintenance window targets).
     --
     -- One or more targets must be specified for maintenance window Run
     -- Command-type tasks. Depending on the task, targets are optional for
@@ -101,7 +101,7 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
     -- in the /Amazon Web Services Systems Manager User Guide/.
     --
-    -- Specify instances using the following format:
+    -- Specify managed nodes using the following format:
     --
     -- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>@
     --
@@ -116,7 +116,12 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     -- priority order with tasks that have the same priority scheduled in
     -- parallel.
     priority :: Prelude.Maybe Prelude.Natural,
-    -- | The maximum number of targets this task can be run for in parallel.
+    -- | The maximum number of targets this task can be run for, in parallel.
+    --
+    -- Although this element is listed as \"Required: No\", a value can be
+    -- omitted only when you are registering or updating a
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+    -- You must provide a value in all other cases.
     --
     -- For maintenance window tasks without a target specified, you can\'t
     -- supply a value for this option. Instead, the system inserts a
@@ -126,13 +131,18 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     -- | The maximum number of errors allowed before this task stops being
     -- scheduled.
     --
+    -- Although this element is listed as \"Required: No\", a value can be
+    -- omitted only when you are registering or updating a
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+    -- You must provide a value in all other cases.
+    --
     -- For maintenance window tasks without a target specified, you can\'t
     -- supply a value for this option. Instead, the system inserts a
     -- placeholder value of @1@. This value doesn\'t affect the running of your
     -- task.
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | A structure containing information about an Amazon Simple Storage
-    -- Service (Amazon S3) bucket to write instance-level logs to.
+    -- Service (Amazon S3) bucket to write managed node-level logs to.
     --
     -- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
     -- Service (Amazon S3) bucket to contain logs, instead use the
@@ -208,7 +218,7 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- 'taskInvocationParameters', 'registerTaskWithMaintenanceWindow_taskInvocationParameters' - The parameters that the task should use during execution. Populate only
 -- the fields that match the task type. All other fields should be empty.
 --
--- 'targets', 'registerTaskWithMaintenanceWindow_targets' - The targets (either instances or maintenance window targets).
+-- 'targets', 'registerTaskWithMaintenanceWindow_targets' - The targets (either managed nodes or maintenance window targets).
 --
 -- One or more targets must be specified for maintenance window Run
 -- Command-type tasks. Depending on the task, targets are optional for
@@ -218,7 +228,7 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- Specify instances using the following format:
+-- Specify managed nodes using the following format:
 --
 -- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>@
 --
@@ -233,7 +243,12 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- priority order with tasks that have the same priority scheduled in
 -- parallel.
 --
--- 'maxConcurrency', 'registerTaskWithMaintenanceWindow_maxConcurrency' - The maximum number of targets this task can be run for in parallel.
+-- 'maxConcurrency', 'registerTaskWithMaintenanceWindow_maxConcurrency' - The maximum number of targets this task can be run for, in parallel.
+--
+-- Although this element is listed as \"Required: No\", a value can be
+-- omitted only when you are registering or updating a
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+-- You must provide a value in all other cases.
 --
 -- For maintenance window tasks without a target specified, you can\'t
 -- supply a value for this option. Instead, the system inserts a
@@ -243,13 +258,18 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- 'maxErrors', 'registerTaskWithMaintenanceWindow_maxErrors' - The maximum number of errors allowed before this task stops being
 -- scheduled.
 --
+-- Although this element is listed as \"Required: No\", a value can be
+-- omitted only when you are registering or updating a
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+-- You must provide a value in all other cases.
+--
 -- For maintenance window tasks without a target specified, you can\'t
 -- supply a value for this option. Instead, the system inserts a
 -- placeholder value of @1@. This value doesn\'t affect the running of your
 -- task.
 --
 -- 'loggingInfo', 'registerTaskWithMaintenanceWindow_loggingInfo' - A structure containing information about an Amazon Simple Storage
--- Service (Amazon S3) bucket to write instance-level logs to.
+-- Service (Amazon S3) bucket to write managed node-level logs to.
 --
 -- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
 -- Service (Amazon S3) bucket to contain logs, instead use the
@@ -355,7 +375,7 @@ registerTaskWithMaintenanceWindow_serviceRoleArn = Lens.lens (\RegisterTaskWithM
 registerTaskWithMaintenanceWindow_taskInvocationParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
 registerTaskWithMaintenanceWindow_taskInvocationParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskInvocationParameters} -> taskInvocationParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskInvocationParameters = a} :: RegisterTaskWithMaintenanceWindow)
 
--- | The targets (either instances or maintenance window targets).
+-- | The targets (either managed nodes or maintenance window targets).
 --
 -- One or more targets must be specified for maintenance window Run
 -- Command-type tasks. Depending on the task, targets are optional for
@@ -365,7 +385,7 @@ registerTaskWithMaintenanceWindow_taskInvocationParameters = Lens.lens (\Registe
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- Specify instances using the following format:
+-- Specify managed nodes using the following format:
 --
 -- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>@
 --
@@ -386,7 +406,12 @@ registerTaskWithMaintenanceWindow_description = Lens.lens (\RegisterTaskWithMain
 registerTaskWithMaintenanceWindow_priority :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Natural)
 registerTaskWithMaintenanceWindow_priority = Lens.lens (\RegisterTaskWithMaintenanceWindow' {priority} -> priority) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {priority = a} :: RegisterTaskWithMaintenanceWindow)
 
--- | The maximum number of targets this task can be run for in parallel.
+-- | The maximum number of targets this task can be run for, in parallel.
+--
+-- Although this element is listed as \"Required: No\", a value can be
+-- omitted only when you are registering or updating a
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+-- You must provide a value in all other cases.
 --
 -- For maintenance window tasks without a target specified, you can\'t
 -- supply a value for this option. Instead, the system inserts a
@@ -398,6 +423,11 @@ registerTaskWithMaintenanceWindow_maxConcurrency = Lens.lens (\RegisterTaskWithM
 -- | The maximum number of errors allowed before this task stops being
 -- scheduled.
 --
+-- Although this element is listed as \"Required: No\", a value can be
+-- omitted only when you are registering or updating a
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html targetless task>
+-- You must provide a value in all other cases.
+--
 -- For maintenance window tasks without a target specified, you can\'t
 -- supply a value for this option. Instead, the system inserts a
 -- placeholder value of @1@. This value doesn\'t affect the running of your
@@ -406,7 +436,7 @@ registerTaskWithMaintenanceWindow_maxErrors :: Lens.Lens' RegisterTaskWithMainte
 registerTaskWithMaintenanceWindow_maxErrors = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxErrors} -> maxErrors) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxErrors = a} :: RegisterTaskWithMaintenanceWindow)
 
 -- | A structure containing information about an Amazon Simple Storage
--- Service (Amazon S3) bucket to write instance-level logs to.
+-- Service (Amazon S3) bucket to write managed node-level logs to.
 --
 -- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
 -- Service (Amazon S3) bucket to contain logs, instead use the

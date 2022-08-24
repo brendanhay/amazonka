@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about the maintenance window targets or tasks that
--- an instance is associated with.
+-- a managed node is associated with.
 --
 -- This operation returns paginated results.
 module Amazonka.SSM.DescribeMaintenanceWindowsForTarget
@@ -62,7 +62,7 @@ data DescribeMaintenanceWindowsForTarget = DescribeMaintenanceWindowsForTarget'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The instance ID or key-value pair to retrieve information about.
+    -- | The managed node ID or key-value pair to retrieve information about.
     targets :: [Target],
     -- | The type of resource you want to retrieve information about. For
     -- example, @INSTANCE@.
@@ -85,7 +85,7 @@ data DescribeMaintenanceWindowsForTarget = DescribeMaintenanceWindowsForTarget'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
--- 'targets', 'describeMaintenanceWindowsForTarget_targets' - The instance ID or key-value pair to retrieve information about.
+-- 'targets', 'describeMaintenanceWindowsForTarget_targets' - The managed node ID or key-value pair to retrieve information about.
 --
 -- 'resourceType', 'describeMaintenanceWindowsForTarget_resourceType' - The type of resource you want to retrieve information about. For
 -- example, @INSTANCE@.
@@ -113,7 +113,7 @@ describeMaintenanceWindowsForTarget_nextToken = Lens.lens (\DescribeMaintenanceW
 describeMaintenanceWindowsForTarget_maxResults :: Lens.Lens' DescribeMaintenanceWindowsForTarget (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowsForTarget_maxResults = Lens.lens (\DescribeMaintenanceWindowsForTarget' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowsForTarget)
 
--- | The instance ID or key-value pair to retrieve information about.
+-- | The managed node ID or key-value pair to retrieve information about.
 describeMaintenanceWindowsForTarget_targets :: Lens.Lens' DescribeMaintenanceWindowsForTarget [Target]
 describeMaintenanceWindowsForTarget_targets = Lens.lens (\DescribeMaintenanceWindowsForTarget' {targets} -> targets) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {targets = a} :: DescribeMaintenanceWindowsForTarget) Prelude.. Lens.coerced
 
@@ -237,8 +237,8 @@ data DescribeMaintenanceWindowsForTargetResponse = DescribeMaintenanceWindowsFor
   { -- | The token for the next set of items to return. (You use this token in
     -- the next call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information about the maintenance window targets and tasks an instance
-    -- is associated with.
+    -- | Information about the maintenance window targets and tasks a managed
+    -- node is associated with.
     windowIdentities :: Prelude.Maybe [MaintenanceWindowIdentityForTarget],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -256,8 +256,8 @@ data DescribeMaintenanceWindowsForTargetResponse = DescribeMaintenanceWindowsFor
 -- 'nextToken', 'describeMaintenanceWindowsForTargetResponse_nextToken' - The token for the next set of items to return. (You use this token in
 -- the next call.)
 --
--- 'windowIdentities', 'describeMaintenanceWindowsForTargetResponse_windowIdentities' - Information about the maintenance window targets and tasks an instance
--- is associated with.
+-- 'windowIdentities', 'describeMaintenanceWindowsForTargetResponse_windowIdentities' - Information about the maintenance window targets and tasks a managed
+-- node is associated with.
 --
 -- 'httpStatus', 'describeMaintenanceWindowsForTargetResponse_httpStatus' - The response's http status code.
 newDescribeMaintenanceWindowsForTargetResponse ::
@@ -279,8 +279,8 @@ newDescribeMaintenanceWindowsForTargetResponse
 describeMaintenanceWindowsForTargetResponse_nextToken :: Lens.Lens' DescribeMaintenanceWindowsForTargetResponse (Prelude.Maybe Prelude.Text)
 describeMaintenanceWindowsForTargetResponse_nextToken = Lens.lens (\DescribeMaintenanceWindowsForTargetResponse' {nextToken} -> nextToken) (\s@DescribeMaintenanceWindowsForTargetResponse' {} a -> s {nextToken = a} :: DescribeMaintenanceWindowsForTargetResponse)
 
--- | Information about the maintenance window targets and tasks an instance
--- is associated with.
+-- | Information about the maintenance window targets and tasks a managed
+-- node is associated with.
 describeMaintenanceWindowsForTargetResponse_windowIdentities :: Lens.Lens' DescribeMaintenanceWindowsForTargetResponse (Prelude.Maybe [MaintenanceWindowIdentityForTarget])
 describeMaintenanceWindowsForTargetResponse_windowIdentities = Lens.lens (\DescribeMaintenanceWindowsForTargetResponse' {windowIdentities} -> windowIdentities) (\s@DescribeMaintenanceWindowsForTargetResponse' {} a -> s {windowIdentities = a} :: DescribeMaintenanceWindowsForTargetResponse) Prelude.. Lens.mapping Lens.coerced
 

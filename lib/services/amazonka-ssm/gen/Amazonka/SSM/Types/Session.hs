@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.SSM.Types.SessionManagerOutputUrl
 import Amazonka.SSM.Types.SessionStatus
 
--- | Information about a Session Manager connection to an instance.
+-- | Information about a Session Manager connection to a managed node.
 --
 -- /See:/ 'newSession' smart constructor.
 data Session = Session'
@@ -38,7 +38,7 @@ data Session = Session'
     owner :: Prelude.Maybe Prelude.Text,
     -- | The status of the session. For example, \"Connected\" or \"Terminated\".
     status :: Prelude.Maybe SessionStatus,
-    -- | The instance that the Session Manager session connected to.
+    -- | The managed node that the Session Manager session connected to.
     target :: Prelude.Maybe Prelude.Text,
     -- | Reserved for future use.
     details :: Prelude.Maybe Prelude.Text,
@@ -49,7 +49,11 @@ data Session = Session'
     -- @SSM-SessionManagerRunShell@.
     documentName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the session.
-    sessionId :: Prelude.Maybe Prelude.Text
+    sessionId :: Prelude.Maybe Prelude.Text,
+    -- | The reason for connecting to the instance.
+    reason :: Prelude.Maybe Prelude.Text,
+    -- | The maximum duration of a session before it terminates.
+    maxSessionDuration :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,7 +74,7 @@ data Session = Session'
 --
 -- 'status', 'session_status' - The status of the session. For example, \"Connected\" or \"Terminated\".
 --
--- 'target', 'session_target' - The instance that the Session Manager session connected to.
+-- 'target', 'session_target' - The managed node that the Session Manager session connected to.
 --
 -- 'details', 'session_details' - Reserved for future use.
 --
@@ -81,6 +85,10 @@ data Session = Session'
 -- @SSM-SessionManagerRunShell@.
 --
 -- 'sessionId', 'session_sessionId' - The ID of the session.
+--
+-- 'reason', 'session_reason' - The reason for connecting to the instance.
+--
+-- 'maxSessionDuration', 'session_maxSessionDuration' - The maximum duration of a session before it terminates.
 newSession ::
   Session
 newSession =
@@ -93,7 +101,9 @@ newSession =
       details = Prelude.Nothing,
       startDate = Prelude.Nothing,
       documentName = Prelude.Nothing,
-      sessionId = Prelude.Nothing
+      sessionId = Prelude.Nothing,
+      reason = Prelude.Nothing,
+      maxSessionDuration = Prelude.Nothing
     }
 
 -- | The date and time, in ISO-8601 Extended format, when the session was
@@ -113,7 +123,7 @@ session_owner = Lens.lens (\Session' {owner} -> owner) (\s@Session' {} a -> s {o
 session_status :: Lens.Lens' Session (Prelude.Maybe SessionStatus)
 session_status = Lens.lens (\Session' {status} -> status) (\s@Session' {} a -> s {status = a} :: Session)
 
--- | The instance that the Session Manager session connected to.
+-- | The managed node that the Session Manager session connected to.
 session_target :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_target = Lens.lens (\Session' {target} -> target) (\s@Session' {} a -> s {target = a} :: Session)
 
@@ -135,6 +145,14 @@ session_documentName = Lens.lens (\Session' {documentName} -> documentName) (\s@
 session_sessionId :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_sessionId = Lens.lens (\Session' {sessionId} -> sessionId) (\s@Session' {} a -> s {sessionId = a} :: Session)
 
+-- | The reason for connecting to the instance.
+session_reason :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_reason = Lens.lens (\Session' {reason} -> reason) (\s@Session' {} a -> s {reason = a} :: Session)
+
+-- | The maximum duration of a session before it terminates.
+session_maxSessionDuration :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_maxSessionDuration = Lens.lens (\Session' {maxSessionDuration} -> maxSessionDuration) (\s@Session' {} a -> s {maxSessionDuration = a} :: Session)
+
 instance Core.FromJSON Session where
   parseJSON =
     Core.withObject
@@ -150,6 +168,8 @@ instance Core.FromJSON Session where
             Prelude.<*> (x Core..:? "StartDate")
             Prelude.<*> (x Core..:? "DocumentName")
             Prelude.<*> (x Core..:? "SessionId")
+            Prelude.<*> (x Core..:? "Reason")
+            Prelude.<*> (x Core..:? "MaxSessionDuration")
       )
 
 instance Prelude.Hashable Session where
@@ -163,6 +183,8 @@ instance Prelude.Hashable Session where
       `Prelude.hashWithSalt` startDate
       `Prelude.hashWithSalt` documentName
       `Prelude.hashWithSalt` sessionId
+      `Prelude.hashWithSalt` reason
+      `Prelude.hashWithSalt` maxSessionDuration
 
 instance Prelude.NFData Session where
   rnf Session' {..} =
@@ -175,3 +197,5 @@ instance Prelude.NFData Session where
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf documentName
       `Prelude.seq` Prelude.rnf sessionId
+      `Prelude.seq` Prelude.rnf reason
+      `Prelude.seq` Prelude.rnf maxSessionDuration

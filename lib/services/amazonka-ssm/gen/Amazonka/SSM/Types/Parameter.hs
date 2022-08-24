@@ -51,8 +51,14 @@ data Parameter = Parameter'
     name :: Prelude.Text,
     -- | The type of parameter. Valid values include the following: @String@,
     -- @StringList@, and @SecureString@.
+    --
+    -- If type is @StringList@, the system returns a comma-separated string
+    -- with no spaces between commas in the @Value@ field.
     type' :: ParameterType,
     -- | The parameter value.
+    --
+    -- If type is @StringList@, the system returns a comma-separated string
+    -- with no spaces between commas in the @Value@ field.
     value :: Core.Sensitive Prelude.Text,
     -- | The parameter version.
     version :: Prelude.Integer
@@ -91,7 +97,13 @@ data Parameter = Parameter'
 -- 'type'', 'parameter_type' - The type of parameter. Valid values include the following: @String@,
 -- @StringList@, and @SecureString@.
 --
+-- If type is @StringList@, the system returns a comma-separated string
+-- with no spaces between commas in the @Value@ field.
+--
 -- 'value', 'parameter_value' - The parameter value.
+--
+-- If type is @StringList@, the system returns a comma-separated string
+-- with no spaces between commas in the @Value@ field.
 --
 -- 'version', 'parameter_version' - The parameter version.
 newParameter ::
@@ -152,10 +164,16 @@ parameter_name = Lens.lens (\Parameter' {name} -> name) (\s@Parameter' {} a -> s
 
 -- | The type of parameter. Valid values include the following: @String@,
 -- @StringList@, and @SecureString@.
+--
+-- If type is @StringList@, the system returns a comma-separated string
+-- with no spaces between commas in the @Value@ field.
 parameter_type :: Lens.Lens' Parameter ParameterType
 parameter_type = Lens.lens (\Parameter' {type'} -> type') (\s@Parameter' {} a -> s {type' = a} :: Parameter)
 
 -- | The parameter value.
+--
+-- If type is @StringList@, the system returns a comma-separated string
+-- with no spaces between commas in the @Value@ field.
 parameter_value :: Lens.Lens' Parameter Prelude.Text
 parameter_value = Lens.lens (\Parameter' {value} -> value) (\s@Parameter' {} a -> s {value = a} :: Parameter) Prelude.. Core._Sensitive
 

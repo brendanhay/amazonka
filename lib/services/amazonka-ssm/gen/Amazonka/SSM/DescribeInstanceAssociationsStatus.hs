@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The status of the associations for the instance(s).
+-- The status of the associations for the managed node(s).
 --
 -- This operation returns paginated results.
 module Amazonka.SSM.DescribeInstanceAssociationsStatus
@@ -60,7 +60,7 @@ data DescribeInstanceAssociationsStatus = DescribeInstanceAssociationsStatus'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The instance IDs for which you want association status information.
+    -- | The managed node IDs for which you want association status information.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,7 +80,7 @@ data DescribeInstanceAssociationsStatus = DescribeInstanceAssociationsStatus'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
--- 'instanceId', 'describeInstanceAssociationsStatus_instanceId' - The instance IDs for which you want association status information.
+-- 'instanceId', 'describeInstanceAssociationsStatus_instanceId' - The managed node IDs for which you want association status information.
 newDescribeInstanceAssociationsStatus ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -104,7 +104,7 @@ describeInstanceAssociationsStatus_nextToken = Lens.lens (\DescribeInstanceAssoc
 describeInstanceAssociationsStatus_maxResults :: Lens.Lens' DescribeInstanceAssociationsStatus (Prelude.Maybe Prelude.Natural)
 describeInstanceAssociationsStatus_maxResults = Lens.lens (\DescribeInstanceAssociationsStatus' {maxResults} -> maxResults) (\s@DescribeInstanceAssociationsStatus' {} a -> s {maxResults = a} :: DescribeInstanceAssociationsStatus)
 
--- | The instance IDs for which you want association status information.
+-- | The managed node IDs for which you want association status information.
 describeInstanceAssociationsStatus_instanceId :: Lens.Lens' DescribeInstanceAssociationsStatus Prelude.Text
 describeInstanceAssociationsStatus_instanceId = Lens.lens (\DescribeInstanceAssociationsStatus' {instanceId} -> instanceId) (\s@DescribeInstanceAssociationsStatus' {} a -> s {instanceId = a} :: DescribeInstanceAssociationsStatus)
 

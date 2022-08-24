@@ -36,7 +36,7 @@ data FailedCreateAssociation = FailedCreateAssociation'
     -- | The association.
     entry :: Prelude.Maybe CreateAssociationBatchRequestEntry
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'FailedCreateAssociation' with all optional fields omitted.

@@ -117,12 +117,9 @@ data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
     -- If the schedule offset is @2@, the maintenance window won\'t run until
     -- two days later.
     scheduleOffset :: Prelude.Maybe Prelude.Natural,
-    -- | The time zone that the scheduled maintenance window executions are based
-    -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
-    -- \"America\/Los_Angeles\", \"UTC\", or \"Asia\/Seoul\". For more
-    -- information, see the
-    -- <https://www.iana.org/time-zones Time Zone Database> on the IANA
-    -- website.
+    -- | The date and time, in ISO-8601 Extended format, for when you want the
+    -- maintenance window to become active. @StartDate@ allows you to delay
+    -- activation of the maintenance window until the specified future date.
     startDate :: Prelude.Maybe Prelude.Text,
     -- | If @True@, then all fields that are required by the
     -- CreateMaintenanceWindow operation are also required for this API
@@ -181,12 +178,9 @@ data UpdateMaintenanceWindow = UpdateMaintenanceWindow'
 -- If the schedule offset is @2@, the maintenance window won\'t run until
 -- two days later.
 --
--- 'startDate', 'updateMaintenanceWindow_startDate' - The time zone that the scheduled maintenance window executions are based
--- on, in Internet Assigned Numbers Authority (IANA) format. For example:
--- \"America\/Los_Angeles\", \"UTC\", or \"Asia\/Seoul\". For more
--- information, see the
--- <https://www.iana.org/time-zones Time Zone Database> on the IANA
--- website.
+-- 'startDate', 'updateMaintenanceWindow_startDate' - The date and time, in ISO-8601 Extended format, for when you want the
+-- maintenance window to become active. @StartDate@ allows you to delay
+-- activation of the maintenance window until the specified future date.
 --
 -- 'replace', 'updateMaintenanceWindow_replace' - If @True@, then all fields that are required by the
 -- CreateMaintenanceWindow operation are also required for this API
@@ -273,12 +267,9 @@ updateMaintenanceWindow_scheduleTimezone = Lens.lens (\UpdateMaintenanceWindow' 
 updateMaintenanceWindow_scheduleOffset :: Lens.Lens' UpdateMaintenanceWindow (Prelude.Maybe Prelude.Natural)
 updateMaintenanceWindow_scheduleOffset = Lens.lens (\UpdateMaintenanceWindow' {scheduleOffset} -> scheduleOffset) (\s@UpdateMaintenanceWindow' {} a -> s {scheduleOffset = a} :: UpdateMaintenanceWindow)
 
--- | The time zone that the scheduled maintenance window executions are based
--- on, in Internet Assigned Numbers Authority (IANA) format. For example:
--- \"America\/Los_Angeles\", \"UTC\", or \"Asia\/Seoul\". For more
--- information, see the
--- <https://www.iana.org/time-zones Time Zone Database> on the IANA
--- website.
+-- | The date and time, in ISO-8601 Extended format, for when you want the
+-- maintenance window to become active. @StartDate@ allows you to delay
+-- activation of the maintenance window until the specified future date.
 updateMaintenanceWindow_startDate :: Lens.Lens' UpdateMaintenanceWindow (Prelude.Maybe Prelude.Text)
 updateMaintenanceWindow_startDate = Lens.lens (\UpdateMaintenanceWindow' {startDate} -> startDate) (\s@UpdateMaintenanceWindow' {} a -> s {startDate = a} :: UpdateMaintenanceWindow)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Query inventory information. This includes instance status, such as
+-- Query inventory information. This includes managed node status, such as
 -- @Stopped@ or @Terminated@.
 --
 -- This operation returns paginated results.
@@ -67,7 +67,7 @@ data GetInventory = GetInventory'
     -- | Returns counts of inventory types based on one or more expressions. For
     -- example, if you aggregate by using an expression that uses the
     -- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
-    -- many Windows and Linux instances exist in your inventoried fleet.
+    -- many Windows and Linux managed nodes exist in your inventoried fleet.
     aggregators :: Prelude.Maybe (Prelude.NonEmpty InventoryAggregator),
     -- | The maximum number of items to return for this call. The call also
     -- returns a token that you can specify in a subsequent call to get the
@@ -95,7 +95,7 @@ data GetInventory = GetInventory'
 -- 'aggregators', 'getInventory_aggregators' - Returns counts of inventory types based on one or more expressions. For
 -- example, if you aggregate by using an expression that uses the
 -- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
--- many Windows and Linux instances exist in your inventoried fleet.
+-- many Windows and Linux managed nodes exist in your inventoried fleet.
 --
 -- 'maxResults', 'getInventory_maxResults' - The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
@@ -128,7 +128,7 @@ getInventory_filters = Lens.lens (\GetInventory' {filters} -> filters) (\s@GetIn
 -- | Returns counts of inventory types based on one or more expressions. For
 -- example, if you aggregate by using an expression that uses the
 -- @AWS:InstanceInformation.PlatformType@ type, you can see a count of how
--- many Windows and Linux instances exist in your inventoried fleet.
+-- many Windows and Linux managed nodes exist in your inventoried fleet.
 getInventory_aggregators :: Lens.Lens' GetInventory (Prelude.Maybe (Prelude.NonEmpty InventoryAggregator))
 getInventory_aggregators = Lens.lens (\GetInventory' {aggregators} -> aggregators) (\s@GetInventory' {} a -> s {aggregators = a} :: GetInventory) Prelude.. Lens.mapping Lens.coerced
 
@@ -219,7 +219,7 @@ instance Core.ToQuery GetInventory where
 
 -- | /See:/ 'newGetInventoryResponse' smart constructor.
 data GetInventoryResponse = GetInventoryResponse'
-  { -- | Collection of inventory entities such as a collection of instance
+  { -- | Collection of inventory entities such as a collection of managed node
     -- inventory.
     entities :: Prelude.Maybe [InventoryResultEntity],
     -- | The token to use when requesting the next set of items. If there are no
@@ -238,7 +238,7 @@ data GetInventoryResponse = GetInventoryResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'entities', 'getInventoryResponse_entities' - Collection of inventory entities such as a collection of instance
+-- 'entities', 'getInventoryResponse_entities' - Collection of inventory entities such as a collection of managed node
 -- inventory.
 --
 -- 'nextToken', 'getInventoryResponse_nextToken' - The token to use when requesting the next set of items. If there are no
@@ -256,7 +256,7 @@ newGetInventoryResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Collection of inventory entities such as a collection of instance
+-- | Collection of inventory entities such as a collection of managed node
 -- inventory.
 getInventoryResponse_entities :: Lens.Lens' GetInventoryResponse (Prelude.Maybe [InventoryResultEntity])
 getInventoryResponse_entities = Lens.lens (\GetInventoryResponse' {entities} -> entities) (\s@GetInventoryResponse' {} a -> s {entities = a} :: GetInventoryResponse) Prelude.. Lens.mapping Lens.coerced

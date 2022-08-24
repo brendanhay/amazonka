@@ -20,17 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more of your instances, including information about the
--- operating system platform, the version of SSM Agent installed on the
--- instance, instance status, and so on.
+-- Describes one or more of your managed nodes, including information about
+-- the operating system platform, the version of SSM Agent installed on the
+-- managed node, node status, and so on.
 --
--- If you specify one or more instance IDs, it returns information for
--- those instances. If you don\'t specify instance IDs, it returns
--- information for all your instances. If you specify an instance ID that
--- isn\'t valid or an instance that you don\'t own, you receive an error.
+-- If you specify one or more managed node IDs, it returns information for
+-- those managed nodes. If you don\'t specify node IDs, it returns
+-- information for all your managed nodes. If you specify a node ID that
+-- isn\'t valid or a node that you don\'t own, you receive an error.
 --
 -- The @IamRole@ field for this API operation is the Identity and Access
--- Management (IAM) role assigned to on-premises instances. This call
+-- Management (IAM) role assigned to on-premises managed nodes. This call
 -- doesn\'t return the IAM role for EC2 instances.
 --
 -- This operation returns paginated results.
@@ -69,8 +69,8 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more filters. Use a filter to return a more specific list of
-    -- instances. You can filter based on tags applied to EC2 instances. Use
-    -- this @Filters@ data type instead of @InstanceInformationFilterList@,
+    -- managed nodes. You can filter based on tags applied to EC2 instances.
+    -- Use this @Filters@ data type instead of @InstanceInformationFilterList@,
     -- which is deprecated.
     filters :: Prelude.Maybe [InstanceInformationStringFilter],
     -- | The maximum number of items to return for this call. The call also
@@ -79,8 +79,7 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | This is a legacy method. We recommend that you don\'t use this method.
     -- Instead, use the @Filters@ data type. @Filters@ enables you to return
-    -- instance information by filtering based on tags applied to managed
-    -- instances.
+    -- node information by filtering based on tags applied to managed nodes.
     --
     -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
     -- an exception error.
@@ -100,8 +99,8 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 -- from a previous call.)
 --
 -- 'filters', 'describeInstanceInformation_filters' - One or more filters. Use a filter to return a more specific list of
--- instances. You can filter based on tags applied to EC2 instances. Use
--- this @Filters@ data type instead of @InstanceInformationFilterList@,
+-- managed nodes. You can filter based on tags applied to EC2 instances.
+-- Use this @Filters@ data type instead of @InstanceInformationFilterList@,
 -- which is deprecated.
 --
 -- 'maxResults', 'describeInstanceInformation_maxResults' - The maximum number of items to return for this call. The call also
@@ -110,8 +109,7 @@ data DescribeInstanceInformation = DescribeInstanceInformation'
 --
 -- 'instanceInformationFilterList', 'describeInstanceInformation_instanceInformationFilterList' - This is a legacy method. We recommend that you don\'t use this method.
 -- Instead, use the @Filters@ data type. @Filters@ enables you to return
--- instance information by filtering based on tags applied to managed
--- instances.
+-- node information by filtering based on tags applied to managed nodes.
 --
 -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
 -- an exception error.
@@ -133,8 +131,8 @@ describeInstanceInformation_nextToken :: Lens.Lens' DescribeInstanceInformation 
 describeInstanceInformation_nextToken = Lens.lens (\DescribeInstanceInformation' {nextToken} -> nextToken) (\s@DescribeInstanceInformation' {} a -> s {nextToken = a} :: DescribeInstanceInformation)
 
 -- | One or more filters. Use a filter to return a more specific list of
--- instances. You can filter based on tags applied to EC2 instances. Use
--- this @Filters@ data type instead of @InstanceInformationFilterList@,
+-- managed nodes. You can filter based on tags applied to EC2 instances.
+-- Use this @Filters@ data type instead of @InstanceInformationFilterList@,
 -- which is deprecated.
 describeInstanceInformation_filters :: Lens.Lens' DescribeInstanceInformation (Prelude.Maybe [InstanceInformationStringFilter])
 describeInstanceInformation_filters = Lens.lens (\DescribeInstanceInformation' {filters} -> filters) (\s@DescribeInstanceInformation' {} a -> s {filters = a} :: DescribeInstanceInformation) Prelude.. Lens.mapping Lens.coerced
@@ -147,8 +145,7 @@ describeInstanceInformation_maxResults = Lens.lens (\DescribeInstanceInformation
 
 -- | This is a legacy method. We recommend that you don\'t use this method.
 -- Instead, use the @Filters@ data type. @Filters@ enables you to return
--- instance information by filtering based on tags applied to managed
--- instances.
+-- node information by filtering based on tags applied to managed nodes.
 --
 -- Attempting to use @InstanceInformationFilterList@ and @Filters@ leads to
 -- an exception error.
@@ -245,7 +242,7 @@ data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The instance information list.
+    -- | The managed node information list.
     instanceInformationList :: Prelude.Maybe [InstanceInformation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -263,7 +260,7 @@ data DescribeInstanceInformationResponse = DescribeInstanceInformationResponse'
 -- 'nextToken', 'describeInstanceInformationResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 --
--- 'instanceInformationList', 'describeInstanceInformationResponse_instanceInformationList' - The instance information list.
+-- 'instanceInformationList', 'describeInstanceInformationResponse_instanceInformationList' - The managed node information list.
 --
 -- 'httpStatus', 'describeInstanceInformationResponse_httpStatus' - The response's http status code.
 newDescribeInstanceInformationResponse ::
@@ -284,7 +281,7 @@ newDescribeInstanceInformationResponse pHttpStatus_ =
 describeInstanceInformationResponse_nextToken :: Lens.Lens' DescribeInstanceInformationResponse (Prelude.Maybe Prelude.Text)
 describeInstanceInformationResponse_nextToken = Lens.lens (\DescribeInstanceInformationResponse' {nextToken} -> nextToken) (\s@DescribeInstanceInformationResponse' {} a -> s {nextToken = a} :: DescribeInstanceInformationResponse)
 
--- | The instance information list.
+-- | The managed node information list.
 describeInstanceInformationResponse_instanceInformationList :: Lens.Lens' DescribeInstanceInformationResponse (Prelude.Maybe [InstanceInformation])
 describeInstanceInformationResponse_instanceInformationList = Lens.lens (\DescribeInstanceInformationResponse' {instanceInformationList} -> instanceInformationList) (\s@DescribeInstanceInformationResponse' {} a -> s {instanceInformationList = a} :: DescribeInstanceInformationResponse) Prelude.. Lens.mapping Lens.coerced
 

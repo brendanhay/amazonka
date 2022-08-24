@@ -76,11 +76,13 @@ data ResetServiceSetting = ResetServiceSetting'
     --
     -- -   @\/ssm\/documents\/console\/public-sharing-permission@
     --
+    -- -   @\/ssm\/managed-instance\/activation-tier@
+    --
+    -- -   @\/ssm\/opsinsights\/opscenter@
+    --
     -- -   @\/ssm\/parameter-store\/default-parameter-tier@
     --
     -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
-    --
-    -- -   @\/ssm\/managed-instance\/activation-tier@
     settingId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -102,11 +104,13 @@ data ResetServiceSetting = ResetServiceSetting'
 --
 -- -   @\/ssm\/documents\/console\/public-sharing-permission@
 --
+-- -   @\/ssm\/managed-instance\/activation-tier@
+--
+-- -   @\/ssm\/opsinsights\/opscenter@
+--
 -- -   @\/ssm\/parameter-store\/default-parameter-tier@
 --
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
---
--- -   @\/ssm\/managed-instance\/activation-tier@
 newResetServiceSetting ::
   -- | 'settingId'
   Prelude.Text ->
@@ -123,11 +127,13 @@ newResetServiceSetting pSettingId_ =
 --
 -- -   @\/ssm\/documents\/console\/public-sharing-permission@
 --
+-- -   @\/ssm\/managed-instance\/activation-tier@
+--
+-- -   @\/ssm\/opsinsights\/opscenter@
+--
 -- -   @\/ssm\/parameter-store\/default-parameter-tier@
 --
 -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
---
--- -   @\/ssm\/managed-instance\/activation-tier@
 resetServiceSetting_settingId :: Lens.Lens' ResetServiceSetting Prelude.Text
 resetServiceSetting_settingId = Lens.lens (\ResetServiceSetting' {settingId} -> settingId) (\s@ResetServiceSetting' {} a -> s {settingId = a} :: ResetServiceSetting)
 

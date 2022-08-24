@@ -35,17 +35,17 @@ data Patch = Patch'
     product :: Prelude.Maybe Prelude.Text,
     -- | The severity level of the patch. For example, @CRITICAL@ or @MODERATE@.
     severity :: Prelude.Maybe Prelude.Text,
-    -- | The name of the patch. Applies to Linux-based instances only.
+    -- | The name of the patch. Applies to Linux-based managed nodes only.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to
-    -- Linux-based instances only.
+    -- Linux-based managed nodes only.
     advisoryIds :: Prelude.Maybe [Prelude.Text],
     -- | The severity of the patch, such as @Critical@, @Important@, or
     -- @Moderate@. Applies to Windows patches only.
     msrcSeverity :: Prelude.Maybe Prelude.Text,
     -- | The source patch repository for the operating system and version, such
     -- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@
-    -- for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
+    -- for Ubuntu Server 20.04 LTE. Applies to Linux-based managed nodes only.
     repository :: Prelude.Maybe Prelude.Text,
     -- | The date the patch was released.
     releaseDate :: Prelude.Maybe Core.POSIX,
@@ -59,20 +59,20 @@ data Patch = Patch'
     -- | The description of the patch.
     description :: Prelude.Maybe Prelude.Text,
     -- | The Bugzilla ID of the patch. For example, @1600646@. Applies to
-    -- Linux-based instances only.
+    -- Linux-based managed nodes only.
     bugzillaIds :: Prelude.Maybe [Prelude.Text],
     -- | The title of the patch.
     title :: Prelude.Maybe Prelude.Text,
     -- | The architecture of the patch. For example, in
     -- @example-pkg-0.710.10-2.7.abcd.x86_64@, the architecture is indicated by
-    -- @x86_64@. Applies to Linux-based instances only.
+    -- @x86_64@. Applies to Linux-based managed nodes only.
     arch :: Prelude.Maybe Prelude.Text,
     -- | The epoch of the patch. For example in
     -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the epoch value is
-    -- @20180914-2@. Applies to Linux-based instances only.
+    -- @20180914-2@. Applies to Linux-based managed nodes only.
     epoch :: Prelude.Maybe Prelude.Int,
     -- | The Common Vulnerabilities and Exposures (CVE) ID of the patch. For
-    -- example, @CVE-2011-3192@. Applies to Linux-based instances only.
+    -- example, @CVE-2011-3192@. Applies to Linux-based managed nodes only.
     cVEIds :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the Microsoft Security Response Center (MSRC) bulletin the
     -- patch is related to. For example, @MS14-045@. Applies to Windows patches
@@ -80,7 +80,7 @@ data Patch = Patch'
     msrcNumber :: Prelude.Maybe Prelude.Text,
     -- | The particular release of a patch. For example, in
     -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the release is @2.amaz1@.
-    -- Applies to Linux-based instances only.
+    -- Applies to Linux-based managed nodes only.
     release :: Prelude.Maybe Prelude.Text,
     -- | The language of the patch if it\'s language-specific.
     language :: Prelude.Maybe Prelude.Text,
@@ -88,7 +88,7 @@ data Patch = Patch'
     vendor :: Prelude.Maybe Prelude.Text,
     -- | The version number of the patch. For example, in
     -- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
-    -- by @-1@. Applies to Linux-based instances only.
+    -- by @-1@. Applies to Linux-based managed nodes only.
     version :: Prelude.Maybe Prelude.Text,
     -- | The URL where more information can be obtained about the patch.
     contentUrl :: Prelude.Maybe Prelude.Text,
@@ -114,17 +114,17 @@ data Patch = Patch'
 --
 -- 'severity', 'patch_severity' - The severity level of the patch. For example, @CRITICAL@ or @MODERATE@.
 --
--- 'name', 'patch_name' - The name of the patch. Applies to Linux-based instances only.
+-- 'name', 'patch_name' - The name of the patch. Applies to Linux-based managed nodes only.
 --
 -- 'advisoryIds', 'patch_advisoryIds' - The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to
--- Linux-based instances only.
+-- Linux-based managed nodes only.
 --
 -- 'msrcSeverity', 'patch_msrcSeverity' - The severity of the patch, such as @Critical@, @Important@, or
 -- @Moderate@. Applies to Windows patches only.
 --
 -- 'repository', 'patch_repository' - The source patch repository for the operating system and version, such
 -- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@
--- for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
+-- for Ubuntu Server 20.04 LTE. Applies to Linux-based managed nodes only.
 --
 -- 'releaseDate', 'patch_releaseDate' - The date the patch was released.
 --
@@ -138,20 +138,20 @@ data Patch = Patch'
 -- 'description', 'patch_description' - The description of the patch.
 --
 -- 'bugzillaIds', 'patch_bugzillaIds' - The Bugzilla ID of the patch. For example, @1600646@. Applies to
--- Linux-based instances only.
+-- Linux-based managed nodes only.
 --
 -- 'title', 'patch_title' - The title of the patch.
 --
 -- 'arch', 'patch_arch' - The architecture of the patch. For example, in
 -- @example-pkg-0.710.10-2.7.abcd.x86_64@, the architecture is indicated by
--- @x86_64@. Applies to Linux-based instances only.
+-- @x86_64@. Applies to Linux-based managed nodes only.
 --
 -- 'epoch', 'patch_epoch' - The epoch of the patch. For example in
 -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the epoch value is
--- @20180914-2@. Applies to Linux-based instances only.
+-- @20180914-2@. Applies to Linux-based managed nodes only.
 --
 -- 'cVEIds', 'patch_cVEIds' - The Common Vulnerabilities and Exposures (CVE) ID of the patch. For
--- example, @CVE-2011-3192@. Applies to Linux-based instances only.
+-- example, @CVE-2011-3192@. Applies to Linux-based managed nodes only.
 --
 -- 'msrcNumber', 'patch_msrcNumber' - The ID of the Microsoft Security Response Center (MSRC) bulletin the
 -- patch is related to. For example, @MS14-045@. Applies to Windows patches
@@ -159,7 +159,7 @@ data Patch = Patch'
 --
 -- 'release', 'patch_release' - The particular release of a patch. For example, in
 -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the release is @2.amaz1@.
--- Applies to Linux-based instances only.
+-- Applies to Linux-based managed nodes only.
 --
 -- 'language', 'patch_language' - The language of the patch if it\'s language-specific.
 --
@@ -167,7 +167,7 @@ data Patch = Patch'
 --
 -- 'version', 'patch_version' - The version number of the patch. For example, in
 -- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
--- by @-1@. Applies to Linux-based instances only.
+-- by @-1@. Applies to Linux-based managed nodes only.
 --
 -- 'contentUrl', 'patch_contentUrl' - The URL where more information can be obtained about the patch.
 --
@@ -216,12 +216,12 @@ patch_product = Lens.lens (\Patch' {product} -> product) (\s@Patch' {} a -> s {p
 patch_severity :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_severity = Lens.lens (\Patch' {severity} -> severity) (\s@Patch' {} a -> s {severity = a} :: Patch)
 
--- | The name of the patch. Applies to Linux-based instances only.
+-- | The name of the patch. Applies to Linux-based managed nodes only.
 patch_name :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_name = Lens.lens (\Patch' {name} -> name) (\s@Patch' {} a -> s {name = a} :: Patch)
 
 -- | The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to
--- Linux-based instances only.
+-- Linux-based managed nodes only.
 patch_advisoryIds :: Lens.Lens' Patch (Prelude.Maybe [Prelude.Text])
 patch_advisoryIds = Lens.lens (\Patch' {advisoryIds} -> advisoryIds) (\s@Patch' {} a -> s {advisoryIds = a} :: Patch) Prelude.. Lens.mapping Lens.coerced
 
@@ -232,7 +232,7 @@ patch_msrcSeverity = Lens.lens (\Patch' {msrcSeverity} -> msrcSeverity) (\s@Patc
 
 -- | The source patch repository for the operating system and version, such
 -- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@
--- for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
+-- for Ubuntu Server 20.04 LTE. Applies to Linux-based managed nodes only.
 patch_repository :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_repository = Lens.lens (\Patch' {repository} -> repository) (\s@Patch' {} a -> s {repository = a} :: Patch)
 
@@ -256,7 +256,7 @@ patch_description :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_description = Lens.lens (\Patch' {description} -> description) (\s@Patch' {} a -> s {description = a} :: Patch)
 
 -- | The Bugzilla ID of the patch. For example, @1600646@. Applies to
--- Linux-based instances only.
+-- Linux-based managed nodes only.
 patch_bugzillaIds :: Lens.Lens' Patch (Prelude.Maybe [Prelude.Text])
 patch_bugzillaIds = Lens.lens (\Patch' {bugzillaIds} -> bugzillaIds) (\s@Patch' {} a -> s {bugzillaIds = a} :: Patch) Prelude.. Lens.mapping Lens.coerced
 
@@ -266,18 +266,18 @@ patch_title = Lens.lens (\Patch' {title} -> title) (\s@Patch' {} a -> s {title =
 
 -- | The architecture of the patch. For example, in
 -- @example-pkg-0.710.10-2.7.abcd.x86_64@, the architecture is indicated by
--- @x86_64@. Applies to Linux-based instances only.
+-- @x86_64@. Applies to Linux-based managed nodes only.
 patch_arch :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_arch = Lens.lens (\Patch' {arch} -> arch) (\s@Patch' {} a -> s {arch = a} :: Patch)
 
 -- | The epoch of the patch. For example in
 -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the epoch value is
--- @20180914-2@. Applies to Linux-based instances only.
+-- @20180914-2@. Applies to Linux-based managed nodes only.
 patch_epoch :: Lens.Lens' Patch (Prelude.Maybe Prelude.Int)
 patch_epoch = Lens.lens (\Patch' {epoch} -> epoch) (\s@Patch' {} a -> s {epoch = a} :: Patch)
 
 -- | The Common Vulnerabilities and Exposures (CVE) ID of the patch. For
--- example, @CVE-2011-3192@. Applies to Linux-based instances only.
+-- example, @CVE-2011-3192@. Applies to Linux-based managed nodes only.
 patch_cVEIds :: Lens.Lens' Patch (Prelude.Maybe [Prelude.Text])
 patch_cVEIds = Lens.lens (\Patch' {cVEIds} -> cVEIds) (\s@Patch' {} a -> s {cVEIds = a} :: Patch) Prelude.. Lens.mapping Lens.coerced
 
@@ -289,7 +289,7 @@ patch_msrcNumber = Lens.lens (\Patch' {msrcNumber} -> msrcNumber) (\s@Patch' {} 
 
 -- | The particular release of a patch. For example, in
 -- @pkg-example-EE-20180914-2.2.amzn1.noarch@, the release is @2.amaz1@.
--- Applies to Linux-based instances only.
+-- Applies to Linux-based managed nodes only.
 patch_release :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_release = Lens.lens (\Patch' {release} -> release) (\s@Patch' {} a -> s {release = a} :: Patch)
 
@@ -303,7 +303,7 @@ patch_vendor = Lens.lens (\Patch' {vendor} -> vendor) (\s@Patch' {} a -> s {vend
 
 -- | The version number of the patch. For example, in
 -- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
--- by @-1@. Applies to Linux-based instances only.
+-- by @-1@. Applies to Linux-based managed nodes only.
 patch_version :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_version = Lens.lens (\Patch' {version} -> version) (\s@Patch' {} a -> s {version = a} :: Patch)
 

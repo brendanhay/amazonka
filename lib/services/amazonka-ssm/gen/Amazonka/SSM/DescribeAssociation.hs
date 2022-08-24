@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the association for the specified target or instance. If you
--- created the association by using the @Targets@ parameter, then you must
--- retrieve the association by using the association ID.
+-- Describes the association for the specified target or managed node. If
+-- you created the association by using the @Targets@ parameter, then you
+-- must retrieve the association by using the association ID.
 module Amazonka.SSM.DescribeAssociation
   ( -- * Creating a Request
     DescribeAssociation (..),
@@ -57,11 +57,11 @@ data DescribeAssociation = DescribeAssociation'
     name :: Prelude.Maybe Prelude.Text,
     -- | Specify the association version to retrieve. To view the latest version,
     -- either specify @$LATEST@ for this parameter, or omit this parameter. To
-    -- view a list of all associations for an instance, use ListAssociations.
-    -- To get a list of versions for a specific association, use
-    -- ListAssociationVersions.
+    -- view a list of all associations for a managed node, use
+    -- ListAssociations. To get a list of versions for a specific association,
+    -- use ListAssociationVersions.
     associationVersion :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID.
+    -- | The managed node ID.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The association ID for which you want information.
     associationId :: Prelude.Maybe Prelude.Text
@@ -80,11 +80,11 @@ data DescribeAssociation = DescribeAssociation'
 --
 -- 'associationVersion', 'describeAssociation_associationVersion' - Specify the association version to retrieve. To view the latest version,
 -- either specify @$LATEST@ for this parameter, or omit this parameter. To
--- view a list of all associations for an instance, use ListAssociations.
--- To get a list of versions for a specific association, use
--- ListAssociationVersions.
+-- view a list of all associations for a managed node, use
+-- ListAssociations. To get a list of versions for a specific association,
+-- use ListAssociationVersions.
 --
--- 'instanceId', 'describeAssociation_instanceId' - The instance ID.
+-- 'instanceId', 'describeAssociation_instanceId' - The managed node ID.
 --
 -- 'associationId', 'describeAssociation_associationId' - The association ID for which you want information.
 newDescribeAssociation ::
@@ -103,13 +103,13 @@ describeAssociation_name = Lens.lens (\DescribeAssociation' {name} -> name) (\s@
 
 -- | Specify the association version to retrieve. To view the latest version,
 -- either specify @$LATEST@ for this parameter, or omit this parameter. To
--- view a list of all associations for an instance, use ListAssociations.
--- To get a list of versions for a specific association, use
--- ListAssociationVersions.
+-- view a list of all associations for a managed node, use
+-- ListAssociations. To get a list of versions for a specific association,
+-- use ListAssociationVersions.
 describeAssociation_associationVersion :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
 describeAssociation_associationVersion = Lens.lens (\DescribeAssociation' {associationVersion} -> associationVersion) (\s@DescribeAssociation' {} a -> s {associationVersion = a} :: DescribeAssociation)
 
--- | The instance ID.
+-- | The managed node ID.
 describeAssociation_instanceId :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
 describeAssociation_instanceId = Lens.lens (\DescribeAssociation' {instanceId} -> instanceId) (\s@DescribeAssociation' {} a -> s {instanceId = a} :: DescribeAssociation)
 
@@ -184,7 +184,7 @@ data DescribeAssociationResponse = DescribeAssociationResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'DescribeAssociationResponse' with all optional fields omitted.

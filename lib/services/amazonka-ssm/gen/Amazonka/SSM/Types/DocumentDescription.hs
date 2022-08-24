@@ -34,7 +34,8 @@ import Amazonka.SSM.Types.ReviewInformation
 import Amazonka.SSM.Types.ReviewStatus
 import Amazonka.SSM.Types.Tag
 
--- | Describes a Amazon Web Services Systems Manager document (SSM document).
+-- | Describes an Amazon Web Services Systems Manager document (SSM
+-- document).
 --
 -- /See:/ 'newDocumentDescription' smart constructor.
 data DocumentDescription = DocumentDescription'
@@ -86,13 +87,19 @@ data DocumentDescription = DocumentDescription'
     versionName :: Prelude.Maybe Prelude.Text,
     -- | Details about the review of a document.
     reviewInformation :: Prelude.Maybe (Prelude.NonEmpty ReviewInformation),
-    -- | The list of OS platforms compatible with this SSM document.
+    -- | The list of operating system (OS) platforms compatible with this SSM
+    -- document.
     platformTypes :: Prelude.Maybe [PlatformType],
+    -- | The value that identifies a document\'s category.
+    categoryEnum :: Prelude.Maybe [Prelude.Text],
     -- | A message returned by Amazon Web Services Systems Manager that explains
     -- the @Status@ value. For example, a @Failed@ status might be explained by
     -- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
     -- exist. Verify that the URL of the S3 bucket is correct.\"
     statusInformation :: Prelude.Maybe Prelude.Text,
+    -- | The classification of a document to help you identify and categorize its
+    -- use.
+    category :: Prelude.Maybe [Prelude.Text],
     -- | The schema version.
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The date when the document was created.
@@ -171,12 +178,18 @@ data DocumentDescription = DocumentDescription'
 --
 -- 'reviewInformation', 'documentDescription_reviewInformation' - Details about the review of a document.
 --
--- 'platformTypes', 'documentDescription_platformTypes' - The list of OS platforms compatible with this SSM document.
+-- 'platformTypes', 'documentDescription_platformTypes' - The list of operating system (OS) platforms compatible with this SSM
+-- document.
+--
+-- 'categoryEnum', 'documentDescription_categoryEnum' - The value that identifies a document\'s category.
 --
 -- 'statusInformation', 'documentDescription_statusInformation' - A message returned by Amazon Web Services Systems Manager that explains
 -- the @Status@ value. For example, a @Failed@ status might be explained by
 -- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
 -- exist. Verify that the URL of the S3 bucket is correct.\"
+--
+-- 'category', 'documentDescription_category' - The classification of a document to help you identify and categorize its
+-- use.
 --
 -- 'schemaVersion', 'documentDescription_schemaVersion' - The schema version.
 --
@@ -219,7 +232,9 @@ newDocumentDescription =
       versionName = Prelude.Nothing,
       reviewInformation = Prelude.Nothing,
       platformTypes = Prelude.Nothing,
+      categoryEnum = Prelude.Nothing,
       statusInformation = Prelude.Nothing,
+      category = Prelude.Nothing,
       schemaVersion = Prelude.Nothing,
       createdDate = Prelude.Nothing,
       approvedVersion = Prelude.Nothing,
@@ -314,9 +329,14 @@ documentDescription_versionName = Lens.lens (\DocumentDescription' {versionName}
 documentDescription_reviewInformation :: Lens.Lens' DocumentDescription (Prelude.Maybe (Prelude.NonEmpty ReviewInformation))
 documentDescription_reviewInformation = Lens.lens (\DocumentDescription' {reviewInformation} -> reviewInformation) (\s@DocumentDescription' {} a -> s {reviewInformation = a} :: DocumentDescription) Prelude.. Lens.mapping Lens.coerced
 
--- | The list of OS platforms compatible with this SSM document.
+-- | The list of operating system (OS) platforms compatible with this SSM
+-- document.
 documentDescription_platformTypes :: Lens.Lens' DocumentDescription (Prelude.Maybe [PlatformType])
 documentDescription_platformTypes = Lens.lens (\DocumentDescription' {platformTypes} -> platformTypes) (\s@DocumentDescription' {} a -> s {platformTypes = a} :: DocumentDescription) Prelude.. Lens.mapping Lens.coerced
+
+-- | The value that identifies a document\'s category.
+documentDescription_categoryEnum :: Lens.Lens' DocumentDescription (Prelude.Maybe [Prelude.Text])
+documentDescription_categoryEnum = Lens.lens (\DocumentDescription' {categoryEnum} -> categoryEnum) (\s@DocumentDescription' {} a -> s {categoryEnum = a} :: DocumentDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | A message returned by Amazon Web Services Systems Manager that explains
 -- the @Status@ value. For example, a @Failed@ status might be explained by
@@ -324,6 +344,11 @@ documentDescription_platformTypes = Lens.lens (\DocumentDescription' {platformTy
 -- exist. Verify that the URL of the S3 bucket is correct.\"
 documentDescription_statusInformation :: Lens.Lens' DocumentDescription (Prelude.Maybe Prelude.Text)
 documentDescription_statusInformation = Lens.lens (\DocumentDescription' {statusInformation} -> statusInformation) (\s@DocumentDescription' {} a -> s {statusInformation = a} :: DocumentDescription)
+
+-- | The classification of a document to help you identify and categorize its
+-- use.
+documentDescription_category :: Lens.Lens' DocumentDescription (Prelude.Maybe [Prelude.Text])
+documentDescription_category = Lens.lens (\DocumentDescription' {category} -> category) (\s@DocumentDescription' {} a -> s {category = a} :: DocumentDescription) Prelude.. Lens.mapping Lens.coerced
 
 -- | The schema version.
 documentDescription_schemaVersion :: Lens.Lens' DocumentDescription (Prelude.Maybe Prelude.Text)
@@ -387,7 +412,9 @@ instance Core.FromJSON DocumentDescription where
             Prelude.<*> (x Core..:? "VersionName")
             Prelude.<*> (x Core..:? "ReviewInformation")
             Prelude.<*> (x Core..:? "PlatformTypes" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CategoryEnum" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "StatusInformation")
+            Prelude.<*> (x Core..:? "Category" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SchemaVersion")
             Prelude.<*> (x Core..:? "CreatedDate")
             Prelude.<*> (x Core..:? "ApprovedVersion")
@@ -419,7 +446,9 @@ instance Prelude.Hashable DocumentDescription where
       `Prelude.hashWithSalt` versionName
       `Prelude.hashWithSalt` reviewInformation
       `Prelude.hashWithSalt` platformTypes
+      `Prelude.hashWithSalt` categoryEnum
       `Prelude.hashWithSalt` statusInformation
+      `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` schemaVersion
       `Prelude.hashWithSalt` createdDate
       `Prelude.hashWithSalt` approvedVersion
@@ -450,14 +479,20 @@ instance Prelude.NFData DocumentDescription where
       `Prelude.seq` Prelude.rnf versionName
       `Prelude.seq` Prelude.rnf reviewInformation
       `Prelude.seq` Prelude.rnf platformTypes
-      `Prelude.seq` Prelude.rnf statusInformation
-      `Prelude.seq` Prelude.rnf schemaVersion
-      `Prelude.seq` Prelude.rnf createdDate
+      `Prelude.seq` Prelude.rnf categoryEnum
+      `Prelude.seq` Prelude.rnf
+        statusInformation
+      `Prelude.seq` Prelude.rnf category
+      `Prelude.seq` Prelude.rnf
+        schemaVersion
+      `Prelude.seq` Prelude.rnf
+        createdDate
       `Prelude.seq` Prelude.rnf
         approvedVersion
       `Prelude.seq` Prelude.rnf
         reviewStatus
-      `Prelude.seq` Prelude.rnf hashType
+      `Prelude.seq` Prelude.rnf
+        hashType
       `Prelude.seq` Prelude.rnf
         documentFormat
       `Prelude.seq` Prelude.rnf

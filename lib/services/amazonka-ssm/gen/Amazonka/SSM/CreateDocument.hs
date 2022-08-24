@@ -22,7 +22,7 @@
 --
 -- Creates a Amazon Web Services Systems Manager (SSM document). An SSM
 -- document defines the actions that Systems Manager performs on your
--- managed instances. For more information about SSM documents, including
+-- managed nodes. For more information about SSM documents, including
 -- information about supported schemas, features, and syntax, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html Amazon Web Services Systems Manager Documents>
 -- in the /Amazon Web Services Systems Manager User Guide/.
@@ -85,6 +85,9 @@ data CreateDocument = CreateDocument'
     -- in the /AppConfig User Guide/.
     requires :: Prelude.Maybe (Prelude.NonEmpty DocumentRequires),
     -- | The type of document to create.
+    --
+    -- The @DeploymentStrategy@ document type is an internal-use-only document
+    -- type reserved for AppConfig.
     documentType :: Prelude.Maybe DocumentType,
     -- | An optional field where you can specify a friendly name for the SSM
     -- document. This value can differ for each version of the document. You
@@ -104,9 +107,8 @@ data CreateDocument = CreateDocument'
     -- document.
     attachments :: Prelude.Maybe [AttachmentsSource],
     -- | An optional field specifying the version of the artifact you are
-    -- creating with the document. For example, \"Release 12, Update 6\". This
-    -- value is unique across all versions of a document, and can\'t be
-    -- changed.
+    -- creating with the document. For example, @Release12.1@. This value is
+    -- unique across all versions of a document, and can\'t be changed.
     versionName :: Prelude.Maybe Prelude.Text,
     -- | Specify the document format for the request. The document format can be
     -- JSON, YAML, or TEXT. JSON is the default format.
@@ -170,6 +172,9 @@ data CreateDocument = CreateDocument'
 --
 -- 'documentType', 'createDocument_documentType' - The type of document to create.
 --
+-- The @DeploymentStrategy@ document type is an internal-use-only document
+-- type reserved for AppConfig.
+--
 -- 'displayName', 'createDocument_displayName' - An optional field where you can specify a friendly name for the SSM
 -- document. This value can differ for each version of the document. You
 -- can update this value at a later time using the UpdateDocument
@@ -188,9 +193,8 @@ data CreateDocument = CreateDocument'
 -- document.
 --
 -- 'versionName', 'createDocument_versionName' - An optional field specifying the version of the artifact you are
--- creating with the document. For example, \"Release 12, Update 6\". This
--- value is unique across all versions of a document, and can\'t be
--- changed.
+-- creating with the document. For example, @Release12.1@. This value is
+-- unique across all versions of a document, and can\'t be changed.
 --
 -- 'documentFormat', 'createDocument_documentFormat' - Specify the document format for the request. The document format can be
 -- JSON, YAML, or TEXT. JSON is the default format.
@@ -265,6 +269,9 @@ createDocument_requires :: Lens.Lens' CreateDocument (Prelude.Maybe (Prelude.Non
 createDocument_requires = Lens.lens (\CreateDocument' {requires} -> requires) (\s@CreateDocument' {} a -> s {requires = a} :: CreateDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | The type of document to create.
+--
+-- The @DeploymentStrategy@ document type is an internal-use-only document
+-- type reserved for AppConfig.
 createDocument_documentType :: Lens.Lens' CreateDocument (Prelude.Maybe DocumentType)
 createDocument_documentType = Lens.lens (\CreateDocument' {documentType} -> documentType) (\s@CreateDocument' {} a -> s {documentType = a} :: CreateDocument)
 
@@ -292,9 +299,8 @@ createDocument_attachments :: Lens.Lens' CreateDocument (Prelude.Maybe [Attachme
 createDocument_attachments = Lens.lens (\CreateDocument' {attachments} -> attachments) (\s@CreateDocument' {} a -> s {attachments = a} :: CreateDocument) Prelude.. Lens.mapping Lens.coerced
 
 -- | An optional field specifying the version of the artifact you are
--- creating with the document. For example, \"Release 12, Update 6\". This
--- value is unique across all versions of a document, and can\'t be
--- changed.
+-- creating with the document. For example, @Release12.1@. This value is
+-- unique across all versions of a document, and can\'t be changed.
 createDocument_versionName :: Lens.Lens' CreateDocument (Prelude.Maybe Prelude.Text)
 createDocument_versionName = Lens.lens (\CreateDocument' {versionName} -> versionName) (\s@CreateDocument' {} a -> s {versionName = a} :: CreateDocument)
 

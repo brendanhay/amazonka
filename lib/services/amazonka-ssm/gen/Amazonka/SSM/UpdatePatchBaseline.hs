@@ -85,9 +85,9 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
     approvedPatches :: Prelude.Maybe [Prelude.Text],
     -- | Assigns a new compliance severity level to an existing patch baseline.
     approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
-    -- | Information about the patches to use to update the instances, including
-    -- target operating systems and source repositories. Applies to Linux
-    -- instances only.
+    -- | Information about the patches to use to update the managed nodes,
+    -- including target operating systems and source repositories. Applies to
+    -- Linux managed nodes only.
     sources :: Prelude.Maybe [PatchSource],
     -- | The name of the patch baseline.
     name :: Prelude.Maybe Prelude.Text,
@@ -120,8 +120,8 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
     -- in the /Amazon Web Services Systems Manager User Guide/.
     rejectedPatches :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the list of approved patches includes non-security
-    -- updates that should be applied to the instances. The default value is
-    -- @false@. Applies to Linux instances only.
+    -- updates that should be applied to the managed nodes. The default value
+    -- is @false@. Applies to Linux managed nodes only.
     approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | If True, then all fields that are required by the CreatePatchBaseline
     -- operation are also required for this API request. Optional fields that
@@ -149,9 +149,9 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
 --
 -- 'approvedPatchesComplianceLevel', 'updatePatchBaseline_approvedPatchesComplianceLevel' - Assigns a new compliance severity level to an existing patch baseline.
 --
--- 'sources', 'updatePatchBaseline_sources' - Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
+-- 'sources', 'updatePatchBaseline_sources' - Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repositories. Applies to
+-- Linux managed nodes only.
 --
 -- 'name', 'updatePatchBaseline_name' - The name of the patch baseline.
 --
@@ -184,8 +184,8 @@ data UpdatePatchBaseline = UpdatePatchBaseline'
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'approvedPatchesEnableNonSecurity', 'updatePatchBaseline_approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
+-- updates that should be applied to the managed nodes. The default value
+-- is @false@. Applies to Linux managed nodes only.
 --
 -- 'replace', 'updatePatchBaseline_replace' - If True, then all fields that are required by the CreatePatchBaseline
 -- operation are also required for this API request. Optional fields that
@@ -226,9 +226,9 @@ updatePatchBaseline_approvedPatches = Lens.lens (\UpdatePatchBaseline' {approved
 updatePatchBaseline_approvedPatchesComplianceLevel :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe PatchComplianceLevel)
 updatePatchBaseline_approvedPatchesComplianceLevel = Lens.lens (\UpdatePatchBaseline' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@UpdatePatchBaseline' {} a -> s {approvedPatchesComplianceLevel = a} :: UpdatePatchBaseline)
 
--- | Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
+-- | Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repositories. Applies to
+-- Linux managed nodes only.
 updatePatchBaseline_sources :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe [PatchSource])
 updatePatchBaseline_sources = Lens.lens (\UpdatePatchBaseline' {sources} -> sources) (\s@UpdatePatchBaseline' {} a -> s {sources = a} :: UpdatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
 
@@ -275,8 +275,8 @@ updatePatchBaseline_rejectedPatches :: Lens.Lens' UpdatePatchBaseline (Prelude.M
 updatePatchBaseline_rejectedPatches = Lens.lens (\UpdatePatchBaseline' {rejectedPatches} -> rejectedPatches) (\s@UpdatePatchBaseline' {} a -> s {rejectedPatches = a} :: UpdatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
+-- updates that should be applied to the managed nodes. The default value
+-- is @false@. Applies to Linux managed nodes only.
 updatePatchBaseline_approvedPatchesEnableNonSecurity :: Lens.Lens' UpdatePatchBaseline (Prelude.Maybe Prelude.Bool)
 updatePatchBaseline_approvedPatchesEnableNonSecurity = Lens.lens (\UpdatePatchBaseline' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@UpdatePatchBaseline' {} a -> s {approvedPatchesEnableNonSecurity = a} :: UpdatePatchBaseline)
 
@@ -404,9 +404,9 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
     -- | The compliance severity level assigned to the patch baseline after the
     -- update completed.
     approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
-    -- | Information about the patches to use to update the instances, including
-    -- target operating systems and source repositories. Applies to Linux
-    -- instances only.
+    -- | Information about the patches to use to update the managed nodes,
+    -- including target operating systems and source repositories. Applies to
+    -- Linux managed nodes only.
     sources :: Prelude.Maybe [PatchSource],
     -- | The name of the patch baseline.
     name :: Prelude.Maybe Prelude.Text,
@@ -428,8 +428,8 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
     -- | A list of explicitly rejected patches for the baseline.
     rejectedPatches :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the list of approved patches includes non-security
-    -- updates that should be applied to the instances. The default value is
-    -- @false@. Applies to Linux instances only.
+    -- updates that should be applied to the managed nodes. The default value
+    -- is @false@. Applies to Linux managed nodes only.
     approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | The date when the patch baseline was last modified.
     modifiedDate :: Prelude.Maybe Core.POSIX,
@@ -453,9 +453,9 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
 -- 'approvedPatchesComplianceLevel', 'updatePatchBaselineResponse_approvedPatchesComplianceLevel' - The compliance severity level assigned to the patch baseline after the
 -- update completed.
 --
--- 'sources', 'updatePatchBaselineResponse_sources' - Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
+-- 'sources', 'updatePatchBaselineResponse_sources' - Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repositories. Applies to
+-- Linux managed nodes only.
 --
 -- 'name', 'updatePatchBaselineResponse_name' - The name of the patch baseline.
 --
@@ -477,8 +477,8 @@ data UpdatePatchBaselineResponse = UpdatePatchBaselineResponse'
 -- 'rejectedPatches', 'updatePatchBaselineResponse_rejectedPatches' - A list of explicitly rejected patches for the baseline.
 --
 -- 'approvedPatchesEnableNonSecurity', 'updatePatchBaselineResponse_approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
+-- updates that should be applied to the managed nodes. The default value
+-- is @false@. Applies to Linux managed nodes only.
 --
 -- 'modifiedDate', 'updatePatchBaselineResponse_modifiedDate' - The date when the patch baseline was last modified.
 --
@@ -522,9 +522,9 @@ updatePatchBaselineResponse_approvedPatches = Lens.lens (\UpdatePatchBaselineRes
 updatePatchBaselineResponse_approvedPatchesComplianceLevel :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe PatchComplianceLevel)
 updatePatchBaselineResponse_approvedPatchesComplianceLevel = Lens.lens (\UpdatePatchBaselineResponse' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@UpdatePatchBaselineResponse' {} a -> s {approvedPatchesComplianceLevel = a} :: UpdatePatchBaselineResponse)
 
--- | Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
+-- | Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repositories. Applies to
+-- Linux managed nodes only.
 updatePatchBaselineResponse_sources :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe [PatchSource])
 updatePatchBaselineResponse_sources = Lens.lens (\UpdatePatchBaselineResponse' {sources} -> sources) (\s@UpdatePatchBaselineResponse' {} a -> s {sources = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -564,8 +564,8 @@ updatePatchBaselineResponse_rejectedPatches :: Lens.Lens' UpdatePatchBaselineRes
 updatePatchBaselineResponse_rejectedPatches = Lens.lens (\UpdatePatchBaselineResponse' {rejectedPatches} -> rejectedPatches) (\s@UpdatePatchBaselineResponse' {} a -> s {rejectedPatches = a} :: UpdatePatchBaselineResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
+-- updates that should be applied to the managed nodes. The default value
+-- is @false@. Applies to Linux managed nodes only.
 updatePatchBaselineResponse_approvedPatchesEnableNonSecurity :: Lens.Lens' UpdatePatchBaselineResponse (Prelude.Maybe Prelude.Bool)
 updatePatchBaselineResponse_approvedPatchesEnableNonSecurity = Lens.lens (\UpdatePatchBaselineResponse' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@UpdatePatchBaselineResponse' {} a -> s {approvedPatchesEnableNonSecurity = a} :: UpdatePatchBaselineResponse)
 

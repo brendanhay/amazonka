@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.SSM.Types.PlatformType
+-- Module      : Amazonka.SSM.Types.SourceType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.SSM.Types.PlatformType
-  ( PlatformType
+module Amazonka.SSM.Types.SourceType
+  ( SourceType
       ( ..,
-        PlatformType_Linux,
-        PlatformType_MacOS,
-        PlatformType_Windows
+        SourceType_AWS__EC2__Instance,
+        SourceType_AWS__IoT__Thing,
+        SourceType_AWS__SSM__ManagedInstance
       ),
   )
 where
@@ -30,8 +30,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype PlatformType = PlatformType'
-  { fromPlatformType ::
+newtype SourceType = SourceType'
+  { fromSourceType ::
       Core.Text
   }
   deriving stock
@@ -58,18 +58,18 @@ newtype PlatformType = PlatformType'
       Core.ToXML
     )
 
-pattern PlatformType_Linux :: PlatformType
-pattern PlatformType_Linux = PlatformType' "Linux"
+pattern SourceType_AWS__EC2__Instance :: SourceType
+pattern SourceType_AWS__EC2__Instance = SourceType' "AWS::EC2::Instance"
 
-pattern PlatformType_MacOS :: PlatformType
-pattern PlatformType_MacOS = PlatformType' "MacOS"
+pattern SourceType_AWS__IoT__Thing :: SourceType
+pattern SourceType_AWS__IoT__Thing = SourceType' "AWS::IoT::Thing"
 
-pattern PlatformType_Windows :: PlatformType
-pattern PlatformType_Windows = PlatformType' "Windows"
+pattern SourceType_AWS__SSM__ManagedInstance :: SourceType
+pattern SourceType_AWS__SSM__ManagedInstance = SourceType' "AWS::SSM::ManagedInstance"
 
 {-# COMPLETE
-  PlatformType_Linux,
-  PlatformType_MacOS,
-  PlatformType_Windows,
-  PlatformType'
+  SourceType_AWS__EC2__Instance,
+  SourceType_AWS__IoT__Thing,
+  SourceType_AWS__SSM__ManagedInstance,
+  SourceType'
   #-}

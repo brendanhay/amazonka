@@ -34,7 +34,7 @@
 -- -   ExecutionType: Specify patch, association, or Custom:@string@.
 --
 -- -   ExecutionTime. The time the patch, association, or custom compliance
---     item was applied to the instance.
+--     item was applied to the managed node.
 --
 -- -   Id: The patch, association, or custom compliance ID.
 --
@@ -43,7 +43,7 @@
 -- -   Status: The status of the compliance item. For example, @approved@
 --     for patches, or @Failed@ for associations.
 --
--- -   Severity: A patch severity. For example, @critical@.
+-- -   Severity: A patch severity. For example, @Critical@.
 --
 -- -   DocumentName: An SSM document name. For example,
 --     @AWS-RunPatchBaseline@.
@@ -113,8 +113,8 @@ data PutComplianceItems = PutComplianceItems'
     -- existing information should be overwritten or ignored. If the content
     -- hashes match, the request to put compliance information is ignored.
     itemContentHash :: Prelude.Maybe Prelude.Text,
-    -- | Specify an ID for this resource. For a managed instance, this is the
-    -- instance ID.
+    -- | Specify an ID for this resource. For a managed node, this is the node
+    -- ID.
     resourceId :: Prelude.Text,
     -- | Specify the type of resource. @ManagedInstance@ is currently the only
     -- supported resource type.
@@ -158,8 +158,8 @@ data PutComplianceItems = PutComplianceItems'
 -- existing information should be overwritten or ignored. If the content
 -- hashes match, the request to put compliance information is ignored.
 --
--- 'resourceId', 'putComplianceItems_resourceId' - Specify an ID for this resource. For a managed instance, this is the
--- instance ID.
+-- 'resourceId', 'putComplianceItems_resourceId' - Specify an ID for this resource. For a managed node, this is the node
+-- ID.
 --
 -- 'resourceType', 'putComplianceItems_resourceType' - Specify the type of resource. @ManagedInstance@ is currently the only
 -- supported resource type.
@@ -220,8 +220,8 @@ putComplianceItems_uploadType = Lens.lens (\PutComplianceItems' {uploadType} -> 
 putComplianceItems_itemContentHash :: Lens.Lens' PutComplianceItems (Prelude.Maybe Prelude.Text)
 putComplianceItems_itemContentHash = Lens.lens (\PutComplianceItems' {itemContentHash} -> itemContentHash) (\s@PutComplianceItems' {} a -> s {itemContentHash = a} :: PutComplianceItems)
 
--- | Specify an ID for this resource. For a managed instance, this is the
--- instance ID.
+-- | Specify an ID for this resource. For a managed node, this is the node
+-- ID.
 putComplianceItems_resourceId :: Lens.Lens' PutComplianceItems Prelude.Text
 putComplianceItems_resourceId = Lens.lens (\PutComplianceItems' {resourceId} -> resourceId) (\s@PutComplianceItems' {} a -> s {resourceId = a} :: PutComplianceItems)
 

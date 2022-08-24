@@ -92,8 +92,8 @@ data GetParametersByPath = GetParametersByPath'
     -- | Retrieve all parameters in a hierarchy with their value decrypted.
     withDecryption :: Prelude.Maybe Prelude.Bool,
     -- | The hierarchy for the parameter. Hierarchies start with a forward slash
-    -- (\/). The hierachy is the parameter name except the last part of the
-    -- parameter. For the API call to succeeed, the last part of the parameter
+    -- (\/). The hierarchy is the parameter name except the last part of the
+    -- parameter. For the API call to succeed, the last part of the parameter
     -- name can\'t be in the path. A parameter name hierarchy can have a
     -- maximum of 15 levels. Here is an example of a hierarchy:
     -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @
@@ -136,8 +136,8 @@ data GetParametersByPath = GetParametersByPath'
 -- 'withDecryption', 'getParametersByPath_withDecryption' - Retrieve all parameters in a hierarchy with their value decrypted.
 --
 -- 'path', 'getParametersByPath_path' - The hierarchy for the parameter. Hierarchies start with a forward slash
--- (\/). The hierachy is the parameter name except the last part of the
--- parameter. For the API call to succeeed, the last part of the parameter
+-- (\/). The hierarchy is the parameter name except the last part of the
+-- parameter. For the API call to succeed, the last part of the parameter
 -- name can\'t be in the path. A parameter name hierarchy can have a
 -- maximum of 15 levels. Here is an example of a hierarchy:
 -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @
@@ -192,8 +192,8 @@ getParametersByPath_withDecryption :: Lens.Lens' GetParametersByPath (Prelude.Ma
 getParametersByPath_withDecryption = Lens.lens (\GetParametersByPath' {withDecryption} -> withDecryption) (\s@GetParametersByPath' {} a -> s {withDecryption = a} :: GetParametersByPath)
 
 -- | The hierarchy for the parameter. Hierarchies start with a forward slash
--- (\/). The hierachy is the parameter name except the last part of the
--- parameter. For the API call to succeeed, the last part of the parameter
+-- (\/). The hierarchy is the parameter name except the last part of the
+-- parameter. For the API call to succeed, the last part of the parameter
 -- name can\'t be in the path. A parameter name hierarchy can have a
 -- maximum of 15 levels. Here is an example of a hierarchy:
 -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @

@@ -26,7 +26,9 @@ module Amazonka.SSM.Types.OperatingSystem
         OperatingSystem_DEBIAN,
         OperatingSystem_MACOS,
         OperatingSystem_ORACLE_LINUX,
+        OperatingSystem_RASPBIAN,
         OperatingSystem_REDHAT_ENTERPRISE_LINUX,
+        OperatingSystem_ROCKY_LINUX,
         OperatingSystem_SUSE,
         OperatingSystem_UBUNTU,
         OperatingSystem_WINDOWS
@@ -83,8 +85,14 @@ pattern OperatingSystem_MACOS = OperatingSystem' "MACOS"
 pattern OperatingSystem_ORACLE_LINUX :: OperatingSystem
 pattern OperatingSystem_ORACLE_LINUX = OperatingSystem' "ORACLE_LINUX"
 
+pattern OperatingSystem_RASPBIAN :: OperatingSystem
+pattern OperatingSystem_RASPBIAN = OperatingSystem' "RASPBIAN"
+
 pattern OperatingSystem_REDHAT_ENTERPRISE_LINUX :: OperatingSystem
 pattern OperatingSystem_REDHAT_ENTERPRISE_LINUX = OperatingSystem' "REDHAT_ENTERPRISE_LINUX"
+
+pattern OperatingSystem_ROCKY_LINUX :: OperatingSystem
+pattern OperatingSystem_ROCKY_LINUX = OperatingSystem' "ROCKY_LINUX"
 
 pattern OperatingSystem_SUSE :: OperatingSystem
 pattern OperatingSystem_SUSE = OperatingSystem' "SUSE"
@@ -102,7 +110,9 @@ pattern OperatingSystem_WINDOWS = OperatingSystem' "WINDOWS"
   OperatingSystem_DEBIAN,
   OperatingSystem_MACOS,
   OperatingSystem_ORACLE_LINUX,
+  OperatingSystem_RASPBIAN,
   OperatingSystem_REDHAT_ENTERPRISE_LINUX,
+  OperatingSystem_ROCKY_LINUX,
   OperatingSystem_SUSE,
   OperatingSystem_UBUNTU,
   OperatingSystem_WINDOWS,

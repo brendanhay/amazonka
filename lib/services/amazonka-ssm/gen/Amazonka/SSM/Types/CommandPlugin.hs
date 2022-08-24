@@ -41,36 +41,36 @@ data CommandPlugin = CommandPlugin'
     -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
     -- can be one of the following values:
     --
-    -- -   Pending: The command hasn\'t been sent to the instance.
+    -- -   Pending: The command hasn\'t been sent to the managed node.
     --
-    -- -   In Progress: The command has been sent to the instance but hasn\'t
-    --     reached a terminal state.
+    -- -   In Progress: The command has been sent to the managed node but
+    --     hasn\'t reached a terminal state.
     --
     -- -   Success: The execution of the command or plugin was successfully
     --     completed. This is a terminal state.
     --
-    -- -   Delivery Timed Out: The command wasn\'t delivered to the instance
-    --     before the delivery timeout expired. Delivery timeouts don\'t count
-    --     against the parent command\'s @MaxErrors@ limit, but they do
+    -- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+    --     node before the delivery timeout expired. Delivery timeouts don\'t
+    --     count against the parent command\'s @MaxErrors@ limit, but they do
     --     contribute to whether the parent command status is Success or
     --     Incomplete. This is a terminal state.
     --
-    -- -   Execution Timed Out: Command execution started on the instance, but
-    --     the execution wasn\'t complete before the execution timeout expired.
-    --     Execution timeouts count against the @MaxErrors@ limit of the parent
-    --     command. This is a terminal state.
+    -- -   Execution Timed Out: Command execution started on the managed node,
+    --     but the execution wasn\'t complete before the execution timeout
+    --     expired. Execution timeouts count against the @MaxErrors@ limit of
+    --     the parent command. This is a terminal state.
     --
-    -- -   Failed: The command wasn\'t successful on the instance. For a
+    -- -   Failed: The command wasn\'t successful on the managed node. For a
     --     plugin, this indicates that the result code wasn\'t zero. For a
     --     command invocation, this indicates that the result code for one or
     --     more plugins wasn\'t zero. Invocation failures count against the
     --     MaxErrors limit of the parent command. This is a terminal state.
     --
-    -- -   Canceled: The command was terminated before it was completed. This
+    -- -   Cancelled: The command was terminated before it was completed. This
     --     is a terminal state.
     --
-    -- -   Undeliverable: The command can\'t be delivered to the instance. The
-    --     instance might not exist, or it might not be responding.
+    -- -   Undeliverable: The command can\'t be delivered to the managed node.
+    --     The managed node might not exist, or it might not be responding.
     --     Undeliverable invocations don\'t count against the parent command\'s
     --     MaxErrors limit, and they don\'t contribute to whether the parent
     --     command status is Success or Incomplete. This is a terminal state.
@@ -105,7 +105,7 @@ data CommandPlugin = CommandPlugin'
     --
     -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
     --
-    -- @i-02573cafcfEXAMPLE@ is the instance ID;
+    -- @i-02573cafcfEXAMPLE@ is the managed node ID;
     --
     -- @awsrunShellScript@ is the name of the plugin.
     outputS3BucketName :: Prelude.Maybe Prelude.Text,
@@ -121,7 +121,7 @@ data CommandPlugin = CommandPlugin'
     --
     -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
     --
-    -- @i-02573cafcfEXAMPLE@ is the instance ID;
+    -- @i-02573cafcfEXAMPLE@ is the managed node ID;
     --
     -- @awsrunShellScript@ is the name of the plugin.
     outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
@@ -153,36 +153,36 @@ data CommandPlugin = CommandPlugin'
 -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
 -- can be one of the following values:
 --
--- -   Pending: The command hasn\'t been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the managed node.
 --
--- -   In Progress: The command has been sent to the instance but hasn\'t
---     reached a terminal state.
+-- -   In Progress: The command has been sent to the managed node but
+--     hasn\'t reached a terminal state.
 --
 -- -   Success: The execution of the command or plugin was successfully
 --     completed. This is a terminal state.
 --
--- -   Delivery Timed Out: The command wasn\'t delivered to the instance
---     before the delivery timeout expired. Delivery timeouts don\'t count
---     against the parent command\'s @MaxErrors@ limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+--     node before the delivery timeout expired. Delivery timeouts don\'t
+--     count against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
--- -   Execution Timed Out: Command execution started on the instance, but
---     the execution wasn\'t complete before the execution timeout expired.
---     Execution timeouts count against the @MaxErrors@ limit of the parent
---     command. This is a terminal state.
+-- -   Execution Timed Out: Command execution started on the managed node,
+--     but the execution wasn\'t complete before the execution timeout
+--     expired. Execution timeouts count against the @MaxErrors@ limit of
+--     the parent command. This is a terminal state.
 --
--- -   Failed: The command wasn\'t successful on the instance. For a
+-- -   Failed: The command wasn\'t successful on the managed node. For a
 --     plugin, this indicates that the result code wasn\'t zero. For a
 --     command invocation, this indicates that the result code for one or
 --     more plugins wasn\'t zero. Invocation failures count against the
 --     MaxErrors limit of the parent command. This is a terminal state.
 --
--- -   Canceled: The command was terminated before it was completed. This
+-- -   Cancelled: The command was terminated before it was completed. This
 --     is a terminal state.
 --
--- -   Undeliverable: The command can\'t be delivered to the instance. The
---     instance might not exist, or it might not be responding.
+-- -   Undeliverable: The command can\'t be delivered to the managed node.
+--     The managed node might not exist, or it might not be responding.
 --     Undeliverable invocations don\'t count against the parent command\'s
 --     MaxErrors limit, and they don\'t contribute to whether the parent
 --     command status is Success or Incomplete. This is a terminal state.
@@ -217,7 +217,7 @@ data CommandPlugin = CommandPlugin'
 --
 -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
 --
--- @i-02573cafcfEXAMPLE@ is the instance ID;
+-- @i-02573cafcfEXAMPLE@ is the managed node ID;
 --
 -- @awsrunShellScript@ is the name of the plugin.
 --
@@ -233,7 +233,7 @@ data CommandPlugin = CommandPlugin'
 --
 -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
 --
--- @i-02573cafcfEXAMPLE@ is the instance ID;
+-- @i-02573cafcfEXAMPLE@ is the managed node ID;
 --
 -- @awsrunShellScript@ is the name of the plugin.
 --
@@ -273,36 +273,36 @@ commandPlugin_name = Lens.lens (\CommandPlugin' {name} -> name) (\s@CommandPlugi
 -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
 -- can be one of the following values:
 --
--- -   Pending: The command hasn\'t been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the managed node.
 --
--- -   In Progress: The command has been sent to the instance but hasn\'t
---     reached a terminal state.
+-- -   In Progress: The command has been sent to the managed node but
+--     hasn\'t reached a terminal state.
 --
 -- -   Success: The execution of the command or plugin was successfully
 --     completed. This is a terminal state.
 --
--- -   Delivery Timed Out: The command wasn\'t delivered to the instance
---     before the delivery timeout expired. Delivery timeouts don\'t count
---     against the parent command\'s @MaxErrors@ limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the managed
+--     node before the delivery timeout expired. Delivery timeouts don\'t
+--     count against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
--- -   Execution Timed Out: Command execution started on the instance, but
---     the execution wasn\'t complete before the execution timeout expired.
---     Execution timeouts count against the @MaxErrors@ limit of the parent
---     command. This is a terminal state.
+-- -   Execution Timed Out: Command execution started on the managed node,
+--     but the execution wasn\'t complete before the execution timeout
+--     expired. Execution timeouts count against the @MaxErrors@ limit of
+--     the parent command. This is a terminal state.
 --
--- -   Failed: The command wasn\'t successful on the instance. For a
+-- -   Failed: The command wasn\'t successful on the managed node. For a
 --     plugin, this indicates that the result code wasn\'t zero. For a
 --     command invocation, this indicates that the result code for one or
 --     more plugins wasn\'t zero. Invocation failures count against the
 --     MaxErrors limit of the parent command. This is a terminal state.
 --
--- -   Canceled: The command was terminated before it was completed. This
+-- -   Cancelled: The command was terminated before it was completed. This
 --     is a terminal state.
 --
--- -   Undeliverable: The command can\'t be delivered to the instance. The
---     instance might not exist, or it might not be responding.
+-- -   Undeliverable: The command can\'t be delivered to the managed node.
+--     The managed node might not exist, or it might not be responding.
 --     Undeliverable invocations don\'t count against the parent command\'s
 --     MaxErrors limit, and they don\'t contribute to whether the parent
 --     command status is Success or Incomplete. This is a terminal state.
@@ -351,7 +351,7 @@ commandPlugin_output = Lens.lens (\CommandPlugin' {output} -> output) (\s@Comman
 --
 -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
 --
--- @i-02573cafcfEXAMPLE@ is the instance ID;
+-- @i-02573cafcfEXAMPLE@ is the managed node ID;
 --
 -- @awsrunShellScript@ is the name of the plugin.
 commandPlugin_outputS3BucketName :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
@@ -371,7 +371,7 @@ commandPlugin_responseCode = Lens.lens (\CommandPlugin' {responseCode} -> respon
 --
 -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
 --
--- @i-02573cafcfEXAMPLE@ is the instance ID;
+-- @i-02573cafcfEXAMPLE@ is the managed node ID;
 --
 -- @awsrunShellScript@ is the name of the plugin.
 commandPlugin_outputS3KeyPrefix :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)

@@ -23,15 +23,15 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | One or more association documents on the instance.
+-- | One or more association documents on the managed node.
 --
 -- /See:/ 'newInstanceAssociation' smart constructor.
 data InstanceAssociation = InstanceAssociation'
-  { -- | Version information for the association on the instance.
+  { -- | Version information for the association on the managed node.
     associationVersion :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID.
+    -- | The managed node ID.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The content of the association document for the instance(s).
+    -- | The content of the association document for the managed node(s).
     content :: Prelude.Maybe Prelude.Text,
     -- | The association ID.
     associationId :: Prelude.Maybe Prelude.Text
@@ -46,11 +46,11 @@ data InstanceAssociation = InstanceAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'associationVersion', 'instanceAssociation_associationVersion' - Version information for the association on the instance.
+-- 'associationVersion', 'instanceAssociation_associationVersion' - Version information for the association on the managed node.
 --
--- 'instanceId', 'instanceAssociation_instanceId' - The instance ID.
+-- 'instanceId', 'instanceAssociation_instanceId' - The managed node ID.
 --
--- 'content', 'instanceAssociation_content' - The content of the association document for the instance(s).
+-- 'content', 'instanceAssociation_content' - The content of the association document for the managed node(s).
 --
 -- 'associationId', 'instanceAssociation_associationId' - The association ID.
 newInstanceAssociation ::
@@ -64,15 +64,15 @@ newInstanceAssociation =
       associationId = Prelude.Nothing
     }
 
--- | Version information for the association on the instance.
+-- | Version information for the association on the managed node.
 instanceAssociation_associationVersion :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
 instanceAssociation_associationVersion = Lens.lens (\InstanceAssociation' {associationVersion} -> associationVersion) (\s@InstanceAssociation' {} a -> s {associationVersion = a} :: InstanceAssociation)
 
--- | The instance ID.
+-- | The managed node ID.
 instanceAssociation_instanceId :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
 instanceAssociation_instanceId = Lens.lens (\InstanceAssociation' {instanceId} -> instanceId) (\s@InstanceAssociation' {} a -> s {instanceId = a} :: InstanceAssociation)
 
--- | The content of the association document for the instance(s).
+-- | The content of the association document for the managed node(s).
 instanceAssociation_content :: Lens.Lens' InstanceAssociation (Prelude.Maybe Prelude.Text)
 instanceAssociation_content = Lens.lens (\InstanceAssociation' {content} -> content) (\s@InstanceAssociation' {} a -> s {content = a} :: InstanceAssociation)
 

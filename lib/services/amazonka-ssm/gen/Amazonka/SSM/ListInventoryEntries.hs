@@ -67,7 +67,7 @@ data ListInventoryEntries = ListInventoryEntries'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The instance ID for which you want inventory information.
+    -- | The managed node ID for which you want inventory information.
     instanceId :: Prelude.Text,
     -- | The type of inventory item for which you want information.
     typeName :: Prelude.Text
@@ -92,7 +92,7 @@ data ListInventoryEntries = ListInventoryEntries'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
--- 'instanceId', 'listInventoryEntries_instanceId' - The instance ID for which you want inventory information.
+-- 'instanceId', 'listInventoryEntries_instanceId' - The managed node ID for which you want inventory information.
 --
 -- 'typeName', 'listInventoryEntries_typeName' - The type of inventory item for which you want information.
 newListInventoryEntries ::
@@ -126,7 +126,7 @@ listInventoryEntries_filters = Lens.lens (\ListInventoryEntries' {filters} -> fi
 listInventoryEntries_maxResults :: Lens.Lens' ListInventoryEntries (Prelude.Maybe Prelude.Natural)
 listInventoryEntries_maxResults = Lens.lens (\ListInventoryEntries' {maxResults} -> maxResults) (\s@ListInventoryEntries' {} a -> s {maxResults = a} :: ListInventoryEntries)
 
--- | The instance ID for which you want inventory information.
+-- | The managed node ID for which you want inventory information.
 listInventoryEntries_instanceId :: Lens.Lens' ListInventoryEntries Prelude.Text
 listInventoryEntries_instanceId = Lens.lens (\ListInventoryEntries' {instanceId} -> instanceId) (\s@ListInventoryEntries' {} a -> s {instanceId = a} :: ListInventoryEntries)
 
@@ -208,13 +208,15 @@ data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The type of inventory item returned by the request.
     typeName :: Prelude.Maybe Prelude.Text,
-    -- | The instance ID targeted by the request to query inventory information.
+    -- | The managed node ID targeted by the request to query inventory
+    -- information.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | A list of inventory items on the instance(s).
+    -- | A list of inventory items on the managed node(s).
     entries :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
-    -- | The time that inventory information was collected for the instance(s).
+    -- | The time that inventory information was collected for the managed
+    -- node(s).
     captureTime :: Prelude.Maybe Prelude.Text,
-    -- | The inventory schema version used by the instance(s).
+    -- | The inventory schema version used by the managed node(s).
     schemaVersion :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -234,13 +236,15 @@ data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
 --
 -- 'typeName', 'listInventoryEntriesResponse_typeName' - The type of inventory item returned by the request.
 --
--- 'instanceId', 'listInventoryEntriesResponse_instanceId' - The instance ID targeted by the request to query inventory information.
+-- 'instanceId', 'listInventoryEntriesResponse_instanceId' - The managed node ID targeted by the request to query inventory
+-- information.
 --
--- 'entries', 'listInventoryEntriesResponse_entries' - A list of inventory items on the instance(s).
+-- 'entries', 'listInventoryEntriesResponse_entries' - A list of inventory items on the managed node(s).
 --
--- 'captureTime', 'listInventoryEntriesResponse_captureTime' - The time that inventory information was collected for the instance(s).
+-- 'captureTime', 'listInventoryEntriesResponse_captureTime' - The time that inventory information was collected for the managed
+-- node(s).
 --
--- 'schemaVersion', 'listInventoryEntriesResponse_schemaVersion' - The inventory schema version used by the instance(s).
+-- 'schemaVersion', 'listInventoryEntriesResponse_schemaVersion' - The inventory schema version used by the managed node(s).
 --
 -- 'httpStatus', 'listInventoryEntriesResponse_httpStatus' - The response's http status code.
 newListInventoryEntriesResponse ::
@@ -268,19 +272,21 @@ listInventoryEntriesResponse_nextToken = Lens.lens (\ListInventoryEntriesRespons
 listInventoryEntriesResponse_typeName :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
 listInventoryEntriesResponse_typeName = Lens.lens (\ListInventoryEntriesResponse' {typeName} -> typeName) (\s@ListInventoryEntriesResponse' {} a -> s {typeName = a} :: ListInventoryEntriesResponse)
 
--- | The instance ID targeted by the request to query inventory information.
+-- | The managed node ID targeted by the request to query inventory
+-- information.
 listInventoryEntriesResponse_instanceId :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
 listInventoryEntriesResponse_instanceId = Lens.lens (\ListInventoryEntriesResponse' {instanceId} -> instanceId) (\s@ListInventoryEntriesResponse' {} a -> s {instanceId = a} :: ListInventoryEntriesResponse)
 
--- | A list of inventory items on the instance(s).
+-- | A list of inventory items on the managed node(s).
 listInventoryEntriesResponse_entries :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text])
 listInventoryEntriesResponse_entries = Lens.lens (\ListInventoryEntriesResponse' {entries} -> entries) (\s@ListInventoryEntriesResponse' {} a -> s {entries = a} :: ListInventoryEntriesResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The time that inventory information was collected for the instance(s).
+-- | The time that inventory information was collected for the managed
+-- node(s).
 listInventoryEntriesResponse_captureTime :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
 listInventoryEntriesResponse_captureTime = Lens.lens (\ListInventoryEntriesResponse' {captureTime} -> captureTime) (\s@ListInventoryEntriesResponse' {} a -> s {captureTime = a} :: ListInventoryEntriesResponse)
 
--- | The inventory schema version used by the instance(s).
+-- | The inventory schema version used by the managed node(s).
 listInventoryEntriesResponse_schemaVersion :: Lens.Lens' ListInventoryEntriesResponse (Prelude.Maybe Prelude.Text)
 listInventoryEntriesResponse_schemaVersion = Lens.lens (\ListInventoryEntriesResponse' {schemaVersion} -> schemaVersion) (\s@ListInventoryEntriesResponse' {} a -> s {schemaVersion = a} :: ListInventoryEntriesResponse)
 

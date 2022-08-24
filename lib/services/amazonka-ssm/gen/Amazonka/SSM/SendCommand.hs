@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Runs commands on one or more managed instances.
+-- Runs commands on one or more managed nodes.
 module Amazonka.SSM.SendCommand
   ( -- * Creating a Request
     SendCommand (..),
@@ -79,13 +79,14 @@ data SendCommand = SendCommand'
     -- ignores it. Instead, Systems Manager automatically determines the Amazon
     -- Web Services Region of the S3 bucket.
     outputS3Region :: Prelude.Maybe Prelude.Text,
-    -- | An array of search criteria that targets instances using a @Key,Value@
-    -- combination that you specify. Specifying targets is most useful when you
-    -- want to send a command to a large number of instances at once. Using
-    -- @Targets@, which accepts tag key-value pairs to identify instances, you
-    -- can send a command to tens, hundreds, or thousands of instances at once.
+    -- | An array of search criteria that targets managed nodes using a
+    -- @Key,Value@ combination that you specify. Specifying targets is most
+    -- useful when you want to send a command to a large number of managed
+    -- nodes at once. Using @Targets@, which accepts tag key-value pairs to
+    -- identify managed nodes, you can send a command to tens, hundreds, or
+    -- thousands of nodes at once.
     --
-    -- To send a command to a smaller number of instances, you can use the
+    -- To send a command to a smaller number of managed nodes, you can use the
     -- @InstanceIds@ option instead.
     --
     -- For more information about how to use targets, see
@@ -95,8 +96,8 @@ data SendCommand = SendCommand'
     -- | User-specified information about the command, such as a brief
     -- description of what the command should do.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) The maximum number of instances that are allowed to run the
-    -- command at the same time. You can specify a number such as 10 or a
+    -- | (Optional) The maximum number of managed nodes that are allowed to run
+    -- the command at the same time. You can specify a number such as 10 or a
     -- percentage such as 10%. The default value is @50@. For more information
     -- about how to use @MaxConcurrency@, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls>
@@ -116,15 +117,15 @@ data SendCommand = SendCommand'
     --
     -- Sha1 hashes have been deprecated.
     documentHashType :: Prelude.Maybe DocumentHashType,
-    -- | The IDs of the instances where the command should run. Specifying
-    -- instance IDs is most useful when you are targeting a limited number of
-    -- instances, though you can specify up to 50 IDs.
+    -- | The IDs of the managed nodes where the command should run. Specifying
+    -- managed node IDs is most useful when you are targeting a limited number
+    -- of managed nodes, though you can specify up to 50 IDs.
     --
-    -- To target a larger number of instances, or if you prefer not to list
-    -- individual instance IDs, we recommend using the @Targets@ option
-    -- instead. Using @Targets@, which accepts tag key-value pairs to identify
-    -- the instances to send commands to, you can a send command to tens,
-    -- hundreds, or thousands of instances at once.
+    -- To target a larger number of managed nodes, or if you prefer not to list
+    -- individual node IDs, we recommend using the @Targets@ option instead.
+    -- Using @Targets@, which accepts tag key-value pairs to identify the
+    -- managed nodes to send commands to, you can a send command to tens,
+    -- hundreds, or thousands of nodes at once.
     --
     -- For more information about how to use targets, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
@@ -155,7 +156,7 @@ data SendCommand = SendCommand'
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The required and optional parameters specified in the document being
     -- run.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | The name of the Amazon Web Services Systems Manager document (SSM
     -- document) to run. This can be a public document or a custom document. To
     -- run a shared document belonging to another account, specify the document
@@ -168,7 +169,7 @@ data SendCommand = SendCommand'
     -- account, you receive an @InvalidDocument@ error.
     documentName :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendCommand' with all optional fields omitted.
@@ -193,13 +194,14 @@ data SendCommand = SendCommand'
 -- ignores it. Instead, Systems Manager automatically determines the Amazon
 -- Web Services Region of the S3 bucket.
 --
--- 'targets', 'sendCommand_targets' - An array of search criteria that targets instances using a @Key,Value@
--- combination that you specify. Specifying targets is most useful when you
--- want to send a command to a large number of instances at once. Using
--- @Targets@, which accepts tag key-value pairs to identify instances, you
--- can send a command to tens, hundreds, or thousands of instances at once.
+-- 'targets', 'sendCommand_targets' - An array of search criteria that targets managed nodes using a
+-- @Key,Value@ combination that you specify. Specifying targets is most
+-- useful when you want to send a command to a large number of managed
+-- nodes at once. Using @Targets@, which accepts tag key-value pairs to
+-- identify managed nodes, you can send a command to tens, hundreds, or
+-- thousands of nodes at once.
 --
--- To send a command to a smaller number of instances, you can use the
+-- To send a command to a smaller number of managed nodes, you can use the
 -- @InstanceIds@ option instead.
 --
 -- For more information about how to use targets, see
@@ -209,8 +211,8 @@ data SendCommand = SendCommand'
 -- 'comment', 'sendCommand_comment' - User-specified information about the command, such as a brief
 -- description of what the command should do.
 --
--- 'maxConcurrency', 'sendCommand_maxConcurrency' - (Optional) The maximum number of instances that are allowed to run the
--- command at the same time. You can specify a number such as 10 or a
+-- 'maxConcurrency', 'sendCommand_maxConcurrency' - (Optional) The maximum number of managed nodes that are allowed to run
+-- the command at the same time. You can specify a number such as 10 or a
 -- percentage such as 10%. The default value is @50@. For more information
 -- about how to use @MaxConcurrency@, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls>
@@ -230,15 +232,15 @@ data SendCommand = SendCommand'
 --
 -- Sha1 hashes have been deprecated.
 --
--- 'instanceIds', 'sendCommand_instanceIds' - The IDs of the instances where the command should run. Specifying
--- instance IDs is most useful when you are targeting a limited number of
--- instances, though you can specify up to 50 IDs.
+-- 'instanceIds', 'sendCommand_instanceIds' - The IDs of the managed nodes where the command should run. Specifying
+-- managed node IDs is most useful when you are targeting a limited number
+-- of managed nodes, though you can specify up to 50 IDs.
 --
--- To target a larger number of instances, or if you prefer not to list
--- individual instance IDs, we recommend using the @Targets@ option
--- instead. Using @Targets@, which accepts tag key-value pairs to identify
--- the instances to send commands to, you can a send command to tens,
--- hundreds, or thousands of instances at once.
+-- To target a larger number of managed nodes, or if you prefer not to list
+-- individual node IDs, we recommend using the @Targets@ option instead.
+-- Using @Targets@, which accepts tag key-value pairs to identify the
+-- managed nodes to send commands to, you can a send command to tens,
+-- hundreds, or thousands of nodes at once.
 --
 -- For more information about how to use targets, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
@@ -328,13 +330,14 @@ sendCommand_cloudWatchOutputConfig = Lens.lens (\SendCommand' {cloudWatchOutputC
 sendCommand_outputS3Region :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
 sendCommand_outputS3Region = Lens.lens (\SendCommand' {outputS3Region} -> outputS3Region) (\s@SendCommand' {} a -> s {outputS3Region = a} :: SendCommand)
 
--- | An array of search criteria that targets instances using a @Key,Value@
--- combination that you specify. Specifying targets is most useful when you
--- want to send a command to a large number of instances at once. Using
--- @Targets@, which accepts tag key-value pairs to identify instances, you
--- can send a command to tens, hundreds, or thousands of instances at once.
+-- | An array of search criteria that targets managed nodes using a
+-- @Key,Value@ combination that you specify. Specifying targets is most
+-- useful when you want to send a command to a large number of managed
+-- nodes at once. Using @Targets@, which accepts tag key-value pairs to
+-- identify managed nodes, you can send a command to tens, hundreds, or
+-- thousands of nodes at once.
 --
--- To send a command to a smaller number of instances, you can use the
+-- To send a command to a smaller number of managed nodes, you can use the
 -- @InstanceIds@ option instead.
 --
 -- For more information about how to use targets, see
@@ -348,8 +351,8 @@ sendCommand_targets = Lens.lens (\SendCommand' {targets} -> targets) (\s@SendCom
 sendCommand_comment :: Lens.Lens' SendCommand (Prelude.Maybe Prelude.Text)
 sendCommand_comment = Lens.lens (\SendCommand' {comment} -> comment) (\s@SendCommand' {} a -> s {comment = a} :: SendCommand)
 
--- | (Optional) The maximum number of instances that are allowed to run the
--- command at the same time. You can specify a number such as 10 or a
+-- | (Optional) The maximum number of managed nodes that are allowed to run
+-- the command at the same time. You can specify a number such as 10 or a
 -- percentage such as 10%. The default value is @50@. For more information
 -- about how to use @MaxConcurrency@, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity Using concurrency controls>
@@ -377,15 +380,15 @@ sendCommand_notificationConfig = Lens.lens (\SendCommand' {notificationConfig} -
 sendCommand_documentHashType :: Lens.Lens' SendCommand (Prelude.Maybe DocumentHashType)
 sendCommand_documentHashType = Lens.lens (\SendCommand' {documentHashType} -> documentHashType) (\s@SendCommand' {} a -> s {documentHashType = a} :: SendCommand)
 
--- | The IDs of the instances where the command should run. Specifying
--- instance IDs is most useful when you are targeting a limited number of
--- instances, though you can specify up to 50 IDs.
+-- | The IDs of the managed nodes where the command should run. Specifying
+-- managed node IDs is most useful when you are targeting a limited number
+-- of managed nodes, though you can specify up to 50 IDs.
 --
--- To target a larger number of instances, or if you prefer not to list
--- individual instance IDs, we recommend using the @Targets@ option
--- instead. Using @Targets@, which accepts tag key-value pairs to identify
--- the instances to send commands to, you can a send command to tens,
--- hundreds, or thousands of instances at once.
+-- To target a larger number of managed nodes, or if you prefer not to list
+-- individual node IDs, we recommend using the @Targets@ option instead.
+-- Using @Targets@, which accepts tag key-value pairs to identify the
+-- managed nodes to send commands to, you can a send command to tens,
+-- hundreds, or thousands of nodes at once.
 --
 -- For more information about how to use targets, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html Using targets and rate controls to send commands to a fleet>
@@ -427,7 +430,7 @@ sendCommand_documentVersion = Lens.lens (\SendCommand' {documentVersion} -> docu
 -- | The required and optional parameters specified in the document being
 -- run.
 sendCommand_parameters :: Lens.Lens' SendCommand (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-sendCommand_parameters = Lens.lens (\SendCommand' {parameters} -> parameters) (\s@SendCommand' {} a -> s {parameters = a} :: SendCommand) Prelude.. Lens.mapping Lens.coerced
+sendCommand_parameters = Lens.lens (\SendCommand' {parameters} -> parameters) (\s@SendCommand' {} a -> s {parameters = a} :: SendCommand) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The name of the Amazon Web Services Systems Manager document (SSM
 -- document) to run. This can be a public document or a custom document. To
@@ -554,7 +557,7 @@ data SendCommandResponse = SendCommandResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendCommandResponse' with all optional fields omitted.

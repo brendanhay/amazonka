@@ -46,9 +46,9 @@ data BaselineOverride = BaselineOverride'
     -- patch is reported as missing, this value describes the severity of the
     -- compliance violation.
     approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
-    -- | Information about the patches to use to update the instances, including
-    -- target operating systems and source repositories. Applies to Linux
-    -- instances only.
+    -- | Information about the patches to use to update the managed nodes,
+    -- including target operating systems and source repositories. Applies to
+    -- Linux managed nodes only.
     sources :: Prelude.Maybe [PatchSource],
     approvalRules :: Prelude.Maybe PatchRuleGroup,
     -- | The action for Patch Manager to take on patches included in the
@@ -65,8 +65,8 @@ data BaselineOverride = BaselineOverride'
     -- in the /Amazon Web Services Systems Manager User Guide/.
     rejectedPatches :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the list of approved patches includes non-security
-    -- updates that should be applied to the instances. The default value is
-    -- @false@. Applies to Linux instances only.
+    -- updates that should be applied to the managed nodes. The default value
+    -- is @false@. Applies to Linux managed nodes only.
     approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -92,9 +92,9 @@ data BaselineOverride = BaselineOverride'
 -- patch is reported as missing, this value describes the severity of the
 -- compliance violation.
 --
--- 'sources', 'baselineOverride_sources' - Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
+-- 'sources', 'baselineOverride_sources' - Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repositories. Applies to
+-- Linux managed nodes only.
 --
 -- 'approvalRules', 'baselineOverride_approvalRules' - Undocumented member.
 --
@@ -113,8 +113,8 @@ data BaselineOverride = BaselineOverride'
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'approvedPatchesEnableNonSecurity', 'baselineOverride_approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
+-- updates that should be applied to the managed nodes. The default value
+-- is @false@. Applies to Linux managed nodes only.
 newBaselineOverride ::
   BaselineOverride
 newBaselineOverride =
@@ -150,9 +150,9 @@ baselineOverride_approvedPatches = Lens.lens (\BaselineOverride' {approvedPatche
 baselineOverride_approvedPatchesComplianceLevel :: Lens.Lens' BaselineOverride (Prelude.Maybe PatchComplianceLevel)
 baselineOverride_approvedPatchesComplianceLevel = Lens.lens (\BaselineOverride' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@BaselineOverride' {} a -> s {approvedPatchesComplianceLevel = a} :: BaselineOverride)
 
--- | Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
+-- | Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repositories. Applies to
+-- Linux managed nodes only.
 baselineOverride_sources :: Lens.Lens' BaselineOverride (Prelude.Maybe [PatchSource])
 baselineOverride_sources = Lens.lens (\BaselineOverride' {sources} -> sources) (\s@BaselineOverride' {} a -> s {sources = a} :: BaselineOverride) Prelude.. Lens.mapping Lens.coerced
 
@@ -181,8 +181,8 @@ baselineOverride_rejectedPatches :: Lens.Lens' BaselineOverride (Prelude.Maybe [
 baselineOverride_rejectedPatches = Lens.lens (\BaselineOverride' {rejectedPatches} -> rejectedPatches) (\s@BaselineOverride' {} a -> s {rejectedPatches = a} :: BaselineOverride) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
+-- updates that should be applied to the managed nodes. The default value
+-- is @false@. Applies to Linux managed nodes only.
 baselineOverride_approvedPatchesEnableNonSecurity :: Lens.Lens' BaselineOverride (Prelude.Maybe Prelude.Bool)
 baselineOverride_approvedPatchesEnableNonSecurity = Lens.lens (\BaselineOverride' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@BaselineOverride' {} a -> s {approvedPatchesEnableNonSecurity = a} :: BaselineOverride)
 

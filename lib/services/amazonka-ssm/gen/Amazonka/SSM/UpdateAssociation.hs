@@ -22,7 +22,14 @@
 --
 -- Updates an association. You can update the association name and version,
 -- the document version, schedule, parameters, and Amazon Simple Storage
--- Service (Amazon S3) output.
+-- Service (Amazon S3) output. When you call @UpdateAssociation@, the
+-- system removes all optional parameters from the request and overwrites
+-- the association with null values for those parameters. This is by
+-- design. You must specify all optional parameters in the call, even if
+-- you are not changing the parameters. This includes the @Name@ parameter.
+-- Before calling this API action, we recommend that you call the
+-- DescribeAssociation API operation and make a note of all optional
+-- parameters required for your @UpdateAssociation@ call.
 --
 -- In order to call this API operation, your Identity and Access Management
 -- (IAM) user account, group, or role must be configured with permission to
@@ -32,7 +39,8 @@
 -- @An error occurred (AccessDeniedException) when calling the UpdateAssociation operation: User: \<user_arn> isn\'t authorized to perform: ssm:DescribeAssociation on resource: \<resource_arn>@
 --
 -- When you update an association, the association immediately runs against
--- the specified targets.
+-- the specified targets. You can add the @ApplyOnlyAtCronInterval@
+-- parameter to run the association during the next schedule run.
 module Amazonka.SSM.UpdateAssociation
   ( -- * Creating a Request
     UpdateAssociation (..),
@@ -44,10 +52,12 @@ module Amazonka.SSM.UpdateAssociation
     updateAssociation_associationVersion,
     updateAssociation_targetLocations,
     updateAssociation_automationTargetParameterName,
+    updateAssociation_targetMaps,
     updateAssociation_outputLocation,
     updateAssociation_targets,
     updateAssociation_calendarNames,
     updateAssociation_scheduleExpression,
+    updateAssociation_scheduleOffset,
     updateAssociation_maxConcurrency,
     updateAssociation_applyOnlyAtCronInterval,
     updateAssociation_maxErrors,
@@ -79,7 +89,7 @@ data UpdateAssociation = UpdateAssociation'
   { -- | The name of the association that you want to update.
     associationName :: Prelude.Maybe Prelude.Text,
     -- | The name of the SSM Command document or Automation runbook that contains
-    -- the configuration information for the instance.
+    -- the configuration information for the managed node.
     --
     -- You can specify Amazon Web Services-predefined documents, documents you
     -- created, or a document that is shared with you from another account.
@@ -108,11 +118,14 @@ data UpdateAssociation = UpdateAssociation'
     -- action to update an association in multiple Regions and multiple
     -- accounts.
     targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
-    -- | Specify the target for the association. This target is required for
-    -- associations that use an Automation runbook and target resources by
-    -- using rate controls. Automation is a capability of Amazon Web Services
-    -- Systems Manager.
+    -- | Choose the parameter that will define how your automation will branch
+    -- out. This target is required for associations that use an Automation
+    -- runbook and target resources by using rate controls. Automation is a
+    -- capability of Amazon Web Services Systems Manager.
     automationTargetParameterName :: Prelude.Maybe Prelude.Text,
+    -- | A key-value mapping of document parameters to target resources. Both
+    -- Targets and TargetMaps can\'t be specified together.
+    targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
     -- | An S3 bucket where you want to store the results of this request.
     outputLocation :: Prelude.Maybe InstanceAssociationOutputLocation,
     -- | The targets of the association.
@@ -125,16 +138,28 @@ data UpdateAssociation = UpdateAssociation'
     -- | The cron expression used to schedule the association that you want to
     -- update.
     scheduleExpression :: Prelude.Maybe Prelude.Text,
+    -- | Number of days to wait after the scheduled day to run an association.
+    -- For example, if you specified a cron schedule of
+    -- @cron(0 0 ? * THU#2 *)@, you could specify an offset of 3 to run the
+    -- association each Sunday after the second Thursday of the month. For more
+    -- information about cron schedules for associations, see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html Reference: Cron and rate expressions for Systems Manager>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
+    --
+    -- To use offsets, you must specify the @ApplyOnlyAtCronInterval@
+    -- parameter. This option tells the system not to run an association
+    -- immediately after you create it.
+    scheduleOffset :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of targets allowed to run the association at the same
     -- time. You can specify a number, for example 10, or a percentage of the
     -- target set, for example 10%. The default value is 100%, which means all
     -- targets run the association at the same time.
     --
-    -- If a new instance starts and attempts to run an association while
+    -- If a new managed node starts and attempts to run an association while
     -- Systems Manager is running @MaxConcurrency@ associations, the
     -- association is allowed to run. During the next association interval, the
-    -- new instance will process its association within the limit specified for
-    -- @MaxConcurrency@.
+    -- new managed node will process its association within the limit specified
+    -- for @MaxConcurrency@.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | By default, when you update an association, the system runs it
     -- immediately after it is updated and then according to the schedule you
@@ -142,11 +167,22 @@ data UpdateAssociation = UpdateAssociation'
     -- immediately after you update it. This parameter isn\'t supported for
     -- rate expressions.
     --
-    -- Also, if you specified this option when you created the association, you
-    -- can reset it. To do so, specify the @no-apply-only-at-cron-interval@
-    -- parameter when you update the association from the command line. This
-    -- parameter forces the association to run immediately after updating it
-    -- and according to the interval specified.
+    -- If you chose this option when you created an association and later you
+    -- edit that association or you make changes to the SSM document on which
+    -- that association is based (by using the Documents page in the console),
+    -- State Manager applies the association at the next specified cron
+    -- interval. For example, if you chose the @Latest@ version of an SSM
+    -- document when you created an association and you edit the association by
+    -- choosing a different document version on the Documents page, State
+    -- Manager applies the association at the next specified cron interval if
+    -- you previously selected this option. If this option wasn\'t selected,
+    -- State Manager immediately runs the association.
+    --
+    -- You can reset this option. To do so, specify the
+    -- @no-apply-only-at-cron-interval@ parameter when you update the
+    -- association from the command line. This parameter forces the association
+    -- to run immediately after updating it and according to the interval
+    -- specified.
     applyOnlyAtCronInterval :: Prelude.Maybe Prelude.Bool,
     -- | The number of errors that are allowed before the system stops sending
     -- requests to run the association on additional targets. You can specify
@@ -154,7 +190,7 @@ data UpdateAssociation = UpdateAssociation'
     -- the target set, for example 10%. If you specify 3, for example, the
     -- system stops sending requests when the fourth error is received. If you
     -- specify 0, then the system stops sending requests after the first error
-    -- is returned. If you run an association on 50 instances and set
+    -- is returned. If you run an association on 50 managed nodes and set
     -- @MaxError@ to 10%, then the system stops sending the request when the
     -- sixth error is received.
     --
@@ -182,16 +218,24 @@ data UpdateAssociation = UpdateAssociation'
     -- By default, all associations use @AUTO@ mode.
     syncCompliance :: Prelude.Maybe AssociationSyncCompliance,
     -- | The document version you want update for the association.
+    --
+    -- State Manager doesn\'t support running associations that use a new
+    -- version of a document if that document is shared from another account.
+    -- State Manager always runs the @default@ version of a document if shared
+    -- from another account, even though the Systems Manager console shows that
+    -- a new version was processed. If you want to run an association using a
+    -- new version of a document shared form another account, you must set the
+    -- document version to @default@.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The parameters you want to update for the association. If you create a
     -- parameter using Parameter Store, a capability of Amazon Web Services
     -- Systems Manager, you can reference the parameter using
     -- @{{ssm:parameter-name}}@.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    parameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text [Prelude.Text])),
     -- | The ID of the association you want to update.
     associationId :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssociation' with all optional fields omitted.
@@ -204,7 +248,7 @@ data UpdateAssociation = UpdateAssociation'
 -- 'associationName', 'updateAssociation_associationName' - The name of the association that you want to update.
 --
 -- 'name', 'updateAssociation_name' - The name of the SSM Command document or Automation runbook that contains
--- the configuration information for the instance.
+-- the configuration information for the managed node.
 --
 -- You can specify Amazon Web Services-predefined documents, documents you
 -- created, or a document that is shared with you from another account.
@@ -233,10 +277,13 @@ data UpdateAssociation = UpdateAssociation'
 -- action to update an association in multiple Regions and multiple
 -- accounts.
 --
--- 'automationTargetParameterName', 'updateAssociation_automationTargetParameterName' - Specify the target for the association. This target is required for
--- associations that use an Automation runbook and target resources by
--- using rate controls. Automation is a capability of Amazon Web Services
--- Systems Manager.
+-- 'automationTargetParameterName', 'updateAssociation_automationTargetParameterName' - Choose the parameter that will define how your automation will branch
+-- out. This target is required for associations that use an Automation
+-- runbook and target resources by using rate controls. Automation is a
+-- capability of Amazon Web Services Systems Manager.
+--
+-- 'targetMaps', 'updateAssociation_targetMaps' - A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
 --
 -- 'outputLocation', 'updateAssociation_outputLocation' - An S3 bucket where you want to store the results of this request.
 --
@@ -250,16 +297,28 @@ data UpdateAssociation = UpdateAssociation'
 -- 'scheduleExpression', 'updateAssociation_scheduleExpression' - The cron expression used to schedule the association that you want to
 -- update.
 --
+-- 'scheduleOffset', 'updateAssociation_scheduleOffset' - Number of days to wait after the scheduled day to run an association.
+-- For example, if you specified a cron schedule of
+-- @cron(0 0 ? * THU#2 *)@, you could specify an offset of 3 to run the
+-- association each Sunday after the second Thursday of the month. For more
+-- information about cron schedules for associations, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html Reference: Cron and rate expressions for Systems Manager>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- To use offsets, you must specify the @ApplyOnlyAtCronInterval@
+-- parameter. This option tells the system not to run an association
+-- immediately after you create it.
+--
 -- 'maxConcurrency', 'updateAssociation_maxConcurrency' - The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
 -- target set, for example 10%. The default value is 100%, which means all
 -- targets run the association at the same time.
 --
--- If a new instance starts and attempts to run an association while
+-- If a new managed node starts and attempts to run an association while
 -- Systems Manager is running @MaxConcurrency@ associations, the
 -- association is allowed to run. During the next association interval, the
--- new instance will process its association within the limit specified for
--- @MaxConcurrency@.
+-- new managed node will process its association within the limit specified
+-- for @MaxConcurrency@.
 --
 -- 'applyOnlyAtCronInterval', 'updateAssociation_applyOnlyAtCronInterval' - By default, when you update an association, the system runs it
 -- immediately after it is updated and then according to the schedule you
@@ -267,11 +326,22 @@ data UpdateAssociation = UpdateAssociation'
 -- immediately after you update it. This parameter isn\'t supported for
 -- rate expressions.
 --
--- Also, if you specified this option when you created the association, you
--- can reset it. To do so, specify the @no-apply-only-at-cron-interval@
--- parameter when you update the association from the command line. This
--- parameter forces the association to run immediately after updating it
--- and according to the interval specified.
+-- If you chose this option when you created an association and later you
+-- edit that association or you make changes to the SSM document on which
+-- that association is based (by using the Documents page in the console),
+-- State Manager applies the association at the next specified cron
+-- interval. For example, if you chose the @Latest@ version of an SSM
+-- document when you created an association and you edit the association by
+-- choosing a different document version on the Documents page, State
+-- Manager applies the association at the next specified cron interval if
+-- you previously selected this option. If this option wasn\'t selected,
+-- State Manager immediately runs the association.
+--
+-- You can reset this option. To do so, specify the
+-- @no-apply-only-at-cron-interval@ parameter when you update the
+-- association from the command line. This parameter forces the association
+-- to run immediately after updating it and according to the interval
+-- specified.
 --
 -- 'maxErrors', 'updateAssociation_maxErrors' - The number of errors that are allowed before the system stops sending
 -- requests to run the association on additional targets. You can specify
@@ -279,7 +349,7 @@ data UpdateAssociation = UpdateAssociation'
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set
+-- is returned. If you run an association on 50 managed nodes and set
 -- @MaxError@ to 10%, then the system stops sending the request when the
 -- sixth error is received.
 --
@@ -308,6 +378,14 @@ data UpdateAssociation = UpdateAssociation'
 --
 -- 'documentVersion', 'updateAssociation_documentVersion' - The document version you want update for the association.
 --
+-- State Manager doesn\'t support running associations that use a new
+-- version of a document if that document is shared from another account.
+-- State Manager always runs the @default@ version of a document if shared
+-- from another account, even though the Systems Manager console shows that
+-- a new version was processed. If you want to run an association using a
+-- new version of a document shared form another account, you must set the
+-- document version to @default@.
+--
 -- 'parameters', 'updateAssociation_parameters' - The parameters you want to update for the association. If you create a
 -- parameter using Parameter Store, a capability of Amazon Web Services
 -- Systems Manager, you can reference the parameter using
@@ -326,10 +404,12 @@ newUpdateAssociation pAssociationId_ =
       associationVersion = Prelude.Nothing,
       targetLocations = Prelude.Nothing,
       automationTargetParameterName = Prelude.Nothing,
+      targetMaps = Prelude.Nothing,
       outputLocation = Prelude.Nothing,
       targets = Prelude.Nothing,
       calendarNames = Prelude.Nothing,
       scheduleExpression = Prelude.Nothing,
+      scheduleOffset = Prelude.Nothing,
       maxConcurrency = Prelude.Nothing,
       applyOnlyAtCronInterval = Prelude.Nothing,
       maxErrors = Prelude.Nothing,
@@ -345,7 +425,7 @@ updateAssociation_associationName :: Lens.Lens' UpdateAssociation (Prelude.Maybe
 updateAssociation_associationName = Lens.lens (\UpdateAssociation' {associationName} -> associationName) (\s@UpdateAssociation' {} a -> s {associationName = a} :: UpdateAssociation)
 
 -- | The name of the SSM Command document or Automation runbook that contains
--- the configuration information for the instance.
+-- the configuration information for the managed node.
 --
 -- You can specify Amazon Web Services-predefined documents, documents you
 -- created, or a document that is shared with you from another account.
@@ -380,12 +460,17 @@ updateAssociation_associationVersion = Lens.lens (\UpdateAssociation' {associati
 updateAssociation_targetLocations :: Lens.Lens' UpdateAssociation (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
 updateAssociation_targetLocations = Lens.lens (\UpdateAssociation' {targetLocations} -> targetLocations) (\s@UpdateAssociation' {} a -> s {targetLocations = a} :: UpdateAssociation) Prelude.. Lens.mapping Lens.coerced
 
--- | Specify the target for the association. This target is required for
--- associations that use an Automation runbook and target resources by
--- using rate controls. Automation is a capability of Amazon Web Services
--- Systems Manager.
+-- | Choose the parameter that will define how your automation will branch
+-- out. This target is required for associations that use an Automation
+-- runbook and target resources by using rate controls. Automation is a
+-- capability of Amazon Web Services Systems Manager.
 updateAssociation_automationTargetParameterName :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
 updateAssociation_automationTargetParameterName = Lens.lens (\UpdateAssociation' {automationTargetParameterName} -> automationTargetParameterName) (\s@UpdateAssociation' {} a -> s {automationTargetParameterName = a} :: UpdateAssociation)
+
+-- | A key-value mapping of document parameters to target resources. Both
+-- Targets and TargetMaps can\'t be specified together.
+updateAssociation_targetMaps :: Lens.Lens' UpdateAssociation (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
+updateAssociation_targetMaps = Lens.lens (\UpdateAssociation' {targetMaps} -> targetMaps) (\s@UpdateAssociation' {} a -> s {targetMaps = a} :: UpdateAssociation) Prelude.. Lens.mapping Lens.coerced
 
 -- | An S3 bucket where you want to store the results of this request.
 updateAssociation_outputLocation :: Lens.Lens' UpdateAssociation (Prelude.Maybe InstanceAssociationOutputLocation)
@@ -407,16 +492,30 @@ updateAssociation_calendarNames = Lens.lens (\UpdateAssociation' {calendarNames}
 updateAssociation_scheduleExpression :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
 updateAssociation_scheduleExpression = Lens.lens (\UpdateAssociation' {scheduleExpression} -> scheduleExpression) (\s@UpdateAssociation' {} a -> s {scheduleExpression = a} :: UpdateAssociation)
 
+-- | Number of days to wait after the scheduled day to run an association.
+-- For example, if you specified a cron schedule of
+-- @cron(0 0 ? * THU#2 *)@, you could specify an offset of 3 to run the
+-- association each Sunday after the second Thursday of the month. For more
+-- information about cron schedules for associations, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html Reference: Cron and rate expressions for Systems Manager>
+-- in the /Amazon Web Services Systems Manager User Guide/.
+--
+-- To use offsets, you must specify the @ApplyOnlyAtCronInterval@
+-- parameter. This option tells the system not to run an association
+-- immediately after you create it.
+updateAssociation_scheduleOffset :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Natural)
+updateAssociation_scheduleOffset = Lens.lens (\UpdateAssociation' {scheduleOffset} -> scheduleOffset) (\s@UpdateAssociation' {} a -> s {scheduleOffset = a} :: UpdateAssociation)
+
 -- | The maximum number of targets allowed to run the association at the same
 -- time. You can specify a number, for example 10, or a percentage of the
 -- target set, for example 10%. The default value is 100%, which means all
 -- targets run the association at the same time.
 --
--- If a new instance starts and attempts to run an association while
+-- If a new managed node starts and attempts to run an association while
 -- Systems Manager is running @MaxConcurrency@ associations, the
 -- association is allowed to run. During the next association interval, the
--- new instance will process its association within the limit specified for
--- @MaxConcurrency@.
+-- new managed node will process its association within the limit specified
+-- for @MaxConcurrency@.
 updateAssociation_maxConcurrency :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
 updateAssociation_maxConcurrency = Lens.lens (\UpdateAssociation' {maxConcurrency} -> maxConcurrency) (\s@UpdateAssociation' {} a -> s {maxConcurrency = a} :: UpdateAssociation)
 
@@ -426,11 +525,22 @@ updateAssociation_maxConcurrency = Lens.lens (\UpdateAssociation' {maxConcurrenc
 -- immediately after you update it. This parameter isn\'t supported for
 -- rate expressions.
 --
--- Also, if you specified this option when you created the association, you
--- can reset it. To do so, specify the @no-apply-only-at-cron-interval@
--- parameter when you update the association from the command line. This
--- parameter forces the association to run immediately after updating it
--- and according to the interval specified.
+-- If you chose this option when you created an association and later you
+-- edit that association or you make changes to the SSM document on which
+-- that association is based (by using the Documents page in the console),
+-- State Manager applies the association at the next specified cron
+-- interval. For example, if you chose the @Latest@ version of an SSM
+-- document when you created an association and you edit the association by
+-- choosing a different document version on the Documents page, State
+-- Manager applies the association at the next specified cron interval if
+-- you previously selected this option. If this option wasn\'t selected,
+-- State Manager immediately runs the association.
+--
+-- You can reset this option. To do so, specify the
+-- @no-apply-only-at-cron-interval@ parameter when you update the
+-- association from the command line. This parameter forces the association
+-- to run immediately after updating it and according to the interval
+-- specified.
 updateAssociation_applyOnlyAtCronInterval :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Bool)
 updateAssociation_applyOnlyAtCronInterval = Lens.lens (\UpdateAssociation' {applyOnlyAtCronInterval} -> applyOnlyAtCronInterval) (\s@UpdateAssociation' {} a -> s {applyOnlyAtCronInterval = a} :: UpdateAssociation)
 
@@ -440,7 +550,7 @@ updateAssociation_applyOnlyAtCronInterval = Lens.lens (\UpdateAssociation' {appl
 -- the target set, for example 10%. If you specify 3, for example, the
 -- system stops sending requests when the fourth error is received. If you
 -- specify 0, then the system stops sending requests after the first error
--- is returned. If you run an association on 50 instances and set
+-- is returned. If you run an association on 50 managed nodes and set
 -- @MaxError@ to 10%, then the system stops sending the request when the
 -- sixth error is received.
 --
@@ -474,6 +584,14 @@ updateAssociation_syncCompliance :: Lens.Lens' UpdateAssociation (Prelude.Maybe 
 updateAssociation_syncCompliance = Lens.lens (\UpdateAssociation' {syncCompliance} -> syncCompliance) (\s@UpdateAssociation' {} a -> s {syncCompliance = a} :: UpdateAssociation)
 
 -- | The document version you want update for the association.
+--
+-- State Manager doesn\'t support running associations that use a new
+-- version of a document if that document is shared from another account.
+-- State Manager always runs the @default@ version of a document if shared
+-- from another account, even though the Systems Manager console shows that
+-- a new version was processed. If you want to run an association using a
+-- new version of a document shared form another account, you must set the
+-- document version to @default@.
 updateAssociation_documentVersion :: Lens.Lens' UpdateAssociation (Prelude.Maybe Prelude.Text)
 updateAssociation_documentVersion = Lens.lens (\UpdateAssociation' {documentVersion} -> documentVersion) (\s@UpdateAssociation' {} a -> s {documentVersion = a} :: UpdateAssociation)
 
@@ -482,7 +600,7 @@ updateAssociation_documentVersion = Lens.lens (\UpdateAssociation' {documentVers
 -- Systems Manager, you can reference the parameter using
 -- @{{ssm:parameter-name}}@.
 updateAssociation_parameters :: Lens.Lens' UpdateAssociation (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-updateAssociation_parameters = Lens.lens (\UpdateAssociation' {parameters} -> parameters) (\s@UpdateAssociation' {} a -> s {parameters = a} :: UpdateAssociation) Prelude.. Lens.mapping Lens.coerced
+updateAssociation_parameters = Lens.lens (\UpdateAssociation' {parameters} -> parameters) (\s@UpdateAssociation' {} a -> s {parameters = a} :: UpdateAssociation) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens.coerced)
 
 -- | The ID of the association you want to update.
 updateAssociation_associationId :: Lens.Lens' UpdateAssociation Prelude.Text
@@ -508,10 +626,12 @@ instance Prelude.Hashable UpdateAssociation where
       `Prelude.hashWithSalt` associationVersion
       `Prelude.hashWithSalt` targetLocations
       `Prelude.hashWithSalt` automationTargetParameterName
+      `Prelude.hashWithSalt` targetMaps
       `Prelude.hashWithSalt` outputLocation
       `Prelude.hashWithSalt` targets
       `Prelude.hashWithSalt` calendarNames
       `Prelude.hashWithSalt` scheduleExpression
+      `Prelude.hashWithSalt` scheduleOffset
       `Prelude.hashWithSalt` maxConcurrency
       `Prelude.hashWithSalt` applyOnlyAtCronInterval
       `Prelude.hashWithSalt` maxErrors
@@ -528,10 +648,12 @@ instance Prelude.NFData UpdateAssociation where
       `Prelude.seq` Prelude.rnf associationVersion
       `Prelude.seq` Prelude.rnf targetLocations
       `Prelude.seq` Prelude.rnf automationTargetParameterName
+      `Prelude.seq` Prelude.rnf targetMaps
       `Prelude.seq` Prelude.rnf outputLocation
       `Prelude.seq` Prelude.rnf targets
       `Prelude.seq` Prelude.rnf calendarNames
       `Prelude.seq` Prelude.rnf scheduleExpression
+      `Prelude.seq` Prelude.rnf scheduleOffset
       `Prelude.seq` Prelude.rnf maxConcurrency
       `Prelude.seq` Prelude.rnf applyOnlyAtCronInterval
       `Prelude.seq` Prelude.rnf maxErrors
@@ -569,12 +691,15 @@ instance Core.ToJSON UpdateAssociation where
               Prelude.<$> targetLocations,
             ("AutomationTargetParameterName" Core..=)
               Prelude.<$> automationTargetParameterName,
+            ("TargetMaps" Core..=) Prelude.<$> targetMaps,
             ("OutputLocation" Core..=)
               Prelude.<$> outputLocation,
             ("Targets" Core..=) Prelude.<$> targets,
             ("CalendarNames" Core..=) Prelude.<$> calendarNames,
             ("ScheduleExpression" Core..=)
               Prelude.<$> scheduleExpression,
+            ("ScheduleOffset" Core..=)
+              Prelude.<$> scheduleOffset,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
             ("ApplyOnlyAtCronInterval" Core..=)
@@ -605,7 +730,7 @@ data UpdateAssociationResponse = UpdateAssociationResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'UpdateAssociationResponse' with all optional fields omitted.

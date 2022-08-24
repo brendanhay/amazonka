@@ -27,7 +27,7 @@ import qualified Amazonka.Prelude as Prelude
 -- enable you to categorize your resources in different ways, for example,
 -- by purpose, owner, or environment. In Amazon Web Services Systems
 -- Manager, you can apply tags to Systems Manager documents (SSM
--- documents), managed instances, maintenance windows, parameters, patch
+-- documents), managed nodes, maintenance windows, parameters, patch
 -- baselines, OpsItems, and OpsMetadata.
 --
 -- /See:/ 'newTag' smart constructor.

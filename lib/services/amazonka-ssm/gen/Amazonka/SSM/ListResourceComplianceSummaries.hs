@@ -214,10 +214,10 @@ data ListResourceComplianceSummariesResponse = ListResourceComplianceSummariesRe
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A summary count for specified or targeted managed instances. Summary
-    -- count includes information about compliant and non-compliant State
-    -- Manager associations, patch status, or custom items according to the
-    -- filter criteria that you specify.
+    -- | A summary count for specified or targeted managed nodes. Summary count
+    -- includes information about compliant and non-compliant State Manager
+    -- associations, patch status, or custom items according to the filter
+    -- criteria that you specify.
     resourceComplianceSummaryItems :: Prelude.Maybe [ResourceComplianceSummaryItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -235,10 +235,10 @@ data ListResourceComplianceSummariesResponse = ListResourceComplianceSummariesRe
 -- 'nextToken', 'listResourceComplianceSummariesResponse_nextToken' - The token for the next set of items to return. Use this token to get the
 -- next set of results.
 --
--- 'resourceComplianceSummaryItems', 'listResourceComplianceSummariesResponse_resourceComplianceSummaryItems' - A summary count for specified or targeted managed instances. Summary
--- count includes information about compliant and non-compliant State
--- Manager associations, patch status, or custom items according to the
--- filter criteria that you specify.
+-- 'resourceComplianceSummaryItems', 'listResourceComplianceSummariesResponse_resourceComplianceSummaryItems' - A summary count for specified or targeted managed nodes. Summary count
+-- includes information about compliant and non-compliant State Manager
+-- associations, patch status, or custom items according to the filter
+-- criteria that you specify.
 --
 -- 'httpStatus', 'listResourceComplianceSummariesResponse_httpStatus' - The response's http status code.
 newListResourceComplianceSummariesResponse ::
@@ -260,10 +260,10 @@ newListResourceComplianceSummariesResponse
 listResourceComplianceSummariesResponse_nextToken :: Lens.Lens' ListResourceComplianceSummariesResponse (Prelude.Maybe Prelude.Text)
 listResourceComplianceSummariesResponse_nextToken = Lens.lens (\ListResourceComplianceSummariesResponse' {nextToken} -> nextToken) (\s@ListResourceComplianceSummariesResponse' {} a -> s {nextToken = a} :: ListResourceComplianceSummariesResponse)
 
--- | A summary count for specified or targeted managed instances. Summary
--- count includes information about compliant and non-compliant State
--- Manager associations, patch status, or custom items according to the
--- filter criteria that you specify.
+-- | A summary count for specified or targeted managed nodes. Summary count
+-- includes information about compliant and non-compliant State Manager
+-- associations, patch status, or custom items according to the filter
+-- criteria that you specify.
 listResourceComplianceSummariesResponse_resourceComplianceSummaryItems :: Lens.Lens' ListResourceComplianceSummariesResponse (Prelude.Maybe [ResourceComplianceSummaryItem])
 listResourceComplianceSummariesResponse_resourceComplianceSummaryItems = Lens.lens (\ListResourceComplianceSummariesResponse' {resourceComplianceSummaryItems} -> resourceComplianceSummaryItems) (\s@ListResourceComplianceSummariesResponse' {} a -> s {resourceComplianceSummaryItems = a} :: ListResourceComplianceSummariesResponse) Prelude.. Lens.mapping Lens.coerced
 

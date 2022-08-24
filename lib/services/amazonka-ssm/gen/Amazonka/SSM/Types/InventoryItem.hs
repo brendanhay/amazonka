@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information collected from managed instances based on your inventory
--- policy document
+-- | Information collected from managed nodes based on your inventory policy
+-- document
 --
 -- /See:/ 'newInventoryItem' smart constructor.
 data InventoryItem = InventoryItem'

@@ -28,9 +28,10 @@ import Amazonka.SSM.Types.OutputSource
 --
 -- /See:/ 'newAssociationExecutionTarget' smart constructor.
 data AssociationExecutionTarget = AssociationExecutionTarget'
-  { -- | The resource ID, for example, the instance ID where the association ran.
+  { -- | The resource ID, for example, the managed node ID where the association
+    -- ran.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The resource type, for example, instance.
+    -- | The resource type, for example, EC2.
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The association version.
     associationVersion :: Prelude.Maybe Prelude.Text,
@@ -57,9 +58,10 @@ data AssociationExecutionTarget = AssociationExecutionTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'associationExecutionTarget_resourceId' - The resource ID, for example, the instance ID where the association ran.
+-- 'resourceId', 'associationExecutionTarget_resourceId' - The resource ID, for example, the managed node ID where the association
+-- ran.
 --
--- 'resourceType', 'associationExecutionTarget_resourceType' - The resource type, for example, instance.
+-- 'resourceType', 'associationExecutionTarget_resourceType' - The resource type, for example, EC2.
 --
 -- 'associationVersion', 'associationExecutionTarget_associationVersion' - The association version.
 --
@@ -90,11 +92,12 @@ newAssociationExecutionTarget =
       associationId = Prelude.Nothing
     }
 
--- | The resource ID, for example, the instance ID where the association ran.
+-- | The resource ID, for example, the managed node ID where the association
+-- ran.
 associationExecutionTarget_resourceId :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.Text)
 associationExecutionTarget_resourceId = Lens.lens (\AssociationExecutionTarget' {resourceId} -> resourceId) (\s@AssociationExecutionTarget' {} a -> s {resourceId = a} :: AssociationExecutionTarget)
 
--- | The resource type, for example, instance.
+-- | The resource type, for example, EC2.
 associationExecutionTarget_resourceType :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.Text)
 associationExecutionTarget_resourceType = Lens.lens (\AssociationExecutionTarget' {resourceType} -> resourceType) (\s@AssociationExecutionTarget' {} a -> s {resourceType = a} :: AssociationExecutionTarget)
 

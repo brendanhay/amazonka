@@ -69,40 +69,40 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
     -- | The type of target being registered with the maintenance window.
     resourceType :: MaintenanceWindowResourceType,
     -- | The targets to register with the maintenance window. In other words, the
-    -- instances to run commands on when the maintenance window runs.
+    -- managed nodes to run commands on when the maintenance window runs.
     --
     -- If a single maintenance window task is registered with multiple targets,
     -- its task invocations occur sequentially and not in parallel. If your
     -- task must run on multiple targets at the same time, register a task for
     -- each target individually and assign each task the same priority level.
     --
-    -- You can specify targets using instance IDs, resource group names, or
-    -- tags that have been applied to instances.
+    -- You can specify targets using managed node IDs, resource group names, or
+    -- tags that have been applied to managed nodes.
     --
-    -- __Example 1__: Specify instance IDs
+    -- __Example 1__: Specify managed node IDs
     --
-    -- @Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3 @
+    -- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>,\<instance-id-3>@
     --
-    -- __Example 2__: Use tag key-pairs applied to instances
+    -- __Example 2__: Use tag key-pairs applied to managed nodes
     --
-    -- @Key=tag:my-tag-key,Values=my-tag-value-1,my-tag-value-2 @
+    -- @Key=tag:\<my-tag-key>,Values=\<my-tag-value-1>,\<my-tag-value-2>@
     --
-    -- __Example 3__: Use tag-keys applied to instances
+    -- __Example 3__: Use tag-keys applied to managed nodes
     --
-    -- @Key=tag-key,Values=my-tag-key-1,my-tag-key-2 @
+    -- @Key=tag-key,Values=\<my-tag-key-1>,\<my-tag-key-2>@
     --
     -- __Example 4__: Use resource group names
     --
-    -- @Key=resource-groups:Name,Values=resource-group-name @
+    -- @Key=resource-groups:Name,Values=\<resource-group-name>@
     --
     -- __Example 5__: Use filters for resource group types
     --
-    -- @Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 @
+    -- @Key=resource-groups:ResourceTypeFilters,Values=\<resource-type-1>,\<resource-type-2>@
     --
     -- For @Key=resource-groups:ResourceTypeFilters@, specify resource types in
     -- the following format
     --
-    -- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC @
+    -- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC@
     --
     -- For more information about these examples formats, including the best
     -- use case for each one, see
@@ -135,40 +135,40 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 -- 'resourceType', 'registerTargetWithMaintenanceWindow_resourceType' - The type of target being registered with the maintenance window.
 --
 -- 'targets', 'registerTargetWithMaintenanceWindow_targets' - The targets to register with the maintenance window. In other words, the
--- instances to run commands on when the maintenance window runs.
+-- managed nodes to run commands on when the maintenance window runs.
 --
 -- If a single maintenance window task is registered with multiple targets,
 -- its task invocations occur sequentially and not in parallel. If your
 -- task must run on multiple targets at the same time, register a task for
 -- each target individually and assign each task the same priority level.
 --
--- You can specify targets using instance IDs, resource group names, or
--- tags that have been applied to instances.
+-- You can specify targets using managed node IDs, resource group names, or
+-- tags that have been applied to managed nodes.
 --
--- __Example 1__: Specify instance IDs
+-- __Example 1__: Specify managed node IDs
 --
--- @Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3 @
+-- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>,\<instance-id-3>@
 --
--- __Example 2__: Use tag key-pairs applied to instances
+-- __Example 2__: Use tag key-pairs applied to managed nodes
 --
--- @Key=tag:my-tag-key,Values=my-tag-value-1,my-tag-value-2 @
+-- @Key=tag:\<my-tag-key>,Values=\<my-tag-value-1>,\<my-tag-value-2>@
 --
--- __Example 3__: Use tag-keys applied to instances
+-- __Example 3__: Use tag-keys applied to managed nodes
 --
--- @Key=tag-key,Values=my-tag-key-1,my-tag-key-2 @
+-- @Key=tag-key,Values=\<my-tag-key-1>,\<my-tag-key-2>@
 --
 -- __Example 4__: Use resource group names
 --
--- @Key=resource-groups:Name,Values=resource-group-name @
+-- @Key=resource-groups:Name,Values=\<resource-group-name>@
 --
 -- __Example 5__: Use filters for resource group types
 --
--- @Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 @
+-- @Key=resource-groups:ResourceTypeFilters,Values=\<resource-type-1>,\<resource-type-2>@
 --
 -- For @Key=resource-groups:ResourceTypeFilters@, specify resource types in
 -- the following format
 --
--- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC @
+-- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC@
 --
 -- For more information about these examples formats, including the best
 -- use case for each one, see
@@ -221,40 +221,40 @@ registerTargetWithMaintenanceWindow_resourceType :: Lens.Lens' RegisterTargetWit
 registerTargetWithMaintenanceWindow_resourceType = Lens.lens (\RegisterTargetWithMaintenanceWindow' {resourceType} -> resourceType) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {resourceType = a} :: RegisterTargetWithMaintenanceWindow)
 
 -- | The targets to register with the maintenance window. In other words, the
--- instances to run commands on when the maintenance window runs.
+-- managed nodes to run commands on when the maintenance window runs.
 --
 -- If a single maintenance window task is registered with multiple targets,
 -- its task invocations occur sequentially and not in parallel. If your
 -- task must run on multiple targets at the same time, register a task for
 -- each target individually and assign each task the same priority level.
 --
--- You can specify targets using instance IDs, resource group names, or
--- tags that have been applied to instances.
+-- You can specify targets using managed node IDs, resource group names, or
+-- tags that have been applied to managed nodes.
 --
--- __Example 1__: Specify instance IDs
+-- __Example 1__: Specify managed node IDs
 --
--- @Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3 @
+-- @Key=InstanceIds,Values=\<instance-id-1>,\<instance-id-2>,\<instance-id-3>@
 --
--- __Example 2__: Use tag key-pairs applied to instances
+-- __Example 2__: Use tag key-pairs applied to managed nodes
 --
--- @Key=tag:my-tag-key,Values=my-tag-value-1,my-tag-value-2 @
+-- @Key=tag:\<my-tag-key>,Values=\<my-tag-value-1>,\<my-tag-value-2>@
 --
--- __Example 3__: Use tag-keys applied to instances
+-- __Example 3__: Use tag-keys applied to managed nodes
 --
--- @Key=tag-key,Values=my-tag-key-1,my-tag-key-2 @
+-- @Key=tag-key,Values=\<my-tag-key-1>,\<my-tag-key-2>@
 --
 -- __Example 4__: Use resource group names
 --
--- @Key=resource-groups:Name,Values=resource-group-name @
+-- @Key=resource-groups:Name,Values=\<resource-group-name>@
 --
 -- __Example 5__: Use filters for resource group types
 --
--- @Key=resource-groups:ResourceTypeFilters,Values=resource-type-1,resource-type-2 @
+-- @Key=resource-groups:ResourceTypeFilters,Values=\<resource-type-1>,\<resource-type-2>@
 --
 -- For @Key=resource-groups:ResourceTypeFilters@, specify resource types in
 -- the following format
 --
--- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC @
+-- @Key=resource-groups:ResourceTypeFilters,Values=AWS::EC2::INSTANCE,AWS::EC2::VPC@
 --
 -- For more information about these examples formats, including the best
 -- use case for each one, see

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the Session Manager connection status for an instance to
+-- Retrieves the Session Manager connection status for a managed node to
 -- determine whether it is running and ready to receive Session Manager
 -- connections.
 module Amazonka.SSM.GetConnectionStatus
@@ -51,7 +51,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetConnectionStatus' smart constructor.
 data GetConnectionStatus = GetConnectionStatus'
-  { -- | The instance ID.
+  { -- | The managed node ID.
     target :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data GetConnectionStatus = GetConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'target', 'getConnectionStatus_target' - The instance ID.
+-- 'target', 'getConnectionStatus_target' - The managed node ID.
 newGetConnectionStatus ::
   -- | 'target'
   Prelude.Text ->
@@ -72,7 +72,7 @@ newGetConnectionStatus ::
 newGetConnectionStatus pTarget_ =
   GetConnectionStatus' {target = pTarget_}
 
--- | The instance ID.
+-- | The managed node ID.
 getConnectionStatus_target :: Lens.Lens' GetConnectionStatus Prelude.Text
 getConnectionStatus_target = Lens.lens (\GetConnectionStatus' {target} -> target) (\s@GetConnectionStatus' {} a -> s {target = a} :: GetConnectionStatus)
 
@@ -127,10 +127,10 @@ instance Core.ToQuery GetConnectionStatus where
 
 -- | /See:/ 'newGetConnectionStatusResponse' smart constructor.
 data GetConnectionStatusResponse = GetConnectionStatusResponse'
-  { -- | The status of the connection to the instance. For example, \'Connected\'
-    -- or \'Not Connected\'.
+  { -- | The status of the connection to the managed node. For example,
+    -- \'Connected\' or \'Not Connected\'.
     status :: Prelude.Maybe ConnectionStatus,
-    -- | The ID of the instance to check connection status.
+    -- | The ID of the managed node to check connection status.
     target :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -145,10 +145,10 @@ data GetConnectionStatusResponse = GetConnectionStatusResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'getConnectionStatusResponse_status' - The status of the connection to the instance. For example, \'Connected\'
--- or \'Not Connected\'.
+-- 'status', 'getConnectionStatusResponse_status' - The status of the connection to the managed node. For example,
+-- \'Connected\' or \'Not Connected\'.
 --
--- 'target', 'getConnectionStatusResponse_target' - The ID of the instance to check connection status.
+-- 'target', 'getConnectionStatusResponse_target' - The ID of the managed node to check connection status.
 --
 -- 'httpStatus', 'getConnectionStatusResponse_httpStatus' - The response's http status code.
 newGetConnectionStatusResponse ::
@@ -163,12 +163,12 @@ newGetConnectionStatusResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The status of the connection to the instance. For example, \'Connected\'
--- or \'Not Connected\'.
+-- | The status of the connection to the managed node. For example,
+-- \'Connected\' or \'Not Connected\'.
 getConnectionStatusResponse_status :: Lens.Lens' GetConnectionStatusResponse (Prelude.Maybe ConnectionStatus)
 getConnectionStatusResponse_status = Lens.lens (\GetConnectionStatusResponse' {status} -> status) (\s@GetConnectionStatusResponse' {} a -> s {status = a} :: GetConnectionStatusResponse)
 
--- | The ID of the instance to check connection status.
+-- | The ID of the managed node to check connection status.
 getConnectionStatusResponse_target :: Lens.Lens' GetConnectionStatusResponse (Prelude.Maybe Prelude.Text)
 getConnectionStatusResponse_target = Lens.lens (\GetConnectionStatusResponse' {target} -> target) (\s@GetConnectionStatusResponse' {} a -> s {target = a} :: GetConnectionStatusResponse)
 

@@ -22,8 +22,8 @@
 --
 -- Returns all State Manager associations in the current Amazon Web
 -- Services account and Amazon Web Services Region. You can limit the
--- results to a specific State Manager association document or instance by
--- specifying a filter. State Manager is a capability of Amazon Web
+-- results to a specific State Manager association document or managed node
+-- by specifying a filter. State Manager is a capability of Amazon Web
 -- Services Systems Manager.
 --
 -- This operation returns paginated results.
@@ -65,7 +65,7 @@ data ListAssociations = ListAssociations'
     --
     -- Filtering associations using the @InstanceID@ attribute only returns
     -- legacy associations created using the @InstanceID@ attribute.
-    -- Associations targeting the instance that are part of the Target
+    -- Associations targeting the managed node that are part of the Target
     -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
     associationFilterList :: Prelude.Maybe (Prelude.NonEmpty AssociationFilter),
     -- | The maximum number of items to return for this call. The call also
@@ -91,7 +91,7 @@ data ListAssociations = ListAssociations'
 --
 -- Filtering associations using the @InstanceID@ attribute only returns
 -- legacy associations created using the @InstanceID@ attribute.
--- Associations targeting the instance that are part of the Target
+-- Associations targeting the managed node that are part of the Target
 -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
 --
 -- 'maxResults', 'listAssociations_maxResults' - The maximum number of items to return for this call. The call also
@@ -116,7 +116,7 @@ listAssociations_nextToken = Lens.lens (\ListAssociations' {nextToken} -> nextTo
 --
 -- Filtering associations using the @InstanceID@ attribute only returns
 -- legacy associations created using the @InstanceID@ attribute.
--- Associations targeting the instance that are part of the Target
+-- Associations targeting the managed node that are part of the Target
 -- Attributes @ResourceGroup@ or @Tags@ aren\'t returned.
 listAssociations_associationFilterList :: Lens.Lens' ListAssociations (Prelude.Maybe (Prelude.NonEmpty AssociationFilter))
 listAssociations_associationFilterList = Lens.lens (\ListAssociations' {associationFilterList} -> associationFilterList) (\s@ListAssociations' {} a -> s {associationFilterList = a} :: ListAssociations) Prelude.. Lens.mapping Lens.coerced

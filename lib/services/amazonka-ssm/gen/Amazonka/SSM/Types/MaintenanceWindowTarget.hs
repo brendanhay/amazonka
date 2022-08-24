@@ -37,9 +37,9 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
     name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the maintenance window to register the target with.
     windowId :: Prelude.Maybe Prelude.Text,
-    -- | The targets, either instances or tags.
+    -- | The targets, either managed nodes or tags.
     --
-    -- Specify instances using the following format:
+    -- Specify managed nodes using the following format:
     --
     -- @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@
     --
@@ -72,9 +72,9 @@ data MaintenanceWindowTarget = MaintenanceWindowTarget'
 --
 -- 'windowId', 'maintenanceWindowTarget_windowId' - The ID of the maintenance window to register the target with.
 --
--- 'targets', 'maintenanceWindowTarget_targets' - The targets, either instances or tags.
+-- 'targets', 'maintenanceWindowTarget_targets' - The targets, either managed nodes or tags.
 --
--- Specify instances using the following format:
+-- Specify managed nodes using the following format:
 --
 -- @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@
 --
@@ -117,9 +117,9 @@ maintenanceWindowTarget_name = Lens.lens (\MaintenanceWindowTarget' {name} -> na
 maintenanceWindowTarget_windowId :: Lens.Lens' MaintenanceWindowTarget (Prelude.Maybe Prelude.Text)
 maintenanceWindowTarget_windowId = Lens.lens (\MaintenanceWindowTarget' {windowId} -> windowId) (\s@MaintenanceWindowTarget' {} a -> s {windowId = a} :: MaintenanceWindowTarget)
 
--- | The targets, either instances or tags.
+-- | The targets, either managed nodes or tags.
 --
--- Specify instances using the following format:
+-- Specify managed nodes using the following format:
 --
 -- @Key=instanceids,Values=\<instanceid1>,\<instanceid2>@
 --

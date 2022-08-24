@@ -91,9 +91,9 @@ data CreatePatchBaseline = CreatePatchBaseline'
     -- patch is reported as missing, this value describes the severity of the
     -- compliance violation. The default value is @UNSPECIFIED@.
     approvedPatchesComplianceLevel :: Prelude.Maybe PatchComplianceLevel,
-    -- | Information about the patches to use to update the instances, including
-    -- target operating systems and source repositories. Applies to Linux
-    -- instances only.
+    -- | Information about the patches to use to update the managed nodes,
+    -- including target operating systems and source repositories. Applies to
+    -- Linux managed nodes only.
     sources :: Prelude.Maybe [PatchSource],
     -- | User-provided idempotency token.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -126,8 +126,8 @@ data CreatePatchBaseline = CreatePatchBaseline'
     -- in the /Amazon Web Services Systems Manager User Guide/.
     rejectedPatches :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the list of approved patches includes non-security
-    -- updates that should be applied to the instances. The default value is
-    -- @false@. Applies to Linux instances only.
+    -- updates that should be applied to the managed nodes. The default value
+    -- is @false@. Applies to Linux managed nodes only.
     approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | The name of the patch baseline.
     name :: Prelude.Text
@@ -170,9 +170,9 @@ data CreatePatchBaseline = CreatePatchBaseline'
 -- patch is reported as missing, this value describes the severity of the
 -- compliance violation. The default value is @UNSPECIFIED@.
 --
--- 'sources', 'createPatchBaseline_sources' - Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
+-- 'sources', 'createPatchBaseline_sources' - Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repositories. Applies to
+-- Linux managed nodes only.
 --
 -- 'clientToken', 'createPatchBaseline_clientToken' - User-provided idempotency token.
 --
@@ -205,8 +205,8 @@ data CreatePatchBaseline = CreatePatchBaseline'
 -- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'approvedPatchesEnableNonSecurity', 'createPatchBaseline_approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
+-- updates that should be applied to the managed nodes. The default value
+-- is @false@. Applies to Linux managed nodes only.
 --
 -- 'name', 'createPatchBaseline_name' - The name of the patch baseline.
 newCreatePatchBaseline ::
@@ -266,9 +266,9 @@ createPatchBaseline_approvedPatches = Lens.lens (\CreatePatchBaseline' {approved
 createPatchBaseline_approvedPatchesComplianceLevel :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe PatchComplianceLevel)
 createPatchBaseline_approvedPatchesComplianceLevel = Lens.lens (\CreatePatchBaseline' {approvedPatchesComplianceLevel} -> approvedPatchesComplianceLevel) (\s@CreatePatchBaseline' {} a -> s {approvedPatchesComplianceLevel = a} :: CreatePatchBaseline)
 
--- | Information about the patches to use to update the instances, including
--- target operating systems and source repositories. Applies to Linux
--- instances only.
+-- | Information about the patches to use to update the managed nodes,
+-- including target operating systems and source repositories. Applies to
+-- Linux managed nodes only.
 createPatchBaseline_sources :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe [PatchSource])
 createPatchBaseline_sources = Lens.lens (\CreatePatchBaseline' {sources} -> sources) (\s@CreatePatchBaseline' {} a -> s {sources = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
 
@@ -315,8 +315,8 @@ createPatchBaseline_rejectedPatches :: Lens.Lens' CreatePatchBaseline (Prelude.M
 createPatchBaseline_rejectedPatches = Lens.lens (\CreatePatchBaseline' {rejectedPatches} -> rejectedPatches) (\s@CreatePatchBaseline' {} a -> s {rejectedPatches = a} :: CreatePatchBaseline) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether the list of approved patches includes non-security
--- updates that should be applied to the instances. The default value is
--- @false@. Applies to Linux instances only.
+-- updates that should be applied to the managed nodes. The default value
+-- is @false@. Applies to Linux managed nodes only.
 createPatchBaseline_approvedPatchesEnableNonSecurity :: Lens.Lens' CreatePatchBaseline (Prelude.Maybe Prelude.Bool)
 createPatchBaseline_approvedPatchesEnableNonSecurity = Lens.lens (\CreatePatchBaseline' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@CreatePatchBaseline' {} a -> s {approvedPatchesEnableNonSecurity = a} :: CreatePatchBaseline)
 

@@ -52,7 +52,7 @@ import Amazonka.SSM.Types
 
 -- | /See:/ 'newGetPatchBaselineForPatchGroup' smart constructor.
 data GetPatchBaselineForPatchGroup = GetPatchBaselineForPatchGroup'
-  { -- | Returns he operating system rule specified for patch groups using the
+  { -- | Returns the operating system rule specified for patch groups using the
     -- patch baseline.
     operatingSystem :: Prelude.Maybe OperatingSystem,
     -- | The name of the patch group whose patch baseline should be retrieved.
@@ -68,7 +68,7 @@ data GetPatchBaselineForPatchGroup = GetPatchBaselineForPatchGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'operatingSystem', 'getPatchBaselineForPatchGroup_operatingSystem' - Returns he operating system rule specified for patch groups using the
+-- 'operatingSystem', 'getPatchBaselineForPatchGroup_operatingSystem' - Returns the operating system rule specified for patch groups using the
 -- patch baseline.
 --
 -- 'patchGroup', 'getPatchBaselineForPatchGroup_patchGroup' - The name of the patch group whose patch baseline should be retrieved.
@@ -83,7 +83,7 @@ newGetPatchBaselineForPatchGroup pPatchGroup_ =
       patchGroup = pPatchGroup_
     }
 
--- | Returns he operating system rule specified for patch groups using the
+-- | Returns the operating system rule specified for patch groups using the
 -- patch baseline.
 getPatchBaselineForPatchGroup_operatingSystem :: Lens.Lens' GetPatchBaselineForPatchGroup (Prelude.Maybe OperatingSystem)
 getPatchBaselineForPatchGroup_operatingSystem = Lens.lens (\GetPatchBaselineForPatchGroup' {operatingSystem} -> operatingSystem) (\s@GetPatchBaselineForPatchGroup' {} a -> s {operatingSystem = a} :: GetPatchBaselineForPatchGroup)

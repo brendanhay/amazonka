@@ -64,11 +64,11 @@ data ListCommands = ListCommands'
     filters :: Prelude.Maybe (Prelude.NonEmpty CommandFilter),
     -- | (Optional) If provided, lists only the specified command.
     commandId :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Lists commands issued against this instance ID.
+    -- | (Optional) Lists commands issued against this managed node ID.
     --
-    -- You can\'t specify an instance ID in the same command that you specify
-    -- @Status@ = @Pending@. This is because the command hasn\'t reached the
-    -- instance yet.
+    -- You can\'t specify a managed node ID in the same command that you
+    -- specify @Status@ = @Pending@. This is because the command hasn\'t
+    -- reached the managed node yet.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The maximum number of items to return for this call. The call
     -- also returns a token that you can specify in a subsequent call to get
@@ -93,11 +93,11 @@ data ListCommands = ListCommands'
 --
 -- 'commandId', 'listCommands_commandId' - (Optional) If provided, lists only the specified command.
 --
--- 'instanceId', 'listCommands_instanceId' - (Optional) Lists commands issued against this instance ID.
+-- 'instanceId', 'listCommands_instanceId' - (Optional) Lists commands issued against this managed node ID.
 --
--- You can\'t specify an instance ID in the same command that you specify
--- @Status@ = @Pending@. This is because the command hasn\'t reached the
--- instance yet.
+-- You can\'t specify a managed node ID in the same command that you
+-- specify @Status@ = @Pending@. This is because the command hasn\'t
+-- reached the managed node yet.
 --
 -- 'maxResults', 'listCommands_maxResults' - (Optional) The maximum number of items to return for this call. The call
 -- also returns a token that you can specify in a subsequent call to get
@@ -127,11 +127,11 @@ listCommands_filters = Lens.lens (\ListCommands' {filters} -> filters) (\s@ListC
 listCommands_commandId :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
 listCommands_commandId = Lens.lens (\ListCommands' {commandId} -> commandId) (\s@ListCommands' {} a -> s {commandId = a} :: ListCommands)
 
--- | (Optional) Lists commands issued against this instance ID.
+-- | (Optional) Lists commands issued against this managed node ID.
 --
--- You can\'t specify an instance ID in the same command that you specify
--- @Status@ = @Pending@. This is because the command hasn\'t reached the
--- instance yet.
+-- You can\'t specify a managed node ID in the same command that you
+-- specify @Status@ = @Pending@. This is because the command hasn\'t
+-- reached the managed node yet.
 listCommands_instanceId :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
 listCommands_instanceId = Lens.lens (\ListCommands' {instanceId} -> instanceId) (\s@ListCommands' {} a -> s {instanceId = a} :: ListCommands)
 
@@ -229,7 +229,7 @@ data ListCommandsResponse = ListCommandsResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ListCommandsResponse' with all optional fields omitted.

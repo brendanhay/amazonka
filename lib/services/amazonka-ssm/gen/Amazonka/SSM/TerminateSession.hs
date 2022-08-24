@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Permanently ends a session and closes the data connection between the
--- Session Manager client and SSM Agent on the instance. A terminated
--- session isn\'t be resumed.
+-- Session Manager client and SSM Agent on the managed node. A terminated
+-- session can\'t be resumed.
 module Amazonka.SSM.TerminateSession
   ( -- * Creating a Request
     TerminateSession (..),

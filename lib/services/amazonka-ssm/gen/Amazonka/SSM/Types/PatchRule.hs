@@ -34,9 +34,9 @@ data PatchRule = PatchRule'
     -- example, a value of @7@ means that patches are approved seven days after
     -- they are released. Not supported on Debian Server or Ubuntu Server.
     approveAfterDays :: Prelude.Maybe Prelude.Natural,
-    -- | For instances identified by the approval rule filters, enables a patch
-    -- baseline to apply non-security updates available in the specified
-    -- repository. The default value is @false@. Applies to Linux instances
+    -- | For managed nodes identified by the approval rule filters, enables a
+    -- patch baseline to apply non-security updates available in the specified
+    -- repository. The default value is @false@. Applies to Linux managed nodes
     -- only.
     enableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | A compliance severity level for all approved patches in a patch
@@ -66,9 +66,9 @@ data PatchRule = PatchRule'
 -- example, a value of @7@ means that patches are approved seven days after
 -- they are released. Not supported on Debian Server or Ubuntu Server.
 --
--- 'enableNonSecurity', 'patchRule_enableNonSecurity' - For instances identified by the approval rule filters, enables a patch
--- baseline to apply non-security updates available in the specified
--- repository. The default value is @false@. Applies to Linux instances
+-- 'enableNonSecurity', 'patchRule_enableNonSecurity' - For managed nodes identified by the approval rule filters, enables a
+-- patch baseline to apply non-security updates available in the specified
+-- repository. The default value is @false@. Applies to Linux managed nodes
 -- only.
 --
 -- 'complianceLevel', 'patchRule_complianceLevel' - A compliance severity level for all approved patches in a patch
@@ -101,9 +101,9 @@ newPatchRule pPatchFilterGroup_ =
 patchRule_approveAfterDays :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Natural)
 patchRule_approveAfterDays = Lens.lens (\PatchRule' {approveAfterDays} -> approveAfterDays) (\s@PatchRule' {} a -> s {approveAfterDays = a} :: PatchRule)
 
--- | For instances identified by the approval rule filters, enables a patch
--- baseline to apply non-security updates available in the specified
--- repository. The default value is @false@. Applies to Linux instances
+-- | For managed nodes identified by the approval rule filters, enables a
+-- patch baseline to apply non-security updates available in the specified
+-- repository. The default value is @false@. Applies to Linux managed nodes
 -- only.
 patchRule_enableNonSecurity :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Bool)
 patchRule_enableNonSecurity = Lens.lens (\PatchRule' {enableNonSecurity} -> enableNonSecurity) (\s@PatchRule' {} a -> s {enableNonSecurity = a} :: PatchRule)

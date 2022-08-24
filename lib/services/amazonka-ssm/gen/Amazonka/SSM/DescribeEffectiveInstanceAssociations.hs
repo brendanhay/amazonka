@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- All associations for the instance(s).
+-- All associations for the managed node(s).
 --
 -- This operation returns paginated results.
 module Amazonka.SSM.DescribeEffectiveInstanceAssociations
@@ -60,7 +60,7 @@ data DescribeEffectiveInstanceAssociations = DescribeEffectiveInstanceAssociatio
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The instance ID for which you want to view all associations.
+    -- | The managed node ID for which you want to view all associations.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,7 +80,7 @@ data DescribeEffectiveInstanceAssociations = DescribeEffectiveInstanceAssociatio
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
--- 'instanceId', 'describeEffectiveInstanceAssociations_instanceId' - The instance ID for which you want to view all associations.
+-- 'instanceId', 'describeEffectiveInstanceAssociations_instanceId' - The managed node ID for which you want to view all associations.
 newDescribeEffectiveInstanceAssociations ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -104,7 +104,7 @@ describeEffectiveInstanceAssociations_nextToken = Lens.lens (\DescribeEffectiveI
 describeEffectiveInstanceAssociations_maxResults :: Lens.Lens' DescribeEffectiveInstanceAssociations (Prelude.Maybe Prelude.Natural)
 describeEffectiveInstanceAssociations_maxResults = Lens.lens (\DescribeEffectiveInstanceAssociations' {maxResults} -> maxResults) (\s@DescribeEffectiveInstanceAssociations' {} a -> s {maxResults = a} :: DescribeEffectiveInstanceAssociations)
 
--- | The instance ID for which you want to view all associations.
+-- | The managed node ID for which you want to view all associations.
 describeEffectiveInstanceAssociations_instanceId :: Lens.Lens' DescribeEffectiveInstanceAssociations Prelude.Text
 describeEffectiveInstanceAssociations_instanceId = Lens.lens (\DescribeEffectiveInstanceAssociations' {instanceId} -> instanceId) (\s@DescribeEffectiveInstanceAssociations' {} a -> s {instanceId = a} :: DescribeEffectiveInstanceAssociations)
 
@@ -219,7 +219,7 @@ data DescribeEffectiveInstanceAssociationsResponse = DescribeEffectiveInstanceAs
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The associations for the requested instance.
+    -- | The associations for the requested managed node.
     associations :: Prelude.Maybe [InstanceAssociation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -237,7 +237,7 @@ data DescribeEffectiveInstanceAssociationsResponse = DescribeEffectiveInstanceAs
 -- 'nextToken', 'describeEffectiveInstanceAssociationsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 --
--- 'associations', 'describeEffectiveInstanceAssociationsResponse_associations' - The associations for the requested instance.
+-- 'associations', 'describeEffectiveInstanceAssociationsResponse_associations' - The associations for the requested managed node.
 --
 -- 'httpStatus', 'describeEffectiveInstanceAssociationsResponse_httpStatus' - The response's http status code.
 newDescribeEffectiveInstanceAssociationsResponse ::
@@ -259,7 +259,7 @@ newDescribeEffectiveInstanceAssociationsResponse
 describeEffectiveInstanceAssociationsResponse_nextToken :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Prelude.Maybe Prelude.Text)
 describeEffectiveInstanceAssociationsResponse_nextToken = Lens.lens (\DescribeEffectiveInstanceAssociationsResponse' {nextToken} -> nextToken) (\s@DescribeEffectiveInstanceAssociationsResponse' {} a -> s {nextToken = a} :: DescribeEffectiveInstanceAssociationsResponse)
 
--- | The associations for the requested instance.
+-- | The associations for the requested managed node.
 describeEffectiveInstanceAssociationsResponse_associations :: Lens.Lens' DescribeEffectiveInstanceAssociationsResponse (Prelude.Maybe [InstanceAssociation])
 describeEffectiveInstanceAssociationsResponse_associations = Lens.lens (\DescribeEffectiveInstanceAssociationsResponse' {associations} -> associations) (\s@DescribeEffectiveInstanceAssociationsResponse' {} a -> s {associations = a} :: DescribeEffectiveInstanceAssociationsResponse) Prelude.. Lens.mapping Lens.coerced
 

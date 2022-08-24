@@ -38,8 +38,8 @@ data InventoryFilter = InventoryFilter'
     type' :: Prelude.Maybe InventoryQueryOperatorType,
     -- | The name of the filter key.
     key :: Prelude.Text,
-    -- | Inventory filter values. Example: inventory filter where instance IDs
-    -- are specified as values
+    -- | Inventory filter values. Example: inventory filter where managed node
+    -- IDs are specified as values
     -- @Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal@.
     values :: Prelude.NonEmpty Prelude.Text
   }
@@ -62,8 +62,8 @@ data InventoryFilter = InventoryFilter'
 --
 -- 'key', 'inventoryFilter_key' - The name of the filter key.
 --
--- 'values', 'inventoryFilter_values' - Inventory filter values. Example: inventory filter where instance IDs
--- are specified as values
+-- 'values', 'inventoryFilter_values' - Inventory filter values. Example: inventory filter where managed node
+-- IDs are specified as values
 -- @Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal@.
 newInventoryFilter ::
   -- | 'key'
@@ -91,8 +91,8 @@ inventoryFilter_type = Lens.lens (\InventoryFilter' {type'} -> type') (\s@Invent
 inventoryFilter_key :: Lens.Lens' InventoryFilter Prelude.Text
 inventoryFilter_key = Lens.lens (\InventoryFilter' {key} -> key) (\s@InventoryFilter' {} a -> s {key = a} :: InventoryFilter)
 
--- | Inventory filter values. Example: inventory filter where instance IDs
--- are specified as values
+-- | Inventory filter values. Example: inventory filter where managed node
+-- IDs are specified as values
 -- @Key=AWS:InstanceInformation.InstanceId,Values= i-a12b3c4d5e6g, i-1a2b3c4d5e6,Type=Equal@.
 inventoryFilter_values :: Lens.Lens' InventoryFilter (Prelude.NonEmpty Prelude.Text)
 inventoryFilter_values = Lens.lens (\InventoryFilter' {values} -> values) (\s@InventoryFilter' {} a -> s {values = a} :: InventoryFilter) Prelude.. Lens.coerced

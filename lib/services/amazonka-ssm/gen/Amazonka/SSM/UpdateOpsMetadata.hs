@@ -55,7 +55,7 @@ data UpdateOpsMetadata = UpdateOpsMetadata'
     keysToDelete :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Metadata to add to an OpsMetadata object.
     metadataToUpdate :: Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue),
-    -- | The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.
+    -- | The Amazon Resource Name (ARN) of the OpsMetadata Object to update.
     opsMetadataArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,7 +72,7 @@ data UpdateOpsMetadata = UpdateOpsMetadata'
 --
 -- 'metadataToUpdate', 'updateOpsMetadata_metadataToUpdate' - Metadata to add to an OpsMetadata object.
 --
--- 'opsMetadataArn', 'updateOpsMetadata_opsMetadataArn' - The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.
+-- 'opsMetadataArn', 'updateOpsMetadata_opsMetadataArn' - The Amazon Resource Name (ARN) of the OpsMetadata Object to update.
 newUpdateOpsMetadata ::
   -- | 'opsMetadataArn'
   Prelude.Text ->
@@ -92,7 +92,7 @@ updateOpsMetadata_keysToDelete = Lens.lens (\UpdateOpsMetadata' {keysToDelete} -
 updateOpsMetadata_metadataToUpdate :: Lens.Lens' UpdateOpsMetadata (Prelude.Maybe (Prelude.HashMap Prelude.Text MetadataValue))
 updateOpsMetadata_metadataToUpdate = Lens.lens (\UpdateOpsMetadata' {metadataToUpdate} -> metadataToUpdate) (\s@UpdateOpsMetadata' {} a -> s {metadataToUpdate = a} :: UpdateOpsMetadata) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resoure Name (ARN) of the OpsMetadata Object to update.
+-- | The Amazon Resource Name (ARN) of the OpsMetadata Object to update.
 updateOpsMetadata_opsMetadataArn :: Lens.Lens' UpdateOpsMetadata Prelude.Text
 updateOpsMetadata_opsMetadataArn = Lens.lens (\UpdateOpsMetadata' {opsMetadataArn} -> opsMetadataArn) (\s@UpdateOpsMetadata' {} a -> s {opsMetadataArn = a} :: UpdateOpsMetadata)
 

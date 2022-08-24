@@ -50,14 +50,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateInvitations' smart constructor.
 data CreateInvitations = CreateInvitations'
-  { -- | A custom message to include in the invitation. Amazon Macie adds this
-    -- message to the standard content that it sends for an invitation.
+  { -- | Custom text to include in the email message that contains the
+    -- invitation. The text can contain as many as 80 alphanumeric characters.
     message :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether to send an email notification to the root user of each
-    -- account that the invitation will be sent to. This notification is in
-    -- addition to an alert that the root user receives in Personal Health
-    -- Dashboard. To send an email notification to the root user of each
-    -- account, set this value to true.
+    -- | Specifies whether to send the invitation as an email message. If this
+    -- value is false, Amazon Macie sends the invitation (as an email message)
+    -- to the email address that you specified for the recipient\'s account
+    -- when you associated the account with your account. The default value is
+    -- false.
     disableEmailNotification :: Prelude.Maybe Prelude.Bool,
     -- | An array that lists Amazon Web Services account IDs, one for each
     -- account to send the invitation to.
@@ -73,14 +73,14 @@ data CreateInvitations = CreateInvitations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'createInvitations_message' - A custom message to include in the invitation. Amazon Macie adds this
--- message to the standard content that it sends for an invitation.
+-- 'message', 'createInvitations_message' - Custom text to include in the email message that contains the
+-- invitation. The text can contain as many as 80 alphanumeric characters.
 --
--- 'disableEmailNotification', 'createInvitations_disableEmailNotification' - Specifies whether to send an email notification to the root user of each
--- account that the invitation will be sent to. This notification is in
--- addition to an alert that the root user receives in Personal Health
--- Dashboard. To send an email notification to the root user of each
--- account, set this value to true.
+-- 'disableEmailNotification', 'createInvitations_disableEmailNotification' - Specifies whether to send the invitation as an email message. If this
+-- value is false, Amazon Macie sends the invitation (as an email message)
+-- to the email address that you specified for the recipient\'s account
+-- when you associated the account with your account. The default value is
+-- false.
 --
 -- 'accountIds', 'createInvitations_accountIds' - An array that lists Amazon Web Services account IDs, one for each
 -- account to send the invitation to.
@@ -93,16 +93,16 @@ newCreateInvitations =
       accountIds = Prelude.mempty
     }
 
--- | A custom message to include in the invitation. Amazon Macie adds this
--- message to the standard content that it sends for an invitation.
+-- | Custom text to include in the email message that contains the
+-- invitation. The text can contain as many as 80 alphanumeric characters.
 createInvitations_message :: Lens.Lens' CreateInvitations (Prelude.Maybe Prelude.Text)
 createInvitations_message = Lens.lens (\CreateInvitations' {message} -> message) (\s@CreateInvitations' {} a -> s {message = a} :: CreateInvitations)
 
--- | Specifies whether to send an email notification to the root user of each
--- account that the invitation will be sent to. This notification is in
--- addition to an alert that the root user receives in Personal Health
--- Dashboard. To send an email notification to the root user of each
--- account, set this value to true.
+-- | Specifies whether to send the invitation as an email message. If this
+-- value is false, Amazon Macie sends the invitation (as an email message)
+-- to the email address that you specified for the recipient\'s account
+-- when you associated the account with your account. The default value is
+-- false.
 createInvitations_disableEmailNotification :: Lens.Lens' CreateInvitations (Prelude.Maybe Prelude.Bool)
 createInvitations_disableEmailNotification = Lens.lens (\CreateInvitations' {disableEmailNotification} -> disableEmailNotification) (\s@CreateInvitations' {} a -> s {disableEmailNotification = a} :: CreateInvitations)
 

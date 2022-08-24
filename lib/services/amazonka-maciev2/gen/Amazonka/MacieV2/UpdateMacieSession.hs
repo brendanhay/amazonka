@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Suspends or re-enables an Amazon Macie account, or updates the
--- configuration settings for a Macie account.
+-- Suspends or re-enables Amazon Macie, or updates the configuration
+-- settings for a Macie account.
 module Amazonka.MacieV2.UpdateMacieSession
   ( -- * Creating a Request
     UpdateMacieSession (..),

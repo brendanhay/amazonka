@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MacieV2.Types.AdminStatus
+-- Module      : Amazonka.MacieV2.Types.DataIdentifierSeverity
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MacieV2.Types.AdminStatus
-  ( AdminStatus
+module Amazonka.MacieV2.Types.DataIdentifierSeverity
+  ( DataIdentifierSeverity
       ( ..,
-        AdminStatus_DISABLING_IN_PROGRESS,
-        AdminStatus_ENABLED
+        DataIdentifierSeverity_HIGH,
+        DataIdentifierSeverity_LOW,
+        DataIdentifierSeverity_MEDIUM
       ),
   )
 where
@@ -29,11 +30,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The current status of an account as the delegated Amazon Macie
--- administrator account for an organization in Organizations. Possible
--- values are:
-newtype AdminStatus = AdminStatus'
-  { fromAdminStatus ::
+-- | The severity of a finding, ranging from LOW, for least severe, to HIGH,
+-- for most severe. Valid values are:
+newtype DataIdentifierSeverity = DataIdentifierSeverity'
+  { fromDataIdentifierSeverity ::
       Core.Text
   }
   deriving stock
@@ -60,14 +60,18 @@ newtype AdminStatus = AdminStatus'
       Core.ToXML
     )
 
-pattern AdminStatus_DISABLING_IN_PROGRESS :: AdminStatus
-pattern AdminStatus_DISABLING_IN_PROGRESS = AdminStatus' "DISABLING_IN_PROGRESS"
+pattern DataIdentifierSeverity_HIGH :: DataIdentifierSeverity
+pattern DataIdentifierSeverity_HIGH = DataIdentifierSeverity' "HIGH"
 
-pattern AdminStatus_ENABLED :: AdminStatus
-pattern AdminStatus_ENABLED = AdminStatus' "ENABLED"
+pattern DataIdentifierSeverity_LOW :: DataIdentifierSeverity
+pattern DataIdentifierSeverity_LOW = DataIdentifierSeverity' "LOW"
+
+pattern DataIdentifierSeverity_MEDIUM :: DataIdentifierSeverity
+pattern DataIdentifierSeverity_MEDIUM = DataIdentifierSeverity' "MEDIUM"
 
 {-# COMPLETE
-  AdminStatus_DISABLING_IN_PROGRESS,
-  AdminStatus_ENABLED,
-  AdminStatus'
+  DataIdentifierSeverity_HIGH,
+  DataIdentifierSeverity_LOW,
+  DataIdentifierSeverity_MEDIUM,
+  DataIdentifierSeverity'
   #-}

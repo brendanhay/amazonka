@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about the delegated Amazon Macie administrator
--- account for an Amazon Web Services organization.
+-- account for an organization in Organizations.
 --
 -- This operation returns paginated results.
 module Amazonka.MacieV2.ListOrganizationAdminAccounts

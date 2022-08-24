@@ -25,12 +25,12 @@ import Amazonka.MacieV2.Types.AdminStatus
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides information about the delegated Amazon Macie administrator
--- account for an Amazon Web Services organization.
+-- account for an organization in Organizations.
 --
 -- /See:/ 'newAdminAccount' smart constructor.
 data AdminAccount = AdminAccount'
-  { -- | The current status of the account as the delegated administrator of
-    -- Amazon Macie for the organization.
+  { -- | The current status of the account as the delegated Amazon Macie
+    -- administrator account for the organization.
     status :: Prelude.Maybe AdminStatus,
     -- | The Amazon Web Services account ID for the account.
     accountId :: Prelude.Maybe Prelude.Text
@@ -45,8 +45,8 @@ data AdminAccount = AdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'adminAccount_status' - The current status of the account as the delegated administrator of
--- Amazon Macie for the organization.
+-- 'status', 'adminAccount_status' - The current status of the account as the delegated Amazon Macie
+-- administrator account for the organization.
 --
 -- 'accountId', 'adminAccount_accountId' - The Amazon Web Services account ID for the account.
 newAdminAccount ::
@@ -57,8 +57,8 @@ newAdminAccount =
       accountId = Prelude.Nothing
     }
 
--- | The current status of the account as the delegated administrator of
--- Amazon Macie for the organization.
+-- | The current status of the account as the delegated Amazon Macie
+-- administrator account for the organization.
 adminAccount_status :: Lens.Lens' AdminAccount (Prelude.Maybe AdminStatus)
 adminAccount_status = Lens.lens (\AdminAccount' {status} -> status) (\s@AdminAccount' {} a -> s {status = a} :: AdminAccount)
 

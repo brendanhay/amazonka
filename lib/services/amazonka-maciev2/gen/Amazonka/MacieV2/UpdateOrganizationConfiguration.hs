@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the Amazon Macie configuration settings for an Amazon Web
--- Services organization.
+-- Updates the Amazon Macie configuration settings for an organization in
+-- Organizations.
 module Amazonka.MacieV2.UpdateOrganizationConfiguration
   ( -- * Creating a Request
     UpdateOrganizationConfiguration (..),
@@ -48,8 +48,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateOrganizationConfiguration' smart constructor.
 data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
-  { -- | Specifies whether to enable Amazon Macie automatically for each account,
-    -- when the account is added to the Amazon Web Services organization.
+  { -- | Specifies whether to enable Amazon Macie automatically for an account
+    -- when the account is added to the organization in Organizations.
     autoEnable :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +62,8 @@ data UpdateOrganizationConfiguration = UpdateOrganizationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'autoEnable', 'updateOrganizationConfiguration_autoEnable' - Specifies whether to enable Amazon Macie automatically for each account,
--- when the account is added to the Amazon Web Services organization.
+-- 'autoEnable', 'updateOrganizationConfiguration_autoEnable' - Specifies whether to enable Amazon Macie automatically for an account
+-- when the account is added to the organization in Organizations.
 newUpdateOrganizationConfiguration ::
   -- | 'autoEnable'
   Prelude.Bool ->
@@ -74,8 +74,8 @@ newUpdateOrganizationConfiguration pAutoEnable_ =
         pAutoEnable_
     }
 
--- | Specifies whether to enable Amazon Macie automatically for each account,
--- when the account is added to the Amazon Web Services organization.
+-- | Specifies whether to enable Amazon Macie automatically for an account
+-- when the account is added to the organization in Organizations.
 updateOrganizationConfiguration_autoEnable :: Lens.Lens' UpdateOrganizationConfiguration Prelude.Bool
 updateOrganizationConfiguration_autoEnable = Lens.lens (\UpdateOrganizationConfiguration' {autoEnable} -> autoEnable) (\s@UpdateOrganizationConfiguration' {} a -> s {autoEnable = a} :: UpdateOrganizationConfiguration)
 

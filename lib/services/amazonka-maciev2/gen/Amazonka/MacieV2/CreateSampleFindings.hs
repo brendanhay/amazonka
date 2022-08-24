@@ -47,9 +47,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSampleFindings' smart constructor.
 data CreateSampleFindings = CreateSampleFindings'
-  { -- | An array that lists one or more types of findings to include in the set
-    -- of sample findings. Currently, the only supported value is
-    -- Policy:IAMUser\/S3BucketEncryptionDisabled.
+  { -- | An array of finding types, one for each type of sample finding to
+    -- create. To create a sample of every type of finding that Amazon Macie
+    -- supports, don\'t include this array in your request.
     findingTypes :: Prelude.Maybe [FindingType]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,9 +62,9 @@ data CreateSampleFindings = CreateSampleFindings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'findingTypes', 'createSampleFindings_findingTypes' - An array that lists one or more types of findings to include in the set
--- of sample findings. Currently, the only supported value is
--- Policy:IAMUser\/S3BucketEncryptionDisabled.
+-- 'findingTypes', 'createSampleFindings_findingTypes' - An array of finding types, one for each type of sample finding to
+-- create. To create a sample of every type of finding that Amazon Macie
+-- supports, don\'t include this array in your request.
 newCreateSampleFindings ::
   CreateSampleFindings
 newCreateSampleFindings =
@@ -73,9 +73,9 @@ newCreateSampleFindings =
         Prelude.Nothing
     }
 
--- | An array that lists one or more types of findings to include in the set
--- of sample findings. Currently, the only supported value is
--- Policy:IAMUser\/S3BucketEncryptionDisabled.
+-- | An array of finding types, one for each type of sample finding to
+-- create. To create a sample of every type of finding that Amazon Macie
+-- supports, don\'t include this array in your request.
 createSampleFindings_findingTypes :: Lens.Lens' CreateSampleFindings (Prelude.Maybe [FindingType])
 createSampleFindings_findingTypes = Lens.lens (\CreateSampleFindings' {findingTypes} -> findingTypes) (\s@CreateSampleFindings' {} a -> s {findingTypes = a} :: CreateSampleFindings) Prelude.. Lens.mapping Lens.coerced
 

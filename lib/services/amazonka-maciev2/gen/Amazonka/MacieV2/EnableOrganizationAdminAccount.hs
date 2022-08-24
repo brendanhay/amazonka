@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Designates an account as the delegated Amazon Macie administrator
--- account for an Amazon Web Services organization.
+-- account for an organization in Organizations.
 module Amazonka.MacieV2.EnableOrganizationAdminAccount
   ( -- * Creating a Request
     EnableOrganizationAdminAccount (..),

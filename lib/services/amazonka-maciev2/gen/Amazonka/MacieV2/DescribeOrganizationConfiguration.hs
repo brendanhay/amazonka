@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the Amazon Macie configuration settings for an Amazon Web
--- Services organization.
+-- Retrieves the Amazon Macie configuration settings for an organization in
+-- Organizations.
 module Amazonka.MacieV2.DescribeOrganizationConfiguration
   ( -- * Creating a Request
     DescribeOrganizationConfiguration (..),
@@ -119,10 +119,10 @@ instance
 -- | /See:/ 'newDescribeOrganizationConfigurationResponse' smart constructor.
 data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurationResponse'
   { -- | Specifies whether the maximum number of Amazon Macie member accounts are
-    -- part of the Amazon Web Services organization.
+    -- part of the organization.
     maxAccountLimitReached :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether Amazon Macie is enabled automatically for accounts
-    -- that are added to the Amazon Web Services organization.
+    -- that are added to the organization.
     autoEnable :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -138,10 +138,10 @@ data DescribeOrganizationConfigurationResponse = DescribeOrganizationConfigurati
 -- for backwards compatibility:
 --
 -- 'maxAccountLimitReached', 'describeOrganizationConfigurationResponse_maxAccountLimitReached' - Specifies whether the maximum number of Amazon Macie member accounts are
--- part of the Amazon Web Services organization.
+-- part of the organization.
 --
 -- 'autoEnable', 'describeOrganizationConfigurationResponse_autoEnable' - Specifies whether Amazon Macie is enabled automatically for accounts
--- that are added to the Amazon Web Services organization.
+-- that are added to the organization.
 --
 -- 'httpStatus', 'describeOrganizationConfigurationResponse_httpStatus' - The response's http status code.
 newDescribeOrganizationConfigurationResponse ::
@@ -158,12 +158,12 @@ newDescribeOrganizationConfigurationResponse
       }
 
 -- | Specifies whether the maximum number of Amazon Macie member accounts are
--- part of the Amazon Web Services organization.
+-- part of the organization.
 describeOrganizationConfigurationResponse_maxAccountLimitReached :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
 describeOrganizationConfigurationResponse_maxAccountLimitReached = Lens.lens (\DescribeOrganizationConfigurationResponse' {maxAccountLimitReached} -> maxAccountLimitReached) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {maxAccountLimitReached = a} :: DescribeOrganizationConfigurationResponse)
 
 -- | Specifies whether Amazon Macie is enabled automatically for accounts
--- that are added to the Amazon Web Services organization.
+-- that are added to the organization.
 describeOrganizationConfigurationResponse_autoEnable :: Lens.Lens' DescribeOrganizationConfigurationResponse (Prelude.Maybe Prelude.Bool)
 describeOrganizationConfigurationResponse_autoEnable = Lens.lens (\DescribeOrganizationConfigurationResponse' {autoEnable} -> autoEnable) (\s@DescribeOrganizationConfigurationResponse' {} a -> s {autoEnable = a} :: DescribeOrganizationConfigurationResponse)
 

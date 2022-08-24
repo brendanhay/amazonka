@@ -52,7 +52,8 @@ data GetFindings = GetFindings'
   { -- | The criteria for sorting the results of the request.
     sortCriteria :: Prelude.Maybe SortCriteria,
     -- | An array of strings that lists the unique identifiers for the findings
-    -- to retrieve.
+    -- to retrieve. You can specify as many as 50 unique identifiers in this
+    -- array.
     findingIds :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,7 +69,8 @@ data GetFindings = GetFindings'
 -- 'sortCriteria', 'getFindings_sortCriteria' - The criteria for sorting the results of the request.
 --
 -- 'findingIds', 'getFindings_findingIds' - An array of strings that lists the unique identifiers for the findings
--- to retrieve.
+-- to retrieve. You can specify as many as 50 unique identifiers in this
+-- array.
 newGetFindings ::
   GetFindings
 newGetFindings =
@@ -82,7 +84,8 @@ getFindings_sortCriteria :: Lens.Lens' GetFindings (Prelude.Maybe SortCriteria)
 getFindings_sortCriteria = Lens.lens (\GetFindings' {sortCriteria} -> sortCriteria) (\s@GetFindings' {} a -> s {sortCriteria = a} :: GetFindings)
 
 -- | An array of strings that lists the unique identifiers for the findings
--- to retrieve.
+-- to retrieve. You can specify as many as 50 unique identifiers in this
+-- array.
 getFindings_findingIds :: Lens.Lens' GetFindings [Prelude.Text]
 getFindings_findingIds = Lens.lens (\GetFindings' {findingIds} -> findingIds) (\s@GetFindings' {} a -> s {findingIds = a} :: GetFindings) Prelude.. Lens.coerced
 

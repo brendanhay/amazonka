@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MacieV2.Types.AdminStatus
+-- Module      : Amazonka.MacieV2.Types.RevealRequestStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MacieV2.Types.AdminStatus
-  ( AdminStatus
+module Amazonka.MacieV2.Types.RevealRequestStatus
+  ( RevealRequestStatus
       ( ..,
-        AdminStatus_DISABLING_IN_PROGRESS,
-        AdminStatus_ENABLED
+        RevealRequestStatus_ERROR,
+        RevealRequestStatus_PROCESSING,
+        RevealRequestStatus_SUCCESS
       ),
   )
 where
@@ -29,11 +30,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The current status of an account as the delegated Amazon Macie
--- administrator account for an organization in Organizations. Possible
--- values are:
-newtype AdminStatus = AdminStatus'
-  { fromAdminStatus ::
+-- | The status of a request to retrieve occurrences of sensitive data
+-- reported by a finding. Possible values are:
+newtype RevealRequestStatus = RevealRequestStatus'
+  { fromRevealRequestStatus ::
       Core.Text
   }
   deriving stock
@@ -60,14 +60,18 @@ newtype AdminStatus = AdminStatus'
       Core.ToXML
     )
 
-pattern AdminStatus_DISABLING_IN_PROGRESS :: AdminStatus
-pattern AdminStatus_DISABLING_IN_PROGRESS = AdminStatus' "DISABLING_IN_PROGRESS"
+pattern RevealRequestStatus_ERROR :: RevealRequestStatus
+pattern RevealRequestStatus_ERROR = RevealRequestStatus' "ERROR"
 
-pattern AdminStatus_ENABLED :: AdminStatus
-pattern AdminStatus_ENABLED = AdminStatus' "ENABLED"
+pattern RevealRequestStatus_PROCESSING :: RevealRequestStatus
+pattern RevealRequestStatus_PROCESSING = RevealRequestStatus' "PROCESSING"
+
+pattern RevealRequestStatus_SUCCESS :: RevealRequestStatus
+pattern RevealRequestStatus_SUCCESS = RevealRequestStatus' "SUCCESS"
 
 {-# COMPLETE
-  AdminStatus_DISABLING_IN_PROGRESS,
-  AdminStatus_ENABLED,
-  AdminStatus'
+  RevealRequestStatus_ERROR,
+  RevealRequestStatus_PROCESSING,
+  RevealRequestStatus_SUCCESS,
+  RevealRequestStatus'
   #-}

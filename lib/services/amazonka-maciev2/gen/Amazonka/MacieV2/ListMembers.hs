@@ -184,8 +184,7 @@ data ListMembersResponse = ListMembersResponse'
     -- additional pages.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of objects, one for each account that\'s associated with the
-    -- administrator account and meets the criteria specified by the
-    -- onlyAssociated request parameter.
+    -- administrator account and meets the criteria specified in the request.
     members :: Prelude.Maybe [Member],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -205,8 +204,7 @@ data ListMembersResponse = ListMembersResponse'
 -- additional pages.
 --
 -- 'members', 'listMembersResponse_members' - An array of objects, one for each account that\'s associated with the
--- administrator account and meets the criteria specified by the
--- onlyAssociated request parameter.
+-- administrator account and meets the criteria specified in the request.
 --
 -- 'httpStatus', 'listMembersResponse_httpStatus' - The response's http status code.
 newListMembersResponse ::
@@ -227,8 +225,7 @@ listMembersResponse_nextToken :: Lens.Lens' ListMembersResponse (Prelude.Maybe P
 listMembersResponse_nextToken = Lens.lens (\ListMembersResponse' {nextToken} -> nextToken) (\s@ListMembersResponse' {} a -> s {nextToken = a} :: ListMembersResponse)
 
 -- | An array of objects, one for each account that\'s associated with the
--- administrator account and meets the criteria specified by the
--- onlyAssociated request parameter.
+-- administrator account and meets the criteria specified in the request.
 listMembersResponse_members :: Lens.Lens' ListMembersResponse (Prelude.Maybe [Member])
 listMembersResponse_members = Lens.lens (\ListMembersResponse' {members} -> members) (\s@ListMembersResponse' {} a -> s {members = a} :: ListMembersResponse) Prelude.. Lens.mapping Lens.coerced
 

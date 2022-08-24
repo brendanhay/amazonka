@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Disables an account as the delegated Amazon Macie administrator account
--- for an Amazon Web Services organization.
+-- for an organization in Organizations.
 module Amazonka.MacieV2.DisableOrganizationAdminAccount
   ( -- * Creating a Request
     DisableOrganizationAdminAccount (..),

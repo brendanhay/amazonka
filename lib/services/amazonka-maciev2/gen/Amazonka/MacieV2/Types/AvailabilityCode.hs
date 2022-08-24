@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MacieV2.Types.AdminStatus
+-- Module      : Amazonka.MacieV2.Types.AvailabilityCode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MacieV2.Types.AdminStatus
-  ( AdminStatus
+module Amazonka.MacieV2.Types.AvailabilityCode
+  ( AvailabilityCode
       ( ..,
-        AdminStatus_DISABLING_IN_PROGRESS,
-        AdminStatus_ENABLED
+        AvailabilityCode_AVAILABLE,
+        AvailabilityCode_UNAVAILABLE
       ),
   )
 where
@@ -29,11 +29,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The current status of an account as the delegated Amazon Macie
--- administrator account for an organization in Organizations. Possible
--- values are:
-newtype AdminStatus = AdminStatus'
-  { fromAdminStatus ::
+-- | Specifies whether occurrences of sensitive data can be retrieved for a
+-- finding. Possible values are:
+newtype AvailabilityCode = AvailabilityCode'
+  { fromAvailabilityCode ::
       Core.Text
   }
   deriving stock
@@ -60,14 +59,14 @@ newtype AdminStatus = AdminStatus'
       Core.ToXML
     )
 
-pattern AdminStatus_DISABLING_IN_PROGRESS :: AdminStatus
-pattern AdminStatus_DISABLING_IN_PROGRESS = AdminStatus' "DISABLING_IN_PROGRESS"
+pattern AvailabilityCode_AVAILABLE :: AvailabilityCode
+pattern AvailabilityCode_AVAILABLE = AvailabilityCode' "AVAILABLE"
 
-pattern AdminStatus_ENABLED :: AdminStatus
-pattern AdminStatus_ENABLED = AdminStatus' "ENABLED"
+pattern AvailabilityCode_UNAVAILABLE :: AvailabilityCode
+pattern AvailabilityCode_UNAVAILABLE = AvailabilityCode' "UNAVAILABLE"
 
 {-# COMPLETE
-  AdminStatus_DISABLING_IN_PROGRESS,
-  AdminStatus_ENABLED,
-  AdminStatus'
+  AvailabilityCode_AVAILABLE,
+  AvailabilityCode_UNAVAILABLE,
+  AvailabilityCode'
   #-}

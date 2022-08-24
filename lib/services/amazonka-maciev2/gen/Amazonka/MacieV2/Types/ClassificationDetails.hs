@@ -22,14 +22,18 @@ module Amazonka.MacieV2.Types.ClassificationDetails where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import Amazonka.MacieV2.Types.ClassificationResult
+import Amazonka.MacieV2.Types.OriginType
 import qualified Amazonka.Prelude as Prelude
 
--- | Provides information about a sensitive data finding, including the
--- classification job that produced the finding.
+-- | Provides information about a sensitive data finding and the details of
+-- the finding.
 --
 -- /See:/ 'newClassificationDetails' smart constructor.
 data ClassificationDetails = ClassificationDetails'
-  { -- | The unique identifier for the classification job that produced the
+  { -- | Specifies how Amazon Macie found the sensitive data that produced the
+    -- finding: SENSITIVE_DATA_DISCOVERY_JOB, for a classification job.
+    originType :: Prelude.Maybe OriginType,
+    -- | The unique identifier for the classification job that produced the
     -- finding.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The path to the folder or file (in Amazon S3) that contains the
@@ -53,6 +57,9 @@ data ClassificationDetails = ClassificationDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'originType', 'classificationDetails_originType' - Specifies how Amazon Macie found the sensitive data that produced the
+-- finding: SENSITIVE_DATA_DISCOVERY_JOB, for a classification job.
+--
 -- 'jobId', 'classificationDetails_jobId' - The unique identifier for the classification job that produced the
 -- finding.
 --
@@ -69,11 +76,18 @@ newClassificationDetails ::
   ClassificationDetails
 newClassificationDetails =
   ClassificationDetails'
-    { jobId = Prelude.Nothing,
+    { originType =
+        Prelude.Nothing,
+      jobId = Prelude.Nothing,
       detailedResultsLocation = Prelude.Nothing,
       result = Prelude.Nothing,
       jobArn = Prelude.Nothing
     }
+
+-- | Specifies how Amazon Macie found the sensitive data that produced the
+-- finding: SENSITIVE_DATA_DISCOVERY_JOB, for a classification job.
+classificationDetails_originType :: Lens.Lens' ClassificationDetails (Prelude.Maybe OriginType)
+classificationDetails_originType = Lens.lens (\ClassificationDetails' {originType} -> originType) (\s@ClassificationDetails' {} a -> s {originType = a} :: ClassificationDetails)
 
 -- | The unique identifier for the classification job that produced the
 -- finding.
@@ -102,7 +116,8 @@ instance Core.FromJSON ClassificationDetails where
       "ClassificationDetails"
       ( \x ->
           ClassificationDetails'
-            Prelude.<$> (x Core..:? "jobId")
+            Prelude.<$> (x Core..:? "originType")
+            Prelude.<*> (x Core..:? "jobId")
             Prelude.<*> (x Core..:? "detailedResultsLocation")
             Prelude.<*> (x Core..:? "result")
             Prelude.<*> (x Core..:? "jobArn")
@@ -110,14 +125,16 @@ instance Core.FromJSON ClassificationDetails where
 
 instance Prelude.Hashable ClassificationDetails where
   hashWithSalt _salt ClassificationDetails' {..} =
-    _salt `Prelude.hashWithSalt` jobId
+    _salt `Prelude.hashWithSalt` originType
+      `Prelude.hashWithSalt` jobId
       `Prelude.hashWithSalt` detailedResultsLocation
       `Prelude.hashWithSalt` result
       `Prelude.hashWithSalt` jobArn
 
 instance Prelude.NFData ClassificationDetails where
   rnf ClassificationDetails' {..} =
-    Prelude.rnf jobId
+    Prelude.rnf originType
+      `Prelude.seq` Prelude.rnf jobId
       `Prelude.seq` Prelude.rnf detailedResultsLocation
       `Prelude.seq` Prelude.rnf result
       `Prelude.seq` Prelude.rnf jobArn

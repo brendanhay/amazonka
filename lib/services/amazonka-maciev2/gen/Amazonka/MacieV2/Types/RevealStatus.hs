@@ -11,17 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.MacieV2.Types.AdminStatus
+-- Module      : Amazonka.MacieV2.Types.RevealStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.MacieV2.Types.AdminStatus
-  ( AdminStatus
+module Amazonka.MacieV2.Types.RevealStatus
+  ( RevealStatus
       ( ..,
-        AdminStatus_DISABLING_IN_PROGRESS,
-        AdminStatus_ENABLED
+        RevealStatus_DISABLED,
+        RevealStatus_ENABLED
       ),
   )
 where
@@ -29,11 +29,10 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | The current status of an account as the delegated Amazon Macie
--- administrator account for an organization in Organizations. Possible
--- values are:
-newtype AdminStatus = AdminStatus'
-  { fromAdminStatus ::
+-- | The status of the configuration for the Amazon Macie account. In a
+-- request, valid values are:
+newtype RevealStatus = RevealStatus'
+  { fromRevealStatus ::
       Core.Text
   }
   deriving stock
@@ -60,14 +59,14 @@ newtype AdminStatus = AdminStatus'
       Core.ToXML
     )
 
-pattern AdminStatus_DISABLING_IN_PROGRESS :: AdminStatus
-pattern AdminStatus_DISABLING_IN_PROGRESS = AdminStatus' "DISABLING_IN_PROGRESS"
+pattern RevealStatus_DISABLED :: RevealStatus
+pattern RevealStatus_DISABLED = RevealStatus' "DISABLED"
 
-pattern AdminStatus_ENABLED :: AdminStatus
-pattern AdminStatus_ENABLED = AdminStatus' "ENABLED"
+pattern RevealStatus_ENABLED :: RevealStatus
+pattern RevealStatus_ENABLED = RevealStatus' "ENABLED"
 
 {-# COMPLETE
-  AdminStatus_DISABLING_IN_PROGRESS,
-  AdminStatus_ENABLED,
-  AdminStatus'
+  RevealStatus_DISABLED,
+  RevealStatus_ENABLED,
+  RevealStatus'
   #-}

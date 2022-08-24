@@ -43,6 +43,7 @@ module Amazonka.MacieV2.GetCustomDataIdentifier
     getCustomDataIdentifierResponse_keywords,
     getCustomDataIdentifierResponse_description,
     getCustomDataIdentifierResponse_id,
+    getCustomDataIdentifierResponse_severityLevels,
     getCustomDataIdentifierResponse_maximumMatchDistance,
     getCustomDataIdentifierResponse_createdAt,
     getCustomDataIdentifierResponse_httpStatus,
@@ -104,6 +105,7 @@ instance Core.AWSRequest GetCustomDataIdentifier where
             Prelude.<*> (x Core..?> "keywords" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "description")
             Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "severityLevels" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "maximumMatchDistance")
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -150,23 +152,32 @@ data GetCustomDataIdentifierResponse = GetCustomDataIdentifierResponse'
     regex :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the custom data identifier.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | An array that lists specific character sequences (ignore words) to
+    -- | An array that lists specific character sequences (/ignore words/) to
     -- exclude from the results. If the text matched by the regular expression
-    -- is the same as any string in this array, Amazon Macie ignores it. Ignore
-    -- words are case sensitive.
+    -- contains any string in this array, Amazon Macie ignores it. Ignore words
+    -- are case sensitive.
     ignoreWords :: Prelude.Maybe [Prelude.Text],
-    -- | An array that lists specific character sequences (keywords), one of
-    -- which must be within proximity (maximumMatchDistance) of the regular
-    -- expression to match. Keywords aren\'t case sensitive.
+    -- | An array that lists specific character sequences (/keywords/), one of
+    -- which must precede and be within proximity (maximumMatchDistance) of the
+    -- regular expression to match. Keywords aren\'t case sensitive.
     keywords :: Prelude.Maybe [Prelude.Text],
     -- | The custom description of the custom data identifier.
     description :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the custom data identifier.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of characters that can exist between text that
-    -- matches the regex pattern and the character sequences specified by the
-    -- keywords array. Amazon Macie includes or excludes a result based on the
-    -- proximity of a keyword to text that matches the regex pattern.
+    -- | Specifies the severity that\'s assigned to findings that the custom data
+    -- identifier produces, based on the number of occurrences of text that
+    -- matches the custom data identifier\'s detection criteria. By default,
+    -- Amazon Macie creates findings for S3 objects that contain at least one
+    -- occurrence of text that matches the detection criteria, and Macie
+    -- assigns the MEDIUM severity to those findings.
+    severityLevels :: Prelude.Maybe [SeverityLevel],
+    -- | The maximum number of characters that can exist between the end of at
+    -- least one complete character sequence specified by the keywords array
+    -- and the end of the text that matches the regex pattern. If a complete
+    -- keyword precedes all the text that matches the pattern and the keyword
+    -- is within the specified distance, Amazon Macie includes the result.
+    -- Otherwise, Macie excludes the result.
     maximumMatchDistance :: Prelude.Maybe Prelude.Int,
     -- | The date and time, in UTC and extended ISO 8601 format, when the custom
     -- data identifier was created.
@@ -197,23 +208,32 @@ data GetCustomDataIdentifierResponse = GetCustomDataIdentifierResponse'
 --
 -- 'arn', 'getCustomDataIdentifierResponse_arn' - The Amazon Resource Name (ARN) of the custom data identifier.
 --
--- 'ignoreWords', 'getCustomDataIdentifierResponse_ignoreWords' - An array that lists specific character sequences (ignore words) to
+-- 'ignoreWords', 'getCustomDataIdentifierResponse_ignoreWords' - An array that lists specific character sequences (/ignore words/) to
 -- exclude from the results. If the text matched by the regular expression
--- is the same as any string in this array, Amazon Macie ignores it. Ignore
--- words are case sensitive.
+-- contains any string in this array, Amazon Macie ignores it. Ignore words
+-- are case sensitive.
 --
--- 'keywords', 'getCustomDataIdentifierResponse_keywords' - An array that lists specific character sequences (keywords), one of
--- which must be within proximity (maximumMatchDistance) of the regular
--- expression to match. Keywords aren\'t case sensitive.
+-- 'keywords', 'getCustomDataIdentifierResponse_keywords' - An array that lists specific character sequences (/keywords/), one of
+-- which must precede and be within proximity (maximumMatchDistance) of the
+-- regular expression to match. Keywords aren\'t case sensitive.
 --
 -- 'description', 'getCustomDataIdentifierResponse_description' - The custom description of the custom data identifier.
 --
 -- 'id', 'getCustomDataIdentifierResponse_id' - The unique identifier for the custom data identifier.
 --
--- 'maximumMatchDistance', 'getCustomDataIdentifierResponse_maximumMatchDistance' - The maximum number of characters that can exist between text that
--- matches the regex pattern and the character sequences specified by the
--- keywords array. Amazon Macie includes or excludes a result based on the
--- proximity of a keyword to text that matches the regex pattern.
+-- 'severityLevels', 'getCustomDataIdentifierResponse_severityLevels' - Specifies the severity that\'s assigned to findings that the custom data
+-- identifier produces, based on the number of occurrences of text that
+-- matches the custom data identifier\'s detection criteria. By default,
+-- Amazon Macie creates findings for S3 objects that contain at least one
+-- occurrence of text that matches the detection criteria, and Macie
+-- assigns the MEDIUM severity to those findings.
+--
+-- 'maximumMatchDistance', 'getCustomDataIdentifierResponse_maximumMatchDistance' - The maximum number of characters that can exist between the end of at
+-- least one complete character sequence specified by the keywords array
+-- and the end of the text that matches the regex pattern. If a complete
+-- keyword precedes all the text that matches the pattern and the keyword
+-- is within the specified distance, Amazon Macie includes the result.
+-- Otherwise, Macie excludes the result.
 --
 -- 'createdAt', 'getCustomDataIdentifierResponse_createdAt' - The date and time, in UTC and extended ISO 8601 format, when the custom
 -- data identifier was created.
@@ -235,6 +255,7 @@ newGetCustomDataIdentifierResponse pHttpStatus_ =
       keywords = Prelude.Nothing,
       description = Prelude.Nothing,
       id = Prelude.Nothing,
+      severityLevels = Prelude.Nothing,
       maximumMatchDistance = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -263,16 +284,16 @@ getCustomDataIdentifierResponse_regex = Lens.lens (\GetCustomDataIdentifierRespo
 getCustomDataIdentifierResponse_arn :: Lens.Lens' GetCustomDataIdentifierResponse (Prelude.Maybe Prelude.Text)
 getCustomDataIdentifierResponse_arn = Lens.lens (\GetCustomDataIdentifierResponse' {arn} -> arn) (\s@GetCustomDataIdentifierResponse' {} a -> s {arn = a} :: GetCustomDataIdentifierResponse)
 
--- | An array that lists specific character sequences (ignore words) to
+-- | An array that lists specific character sequences (/ignore words/) to
 -- exclude from the results. If the text matched by the regular expression
--- is the same as any string in this array, Amazon Macie ignores it. Ignore
--- words are case sensitive.
+-- contains any string in this array, Amazon Macie ignores it. Ignore words
+-- are case sensitive.
 getCustomDataIdentifierResponse_ignoreWords :: Lens.Lens' GetCustomDataIdentifierResponse (Prelude.Maybe [Prelude.Text])
 getCustomDataIdentifierResponse_ignoreWords = Lens.lens (\GetCustomDataIdentifierResponse' {ignoreWords} -> ignoreWords) (\s@GetCustomDataIdentifierResponse' {} a -> s {ignoreWords = a} :: GetCustomDataIdentifierResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | An array that lists specific character sequences (keywords), one of
--- which must be within proximity (maximumMatchDistance) of the regular
--- expression to match. Keywords aren\'t case sensitive.
+-- | An array that lists specific character sequences (/keywords/), one of
+-- which must precede and be within proximity (maximumMatchDistance) of the
+-- regular expression to match. Keywords aren\'t case sensitive.
 getCustomDataIdentifierResponse_keywords :: Lens.Lens' GetCustomDataIdentifierResponse (Prelude.Maybe [Prelude.Text])
 getCustomDataIdentifierResponse_keywords = Lens.lens (\GetCustomDataIdentifierResponse' {keywords} -> keywords) (\s@GetCustomDataIdentifierResponse' {} a -> s {keywords = a} :: GetCustomDataIdentifierResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -284,10 +305,21 @@ getCustomDataIdentifierResponse_description = Lens.lens (\GetCustomDataIdentifie
 getCustomDataIdentifierResponse_id :: Lens.Lens' GetCustomDataIdentifierResponse (Prelude.Maybe Prelude.Text)
 getCustomDataIdentifierResponse_id = Lens.lens (\GetCustomDataIdentifierResponse' {id} -> id) (\s@GetCustomDataIdentifierResponse' {} a -> s {id = a} :: GetCustomDataIdentifierResponse)
 
--- | The maximum number of characters that can exist between text that
--- matches the regex pattern and the character sequences specified by the
--- keywords array. Amazon Macie includes or excludes a result based on the
--- proximity of a keyword to text that matches the regex pattern.
+-- | Specifies the severity that\'s assigned to findings that the custom data
+-- identifier produces, based on the number of occurrences of text that
+-- matches the custom data identifier\'s detection criteria. By default,
+-- Amazon Macie creates findings for S3 objects that contain at least one
+-- occurrence of text that matches the detection criteria, and Macie
+-- assigns the MEDIUM severity to those findings.
+getCustomDataIdentifierResponse_severityLevels :: Lens.Lens' GetCustomDataIdentifierResponse (Prelude.Maybe [SeverityLevel])
+getCustomDataIdentifierResponse_severityLevels = Lens.lens (\GetCustomDataIdentifierResponse' {severityLevels} -> severityLevels) (\s@GetCustomDataIdentifierResponse' {} a -> s {severityLevels = a} :: GetCustomDataIdentifierResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The maximum number of characters that can exist between the end of at
+-- least one complete character sequence specified by the keywords array
+-- and the end of the text that matches the regex pattern. If a complete
+-- keyword precedes all the text that matches the pattern and the keyword
+-- is within the specified distance, Amazon Macie includes the result.
+-- Otherwise, Macie excludes the result.
 getCustomDataIdentifierResponse_maximumMatchDistance :: Lens.Lens' GetCustomDataIdentifierResponse (Prelude.Maybe Prelude.Int)
 getCustomDataIdentifierResponse_maximumMatchDistance = Lens.lens (\GetCustomDataIdentifierResponse' {maximumMatchDistance} -> maximumMatchDistance) (\s@GetCustomDataIdentifierResponse' {} a -> s {maximumMatchDistance = a} :: GetCustomDataIdentifierResponse)
 
@@ -314,6 +346,7 @@ instance
       `Prelude.seq` Prelude.rnf keywords
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf id
+      `Prelude.seq` Prelude.rnf severityLevels
       `Prelude.seq` Prelude.rnf maximumMatchDistance
       `Prelude.seq` Prelude.rnf createdAt
       `Prelude.seq` Prelude.rnf httpStatus

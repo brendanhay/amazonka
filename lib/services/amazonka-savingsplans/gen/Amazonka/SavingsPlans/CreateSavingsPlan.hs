@@ -68,7 +68,7 @@ data CreateSavingsPlan = CreateSavingsPlan'
     -- | The ID of the offering.
     savingsPlanOfferingId :: Prelude.Text,
     -- | The hourly commitment, in USD. This is a value between 0.001 and 1
-    -- million. You cannot specify more than three digits after the decimal
+    -- million. You cannot specify more than five digits after the decimal
     -- point.
     commitment :: Prelude.Text
   }
@@ -97,7 +97,7 @@ data CreateSavingsPlan = CreateSavingsPlan'
 -- 'savingsPlanOfferingId', 'createSavingsPlan_savingsPlanOfferingId' - The ID of the offering.
 --
 -- 'commitment', 'createSavingsPlan_commitment' - The hourly commitment, in USD. This is a value between 0.001 and 1
--- million. You cannot specify more than three digits after the decimal
+-- million. You cannot specify more than five digits after the decimal
 -- point.
 newCreateSavingsPlan ::
   -- | 'savingsPlanOfferingId'
@@ -142,7 +142,7 @@ createSavingsPlan_savingsPlanOfferingId :: Lens.Lens' CreateSavingsPlan Prelude.
 createSavingsPlan_savingsPlanOfferingId = Lens.lens (\CreateSavingsPlan' {savingsPlanOfferingId} -> savingsPlanOfferingId) (\s@CreateSavingsPlan' {} a -> s {savingsPlanOfferingId = a} :: CreateSavingsPlan)
 
 -- | The hourly commitment, in USD. This is a value between 0.001 and 1
--- million. You cannot specify more than three digits after the decimal
+-- million. You cannot specify more than five digits after the decimal
 -- point.
 createSavingsPlan_commitment :: Lens.Lens' CreateSavingsPlan Prelude.Text
 createSavingsPlan_commitment = Lens.lens (\CreateSavingsPlan' {commitment} -> commitment) (\s@CreateSavingsPlan' {} a -> s {commitment = a} :: CreateSavingsPlan)

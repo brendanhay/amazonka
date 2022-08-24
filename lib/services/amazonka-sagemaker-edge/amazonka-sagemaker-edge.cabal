@@ -44,12 +44,23 @@ library
 
   exposed-modules:
     Amazonka.SageMakerEdge
+    Amazonka.SageMakerEdge.GetDeployments
     Amazonka.SageMakerEdge.GetDeviceRegistration
     Amazonka.SageMakerEdge.Lens
     Amazonka.SageMakerEdge.SendHeartbeat
     Amazonka.SageMakerEdge.Types
+    Amazonka.SageMakerEdge.Types.Checksum
+    Amazonka.SageMakerEdge.Types.ChecksumType
+    Amazonka.SageMakerEdge.Types.Definition
+    Amazonka.SageMakerEdge.Types.DeploymentModel
+    Amazonka.SageMakerEdge.Types.DeploymentResult
+    Amazonka.SageMakerEdge.Types.DeploymentStatus
+    Amazonka.SageMakerEdge.Types.DeploymentType
+    Amazonka.SageMakerEdge.Types.EdgeDeployment
     Amazonka.SageMakerEdge.Types.EdgeMetric
+    Amazonka.SageMakerEdge.Types.FailureHandlingPolicy
     Amazonka.SageMakerEdge.Types.Model
+    Amazonka.SageMakerEdge.Types.ModelState
     Amazonka.SageMakerEdge.Waiters
 
   build-depends:

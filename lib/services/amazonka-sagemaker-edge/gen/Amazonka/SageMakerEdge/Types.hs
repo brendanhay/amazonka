@@ -19,6 +19,65 @@ module Amazonka.SageMakerEdge.Types
     -- * Errors
     _InternalServiceException,
 
+    -- * ChecksumType
+    ChecksumType (..),
+
+    -- * DeploymentStatus
+    DeploymentStatus (..),
+
+    -- * DeploymentType
+    DeploymentType (..),
+
+    -- * FailureHandlingPolicy
+    FailureHandlingPolicy (..),
+
+    -- * ModelState
+    ModelState (..),
+
+    -- * Checksum
+    Checksum (..),
+    newChecksum,
+    checksum_type,
+    checksum_sum,
+
+    -- * Definition
+    Definition (..),
+    newDefinition,
+    definition_state,
+    definition_checksum,
+    definition_s3Url,
+    definition_modelHandle,
+
+    -- * DeploymentModel
+    DeploymentModel (..),
+    newDeploymentModel,
+    deploymentModel_rollbackFailureReason,
+    deploymentModel_statusReason,
+    deploymentModel_state,
+    deploymentModel_modelVersion,
+    deploymentModel_status,
+    deploymentModel_desiredState,
+    deploymentModel_modelName,
+    deploymentModel_modelHandle,
+
+    -- * DeploymentResult
+    DeploymentResult (..),
+    newDeploymentResult,
+    deploymentResult_deploymentStatus,
+    deploymentResult_deploymentName,
+    deploymentResult_deploymentModels,
+    deploymentResult_deploymentEndTime,
+    deploymentResult_deploymentStatusMessage,
+    deploymentResult_deploymentStartTime,
+
+    -- * EdgeDeployment
+    EdgeDeployment (..),
+    newEdgeDeployment,
+    edgeDeployment_type,
+    edgeDeployment_deploymentName,
+    edgeDeployment_failureHandlingPolicy,
+    edgeDeployment_definitions,
+
     -- * EdgeMetric
     EdgeMetric (..),
     newEdgeMetric,
@@ -41,8 +100,18 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
+import Amazonka.SageMakerEdge.Types.Checksum
+import Amazonka.SageMakerEdge.Types.ChecksumType
+import Amazonka.SageMakerEdge.Types.Definition
+import Amazonka.SageMakerEdge.Types.DeploymentModel
+import Amazonka.SageMakerEdge.Types.DeploymentResult
+import Amazonka.SageMakerEdge.Types.DeploymentStatus
+import Amazonka.SageMakerEdge.Types.DeploymentType
+import Amazonka.SageMakerEdge.Types.EdgeDeployment
 import Amazonka.SageMakerEdge.Types.EdgeMetric
+import Amazonka.SageMakerEdge.Types.FailureHandlingPolicy
 import Amazonka.SageMakerEdge.Types.Model
+import Amazonka.SageMakerEdge.Types.ModelState
 import qualified Amazonka.Sign.V4 as Sign
 
 -- | API version @2020-09-23@ of the Amazon Sagemaker Edge Manager SDK configuration.
@@ -117,7 +186,7 @@ defaultService =
       | Prelude.otherwise = Prelude.Nothing
 
 -- | An internal failure occurred. Try your request again. If the problem
--- persists, contact AWS customer support.
+-- persists, contact Amazon Web Services customer support.
 _InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServiceException =
   Core._MatchServiceError

@@ -29,6 +29,7 @@ module Amazonka.SageMakerEdge.SendHeartbeat
 
     -- * Request Lenses
     sendHeartbeat_models,
+    sendHeartbeat_deploymentResult,
     sendHeartbeat_agentMetrics,
     sendHeartbeat_agentVersion,
     sendHeartbeat_deviceName,
@@ -51,6 +52,8 @@ import Amazonka.SageMakerEdge.Types
 data SendHeartbeat = SendHeartbeat'
   { -- | Returns a list of models deployed on the the device.
     models :: Prelude.Maybe [Model],
+    -- | Returns the result of a deployment on the device.
+    deploymentResult :: Prelude.Maybe DeploymentResult,
     -- | For internal use. Returns a list of SageMaker Edge Manager agent
     -- operating metrics.
     agentMetrics :: Prelude.Maybe [EdgeMetric],
@@ -72,6 +75,8 @@ data SendHeartbeat = SendHeartbeat'
 -- for backwards compatibility:
 --
 -- 'models', 'sendHeartbeat_models' - Returns a list of models deployed on the the device.
+--
+-- 'deploymentResult', 'sendHeartbeat_deploymentResult' - Returns the result of a deployment on the device.
 --
 -- 'agentMetrics', 'sendHeartbeat_agentMetrics' - For internal use. Returns a list of SageMaker Edge Manager agent
 -- operating metrics.
@@ -95,6 +100,7 @@ newSendHeartbeat
   pDeviceFleetName_ =
     SendHeartbeat'
       { models = Prelude.Nothing,
+        deploymentResult = Prelude.Nothing,
         agentMetrics = Prelude.Nothing,
         agentVersion = pAgentVersion_,
         deviceName = pDeviceName_,
@@ -104,6 +110,10 @@ newSendHeartbeat
 -- | Returns a list of models deployed on the the device.
 sendHeartbeat_models :: Lens.Lens' SendHeartbeat (Prelude.Maybe [Model])
 sendHeartbeat_models = Lens.lens (\SendHeartbeat' {models} -> models) (\s@SendHeartbeat' {} a -> s {models = a} :: SendHeartbeat) Prelude.. Lens.mapping Lens.coerced
+
+-- | Returns the result of a deployment on the device.
+sendHeartbeat_deploymentResult :: Lens.Lens' SendHeartbeat (Prelude.Maybe DeploymentResult)
+sendHeartbeat_deploymentResult = Lens.lens (\SendHeartbeat' {deploymentResult} -> deploymentResult) (\s@SendHeartbeat' {} a -> s {deploymentResult = a} :: SendHeartbeat)
 
 -- | For internal use. Returns a list of SageMaker Edge Manager agent
 -- operating metrics.
@@ -133,6 +143,7 @@ instance Core.AWSRequest SendHeartbeat where
 instance Prelude.Hashable SendHeartbeat where
   hashWithSalt _salt SendHeartbeat' {..} =
     _salt `Prelude.hashWithSalt` models
+      `Prelude.hashWithSalt` deploymentResult
       `Prelude.hashWithSalt` agentMetrics
       `Prelude.hashWithSalt` agentVersion
       `Prelude.hashWithSalt` deviceName
@@ -141,6 +152,7 @@ instance Prelude.Hashable SendHeartbeat where
 instance Prelude.NFData SendHeartbeat where
   rnf SendHeartbeat' {..} =
     Prelude.rnf models
+      `Prelude.seq` Prelude.rnf deploymentResult
       `Prelude.seq` Prelude.rnf agentMetrics
       `Prelude.seq` Prelude.rnf agentVersion
       `Prelude.seq` Prelude.rnf deviceName
@@ -162,6 +174,8 @@ instance Core.ToJSON SendHeartbeat where
     Core.object
       ( Prelude.catMaybes
           [ ("Models" Core..=) Prelude.<$> models,
+            ("DeploymentResult" Core..=)
+              Prelude.<$> deploymentResult,
             ("AgentMetrics" Core..=) Prelude.<$> agentMetrics,
             Prelude.Just ("AgentVersion" Core..= agentVersion),
             Prelude.Just ("DeviceName" Core..= deviceName),

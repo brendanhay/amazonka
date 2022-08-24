@@ -27,8 +27,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUploadMetadata' smart constructor.
 data UploadMetadata = UploadMetadata'
-  { -- | The pre-signed URL using which file would be downloaded from Amazon S3
-    -- by the API caller.
+  { -- | This is the pre-signed URL that can be used for uploading the file to
+    -- Amazon S3 when used in response to
+    -- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
     url :: Prelude.Maybe Prelude.Text,
     -- | The headers to be provided while uploading the file to the URL.
     headersToInclude :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -47,8 +48,9 @@ data UploadMetadata = UploadMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'uploadMetadata_url' - The pre-signed URL using which file would be downloaded from Amazon S3
--- by the API caller.
+-- 'url', 'uploadMetadata_url' - This is the pre-signed URL that can be used for uploading the file to
+-- Amazon S3 when used in response to
+-- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
 --
 -- 'headersToInclude', 'uploadMetadata_headersToInclude' - The headers to be provided while uploading the file to the URL.
 --
@@ -64,8 +66,9 @@ newUploadMetadata =
       urlExpiry = Prelude.Nothing
     }
 
--- | The pre-signed URL using which file would be downloaded from Amazon S3
--- by the API caller.
+-- | This is the pre-signed URL that can be used for uploading the file to
+-- Amazon S3 when used in response to
+-- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
 uploadMetadata_url :: Lens.Lens' UploadMetadata (Prelude.Maybe Prelude.Text)
 uploadMetadata_url = Lens.lens (\UploadMetadata' {url} -> url) (\s@UploadMetadata' {} a -> s {url = a} :: UploadMetadata)
 

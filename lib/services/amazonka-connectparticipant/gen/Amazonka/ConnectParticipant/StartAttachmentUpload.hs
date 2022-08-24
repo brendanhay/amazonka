@@ -22,6 +22,9 @@
 --
 -- Provides a pre-signed Amazon S3 URL in response for uploading the file
 -- directly to S3.
+--
+-- The Amazon Connect Participant Service APIs do not use
+-- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication>.
 module Amazonka.ConnectParticipant.StartAttachmentUpload
   ( -- * Creating a Request
     StartAttachmentUpload (..),

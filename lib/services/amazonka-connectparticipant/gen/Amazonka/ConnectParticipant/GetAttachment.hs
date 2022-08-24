@@ -22,6 +22,9 @@
 --
 -- Provides a pre-signed URL for download of a completed attachment. This
 -- is an asynchronous API for use with active contacts.
+--
+-- The Amazon Connect Participant Service APIs do not use
+-- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication>.
 module Amazonka.ConnectParticipant.GetAttachment
   ( -- * Creating a Request
     GetAttachment (..),
@@ -136,8 +139,9 @@ instance Core.ToQuery GetAttachment where
 
 -- | /See:/ 'newGetAttachmentResponse' smart constructor.
 data GetAttachmentResponse = GetAttachmentResponse'
-  { -- | The pre-signed URL using which file would be downloaded from Amazon S3
-    -- by the API caller.
+  { -- | This is the pre-signed URL that can be used for uploading the file to
+    -- Amazon S3 when used in response to
+    -- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
     url :: Prelude.Maybe Prelude.Text,
     -- | The expiration time of the URL in ISO timestamp. It\'s specified in ISO
     -- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
@@ -156,8 +160,9 @@ data GetAttachmentResponse = GetAttachmentResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'url', 'getAttachmentResponse_url' - The pre-signed URL using which file would be downloaded from Amazon S3
--- by the API caller.
+-- 'url', 'getAttachmentResponse_url' - This is the pre-signed URL that can be used for uploading the file to
+-- Amazon S3 when used in response to
+-- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
 --
 -- 'urlExpiry', 'getAttachmentResponse_urlExpiry' - The expiration time of the URL in ISO timestamp. It\'s specified in ISO
 -- 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
@@ -175,8 +180,9 @@ newGetAttachmentResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The pre-signed URL using which file would be downloaded from Amazon S3
--- by the API caller.
+-- | This is the pre-signed URL that can be used for uploading the file to
+-- Amazon S3 when used in response to
+-- <https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_StartAttachmentUpload.html StartAttachmentUpload>.
 getAttachmentResponse_url :: Lens.Lens' GetAttachmentResponse (Prelude.Maybe Prelude.Text)
 getAttachmentResponse_url = Lens.lens (\GetAttachmentResponse' {url} -> url) (\s@GetAttachmentResponse' {} a -> s {url = a} :: GetAttachmentResponse)
 

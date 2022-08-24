@@ -39,6 +39,20 @@
 -- parameter, clients need to call this API again to obtain a new websocket
 -- URL and perform the same steps as before.
 --
+-- __Message streaming support__: This API can also be used together with
+-- the
+-- <https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html StartContactStreaming>
+-- API to create a participant connection for chat contacts that are not
+-- using a websocket. For more information about message streaming,
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/chat-message-streaming.html Enable real-time chat message streaming>
+-- in the /Amazon Connect Administrator Guide/.
+--
+-- __Feature specifications__: For information about feature
+-- specifications, such as the allowed number of open websocket connections
+-- per participant, see
+-- <https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits Feature specifications>
+-- in the /Amazon Connect Administrator Guide/.
+--
 -- The Amazon Connect Participant Service APIs do not use
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 authentication>.
 module Amazonka.ConnectParticipant.CreateParticipantConnection
@@ -47,6 +61,7 @@ module Amazonka.ConnectParticipant.CreateParticipantConnection
     newCreateParticipantConnection,
 
     -- * Request Lenses
+    createParticipantConnection_connectParticipant,
     createParticipantConnection_type,
     createParticipantConnection_participantToken,
 
@@ -70,11 +85,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateParticipantConnection' smart constructor.
 data CreateParticipantConnection = CreateParticipantConnection'
-  { -- | Type of connection information required.
+  { -- | Amazon Connect Participant is used to mark the participant as connected
+    -- for message streaming.
+    connectParticipant :: Prelude.Maybe Prelude.Bool,
+    -- | Type of connection information required.
     type' :: Prelude.NonEmpty ConnectionType,
     -- | This is a header parameter.
     --
-    -- The Participant Token as obtained from
+    -- The ParticipantToken as obtained from
     -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html StartChatContact>
     -- API response.
     participantToken :: Prelude.Text
@@ -89,11 +107,14 @@ data CreateParticipantConnection = CreateParticipantConnection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'connectParticipant', 'createParticipantConnection_connectParticipant' - Amazon Connect Participant is used to mark the participant as connected
+-- for message streaming.
+--
 -- 'type'', 'createParticipantConnection_type' - Type of connection information required.
 --
 -- 'participantToken', 'createParticipantConnection_participantToken' - This is a header parameter.
 --
--- The Participant Token as obtained from
+-- The ParticipantToken as obtained from
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html StartChatContact>
 -- API response.
 newCreateParticipantConnection ::
@@ -106,10 +127,16 @@ newCreateParticipantConnection
   pType_
   pParticipantToken_ =
     CreateParticipantConnection'
-      { type' =
-          Lens.coerced Lens.# pType_,
+      { connectParticipant =
+          Prelude.Nothing,
+        type' = Lens.coerced Lens.# pType_,
         participantToken = pParticipantToken_
       }
+
+-- | Amazon Connect Participant is used to mark the participant as connected
+-- for message streaming.
+createParticipantConnection_connectParticipant :: Lens.Lens' CreateParticipantConnection (Prelude.Maybe Prelude.Bool)
+createParticipantConnection_connectParticipant = Lens.lens (\CreateParticipantConnection' {connectParticipant} -> connectParticipant) (\s@CreateParticipantConnection' {} a -> s {connectParticipant = a} :: CreateParticipantConnection)
 
 -- | Type of connection information required.
 createParticipantConnection_type :: Lens.Lens' CreateParticipantConnection (Prelude.NonEmpty ConnectionType)
@@ -117,7 +144,7 @@ createParticipantConnection_type = Lens.lens (\CreateParticipantConnection' {typ
 
 -- | This is a header parameter.
 --
--- The Participant Token as obtained from
+-- The ParticipantToken as obtained from
 -- <https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html StartChatContact>
 -- API response.
 createParticipantConnection_participantToken :: Lens.Lens' CreateParticipantConnection Prelude.Text
@@ -139,12 +166,14 @@ instance Core.AWSRequest CreateParticipantConnection where
 
 instance Prelude.Hashable CreateParticipantConnection where
   hashWithSalt _salt CreateParticipantConnection' {..} =
-    _salt `Prelude.hashWithSalt` type'
+    _salt `Prelude.hashWithSalt` connectParticipant
+      `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` participantToken
 
 instance Prelude.NFData CreateParticipantConnection where
   rnf CreateParticipantConnection' {..} =
-    Prelude.rnf type'
+    Prelude.rnf connectParticipant
+      `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf participantToken
 
 instance Core.ToHeaders CreateParticipantConnection where
@@ -159,7 +188,10 @@ instance Core.ToJSON CreateParticipantConnection where
   toJSON CreateParticipantConnection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("Type" Core..= type')]
+          [ ("ConnectParticipant" Core..=)
+              Prelude.<$> connectParticipant,
+            Prelude.Just ("Type" Core..= type')
+          ]
       )
 
 instance Core.ToPath CreateParticipantConnection where

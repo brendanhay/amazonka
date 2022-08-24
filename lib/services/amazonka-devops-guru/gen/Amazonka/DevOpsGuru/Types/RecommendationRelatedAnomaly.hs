@@ -29,7 +29,10 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newRecommendationRelatedAnomaly' smart constructor.
 data RecommendationRelatedAnomaly = RecommendationRelatedAnomaly'
-  { -- | Information about where the anomalous behavior related the
+  { -- | The ID of an anomaly that generated the insight with this
+    -- recommendation.
+    anomalyId :: Prelude.Maybe Prelude.Text,
+    -- | Information about where the anomalous behavior related the
     -- recommendation was found. For example, details in Amazon CloudWatch
     -- metrics.
     sourceDetails :: Prelude.Maybe [RecommendationRelatedAnomalySourceDetail],
@@ -48,6 +51,9 @@ data RecommendationRelatedAnomaly = RecommendationRelatedAnomaly'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'anomalyId', 'recommendationRelatedAnomaly_anomalyId' - The ID of an anomaly that generated the insight with this
+-- recommendation.
+--
 -- 'sourceDetails', 'recommendationRelatedAnomaly_sourceDetails' - Information about where the anomalous behavior related the
 -- recommendation was found. For example, details in Amazon CloudWatch
 -- metrics.
@@ -59,10 +65,16 @@ newRecommendationRelatedAnomaly ::
   RecommendationRelatedAnomaly
 newRecommendationRelatedAnomaly =
   RecommendationRelatedAnomaly'
-    { sourceDetails =
+    { anomalyId =
         Prelude.Nothing,
+      sourceDetails = Prelude.Nothing,
       resources = Prelude.Nothing
     }
+
+-- | The ID of an anomaly that generated the insight with this
+-- recommendation.
+recommendationRelatedAnomaly_anomalyId :: Lens.Lens' RecommendationRelatedAnomaly (Prelude.Maybe Prelude.Text)
+recommendationRelatedAnomaly_anomalyId = Lens.lens (\RecommendationRelatedAnomaly' {anomalyId} -> anomalyId) (\s@RecommendationRelatedAnomaly' {} a -> s {anomalyId = a} :: RecommendationRelatedAnomaly)
 
 -- | Information about where the anomalous behavior related the
 -- recommendation was found. For example, details in Amazon CloudWatch
@@ -82,7 +94,8 @@ instance Core.FromJSON RecommendationRelatedAnomaly where
       "RecommendationRelatedAnomaly"
       ( \x ->
           RecommendationRelatedAnomaly'
-            Prelude.<$> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
+            Prelude.<$> (x Core..:? "AnomalyId")
+            Prelude.<*> (x Core..:? "SourceDetails" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Resources" Core..!= Prelude.mempty)
       )
 
@@ -91,10 +104,12 @@ instance
     RecommendationRelatedAnomaly
   where
   hashWithSalt _salt RecommendationRelatedAnomaly' {..} =
-    _salt `Prelude.hashWithSalt` sourceDetails
+    _salt `Prelude.hashWithSalt` anomalyId
+      `Prelude.hashWithSalt` sourceDetails
       `Prelude.hashWithSalt` resources
 
 instance Prelude.NFData RecommendationRelatedAnomaly where
   rnf RecommendationRelatedAnomaly' {..} =
-    Prelude.rnf sourceDetails
+    Prelude.rnf anomalyId
+      `Prelude.seq` Prelude.rnf sourceDetails
       `Prelude.seq` Prelude.rnf resources

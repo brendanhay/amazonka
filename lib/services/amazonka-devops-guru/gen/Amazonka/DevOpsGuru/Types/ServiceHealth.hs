@@ -25,15 +25,15 @@ import Amazonka.DevOpsGuru.Types.ServiceName
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Represents the health of an AWS service.
+-- | Represents the health of an Amazon Web Services service.
 --
 -- /See:/ 'newServiceHealth' smart constructor.
 data ServiceHealth = ServiceHealth'
-  { -- | Represents the health of an AWS service. This is a
+  { -- | Represents the health of an Amazon Web Services service. This is a
     -- @ServiceInsightHealth@ that contains the number of open proactive and
     -- reactive insights for this service.
     insight :: Prelude.Maybe ServiceInsightHealth,
-    -- | The name of the AWS service.
+    -- | The name of the Amazon Web Services service.
     serviceName :: Prelude.Maybe ServiceName
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,11 +46,11 @@ data ServiceHealth = ServiceHealth'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'insight', 'serviceHealth_insight' - Represents the health of an AWS service. This is a
+-- 'insight', 'serviceHealth_insight' - Represents the health of an Amazon Web Services service. This is a
 -- @ServiceInsightHealth@ that contains the number of open proactive and
 -- reactive insights for this service.
 --
--- 'serviceName', 'serviceHealth_serviceName' - The name of the AWS service.
+-- 'serviceName', 'serviceHealth_serviceName' - The name of the Amazon Web Services service.
 newServiceHealth ::
   ServiceHealth
 newServiceHealth =
@@ -59,13 +59,13 @@ newServiceHealth =
       serviceName = Prelude.Nothing
     }
 
--- | Represents the health of an AWS service. This is a
+-- | Represents the health of an Amazon Web Services service. This is a
 -- @ServiceInsightHealth@ that contains the number of open proactive and
 -- reactive insights for this service.
 serviceHealth_insight :: Lens.Lens' ServiceHealth (Prelude.Maybe ServiceInsightHealth)
 serviceHealth_insight = Lens.lens (\ServiceHealth' {insight} -> insight) (\s@ServiceHealth' {} a -> s {insight = a} :: ServiceHealth)
 
--- | The name of the AWS service.
+-- | The name of the Amazon Web Services service.
 serviceHealth_serviceName :: Lens.Lens' ServiceHealth (Prelude.Maybe ServiceName)
 serviceHealth_serviceName = Lens.lens (\ServiceHealth' {serviceName} -> serviceName) (\s@ServiceHealth' {} a -> s {serviceName = a} :: ServiceHealth)
 

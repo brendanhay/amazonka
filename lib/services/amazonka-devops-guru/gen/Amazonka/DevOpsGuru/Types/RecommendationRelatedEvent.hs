@@ -31,9 +31,9 @@ data RecommendationRelatedEvent = RecommendationRelatedEvent'
   { -- | The name of the event. This corresponds to the @Name@ field in an
     -- @Event@ object.
     name :: Prelude.Maybe Prelude.Text,
-    -- | A @ResourceCollection@ object that contains arrays of the names of AWS
-    -- CloudFormation stacks. You can specify up to 500 AWS CloudFormation
-    -- stacks.
+    -- | A @ResourceCollection@ object that contains arrays of the names of
+    -- Amazon Web Services CloudFormation stacks. You can specify up to 500
+    -- Amazon Web Services CloudFormation stacks.
     resources :: Prelude.Maybe [RecommendationRelatedEventResource]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,9 +49,9 @@ data RecommendationRelatedEvent = RecommendationRelatedEvent'
 -- 'name', 'recommendationRelatedEvent_name' - The name of the event. This corresponds to the @Name@ field in an
 -- @Event@ object.
 --
--- 'resources', 'recommendationRelatedEvent_resources' - A @ResourceCollection@ object that contains arrays of the names of AWS
--- CloudFormation stacks. You can specify up to 500 AWS CloudFormation
--- stacks.
+-- 'resources', 'recommendationRelatedEvent_resources' - A @ResourceCollection@ object that contains arrays of the names of
+-- Amazon Web Services CloudFormation stacks. You can specify up to 500
+-- Amazon Web Services CloudFormation stacks.
 newRecommendationRelatedEvent ::
   RecommendationRelatedEvent
 newRecommendationRelatedEvent =
@@ -65,9 +65,9 @@ newRecommendationRelatedEvent =
 recommendationRelatedEvent_name :: Lens.Lens' RecommendationRelatedEvent (Prelude.Maybe Prelude.Text)
 recommendationRelatedEvent_name = Lens.lens (\RecommendationRelatedEvent' {name} -> name) (\s@RecommendationRelatedEvent' {} a -> s {name = a} :: RecommendationRelatedEvent)
 
--- | A @ResourceCollection@ object that contains arrays of the names of AWS
--- CloudFormation stacks. You can specify up to 500 AWS CloudFormation
--- stacks.
+-- | A @ResourceCollection@ object that contains arrays of the names of
+-- Amazon Web Services CloudFormation stacks. You can specify up to 500
+-- Amazon Web Services CloudFormation stacks.
 recommendationRelatedEvent_resources :: Lens.Lens' RecommendationRelatedEvent (Prelude.Maybe [RecommendationRelatedEventResource])
 recommendationRelatedEvent_resources = Lens.lens (\RecommendationRelatedEvent' {resources} -> resources) (\s@RecommendationRelatedEvent' {} a -> s {resources = a} :: RecommendationRelatedEvent) Prelude.. Lens.mapping Lens.coerced
 

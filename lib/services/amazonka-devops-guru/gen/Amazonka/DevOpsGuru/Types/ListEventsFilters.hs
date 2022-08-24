@@ -44,7 +44,8 @@ data ListEventsFilters = ListEventsFilters'
     eventClass :: Prelude.Maybe EventClass,
     -- | A time range during which you want the filtered events to have occurred.
     eventTimeRange :: Prelude.Maybe EventTimeRange,
-    -- | The AWS source that emitted the events you want to filter for.
+    -- | The Amazon Web Services source that emitted the events you want to
+    -- filter for.
     eventSource :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,7 +71,8 @@ data ListEventsFilters = ListEventsFilters'
 --
 -- 'eventTimeRange', 'listEventsFilters_eventTimeRange' - A time range during which you want the filtered events to have occurred.
 --
--- 'eventSource', 'listEventsFilters_eventSource' - The AWS source that emitted the events you want to filter for.
+-- 'eventSource', 'listEventsFilters_eventSource' - The Amazon Web Services source that emitted the events you want to
+-- filter for.
 newListEventsFilters ::
   ListEventsFilters
 newListEventsFilters =
@@ -107,7 +109,8 @@ listEventsFilters_eventClass = Lens.lens (\ListEventsFilters' {eventClass} -> ev
 listEventsFilters_eventTimeRange :: Lens.Lens' ListEventsFilters (Prelude.Maybe EventTimeRange)
 listEventsFilters_eventTimeRange = Lens.lens (\ListEventsFilters' {eventTimeRange} -> eventTimeRange) (\s@ListEventsFilters' {} a -> s {eventTimeRange = a} :: ListEventsFilters)
 
--- | The AWS source that emitted the events you want to filter for.
+-- | The Amazon Web Services source that emitted the events you want to
+-- filter for.
 listEventsFilters_eventSource :: Lens.Lens' ListEventsFilters (Prelude.Maybe Prelude.Text)
 listEventsFilters_eventSource = Lens.lens (\ListEventsFilters' {eventSource} -> eventSource) (\s@ListEventsFilters' {} a -> s {eventSource = a} :: ListEventsFilters)
 

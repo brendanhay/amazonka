@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestAddNotificationChannel $
 --             newAddNotificationChannel
 --
+--         , requestDeleteInsight $
+--             newDeleteInsight
+--
 --         , requestDescribeAccountHealth $
 --             newDescribeAccountHealth
 --
@@ -39,11 +42,23 @@ import Test.Tasty
 --         , requestDescribeAnomaly $
 --             newDescribeAnomaly
 --
+--         , requestDescribeEventSourcesConfig $
+--             newDescribeEventSourcesConfig
+--
 --         , requestDescribeFeedback $
 --             newDescribeFeedback
 --
 --         , requestDescribeInsight $
 --             newDescribeInsight
+--
+--         , requestDescribeOrganizationHealth $
+--             newDescribeOrganizationHealth
+--
+--         , requestDescribeOrganizationOverview $
+--             newDescribeOrganizationOverview
+--
+--         , requestDescribeOrganizationResourceCollectionHealth $
+--             newDescribeOrganizationResourceCollectionHealth
 --
 --         , requestDescribeResourceCollectionHealth $
 --             newDescribeResourceCollectionHealth
@@ -60,14 +75,23 @@ import Test.Tasty
 --         , requestListAnomaliesForInsight $
 --             newListAnomaliesForInsight
 --
+--         , requestListAnomalousLogGroups $
+--             newListAnomalousLogGroups
+--
 --         , requestListEvents $
 --             newListEvents
 --
 --         , requestListInsights $
 --             newListInsights
 --
+--         , requestListMonitoredResources $
+--             newListMonitoredResources
+--
 --         , requestListNotificationChannels $
 --             newListNotificationChannels
+--
+--         , requestListOrganizationInsights $
+--             newListOrganizationInsights
 --
 --         , requestListRecommendations $
 --             newListRecommendations
@@ -81,8 +105,14 @@ import Test.Tasty
 --         , requestSearchInsights $
 --             newSearchInsights
 --
+--         , requestSearchOrganizationInsights $
+--             newSearchOrganizationInsights
+--
 --         , requestStartCostEstimation $
 --             newStartCostEstimation
+--
+--         , requestUpdateEventSourcesConfig $
+--             newUpdateEventSourcesConfig
 --
 --         , requestUpdateResourceCollection $
 --             newUpdateResourceCollection
@@ -96,6 +126,9 @@ import Test.Tasty
 --         [ responseAddNotificationChannel $
 --             newAddNotificationChannelResponse
 --
+--         , responseDeleteInsight $
+--             newDeleteInsightResponse
+--
 --         , responseDescribeAccountHealth $
 --             newDescribeAccountHealthResponse
 --
@@ -105,11 +138,23 @@ import Test.Tasty
 --         , responseDescribeAnomaly $
 --             newDescribeAnomalyResponse
 --
+--         , responseDescribeEventSourcesConfig $
+--             newDescribeEventSourcesConfigResponse
+--
 --         , responseDescribeFeedback $
 --             newDescribeFeedbackResponse
 --
 --         , responseDescribeInsight $
 --             newDescribeInsightResponse
+--
+--         , responseDescribeOrganizationHealth $
+--             newDescribeOrganizationHealthResponse
+--
+--         , responseDescribeOrganizationOverview $
+--             newDescribeOrganizationOverviewResponse
+--
+--         , responseDescribeOrganizationResourceCollectionHealth $
+--             newDescribeOrganizationResourceCollectionHealthResponse
 --
 --         , responseDescribeResourceCollectionHealth $
 --             newDescribeResourceCollectionHealthResponse
@@ -126,14 +171,23 @@ import Test.Tasty
 --         , responseListAnomaliesForInsight $
 --             newListAnomaliesForInsightResponse
 --
+--         , responseListAnomalousLogGroups $
+--             newListAnomalousLogGroupsResponse
+--
 --         , responseListEvents $
 --             newListEventsResponse
 --
 --         , responseListInsights $
 --             newListInsightsResponse
 --
+--         , responseListMonitoredResources $
+--             newListMonitoredResourcesResponse
+--
 --         , responseListNotificationChannels $
 --             newListNotificationChannelsResponse
+--
+--         , responseListOrganizationInsights $
+--             newListOrganizationInsightsResponse
 --
 --         , responseListRecommendations $
 --             newListRecommendationsResponse
@@ -147,8 +201,14 @@ import Test.Tasty
 --         , responseSearchInsights $
 --             newSearchInsightsResponse
 --
+--         , responseSearchOrganizationInsights $
+--             newSearchOrganizationInsightsResponse
+--
 --         , responseStartCostEstimation $
 --             newStartCostEstimationResponse
+--
+--         , responseUpdateEventSourcesConfig $
+--             newUpdateEventSourcesConfigResponse
 --
 --         , responseUpdateResourceCollection $
 --             newUpdateResourceCollectionResponse
@@ -166,6 +226,12 @@ requestAddNotificationChannel =
   req
     "AddNotificationChannel"
     "fixture/AddNotificationChannel.yaml"
+
+requestDeleteInsight :: DeleteInsight -> TestTree
+requestDeleteInsight =
+  req
+    "DeleteInsight"
+    "fixture/DeleteInsight.yaml"
 
 requestDescribeAccountHealth :: DescribeAccountHealth -> TestTree
 requestDescribeAccountHealth =
@@ -185,6 +251,12 @@ requestDescribeAnomaly =
     "DescribeAnomaly"
     "fixture/DescribeAnomaly.yaml"
 
+requestDescribeEventSourcesConfig :: DescribeEventSourcesConfig -> TestTree
+requestDescribeEventSourcesConfig =
+  req
+    "DescribeEventSourcesConfig"
+    "fixture/DescribeEventSourcesConfig.yaml"
+
 requestDescribeFeedback :: DescribeFeedback -> TestTree
 requestDescribeFeedback =
   req
@@ -196,6 +268,24 @@ requestDescribeInsight =
   req
     "DescribeInsight"
     "fixture/DescribeInsight.yaml"
+
+requestDescribeOrganizationHealth :: DescribeOrganizationHealth -> TestTree
+requestDescribeOrganizationHealth =
+  req
+    "DescribeOrganizationHealth"
+    "fixture/DescribeOrganizationHealth.yaml"
+
+requestDescribeOrganizationOverview :: DescribeOrganizationOverview -> TestTree
+requestDescribeOrganizationOverview =
+  req
+    "DescribeOrganizationOverview"
+    "fixture/DescribeOrganizationOverview.yaml"
+
+requestDescribeOrganizationResourceCollectionHealth :: DescribeOrganizationResourceCollectionHealth -> TestTree
+requestDescribeOrganizationResourceCollectionHealth =
+  req
+    "DescribeOrganizationResourceCollectionHealth"
+    "fixture/DescribeOrganizationResourceCollectionHealth.yaml"
 
 requestDescribeResourceCollectionHealth :: DescribeResourceCollectionHealth -> TestTree
 requestDescribeResourceCollectionHealth =
@@ -227,6 +317,12 @@ requestListAnomaliesForInsight =
     "ListAnomaliesForInsight"
     "fixture/ListAnomaliesForInsight.yaml"
 
+requestListAnomalousLogGroups :: ListAnomalousLogGroups -> TestTree
+requestListAnomalousLogGroups =
+  req
+    "ListAnomalousLogGroups"
+    "fixture/ListAnomalousLogGroups.yaml"
+
 requestListEvents :: ListEvents -> TestTree
 requestListEvents =
   req
@@ -239,11 +335,23 @@ requestListInsights =
     "ListInsights"
     "fixture/ListInsights.yaml"
 
+requestListMonitoredResources :: ListMonitoredResources -> TestTree
+requestListMonitoredResources =
+  req
+    "ListMonitoredResources"
+    "fixture/ListMonitoredResources.yaml"
+
 requestListNotificationChannels :: ListNotificationChannels -> TestTree
 requestListNotificationChannels =
   req
     "ListNotificationChannels"
     "fixture/ListNotificationChannels.yaml"
+
+requestListOrganizationInsights :: ListOrganizationInsights -> TestTree
+requestListOrganizationInsights =
+  req
+    "ListOrganizationInsights"
+    "fixture/ListOrganizationInsights.yaml"
 
 requestListRecommendations :: ListRecommendations -> TestTree
 requestListRecommendations =
@@ -269,11 +377,23 @@ requestSearchInsights =
     "SearchInsights"
     "fixture/SearchInsights.yaml"
 
+requestSearchOrganizationInsights :: SearchOrganizationInsights -> TestTree
+requestSearchOrganizationInsights =
+  req
+    "SearchOrganizationInsights"
+    "fixture/SearchOrganizationInsights.yaml"
+
 requestStartCostEstimation :: StartCostEstimation -> TestTree
 requestStartCostEstimation =
   req
     "StartCostEstimation"
     "fixture/StartCostEstimation.yaml"
+
+requestUpdateEventSourcesConfig :: UpdateEventSourcesConfig -> TestTree
+requestUpdateEventSourcesConfig =
+  req
+    "UpdateEventSourcesConfig"
+    "fixture/UpdateEventSourcesConfig.yaml"
 
 requestUpdateResourceCollection :: UpdateResourceCollection -> TestTree
 requestUpdateResourceCollection =
@@ -296,6 +416,14 @@ responseAddNotificationChannel =
     "fixture/AddNotificationChannelResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AddNotificationChannel)
+
+responseDeleteInsight :: DeleteInsightResponse -> TestTree
+responseDeleteInsight =
+  res
+    "DeleteInsightResponse"
+    "fixture/DeleteInsightResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteInsight)
 
 responseDescribeAccountHealth :: DescribeAccountHealthResponse -> TestTree
 responseDescribeAccountHealth =
@@ -321,6 +449,14 @@ responseDescribeAnomaly =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAnomaly)
 
+responseDescribeEventSourcesConfig :: DescribeEventSourcesConfigResponse -> TestTree
+responseDescribeEventSourcesConfig =
+  res
+    "DescribeEventSourcesConfigResponse"
+    "fixture/DescribeEventSourcesConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeEventSourcesConfig)
+
 responseDescribeFeedback :: DescribeFeedbackResponse -> TestTree
 responseDescribeFeedback =
   res
@@ -336,6 +472,30 @@ responseDescribeInsight =
     "fixture/DescribeInsightResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeInsight)
+
+responseDescribeOrganizationHealth :: DescribeOrganizationHealthResponse -> TestTree
+responseDescribeOrganizationHealth =
+  res
+    "DescribeOrganizationHealthResponse"
+    "fixture/DescribeOrganizationHealthResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationHealth)
+
+responseDescribeOrganizationOverview :: DescribeOrganizationOverviewResponse -> TestTree
+responseDescribeOrganizationOverview =
+  res
+    "DescribeOrganizationOverviewResponse"
+    "fixture/DescribeOrganizationOverviewResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationOverview)
+
+responseDescribeOrganizationResourceCollectionHealth :: DescribeOrganizationResourceCollectionHealthResponse -> TestTree
+responseDescribeOrganizationResourceCollectionHealth =
+  res
+    "DescribeOrganizationResourceCollectionHealthResponse"
+    "fixture/DescribeOrganizationResourceCollectionHealthResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeOrganizationResourceCollectionHealth)
 
 responseDescribeResourceCollectionHealth :: DescribeResourceCollectionHealthResponse -> TestTree
 responseDescribeResourceCollectionHealth =
@@ -377,6 +537,14 @@ responseListAnomaliesForInsight =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListAnomaliesForInsight)
 
+responseListAnomalousLogGroups :: ListAnomalousLogGroupsResponse -> TestTree
+responseListAnomalousLogGroups =
+  res
+    "ListAnomalousLogGroupsResponse"
+    "fixture/ListAnomalousLogGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListAnomalousLogGroups)
+
 responseListEvents :: ListEventsResponse -> TestTree
 responseListEvents =
   res
@@ -393,6 +561,14 @@ responseListInsights =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListInsights)
 
+responseListMonitoredResources :: ListMonitoredResourcesResponse -> TestTree
+responseListMonitoredResources =
+  res
+    "ListMonitoredResourcesResponse"
+    "fixture/ListMonitoredResourcesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListMonitoredResources)
+
 responseListNotificationChannels :: ListNotificationChannelsResponse -> TestTree
 responseListNotificationChannels =
   res
@@ -400,6 +576,14 @@ responseListNotificationChannels =
     "fixture/ListNotificationChannelsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListNotificationChannels)
+
+responseListOrganizationInsights :: ListOrganizationInsightsResponse -> TestTree
+responseListOrganizationInsights =
+  res
+    "ListOrganizationInsightsResponse"
+    "fixture/ListOrganizationInsightsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListOrganizationInsights)
 
 responseListRecommendations :: ListRecommendationsResponse -> TestTree
 responseListRecommendations =
@@ -433,6 +617,14 @@ responseSearchInsights =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchInsights)
 
+responseSearchOrganizationInsights :: SearchOrganizationInsightsResponse -> TestTree
+responseSearchOrganizationInsights =
+  res
+    "SearchOrganizationInsightsResponse"
+    "fixture/SearchOrganizationInsightsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchOrganizationInsights)
+
 responseStartCostEstimation :: StartCostEstimationResponse -> TestTree
 responseStartCostEstimation =
   res
@@ -440,6 +632,14 @@ responseStartCostEstimation =
     "fixture/StartCostEstimationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartCostEstimation)
+
+responseUpdateEventSourcesConfig :: UpdateEventSourcesConfigResponse -> TestTree
+responseUpdateEventSourcesConfig =
+  res
+    "UpdateEventSourcesConfigResponse"
+    "fixture/UpdateEventSourcesConfigResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateEventSourcesConfig)
 
 responseUpdateResourceCollection :: UpdateResourceCollectionResponse -> TestTree
 responseUpdateResourceCollection =

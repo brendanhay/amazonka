@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an estimate of the monthly cost for DevOps Guru to analyze your
--- AWS resources. For more information, see
+-- Amazon Web Services resources. For more information, see
 -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/cost-estimate.html Estimate your Amazon DevOps Guru costs>
 -- and
 -- <http://aws.amazon.com/devops-guru/pricing/ Amazon DevOps Guru pricing>.
@@ -156,19 +156,20 @@ data GetCostEstimationResponse = GetCostEstimationResponse'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The start and end time of the cost estimation.
     timeRange :: Prelude.Maybe CostEstimationTimeRange,
-    -- | The collection of the AWS resources used to create your monthly DevOps
-    -- Guru cost estimate.
+    -- | The collection of the Amazon Web Services resources used to create your
+    -- monthly DevOps Guru cost estimate.
     resourceCollection :: Prelude.Maybe CostEstimationResourceCollectionFilter,
     -- | An array of @ResourceCost@ objects that each contains details about the
-    -- monthly cost estimate to analyze one of your AWS resources.
+    -- monthly cost estimate to analyze one of your Amazon Web Services
+    -- resources.
     costs :: Prelude.Maybe [ServiceResourceCost],
     -- | The status of creating this cost estimate. If it\'s still in progress,
     -- the status @ONGOING@ is returned. If it is finished, the status
     -- @COMPLETED@ is returned.
     status :: Prelude.Maybe CostEstimationStatus,
-    -- | The estimated monthly cost to analyze the AWS resources. This value is
-    -- the sum of the estimated costs to analyze each resource in the @Costs@
-    -- object in this response.
+    -- | The estimated monthly cost to analyze the Amazon Web Services resources.
+    -- This value is the sum of the estimated costs to analyze each resource in
+    -- the @Costs@ object in this response.
     totalCost :: Prelude.Maybe Prelude.Double,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -188,19 +189,20 @@ data GetCostEstimationResponse = GetCostEstimationResponse'
 --
 -- 'timeRange', 'getCostEstimationResponse_timeRange' - The start and end time of the cost estimation.
 --
--- 'resourceCollection', 'getCostEstimationResponse_resourceCollection' - The collection of the AWS resources used to create your monthly DevOps
--- Guru cost estimate.
+-- 'resourceCollection', 'getCostEstimationResponse_resourceCollection' - The collection of the Amazon Web Services resources used to create your
+-- monthly DevOps Guru cost estimate.
 --
 -- 'costs', 'getCostEstimationResponse_costs' - An array of @ResourceCost@ objects that each contains details about the
--- monthly cost estimate to analyze one of your AWS resources.
+-- monthly cost estimate to analyze one of your Amazon Web Services
+-- resources.
 --
 -- 'status', 'getCostEstimationResponse_status' - The status of creating this cost estimate. If it\'s still in progress,
 -- the status @ONGOING@ is returned. If it is finished, the status
 -- @COMPLETED@ is returned.
 --
--- 'totalCost', 'getCostEstimationResponse_totalCost' - The estimated monthly cost to analyze the AWS resources. This value is
--- the sum of the estimated costs to analyze each resource in the @Costs@
--- object in this response.
+-- 'totalCost', 'getCostEstimationResponse_totalCost' - The estimated monthly cost to analyze the Amazon Web Services resources.
+-- This value is the sum of the estimated costs to analyze each resource in
+-- the @Costs@ object in this response.
 --
 -- 'httpStatus', 'getCostEstimationResponse_httpStatus' - The response's http status code.
 newGetCostEstimationResponse ::
@@ -228,13 +230,14 @@ getCostEstimationResponse_nextToken = Lens.lens (\GetCostEstimationResponse' {ne
 getCostEstimationResponse_timeRange :: Lens.Lens' GetCostEstimationResponse (Prelude.Maybe CostEstimationTimeRange)
 getCostEstimationResponse_timeRange = Lens.lens (\GetCostEstimationResponse' {timeRange} -> timeRange) (\s@GetCostEstimationResponse' {} a -> s {timeRange = a} :: GetCostEstimationResponse)
 
--- | The collection of the AWS resources used to create your monthly DevOps
--- Guru cost estimate.
+-- | The collection of the Amazon Web Services resources used to create your
+-- monthly DevOps Guru cost estimate.
 getCostEstimationResponse_resourceCollection :: Lens.Lens' GetCostEstimationResponse (Prelude.Maybe CostEstimationResourceCollectionFilter)
 getCostEstimationResponse_resourceCollection = Lens.lens (\GetCostEstimationResponse' {resourceCollection} -> resourceCollection) (\s@GetCostEstimationResponse' {} a -> s {resourceCollection = a} :: GetCostEstimationResponse)
 
 -- | An array of @ResourceCost@ objects that each contains details about the
--- monthly cost estimate to analyze one of your AWS resources.
+-- monthly cost estimate to analyze one of your Amazon Web Services
+-- resources.
 getCostEstimationResponse_costs :: Lens.Lens' GetCostEstimationResponse (Prelude.Maybe [ServiceResourceCost])
 getCostEstimationResponse_costs = Lens.lens (\GetCostEstimationResponse' {costs} -> costs) (\s@GetCostEstimationResponse' {} a -> s {costs = a} :: GetCostEstimationResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -244,9 +247,9 @@ getCostEstimationResponse_costs = Lens.lens (\GetCostEstimationResponse' {costs}
 getCostEstimationResponse_status :: Lens.Lens' GetCostEstimationResponse (Prelude.Maybe CostEstimationStatus)
 getCostEstimationResponse_status = Lens.lens (\GetCostEstimationResponse' {status} -> status) (\s@GetCostEstimationResponse' {} a -> s {status = a} :: GetCostEstimationResponse)
 
--- | The estimated monthly cost to analyze the AWS resources. This value is
--- the sum of the estimated costs to analyze each resource in the @Costs@
--- object in this response.
+-- | The estimated monthly cost to analyze the Amazon Web Services resources.
+-- This value is the sum of the estimated costs to analyze each resource in
+-- the @Costs@ object in this response.
 getCostEstimationResponse_totalCost :: Lens.Lens' GetCostEstimationResponse (Prelude.Maybe Prelude.Double)
 getCostEstimationResponse_totalCost = Lens.lens (\GetCostEstimationResponse' {totalCost} -> totalCost) (\s@GetCostEstimationResponse' {} a -> s {totalCost = a} :: GetCostEstimationResponse)
 

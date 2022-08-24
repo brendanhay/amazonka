@@ -25,12 +25,13 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Information about whether DevOps Guru is configured to create an OpsItem
--- in AWS Systems Manager OpsCenter for each created insight.
+-- in Amazon Web Services Systems Manager OpsCenter for each created
+-- insight.
 --
 -- /See:/ 'newOpsCenterIntegration' smart constructor.
 data OpsCenterIntegration = OpsCenterIntegration'
-  { -- | Specifies if DevOps Guru is enabled to create an AWS Systems Manager
-    -- OpsItem for each created insight.
+  { -- | Specifies if DevOps Guru is enabled to create an Amazon Web Services
+    -- Systems Manager OpsItem for each created insight.
     optInStatus :: Prelude.Maybe OptInStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +44,8 @@ data OpsCenterIntegration = OpsCenterIntegration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'optInStatus', 'opsCenterIntegration_optInStatus' - Specifies if DevOps Guru is enabled to create an AWS Systems Manager
--- OpsItem for each created insight.
+-- 'optInStatus', 'opsCenterIntegration_optInStatus' - Specifies if DevOps Guru is enabled to create an Amazon Web Services
+-- Systems Manager OpsItem for each created insight.
 newOpsCenterIntegration ::
   OpsCenterIntegration
 newOpsCenterIntegration =
@@ -53,8 +54,8 @@ newOpsCenterIntegration =
         Prelude.Nothing
     }
 
--- | Specifies if DevOps Guru is enabled to create an AWS Systems Manager
--- OpsItem for each created insight.
+-- | Specifies if DevOps Guru is enabled to create an Amazon Web Services
+-- Systems Manager OpsItem for each created insight.
 opsCenterIntegration_optInStatus :: Lens.Lens' OpsCenterIntegration (Prelude.Maybe OptInStatus)
 opsCenterIntegration_optInStatus = Lens.lens (\OpsCenterIntegration' {optInStatus} -> optInStatus) (\s@OpsCenterIntegration' {} a -> s {optInStatus = a} :: OpsCenterIntegration)
 

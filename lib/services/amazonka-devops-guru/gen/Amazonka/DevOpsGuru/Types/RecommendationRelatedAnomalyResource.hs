@@ -30,7 +30,12 @@ import qualified Amazonka.Prelude as Prelude
 data RecommendationRelatedAnomalyResource = RecommendationRelatedAnomalyResource'
   { -- | The name of the resource.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The type of the resource.
+    -- | The type of the resource. Resource types take the same form that is used
+    -- by Amazon Web Services CloudFormation resource type identifiers,
+    -- @service-provider::service-name::data-type-name@. For example,
+    -- @AWS::RDS::DBCluster@. For more information, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+    -- in the /Amazon Web Services CloudFormation User Guide/.
     type' :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +50,12 @@ data RecommendationRelatedAnomalyResource = RecommendationRelatedAnomalyResource
 --
 -- 'name', 'recommendationRelatedAnomalyResource_name' - The name of the resource.
 --
--- 'type'', 'recommendationRelatedAnomalyResource_type' - The type of the resource.
+-- 'type'', 'recommendationRelatedAnomalyResource_type' - The type of the resource. Resource types take the same form that is used
+-- by Amazon Web Services CloudFormation resource type identifiers,
+-- @service-provider::service-name::data-type-name@. For example,
+-- @AWS::RDS::DBCluster@. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the /Amazon Web Services CloudFormation User Guide/.
 newRecommendationRelatedAnomalyResource ::
   RecommendationRelatedAnomalyResource
 newRecommendationRelatedAnomalyResource =
@@ -59,7 +69,12 @@ newRecommendationRelatedAnomalyResource =
 recommendationRelatedAnomalyResource_name :: Lens.Lens' RecommendationRelatedAnomalyResource (Prelude.Maybe Prelude.Text)
 recommendationRelatedAnomalyResource_name = Lens.lens (\RecommendationRelatedAnomalyResource' {name} -> name) (\s@RecommendationRelatedAnomalyResource' {} a -> s {name = a} :: RecommendationRelatedAnomalyResource)
 
--- | The type of the resource.
+-- | The type of the resource. Resource types take the same form that is used
+-- by Amazon Web Services CloudFormation resource type identifiers,
+-- @service-provider::service-name::data-type-name@. For example,
+-- @AWS::RDS::DBCluster@. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services resource and property types reference>
+-- in the /Amazon Web Services CloudFormation User Guide/.
 recommendationRelatedAnomalyResource_type :: Lens.Lens' RecommendationRelatedAnomalyResource (Prelude.Maybe Prelude.Text)
 recommendationRelatedAnomalyResource_type = Lens.lens (\RecommendationRelatedAnomalyResource' {type'} -> type') (\s@RecommendationRelatedAnomalyResource' {} a -> s {type' = a} :: RecommendationRelatedAnomalyResource)
 

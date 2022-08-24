@@ -21,15 +21,51 @@ module Amazonka.DevOpsGuru.Types.UpdateResourceCollectionFilter where
 
 import qualified Amazonka.Core as Core
 import Amazonka.DevOpsGuru.Types.UpdateCloudFormationCollectionFilter
+import Amazonka.DevOpsGuru.Types.UpdateTagCollectionFilter
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Contains information used to update a collection of AWS resources.
+-- | Contains information used to update a collection of Amazon Web Services
+-- resources.
 --
 -- /See:/ 'newUpdateResourceCollectionFilter' smart constructor.
 data UpdateResourceCollectionFilter = UpdateResourceCollectionFilter'
-  { -- | An collection of AWS CloudFormation stacks. You can specify up to 500
-    -- AWS CloudFormation stacks.
+  { -- | The updated Amazon Web Services tags used to filter the resources in the
+    -- resource collection.
+    --
+    -- Tags help you identify and organize your Amazon Web Services resources.
+    -- Many Amazon Web Services services support tagging, so you can assign the
+    -- same tag to resources from different services to indicate that the
+    -- resources are related. For example, you can assign the same tag to an
+    -- Amazon DynamoDB table resource that you assign to an Lambda function.
+    -- For more information about using tags, see the
+    -- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+    -- whitepaper.
+    --
+    -- Each Amazon Web Services tag has two parts.
+    --
+    -- -   A tag /key/ (for example, @CostCenter@, @Environment@, @Project@, or
+    --     @Secret@). Tag /keys/ are case-sensitive.
+    --
+    -- -   An optional field known as a tag /value/ (for example,
+    --     @111122223333@, @Production@, or a team name). Omitting the tag
+    --     /value/ is the same as using an empty string. Like tag /keys/, tag
+    --     /values/ are case-sensitive.
+    --
+    -- Together these are known as /key/-/value/ pairs.
+    --
+    -- The string used for a /key/ in a tag that you use to define your
+    -- resource coverage must begin with the prefix @Devops-guru-@. The tag
+    -- /key/ might be @Devops-guru-deployment-application@ or
+    -- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
+    -- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
+    -- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
+    -- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
+    -- might be @Devops-Guru-production-application\/RDS@ or
+    -- @Devops-Guru-production-application\/containers@.
+    tags :: Prelude.Maybe [UpdateTagCollectionFilter],
+    -- | A collection of Amazon Web Services CloudFormation stacks. You can
+    -- specify up to 500 Amazon Web Services CloudFormation stacks.
     cloudFormation :: Prelude.Maybe UpdateCloudFormationCollectionFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,18 +78,89 @@ data UpdateResourceCollectionFilter = UpdateResourceCollectionFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cloudFormation', 'updateResourceCollectionFilter_cloudFormation' - An collection of AWS CloudFormation stacks. You can specify up to 500
--- AWS CloudFormation stacks.
+-- 'tags', 'updateResourceCollectionFilter_tags' - The updated Amazon Web Services tags used to filter the resources in the
+-- resource collection.
+--
+-- Tags help you identify and organize your Amazon Web Services resources.
+-- Many Amazon Web Services services support tagging, so you can assign the
+-- same tag to resources from different services to indicate that the
+-- resources are related. For example, you can assign the same tag to an
+-- Amazon DynamoDB table resource that you assign to an Lambda function.
+-- For more information about using tags, see the
+-- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+-- whitepaper.
+--
+-- Each Amazon Web Services tag has two parts.
+--
+-- -   A tag /key/ (for example, @CostCenter@, @Environment@, @Project@, or
+--     @Secret@). Tag /keys/ are case-sensitive.
+--
+-- -   An optional field known as a tag /value/ (for example,
+--     @111122223333@, @Production@, or a team name). Omitting the tag
+--     /value/ is the same as using an empty string. Like tag /keys/, tag
+--     /values/ are case-sensitive.
+--
+-- Together these are known as /key/-/value/ pairs.
+--
+-- The string used for a /key/ in a tag that you use to define your
+-- resource coverage must begin with the prefix @Devops-guru-@. The tag
+-- /key/ might be @Devops-guru-deployment-application@ or
+-- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
+-- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
+-- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
+-- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
+-- might be @Devops-Guru-production-application\/RDS@ or
+-- @Devops-Guru-production-application\/containers@.
+--
+-- 'cloudFormation', 'updateResourceCollectionFilter_cloudFormation' - A collection of Amazon Web Services CloudFormation stacks. You can
+-- specify up to 500 Amazon Web Services CloudFormation stacks.
 newUpdateResourceCollectionFilter ::
   UpdateResourceCollectionFilter
 newUpdateResourceCollectionFilter =
   UpdateResourceCollectionFilter'
-    { cloudFormation =
-        Prelude.Nothing
+    { tags =
+        Prelude.Nothing,
+      cloudFormation = Prelude.Nothing
     }
 
--- | An collection of AWS CloudFormation stacks. You can specify up to 500
--- AWS CloudFormation stacks.
+-- | The updated Amazon Web Services tags used to filter the resources in the
+-- resource collection.
+--
+-- Tags help you identify and organize your Amazon Web Services resources.
+-- Many Amazon Web Services services support tagging, so you can assign the
+-- same tag to resources from different services to indicate that the
+-- resources are related. For example, you can assign the same tag to an
+-- Amazon DynamoDB table resource that you assign to an Lambda function.
+-- For more information about using tags, see the
+-- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+-- whitepaper.
+--
+-- Each Amazon Web Services tag has two parts.
+--
+-- -   A tag /key/ (for example, @CostCenter@, @Environment@, @Project@, or
+--     @Secret@). Tag /keys/ are case-sensitive.
+--
+-- -   An optional field known as a tag /value/ (for example,
+--     @111122223333@, @Production@, or a team name). Omitting the tag
+--     /value/ is the same as using an empty string. Like tag /keys/, tag
+--     /values/ are case-sensitive.
+--
+-- Together these are known as /key/-/value/ pairs.
+--
+-- The string used for a /key/ in a tag that you use to define your
+-- resource coverage must begin with the prefix @Devops-guru-@. The tag
+-- /key/ might be @Devops-guru-deployment-application@ or
+-- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
+-- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
+-- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
+-- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
+-- might be @Devops-Guru-production-application\/RDS@ or
+-- @Devops-Guru-production-application\/containers@.
+updateResourceCollectionFilter_tags :: Lens.Lens' UpdateResourceCollectionFilter (Prelude.Maybe [UpdateTagCollectionFilter])
+updateResourceCollectionFilter_tags = Lens.lens (\UpdateResourceCollectionFilter' {tags} -> tags) (\s@UpdateResourceCollectionFilter' {} a -> s {tags = a} :: UpdateResourceCollectionFilter) Prelude.. Lens.mapping Lens.coerced
+
+-- | A collection of Amazon Web Services CloudFormation stacks. You can
+-- specify up to 500 Amazon Web Services CloudFormation stacks.
 updateResourceCollectionFilter_cloudFormation :: Lens.Lens' UpdateResourceCollectionFilter (Prelude.Maybe UpdateCloudFormationCollectionFilter)
 updateResourceCollectionFilter_cloudFormation = Lens.lens (\UpdateResourceCollectionFilter' {cloudFormation} -> cloudFormation) (\s@UpdateResourceCollectionFilter' {} a -> s {cloudFormation = a} :: UpdateResourceCollectionFilter)
 
@@ -64,20 +171,23 @@ instance
   hashWithSalt
     _salt
     UpdateResourceCollectionFilter' {..} =
-      _salt `Prelude.hashWithSalt` cloudFormation
+      _salt `Prelude.hashWithSalt` tags
+        `Prelude.hashWithSalt` cloudFormation
 
 instance
   Prelude.NFData
     UpdateResourceCollectionFilter
   where
   rnf UpdateResourceCollectionFilter' {..} =
-    Prelude.rnf cloudFormation
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf cloudFormation
 
 instance Core.ToJSON UpdateResourceCollectionFilter where
   toJSON UpdateResourceCollectionFilter' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CloudFormation" Core..=)
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            ("CloudFormation" Core..=)
               Prelude.<$> cloudFormation
           ]
       )

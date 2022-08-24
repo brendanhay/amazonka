@@ -20,6 +20,7 @@
 module Amazonka.DevOpsGuru.Types.CloudWatchMetricsDetail where
 
 import qualified Amazonka.Core as Core
+import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDataSummary
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsDimension
 import Amazonka.DevOpsGuru.Types.CloudWatchMetricsStat
 import qualified Amazonka.Lens as Lens
@@ -29,7 +30,9 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCloudWatchMetricsDetail' smart constructor.
 data CloudWatchMetricsDetail = CloudWatchMetricsDetail'
-  { -- | The length of time associated with the CloudWatch metric in number of
+  { -- | This object returns anomaly metric data.
+    metricDataSummary :: Prelude.Maybe CloudWatchMetricsDataSummary,
+    -- | The length of time associated with the CloudWatch metric in number of
     -- seconds.
     period :: Prelude.Maybe Prelude.Int,
     -- | An array of CloudWatch dimensions associated with
@@ -58,6 +61,8 @@ data CloudWatchMetricsDetail = CloudWatchMetricsDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'metricDataSummary', 'cloudWatchMetricsDetail_metricDataSummary' - This object returns anomaly metric data.
+--
 -- 'period', 'cloudWatchMetricsDetail_period' - The length of time associated with the CloudWatch metric in number of
 -- seconds.
 --
@@ -79,13 +84,19 @@ newCloudWatchMetricsDetail ::
   CloudWatchMetricsDetail
 newCloudWatchMetricsDetail =
   CloudWatchMetricsDetail'
-    { period = Prelude.Nothing,
+    { metricDataSummary =
+        Prelude.Nothing,
+      period = Prelude.Nothing,
       dimensions = Prelude.Nothing,
       stat = Prelude.Nothing,
       metricName = Prelude.Nothing,
       namespace = Prelude.Nothing,
       unit = Prelude.Nothing
     }
+
+-- | This object returns anomaly metric data.
+cloudWatchMetricsDetail_metricDataSummary :: Lens.Lens' CloudWatchMetricsDetail (Prelude.Maybe CloudWatchMetricsDataSummary)
+cloudWatchMetricsDetail_metricDataSummary = Lens.lens (\CloudWatchMetricsDetail' {metricDataSummary} -> metricDataSummary) (\s@CloudWatchMetricsDetail' {} a -> s {metricDataSummary = a} :: CloudWatchMetricsDetail)
 
 -- | The length of time associated with the CloudWatch metric in number of
 -- seconds.
@@ -123,7 +134,8 @@ instance Core.FromJSON CloudWatchMetricsDetail where
       "CloudWatchMetricsDetail"
       ( \x ->
           CloudWatchMetricsDetail'
-            Prelude.<$> (x Core..:? "Period")
+            Prelude.<$> (x Core..:? "MetricDataSummary")
+            Prelude.<*> (x Core..:? "Period")
             Prelude.<*> (x Core..:? "Dimensions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Stat")
             Prelude.<*> (x Core..:? "MetricName")
@@ -133,7 +145,8 @@ instance Core.FromJSON CloudWatchMetricsDetail where
 
 instance Prelude.Hashable CloudWatchMetricsDetail where
   hashWithSalt _salt CloudWatchMetricsDetail' {..} =
-    _salt `Prelude.hashWithSalt` period
+    _salt `Prelude.hashWithSalt` metricDataSummary
+      `Prelude.hashWithSalt` period
       `Prelude.hashWithSalt` dimensions
       `Prelude.hashWithSalt` stat
       `Prelude.hashWithSalt` metricName
@@ -142,7 +155,8 @@ instance Prelude.Hashable CloudWatchMetricsDetail where
 
 instance Prelude.NFData CloudWatchMetricsDetail where
   rnf CloudWatchMetricsDetail' {..} =
-    Prelude.rnf period
+    Prelude.rnf metricDataSummary
+      `Prelude.seq` Prelude.rnf period
       `Prelude.seq` Prelude.rnf dimensions
       `Prelude.seq` Prelude.rnf stat
       `Prelude.seq` Prelude.rnf metricName

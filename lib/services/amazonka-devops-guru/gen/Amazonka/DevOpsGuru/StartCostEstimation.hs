@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Starts the creation of an estimate of the monthly cost to analyze your
--- AWS resources.
+-- Amazon Web Services resources.
 module Amazonka.DevOpsGuru.StartCostEstimation
   ( -- * Creating a Request
     StartCostEstimation (..),
@@ -51,8 +51,8 @@ import qualified Amazonka.Response as Response
 data StartCostEstimation = StartCostEstimation'
   { -- | The idempotency token used to identify each cost estimate request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The collection of AWS resources used to create a monthly DevOps Guru
-    -- cost estimate.
+    -- | The collection of Amazon Web Services resources used to create a monthly
+    -- DevOps Guru cost estimate.
     resourceCollection :: CostEstimationResourceCollectionFilter
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,8 +67,8 @@ data StartCostEstimation = StartCostEstimation'
 --
 -- 'clientToken', 'startCostEstimation_clientToken' - The idempotency token used to identify each cost estimate request.
 --
--- 'resourceCollection', 'startCostEstimation_resourceCollection' - The collection of AWS resources used to create a monthly DevOps Guru
--- cost estimate.
+-- 'resourceCollection', 'startCostEstimation_resourceCollection' - The collection of Amazon Web Services resources used to create a monthly
+-- DevOps Guru cost estimate.
 newStartCostEstimation ::
   -- | 'resourceCollection'
   CostEstimationResourceCollectionFilter ->
@@ -83,8 +83,8 @@ newStartCostEstimation pResourceCollection_ =
 startCostEstimation_clientToken :: Lens.Lens' StartCostEstimation (Prelude.Maybe Prelude.Text)
 startCostEstimation_clientToken = Lens.lens (\StartCostEstimation' {clientToken} -> clientToken) (\s@StartCostEstimation' {} a -> s {clientToken = a} :: StartCostEstimation)
 
--- | The collection of AWS resources used to create a monthly DevOps Guru
--- cost estimate.
+-- | The collection of Amazon Web Services resources used to create a monthly
+-- DevOps Guru cost estimate.
 startCostEstimation_resourceCollection :: Lens.Lens' StartCostEstimation CostEstimationResourceCollectionFilter
 startCostEstimation_resourceCollection = Lens.lens (\StartCostEstimation' {resourceCollection} -> resourceCollection) (\s@StartCostEstimation' {} a -> s {resourceCollection = a} :: StartCostEstimation)
 

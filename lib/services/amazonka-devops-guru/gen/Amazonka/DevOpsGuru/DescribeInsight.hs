@@ -27,6 +27,7 @@ module Amazonka.DevOpsGuru.DescribeInsight
     newDescribeInsight,
 
     -- * Request Lenses
+    describeInsight_accountId,
     describeInsight_id,
 
     -- * Destructuring the Response
@@ -49,7 +50,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeInsight' smart constructor.
 data DescribeInsight = DescribeInsight'
-  { -- | The ID of the insight.
+  { -- | The ID of the member account in the organization.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the insight.
     id :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,12 +65,22 @@ data DescribeInsight = DescribeInsight'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'describeInsight_accountId' - The ID of the member account in the organization.
+--
 -- 'id', 'describeInsight_id' - The ID of the insight.
 newDescribeInsight ::
   -- | 'id'
   Prelude.Text ->
   DescribeInsight
-newDescribeInsight pId_ = DescribeInsight' {id = pId_}
+newDescribeInsight pId_ =
+  DescribeInsight'
+    { accountId = Prelude.Nothing,
+      id = pId_
+    }
+
+-- | The ID of the member account in the organization.
+describeInsight_accountId :: Lens.Lens' DescribeInsight (Prelude.Maybe Prelude.Text)
+describeInsight_accountId = Lens.lens (\DescribeInsight' {accountId} -> accountId) (\s@DescribeInsight' {} a -> s {accountId = a} :: DescribeInsight)
 
 -- | The ID of the insight.
 describeInsight_id :: Lens.Lens' DescribeInsight Prelude.Text
@@ -89,10 +102,12 @@ instance Core.AWSRequest DescribeInsight where
 
 instance Prelude.Hashable DescribeInsight where
   hashWithSalt _salt DescribeInsight' {..} =
-    _salt `Prelude.hashWithSalt` id
+    _salt `Prelude.hashWithSalt` accountId
+      `Prelude.hashWithSalt` id
 
 instance Prelude.NFData DescribeInsight where
-  rnf DescribeInsight' {..} = Prelude.rnf id
+  rnf DescribeInsight' {..} =
+    Prelude.rnf accountId `Prelude.seq` Prelude.rnf id
 
 instance Core.ToHeaders DescribeInsight where
   toHeaders =
@@ -110,7 +125,8 @@ instance Core.ToPath DescribeInsight where
     Prelude.mconcat ["/insights/", Core.toBS id]
 
 instance Core.ToQuery DescribeInsight where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery DescribeInsight' {..} =
+    Prelude.mconcat ["AccountId" Core.=: accountId]
 
 -- | /See:/ 'newDescribeInsightResponse' smart constructor.
 data DescribeInsightResponse = DescribeInsightResponse'

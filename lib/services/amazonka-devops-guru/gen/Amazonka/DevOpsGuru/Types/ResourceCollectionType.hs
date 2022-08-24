@@ -21,7 +21,8 @@ module Amazonka.DevOpsGuru.Types.ResourceCollectionType
   ( ResourceCollectionType
       ( ..,
         ResourceCollectionType_AWS_CLOUD_FORMATION,
-        ResourceCollectionType_AWS_SERVICE
+        ResourceCollectionType_AWS_SERVICE,
+        ResourceCollectionType_AWS_TAGS
       ),
   )
 where
@@ -63,8 +64,12 @@ pattern ResourceCollectionType_AWS_CLOUD_FORMATION = ResourceCollectionType' "AW
 pattern ResourceCollectionType_AWS_SERVICE :: ResourceCollectionType
 pattern ResourceCollectionType_AWS_SERVICE = ResourceCollectionType' "AWS_SERVICE"
 
+pattern ResourceCollectionType_AWS_TAGS :: ResourceCollectionType
+pattern ResourceCollectionType_AWS_TAGS = ResourceCollectionType' "AWS_TAGS"
+
 {-# COMPLETE
   ResourceCollectionType_AWS_CLOUD_FORMATION,
   ResourceCollectionType_AWS_SERVICE,
+  ResourceCollectionType_AWS_TAGS,
   ResourceCollectionType'
   #-}

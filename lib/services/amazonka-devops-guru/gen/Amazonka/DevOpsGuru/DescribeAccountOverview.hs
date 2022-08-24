@@ -161,10 +161,12 @@ data DescribeAccountOverviewResponse = DescribeAccountOverviewResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | An integer that specifies the number of open reactive insights in your
-    -- AWS account that were created during the time range passed in.
+    -- Amazon Web Services account that were created during the time range
+    -- passed in.
     reactiveInsights :: Prelude.Int,
     -- | An integer that specifies the number of open proactive insights in your
-    -- AWS account that were created during the time range passed in.
+    -- Amazon Web Services account that were created during the time range
+    -- passed in.
     proactiveInsights :: Prelude.Int,
     -- | The Mean Time to Recover (MTTR) for all closed insights that were
     -- created during the time range passed in.
@@ -183,10 +185,12 @@ data DescribeAccountOverviewResponse = DescribeAccountOverviewResponse'
 -- 'httpStatus', 'describeAccountOverviewResponse_httpStatus' - The response's http status code.
 --
 -- 'reactiveInsights', 'describeAccountOverviewResponse_reactiveInsights' - An integer that specifies the number of open reactive insights in your
--- AWS account that were created during the time range passed in.
+-- Amazon Web Services account that were created during the time range
+-- passed in.
 --
 -- 'proactiveInsights', 'describeAccountOverviewResponse_proactiveInsights' - An integer that specifies the number of open proactive insights in your
--- AWS account that were created during the time range passed in.
+-- Amazon Web Services account that were created during the time range
+-- passed in.
 --
 -- 'meanTimeToRecoverInMilliseconds', 'describeAccountOverviewResponse_meanTimeToRecoverInMilliseconds' - The Mean Time to Recover (MTTR) for all closed insights that were
 -- created during the time range passed in.
@@ -219,12 +223,14 @@ describeAccountOverviewResponse_httpStatus :: Lens.Lens' DescribeAccountOverview
 describeAccountOverviewResponse_httpStatus = Lens.lens (\DescribeAccountOverviewResponse' {httpStatus} -> httpStatus) (\s@DescribeAccountOverviewResponse' {} a -> s {httpStatus = a} :: DescribeAccountOverviewResponse)
 
 -- | An integer that specifies the number of open reactive insights in your
--- AWS account that were created during the time range passed in.
+-- Amazon Web Services account that were created during the time range
+-- passed in.
 describeAccountOverviewResponse_reactiveInsights :: Lens.Lens' DescribeAccountOverviewResponse Prelude.Int
 describeAccountOverviewResponse_reactiveInsights = Lens.lens (\DescribeAccountOverviewResponse' {reactiveInsights} -> reactiveInsights) (\s@DescribeAccountOverviewResponse' {} a -> s {reactiveInsights = a} :: DescribeAccountOverviewResponse)
 
 -- | An integer that specifies the number of open proactive insights in your
--- AWS account that were created during the time range passed in.
+-- Amazon Web Services account that were created during the time range
+-- passed in.
 describeAccountOverviewResponse_proactiveInsights :: Lens.Lens' DescribeAccountOverviewResponse Prelude.Int
 describeAccountOverviewResponse_proactiveInsights = Lens.lens (\DescribeAccountOverviewResponse' {proactiveInsights} -> proactiveInsights) (\s@DescribeAccountOverviewResponse' {} a -> s {proactiveInsights = a} :: DescribeAccountOverviewResponse)
 

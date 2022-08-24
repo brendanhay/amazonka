@@ -33,13 +33,18 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newReactiveInsightSummary' smart constructor.
 data ReactiveInsightSummary = ReactiveInsightSummary'
-  { -- | The severity of a reactive insight.
+  { -- | The severity of the insight. For more information, see
+    -- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+    -- in the /Amazon DevOps Guru User Guide/.
     severity :: Prelude.Maybe InsightSeverity,
     -- | The name of a reactive insight.
     name :: Prelude.Maybe Prelude.Text,
     resourceCollection :: Prelude.Maybe ResourceCollection,
-    -- | A collection of the names of AWS services.
+    -- | A collection of the names of Amazon Web Services services.
     serviceCollection :: Prelude.Maybe ServiceCollection,
+    -- | The Amazon Resource Names (ARNs) of the Amazon Web Services resources
+    -- that generated this insight.
+    associatedResourceArns :: Prelude.Maybe [Prelude.Text],
     -- | The status of a reactive insight.
     status :: Prelude.Maybe InsightStatus,
     -- | The ID of a reactive summary.
@@ -56,13 +61,18 @@ data ReactiveInsightSummary = ReactiveInsightSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'severity', 'reactiveInsightSummary_severity' - The severity of a reactive insight.
+-- 'severity', 'reactiveInsightSummary_severity' - The severity of the insight. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 --
 -- 'name', 'reactiveInsightSummary_name' - The name of a reactive insight.
 --
 -- 'resourceCollection', 'reactiveInsightSummary_resourceCollection' - Undocumented member.
 --
--- 'serviceCollection', 'reactiveInsightSummary_serviceCollection' - A collection of the names of AWS services.
+-- 'serviceCollection', 'reactiveInsightSummary_serviceCollection' - A collection of the names of Amazon Web Services services.
+--
+-- 'associatedResourceArns', 'reactiveInsightSummary_associatedResourceArns' - The Amazon Resource Names (ARNs) of the Amazon Web Services resources
+-- that generated this insight.
 --
 -- 'status', 'reactiveInsightSummary_status' - The status of a reactive insight.
 --
@@ -77,12 +87,15 @@ newReactiveInsightSummary =
       name = Prelude.Nothing,
       resourceCollection = Prelude.Nothing,
       serviceCollection = Prelude.Nothing,
+      associatedResourceArns = Prelude.Nothing,
       status = Prelude.Nothing,
       id = Prelude.Nothing,
       insightTimeRange = Prelude.Nothing
     }
 
--- | The severity of a reactive insight.
+-- | The severity of the insight. For more information, see
+-- <https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html#understanding-insights-severities Understanding insight severities>
+-- in the /Amazon DevOps Guru User Guide/.
 reactiveInsightSummary_severity :: Lens.Lens' ReactiveInsightSummary (Prelude.Maybe InsightSeverity)
 reactiveInsightSummary_severity = Lens.lens (\ReactiveInsightSummary' {severity} -> severity) (\s@ReactiveInsightSummary' {} a -> s {severity = a} :: ReactiveInsightSummary)
 
@@ -94,9 +107,14 @@ reactiveInsightSummary_name = Lens.lens (\ReactiveInsightSummary' {name} -> name
 reactiveInsightSummary_resourceCollection :: Lens.Lens' ReactiveInsightSummary (Prelude.Maybe ResourceCollection)
 reactiveInsightSummary_resourceCollection = Lens.lens (\ReactiveInsightSummary' {resourceCollection} -> resourceCollection) (\s@ReactiveInsightSummary' {} a -> s {resourceCollection = a} :: ReactiveInsightSummary)
 
--- | A collection of the names of AWS services.
+-- | A collection of the names of Amazon Web Services services.
 reactiveInsightSummary_serviceCollection :: Lens.Lens' ReactiveInsightSummary (Prelude.Maybe ServiceCollection)
 reactiveInsightSummary_serviceCollection = Lens.lens (\ReactiveInsightSummary' {serviceCollection} -> serviceCollection) (\s@ReactiveInsightSummary' {} a -> s {serviceCollection = a} :: ReactiveInsightSummary)
+
+-- | The Amazon Resource Names (ARNs) of the Amazon Web Services resources
+-- that generated this insight.
+reactiveInsightSummary_associatedResourceArns :: Lens.Lens' ReactiveInsightSummary (Prelude.Maybe [Prelude.Text])
+reactiveInsightSummary_associatedResourceArns = Lens.lens (\ReactiveInsightSummary' {associatedResourceArns} -> associatedResourceArns) (\s@ReactiveInsightSummary' {} a -> s {associatedResourceArns = a} :: ReactiveInsightSummary) Prelude.. Lens.mapping Lens.coerced
 
 -- | The status of a reactive insight.
 reactiveInsightSummary_status :: Lens.Lens' ReactiveInsightSummary (Prelude.Maybe InsightStatus)
@@ -120,6 +138,9 @@ instance Core.FromJSON ReactiveInsightSummary where
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "ResourceCollection")
             Prelude.<*> (x Core..:? "ServiceCollection")
+            Prelude.<*> ( x Core..:? "AssociatedResourceArns"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "InsightTimeRange")
@@ -131,6 +152,7 @@ instance Prelude.Hashable ReactiveInsightSummary where
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` resourceCollection
       `Prelude.hashWithSalt` serviceCollection
+      `Prelude.hashWithSalt` associatedResourceArns
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` id
       `Prelude.hashWithSalt` insightTimeRange
@@ -141,6 +163,7 @@ instance Prelude.NFData ReactiveInsightSummary where
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf resourceCollection
       `Prelude.seq` Prelude.rnf serviceCollection
+      `Prelude.seq` Prelude.rnf associatedResourceArns
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf id
       `Prelude.seq` Prelude.rnf insightTimeRange

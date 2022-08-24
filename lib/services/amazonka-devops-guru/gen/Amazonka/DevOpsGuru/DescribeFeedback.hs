@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the most recent feedback submitted in the current AWS account
--- and Region.
+-- Returns the most recent feedback submitted in the current Amazon Web
+-- Services account and Region.
 module Amazonka.DevOpsGuru.DescribeFeedback
   ( -- * Creating a Request
     DescribeFeedback (..),

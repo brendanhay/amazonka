@@ -23,8 +23,8 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about an AWS resource that emitted and event that is related
--- to a recommendation in an insight.
+-- | Information about an Amazon Web Services resource that emitted and event
+-- that is related to a recommendation in an insight.
 --
 -- /See:/ 'newRecommendationRelatedEventResource' smart constructor.
 data RecommendationRelatedEventResource = RecommendationRelatedEventResource'

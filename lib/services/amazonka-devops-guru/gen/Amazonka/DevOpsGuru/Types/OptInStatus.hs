@@ -29,8 +29,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
--- | Specifies if DevOps Guru is enabled to create an AWS Systems Manager
--- OpsItem for each created insight.
+-- | Specifies if DevOps Guru is enabled to create an Amazon Web Services
+-- Systems Manager OpsItem for each created insight.
 newtype OptInStatus = OptInStatus'
   { fromOptInStatus ::
       Core.Text

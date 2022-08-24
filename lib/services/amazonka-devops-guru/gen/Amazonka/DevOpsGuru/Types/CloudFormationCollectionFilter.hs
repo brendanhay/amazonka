@@ -23,11 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about AWS CloudFormation stacks. You can use up to 500
--- stacks to specify which AWS resources in your account to analyze. For
--- more information, see
+-- | Information about Amazon Web Services CloudFormation stacks. You can use
+-- up to 500 stacks to specify which Amazon Web Services resources in your
+-- account to analyze. For more information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html Stacks>
--- in the /AWS CloudFormation User Guide/.
+-- in the /Amazon Web Services CloudFormation User Guide/.
 --
 -- /See:/ 'newCloudFormationCollectionFilter' smart constructor.
 data CloudFormationCollectionFilter = CloudFormationCollectionFilter'

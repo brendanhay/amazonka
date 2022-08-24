@@ -22,11 +22,14 @@
 --
 -- Returns the number of open proactive insights, open reactive insights,
 -- and the Mean Time to Recover (MTTR) for all closed insights in resource
--- collections in your account. You specify the type of AWS resources
--- collection. The one type of AWS resource collection supported is AWS
--- CloudFormation stacks. DevOps Guru can be configured to analyze only the
--- AWS resources that are defined in the stacks. You can specify up to 500
--- AWS CloudFormation stacks.
+-- collections in your account. You specify the type of Amazon Web Services
+-- resources collection. The two types of Amazon Web Services resource
+-- collections supported are Amazon Web Services CloudFormation stacks and
+-- Amazon Web Services resources that contain the same Amazon Web Services
+-- tag. DevOps Guru can be configured to analyze the Amazon Web Services
+-- resources that are defined in the stacks or that are tagged using the
+-- same tag /key/. You can specify up to 500 Amazon Web Services
+-- CloudFormation stacks.
 --
 -- This operation returns paginated results.
 module Amazonka.DevOpsGuru.DescribeResourceCollectionHealth
@@ -43,10 +46,11 @@ module Amazonka.DevOpsGuru.DescribeResourceCollectionHealth
     newDescribeResourceCollectionHealthResponse,
 
     -- * Response Lenses
+    describeResourceCollectionHealthResponse_tags,
     describeResourceCollectionHealthResponse_nextToken,
     describeResourceCollectionHealthResponse_service,
-    describeResourceCollectionHealthResponse_httpStatus,
     describeResourceCollectionHealthResponse_cloudFormation,
+    describeResourceCollectionHealthResponse_httpStatus,
   )
 where
 
@@ -62,11 +66,14 @@ data DescribeResourceCollectionHealth = DescribeResourceCollectionHealth'
   { -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An AWS resource collection type. This type specifies how analyzed AWS
-    -- resources are defined. The one type of AWS resource collection supported
-    -- is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
-    -- only the AWS resources that are defined in the stacks. You can specify
-    -- up to 500 AWS CloudFormation stacks.
+    -- | An Amazon Web Services resource collection type. This type specifies how
+    -- analyzed Amazon Web Services resources are defined. The two types of
+    -- Amazon Web Services resource collections supported are Amazon Web
+    -- Services CloudFormation stacks and Amazon Web Services resources that
+    -- contain the same Amazon Web Services tag. DevOps Guru can be configured
+    -- to analyze the Amazon Web Services resources that are defined in the
+    -- stacks or that are tagged using the same tag /key/. You can specify up
+    -- to 500 Amazon Web Services CloudFormation stacks.
     resourceCollectionType :: ResourceCollectionType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,11 +89,14 @@ data DescribeResourceCollectionHealth = DescribeResourceCollectionHealth'
 -- 'nextToken', 'describeResourceCollectionHealth_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
--- 'resourceCollectionType', 'describeResourceCollectionHealth_resourceCollectionType' - An AWS resource collection type. This type specifies how analyzed AWS
--- resources are defined. The one type of AWS resource collection supported
--- is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
--- only the AWS resources that are defined in the stacks. You can specify
--- up to 500 AWS CloudFormation stacks.
+-- 'resourceCollectionType', 'describeResourceCollectionHealth_resourceCollectionType' - An Amazon Web Services resource collection type. This type specifies how
+-- analyzed Amazon Web Services resources are defined. The two types of
+-- Amazon Web Services resource collections supported are Amazon Web
+-- Services CloudFormation stacks and Amazon Web Services resources that
+-- contain the same Amazon Web Services tag. DevOps Guru can be configured
+-- to analyze the Amazon Web Services resources that are defined in the
+-- stacks or that are tagged using the same tag /key/. You can specify up
+-- to 500 Amazon Web Services CloudFormation stacks.
 newDescribeResourceCollectionHealth ::
   -- | 'resourceCollectionType'
   ResourceCollectionType ->
@@ -105,11 +115,14 @@ newDescribeResourceCollectionHealth
 describeResourceCollectionHealth_nextToken :: Lens.Lens' DescribeResourceCollectionHealth (Prelude.Maybe Prelude.Text)
 describeResourceCollectionHealth_nextToken = Lens.lens (\DescribeResourceCollectionHealth' {nextToken} -> nextToken) (\s@DescribeResourceCollectionHealth' {} a -> s {nextToken = a} :: DescribeResourceCollectionHealth)
 
--- | An AWS resource collection type. This type specifies how analyzed AWS
--- resources are defined. The one type of AWS resource collection supported
--- is AWS CloudFormation stacks. DevOps Guru can be configured to analyze
--- only the AWS resources that are defined in the stacks. You can specify
--- up to 500 AWS CloudFormation stacks.
+-- | An Amazon Web Services resource collection type. This type specifies how
+-- analyzed Amazon Web Services resources are defined. The two types of
+-- Amazon Web Services resource collections supported are Amazon Web
+-- Services CloudFormation stacks and Amazon Web Services resources that
+-- contain the same Amazon Web Services tag. DevOps Guru can be configured
+-- to analyze the Amazon Web Services resources that are defined in the
+-- stacks or that are tagged using the same tag /key/. You can specify up
+-- to 500 Amazon Web Services CloudFormation stacks.
 describeResourceCollectionHealth_resourceCollectionType :: Lens.Lens' DescribeResourceCollectionHealth ResourceCollectionType
 describeResourceCollectionHealth_resourceCollectionType = Lens.lens (\DescribeResourceCollectionHealth' {resourceCollectionType} -> resourceCollectionType) (\s@DescribeResourceCollectionHealth' {} a -> s {resourceCollectionType = a} :: DescribeResourceCollectionHealth)
 
@@ -126,12 +139,19 @@ instance
       Prelude.Nothing
     | Core.stop
         ( rs
-            Lens.^. describeResourceCollectionHealthResponse_cloudFormation
+            Lens.^? describeResourceCollectionHealthResponse_cloudFormation
+              Prelude.. Lens._Just
         ) =
       Prelude.Nothing
     | Core.stop
         ( rs
             Lens.^? describeResourceCollectionHealthResponse_service
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeResourceCollectionHealthResponse_tags
               Prelude.. Lens._Just
         ) =
       Prelude.Nothing
@@ -155,12 +175,11 @@ instance
     Response.receiveJSON
       ( \s h x ->
           DescribeResourceCollectionHealthResponse'
-            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (x Core..?> "Service" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "CloudFormation" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Core..?> "CloudFormation"
-                            Core..!@ Prelude.mempty
-                        )
       )
 
 instance
@@ -211,18 +230,53 @@ instance
 
 -- | /See:/ 'newDescribeResourceCollectionHealthResponse' smart constructor.
 data DescribeResourceCollectionHealthResponse = DescribeResourceCollectionHealthResponse'
-  { -- | The pagination token to use to retrieve the next page of results for
+  { -- | The Amazon Web Services tags that are used by resources in the resource
+    -- collection.
+    --
+    -- Tags help you identify and organize your Amazon Web Services resources.
+    -- Many Amazon Web Services services support tagging, so you can assign the
+    -- same tag to resources from different services to indicate that the
+    -- resources are related. For example, you can assign the same tag to an
+    -- Amazon DynamoDB table resource that you assign to an Lambda function.
+    -- For more information about using tags, see the
+    -- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+    -- whitepaper.
+    --
+    -- Each Amazon Web Services tag has two parts.
+    --
+    -- -   A tag /key/ (for example, @CostCenter@, @Environment@, @Project@, or
+    --     @Secret@). Tag /keys/ are case-sensitive.
+    --
+    -- -   An optional field known as a tag /value/ (for example,
+    --     @111122223333@, @Production@, or a team name). Omitting the tag
+    --     /value/ is the same as using an empty string. Like tag /keys/, tag
+    --     /values/ are case-sensitive.
+    --
+    -- Together these are known as /key/-/value/ pairs.
+    --
+    -- The string used for a /key/ in a tag that you use to define your
+    -- resource coverage must begin with the prefix @Devops-guru-@. The tag
+    -- /key/ might be @Devops-guru-deployment-application@ or
+    -- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
+    -- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
+    -- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
+    -- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
+    -- might be @Devops-Guru-production-application\/RDS@ or
+    -- @Devops-Guru-production-application\/containers@.
+    tags :: Prelude.Maybe [TagHealth],
+    -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If there are no more pages, this value is null.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @ServiceHealth@ objects that describes the health of the AWS
-    -- services associated with the resources in the collection.
+    -- | An array of @ServiceHealth@ objects that describes the health of the
+    -- Amazon Web Services services associated with the resources in the
+    -- collection.
     service :: Prelude.Maybe [ServiceHealth],
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int,
     -- | The returned @CloudFormationHealthOverview@ object that contains an
     -- @InsightHealthOverview@ object with the requested system health
     -- information.
-    cloudFormation :: [CloudFormationHealth]
+    cloudFormation :: Prelude.Maybe [CloudFormationHealth],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -234,17 +288,52 @@ data DescribeResourceCollectionHealthResponse = DescribeResourceCollectionHealth
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'describeResourceCollectionHealthResponse_tags' - The Amazon Web Services tags that are used by resources in the resource
+-- collection.
+--
+-- Tags help you identify and organize your Amazon Web Services resources.
+-- Many Amazon Web Services services support tagging, so you can assign the
+-- same tag to resources from different services to indicate that the
+-- resources are related. For example, you can assign the same tag to an
+-- Amazon DynamoDB table resource that you assign to an Lambda function.
+-- For more information about using tags, see the
+-- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+-- whitepaper.
+--
+-- Each Amazon Web Services tag has two parts.
+--
+-- -   A tag /key/ (for example, @CostCenter@, @Environment@, @Project@, or
+--     @Secret@). Tag /keys/ are case-sensitive.
+--
+-- -   An optional field known as a tag /value/ (for example,
+--     @111122223333@, @Production@, or a team name). Omitting the tag
+--     /value/ is the same as using an empty string. Like tag /keys/, tag
+--     /values/ are case-sensitive.
+--
+-- Together these are known as /key/-/value/ pairs.
+--
+-- The string used for a /key/ in a tag that you use to define your
+-- resource coverage must begin with the prefix @Devops-guru-@. The tag
+-- /key/ might be @Devops-guru-deployment-application@ or
+-- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
+-- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
+-- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
+-- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
+-- might be @Devops-Guru-production-application\/RDS@ or
+-- @Devops-Guru-production-application\/containers@.
+--
 -- 'nextToken', 'describeResourceCollectionHealthResponse_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 --
--- 'service', 'describeResourceCollectionHealthResponse_service' - An array of @ServiceHealth@ objects that describes the health of the AWS
--- services associated with the resources in the collection.
---
--- 'httpStatus', 'describeResourceCollectionHealthResponse_httpStatus' - The response's http status code.
+-- 'service', 'describeResourceCollectionHealthResponse_service' - An array of @ServiceHealth@ objects that describes the health of the
+-- Amazon Web Services services associated with the resources in the
+-- collection.
 --
 -- 'cloudFormation', 'describeResourceCollectionHealthResponse_cloudFormation' - The returned @CloudFormationHealthOverview@ object that contains an
 -- @InsightHealthOverview@ object with the requested system health
 -- information.
+--
+-- 'httpStatus', 'describeResourceCollectionHealthResponse_httpStatus' - The response's http status code.
 newDescribeResourceCollectionHealthResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -252,39 +341,78 @@ newDescribeResourceCollectionHealthResponse ::
 newDescribeResourceCollectionHealthResponse
   pHttpStatus_ =
     DescribeResourceCollectionHealthResponse'
-      { nextToken =
+      { tags =
           Prelude.Nothing,
+        nextToken = Prelude.Nothing,
         service = Prelude.Nothing,
-        httpStatus = pHttpStatus_,
-        cloudFormation = Prelude.mempty
+        cloudFormation = Prelude.Nothing,
+        httpStatus = pHttpStatus_
       }
+
+-- | The Amazon Web Services tags that are used by resources in the resource
+-- collection.
+--
+-- Tags help you identify and organize your Amazon Web Services resources.
+-- Many Amazon Web Services services support tagging, so you can assign the
+-- same tag to resources from different services to indicate that the
+-- resources are related. For example, you can assign the same tag to an
+-- Amazon DynamoDB table resource that you assign to an Lambda function.
+-- For more information about using tags, see the
+-- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging best practices>
+-- whitepaper.
+--
+-- Each Amazon Web Services tag has two parts.
+--
+-- -   A tag /key/ (for example, @CostCenter@, @Environment@, @Project@, or
+--     @Secret@). Tag /keys/ are case-sensitive.
+--
+-- -   An optional field known as a tag /value/ (for example,
+--     @111122223333@, @Production@, or a team name). Omitting the tag
+--     /value/ is the same as using an empty string. Like tag /keys/, tag
+--     /values/ are case-sensitive.
+--
+-- Together these are known as /key/-/value/ pairs.
+--
+-- The string used for a /key/ in a tag that you use to define your
+-- resource coverage must begin with the prefix @Devops-guru-@. The tag
+-- /key/ might be @Devops-guru-deployment-application@ or
+-- @Devops-guru-rds-application@. While /keys/ are case-sensitive, the case
+-- of /key/ characters don\'t matter to DevOps Guru. For example, DevOps
+-- Guru works with a /key/ named @devops-guru-rds@ and a /key/ named
+-- @DevOps-Guru-RDS@. Possible /key/\//value/ pairs in your application
+-- might be @Devops-Guru-production-application\/RDS@ or
+-- @Devops-Guru-production-application\/containers@.
+describeResourceCollectionHealthResponse_tags :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe [TagHealth])
+describeResourceCollectionHealthResponse_tags = Lens.lens (\DescribeResourceCollectionHealthResponse' {tags} -> tags) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {tags = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
 
 -- | The pagination token to use to retrieve the next page of results for
 -- this operation. If there are no more pages, this value is null.
 describeResourceCollectionHealthResponse_nextToken :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe Prelude.Text)
 describeResourceCollectionHealthResponse_nextToken = Lens.lens (\DescribeResourceCollectionHealthResponse' {nextToken} -> nextToken) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {nextToken = a} :: DescribeResourceCollectionHealthResponse)
 
--- | An array of @ServiceHealth@ objects that describes the health of the AWS
--- services associated with the resources in the collection.
+-- | An array of @ServiceHealth@ objects that describes the health of the
+-- Amazon Web Services services associated with the resources in the
+-- collection.
 describeResourceCollectionHealthResponse_service :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe [ServiceHealth])
 describeResourceCollectionHealthResponse_service = Lens.lens (\DescribeResourceCollectionHealthResponse' {service} -> service) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {service = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
-
--- | The response's http status code.
-describeResourceCollectionHealthResponse_httpStatus :: Lens.Lens' DescribeResourceCollectionHealthResponse Prelude.Int
-describeResourceCollectionHealthResponse_httpStatus = Lens.lens (\DescribeResourceCollectionHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {httpStatus = a} :: DescribeResourceCollectionHealthResponse)
 
 -- | The returned @CloudFormationHealthOverview@ object that contains an
 -- @InsightHealthOverview@ object with the requested system health
 -- information.
-describeResourceCollectionHealthResponse_cloudFormation :: Lens.Lens' DescribeResourceCollectionHealthResponse [CloudFormationHealth]
-describeResourceCollectionHealthResponse_cloudFormation = Lens.lens (\DescribeResourceCollectionHealthResponse' {cloudFormation} -> cloudFormation) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {cloudFormation = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.coerced
+describeResourceCollectionHealthResponse_cloudFormation :: Lens.Lens' DescribeResourceCollectionHealthResponse (Prelude.Maybe [CloudFormationHealth])
+describeResourceCollectionHealthResponse_cloudFormation = Lens.lens (\DescribeResourceCollectionHealthResponse' {cloudFormation} -> cloudFormation) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {cloudFormation = a} :: DescribeResourceCollectionHealthResponse) Prelude.. Lens.mapping Lens.coerced
+
+-- | The response's http status code.
+describeResourceCollectionHealthResponse_httpStatus :: Lens.Lens' DescribeResourceCollectionHealthResponse Prelude.Int
+describeResourceCollectionHealthResponse_httpStatus = Lens.lens (\DescribeResourceCollectionHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeResourceCollectionHealthResponse' {} a -> s {httpStatus = a} :: DescribeResourceCollectionHealthResponse)
 
 instance
   Prelude.NFData
     DescribeResourceCollectionHealthResponse
   where
   rnf DescribeResourceCollectionHealthResponse' {..} =
-    Prelude.rnf nextToken
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf service
-      `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf cloudFormation
+      `Prelude.seq` Prelude.rnf httpStatus

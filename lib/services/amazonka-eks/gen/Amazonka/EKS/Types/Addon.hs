@@ -25,13 +25,15 @@ import Amazonka.EKS.Types.AddonStatus
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An Amazon EKS add-on.
+-- | An Amazon EKS add-on. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html Amazon EKS add-ons>
+-- in the /Amazon EKS User Guide/.
 --
 -- /See:/ 'newAddon' smart constructor.
 data Addon = Addon'
   { -- | The metadata that you apply to the add-on to assist with categorization
-    -- and organization. Each tag consists of a key and an optional value, both
-    -- of which you define. Add-on tags do not propagate to any other resources
+    -- and organization. Each tag consists of a key and an optional value. You
+    -- define both. Add-on tags do not propagate to any other resources
     -- associated with the cluster.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The date and time that the add-on was last modified.
@@ -65,8 +67,8 @@ data Addon = Addon'
 -- for backwards compatibility:
 --
 -- 'tags', 'addon_tags' - The metadata that you apply to the add-on to assist with categorization
--- and organization. Each tag consists of a key and an optional value, both
--- of which you define. Add-on tags do not propagate to any other resources
+-- and organization. Each tag consists of a key and an optional value. You
+-- define both. Add-on tags do not propagate to any other resources
 -- associated with the cluster.
 --
 -- 'modifiedAt', 'addon_modifiedAt' - The date and time that the add-on was last modified.
@@ -104,8 +106,8 @@ newAddon =
     }
 
 -- | The metadata that you apply to the add-on to assist with categorization
--- and organization. Each tag consists of a key and an optional value, both
--- of which you define. Add-on tags do not propagate to any other resources
+-- and organization. Each tag consists of a key and an optional value. You
+-- define both. Add-on tags do not propagate to any other resources
 -- associated with the cluster.
 addon_tags :: Lens.Lens' Addon (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 addon_tags = Lens.lens (\Addon' {tags} -> tags) (\s@Addon' {} a -> s {tags = a} :: Addon) Prelude.. Lens.mapping Lens.coerced

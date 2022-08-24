@@ -101,6 +101,7 @@ library
     Amazonka.EKS.Types.Identity
     Amazonka.EKS.Types.IdentityProviderConfig
     Amazonka.EKS.Types.IdentityProviderConfigResponse
+    Amazonka.EKS.Types.IpFamily
     Amazonka.EKS.Types.Issue
     Amazonka.EKS.Types.KubernetesNetworkConfigRequest
     Amazonka.EKS.Types.KubernetesNetworkConfigResponse

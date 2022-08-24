@@ -62,6 +62,7 @@ haskell_library(
         "gen/Amazonka/EKS/Types/Identity.hs",
         "gen/Amazonka/EKS/Types/IdentityProviderConfig.hs",
         "gen/Amazonka/EKS/Types/IdentityProviderConfigResponse.hs",
+        "gen/Amazonka/EKS/Types/IpFamily.hs",
         "gen/Amazonka/EKS/Types/Issue.hs",
         "gen/Amazonka/EKS/Types/KubernetesNetworkConfigRequest.hs",
         "gen/Amazonka/EKS/Types/KubernetesNetworkConfigResponse.hs",

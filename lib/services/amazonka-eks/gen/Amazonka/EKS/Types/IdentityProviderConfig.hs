@@ -27,7 +27,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newIdentityProviderConfig' smart constructor.
 data IdentityProviderConfig = IdentityProviderConfig'
-  { -- | The type of the identity provider configuration.
+  { -- | The type of the identity provider configuration. The only type available
+    -- is @oidc@.
     type' :: Prelude.Text,
     -- | The name of the identity provider configuration.
     name :: Prelude.Text
@@ -42,7 +43,8 @@ data IdentityProviderConfig = IdentityProviderConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'identityProviderConfig_type' - The type of the identity provider configuration.
+-- 'type'', 'identityProviderConfig_type' - The type of the identity provider configuration. The only type available
+-- is @oidc@.
 --
 -- 'name', 'identityProviderConfig_name' - The name of the identity provider configuration.
 newIdentityProviderConfig ::
@@ -57,7 +59,8 @@ newIdentityProviderConfig pType_ pName_ =
       name = pName_
     }
 
--- | The type of the identity provider configuration.
+-- | The type of the identity provider configuration. The only type available
+-- is @oidc@.
 identityProviderConfig_type :: Lens.Lens' IdentityProviderConfig Prelude.Text
 identityProviderConfig_type = Lens.lens (\IdentityProviderConfig' {type'} -> type') (\s@IdentityProviderConfig' {} a -> s {type' = a} :: IdentityProviderConfig)
 

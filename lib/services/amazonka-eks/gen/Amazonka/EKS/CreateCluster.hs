@@ -25,8 +25,8 @@
 -- The Amazon EKS control plane consists of control plane instances that
 -- run the Kubernetes software, such as @etcd@ and the API server. The
 -- control plane runs in an account managed by Amazon Web Services, and the
--- Kubernetes API is exposed via the Amazon EKS API server endpoint. Each
--- Amazon EKS cluster control plane is single-tenant and unique and runs on
+-- Kubernetes API is exposed by the Amazon EKS API server endpoint. Each
+-- Amazon EKS cluster control plane is single tenant and unique. It runs on
 -- its own set of Amazon EC2 instances.
 --
 -- The cluster control plane is provisioned across multiple Availability
@@ -37,13 +37,13 @@
 -- flows).
 --
 -- Amazon EKS nodes run in your Amazon Web Services account and connect to
--- your cluster\'s control plane via the Kubernetes API server endpoint and
--- a certificate file that is created for your cluster.
+-- your cluster\'s control plane over the Kubernetes API server endpoint
+-- and a certificate file that is created for your cluster.
 --
--- Cluster creation typically takes several minutes. After you create an
--- Amazon EKS cluster, you must configure your Kubernetes tooling to
--- communicate with the API server and launch nodes into your cluster. For
--- more information, see
+-- In most cases, it takes several minutes to create a cluster. After you
+-- create an Amazon EKS cluster, you must configure your Kubernetes tooling
+-- to communicate with the API server and launch nodes into your cluster.
+-- For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html Managing Cluster Authentication>
 -- and
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html Launching Amazon EKS nodes>
@@ -86,8 +86,8 @@ data CreateCluster = CreateCluster'
   { -- | The encryption configuration for the cluster.
     encryptionConfig :: Prelude.Maybe [EncryptionConfig],
     -- | The metadata to apply to the cluster to assist with categorization and
-    -- organization. Each tag consists of a key and an optional value, both of
-    -- which you define.
+    -- organization. Each tag consists of a key and an optional value. You
+    -- define both.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
@@ -115,15 +115,15 @@ data CreateCluster = CreateCluster'
     -- <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html Amazon EKS Service IAM Role>
     -- in the //Amazon EKS User Guide// .
     roleArn :: Prelude.Text,
-    -- | The VPC configuration used by the cluster control plane. Amazon EKS VPC
-    -- resources have specific requirements to work properly with Kubernetes.
-    -- For more information, see
+    -- | The VPC configuration that\'s used by the cluster control plane. Amazon
+    -- EKS VPC resources have specific requirements to work properly with
+    -- Kubernetes. For more information, see
     -- <https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html Cluster VPC Considerations>
     -- and
     -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Cluster Security Group Considerations>
     -- in the /Amazon EKS User Guide/. You must specify at least two subnets.
-    -- You can specify up to five security groups, but we recommend that you
-    -- use a dedicated security group for your cluster control plane.
+    -- You can specify up to five security groups. However, we recommend that
+    -- you use a dedicated security group for your cluster control plane.
     resourcesVpcConfig :: VpcConfigRequest
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -139,8 +139,8 @@ data CreateCluster = CreateCluster'
 -- 'encryptionConfig', 'createCluster_encryptionConfig' - The encryption configuration for the cluster.
 --
 -- 'tags', 'createCluster_tags' - The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organization. Each tag consists of a key and an optional value. You
+-- define both.
 --
 -- 'clientRequestToken', 'createCluster_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -168,15 +168,15 @@ data CreateCluster = CreateCluster'
 -- <https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html Amazon EKS Service IAM Role>
 -- in the //Amazon EKS User Guide// .
 --
--- 'resourcesVpcConfig', 'createCluster_resourcesVpcConfig' - The VPC configuration used by the cluster control plane. Amazon EKS VPC
--- resources have specific requirements to work properly with Kubernetes.
--- For more information, see
+-- 'resourcesVpcConfig', 'createCluster_resourcesVpcConfig' - The VPC configuration that\'s used by the cluster control plane. Amazon
+-- EKS VPC resources have specific requirements to work properly with
+-- Kubernetes. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html Cluster VPC Considerations>
 -- and
 -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Cluster Security Group Considerations>
 -- in the /Amazon EKS User Guide/. You must specify at least two subnets.
--- You can specify up to five security groups, but we recommend that you
--- use a dedicated security group for your cluster control plane.
+-- You can specify up to five security groups. However, we recommend that
+-- you use a dedicated security group for your cluster control plane.
 newCreateCluster ::
   -- | 'name'
   Prelude.Text ->
@@ -206,8 +206,8 @@ createCluster_encryptionConfig :: Lens.Lens' CreateCluster (Prelude.Maybe [Encry
 createCluster_encryptionConfig = Lens.lens (\CreateCluster' {encryptionConfig} -> encryptionConfig) (\s@CreateCluster' {} a -> s {encryptionConfig = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
 -- | The metadata to apply to the cluster to assist with categorization and
--- organization. Each tag consists of a key and an optional value, both of
--- which you define.
+-- organization. Each tag consists of a key and an optional value. You
+-- define both.
 createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens.coerced
 
@@ -249,15 +249,15 @@ createCluster_name = Lens.lens (\CreateCluster' {name} -> name) (\s@CreateCluste
 createCluster_roleArn :: Lens.Lens' CreateCluster Prelude.Text
 createCluster_roleArn = Lens.lens (\CreateCluster' {roleArn} -> roleArn) (\s@CreateCluster' {} a -> s {roleArn = a} :: CreateCluster)
 
--- | The VPC configuration used by the cluster control plane. Amazon EKS VPC
--- resources have specific requirements to work properly with Kubernetes.
--- For more information, see
+-- | The VPC configuration that\'s used by the cluster control plane. Amazon
+-- EKS VPC resources have specific requirements to work properly with
+-- Kubernetes. For more information, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html Cluster VPC Considerations>
 -- and
 -- <https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html Cluster Security Group Considerations>
 -- in the /Amazon EKS User Guide/. You must specify at least two subnets.
--- You can specify up to five security groups, but we recommend that you
--- use a dedicated security group for your cluster control plane.
+-- You can specify up to five security groups. However, we recommend that
+-- you use a dedicated security group for your cluster control plane.
 createCluster_resourcesVpcConfig :: Lens.Lens' CreateCluster VpcConfigRequest
 createCluster_resourcesVpcConfig = Lens.lens (\CreateCluster' {resourcesVpcConfig} -> resourcesVpcConfig) (\s@CreateCluster' {} a -> s {resourcesVpcConfig = a} :: CreateCluster)
 

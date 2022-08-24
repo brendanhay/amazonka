@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns descriptive information about an update against your Amazon EKS
--- cluster or associated managed node group.
+-- cluster or associated managed node group or Amazon EKS add-on.
 --
 -- When the status of the update is @Succeeded@, the update is complete. If
 -- an update fails, the status is @Failed@, and an error detail explains
@@ -56,11 +56,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeUpdate' smart constructor.
 data DescribeUpdate = DescribeUpdate'
-  { -- | The name of the Amazon EKS node group associated with the update.
+  { -- | The name of the Amazon EKS node group associated with the update. This
+    -- parameter is required if the update is a node group update.
     nodegroupName :: Prelude.Maybe Prelude.Text,
     -- | The name of the add-on. The name must match one of the names returned by
     -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
-    -- .
+    -- . This parameter is required if the update is an add-on update.
     addonName :: Prelude.Maybe Prelude.Text,
     -- | The name of the Amazon EKS cluster associated with the update.
     name :: Prelude.Text,
@@ -77,11 +78,12 @@ data DescribeUpdate = DescribeUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodegroupName', 'describeUpdate_nodegroupName' - The name of the Amazon EKS node group associated with the update.
+-- 'nodegroupName', 'describeUpdate_nodegroupName' - The name of the Amazon EKS node group associated with the update. This
+-- parameter is required if the update is a node group update.
 --
 -- 'addonName', 'describeUpdate_addonName' - The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
--- .
+-- . This parameter is required if the update is an add-on update.
 --
 -- 'name', 'describeUpdate_name' - The name of the Amazon EKS cluster associated with the update.
 --
@@ -100,13 +102,14 @@ newDescribeUpdate pName_ pUpdateId_ =
       updateId = pUpdateId_
     }
 
--- | The name of the Amazon EKS node group associated with the update.
+-- | The name of the Amazon EKS node group associated with the update. This
+-- parameter is required if the update is a node group update.
 describeUpdate_nodegroupName :: Lens.Lens' DescribeUpdate (Prelude.Maybe Prelude.Text)
 describeUpdate_nodegroupName = Lens.lens (\DescribeUpdate' {nodegroupName} -> nodegroupName) (\s@DescribeUpdate' {} a -> s {nodegroupName = a} :: DescribeUpdate)
 
 -- | The name of the add-on. The name must match one of the names returned by
 -- <https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons>
--- .
+-- . This parameter is required if the update is an add-on update.
 describeUpdate_addonName :: Lens.Lens' DescribeUpdate (Prelude.Maybe Prelude.Text)
 describeUpdate_addonName = Lens.lens (\DescribeUpdate' {addonName} -> addonName) (\s@DescribeUpdate' {} a -> s {addonName = a} :: DescribeUpdate)
 

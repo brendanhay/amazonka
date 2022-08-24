@@ -31,7 +31,7 @@ import qualified Amazonka.Prelude as Prelude
 data OidcIdentityProviderConfig = OidcIdentityProviderConfig'
   { -- | The metadata to apply to the provider configuration to assist with
     -- categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you defined.
+    -- optional value. You define both.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The key-value pairs that describe required claims in the identity token.
     -- If set, each claim is verified to be present in the token with a
@@ -77,7 +77,7 @@ data OidcIdentityProviderConfig = OidcIdentityProviderConfig'
 --
 -- 'tags', 'oidcIdentityProviderConfig_tags' - The metadata to apply to the provider configuration to assist with
 -- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you defined.
+-- optional value. You define both.
 --
 -- 'requiredClaims', 'oidcIdentityProviderConfig_requiredClaims' - The key-value pairs that describe required claims in the identity token.
 -- If set, each claim is verified to be present in the token with a
@@ -129,7 +129,7 @@ newOidcIdentityProviderConfig =
 
 -- | The metadata to apply to the provider configuration to assist with
 -- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you defined.
+-- optional value. You define both.
 oidcIdentityProviderConfig_tags :: Lens.Lens' OidcIdentityProviderConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 oidcIdentityProviderConfig_tags = Lens.lens (\OidcIdentityProviderConfig' {tags} -> tags) (\s@OidcIdentityProviderConfig' {} a -> s {tags = a} :: OidcIdentityProviderConfig) Prelude.. Lens.mapping Lens.coerced
 

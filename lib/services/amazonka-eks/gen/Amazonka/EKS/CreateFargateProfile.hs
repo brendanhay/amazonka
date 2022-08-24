@@ -91,9 +91,9 @@ import qualified Amazonka.Response as Response
 data CreateFargateProfile = CreateFargateProfile'
   { -- | The metadata to apply to the Fargate profile to assist with
     -- categorization and organization. Each tag consists of a key and an
-    -- optional value, both of which you define. Fargate profile tags do not
-    -- propagate to any other resources associated with the Fargate profile,
-    -- such as the pods that are scheduled with it.
+    -- optional value. You define both. Fargate profile tags do not propagate
+    -- to any other resources associated with the Fargate profile, such as the
+    -- pods that are scheduled with it.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
@@ -133,9 +133,9 @@ data CreateFargateProfile = CreateFargateProfile'
 --
 -- 'tags', 'createFargateProfile_tags' - The metadata to apply to the Fargate profile to assist with
 -- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Fargate profile tags do not
--- propagate to any other resources associated with the Fargate profile,
--- such as the pods that are scheduled with it.
+-- optional value. You define both. Fargate profile tags do not propagate
+-- to any other resources associated with the Fargate profile, such as the
+-- pods that are scheduled with it.
 --
 -- 'clientRequestToken', 'createFargateProfile_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -185,9 +185,9 @@ newCreateFargateProfile
 
 -- | The metadata to apply to the Fargate profile to assist with
 -- categorization and organization. Each tag consists of a key and an
--- optional value, both of which you define. Fargate profile tags do not
--- propagate to any other resources associated with the Fargate profile,
--- such as the pods that are scheduled with it.
+-- optional value. You define both. Fargate profile tags do not propagate
+-- to any other resources associated with the Fargate profile, such as the
+-- pods that are scheduled with it.
 createFargateProfile_tags :: Lens.Lens' CreateFargateProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createFargateProfile_tags = Lens.lens (\CreateFargateProfile' {tags} -> tags) (\s@CreateFargateProfile' {} a -> s {tags = a} :: CreateFargateProfile) Prelude.. Lens.mapping Lens.coerced
 

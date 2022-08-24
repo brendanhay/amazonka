@@ -40,7 +40,7 @@ import qualified Amazonka.Prelude as Prelude
 -- in the Amazon EC2 API Reference. For more information about using launch
 -- templates with Amazon EKS, see
 -- <https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html Launch template support>
--- in the Amazon EKS User Guide.
+-- in the /Amazon EKS User Guide/.
 --
 -- Specify either @name@ or @id@, but not both.
 --

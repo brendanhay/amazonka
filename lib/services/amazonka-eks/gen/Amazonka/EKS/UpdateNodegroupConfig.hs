@@ -64,7 +64,8 @@ data UpdateNodegroupConfig = UpdateNodegroupConfig'
     -- | The node group update configuration.
     updateConfig :: Prelude.Maybe NodegroupUpdateConfig,
     -- | The Kubernetes taints to be applied to the nodes in the node group after
-    -- the update.
+    -- the update. For more information, see
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html Node taints on managed node groups>.
     taints :: Prelude.Maybe UpdateTaintsPayload,
     -- | The Kubernetes labels to be applied to the nodes in the node group after
     -- the update.
@@ -94,7 +95,8 @@ data UpdateNodegroupConfig = UpdateNodegroupConfig'
 -- 'updateConfig', 'updateNodegroupConfig_updateConfig' - The node group update configuration.
 --
 -- 'taints', 'updateNodegroupConfig_taints' - The Kubernetes taints to be applied to the nodes in the node group after
--- the update.
+-- the update. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html Node taints on managed node groups>.
 --
 -- 'labels', 'updateNodegroupConfig_labels' - The Kubernetes labels to be applied to the nodes in the node group after
 -- the update.
@@ -136,7 +138,8 @@ updateNodegroupConfig_updateConfig :: Lens.Lens' UpdateNodegroupConfig (Prelude.
 updateNodegroupConfig_updateConfig = Lens.lens (\UpdateNodegroupConfig' {updateConfig} -> updateConfig) (\s@UpdateNodegroupConfig' {} a -> s {updateConfig = a} :: UpdateNodegroupConfig)
 
 -- | The Kubernetes taints to be applied to the nodes in the node group after
--- the update.
+-- the update. For more information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html Node taints on managed node groups>.
 updateNodegroupConfig_taints :: Lens.Lens' UpdateNodegroupConfig (Prelude.Maybe UpdateTaintsPayload)
 updateNodegroupConfig_taints = Lens.lens (\UpdateNodegroupConfig' {taints} -> taints) (\s@UpdateNodegroupConfig' {} a -> s {taints = a} :: UpdateNodegroupConfig)
 

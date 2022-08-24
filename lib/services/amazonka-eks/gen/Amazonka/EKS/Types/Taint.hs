@@ -24,7 +24,9 @@ import Amazonka.EKS.Types.TaintEffect
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A property that allows a node to repel a set of pods.
+-- | A property that allows a node to repel a set of pods. For more
+-- information, see
+-- <https://docs.aws.amazon.com/eks/latest/userguide/node-taints-managed-node-groups.html Node taints on managed node groups>.
 --
 -- /See:/ 'newTaint' smart constructor.
 data Taint = Taint'

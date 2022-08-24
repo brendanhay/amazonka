@@ -70,7 +70,7 @@ data Issue = Issue'
     --     to be assigned a public IP address, then you need to enable the
     --     @auto-assign public IP address@ setting for the subnet. See
     --     <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip Modifying the public IPv4 addressing attribute for your subnet>
-    --     in the Amazon VPC User Guide.
+    --     in the /Amazon VPC User Guide/.
     --
     -- -   __IamInstanceProfileNotFound__: We couldn\'t find the IAM instance
     --     profile for your managed node group. You may be able to recreate an
@@ -95,7 +95,7 @@ data Issue = Issue'
     -- -   __NodeCreationFailure__: Your launched instances are unable to
     --     register with your Amazon EKS cluster. Common causes of this failure
     --     are insufficient
-    --     <https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role>
+    --     <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html node IAM role>
     --     permissions or lack of outbound internet access for the nodes.
     code :: Prelude.Maybe NodegroupIssueCode,
     -- | The Amazon Web Services resources that are afflicted by this issue.
@@ -153,7 +153,7 @@ data Issue = Issue'
 --     to be assigned a public IP address, then you need to enable the
 --     @auto-assign public IP address@ setting for the subnet. See
 --     <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip Modifying the public IPv4 addressing attribute for your subnet>
---     in the Amazon VPC User Guide.
+--     in the /Amazon VPC User Guide/.
 --
 -- -   __IamInstanceProfileNotFound__: We couldn\'t find the IAM instance
 --     profile for your managed node group. You may be able to recreate an
@@ -178,7 +178,7 @@ data Issue = Issue'
 -- -   __NodeCreationFailure__: Your launched instances are unable to
 --     register with your Amazon EKS cluster. Common causes of this failure
 --     are insufficient
---     <https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role>
+--     <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html node IAM role>
 --     permissions or lack of outbound internet access for the nodes.
 --
 -- 'resourceIds', 'issue_resourceIds' - The Amazon Web Services resources that are afflicted by this issue.
@@ -235,7 +235,7 @@ issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {m
 --     to be assigned a public IP address, then you need to enable the
 --     @auto-assign public IP address@ setting for the subnet. See
 --     <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip Modifying the public IPv4 addressing attribute for your subnet>
---     in the Amazon VPC User Guide.
+--     in the /Amazon VPC User Guide/.
 --
 -- -   __IamInstanceProfileNotFound__: We couldn\'t find the IAM instance
 --     profile for your managed node group. You may be able to recreate an
@@ -260,7 +260,7 @@ issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {m
 -- -   __NodeCreationFailure__: Your launched instances are unable to
 --     register with your Amazon EKS cluster. Common causes of this failure
 --     are insufficient
---     <https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role>
+--     <https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html node IAM role>
 --     permissions or lack of outbound internet access for the nodes.
 issue_code :: Lens.Lens' Issue (Prelude.Maybe NodegroupIssueCode)
 issue_code = Lens.lens (\Issue' {code} -> code) (\s@Issue' {} a -> s {code = a} :: Issue)

@@ -18,6 +18,7 @@ module Amazonka.EKS.Types
 
     -- * Errors
     _ClientException,
+    _AccessDeniedException,
     _NotFoundException,
     _ServiceUnavailableException,
     _ResourceNotFoundException,
@@ -25,6 +26,7 @@ module Amazonka.EKS.Types
     _ResourceInUseException,
     _ResourceLimitExceededException,
     _BadRequestException,
+    _ResourcePropagationDelayException,
     _InvalidRequestException,
     _ServerException,
     _InvalidParameterException,
@@ -55,6 +57,9 @@ module Amazonka.EKS.Types
 
     -- * FargateProfileStatus
     FargateProfileStatus (..),
+
+    -- * IpFamily
+    IpFamily (..),
 
     -- * LogType
     LogType (..),
@@ -231,11 +236,14 @@ module Amazonka.EKS.Types
     -- * KubernetesNetworkConfigRequest
     KubernetesNetworkConfigRequest (..),
     newKubernetesNetworkConfigRequest,
+    kubernetesNetworkConfigRequest_ipFamily,
     kubernetesNetworkConfigRequest_serviceIpv4Cidr,
 
     -- * KubernetesNetworkConfigResponse
     KubernetesNetworkConfigResponse (..),
     newKubernetesNetworkConfigResponse,
+    kubernetesNetworkConfigResponse_ipFamily,
+    kubernetesNetworkConfigResponse_serviceIpv6Cidr,
     kubernetesNetworkConfigResponse_serviceIpv4Cidr,
 
     -- * LaunchTemplateSpecification
@@ -436,6 +444,7 @@ import Amazonka.EKS.Types.FargateProfileStatus
 import Amazonka.EKS.Types.Identity
 import Amazonka.EKS.Types.IdentityProviderConfig
 import Amazonka.EKS.Types.IdentityProviderConfigResponse
+import Amazonka.EKS.Types.IpFamily
 import Amazonka.EKS.Types.Issue
 import Amazonka.EKS.Types.KubernetesNetworkConfigRequest
 import Amazonka.EKS.Types.KubernetesNetworkConfigResponse
@@ -552,6 +561,19 @@ _ClientException =
     "ClientException"
     Prelude.. Core.hasStatus 400
 
+-- | You don\'t have permissions to perform the requested operation. The user
+-- or role that is making the request must have at least one IAM
+-- permissions policy attached that grants the required permissions. For
+-- more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html Access Management>
+-- in the /IAM User Guide/.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+    Prelude.. Core.hasStatus 403
+
 -- | A service resource associated with the request could not be found.
 -- Clients should not retry such requests.
 _NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -616,6 +638,15 @@ _BadRequestException =
     defaultService
     "BadRequestException"
     Prelude.. Core.hasStatus 400
+
+-- | Required resources (such as service-linked roles) were created and are
+-- still propagating. Retry later.
+_ResourcePropagationDelayException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourcePropagationDelayException =
+  Core._MatchServiceError
+    defaultService
+    "ResourcePropagationDelayException"
+    Prelude.. Core.hasStatus 428
 
 -- | The request is invalid given the state of the cluster. Check the state
 -- of the cluster and the associated operations.

@@ -225,6 +225,7 @@ module Amazonka.EKS.Lens
     listUpdatesResponse_httpStatus,
 
     -- ** RegisterCluster
+    registerCluster_tags,
     registerCluster_clientRequestToken,
     registerCluster_name,
     registerCluster_connectorConfig,
@@ -401,9 +402,12 @@ module Amazonka.EKS.Lens
     issue_resourceIds,
 
     -- ** KubernetesNetworkConfigRequest
+    kubernetesNetworkConfigRequest_ipFamily,
     kubernetesNetworkConfigRequest_serviceIpv4Cidr,
 
     -- ** KubernetesNetworkConfigResponse
+    kubernetesNetworkConfigResponse_ipFamily,
+    kubernetesNetworkConfigResponse_serviceIpv6Cidr,
     kubernetesNetworkConfigResponse_serviceIpv4Cidr,
 
     -- ** LaunchTemplateSpecification

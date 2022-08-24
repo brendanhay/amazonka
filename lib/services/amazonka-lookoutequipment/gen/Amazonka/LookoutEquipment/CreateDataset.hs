@@ -33,8 +33,8 @@ module Amazonka.LookoutEquipment.CreateDataset
     -- * Request Lenses
     createDataset_tags,
     createDataset_serverSideKmsKeyId,
-    createDataset_datasetName,
     createDataset_datasetSchema,
+    createDataset_datasetName,
     createDataset_clientToken,
 
     -- * Destructuring the Response
@@ -63,11 +63,11 @@ data CreateDataset = CreateDataset'
     -- | Provides the identifier of the KMS key used to encrypt dataset data by
     -- Amazon Lookout for Equipment.
     serverSideKmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the dataset being created.
-    datasetName :: Prelude.Text,
     -- | A JSON description of the data that is in each time series dataset,
     -- including names, column names, and data types.
-    datasetSchema :: DatasetSchema,
+    datasetSchema :: Prelude.Maybe DatasetSchema,
+    -- | The name of the dataset being created.
+    datasetName :: Prelude.Text,
     -- | A unique identifier for the request. If you do not set the client
     -- request token, Amazon Lookout for Equipment generates one.
     clientToken :: Prelude.Text
@@ -87,32 +87,27 @@ data CreateDataset = CreateDataset'
 -- 'serverSideKmsKeyId', 'createDataset_serverSideKmsKeyId' - Provides the identifier of the KMS key used to encrypt dataset data by
 -- Amazon Lookout for Equipment.
 --
--- 'datasetName', 'createDataset_datasetName' - The name of the dataset being created.
---
 -- 'datasetSchema', 'createDataset_datasetSchema' - A JSON description of the data that is in each time series dataset,
 -- including names, column names, and data types.
+--
+-- 'datasetName', 'createDataset_datasetName' - The name of the dataset being created.
 --
 -- 'clientToken', 'createDataset_clientToken' - A unique identifier for the request. If you do not set the client
 -- request token, Amazon Lookout for Equipment generates one.
 newCreateDataset ::
   -- | 'datasetName'
   Prelude.Text ->
-  -- | 'datasetSchema'
-  DatasetSchema ->
   -- | 'clientToken'
   Prelude.Text ->
   CreateDataset
-newCreateDataset
-  pDatasetName_
-  pDatasetSchema_
-  pClientToken_ =
-    CreateDataset'
-      { tags = Prelude.Nothing,
-        serverSideKmsKeyId = Prelude.Nothing,
-        datasetName = pDatasetName_,
-        datasetSchema = pDatasetSchema_,
-        clientToken = pClientToken_
-      }
+newCreateDataset pDatasetName_ pClientToken_ =
+  CreateDataset'
+    { tags = Prelude.Nothing,
+      serverSideKmsKeyId = Prelude.Nothing,
+      datasetSchema = Prelude.Nothing,
+      datasetName = pDatasetName_,
+      clientToken = pClientToken_
+    }
 
 -- | Any tags associated with the ingested data described in the dataset.
 createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe [Tag])
@@ -123,14 +118,14 @@ createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDatase
 createDataset_serverSideKmsKeyId :: Lens.Lens' CreateDataset (Prelude.Maybe Prelude.Text)
 createDataset_serverSideKmsKeyId = Lens.lens (\CreateDataset' {serverSideKmsKeyId} -> serverSideKmsKeyId) (\s@CreateDataset' {} a -> s {serverSideKmsKeyId = a} :: CreateDataset)
 
+-- | A JSON description of the data that is in each time series dataset,
+-- including names, column names, and data types.
+createDataset_datasetSchema :: Lens.Lens' CreateDataset (Prelude.Maybe DatasetSchema)
+createDataset_datasetSchema = Lens.lens (\CreateDataset' {datasetSchema} -> datasetSchema) (\s@CreateDataset' {} a -> s {datasetSchema = a} :: CreateDataset)
+
 -- | The name of the dataset being created.
 createDataset_datasetName :: Lens.Lens' CreateDataset Prelude.Text
 createDataset_datasetName = Lens.lens (\CreateDataset' {datasetName} -> datasetName) (\s@CreateDataset' {} a -> s {datasetName = a} :: CreateDataset)
-
--- | A JSON description of the data that is in each time series dataset,
--- including names, column names, and data types.
-createDataset_datasetSchema :: Lens.Lens' CreateDataset DatasetSchema
-createDataset_datasetSchema = Lens.lens (\CreateDataset' {datasetSchema} -> datasetSchema) (\s@CreateDataset' {} a -> s {datasetSchema = a} :: CreateDataset)
 
 -- | A unique identifier for the request. If you do not set the client
 -- request token, Amazon Lookout for Equipment generates one.
@@ -156,16 +151,16 @@ instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` serverSideKmsKeyId
-      `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` datasetSchema
+      `Prelude.hashWithSalt` datasetName
       `Prelude.hashWithSalt` clientToken
 
 instance Prelude.NFData CreateDataset where
   rnf CreateDataset' {..} =
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf serverSideKmsKeyId
-      `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf datasetSchema
+      `Prelude.seq` Prelude.rnf datasetName
       `Prelude.seq` Prelude.rnf clientToken
 
 instance Core.ToHeaders CreateDataset where
@@ -190,8 +185,8 @@ instance Core.ToJSON CreateDataset where
           [ ("Tags" Core..=) Prelude.<$> tags,
             ("ServerSideKmsKeyId" Core..=)
               Prelude.<$> serverSideKmsKeyId,
+            ("DatasetSchema" Core..=) Prelude.<$> datasetSchema,
             Prelude.Just ("DatasetName" Core..= datasetName),
-            Prelude.Just ("DatasetSchema" Core..= datasetSchema),
             Prelude.Just ("ClientToken" Core..= clientToken)
           ]
       )

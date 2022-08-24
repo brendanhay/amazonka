@@ -120,6 +120,12 @@ module Amazonka.LookoutEquipment
     ListDatasetsResponse (ListDatasetsResponse'),
     newListDatasetsResponse,
 
+    -- ** ListInferenceEvents
+    ListInferenceEvents (ListInferenceEvents'),
+    newListInferenceEvents,
+    ListInferenceEventsResponse (ListInferenceEventsResponse'),
+    newListInferenceEventsResponse,
+
     -- ** ListInferenceExecutions
     ListInferenceExecutions (ListInferenceExecutions'),
     newListInferenceExecutions,
@@ -137,6 +143,12 @@ module Amazonka.LookoutEquipment
     newListModels,
     ListModelsResponse (ListModelsResponse'),
     newListModelsResponse,
+
+    -- ** ListSensorStatistics
+    ListSensorStatistics (ListSensorStatistics'),
+    newListSensorStatistics,
+    ListSensorStatisticsResponse (ListSensorStatisticsResponse'),
+    newListSensorStatisticsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -200,8 +212,22 @@ module Amazonka.LookoutEquipment
     -- ** ModelStatus
     ModelStatus (..),
 
+    -- ** Monotonicity
+    Monotonicity (..),
+
+    -- ** StatisticalIssueStatus
+    StatisticalIssueStatus (..),
+
     -- ** TargetSamplingRate
     TargetSamplingRate (..),
+
+    -- ** CategoricalValues
+    CategoricalValues (CategoricalValues'),
+    newCategoricalValues,
+
+    -- ** CountPercent
+    CountPercent (CountPercent'),
+    newCountPercent,
 
     -- ** DataIngestionJobSummary
     DataIngestionJobSummary (DataIngestionJobSummary'),
@@ -211,6 +237,10 @@ module Amazonka.LookoutEquipment
     DataPreProcessingConfiguration (DataPreProcessingConfiguration'),
     newDataPreProcessingConfiguration,
 
+    -- ** DataQualitySummary
+    DataQualitySummary (DataQualitySummary'),
+    newDataQualitySummary,
+
     -- ** DatasetSchema
     DatasetSchema (DatasetSchema'),
     newDatasetSchema,
@@ -218,6 +248,14 @@ module Amazonka.LookoutEquipment
     -- ** DatasetSummary
     DatasetSummary (DatasetSummary'),
     newDatasetSummary,
+
+    -- ** DuplicateTimestamps
+    DuplicateTimestamps (DuplicateTimestamps'),
+    newDuplicateTimestamps,
+
+    -- ** InferenceEventSummary
+    InferenceEventSummary (InferenceEventSummary'),
+    newInferenceEventSummary,
 
     -- ** InferenceExecutionSummary
     InferenceExecutionSummary (InferenceExecutionSummary'),
@@ -247,6 +285,10 @@ module Amazonka.LookoutEquipment
     InferenceSchedulerSummary (InferenceSchedulerSummary'),
     newInferenceSchedulerSummary,
 
+    -- ** IngestedFilesSummary
+    IngestedFilesSummary (IngestedFilesSummary'),
+    newIngestedFilesSummary,
+
     -- ** IngestionInputConfiguration
     IngestionInputConfiguration (IngestionInputConfiguration'),
     newIngestionInputConfiguration,
@@ -254,6 +296,14 @@ module Amazonka.LookoutEquipment
     -- ** IngestionS3InputConfiguration
     IngestionS3InputConfiguration (IngestionS3InputConfiguration'),
     newIngestionS3InputConfiguration,
+
+    -- ** InsufficientSensorData
+    InsufficientSensorData (InsufficientSensorData'),
+    newInsufficientSensorData,
+
+    -- ** InvalidSensorData
+    InvalidSensorData (InvalidSensorData'),
+    newInvalidSensorData,
 
     -- ** LabelsInputConfiguration
     LabelsInputConfiguration (LabelsInputConfiguration'),
@@ -263,17 +313,49 @@ module Amazonka.LookoutEquipment
     LabelsS3InputConfiguration (LabelsS3InputConfiguration'),
     newLabelsS3InputConfiguration,
 
+    -- ** LargeTimestampGaps
+    LargeTimestampGaps (LargeTimestampGaps'),
+    newLargeTimestampGaps,
+
+    -- ** MissingCompleteSensorData
+    MissingCompleteSensorData (MissingCompleteSensorData'),
+    newMissingCompleteSensorData,
+
+    -- ** MissingSensorData
+    MissingSensorData (MissingSensorData'),
+    newMissingSensorData,
+
     -- ** ModelSummary
     ModelSummary (ModelSummary'),
     newModelSummary,
+
+    -- ** MonotonicValues
+    MonotonicValues (MonotonicValues'),
+    newMonotonicValues,
+
+    -- ** MultipleOperatingModes
+    MultipleOperatingModes (MultipleOperatingModes'),
+    newMultipleOperatingModes,
 
     -- ** S3Object
     S3Object (S3Object'),
     newS3Object,
 
+    -- ** SensorStatisticsSummary
+    SensorStatisticsSummary (SensorStatisticsSummary'),
+    newSensorStatisticsSummary,
+
+    -- ** SensorsWithShortDateRange
+    SensorsWithShortDateRange (SensorsWithShortDateRange'),
+    newSensorsWithShortDateRange,
+
     -- ** Tag
     Tag (Tag'),
     newTag,
+
+    -- ** UnsupportedTimestamps
+    UnsupportedTimestamps (UnsupportedTimestamps'),
+    newUnsupportedTimestamps,
   )
 where
 
@@ -290,9 +372,11 @@ import Amazonka.LookoutEquipment.DescribeModel
 import Amazonka.LookoutEquipment.Lens
 import Amazonka.LookoutEquipment.ListDataIngestionJobs
 import Amazonka.LookoutEquipment.ListDatasets
+import Amazonka.LookoutEquipment.ListInferenceEvents
 import Amazonka.LookoutEquipment.ListInferenceExecutions
 import Amazonka.LookoutEquipment.ListInferenceSchedulers
 import Amazonka.LookoutEquipment.ListModels
+import Amazonka.LookoutEquipment.ListSensorStatistics
 import Amazonka.LookoutEquipment.ListTagsForResource
 import Amazonka.LookoutEquipment.StartDataIngestionJob
 import Amazonka.LookoutEquipment.StartInferenceScheduler

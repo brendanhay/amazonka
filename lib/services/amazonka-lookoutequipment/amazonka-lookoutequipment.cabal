@@ -57,21 +57,28 @@ library
     Amazonka.LookoutEquipment.Lens
     Amazonka.LookoutEquipment.ListDataIngestionJobs
     Amazonka.LookoutEquipment.ListDatasets
+    Amazonka.LookoutEquipment.ListInferenceEvents
     Amazonka.LookoutEquipment.ListInferenceExecutions
     Amazonka.LookoutEquipment.ListInferenceSchedulers
     Amazonka.LookoutEquipment.ListModels
+    Amazonka.LookoutEquipment.ListSensorStatistics
     Amazonka.LookoutEquipment.ListTagsForResource
     Amazonka.LookoutEquipment.StartDataIngestionJob
     Amazonka.LookoutEquipment.StartInferenceScheduler
     Amazonka.LookoutEquipment.StopInferenceScheduler
     Amazonka.LookoutEquipment.TagResource
     Amazonka.LookoutEquipment.Types
+    Amazonka.LookoutEquipment.Types.CategoricalValues
+    Amazonka.LookoutEquipment.Types.CountPercent
     Amazonka.LookoutEquipment.Types.DataIngestionJobSummary
     Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration
+    Amazonka.LookoutEquipment.Types.DataQualitySummary
     Amazonka.LookoutEquipment.Types.DatasetSchema
     Amazonka.LookoutEquipment.Types.DatasetStatus
     Amazonka.LookoutEquipment.Types.DatasetSummary
     Amazonka.LookoutEquipment.Types.DataUploadFrequency
+    Amazonka.LookoutEquipment.Types.DuplicateTimestamps
+    Amazonka.LookoutEquipment.Types.InferenceEventSummary
     Amazonka.LookoutEquipment.Types.InferenceExecutionStatus
     Amazonka.LookoutEquipment.Types.InferenceExecutionSummary
     Amazonka.LookoutEquipment.Types.InferenceInputConfiguration
@@ -81,16 +88,29 @@ library
     Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration
     Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus
     Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary
+    Amazonka.LookoutEquipment.Types.IngestedFilesSummary
     Amazonka.LookoutEquipment.Types.IngestionInputConfiguration
     Amazonka.LookoutEquipment.Types.IngestionJobStatus
     Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
+    Amazonka.LookoutEquipment.Types.InsufficientSensorData
+    Amazonka.LookoutEquipment.Types.InvalidSensorData
     Amazonka.LookoutEquipment.Types.LabelsInputConfiguration
     Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
+    Amazonka.LookoutEquipment.Types.LargeTimestampGaps
+    Amazonka.LookoutEquipment.Types.MissingCompleteSensorData
+    Amazonka.LookoutEquipment.Types.MissingSensorData
     Amazonka.LookoutEquipment.Types.ModelStatus
     Amazonka.LookoutEquipment.Types.ModelSummary
+    Amazonka.LookoutEquipment.Types.Monotonicity
+    Amazonka.LookoutEquipment.Types.MonotonicValues
+    Amazonka.LookoutEquipment.Types.MultipleOperatingModes
     Amazonka.LookoutEquipment.Types.S3Object
+    Amazonka.LookoutEquipment.Types.SensorStatisticsSummary
+    Amazonka.LookoutEquipment.Types.SensorsWithShortDateRange
+    Amazonka.LookoutEquipment.Types.StatisticalIssueStatus
     Amazonka.LookoutEquipment.Types.Tag
     Amazonka.LookoutEquipment.Types.TargetSamplingRate
+    Amazonka.LookoutEquipment.Types.UnsupportedTimestamps
     Amazonka.LookoutEquipment.UntagResource
     Amazonka.LookoutEquipment.UpdateInferenceScheduler
     Amazonka.LookoutEquipment.Waiters

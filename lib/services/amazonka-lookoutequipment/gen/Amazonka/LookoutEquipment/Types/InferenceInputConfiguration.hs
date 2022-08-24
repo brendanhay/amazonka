@@ -26,15 +26,15 @@ import Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration
 import qualified Amazonka.Prelude as Prelude
 
 -- | Specifies configuration information for the input data for the
--- inference, including S3 location of input data..
+-- inference, including Amazon S3 location of input data..
 --
 -- /See:/ 'newInferenceInputConfiguration' smart constructor.
 data InferenceInputConfiguration = InferenceInputConfiguration'
-  { -- | Indicates the difference between your time zone and Greenwich Mean Time
-    -- (GMT).
+  { -- | Indicates the difference between your time zone and Coordinated
+    -- Universal Time (UTC).
     inputTimeZoneOffset :: Prelude.Maybe Prelude.Text,
     -- | Specifies configuration information for the input data for the
-    -- inference, including S3 location of input data..
+    -- inference, including Amazon S3 location of input data.
     s3InputConfiguration :: Prelude.Maybe InferenceS3InputConfiguration,
     -- | Specifies configuration information for the input data for the
     -- inference, including timestamp format and delimiter.
@@ -50,11 +50,11 @@ data InferenceInputConfiguration = InferenceInputConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'inputTimeZoneOffset', 'inferenceInputConfiguration_inputTimeZoneOffset' - Indicates the difference between your time zone and Greenwich Mean Time
--- (GMT).
+-- 'inputTimeZoneOffset', 'inferenceInputConfiguration_inputTimeZoneOffset' - Indicates the difference between your time zone and Coordinated
+-- Universal Time (UTC).
 --
 -- 's3InputConfiguration', 'inferenceInputConfiguration_s3InputConfiguration' - Specifies configuration information for the input data for the
--- inference, including S3 location of input data..
+-- inference, including Amazon S3 location of input data.
 --
 -- 'inferenceInputNameConfiguration', 'inferenceInputConfiguration_inferenceInputNameConfiguration' - Specifies configuration information for the input data for the
 -- inference, including timestamp format and delimiter.
@@ -69,13 +69,13 @@ newInferenceInputConfiguration =
         Prelude.Nothing
     }
 
--- | Indicates the difference between your time zone and Greenwich Mean Time
--- (GMT).
+-- | Indicates the difference between your time zone and Coordinated
+-- Universal Time (UTC).
 inferenceInputConfiguration_inputTimeZoneOffset :: Lens.Lens' InferenceInputConfiguration (Prelude.Maybe Prelude.Text)
 inferenceInputConfiguration_inputTimeZoneOffset = Lens.lens (\InferenceInputConfiguration' {inputTimeZoneOffset} -> inputTimeZoneOffset) (\s@InferenceInputConfiguration' {} a -> s {inputTimeZoneOffset = a} :: InferenceInputConfiguration)
 
 -- | Specifies configuration information for the input data for the
--- inference, including S3 location of input data..
+-- inference, including Amazon S3 location of input data.
 inferenceInputConfiguration_s3InputConfiguration :: Lens.Lens' InferenceInputConfiguration (Prelude.Maybe InferenceS3InputConfiguration)
 inferenceInputConfiguration_s3InputConfiguration = Lens.lens (\InferenceInputConfiguration' {s3InputConfiguration} -> s3InputConfiguration) (\s@InferenceInputConfiguration' {} a -> s {s3InputConfiguration = a} :: InferenceInputConfiguration)
 

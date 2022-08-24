@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestGetRoutingControlState $
 --             newGetRoutingControlState
 --
+--         , requestListRoutingControls $
+--             newListRoutingControls
+--
 --         , requestUpdateRoutingControlState $
 --             newUpdateRoutingControlState
 --
@@ -41,6 +44,9 @@ import Test.Tasty
 --     , testGroup "response"
 --         [ responseGetRoutingControlState $
 --             newGetRoutingControlStateResponse
+--
+--         , responseListRoutingControls $
+--             newListRoutingControlsResponse
 --
 --         , responseUpdateRoutingControlState $
 --             newUpdateRoutingControlStateResponse
@@ -58,6 +64,12 @@ requestGetRoutingControlState =
   req
     "GetRoutingControlState"
     "fixture/GetRoutingControlState.yaml"
+
+requestListRoutingControls :: ListRoutingControls -> TestTree
+requestListRoutingControls =
+  req
+    "ListRoutingControls"
+    "fixture/ListRoutingControls.yaml"
 
 requestUpdateRoutingControlState :: UpdateRoutingControlState -> TestTree
 requestUpdateRoutingControlState =
@@ -80,6 +92,14 @@ responseGetRoutingControlState =
     "fixture/GetRoutingControlStateResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetRoutingControlState)
+
+responseListRoutingControls :: ListRoutingControlsResponse -> TestTree
+responseListRoutingControls =
+  res
+    "ListRoutingControlsResponse"
+    "fixture/ListRoutingControlsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRoutingControls)
 
 responseUpdateRoutingControlState :: UpdateRoutingControlStateResponse -> TestTree
 responseUpdateRoutingControlState =

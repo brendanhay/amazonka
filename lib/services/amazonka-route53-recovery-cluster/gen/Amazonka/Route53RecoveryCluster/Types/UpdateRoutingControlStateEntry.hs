@@ -24,11 +24,11 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.Route53RecoveryCluster.Types.RoutingControlState
 
--- | A routing control state.
+-- | A routing control state entry.
 --
 -- /See:/ 'newUpdateRoutingControlStateEntry' smart constructor.
 data UpdateRoutingControlStateEntry = UpdateRoutingControlStateEntry'
-  { -- | The Amazon Resource Number (ARN) for the routing control state entry.
+  { -- | The Amazon Resource Name (ARN) for a routing control state entry.
     routingControlArn :: Prelude.Text,
     -- | The routing control state in a set of routing control state entries.
     routingControlState :: RoutingControlState
@@ -43,7 +43,7 @@ data UpdateRoutingControlStateEntry = UpdateRoutingControlStateEntry'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'routingControlArn', 'updateRoutingControlStateEntry_routingControlArn' - The Amazon Resource Number (ARN) for the routing control state entry.
+-- 'routingControlArn', 'updateRoutingControlStateEntry_routingControlArn' - The Amazon Resource Name (ARN) for a routing control state entry.
 --
 -- 'routingControlState', 'updateRoutingControlStateEntry_routingControlState' - The routing control state in a set of routing control state entries.
 newUpdateRoutingControlStateEntry ::
@@ -61,7 +61,7 @@ newUpdateRoutingControlStateEntry
         routingControlState = pRoutingControlState_
       }
 
--- | The Amazon Resource Number (ARN) for the routing control state entry.
+-- | The Amazon Resource Name (ARN) for a routing control state entry.
 updateRoutingControlStateEntry_routingControlArn :: Lens.Lens' UpdateRoutingControlStateEntry Prelude.Text
 updateRoutingControlStateEntry_routingControlArn = Lens.lens (\UpdateRoutingControlStateEntry' {routingControlArn} -> routingControlArn) (\s@UpdateRoutingControlStateEntry' {} a -> s {routingControlArn = a} :: UpdateRoutingControlStateEntry)
 

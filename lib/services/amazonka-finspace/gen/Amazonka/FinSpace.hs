@@ -11,8 +11,8 @@
 --
 -- Derived from API version @2021-03-12@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- The FinSpace management service provides the APIs for managing the
--- FinSpace environments.
+-- The FinSpace management service provides the APIs for managing FinSpace
+-- environments.
 module Amazonka.FinSpace
   ( -- * Service Configuration
     defaultService,
@@ -113,6 +113,10 @@ module Amazonka.FinSpace
     -- ** FederationParameters
     FederationParameters (FederationParameters'),
     newFederationParameters,
+
+    -- ** SuperuserParameters
+    SuperuserParameters (SuperuserParameters'),
+    newSuperuserParameters,
   )
 where
 

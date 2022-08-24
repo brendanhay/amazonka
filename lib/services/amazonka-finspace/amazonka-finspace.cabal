@@ -56,6 +56,7 @@ library
     Amazonka.FinSpace.Types.EnvironmentStatus
     Amazonka.FinSpace.Types.FederationMode
     Amazonka.FinSpace.Types.FederationParameters
+    Amazonka.FinSpace.Types.SuperuserParameters
     Amazonka.FinSpace.UntagResource
     Amazonka.FinSpace.UpdateEnvironment
     Amazonka.FinSpace.Waiters

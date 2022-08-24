@@ -37,7 +37,7 @@ data Filter = Filter'
     -- | Specifies the type of item interactions to filter out of recommendation
     -- results. The filter expression must follow specific format rules. For
     -- information about filter expression structure and syntax, see
-    -- filter-expressions.
+    -- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
     filterExpression :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The status of the filter.
     status :: Prelude.Maybe Prelude.Text,
@@ -67,7 +67,7 @@ data Filter = Filter'
 -- 'filterExpression', 'filter_filterExpression' - Specifies the type of item interactions to filter out of recommendation
 -- results. The filter expression must follow specific format rules. For
 -- information about filter expression structure and syntax, see
--- filter-expressions.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
 --
 -- 'status', 'filter_status' - The status of the filter.
 --
@@ -105,7 +105,7 @@ filter_creationDateTime = Lens.lens (\Filter' {creationDateTime} -> creationDate
 -- | Specifies the type of item interactions to filter out of recommendation
 -- results. The filter expression must follow specific format rules. For
 -- information about filter expression structure and syntax, see
--- filter-expressions.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html Filter expressions>.
 filter_filterExpression :: Lens.Lens' Filter (Prelude.Maybe Prelude.Text)
 filter_filterExpression = Lens.lens (\Filter' {filterExpression} -> filterExpression) (\s@Filter' {} a -> s {filterExpression = a} :: Filter) Prelude.. Lens.mapping Core._Sensitive
 

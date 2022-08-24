@@ -33,6 +33,7 @@ module Amazonka.Personalize.ListRecipes
     -- * Request Lenses
     listRecipes_nextToken,
     listRecipes_recipeProvider,
+    listRecipes_domain,
     listRecipes_maxResults,
 
     -- * Destructuring the Response
@@ -60,6 +61,10 @@ data ListRecipes = ListRecipes'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The default is @SERVICE@.
     recipeProvider :: Prelude.Maybe RecipeProvider,
+    -- | Filters returned recipes by domain for a Domain dataset group. Only
+    -- recipes (Domain dataset group use cases) for this domain are included in
+    -- the response. If you don\'t specify a domain, all recipes are returned.
+    domain :: Prelude.Maybe Domain,
     -- | The maximum number of recipes to return.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
@@ -78,6 +83,10 @@ data ListRecipes = ListRecipes'
 --
 -- 'recipeProvider', 'listRecipes_recipeProvider' - The default is @SERVICE@.
 --
+-- 'domain', 'listRecipes_domain' - Filters returned recipes by domain for a Domain dataset group. Only
+-- recipes (Domain dataset group use cases) for this domain are included in
+-- the response. If you don\'t specify a domain, all recipes are returned.
+--
 -- 'maxResults', 'listRecipes_maxResults' - The maximum number of recipes to return.
 newListRecipes ::
   ListRecipes
@@ -85,6 +94,7 @@ newListRecipes =
   ListRecipes'
     { nextToken = Prelude.Nothing,
       recipeProvider = Prelude.Nothing,
+      domain = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
 
@@ -96,6 +106,12 @@ listRecipes_nextToken = Lens.lens (\ListRecipes' {nextToken} -> nextToken) (\s@L
 -- | The default is @SERVICE@.
 listRecipes_recipeProvider :: Lens.Lens' ListRecipes (Prelude.Maybe RecipeProvider)
 listRecipes_recipeProvider = Lens.lens (\ListRecipes' {recipeProvider} -> recipeProvider) (\s@ListRecipes' {} a -> s {recipeProvider = a} :: ListRecipes)
+
+-- | Filters returned recipes by domain for a Domain dataset group. Only
+-- recipes (Domain dataset group use cases) for this domain are included in
+-- the response. If you don\'t specify a domain, all recipes are returned.
+listRecipes_domain :: Lens.Lens' ListRecipes (Prelude.Maybe Domain)
+listRecipes_domain = Lens.lens (\ListRecipes' {domain} -> domain) (\s@ListRecipes' {} a -> s {domain = a} :: ListRecipes)
 
 -- | The maximum number of recipes to return.
 listRecipes_maxResults :: Lens.Lens' ListRecipes (Prelude.Maybe Prelude.Natural)
@@ -136,12 +152,14 @@ instance Prelude.Hashable ListRecipes where
   hashWithSalt _salt ListRecipes' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` recipeProvider
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` maxResults
 
 instance Prelude.NFData ListRecipes where
   rnf ListRecipes' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf recipeProvider
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf maxResults
 
 instance Core.ToHeaders ListRecipes where
@@ -166,6 +184,7 @@ instance Core.ToJSON ListRecipes where
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("recipeProvider" Core..=)
               Prelude.<$> recipeProvider,
+            ("domain" Core..=) Prelude.<$> domain,
             ("maxResults" Core..=) Prelude.<$> maxResults
           ]
       )

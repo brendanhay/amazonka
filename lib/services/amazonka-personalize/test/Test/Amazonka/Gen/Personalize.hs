@@ -30,6 +30,9 @@ import Test.Tasty
 --         [ requestCreateBatchInferenceJob $
 --             newCreateBatchInferenceJob
 --
+--         , requestCreateBatchSegmentJob $
+--             newCreateBatchSegmentJob
+--
 --         , requestCreateCampaign $
 --             newCreateCampaign
 --
@@ -50,6 +53,9 @@ import Test.Tasty
 --
 --         , requestCreateFilter $
 --             newCreateFilter
+--
+--         , requestCreateRecommender $
+--             newCreateRecommender
 --
 --         , requestCreateSchema $
 --             newCreateSchema
@@ -75,6 +81,9 @@ import Test.Tasty
 --         , requestDeleteFilter $
 --             newDeleteFilter
 --
+--         , requestDeleteRecommender $
+--             newDeleteRecommender
+--
 --         , requestDeleteSchema $
 --             newDeleteSchema
 --
@@ -86,6 +95,9 @@ import Test.Tasty
 --
 --         , requestDescribeBatchInferenceJob $
 --             newDescribeBatchInferenceJob
+--
+--         , requestDescribeBatchSegmentJob $
+--             newDescribeBatchSegmentJob
 --
 --         , requestDescribeCampaign $
 --             newDescribeCampaign
@@ -114,6 +126,9 @@ import Test.Tasty
 --         , requestDescribeRecipe $
 --             newDescribeRecipe
 --
+--         , requestDescribeRecommender $
+--             newDescribeRecommender
+--
 --         , requestDescribeSchema $
 --             newDescribeSchema
 --
@@ -128,6 +143,9 @@ import Test.Tasty
 --
 --         , requestListBatchInferenceJobs $
 --             newListBatchInferenceJobs
+--
+--         , requestListBatchSegmentJobs $
+--             newListBatchSegmentJobs
 --
 --         , requestListCampaigns $
 --             newListCampaigns
@@ -153,6 +171,9 @@ import Test.Tasty
 --         , requestListRecipes $
 --             newListRecipes
 --
+--         , requestListRecommenders $
+--             newListRecommenders
+--
 --         , requestListSchemas $
 --             newListSchemas
 --
@@ -162,17 +183,38 @@ import Test.Tasty
 --         , requestListSolutions $
 --             newListSolutions
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestStartRecommender $
+--             newStartRecommender
+--
+--         , requestStopRecommender $
+--             newStopRecommender
+--
 --         , requestStopSolutionVersionCreation $
 --             newStopSolutionVersionCreation
 --
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
 --         , requestUpdateCampaign $
 --             newUpdateCampaign
+--
+--         , requestUpdateRecommender $
+--             newUpdateRecommender
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseCreateBatchInferenceJob $
 --             newCreateBatchInferenceJobResponse
+--
+--         , responseCreateBatchSegmentJob $
+--             newCreateBatchSegmentJobResponse
 --
 --         , responseCreateCampaign $
 --             newCreateCampaignResponse
@@ -194,6 +236,9 @@ import Test.Tasty
 --
 --         , responseCreateFilter $
 --             newCreateFilterResponse
+--
+--         , responseCreateRecommender $
+--             newCreateRecommenderResponse
 --
 --         , responseCreateSchema $
 --             newCreateSchemaResponse
@@ -219,6 +264,9 @@ import Test.Tasty
 --         , responseDeleteFilter $
 --             newDeleteFilterResponse
 --
+--         , responseDeleteRecommender $
+--             newDeleteRecommenderResponse
+--
 --         , responseDeleteSchema $
 --             newDeleteSchemaResponse
 --
@@ -230,6 +278,9 @@ import Test.Tasty
 --
 --         , responseDescribeBatchInferenceJob $
 --             newDescribeBatchInferenceJobResponse
+--
+--         , responseDescribeBatchSegmentJob $
+--             newDescribeBatchSegmentJobResponse
 --
 --         , responseDescribeCampaign $
 --             newDescribeCampaignResponse
@@ -258,6 +309,9 @@ import Test.Tasty
 --         , responseDescribeRecipe $
 --             newDescribeRecipeResponse
 --
+--         , responseDescribeRecommender $
+--             newDescribeRecommenderResponse
+--
 --         , responseDescribeSchema $
 --             newDescribeSchemaResponse
 --
@@ -272,6 +326,9 @@ import Test.Tasty
 --
 --         , responseListBatchInferenceJobs $
 --             newListBatchInferenceJobsResponse
+--
+--         , responseListBatchSegmentJobs $
+--             newListBatchSegmentJobsResponse
 --
 --         , responseListCampaigns $
 --             newListCampaignsResponse
@@ -297,6 +354,9 @@ import Test.Tasty
 --         , responseListRecipes $
 --             newListRecipesResponse
 --
+--         , responseListRecommenders $
+--             newListRecommendersResponse
+--
 --         , responseListSchemas $
 --             newListSchemasResponse
 --
@@ -306,11 +366,29 @@ import Test.Tasty
 --         , responseListSolutions $
 --             newListSolutionsResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseStartRecommender $
+--             newStartRecommenderResponse
+--
+--         , responseStopRecommender $
+--             newStopRecommenderResponse
+--
 --         , responseStopSolutionVersionCreation $
 --             newStopSolutionVersionCreationResponse
 --
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
 --         , responseUpdateCampaign $
 --             newUpdateCampaignResponse
+--
+--         , responseUpdateRecommender $
+--             newUpdateRecommenderResponse
 --
 --           ]
 --     ]
@@ -322,6 +400,12 @@ requestCreateBatchInferenceJob =
   req
     "CreateBatchInferenceJob"
     "fixture/CreateBatchInferenceJob.yaml"
+
+requestCreateBatchSegmentJob :: CreateBatchSegmentJob -> TestTree
+requestCreateBatchSegmentJob =
+  req
+    "CreateBatchSegmentJob"
+    "fixture/CreateBatchSegmentJob.yaml"
 
 requestCreateCampaign :: CreateCampaign -> TestTree
 requestCreateCampaign =
@@ -364,6 +448,12 @@ requestCreateFilter =
   req
     "CreateFilter"
     "fixture/CreateFilter.yaml"
+
+requestCreateRecommender :: CreateRecommender -> TestTree
+requestCreateRecommender =
+  req
+    "CreateRecommender"
+    "fixture/CreateRecommender.yaml"
 
 requestCreateSchema :: CreateSchema -> TestTree
 requestCreateSchema =
@@ -413,6 +503,12 @@ requestDeleteFilter =
     "DeleteFilter"
     "fixture/DeleteFilter.yaml"
 
+requestDeleteRecommender :: DeleteRecommender -> TestTree
+requestDeleteRecommender =
+  req
+    "DeleteRecommender"
+    "fixture/DeleteRecommender.yaml"
+
 requestDeleteSchema :: DeleteSchema -> TestTree
 requestDeleteSchema =
   req
@@ -436,6 +532,12 @@ requestDescribeBatchInferenceJob =
   req
     "DescribeBatchInferenceJob"
     "fixture/DescribeBatchInferenceJob.yaml"
+
+requestDescribeBatchSegmentJob :: DescribeBatchSegmentJob -> TestTree
+requestDescribeBatchSegmentJob =
+  req
+    "DescribeBatchSegmentJob"
+    "fixture/DescribeBatchSegmentJob.yaml"
 
 requestDescribeCampaign :: DescribeCampaign -> TestTree
 requestDescribeCampaign =
@@ -491,6 +593,12 @@ requestDescribeRecipe =
     "DescribeRecipe"
     "fixture/DescribeRecipe.yaml"
 
+requestDescribeRecommender :: DescribeRecommender -> TestTree
+requestDescribeRecommender =
+  req
+    "DescribeRecommender"
+    "fixture/DescribeRecommender.yaml"
+
 requestDescribeSchema :: DescribeSchema -> TestTree
 requestDescribeSchema =
   req
@@ -520,6 +628,12 @@ requestListBatchInferenceJobs =
   req
     "ListBatchInferenceJobs"
     "fixture/ListBatchInferenceJobs.yaml"
+
+requestListBatchSegmentJobs :: ListBatchSegmentJobs -> TestTree
+requestListBatchSegmentJobs =
+  req
+    "ListBatchSegmentJobs"
+    "fixture/ListBatchSegmentJobs.yaml"
 
 requestListCampaigns :: ListCampaigns -> TestTree
 requestListCampaigns =
@@ -569,6 +683,12 @@ requestListRecipes =
     "ListRecipes"
     "fixture/ListRecipes.yaml"
 
+requestListRecommenders :: ListRecommenders -> TestTree
+requestListRecommenders =
+  req
+    "ListRecommenders"
+    "fixture/ListRecommenders.yaml"
+
 requestListSchemas :: ListSchemas -> TestTree
 requestListSchemas =
   req
@@ -587,17 +707,53 @@ requestListSolutions =
     "ListSolutions"
     "fixture/ListSolutions.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestStartRecommender :: StartRecommender -> TestTree
+requestStartRecommender =
+  req
+    "StartRecommender"
+    "fixture/StartRecommender.yaml"
+
+requestStopRecommender :: StopRecommender -> TestTree
+requestStopRecommender =
+  req
+    "StopRecommender"
+    "fixture/StopRecommender.yaml"
+
 requestStopSolutionVersionCreation :: StopSolutionVersionCreation -> TestTree
 requestStopSolutionVersionCreation =
   req
     "StopSolutionVersionCreation"
     "fixture/StopSolutionVersionCreation.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
 requestUpdateCampaign :: UpdateCampaign -> TestTree
 requestUpdateCampaign =
   req
     "UpdateCampaign"
     "fixture/UpdateCampaign.yaml"
+
+requestUpdateRecommender :: UpdateRecommender -> TestTree
+requestUpdateRecommender =
+  req
+    "UpdateRecommender"
+    "fixture/UpdateRecommender.yaml"
 
 -- Responses
 
@@ -608,6 +764,14 @@ responseCreateBatchInferenceJob =
     "fixture/CreateBatchInferenceJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateBatchInferenceJob)
+
+responseCreateBatchSegmentJob :: CreateBatchSegmentJobResponse -> TestTree
+responseCreateBatchSegmentJob =
+  res
+    "CreateBatchSegmentJobResponse"
+    "fixture/CreateBatchSegmentJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateBatchSegmentJob)
 
 responseCreateCampaign :: CreateCampaignResponse -> TestTree
 responseCreateCampaign =
@@ -664,6 +828,14 @@ responseCreateFilter =
     "fixture/CreateFilterResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateFilter)
+
+responseCreateRecommender :: CreateRecommenderResponse -> TestTree
+responseCreateRecommender =
+  res
+    "CreateRecommenderResponse"
+    "fixture/CreateRecommenderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRecommender)
 
 responseCreateSchema :: CreateSchemaResponse -> TestTree
 responseCreateSchema =
@@ -729,6 +901,14 @@ responseDeleteFilter =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteFilter)
 
+responseDeleteRecommender :: DeleteRecommenderResponse -> TestTree
+responseDeleteRecommender =
+  res
+    "DeleteRecommenderResponse"
+    "fixture/DeleteRecommenderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRecommender)
+
 responseDeleteSchema :: DeleteSchemaResponse -> TestTree
 responseDeleteSchema =
   res
@@ -760,6 +940,14 @@ responseDescribeBatchInferenceJob =
     "fixture/DescribeBatchInferenceJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeBatchInferenceJob)
+
+responseDescribeBatchSegmentJob :: DescribeBatchSegmentJobResponse -> TestTree
+responseDescribeBatchSegmentJob =
+  res
+    "DescribeBatchSegmentJobResponse"
+    "fixture/DescribeBatchSegmentJobResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeBatchSegmentJob)
 
 responseDescribeCampaign :: DescribeCampaignResponse -> TestTree
 responseDescribeCampaign =
@@ -833,6 +1021,14 @@ responseDescribeRecipe =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeRecipe)
 
+responseDescribeRecommender :: DescribeRecommenderResponse -> TestTree
+responseDescribeRecommender =
+  res
+    "DescribeRecommenderResponse"
+    "fixture/DescribeRecommenderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRecommender)
+
 responseDescribeSchema :: DescribeSchemaResponse -> TestTree
 responseDescribeSchema =
   res
@@ -872,6 +1068,14 @@ responseListBatchInferenceJobs =
     "fixture/ListBatchInferenceJobsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListBatchInferenceJobs)
+
+responseListBatchSegmentJobs :: ListBatchSegmentJobsResponse -> TestTree
+responseListBatchSegmentJobs =
+  res
+    "ListBatchSegmentJobsResponse"
+    "fixture/ListBatchSegmentJobsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListBatchSegmentJobs)
 
 responseListCampaigns :: ListCampaignsResponse -> TestTree
 responseListCampaigns =
@@ -937,6 +1141,14 @@ responseListRecipes =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRecipes)
 
+responseListRecommenders :: ListRecommendersResponse -> TestTree
+responseListRecommenders =
+  res
+    "ListRecommendersResponse"
+    "fixture/ListRecommendersResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRecommenders)
+
 responseListSchemas :: ListSchemasResponse -> TestTree
 responseListSchemas =
   res
@@ -961,6 +1173,30 @@ responseListSolutions =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListSolutions)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListTagsForResource)
+
+responseStartRecommender :: StartRecommenderResponse -> TestTree
+responseStartRecommender =
+  res
+    "StartRecommenderResponse"
+    "fixture/StartRecommenderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartRecommender)
+
+responseStopRecommender :: StopRecommenderResponse -> TestTree
+responseStopRecommender =
+  res
+    "StopRecommenderResponse"
+    "fixture/StopRecommenderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StopRecommender)
+
 responseStopSolutionVersionCreation :: StopSolutionVersionCreationResponse -> TestTree
 responseStopSolutionVersionCreation =
   res
@@ -969,6 +1205,22 @@ responseStopSolutionVersionCreation =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StopSolutionVersionCreation)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy TagResource)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UntagResource)
+
 responseUpdateCampaign :: UpdateCampaignResponse -> TestTree
 responseUpdateCampaign =
   res
@@ -976,3 +1228,11 @@ responseUpdateCampaign =
     "fixture/UpdateCampaignResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateCampaign)
+
+responseUpdateRecommender :: UpdateRecommenderResponse -> TestTree
+responseUpdateRecommender =
+  res
+    "UpdateRecommenderResponse"
+    "fixture/UpdateRecommenderResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRecommender)

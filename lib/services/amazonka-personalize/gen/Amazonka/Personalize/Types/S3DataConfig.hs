@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data S3DataConfig = S3DataConfig'
   { -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
     -- that Amazon Personalize uses to encrypt or decrypt the input and output
-    -- files of a batch inference job.
+    -- files.
     kmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | The file path of the Amazon S3 bucket.
     path :: Prelude.Text
@@ -46,7 +46,7 @@ data S3DataConfig = S3DataConfig'
 --
 -- 'kmsKeyArn', 's3DataConfig_kmsKeyArn' - The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
 -- that Amazon Personalize uses to encrypt or decrypt the input and output
--- files of a batch inference job.
+-- files.
 --
 -- 'path', 's3DataConfig_path' - The file path of the Amazon S3 bucket.
 newS3DataConfig ::
@@ -61,7 +61,7 @@ newS3DataConfig pPath_ =
 
 -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) key
 -- that Amazon Personalize uses to encrypt or decrypt the input and output
--- files of a batch inference job.
+-- files.
 s3DataConfig_kmsKeyArn :: Lens.Lens' S3DataConfig (Prelude.Maybe Prelude.Text)
 s3DataConfig_kmsKeyArn = Lens.lens (\S3DataConfig' {kmsKeyArn} -> kmsKeyArn) (\s@S3DataConfig' {} a -> s {kmsKeyArn = a} :: S3DataConfig)
 

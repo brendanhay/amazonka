@@ -24,7 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a campaign. For a complete
--- listing, call the DescribeCampaign API.
+-- listing, call the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html DescribeCampaign>
+-- API.
 --
 -- /See:/ 'newCampaignSummary' smart constructor.
 data CampaignSummary = CampaignSummary'

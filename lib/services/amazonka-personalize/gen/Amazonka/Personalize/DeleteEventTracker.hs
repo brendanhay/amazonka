@@ -22,7 +22,8 @@
 --
 -- Deletes the event tracker. Does not delete the event-interactions
 -- dataset from the associated dataset group. For more information on event
--- trackers, see CreateEventTracker.
+-- trackers, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html CreateEventTracker>.
 module Amazonka.Personalize.DeleteEventTracker
   ( -- * Creating a Request
     DeleteEventTracker (..),

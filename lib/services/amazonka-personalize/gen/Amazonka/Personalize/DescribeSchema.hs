@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a schema. For more information on schemas, see CreateSchema.
+-- Describes a schema. For more information on schemas, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html CreateSchema>.
 module Amazonka.Personalize.DescribeSchema
   ( -- * Creating a Request
     DescribeSchema (..),

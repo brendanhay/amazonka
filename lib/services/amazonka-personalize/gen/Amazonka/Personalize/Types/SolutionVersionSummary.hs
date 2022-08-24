@@ -24,7 +24,9 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a solution version. For a
--- complete listing, call the DescribeSolutionVersion API.
+-- complete listing, call the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html DescribeSolutionVersion>
+-- API.
 --
 -- /See:/ 'newSolutionVersionSummary' smart constructor.
 data SolutionVersionSummary = SolutionVersionSummary'

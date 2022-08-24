@@ -23,9 +23,11 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | A truncated version of the BatchInferenceJob datatype. The
--- ListBatchInferenceJobs operation returns a list of batch inference job
--- summaries.
+-- | A truncated version of the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_BatchInferenceJob.html BatchInferenceJob>.
+-- The
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchInferenceJobs.html ListBatchInferenceJobs>
+-- operation returns a list of batch inference job summaries.
 --
 -- /See:/ 'newBatchInferenceJobSummary' smart constructor.
 data BatchInferenceJobSummary = BatchInferenceJobSummary'

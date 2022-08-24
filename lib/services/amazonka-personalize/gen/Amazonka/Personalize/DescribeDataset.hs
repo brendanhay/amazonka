@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the given dataset. For more information on datasets, see
--- CreateDataset.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html CreateDataset>.
 module Amazonka.Personalize.DescribeDataset
   ( -- * Creating a Request
     DescribeDataset (..),

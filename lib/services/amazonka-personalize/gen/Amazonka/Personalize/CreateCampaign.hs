@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a campaign by deploying a solution version. When a client calls
+-- Creates a campaign that deploys a solution version. When a client calls
 -- the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html GetRecommendations>
 -- and
@@ -54,26 +54,28 @@
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
 --
--- To get the campaign status, call DescribeCampaign.
+-- To get the campaign status, call
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html DescribeCampaign>.
 --
 -- Wait until the @status@ of the campaign is @ACTIVE@ before asking the
 -- campaign for recommendations.
 --
 -- __Related APIs__
 --
--- -   ListCampaigns
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html ListCampaigns>
 --
--- -   DescribeCampaign
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html DescribeCampaign>
 --
--- -   UpdateCampaign
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateCampaign.html UpdateCampaign>
 --
--- -   DeleteCampaign
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteCampaign.html DeleteCampaign>
 module Amazonka.Personalize.CreateCampaign
   ( -- * Creating a Request
     CreateCampaign (..),
     newCreateCampaign,
 
     -- * Request Lenses
+    createCampaign_tags,
     createCampaign_campaignConfig,
     createCampaign_minProvisionedTPS,
     createCampaign_name,
@@ -98,7 +100,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateCampaign' smart constructor.
 data CreateCampaign = CreateCampaign'
-  { -- | The configuration details of a campaign.
+  { -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the campaign.
+    tags :: Prelude.Maybe [Tag],
+    -- | The configuration details of a campaign.
     campaignConfig :: Prelude.Maybe CampaignConfig,
     -- | Specifies the requested minimum provisioned transactions
     -- (recommendations) per second that Amazon Personalize will support.
@@ -119,6 +125,10 @@ data CreateCampaign = CreateCampaign'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createCampaign_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the campaign.
+--
 -- 'campaignConfig', 'createCampaign_campaignConfig' - The configuration details of a campaign.
 --
 -- 'minProvisionedTPS', 'createCampaign_minProvisionedTPS' - Specifies the requested minimum provisioned transactions
@@ -136,11 +146,18 @@ newCreateCampaign ::
   CreateCampaign
 newCreateCampaign pName_ pSolutionVersionArn_ =
   CreateCampaign'
-    { campaignConfig = Prelude.Nothing,
+    { tags = Prelude.Nothing,
+      campaignConfig = Prelude.Nothing,
       minProvisionedTPS = Prelude.Nothing,
       name = pName_,
       solutionVersionArn = pSolutionVersionArn_
     }
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the campaign.
+createCampaign_tags :: Lens.Lens' CreateCampaign (Prelude.Maybe [Tag])
+createCampaign_tags = Lens.lens (\CreateCampaign' {tags} -> tags) (\s@CreateCampaign' {} a -> s {tags = a} :: CreateCampaign) Prelude.. Lens.mapping Lens.coerced
 
 -- | The configuration details of a campaign.
 createCampaign_campaignConfig :: Lens.Lens' CreateCampaign (Prelude.Maybe CampaignConfig)
@@ -175,14 +192,16 @@ instance Core.AWSRequest CreateCampaign where
 
 instance Prelude.Hashable CreateCampaign where
   hashWithSalt _salt CreateCampaign' {..} =
-    _salt `Prelude.hashWithSalt` campaignConfig
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` campaignConfig
       `Prelude.hashWithSalt` minProvisionedTPS
       `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` solutionVersionArn
 
 instance Prelude.NFData CreateCampaign where
   rnf CreateCampaign' {..} =
-    Prelude.rnf campaignConfig
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf campaignConfig
       `Prelude.seq` Prelude.rnf minProvisionedTPS
       `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf solutionVersionArn
@@ -206,7 +225,8 @@ instance Core.ToJSON CreateCampaign where
   toJSON CreateCampaign' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("campaignConfig" Core..=)
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("campaignConfig" Core..=)
               Prelude.<$> campaignConfig,
             ("minProvisionedTPS" Core..=)
               Prelude.<$> minProvisionedTPS,

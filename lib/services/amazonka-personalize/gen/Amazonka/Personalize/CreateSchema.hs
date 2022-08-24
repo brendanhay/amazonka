@@ -25,21 +25,25 @@
 --
 -- Amazon Personalize recognizes three schema variants. Each schema is
 -- associated with a dataset type and has a set of required field and
--- keywords. You specify a schema when you call CreateDataset.
+-- keywords. If you are creating a schema for a dataset in a Domain dataset
+-- group, you provide the domain of the Domain dataset group. You specify a
+-- schema when you call
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html CreateDataset>.
 --
 -- __Related APIs__
 --
--- -   ListSchemas
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html ListSchemas>
 --
--- -   DescribeSchema
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html DescribeSchema>
 --
--- -   DeleteSchema
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html DeleteSchema>
 module Amazonka.Personalize.CreateSchema
   ( -- * Creating a Request
     CreateSchema (..),
     newCreateSchema,
 
     -- * Request Lenses
+    createSchema_domain,
     createSchema_name,
     createSchema_schema,
 
@@ -62,7 +66,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateSchema' smart constructor.
 data CreateSchema = CreateSchema'
-  { -- | The name for the schema.
+  { -- | The domain for the schema. If you are creating a schema for a dataset in
+    -- a Domain dataset group, specify the domain you chose when you created
+    -- the Domain dataset group.
+    domain :: Prelude.Maybe Domain,
+    -- | The name for the schema.
     name :: Prelude.Text,
     -- | A schema in Avro JSON format.
     schema :: Prelude.Text
@@ -77,6 +85,10 @@ data CreateSchema = CreateSchema'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'domain', 'createSchema_domain' - The domain for the schema. If you are creating a schema for a dataset in
+-- a Domain dataset group, specify the domain you chose when you created
+-- the Domain dataset group.
+--
 -- 'name', 'createSchema_name' - The name for the schema.
 --
 -- 'schema', 'createSchema_schema' - A schema in Avro JSON format.
@@ -87,7 +99,17 @@ newCreateSchema ::
   Prelude.Text ->
   CreateSchema
 newCreateSchema pName_ pSchema_ =
-  CreateSchema' {name = pName_, schema = pSchema_}
+  CreateSchema'
+    { domain = Prelude.Nothing,
+      name = pName_,
+      schema = pSchema_
+    }
+
+-- | The domain for the schema. If you are creating a schema for a dataset in
+-- a Domain dataset group, specify the domain you chose when you created
+-- the Domain dataset group.
+createSchema_domain :: Lens.Lens' CreateSchema (Prelude.Maybe Domain)
+createSchema_domain = Lens.lens (\CreateSchema' {domain} -> domain) (\s@CreateSchema' {} a -> s {domain = a} :: CreateSchema)
 
 -- | The name for the schema.
 createSchema_name :: Lens.Lens' CreateSchema Prelude.Text
@@ -110,12 +132,15 @@ instance Core.AWSRequest CreateSchema where
 
 instance Prelude.Hashable CreateSchema where
   hashWithSalt _salt CreateSchema' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` domain
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` schema
 
 instance Prelude.NFData CreateSchema where
   rnf CreateSchema' {..} =
-    Prelude.rnf name `Prelude.seq` Prelude.rnf schema
+    Prelude.rnf domain
+      `Prelude.seq` Prelude.rnf name
+      `Prelude.seq` Prelude.rnf schema
 
 instance Core.ToHeaders CreateSchema where
   toHeaders =
@@ -136,7 +161,8 @@ instance Core.ToJSON CreateSchema where
   toJSON CreateSchema' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ ("domain" Core..=) Prelude.<$> domain,
+            Prelude.Just ("name" Core..= name),
             Prelude.Just ("schema" Core..= schema)
           ]
       )

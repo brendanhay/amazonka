@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an empty dataset and adds it to the specified dataset group. Use
--- CreateDatasetImportJob to import your training data to a dataset.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html CreateDatasetImportJob>
+-- to import your training data to a dataset.
 --
 -- There are three types of datasets:
 --
@@ -41,23 +42,25 @@
 --
 -- -   DELETE PENDING > DELETE IN_PROGRESS
 --
--- To get the status of the dataset, call DescribeDataset.
+-- To get the status of the dataset, call
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html DescribeDataset>.
 --
 -- __Related APIs__
 --
--- -   CreateDatasetGroup
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>
 --
--- -   ListDatasets
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasets.html ListDatasets>
 --
--- -   DescribeDataset
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html DescribeDataset>
 --
--- -   DeleteDataset
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDataset.html DeleteDataset>
 module Amazonka.Personalize.CreateDataset
   ( -- * Creating a Request
     CreateDataset (..),
     newCreateDataset,
 
     -- * Request Lenses
+    createDataset_tags,
     createDataset_name,
     createDataset_schemaArn,
     createDataset_datasetGroupArn,
@@ -82,7 +85,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDataset' smart constructor.
 data CreateDataset = CreateDataset'
-  { -- | The name for the dataset.
+  { -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the dataset.
+    tags :: Prelude.Maybe [Tag],
+    -- | The name for the dataset.
     name :: Prelude.Text,
     -- | The ARN of the schema to associate with the dataset. The schema defines
     -- the dataset fields.
@@ -110,6 +117,10 @@ data CreateDataset = CreateDataset'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createDataset_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset.
 --
 -- 'name', 'createDataset_name' - The name for the dataset.
 --
@@ -144,11 +155,18 @@ newCreateDataset
   pDatasetGroupArn_
   pDatasetType_ =
     CreateDataset'
-      { name = pName_,
+      { tags = Prelude.Nothing,
+        name = pName_,
         schemaArn = pSchemaArn_,
         datasetGroupArn = pDatasetGroupArn_,
         datasetType = pDatasetType_
       }
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset.
+createDataset_tags :: Lens.Lens' CreateDataset (Prelude.Maybe [Tag])
+createDataset_tags = Lens.lens (\CreateDataset' {tags} -> tags) (\s@CreateDataset' {} a -> s {tags = a} :: CreateDataset) Prelude.. Lens.mapping Lens.coerced
 
 -- | The name for the dataset.
 createDataset_name :: Lens.Lens' CreateDataset Prelude.Text
@@ -191,14 +209,16 @@ instance Core.AWSRequest CreateDataset where
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =
-    _salt `Prelude.hashWithSalt` name
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` datasetType
 
 instance Prelude.NFData CreateDataset where
   rnf CreateDataset' {..} =
-    Prelude.rnf name
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf name
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf datasetType
@@ -222,7 +242,8 @@ instance Core.ToJSON CreateDataset where
   toJSON CreateDataset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("name" Core..= name),
+          [ ("tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("name" Core..= name),
             Prelude.Just ("schemaArn" Core..= schemaArn),
             Prelude.Just
               ("datasetGroupArn" Core..= datasetGroupArn),

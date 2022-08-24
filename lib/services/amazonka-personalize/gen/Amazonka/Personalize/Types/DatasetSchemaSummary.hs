@@ -21,10 +21,13 @@ module Amazonka.Personalize.Types.DatasetSchemaSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types.Domain
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a dataset schema. For a complete
--- listing, call the DescribeSchema API.
+-- listing, call the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html DescribeSchema>
+-- API.
 --
 -- /See:/ 'newDatasetSchemaSummary' smart constructor.
 data DatasetSchemaSummary = DatasetSchemaSummary'
@@ -32,6 +35,9 @@ data DatasetSchemaSummary = DatasetSchemaSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the schema was created.
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The domain of a schema that you created for a dataset in a Domain
+    -- dataset group.
+    domain :: Prelude.Maybe Domain,
     -- | The Amazon Resource Name (ARN) of the schema.
     schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the schema was last updated.
@@ -51,6 +57,9 @@ data DatasetSchemaSummary = DatasetSchemaSummary'
 --
 -- 'creationDateTime', 'datasetSchemaSummary_creationDateTime' - The date and time (in Unix time) that the schema was created.
 --
+-- 'domain', 'datasetSchemaSummary_domain' - The domain of a schema that you created for a dataset in a Domain
+-- dataset group.
+--
 -- 'schemaArn', 'datasetSchemaSummary_schemaArn' - The Amazon Resource Name (ARN) of the schema.
 --
 -- 'lastUpdatedDateTime', 'datasetSchemaSummary_lastUpdatedDateTime' - The date and time (in Unix time) that the schema was last updated.
@@ -60,6 +69,7 @@ newDatasetSchemaSummary =
   DatasetSchemaSummary'
     { name = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      domain = Prelude.Nothing,
       schemaArn = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing
     }
@@ -71,6 +81,11 @@ datasetSchemaSummary_name = Lens.lens (\DatasetSchemaSummary' {name} -> name) (\
 -- | The date and time (in Unix time) that the schema was created.
 datasetSchemaSummary_creationDateTime :: Lens.Lens' DatasetSchemaSummary (Prelude.Maybe Prelude.UTCTime)
 datasetSchemaSummary_creationDateTime = Lens.lens (\DatasetSchemaSummary' {creationDateTime} -> creationDateTime) (\s@DatasetSchemaSummary' {} a -> s {creationDateTime = a} :: DatasetSchemaSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The domain of a schema that you created for a dataset in a Domain
+-- dataset group.
+datasetSchemaSummary_domain :: Lens.Lens' DatasetSchemaSummary (Prelude.Maybe Domain)
+datasetSchemaSummary_domain = Lens.lens (\DatasetSchemaSummary' {domain} -> domain) (\s@DatasetSchemaSummary' {} a -> s {domain = a} :: DatasetSchemaSummary)
 
 -- | The Amazon Resource Name (ARN) of the schema.
 datasetSchemaSummary_schemaArn :: Lens.Lens' DatasetSchemaSummary (Prelude.Maybe Prelude.Text)
@@ -88,6 +103,7 @@ instance Core.FromJSON DatasetSchemaSummary where
           DatasetSchemaSummary'
             Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "domain")
             Prelude.<*> (x Core..:? "schemaArn")
             Prelude.<*> (x Core..:? "lastUpdatedDateTime")
       )
@@ -96,6 +112,7 @@ instance Prelude.Hashable DatasetSchemaSummary where
   hashWithSalt _salt DatasetSchemaSummary' {..} =
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` schemaArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
 
@@ -103,5 +120,6 @@ instance Prelude.NFData DatasetSchemaSummary where
   rnf DatasetSchemaSummary' {..} =
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf schemaArn
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime

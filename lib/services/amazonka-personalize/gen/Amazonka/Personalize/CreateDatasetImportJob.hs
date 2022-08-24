@@ -28,8 +28,10 @@
 -- information on granting access to your Amazon S3 bucket, see
 -- <https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html Giving Amazon Personalize Access to Amazon S3 Resources>.
 --
--- The dataset import job replaces any existing data in the dataset that
--- you imported in bulk.
+-- By default, a dataset import job replaces any existing data in the
+-- dataset that you imported in bulk. To add new records without replacing
+-- existing data, specify INCREMENTAL for the import mode in the
+-- CreateDatasetImportJob operation.
 --
 -- __Status__
 --
@@ -37,7 +39,8 @@
 --
 -- -   CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
 --
--- To get the status of the import job, call DescribeDatasetImportJob,
+-- To get the status of the import job, call
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html DescribeDatasetImportJob>,
 -- providing the Amazon Resource Name (ARN) of the dataset import job. The
 -- dataset import is complete when the status shows as ACTIVE. If the
 -- status shows as CREATE FAILED, the response includes a @failureReason@
@@ -48,15 +51,17 @@
 --
 -- __Related APIs__
 --
--- -   ListDatasetImportJobs
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html ListDatasetImportJobs>
 --
--- -   DescribeDatasetImportJob
+-- -   <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html DescribeDatasetImportJob>
 module Amazonka.Personalize.CreateDatasetImportJob
   ( -- * Creating a Request
     CreateDatasetImportJob (..),
     newCreateDatasetImportJob,
 
     -- * Request Lenses
+    createDatasetImportJob_tags,
+    createDatasetImportJob_importMode,
     createDatasetImportJob_jobName,
     createDatasetImportJob_datasetArn,
     createDatasetImportJob_dataSource,
@@ -81,7 +86,22 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDatasetImportJob' smart constructor.
 data CreateDatasetImportJob = CreateDatasetImportJob'
-  { -- | The name for the dataset import job.
+  { -- | A list of
+    -- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+    -- to apply to the dataset import job.
+    tags :: Prelude.Maybe [Tag],
+    -- | Specify how to add the new records to an existing dataset. The default
+    -- import mode is @FULL@. If you haven\'t imported bulk records into the
+    -- dataset previously, you can only specify @FULL@.
+    --
+    -- -   Specify @FULL@ to overwrite all existing bulk data in your dataset.
+    --     Data you imported individually is not replaced.
+    --
+    -- -   Specify @INCREMENTAL@ to append the new records to the existing data
+    --     in your dataset. Amazon Personalize replaces any record with the
+    --     same ID with the new one.
+    importMode :: Prelude.Maybe ImportMode,
+    -- | The name for the dataset import job.
     jobName :: Prelude.Text,
     -- | The ARN of the dataset that receives the imported data.
     datasetArn :: Prelude.Text,
@@ -100,6 +120,21 @@ data CreateDatasetImportJob = CreateDatasetImportJob'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createDatasetImportJob_tags' - A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset import job.
+--
+-- 'importMode', 'createDatasetImportJob_importMode' - Specify how to add the new records to an existing dataset. The default
+-- import mode is @FULL@. If you haven\'t imported bulk records into the
+-- dataset previously, you can only specify @FULL@.
+--
+-- -   Specify @FULL@ to overwrite all existing bulk data in your dataset.
+--     Data you imported individually is not replaced.
+--
+-- -   Specify @INCREMENTAL@ to append the new records to the existing data
+--     in your dataset. Amazon Personalize replaces any record with the
+--     same ID with the new one.
 --
 -- 'jobName', 'createDatasetImportJob_jobName' - The name for the dataset import job.
 --
@@ -125,11 +160,32 @@ newCreateDatasetImportJob
   pDataSource_
   pRoleArn_ =
     CreateDatasetImportJob'
-      { jobName = pJobName_,
+      { tags = Prelude.Nothing,
+        importMode = Prelude.Nothing,
+        jobName = pJobName_,
         datasetArn = pDatasetArn_,
         dataSource = pDataSource_,
         roleArn = pRoleArn_
       }
+
+-- | A list of
+-- <https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html tags>
+-- to apply to the dataset import job.
+createDatasetImportJob_tags :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe [Tag])
+createDatasetImportJob_tags = Lens.lens (\CreateDatasetImportJob' {tags} -> tags) (\s@CreateDatasetImportJob' {} a -> s {tags = a} :: CreateDatasetImportJob) Prelude.. Lens.mapping Lens.coerced
+
+-- | Specify how to add the new records to an existing dataset. The default
+-- import mode is @FULL@. If you haven\'t imported bulk records into the
+-- dataset previously, you can only specify @FULL@.
+--
+-- -   Specify @FULL@ to overwrite all existing bulk data in your dataset.
+--     Data you imported individually is not replaced.
+--
+-- -   Specify @INCREMENTAL@ to append the new records to the existing data
+--     in your dataset. Amazon Personalize replaces any record with the
+--     same ID with the new one.
+createDatasetImportJob_importMode :: Lens.Lens' CreateDatasetImportJob (Prelude.Maybe ImportMode)
+createDatasetImportJob_importMode = Lens.lens (\CreateDatasetImportJob' {importMode} -> importMode) (\s@CreateDatasetImportJob' {} a -> s {importMode = a} :: CreateDatasetImportJob)
 
 -- | The name for the dataset import job.
 createDatasetImportJob_jobName :: Lens.Lens' CreateDatasetImportJob Prelude.Text
@@ -163,14 +219,18 @@ instance Core.AWSRequest CreateDatasetImportJob where
 
 instance Prelude.Hashable CreateDatasetImportJob where
   hashWithSalt _salt CreateDatasetImportJob' {..} =
-    _salt `Prelude.hashWithSalt` jobName
+    _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` importMode
+      `Prelude.hashWithSalt` jobName
       `Prelude.hashWithSalt` datasetArn
       `Prelude.hashWithSalt` dataSource
       `Prelude.hashWithSalt` roleArn
 
 instance Prelude.NFData CreateDatasetImportJob where
   rnf CreateDatasetImportJob' {..} =
-    Prelude.rnf jobName
+    Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf importMode
+      `Prelude.seq` Prelude.rnf jobName
       `Prelude.seq` Prelude.rnf datasetArn
       `Prelude.seq` Prelude.rnf dataSource
       `Prelude.seq` Prelude.rnf roleArn
@@ -194,7 +254,9 @@ instance Core.ToJSON CreateDatasetImportJob where
   toJSON CreateDatasetImportJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("jobName" Core..= jobName),
+          [ ("tags" Core..=) Prelude.<$> tags,
+            ("importMode" Core..=) Prelude.<$> importMode,
+            Prelude.Just ("jobName" Core..= jobName),
             Prelude.Just ("datasetArn" Core..= datasetArn),
             Prelude.Just ("dataSource" Core..= dataSource),
             Prelude.Just ("roleArn" Core..= roleArn)

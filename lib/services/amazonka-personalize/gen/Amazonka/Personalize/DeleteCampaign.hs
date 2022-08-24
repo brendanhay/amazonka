@@ -24,7 +24,8 @@
 -- that the campaign is based on is not deleted and can be redeployed when
 -- needed. A deleted campaign can no longer be specified in a
 -- <https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html GetRecommendations>
--- request. For more information on campaigns, see CreateCampaign.
+-- request. For information on creating campaigns, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html CreateCampaign>.
 module Amazonka.Personalize.DeleteCampaign
   ( -- * Creating a Request
     DeleteCampaign (..),

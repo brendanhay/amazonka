@@ -15,6 +15,7 @@ module Amazonka.Personalize.Lens
   ( -- * Operations
 
     -- ** CreateBatchInferenceJob
+    createBatchInferenceJob_tags,
     createBatchInferenceJob_filterArn,
     createBatchInferenceJob_numResults,
     createBatchInferenceJob_batchInferenceJobConfig,
@@ -26,7 +27,20 @@ module Amazonka.Personalize.Lens
     createBatchInferenceJobResponse_batchInferenceJobArn,
     createBatchInferenceJobResponse_httpStatus,
 
+    -- ** CreateBatchSegmentJob
+    createBatchSegmentJob_tags,
+    createBatchSegmentJob_filterArn,
+    createBatchSegmentJob_numResults,
+    createBatchSegmentJob_jobName,
+    createBatchSegmentJob_solutionVersionArn,
+    createBatchSegmentJob_jobInput,
+    createBatchSegmentJob_jobOutput,
+    createBatchSegmentJob_roleArn,
+    createBatchSegmentJobResponse_batchSegmentJobArn,
+    createBatchSegmentJobResponse_httpStatus,
+
     -- ** CreateCampaign
+    createCampaign_tags,
     createCampaign_campaignConfig,
     createCampaign_minProvisionedTPS,
     createCampaign_name,
@@ -35,6 +49,7 @@ module Amazonka.Personalize.Lens
     createCampaignResponse_httpStatus,
 
     -- ** CreateDataset
+    createDataset_tags,
     createDataset_name,
     createDataset_schemaArn,
     createDataset_datasetGroupArn,
@@ -43,6 +58,7 @@ module Amazonka.Personalize.Lens
     createDatasetResponse_httpStatus,
 
     -- ** CreateDatasetExportJob
+    createDatasetExportJob_tags,
     createDatasetExportJob_ingestionMode,
     createDatasetExportJob_jobName,
     createDatasetExportJob_datasetArn,
@@ -52,13 +68,18 @@ module Amazonka.Personalize.Lens
     createDatasetExportJobResponse_httpStatus,
 
     -- ** CreateDatasetGroup
+    createDatasetGroup_tags,
     createDatasetGroup_roleArn,
+    createDatasetGroup_domain,
     createDatasetGroup_kmsKeyArn,
     createDatasetGroup_name,
+    createDatasetGroupResponse_domain,
     createDatasetGroupResponse_datasetGroupArn,
     createDatasetGroupResponse_httpStatus,
 
     -- ** CreateDatasetImportJob
+    createDatasetImportJob_tags,
+    createDatasetImportJob_importMode,
     createDatasetImportJob_jobName,
     createDatasetImportJob_datasetArn,
     createDatasetImportJob_dataSource,
@@ -67,6 +88,7 @@ module Amazonka.Personalize.Lens
     createDatasetImportJobResponse_httpStatus,
 
     -- ** CreateEventTracker
+    createEventTracker_tags,
     createEventTracker_name,
     createEventTracker_datasetGroupArn,
     createEventTrackerResponse_trackingId,
@@ -74,19 +96,31 @@ module Amazonka.Personalize.Lens
     createEventTrackerResponse_httpStatus,
 
     -- ** CreateFilter
+    createFilter_tags,
     createFilter_name,
     createFilter_datasetGroupArn,
     createFilter_filterExpression,
     createFilterResponse_filterArn,
     createFilterResponse_httpStatus,
 
+    -- ** CreateRecommender
+    createRecommender_tags,
+    createRecommender_recommenderConfig,
+    createRecommender_name,
+    createRecommender_datasetGroupArn,
+    createRecommender_recipeArn,
+    createRecommenderResponse_recommenderArn,
+    createRecommenderResponse_httpStatus,
+
     -- ** CreateSchema
+    createSchema_domain,
     createSchema_name,
     createSchema_schema,
     createSchemaResponse_schemaArn,
     createSchemaResponse_httpStatus,
 
     -- ** CreateSolution
+    createSolution_tags,
     createSolution_eventType,
     createSolution_performAutoML,
     createSolution_performHPO,
@@ -98,6 +132,7 @@ module Amazonka.Personalize.Lens
     createSolutionResponse_httpStatus,
 
     -- ** CreateSolutionVersion
+    createSolutionVersion_tags,
     createSolutionVersion_trainingMode,
     createSolutionVersion_solutionArn,
     createSolutionVersionResponse_solutionVersionArn,
@@ -118,6 +153,9 @@ module Amazonka.Personalize.Lens
     -- ** DeleteFilter
     deleteFilter_filterArn,
 
+    -- ** DeleteRecommender
+    deleteRecommender_recommenderArn,
+
     -- ** DeleteSchema
     deleteSchema_schemaArn,
 
@@ -133,6 +171,11 @@ module Amazonka.Personalize.Lens
     describeBatchInferenceJob_batchInferenceJobArn,
     describeBatchInferenceJobResponse_batchInferenceJob,
     describeBatchInferenceJobResponse_httpStatus,
+
+    -- ** DescribeBatchSegmentJob
+    describeBatchSegmentJob_batchSegmentJobArn,
+    describeBatchSegmentJobResponse_batchSegmentJob,
+    describeBatchSegmentJobResponse_httpStatus,
 
     -- ** DescribeCampaign
     describeCampaign_campaignArn,
@@ -179,6 +222,11 @@ module Amazonka.Personalize.Lens
     describeRecipeResponse_recipe,
     describeRecipeResponse_httpStatus,
 
+    -- ** DescribeRecommender
+    describeRecommender_recommenderArn,
+    describeRecommenderResponse_recommender,
+    describeRecommenderResponse_httpStatus,
+
     -- ** DescribeSchema
     describeSchema_schemaArn,
     describeSchemaResponse_schema,
@@ -207,6 +255,14 @@ module Amazonka.Personalize.Lens
     listBatchInferenceJobsResponse_nextToken,
     listBatchInferenceJobsResponse_batchInferenceJobs,
     listBatchInferenceJobsResponse_httpStatus,
+
+    -- ** ListBatchSegmentJobs
+    listBatchSegmentJobs_nextToken,
+    listBatchSegmentJobs_maxResults,
+    listBatchSegmentJobs_solutionVersionArn,
+    listBatchSegmentJobsResponse_nextToken,
+    listBatchSegmentJobsResponse_batchSegmentJobs,
+    listBatchSegmentJobsResponse_httpStatus,
 
     -- ** ListCampaigns
     listCampaigns_solutionArn,
@@ -266,10 +322,19 @@ module Amazonka.Personalize.Lens
     -- ** ListRecipes
     listRecipes_nextToken,
     listRecipes_recipeProvider,
+    listRecipes_domain,
     listRecipes_maxResults,
     listRecipesResponse_recipes,
     listRecipesResponse_nextToken,
     listRecipesResponse_httpStatus,
+
+    -- ** ListRecommenders
+    listRecommenders_nextToken,
+    listRecommenders_maxResults,
+    listRecommenders_datasetGroupArn,
+    listRecommendersResponse_nextToken,
+    listRecommendersResponse_recommenders,
+    listRecommendersResponse_httpStatus,
 
     -- ** ListSchemas
     listSchemas_nextToken,
@@ -294,8 +359,33 @@ module Amazonka.Personalize.Lens
     listSolutionsResponse_solutions,
     listSolutionsResponse_httpStatus,
 
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** StartRecommender
+    startRecommender_recommenderArn,
+    startRecommenderResponse_recommenderArn,
+    startRecommenderResponse_httpStatus,
+
+    -- ** StopRecommender
+    stopRecommender_recommenderArn,
+    stopRecommenderResponse_recommenderArn,
+    stopRecommenderResponse_httpStatus,
+
     -- ** StopSolutionVersionCreation
     stopSolutionVersionCreation_solutionVersionArn,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** UpdateCampaign
     updateCampaign_campaignConfig,
@@ -304,6 +394,12 @@ module Amazonka.Personalize.Lens
     updateCampaign_campaignArn,
     updateCampaignResponse_campaignArn,
     updateCampaignResponse_httpStatus,
+
+    -- ** UpdateRecommender
+    updateRecommender_recommenderArn,
+    updateRecommender_recommenderConfig,
+    updateRecommenderResponse_recommenderArn,
+    updateRecommenderResponse_httpStatus,
 
     -- * Types
 
@@ -362,6 +458,35 @@ module Amazonka.Personalize.Lens
     batchInferenceJobSummary_solutionVersionArn,
     batchInferenceJobSummary_lastUpdatedDateTime,
     batchInferenceJobSummary_failureReason,
+
+    -- ** BatchSegmentJob
+    batchSegmentJob_roleArn,
+    batchSegmentJob_filterArn,
+    batchSegmentJob_jobOutput,
+    batchSegmentJob_creationDateTime,
+    batchSegmentJob_jobName,
+    batchSegmentJob_numResults,
+    batchSegmentJob_status,
+    batchSegmentJob_solutionVersionArn,
+    batchSegmentJob_jobInput,
+    batchSegmentJob_lastUpdatedDateTime,
+    batchSegmentJob_failureReason,
+    batchSegmentJob_batchSegmentJobArn,
+
+    -- ** BatchSegmentJobInput
+    batchSegmentJobInput_s3DataSource,
+
+    -- ** BatchSegmentJobOutput
+    batchSegmentJobOutput_s3DataDestination,
+
+    -- ** BatchSegmentJobSummary
+    batchSegmentJobSummary_creationDateTime,
+    batchSegmentJobSummary_jobName,
+    batchSegmentJobSummary_status,
+    batchSegmentJobSummary_solutionVersionArn,
+    batchSegmentJobSummary_lastUpdatedDateTime,
+    batchSegmentJobSummary_failureReason,
+    batchSegmentJobSummary_batchSegmentJobArn,
 
     -- ** Campaign
     campaign_name,
@@ -444,6 +569,7 @@ module Amazonka.Personalize.Lens
     datasetGroup_name,
     datasetGroup_roleArn,
     datasetGroup_creationDateTime,
+    datasetGroup_domain,
     datasetGroup_status,
     datasetGroup_kmsKeyArn,
     datasetGroup_datasetGroupArn,
@@ -453,6 +579,7 @@ module Amazonka.Personalize.Lens
     -- ** DatasetGroupSummary
     datasetGroupSummary_name,
     datasetGroupSummary_creationDateTime,
+    datasetGroupSummary_domain,
     datasetGroupSummary_status,
     datasetGroupSummary_datasetGroupArn,
     datasetGroupSummary_lastUpdatedDateTime,
@@ -466,6 +593,7 @@ module Amazonka.Personalize.Lens
     datasetImportJob_datasetArn,
     datasetImportJob_datasetImportJobArn,
     datasetImportJob_dataSource,
+    datasetImportJob_importMode,
     datasetImportJob_lastUpdatedDateTime,
     datasetImportJob_failureReason,
 
@@ -474,12 +602,14 @@ module Amazonka.Personalize.Lens
     datasetImportJobSummary_jobName,
     datasetImportJobSummary_status,
     datasetImportJobSummary_datasetImportJobArn,
+    datasetImportJobSummary_importMode,
     datasetImportJobSummary_lastUpdatedDateTime,
     datasetImportJobSummary_failureReason,
 
     -- ** DatasetSchema
     datasetSchema_name,
     datasetSchema_creationDateTime,
+    datasetSchema_domain,
     datasetSchema_schemaArn,
     datasetSchema_schema,
     datasetSchema_lastUpdatedDateTime,
@@ -487,6 +617,7 @@ module Amazonka.Personalize.Lens
     -- ** DatasetSchemaSummary
     datasetSchemaSummary_name,
     datasetSchemaSummary_creationDateTime,
+    datasetSchemaSummary_domain,
     datasetSchemaSummary_schemaArn,
     datasetSchemaSummary_lastUpdatedDateTime,
 
@@ -606,9 +737,44 @@ module Amazonka.Personalize.Lens
     -- ** RecipeSummary
     recipeSummary_name,
     recipeSummary_creationDateTime,
+    recipeSummary_domain,
     recipeSummary_status,
     recipeSummary_recipeArn,
     recipeSummary_lastUpdatedDateTime,
+
+    -- ** Recommender
+    recommender_name,
+    recommender_creationDateTime,
+    recommender_recommenderArn,
+    recommender_recommenderConfig,
+    recommender_latestRecommenderUpdate,
+    recommender_status,
+    recommender_modelMetrics,
+    recommender_datasetGroupArn,
+    recommender_recipeArn,
+    recommender_lastUpdatedDateTime,
+    recommender_failureReason,
+
+    -- ** RecommenderConfig
+    recommenderConfig_minRecommendationRequestsPerSecond,
+    recommenderConfig_itemExplorationConfig,
+
+    -- ** RecommenderSummary
+    recommenderSummary_name,
+    recommenderSummary_creationDateTime,
+    recommenderSummary_recommenderArn,
+    recommenderSummary_recommenderConfig,
+    recommenderSummary_status,
+    recommenderSummary_datasetGroupArn,
+    recommenderSummary_recipeArn,
+    recommenderSummary_lastUpdatedDateTime,
+
+    -- ** RecommenderUpdateSummary
+    recommenderUpdateSummary_creationDateTime,
+    recommenderUpdateSummary_recommenderConfig,
+    recommenderUpdateSummary_status,
+    recommenderUpdateSummary_lastUpdatedDateTime,
+    recommenderUpdateSummary_failureReason,
 
     -- ** S3DataConfig
     s3DataConfig_kmsKeyArn,
@@ -668,12 +834,17 @@ module Amazonka.Personalize.Lens
     solutionVersionSummary_lastUpdatedDateTime,
     solutionVersionSummary_failureReason,
 
+    -- ** Tag
+    tag_tagKey,
+    tag_tagValue,
+
     -- ** TunedHPOParams
     tunedHPOParams_algorithmHyperParameters,
   )
 where
 
 import Amazonka.Personalize.CreateBatchInferenceJob
+import Amazonka.Personalize.CreateBatchSegmentJob
 import Amazonka.Personalize.CreateCampaign
 import Amazonka.Personalize.CreateDataset
 import Amazonka.Personalize.CreateDatasetExportJob
@@ -681,6 +852,7 @@ import Amazonka.Personalize.CreateDatasetGroup
 import Amazonka.Personalize.CreateDatasetImportJob
 import Amazonka.Personalize.CreateEventTracker
 import Amazonka.Personalize.CreateFilter
+import Amazonka.Personalize.CreateRecommender
 import Amazonka.Personalize.CreateSchema
 import Amazonka.Personalize.CreateSolution
 import Amazonka.Personalize.CreateSolutionVersion
@@ -689,10 +861,12 @@ import Amazonka.Personalize.DeleteDataset
 import Amazonka.Personalize.DeleteDatasetGroup
 import Amazonka.Personalize.DeleteEventTracker
 import Amazonka.Personalize.DeleteFilter
+import Amazonka.Personalize.DeleteRecommender
 import Amazonka.Personalize.DeleteSchema
 import Amazonka.Personalize.DeleteSolution
 import Amazonka.Personalize.DescribeAlgorithm
 import Amazonka.Personalize.DescribeBatchInferenceJob
+import Amazonka.Personalize.DescribeBatchSegmentJob
 import Amazonka.Personalize.DescribeCampaign
 import Amazonka.Personalize.DescribeDataset
 import Amazonka.Personalize.DescribeDatasetExportJob
@@ -702,11 +876,13 @@ import Amazonka.Personalize.DescribeEventTracker
 import Amazonka.Personalize.DescribeFeatureTransformation
 import Amazonka.Personalize.DescribeFilter
 import Amazonka.Personalize.DescribeRecipe
+import Amazonka.Personalize.DescribeRecommender
 import Amazonka.Personalize.DescribeSchema
 import Amazonka.Personalize.DescribeSolution
 import Amazonka.Personalize.DescribeSolutionVersion
 import Amazonka.Personalize.GetSolutionMetrics
 import Amazonka.Personalize.ListBatchInferenceJobs
+import Amazonka.Personalize.ListBatchSegmentJobs
 import Amazonka.Personalize.ListCampaigns
 import Amazonka.Personalize.ListDatasetExportJobs
 import Amazonka.Personalize.ListDatasetGroups
@@ -715,10 +891,15 @@ import Amazonka.Personalize.ListDatasets
 import Amazonka.Personalize.ListEventTrackers
 import Amazonka.Personalize.ListFilters
 import Amazonka.Personalize.ListRecipes
+import Amazonka.Personalize.ListRecommenders
 import Amazonka.Personalize.ListSchemas
 import Amazonka.Personalize.ListSolutionVersions
 import Amazonka.Personalize.ListSolutions
+import Amazonka.Personalize.ListTagsForResource
+import Amazonka.Personalize.StartRecommender
+import Amazonka.Personalize.StopRecommender
 import Amazonka.Personalize.StopSolutionVersionCreation
+import Amazonka.Personalize.TagResource
 import Amazonka.Personalize.Types.Algorithm
 import Amazonka.Personalize.Types.AlgorithmImage
 import Amazonka.Personalize.Types.AutoMLConfig
@@ -728,6 +909,10 @@ import Amazonka.Personalize.Types.BatchInferenceJobConfig
 import Amazonka.Personalize.Types.BatchInferenceJobInput
 import Amazonka.Personalize.Types.BatchInferenceJobOutput
 import Amazonka.Personalize.Types.BatchInferenceJobSummary
+import Amazonka.Personalize.Types.BatchSegmentJob
+import Amazonka.Personalize.Types.BatchSegmentJobInput
+import Amazonka.Personalize.Types.BatchSegmentJobOutput
+import Amazonka.Personalize.Types.BatchSegmentJobSummary
 import Amazonka.Personalize.Types.Campaign
 import Amazonka.Personalize.Types.CampaignConfig
 import Amazonka.Personalize.Types.CampaignSummary
@@ -763,11 +948,18 @@ import Amazonka.Personalize.Types.IntegerHyperParameterRange
 import Amazonka.Personalize.Types.OptimizationObjective
 import Amazonka.Personalize.Types.Recipe
 import Amazonka.Personalize.Types.RecipeSummary
+import Amazonka.Personalize.Types.Recommender
+import Amazonka.Personalize.Types.RecommenderConfig
+import Amazonka.Personalize.Types.RecommenderSummary
+import Amazonka.Personalize.Types.RecommenderUpdateSummary
 import Amazonka.Personalize.Types.S3DataConfig
 import Amazonka.Personalize.Types.Solution
 import Amazonka.Personalize.Types.SolutionConfig
 import Amazonka.Personalize.Types.SolutionSummary
 import Amazonka.Personalize.Types.SolutionVersion
 import Amazonka.Personalize.Types.SolutionVersionSummary
+import Amazonka.Personalize.Types.Tag
 import Amazonka.Personalize.Types.TunedHPOParams
+import Amazonka.Personalize.UntagResource
 import Amazonka.Personalize.UpdateCampaign
+import Amazonka.Personalize.UpdateRecommender

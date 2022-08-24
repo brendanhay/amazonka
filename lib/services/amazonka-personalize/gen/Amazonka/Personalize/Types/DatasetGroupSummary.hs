@@ -21,10 +21,13 @@ module Amazonka.Personalize.Types.DatasetGroupSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types.Domain
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a dataset group. For a complete
--- listing, call the DescribeDatasetGroup API.
+-- listing, call the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html DescribeDatasetGroup>
+-- API.
 --
 -- /See:/ 'newDatasetGroupSummary' smart constructor.
 data DatasetGroupSummary = DatasetGroupSummary'
@@ -32,6 +35,8 @@ data DatasetGroupSummary = DatasetGroupSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the dataset group was created.
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The domain of a Domain dataset group.
+    domain :: Prelude.Maybe Domain,
     -- | The status of the dataset group.
     --
     -- A dataset group can be in one of the following states:
@@ -62,6 +67,8 @@ data DatasetGroupSummary = DatasetGroupSummary'
 --
 -- 'creationDateTime', 'datasetGroupSummary_creationDateTime' - The date and time (in Unix time) that the dataset group was created.
 --
+-- 'domain', 'datasetGroupSummary_domain' - The domain of a Domain dataset group.
+--
 -- 'status', 'datasetGroupSummary_status' - The status of the dataset group.
 --
 -- A dataset group can be in one of the following states:
@@ -82,6 +89,7 @@ newDatasetGroupSummary =
   DatasetGroupSummary'
     { name = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      domain = Prelude.Nothing,
       status = Prelude.Nothing,
       datasetGroupArn = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing,
@@ -95,6 +103,10 @@ datasetGroupSummary_name = Lens.lens (\DatasetGroupSummary' {name} -> name) (\s@
 -- | The date and time (in Unix time) that the dataset group was created.
 datasetGroupSummary_creationDateTime :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Prelude.UTCTime)
 datasetGroupSummary_creationDateTime = Lens.lens (\DatasetGroupSummary' {creationDateTime} -> creationDateTime) (\s@DatasetGroupSummary' {} a -> s {creationDateTime = a} :: DatasetGroupSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The domain of a Domain dataset group.
+datasetGroupSummary_domain :: Lens.Lens' DatasetGroupSummary (Prelude.Maybe Domain)
+datasetGroupSummary_domain = Lens.lens (\DatasetGroupSummary' {domain} -> domain) (\s@DatasetGroupSummary' {} a -> s {domain = a} :: DatasetGroupSummary)
 
 -- | The status of the dataset group.
 --
@@ -127,6 +139,7 @@ instance Core.FromJSON DatasetGroupSummary where
           DatasetGroupSummary'
             Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "domain")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "datasetGroupArn")
             Prelude.<*> (x Core..:? "lastUpdatedDateTime")
@@ -137,6 +150,7 @@ instance Prelude.Hashable DatasetGroupSummary where
   hashWithSalt _salt DatasetGroupSummary' {..} =
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` datasetGroupArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
@@ -146,6 +160,7 @@ instance Prelude.NFData DatasetGroupSummary where
   rnf DatasetGroupSummary' {..} =
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf datasetGroupArn
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime

@@ -45,6 +45,7 @@ library
   exposed-modules:
     Amazonka.Personalize
     Amazonka.Personalize.CreateBatchInferenceJob
+    Amazonka.Personalize.CreateBatchSegmentJob
     Amazonka.Personalize.CreateCampaign
     Amazonka.Personalize.CreateDataset
     Amazonka.Personalize.CreateDatasetExportJob
@@ -52,6 +53,7 @@ library
     Amazonka.Personalize.CreateDatasetImportJob
     Amazonka.Personalize.CreateEventTracker
     Amazonka.Personalize.CreateFilter
+    Amazonka.Personalize.CreateRecommender
     Amazonka.Personalize.CreateSchema
     Amazonka.Personalize.CreateSolution
     Amazonka.Personalize.CreateSolutionVersion
@@ -60,10 +62,12 @@ library
     Amazonka.Personalize.DeleteDatasetGroup
     Amazonka.Personalize.DeleteEventTracker
     Amazonka.Personalize.DeleteFilter
+    Amazonka.Personalize.DeleteRecommender
     Amazonka.Personalize.DeleteSchema
     Amazonka.Personalize.DeleteSolution
     Amazonka.Personalize.DescribeAlgorithm
     Amazonka.Personalize.DescribeBatchInferenceJob
+    Amazonka.Personalize.DescribeBatchSegmentJob
     Amazonka.Personalize.DescribeCampaign
     Amazonka.Personalize.DescribeDataset
     Amazonka.Personalize.DescribeDatasetExportJob
@@ -73,12 +77,14 @@ library
     Amazonka.Personalize.DescribeFeatureTransformation
     Amazonka.Personalize.DescribeFilter
     Amazonka.Personalize.DescribeRecipe
+    Amazonka.Personalize.DescribeRecommender
     Amazonka.Personalize.DescribeSchema
     Amazonka.Personalize.DescribeSolution
     Amazonka.Personalize.DescribeSolutionVersion
     Amazonka.Personalize.GetSolutionMetrics
     Amazonka.Personalize.Lens
     Amazonka.Personalize.ListBatchInferenceJobs
+    Amazonka.Personalize.ListBatchSegmentJobs
     Amazonka.Personalize.ListCampaigns
     Amazonka.Personalize.ListDatasetExportJobs
     Amazonka.Personalize.ListDatasetGroups
@@ -87,10 +93,15 @@ library
     Amazonka.Personalize.ListEventTrackers
     Amazonka.Personalize.ListFilters
     Amazonka.Personalize.ListRecipes
+    Amazonka.Personalize.ListRecommenders
     Amazonka.Personalize.ListSchemas
     Amazonka.Personalize.ListSolutions
     Amazonka.Personalize.ListSolutionVersions
+    Amazonka.Personalize.ListTagsForResource
+    Amazonka.Personalize.StartRecommender
+    Amazonka.Personalize.StopRecommender
     Amazonka.Personalize.StopSolutionVersionCreation
+    Amazonka.Personalize.TagResource
     Amazonka.Personalize.Types
     Amazonka.Personalize.Types.Algorithm
     Amazonka.Personalize.Types.AlgorithmImage
@@ -101,6 +112,10 @@ library
     Amazonka.Personalize.Types.BatchInferenceJobInput
     Amazonka.Personalize.Types.BatchInferenceJobOutput
     Amazonka.Personalize.Types.BatchInferenceJobSummary
+    Amazonka.Personalize.Types.BatchSegmentJob
+    Amazonka.Personalize.Types.BatchSegmentJobInput
+    Amazonka.Personalize.Types.BatchSegmentJobOutput
+    Amazonka.Personalize.Types.BatchSegmentJobSummary
     Amazonka.Personalize.Types.Campaign
     Amazonka.Personalize.Types.CampaignConfig
     Amazonka.Personalize.Types.CampaignSummary
@@ -123,6 +138,7 @@ library
     Amazonka.Personalize.Types.DefaultContinuousHyperParameterRange
     Amazonka.Personalize.Types.DefaultHyperParameterRanges
     Amazonka.Personalize.Types.DefaultIntegerHyperParameterRange
+    Amazonka.Personalize.Types.Domain
     Amazonka.Personalize.Types.EventTracker
     Amazonka.Personalize.Types.EventTrackerSummary
     Amazonka.Personalize.Types.FeatureTransformation
@@ -132,6 +148,7 @@ library
     Amazonka.Personalize.Types.HPOObjective
     Amazonka.Personalize.Types.HPOResourceConfig
     Amazonka.Personalize.Types.HyperParameterRanges
+    Amazonka.Personalize.Types.ImportMode
     Amazonka.Personalize.Types.IngestionMode
     Amazonka.Personalize.Types.IntegerHyperParameterRange
     Amazonka.Personalize.Types.ObjectiveSensitivity
@@ -139,15 +156,22 @@ library
     Amazonka.Personalize.Types.Recipe
     Amazonka.Personalize.Types.RecipeProvider
     Amazonka.Personalize.Types.RecipeSummary
+    Amazonka.Personalize.Types.Recommender
+    Amazonka.Personalize.Types.RecommenderConfig
+    Amazonka.Personalize.Types.RecommenderSummary
+    Amazonka.Personalize.Types.RecommenderUpdateSummary
     Amazonka.Personalize.Types.S3DataConfig
     Amazonka.Personalize.Types.Solution
     Amazonka.Personalize.Types.SolutionConfig
     Amazonka.Personalize.Types.SolutionSummary
     Amazonka.Personalize.Types.SolutionVersion
     Amazonka.Personalize.Types.SolutionVersionSummary
+    Amazonka.Personalize.Types.Tag
     Amazonka.Personalize.Types.TrainingMode
     Amazonka.Personalize.Types.TunedHPOParams
+    Amazonka.Personalize.UntagResource
     Amazonka.Personalize.UpdateCampaign
+    Amazonka.Personalize.UpdateRecommender
     Amazonka.Personalize.Waiters
 
   build-depends:

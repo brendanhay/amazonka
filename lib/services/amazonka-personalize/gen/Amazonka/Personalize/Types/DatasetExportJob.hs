@@ -26,7 +26,8 @@ import Amazonka.Personalize.Types.IngestionMode
 import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a job that exports a dataset to an Amazon S3 bucket. For more
--- information, see CreateDatasetExportJob.
+-- information, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html CreateDatasetExportJob>.
 --
 -- A dataset export job can be in one of the following states:
 --

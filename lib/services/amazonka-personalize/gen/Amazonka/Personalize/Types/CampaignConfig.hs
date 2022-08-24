@@ -27,11 +27,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newCampaignConfig' smart constructor.
 data CampaignConfig = CampaignConfig'
-  { -- | A string to string map specifying the exploration configuration
-    -- hyperparameters, including @explorationWeight@ and
-    -- @explorationItemAgeCutOff@, you want to use to configure the amount of
-    -- item exploration Amazon Personalize uses when recommending items.
-    -- Provide @itemExplorationConfig@ data only if your solution uses the
+  { -- | Specifies the exploration configuration hyperparameters, including
+    -- @explorationWeight@ and @explorationItemAgeCutOff@, you want to use to
+    -- configure the amount of item exploration Amazon Personalize uses when
+    -- recommending items. Provide @itemExplorationConfig@ data only if your
+    -- solution uses the
     -- <https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html User-Personalization>
     -- recipe.
     itemExplorationConfig :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
@@ -46,11 +46,11 @@ data CampaignConfig = CampaignConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'itemExplorationConfig', 'campaignConfig_itemExplorationConfig' - A string to string map specifying the exploration configuration
--- hyperparameters, including @explorationWeight@ and
--- @explorationItemAgeCutOff@, you want to use to configure the amount of
--- item exploration Amazon Personalize uses when recommending items.
--- Provide @itemExplorationConfig@ data only if your solution uses the
+-- 'itemExplorationConfig', 'campaignConfig_itemExplorationConfig' - Specifies the exploration configuration hyperparameters, including
+-- @explorationWeight@ and @explorationItemAgeCutOff@, you want to use to
+-- configure the amount of item exploration Amazon Personalize uses when
+-- recommending items. Provide @itemExplorationConfig@ data only if your
+-- solution uses the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html User-Personalization>
 -- recipe.
 newCampaignConfig ::
@@ -61,11 +61,11 @@ newCampaignConfig =
         Prelude.Nothing
     }
 
--- | A string to string map specifying the exploration configuration
--- hyperparameters, including @explorationWeight@ and
--- @explorationItemAgeCutOff@, you want to use to configure the amount of
--- item exploration Amazon Personalize uses when recommending items.
--- Provide @itemExplorationConfig@ data only if your solution uses the
+-- | Specifies the exploration configuration hyperparameters, including
+-- @explorationWeight@ and @explorationItemAgeCutOff@, you want to use to
+-- configure the amount of item exploration Amazon Personalize uses when
+-- recommending items. Provide @itemExplorationConfig@ data only if your
+-- solution uses the
 -- <https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html User-Personalization>
 -- recipe.
 campaignConfig_itemExplorationConfig :: Lens.Lens' CampaignConfig (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))

@@ -21,10 +21,13 @@ module Amazonka.Personalize.Types.RecipeSummary where
 
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
+import Amazonka.Personalize.Types.Domain
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a recipe. For a complete
--- listing, call the DescribeRecipe API.
+-- listing, call the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecipe.html DescribeRecipe>
+-- API.
 --
 -- /See:/ 'newRecipeSummary' smart constructor.
 data RecipeSummary = RecipeSummary'
@@ -32,6 +35,9 @@ data RecipeSummary = RecipeSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The date and time (in Unix time) that the recipe was created.
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The domain of the recipe (if the recipe is a Domain dataset group use
+    -- case).
+    domain :: Prelude.Maybe Domain,
     -- | The status of the recipe.
     status :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the recipe.
@@ -53,6 +59,9 @@ data RecipeSummary = RecipeSummary'
 --
 -- 'creationDateTime', 'recipeSummary_creationDateTime' - The date and time (in Unix time) that the recipe was created.
 --
+-- 'domain', 'recipeSummary_domain' - The domain of the recipe (if the recipe is a Domain dataset group use
+-- case).
+--
 -- 'status', 'recipeSummary_status' - The status of the recipe.
 --
 -- 'recipeArn', 'recipeSummary_recipeArn' - The Amazon Resource Name (ARN) of the recipe.
@@ -64,6 +73,7 @@ newRecipeSummary =
   RecipeSummary'
     { name = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
+      domain = Prelude.Nothing,
       status = Prelude.Nothing,
       recipeArn = Prelude.Nothing,
       lastUpdatedDateTime = Prelude.Nothing
@@ -76,6 +86,11 @@ recipeSummary_name = Lens.lens (\RecipeSummary' {name} -> name) (\s@RecipeSummar
 -- | The date and time (in Unix time) that the recipe was created.
 recipeSummary_creationDateTime :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.UTCTime)
 recipeSummary_creationDateTime = Lens.lens (\RecipeSummary' {creationDateTime} -> creationDateTime) (\s@RecipeSummary' {} a -> s {creationDateTime = a} :: RecipeSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The domain of the recipe (if the recipe is a Domain dataset group use
+-- case).
+recipeSummary_domain :: Lens.Lens' RecipeSummary (Prelude.Maybe Domain)
+recipeSummary_domain = Lens.lens (\RecipeSummary' {domain} -> domain) (\s@RecipeSummary' {} a -> s {domain = a} :: RecipeSummary)
 
 -- | The status of the recipe.
 recipeSummary_status :: Lens.Lens' RecipeSummary (Prelude.Maybe Prelude.Text)
@@ -97,6 +112,7 @@ instance Core.FromJSON RecipeSummary where
           RecipeSummary'
             Prelude.<$> (x Core..:? "name")
             Prelude.<*> (x Core..:? "creationDateTime")
+            Prelude.<*> (x Core..:? "domain")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "recipeArn")
             Prelude.<*> (x Core..:? "lastUpdatedDateTime")
@@ -106,6 +122,7 @@ instance Prelude.Hashable RecipeSummary where
   hashWithSalt _salt RecipeSummary' {..} =
     _salt `Prelude.hashWithSalt` name
       `Prelude.hashWithSalt` creationDateTime
+      `Prelude.hashWithSalt` domain
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` recipeArn
       `Prelude.hashWithSalt` lastUpdatedDateTime
@@ -114,6 +131,7 @@ instance Prelude.NFData RecipeSummary where
   rnf RecipeSummary' {..} =
     Prelude.rnf name
       `Prelude.seq` Prelude.rnf creationDateTime
+      `Prelude.seq` Prelude.rnf domain
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf recipeArn
       `Prelude.seq` Prelude.rnf lastUpdatedDateTime

@@ -22,7 +22,8 @@
 --
 -- Returns a list of dataset groups. The response provides the properties
 -- for each dataset group, including the Amazon Resource Name (ARN). For
--- more information on dataset groups, see CreateDatasetGroup.
+-- more information on dataset groups, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html CreateDatasetGroup>.
 --
 -- This operation returns paginated results.
 module Amazonka.Personalize.ListDatasetGroups

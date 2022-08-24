@@ -22,7 +22,8 @@
 --
 -- Describes an event tracker. The response includes the @trackingId@ and
 -- @status@ of the event tracker. For more information on event trackers,
--- see CreateEventTracker.
+-- see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html CreateEventTracker>.
 module Amazonka.Personalize.DescribeEventTracker
   ( -- * Creating a Request
     DescribeEventTracker (..),

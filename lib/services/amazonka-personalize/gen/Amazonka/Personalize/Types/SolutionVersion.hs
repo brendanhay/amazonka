@@ -27,7 +27,8 @@ import Amazonka.Personalize.Types.TunedHPOParams
 import qualified Amazonka.Prelude as Prelude
 
 -- | An object that provides information about a specific version of a
--- Solution.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_Solution.html Solution>
+-- in a Custom dataset group.
 --
 -- /See:/ 'newSolutionVersion' smart constructor.
 data SolutionVersion = SolutionVersion'

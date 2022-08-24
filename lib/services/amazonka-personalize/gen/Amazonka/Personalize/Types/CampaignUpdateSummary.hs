@@ -25,7 +25,9 @@ import Amazonka.Personalize.Types.CampaignConfig
 import qualified Amazonka.Prelude as Prelude
 
 -- | Provides a summary of the properties of a campaign update. For a
--- complete listing, call the DescribeCampaign API.
+-- complete listing, call the
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html DescribeCampaign>
+-- API.
 --
 -- /See:/ 'newCampaignUpdateSummary' smart constructor.
 data CampaignUpdateSummary = CampaignUpdateSummary'

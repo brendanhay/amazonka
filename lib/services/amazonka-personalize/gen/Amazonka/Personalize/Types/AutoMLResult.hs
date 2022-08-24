@@ -24,8 +24,8 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When the solution performs AutoML (@performAutoML@ is true in
--- CreateSolution), specifies the recipe that best optimized the specified
--- metric.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html CreateSolution>),
+-- specifies the recipe that best optimized the specified metric.
 --
 -- /See:/ 'newAutoMLResult' smart constructor.
 data AutoMLResult = AutoMLResult'

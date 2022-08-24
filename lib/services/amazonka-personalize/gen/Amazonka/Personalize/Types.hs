@@ -19,10 +19,18 @@ module Amazonka.Personalize.Types
     -- * Errors
     _ResourceAlreadyExistsException,
     _InvalidInputException,
+    _TooManyTagsException,
+    _TooManyTagKeysException,
     _ResourceNotFoundException,
     _ResourceInUseException,
     _LimitExceededException,
     _InvalidNextTokenException,
+
+    -- * Domain
+    Domain (..),
+
+    -- * ImportMode
+    ImportMode (..),
 
     -- * IngestionMode
     IngestionMode (..),
@@ -109,6 +117,43 @@ module Amazonka.Personalize.Types
     batchInferenceJobSummary_solutionVersionArn,
     batchInferenceJobSummary_lastUpdatedDateTime,
     batchInferenceJobSummary_failureReason,
+
+    -- * BatchSegmentJob
+    BatchSegmentJob (..),
+    newBatchSegmentJob,
+    batchSegmentJob_roleArn,
+    batchSegmentJob_filterArn,
+    batchSegmentJob_jobOutput,
+    batchSegmentJob_creationDateTime,
+    batchSegmentJob_jobName,
+    batchSegmentJob_numResults,
+    batchSegmentJob_status,
+    batchSegmentJob_solutionVersionArn,
+    batchSegmentJob_jobInput,
+    batchSegmentJob_lastUpdatedDateTime,
+    batchSegmentJob_failureReason,
+    batchSegmentJob_batchSegmentJobArn,
+
+    -- * BatchSegmentJobInput
+    BatchSegmentJobInput (..),
+    newBatchSegmentJobInput,
+    batchSegmentJobInput_s3DataSource,
+
+    -- * BatchSegmentJobOutput
+    BatchSegmentJobOutput (..),
+    newBatchSegmentJobOutput,
+    batchSegmentJobOutput_s3DataDestination,
+
+    -- * BatchSegmentJobSummary
+    BatchSegmentJobSummary (..),
+    newBatchSegmentJobSummary,
+    batchSegmentJobSummary_creationDateTime,
+    batchSegmentJobSummary_jobName,
+    batchSegmentJobSummary_status,
+    batchSegmentJobSummary_solutionVersionArn,
+    batchSegmentJobSummary_lastUpdatedDateTime,
+    batchSegmentJobSummary_failureReason,
+    batchSegmentJobSummary_batchSegmentJobArn,
 
     -- * Campaign
     Campaign (..),
@@ -215,6 +260,7 @@ module Amazonka.Personalize.Types
     datasetGroup_name,
     datasetGroup_roleArn,
     datasetGroup_creationDateTime,
+    datasetGroup_domain,
     datasetGroup_status,
     datasetGroup_kmsKeyArn,
     datasetGroup_datasetGroupArn,
@@ -226,6 +272,7 @@ module Amazonka.Personalize.Types
     newDatasetGroupSummary,
     datasetGroupSummary_name,
     datasetGroupSummary_creationDateTime,
+    datasetGroupSummary_domain,
     datasetGroupSummary_status,
     datasetGroupSummary_datasetGroupArn,
     datasetGroupSummary_lastUpdatedDateTime,
@@ -241,6 +288,7 @@ module Amazonka.Personalize.Types
     datasetImportJob_datasetArn,
     datasetImportJob_datasetImportJobArn,
     datasetImportJob_dataSource,
+    datasetImportJob_importMode,
     datasetImportJob_lastUpdatedDateTime,
     datasetImportJob_failureReason,
 
@@ -251,6 +299,7 @@ module Amazonka.Personalize.Types
     datasetImportJobSummary_jobName,
     datasetImportJobSummary_status,
     datasetImportJobSummary_datasetImportJobArn,
+    datasetImportJobSummary_importMode,
     datasetImportJobSummary_lastUpdatedDateTime,
     datasetImportJobSummary_failureReason,
 
@@ -259,6 +308,7 @@ module Amazonka.Personalize.Types
     newDatasetSchema,
     datasetSchema_name,
     datasetSchema_creationDateTime,
+    datasetSchema_domain,
     datasetSchema_schemaArn,
     datasetSchema_schema,
     datasetSchema_lastUpdatedDateTime,
@@ -268,6 +318,7 @@ module Amazonka.Personalize.Types
     newDatasetSchemaSummary,
     datasetSchemaSummary_name,
     datasetSchemaSummary_creationDateTime,
+    datasetSchemaSummary_domain,
     datasetSchemaSummary_schemaArn,
     datasetSchemaSummary_lastUpdatedDateTime,
 
@@ -423,9 +474,52 @@ module Amazonka.Personalize.Types
     newRecipeSummary,
     recipeSummary_name,
     recipeSummary_creationDateTime,
+    recipeSummary_domain,
     recipeSummary_status,
     recipeSummary_recipeArn,
     recipeSummary_lastUpdatedDateTime,
+
+    -- * Recommender
+    Recommender (..),
+    newRecommender,
+    recommender_name,
+    recommender_creationDateTime,
+    recommender_recommenderArn,
+    recommender_recommenderConfig,
+    recommender_latestRecommenderUpdate,
+    recommender_status,
+    recommender_modelMetrics,
+    recommender_datasetGroupArn,
+    recommender_recipeArn,
+    recommender_lastUpdatedDateTime,
+    recommender_failureReason,
+
+    -- * RecommenderConfig
+    RecommenderConfig (..),
+    newRecommenderConfig,
+    recommenderConfig_minRecommendationRequestsPerSecond,
+    recommenderConfig_itemExplorationConfig,
+
+    -- * RecommenderSummary
+    RecommenderSummary (..),
+    newRecommenderSummary,
+    recommenderSummary_name,
+    recommenderSummary_creationDateTime,
+    recommenderSummary_recommenderArn,
+    recommenderSummary_recommenderConfig,
+    recommenderSummary_status,
+    recommenderSummary_datasetGroupArn,
+    recommenderSummary_recipeArn,
+    recommenderSummary_lastUpdatedDateTime,
+
+    -- * RecommenderUpdateSummary
+    RecommenderUpdateSummary (..),
+    newRecommenderUpdateSummary,
+    recommenderUpdateSummary_creationDateTime,
+    recommenderUpdateSummary_recommenderConfig,
+    recommenderUpdateSummary_status,
+    recommenderUpdateSummary_lastUpdatedDateTime,
+    recommenderUpdateSummary_failureReason,
 
     -- * S3DataConfig
     S3DataConfig (..),
@@ -497,6 +591,12 @@ module Amazonka.Personalize.Types
     solutionVersionSummary_lastUpdatedDateTime,
     solutionVersionSummary_failureReason,
 
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_tagKey,
+    tag_tagValue,
+
     -- * TunedHPOParams
     TunedHPOParams (..),
     newTunedHPOParams,
@@ -515,6 +615,10 @@ import Amazonka.Personalize.Types.BatchInferenceJobConfig
 import Amazonka.Personalize.Types.BatchInferenceJobInput
 import Amazonka.Personalize.Types.BatchInferenceJobOutput
 import Amazonka.Personalize.Types.BatchInferenceJobSummary
+import Amazonka.Personalize.Types.BatchSegmentJob
+import Amazonka.Personalize.Types.BatchSegmentJobInput
+import Amazonka.Personalize.Types.BatchSegmentJobOutput
+import Amazonka.Personalize.Types.BatchSegmentJobSummary
 import Amazonka.Personalize.Types.Campaign
 import Amazonka.Personalize.Types.CampaignConfig
 import Amazonka.Personalize.Types.CampaignSummary
@@ -537,6 +641,7 @@ import Amazonka.Personalize.Types.DefaultCategoricalHyperParameterRange
 import Amazonka.Personalize.Types.DefaultContinuousHyperParameterRange
 import Amazonka.Personalize.Types.DefaultHyperParameterRanges
 import Amazonka.Personalize.Types.DefaultIntegerHyperParameterRange
+import Amazonka.Personalize.Types.Domain
 import Amazonka.Personalize.Types.EventTracker
 import Amazonka.Personalize.Types.EventTrackerSummary
 import Amazonka.Personalize.Types.FeatureTransformation
@@ -546,6 +651,7 @@ import Amazonka.Personalize.Types.HPOConfig
 import Amazonka.Personalize.Types.HPOObjective
 import Amazonka.Personalize.Types.HPOResourceConfig
 import Amazonka.Personalize.Types.HyperParameterRanges
+import Amazonka.Personalize.Types.ImportMode
 import Amazonka.Personalize.Types.IngestionMode
 import Amazonka.Personalize.Types.IntegerHyperParameterRange
 import Amazonka.Personalize.Types.ObjectiveSensitivity
@@ -553,12 +659,17 @@ import Amazonka.Personalize.Types.OptimizationObjective
 import Amazonka.Personalize.Types.Recipe
 import Amazonka.Personalize.Types.RecipeProvider
 import Amazonka.Personalize.Types.RecipeSummary
+import Amazonka.Personalize.Types.Recommender
+import Amazonka.Personalize.Types.RecommenderConfig
+import Amazonka.Personalize.Types.RecommenderSummary
+import Amazonka.Personalize.Types.RecommenderUpdateSummary
 import Amazonka.Personalize.Types.S3DataConfig
 import Amazonka.Personalize.Types.Solution
 import Amazonka.Personalize.Types.SolutionConfig
 import Amazonka.Personalize.Types.SolutionSummary
 import Amazonka.Personalize.Types.SolutionVersion
 import Amazonka.Personalize.Types.SolutionVersionSummary
+import Amazonka.Personalize.Types.Tag
 import Amazonka.Personalize.Types.TrainingMode
 import Amazonka.Personalize.Types.TunedHPOParams
 import qualified Amazonka.Prelude as Prelude
@@ -648,6 +759,22 @@ _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
+
+-- | You have exceeded the maximum number of tags you can apply to this
+-- resource.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagsException"
+
+-- | The request contains more tag keys than can be associated with a
+-- resource (50 tag keys per resource).
+_TooManyTagKeysException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyTagKeysException =
+  Core._MatchServiceError
+    defaultService
+    "TooManyTagKeysException"
 
 -- | Could not find the specified resource.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

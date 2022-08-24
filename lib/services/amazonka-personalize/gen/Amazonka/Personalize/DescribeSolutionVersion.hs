@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a specific version of a solution. For more information on
--- solutions, see CreateSolution.
+-- solutions, see
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html CreateSolution>
 module Amazonka.Personalize.DescribeSolutionVersion
   ( -- * Creating a Request
     DescribeSolutionVersion (..),

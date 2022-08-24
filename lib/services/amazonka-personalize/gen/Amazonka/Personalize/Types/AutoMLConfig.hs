@@ -24,9 +24,10 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | When the solution performs AutoML (@performAutoML@ is true in
--- CreateSolution), Amazon Personalize determines which recipe, from the
--- specified list, optimizes the given metric. Amazon Personalize then uses
--- that recipe for the solution.
+-- <https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html CreateSolution>),
+-- Amazon Personalize determines which recipe, from the specified list,
+-- optimizes the given metric. Amazon Personalize then uses that recipe for
+-- the solution.
 --
 -- /See:/ 'newAutoMLConfig' smart constructor.
 data AutoMLConfig = AutoMLConfig'

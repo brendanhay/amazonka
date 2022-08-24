@@ -27,6 +27,9 @@ module Amazonka.ChimeSDKMessaging.Types
     _UnauthorizedClientException,
     _ServiceFailureException,
 
+    -- * AllowNotifications
+    AllowNotifications (..),
+
     -- * ChannelMembershipType
     ChannelMembershipType (..),
 
@@ -54,6 +57,15 @@ module Amazonka.ChimeSDKMessaging.Types
     -- * InvocationType
     InvocationType (..),
 
+    -- * PushNotificationType
+    PushNotificationType (..),
+
+    -- * SearchFieldKey
+    SearchFieldKey (..),
+
+    -- * SearchFieldOperator
+    SearchFieldOperator (..),
+
     -- * SortOrder
     SortOrder (..),
 
@@ -61,6 +73,7 @@ module Amazonka.ChimeSDKMessaging.Types
     AppInstanceUserMembershipSummary (..),
     newAppInstanceUserMembershipSummary,
     appInstanceUserMembershipSummary_type,
+    appInstanceUserMembershipSummary_subChannelId,
     appInstanceUserMembershipSummary_readMarkerTimestamp,
 
     -- * BatchChannelMemberships
@@ -68,6 +81,7 @@ module Amazonka.ChimeSDKMessaging.Types
     newBatchChannelMemberships,
     batchChannelMemberships_type,
     batchChannelMemberships_members,
+    batchChannelMemberships_subChannelId,
     batchChannelMemberships_channelArn,
     batchChannelMemberships_invitedBy,
 
@@ -84,6 +98,7 @@ module Amazonka.ChimeSDKMessaging.Types
     channel_lastUpdatedTimestamp,
     channel_lastMessageTimestamp,
     channel_name,
+    channel_elasticChannelConfiguration,
     channel_metadata,
     channel_createdTimestamp,
     channel_channelArn,
@@ -137,6 +152,7 @@ module Amazonka.ChimeSDKMessaging.Types
     channelMembership_member,
     channelMembership_type,
     channelMembership_createdTimestamp,
+    channelMembership_subChannelId,
     channelMembership_channelArn,
     channelMembership_invitedBy,
 
@@ -145,6 +161,11 @@ module Amazonka.ChimeSDKMessaging.Types
     newChannelMembershipForAppInstanceUserSummary,
     channelMembershipForAppInstanceUserSummary_channelSummary,
     channelMembershipForAppInstanceUserSummary_appInstanceUserMembershipSummary,
+
+    -- * ChannelMembershipPreferences
+    ChannelMembershipPreferences (..),
+    newChannelMembershipPreferences,
+    channelMembershipPreferences_pushNotifications,
 
     -- * ChannelMembershipSummary
     ChannelMembershipSummary (..),
@@ -158,10 +179,12 @@ module Amazonka.ChimeSDKMessaging.Types
     channelMessage_type,
     channelMessage_metadata,
     channelMessage_createdTimestamp,
+    channelMessage_subChannelId,
     channelMessage_redacted,
     channelMessage_channelArn,
     channelMessage_messageId,
     channelMessage_status,
+    channelMessage_messageAttributes,
     channelMessage_lastEditedTimestamp,
     channelMessage_sender,
     channelMessage_persistence,
@@ -171,6 +194,9 @@ module Amazonka.ChimeSDKMessaging.Types
     ChannelMessageCallback (..),
     newChannelMessageCallback,
     channelMessageCallback_metadata,
+    channelMessageCallback_subChannelId,
+    channelMessageCallback_messageAttributes,
+    channelMessageCallback_pushNotification,
     channelMessageCallback_content,
     channelMessageCallback_messageId,
 
@@ -190,6 +216,7 @@ module Amazonka.ChimeSDKMessaging.Types
     channelMessageSummary_redacted,
     channelMessageSummary_messageId,
     channelMessageSummary_status,
+    channelMessageSummary_messageAttributes,
     channelMessageSummary_lastEditedTimestamp,
     channelMessageSummary_sender,
     channelMessageSummary_content,
@@ -222,6 +249,13 @@ module Amazonka.ChimeSDKMessaging.Types
     channelSummary_privacy,
     channelSummary_mode,
 
+    -- * ElasticChannelConfiguration
+    ElasticChannelConfiguration (..),
+    newElasticChannelConfiguration,
+    elasticChannelConfiguration_maximumSubChannels,
+    elasticChannelConfiguration_targetMembershipsPerSubChannel,
+    elasticChannelConfiguration_minimumMembershipPercentage,
+
     -- * Identity
     Identity (..),
     newIdentity,
@@ -233,6 +267,11 @@ module Amazonka.ChimeSDKMessaging.Types
     newLambdaConfiguration,
     lambdaConfiguration_resourceArn,
     lambdaConfiguration_invocationType,
+
+    -- * MessageAttributeValue
+    MessageAttributeValue (..),
+    newMessageAttributeValue,
+    messageAttributeValue_stringValues,
 
     -- * MessagingSessionEndpoint
     MessagingSessionEndpoint (..),
@@ -252,6 +291,32 @@ module Amazonka.ChimeSDKMessaging.Types
     newProcessorConfiguration,
     processorConfiguration_lambda,
 
+    -- * PushNotificationConfiguration
+    PushNotificationConfiguration (..),
+    newPushNotificationConfiguration,
+    pushNotificationConfiguration_type,
+    pushNotificationConfiguration_body,
+    pushNotificationConfiguration_title,
+
+    -- * PushNotificationPreferences
+    PushNotificationPreferences (..),
+    newPushNotificationPreferences,
+    pushNotificationPreferences_filterRule,
+    pushNotificationPreferences_allowNotifications,
+
+    -- * SearchField
+    SearchField (..),
+    newSearchField,
+    searchField_key,
+    searchField_values,
+    searchField_operator,
+
+    -- * SubChannelSummary
+    SubChannelSummary (..),
+    newSubChannelSummary,
+    subChannelSummary_membershipCount,
+    subChannelSummary_subChannelId,
+
     -- * Tag
     Tag (..),
     newTag,
@@ -260,6 +325,7 @@ module Amazonka.ChimeSDKMessaging.Types
   )
 where
 
+import Amazonka.ChimeSDKMessaging.Types.AllowNotifications
 import Amazonka.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
 import Amazonka.ChimeSDKMessaging.Types.BatchChannelMemberships
 import Amazonka.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
@@ -271,6 +337,7 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelFlow
 import Amazonka.ChimeSDKMessaging.Types.ChannelFlowSummary
 import Amazonka.ChimeSDKMessaging.Types.ChannelMembership
 import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
+import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipPreferences
 import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipSummary
 import Amazonka.ChimeSDKMessaging.Types.ChannelMembershipType
 import Amazonka.ChimeSDKMessaging.Types.ChannelMessage
@@ -286,15 +353,24 @@ import Amazonka.ChimeSDKMessaging.Types.ChannelModerator
 import Amazonka.ChimeSDKMessaging.Types.ChannelModeratorSummary
 import Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
 import Amazonka.ChimeSDKMessaging.Types.ChannelSummary
+import Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration
 import Amazonka.ChimeSDKMessaging.Types.ErrorCode
 import Amazonka.ChimeSDKMessaging.Types.FallbackAction
 import Amazonka.ChimeSDKMessaging.Types.Identity
 import Amazonka.ChimeSDKMessaging.Types.InvocationType
 import Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
+import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
 import Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint
 import Amazonka.ChimeSDKMessaging.Types.Processor
 import Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
+import Amazonka.ChimeSDKMessaging.Types.PushNotificationConfiguration
+import Amazonka.ChimeSDKMessaging.Types.PushNotificationPreferences
+import Amazonka.ChimeSDKMessaging.Types.PushNotificationType
+import Amazonka.ChimeSDKMessaging.Types.SearchField
+import Amazonka.ChimeSDKMessaging.Types.SearchFieldKey
+import Amazonka.ChimeSDKMessaging.Types.SearchFieldOperator
 import Amazonka.ChimeSDKMessaging.Types.SortOrder
+import Amazonka.ChimeSDKMessaging.Types.SubChannelSummary
 import Amazonka.ChimeSDKMessaging.Types.Tag
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens

@@ -22,6 +22,7 @@ module Amazonka.ChimeSDKMessaging.Types.ChannelMessageSummary where
 import Amazonka.ChimeSDKMessaging.Types.ChannelMessageStatusStructure
 import Amazonka.ChimeSDKMessaging.Types.ChannelMessageType
 import Amazonka.ChimeSDKMessaging.Types.Identity
+import Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -46,6 +47,8 @@ data ChannelMessageSummary = ChannelMessageSummary'
     -- channel without a channel flow. For channels associated with channel
     -- flow, the value determines the processing stage.
     status :: Prelude.Maybe ChannelMessageStatusStructure,
+    -- | The message attribues listed in a the summary of a channel message.
+    messageAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue),
     -- | The time at which a message was last edited.
     lastEditedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The message sender.
@@ -79,6 +82,8 @@ data ChannelMessageSummary = ChannelMessageSummary'
 -- channel without a channel flow. For channels associated with channel
 -- flow, the value determines the processing stage.
 --
+-- 'messageAttributes', 'channelMessageSummary_messageAttributes' - The message attribues listed in a the summary of a channel message.
+--
 -- 'lastEditedTimestamp', 'channelMessageSummary_lastEditedTimestamp' - The time at which a message was last edited.
 --
 -- 'sender', 'channelMessageSummary_sender' - The message sender.
@@ -96,6 +101,7 @@ newChannelMessageSummary =
       redacted = Prelude.Nothing,
       messageId = Prelude.Nothing,
       status = Prelude.Nothing,
+      messageAttributes = Prelude.Nothing,
       lastEditedTimestamp = Prelude.Nothing,
       sender = Prelude.Nothing,
       content = Prelude.Nothing
@@ -131,6 +137,10 @@ channelMessageSummary_messageId = Lens.lens (\ChannelMessageSummary' {messageId}
 channelMessageSummary_status :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe ChannelMessageStatusStructure)
 channelMessageSummary_status = Lens.lens (\ChannelMessageSummary' {status} -> status) (\s@ChannelMessageSummary' {} a -> s {status = a} :: ChannelMessageSummary)
 
+-- | The message attribues listed in a the summary of a channel message.
+channelMessageSummary_messageAttributes :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text MessageAttributeValue))
+channelMessageSummary_messageAttributes = Lens.lens (\ChannelMessageSummary' {messageAttributes} -> messageAttributes) (\s@ChannelMessageSummary' {} a -> s {messageAttributes = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Lens.coerced
+
 -- | The time at which a message was last edited.
 channelMessageSummary_lastEditedTimestamp :: Lens.Lens' ChannelMessageSummary (Prelude.Maybe Prelude.UTCTime)
 channelMessageSummary_lastEditedTimestamp = Lens.lens (\ChannelMessageSummary' {lastEditedTimestamp} -> lastEditedTimestamp) (\s@ChannelMessageSummary' {} a -> s {lastEditedTimestamp = a} :: ChannelMessageSummary) Prelude.. Lens.mapping Core._Time
@@ -156,6 +166,9 @@ instance Core.FromJSON ChannelMessageSummary where
             Prelude.<*> (x Core..:? "Redacted")
             Prelude.<*> (x Core..:? "MessageId")
             Prelude.<*> (x Core..:? "Status")
+            Prelude.<*> ( x Core..:? "MessageAttributes"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "LastEditedTimestamp")
             Prelude.<*> (x Core..:? "Sender")
             Prelude.<*> (x Core..:? "Content")
@@ -170,6 +183,7 @@ instance Prelude.Hashable ChannelMessageSummary where
       `Prelude.hashWithSalt` redacted
       `Prelude.hashWithSalt` messageId
       `Prelude.hashWithSalt` status
+      `Prelude.hashWithSalt` messageAttributes
       `Prelude.hashWithSalt` lastEditedTimestamp
       `Prelude.hashWithSalt` sender
       `Prelude.hashWithSalt` content
@@ -183,6 +197,7 @@ instance Prelude.NFData ChannelMessageSummary where
       `Prelude.seq` Prelude.rnf redacted
       `Prelude.seq` Prelude.rnf messageId
       `Prelude.seq` Prelude.rnf status
+      `Prelude.seq` Prelude.rnf messageAttributes
       `Prelude.seq` Prelude.rnf lastEditedTimestamp
       `Prelude.seq` Prelude.rnf sender
       `Prelude.seq` Prelude.rnf content

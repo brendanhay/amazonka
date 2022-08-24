@@ -38,11 +38,14 @@ data Processor = Processor'
     -- sequence. The value determines the sequence. At this point, we support
     -- only 1 processor within a flow.
     executionOrder :: Prelude.Natural,
-    -- | Determines whether to continue or stop processing if communication with
-    -- processor fails. If the last processor in a channel flow sequence has a
-    -- fallback action of CONTINUE, and communication with the processor fails,
-    -- the message is considered processed and sent to the recipients in the
-    -- channel.
+    -- | Determines whether to continue with message processing or stop it in
+    -- cases where communication with a processor fails. If a processor has a
+    -- fallback action of @ABORT@ and communication with it fails, the
+    -- processor sets the message status to @FAILED@ and does not send the
+    -- message to any recipients. Note that if the last processor in the
+    -- channel flow sequence has a fallback action of @CONTINUE@ and
+    -- communication with the processor fails, then the message is considered
+    -- processed and sent to recipients of the channel.
     fallbackAction :: FallbackAction
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -64,11 +67,14 @@ data Processor = Processor'
 -- sequence. The value determines the sequence. At this point, we support
 -- only 1 processor within a flow.
 --
--- 'fallbackAction', 'processor_fallbackAction' - Determines whether to continue or stop processing if communication with
--- processor fails. If the last processor in a channel flow sequence has a
--- fallback action of CONTINUE, and communication with the processor fails,
--- the message is considered processed and sent to the recipients in the
--- channel.
+-- 'fallbackAction', 'processor_fallbackAction' - Determines whether to continue with message processing or stop it in
+-- cases where communication with a processor fails. If a processor has a
+-- fallback action of @ABORT@ and communication with it fails, the
+-- processor sets the message status to @FAILED@ and does not send the
+-- message to any recipients. Note that if the last processor in the
+-- channel flow sequence has a fallback action of @CONTINUE@ and
+-- communication with the processor fails, then the message is considered
+-- processed and sent to recipients of the channel.
 newProcessor ::
   -- | 'name'
   Prelude.Text ->
@@ -106,11 +112,14 @@ processor_configuration = Lens.lens (\Processor' {configuration} -> configuratio
 processor_executionOrder :: Lens.Lens' Processor Prelude.Natural
 processor_executionOrder = Lens.lens (\Processor' {executionOrder} -> executionOrder) (\s@Processor' {} a -> s {executionOrder = a} :: Processor)
 
--- | Determines whether to continue or stop processing if communication with
--- processor fails. If the last processor in a channel flow sequence has a
--- fallback action of CONTINUE, and communication with the processor fails,
--- the message is considered processed and sent to the recipients in the
--- channel.
+-- | Determines whether to continue with message processing or stop it in
+-- cases where communication with a processor fails. If a processor has a
+-- fallback action of @ABORT@ and communication with it fails, the
+-- processor sets the message status to @FAILED@ and does not send the
+-- message to any recipients. Note that if the last processor in the
+-- channel flow sequence has a fallback action of @CONTINUE@ and
+-- communication with the processor fails, then the message is considered
+-- processed and sent to recipients of the channel.
 processor_fallbackAction :: Lens.Lens' Processor FallbackAction
 processor_fallbackAction = Lens.lens (\Processor' {fallbackAction} -> fallbackAction) (\s@Processor' {} a -> s {fallbackAction = a} :: Processor)
 

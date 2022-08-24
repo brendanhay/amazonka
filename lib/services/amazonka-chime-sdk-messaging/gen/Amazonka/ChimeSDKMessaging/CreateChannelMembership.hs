@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds a user to a channel. The @InvitedBy@ response field is derived from
--- the request header. A channel member can:
+-- Adds a user to a channel. The @InvitedBy@ field in @ChannelMembership@
+-- is derived from the request header. A channel member can:
 --
 -- -   List messages
 --
@@ -49,6 +49,7 @@ module Amazonka.ChimeSDKMessaging.CreateChannelMembership
     newCreateChannelMembership,
 
     -- * Request Lenses
+    createChannelMembership_subChannelId,
     createChannelMembership_channelArn,
     createChannelMembership_memberArn,
     createChannelMembership_type,
@@ -60,6 +61,7 @@ module Amazonka.ChimeSDKMessaging.CreateChannelMembership
 
     -- * Response Lenses
     createChannelMembershipResponse_member,
+    createChannelMembershipResponse_subChannelId,
     createChannelMembershipResponse_channelArn,
     createChannelMembershipResponse_httpStatus,
   )
@@ -74,9 +76,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateChannelMembership' smart constructor.
 data CreateChannelMembership = CreateChannelMembership'
-  { -- | The ARN of the channel to which you\'re adding users.
+  { -- | The ID of the SubChannel in the request.
+    --
+    -- Only required when creating membership in a SubChannel for a moderator
+    -- in an elastic channel.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel to which you\'re adding users.
     channelArn :: Prelude.Text,
-    -- | The ARN of the member you want to add to the channel.
+    -- | The @AppInstanceUserArn@ of the member you want to add to the channel.
     memberArn :: Prelude.Text,
     -- | The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
     -- are always returned as part of @ListChannelMemberships@. Hidden members
@@ -97,9 +104,14 @@ data CreateChannelMembership = CreateChannelMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subChannelId', 'createChannelMembership_subChannelId' - The ID of the SubChannel in the request.
+--
+-- Only required when creating membership in a SubChannel for a moderator
+-- in an elastic channel.
+--
 -- 'channelArn', 'createChannelMembership_channelArn' - The ARN of the channel to which you\'re adding users.
 --
--- 'memberArn', 'createChannelMembership_memberArn' - The ARN of the member you want to add to the channel.
+-- 'memberArn', 'createChannelMembership_memberArn' - The @AppInstanceUserArn@ of the member you want to add to the channel.
 --
 -- 'type'', 'createChannelMembership_type' - The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
 -- are always returned as part of @ListChannelMemberships@. Hidden members
@@ -124,17 +136,26 @@ newCreateChannelMembership
   pType_
   pChimeBearer_ =
     CreateChannelMembership'
-      { channelArn = pChannelArn_,
+      { subChannelId =
+          Prelude.Nothing,
+        channelArn = pChannelArn_,
         memberArn = pMemberArn_,
         type' = pType_,
         chimeBearer = pChimeBearer_
       }
 
+-- | The ID of the SubChannel in the request.
+--
+-- Only required when creating membership in a SubChannel for a moderator
+-- in an elastic channel.
+createChannelMembership_subChannelId :: Lens.Lens' CreateChannelMembership (Prelude.Maybe Prelude.Text)
+createChannelMembership_subChannelId = Lens.lens (\CreateChannelMembership' {subChannelId} -> subChannelId) (\s@CreateChannelMembership' {} a -> s {subChannelId = a} :: CreateChannelMembership)
+
 -- | The ARN of the channel to which you\'re adding users.
 createChannelMembership_channelArn :: Lens.Lens' CreateChannelMembership Prelude.Text
 createChannelMembership_channelArn = Lens.lens (\CreateChannelMembership' {channelArn} -> channelArn) (\s@CreateChannelMembership' {} a -> s {channelArn = a} :: CreateChannelMembership)
 
--- | The ARN of the member you want to add to the channel.
+-- | The @AppInstanceUserArn@ of the member you want to add to the channel.
 createChannelMembership_memberArn :: Lens.Lens' CreateChannelMembership Prelude.Text
 createChannelMembership_memberArn = Lens.lens (\CreateChannelMembership' {memberArn} -> memberArn) (\s@CreateChannelMembership' {} a -> s {memberArn = a} :: CreateChannelMembership)
 
@@ -160,20 +181,23 @@ instance Core.AWSRequest CreateChannelMembership where
       ( \s h x ->
           CreateChannelMembershipResponse'
             Prelude.<$> (x Core..?> "Member")
+            Prelude.<*> (x Core..?> "SubChannelId")
             Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
 instance Prelude.Hashable CreateChannelMembership where
   hashWithSalt _salt CreateChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt `Prelude.hashWithSalt` subChannelId
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` type'
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData CreateChannelMembership where
   rnf CreateChannelMembership' {..} =
-    Prelude.rnf channelArn
+    Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf memberArn
       `Prelude.seq` Prelude.rnf type'
       `Prelude.seq` Prelude.rnf chimeBearer
@@ -187,7 +211,8 @@ instance Core.ToJSON CreateChannelMembership where
   toJSON CreateChannelMembership' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("MemberArn" Core..= memberArn),
+          [ ("SubChannelId" Core..=) Prelude.<$> subChannelId,
+            Prelude.Just ("MemberArn" Core..= memberArn),
             Prelude.Just ("Type" Core..= type')
           ]
       )
@@ -204,6 +229,8 @@ instance Core.ToQuery CreateChannelMembership where
 data CreateChannelMembershipResponse = CreateChannelMembershipResponse'
   { -- | The ARN and metadata of the member being added.
     member :: Prelude.Maybe Identity,
+    -- | The ID of the SubChannel in the response.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the channel.
     channelArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -221,6 +248,8 @@ data CreateChannelMembershipResponse = CreateChannelMembershipResponse'
 --
 -- 'member', 'createChannelMembershipResponse_member' - The ARN and metadata of the member being added.
 --
+-- 'subChannelId', 'createChannelMembershipResponse_subChannelId' - The ID of the SubChannel in the response.
+--
 -- 'channelArn', 'createChannelMembershipResponse_channelArn' - The ARN of the channel.
 --
 -- 'httpStatus', 'createChannelMembershipResponse_httpStatus' - The response's http status code.
@@ -232,6 +261,7 @@ newCreateChannelMembershipResponse pHttpStatus_ =
   CreateChannelMembershipResponse'
     { member =
         Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       channelArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -239,6 +269,10 @@ newCreateChannelMembershipResponse pHttpStatus_ =
 -- | The ARN and metadata of the member being added.
 createChannelMembershipResponse_member :: Lens.Lens' CreateChannelMembershipResponse (Prelude.Maybe Identity)
 createChannelMembershipResponse_member = Lens.lens (\CreateChannelMembershipResponse' {member} -> member) (\s@CreateChannelMembershipResponse' {} a -> s {member = a} :: CreateChannelMembershipResponse)
+
+-- | The ID of the SubChannel in the response.
+createChannelMembershipResponse_subChannelId :: Lens.Lens' CreateChannelMembershipResponse (Prelude.Maybe Prelude.Text)
+createChannelMembershipResponse_subChannelId = Lens.lens (\CreateChannelMembershipResponse' {subChannelId} -> subChannelId) (\s@CreateChannelMembershipResponse' {} a -> s {subChannelId = a} :: CreateChannelMembershipResponse)
 
 -- | The ARN of the channel.
 createChannelMembershipResponse_channelArn :: Lens.Lens' CreateChannelMembershipResponse (Prelude.Maybe Prelude.Text)
@@ -254,5 +288,6 @@ instance
   where
   rnf CreateChannelMembershipResponse' {..} =
     Prelude.rnf member
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf httpStatus

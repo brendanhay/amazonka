@@ -31,6 +31,7 @@ module Amazonka.ChimeSDKMessaging.DeleteChannelMembership
     newDeleteChannelMembership,
 
     -- * Request Lenses
+    deleteChannelMembership_subChannelId,
     deleteChannelMembership_channelArn,
     deleteChannelMembership_memberArn,
     deleteChannelMembership_chimeBearer,
@@ -50,9 +51,14 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteChannelMembership' smart constructor.
 data DeleteChannelMembership = DeleteChannelMembership'
-  { -- | The ARN of the channel from which you want to remove the user.
+  { -- | The ID of the SubChannel in the request.
+    --
+    -- Only for use by moderators.
+    subChannelId :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the channel from which you want to remove the user.
     channelArn :: Prelude.Text,
-    -- | The ARN of the member that you\'re removing from the channel.
+    -- | The @AppInstanceUserArn@ of the member that you\'re removing from the
+    -- channel.
     memberArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
@@ -67,9 +73,14 @@ data DeleteChannelMembership = DeleteChannelMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'subChannelId', 'deleteChannelMembership_subChannelId' - The ID of the SubChannel in the request.
+--
+-- Only for use by moderators.
+--
 -- 'channelArn', 'deleteChannelMembership_channelArn' - The ARN of the channel from which you want to remove the user.
 --
--- 'memberArn', 'deleteChannelMembership_memberArn' - The ARN of the member that you\'re removing from the channel.
+-- 'memberArn', 'deleteChannelMembership_memberArn' - The @AppInstanceUserArn@ of the member that you\'re removing from the
+-- channel.
 --
 -- 'chimeBearer', 'deleteChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 newDeleteChannelMembership ::
@@ -85,16 +96,25 @@ newDeleteChannelMembership
   pMemberArn_
   pChimeBearer_ =
     DeleteChannelMembership'
-      { channelArn = pChannelArn_,
+      { subChannelId =
+          Prelude.Nothing,
+        channelArn = pChannelArn_,
         memberArn = pMemberArn_,
         chimeBearer = pChimeBearer_
       }
+
+-- | The ID of the SubChannel in the request.
+--
+-- Only for use by moderators.
+deleteChannelMembership_subChannelId :: Lens.Lens' DeleteChannelMembership (Prelude.Maybe Prelude.Text)
+deleteChannelMembership_subChannelId = Lens.lens (\DeleteChannelMembership' {subChannelId} -> subChannelId) (\s@DeleteChannelMembership' {} a -> s {subChannelId = a} :: DeleteChannelMembership)
 
 -- | The ARN of the channel from which you want to remove the user.
 deleteChannelMembership_channelArn :: Lens.Lens' DeleteChannelMembership Prelude.Text
 deleteChannelMembership_channelArn = Lens.lens (\DeleteChannelMembership' {channelArn} -> channelArn) (\s@DeleteChannelMembership' {} a -> s {channelArn = a} :: DeleteChannelMembership)
 
--- | The ARN of the member that you\'re removing from the channel.
+-- | The @AppInstanceUserArn@ of the member that you\'re removing from the
+-- channel.
 deleteChannelMembership_memberArn :: Lens.Lens' DeleteChannelMembership Prelude.Text
 deleteChannelMembership_memberArn = Lens.lens (\DeleteChannelMembership' {memberArn} -> memberArn) (\s@DeleteChannelMembership' {} a -> s {memberArn = a} :: DeleteChannelMembership)
 
@@ -113,13 +133,15 @@ instance Core.AWSRequest DeleteChannelMembership where
 
 instance Prelude.Hashable DeleteChannelMembership where
   hashWithSalt _salt DeleteChannelMembership' {..} =
-    _salt `Prelude.hashWithSalt` channelArn
+    _salt `Prelude.hashWithSalt` subChannelId
+      `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArn
       `Prelude.hashWithSalt` chimeBearer
 
 instance Prelude.NFData DeleteChannelMembership where
   rnf DeleteChannelMembership' {..} =
-    Prelude.rnf channelArn
+    Prelude.rnf subChannelId
+      `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf memberArn
       `Prelude.seq` Prelude.rnf chimeBearer
 
@@ -138,7 +160,9 @@ instance Core.ToPath DeleteChannelMembership where
       ]
 
 instance Core.ToQuery DeleteChannelMembership where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery DeleteChannelMembership' {..} =
+    Prelude.mconcat
+      ["sub-channel-id" Core.=: subChannelId]
 
 -- | /See:/ 'newDeleteChannelMembershipResponse' smart constructor.
 data DeleteChannelMembershipResponse = DeleteChannelMembershipResponse'

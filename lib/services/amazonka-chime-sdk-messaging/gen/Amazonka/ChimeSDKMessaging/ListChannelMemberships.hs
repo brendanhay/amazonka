@@ -25,6 +25,11 @@
 -- The @x-amz-chime-bearer@ request header is mandatory. Use the
 -- @AppInstanceUserArn@ of the user that makes the API call as the value in
 -- the header.
+--
+-- If you want to list the channels to which a specific app instance user
+-- belongs, see the
+-- <https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html ListChannelMembershipsForAppInstanceUser>
+-- API.
 module Amazonka.ChimeSDKMessaging.ListChannelMemberships
   ( -- * Creating a Request
     ListChannelMemberships (..),
@@ -33,6 +38,7 @@ module Amazonka.ChimeSDKMessaging.ListChannelMemberships
     -- * Request Lenses
     listChannelMemberships_nextToken,
     listChannelMemberships_type,
+    listChannelMemberships_subChannelId,
     listChannelMemberships_maxResults,
     listChannelMemberships_channelArn,
     listChannelMemberships_chimeBearer,
@@ -62,10 +68,15 @@ data ListChannelMemberships = ListChannelMemberships'
     -- memberships are returned.
     nextToken :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
-    -- are always returned as part of @ListChannelMemberships@. Hidden members
-    -- are only returned if the type filter in @ListChannelMemberships@ equals
-    -- @HIDDEN@. Otherwise hidden members are not returned.
+    -- are returned as part of @ListChannelMemberships@ if no type is
+    -- specified. Hidden members are only returned if the type filter in
+    -- @ListChannelMemberships@ equals @HIDDEN@.
     type' :: Prelude.Maybe ChannelMembershipType,
+    -- | The ID of the SubChannel in the request.
+    --
+    -- Only required when listing a user\'s memberships in a particular
+    -- sub-channel of an elastic channel.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of channel memberships that you want returned.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of channel memberships that you want returned.
@@ -87,9 +98,14 @@ data ListChannelMemberships = ListChannelMemberships'
 -- memberships are returned.
 --
 -- 'type'', 'listChannelMemberships_type' - The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
--- are always returned as part of @ListChannelMemberships@. Hidden members
--- are only returned if the type filter in @ListChannelMemberships@ equals
--- @HIDDEN@. Otherwise hidden members are not returned.
+-- are returned as part of @ListChannelMemberships@ if no type is
+-- specified. Hidden members are only returned if the type filter in
+-- @ListChannelMemberships@ equals @HIDDEN@.
+--
+-- 'subChannelId', 'listChannelMemberships_subChannelId' - The ID of the SubChannel in the request.
+--
+-- Only required when listing a user\'s memberships in a particular
+-- sub-channel of an elastic channel.
 --
 -- 'maxResults', 'listChannelMemberships_maxResults' - The maximum number of channel memberships that you want returned.
 --
@@ -107,6 +123,7 @@ newListChannelMemberships pChannelArn_ pChimeBearer_ =
     { nextToken =
         Prelude.Nothing,
       type' = Prelude.Nothing,
+      subChannelId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       channelArn = pChannelArn_,
       chimeBearer = pChimeBearer_
@@ -118,11 +135,18 @@ listChannelMemberships_nextToken :: Lens.Lens' ListChannelMemberships (Prelude.M
 listChannelMemberships_nextToken = Lens.lens (\ListChannelMemberships' {nextToken} -> nextToken) (\s@ListChannelMemberships' {} a -> s {nextToken = a} :: ListChannelMemberships) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The membership type of a user, @DEFAULT@ or @HIDDEN@. Default members
--- are always returned as part of @ListChannelMemberships@. Hidden members
--- are only returned if the type filter in @ListChannelMemberships@ equals
--- @HIDDEN@. Otherwise hidden members are not returned.
+-- are returned as part of @ListChannelMemberships@ if no type is
+-- specified. Hidden members are only returned if the type filter in
+-- @ListChannelMemberships@ equals @HIDDEN@.
 listChannelMemberships_type :: Lens.Lens' ListChannelMemberships (Prelude.Maybe ChannelMembershipType)
 listChannelMemberships_type = Lens.lens (\ListChannelMemberships' {type'} -> type') (\s@ListChannelMemberships' {} a -> s {type' = a} :: ListChannelMemberships)
+
+-- | The ID of the SubChannel in the request.
+--
+-- Only required when listing a user\'s memberships in a particular
+-- sub-channel of an elastic channel.
+listChannelMemberships_subChannelId :: Lens.Lens' ListChannelMemberships (Prelude.Maybe Prelude.Text)
+listChannelMemberships_subChannelId = Lens.lens (\ListChannelMemberships' {subChannelId} -> subChannelId) (\s@ListChannelMemberships' {} a -> s {subChannelId = a} :: ListChannelMemberships)
 
 -- | The maximum number of channel memberships that you want returned.
 listChannelMemberships_maxResults :: Lens.Lens' ListChannelMemberships (Prelude.Maybe Prelude.Natural)
@@ -157,6 +181,7 @@ instance Prelude.Hashable ListChannelMemberships where
   hashWithSalt _salt ListChannelMemberships' {..} =
     _salt `Prelude.hashWithSalt` nextToken
       `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` maxResults
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` chimeBearer
@@ -165,6 +190,7 @@ instance Prelude.NFData ListChannelMemberships where
   rnf ListChannelMemberships' {..} =
     Prelude.rnf nextToken
       `Prelude.seq` Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf maxResults
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf chimeBearer
@@ -184,6 +210,7 @@ instance Core.ToQuery ListChannelMemberships where
     Prelude.mconcat
       [ "next-token" Core.=: nextToken,
         "type" Core.=: type',
+        "sub-channel-id" Core.=: subChannelId,
         "max-results" Core.=: maxResults
       ]
 

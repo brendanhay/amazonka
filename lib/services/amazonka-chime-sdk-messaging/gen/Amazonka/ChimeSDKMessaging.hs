@@ -16,7 +16,7 @@
 -- applications. These APIs depend on the frameworks provided by the Amazon
 -- Chime SDK Identity APIs. For more information about the messaging APIs,
 -- see
--- <https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging Amazon Chime SDK messaging>
+-- <https://docs.aws.amazon.com/chime/latest/APIReference/API_Operations_Amazon_Chime_SDK_Messaging.html Amazon Chime SDK messaging>.
 module Amazonka.ChimeSDKMessaging
   ( -- * Service Configuration
     defaultService,
@@ -189,6 +189,12 @@ module Amazonka.ChimeSDKMessaging
     DisassociateChannelFlowResponse (DisassociateChannelFlowResponse'),
     newDisassociateChannelFlowResponse,
 
+    -- ** GetChannelMembershipPreferences
+    GetChannelMembershipPreferences (GetChannelMembershipPreferences'),
+    newGetChannelMembershipPreferences,
+    GetChannelMembershipPreferencesResponse (GetChannelMembershipPreferencesResponse'),
+    newGetChannelMembershipPreferencesResponse,
+
     -- ** GetChannelMessage
     GetChannelMessage (GetChannelMessage'),
     newGetChannelMessage,
@@ -261,17 +267,35 @@ module Amazonka.ChimeSDKMessaging
     ListChannelsModeratedByAppInstanceUserResponse (ListChannelsModeratedByAppInstanceUserResponse'),
     newListChannelsModeratedByAppInstanceUserResponse,
 
+    -- ** ListSubChannels
+    ListSubChannels (ListSubChannels'),
+    newListSubChannels,
+    ListSubChannelsResponse (ListSubChannelsResponse'),
+    newListSubChannelsResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
     ListTagsForResourceResponse (ListTagsForResourceResponse'),
     newListTagsForResourceResponse,
 
+    -- ** PutChannelMembershipPreferences
+    PutChannelMembershipPreferences (PutChannelMembershipPreferences'),
+    newPutChannelMembershipPreferences,
+    PutChannelMembershipPreferencesResponse (PutChannelMembershipPreferencesResponse'),
+    newPutChannelMembershipPreferencesResponse,
+
     -- ** RedactChannelMessage
     RedactChannelMessage (RedactChannelMessage'),
     newRedactChannelMessage,
     RedactChannelMessageResponse (RedactChannelMessageResponse'),
     newRedactChannelMessageResponse,
+
+    -- ** SearchChannels
+    SearchChannels (SearchChannels'),
+    newSearchChannels,
+    SearchChannelsResponse (SearchChannelsResponse'),
+    newSearchChannelsResponse,
 
     -- ** SendChannelMessage
     SendChannelMessage (SendChannelMessage'),
@@ -317,6 +341,9 @@ module Amazonka.ChimeSDKMessaging
 
     -- * Types
 
+    -- ** AllowNotifications
+    AllowNotifications (..),
+
     -- ** ChannelMembershipType
     ChannelMembershipType (..),
 
@@ -343,6 +370,15 @@ module Amazonka.ChimeSDKMessaging
 
     -- ** InvocationType
     InvocationType (..),
+
+    -- ** PushNotificationType
+    PushNotificationType (..),
+
+    -- ** SearchFieldKey
+    SearchFieldKey (..),
+
+    -- ** SearchFieldOperator
+    SearchFieldOperator (..),
 
     -- ** SortOrder
     SortOrder (..),
@@ -391,6 +427,10 @@ module Amazonka.ChimeSDKMessaging
     ChannelMembershipForAppInstanceUserSummary (ChannelMembershipForAppInstanceUserSummary'),
     newChannelMembershipForAppInstanceUserSummary,
 
+    -- ** ChannelMembershipPreferences
+    ChannelMembershipPreferences (ChannelMembershipPreferences'),
+    newChannelMembershipPreferences,
+
     -- ** ChannelMembershipSummary
     ChannelMembershipSummary (ChannelMembershipSummary'),
     newChannelMembershipSummary,
@@ -427,6 +467,10 @@ module Amazonka.ChimeSDKMessaging
     ChannelSummary (ChannelSummary'),
     newChannelSummary,
 
+    -- ** ElasticChannelConfiguration
+    ElasticChannelConfiguration (ElasticChannelConfiguration'),
+    newElasticChannelConfiguration,
+
     -- ** Identity
     Identity (Identity'),
     newIdentity,
@@ -434,6 +478,10 @@ module Amazonka.ChimeSDKMessaging
     -- ** LambdaConfiguration
     LambdaConfiguration (LambdaConfiguration'),
     newLambdaConfiguration,
+
+    -- ** MessageAttributeValue
+    MessageAttributeValue (MessageAttributeValue'),
+    newMessageAttributeValue,
 
     -- ** MessagingSessionEndpoint
     MessagingSessionEndpoint (MessagingSessionEndpoint'),
@@ -446,6 +494,22 @@ module Amazonka.ChimeSDKMessaging
     -- ** ProcessorConfiguration
     ProcessorConfiguration (ProcessorConfiguration'),
     newProcessorConfiguration,
+
+    -- ** PushNotificationConfiguration
+    PushNotificationConfiguration (PushNotificationConfiguration'),
+    newPushNotificationConfiguration,
+
+    -- ** PushNotificationPreferences
+    PushNotificationPreferences (PushNotificationPreferences'),
+    newPushNotificationPreferences,
+
+    -- ** SearchField
+    SearchField (SearchField'),
+    newSearchField,
+
+    -- ** SubChannelSummary
+    SubChannelSummary (SubChannelSummary'),
+    newSubChannelSummary,
 
     -- ** Tag
     Tag (Tag'),
@@ -475,6 +539,7 @@ import Amazonka.ChimeSDKMessaging.DescribeChannelMembershipForAppInstanceUser
 import Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser
 import Amazonka.ChimeSDKMessaging.DescribeChannelModerator
 import Amazonka.ChimeSDKMessaging.DisassociateChannelFlow
+import Amazonka.ChimeSDKMessaging.GetChannelMembershipPreferences
 import Amazonka.ChimeSDKMessaging.GetChannelMessage
 import Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
 import Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint
@@ -488,8 +553,11 @@ import Amazonka.ChimeSDKMessaging.ListChannelModerators
 import Amazonka.ChimeSDKMessaging.ListChannels
 import Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
 import Amazonka.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
+import Amazonka.ChimeSDKMessaging.ListSubChannels
 import Amazonka.ChimeSDKMessaging.ListTagsForResource
+import Amazonka.ChimeSDKMessaging.PutChannelMembershipPreferences
 import Amazonka.ChimeSDKMessaging.RedactChannelMessage
+import Amazonka.ChimeSDKMessaging.SearchChannels
 import Amazonka.ChimeSDKMessaging.SendChannelMessage
 import Amazonka.ChimeSDKMessaging.TagResource
 import Amazonka.ChimeSDKMessaging.Types

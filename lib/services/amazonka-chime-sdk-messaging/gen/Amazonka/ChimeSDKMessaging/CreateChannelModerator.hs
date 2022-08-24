@@ -67,7 +67,7 @@ import qualified Amazonka.Response as Response
 data CreateChannelModerator = CreateChannelModerator'
   { -- | The ARN of the channel.
     channelArn :: Prelude.Text,
-    -- | The ARN of the moderator.
+    -- | The @AppInstanceUserArn@ of the moderator.
     channelModeratorArn :: Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
@@ -84,7 +84,7 @@ data CreateChannelModerator = CreateChannelModerator'
 --
 -- 'channelArn', 'createChannelModerator_channelArn' - The ARN of the channel.
 --
--- 'channelModeratorArn', 'createChannelModerator_channelModeratorArn' - The ARN of the moderator.
+-- 'channelModeratorArn', 'createChannelModerator_channelModeratorArn' - The @AppInstanceUserArn@ of the moderator.
 --
 -- 'chimeBearer', 'createChannelModerator_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 newCreateChannelModerator ::
@@ -109,7 +109,7 @@ newCreateChannelModerator
 createChannelModerator_channelArn :: Lens.Lens' CreateChannelModerator Prelude.Text
 createChannelModerator_channelArn = Lens.lens (\CreateChannelModerator' {channelArn} -> channelArn) (\s@CreateChannelModerator' {} a -> s {channelArn = a} :: CreateChannelModerator)
 
--- | The ARN of the moderator.
+-- | The @AppInstanceUserArn@ of the moderator.
 createChannelModerator_channelModeratorArn :: Lens.Lens' CreateChannelModerator Prelude.Text
 createChannelModerator_channelModeratorArn = Lens.lens (\CreateChannelModerator' {channelModeratorArn} -> channelModeratorArn) (\s@CreateChannelModerator' {} a -> s {channelModeratorArn = a} :: CreateChannelModerator)
 

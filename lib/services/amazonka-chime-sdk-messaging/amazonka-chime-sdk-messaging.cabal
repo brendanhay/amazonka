@@ -66,6 +66,7 @@ library
     Amazonka.ChimeSDKMessaging.DescribeChannelModeratedByAppInstanceUser
     Amazonka.ChimeSDKMessaging.DescribeChannelModerator
     Amazonka.ChimeSDKMessaging.DisassociateChannelFlow
+    Amazonka.ChimeSDKMessaging.GetChannelMembershipPreferences
     Amazonka.ChimeSDKMessaging.GetChannelMessage
     Amazonka.ChimeSDKMessaging.GetChannelMessageStatus
     Amazonka.ChimeSDKMessaging.GetMessagingSessionEndpoint
@@ -79,11 +80,15 @@ library
     Amazonka.ChimeSDKMessaging.ListChannels
     Amazonka.ChimeSDKMessaging.ListChannelsAssociatedWithChannelFlow
     Amazonka.ChimeSDKMessaging.ListChannelsModeratedByAppInstanceUser
+    Amazonka.ChimeSDKMessaging.ListSubChannels
     Amazonka.ChimeSDKMessaging.ListTagsForResource
+    Amazonka.ChimeSDKMessaging.PutChannelMembershipPreferences
     Amazonka.ChimeSDKMessaging.RedactChannelMessage
+    Amazonka.ChimeSDKMessaging.SearchChannels
     Amazonka.ChimeSDKMessaging.SendChannelMessage
     Amazonka.ChimeSDKMessaging.TagResource
     Amazonka.ChimeSDKMessaging.Types
+    Amazonka.ChimeSDKMessaging.Types.AllowNotifications
     Amazonka.ChimeSDKMessaging.Types.AppInstanceUserMembershipSummary
     Amazonka.ChimeSDKMessaging.Types.BatchChannelMemberships
     Amazonka.ChimeSDKMessaging.Types.BatchCreateChannelMembershipError
@@ -95,6 +100,7 @@ library
     Amazonka.ChimeSDKMessaging.Types.ChannelFlowSummary
     Amazonka.ChimeSDKMessaging.Types.ChannelMembership
     Amazonka.ChimeSDKMessaging.Types.ChannelMembershipForAppInstanceUserSummary
+    Amazonka.ChimeSDKMessaging.Types.ChannelMembershipPreferences
     Amazonka.ChimeSDKMessaging.Types.ChannelMembershipSummary
     Amazonka.ChimeSDKMessaging.Types.ChannelMembershipType
     Amazonka.ChimeSDKMessaging.Types.ChannelMessage
@@ -110,15 +116,24 @@ library
     Amazonka.ChimeSDKMessaging.Types.ChannelModeratorSummary
     Amazonka.ChimeSDKMessaging.Types.ChannelPrivacy
     Amazonka.ChimeSDKMessaging.Types.ChannelSummary
+    Amazonka.ChimeSDKMessaging.Types.ElasticChannelConfiguration
     Amazonka.ChimeSDKMessaging.Types.ErrorCode
     Amazonka.ChimeSDKMessaging.Types.FallbackAction
     Amazonka.ChimeSDKMessaging.Types.Identity
     Amazonka.ChimeSDKMessaging.Types.InvocationType
     Amazonka.ChimeSDKMessaging.Types.LambdaConfiguration
+    Amazonka.ChimeSDKMessaging.Types.MessageAttributeValue
     Amazonka.ChimeSDKMessaging.Types.MessagingSessionEndpoint
     Amazonka.ChimeSDKMessaging.Types.Processor
     Amazonka.ChimeSDKMessaging.Types.ProcessorConfiguration
+    Amazonka.ChimeSDKMessaging.Types.PushNotificationConfiguration
+    Amazonka.ChimeSDKMessaging.Types.PushNotificationPreferences
+    Amazonka.ChimeSDKMessaging.Types.PushNotificationType
+    Amazonka.ChimeSDKMessaging.Types.SearchField
+    Amazonka.ChimeSDKMessaging.Types.SearchFieldKey
+    Amazonka.ChimeSDKMessaging.Types.SearchFieldOperator
     Amazonka.ChimeSDKMessaging.Types.SortOrder
+    Amazonka.ChimeSDKMessaging.Types.SubChannelSummary
     Amazonka.ChimeSDKMessaging.Types.Tag
     Amazonka.ChimeSDKMessaging.UntagResource
     Amazonka.ChimeSDKMessaging.UpdateChannel

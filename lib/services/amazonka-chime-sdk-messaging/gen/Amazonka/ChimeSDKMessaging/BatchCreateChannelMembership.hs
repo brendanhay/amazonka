@@ -28,6 +28,7 @@ module Amazonka.ChimeSDKMessaging.BatchCreateChannelMembership
 
     -- * Request Lenses
     batchCreateChannelMembership_type,
+    batchCreateChannelMembership_subChannelId,
     batchCreateChannelMembership_channelArn,
     batchCreateChannelMembership_memberArns,
     batchCreateChannelMembership_chimeBearer,
@@ -58,9 +59,14 @@ data BatchCreateChannelMembership = BatchCreateChannelMembership'
     -- @HIDDEN@. Otherwise hidden members are not returned. This is only
     -- supported by moderators.
     type' :: Prelude.Maybe ChannelMembershipType,
+    -- | The ID of the SubChannel in the request.
+    --
+    -- Only required when creating membership in a SubChannel for a moderator
+    -- in an elastic channel.
+    subChannelId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the channel to which you\'re adding users.
     channelArn :: Prelude.Text,
-    -- | The ARNs of the members you want to add to the channel.
+    -- | The @AppInstanceUserArn@s of the members you want to add to the channel.
     memberArns :: Prelude.NonEmpty Prelude.Text,
     -- | The @AppInstanceUserArn@ of the user that makes the API call.
     chimeBearer :: Prelude.Text
@@ -81,9 +87,14 @@ data BatchCreateChannelMembership = BatchCreateChannelMembership'
 -- @HIDDEN@. Otherwise hidden members are not returned. This is only
 -- supported by moderators.
 --
+-- 'subChannelId', 'batchCreateChannelMembership_subChannelId' - The ID of the SubChannel in the request.
+--
+-- Only required when creating membership in a SubChannel for a moderator
+-- in an elastic channel.
+--
 -- 'channelArn', 'batchCreateChannelMembership_channelArn' - The ARN of the channel to which you\'re adding users.
 --
--- 'memberArns', 'batchCreateChannelMembership_memberArns' - The ARNs of the members you want to add to the channel.
+-- 'memberArns', 'batchCreateChannelMembership_memberArns' - The @AppInstanceUserArn@s of the members you want to add to the channel.
 --
 -- 'chimeBearer', 'batchCreateChannelMembership_chimeBearer' - The @AppInstanceUserArn@ of the user that makes the API call.
 newBatchCreateChannelMembership ::
@@ -101,6 +112,7 @@ newBatchCreateChannelMembership
     BatchCreateChannelMembership'
       { type' =
           Prelude.Nothing,
+        subChannelId = Prelude.Nothing,
         channelArn = pChannelArn_,
         memberArns = Lens.coerced Lens.# pMemberArns_,
         chimeBearer = pChimeBearer_
@@ -114,11 +126,18 @@ newBatchCreateChannelMembership
 batchCreateChannelMembership_type :: Lens.Lens' BatchCreateChannelMembership (Prelude.Maybe ChannelMembershipType)
 batchCreateChannelMembership_type = Lens.lens (\BatchCreateChannelMembership' {type'} -> type') (\s@BatchCreateChannelMembership' {} a -> s {type' = a} :: BatchCreateChannelMembership)
 
+-- | The ID of the SubChannel in the request.
+--
+-- Only required when creating membership in a SubChannel for a moderator
+-- in an elastic channel.
+batchCreateChannelMembership_subChannelId :: Lens.Lens' BatchCreateChannelMembership (Prelude.Maybe Prelude.Text)
+batchCreateChannelMembership_subChannelId = Lens.lens (\BatchCreateChannelMembership' {subChannelId} -> subChannelId) (\s@BatchCreateChannelMembership' {} a -> s {subChannelId = a} :: BatchCreateChannelMembership)
+
 -- | The ARN of the channel to which you\'re adding users.
 batchCreateChannelMembership_channelArn :: Lens.Lens' BatchCreateChannelMembership Prelude.Text
 batchCreateChannelMembership_channelArn = Lens.lens (\BatchCreateChannelMembership' {channelArn} -> channelArn) (\s@BatchCreateChannelMembership' {} a -> s {channelArn = a} :: BatchCreateChannelMembership)
 
--- | The ARNs of the members you want to add to the channel.
+-- | The @AppInstanceUserArn@s of the members you want to add to the channel.
 batchCreateChannelMembership_memberArns :: Lens.Lens' BatchCreateChannelMembership (Prelude.NonEmpty Prelude.Text)
 batchCreateChannelMembership_memberArns = Lens.lens (\BatchCreateChannelMembership' {memberArns} -> memberArns) (\s@BatchCreateChannelMembership' {} a -> s {memberArns = a} :: BatchCreateChannelMembership) Prelude.. Lens.coerced
 
@@ -146,6 +165,7 @@ instance
   where
   hashWithSalt _salt BatchCreateChannelMembership' {..} =
     _salt `Prelude.hashWithSalt` type'
+      `Prelude.hashWithSalt` subChannelId
       `Prelude.hashWithSalt` channelArn
       `Prelude.hashWithSalt` memberArns
       `Prelude.hashWithSalt` chimeBearer
@@ -153,6 +173,7 @@ instance
 instance Prelude.NFData BatchCreateChannelMembership where
   rnf BatchCreateChannelMembership' {..} =
     Prelude.rnf type'
+      `Prelude.seq` Prelude.rnf subChannelId
       `Prelude.seq` Prelude.rnf channelArn
       `Prelude.seq` Prelude.rnf memberArns
       `Prelude.seq` Prelude.rnf chimeBearer
@@ -167,6 +188,7 @@ instance Core.ToJSON BatchCreateChannelMembership where
     Core.object
       ( Prelude.catMaybes
           [ ("Type" Core..=) Prelude.<$> type',
+            ("SubChannelId" Core..=) Prelude.<$> subChannelId,
             Prelude.Just ("MemberArns" Core..= memberArns)
           ]
       )

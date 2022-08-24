@@ -51,9 +51,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteFolder' smart constructor.
 data DeleteFolder = DeleteFolder'
-  { -- | The AWS Account ID for the folder.
+  { -- | The ID for the Amazon Web Services account that contains the folder.
     awsAccountId :: Prelude.Text,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,9 +66,9 @@ data DeleteFolder = DeleteFolder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'deleteFolder_awsAccountId' - The AWS Account ID for the folder.
+-- 'awsAccountId', 'deleteFolder_awsAccountId' - The ID for the Amazon Web Services account that contains the folder.
 --
--- 'folderId', 'deleteFolder_folderId' - The folder ID.
+-- 'folderId', 'deleteFolder_folderId' - The ID of the folder.
 newDeleteFolder ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -81,11 +81,11 @@ newDeleteFolder pAwsAccountId_ pFolderId_ =
       folderId = pFolderId_
     }
 
--- | The AWS Account ID for the folder.
+-- | The ID for the Amazon Web Services account that contains the folder.
 deleteFolder_awsAccountId :: Lens.Lens' DeleteFolder Prelude.Text
 deleteFolder_awsAccountId = Lens.lens (\DeleteFolder' {awsAccountId} -> awsAccountId) (\s@DeleteFolder' {} a -> s {awsAccountId = a} :: DeleteFolder)
 
--- | The folder ID.
+-- | The ID of the folder.
 deleteFolder_folderId :: Lens.Lens' DeleteFolder Prelude.Text
 deleteFolder_folderId = Lens.lens (\DeleteFolder' {folderId} -> folderId) (\s@DeleteFolder' {} a -> s {folderId = a} :: DeleteFolder)
 
@@ -137,14 +137,13 @@ instance Core.ToQuery DeleteFolder where
 
 -- | /See:/ 'newDeleteFolderResponse' smart constructor.
 data DeleteFolderResponse = DeleteFolderResponse'
-  { -- | The request ID.
+  { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name of the deleted folder.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
-    -- | The status of deleting the folder. If succeeded, the status is
-    -- @SC_OK (200)@.
+    -- | The HTTP status of the request.
     status :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -157,14 +156,13 @@ data DeleteFolderResponse = DeleteFolderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteFolderResponse_requestId' - The request ID.
+-- 'requestId', 'deleteFolderResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'arn', 'deleteFolderResponse_arn' - The Amazon Resource Name of the deleted folder.
 --
--- 'folderId', 'deleteFolderResponse_folderId' - The folder ID.
+-- 'folderId', 'deleteFolderResponse_folderId' - The ID of the folder.
 --
--- 'status', 'deleteFolderResponse_status' - The status of deleting the folder. If succeeded, the status is
--- @SC_OK (200)@.
+-- 'status', 'deleteFolderResponse_status' - The HTTP status of the request.
 newDeleteFolderResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -177,7 +175,7 @@ newDeleteFolderResponse pStatus_ =
       status = pStatus_
     }
 
--- | The request ID.
+-- | The Amazon Web Services request ID for this operation.
 deleteFolderResponse_requestId :: Lens.Lens' DeleteFolderResponse (Prelude.Maybe Prelude.Text)
 deleteFolderResponse_requestId = Lens.lens (\DeleteFolderResponse' {requestId} -> requestId) (\s@DeleteFolderResponse' {} a -> s {requestId = a} :: DeleteFolderResponse)
 
@@ -185,12 +183,11 @@ deleteFolderResponse_requestId = Lens.lens (\DeleteFolderResponse' {requestId} -
 deleteFolderResponse_arn :: Lens.Lens' DeleteFolderResponse (Prelude.Maybe Prelude.Text)
 deleteFolderResponse_arn = Lens.lens (\DeleteFolderResponse' {arn} -> arn) (\s@DeleteFolderResponse' {} a -> s {arn = a} :: DeleteFolderResponse)
 
--- | The folder ID.
+-- | The ID of the folder.
 deleteFolderResponse_folderId :: Lens.Lens' DeleteFolderResponse (Prelude.Maybe Prelude.Text)
 deleteFolderResponse_folderId = Lens.lens (\DeleteFolderResponse' {folderId} -> folderId) (\s@DeleteFolderResponse' {} a -> s {folderId = a} :: DeleteFolderResponse)
 
--- | The status of deleting the folder. If succeeded, the status is
--- @SC_OK (200)@.
+-- | The HTTP status of the request.
 deleteFolderResponse_status :: Lens.Lens' DeleteFolderResponse Prelude.Int
 deleteFolderResponse_status = Lens.lens (\DeleteFolderResponse' {status} -> status) (\s@DeleteFolderResponse' {} a -> s {status = a} :: DeleteFolderResponse)
 

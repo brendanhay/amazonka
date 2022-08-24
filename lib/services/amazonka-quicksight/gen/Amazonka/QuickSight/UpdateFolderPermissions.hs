@@ -59,9 +59,10 @@ data UpdateFolderPermissions = UpdateFolderPermissions'
     grantPermissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
     -- | The permissions that you want to revoke from a resource.
     revokePermissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | The AWS account ID.
+    -- | The ID for the Amazon Web Services account that contains the folder to
+    -- update.
     awsAccountId :: Prelude.Text,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,9 +79,10 @@ data UpdateFolderPermissions = UpdateFolderPermissions'
 --
 -- 'revokePermissions', 'updateFolderPermissions_revokePermissions' - The permissions that you want to revoke from a resource.
 --
--- 'awsAccountId', 'updateFolderPermissions_awsAccountId' - The AWS account ID.
+-- 'awsAccountId', 'updateFolderPermissions_awsAccountId' - The ID for the Amazon Web Services account that contains the folder to
+-- update.
 --
--- 'folderId', 'updateFolderPermissions_folderId' - The folder ID.
+-- 'folderId', 'updateFolderPermissions_folderId' - The ID of the folder.
 newUpdateFolderPermissions ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -104,11 +106,12 @@ updateFolderPermissions_grantPermissions = Lens.lens (\UpdateFolderPermissions' 
 updateFolderPermissions_revokePermissions :: Lens.Lens' UpdateFolderPermissions (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 updateFolderPermissions_revokePermissions = Lens.lens (\UpdateFolderPermissions' {revokePermissions} -> revokePermissions) (\s@UpdateFolderPermissions' {} a -> s {revokePermissions = a} :: UpdateFolderPermissions) Prelude.. Lens.mapping Lens.coerced
 
--- | The AWS account ID.
+-- | The ID for the Amazon Web Services account that contains the folder to
+-- update.
 updateFolderPermissions_awsAccountId :: Lens.Lens' UpdateFolderPermissions Prelude.Text
 updateFolderPermissions_awsAccountId = Lens.lens (\UpdateFolderPermissions' {awsAccountId} -> awsAccountId) (\s@UpdateFolderPermissions' {} a -> s {awsAccountId = a} :: UpdateFolderPermissions)
 
--- | The folder ID.
+-- | The ID of the folder.
 updateFolderPermissions_folderId :: Lens.Lens' UpdateFolderPermissions Prelude.Text
 updateFolderPermissions_folderId = Lens.lens (\UpdateFolderPermissions' {folderId} -> folderId) (\s@UpdateFolderPermissions' {} a -> s {folderId = a} :: UpdateFolderPermissions)
 
@@ -180,15 +183,15 @@ instance Core.ToQuery UpdateFolderPermissions where
 
 -- | /See:/ 'newUpdateFolderPermissionsResponse' smart constructor.
 data UpdateFolderPermissionsResponse = UpdateFolderPermissionsResponse'
-  { -- | The request ID.
+  { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN).
+    -- | The Amazon Resource Name (ARN) of the folder.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Information about the permissions on the dashboard.
+    -- | Information about the permissions for the folder.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | The status. If succeeded, the status is @SC_OK@.
+    -- | The HTTP status of the request.
     status :: Prelude.Maybe Prelude.Int,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -203,15 +206,15 @@ data UpdateFolderPermissionsResponse = UpdateFolderPermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'updateFolderPermissionsResponse_requestId' - The request ID.
+-- 'requestId', 'updateFolderPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'arn', 'updateFolderPermissionsResponse_arn' - The Amazon Resource Name (ARN).
+-- 'arn', 'updateFolderPermissionsResponse_arn' - The Amazon Resource Name (ARN) of the folder.
 --
--- 'permissions', 'updateFolderPermissionsResponse_permissions' - Information about the permissions on the dashboard.
+-- 'permissions', 'updateFolderPermissionsResponse_permissions' - Information about the permissions for the folder.
 --
--- 'status', 'updateFolderPermissionsResponse_status' - The status. If succeeded, the status is @SC_OK@.
+-- 'status', 'updateFolderPermissionsResponse_status' - The HTTP status of the request.
 --
--- 'folderId', 'updateFolderPermissionsResponse_folderId' - The folder ID.
+-- 'folderId', 'updateFolderPermissionsResponse_folderId' - The ID of the folder.
 --
 -- 'httpStatus', 'updateFolderPermissionsResponse_httpStatus' - The response's http status code.
 newUpdateFolderPermissionsResponse ::
@@ -229,23 +232,23 @@ newUpdateFolderPermissionsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The request ID.
+-- | The Amazon Web Services request ID for this operation.
 updateFolderPermissionsResponse_requestId :: Lens.Lens' UpdateFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
 updateFolderPermissionsResponse_requestId = Lens.lens (\UpdateFolderPermissionsResponse' {requestId} -> requestId) (\s@UpdateFolderPermissionsResponse' {} a -> s {requestId = a} :: UpdateFolderPermissionsResponse)
 
--- | The Amazon Resource Name (ARN).
+-- | The Amazon Resource Name (ARN) of the folder.
 updateFolderPermissionsResponse_arn :: Lens.Lens' UpdateFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
 updateFolderPermissionsResponse_arn = Lens.lens (\UpdateFolderPermissionsResponse' {arn} -> arn) (\s@UpdateFolderPermissionsResponse' {} a -> s {arn = a} :: UpdateFolderPermissionsResponse)
 
--- | Information about the permissions on the dashboard.
+-- | Information about the permissions for the folder.
 updateFolderPermissionsResponse_permissions :: Lens.Lens' UpdateFolderPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 updateFolderPermissionsResponse_permissions = Lens.lens (\UpdateFolderPermissionsResponse' {permissions} -> permissions) (\s@UpdateFolderPermissionsResponse' {} a -> s {permissions = a} :: UpdateFolderPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The status. If succeeded, the status is @SC_OK@.
+-- | The HTTP status of the request.
 updateFolderPermissionsResponse_status :: Lens.Lens' UpdateFolderPermissionsResponse (Prelude.Maybe Prelude.Int)
 updateFolderPermissionsResponse_status = Lens.lens (\UpdateFolderPermissionsResponse' {status} -> status) (\s@UpdateFolderPermissionsResponse' {} a -> s {status = a} :: UpdateFolderPermissionsResponse)
 
--- | The folder ID.
+-- | The ID of the folder.
 updateFolderPermissionsResponse_folderId :: Lens.Lens' UpdateFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
 updateFolderPermissionsResponse_folderId = Lens.lens (\UpdateFolderPermissionsResponse' {folderId} -> folderId) (\s@UpdateFolderPermissionsResponse' {} a -> s {folderId = a} :: UpdateFolderPermissionsResponse)
 

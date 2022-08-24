@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides a summary and status of IP Rules.
+-- Provides a summary and status of IP rules.
 module Amazonka.QuickSight.DescribeIpRestriction
   ( -- * Creating a Request
     DescribeIpRestriction (..),
@@ -51,7 +51,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeIpRestriction' smart constructor.
 data DescribeIpRestriction = DescribeIpRestriction'
-  { -- | Your AWS account ID.
+  { -- | The ID of the Amazon Web Services account that contains the IP rules.
     awsAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data DescribeIpRestriction = DescribeIpRestriction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'describeIpRestriction_awsAccountId' - Your AWS account ID.
+-- 'awsAccountId', 'describeIpRestriction_awsAccountId' - The ID of the Amazon Web Services account that contains the IP rules.
 newDescribeIpRestriction ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -75,7 +75,7 @@ newDescribeIpRestriction pAwsAccountId_ =
         pAwsAccountId_
     }
 
--- | Your AWS account ID.
+-- | The ID of the Amazon Web Services account that contains the IP rules.
 describeIpRestriction_awsAccountId :: Lens.Lens' DescribeIpRestriction Prelude.Text
 describeIpRestriction_awsAccountId = Lens.lens (\DescribeIpRestriction' {awsAccountId} -> awsAccountId) (\s@DescribeIpRestriction' {} a -> s {awsAccountId = a} :: DescribeIpRestriction)
 
@@ -129,16 +129,15 @@ instance Core.ToQuery DescribeIpRestriction where
 
 -- | /See:/ 'newDescribeIpRestrictionResponse' smart constructor.
 data DescribeIpRestrictionResponse = DescribeIpRestrictionResponse'
-  { -- | Your AWS account ID.
+  { -- | The ID of the Amazon Web Services account that contains the IP rules.
     awsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | Describes the IP rules with CIDR range and description.
+    -- | A map that describes the IP rules with CIDR range and description.
     ipRestrictionRuleMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The ID of the describe request.
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | Whether or not IP rules are enabled.
+    -- | A value that specifies whether IP rules are turned on.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | The status of a set of IP restrictions. A successful request returns a
-    -- 200 status code.
+    -- | The HTTP status of the request.
     status :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -151,16 +150,15 @@ data DescribeIpRestrictionResponse = DescribeIpRestrictionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'describeIpRestrictionResponse_awsAccountId' - Your AWS account ID.
+-- 'awsAccountId', 'describeIpRestrictionResponse_awsAccountId' - The ID of the Amazon Web Services account that contains the IP rules.
 --
--- 'ipRestrictionRuleMap', 'describeIpRestrictionResponse_ipRestrictionRuleMap' - Describes the IP rules with CIDR range and description.
+-- 'ipRestrictionRuleMap', 'describeIpRestrictionResponse_ipRestrictionRuleMap' - A map that describes the IP rules with CIDR range and description.
 --
--- 'requestId', 'describeIpRestrictionResponse_requestId' - The ID of the describe request.
+-- 'requestId', 'describeIpRestrictionResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'enabled', 'describeIpRestrictionResponse_enabled' - Whether or not IP rules are enabled.
+-- 'enabled', 'describeIpRestrictionResponse_enabled' - A value that specifies whether IP rules are turned on.
 --
--- 'status', 'describeIpRestrictionResponse_status' - The status of a set of IP restrictions. A successful request returns a
--- 200 status code.
+-- 'status', 'describeIpRestrictionResponse_status' - The HTTP status of the request.
 newDescribeIpRestrictionResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -175,24 +173,23 @@ newDescribeIpRestrictionResponse pStatus_ =
       status = pStatus_
     }
 
--- | Your AWS account ID.
+-- | The ID of the Amazon Web Services account that contains the IP rules.
 describeIpRestrictionResponse_awsAccountId :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe Prelude.Text)
 describeIpRestrictionResponse_awsAccountId = Lens.lens (\DescribeIpRestrictionResponse' {awsAccountId} -> awsAccountId) (\s@DescribeIpRestrictionResponse' {} a -> s {awsAccountId = a} :: DescribeIpRestrictionResponse)
 
--- | Describes the IP rules with CIDR range and description.
+-- | A map that describes the IP rules with CIDR range and description.
 describeIpRestrictionResponse_ipRestrictionRuleMap :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 describeIpRestrictionResponse_ipRestrictionRuleMap = Lens.lens (\DescribeIpRestrictionResponse' {ipRestrictionRuleMap} -> ipRestrictionRuleMap) (\s@DescribeIpRestrictionResponse' {} a -> s {ipRestrictionRuleMap = a} :: DescribeIpRestrictionResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ID of the describe request.
+-- | The Amazon Web Services request ID for this operation.
 describeIpRestrictionResponse_requestId :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe Prelude.Text)
 describeIpRestrictionResponse_requestId = Lens.lens (\DescribeIpRestrictionResponse' {requestId} -> requestId) (\s@DescribeIpRestrictionResponse' {} a -> s {requestId = a} :: DescribeIpRestrictionResponse)
 
--- | Whether or not IP rules are enabled.
+-- | A value that specifies whether IP rules are turned on.
 describeIpRestrictionResponse_enabled :: Lens.Lens' DescribeIpRestrictionResponse (Prelude.Maybe Prelude.Bool)
 describeIpRestrictionResponse_enabled = Lens.lens (\DescribeIpRestrictionResponse' {enabled} -> enabled) (\s@DescribeIpRestrictionResponse' {} a -> s {enabled = a} :: DescribeIpRestrictionResponse)
 
--- | The status of a set of IP restrictions. A successful request returns a
--- 200 status code.
+-- | The HTTP status of the request.
 describeIpRestrictionResponse_status :: Lens.Lens' DescribeIpRestrictionResponse Prelude.Int
 describeIpRestrictionResponse_status = Lens.lens (\DescribeIpRestrictionResponse' {status} -> status) (\s@DescribeIpRestrictionResponse' {} a -> s {status = a} :: DescribeIpRestrictionResponse)
 

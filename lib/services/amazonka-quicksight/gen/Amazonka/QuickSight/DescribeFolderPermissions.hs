@@ -52,9 +52,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeFolderPermissions' smart constructor.
 data DescribeFolderPermissions = DescribeFolderPermissions'
-  { -- | The AWS Account ID.
+  { -- | The ID for the Amazon Web Services account that contains the folder.
     awsAccountId :: Prelude.Text,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,9 +67,9 @@ data DescribeFolderPermissions = DescribeFolderPermissions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'describeFolderPermissions_awsAccountId' - The AWS Account ID.
+-- 'awsAccountId', 'describeFolderPermissions_awsAccountId' - The ID for the Amazon Web Services account that contains the folder.
 --
--- 'folderId', 'describeFolderPermissions_folderId' - The folder ID.
+-- 'folderId', 'describeFolderPermissions_folderId' - The ID of the folder.
 newDescribeFolderPermissions ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -85,11 +85,11 @@ newDescribeFolderPermissions
         folderId = pFolderId_
       }
 
--- | The AWS Account ID.
+-- | The ID for the Amazon Web Services account that contains the folder.
 describeFolderPermissions_awsAccountId :: Lens.Lens' DescribeFolderPermissions Prelude.Text
 describeFolderPermissions_awsAccountId = Lens.lens (\DescribeFolderPermissions' {awsAccountId} -> awsAccountId) (\s@DescribeFolderPermissions' {} a -> s {awsAccountId = a} :: DescribeFolderPermissions)
 
--- | The folder ID.
+-- | The ID of the folder.
 describeFolderPermissions_folderId :: Lens.Lens' DescribeFolderPermissions Prelude.Text
 describeFolderPermissions_folderId = Lens.lens (\DescribeFolderPermissions' {folderId} -> folderId) (\s@DescribeFolderPermissions' {} a -> s {folderId = a} :: DescribeFolderPermissions)
 
@@ -145,15 +145,15 @@ instance Core.ToQuery DescribeFolderPermissions where
 
 -- | /See:/ 'newDescribeFolderPermissionsResponse' smart constructor.
 data DescribeFolderPermissionsResponse = DescribeFolderPermissionsResponse'
-  { -- | The request ID.
+  { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the folder.
     arn :: Prelude.Maybe Prelude.Text,
     -- | Information about the permissions on the folder.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
-    -- | The status. If succeeded, the status is @SC_OK@.
+    -- | The HTTP status of the request.
     status :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -166,15 +166,15 @@ data DescribeFolderPermissionsResponse = DescribeFolderPermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'describeFolderPermissionsResponse_requestId' - The request ID.
+-- 'requestId', 'describeFolderPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'arn', 'describeFolderPermissionsResponse_arn' - The Amazon Resource Name (ARN) for the folder.
 --
 -- 'permissions', 'describeFolderPermissionsResponse_permissions' - Information about the permissions on the folder.
 --
--- 'folderId', 'describeFolderPermissionsResponse_folderId' - The folder ID.
+-- 'folderId', 'describeFolderPermissionsResponse_folderId' - The ID of the folder.
 --
--- 'status', 'describeFolderPermissionsResponse_status' - The status. If succeeded, the status is @SC_OK@.
+-- 'status', 'describeFolderPermissionsResponse_status' - The HTTP status of the request.
 newDescribeFolderPermissionsResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -189,7 +189,7 @@ newDescribeFolderPermissionsResponse pStatus_ =
       status = pStatus_
     }
 
--- | The request ID.
+-- | The Amazon Web Services request ID for this operation.
 describeFolderPermissionsResponse_requestId :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeFolderPermissionsResponse_requestId = Lens.lens (\DescribeFolderPermissionsResponse' {requestId} -> requestId) (\s@DescribeFolderPermissionsResponse' {} a -> s {requestId = a} :: DescribeFolderPermissionsResponse)
 
@@ -201,11 +201,11 @@ describeFolderPermissionsResponse_arn = Lens.lens (\DescribeFolderPermissionsRes
 describeFolderPermissionsResponse_permissions :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
 describeFolderPermissionsResponse_permissions = Lens.lens (\DescribeFolderPermissionsResponse' {permissions} -> permissions) (\s@DescribeFolderPermissionsResponse' {} a -> s {permissions = a} :: DescribeFolderPermissionsResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The folder ID.
+-- | The ID of the folder.
 describeFolderPermissionsResponse_folderId :: Lens.Lens' DescribeFolderPermissionsResponse (Prelude.Maybe Prelude.Text)
 describeFolderPermissionsResponse_folderId = Lens.lens (\DescribeFolderPermissionsResponse' {folderId} -> folderId) (\s@DescribeFolderPermissionsResponse' {} a -> s {folderId = a} :: DescribeFolderPermissionsResponse)
 
--- | The status. If succeeded, the status is @SC_OK@.
+-- | The HTTP status of the request.
 describeFolderPermissionsResponse_status :: Lens.Lens' DescribeFolderPermissionsResponse Prelude.Int
 describeFolderPermissionsResponse_status = Lens.lens (\DescribeFolderPermissionsResponse' {status} -> status) (\s@DescribeFolderPermissionsResponse' {} a -> s {status = a} :: DescribeFolderPermissionsResponse)
 

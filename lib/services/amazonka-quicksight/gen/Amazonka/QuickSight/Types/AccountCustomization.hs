@@ -24,12 +24,14 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The Amazon QuickSight customizations associated with your Amazon Web
--- Services account or a Amazon QuickSight namespace in a specific Amazon
--- Web Services Region.
+-- Services account or a QuickSight namespace in a specific Amazon Web
+-- Services Region.
 --
 -- /See:/ 'newAccountCustomization' smart constructor.
 data AccountCustomization = AccountCustomization'
-  { -- | The default theme for this Amazon QuickSight subscription.
+  { -- | The default email customization template.
+    defaultEmailCustomizationTemplate :: Prelude.Maybe Prelude.Text,
+    -- | The default theme for this Amazon QuickSight subscription.
     defaultTheme :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,14 +44,21 @@ data AccountCustomization = AccountCustomization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'defaultEmailCustomizationTemplate', 'accountCustomization_defaultEmailCustomizationTemplate' - The default email customization template.
+--
 -- 'defaultTheme', 'accountCustomization_defaultTheme' - The default theme for this Amazon QuickSight subscription.
 newAccountCustomization ::
   AccountCustomization
 newAccountCustomization =
   AccountCustomization'
-    { defaultTheme =
-        Prelude.Nothing
+    { defaultEmailCustomizationTemplate =
+        Prelude.Nothing,
+      defaultTheme = Prelude.Nothing
     }
+
+-- | The default email customization template.
+accountCustomization_defaultEmailCustomizationTemplate :: Lens.Lens' AccountCustomization (Prelude.Maybe Prelude.Text)
+accountCustomization_defaultEmailCustomizationTemplate = Lens.lens (\AccountCustomization' {defaultEmailCustomizationTemplate} -> defaultEmailCustomizationTemplate) (\s@AccountCustomization' {} a -> s {defaultEmailCustomizationTemplate = a} :: AccountCustomization)
 
 -- | The default theme for this Amazon QuickSight subscription.
 accountCustomization_defaultTheme :: Lens.Lens' AccountCustomization (Prelude.Maybe Prelude.Text)
@@ -61,20 +70,27 @@ instance Core.FromJSON AccountCustomization where
       "AccountCustomization"
       ( \x ->
           AccountCustomization'
-            Prelude.<$> (x Core..:? "DefaultTheme")
+            Prelude.<$> (x Core..:? "DefaultEmailCustomizationTemplate")
+            Prelude.<*> (x Core..:? "DefaultTheme")
       )
 
 instance Prelude.Hashable AccountCustomization where
   hashWithSalt _salt AccountCustomization' {..} =
-    _salt `Prelude.hashWithSalt` defaultTheme
+    _salt
+      `Prelude.hashWithSalt` defaultEmailCustomizationTemplate
+      `Prelude.hashWithSalt` defaultTheme
 
 instance Prelude.NFData AccountCustomization where
   rnf AccountCustomization' {..} =
-    Prelude.rnf defaultTheme
+    Prelude.rnf defaultEmailCustomizationTemplate
+      `Prelude.seq` Prelude.rnf defaultTheme
 
 instance Core.ToJSON AccountCustomization where
   toJSON AccountCustomization' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("DefaultTheme" Core..=) Prelude.<$> defaultTheme]
+          [ ("DefaultEmailCustomizationTemplate" Core..=)
+              Prelude.<$> defaultEmailCustomizationTemplate,
+            ("DefaultTheme" Core..=) Prelude.<$> defaultTheme
+          ]
       )

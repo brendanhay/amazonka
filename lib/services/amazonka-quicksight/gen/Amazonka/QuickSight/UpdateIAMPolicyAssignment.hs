@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing IAMpolicy assignment. This operation updates only
+-- Updates an existing IAM policy assignment. This operation updates only
 -- the optional parameter or parameters that are specified in the request.
 -- This overwrites all of the users included in @Identities@.
 module Amazonka.QuickSight.UpdateIAMPolicyAssignment
@@ -63,7 +63,7 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
   { -- | The Amazon QuickSight users, groups, or both that you want to assign the
     -- policy to.
     identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+    -- | The ARN for the IAM policy to apply to the Amazon QuickSight users and
     -- groups specified in this assignment.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the assignment. Possible values are as follows:
@@ -77,7 +77,7 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
     -- -   @DRAFT@ - This assignment is an unfinished draft and isn\'t used
     --     when creating the data source.
     assignmentStatus :: Prelude.Maybe AssignmentStatus,
-    -- | The ID of the Amazon Web Services account that contains the IAMpolicy
+    -- | The ID of the Amazon Web Services account that contains the IAM policy
     -- assignment.
     awsAccountId :: Prelude.Text,
     -- | The name of the assignment, also called a rule. This name must be unique
@@ -99,7 +99,7 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
 -- 'identities', 'updateIAMPolicyAssignment_identities' - The Amazon QuickSight users, groups, or both that you want to assign the
 -- policy to.
 --
--- 'policyArn', 'updateIAMPolicyAssignment_policyArn' - The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+-- 'policyArn', 'updateIAMPolicyAssignment_policyArn' - The ARN for the IAM policy to apply to the Amazon QuickSight users and
 -- groups specified in this assignment.
 --
 -- 'assignmentStatus', 'updateIAMPolicyAssignment_assignmentStatus' - The status of the assignment. Possible values are as follows:
@@ -113,7 +113,7 @@ data UpdateIAMPolicyAssignment = UpdateIAMPolicyAssignment'
 -- -   @DRAFT@ - This assignment is an unfinished draft and isn\'t used
 --     when creating the data source.
 --
--- 'awsAccountId', 'updateIAMPolicyAssignment_awsAccountId' - The ID of the Amazon Web Services account that contains the IAMpolicy
+-- 'awsAccountId', 'updateIAMPolicyAssignment_awsAccountId' - The ID of the Amazon Web Services account that contains the IAM policy
 -- assignment.
 --
 -- 'assignmentName', 'updateIAMPolicyAssignment_assignmentName' - The name of the assignment, also called a rule. This name must be unique
@@ -147,7 +147,7 @@ newUpdateIAMPolicyAssignment
 updateIAMPolicyAssignment_identities :: Lens.Lens' UpdateIAMPolicyAssignment (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 updateIAMPolicyAssignment_identities = Lens.lens (\UpdateIAMPolicyAssignment' {identities} -> identities) (\s@UpdateIAMPolicyAssignment' {} a -> s {identities = a} :: UpdateIAMPolicyAssignment) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+-- | The ARN for the IAM policy to apply to the Amazon QuickSight users and
 -- groups specified in this assignment.
 updateIAMPolicyAssignment_policyArn :: Lens.Lens' UpdateIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 updateIAMPolicyAssignment_policyArn = Lens.lens (\UpdateIAMPolicyAssignment' {policyArn} -> policyArn) (\s@UpdateIAMPolicyAssignment' {} a -> s {policyArn = a} :: UpdateIAMPolicyAssignment)
@@ -165,7 +165,7 @@ updateIAMPolicyAssignment_policyArn = Lens.lens (\UpdateIAMPolicyAssignment' {po
 updateIAMPolicyAssignment_assignmentStatus :: Lens.Lens' UpdateIAMPolicyAssignment (Prelude.Maybe AssignmentStatus)
 updateIAMPolicyAssignment_assignmentStatus = Lens.lens (\UpdateIAMPolicyAssignment' {assignmentStatus} -> assignmentStatus) (\s@UpdateIAMPolicyAssignment' {} a -> s {assignmentStatus = a} :: UpdateIAMPolicyAssignment)
 
--- | The ID of the Amazon Web Services account that contains the IAMpolicy
+-- | The ID of the Amazon Web Services account that contains the IAM policy
 -- assignment.
 updateIAMPolicyAssignment_awsAccountId :: Lens.Lens' UpdateIAMPolicyAssignment Prelude.Text
 updateIAMPolicyAssignment_awsAccountId = Lens.lens (\UpdateIAMPolicyAssignment' {awsAccountId} -> awsAccountId) (\s@UpdateIAMPolicyAssignment' {} a -> s {awsAccountId = a} :: UpdateIAMPolicyAssignment)
@@ -255,10 +255,10 @@ instance Core.ToQuery UpdateIAMPolicyAssignment where
 data UpdateIAMPolicyAssignmentResponse = UpdateIAMPolicyAssignmentResponse'
   { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon QuickSight users, groups, or both that the IAMpolicy is
+    -- | The Amazon QuickSight users, groups, or both that the IAM policy is
     -- assigned to.
     identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The ARN for the IAMpolicy applied to the Amazon QuickSight users and
+    -- | The ARN for the IAM policy applied to the Amazon QuickSight users and
     -- groups specified in this assignment.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the assignment or rule.
@@ -291,10 +291,10 @@ data UpdateIAMPolicyAssignmentResponse = UpdateIAMPolicyAssignmentResponse'
 --
 -- 'requestId', 'updateIAMPolicyAssignmentResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'identities', 'updateIAMPolicyAssignmentResponse_identities' - The Amazon QuickSight users, groups, or both that the IAMpolicy is
+-- 'identities', 'updateIAMPolicyAssignmentResponse_identities' - The Amazon QuickSight users, groups, or both that the IAM policy is
 -- assigned to.
 --
--- 'policyArn', 'updateIAMPolicyAssignmentResponse_policyArn' - The ARN for the IAMpolicy applied to the Amazon QuickSight users and
+-- 'policyArn', 'updateIAMPolicyAssignmentResponse_policyArn' - The ARN for the IAM policy applied to the Amazon QuickSight users and
 -- groups specified in this assignment.
 --
 -- 'assignmentName', 'updateIAMPolicyAssignmentResponse_assignmentName' - The name of the assignment or rule.
@@ -333,12 +333,12 @@ newUpdateIAMPolicyAssignmentResponse pStatus_ =
 updateIAMPolicyAssignmentResponse_requestId :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 updateIAMPolicyAssignmentResponse_requestId = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {requestId} -> requestId) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {requestId = a} :: UpdateIAMPolicyAssignmentResponse)
 
--- | The Amazon QuickSight users, groups, or both that the IAMpolicy is
+-- | The Amazon QuickSight users, groups, or both that the IAM policy is
 -- assigned to.
 updateIAMPolicyAssignmentResponse_identities :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 updateIAMPolicyAssignmentResponse_identities = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {identities} -> identities) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {identities = a} :: UpdateIAMPolicyAssignmentResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN for the IAMpolicy applied to the Amazon QuickSight users and
+-- | The ARN for the IAM policy applied to the Amazon QuickSight users and
 -- groups specified in this assignment.
 updateIAMPolicyAssignmentResponse_policyArn :: Lens.Lens' UpdateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 updateIAMPolicyAssignmentResponse_policyArn = Lens.lens (\UpdateIAMPolicyAssignmentResponse' {policyArn} -> policyArn) (\s@UpdateIAMPolicyAssignmentResponse' {} a -> s {policyArn = a} :: UpdateIAMPolicyAssignmentResponse)

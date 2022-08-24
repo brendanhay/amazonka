@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists IAMpolicy assignments in the current Amazon QuickSight account.
+-- Lists IAM policy assignments in the current Amazon QuickSight account.
 module Amazonka.QuickSight.ListIAMPolicyAssignments
   ( -- * Creating a Request
     ListIAMPolicyAssignments (..),
@@ -61,7 +61,7 @@ data ListIAMPolicyAssignments = ListIAMPolicyAssignments'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The status of the assignments.
     assignmentStatus :: Prelude.Maybe AssignmentStatus,
-    -- | The ID of the Amazon Web Services account that contains these IAMpolicy
+    -- | The ID of the Amazon Web Services account that contains these IAM policy
     -- assignments.
     awsAccountId :: Prelude.Text,
     -- | The namespace for the assignments.
@@ -84,7 +84,7 @@ data ListIAMPolicyAssignments = ListIAMPolicyAssignments'
 --
 -- 'assignmentStatus', 'listIAMPolicyAssignments_assignmentStatus' - The status of the assignments.
 --
--- 'awsAccountId', 'listIAMPolicyAssignments_awsAccountId' - The ID of the Amazon Web Services account that contains these IAMpolicy
+-- 'awsAccountId', 'listIAMPolicyAssignments_awsAccountId' - The ID of the Amazon Web Services account that contains these IAM policy
 -- assignments.
 --
 -- 'namespace', 'listIAMPolicyAssignments_namespace' - The namespace for the assignments.
@@ -119,7 +119,7 @@ listIAMPolicyAssignments_maxResults = Lens.lens (\ListIAMPolicyAssignments' {max
 listIAMPolicyAssignments_assignmentStatus :: Lens.Lens' ListIAMPolicyAssignments (Prelude.Maybe AssignmentStatus)
 listIAMPolicyAssignments_assignmentStatus = Lens.lens (\ListIAMPolicyAssignments' {assignmentStatus} -> assignmentStatus) (\s@ListIAMPolicyAssignments' {} a -> s {assignmentStatus = a} :: ListIAMPolicyAssignments)
 
--- | The ID of the Amazon Web Services account that contains these IAMpolicy
+-- | The ID of the Amazon Web Services account that contains these IAM policy
 -- assignments.
 listIAMPolicyAssignments_awsAccountId :: Lens.Lens' ListIAMPolicyAssignments Prelude.Text
 listIAMPolicyAssignments_awsAccountId = Lens.lens (\ListIAMPolicyAssignments' {awsAccountId} -> awsAccountId) (\s@ListIAMPolicyAssignments' {} a -> s {awsAccountId = a} :: ListIAMPolicyAssignments)
@@ -194,7 +194,7 @@ data ListIAMPolicyAssignmentsResponse = ListIAMPolicyAssignmentsResponse'
   { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Information describing the IAMpolicy assignments.
+    -- | Information describing the IAM policy assignments.
     iAMPolicyAssignments :: Prelude.Maybe [IAMPolicyAssignmentSummary],
     -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -214,7 +214,7 @@ data ListIAMPolicyAssignmentsResponse = ListIAMPolicyAssignmentsResponse'
 -- 'nextToken', 'listIAMPolicyAssignmentsResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
--- 'iAMPolicyAssignments', 'listIAMPolicyAssignmentsResponse_iAMPolicyAssignments' - Information describing the IAMpolicy assignments.
+-- 'iAMPolicyAssignments', 'listIAMPolicyAssignmentsResponse_iAMPolicyAssignments' - Information describing the IAM policy assignments.
 --
 -- 'requestId', 'listIAMPolicyAssignmentsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
@@ -237,7 +237,7 @@ newListIAMPolicyAssignmentsResponse pStatus_ =
 listIAMPolicyAssignmentsResponse_nextToken :: Lens.Lens' ListIAMPolicyAssignmentsResponse (Prelude.Maybe Prelude.Text)
 listIAMPolicyAssignmentsResponse_nextToken = Lens.lens (\ListIAMPolicyAssignmentsResponse' {nextToken} -> nextToken) (\s@ListIAMPolicyAssignmentsResponse' {} a -> s {nextToken = a} :: ListIAMPolicyAssignmentsResponse)
 
--- | Information describing the IAMpolicy assignments.
+-- | Information describing the IAM policy assignments.
 listIAMPolicyAssignmentsResponse_iAMPolicyAssignments :: Lens.Lens' ListIAMPolicyAssignmentsResponse (Prelude.Maybe [IAMPolicyAssignmentSummary])
 listIAMPolicyAssignmentsResponse_iAMPolicyAssignments = Lens.lens (\ListIAMPolicyAssignmentsResponse' {iAMPolicyAssignments} -> iAMPolicyAssignments) (\s@ListIAMPolicyAssignmentsResponse' {} a -> s {iAMPolicyAssignments = a} :: ListIAMPolicyAssignmentsResponse) Prelude.. Lens.mapping Lens.coerced
 

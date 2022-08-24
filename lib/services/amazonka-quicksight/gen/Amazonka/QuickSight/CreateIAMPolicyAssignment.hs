@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an assignment with one specified IAMpolicy, identified by its
+-- Creates an assignment with one specified IAM policy, identified by its
 -- Amazon Resource Name (ARN). This policy assignment is attached to the
 -- specified groups or users of Amazon QuickSight. Assignment names are
 -- unique per Amazon Web Services account. To avoid overwriting rules in
@@ -65,11 +65,11 @@ data CreateIAMPolicyAssignment = CreateIAMPolicyAssignment'
   { -- | The Amazon QuickSight users, groups, or both that you want to assign the
     -- policy to.
     identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+    -- | The ARN for the IAM policy to apply to the Amazon QuickSight users and
     -- groups specified in this assignment.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Amazon Web Services account where you want to assign an
-    -- IAMpolicy to Amazon QuickSight users or groups.
+    -- IAM policy to Amazon QuickSight users or groups.
     awsAccountId :: Prelude.Text,
     -- | The name of the assignment, also called a rule. It must be unique within
     -- an Amazon Web Services account.
@@ -101,11 +101,11 @@ data CreateIAMPolicyAssignment = CreateIAMPolicyAssignment'
 -- 'identities', 'createIAMPolicyAssignment_identities' - The Amazon QuickSight users, groups, or both that you want to assign the
 -- policy to.
 --
--- 'policyArn', 'createIAMPolicyAssignment_policyArn' - The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+-- 'policyArn', 'createIAMPolicyAssignment_policyArn' - The ARN for the IAM policy to apply to the Amazon QuickSight users and
 -- groups specified in this assignment.
 --
 -- 'awsAccountId', 'createIAMPolicyAssignment_awsAccountId' - The ID of the Amazon Web Services account where you want to assign an
--- IAMpolicy to Amazon QuickSight users or groups.
+-- IAM policy to Amazon QuickSight users or groups.
 --
 -- 'assignmentName', 'createIAMPolicyAssignment_assignmentName' - The name of the assignment, also called a rule. It must be unique within
 -- an Amazon Web Services account.
@@ -152,13 +152,13 @@ newCreateIAMPolicyAssignment
 createIAMPolicyAssignment_identities :: Lens.Lens' CreateIAMPolicyAssignment (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 createIAMPolicyAssignment_identities = Lens.lens (\CreateIAMPolicyAssignment' {identities} -> identities) (\s@CreateIAMPolicyAssignment' {} a -> s {identities = a} :: CreateIAMPolicyAssignment) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN for the IAMpolicy to apply to the Amazon QuickSight users and
+-- | The ARN for the IAM policy to apply to the Amazon QuickSight users and
 -- groups specified in this assignment.
 createIAMPolicyAssignment_policyArn :: Lens.Lens' CreateIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 createIAMPolicyAssignment_policyArn = Lens.lens (\CreateIAMPolicyAssignment' {policyArn} -> policyArn) (\s@CreateIAMPolicyAssignment' {} a -> s {policyArn = a} :: CreateIAMPolicyAssignment)
 
 -- | The ID of the Amazon Web Services account where you want to assign an
--- IAMpolicy to Amazon QuickSight users or groups.
+-- IAM policy to Amazon QuickSight users or groups.
 createIAMPolicyAssignment_awsAccountId :: Lens.Lens' CreateIAMPolicyAssignment Prelude.Text
 createIAMPolicyAssignment_awsAccountId = Lens.lens (\CreateIAMPolicyAssignment' {awsAccountId} -> awsAccountId) (\s@CreateIAMPolicyAssignment' {} a -> s {awsAccountId = a} :: CreateIAMPolicyAssignment)
 
@@ -261,11 +261,11 @@ instance Core.ToQuery CreateIAMPolicyAssignment where
 data CreateIAMPolicyAssignmentResponse = CreateIAMPolicyAssignmentResponse'
   { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon QuickSight users, groups, or both that the IAMpolicy is
+    -- | The Amazon QuickSight users, groups, or both that the IAM policy is
     -- assigned to.
     identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The ARN for the IAMpolicy that is applied to the Amazon QuickSight users
-    -- and groups specified in this assignment.
+    -- | The ARN for the IAM policy that is applied to the Amazon QuickSight
+    -- users and groups specified in this assignment.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the assignment. This name must be unique within the Amazon
     -- Web Services account.
@@ -298,11 +298,11 @@ data CreateIAMPolicyAssignmentResponse = CreateIAMPolicyAssignmentResponse'
 --
 -- 'requestId', 'createIAMPolicyAssignmentResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'identities', 'createIAMPolicyAssignmentResponse_identities' - The Amazon QuickSight users, groups, or both that the IAMpolicy is
+-- 'identities', 'createIAMPolicyAssignmentResponse_identities' - The Amazon QuickSight users, groups, or both that the IAM policy is
 -- assigned to.
 --
--- 'policyArn', 'createIAMPolicyAssignmentResponse_policyArn' - The ARN for the IAMpolicy that is applied to the Amazon QuickSight users
--- and groups specified in this assignment.
+-- 'policyArn', 'createIAMPolicyAssignmentResponse_policyArn' - The ARN for the IAM policy that is applied to the Amazon QuickSight
+-- users and groups specified in this assignment.
 --
 -- 'assignmentName', 'createIAMPolicyAssignmentResponse_assignmentName' - The name of the assignment. This name must be unique within the Amazon
 -- Web Services account.
@@ -341,13 +341,13 @@ newCreateIAMPolicyAssignmentResponse pStatus_ =
 createIAMPolicyAssignmentResponse_requestId :: Lens.Lens' CreateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 createIAMPolicyAssignmentResponse_requestId = Lens.lens (\CreateIAMPolicyAssignmentResponse' {requestId} -> requestId) (\s@CreateIAMPolicyAssignmentResponse' {} a -> s {requestId = a} :: CreateIAMPolicyAssignmentResponse)
 
--- | The Amazon QuickSight users, groups, or both that the IAMpolicy is
+-- | The Amazon QuickSight users, groups, or both that the IAM policy is
 -- assigned to.
 createIAMPolicyAssignmentResponse_identities :: Lens.Lens' CreateIAMPolicyAssignmentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 createIAMPolicyAssignmentResponse_identities = Lens.lens (\CreateIAMPolicyAssignmentResponse' {identities} -> identities) (\s@CreateIAMPolicyAssignmentResponse' {} a -> s {identities = a} :: CreateIAMPolicyAssignmentResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The ARN for the IAMpolicy that is applied to the Amazon QuickSight users
--- and groups specified in this assignment.
+-- | The ARN for the IAM policy that is applied to the Amazon QuickSight
+-- users and groups specified in this assignment.
 createIAMPolicyAssignmentResponse_policyArn :: Lens.Lens' CreateIAMPolicyAssignmentResponse (Prelude.Maybe Prelude.Text)
 createIAMPolicyAssignmentResponse_policyArn = Lens.lens (\CreateIAMPolicyAssignmentResponse' {policyArn} -> policyArn) (\s@CreateIAMPolicyAssignmentResponse' {} a -> s {policyArn = a} :: CreateIAMPolicyAssignmentResponse)
 

@@ -57,7 +57,7 @@ data ListFolders = ListFolders'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned per request.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The AWS account ID.
+    -- | The ID for the Amazon Web Services account that contains the folder.
     awsAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,7 +75,7 @@ data ListFolders = ListFolders'
 --
 -- 'maxResults', 'listFolders_maxResults' - The maximum number of results to be returned per request.
 --
--- 'awsAccountId', 'listFolders_awsAccountId' - The AWS account ID.
+-- 'awsAccountId', 'listFolders_awsAccountId' - The ID for the Amazon Web Services account that contains the folder.
 newListFolders ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -96,7 +96,7 @@ listFolders_nextToken = Lens.lens (\ListFolders' {nextToken} -> nextToken) (\s@L
 listFolders_maxResults :: Lens.Lens' ListFolders (Prelude.Maybe Prelude.Natural)
 listFolders_maxResults = Lens.lens (\ListFolders' {maxResults} -> maxResults) (\s@ListFolders' {} a -> s {maxResults = a} :: ListFolders)
 
--- | The AWS account ID.
+-- | The ID for the Amazon Web Services account that contains the folder.
 listFolders_awsAccountId :: Lens.Lens' ListFolders Prelude.Text
 listFolders_awsAccountId = Lens.lens (\ListFolders' {awsAccountId} -> awsAccountId) (\s@ListFolders' {} a -> s {awsAccountId = a} :: ListFolders)
 
@@ -155,12 +155,12 @@ data ListFoldersResponse = ListFoldersResponse'
   { -- | The token for the next set of results, or null if there are no more
     -- results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A structure that contains all of the folders in your AWS account. This
-    -- structure provides basic information about the folders.
+    -- | A structure that contains all of the folders in the Amazon Web Services
+    -- account. This structure provides basic information about the folders.
     folderSummaryList :: Prelude.Maybe [FolderSummary],
-    -- | The request ID.
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The status. If succeeded, the status is @SC_OK@
+    -- | The HTTP status of the request.
     status :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -176,12 +176,12 @@ data ListFoldersResponse = ListFoldersResponse'
 -- 'nextToken', 'listFoldersResponse_nextToken' - The token for the next set of results, or null if there are no more
 -- results.
 --
--- 'folderSummaryList', 'listFoldersResponse_folderSummaryList' - A structure that contains all of the folders in your AWS account. This
--- structure provides basic information about the folders.
+-- 'folderSummaryList', 'listFoldersResponse_folderSummaryList' - A structure that contains all of the folders in the Amazon Web Services
+-- account. This structure provides basic information about the folders.
 --
--- 'requestId', 'listFoldersResponse_requestId' - The request ID.
+-- 'requestId', 'listFoldersResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'status', 'listFoldersResponse_status' - The status. If succeeded, the status is @SC_OK@
+-- 'status', 'listFoldersResponse_status' - The HTTP status of the request.
 newListFoldersResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -199,16 +199,16 @@ newListFoldersResponse pStatus_ =
 listFoldersResponse_nextToken :: Lens.Lens' ListFoldersResponse (Prelude.Maybe Prelude.Text)
 listFoldersResponse_nextToken = Lens.lens (\ListFoldersResponse' {nextToken} -> nextToken) (\s@ListFoldersResponse' {} a -> s {nextToken = a} :: ListFoldersResponse)
 
--- | A structure that contains all of the folders in your AWS account. This
--- structure provides basic information about the folders.
+-- | A structure that contains all of the folders in the Amazon Web Services
+-- account. This structure provides basic information about the folders.
 listFoldersResponse_folderSummaryList :: Lens.Lens' ListFoldersResponse (Prelude.Maybe [FolderSummary])
 listFoldersResponse_folderSummaryList = Lens.lens (\ListFoldersResponse' {folderSummaryList} -> folderSummaryList) (\s@ListFoldersResponse' {} a -> s {folderSummaryList = a} :: ListFoldersResponse) Prelude.. Lens.mapping Lens.coerced
 
--- | The request ID.
+-- | The Amazon Web Services request ID for this operation.
 listFoldersResponse_requestId :: Lens.Lens' ListFoldersResponse (Prelude.Maybe Prelude.Text)
 listFoldersResponse_requestId = Lens.lens (\ListFoldersResponse' {requestId} -> requestId) (\s@ListFoldersResponse' {} a -> s {requestId = a} :: ListFoldersResponse)
 
--- | The status. If succeeded, the status is @SC_OK@
+-- | The HTTP status of the request.
 listFoldersResponse_status :: Lens.Lens' ListFoldersResponse Prelude.Int
 listFoldersResponse_status = Lens.lens (\ListFoldersResponse' {status} -> status) (\s@ListFoldersResponse' {} a -> s {status = a} :: ListFoldersResponse)
 

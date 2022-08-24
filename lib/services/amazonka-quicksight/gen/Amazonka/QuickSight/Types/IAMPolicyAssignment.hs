@@ -32,7 +32,7 @@ data IAMPolicyAssignment = IAMPolicyAssignment'
     awsAccountId :: Prelude.Maybe Prelude.Text,
     -- | Identities.
     identities :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The Amazon Resource Name (ARN) for the IAMpolicy.
+    -- | The Amazon Resource Name (ARN) for the IAM policy.
     policyArn :: Prelude.Maybe Prelude.Text,
     -- | Assignment name.
     assignmentName :: Prelude.Maybe Prelude.Text,
@@ -55,7 +55,7 @@ data IAMPolicyAssignment = IAMPolicyAssignment'
 --
 -- 'identities', 'iAMPolicyAssignment_identities' - Identities.
 --
--- 'policyArn', 'iAMPolicyAssignment_policyArn' - The Amazon Resource Name (ARN) for the IAMpolicy.
+-- 'policyArn', 'iAMPolicyAssignment_policyArn' - The Amazon Resource Name (ARN) for the IAM policy.
 --
 -- 'assignmentName', 'iAMPolicyAssignment_assignmentName' - Assignment name.
 --
@@ -83,7 +83,7 @@ iAMPolicyAssignment_awsAccountId = Lens.lens (\IAMPolicyAssignment' {awsAccountI
 iAMPolicyAssignment_identities :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 iAMPolicyAssignment_identities = Lens.lens (\IAMPolicyAssignment' {identities} -> identities) (\s@IAMPolicyAssignment' {} a -> s {identities = a} :: IAMPolicyAssignment) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Resource Name (ARN) for the IAMpolicy.
+-- | The Amazon Resource Name (ARN) for the IAM policy.
 iAMPolicyAssignment_policyArn :: Lens.Lens' IAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 iAMPolicyAssignment_policyArn = Lens.lens (\IAMPolicyAssignment' {policyArn} -> policyArn) (\s@IAMPolicyAssignment' {} a -> s {policyArn = a} :: IAMPolicyAssignment)
 

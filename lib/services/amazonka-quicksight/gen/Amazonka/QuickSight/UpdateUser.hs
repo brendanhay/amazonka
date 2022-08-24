@@ -73,8 +73,8 @@ data UpdateUser = UpdateUser'
     --     to provide the custom OIDC provider URL.
     --
     -- -   @NONE@: This clears all the previously saved external login
-    --     information for a user. Use @ DescribeUser @ API to check the
-    --     external login information.
+    --     information for a user. Use the @ DescribeUser @ API operation to
+    --     check the external login information.
     externalLoginFederationProviderType :: Prelude.Maybe Prelude.Text,
     -- | A flag that you use to indicate that you want to remove all custom
     -- permissions from this user. Using this parameter resets the user to the
@@ -108,7 +108,7 @@ data UpdateUser = UpdateUser'
     -- the @RegisterUser@ API operation to assign the named set of permissions
     -- to a Amazon QuickSight user.
     --
-    -- Amazon QuickSight custom permissions are applied through IAMpolicies.
+    -- Amazon QuickSight custom permissions are applied through IAM policies.
     -- Therefore, they override the permissions typically granted by assigning
     -- Amazon QuickSight users to one of the default security cohorts in Amazon
     -- QuickSight (admin, author, reader).
@@ -166,8 +166,8 @@ data UpdateUser = UpdateUser'
 --     to provide the custom OIDC provider URL.
 --
 -- -   @NONE@: This clears all the previously saved external login
---     information for a user. Use @ DescribeUser @ API to check the
---     external login information.
+--     information for a user. Use the @ DescribeUser @ API operation to
+--     check the external login information.
 --
 -- 'unapplyCustomPermissions', 'updateUser_unapplyCustomPermissions' - A flag that you use to indicate that you want to remove all custom
 -- permissions from this user. Using this parameter resets the user to the
@@ -201,7 +201,7 @@ data UpdateUser = UpdateUser'
 -- the @RegisterUser@ API operation to assign the named set of permissions
 -- to a Amazon QuickSight user.
 --
--- Amazon QuickSight custom permissions are applied through IAMpolicies.
+-- Amazon QuickSight custom permissions are applied through IAM policies.
 -- Therefore, they override the permissions typically granted by assigning
 -- Amazon QuickSight users to one of the default security cohorts in Amazon
 -- QuickSight (admin, author, reader).
@@ -279,8 +279,8 @@ newUpdateUser
 --     to provide the custom OIDC provider URL.
 --
 -- -   @NONE@: This clears all the previously saved external login
---     information for a user. Use @ DescribeUser @ API to check the
---     external login information.
+--     information for a user. Use the @ DescribeUser @ API operation to
+--     check the external login information.
 updateUser_externalLoginFederationProviderType :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_externalLoginFederationProviderType = Lens.lens (\UpdateUser' {externalLoginFederationProviderType} -> externalLoginFederationProviderType) (\s@UpdateUser' {} a -> s {externalLoginFederationProviderType = a} :: UpdateUser)
 
@@ -322,7 +322,7 @@ updateUser_externalLoginId = Lens.lens (\UpdateUser' {externalLoginId} -> extern
 -- the @RegisterUser@ API operation to assign the named set of permissions
 -- to a Amazon QuickSight user.
 --
--- Amazon QuickSight custom permissions are applied through IAMpolicies.
+-- Amazon QuickSight custom permissions are applied through IAM policies.
 -- Therefore, they override the permissions typically granted by assigning
 -- Amazon QuickSight users to one of the default security cohorts in Amazon
 -- QuickSight (admin, author, reader).

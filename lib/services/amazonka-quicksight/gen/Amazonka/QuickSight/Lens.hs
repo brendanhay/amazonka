@@ -35,6 +35,26 @@ module Amazonka.QuickSight.Lens
     createAccountCustomizationResponse_accountCustomization,
     createAccountCustomizationResponse_status,
 
+    -- ** CreateAccountSubscription
+    createAccountSubscription_directoryId,
+    createAccountSubscription_activeDirectoryName,
+    createAccountSubscription_readerGroup,
+    createAccountSubscription_firstName,
+    createAccountSubscription_adminGroup,
+    createAccountSubscription_contactNumber,
+    createAccountSubscription_lastName,
+    createAccountSubscription_authorGroup,
+    createAccountSubscription_realm,
+    createAccountSubscription_emailAddress,
+    createAccountSubscription_edition,
+    createAccountSubscription_authenticationMethod,
+    createAccountSubscription_awsAccountId,
+    createAccountSubscription_accountName,
+    createAccountSubscription_notificationEmail,
+    createAccountSubscriptionResponse_requestId,
+    createAccountSubscriptionResponse_signupResponse,
+    createAccountSubscriptionResponse_status,
+
     -- ** CreateAnalysis
     createAnalysis_tags,
     createAnalysis_themeArn,
@@ -393,6 +413,12 @@ module Amazonka.QuickSight.Lens
     describeAccountSettingsResponse_accountSettings,
     describeAccountSettingsResponse_status,
 
+    -- ** DescribeAccountSubscription
+    describeAccountSubscription_awsAccountId,
+    describeAccountSubscriptionResponse_accountInfo,
+    describeAccountSubscriptionResponse_requestId,
+    describeAccountSubscriptionResponse_status,
+
     -- ** DescribeAnalysis
     describeAnalysis_awsAccountId,
     describeAnalysis_analysisId,
@@ -421,6 +447,7 @@ module Amazonka.QuickSight.Lens
     -- ** DescribeDashboardPermissions
     describeDashboardPermissions_awsAccountId,
     describeDashboardPermissions_dashboardId,
+    describeDashboardPermissionsResponse_linkSharingConfiguration,
     describeDashboardPermissionsResponse_requestId,
     describeDashboardPermissionsResponse_permissions,
     describeDashboardPermissionsResponse_dashboardId,
@@ -491,6 +518,15 @@ module Amazonka.QuickSight.Lens
     describeGroupResponse_requestId,
     describeGroupResponse_group,
     describeGroupResponse_status,
+
+    -- ** DescribeGroupMembership
+    describeGroupMembership_memberName,
+    describeGroupMembership_groupName,
+    describeGroupMembership_awsAccountId,
+    describeGroupMembership_namespace,
+    describeGroupMembershipResponse_requestId,
+    describeGroupMembershipResponse_groupMember,
+    describeGroupMembershipResponse_status,
 
     -- ** DescribeIAMPolicyAssignment
     describeIAMPolicyAssignment_awsAccountId,
@@ -586,6 +622,7 @@ module Amazonka.QuickSight.Lens
     -- ** GenerateEmbedUrlForAnonymousUser
     generateEmbedUrlForAnonymousUser_sessionTags,
     generateEmbedUrlForAnonymousUser_sessionLifetimeInMinutes,
+    generateEmbedUrlForAnonymousUser_allowedDomains,
     generateEmbedUrlForAnonymousUser_awsAccountId,
     generateEmbedUrlForAnonymousUser_namespace,
     generateEmbedUrlForAnonymousUser_authorizedResourceArns,
@@ -596,6 +633,7 @@ module Amazonka.QuickSight.Lens
 
     -- ** GenerateEmbedUrlForRegisteredUser
     generateEmbedUrlForRegisteredUser_sessionLifetimeInMinutes,
+    generateEmbedUrlForRegisteredUser_allowedDomains,
     generateEmbedUrlForRegisteredUser_awsAccountId,
     generateEmbedUrlForRegisteredUser_userArn,
     generateEmbedUrlForRegisteredUser_experienceConfiguration,
@@ -896,6 +934,17 @@ module Amazonka.QuickSight.Lens
     searchFoldersResponse_requestId,
     searchFoldersResponse_status,
 
+    -- ** SearchGroups
+    searchGroups_nextToken,
+    searchGroups_maxResults,
+    searchGroups_awsAccountId,
+    searchGroups_namespace,
+    searchGroups_filters,
+    searchGroupsResponse_nextToken,
+    searchGroupsResponse_requestId,
+    searchGroupsResponse_groupList,
+    searchGroupsResponse_status,
+
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
@@ -969,9 +1018,12 @@ module Amazonka.QuickSight.Lens
 
     -- ** UpdateDashboardPermissions
     updateDashboardPermissions_grantPermissions,
+    updateDashboardPermissions_revokeLinkPermissions,
+    updateDashboardPermissions_grantLinkPermissions,
     updateDashboardPermissions_revokePermissions,
     updateDashboardPermissions_awsAccountId,
     updateDashboardPermissions_dashboardId,
+    updateDashboardPermissionsResponse_linkSharingConfiguration,
     updateDashboardPermissionsResponse_requestId,
     updateDashboardPermissionsResponse_permissions,
     updateDashboardPermissionsResponse_dashboardId,
@@ -1094,6 +1146,12 @@ module Amazonka.QuickSight.Lens
     updateIpRestrictionResponse_requestId,
     updateIpRestrictionResponse_status,
 
+    -- ** UpdatePublicSharingSettings
+    updatePublicSharingSettings_publicSharingEnabled,
+    updatePublicSharingSettings_awsAccountId,
+    updatePublicSharingSettingsResponse_requestId,
+    updatePublicSharingSettingsResponse_status,
+
     -- ** UpdateTemplate
     updateTemplate_name,
     updateTemplate_versionDescription,
@@ -1179,13 +1237,22 @@ module Amazonka.QuickSight.Lens
     -- * Types
 
     -- ** AccountCustomization
+    accountCustomization_defaultEmailCustomizationTemplate,
     accountCustomization_defaultTheme,
+
+    -- ** AccountInfo
+    accountInfo_authenticationType,
+    accountInfo_notificationEmail,
+    accountInfo_edition,
+    accountInfo_accountSubscriptionStatus,
+    accountInfo_accountName,
 
     -- ** AccountSettings
     accountSettings_notificationEmail,
     accountSettings_edition,
     accountSettings_accountName,
     accountSettings_defaultNamespace,
+    accountSettings_publicSharingEnabled,
 
     -- ** ActiveIAMPolicyAssignment
     activeIAMPolicyAssignment_policyArn,
@@ -1447,6 +1514,7 @@ module Amazonka.QuickSight.Lens
     dataSourceParameters_s3Parameters,
     dataSourceParameters_postgreSqlParameters,
     dataSourceParameters_mySqlParameters,
+    dataSourceParameters_exasolParameters,
     dataSourceParameters_redshiftParameters,
     dataSourceParameters_awsIotAnalyticsParameters,
     dataSourceParameters_sparkParameters,
@@ -1476,6 +1544,10 @@ module Amazonka.QuickSight.Lens
     -- ** ErrorInfo
     errorInfo_message,
     errorInfo_type,
+
+    -- ** ExasolParameters
+    exasolParameters_host,
+    exasolParameters_port,
 
     -- ** ExportToCSVOption
     exportToCSVOption_availabilityStatus,
@@ -1528,6 +1600,11 @@ module Amazonka.QuickSight.Lens
     groupMember_memberName,
     groupMember_arn,
 
+    -- ** GroupSearchFilter
+    groupSearchFilter_operator,
+    groupSearchFilter_name,
+    groupSearchFilter_value,
+
     -- ** GutterStyle
     gutterStyle_show,
 
@@ -1577,6 +1654,9 @@ module Amazonka.QuickSight.Lens
 
     -- ** JoinKeyProperties
     joinKeyProperties_uniqueKey,
+
+    -- ** LinkSharingConfiguration
+    linkSharingConfiguration_permissions,
 
     -- ** LogicalTable
     logicalTable_dataTransforms,
@@ -1745,6 +1825,12 @@ module Amazonka.QuickSight.Lens
     -- ** SheetStyle
     sheetStyle_tile,
     sheetStyle_tileLayout,
+
+    -- ** SignupResponse
+    signupResponse_directoryType,
+    signupResponse_userLoginName,
+    signupResponse_iAMUser,
+    signupResponse_accountName,
 
     -- ** SnowflakeParameters
     snowflakeParameters_host,
@@ -1951,6 +2037,7 @@ where
 
 import Amazonka.QuickSight.CancelIngestion
 import Amazonka.QuickSight.CreateAccountCustomization
+import Amazonka.QuickSight.CreateAccountSubscription
 import Amazonka.QuickSight.CreateAnalysis
 import Amazonka.QuickSight.CreateDashboard
 import Amazonka.QuickSight.CreateDataSet
@@ -1985,6 +2072,7 @@ import Amazonka.QuickSight.DeleteUser
 import Amazonka.QuickSight.DeleteUserByPrincipalId
 import Amazonka.QuickSight.DescribeAccountCustomization
 import Amazonka.QuickSight.DescribeAccountSettings
+import Amazonka.QuickSight.DescribeAccountSubscription
 import Amazonka.QuickSight.DescribeAnalysis
 import Amazonka.QuickSight.DescribeAnalysisPermissions
 import Amazonka.QuickSight.DescribeDashboard
@@ -1997,6 +2085,7 @@ import Amazonka.QuickSight.DescribeFolder
 import Amazonka.QuickSight.DescribeFolderPermissions
 import Amazonka.QuickSight.DescribeFolderResolvedPermissions
 import Amazonka.QuickSight.DescribeGroup
+import Amazonka.QuickSight.DescribeGroupMembership
 import Amazonka.QuickSight.DescribeIAMPolicyAssignment
 import Amazonka.QuickSight.DescribeIngestion
 import Amazonka.QuickSight.DescribeIpRestriction
@@ -2039,8 +2128,10 @@ import Amazonka.QuickSight.RestoreAnalysis
 import Amazonka.QuickSight.SearchAnalyses
 import Amazonka.QuickSight.SearchDashboards
 import Amazonka.QuickSight.SearchFolders
+import Amazonka.QuickSight.SearchGroups
 import Amazonka.QuickSight.TagResource
 import Amazonka.QuickSight.Types.AccountCustomization
+import Amazonka.QuickSight.Types.AccountInfo
 import Amazonka.QuickSight.Types.AccountSettings
 import Amazonka.QuickSight.Types.ActiveIAMPolicyAssignment
 import Amazonka.QuickSight.Types.AdHocFilteringOption
@@ -2094,6 +2185,7 @@ import Amazonka.QuickSight.Types.DataSourceParameters
 import Amazonka.QuickSight.Types.DateTimeParameter
 import Amazonka.QuickSight.Types.DecimalParameter
 import Amazonka.QuickSight.Types.ErrorInfo
+import Amazonka.QuickSight.Types.ExasolParameters
 import Amazonka.QuickSight.Types.ExportToCSVOption
 import Amazonka.QuickSight.Types.FieldFolder
 import Amazonka.QuickSight.Types.FilterOperation
@@ -2104,6 +2196,7 @@ import Amazonka.QuickSight.Types.FolderSummary
 import Amazonka.QuickSight.Types.GeoSpatialColumnGroup
 import Amazonka.QuickSight.Types.Group
 import Amazonka.QuickSight.Types.GroupMember
+import Amazonka.QuickSight.Types.GroupSearchFilter
 import Amazonka.QuickSight.Types.GutterStyle
 import Amazonka.QuickSight.Types.IAMPolicyAssignment
 import Amazonka.QuickSight.Types.IAMPolicyAssignmentSummary
@@ -2113,6 +2206,7 @@ import Amazonka.QuickSight.Types.IntegerParameter
 import Amazonka.QuickSight.Types.JiraParameters
 import Amazonka.QuickSight.Types.JoinInstruction
 import Amazonka.QuickSight.Types.JoinKeyProperties
+import Amazonka.QuickSight.Types.LinkSharingConfiguration
 import Amazonka.QuickSight.Types.LogicalTable
 import Amazonka.QuickSight.Types.LogicalTableSource
 import Amazonka.QuickSight.Types.ManifestFileLocation
@@ -2150,6 +2244,7 @@ import Amazonka.QuickSight.Types.SessionTag
 import Amazonka.QuickSight.Types.Sheet
 import Amazonka.QuickSight.Types.SheetControlsOption
 import Amazonka.QuickSight.Types.SheetStyle
+import Amazonka.QuickSight.Types.SignupResponse
 import Amazonka.QuickSight.Types.SnowflakeParameters
 import Amazonka.QuickSight.Types.SparkParameters
 import Amazonka.QuickSight.Types.SqlServerParameters
@@ -2200,6 +2295,7 @@ import Amazonka.QuickSight.UpdateFolderPermissions
 import Amazonka.QuickSight.UpdateGroup
 import Amazonka.QuickSight.UpdateIAMPolicyAssignment
 import Amazonka.QuickSight.UpdateIpRestriction
+import Amazonka.QuickSight.UpdatePublicSharingSettings
 import Amazonka.QuickSight.UpdateTemplate
 import Amazonka.QuickSight.UpdateTemplateAlias
 import Amazonka.QuickSight.UpdateTemplatePermissions

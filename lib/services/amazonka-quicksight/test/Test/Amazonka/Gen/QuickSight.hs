@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestCreateAccountCustomization $
 --             newCreateAccountCustomization
 --
+--         , requestCreateAccountSubscription $
+--             newCreateAccountSubscription
+--
 --         , requestCreateAnalysis $
 --             newCreateAnalysis
 --
@@ -135,6 +138,9 @@ import Test.Tasty
 --         , requestDescribeAccountSettings $
 --             newDescribeAccountSettings
 --
+--         , requestDescribeAccountSubscription $
+--             newDescribeAccountSubscription
+--
 --         , requestDescribeAnalysis $
 --             newDescribeAnalysis
 --
@@ -170,6 +176,9 @@ import Test.Tasty
 --
 --         , requestDescribeGroup $
 --             newDescribeGroup
+--
+--         , requestDescribeGroupMembership $
+--             newDescribeGroupMembership
 --
 --         , requestDescribeIAMPolicyAssignment $
 --             newDescribeIAMPolicyAssignment
@@ -297,6 +306,9 @@ import Test.Tasty
 --         , requestSearchFolders $
 --             newSearchFolders
 --
+--         , requestSearchGroups $
+--             newSearchGroups
+--
 --         , requestTagResource $
 --             newTagResource
 --
@@ -351,6 +363,9 @@ import Test.Tasty
 --         , requestUpdateIpRestriction $
 --             newUpdateIpRestriction
 --
+--         , requestUpdatePublicSharingSettings $
+--             newUpdatePublicSharingSettings
+--
 --         , requestUpdateTemplate $
 --             newUpdateTemplate
 --
@@ -380,6 +395,9 @@ import Test.Tasty
 --
 --         , responseCreateAccountCustomization $
 --             newCreateAccountCustomizationResponse
+--
+--         , responseCreateAccountSubscription $
+--             newCreateAccountSubscriptionResponse
 --
 --         , responseCreateAnalysis $
 --             newCreateAnalysisResponse
@@ -483,6 +501,9 @@ import Test.Tasty
 --         , responseDescribeAccountSettings $
 --             newDescribeAccountSettingsResponse
 --
+--         , responseDescribeAccountSubscription $
+--             newDescribeAccountSubscriptionResponse
+--
 --         , responseDescribeAnalysis $
 --             newDescribeAnalysisResponse
 --
@@ -518,6 +539,9 @@ import Test.Tasty
 --
 --         , responseDescribeGroup $
 --             newDescribeGroupResponse
+--
+--         , responseDescribeGroupMembership $
+--             newDescribeGroupMembershipResponse
 --
 --         , responseDescribeIAMPolicyAssignment $
 --             newDescribeIAMPolicyAssignmentResponse
@@ -645,6 +669,9 @@ import Test.Tasty
 --         , responseSearchFolders $
 --             newSearchFoldersResponse
 --
+--         , responseSearchGroups $
+--             newSearchGroupsResponse
+--
 --         , responseTagResource $
 --             newTagResourceResponse
 --
@@ -699,6 +726,9 @@ import Test.Tasty
 --         , responseUpdateIpRestriction $
 --             newUpdateIpRestrictionResponse
 --
+--         , responseUpdatePublicSharingSettings $
+--             newUpdatePublicSharingSettingsResponse
+--
 --         , responseUpdateTemplate $
 --             newUpdateTemplateResponse
 --
@@ -736,6 +766,12 @@ requestCreateAccountCustomization =
   req
     "CreateAccountCustomization"
     "fixture/CreateAccountCustomization.yaml"
+
+requestCreateAccountSubscription :: CreateAccountSubscription -> TestTree
+requestCreateAccountSubscription =
+  req
+    "CreateAccountSubscription"
+    "fixture/CreateAccountSubscription.yaml"
 
 requestCreateAnalysis :: CreateAnalysis -> TestTree
 requestCreateAnalysis =
@@ -941,6 +977,12 @@ requestDescribeAccountSettings =
     "DescribeAccountSettings"
     "fixture/DescribeAccountSettings.yaml"
 
+requestDescribeAccountSubscription :: DescribeAccountSubscription -> TestTree
+requestDescribeAccountSubscription =
+  req
+    "DescribeAccountSubscription"
+    "fixture/DescribeAccountSubscription.yaml"
+
 requestDescribeAnalysis :: DescribeAnalysis -> TestTree
 requestDescribeAnalysis =
   req
@@ -1012,6 +1054,12 @@ requestDescribeGroup =
   req
     "DescribeGroup"
     "fixture/DescribeGroup.yaml"
+
+requestDescribeGroupMembership :: DescribeGroupMembership -> TestTree
+requestDescribeGroupMembership =
+  req
+    "DescribeGroupMembership"
+    "fixture/DescribeGroupMembership.yaml"
 
 requestDescribeIAMPolicyAssignment :: DescribeIAMPolicyAssignment -> TestTree
 requestDescribeIAMPolicyAssignment =
@@ -1265,6 +1313,12 @@ requestSearchFolders =
     "SearchFolders"
     "fixture/SearchFolders.yaml"
 
+requestSearchGroups :: SearchGroups -> TestTree
+requestSearchGroups =
+  req
+    "SearchGroups"
+    "fixture/SearchGroups.yaml"
+
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -1373,6 +1427,12 @@ requestUpdateIpRestriction =
     "UpdateIpRestriction"
     "fixture/UpdateIpRestriction.yaml"
 
+requestUpdatePublicSharingSettings :: UpdatePublicSharingSettings -> TestTree
+requestUpdatePublicSharingSettings =
+  req
+    "UpdatePublicSharingSettings"
+    "fixture/UpdatePublicSharingSettings.yaml"
+
 requestUpdateTemplate :: UpdateTemplate -> TestTree
 requestUpdateTemplate =
   req
@@ -1432,6 +1492,14 @@ responseCreateAccountCustomization =
     "fixture/CreateAccountCustomizationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateAccountCustomization)
+
+responseCreateAccountSubscription :: CreateAccountSubscriptionResponse -> TestTree
+responseCreateAccountSubscription =
+  res
+    "CreateAccountSubscriptionResponse"
+    "fixture/CreateAccountSubscriptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateAccountSubscription)
 
 responseCreateAnalysis :: CreateAnalysisResponse -> TestTree
 responseCreateAnalysis =
@@ -1705,6 +1773,14 @@ responseDescribeAccountSettings =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeAccountSettings)
 
+responseDescribeAccountSubscription :: DescribeAccountSubscriptionResponse -> TestTree
+responseDescribeAccountSubscription =
+  res
+    "DescribeAccountSubscriptionResponse"
+    "fixture/DescribeAccountSubscriptionResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeAccountSubscription)
+
 responseDescribeAnalysis :: DescribeAnalysisResponse -> TestTree
 responseDescribeAnalysis =
   res
@@ -1800,6 +1876,14 @@ responseDescribeGroup =
     "fixture/DescribeGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeGroup)
+
+responseDescribeGroupMembership :: DescribeGroupMembershipResponse -> TestTree
+responseDescribeGroupMembership =
+  res
+    "DescribeGroupMembershipResponse"
+    "fixture/DescribeGroupMembershipResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeGroupMembership)
 
 responseDescribeIAMPolicyAssignment :: DescribeIAMPolicyAssignmentResponse -> TestTree
 responseDescribeIAMPolicyAssignment =
@@ -2137,6 +2221,14 @@ responseSearchFolders =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy SearchFolders)
 
+responseSearchGroups :: SearchGroupsResponse -> TestTree
+responseSearchGroups =
+  res
+    "SearchGroupsResponse"
+    "fixture/SearchGroupsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy SearchGroups)
+
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -2280,6 +2372,14 @@ responseUpdateIpRestriction =
     "fixture/UpdateIpRestrictionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateIpRestriction)
+
+responseUpdatePublicSharingSettings :: UpdatePublicSharingSettingsResponse -> TestTree
+responseUpdatePublicSharingSettings =
+  res
+    "UpdatePublicSharingSettingsResponse"
+    "fixture/UpdatePublicSharingSettingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdatePublicSharingSettings)
 
 responseUpdateTemplate :: UpdateTemplateResponse -> TestTree
 responseUpdateTemplate =

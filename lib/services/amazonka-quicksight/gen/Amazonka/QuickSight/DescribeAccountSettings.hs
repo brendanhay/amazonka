@@ -129,13 +129,14 @@ data DescribeAccountSettingsResponse = DescribeAccountSettingsResponse'
     -- | The Amazon QuickSight settings for this Amazon Web Services account.
     -- This information includes the edition of Amazon Amazon QuickSight that
     -- you subscribed to (Standard or Enterprise) and the notification email
-    -- for the Amazon QuickSight subscription. In the Amazon QuickSight
-    -- console, the Amazon QuickSight subscription is sometimes referred to as
-    -- a Amazon QuickSight \"account\" even though it\'s technically not an
-    -- account by itself. Instead, it\'s a subscription to the Amazon
-    -- QuickSight service for your Amazon Web Services account. The edition
-    -- that you subscribe to applies to Amazon QuickSight in every Amazon Web
-    -- Services Region where you use it.
+    -- for the Amazon QuickSight subscription.
+    --
+    -- In the QuickSight console, the Amazon QuickSight subscription is
+    -- sometimes referred to as a QuickSight \"account\" even though it\'s
+    -- technically not an account by itself. Instead, it\'s a subscription to
+    -- the Amazon QuickSight service for your Amazon Web Services account. The
+    -- edition that you subscribe to applies to Amazon QuickSight in every
+    -- Amazon Web Services Region where you use it.
     accountSettings :: Prelude.Maybe AccountSettings,
     -- | The HTTP status of the request.
     status :: Prelude.Int
@@ -155,13 +156,14 @@ data DescribeAccountSettingsResponse = DescribeAccountSettingsResponse'
 -- 'accountSettings', 'describeAccountSettingsResponse_accountSettings' - The Amazon QuickSight settings for this Amazon Web Services account.
 -- This information includes the edition of Amazon Amazon QuickSight that
 -- you subscribed to (Standard or Enterprise) and the notification email
--- for the Amazon QuickSight subscription. In the Amazon QuickSight
--- console, the Amazon QuickSight subscription is sometimes referred to as
--- a Amazon QuickSight \"account\" even though it\'s technically not an
--- account by itself. Instead, it\'s a subscription to the Amazon
--- QuickSight service for your Amazon Web Services account. The edition
--- that you subscribe to applies to Amazon QuickSight in every Amazon Web
--- Services Region where you use it.
+-- for the Amazon QuickSight subscription.
+--
+-- In the QuickSight console, the Amazon QuickSight subscription is
+-- sometimes referred to as a QuickSight \"account\" even though it\'s
+-- technically not an account by itself. Instead, it\'s a subscription to
+-- the Amazon QuickSight service for your Amazon Web Services account. The
+-- edition that you subscribe to applies to Amazon QuickSight in every
+-- Amazon Web Services Region where you use it.
 --
 -- 'status', 'describeAccountSettingsResponse_status' - The HTTP status of the request.
 newDescribeAccountSettingsResponse ::
@@ -183,13 +185,14 @@ describeAccountSettingsResponse_requestId = Lens.lens (\DescribeAccountSettingsR
 -- | The Amazon QuickSight settings for this Amazon Web Services account.
 -- This information includes the edition of Amazon Amazon QuickSight that
 -- you subscribed to (Standard or Enterprise) and the notification email
--- for the Amazon QuickSight subscription. In the Amazon QuickSight
--- console, the Amazon QuickSight subscription is sometimes referred to as
--- a Amazon QuickSight \"account\" even though it\'s technically not an
--- account by itself. Instead, it\'s a subscription to the Amazon
--- QuickSight service for your Amazon Web Services account. The edition
--- that you subscribe to applies to Amazon QuickSight in every Amazon Web
--- Services Region where you use it.
+-- for the Amazon QuickSight subscription.
+--
+-- In the QuickSight console, the Amazon QuickSight subscription is
+-- sometimes referred to as a QuickSight \"account\" even though it\'s
+-- technically not an account by itself. Instead, it\'s a subscription to
+-- the Amazon QuickSight service for your Amazon Web Services account. The
+-- edition that you subscribe to applies to Amazon QuickSight in every
+-- Amazon Web Services Region where you use it.
 describeAccountSettingsResponse_accountSettings :: Lens.Lens' DescribeAccountSettingsResponse (Prelude.Maybe AccountSettings)
 describeAccountSettingsResponse_accountSettings = Lens.lens (\DescribeAccountSettingsResponse' {accountSettings} -> accountSettings) (\s@DescribeAccountSettingsResponse' {} a -> s {accountSettings = a} :: DescribeAccountSettingsResponse)
 

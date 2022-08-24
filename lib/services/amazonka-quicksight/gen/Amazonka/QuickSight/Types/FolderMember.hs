@@ -24,13 +24,14 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.MemberType
 
--- | An asset in a folder, such as a dashboard, analysis, or dataset.
+-- | An asset in a Amazon QuickSight folder, such as a dashboard, analysis,
+-- or dataset.
 --
 -- /See:/ 'newFolderMember' smart constructor.
 data FolderMember = FolderMember'
-  { -- | The ID of the asset.
+  { -- | The ID of an asset in the folder.
     memberId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the asset.
+    -- | The type of asset that it is.
     memberType :: Prelude.Maybe MemberType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,9 +44,9 @@ data FolderMember = FolderMember'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'memberId', 'folderMember_memberId' - The ID of the asset.
+-- 'memberId', 'folderMember_memberId' - The ID of an asset in the folder.
 --
--- 'memberType', 'folderMember_memberType' - The type of the asset.
+-- 'memberType', 'folderMember_memberType' - The type of asset that it is.
 newFolderMember ::
   FolderMember
 newFolderMember =
@@ -54,11 +55,11 @@ newFolderMember =
       memberType = Prelude.Nothing
     }
 
--- | The ID of the asset.
+-- | The ID of an asset in the folder.
 folderMember_memberId :: Lens.Lens' FolderMember (Prelude.Maybe Prelude.Text)
 folderMember_memberId = Lens.lens (\FolderMember' {memberId} -> memberId) (\s@FolderMember' {} a -> s {memberId = a} :: FolderMember)
 
--- | The type of the asset.
+-- | The type of asset that it is.
 folderMember_memberType :: Lens.Lens' FolderMember (Prelude.Maybe MemberType)
 folderMember_memberType = Lens.lens (\FolderMember' {memberType} -> memberType) (\s@FolderMember' {} a -> s {memberType = a} :: FolderMember)
 

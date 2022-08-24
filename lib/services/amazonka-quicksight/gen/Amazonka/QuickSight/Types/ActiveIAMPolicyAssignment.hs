@@ -29,7 +29,7 @@ import qualified Amazonka.Prelude as Prelude
 data ActiveIAMPolicyAssignment = ActiveIAMPolicyAssignment'
   { -- | The Amazon Resource Name (ARN) of the resource.
     policyArn :: Prelude.Maybe Prelude.Text,
-    -- | A name for the IAMpolicy assignment.
+    -- | A name for the IAM policy assignment.
     assignmentName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -44,7 +44,7 @@ data ActiveIAMPolicyAssignment = ActiveIAMPolicyAssignment'
 --
 -- 'policyArn', 'activeIAMPolicyAssignment_policyArn' - The Amazon Resource Name (ARN) of the resource.
 --
--- 'assignmentName', 'activeIAMPolicyAssignment_assignmentName' - A name for the IAMpolicy assignment.
+-- 'assignmentName', 'activeIAMPolicyAssignment_assignmentName' - A name for the IAM policy assignment.
 newActiveIAMPolicyAssignment ::
   ActiveIAMPolicyAssignment
 newActiveIAMPolicyAssignment =
@@ -58,7 +58,7 @@ newActiveIAMPolicyAssignment =
 activeIAMPolicyAssignment_policyArn :: Lens.Lens' ActiveIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 activeIAMPolicyAssignment_policyArn = Lens.lens (\ActiveIAMPolicyAssignment' {policyArn} -> policyArn) (\s@ActiveIAMPolicyAssignment' {} a -> s {policyArn = a} :: ActiveIAMPolicyAssignment)
 
--- | A name for the IAMpolicy assignment.
+-- | A name for the IAM policy assignment.
 activeIAMPolicyAssignment_assignmentName :: Lens.Lens' ActiveIAMPolicyAssignment (Prelude.Maybe Prelude.Text)
 activeIAMPolicyAssignment_assignmentName = Lens.lens (\ActiveIAMPolicyAssignment' {assignmentName} -> assignmentName) (\s@ActiveIAMPolicyAssignment' {} a -> s {assignmentName = a} :: ActiveIAMPolicyAssignment)
 

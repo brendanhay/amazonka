@@ -28,6 +28,8 @@ module Amazonka.QuickSight.UpdateDashboardPermissions
 
     -- * Request Lenses
     updateDashboardPermissions_grantPermissions,
+    updateDashboardPermissions_revokeLinkPermissions,
+    updateDashboardPermissions_grantLinkPermissions,
     updateDashboardPermissions_revokePermissions,
     updateDashboardPermissions_awsAccountId,
     updateDashboardPermissions_dashboardId,
@@ -37,6 +39,7 @@ module Amazonka.QuickSight.UpdateDashboardPermissions
     newUpdateDashboardPermissionsResponse,
 
     -- * Response Lenses
+    updateDashboardPermissionsResponse_linkSharingConfiguration,
     updateDashboardPermissionsResponse_requestId,
     updateDashboardPermissionsResponse_permissions,
     updateDashboardPermissionsResponse_dashboardId,
@@ -56,6 +59,10 @@ import qualified Amazonka.Response as Response
 data UpdateDashboardPermissions = UpdateDashboardPermissions'
   { -- | The permissions that you want to grant on this resource.
     grantPermissions :: Prelude.Maybe [ResourcePermission],
+    -- | Revokes link permissions from all users in a defined namespace.
+    revokeLinkPermissions :: Prelude.Maybe [ResourcePermission],
+    -- | Grants link permissions to all users in a defined namespace.
+    grantLinkPermissions :: Prelude.Maybe [ResourcePermission],
     -- | The permissions that you want to revoke from this resource.
     revokePermissions :: Prelude.Maybe [ResourcePermission],
     -- | The ID of the Amazon Web Services account that contains the dashboard
@@ -76,6 +83,10 @@ data UpdateDashboardPermissions = UpdateDashboardPermissions'
 --
 -- 'grantPermissions', 'updateDashboardPermissions_grantPermissions' - The permissions that you want to grant on this resource.
 --
+-- 'revokeLinkPermissions', 'updateDashboardPermissions_revokeLinkPermissions' - Revokes link permissions from all users in a defined namespace.
+--
+-- 'grantLinkPermissions', 'updateDashboardPermissions_grantLinkPermissions' - Grants link permissions to all users in a defined namespace.
+--
 -- 'revokePermissions', 'updateDashboardPermissions_revokePermissions' - The permissions that you want to revoke from this resource.
 --
 -- 'awsAccountId', 'updateDashboardPermissions_awsAccountId' - The ID of the Amazon Web Services account that contains the dashboard
@@ -94,6 +105,8 @@ newUpdateDashboardPermissions
     UpdateDashboardPermissions'
       { grantPermissions =
           Prelude.Nothing,
+        revokeLinkPermissions = Prelude.Nothing,
+        grantLinkPermissions = Prelude.Nothing,
         revokePermissions = Prelude.Nothing,
         awsAccountId = pAwsAccountId_,
         dashboardId = pDashboardId_
@@ -102,6 +115,14 @@ newUpdateDashboardPermissions
 -- | The permissions that you want to grant on this resource.
 updateDashboardPermissions_grantPermissions :: Lens.Lens' UpdateDashboardPermissions (Prelude.Maybe [ResourcePermission])
 updateDashboardPermissions_grantPermissions = Lens.lens (\UpdateDashboardPermissions' {grantPermissions} -> grantPermissions) (\s@UpdateDashboardPermissions' {} a -> s {grantPermissions = a} :: UpdateDashboardPermissions) Prelude.. Lens.mapping Lens.coerced
+
+-- | Revokes link permissions from all users in a defined namespace.
+updateDashboardPermissions_revokeLinkPermissions :: Lens.Lens' UpdateDashboardPermissions (Prelude.Maybe [ResourcePermission])
+updateDashboardPermissions_revokeLinkPermissions = Lens.lens (\UpdateDashboardPermissions' {revokeLinkPermissions} -> revokeLinkPermissions) (\s@UpdateDashboardPermissions' {} a -> s {revokeLinkPermissions = a} :: UpdateDashboardPermissions) Prelude.. Lens.mapping Lens.coerced
+
+-- | Grants link permissions to all users in a defined namespace.
+updateDashboardPermissions_grantLinkPermissions :: Lens.Lens' UpdateDashboardPermissions (Prelude.Maybe [ResourcePermission])
+updateDashboardPermissions_grantLinkPermissions = Lens.lens (\UpdateDashboardPermissions' {grantLinkPermissions} -> grantLinkPermissions) (\s@UpdateDashboardPermissions' {} a -> s {grantLinkPermissions = a} :: UpdateDashboardPermissions) Prelude.. Lens.mapping Lens.coerced
 
 -- | The permissions that you want to revoke from this resource.
 updateDashboardPermissions_revokePermissions :: Lens.Lens' UpdateDashboardPermissions (Prelude.Maybe [ResourcePermission])
@@ -125,7 +146,8 @@ instance Core.AWSRequest UpdateDashboardPermissions where
     Response.receiveJSON
       ( \s h x ->
           UpdateDashboardPermissionsResponse'
-            Prelude.<$> (x Core..?> "RequestId")
+            Prelude.<$> (x Core..?> "LinkSharingConfiguration")
+            Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (x Core..?> "Permissions")
             Prelude.<*> (x Core..?> "DashboardId")
             Prelude.<*> (x Core..?> "DashboardArn")
@@ -135,6 +157,8 @@ instance Core.AWSRequest UpdateDashboardPermissions where
 instance Prelude.Hashable UpdateDashboardPermissions where
   hashWithSalt _salt UpdateDashboardPermissions' {..} =
     _salt `Prelude.hashWithSalt` grantPermissions
+      `Prelude.hashWithSalt` revokeLinkPermissions
+      `Prelude.hashWithSalt` grantLinkPermissions
       `Prelude.hashWithSalt` revokePermissions
       `Prelude.hashWithSalt` awsAccountId
       `Prelude.hashWithSalt` dashboardId
@@ -142,6 +166,8 @@ instance Prelude.Hashable UpdateDashboardPermissions where
 instance Prelude.NFData UpdateDashboardPermissions where
   rnf UpdateDashboardPermissions' {..} =
     Prelude.rnf grantPermissions
+      `Prelude.seq` Prelude.rnf revokeLinkPermissions
+      `Prelude.seq` Prelude.rnf grantLinkPermissions
       `Prelude.seq` Prelude.rnf revokePermissions
       `Prelude.seq` Prelude.rnf awsAccountId
       `Prelude.seq` Prelude.rnf dashboardId
@@ -163,6 +189,10 @@ instance Core.ToJSON UpdateDashboardPermissions where
       ( Prelude.catMaybes
           [ ("GrantPermissions" Core..=)
               Prelude.<$> grantPermissions,
+            ("RevokeLinkPermissions" Core..=)
+              Prelude.<$> revokeLinkPermissions,
+            ("GrantLinkPermissions" Core..=)
+              Prelude.<$> grantLinkPermissions,
             ("RevokePermissions" Core..=)
               Prelude.<$> revokePermissions
           ]
@@ -183,7 +213,10 @@ instance Core.ToQuery UpdateDashboardPermissions where
 
 -- | /See:/ 'newUpdateDashboardPermissionsResponse' smart constructor.
 data UpdateDashboardPermissionsResponse = UpdateDashboardPermissionsResponse'
-  { -- | The Amazon Web Services request ID for this operation.
+  { -- | Updates the permissions of a shared link to an Amazon QuickSight
+    -- dashboard.
+    linkSharingConfiguration :: Prelude.Maybe LinkSharingConfiguration,
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | Information about the permissions on the dashboard.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
@@ -204,6 +237,9 @@ data UpdateDashboardPermissionsResponse = UpdateDashboardPermissionsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'linkSharingConfiguration', 'updateDashboardPermissionsResponse_linkSharingConfiguration' - Updates the permissions of a shared link to an Amazon QuickSight
+-- dashboard.
+--
 -- 'requestId', 'updateDashboardPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
 -- 'permissions', 'updateDashboardPermissionsResponse_permissions' - Information about the permissions on the dashboard.
@@ -219,13 +255,19 @@ newUpdateDashboardPermissionsResponse ::
   UpdateDashboardPermissionsResponse
 newUpdateDashboardPermissionsResponse pStatus_ =
   UpdateDashboardPermissionsResponse'
-    { requestId =
+    { linkSharingConfiguration =
         Prelude.Nothing,
+      requestId = Prelude.Nothing,
       permissions = Prelude.Nothing,
       dashboardId = Prelude.Nothing,
       dashboardArn = Prelude.Nothing,
       status = pStatus_
     }
+
+-- | Updates the permissions of a shared link to an Amazon QuickSight
+-- dashboard.
+updateDashboardPermissionsResponse_linkSharingConfiguration :: Lens.Lens' UpdateDashboardPermissionsResponse (Prelude.Maybe LinkSharingConfiguration)
+updateDashboardPermissionsResponse_linkSharingConfiguration = Lens.lens (\UpdateDashboardPermissionsResponse' {linkSharingConfiguration} -> linkSharingConfiguration) (\s@UpdateDashboardPermissionsResponse' {} a -> s {linkSharingConfiguration = a} :: UpdateDashboardPermissionsResponse)
 
 -- | The Amazon Web Services request ID for this operation.
 updateDashboardPermissionsResponse_requestId :: Lens.Lens' UpdateDashboardPermissionsResponse (Prelude.Maybe Prelude.Text)
@@ -252,7 +294,8 @@ instance
     UpdateDashboardPermissionsResponse
   where
   rnf UpdateDashboardPermissionsResponse' {..} =
-    Prelude.rnf requestId
+    Prelude.rnf linkSharingConfiguration
+      `Prelude.seq` Prelude.rnf requestId
       `Prelude.seq` Prelude.rnf permissions
       `Prelude.seq` Prelude.rnf dashboardId
       `Prelude.seq` Prelude.rnf dashboardArn

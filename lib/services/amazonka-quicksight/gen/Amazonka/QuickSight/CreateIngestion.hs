@@ -20,7 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates and starts a new SPICE ingestion on a dataset
+-- Creates and starts a new SPICE ingestion for a dataset. You can manually
+-- refresh datasets in an Enterprise edition account 32 times in a 24-hour
+-- period. You can manually refresh datasets in a Standard edition account
+-- 8 times in a 24-hour period. Each 24-hour period is measured starting 24
+-- hours before the current date and time.
 --
 -- Any ingestions operating on tagged datasets inherit the same tags
 -- automatically for use in access control. For an example, see

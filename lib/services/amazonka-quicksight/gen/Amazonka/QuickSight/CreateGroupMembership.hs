@@ -60,7 +60,7 @@ data CreateGroupMembership = CreateGroupMembership'
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
     awsAccountId :: Prelude.Text,
-    -- | The namespace. Currently, you should set this to @default@.
+    -- | The namespace that you want the user to be a part of.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +81,7 @@ data CreateGroupMembership = CreateGroupMembership'
 -- Currently, you use the ID for the Amazon Web Services account that
 -- contains your Amazon QuickSight account.
 --
--- 'namespace', 'createGroupMembership_namespace' - The namespace. Currently, you should set this to @default@.
+-- 'namespace', 'createGroupMembership_namespace' - The namespace that you want the user to be a part of.
 newCreateGroupMembership ::
   -- | 'memberName'
   Prelude.Text ->
@@ -118,7 +118,7 @@ createGroupMembership_groupName = Lens.lens (\CreateGroupMembership' {groupName}
 createGroupMembership_awsAccountId :: Lens.Lens' CreateGroupMembership Prelude.Text
 createGroupMembership_awsAccountId = Lens.lens (\CreateGroupMembership' {awsAccountId} -> awsAccountId) (\s@CreateGroupMembership' {} a -> s {awsAccountId = a} :: CreateGroupMembership)
 
--- | The namespace. Currently, you should set this to @default@.
+-- | The namespace that you want the user to be a part of.
 createGroupMembership_namespace :: Lens.Lens' CreateGroupMembership Prelude.Text
 createGroupMembership_namespace = Lens.lens (\CreateGroupMembership' {namespace} -> namespace) (\s@CreateGroupMembership' {} a -> s {namespace = a} :: CreateGroupMembership)
 

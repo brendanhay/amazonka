@@ -20,10 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Amazon QuickSight group.
+-- Use the @CreateGroup@ operation to create a group in Amazon QuickSight.
+-- You can create up to 10,000 groups in a namespace. If you want to create
+-- more than 10,000 groups in a namespace, contact AWS Support.
 --
 -- The permissions resource is
--- @arn:aws:quicksight:us-east-1:\<relevant-aws-account-id>:group\/default\/\<group-name> @.
+-- @arn:aws:quicksight:\<your-region>:\<relevant-aws-account-id>:group\/default\/\<group-name> @.
 --
 -- The response is a group object.
 module Amazonka.QuickSight.CreateGroup
@@ -67,7 +69,7 @@ data CreateGroup = CreateGroup'
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
     awsAccountId :: Prelude.Text,
-    -- | The namespace. Currently, you should set this to @default@.
+    -- | The namespace that you want the group to be a part of.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +90,7 @@ data CreateGroup = CreateGroup'
 -- Currently, you use the ID for the Amazon Web Services account that
 -- contains your Amazon QuickSight account.
 --
--- 'namespace', 'createGroup_namespace' - The namespace. Currently, you should set this to @default@.
+-- 'namespace', 'createGroup_namespace' - The namespace that you want the group to be a part of.
 newCreateGroup ::
   -- | 'groupName'
   Prelude.Text ->
@@ -119,7 +121,7 @@ createGroup_groupName = Lens.lens (\CreateGroup' {groupName} -> groupName) (\s@C
 createGroup_awsAccountId :: Lens.Lens' CreateGroup Prelude.Text
 createGroup_awsAccountId = Lens.lens (\CreateGroup' {awsAccountId} -> awsAccountId) (\s@CreateGroup' {} a -> s {awsAccountId = a} :: CreateGroup)
 
--- | The namespace. Currently, you should set this to @default@.
+-- | The namespace that you want the group to be a part of.
 createGroup_namespace :: Lens.Lens' CreateGroup Prelude.Text
 createGroup_namespace = Lens.lens (\CreateGroup' {namespace} -> namespace) (\s@CreateGroup' {} a -> s {namespace = a} :: CreateGroup)
 

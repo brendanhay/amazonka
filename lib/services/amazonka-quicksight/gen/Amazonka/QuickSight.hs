@@ -97,6 +97,12 @@ module Amazonka.QuickSight
     CreateAccountCustomizationResponse (CreateAccountCustomizationResponse'),
     newCreateAccountCustomizationResponse,
 
+    -- ** CreateAccountSubscription
+    CreateAccountSubscription (CreateAccountSubscription'),
+    newCreateAccountSubscription,
+    CreateAccountSubscriptionResponse (CreateAccountSubscriptionResponse'),
+    newCreateAccountSubscriptionResponse,
+
     -- ** CreateAnalysis
     CreateAnalysis (CreateAnalysis'),
     newCreateAnalysis,
@@ -301,6 +307,12 @@ module Amazonka.QuickSight
     DescribeAccountSettingsResponse (DescribeAccountSettingsResponse'),
     newDescribeAccountSettingsResponse,
 
+    -- ** DescribeAccountSubscription
+    DescribeAccountSubscription (DescribeAccountSubscription'),
+    newDescribeAccountSubscription,
+    DescribeAccountSubscriptionResponse (DescribeAccountSubscriptionResponse'),
+    newDescribeAccountSubscriptionResponse,
+
     -- ** DescribeAnalysis
     DescribeAnalysis (DescribeAnalysis'),
     newDescribeAnalysis,
@@ -372,6 +384,12 @@ module Amazonka.QuickSight
     newDescribeGroup,
     DescribeGroupResponse (DescribeGroupResponse'),
     newDescribeGroupResponse,
+
+    -- ** DescribeGroupMembership
+    DescribeGroupMembership (DescribeGroupMembership'),
+    newDescribeGroupMembership,
+    DescribeGroupMembershipResponse (DescribeGroupMembershipResponse'),
+    newDescribeGroupMembershipResponse,
 
     -- ** DescribeIAMPolicyAssignment
     DescribeIAMPolicyAssignment (DescribeIAMPolicyAssignment'),
@@ -625,6 +643,12 @@ module Amazonka.QuickSight
     SearchFoldersResponse (SearchFoldersResponse'),
     newSearchFoldersResponse,
 
+    -- ** SearchGroups
+    SearchGroups (SearchGroups'),
+    newSearchGroups,
+    SearchGroupsResponse (SearchGroupsResponse'),
+    newSearchGroupsResponse,
+
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
@@ -733,6 +757,12 @@ module Amazonka.QuickSight
     UpdateIpRestrictionResponse (UpdateIpRestrictionResponse'),
     newUpdateIpRestrictionResponse,
 
+    -- ** UpdatePublicSharingSettings
+    UpdatePublicSharingSettings (UpdatePublicSharingSettings'),
+    newUpdatePublicSharingSettings,
+    UpdatePublicSharingSettingsResponse (UpdatePublicSharingSettingsResponse'),
+    newUpdatePublicSharingSettingsResponse,
+
     -- ** UpdateTemplate
     UpdateTemplate (UpdateTemplate'),
     newUpdateTemplate,
@@ -786,6 +816,9 @@ module Amazonka.QuickSight
     -- ** AssignmentStatus
     AssignmentStatus (..),
 
+    -- ** AuthenticationMethodOption
+    AuthenticationMethodOption (..),
+
     -- ** ColumnDataType
     ColumnDataType (..),
 
@@ -836,6 +869,12 @@ module Amazonka.QuickSight
 
     -- ** GeoSpatialDataRole
     GeoSpatialDataRole (..),
+
+    -- ** GroupFilterAttribute
+    GroupFilterAttribute (..),
+
+    -- ** GroupFilterOperator
+    GroupFilterOperator (..),
 
     -- ** IdentityStore
     IdentityStore (..),
@@ -903,6 +942,10 @@ module Amazonka.QuickSight
     -- ** AccountCustomization
     AccountCustomization (AccountCustomization'),
     newAccountCustomization,
+
+    -- ** AccountInfo
+    AccountInfo (AccountInfo'),
+    newAccountInfo,
 
     -- ** AccountSettings
     AccountSettings (AccountSettings'),
@@ -1116,6 +1159,10 @@ module Amazonka.QuickSight
     ErrorInfo (ErrorInfo'),
     newErrorInfo,
 
+    -- ** ExasolParameters
+    ExasolParameters (ExasolParameters'),
+    newExasolParameters,
+
     -- ** ExportToCSVOption
     ExportToCSVOption (ExportToCSVOption'),
     newExportToCSVOption,
@@ -1156,6 +1203,10 @@ module Amazonka.QuickSight
     GroupMember (GroupMember'),
     newGroupMember,
 
+    -- ** GroupSearchFilter
+    GroupSearchFilter (GroupSearchFilter'),
+    newGroupSearchFilter,
+
     -- ** GutterStyle
     GutterStyle (GutterStyle'),
     newGutterStyle,
@@ -1191,6 +1242,10 @@ module Amazonka.QuickSight
     -- ** JoinKeyProperties
     JoinKeyProperties (JoinKeyProperties'),
     newJoinKeyProperties,
+
+    -- ** LinkSharingConfiguration
+    LinkSharingConfiguration (LinkSharingConfiguration'),
+    newLinkSharingConfiguration,
 
     -- ** LogicalTable
     LogicalTable (LogicalTable'),
@@ -1340,6 +1395,10 @@ module Amazonka.QuickSight
     SheetStyle (SheetStyle'),
     newSheetStyle,
 
+    -- ** SignupResponse
+    SignupResponse (SignupResponse'),
+    newSignupResponse,
+
     -- ** SnowflakeParameters
     SnowflakeParameters (SnowflakeParameters'),
     newSnowflakeParameters,
@@ -1476,6 +1535,7 @@ where
 
 import Amazonka.QuickSight.CancelIngestion
 import Amazonka.QuickSight.CreateAccountCustomization
+import Amazonka.QuickSight.CreateAccountSubscription
 import Amazonka.QuickSight.CreateAnalysis
 import Amazonka.QuickSight.CreateDashboard
 import Amazonka.QuickSight.CreateDataSet
@@ -1510,6 +1570,7 @@ import Amazonka.QuickSight.DeleteUser
 import Amazonka.QuickSight.DeleteUserByPrincipalId
 import Amazonka.QuickSight.DescribeAccountCustomization
 import Amazonka.QuickSight.DescribeAccountSettings
+import Amazonka.QuickSight.DescribeAccountSubscription
 import Amazonka.QuickSight.DescribeAnalysis
 import Amazonka.QuickSight.DescribeAnalysisPermissions
 import Amazonka.QuickSight.DescribeDashboard
@@ -1522,6 +1583,7 @@ import Amazonka.QuickSight.DescribeFolder
 import Amazonka.QuickSight.DescribeFolderPermissions
 import Amazonka.QuickSight.DescribeFolderResolvedPermissions
 import Amazonka.QuickSight.DescribeGroup
+import Amazonka.QuickSight.DescribeGroupMembership
 import Amazonka.QuickSight.DescribeIAMPolicyAssignment
 import Amazonka.QuickSight.DescribeIngestion
 import Amazonka.QuickSight.DescribeIpRestriction
@@ -1565,6 +1627,7 @@ import Amazonka.QuickSight.RestoreAnalysis
 import Amazonka.QuickSight.SearchAnalyses
 import Amazonka.QuickSight.SearchDashboards
 import Amazonka.QuickSight.SearchFolders
+import Amazonka.QuickSight.SearchGroups
 import Amazonka.QuickSight.TagResource
 import Amazonka.QuickSight.Types
 import Amazonka.QuickSight.UntagResource
@@ -1584,6 +1647,7 @@ import Amazonka.QuickSight.UpdateFolderPermissions
 import Amazonka.QuickSight.UpdateGroup
 import Amazonka.QuickSight.UpdateIAMPolicyAssignment
 import Amazonka.QuickSight.UpdateIpRestriction
+import Amazonka.QuickSight.UpdatePublicSharingSettings
 import Amazonka.QuickSight.UpdateTemplate
 import Amazonka.QuickSight.UpdateTemplateAlias
 import Amazonka.QuickSight.UpdateTemplatePermissions

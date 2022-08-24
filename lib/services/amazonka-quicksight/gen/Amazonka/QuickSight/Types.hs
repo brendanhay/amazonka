@@ -45,6 +45,9 @@ module Amazonka.QuickSight.Types
     -- * AssignmentStatus
     AssignmentStatus (..),
 
+    -- * AuthenticationMethodOption
+    AuthenticationMethodOption (..),
+
     -- * ColumnDataType
     ColumnDataType (..),
 
@@ -95,6 +98,12 @@ module Amazonka.QuickSight.Types
 
     -- * GeoSpatialDataRole
     GeoSpatialDataRole (..),
+
+    -- * GroupFilterAttribute
+    GroupFilterAttribute (..),
+
+    -- * GroupFilterOperator
+    GroupFilterOperator (..),
 
     -- * IdentityStore
     IdentityStore (..),
@@ -162,7 +171,17 @@ module Amazonka.QuickSight.Types
     -- * AccountCustomization
     AccountCustomization (..),
     newAccountCustomization,
+    accountCustomization_defaultEmailCustomizationTemplate,
     accountCustomization_defaultTheme,
+
+    -- * AccountInfo
+    AccountInfo (..),
+    newAccountInfo,
+    accountInfo_authenticationType,
+    accountInfo_notificationEmail,
+    accountInfo_edition,
+    accountInfo_accountSubscriptionStatus,
+    accountInfo_accountName,
 
     -- * AccountSettings
     AccountSettings (..),
@@ -171,6 +190,7 @@ module Amazonka.QuickSight.Types
     accountSettings_edition,
     accountSettings_accountName,
     accountSettings_defaultNamespace,
+    accountSettings_publicSharingEnabled,
 
     -- * ActiveIAMPolicyAssignment
     ActiveIAMPolicyAssignment (..),
@@ -530,6 +550,7 @@ module Amazonka.QuickSight.Types
     dataSourceParameters_s3Parameters,
     dataSourceParameters_postgreSqlParameters,
     dataSourceParameters_mySqlParameters,
+    dataSourceParameters_exasolParameters,
     dataSourceParameters_redshiftParameters,
     dataSourceParameters_awsIotAnalyticsParameters,
     dataSourceParameters_sparkParameters,
@@ -565,6 +586,12 @@ module Amazonka.QuickSight.Types
     newErrorInfo,
     errorInfo_message,
     errorInfo_type,
+
+    -- * ExasolParameters
+    ExasolParameters (..),
+    newExasolParameters,
+    exasolParameters_host,
+    exasolParameters_port,
 
     -- * ExportToCSVOption
     ExportToCSVOption (..),
@@ -637,6 +664,13 @@ module Amazonka.QuickSight.Types
     groupMember_memberName,
     groupMember_arn,
 
+    -- * GroupSearchFilter
+    GroupSearchFilter (..),
+    newGroupSearchFilter,
+    groupSearchFilter_operator,
+    groupSearchFilter_name,
+    groupSearchFilter_value,
+
     -- * GutterStyle
     GutterStyle (..),
     newGutterStyle,
@@ -704,6 +738,11 @@ module Amazonka.QuickSight.Types
     JoinKeyProperties (..),
     newJoinKeyProperties,
     joinKeyProperties_uniqueKey,
+
+    -- * LinkSharingConfiguration
+    LinkSharingConfiguration (..),
+    newLinkSharingConfiguration,
+    linkSharingConfiguration_permissions,
 
     -- * LogicalTable
     LogicalTable (..),
@@ -946,6 +985,14 @@ module Amazonka.QuickSight.Types
     newSheetStyle,
     sheetStyle_tile,
     sheetStyle_tileLayout,
+
+    -- * SignupResponse
+    SignupResponse (..),
+    newSignupResponse,
+    signupResponse_directoryType,
+    signupResponse_userLoginName,
+    signupResponse_iAMUser,
+    signupResponse_accountName,
 
     -- * SnowflakeParameters
     SnowflakeParameters (..),
@@ -1220,6 +1267,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.AccountCustomization
+import Amazonka.QuickSight.Types.AccountInfo
 import Amazonka.QuickSight.Types.AccountSettings
 import Amazonka.QuickSight.Types.ActiveIAMPolicyAssignment
 import Amazonka.QuickSight.Types.AdHocFilteringOption
@@ -1239,6 +1287,7 @@ import Amazonka.QuickSight.Types.AssignmentStatus
 import Amazonka.QuickSight.Types.AthenaParameters
 import Amazonka.QuickSight.Types.AuroraParameters
 import Amazonka.QuickSight.Types.AuroraPostgreSqlParameters
+import Amazonka.QuickSight.Types.AuthenticationMethodOption
 import Amazonka.QuickSight.Types.AwsIotAnalyticsParameters
 import Amazonka.QuickSight.Types.BorderStyle
 import Amazonka.QuickSight.Types.CalculatedColumn
@@ -1287,6 +1336,7 @@ import Amazonka.QuickSight.Types.DecimalParameter
 import Amazonka.QuickSight.Types.Edition
 import Amazonka.QuickSight.Types.EmbeddingIdentityType
 import Amazonka.QuickSight.Types.ErrorInfo
+import Amazonka.QuickSight.Types.ExasolParameters
 import Amazonka.QuickSight.Types.ExportToCSVOption
 import Amazonka.QuickSight.Types.FieldFolder
 import Amazonka.QuickSight.Types.FileFormat
@@ -1302,7 +1352,10 @@ import Amazonka.QuickSight.Types.GeoSpatialColumnGroup
 import Amazonka.QuickSight.Types.GeoSpatialCountryCode
 import Amazonka.QuickSight.Types.GeoSpatialDataRole
 import Amazonka.QuickSight.Types.Group
+import Amazonka.QuickSight.Types.GroupFilterAttribute
+import Amazonka.QuickSight.Types.GroupFilterOperator
 import Amazonka.QuickSight.Types.GroupMember
+import Amazonka.QuickSight.Types.GroupSearchFilter
 import Amazonka.QuickSight.Types.GutterStyle
 import Amazonka.QuickSight.Types.IAMPolicyAssignment
 import Amazonka.QuickSight.Types.IAMPolicyAssignmentSummary
@@ -1321,6 +1374,7 @@ import Amazonka.QuickSight.Types.JiraParameters
 import Amazonka.QuickSight.Types.JoinInstruction
 import Amazonka.QuickSight.Types.JoinKeyProperties
 import Amazonka.QuickSight.Types.JoinType
+import Amazonka.QuickSight.Types.LinkSharingConfiguration
 import Amazonka.QuickSight.Types.LogicalTable
 import Amazonka.QuickSight.Types.LogicalTableSource
 import Amazonka.QuickSight.Types.ManifestFileLocation
@@ -1364,6 +1418,7 @@ import Amazonka.QuickSight.Types.SessionTag
 import Amazonka.QuickSight.Types.Sheet
 import Amazonka.QuickSight.Types.SheetControlsOption
 import Amazonka.QuickSight.Types.SheetStyle
+import Amazonka.QuickSight.Types.SignupResponse
 import Amazonka.QuickSight.Types.SnowflakeParameters
 import Amazonka.QuickSight.Types.SparkParameters
 import Amazonka.QuickSight.Types.SqlServerParameters
@@ -1496,11 +1551,12 @@ _ResourceUnavailableException =
 -- | This error indicates that you are calling an embedding operation in
 -- Amazon QuickSight without the required pricing plan on your Amazon Web
 -- Services account. Before you can use embedding for anonymous users, a
--- Amazon QuickSight administrator needs to add capacity pricing to Amazon
+-- QuickSight administrator needs to add capacity pricing to Amazon
 -- QuickSight. You can do this on the __Manage Amazon QuickSight__ page.
 --
--- After capacity pricing is added, you can use the GetDashboardEmbedUrl
--- API operation with the @--identity-type ANONYMOUS@ option.
+-- After capacity pricing is added, you can use the
+-- @ GetDashboardEmbedUrl @ API operation with the
+-- @--identity-type ANONYMOUS@ option.
 _UnsupportedPricingPlanException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedPricingPlanException =
   Core._MatchServiceError

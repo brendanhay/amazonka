@@ -61,7 +61,7 @@ data ListGroups = ListGroups'
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
     awsAccountId :: Prelude.Text,
-    -- | The namespace. Currently, you should set this to @default@.
+    -- | The namespace that you want a list of groups from.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +82,7 @@ data ListGroups = ListGroups'
 -- Currently, you use the ID for the Amazon Web Services account that
 -- contains your Amazon QuickSight account.
 --
--- 'namespace', 'listGroups_namespace' - The namespace. Currently, you should set this to @default@.
+-- 'namespace', 'listGroups_namespace' - The namespace that you want a list of groups from.
 newListGroups ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -111,7 +111,7 @@ listGroups_maxResults = Lens.lens (\ListGroups' {maxResults} -> maxResults) (\s@
 listGroups_awsAccountId :: Lens.Lens' ListGroups Prelude.Text
 listGroups_awsAccountId = Lens.lens (\ListGroups' {awsAccountId} -> awsAccountId) (\s@ListGroups' {} a -> s {awsAccountId = a} :: ListGroups)
 
--- | The namespace. Currently, you should set this to @default@.
+-- | The namespace that you want a list of groups from.
 listGroups_namespace :: Lens.Lens' ListGroups Prelude.Text
 listGroups_namespace = Lens.lens (\ListGroups' {namespace} -> namespace) (\s@ListGroups' {} a -> s {namespace = a} :: ListGroups)
 

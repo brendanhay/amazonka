@@ -24,7 +24,7 @@ import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.FolderType
 
--- | A summary of the folder.
+-- | A summary of information about an existing Amazon QuickSight folder.
 --
 -- /See:/ 'newFolderSummary' smart constructor.
 data FolderSummary = FolderSummary'
@@ -32,11 +32,11 @@ data FolderSummary = FolderSummary'
     name :: Prelude.Maybe Prelude.Text,
     -- | The time that the folder was created.
     createdTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN).
+    -- | The Amazon Resource Name (ARN) of the folder.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The time that the folder was last updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Maybe Prelude.Text,
     -- | The type of folder.
     folderType :: Prelude.Maybe FolderType
@@ -55,11 +55,11 @@ data FolderSummary = FolderSummary'
 --
 -- 'createdTime', 'folderSummary_createdTime' - The time that the folder was created.
 --
--- 'arn', 'folderSummary_arn' - The Amazon Resource Name (ARN).
+-- 'arn', 'folderSummary_arn' - The Amazon Resource Name (ARN) of the folder.
 --
 -- 'lastUpdatedTime', 'folderSummary_lastUpdatedTime' - The time that the folder was last updated.
 --
--- 'folderId', 'folderSummary_folderId' - The folder ID.
+-- 'folderId', 'folderSummary_folderId' - The ID of the folder.
 --
 -- 'folderType', 'folderSummary_folderType' - The type of folder.
 newFolderSummary ::
@@ -82,7 +82,7 @@ folderSummary_name = Lens.lens (\FolderSummary' {name} -> name) (\s@FolderSummar
 folderSummary_createdTime :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.UTCTime)
 folderSummary_createdTime = Lens.lens (\FolderSummary' {createdTime} -> createdTime) (\s@FolderSummary' {} a -> s {createdTime = a} :: FolderSummary) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Name (ARN).
+-- | The Amazon Resource Name (ARN) of the folder.
 folderSummary_arn :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.Text)
 folderSummary_arn = Lens.lens (\FolderSummary' {arn} -> arn) (\s@FolderSummary' {} a -> s {arn = a} :: FolderSummary)
 
@@ -90,7 +90,7 @@ folderSummary_arn = Lens.lens (\FolderSummary' {arn} -> arn) (\s@FolderSummary' 
 folderSummary_lastUpdatedTime :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.UTCTime)
 folderSummary_lastUpdatedTime = Lens.lens (\FolderSummary' {lastUpdatedTime} -> lastUpdatedTime) (\s@FolderSummary' {} a -> s {lastUpdatedTime = a} :: FolderSummary) Prelude.. Lens.mapping Core._Time
 
--- | The folder ID.
+-- | The ID of the folder.
 folderSummary_folderId :: Lens.Lens' FolderSummary (Prelude.Maybe Prelude.Text)
 folderSummary_folderId = Lens.lens (\FolderSummary' {folderId} -> folderId) (\s@FolderSummary' {} a -> s {folderId = a} :: FolderSummary)
 

@@ -64,7 +64,7 @@ data ListGroupMemberships = ListGroupMemberships'
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
     awsAccountId :: Prelude.Text,
-    -- | The namespace. Currently, you should set this to @default@.
+    -- | The namespace of the group that you want a list of users from.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data ListGroupMemberships = ListGroupMemberships'
 -- Currently, you use the ID for the Amazon Web Services account that
 -- contains your Amazon QuickSight account.
 --
--- 'namespace', 'listGroupMemberships_namespace' - The namespace. Currently, you should set this to @default@.
+-- 'namespace', 'listGroupMemberships_namespace' - The namespace of the group that you want a list of users from.
 newListGroupMemberships ::
   -- | 'groupName'
   Prelude.Text ->
@@ -126,7 +126,7 @@ listGroupMemberships_groupName = Lens.lens (\ListGroupMemberships' {groupName} -
 listGroupMemberships_awsAccountId :: Lens.Lens' ListGroupMemberships Prelude.Text
 listGroupMemberships_awsAccountId = Lens.lens (\ListGroupMemberships' {awsAccountId} -> awsAccountId) (\s@ListGroupMemberships' {} a -> s {awsAccountId = a} :: ListGroupMemberships)
 
--- | The namespace. Currently, you should set this to @default@.
+-- | The namespace of the group that you want a list of users from.
 listGroupMemberships_namespace :: Lens.Lens' ListGroupMemberships Prelude.Text
 listGroupMemberships_namespace = Lens.lens (\ListGroupMemberships' {namespace} -> namespace) (\s@ListGroupMemberships' {} a -> s {namespace = a} :: ListGroupMemberships)
 

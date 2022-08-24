@@ -21,6 +21,7 @@ module Amazonka.QuickSight.Types.Edition
   ( Edition
       ( ..,
         Edition_ENTERPRISE,
+        Edition_ENTERPRISE_AND_Q,
         Edition_STANDARD
       ),
   )
@@ -57,11 +58,15 @@ newtype Edition = Edition' {fromEdition :: Core.Text}
 pattern Edition_ENTERPRISE :: Edition
 pattern Edition_ENTERPRISE = Edition' "ENTERPRISE"
 
+pattern Edition_ENTERPRISE_AND_Q :: Edition
+pattern Edition_ENTERPRISE_AND_Q = Edition' "ENTERPRISE_AND_Q"
+
 pattern Edition_STANDARD :: Edition
 pattern Edition_STANDARD = Edition' "STANDARD"
 
 {-# COMPLETE
   Edition_ENTERPRISE,
+  Edition_ENTERPRISE_AND_Q,
   Edition_STANDARD,
   Edition'
   #-}

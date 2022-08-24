@@ -78,8 +78,8 @@ data CreateDashboard = CreateDashboard'
     -- Amazon Web Services account where you create the dashboard.
     themeArn :: Prelude.Maybe Prelude.Text,
     -- | A structure that contains the permissions of the dashboard. You can use
-    -- this structure for granting permissions by providing a list of IAMaction
-    -- information for each principal ARN.
+    -- this structure for granting permissions by providing a list of IAM
+    -- action information for each principal ARN.
     --
     -- To specify no permissions, omit the permissions list.
     permissions :: Prelude.Maybe (Prelude.NonEmpty ResourcePermission),
@@ -109,7 +109,7 @@ data CreateDashboard = CreateDashboard'
     -- | The ID of the Amazon Web Services account where you want to create the
     -- dashboard.
     awsAccountId :: Prelude.Text,
-    -- | The ID for the dashboard, also added to the IAMpolicy.
+    -- | The ID for the dashboard, also added to the IAM policy.
     dashboardId :: Prelude.Text,
     -- | The display name of the dashboard.
     name :: Prelude.Text,
@@ -118,10 +118,10 @@ data CreateDashboard = CreateDashboard'
     -- source. You can only create a dashboard from a template, so you use a
     -- @SourceTemplate@ entity. If you need to create a dashboard from an
     -- analysis, first convert the analysis to a template by using the
-    -- CreateTemplate API operation. For @SourceTemplate@, specify the Amazon
-    -- Resource Name (ARN) of the source template. The @SourceTemplate@ARN can
-    -- contain any Amazon Web Services account and any Amazon
-    -- QuickSight-supported Amazon Web Services Region.
+    -- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
+    -- Amazon Resource Name (ARN) of the source template. The
+    -- @SourceTemplate@ARN can contain any Amazon Web Services account and any
+    -- Amazon QuickSight-supported Amazon Web Services Region.
     --
     -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
     -- replacement datasets for the placeholders listed in the original. The
@@ -147,8 +147,8 @@ data CreateDashboard = CreateDashboard'
 -- Amazon Web Services account where you create the dashboard.
 --
 -- 'permissions', 'createDashboard_permissions' - A structure that contains the permissions of the dashboard. You can use
--- this structure for granting permissions by providing a list of IAMaction
--- information for each principal ARN.
+-- this structure for granting permissions by providing a list of IAM
+-- action information for each principal ARN.
 --
 -- To specify no permissions, omit the permissions list.
 --
@@ -178,7 +178,7 @@ data CreateDashboard = CreateDashboard'
 -- 'awsAccountId', 'createDashboard_awsAccountId' - The ID of the Amazon Web Services account where you want to create the
 -- dashboard.
 --
--- 'dashboardId', 'createDashboard_dashboardId' - The ID for the dashboard, also added to the IAMpolicy.
+-- 'dashboardId', 'createDashboard_dashboardId' - The ID for the dashboard, also added to the IAM policy.
 --
 -- 'name', 'createDashboard_name' - The display name of the dashboard.
 --
@@ -187,10 +187,10 @@ data CreateDashboard = CreateDashboard'
 -- source. You can only create a dashboard from a template, so you use a
 -- @SourceTemplate@ entity. If you need to create a dashboard from an
 -- analysis, first convert the analysis to a template by using the
--- CreateTemplate API operation. For @SourceTemplate@, specify the Amazon
--- Resource Name (ARN) of the source template. The @SourceTemplate@ARN can
--- contain any Amazon Web Services account and any Amazon
--- QuickSight-supported Amazon Web Services Region.
+-- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
+-- Amazon Resource Name (ARN) of the source template. The
+-- @SourceTemplate@ARN can contain any Amazon Web Services account and any
+-- Amazon QuickSight-supported Amazon Web Services Region.
 --
 -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
 -- replacement datasets for the placeholders listed in the original. The
@@ -236,8 +236,8 @@ createDashboard_themeArn :: Lens.Lens' CreateDashboard (Prelude.Maybe Prelude.Te
 createDashboard_themeArn = Lens.lens (\CreateDashboard' {themeArn} -> themeArn) (\s@CreateDashboard' {} a -> s {themeArn = a} :: CreateDashboard)
 
 -- | A structure that contains the permissions of the dashboard. You can use
--- this structure for granting permissions by providing a list of IAMaction
--- information for each principal ARN.
+-- this structure for granting permissions by providing a list of IAM
+-- action information for each principal ARN.
 --
 -- To specify no permissions, omit the permissions list.
 createDashboard_permissions :: Lens.Lens' CreateDashboard (Prelude.Maybe (Prelude.NonEmpty ResourcePermission))
@@ -277,7 +277,7 @@ createDashboard_parameters = Lens.lens (\CreateDashboard' {parameters} -> parame
 createDashboard_awsAccountId :: Lens.Lens' CreateDashboard Prelude.Text
 createDashboard_awsAccountId = Lens.lens (\CreateDashboard' {awsAccountId} -> awsAccountId) (\s@CreateDashboard' {} a -> s {awsAccountId = a} :: CreateDashboard)
 
--- | The ID for the dashboard, also added to the IAMpolicy.
+-- | The ID for the dashboard, also added to the IAM policy.
 createDashboard_dashboardId :: Lens.Lens' CreateDashboard Prelude.Text
 createDashboard_dashboardId = Lens.lens (\CreateDashboard' {dashboardId} -> dashboardId) (\s@CreateDashboard' {} a -> s {dashboardId = a} :: CreateDashboard)
 
@@ -290,10 +290,10 @@ createDashboard_name = Lens.lens (\CreateDashboard' {name} -> name) (\s@CreateDa
 -- source. You can only create a dashboard from a template, so you use a
 -- @SourceTemplate@ entity. If you need to create a dashboard from an
 -- analysis, first convert the analysis to a template by using the
--- CreateTemplate API operation. For @SourceTemplate@, specify the Amazon
--- Resource Name (ARN) of the source template. The @SourceTemplate@ARN can
--- contain any Amazon Web Services account and any Amazon
--- QuickSight-supported Amazon Web Services Region.
+-- @ CreateTemplate @ API operation. For @SourceTemplate@, specify the
+-- Amazon Resource Name (ARN) of the source template. The
+-- @SourceTemplate@ARN can contain any Amazon Web Services account and any
+-- Amazon QuickSight-supported Amazon Web Services Region.
 --
 -- Use the @DataSetReferences@ entity within @SourceTemplate@ to list the
 -- replacement datasets for the placeholders listed in the original. The

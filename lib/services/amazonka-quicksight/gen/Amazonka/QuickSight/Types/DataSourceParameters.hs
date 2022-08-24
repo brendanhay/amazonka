@@ -28,6 +28,7 @@ import Amazonka.QuickSight.Types.AthenaParameters
 import Amazonka.QuickSight.Types.AuroraParameters
 import Amazonka.QuickSight.Types.AuroraPostgreSqlParameters
 import Amazonka.QuickSight.Types.AwsIotAnalyticsParameters
+import Amazonka.QuickSight.Types.ExasolParameters
 import Amazonka.QuickSight.Types.JiraParameters
 import Amazonka.QuickSight.Types.MariaDbParameters
 import Amazonka.QuickSight.Types.MySqlParameters
@@ -58,6 +59,8 @@ data DataSourceParameters = DataSourceParameters'
     postgreSqlParameters :: Prelude.Maybe PostgreSqlParameters,
     -- | The parameters for MySQL.
     mySqlParameters :: Prelude.Maybe MySqlParameters,
+    -- | The parameters for Exasol.
+    exasolParameters :: Prelude.Maybe ExasolParameters,
     -- | The parameters for Amazon Redshift.
     redshiftParameters :: Prelude.Maybe RedshiftParameters,
     -- | The parameters for IoT Analytics.
@@ -82,6 +85,7 @@ data DataSourceParameters = DataSourceParameters'
     mariaDbParameters :: Prelude.Maybe MariaDbParameters,
     -- | The parameters for Amazon Athena.
     athenaParameters :: Prelude.Maybe AthenaParameters,
+    -- | The parameters for OpenSearch.
     amazonOpenSearchParameters :: Prelude.Maybe AmazonOpenSearchParameters,
     -- | The parameters for Jira.
     jiraParameters :: Prelude.Maybe JiraParameters,
@@ -110,6 +114,8 @@ data DataSourceParameters = DataSourceParameters'
 --
 -- 'mySqlParameters', 'dataSourceParameters_mySqlParameters' - The parameters for MySQL.
 --
+-- 'exasolParameters', 'dataSourceParameters_exasolParameters' - The parameters for Exasol.
+--
 -- 'redshiftParameters', 'dataSourceParameters_redshiftParameters' - The parameters for Amazon Redshift.
 --
 -- 'awsIotAnalyticsParameters', 'dataSourceParameters_awsIotAnalyticsParameters' - The parameters for IoT Analytics.
@@ -134,7 +140,7 @@ data DataSourceParameters = DataSourceParameters'
 --
 -- 'athenaParameters', 'dataSourceParameters_athenaParameters' - The parameters for Amazon Athena.
 --
--- 'amazonOpenSearchParameters', 'dataSourceParameters_amazonOpenSearchParameters' - Undocumented member.
+-- 'amazonOpenSearchParameters', 'dataSourceParameters_amazonOpenSearchParameters' - The parameters for OpenSearch.
 --
 -- 'jiraParameters', 'dataSourceParameters_jiraParameters' - The parameters for Jira.
 --
@@ -152,6 +158,7 @@ newDataSourceParameters =
       s3Parameters = Prelude.Nothing,
       postgreSqlParameters = Prelude.Nothing,
       mySqlParameters = Prelude.Nothing,
+      exasolParameters = Prelude.Nothing,
       redshiftParameters = Prelude.Nothing,
       awsIotAnalyticsParameters = Prelude.Nothing,
       sparkParameters = Prelude.Nothing,
@@ -186,6 +193,10 @@ dataSourceParameters_postgreSqlParameters = Lens.lens (\DataSourceParameters' {p
 -- | The parameters for MySQL.
 dataSourceParameters_mySqlParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe MySqlParameters)
 dataSourceParameters_mySqlParameters = Lens.lens (\DataSourceParameters' {mySqlParameters} -> mySqlParameters) (\s@DataSourceParameters' {} a -> s {mySqlParameters = a} :: DataSourceParameters)
+
+-- | The parameters for Exasol.
+dataSourceParameters_exasolParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe ExasolParameters)
+dataSourceParameters_exasolParameters = Lens.lens (\DataSourceParameters' {exasolParameters} -> exasolParameters) (\s@DataSourceParameters' {} a -> s {exasolParameters = a} :: DataSourceParameters)
 
 -- | The parameters for Amazon Redshift.
 dataSourceParameters_redshiftParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe RedshiftParameters)
@@ -235,7 +246,7 @@ dataSourceParameters_mariaDbParameters = Lens.lens (\DataSourceParameters' {mari
 dataSourceParameters_athenaParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AthenaParameters)
 dataSourceParameters_athenaParameters = Lens.lens (\DataSourceParameters' {athenaParameters} -> athenaParameters) (\s@DataSourceParameters' {} a -> s {athenaParameters = a} :: DataSourceParameters)
 
--- | Undocumented member.
+-- | The parameters for OpenSearch.
 dataSourceParameters_amazonOpenSearchParameters :: Lens.Lens' DataSourceParameters (Prelude.Maybe AmazonOpenSearchParameters)
 dataSourceParameters_amazonOpenSearchParameters = Lens.lens (\DataSourceParameters' {amazonOpenSearchParameters} -> amazonOpenSearchParameters) (\s@DataSourceParameters' {} a -> s {amazonOpenSearchParameters = a} :: DataSourceParameters)
 
@@ -265,6 +276,7 @@ instance Core.FromJSON DataSourceParameters where
             Prelude.<*> (x Core..:? "S3Parameters")
             Prelude.<*> (x Core..:? "PostgreSqlParameters")
             Prelude.<*> (x Core..:? "MySqlParameters")
+            Prelude.<*> (x Core..:? "ExasolParameters")
             Prelude.<*> (x Core..:? "RedshiftParameters")
             Prelude.<*> (x Core..:? "AwsIotAnalyticsParameters")
             Prelude.<*> (x Core..:? "SparkParameters")
@@ -290,6 +302,7 @@ instance Prelude.Hashable DataSourceParameters where
       `Prelude.hashWithSalt` s3Parameters
       `Prelude.hashWithSalt` postgreSqlParameters
       `Prelude.hashWithSalt` mySqlParameters
+      `Prelude.hashWithSalt` exasolParameters
       `Prelude.hashWithSalt` redshiftParameters
       `Prelude.hashWithSalt` awsIotAnalyticsParameters
       `Prelude.hashWithSalt` sparkParameters
@@ -314,6 +327,7 @@ instance Prelude.NFData DataSourceParameters where
       `Prelude.seq` Prelude.rnf s3Parameters
       `Prelude.seq` Prelude.rnf postgreSqlParameters
       `Prelude.seq` Prelude.rnf mySqlParameters
+      `Prelude.seq` Prelude.rnf exasolParameters
       `Prelude.seq` Prelude.rnf redshiftParameters
       `Prelude.seq` Prelude.rnf awsIotAnalyticsParameters
       `Prelude.seq` Prelude.rnf sparkParameters
@@ -333,7 +347,8 @@ instance Prelude.NFData DataSourceParameters where
         amazonElasticsearchParameters
       `Prelude.seq` Prelude.rnf
         sqlServerParameters
-      `Prelude.seq` Prelude.rnf auroraParameters
+      `Prelude.seq` Prelude.rnf
+        auroraParameters
 
 instance Core.ToJSON DataSourceParameters where
   toJSON DataSourceParameters' {..} =
@@ -346,6 +361,8 @@ instance Core.ToJSON DataSourceParameters where
               Prelude.<$> postgreSqlParameters,
             ("MySqlParameters" Core..=)
               Prelude.<$> mySqlParameters,
+            ("ExasolParameters" Core..=)
+              Prelude.<$> exasolParameters,
             ("RedshiftParameters" Core..=)
               Prelude.<$> redshiftParameters,
             ("AwsIotAnalyticsParameters" Core..=)

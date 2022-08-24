@@ -85,7 +85,7 @@ data CreateTheme = CreateTheme'
     -- | The ID of the theme that a custom theme will inherit from. All themes
     -- inherit from one of the starting themes defined by Amazon QuickSight.
     -- For a list of the starting themes, use @ListThemes@ or choose __Themes__
-    -- from within a Amazon QuickSight analysis.
+    -- from within an analysis.
     baseThemeId :: Prelude.Text,
     -- | The theme configuration, which contains the theme display properties.
     configuration :: ThemeConfiguration
@@ -121,7 +121,7 @@ data CreateTheme = CreateTheme'
 -- 'baseThemeId', 'createTheme_baseThemeId' - The ID of the theme that a custom theme will inherit from. All themes
 -- inherit from one of the starting themes defined by Amazon QuickSight.
 -- For a list of the starting themes, use @ListThemes@ or choose __Themes__
--- from within a Amazon QuickSight analysis.
+-- from within an analysis.
 --
 -- 'configuration', 'createTheme_configuration' - The theme configuration, which contains the theme display properties.
 newCreateTheme ::
@@ -186,7 +186,7 @@ createTheme_name = Lens.lens (\CreateTheme' {name} -> name) (\s@CreateTheme' {} 
 -- | The ID of the theme that a custom theme will inherit from. All themes
 -- inherit from one of the starting themes defined by Amazon QuickSight.
 -- For a list of the starting themes, use @ListThemes@ or choose __Themes__
--- from within a Amazon QuickSight analysis.
+-- from within an analysis.
 createTheme_baseThemeId :: Lens.Lens' CreateTheme Prelude.Text
 createTheme_baseThemeId = Lens.lens (\CreateTheme' {baseThemeId} -> baseThemeId) (\s@CreateTheme' {} a -> s {baseThemeId = a} :: CreateTheme)
 

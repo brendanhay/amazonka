@@ -60,7 +60,7 @@ data UpdateGroup = UpdateGroup'
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
     awsAccountId :: Prelude.Text,
-    -- | The namespace. Currently, you should set this to @default@.
+    -- | The namespace of the group that you want to update.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +81,7 @@ data UpdateGroup = UpdateGroup'
 -- Currently, you use the ID for the Amazon Web Services account that
 -- contains your Amazon QuickSight account.
 --
--- 'namespace', 'updateGroup_namespace' - The namespace. Currently, you should set this to @default@.
+-- 'namespace', 'updateGroup_namespace' - The namespace of the group that you want to update.
 newUpdateGroup ::
   -- | 'groupName'
   Prelude.Text ->
@@ -112,7 +112,7 @@ updateGroup_groupName = Lens.lens (\UpdateGroup' {groupName} -> groupName) (\s@U
 updateGroup_awsAccountId :: Lens.Lens' UpdateGroup Prelude.Text
 updateGroup_awsAccountId = Lens.lens (\UpdateGroup' {awsAccountId} -> awsAccountId) (\s@UpdateGroup' {} a -> s {awsAccountId = a} :: UpdateGroup)
 
--- | The namespace. Currently, you should set this to @default@.
+-- | The namespace of the group that you want to update.
 updateGroup_namespace :: Lens.Lens' UpdateGroup Prelude.Text
 updateGroup_namespace = Lens.lens (\UpdateGroup' {namespace} -> namespace) (\s@UpdateGroup' {} a -> s {namespace = a} :: UpdateGroup)
 

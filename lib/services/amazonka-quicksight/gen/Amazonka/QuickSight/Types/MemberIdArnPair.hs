@@ -23,7 +23,7 @@ import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | An object that consists of the member Amazon Resource Name (ARN) and
+-- | An object that consists of a member Amazon Resource Name (ARN) and a
 -- member ID.
 --
 -- /See:/ 'newMemberIdArnPair' smart constructor.

@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates content and status of IP Rules.
+-- Updates the content and status of IP rules. To use this operation, you
+-- need to provide the entire map of rules. You can use the
+-- @DescribeIpRestriction@ operation to get the current rule map.
 module Amazonka.QuickSight.UpdateIpRestriction
   ( -- * Creating a Request
     UpdateIpRestriction (..),
@@ -51,11 +53,12 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newUpdateIpRestriction' smart constructor.
 data UpdateIpRestriction = UpdateIpRestriction'
-  { -- | Describes updated IP rules.
+  { -- | A map that describes the updated IP rules with CIDR ranges and
+    -- descriptions.
     ipRestrictionRuleMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Whether or not IP rules are enabled.
+    -- | A value that specifies whether IP rules are turned on.
     enabled :: Prelude.Maybe Prelude.Bool,
-    -- | Your AWS account ID.
+    -- | The ID of the Amazon Web Services account that contains the IP rules.
     awsAccountId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,11 +71,12 @@ data UpdateIpRestriction = UpdateIpRestriction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipRestrictionRuleMap', 'updateIpRestriction_ipRestrictionRuleMap' - Describes updated IP rules.
+-- 'ipRestrictionRuleMap', 'updateIpRestriction_ipRestrictionRuleMap' - A map that describes the updated IP rules with CIDR ranges and
+-- descriptions.
 --
--- 'enabled', 'updateIpRestriction_enabled' - Whether or not IP rules are enabled.
+-- 'enabled', 'updateIpRestriction_enabled' - A value that specifies whether IP rules are turned on.
 --
--- 'awsAccountId', 'updateIpRestriction_awsAccountId' - Your AWS account ID.
+-- 'awsAccountId', 'updateIpRestriction_awsAccountId' - The ID of the Amazon Web Services account that contains the IP rules.
 newUpdateIpRestriction ::
   -- | 'awsAccountId'
   Prelude.Text ->
@@ -85,15 +89,16 @@ newUpdateIpRestriction pAwsAccountId_ =
       awsAccountId = pAwsAccountId_
     }
 
--- | Describes updated IP rules.
+-- | A map that describes the updated IP rules with CIDR ranges and
+-- descriptions.
 updateIpRestriction_ipRestrictionRuleMap :: Lens.Lens' UpdateIpRestriction (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateIpRestriction_ipRestrictionRuleMap = Lens.lens (\UpdateIpRestriction' {ipRestrictionRuleMap} -> ipRestrictionRuleMap) (\s@UpdateIpRestriction' {} a -> s {ipRestrictionRuleMap = a} :: UpdateIpRestriction) Prelude.. Lens.mapping Lens.coerced
 
--- | Whether or not IP rules are enabled.
+-- | A value that specifies whether IP rules are turned on.
 updateIpRestriction_enabled :: Lens.Lens' UpdateIpRestriction (Prelude.Maybe Prelude.Bool)
 updateIpRestriction_enabled = Lens.lens (\UpdateIpRestriction' {enabled} -> enabled) (\s@UpdateIpRestriction' {} a -> s {enabled = a} :: UpdateIpRestriction)
 
--- | Your AWS account ID.
+-- | The ID of the Amazon Web Services account that contains the IP rules.
 updateIpRestriction_awsAccountId :: Lens.Lens' UpdateIpRestriction Prelude.Text
 updateIpRestriction_awsAccountId = Lens.lens (\UpdateIpRestriction' {awsAccountId} -> awsAccountId) (\s@UpdateIpRestriction' {} a -> s {awsAccountId = a} :: UpdateIpRestriction)
 
@@ -157,12 +162,11 @@ instance Core.ToQuery UpdateIpRestriction where
 
 -- | /See:/ 'newUpdateIpRestrictionResponse' smart constructor.
 data UpdateIpRestrictionResponse = UpdateIpRestrictionResponse'
-  { -- | Your AWS account ID.
+  { -- | The ID of the Amazon Web Services account that contains the IP rules.
     awsAccountId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the update request.
+    -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the updated IP rules. A successful request returns a 200
-    -- code.
+    -- | The HTTP status of the request.
     status :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -175,12 +179,11 @@ data UpdateIpRestrictionResponse = UpdateIpRestrictionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'updateIpRestrictionResponse_awsAccountId' - Your AWS account ID.
+-- 'awsAccountId', 'updateIpRestrictionResponse_awsAccountId' - The ID of the Amazon Web Services account that contains the IP rules.
 --
--- 'requestId', 'updateIpRestrictionResponse_requestId' - The ID of the update request.
+-- 'requestId', 'updateIpRestrictionResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'status', 'updateIpRestrictionResponse_status' - The status of the updated IP rules. A successful request returns a 200
--- code.
+-- 'status', 'updateIpRestrictionResponse_status' - The HTTP status of the request.
 newUpdateIpRestrictionResponse ::
   -- | 'status'
   Prelude.Int ->
@@ -193,16 +196,15 @@ newUpdateIpRestrictionResponse pStatus_ =
       status = pStatus_
     }
 
--- | Your AWS account ID.
+-- | The ID of the Amazon Web Services account that contains the IP rules.
 updateIpRestrictionResponse_awsAccountId :: Lens.Lens' UpdateIpRestrictionResponse (Prelude.Maybe Prelude.Text)
 updateIpRestrictionResponse_awsAccountId = Lens.lens (\UpdateIpRestrictionResponse' {awsAccountId} -> awsAccountId) (\s@UpdateIpRestrictionResponse' {} a -> s {awsAccountId = a} :: UpdateIpRestrictionResponse)
 
--- | The ID of the update request.
+-- | The Amazon Web Services request ID for this operation.
 updateIpRestrictionResponse_requestId :: Lens.Lens' UpdateIpRestrictionResponse (Prelude.Maybe Prelude.Text)
 updateIpRestrictionResponse_requestId = Lens.lens (\UpdateIpRestrictionResponse' {requestId} -> requestId) (\s@UpdateIpRestrictionResponse' {} a -> s {requestId = a} :: UpdateIpRestrictionResponse)
 
--- | The status of the updated IP rules. A successful request returns a 200
--- code.
+-- | The HTTP status of the request.
 updateIpRestrictionResponse_status :: Lens.Lens' UpdateIpRestrictionResponse Prelude.Int
 updateIpRestrictionResponse_status = Lens.lens (\UpdateIpRestrictionResponse' {status} -> status) (\s@UpdateIpRestrictionResponse' {} a -> s {status = a} :: UpdateIpRestrictionResponse)
 

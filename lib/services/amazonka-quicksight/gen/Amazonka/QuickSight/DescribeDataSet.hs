@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a dataset.
+-- Describes a dataset. This operation doesn\'t support datasets that
+-- include uploaded files as a source.
 module Amazonka.QuickSight.DescribeDataSet
   ( -- * Creating a Request
     DescribeDataSet (..),

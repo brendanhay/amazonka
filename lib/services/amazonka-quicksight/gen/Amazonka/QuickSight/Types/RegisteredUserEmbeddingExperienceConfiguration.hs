@@ -27,11 +27,11 @@ import Amazonka.QuickSight.Types.RegisteredUserQSearchBarEmbeddingConfiguration
 import Amazonka.QuickSight.Types.RegisteredUserQuickSightConsoleEmbeddingConfiguration
 
 -- | The type of experience you want to embed. For registered users, you can
--- embed an Amazon QuickSight dashboard or the Amazon QuickSight console.
+-- embed Amazon QuickSight dashboards or the Amazon QuickSight console.
 --
 -- Exactly one of the experience configurations is required. You can choose
 -- @Dashboard@ or @QuickSightConsole@. You cannot choose more than one
--- experience configuraton.
+-- experience configuration.
 --
 -- /See:/ 'newRegisteredUserEmbeddingExperienceConfiguration' smart constructor.
 data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExperienceConfiguration'
@@ -41,22 +41,23 @@ data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExp
     -- | The configuration details for embedding the Q search bar.
     --
     -- For more information about embedding the Q search bar, see
-    -- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
+    -- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>
+    -- in the /Amazon QuickSight User Guide/.
     qSearchBar :: Prelude.Maybe RegisteredUserQSearchBarEmbeddingConfiguration,
-    -- | The configuration details for providing an Amazon QuickSight console
+    -- | The configuration details for providing each Amazon QuickSight console
     -- embedding experience. This can be used along with custom permissions to
     -- restrict access to certain features. For more information, see
     -- <https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html Customizing Access to the Amazon QuickSight Console>
     -- in the /Amazon QuickSight User Guide/.
     --
-    -- Use @GenerateEmbedUrlForRegisteredUser@ where you want to provide an
+    -- Use @ GenerateEmbedUrlForRegisteredUser @ where you want to provide an
     -- authoring portal that allows users to create data sources, datasets,
     -- analyses, and dashboards. The users who accesses an embedded Amazon
     -- QuickSight console needs to belong to the author or admin security
     -- cohort. If you want to restrict permissions to some of these features,
     -- add a custom permissions profile to the user with the @ UpdateUser @ API
-    -- operation. Use @ RegisterUser @ API operation to add a new user with a
-    -- custom permission profile attached. For more information, see the
+    -- operation. Use the @ RegisterUser @ API operation to add a new user with
+    -- a custom permission profile attached. For more information, see the
     -- following sections in the /Amazon QuickSight User Guide/:
     --
     -- -   <https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html Embedding the Full Functionality of the Amazon QuickSight Console for Authenticated Users>
@@ -84,22 +85,23 @@ data RegisteredUserEmbeddingExperienceConfiguration = RegisteredUserEmbeddingExp
 -- 'qSearchBar', 'registeredUserEmbeddingExperienceConfiguration_qSearchBar' - The configuration details for embedding the Q search bar.
 --
 -- For more information about embedding the Q search bar, see
--- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
+-- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>
+-- in the /Amazon QuickSight User Guide/.
 --
--- 'quickSightConsole', 'registeredUserEmbeddingExperienceConfiguration_quickSightConsole' - The configuration details for providing an Amazon QuickSight console
+-- 'quickSightConsole', 'registeredUserEmbeddingExperienceConfiguration_quickSightConsole' - The configuration details for providing each Amazon QuickSight console
 -- embedding experience. This can be used along with custom permissions to
 -- restrict access to certain features. For more information, see
 -- <https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html Customizing Access to the Amazon QuickSight Console>
 -- in the /Amazon QuickSight User Guide/.
 --
--- Use @GenerateEmbedUrlForRegisteredUser@ where you want to provide an
+-- Use @ GenerateEmbedUrlForRegisteredUser @ where you want to provide an
 -- authoring portal that allows users to create data sources, datasets,
 -- analyses, and dashboards. The users who accesses an embedded Amazon
 -- QuickSight console needs to belong to the author or admin security
 -- cohort. If you want to restrict permissions to some of these features,
 -- add a custom permissions profile to the user with the @ UpdateUser @ API
--- operation. Use @ RegisterUser @ API operation to add a new user with a
--- custom permission profile attached. For more information, see the
+-- operation. Use the @ RegisterUser @ API operation to add a new user with
+-- a custom permission profile attached. For more information, see the
 -- following sections in the /Amazon QuickSight User Guide/:
 --
 -- -   <https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html Embedding the Full Functionality of the Amazon QuickSight Console for Authenticated Users>
@@ -129,24 +131,25 @@ registeredUserEmbeddingExperienceConfiguration_dashboard = Lens.lens (\Registere
 -- | The configuration details for embedding the Q search bar.
 --
 -- For more information about embedding the Q search bar, see
--- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>.
+-- <https://docs.aws.amazon.com/quicksight/latest/user/embedding-overview.html Embedding Overview>
+-- in the /Amazon QuickSight User Guide/.
 registeredUserEmbeddingExperienceConfiguration_qSearchBar :: Lens.Lens' RegisteredUserEmbeddingExperienceConfiguration (Prelude.Maybe RegisteredUserQSearchBarEmbeddingConfiguration)
 registeredUserEmbeddingExperienceConfiguration_qSearchBar = Lens.lens (\RegisteredUserEmbeddingExperienceConfiguration' {qSearchBar} -> qSearchBar) (\s@RegisteredUserEmbeddingExperienceConfiguration' {} a -> s {qSearchBar = a} :: RegisteredUserEmbeddingExperienceConfiguration)
 
--- | The configuration details for providing an Amazon QuickSight console
+-- | The configuration details for providing each Amazon QuickSight console
 -- embedding experience. This can be used along with custom permissions to
 -- restrict access to certain features. For more information, see
 -- <https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html Customizing Access to the Amazon QuickSight Console>
 -- in the /Amazon QuickSight User Guide/.
 --
--- Use @GenerateEmbedUrlForRegisteredUser@ where you want to provide an
+-- Use @ GenerateEmbedUrlForRegisteredUser @ where you want to provide an
 -- authoring portal that allows users to create data sources, datasets,
 -- analyses, and dashboards. The users who accesses an embedded Amazon
 -- QuickSight console needs to belong to the author or admin security
 -- cohort. If you want to restrict permissions to some of these features,
 -- add a custom permissions profile to the user with the @ UpdateUser @ API
--- operation. Use @ RegisterUser @ API operation to add a new user with a
--- custom permission profile attached. For more information, see the
+-- operation. Use the @ RegisterUser @ API operation to add a new user with
+-- a custom permission profile attached. For more information, see the
 -- following sections in the /Amazon QuickSight User Guide/:
 --
 -- -   <https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.html Embedding the Full Functionality of the Amazon QuickSight Console for Authenticated Users>

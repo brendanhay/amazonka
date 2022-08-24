@@ -60,7 +60,7 @@ data DeleteGroupMembership = DeleteGroupMembership'
     -- Currently, you use the ID for the Amazon Web Services account that
     -- contains your Amazon QuickSight account.
     awsAccountId :: Prelude.Text,
-    -- | The namespace. Currently, you should set this to @default@.
+    -- | The namespace of the group that you want to remove a user from.
     namespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,7 +81,7 @@ data DeleteGroupMembership = DeleteGroupMembership'
 -- Currently, you use the ID for the Amazon Web Services account that
 -- contains your Amazon QuickSight account.
 --
--- 'namespace', 'deleteGroupMembership_namespace' - The namespace. Currently, you should set this to @default@.
+-- 'namespace', 'deleteGroupMembership_namespace' - The namespace of the group that you want to remove a user from.
 newDeleteGroupMembership ::
   -- | 'memberName'
   Prelude.Text ->
@@ -118,7 +118,7 @@ deleteGroupMembership_groupName = Lens.lens (\DeleteGroupMembership' {groupName}
 deleteGroupMembership_awsAccountId :: Lens.Lens' DeleteGroupMembership Prelude.Text
 deleteGroupMembership_awsAccountId = Lens.lens (\DeleteGroupMembership' {awsAccountId} -> awsAccountId) (\s@DeleteGroupMembership' {} a -> s {awsAccountId = a} :: DeleteGroupMembership)
 
--- | The namespace. Currently, you should set this to @default@.
+-- | The namespace of the group that you want to remove a user from.
 deleteGroupMembership_namespace :: Lens.Lens' DeleteGroupMembership Prelude.Text
 deleteGroupMembership_namespace = Lens.lens (\DeleteGroupMembership' {namespace} -> namespace) (\s@DeleteGroupMembership' {} a -> s {namespace = a} :: DeleteGroupMembership)
 

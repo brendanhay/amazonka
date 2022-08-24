@@ -53,9 +53,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateFolderMembership' smart constructor.
 data CreateFolderMembership = CreateFolderMembership'
-  { -- | The AWS Account ID.
+  { -- | The ID for the Amazon Web Services account that contains the folder.
     awsAccountId :: Prelude.Text,
-    -- | The folder ID.
+    -- | The ID of the folder.
     folderId :: Prelude.Text,
     -- | The ID of the asset (the dashboard, analysis, or dataset).
     memberId :: Prelude.Text,
@@ -73,9 +73,9 @@ data CreateFolderMembership = CreateFolderMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'createFolderMembership_awsAccountId' - The AWS Account ID.
+-- 'awsAccountId', 'createFolderMembership_awsAccountId' - The ID for the Amazon Web Services account that contains the folder.
 --
--- 'folderId', 'createFolderMembership_folderId' - The folder ID.
+-- 'folderId', 'createFolderMembership_folderId' - The ID of the folder.
 --
 -- 'memberId', 'createFolderMembership_memberId' - The ID of the asset (the dashboard, analysis, or dataset).
 --
@@ -104,11 +104,11 @@ newCreateFolderMembership
         memberType = pMemberType_
       }
 
--- | The AWS Account ID.
+-- | The ID for the Amazon Web Services account that contains the folder.
 createFolderMembership_awsAccountId :: Lens.Lens' CreateFolderMembership Prelude.Text
 createFolderMembership_awsAccountId = Lens.lens (\CreateFolderMembership' {awsAccountId} -> awsAccountId) (\s@CreateFolderMembership' {} a -> s {awsAccountId = a} :: CreateFolderMembership)
 
--- | The folder ID.
+-- | The ID of the folder.
 createFolderMembership_folderId :: Lens.Lens' CreateFolderMembership Prelude.Text
 createFolderMembership_folderId = Lens.lens (\CreateFolderMembership' {folderId} -> folderId) (\s@CreateFolderMembership' {} a -> s {folderId = a} :: CreateFolderMembership)
 
@@ -182,10 +182,9 @@ instance Core.ToQuery CreateFolderMembership where
 
 -- | /See:/ 'newCreateFolderMembershipResponse' smart constructor.
 data CreateFolderMembershipResponse = CreateFolderMembershipResponse'
-  { -- | The request ID.
+  { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the folder membership. If succeeded, the status is
-    -- @SC_OK (200)@.
+    -- | The HTTP status of the request.
     status :: Prelude.Maybe Prelude.Int,
     -- | Information about the member in the folder.
     folderMember :: Prelude.Maybe FolderMember,
@@ -202,10 +201,9 @@ data CreateFolderMembershipResponse = CreateFolderMembershipResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'createFolderMembershipResponse_requestId' - The request ID.
+-- 'requestId', 'createFolderMembershipResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'status', 'createFolderMembershipResponse_status' - The status of the folder membership. If succeeded, the status is
--- @SC_OK (200)@.
+-- 'status', 'createFolderMembershipResponse_status' - The HTTP status of the request.
 --
 -- 'folderMember', 'createFolderMembershipResponse_folderMember' - Information about the member in the folder.
 --
@@ -223,12 +221,11 @@ newCreateFolderMembershipResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The request ID.
+-- | The Amazon Web Services request ID for this operation.
 createFolderMembershipResponse_requestId :: Lens.Lens' CreateFolderMembershipResponse (Prelude.Maybe Prelude.Text)
 createFolderMembershipResponse_requestId = Lens.lens (\CreateFolderMembershipResponse' {requestId} -> requestId) (\s@CreateFolderMembershipResponse' {} a -> s {requestId = a} :: CreateFolderMembershipResponse)
 
--- | The status of the folder membership. If succeeded, the status is
--- @SC_OK (200)@.
+-- | The HTTP status of the request.
 createFolderMembershipResponse_status :: Lens.Lens' CreateFolderMembershipResponse (Prelude.Maybe Prelude.Int)
 createFolderMembershipResponse_status = Lens.lens (\CreateFolderMembershipResponse' {status} -> status) (\s@CreateFolderMembershipResponse' {} a -> s {status = a} :: CreateFolderMembershipResponse)
 

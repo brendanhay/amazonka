@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a session URL and authorization code that you can use to embed
--- an Amazon Amazon QuickSight read-only dashboard in your web server code.
--- Before you use this command, make sure that you have configured the
--- dashboards and permissions.
+-- Generates a temporary session URL and authorization code(bearer token)
+-- that you can use to embed an Amazon QuickSight read-only dashboard in
+-- your website or application. Before you use this command, make sure that
+-- you have configured the dashboards and permissions.
 --
 -- Currently, you can use @GetDashboardEmbedURL@ only from the server, not
--- from the user\'s browser. The following rules apply to the combination
--- of URL and authorization code:
+-- from the user\'s browser. The following rules apply to the generated
+-- URL:
 --
 -- -   They must be used together.
 --
@@ -35,7 +35,12 @@
 --
 -- -   They are valid for 5 minutes after you run this command.
 --
--- -   The resulting user session is valid for 10 hours.
+-- -   You are charged only when the URL is used or there is interaction
+--     with Amazon QuickSight.
+--
+-- -   The resulting user session is valid for 15 minutes (default) up to
+--     10 hours (maximum). You can use the optional
+--     @SessionLifetimeInMinutes@ parameter to customize session duration.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html Embedding Analytics Using GetDashboardEmbedUrl>
@@ -84,10 +89,10 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
   { -- | Remove the undo\/redo button on the embedded dashboard. The default is
     -- FALSE, which enables the undo\/redo button.
     undoRedoDisabled :: Prelude.Maybe Prelude.Bool,
-    -- | A list of one or more dashboard IDs that you want to add to a session
-    -- that includes anonymous users. The @IdentityType@ parameter must be set
-    -- to @ANONYMOUS@ for this to work, because other identity types
-    -- authenticate as Amazon QuickSight or IAMusers. For example, if you set
+    -- | A list of one or more dashboard IDs that you want anonymous users to
+    -- have tempporary access to. Currently, the @IdentityType@ parameter must
+    -- be set to @ANONYMOUS@ because other identity types authenticate as
+    -- Amazon QuickSight or IAM users. For example, if you set
     -- \"@--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS@\",
     -- the session can access all three dashboards.
     additionalDashboardIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -106,10 +111,11 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
     --
     -- -   Invited nonfederated users
     --
-    -- -   IAMusers and IAMrole-based sessions authenticated through Federated
-    --     Single Sign-On using SAML, OpenID Connect, or IAMfederation.
+    -- -   IAM users and IAM role-based sessions authenticated through
+    --     Federated Single Sign-On using SAML, OpenID Connect, or IAM
+    --     federation.
     --
-    -- Omit this parameter for users in the third group – IAMusers and IAM
+    -- Omit this parameter for users in the third group – IAM users and IAM
     -- role-based sessions.
     userArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon QuickSight namespace that contains the dashboard IDs in this
@@ -147,10 +153,10 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
 -- 'undoRedoDisabled', 'getDashboardEmbedUrl_undoRedoDisabled' - Remove the undo\/redo button on the embedded dashboard. The default is
 -- FALSE, which enables the undo\/redo button.
 --
--- 'additionalDashboardIds', 'getDashboardEmbedUrl_additionalDashboardIds' - A list of one or more dashboard IDs that you want to add to a session
--- that includes anonymous users. The @IdentityType@ parameter must be set
--- to @ANONYMOUS@ for this to work, because other identity types
--- authenticate as Amazon QuickSight or IAMusers. For example, if you set
+-- 'additionalDashboardIds', 'getDashboardEmbedUrl_additionalDashboardIds' - A list of one or more dashboard IDs that you want anonymous users to
+-- have tempporary access to. Currently, the @IdentityType@ parameter must
+-- be set to @ANONYMOUS@ because other identity types authenticate as
+-- Amazon QuickSight or IAM users. For example, if you set
 -- \"@--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS@\",
 -- the session can access all three dashboards.
 --
@@ -169,10 +175,11 @@ data GetDashboardEmbedUrl = GetDashboardEmbedUrl'
 --
 -- -   Invited nonfederated users
 --
--- -   IAMusers and IAMrole-based sessions authenticated through Federated
---     Single Sign-On using SAML, OpenID Connect, or IAMfederation.
+-- -   IAM users and IAM role-based sessions authenticated through
+--     Federated Single Sign-On using SAML, OpenID Connect, or IAM
+--     federation.
 --
--- Omit this parameter for users in the third group – IAMusers and IAM
+-- Omit this parameter for users in the third group – IAM users and IAM
 -- role-based sessions.
 --
 -- 'namespace', 'getDashboardEmbedUrl_namespace' - The Amazon QuickSight namespace that contains the dashboard IDs in this
@@ -226,10 +233,10 @@ newGetDashboardEmbedUrl
 getDashboardEmbedUrl_undoRedoDisabled :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Bool)
 getDashboardEmbedUrl_undoRedoDisabled = Lens.lens (\GetDashboardEmbedUrl' {undoRedoDisabled} -> undoRedoDisabled) (\s@GetDashboardEmbedUrl' {} a -> s {undoRedoDisabled = a} :: GetDashboardEmbedUrl)
 
--- | A list of one or more dashboard IDs that you want to add to a session
--- that includes anonymous users. The @IdentityType@ parameter must be set
--- to @ANONYMOUS@ for this to work, because other identity types
--- authenticate as Amazon QuickSight or IAMusers. For example, if you set
+-- | A list of one or more dashboard IDs that you want anonymous users to
+-- have tempporary access to. Currently, the @IdentityType@ parameter must
+-- be set to @ANONYMOUS@ because other identity types authenticate as
+-- Amazon QuickSight or IAM users. For example, if you set
 -- \"@--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS@\",
 -- the session can access all three dashboards.
 getDashboardEmbedUrl_additionalDashboardIds :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
@@ -254,10 +261,11 @@ getDashboardEmbedUrl_sessionLifetimeInMinutes = Lens.lens (\GetDashboardEmbedUrl
 --
 -- -   Invited nonfederated users
 --
--- -   IAMusers and IAMrole-based sessions authenticated through Federated
---     Single Sign-On using SAML, OpenID Connect, or IAMfederation.
+-- -   IAM users and IAM role-based sessions authenticated through
+--     Federated Single Sign-On using SAML, OpenID Connect, or IAM
+--     federation.
 --
--- Omit this parameter for users in the third group – IAMusers and IAM
+-- Omit this parameter for users in the third group – IAM users and IAM
 -- role-based sessions.
 getDashboardEmbedUrl_userArn :: Lens.Lens' GetDashboardEmbedUrl (Prelude.Maybe Prelude.Text)
 getDashboardEmbedUrl_userArn = Lens.lens (\GetDashboardEmbedUrl' {userArn} -> userArn) (\s@GetDashboardEmbedUrl' {} a -> s {userArn = a} :: GetDashboardEmbedUrl)

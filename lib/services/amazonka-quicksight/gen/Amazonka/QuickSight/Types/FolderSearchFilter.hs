@@ -25,14 +25,14 @@ import qualified Amazonka.Prelude as Prelude
 import Amazonka.QuickSight.Types.FilterOperator
 import Amazonka.QuickSight.Types.FolderFilterAttribute
 
--- | Searches a folder by a filter.
+-- | A filter to use to search a Amazon QuickSight folder.
 --
 -- /See:/ 'newFolderSearchFilter' smart constructor.
 data FolderSearchFilter = FolderSearchFilter'
-  { -- | The name of the value that you want to use as a filter. For example,
+  { -- | The name of a value that you want to use in the filter. For example,
     -- @\"Name\": \"PARENT_FOLDER_ARN\"@.
     name :: Prelude.Maybe FolderFilterAttribute,
-    -- | The comparison operator that you want to use as a filter. For example,
+    -- | The comparison operator that you want to use in the filter. For example,
     -- @\"Operator\": \"StringEquals\"@.
     operator :: Prelude.Maybe FilterOperator,
     -- | The value of the named item (in this example, @PARENT_FOLDER_ARN@), that
@@ -50,10 +50,10 @@ data FolderSearchFilter = FolderSearchFilter'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'folderSearchFilter_name' - The name of the value that you want to use as a filter. For example,
+-- 'name', 'folderSearchFilter_name' - The name of a value that you want to use in the filter. For example,
 -- @\"Name\": \"PARENT_FOLDER_ARN\"@.
 --
--- 'operator', 'folderSearchFilter_operator' - The comparison operator that you want to use as a filter. For example,
+-- 'operator', 'folderSearchFilter_operator' - The comparison operator that you want to use in the filter. For example,
 -- @\"Operator\": \"StringEquals\"@.
 --
 -- 'value', 'folderSearchFilter_value' - The value of the named item (in this example, @PARENT_FOLDER_ARN@), that
@@ -68,12 +68,12 @@ newFolderSearchFilter =
       value = Prelude.Nothing
     }
 
--- | The name of the value that you want to use as a filter. For example,
+-- | The name of a value that you want to use in the filter. For example,
 -- @\"Name\": \"PARENT_FOLDER_ARN\"@.
 folderSearchFilter_name :: Lens.Lens' FolderSearchFilter (Prelude.Maybe FolderFilterAttribute)
 folderSearchFilter_name = Lens.lens (\FolderSearchFilter' {name} -> name) (\s@FolderSearchFilter' {} a -> s {name = a} :: FolderSearchFilter)
 
--- | The comparison operator that you want to use as a filter. For example,
+-- | The comparison operator that you want to use in the filter. For example,
 -- @\"Operator\": \"StringEquals\"@.
 folderSearchFilter_operator :: Lens.Lens' FolderSearchFilter (Prelude.Maybe FilterOperator)
 folderSearchFilter_operator = Lens.lens (\FolderSearchFilter' {operator} -> operator) (\s@FolderSearchFilter' {} a -> s {operator = a} :: FolderSearchFilter)

@@ -36,12 +36,12 @@ data ResourcePermission = ResourcePermission'
     -- -   The ARN of an Amazon QuickSight user, group, or namespace associated
     --     with an analysis, dashboard, template, or theme. (This is common.)
     --
-    -- -   The ARN of an Amazon Web Services account root: This is an IAMARN
-    --     rather than a Amazon QuickSight ARN. Use this option only to share
+    -- -   The ARN of an Amazon Web Services account root: This is an IAM ARN
+    --     rather than a QuickSight ARN. Use this option only to share
     --     resources (templates) across Amazon Web Services accounts. (This is
     --     less common.)
     principal :: Prelude.Text,
-    -- | The IAMaction to grant or revoke permissions on.
+    -- | The IAM action to grant or revoke permissions on.
     actions :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,12 +63,12 @@ data ResourcePermission = ResourcePermission'
 -- -   The ARN of an Amazon QuickSight user, group, or namespace associated
 --     with an analysis, dashboard, template, or theme. (This is common.)
 --
--- -   The ARN of an Amazon Web Services account root: This is an IAMARN
---     rather than a Amazon QuickSight ARN. Use this option only to share
+-- -   The ARN of an Amazon Web Services account root: This is an IAM ARN
+--     rather than a QuickSight ARN. Use this option only to share
 --     resources (templates) across Amazon Web Services accounts. (This is
 --     less common.)
 --
--- 'actions', 'resourcePermission_actions' - The IAMaction to grant or revoke permissions on.
+-- 'actions', 'resourcePermission_actions' - The IAM action to grant or revoke permissions on.
 newResourcePermission ::
   -- | 'principal'
   Prelude.Text ->
@@ -90,14 +90,14 @@ newResourcePermission pPrincipal_ pActions_ =
 -- -   The ARN of an Amazon QuickSight user, group, or namespace associated
 --     with an analysis, dashboard, template, or theme. (This is common.)
 --
--- -   The ARN of an Amazon Web Services account root: This is an IAMARN
---     rather than a Amazon QuickSight ARN. Use this option only to share
+-- -   The ARN of an Amazon Web Services account root: This is an IAM ARN
+--     rather than a QuickSight ARN. Use this option only to share
 --     resources (templates) across Amazon Web Services accounts. (This is
 --     less common.)
 resourcePermission_principal :: Lens.Lens' ResourcePermission Prelude.Text
 resourcePermission_principal = Lens.lens (\ResourcePermission' {principal} -> principal) (\s@ResourcePermission' {} a -> s {principal = a} :: ResourcePermission)
 
--- | The IAMaction to grant or revoke permissions on.
+-- | The IAM action to grant or revoke permissions on.
 resourcePermission_actions :: Lens.Lens' ResourcePermission (Prelude.NonEmpty Prelude.Text)
 resourcePermission_actions = Lens.lens (\ResourcePermission' {actions} -> actions) (\s@ResourcePermission' {} a -> s {actions = a} :: ResourcePermission) Prelude.. Lens.coerced
 

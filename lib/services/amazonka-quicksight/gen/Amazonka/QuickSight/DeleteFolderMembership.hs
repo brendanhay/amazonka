@@ -53,7 +53,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDeleteFolderMembership' smart constructor.
 data DeleteFolderMembership = DeleteFolderMembership'
-  { -- | The AWS Account ID.
+  { -- | The ID for the Amazon Web Services account that contains the folder.
     awsAccountId :: Prelude.Text,
     -- | The Folder ID.
     folderId :: Prelude.Text,
@@ -73,7 +73,7 @@ data DeleteFolderMembership = DeleteFolderMembership'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountId', 'deleteFolderMembership_awsAccountId' - The AWS Account ID.
+-- 'awsAccountId', 'deleteFolderMembership_awsAccountId' - The ID for the Amazon Web Services account that contains the folder.
 --
 -- 'folderId', 'deleteFolderMembership_folderId' - The Folder ID.
 --
@@ -104,7 +104,7 @@ newDeleteFolderMembership
         memberType = pMemberType_
       }
 
--- | The AWS Account ID.
+-- | The ID for the Amazon Web Services account that contains the folder.
 deleteFolderMembership_awsAccountId :: Lens.Lens' DeleteFolderMembership Prelude.Text
 deleteFolderMembership_awsAccountId = Lens.lens (\DeleteFolderMembership' {awsAccountId} -> awsAccountId) (\s@DeleteFolderMembership' {} a -> s {awsAccountId = a} :: DeleteFolderMembership)
 
@@ -178,10 +178,9 @@ instance Core.ToQuery DeleteFolderMembership where
 
 -- | /See:/ 'newDeleteFolderMembershipResponse' smart constructor.
 data DeleteFolderMembershipResponse = DeleteFolderMembershipResponse'
-  { -- | The request ID.
+  { -- | The Amazon Web Services request ID for this operation.
     requestId :: Prelude.Maybe Prelude.Text,
-    -- | The status of deleting the asset. If succeeded, the status is
-    -- @SC_OK (200)@.
+    -- | The HTTP status of the request.
     status :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -196,10 +195,9 @@ data DeleteFolderMembershipResponse = DeleteFolderMembershipResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestId', 'deleteFolderMembershipResponse_requestId' - The request ID.
+-- 'requestId', 'deleteFolderMembershipResponse_requestId' - The Amazon Web Services request ID for this operation.
 --
--- 'status', 'deleteFolderMembershipResponse_status' - The status of deleting the asset. If succeeded, the status is
--- @SC_OK (200)@.
+-- 'status', 'deleteFolderMembershipResponse_status' - The HTTP status of the request.
 --
 -- 'httpStatus', 'deleteFolderMembershipResponse_httpStatus' - The response's http status code.
 newDeleteFolderMembershipResponse ::
@@ -214,12 +212,11 @@ newDeleteFolderMembershipResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The request ID.
+-- | The Amazon Web Services request ID for this operation.
 deleteFolderMembershipResponse_requestId :: Lens.Lens' DeleteFolderMembershipResponse (Prelude.Maybe Prelude.Text)
 deleteFolderMembershipResponse_requestId = Lens.lens (\DeleteFolderMembershipResponse' {requestId} -> requestId) (\s@DeleteFolderMembershipResponse' {} a -> s {requestId = a} :: DeleteFolderMembershipResponse)
 
--- | The status of deleting the asset. If succeeded, the status is
--- @SC_OK (200)@.
+-- | The HTTP status of the request.
 deleteFolderMembershipResponse_status :: Lens.Lens' DeleteFolderMembershipResponse (Prelude.Maybe Prelude.Int)
 deleteFolderMembershipResponse_status = Lens.lens (\DeleteFolderMembershipResponse' {status} -> status) (\s@DeleteFolderMembershipResponse' {} a -> s {status = a} :: DeleteFolderMembershipResponse)
 

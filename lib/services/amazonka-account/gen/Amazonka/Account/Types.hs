@@ -34,11 +34,28 @@ module Amazonka.Account.Types
     alternateContact_title,
     alternateContact_phoneNumber,
     alternateContact_emailAddress,
+
+    -- * ContactInformation
+    ContactInformation (..),
+    newContactInformation,
+    contactInformation_companyName,
+    contactInformation_addressLine2,
+    contactInformation_districtOrCounty,
+    contactInformation_stateOrRegion,
+    contactInformation_addressLine3,
+    contactInformation_websiteUrl,
+    contactInformation_addressLine1,
+    contactInformation_city,
+    contactInformation_countryCode,
+    contactInformation_fullName,
+    contactInformation_phoneNumber,
+    contactInformation_postalCode,
   )
 where
 
 import Amazonka.Account.Types.AlternateContact
 import Amazonka.Account.Types.AlternateContactType
+import Amazonka.Account.Types.ContactInformation
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude

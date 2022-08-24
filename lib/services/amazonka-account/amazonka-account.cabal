@@ -46,11 +46,14 @@ library
     Amazonka.Account
     Amazonka.Account.DeleteAlternateContact
     Amazonka.Account.GetAlternateContact
+    Amazonka.Account.GetContactInformation
     Amazonka.Account.Lens
     Amazonka.Account.PutAlternateContact
+    Amazonka.Account.PutContactInformation
     Amazonka.Account.Types
     Amazonka.Account.Types.AlternateContact
     Amazonka.Account.Types.AlternateContactType
+    Amazonka.Account.Types.ContactInformation
     Amazonka.Account.Waiters
 
   build-depends:

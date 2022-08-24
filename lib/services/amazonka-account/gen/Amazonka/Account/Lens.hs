@@ -24,6 +24,11 @@ module Amazonka.Account.Lens
     getAlternateContactResponse_alternateContact,
     getAlternateContactResponse_httpStatus,
 
+    -- ** GetContactInformation
+    getContactInformation_accountId,
+    getContactInformationResponse_contactInformation,
+    getContactInformationResponse_httpStatus,
+
     -- ** PutAlternateContact
     putAlternateContact_accountId,
     putAlternateContact_alternateContactType,
@@ -31,6 +36,10 @@ module Amazonka.Account.Lens
     putAlternateContact_name,
     putAlternateContact_phoneNumber,
     putAlternateContact_title,
+
+    -- ** PutContactInformation
+    putContactInformation_accountId,
+    putContactInformation_contactInformation,
 
     -- * Types
 
@@ -40,10 +49,27 @@ module Amazonka.Account.Lens
     alternateContact_title,
     alternateContact_phoneNumber,
     alternateContact_emailAddress,
+
+    -- ** ContactInformation
+    contactInformation_companyName,
+    contactInformation_addressLine2,
+    contactInformation_districtOrCounty,
+    contactInformation_stateOrRegion,
+    contactInformation_addressLine3,
+    contactInformation_websiteUrl,
+    contactInformation_addressLine1,
+    contactInformation_city,
+    contactInformation_countryCode,
+    contactInformation_fullName,
+    contactInformation_phoneNumber,
+    contactInformation_postalCode,
   )
 where
 
 import Amazonka.Account.DeleteAlternateContact
 import Amazonka.Account.GetAlternateContact
+import Amazonka.Account.GetContactInformation
 import Amazonka.Account.PutAlternateContact
+import Amazonka.Account.PutContactInformation
 import Amazonka.Account.Types.AlternateContact
+import Amazonka.Account.Types.ContactInformation

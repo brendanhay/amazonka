@@ -154,15 +154,15 @@ instance Core.ToQuery DescribeContributorInsights where
 
 -- | /See:/ 'newDescribeContributorInsightsResponse' smart constructor.
 data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
-  { -- | Current Status contributor insights.
+  { -- | Current status of contributor insights.
     contributorInsightsStatus :: Prelude.Maybe ContributorInsightsStatus,
     -- | The name of the table being described.
     tableName :: Prelude.Maybe Prelude.Text,
-    -- | List of names of the associated Alpine rules.
+    -- | List of names of the associated contributor insights rules.
     contributorInsightsRuleList :: Prelude.Maybe [Prelude.Text],
     -- | Timestamp of the last time the status was changed.
     lastUpdateDateTime :: Prelude.Maybe Core.POSIX,
-    -- | Returns information about the last failure that encountered.
+    -- | Returns information about the last failure that was encountered.
     --
     -- The most common exceptions for a FAILED status are:
     --
@@ -195,15 +195,15 @@ data DescribeContributorInsightsResponse = DescribeContributorInsightsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'contributorInsightsStatus', 'describeContributorInsightsResponse_contributorInsightsStatus' - Current Status contributor insights.
+-- 'contributorInsightsStatus', 'describeContributorInsightsResponse_contributorInsightsStatus' - Current status of contributor insights.
 --
 -- 'tableName', 'describeContributorInsightsResponse_tableName' - The name of the table being described.
 --
--- 'contributorInsightsRuleList', 'describeContributorInsightsResponse_contributorInsightsRuleList' - List of names of the associated Alpine rules.
+-- 'contributorInsightsRuleList', 'describeContributorInsightsResponse_contributorInsightsRuleList' - List of names of the associated contributor insights rules.
 --
 -- 'lastUpdateDateTime', 'describeContributorInsightsResponse_lastUpdateDateTime' - Timestamp of the last time the status was changed.
 --
--- 'failureException', 'describeContributorInsightsResponse_failureException' - Returns information about the last failure that encountered.
+-- 'failureException', 'describeContributorInsightsResponse_failureException' - Returns information about the last failure that was encountered.
 --
 -- The most common exceptions for a FAILED status are:
 --
@@ -241,7 +241,7 @@ newDescribeContributorInsightsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Current Status contributor insights.
+-- | Current status of contributor insights.
 describeContributorInsightsResponse_contributorInsightsStatus :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe ContributorInsightsStatus)
 describeContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\DescribeContributorInsightsResponse' {contributorInsightsStatus} -> contributorInsightsStatus) (\s@DescribeContributorInsightsResponse' {} a -> s {contributorInsightsStatus = a} :: DescribeContributorInsightsResponse)
 
@@ -249,7 +249,7 @@ describeContributorInsightsResponse_contributorInsightsStatus = Lens.lens (\Desc
 describeContributorInsightsResponse_tableName :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.Text)
 describeContributorInsightsResponse_tableName = Lens.lens (\DescribeContributorInsightsResponse' {tableName} -> tableName) (\s@DescribeContributorInsightsResponse' {} a -> s {tableName = a} :: DescribeContributorInsightsResponse)
 
--- | List of names of the associated Alpine rules.
+-- | List of names of the associated contributor insights rules.
 describeContributorInsightsResponse_contributorInsightsRuleList :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe [Prelude.Text])
 describeContributorInsightsResponse_contributorInsightsRuleList = Lens.lens (\DescribeContributorInsightsResponse' {contributorInsightsRuleList} -> contributorInsightsRuleList) (\s@DescribeContributorInsightsResponse' {} a -> s {contributorInsightsRuleList = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Lens.coerced
 
@@ -257,7 +257,7 @@ describeContributorInsightsResponse_contributorInsightsRuleList = Lens.lens (\De
 describeContributorInsightsResponse_lastUpdateDateTime :: Lens.Lens' DescribeContributorInsightsResponse (Prelude.Maybe Prelude.UTCTime)
 describeContributorInsightsResponse_lastUpdateDateTime = Lens.lens (\DescribeContributorInsightsResponse' {lastUpdateDateTime} -> lastUpdateDateTime) (\s@DescribeContributorInsightsResponse' {} a -> s {lastUpdateDateTime = a} :: DescribeContributorInsightsResponse) Prelude.. Lens.mapping Core._Time
 
--- | Returns information about the last failure that encountered.
+-- | Returns information about the last failure that was encountered.
 --
 -- The most common exceptions for a FAILED status are:
 --

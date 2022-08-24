@@ -32,8 +32,8 @@ import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Prelude as Prelude
 
--- | Determines the level of detail about provisioned throughput consumption
--- that is returned in the response:
+-- | Determines the level of detail about either provisioned or on-demand
+-- throughput consumption that is returned in the response:
 --
 -- -   @INDEXES@ - The response includes the aggregate @ConsumedCapacity@
 --     for the operation, together with @ConsumedCapacity@ for each table

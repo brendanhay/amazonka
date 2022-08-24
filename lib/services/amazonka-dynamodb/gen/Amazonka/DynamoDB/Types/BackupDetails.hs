@@ -31,7 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBackupDetails' smart constructor.
 data BackupDetails = BackupDetails'
-  { -- | Size of the backup in bytes.
+  { -- | Size of the backup in bytes. DynamoDB updates this value approximately
+    -- every six hours. Recent changes might not be reflected in this value.
     backupSizeBytes :: Prelude.Maybe Prelude.Natural,
     -- | Time at which the automatic on-demand backup created by DynamoDB will
     -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
@@ -54,8 +55,7 @@ data BackupDetails = BackupDetails'
     --     restore the deleted table to the state it was in just before the
     --     point of deletion.
     --
-    -- -   @AWS_BACKUP@ - On-demand backup created by you from AWS Backup
-    --     service.
+    -- -   @AWS_BACKUP@ - On-demand backup created by you from Backup service.
     backupType :: BackupType,
     -- | Time at which the backup was created. This is the request time of the
     -- backup.
@@ -71,7 +71,8 @@ data BackupDetails = BackupDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'backupSizeBytes', 'backupDetails_backupSizeBytes' - Size of the backup in bytes.
+-- 'backupSizeBytes', 'backupDetails_backupSizeBytes' - Size of the backup in bytes. DynamoDB updates this value approximately
+-- every six hours. Recent changes might not be reflected in this value.
 --
 -- 'backupExpiryDateTime', 'backupDetails_backupExpiryDateTime' - Time at which the automatic on-demand backup created by DynamoDB will
 -- expire. This @SYSTEM@ on-demand backup expires automatically 35 days
@@ -94,8 +95,7 @@ data BackupDetails = BackupDetails'
 --     restore the deleted table to the state it was in just before the
 --     point of deletion.
 --
--- -   @AWS_BACKUP@ - On-demand backup created by you from AWS Backup
---     service.
+-- -   @AWS_BACKUP@ - On-demand backup created by you from Backup service.
 --
 -- 'backupCreationDateTime', 'backupDetails_backupCreationDateTime' - Time at which the backup was created. This is the request time of the
 -- backup.
@@ -128,7 +128,8 @@ newBackupDetails
           Core._Time Lens.# pBackupCreationDateTime_
       }
 
--- | Size of the backup in bytes.
+-- | Size of the backup in bytes. DynamoDB updates this value approximately
+-- every six hours. Recent changes might not be reflected in this value.
 backupDetails_backupSizeBytes :: Lens.Lens' BackupDetails (Prelude.Maybe Prelude.Natural)
 backupDetails_backupSizeBytes = Lens.lens (\BackupDetails' {backupSizeBytes} -> backupSizeBytes) (\s@BackupDetails' {} a -> s {backupSizeBytes = a} :: BackupDetails)
 
@@ -161,8 +162,7 @@ backupDetails_backupStatus = Lens.lens (\BackupDetails' {backupStatus} -> backup
 --     restore the deleted table to the state it was in just before the
 --     point of deletion.
 --
--- -   @AWS_BACKUP@ - On-demand backup created by you from AWS Backup
---     service.
+-- -   @AWS_BACKUP@ - On-demand backup created by you from Backup service.
 backupDetails_backupType :: Lens.Lens' BackupDetails BackupType
 backupDetails_backupType = Lens.lens (\BackupDetails' {backupType} -> backupType) (\s@BackupDetails' {} a -> s {backupType = a} :: BackupDetails)
 

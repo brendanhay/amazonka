@@ -85,6 +85,10 @@ data DeleteItem = DeleteItem'
     --
     -- -   @ALL_OLD@ - The content of the old item is returned.
     --
+    -- There is no additional cost associated with requesting a return value
+    -- aside from the small network and processing overhead of receiving a
+    -- larger response. No read capacity units are consumed.
+    --
     -- The @ReturnValues@ parameter is used by several DynamoDB operations;
     -- however, @DeleteItem@ does not recognize any values other than @NONE@ or
     -- @ALL_OLD@.
@@ -211,6 +215,10 @@ data DeleteItem = DeleteItem'
 --     @ReturnValues@.)
 --
 -- -   @ALL_OLD@ - The content of the old item is returned.
+--
+-- There is no additional cost associated with requesting a return value
+-- aside from the small network and processing overhead of receiving a
+-- larger response. No read capacity units are consumed.
 --
 -- The @ReturnValues@ parameter is used by several DynamoDB operations;
 -- however, @DeleteItem@ does not recognize any values other than @NONE@ or
@@ -345,6 +353,10 @@ newDeleteItem pTableName_ =
 --     @ReturnValues@.)
 --
 -- -   @ALL_OLD@ - The content of the old item is returned.
+--
+-- There is no additional cost associated with requesting a return value
+-- aside from the small network and processing overhead of receiving a
+-- larger response. No read capacity units are consumed.
 --
 -- The @ReturnValues@ parameter is used by several DynamoDB operations;
 -- however, @DeleteItem@ does not recognize any values other than @NONE@ or

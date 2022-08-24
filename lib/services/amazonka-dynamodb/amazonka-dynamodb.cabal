@@ -60,6 +60,7 @@ library
     Amazonka.DynamoDB.DescribeExport
     Amazonka.DynamoDB.DescribeGlobalTable
     Amazonka.DynamoDB.DescribeGlobalTableSettings
+    Amazonka.DynamoDB.DescribeImport
     Amazonka.DynamoDB.DescribeKinesisStreamingDestination
     Amazonka.DynamoDB.DescribeLimits
     Amazonka.DynamoDB.DescribeTable
@@ -71,11 +72,13 @@ library
     Amazonka.DynamoDB.ExecuteTransaction
     Amazonka.DynamoDB.ExportTableToPointInTime
     Amazonka.DynamoDB.GetItem
+    Amazonka.DynamoDB.ImportTable
     Amazonka.DynamoDB.Lens
     Amazonka.DynamoDB.ListBackups
     Amazonka.DynamoDB.ListContributorInsights
     Amazonka.DynamoDB.ListExports
     Amazonka.DynamoDB.ListGlobalTables
+    Amazonka.DynamoDB.ListImports
     Amazonka.DynamoDB.ListTables
     Amazonka.DynamoDB.ListTagsOfResource
     Amazonka.DynamoDB.PutItem
@@ -124,6 +127,7 @@ library
     Amazonka.DynamoDB.Types.CreateGlobalSecondaryIndexAction
     Amazonka.DynamoDB.Types.CreateReplicaAction
     Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction
+    Amazonka.DynamoDB.Types.CsvOptions
     Amazonka.DynamoDB.Types.Delete
     Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
     Amazonka.DynamoDB.Types.DeleteReplicaAction
@@ -146,7 +150,13 @@ library
     Amazonka.DynamoDB.Types.GlobalTableDescription
     Amazonka.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate
     Amazonka.DynamoDB.Types.GlobalTableStatus
+    Amazonka.DynamoDB.Types.ImportStatus
+    Amazonka.DynamoDB.Types.ImportSummary
+    Amazonka.DynamoDB.Types.ImportTableDescription
     Amazonka.DynamoDB.Types.IndexStatus
+    Amazonka.DynamoDB.Types.InputCompressionType
+    Amazonka.DynamoDB.Types.InputFormat
+    Amazonka.DynamoDB.Types.InputFormatOptions
     Amazonka.DynamoDB.Types.ItemCollectionMetrics
     Amazonka.DynamoDB.Types.ItemResponse
     Amazonka.DynamoDB.Types.KeysAndAttributes
@@ -188,6 +198,7 @@ library
     Amazonka.DynamoDB.Types.ReturnItemCollectionMetrics
     Amazonka.DynamoDB.Types.ReturnValue
     Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
+    Amazonka.DynamoDB.Types.S3BucketSource
     Amazonka.DynamoDB.Types.S3SseAlgorithm
     Amazonka.DynamoDB.Types.ScalarAttributeType
     Amazonka.DynamoDB.Types.Select
@@ -200,6 +211,9 @@ library
     Amazonka.DynamoDB.Types.StreamSpecification
     Amazonka.DynamoDB.Types.StreamViewType
     Amazonka.DynamoDB.Types.TableAutoScalingDescription
+    Amazonka.DynamoDB.Types.TableClass
+    Amazonka.DynamoDB.Types.TableClassSummary
+    Amazonka.DynamoDB.Types.TableCreationParameters
     Amazonka.DynamoDB.Types.TableDescription
     Amazonka.DynamoDB.Types.TableStatus
     Amazonka.DynamoDB.Types.Tag

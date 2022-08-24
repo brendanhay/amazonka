@@ -107,10 +107,9 @@ data AttributeValueUpdate = AttributeValueUpdate'
     --
     -- -   @DELETE@ - Nothing happens; there is no attribute to delete.
     --
-    -- -   @ADD@ - DynamoDB creates an item with the supplied primary key and
-    --     number (or set of numbers) for the attribute value. The only data
-    --     types allowed are number and number set; no other data types can be
-    --     specified.
+    -- -   @ADD@ - DynamoDB creates a new item with the supplied primary key
+    --     and number (or set) for the attribute value. The only data types
+    --     allowed are number, number set, string set or binary set.
     action :: Prelude.Maybe AttributeAction,
     -- | Represents the data for an attribute.
     --
@@ -199,10 +198,9 @@ data AttributeValueUpdate = AttributeValueUpdate'
 --
 -- -   @DELETE@ - Nothing happens; there is no attribute to delete.
 --
--- -   @ADD@ - DynamoDB creates an item with the supplied primary key and
---     number (or set of numbers) for the attribute value. The only data
---     types allowed are number and number set; no other data types can be
---     specified.
+-- -   @ADD@ - DynamoDB creates a new item with the supplied primary key
+--     and number (or set) for the attribute value. The only data types
+--     allowed are number, number set, string set or binary set.
 --
 -- 'value', 'attributeValueUpdate_value' - Represents the data for an attribute.
 --
@@ -287,10 +285,9 @@ newAttributeValueUpdate =
 --
 -- -   @DELETE@ - Nothing happens; there is no attribute to delete.
 --
--- -   @ADD@ - DynamoDB creates an item with the supplied primary key and
---     number (or set of numbers) for the attribute value. The only data
---     types allowed are number and number set; no other data types can be
---     specified.
+-- -   @ADD@ - DynamoDB creates a new item with the supplied primary key
+--     and number (or set) for the attribute value. The only data types
+--     allowed are number, number set, string set or binary set.
 attributeValueUpdate_action :: Lens.Lens' AttributeValueUpdate (Prelude.Maybe AttributeAction)
 attributeValueUpdate_action = Lens.lens (\AttributeValueUpdate' {action} -> action) (\s@AttributeValueUpdate' {} a -> s {action = a} :: AttributeValueUpdate)
 

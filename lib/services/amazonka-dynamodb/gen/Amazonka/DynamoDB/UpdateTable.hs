@@ -27,8 +27,6 @@
 --
 -- -   Modify the provisioned throughput settings of the table.
 --
--- -   Enable or disable DynamoDB Streams on the table.
---
 -- -   Remove a global secondary index from the table.
 --
 -- -   Create a new global secondary index on the table. After the index
@@ -51,6 +49,7 @@ module Amazonka.DynamoDB.UpdateTable
     updateTable_billingMode,
     updateTable_provisionedThroughput,
     updateTable_sSESpecification,
+    updateTable_tableClass,
     updateTable_streamSpecification,
     updateTable_attributeDefinitions,
     updateTable_tableName,
@@ -120,6 +119,9 @@ data UpdateTable = UpdateTable'
     provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
     -- | The new server-side encryption settings for the specified table.
     sSESpecification :: Prelude.Maybe SSESpecification,
+    -- | The table class of the table to be updated. Valid values are @STANDARD@
+    -- and @STANDARD_INFREQUENT_ACCESS@.
+    tableClass :: Prelude.Maybe TableClass,
     -- | Represents the DynamoDB Streams configuration for the table.
     --
     -- You receive a @ResourceInUseException@ if you try to enable a stream on
@@ -187,6 +189,9 @@ data UpdateTable = UpdateTable'
 --
 -- 'sSESpecification', 'updateTable_sSESpecification' - The new server-side encryption settings for the specified table.
 --
+-- 'tableClass', 'updateTable_tableClass' - The table class of the table to be updated. Valid values are @STANDARD@
+-- and @STANDARD_INFREQUENT_ACCESS@.
+--
 -- 'streamSpecification', 'updateTable_streamSpecification' - Represents the DynamoDB Streams configuration for the table.
 --
 -- You receive a @ResourceInUseException@ if you try to enable a stream on
@@ -210,6 +215,7 @@ newUpdateTable pTableName_ =
       billingMode = Prelude.Nothing,
       provisionedThroughput = Prelude.Nothing,
       sSESpecification = Prelude.Nothing,
+      tableClass = Prelude.Nothing,
       streamSpecification = Prelude.Nothing,
       attributeDefinitions = Prelude.Nothing,
       tableName = pTableName_
@@ -269,6 +275,11 @@ updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThrough
 updateTable_sSESpecification :: Lens.Lens' UpdateTable (Prelude.Maybe SSESpecification)
 updateTable_sSESpecification = Lens.lens (\UpdateTable' {sSESpecification} -> sSESpecification) (\s@UpdateTable' {} a -> s {sSESpecification = a} :: UpdateTable)
 
+-- | The table class of the table to be updated. Valid values are @STANDARD@
+-- and @STANDARD_INFREQUENT_ACCESS@.
+updateTable_tableClass :: Lens.Lens' UpdateTable (Prelude.Maybe TableClass)
+updateTable_tableClass = Lens.lens (\UpdateTable' {tableClass} -> tableClass) (\s@UpdateTable' {} a -> s {tableClass = a} :: UpdateTable)
+
 -- | Represents the DynamoDB Streams configuration for the table.
 --
 -- You receive a @ResourceInUseException@ if you try to enable a stream on
@@ -306,6 +317,7 @@ instance Prelude.Hashable UpdateTable where
       `Prelude.hashWithSalt` billingMode
       `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` sSESpecification
+      `Prelude.hashWithSalt` tableClass
       `Prelude.hashWithSalt` streamSpecification
       `Prelude.hashWithSalt` attributeDefinitions
       `Prelude.hashWithSalt` tableName
@@ -317,6 +329,7 @@ instance Prelude.NFData UpdateTable where
       `Prelude.seq` Prelude.rnf billingMode
       `Prelude.seq` Prelude.rnf provisionedThroughput
       `Prelude.seq` Prelude.rnf sSESpecification
+      `Prelude.seq` Prelude.rnf tableClass
       `Prelude.seq` Prelude.rnf streamSpecification
       `Prelude.seq` Prelude.rnf attributeDefinitions
       `Prelude.seq` Prelude.rnf tableName
@@ -349,6 +362,7 @@ instance Core.ToJSON UpdateTable where
               Prelude.<$> provisionedThroughput,
             ("SSESpecification" Core..=)
               Prelude.<$> sSESpecification,
+            ("TableClass" Core..=) Prelude.<$> tableClass,
             ("StreamSpecification" Core..=)
               Prelude.<$> streamSpecification,
             ("AttributeDefinitions" Core..=)

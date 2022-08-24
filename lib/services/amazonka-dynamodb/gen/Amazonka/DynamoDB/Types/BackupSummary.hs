@@ -54,8 +54,7 @@ data BackupSummary = BackupSummary'
     --     restore the deleted table to the state it was in just before the
     --     point of deletion.
     --
-    -- -   @AWS_BACKUP@ - On-demand backup created by you from AWS Backup
-    --     service.
+    -- -   @AWS_BACKUP@ - On-demand backup created by you from Backup service.
     backupType :: Prelude.Maybe BackupType,
     -- | ARN associated with the backup.
     backupArn :: Prelude.Maybe Prelude.Text,
@@ -99,8 +98,7 @@ data BackupSummary = BackupSummary'
 --     restore the deleted table to the state it was in just before the
 --     point of deletion.
 --
--- -   @AWS_BACKUP@ - On-demand backup created by you from AWS Backup
---     service.
+-- -   @AWS_BACKUP@ - On-demand backup created by you from Backup service.
 --
 -- 'backupArn', 'backupSummary_backupArn' - ARN associated with the backup.
 --
@@ -160,8 +158,7 @@ backupSummary_backupName = Lens.lens (\BackupSummary' {backupName} -> backupName
 --     restore the deleted table to the state it was in just before the
 --     point of deletion.
 --
--- -   @AWS_BACKUP@ - On-demand backup created by you from AWS Backup
---     service.
+-- -   @AWS_BACKUP@ - On-demand backup created by you from Backup service.
 backupSummary_backupType :: Lens.Lens' BackupSummary (Prelude.Maybe BackupType)
 backupSummary_backupType = Lens.lens (\BackupSummary' {backupType} -> backupType) (\s@BackupSummary' {} a -> s {backupType = a} :: BackupSummary)
 

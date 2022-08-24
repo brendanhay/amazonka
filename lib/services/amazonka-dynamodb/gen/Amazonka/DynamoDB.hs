@@ -23,15 +23,16 @@
 -- With DynamoDB, you can create database tables that can store and
 -- retrieve any amount of data, and serve any level of request traffic. You
 -- can scale up or scale down your tables\' throughput capacity without
--- downtime or performance degradation, and use the AWS Management Console
--- to monitor resource utilization and performance metrics.
+-- downtime or performance degradation, and use the Amazon Web Services
+-- Management Console to monitor resource utilization and performance
+-- metrics.
 --
 -- DynamoDB automatically spreads the data and traffic for your tables over
 -- a sufficient number of servers to handle your throughput and storage
 -- requirements, while maintaining consistent and fast performance. All of
 -- your data is stored on solid state disks (SSDs) and automatically
--- replicated across multiple Availability Zones in an AWS region,
--- providing built-in high availability and data durability.
+-- replicated across multiple Availability Zones in an Amazon Web Services
+-- Region, providing built-in high availability and data durability.
 module Amazonka.DynamoDB
   ( -- * Service Configuration
     defaultService,
@@ -90,6 +91,9 @@ module Amazonka.DynamoDB
     -- ** InternalServerError
     _InternalServerError,
 
+    -- ** ImportNotFoundException
+    _ImportNotFoundException,
+
     -- ** TableNotFoundException
     _TableNotFoundException,
 
@@ -107,6 +111,9 @@ module Amazonka.DynamoDB
 
     -- ** TableInUseException
     _TableInUseException,
+
+    -- ** ImportConflictException
+    _ImportConflictException,
 
     -- ** ConditionalCheckFailedException
     _ConditionalCheckFailedException,
@@ -234,6 +241,12 @@ module Amazonka.DynamoDB
     DescribeGlobalTableSettingsResponse (DescribeGlobalTableSettingsResponse'),
     newDescribeGlobalTableSettingsResponse,
 
+    -- ** DescribeImport
+    DescribeImport (DescribeImport'),
+    newDescribeImport,
+    DescribeImportResponse (DescribeImportResponse'),
+    newDescribeImportResponse,
+
     -- ** DescribeKinesisStreamingDestination
     DescribeKinesisStreamingDestination (DescribeKinesisStreamingDestination'),
     newDescribeKinesisStreamingDestination,
@@ -300,6 +313,12 @@ module Amazonka.DynamoDB
     GetItemResponse (GetItemResponse'),
     newGetItemResponse,
 
+    -- ** ImportTable
+    ImportTable (ImportTable'),
+    newImportTable,
+    ImportTableResponse (ImportTableResponse'),
+    newImportTableResponse,
+
     -- ** ListBackups (Paginated)
     ListBackups (ListBackups'),
     newListBackups,
@@ -323,6 +342,12 @@ module Amazonka.DynamoDB
     newListGlobalTables,
     ListGlobalTablesResponse (ListGlobalTablesResponse'),
     newListGlobalTablesResponse,
+
+    -- ** ListImports
+    ListImports (ListImports'),
+    newListImports,
+    ListImportsResponse (ListImportsResponse'),
+    newListImportsResponse,
 
     -- ** ListTables (Paginated)
     ListTables (ListTables'),
@@ -489,8 +514,17 @@ module Amazonka.DynamoDB
     -- ** GlobalTableStatus
     GlobalTableStatus (..),
 
+    -- ** ImportStatus
+    ImportStatus (..),
+
     -- ** IndexStatus
     IndexStatus (..),
+
+    -- ** InputCompressionType
+    InputCompressionType (..),
+
+    -- ** InputFormat
+    InputFormat (..),
 
     -- ** KeyType
     KeyType (..),
@@ -533,6 +567,9 @@ module Amazonka.DynamoDB
 
     -- ** StreamViewType
     StreamViewType (..),
+
+    -- ** TableClass
+    TableClass (..),
 
     -- ** TableStatus
     TableStatus (..),
@@ -640,6 +677,10 @@ module Amazonka.DynamoDB
     CreateReplicationGroupMemberAction (CreateReplicationGroupMemberAction'),
     newCreateReplicationGroupMemberAction,
 
+    -- ** CsvOptions
+    CsvOptions (CsvOptions'),
+    newCsvOptions,
+
     -- ** Delete
     Delete (Delete'),
     newDelete,
@@ -711,6 +752,18 @@ module Amazonka.DynamoDB
     -- ** GlobalTableGlobalSecondaryIndexSettingsUpdate
     GlobalTableGlobalSecondaryIndexSettingsUpdate (GlobalTableGlobalSecondaryIndexSettingsUpdate'),
     newGlobalTableGlobalSecondaryIndexSettingsUpdate,
+
+    -- ** ImportSummary
+    ImportSummary (ImportSummary'),
+    newImportSummary,
+
+    -- ** ImportTableDescription
+    ImportTableDescription (ImportTableDescription'),
+    newImportTableDescription,
+
+    -- ** InputFormatOptions
+    InputFormatOptions (InputFormatOptions'),
+    newInputFormatOptions,
 
     -- ** ItemCollectionMetrics
     ItemCollectionMetrics (ItemCollectionMetrics'),
@@ -844,6 +897,10 @@ module Amazonka.DynamoDB
     RestoreSummary (RestoreSummary'),
     newRestoreSummary,
 
+    -- ** S3BucketSource
+    S3BucketSource (S3BucketSource'),
+    newS3BucketSource,
+
     -- ** SSEDescription
     SSEDescription (SSEDescription'),
     newSSEDescription,
@@ -867,6 +924,14 @@ module Amazonka.DynamoDB
     -- ** TableAutoScalingDescription
     TableAutoScalingDescription (TableAutoScalingDescription'),
     newTableAutoScalingDescription,
+
+    -- ** TableClassSummary
+    TableClassSummary (TableClassSummary'),
+    newTableClassSummary,
+
+    -- ** TableCreationParameters
+    TableCreationParameters (TableCreationParameters'),
+    newTableCreationParameters,
 
     -- ** TableDescription
     TableDescription (TableDescription'),
@@ -922,6 +987,7 @@ import Amazonka.DynamoDB.DescribeEndpoints
 import Amazonka.DynamoDB.DescribeExport
 import Amazonka.DynamoDB.DescribeGlobalTable
 import Amazonka.DynamoDB.DescribeGlobalTableSettings
+import Amazonka.DynamoDB.DescribeImport
 import Amazonka.DynamoDB.DescribeKinesisStreamingDestination
 import Amazonka.DynamoDB.DescribeLimits
 import Amazonka.DynamoDB.DescribeTable
@@ -933,11 +999,13 @@ import Amazonka.DynamoDB.ExecuteStatement
 import Amazonka.DynamoDB.ExecuteTransaction
 import Amazonka.DynamoDB.ExportTableToPointInTime
 import Amazonka.DynamoDB.GetItem
+import Amazonka.DynamoDB.ImportTable
 import Amazonka.DynamoDB.Lens
 import Amazonka.DynamoDB.ListBackups
 import Amazonka.DynamoDB.ListContributorInsights
 import Amazonka.DynamoDB.ListExports
 import Amazonka.DynamoDB.ListGlobalTables
+import Amazonka.DynamoDB.ListImports
 import Amazonka.DynamoDB.ListTables
 import Amazonka.DynamoDB.ListTagsOfResource
 import Amazonka.DynamoDB.PutItem

@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.DynamoDB.Types.AttributeValue
 import Amazonka.DynamoDB.Types.ProvisionedThroughputOverride
 import Amazonka.DynamoDB.Types.ReplicaGlobalSecondaryIndex
+import Amazonka.DynamoDB.Types.TableClass
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -31,12 +32,15 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newUpdateReplicationGroupMemberAction' smart constructor.
 data UpdateReplicationGroupMemberAction = UpdateReplicationGroupMemberAction'
-  { -- | The AWS KMS customer master key (CMK) of the replica that should be used
-    -- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon
-    -- Resource Name (ARN), alias name, or alias ARN. Note that you should only
-    -- provide this parameter if the key is different from the default DynamoDB
-    -- KMS master key alias\/aws\/dynamodb.
+  { -- | The KMS key of the replica that should be used for KMS encryption. To
+    -- specify a key, use its key ID, Amazon Resource Name (ARN), alias name,
+    -- or alias ARN. Note that you should only provide this parameter if the
+    -- key is different from the default DynamoDB KMS key
+    -- @alias\/aws\/dynamodb@.
     kmsMasterKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Replica-specific table class. If not specified, uses the source table\'s
+    -- table class.
+    tableClassOverride :: Prelude.Maybe TableClass,
     -- | Replica-specific provisioned throughput. If not specified, uses the
     -- source table\'s provisioned throughput settings.
     provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughputOverride,
@@ -55,11 +59,14 @@ data UpdateReplicationGroupMemberAction = UpdateReplicationGroupMemberAction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsMasterKeyId', 'updateReplicationGroupMemberAction_kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that should be used
--- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon
--- Resource Name (ARN), alias name, or alias ARN. Note that you should only
--- provide this parameter if the key is different from the default DynamoDB
--- KMS master key alias\/aws\/dynamodb.
+-- 'kmsMasterKeyId', 'updateReplicationGroupMemberAction_kmsMasterKeyId' - The KMS key of the replica that should be used for KMS encryption. To
+-- specify a key, use its key ID, Amazon Resource Name (ARN), alias name,
+-- or alias ARN. Note that you should only provide this parameter if the
+-- key is different from the default DynamoDB KMS key
+-- @alias\/aws\/dynamodb@.
+--
+-- 'tableClassOverride', 'updateReplicationGroupMemberAction_tableClassOverride' - Replica-specific table class. If not specified, uses the source table\'s
+-- table class.
 --
 -- 'provisionedThroughputOverride', 'updateReplicationGroupMemberAction_provisionedThroughputOverride' - Replica-specific provisioned throughput. If not specified, uses the
 -- source table\'s provisioned throughput settings.
@@ -75,6 +82,7 @@ newUpdateReplicationGroupMemberAction pRegionName_ =
   UpdateReplicationGroupMemberAction'
     { kmsMasterKeyId =
         Prelude.Nothing,
+      tableClassOverride = Prelude.Nothing,
       provisionedThroughputOverride =
         Prelude.Nothing,
       globalSecondaryIndexes =
@@ -82,13 +90,18 @@ newUpdateReplicationGroupMemberAction pRegionName_ =
       regionName = pRegionName_
     }
 
--- | The AWS KMS customer master key (CMK) of the replica that should be used
--- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon
--- Resource Name (ARN), alias name, or alias ARN. Note that you should only
--- provide this parameter if the key is different from the default DynamoDB
--- KMS master key alias\/aws\/dynamodb.
+-- | The KMS key of the replica that should be used for KMS encryption. To
+-- specify a key, use its key ID, Amazon Resource Name (ARN), alias name,
+-- or alias ARN. Note that you should only provide this parameter if the
+-- key is different from the default DynamoDB KMS key
+-- @alias\/aws\/dynamodb@.
 updateReplicationGroupMemberAction_kmsMasterKeyId :: Lens.Lens' UpdateReplicationGroupMemberAction (Prelude.Maybe Prelude.Text)
 updateReplicationGroupMemberAction_kmsMasterKeyId = Lens.lens (\UpdateReplicationGroupMemberAction' {kmsMasterKeyId} -> kmsMasterKeyId) (\s@UpdateReplicationGroupMemberAction' {} a -> s {kmsMasterKeyId = a} :: UpdateReplicationGroupMemberAction)
+
+-- | Replica-specific table class. If not specified, uses the source table\'s
+-- table class.
+updateReplicationGroupMemberAction_tableClassOverride :: Lens.Lens' UpdateReplicationGroupMemberAction (Prelude.Maybe TableClass)
+updateReplicationGroupMemberAction_tableClassOverride = Lens.lens (\UpdateReplicationGroupMemberAction' {tableClassOverride} -> tableClassOverride) (\s@UpdateReplicationGroupMemberAction' {} a -> s {tableClassOverride = a} :: UpdateReplicationGroupMemberAction)
 
 -- | Replica-specific provisioned throughput. If not specified, uses the
 -- source table\'s provisioned throughput settings.
@@ -111,6 +124,7 @@ instance
     _salt
     UpdateReplicationGroupMemberAction' {..} =
       _salt `Prelude.hashWithSalt` kmsMasterKeyId
+        `Prelude.hashWithSalt` tableClassOverride
         `Prelude.hashWithSalt` provisionedThroughputOverride
         `Prelude.hashWithSalt` globalSecondaryIndexes
         `Prelude.hashWithSalt` regionName
@@ -121,6 +135,7 @@ instance
   where
   rnf UpdateReplicationGroupMemberAction' {..} =
     Prelude.rnf kmsMasterKeyId
+      `Prelude.seq` Prelude.rnf tableClassOverride
       `Prelude.seq` Prelude.rnf provisionedThroughputOverride
       `Prelude.seq` Prelude.rnf globalSecondaryIndexes
       `Prelude.seq` Prelude.rnf regionName
@@ -134,6 +149,8 @@ instance
       ( Prelude.catMaybes
           [ ("KMSMasterKeyId" Core..=)
               Prelude.<$> kmsMasterKeyId,
+            ("TableClassOverride" Core..=)
+              Prelude.<$> tableClassOverride,
             ("ProvisionedThroughputOverride" Core..=)
               Prelude.<$> provisionedThroughputOverride,
             ("GlobalSecondaryIndexes" Core..=)

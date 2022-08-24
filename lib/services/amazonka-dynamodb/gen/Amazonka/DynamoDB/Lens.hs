@@ -15,7 +15,9 @@ module Amazonka.DynamoDB.Lens
   ( -- * Operations
 
     -- ** BatchExecuteStatement
+    batchExecuteStatement_returnConsumedCapacity,
     batchExecuteStatement_statements,
+    batchExecuteStatementResponse_consumedCapacity,
     batchExecuteStatementResponse_responses,
     batchExecuteStatementResponse_httpStatus,
 
@@ -54,6 +56,7 @@ module Amazonka.DynamoDB.Lens
     createTable_billingMode,
     createTable_provisionedThroughput,
     createTable_sSESpecification,
+    createTable_tableClass,
     createTable_globalSecondaryIndexes,
     createTable_streamSpecification,
     createTable_attributeDefinitions,
@@ -129,6 +132,11 @@ module Amazonka.DynamoDB.Lens
     describeGlobalTableSettingsResponse_replicaSettings,
     describeGlobalTableSettingsResponse_httpStatus,
 
+    -- ** DescribeImport
+    describeImport_importArn,
+    describeImportResponse_httpStatus,
+    describeImportResponse_importTableDescription,
+
     -- ** DescribeKinesisStreamingDestination
     describeKinesisStreamingDestination_tableName,
     describeKinesisStreamingDestinationResponse_tableName,
@@ -174,15 +182,21 @@ module Amazonka.DynamoDB.Lens
     -- ** ExecuteStatement
     executeStatement_nextToken,
     executeStatement_consistentRead,
+    executeStatement_returnConsumedCapacity,
+    executeStatement_limit,
     executeStatement_parameters,
     executeStatement_statement,
     executeStatementResponse_items,
     executeStatementResponse_nextToken,
+    executeStatementResponse_lastEvaluatedKey,
+    executeStatementResponse_consumedCapacity,
     executeStatementResponse_httpStatus,
 
     -- ** ExecuteTransaction
     executeTransaction_clientRequestToken,
+    executeTransaction_returnConsumedCapacity,
     executeTransaction_transactStatements,
+    executeTransactionResponse_consumedCapacity,
     executeTransactionResponse_responses,
     executeTransactionResponse_httpStatus,
 
@@ -210,6 +224,16 @@ module Amazonka.DynamoDB.Lens
     getItemResponse_consumedCapacity,
     getItemResponse_httpStatus,
     getItemResponse_item,
+
+    -- ** ImportTable
+    importTable_clientToken,
+    importTable_inputCompressionType,
+    importTable_inputFormatOptions,
+    importTable_s3BucketSource,
+    importTable_inputFormat,
+    importTable_tableCreationParameters,
+    importTableResponse_httpStatus,
+    importTableResponse_importTableDescription,
 
     -- ** ListBackups
     listBackups_tableName,
@@ -245,6 +269,14 @@ module Amazonka.DynamoDB.Lens
     listGlobalTablesResponse_globalTables,
     listGlobalTablesResponse_lastEvaluatedGlobalTableName,
     listGlobalTablesResponse_httpStatus,
+
+    -- ** ListImports
+    listImports_tableArn,
+    listImports_nextToken,
+    listImports_pageSize,
+    listImportsResponse_nextToken,
+    listImportsResponse_importSummaryList,
+    listImportsResponse_httpStatus,
 
     -- ** ListTables
     listTables_exclusiveStartTableName,
@@ -430,6 +462,7 @@ module Amazonka.DynamoDB.Lens
     updateTable_billingMode,
     updateTable_provisionedThroughput,
     updateTable_sSESpecification,
+    updateTable_tableClass,
     updateTable_streamSpecification,
     updateTable_attributeDefinitions,
     updateTable_tableName,
@@ -589,9 +622,14 @@ module Amazonka.DynamoDB.Lens
 
     -- ** CreateReplicationGroupMemberAction
     createReplicationGroupMemberAction_kmsMasterKeyId,
+    createReplicationGroupMemberAction_tableClassOverride,
     createReplicationGroupMemberAction_provisionedThroughputOverride,
     createReplicationGroupMemberAction_globalSecondaryIndexes,
     createReplicationGroupMemberAction_regionName,
+
+    -- ** CsvOptions
+    csvOptions_delimiter,
+    csvOptions_headerList,
 
     -- ** Delete
     delete_expressionAttributeValues,
@@ -703,6 +741,40 @@ module Amazonka.DynamoDB.Lens
     globalTableGlobalSecondaryIndexSettingsUpdate_provisionedWriteCapacityAutoScalingSettingsUpdate,
     globalTableGlobalSecondaryIndexSettingsUpdate_indexName,
 
+    -- ** ImportSummary
+    importSummary_tableArn,
+    importSummary_importArn,
+    importSummary_cloudWatchLogGroupArn,
+    importSummary_endTime,
+    importSummary_s3BucketSource,
+    importSummary_importStatus,
+    importSummary_inputFormat,
+    importSummary_startTime,
+
+    -- ** ImportTableDescription
+    importTableDescription_importedItemCount,
+    importTableDescription_clientToken,
+    importTableDescription_tableArn,
+    importTableDescription_failureCode,
+    importTableDescription_processedSizeBytes,
+    importTableDescription_inputCompressionType,
+    importTableDescription_errorCount,
+    importTableDescription_importArn,
+    importTableDescription_cloudWatchLogGroupArn,
+    importTableDescription_endTime,
+    importTableDescription_failureMessage,
+    importTableDescription_tableId,
+    importTableDescription_processedItemCount,
+    importTableDescription_tableCreationParameters,
+    importTableDescription_s3BucketSource,
+    importTableDescription_importStatus,
+    importTableDescription_inputFormat,
+    importTableDescription_startTime,
+    importTableDescription_inputFormatOptions,
+
+    -- ** InputFormatOptions
+    inputFormatOptions_csv,
+
     -- ** ItemCollectionMetrics
     itemCollectionMetrics_sizeEstimateRangeGB,
     itemCollectionMetrics_itemCollectionKey,
@@ -812,6 +884,7 @@ module Amazonka.DynamoDB.Lens
     replicaDescription_provisionedThroughputOverride,
     replicaDescription_regionName,
     replicaDescription_replicaStatusPercentProgress,
+    replicaDescription_replicaTableClassSummary,
     replicaDescription_replicaStatusDescription,
     replicaDescription_globalSecondaryIndexes,
     replicaDescription_replicaStatus,
@@ -852,6 +925,7 @@ module Amazonka.DynamoDB.Lens
     replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
     replicaSettingsDescription_replicaGlobalSecondaryIndexSettings,
     replicaSettingsDescription_replicaBillingModeSummary,
+    replicaSettingsDescription_replicaTableClassSummary,
     replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
     replicaSettingsDescription_replicaProvisionedReadCapacityUnits,
     replicaSettingsDescription_replicaStatus,
@@ -861,6 +935,7 @@ module Amazonka.DynamoDB.Lens
     replicaSettingsUpdate_replicaProvisionedReadCapacityAutoScalingSettingsUpdate,
     replicaSettingsUpdate_replicaGlobalSecondaryIndexSettingsUpdate,
     replicaSettingsUpdate_replicaProvisionedReadCapacityUnits,
+    replicaSettingsUpdate_replicaTableClass,
     replicaSettingsUpdate_regionName,
 
     -- ** ReplicaUpdate
@@ -877,6 +952,11 @@ module Amazonka.DynamoDB.Lens
     restoreSummary_sourceTableArn,
     restoreSummary_restoreDateTime,
     restoreSummary_restoreInProgress,
+
+    -- ** S3BucketSource
+    s3BucketSource_s3KeyPrefix,
+    s3BucketSource_s3BucketOwner,
+    s3BucketSource_s3Bucket,
 
     -- ** SSEDescription
     sSEDescription_inaccessibleEncryptionDateTime,
@@ -916,6 +996,19 @@ module Amazonka.DynamoDB.Lens
     tableAutoScalingDescription_tableStatus,
     tableAutoScalingDescription_replicas,
 
+    -- ** TableClassSummary
+    tableClassSummary_lastUpdateDateTime,
+    tableClassSummary_tableClass,
+
+    -- ** TableCreationParameters
+    tableCreationParameters_billingMode,
+    tableCreationParameters_provisionedThroughput,
+    tableCreationParameters_sSESpecification,
+    tableCreationParameters_globalSecondaryIndexes,
+    tableCreationParameters_tableName,
+    tableCreationParameters_attributeDefinitions,
+    tableCreationParameters_keySchema,
+
     -- ** TableDescription
     tableDescription_tableName,
     tableDescription_latestStreamLabel,
@@ -931,6 +1024,7 @@ module Amazonka.DynamoDB.Lens
     tableDescription_provisionedThroughput,
     tableDescription_latestStreamArn,
     tableDescription_tableId,
+    tableDescription_tableClassSummary,
     tableDescription_keySchema,
     tableDescription_restoreSummary,
     tableDescription_globalSecondaryIndexes,
@@ -975,6 +1069,7 @@ module Amazonka.DynamoDB.Lens
 
     -- ** UpdateReplicationGroupMemberAction
     updateReplicationGroupMemberAction_kmsMasterKeyId,
+    updateReplicationGroupMemberAction_tableClassOverride,
     updateReplicationGroupMemberAction_provisionedThroughputOverride,
     updateReplicationGroupMemberAction_globalSecondaryIndexes,
     updateReplicationGroupMemberAction_regionName,
@@ -997,6 +1092,7 @@ import Amazonka.DynamoDB.DescribeEndpoints
 import Amazonka.DynamoDB.DescribeExport
 import Amazonka.DynamoDB.DescribeGlobalTable
 import Amazonka.DynamoDB.DescribeGlobalTableSettings
+import Amazonka.DynamoDB.DescribeImport
 import Amazonka.DynamoDB.DescribeKinesisStreamingDestination
 import Amazonka.DynamoDB.DescribeLimits
 import Amazonka.DynamoDB.DescribeTable
@@ -1008,10 +1104,12 @@ import Amazonka.DynamoDB.ExecuteStatement
 import Amazonka.DynamoDB.ExecuteTransaction
 import Amazonka.DynamoDB.ExportTableToPointInTime
 import Amazonka.DynamoDB.GetItem
+import Amazonka.DynamoDB.ImportTable
 import Amazonka.DynamoDB.ListBackups
 import Amazonka.DynamoDB.ListContributorInsights
 import Amazonka.DynamoDB.ListExports
 import Amazonka.DynamoDB.ListGlobalTables
+import Amazonka.DynamoDB.ListImports
 import Amazonka.DynamoDB.ListTables
 import Amazonka.DynamoDB.ListTagsOfResource
 import Amazonka.DynamoDB.PutItem
@@ -1047,6 +1145,7 @@ import Amazonka.DynamoDB.Types.ContributorInsightsSummary
 import Amazonka.DynamoDB.Types.CreateGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.CreateReplicaAction
 import Amazonka.DynamoDB.Types.CreateReplicationGroupMemberAction
+import Amazonka.DynamoDB.Types.CsvOptions
 import Amazonka.DynamoDB.Types.Delete
 import Amazonka.DynamoDB.Types.DeleteGlobalSecondaryIndexAction
 import Amazonka.DynamoDB.Types.DeleteReplicaAction
@@ -1065,6 +1164,9 @@ import Amazonka.DynamoDB.Types.GlobalSecondaryIndexUpdate
 import Amazonka.DynamoDB.Types.GlobalTable
 import Amazonka.DynamoDB.Types.GlobalTableDescription
 import Amazonka.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate
+import Amazonka.DynamoDB.Types.ImportSummary
+import Amazonka.DynamoDB.Types.ImportTableDescription
+import Amazonka.DynamoDB.Types.InputFormatOptions
 import Amazonka.DynamoDB.Types.ItemCollectionMetrics
 import Amazonka.DynamoDB.Types.ItemResponse
 import Amazonka.DynamoDB.Types.KeySchemaElement
@@ -1098,12 +1200,15 @@ import Amazonka.DynamoDB.Types.ReplicaSettingsUpdate
 import Amazonka.DynamoDB.Types.ReplicaUpdate
 import Amazonka.DynamoDB.Types.ReplicationGroupUpdate
 import Amazonka.DynamoDB.Types.RestoreSummary
+import Amazonka.DynamoDB.Types.S3BucketSource
 import Amazonka.DynamoDB.Types.SSEDescription
 import Amazonka.DynamoDB.Types.SSESpecification
 import Amazonka.DynamoDB.Types.SourceTableDetails
 import Amazonka.DynamoDB.Types.SourceTableFeatureDetails
 import Amazonka.DynamoDB.Types.StreamSpecification
 import Amazonka.DynamoDB.Types.TableAutoScalingDescription
+import Amazonka.DynamoDB.Types.TableClassSummary
+import Amazonka.DynamoDB.Types.TableCreationParameters
 import Amazonka.DynamoDB.Types.TableDescription
 import Amazonka.DynamoDB.Types.Tag
 import Amazonka.DynamoDB.Types.TimeToLiveDescription

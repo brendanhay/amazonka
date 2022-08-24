@@ -32,6 +32,7 @@ import Amazonka.DynamoDB.Types.ReplicaDescription
 import Amazonka.DynamoDB.Types.RestoreSummary
 import Amazonka.DynamoDB.Types.SSEDescription
 import Amazonka.DynamoDB.Types.StreamSpecification
+import Amazonka.DynamoDB.Types.TableClassSummary
 import Amazonka.DynamoDB.Types.TableStatus
 import Amazonka.DynamoDB.Types.WriteRequest
 import qualified Amazonka.Lens as Lens
@@ -50,7 +51,7 @@ data TableDescription = TableDescription'
     -- same timestamp. However, the combination of the following three elements
     -- is guaranteed to be unique:
     --
-    -- -   AWS customer ID
+    -- -   Amazon Web Services customer ID
     --
     -- -   Table name
     --
@@ -68,11 +69,11 @@ data TableDescription = TableDescription'
     --
     -- -   @ACTIVE@ - The table is ready for use.
     --
-    -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to
-    --     encrypt the table in inaccessible. Table operations may fail due to
-    --     failure to use the AWS KMS key. DynamoDB will initiate the table
-    --     archival process when a table\'s AWS KMS key remains inaccessible
-    --     for more than seven days.
+    -- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The KMS key used to encrypt
+    --     the table in inaccessible. Table operations may fail due to failure
+    --     to use the KMS key. DynamoDB will initiate the table archival
+    --     process when a table\'s KMS key remains inaccessible for more than
+    --     seven days.
     --
     -- -   @ARCHIVING@ - The table is being archived. Operations are not
     --     allowed until archival is complete.
@@ -117,7 +118,7 @@ data TableDescription = TableDescription'
     --     -   @NonKeyAttributes@ - A list of one or more non-key attribute
     --         names that are projected into the secondary index. The total
     --         count of attributes provided in @NonKeyAttributes@, summed
-    --         across all of the secondary indexes, must not exceed 20. If you
+    --         across all of the secondary indexes, must not exceed 100. If you
     --         project the same attribute into two different indexes, this
     --         counts as two distinct attributes when determining the total.
     --
@@ -153,6 +154,8 @@ data TableDescription = TableDescription'
     latestStreamArn :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier for the table for which the backup was created.
     tableId :: Prelude.Maybe Prelude.Text,
+    -- | Contains details of the table class.
+    tableClassSummary :: Prelude.Maybe TableClassSummary,
     -- | The primary key structure for the table. Each @KeySchemaElement@
     -- consists of:
     --
@@ -242,7 +245,7 @@ data TableDescription = TableDescription'
     --     -   @NonKeyAttributes@ - A list of one or more non-key attribute
     --         names that are projected into the secondary index. The total
     --         count of attributes provided in @NonKeyAttributes@, summed
-    --         across all of the secondary indexes, must not exceed 20. If you
+    --         across all of the secondary indexes, must not exceed 100. If you
     --         project the same attribute into two different indexes, this
     --         counts as two distinct attributes when determining the total.
     --
@@ -257,7 +260,7 @@ data TableDescription = TableDescription'
     streamSpecification :: Prelude.Maybe StreamSpecification,
     -- | Represents the version of
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
-    -- in use, if the table is replicated across AWS Regions.
+    -- in use, if the table is replicated across Amazon Web Services Regions.
     globalTableVersion :: Prelude.Maybe Prelude.Text,
     -- | The description of the server-side encryption status on the specified
     -- table.
@@ -291,7 +294,7 @@ data TableDescription = TableDescription'
 -- same timestamp. However, the combination of the following three elements
 -- is guaranteed to be unique:
 --
--- -   AWS customer ID
+-- -   Amazon Web Services customer ID
 --
 -- -   Table name
 --
@@ -309,11 +312,11 @@ data TableDescription = TableDescription'
 --
 -- -   @ACTIVE@ - The table is ready for use.
 --
--- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to
---     encrypt the table in inaccessible. Table operations may fail due to
---     failure to use the AWS KMS key. DynamoDB will initiate the table
---     archival process when a table\'s AWS KMS key remains inaccessible
---     for more than seven days.
+-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The KMS key used to encrypt
+--     the table in inaccessible. Table operations may fail due to failure
+--     to use the KMS key. DynamoDB will initiate the table archival
+--     process when a table\'s KMS key remains inaccessible for more than
+--     seven days.
 --
 -- -   @ARCHIVING@ - The table is being archived. Operations are not
 --     allowed until archival is complete.
@@ -358,7 +361,7 @@ data TableDescription = TableDescription'
 --     -   @NonKeyAttributes@ - A list of one or more non-key attribute
 --         names that are projected into the secondary index. The total
 --         count of attributes provided in @NonKeyAttributes@, summed
---         across all of the secondary indexes, must not exceed 20. If you
+--         across all of the secondary indexes, must not exceed 100. If you
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
 --
@@ -393,6 +396,8 @@ data TableDescription = TableDescription'
 -- stream for this table.
 --
 -- 'tableId', 'tableDescription_tableId' - Unique identifier for the table for which the backup was created.
+--
+-- 'tableClassSummary', 'tableDescription_tableClassSummary' - Contains details of the table class.
 --
 -- 'keySchema', 'tableDescription_keySchema' - The primary key structure for the table. Each @KeySchemaElement@
 -- consists of:
@@ -483,7 +488,7 @@ data TableDescription = TableDescription'
 --     -   @NonKeyAttributes@ - A list of one or more non-key attribute
 --         names that are projected into the secondary index. The total
 --         count of attributes provided in @NonKeyAttributes@, summed
---         across all of the secondary indexes, must not exceed 20. If you
+--         across all of the secondary indexes, must not exceed 100. If you
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
 --
@@ -498,7 +503,7 @@ data TableDescription = TableDescription'
 --
 -- 'globalTableVersion', 'tableDescription_globalTableVersion' - Represents the version of
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
--- in use, if the table is replicated across AWS Regions.
+-- in use, if the table is replicated across Amazon Web Services Regions.
 --
 -- 'sSEDescription', 'tableDescription_sSEDescription' - The description of the server-side encryption status on the specified
 -- table.
@@ -529,6 +534,7 @@ newTableDescription =
       provisionedThroughput = Prelude.Nothing,
       latestStreamArn = Prelude.Nothing,
       tableId = Prelude.Nothing,
+      tableClassSummary = Prelude.Nothing,
       keySchema = Prelude.Nothing,
       restoreSummary = Prelude.Nothing,
       globalSecondaryIndexes = Prelude.Nothing,
@@ -549,7 +555,7 @@ tableDescription_tableName = Lens.lens (\TableDescription' {tableName} -> tableN
 -- same timestamp. However, the combination of the following three elements
 -- is guaranteed to be unique:
 --
--- -   AWS customer ID
+-- -   Amazon Web Services customer ID
 --
 -- -   Table name
 --
@@ -571,11 +577,11 @@ tableDescription_billingModeSummary = Lens.lens (\TableDescription' {billingMode
 --
 -- -   @ACTIVE@ - The table is ready for use.
 --
--- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to
---     encrypt the table in inaccessible. Table operations may fail due to
---     failure to use the AWS KMS key. DynamoDB will initiate the table
---     archival process when a table\'s AWS KMS key remains inaccessible
---     for more than seven days.
+-- -   @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The KMS key used to encrypt
+--     the table in inaccessible. Table operations may fail due to failure
+--     to use the KMS key. DynamoDB will initiate the table archival
+--     process when a table\'s KMS key remains inaccessible for more than
+--     seven days.
 --
 -- -   @ARCHIVING@ - The table is being archived. Operations are not
 --     allowed until archival is complete.
@@ -626,7 +632,7 @@ tableDescription_tableArn = Lens.lens (\TableDescription' {tableArn} -> tableArn
 --     -   @NonKeyAttributes@ - A list of one or more non-key attribute
 --         names that are projected into the secondary index. The total
 --         count of attributes provided in @NonKeyAttributes@, summed
---         across all of the secondary indexes, must not exceed 20. If you
+--         across all of the secondary indexes, must not exceed 100. If you
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
 --
@@ -677,6 +683,10 @@ tableDescription_latestStreamArn = Lens.lens (\TableDescription' {latestStreamAr
 -- | Unique identifier for the table for which the backup was created.
 tableDescription_tableId :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
 tableDescription_tableId = Lens.lens (\TableDescription' {tableId} -> tableId) (\s@TableDescription' {} a -> s {tableId = a} :: TableDescription)
+
+-- | Contains details of the table class.
+tableDescription_tableClassSummary :: Lens.Lens' TableDescription (Prelude.Maybe TableClassSummary)
+tableDescription_tableClassSummary = Lens.lens (\TableDescription' {tableClassSummary} -> tableClassSummary) (\s@TableDescription' {} a -> s {tableClassSummary = a} :: TableDescription)
 
 -- | The primary key structure for the table. Each @KeySchemaElement@
 -- consists of:
@@ -771,7 +781,7 @@ tableDescription_restoreSummary = Lens.lens (\TableDescription' {restoreSummary}
 --     -   @NonKeyAttributes@ - A list of one or more non-key attribute
 --         names that are projected into the secondary index. The total
 --         count of attributes provided in @NonKeyAttributes@, summed
---         across all of the secondary indexes, must not exceed 20. If you
+--         across all of the secondary indexes, must not exceed 100. If you
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
 --
@@ -790,7 +800,7 @@ tableDescription_streamSpecification = Lens.lens (\TableDescription' {streamSpec
 
 -- | Represents the version of
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
--- in use, if the table is replicated across AWS Regions.
+-- in use, if the table is replicated across Amazon Web Services Regions.
 tableDescription_globalTableVersion :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
 tableDescription_globalTableVersion = Lens.lens (\TableDescription' {globalTableVersion} -> globalTableVersion) (\s@TableDescription' {} a -> s {globalTableVersion = a} :: TableDescription)
 
@@ -832,6 +842,7 @@ instance Core.FromJSON TableDescription where
             Prelude.<*> (x Core..:? "ProvisionedThroughput")
             Prelude.<*> (x Core..:? "LatestStreamArn")
             Prelude.<*> (x Core..:? "TableId")
+            Prelude.<*> (x Core..:? "TableClassSummary")
             Prelude.<*> (x Core..:? "KeySchema")
             Prelude.<*> (x Core..:? "RestoreSummary")
             Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
@@ -861,6 +872,7 @@ instance Prelude.Hashable TableDescription where
       `Prelude.hashWithSalt` provisionedThroughput
       `Prelude.hashWithSalt` latestStreamArn
       `Prelude.hashWithSalt` tableId
+      `Prelude.hashWithSalt` tableClassSummary
       `Prelude.hashWithSalt` keySchema
       `Prelude.hashWithSalt` restoreSummary
       `Prelude.hashWithSalt` globalSecondaryIndexes
@@ -885,6 +897,7 @@ instance Prelude.NFData TableDescription where
       `Prelude.seq` Prelude.rnf provisionedThroughput
       `Prelude.seq` Prelude.rnf latestStreamArn
       `Prelude.seq` Prelude.rnf tableId
+      `Prelude.seq` Prelude.rnf tableClassSummary
       `Prelude.seq` Prelude.rnf keySchema
       `Prelude.seq` Prelude.rnf restoreSummary
       `Prelude.seq` Prelude.rnf globalSecondaryIndexes

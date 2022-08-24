@@ -70,26 +70,27 @@ data ExportTableToPointInTime = ExportTableToPointInTime'
     --
     -- If you submit a request with the same client token but a change in other
     -- parameters within the 8-hour idempotency window, DynamoDB returns an
-    -- @IdempotentParameterMismatch@ exception.
+    -- @ImportConflictException@.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | Type of encryption used on the bucket where export data will be stored.
     -- Valid values for @S3SseAlgorithm@ are:
     --
     -- -   @AES256@ - server-side encryption with Amazon S3 managed keys
     --
-    -- -   @KMS@ - server-side encryption with AWS KMS managed keys
+    -- -   @KMS@ - server-side encryption with KMS managed keys
     s3SseAlgorithm :: Prelude.Maybe S3SseAlgorithm,
     -- | The format for the exported data. Valid values for @ExportFormat@ are
     -- @DYNAMODB_JSON@ or @ION@.
     exportFormat :: Prelude.Maybe ExportFormat,
-    -- | Time in the past from which to export table data. The table export will
-    -- be a snapshot of the table\'s state at this point in time.
+    -- | Time in the past from which to export table data, counted in seconds
+    -- from the start of the Unix epoch. The table export will be a snapshot of
+    -- the table\'s state at this point in time.
     exportTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the AWS account that owns the bucket the export will be stored
-    -- in.
+    -- | The ID of the Amazon Web Services account that owns the bucket the
+    -- export will be stored in.
     s3BucketOwner :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where
-    -- export data will be stored (if applicable).
+    -- | The ID of the KMS managed key used to encrypt the S3 bucket where export
+    -- data will be stored (if applicable).
     s3SseKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket prefix to use as the file name and path of the
     -- exported snapshot.
@@ -121,26 +122,27 @@ data ExportTableToPointInTime = ExportTableToPointInTime'
 --
 -- If you submit a request with the same client token but a change in other
 -- parameters within the 8-hour idempotency window, DynamoDB returns an
--- @IdempotentParameterMismatch@ exception.
+-- @ImportConflictException@.
 --
 -- 's3SseAlgorithm', 'exportTableToPointInTime_s3SseAlgorithm' - Type of encryption used on the bucket where export data will be stored.
 -- Valid values for @S3SseAlgorithm@ are:
 --
 -- -   @AES256@ - server-side encryption with Amazon S3 managed keys
 --
--- -   @KMS@ - server-side encryption with AWS KMS managed keys
+-- -   @KMS@ - server-side encryption with KMS managed keys
 --
 -- 'exportFormat', 'exportTableToPointInTime_exportFormat' - The format for the exported data. Valid values for @ExportFormat@ are
 -- @DYNAMODB_JSON@ or @ION@.
 --
--- 'exportTime', 'exportTableToPointInTime_exportTime' - Time in the past from which to export table data. The table export will
--- be a snapshot of the table\'s state at this point in time.
+-- 'exportTime', 'exportTableToPointInTime_exportTime' - Time in the past from which to export table data, counted in seconds
+-- from the start of the Unix epoch. The table export will be a snapshot of
+-- the table\'s state at this point in time.
 --
--- 's3BucketOwner', 'exportTableToPointInTime_s3BucketOwner' - The ID of the AWS account that owns the bucket the export will be stored
--- in.
+-- 's3BucketOwner', 'exportTableToPointInTime_s3BucketOwner' - The ID of the Amazon Web Services account that owns the bucket the
+-- export will be stored in.
 --
--- 's3SseKmsKeyId', 'exportTableToPointInTime_s3SseKmsKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where
--- export data will be stored (if applicable).
+-- 's3SseKmsKeyId', 'exportTableToPointInTime_s3SseKmsKeyId' - The ID of the KMS managed key used to encrypt the S3 bucket where export
+-- data will be stored (if applicable).
 --
 -- 's3Prefix', 'exportTableToPointInTime_s3Prefix' - The Amazon S3 bucket prefix to use as the file name and path of the
 -- exported snapshot.
@@ -180,7 +182,7 @@ newExportTableToPointInTime pTableArn_ pS3Bucket_ =
 --
 -- If you submit a request with the same client token but a change in other
 -- parameters within the 8-hour idempotency window, DynamoDB returns an
--- @IdempotentParameterMismatch@ exception.
+-- @ImportConflictException@.
 exportTableToPointInTime_clientToken :: Lens.Lens' ExportTableToPointInTime (Prelude.Maybe Prelude.Text)
 exportTableToPointInTime_clientToken = Lens.lens (\ExportTableToPointInTime' {clientToken} -> clientToken) (\s@ExportTableToPointInTime' {} a -> s {clientToken = a} :: ExportTableToPointInTime)
 
@@ -189,7 +191,7 @@ exportTableToPointInTime_clientToken = Lens.lens (\ExportTableToPointInTime' {cl
 --
 -- -   @AES256@ - server-side encryption with Amazon S3 managed keys
 --
--- -   @KMS@ - server-side encryption with AWS KMS managed keys
+-- -   @KMS@ - server-side encryption with KMS managed keys
 exportTableToPointInTime_s3SseAlgorithm :: Lens.Lens' ExportTableToPointInTime (Prelude.Maybe S3SseAlgorithm)
 exportTableToPointInTime_s3SseAlgorithm = Lens.lens (\ExportTableToPointInTime' {s3SseAlgorithm} -> s3SseAlgorithm) (\s@ExportTableToPointInTime' {} a -> s {s3SseAlgorithm = a} :: ExportTableToPointInTime)
 
@@ -198,18 +200,19 @@ exportTableToPointInTime_s3SseAlgorithm = Lens.lens (\ExportTableToPointInTime' 
 exportTableToPointInTime_exportFormat :: Lens.Lens' ExportTableToPointInTime (Prelude.Maybe ExportFormat)
 exportTableToPointInTime_exportFormat = Lens.lens (\ExportTableToPointInTime' {exportFormat} -> exportFormat) (\s@ExportTableToPointInTime' {} a -> s {exportFormat = a} :: ExportTableToPointInTime)
 
--- | Time in the past from which to export table data. The table export will
--- be a snapshot of the table\'s state at this point in time.
+-- | Time in the past from which to export table data, counted in seconds
+-- from the start of the Unix epoch. The table export will be a snapshot of
+-- the table\'s state at this point in time.
 exportTableToPointInTime_exportTime :: Lens.Lens' ExportTableToPointInTime (Prelude.Maybe Prelude.UTCTime)
 exportTableToPointInTime_exportTime = Lens.lens (\ExportTableToPointInTime' {exportTime} -> exportTime) (\s@ExportTableToPointInTime' {} a -> s {exportTime = a} :: ExportTableToPointInTime) Prelude.. Lens.mapping Core._Time
 
--- | The ID of the AWS account that owns the bucket the export will be stored
--- in.
+-- | The ID of the Amazon Web Services account that owns the bucket the
+-- export will be stored in.
 exportTableToPointInTime_s3BucketOwner :: Lens.Lens' ExportTableToPointInTime (Prelude.Maybe Prelude.Text)
 exportTableToPointInTime_s3BucketOwner = Lens.lens (\ExportTableToPointInTime' {s3BucketOwner} -> s3BucketOwner) (\s@ExportTableToPointInTime' {} a -> s {s3BucketOwner = a} :: ExportTableToPointInTime)
 
--- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where
--- export data will be stored (if applicable).
+-- | The ID of the KMS managed key used to encrypt the S3 bucket where export
+-- data will be stored (if applicable).
 exportTableToPointInTime_s3SseKmsKeyId :: Lens.Lens' ExportTableToPointInTime (Prelude.Maybe Prelude.Text)
 exportTableToPointInTime_s3SseKmsKeyId = Lens.lens (\ExportTableToPointInTime' {s3SseKmsKeyId} -> s3SseKmsKeyId) (\s@ExportTableToPointInTime' {} a -> s {s3SseKmsKeyId = a} :: ExportTableToPointInTime)
 

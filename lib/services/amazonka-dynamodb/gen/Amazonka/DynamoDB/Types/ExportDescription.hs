@@ -51,7 +51,7 @@ data ExportDescription = ExportDescription'
     --
     -- -   @AES256@ - server-side encryption with Amazon S3 managed keys
     --
-    -- -   @KMS@ - server-side encryption with AWS KMS managed keys
+    -- -   @KMS@ - server-side encryption with KMS managed keys
     s3SseAlgorithm :: Prelude.Maybe S3SseAlgorithm,
     -- | The number of items exported.
     itemCount :: Prelude.Maybe Prelude.Natural,
@@ -66,13 +66,14 @@ data ExportDescription = ExportDescription'
     exportFormat :: Prelude.Maybe ExportFormat,
     -- | Point in time from which table data was exported.
     exportTime :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the AWS account that owns the bucket containing the export.
+    -- | The ID of the Amazon Web Services account that owns the bucket
+    -- containing the export.
     s3BucketOwner :: Prelude.Maybe Prelude.Text,
     -- | Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
     -- FAILED.
     exportStatus :: Prelude.Maybe ExportStatus,
-    -- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where
-    -- export data is stored (if applicable).
+    -- | The ID of the KMS managed key used to encrypt the S3 bucket where export
+    -- data is stored (if applicable).
     s3SseKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the manifest file for the export task.
     exportManifest :: Prelude.Maybe Prelude.Text,
@@ -111,7 +112,7 @@ data ExportDescription = ExportDescription'
 --
 -- -   @AES256@ - server-side encryption with Amazon S3 managed keys
 --
--- -   @KMS@ - server-side encryption with AWS KMS managed keys
+-- -   @KMS@ - server-side encryption with KMS managed keys
 --
 -- 'itemCount', 'exportDescription_itemCount' - The number of items exported.
 --
@@ -126,13 +127,14 @@ data ExportDescription = ExportDescription'
 --
 -- 'exportTime', 'exportDescription_exportTime' - Point in time from which table data was exported.
 --
--- 's3BucketOwner', 'exportDescription_s3BucketOwner' - The ID of the AWS account that owns the bucket containing the export.
+-- 's3BucketOwner', 'exportDescription_s3BucketOwner' - The ID of the Amazon Web Services account that owns the bucket
+-- containing the export.
 --
 -- 'exportStatus', 'exportDescription_exportStatus' - Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
 -- FAILED.
 --
--- 's3SseKmsKeyId', 'exportDescription_s3SseKmsKeyId' - The ID of the AWS KMS managed key used to encrypt the S3 bucket where
--- export data is stored (if applicable).
+-- 's3SseKmsKeyId', 'exportDescription_s3SseKmsKeyId' - The ID of the KMS managed key used to encrypt the S3 bucket where export
+-- data is stored (if applicable).
 --
 -- 'exportManifest', 'exportDescription_exportManifest' - The name of the manifest file for the export task.
 --
@@ -196,7 +198,7 @@ exportDescription_billedSizeBytes = Lens.lens (\ExportDescription' {billedSizeBy
 --
 -- -   @AES256@ - server-side encryption with Amazon S3 managed keys
 --
--- -   @KMS@ - server-side encryption with AWS KMS managed keys
+-- -   @KMS@ - server-side encryption with KMS managed keys
 exportDescription_s3SseAlgorithm :: Lens.Lens' ExportDescription (Prelude.Maybe S3SseAlgorithm)
 exportDescription_s3SseAlgorithm = Lens.lens (\ExportDescription' {s3SseAlgorithm} -> s3SseAlgorithm) (\s@ExportDescription' {} a -> s {s3SseAlgorithm = a} :: ExportDescription)
 
@@ -225,7 +227,8 @@ exportDescription_exportFormat = Lens.lens (\ExportDescription' {exportFormat} -
 exportDescription_exportTime :: Lens.Lens' ExportDescription (Prelude.Maybe Prelude.UTCTime)
 exportDescription_exportTime = Lens.lens (\ExportDescription' {exportTime} -> exportTime) (\s@ExportDescription' {} a -> s {exportTime = a} :: ExportDescription) Prelude.. Lens.mapping Core._Time
 
--- | The ID of the AWS account that owns the bucket containing the export.
+-- | The ID of the Amazon Web Services account that owns the bucket
+-- containing the export.
 exportDescription_s3BucketOwner :: Lens.Lens' ExportDescription (Prelude.Maybe Prelude.Text)
 exportDescription_s3BucketOwner = Lens.lens (\ExportDescription' {s3BucketOwner} -> s3BucketOwner) (\s@ExportDescription' {} a -> s {s3BucketOwner = a} :: ExportDescription)
 
@@ -234,8 +237,8 @@ exportDescription_s3BucketOwner = Lens.lens (\ExportDescription' {s3BucketOwner}
 exportDescription_exportStatus :: Lens.Lens' ExportDescription (Prelude.Maybe ExportStatus)
 exportDescription_exportStatus = Lens.lens (\ExportDescription' {exportStatus} -> exportStatus) (\s@ExportDescription' {} a -> s {exportStatus = a} :: ExportDescription)
 
--- | The ID of the AWS KMS managed key used to encrypt the S3 bucket where
--- export data is stored (if applicable).
+-- | The ID of the KMS managed key used to encrypt the S3 bucket where export
+-- data is stored (if applicable).
 exportDescription_s3SseKmsKeyId :: Lens.Lens' ExportDescription (Prelude.Maybe Prelude.Text)
 exportDescription_s3SseKmsKeyId = Lens.lens (\ExportDescription' {s3SseKmsKeyId} -> s3SseKmsKeyId) (\s@ExportDescription' {} a -> s {s3SseKmsKeyId = a} :: ExportDescription)
 

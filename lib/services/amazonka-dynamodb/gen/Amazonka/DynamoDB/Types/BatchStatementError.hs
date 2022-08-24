@@ -30,7 +30,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newBatchStatementError' smart constructor.
 data BatchStatementError = BatchStatementError'
-  { -- | The error message associated with the PartiQL batch resposne.
+  { -- | The error message associated with the PartiQL batch response.
     message :: Prelude.Maybe Prelude.Text,
     -- | The error code associated with the failed PartiQL batch statement.
     code :: Prelude.Maybe BatchStatementErrorCodeEnum
@@ -45,7 +45,7 @@ data BatchStatementError = BatchStatementError'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'message', 'batchStatementError_message' - The error message associated with the PartiQL batch resposne.
+-- 'message', 'batchStatementError_message' - The error message associated with the PartiQL batch response.
 --
 -- 'code', 'batchStatementError_code' - The error code associated with the failed PartiQL batch statement.
 newBatchStatementError ::
@@ -56,7 +56,7 @@ newBatchStatementError =
       code = Prelude.Nothing
     }
 
--- | The error message associated with the PartiQL batch resposne.
+-- | The error message associated with the PartiQL batch response.
 batchStatementError_message :: Lens.Lens' BatchStatementError (Prelude.Maybe Prelude.Text)
 batchStatementError_message = Lens.lens (\BatchStatementError' {message} -> message) (\s@BatchStatementError' {} a -> s {message = a} :: BatchStatementError)
 

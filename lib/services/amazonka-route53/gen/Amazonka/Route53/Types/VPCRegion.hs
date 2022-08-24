@@ -28,6 +28,7 @@ module Amazonka.Route53.Types.VPCRegion
         VPCRegion_Ap_south_1,
         VPCRegion_Ap_southeast_1,
         VPCRegion_Ap_southeast_2,
+        VPCRegion_Ap_southeast_3,
         VPCRegion_Ca_central_1,
         VPCRegion_Cn_north_1,
         VPCRegion_Eu_central_1,
@@ -43,6 +44,7 @@ module Amazonka.Route53.Types.VPCRegion
         VPCRegion_Us_gov_east_1,
         VPCRegion_Us_gov_west_1,
         VPCRegion_Us_iso_east_1,
+        VPCRegion_Us_iso_west_1,
         VPCRegion_Us_isob_east_1,
         VPCRegion_Us_west_1,
         VPCRegion_Us_west_2
@@ -106,6 +108,9 @@ pattern VPCRegion_Ap_southeast_1 = VPCRegion' "ap-southeast-1"
 pattern VPCRegion_Ap_southeast_2 :: VPCRegion
 pattern VPCRegion_Ap_southeast_2 = VPCRegion' "ap-southeast-2"
 
+pattern VPCRegion_Ap_southeast_3 :: VPCRegion
+pattern VPCRegion_Ap_southeast_3 = VPCRegion' "ap-southeast-3"
+
 pattern VPCRegion_Ca_central_1 :: VPCRegion
 pattern VPCRegion_Ca_central_1 = VPCRegion' "ca-central-1"
 
@@ -151,6 +156,9 @@ pattern VPCRegion_Us_gov_west_1 = VPCRegion' "us-gov-west-1"
 pattern VPCRegion_Us_iso_east_1 :: VPCRegion
 pattern VPCRegion_Us_iso_east_1 = VPCRegion' "us-iso-east-1"
 
+pattern VPCRegion_Us_iso_west_1 :: VPCRegion
+pattern VPCRegion_Us_iso_west_1 = VPCRegion' "us-iso-west-1"
+
 pattern VPCRegion_Us_isob_east_1 :: VPCRegion
 pattern VPCRegion_Us_isob_east_1 = VPCRegion' "us-isob-east-1"
 
@@ -169,6 +177,7 @@ pattern VPCRegion_Us_west_2 = VPCRegion' "us-west-2"
   VPCRegion_Ap_south_1,
   VPCRegion_Ap_southeast_1,
   VPCRegion_Ap_southeast_2,
+  VPCRegion_Ap_southeast_3,
   VPCRegion_Ca_central_1,
   VPCRegion_Cn_north_1,
   VPCRegion_Eu_central_1,
@@ -184,6 +193,7 @@ pattern VPCRegion_Us_west_2 = VPCRegion' "us-west-2"
   VPCRegion_Us_gov_east_1,
   VPCRegion_Us_gov_west_1,
   VPCRegion_Us_iso_east_1,
+  VPCRegion_Us_iso_west_1,
   VPCRegion_Us_isob_east_1,
   VPCRegion_Us_west_1,
   VPCRegion_Us_west_2,

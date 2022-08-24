@@ -44,9 +44,9 @@ data DNSSECStatus = DNSSECStatus'
     --
     -- [ACTION_NEEDED]
     --     There is a problem with signing in the hosted zone that requires you
-    --     to take action to resolve. For example, the customer managed
-    --     customer master key (CMK) might have been deleted, or the
-    --     permissions for the customer managed CMK might have been changed.
+    --     to take action to resolve. For example, the customer managed key
+    --     might have been deleted, or the permissions for the customer managed
+    --     key might have been changed.
     --
     -- [INTERNAL_FAILURE]
     --     There was an error during a request. Before you can continue to work
@@ -85,9 +85,9 @@ data DNSSECStatus = DNSSECStatus'
 --
 -- [ACTION_NEEDED]
 --     There is a problem with signing in the hosted zone that requires you
---     to take action to resolve. For example, the customer managed
---     customer master key (CMK) might have been deleted, or the
---     permissions for the customer managed CMK might have been changed.
+--     to take action to resolve. For example, the customer managed key
+--     might have been deleted, or the permissions for the customer managed
+--     key might have been changed.
 --
 -- [INTERNAL_FAILURE]
 --     There was an error during a request. Before you can continue to work
@@ -122,9 +122,9 @@ newDNSSECStatus =
 --
 -- [ACTION_NEEDED]
 --     There is a problem with signing in the hosted zone that requires you
---     to take action to resolve. For example, the customer managed
---     customer master key (CMK) might have been deleted, or the
---     permissions for the customer managed CMK might have been changed.
+--     to take action to resolve. For example, the customer managed key
+--     might have been deleted, or the permissions for the customer managed
+--     key might have been changed.
 --
 -- [INTERNAL_FAILURE]
 --     There was an error during a request. Before you can continue to work

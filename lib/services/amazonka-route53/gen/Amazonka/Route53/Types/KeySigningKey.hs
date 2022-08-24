@@ -32,11 +32,11 @@ import Amazonka.Route53.Internal
 --
 -- /See:/ 'newKeySigningKey' smart constructor.
 data KeySigningKey = KeySigningKey'
-  { -- | The Amazon resource name (ARN) used to identify the customer managed
-    -- customer master key (CMK) in Key Management Service (KMS). The @KmsArn@
-    -- must be unique for each key-signing key (KSK) in a single hosted zone.
+  { -- | The Amazon resource name (ARN) used to identify the customer managed key
+    -- in Key Management Service (KMS). The @KmsArn@ must be unique for each
+    -- key-signing key (KSK) in a single hosted zone.
     --
-    -- You must configure the CMK as follows:
+    -- You must configure the customer managed key as follows:
     --
     -- [Status]
     --     Enabled
@@ -61,7 +61,7 @@ data KeySigningKey = KeySigningKey'
     --
     --     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
     --
-    -- For more information about working with the customer managed CMK in KMS,
+    -- For more information about working with the customer managed key in KMS,
     -- see
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
     kmsArn :: Prelude.Maybe Prelude.Text,
@@ -102,9 +102,9 @@ data KeySigningKey = KeySigningKey'
     --
     -- [ACTION_NEEDED]
     --     There is a problem with the KSK that requires you to take action to
-    --     resolve. For example, the customer managed customer master key (CMK)
-    --     might have been deleted, or the permissions for the customer managed
-    --     CMK might have been changed.
+    --     resolve. For example, the customer managed key might have been
+    --     deleted, or the permissions for the customer managed key might have
+    --     been changed.
     --
     -- [INTERNAL_FAILURE]
     --     There was an error during a request. Before you can continue to work
@@ -149,11 +149,11 @@ data KeySigningKey = KeySigningKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsArn', 'keySigningKey_kmsArn' - The Amazon resource name (ARN) used to identify the customer managed
--- customer master key (CMK) in Key Management Service (KMS). The @KmsArn@
--- must be unique for each key-signing key (KSK) in a single hosted zone.
+-- 'kmsArn', 'keySigningKey_kmsArn' - The Amazon resource name (ARN) used to identify the customer managed key
+-- in Key Management Service (KMS). The @KmsArn@ must be unique for each
+-- key-signing key (KSK) in a single hosted zone.
 --
--- You must configure the CMK as follows:
+-- You must configure the customer managed key as follows:
 --
 -- [Status]
 --     Enabled
@@ -178,7 +178,7 @@ data KeySigningKey = KeySigningKey'
 --
 --     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
 --
--- For more information about working with the customer managed CMK in KMS,
+-- For more information about working with the customer managed key in KMS,
 -- see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
 --
@@ -219,9 +219,9 @@ data KeySigningKey = KeySigningKey'
 --
 -- [ACTION_NEEDED]
 --     There is a problem with the KSK that requires you to take action to
---     resolve. For example, the customer managed customer master key (CMK)
---     might have been deleted, or the permissions for the customer managed
---     CMK might have been changed.
+--     resolve. For example, the customer managed key might have been
+--     deleted, or the permissions for the customer managed key might have
+--     been changed.
 --
 -- [INTERNAL_FAILURE]
 --     There was an error during a request. Before you can continue to work
@@ -276,11 +276,11 @@ newKeySigningKey =
       digestValue = Prelude.Nothing
     }
 
--- | The Amazon resource name (ARN) used to identify the customer managed
--- customer master key (CMK) in Key Management Service (KMS). The @KmsArn@
--- must be unique for each key-signing key (KSK) in a single hosted zone.
+-- | The Amazon resource name (ARN) used to identify the customer managed key
+-- in Key Management Service (KMS). The @KmsArn@ must be unique for each
+-- key-signing key (KSK) in a single hosted zone.
 --
--- You must configure the CMK as follows:
+-- You must configure the customer managed key as follows:
 --
 -- [Status]
 --     Enabled
@@ -305,7 +305,7 @@ newKeySigningKey =
 --
 --     -   @\"Service\": \"dnssec-route53.amazonaws.com\"@
 --
--- For more information about working with the customer managed CMK in KMS,
+-- For more information about working with the customer managed key in KMS,
 -- see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html Key Management Service concepts>.
 keySigningKey_kmsArn :: Lens.Lens' KeySigningKey (Prelude.Maybe Prelude.Text)
@@ -362,9 +362,9 @@ keySigningKey_dSRecord = Lens.lens (\KeySigningKey' {dSRecord} -> dSRecord) (\s@
 --
 -- [ACTION_NEEDED]
 --     There is a problem with the KSK that requires you to take action to
---     resolve. For example, the customer managed customer master key (CMK)
---     might have been deleted, or the permissions for the customer managed
---     CMK might have been changed.
+--     resolve. For example, the customer managed key might have been
+--     deleted, or the permissions for the customer managed key might have
+--     been changed.
 --
 -- [INTERNAL_FAILURE]
 --     There was an error during a request. Before you can continue to work

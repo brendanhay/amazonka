@@ -51,6 +51,9 @@ module Amazonka.Route53
     -- ** InvalidSigningStatus
     _InvalidSigningStatus,
 
+    -- ** NoSuchCidrCollectionException
+    _NoSuchCidrCollectionException,
+
     -- ** TooManyTrafficPolicies
     _TooManyTrafficPolicies,
 
@@ -108,11 +111,17 @@ module Amazonka.Route53
     -- ** InvalidKMSArn
     _InvalidKMSArn,
 
+    -- ** CidrCollectionAlreadyExistsException
+    _CidrCollectionAlreadyExistsException,
+
     -- ** InvalidArgument
     _InvalidArgument,
 
     -- ** DelegationSetAlreadyCreated
     _DelegationSetAlreadyCreated,
+
+    -- ** CidrCollectionInUseException
+    _CidrCollectionInUseException,
 
     -- ** NoSuchDelegationSet
     _NoSuchDelegationSet,
@@ -129,8 +138,14 @@ module Amazonka.Route53
     -- ** HealthCheckVersionMismatch
     _HealthCheckVersionMismatch,
 
+    -- ** NoSuchCidrLocationException
+    _NoSuchCidrLocationException,
+
     -- ** ThrottlingException
     _ThrottlingException,
+
+    -- ** CidrBlockInUseException
+    _CidrBlockInUseException,
 
     -- ** NoSuchHostedZone
     _NoSuchHostedZone,
@@ -173,6 +188,9 @@ module Amazonka.Route53
 
     -- ** TooManyTrafficPolicyVersionsForCurrentPolicy
     _TooManyTrafficPolicyVersionsForCurrentPolicy,
+
+    -- ** CidrCollectionVersionMismatchException
+    _CidrCollectionVersionMismatchException,
 
     -- ** HostedZoneNotEmpty
     _HostedZoneNotEmpty,
@@ -234,6 +252,12 @@ module Amazonka.Route53
     AssociateVPCWithHostedZoneResponse (AssociateVPCWithHostedZoneResponse'),
     newAssociateVPCWithHostedZoneResponse,
 
+    -- ** ChangeCidrCollection
+    ChangeCidrCollection (ChangeCidrCollection'),
+    newChangeCidrCollection,
+    ChangeCidrCollectionResponse (ChangeCidrCollectionResponse'),
+    newChangeCidrCollectionResponse,
+
     -- ** ChangeResourceRecordSets
     ChangeResourceRecordSets (ChangeResourceRecordSets'),
     newChangeResourceRecordSets,
@@ -245,6 +269,12 @@ module Amazonka.Route53
     newChangeTagsForResource,
     ChangeTagsForResourceResponse (ChangeTagsForResourceResponse'),
     newChangeTagsForResourceResponse,
+
+    -- ** CreateCidrCollection
+    CreateCidrCollection (CreateCidrCollection'),
+    newCreateCidrCollection,
+    CreateCidrCollectionResponse (CreateCidrCollectionResponse'),
+    newCreateCidrCollectionResponse,
 
     -- ** CreateHealthCheck
     CreateHealthCheck (CreateHealthCheck'),
@@ -305,6 +335,12 @@ module Amazonka.Route53
     newDeactivateKeySigningKey,
     DeactivateKeySigningKeyResponse (DeactivateKeySigningKeyResponse'),
     newDeactivateKeySigningKeyResponse,
+
+    -- ** DeleteCidrCollection
+    DeleteCidrCollection (DeleteCidrCollection'),
+    newDeleteCidrCollection,
+    DeleteCidrCollectionResponse (DeleteCidrCollectionResponse'),
+    newDeleteCidrCollectionResponse,
 
     -- ** DeleteHealthCheck
     DeleteHealthCheck (DeleteHealthCheck'),
@@ -480,6 +516,24 @@ module Amazonka.Route53
     GetTrafficPolicyInstanceCountResponse (GetTrafficPolicyInstanceCountResponse'),
     newGetTrafficPolicyInstanceCountResponse,
 
+    -- ** ListCidrBlocks (Paginated)
+    ListCidrBlocks (ListCidrBlocks'),
+    newListCidrBlocks,
+    ListCidrBlocksResponse (ListCidrBlocksResponse'),
+    newListCidrBlocksResponse,
+
+    -- ** ListCidrCollections (Paginated)
+    ListCidrCollections (ListCidrCollections'),
+    newListCidrCollections,
+    ListCidrCollectionsResponse (ListCidrCollectionsResponse'),
+    newListCidrCollectionsResponse,
+
+    -- ** ListCidrLocations (Paginated)
+    ListCidrLocations (ListCidrLocations'),
+    newListCidrLocations,
+    ListCidrLocationsResponse (ListCidrLocationsResponse'),
+    newListCidrLocationsResponse,
+
     -- ** ListGeoLocations
     ListGeoLocations (ListGeoLocations'),
     newListGeoLocations,
@@ -620,6 +674,9 @@ module Amazonka.Route53
     -- ** ChangeStatus
     ChangeStatus (..),
 
+    -- ** CidrCollectionChangeAction
+    CidrCollectionChangeAction (..),
+
     -- ** CloudWatchRegion
     CloudWatchRegion (..),
 
@@ -683,9 +740,29 @@ module Amazonka.Route53
     ChangeInfo (ChangeInfo'),
     newChangeInfo,
 
+    -- ** CidrBlockSummary
+    CidrBlockSummary (CidrBlockSummary'),
+    newCidrBlockSummary,
+
+    -- ** CidrCollection
+    CidrCollection (CidrCollection'),
+    newCidrCollection,
+
+    -- ** CidrCollectionChange
+    CidrCollectionChange (CidrCollectionChange'),
+    newCidrCollectionChange,
+
+    -- ** CidrRoutingConfig
+    CidrRoutingConfig (CidrRoutingConfig'),
+    newCidrRoutingConfig,
+
     -- ** CloudWatchAlarmConfiguration
     CloudWatchAlarmConfiguration (CloudWatchAlarmConfiguration'),
     newCloudWatchAlarmConfiguration,
+
+    -- ** CollectionSummary
+    CollectionSummary (CollectionSummary'),
+    newCollectionSummary,
 
     -- ** DNSSECStatus
     DNSSECStatus (DNSSECStatus'),
@@ -747,6 +824,10 @@ module Amazonka.Route53
     LinkedService (LinkedService'),
     newLinkedService,
 
+    -- ** LocationSummary
+    LocationSummary (LocationSummary'),
+    newLocationSummary,
+
     -- ** QueryLoggingConfig
     QueryLoggingConfig (QueryLoggingConfig'),
     newQueryLoggingConfig,
@@ -795,8 +876,10 @@ where
 
 import Amazonka.Route53.ActivateKeySigningKey
 import Amazonka.Route53.AssociateVPCWithHostedZone
+import Amazonka.Route53.ChangeCidrCollection
 import Amazonka.Route53.ChangeResourceRecordSets
 import Amazonka.Route53.ChangeTagsForResource
+import Amazonka.Route53.CreateCidrCollection
 import Amazonka.Route53.CreateHealthCheck
 import Amazonka.Route53.CreateHostedZone
 import Amazonka.Route53.CreateKeySigningKey
@@ -807,6 +890,7 @@ import Amazonka.Route53.CreateTrafficPolicyInstance
 import Amazonka.Route53.CreateTrafficPolicyVersion
 import Amazonka.Route53.CreateVPCAssociationAuthorization
 import Amazonka.Route53.DeactivateKeySigningKey
+import Amazonka.Route53.DeleteCidrCollection
 import Amazonka.Route53.DeleteHealthCheck
 import Amazonka.Route53.DeleteHostedZone
 import Amazonka.Route53.DeleteKeySigningKey
@@ -838,6 +922,9 @@ import Amazonka.Route53.GetTrafficPolicyInstance
 import Amazonka.Route53.GetTrafficPolicyInstanceCount
 import Amazonka.Route53.Internal
 import Amazonka.Route53.Lens
+import Amazonka.Route53.ListCidrBlocks
+import Amazonka.Route53.ListCidrCollections
+import Amazonka.Route53.ListCidrLocations
 import Amazonka.Route53.ListGeoLocations
 import Amazonka.Route53.ListHealthChecks
 import Amazonka.Route53.ListHostedZones

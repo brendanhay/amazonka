@@ -32,6 +32,22 @@
 -- private hosted zone must first submit a
 -- @CreateVPCAssociationAuthorization@ request. Then the account that
 -- created the VPC must submit an @AssociateVPCWithHostedZone@ request.
+--
+-- When granting access, the hosted zone and the Amazon VPC must belong to
+-- the same partition. A partition is a group of Amazon Web Services
+-- Regions. Each Amazon Web Services account is scoped to one partition.
+--
+-- The following are the supported partitions:
+--
+-- -   @aws@ - Amazon Web Services Regions
+--
+-- -   @aws-cn@ - China Regions
+--
+-- -   @aws-us-gov@ - Amazon Web Services GovCloud (US) Region
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Access Management>
+-- in the /Amazon Web Services General Reference/.
 module Amazonka.Route53.AssociateVPCWithHostedZone
   ( -- * Creating a Request
     AssociateVPCWithHostedZone (..),

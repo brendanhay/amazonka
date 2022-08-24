@@ -23,6 +23,14 @@
 -- Deletes a key-signing key (KSK). Before you can delete a KSK, you must
 -- deactivate it. The KSK must be deactivated before you can delete it
 -- regardless of whether the hosted zone is enabled for DNSSEC signing.
+--
+-- You can use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeactivateKeySigningKey.html DeactivateKeySigningKey>
+-- to deactivate the key before you delete it.
+--
+-- Use
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetDNSSEC.html GetDNSSEC>
+-- to verify that the KSK is in an @INACTIVE@ status.
 module Amazonka.Route53.DeleteKeySigningKey
   ( -- * Creating a Request
     DeleteKeySigningKey (..),

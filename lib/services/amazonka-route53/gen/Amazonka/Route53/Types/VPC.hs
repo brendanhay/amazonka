@@ -28,6 +28,11 @@ import Amazonka.Route53.Types.VPCRegion
 -- | (Private hosted zones only) A complex type that contains information
 -- about an Amazon VPC.
 --
+-- If you associate a private hosted zone with an Amazon VPC when you make
+-- a
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html CreateHostedZone>
+-- request, the following parameters are also required.
+--
 -- /See:/ 'newVPC' smart constructor.
 data VPC = VPC'
   { vPCId :: Prelude.Maybe Prelude.Text,

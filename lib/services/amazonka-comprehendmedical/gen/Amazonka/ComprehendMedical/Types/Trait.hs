@@ -30,8 +30,8 @@ import qualified Amazonka.Prelude as Prelude
 data Trait = Trait'
   { -- | Provides a name or contextual description about the trait.
     name :: Prelude.Maybe AttributeName,
-    -- | The level of confidence that Amazon Comprehend Medical has in the
-    -- accuracy of this trait.
+    -- | The level of confidence that Comprehend Medical; has in the accuracy of
+    -- this trait.
     score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,8 +46,8 @@ data Trait = Trait'
 --
 -- 'name', 'trait_name' - Provides a name or contextual description about the trait.
 --
--- 'score', 'trait_score' - The level of confidence that Amazon Comprehend Medical has in the
--- accuracy of this trait.
+-- 'score', 'trait_score' - The level of confidence that Comprehend Medical; has in the accuracy of
+-- this trait.
 newTrait ::
   Trait
 newTrait =
@@ -60,8 +60,8 @@ newTrait =
 trait_name :: Lens.Lens' Trait (Prelude.Maybe AttributeName)
 trait_name = Lens.lens (\Trait' {name} -> name) (\s@Trait' {} a -> s {name = a} :: Trait)
 
--- | The level of confidence that Amazon Comprehend Medical has in the
--- accuracy of this trait.
+-- | The level of confidence that Comprehend Medical; has in the accuracy of
+-- this trait.
 trait_score :: Lens.Lens' Trait (Prelude.Maybe Prelude.Double)
 trait_score = Lens.lens (\Trait' {score} -> score) (\s@Trait' {} a -> s {score = a} :: Trait)
 

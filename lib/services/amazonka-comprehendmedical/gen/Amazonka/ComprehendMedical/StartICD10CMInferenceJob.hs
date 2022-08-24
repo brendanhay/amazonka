@@ -57,7 +57,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartICD10CMInferenceJob' smart constructor.
 data StartICD10CMInferenceJob = StartICD10CMInferenceJob'
   { -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend Medical generates one.
+    -- request token, Comprehend Medical; generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the job.
     jobName :: Prelude.Maybe Prelude.Text,
@@ -69,8 +69,8 @@ data StartICD10CMInferenceJob = StartICD10CMInferenceJob'
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend Medical read access to your
-    -- input data. For more information, see
+    -- (IAM) role that grants Comprehend Medical; read access to your input
+    -- data. For more information, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. All documents must be in the same
@@ -88,7 +88,7 @@ data StartICD10CMInferenceJob = StartICD10CMInferenceJob'
 -- for backwards compatibility:
 --
 -- 'clientRequestToken', 'startICD10CMInferenceJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- request token, Comprehend Medical; generates one.
 --
 -- 'jobName', 'startICD10CMInferenceJob_jobName' - The identifier of the job.
 --
@@ -100,8 +100,8 @@ data StartICD10CMInferenceJob = StartICD10CMInferenceJob'
 -- 'outputDataConfig', 'startICD10CMInferenceJob_outputDataConfig' - Specifies where to send the output files.
 --
 -- 'dataAccessRoleArn', 'startICD10CMInferenceJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend Medical read access to your
--- input data. For more information, see
+-- (IAM) role that grants Comprehend Medical; read access to your input
+-- data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
 --
 -- 'languageCode', 'startICD10CMInferenceJob_languageCode' - The language of the input documents. All documents must be in the same
@@ -133,7 +133,7 @@ newStartICD10CMInferenceJob
       }
 
 -- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- request token, Comprehend Medical; generates one.
 startICD10CMInferenceJob_clientRequestToken :: Lens.Lens' StartICD10CMInferenceJob (Prelude.Maybe Prelude.Text)
 startICD10CMInferenceJob_clientRequestToken = Lens.lens (\StartICD10CMInferenceJob' {clientRequestToken} -> clientRequestToken) (\s@StartICD10CMInferenceJob' {} a -> s {clientRequestToken = a} :: StartICD10CMInferenceJob)
 
@@ -155,8 +155,8 @@ startICD10CMInferenceJob_outputDataConfig :: Lens.Lens' StartICD10CMInferenceJob
 startICD10CMInferenceJob_outputDataConfig = Lens.lens (\StartICD10CMInferenceJob' {outputDataConfig} -> outputDataConfig) (\s@StartICD10CMInferenceJob' {} a -> s {outputDataConfig = a} :: StartICD10CMInferenceJob)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend Medical read access to your
--- input data. For more information, see
+-- (IAM) role that grants Comprehend Medical; read access to your input
+-- data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
 startICD10CMInferenceJob_dataAccessRoleArn :: Lens.Lens' StartICD10CMInferenceJob Prelude.Text
 startICD10CMInferenceJob_dataAccessRoleArn = Lens.lens (\StartICD10CMInferenceJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartICD10CMInferenceJob' {} a -> s {dataAccessRoleArn = a} :: StartICD10CMInferenceJob)

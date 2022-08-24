@@ -141,7 +141,7 @@ data DetectPHIResponse = DetectPHIResponse'
     -- | The collection of PHI entities extracted from the input text and their
     -- associated information. For each entity, the response provides the
     -- entity text, the entity category, where the entity text begins and ends,
-    -- and the level of confidence that Amazon Comprehend Medical has in its
+    -- and the level of confidence that Comprehend Medical; has in its
     -- detection.
     entities :: [Entity],
     -- | The version of the model used to analyze the documents. The version
@@ -167,7 +167,7 @@ data DetectPHIResponse = DetectPHIResponse'
 -- 'entities', 'detectPHIResponse_entities' - The collection of PHI entities extracted from the input text and their
 -- associated information. For each entity, the response provides the
 -- entity text, the entity category, where the entity text begins and ends,
--- and the level of confidence that Amazon Comprehend Medical has in its
+-- and the level of confidence that Comprehend Medical; has in its
 -- detection.
 --
 -- 'modelVersion', 'detectPHIResponse_modelVersion' - The version of the model used to analyze the documents. The version
@@ -200,7 +200,7 @@ detectPHIResponse_httpStatus = Lens.lens (\DetectPHIResponse' {httpStatus} -> ht
 -- | The collection of PHI entities extracted from the input text and their
 -- associated information. For each entity, the response provides the
 -- entity text, the entity category, where the entity text begins and ends,
--- and the level of confidence that Amazon Comprehend Medical has in its
+-- and the level of confidence that Comprehend Medical; has in its
 -- detection.
 detectPHIResponse_entities :: Lens.Lens' DetectPHIResponse [Entity]
 detectPHIResponse_entities = Lens.lens (\DetectPHIResponse' {entities} -> entities) (\s@DetectPHIResponse' {} a -> s {entities = a} :: DetectPHIResponse) Prelude.. Lens.coerced

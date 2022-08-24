@@ -57,7 +57,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartPHIDetectionJob' smart constructor.
 data StartPHIDetectionJob = StartPHIDetectionJob'
   { -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend Medical generates one.
+    -- request token, Comprehend Medical; generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the job.
     jobName :: Prelude.Maybe Prelude.Text,
@@ -69,8 +69,8 @@ data StartPHIDetectionJob = StartPHIDetectionJob'
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend Medical read access to your
-    -- input data. For more information, see
+    -- (IAM) role that grants Comprehend Medical; read access to your input
+    -- data. For more information, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. All documents must be in the same
@@ -88,7 +88,7 @@ data StartPHIDetectionJob = StartPHIDetectionJob'
 -- for backwards compatibility:
 --
 -- 'clientRequestToken', 'startPHIDetectionJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- request token, Comprehend Medical; generates one.
 --
 -- 'jobName', 'startPHIDetectionJob_jobName' - The identifier of the job.
 --
@@ -100,8 +100,8 @@ data StartPHIDetectionJob = StartPHIDetectionJob'
 -- 'outputDataConfig', 'startPHIDetectionJob_outputDataConfig' - Specifies where to send the output files.
 --
 -- 'dataAccessRoleArn', 'startPHIDetectionJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend Medical read access to your
--- input data. For more information, see
+-- (IAM) role that grants Comprehend Medical; read access to your input
+-- data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
 --
 -- 'languageCode', 'startPHIDetectionJob_languageCode' - The language of the input documents. All documents must be in the same
@@ -133,7 +133,7 @@ newStartPHIDetectionJob
       }
 
 -- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- request token, Comprehend Medical; generates one.
 startPHIDetectionJob_clientRequestToken :: Lens.Lens' StartPHIDetectionJob (Prelude.Maybe Prelude.Text)
 startPHIDetectionJob_clientRequestToken = Lens.lens (\StartPHIDetectionJob' {clientRequestToken} -> clientRequestToken) (\s@StartPHIDetectionJob' {} a -> s {clientRequestToken = a} :: StartPHIDetectionJob)
 
@@ -155,8 +155,8 @@ startPHIDetectionJob_outputDataConfig :: Lens.Lens' StartPHIDetectionJob OutputD
 startPHIDetectionJob_outputDataConfig = Lens.lens (\StartPHIDetectionJob' {outputDataConfig} -> outputDataConfig) (\s@StartPHIDetectionJob' {} a -> s {outputDataConfig = a} :: StartPHIDetectionJob)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend Medical read access to your
--- input data. For more information, see
+-- (IAM) role that grants Comprehend Medical; read access to your input
+-- data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
 startPHIDetectionJob_dataAccessRoleArn :: Lens.Lens' StartPHIDetectionJob Prelude.Text
 startPHIDetectionJob_dataAccessRoleArn = Lens.lens (\StartPHIDetectionJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartPHIDetectionJob' {} a -> s {dataAccessRoleArn = a} :: StartPHIDetectionJob)

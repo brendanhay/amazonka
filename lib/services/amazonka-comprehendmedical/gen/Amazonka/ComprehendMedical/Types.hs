@@ -71,6 +71,21 @@ module Amazonka.ComprehendMedical.Types
     -- * RxNormTraitName
     RxNormTraitName (..),
 
+    -- * SNOMEDCTAttributeType
+    SNOMEDCTAttributeType (..),
+
+    -- * SNOMEDCTEntityCategory
+    SNOMEDCTEntityCategory (..),
+
+    -- * SNOMEDCTEntityType
+    SNOMEDCTEntityType (..),
+
+    -- * SNOMEDCTRelationshipType
+    SNOMEDCTRelationshipType (..),
+
+    -- * SNOMEDCTTraitName
+    SNOMEDCTTraitName (..),
+
     -- * Attribute
     Attribute (..),
     newAttribute,
@@ -84,6 +99,11 @@ module Amazonka.ComprehendMedical.Types
     attribute_relationshipType,
     attribute_category,
     attribute_text,
+
+    -- * Characters
+    Characters (..),
+    newCharacters,
+    characters_originalTextCharacters,
 
     -- * ComprehendMedicalAsyncJobFilter
     ComprehendMedicalAsyncJobFilter (..),
@@ -216,6 +236,55 @@ module Amazonka.ComprehendMedical.Types
     rxNormTrait_name,
     rxNormTrait_score,
 
+    -- * SNOMEDCTAttribute
+    SNOMEDCTAttribute (..),
+    newSNOMEDCTAttribute,
+    sNOMEDCTAttribute_beginOffset,
+    sNOMEDCTAttribute_relationshipScore,
+    sNOMEDCTAttribute_type,
+    sNOMEDCTAttribute_traits,
+    sNOMEDCTAttribute_score,
+    sNOMEDCTAttribute_id,
+    sNOMEDCTAttribute_endOffset,
+    sNOMEDCTAttribute_relationshipType,
+    sNOMEDCTAttribute_category,
+    sNOMEDCTAttribute_text,
+    sNOMEDCTAttribute_sNOMEDCTConcepts,
+
+    -- * SNOMEDCTConcept
+    SNOMEDCTConcept (..),
+    newSNOMEDCTConcept,
+    sNOMEDCTConcept_code,
+    sNOMEDCTConcept_score,
+    sNOMEDCTConcept_description,
+
+    -- * SNOMEDCTDetails
+    SNOMEDCTDetails (..),
+    newSNOMEDCTDetails,
+    sNOMEDCTDetails_edition,
+    sNOMEDCTDetails_versionDate,
+    sNOMEDCTDetails_language,
+
+    -- * SNOMEDCTEntity
+    SNOMEDCTEntity (..),
+    newSNOMEDCTEntity,
+    sNOMEDCTEntity_beginOffset,
+    sNOMEDCTEntity_type,
+    sNOMEDCTEntity_traits,
+    sNOMEDCTEntity_score,
+    sNOMEDCTEntity_id,
+    sNOMEDCTEntity_endOffset,
+    sNOMEDCTEntity_category,
+    sNOMEDCTEntity_attributes,
+    sNOMEDCTEntity_text,
+    sNOMEDCTEntity_sNOMEDCTConcepts,
+
+    -- * SNOMEDCTTrait
+    SNOMEDCTTrait (..),
+    newSNOMEDCTTrait,
+    sNOMEDCTTrait_name,
+    sNOMEDCTTrait_score,
+
     -- * Trait
     Trait (..),
     newTrait,
@@ -232,6 +301,7 @@ where
 
 import Amazonka.ComprehendMedical.Types.Attribute
 import Amazonka.ComprehendMedical.Types.AttributeName
+import Amazonka.ComprehendMedical.Types.Characters
 import Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
 import Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
 import Amazonka.ComprehendMedical.Types.Entity
@@ -259,6 +329,16 @@ import Amazonka.ComprehendMedical.Types.RxNormEntityCategory
 import Amazonka.ComprehendMedical.Types.RxNormEntityType
 import Amazonka.ComprehendMedical.Types.RxNormTrait
 import Amazonka.ComprehendMedical.Types.RxNormTraitName
+import Amazonka.ComprehendMedical.Types.SNOMEDCTAttribute
+import Amazonka.ComprehendMedical.Types.SNOMEDCTAttributeType
+import Amazonka.ComprehendMedical.Types.SNOMEDCTConcept
+import Amazonka.ComprehendMedical.Types.SNOMEDCTDetails
+import Amazonka.ComprehendMedical.Types.SNOMEDCTEntity
+import Amazonka.ComprehendMedical.Types.SNOMEDCTEntityCategory
+import Amazonka.ComprehendMedical.Types.SNOMEDCTEntityType
+import Amazonka.ComprehendMedical.Types.SNOMEDCTRelationshipType
+import Amazonka.ComprehendMedical.Types.SNOMEDCTTrait
+import Amazonka.ComprehendMedical.Types.SNOMEDCTTraitName
 import Amazonka.ComprehendMedical.Types.Trait
 import Amazonka.ComprehendMedical.Types.UnmappedAttribute
 import qualified Amazonka.Core as Core
@@ -345,8 +425,8 @@ _InternalServerException =
     defaultService
     "InternalServerException"
 
--- | The Amazon Comprehend Medical service is temporarily unavailable. Please
--- wait and then retry your request.
+-- | The Comprehend Medical; service is temporarily unavailable. Please wait
+-- and then retry your request.
 _ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceUnavailableException =
   Core._MatchServiceError

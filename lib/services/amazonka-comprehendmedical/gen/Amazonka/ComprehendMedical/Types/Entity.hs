@@ -38,8 +38,8 @@ data Entity = Entity'
     type' :: Prelude.Maybe EntitySubType,
     -- | Contextual information for the entity.
     traits :: Prelude.Maybe [Trait],
-    -- | The level of confidence that Amazon Comprehend Medical has in the
-    -- accuracy of the detection.
+    -- | The level of confidence that Comprehend Medical; has in the accuracy of
+    -- the detection.
     score :: Prelude.Maybe Prelude.Double,
     -- | The numeric identifier for the entity. This is a monotonically
     -- increasing id unique within this response rather than a global unique
@@ -72,8 +72,8 @@ data Entity = Entity'
 --
 -- 'traits', 'entity_traits' - Contextual information for the entity.
 --
--- 'score', 'entity_score' - The level of confidence that Amazon Comprehend Medical has in the
--- accuracy of the detection.
+-- 'score', 'entity_score' - The level of confidence that Comprehend Medical; has in the accuracy of
+-- the detection.
 --
 -- 'id', 'entity_id' - The numeric identifier for the entity. This is a monotonically
 -- increasing id unique within this response rather than a global unique
@@ -115,8 +115,8 @@ entity_type = Lens.lens (\Entity' {type'} -> type') (\s@Entity' {} a -> s {type'
 entity_traits :: Lens.Lens' Entity (Prelude.Maybe [Trait])
 entity_traits = Lens.lens (\Entity' {traits} -> traits) (\s@Entity' {} a -> s {traits = a} :: Entity) Prelude.. Lens.mapping Lens.coerced
 
--- | The level of confidence that Amazon Comprehend Medical has in the
--- accuracy of the detection.
+-- | The level of confidence that Comprehend Medical; has in the accuracy of
+-- the detection.
 entity_score :: Lens.Lens' Entity (Prelude.Maybe Prelude.Double)
 entity_score = Lens.lens (\Entity' {score} -> score) (\s@Entity' {} a -> s {score = a} :: Entity)
 

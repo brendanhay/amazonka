@@ -48,26 +48,32 @@ library
     Amazonka.ComprehendMedical.DescribeICD10CMInferenceJob
     Amazonka.ComprehendMedical.DescribePHIDetectionJob
     Amazonka.ComprehendMedical.DescribeRxNormInferenceJob
+    Amazonka.ComprehendMedical.DescribeSNOMEDCTInferenceJob
     Amazonka.ComprehendMedical.DetectEntitiesV2
     Amazonka.ComprehendMedical.DetectPHI
     Amazonka.ComprehendMedical.InferICD10CM
     Amazonka.ComprehendMedical.InferRxNorm
+    Amazonka.ComprehendMedical.InferSNOMEDCT
     Amazonka.ComprehendMedical.Lens
     Amazonka.ComprehendMedical.ListEntitiesDetectionV2Jobs
     Amazonka.ComprehendMedical.ListICD10CMInferenceJobs
     Amazonka.ComprehendMedical.ListPHIDetectionJobs
     Amazonka.ComprehendMedical.ListRxNormInferenceJobs
+    Amazonka.ComprehendMedical.ListSNOMEDCTInferenceJobs
     Amazonka.ComprehendMedical.StartEntitiesDetectionV2Job
     Amazonka.ComprehendMedical.StartICD10CMInferenceJob
     Amazonka.ComprehendMedical.StartPHIDetectionJob
     Amazonka.ComprehendMedical.StartRxNormInferenceJob
+    Amazonka.ComprehendMedical.StartSNOMEDCTInferenceJob
     Amazonka.ComprehendMedical.StopEntitiesDetectionV2Job
     Amazonka.ComprehendMedical.StopICD10CMInferenceJob
     Amazonka.ComprehendMedical.StopPHIDetectionJob
     Amazonka.ComprehendMedical.StopRxNormInferenceJob
+    Amazonka.ComprehendMedical.StopSNOMEDCTInferenceJob
     Amazonka.ComprehendMedical.Types
     Amazonka.ComprehendMedical.Types.Attribute
     Amazonka.ComprehendMedical.Types.AttributeName
+    Amazonka.ComprehendMedical.Types.Characters
     Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobFilter
     Amazonka.ComprehendMedical.Types.ComprehendMedicalAsyncJobProperties
     Amazonka.ComprehendMedical.Types.Entity
@@ -95,6 +101,16 @@ library
     Amazonka.ComprehendMedical.Types.RxNormEntityType
     Amazonka.ComprehendMedical.Types.RxNormTrait
     Amazonka.ComprehendMedical.Types.RxNormTraitName
+    Amazonka.ComprehendMedical.Types.SNOMEDCTAttribute
+    Amazonka.ComprehendMedical.Types.SNOMEDCTAttributeType
+    Amazonka.ComprehendMedical.Types.SNOMEDCTConcept
+    Amazonka.ComprehendMedical.Types.SNOMEDCTDetails
+    Amazonka.ComprehendMedical.Types.SNOMEDCTEntity
+    Amazonka.ComprehendMedical.Types.SNOMEDCTEntityCategory
+    Amazonka.ComprehendMedical.Types.SNOMEDCTEntityType
+    Amazonka.ComprehendMedical.Types.SNOMEDCTRelationshipType
+    Amazonka.ComprehendMedical.Types.SNOMEDCTTrait
+    Amazonka.ComprehendMedical.Types.SNOMEDCTTraitName
     Amazonka.ComprehendMedical.Types.Trait
     Amazonka.ComprehendMedical.Types.UnmappedAttribute
     Amazonka.ComprehendMedical.Waiters

@@ -29,12 +29,15 @@ module Amazonka.ComprehendMedical.Types.EntitySubType
         EntitySubType_DIRECTION,
         EntitySubType_DOSAGE,
         EntitySubType_DURATION,
+        EntitySubType_DX_NAME,
         EntitySubType_EMAIL,
         EntitySubType_FORM,
         EntitySubType_FREQUENCY,
         EntitySubType_GENERIC_NAME,
+        EntitySubType_ID,
         EntitySubType_IDENTIFIER,
         EntitySubType_NAME,
+        EntitySubType_PHONE_OR_FAX,
         EntitySubType_PROCEDURE_NAME,
         EntitySubType_PROFESSION,
         EntitySubType_QUALITY,
@@ -44,6 +47,7 @@ module Amazonka.ComprehendMedical.Types.EntitySubType
         EntitySubType_STRENGTH,
         EntitySubType_SYSTEM_ORGAN_SITE,
         EntitySubType_TEST_NAME,
+        EntitySubType_TEST_UNIT,
         EntitySubType_TEST_UNITS,
         EntitySubType_TEST_VALUE,
         EntitySubType_TIME_EXPRESSION,
@@ -116,6 +120,9 @@ pattern EntitySubType_DOSAGE = EntitySubType' "DOSAGE"
 pattern EntitySubType_DURATION :: EntitySubType
 pattern EntitySubType_DURATION = EntitySubType' "DURATION"
 
+pattern EntitySubType_DX_NAME :: EntitySubType
+pattern EntitySubType_DX_NAME = EntitySubType' "DX_NAME"
+
 pattern EntitySubType_EMAIL :: EntitySubType
 pattern EntitySubType_EMAIL = EntitySubType' "EMAIL"
 
@@ -128,11 +135,17 @@ pattern EntitySubType_FREQUENCY = EntitySubType' "FREQUENCY"
 pattern EntitySubType_GENERIC_NAME :: EntitySubType
 pattern EntitySubType_GENERIC_NAME = EntitySubType' "GENERIC_NAME"
 
+pattern EntitySubType_ID :: EntitySubType
+pattern EntitySubType_ID = EntitySubType' "ID"
+
 pattern EntitySubType_IDENTIFIER :: EntitySubType
 pattern EntitySubType_IDENTIFIER = EntitySubType' "IDENTIFIER"
 
 pattern EntitySubType_NAME :: EntitySubType
 pattern EntitySubType_NAME = EntitySubType' "NAME"
+
+pattern EntitySubType_PHONE_OR_FAX :: EntitySubType
+pattern EntitySubType_PHONE_OR_FAX = EntitySubType' "PHONE_OR_FAX"
 
 pattern EntitySubType_PROCEDURE_NAME :: EntitySubType
 pattern EntitySubType_PROCEDURE_NAME = EntitySubType' "PROCEDURE_NAME"
@@ -160,6 +173,9 @@ pattern EntitySubType_SYSTEM_ORGAN_SITE = EntitySubType' "SYSTEM_ORGAN_SITE"
 
 pattern EntitySubType_TEST_NAME :: EntitySubType
 pattern EntitySubType_TEST_NAME = EntitySubType' "TEST_NAME"
+
+pattern EntitySubType_TEST_UNIT :: EntitySubType
+pattern EntitySubType_TEST_UNIT = EntitySubType' "TEST_UNIT"
 
 pattern EntitySubType_TEST_UNITS :: EntitySubType
 pattern EntitySubType_TEST_UNITS = EntitySubType' "TEST_UNITS"
@@ -201,12 +217,15 @@ pattern EntitySubType_URL = EntitySubType' "URL"
   EntitySubType_DIRECTION,
   EntitySubType_DOSAGE,
   EntitySubType_DURATION,
+  EntitySubType_DX_NAME,
   EntitySubType_EMAIL,
   EntitySubType_FORM,
   EntitySubType_FREQUENCY,
   EntitySubType_GENERIC_NAME,
+  EntitySubType_ID,
   EntitySubType_IDENTIFIER,
   EntitySubType_NAME,
+  EntitySubType_PHONE_OR_FAX,
   EntitySubType_PROCEDURE_NAME,
   EntitySubType_PROFESSION,
   EntitySubType_QUALITY,
@@ -216,6 +235,7 @@ pattern EntitySubType_URL = EntitySubType' "URL"
   EntitySubType_STRENGTH,
   EntitySubType_SYSTEM_ORGAN_SITE,
   EntitySubType_TEST_NAME,
+  EntitySubType_TEST_UNIT,
   EntitySubType_TEST_UNITS,
   EntitySubType_TEST_VALUE,
   EntitySubType_TIME_EXPRESSION,

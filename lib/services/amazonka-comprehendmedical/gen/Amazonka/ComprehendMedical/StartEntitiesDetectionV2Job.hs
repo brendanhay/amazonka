@@ -57,24 +57,25 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartEntitiesDetectionV2Job' smart constructor.
 data StartEntitiesDetectionV2Job = StartEntitiesDetectionV2Job'
   { -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend Medical generates one.
+    -- request token, Comprehend Medical; generates one for you.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the job.
     jobName :: Prelude.Maybe Prelude.Text,
     -- | An AWS Key Management Service key to encrypt your output files. If you
     -- do not specify a key, the files are written in plain text.
     kmsKey :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the format and location of the input data for the job.
+    -- | The input configuration that specifies the format and location of the
+    -- input data for the job.
     inputDataConfig :: InputDataConfig,
-    -- | Specifies where to send the output files.
+    -- | The output configuration that specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend Medical read access to your
-    -- input data. For more information, see
+    -- (IAM) role that grants Comprehend Medical; read access to your input
+    -- data. For more information, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. All documents must be in the same
-    -- language.
+    -- language. Comprehend Medical; processes files in US English (en).
     languageCode :: LanguageCode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,24 +89,25 @@ data StartEntitiesDetectionV2Job = StartEntitiesDetectionV2Job'
 -- for backwards compatibility:
 --
 -- 'clientRequestToken', 'startEntitiesDetectionV2Job_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- request token, Comprehend Medical; generates one for you.
 --
 -- 'jobName', 'startEntitiesDetectionV2Job_jobName' - The identifier of the job.
 --
 -- 'kmsKey', 'startEntitiesDetectionV2Job_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you
 -- do not specify a key, the files are written in plain text.
 --
--- 'inputDataConfig', 'startEntitiesDetectionV2Job_inputDataConfig' - Specifies the format and location of the input data for the job.
+-- 'inputDataConfig', 'startEntitiesDetectionV2Job_inputDataConfig' - The input configuration that specifies the format and location of the
+-- input data for the job.
 --
--- 'outputDataConfig', 'startEntitiesDetectionV2Job_outputDataConfig' - Specifies where to send the output files.
+-- 'outputDataConfig', 'startEntitiesDetectionV2Job_outputDataConfig' - The output configuration that specifies where to send the output files.
 --
 -- 'dataAccessRoleArn', 'startEntitiesDetectionV2Job_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend Medical read access to your
--- input data. For more information, see
+-- (IAM) role that grants Comprehend Medical; read access to your input
+-- data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
 --
 -- 'languageCode', 'startEntitiesDetectionV2Job_languageCode' - The language of the input documents. All documents must be in the same
--- language.
+-- language. Comprehend Medical; processes files in US English (en).
 newStartEntitiesDetectionV2Job ::
   -- | 'inputDataConfig'
   InputDataConfig ->
@@ -133,7 +135,7 @@ newStartEntitiesDetectionV2Job
       }
 
 -- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- request token, Comprehend Medical; generates one for you.
 startEntitiesDetectionV2Job_clientRequestToken :: Lens.Lens' StartEntitiesDetectionV2Job (Prelude.Maybe Prelude.Text)
 startEntitiesDetectionV2Job_clientRequestToken = Lens.lens (\StartEntitiesDetectionV2Job' {clientRequestToken} -> clientRequestToken) (\s@StartEntitiesDetectionV2Job' {} a -> s {clientRequestToken = a} :: StartEntitiesDetectionV2Job)
 
@@ -146,23 +148,24 @@ startEntitiesDetectionV2Job_jobName = Lens.lens (\StartEntitiesDetectionV2Job' {
 startEntitiesDetectionV2Job_kmsKey :: Lens.Lens' StartEntitiesDetectionV2Job (Prelude.Maybe Prelude.Text)
 startEntitiesDetectionV2Job_kmsKey = Lens.lens (\StartEntitiesDetectionV2Job' {kmsKey} -> kmsKey) (\s@StartEntitiesDetectionV2Job' {} a -> s {kmsKey = a} :: StartEntitiesDetectionV2Job)
 
--- | Specifies the format and location of the input data for the job.
+-- | The input configuration that specifies the format and location of the
+-- input data for the job.
 startEntitiesDetectionV2Job_inputDataConfig :: Lens.Lens' StartEntitiesDetectionV2Job InputDataConfig
 startEntitiesDetectionV2Job_inputDataConfig = Lens.lens (\StartEntitiesDetectionV2Job' {inputDataConfig} -> inputDataConfig) (\s@StartEntitiesDetectionV2Job' {} a -> s {inputDataConfig = a} :: StartEntitiesDetectionV2Job)
 
--- | Specifies where to send the output files.
+-- | The output configuration that specifies where to send the output files.
 startEntitiesDetectionV2Job_outputDataConfig :: Lens.Lens' StartEntitiesDetectionV2Job OutputDataConfig
 startEntitiesDetectionV2Job_outputDataConfig = Lens.lens (\StartEntitiesDetectionV2Job' {outputDataConfig} -> outputDataConfig) (\s@StartEntitiesDetectionV2Job' {} a -> s {outputDataConfig = a} :: StartEntitiesDetectionV2Job)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend Medical read access to your
--- input data. For more information, see
+-- (IAM) role that grants Comprehend Medical; read access to your input
+-- data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
 startEntitiesDetectionV2Job_dataAccessRoleArn :: Lens.Lens' StartEntitiesDetectionV2Job Prelude.Text
 startEntitiesDetectionV2Job_dataAccessRoleArn = Lens.lens (\StartEntitiesDetectionV2Job' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartEntitiesDetectionV2Job' {} a -> s {dataAccessRoleArn = a} :: StartEntitiesDetectionV2Job)
 
 -- | The language of the input documents. All documents must be in the same
--- language.
+-- language. Comprehend Medical; processes files in US English (en).
 startEntitiesDetectionV2Job_languageCode :: Lens.Lens' StartEntitiesDetectionV2Job LanguageCode
 startEntitiesDetectionV2Job_languageCode = Lens.lens (\StartEntitiesDetectionV2Job' {languageCode} -> languageCode) (\s@StartEntitiesDetectionV2Job' {} a -> s {languageCode = a} :: StartEntitiesDetectionV2Job)
 

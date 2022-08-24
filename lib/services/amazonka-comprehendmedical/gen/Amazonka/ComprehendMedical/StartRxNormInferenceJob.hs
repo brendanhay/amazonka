@@ -57,7 +57,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newStartRxNormInferenceJob' smart constructor.
 data StartRxNormInferenceJob = StartRxNormInferenceJob'
   { -- | A unique identifier for the request. If you don\'t set the client
-    -- request token, Amazon Comprehend Medical generates one.
+    -- request token, Comprehend Medical; generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the job.
     jobName :: Prelude.Maybe Prelude.Text,
@@ -69,8 +69,8 @@ data StartRxNormInferenceJob = StartRxNormInferenceJob'
     -- | Specifies where to send the output files.
     outputDataConfig :: OutputDataConfig,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-    -- (IAM) role that grants Amazon Comprehend Medical read access to your
-    -- input data. For more information, see
+    -- (IAM) role that grants Comprehend Medical; read access to your input
+    -- data. For more information, see
     -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
     dataAccessRoleArn :: Prelude.Text,
     -- | The language of the input documents. All documents must be in the same
@@ -88,7 +88,7 @@ data StartRxNormInferenceJob = StartRxNormInferenceJob'
 -- for backwards compatibility:
 --
 -- 'clientRequestToken', 'startRxNormInferenceJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- request token, Comprehend Medical; generates one.
 --
 -- 'jobName', 'startRxNormInferenceJob_jobName' - The identifier of the job.
 --
@@ -100,8 +100,8 @@ data StartRxNormInferenceJob = StartRxNormInferenceJob'
 -- 'outputDataConfig', 'startRxNormInferenceJob_outputDataConfig' - Specifies where to send the output files.
 --
 -- 'dataAccessRoleArn', 'startRxNormInferenceJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend Medical read access to your
--- input data. For more information, see
+-- (IAM) role that grants Comprehend Medical; read access to your input
+-- data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
 --
 -- 'languageCode', 'startRxNormInferenceJob_languageCode' - The language of the input documents. All documents must be in the same
@@ -133,7 +133,7 @@ newStartRxNormInferenceJob
       }
 
 -- | A unique identifier for the request. If you don\'t set the client
--- request token, Amazon Comprehend Medical generates one.
+-- request token, Comprehend Medical; generates one.
 startRxNormInferenceJob_clientRequestToken :: Lens.Lens' StartRxNormInferenceJob (Prelude.Maybe Prelude.Text)
 startRxNormInferenceJob_clientRequestToken = Lens.lens (\StartRxNormInferenceJob' {clientRequestToken} -> clientRequestToken) (\s@StartRxNormInferenceJob' {} a -> s {clientRequestToken = a} :: StartRxNormInferenceJob)
 
@@ -155,8 +155,8 @@ startRxNormInferenceJob_outputDataConfig :: Lens.Lens' StartRxNormInferenceJob O
 startRxNormInferenceJob_outputDataConfig = Lens.lens (\StartRxNormInferenceJob' {outputDataConfig} -> outputDataConfig) (\s@StartRxNormInferenceJob' {} a -> s {outputDataConfig = a} :: StartRxNormInferenceJob)
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants Amazon Comprehend Medical read access to your
--- input data. For more information, see
+-- (IAM) role that grants Comprehend Medical; read access to your input
+-- data. For more information, see
 -- <https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations>.
 startRxNormInferenceJob_dataAccessRoleArn :: Lens.Lens' StartRxNormInferenceJob Prelude.Text
 startRxNormInferenceJob_dataAccessRoleArn = Lens.lens (\StartRxNormInferenceJob' {dataAccessRoleArn} -> dataAccessRoleArn) (\s@StartRxNormInferenceJob' {} a -> s {dataAccessRoleArn = a} :: StartRxNormInferenceJob)

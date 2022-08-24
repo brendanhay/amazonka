@@ -49,7 +49,7 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newDescribeEntitiesDetectionV2Job' smart constructor.
 data DescribeEntitiesDetectionV2Job = DescribeEntitiesDetectionV2Job'
-  { -- | The identifier that Amazon Comprehend Medical generated for the job. The
+  { -- | The identifier that Comprehend Medical; generated for the job. The
     -- @StartEntitiesDetectionV2Job@ operation returns this identifier in its
     -- response.
     jobId :: Prelude.Text
@@ -64,7 +64,7 @@ data DescribeEntitiesDetectionV2Job = DescribeEntitiesDetectionV2Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'describeEntitiesDetectionV2Job_jobId' - The identifier that Amazon Comprehend Medical generated for the job. The
+-- 'jobId', 'describeEntitiesDetectionV2Job_jobId' - The identifier that Comprehend Medical; generated for the job. The
 -- @StartEntitiesDetectionV2Job@ operation returns this identifier in its
 -- response.
 newDescribeEntitiesDetectionV2Job ::
@@ -74,7 +74,7 @@ newDescribeEntitiesDetectionV2Job ::
 newDescribeEntitiesDetectionV2Job pJobId_ =
   DescribeEntitiesDetectionV2Job' {jobId = pJobId_}
 
--- | The identifier that Amazon Comprehend Medical generated for the job. The
+-- | The identifier that Comprehend Medical; generated for the job. The
 -- @StartEntitiesDetectionV2Job@ operation returns this identifier in its
 -- response.
 describeEntitiesDetectionV2Job_jobId :: Lens.Lens' DescribeEntitiesDetectionV2Job Prelude.Text

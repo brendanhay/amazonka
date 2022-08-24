@@ -31,8 +31,8 @@ import qualified Amazonka.Prelude as Prelude
 data ICD10CMTrait = ICD10CMTrait'
   { -- | Provides a name or contextual description about the trait.
     name :: Prelude.Maybe ICD10CMTraitName,
-    -- | The level of confidence that Amazon Comprehend Medical has that the
-    -- segment of text is correctly recognized as a trait.
+    -- | The level of confidence that Comprehend Medical; has that the segment of
+    -- text is correctly recognized as a trait.
     score :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,8 +47,8 @@ data ICD10CMTrait = ICD10CMTrait'
 --
 -- 'name', 'iCD10CMTrait_name' - Provides a name or contextual description about the trait.
 --
--- 'score', 'iCD10CMTrait_score' - The level of confidence that Amazon Comprehend Medical has that the
--- segment of text is correctly recognized as a trait.
+-- 'score', 'iCD10CMTrait_score' - The level of confidence that Comprehend Medical; has that the segment of
+-- text is correctly recognized as a trait.
 newICD10CMTrait ::
   ICD10CMTrait
 newICD10CMTrait =
@@ -61,8 +61,8 @@ newICD10CMTrait =
 iCD10CMTrait_name :: Lens.Lens' ICD10CMTrait (Prelude.Maybe ICD10CMTraitName)
 iCD10CMTrait_name = Lens.lens (\ICD10CMTrait' {name} -> name) (\s@ICD10CMTrait' {} a -> s {name = a} :: ICD10CMTrait)
 
--- | The level of confidence that Amazon Comprehend Medical has that the
--- segment of text is correctly recognized as a trait.
+-- | The level of confidence that Comprehend Medical; has that the segment of
+-- text is correctly recognized as a trait.
 iCD10CMTrait_score :: Lens.Lens' ICD10CMTrait (Prelude.Maybe Prelude.Double)
 iCD10CMTrait_score = Lens.lens (\ICD10CMTrait' {score} -> score) (\s@ICD10CMTrait' {} a -> s {score = a} :: ICD10CMTrait)
 

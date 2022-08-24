@@ -188,6 +188,13 @@ fieldMaybe x =
     TMaybe {} -> True
     _ -> False
 
+fieldSensitive :: Field -> Bool
+fieldSensitive x =
+  case typeOf x of
+    TSensitive {} -> True
+    TMaybe (TSensitive {}) -> True
+    _ -> False
+
 fieldMonoid :: Field -> Bool
 fieldMonoid = elem DMonoid . derivingOf . Lens.view fieldAnn
 

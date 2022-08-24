@@ -621,22 +621,32 @@ parseXMLE p f = case outputNames p f of
     | fieldMonoid f -> unflatE mn pXList [str i]
     | otherwise -> unflatE mn pXList1 [str i]
   NName n
-    | req -> decodeE x pX n
+    | required -> decodeE x pX n
     | otherwise -> decodeE x pXMay n
   where
-    unflatE Nothing g xs
-      | req = Exts.appFun g (xs ++ [x])
-      | otherwise = Exts.app (may (Exts.appFun g xs)) x
+    unflatE Nothing g xs =
+      Exts.app (wrapMay (wrapSensitive (Exts.appFun g xs))) x
     unflatE (Just n) g xs =
       Exts.infixApp (defaultMonoidE x n pXMay pXDef) "Prelude.>>=" $
-        if req
-          then Exts.appFun g xs
-          else may (Exts.appFun g xs)
+        wrapMay (wrapSensitive (Exts.appFun g xs))
 
-    may = Exts.app (var "Core.may")
     x = var "x"
 
-    req = not (fieldMaybe f)
+    wrapSensitive
+      | sensitive =
+        Exts.app
+          ( Exts.app
+              (var "Prelude.fmap")
+              (Exts.app (var "Prelude.fmap") (var "Core.Sensitive"))
+          )
+      | otherwise = id
+
+    wrapMay
+      | required = id
+      | otherwise = Exts.app (var "Core.may")
+
+    required = not (fieldMaybe f)
+    sensitive = fieldSensitive f
 
 parseJSONE :: Protocol -> QOp -> QOp -> QOp -> Field -> Exp
 parseJSONE p d dm dd f

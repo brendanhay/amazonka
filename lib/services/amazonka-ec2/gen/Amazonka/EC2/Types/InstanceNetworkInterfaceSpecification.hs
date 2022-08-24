@@ -38,11 +38,6 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
     -- | The type of network interface.
     --
-    -- To create an Elastic Fabric Adapter (EFA), specify @efa@. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
-    --
     -- Valid values: @interface@ | @efa@
     interfaceType :: Prelude.Maybe Prelude.Text,
     -- | The index of the network card. Some instance types support multiple
@@ -84,8 +79,9 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     --
     -- You can only assign a carrier IP address to a network interface that is
     -- in a subnet in a Wavelength Zone. For more information about carrier IP
-    -- addresses, see Carrier IP addresses in the Amazon Web Services
-    -- Wavelength Developer Guide.
+    -- addresses, see
+    -- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP address>
+    -- in the /Amazon Web Services Wavelength Developer Guide/.
     associateCarrierIpAddress :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the network interface.
     --
@@ -154,11 +150,6 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 --
 -- 'interfaceType', 'instanceNetworkInterfaceSpecification_interfaceType' - The type of network interface.
 --
--- To create an Elastic Fabric Adapter (EFA), specify @efa@. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
 -- Valid values: @interface@ | @efa@
 --
 -- 'networkCardIndex', 'instanceNetworkInterfaceSpecification_networkCardIndex' - The index of the network card. Some instance types support multiple
@@ -200,8 +191,9 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 --
 -- You can only assign a carrier IP address to a network interface that is
 -- in a subnet in a Wavelength Zone. For more information about carrier IP
--- addresses, see Carrier IP addresses in the Amazon Web Services
--- Wavelength Developer Guide.
+-- addresses, see
+-- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP address>
+-- in the /Amazon Web Services Wavelength Developer Guide/.
 --
 -- 'networkInterfaceId', 'instanceNetworkInterfaceSpecification_networkInterfaceId' - The ID of the network interface.
 --
@@ -290,11 +282,6 @@ instanceNetworkInterfaceSpecification_ipv4PrefixCount = Lens.lens (\InstanceNetw
 
 -- | The type of network interface.
 --
--- To create an Elastic Fabric Adapter (EFA), specify @efa@. For more
--- information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
--- in the /Amazon Elastic Compute Cloud User Guide/.
---
 -- Valid values: @interface@ | @efa@
 instanceNetworkInterfaceSpecification_interfaceType :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Text)
 instanceNetworkInterfaceSpecification_interfaceType = Lens.lens (\InstanceNetworkInterfaceSpecification' {interfaceType} -> interfaceType) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {interfaceType = a} :: InstanceNetworkInterfaceSpecification)
@@ -350,8 +337,9 @@ instanceNetworkInterfaceSpecification_description = Lens.lens (\InstanceNetworkI
 --
 -- You can only assign a carrier IP address to a network interface that is
 -- in a subnet in a Wavelength Zone. For more information about carrier IP
--- addresses, see Carrier IP addresses in the Amazon Web Services
--- Wavelength Developer Guide.
+-- addresses, see
+-- <https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip Carrier IP address>
+-- in the /Amazon Web Services Wavelength Developer Guide/.
 instanceNetworkInterfaceSpecification_associateCarrierIpAddress :: Lens.Lens' InstanceNetworkInterfaceSpecification (Prelude.Maybe Prelude.Bool)
 instanceNetworkInterfaceSpecification_associateCarrierIpAddress = Lens.lens (\InstanceNetworkInterfaceSpecification' {associateCarrierIpAddress} -> associateCarrierIpAddress) (\s@InstanceNetworkInterfaceSpecification' {} a -> s {associateCarrierIpAddress = a} :: InstanceNetworkInterfaceSpecification)
 

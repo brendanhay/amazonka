@@ -35,6 +35,11 @@
 -- a default VPC in a Region that supports EC2-Classic, see \"I really want
 -- a default VPC for my existing EC2 account. Is that possible?\" in the
 -- <http://aws.amazon.com/vpc/faqs/#Default_VPCs Default VPCs FAQ>.
+--
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.CreateDefaultVpc
   ( -- * Creating a Request
     CreateDefaultVpc (..),

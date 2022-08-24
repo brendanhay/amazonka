@@ -25,13 +25,13 @@ import Amazonka.EC2.Types.SubnetCidrBlockState
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes an IPv6 CIDR block associated with a subnet.
+-- | Describes an association between a subnet and an IPv6 CIDR block.
 --
 -- /See:/ 'newSubnetIpv6CidrBlockAssociation' smart constructor.
 data SubnetIpv6CidrBlockAssociation = SubnetIpv6CidrBlockAssociation'
-  { -- | Information about the state of the CIDR block.
+  { -- | The state of the CIDR block.
     ipv6CidrBlockState :: Prelude.Maybe SubnetCidrBlockState,
-    -- | The association ID for the CIDR block.
+    -- | The ID of the association.
     associationId :: Prelude.Maybe Prelude.Text,
     -- | The IPv6 CIDR block.
     ipv6CidrBlock :: Prelude.Maybe Prelude.Text
@@ -46,9 +46,9 @@ data SubnetIpv6CidrBlockAssociation = SubnetIpv6CidrBlockAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ipv6CidrBlockState', 'subnetIpv6CidrBlockAssociation_ipv6CidrBlockState' - Information about the state of the CIDR block.
+-- 'ipv6CidrBlockState', 'subnetIpv6CidrBlockAssociation_ipv6CidrBlockState' - The state of the CIDR block.
 --
--- 'associationId', 'subnetIpv6CidrBlockAssociation_associationId' - The association ID for the CIDR block.
+-- 'associationId', 'subnetIpv6CidrBlockAssociation_associationId' - The ID of the association.
 --
 -- 'ipv6CidrBlock', 'subnetIpv6CidrBlockAssociation_ipv6CidrBlock' - The IPv6 CIDR block.
 newSubnetIpv6CidrBlockAssociation ::
@@ -61,11 +61,11 @@ newSubnetIpv6CidrBlockAssociation =
       ipv6CidrBlock = Prelude.Nothing
     }
 
--- | Information about the state of the CIDR block.
+-- | The state of the CIDR block.
 subnetIpv6CidrBlockAssociation_ipv6CidrBlockState :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe SubnetCidrBlockState)
 subnetIpv6CidrBlockAssociation_ipv6CidrBlockState = Lens.lens (\SubnetIpv6CidrBlockAssociation' {ipv6CidrBlockState} -> ipv6CidrBlockState) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {ipv6CidrBlockState = a} :: SubnetIpv6CidrBlockAssociation)
 
--- | The association ID for the CIDR block.
+-- | The ID of the association.
 subnetIpv6CidrBlockAssociation_associationId :: Lens.Lens' SubnetIpv6CidrBlockAssociation (Prelude.Maybe Prelude.Text)
 subnetIpv6CidrBlockAssociation_associationId = Lens.lens (\SubnetIpv6CidrBlockAssociation' {associationId} -> associationId) (\s@SubnetIpv6CidrBlockAssociation' {} a -> s {associationId = a} :: SubnetIpv6CidrBlockAssociation)
 

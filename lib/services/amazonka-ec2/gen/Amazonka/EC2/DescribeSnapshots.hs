@@ -146,6 +146,9 @@ data DescribeSnapshots = DescribeSnapshots'
     -- -   @status@ - The status of the snapshot (@pending@ | @completed@ |
     --     @error@).
     --
+    -- -   @storage-tier@ - The storage tier of the snapshot (@archive@ |
+    --     @standard@).
+    --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
     --     the filter value. For example, to find all resources that have a tag
@@ -229,6 +232,9 @@ data DescribeSnapshots = DescribeSnapshots'
 --
 -- -   @status@ - The status of the snapshot (@pending@ | @completed@ |
 --     @error@).
+--
+-- -   @storage-tier@ - The storage tier of the snapshot (@archive@ |
+--     @standard@).
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -318,6 +324,9 @@ describeSnapshots_restorableByUserIds = Lens.lens (\DescribeSnapshots' {restorab
 --
 -- -   @status@ - The status of the snapshot (@pending@ | @completed@ |
 --     @error@).
+--
+-- -   @storage-tier@ - The storage tier of the snapshot (@archive@ |
+--     @standard@).
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as

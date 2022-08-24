@@ -27,8 +27,8 @@
 -- appliances) can be in the same VPC, or in different VPCs connected via
 -- VPC peering or a transit gateway.
 --
--- A Traffic Mirror target can be a network interface, or a Network Load
--- Balancer.
+-- A Traffic Mirror target can be a network interface, a Network Load
+-- Balancer, or a Gateway Load Balancer endpoint.
 --
 -- To use the target in a Traffic Mirror session, use
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTrafficMirrorSession.htm CreateTrafficMirrorSession>.
@@ -43,6 +43,7 @@ module Amazonka.EC2.CreateTrafficMirrorTarget
     createTrafficMirrorTarget_description,
     createTrafficMirrorTarget_dryRun,
     createTrafficMirrorTarget_networkInterfaceId,
+    createTrafficMirrorTarget_gatewayLoadBalancerEndpointId,
     createTrafficMirrorTarget_tagSpecifications,
 
     -- * Destructuring the Response
@@ -81,6 +82,8 @@ data CreateTrafficMirrorTarget = CreateTrafficMirrorTarget'
     dryRun :: Prelude.Maybe Prelude.Bool,
     -- | The network interface ID that is associated with the target.
     networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Gateway Load Balancer endpoint.
+    gatewayLoadBalancerEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The tags to assign to the Traffic Mirror target.
     tagSpecifications :: Prelude.Maybe [TagSpecification]
   }
@@ -110,6 +113,8 @@ data CreateTrafficMirrorTarget = CreateTrafficMirrorTarget'
 --
 -- 'networkInterfaceId', 'createTrafficMirrorTarget_networkInterfaceId' - The network interface ID that is associated with the target.
 --
+-- 'gatewayLoadBalancerEndpointId', 'createTrafficMirrorTarget_gatewayLoadBalancerEndpointId' - The ID of the Gateway Load Balancer endpoint.
+--
 -- 'tagSpecifications', 'createTrafficMirrorTarget_tagSpecifications' - The tags to assign to the Traffic Mirror target.
 newCreateTrafficMirrorTarget ::
   CreateTrafficMirrorTarget
@@ -121,6 +126,7 @@ newCreateTrafficMirrorTarget =
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
+      gatewayLoadBalancerEndpointId = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing
     }
 
@@ -150,6 +156,10 @@ createTrafficMirrorTarget_dryRun = Lens.lens (\CreateTrafficMirrorTarget' {dryRu
 createTrafficMirrorTarget_networkInterfaceId :: Lens.Lens' CreateTrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 createTrafficMirrorTarget_networkInterfaceId = Lens.lens (\CreateTrafficMirrorTarget' {networkInterfaceId} -> networkInterfaceId) (\s@CreateTrafficMirrorTarget' {} a -> s {networkInterfaceId = a} :: CreateTrafficMirrorTarget)
 
+-- | The ID of the Gateway Load Balancer endpoint.
+createTrafficMirrorTarget_gatewayLoadBalancerEndpointId :: Lens.Lens' CreateTrafficMirrorTarget (Prelude.Maybe Prelude.Text)
+createTrafficMirrorTarget_gatewayLoadBalancerEndpointId = Lens.lens (\CreateTrafficMirrorTarget' {gatewayLoadBalancerEndpointId} -> gatewayLoadBalancerEndpointId) (\s@CreateTrafficMirrorTarget' {} a -> s {gatewayLoadBalancerEndpointId = a} :: CreateTrafficMirrorTarget)
+
 -- | The tags to assign to the Traffic Mirror target.
 createTrafficMirrorTarget_tagSpecifications :: Lens.Lens' CreateTrafficMirrorTarget (Prelude.Maybe [TagSpecification])
 createTrafficMirrorTarget_tagSpecifications = Lens.lens (\CreateTrafficMirrorTarget' {tagSpecifications} -> tagSpecifications) (\s@CreateTrafficMirrorTarget' {} a -> s {tagSpecifications = a} :: CreateTrafficMirrorTarget) Prelude.. Lens.mapping Lens.coerced
@@ -175,6 +185,7 @@ instance Prelude.Hashable CreateTrafficMirrorTarget where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` gatewayLoadBalancerEndpointId
       `Prelude.hashWithSalt` tagSpecifications
 
 instance Prelude.NFData CreateTrafficMirrorTarget where
@@ -184,6 +195,7 @@ instance Prelude.NFData CreateTrafficMirrorTarget where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf gatewayLoadBalancerEndpointId
       `Prelude.seq` Prelude.rnf tagSpecifications
 
 instance Core.ToHeaders CreateTrafficMirrorTarget where
@@ -205,6 +217,8 @@ instance Core.ToQuery CreateTrafficMirrorTarget where
         "Description" Core.=: description,
         "DryRun" Core.=: dryRun,
         "NetworkInterfaceId" Core.=: networkInterfaceId,
+        "GatewayLoadBalancerEndpointId"
+          Core.=: gatewayLoadBalancerEndpointId,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications

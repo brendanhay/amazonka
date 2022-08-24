@@ -35,6 +35,12 @@ data LaunchTemplateSpotMarketOptions = LaunchTemplateSpotMarketOptions'
     -- 240, 300, or 360).
     blockDurationMinutes :: Prelude.Maybe Prelude.Int,
     -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
+    -- We do not recommend using this parameter because it can lead to
+    -- increased interruptions. If you do not specify this parameter, you will
+    -- pay the current Spot price.
+    --
+    -- If you specify a maximum price, your Spot Instances will be interrupted
+    -- more frequently than if you do not specify this parameter.
     maxPrice :: Prelude.Maybe Prelude.Text,
     -- | The behavior when a Spot Instance is interrupted.
     instanceInterruptionBehavior :: Prelude.Maybe InstanceInterruptionBehavior,
@@ -61,6 +67,12 @@ data LaunchTemplateSpotMarketOptions = LaunchTemplateSpotMarketOptions'
 -- 240, 300, or 360).
 --
 -- 'maxPrice', 'launchTemplateSpotMarketOptions_maxPrice' - The maximum hourly price you\'re willing to pay for the Spot Instances.
+-- We do not recommend using this parameter because it can lead to
+-- increased interruptions. If you do not specify this parameter, you will
+-- pay the current Spot price.
+--
+-- If you specify a maximum price, your Spot Instances will be interrupted
+-- more frequently than if you do not specify this parameter.
 --
 -- 'instanceInterruptionBehavior', 'launchTemplateSpotMarketOptions_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted.
 --
@@ -90,6 +102,12 @@ launchTemplateSpotMarketOptions_blockDurationMinutes :: Lens.Lens' LaunchTemplat
 launchTemplateSpotMarketOptions_blockDurationMinutes = Lens.lens (\LaunchTemplateSpotMarketOptions' {blockDurationMinutes} -> blockDurationMinutes) (\s@LaunchTemplateSpotMarketOptions' {} a -> s {blockDurationMinutes = a} :: LaunchTemplateSpotMarketOptions)
 
 -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
+-- We do not recommend using this parameter because it can lead to
+-- increased interruptions. If you do not specify this parameter, you will
+-- pay the current Spot price.
+--
+-- If you specify a maximum price, your Spot Instances will be interrupted
+-- more frequently than if you do not specify this parameter.
 launchTemplateSpotMarketOptions_maxPrice :: Lens.Lens' LaunchTemplateSpotMarketOptions (Prelude.Maybe Prelude.Text)
 launchTemplateSpotMarketOptions_maxPrice = Lens.lens (\LaunchTemplateSpotMarketOptions' {maxPrice} -> maxPrice) (\s@LaunchTemplateSpotMarketOptions' {} a -> s {maxPrice = a} :: LaunchTemplateSpotMarketOptions)
 

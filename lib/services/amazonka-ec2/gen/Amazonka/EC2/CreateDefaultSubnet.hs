@@ -31,6 +31,7 @@ module Amazonka.EC2.CreateDefaultSubnet
     newCreateDefaultSubnet,
 
     -- * Request Lenses
+    createDefaultSubnet_ipv6Native,
     createDefaultSubnet_dryRun,
     createDefaultSubnet_availabilityZone,
 
@@ -53,7 +54,11 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newCreateDefaultSubnet' smart constructor.
 data CreateDefaultSubnet = CreateDefaultSubnet'
-  { -- | Checks whether you have the required permissions for the action, without
+  { -- | Indicates whether to create an IPv6 only subnet. If you already have a
+    -- default subnet for this Availability Zone, you must delete it before you
+    -- can create an IPv6 only subnet.
+    ipv6Native :: Prelude.Maybe Prelude.Bool,
+    -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
@@ -71,6 +76,10 @@ data CreateDefaultSubnet = CreateDefaultSubnet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipv6Native', 'createDefaultSubnet_ipv6Native' - Indicates whether to create an IPv6 only subnet. If you already have a
+-- default subnet for this Availability Zone, you must delete it before you
+-- can create an IPv6 only subnet.
+--
 -- 'dryRun', 'createDefaultSubnet_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
@@ -83,9 +92,16 @@ newCreateDefaultSubnet ::
   CreateDefaultSubnet
 newCreateDefaultSubnet pAvailabilityZone_ =
   CreateDefaultSubnet'
-    { dryRun = Prelude.Nothing,
+    { ipv6Native = Prelude.Nothing,
+      dryRun = Prelude.Nothing,
       availabilityZone = pAvailabilityZone_
     }
+
+-- | Indicates whether to create an IPv6 only subnet. If you already have a
+-- default subnet for this Availability Zone, you must delete it before you
+-- can create an IPv6 only subnet.
+createDefaultSubnet_ipv6Native :: Lens.Lens' CreateDefaultSubnet (Prelude.Maybe Prelude.Bool)
+createDefaultSubnet_ipv6Native = Lens.lens (\CreateDefaultSubnet' {ipv6Native} -> ipv6Native) (\s@CreateDefaultSubnet' {} a -> s {ipv6Native = a} :: CreateDefaultSubnet)
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -113,12 +129,14 @@ instance Core.AWSRequest CreateDefaultSubnet where
 
 instance Prelude.Hashable CreateDefaultSubnet where
   hashWithSalt _salt CreateDefaultSubnet' {..} =
-    _salt `Prelude.hashWithSalt` dryRun
+    _salt `Prelude.hashWithSalt` ipv6Native
+      `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` availabilityZone
 
 instance Prelude.NFData CreateDefaultSubnet where
   rnf CreateDefaultSubnet' {..} =
-    Prelude.rnf dryRun
+    Prelude.rnf ipv6Native
+      `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf availabilityZone
 
 instance Core.ToHeaders CreateDefaultSubnet where
@@ -134,6 +152,7 @@ instance Core.ToQuery CreateDefaultSubnet where
           Core.=: ("CreateDefaultSubnet" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "Ipv6Native" Core.=: ipv6Native,
         "DryRun" Core.=: dryRun,
         "AvailabilityZone" Core.=: availabilityZone
       ]

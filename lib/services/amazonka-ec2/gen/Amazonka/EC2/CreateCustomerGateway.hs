@@ -20,38 +20,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides information to Amazon Web Services about your VPN customer
--- gateway device. The customer gateway is the appliance at your end of the
--- VPN connection. (The device on the Amazon Web Services side of the VPN
--- connection is the virtual private gateway.) You must provide the
--- internet-routable IP address of the customer gateway\'s external
--- interface. The IP address must be static and can be behind a device
--- performing network address translation (NAT).
+-- Provides information to Amazon Web Services about your customer gateway
+-- device. The customer gateway device is the appliance at your end of the
+-- VPN connection. You must provide the IP address of the customer gateway
+-- device’s external interface. The IP address must be static and can be
+-- behind a device performing network address translation (NAT).
 --
 -- For devices that use Border Gateway Protocol (BGP), you can also provide
 -- the device\'s BGP Autonomous System Number (ASN). You can use an
 -- existing ASN assigned to your network. If you don\'t have an ASN
--- already, you can use a private ASN (in the 64512 - 65534 range).
---
--- Amazon EC2 supports all 4-byte ASN numbers in the range of 1 -
--- 2147483647, with the exception of the following:
---
--- -   7224 - reserved in the @us-east-1@ Region
---
--- -   9059 - reserved in the @eu-west-1@ Region
---
--- -   17943 - reserved in the @ap-southeast-1@ Region
---
--- -   10124 - reserved in the @ap-northeast-1@ Region
---
--- For more information, see
--- <https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html Amazon Web Services Site-to-Site VPN>
+-- already, you can use a private ASN. For more information, see
+-- <https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html Customer gateway options for your Site-to-Site VPN connection>
 -- in the /Amazon Web Services Site-to-Site VPN User Guide/.
 --
 -- To create more than one customer gateway with the same VPN type, IP
 -- address, and BGP ASN, specify a unique device name for each customer
--- gateway. Identical requests return information about the existing
--- customer gateway and do not create new customer gateways.
+-- gateway. An identical request returns information about the existing
+-- customer gateway; it doesn\'t create a new customer gateway.
 module Amazonka.EC2.CreateCustomerGateway
   ( -- * Creating a Request
     CreateCustomerGateway (..),
@@ -63,6 +48,7 @@ module Amazonka.EC2.CreateCustomerGateway
     createCustomerGateway_dryRun,
     createCustomerGateway_certificateArn,
     createCustomerGateway_tagSpecifications,
+    createCustomerGateway_ipAddress,
     createCustomerGateway_bgpAsn,
     createCustomerGateway_type,
 
@@ -91,8 +77,8 @@ data CreateCustomerGateway = CreateCustomerGateway'
     --
     -- Length Constraints: Up to 255 characters.
     deviceName :: Prelude.Maybe Prelude.Text,
-    -- | The Internet-routable IP address for the customer gateway\'s outside
-    -- interface. The address must be static.
+    -- | /This member has been deprecated./ The Internet-routable IP address for
+    -- the customer gateway\'s outside interface. The address must be static.
     publicIp :: Prelude.Maybe Prelude.Text,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -103,6 +89,9 @@ data CreateCustomerGateway = CreateCustomerGateway'
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The tags to apply to the customer gateway.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
+    -- | IPv4 address for the customer gateway device\'s outside interface. The
+    -- address must be static.
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | For devices that support BGP, the customer gateway\'s BGP ASN.
     --
     -- Default: 65000
@@ -125,8 +114,8 @@ data CreateCustomerGateway = CreateCustomerGateway'
 --
 -- Length Constraints: Up to 255 characters.
 --
--- 'publicIp', 'createCustomerGateway_publicIp' - The Internet-routable IP address for the customer gateway\'s outside
--- interface. The address must be static.
+-- 'publicIp', 'createCustomerGateway_publicIp' - /This member has been deprecated./ The Internet-routable IP address for
+-- the customer gateway\'s outside interface. The address must be static.
 --
 -- 'dryRun', 'createCustomerGateway_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -136,6 +125,9 @@ data CreateCustomerGateway = CreateCustomerGateway'
 -- 'certificateArn', 'createCustomerGateway_certificateArn' - The Amazon Resource Name (ARN) for the customer gateway certificate.
 --
 -- 'tagSpecifications', 'createCustomerGateway_tagSpecifications' - The tags to apply to the customer gateway.
+--
+-- 'ipAddress', 'createCustomerGateway_ipAddress' - IPv4 address for the customer gateway device\'s outside interface. The
+-- address must be static.
 --
 -- 'bgpAsn', 'createCustomerGateway_bgpAsn' - For devices that support BGP, the customer gateway\'s BGP ASN.
 --
@@ -157,6 +149,7 @@ newCreateCustomerGateway pBgpAsn_ pType_ =
       dryRun = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
       bgpAsn = pBgpAsn_,
       type' = pType_
     }
@@ -167,8 +160,8 @@ newCreateCustomerGateway pBgpAsn_ pType_ =
 createCustomerGateway_deviceName :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
 createCustomerGateway_deviceName = Lens.lens (\CreateCustomerGateway' {deviceName} -> deviceName) (\s@CreateCustomerGateway' {} a -> s {deviceName = a} :: CreateCustomerGateway)
 
--- | The Internet-routable IP address for the customer gateway\'s outside
--- interface. The address must be static.
+-- | /This member has been deprecated./ The Internet-routable IP address for
+-- the customer gateway\'s outside interface. The address must be static.
 createCustomerGateway_publicIp :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
 createCustomerGateway_publicIp = Lens.lens (\CreateCustomerGateway' {publicIp} -> publicIp) (\s@CreateCustomerGateway' {} a -> s {publicIp = a} :: CreateCustomerGateway)
 
@@ -186,6 +179,11 @@ createCustomerGateway_certificateArn = Lens.lens (\CreateCustomerGateway' {certi
 -- | The tags to apply to the customer gateway.
 createCustomerGateway_tagSpecifications :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe [TagSpecification])
 createCustomerGateway_tagSpecifications = Lens.lens (\CreateCustomerGateway' {tagSpecifications} -> tagSpecifications) (\s@CreateCustomerGateway' {} a -> s {tagSpecifications = a} :: CreateCustomerGateway) Prelude.. Lens.mapping Lens.coerced
+
+-- | IPv4 address for the customer gateway device\'s outside interface. The
+-- address must be static.
+createCustomerGateway_ipAddress :: Lens.Lens' CreateCustomerGateway (Prelude.Maybe Prelude.Text)
+createCustomerGateway_ipAddress = Lens.lens (\CreateCustomerGateway' {ipAddress} -> ipAddress) (\s@CreateCustomerGateway' {} a -> s {ipAddress = a} :: CreateCustomerGateway)
 
 -- | For devices that support BGP, the customer gateway\'s BGP ASN.
 --
@@ -218,6 +216,7 @@ instance Prelude.Hashable CreateCustomerGateway where
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` certificateArn
       `Prelude.hashWithSalt` tagSpecifications
+      `Prelude.hashWithSalt` ipAddress
       `Prelude.hashWithSalt` bgpAsn
       `Prelude.hashWithSalt` type'
 
@@ -228,6 +227,7 @@ instance Prelude.NFData CreateCustomerGateway where
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf certificateArn
       `Prelude.seq` Prelude.rnf tagSpecifications
+      `Prelude.seq` Prelude.rnf ipAddress
       `Prelude.seq` Prelude.rnf bgpAsn
       `Prelude.seq` Prelude.rnf type'
 
@@ -245,13 +245,14 @@ instance Core.ToQuery CreateCustomerGateway where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DeviceName" Core.=: deviceName,
-        "IpAddress" Core.=: publicIp,
+        "PublicIp" Core.=: publicIp,
         "DryRun" Core.=: dryRun,
         "CertificateArn" Core.=: certificateArn,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
+        "IpAddress" Core.=: ipAddress,
         "BgpAsn" Core.=: bgpAsn,
         "Type" Core.=: type'
       ]

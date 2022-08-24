@@ -39,6 +39,7 @@ module Amazonka.EC2.ModifyInstanceMetadataOptions
     modifyInstanceMetadataOptions_httpTokens,
     modifyInstanceMetadataOptions_httpEndpoint,
     modifyInstanceMetadataOptions_dryRun,
+    modifyInstanceMetadataOptions_instanceMetadataTags,
     modifyInstanceMetadataOptions_httpProtocolIpv6,
     modifyInstanceMetadataOptions_instanceId,
 
@@ -83,19 +84,27 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
     -- role credential always returns the version 2.0 credentials; the version
     -- 1.0 credentials are not available.
     httpTokens :: Prelude.Maybe HttpTokensState,
-    -- | This parameter enables or disables the HTTP metadata endpoint on your
-    -- instances. If the parameter is not specified, the existing state is
-    -- maintained.
+    -- | Enables or disables the HTTP metadata endpoint on your instances. If
+    -- this parameter is not specified, the existing state is maintained.
     --
-    -- If you specify a value of @disabled@, you will not be able to access
-    -- your instance metadata.
+    -- If you specify a value of @disabled@, you cannot access your instance
+    -- metadata.
     httpEndpoint :: Prelude.Maybe InstanceMetadataEndpointState,
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Set to @enabled@ to allow access to instance tags from the instance
+    -- metadata. Set to @disabled@ to turn off access to instance tags from the
+    -- instance metadata. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS Work with instance tags using the instance metadata>.
+    --
+    -- Default: @disabled@
+    instanceMetadataTags :: Prelude.Maybe InstanceMetadataTagsState,
     -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+    -- This setting applies only if you have enabled the HTTP metadata
+    -- endpoint.
     httpProtocolIpv6 :: Prelude.Maybe InstanceMetadataProtocolState,
     -- | The ID of the instance.
     instanceId :: Prelude.Text
@@ -131,19 +140,27 @@ data ModifyInstanceMetadataOptions = ModifyInstanceMetadataOptions'
 -- role credential always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.
 --
--- 'httpEndpoint', 'modifyInstanceMetadataOptions_httpEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the existing state is
--- maintained.
+-- 'httpEndpoint', 'modifyInstanceMetadataOptions_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. If
+-- this parameter is not specified, the existing state is maintained.
 --
--- If you specify a value of @disabled@, you will not be able to access
--- your instance metadata.
+-- If you specify a value of @disabled@, you cannot access your instance
+-- metadata.
 --
 -- 'dryRun', 'modifyInstanceMetadataOptions_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'instanceMetadataTags', 'modifyInstanceMetadataOptions_instanceMetadataTags' - Set to @enabled@ to allow access to instance tags from the instance
+-- metadata. Set to @disabled@ to turn off access to instance tags from the
+-- instance metadata. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS Work with instance tags using the instance metadata>.
+--
+-- Default: @disabled@
+--
 -- 'httpProtocolIpv6', 'modifyInstanceMetadataOptions_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
+-- This setting applies only if you have enabled the HTTP metadata
+-- endpoint.
 --
 -- 'instanceId', 'modifyInstanceMetadataOptions_instanceId' - The ID of the instance.
 newModifyInstanceMetadataOptions ::
@@ -157,6 +174,7 @@ newModifyInstanceMetadataOptions pInstanceId_ =
       httpTokens = Prelude.Nothing,
       httpEndpoint = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      instanceMetadataTags = Prelude.Nothing,
       httpProtocolIpv6 = Prelude.Nothing,
       instanceId = pInstanceId_
     }
@@ -186,12 +204,11 @@ modifyInstanceMetadataOptions_httpPutResponseHopLimit = Lens.lens (\ModifyInstan
 modifyInstanceMetadataOptions_httpTokens :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe HttpTokensState)
 modifyInstanceMetadataOptions_httpTokens = Lens.lens (\ModifyInstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpTokens = a} :: ModifyInstanceMetadataOptions)
 
--- | This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the existing state is
--- maintained.
+-- | Enables or disables the HTTP metadata endpoint on your instances. If
+-- this parameter is not specified, the existing state is maintained.
 --
--- If you specify a value of @disabled@, you will not be able to access
--- your instance metadata.
+-- If you specify a value of @disabled@, you cannot access your instance
+-- metadata.
 modifyInstanceMetadataOptions_httpEndpoint :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe InstanceMetadataEndpointState)
 modifyInstanceMetadataOptions_httpEndpoint = Lens.lens (\ModifyInstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: ModifyInstanceMetadataOptions)
 
@@ -202,7 +219,18 @@ modifyInstanceMetadataOptions_httpEndpoint = Lens.lens (\ModifyInstanceMetadataO
 modifyInstanceMetadataOptions_dryRun :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe Prelude.Bool)
 modifyInstanceMetadataOptions_dryRun = Lens.lens (\ModifyInstanceMetadataOptions' {dryRun} -> dryRun) (\s@ModifyInstanceMetadataOptions' {} a -> s {dryRun = a} :: ModifyInstanceMetadataOptions)
 
+-- | Set to @enabled@ to allow access to instance tags from the instance
+-- metadata. Set to @disabled@ to turn off access to instance tags from the
+-- instance metadata. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS Work with instance tags using the instance metadata>.
+--
+-- Default: @disabled@
+modifyInstanceMetadataOptions_instanceMetadataTags :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe InstanceMetadataTagsState)
+modifyInstanceMetadataOptions_instanceMetadataTags = Lens.lens (\ModifyInstanceMetadataOptions' {instanceMetadataTags} -> instanceMetadataTags) (\s@ModifyInstanceMetadataOptions' {} a -> s {instanceMetadataTags = a} :: ModifyInstanceMetadataOptions)
+
 -- | Enables or disables the IPv6 endpoint for the instance metadata service.
+-- This setting applies only if you have enabled the HTTP metadata
+-- endpoint.
 modifyInstanceMetadataOptions_httpProtocolIpv6 :: Lens.Lens' ModifyInstanceMetadataOptions (Prelude.Maybe InstanceMetadataProtocolState)
 modifyInstanceMetadataOptions_httpProtocolIpv6 = Lens.lens (\ModifyInstanceMetadataOptions' {httpProtocolIpv6} -> httpProtocolIpv6) (\s@ModifyInstanceMetadataOptions' {} a -> s {httpProtocolIpv6 = a} :: ModifyInstanceMetadataOptions)
 
@@ -237,6 +265,7 @@ instance
       `Prelude.hashWithSalt` httpTokens
       `Prelude.hashWithSalt` httpEndpoint
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` instanceMetadataTags
       `Prelude.hashWithSalt` httpProtocolIpv6
       `Prelude.hashWithSalt` instanceId
 
@@ -246,6 +275,7 @@ instance Prelude.NFData ModifyInstanceMetadataOptions where
       `Prelude.seq` Prelude.rnf httpTokens
       `Prelude.seq` Prelude.rnf httpEndpoint
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf instanceMetadataTags
       `Prelude.seq` Prelude.rnf httpProtocolIpv6
       `Prelude.seq` Prelude.rnf instanceId
 
@@ -269,6 +299,7 @@ instance Core.ToQuery ModifyInstanceMetadataOptions where
         "HttpTokens" Core.=: httpTokens,
         "HttpEndpoint" Core.=: httpEndpoint,
         "DryRun" Core.=: dryRun,
+        "InstanceMetadataTags" Core.=: instanceMetadataTags,
         "HttpProtocolIpv6" Core.=: httpProtocolIpv6,
         "InstanceId" Core.=: instanceId
       ]

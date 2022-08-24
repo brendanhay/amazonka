@@ -30,6 +30,10 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newEbsBlockDevice' smart constructor.
 data EbsBlockDevice = EbsBlockDevice'
   { -- | The ARN of the Outpost on which the snapshot is stored.
+    --
+    -- This parameter is only supported on @BlockDeviceMapping@ objects called
+    -- by
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html CreateImage>.
     outpostArn :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the EBS volume is deleted on instance termination. For
     -- more information, see
@@ -72,7 +76,8 @@ data EbsBlockDevice = EbsBlockDevice'
     -- EBS encryption. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
     --
-    -- This parameter is not returned by .
+    -- This parameter is not returned by
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html DescribeImageAttribute>.
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
     -- managed CMK under which the EBS volume is encrypted.
@@ -125,6 +130,10 @@ data EbsBlockDevice = EbsBlockDevice'
 --
 -- 'outpostArn', 'ebsBlockDevice_outpostArn' - The ARN of the Outpost on which the snapshot is stored.
 --
+-- This parameter is only supported on @BlockDeviceMapping@ objects called
+-- by
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html CreateImage>.
+--
 -- 'deleteOnTermination', 'ebsBlockDevice_deleteOnTermination' - Indicates whether the EBS volume is deleted on instance termination. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination Preserving Amazon EBS volumes on instance termination>
@@ -166,7 +175,8 @@ data EbsBlockDevice = EbsBlockDevice'
 -- EBS encryption. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 --
--- This parameter is not returned by .
+-- This parameter is not returned by
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html DescribeImageAttribute>.
 --
 -- 'kmsKeyId', 'ebsBlockDevice_kmsKeyId' - Identifier (key ID, key alias, ID ARN, or alias ARN) for a customer
 -- managed CMK under which the EBS volume is encrypted.
@@ -221,6 +231,10 @@ newEbsBlockDevice =
     }
 
 -- | The ARN of the Outpost on which the snapshot is stored.
+--
+-- This parameter is only supported on @BlockDeviceMapping@ objects called
+-- by
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html CreateImage>.
 ebsBlockDevice_outpostArn :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Text)
 ebsBlockDevice_outpostArn = Lens.lens (\EbsBlockDevice' {outpostArn} -> outpostArn) (\s@EbsBlockDevice' {} a -> s {outpostArn = a} :: EbsBlockDevice)
 
@@ -273,7 +287,8 @@ ebsBlockDevice_volumeSize = Lens.lens (\EbsBlockDevice' {volumeSize} -> volumeSi
 -- EBS encryption. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances Supported instance types>.
 --
--- This parameter is not returned by .
+-- This parameter is not returned by
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImageAttribute.html DescribeImageAttribute>.
 ebsBlockDevice_encrypted :: Lens.Lens' EbsBlockDevice (Prelude.Maybe Prelude.Bool)
 ebsBlockDevice_encrypted = Lens.lens (\EbsBlockDevice' {encrypted} -> encrypted) (\s@EbsBlockDevice' {} a -> s {encrypted = a} :: EbsBlockDevice)
 

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.InstanceAttributeName
   ( InstanceAttributeName
       ( ..,
         InstanceAttributeName_BlockDeviceMapping,
+        InstanceAttributeName_DisableApiStop,
         InstanceAttributeName_DisableApiTermination,
         InstanceAttributeName_EbsOptimized,
         InstanceAttributeName_EnaSupport,
@@ -74,6 +75,9 @@ newtype InstanceAttributeName = InstanceAttributeName'
 pattern InstanceAttributeName_BlockDeviceMapping :: InstanceAttributeName
 pattern InstanceAttributeName_BlockDeviceMapping = InstanceAttributeName' "blockDeviceMapping"
 
+pattern InstanceAttributeName_DisableApiStop :: InstanceAttributeName
+pattern InstanceAttributeName_DisableApiStop = InstanceAttributeName' "disableApiStop"
+
 pattern InstanceAttributeName_DisableApiTermination :: InstanceAttributeName
 pattern InstanceAttributeName_DisableApiTermination = InstanceAttributeName' "disableApiTermination"
 
@@ -118,6 +122,7 @@ pattern InstanceAttributeName_UserData = InstanceAttributeName' "userData"
 
 {-# COMPLETE
   InstanceAttributeName_BlockDeviceMapping,
+  InstanceAttributeName_DisableApiStop,
   InstanceAttributeName_DisableApiTermination,
   InstanceAttributeName_EbsOptimized,
   InstanceAttributeName_EnaSupport,

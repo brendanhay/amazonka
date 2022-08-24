@@ -33,6 +33,11 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Describes the launch specification for an instance.
 --
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+--
 -- /See:/ 'newLaunchSpecification' smart constructor.
 data LaunchSpecification = LaunchSpecification'
   { -- | Indicates whether the instance is optimized for EBS I\/O. This
@@ -56,7 +61,7 @@ data LaunchSpecification = LaunchSpecification'
     monitoring :: Prelude.Maybe RunInstancesMonitoringEnabled,
     -- | The ID of the subnet in which to launch the instance.
     subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The instance type.
+    -- | The instance type. Only one instance type can be specified.
     instanceType :: Prelude.Maybe InstanceType,
     -- | One or more security groups. When requesting instances in a VPC, you
     -- must specify the IDs of the security groups. When requesting instances
@@ -108,7 +113,7 @@ data LaunchSpecification = LaunchSpecification'
 --
 -- 'subnetId', 'launchSpecification_subnetId' - The ID of the subnet in which to launch the instance.
 --
--- 'instanceType', 'launchSpecification_instanceType' - The instance type.
+-- 'instanceType', 'launchSpecification_instanceType' - The instance type. Only one instance type can be specified.
 --
 -- 'securityGroups', 'launchSpecification_securityGroups' - One or more security groups. When requesting instances in a VPC, you
 -- must specify the IDs of the security groups. When requesting instances
@@ -186,7 +191,7 @@ launchSpecification_monitoring = Lens.lens (\LaunchSpecification' {monitoring} -
 launchSpecification_subnetId :: Lens.Lens' LaunchSpecification (Prelude.Maybe Prelude.Text)
 launchSpecification_subnetId = Lens.lens (\LaunchSpecification' {subnetId} -> subnetId) (\s@LaunchSpecification' {} a -> s {subnetId = a} :: LaunchSpecification)
 
--- | The instance type.
+-- | The instance type. Only one instance type can be specified.
 launchSpecification_instanceType :: Lens.Lens' LaunchSpecification (Prelude.Maybe InstanceType)
 launchSpecification_instanceType = Lens.lens (\LaunchSpecification' {instanceType} -> instanceType) (\s@LaunchSpecification' {} a -> s {instanceType = a} :: LaunchSpecification)
 

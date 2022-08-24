@@ -31,8 +31,9 @@ import qualified Amazonka.Prelude as Prelude
 data InstanceCreditSpecificationRequest = InstanceCreditSpecificationRequest'
   { -- | The ID of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The credit option for CPU usage of the instance. Valid values are
-    -- @standard@ and @unlimited@.
+    -- | The credit option for CPU usage of the instance.
+    --
+    -- Valid values: @standard@ | @unlimited@
     --
     -- T3 instances with @host@ tenancy do not support the @unlimited@ CPU
     -- credit option.
@@ -50,8 +51,9 @@ data InstanceCreditSpecificationRequest = InstanceCreditSpecificationRequest'
 --
 -- 'instanceId', 'instanceCreditSpecificationRequest_instanceId' - The ID of the instance.
 --
--- 'cpuCredits', 'instanceCreditSpecificationRequest_cpuCredits' - The credit option for CPU usage of the instance. Valid values are
--- @standard@ and @unlimited@.
+-- 'cpuCredits', 'instanceCreditSpecificationRequest_cpuCredits' - The credit option for CPU usage of the instance.
+--
+-- Valid values: @standard@ | @unlimited@
 --
 -- T3 instances with @host@ tenancy do not support the @unlimited@ CPU
 -- credit option.
@@ -68,8 +70,9 @@ newInstanceCreditSpecificationRequest =
 instanceCreditSpecificationRequest_instanceId :: Lens.Lens' InstanceCreditSpecificationRequest (Prelude.Maybe Prelude.Text)
 instanceCreditSpecificationRequest_instanceId = Lens.lens (\InstanceCreditSpecificationRequest' {instanceId} -> instanceId) (\s@InstanceCreditSpecificationRequest' {} a -> s {instanceId = a} :: InstanceCreditSpecificationRequest)
 
--- | The credit option for CPU usage of the instance. Valid values are
--- @standard@ and @unlimited@.
+-- | The credit option for CPU usage of the instance.
+--
+-- Valid values: @standard@ | @unlimited@
 --
 -- T3 instances with @host@ tenancy do not support the @unlimited@ CPU
 -- credit option.

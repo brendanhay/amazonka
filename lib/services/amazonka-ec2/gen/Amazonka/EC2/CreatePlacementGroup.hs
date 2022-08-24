@@ -41,6 +41,7 @@ module Amazonka.EC2.CreatePlacementGroup
 
     -- * Request Lenses
     createPlacementGroup_partitionCount,
+    createPlacementGroup_spreadLevel,
     createPlacementGroup_groupName,
     createPlacementGroup_dryRun,
     createPlacementGroup_strategy,
@@ -68,6 +69,12 @@ data CreatePlacementGroup = CreatePlacementGroup'
   { -- | The number of partitions. Valid only when __Strategy__ is set to
     -- @partition@.
     partitionCount :: Prelude.Maybe Prelude.Int,
+    -- | Determines how placement groups spread instances.
+    --
+    -- -   Host – You can use @host@ only with Outpost placement groups.
+    --
+    -- -   Rack – No usage restrictions.
+    spreadLevel :: Prelude.Maybe SpreadLevel,
     -- | A name for the placement group. Must be unique within the scope of your
     -- account for the Region.
     --
@@ -96,6 +103,12 @@ data CreatePlacementGroup = CreatePlacementGroup'
 -- 'partitionCount', 'createPlacementGroup_partitionCount' - The number of partitions. Valid only when __Strategy__ is set to
 -- @partition@.
 --
+-- 'spreadLevel', 'createPlacementGroup_spreadLevel' - Determines how placement groups spread instances.
+--
+-- -   Host – You can use @host@ only with Outpost placement groups.
+--
+-- -   Rack – No usage restrictions.
+--
 -- 'groupName', 'createPlacementGroup_groupName' - A name for the placement group. Must be unique within the scope of your
 -- account for the Region.
 --
@@ -115,6 +128,7 @@ newCreatePlacementGroup =
   CreatePlacementGroup'
     { partitionCount =
         Prelude.Nothing,
+      spreadLevel = Prelude.Nothing,
       groupName = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       strategy = Prelude.Nothing,
@@ -125,6 +139,14 @@ newCreatePlacementGroup =
 -- @partition@.
 createPlacementGroup_partitionCount :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe Prelude.Int)
 createPlacementGroup_partitionCount = Lens.lens (\CreatePlacementGroup' {partitionCount} -> partitionCount) (\s@CreatePlacementGroup' {} a -> s {partitionCount = a} :: CreatePlacementGroup)
+
+-- | Determines how placement groups spread instances.
+--
+-- -   Host – You can use @host@ only with Outpost placement groups.
+--
+-- -   Rack – No usage restrictions.
+createPlacementGroup_spreadLevel :: Lens.Lens' CreatePlacementGroup (Prelude.Maybe SpreadLevel)
+createPlacementGroup_spreadLevel = Lens.lens (\CreatePlacementGroup' {spreadLevel} -> spreadLevel) (\s@CreatePlacementGroup' {} a -> s {spreadLevel = a} :: CreatePlacementGroup)
 
 -- | A name for the placement group. Must be unique within the scope of your
 -- account for the Region.
@@ -164,6 +186,7 @@ instance Core.AWSRequest CreatePlacementGroup where
 instance Prelude.Hashable CreatePlacementGroup where
   hashWithSalt _salt CreatePlacementGroup' {..} =
     _salt `Prelude.hashWithSalt` partitionCount
+      `Prelude.hashWithSalt` spreadLevel
       `Prelude.hashWithSalt` groupName
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` strategy
@@ -172,6 +195,7 @@ instance Prelude.Hashable CreatePlacementGroup where
 instance Prelude.NFData CreatePlacementGroup where
   rnf CreatePlacementGroup' {..} =
     Prelude.rnf partitionCount
+      `Prelude.seq` Prelude.rnf spreadLevel
       `Prelude.seq` Prelude.rnf groupName
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf strategy
@@ -191,6 +215,7 @@ instance Core.ToQuery CreatePlacementGroup where
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "PartitionCount" Core.=: partitionCount,
+        "SpreadLevel" Core.=: spreadLevel,
         "GroupName" Core.=: groupName,
         "DryRun" Core.=: dryRun,
         "Strategy" Core.=: strategy,

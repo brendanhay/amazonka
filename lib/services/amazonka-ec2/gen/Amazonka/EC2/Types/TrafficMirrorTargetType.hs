@@ -20,6 +20,7 @@
 module Amazonka.EC2.Types.TrafficMirrorTargetType
   ( TrafficMirrorTargetType
       ( ..,
+        TrafficMirrorTargetType_Gateway_load_balancer_endpoint,
         TrafficMirrorTargetType_Network_interface,
         TrafficMirrorTargetType_Network_load_balancer
       ),
@@ -58,6 +59,9 @@ newtype TrafficMirrorTargetType = TrafficMirrorTargetType'
       Core.ToXML
     )
 
+pattern TrafficMirrorTargetType_Gateway_load_balancer_endpoint :: TrafficMirrorTargetType
+pattern TrafficMirrorTargetType_Gateway_load_balancer_endpoint = TrafficMirrorTargetType' "gateway-load-balancer-endpoint"
+
 pattern TrafficMirrorTargetType_Network_interface :: TrafficMirrorTargetType
 pattern TrafficMirrorTargetType_Network_interface = TrafficMirrorTargetType' "network-interface"
 
@@ -65,6 +69,7 @@ pattern TrafficMirrorTargetType_Network_load_balancer :: TrafficMirrorTargetType
 pattern TrafficMirrorTargetType_Network_load_balancer = TrafficMirrorTargetType' "network-load-balancer"
 
 {-# COMPLETE
+  TrafficMirrorTargetType_Gateway_load_balancer_endpoint,
   TrafficMirrorTargetType_Network_interface,
   TrafficMirrorTargetType_Network_load_balancer,
   TrafficMirrorTargetType'

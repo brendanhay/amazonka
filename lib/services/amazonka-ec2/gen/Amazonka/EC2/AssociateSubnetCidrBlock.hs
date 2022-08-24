@@ -141,7 +141,7 @@ instance Core.ToQuery AssociateSubnetCidrBlock where
 data AssociateSubnetCidrBlockResponse = AssociateSubnetCidrBlockResponse'
   { -- | The ID of the subnet.
     subnetId :: Prelude.Maybe Prelude.Text,
-    -- | Information about the IPv6 CIDR block association.
+    -- | Information about the IPv6 association.
     ipv6CidrBlockAssociation :: Prelude.Maybe SubnetIpv6CidrBlockAssociation,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -158,7 +158,7 @@ data AssociateSubnetCidrBlockResponse = AssociateSubnetCidrBlockResponse'
 --
 -- 'subnetId', 'associateSubnetCidrBlockResponse_subnetId' - The ID of the subnet.
 --
--- 'ipv6CidrBlockAssociation', 'associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.
+-- 'ipv6CidrBlockAssociation', 'associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 association.
 --
 -- 'httpStatus', 'associateSubnetCidrBlockResponse_httpStatus' - The response's http status code.
 newAssociateSubnetCidrBlockResponse ::
@@ -178,7 +178,7 @@ newAssociateSubnetCidrBlockResponse pHttpStatus_ =
 associateSubnetCidrBlockResponse_subnetId :: Lens.Lens' AssociateSubnetCidrBlockResponse (Prelude.Maybe Prelude.Text)
 associateSubnetCidrBlockResponse_subnetId = Lens.lens (\AssociateSubnetCidrBlockResponse' {subnetId} -> subnetId) (\s@AssociateSubnetCidrBlockResponse' {} a -> s {subnetId = a} :: AssociateSubnetCidrBlockResponse)
 
--- | Information about the IPv6 CIDR block association.
+-- | Information about the IPv6 association.
 associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation :: Lens.Lens' AssociateSubnetCidrBlockResponse (Prelude.Maybe SubnetIpv6CidrBlockAssociation)
 associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation = Lens.lens (\AssociateSubnetCidrBlockResponse' {ipv6CidrBlockAssociation} -> ipv6CidrBlockAssociation) (\s@AssociateSubnetCidrBlockResponse' {} a -> s {ipv6CidrBlockAssociation = a} :: AssociateSubnetCidrBlockResponse)
 

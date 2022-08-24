@@ -22,8 +22,8 @@
 --
 -- Requests a transit gateway peering attachment between the specified
 -- transit gateway (requester) and a peer transit gateway (accepter). The
--- transit gateways must be in different Regions. The peer transit gateway
--- can be in your account or a different Amazon Web Services account.
+-- peer transit gateway can be in your account or a different Amazon Web
+-- Services account.
 --
 -- After you create the peering attachment, the owner of the accepter
 -- transit gateway must accept the attachment request.
@@ -34,6 +34,7 @@ module Amazonka.EC2.CreateTransitGatewayPeeringAttachment
 
     -- * Request Lenses
     createTransitGatewayPeeringAttachment_dryRun,
+    createTransitGatewayPeeringAttachment_options,
     createTransitGatewayPeeringAttachment_tagSpecifications,
     createTransitGatewayPeeringAttachment_transitGatewayId,
     createTransitGatewayPeeringAttachment_peerTransitGatewayId,
@@ -64,6 +65,8 @@ data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachme
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Requests a transit gateway peering attachment.
+    options :: Prelude.Maybe CreateTransitGatewayPeeringAttachmentRequestOptions,
     -- | The tags to apply to the transit gateway peering attachment.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The ID of the transit gateway.
@@ -91,6 +94,8 @@ data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachme
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'options', 'createTransitGatewayPeeringAttachment_options' - Requests a transit gateway peering attachment.
 --
 -- 'tagSpecifications', 'createTransitGatewayPeeringAttachment_tagSpecifications' - The tags to apply to the transit gateway peering attachment.
 --
@@ -121,6 +126,7 @@ newCreateTransitGatewayPeeringAttachment
     CreateTransitGatewayPeeringAttachment'
       { dryRun =
           Prelude.Nothing,
+        options = Prelude.Nothing,
         tagSpecifications = Prelude.Nothing,
         transitGatewayId =
           pTransitGatewayId_,
@@ -136,6 +142,10 @@ newCreateTransitGatewayPeeringAttachment
 -- Otherwise, it is @UnauthorizedOperation@.
 createTransitGatewayPeeringAttachment_dryRun :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe Prelude.Bool)
 createTransitGatewayPeeringAttachment_dryRun = Lens.lens (\CreateTransitGatewayPeeringAttachment' {dryRun} -> dryRun) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {dryRun = a} :: CreateTransitGatewayPeeringAttachment)
+
+-- | Requests a transit gateway peering attachment.
+createTransitGatewayPeeringAttachment_options :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe CreateTransitGatewayPeeringAttachmentRequestOptions)
+createTransitGatewayPeeringAttachment_options = Lens.lens (\CreateTransitGatewayPeeringAttachment' {options} -> options) (\s@CreateTransitGatewayPeeringAttachment' {} a -> s {options = a} :: CreateTransitGatewayPeeringAttachment)
 
 -- | The tags to apply to the transit gateway peering attachment.
 createTransitGatewayPeeringAttachment_tagSpecifications :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Prelude.Maybe [TagSpecification])
@@ -184,6 +194,7 @@ instance
     _salt
     CreateTransitGatewayPeeringAttachment' {..} =
       _salt `Prelude.hashWithSalt` dryRun
+        `Prelude.hashWithSalt` options
         `Prelude.hashWithSalt` tagSpecifications
         `Prelude.hashWithSalt` transitGatewayId
         `Prelude.hashWithSalt` peerTransitGatewayId
@@ -196,6 +207,7 @@ instance
   where
   rnf CreateTransitGatewayPeeringAttachment' {..} =
     Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf options
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf transitGatewayId
       `Prelude.seq` Prelude.rnf peerTransitGatewayId
@@ -227,6 +239,7 @@ instance
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "DryRun" Core.=: dryRun,
+        "Options" Core.=: options,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications

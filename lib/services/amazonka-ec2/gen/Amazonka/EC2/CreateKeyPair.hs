@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an ED25519 or 2048-bit RSA key pair with the specified name.
--- Amazon EC2 stores the public key and displays the private key for you to
--- save to a file. The private key is returned as an unencrypted PEM
--- encoded PKCS#1 private key. If a key with the specified name already
--- exists, Amazon EC2 returns an error.
+-- Creates an ED25519 or 2048-bit RSA key pair with the specified name and
+-- in the specified PEM or PPK format. Amazon EC2 stores the public key and
+-- displays the private key for you to save to a file. The private key is
+-- returned as an unencrypted PEM encoded PKCS#1 private key or an
+-- unencrypted PPK formatted private key for use with PuTTY. If a key with
+-- the specified name already exists, Amazon EC2 returns an error.
 --
 -- The key pair returned to you is available only in the Amazon Web
 -- Services Region in which you create it. If you prefer, you can create
@@ -44,6 +45,7 @@ module Amazonka.EC2.CreateKeyPair
     -- * Request Lenses
     createKeyPair_keyType,
     createKeyPair_dryRun,
+    createKeyPair_keyFormat,
     createKeyPair_tagSpecifications,
     createKeyPair_keyName,
 
@@ -71,7 +73,7 @@ import qualified Amazonka.Response as Response
 -- | /See:/ 'newCreateKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
   { -- | The type of key pair. Note that ED25519 keys are not supported for
-    -- Windows instances, EC2 Instance Connect, and EC2 Serial Console.
+    -- Windows instances.
     --
     -- Default: @rsa@
     keyType :: Prelude.Maybe KeyType,
@@ -80,6 +82,10 @@ data CreateKeyPair = CreateKeyPair'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The format of the key pair.
+    --
+    -- Default: @pem@
+    keyFormat :: Prelude.Maybe KeyFormat,
     -- | The tags to apply to the new key pair.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | A unique name for the key pair.
@@ -98,7 +104,7 @@ data CreateKeyPair = CreateKeyPair'
 -- for backwards compatibility:
 --
 -- 'keyType', 'createKeyPair_keyType' - The type of key pair. Note that ED25519 keys are not supported for
--- Windows instances, EC2 Instance Connect, and EC2 Serial Console.
+-- Windows instances.
 --
 -- Default: @rsa@
 --
@@ -106,6 +112,10 @@ data CreateKeyPair = CreateKeyPair'
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'keyFormat', 'createKeyPair_keyFormat' - The format of the key pair.
+--
+-- Default: @pem@
 --
 -- 'tagSpecifications', 'createKeyPair_tagSpecifications' - The tags to apply to the new key pair.
 --
@@ -120,12 +130,13 @@ newCreateKeyPair pKeyName_ =
   CreateKeyPair'
     { keyType = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      keyFormat = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
       keyName = pKeyName_
     }
 
 -- | The type of key pair. Note that ED25519 keys are not supported for
--- Windows instances, EC2 Instance Connect, and EC2 Serial Console.
+-- Windows instances.
 --
 -- Default: @rsa@
 createKeyPair_keyType :: Lens.Lens' CreateKeyPair (Prelude.Maybe KeyType)
@@ -137,6 +148,12 @@ createKeyPair_keyType = Lens.lens (\CreateKeyPair' {keyType} -> keyType) (\s@Cre
 -- Otherwise, it is @UnauthorizedOperation@.
 createKeyPair_dryRun :: Lens.Lens' CreateKeyPair (Prelude.Maybe Prelude.Bool)
 createKeyPair_dryRun = Lens.lens (\CreateKeyPair' {dryRun} -> dryRun) (\s@CreateKeyPair' {} a -> s {dryRun = a} :: CreateKeyPair)
+
+-- | The format of the key pair.
+--
+-- Default: @pem@
+createKeyPair_keyFormat :: Lens.Lens' CreateKeyPair (Prelude.Maybe KeyFormat)
+createKeyPair_keyFormat = Lens.lens (\CreateKeyPair' {keyFormat} -> keyFormat) (\s@CreateKeyPair' {} a -> s {keyFormat = a} :: CreateKeyPair)
 
 -- | The tags to apply to the new key pair.
 createKeyPair_tagSpecifications :: Lens.Lens' CreateKeyPair (Prelude.Maybe [TagSpecification])
@@ -171,6 +188,7 @@ instance Prelude.Hashable CreateKeyPair where
   hashWithSalt _salt CreateKeyPair' {..} =
     _salt `Prelude.hashWithSalt` keyType
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` keyFormat
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` keyName
 
@@ -178,6 +196,7 @@ instance Prelude.NFData CreateKeyPair where
   rnf CreateKeyPair' {..} =
     Prelude.rnf keyType
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf keyFormat
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf keyName
 
@@ -196,6 +215,7 @@ instance Core.ToQuery CreateKeyPair where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "KeyType" Core.=: keyType,
         "DryRun" Core.=: dryRun,
+        "KeyFormat" Core.=: keyFormat,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
@@ -215,7 +235,12 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
     httpStatus :: Prelude.Int,
     -- | The name of the key pair.
     keyName :: Prelude.Text,
-    -- | The SHA-1 digest of the DER encoded private key.
+    -- | -   For RSA key pairs, the key fingerprint is the SHA-1 digest of the
+    --     DER encoded private key.
+    --
+    -- -   For ED25519 key pairs, the key fingerprint is the base64-encoded
+    --     SHA-256 digest, which is the default for OpenSSH, starting with
+    --     OpenSSH 6.8.
     keyFingerprint :: Prelude.Text,
     -- | An unencrypted PEM encoded RSA or ED25519 private key.
     keyMaterial :: Core.Sensitive Prelude.Text
@@ -238,7 +263,12 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
 --
 -- 'keyName', 'createKeyPairResponse_keyName' - The name of the key pair.
 --
--- 'keyFingerprint', 'createKeyPairResponse_keyFingerprint' - The SHA-1 digest of the DER encoded private key.
+-- 'keyFingerprint', 'createKeyPairResponse_keyFingerprint' - -   For RSA key pairs, the key fingerprint is the SHA-1 digest of the
+--     DER encoded private key.
+--
+-- -   For ED25519 key pairs, the key fingerprint is the base64-encoded
+--     SHA-256 digest, which is the default for OpenSSH, starting with
+--     OpenSSH 6.8.
 --
 -- 'keyMaterial', 'createKeyPairResponse_keyMaterial' - An unencrypted PEM encoded RSA or ED25519 private key.
 newCreateKeyPairResponse ::
@@ -281,7 +311,12 @@ createKeyPairResponse_httpStatus = Lens.lens (\CreateKeyPairResponse' {httpStatu
 createKeyPairResponse_keyName :: Lens.Lens' CreateKeyPairResponse Prelude.Text
 createKeyPairResponse_keyName = Lens.lens (\CreateKeyPairResponse' {keyName} -> keyName) (\s@CreateKeyPairResponse' {} a -> s {keyName = a} :: CreateKeyPairResponse)
 
--- | The SHA-1 digest of the DER encoded private key.
+-- | -   For RSA key pairs, the key fingerprint is the SHA-1 digest of the
+--     DER encoded private key.
+--
+-- -   For ED25519 key pairs, the key fingerprint is the base64-encoded
+--     SHA-256 digest, which is the default for OpenSSH, starting with
+--     OpenSSH 6.8.
 createKeyPairResponse_keyFingerprint :: Lens.Lens' CreateKeyPairResponse Prelude.Text
 createKeyPairResponse_keyFingerprint = Lens.lens (\CreateKeyPairResponse' {keyFingerprint} -> keyFingerprint) (\s@CreateKeyPairResponse' {} a -> s {keyFingerprint = a} :: CreateKeyPairResponse)
 

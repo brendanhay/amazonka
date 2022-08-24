@@ -24,6 +24,12 @@ module Amazonka.EC2.Types.CapacityReservationInstancePlatform
         CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise,
         CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard,
         CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web,
+        CapacityReservationInstancePlatform_RHEL_with_HA,
+        CapacityReservationInstancePlatform_RHEL_with_HA_and_SQL_Server_Enterprise,
+        CapacityReservationInstancePlatform_RHEL_with_HA_and_SQL_Server_Standard,
+        CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Enterprise,
+        CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Standard,
+        CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Web,
         CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux,
         CapacityReservationInstancePlatform_SUSE_Linux,
         CapacityReservationInstancePlatform_Windows,
@@ -79,6 +85,24 @@ pattern CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard = Cap
 pattern CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web :: CapacityReservationInstancePlatform
 pattern CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web = CapacityReservationInstancePlatform' "Linux with SQL Server Web"
 
+pattern CapacityReservationInstancePlatform_RHEL_with_HA :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatform_RHEL_with_HA = CapacityReservationInstancePlatform' "RHEL with HA"
+
+pattern CapacityReservationInstancePlatform_RHEL_with_HA_and_SQL_Server_Enterprise :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatform_RHEL_with_HA_and_SQL_Server_Enterprise = CapacityReservationInstancePlatform' "RHEL with HA and SQL Server Enterprise"
+
+pattern CapacityReservationInstancePlatform_RHEL_with_HA_and_SQL_Server_Standard :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatform_RHEL_with_HA_and_SQL_Server_Standard = CapacityReservationInstancePlatform' "RHEL with HA and SQL Server Standard"
+
+pattern CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Enterprise :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Enterprise = CapacityReservationInstancePlatform' "RHEL with SQL Server Enterprise"
+
+pattern CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Standard :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Standard = CapacityReservationInstancePlatform' "RHEL with SQL Server Standard"
+
+pattern CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Web :: CapacityReservationInstancePlatform
+pattern CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Web = CapacityReservationInstancePlatform' "RHEL with SQL Server Web"
+
 pattern CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux :: CapacityReservationInstancePlatform
 pattern CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux = CapacityReservationInstancePlatform' "Red Hat Enterprise Linux"
 
@@ -105,6 +129,12 @@ pattern CapacityReservationInstancePlatform_Windows_with_SQL_Server_Web = Capaci
   CapacityReservationInstancePlatform_Linux_with_SQL_Server_Enterprise,
   CapacityReservationInstancePlatform_Linux_with_SQL_Server_Standard,
   CapacityReservationInstancePlatform_Linux_with_SQL_Server_Web,
+  CapacityReservationInstancePlatform_RHEL_with_HA,
+  CapacityReservationInstancePlatform_RHEL_with_HA_and_SQL_Server_Enterprise,
+  CapacityReservationInstancePlatform_RHEL_with_HA_and_SQL_Server_Standard,
+  CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Enterprise,
+  CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Standard,
+  CapacityReservationInstancePlatform_RHEL_with_SQL_Server_Web,
   CapacityReservationInstancePlatform_Red_Hat_Enterprise_Linux,
   CapacityReservationInstancePlatform_SUSE_Linux,
   CapacityReservationInstancePlatform_Windows,

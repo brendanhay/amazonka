@@ -23,6 +23,7 @@ import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.AssociatedTargetNetwork
 import Amazonka.EC2.Types.ClientConnectResponseOptions
+import Amazonka.EC2.Types.ClientLoginBannerResponseOptions
 import Amazonka.EC2.Types.ClientVpnAuthentication
 import Amazonka.EC2.Types.ClientVpnEndpointStatus
 import Amazonka.EC2.Types.ConnectionLogResponseOptions
@@ -47,6 +48,12 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
     serverCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The transport protocol used by the Client VPN endpoint.
     transportProtocol :: Prelude.Maybe TransportProtocol,
+    -- | The maximum VPN session duration time in hours.
+    --
+    -- Valid values: @8 | 10 | 12 | 24@
+    --
+    -- Default value: @24@
+    sessionTimeoutHours :: Prelude.Maybe Prelude.Int,
     -- | The IDs of the security groups for the target network.
     securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | Information about the DNS servers to be used for DNS resolution.
@@ -63,6 +70,10 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
     status :: Prelude.Maybe ClientVpnEndpointStatus,
     -- | A brief description of the endpoint.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Options for enabling a customizable text banner that will be displayed
+    -- on Amazon Web Services provided clients when a VPN session is
+    -- established.
+    clientLoginBannerOptions :: Prelude.Maybe ClientLoginBannerResponseOptions,
     -- | The ID of the Client VPN endpoint.
     clientVpnEndpointId :: Prelude.Maybe Prelude.Text,
     -- | The options for managing connection authorization for new client
@@ -110,6 +121,12 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
 --
 -- 'transportProtocol', 'clientVpnEndpoint_transportProtocol' - The transport protocol used by the Client VPN endpoint.
 --
+-- 'sessionTimeoutHours', 'clientVpnEndpoint_sessionTimeoutHours' - The maximum VPN session duration time in hours.
+--
+-- Valid values: @8 | 10 | 12 | 24@
+--
+-- Default value: @24@
+--
 -- 'securityGroupIds', 'clientVpnEndpoint_securityGroupIds' - The IDs of the security groups for the target network.
 --
 -- 'dnsServers', 'clientVpnEndpoint_dnsServers' - Information about the DNS servers to be used for DNS resolution.
@@ -125,6 +142,10 @@ data ClientVpnEndpoint = ClientVpnEndpoint'
 -- 'status', 'clientVpnEndpoint_status' - The current state of the Client VPN endpoint.
 --
 -- 'description', 'clientVpnEndpoint_description' - A brief description of the endpoint.
+--
+-- 'clientLoginBannerOptions', 'clientVpnEndpoint_clientLoginBannerOptions' - Options for enabling a customizable text banner that will be displayed
+-- on Amazon Web Services provided clients when a VPN session is
+-- established.
 --
 -- 'clientVpnEndpointId', 'clientVpnEndpoint_clientVpnEndpointId' - The ID of the Client VPN endpoint.
 --
@@ -159,6 +180,7 @@ newClientVpnEndpoint =
       authenticationOptions = Prelude.Nothing,
       serverCertificateArn = Prelude.Nothing,
       transportProtocol = Prelude.Nothing,
+      sessionTimeoutHours = Prelude.Nothing,
       securityGroupIds = Prelude.Nothing,
       dnsServers = Prelude.Nothing,
       connectionLogOptions = Prelude.Nothing,
@@ -166,6 +188,7 @@ newClientVpnEndpoint =
       selfServicePortalUrl = Prelude.Nothing,
       status = Prelude.Nothing,
       description = Prelude.Nothing,
+      clientLoginBannerOptions = Prelude.Nothing,
       clientVpnEndpointId = Prelude.Nothing,
       clientConnectOptions = Prelude.Nothing,
       splitTunnel = Prelude.Nothing,
@@ -198,6 +221,14 @@ clientVpnEndpoint_serverCertificateArn = Lens.lens (\ClientVpnEndpoint' {serverC
 clientVpnEndpoint_transportProtocol :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe TransportProtocol)
 clientVpnEndpoint_transportProtocol = Lens.lens (\ClientVpnEndpoint' {transportProtocol} -> transportProtocol) (\s@ClientVpnEndpoint' {} a -> s {transportProtocol = a} :: ClientVpnEndpoint)
 
+-- | The maximum VPN session duration time in hours.
+--
+-- Valid values: @8 | 10 | 12 | 24@
+--
+-- Default value: @24@
+clientVpnEndpoint_sessionTimeoutHours :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Int)
+clientVpnEndpoint_sessionTimeoutHours = Lens.lens (\ClientVpnEndpoint' {sessionTimeoutHours} -> sessionTimeoutHours) (\s@ClientVpnEndpoint' {} a -> s {sessionTimeoutHours = a} :: ClientVpnEndpoint)
+
 -- | The IDs of the security groups for the target network.
 clientVpnEndpoint_securityGroupIds :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe [Prelude.Text])
 clientVpnEndpoint_securityGroupIds = Lens.lens (\ClientVpnEndpoint' {securityGroupIds} -> securityGroupIds) (\s@ClientVpnEndpoint' {} a -> s {securityGroupIds = a} :: ClientVpnEndpoint) Prelude.. Lens.mapping Lens.coerced
@@ -227,6 +258,12 @@ clientVpnEndpoint_status = Lens.lens (\ClientVpnEndpoint' {status} -> status) (\
 -- | A brief description of the endpoint.
 clientVpnEndpoint_description :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
 clientVpnEndpoint_description = Lens.lens (\ClientVpnEndpoint' {description} -> description) (\s@ClientVpnEndpoint' {} a -> s {description = a} :: ClientVpnEndpoint)
+
+-- | Options for enabling a customizable text banner that will be displayed
+-- on Amazon Web Services provided clients when a VPN session is
+-- established.
+clientVpnEndpoint_clientLoginBannerOptions :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe ClientLoginBannerResponseOptions)
+clientVpnEndpoint_clientLoginBannerOptions = Lens.lens (\ClientVpnEndpoint' {clientLoginBannerOptions} -> clientLoginBannerOptions) (\s@ClientVpnEndpoint' {} a -> s {clientLoginBannerOptions = a} :: ClientVpnEndpoint)
 
 -- | The ID of the Client VPN endpoint.
 clientVpnEndpoint_clientVpnEndpointId :: Lens.Lens' ClientVpnEndpoint (Prelude.Maybe Prelude.Text)
@@ -284,6 +321,7 @@ instance Core.FromXML ClientVpnEndpoint where
                   )
       Prelude.<*> (x Core..@? "serverCertificateArn")
       Prelude.<*> (x Core..@? "transportProtocol")
+      Prelude.<*> (x Core..@? "sessionTimeoutHours")
       Prelude.<*> ( x Core..@? "securityGroupIdSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
@@ -296,6 +334,7 @@ instance Core.FromXML ClientVpnEndpoint where
       Prelude.<*> (x Core..@? "selfServicePortalUrl")
       Prelude.<*> (x Core..@? "status")
       Prelude.<*> (x Core..@? "description")
+      Prelude.<*> (x Core..@? "clientLoginBannerOptions")
       Prelude.<*> (x Core..@? "clientVpnEndpointId")
       Prelude.<*> (x Core..@? "clientConnectOptions")
       Prelude.<*> (x Core..@? "splitTunnel")
@@ -316,6 +355,7 @@ instance Prelude.Hashable ClientVpnEndpoint where
       `Prelude.hashWithSalt` authenticationOptions
       `Prelude.hashWithSalt` serverCertificateArn
       `Prelude.hashWithSalt` transportProtocol
+      `Prelude.hashWithSalt` sessionTimeoutHours
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` dnsServers
       `Prelude.hashWithSalt` connectionLogOptions
@@ -323,6 +363,7 @@ instance Prelude.Hashable ClientVpnEndpoint where
       `Prelude.hashWithSalt` selfServicePortalUrl
       `Prelude.hashWithSalt` status
       `Prelude.hashWithSalt` description
+      `Prelude.hashWithSalt` clientLoginBannerOptions
       `Prelude.hashWithSalt` clientVpnEndpointId
       `Prelude.hashWithSalt` clientConnectOptions
       `Prelude.hashWithSalt` splitTunnel
@@ -340,6 +381,7 @@ instance Prelude.NFData ClientVpnEndpoint where
       `Prelude.seq` Prelude.rnf authenticationOptions
       `Prelude.seq` Prelude.rnf serverCertificateArn
       `Prelude.seq` Prelude.rnf transportProtocol
+      `Prelude.seq` Prelude.rnf sessionTimeoutHours
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf dnsServers
       `Prelude.seq` Prelude.rnf connectionLogOptions
@@ -347,10 +389,12 @@ instance Prelude.NFData ClientVpnEndpoint where
       `Prelude.seq` Prelude.rnf selfServicePortalUrl
       `Prelude.seq` Prelude.rnf status
       `Prelude.seq` Prelude.rnf description
+      `Prelude.seq` Prelude.rnf clientLoginBannerOptions
       `Prelude.seq` Prelude.rnf clientVpnEndpointId
       `Prelude.seq` Prelude.rnf clientConnectOptions
       `Prelude.seq` Prelude.rnf splitTunnel
-      `Prelude.seq` Prelude.rnf associatedTargetNetworks
+      `Prelude.seq` Prelude.rnf
+        associatedTargetNetworks
       `Prelude.seq` Prelude.rnf creationTime
       `Prelude.seq` Prelude.rnf vpcId
       `Prelude.seq` Prelude.rnf dnsName

@@ -78,8 +78,8 @@ data DescribeSubnets = DescribeSubnets'
     --     @cidrBlock@ as the filter names.
     --
     -- -   @default-for-az@ - Indicates whether this is the default subnet for
-    --     the Availability Zone. You can also use @defaultForAz@ as the filter
-    --     name.
+    --     the Availability Zone (@true@ | @false@). You can also use
+    --     @defaultForAz@ as the filter name.
     --
     -- -   @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block
     --     associated with the subnet.
@@ -89,6 +89,9 @@ data DescribeSubnets = DescribeSubnets'
     --
     -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
     --     block associated with the subnet.
+    --
+    -- -   @ipv6-native@ - Indicates whether this is an IPv6 only subnet
+    --     (@true@ | @false@).
     --
     -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
     --
@@ -156,8 +159,8 @@ data DescribeSubnets = DescribeSubnets'
 --     @cidrBlock@ as the filter names.
 --
 -- -   @default-for-az@ - Indicates whether this is the default subnet for
---     the Availability Zone. You can also use @defaultForAz@ as the filter
---     name.
+--     the Availability Zone (@true@ | @false@). You can also use
+--     @defaultForAz@ as the filter name.
 --
 -- -   @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block
 --     associated with the subnet.
@@ -167,6 +170,9 @@ data DescribeSubnets = DescribeSubnets'
 --
 -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
 --     block associated with the subnet.
+--
+-- -   @ipv6-native@ - Indicates whether this is an IPv6 only subnet
+--     (@true@ | @false@).
 --
 -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
 --
@@ -235,8 +241,8 @@ describeSubnets_nextToken = Lens.lens (\DescribeSubnets' {nextToken} -> nextToke
 --     @cidrBlock@ as the filter names.
 --
 -- -   @default-for-az@ - Indicates whether this is the default subnet for
---     the Availability Zone. You can also use @defaultForAz@ as the filter
---     name.
+--     the Availability Zone (@true@ | @false@). You can also use
+--     @defaultForAz@ as the filter name.
 --
 -- -   @ipv6-cidr-block-association.ipv6-cidr-block@ - An IPv6 CIDR block
 --     associated with the subnet.
@@ -246,6 +252,9 @@ describeSubnets_nextToken = Lens.lens (\DescribeSubnets' {nextToken} -> nextToke
 --
 -- -   @ipv6-cidr-block-association.state@ - The state of an IPv6 CIDR
 --     block associated with the subnet.
+--
+-- -   @ipv6-native@ - Indicates whether this is an IPv6 only subnet
+--     (@true@ | @false@).
 --
 -- -   @outpost-arn@ - The Amazon Resource Name (ARN) of the Outpost.
 --

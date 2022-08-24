@@ -22,9 +22,8 @@
 --
 -- Modifies attributes of a specified VPC endpoint. The attributes that you
 -- can modify depend on the type of VPC endpoint (interface, gateway, or
--- Gateway Load Balancer). For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html VPC Endpoints>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- Gateway Load Balancer). For more information, see the
+-- <https://docs.aws.amazon.com/vpc/latest/privatelink/ Amazon Web Services PrivateLink Guide>.
 module Amazonka.EC2.ModifyVpcEndpoint
   ( -- * Creating a Request
     ModifyVpcEndpoint (..),
@@ -40,6 +39,8 @@ module Amazonka.EC2.ModifyVpcEndpoint
     modifyVpcEndpoint_policyDocument,
     modifyVpcEndpoint_removeSubnetIds,
     modifyVpcEndpoint_removeRouteTableIds,
+    modifyVpcEndpoint_dnsOptions,
+    modifyVpcEndpoint_ipAddressType,
     modifyVpcEndpoint_removeSecurityGroupIds,
     modifyVpcEndpoint_vpcEndpointId,
 
@@ -95,6 +96,10 @@ data ModifyVpcEndpoint = ModifyVpcEndpoint'
     -- | (Gateway endpoint) One or more route table IDs to disassociate from the
     -- endpoint.
     removeRouteTableIds :: Prelude.Maybe [Prelude.Text],
+    -- | The DNS options for the endpoint.
+    dnsOptions :: Prelude.Maybe DnsOptionsSpecification,
+    -- | The IP address type for the endpoint.
+    ipAddressType :: Prelude.Maybe IpAddressType,
     -- | (Interface endpoint) One or more security group IDs to disassociate from
     -- the network interface.
     removeSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
@@ -142,6 +147,10 @@ data ModifyVpcEndpoint = ModifyVpcEndpoint'
 -- 'removeRouteTableIds', 'modifyVpcEndpoint_removeRouteTableIds' - (Gateway endpoint) One or more route table IDs to disassociate from the
 -- endpoint.
 --
+-- 'dnsOptions', 'modifyVpcEndpoint_dnsOptions' - The DNS options for the endpoint.
+--
+-- 'ipAddressType', 'modifyVpcEndpoint_ipAddressType' - The IP address type for the endpoint.
+--
 -- 'removeSecurityGroupIds', 'modifyVpcEndpoint_removeSecurityGroupIds' - (Interface endpoint) One or more security group IDs to disassociate from
 -- the network interface.
 --
@@ -162,6 +171,8 @@ newModifyVpcEndpoint pVpcEndpointId_ =
       policyDocument = Prelude.Nothing,
       removeSubnetIds = Prelude.Nothing,
       removeRouteTableIds = Prelude.Nothing,
+      dnsOptions = Prelude.Nothing,
+      ipAddressType = Prelude.Nothing,
       removeSecurityGroupIds = Prelude.Nothing,
       vpcEndpointId = pVpcEndpointId_
     }
@@ -215,6 +226,14 @@ modifyVpcEndpoint_removeSubnetIds = Lens.lens (\ModifyVpcEndpoint' {removeSubnet
 modifyVpcEndpoint_removeRouteTableIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpoint_removeRouteTableIds = Lens.lens (\ModifyVpcEndpoint' {removeRouteTableIds} -> removeRouteTableIds) (\s@ModifyVpcEndpoint' {} a -> s {removeRouteTableIds = a} :: ModifyVpcEndpoint) Prelude.. Lens.mapping Lens.coerced
 
+-- | The DNS options for the endpoint.
+modifyVpcEndpoint_dnsOptions :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe DnsOptionsSpecification)
+modifyVpcEndpoint_dnsOptions = Lens.lens (\ModifyVpcEndpoint' {dnsOptions} -> dnsOptions) (\s@ModifyVpcEndpoint' {} a -> s {dnsOptions = a} :: ModifyVpcEndpoint)
+
+-- | The IP address type for the endpoint.
+modifyVpcEndpoint_ipAddressType :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe IpAddressType)
+modifyVpcEndpoint_ipAddressType = Lens.lens (\ModifyVpcEndpoint' {ipAddressType} -> ipAddressType) (\s@ModifyVpcEndpoint' {} a -> s {ipAddressType = a} :: ModifyVpcEndpoint)
+
 -- | (Interface endpoint) One or more security group IDs to disassociate from
 -- the network interface.
 modifyVpcEndpoint_removeSecurityGroupIds :: Lens.Lens' ModifyVpcEndpoint (Prelude.Maybe [Prelude.Text])
@@ -248,6 +267,8 @@ instance Prelude.Hashable ModifyVpcEndpoint where
       `Prelude.hashWithSalt` policyDocument
       `Prelude.hashWithSalt` removeSubnetIds
       `Prelude.hashWithSalt` removeRouteTableIds
+      `Prelude.hashWithSalt` dnsOptions
+      `Prelude.hashWithSalt` ipAddressType
       `Prelude.hashWithSalt` removeSecurityGroupIds
       `Prelude.hashWithSalt` vpcEndpointId
 
@@ -262,6 +283,8 @@ instance Prelude.NFData ModifyVpcEndpoint where
       `Prelude.seq` Prelude.rnf policyDocument
       `Prelude.seq` Prelude.rnf removeSubnetIds
       `Prelude.seq` Prelude.rnf removeRouteTableIds
+      `Prelude.seq` Prelude.rnf dnsOptions
+      `Prelude.seq` Prelude.rnf ipAddressType
       `Prelude.seq` Prelude.rnf removeSecurityGroupIds
       `Prelude.seq` Prelude.rnf vpcEndpointId
 
@@ -302,6 +325,8 @@ instance Core.ToQuery ModifyVpcEndpoint where
           ( Core.toQueryList "RemoveRouteTableId"
               Prelude.<$> removeRouteTableIds
           ),
+        "DnsOptions" Core.=: dnsOptions,
+        "IpAddressType" Core.=: ipAddressType,
         Core.toQuery
           ( Core.toQueryList "RemoveSecurityGroupId"
               Prelude.<$> removeSecurityGroupIds

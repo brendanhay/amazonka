@@ -75,6 +75,9 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
     --
     -- -   @service-type@ - The type of service (@Interface@ | @Gateway@).
     --
+    -- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
+    --     @ipv6@).
+    --
     -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
     --     resource. Use the tag key in the filter name and the tag value as
     --     the filter value. For example, to find all resources that have a tag
@@ -118,6 +121,9 @@ data DescribeVpcEndpointServices = DescribeVpcEndpointServices'
 -- -   @service-name@ - The name of the service.
 --
 -- -   @service-type@ - The type of service (@Interface@ | @Gateway@).
+--
+-- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
+--     @ipv6@).
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as
@@ -164,6 +170,9 @@ describeVpcEndpointServices_nextToken = Lens.lens (\DescribeVpcEndpointServices'
 -- -   @service-name@ - The name of the service.
 --
 -- -   @service-type@ - The type of service (@Interface@ | @Gateway@).
+--
+-- -   @supported-ip-address-types@ - The IP address type (@ipv4@ |
+--     @ipv6@).
 --
 -- -   @tag@:\<key> - The key\/value combination of a tag assigned to the
 --     resource. Use the tag key in the filter name and the tag value as

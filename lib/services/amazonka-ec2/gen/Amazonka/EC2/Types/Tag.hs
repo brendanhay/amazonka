@@ -35,7 +35,7 @@ data Tag = Tag'
     key :: Prelude.Text,
     -- | The value of the tag.
     --
-    -- Constraints: Tag values are case-sensitive and accept a maximum of 255
+    -- Constraints: Tag values are case-sensitive and accept a maximum of 256
     -- Unicode characters.
     value :: Prelude.Text
   }
@@ -56,7 +56,7 @@ data Tag = Tag'
 --
 -- 'value', 'tag_value' - The value of the tag.
 --
--- Constraints: Tag values are case-sensitive and accept a maximum of 255
+-- Constraints: Tag values are case-sensitive and accept a maximum of 256
 -- Unicode characters.
 newTag ::
   -- | 'key'
@@ -76,7 +76,7 @@ tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
 -- | The value of the tag.
 --
--- Constraints: Tag values are case-sensitive and accept a maximum of 255
+-- Constraints: Tag values are case-sensitive and accept a maximum of 256
 -- Unicode characters.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)

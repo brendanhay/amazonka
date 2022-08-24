@@ -31,8 +31,11 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newExportToS3TaskSpecification' smart constructor.
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
   { -- | The Amazon S3 bucket for the destination image. The destination bucket
-    -- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
-    -- Services account @vm-import-export\@amazon.com@.
+    -- must exist and have an access control list (ACL) attached that specifies
+    -- the Region-specific canonical account ID for the @Grantee@. For more
+    -- information about the ACL to your S3 bucket, see
+    -- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html#vmexport-prerequisites Prerequisites>
+    -- in the VM Import\/Export User Guide.
     s3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The format for the exported image.
     diskImageFormat :: Prelude.Maybe DiskImageFormat,
@@ -54,8 +57,11 @@ data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
 -- for backwards compatibility:
 --
 -- 's3Bucket', 'exportToS3TaskSpecification_s3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket
--- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
--- Services account @vm-import-export\@amazon.com@.
+-- must exist and have an access control list (ACL) attached that specifies
+-- the Region-specific canonical account ID for the @Grantee@. For more
+-- information about the ACL to your S3 bucket, see
+-- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html#vmexport-prerequisites Prerequisites>
+-- in the VM Import\/Export User Guide.
 --
 -- 'diskImageFormat', 'exportToS3TaskSpecification_diskImageFormat' - The format for the exported image.
 --
@@ -76,8 +82,11 @@ newExportToS3TaskSpecification =
     }
 
 -- | The Amazon S3 bucket for the destination image. The destination bucket
--- must exist and grant WRITE and READ_ACP permissions to the Amazon Web
--- Services account @vm-import-export\@amazon.com@.
+-- must exist and have an access control list (ACL) attached that specifies
+-- the Region-specific canonical account ID for the @Grantee@. For more
+-- information about the ACL to your S3 bucket, see
+-- <https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html#vmexport-prerequisites Prerequisites>
+-- in the VM Import\/Export User Guide.
 exportToS3TaskSpecification_s3Bucket :: Lens.Lens' ExportToS3TaskSpecification (Prelude.Maybe Prelude.Text)
 exportToS3TaskSpecification_s3Bucket = Lens.lens (\ExportToS3TaskSpecification' {s3Bucket} -> s3Bucket) (\s@ExportToS3TaskSpecification' {} a -> s {s3Bucket = a} :: ExportToS3TaskSpecification)
 

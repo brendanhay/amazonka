@@ -60,11 +60,12 @@ data DescribeCoipPools = DescribeCoipPools'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The IDs of the address pools.
     poolIds :: Prelude.Maybe [Prelude.Text],
-    -- | The filters. The following are the possible values:
+    -- | One or more filters.
     --
-    -- -   @coip-pool.pool-id@
+    -- -   @coip-pool.local-gateway-route-table-id@ - The ID of the local
+    --     gateway route table.
     --
-    -- -   @coip-pool.local-gateway-route-table-id@
+    -- -   @coip-pool.pool-id@ - The ID of the address pool.
     filters :: Prelude.Maybe [Filter],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -90,11 +91,12 @@ data DescribeCoipPools = DescribeCoipPools'
 --
 -- 'poolIds', 'describeCoipPools_poolIds' - The IDs of the address pools.
 --
--- 'filters', 'describeCoipPools_filters' - The filters. The following are the possible values:
+-- 'filters', 'describeCoipPools_filters' - One or more filters.
 --
--- -   @coip-pool.pool-id@
+-- -   @coip-pool.local-gateway-route-table-id@ - The ID of the local
+--     gateway route table.
 --
--- -   @coip-pool.local-gateway-route-table-id@
+-- -   @coip-pool.pool-id@ - The ID of the address pool.
 --
 -- 'dryRun', 'describeCoipPools_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -123,11 +125,12 @@ describeCoipPools_nextToken = Lens.lens (\DescribeCoipPools' {nextToken} -> next
 describeCoipPools_poolIds :: Lens.Lens' DescribeCoipPools (Prelude.Maybe [Prelude.Text])
 describeCoipPools_poolIds = Lens.lens (\DescribeCoipPools' {poolIds} -> poolIds) (\s@DescribeCoipPools' {} a -> s {poolIds = a} :: DescribeCoipPools) Prelude.. Lens.mapping Lens.coerced
 
--- | The filters. The following are the possible values:
+-- | One or more filters.
 --
--- -   @coip-pool.pool-id@
+-- -   @coip-pool.local-gateway-route-table-id@ - The ID of the local
+--     gateway route table.
 --
--- -   @coip-pool.local-gateway-route-table-id@
+-- -   @coip-pool.pool-id@ - The ID of the address pool.
 describeCoipPools_filters :: Lens.Lens' DescribeCoipPools (Prelude.Maybe [Filter])
 describeCoipPools_filters = Lens.lens (\DescribeCoipPools' {filters} -> filters) (\s@DescribeCoipPools' {} a -> s {filters = a} :: DescribeCoipPools) Prelude.. Lens.mapping Lens.coerced
 

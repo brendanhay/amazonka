@@ -32,6 +32,8 @@ import qualified Amazonka.Prelude as Prelude
 data KeyPairInfo = KeyPairInfo'
   { -- | Any tags applied to the key pair.
     tags :: Prelude.Maybe [Tag],
+    -- | The public key material.
+    publicKey :: Prelude.Maybe Prelude.Text,
     -- | If you used CreateKeyPair to create the key pair:
     --
     -- -   For RSA key pairs, the key fingerprint is the SHA-1 digest of the
@@ -54,6 +56,16 @@ data KeyPairInfo = KeyPairInfo'
     keyType :: Prelude.Maybe KeyType,
     -- | The name of the key pair.
     keyName :: Prelude.Maybe Prelude.Text,
+    -- | If you used Amazon EC2 to create the key pair, this is the date and time
+    -- when the key was created, in
+    -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 date-time format>,
+    -- in the UTC time zone.
+    --
+    -- If you imported an existing key pair to Amazon EC2, this is the date and
+    -- time the key was imported, in
+    -- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 date-time format>,
+    -- in the UTC time zone.
+    createTime :: Prelude.Maybe Core.ISO8601,
     -- | The ID of the key pair.
     keyPairId :: Prelude.Maybe Prelude.Text
   }
@@ -68,6 +80,8 @@ data KeyPairInfo = KeyPairInfo'
 -- for backwards compatibility:
 --
 -- 'tags', 'keyPairInfo_tags' - Any tags applied to the key pair.
+--
+-- 'publicKey', 'keyPairInfo_publicKey' - The public key material.
 --
 -- 'keyFingerprint', 'keyPairInfo_keyFingerprint' - If you used CreateKeyPair to create the key pair:
 --
@@ -91,21 +105,37 @@ data KeyPairInfo = KeyPairInfo'
 --
 -- 'keyName', 'keyPairInfo_keyName' - The name of the key pair.
 --
+-- 'createTime', 'keyPairInfo_createTime' - If you used Amazon EC2 to create the key pair, this is the date and time
+-- when the key was created, in
+-- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 date-time format>,
+-- in the UTC time zone.
+--
+-- If you imported an existing key pair to Amazon EC2, this is the date and
+-- time the key was imported, in
+-- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 date-time format>,
+-- in the UTC time zone.
+--
 -- 'keyPairId', 'keyPairInfo_keyPairId' - The ID of the key pair.
 newKeyPairInfo ::
   KeyPairInfo
 newKeyPairInfo =
   KeyPairInfo'
     { tags = Prelude.Nothing,
+      publicKey = Prelude.Nothing,
       keyFingerprint = Prelude.Nothing,
       keyType = Prelude.Nothing,
       keyName = Prelude.Nothing,
+      createTime = Prelude.Nothing,
       keyPairId = Prelude.Nothing
     }
 
 -- | Any tags applied to the key pair.
 keyPairInfo_tags :: Lens.Lens' KeyPairInfo (Prelude.Maybe [Tag])
 keyPairInfo_tags = Lens.lens (\KeyPairInfo' {tags} -> tags) (\s@KeyPairInfo' {} a -> s {tags = a} :: KeyPairInfo) Prelude.. Lens.mapping Lens.coerced
+
+-- | The public key material.
+keyPairInfo_publicKey :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.Text)
+keyPairInfo_publicKey = Lens.lens (\KeyPairInfo' {publicKey} -> publicKey) (\s@KeyPairInfo' {} a -> s {publicKey = a} :: KeyPairInfo)
 
 -- | If you used CreateKeyPair to create the key pair:
 --
@@ -135,6 +165,18 @@ keyPairInfo_keyType = Lens.lens (\KeyPairInfo' {keyType} -> keyType) (\s@KeyPair
 keyPairInfo_keyName :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.Text)
 keyPairInfo_keyName = Lens.lens (\KeyPairInfo' {keyName} -> keyName) (\s@KeyPairInfo' {} a -> s {keyName = a} :: KeyPairInfo)
 
+-- | If you used Amazon EC2 to create the key pair, this is the date and time
+-- when the key was created, in
+-- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 date-time format>,
+-- in the UTC time zone.
+--
+-- If you imported an existing key pair to Amazon EC2, this is the date and
+-- time the key was imported, in
+-- <https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601 date-time format>,
+-- in the UTC time zone.
+keyPairInfo_createTime :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.UTCTime)
+keyPairInfo_createTime = Lens.lens (\KeyPairInfo' {createTime} -> createTime) (\s@KeyPairInfo' {} a -> s {createTime = a} :: KeyPairInfo) Prelude.. Lens.mapping Core._Time
+
 -- | The ID of the key pair.
 keyPairInfo_keyPairId :: Lens.Lens' KeyPairInfo (Prelude.Maybe Prelude.Text)
 keyPairInfo_keyPairId = Lens.lens (\KeyPairInfo' {keyPairId} -> keyPairId) (\s@KeyPairInfo' {} a -> s {keyPairId = a} :: KeyPairInfo)
@@ -145,23 +187,29 @@ instance Core.FromXML KeyPairInfo where
       Prelude.<$> ( x Core..@? "tagSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "publicKey")
       Prelude.<*> (x Core..@? "keyFingerprint")
       Prelude.<*> (x Core..@? "keyType")
       Prelude.<*> (x Core..@? "keyName")
+      Prelude.<*> (x Core..@? "createTime")
       Prelude.<*> (x Core..@? "keyPairId")
 
 instance Prelude.Hashable KeyPairInfo where
   hashWithSalt _salt KeyPairInfo' {..} =
     _salt `Prelude.hashWithSalt` tags
+      `Prelude.hashWithSalt` publicKey
       `Prelude.hashWithSalt` keyFingerprint
       `Prelude.hashWithSalt` keyType
       `Prelude.hashWithSalt` keyName
+      `Prelude.hashWithSalt` createTime
       `Prelude.hashWithSalt` keyPairId
 
 instance Prelude.NFData KeyPairInfo where
   rnf KeyPairInfo' {..} =
     Prelude.rnf tags
+      `Prelude.seq` Prelude.rnf publicKey
       `Prelude.seq` Prelude.rnf keyFingerprint
       `Prelude.seq` Prelude.rnf keyType
       `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf createTime
       `Prelude.seq` Prelude.rnf keyPairId

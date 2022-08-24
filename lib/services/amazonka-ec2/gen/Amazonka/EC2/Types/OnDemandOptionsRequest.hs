@@ -31,24 +31,38 @@ import qualified Amazonka.Prelude as Prelude
 -- /See:/ 'newOnDemandOptionsRequest' smart constructor.
 data OnDemandOptionsRequest = OnDemandOptionsRequest'
   { -- | Indicates that the fleet uses a single instance type to launch all
-    -- On-Demand Instances in the fleet. Supported only for fleets of type
-    -- @instant@.
+    -- On-Demand Instances in the fleet.
+    --
+    -- Supported only for fleets of type @instant@.
     singleInstanceType :: Prelude.Maybe Prelude.Bool,
     -- | Indicates that the fleet launches all On-Demand Instances into a single
-    -- Availability Zone. Supported only for fleets of type @instant@.
+    -- Availability Zone.
+    --
+    -- Supported only for fleets of type @instant@.
     singleAvailabilityZone :: Prelude.Maybe Prelude.Bool,
     -- | The minimum target capacity for On-Demand Instances in the fleet. If the
     -- minimum target capacity is not reached, the fleet launches no instances.
+    --
+    -- Supported only for fleets of type @instant@.
+    --
+    -- At least one of the following must be specified:
+    -- @SingleAvailabilityZone@ | @SingleInstanceType@
     minTargetCapacity :: Prelude.Maybe Prelude.Int,
     -- | The strategy for using unused Capacity Reservations for fulfilling
-    -- On-Demand capacity. Supported only for fleets of type @instant@.
+    -- On-Demand capacity.
+    --
+    -- Supported only for fleets of type @instant@.
     capacityReservationOptions :: Prelude.Maybe CapacityReservationOptionsRequest,
-    -- | The order of the launch template overrides to use in fulfilling
-    -- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price
-    -- to determine the order, launching the lowest price first. If you specify
-    -- @prioritized@, EC2 Fleet uses the priority that you assigned to each
-    -- launch template override, launching the highest priority first. If you
-    -- do not specify a value, EC2 Fleet defaults to @lowest-price@.
+    -- | The strategy that determines the order of the launch template overrides
+    -- to use in fulfilling On-Demand capacity.
+    --
+    -- @lowest-price@ - EC2 Fleet uses price to determine the order, launching
+    -- the lowest price first.
+    --
+    -- @prioritized@ - EC2 Fleet uses the priority that you assigned to each
+    -- launch template override, launching the highest priority first.
+    --
+    -- Default: @lowest-price@
     allocationStrategy :: Prelude.Maybe FleetOnDemandAllocationStrategy,
     -- | The maximum amount per hour for On-Demand Instances that you\'re willing
     -- to pay.
@@ -65,24 +79,38 @@ data OnDemandOptionsRequest = OnDemandOptionsRequest'
 -- for backwards compatibility:
 --
 -- 'singleInstanceType', 'onDemandOptionsRequest_singleInstanceType' - Indicates that the fleet uses a single instance type to launch all
--- On-Demand Instances in the fleet. Supported only for fleets of type
--- @instant@.
+-- On-Demand Instances in the fleet.
+--
+-- Supported only for fleets of type @instant@.
 --
 -- 'singleAvailabilityZone', 'onDemandOptionsRequest_singleAvailabilityZone' - Indicates that the fleet launches all On-Demand Instances into a single
--- Availability Zone. Supported only for fleets of type @instant@.
+-- Availability Zone.
+--
+-- Supported only for fleets of type @instant@.
 --
 -- 'minTargetCapacity', 'onDemandOptionsRequest_minTargetCapacity' - The minimum target capacity for On-Demand Instances in the fleet. If the
 -- minimum target capacity is not reached, the fleet launches no instances.
 --
--- 'capacityReservationOptions', 'onDemandOptionsRequest_capacityReservationOptions' - The strategy for using unused Capacity Reservations for fulfilling
--- On-Demand capacity. Supported only for fleets of type @instant@.
+-- Supported only for fleets of type @instant@.
 --
--- 'allocationStrategy', 'onDemandOptionsRequest_allocationStrategy' - The order of the launch template overrides to use in fulfilling
--- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price
--- to determine the order, launching the lowest price first. If you specify
--- @prioritized@, EC2 Fleet uses the priority that you assigned to each
--- launch template override, launching the highest priority first. If you
--- do not specify a value, EC2 Fleet defaults to @lowest-price@.
+-- At least one of the following must be specified:
+-- @SingleAvailabilityZone@ | @SingleInstanceType@
+--
+-- 'capacityReservationOptions', 'onDemandOptionsRequest_capacityReservationOptions' - The strategy for using unused Capacity Reservations for fulfilling
+-- On-Demand capacity.
+--
+-- Supported only for fleets of type @instant@.
+--
+-- 'allocationStrategy', 'onDemandOptionsRequest_allocationStrategy' - The strategy that determines the order of the launch template overrides
+-- to use in fulfilling On-Demand capacity.
+--
+-- @lowest-price@ - EC2 Fleet uses price to determine the order, launching
+-- the lowest price first.
+--
+-- @prioritized@ - EC2 Fleet uses the priority that you assigned to each
+-- launch template override, launching the highest priority first.
+--
+-- Default: @lowest-price@
 --
 -- 'maxTotalPrice', 'onDemandOptionsRequest_maxTotalPrice' - The maximum amount per hour for On-Demand Instances that you\'re willing
 -- to pay.
@@ -100,32 +128,46 @@ newOnDemandOptionsRequest =
     }
 
 -- | Indicates that the fleet uses a single instance type to launch all
--- On-Demand Instances in the fleet. Supported only for fleets of type
--- @instant@.
+-- On-Demand Instances in the fleet.
+--
+-- Supported only for fleets of type @instant@.
 onDemandOptionsRequest_singleInstanceType :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe Prelude.Bool)
 onDemandOptionsRequest_singleInstanceType = Lens.lens (\OnDemandOptionsRequest' {singleInstanceType} -> singleInstanceType) (\s@OnDemandOptionsRequest' {} a -> s {singleInstanceType = a} :: OnDemandOptionsRequest)
 
 -- | Indicates that the fleet launches all On-Demand Instances into a single
--- Availability Zone. Supported only for fleets of type @instant@.
+-- Availability Zone.
+--
+-- Supported only for fleets of type @instant@.
 onDemandOptionsRequest_singleAvailabilityZone :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe Prelude.Bool)
 onDemandOptionsRequest_singleAvailabilityZone = Lens.lens (\OnDemandOptionsRequest' {singleAvailabilityZone} -> singleAvailabilityZone) (\s@OnDemandOptionsRequest' {} a -> s {singleAvailabilityZone = a} :: OnDemandOptionsRequest)
 
 -- | The minimum target capacity for On-Demand Instances in the fleet. If the
 -- minimum target capacity is not reached, the fleet launches no instances.
+--
+-- Supported only for fleets of type @instant@.
+--
+-- At least one of the following must be specified:
+-- @SingleAvailabilityZone@ | @SingleInstanceType@
 onDemandOptionsRequest_minTargetCapacity :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe Prelude.Int)
 onDemandOptionsRequest_minTargetCapacity = Lens.lens (\OnDemandOptionsRequest' {minTargetCapacity} -> minTargetCapacity) (\s@OnDemandOptionsRequest' {} a -> s {minTargetCapacity = a} :: OnDemandOptionsRequest)
 
 -- | The strategy for using unused Capacity Reservations for fulfilling
--- On-Demand capacity. Supported only for fleets of type @instant@.
+-- On-Demand capacity.
+--
+-- Supported only for fleets of type @instant@.
 onDemandOptionsRequest_capacityReservationOptions :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe CapacityReservationOptionsRequest)
 onDemandOptionsRequest_capacityReservationOptions = Lens.lens (\OnDemandOptionsRequest' {capacityReservationOptions} -> capacityReservationOptions) (\s@OnDemandOptionsRequest' {} a -> s {capacityReservationOptions = a} :: OnDemandOptionsRequest)
 
--- | The order of the launch template overrides to use in fulfilling
--- On-Demand capacity. If you specify @lowest-price@, EC2 Fleet uses price
--- to determine the order, launching the lowest price first. If you specify
--- @prioritized@, EC2 Fleet uses the priority that you assigned to each
--- launch template override, launching the highest priority first. If you
--- do not specify a value, EC2 Fleet defaults to @lowest-price@.
+-- | The strategy that determines the order of the launch template overrides
+-- to use in fulfilling On-Demand capacity.
+--
+-- @lowest-price@ - EC2 Fleet uses price to determine the order, launching
+-- the lowest price first.
+--
+-- @prioritized@ - EC2 Fleet uses the priority that you assigned to each
+-- launch template override, launching the highest priority first.
+--
+-- Default: @lowest-price@
 onDemandOptionsRequest_allocationStrategy :: Lens.Lens' OnDemandOptionsRequest (Prelude.Maybe FleetOnDemandAllocationStrategy)
 onDemandOptionsRequest_allocationStrategy = Lens.lens (\OnDemandOptionsRequest' {allocationStrategy} -> allocationStrategy) (\s@OnDemandOptionsRequest' {} a -> s {allocationStrategy = a} :: OnDemandOptionsRequest)
 

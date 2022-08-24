@@ -22,7 +22,9 @@ module Amazonka.EC2.Types.SnapshotState
       ( ..,
         SnapshotState_Completed,
         SnapshotState_Error,
-        SnapshotState_Pending
+        SnapshotState_Pending,
+        SnapshotState_Recoverable,
+        SnapshotState_Recovering
       ),
   )
 where
@@ -68,9 +70,17 @@ pattern SnapshotState_Error = SnapshotState' "error"
 pattern SnapshotState_Pending :: SnapshotState
 pattern SnapshotState_Pending = SnapshotState' "pending"
 
+pattern SnapshotState_Recoverable :: SnapshotState
+pattern SnapshotState_Recoverable = SnapshotState' "recoverable"
+
+pattern SnapshotState_Recovering :: SnapshotState
+pattern SnapshotState_Recovering = SnapshotState' "recovering"
+
 {-# COMPLETE
   SnapshotState_Completed,
   SnapshotState_Error,
   SnapshotState_Pending,
+  SnapshotState_Recoverable,
+  SnapshotState_Recovering,
   SnapshotState'
   #-}

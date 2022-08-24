@@ -20,30 +20,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a VPC endpoint service configuration to which service consumers
--- (Amazon Web Services accounts, IAM users, and IAM roles) can connect.
+-- Creates a VPC endpoint service to which service consumers (Amazon Web
+-- Services accounts, IAM users, and IAM roles) can connect.
 --
--- To create an endpoint service configuration, you must first create one
--- of the following for your service:
+-- Before you create an endpoint service, you must create one of the
+-- following for your service:
 --
 -- -   A
---     <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html Network Load Balancer>.
+--     <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/ Network Load Balancer>.
 --     Service consumers connect to your service using an interface
 --     endpoint.
 --
 -- -   A
---     <https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/introduction.html Gateway Load Balancer>.
+--     <https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/ Gateway Load Balancer>.
 --     Service consumers connect to your service using a Gateway Load
 --     Balancer endpoint.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html VPC Endpoint Services>
--- in the /Amazon Virtual Private Cloud User Guide/.
---
 -- If you set the private DNS name, you must prove that you own the private
--- DNS domain name. For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html VPC Endpoint Service Private DNS Name Verification>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- DNS domain name.
+--
+-- For more information, see the
+-- <https://docs.aws.amazon.com/vpc/latest/privatelink/ Amazon Web Services PrivateLink Guide>.
 module Amazonka.EC2.CreateVpcEndpointServiceConfiguration
   ( -- * Creating a Request
     CreateVpcEndpointServiceConfiguration (..),
@@ -53,6 +50,7 @@ module Amazonka.EC2.CreateVpcEndpointServiceConfiguration
     createVpcEndpointServiceConfiguration_clientToken,
     createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns,
     createVpcEndpointServiceConfiguration_acceptanceRequired,
+    createVpcEndpointServiceConfiguration_supportedIpAddressTypes,
     createVpcEndpointServiceConfiguration_dryRun,
     createVpcEndpointServiceConfiguration_networkLoadBalancerArns,
     createVpcEndpointServiceConfiguration_privateDnsName,
@@ -85,9 +83,11 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
     -- | The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
     gatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether requests from service consumers to create an endpoint
-    -- to your service must be accepted. To accept a request, use
-    -- AcceptVpcEndpointConnections.
+    -- to your service must be accepted manually.
     acceptanceRequired :: Prelude.Maybe Prelude.Bool,
+    -- | The supported IP address types. The possible values are @ipv4@ and
+    -- @ipv6@.
+    supportedIpAddressTypes :: Prelude.Maybe [Prelude.Text],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
     -- the required permissions, the error response is @DryRunOperation@.
@@ -119,8 +119,10 @@ data CreateVpcEndpointServiceConfiguration = CreateVpcEndpointServiceConfigurati
 -- 'gatewayLoadBalancerArns', 'createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.
 --
 -- 'acceptanceRequired', 'createVpcEndpointServiceConfiguration_acceptanceRequired' - Indicates whether requests from service consumers to create an endpoint
--- to your service must be accepted. To accept a request, use
--- AcceptVpcEndpointConnections.
+-- to your service must be accepted manually.
+--
+-- 'supportedIpAddressTypes', 'createVpcEndpointServiceConfiguration_supportedIpAddressTypes' - The supported IP address types. The possible values are @ipv4@ and
+-- @ipv6@.
 --
 -- 'dryRun', 'createVpcEndpointServiceConfiguration_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -143,6 +145,8 @@ newCreateVpcEndpointServiceConfiguration =
       gatewayLoadBalancerArns =
         Prelude.Nothing,
       acceptanceRequired = Prelude.Nothing,
+      supportedIpAddressTypes =
+        Prelude.Nothing,
       dryRun = Prelude.Nothing,
       networkLoadBalancerArns =
         Prelude.Nothing,
@@ -161,10 +165,14 @@ createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns :: Lens.Lens' Crea
 createVpcEndpointServiceConfiguration_gatewayLoadBalancerArns = Lens.lens (\CreateVpcEndpointServiceConfiguration' {gatewayLoadBalancerArns} -> gatewayLoadBalancerArns) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {gatewayLoadBalancerArns = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Indicates whether requests from service consumers to create an endpoint
--- to your service must be accepted. To accept a request, use
--- AcceptVpcEndpointConnections.
+-- to your service must be accepted manually.
 createVpcEndpointServiceConfiguration_acceptanceRequired :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Bool)
 createVpcEndpointServiceConfiguration_acceptanceRequired = Lens.lens (\CreateVpcEndpointServiceConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {acceptanceRequired = a} :: CreateVpcEndpointServiceConfiguration)
+
+-- | The supported IP address types. The possible values are @ipv4@ and
+-- @ipv6@.
+createVpcEndpointServiceConfiguration_supportedIpAddressTypes :: Lens.Lens' CreateVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+createVpcEndpointServiceConfiguration_supportedIpAddressTypes = Lens.lens (\CreateVpcEndpointServiceConfiguration' {supportedIpAddressTypes} -> supportedIpAddressTypes) (\s@CreateVpcEndpointServiceConfiguration' {} a -> s {supportedIpAddressTypes = a} :: CreateVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -215,6 +223,7 @@ instance
       _salt `Prelude.hashWithSalt` clientToken
         `Prelude.hashWithSalt` gatewayLoadBalancerArns
         `Prelude.hashWithSalt` acceptanceRequired
+        `Prelude.hashWithSalt` supportedIpAddressTypes
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` networkLoadBalancerArns
         `Prelude.hashWithSalt` privateDnsName
@@ -228,6 +237,7 @@ instance
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf gatewayLoadBalancerArns
       `Prelude.seq` Prelude.rnf acceptanceRequired
+      `Prelude.seq` Prelude.rnf supportedIpAddressTypes
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf networkLoadBalancerArns
       `Prelude.seq` Prelude.rnf privateDnsName
@@ -263,6 +273,10 @@ instance
               Prelude.<$> gatewayLoadBalancerArns
           ),
         "AcceptanceRequired" Core.=: acceptanceRequired,
+        Core.toQuery
+          ( Core.toQueryList "SupportedIpAddressType"
+              Prelude.<$> supportedIpAddressTypes
+          ),
         "DryRun" Core.=: dryRun,
         Core.toQuery
           ( Core.toQueryList "NetworkLoadBalancerArn"

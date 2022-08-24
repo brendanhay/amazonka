@@ -24,16 +24,20 @@ import Amazonka.EC2.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the Amazon EC2 launch template and the launch template version
--- that can be used by an EC2 Fleet to configure Amazon EC2 instances. For
--- information about launch templates, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launching an instance from a launch template>
+-- | The Amazon EC2 launch template that can be used by an EC2 Fleet to
+-- configure Amazon EC2 instances. You must specify either the ID or name
+-- of the launch template in the request, but not both.
+--
+-- For information about launch templates, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html Launch an instance from a launch template>
 -- in the /Amazon EC2 User Guide/.
 --
 -- /See:/ 'newFleetLaunchTemplateSpecificationRequest' smart constructor.
 data FleetLaunchTemplateSpecificationRequest = FleetLaunchTemplateSpecificationRequest'
-  { -- | The ID of the launch template. If you specify the template ID, you
-    -- can\'t specify the template name.
+  { -- | The ID of the launch template.
+    --
+    -- You must specify the @LaunchTemplateId@ or the @LaunchTemplateName@, but
+    -- not both.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
     -- | The launch template version number, @$Latest@, or @$Default@. You must
     -- specify a value, otherwise the request fails.
@@ -44,8 +48,10 @@ data FleetLaunchTemplateSpecificationRequest = FleetLaunchTemplateSpecificationR
     -- If the value is @$Default@, Amazon EC2 uses the default version of the
     -- launch template.
     version :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template. If you specify the template name, you
-    -- can\'t specify the template ID.
+    -- | The name of the launch template.
+    --
+    -- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
+    -- not both.
     launchTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -58,8 +64,10 @@ data FleetLaunchTemplateSpecificationRequest = FleetLaunchTemplateSpecificationR
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'launchTemplateId', 'fleetLaunchTemplateSpecificationRequest_launchTemplateId' - The ID of the launch template. If you specify the template ID, you
--- can\'t specify the template name.
+-- 'launchTemplateId', 'fleetLaunchTemplateSpecificationRequest_launchTemplateId' - The ID of the launch template.
+--
+-- You must specify the @LaunchTemplateId@ or the @LaunchTemplateName@, but
+-- not both.
 --
 -- 'version', 'fleetLaunchTemplateSpecificationRequest_version' - The launch template version number, @$Latest@, or @$Default@. You must
 -- specify a value, otherwise the request fails.
@@ -70,8 +78,10 @@ data FleetLaunchTemplateSpecificationRequest = FleetLaunchTemplateSpecificationR
 -- If the value is @$Default@, Amazon EC2 uses the default version of the
 -- launch template.
 --
--- 'launchTemplateName', 'fleetLaunchTemplateSpecificationRequest_launchTemplateName' - The name of the launch template. If you specify the template name, you
--- can\'t specify the template ID.
+-- 'launchTemplateName', 'fleetLaunchTemplateSpecificationRequest_launchTemplateName' - The name of the launch template.
+--
+-- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
+-- not both.
 newFleetLaunchTemplateSpecificationRequest ::
   FleetLaunchTemplateSpecificationRequest
 newFleetLaunchTemplateSpecificationRequest =
@@ -83,8 +93,10 @@ newFleetLaunchTemplateSpecificationRequest =
         Prelude.Nothing
     }
 
--- | The ID of the launch template. If you specify the template ID, you
--- can\'t specify the template name.
+-- | The ID of the launch template.
+--
+-- You must specify the @LaunchTemplateId@ or the @LaunchTemplateName@, but
+-- not both.
 fleetLaunchTemplateSpecificationRequest_launchTemplateId :: Lens.Lens' FleetLaunchTemplateSpecificationRequest (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateSpecificationRequest_launchTemplateId = Lens.lens (\FleetLaunchTemplateSpecificationRequest' {launchTemplateId} -> launchTemplateId) (\s@FleetLaunchTemplateSpecificationRequest' {} a -> s {launchTemplateId = a} :: FleetLaunchTemplateSpecificationRequest)
 
@@ -99,8 +111,10 @@ fleetLaunchTemplateSpecificationRequest_launchTemplateId = Lens.lens (\FleetLaun
 fleetLaunchTemplateSpecificationRequest_version :: Lens.Lens' FleetLaunchTemplateSpecificationRequest (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateSpecificationRequest_version = Lens.lens (\FleetLaunchTemplateSpecificationRequest' {version} -> version) (\s@FleetLaunchTemplateSpecificationRequest' {} a -> s {version = a} :: FleetLaunchTemplateSpecificationRequest)
 
--- | The name of the launch template. If you specify the template name, you
--- can\'t specify the template ID.
+-- | The name of the launch template.
+--
+-- You must specify the @LaunchTemplateName@ or the @LaunchTemplateId@, but
+-- not both.
 fleetLaunchTemplateSpecificationRequest_launchTemplateName :: Lens.Lens' FleetLaunchTemplateSpecificationRequest (Prelude.Maybe Prelude.Text)
 fleetLaunchTemplateSpecificationRequest_launchTemplateName = Lens.lens (\FleetLaunchTemplateSpecificationRequest' {launchTemplateName} -> launchTemplateName) (\s@FleetLaunchTemplateSpecificationRequest' {} a -> s {launchTemplateName = a} :: FleetLaunchTemplateSpecificationRequest)
 

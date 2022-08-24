@@ -27,7 +27,7 @@
 -- subnet.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html Launching an EC2 Fleet>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet.html EC2 Fleet>
 -- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.CreateFleet
   ( -- * Creating a Request
@@ -77,7 +77,7 @@ data CreateFleet = CreateFleet'
     excessCapacityTerminationPolicy :: Prelude.Maybe FleetExcessCapacityTerminationPolicy,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
     -- | The fleet type. The default value is @maintain@.
     --
@@ -95,7 +95,7 @@ data CreateFleet = CreateFleet'
     --     could not be launched.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type EC2 Fleet request types>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html EC2 Fleet request types>
     -- in the /Amazon EC2 User Guide/.
     type' :: Prelude.Maybe FleetType,
     -- | Describes the configuration of On-Demand Instances in an EC2 Fleet.
@@ -159,7 +159,7 @@ data CreateFleet = CreateFleet'
 --
 -- 'clientToken', 'createFleet_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
 -- 'type'', 'createFleet_type' - The fleet type. The default value is @maintain@.
 --
@@ -177,7 +177,7 @@ data CreateFleet = CreateFleet'
 --     could not be launched.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type EC2 Fleet request types>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html EC2 Fleet request types>
 -- in the /Amazon EC2 User Guide/.
 --
 -- 'onDemandOptions', 'createFleet_onDemandOptions' - Describes the configuration of On-Demand Instances in an EC2 Fleet.
@@ -255,7 +255,7 @@ createFleet_excessCapacityTerminationPolicy = Lens.lens (\CreateFleet' {excessCa
 
 -- | Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 createFleet_clientToken :: Lens.Lens' CreateFleet (Prelude.Maybe Prelude.Text)
 createFleet_clientToken = Lens.lens (\CreateFleet' {clientToken} -> clientToken) (\s@CreateFleet' {} a -> s {clientToken = a} :: CreateFleet)
 
@@ -275,7 +275,7 @@ createFleet_clientToken = Lens.lens (\CreateFleet' {clientToken} -> clientToken)
 --     could not be launched.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type EC2 Fleet request types>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html EC2 Fleet request types>
 -- in the /Amazon EC2 User Guide/.
 createFleet_type :: Lens.Lens' CreateFleet (Prelude.Maybe FleetType)
 createFleet_type = Lens.lens (\CreateFleet' {type'} -> type') (\s@CreateFleet' {} a -> s {type' = a} :: CreateFleet)

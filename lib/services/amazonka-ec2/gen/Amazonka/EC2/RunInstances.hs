@@ -79,6 +79,11 @@
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html What to do if an instance immediately terminates>,
 -- and
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html Troubleshooting connecting to your instance>.
+--
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.RunInstances
   ( -- * Creating a Request
     RunInstances (..),
@@ -108,6 +113,8 @@ module Amazonka.EC2.RunInstances
     runInstances_securityGroups,
     runInstances_ramdiskId,
     runInstances_privateIpAddress,
+    runInstances_maintenanceOptions,
+    runInstances_privateDnsNameOptions,
     runInstances_keyName,
     runInstances_licenseSpecifications,
     runInstances_kernelId,
@@ -115,6 +122,7 @@ module Amazonka.EC2.RunInstances
     runInstances_tagSpecifications,
     runInstances_cpuOptions,
     runInstances_ipv6Addresses,
+    runInstances_disableApiStop,
     runInstances_elasticGpuSpecification,
     runInstances_imageId,
     runInstances_networkInterfaces,
@@ -181,15 +189,15 @@ data RunInstances = RunInstances'
     --
     -- Constraints: Maximum 64 ASCII characters
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The user data to make available to the instance. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running commands on your Linux instance at launch>
-    -- (Linux) and
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data>
-    -- (Windows). If you are using a command line tool, base64-encoding is
-    -- performed for you, and you can load the text from a file. Otherwise, you
-    -- must provide base64-encoded text. User data is limited to 16 KB.
-    userData :: Prelude.Maybe Prelude.Text,
+    -- | The user data script to make available to the instance. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Run commands on your Linux instance at launch>
+    -- and
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html Run commands on your Windows instance at launch>.
+    -- If you are using a command line tool, base64-encoding is performed for
+    -- you, and you can load the text from a file. Otherwise, you must provide
+    -- base64-encoded text. User data is limited to 16 KB.
+    userData :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Reserved.
     additionalInfo :: Prelude.Maybe Prelude.Text,
     -- | The credit option for CPU usage of the burstable performance instance.
@@ -200,7 +208,8 @@ data RunInstances = RunInstances'
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html Burstable performance instances>
     -- in the /Amazon EC2 User Guide/.
     --
-    -- Default: @standard@ (T2 instances) or @unlimited@ (T3\/T3a instances)
+    -- Default: @standard@ (T2 instances) or @unlimited@ (T3\/T3a\/T4g
+    -- instances)
     --
     -- For T3 instances with @host@ tenancy, only @standard@ is supported.
     creditSpecification :: Prelude.Maybe CreditSpecificationRequest,
@@ -296,6 +305,11 @@ data RunInstances = RunInstances'
     -- You cannot specify this option and the network interfaces option in the
     -- same request.
     privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | The maintenance and recovery options for the instance.
+    maintenanceOptions :: Prelude.Maybe InstanceMaintenanceOptionsRequest,
+    -- | The options for the instance hostname. The default values are inherited
+    -- from the subnet.
+    privateDnsNameOptions :: Prelude.Maybe PrivateDnsNameOptionsRequest,
     -- | The name of the key pair. You can create a key pair using
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair>
     -- or
@@ -324,14 +338,26 @@ data RunInstances = RunInstances'
     --
     -- Default: @false@
     disableApiTermination :: Prelude.Maybe Prelude.Bool,
-    -- | The tags to apply to the resources during launch. You can only tag
-    -- instances and volumes on launch. The specified tags are applied to all
-    -- instances or volumes that are created during launch. To tag a resource
-    -- after it has been created, see
+    -- | The tags to apply to the resources that are created during instance
+    -- launch.
+    --
+    -- You can specify tags for the following resources only:
+    --
+    -- -   Instances
+    --
+    -- -   Volumes
+    --
+    -- -   Elastic graphics
+    --
+    -- -   Spot Instance requests
+    --
+    -- -   Network interfaces
+    --
+    -- To tag a resource after it has been created, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The CPU options for the instance. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU options>
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimize CPU options>
     -- in the /Amazon EC2 User Guide/.
     cpuOptions :: Prelude.Maybe CpuOptionsRequest,
     -- | [EC2-VPC] The IPv6 addresses from the range of the subnet to associate
@@ -343,6 +369,10 @@ data RunInstances = RunInstances'
     -- You cannot specify this option and the network interfaces option in the
     -- same request.
     ipv6Addresses :: Prelude.Maybe [InstanceIpv6Address],
+    -- | Indicates whether an instance is enabled for stop protection. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>.
+    disableApiStop :: Prelude.Maybe Prelude.Bool,
     -- | An elastic GPU to associate with the instance. An Elastic GPU is a GPU
     -- resource that you can attach to your Windows instance to accelerate the
     -- graphics performance of your applications. For more information, see
@@ -388,7 +418,7 @@ data RunInstances = RunInstances'
     -- in the Amazon EC2 General FAQ.
     minCount :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'RunInstances' with all optional fields omitted.
@@ -434,14 +464,14 @@ data RunInstances = RunInstances'
 --
 -- Constraints: Maximum 64 ASCII characters
 --
--- 'userData', 'runInstances_userData' - The user data to make available to the instance. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running commands on your Linux instance at launch>
--- (Linux) and
--- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data>
--- (Windows). If you are using a command line tool, base64-encoding is
--- performed for you, and you can load the text from a file. Otherwise, you
--- must provide base64-encoded text. User data is limited to 16 KB.
+-- 'userData', 'runInstances_userData' - The user data script to make available to the instance. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Run commands on your Linux instance at launch>
+-- and
+-- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html Run commands on your Windows instance at launch>.
+-- If you are using a command line tool, base64-encoding is performed for
+-- you, and you can load the text from a file. Otherwise, you must provide
+-- base64-encoded text. User data is limited to 16 KB.
 --
 -- 'additionalInfo', 'runInstances_additionalInfo' - Reserved.
 --
@@ -453,7 +483,8 @@ data RunInstances = RunInstances'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html Burstable performance instances>
 -- in the /Amazon EC2 User Guide/.
 --
--- Default: @standard@ (T2 instances) or @unlimited@ (T3\/T3a instances)
+-- Default: @standard@ (T2 instances) or @unlimited@ (T3\/T3a\/T4g
+-- instances)
 --
 -- For T3 instances with @host@ tenancy, only @standard@ is supported.
 --
@@ -549,6 +580,11 @@ data RunInstances = RunInstances'
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
 --
+-- 'maintenanceOptions', 'runInstances_maintenanceOptions' - The maintenance and recovery options for the instance.
+--
+-- 'privateDnsNameOptions', 'runInstances_privateDnsNameOptions' - The options for the instance hostname. The default values are inherited
+-- from the subnet.
+--
 -- 'keyName', 'runInstances_keyName' - The name of the key pair. You can create a key pair using
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair>
 -- or
@@ -577,14 +613,26 @@ data RunInstances = RunInstances'
 --
 -- Default: @false@
 --
--- 'tagSpecifications', 'runInstances_tagSpecifications' - The tags to apply to the resources during launch. You can only tag
--- instances and volumes on launch. The specified tags are applied to all
--- instances or volumes that are created during launch. To tag a resource
--- after it has been created, see
+-- 'tagSpecifications', 'runInstances_tagSpecifications' - The tags to apply to the resources that are created during instance
+-- launch.
+--
+-- You can specify tags for the following resources only:
+--
+-- -   Instances
+--
+-- -   Volumes
+--
+-- -   Elastic graphics
+--
+-- -   Spot Instance requests
+--
+-- -   Network interfaces
+--
+-- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
 --
 -- 'cpuOptions', 'runInstances_cpuOptions' - The CPU options for the instance. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU options>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimize CPU options>
 -- in the /Amazon EC2 User Guide/.
 --
 -- 'ipv6Addresses', 'runInstances_ipv6Addresses' - [EC2-VPC] The IPv6 addresses from the range of the subnet to associate
@@ -595,6 +643,10 @@ data RunInstances = RunInstances'
 --
 -- You cannot specify this option and the network interfaces option in the
 -- same request.
+--
+-- 'disableApiStop', 'runInstances_disableApiStop' - Indicates whether an instance is enabled for stop protection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>.
 --
 -- 'elasticGpuSpecification', 'runInstances_elasticGpuSpecification' - An elastic GPU to associate with the instance. An Elastic GPU is a GPU
 -- resource that you can attach to your Windows instance to accelerate the
@@ -670,6 +722,8 @@ newRunInstances pMaxCount_ pMinCount_ =
       securityGroups = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
       privateIpAddress = Prelude.Nothing,
+      maintenanceOptions = Prelude.Nothing,
+      privateDnsNameOptions = Prelude.Nothing,
       keyName = Prelude.Nothing,
       licenseSpecifications = Prelude.Nothing,
       kernelId = Prelude.Nothing,
@@ -677,6 +731,7 @@ newRunInstances pMaxCount_ pMinCount_ =
       tagSpecifications = Prelude.Nothing,
       cpuOptions = Prelude.Nothing,
       ipv6Addresses = Prelude.Nothing,
+      disableApiStop = Prelude.Nothing,
       elasticGpuSpecification = Prelude.Nothing,
       imageId = Prelude.Nothing,
       networkInterfaces = Prelude.Nothing,
@@ -734,16 +789,16 @@ runInstances_placement = Lens.lens (\RunInstances' {placement} -> placement) (\s
 runInstances_clientToken :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
 runInstances_clientToken = Lens.lens (\RunInstances' {clientToken} -> clientToken) (\s@RunInstances' {} a -> s {clientToken = a} :: RunInstances)
 
--- | The user data to make available to the instance. For more information,
--- see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Running commands on your Linux instance at launch>
--- (Linux) and
--- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data Adding User Data>
--- (Windows). If you are using a command line tool, base64-encoding is
--- performed for you, and you can load the text from a file. Otherwise, you
--- must provide base64-encoded text. User data is limited to 16 KB.
+-- | The user data script to make available to the instance. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html Run commands on your Linux instance at launch>
+-- and
+-- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html Run commands on your Windows instance at launch>.
+-- If you are using a command line tool, base64-encoding is performed for
+-- you, and you can load the text from a file. Otherwise, you must provide
+-- base64-encoded text. User data is limited to 16 KB.
 runInstances_userData :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
-runInstances_userData = Lens.lens (\RunInstances' {userData} -> userData) (\s@RunInstances' {} a -> s {userData = a} :: RunInstances)
+runInstances_userData = Lens.lens (\RunInstances' {userData} -> userData) (\s@RunInstances' {} a -> s {userData = a} :: RunInstances) Prelude.. Lens.mapping Core._Sensitive
 
 -- | Reserved.
 runInstances_additionalInfo :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
@@ -757,7 +812,8 @@ runInstances_additionalInfo = Lens.lens (\RunInstances' {additionalInfo} -> addi
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html Burstable performance instances>
 -- in the /Amazon EC2 User Guide/.
 --
--- Default: @standard@ (T2 instances) or @unlimited@ (T3\/T3a instances)
+-- Default: @standard@ (T2 instances) or @unlimited@ (T3\/T3a\/T4g
+-- instances)
 --
 -- For T3 instances with @host@ tenancy, only @standard@ is supported.
 runInstances_creditSpecification :: Lens.Lens' RunInstances (Prelude.Maybe CreditSpecificationRequest)
@@ -883,6 +939,15 @@ runInstances_ramdiskId = Lens.lens (\RunInstances' {ramdiskId} -> ramdiskId) (\s
 runInstances_privateIpAddress :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Text)
 runInstances_privateIpAddress = Lens.lens (\RunInstances' {privateIpAddress} -> privateIpAddress) (\s@RunInstances' {} a -> s {privateIpAddress = a} :: RunInstances)
 
+-- | The maintenance and recovery options for the instance.
+runInstances_maintenanceOptions :: Lens.Lens' RunInstances (Prelude.Maybe InstanceMaintenanceOptionsRequest)
+runInstances_maintenanceOptions = Lens.lens (\RunInstances' {maintenanceOptions} -> maintenanceOptions) (\s@RunInstances' {} a -> s {maintenanceOptions = a} :: RunInstances)
+
+-- | The options for the instance hostname. The default values are inherited
+-- from the subnet.
+runInstances_privateDnsNameOptions :: Lens.Lens' RunInstances (Prelude.Maybe PrivateDnsNameOptionsRequest)
+runInstances_privateDnsNameOptions = Lens.lens (\RunInstances' {privateDnsNameOptions} -> privateDnsNameOptions) (\s@RunInstances' {} a -> s {privateDnsNameOptions = a} :: RunInstances)
+
 -- | The name of the key pair. You can create a key pair using
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html CreateKeyPair>
 -- or
@@ -919,16 +984,28 @@ runInstances_kernelId = Lens.lens (\RunInstances' {kernelId} -> kernelId) (\s@Ru
 runInstances_disableApiTermination :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Bool)
 runInstances_disableApiTermination = Lens.lens (\RunInstances' {disableApiTermination} -> disableApiTermination) (\s@RunInstances' {} a -> s {disableApiTermination = a} :: RunInstances)
 
--- | The tags to apply to the resources during launch. You can only tag
--- instances and volumes on launch. The specified tags are applied to all
--- instances or volumes that are created during launch. To tag a resource
--- after it has been created, see
+-- | The tags to apply to the resources that are created during instance
+-- launch.
+--
+-- You can specify tags for the following resources only:
+--
+-- -   Instances
+--
+-- -   Volumes
+--
+-- -   Elastic graphics
+--
+-- -   Spot Instance requests
+--
+-- -   Network interfaces
+--
+-- To tag a resource after it has been created, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags>.
 runInstances_tagSpecifications :: Lens.Lens' RunInstances (Prelude.Maybe [TagSpecification])
 runInstances_tagSpecifications = Lens.lens (\RunInstances' {tagSpecifications} -> tagSpecifications) (\s@RunInstances' {} a -> s {tagSpecifications = a} :: RunInstances) Prelude.. Lens.mapping Lens.coerced
 
 -- | The CPU options for the instance. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimizing CPU options>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html Optimize CPU options>
 -- in the /Amazon EC2 User Guide/.
 runInstances_cpuOptions :: Lens.Lens' RunInstances (Prelude.Maybe CpuOptionsRequest)
 runInstances_cpuOptions = Lens.lens (\RunInstances' {cpuOptions} -> cpuOptions) (\s@RunInstances' {} a -> s {cpuOptions = a} :: RunInstances)
@@ -943,6 +1020,12 @@ runInstances_cpuOptions = Lens.lens (\RunInstances' {cpuOptions} -> cpuOptions) 
 -- same request.
 runInstances_ipv6Addresses :: Lens.Lens' RunInstances (Prelude.Maybe [InstanceIpv6Address])
 runInstances_ipv6Addresses = Lens.lens (\RunInstances' {ipv6Addresses} -> ipv6Addresses) (\s@RunInstances' {} a -> s {ipv6Addresses = a} :: RunInstances) Prelude.. Lens.mapping Lens.coerced
+
+-- | Indicates whether an instance is enabled for stop protection. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection Stop protection>.
+runInstances_disableApiStop :: Lens.Lens' RunInstances (Prelude.Maybe Prelude.Bool)
+runInstances_disableApiStop = Lens.lens (\RunInstances' {disableApiStop} -> disableApiStop) (\s@RunInstances' {} a -> s {disableApiStop = a} :: RunInstances)
 
 -- | An elastic GPU to associate with the instance. An Elastic GPU is a GPU
 -- resource that you can attach to your Windows instance to accelerate the
@@ -1033,6 +1116,8 @@ instance Prelude.Hashable RunInstances where
       `Prelude.hashWithSalt` securityGroups
       `Prelude.hashWithSalt` ramdiskId
       `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` maintenanceOptions
+      `Prelude.hashWithSalt` privateDnsNameOptions
       `Prelude.hashWithSalt` keyName
       `Prelude.hashWithSalt` licenseSpecifications
       `Prelude.hashWithSalt` kernelId
@@ -1040,6 +1125,7 @@ instance Prelude.Hashable RunInstances where
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` cpuOptions
       `Prelude.hashWithSalt` ipv6Addresses
+      `Prelude.hashWithSalt` disableApiStop
       `Prelude.hashWithSalt` elasticGpuSpecification
       `Prelude.hashWithSalt` imageId
       `Prelude.hashWithSalt` networkInterfaces
@@ -1075,7 +1161,12 @@ instance Prelude.NFData RunInstances where
       `Prelude.seq` Prelude.rnf ramdiskId
       `Prelude.seq` Prelude.rnf
         privateIpAddress
-      `Prelude.seq` Prelude.rnf keyName
+      `Prelude.seq` Prelude.rnf
+        maintenanceOptions
+      `Prelude.seq` Prelude.rnf
+        privateDnsNameOptions
+      `Prelude.seq` Prelude.rnf
+        keyName
       `Prelude.seq` Prelude.rnf
         licenseSpecifications
       `Prelude.seq` Prelude.rnf
@@ -1088,6 +1179,8 @@ instance Prelude.NFData RunInstances where
         cpuOptions
       `Prelude.seq` Prelude.rnf
         ipv6Addresses
+      `Prelude.seq` Prelude.rnf
+        disableApiStop
       `Prelude.seq` Prelude.rnf
         elasticGpuSpecification
       `Prelude.seq` Prelude.rnf
@@ -1154,6 +1247,9 @@ instance Core.ToQuery RunInstances where
           ),
         "RamdiskId" Core.=: ramdiskId,
         "PrivateIpAddress" Core.=: privateIpAddress,
+        "MaintenanceOptions" Core.=: maintenanceOptions,
+        "PrivateDnsNameOptions"
+          Core.=: privateDnsNameOptions,
         "KeyName" Core.=: keyName,
         Core.toQuery
           ( Core.toQueryList "LicenseSpecification"
@@ -1171,6 +1267,7 @@ instance Core.ToQuery RunInstances where
           ( Core.toQueryList "Ipv6Address"
               Prelude.<$> ipv6Addresses
           ),
+        "DisableApiStop" Core.=: disableApiStop,
         Core.toQuery
           ( Core.toQueryList "ElasticGpuSpecification"
               Prelude.<$> elasticGpuSpecification

@@ -74,13 +74,9 @@ data CreateNetworkInterface = CreateNetworkInterface'
     -- assigns to the network interface. You cannot use this option if you use
     -- the @Ipv4 Prefixes@ option.
     ipv4PrefixCount :: Prelude.Maybe Prelude.Int,
-    -- | Indicates the type of network interface. To create an Elastic Fabric
-    -- Adapter (EFA), specify @efa@. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
-    -- in the /Amazon Elastic Compute Cloud User Guide/. To create a trunk
-    -- network interface, specify @efa@. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html Network interface trunking>
-    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    -- | The type of network interface. The default is @interface@.
+    --
+    -- The only supported values are @efa@ and @trunk@.
     interfaceType :: Prelude.Maybe NetworkInterfaceCreationType,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
@@ -153,13 +149,9 @@ data CreateNetworkInterface = CreateNetworkInterface'
 -- assigns to the network interface. You cannot use this option if you use
 -- the @Ipv4 Prefixes@ option.
 --
--- 'interfaceType', 'createNetworkInterface_interfaceType' - Indicates the type of network interface. To create an Elastic Fabric
--- Adapter (EFA), specify @efa@. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
--- in the /Amazon Elastic Compute Cloud User Guide/. To create a trunk
--- network interface, specify @efa@. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html Network interface trunking>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- 'interfaceType', 'createNetworkInterface_interfaceType' - The type of network interface. The default is @interface@.
+--
+-- The only supported values are @efa@ and @trunk@.
 --
 -- 'clientToken', 'createNetworkInterface_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
@@ -247,13 +239,9 @@ newCreateNetworkInterface pSubnetId_ =
 createNetworkInterface_ipv4PrefixCount :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe Prelude.Int)
 createNetworkInterface_ipv4PrefixCount = Lens.lens (\CreateNetworkInterface' {ipv4PrefixCount} -> ipv4PrefixCount) (\s@CreateNetworkInterface' {} a -> s {ipv4PrefixCount = a} :: CreateNetworkInterface)
 
--- | Indicates the type of network interface. To create an Elastic Fabric
--- Adapter (EFA), specify @efa@. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html Elastic Fabric Adapter>
--- in the /Amazon Elastic Compute Cloud User Guide/. To create a trunk
--- network interface, specify @efa@. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html Network interface trunking>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- | The type of network interface. The default is @interface@.
+--
+-- The only supported values are @efa@ and @trunk@.
 createNetworkInterface_interfaceType :: Lens.Lens' CreateNetworkInterface (Prelude.Maybe NetworkInterfaceCreationType)
 createNetworkInterface_interfaceType = Lens.lens (\CreateNetworkInterface' {interfaceType} -> interfaceType) (\s@CreateNetworkInterface' {} a -> s {interfaceType = a} :: CreateNetworkInterface)
 

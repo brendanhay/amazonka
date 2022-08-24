@@ -29,11 +29,11 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchPermissionModifications' smart constructor.
 data LaunchPermissionModifications = LaunchPermissionModifications'
-  { -- | The Amazon Web Services account ID to remove from the list of launch
-    -- permissions for the AMI.
+  { -- | The Amazon Web Services account ID, organization ARN, or OU ARN to
+    -- remove from the list of launch permissions for the AMI.
     remove :: Prelude.Maybe [LaunchPermission],
-    -- | The Amazon Web Services account ID to add to the list of launch
-    -- permissions for the AMI.
+    -- | The Amazon Web Services account ID, organization ARN, or OU ARN to add
+    -- to the list of launch permissions for the AMI.
     add :: Prelude.Maybe [LaunchPermission]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,11 +46,11 @@ data LaunchPermissionModifications = LaunchPermissionModifications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'remove', 'launchPermissionModifications_remove' - The Amazon Web Services account ID to remove from the list of launch
--- permissions for the AMI.
+-- 'remove', 'launchPermissionModifications_remove' - The Amazon Web Services account ID, organization ARN, or OU ARN to
+-- remove from the list of launch permissions for the AMI.
 --
--- 'add', 'launchPermissionModifications_add' - The Amazon Web Services account ID to add to the list of launch
--- permissions for the AMI.
+-- 'add', 'launchPermissionModifications_add' - The Amazon Web Services account ID, organization ARN, or OU ARN to add
+-- to the list of launch permissions for the AMI.
 newLaunchPermissionModifications ::
   LaunchPermissionModifications
 newLaunchPermissionModifications =
@@ -60,13 +60,13 @@ newLaunchPermissionModifications =
       add = Prelude.Nothing
     }
 
--- | The Amazon Web Services account ID to remove from the list of launch
--- permissions for the AMI.
+-- | The Amazon Web Services account ID, organization ARN, or OU ARN to
+-- remove from the list of launch permissions for the AMI.
 launchPermissionModifications_remove :: Lens.Lens' LaunchPermissionModifications (Prelude.Maybe [LaunchPermission])
 launchPermissionModifications_remove = Lens.lens (\LaunchPermissionModifications' {remove} -> remove) (\s@LaunchPermissionModifications' {} a -> s {remove = a} :: LaunchPermissionModifications) Prelude.. Lens.mapping Lens.coerced
 
--- | The Amazon Web Services account ID to add to the list of launch
--- permissions for the AMI.
+-- | The Amazon Web Services account ID, organization ARN, or OU ARN to add
+-- to the list of launch permissions for the AMI.
 launchPermissionModifications_add :: Lens.Lens' LaunchPermissionModifications (Prelude.Maybe [LaunchPermission])
 launchPermissionModifications_add = Lens.lens (\LaunchPermissionModifications' {add} -> add) (\s@LaunchPermissionModifications' {} a -> s {add = a} :: LaunchPermissionModifications) Prelude.. Lens.mapping Lens.coerced
 

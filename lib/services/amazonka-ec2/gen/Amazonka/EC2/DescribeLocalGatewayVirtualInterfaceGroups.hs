@@ -61,11 +61,14 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
     --
     -- -   @local-gateway-id@ - The ID of a local gateway.
     --
+    -- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual
+    --     interface group.
+    --
     -- -   @local-gateway-virtual-interface-id@ - The ID of the virtual
     --     interface.
     --
-    -- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual
-    --     interface group.
+    -- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+    --     local gateway virtual interface group.
     filters :: Prelude.Maybe [Filter],
     -- | Checks whether you have the required permissions for the action, without
     -- actually making the request, and provides an error response. If you have
@@ -95,11 +98,14 @@ data DescribeLocalGatewayVirtualInterfaceGroups = DescribeLocalGatewayVirtualInt
 --
 -- -   @local-gateway-id@ - The ID of a local gateway.
 --
+-- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual
+--     interface group.
+--
 -- -   @local-gateway-virtual-interface-id@ - The ID of the virtual
 --     interface.
 --
--- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual
---     interface group.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     local gateway virtual interface group.
 --
 -- 'dryRun', 'describeLocalGatewayVirtualInterfaceGroups_dryRun' - Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -132,11 +138,14 @@ describeLocalGatewayVirtualInterfaceGroups_nextToken = Lens.lens (\DescribeLocal
 --
 -- -   @local-gateway-id@ - The ID of a local gateway.
 --
+-- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual
+--     interface group.
+--
 -- -   @local-gateway-virtual-interface-id@ - The ID of the virtual
 --     interface.
 --
--- -   @local-gateway-virtual-interface-group-id@ - The ID of the virtual
---     interface group.
+-- -   @owner-id@ - The ID of the Amazon Web Services account that owns the
+--     local gateway virtual interface group.
 describeLocalGatewayVirtualInterfaceGroups_filters :: Lens.Lens' DescribeLocalGatewayVirtualInterfaceGroups (Prelude.Maybe [Filter])
 describeLocalGatewayVirtualInterfaceGroups_filters = Lens.lens (\DescribeLocalGatewayVirtualInterfaceGroups' {filters} -> filters) (\s@DescribeLocalGatewayVirtualInterfaceGroups' {} a -> s {filters = a} :: DescribeLocalGatewayVirtualInterfaceGroups) Prelude.. Lens.mapping Lens.coerced
 

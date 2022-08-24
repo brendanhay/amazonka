@@ -61,11 +61,15 @@ data DeleteLaunchTemplateVersions = DeleteLaunchTemplateVersions'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the launch template. You must specify either the launch
-    -- template ID or launch template name in the request.
+    -- | The ID of the launch template.
+    --
+    -- You must specify either the @LaunchTemplateId@ or the
+    -- @LaunchTemplateName@, but not both.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template. You must specify either the launch
-    -- template ID or launch template name in the request.
+    -- | The name of the launch template.
+    --
+    -- You must specify either the @LaunchTemplateName@ or the
+    -- @LaunchTemplateId@, but not both.
     launchTemplateName :: Prelude.Maybe Prelude.Text,
     -- | The version numbers of one or more launch template versions to delete.
     versions :: [Prelude.Text]
@@ -85,11 +89,15 @@ data DeleteLaunchTemplateVersions = DeleteLaunchTemplateVersions'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'launchTemplateId', 'deleteLaunchTemplateVersions_launchTemplateId' - The ID of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- 'launchTemplateId', 'deleteLaunchTemplateVersions_launchTemplateId' - The ID of the launch template.
 --
--- 'launchTemplateName', 'deleteLaunchTemplateVersions_launchTemplateName' - The name of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- You must specify either the @LaunchTemplateId@ or the
+-- @LaunchTemplateName@, but not both.
+--
+-- 'launchTemplateName', 'deleteLaunchTemplateVersions_launchTemplateName' - The name of the launch template.
+--
+-- You must specify either the @LaunchTemplateName@ or the
+-- @LaunchTemplateId@, but not both.
 --
 -- 'versions', 'deleteLaunchTemplateVersions_versions' - The version numbers of one or more launch template versions to delete.
 newDeleteLaunchTemplateVersions ::
@@ -110,13 +118,17 @@ newDeleteLaunchTemplateVersions =
 deleteLaunchTemplateVersions_dryRun :: Lens.Lens' DeleteLaunchTemplateVersions (Prelude.Maybe Prelude.Bool)
 deleteLaunchTemplateVersions_dryRun = Lens.lens (\DeleteLaunchTemplateVersions' {dryRun} -> dryRun) (\s@DeleteLaunchTemplateVersions' {} a -> s {dryRun = a} :: DeleteLaunchTemplateVersions)
 
--- | The ID of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- | The ID of the launch template.
+--
+-- You must specify either the @LaunchTemplateId@ or the
+-- @LaunchTemplateName@, but not both.
 deleteLaunchTemplateVersions_launchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersions (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplateVersions_launchTemplateId = Lens.lens (\DeleteLaunchTemplateVersions' {launchTemplateId} -> launchTemplateId) (\s@DeleteLaunchTemplateVersions' {} a -> s {launchTemplateId = a} :: DeleteLaunchTemplateVersions)
 
--- | The name of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- | The name of the launch template.
+--
+-- You must specify either the @LaunchTemplateName@ or the
+-- @LaunchTemplateId@, but not both.
 deleteLaunchTemplateVersions_launchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersions (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplateVersions_launchTemplateName = Lens.lens (\DeleteLaunchTemplateVersions' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplateVersions' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersions)
 

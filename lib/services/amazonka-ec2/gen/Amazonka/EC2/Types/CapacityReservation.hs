@@ -46,9 +46,13 @@ data CapacityReservation = CapacityReservation'
     -- Reservation belongs. Only valid for Capacity Reservations that were
     -- created by a Capacity Reservation Fleet.
     capacityReservationFleetId :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the Capacity Reservation supports instances with
-    -- temporary, block-level storage.
+    -- | /Deprecated./
     ephemeralStorage :: Prelude.Maybe Prelude.Bool,
+    -- | The Amazon Resource Name (ARN) of the cluster placement group in which
+    -- the Capacity Reservation was created. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+    -- in the /Amazon EC2 User Guide/.
+    placementGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost on which the Capacity
     -- Reservation was created.
     outpostArn :: Prelude.Maybe Prelude.Text,
@@ -160,8 +164,12 @@ data CapacityReservation = CapacityReservation'
 -- Reservation belongs. Only valid for Capacity Reservations that were
 -- created by a Capacity Reservation Fleet.
 --
--- 'ephemeralStorage', 'capacityReservation_ephemeralStorage' - Indicates whether the Capacity Reservation supports instances with
--- temporary, block-level storage.
+-- 'ephemeralStorage', 'capacityReservation_ephemeralStorage' - /Deprecated./
+--
+-- 'placementGroupArn', 'capacityReservation_placementGroupArn' - The Amazon Resource Name (ARN) of the cluster placement group in which
+-- the Capacity Reservation was created. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'outpostArn', 'capacityReservation_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which the Capacity
 -- Reservation was created.
@@ -259,6 +267,7 @@ newCapacityReservation =
       tags = Prelude.Nothing,
       capacityReservationFleetId = Prelude.Nothing,
       ephemeralStorage = Prelude.Nothing,
+      placementGroupArn = Prelude.Nothing,
       outpostArn = Prelude.Nothing,
       ownerId = Prelude.Nothing,
       totalInstanceCount = Prelude.Nothing,
@@ -296,10 +305,16 @@ capacityReservation_tags = Lens.lens (\CapacityReservation' {tags} -> tags) (\s@
 capacityReservation_capacityReservationFleetId :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
 capacityReservation_capacityReservationFleetId = Lens.lens (\CapacityReservation' {capacityReservationFleetId} -> capacityReservationFleetId) (\s@CapacityReservation' {} a -> s {capacityReservationFleetId = a} :: CapacityReservation)
 
--- | Indicates whether the Capacity Reservation supports instances with
--- temporary, block-level storage.
+-- | /Deprecated./
 capacityReservation_ephemeralStorage :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Bool)
 capacityReservation_ephemeralStorage = Lens.lens (\CapacityReservation' {ephemeralStorage} -> ephemeralStorage) (\s@CapacityReservation' {} a -> s {ephemeralStorage = a} :: CapacityReservation)
+
+-- | The Amazon Resource Name (ARN) of the cluster placement group in which
+-- the Capacity Reservation was created. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+-- in the /Amazon EC2 User Guide/.
+capacityReservation_placementGroupArn :: Lens.Lens' CapacityReservation (Prelude.Maybe Prelude.Text)
+capacityReservation_placementGroupArn = Lens.lens (\CapacityReservation' {placementGroupArn} -> placementGroupArn) (\s@CapacityReservation' {} a -> s {placementGroupArn = a} :: CapacityReservation)
 
 -- | The Amazon Resource Name (ARN) of the Outpost on which the Capacity
 -- Reservation was created.
@@ -432,6 +447,7 @@ instance Core.FromXML CapacityReservation where
                   )
       Prelude.<*> (x Core..@? "capacityReservationFleetId")
       Prelude.<*> (x Core..@? "ephemeralStorage")
+      Prelude.<*> (x Core..@? "placementGroupArn")
       Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "ownerId")
       Prelude.<*> (x Core..@? "totalInstanceCount")
@@ -456,6 +472,7 @@ instance Prelude.Hashable CapacityReservation where
       `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` capacityReservationFleetId
       `Prelude.hashWithSalt` ephemeralStorage
+      `Prelude.hashWithSalt` placementGroupArn
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` totalInstanceCount
@@ -480,6 +497,7 @@ instance Prelude.NFData CapacityReservation where
       `Prelude.seq` Prelude.rnf tags
       `Prelude.seq` Prelude.rnf capacityReservationFleetId
       `Prelude.seq` Prelude.rnf ephemeralStorage
+      `Prelude.seq` Prelude.rnf placementGroupArn
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf totalInstanceCount
@@ -493,7 +511,8 @@ instance Prelude.NFData CapacityReservation where
       `Prelude.seq` Prelude.rnf startDate
       `Prelude.seq` Prelude.rnf createDate
       `Prelude.seq` Prelude.rnf availableInstanceCount
-      `Prelude.seq` Prelude.rnf instanceMatchCriteria
+      `Prelude.seq` Prelude.rnf
+        instanceMatchCriteria
       `Prelude.seq` Prelude.rnf endDateType
       `Prelude.seq` Prelude.rnf tenancy
       `Prelude.seq` Prelude.rnf

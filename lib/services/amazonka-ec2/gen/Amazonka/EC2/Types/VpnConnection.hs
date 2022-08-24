@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.VpnConnection where
 
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.GatewayAssociationState
 import Amazonka.EC2.Types.GatewayType
 import Amazonka.EC2.Types.Tag
 import Amazonka.EC2.Types.VgwTelemetry
@@ -44,8 +45,14 @@ data VpnConnection = VpnConnection'
     -- DescribeVpnConnections response only if the VPN connection is in the
     -- @pending@ or @available@ state.
     customerGatewayConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the gateway association.
+    gatewayAssociationState :: Prelude.Maybe GatewayAssociationState,
+    -- | The ARN of the core network attachment.
+    coreNetworkAttachmentArn :: Prelude.Maybe Prelude.Text,
     -- | The VPN connection options.
     options :: Prelude.Maybe VpnConnectionOptions,
+    -- | The ARN of the core network.
+    coreNetworkArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the virtual private gateway at the Amazon Web Services side of
     -- the VPN connection.
     vpnGatewayId :: Prelude.Maybe Prelude.Text,
@@ -86,7 +93,13 @@ data VpnConnection = VpnConnection'
 -- DescribeVpnConnections response only if the VPN connection is in the
 -- @pending@ or @available@ state.
 --
+-- 'gatewayAssociationState', 'vpnConnection_gatewayAssociationState' - The current state of the gateway association.
+--
+-- 'coreNetworkAttachmentArn', 'vpnConnection_coreNetworkAttachmentArn' - The ARN of the core network attachment.
+--
 -- 'options', 'vpnConnection_options' - The VPN connection options.
+--
+-- 'coreNetworkArn', 'vpnConnection_coreNetworkArn' - The ARN of the core network.
 --
 -- 'vpnGatewayId', 'vpnConnection_vpnGatewayId' - The ID of the virtual private gateway at the Amazon Web Services side of
 -- the VPN connection.
@@ -125,7 +138,10 @@ newVpnConnection
       { tags = Prelude.Nothing,
         transitGatewayId = Prelude.Nothing,
         customerGatewayConfiguration = Prelude.Nothing,
+        gatewayAssociationState = Prelude.Nothing,
+        coreNetworkAttachmentArn = Prelude.Nothing,
         options = Prelude.Nothing,
+        coreNetworkArn = Prelude.Nothing,
         vpnGatewayId = Prelude.Nothing,
         category = Prelude.Nothing,
         vgwTelemetry = Prelude.Nothing,
@@ -152,9 +168,21 @@ vpnConnection_transitGatewayId = Lens.lens (\VpnConnection' {transitGatewayId} -
 vpnConnection_customerGatewayConfiguration :: Lens.Lens' VpnConnection (Prelude.Maybe Prelude.Text)
 vpnConnection_customerGatewayConfiguration = Lens.lens (\VpnConnection' {customerGatewayConfiguration} -> customerGatewayConfiguration) (\s@VpnConnection' {} a -> s {customerGatewayConfiguration = a} :: VpnConnection)
 
+-- | The current state of the gateway association.
+vpnConnection_gatewayAssociationState :: Lens.Lens' VpnConnection (Prelude.Maybe GatewayAssociationState)
+vpnConnection_gatewayAssociationState = Lens.lens (\VpnConnection' {gatewayAssociationState} -> gatewayAssociationState) (\s@VpnConnection' {} a -> s {gatewayAssociationState = a} :: VpnConnection)
+
+-- | The ARN of the core network attachment.
+vpnConnection_coreNetworkAttachmentArn :: Lens.Lens' VpnConnection (Prelude.Maybe Prelude.Text)
+vpnConnection_coreNetworkAttachmentArn = Lens.lens (\VpnConnection' {coreNetworkAttachmentArn} -> coreNetworkAttachmentArn) (\s@VpnConnection' {} a -> s {coreNetworkAttachmentArn = a} :: VpnConnection)
+
 -- | The VPN connection options.
 vpnConnection_options :: Lens.Lens' VpnConnection (Prelude.Maybe VpnConnectionOptions)
 vpnConnection_options = Lens.lens (\VpnConnection' {options} -> options) (\s@VpnConnection' {} a -> s {options = a} :: VpnConnection)
+
+-- | The ARN of the core network.
+vpnConnection_coreNetworkArn :: Lens.Lens' VpnConnection (Prelude.Maybe Prelude.Text)
+vpnConnection_coreNetworkArn = Lens.lens (\VpnConnection' {coreNetworkArn} -> coreNetworkArn) (\s@VpnConnection' {} a -> s {coreNetworkArn = a} :: VpnConnection)
 
 -- | The ID of the virtual private gateway at the Amazon Web Services side of
 -- the VPN connection.
@@ -199,7 +227,10 @@ instance Core.FromXML VpnConnection where
                   )
       Prelude.<*> (x Core..@? "transitGatewayId")
       Prelude.<*> (x Core..@? "customerGatewayConfiguration")
+      Prelude.<*> (x Core..@? "gatewayAssociationState")
+      Prelude.<*> (x Core..@? "coreNetworkAttachmentArn")
       Prelude.<*> (x Core..@? "options")
+      Prelude.<*> (x Core..@? "coreNetworkArn")
       Prelude.<*> (x Core..@? "vpnGatewayId")
       Prelude.<*> (x Core..@? "category")
       Prelude.<*> ( x Core..@? "vgwTelemetry" Core..!@ Prelude.mempty
@@ -218,7 +249,10 @@ instance Prelude.Hashable VpnConnection where
     _salt `Prelude.hashWithSalt` tags
       `Prelude.hashWithSalt` transitGatewayId
       `Prelude.hashWithSalt` customerGatewayConfiguration
+      `Prelude.hashWithSalt` gatewayAssociationState
+      `Prelude.hashWithSalt` coreNetworkAttachmentArn
       `Prelude.hashWithSalt` options
+      `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` vpnGatewayId
       `Prelude.hashWithSalt` category
       `Prelude.hashWithSalt` vgwTelemetry
@@ -233,7 +267,10 @@ instance Prelude.NFData VpnConnection where
     Prelude.rnf tags
       `Prelude.seq` Prelude.rnf transitGatewayId
       `Prelude.seq` Prelude.rnf customerGatewayConfiguration
+      `Prelude.seq` Prelude.rnf gatewayAssociationState
+      `Prelude.seq` Prelude.rnf coreNetworkAttachmentArn
       `Prelude.seq` Prelude.rnf options
+      `Prelude.seq` Prelude.rnf coreNetworkArn
       `Prelude.seq` Prelude.rnf vpnGatewayId
       `Prelude.seq` Prelude.rnf category
       `Prelude.seq` Prelude.rnf vgwTelemetry

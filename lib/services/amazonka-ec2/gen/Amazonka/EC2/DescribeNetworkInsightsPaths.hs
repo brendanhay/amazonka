@@ -57,7 +57,7 @@ import qualified Amazonka.Response as Response
 data DescribeNetworkInsightsPaths = DescribeNetworkInsightsPaths'
   { -- | The token for the next page of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The filters. The following are possible values:
+    -- | The filters. The following are the possible values:
     --
     -- -   Destination - The ID of the resource.
     --
@@ -93,7 +93,7 @@ data DescribeNetworkInsightsPaths = DescribeNetworkInsightsPaths'
 --
 -- 'nextToken', 'describeNetworkInsightsPaths_nextToken' - The token for the next page of results.
 --
--- 'filters', 'describeNetworkInsightsPaths_filters' - The filters. The following are possible values:
+-- 'filters', 'describeNetworkInsightsPaths_filters' - The filters. The following are the possible values:
 --
 -- -   Destination - The ID of the resource.
 --
@@ -131,7 +131,7 @@ newDescribeNetworkInsightsPaths =
 describeNetworkInsightsPaths_nextToken :: Lens.Lens' DescribeNetworkInsightsPaths (Prelude.Maybe Prelude.Text)
 describeNetworkInsightsPaths_nextToken = Lens.lens (\DescribeNetworkInsightsPaths' {nextToken} -> nextToken) (\s@DescribeNetworkInsightsPaths' {} a -> s {nextToken = a} :: DescribeNetworkInsightsPaths)
 
--- | The filters. The following are possible values:
+-- | The filters. The following are the possible values:
 --
 -- -   Destination - The ID of the resource.
 --

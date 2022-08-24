@@ -34,7 +34,7 @@ data Placement = Placement'
     -- This parameter is not supported by
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
     spreadDomain :: Prelude.Maybe Prelude.Text,
-    -- | The number of the partition the instance is in. Valid only if the
+    -- | The number of the partition that the instance is in. Valid only if the
     -- placement group strategy is set to @partition@.
     --
     -- This parameter is not supported by
@@ -101,7 +101,7 @@ data Placement = Placement'
 -- This parameter is not supported by
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet>.
 --
--- 'partitionNumber', 'placement_partitionNumber' - The number of the partition the instance is in. Valid only if the
+-- 'partitionNumber', 'placement_partitionNumber' - The number of the partition that the instance is in. Valid only if the
 -- placement group strategy is set to @partition@.
 --
 -- This parameter is not supported by
@@ -172,7 +172,7 @@ newPlacement =
 placement_spreadDomain :: Lens.Lens' Placement (Prelude.Maybe Prelude.Text)
 placement_spreadDomain = Lens.lens (\Placement' {spreadDomain} -> spreadDomain) (\s@Placement' {} a -> s {spreadDomain = a} :: Placement)
 
--- | The number of the partition the instance is in. Valid only if the
+-- | The number of the partition that the instance is in. Valid only if the
 -- placement group strategy is set to @partition@.
 --
 -- This parameter is not supported by

@@ -63,8 +63,8 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
     --
     -- -   @customer-gateway-id@ - The ID of the customer gateway.
     --
-    -- -   @ip-address@ - The IP address of the customer gateway\'s
-    --     Internet-routable external interface.
+    -- -   @ip-address@ - The IP address of the customer gateway device\'s
+    --     external interface.
     --
     -- -   @state@ - The state of the customer gateway (@pending@ | @available@
     --     | @deleting@ | @deleted@).
@@ -109,8 +109,8 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
 --
 -- -   @customer-gateway-id@ - The ID of the customer gateway.
 --
--- -   @ip-address@ - The IP address of the customer gateway\'s
---     Internet-routable external interface.
+-- -   @ip-address@ - The IP address of the customer gateway device\'s
+--     external interface.
 --
 -- -   @state@ - The state of the customer gateway (@pending@ | @available@
 --     | @deleting@ | @deleted@).
@@ -153,8 +153,8 @@ newDescribeCustomerGateways =
 --
 -- -   @customer-gateway-id@ - The ID of the customer gateway.
 --
--- -   @ip-address@ - The IP address of the customer gateway\'s
---     Internet-routable external interface.
+-- -   @ip-address@ - The IP address of the customer gateway device\'s
+--     external interface.
 --
 -- -   @state@ - The state of the customer gateway (@pending@ | @available@
 --     | @deleting@ | @deleted@).

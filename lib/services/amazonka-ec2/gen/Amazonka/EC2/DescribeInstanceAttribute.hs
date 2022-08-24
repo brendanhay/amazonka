@@ -54,6 +54,7 @@ module Amazonka.EC2.DescribeInstanceAttribute
     describeInstanceAttributeResponse_kernelId,
     describeInstanceAttributeResponse_disableApiTermination,
     describeInstanceAttributeResponse_groups,
+    describeInstanceAttributeResponse_disableApiStop,
     describeInstanceAttributeResponse_enaSupport,
     describeInstanceAttributeResponse_rootDeviceName,
     describeInstanceAttributeResponse_enclaveOptions,
@@ -162,6 +163,7 @@ instance Core.AWSRequest DescribeInstanceAttribute where
             Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "item")
                         )
+            Prelude.<*> (x Core..@? "disableApiStop")
             Prelude.<*> (x Core..@? "enaSupport")
             Prelude.<*> (x Core..@? "rootDeviceName")
             Prelude.<*> (x Core..@? "enclaveOptions")
@@ -237,6 +239,9 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     disableApiTermination :: Prelude.Maybe AttributeBooleanValue,
     -- | The security groups associated with the instance.
     groups :: Prelude.Maybe [GroupIdentifier],
+    -- | To enable the instance for Amazon Web Services Stop Protection, set this
+    -- parameter to @true@; otherwise, set it to @false@.
+    disableApiStop :: Prelude.Maybe AttributeBooleanValue,
     -- | Indicates whether enhanced networking with ENA is enabled.
     enaSupport :: Prelude.Maybe AttributeBooleanValue,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
@@ -292,6 +297,9 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 --
 -- 'groups', 'describeInstanceAttributeResponse_groups' - The security groups associated with the instance.
 --
+-- 'disableApiStop', 'describeInstanceAttributeResponse_disableApiStop' - To enable the instance for Amazon Web Services Stop Protection, set this
+-- parameter to @true@; otherwise, set it to @false@.
+--
 -- 'enaSupport', 'describeInstanceAttributeResponse_enaSupport' - Indicates whether enhanced networking with ENA is enabled.
 --
 -- 'rootDeviceName', 'describeInstanceAttributeResponse_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
@@ -321,6 +329,7 @@ newDescribeInstanceAttributeResponse pHttpStatus_ =
       kernelId = Prelude.Nothing,
       disableApiTermination = Prelude.Nothing,
       groups = Prelude.Nothing,
+      disableApiStop = Prelude.Nothing,
       enaSupport = Prelude.Nothing,
       rootDeviceName = Prelude.Nothing,
       enclaveOptions = Prelude.Nothing,
@@ -388,6 +397,11 @@ describeInstanceAttributeResponse_disableApiTermination = Lens.lens (\DescribeIn
 describeInstanceAttributeResponse_groups :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe [GroupIdentifier])
 describeInstanceAttributeResponse_groups = Lens.lens (\DescribeInstanceAttributeResponse' {groups} -> groups) (\s@DescribeInstanceAttributeResponse' {} a -> s {groups = a} :: DescribeInstanceAttributeResponse) Prelude.. Lens.mapping Lens.coerced
 
+-- | To enable the instance for Amazon Web Services Stop Protection, set this
+-- parameter to @true@; otherwise, set it to @false@.
+describeInstanceAttributeResponse_disableApiStop :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
+describeInstanceAttributeResponse_disableApiStop = Lens.lens (\DescribeInstanceAttributeResponse' {disableApiStop} -> disableApiStop) (\s@DescribeInstanceAttributeResponse' {} a -> s {disableApiStop = a} :: DescribeInstanceAttributeResponse)
+
 -- | Indicates whether enhanced networking with ENA is enabled.
 describeInstanceAttributeResponse_enaSupport :: Lens.Lens' DescribeInstanceAttributeResponse (Prelude.Maybe AttributeBooleanValue)
 describeInstanceAttributeResponse_enaSupport = Lens.lens (\DescribeInstanceAttributeResponse' {enaSupport} -> enaSupport) (\s@DescribeInstanceAttributeResponse' {} a -> s {enaSupport = a} :: DescribeInstanceAttributeResponse)
@@ -423,6 +437,7 @@ instance
       `Prelude.seq` Prelude.rnf kernelId
       `Prelude.seq` Prelude.rnf disableApiTermination
       `Prelude.seq` Prelude.rnf groups
+      `Prelude.seq` Prelude.rnf disableApiStop
       `Prelude.seq` Prelude.rnf enaSupport
       `Prelude.seq` Prelude.rnf rootDeviceName
       `Prelude.seq` Prelude.rnf enclaveOptions

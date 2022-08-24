@@ -28,6 +28,7 @@ import Amazonka.EC2.Types.AnalysisLoadBalancerTarget
 import Amazonka.EC2.Types.AnalysisRouteTableRoute
 import Amazonka.EC2.Types.AnalysisSecurityGroupRule
 import Amazonka.EC2.Types.PortRange
+import Amazonka.EC2.Types.TransitGatewayRouteTableRoute
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -45,6 +46,8 @@ data Explanation = Explanation'
     vpnConnection :: Prelude.Maybe AnalysisComponent,
     -- | The listener port of the load balancer.
     loadBalancerListenerPort :: Prelude.Maybe Prelude.Natural,
+    -- | The transit gateway attachment.
+    transitGatewayAttachment :: Prelude.Maybe AnalysisComponent,
     -- | The missing component.
     missingComponent :: Prelude.Maybe Prelude.Text,
     -- | The route table route.
@@ -99,6 +102,8 @@ data Explanation = Explanation'
     loadBalancerTargetPort :: Prelude.Maybe Prelude.Natural,
     -- | The security groups.
     securityGroups :: Prelude.Maybe [AnalysisComponent],
+    -- | The transit gateway.
+    transitGateway :: Prelude.Maybe AnalysisComponent,
     -- | The destination VPC.
     destinationVpc :: Prelude.Maybe AnalysisComponent,
     -- | The IPv4 addresses, in CIDR notation.
@@ -115,18 +120,22 @@ data Explanation = Explanation'
     explanationCode :: Prelude.Maybe Prelude.Text,
     -- | The network interface.
     networkInterface :: Prelude.Maybe AnalysisComponent,
-    -- | The direction. The following are possible values:
+    -- | The direction. The following are the possible values:
     --
     -- -   egress
     --
     -- -   ingress
     direction :: Prelude.Maybe Prelude.Text,
+    -- | The transit gateway route table route.
+    transitGatewayRouteTableRoute :: Prelude.Maybe TransitGatewayRouteTableRoute,
     -- | The target groups.
     loadBalancerTargetGroups :: Prelude.Maybe [AnalysisComponent],
     -- | The port ranges.
     portRanges :: Prelude.Maybe [PortRange],
     -- | The VPC endpoint.
     vpcEndpoint :: Prelude.Maybe AnalysisComponent,
+    -- | The transit gateway route table.
+    transitGatewayRouteTable :: Prelude.Maybe AnalysisComponent,
     -- | The component.
     component :: Prelude.Maybe AnalysisComponent,
     -- | The security group rule.
@@ -149,6 +158,8 @@ data Explanation = Explanation'
 -- 'vpnConnection', 'explanation_vpnConnection' - The VPN connection.
 --
 -- 'loadBalancerListenerPort', 'explanation_loadBalancerListenerPort' - The listener port of the load balancer.
+--
+-- 'transitGatewayAttachment', 'explanation_transitGatewayAttachment' - The transit gateway attachment.
 --
 -- 'missingComponent', 'explanation_missingComponent' - The missing component.
 --
@@ -204,6 +215,8 @@ data Explanation = Explanation'
 --
 -- 'securityGroups', 'explanation_securityGroups' - The security groups.
 --
+-- 'transitGateway', 'explanation_transitGateway' - The transit gateway.
+--
 -- 'destinationVpc', 'explanation_destinationVpc' - The destination VPC.
 --
 -- 'addresses', 'explanation_addresses' - The IPv4 addresses, in CIDR notation.
@@ -220,17 +233,21 @@ data Explanation = Explanation'
 --
 -- 'networkInterface', 'explanation_networkInterface' - The network interface.
 --
--- 'direction', 'explanation_direction' - The direction. The following are possible values:
+-- 'direction', 'explanation_direction' - The direction. The following are the possible values:
 --
 -- -   egress
 --
 -- -   ingress
+--
+-- 'transitGatewayRouteTableRoute', 'explanation_transitGatewayRouteTableRoute' - The transit gateway route table route.
 --
 -- 'loadBalancerTargetGroups', 'explanation_loadBalancerTargetGroups' - The target groups.
 --
 -- 'portRanges', 'explanation_portRanges' - The port ranges.
 --
 -- 'vpcEndpoint', 'explanation_vpcEndpoint' - The VPC endpoint.
+--
+-- 'transitGatewayRouteTable', 'explanation_transitGatewayRouteTable' - The transit gateway route table.
 --
 -- 'component', 'explanation_component' - The component.
 --
@@ -243,6 +260,7 @@ newExplanation =
       port = Prelude.Nothing,
       vpnConnection = Prelude.Nothing,
       loadBalancerListenerPort = Prelude.Nothing,
+      transitGatewayAttachment = Prelude.Nothing,
       missingComponent = Prelude.Nothing,
       routeTableRoute = Prelude.Nothing,
       subnetRouteTable = Prelude.Nothing,
@@ -270,6 +288,7 @@ newExplanation =
       address = Prelude.Nothing,
       loadBalancerTargetPort = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
+      transitGateway = Prelude.Nothing,
       destinationVpc = Prelude.Nothing,
       addresses = Prelude.Nothing,
       prefixList = Prelude.Nothing,
@@ -279,9 +298,11 @@ newExplanation =
       explanationCode = Prelude.Nothing,
       networkInterface = Prelude.Nothing,
       direction = Prelude.Nothing,
+      transitGatewayRouteTableRoute = Prelude.Nothing,
       loadBalancerTargetGroups = Prelude.Nothing,
       portRanges = Prelude.Nothing,
       vpcEndpoint = Prelude.Nothing,
+      transitGatewayRouteTable = Prelude.Nothing,
       component = Prelude.Nothing,
       securityGroupRule = Prelude.Nothing
     }
@@ -301,6 +322,10 @@ explanation_vpnConnection = Lens.lens (\Explanation' {vpnConnection} -> vpnConne
 -- | The listener port of the load balancer.
 explanation_loadBalancerListenerPort :: Lens.Lens' Explanation (Prelude.Maybe Prelude.Natural)
 explanation_loadBalancerListenerPort = Lens.lens (\Explanation' {loadBalancerListenerPort} -> loadBalancerListenerPort) (\s@Explanation' {} a -> s {loadBalancerListenerPort = a} :: Explanation)
+
+-- | The transit gateway attachment.
+explanation_transitGatewayAttachment :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
+explanation_transitGatewayAttachment = Lens.lens (\Explanation' {transitGatewayAttachment} -> transitGatewayAttachment) (\s@Explanation' {} a -> s {transitGatewayAttachment = a} :: Explanation)
 
 -- | The missing component.
 explanation_missingComponent :: Lens.Lens' Explanation (Prelude.Maybe Prelude.Text)
@@ -410,6 +435,10 @@ explanation_loadBalancerTargetPort = Lens.lens (\Explanation' {loadBalancerTarge
 explanation_securityGroups :: Lens.Lens' Explanation (Prelude.Maybe [AnalysisComponent])
 explanation_securityGroups = Lens.lens (\Explanation' {securityGroups} -> securityGroups) (\s@Explanation' {} a -> s {securityGroups = a} :: Explanation) Prelude.. Lens.mapping Lens.coerced
 
+-- | The transit gateway.
+explanation_transitGateway :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
+explanation_transitGateway = Lens.lens (\Explanation' {transitGateway} -> transitGateway) (\s@Explanation' {} a -> s {transitGateway = a} :: Explanation)
+
 -- | The destination VPC.
 explanation_destinationVpc :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
 explanation_destinationVpc = Lens.lens (\Explanation' {destinationVpc} -> destinationVpc) (\s@Explanation' {} a -> s {destinationVpc = a} :: Explanation)
@@ -442,13 +471,17 @@ explanation_explanationCode = Lens.lens (\Explanation' {explanationCode} -> expl
 explanation_networkInterface :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
 explanation_networkInterface = Lens.lens (\Explanation' {networkInterface} -> networkInterface) (\s@Explanation' {} a -> s {networkInterface = a} :: Explanation)
 
--- | The direction. The following are possible values:
+-- | The direction. The following are the possible values:
 --
 -- -   egress
 --
 -- -   ingress
 explanation_direction :: Lens.Lens' Explanation (Prelude.Maybe Prelude.Text)
 explanation_direction = Lens.lens (\Explanation' {direction} -> direction) (\s@Explanation' {} a -> s {direction = a} :: Explanation)
+
+-- | The transit gateway route table route.
+explanation_transitGatewayRouteTableRoute :: Lens.Lens' Explanation (Prelude.Maybe TransitGatewayRouteTableRoute)
+explanation_transitGatewayRouteTableRoute = Lens.lens (\Explanation' {transitGatewayRouteTableRoute} -> transitGatewayRouteTableRoute) (\s@Explanation' {} a -> s {transitGatewayRouteTableRoute = a} :: Explanation)
 
 -- | The target groups.
 explanation_loadBalancerTargetGroups :: Lens.Lens' Explanation (Prelude.Maybe [AnalysisComponent])
@@ -461,6 +494,10 @@ explanation_portRanges = Lens.lens (\Explanation' {portRanges} -> portRanges) (\
 -- | The VPC endpoint.
 explanation_vpcEndpoint :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
 explanation_vpcEndpoint = Lens.lens (\Explanation' {vpcEndpoint} -> vpcEndpoint) (\s@Explanation' {} a -> s {vpcEndpoint = a} :: Explanation)
+
+-- | The transit gateway route table.
+explanation_transitGatewayRouteTable :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
+explanation_transitGatewayRouteTable = Lens.lens (\Explanation' {transitGatewayRouteTable} -> transitGatewayRouteTable) (\s@Explanation' {} a -> s {transitGatewayRouteTable = a} :: Explanation)
 
 -- | The component.
 explanation_component :: Lens.Lens' Explanation (Prelude.Maybe AnalysisComponent)
@@ -477,6 +514,7 @@ instance Core.FromXML Explanation where
       Prelude.<*> (x Core..@? "port")
       Prelude.<*> (x Core..@? "vpnConnection")
       Prelude.<*> (x Core..@? "loadBalancerListenerPort")
+      Prelude.<*> (x Core..@? "transitGatewayAttachment")
       Prelude.<*> (x Core..@? "missingComponent")
       Prelude.<*> (x Core..@? "routeTableRoute")
       Prelude.<*> (x Core..@? "subnetRouteTable")
@@ -514,6 +552,7 @@ instance Core.FromXML Explanation where
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "transitGateway")
       Prelude.<*> (x Core..@? "destinationVpc")
       Prelude.<*> ( x Core..@? "addressSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
@@ -525,6 +564,7 @@ instance Core.FromXML Explanation where
       Prelude.<*> (x Core..@? "explanationCode")
       Prelude.<*> (x Core..@? "networkInterface")
       Prelude.<*> (x Core..@? "direction")
+      Prelude.<*> (x Core..@? "transitGatewayRouteTableRoute")
       Prelude.<*> ( x Core..@? "loadBalancerTargetGroupSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
@@ -533,6 +573,7 @@ instance Core.FromXML Explanation where
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
       Prelude.<*> (x Core..@? "vpcEndpoint")
+      Prelude.<*> (x Core..@? "transitGatewayRouteTable")
       Prelude.<*> (x Core..@? "component")
       Prelude.<*> (x Core..@? "securityGroupRule")
 
@@ -542,6 +583,7 @@ instance Prelude.Hashable Explanation where
       `Prelude.hashWithSalt` port
       `Prelude.hashWithSalt` vpnConnection
       `Prelude.hashWithSalt` loadBalancerListenerPort
+      `Prelude.hashWithSalt` transitGatewayAttachment
       `Prelude.hashWithSalt` missingComponent
       `Prelude.hashWithSalt` routeTableRoute
       `Prelude.hashWithSalt` subnetRouteTable
@@ -569,6 +611,7 @@ instance Prelude.Hashable Explanation where
       `Prelude.hashWithSalt` address
       `Prelude.hashWithSalt` loadBalancerTargetPort
       `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` transitGateway
       `Prelude.hashWithSalt` destinationVpc
       `Prelude.hashWithSalt` addresses
       `Prelude.hashWithSalt` prefixList
@@ -578,9 +621,11 @@ instance Prelude.Hashable Explanation where
       `Prelude.hashWithSalt` explanationCode
       `Prelude.hashWithSalt` networkInterface
       `Prelude.hashWithSalt` direction
+      `Prelude.hashWithSalt` transitGatewayRouteTableRoute
       `Prelude.hashWithSalt` loadBalancerTargetGroups
       `Prelude.hashWithSalt` portRanges
       `Prelude.hashWithSalt` vpcEndpoint
+      `Prelude.hashWithSalt` transitGatewayRouteTable
       `Prelude.hashWithSalt` component
       `Prelude.hashWithSalt` securityGroupRule
 
@@ -590,6 +635,7 @@ instance Prelude.NFData Explanation where
       `Prelude.seq` Prelude.rnf port
       `Prelude.seq` Prelude.rnf vpnConnection
       `Prelude.seq` Prelude.rnf loadBalancerListenerPort
+      `Prelude.seq` Prelude.rnf transitGatewayAttachment
       `Prelude.seq` Prelude.rnf missingComponent
       `Prelude.seq` Prelude.rnf routeTableRoute
       `Prelude.seq` Prelude.rnf subnetRouteTable
@@ -605,8 +651,10 @@ instance Prelude.NFData Explanation where
       `Prelude.seq` Prelude.rnf availabilityZones
       `Prelude.seq` Prelude.rnf cidrs
       `Prelude.seq` Prelude.rnf state
-      `Prelude.seq` Prelude.rnf loadBalancerTarget
-      `Prelude.seq` Prelude.rnf customerGateway
+      `Prelude.seq` Prelude.rnf
+        loadBalancerTarget
+      `Prelude.seq` Prelude.rnf
+        customerGateway
       `Prelude.seq` Prelude.rnf vpnGateway
       `Prelude.seq` Prelude.rnf protocols
       `Prelude.seq` Prelude.rnf
@@ -626,6 +674,8 @@ instance Prelude.NFData Explanation where
       `Prelude.seq` Prelude.rnf
         securityGroups
       `Prelude.seq` Prelude.rnf
+        transitGateway
+      `Prelude.seq` Prelude.rnf
         destinationVpc
       `Prelude.seq` Prelude.rnf
         addresses
@@ -644,11 +694,15 @@ instance Prelude.NFData Explanation where
       `Prelude.seq` Prelude.rnf
         direction
       `Prelude.seq` Prelude.rnf
+        transitGatewayRouteTableRoute
+      `Prelude.seq` Prelude.rnf
         loadBalancerTargetGroups
       `Prelude.seq` Prelude.rnf
         portRanges
       `Prelude.seq` Prelude.rnf
         vpcEndpoint
+      `Prelude.seq` Prelude.rnf
+        transitGatewayRouteTable
       `Prelude.seq` Prelude.rnf
         component
       `Prelude.seq` Prelude.rnf

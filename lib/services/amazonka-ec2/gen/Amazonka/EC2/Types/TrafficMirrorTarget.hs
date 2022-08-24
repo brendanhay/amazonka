@@ -43,7 +43,9 @@ data TrafficMirrorTarget = TrafficMirrorTarget'
     -- | Information about the Traffic Mirror target.
     description :: Prelude.Maybe Prelude.Text,
     -- | The network interface ID that is attached to the target.
-    networkInterfaceId :: Prelude.Maybe Prelude.Text
+    networkInterfaceId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the Gateway Load Balancer endpoint.
+    gatewayLoadBalancerEndpointId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,6 +70,8 @@ data TrafficMirrorTarget = TrafficMirrorTarget'
 -- 'description', 'trafficMirrorTarget_description' - Information about the Traffic Mirror target.
 --
 -- 'networkInterfaceId', 'trafficMirrorTarget_networkInterfaceId' - The network interface ID that is attached to the target.
+--
+-- 'gatewayLoadBalancerEndpointId', 'trafficMirrorTarget_gatewayLoadBalancerEndpointId' - The ID of the Gateway Load Balancer endpoint.
 newTrafficMirrorTarget ::
   TrafficMirrorTarget
 newTrafficMirrorTarget =
@@ -78,7 +82,8 @@ newTrafficMirrorTarget =
       networkLoadBalancerArn = Prelude.Nothing,
       trafficMirrorTargetId = Prelude.Nothing,
       description = Prelude.Nothing,
-      networkInterfaceId = Prelude.Nothing
+      networkInterfaceId = Prelude.Nothing,
+      gatewayLoadBalancerEndpointId = Prelude.Nothing
     }
 
 -- | The tags assigned to the Traffic Mirror target.
@@ -109,6 +114,10 @@ trafficMirrorTarget_description = Lens.lens (\TrafficMirrorTarget' {description}
 trafficMirrorTarget_networkInterfaceId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
 trafficMirrorTarget_networkInterfaceId = Lens.lens (\TrafficMirrorTarget' {networkInterfaceId} -> networkInterfaceId) (\s@TrafficMirrorTarget' {} a -> s {networkInterfaceId = a} :: TrafficMirrorTarget)
 
+-- | The ID of the Gateway Load Balancer endpoint.
+trafficMirrorTarget_gatewayLoadBalancerEndpointId :: Lens.Lens' TrafficMirrorTarget (Prelude.Maybe Prelude.Text)
+trafficMirrorTarget_gatewayLoadBalancerEndpointId = Lens.lens (\TrafficMirrorTarget' {gatewayLoadBalancerEndpointId} -> gatewayLoadBalancerEndpointId) (\s@TrafficMirrorTarget' {} a -> s {gatewayLoadBalancerEndpointId = a} :: TrafficMirrorTarget)
+
 instance Core.FromXML TrafficMirrorTarget where
   parseXML x =
     TrafficMirrorTarget'
@@ -121,6 +130,7 @@ instance Core.FromXML TrafficMirrorTarget where
       Prelude.<*> (x Core..@? "trafficMirrorTargetId")
       Prelude.<*> (x Core..@? "description")
       Prelude.<*> (x Core..@? "networkInterfaceId")
+      Prelude.<*> (x Core..@? "gatewayLoadBalancerEndpointId")
 
 instance Prelude.Hashable TrafficMirrorTarget where
   hashWithSalt _salt TrafficMirrorTarget' {..} =
@@ -131,6 +141,7 @@ instance Prelude.Hashable TrafficMirrorTarget where
       `Prelude.hashWithSalt` trafficMirrorTargetId
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` networkInterfaceId
+      `Prelude.hashWithSalt` gatewayLoadBalancerEndpointId
 
 instance Prelude.NFData TrafficMirrorTarget where
   rnf TrafficMirrorTarget' {..} =
@@ -141,3 +152,4 @@ instance Prelude.NFData TrafficMirrorTarget where
       `Prelude.seq` Prelude.rnf trafficMirrorTargetId
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf networkInterfaceId
+      `Prelude.seq` Prelude.rnf gatewayLoadBalancerEndpointId

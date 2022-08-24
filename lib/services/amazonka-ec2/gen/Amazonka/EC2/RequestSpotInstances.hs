@@ -25,6 +25,17 @@
 -- For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance requests>
 -- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- We strongly discourage using the RequestSpotInstances API because it is
+-- a legacy API with no planned investment. For options for requesting Spot
+-- Instances, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use Which is the best Spot request method to use?>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
+--
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon EC2 User Guide for Linux Instances/.
 module Amazonka.EC2.RequestSpotInstances
   ( -- * Creating a Request
     RequestSpotInstances (..),
@@ -146,8 +157,13 @@ data RequestSpotInstances = RequestSpotInstances'
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The launch specification.
     launchSpecification :: Prelude.Maybe RequestSpotLaunchSpecification,
-    -- | The maximum price per hour that you are willing to pay for a Spot
-    -- Instance. The default is the On-Demand price.
+    -- | The maximum price per unit hour that you are willing to pay for a Spot
+    -- Instance. We do not recommend using this parameter because it can lead
+    -- to increased interruptions. If you do not specify this parameter, you
+    -- will pay the current Spot price.
+    --
+    -- If you specify a maximum price, your instances will be interrupted more
+    -- frequently than if you do not specify this parameter.
     spotPrice :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -240,8 +256,13 @@ data RequestSpotInstances = RequestSpotInstances'
 --
 -- 'launchSpecification', 'requestSpotInstances_launchSpecification' - The launch specification.
 --
--- 'spotPrice', 'requestSpotInstances_spotPrice' - The maximum price per hour that you are willing to pay for a Spot
--- Instance. The default is the On-Demand price.
+-- 'spotPrice', 'requestSpotInstances_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 newRequestSpotInstances ::
   RequestSpotInstances
 newRequestSpotInstances =
@@ -366,8 +387,13 @@ requestSpotInstances_tagSpecifications = Lens.lens (\RequestSpotInstances' {tagS
 requestSpotInstances_launchSpecification :: Lens.Lens' RequestSpotInstances (Prelude.Maybe RequestSpotLaunchSpecification)
 requestSpotInstances_launchSpecification = Lens.lens (\RequestSpotInstances' {launchSpecification} -> launchSpecification) (\s@RequestSpotInstances' {} a -> s {launchSpecification = a} :: RequestSpotInstances)
 
--- | The maximum price per hour that you are willing to pay for a Spot
--- Instance. The default is the On-Demand price.
+-- | The maximum price per unit hour that you are willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 requestSpotInstances_spotPrice :: Lens.Lens' RequestSpotInstances (Prelude.Maybe Prelude.Text)
 requestSpotInstances_spotPrice = Lens.lens (\RequestSpotInstances' {spotPrice} -> spotPrice) (\s@RequestSpotInstances' {} a -> s {spotPrice = a} :: RequestSpotInstances)
 

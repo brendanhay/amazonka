@@ -32,8 +32,8 @@ data LaunchTemplateCpuOptionsRequest = LaunchTemplateCpuOptionsRequest'
   { -- | The number of CPU cores for the instance.
     coreCount :: Prelude.Maybe Prelude.Int,
     -- | The number of threads per CPU core. To disable multithreading for the
-    -- instance, specify a value of 1. Otherwise, specify the default value of
-    -- 2.
+    -- instance, specify a value of @1@. Otherwise, specify the default value
+    -- of @2@.
     threadsPerCore :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,8 +49,8 @@ data LaunchTemplateCpuOptionsRequest = LaunchTemplateCpuOptionsRequest'
 -- 'coreCount', 'launchTemplateCpuOptionsRequest_coreCount' - The number of CPU cores for the instance.
 --
 -- 'threadsPerCore', 'launchTemplateCpuOptionsRequest_threadsPerCore' - The number of threads per CPU core. To disable multithreading for the
--- instance, specify a value of 1. Otherwise, specify the default value of
--- 2.
+-- instance, specify a value of @1@. Otherwise, specify the default value
+-- of @2@.
 newLaunchTemplateCpuOptionsRequest ::
   LaunchTemplateCpuOptionsRequest
 newLaunchTemplateCpuOptionsRequest =
@@ -65,8 +65,8 @@ launchTemplateCpuOptionsRequest_coreCount :: Lens.Lens' LaunchTemplateCpuOptions
 launchTemplateCpuOptionsRequest_coreCount = Lens.lens (\LaunchTemplateCpuOptionsRequest' {coreCount} -> coreCount) (\s@LaunchTemplateCpuOptionsRequest' {} a -> s {coreCount = a} :: LaunchTemplateCpuOptionsRequest)
 
 -- | The number of threads per CPU core. To disable multithreading for the
--- instance, specify a value of 1. Otherwise, specify the default value of
--- 2.
+-- instance, specify a value of @1@. Otherwise, specify the default value
+-- of @2@.
 launchTemplateCpuOptionsRequest_threadsPerCore :: Lens.Lens' LaunchTemplateCpuOptionsRequest (Prelude.Maybe Prelude.Int)
 launchTemplateCpuOptionsRequest_threadsPerCore = Lens.lens (\LaunchTemplateCpuOptionsRequest' {threadsPerCore} -> threadsPerCore) (\s@LaunchTemplateCpuOptionsRequest' {} a -> s {threadsPerCore = a} :: LaunchTemplateCpuOptionsRequest)
 

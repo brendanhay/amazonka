@@ -55,6 +55,11 @@
 -- each time the Elastic IP address is remapped to the same instance. For
 -- more information, see the /Elastic IP Addresses/ section of
 -- <http://aws.amazon.com/ec2/pricing/ Amazon EC2 Pricing>.
+--
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.AssociateAddress
   ( -- * Creating a Request
     AssociateAddress (..),

@@ -229,7 +229,9 @@ instance Core.ToQuery ModifyFleet where
 
 -- | /See:/ 'newModifyFleetResponse' smart constructor.
 data ModifyFleetResponse = ModifyFleetResponse'
-  { -- | Is @true@ if the request succeeds, and an error otherwise.
+  { -- | If the request succeeds, the response returns @true@. If the request
+    -- fails, no response is returned, and instead an error message is
+    -- returned.
     return' :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -244,7 +246,9 @@ data ModifyFleetResponse = ModifyFleetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'return'', 'modifyFleetResponse_return' - Is @true@ if the request succeeds, and an error otherwise.
+-- 'return'', 'modifyFleetResponse_return' - If the request succeeds, the response returns @true@. If the request
+-- fails, no response is returned, and instead an error message is
+-- returned.
 --
 -- 'httpStatus', 'modifyFleetResponse_httpStatus' - The response's http status code.
 newModifyFleetResponse ::
@@ -257,7 +261,9 @@ newModifyFleetResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Is @true@ if the request succeeds, and an error otherwise.
+-- | If the request succeeds, the response returns @true@. If the request
+-- fails, no response is returned, and instead an error message is
+-- returned.
 modifyFleetResponse_return :: Lens.Lens' ModifyFleetResponse (Prelude.Maybe Prelude.Bool)
 modifyFleetResponse_return = Lens.lens (\ModifyFleetResponse' {return'} -> return') (\s@ModifyFleetResponse' {} a -> s {return' = a} :: ModifyFleetResponse)
 

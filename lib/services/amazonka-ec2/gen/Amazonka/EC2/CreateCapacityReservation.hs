@@ -56,6 +56,7 @@ module Amazonka.EC2.CreateCapacityReservation
     createCapacityReservation_ebsOptimized,
     createCapacityReservation_ephemeralStorage,
     createCapacityReservation_clientToken,
+    createCapacityReservation_placementGroupArn,
     createCapacityReservation_outpostArn,
     createCapacityReservation_endDate,
     createCapacityReservation_availabilityZone,
@@ -94,13 +95,17 @@ data CreateCapacityReservation = CreateCapacityReservation'
     -- performance. This optimization isn\'t available with all instance types.
     -- Additional usage charges apply when using an EBS- optimized instance.
     ebsOptimized :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether the Capacity Reservation supports instances with
-    -- temporary, block-level storage.
+    -- | /Deprecated./
     ephemeralStorage :: Prelude.Maybe Prelude.Bool,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
     clientToken :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the cluster placement group in which
+    -- to create the Capacity Reservation. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+    -- in the /Amazon EC2 User Guide/.
+    placementGroupArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Outpost on which to create the
     -- Capacity Reservation.
     outpostArn :: Prelude.Maybe Prelude.Text,
@@ -193,12 +198,16 @@ data CreateCapacityReservation = CreateCapacityReservation'
 -- performance. This optimization isn\'t available with all instance types.
 -- Additional usage charges apply when using an EBS- optimized instance.
 --
--- 'ephemeralStorage', 'createCapacityReservation_ephemeralStorage' - Indicates whether the Capacity Reservation supports instances with
--- temporary, block-level storage.
+-- 'ephemeralStorage', 'createCapacityReservation_ephemeralStorage' - /Deprecated./
 --
 -- 'clientToken', 'createCapacityReservation_clientToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
+--
+-- 'placementGroupArn', 'createCapacityReservation_placementGroupArn' - The Amazon Resource Name (ARN) of the cluster placement group in which
+-- to create the Capacity Reservation. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+-- in the /Amazon EC2 User Guide/.
 --
 -- 'outpostArn', 'createCapacityReservation_outpostArn' - The Amazon Resource Name (ARN) of the Outpost on which to create the
 -- Capacity Reservation.
@@ -291,6 +300,7 @@ newCreateCapacityReservation
           Prelude.Nothing,
         ephemeralStorage = Prelude.Nothing,
         clientToken = Prelude.Nothing,
+        placementGroupArn = Prelude.Nothing,
         outpostArn = Prelude.Nothing,
         endDate = Prelude.Nothing,
         availabilityZone = Prelude.Nothing,
@@ -313,8 +323,7 @@ newCreateCapacityReservation
 createCapacityReservation_ebsOptimized :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Bool)
 createCapacityReservation_ebsOptimized = Lens.lens (\CreateCapacityReservation' {ebsOptimized} -> ebsOptimized) (\s@CreateCapacityReservation' {} a -> s {ebsOptimized = a} :: CreateCapacityReservation)
 
--- | Indicates whether the Capacity Reservation supports instances with
--- temporary, block-level storage.
+-- | /Deprecated./
 createCapacityReservation_ephemeralStorage :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Bool)
 createCapacityReservation_ephemeralStorage = Lens.lens (\CreateCapacityReservation' {ephemeralStorage} -> ephemeralStorage) (\s@CreateCapacityReservation' {} a -> s {ephemeralStorage = a} :: CreateCapacityReservation)
 
@@ -323,6 +332,13 @@ createCapacityReservation_ephemeralStorage = Lens.lens (\CreateCapacityReservati
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensure Idempotency>.
 createCapacityReservation_clientToken :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
 createCapacityReservation_clientToken = Lens.lens (\CreateCapacityReservation' {clientToken} -> clientToken) (\s@CreateCapacityReservation' {} a -> s {clientToken = a} :: CreateCapacityReservation)
+
+-- | The Amazon Resource Name (ARN) of the cluster placement group in which
+-- to create the Capacity Reservation. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html Capacity Reservations for cluster placement groups>
+-- in the /Amazon EC2 User Guide/.
+createCapacityReservation_placementGroupArn :: Lens.Lens' CreateCapacityReservation (Prelude.Maybe Prelude.Text)
+createCapacityReservation_placementGroupArn = Lens.lens (\CreateCapacityReservation' {placementGroupArn} -> placementGroupArn) (\s@CreateCapacityReservation' {} a -> s {placementGroupArn = a} :: CreateCapacityReservation)
 
 -- | The Amazon Resource Name (ARN) of the Outpost on which to create the
 -- Capacity Reservation.
@@ -441,6 +457,7 @@ instance Prelude.Hashable CreateCapacityReservation where
     _salt `Prelude.hashWithSalt` ebsOptimized
       `Prelude.hashWithSalt` ephemeralStorage
       `Prelude.hashWithSalt` clientToken
+      `Prelude.hashWithSalt` placementGroupArn
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` availabilityZone
@@ -459,6 +476,7 @@ instance Prelude.NFData CreateCapacityReservation where
     Prelude.rnf ebsOptimized
       `Prelude.seq` Prelude.rnf ephemeralStorage
       `Prelude.seq` Prelude.rnf clientToken
+      `Prelude.seq` Prelude.rnf placementGroupArn
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf endDate
       `Prelude.seq` Prelude.rnf availabilityZone
@@ -488,6 +506,7 @@ instance Core.ToQuery CreateCapacityReservation where
         "EbsOptimized" Core.=: ebsOptimized,
         "EphemeralStorage" Core.=: ephemeralStorage,
         "ClientToken" Core.=: clientToken,
+        "PlacementGroupArn" Core.=: placementGroupArn,
         "OutpostArn" Core.=: outpostArn,
         "EndDate" Core.=: endDate,
         "AvailabilityZone" Core.=: availabilityZone,

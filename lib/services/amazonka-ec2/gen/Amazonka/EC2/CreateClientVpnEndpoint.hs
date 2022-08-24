@@ -31,10 +31,12 @@ module Amazonka.EC2.CreateClientVpnEndpoint
     -- * Request Lenses
     createClientVpnEndpoint_clientToken,
     createClientVpnEndpoint_transportProtocol,
+    createClientVpnEndpoint_sessionTimeoutHours,
     createClientVpnEndpoint_securityGroupIds,
     createClientVpnEndpoint_dnsServers,
     createClientVpnEndpoint_description,
     createClientVpnEndpoint_dryRun,
+    createClientVpnEndpoint_clientLoginBannerOptions,
     createClientVpnEndpoint_clientConnectOptions,
     createClientVpnEndpoint_splitTunnel,
     createClientVpnEndpoint_vpcId,
@@ -75,6 +77,12 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
     --
     -- Default value: @udp@
     transportProtocol :: Prelude.Maybe TransportProtocol,
+    -- | The maximum VPN session duration time in hours.
+    --
+    -- Valid values: @8 | 10 | 12 | 24@
+    --
+    -- Default value: @24@
+    sessionTimeoutHours :: Prelude.Maybe Prelude.Int,
     -- | The IDs of one or more security groups to apply to the target network.
     -- You must also specify the ID of the VPC that contains the security
     -- groups.
@@ -91,6 +99,10 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | Options for enabling a customizable text banner that will be displayed
+    -- on Amazon Web Services provided clients when a VPN session is
+    -- established.
+    clientLoginBannerOptions :: Prelude.Maybe ClientLoginBannerOptions,
     -- | The options for managing connection authorization for new client
     -- connections.
     clientConnectOptions :: Prelude.Maybe ClientConnectOptions,
@@ -165,6 +177,12 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
 --
 -- Default value: @udp@
 --
+-- 'sessionTimeoutHours', 'createClientVpnEndpoint_sessionTimeoutHours' - The maximum VPN session duration time in hours.
+--
+-- Valid values: @8 | 10 | 12 | 24@
+--
+-- Default value: @24@
+--
 -- 'securityGroupIds', 'createClientVpnEndpoint_securityGroupIds' - The IDs of one or more security groups to apply to the target network.
 -- You must also specify the ID of the VPC that contains the security
 -- groups.
@@ -180,6 +198,10 @@ data CreateClientVpnEndpoint = CreateClientVpnEndpoint'
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
+--
+-- 'clientLoginBannerOptions', 'createClientVpnEndpoint_clientLoginBannerOptions' - Options for enabling a customizable text banner that will be displayed
+-- on Amazon Web Services provided clients when a VPN session is
+-- established.
 --
 -- 'clientConnectOptions', 'createClientVpnEndpoint_clientConnectOptions' - The options for managing connection authorization for new client
 -- connections.
@@ -251,10 +273,12 @@ newCreateClientVpnEndpoint
       { clientToken =
           Prelude.Nothing,
         transportProtocol = Prelude.Nothing,
+        sessionTimeoutHours = Prelude.Nothing,
         securityGroupIds = Prelude.Nothing,
         dnsServers = Prelude.Nothing,
         description = Prelude.Nothing,
         dryRun = Prelude.Nothing,
+        clientLoginBannerOptions = Prelude.Nothing,
         clientConnectOptions = Prelude.Nothing,
         splitTunnel = Prelude.Nothing,
         vpcId = Prelude.Nothing,
@@ -279,6 +303,14 @@ createClientVpnEndpoint_clientToken = Lens.lens (\CreateClientVpnEndpoint' {clie
 createClientVpnEndpoint_transportProtocol :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe TransportProtocol)
 createClientVpnEndpoint_transportProtocol = Lens.lens (\CreateClientVpnEndpoint' {transportProtocol} -> transportProtocol) (\s@CreateClientVpnEndpoint' {} a -> s {transportProtocol = a} :: CreateClientVpnEndpoint)
 
+-- | The maximum VPN session duration time in hours.
+--
+-- Valid values: @8 | 10 | 12 | 24@
+--
+-- Default value: @24@
+createClientVpnEndpoint_sessionTimeoutHours :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Int)
+createClientVpnEndpoint_sessionTimeoutHours = Lens.lens (\CreateClientVpnEndpoint' {sessionTimeoutHours} -> sessionTimeoutHours) (\s@CreateClientVpnEndpoint' {} a -> s {sessionTimeoutHours = a} :: CreateClientVpnEndpoint)
+
 -- | The IDs of one or more security groups to apply to the target network.
 -- You must also specify the ID of the VPC that contains the security
 -- groups.
@@ -302,6 +334,12 @@ createClientVpnEndpoint_description = Lens.lens (\CreateClientVpnEndpoint' {desc
 -- Otherwise, it is @UnauthorizedOperation@.
 createClientVpnEndpoint_dryRun :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe Prelude.Bool)
 createClientVpnEndpoint_dryRun = Lens.lens (\CreateClientVpnEndpoint' {dryRun} -> dryRun) (\s@CreateClientVpnEndpoint' {} a -> s {dryRun = a} :: CreateClientVpnEndpoint)
+
+-- | Options for enabling a customizable text banner that will be displayed
+-- on Amazon Web Services provided clients when a VPN session is
+-- established.
+createClientVpnEndpoint_clientLoginBannerOptions :: Lens.Lens' CreateClientVpnEndpoint (Prelude.Maybe ClientLoginBannerOptions)
+createClientVpnEndpoint_clientLoginBannerOptions = Lens.lens (\CreateClientVpnEndpoint' {clientLoginBannerOptions} -> clientLoginBannerOptions) (\s@CreateClientVpnEndpoint' {} a -> s {clientLoginBannerOptions = a} :: CreateClientVpnEndpoint)
 
 -- | The options for managing connection authorization for new client
 -- connections.
@@ -397,10 +435,12 @@ instance Prelude.Hashable CreateClientVpnEndpoint where
   hashWithSalt _salt CreateClientVpnEndpoint' {..} =
     _salt `Prelude.hashWithSalt` clientToken
       `Prelude.hashWithSalt` transportProtocol
+      `Prelude.hashWithSalt` sessionTimeoutHours
       `Prelude.hashWithSalt` securityGroupIds
       `Prelude.hashWithSalt` dnsServers
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` clientLoginBannerOptions
       `Prelude.hashWithSalt` clientConnectOptions
       `Prelude.hashWithSalt` splitTunnel
       `Prelude.hashWithSalt` vpcId
@@ -416,10 +456,12 @@ instance Prelude.NFData CreateClientVpnEndpoint where
   rnf CreateClientVpnEndpoint' {..} =
     Prelude.rnf clientToken
       `Prelude.seq` Prelude.rnf transportProtocol
+      `Prelude.seq` Prelude.rnf sessionTimeoutHours
       `Prelude.seq` Prelude.rnf securityGroupIds
       `Prelude.seq` Prelude.rnf dnsServers
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf clientLoginBannerOptions
       `Prelude.seq` Prelude.rnf clientConnectOptions
       `Prelude.seq` Prelude.rnf splitTunnel
       `Prelude.seq` Prelude.rnf vpcId
@@ -446,6 +488,7 @@ instance Core.ToQuery CreateClientVpnEndpoint where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "ClientToken" Core.=: clientToken,
         "TransportProtocol" Core.=: transportProtocol,
+        "SessionTimeoutHours" Core.=: sessionTimeoutHours,
         Core.toQuery
           ( Core.toQueryList "SecurityGroupId"
               Prelude.<$> securityGroupIds
@@ -456,6 +499,8 @@ instance Core.ToQuery CreateClientVpnEndpoint where
           ),
         "Description" Core.=: description,
         "DryRun" Core.=: dryRun,
+        "ClientLoginBannerOptions"
+          Core.=: clientLoginBannerOptions,
         "ClientConnectOptions" Core.=: clientConnectOptions,
         "SplitTunnel" Core.=: splitTunnel,
         "VpcId" Core.=: vpcId,

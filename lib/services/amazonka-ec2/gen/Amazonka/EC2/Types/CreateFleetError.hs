@@ -39,11 +39,11 @@ data CreateFleetError = CreateFleetError'
     lifecycle :: Prelude.Maybe InstanceLifecycle,
     -- | The error message that describes why the instance could not be launched.
     -- For more information about error messages, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code that indicates why the instance could not be launched.
     -- For more information about error codes, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
     errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,11 +65,11 @@ data CreateFleetError = CreateFleetError'
 --
 -- 'errorMessage', 'createFleetError_errorMessage' - The error message that describes why the instance could not be launched.
 -- For more information about error messages, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
 --
 -- 'errorCode', 'createFleetError_errorCode' - The error code that indicates why the instance could not be launched.
 -- For more information about error codes, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
 newCreateFleetError ::
   CreateFleetError
 newCreateFleetError =
@@ -94,13 +94,13 @@ createFleetError_lifecycle = Lens.lens (\CreateFleetError' {lifecycle} -> lifecy
 
 -- | The error message that describes why the instance could not be launched.
 -- For more information about error messages, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
 createFleetError_errorMessage :: Lens.Lens' CreateFleetError (Prelude.Maybe Prelude.Text)
 createFleetError_errorMessage = Lens.lens (\CreateFleetError' {errorMessage} -> errorMessage) (\s@CreateFleetError' {} a -> s {errorMessage = a} :: CreateFleetError)
 
 -- | The error code that indicates why the instance could not be launched.
 -- For more information about error codes, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
 createFleetError_errorCode :: Lens.Lens' CreateFleetError (Prelude.Maybe Prelude.Text)
 createFleetError_errorCode = Lens.lens (\CreateFleetError' {errorCode} -> errorCode) (\s@CreateFleetError' {} a -> s {errorCode = a} :: CreateFleetError)
 

@@ -21,6 +21,7 @@ module Amazonka.EC2.Types.LaunchTemplateOverrides where
 
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
+import Amazonka.EC2.Types.InstanceRequirements
 import Amazonka.EC2.Types.InstanceType
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -29,7 +30,16 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newLaunchTemplateOverrides' smart constructor.
 data LaunchTemplateOverrides = LaunchTemplateOverrides'
-  { -- | The ID of the subnet in which to launch the instances.
+  { -- | The instance requirements. When you specify instance requirements,
+    -- Amazon EC2 will identify instance types with the provided requirements,
+    -- and then use your On-Demand and Spot allocation strategies to launch
+    -- instances from these instance types, in the same way as when you specify
+    -- a list of instance types.
+    --
+    -- If you specify @InstanceRequirements@, you can\'t specify
+    -- @InstanceTypes@.
+    instanceRequirements :: Prelude.Maybe InstanceRequirements,
+    -- | The ID of the subnet in which to launch the instances.
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone in which to launch the instances.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -55,7 +65,12 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
     -- | The number of units provided by the specified instance type.
     weightedCapacity :: Prelude.Maybe Prelude.Double,
     -- | The maximum price per unit hour that you are willing to pay for a Spot
-    -- Instance.
+    -- Instance. We do not recommend using this parameter because it can lead
+    -- to increased interruptions. If you do not specify this parameter, you
+    -- will pay the current Spot price.
+    --
+    -- If you specify a maximum price, your instances will be interrupted more
+    -- frequently than if you do not specify this parameter.
     spotPrice :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,6 +82,15 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'instanceRequirements', 'launchTemplateOverrides_instanceRequirements' - The instance requirements. When you specify instance requirements,
+-- Amazon EC2 will identify instance types with the provided requirements,
+-- and then use your On-Demand and Spot allocation strategies to launch
+-- instances from these instance types, in the same way as when you specify
+-- a list of instance types.
+--
+-- If you specify @InstanceRequirements@, you can\'t specify
+-- @InstanceTypes@.
 --
 -- 'subnetId', 'launchTemplateOverrides_subnetId' - The ID of the subnet in which to launch the instances.
 --
@@ -94,19 +118,36 @@ data LaunchTemplateOverrides = LaunchTemplateOverrides'
 -- 'weightedCapacity', 'launchTemplateOverrides_weightedCapacity' - The number of units provided by the specified instance type.
 --
 -- 'spotPrice', 'launchTemplateOverrides_spotPrice' - The maximum price per unit hour that you are willing to pay for a Spot
--- Instance.
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 newLaunchTemplateOverrides ::
   LaunchTemplateOverrides
 newLaunchTemplateOverrides =
   LaunchTemplateOverrides'
-    { subnetId =
+    { instanceRequirements =
         Prelude.Nothing,
+      subnetId = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       priority = Prelude.Nothing,
       weightedCapacity = Prelude.Nothing,
       spotPrice = Prelude.Nothing
     }
+
+-- | The instance requirements. When you specify instance requirements,
+-- Amazon EC2 will identify instance types with the provided requirements,
+-- and then use your On-Demand and Spot allocation strategies to launch
+-- instances from these instance types, in the same way as when you specify
+-- a list of instance types.
+--
+-- If you specify @InstanceRequirements@, you can\'t specify
+-- @InstanceTypes@.
+launchTemplateOverrides_instanceRequirements :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe InstanceRequirements)
+launchTemplateOverrides_instanceRequirements = Lens.lens (\LaunchTemplateOverrides' {instanceRequirements} -> instanceRequirements) (\s@LaunchTemplateOverrides' {} a -> s {instanceRequirements = a} :: LaunchTemplateOverrides)
 
 -- | The ID of the subnet in which to launch the instances.
 launchTemplateOverrides_subnetId :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
@@ -144,14 +185,20 @@ launchTemplateOverrides_weightedCapacity :: Lens.Lens' LaunchTemplateOverrides (
 launchTemplateOverrides_weightedCapacity = Lens.lens (\LaunchTemplateOverrides' {weightedCapacity} -> weightedCapacity) (\s@LaunchTemplateOverrides' {} a -> s {weightedCapacity = a} :: LaunchTemplateOverrides)
 
 -- | The maximum price per unit hour that you are willing to pay for a Spot
--- Instance.
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your instances will be interrupted more
+-- frequently than if you do not specify this parameter.
 launchTemplateOverrides_spotPrice :: Lens.Lens' LaunchTemplateOverrides (Prelude.Maybe Prelude.Text)
 launchTemplateOverrides_spotPrice = Lens.lens (\LaunchTemplateOverrides' {spotPrice} -> spotPrice) (\s@LaunchTemplateOverrides' {} a -> s {spotPrice = a} :: LaunchTemplateOverrides)
 
 instance Core.FromXML LaunchTemplateOverrides where
   parseXML x =
     LaunchTemplateOverrides'
-      Prelude.<$> (x Core..@? "subnetId")
+      Prelude.<$> (x Core..@? "instanceRequirements")
+      Prelude.<*> (x Core..@? "subnetId")
       Prelude.<*> (x Core..@? "availabilityZone")
       Prelude.<*> (x Core..@? "instanceType")
       Prelude.<*> (x Core..@? "priority")
@@ -160,7 +207,8 @@ instance Core.FromXML LaunchTemplateOverrides where
 
 instance Prelude.Hashable LaunchTemplateOverrides where
   hashWithSalt _salt LaunchTemplateOverrides' {..} =
-    _salt `Prelude.hashWithSalt` subnetId
+    _salt `Prelude.hashWithSalt` instanceRequirements
+      `Prelude.hashWithSalt` subnetId
       `Prelude.hashWithSalt` availabilityZone
       `Prelude.hashWithSalt` instanceType
       `Prelude.hashWithSalt` priority
@@ -169,7 +217,8 @@ instance Prelude.Hashable LaunchTemplateOverrides where
 
 instance Prelude.NFData LaunchTemplateOverrides where
   rnf LaunchTemplateOverrides' {..} =
-    Prelude.rnf subnetId
+    Prelude.rnf instanceRequirements
+      `Prelude.seq` Prelude.rnf subnetId
       `Prelude.seq` Prelude.rnf availabilityZone
       `Prelude.seq` Prelude.rnf instanceType
       `Prelude.seq` Prelude.rnf priority
@@ -179,7 +228,8 @@ instance Prelude.NFData LaunchTemplateOverrides where
 instance Core.ToQuery LaunchTemplateOverrides where
   toQuery LaunchTemplateOverrides' {..} =
     Prelude.mconcat
-      [ "SubnetId" Core.=: subnetId,
+      [ "InstanceRequirements" Core.=: instanceRequirements,
+        "SubnetId" Core.=: subnetId,
         "AvailabilityZone" Core.=: availabilityZone,
         "InstanceType" Core.=: instanceType,
         "Priority" Core.=: priority,

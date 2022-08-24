@@ -23,7 +23,8 @@
 -- Registers a set of tag keys to include in scheduled event notifications
 -- for your resources.
 --
--- To remove tags, use .
+-- To remove tags, use
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html DeregisterInstanceEventNotificationAttributes>.
 module Amazonka.EC2.RegisterInstanceEventNotificationAttributes
   ( -- * Creating a Request
     RegisterInstanceEventNotificationAttributes (..),

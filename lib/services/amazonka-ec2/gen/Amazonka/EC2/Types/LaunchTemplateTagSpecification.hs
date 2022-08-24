@@ -26,13 +26,13 @@ import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | The tag specification for the launch template.
+-- | The tags specification for the launch template.
 --
 -- /See:/ 'newLaunchTemplateTagSpecification' smart constructor.
 data LaunchTemplateTagSpecification = LaunchTemplateTagSpecification'
   { -- | The tags for the resource.
     tags :: Prelude.Maybe [Tag],
-    -- | The type of resource.
+    -- | The type of resource to tag.
     resourceType :: Prelude.Maybe ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +47,7 @@ data LaunchTemplateTagSpecification = LaunchTemplateTagSpecification'
 --
 -- 'tags', 'launchTemplateTagSpecification_tags' - The tags for the resource.
 --
--- 'resourceType', 'launchTemplateTagSpecification_resourceType' - The type of resource.
+-- 'resourceType', 'launchTemplateTagSpecification_resourceType' - The type of resource to tag.
 newLaunchTemplateTagSpecification ::
   LaunchTemplateTagSpecification
 newLaunchTemplateTagSpecification =
@@ -61,7 +61,7 @@ newLaunchTemplateTagSpecification =
 launchTemplateTagSpecification_tags :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe [Tag])
 launchTemplateTagSpecification_tags = Lens.lens (\LaunchTemplateTagSpecification' {tags} -> tags) (\s@LaunchTemplateTagSpecification' {} a -> s {tags = a} :: LaunchTemplateTagSpecification) Prelude.. Lens.mapping Lens.coerced
 
--- | The type of resource.
+-- | The type of resource to tag.
 launchTemplateTagSpecification_resourceType :: Lens.Lens' LaunchTemplateTagSpecification (Prelude.Maybe ResourceType)
 launchTemplateTagSpecification_resourceType = Lens.lens (\LaunchTemplateTagSpecification' {resourceType} -> resourceType) (\s@LaunchTemplateTagSpecification' {} a -> s {resourceType = a} :: LaunchTemplateTagSpecification)
 

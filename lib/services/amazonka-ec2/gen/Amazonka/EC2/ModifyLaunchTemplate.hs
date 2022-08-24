@@ -56,7 +56,7 @@ import qualified Amazonka.Response as Response
 data ModifyLaunchTemplate = ModifyLaunchTemplate'
   { -- | Unique, case-sensitive identifier you provide to ensure the idempotency
     -- of the request. For more information, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
     --
     -- Constraint: Maximum 128 ASCII characters.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -67,11 +67,15 @@ data ModifyLaunchTemplate = ModifyLaunchTemplate'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the launch template. You must specify either the launch
-    -- template ID or launch template name in the request.
+    -- | The ID of the launch template.
+    --
+    -- You must specify either the @LaunchTemplateId@ or the
+    -- @LaunchTemplateName@, but not both.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template. You must specify either the launch
-    -- template ID or launch template name in the request.
+    -- | The name of the launch template.
+    --
+    -- You must specify either the @LaunchTemplateName@ or the
+    -- @LaunchTemplateId@, but not both.
     launchTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,7 +90,7 @@ data ModifyLaunchTemplate = ModifyLaunchTemplate'
 --
 -- 'clientToken', 'modifyLaunchTemplate_clientToken' - Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
 -- Constraint: Maximum 128 ASCII characters.
 --
@@ -97,11 +101,15 @@ data ModifyLaunchTemplate = ModifyLaunchTemplate'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'launchTemplateId', 'modifyLaunchTemplate_launchTemplateId' - The ID of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- 'launchTemplateId', 'modifyLaunchTemplate_launchTemplateId' - The ID of the launch template.
 --
--- 'launchTemplateName', 'modifyLaunchTemplate_launchTemplateName' - The name of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- You must specify either the @LaunchTemplateId@ or the
+-- @LaunchTemplateName@, but not both.
+--
+-- 'launchTemplateName', 'modifyLaunchTemplate_launchTemplateName' - The name of the launch template.
+--
+-- You must specify either the @LaunchTemplateName@ or the
+-- @LaunchTemplateId@, but not both.
 newModifyLaunchTemplate ::
   ModifyLaunchTemplate
 newModifyLaunchTemplate =
@@ -116,7 +124,7 @@ newModifyLaunchTemplate =
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring idempotency>.
 --
 -- Constraint: Maximum 128 ASCII characters.
 modifyLaunchTemplate_clientToken :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
@@ -133,13 +141,17 @@ modifyLaunchTemplate_defaultVersion = Lens.lens (\ModifyLaunchTemplate' {default
 modifyLaunchTemplate_dryRun :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Bool)
 modifyLaunchTemplate_dryRun = Lens.lens (\ModifyLaunchTemplate' {dryRun} -> dryRun) (\s@ModifyLaunchTemplate' {} a -> s {dryRun = a} :: ModifyLaunchTemplate)
 
--- | The ID of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- | The ID of the launch template.
+--
+-- You must specify either the @LaunchTemplateId@ or the
+-- @LaunchTemplateName@, but not both.
 modifyLaunchTemplate_launchTemplateId :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
 modifyLaunchTemplate_launchTemplateId = Lens.lens (\ModifyLaunchTemplate' {launchTemplateId} -> launchTemplateId) (\s@ModifyLaunchTemplate' {} a -> s {launchTemplateId = a} :: ModifyLaunchTemplate)
 
--- | The name of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- | The name of the launch template.
+--
+-- You must specify either the @LaunchTemplateName@ or the
+-- @LaunchTemplateId@, but not both.
 modifyLaunchTemplate_launchTemplateName :: Lens.Lens' ModifyLaunchTemplate (Prelude.Maybe Prelude.Text)
 modifyLaunchTemplate_launchTemplateName = Lens.lens (\ModifyLaunchTemplate' {launchTemplateName} -> launchTemplateName) (\s@ModifyLaunchTemplate' {} a -> s {launchTemplateName = a} :: ModifyLaunchTemplate)
 

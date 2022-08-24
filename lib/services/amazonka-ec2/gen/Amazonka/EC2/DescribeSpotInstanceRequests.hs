@@ -171,7 +171,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
     --     | @closed@ | @cancelled@ | @failed@). Spot request status
     --     information can help you track your Amazon EC2 Spot Instance
     --     requests. For more information, see
-    --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot request status>
+    --     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html Spot request status>
     --     in the /Amazon EC2 User Guide for Linux Instances/.
     --
     -- -   @status-code@ - The short code describing the most recent evaluation
@@ -314,7 +314,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
 --     | @closed@ | @cancelled@ | @failed@). Spot request status
 --     information can help you track your Amazon EC2 Spot Instance
 --     requests. For more information, see
---     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot request status>
+--     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html Spot request status>
 --     in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- -   @status-code@ - The short code describing the most recent evaluation
@@ -459,7 +459,7 @@ describeSpotInstanceRequests_nextToken = Lens.lens (\DescribeSpotInstanceRequest
 --     | @closed@ | @cancelled@ | @failed@). Spot request status
 --     information can help you track your Amazon EC2 Spot Instance
 --     requests. For more information, see
---     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot request status>
+--     <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-request-status.html Spot request status>
 --     in the /Amazon EC2 User Guide for Linux Instances/.
 --
 -- -   @status-code@ - The short code describing the most recent evaluation

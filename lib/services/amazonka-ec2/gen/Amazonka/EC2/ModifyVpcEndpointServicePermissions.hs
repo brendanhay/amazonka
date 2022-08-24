@@ -20,11 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the permissions for your
--- <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-service.html VPC endpoint service>.
--- You can add or remove permissions for service consumers (IAM users, IAM
--- roles, and Amazon Web Services accounts) to connect to your endpoint
--- service.
+-- Modifies the permissions for your VPC endpoint service. You can add or
+-- remove permissions for service consumers (IAM users, IAM roles, and
+-- Amazon Web Services accounts) to connect to your endpoint service.
 --
 -- If you grant permissions to all principals, the service is public. Any
 -- users who know the name of a public service can send a request to attach

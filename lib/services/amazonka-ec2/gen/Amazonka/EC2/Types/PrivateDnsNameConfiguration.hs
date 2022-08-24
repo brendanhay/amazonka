@@ -25,10 +25,7 @@ import Amazonka.EC2.Types.DnsNameState
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Information about the private DNS name for the service endpoint. For
--- more information about these parameters, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html VPC Endpoint Service Private DNS Name Verification>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- | Information about the private DNS name for the service endpoint.
 --
 -- /See:/ 'newPrivateDnsNameConfiguration' smart constructor.
 data PrivateDnsNameConfiguration = PrivateDnsNameConfiguration'

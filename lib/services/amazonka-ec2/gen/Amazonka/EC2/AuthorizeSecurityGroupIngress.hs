@@ -24,7 +24,9 @@
 --
 -- An inbound rule permits instances to receive traffic from the specified
 -- IPv4 or IPv6 CIDR address range, or from the instances that are
--- associated with the specified destination security groups.
+-- associated with the specified destination security groups. When
+-- specifying an inbound rule for your security group in a VPC, the
+-- @IpPermissions@ must include a source for the traffic.
 --
 -- You specify a protocol for each rule (for example, TCP). For TCP and
 -- UDP, you must also specify the destination port or port range. For
@@ -36,6 +38,11 @@
 --
 -- For more information about VPC security group quotas, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html Amazon VPC quotas>.
+--
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 module Amazonka.EC2.AuthorizeSecurityGroupIngress
   ( -- * Creating a Request
     AuthorizeSecurityGroupIngress (..),

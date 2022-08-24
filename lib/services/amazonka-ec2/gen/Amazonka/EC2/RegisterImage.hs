@@ -28,7 +28,8 @@
 --
 -- For Amazon EBS-backed instances, CreateImage creates and registers the
 -- AMI in a single request, so you don\'t have to register the AMI
--- yourself.
+-- yourself. We recommend that you always use CreateImage unless you have a
+-- specific reason to use RegisterImage.
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you
 -- make to an AMI backed by an instance store volume invalidates its
@@ -90,6 +91,7 @@ module Amazonka.EC2.RegisterImage
     registerImage_description,
     registerImage_dryRun,
     registerImage_billingProducts,
+    registerImage_tpmSupport,
     registerImage_ramdiskId,
     registerImage_imageLocation,
     registerImage_bootMode,
@@ -97,6 +99,7 @@ module Amazonka.EC2.RegisterImage
     registerImage_architecture,
     registerImage_enaSupport,
     registerImage_rootDeviceName,
+    registerImage_uefiData,
     registerImage_name,
 
     -- * Destructuring the Response
@@ -156,6 +159,11 @@ data RegisterImage = RegisterImage'
     -- billing product codes. Otherwise, you can use the Amazon Web Services
     -- Marketplace to bill for the use of an AMI.
     billingProducts :: Prelude.Maybe [Prelude.Text],
+    -- | Set to @v2.0@ to enable Trusted Platform Module (TPM) support. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    tpmSupport :: Prelude.Maybe TpmSupportValues,
     -- | The ID of the RAM disk.
     ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | The full path to your AMI manifest in Amazon S3 storage. The specified
@@ -183,6 +191,15 @@ data RegisterImage = RegisterImage'
     enaSupport :: Prelude.Maybe Prelude.Bool,
     -- | The device name of the root device volume (for example, @\/dev\/sda1@).
     rootDeviceName :: Prelude.Maybe Prelude.Text,
+    -- | Base64 representation of the non-volatile UEFI variable store. To
+    -- retrieve the UEFI data, use the
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData GetInstanceUefiData>
+    -- command. You can inspect and modify the UEFI data by using the
+    -- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
+    -- GitHub. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
+    -- in the /Amazon Elastic Compute Cloud User Guide/.
+    uefiData :: Prelude.Maybe Prelude.Text,
     -- | A name for your AMI.
     --
     -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
@@ -236,6 +253,11 @@ data RegisterImage = RegisterImage'
 -- billing product codes. Otherwise, you can use the Amazon Web Services
 -- Marketplace to bill for the use of an AMI.
 --
+-- 'tpmSupport', 'registerImage_tpmSupport' - Set to @v2.0@ to enable Trusted Platform Module (TPM) support. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
 -- 'ramdiskId', 'registerImage_ramdiskId' - The ID of the RAM disk.
 --
 -- 'imageLocation', 'registerImage_imageLocation' - The full path to your AMI manifest in Amazon S3 storage. The specified
@@ -263,6 +285,15 @@ data RegisterImage = RegisterImage'
 --
 -- 'rootDeviceName', 'registerImage_rootDeviceName' - The device name of the root device volume (for example, @\/dev\/sda1@).
 --
+-- 'uefiData', 'registerImage_uefiData' - Base64 representation of the non-volatile UEFI variable store. To
+-- retrieve the UEFI data, use the
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData GetInstanceUefiData>
+-- command. You can inspect and modify the UEFI data by using the
+-- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
+-- GitHub. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
 -- 'name', 'registerImage_name' - A name for your AMI.
 --
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
@@ -280,6 +311,7 @@ newRegisterImage pName_ =
       description = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       billingProducts = Prelude.Nothing,
+      tpmSupport = Prelude.Nothing,
       ramdiskId = Prelude.Nothing,
       imageLocation = Prelude.Nothing,
       bootMode = Prelude.Nothing,
@@ -287,6 +319,7 @@ newRegisterImage pName_ =
       architecture = Prelude.Nothing,
       enaSupport = Prelude.Nothing,
       rootDeviceName = Prelude.Nothing,
+      uefiData = Prelude.Nothing,
       name = pName_
     }
 
@@ -338,6 +371,13 @@ registerImage_dryRun = Lens.lens (\RegisterImage' {dryRun} -> dryRun) (\s@Regist
 registerImage_billingProducts :: Lens.Lens' RegisterImage (Prelude.Maybe [Prelude.Text])
 registerImage_billingProducts = Lens.lens (\RegisterImage' {billingProducts} -> billingProducts) (\s@RegisterImage' {} a -> s {billingProducts = a} :: RegisterImage) Prelude.. Lens.mapping Lens.coerced
 
+-- | Set to @v2.0@ to enable Trusted Platform Module (TPM) support. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+registerImage_tpmSupport :: Lens.Lens' RegisterImage (Prelude.Maybe TpmSupportValues)
+registerImage_tpmSupport = Lens.lens (\RegisterImage' {tpmSupport} -> tpmSupport) (\s@RegisterImage' {} a -> s {tpmSupport = a} :: RegisterImage)
+
 -- | The ID of the RAM disk.
 registerImage_ramdiskId :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
 registerImage_ramdiskId = Lens.lens (\RegisterImage' {ramdiskId} -> ramdiskId) (\s@RegisterImage' {} a -> s {ramdiskId = a} :: RegisterImage)
@@ -379,6 +419,17 @@ registerImage_enaSupport = Lens.lens (\RegisterImage' {enaSupport} -> enaSupport
 registerImage_rootDeviceName :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
 registerImage_rootDeviceName = Lens.lens (\RegisterImage' {rootDeviceName} -> rootDeviceName) (\s@RegisterImage' {} a -> s {rootDeviceName = a} :: RegisterImage)
 
+-- | Base64 representation of the non-volatile UEFI variable store. To
+-- retrieve the UEFI data, use the
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData GetInstanceUefiData>
+-- command. You can inspect and modify the UEFI data by using the
+-- <https://github.com/awslabs/python-uefivars python-uefivars tool> on
+-- GitHub. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html UEFI Secure Boot>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+registerImage_uefiData :: Lens.Lens' RegisterImage (Prelude.Maybe Prelude.Text)
+registerImage_uefiData = Lens.lens (\RegisterImage' {uefiData} -> uefiData) (\s@RegisterImage' {} a -> s {uefiData = a} :: RegisterImage)
+
 -- | A name for your AMI.
 --
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
@@ -408,6 +459,7 @@ instance Prelude.Hashable RegisterImage where
       `Prelude.hashWithSalt` description
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` billingProducts
+      `Prelude.hashWithSalt` tpmSupport
       `Prelude.hashWithSalt` ramdiskId
       `Prelude.hashWithSalt` imageLocation
       `Prelude.hashWithSalt` bootMode
@@ -415,6 +467,7 @@ instance Prelude.Hashable RegisterImage where
       `Prelude.hashWithSalt` architecture
       `Prelude.hashWithSalt` enaSupport
       `Prelude.hashWithSalt` rootDeviceName
+      `Prelude.hashWithSalt` uefiData
       `Prelude.hashWithSalt` name
 
 instance Prelude.NFData RegisterImage where
@@ -425,6 +478,7 @@ instance Prelude.NFData RegisterImage where
       `Prelude.seq` Prelude.rnf description
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf billingProducts
+      `Prelude.seq` Prelude.rnf tpmSupport
       `Prelude.seq` Prelude.rnf ramdiskId
       `Prelude.seq` Prelude.rnf imageLocation
       `Prelude.seq` Prelude.rnf bootMode
@@ -432,6 +486,7 @@ instance Prelude.NFData RegisterImage where
       `Prelude.seq` Prelude.rnf architecture
       `Prelude.seq` Prelude.rnf enaSupport
       `Prelude.seq` Prelude.rnf rootDeviceName
+      `Prelude.seq` Prelude.rnf uefiData
       `Prelude.seq` Prelude.rnf name
 
 instance Core.ToHeaders RegisterImage where
@@ -459,6 +514,7 @@ instance Core.ToQuery RegisterImage where
           ( Core.toQueryList "BillingProduct"
               Prelude.<$> billingProducts
           ),
+        "TpmSupport" Core.=: tpmSupport,
         "RamdiskId" Core.=: ramdiskId,
         "ImageLocation" Core.=: imageLocation,
         "BootMode" Core.=: bootMode,
@@ -466,6 +522,7 @@ instance Core.ToQuery RegisterImage where
         "Architecture" Core.=: architecture,
         "EnaSupport" Core.=: enaSupport,
         "RootDeviceName" Core.=: rootDeviceName,
+        "UefiData" Core.=: uefiData,
         "Name" Core.=: name
       ]
 

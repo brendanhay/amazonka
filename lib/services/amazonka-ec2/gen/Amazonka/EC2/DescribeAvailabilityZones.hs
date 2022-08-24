@@ -86,8 +86,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
     --     @us-east-1@).
     --
     -- -   @state@ - The state of the Availability Zone, the Local Zone, or the
-    --     Wavelength Zone (@available@ | @information@ | @impaired@ |
-    --     @unavailable@).
+    --     Wavelength Zone (@available@).
     --
     -- -   @zone-id@ - The ID of the Availability Zone (for example,
     --     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the
@@ -152,8 +151,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
 --     @us-east-1@).
 --
 -- -   @state@ - The state of the Availability Zone, the Local Zone, or the
---     Wavelength Zone (@available@ | @information@ | @impaired@ |
---     @unavailable@).
+--     Wavelength Zone (@available@).
 --
 -- -   @zone-id@ - The ID of the Availability Zone (for example,
 --     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the
@@ -220,8 +218,7 @@ describeAvailabilityZones_zoneNames = Lens.lens (\DescribeAvailabilityZones' {zo
 --     @us-east-1@).
 --
 -- -   @state@ - The state of the Availability Zone, the Local Zone, or the
---     Wavelength Zone (@available@ | @information@ | @impaired@ |
---     @unavailable@).
+--     Wavelength Zone (@available@).
 --
 -- -   @zone-id@ - The ID of the Availability Zone (for example,
 --     @use1-az1@), the Local Zone (for example, @usw2-lax1-az1@), or the

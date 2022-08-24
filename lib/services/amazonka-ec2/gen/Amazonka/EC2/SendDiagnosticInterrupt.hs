@@ -36,9 +36,9 @@
 --
 -- For more information about configuring your operating system to generate
 -- a crash dump when a kernel panic or stop error occurs, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html Send a diagnostic interrupt>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html Send a diagnostic interrupt (for advanced users)>
 -- (Linux instances) or
--- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html Send a Diagnostic Interrupt>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html Send a diagnostic interrupt (for advanced users)>
 -- (Windows instances).
 module Amazonka.EC2.SendDiagnosticInterrupt
   ( -- * Creating a Request

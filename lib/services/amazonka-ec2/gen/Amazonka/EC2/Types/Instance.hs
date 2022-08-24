@@ -35,6 +35,7 @@ import Amazonka.EC2.Types.HypervisorType
 import Amazonka.EC2.Types.IamInstanceProfile
 import Amazonka.EC2.Types.InstanceBlockDeviceMapping
 import Amazonka.EC2.Types.InstanceLifecycleType
+import Amazonka.EC2.Types.InstanceMaintenanceOptions
 import Amazonka.EC2.Types.InstanceMetadataOptionsResponse
 import Amazonka.EC2.Types.InstanceNetworkInterface
 import Amazonka.EC2.Types.InstanceState
@@ -43,6 +44,7 @@ import Amazonka.EC2.Types.LicenseConfiguration
 import Amazonka.EC2.Types.Monitoring
 import Amazonka.EC2.Types.Placement
 import Amazonka.EC2.Types.PlatformValues
+import Amazonka.EC2.Types.PrivateDnsNameOptionsResponse
 import Amazonka.EC2.Types.ProductCode
 import Amazonka.EC2.Types.StateReason
 import Amazonka.EC2.Types.Tag
@@ -99,6 +101,8 @@ data Instance = Instance'
     stateTransitionReason :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether this is a Spot Instance or a Scheduled Instance.
     instanceLifecycle :: Prelude.Maybe InstanceLifecycleType,
+    -- | The IPv6 address assigned to the instance.
+    ipv6Address :: Prelude.Maybe Prelude.Text,
     -- | The elastic inference accelerator associated with the instance.
     elasticInferenceAcceleratorAssociations :: Prelude.Maybe [ElasticInferenceAcceleratorAssociation],
     -- | The usage operation value for the instance. For more information, see
@@ -118,10 +122,20 @@ data Instance = Instance'
     publicDnsName :: Prelude.Maybe Prelude.Text,
     -- | The security groups for the instance.
     securityGroups :: Prelude.Maybe [GroupIdentifier],
+    -- | If the instance is configured for NitroTPM support, the value is @v2.0@.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+    -- in the /Amazon EC2 User Guide/.
+    tpmSupport :: Prelude.Maybe Prelude.Text,
     -- | The RAM disk associated with this instance, if applicable.
     ramdiskId :: Prelude.Maybe Prelude.Text,
     -- | The private IPv4 address assigned to the instance.
     privateIpAddress :: Prelude.Maybe Prelude.Text,
+    -- | Provides information on the recovery and maintenance options of your
+    -- instance.
+    maintenanceOptions :: Prelude.Maybe InstanceMaintenanceOptions,
+    -- | The options for the instance hostname.
+    privateDnsNameOptions :: Prelude.Maybe PrivateDnsNameOptionsResponse,
     -- | The platform details value for the instance. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html AMI billing information fields>
     -- in the /Amazon EC2 User Guide/.
@@ -247,6 +261,8 @@ data Instance = Instance'
 --
 -- 'instanceLifecycle', 'instance_instanceLifecycle' - Indicates whether this is a Spot Instance or a Scheduled Instance.
 --
+-- 'ipv6Address', 'instance_ipv6Address' - The IPv6 address assigned to the instance.
+--
 -- 'elasticInferenceAcceleratorAssociations', 'instance_elasticInferenceAcceleratorAssociations' - The elastic inference accelerator associated with the instance.
 --
 -- 'usageOperation', 'instance_usageOperation' - The usage operation value for the instance. For more information, see
@@ -266,9 +282,19 @@ data Instance = Instance'
 --
 -- 'securityGroups', 'instance_securityGroups' - The security groups for the instance.
 --
+-- 'tpmSupport', 'instance_tpmSupport' - If the instance is configured for NitroTPM support, the value is @v2.0@.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+-- in the /Amazon EC2 User Guide/.
+--
 -- 'ramdiskId', 'instance_ramdiskId' - The RAM disk associated with this instance, if applicable.
 --
 -- 'privateIpAddress', 'instance_privateIpAddress' - The private IPv4 address assigned to the instance.
+--
+-- 'maintenanceOptions', 'instance_maintenanceOptions' - Provides information on the recovery and maintenance options of your
+-- instance.
+--
+-- 'privateDnsNameOptions', 'instance_privateDnsNameOptions' - The options for the instance hostname.
 --
 -- 'platformDetails', 'instance_platformDetails' - The platform details value for the instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html AMI billing information fields>
@@ -397,14 +423,18 @@ newInstance
         platform = Prelude.Nothing,
         stateTransitionReason = Prelude.Nothing,
         instanceLifecycle = Prelude.Nothing,
+        ipv6Address = Prelude.Nothing,
         elasticInferenceAcceleratorAssociations =
           Prelude.Nothing,
         usageOperation = Prelude.Nothing,
         publicIpAddress = Prelude.Nothing,
         publicDnsName = Prelude.Nothing,
         securityGroups = Prelude.Nothing,
+        tpmSupport = Prelude.Nothing,
         ramdiskId = Prelude.Nothing,
         privateIpAddress = Prelude.Nothing,
+        maintenanceOptions = Prelude.Nothing,
+        privateDnsNameOptions = Prelude.Nothing,
         platformDetails = Prelude.Nothing,
         bootMode = Prelude.Nothing,
         keyName = Prelude.Nothing,
@@ -516,6 +546,10 @@ instance_stateTransitionReason = Lens.lens (\Instance' {stateTransitionReason} -
 instance_instanceLifecycle :: Lens.Lens' Instance (Prelude.Maybe InstanceLifecycleType)
 instance_instanceLifecycle = Lens.lens (\Instance' {instanceLifecycle} -> instanceLifecycle) (\s@Instance' {} a -> s {instanceLifecycle = a} :: Instance)
 
+-- | The IPv6 address assigned to the instance.
+instance_ipv6Address :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_ipv6Address = Lens.lens (\Instance' {ipv6Address} -> ipv6Address) (\s@Instance' {} a -> s {ipv6Address = a} :: Instance)
+
 -- | The elastic inference accelerator associated with the instance.
 instance_elasticInferenceAcceleratorAssociations :: Lens.Lens' Instance (Prelude.Maybe [ElasticInferenceAcceleratorAssociation])
 instance_elasticInferenceAcceleratorAssociations = Lens.lens (\Instance' {elasticInferenceAcceleratorAssociations} -> elasticInferenceAcceleratorAssociations) (\s@Instance' {} a -> s {elasticInferenceAcceleratorAssociations = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
@@ -545,6 +579,13 @@ instance_publicDnsName = Lens.lens (\Instance' {publicDnsName} -> publicDnsName)
 instance_securityGroups :: Lens.Lens' Instance (Prelude.Maybe [GroupIdentifier])
 instance_securityGroups = Lens.lens (\Instance' {securityGroups} -> securityGroups) (\s@Instance' {} a -> s {securityGroups = a} :: Instance) Prelude.. Lens.mapping Lens.coerced
 
+-- | If the instance is configured for NitroTPM support, the value is @v2.0@.
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html NitroTPM>
+-- in the /Amazon EC2 User Guide/.
+instance_tpmSupport :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_tpmSupport = Lens.lens (\Instance' {tpmSupport} -> tpmSupport) (\s@Instance' {} a -> s {tpmSupport = a} :: Instance)
+
 -- | The RAM disk associated with this instance, if applicable.
 instance_ramdiskId :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_ramdiskId = Lens.lens (\Instance' {ramdiskId} -> ramdiskId) (\s@Instance' {} a -> s {ramdiskId = a} :: Instance)
@@ -552,6 +593,15 @@ instance_ramdiskId = Lens.lens (\Instance' {ramdiskId} -> ramdiskId) (\s@Instanc
 -- | The private IPv4 address assigned to the instance.
 instance_privateIpAddress :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_privateIpAddress = Lens.lens (\Instance' {privateIpAddress} -> privateIpAddress) (\s@Instance' {} a -> s {privateIpAddress = a} :: Instance)
+
+-- | Provides information on the recovery and maintenance options of your
+-- instance.
+instance_maintenanceOptions :: Lens.Lens' Instance (Prelude.Maybe InstanceMaintenanceOptions)
+instance_maintenanceOptions = Lens.lens (\Instance' {maintenanceOptions} -> maintenanceOptions) (\s@Instance' {} a -> s {maintenanceOptions = a} :: Instance)
+
+-- | The options for the instance hostname.
+instance_privateDnsNameOptions :: Lens.Lens' Instance (Prelude.Maybe PrivateDnsNameOptionsResponse)
+instance_privateDnsNameOptions = Lens.lens (\Instance' {privateDnsNameOptions} -> privateDnsNameOptions) (\s@Instance' {} a -> s {privateDnsNameOptions = a} :: Instance)
 
 -- | The platform details value for the instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/billing-info-fields.html AMI billing information fields>
@@ -706,6 +756,7 @@ instance Core.FromXML Instance where
       Prelude.<*> (x Core..@? "platform")
       Prelude.<*> (x Core..@? "reason")
       Prelude.<*> (x Core..@? "instanceLifecycle")
+      Prelude.<*> (x Core..@? "ipv6Address")
       Prelude.<*> ( x
                       Core..@? "elasticInferenceAcceleratorAssociationSet"
                       Core..!@ Prelude.mempty
@@ -717,8 +768,11 @@ instance Core.FromXML Instance where
       Prelude.<*> ( x Core..@? "groupSet" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
                   )
+      Prelude.<*> (x Core..@? "tpmSupport")
       Prelude.<*> (x Core..@? "ramdiskId")
       Prelude.<*> (x Core..@? "privateIpAddress")
+      Prelude.<*> (x Core..@? "maintenanceOptions")
+      Prelude.<*> (x Core..@? "privateDnsNameOptions")
       Prelude.<*> (x Core..@? "platformDetails")
       Prelude.<*> (x Core..@? "bootMode")
       Prelude.<*> (x Core..@? "keyName")
@@ -772,13 +826,17 @@ instance Prelude.Hashable Instance where
       `Prelude.hashWithSalt` platform
       `Prelude.hashWithSalt` stateTransitionReason
       `Prelude.hashWithSalt` instanceLifecycle
+      `Prelude.hashWithSalt` ipv6Address
       `Prelude.hashWithSalt` elasticInferenceAcceleratorAssociations
       `Prelude.hashWithSalt` usageOperation
       `Prelude.hashWithSalt` publicIpAddress
       `Prelude.hashWithSalt` publicDnsName
       `Prelude.hashWithSalt` securityGroups
+      `Prelude.hashWithSalt` tpmSupport
       `Prelude.hashWithSalt` ramdiskId
       `Prelude.hashWithSalt` privateIpAddress
+      `Prelude.hashWithSalt` maintenanceOptions
+      `Prelude.hashWithSalt` privateDnsNameOptions
       `Prelude.hashWithSalt` platformDetails
       `Prelude.hashWithSalt` bootMode
       `Prelude.hashWithSalt` keyName
@@ -828,6 +886,7 @@ instance Prelude.NFData Instance where
       `Prelude.seq` Prelude.rnf platform
       `Prelude.seq` Prelude.rnf stateTransitionReason
       `Prelude.seq` Prelude.rnf instanceLifecycle
+      `Prelude.seq` Prelude.rnf ipv6Address
       `Prelude.seq` Prelude.rnf
         elasticInferenceAcceleratorAssociations
       `Prelude.seq` Prelude.rnf usageOperation
@@ -838,9 +897,15 @@ instance Prelude.NFData Instance where
       `Prelude.seq` Prelude.rnf
         securityGroups
       `Prelude.seq` Prelude.rnf
+        tpmSupport
+      `Prelude.seq` Prelude.rnf
         ramdiskId
       `Prelude.seq` Prelude.rnf
         privateIpAddress
+      `Prelude.seq` Prelude.rnf
+        maintenanceOptions
+      `Prelude.seq` Prelude.rnf
+        privateDnsNameOptions
       `Prelude.seq` Prelude.rnf
         platformDetails
       `Prelude.seq` Prelude.rnf

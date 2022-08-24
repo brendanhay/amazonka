@@ -49,6 +49,8 @@ data Route = Route'
     vpcPeeringConnectionId :: Prelude.Maybe Prelude.Text,
     -- | The IPv4 CIDR block used for the destination match.
     destinationCidrBlock :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the core network.
+    coreNetworkArn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a NAT instance in your VPC.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the egress-only internet gateway.
@@ -101,6 +103,8 @@ data Route = Route'
 --
 -- 'destinationCidrBlock', 'route_destinationCidrBlock' - The IPv4 CIDR block used for the destination match.
 --
+-- 'coreNetworkArn', 'route_coreNetworkArn' - The Amazon Resource Name (ARN) of the core network.
+--
 -- 'instanceId', 'route_instanceId' - The ID of a NAT instance in your VPC.
 --
 -- 'egressOnlyInternetGatewayId', 'route_egressOnlyInternetGatewayId' - The ID of the egress-only internet gateway.
@@ -134,6 +138,7 @@ newRoute =
       natGatewayId = Prelude.Nothing,
       vpcPeeringConnectionId = Prelude.Nothing,
       destinationCidrBlock = Prelude.Nothing,
+      coreNetworkArn = Prelude.Nothing,
       instanceId = Prelude.Nothing,
       egressOnlyInternetGatewayId = Prelude.Nothing,
       networkInterfaceId = Prelude.Nothing,
@@ -177,6 +182,10 @@ route_vpcPeeringConnectionId = Lens.lens (\Route' {vpcPeeringConnectionId} -> vp
 -- | The IPv4 CIDR block used for the destination match.
 route_destinationCidrBlock :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
 route_destinationCidrBlock = Lens.lens (\Route' {destinationCidrBlock} -> destinationCidrBlock) (\s@Route' {} a -> s {destinationCidrBlock = a} :: Route)
+
+-- | The Amazon Resource Name (ARN) of the core network.
+route_coreNetworkArn :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
+route_coreNetworkArn = Lens.lens (\Route' {coreNetworkArn} -> coreNetworkArn) (\s@Route' {} a -> s {coreNetworkArn = a} :: Route)
 
 -- | The ID of a NAT instance in your VPC.
 route_instanceId :: Lens.Lens' Route (Prelude.Maybe Prelude.Text)
@@ -225,6 +234,7 @@ instance Core.FromXML Route where
       Prelude.<*> (x Core..@? "natGatewayId")
       Prelude.<*> (x Core..@? "vpcPeeringConnectionId")
       Prelude.<*> (x Core..@? "destinationCidrBlock")
+      Prelude.<*> (x Core..@? "coreNetworkArn")
       Prelude.<*> (x Core..@? "instanceId")
       Prelude.<*> (x Core..@? "egressOnlyInternetGatewayId")
       Prelude.<*> (x Core..@? "networkInterfaceId")
@@ -243,6 +253,7 @@ instance Prelude.Hashable Route where
       `Prelude.hashWithSalt` natGatewayId
       `Prelude.hashWithSalt` vpcPeeringConnectionId
       `Prelude.hashWithSalt` destinationCidrBlock
+      `Prelude.hashWithSalt` coreNetworkArn
       `Prelude.hashWithSalt` instanceId
       `Prelude.hashWithSalt` egressOnlyInternetGatewayId
       `Prelude.hashWithSalt` networkInterfaceId
@@ -261,6 +272,7 @@ instance Prelude.NFData Route where
       `Prelude.seq` Prelude.rnf natGatewayId
       `Prelude.seq` Prelude.rnf vpcPeeringConnectionId
       `Prelude.seq` Prelude.rnf destinationCidrBlock
+      `Prelude.seq` Prelude.rnf coreNetworkArn
       `Prelude.seq` Prelude.rnf instanceId
       `Prelude.seq` Prelude.rnf egressOnlyInternetGatewayId
       `Prelude.seq` Prelude.rnf networkInterfaceId

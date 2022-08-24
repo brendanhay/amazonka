@@ -22,6 +22,8 @@ module Amazonka.EC2.Types.FlowLogsResourceType
       ( ..,
         FlowLogsResourceType_NetworkInterface,
         FlowLogsResourceType_Subnet,
+        FlowLogsResourceType_TransitGateway,
+        FlowLogsResourceType_TransitGatewayAttachment,
         FlowLogsResourceType_VPC
       ),
   )
@@ -65,12 +67,20 @@ pattern FlowLogsResourceType_NetworkInterface = FlowLogsResourceType' "NetworkIn
 pattern FlowLogsResourceType_Subnet :: FlowLogsResourceType
 pattern FlowLogsResourceType_Subnet = FlowLogsResourceType' "Subnet"
 
+pattern FlowLogsResourceType_TransitGateway :: FlowLogsResourceType
+pattern FlowLogsResourceType_TransitGateway = FlowLogsResourceType' "TransitGateway"
+
+pattern FlowLogsResourceType_TransitGatewayAttachment :: FlowLogsResourceType
+pattern FlowLogsResourceType_TransitGatewayAttachment = FlowLogsResourceType' "TransitGatewayAttachment"
+
 pattern FlowLogsResourceType_VPC :: FlowLogsResourceType
 pattern FlowLogsResourceType_VPC = FlowLogsResourceType' "VPC"
 
 {-# COMPLETE
   FlowLogsResourceType_NetworkInterface,
   FlowLogsResourceType_Subnet,
+  FlowLogsResourceType_TransitGateway,
+  FlowLogsResourceType_TransitGatewayAttachment,
   FlowLogsResourceType_VPC,
   FlowLogsResourceType'
   #-}

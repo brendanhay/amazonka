@@ -22,6 +22,7 @@ module Amazonka.EC2.Types.Snapshot where
 import qualified Amazonka.Core as Core
 import Amazonka.EC2.Internal
 import Amazonka.EC2.Types.SnapshotState
+import Amazonka.EC2.Types.StorageTier
 import Amazonka.EC2.Types.Tag
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -49,6 +50,10 @@ data Snapshot = Snapshot'
     -- then they belong to the same volume\/snapshot lineage. This parameter is
     -- only returned by DescribeSnapshots.
     dataEncryptionKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Only for archived snapshots that are temporarily restored. Indicates the
+    -- date and time when a temporarily restored snapshot will be automatically
+    -- re-archived.
+    restoreExpiryTime :: Prelude.Maybe Core.ISO8601,
     -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
     -- key that was used to protect the volume encryption key for the parent
     -- volume.
@@ -59,6 +64,11 @@ data Snapshot = Snapshot'
     -- details to help you diagnose why the error occurred. This parameter is
     -- only returned by DescribeSnapshots.
     stateMessage :: Prelude.Maybe Prelude.Text,
+    -- | The storage tier in which the snapshot is stored. @standard@ indicates
+    -- that the snapshot is stored in the standard snapshot storage tier and
+    -- that it is ready for use. @archive@ indicates that the snapshot is
+    -- currently archived and that it must be restored before it can be used.
+    storageTier :: Prelude.Maybe StorageTier,
     -- | The ID of the snapshot. Each snapshot receives a unique identifier when
     -- it is created.
     snapshotId :: Prelude.Text,
@@ -110,6 +120,10 @@ data Snapshot = Snapshot'
 -- then they belong to the same volume\/snapshot lineage. This parameter is
 -- only returned by DescribeSnapshots.
 --
+-- 'restoreExpiryTime', 'snapshot_restoreExpiryTime' - Only for archived snapshots that are temporarily restored. Indicates the
+-- date and time when a temporarily restored snapshot will be automatically
+-- re-archived.
+--
 -- 'kmsKeyId', 'snapshot_kmsKeyId' - The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
 -- key that was used to protect the volume encryption key for the parent
 -- volume.
@@ -119,6 +133,11 @@ data Snapshot = Snapshot'
 -- (KMS) permissions are not obtained) this field displays error state
 -- details to help you diagnose why the error occurred. This parameter is
 -- only returned by DescribeSnapshots.
+--
+-- 'storageTier', 'snapshot_storageTier' - The storage tier in which the snapshot is stored. @standard@ indicates
+-- that the snapshot is stored in the standard snapshot storage tier and
+-- that it is ready for use. @archive@ indicates that the snapshot is
+-- currently archived and that it must be restored before it can be used.
 --
 -- 'snapshotId', 'snapshot_snapshotId' - The ID of the snapshot. Each snapshot receives a unique identifier when
 -- it is created.
@@ -175,8 +194,10 @@ newSnapshot
         ownerAlias = Prelude.Nothing,
         outpostArn = Prelude.Nothing,
         dataEncryptionKeyId = Prelude.Nothing,
+        restoreExpiryTime = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         stateMessage = Prelude.Nothing,
+        storageTier = Prelude.Nothing,
         snapshotId = pSnapshotId_,
         ownerId = pOwnerId_,
         volumeId = pVolumeId_,
@@ -215,6 +236,12 @@ snapshot_outpostArn = Lens.lens (\Snapshot' {outpostArn} -> outpostArn) (\s@Snap
 snapshot_dataEncryptionKeyId :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_dataEncryptionKeyId = Lens.lens (\Snapshot' {dataEncryptionKeyId} -> dataEncryptionKeyId) (\s@Snapshot' {} a -> s {dataEncryptionKeyId = a} :: Snapshot)
 
+-- | Only for archived snapshots that are temporarily restored. Indicates the
+-- date and time when a temporarily restored snapshot will be automatically
+-- re-archived.
+snapshot_restoreExpiryTime :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.UTCTime)
+snapshot_restoreExpiryTime = Lens.lens (\Snapshot' {restoreExpiryTime} -> restoreExpiryTime) (\s@Snapshot' {} a -> s {restoreExpiryTime = a} :: Snapshot) Prelude.. Lens.mapping Core._Time
+
 -- | The Amazon Resource Name (ARN) of the Key Management Service (KMS) KMS
 -- key that was used to protect the volume encryption key for the parent
 -- volume.
@@ -228,6 +255,13 @@ snapshot_kmsKeyId = Lens.lens (\Snapshot' {kmsKeyId} -> kmsKeyId) (\s@Snapshot' 
 -- only returned by DescribeSnapshots.
 snapshot_stateMessage :: Lens.Lens' Snapshot (Prelude.Maybe Prelude.Text)
 snapshot_stateMessage = Lens.lens (\Snapshot' {stateMessage} -> stateMessage) (\s@Snapshot' {} a -> s {stateMessage = a} :: Snapshot)
+
+-- | The storage tier in which the snapshot is stored. @standard@ indicates
+-- that the snapshot is stored in the standard snapshot storage tier and
+-- that it is ready for use. @archive@ indicates that the snapshot is
+-- currently archived and that it must be restored before it can be used.
+snapshot_storageTier :: Lens.Lens' Snapshot (Prelude.Maybe StorageTier)
+snapshot_storageTier = Lens.lens (\Snapshot' {storageTier} -> storageTier) (\s@Snapshot' {} a -> s {storageTier = a} :: Snapshot)
 
 -- | The ID of the snapshot. Each snapshot receives a unique identifier when
 -- it is created.
@@ -277,8 +311,10 @@ instance Core.FromXML Snapshot where
       Prelude.<*> (x Core..@? "ownerAlias")
       Prelude.<*> (x Core..@? "outpostArn")
       Prelude.<*> (x Core..@? "dataEncryptionKeyId")
+      Prelude.<*> (x Core..@? "restoreExpiryTime")
       Prelude.<*> (x Core..@? "kmsKeyId")
       Prelude.<*> (x Core..@? "statusMessage")
+      Prelude.<*> (x Core..@? "storageTier")
       Prelude.<*> (x Core..@ "snapshotId")
       Prelude.<*> (x Core..@ "ownerId")
       Prelude.<*> (x Core..@ "volumeId")
@@ -295,8 +331,10 @@ instance Prelude.Hashable Snapshot where
       `Prelude.hashWithSalt` ownerAlias
       `Prelude.hashWithSalt` outpostArn
       `Prelude.hashWithSalt` dataEncryptionKeyId
+      `Prelude.hashWithSalt` restoreExpiryTime
       `Prelude.hashWithSalt` kmsKeyId
       `Prelude.hashWithSalt` stateMessage
+      `Prelude.hashWithSalt` storageTier
       `Prelude.hashWithSalt` snapshotId
       `Prelude.hashWithSalt` ownerId
       `Prelude.hashWithSalt` volumeId
@@ -313,8 +351,10 @@ instance Prelude.NFData Snapshot where
       `Prelude.seq` Prelude.rnf ownerAlias
       `Prelude.seq` Prelude.rnf outpostArn
       `Prelude.seq` Prelude.rnf dataEncryptionKeyId
+      `Prelude.seq` Prelude.rnf restoreExpiryTime
       `Prelude.seq` Prelude.rnf kmsKeyId
       `Prelude.seq` Prelude.rnf stateMessage
+      `Prelude.seq` Prelude.rnf storageTier
       `Prelude.seq` Prelude.rnf snapshotId
       `Prelude.seq` Prelude.rnf ownerId
       `Prelude.seq` Prelude.rnf volumeId

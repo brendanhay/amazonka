@@ -47,14 +47,15 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
     -- | The ID of the gateway, such as an internet gateway or virtual private
     -- gateway.
     gatewayId :: Prelude.Maybe Prelude.Text,
-    -- | Describes how the route was created. The following are possible values:
+    -- | Describes how the route was created. The following are the possible
+    -- values:
     --
-    -- -   @CreateRouteTable@ - The route was automatically created when the
+    -- -   CreateRouteTable - The route was automatically created when the
     --     route table was created.
     --
-    -- -   @CreateRoute@ - The route was manually added to the route table.
+    -- -   CreateRoute - The route was manually added to the route table.
     --
-    -- -   @EnableVgwRoutePropagation@ - The route was propagated by route
+    -- -   EnableVgwRoutePropagation - The route was propagated by route
     --     propagation.
     origin :: Prelude.Maybe Prelude.Text
   }
@@ -87,14 +88,15 @@ data AnalysisRouteTableRoute = AnalysisRouteTableRoute'
 -- 'gatewayId', 'analysisRouteTableRoute_gatewayId' - The ID of the gateway, such as an internet gateway or virtual private
 -- gateway.
 --
--- 'origin', 'analysisRouteTableRoute_origin' - Describes how the route was created. The following are possible values:
+-- 'origin', 'analysisRouteTableRoute_origin' - Describes how the route was created. The following are the possible
+-- values:
 --
--- -   @CreateRouteTable@ - The route was automatically created when the
+-- -   CreateRouteTable - The route was automatically created when the
 --     route table was created.
 --
--- -   @CreateRoute@ - The route was manually added to the route table.
+-- -   CreateRoute - The route was manually added to the route table.
 --
--- -   @EnableVgwRoutePropagation@ - The route was propagated by route
+-- -   EnableVgwRoutePropagation - The route was propagated by route
 --     propagation.
 newAnalysisRouteTableRoute ::
   AnalysisRouteTableRoute
@@ -150,14 +152,15 @@ analysisRouteTableRoute_networkInterfaceId = Lens.lens (\AnalysisRouteTableRoute
 analysisRouteTableRoute_gatewayId :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_gatewayId = Lens.lens (\AnalysisRouteTableRoute' {gatewayId} -> gatewayId) (\s@AnalysisRouteTableRoute' {} a -> s {gatewayId = a} :: AnalysisRouteTableRoute)
 
--- | Describes how the route was created. The following are possible values:
+-- | Describes how the route was created. The following are the possible
+-- values:
 --
--- -   @CreateRouteTable@ - The route was automatically created when the
+-- -   CreateRouteTable - The route was automatically created when the
 --     route table was created.
 --
--- -   @CreateRoute@ - The route was manually added to the route table.
+-- -   CreateRoute - The route was manually added to the route table.
 --
--- -   @EnableVgwRoutePropagation@ - The route was propagated by route
+-- -   EnableVgwRoutePropagation - The route was propagated by route
 --     propagation.
 analysisRouteTableRoute_origin :: Lens.Lens' AnalysisRouteTableRoute (Prelude.Maybe Prelude.Text)
 analysisRouteTableRoute_origin = Lens.lens (\AnalysisRouteTableRoute' {origin} -> origin) (\s@AnalysisRouteTableRoute' {} a -> s {origin = a} :: AnalysisRouteTableRoute)

@@ -95,6 +95,9 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
     -- -   @entry.rule-action@ - Allows or denies the matching traffic (@allow@
     --     | @deny@).
     --
+    -- -   @entry.egress@ - A Boolean that indicates the type of rule. Specify
+    --     @true@ for egress rules, or @false@ for ingress rules.
+    --
     -- -   @entry.rule-number@ - The number of an entry (in other words, rule)
     --     in the set of ACL entries.
     --
@@ -174,6 +177,9 @@ data DescribeNetworkAcls = DescribeNetworkAcls'
 --
 -- -   @entry.rule-action@ - Allows or denies the matching traffic (@allow@
 --     | @deny@).
+--
+-- -   @entry.egress@ - A Boolean that indicates the type of rule. Specify
+--     @true@ for egress rules, or @false@ for ingress rules.
 --
 -- -   @entry.rule-number@ - The number of an entry (in other words, rule)
 --     in the set of ACL entries.
@@ -255,6 +261,9 @@ describeNetworkAcls_nextToken = Lens.lens (\DescribeNetworkAcls' {nextToken} -> 
 --
 -- -   @entry.rule-action@ - Allows or denies the matching traffic (@allow@
 --     | @deny@).
+--
+-- -   @entry.egress@ - A Boolean that indicates the type of rule. Specify
+--     @true@ for egress rules, or @false@ for ingress rules.
 --
 -- -   @entry.rule-number@ - The number of an entry (in other words, rule)
 --     in the set of ACL entries.

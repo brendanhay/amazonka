@@ -39,6 +39,8 @@ data TransitGatewayPropagation = TransitGatewayPropagation'
     state :: Prelude.Maybe TransitGatewayPropagationState,
     -- | The ID of the attachment.
     transitGatewayAttachmentId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the transit gateway route table announcement.
+    transitGatewayRouteTableAnnouncementId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the transit gateway route table.
     transitGatewayRouteTableId :: Prelude.Maybe Prelude.Text
   }
@@ -61,6 +63,8 @@ data TransitGatewayPropagation = TransitGatewayPropagation'
 --
 -- 'transitGatewayAttachmentId', 'transitGatewayPropagation_transitGatewayAttachmentId' - The ID of the attachment.
 --
+-- 'transitGatewayRouteTableAnnouncementId', 'transitGatewayPropagation_transitGatewayRouteTableAnnouncementId' - The ID of the transit gateway route table announcement.
+--
 -- 'transitGatewayRouteTableId', 'transitGatewayPropagation_transitGatewayRouteTableId' - The ID of the transit gateway route table.
 newTransitGatewayPropagation ::
   TransitGatewayPropagation
@@ -71,6 +75,8 @@ newTransitGatewayPropagation =
       resourceType = Prelude.Nothing,
       state = Prelude.Nothing,
       transitGatewayAttachmentId = Prelude.Nothing,
+      transitGatewayRouteTableAnnouncementId =
+        Prelude.Nothing,
       transitGatewayRouteTableId = Prelude.Nothing
     }
 
@@ -91,6 +97,10 @@ transitGatewayPropagation_state = Lens.lens (\TransitGatewayPropagation' {state}
 transitGatewayPropagation_transitGatewayAttachmentId :: Lens.Lens' TransitGatewayPropagation (Prelude.Maybe Prelude.Text)
 transitGatewayPropagation_transitGatewayAttachmentId = Lens.lens (\TransitGatewayPropagation' {transitGatewayAttachmentId} -> transitGatewayAttachmentId) (\s@TransitGatewayPropagation' {} a -> s {transitGatewayAttachmentId = a} :: TransitGatewayPropagation)
 
+-- | The ID of the transit gateway route table announcement.
+transitGatewayPropagation_transitGatewayRouteTableAnnouncementId :: Lens.Lens' TransitGatewayPropagation (Prelude.Maybe Prelude.Text)
+transitGatewayPropagation_transitGatewayRouteTableAnnouncementId = Lens.lens (\TransitGatewayPropagation' {transitGatewayRouteTableAnnouncementId} -> transitGatewayRouteTableAnnouncementId) (\s@TransitGatewayPropagation' {} a -> s {transitGatewayRouteTableAnnouncementId = a} :: TransitGatewayPropagation)
+
 -- | The ID of the transit gateway route table.
 transitGatewayPropagation_transitGatewayRouteTableId :: Lens.Lens' TransitGatewayPropagation (Prelude.Maybe Prelude.Text)
 transitGatewayPropagation_transitGatewayRouteTableId = Lens.lens (\TransitGatewayPropagation' {transitGatewayRouteTableId} -> transitGatewayRouteTableId) (\s@TransitGatewayPropagation' {} a -> s {transitGatewayRouteTableId = a} :: TransitGatewayPropagation)
@@ -102,6 +112,7 @@ instance Core.FromXML TransitGatewayPropagation where
       Prelude.<*> (x Core..@? "resourceType")
       Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "transitGatewayAttachmentId")
+      Prelude.<*> (x Core..@? "transitGatewayRouteTableAnnouncementId")
       Prelude.<*> (x Core..@? "transitGatewayRouteTableId")
 
 instance Prelude.Hashable TransitGatewayPropagation where
@@ -110,6 +121,7 @@ instance Prelude.Hashable TransitGatewayPropagation where
       `Prelude.hashWithSalt` resourceType
       `Prelude.hashWithSalt` state
       `Prelude.hashWithSalt` transitGatewayAttachmentId
+      `Prelude.hashWithSalt` transitGatewayRouteTableAnnouncementId
       `Prelude.hashWithSalt` transitGatewayRouteTableId
 
 instance Prelude.NFData TransitGatewayPropagation where
@@ -118,4 +130,5 @@ instance Prelude.NFData TransitGatewayPropagation where
       `Prelude.seq` Prelude.rnf resourceType
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf transitGatewayAttachmentId
+      `Prelude.seq` Prelude.rnf transitGatewayRouteTableAnnouncementId
       `Prelude.seq` Prelude.rnf transitGatewayRouteTableId

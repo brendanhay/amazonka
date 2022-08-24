@@ -56,11 +56,15 @@ data DeleteLaunchTemplate = DeleteLaunchTemplate'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the launch template. You must specify either the launch
-    -- template ID or launch template name in the request.
+    -- | The ID of the launch template.
+    --
+    -- You must specify either the @LaunchTemplateId@ or the
+    -- @LaunchTemplateName@, but not both.
     launchTemplateId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the launch template. You must specify either the launch
-    -- template ID or launch template name in the request.
+    -- | The name of the launch template.
+    --
+    -- You must specify either the @LaunchTemplateName@ or the
+    -- @LaunchTemplateId@, but not both.
     launchTemplateName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,11 +82,15 @@ data DeleteLaunchTemplate = DeleteLaunchTemplate'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
--- 'launchTemplateId', 'deleteLaunchTemplate_launchTemplateId' - The ID of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- 'launchTemplateId', 'deleteLaunchTemplate_launchTemplateId' - The ID of the launch template.
 --
--- 'launchTemplateName', 'deleteLaunchTemplate_launchTemplateName' - The name of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- You must specify either the @LaunchTemplateId@ or the
+-- @LaunchTemplateName@, but not both.
+--
+-- 'launchTemplateName', 'deleteLaunchTemplate_launchTemplateName' - The name of the launch template.
+--
+-- You must specify either the @LaunchTemplateName@ or the
+-- @LaunchTemplateId@, but not both.
 newDeleteLaunchTemplate ::
   DeleteLaunchTemplate
 newDeleteLaunchTemplate =
@@ -99,13 +107,17 @@ newDeleteLaunchTemplate =
 deleteLaunchTemplate_dryRun :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Bool)
 deleteLaunchTemplate_dryRun = Lens.lens (\DeleteLaunchTemplate' {dryRun} -> dryRun) (\s@DeleteLaunchTemplate' {} a -> s {dryRun = a} :: DeleteLaunchTemplate)
 
--- | The ID of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- | The ID of the launch template.
+--
+-- You must specify either the @LaunchTemplateId@ or the
+-- @LaunchTemplateName@, but not both.
 deleteLaunchTemplate_launchTemplateId :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplate_launchTemplateId = Lens.lens (\DeleteLaunchTemplate' {launchTemplateId} -> launchTemplateId) (\s@DeleteLaunchTemplate' {} a -> s {launchTemplateId = a} :: DeleteLaunchTemplate)
 
--- | The name of the launch template. You must specify either the launch
--- template ID or launch template name in the request.
+-- | The name of the launch template.
+--
+-- You must specify either the @LaunchTemplateName@ or the
+-- @LaunchTemplateId@, but not both.
 deleteLaunchTemplate_launchTemplateName :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Text)
 deleteLaunchTemplate_launchTemplateName = Lens.lens (\DeleteLaunchTemplate' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplate' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplate)
 

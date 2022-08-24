@@ -32,11 +32,11 @@ import qualified Amazonka.Prelude as Prelude
 data ValidationError = ValidationError'
   { -- | The error message that describes why the parameter or parameter
     -- combination is not valid. For more information about error messages, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error codes>.
     message :: Prelude.Maybe Prelude.Text,
     -- | The error code that indicates why the parameter or parameter combination
     -- is not valid. For more information about error codes, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error codes>.
     code :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,11 +51,11 @@ data ValidationError = ValidationError'
 --
 -- 'message', 'validationError_message' - The error message that describes why the parameter or parameter
 -- combination is not valid. For more information about error messages, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error codes>.
 --
 -- 'code', 'validationError_code' - The error code that indicates why the parameter or parameter combination
 -- is not valid. For more information about error codes, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error codes>.
 newValidationError ::
   ValidationError
 newValidationError =
@@ -66,13 +66,13 @@ newValidationError =
 
 -- | The error message that describes why the parameter or parameter
 -- combination is not valid. For more information about error messages, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error codes>.
 validationError_message :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
 validationError_message = Lens.lens (\ValidationError' {message} -> message) (\s@ValidationError' {} a -> s {message = a} :: ValidationError)
 
 -- | The error code that indicates why the parameter or parameter combination
 -- is not valid. For more information about error codes, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error codes>.
 validationError_code :: Lens.Lens' ValidationError (Prelude.Maybe Prelude.Text)
 validationError_code = Lens.lens (\ValidationError' {code} -> code) (\s@ValidationError' {} a -> s {code = a} :: ValidationError)
 

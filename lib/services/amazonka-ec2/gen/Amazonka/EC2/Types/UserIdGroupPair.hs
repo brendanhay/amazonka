@@ -26,6 +26,11 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Describes a security group and Amazon Web Services account ID pair.
 --
+-- We are retiring EC2-Classic on August 15, 2022. We recommend that you
+-- migrate from EC2-Classic to a VPC. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html Migrate from EC2-Classic to a VPC>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
 -- /See:/ 'newUserIdGroupPair' smart constructor.
 data UserIdGroupPair = UserIdGroupPair'
   { -- | The ID of the VPC peering connection, if applicable.

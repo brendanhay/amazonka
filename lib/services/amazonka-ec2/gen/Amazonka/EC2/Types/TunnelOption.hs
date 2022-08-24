@@ -28,6 +28,7 @@ import Amazonka.EC2.Types.Phase1IntegrityAlgorithmsListValue
 import Amazonka.EC2.Types.Phase2DHGroupNumbersListValue
 import Amazonka.EC2.Types.Phase2EncryptionAlgorithmsListValue
 import Amazonka.EC2.Types.Phase2IntegrityAlgorithmsListValue
+import Amazonka.EC2.Types.VpnTunnelLogOptions
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -59,6 +60,8 @@ data TunnelOption = TunnelOption'
     preSharedKey :: Prelude.Maybe Prelude.Text,
     -- | The action to take after a DPD timeout occurs.
     dpdTimeoutAction :: Prelude.Maybe Prelude.Text,
+    -- | Options for logging VPN tunnel activity.
+    logOptions :: Prelude.Maybe VpnTunnelLogOptions,
     -- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
     -- 2 IKE negotiations.
     phase2DHGroupNumbers :: Prelude.Maybe [Phase2DHGroupNumbersListValue],
@@ -120,6 +123,8 @@ data TunnelOption = TunnelOption'
 --
 -- 'dpdTimeoutAction', 'tunnelOption_dpdTimeoutAction' - The action to take after a DPD timeout occurs.
 --
+-- 'logOptions', 'tunnelOption_logOptions' - Options for logging VPN tunnel activity.
+--
 -- 'phase2DHGroupNumbers', 'tunnelOption_phase2DHGroupNumbers' - The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
 -- 2 IKE negotiations.
 --
@@ -160,6 +165,7 @@ newTunnelOption =
       ikeVersions = Prelude.Nothing,
       preSharedKey = Prelude.Nothing,
       dpdTimeoutAction = Prelude.Nothing,
+      logOptions = Prelude.Nothing,
       phase2DHGroupNumbers = Prelude.Nothing,
       rekeyFuzzPercentage = Prelude.Nothing,
       startupAction = Prelude.Nothing,
@@ -214,6 +220,10 @@ tunnelOption_preSharedKey = Lens.lens (\TunnelOption' {preSharedKey} -> preShare
 -- | The action to take after a DPD timeout occurs.
 tunnelOption_dpdTimeoutAction :: Lens.Lens' TunnelOption (Prelude.Maybe Prelude.Text)
 tunnelOption_dpdTimeoutAction = Lens.lens (\TunnelOption' {dpdTimeoutAction} -> dpdTimeoutAction) (\s@TunnelOption' {} a -> s {dpdTimeoutAction = a} :: TunnelOption)
+
+-- | Options for logging VPN tunnel activity.
+tunnelOption_logOptions :: Lens.Lens' TunnelOption (Prelude.Maybe VpnTunnelLogOptions)
+tunnelOption_logOptions = Lens.lens (\TunnelOption' {logOptions} -> logOptions) (\s@TunnelOption' {} a -> s {logOptions = a} :: TunnelOption)
 
 -- | The permitted Diffie-Hellman group numbers for the VPN tunnel for phase
 -- 2 IKE negotiations.
@@ -283,6 +293,7 @@ instance Core.FromXML TunnelOption where
                   )
       Prelude.<*> (x Core..@? "preSharedKey")
       Prelude.<*> (x Core..@? "dpdTimeoutAction")
+      Prelude.<*> (x Core..@? "logOptions")
       Prelude.<*> ( x Core..@? "phase2DHGroupNumberSet"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "item")
@@ -314,6 +325,7 @@ instance Prelude.Hashable TunnelOption where
       `Prelude.hashWithSalt` ikeVersions
       `Prelude.hashWithSalt` preSharedKey
       `Prelude.hashWithSalt` dpdTimeoutAction
+      `Prelude.hashWithSalt` logOptions
       `Prelude.hashWithSalt` phase2DHGroupNumbers
       `Prelude.hashWithSalt` rekeyFuzzPercentage
       `Prelude.hashWithSalt` startupAction
@@ -336,12 +348,14 @@ instance Prelude.NFData TunnelOption where
       `Prelude.seq` Prelude.rnf ikeVersions
       `Prelude.seq` Prelude.rnf preSharedKey
       `Prelude.seq` Prelude.rnf dpdTimeoutAction
+      `Prelude.seq` Prelude.rnf logOptions
       `Prelude.seq` Prelude.rnf phase2DHGroupNumbers
       `Prelude.seq` Prelude.rnf rekeyFuzzPercentage
       `Prelude.seq` Prelude.rnf startupAction
       `Prelude.seq` Prelude.rnf rekeyMarginTimeSeconds
       `Prelude.seq` Prelude.rnf phase2IntegrityAlgorithms
-      `Prelude.seq` Prelude.rnf phase1EncryptionAlgorithms
+      `Prelude.seq` Prelude.rnf
+        phase1EncryptionAlgorithms
       `Prelude.seq` Prelude.rnf tunnelInsideCidr
       `Prelude.seq` Prelude.rnf outsideIpAddress
       `Prelude.seq` Prelude.rnf replayWindowSize

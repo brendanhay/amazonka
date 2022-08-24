@@ -26,9 +26,7 @@
 -- to connect to your endpoint service through an interface VPC endpoint.
 --
 -- If you set or modify the private DNS name, you must prove that you own
--- the private DNS domain name. For more information, see
--- <https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html VPC Endpoint Service Private DNS Name Verification>
--- in the /Amazon Virtual Private Cloud User Guide/.
+-- the private DNS domain name.
 module Amazonka.EC2.ModifyVpcEndpointServiceConfiguration
   ( -- * Creating a Request
     ModifyVpcEndpointServiceConfiguration (..),
@@ -41,7 +39,9 @@ module Amazonka.EC2.ModifyVpcEndpointServiceConfiguration
     modifyVpcEndpointServiceConfiguration_addGatewayLoadBalancerArns,
     modifyVpcEndpointServiceConfiguration_dryRun,
     modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns,
+    modifyVpcEndpointServiceConfiguration_removeSupportedIpAddressTypes,
     modifyVpcEndpointServiceConfiguration_privateDnsName,
+    modifyVpcEndpointServiceConfiguration_addSupportedIpAddressTypes,
     modifyVpcEndpointServiceConfiguration_removePrivateDnsName,
     modifyVpcEndpointServiceConfiguration_serviceId,
 
@@ -84,9 +84,13 @@ data ModifyVpcEndpointServiceConfiguration = ModifyVpcEndpointServiceConfigurati
     -- | The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove
     -- from your service configuration.
     removeGatewayLoadBalancerArns :: Prelude.Maybe [Prelude.Text],
+    -- | The IP address types to remove from your service configuration.
+    removeSupportedIpAddressTypes :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint configuration) The private DNS name to assign to the
     -- endpoint service.
     privateDnsName :: Prelude.Maybe Prelude.Text,
+    -- | The IP address types to add to your service configuration.
+    addSupportedIpAddressTypes :: Prelude.Maybe [Prelude.Text],
     -- | (Interface endpoint configuration) Removes the private DNS name of the
     -- endpoint service.
     removePrivateDnsName :: Prelude.Maybe Prelude.Bool,
@@ -123,8 +127,12 @@ data ModifyVpcEndpointServiceConfiguration = ModifyVpcEndpointServiceConfigurati
 -- 'removeGatewayLoadBalancerArns', 'modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns' - The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove
 -- from your service configuration.
 --
+-- 'removeSupportedIpAddressTypes', 'modifyVpcEndpointServiceConfiguration_removeSupportedIpAddressTypes' - The IP address types to remove from your service configuration.
+--
 -- 'privateDnsName', 'modifyVpcEndpointServiceConfiguration_privateDnsName' - (Interface endpoint configuration) The private DNS name to assign to the
 -- endpoint service.
+--
+-- 'addSupportedIpAddressTypes', 'modifyVpcEndpointServiceConfiguration_addSupportedIpAddressTypes' - The IP address types to add to your service configuration.
 --
 -- 'removePrivateDnsName', 'modifyVpcEndpointServiceConfiguration_removePrivateDnsName' - (Interface endpoint configuration) Removes the private DNS name of the
 -- endpoint service.
@@ -147,7 +155,11 @@ newModifyVpcEndpointServiceConfiguration pServiceId_ =
       dryRun = Prelude.Nothing,
       removeGatewayLoadBalancerArns =
         Prelude.Nothing,
+      removeSupportedIpAddressTypes =
+        Prelude.Nothing,
       privateDnsName = Prelude.Nothing,
+      addSupportedIpAddressTypes =
+        Prelude.Nothing,
       removePrivateDnsName =
         Prelude.Nothing,
       serviceId = pServiceId_
@@ -185,10 +197,18 @@ modifyVpcEndpointServiceConfiguration_dryRun = Lens.lens (\ModifyVpcEndpointServ
 modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
 modifyVpcEndpointServiceConfiguration_removeGatewayLoadBalancerArns = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removeGatewayLoadBalancerArns} -> removeGatewayLoadBalancerArns) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removeGatewayLoadBalancerArns = a} :: ModifyVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
+-- | The IP address types to remove from your service configuration.
+modifyVpcEndpointServiceConfiguration_removeSupportedIpAddressTypes :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpointServiceConfiguration_removeSupportedIpAddressTypes = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {removeSupportedIpAddressTypes} -> removeSupportedIpAddressTypes) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {removeSupportedIpAddressTypes = a} :: ModifyVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
+
 -- | (Interface endpoint configuration) The private DNS name to assign to the
 -- endpoint service.
 modifyVpcEndpointServiceConfiguration_privateDnsName :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe Prelude.Text)
 modifyVpcEndpointServiceConfiguration_privateDnsName = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {privateDnsName} -> privateDnsName) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {privateDnsName = a} :: ModifyVpcEndpointServiceConfiguration)
+
+-- | The IP address types to add to your service configuration.
+modifyVpcEndpointServiceConfiguration_addSupportedIpAddressTypes :: Lens.Lens' ModifyVpcEndpointServiceConfiguration (Prelude.Maybe [Prelude.Text])
+modifyVpcEndpointServiceConfiguration_addSupportedIpAddressTypes = Lens.lens (\ModifyVpcEndpointServiceConfiguration' {addSupportedIpAddressTypes} -> addSupportedIpAddressTypes) (\s@ModifyVpcEndpointServiceConfiguration' {} a -> s {addSupportedIpAddressTypes = a} :: ModifyVpcEndpointServiceConfiguration) Prelude.. Lens.mapping Lens.coerced
 
 -- | (Interface endpoint configuration) Removes the private DNS name of the
 -- endpoint service.
@@ -229,7 +249,9 @@ instance
         `Prelude.hashWithSalt` addGatewayLoadBalancerArns
         `Prelude.hashWithSalt` dryRun
         `Prelude.hashWithSalt` removeGatewayLoadBalancerArns
+        `Prelude.hashWithSalt` removeSupportedIpAddressTypes
         `Prelude.hashWithSalt` privateDnsName
+        `Prelude.hashWithSalt` addSupportedIpAddressTypes
         `Prelude.hashWithSalt` removePrivateDnsName
         `Prelude.hashWithSalt` serviceId
 
@@ -244,7 +266,9 @@ instance
       `Prelude.seq` Prelude.rnf addGatewayLoadBalancerArns
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf removeGatewayLoadBalancerArns
+      `Prelude.seq` Prelude.rnf removeSupportedIpAddressTypes
       `Prelude.seq` Prelude.rnf privateDnsName
+      `Prelude.seq` Prelude.rnf addSupportedIpAddressTypes
       `Prelude.seq` Prelude.rnf removePrivateDnsName
       `Prelude.seq` Prelude.rnf serviceId
 
@@ -290,7 +314,15 @@ instance
           ( Core.toQueryList "RemoveGatewayLoadBalancerArn"
               Prelude.<$> removeGatewayLoadBalancerArns
           ),
+        Core.toQuery
+          ( Core.toQueryList "RemoveSupportedIpAddressType"
+              Prelude.<$> removeSupportedIpAddressTypes
+          ),
         "PrivateDnsName" Core.=: privateDnsName,
+        Core.toQuery
+          ( Core.toQueryList "AddSupportedIpAddressType"
+              Prelude.<$> addSupportedIpAddressTypes
+          ),
         "RemovePrivateDnsName" Core.=: removePrivateDnsName,
         "ServiceId" Core.=: serviceId
       ]

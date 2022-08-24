@@ -20,7 +20,8 @@
 module Amazonka.EC2.Types.FleetReplacementStrategy
   ( FleetReplacementStrategy
       ( ..,
-        FleetReplacementStrategy_Launch
+        FleetReplacementStrategy_Launch,
+        FleetReplacementStrategy_Launch_before_terminate
       ),
   )
 where
@@ -60,7 +61,11 @@ newtype FleetReplacementStrategy = FleetReplacementStrategy'
 pattern FleetReplacementStrategy_Launch :: FleetReplacementStrategy
 pattern FleetReplacementStrategy_Launch = FleetReplacementStrategy' "launch"
 
+pattern FleetReplacementStrategy_Launch_before_terminate :: FleetReplacementStrategy
+pattern FleetReplacementStrategy_Launch_before_terminate = FleetReplacementStrategy' "launch-before-terminate"
+
 {-# COMPLETE
   FleetReplacementStrategy_Launch,
+  FleetReplacementStrategy_Launch_before_terminate,
   FleetReplacementStrategy'
   #-}

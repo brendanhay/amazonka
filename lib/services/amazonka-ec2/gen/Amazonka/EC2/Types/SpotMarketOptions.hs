@@ -32,8 +32,13 @@ import qualified Amazonka.Prelude as Prelude
 data SpotMarketOptions = SpotMarketOptions'
   { -- | Deprecated.
     blockDurationMinutes :: Prelude.Maybe Prelude.Int,
-    -- | The maximum hourly price you\'re willing to pay for the Spot Instances.
-    -- The default is the On-Demand price.
+    -- | The maximum hourly price that you\'re willing to pay for a Spot
+    -- Instance. We do not recommend using this parameter because it can lead
+    -- to increased interruptions. If you do not specify this parameter, you
+    -- will pay the current Spot price.
+    --
+    -- If you specify a maximum price, your Spot Instances will be interrupted
+    -- more frequently than if you do not specify this parameter.
     maxPrice :: Prelude.Maybe Prelude.Text,
     -- | The behavior when a Spot Instance is interrupted. The default is
     -- @terminate@.
@@ -67,8 +72,13 @@ data SpotMarketOptions = SpotMarketOptions'
 --
 -- 'blockDurationMinutes', 'spotMarketOptions_blockDurationMinutes' - Deprecated.
 --
--- 'maxPrice', 'spotMarketOptions_maxPrice' - The maximum hourly price you\'re willing to pay for the Spot Instances.
--- The default is the On-Demand price.
+-- 'maxPrice', 'spotMarketOptions_maxPrice' - The maximum hourly price that you\'re willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your Spot Instances will be interrupted
+-- more frequently than if you do not specify this parameter.
 --
 -- 'instanceInterruptionBehavior', 'spotMarketOptions_instanceInterruptionBehavior' - The behavior when a Spot Instance is interrupted. The default is
 -- @terminate@.
@@ -104,8 +114,13 @@ newSpotMarketOptions =
 spotMarketOptions_blockDurationMinutes :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Int)
 spotMarketOptions_blockDurationMinutes = Lens.lens (\SpotMarketOptions' {blockDurationMinutes} -> blockDurationMinutes) (\s@SpotMarketOptions' {} a -> s {blockDurationMinutes = a} :: SpotMarketOptions)
 
--- | The maximum hourly price you\'re willing to pay for the Spot Instances.
--- The default is the On-Demand price.
+-- | The maximum hourly price that you\'re willing to pay for a Spot
+-- Instance. We do not recommend using this parameter because it can lead
+-- to increased interruptions. If you do not specify this parameter, you
+-- will pay the current Spot price.
+--
+-- If you specify a maximum price, your Spot Instances will be interrupted
+-- more frequently than if you do not specify this parameter.
 spotMarketOptions_maxPrice :: Lens.Lens' SpotMarketOptions (Prelude.Maybe Prelude.Text)
 spotMarketOptions_maxPrice = Lens.lens (\SpotMarketOptions' {maxPrice} -> maxPrice) (\s@SpotMarketOptions' {} a -> s {maxPrice = a} :: SpotMarketOptions)
 

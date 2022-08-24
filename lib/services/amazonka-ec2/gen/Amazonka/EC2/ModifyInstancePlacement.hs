@@ -77,7 +77,8 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyInstancePlacement' smart constructor.
 data ModifyInstancePlacement = ModifyInstancePlacement'
-  { -- | Reserved for future use.
+  { -- | The number of the partition in which to place the instance. Valid only
+    -- if the placement group strategy is set to @partition@.
     partitionNumber :: Prelude.Maybe Prelude.Int,
     -- | The ARN of the host resource group in which to place the instance.
     hostResourceGroupArn :: Prelude.Maybe Prelude.Text,
@@ -112,7 +113,8 @@ data ModifyInstancePlacement = ModifyInstancePlacement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'partitionNumber', 'modifyInstancePlacement_partitionNumber' - Reserved for future use.
+-- 'partitionNumber', 'modifyInstancePlacement_partitionNumber' - The number of the partition in which to place the instance. Valid only
+-- if the placement group strategy is set to @partition@.
 --
 -- 'hostResourceGroupArn', 'modifyInstancePlacement_hostResourceGroupArn' - The ARN of the host resource group in which to place the instance.
 --
@@ -151,7 +153,8 @@ newModifyInstancePlacement pInstanceId_ =
       instanceId = pInstanceId_
     }
 
--- | Reserved for future use.
+-- | The number of the partition in which to place the instance. Valid only
+-- if the placement group strategy is set to @partition@.
 modifyInstancePlacement_partitionNumber :: Lens.Lens' ModifyInstancePlacement (Prelude.Maybe Prelude.Int)
 modifyInstancePlacement_partitionNumber = Lens.lens (\ModifyInstancePlacement' {partitionNumber} -> partitionNumber) (\s@ModifyInstancePlacement' {} a -> s {partitionNumber = a} :: ModifyInstancePlacement)
 

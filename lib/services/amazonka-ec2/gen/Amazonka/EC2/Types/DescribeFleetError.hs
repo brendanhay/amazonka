@@ -39,11 +39,11 @@ data DescribeFleetError = DescribeFleetError'
     lifecycle :: Prelude.Maybe InstanceLifecycle,
     -- | The error message that describes why the instance could not be launched.
     -- For more information about error messages, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
     errorMessage :: Prelude.Maybe Prelude.Text,
     -- | The error code that indicates why the instance could not be launched.
     -- For more information about error codes, see
-    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
     errorCode :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,11 +65,11 @@ data DescribeFleetError = DescribeFleetError'
 --
 -- 'errorMessage', 'describeFleetError_errorMessage' - The error message that describes why the instance could not be launched.
 -- For more information about error messages, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
 --
 -- 'errorCode', 'describeFleetError_errorCode' - The error code that indicates why the instance could not be launched.
 -- For more information about error codes, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
 newDescribeFleetError ::
   DescribeFleetError
 newDescribeFleetError =
@@ -94,13 +94,13 @@ describeFleetError_lifecycle = Lens.lens (\DescribeFleetError' {lifecycle} -> li
 
 -- | The error message that describes why the instance could not be launched.
 -- For more information about error messages, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
 describeFleetError_errorMessage :: Lens.Lens' DescribeFleetError (Prelude.Maybe Prelude.Text)
 describeFleetError_errorMessage = Lens.lens (\DescribeFleetError' {errorMessage} -> errorMessage) (\s@DescribeFleetError' {} a -> s {errorMessage = a} :: DescribeFleetError)
 
 -- | The error code that indicates why the instance could not be launched.
 -- For more information about error codes, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error Codes>.
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html Error codes>.
 describeFleetError_errorCode :: Lens.Lens' DescribeFleetError (Prelude.Maybe Prelude.Text)
 describeFleetError_errorCode = Lens.lens (\DescribeFleetError' {errorCode} -> errorCode) (\s@DescribeFleetError' {} a -> s {errorCode = a} :: DescribeFleetError)
 

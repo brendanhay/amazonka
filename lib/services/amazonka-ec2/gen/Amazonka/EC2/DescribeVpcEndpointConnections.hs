@@ -59,6 +59,8 @@ data DescribeVpcEndpointConnections = DescribeVpcEndpointConnections'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more filters.
     --
+    -- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
+    --
     -- -   @service-id@ - The ID of the service.
     --
     -- -   @vpc-endpoint-owner@ - The ID of the Amazon Web Services account ID
@@ -95,6 +97,8 @@ data DescribeVpcEndpointConnections = DescribeVpcEndpointConnections'
 -- 'nextToken', 'describeVpcEndpointConnections_nextToken' - The token to retrieve the next page of results.
 --
 -- 'filters', 'describeVpcEndpointConnections_filters' - One or more filters.
+--
+-- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
 --
 -- -   @service-id@ - The ID of the service.
 --
@@ -133,6 +137,8 @@ describeVpcEndpointConnections_nextToken :: Lens.Lens' DescribeVpcEndpointConnec
 describeVpcEndpointConnections_nextToken = Lens.lens (\DescribeVpcEndpointConnections' {nextToken} -> nextToken) (\s@DescribeVpcEndpointConnections' {} a -> s {nextToken = a} :: DescribeVpcEndpointConnections)
 
 -- | One or more filters.
+--
+-- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
 --
 -- -   @service-id@ - The ID of the service.
 --

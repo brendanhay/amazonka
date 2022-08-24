@@ -51,13 +51,17 @@ module Amazonka.EC2.CreateVpc
 
     -- * Request Lenses
     createVpc_ipv6CidrBlockNetworkBorderGroup,
+    createVpc_ipv4IpamPoolId,
     createVpc_ipv6Pool,
     createVpc_instanceTenancy,
+    createVpc_ipv4NetmaskLength,
+    createVpc_ipv6IpamPoolId,
     createVpc_amazonProvidedIpv6CidrBlock,
     createVpc_dryRun,
+    createVpc_ipv6NetmaskLength,
+    createVpc_cidrBlock,
     createVpc_tagSpecifications,
     createVpc_ipv6CidrBlock,
-    createVpc_cidrBlock,
 
     -- * Destructuring the Response
     CreateVpcResponse (..),
@@ -84,6 +88,11 @@ data CreateVpc = CreateVpc'
     -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this
     -- parameter.
     ipv6CidrBlockNetworkBorderGroup :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an IPv4 IPAM pool you want to use for allocating this VPC\'s
+    -- CIDR. For more information, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+    -- in the /Amazon VPC IPAM User Guide/.
+    ipv4IpamPoolId :: Prelude.Maybe Prelude.Text,
     -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
     -- block.
     ipv6Pool :: Prelude.Maybe Prelude.Text,
@@ -99,6 +108,21 @@ data CreateVpc = CreateVpc'
     --
     -- Default: @default@
     instanceTenancy :: Prelude.Maybe Tenancy,
+    -- | The netmask length of the IPv4 CIDR you want to allocate to this VPC
+    -- from an Amazon VPC IP Address Manager (IPAM) pool. For more information
+    -- about IPAM, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+    -- in the /Amazon VPC IPAM User Guide/.
+    ipv4NetmaskLength :: Prelude.Maybe Prelude.Int,
+    -- | The ID of an IPv6 IPAM pool which will be used to allocate this VPC an
+    -- IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP
+    -- address management workflows including assigning, tracking,
+    -- troubleshooting, and auditing IP addresses across Amazon Web Services
+    -- Regions and accounts throughout your Amazon Web Services Organization.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+    -- in the /Amazon VPC IPAM User Guide/.
+    ipv6IpamPoolId :: Prelude.Maybe Prelude.Text,
     -- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
     -- for the VPC. You cannot specify the range of IP addresses, or the size
     -- of the CIDR block.
@@ -108,18 +132,24 @@ data CreateVpc = CreateVpc'
     -- the required permissions, the error response is @DryRunOperation@.
     -- Otherwise, it is @UnauthorizedOperation@.
     dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The netmask length of the IPv6 CIDR you want to allocate to this VPC
+    -- from an Amazon VPC IP Address Manager (IPAM) pool. For more information
+    -- about IPAM, see
+    -- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+    -- in the /Amazon VPC IPAM User Guide/.
+    ipv6NetmaskLength :: Prelude.Maybe Prelude.Int,
+    -- | The IPv4 network range for the VPC, in CIDR notation. For example,
+    -- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical
+    -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
+    -- @100.68.0.0\/18@.
+    cidrBlock :: Prelude.Maybe Prelude.Text,
     -- | The tags to assign to the VPC.
     tagSpecifications :: Prelude.Maybe [TagSpecification],
     -- | The IPv6 CIDR block from the IPv6 address pool. You must also specify
     -- @Ipv6Pool@ in the request.
     --
     -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
-    ipv6CidrBlock :: Prelude.Maybe Prelude.Text,
-    -- | The IPv4 network range for the VPC, in CIDR notation. For example,
-    -- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical
-    -- form; for example, if you specify @100.68.0.18\/18@, we modify it to
-    -- @100.68.0.0\/18@.
-    cidrBlock :: Prelude.Text
+    ipv6CidrBlock :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -137,6 +167,11 @@ data CreateVpc = CreateVpc'
 -- You must set @AmazonProvidedIpv6CidrBlock@ to @true@ to use this
 -- parameter.
 --
+-- 'ipv4IpamPoolId', 'createVpc_ipv4IpamPoolId' - The ID of an IPv4 IPAM pool you want to use for allocating this VPC\'s
+-- CIDR. For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+--
 -- 'ipv6Pool', 'createVpc_ipv6Pool' - The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
 -- block.
 --
@@ -152,6 +187,21 @@ data CreateVpc = CreateVpc'
 --
 -- Default: @default@
 --
+-- 'ipv4NetmaskLength', 'createVpc_ipv4NetmaskLength' - The netmask length of the IPv4 CIDR you want to allocate to this VPC
+-- from an Amazon VPC IP Address Manager (IPAM) pool. For more information
+-- about IPAM, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+--
+-- 'ipv6IpamPoolId', 'createVpc_ipv6IpamPoolId' - The ID of an IPv6 IPAM pool which will be used to allocate this VPC an
+-- IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP
+-- address management workflows including assigning, tracking,
+-- troubleshooting, and auditing IP addresses across Amazon Web Services
+-- Regions and accounts throughout your Amazon Web Services Organization.
+-- For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+--
 -- 'amazonProvidedIpv6CidrBlock', 'createVpc_amazonProvidedIpv6CidrBlock' - Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
 -- for the VPC. You cannot specify the range of IP addresses, or the size
 -- of the CIDR block.
@@ -161,32 +211,40 @@ data CreateVpc = CreateVpc'
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
 --
+-- 'ipv6NetmaskLength', 'createVpc_ipv6NetmaskLength' - The netmask length of the IPv6 CIDR you want to allocate to this VPC
+-- from an Amazon VPC IP Address Manager (IPAM) pool. For more information
+-- about IPAM, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+--
+-- 'cidrBlock', 'createVpc_cidrBlock' - The IPv4 network range for the VPC, in CIDR notation. For example,
+-- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical
+-- form; for example, if you specify @100.68.0.18\/18@, we modify it to
+-- @100.68.0.0\/18@.
+--
 -- 'tagSpecifications', 'createVpc_tagSpecifications' - The tags to assign to the VPC.
 --
 -- 'ipv6CidrBlock', 'createVpc_ipv6CidrBlock' - The IPv6 CIDR block from the IPv6 address pool. You must also specify
 -- @Ipv6Pool@ in the request.
 --
 -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
---
--- 'cidrBlock', 'createVpc_cidrBlock' - The IPv4 network range for the VPC, in CIDR notation. For example,
--- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical
--- form; for example, if you specify @100.68.0.18\/18@, we modify it to
--- @100.68.0.0\/18@.
 newCreateVpc ::
-  -- | 'cidrBlock'
-  Prelude.Text ->
   CreateVpc
-newCreateVpc pCidrBlock_ =
+newCreateVpc =
   CreateVpc'
     { ipv6CidrBlockNetworkBorderGroup =
         Prelude.Nothing,
+      ipv4IpamPoolId = Prelude.Nothing,
       ipv6Pool = Prelude.Nothing,
       instanceTenancy = Prelude.Nothing,
+      ipv4NetmaskLength = Prelude.Nothing,
+      ipv6IpamPoolId = Prelude.Nothing,
       amazonProvidedIpv6CidrBlock = Prelude.Nothing,
       dryRun = Prelude.Nothing,
+      ipv6NetmaskLength = Prelude.Nothing,
+      cidrBlock = Prelude.Nothing,
       tagSpecifications = Prelude.Nothing,
-      ipv6CidrBlock = Prelude.Nothing,
-      cidrBlock = pCidrBlock_
+      ipv6CidrBlock = Prelude.Nothing
     }
 
 -- | The name of the location from which we advertise the IPV6 CIDR block.
@@ -196,6 +254,13 @@ newCreateVpc pCidrBlock_ =
 -- parameter.
 createVpc_ipv6CidrBlockNetworkBorderGroup :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Text)
 createVpc_ipv6CidrBlockNetworkBorderGroup = Lens.lens (\CreateVpc' {ipv6CidrBlockNetworkBorderGroup} -> ipv6CidrBlockNetworkBorderGroup) (\s@CreateVpc' {} a -> s {ipv6CidrBlockNetworkBorderGroup = a} :: CreateVpc)
+
+-- | The ID of an IPv4 IPAM pool you want to use for allocating this VPC\'s
+-- CIDR. For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+createVpc_ipv4IpamPoolId :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Text)
+createVpc_ipv4IpamPoolId = Lens.lens (\CreateVpc' {ipv4IpamPoolId} -> ipv4IpamPoolId) (\s@CreateVpc' {} a -> s {ipv4IpamPoolId = a} :: CreateVpc)
 
 -- | The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
 -- block.
@@ -216,6 +281,25 @@ createVpc_ipv6Pool = Lens.lens (\CreateVpc' {ipv6Pool} -> ipv6Pool) (\s@CreateVp
 createVpc_instanceTenancy :: Lens.Lens' CreateVpc (Prelude.Maybe Tenancy)
 createVpc_instanceTenancy = Lens.lens (\CreateVpc' {instanceTenancy} -> instanceTenancy) (\s@CreateVpc' {} a -> s {instanceTenancy = a} :: CreateVpc)
 
+-- | The netmask length of the IPv4 CIDR you want to allocate to this VPC
+-- from an Amazon VPC IP Address Manager (IPAM) pool. For more information
+-- about IPAM, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+createVpc_ipv4NetmaskLength :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Int)
+createVpc_ipv4NetmaskLength = Lens.lens (\CreateVpc' {ipv4NetmaskLength} -> ipv4NetmaskLength) (\s@CreateVpc' {} a -> s {ipv4NetmaskLength = a} :: CreateVpc)
+
+-- | The ID of an IPv6 IPAM pool which will be used to allocate this VPC an
+-- IPv6 CIDR. IPAM is a VPC feature that you can use to automate your IP
+-- address management workflows including assigning, tracking,
+-- troubleshooting, and auditing IP addresses across Amazon Web Services
+-- Regions and accounts throughout your Amazon Web Services Organization.
+-- For more information, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+createVpc_ipv6IpamPoolId :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Text)
+createVpc_ipv6IpamPoolId = Lens.lens (\CreateVpc' {ipv6IpamPoolId} -> ipv6IpamPoolId) (\s@CreateVpc' {} a -> s {ipv6IpamPoolId = a} :: CreateVpc)
+
 -- | Requests an Amazon-provided IPv6 CIDR block with a \/56 prefix length
 -- for the VPC. You cannot specify the range of IP addresses, or the size
 -- of the CIDR block.
@@ -229,6 +313,21 @@ createVpc_amazonProvidedIpv6CidrBlock = Lens.lens (\CreateVpc' {amazonProvidedIp
 createVpc_dryRun :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Bool)
 createVpc_dryRun = Lens.lens (\CreateVpc' {dryRun} -> dryRun) (\s@CreateVpc' {} a -> s {dryRun = a} :: CreateVpc)
 
+-- | The netmask length of the IPv6 CIDR you want to allocate to this VPC
+-- from an Amazon VPC IP Address Manager (IPAM) pool. For more information
+-- about IPAM, see
+-- <https://docs.aws.amazon.com/vpc/latest/ipam/what-is-it-ipam.html What is IPAM?>
+-- in the /Amazon VPC IPAM User Guide/.
+createVpc_ipv6NetmaskLength :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Int)
+createVpc_ipv6NetmaskLength = Lens.lens (\CreateVpc' {ipv6NetmaskLength} -> ipv6NetmaskLength) (\s@CreateVpc' {} a -> s {ipv6NetmaskLength = a} :: CreateVpc)
+
+-- | The IPv4 network range for the VPC, in CIDR notation. For example,
+-- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical
+-- form; for example, if you specify @100.68.0.18\/18@, we modify it to
+-- @100.68.0.0\/18@.
+createVpc_cidrBlock :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Text)
+createVpc_cidrBlock = Lens.lens (\CreateVpc' {cidrBlock} -> cidrBlock) (\s@CreateVpc' {} a -> s {cidrBlock = a} :: CreateVpc)
+
 -- | The tags to assign to the VPC.
 createVpc_tagSpecifications :: Lens.Lens' CreateVpc (Prelude.Maybe [TagSpecification])
 createVpc_tagSpecifications = Lens.lens (\CreateVpc' {tagSpecifications} -> tagSpecifications) (\s@CreateVpc' {} a -> s {tagSpecifications = a} :: CreateVpc) Prelude.. Lens.mapping Lens.coerced
@@ -239,13 +338,6 @@ createVpc_tagSpecifications = Lens.lens (\CreateVpc' {tagSpecifications} -> tagS
 -- To let Amazon choose the IPv6 CIDR block for you, omit this parameter.
 createVpc_ipv6CidrBlock :: Lens.Lens' CreateVpc (Prelude.Maybe Prelude.Text)
 createVpc_ipv6CidrBlock = Lens.lens (\CreateVpc' {ipv6CidrBlock} -> ipv6CidrBlock) (\s@CreateVpc' {} a -> s {ipv6CidrBlock = a} :: CreateVpc)
-
--- | The IPv4 network range for the VPC, in CIDR notation. For example,
--- @10.0.0.0\/16@. We modify the specified CIDR block to its canonical
--- form; for example, if you specify @100.68.0.18\/18@, we modify it to
--- @100.68.0.0\/18@.
-createVpc_cidrBlock :: Lens.Lens' CreateVpc Prelude.Text
-createVpc_cidrBlock = Lens.lens (\CreateVpc' {cidrBlock} -> cidrBlock) (\s@CreateVpc' {} a -> s {cidrBlock = a} :: CreateVpc)
 
 instance Core.AWSRequest CreateVpc where
   type AWSResponse CreateVpc = CreateVpcResponse
@@ -262,24 +354,32 @@ instance Prelude.Hashable CreateVpc where
   hashWithSalt _salt CreateVpc' {..} =
     _salt
       `Prelude.hashWithSalt` ipv6CidrBlockNetworkBorderGroup
+      `Prelude.hashWithSalt` ipv4IpamPoolId
       `Prelude.hashWithSalt` ipv6Pool
       `Prelude.hashWithSalt` instanceTenancy
+      `Prelude.hashWithSalt` ipv4NetmaskLength
+      `Prelude.hashWithSalt` ipv6IpamPoolId
       `Prelude.hashWithSalt` amazonProvidedIpv6CidrBlock
       `Prelude.hashWithSalt` dryRun
+      `Prelude.hashWithSalt` ipv6NetmaskLength
+      `Prelude.hashWithSalt` cidrBlock
       `Prelude.hashWithSalt` tagSpecifications
       `Prelude.hashWithSalt` ipv6CidrBlock
-      `Prelude.hashWithSalt` cidrBlock
 
 instance Prelude.NFData CreateVpc where
   rnf CreateVpc' {..} =
     Prelude.rnf ipv6CidrBlockNetworkBorderGroup
+      `Prelude.seq` Prelude.rnf ipv4IpamPoolId
       `Prelude.seq` Prelude.rnf ipv6Pool
       `Prelude.seq` Prelude.rnf instanceTenancy
+      `Prelude.seq` Prelude.rnf ipv4NetmaskLength
+      `Prelude.seq` Prelude.rnf ipv6IpamPoolId
       `Prelude.seq` Prelude.rnf amazonProvidedIpv6CidrBlock
       `Prelude.seq` Prelude.rnf dryRun
+      `Prelude.seq` Prelude.rnf ipv6NetmaskLength
+      `Prelude.seq` Prelude.rnf cidrBlock
       `Prelude.seq` Prelude.rnf tagSpecifications
       `Prelude.seq` Prelude.rnf ipv6CidrBlock
-      `Prelude.seq` Prelude.rnf cidrBlock
 
 instance Core.ToHeaders CreateVpc where
   toHeaders = Prelude.const Prelude.mempty
@@ -296,17 +396,21 @@ instance Core.ToQuery CreateVpc where
           Core.=: ("2016-11-15" :: Prelude.ByteString),
         "Ipv6CidrBlockNetworkBorderGroup"
           Core.=: ipv6CidrBlockNetworkBorderGroup,
+        "Ipv4IpamPoolId" Core.=: ipv4IpamPoolId,
         "Ipv6Pool" Core.=: ipv6Pool,
         "InstanceTenancy" Core.=: instanceTenancy,
+        "Ipv4NetmaskLength" Core.=: ipv4NetmaskLength,
+        "Ipv6IpamPoolId" Core.=: ipv6IpamPoolId,
         "AmazonProvidedIpv6CidrBlock"
           Core.=: amazonProvidedIpv6CidrBlock,
         "DryRun" Core.=: dryRun,
+        "Ipv6NetmaskLength" Core.=: ipv6NetmaskLength,
+        "CidrBlock" Core.=: cidrBlock,
         Core.toQuery
           ( Core.toQueryList "TagSpecification"
               Prelude.<$> tagSpecifications
           ),
-        "Ipv6CidrBlock" Core.=: ipv6CidrBlock,
-        "CidrBlock" Core.=: cidrBlock
+        "Ipv6CidrBlock" Core.=: ipv6CidrBlock
       ]
 
 -- | /See:/ 'newCreateVpcResponse' smart constructor.

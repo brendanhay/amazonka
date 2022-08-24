@@ -62,6 +62,8 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more filters.
     --
+    -- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
+    --
     -- -   @service-name@ - The name of the service.
     --
     -- -   @vpc-id@ - The ID of the VPC in which the endpoint resides.
@@ -114,6 +116,8 @@ data DescribeVpcEndpoints = DescribeVpcEndpoints'
 -- from a prior call.)
 --
 -- 'filters', 'describeVpcEndpoints_filters' - One or more filters.
+--
+-- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
 --
 -- -   @service-name@ - The name of the service.
 --
@@ -168,6 +172,8 @@ describeVpcEndpoints_nextToken :: Lens.Lens' DescribeVpcEndpoints (Prelude.Maybe
 describeVpcEndpoints_nextToken = Lens.lens (\DescribeVpcEndpoints' {nextToken} -> nextToken) (\s@DescribeVpcEndpoints' {} a -> s {nextToken = a} :: DescribeVpcEndpoints)
 
 -- | One or more filters.
+--
+-- -   @ip-address-type@ - The IP address type (@ipv4@ | @ipv6@).
 --
 -- -   @service-name@ - The name of the service.
 --

@@ -36,7 +36,9 @@ data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
     -- interface.
     publicIp :: Prelude.Maybe Prelude.Text,
     -- | The public DNS name.
-    publicDnsName :: Prelude.Maybe Prelude.Text
+    publicDnsName :: Prelude.Maybe Prelude.Text,
+    -- | The customer-owned IP address associated with the network interface.
+    customerOwnedIp :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,6 +58,8 @@ data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
 -- interface.
 --
 -- 'publicDnsName', 'instanceNetworkInterfaceAssociation_publicDnsName' - The public DNS name.
+--
+-- 'customerOwnedIp', 'instanceNetworkInterfaceAssociation_customerOwnedIp' - The customer-owned IP address associated with the network interface.
 newInstanceNetworkInterfaceAssociation ::
   InstanceNetworkInterfaceAssociation
 newInstanceNetworkInterfaceAssociation =
@@ -64,7 +68,8 @@ newInstanceNetworkInterfaceAssociation =
         Prelude.Nothing,
       carrierIp = Prelude.Nothing,
       publicIp = Prelude.Nothing,
-      publicDnsName = Prelude.Nothing
+      publicDnsName = Prelude.Nothing,
+      customerOwnedIp = Prelude.Nothing
     }
 
 -- | The ID of the owner of the Elastic IP address.
@@ -84,6 +89,10 @@ instanceNetworkInterfaceAssociation_publicIp = Lens.lens (\InstanceNetworkInterf
 instanceNetworkInterfaceAssociation_publicDnsName :: Lens.Lens' InstanceNetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
 instanceNetworkInterfaceAssociation_publicDnsName = Lens.lens (\InstanceNetworkInterfaceAssociation' {publicDnsName} -> publicDnsName) (\s@InstanceNetworkInterfaceAssociation' {} a -> s {publicDnsName = a} :: InstanceNetworkInterfaceAssociation)
 
+-- | The customer-owned IP address associated with the network interface.
+instanceNetworkInterfaceAssociation_customerOwnedIp :: Lens.Lens' InstanceNetworkInterfaceAssociation (Prelude.Maybe Prelude.Text)
+instanceNetworkInterfaceAssociation_customerOwnedIp = Lens.lens (\InstanceNetworkInterfaceAssociation' {customerOwnedIp} -> customerOwnedIp) (\s@InstanceNetworkInterfaceAssociation' {} a -> s {customerOwnedIp = a} :: InstanceNetworkInterfaceAssociation)
+
 instance
   Core.FromXML
     InstanceNetworkInterfaceAssociation
@@ -94,6 +103,7 @@ instance
       Prelude.<*> (x Core..@? "carrierIp")
       Prelude.<*> (x Core..@? "publicIp")
       Prelude.<*> (x Core..@? "publicDnsName")
+      Prelude.<*> (x Core..@? "customerOwnedIp")
 
 instance
   Prelude.Hashable
@@ -106,6 +116,7 @@ instance
         `Prelude.hashWithSalt` carrierIp
         `Prelude.hashWithSalt` publicIp
         `Prelude.hashWithSalt` publicDnsName
+        `Prelude.hashWithSalt` customerOwnedIp
 
 instance
   Prelude.NFData
@@ -116,3 +127,4 @@ instance
       `Prelude.seq` Prelude.rnf carrierIp
       `Prelude.seq` Prelude.rnf publicIp
       `Prelude.seq` Prelude.rnf publicDnsName
+      `Prelude.seq` Prelude.rnf customerOwnedIp

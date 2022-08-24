@@ -36,7 +36,7 @@ import qualified Amazonka.Prelude as Prelude
 --
 -- /See:/ 'newInstanceNetworkInterface' smart constructor.
 data InstanceNetworkInterface = InstanceNetworkInterface'
-  { -- | Describes the type of network interface.
+  { -- | The type of network interface.
     --
     -- Valid values: @interface@ | @efa@ | @trunk@
     interfaceType :: Prelude.Maybe Prelude.Text,
@@ -88,7 +88,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'interfaceType', 'instanceNetworkInterface_interfaceType' - Describes the type of network interface.
+-- 'interfaceType', 'instanceNetworkInterface_interfaceType' - The type of network interface.
 --
 -- Valid values: @interface@ | @efa@ | @trunk@
 --
@@ -153,7 +153,7 @@ newInstanceNetworkInterface =
       ipv6Addresses = Prelude.Nothing
     }
 
--- | Describes the type of network interface.
+-- | The type of network interface.
 --
 -- Valid values: @interface@ | @efa@ | @trunk@
 instanceNetworkInterface_interfaceType :: Lens.Lens' InstanceNetworkInterface (Prelude.Maybe Prelude.Text)

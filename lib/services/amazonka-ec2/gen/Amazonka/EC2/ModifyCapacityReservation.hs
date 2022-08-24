@@ -32,6 +32,7 @@ module Amazonka.EC2.ModifyCapacityReservation
     newModifyCapacityReservation,
 
     -- * Request Lenses
+    modifyCapacityReservation_additionalInfo,
     modifyCapacityReservation_endDate,
     modifyCapacityReservation_accept,
     modifyCapacityReservation_dryRun,
@@ -58,7 +59,9 @@ import qualified Amazonka.Response as Response
 
 -- | /See:/ 'newModifyCapacityReservation' smart constructor.
 data ModifyCapacityReservation = ModifyCapacityReservation'
-  { -- | The date and time at which the Capacity Reservation expires. When a
+  { -- | Reserved for future use.
+    additionalInfo :: Prelude.Maybe Prelude.Text,
+    -- | The date and time at which the Capacity Reservation expires. When a
     -- Capacity Reservation expires, the reserved capacity is released and you
     -- can no longer launch instances into it. The Capacity Reservation\'s
     -- state changes to @expired@ when it reaches its end date and time.
@@ -107,6 +110,8 @@ data ModifyCapacityReservation = ModifyCapacityReservation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'additionalInfo', 'modifyCapacityReservation_additionalInfo' - Reserved for future use.
+--
 -- 'endDate', 'modifyCapacityReservation_endDate' - The date and time at which the Capacity Reservation expires. When a
 -- Capacity Reservation expires, the reserved capacity is released and you
 -- can no longer launch instances into it. The Capacity Reservation\'s
@@ -150,14 +155,19 @@ newModifyCapacityReservation ::
   ModifyCapacityReservation
 newModifyCapacityReservation pCapacityReservationId_ =
   ModifyCapacityReservation'
-    { endDate =
+    { additionalInfo =
         Prelude.Nothing,
+      endDate = Prelude.Nothing,
       accept = Prelude.Nothing,
       dryRun = Prelude.Nothing,
       instanceCount = Prelude.Nothing,
       endDateType = Prelude.Nothing,
       capacityReservationId = pCapacityReservationId_
     }
+
+-- | Reserved for future use.
+modifyCapacityReservation_additionalInfo :: Lens.Lens' ModifyCapacityReservation (Prelude.Maybe Prelude.Text)
+modifyCapacityReservation_additionalInfo = Lens.lens (\ModifyCapacityReservation' {additionalInfo} -> additionalInfo) (\s@ModifyCapacityReservation' {} a -> s {additionalInfo = a} :: ModifyCapacityReservation)
 
 -- | The date and time at which the Capacity Reservation expires. When a
 -- Capacity Reservation expires, the reserved capacity is released and you
@@ -224,7 +234,8 @@ instance Core.AWSRequest ModifyCapacityReservation where
 
 instance Prelude.Hashable ModifyCapacityReservation where
   hashWithSalt _salt ModifyCapacityReservation' {..} =
-    _salt `Prelude.hashWithSalt` endDate
+    _salt `Prelude.hashWithSalt` additionalInfo
+      `Prelude.hashWithSalt` endDate
       `Prelude.hashWithSalt` accept
       `Prelude.hashWithSalt` dryRun
       `Prelude.hashWithSalt` instanceCount
@@ -233,7 +244,8 @@ instance Prelude.Hashable ModifyCapacityReservation where
 
 instance Prelude.NFData ModifyCapacityReservation where
   rnf ModifyCapacityReservation' {..} =
-    Prelude.rnf endDate
+    Prelude.rnf additionalInfo
+      `Prelude.seq` Prelude.rnf endDate
       `Prelude.seq` Prelude.rnf accept
       `Prelude.seq` Prelude.rnf dryRun
       `Prelude.seq` Prelude.rnf instanceCount
@@ -253,6 +265,7 @@ instance Core.ToQuery ModifyCapacityReservation where
           Core.=: ("ModifyCapacityReservation" :: Prelude.ByteString),
         "Version"
           Core.=: ("2016-11-15" :: Prelude.ByteString),
+        "AdditionalInfo" Core.=: additionalInfo,
         "EndDate" Core.=: endDate,
         "Accept" Core.=: accept,
         "DryRun" Core.=: dryRun,

@@ -29,7 +29,7 @@
 -- EC2 performs a hard reboot.
 --
 -- For more information about troubleshooting, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting console output and rebooting instances>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Troubleshoot an unreachable instance>
 -- in the /Amazon EC2 User Guide/.
 module Amazonka.EC2.RebootInstances
   ( -- * Creating a Request

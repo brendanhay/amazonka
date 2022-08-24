@@ -22,10 +22,11 @@
 --
 -- Enables detailed monitoring for a running instance. Otherwise, basic
 -- monitoring is enabled. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring your instances and volumes>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitor your instances using CloudWatch>
 -- in the /Amazon EC2 User Guide/.
 --
--- To disable detailed monitoring, see .
+-- To disable detailed monitoring, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_UnmonitorInstances.html UnmonitorInstances>.
 module Amazonka.EC2.MonitorInstances
   ( -- * Creating a Request
     MonitorInstances (..),

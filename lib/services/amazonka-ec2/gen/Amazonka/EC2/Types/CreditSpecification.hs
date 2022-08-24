@@ -24,12 +24,13 @@ import Amazonka.EC2.Internal
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
--- | Describes the credit option for CPU usage of a T2, T3, or T3a instance.
+-- | Describes the credit option for CPU usage of a T instance.
 --
 -- /See:/ 'newCreditSpecification' smart constructor.
 data CreditSpecification = CreditSpecification'
-  { -- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid
-    -- values are @standard@ and @unlimited@.
+  { -- | The credit option for CPU usage of a T instance.
+    --
+    -- Valid values: @standard@ | @unlimited@
     cpuCredits :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,15 +43,17 @@ data CreditSpecification = CreditSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cpuCredits', 'creditSpecification_cpuCredits' - The credit option for CPU usage of a T2, T3, or T3a instance. Valid
--- values are @standard@ and @unlimited@.
+-- 'cpuCredits', 'creditSpecification_cpuCredits' - The credit option for CPU usage of a T instance.
+--
+-- Valid values: @standard@ | @unlimited@
 newCreditSpecification ::
   CreditSpecification
 newCreditSpecification =
   CreditSpecification' {cpuCredits = Prelude.Nothing}
 
--- | The credit option for CPU usage of a T2, T3, or T3a instance. Valid
--- values are @standard@ and @unlimited@.
+-- | The credit option for CPU usage of a T instance.
+--
+-- Valid values: @standard@ | @unlimited@
 creditSpecification_cpuCredits :: Lens.Lens' CreditSpecification (Prelude.Maybe Prelude.Text)
 creditSpecification_cpuCredits = Lens.lens (\CreditSpecification' {cpuCredits} -> cpuCredits) (\s@CreditSpecification' {} a -> s {cpuCredits = a} :: CreditSpecification)
 

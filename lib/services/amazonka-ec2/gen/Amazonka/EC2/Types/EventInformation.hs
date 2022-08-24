@@ -54,17 +54,20 @@ data EventInformation = EventInformation'
     --     and Amazon EC2 is attempting to maintain the target number of
     --     running instances.
     --
-    -- -   @cancelled@ - The EC2 Fleet or Spot Fleet request is canceled and
-    --     has no running instances. The EC2 Fleet or Spot Fleet will be
-    --     deleted two days after its instances are terminated.
+    -- -   @deleted@ (EC2 Fleet) \/ @cancelled@ (Spot Fleet) - The EC2 Fleet is
+    --     deleted or the Spot Fleet request is canceled and has no running
+    --     instances. The EC2 Fleet or Spot Fleet will be deleted two days
+    --     after its instances are terminated.
     --
-    -- -   @cancelled_running@ - The EC2 Fleet or Spot Fleet request is
-    --     canceled and does not launch additional instances. Its existing
-    --     instances continue to run until they are interrupted or terminated.
-    --     The request remains in this state until all instances are
-    --     interrupted or terminated.
+    -- -   @deleted_running@ (EC2 Fleet) \/ @cancelled_running@ (Spot Fleet) -
+    --     The EC2 Fleet is deleted or the Spot Fleet request is canceled and
+    --     does not launch additional instances. Its existing instances
+    --     continue to run until they are interrupted or terminated. The
+    --     request remains in this state until all instances are interrupted or
+    --     terminated.
     --
-    -- -   @cancelled_terminating@ - The EC2 Fleet or Spot Fleet request is
+    -- -   @deleted_terminating@ (EC2 Fleet) \/ @cancelled_terminating@ (Spot
+    --     Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is
     --     canceled and its instances are terminating. The request remains in
     --     this state until all instances are terminated.
     --
@@ -155,17 +158,20 @@ data EventInformation = EventInformation'
 --     and Amazon EC2 is attempting to maintain the target number of
 --     running instances.
 --
--- -   @cancelled@ - The EC2 Fleet or Spot Fleet request is canceled and
---     has no running instances. The EC2 Fleet or Spot Fleet will be
---     deleted two days after its instances are terminated.
+-- -   @deleted@ (EC2 Fleet) \/ @cancelled@ (Spot Fleet) - The EC2 Fleet is
+--     deleted or the Spot Fleet request is canceled and has no running
+--     instances. The EC2 Fleet or Spot Fleet will be deleted two days
+--     after its instances are terminated.
 --
--- -   @cancelled_running@ - The EC2 Fleet or Spot Fleet request is
---     canceled and does not launch additional instances. Its existing
---     instances continue to run until they are interrupted or terminated.
---     The request remains in this state until all instances are
---     interrupted or terminated.
+-- -   @deleted_running@ (EC2 Fleet) \/ @cancelled_running@ (Spot Fleet) -
+--     The EC2 Fleet is deleted or the Spot Fleet request is canceled and
+--     does not launch additional instances. Its existing instances
+--     continue to run until they are interrupted or terminated. The
+--     request remains in this state until all instances are interrupted or
+--     terminated.
 --
--- -   @cancelled_terminating@ - The EC2 Fleet or Spot Fleet request is
+-- -   @deleted_terminating@ (EC2 Fleet) \/ @cancelled_terminating@ (Spot
+--     Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is
 --     canceled and its instances are terminating. The request remains in
 --     this state until all instances are terminated.
 --
@@ -255,17 +261,20 @@ eventInformation_instanceId = Lens.lens (\EventInformation' {instanceId} -> inst
 --     and Amazon EC2 is attempting to maintain the target number of
 --     running instances.
 --
--- -   @cancelled@ - The EC2 Fleet or Spot Fleet request is canceled and
---     has no running instances. The EC2 Fleet or Spot Fleet will be
---     deleted two days after its instances are terminated.
+-- -   @deleted@ (EC2 Fleet) \/ @cancelled@ (Spot Fleet) - The EC2 Fleet is
+--     deleted or the Spot Fleet request is canceled and has no running
+--     instances. The EC2 Fleet or Spot Fleet will be deleted two days
+--     after its instances are terminated.
 --
--- -   @cancelled_running@ - The EC2 Fleet or Spot Fleet request is
---     canceled and does not launch additional instances. Its existing
---     instances continue to run until they are interrupted or terminated.
---     The request remains in this state until all instances are
---     interrupted or terminated.
+-- -   @deleted_running@ (EC2 Fleet) \/ @cancelled_running@ (Spot Fleet) -
+--     The EC2 Fleet is deleted or the Spot Fleet request is canceled and
+--     does not launch additional instances. Its existing instances
+--     continue to run until they are interrupted or terminated. The
+--     request remains in this state until all instances are interrupted or
+--     terminated.
 --
--- -   @cancelled_terminating@ - The EC2 Fleet or Spot Fleet request is
+-- -   @deleted_terminating@ (EC2 Fleet) \/ @cancelled_terminating@ (Spot
+--     Fleet) - The EC2 Fleet is deleted or the Spot Fleet request is
 --     canceled and its instances are terminating. The request remains in
 --     this state until all instances are terminated.
 --

@@ -25,11 +25,12 @@ import Amazonka.EC2.Types.LaunchTemplateHttpTokensState
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataOptionsState
 import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataProtocolIpv6
+import Amazonka.EC2.Types.LaunchTemplateInstanceMetadataTagsState
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
 -- | The metadata options for the instance. For more information, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data>
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance metadata and user data>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- /See:/ 'newLaunchTemplateInstanceMetadataOptions' smart constructor.
@@ -65,13 +66,19 @@ data LaunchTemplateInstanceMetadataOptions = LaunchTemplateInstanceMetadataOptio
     -- role credentials always returns the version 2.0 credentials; the version
     -- 1.0 credentials are not available.
     httpTokens :: Prelude.Maybe LaunchTemplateHttpTokensState,
-    -- | This parameter enables or disables the HTTP metadata endpoint on your
-    -- instances. If the parameter is not specified, the default state is
-    -- @enabled@.
+    -- | Enables or disables the HTTP metadata endpoint on your instances. If the
+    -- parameter is not specified, the default state is @enabled@.
     --
     -- If you specify a value of @disabled@, you will not be able to access
     -- your instance metadata.
     httpEndpoint :: Prelude.Maybe LaunchTemplateInstanceMetadataEndpointState,
+    -- | Set to @enabled@ to allow access to instance tags from the instance
+    -- metadata. Set to @disabled@ to turn off access to instance tags from the
+    -- instance metadata. For more information, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS Work with instance tags using the instance metadata>.
+    --
+    -- Default: @disabled@
+    instanceMetadataTags :: Prelude.Maybe LaunchTemplateInstanceMetadataTagsState,
     -- | Enables or disables the IPv6 endpoint for the instance metadata service.
     --
     -- Default: @disabled@
@@ -118,12 +125,18 @@ data LaunchTemplateInstanceMetadataOptions = LaunchTemplateInstanceMetadataOptio
 -- role credentials always returns the version 2.0 credentials; the version
 -- 1.0 credentials are not available.
 --
--- 'httpEndpoint', 'launchTemplateInstanceMetadataOptions_httpEndpoint' - This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the default state is
--- @enabled@.
+-- 'httpEndpoint', 'launchTemplateInstanceMetadataOptions_httpEndpoint' - Enables or disables the HTTP metadata endpoint on your instances. If the
+-- parameter is not specified, the default state is @enabled@.
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.
+--
+-- 'instanceMetadataTags', 'launchTemplateInstanceMetadataOptions_instanceMetadataTags' - Set to @enabled@ to allow access to instance tags from the instance
+-- metadata. Set to @disabled@ to turn off access to instance tags from the
+-- instance metadata. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS Work with instance tags using the instance metadata>.
+--
+-- Default: @disabled@
 --
 -- 'httpProtocolIpv6', 'launchTemplateInstanceMetadataOptions_httpProtocolIpv6' - Enables or disables the IPv6 endpoint for the instance metadata service.
 --
@@ -137,6 +150,8 @@ newLaunchTemplateInstanceMetadataOptions =
       state = Prelude.Nothing,
       httpTokens = Prelude.Nothing,
       httpEndpoint = Prelude.Nothing,
+      instanceMetadataTags =
+        Prelude.Nothing,
       httpProtocolIpv6 = Prelude.Nothing
     }
 
@@ -177,14 +192,22 @@ launchTemplateInstanceMetadataOptions_state = Lens.lens (\LaunchTemplateInstance
 launchTemplateInstanceMetadataOptions_httpTokens :: Lens.Lens' LaunchTemplateInstanceMetadataOptions (Prelude.Maybe LaunchTemplateHttpTokensState)
 launchTemplateInstanceMetadataOptions_httpTokens = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {httpTokens} -> httpTokens) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {httpTokens = a} :: LaunchTemplateInstanceMetadataOptions)
 
--- | This parameter enables or disables the HTTP metadata endpoint on your
--- instances. If the parameter is not specified, the default state is
--- @enabled@.
+-- | Enables or disables the HTTP metadata endpoint on your instances. If the
+-- parameter is not specified, the default state is @enabled@.
 --
 -- If you specify a value of @disabled@, you will not be able to access
 -- your instance metadata.
 launchTemplateInstanceMetadataOptions_httpEndpoint :: Lens.Lens' LaunchTemplateInstanceMetadataOptions (Prelude.Maybe LaunchTemplateInstanceMetadataEndpointState)
 launchTemplateInstanceMetadataOptions_httpEndpoint = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {httpEndpoint} -> httpEndpoint) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {httpEndpoint = a} :: LaunchTemplateInstanceMetadataOptions)
+
+-- | Set to @enabled@ to allow access to instance tags from the instance
+-- metadata. Set to @disabled@ to turn off access to instance tags from the
+-- instance metadata. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS Work with instance tags using the instance metadata>.
+--
+-- Default: @disabled@
+launchTemplateInstanceMetadataOptions_instanceMetadataTags :: Lens.Lens' LaunchTemplateInstanceMetadataOptions (Prelude.Maybe LaunchTemplateInstanceMetadataTagsState)
+launchTemplateInstanceMetadataOptions_instanceMetadataTags = Lens.lens (\LaunchTemplateInstanceMetadataOptions' {instanceMetadataTags} -> instanceMetadataTags) (\s@LaunchTemplateInstanceMetadataOptions' {} a -> s {instanceMetadataTags = a} :: LaunchTemplateInstanceMetadataOptions)
 
 -- | Enables or disables the IPv6 endpoint for the instance metadata service.
 --
@@ -202,6 +225,7 @@ instance
       Prelude.<*> (x Core..@? "state")
       Prelude.<*> (x Core..@? "httpTokens")
       Prelude.<*> (x Core..@? "httpEndpoint")
+      Prelude.<*> (x Core..@? "instanceMetadataTags")
       Prelude.<*> (x Core..@? "httpProtocolIpv6")
 
 instance
@@ -216,6 +240,7 @@ instance
         `Prelude.hashWithSalt` state
         `Prelude.hashWithSalt` httpTokens
         `Prelude.hashWithSalt` httpEndpoint
+        `Prelude.hashWithSalt` instanceMetadataTags
         `Prelude.hashWithSalt` httpProtocolIpv6
 
 instance
@@ -227,4 +252,5 @@ instance
       `Prelude.seq` Prelude.rnf state
       `Prelude.seq` Prelude.rnf httpTokens
       `Prelude.seq` Prelude.rnf httpEndpoint
+      `Prelude.seq` Prelude.rnf instanceMetadataTags
       `Prelude.seq` Prelude.rnf httpProtocolIpv6

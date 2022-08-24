@@ -54,6 +54,9 @@ import Test.Tasty
 --         , requestAllocateHosts $
 --             newAllocateHosts
 --
+--         , requestAllocateIpamPoolCidr $
+--             newAllocateIpamPoolCidr
+--
 --         , requestApplySecurityGroupsToClientVpnTargetNetwork $
 --             newApplySecurityGroupsToClientVpnTargetNetwork
 --
@@ -89,6 +92,9 @@ import Test.Tasty
 --
 --         , requestAssociateTransitGatewayMulticastDomain $
 --             newAssociateTransitGatewayMulticastDomain
+--
+--         , requestAssociateTransitGatewayPolicyTable $
+--             newAssociateTransitGatewayPolicyTable
 --
 --         , requestAssociateTransitGatewayRouteTable $
 --             newAssociateTransitGatewayRouteTable
@@ -216,6 +222,15 @@ import Test.Tasty
 --         , requestCreateInternetGateway $
 --             newCreateInternetGateway
 --
+--         , requestCreateIpam $
+--             newCreateIpam
+--
+--         , requestCreateIpamPool $
+--             newCreateIpamPool
+--
+--         , requestCreateIpamScope $
+--             newCreateIpamScope
+--
 --         , requestCreateKeyPair $
 --             newCreateKeyPair
 --
@@ -243,6 +258,9 @@ import Test.Tasty
 --         , requestCreateNetworkAclEntry $
 --             newCreateNetworkAclEntry
 --
+--         , requestCreateNetworkInsightsAccessScope $
+--             newCreateNetworkInsightsAccessScope
+--
 --         , requestCreateNetworkInsightsPath $
 --             newCreateNetworkInsightsPath
 --
@@ -254,6 +272,9 @@ import Test.Tasty
 --
 --         , requestCreatePlacementGroup $
 --             newCreatePlacementGroup
+--
+--         , requestCreatePublicIpv4Pool $
+--             newCreatePublicIpv4Pool
 --
 --         , requestCreateReplaceRootVolumeTask $
 --             newCreateReplaceRootVolumeTask
@@ -321,6 +342,9 @@ import Test.Tasty
 --         , requestCreateTransitGatewayPeeringAttachment $
 --             newCreateTransitGatewayPeeringAttachment
 --
+--         , requestCreateTransitGatewayPolicyTable $
+--             newCreateTransitGatewayPolicyTable
+--
 --         , requestCreateTransitGatewayPrefixListReference $
 --             newCreateTransitGatewayPrefixListReference
 --
@@ -329,6 +353,9 @@ import Test.Tasty
 --
 --         , requestCreateTransitGatewayRouteTable $
 --             newCreateTransitGatewayRouteTable
+--
+--         , requestCreateTransitGatewayRouteTableAnnouncement $
+--             newCreateTransitGatewayRouteTableAnnouncement
 --
 --         , requestCreateTransitGatewayVpcAttachment $
 --             newCreateTransitGatewayVpcAttachment
@@ -393,6 +420,15 @@ import Test.Tasty
 --         , requestDeleteInternetGateway $
 --             newDeleteInternetGateway
 --
+--         , requestDeleteIpam $
+--             newDeleteIpam
+--
+--         , requestDeleteIpamPool $
+--             newDeleteIpamPool
+--
+--         , requestDeleteIpamScope $
+--             newDeleteIpamScope
+--
 --         , requestDeleteKeyPair $
 --             newDeleteKeyPair
 --
@@ -420,6 +456,12 @@ import Test.Tasty
 --         , requestDeleteNetworkAclEntry $
 --             newDeleteNetworkAclEntry
 --
+--         , requestDeleteNetworkInsightsAccessScope $
+--             newDeleteNetworkInsightsAccessScope
+--
+--         , requestDeleteNetworkInsightsAccessScopeAnalysis $
+--             newDeleteNetworkInsightsAccessScopeAnalysis
+--
 --         , requestDeleteNetworkInsightsAnalysis $
 --             newDeleteNetworkInsightsAnalysis
 --
@@ -434,6 +476,9 @@ import Test.Tasty
 --
 --         , requestDeletePlacementGroup $
 --             newDeletePlacementGroup
+--
+--         , requestDeletePublicIpv4Pool $
+--             newDeletePublicIpv4Pool
 --
 --         , requestDeleteQueuedReservedInstances $
 --             newDeleteQueuedReservedInstances
@@ -489,6 +534,9 @@ import Test.Tasty
 --         , requestDeleteTransitGatewayPeeringAttachment $
 --             newDeleteTransitGatewayPeeringAttachment
 --
+--         , requestDeleteTransitGatewayPolicyTable $
+--             newDeleteTransitGatewayPolicyTable
+--
 --         , requestDeleteTransitGatewayPrefixListReference $
 --             newDeleteTransitGatewayPrefixListReference
 --
@@ -497,6 +545,9 @@ import Test.Tasty
 --
 --         , requestDeleteTransitGatewayRouteTable $
 --             newDeleteTransitGatewayRouteTable
+--
+--         , requestDeleteTransitGatewayRouteTableAnnouncement $
+--             newDeleteTransitGatewayRouteTableAnnouncement
 --
 --         , requestDeleteTransitGatewayVpcAttachment $
 --             newDeleteTransitGatewayVpcAttachment
@@ -530,6 +581,12 @@ import Test.Tasty
 --
 --         , requestDeprovisionByoipCidr $
 --             newDeprovisionByoipCidr
+--
+--         , requestDeprovisionIpamPoolCidr $
+--             newDeprovisionIpamPoolCidr
+--
+--         , requestDeprovisionPublicIpv4PoolCidr $
+--             newDeprovisionPublicIpv4PoolCidr
 --
 --         , requestDeregisterImage $
 --             newDeregisterImage
@@ -615,6 +672,9 @@ import Test.Tasty
 --         , requestDescribeExportTasks $
 --             newDescribeExportTasks
 --
+--         , requestDescribeFastLaunchImages $
+--             newDescribeFastLaunchImages
+--
 --         , requestDescribeFastSnapshotRestores $
 --             newDescribeFastSnapshotRestores
 --
@@ -693,6 +753,15 @@ import Test.Tasty
 --         , requestDescribeInternetGateways $
 --             newDescribeInternetGateways
 --
+--         , requestDescribeIpamPools $
+--             newDescribeIpamPools
+--
+--         , requestDescribeIpamScopes $
+--             newDescribeIpamScopes
+--
+--         , requestDescribeIpams $
+--             newDescribeIpams
+--
 --         , requestDescribeIpv6Pools $
 --             newDescribeIpv6Pools
 --
@@ -734,6 +803,12 @@ import Test.Tasty
 --
 --         , requestDescribeNetworkAcls $
 --             newDescribeNetworkAcls
+--
+--         , requestDescribeNetworkInsightsAccessScopeAnalyses $
+--             newDescribeNetworkInsightsAccessScopeAnalyses
+--
+--         , requestDescribeNetworkInsightsAccessScopes $
+--             newDescribeNetworkInsightsAccessScopes
 --
 --         , requestDescribeNetworkInsightsAnalyses $
 --             newDescribeNetworkInsightsAnalyses
@@ -801,6 +876,9 @@ import Test.Tasty
 --         , requestDescribeSnapshotAttribute $
 --             newDescribeSnapshotAttribute
 --
+--         , requestDescribeSnapshotTierStatus $
+--             newDescribeSnapshotTierStatus
+--
 --         , requestDescribeSnapshots $
 --             newDescribeSnapshots
 --
@@ -857,6 +935,12 @@ import Test.Tasty
 --
 --         , requestDescribeTransitGatewayPeeringAttachments $
 --             newDescribeTransitGatewayPeeringAttachments
+--
+--         , requestDescribeTransitGatewayPolicyTables $
+--             newDescribeTransitGatewayPolicyTables
+--
+--         , requestDescribeTransitGatewayRouteTableAnnouncements $
+--             newDescribeTransitGatewayRouteTableAnnouncements
 --
 --         , requestDescribeTransitGatewayRouteTables $
 --             newDescribeTransitGatewayRouteTables
@@ -939,11 +1023,17 @@ import Test.Tasty
 --         , requestDisableEbsEncryptionByDefault $
 --             newDisableEbsEncryptionByDefault
 --
+--         , requestDisableFastLaunch $
+--             newDisableFastLaunch
+--
 --         , requestDisableFastSnapshotRestores $
 --             newDisableFastSnapshotRestores
 --
 --         , requestDisableImageDeprecation $
 --             newDisableImageDeprecation
+--
+--         , requestDisableIpamOrganizationAdminAccount $
+--             newDisableIpamOrganizationAdminAccount
 --
 --         , requestDisableSerialConsoleAccess $
 --             newDisableSerialConsoleAccess
@@ -984,6 +1074,9 @@ import Test.Tasty
 --         , requestDisassociateTransitGatewayMulticastDomain $
 --             newDisassociateTransitGatewayMulticastDomain
 --
+--         , requestDisassociateTransitGatewayPolicyTable $
+--             newDisassociateTransitGatewayPolicyTable
+--
 --         , requestDisassociateTransitGatewayRouteTable $
 --             newDisassociateTransitGatewayRouteTable
 --
@@ -996,11 +1089,17 @@ import Test.Tasty
 --         , requestEnableEbsEncryptionByDefault $
 --             newEnableEbsEncryptionByDefault
 --
+--         , requestEnableFastLaunch $
+--             newEnableFastLaunch
+--
 --         , requestEnableFastSnapshotRestores $
 --             newEnableFastSnapshotRestores
 --
 --         , requestEnableImageDeprecation $
 --             newEnableImageDeprecation
+--
+--         , requestEnableIpamOrganizationAdminAccount $
+--             newEnableIpamOrganizationAdminAccount
 --
 --         , requestEnableSerialConsoleAccess $
 --             newEnableSerialConsoleAccess
@@ -1068,6 +1167,24 @@ import Test.Tasty
 --         , requestGetHostReservationPurchasePreview $
 --             newGetHostReservationPurchasePreview
 --
+--         , requestGetInstanceTypesFromInstanceRequirements $
+--             newGetInstanceTypesFromInstanceRequirements
+--
+--         , requestGetInstanceUefiData $
+--             newGetInstanceUefiData
+--
+--         , requestGetIpamAddressHistory $
+--             newGetIpamAddressHistory
+--
+--         , requestGetIpamPoolAllocations $
+--             newGetIpamPoolAllocations
+--
+--         , requestGetIpamPoolCidrs $
+--             newGetIpamPoolCidrs
+--
+--         , requestGetIpamResourceCidrs $
+--             newGetIpamResourceCidrs
+--
 --         , requestGetLaunchTemplateData $
 --             newGetLaunchTemplateData
 --
@@ -1076,6 +1193,12 @@ import Test.Tasty
 --
 --         , requestGetManagedPrefixListEntries $
 --             newGetManagedPrefixListEntries
+--
+--         , requestGetNetworkInsightsAccessScopeAnalysisFindings $
+--             newGetNetworkInsightsAccessScopeAnalysisFindings
+--
+--         , requestGetNetworkInsightsAccessScopeContent $
+--             newGetNetworkInsightsAccessScopeContent
 --
 --         , requestGetPasswordData $
 --             newGetPasswordData
@@ -1086,6 +1209,9 @@ import Test.Tasty
 --         , requestGetSerialConsoleAccessStatus $
 --             newGetSerialConsoleAccessStatus
 --
+--         , requestGetSpotPlacementScores $
+--             newGetSpotPlacementScores
+--
 --         , requestGetSubnetCidrReservations $
 --             newGetSubnetCidrReservations
 --
@@ -1094,6 +1220,12 @@ import Test.Tasty
 --
 --         , requestGetTransitGatewayMulticastDomainAssociations $
 --             newGetTransitGatewayMulticastDomainAssociations
+--
+--         , requestGetTransitGatewayPolicyTableAssociations $
+--             newGetTransitGatewayPolicyTableAssociations
+--
+--         , requestGetTransitGatewayPolicyTableEntries $
+--             newGetTransitGatewayPolicyTableEntries
 --
 --         , requestGetTransitGatewayPrefixListReferences $
 --             newGetTransitGatewayPrefixListReferences
@@ -1127,6 +1259,12 @@ import Test.Tasty
 --
 --         , requestImportVolume $
 --             newImportVolume
+--
+--         , requestListImagesInRecycleBin $
+--             newListImagesInRecycleBin
+--
+--         , requestListSnapshotsInRecycleBin $
+--             newListSnapshotsInRecycleBin
 --
 --         , requestModifyAddressAttribute $
 --             newModifyAddressAttribute
@@ -1182,11 +1320,26 @@ import Test.Tasty
 --         , requestModifyInstanceEventWindow $
 --             newModifyInstanceEventWindow
 --
+--         , requestModifyInstanceMaintenanceOptions $
+--             newModifyInstanceMaintenanceOptions
+--
 --         , requestModifyInstanceMetadataOptions $
 --             newModifyInstanceMetadataOptions
 --
 --         , requestModifyInstancePlacement $
 --             newModifyInstancePlacement
+--
+--         , requestModifyIpam $
+--             newModifyIpam
+--
+--         , requestModifyIpamPool $
+--             newModifyIpamPool
+--
+--         , requestModifyIpamResourceCidr $
+--             newModifyIpamResourceCidr
+--
+--         , requestModifyIpamScope $
+--             newModifyIpamScope
 --
 --         , requestModifyLaunchTemplate $
 --             newModifyLaunchTemplate
@@ -1197,6 +1350,9 @@ import Test.Tasty
 --         , requestModifyNetworkInterfaceAttribute $
 --             newModifyNetworkInterfaceAttribute
 --
+--         , requestModifyPrivateDnsNameOptions $
+--             newModifyPrivateDnsNameOptions
+--
 --         , requestModifyReservedInstances $
 --             newModifyReservedInstances
 --
@@ -1205,6 +1361,9 @@ import Test.Tasty
 --
 --         , requestModifySnapshotAttribute $
 --             newModifySnapshotAttribute
+--
+--         , requestModifySnapshotTier $
+--             newModifySnapshotTier
 --
 --         , requestModifySpotFleetRequest $
 --             newModifySpotFleetRequest
@@ -1248,6 +1407,9 @@ import Test.Tasty
 --         , requestModifyVpcEndpointServiceConfiguration $
 --             newModifyVpcEndpointServiceConfiguration
 --
+--         , requestModifyVpcEndpointServicePayerResponsibility $
+--             newModifyVpcEndpointServicePayerResponsibility
+--
 --         , requestModifyVpcEndpointServicePermissions $
 --             newModifyVpcEndpointServicePermissions
 --
@@ -1275,8 +1437,17 @@ import Test.Tasty
 --         , requestMoveAddressToVpc $
 --             newMoveAddressToVpc
 --
+--         , requestMoveByoipCidrToIpam $
+--             newMoveByoipCidrToIpam
+--
 --         , requestProvisionByoipCidr $
 --             newProvisionByoipCidr
+--
+--         , requestProvisionIpamPoolCidr $
+--             newProvisionIpamPoolCidr
+--
+--         , requestProvisionPublicIpv4PoolCidr $
+--             newProvisionPublicIpv4PoolCidr
 --
 --         , requestPurchaseHostReservation $
 --             newPurchaseHostReservation
@@ -1322,6 +1493,9 @@ import Test.Tasty
 --
 --         , requestReleaseHosts $
 --             newReleaseHosts
+--
+--         , requestReleaseIpamPoolAllocation $
+--             newReleaseIpamPoolAllocation
 --
 --         , requestReplaceIamInstanceProfileAssociation $
 --             newReplaceIamInstanceProfileAssociation
@@ -1374,8 +1548,17 @@ import Test.Tasty
 --         , requestRestoreAddressToClassic $
 --             newRestoreAddressToClassic
 --
+--         , requestRestoreImageFromRecycleBin $
+--             newRestoreImageFromRecycleBin
+--
 --         , requestRestoreManagedPrefixListVersion $
 --             newRestoreManagedPrefixListVersion
+--
+--         , requestRestoreSnapshotFromRecycleBin $
+--             newRestoreSnapshotFromRecycleBin
+--
+--         , requestRestoreSnapshotTier $
+--             newRestoreSnapshotTier
 --
 --         , requestRevokeClientVpnIngress $
 --             newRevokeClientVpnIngress
@@ -1406,6 +1589,9 @@ import Test.Tasty
 --
 --         , requestStartInstances $
 --             newStartInstances
+--
+--         , requestStartNetworkInsightsAccessScopeAnalysis $
+--             newStartNetworkInsightsAccessScopeAnalysis
 --
 --         , requestStartNetworkInsightsAnalysis $
 --             newStartNetworkInsightsAnalysis
@@ -1470,6 +1656,9 @@ import Test.Tasty
 --         , responseAllocateHosts $
 --             newAllocateHostsResponse
 --
+--         , responseAllocateIpamPoolCidr $
+--             newAllocateIpamPoolCidrResponse
+--
 --         , responseApplySecurityGroupsToClientVpnTargetNetwork $
 --             newApplySecurityGroupsToClientVpnTargetNetworkResponse
 --
@@ -1505,6 +1694,9 @@ import Test.Tasty
 --
 --         , responseAssociateTransitGatewayMulticastDomain $
 --             newAssociateTransitGatewayMulticastDomainResponse
+--
+--         , responseAssociateTransitGatewayPolicyTable $
+--             newAssociateTransitGatewayPolicyTableResponse
 --
 --         , responseAssociateTransitGatewayRouteTable $
 --             newAssociateTransitGatewayRouteTableResponse
@@ -1632,6 +1824,15 @@ import Test.Tasty
 --         , responseCreateInternetGateway $
 --             newCreateInternetGatewayResponse
 --
+--         , responseCreateIpam $
+--             newCreateIpamResponse
+--
+--         , responseCreateIpamPool $
+--             newCreateIpamPoolResponse
+--
+--         , responseCreateIpamScope $
+--             newCreateIpamScopeResponse
+--
 --         , responseCreateKeyPair $
 --             newCreateKeyPairResponse
 --
@@ -1659,6 +1860,9 @@ import Test.Tasty
 --         , responseCreateNetworkAclEntry $
 --             newCreateNetworkAclEntryResponse
 --
+--         , responseCreateNetworkInsightsAccessScope $
+--             newCreateNetworkInsightsAccessScopeResponse
+--
 --         , responseCreateNetworkInsightsPath $
 --             newCreateNetworkInsightsPathResponse
 --
@@ -1670,6 +1874,9 @@ import Test.Tasty
 --
 --         , responseCreatePlacementGroup $
 --             newCreatePlacementGroupResponse
+--
+--         , responseCreatePublicIpv4Pool $
+--             newCreatePublicIpv4PoolResponse
 --
 --         , responseCreateReplaceRootVolumeTask $
 --             newCreateReplaceRootVolumeTaskResponse
@@ -1737,6 +1944,9 @@ import Test.Tasty
 --         , responseCreateTransitGatewayPeeringAttachment $
 --             newCreateTransitGatewayPeeringAttachmentResponse
 --
+--         , responseCreateTransitGatewayPolicyTable $
+--             newCreateTransitGatewayPolicyTableResponse
+--
 --         , responseCreateTransitGatewayPrefixListReference $
 --             newCreateTransitGatewayPrefixListReferenceResponse
 --
@@ -1745,6 +1955,9 @@ import Test.Tasty
 --
 --         , responseCreateTransitGatewayRouteTable $
 --             newCreateTransitGatewayRouteTableResponse
+--
+--         , responseCreateTransitGatewayRouteTableAnnouncement $
+--             newCreateTransitGatewayRouteTableAnnouncementResponse
 --
 --         , responseCreateTransitGatewayVpcAttachment $
 --             newCreateTransitGatewayVpcAttachmentResponse
@@ -1809,6 +2022,15 @@ import Test.Tasty
 --         , responseDeleteInternetGateway $
 --             newDeleteInternetGatewayResponse
 --
+--         , responseDeleteIpam $
+--             newDeleteIpamResponse
+--
+--         , responseDeleteIpamPool $
+--             newDeleteIpamPoolResponse
+--
+--         , responseDeleteIpamScope $
+--             newDeleteIpamScopeResponse
+--
 --         , responseDeleteKeyPair $
 --             newDeleteKeyPairResponse
 --
@@ -1836,6 +2058,12 @@ import Test.Tasty
 --         , responseDeleteNetworkAclEntry $
 --             newDeleteNetworkAclEntryResponse
 --
+--         , responseDeleteNetworkInsightsAccessScope $
+--             newDeleteNetworkInsightsAccessScopeResponse
+--
+--         , responseDeleteNetworkInsightsAccessScopeAnalysis $
+--             newDeleteNetworkInsightsAccessScopeAnalysisResponse
+--
 --         , responseDeleteNetworkInsightsAnalysis $
 --             newDeleteNetworkInsightsAnalysisResponse
 --
@@ -1850,6 +2078,9 @@ import Test.Tasty
 --
 --         , responseDeletePlacementGroup $
 --             newDeletePlacementGroupResponse
+--
+--         , responseDeletePublicIpv4Pool $
+--             newDeletePublicIpv4PoolResponse
 --
 --         , responseDeleteQueuedReservedInstances $
 --             newDeleteQueuedReservedInstancesResponse
@@ -1905,6 +2136,9 @@ import Test.Tasty
 --         , responseDeleteTransitGatewayPeeringAttachment $
 --             newDeleteTransitGatewayPeeringAttachmentResponse
 --
+--         , responseDeleteTransitGatewayPolicyTable $
+--             newDeleteTransitGatewayPolicyTableResponse
+--
 --         , responseDeleteTransitGatewayPrefixListReference $
 --             newDeleteTransitGatewayPrefixListReferenceResponse
 --
@@ -1913,6 +2147,9 @@ import Test.Tasty
 --
 --         , responseDeleteTransitGatewayRouteTable $
 --             newDeleteTransitGatewayRouteTableResponse
+--
+--         , responseDeleteTransitGatewayRouteTableAnnouncement $
+--             newDeleteTransitGatewayRouteTableAnnouncementResponse
 --
 --         , responseDeleteTransitGatewayVpcAttachment $
 --             newDeleteTransitGatewayVpcAttachmentResponse
@@ -1946,6 +2183,12 @@ import Test.Tasty
 --
 --         , responseDeprovisionByoipCidr $
 --             newDeprovisionByoipCidrResponse
+--
+--         , responseDeprovisionIpamPoolCidr $
+--             newDeprovisionIpamPoolCidrResponse
+--
+--         , responseDeprovisionPublicIpv4PoolCidr $
+--             newDeprovisionPublicIpv4PoolCidrResponse
 --
 --         , responseDeregisterImage $
 --             newDeregisterImageResponse
@@ -2031,6 +2274,9 @@ import Test.Tasty
 --         , responseDescribeExportTasks $
 --             newDescribeExportTasksResponse
 --
+--         , responseDescribeFastLaunchImages $
+--             newDescribeFastLaunchImagesResponse
+--
 --         , responseDescribeFastSnapshotRestores $
 --             newDescribeFastSnapshotRestoresResponse
 --
@@ -2109,6 +2355,15 @@ import Test.Tasty
 --         , responseDescribeInternetGateways $
 --             newDescribeInternetGatewaysResponse
 --
+--         , responseDescribeIpamPools $
+--             newDescribeIpamPoolsResponse
+--
+--         , responseDescribeIpamScopes $
+--             newDescribeIpamScopesResponse
+--
+--         , responseDescribeIpams $
+--             newDescribeIpamsResponse
+--
 --         , responseDescribeIpv6Pools $
 --             newDescribeIpv6PoolsResponse
 --
@@ -2150,6 +2405,12 @@ import Test.Tasty
 --
 --         , responseDescribeNetworkAcls $
 --             newDescribeNetworkAclsResponse
+--
+--         , responseDescribeNetworkInsightsAccessScopeAnalyses $
+--             newDescribeNetworkInsightsAccessScopeAnalysesResponse
+--
+--         , responseDescribeNetworkInsightsAccessScopes $
+--             newDescribeNetworkInsightsAccessScopesResponse
 --
 --         , responseDescribeNetworkInsightsAnalyses $
 --             newDescribeNetworkInsightsAnalysesResponse
@@ -2217,6 +2478,9 @@ import Test.Tasty
 --         , responseDescribeSnapshotAttribute $
 --             newDescribeSnapshotAttributeResponse
 --
+--         , responseDescribeSnapshotTierStatus $
+--             newDescribeSnapshotTierStatusResponse
+--
 --         , responseDescribeSnapshots $
 --             newDescribeSnapshotsResponse
 --
@@ -2273,6 +2537,12 @@ import Test.Tasty
 --
 --         , responseDescribeTransitGatewayPeeringAttachments $
 --             newDescribeTransitGatewayPeeringAttachmentsResponse
+--
+--         , responseDescribeTransitGatewayPolicyTables $
+--             newDescribeTransitGatewayPolicyTablesResponse
+--
+--         , responseDescribeTransitGatewayRouteTableAnnouncements $
+--             newDescribeTransitGatewayRouteTableAnnouncementsResponse
 --
 --         , responseDescribeTransitGatewayRouteTables $
 --             newDescribeTransitGatewayRouteTablesResponse
@@ -2355,11 +2625,17 @@ import Test.Tasty
 --         , responseDisableEbsEncryptionByDefault $
 --             newDisableEbsEncryptionByDefaultResponse
 --
+--         , responseDisableFastLaunch $
+--             newDisableFastLaunchResponse
+--
 --         , responseDisableFastSnapshotRestores $
 --             newDisableFastSnapshotRestoresResponse
 --
 --         , responseDisableImageDeprecation $
 --             newDisableImageDeprecationResponse
+--
+--         , responseDisableIpamOrganizationAdminAccount $
+--             newDisableIpamOrganizationAdminAccountResponse
 --
 --         , responseDisableSerialConsoleAccess $
 --             newDisableSerialConsoleAccessResponse
@@ -2400,6 +2676,9 @@ import Test.Tasty
 --         , responseDisassociateTransitGatewayMulticastDomain $
 --             newDisassociateTransitGatewayMulticastDomainResponse
 --
+--         , responseDisassociateTransitGatewayPolicyTable $
+--             newDisassociateTransitGatewayPolicyTableResponse
+--
 --         , responseDisassociateTransitGatewayRouteTable $
 --             newDisassociateTransitGatewayRouteTableResponse
 --
@@ -2412,11 +2691,17 @@ import Test.Tasty
 --         , responseEnableEbsEncryptionByDefault $
 --             newEnableEbsEncryptionByDefaultResponse
 --
+--         , responseEnableFastLaunch $
+--             newEnableFastLaunchResponse
+--
 --         , responseEnableFastSnapshotRestores $
 --             newEnableFastSnapshotRestoresResponse
 --
 --         , responseEnableImageDeprecation $
 --             newEnableImageDeprecationResponse
+--
+--         , responseEnableIpamOrganizationAdminAccount $
+--             newEnableIpamOrganizationAdminAccountResponse
 --
 --         , responseEnableSerialConsoleAccess $
 --             newEnableSerialConsoleAccessResponse
@@ -2484,6 +2769,24 @@ import Test.Tasty
 --         , responseGetHostReservationPurchasePreview $
 --             newGetHostReservationPurchasePreviewResponse
 --
+--         , responseGetInstanceTypesFromInstanceRequirements $
+--             newGetInstanceTypesFromInstanceRequirementsResponse
+--
+--         , responseGetInstanceUefiData $
+--             newGetInstanceUefiDataResponse
+--
+--         , responseGetIpamAddressHistory $
+--             newGetIpamAddressHistoryResponse
+--
+--         , responseGetIpamPoolAllocations $
+--             newGetIpamPoolAllocationsResponse
+--
+--         , responseGetIpamPoolCidrs $
+--             newGetIpamPoolCidrsResponse
+--
+--         , responseGetIpamResourceCidrs $
+--             newGetIpamResourceCidrsResponse
+--
 --         , responseGetLaunchTemplateData $
 --             newGetLaunchTemplateDataResponse
 --
@@ -2492,6 +2795,12 @@ import Test.Tasty
 --
 --         , responseGetManagedPrefixListEntries $
 --             newGetManagedPrefixListEntriesResponse
+--
+--         , responseGetNetworkInsightsAccessScopeAnalysisFindings $
+--             newGetNetworkInsightsAccessScopeAnalysisFindingsResponse
+--
+--         , responseGetNetworkInsightsAccessScopeContent $
+--             newGetNetworkInsightsAccessScopeContentResponse
 --
 --         , responseGetPasswordData $
 --             newGetPasswordDataResponse
@@ -2502,6 +2811,9 @@ import Test.Tasty
 --         , responseGetSerialConsoleAccessStatus $
 --             newGetSerialConsoleAccessStatusResponse
 --
+--         , responseGetSpotPlacementScores $
+--             newGetSpotPlacementScoresResponse
+--
 --         , responseGetSubnetCidrReservations $
 --             newGetSubnetCidrReservationsResponse
 --
@@ -2510,6 +2822,12 @@ import Test.Tasty
 --
 --         , responseGetTransitGatewayMulticastDomainAssociations $
 --             newGetTransitGatewayMulticastDomainAssociationsResponse
+--
+--         , responseGetTransitGatewayPolicyTableAssociations $
+--             newGetTransitGatewayPolicyTableAssociationsResponse
+--
+--         , responseGetTransitGatewayPolicyTableEntries $
+--             newGetTransitGatewayPolicyTableEntriesResponse
 --
 --         , responseGetTransitGatewayPrefixListReferences $
 --             newGetTransitGatewayPrefixListReferencesResponse
@@ -2543,6 +2861,12 @@ import Test.Tasty
 --
 --         , responseImportVolume $
 --             newImportVolumeResponse
+--
+--         , responseListImagesInRecycleBin $
+--             newListImagesInRecycleBinResponse
+--
+--         , responseListSnapshotsInRecycleBin $
+--             newListSnapshotsInRecycleBinResponse
 --
 --         , responseModifyAddressAttribute $
 --             newModifyAddressAttributeResponse
@@ -2598,11 +2922,26 @@ import Test.Tasty
 --         , responseModifyInstanceEventWindow $
 --             newModifyInstanceEventWindowResponse
 --
+--         , responseModifyInstanceMaintenanceOptions $
+--             newModifyInstanceMaintenanceOptionsResponse
+--
 --         , responseModifyInstanceMetadataOptions $
 --             newModifyInstanceMetadataOptionsResponse
 --
 --         , responseModifyInstancePlacement $
 --             newModifyInstancePlacementResponse
+--
+--         , responseModifyIpam $
+--             newModifyIpamResponse
+--
+--         , responseModifyIpamPool $
+--             newModifyIpamPoolResponse
+--
+--         , responseModifyIpamResourceCidr $
+--             newModifyIpamResourceCidrResponse
+--
+--         , responseModifyIpamScope $
+--             newModifyIpamScopeResponse
 --
 --         , responseModifyLaunchTemplate $
 --             newModifyLaunchTemplateResponse
@@ -2613,6 +2952,9 @@ import Test.Tasty
 --         , responseModifyNetworkInterfaceAttribute $
 --             newModifyNetworkInterfaceAttributeResponse
 --
+--         , responseModifyPrivateDnsNameOptions $
+--             newModifyPrivateDnsNameOptionsResponse
+--
 --         , responseModifyReservedInstances $
 --             newModifyReservedInstancesResponse
 --
@@ -2621,6 +2963,9 @@ import Test.Tasty
 --
 --         , responseModifySnapshotAttribute $
 --             newModifySnapshotAttributeResponse
+--
+--         , responseModifySnapshotTier $
+--             newModifySnapshotTierResponse
 --
 --         , responseModifySpotFleetRequest $
 --             newModifySpotFleetRequestResponse
@@ -2664,6 +3009,9 @@ import Test.Tasty
 --         , responseModifyVpcEndpointServiceConfiguration $
 --             newModifyVpcEndpointServiceConfigurationResponse
 --
+--         , responseModifyVpcEndpointServicePayerResponsibility $
+--             newModifyVpcEndpointServicePayerResponsibilityResponse
+--
 --         , responseModifyVpcEndpointServicePermissions $
 --             newModifyVpcEndpointServicePermissionsResponse
 --
@@ -2691,8 +3039,17 @@ import Test.Tasty
 --         , responseMoveAddressToVpc $
 --             newMoveAddressToVpcResponse
 --
+--         , responseMoveByoipCidrToIpam $
+--             newMoveByoipCidrToIpamResponse
+--
 --         , responseProvisionByoipCidr $
 --             newProvisionByoipCidrResponse
+--
+--         , responseProvisionIpamPoolCidr $
+--             newProvisionIpamPoolCidrResponse
+--
+--         , responseProvisionPublicIpv4PoolCidr $
+--             newProvisionPublicIpv4PoolCidrResponse
 --
 --         , responsePurchaseHostReservation $
 --             newPurchaseHostReservationResponse
@@ -2738,6 +3095,9 @@ import Test.Tasty
 --
 --         , responseReleaseHosts $
 --             newReleaseHostsResponse
+--
+--         , responseReleaseIpamPoolAllocation $
+--             newReleaseIpamPoolAllocationResponse
 --
 --         , responseReplaceIamInstanceProfileAssociation $
 --             newReplaceIamInstanceProfileAssociationResponse
@@ -2790,8 +3150,17 @@ import Test.Tasty
 --         , responseRestoreAddressToClassic $
 --             newRestoreAddressToClassicResponse
 --
+--         , responseRestoreImageFromRecycleBin $
+--             newRestoreImageFromRecycleBinResponse
+--
 --         , responseRestoreManagedPrefixListVersion $
 --             newRestoreManagedPrefixListVersionResponse
+--
+--         , responseRestoreSnapshotFromRecycleBin $
+--             newRestoreSnapshotFromRecycleBinResponse
+--
+--         , responseRestoreSnapshotTier $
+--             newRestoreSnapshotTierResponse
 --
 --         , responseRevokeClientVpnIngress $
 --             newRevokeClientVpnIngressResponse
@@ -2822,6 +3191,9 @@ import Test.Tasty
 --
 --         , responseStartInstances $
 --             newStartInstancesResponse
+--
+--         , responseStartNetworkInsightsAccessScopeAnalysis $
+--             newStartNetworkInsightsAccessScopeAnalysisResponse
 --
 --         , responseStartNetworkInsightsAnalysis $
 --             newStartNetworkInsightsAnalysisResponse
@@ -2915,6 +3287,12 @@ requestAllocateHosts =
     "AllocateHosts"
     "fixture/AllocateHosts.yaml"
 
+requestAllocateIpamPoolCidr :: AllocateIpamPoolCidr -> TestTree
+requestAllocateIpamPoolCidr =
+  req
+    "AllocateIpamPoolCidr"
+    "fixture/AllocateIpamPoolCidr.yaml"
+
 requestApplySecurityGroupsToClientVpnTargetNetwork :: ApplySecurityGroupsToClientVpnTargetNetwork -> TestTree
 requestApplySecurityGroupsToClientVpnTargetNetwork =
   req
@@ -2986,6 +3364,12 @@ requestAssociateTransitGatewayMulticastDomain =
   req
     "AssociateTransitGatewayMulticastDomain"
     "fixture/AssociateTransitGatewayMulticastDomain.yaml"
+
+requestAssociateTransitGatewayPolicyTable :: AssociateTransitGatewayPolicyTable -> TestTree
+requestAssociateTransitGatewayPolicyTable =
+  req
+    "AssociateTransitGatewayPolicyTable"
+    "fixture/AssociateTransitGatewayPolicyTable.yaml"
 
 requestAssociateTransitGatewayRouteTable :: AssociateTransitGatewayRouteTable -> TestTree
 requestAssociateTransitGatewayRouteTable =
@@ -3239,6 +3623,24 @@ requestCreateInternetGateway =
     "CreateInternetGateway"
     "fixture/CreateInternetGateway.yaml"
 
+requestCreateIpam :: CreateIpam -> TestTree
+requestCreateIpam =
+  req
+    "CreateIpam"
+    "fixture/CreateIpam.yaml"
+
+requestCreateIpamPool :: CreateIpamPool -> TestTree
+requestCreateIpamPool =
+  req
+    "CreateIpamPool"
+    "fixture/CreateIpamPool.yaml"
+
+requestCreateIpamScope :: CreateIpamScope -> TestTree
+requestCreateIpamScope =
+  req
+    "CreateIpamScope"
+    "fixture/CreateIpamScope.yaml"
+
 requestCreateKeyPair :: CreateKeyPair -> TestTree
 requestCreateKeyPair =
   req
@@ -3293,6 +3695,12 @@ requestCreateNetworkAclEntry =
     "CreateNetworkAclEntry"
     "fixture/CreateNetworkAclEntry.yaml"
 
+requestCreateNetworkInsightsAccessScope :: CreateNetworkInsightsAccessScope -> TestTree
+requestCreateNetworkInsightsAccessScope =
+  req
+    "CreateNetworkInsightsAccessScope"
+    "fixture/CreateNetworkInsightsAccessScope.yaml"
+
 requestCreateNetworkInsightsPath :: CreateNetworkInsightsPath -> TestTree
 requestCreateNetworkInsightsPath =
   req
@@ -3316,6 +3724,12 @@ requestCreatePlacementGroup =
   req
     "CreatePlacementGroup"
     "fixture/CreatePlacementGroup.yaml"
+
+requestCreatePublicIpv4Pool :: CreatePublicIpv4Pool -> TestTree
+requestCreatePublicIpv4Pool =
+  req
+    "CreatePublicIpv4Pool"
+    "fixture/CreatePublicIpv4Pool.yaml"
 
 requestCreateReplaceRootVolumeTask :: CreateReplaceRootVolumeTask -> TestTree
 requestCreateReplaceRootVolumeTask =
@@ -3449,6 +3863,12 @@ requestCreateTransitGatewayPeeringAttachment =
     "CreateTransitGatewayPeeringAttachment"
     "fixture/CreateTransitGatewayPeeringAttachment.yaml"
 
+requestCreateTransitGatewayPolicyTable :: CreateTransitGatewayPolicyTable -> TestTree
+requestCreateTransitGatewayPolicyTable =
+  req
+    "CreateTransitGatewayPolicyTable"
+    "fixture/CreateTransitGatewayPolicyTable.yaml"
+
 requestCreateTransitGatewayPrefixListReference :: CreateTransitGatewayPrefixListReference -> TestTree
 requestCreateTransitGatewayPrefixListReference =
   req
@@ -3466,6 +3886,12 @@ requestCreateTransitGatewayRouteTable =
   req
     "CreateTransitGatewayRouteTable"
     "fixture/CreateTransitGatewayRouteTable.yaml"
+
+requestCreateTransitGatewayRouteTableAnnouncement :: CreateTransitGatewayRouteTableAnnouncement -> TestTree
+requestCreateTransitGatewayRouteTableAnnouncement =
+  req
+    "CreateTransitGatewayRouteTableAnnouncement"
+    "fixture/CreateTransitGatewayRouteTableAnnouncement.yaml"
 
 requestCreateTransitGatewayVpcAttachment :: CreateTransitGatewayVpcAttachment -> TestTree
 requestCreateTransitGatewayVpcAttachment =
@@ -3593,6 +4019,24 @@ requestDeleteInternetGateway =
     "DeleteInternetGateway"
     "fixture/DeleteInternetGateway.yaml"
 
+requestDeleteIpam :: DeleteIpam -> TestTree
+requestDeleteIpam =
+  req
+    "DeleteIpam"
+    "fixture/DeleteIpam.yaml"
+
+requestDeleteIpamPool :: DeleteIpamPool -> TestTree
+requestDeleteIpamPool =
+  req
+    "DeleteIpamPool"
+    "fixture/DeleteIpamPool.yaml"
+
+requestDeleteIpamScope :: DeleteIpamScope -> TestTree
+requestDeleteIpamScope =
+  req
+    "DeleteIpamScope"
+    "fixture/DeleteIpamScope.yaml"
+
 requestDeleteKeyPair :: DeleteKeyPair -> TestTree
 requestDeleteKeyPair =
   req
@@ -3647,6 +4091,18 @@ requestDeleteNetworkAclEntry =
     "DeleteNetworkAclEntry"
     "fixture/DeleteNetworkAclEntry.yaml"
 
+requestDeleteNetworkInsightsAccessScope :: DeleteNetworkInsightsAccessScope -> TestTree
+requestDeleteNetworkInsightsAccessScope =
+  req
+    "DeleteNetworkInsightsAccessScope"
+    "fixture/DeleteNetworkInsightsAccessScope.yaml"
+
+requestDeleteNetworkInsightsAccessScopeAnalysis :: DeleteNetworkInsightsAccessScopeAnalysis -> TestTree
+requestDeleteNetworkInsightsAccessScopeAnalysis =
+  req
+    "DeleteNetworkInsightsAccessScopeAnalysis"
+    "fixture/DeleteNetworkInsightsAccessScopeAnalysis.yaml"
+
 requestDeleteNetworkInsightsAnalysis :: DeleteNetworkInsightsAnalysis -> TestTree
 requestDeleteNetworkInsightsAnalysis =
   req
@@ -3676,6 +4132,12 @@ requestDeletePlacementGroup =
   req
     "DeletePlacementGroup"
     "fixture/DeletePlacementGroup.yaml"
+
+requestDeletePublicIpv4Pool :: DeletePublicIpv4Pool -> TestTree
+requestDeletePublicIpv4Pool =
+  req
+    "DeletePublicIpv4Pool"
+    "fixture/DeletePublicIpv4Pool.yaml"
 
 requestDeleteQueuedReservedInstances :: DeleteQueuedReservedInstances -> TestTree
 requestDeleteQueuedReservedInstances =
@@ -3785,6 +4247,12 @@ requestDeleteTransitGatewayPeeringAttachment =
     "DeleteTransitGatewayPeeringAttachment"
     "fixture/DeleteTransitGatewayPeeringAttachment.yaml"
 
+requestDeleteTransitGatewayPolicyTable :: DeleteTransitGatewayPolicyTable -> TestTree
+requestDeleteTransitGatewayPolicyTable =
+  req
+    "DeleteTransitGatewayPolicyTable"
+    "fixture/DeleteTransitGatewayPolicyTable.yaml"
+
 requestDeleteTransitGatewayPrefixListReference :: DeleteTransitGatewayPrefixListReference -> TestTree
 requestDeleteTransitGatewayPrefixListReference =
   req
@@ -3802,6 +4270,12 @@ requestDeleteTransitGatewayRouteTable =
   req
     "DeleteTransitGatewayRouteTable"
     "fixture/DeleteTransitGatewayRouteTable.yaml"
+
+requestDeleteTransitGatewayRouteTableAnnouncement :: DeleteTransitGatewayRouteTableAnnouncement -> TestTree
+requestDeleteTransitGatewayRouteTableAnnouncement =
+  req
+    "DeleteTransitGatewayRouteTableAnnouncement"
+    "fixture/DeleteTransitGatewayRouteTableAnnouncement.yaml"
 
 requestDeleteTransitGatewayVpcAttachment :: DeleteTransitGatewayVpcAttachment -> TestTree
 requestDeleteTransitGatewayVpcAttachment =
@@ -3868,6 +4342,18 @@ requestDeprovisionByoipCidr =
   req
     "DeprovisionByoipCidr"
     "fixture/DeprovisionByoipCidr.yaml"
+
+requestDeprovisionIpamPoolCidr :: DeprovisionIpamPoolCidr -> TestTree
+requestDeprovisionIpamPoolCidr =
+  req
+    "DeprovisionIpamPoolCidr"
+    "fixture/DeprovisionIpamPoolCidr.yaml"
+
+requestDeprovisionPublicIpv4PoolCidr :: DeprovisionPublicIpv4PoolCidr -> TestTree
+requestDeprovisionPublicIpv4PoolCidr =
+  req
+    "DeprovisionPublicIpv4PoolCidr"
+    "fixture/DeprovisionPublicIpv4PoolCidr.yaml"
 
 requestDeregisterImage :: DeregisterImage -> TestTree
 requestDeregisterImage =
@@ -4037,6 +4523,12 @@ requestDescribeExportTasks =
     "DescribeExportTasks"
     "fixture/DescribeExportTasks.yaml"
 
+requestDescribeFastLaunchImages :: DescribeFastLaunchImages -> TestTree
+requestDescribeFastLaunchImages =
+  req
+    "DescribeFastLaunchImages"
+    "fixture/DescribeFastLaunchImages.yaml"
+
 requestDescribeFastSnapshotRestores :: DescribeFastSnapshotRestores -> TestTree
 requestDescribeFastSnapshotRestores =
   req
@@ -4193,6 +4685,24 @@ requestDescribeInternetGateways =
     "DescribeInternetGateways"
     "fixture/DescribeInternetGateways.yaml"
 
+requestDescribeIpamPools :: DescribeIpamPools -> TestTree
+requestDescribeIpamPools =
+  req
+    "DescribeIpamPools"
+    "fixture/DescribeIpamPools.yaml"
+
+requestDescribeIpamScopes :: DescribeIpamScopes -> TestTree
+requestDescribeIpamScopes =
+  req
+    "DescribeIpamScopes"
+    "fixture/DescribeIpamScopes.yaml"
+
+requestDescribeIpams :: DescribeIpams -> TestTree
+requestDescribeIpams =
+  req
+    "DescribeIpams"
+    "fixture/DescribeIpams.yaml"
+
 requestDescribeIpv6Pools :: DescribeIpv6Pools -> TestTree
 requestDescribeIpv6Pools =
   req
@@ -4276,6 +4786,18 @@ requestDescribeNetworkAcls =
   req
     "DescribeNetworkAcls"
     "fixture/DescribeNetworkAcls.yaml"
+
+requestDescribeNetworkInsightsAccessScopeAnalyses :: DescribeNetworkInsightsAccessScopeAnalyses -> TestTree
+requestDescribeNetworkInsightsAccessScopeAnalyses =
+  req
+    "DescribeNetworkInsightsAccessScopeAnalyses"
+    "fixture/DescribeNetworkInsightsAccessScopeAnalyses.yaml"
+
+requestDescribeNetworkInsightsAccessScopes :: DescribeNetworkInsightsAccessScopes -> TestTree
+requestDescribeNetworkInsightsAccessScopes =
+  req
+    "DescribeNetworkInsightsAccessScopes"
+    "fixture/DescribeNetworkInsightsAccessScopes.yaml"
 
 requestDescribeNetworkInsightsAnalyses :: DescribeNetworkInsightsAnalyses -> TestTree
 requestDescribeNetworkInsightsAnalyses =
@@ -4409,6 +4931,12 @@ requestDescribeSnapshotAttribute =
     "DescribeSnapshotAttribute"
     "fixture/DescribeSnapshotAttribute.yaml"
 
+requestDescribeSnapshotTierStatus :: DescribeSnapshotTierStatus -> TestTree
+requestDescribeSnapshotTierStatus =
+  req
+    "DescribeSnapshotTierStatus"
+    "fixture/DescribeSnapshotTierStatus.yaml"
+
 requestDescribeSnapshots :: DescribeSnapshots -> TestTree
 requestDescribeSnapshots =
   req
@@ -4522,6 +5050,18 @@ requestDescribeTransitGatewayPeeringAttachments =
   req
     "DescribeTransitGatewayPeeringAttachments"
     "fixture/DescribeTransitGatewayPeeringAttachments.yaml"
+
+requestDescribeTransitGatewayPolicyTables :: DescribeTransitGatewayPolicyTables -> TestTree
+requestDescribeTransitGatewayPolicyTables =
+  req
+    "DescribeTransitGatewayPolicyTables"
+    "fixture/DescribeTransitGatewayPolicyTables.yaml"
+
+requestDescribeTransitGatewayRouteTableAnnouncements :: DescribeTransitGatewayRouteTableAnnouncements -> TestTree
+requestDescribeTransitGatewayRouteTableAnnouncements =
+  req
+    "DescribeTransitGatewayRouteTableAnnouncements"
+    "fixture/DescribeTransitGatewayRouteTableAnnouncements.yaml"
 
 requestDescribeTransitGatewayRouteTables :: DescribeTransitGatewayRouteTables -> TestTree
 requestDescribeTransitGatewayRouteTables =
@@ -4685,6 +5225,12 @@ requestDisableEbsEncryptionByDefault =
     "DisableEbsEncryptionByDefault"
     "fixture/DisableEbsEncryptionByDefault.yaml"
 
+requestDisableFastLaunch :: DisableFastLaunch -> TestTree
+requestDisableFastLaunch =
+  req
+    "DisableFastLaunch"
+    "fixture/DisableFastLaunch.yaml"
+
 requestDisableFastSnapshotRestores :: DisableFastSnapshotRestores -> TestTree
 requestDisableFastSnapshotRestores =
   req
@@ -4696,6 +5242,12 @@ requestDisableImageDeprecation =
   req
     "DisableImageDeprecation"
     "fixture/DisableImageDeprecation.yaml"
+
+requestDisableIpamOrganizationAdminAccount :: DisableIpamOrganizationAdminAccount -> TestTree
+requestDisableIpamOrganizationAdminAccount =
+  req
+    "DisableIpamOrganizationAdminAccount"
+    "fixture/DisableIpamOrganizationAdminAccount.yaml"
 
 requestDisableSerialConsoleAccess :: DisableSerialConsoleAccess -> TestTree
 requestDisableSerialConsoleAccess =
@@ -4775,6 +5327,12 @@ requestDisassociateTransitGatewayMulticastDomain =
     "DisassociateTransitGatewayMulticastDomain"
     "fixture/DisassociateTransitGatewayMulticastDomain.yaml"
 
+requestDisassociateTransitGatewayPolicyTable :: DisassociateTransitGatewayPolicyTable -> TestTree
+requestDisassociateTransitGatewayPolicyTable =
+  req
+    "DisassociateTransitGatewayPolicyTable"
+    "fixture/DisassociateTransitGatewayPolicyTable.yaml"
+
 requestDisassociateTransitGatewayRouteTable :: DisassociateTransitGatewayRouteTable -> TestTree
 requestDisassociateTransitGatewayRouteTable =
   req
@@ -4799,6 +5357,12 @@ requestEnableEbsEncryptionByDefault =
     "EnableEbsEncryptionByDefault"
     "fixture/EnableEbsEncryptionByDefault.yaml"
 
+requestEnableFastLaunch :: EnableFastLaunch -> TestTree
+requestEnableFastLaunch =
+  req
+    "EnableFastLaunch"
+    "fixture/EnableFastLaunch.yaml"
+
 requestEnableFastSnapshotRestores :: EnableFastSnapshotRestores -> TestTree
 requestEnableFastSnapshotRestores =
   req
@@ -4810,6 +5374,12 @@ requestEnableImageDeprecation =
   req
     "EnableImageDeprecation"
     "fixture/EnableImageDeprecation.yaml"
+
+requestEnableIpamOrganizationAdminAccount :: EnableIpamOrganizationAdminAccount -> TestTree
+requestEnableIpamOrganizationAdminAccount =
+  req
+    "EnableIpamOrganizationAdminAccount"
+    "fixture/EnableIpamOrganizationAdminAccount.yaml"
 
 requestEnableSerialConsoleAccess :: EnableSerialConsoleAccess -> TestTree
 requestEnableSerialConsoleAccess =
@@ -4943,6 +5513,42 @@ requestGetHostReservationPurchasePreview =
     "GetHostReservationPurchasePreview"
     "fixture/GetHostReservationPurchasePreview.yaml"
 
+requestGetInstanceTypesFromInstanceRequirements :: GetInstanceTypesFromInstanceRequirements -> TestTree
+requestGetInstanceTypesFromInstanceRequirements =
+  req
+    "GetInstanceTypesFromInstanceRequirements"
+    "fixture/GetInstanceTypesFromInstanceRequirements.yaml"
+
+requestGetInstanceUefiData :: GetInstanceUefiData -> TestTree
+requestGetInstanceUefiData =
+  req
+    "GetInstanceUefiData"
+    "fixture/GetInstanceUefiData.yaml"
+
+requestGetIpamAddressHistory :: GetIpamAddressHistory -> TestTree
+requestGetIpamAddressHistory =
+  req
+    "GetIpamAddressHistory"
+    "fixture/GetIpamAddressHistory.yaml"
+
+requestGetIpamPoolAllocations :: GetIpamPoolAllocations -> TestTree
+requestGetIpamPoolAllocations =
+  req
+    "GetIpamPoolAllocations"
+    "fixture/GetIpamPoolAllocations.yaml"
+
+requestGetIpamPoolCidrs :: GetIpamPoolCidrs -> TestTree
+requestGetIpamPoolCidrs =
+  req
+    "GetIpamPoolCidrs"
+    "fixture/GetIpamPoolCidrs.yaml"
+
+requestGetIpamResourceCidrs :: GetIpamResourceCidrs -> TestTree
+requestGetIpamResourceCidrs =
+  req
+    "GetIpamResourceCidrs"
+    "fixture/GetIpamResourceCidrs.yaml"
+
 requestGetLaunchTemplateData :: GetLaunchTemplateData -> TestTree
 requestGetLaunchTemplateData =
   req
@@ -4960,6 +5566,18 @@ requestGetManagedPrefixListEntries =
   req
     "GetManagedPrefixListEntries"
     "fixture/GetManagedPrefixListEntries.yaml"
+
+requestGetNetworkInsightsAccessScopeAnalysisFindings :: GetNetworkInsightsAccessScopeAnalysisFindings -> TestTree
+requestGetNetworkInsightsAccessScopeAnalysisFindings =
+  req
+    "GetNetworkInsightsAccessScopeAnalysisFindings"
+    "fixture/GetNetworkInsightsAccessScopeAnalysisFindings.yaml"
+
+requestGetNetworkInsightsAccessScopeContent :: GetNetworkInsightsAccessScopeContent -> TestTree
+requestGetNetworkInsightsAccessScopeContent =
+  req
+    "GetNetworkInsightsAccessScopeContent"
+    "fixture/GetNetworkInsightsAccessScopeContent.yaml"
 
 requestGetPasswordData :: GetPasswordData -> TestTree
 requestGetPasswordData =
@@ -4979,6 +5597,12 @@ requestGetSerialConsoleAccessStatus =
     "GetSerialConsoleAccessStatus"
     "fixture/GetSerialConsoleAccessStatus.yaml"
 
+requestGetSpotPlacementScores :: GetSpotPlacementScores -> TestTree
+requestGetSpotPlacementScores =
+  req
+    "GetSpotPlacementScores"
+    "fixture/GetSpotPlacementScores.yaml"
+
 requestGetSubnetCidrReservations :: GetSubnetCidrReservations -> TestTree
 requestGetSubnetCidrReservations =
   req
@@ -4996,6 +5620,18 @@ requestGetTransitGatewayMulticastDomainAssociations =
   req
     "GetTransitGatewayMulticastDomainAssociations"
     "fixture/GetTransitGatewayMulticastDomainAssociations.yaml"
+
+requestGetTransitGatewayPolicyTableAssociations :: GetTransitGatewayPolicyTableAssociations -> TestTree
+requestGetTransitGatewayPolicyTableAssociations =
+  req
+    "GetTransitGatewayPolicyTableAssociations"
+    "fixture/GetTransitGatewayPolicyTableAssociations.yaml"
+
+requestGetTransitGatewayPolicyTableEntries :: GetTransitGatewayPolicyTableEntries -> TestTree
+requestGetTransitGatewayPolicyTableEntries =
+  req
+    "GetTransitGatewayPolicyTableEntries"
+    "fixture/GetTransitGatewayPolicyTableEntries.yaml"
 
 requestGetTransitGatewayPrefixListReferences :: GetTransitGatewayPrefixListReferences -> TestTree
 requestGetTransitGatewayPrefixListReferences =
@@ -5062,6 +5698,18 @@ requestImportVolume =
   req
     "ImportVolume"
     "fixture/ImportVolume.yaml"
+
+requestListImagesInRecycleBin :: ListImagesInRecycleBin -> TestTree
+requestListImagesInRecycleBin =
+  req
+    "ListImagesInRecycleBin"
+    "fixture/ListImagesInRecycleBin.yaml"
+
+requestListSnapshotsInRecycleBin :: ListSnapshotsInRecycleBin -> TestTree
+requestListSnapshotsInRecycleBin =
+  req
+    "ListSnapshotsInRecycleBin"
+    "fixture/ListSnapshotsInRecycleBin.yaml"
 
 requestModifyAddressAttribute :: ModifyAddressAttribute -> TestTree
 requestModifyAddressAttribute =
@@ -5171,6 +5819,12 @@ requestModifyInstanceEventWindow =
     "ModifyInstanceEventWindow"
     "fixture/ModifyInstanceEventWindow.yaml"
 
+requestModifyInstanceMaintenanceOptions :: ModifyInstanceMaintenanceOptions -> TestTree
+requestModifyInstanceMaintenanceOptions =
+  req
+    "ModifyInstanceMaintenanceOptions"
+    "fixture/ModifyInstanceMaintenanceOptions.yaml"
+
 requestModifyInstanceMetadataOptions :: ModifyInstanceMetadataOptions -> TestTree
 requestModifyInstanceMetadataOptions =
   req
@@ -5182,6 +5836,30 @@ requestModifyInstancePlacement =
   req
     "ModifyInstancePlacement"
     "fixture/ModifyInstancePlacement.yaml"
+
+requestModifyIpam :: ModifyIpam -> TestTree
+requestModifyIpam =
+  req
+    "ModifyIpam"
+    "fixture/ModifyIpam.yaml"
+
+requestModifyIpamPool :: ModifyIpamPool -> TestTree
+requestModifyIpamPool =
+  req
+    "ModifyIpamPool"
+    "fixture/ModifyIpamPool.yaml"
+
+requestModifyIpamResourceCidr :: ModifyIpamResourceCidr -> TestTree
+requestModifyIpamResourceCidr =
+  req
+    "ModifyIpamResourceCidr"
+    "fixture/ModifyIpamResourceCidr.yaml"
+
+requestModifyIpamScope :: ModifyIpamScope -> TestTree
+requestModifyIpamScope =
+  req
+    "ModifyIpamScope"
+    "fixture/ModifyIpamScope.yaml"
 
 requestModifyLaunchTemplate :: ModifyLaunchTemplate -> TestTree
 requestModifyLaunchTemplate =
@@ -5201,6 +5879,12 @@ requestModifyNetworkInterfaceAttribute =
     "ModifyNetworkInterfaceAttribute"
     "fixture/ModifyNetworkInterfaceAttribute.yaml"
 
+requestModifyPrivateDnsNameOptions :: ModifyPrivateDnsNameOptions -> TestTree
+requestModifyPrivateDnsNameOptions =
+  req
+    "ModifyPrivateDnsNameOptions"
+    "fixture/ModifyPrivateDnsNameOptions.yaml"
+
 requestModifyReservedInstances :: ModifyReservedInstances -> TestTree
 requestModifyReservedInstances =
   req
@@ -5218,6 +5902,12 @@ requestModifySnapshotAttribute =
   req
     "ModifySnapshotAttribute"
     "fixture/ModifySnapshotAttribute.yaml"
+
+requestModifySnapshotTier :: ModifySnapshotTier -> TestTree
+requestModifySnapshotTier =
+  req
+    "ModifySnapshotTier"
+    "fixture/ModifySnapshotTier.yaml"
 
 requestModifySpotFleetRequest :: ModifySpotFleetRequest -> TestTree
 requestModifySpotFleetRequest =
@@ -5303,6 +5993,12 @@ requestModifyVpcEndpointServiceConfiguration =
     "ModifyVpcEndpointServiceConfiguration"
     "fixture/ModifyVpcEndpointServiceConfiguration.yaml"
 
+requestModifyVpcEndpointServicePayerResponsibility :: ModifyVpcEndpointServicePayerResponsibility -> TestTree
+requestModifyVpcEndpointServicePayerResponsibility =
+  req
+    "ModifyVpcEndpointServicePayerResponsibility"
+    "fixture/ModifyVpcEndpointServicePayerResponsibility.yaml"
+
 requestModifyVpcEndpointServicePermissions :: ModifyVpcEndpointServicePermissions -> TestTree
 requestModifyVpcEndpointServicePermissions =
   req
@@ -5357,11 +6053,29 @@ requestMoveAddressToVpc =
     "MoveAddressToVpc"
     "fixture/MoveAddressToVpc.yaml"
 
+requestMoveByoipCidrToIpam :: MoveByoipCidrToIpam -> TestTree
+requestMoveByoipCidrToIpam =
+  req
+    "MoveByoipCidrToIpam"
+    "fixture/MoveByoipCidrToIpam.yaml"
+
 requestProvisionByoipCidr :: ProvisionByoipCidr -> TestTree
 requestProvisionByoipCidr =
   req
     "ProvisionByoipCidr"
     "fixture/ProvisionByoipCidr.yaml"
+
+requestProvisionIpamPoolCidr :: ProvisionIpamPoolCidr -> TestTree
+requestProvisionIpamPoolCidr =
+  req
+    "ProvisionIpamPoolCidr"
+    "fixture/ProvisionIpamPoolCidr.yaml"
+
+requestProvisionPublicIpv4PoolCidr :: ProvisionPublicIpv4PoolCidr -> TestTree
+requestProvisionPublicIpv4PoolCidr =
+  req
+    "ProvisionPublicIpv4PoolCidr"
+    "fixture/ProvisionPublicIpv4PoolCidr.yaml"
 
 requestPurchaseHostReservation :: PurchaseHostReservation -> TestTree
 requestPurchaseHostReservation =
@@ -5452,6 +6166,12 @@ requestReleaseHosts =
   req
     "ReleaseHosts"
     "fixture/ReleaseHosts.yaml"
+
+requestReleaseIpamPoolAllocation :: ReleaseIpamPoolAllocation -> TestTree
+requestReleaseIpamPoolAllocation =
+  req
+    "ReleaseIpamPoolAllocation"
+    "fixture/ReleaseIpamPoolAllocation.yaml"
 
 requestReplaceIamInstanceProfileAssociation :: ReplaceIamInstanceProfileAssociation -> TestTree
 requestReplaceIamInstanceProfileAssociation =
@@ -5555,11 +6275,29 @@ requestRestoreAddressToClassic =
     "RestoreAddressToClassic"
     "fixture/RestoreAddressToClassic.yaml"
 
+requestRestoreImageFromRecycleBin :: RestoreImageFromRecycleBin -> TestTree
+requestRestoreImageFromRecycleBin =
+  req
+    "RestoreImageFromRecycleBin"
+    "fixture/RestoreImageFromRecycleBin.yaml"
+
 requestRestoreManagedPrefixListVersion :: RestoreManagedPrefixListVersion -> TestTree
 requestRestoreManagedPrefixListVersion =
   req
     "RestoreManagedPrefixListVersion"
     "fixture/RestoreManagedPrefixListVersion.yaml"
+
+requestRestoreSnapshotFromRecycleBin :: RestoreSnapshotFromRecycleBin -> TestTree
+requestRestoreSnapshotFromRecycleBin =
+  req
+    "RestoreSnapshotFromRecycleBin"
+    "fixture/RestoreSnapshotFromRecycleBin.yaml"
+
+requestRestoreSnapshotTier :: RestoreSnapshotTier -> TestTree
+requestRestoreSnapshotTier =
+  req
+    "RestoreSnapshotTier"
+    "fixture/RestoreSnapshotTier.yaml"
 
 requestRevokeClientVpnIngress :: RevokeClientVpnIngress -> TestTree
 requestRevokeClientVpnIngress =
@@ -5620,6 +6358,12 @@ requestStartInstances =
   req
     "StartInstances"
     "fixture/StartInstances.yaml"
+
+requestStartNetworkInsightsAccessScopeAnalysis :: StartNetworkInsightsAccessScopeAnalysis -> TestTree
+requestStartNetworkInsightsAccessScopeAnalysis =
+  req
+    "StartNetworkInsightsAccessScopeAnalysis"
+    "fixture/StartNetworkInsightsAccessScopeAnalysis.yaml"
 
 requestStartNetworkInsightsAnalysis :: StartNetworkInsightsAnalysis -> TestTree
 requestStartNetworkInsightsAnalysis =
@@ -5761,6 +6505,14 @@ responseAllocateHosts =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AllocateHosts)
 
+responseAllocateIpamPoolCidr :: AllocateIpamPoolCidrResponse -> TestTree
+responseAllocateIpamPoolCidr =
+  res
+    "AllocateIpamPoolCidrResponse"
+    "fixture/AllocateIpamPoolCidrResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AllocateIpamPoolCidr)
+
 responseApplySecurityGroupsToClientVpnTargetNetwork :: ApplySecurityGroupsToClientVpnTargetNetworkResponse -> TestTree
 responseApplySecurityGroupsToClientVpnTargetNetwork =
   res
@@ -5856,6 +6608,14 @@ responseAssociateTransitGatewayMulticastDomain =
     "fixture/AssociateTransitGatewayMulticastDomainResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy AssociateTransitGatewayMulticastDomain)
+
+responseAssociateTransitGatewayPolicyTable :: AssociateTransitGatewayPolicyTableResponse -> TestTree
+responseAssociateTransitGatewayPolicyTable =
+  res
+    "AssociateTransitGatewayPolicyTableResponse"
+    "fixture/AssociateTransitGatewayPolicyTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy AssociateTransitGatewayPolicyTable)
 
 responseAssociateTransitGatewayRouteTable :: AssociateTransitGatewayRouteTableResponse -> TestTree
 responseAssociateTransitGatewayRouteTable =
@@ -6193,6 +6953,30 @@ responseCreateInternetGateway =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateInternetGateway)
 
+responseCreateIpam :: CreateIpamResponse -> TestTree
+responseCreateIpam =
+  res
+    "CreateIpamResponse"
+    "fixture/CreateIpamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateIpam)
+
+responseCreateIpamPool :: CreateIpamPoolResponse -> TestTree
+responseCreateIpamPool =
+  res
+    "CreateIpamPoolResponse"
+    "fixture/CreateIpamPoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateIpamPool)
+
+responseCreateIpamScope :: CreateIpamScopeResponse -> TestTree
+responseCreateIpamScope =
+  res
+    "CreateIpamScopeResponse"
+    "fixture/CreateIpamScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateIpamScope)
+
 responseCreateKeyPair :: CreateKeyPairResponse -> TestTree
 responseCreateKeyPair =
   res
@@ -6265,6 +7049,14 @@ responseCreateNetworkAclEntry =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateNetworkAclEntry)
 
+responseCreateNetworkInsightsAccessScope :: CreateNetworkInsightsAccessScopeResponse -> TestTree
+responseCreateNetworkInsightsAccessScope =
+  res
+    "CreateNetworkInsightsAccessScopeResponse"
+    "fixture/CreateNetworkInsightsAccessScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateNetworkInsightsAccessScope)
+
 responseCreateNetworkInsightsPath :: CreateNetworkInsightsPathResponse -> TestTree
 responseCreateNetworkInsightsPath =
   res
@@ -6296,6 +7088,14 @@ responseCreatePlacementGroup =
     "fixture/CreatePlacementGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreatePlacementGroup)
+
+responseCreatePublicIpv4Pool :: CreatePublicIpv4PoolResponse -> TestTree
+responseCreatePublicIpv4Pool =
+  res
+    "CreatePublicIpv4PoolResponse"
+    "fixture/CreatePublicIpv4PoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreatePublicIpv4Pool)
 
 responseCreateReplaceRootVolumeTask :: CreateReplaceRootVolumeTaskResponse -> TestTree
 responseCreateReplaceRootVolumeTask =
@@ -6473,6 +7273,14 @@ responseCreateTransitGatewayPeeringAttachment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayPeeringAttachment)
 
+responseCreateTransitGatewayPolicyTable :: CreateTransitGatewayPolicyTableResponse -> TestTree
+responseCreateTransitGatewayPolicyTable =
+  res
+    "CreateTransitGatewayPolicyTableResponse"
+    "fixture/CreateTransitGatewayPolicyTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayPolicyTable)
+
 responseCreateTransitGatewayPrefixListReference :: CreateTransitGatewayPrefixListReferenceResponse -> TestTree
 responseCreateTransitGatewayPrefixListReference =
   res
@@ -6496,6 +7304,14 @@ responseCreateTransitGatewayRouteTable =
     "fixture/CreateTransitGatewayRouteTableResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayRouteTable)
+
+responseCreateTransitGatewayRouteTableAnnouncement :: CreateTransitGatewayRouteTableAnnouncementResponse -> TestTree
+responseCreateTransitGatewayRouteTableAnnouncement =
+  res
+    "CreateTransitGatewayRouteTableAnnouncementResponse"
+    "fixture/CreateTransitGatewayRouteTableAnnouncementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateTransitGatewayRouteTableAnnouncement)
 
 responseCreateTransitGatewayVpcAttachment :: CreateTransitGatewayVpcAttachmentResponse -> TestTree
 responseCreateTransitGatewayVpcAttachment =
@@ -6665,6 +7481,30 @@ responseDeleteInternetGateway =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteInternetGateway)
 
+responseDeleteIpam :: DeleteIpamResponse -> TestTree
+responseDeleteIpam =
+  res
+    "DeleteIpamResponse"
+    "fixture/DeleteIpamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIpam)
+
+responseDeleteIpamPool :: DeleteIpamPoolResponse -> TestTree
+responseDeleteIpamPool =
+  res
+    "DeleteIpamPoolResponse"
+    "fixture/DeleteIpamPoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIpamPool)
+
+responseDeleteIpamScope :: DeleteIpamScopeResponse -> TestTree
+responseDeleteIpamScope =
+  res
+    "DeleteIpamScopeResponse"
+    "fixture/DeleteIpamScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteIpamScope)
+
 responseDeleteKeyPair :: DeleteKeyPairResponse -> TestTree
 responseDeleteKeyPair =
   res
@@ -6737,6 +7577,22 @@ responseDeleteNetworkAclEntry =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteNetworkAclEntry)
 
+responseDeleteNetworkInsightsAccessScope :: DeleteNetworkInsightsAccessScopeResponse -> TestTree
+responseDeleteNetworkInsightsAccessScope =
+  res
+    "DeleteNetworkInsightsAccessScopeResponse"
+    "fixture/DeleteNetworkInsightsAccessScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkInsightsAccessScope)
+
+responseDeleteNetworkInsightsAccessScopeAnalysis :: DeleteNetworkInsightsAccessScopeAnalysisResponse -> TestTree
+responseDeleteNetworkInsightsAccessScopeAnalysis =
+  res
+    "DeleteNetworkInsightsAccessScopeAnalysisResponse"
+    "fixture/DeleteNetworkInsightsAccessScopeAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteNetworkInsightsAccessScopeAnalysis)
+
 responseDeleteNetworkInsightsAnalysis :: DeleteNetworkInsightsAnalysisResponse -> TestTree
 responseDeleteNetworkInsightsAnalysis =
   res
@@ -6776,6 +7632,14 @@ responseDeletePlacementGroup =
     "fixture/DeletePlacementGroupResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeletePlacementGroup)
+
+responseDeletePublicIpv4Pool :: DeletePublicIpv4PoolResponse -> TestTree
+responseDeletePublicIpv4Pool =
+  res
+    "DeletePublicIpv4PoolResponse"
+    "fixture/DeletePublicIpv4PoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeletePublicIpv4Pool)
 
 responseDeleteQueuedReservedInstances :: DeleteQueuedReservedInstancesResponse -> TestTree
 responseDeleteQueuedReservedInstances =
@@ -6921,6 +7785,14 @@ responseDeleteTransitGatewayPeeringAttachment =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayPeeringAttachment)
 
+responseDeleteTransitGatewayPolicyTable :: DeleteTransitGatewayPolicyTableResponse -> TestTree
+responseDeleteTransitGatewayPolicyTable =
+  res
+    "DeleteTransitGatewayPolicyTableResponse"
+    "fixture/DeleteTransitGatewayPolicyTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayPolicyTable)
+
 responseDeleteTransitGatewayPrefixListReference :: DeleteTransitGatewayPrefixListReferenceResponse -> TestTree
 responseDeleteTransitGatewayPrefixListReference =
   res
@@ -6944,6 +7816,14 @@ responseDeleteTransitGatewayRouteTable =
     "fixture/DeleteTransitGatewayRouteTableResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayRouteTable)
+
+responseDeleteTransitGatewayRouteTableAnnouncement :: DeleteTransitGatewayRouteTableAnnouncementResponse -> TestTree
+responseDeleteTransitGatewayRouteTableAnnouncement =
+  res
+    "DeleteTransitGatewayRouteTableAnnouncementResponse"
+    "fixture/DeleteTransitGatewayRouteTableAnnouncementResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteTransitGatewayRouteTableAnnouncement)
 
 responseDeleteTransitGatewayVpcAttachment :: DeleteTransitGatewayVpcAttachmentResponse -> TestTree
 responseDeleteTransitGatewayVpcAttachment =
@@ -7032,6 +7912,22 @@ responseDeprovisionByoipCidr =
     "fixture/DeprovisionByoipCidrResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeprovisionByoipCidr)
+
+responseDeprovisionIpamPoolCidr :: DeprovisionIpamPoolCidrResponse -> TestTree
+responseDeprovisionIpamPoolCidr =
+  res
+    "DeprovisionIpamPoolCidrResponse"
+    "fixture/DeprovisionIpamPoolCidrResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeprovisionIpamPoolCidr)
+
+responseDeprovisionPublicIpv4PoolCidr :: DeprovisionPublicIpv4PoolCidrResponse -> TestTree
+responseDeprovisionPublicIpv4PoolCidr =
+  res
+    "DeprovisionPublicIpv4PoolCidrResponse"
+    "fixture/DeprovisionPublicIpv4PoolCidrResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeprovisionPublicIpv4PoolCidr)
 
 responseDeregisterImage :: DeregisterImageResponse -> TestTree
 responseDeregisterImage =
@@ -7257,6 +8153,14 @@ responseDescribeExportTasks =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeExportTasks)
 
+responseDescribeFastLaunchImages :: DescribeFastLaunchImagesResponse -> TestTree
+responseDescribeFastLaunchImages =
+  res
+    "DescribeFastLaunchImagesResponse"
+    "fixture/DescribeFastLaunchImagesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeFastLaunchImages)
+
 responseDescribeFastSnapshotRestores :: DescribeFastSnapshotRestoresResponse -> TestTree
 responseDescribeFastSnapshotRestores =
   res
@@ -7465,6 +8369,30 @@ responseDescribeInternetGateways =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeInternetGateways)
 
+responseDescribeIpamPools :: DescribeIpamPoolsResponse -> TestTree
+responseDescribeIpamPools =
+  res
+    "DescribeIpamPoolsResponse"
+    "fixture/DescribeIpamPoolsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpamPools)
+
+responseDescribeIpamScopes :: DescribeIpamScopesResponse -> TestTree
+responseDescribeIpamScopes =
+  res
+    "DescribeIpamScopesResponse"
+    "fixture/DescribeIpamScopesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpamScopes)
+
+responseDescribeIpams :: DescribeIpamsResponse -> TestTree
+responseDescribeIpams =
+  res
+    "DescribeIpamsResponse"
+    "fixture/DescribeIpamsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeIpams)
+
 responseDescribeIpv6Pools :: DescribeIpv6PoolsResponse -> TestTree
 responseDescribeIpv6Pools =
   res
@@ -7576,6 +8504,22 @@ responseDescribeNetworkAcls =
     "fixture/DescribeNetworkAclsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeNetworkAcls)
+
+responseDescribeNetworkInsightsAccessScopeAnalyses :: DescribeNetworkInsightsAccessScopeAnalysesResponse -> TestTree
+responseDescribeNetworkInsightsAccessScopeAnalyses =
+  res
+    "DescribeNetworkInsightsAccessScopeAnalysesResponse"
+    "fixture/DescribeNetworkInsightsAccessScopeAnalysesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeNetworkInsightsAccessScopeAnalyses)
+
+responseDescribeNetworkInsightsAccessScopes :: DescribeNetworkInsightsAccessScopesResponse -> TestTree
+responseDescribeNetworkInsightsAccessScopes =
+  res
+    "DescribeNetworkInsightsAccessScopesResponse"
+    "fixture/DescribeNetworkInsightsAccessScopesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeNetworkInsightsAccessScopes)
 
 responseDescribeNetworkInsightsAnalyses :: DescribeNetworkInsightsAnalysesResponse -> TestTree
 responseDescribeNetworkInsightsAnalyses =
@@ -7753,6 +8697,14 @@ responseDescribeSnapshotAttribute =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeSnapshotAttribute)
 
+responseDescribeSnapshotTierStatus :: DescribeSnapshotTierStatusResponse -> TestTree
+responseDescribeSnapshotTierStatus =
+  res
+    "DescribeSnapshotTierStatusResponse"
+    "fixture/DescribeSnapshotTierStatusResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeSnapshotTierStatus)
+
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
 responseDescribeSnapshots =
   res
@@ -7904,6 +8856,22 @@ responseDescribeTransitGatewayPeeringAttachments =
     "fixture/DescribeTransitGatewayPeeringAttachmentsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayPeeringAttachments)
+
+responseDescribeTransitGatewayPolicyTables :: DescribeTransitGatewayPolicyTablesResponse -> TestTree
+responseDescribeTransitGatewayPolicyTables =
+  res
+    "DescribeTransitGatewayPolicyTablesResponse"
+    "fixture/DescribeTransitGatewayPolicyTablesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayPolicyTables)
+
+responseDescribeTransitGatewayRouteTableAnnouncements :: DescribeTransitGatewayRouteTableAnnouncementsResponse -> TestTree
+responseDescribeTransitGatewayRouteTableAnnouncements =
+  res
+    "DescribeTransitGatewayRouteTableAnnouncementsResponse"
+    "fixture/DescribeTransitGatewayRouteTableAnnouncementsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeTransitGatewayRouteTableAnnouncements)
 
 responseDescribeTransitGatewayRouteTables :: DescribeTransitGatewayRouteTablesResponse -> TestTree
 responseDescribeTransitGatewayRouteTables =
@@ -8121,6 +9089,14 @@ responseDisableEbsEncryptionByDefault =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisableEbsEncryptionByDefault)
 
+responseDisableFastLaunch :: DisableFastLaunchResponse -> TestTree
+responseDisableFastLaunch =
+  res
+    "DisableFastLaunchResponse"
+    "fixture/DisableFastLaunchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableFastLaunch)
+
 responseDisableFastSnapshotRestores :: DisableFastSnapshotRestoresResponse -> TestTree
 responseDisableFastSnapshotRestores =
   res
@@ -8136,6 +9112,14 @@ responseDisableImageDeprecation =
     "fixture/DisableImageDeprecationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisableImageDeprecation)
+
+responseDisableIpamOrganizationAdminAccount :: DisableIpamOrganizationAdminAccountResponse -> TestTree
+responseDisableIpamOrganizationAdminAccount =
+  res
+    "DisableIpamOrganizationAdminAccountResponse"
+    "fixture/DisableIpamOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisableIpamOrganizationAdminAccount)
 
 responseDisableSerialConsoleAccess :: DisableSerialConsoleAccessResponse -> TestTree
 responseDisableSerialConsoleAccess =
@@ -8241,6 +9225,14 @@ responseDisassociateTransitGatewayMulticastDomain =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DisassociateTransitGatewayMulticastDomain)
 
+responseDisassociateTransitGatewayPolicyTable :: DisassociateTransitGatewayPolicyTableResponse -> TestTree
+responseDisassociateTransitGatewayPolicyTable =
+  res
+    "DisassociateTransitGatewayPolicyTableResponse"
+    "fixture/DisassociateTransitGatewayPolicyTableResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DisassociateTransitGatewayPolicyTable)
+
 responseDisassociateTransitGatewayRouteTable :: DisassociateTransitGatewayRouteTableResponse -> TestTree
 responseDisassociateTransitGatewayRouteTable =
   res
@@ -8273,6 +9265,14 @@ responseEnableEbsEncryptionByDefault =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy EnableEbsEncryptionByDefault)
 
+responseEnableFastLaunch :: EnableFastLaunchResponse -> TestTree
+responseEnableFastLaunch =
+  res
+    "EnableFastLaunchResponse"
+    "fixture/EnableFastLaunchResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableFastLaunch)
+
 responseEnableFastSnapshotRestores :: EnableFastSnapshotRestoresResponse -> TestTree
 responseEnableFastSnapshotRestores =
   res
@@ -8288,6 +9288,14 @@ responseEnableImageDeprecation =
     "fixture/EnableImageDeprecationResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy EnableImageDeprecation)
+
+responseEnableIpamOrganizationAdminAccount :: EnableIpamOrganizationAdminAccountResponse -> TestTree
+responseEnableIpamOrganizationAdminAccount =
+  res
+    "EnableIpamOrganizationAdminAccountResponse"
+    "fixture/EnableIpamOrganizationAdminAccountResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy EnableIpamOrganizationAdminAccount)
 
 responseEnableSerialConsoleAccess :: EnableSerialConsoleAccessResponse -> TestTree
 responseEnableSerialConsoleAccess =
@@ -8465,6 +9473,54 @@ responseGetHostReservationPurchasePreview =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetHostReservationPurchasePreview)
 
+responseGetInstanceTypesFromInstanceRequirements :: GetInstanceTypesFromInstanceRequirementsResponse -> TestTree
+responseGetInstanceTypesFromInstanceRequirements =
+  res
+    "GetInstanceTypesFromInstanceRequirementsResponse"
+    "fixture/GetInstanceTypesFromInstanceRequirementsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceTypesFromInstanceRequirements)
+
+responseGetInstanceUefiData :: GetInstanceUefiDataResponse -> TestTree
+responseGetInstanceUefiData =
+  res
+    "GetInstanceUefiDataResponse"
+    "fixture/GetInstanceUefiDataResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetInstanceUefiData)
+
+responseGetIpamAddressHistory :: GetIpamAddressHistoryResponse -> TestTree
+responseGetIpamAddressHistory =
+  res
+    "GetIpamAddressHistoryResponse"
+    "fixture/GetIpamAddressHistoryResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIpamAddressHistory)
+
+responseGetIpamPoolAllocations :: GetIpamPoolAllocationsResponse -> TestTree
+responseGetIpamPoolAllocations =
+  res
+    "GetIpamPoolAllocationsResponse"
+    "fixture/GetIpamPoolAllocationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIpamPoolAllocations)
+
+responseGetIpamPoolCidrs :: GetIpamPoolCidrsResponse -> TestTree
+responseGetIpamPoolCidrs =
+  res
+    "GetIpamPoolCidrsResponse"
+    "fixture/GetIpamPoolCidrsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIpamPoolCidrs)
+
+responseGetIpamResourceCidrs :: GetIpamResourceCidrsResponse -> TestTree
+responseGetIpamResourceCidrs =
+  res
+    "GetIpamResourceCidrsResponse"
+    "fixture/GetIpamResourceCidrsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetIpamResourceCidrs)
+
 responseGetLaunchTemplateData :: GetLaunchTemplateDataResponse -> TestTree
 responseGetLaunchTemplateData =
   res
@@ -8488,6 +9544,22 @@ responseGetManagedPrefixListEntries =
     "fixture/GetManagedPrefixListEntriesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetManagedPrefixListEntries)
+
+responseGetNetworkInsightsAccessScopeAnalysisFindings :: GetNetworkInsightsAccessScopeAnalysisFindingsResponse -> TestTree
+responseGetNetworkInsightsAccessScopeAnalysisFindings =
+  res
+    "GetNetworkInsightsAccessScopeAnalysisFindingsResponse"
+    "fixture/GetNetworkInsightsAccessScopeAnalysisFindingsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetNetworkInsightsAccessScopeAnalysisFindings)
+
+responseGetNetworkInsightsAccessScopeContent :: GetNetworkInsightsAccessScopeContentResponse -> TestTree
+responseGetNetworkInsightsAccessScopeContent =
+  res
+    "GetNetworkInsightsAccessScopeContentResponse"
+    "fixture/GetNetworkInsightsAccessScopeContentResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetNetworkInsightsAccessScopeContent)
 
 responseGetPasswordData :: GetPasswordDataResponse -> TestTree
 responseGetPasswordData =
@@ -8513,6 +9585,14 @@ responseGetSerialConsoleAccessStatus =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetSerialConsoleAccessStatus)
 
+responseGetSpotPlacementScores :: GetSpotPlacementScoresResponse -> TestTree
+responseGetSpotPlacementScores =
+  res
+    "GetSpotPlacementScoresResponse"
+    "fixture/GetSpotPlacementScoresResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetSpotPlacementScores)
+
 responseGetSubnetCidrReservations :: GetSubnetCidrReservationsResponse -> TestTree
 responseGetSubnetCidrReservations =
   res
@@ -8536,6 +9616,22 @@ responseGetTransitGatewayMulticastDomainAssociations =
     "fixture/GetTransitGatewayMulticastDomainAssociationsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayMulticastDomainAssociations)
+
+responseGetTransitGatewayPolicyTableAssociations :: GetTransitGatewayPolicyTableAssociationsResponse -> TestTree
+responseGetTransitGatewayPolicyTableAssociations =
+  res
+    "GetTransitGatewayPolicyTableAssociationsResponse"
+    "fixture/GetTransitGatewayPolicyTableAssociationsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayPolicyTableAssociations)
+
+responseGetTransitGatewayPolicyTableEntries :: GetTransitGatewayPolicyTableEntriesResponse -> TestTree
+responseGetTransitGatewayPolicyTableEntries =
+  res
+    "GetTransitGatewayPolicyTableEntriesResponse"
+    "fixture/GetTransitGatewayPolicyTableEntriesResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy GetTransitGatewayPolicyTableEntries)
 
 responseGetTransitGatewayPrefixListReferences :: GetTransitGatewayPrefixListReferencesResponse -> TestTree
 responseGetTransitGatewayPrefixListReferences =
@@ -8624,6 +9720,22 @@ responseImportVolume =
     "fixture/ImportVolumeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ImportVolume)
+
+responseListImagesInRecycleBin :: ListImagesInRecycleBinResponse -> TestTree
+responseListImagesInRecycleBin =
+  res
+    "ListImagesInRecycleBinResponse"
+    "fixture/ListImagesInRecycleBinResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListImagesInRecycleBin)
+
+responseListSnapshotsInRecycleBin :: ListSnapshotsInRecycleBinResponse -> TestTree
+responseListSnapshotsInRecycleBin =
+  res
+    "ListSnapshotsInRecycleBinResponse"
+    "fixture/ListSnapshotsInRecycleBinResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListSnapshotsInRecycleBin)
 
 responseModifyAddressAttribute :: ModifyAddressAttributeResponse -> TestTree
 responseModifyAddressAttribute =
@@ -8769,6 +9881,14 @@ responseModifyInstanceEventWindow =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyInstanceEventWindow)
 
+responseModifyInstanceMaintenanceOptions :: ModifyInstanceMaintenanceOptionsResponse -> TestTree
+responseModifyInstanceMaintenanceOptions =
+  res
+    "ModifyInstanceMaintenanceOptionsResponse"
+    "fixture/ModifyInstanceMaintenanceOptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyInstanceMaintenanceOptions)
+
 responseModifyInstanceMetadataOptions :: ModifyInstanceMetadataOptionsResponse -> TestTree
 responseModifyInstanceMetadataOptions =
   res
@@ -8784,6 +9904,38 @@ responseModifyInstancePlacement =
     "fixture/ModifyInstancePlacementResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyInstancePlacement)
+
+responseModifyIpam :: ModifyIpamResponse -> TestTree
+responseModifyIpam =
+  res
+    "ModifyIpamResponse"
+    "fixture/ModifyIpamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyIpam)
+
+responseModifyIpamPool :: ModifyIpamPoolResponse -> TestTree
+responseModifyIpamPool =
+  res
+    "ModifyIpamPoolResponse"
+    "fixture/ModifyIpamPoolResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyIpamPool)
+
+responseModifyIpamResourceCidr :: ModifyIpamResourceCidrResponse -> TestTree
+responseModifyIpamResourceCidr =
+  res
+    "ModifyIpamResourceCidrResponse"
+    "fixture/ModifyIpamResourceCidrResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyIpamResourceCidr)
+
+responseModifyIpamScope :: ModifyIpamScopeResponse -> TestTree
+responseModifyIpamScope =
+  res
+    "ModifyIpamScopeResponse"
+    "fixture/ModifyIpamScopeResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyIpamScope)
 
 responseModifyLaunchTemplate :: ModifyLaunchTemplateResponse -> TestTree
 responseModifyLaunchTemplate =
@@ -8809,6 +9961,14 @@ responseModifyNetworkInterfaceAttribute =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyNetworkInterfaceAttribute)
 
+responseModifyPrivateDnsNameOptions :: ModifyPrivateDnsNameOptionsResponse -> TestTree
+responseModifyPrivateDnsNameOptions =
+  res
+    "ModifyPrivateDnsNameOptionsResponse"
+    "fixture/ModifyPrivateDnsNameOptionsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyPrivateDnsNameOptions)
+
 responseModifyReservedInstances :: ModifyReservedInstancesResponse -> TestTree
 responseModifyReservedInstances =
   res
@@ -8832,6 +9992,14 @@ responseModifySnapshotAttribute =
     "fixture/ModifySnapshotAttributeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifySnapshotAttribute)
+
+responseModifySnapshotTier :: ModifySnapshotTierResponse -> TestTree
+responseModifySnapshotTier =
+  res
+    "ModifySnapshotTierResponse"
+    "fixture/ModifySnapshotTierResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifySnapshotTier)
 
 responseModifySpotFleetRequest :: ModifySpotFleetRequestResponse -> TestTree
 responseModifySpotFleetRequest =
@@ -8945,6 +10113,14 @@ responseModifyVpcEndpointServiceConfiguration =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ModifyVpcEndpointServiceConfiguration)
 
+responseModifyVpcEndpointServicePayerResponsibility :: ModifyVpcEndpointServicePayerResponsibilityResponse -> TestTree
+responseModifyVpcEndpointServicePayerResponsibility =
+  res
+    "ModifyVpcEndpointServicePayerResponsibilityResponse"
+    "fixture/ModifyVpcEndpointServicePayerResponsibilityResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ModifyVpcEndpointServicePayerResponsibility)
+
 responseModifyVpcEndpointServicePermissions :: ModifyVpcEndpointServicePermissionsResponse -> TestTree
 responseModifyVpcEndpointServicePermissions =
   res
@@ -9017,6 +10193,14 @@ responseMoveAddressToVpc =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy MoveAddressToVpc)
 
+responseMoveByoipCidrToIpam :: MoveByoipCidrToIpamResponse -> TestTree
+responseMoveByoipCidrToIpam =
+  res
+    "MoveByoipCidrToIpamResponse"
+    "fixture/MoveByoipCidrToIpamResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy MoveByoipCidrToIpam)
+
 responseProvisionByoipCidr :: ProvisionByoipCidrResponse -> TestTree
 responseProvisionByoipCidr =
   res
@@ -9024,6 +10208,22 @@ responseProvisionByoipCidr =
     "fixture/ProvisionByoipCidrResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ProvisionByoipCidr)
+
+responseProvisionIpamPoolCidr :: ProvisionIpamPoolCidrResponse -> TestTree
+responseProvisionIpamPoolCidr =
+  res
+    "ProvisionIpamPoolCidrResponse"
+    "fixture/ProvisionIpamPoolCidrResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ProvisionIpamPoolCidr)
+
+responseProvisionPublicIpv4PoolCidr :: ProvisionPublicIpv4PoolCidrResponse -> TestTree
+responseProvisionPublicIpv4PoolCidr =
+  res
+    "ProvisionPublicIpv4PoolCidrResponse"
+    "fixture/ProvisionPublicIpv4PoolCidrResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ProvisionPublicIpv4PoolCidr)
 
 responsePurchaseHostReservation :: PurchaseHostReservationResponse -> TestTree
 responsePurchaseHostReservation =
@@ -9144,6 +10344,14 @@ responseReleaseHosts =
     "fixture/ReleaseHostsResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ReleaseHosts)
+
+responseReleaseIpamPoolAllocation :: ReleaseIpamPoolAllocationResponse -> TestTree
+responseReleaseIpamPoolAllocation =
+  res
+    "ReleaseIpamPoolAllocationResponse"
+    "fixture/ReleaseIpamPoolAllocationResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ReleaseIpamPoolAllocation)
 
 responseReplaceIamInstanceProfileAssociation :: ReplaceIamInstanceProfileAssociationResponse -> TestTree
 responseReplaceIamInstanceProfileAssociation =
@@ -9281,6 +10489,14 @@ responseRestoreAddressToClassic =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RestoreAddressToClassic)
 
+responseRestoreImageFromRecycleBin :: RestoreImageFromRecycleBinResponse -> TestTree
+responseRestoreImageFromRecycleBin =
+  res
+    "RestoreImageFromRecycleBinResponse"
+    "fixture/RestoreImageFromRecycleBinResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreImageFromRecycleBin)
+
 responseRestoreManagedPrefixListVersion :: RestoreManagedPrefixListVersionResponse -> TestTree
 responseRestoreManagedPrefixListVersion =
   res
@@ -9288,6 +10504,22 @@ responseRestoreManagedPrefixListVersion =
     "fixture/RestoreManagedPrefixListVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy RestoreManagedPrefixListVersion)
+
+responseRestoreSnapshotFromRecycleBin :: RestoreSnapshotFromRecycleBinResponse -> TestTree
+responseRestoreSnapshotFromRecycleBin =
+  res
+    "RestoreSnapshotFromRecycleBinResponse"
+    "fixture/RestoreSnapshotFromRecycleBinResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreSnapshotFromRecycleBin)
+
+responseRestoreSnapshotTier :: RestoreSnapshotTierResponse -> TestTree
+responseRestoreSnapshotTier =
+  res
+    "RestoreSnapshotTierResponse"
+    "fixture/RestoreSnapshotTierResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy RestoreSnapshotTier)
 
 responseRevokeClientVpnIngress :: RevokeClientVpnIngressResponse -> TestTree
 responseRevokeClientVpnIngress =
@@ -9368,6 +10600,14 @@ responseStartInstances =
     "fixture/StartInstancesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy StartInstances)
+
+responseStartNetworkInsightsAccessScopeAnalysis :: StartNetworkInsightsAccessScopeAnalysisResponse -> TestTree
+responseStartNetworkInsightsAccessScopeAnalysis =
+  res
+    "StartNetworkInsightsAccessScopeAnalysisResponse"
+    "fixture/StartNetworkInsightsAccessScopeAnalysisResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy StartNetworkInsightsAccessScopeAnalysis)
 
 responseStartNetworkInsightsAnalysis :: StartNetworkInsightsAnalysisResponse -> TestTree
 responseStartNetworkInsightsAnalysis =

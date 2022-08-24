@@ -83,6 +83,12 @@ module Amazonka.DataBrew
     CreateRecipeJobResponse (CreateRecipeJobResponse'),
     newCreateRecipeJobResponse,
 
+    -- ** CreateRuleset
+    CreateRuleset (CreateRuleset'),
+    newCreateRuleset,
+    CreateRulesetResponse (CreateRulesetResponse'),
+    newCreateRulesetResponse,
+
     -- ** CreateSchedule
     CreateSchedule (CreateSchedule'),
     newCreateSchedule,
@@ -112,6 +118,12 @@ module Amazonka.DataBrew
     newDeleteRecipeVersion,
     DeleteRecipeVersionResponse (DeleteRecipeVersionResponse'),
     newDeleteRecipeVersionResponse,
+
+    -- ** DeleteRuleset
+    DeleteRuleset (DeleteRuleset'),
+    newDeleteRuleset,
+    DeleteRulesetResponse (DeleteRulesetResponse'),
+    newDeleteRulesetResponse,
 
     -- ** DeleteSchedule
     DeleteSchedule (DeleteSchedule'),
@@ -148,6 +160,12 @@ module Amazonka.DataBrew
     newDescribeRecipe,
     DescribeRecipeResponse (DescribeRecipeResponse'),
     newDescribeRecipeResponse,
+
+    -- ** DescribeRuleset
+    DescribeRuleset (DescribeRuleset'),
+    newDescribeRuleset,
+    DescribeRulesetResponse (DescribeRulesetResponse'),
+    newDescribeRulesetResponse,
 
     -- ** DescribeSchedule
     DescribeSchedule (DescribeSchedule'),
@@ -190,6 +208,12 @@ module Amazonka.DataBrew
     newListRecipes,
     ListRecipesResponse (ListRecipesResponse'),
     newListRecipesResponse,
+
+    -- ** ListRulesets (Paginated)
+    ListRulesets (ListRulesets'),
+    newListRulesets,
+    ListRulesetsResponse (ListRulesetsResponse'),
+    newListRulesetsResponse,
 
     -- ** ListSchedules (Paginated)
     ListSchedules (ListSchedules'),
@@ -275,6 +299,12 @@ module Amazonka.DataBrew
     UpdateRecipeJobResponse (UpdateRecipeJobResponse'),
     newUpdateRecipeJobResponse,
 
+    -- ** UpdateRuleset
+    UpdateRuleset (UpdateRuleset'),
+    newUpdateRuleset,
+    UpdateRulesetResponse (UpdateRulesetResponse'),
+    newUpdateRulesetResponse,
+
     -- ** UpdateSchedule
     UpdateSchedule (UpdateSchedule'),
     newUpdateSchedule,
@@ -282,6 +312,9 @@ module Amazonka.DataBrew
     newUpdateScheduleResponse,
 
     -- * Types
+
+    -- ** AnalyticsMode
+    AnalyticsMode (..),
 
     -- ** CompressionFormat
     CompressionFormat (..),
@@ -327,6 +360,19 @@ module Amazonka.DataBrew
 
     -- ** Source
     Source (..),
+
+    -- ** ThresholdType
+    ThresholdType (..),
+
+    -- ** ThresholdUnit
+    ThresholdUnit (..),
+
+    -- ** ValidationMode
+    ValidationMode (..),
+
+    -- ** AllowedStatistics
+    AllowedStatistics (AllowedStatistics'),
+    newAllowedStatistics,
 
     -- ** ColumnSelector
     ColumnSelector (ColumnSelector'),
@@ -380,6 +426,10 @@ module Amazonka.DataBrew
     DatetimeOptions (DatetimeOptions'),
     newDatetimeOptions,
 
+    -- ** EntityDetectorConfiguration
+    EntityDetectorConfiguration (EntityDetectorConfiguration'),
+    newEntityDetectorConfiguration,
+
     -- ** ExcelOptions
     ExcelOptions (ExcelOptions'),
     newExcelOptions,
@@ -415,6 +465,10 @@ module Amazonka.DataBrew
     -- ** JsonOptions
     JsonOptions (JsonOptions'),
     newJsonOptions,
+
+    -- ** Metadata
+    Metadata (Metadata'),
+    newMetadata,
 
     -- ** Output
     Output (Output'),
@@ -456,6 +510,14 @@ module Amazonka.DataBrew
     RecipeVersionErrorDetail (RecipeVersionErrorDetail'),
     newRecipeVersionErrorDetail,
 
+    -- ** Rule
+    Rule (Rule'),
+    newRule,
+
+    -- ** RulesetItem
+    RulesetItem (RulesetItem'),
+    newRulesetItem,
+
     -- ** S3Location
     S3Location (S3Location'),
     newS3Location,
@@ -480,6 +542,14 @@ module Amazonka.DataBrew
     StatisticsConfiguration (StatisticsConfiguration'),
     newStatisticsConfiguration,
 
+    -- ** Threshold
+    Threshold (Threshold'),
+    newThreshold,
+
+    -- ** ValidationConfiguration
+    ValidationConfiguration (ValidationConfiguration'),
+    newValidationConfiguration,
+
     -- ** ViewFrame
     ViewFrame (ViewFrame'),
     newViewFrame,
@@ -492,17 +562,20 @@ import Amazonka.DataBrew.CreateProfileJob
 import Amazonka.DataBrew.CreateProject
 import Amazonka.DataBrew.CreateRecipe
 import Amazonka.DataBrew.CreateRecipeJob
+import Amazonka.DataBrew.CreateRuleset
 import Amazonka.DataBrew.CreateSchedule
 import Amazonka.DataBrew.DeleteDataset
 import Amazonka.DataBrew.DeleteJob
 import Amazonka.DataBrew.DeleteProject
 import Amazonka.DataBrew.DeleteRecipeVersion
+import Amazonka.DataBrew.DeleteRuleset
 import Amazonka.DataBrew.DeleteSchedule
 import Amazonka.DataBrew.DescribeDataset
 import Amazonka.DataBrew.DescribeJob
 import Amazonka.DataBrew.DescribeJobRun
 import Amazonka.DataBrew.DescribeProject
 import Amazonka.DataBrew.DescribeRecipe
+import Amazonka.DataBrew.DescribeRuleset
 import Amazonka.DataBrew.DescribeSchedule
 import Amazonka.DataBrew.Lens
 import Amazonka.DataBrew.ListDatasets
@@ -511,6 +584,7 @@ import Amazonka.DataBrew.ListJobs
 import Amazonka.DataBrew.ListProjects
 import Amazonka.DataBrew.ListRecipeVersions
 import Amazonka.DataBrew.ListRecipes
+import Amazonka.DataBrew.ListRulesets
 import Amazonka.DataBrew.ListSchedules
 import Amazonka.DataBrew.ListTagsForResource
 import Amazonka.DataBrew.PublishRecipe
@@ -526,6 +600,7 @@ import Amazonka.DataBrew.UpdateProfileJob
 import Amazonka.DataBrew.UpdateProject
 import Amazonka.DataBrew.UpdateRecipe
 import Amazonka.DataBrew.UpdateRecipeJob
+import Amazonka.DataBrew.UpdateRuleset
 import Amazonka.DataBrew.UpdateSchedule
 import Amazonka.DataBrew.Waiters
 

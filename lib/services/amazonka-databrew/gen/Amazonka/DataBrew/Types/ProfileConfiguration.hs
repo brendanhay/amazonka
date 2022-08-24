@@ -22,6 +22,7 @@ module Amazonka.DataBrew.Types.ProfileConfiguration where
 import qualified Amazonka.Core as Core
 import Amazonka.DataBrew.Types.ColumnSelector
 import Amazonka.DataBrew.Types.ColumnStatisticsConfiguration
+import Amazonka.DataBrew.Types.EntityDetectorConfiguration
 import Amazonka.DataBrew.Types.StatisticsConfiguration
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
@@ -47,7 +48,10 @@ data ProfileConfiguration = ProfileConfiguration'
     -- | List of column selectors. ProfileColumns can be used to select columns
     -- from the dataset. When ProfileColumns is undefined, the profile job will
     -- profile all supported columns.
-    profileColumns :: Prelude.Maybe (Prelude.NonEmpty ColumnSelector)
+    profileColumns :: Prelude.Maybe (Prelude.NonEmpty ColumnSelector),
+    -- | Configuration of entity detection for a profile job. When undefined,
+    -- entity detection is disabled.
+    entityDetectorConfiguration :: Prelude.Maybe EntityDetectorConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,6 +77,9 @@ data ProfileConfiguration = ProfileConfiguration'
 -- 'profileColumns', 'profileConfiguration_profileColumns' - List of column selectors. ProfileColumns can be used to select columns
 -- from the dataset. When ProfileColumns is undefined, the profile job will
 -- profile all supported columns.
+--
+-- 'entityDetectorConfiguration', 'profileConfiguration_entityDetectorConfiguration' - Configuration of entity detection for a profile job. When undefined,
+-- entity detection is disabled.
 newProfileConfiguration ::
   ProfileConfiguration
 newProfileConfiguration =
@@ -80,7 +87,8 @@ newProfileConfiguration =
     { columnStatisticsConfigurations =
         Prelude.Nothing,
       datasetStatisticsConfiguration = Prelude.Nothing,
-      profileColumns = Prelude.Nothing
+      profileColumns = Prelude.Nothing,
+      entityDetectorConfiguration = Prelude.Nothing
     }
 
 -- | List of configurations for column evaluations.
@@ -104,6 +112,11 @@ profileConfiguration_datasetStatisticsConfiguration = Lens.lens (\ProfileConfigu
 profileConfiguration_profileColumns :: Lens.Lens' ProfileConfiguration (Prelude.Maybe (Prelude.NonEmpty ColumnSelector))
 profileConfiguration_profileColumns = Lens.lens (\ProfileConfiguration' {profileColumns} -> profileColumns) (\s@ProfileConfiguration' {} a -> s {profileColumns = a} :: ProfileConfiguration) Prelude.. Lens.mapping Lens.coerced
 
+-- | Configuration of entity detection for a profile job. When undefined,
+-- entity detection is disabled.
+profileConfiguration_entityDetectorConfiguration :: Lens.Lens' ProfileConfiguration (Prelude.Maybe EntityDetectorConfiguration)
+profileConfiguration_entityDetectorConfiguration = Lens.lens (\ProfileConfiguration' {entityDetectorConfiguration} -> entityDetectorConfiguration) (\s@ProfileConfiguration' {} a -> s {entityDetectorConfiguration = a} :: ProfileConfiguration)
+
 instance Core.FromJSON ProfileConfiguration where
   parseJSON =
     Core.withObject
@@ -113,6 +126,7 @@ instance Core.FromJSON ProfileConfiguration where
             Prelude.<$> (x Core..:? "ColumnStatisticsConfigurations")
             Prelude.<*> (x Core..:? "DatasetStatisticsConfiguration")
             Prelude.<*> (x Core..:? "ProfileColumns")
+            Prelude.<*> (x Core..:? "EntityDetectorConfiguration")
       )
 
 instance Prelude.Hashable ProfileConfiguration where
@@ -121,12 +135,14 @@ instance Prelude.Hashable ProfileConfiguration where
       `Prelude.hashWithSalt` columnStatisticsConfigurations
       `Prelude.hashWithSalt` datasetStatisticsConfiguration
       `Prelude.hashWithSalt` profileColumns
+      `Prelude.hashWithSalt` entityDetectorConfiguration
 
 instance Prelude.NFData ProfileConfiguration where
   rnf ProfileConfiguration' {..} =
     Prelude.rnf columnStatisticsConfigurations
       `Prelude.seq` Prelude.rnf datasetStatisticsConfiguration
       `Prelude.seq` Prelude.rnf profileColumns
+      `Prelude.seq` Prelude.rnf entityDetectorConfiguration
 
 instance Core.ToJSON ProfileConfiguration where
   toJSON ProfileConfiguration' {..} =
@@ -137,6 +153,8 @@ instance Core.ToJSON ProfileConfiguration where
             ("DatasetStatisticsConfiguration" Core..=)
               Prelude.<$> datasetStatisticsConfiguration,
             ("ProfileColumns" Core..=)
-              Prelude.<$> profileColumns
+              Prelude.<$> profileColumns,
+            ("EntityDetectorConfiguration" Core..=)
+              Prelude.<$> entityDetectorConfiguration
           ]
       )

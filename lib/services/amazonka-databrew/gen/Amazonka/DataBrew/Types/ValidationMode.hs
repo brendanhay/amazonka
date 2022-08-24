@@ -11,20 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Amazonka.DataBrew.Types.InputFormat
+-- Module      : Amazonka.DataBrew.Types.ValidationMode
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Amazonka.DataBrew.Types.InputFormat
-  ( InputFormat
+module Amazonka.DataBrew.Types.ValidationMode
+  ( ValidationMode
       ( ..,
-        InputFormat_CSV,
-        InputFormat_EXCEL,
-        InputFormat_JSON,
-        InputFormat_ORC,
-        InputFormat_PARQUET
+        ValidationMode_CHECK_ALL
       ),
   )
 where
@@ -32,8 +28,8 @@ where
 import qualified Amazonka.Core as Core
 import qualified Amazonka.Prelude as Prelude
 
-newtype InputFormat = InputFormat'
-  { fromInputFormat ::
+newtype ValidationMode = ValidationMode'
+  { fromValidationMode ::
       Core.Text
   }
   deriving stock
@@ -60,26 +56,10 @@ newtype InputFormat = InputFormat'
       Core.ToXML
     )
 
-pattern InputFormat_CSV :: InputFormat
-pattern InputFormat_CSV = InputFormat' "CSV"
-
-pattern InputFormat_EXCEL :: InputFormat
-pattern InputFormat_EXCEL = InputFormat' "EXCEL"
-
-pattern InputFormat_JSON :: InputFormat
-pattern InputFormat_JSON = InputFormat' "JSON"
-
-pattern InputFormat_ORC :: InputFormat
-pattern InputFormat_ORC = InputFormat' "ORC"
-
-pattern InputFormat_PARQUET :: InputFormat
-pattern InputFormat_PARQUET = InputFormat' "PARQUET"
+pattern ValidationMode_CHECK_ALL :: ValidationMode
+pattern ValidationMode_CHECK_ALL = ValidationMode' "CHECK_ALL"
 
 {-# COMPLETE
-  InputFormat_CSV,
-  InputFormat_EXCEL,
-  InputFormat_JSON,
-  InputFormat_ORC,
-  InputFormat_PARQUET,
-  InputFormat'
+  ValidationMode_CHECK_ALL,
+  ValidationMode'
   #-}

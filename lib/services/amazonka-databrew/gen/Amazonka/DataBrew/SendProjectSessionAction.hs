@@ -67,11 +67,11 @@ data SendProjectSessionAction = SendProjectSessionAction'
     stepIndex :: Prelude.Maybe Prelude.Natural,
     -- | A unique identifier for an interactive session that\'s currently open
     -- and ready for work. The action will be performed on this session.
-    clientSessionId :: Prelude.Maybe Prelude.Text,
+    clientSessionId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the project to apply the action to.
     name :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'SendProjectSessionAction' with all optional fields omitted.
@@ -133,7 +133,7 @@ sendProjectSessionAction_stepIndex = Lens.lens (\SendProjectSessionAction' {step
 -- | A unique identifier for an interactive session that\'s currently open
 -- and ready for work. The action will be performed on this session.
 sendProjectSessionAction_clientSessionId :: Lens.Lens' SendProjectSessionAction (Prelude.Maybe Prelude.Text)
-sendProjectSessionAction_clientSessionId = Lens.lens (\SendProjectSessionAction' {clientSessionId} -> clientSessionId) (\s@SendProjectSessionAction' {} a -> s {clientSessionId = a} :: SendProjectSessionAction)
+sendProjectSessionAction_clientSessionId = Lens.lens (\SendProjectSessionAction' {clientSessionId} -> clientSessionId) (\s@SendProjectSessionAction' {} a -> s {clientSessionId = a} :: SendProjectSessionAction) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The name of the project to apply the action to.
 sendProjectSessionAction_name :: Lens.Lens' SendProjectSessionAction Prelude.Text

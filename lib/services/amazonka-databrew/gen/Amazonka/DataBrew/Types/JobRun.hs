@@ -27,6 +27,7 @@ import Amazonka.DataBrew.Types.JobSample
 import Amazonka.DataBrew.Types.LogSubscription
 import Amazonka.DataBrew.Types.Output
 import Amazonka.DataBrew.Types.RecipeReference
+import Amazonka.DataBrew.Types.ValidationConfiguration
 import qualified Amazonka.Lens as Lens
 import qualified Amazonka.Prelude as Prelude
 
@@ -75,7 +76,10 @@ data JobRun = JobRun'
     runId :: Prelude.Maybe Prelude.Text,
     -- | The name of an Amazon CloudWatch log group, where the job writes
     -- diagnostic messages when it runs.
-    logGroupName :: Prelude.Maybe Prelude.Text
+    logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | List of validation configurations that are applied to the profile job
+    -- run.
+    validationConfigurations :: Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -128,6 +132,9 @@ data JobRun = JobRun'
 --
 -- 'logGroupName', 'jobRun_logGroupName' - The name of an Amazon CloudWatch log group, where the job writes
 -- diagnostic messages when it runs.
+--
+-- 'validationConfigurations', 'jobRun_validationConfigurations' - List of validation configurations that are applied to the profile job
+-- run.
 newJobRun ::
   JobRun
 newJobRun =
@@ -148,7 +155,8 @@ newJobRun =
       recipeReference = Prelude.Nothing,
       outputs = Prelude.Nothing,
       runId = Prelude.Nothing,
-      logGroupName = Prelude.Nothing
+      logGroupName = Prelude.Nothing,
+      validationConfigurations = Prelude.Nothing
     }
 
 -- | A sample configuration for profile jobs only, which determines the
@@ -227,6 +235,11 @@ jobRun_runId = Lens.lens (\JobRun' {runId} -> runId) (\s@JobRun' {} a -> s {runI
 jobRun_logGroupName :: Lens.Lens' JobRun (Prelude.Maybe Prelude.Text)
 jobRun_logGroupName = Lens.lens (\JobRun' {logGroupName} -> logGroupName) (\s@JobRun' {} a -> s {logGroupName = a} :: JobRun)
 
+-- | List of validation configurations that are applied to the profile job
+-- run.
+jobRun_validationConfigurations :: Lens.Lens' JobRun (Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration))
+jobRun_validationConfigurations = Lens.lens (\JobRun' {validationConfigurations} -> validationConfigurations) (\s@JobRun' {} a -> s {validationConfigurations = a} :: JobRun) Prelude.. Lens.mapping Lens.coerced
+
 instance Core.FromJSON JobRun where
   parseJSON =
     Core.withObject
@@ -250,6 +263,7 @@ instance Core.FromJSON JobRun where
             Prelude.<*> (x Core..:? "Outputs")
             Prelude.<*> (x Core..:? "RunId")
             Prelude.<*> (x Core..:? "LogGroupName")
+            Prelude.<*> (x Core..:? "ValidationConfigurations")
       )
 
 instance Prelude.Hashable JobRun where
@@ -271,6 +285,7 @@ instance Prelude.Hashable JobRun where
       `Prelude.hashWithSalt` outputs
       `Prelude.hashWithSalt` runId
       `Prelude.hashWithSalt` logGroupName
+      `Prelude.hashWithSalt` validationConfigurations
 
 instance Prelude.NFData JobRun where
   rnf JobRun' {..} =
@@ -291,3 +306,5 @@ instance Prelude.NFData JobRun where
       `Prelude.seq` Prelude.rnf outputs
       `Prelude.seq` Prelude.rnf runId
       `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf
+        validationConfigurations

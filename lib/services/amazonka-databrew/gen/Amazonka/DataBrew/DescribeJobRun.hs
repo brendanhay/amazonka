@@ -52,6 +52,7 @@ module Amazonka.DataBrew.DescribeJobRun
     describeJobRunResponse_profileConfiguration,
     describeJobRunResponse_runId,
     describeJobRunResponse_logGroupName,
+    describeJobRunResponse_validationConfigurations,
     describeJobRunResponse_httpStatus,
     describeJobRunResponse_jobName,
   )
@@ -127,6 +128,7 @@ instance Core.AWSRequest DescribeJobRun where
             Prelude.<*> (x Core..?> "ProfileConfiguration")
             Prelude.<*> (x Core..?> "RunId")
             Prelude.<*> (x Core..?> "LogGroupName")
+            Prelude.<*> (x Core..?> "ValidationConfigurations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "JobName")
       )
@@ -208,6 +210,8 @@ data DescribeJobRunResponse = DescribeJobRunResponse'
     -- | The name of an Amazon CloudWatch log group, where the job writes
     -- diagnostic messages when it runs.
     logGroupName :: Prelude.Maybe Prelude.Text,
+    -- | List of validation configurations that are applied to the profile job.
+    validationConfigurations :: Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the job being processed during this run.
@@ -267,6 +271,8 @@ data DescribeJobRunResponse = DescribeJobRunResponse'
 -- 'logGroupName', 'describeJobRunResponse_logGroupName' - The name of an Amazon CloudWatch log group, where the job writes
 -- diagnostic messages when it runs.
 --
+-- 'validationConfigurations', 'describeJobRunResponse_validationConfigurations' - List of validation configurations that are applied to the profile job.
+--
 -- 'httpStatus', 'describeJobRunResponse_httpStatus' - The response's http status code.
 --
 -- 'jobName', 'describeJobRunResponse_jobName' - The name of the job being processed during this run.
@@ -296,6 +302,7 @@ newDescribeJobRunResponse pHttpStatus_ pJobName_ =
       profileConfiguration = Prelude.Nothing,
       runId = Prelude.Nothing,
       logGroupName = Prelude.Nothing,
+      validationConfigurations = Prelude.Nothing,
       httpStatus = pHttpStatus_,
       jobName = pJobName_
     }
@@ -378,6 +385,10 @@ describeJobRunResponse_runId = Lens.lens (\DescribeJobRunResponse' {runId} -> ru
 describeJobRunResponse_logGroupName :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe Prelude.Text)
 describeJobRunResponse_logGroupName = Lens.lens (\DescribeJobRunResponse' {logGroupName} -> logGroupName) (\s@DescribeJobRunResponse' {} a -> s {logGroupName = a} :: DescribeJobRunResponse)
 
+-- | List of validation configurations that are applied to the profile job.
+describeJobRunResponse_validationConfigurations :: Lens.Lens' DescribeJobRunResponse (Prelude.Maybe (Prelude.NonEmpty ValidationConfiguration))
+describeJobRunResponse_validationConfigurations = Lens.lens (\DescribeJobRunResponse' {validationConfigurations} -> validationConfigurations) (\s@DescribeJobRunResponse' {} a -> s {validationConfigurations = a} :: DescribeJobRunResponse) Prelude.. Lens.mapping Lens.coerced
+
 -- | The response's http status code.
 describeJobRunResponse_httpStatus :: Lens.Lens' DescribeJobRunResponse Prelude.Int
 describeJobRunResponse_httpStatus = Lens.lens (\DescribeJobRunResponse' {httpStatus} -> httpStatus) (\s@DescribeJobRunResponse' {} a -> s {httpStatus = a} :: DescribeJobRunResponse)
@@ -405,5 +416,7 @@ instance Prelude.NFData DescribeJobRunResponse where
       `Prelude.seq` Prelude.rnf profileConfiguration
       `Prelude.seq` Prelude.rnf runId
       `Prelude.seq` Prelude.rnf logGroupName
+      `Prelude.seq` Prelude.rnf
+        validationConfigurations
       `Prelude.seq` Prelude.rnf httpStatus
       `Prelude.seq` Prelude.rnf jobName

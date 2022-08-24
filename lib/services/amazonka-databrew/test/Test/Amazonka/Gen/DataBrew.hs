@@ -45,6 +45,9 @@ import Test.Tasty
 --         , requestCreateRecipeJob $
 --             newCreateRecipeJob
 --
+--         , requestCreateRuleset $
+--             newCreateRuleset
+--
 --         , requestCreateSchedule $
 --             newCreateSchedule
 --
@@ -59,6 +62,9 @@ import Test.Tasty
 --
 --         , requestDeleteRecipeVersion $
 --             newDeleteRecipeVersion
+--
+--         , requestDeleteRuleset $
+--             newDeleteRuleset
 --
 --         , requestDeleteSchedule $
 --             newDeleteSchedule
@@ -77,6 +83,9 @@ import Test.Tasty
 --
 --         , requestDescribeRecipe $
 --             newDescribeRecipe
+--
+--         , requestDescribeRuleset $
+--             newDescribeRuleset
 --
 --         , requestDescribeSchedule $
 --             newDescribeSchedule
@@ -98,6 +107,9 @@ import Test.Tasty
 --
 --         , requestListRecipes $
 --             newListRecipes
+--
+--         , requestListRulesets $
+--             newListRulesets
 --
 --         , requestListSchedules $
 --             newListSchedules
@@ -141,6 +153,9 @@ import Test.Tasty
 --         , requestUpdateRecipeJob $
 --             newUpdateRecipeJob
 --
+--         , requestUpdateRuleset $
+--             newUpdateRuleset
+--
 --         , requestUpdateSchedule $
 --             newUpdateSchedule
 --
@@ -165,6 +180,9 @@ import Test.Tasty
 --         , responseCreateRecipeJob $
 --             newCreateRecipeJobResponse
 --
+--         , responseCreateRuleset $
+--             newCreateRulesetResponse
+--
 --         , responseCreateSchedule $
 --             newCreateScheduleResponse
 --
@@ -179,6 +197,9 @@ import Test.Tasty
 --
 --         , responseDeleteRecipeVersion $
 --             newDeleteRecipeVersionResponse
+--
+--         , responseDeleteRuleset $
+--             newDeleteRulesetResponse
 --
 --         , responseDeleteSchedule $
 --             newDeleteScheduleResponse
@@ -197,6 +218,9 @@ import Test.Tasty
 --
 --         , responseDescribeRecipe $
 --             newDescribeRecipeResponse
+--
+--         , responseDescribeRuleset $
+--             newDescribeRulesetResponse
 --
 --         , responseDescribeSchedule $
 --             newDescribeScheduleResponse
@@ -218,6 +242,9 @@ import Test.Tasty
 --
 --         , responseListRecipes $
 --             newListRecipesResponse
+--
+--         , responseListRulesets $
+--             newListRulesetsResponse
 --
 --         , responseListSchedules $
 --             newListSchedulesResponse
@@ -260,6 +287,9 @@ import Test.Tasty
 --
 --         , responseUpdateRecipeJob $
 --             newUpdateRecipeJobResponse
+--
+--         , responseUpdateRuleset $
+--             newUpdateRulesetResponse
 --
 --         , responseUpdateSchedule $
 --             newUpdateScheduleResponse
@@ -305,6 +335,12 @@ requestCreateRecipeJob =
     "CreateRecipeJob"
     "fixture/CreateRecipeJob.yaml"
 
+requestCreateRuleset :: CreateRuleset -> TestTree
+requestCreateRuleset =
+  req
+    "CreateRuleset"
+    "fixture/CreateRuleset.yaml"
+
 requestCreateSchedule :: CreateSchedule -> TestTree
 requestCreateSchedule =
   req
@@ -334,6 +370,12 @@ requestDeleteRecipeVersion =
   req
     "DeleteRecipeVersion"
     "fixture/DeleteRecipeVersion.yaml"
+
+requestDeleteRuleset :: DeleteRuleset -> TestTree
+requestDeleteRuleset =
+  req
+    "DeleteRuleset"
+    "fixture/DeleteRuleset.yaml"
 
 requestDeleteSchedule :: DeleteSchedule -> TestTree
 requestDeleteSchedule =
@@ -370,6 +412,12 @@ requestDescribeRecipe =
   req
     "DescribeRecipe"
     "fixture/DescribeRecipe.yaml"
+
+requestDescribeRuleset :: DescribeRuleset -> TestTree
+requestDescribeRuleset =
+  req
+    "DescribeRuleset"
+    "fixture/DescribeRuleset.yaml"
 
 requestDescribeSchedule :: DescribeSchedule -> TestTree
 requestDescribeSchedule =
@@ -412,6 +460,12 @@ requestListRecipes =
   req
     "ListRecipes"
     "fixture/ListRecipes.yaml"
+
+requestListRulesets :: ListRulesets -> TestTree
+requestListRulesets =
+  req
+    "ListRulesets"
+    "fixture/ListRulesets.yaml"
 
 requestListSchedules :: ListSchedules -> TestTree
 requestListSchedules =
@@ -497,6 +551,12 @@ requestUpdateRecipeJob =
     "UpdateRecipeJob"
     "fixture/UpdateRecipeJob.yaml"
 
+requestUpdateRuleset :: UpdateRuleset -> TestTree
+requestUpdateRuleset =
+  req
+    "UpdateRuleset"
+    "fixture/UpdateRuleset.yaml"
+
 requestUpdateSchedule :: UpdateSchedule -> TestTree
 requestUpdateSchedule =
   req
@@ -553,6 +613,14 @@ responseCreateRecipeJob =
     defaultService
     (Proxy.Proxy :: Proxy.Proxy CreateRecipeJob)
 
+responseCreateRuleset :: CreateRulesetResponse -> TestTree
+responseCreateRuleset =
+  res
+    "CreateRulesetResponse"
+    "fixture/CreateRulesetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy CreateRuleset)
+
 responseCreateSchedule :: CreateScheduleResponse -> TestTree
 responseCreateSchedule =
   res
@@ -592,6 +660,14 @@ responseDeleteRecipeVersion =
     "fixture/DeleteRecipeVersionResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DeleteRecipeVersion)
+
+responseDeleteRuleset :: DeleteRulesetResponse -> TestTree
+responseDeleteRuleset =
+  res
+    "DeleteRulesetResponse"
+    "fixture/DeleteRulesetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DeleteRuleset)
 
 responseDeleteSchedule :: DeleteScheduleResponse -> TestTree
 responseDeleteSchedule =
@@ -640,6 +716,14 @@ responseDescribeRecipe =
     "fixture/DescribeRecipeResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy DescribeRecipe)
+
+responseDescribeRuleset :: DescribeRulesetResponse -> TestTree
+responseDescribeRuleset =
+  res
+    "DescribeRulesetResponse"
+    "fixture/DescribeRulesetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy DescribeRuleset)
 
 responseDescribeSchedule :: DescribeScheduleResponse -> TestTree
 responseDescribeSchedule =
@@ -696,6 +780,14 @@ responseListRecipes =
     "fixture/ListRecipesResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy ListRecipes)
+
+responseListRulesets :: ListRulesetsResponse -> TestTree
+responseListRulesets =
+  res
+    "ListRulesetsResponse"
+    "fixture/ListRulesetsResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy ListRulesets)
 
 responseListSchedules :: ListSchedulesResponse -> TestTree
 responseListSchedules =
@@ -808,6 +900,14 @@ responseUpdateRecipeJob =
     "fixture/UpdateRecipeJobResponse.proto"
     defaultService
     (Proxy.Proxy :: Proxy.Proxy UpdateRecipeJob)
+
+responseUpdateRuleset :: UpdateRulesetResponse -> TestTree
+responseUpdateRuleset =
+  res
+    "UpdateRulesetResponse"
+    "fixture/UpdateRulesetResponse.proto"
+    defaultService
+    (Proxy.Proxy :: Proxy.Proxy UpdateRuleset)
 
 responseUpdateSchedule :: UpdateScheduleResponse -> TestTree
 responseUpdateSchedule =

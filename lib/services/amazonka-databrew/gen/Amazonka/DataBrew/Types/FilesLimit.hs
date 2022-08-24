@@ -36,7 +36,7 @@ data FilesLimit = FilesLimit'
     orderedBy :: Prelude.Maybe OrderedBy,
     -- | A criteria to use for Amazon S3 files sorting before their selection. By
     -- default uses DESCENDING order, i.e. most recent files are selected
-    -- first. Anotherpossible value is ASCENDING.
+    -- first. Another possible value is ASCENDING.
     order :: Prelude.Maybe Order,
     -- | The number of Amazon S3 files to select.
     maxFiles :: Prelude.Natural
@@ -57,7 +57,7 @@ data FilesLimit = FilesLimit'
 --
 -- 'order', 'filesLimit_order' - A criteria to use for Amazon S3 files sorting before their selection. By
 -- default uses DESCENDING order, i.e. most recent files are selected
--- first. Anotherpossible value is ASCENDING.
+-- first. Another possible value is ASCENDING.
 --
 -- 'maxFiles', 'filesLimit_maxFiles' - The number of Amazon S3 files to select.
 newFilesLimit ::
@@ -79,7 +79,7 @@ filesLimit_orderedBy = Lens.lens (\FilesLimit' {orderedBy} -> orderedBy) (\s@Fil
 
 -- | A criteria to use for Amazon S3 files sorting before their selection. By
 -- default uses DESCENDING order, i.e. most recent files are selected
--- first. Anotherpossible value is ASCENDING.
+-- first. Another possible value is ASCENDING.
 filesLimit_order :: Lens.Lens' FilesLimit (Prelude.Maybe Order)
 filesLimit_order = Lens.lens (\FilesLimit' {order} -> order) (\s@FilesLimit' {} a -> s {order = a} :: FilesLimit)
 

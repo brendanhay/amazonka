@@ -149,13 +149,13 @@ instance Core.ToQuery StartProjectSession where
 -- | /See:/ 'newStartProjectSessionResponse' smart constructor.
 data StartProjectSessionResponse = StartProjectSessionResponse'
   { -- | A system-generated identifier for the session.
-    clientSessionId :: Prelude.Maybe Prelude.Text,
+    clientSessionId :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | The name of the project to be acted upon.
     name :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'StartProjectSessionResponse' with all optional fields omitted.
@@ -186,7 +186,7 @@ newStartProjectSessionResponse pHttpStatus_ pName_ =
 
 -- | A system-generated identifier for the session.
 startProjectSessionResponse_clientSessionId :: Lens.Lens' StartProjectSessionResponse (Prelude.Maybe Prelude.Text)
-startProjectSessionResponse_clientSessionId = Lens.lens (\StartProjectSessionResponse' {clientSessionId} -> clientSessionId) (\s@StartProjectSessionResponse' {} a -> s {clientSessionId = a} :: StartProjectSessionResponse)
+startProjectSessionResponse_clientSessionId = Lens.lens (\StartProjectSessionResponse' {clientSessionId} -> clientSessionId) (\s@StartProjectSessionResponse' {} a -> s {clientSessionId = a} :: StartProjectSessionResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The response's http status code.
 startProjectSessionResponse_httpStatus :: Lens.Lens' StartProjectSessionResponse Prelude.Int

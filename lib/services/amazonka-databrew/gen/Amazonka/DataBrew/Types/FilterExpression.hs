@@ -25,7 +25,7 @@ import qualified Amazonka.Prelude as Prelude
 
 -- | Represents a structure for defining parameter conditions. Supported
 -- conditions are described here:
--- <https://docs-aws.amazon.com/databrew/latest/dg/datasets.multiple-files.html#conditions.for.dynamic.datasets Supported conditions for dynamic datasets>
+-- <https://docs.aws.amazon.com/databrew/latest/dg/datasets.multiple-files.html#conditions.for.dynamic.datasets Supported conditions for dynamic datasets>
 -- in the /Glue DataBrew Developer Guide/.
 --
 -- /See:/ 'newFilterExpression' smart constructor.
